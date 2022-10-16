@@ -80,7 +80,7 @@ The second tab has the title of **OfficersInvolvedInComplaints** and has 239,608
 Once we [convert our CSV files](https://pypi.org/project/csvs-to-sqlite/) into SQLite `.db` files we can use [Datasette](https://github.com/simonw/datasette) to get a sense of the data and slice off pieces for further analysis. 
 
 The first thing we might want to look at is the top commands that received complaints since 2010. 
-```sqlite
+```sql
 select [Officer Command At Incident], count([Officer Command At Incident]) from OfficerAllegationHistory 
 where [Incident Date] BETWEEN '2010-01-01' AND '2010-12-31'
 group by [Officer Command At Incident] order by count([Officer Command At Incident]) DESC LIMIT 5
@@ -93,7 +93,7 @@ group by [Officer Command At Incident] order by count([Officer Command At Incide
 
 Or the top 10 commands whose complaints ended in penalties. 
 
-```sqlite
+```sql
 select [Officer Command At Incident], count([Officer Command At Incident]) from OfficerAllegationHistory 
 where [Incident Date] BETWEEN '2010-01-01' AND '2021-12-31'AND [CCRB Allegation Disposition] = 'Substantiated (Charges)'
 group by [Officer Command At Incident] order by count([Officer Command At Incident]) DESC LIMIT 5
@@ -131,7 +131,7 @@ To get our network closer to a representation of officers who are receiving comp
 
 So to get every complaint filed since 2010 that wasn't marked as **exonerated** or **unfounded** we'll write a query like
 
-```sqlite
+```sql
 select * from OfficerAllegationHistory 
 where ([Incident Date] BETWEEN '2010-01-01' AND '2021-12-31') AND ([CCRB Allegation Disposition] IS NOT 'Exonerated'
 AND [CCRB Allegation Disposition] IS NOT 'Unfounded')
@@ -142,7 +142,7 @@ Which gives us a slightly more manageable **65,401** rows. We'll save these resu
 I had to do some funky stuff[^4] to fix the dates in SQLite, but once I did that, it was easy to filter by the date column.
 
 We can also export new CSVs for all of the incidents since 2010 for a particular precinct:
-```sqlite
+```sql
 select * from OfficerAllegationHistory 
 where [Incident Date] BETWEEN '2010-01-01' AND '2021-12-31' AND [Officer Command At Incident] = '075 PCT'
 ```
@@ -151,7 +151,7 @@ These precinct-specific slices are a bit smaller and more manageable for analysi
 
 We'll also want to export another CSV with ONLY complaints that were substantiated
 
-```sqlite
+```sql
 select * from OfficerAllegationHistory
 where ([Incident Date] BETWEEN '2010-01-01' AND '2021-12-31') AND ([CCRB Allegation Disposition] IS 'Substantiated (Charges)' OR [CCRB Allegation Disposition] IS 'Substantiated (Command Discipline A)'
 OR [CCRB Allegation Disposition] IS 'Substantiated (Command Discipline B)'
@@ -173,13 +173,13 @@ Basically we take the CSV files we exported from Datasette (when we filtered our
 
 #### Creating officer nodes
 First we tell Neo4J to use officer.id as a unique constraint (this makes things faster, I think?) and create a node for each officer from one CSV.
-```cypher
+```sql
 CREATE CONSTRAINT officerIdConstraint ON (officer:Officer) ASSERT officer.id IS UNIQUE
 ```
 
 Then I loop through every line of the .csv and create a new Officer node for every new officer I see. I use `MERGE` instead of `CREATE` to make sure I don't duplicate officer nodes. 
 
-```cypher
+```sql
 LOAD CSV WITH HEADERS FROM "http://localhost:11001/project-185bb75c-b944-451a-9c0f-aeba860ae68a/OfficersInvolvedInComplaints_FILTERED-SINCE2010-NOT-UNFOUNDED-EXONERATED.csv" AS csvLine
 MERGE (officer:Officer {id: csvLine.`Unique Officer Id`, lastName: csvLine.`Officer Last Name`, firstName: csvLine.`Officer First Name`, OfficersInvolvedInComplaints: true})
 RETURN officer
@@ -189,7 +189,7 @@ This creates **29,915** unique officer nodes.
 
 Then we bind more data into it from our other CSV
 
-```cypher
+```sql
 LOAD CSV WITH HEADERS FROM "http://localhost:11001/project-185bb75c-b944-451a-9c0f-aeba860ae68a/OfficerAllegationHistory.csv" AS csvLine
 MERGE (officer:Officer {id: csvLine.`Unique Officer Id`, lastName: csvLine.`Officer Last Name`, firstName: csvLine.`Officer First Name`, shieldNo: csvLine.`Shield No`, currentRank: csvLine.`Current Rank`, currentCommand: csvLine.`Current Command`, OfficerAllegationHistory: true})
 RETURN officer
@@ -216,7 +216,7 @@ An officer node looks like this:
 
 Finally, we need to add a boolean to denote if an officer has ever had a charge substantiated. We'll use this later to please some lawyers. You'll see. 
 
-```cypher
+```sql
 LOAD CSV WITH HEADERS FROM "http://localhost:11001/project-185bb75c-b944-451a-9c0f-aeba860ae68a/OfficerAllegationHistory_FILTERED-SINCE2010-SUBSTANTIATED.csv" AS csvLine
 MERGE (officer:Officer {id: csvLine.`Unique Officer Id`})
 SET officer.ccrbSubstantiatedBool = "true"
@@ -232,14 +232,14 @@ Let's NOT do the same thing for OfficersInvolved - because that file contains of
 Now we need to set labels for our nodes depending on whether they have ever had a complaint substantiated. We don't want to label nodes with names for any officers who may have complaints but have never had any substantiated. I have been told that lawyers think this is a good idea. 
 
 First we set every officer label to their unique ID
-```cypher
+```sql
 MATCH (o:Officer)
 SET o.label = o.id
 ```
 
 Then we look for officers with substantiated complaints and set their label to their full name. 
 
-```cypher
+```sql
 MATCH (o:Officer {ccrbSubstantiatedBool: "true"})
 SET o.label = COALESCE(o.firstName ,"") + ' ' + COALESCE(o.lastName ,"")
 ```
@@ -251,13 +251,13 @@ We are going to continue to use our CSV which **filtered out** incidents **befor
 
 First we tell Neo4J that we have unique incident IDs
 
-```cypher
+```sql
 CREATE CONSTRAINT incidentIdConstraint ON (incident:Incident) ASSERT incident.id IS UNIQUE
 ```
 
 Then we create an incident for every row we see in OfficerAllegationHistory. We'll make note of the precinct the incident occurred in, what the specific allegation was, and what date the incident occurred. 
 
-```cypher
+```sql
 LOAD CSV WITH HEADERS FROM "http://localhost:11001/project-185bb75c-b944-451a-9c0f-aeba860ae68a/OfficerAllegationHistory_FILTERED-SINCE2010-NOT-UNFOUNDED-EXONERATED.csv" AS csvLine
 MERGE (incident:Incident {id: csvLine.`Complaint Id`})
 SET incident.incidentPct = COALESCE(csvLine.`Precinct Of Incident Occurrence`,"N/A")
@@ -269,7 +269,7 @@ RETURN incident
 
 Now let's do the same for **OfficersInvolvedInComplaints**.
 
-```cypher
+```sql
 LOAD CSV WITH HEADERS FROM "http://localhost:11001/project-185bb75c-b944-451a-9c0f-aeba860ae68a/OfficersInvolvedInComplaints_FILTERED-SINCE2010-NOT-UNFOUNDED-EXONERATED.csv" AS csvLine
 MERGE (incident:Incident {id: csvLine.`Complaint Id`})
 SET incident.ccrbDisposition = csvLine.`Complaint Disposition`
@@ -278,7 +278,7 @@ RETURN incident
 
 Now let's create labels for our incidents, which is going to be the allegation. 
 
-```cypher
+```sql
 MATCH (i:Incident)
 SET i.label = i.allegation
 ```
@@ -293,7 +293,7 @@ We are going to create a new relationship called `INVOLVED_IN`, and officers can
 
 First we create our relationships from **OfficersInvolved**:
 
-```cypher
+```sql
 LOAD CSV WITH HEADERS FROM "http://localhost:11001/project-185bb75c-b944-451a-9c0f-aeba860ae68a/OfficersInvolvedInComplaints_FILTERED-SINCE2010-NOT-UNFOUNDED-EXONERATED.csv" AS csvLine
 MATCH (officer:Officer {id: csvLine.`Unique Officer Id`}) with csvLine, officer
 MATCH (incident:Incident {id: csvLine.`Complaint Id`}) with csvLine, officer, incident
@@ -302,7 +302,7 @@ CREATE (officer)-[:INVOLVED_IN {status: csvLine.`Officer Status`}]->(incident)
 Which creates **94,323** relationships.
 
 Then from **OfficerAllegationHistory**:
-```cypher
+```sql
 LOAD CSV WITH HEADERS FROM "http://localhost:11001/project-185bb75c-b944-451a-9c0f-aeba860ae68a/OfficerAllegationHistory_FILTERED-SINCE2010-NOT-UNFOUNDED-EXONERATED.csv" AS csvLine
 MATCH (officer:Officer {id: csvLine.`Unique Officer Id`}) with csvLine, officer
 MATCH (incident:Incident {id: csvLine.`Complaint Id`}) with csvLine, officer, incident
@@ -320,13 +320,13 @@ We will create a new type of relationship that only occurs between two officers 
 
 So officers who appear on 3 complaints together have a `CO_OCCURANCE` relationship with a weight of 3. This allows us to do some weighted degree analysis when we are making our layout, deciding how large to make nodes, and when we are detecting communities. 
 
-```cypher
+```sql
 MATCH (o1:Officer)-[:INVOLVED_IN]->(i:Incident)<-[:INVOLVED_IN]-(o2:Officer) WHERE id(o1)<id(o2) with o1, o2, count(i) as weightCount CREATE (o1)-[:CO_OCCURANCE { weight: weightCount }]->(o2)
 ```
 
 
 ### Officers without connections
-```cypher
+```sql
 MATCH (o:Officer) WHERE NOT (o)-[:CO_OCCURANCE]-() RETURN count(o)
 ```
 
@@ -359,7 +359,7 @@ We are going to [stream our data from Neo4J to Gephi](https://neo4j.com/labs/apo
 
 ### Flattened co-occurance network
 To get our flattened network, which removed incident nodes:
-```cypher
+```sql
 MATCH path=(o1:Officer)-[r:CO_OCCURANCE]->(o2:Officer) WITH o1, path limit 125000  with o1, collect(path) as paths call apoc.gephi.add(null,'workspace1', paths, 'weight', ['weight', 'id', 'eigenvector', 'firstName', 'lastName', 'label', 'date', 'currentCommand']) yield nodes, relationships, time return nodes, relationships, time ORDER  BY o1.eigenvector DESC
 ```
 
@@ -385,7 +385,7 @@ Then we can add some labels and we've made a map of the network of officers who 
 
 ### Precinct-specific networks including incidents (un-flattened network)
 Let's put it all together and stream all the officers from a single precinct using only incidents since 2010. 
-```cypher
+```sql
 MATCH path=(o1:Officer)-[:INVOLVED_IN]->(i:Incident {incidentPct: "75"})<-[:INVOLVED_IN]-(o2:Officer)
 where i.date IS NOT NULL and apoc.date.parse(i.date, "ms", 'YYYY-mm-dd') > 1262304000000
  WITH o1, path, i limit 100000  with o1, i, collect(path) as paths call apoc.gephi.add(null,'workspace1', paths, 'weight', ['weight', 'id', 'eigenvector', 'firstName', 'lastName', 'date']) yield nodes, relationships, time return nodes, relationships, time ORDER  BY o1.eigenvector DESC
@@ -453,7 +453,7 @@ I do freelance data exploration and visualization for clients who aren't evil. I
 
 [^1]: The notes say, basically: these are complaints received in or after the year 2000. Cases that are mediated or were attempted to be mediated are excluded. 
 
-[^2]: OfficerAllegationHistory columns:
+[^2]: OfficerAllegationHistory columns: <pre>
 	  1: As Of Date
 	  2: Allegation Record Identity
 	  3: Unique Officer Id
@@ -501,8 +501,9 @@ I do freelance data exploration and visualization for clients who aren't evil. I
 	 45: Reconsideration Request Rejected
 	 46: Reconsideration Occurred
 	 47: Reconsideration Decision Pending
+</pre>
 	 
-[^3]: OfficersInvolvedInComplaints columns:
+[^3]: OfficersInvolvedInComplaints columns: <pre>
 	1: As Of Date
 	2: Officer Status
 	3: Unique Officer Id
@@ -521,9 +522,10 @@ I do freelance data exploration and visualization for clients who aren't evil. I
 	16: Incident Date
 	17: CCRB Recieved Date
 	18: Close Date
+</pre>
 	
 [^4]: I ran this in the CLI SQLite client to chop up the date string and re-write it in the way SQLite wants it: 
-	```sqlite
+	```sql
 	update OfficerAllegationHistory
 	set [Incident Date] = substr([Incident Date], -4) || '-' || 
 	substr('00' || ([Incident Date] + 0), -2, 2) || '-' ||

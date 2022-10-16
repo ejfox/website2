@@ -8,7 +8,14 @@
   },
   "devDependencies": {
     "@nuxt/content": "^2.1.0",
+    "@nuxtjs/google-fonts": "^3.0.0-0",
     "@unocss/nuxt": "^0.45.29",
-    "nuxt": "^3.0.0-rc.10"
+    "nuxt": "^3.0.0-rc.10",
+    "unocss-preset-scalpel": "^1.2.5"
+  },
+  "dependencies": {
+    "d3-time-format": "^4.1.0",
+    "prismjs": "^1.29.0",
+    "tachyons": "4.12.0"
   }
 }

@@ -1,28 +1,8 @@
 <template>
-  <section class="pa3 pa4-ns db cf mb4">
+  <section class="db cf mb4">
     <Nav />
-    <section class="intro pv2 measure-narrow lh-copy">
-      <p class="pv2">
-        Hi there! I'm <strong>EJ Fox</strong>, a freelance journalist and data
-        visualization expert. I love finding new and interesting ways to look at
-        the world, especially when it comes to understanding complex systems and
-        large datasets. If you're looking for someone who can provide insights
-        and perspectives that you may have missed, get in touch at
-        <a href="mailto:ejfox@ejfox.com">ejfox@ejfox.com</a>
-      </p>
- 
-      <p class="pv2">
-        Take a look at
-        <nuxt-link to="/projects"> some of my work </nuxt-link> or
-        <a href="/resume.pdf">my resume</a>.
-      </p>
-
-      <p class="lh-copy pv2">
-        Sometimes I take
-        <nuxt-link to="/photo/">photos</nuxt-link>, <br />
-        make <nuxt-link to="/audio/">sounds</nuxt-link> <br />
-        or <nuxt-link to="/art/">art</nuxt-link>.
-      </p>
+    <section class="intro pv2 lh-copy f4 measure-wide">
+      <ContentDoc />
     </section>
 
     <div id="hcard-EJ-Fox" class="vcard w-100 f6 tc dn">
