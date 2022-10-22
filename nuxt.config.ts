@@ -29,8 +29,8 @@ export default {
   css: ["tachyons/css/tachyons.min.css", '~/assets/main.css'],
   pageTransition: {
     name: 'page',
-    // mode: 'out-in'
-    mode: 'in-out'
+    mode: 'out-in'
+    // mode: 'in-out'
   },
   content: {
     documentDriven: true,

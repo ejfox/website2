@@ -22,6 +22,17 @@
       <Meta property="og:title" :content="`EJ Fox | ${page.title}`" />
       <Meta property="og:description" :content="`EJ Fox: ${page?.dek}`" />
       <Meta property="og:image" :content="ogImageUrl" />
+      <Meta property="og:url" content="https://ejfox.com" />
+      <Meta property="og:type" content="website" />
+
+      <!-- twitter opengraph tags -->
+      <Meta name="twitter:card" content="summary_large_image" />
+      <Meta name="twitter:site" content="@mrejfox" />
+      <Meta name="twitter:creator" content="@mrejfox" />
+      <Meta name="twitter:title" :content="`EJ Fox | ${page.title}`" />
+      <Meta name="twitter:description" :content="`EJ Fox: ${page?.dek}`" />
+      <Meta name="twitter:image" :content="ogImageUrl" />
+      
     </Head>
     <!-- <h3 class="moon-gray tracked fw1">{{page?.dek}}</h3> -->
     <!-- og image preview -->
