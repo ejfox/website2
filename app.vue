@@ -74,6 +74,7 @@ onMounted(() => {
     const y = e.clientY
     const r = 0
 
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
     drawCircle(x, y, r)
 
     anime({
@@ -86,7 +87,7 @@ onMounted(() => {
       },
       complete: () => {
         // clear the canvas
-        ctx.clearRect(0, 0, canvas.width, canvas.height)
+        // ctx.clearRect(0, 0, canvas.width, canvas.height)
       }
     })
   })

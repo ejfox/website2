@@ -1,10 +1,10 @@
 <template>
   <main>
     <Head>
-      <Title>EJ Fox: {{ page.title }}</Title>
+      <Title>{{ page.title }}</Title>
       <Meta name="description" :content="page.dek ? page.dek : page.description" />
-      <Meta property="og:title" :content="`EJ Fox | ${page.title}`" />
-      <Meta property="og:description" :content="`EJ Fox: ${page?.dek}`" />
+      <Meta property="og:title" :content="`EJ Fox: 📝 ${page.title}`" />
+      <Meta property="og:description" :content="`${page.dek ? page.dek : page.description}`" />
       <Meta property="og:image" :content="ogImageUrl" />
       <Meta property="og:url" content="https://ejfox.com" />
       <Meta property="og:type" content="website" />
@@ -14,7 +14,7 @@
       <Meta name="twitter:site" content="@mrejfox" />
       <Meta name="twitter:creator" content="@mrejfox" />
       <Meta name="twitter:title" :content="`EJ Fox | ${page.title}`" />
-      <Meta name="twitter:description" :content="`EJ Fox: ${page?.dek}`" />
+      <Meta name="twitter:description" :content="`${page.dek ? page.dek : page.description}`" />
       <Meta name="twitter:image" :content="ogImageUrl" />
     </Head>
 
