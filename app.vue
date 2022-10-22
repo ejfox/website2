@@ -67,6 +67,9 @@ onMounted(() => {
     // if the click event is not a link, then ignore it 
     if (e.target.tagName !== 'A') return
 
+    // if the target is a link to a hash on this page, then ignore it
+    if (e.target.hash !== '') return
+
     const x = e.clientX
     const y = e.clientY
     const r = 0
