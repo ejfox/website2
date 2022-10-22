@@ -1,9 +1,19 @@
 <template>
   <nav class="mv4 cf">
     <ul class="list ma0 pa0">
-      <NuxtLink class="pa2 db fl b link black bg-white mr3 mr4-l" tag="li" to="/">Home</NuxtLink>
-      <NuxtLink class="pa2 db fl b link black bg-white mr3 mr4-l" tag="li" to="/projects">Projects</NuxtLink>
-      <NuxtLink class="pa2 db fl b link black bg-white mr3 mr4-l" tag="li" to="/blog">Blog</NuxtLink>
+      <li class="pa2 db fl fw8 link red bg-white mr4 mr5-l tracked">
+        <!-- little red circle in html -->
+        <!-- <span class="dib w1 h1 br-100 bg-red v-bottom"></span> -->
+        <!-- little red circle in svg -->
+        <svg id="nav-circle-svg" class="dib w1 h1 v-bottom pr2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="50" fill="#ccc" id="nav-red-circle" />
+        </svg>
+
+        <span class="dib v-top">EJ Fox</span>
+        </li>
+      <NuxtLink class="pa2 db fl fw4 link black bg-white mr3 mr4-l" tag="li" to="/">Home</NuxtLink>
+      <NuxtLink class="pa2 db fl fw4 link black bg-white mr3 mr4-l" tag="li" to="/projects">Projects</NuxtLink>
+      <NuxtLink class="pa2 db fl fw4 link black bg-white mr3 mr4-l" tag="li" to="/blog">Blog</NuxtLink>
     </ul>
   </nav>
 </template>
@@ -20,6 +30,18 @@ onMounted(() => {
     duration: 400,
     delay: anime.stagger(150),
   })
+
+  // make a loop where the red circle radius grows and shrinks
+  anime({
+    targets: '#nav-red-circle',
+    fill: ['#ccc', '#999'],
+    r: [5, 50],
+    easing: 'easeInOutCubic',
+    duration: 6600,
+    loop: true,
+    direction: 'alternate',
+    // delay: 2500
+  })
 })
 
 definePageMeta({
@@ -30,6 +52,11 @@ definePageMeta({
 /* Remove outline from nav links */
 nav a:focus {
   outline: none;
+}
+
+#nav-circle-svg {
+  height: 0.7em;
+  width: 0.7em;
 }
 
 </style>

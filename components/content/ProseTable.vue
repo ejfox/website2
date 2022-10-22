@@ -1,5 +1,5 @@
 <template>
-  <table class="mh1 mh3-ns ml6-l ba pa2">
+  <table class="mh1 ba b--moon-gray br2 pa2 w-100 f5">
     <slot />
   </table>
 </template>

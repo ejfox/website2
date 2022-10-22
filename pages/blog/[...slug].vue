@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div class="f4 pt2">
+    <div class="f4 pt2 near-black">
       <!-- <ContentDoc /> -->
       <ContentDoc v-slot="{ doc, toc }">
         <ContentRenderer :value="doc" />
@@ -40,5 +40,9 @@ const { params } = useRoute()
 
 const { prev, next, toc } = useContent()
 const formatDate = timeFormat('%B %Y')
-
 </script>
+<style>
+strong {
+  color: red;
+}
+</style>

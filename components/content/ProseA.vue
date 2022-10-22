@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps({
+const props = defineProps({
   href: {
     type: String,
     default: ''
@@ -9,6 +9,14 @@ defineProps({
     default: false
   }
 })
+
+// check if the href is linking to wikipedia, github, youtube, or twitter, and if so, add the social icon
+const isSocial = computed(() => {
+  return props.href.includes('wikipedia') || props.href.includes('github') || props.href.includes('youtube') || props.href.includes('twitter')
+})
+
+// check if the href is linking to a file, and if so, add the file icon
+
 </script>
 
 <template>

@@ -68,7 +68,6 @@ onMounted(() => {
     // if the click event is not a link, then ignore it 
     if (e.target.tagName !== 'A') return
 
-    console.log('canvas click')
     const x = e.clientX
     const y = e.clientY
     const r = 0
@@ -81,7 +80,7 @@ onMounted(() => {
     anime({
       targets: canvas,
       duration: 1000,
-      easing: 'easeInQuad',
+      easing: 'easeInExpo',
       update: (anim) => {
         const r = anim.progress * Math.max(window.innerWidth, window.innerHeight) * 0.02
         drawCircle(x, y, r)

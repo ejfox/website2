@@ -7,7 +7,7 @@
         </pre> -->
 
           <small class="mv0 pv0 gray fw7 tracked">{{formatDate(new Date(article.date))}}</small>
-          <NuxtLink :to="article._path" class="link b near-black dim db pv2 f2 f1-l lh-solid ttu word-wrap pr headline-sans-serif">{{ article.title
+          <NuxtLink :to="article._path" class="link b near-black dim db pv2 pr2 f2 f1-l lh-solid ttu word-wrap pr headline-sans-serif">{{ article.title
           }}</NuxtLink>
 
           <!-- word count -->
@@ -23,9 +23,9 @@
             </span>
           </div> -->
 
-          <div class="gray f6">
-            <div class="">
-              <div v-if="article.dek" class="dek fw3">{{ article.dek }}</div>
+          <div class="gray f6 mr3">
+            <div class="fw2">
+              <div v-if="article.dek" class="dek">{{ article.dek }}</div>
               <div v-else="article.description" class="dek">{{ article.description }}
               </div>
             </div>

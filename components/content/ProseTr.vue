@@ -1,5 +1,5 @@
 <template>
-  <tr class="striped ">
+  <tr class="striped">
     <slot />
   </tr>
 </template>
