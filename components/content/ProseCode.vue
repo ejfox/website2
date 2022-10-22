@@ -42,13 +42,14 @@ code {
 }
 pre {
   white-space: pre-wrap;
-  line-height: 1.4rem;
+  line-height: 1.4em;
 }
 pre code .line {
   display: block;
   min-height: 1rem;
   margin-top: 0.15rem;
 }
+
 
 .with-line-numbers code {
   counter-reset: step;
