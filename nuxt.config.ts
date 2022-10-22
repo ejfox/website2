@@ -35,7 +35,7 @@ export default {
   content: {
     documentDriven: true,
     markdown: {
-      remarkPlugins: ['remark-reading-time', 'remark-footnotes', 'remark-emoji'],
+      remarkPlugins: ['remark-reading-time', 'remark-gfm', 'remark-emoji'],
       
     },
     highlight: {

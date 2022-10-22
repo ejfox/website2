@@ -55,7 +55,7 @@ I’m also running [tmux](https://hackernoon.com/a-gentle-introduction-to-tmux-8
 
 ### vim
 
-I only just started using vim, and it required setting it up _just_ right for [my personal setup](https://github.com/ejfox/dotfiles/blob/master/.vimrc “My vim configuration file is hosted on GitHub with the rest of my dotfiles”). I’ve been collecting helpful commands or tools with the [**vim** tag on pinboard](https://pinboard.in/u:ejfox/t:vim)
+I only just started using vim, and it required setting it up _just_ right for [my personal setup](https://github.com/ejfox/dotfiles/blob/master/.vimrc “My vim configuration file is hosted on GitHub with the rest of my dotfiles”). I’ve been collecting helpful commands or tools with the [vim tag on pinboard](https://pinboard.in/u:ejfox/t:vim)
 
 - [nerdtree](https://github.com/scrooloose/nerdtree) for a file explorer
 - [fzf](https://github.com/junegunn/fzf#respecting-gitignore-hgignore-and-svnignore) which I’ve remapped to ctrl-p (like Atom) so I can quickly search files in my directory to open
@@ -87,17 +87,14 @@ A semi-automated way to do this comparison is by appending all 3 keys to a txt f
 
 ```bash
 curl https://github.com/ejfox.gpg | gpg --with-colons --import-options import-show --dry-run --import >> fp.txt
-
 curl https://ejfox.com/pgp.txt | gpg --with-colons --import-options import-show --dry-run --import >> fp.txt
-
 curl https://keybase.io/ejfox/pgp_keys.asc | gpg --with-colons --import-options import-show --dry-run --import >> fp.txt
-
 grep 89CD fp.txt
 ```
 
 Which should return the same matching fingerprint from all 3 files. ^[If any of my publicly-posted keys (or fingerprints) do not match please [contact me immediately](mailto:ejfox@ejfox.com) because something weird is afoot.]
 
-```
+```md
 fpr:::::::::5D30A33E08E35B8915B4C7E2E2078E653FE389CD:
 fpr:::::::::5D30A33E08E35B8915B4C7E2E2078E653FE389CD:
 fpr:::::::::5D30A33E08E35B8915B4C7E2E2078E653FE389CD:
@@ -133,7 +130,7 @@ All of that is handy because do you know those [LinkNYC](https://www.link.nyc/fi
 
 I cannot see any downsides to making it easier for people to send me money.
 
-```
+```md
 BTC=3DE42VUyUKSikQ9eUeFKv2EkKVms7Pmd1G
 BCH=qrwzlfjhhn8jdx92a8m8e2kuxcchmmvdgguqgy23a7
 ETH=0x63958715F8e9Fd6CF0652394a89bb2AdD0a11686

@@ -1,11 +1,14 @@
 <template>
   <main class="pt4">
+
     <Head>
       <Title>EJ Fox: 📝 Blog</Title>
     </Head>
     <ContentQuery path="/blog/" :sort="{ date: -1 }" v-slot="{ data }">
       <div v-for="article in data" :key="article._path"
         class="article bg-white w-50-ns dib v-top mb4 mb6-l pv2 pv0-l bn-l pr2 pr6-l overflow-hidden measure-wide">
+
+
 
         <!-- <ContentDoc :path="article._path" v-slot="{ doc }">
           <small class="mv0 pv0 gray fw7">{{formatDate(new Date(article.date))}}</small>
@@ -43,11 +46,18 @@
             <div v-if="article.dek" class="dek fw3">{{ article.dek }}</div>
             <div v-else="article.description" class="dek">{{ article.description }}
             </div>
+            <!-- <div class="strong-tags f7 fw1 moon-gray mv1" v-if="filterStrongTags(article).length > 0">
+              <span v-for="tag in filterStrongTags(article)" :key="tag"
+                class="tag dib mr2 mb2 ph1 pv1 bg-near-white">{{tag}}</span>
+            </div> -->
 
-            <div class="reading-time moon-gray mv1 fw1">
-              <div v-if="data?.readingTime.minutes > 1">
+
+            <div class="reading-time moon-gray mv1 fw1 pr2">
+              <span class="dib pr2" v-if="data?.readingTime.minutes > 1">
                 {{data?.readingTime.text}}
-              </div>
+              </span>
+
+              <span class="dib pr2" v-if="countPhotos(article) > 2">{{countPhotos(article)}} photos</span>
             </div>
           </div>
         </ContentQuery>
@@ -56,6 +66,7 @@
   </main>
 </template>
 <script setup lang="ts">
+import { countPhotos, filterStrongTags } from '~/helpers'
 import anime from 'animejs/lib/anime.es.js'
 import { timeFormat } from 'd3-time-format'
 

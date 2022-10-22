@@ -16,29 +16,10 @@ import anime from 'animejs/lib/anime.es.js'
 // whenever the route changes, flash the background
 const route = useRoute()
 watch(route, (oldVal, newVal) => {
-  console.log('route change', newVal.hash)
-
-  console.log({ newVal })
   if (newVal.hash !== '') return
-
-  // nextTick(() => {
-  //   anime({
-  //     targets: '#page-overlay',
-  //     opacity: [1, 0],
-  //     easing: 'easeOutQuad',
-  //     duration: 200,
-  //     delay: 950,
-  //   })
-  // })
-
   nextTick(() => {
-    // check if the page is fully loaded    
     animateOverlayOut()
   })
-
-  // when page is loaded, animate page in
-
-
 })
 
 function animateOverlayOut() {

@@ -20,14 +20,14 @@ In the deaths of George Floyd and Eric Garner their killers had a documented his
 ::
 ### George Floyd
 
-> Chauvin, who was fired, has said through his attorney that his handling of Floyd’s arrest was a reasonable use of authorized force. But he was the subject of at least **22 complaints** or internal investigations during his more than 19 years at the department, **only one of which resulted in discipline**. These new interviews show not only that he may have used excessive force in the past, but that he had used startlingly similar techniques.
+> Chauvin, who was fired, has said through his attorney that his handling of Floyd’s arrest was a reasonable use of authorized force. But he was the subject of at least **22 complaints or internal investigations during his more than 19 years at the department, only one of which resulted in discipline**. These new interviews show not only that he may have used excessive force in the past, but that he had used startlingly similar techniques.
 ['That could have been me': The people Derek Chauvin choked before George Floyd](https://www.mprnews.org/story/2021/02/05/that-could-have-been-me-the-people-derek-chauvin-choked-before-george-floyd)
 
 The officer convicted of murdering George Floyd had at least 22 complaints against him. The officer who put Eric Garner in a chokehold and killed him had [7 complaints](https://www.scribd.com/document/342591738/D-Pantaleo-Alleged-CCRB-File) [filed against him](https://gothamist.com/news/newly-leaked-documents-suggests-cop-who-killed-eric-garner-had-history-of-misconduct). 
 
 ### Eric Garner
 
-> Before he put Garner in the chokehold, the records show, he had **seven disciplinary complaints and 14 individual allegations** lodged against him. Four of those allegations were substantiated by an independent review board.
+> Before he put Garner in the chokehold, the records show, he had *seven disciplinary complaints and 14 individual allegations* lodged against him. Four of those allegations were substantiated by an independent review board.
 [The disturbing secret history of the NYPD officer who killed Eric Garner](https://archive.thinkprogress.org/daniel-pantaleo-records-75833e6168f3/)
 
 Of the 14 individual allegations against Garner's killer, 5 are for force: "hit against inanimate object", "physical force", and a single complaint in 2014 that would foreshadow the behavior that would eventually end the Officer's career: "Force - Chokehold". 
@@ -72,9 +72,9 @@ The NYPD also has a number of units, like the Warrant Squad or Narcotics that sp
 ### Overview exploration / metadata
 The source dataset is an 81.2MB excel file that I received as `FOIL2021-00167_Dataset.xlsx`. It has 3 tabs. The first has some general notes[^1] about the dataset. 
 
-The first tab has the title of **OfficerAllegationHistory** and has 181,627 entries and 47[^2] columns.
+The first tab has the title of `OfficerAllegationHistory` and has 181,627 entries and 47[^2] columns.
 
-The second tab has the title of **OfficersInvolvedInComplaints** and has 239,608 entries and 18[^3] columns.
+The second tab has the title of `OfficersInvolvedInComplaints` and has 239,608 entries and 18[^3] columns.
 
 ## Analyzing our data with Datasette / SQLite
 Once we [convert our CSV files](https://pypi.org/project/csvs-to-sqlite/) into SQLite `.db` files we can use [Datasette](https://github.com/simonw/datasette) to get a sense of the data and slice off pieces for further analysis. 
@@ -127,9 +127,9 @@ We also looked at which commands received the most complaints across the entire 
 
 ### Filtering out "Exonerated" and "Unfounded" complaints for our network
 
-To get our network closer to a representation of officers who are receiving complaints for misconduct we want to filter out any of the cases in which the officer was **Exonerated** or the CCRB's disposition was that it was **Unfounded**. 
+To get our network closer to a representation of officers who are receiving complaints for misconduct we want to filter out any of the cases in which the officer was `Exonerated` or the CCRB's disposition was that it was *Unfounded*. 
 
-So to get every complaint filed since 2010 that wasn't marked as **exonerated** or **unfounded** we'll write a query like
+So to get every complaint filed since 2010 that wasn't marked as `exonerated` or `unfounded` we'll write a query like
 
 ```sql
 select * from OfficerAllegationHistory 
@@ -137,7 +137,7 @@ where ([Incident Date] BETWEEN '2010-01-01' AND '2021-12-31') AND ([CCRB Allegat
 AND [CCRB Allegation Disposition] IS NOT 'Unfounded')
 ```
 
-Which gives us a slightly more manageable **65,401** rows. We'll save these results off as a .csv for further analysis. 
+Which gives us a slightly more manageable *65,401 rows*. We'll save these results off as a .csv for further analysis. 
 
 I had to do some funky stuff[^4] to fix the dates in SQLite, but once I did that, it was easy to filter by the date column.
 
@@ -185,7 +185,7 @@ MERGE (officer:Officer {id: csvLine.`Unique Officer Id`, lastName: csvLine.`Offi
 RETURN officer
 ```
 
-This creates **29,915** unique officer nodes. 
+This creates *29,915* unique officer nodes. 
 
 Then we bind more data into it from our other CSV
 
@@ -195,7 +195,7 @@ MERGE (officer:Officer {id: csvLine.`Unique Officer Id`, lastName: csvLine.`Offi
 RETURN officer
 ```
 
-Now we have **113,265** unique officer nodes. 
+Now we have *113,265* unique officer nodes. 
 
 An officer node looks like this:
 
@@ -223,7 +223,7 @@ SET officer.ccrbSubstantiatedBool = "true"
 RETURN officer
 ```
 
-Now we've marked **4,768** of New York's ~36,000 (13%) finest as having a substantiated complaint in the last 10 years. 
+Now we've marked *4,768* of New York's ~36,000 (13%) finest as having a substantiated complaint in the last 10 years. 
 
 Let's NOT do the same thing for OfficersInvolved - because that file contains officers who were merely witnesses to substantiated complaints, and we don't want to accidentally label a witness to a substantiated case.  
 
@@ -247,7 +247,7 @@ SET o.label = COALESCE(o.firstName ,"") + ' ' + COALESCE(o.lastName ,"")
 Now we have our officers created, we need to create our incidents.
 
 #### Creating incident nodes
-We are going to continue to use our CSV which **filtered out** incidents **before 2010** or that were **unfounded or exonerated**.
+We are going to continue to use our CSV which *filtered out* incidents *before 2010* or that were *unfounded or exonerated*.
 
 First we tell Neo4J that we have unique incident IDs
 
@@ -267,7 +267,7 @@ set incident.date = csvLine.`Incident Date`
 RETURN incident
 ```
 
-Now let's do the same for **OfficersInvolvedInComplaints**.
+Now let's do the same for *OfficersInvolvedInComplaints*.
 
 ```sql
 LOAD CSV WITH HEADERS FROM "http://localhost:11001/project-185bb75c-b944-451a-9c0f-aeba860ae68a/OfficersInvolvedInComplaints_FILTERED-SINCE2010-NOT-UNFOUNDED-EXONERATED.csv" AS csvLine
@@ -283,7 +283,7 @@ MATCH (i:Incident)
 SET i.label = i.allegation
 ```
 
-Now that we have our **Incidents** and our **Officers** we need to create our relationships between them.
+Now that we have our *Incidents* and our *Officers* we need to create our relationships between them.
 
 ### Creating relationships between incidents and officers 
 
@@ -291,7 +291,7 @@ Now for the fun part.
 
 We are going to create a new relationship called `INVOLVED_IN`, and officers can be `INVOLVED_IN` one or many incidents. Incidents may have one or many officers that were `INVOLVED_IN` it, either as witness or subject officers. 
 
-First we create our relationships from **OfficersInvolved**:
+First we create our relationships from *OfficersInvolved*:
 
 ```sql
 LOAD CSV WITH HEADERS FROM "http://localhost:11001/project-185bb75c-b944-451a-9c0f-aeba860ae68a/OfficersInvolvedInComplaints_FILTERED-SINCE2010-NOT-UNFOUNDED-EXONERATED.csv" AS csvLine
@@ -299,16 +299,16 @@ MATCH (officer:Officer {id: csvLine.`Unique Officer Id`}) with csvLine, officer
 MATCH (incident:Incident {id: csvLine.`Complaint Id`}) with csvLine, officer, incident
 CREATE (officer)-[:INVOLVED_IN {status: csvLine.`Officer Status`}]->(incident)
 ```
-Which creates **94,323** relationships.
+Which creates *94,323* relationships.
 
-Then from **OfficerAllegationHistory**:
+Then from *OfficerAllegationHistory*:
 ```sql
 LOAD CSV WITH HEADERS FROM "http://localhost:11001/project-185bb75c-b944-451a-9c0f-aeba860ae68a/OfficerAllegationHistory_FILTERED-SINCE2010-NOT-UNFOUNDED-EXONERATED.csv" AS csvLine
 MATCH (officer:Officer {id: csvLine.`Unique Officer Id`}) with csvLine, officer
 MATCH (incident:Incident {id: csvLine.`Complaint Id`}) with csvLine, officer, incident
 CREATE (officer)-[:INVOLVED_IN {allegation: csvLine.`Allegation`, type: csvLine.`FADO Type`}]->(incident)
 ```
-Now we have **159,671** relationships. Sick.
+**Now we have 159,671 relationships**. Sick.
 
 <img src="https://res.cloudinary.com/ejf/image/upload/v1624036165/Screen_Shot_2021-05-29_at_2.28.27_PM.png" />
 

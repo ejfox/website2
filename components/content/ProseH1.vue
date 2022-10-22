@@ -1,7 +1,7 @@
 <template>
   <h1
     :id="id"
-    class="f1 f-subheadline-l near-black lh-title ttu mv4 measure-narrow headline-sans-serif"
+    class="f1 f-subheadline-l near-black lh-title ttu mt0 mb4 measure-narrow headline-sans-serif"
   >
     <slot />
   </h1>

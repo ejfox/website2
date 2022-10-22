@@ -10,7 +10,7 @@ hidetimestamp: false
 # Computer setup
 I’m a big fan of [preparation](https://ejfox.com/blog/step-zero/). It's the same part of my personality that causes me to assemble [go bags](https://en.wikipedia.org/wiki/Survival_kit). It’s the same instinct that made me want to buy a manual transmission for my first car: that way I could be sure I could drive any car I encountered.
 
-My technological set up is similar. There are a lot of things in place that one could argue I don’t **need** right now, or don’t use  every day.
+My technological set up is similar. There are a lot of things in place that one could argue I don’t *need* right now, or don’t use  every day.
 
 But it makes me feel better because they are already configured and set up in case I need them. These are my tools, sitting cleaned and sharpened, waiting for me to figure out what to do. 
 

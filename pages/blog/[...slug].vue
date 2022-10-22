@@ -1,22 +1,6 @@
 <template>
   <main>
-
     <Head>
-      <!-- 
-              { property: 'og:title', content: 'EJ Fox' },
-        { property: 'og:description', content: 'EJ Fox: Hacker, Journalist, & Dataviz Specialist finding interesting ways to look at the world by exploring and explaining data ' },
-        { property: 'og:image', content: 'https://ejfox.com/og-image.png' },
-        { property: 'og:url', content: 'https://ejfox.com' },
-        { property: 'og:type', content: 'website' },
-
-        // twitter opengraph tags
-        { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:site', content: '@mrejfox' },
-        { name: 'twitter:creator', content: '@mrejfox' },
-        { name: 'twitter:title', content: 'EJ Fox' },
-        { name: 'twitter:description', content: 'EJ Fox: Hacker, Journalist, & Dataviz Specialist finding interesting ways to look at the world by exploring and explaining data ' },
-        { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' },
-    -->
       <Title>EJ Fox: {{ page.title }}</Title>
       <Meta name="description" :content="page.dek ? page.dek : page.description" />
       <Meta property="og:title" :content="`EJ Fox | ${page.title}`" />
@@ -32,14 +16,27 @@
       <Meta name="twitter:title" :content="`EJ Fox | ${page.title}`" />
       <Meta name="twitter:description" :content="`EJ Fox: ${page?.dek}`" />
       <Meta name="twitter:image" :content="ogImageUrl" />
-      
     </Head>
+
     <!-- <h3 class="moon-gray tracked fw1">{{page?.dek}}</h3> -->
     <!-- og image preview -->
     <!-- <img :src="ogImageUrl" /> -->
+
     <div class="f4 pt2 near-black">
       <ContentDoc v-slot="{ doc }" :head="false">
-        <ContentRenderer :value="doc" />
+        <div class="db moon-gray fw1 f6 pv2">
+          <span class="mr4 gray">{{ formatBlogDate(new Date(doc.date)) }}</span>
+          <span class="mr4" v-if="doc.readingTime.words > 100">{{doc.readingTime.words}} words</span>
+          <span class="mr4">{{doc.readingTime.text}}</span>
+          <span class="mr4" v-if="countPhotos(doc) > 0">{{countPhotos(doc)}} photos</span>
+
+          <span class="mr4" v-if="countLinks(doc) > 0">{{countLinks(doc)}} links</span>
+        </div>
+        <div class="strong-tags f7 fw1 moon-gray mv1 i" v-if="filterStrongTags(doc).length > 0">Highlights: 
+              <span v-for="tag in filterStrongTags(doc)" :key="tag"
+                class="tag dib mr2 mb2 ph1 pv1 bg-near-white">{{tag}}</span>
+            </div>
+        <ContentRenderer :value="doc" class=""/>
       </ContentDoc>
     </div>
 
@@ -66,7 +63,7 @@
 </template>
 <script setup>
 import { timeFormat } from 'd3-time-format'
-import { countWords } from '~~/helpers'
+import { countWords, countPhotos, countLinks, filterStrongTags } from '~~/helpers'
 
 // TODO: Fix this so it only pulls out things from the current category
 // ie if slug[0] is 'blog' then only pull out blog posts
@@ -77,12 +74,15 @@ const { params } = useRoute()
 const { prev, next, toc, page, excerpt } = useContent()
 const formatDate = timeFormat('%B %Y')
 
+// const formatBlogDate = timeFormat('%B %d, %Y')
+// YYYY-MM-DD format
+const formatBlogDate = timeFormat('%Y-%m-%d')
 const ogImageFontsize = computed(() => {
   const titleLength = page.value.title.length
 
   // if title is less than 20 characters, use 100px font size
   if (titleLength < 24) {
-    return 124
+    return 112
   }
   else {
     return 72
@@ -95,9 +95,50 @@ const ogImageUrl = computed(() => {
   const title = page.value.title.toUpperCase()
   const urlEncodedTitle = encodeURIComponent(title)
 
-  const url = `https://res.cloudinary.com/ejf/image/upload/g_north_west,co_rgb:fff,x_440,y_200,w_690,h_320,c_fit,l_text:FjallaOne-Regular.ttf_${ogImageFontsize.value}:${urlEncodedTitle}/templates/og-image-generated-bg.png`
+  const bgImg = "templates/og-image-generated-bg.png"
 
-  return url
+  // there are two different ogImageUrl schemes
+  // if the post has a cloudinary photo, we will use the first one as the background image
+  // otherwise we will use our template
+  const pageElements = page.value?.body?.children
+
+  // a pageElement looks like this 
+//   {
+//     "type": "element",
+//     "tag": "img",
+//     "props": {
+//         "src": "https://res.cloudinary.com/ejf/image/upload/v1544846833/20180509-DSCF9221.jpg"
+//     },
+//     "children": []
+// }
+
+  const cloudinaryPhoto = pageElements?.find(el => el?.props?.src?.includes('cloudinary'))
+
+  // extract the cloudinaryPhoto ID from the URL
+  // a URL looks like this
+  // https://res.cloudinary.com/ejf/image/upload/fl_progressive:semi,c_scale,dpr_auto,w_1600/v1544846833/20180509-DSCF9221.jpg
+  // and an ID looks like this
+  // v1544846833/20180509-DSCF9221.jpg
+  // so if we split by / we need the last 2 values
+  const cloudinaryPhotoId = cloudinaryPhoto?.props?.src?.split('/').slice(-2).join('/')
+
+  if (cloudinaryPhoto) {
+    // the cloudinaryPhotoId photo can be any size or aspect ratio, so we need to transform it to fit our template
+    // we do this by using the cloudinary image transformation API
+    // https://cloudinary.com/documentation/image_transformations
+    // we use the 'fill' transformation to fill the template with the photo
+    // we use the 'crop' transformation to crop the photo to the template aspect ratio
+    // we use the 'gravity' transformation to position the photo in the template
+    // we use the 'scale' transformation to scale the photo to the template size
+    
+    const url = `https://res.cloudinary.com/ejf/image/upload/dpr_2.0,c_fill,g_auto,w_1200/fl_progressive:semi,c_fill,h_630,g_auto/dpr_2.0,co_rgb:FFF,fl_region_relative,w_0.5,l_text:FjallaOne-Regular.ttf_92:${urlEncodedTitle}/${cloudinaryPhotoId}`
+    return url
+  }
+  else {
+    const url = `https://res.cloudinary.com/ejf/image/upload/g_north_west,co_rgb:fff,x_440,y_200,w_690,h_320,c_fit,l_text:FjallaOne-Regular.ttf_${ogImageFontsize.value}:${urlEncodedTitle}/${bgImg}`
+    return url
+  }
+
 })
 </script>
 <style>
