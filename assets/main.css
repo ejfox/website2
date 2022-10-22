@@ -1,9 +1,15 @@
-.page-enter-active,
 .page-leave-active {
   transition: 
-  opacity 990ms cubic-bezier(0.5, 1, 0.89, 1), 
-  transform 990ms cubic-bezier(0.5, 1, 0.89, 1),
-  background-color 990ms cubic-bezier(0.5, 1, 0.89, 1);
+  opacity 500ms cubic-bezier(0.5, 1, 0.89, 1), 
+  transform 500ms cubic-bezier(0.5, 1, 0.89, 1),
+  background-color 500ms cubic-bezier(0.5, 1, 0.89, 1);
+}
+
+.page-enter-active {
+  transition: 
+  opacity 1500ms cubic-bezier(0.5, 1, 0.89, 1), 
+  transform 1500ms cubic-bezier(0.5, 1, 0.89, 1),
+  background-color 1500ms cubic-bezier(0.5, 1, 0.89, 1);
 }
 .page-enter {
   opacity: 1;
