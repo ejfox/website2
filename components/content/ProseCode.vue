@@ -37,7 +37,8 @@ const codeLineCount = computed(() => props.code.split('\n').length - 1)
 code {
   max-width: 100vw;
   overflow-x: auto;
-  word-break: break-all;
+  /* word-break: break-word; */
+  overflow-wrap: break-word;
 }
 pre {
   white-space: pre-wrap;
@@ -55,9 +56,10 @@ pre code .line {
 }
 
 .with-line-numbers code .line::before {
+  font-size: 0.75rem;
   content: counter(step);
   counter-increment: step;
-  width: 1rem;
+  width: 1.4rem;
   margin-right: 1rem;
   display: inline-block;
   text-align: right;
@@ -68,9 +70,9 @@ pre code .line {
   content: counter(step);
 }
 
-/* re-factor to only add the line number if there ismore than one line */
-.with-line-numbers code {
-  counter-reset: step;
-  counter-increment: step 0;
+/* add a stripe to every other line */
+.with-line-numbers code .line:nth-child(2n) {
+  background: rgba(115,138,148,.025);
 }
+
 </style>

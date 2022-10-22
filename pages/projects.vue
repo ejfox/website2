@@ -1,5 +1,9 @@
 <template>
   <main class="pt4">
+
+    <Head>
+      <Title>EJ Fox: Projects</Title>
+    </Head>
     <table id="projects" class="w-100 collapse f3">
       <!-- projects have Client, Project Name, Role, Year, and URL-->
       <tr class="">
@@ -29,7 +33,9 @@
         </td>
 
         <td class="dtc-ns v-mid">
-          <a :href="project.URL" class="link b near-black dim db pv5 f1 f-subheadline-l lh-solid headline-sans-serif ttu tc">{{ project['Project Name'] }}</a>
+          <a :href="project.URL"
+            class="link b near-black dim db pv5 f1 f-subheadline-l lh-solid headline-sans-serif ttu tc">{{
+            project['Project Name'] }}</a>
         </td>
 
         <td class="dn dtc-l v-mid w-10 gray">
@@ -86,14 +92,17 @@ watch(router, (oldVal, newVal) => {
   border-collapse: collapse;
 } */
 tr {
-  border-bottom: 1px solid rgba(0,0,0,.15);
+  border-bottom: 1px solid rgba(0, 0, 0, .15);
 }
-th, td {
+
+th,
+td {
   text-align: left;
   padding: 4px;
 }
+
 .stripe-dark:nth-child(odd) {
-    background-color: rgba(0,0,0,.1);
+  background-color: rgba(0, 0, 0, .1);
 }
 
 .headline-sans-serif {

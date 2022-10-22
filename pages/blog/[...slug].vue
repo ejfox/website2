@@ -1,8 +1,33 @@
 <template>
   <main>
+
+    <Head>
+      <!-- 
+              { property: 'og:title', content: 'EJ Fox' },
+        { property: 'og:description', content: 'EJ Fox: Hacker, Journalist, & Dataviz Specialist finding interesting ways to look at the world by exploring and explaining data ' },
+        { property: 'og:image', content: 'https://ejfox.com/og-image.png' },
+        { property: 'og:url', content: 'https://ejfox.com' },
+        { property: 'og:type', content: 'website' },
+
+        // twitter opengraph tags
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:site', content: '@mrejfox' },
+        { name: 'twitter:creator', content: '@mrejfox' },
+        { name: 'twitter:title', content: 'EJ Fox' },
+        { name: 'twitter:description', content: 'EJ Fox: Hacker, Journalist, & Dataviz Specialist finding interesting ways to look at the world by exploring and explaining data ' },
+        { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' },
+    -->
+      <Title>EJ Fox: {{ page.title }}</Title>
+      <Meta name="description" :content="page.dek ? page.dek : page.description" />
+      <Meta property="og:title" :content="`EJ Fox | ${page.title}`" />
+      <Meta property="og:description" :content="`EJ Fox: ${page?.dek}`" />
+      <Meta property="og:image" :content="ogImageUrl" />
+    </Head>
+    <!-- <h3 class="moon-gray tracked fw1">{{page?.dek}}</h3> -->
+    <!-- og image preview -->
+    <!-- <img :src="ogImageUrl" /> -->
     <div class="f4 pt2 near-black">
-      <!-- <ContentDoc /> -->
-      <ContentDoc v-slot="{ doc, toc }">
+      <ContentDoc v-slot="{ doc }" :head="false">
         <ContentRenderer :value="doc" />
       </ContentDoc>
     </div>
@@ -38,8 +63,31 @@ import { countWords } from '~~/helpers'
 // get slug from the route
 const { params } = useRoute()
 
-const { prev, next, toc } = useContent()
+const { prev, next, toc, page, excerpt } = useContent()
 const formatDate = timeFormat('%B %Y')
+
+const ogImageFontsize = computed(() => {
+  const titleLength = page.value.title.length
+
+  // if title is less than 20 characters, use 100px font size
+  if (titleLength < 24) {
+    return 124
+  }
+  else {
+    return 72
+  }
+})
+
+const ogImageUrl = computed(() => {
+  // template URL https://res.cloudinary.com/ejf/image/upload/g_north_west,co_rgb:fff,x_440,y_240,w_290,h_170,c_fit,l_text:FjallaOne-Regular.ttf_72:Ready%20to%20party/templates/og-image-generated-bg.png
+
+  const title = page.value.title.toUpperCase()
+  const urlEncodedTitle = encodeURIComponent(title)
+
+  const url = `https://res.cloudinary.com/ejf/image/upload/g_north_west,co_rgb:fff,x_440,y_200,w_690,h_320,c_fit,l_text:FjallaOne-Regular.ttf_${ogImageFontsize.value}:${urlEncodedTitle}/templates/og-image-generated-bg.png`
+
+  return url
+})
 </script>
 <style>
 strong {

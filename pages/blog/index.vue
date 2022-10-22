@@ -1,126 +1,82 @@
 <template>
   <main class="pt4">
-    <ContentList path="/blog" v-slot="{ list }" :query="query">
-      <div v-for="article in list" :key="article._path" class="article bg-white w-50-ns dib v-top mb4 mb6-l pv2 pv0-l bn-l pr2 pr6-l overflow-hidden measure-wide">
-        <div class="">
-          <!-- <pre class="h5 w-100 ba overflow-y-auto f7">{{JSON.stringify(article, 0, 2)}}
-        </pre> -->
+    <Head>
+      <Title>EJ Fox: 📝 Blog</Title>
+    </Head>
+    <ContentQuery path="/blog/" :sort="{ date: -1 }" v-slot="{ data }">
+      <div v-for="article in data" :key="article._path"
+        class="article bg-white w-50-ns dib v-top mb4 mb6-l pv2 pv0-l bn-l pr2 pr6-l overflow-hidden measure-wide">
 
-          <small class="mv0 pv0 gray fw7 tracked">{{formatDate(new Date(article.date))}}</small>
-          <NuxtLink :to="article._path" class="link b near-black dim db pv2 pr2 f2 f1-l lh-solid ttu word-wrap pr headline-sans-serif">{{ article.title
-          }}</NuxtLink>
+        <!-- <ContentDoc :path="article._path" v-slot="{ doc }">
+          <small class="mv0 pv0 gray fw7">{{formatDate(new Date(article.date))}}</small>
 
-          <!-- word count -->
-          <!-- <small v-if="countWords(article) > 10" class="mv0 pa0 gray">
-            {{countWords(article)}} words
-          </small>
+          <a :href="article._path"
+            class="link b near-black dim db pv2 f2 f1-l lh-solid ttu word-wrap pr headline-sans-serif">{{
+            article.title
+            }}</a>
 
-          <div class="mv2 tr overflow-hidden">
-            <span v-for="char in article.excerpt.children" :key="char" class="bg-light-gray fl" :style="{
-              height: '2px',
-              width: char.children?.length  * 5 + 'px',
-            }">
-            </span>
-          </div> -->
-
-          <div class="gray f6 mr3">
-            <div class="fw2">
-              <div v-if="article.dek" class="dek">{{ article.dek }}</div>
-              <div v-else="article.description" class="dek">{{ article.description }}
-              </div>
+          <div class="gray f6">
+            <div v-if="article.dek" class="dek fw3">{{ article.dek }}</div>
+            <div v-else="article.description" class="dek">{{ article.description }}
             </div>
 
+            <div class="reading-time moon-gray mv1 fw1">
+              <div v-if="doc.readingTime.minutes > 1">
+                {{doc.readingTime.text}}
+              </div>
+            </div>
           </div>
-        </div>
+        </ContentDoc> -->
+        <!-- do another contentquery and contentrenderer instead of contentdoc for this specific article in the list, so we can get additional data in the doc, like readingTime -->
+        <ContentQuery :path="article._path" v-slot="{ data }" find="one">
+
+          <!-- {{Object.keys(data[0])}} -->
+
+          <small class="mv0 pv0 gray fw7">{{formatDate(new Date(article.date))}}</small>
+
+          <NuxtLink :to="article._path"
+            class="link b near-black dim db pv2 f2 f1-l lh-solid ttu word-wrap pr headline-sans-serif">{{
+            article.title
+            }}</NuxtLink>
+
+          <div class="gray f6">
+            <div v-if="article.dek" class="dek fw3">{{ article.dek }}</div>
+            <div v-else="article.description" class="dek">{{ article.description }}
+            </div>
+
+            <div class="reading-time moon-gray mv1 fw1">
+              <div v-if="data?.readingTime.minutes > 1">
+                {{data?.readingTime.text}}
+              </div>
+            </div>
+          </div>
+        </ContentQuery>
       </div>
-    </ContentList>
+    </ContentQuery>
   </main>
 </template>
 <script setup lang="ts">
 import anime from 'animejs/lib/anime.es.js'
 import { timeFormat } from 'd3-time-format'
-import type { QueryBuilderParams } from '@nuxt/content/dist/runtime/types'
-import { countWords } from '~~/helpers'
+
+definePageMeta({
+  documentDriven: false
+})
 
 const formatDate = timeFormat('%B %d, %Y')
-const query: QueryBuilderParams = { path: '/blog', sort: { date: -1 } }
+
 
 onMounted(() => {
   // use anime to animate the intro text
-  anime({
-    targets: '.article',
-    opacity: [0, 1],
-    translateX: ['-22vw', 0],
-    easing: 'easeOutQuad',
-    duration: 720,
-    delay: anime.stagger(250),
-  })
+  // anime({
+  //   targets: '.article',
+  //   opacity: [0, 1],
+  //   translateX: ['-22vw', 0],
+  //   easing: 'easeOutQuad',
+  //   duration: 720,
+  //   delay: anime.stagger(250),
+  // })
 })
-
-// const query: QueryBuilderParams = { path: '/blog', limit: 5, sort: { date: -1 } }
-
-// blog posts look like this 
-// {
-//   "_path": "/blog/nypd-ccrb-complaint-clusters",
-//   "_draft": false,
-//   "_partial": false,
-//   "_locale": "en",
-//   "_empty": false,
-//   "title": "Finding Clusters of NYPD Officers In CCRB Complaint Data",
-//   "description": "",
-//   "excerpt": {
-//     "type": "root",
-//     "children": [
-//       {
-//         "type": "element",
-//         "tag": "h1",
-//         "props": {
-//           "id": "finding-clusters-of-nypd-officers-in-ccrb-complaint-data"
-//         },
-//         "children": [
-//           {
-//             "type": "text",
-//             "value": "Finding Clusters of NYPD Officers In CCRB Complaint Data"
-//           }
-//         ]
-//       },
-//       {
-//         "type": "element",
-//         "tag": "img",
-//         "props": {
-//           "src": "https://res.cloudinary.com/ejf/image/upload/v1624505769/Screen_Shot_2021-06-21_at_8.58.50_PM.jpg"
-//         },
-//         "children": []
-//       },
-//       {
-//         "type": "element",
-//         "tag": "h2",
-//         "props": {
-//           "id": "why"
-//         },
-//         "children": [
-//           {
-//             "type": "text",
-//             "value": "Why?"
-//           }
-//         ]
-//       },
-//       {
-//         "type": "element",
-//         "tag": "p",
-//         "props": {},
-//         "children": [
-//           {
-//             "type": "text",
-//             "value": "Complaints filed against police officers by the public are often the first and only warning sign that a cop might be on a course of escalating violence."
-//           }
-//         ]
-//       },
-//     ...... etc
-
-// count words for every article
-
-
 </script>
 <style>
 .headline-sans-serif {
@@ -136,6 +92,7 @@ onMounted(() => {
 }
 
 @media screen and (min-width: 60em) {
+
   .footnotes ul,
   .footnotes ol {
     margin-left: 8rem;

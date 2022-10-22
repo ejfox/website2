@@ -1,34 +1,55 @@
 <template>
-  <div class="sans-serif pa3 pa4-l">
+  <div class="sans-serif pa4-ns pa5-l">
     <Nav class="absolute z-5" />
     <div id="page-overlay" class="fixed top-0 left-0 w-100 h-100 z-3" style="">
-      <canvas id="page-overlay-canvas" class="w-100 h-100 ba"></canvas>
+      <canvas id="page-overlay-canvas" class="w-100 h-100"></canvas>
     </div>
-    
-    <div class="mt5 pt1">
-    <NuxtPage />
+
+    <div class="mt5 pt5">
+      <NuxtPage />
     </div>
   </div>
 </template>
 <script setup>
 import anime from 'animejs/lib/anime.es.js'
 
-onMounted(() => {
-})
-
 // whenever the route changes, flash the background
 const route = useRoute()
 watch(route, (oldVal, newVal) => {
+  console.log('route change', newVal.hash)
+
+  console.log({ newVal })
   if (newVal.hash !== '') return
 
-  anime({
-    targets: '#page-overlay',
-    opacity: [1, 0],
-    easing: 'easeOutQuad',
-    duration: 200,
-    delay: 850,
+  // nextTick(() => {
+  //   anime({
+  //     targets: '#page-overlay',
+  //     opacity: [1, 0],
+  //     easing: 'easeOutQuad',
+  //     duration: 200,
+  //     delay: 950,
+  //   })
+  // })
+
+  nextTick(() => {
+    // check if the page is fully loaded    
+    animateOverlayOut()
   })
+
+  // when page is loaded, animate page in
+
+
 })
+
+function animateOverlayOut() {
+  anime({
+      targets: '#page-overlay',
+      opacity: [1, 0],
+      easing: 'easeOutQuad',
+      duration: 200,
+      delay: 950,
+    })
+}
 
 onMounted(() => {
 
@@ -51,9 +72,6 @@ onMounted(() => {
   function drawCircle(x, y, r) {
     ctx.beginPath()
     ctx.arc(x, y, r, 0, 2 * Math.PI)
-    // ctx.fillStyle = '#000'
-    // make circle fill highlighter yellow
-    // ctx.fillStyle = '#ff0'
     ctx.fillStyle = '#FFF'
     ctx.fill()
   }
@@ -74,12 +92,9 @@ onMounted(() => {
 
     drawCircle(x, y, r)
 
-    // calculate radius of circle to fill the window
-    const radius = Math.sqrt(Math.pow(window.innerWidth, 2) + Math.pow(window.innerHeight, 2))
-
     anime({
       targets: canvas,
-      duration: 1000,
+      duration: 1400,
       easing: 'easeInExpo',
       update: (anim) => {
         const r = anim.progress * Math.max(window.innerWidth, window.innerHeight) * 0.02

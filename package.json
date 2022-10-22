@@ -17,6 +17,12 @@
     "animejs": "^3.2.1",
     "d3-time-format": "^4.1.0",
     "prismjs": "^1.29.0",
+    "remark-autolink-headings": "^7.0.1",
+    "remark-emoji": "^3.0.2",
+    "remark-external-links": "^9.0.1",
+    "remark-footnotes": "^4.0.1",
+    "remark-reading-time": "^2.0.1",
+    "remark-slug": "^7.0.1",
     "tachyons": "4.12.0"
   }
 }
