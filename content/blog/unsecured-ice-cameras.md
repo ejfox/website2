@@ -15,7 +15,8 @@ A friend   DMs me on Twitter:
 
 That sounds very plausible. Let’s give it a try. [Webcam scanning with Shodan](https://www.vice.com/en_us/article/59vm4x/tool-exposed-cameras-map-shodan-python-github) is a pretty well-known technique at this point. I’m not very familiar with it, so it’s time to learn.
 
-[[toc]] 
+::table-of-contents
+:: 
 
 ### First idea: IP ranges
 

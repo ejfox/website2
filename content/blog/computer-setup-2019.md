@@ -18,7 +18,8 @@ But it makes me feel better because they are already configured and set up in ca
 > There are about a hundred little tricks like this that Hiro wouldn't know about if he hadn't been programming avatars for people like Vitaly Chernobyl for the last couple of years. To write a really good invisible avatar from scratch would take a long time, but he puts one together in several hours by recycling bits and pieces of old projects left behind in his computer. Which is how hackers usually do it.
 > <cite>Neal Stephenson, Snow Crash, 1992</cite>
 
-[[toc]]
+::table-of-contents
+::
 
 #### Why?
 

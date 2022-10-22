@@ -1,14 +1,13 @@
 <template>
   <section class="db cf mb4">
-    <Nav />
-    <section class="intro pv2 lh-copy f4 measure-wide">
+    <section class="intro pv2 lh-copy f4 measure">
       <ContentDoc />
     </section>
 
     <div id="hcard-EJ-Fox" class="vcard w-100 f6 tc dn">
       <img
         src="https://gravatar.com/avatar/4a503ee102c67cc632d77f97721d83f7"
-        alt="Gravatar photo of EJ Fox"
+        alt="Photo of EJ Fox"
         class="photo dn"
       />
       <div><a class="url fn db" href="https://ejfox.com">EJ Fox</a></div>
@@ -24,8 +23,21 @@
     </div>
   </section>
 </template>
+<script setup>
+// import anime from 'animejs/lib/anime.es.js'
+// onMounted(() => {
+//   // use anime to animate the intro text
+//   anime({
+//     targets: '.intro p',
+//     opacity: [0, 1],
+//     easing: 'easeInOutQuad',
+//     duration: 1000,
+//     delay: 1000,
+//   })
+// })
+</script>
 
-<style scoped>
+<style>
 ul {
   padding: 0;
 }
@@ -41,5 +53,11 @@ ul {
 .intro a:focus {
   color: #414346;
   /*text-decoration: none;*/
+}
+
+.intro p {
+  margin-left: 0 !important;
+  max-width: 24rem;
+  text-align: justify;
 }
 </style>

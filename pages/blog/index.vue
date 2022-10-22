@@ -1,15 +1,14 @@
 <template>
-  <main>
-    <Nav />
+  <main class="pt4">
     <ContentList path="/blog" v-slot="{ list }" :query="query">
-      <div v-for="article in list" :key="article._path" class="w-50-ns dib v-top mb4 mb5-l pv2 pv0-l bn-l pr2 pr5-l overflow-hidden">
+      <div v-for="article in list" :key="article._path" class="article bg-white w-50-ns dib v-top mb4 mb6-l pv2 pv0-l bn-l pr2 pr6-l overflow-hidden measure-wide">
         <div class="">
           <!-- <pre class="h5 w-100 ba overflow-y-auto f7">{{JSON.stringify(article, 0, 2)}}
         </pre> -->
 
-          <small class="mv0 pv0 gray">{{formatDate(new Date(article.date))}}</small>
-          <a :href="article._path" class="link b black dim db pv2 f3 f1-l lh-solid ttu word-wrap pr">{{ article.title
-          }}</a>
+          <small class="mv0 pv0 gray fw7 tracked">{{formatDate(new Date(article.date))}}</small>
+          <NuxtLink :to="article._path" class="link b near-black dim db pv2 f2 f1-l lh-solid ttu word-wrap pr headline-sans-serif">{{ article.title
+          }}</NuxtLink>
 
           <!-- word count -->
           <!-- <small v-if="countWords(article) > 10" class="mv0 pa0 gray">
@@ -24,9 +23,9 @@
             </span>
           </div> -->
 
-          <div class="gray f7 f6-ns">
+          <div class="gray f6">
             <div class="">
-              <div v-if="article.dek" class="dek">{{ article.dek }}</div>
+              <div v-if="article.dek" class="dek fw3">{{ article.dek }}</div>
               <div v-else="article.description" class="dek">{{ article.description }}
               </div>
             </div>
@@ -38,12 +37,25 @@
   </main>
 </template>
 <script setup lang="ts">
+import anime from 'animejs/lib/anime.es.js'
 import { timeFormat } from 'd3-time-format'
 import type { QueryBuilderParams } from '@nuxt/content/dist/runtime/types'
 import { countWords } from '~~/helpers'
 
 const formatDate = timeFormat('%B %d, %Y')
 const query: QueryBuilderParams = { path: '/blog', sort: { date: -1 } }
+
+onMounted(() => {
+  // use anime to animate the intro text
+  anime({
+    targets: '.article',
+    opacity: [0, 1],
+    translateX: ['-22vw', 0],
+    easing: 'easeOutQuad',
+    duration: 720,
+    delay: anime.stagger(250),
+  })
+})
 
 // const query: QueryBuilderParams = { path: '/blog', limit: 5, sort: { date: -1 } }
 
@@ -111,6 +123,10 @@ const query: QueryBuilderParams = { path: '/blog', sort: { date: -1 } }
 
 </script>
 <style>
+.headline-sans-serif {
+  font-family: 'Fjalla One', sans-serif;
+}
+
 .footnotes ul,
 .footnotes ol {
   padding: 0;

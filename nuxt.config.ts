@@ -2,8 +2,13 @@ import { defineNuxtConfig } from 'nuxt'
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  modules: ['@nuxt/content'],
-  css: ["tachyons/css/tachyons.min.css"],
+  modules: ['@nuxt/content',  '@nuxtjs/google-fonts'],
+  css: ["tachyons/css/tachyons.min.css", '~/assets/main.css'],
+  pageTransition: {
+    name: 'page',
+    // mode: 'out-in'
+    mode: 'in-out'
+  },
   content: {
     documentDriven: true,
     highlight: {
@@ -54,7 +59,7 @@ export default defineNuxtConfig({
     //   // ],
     // },
     googleFonts: {
-      // prefetch: true,
+      prefetch: true,
       families: {
         'Signika Negative': [300, 400, 500, 600, 700],
         'Paytone One': [400],

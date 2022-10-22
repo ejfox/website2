@@ -8,7 +8,8 @@ hidetimestamp: false
 
 # How I prototype apps and dataviz quickly
 
-[[toc]]
+::table-of-contents
+::
 
 I’ve been really enjoying using Vue as a framework for my javascript applications. It allows me to quickly and easily lay out my data structure, some DOM-elements that are controlled by data, and handle any interactions / application state stuff I might need. 
 
@@ -34,7 +35,7 @@ Part of the reason that I really like using Vue is that it meshes with my unders
 Vue makes it so that we no longer need our old, trusty friend `d3.select().enter().append().exit()` to bind data to various DOM elements, since Vue is doing it for us. 
 
 Before Vue, I would have an SVG already on the page and do something like
-```
+```js
 const svg = d3.select('svg')
 const circles = d3.selectAll('circle')
 	.data(myData)
@@ -50,7 +51,7 @@ const circles = d3.selectAll('circle')
 ```
 
 But now with Vue, I just use the HTML declarations in the template like - because of the built-in reactivity, when the data changes the DOM elements are updated. No need for the old D3 select, enter, append pattern.
-```
+```html
 <svg>
 	<circle
 		v-for="circle in myData"
@@ -65,7 +66,7 @@ I still use a ton of D3 functions though, [topojson-client](https://github.com/t
 #### Animating entering/exiting
 If I want to fade elements in and out like you would do with `d3.select(selection).enter().transition(t).style(‘opacity’, 1)` I’ve been using [animate.css](https://daneden.github.io/animate.css/) in combination with [Vue’s custom transition classes](https://vuejs.org/v2/guide/transitions.html#Custom-Transition-Classes). So I’ll do something like 
 
-```
+```html
 	<circle
 		v-for="circle in myData"
 		enter-active-class="animated fadeIn"

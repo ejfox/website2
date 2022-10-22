@@ -22,7 +22,8 @@ When I’m in a new place that I’m uncertain of, I don’t know the customs, I
 
 But first I need to find a rough direction to set out towards.
 
-[[toc]]
+::table-of-contents
+::
 
 ## What do I want to create?
 

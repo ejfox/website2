@@ -21,7 +21,8 @@ It has also been really inspiring to see the discipline and focus of [Shirley Wu
 
 I think that the more people who understand the skills required to visualize data, the more people who are exposing truths hidden in datasets, the better the world will be. I also hope helping people who want to get into data visualization see the process will be valuable in terms of education as well as inspiration.
 
-[[toc]]
+::table-of-contents
+::
 
 ## The cooking show metaphor
 One thing that really helped us figure out how to think about how to present ourselves was the metaphor of a *cooking show*. I grew up watching all sorts of excellent and varied cooking shows; Masterchef, Kitchen Nightmares, Iron Chef, Chopped, Top Chef, and more. 

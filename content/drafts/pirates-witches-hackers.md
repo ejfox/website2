@@ -7,7 +7,8 @@ dek: In which the connections between three historical archetypes are explored
 ---
 
 # Pirates Witches and Hackers
-[[toc]]
+::table-of-contents
+::
 
 ## Pirates -> Witches
 The beginnings of things 

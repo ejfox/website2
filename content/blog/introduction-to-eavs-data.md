@@ -9,7 +9,8 @@ hidetimestamp: false
 
 # Processing, analyzing and visualizing EAVS data
 
-[[toc]]
+::table-of-contents
+::
 
 EAVS analysis, voters removed exceed election margin
 

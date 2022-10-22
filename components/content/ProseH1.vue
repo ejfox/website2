@@ -1,12 +1,19 @@
 <template>
   <h1
-    class="sans-serif f1 f-subheadline-l black lh-title ttu mh1 mh3-ns mv4 mv5-ns mv6-l measure-narrow"
+    :id="id"
+    class="f1 f-subheadline-l near-black lh-title ttu mv4 measure-narrow headline-sans-serif"
   >
     <slot />
   </h1>
 </template>
+<script setup>
+defineProps(['id'])
+</script>
 <style scoped>
-.f-headline-l {
+/* .f-headline-l {
   font-size: 9rem !important;
+} */
+.headline-sans-serif {
+  font-family: 'Fjalla One', sans-serif;
 }
 </style>

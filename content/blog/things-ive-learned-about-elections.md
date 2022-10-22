@@ -14,7 +14,8 @@ Elections are all edge cases. Votes are cast and tallied by a wide variety of Am
 
 This great country contains lots of different people with lots of different ways of going about things. 
 
-[[toc]]
+::table-of-contents
+::
 
 The basic rules around voting are laid out in the constitution^[[Article 1 of the Constitution](https://constitutioncenter.org/interactive-constitution/articles/article-i#elections-clause) “The House of Representatives shall be composed of Members chosen every second Year by the People of the several States…” - [Section 4](https://www.usconstitution.net/xconst_A1Sec4.html): “The Times, Places and Manner of holding Elections for Senators and Representatives, shall be prescribed in each State by the Legislature thereof; but the Congress may at any time by Law make or alter such Regulations, except as to the Places of chusing Senators.”] but a remarkable amount of the nitty-gritty details are [left up to each state](https://www.brennancenter.org/analysis/voting-laws-roundup-2019) to figure out. 
 

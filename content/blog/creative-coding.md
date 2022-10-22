@@ -16,7 +16,8 @@ Working with certain materials have their own creative minds, like pottery or wa
 
 Making a creative partnership with computers is an incredibly pleasurable way to spend time, at least for me. Computers are incredibly powerful and have an infinite capacity to surprise. Finding new ways to tune into the computer's ability to contribute as creative partner and diviner of random numbers is a lot of fun for me. 
 
-[[toc]]
+::table-of-contents
+::
 
 ## My experiments in creative coding
 I have never been able to create photo-realistic work when drawing or painting by hand. In drawing class growing up, I would find myself drawing an "icon" of the thing rather than of what it actually looked like. 
