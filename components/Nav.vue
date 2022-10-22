@@ -14,6 +14,7 @@
       <NuxtLink class="pa2 db fl fw4 link black bg-white mr3 mr4-l" tag="li" to="/">Home</NuxtLink>
       <NuxtLink class="pa2 db fl fw4 link black bg-white mr3 mr4-l" tag="li" to="/projects">Projects</NuxtLink>
       <NuxtLink class="pa2 db fl fw4 link black bg-white mr3 mr4-l" tag="li" to="/blog/">Blog</NuxtLink>
+      <!-- <NuxtLink class="pa2 db fl fw4 link black bg-white mr3 mr4-l" tag="li" to="/photos/">Photos</NuxtLink> -->
     </ul>
   </nav>
 </template>
