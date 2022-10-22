@@ -79,10 +79,11 @@ onMounted(() => {
 
     anime({
       targets: canvas,
-      duration: 1400,
-      easing: 'easeInExpo',
+      duration: 900,
+      // easing: 'easeInExpo',
+      easing: 'easeInOutCirc',
       update: (anim) => {
-        const r = anim.progress * Math.max(window.innerWidth, window.innerHeight) * 0.02
+        const r = anim.progress * Math.max(window.innerWidth, window.innerHeight) * 0.015
         drawCircle(x, y, r)
       },
       complete: () => {
