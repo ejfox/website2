@@ -25,7 +25,7 @@ export default {
       ],
     }
   },
-  modules: ['@nuxt/content', '@nuxtjs/google-fonts'],
+  modules: ['@nuxt/content', '@nuxtjs/google-fonts', '@vueuse/nuxt', 'nuxt-icon'],
   css: ["tachyons/css/tachyons.min.css", '~/assets/main.css'],
   pageTransition: {
     name: 'page',

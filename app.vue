@@ -27,8 +27,8 @@ function animateOverlayOut() {
       targets: '#page-overlay',
       opacity: [1, 0],
       easing: 'easeOutQuad',
-      duration: 200,
-      delay: 950,
+      duration: 1000,
+      delay: 1800,
     })
 }
 
@@ -79,7 +79,7 @@ onMounted(() => {
 
     anime({
       targets: canvas,
-      duration: 900,
+      duration: 2000,
       // easing: 'easeInExpo',
       easing: 'easeInOutCirc',
       update: (anim) => {
@@ -130,4 +130,5 @@ figure {
   /* set blend mode to multiply */
   mix-blend-mode: multiply;
 }
+
 </style>

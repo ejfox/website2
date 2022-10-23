@@ -7,29 +7,6 @@
     <ContentQuery path="/blog/" :sort="{ date: -1 }" v-slot="{ data }">
       <div v-for="article in data" :key="article._path"
         class="article bg-white w-50-ns dib v-top mb4 mb6-l pv2 pv0-l bn-l pr2 pr6-l overflow-hidden measure-wide">
-
-
-
-        <!-- <ContentDoc :path="article._path" v-slot="{ doc }">
-          <small class="mv0 pv0 gray fw7">{{formatDate(new Date(article.date))}}</small>
-
-          <a :href="article._path"
-            class="link b near-black dim db pv2 f2 f1-l lh-solid ttu word-wrap pr headline-sans-serif">{{
-            article.title
-            }}</a>
-
-          <div class="gray f6">
-            <div v-if="article.dek" class="dek fw3">{{ article.dek }}</div>
-            <div v-else="article.description" class="dek">{{ article.description }}
-            </div>
-
-            <div class="reading-time moon-gray mv1 fw1">
-              <div v-if="doc.readingTime.minutes > 1">
-                {{doc.readingTime.text}}
-              </div>
-            </div>
-          </div>
-        </ContentDoc> -->
         <!-- do another contentquery and contentrenderer instead of contentdoc for this specific article in the list, so we can get additional data in the doc, like readingTime -->
         <ContentQuery :path="article._path" v-slot="{ data }" find="one">
 
@@ -78,15 +55,19 @@ const formatDate = timeFormat('%B %d, %Y')
 
 
 onMounted(() => {
-  // use anime to animate the intro text
-  // anime({
-  //   targets: '.article',
-  //   opacity: [0, 1],
-  //   translateX: ['-22vw', 0],
-  //   easing: 'easeOutQuad',
-  //   duration: 720,
-  //   delay: anime.stagger(250),
-  // })
+  // use anime to animate the articles in
+  nextTick(() => {
+    // wait 100ms for the page to render
+    anime({
+      targets: '.article',
+      opacity: [0, 1],
+      translateX: ['-22vw', 0],
+      easing: 'easeOutQuad',
+      duration: 720,
+      delay: anime.stagger(250),
+    })
+  })
+
 })
 </script>
 <style>
