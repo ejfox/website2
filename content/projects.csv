@@ -1,10 +1,10 @@
-Year,Project Name,Client,Role,URL,Short Description,Expanded Description
-2022,Opening The Gateway,The Margin,Dataviz,https://themargin.us/features/opening-the-gateway,,
-2022,We Glow In The Dark,The Margin,Dataviz,https://themargin.us/features/we-glow-in-the-dark,,
-2022,Querdenken Everything,LongLead,Dataviz,https://longlead.com/article/querdenken-everything,,
-2021,The Depths She'll Reach,LongLead,Developer,https://onjustonebreath.com,,
-2021,Mapping The Clusters of NYPD Officers Repeatedly Accused of Misconduct,Gothamist,Data journalist and designer,https://gothamist.com/news/mapping-clusters-nypd-officers-repeatedly-accused-misconduct,,
-2020,COVIDcast,Carnegie Mellon University,"Designer, developer",https://covidcast.cmu.edu/,,
+Year,Project Name,Client,Role,URL,screenshot,blogpost
+2022,Opening The Gateway,The Margin,Dataviz,https://themargin.us/features/opening-the-gateway,https://res.cloudinary.com/ejf/image/upload/v1666630398/project-images/margin_skagit.png,
+2022,We Glow In The Dark,The Margin,Dataviz,https://themargin.us/features/we-glow-in-the-dark,https://res.cloudinary.com/ejf/image/upload/v1666630398/project-images/margin_memphis.png,
+2022,Querdenken Everything,LongLead,Dataviz,https://longlead.com/article/querdenken-everything,https://res.cloudinary.com/ejf/image/upload/v1666630397/project-images/ll_querdenken.png,
+2021,The Depths She'll Reach,LongLead,Developer,https://onjustonebreath.com,https://res.cloudinary.com/ejf/image/upload/v1666630397/project-images/ll_diver.png,
+2021,Mapping The Clusters of NYPD Officers Repeatedly Accused of Misconduct,Gothamist,Data journalist and designer,https://gothamist.com/news/mapping-clusters-nypd-officers-repeatedly-accused-misconduct,https://res.cloudinary.com/ejf/image/upload/v1666630398/project-images/gothamist_ccrb.png,https://ejfox.com/blog/nypd-ccrb-complaint-clusters/
+2020,COVIDcast,Carnegie Mellon University,"Designer, developer",https://covidcast.cmu.edu/,https://res.cloudinary.com/ejf/image/upload/v1666630395/project-images/cmu_covidcast.png,
 2020,David Byler’s Interactive Election Simulator,Washington Post,Lead Developer,https://www.washingtonpost.com/pr/2020/01/09/washington-post-opinions-launches-interactive-election-simulator/,,
 2019,"Andrew Yang's campaign and supporters struggle to push away extremists, leaked chats show",NBC News,Research,https://www.nbcnews.com/tech/tech-news/andrew-yang-s-campaign-supporters-struggle-push-away-extremist-support-n993241,,
 2018,2018 Midterm Election Big Board,NBC News & MSNBC,Lead Developer,https://www.newscaststudio.com/2018/11/05/nbc-big-board-update/,,
@@ -19,7 +19,7 @@ Year,Project Name,Client,Role,URL,Short Description,Expanded Description
 2016,Kanye Fashion Universe,Vocativ,"Creator, designer",http://www.vocativ.com/282689/the-road-to-yeezy-mapping-kanyes-fashion-universe/,,
 2016,Spotifinder,Vocativ,"Project manager, creator",http://www.vocativ.com/297798/tailor-your-sxsw-music-schedule-with-vocativs-spotifinder-app/,,
 2016,Blame-Obama-Tron,Vocativ,"Creator, designer, developer",http://www.vocativ.com/274351/everything-everywhere-is-obamas-fault/,,
-2015,Newsroom Dataviz Styleguide,Vocativ,"Designer, creator",http://vocativ.graphics,,"<a href=""http://dataforradicals.com/the-absurdly-illustrated-guide-to-making-your-own-immersive-news-stories/"">a great sStory tutorial</a>"
+2015,Newsroom Dataviz Styleguide,Vocativ,"Designer, creator",http://vocativ.graphics,,
 2014,Presidential Readability,Vocativ,"Creator, designer, developer",http://www.theatlantic.com/politics/archive/2014/10/have-presidential-speeches-gotten-less-sophisticated-over-time/381410/,,
 2013,GitHub Octoverse 2013,GitHub,"Designer, Developer",https://github.com/blog/1773-state-of-the-octoverse-2013-edition,,
 2012,Dark Money Universe,Mother Jones,Developer,http://www.motherjones.com/politics/2012/06/interactive-chart-super-pac-election-money,,
