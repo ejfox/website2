@@ -1,6 +1,9 @@
 export default {
   app: {
     head: {
+      bodyAttrs: {
+        class: 'ma0 pa0'
+      },
       charset: 'utf-16',
       title: 'EJ Fox',
       meta: [
