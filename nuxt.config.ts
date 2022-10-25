@@ -2,7 +2,6 @@ export default {
   app: {
     head: {
       charset: 'utf-16',
-      viewport: 'width=500, initial-scale=1',
       title: 'EJ Fox',
       meta: [
         { name: 'description', content: 'EJ Fox: Hacker, Journalist, & Dataviz Specialist finding interesting ways to look at the world by exploring and explaining data ' },
@@ -35,8 +34,7 @@ export default {
   content: {
     documentDriven: true,
     markdown: {
-      remarkPlugins: ['remark-reading-time', 'remark-gfm', 'remark-emoji'],
-      
+      remarkPlugins: ['remark-reading-time', 'remark-gfm', 'remark-emoji', 'remark-unwrap-images'],      
     },
     highlight: {
       preload: ['sql'],

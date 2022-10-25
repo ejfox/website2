@@ -1,6 +1,6 @@
 <template>
   <section class="db cf mb4">
-    <section class="intro pv2 lh-copy f4 measure">
+    <section class="intro pa2 lh-copy f4 measure">
       <ContentDoc />
     </section>
 

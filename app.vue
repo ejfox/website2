@@ -1,11 +1,13 @@
 <template>
-  <div class="sans-serif pa4-ns pa5-l">
-    <Nav class="absolute z-5" />
-    <div id="page-overlay" class="fixed top-0 left-0 w-100 h-100 z-3" style="">
+  <div id="app-container" class="sans-serif w-100">
+    <Nav class="mv4 ma0 w-100 overflow-hidden" />
+
+    <div id="page-overlay" class="fixed top-0 left-0 w-100 h-100 z-3 overflow-hidden" style="">
+
       <canvas id="page-overlay-canvas" class="w-100 h-100"></canvas>
     </div>
 
-    <div class="mt5 pt5">
+    <div class="w-100">
       <NuxtPage />
     </div>
   </div>
@@ -13,7 +15,6 @@
 <script setup>
 import anime from 'animejs/lib/anime.es.js'
 
-// whenever the route changes, flash the background
 const route = useRoute()
 watch(route, (oldVal, newVal) => {
   if (newVal.hash !== '') return
@@ -27,8 +28,8 @@ function animateOverlayOut() {
       targets: '#page-overlay',
       opacity: [1, 0],
       easing: 'easeOutQuad',
-      duration: 1000,
-      delay: 1800,
+      duration: 500,
+      delay: 1050,
     })
 }
 
@@ -79,7 +80,7 @@ onMounted(() => {
 
     anime({
       targets: canvas,
-      duration: 2000,
+      duration: 1000,
       // easing: 'easeInExpo',
       easing: 'easeInOutCirc',
       update: (anim) => {
@@ -117,18 +118,8 @@ figure {
   pointer-events: none;
 }
 
-#page-underlay {
-  pointer-events: none;
-  /* background-color: #fff; */
-  background-color: black;
-  z-index: -1;
-  /* translate: translateY(-100vh); */
-  top: -100vh;
-}
-
-#page-overlay-canvas {
-  /* set blend mode to multiply */
-  mix-blend-mode: multiply;
+#app-container {
+  /* width: 100vw; */
 }
 
 </style>

@@ -50,7 +50,7 @@ const isInternalLink = computed(() => {
 </script>
 
 <template>
-  <NuxtLink :href="href" :class="['link near-black dim fw5', isInternalLink ? 'bb bw1' : 'underline']">
+  <NuxtLink :href="href" :class="['link near-black dim fw5', isInternalLink ? 'fw6 underline' : 'underline']">
     <slot />
     <sup v-if="socialPlatform === 'wikipedia'">
       <Icon name="simple-icons:wikipedia" class="ml1" />
@@ -76,6 +76,9 @@ const isInternalLink = computed(() => {
     <sup v-if="socialPlatform === 'email'">
       <Icon name="ic:baseline-email" class="ml1" />
     </sup>
+    <small v-if="isInternalLink">
+      <!-- <Icon name="ic:baseline-open-in-new" class="ml1" /> -->
+    </small>
   </NuxtLink>
 </template>
 <style>

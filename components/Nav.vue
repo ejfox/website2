@@ -1,5 +1,5 @@
 <template>
-  <nav class="mv4 cf">
+  <nav class="">
 
     <!-- use mouse x and y and 3d perspective to make the nav rotate slightly to face the mouse corsoe-->
     <!-- :style="{
@@ -20,62 +20,62 @@
 
         <span class="dib v-top">EJ Fox</span>
       </li>
-      <NuxtLink class="pa2 db fl fw4 link bg-white black mr3 mr4-l" tag="li" to="/">Home</NuxtLink>
-      <NuxtLink class="pa2 db fl fw4 link bg-white black mr3 mr4-l" tag="li" to="/projects">Projects</NuxtLink>
-      <NuxtLink class="pa2 db fl fw4 link bg-white black mr3 mr4-l" tag="li" to="/blog/">Blog</NuxtLink>
+      <NuxtLink class="pa2 db fl fw4 link bg-white black mr2 pointer" tag="li" to="/">🏠 Home</NuxtLink>
+      <NuxtLink class="pa2 db fl fw4 link bg-white black mr2 pointer" tag="li" to="/projects">📋 Projects</NuxtLink>
+      <NuxtLink class="pa2 db fl fw4 link bg-white black mr2 pointer" tag="li" to="/blog/">📝 Blog</NuxtLink>
       <!-- <NuxtLink class="pa2 db fl fw4 link black bg-white mr3 mr4-l" tag="li" to="/photos/">Photos</NuxtLink> -->
     </ul>
   </nav>
 </template>
 <script setup>
-import { scaleLinear } from 'd3'
+// import { scaleLinear } from 'd3'
 import anime from 'animejs/lib/anime.es.js'
 
-const { x: mouseX, y: mouseY } = useMouse({ touch: false })
+// const { x: mouseX, y: mouseY } = useMouse({ touch: false })
 
 // determine the number of pixels between an element and the mouse
-function getDistanceFromMouse(el) {
-  const rect = el.getBoundingClientRect()
-  const x = rect.left + rect.width / 2
-  const y = rect.top + rect.height / 2
-  return Math.sqrt(Math.pow(mouseX.value - x, 2) + Math.pow(mouseY.value - y, 2))
-}
+// function getDistanceFromMouse(el) {
+//   const rect = el.getBoundingClientRect()
+//   const x = rect.left + rect.width / 2
+//   const y = rect.top + rect.height / 2
+//   return Math.sqrt(Math.pow(mouseX.value - x, 2) + Math.pow(mouseY.value - y, 2))
+// }
 
-const distanceColorScale = scaleLinear()
-  .domain([2.5, 400])
-  .range(['#ff0000', '#000000'])
+// const distanceColorScale = scaleLinear()
+//   .domain([2.5, 400])
+//   .range(['#ff0000', '#000000'])
 
 onMounted(() => {
 
-  function colorNavElements() {
-    console.log('coloring')
-    // color every li in the nav white to red, the closer it is to the mouse, the redder it is
-    const navElements = document.querySelectorAll('nav a')
+  // function colorNavElements() {
+  //   console.log('coloring')
+  //   // color every li in the nav white to red, the closer it is to the mouse, the redder it is
+  //   const navElements = document.querySelectorAll('nav a')
 
-    // find the distance from the mouse to each nav element
-    // then, map that distance to a color value
-    // then, set the color of the nav element to that color
-    const navColors = [...navElements].map(el => {
-      console.log({el})
-      const distance = getDistanceFromMouse(el)
-      console.log({distance})
-      // const color = Math.floor(255 - distance / 100)
-      const color = distanceColorScale(distance)
-      return color
-    })
+  //   // find the distance from the mouse to each nav element
+  //   // then, map that distance to a color value
+  //   // then, set the color of the nav element to that color
+  //   const navColors = [...navElements].map(el => {
+  //     console.log({el})
+  //     const distance = getDistanceFromMouse(el)
+  //     console.log({distance})
+  //     // const color = Math.floor(255 - distance / 100)
+  //     const color = distanceColorScale(distance)
+  //     return color
+  //   })
 
-    // set the color of each nav element
-    navElements.forEach((el, i) => {
-      el.style.color = navColors[i]
-      el.style.borderColor = navColors[i]
-      // make the border width of the nav element proportional to the distance from the mouse
-      el.style.borderWidth = `${getDistanceFromMouse(el) / 100}px`
-    })
-  }
+  //   // set the color of each nav element
+  //   navElements.forEach((el, i) => {
+  //     el.style.color = navColors[i]
+  //     el.style.borderColor = navColors[i]
+  //     // make the border width of the nav element proportional to the distance from the mouse
+  //     el.style.borderWidth = `${getDistanceFromMouse(el) / 100}px`
+  //   })
+  // }
 
-  watch([mouseX, mouseY], () => {
-    colorNavElements()
-  })
+  // watch([mouseX, mouseY], () => {
+  //   colorNavElements()
+  // })
 
 
 })
@@ -112,6 +112,9 @@ definePageMeta({
 })
 </script>
 <style>
+nav a {
+  transition: all 2ms ease-out;
+}
 #nav-circle-svg {
   height: 0.7em;
   width: 0.7em;

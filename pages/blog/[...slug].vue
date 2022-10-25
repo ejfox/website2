@@ -1,5 +1,6 @@
 <template>
   <main>
+
     <Head>
       <Title>{{ page.title }}</Title>
       <Meta name="description" :content="page.dek ? page.dek : page.description" />
@@ -22,21 +23,38 @@
     <!-- og image preview -->
     <!-- <img :src="ogImageUrl" /> -->
 
-    <div class="f4 pt2 near-black">
+    <div class="f4 near-black">
       <ContentDoc v-slot="{ doc }" :head="false">
-        <div class="db moon-gray fw1 f6 pv2">
-          <span class="mr4 gray">{{ formatBlogDate(new Date(doc.date)) }}</span>
-          <span class="mr4" v-if="doc.readingTime.words > 100">{{doc.readingTime.words}} words</span>
-          <span class="mr4">{{doc.readingTime.text}}</span>
-          <span class="mr4" v-if="countPhotos(doc) > 0">{{countPhotos(doc)}} photos</span>
+        <div class="page-metadata pa2">
+          <div class="db moon-gray fw1 f6 pv2">
+            <span class="mr4 gray">
+              <Icon name="ant-design:calendar-outlined" class="mr1 f6 pb1" />
+              {{ formatBlogDate(new Date(doc.date)) }}
+            </span>
+            <span class="mr4" v-if="doc.readingTime.words > 100">
+              <Icon name="bi:card-text" class="mr1 f6 pb1" />
+              {{ doc.readingTime.words }} words
+            </span>
+            <span class="mr4">
+              <Icon name="bi:clock-history" class="mr1 f6 pb1" />
+              {{ doc.readingTime.text }}
+            </span>
+            <span class="mr4" v-if="countPhotos(doc) > 0">
+              <Icon name="ant-design:camera-filled" class="mr1 f6 pb1" />
+              {{ countPhotos(doc) }} photos
+            </span>
 
-          <span class="mr4" v-if="countLinks(doc) > 0">{{countLinks(doc)}} links</span>
+            <span class="mr4" v-if="countLinks(doc) > 0">
+              <Icon name="bi:link" class="mr1 f6 pb1" />
+              {{ countLinks(doc) }} links
+            </span>
+          </div>
+          <div class="strong-tags f7 fw1 moon-gray mv1 i" v-if="filterStrongTags(doc).length > 0">Highlights:
+            <span v-for="tag in filterStrongTags(doc)" :key="tag"
+              class="tag dib mr2 mb2 ph1 pv1 bg-near-white">{{ tag }}</span>
+          </div>
         </div>
-        <div class="strong-tags f7 fw1 moon-gray mv1 i" v-if="filterStrongTags(doc).length > 0">Highlights: 
-              <span v-for="tag in filterStrongTags(doc)" :key="tag"
-                class="tag dib mr2 mb2 ph1 pv1 bg-near-white">{{tag}}</span>
-            </div>
-        <ContentRenderer :value="doc" class=""/>
+        <ContentRenderer :value="doc" class="" />
       </ContentDoc>
     </div>
 
@@ -45,18 +63,18 @@
         <span class="dib">&#8592;</span>
         {{ prev.title }}
         <div class="moon-gray f6 fw1">
-          {{formatDate(new Date(prev.date))}}
+          {{ formatDate(new Date(prev.date)) }}
         </div>
-        <p class="moon-gray fw1 f6 mv0">{{ countWords(prev) }} words</p>
+        <!-- <p class="moon-gray fw1 f6 mv0">{{ countWords(prev) }} words</p> -->
       </NuxtLink>
 
       <NuxtLink v-if="next" :to="next._path" class="pl2 w-40 w-20-ns link gray db absolute right-2 lh-title tr">
         {{ next.title }}
         <span class="dib">&#8594;</span>
         <div class="moon-gray f6 fw1 tr">
-          {{formatDate(new Date(next.date))}}
+          {{ formatDate(new Date(next.date)) }}
         </div>
-        <p class="moon-gray fw1 f6 mv0 tr">{{ countWords(next) }} words</p>
+        <!-- <p class="moon-gray fw1 f6 mv0 tr">{{ countWords(next) }} words</p> -->
       </NuxtLink>
     </div>
   </main>
@@ -103,14 +121,14 @@ const ogImageUrl = computed(() => {
   const pageElements = page.value?.body?.children
 
   // a pageElement looks like this 
-//   {
-//     "type": "element",
-//     "tag": "img",
-//     "props": {
-//         "src": "https://res.cloudinary.com/ejf/image/upload/v1544846833/20180509-DSCF9221.jpg"
-//     },
-//     "children": []
-// }
+  //   {
+  //     "type": "element",
+  //     "tag": "img",
+  //     "props": {
+  //         "src": "https://res.cloudinary.com/ejf/image/upload/v1544846833/20180509-DSCF9221.jpg"
+  //     },
+  //     "children": []
+  // }
 
   const cloudinaryPhoto = pageElements?.find(el => el?.props?.src?.includes('cloudinary'))
 
@@ -130,7 +148,7 @@ const ogImageUrl = computed(() => {
     // we use the 'crop' transformation to crop the photo to the template aspect ratio
     // we use the 'gravity' transformation to position the photo in the template
     // we use the 'scale' transformation to scale the photo to the template size
-    
+
     const url = `https://res.cloudinary.com/ejf/image/upload/dpr_2.0,c_fill,g_auto,w_1200/fl_progressive:semi,c_fill,h_630,g_auto/dpr_2.0,co_rgb:FFF,fl_region_relative,w_0.5,l_text:FjallaOne-Regular.ttf_92:${urlEncodedTitle}/${cloudinaryPhotoId}`
     return url
   }
