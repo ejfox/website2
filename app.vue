@@ -1,13 +1,13 @@
 <template>
   <div id="app-container" class="sans-serif w-100">
-    <Nav class="mv4 ma0 w-100 overflow-hidden" />
+    <Nav class="absolute mv4 mh0 w-100 overflow-hidden z-4 left-0 left-1-l top-0 pa1" />
 
-    <div id="page-overlay" class="fixed top-0 left-0 w-100 h-100 z-3 overflow-hidden" style="">
+    <div id="page-overlay" class="fixed top-0 left-0 w-100 h-100 z-3 overflow-hidden ma0" style="">
 
-      <canvas id="page-overlay-canvas" class="w-100 h-100"></canvas>
+      <canvas id="page-overlay-canvas" class="w-100 h-100 ma0 pa0"></canvas>
     </div>
 
-    <div class="w-100">
+    <div class="w-100 mt5">
       <NuxtPage />
     </div>
   </div>
@@ -19,7 +19,10 @@ const route = useRoute()
 watch(route, (oldVal, newVal) => {
   if (newVal.hash !== '') return
   nextTick(() => {
-    animateOverlayOut()
+    // wait 100ms and then animateOverlayOut
+    setTimeout(() => {
+      animateOverlayOut()
+    }, 100)
   })
 })
 
@@ -29,7 +32,7 @@ function animateOverlayOut() {
       opacity: [1, 0],
       easing: 'easeOutQuad',
       duration: 500,
-      delay: 1050,
+      delay: 500,
     })
 }
 
@@ -48,6 +51,9 @@ onMounted(() => {
 
   // get canvas context
   const ctx = canvas.getContext('2d')
+
+  // make sure the canvas is not transparent
+  canvas.style.opacity = 1
 
 
   // draw a circle at the mouse x/y

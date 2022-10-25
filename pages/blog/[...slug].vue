@@ -25,7 +25,7 @@
 
     <div class="f4 near-black">
       <ContentDoc v-slot="{ doc }" :head="false">
-        <div class="page-metadata pa2">
+        <div class="page-metadata pt4 pt6-l ml2 ml6-l">
           <div class="db moon-gray fw1 f6 pv2">
             <span class="mr4 gray">
               <Icon name="ant-design:calendar-outlined" class="mr1 f6 pb1" />

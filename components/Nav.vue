@@ -1,15 +1,7 @@
 <template>
   <nav class="">
-
-    <!-- use mouse x and y and 3d perspective to make the nav rotate slightly to face the mouse corsoe-->
-    <!-- :style="{
-      transform: `rotateY(-${mouseX * 0.025}deg) rotateZ(-${mouseY * 0.0025}deg) scaleZ(${mouseY * 0.0005 + 5}) translateY(-${mouseY * 0.05 + 5}px)`,
-      transformOrigin: '20% 50%',        
-      perspective: '10px',
-    
-    }" -->
     <ul class="list ma0 pa1" >
-      <li class="pv2 db fl fw8 link red bg-white mr4 mr5-l tracked">
+      <li class="pa2 db fl fw8 link red bg-white mr2 tracked">
         <!-- little red circle in html -->
         <!-- <span class="dib w1 h1 br-100 bg-red v-bottom"></span> -->
         <!-- little red circle in svg -->
@@ -31,67 +23,16 @@
 // import { scaleLinear } from 'd3'
 import anime from 'animejs/lib/anime.es.js'
 
-// const { x: mouseX, y: mouseY } = useMouse({ touch: false })
-
-// determine the number of pixels between an element and the mouse
-// function getDistanceFromMouse(el) {
-//   const rect = el.getBoundingClientRect()
-//   const x = rect.left + rect.width / 2
-//   const y = rect.top + rect.height / 2
-//   return Math.sqrt(Math.pow(mouseX.value - x, 2) + Math.pow(mouseY.value - y, 2))
-// }
-
-// const distanceColorScale = scaleLinear()
-//   .domain([2.5, 400])
-//   .range(['#ff0000', '#000000'])
-
-onMounted(() => {
-
-  // function colorNavElements() {
-  //   console.log('coloring')
-  //   // color every li in the nav white to red, the closer it is to the mouse, the redder it is
-  //   const navElements = document.querySelectorAll('nav a')
-
-  //   // find the distance from the mouse to each nav element
-  //   // then, map that distance to a color value
-  //   // then, set the color of the nav element to that color
-  //   const navColors = [...navElements].map(el => {
-  //     console.log({el})
-  //     const distance = getDistanceFromMouse(el)
-  //     console.log({distance})
-  //     // const color = Math.floor(255 - distance / 100)
-  //     const color = distanceColorScale(distance)
-  //     return color
-  //   })
-
-  //   // set the color of each nav element
-  //   navElements.forEach((el, i) => {
-  //     el.style.color = navColors[i]
-  //     el.style.borderColor = navColors[i]
-  //     // make the border width of the nav element proportional to the distance from the mouse
-  //     el.style.borderWidth = `${getDistanceFromMouse(el) / 100}px`
-  //   })
-  // }
-
-  // watch([mouseX, mouseY], () => {
-  //   colorNavElements()
-  // })
-
-
-})
-
-
-
 onMounted(() => {
   // use anime to animate the intro text
   anime({
     targets: 'nav a',
     opacity: [0, 1],
-    translateX: [-20, 0],
+    translateX: ["-400%", 0],
     backgroundColor: ['#fff', 'rgba(255,255,255,0.'],
     easing: 'easeOutQuad',
-    duration: 400,
-    delay: anime.stagger(150),
+    duration: 550,
+    delay: anime.stagger(170),
   })
 
   // make a loop where the red circle radius grows and shrinks
