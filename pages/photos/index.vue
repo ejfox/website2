@@ -1,18 +1,19 @@
 <template>
   <main class="pt4">
-
     <Head>
       <Title>EJ Fox: 📸 Photos</Title>
     </Head>
     <ContentQuery path="/photos/" :sort="{ date: -1 }" v-slot="{ data }">
-      <div v-for="article in data" :key="article._path"
-        class="">
-        <ContentQuery :path="article._path" v-slot="{ data }" find="one" :limit="25">
+      <div v-for="article in data" :key="article._path" class="">
+        <ContentQuery
+          :path="article._path"
+          v-slot="{ data }"
+          find="one"
+          :limit="25"
+        >
           <ContentRenderer :value="data">
-            <NuxtLink
-              :to="article._path"
-              class="link">
-            <ContentRendererMarkdown :value="data"  />
+            <NuxtLink :to="article._path" class="link">
+              <ContentRendererMarkdown :value="data" />
             </NuxtLink>
           </ContentRenderer>
         </ContentQuery>
@@ -21,16 +22,15 @@
   </main>
 </template>
 <script setup lang="ts">
-import { countPhotos, filterStrongTags } from '~/helpers'
-import anime from 'animejs/lib/anime.es.js'
-import { timeFormat } from 'd3-time-format'
+import { countPhotos, filterStrongTags } from "~/helpers";
+import anime from "animejs/lib/anime.es.js";
+import { timeFormat } from "d3-time-format";
 
 definePageMeta({
-  documentDriven: false
-})
+  documentDriven: false,
+});
 
-const formatDate = timeFormat('%B %d, %Y')
-
+const formatDate = timeFormat("%B %d, %Y");
 
 onMounted(() => {
   // use anime to animate the intro text
@@ -42,14 +42,15 @@ onMounted(() => {
   //   duration: 720,
   //   delay: anime.stagger(250),
   // })
-})
+});
 </script>
 <style>
-a:link, a:hover {
+a:link,
+a:hover {
   cursor: default;
 }
 .headline-sans-serif {
-  font-family: 'Fjalla One', sans-serif;
+  font-family: "Fjalla One", sans-serif;
 }
 
 .footnotes ul,
@@ -61,7 +62,6 @@ a:link, a:hover {
 }
 
 @media screen and (min-width: 60em) {
-
   .footnotes ul,
   .footnotes ol {
     margin-left: 8rem;

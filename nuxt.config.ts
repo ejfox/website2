@@ -2,59 +2,80 @@ export default {
   app: {
     head: {
       bodyAttrs: {
-        class: 'ma0 pa0'
+        class: "ma0 pa0",
       },
-      charset: 'utf-16',
-      title: 'EJ Fox',
+      charset: "utf-16",
+      title: "EJ Fox",
       meta: [
-        { name: 'description', content: 'EJ Fox: Hacker, Journalist, & Dataviz Specialist finding interesting ways to look at the world by exploring and explaining data ' },
+        {
+          name: "description",
+          content:
+            "EJ Fox: Hacker, Journalist, & Dataviz Specialist finding interesting ways to look at the world by exploring and explaining data ",
+        },
 
         // opengraph tags
-        { property: 'og:title', content: 'EJ Fox' },
-        { property: 'og:description', content: 'EJ Fox: Hacker, Journalist, & Dataviz Specialist finding interesting ways to look at the world by exploring and explaining data ' },
-        { property: 'og:image', content: 'https://ejfox.com/og-image.png' },
-        { property: 'og:url', content: 'https://ejfox.com' },
-        { property: 'og:type', content: 'website' },
+        { property: "og:title", content: "EJ Fox" },
+        {
+          property: "og:description",
+          content:
+            "EJ Fox: Hacker, Journalist, & Dataviz Specialist finding interesting ways to look at the world by exploring and explaining data ",
+        },
+        { property: "og:image", content: "https://ejfox.com/og-image.png" },
+        { property: "og:url", content: "https://ejfox.com" },
+        { property: "og:type", content: "website" },
 
         // twitter opengraph tags
-        { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:site', content: '@mrejfox' },
-        { name: 'twitter:creator', content: '@mrejfox' },
-        { name: 'twitter:title', content: 'EJ Fox' },
-        { name: 'twitter:description', content: 'EJ Fox: Hacker, Journalist, & Dataviz Specialist finding interesting ways to look at the world by exploring and explaining data ' },
-        { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' },
-
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:site", content: "@mrejfox" },
+        { name: "twitter:creator", content: "@mrejfox" },
+        { name: "twitter:title", content: "EJ Fox" },
+        {
+          name: "twitter:description",
+          content:
+            "EJ Fox: Hacker, Journalist, & Dataviz Specialist finding interesting ways to look at the world by exploring and explaining data ",
+        },
+        { name: "twitter:image", content: "https://ejfox.com/og-image.png" },
       ],
-    }
+    },
   },
-  modules: ['@nuxt/content', '@nuxtjs/google-fonts', '@vueuse/nuxt', 'nuxt-icon'],
-  css: ["tachyons/css/tachyons.min.css", '~/assets/main.css'],
+  modules: [
+    "@nuxt/content",
+    "@nuxtjs/google-fonts",
+    "@vueuse/nuxt",
+    "nuxt-icon",
+  ],
+  css: ["tachyons/css/tachyons.min.css", "~/assets/main.css"],
   pageTransition: {
-    name: 'page',
-    mode: 'out-in'
+    name: "page",
+    mode: "out-in",
     // mode: 'in-out'
   },
   content: {
     documentDriven: true,
     markdown: {
-      remarkPlugins: ['remark-reading-time', 'remark-gfm', 'remark-emoji', 'remark-unwrap-images'],      
+      remarkPlugins: [
+        "remark-reading-time",
+        "remark-gfm",
+        "remark-emoji",
+        "remark-unwrap-images",
+      ],
     },
     highlight: {
-      preload: ['sql'],
+      preload: ["sql"],
       theme: {
         // Default theme (same as single string)
-        default: 'github-light',
+        default: "github-light",
         // // Theme used if `html.dark`
         // dark: 'github-dark',
         // // Theme used if `html.light`
         // light: 'min-light',
-      }
+      },
     },
     watch: {
       ws: {
-        port: 4000
-      }
-    }
+        port: 4000,
+      },
+    },
   },
   // unocss: {
   //   // presets
@@ -89,17 +110,17 @@ export default {
   googleFonts: {
     prefetch: true,
     families: {
-      'Signika Negative': [300, 400, 500, 600, 700],
-      'Paytone One': [400],
-      'Fjalla One': [400],
+      "Signika Negative": [300, 400, 500, 600, 700],
+      "Paytone One": [400],
+      "Fjalla One": [400],
       // Finlandica: [400, 500, 700],
     },
   },
   vite: {
     server: {
       watch: {
-        usePolling: true
-      }
-    }
-  }
-}
+        usePolling: true,
+      },
+    },
+  },
+};

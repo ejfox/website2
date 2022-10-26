@@ -5,7 +5,7 @@
   />
 </template>
 <script setup>
-defineProps(['url'])
+defineProps(["url"]);
 </script>
 <style>
 .hero-image {

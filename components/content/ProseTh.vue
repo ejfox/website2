@@ -3,6 +3,4 @@
     <slot />
   </th>
 </template>
-<style>
-
-</style>
+<style></style>

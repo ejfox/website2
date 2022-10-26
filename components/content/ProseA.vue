@@ -2,55 +2,64 @@
 const props = defineProps({
   href: {
     type: String,
-    default: ''
+    default: "",
   },
   blank: {
     type: Boolean,
-    default: false
-  }
-})
+    default: false,
+  },
+});
 
 // check if the href is linking to wikipedia, github, youtube, or twitter, and if so, add the social icon
 const isSocial = computed(() => {
-  return props.href.includes('wikipedia') || props.href.includes('github') || props.href.includes('youtube') || props.href.includes('twitter')
-})
+  return (
+    props.href.includes("wikipedia") ||
+    props.href.includes("github") ||
+    props.href.includes("youtube") ||
+    props.href.includes("twitter")
+  );
+});
 
 const socialPlatform = computed(() => {
-  if (props.href.includes('wikipedia')) {
-    return 'wikipedia'
-  } else if (props.href.includes('github')) {
-    return 'github'
-  } else if (props.href.includes('youtube')) {
-    return 'youtube'
-  } else if (props.href.includes('twitter')) {
-    return 'twitter'
-  } else if (props.href.includes('keybase')) {
-    return 'keybase'
-  } else if (props.href.includes('itunes.apple')) {
-    return 'apple'
-  } else if (props.href.includes('observablehq')) {
-    return 'observablehq'
-  } else if (props.href.includes('mailto:')) {
-    return 'email'
+  if (props.href.includes("wikipedia")) {
+    return "wikipedia";
+  } else if (props.href.includes("github")) {
+    return "github";
+  } else if (props.href.includes("youtube")) {
+    return "youtube";
+  } else if (props.href.includes("twitter")) {
+    return "twitter";
+  } else if (props.href.includes("keybase")) {
+    return "keybase";
+  } else if (props.href.includes("itunes.apple")) {
+    return "apple";
+  } else if (props.href.includes("observablehq")) {
+    return "observablehq";
+  } else if (props.href.includes("mailto:")) {
+    return "email";
+  } else {
+    return null;
   }
-  else {
-    return null
-  }
-})
+});
 
 const isInternalLink = computed(() => {
   // return props.href.startsWith('/') || props.href.startsWith('https://ejfox.com')
-  if ( props.href.startsWith('/') ) return true
-  if ( props.href.startsWith('https://ejfox.com') ) return true
-  else return false
-})
+  if (props.href.startsWith("/")) return true;
+  if (props.href.startsWith("https://ejfox.com")) return true;
+  else return false;
+});
 
 // check if the href is linking to a file, and if so, add the file icon
-
 </script>
 
 <template>
-  <NuxtLink :href="href" :class="['link near-black dim fw5', isInternalLink ? 'fw6 underline' : 'underline']">
+  <NuxtLink
+    :href="href"
+    :class="[
+      'link near-black dim fw5',
+      isInternalLink ? 'fw6 underline' : 'underline',
+    ]"
+  >
     <slot />
     <sup v-if="socialPlatform === 'wikipedia'">
       <Icon name="simple-icons:wikipedia" class="ml1" />

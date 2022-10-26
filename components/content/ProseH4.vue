@@ -7,10 +7,11 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{ id: string }>()
+defineProps<{ id: string }>();
 </script>
 <style scoped>
-a:link, a:hover {
+a:link,
+a:hover {
   cursor: default !important;
 }
 </style>

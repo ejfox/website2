@@ -3,7 +3,7 @@ dek: In which the author proudly lays out his toolkit
 type: words
 hidden: false
 inprogress: false
-date: '2019-03-24T21:19:39-04:00'
+date: "2019-03-24T21:19:39-04:00"
 hidetimestamp: false
 ---
 
@@ -135,7 +135,7 @@ BTC=3DE42VUyUKSikQ9eUeFKv2EkKVms7Pmd1G
 BCH=qrwzlfjhhn8jdx92a8m8e2kuxcchmmvdgguqgy23a7
 ETH=0x63958715F8e9Fd6CF0652394a89bb2AdD0a11686
 LTC=MDvtqRMS6QiiXpYgxtgZKHPrYnLovjdcsZ
-XLM=ejfox*keybase.io
+XLM=ejfox\*keybase.io
 ```
 
 If I was teaching a stranger or a relative about bitcoin, I would probably show them [Yenom](https://yenom.tech/) which makes it ridiculously easy to send/receive BCH. I sort of recommend Coinbase, but they’ve done [things that make me nervous](https://twitter.com/mrejfox/status/928332448068403201) in the past and are incredibly bad at responding to support requests for a company that holds people’s money. I still use the Coinbase iOS app but I do it semi-warily.

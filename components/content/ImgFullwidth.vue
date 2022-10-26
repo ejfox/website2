@@ -6,6 +6,6 @@
   />
 </template>
 <script setup>
-defineProps(['url', 'width'])
+defineProps(["url", "width"]);
 </script>
 <style></style>

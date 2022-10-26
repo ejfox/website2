@@ -1,33 +1,36 @@
-
 <script setup>
 const props = defineProps({
   code: {
     type: String,
-    default: ''
+    default: "",
   },
   language: {
     type: String,
-    default: null
+    default: null,
   },
   filename: {
     type: String,
-    default: null
+    default: null,
   },
   highlights: {
     type: Array,
-    default: () => []
-  }
-})
+    default: () => [],
+  },
+});
 
 // make a computed for the length of the code string
-const codeCharCount = computed(() => props.code.length)
-const codeLineCount = computed(() => props.code.split('\n').length - 1)
-
+const codeCharCount = computed(() => props.code.length);
+const codeLineCount = computed(() => props.code.split("\n").length - 1);
 </script>
 
 <template>
   <div
-    :class="['overflow-x-auto w-100 ph3', codeCharCount > 100 ? 'f5 fw3' : 'f3', codeLineCount > 1 ? 'with-line-numbers' : '']">
+    :class="[
+      'overflow-x-auto w-100 ph3',
+      codeCharCount > 100 ? 'f5 fw3' : 'f3',
+      codeLineCount > 1 ? 'with-line-numbers' : '',
+    ]"
+  >
     <!-- {{slot}} -->
     <slot />
   </div>
@@ -50,7 +53,6 @@ pre code .line {
   margin-top: 0.15rem;
 }
 
-
 .with-line-numbers code {
   counter-reset: step;
   counter-increment: step 0;
@@ -64,7 +66,7 @@ pre code .line {
   margin-right: 1rem;
   display: inline-block;
   text-align: right;
-  color: rgba(115,138,148,.3)
+  color: rgba(115, 138, 148, 0.3);
 }
 
 .with-line-numbers code .line::before {
@@ -73,7 +75,6 @@ pre code .line {
 
 /* add a stripe to every other line */
 .with-line-numbers code .line:nth-child(2n) {
-  background: rgba(115,138,148,.025);
+  background: rgba(115, 138, 148, 0.025);
 }
-
 </style>

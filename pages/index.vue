@@ -1,6 +1,6 @@
 <template>
   <section class="db cf mb4">
-    <section class="intro pa2 lh-copy f4 measure">
+    <section class="intro pa2 pl4-ns lh-copy f4 measure">
       <ContentDoc />
     </section>
 
@@ -24,17 +24,18 @@
   </section>
 </template>
 <script setup>
-// import anime from 'animejs/lib/anime.es.js'
-// onMounted(() => {
-//   // use anime to animate the intro text
-//   anime({
-//     targets: '.intro p',
-//     opacity: [0, 1],
-//     easing: 'easeInOutQuad',
-//     duration: 1000,
-//     delay: 1000,
-//   })
-// })
+import anime from "animejs/lib/anime.es.js";
+onMounted(() => {
+  // use anime to animate the intro text
+  anime({
+    targets: ".intro p",
+    opacity: [0, 1],
+    translateX: ["-100%", 0],
+    easing: "easeOutQuad",
+    duration: 2200,
+    delay: 1000,
+  });
+});
 </script>
 
 <style>
