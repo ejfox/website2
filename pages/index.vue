@@ -29,10 +29,17 @@ onMounted(() => {
   // use anime to animate the intro text
   anime({
     targets: ".intro p",
-    opacity: [0, 1],
     translateX: ["-100%", 0],
+    easing: "easeInQuad",
+    duration: 1200,
+    delay: 100
+  });
+
+  anime({
+    targets: ".intro p",
+    opacity: [0, 1],
     easing: "easeOutQuad",
-    duration: 2200
+    duration: 1300,
   });
 });
 </script>

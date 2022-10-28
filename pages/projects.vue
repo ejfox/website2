@@ -228,7 +228,7 @@ td {
 .screenshot-bg .wrapper-div {
   padding: 0;
   margin: 0;
-  transition: background-color 0.77s cubic-bezier(0.5, 1, 0.89, 1);
+  transition: background-color 1.02s cubic-bezier(0.5, 1, 0.89, 1);
   transition-delay: 33ms;
 }
 
