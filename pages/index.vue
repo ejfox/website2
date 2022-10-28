@@ -32,8 +32,7 @@ onMounted(() => {
     opacity: [0, 1],
     translateX: ["-100%", 0],
     easing: "easeOutQuad",
-    duration: 2200,
-    delay: 1000,
+    duration: 2200
   });
 });
 </script>
