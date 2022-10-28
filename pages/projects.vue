@@ -129,7 +129,7 @@ function processProjectCloudinaryUrl(cloudinaryUrl) {
   // then add our blur to the path
   const newPath = path.replace(
     "upload",
-    `upload/q_auto:eco/f_auto/e_blur:900,e_grayscale/${w_string}`
+    `upload/q_auto:eco/f_auto/e_grayscale/e_blur:600/${w_string}`
   );
 
   // then add the new path to the URL
