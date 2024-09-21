@@ -1,0 +1,43 @@
+{
+  "name": "website2",
+  "version": "0.0.2",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "prettier": "prettier {*.*,**/*.*} --single-quote --write",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "^1.4.2",
+    "@types/node": "^22.5.5",
+    "gray-matter": "^4.0.3",
+    "js-yaml": "^4.1.0",
+    "nuxt": "^3.13.1",
+    "rehype-katex": "^7.0.1",
+    "rehype-stringify": "^10.0.0",
+    "remark-emoji": "^5.0.1",
+    "remark-frontmatter": "^5.0.0",
+    "remark-math": "^6.0.0",
+    "remark-obsidian": "^1.8.0",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.1",
+    "shiki": "^1.18.0",
+    "unified": "^11.0.5"
+  },
+  "dependencies": {
+    "@nuxt/content": "^2.13.2",
+    "@nuxt/ui": "^2.18.5",
+    "@nuxtjs/google-fonts": "^3.2.0",
+    "@nuxtjs/supabase": "^1.4.0",
+    "@vueuse/motion": "^2.2.5",
+    "@vueuse/nuxt": "^11.0.3",
+    "d3": "^7.9.0",
+    "eslint-config-prettier": "^9.1.0",
+    "v-onboarding": "^2.8.2"
+  },
+  "license": "UNLICENSED"
+}
