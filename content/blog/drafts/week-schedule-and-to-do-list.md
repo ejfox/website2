@@ -4,6 +4,7 @@ dek: "In which"
 inprogress: true
 date: "2023-03-15T19:07:34.000Z"
 modified: "2024-07-18T19:10:59.000Z"
+tags: []
 hidden: true
 ---
 ## How I Carefully Schedule Out My Week for Maximum Productivity

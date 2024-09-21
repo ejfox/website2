@@ -1,9 +1,9 @@
 ---
 dek: "In which I recount my journey from idolizing the concept of scale in Silicon Valley to embracing the more sustainable, disciplined approach in technology"
 inprogress: true
-date: "Invalid date"
-modified: "2023-12-18T00:12:44.000Z"
-tags: "Silicon Valley, Technology, Sustainability, Scale, Personal Growth"
+date: "2024-04-25T21:21:40.000Z"
+modified: "2024-09-21T19:04:06.000Z"
+tags: ["tech"]
 hidden: true
 draft: true
 ---

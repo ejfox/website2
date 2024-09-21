@@ -1,8 +1,9 @@
 ---
 date: "2024-04-20T18:42:43.000Z"
-modified: "2024-04-21T22:41:56.000Z"
+modified: "2024-07-18T18:48:54.000Z"
 hidden: true
 draft: true
+tags: ["art","internet","photography","journalism","design"]
 ---
 When making things on the internet, the attraction of just doing what other people want is always there. But I think when making things on the internet, there are a few key principles that I believe in.
 

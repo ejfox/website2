@@ -2,8 +2,8 @@
 dek: "In which we put words into space and then explore the constellations they create"
 inprogress: true
 date: "2023-07-16T20:34:14.000Z"
-modified: "2024-08-02T16:28:36.000Z"
-tags: "programming howto machinelearning"
+modified: "2024-09-20T04:24:52.000Z"
+tags: ["art","machinelearning","database","javascript","coding","data","visualization","programming"]
 hidden: true
 draft: true
 ---

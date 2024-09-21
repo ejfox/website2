@@ -1,8 +1,9 @@
 ---
 date: "2024-04-21T20:10:33.000Z"
-modified: "2024-04-23T17:26:05.000Z"
+modified: "2024-06-21T14:08:30.000Z"
 hidden: true
 draft: true
+tags: ["data","database","dataset","dataviz","sqlite","api"]
 ---
 So you have a bunch of data and you’ve built a nice frontend for it. But its a bit too big to have your users download the entire thing, but too small to dedicate hosting a database for it forever. What are your options?
 

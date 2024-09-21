@@ -4,7 +4,7 @@ dek: "In which we use Cloudinary both as a host and CMS to show photos that we t
 inprogress: true
 date: "2022-12-05T23:34:09.000Z"
 modified: "2024-07-18T18:30:19.000Z"
-tags: null
+tags: ["automation"]
 hidden: true
 ---
 ## Creating a photoblog with Cloudinary and Nuxt

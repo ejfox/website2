@@ -1,7 +1,7 @@
 ---
 date: "2023-01-19T06:20:13.000Z"
-modified: "2023-09-09T19:14:09.000Z"
-tags: "personal"
+modified: "2024-09-20T04:25:48.000Z"
+tags: ["art","design","inspiration"]
 hidden: true
 draft: true
 ---

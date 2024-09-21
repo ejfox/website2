@@ -4,8 +4,18 @@ import { resolve } from 'path'
 
 export default defineEventHandler(async (event) => {
   try {
-    const slug = event.context.params.slug
-    const postPath = resolve(process.cwd(), `dist/processed/${slug}.json`)
+    let slugParts = event.context.params.slug
+    if (typeof slugParts === 'string') {
+      // Split by both comma and slash to handle different possible formats
+      slugParts = slugParts.split(/[,\/]/)
+    }
+    const slug = slugParts.join('/')
+    const postPath = resolve(process.cwd(), 'dist', 'processed', `${slug}.json`)
+
+    console.log('Slug parts:', slugParts)
+    console.log('Joined slug:', slug)
+    console.log('Full post path:', postPath)
+
     const postContent = await readFile(postPath, 'utf-8')
     return JSON.parse(postContent)
   } catch (error) {

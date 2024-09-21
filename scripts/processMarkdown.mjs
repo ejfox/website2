@@ -12,9 +12,6 @@ import remarkMermaid from 'remark-mermaidjs'
 import remarkGfm from 'remark-gfm'
 import remarkUnwrapImages from 'remark-unwrap-images'
 import rehypeMermaid from 'rehype-mermaid'
-import { createMermaidRenderer } from 'mermaid-isomorphic'
-
-const mermaidRenderer = createMermaidRenderer()
 
 import { visit } from 'unist-util-visit'
 import matter from 'gray-matter'
@@ -25,8 +22,7 @@ const __dirname = path.dirname(__filename)
 const contentDir = path.join(__dirname, '..', 'content', 'blog')
 const outputDir = path.join(__dirname, '..', 'dist', 'processed')
 
-const CLOUDINARY_BASE_URL =
-  'https://res.cloudinary.com/ejf/image/upload/w_900/dpr_auto/'
+const CLOUDINARY_BASE_URL = 'https://res.cloudinary.com/ejf/image/upload/'
 
 async function processMarkdown(filePath) {
   const fileContent = await fs.readFile(filePath, 'utf8')
@@ -49,16 +45,14 @@ async function processMarkdown(filePath) {
     .use(rehypeStringify, { allowDangerousHtml: true })
 
   const ast = processor.parse(content)
-  const { firstH1, toc } = extractHeadersAndToc(ast)
-  // Process Mermaid diagrams
-  // await processMermaidDiagrams(ast)
+  const { firstHeading, toc } = extractHeadersAndToc(ast)
 
   const result = await processor.run(ast)
 
   const html = processor.stringify(result)
 
   const wordCount = content.split(/\s+/).length
-  const readingTime = Math.ceil(wordCount / 200)
+  const readingTime = Math.ceil(wordCount / 250)
   const imageCount = (content.match(/!\[.*?\]\(.*?\)/g) || []).length
   const linkCount = (content.match(/\[.*?\]\(.*?\)/g) || []).length
 
@@ -66,32 +60,14 @@ async function processMarkdown(filePath) {
     html,
     metadata: {
       ...frontmatter,
-      title: frontmatter.title || firstH1 || path.basename(filePath, '.md'),
+      title:
+        frontmatter.title || firstHeading || path.basename(filePath, '.md'),
       toc,
       wordCount,
       readingTime,
       imageCount,
       linkCount
     }
-  }
-}
-
-async function processMermaidDiagrams(ast) {
-  const mermaidNodes = []
-  visit(ast, 'code', (node) => {
-    if (node.lang === 'mermaid') {
-      mermaidNodes.push(node)
-    }
-  })
-
-  if (mermaidNodes.length > 0) {
-    const diagrams = mermaidNodes.map((node) => node.value)
-    const renderedDiagrams = await mermaidRenderer(diagrams)
-
-    mermaidNodes.forEach((node, index) => {
-      node.type = 'html'
-      node.value = renderedDiagrams[index].svg
-    })
   }
 }
 
@@ -131,7 +107,7 @@ function remarkCustomElements() {
 }
 
 function extractHeadersAndToc(tree) {
-  let firstH1 = null
+  let firstHeading = null
   const toc = []
   let currentH2 = null
 
@@ -140,9 +116,11 @@ function extractHeadersAndToc(tree) {
       const headingText = node.children[0].value
       const headingSlug = generateSlug(headingText)
 
-      if (node.depth === 1 && !firstH1) {
-        firstH1 = headingText
-      } else if (node.depth === 2) {
+      if (!firstHeading && (node.depth === 1 || node.depth === 2)) {
+        firstHeading = headingText
+      }
+
+      if (node.depth === 2) {
         currentH2 = {
           text: headingText,
           slug: headingSlug,
@@ -160,7 +138,7 @@ function extractHeadersAndToc(tree) {
     }
   })
 
-  return { firstH1, toc }
+  return { firstHeading, toc }
 }
 
 function generateSlug(str) {
@@ -198,26 +176,35 @@ function processLink(href) {
 
 async function processAllFiles() {
   const manifestLite = []
-  const files = await fs.readdir(contentDir)
 
-  for (const file of files) {
-    if (path.extname(file) === '.md') {
-      const filePath = path.join(contentDir, file)
-      const { html, metadata } = await processMarkdown(filePath)
+  async function processDirectory(dir) {
+    const entries = await fs.readdir(dir, { withFileTypes: true })
 
-      const slug = generateSlug(path.basename(file, '.md'))
-      const outputPath = path.join(outputDir, `${slug}.json`)
+    for (const entry of entries) {
+      const fullPath = path.join(dir, entry.name)
 
-      await fs.mkdir(outputDir, { recursive: true })
+      if (entry.isDirectory()) {
+        await processDirectory(fullPath)
+      } else if (entry.isFile() && path.extname(entry.name) === '.md') {
+        const { html, metadata } = await processMarkdown(fullPath)
 
-      await fs.writeFile(
-        outputPath,
-        JSON.stringify({ slug, ...metadata, content: html }, null, 2)
-      )
+        const relativePath = path.relative(contentDir, fullPath)
+        const slug = relativePath.replace(/\.md$/, '')
+        const outputPath = path.join(outputDir, `${slug}.json`)
 
-      manifestLite.push({ slug, ...metadata })
+        await fs.mkdir(path.dirname(outputPath), { recursive: true })
+
+        await fs.writeFile(
+          outputPath,
+          JSON.stringify({ slug, ...metadata, content: html }, null, 2)
+        )
+
+        manifestLite.push({ slug, ...metadata })
+      }
     }
   }
+
+  await processDirectory(contentDir)
 
   await fs.writeFile(
     path.join(outputDir, 'manifest-lite.json'),

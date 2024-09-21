@@ -2,19 +2,19 @@
 dek: "In which we attempt to replace aimless scrolling with intentional creativity"
 inprogress: true
 date: "2023-08-04T20:41:57.000Z"
-modified: "2023-09-09T18:57:38.000Z"
-tags: "art"
+modified: "2024-09-20T04:18:55.000Z"
+tags: ["ios","design","art"]
 hidden: true
 draft: true
 ---
-# Best iOS Apps For Daily Creativity
+## Best iOS Apps For Daily Creativity
 
-## Procreate Pocket
+### Procreate Pocket
 
-## ChatGPT / OpenAI Playground
+### ChatGPT / OpenAI Playground
 
-## Obsidian
+### Obsidian
 
-## Instagram
+### Instagram
 
-## iMovie
+### iMovie

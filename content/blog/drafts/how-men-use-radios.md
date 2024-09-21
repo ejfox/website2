@@ -2,8 +2,8 @@
 dek: "In which we learn to use radios to the best of our ability"
 inprogress: true
 date: "2023-09-03T16:33:47.000Z"
-modified: "2023-12-18T00:11:21.000Z"
-tags: "howto"
+modified: "2024-09-20T04:25:03.000Z"
+tags: ["culture","code","media","journalism"]
 hidden: true
 draft: true
 ---

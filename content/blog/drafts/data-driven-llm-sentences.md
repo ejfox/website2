@@ -2,8 +2,8 @@
 dek: "In which we give the robot a bunch of data and ask it to tell us what it means"
 inprogress: true
 date: "2023-07-19T12:27:21.000Z"
-modified: "2023-12-18T00:11:07.000Z"
-tags: "machinelearning data"
+modified: "2024-09-20T04:19:31.000Z"
+tags: ["datajournalism","dataviz","gpt3","journalism","media","visualization"]
 hidden: true
 draft: true
 ---

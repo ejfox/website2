@@ -3,7 +3,7 @@ dek: "See behind the scenes of election night coverage with Electology, the new 
 inprogress: true
 date: "2022-12-05T23:34:09.000Z"
 modified: "2024-05-16T18:14:44.000Z"
-tags: null
+tags: ["elections","data","dataviz","visualization","tv","webdesign"]
 hidden: true
 draft: true
 ---

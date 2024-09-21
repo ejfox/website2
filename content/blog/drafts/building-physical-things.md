@@ -5,6 +5,7 @@ inprogress: true
 date: "2022-12-31T23:49:03.000Z"
 modified: "2022-12-31T23:49:34.000Z"
 hidden: true
+tags: ["woodworking"]
 ---
 # Experiments in woodworking + sculpture spring 2022
 

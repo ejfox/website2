@@ -3,7 +3,7 @@ dek: "In which"
 inprogress: true
 date: "2023-09-30T21:07:44.000Z"
 modified: "2023-12-18T00:19:45.000Z"
-tags: null
+tags: ["food","personal"]
 hidden: true
 draft: true
 ---

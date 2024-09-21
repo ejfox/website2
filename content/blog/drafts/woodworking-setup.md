@@ -1,18 +1,19 @@
 ---
 date: "2022-12-18T22:03:21.000Z"
-modified: "2022-12-31T23:47:57.000Z"
+modified: "2024-07-18T18:42:03.000Z"
 hidden: true
 draft: true
+tags: ["woodworking","inspiration"]
 ---
-# A basic setup of tools
+## A basic setup of tools
 
-#personal 
+#personal
 
-## Material lingua franca
+### Material lingua franca
 
 For the time being, it is much easier to limit oneself in materials and work within those limitations than to try and understand the vast world of woodworking materials.
 
-### Plywood
+#### Plywood
 
 [Love Letter to Plywood. By Tom Sachs - YouTube](https://www.youtube.com/watch?v=pVxldyIa0Bg)
 
@@ -20,7 +21,7 @@ Plywood: 7-ply, 3/4", AC, Fir – 4ft x 8ft (66lbs)
 
 48" x 96"
 
-### Lumber
+#### Lumber
 - 1x2
 - 1x4
 - 2x2
@@ -28,9 +29,9 @@ Plywood: 7-ply, 3/4", AC, Fir – 4ft x 8ft (66lbs)
 
 Inspired by [Van Neistat](https://www.youtube.com/@vanneistat)
 
-## To buy
+### To buy
 
-### Tools
+#### Tools
 
 dewalt, bosch, milwaukee
 
@@ -46,7 +47,7 @@ dewalt, bosch, milwaukee
 - Dremel 8260 $170
 - milwaukee 12 volt cordless drill
 
-#### Screwdrivers
+##### Screwdrivers
 - #1 phillips screwdriver
 - #2 phillips screwdriver
 - #3 phillips head screwdriver
@@ -55,7 +56,7 @@ dewalt, bosch, milwaukee
 - wood & metal bit set
 - screwdriver bit holder
 
-### Equipment
+#### Equipment
 - Eye protection
 - Angle grinder
 - Magnets

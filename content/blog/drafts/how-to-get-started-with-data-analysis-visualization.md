@@ -5,6 +5,7 @@ inprogress: true
 date: "2022-11-03T00:03:12.000Z"
 modified: "2022-12-23T14:10:44.000Z"
 hidden: true
+tags: ["dataviz","data","visualization"]
 ---
 # How to get started with data visualization
 

@@ -3,8 +3,8 @@ draft: true
 dek: "In which"
 inprogress: true
 date: "2023-01-19T05:39:28.000Z"
-modified: "2024-07-18T18:24:22.000Z"
-tags: "art"
+modified: "2024-09-20T04:21:42.000Z"
+tags: ["art","analog"]
 hidden: true
 ---
 ## Making soap

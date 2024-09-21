@@ -2,8 +2,8 @@
 dek: "In which we make it extremely easy to charge people to access your website or pay for a membership"
 inprogress: true
 date: "2023-09-26T18:05:43.000Z"
-modified: "2023-12-17T23:28:44.000Z"
-tags: null
+modified: "2024-07-18T18:41:39.000Z"
+tags: ["code"]
 hidden: true
 draft: true
 ---
@@ -13,7 +13,7 @@ draft: true
 
 It should be extremely easy and quick to create something really cool on the internet and then charge people to access it. Whether it's art, a tool, or a piece of journalism, you should allow people to pay for things they find valuable. This is only possible if you let them.
 
-I am a big fan of [[nuxt-3-and-netlify]] as a prototyping toolkit, and I have a [customized project template](https://github.com/ejfox/nuxt-template-2023/tree/main) that lets me spin up apps quickly. Once I've made something cool, I want to let people pay to access it.
+I am a big fan of [[drafts/nuxt-3-and-netlify]] as a prototyping toolkit, and I have a [customized project template](https://github.com/ejfox/nuxt-template-2023/tree/main) that lets me spin up apps quickly. Once I've made something cool, I want to let people pay to access it.
 
 #### Memberships
 

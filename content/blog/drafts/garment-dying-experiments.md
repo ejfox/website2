@@ -3,8 +3,8 @@ draft: true
 dek: "In which we take cloth of one color and make it another"
 inprogress: true
 date: "2022-11-20T21:06:23.000Z"
-modified: "2024-06-11T00:14:05.000Z"
-tags: "art"
+modified: "2024-09-20T04:24:48.000Z"
+tags: ["art","Fashion","design","process"]
 hidden: true
 ---
 #art #experiments #setup

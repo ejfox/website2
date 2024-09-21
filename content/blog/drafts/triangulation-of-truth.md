@@ -2,8 +2,8 @@
 dek: "In which we use at least three sources of truth to triangulate a potential most-truthful comprompise"
 inprogress: true
 date: "2023-10-01T01:33:26.000Z"
-modified: "2023-12-18T00:19:22.000Z"
-tags: null
+modified: "2024-07-18T18:42:13.000Z"
+tags: ["advice","data","journalism"]
 hidden: true
 draft: true
 ---

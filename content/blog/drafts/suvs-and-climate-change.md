@@ -2,8 +2,8 @@
 dek: "In which we explore the impact of SUVs on climate change"
 inprogress: true
 date: "2023-07-20T23:46:43.000Z"
-modified: "2023-12-18T19:14:10.000Z"
-tags: "data america journalism climatechange"
+modified: "2024-09-20T04:23:45.000Z"
+tags: ["climatechange","america"]
 hidden: true
 draft: true
 ---
@@ -19,7 +19,7 @@ draft: true
 
 ### Safety (or lack thereof) being outside an SUV
 
-https://www.nytimes.com/2024/01/10/magazine/dangerous-driving.html
+<https://www.nytimes.com/2024/01/10/magazine/dangerous-driving.html>
 
 ### The Personal Economics of SUVs
 

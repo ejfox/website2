@@ -2,8 +2,8 @@
 dek: "In which we use two javascript frameworks to quickly scale from prototype to functional tool"
 inprogress: true
 date: "2022-12-15T15:18:53.000Z"
-modified: "2024-07-18T18:27:31.000Z"
-tags: "tech howto"
+modified: "2024-09-20T04:23:41.000Z"
+tags: ["dataviz","howto","vue"]
 hidden: true
 draft: true
 ---

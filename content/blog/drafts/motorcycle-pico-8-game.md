@@ -2,24 +2,22 @@
 dek: "In which the author uses a boutique micro gaming system to craft a video game about the experience of motorcycling"
 inprogress: true
 date: "2023-07-02T15:09:23.000Z"
-modified: "2023-07-02T15:24:21.000Z"
-tags: "pico8 personal motorcycle"
+modified: "2024-09-20T04:22:41.000Z"
+tags: ["game","pico8","motorcycle","coding","music","art"]
 hidden: true
 draft: true
 ---
-# My first Pico-8 game: Motorcycle.p8
+## My first Pico-8 game: Motorcycle.p8
 
 I fully believe that great art comes from working creatively within limitations, especially well-chosen self-imposed limitations.
 
-That is part of the appeal of the beautifully simple, yet powerful, Pico-8 created by Lexaloffle. 
+That is part of the appeal of the beautifully simple, yet powerful, Pico-8 created by Lexaloffle.
 
 [🎮 Introduction to Pico-8 — Are.na](https://www.are.na/ej-fox/introduction-to-pico-8)
 
 Inspired by my recent [motorcycle journeys](/2023-ny-to-maine) I wanted to try to capture some of the essence and joy of riding a motorcycle into a little video game poem.
 
-My brother who is exceptionally talented at making sprites and composing music with trackers (a type of DAW for super-dorks) helped it come together. [Coach Artie](/how-i-built-coach-artie) did most of the fancy coding. 
-
-
+My brother who is exceptionally talented at making sprites and composing music with trackers (a type of DAW for super-dorks) helped it come together. [Coach Artie](/how-i-built-coach-artie) did most of the fancy coding.
 
 ```
 pico-8 cartridge // http://www.pico-8.com

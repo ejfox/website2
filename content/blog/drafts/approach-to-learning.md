@@ -3,8 +3,8 @@ draft: true
 dek: "In which we embark on a journey of introspection and adaptation, unveiling the secrets to unlocking the power of effective learning tailored to our unique selves"
 inprogress: true
 date: "2023-01-19T06:31:34.000Z"
-modified: "2024-05-07T21:20:35.000Z"
-tags: "personal"
+modified: "2024-09-20T04:25:52.000Z"
+tags: ["education"]
 hidden: true
 ---
 ## My approach to learning

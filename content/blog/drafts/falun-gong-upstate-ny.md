@@ -1,13 +1,13 @@
 ---
 dek: "In which"
 inprogress: true
-date: null
-modified: null
-tags: "journalism ny"
+date: "2024-04-25T21:21:40.000Z"
+modified: "2024-09-21T19:04:17.000Z"
+tags: ["activism","legal"]
 hidden: true
 draft: true
 ---
-# Title
+## Title
 
 [https://rmfpc.com/wp-content/uploads/2022/01/Clean-Water-Act-Lawsuit-Commenced-Against-Dragon-Springs-Buddhist-Inc.-For-Polluting-Bashar-Kill-And-Neversink-River-2.pdf](https://rmfpc.com/wp-content/uploads/2022/01/Clean-Water-Act-Lawsuit-Commenced-Against-Dragon-Springs-Buddhist-Inc.-For-Polluting-Bashar-Kill-And-Neversink-River-2.pdf)
 

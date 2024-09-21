@@ -1,8 +1,9 @@
 ---
 date: "2024-02-14T00:10:50.000Z"
-modified: "2024-04-18T17:40:06.000Z"
+modified: "2024-09-20T04:30:10.000Z"
 hidden: true
 draft: true
+tags: ["camping"]
 ---
 ## Search and Rescue / Ropes & Rappelling
 

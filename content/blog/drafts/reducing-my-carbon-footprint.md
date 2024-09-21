@@ -1,8 +1,9 @@
 ---
 date: "2023-01-19T06:16:08.000Z"
-modified: "2023-01-19T06:16:12.000Z"
+modified: "2024-07-18T18:42:39.000Z"
 hidden: true
 draft: true
+tags: ["quantifiedself","motorcycle"]
 ---
 [[quantified-self]]
 

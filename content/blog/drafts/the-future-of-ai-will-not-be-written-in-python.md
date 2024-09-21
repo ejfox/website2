@@ -2,8 +2,8 @@
 dek: "In which we"
 inprogress: true
 date: "2022-12-05T23:34:09.000Z"
-modified: "2024-01-27T06:04:27.000Z"
-tags: null
+modified: "2024-07-18T18:42:19.000Z"
+tags: ["javascript"]
 hidden: true
 draft: true
 ---

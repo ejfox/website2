@@ -3,11 +3,11 @@ draft: true
 dek: "In which the author explores the joys of cooking delicious food"
 inprogress: true
 date: "2022-12-23T13:48:19.000Z"
-modified: "2023-09-09T19:06:35.000Z"
-tags: "cooking"
+modified: "2024-09-20T04:26:04.000Z"
+tags: ["food","cooking"]
 hidden: true
 ---
-# Cooking
+## Cooking
 
 [[food]]
 

@@ -23,8 +23,8 @@ export const useProcessedMarkdown = () => {
     try {
       const result = await $fetch(`/api/posts/${slug}`)
       console.log(`Post fetched for slug "${slug}". Post details:`, {
-        title: result.title,
-        date: result.date,
+        title: result?.title,
+        date: result?.date,
         contentLength: result.content ? result.content.length : 'N/A'
       })
       return result
@@ -34,9 +34,25 @@ export const useProcessedMarkdown = () => {
     }
   }
 
-  const getAllPosts = async () => {
+  const getAllPosts = async (
+    includeDrafts = false,
+    includeWeekNotes = false
+  ) => {
     const manifest = await getManifestLite()
     return manifest
+      .filter((post) => {
+        const isNotDraft = !post.slug.startsWith('drafts/')
+        const isNotWeekNote = !post.slug.startsWith('week-notes/')
+        const isNotReading = !post.slug.startsWith('reading/')
+        // it's an index page if the filename starts with !
+        const isNotIndex = !post.slug.startsWith('!')
+        return (
+          (includeDrafts || isNotDraft) &&
+          (includeWeekNotes || isNotWeekNote) &&
+          isNotReading &&
+          isNotIndex
+        )
+      })
       .map((post) => ({
         ...post,
         date: getValidDate(post.date),
@@ -45,12 +61,26 @@ export const useProcessedMarkdown = () => {
       .sort((a, b) => b.date.getTime() - a.date.getTime())
   }
 
-  const getPostsWithContent = async (limit = 10, offset = 0) => {
+  const getPostsByYear = async (
+    year: number,
+    includeDrafts = false,
+    includeWeekNotes = false
+  ) => {
+    const allPosts = await getAllPosts(includeDrafts, includeWeekNotes)
+    return allPosts.filter((post) => post.date.getFullYear() === year)
+  }
+
+  const getPostsWithContent = async (
+    limit = 10,
+    offset = 0,
+    includeDrafts = false,
+    includeWeekNotes = false
+  ) => {
     console.log(
       `Fetching posts with content. Limit: ${limit}, Offset: ${offset}`
     )
     try {
-      const allPosts = await getAllPosts()
+      const allPosts = await getAllPosts(includeDrafts, includeWeekNotes)
       const postsToFetch = allPosts.slice(offset, offset + limit)
       const postsWithContent = await Promise.all(
         postsToFetch.map(async (post) => {
@@ -66,29 +96,40 @@ export const useProcessedMarkdown = () => {
     }
   }
 
-  const getPostsByYear = async (year: number) => {
-    console.log(`Fetching posts for year: ${year}`)
-    try {
-      const manifestLite = await getManifestLite()
-      const filteredPosts = manifestLite.filter(
-        (post) => new Date(post.date).getFullYear() === year
-      )
-      console.log(`Posts filtered for year ${year}. Results:`, {
-        totalPosts: filteredPosts.length,
-        percentage:
-          ((filteredPosts.length / manifestLite.length) * 100).toFixed(2) + '%',
-        monthDistribution: filteredPosts.reduce((acc, post) => {
-          const month = new Date(post.date).getMonth() + 1
-          acc[month] = (acc[month] || 0) + 1
-          return acc
-        }, {}),
-        slugs: filteredPosts.map((p) => p.slug).join(', ')
-      })
-      return filteredPosts
-    } catch (error) {
-      console.error(`Error fetching posts for year ${year}:`, error)
-      throw error
-    }
+  const getDrafts = async () => {
+    const manifest = await getManifestLite()
+    return manifest
+      .filter((post) => post.slug.startsWith('drafts/'))
+      .map((post) => ({
+        ...post,
+        date: getValidDate(post.date),
+        modified: getValidDate(post.modified)
+      }))
+      .sort((a, b) => b.date.getTime() - a.date.getTime())
+  }
+
+  const getWeekNotes = async () => {
+    const manifest = await getManifestLite()
+    return manifest
+      .filter((post) => post.slug.startsWith('week-notes/'))
+      .map((post) => ({
+        ...post,
+        date: getValidDate(post.date),
+        modified: getValidDate(post.modified)
+      }))
+      .sort((a, b) => b.date.getTime() - a.date.getTime())
+  }
+
+  const getReadingPosts = async () => {
+    const manifest = await getManifestLite()
+    return manifest
+      .filter((post) => post.slug.startsWith('reading/'))
+      .map((post) => ({
+        ...post,
+        date: getValidDate(post.date),
+        modified: getValidDate(post.modified)
+      }))
+      .sort((a, b) => b.date.getTime() - a.date.getTime())
   }
 
   function getValidDate(dateString: string | Date | undefined): Date {
@@ -110,6 +151,9 @@ export const useProcessedMarkdown = () => {
     getPostBySlug,
     getAllPosts,
     getPostsByYear,
-    getPostsWithContent
+    getPostsWithContent,
+    getDrafts,
+    getWeekNotes,
+    getReadingPosts
   }
 }

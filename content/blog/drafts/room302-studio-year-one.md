@@ -2,8 +2,8 @@
 dek: "In which the author recaps an exciting year of prototyping and community building"
 inprogress: true
 date: "2023-12-12T17:42:07.000Z"
-modified: "2023-12-17T23:27:27.000Z"
-tags: null
+modified: "2024-07-18T18:39:14.000Z"
+tags: ["coding","design","project","systemsthinking","automation","livestream"]
 hidden: true
 draft: true
 ---
