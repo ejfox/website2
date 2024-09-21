@@ -17,14 +17,20 @@
     "gray-matter": "^4.0.3",
     "js-yaml": "^4.1.0",
     "nuxt": "^3.13.1",
+    "rehype-autolink-headings": "^7.1.0",
     "rehype-katex": "^7.0.1",
+    "rehype-mermaid": "^2.1.0",
     "rehype-stringify": "^10.0.0",
+    "remark": "^15.0.1",
     "remark-emoji": "^5.0.1",
     "remark-frontmatter": "^5.0.0",
+    "remark-gfm": "^4.0.0",
     "remark-math": "^6.0.0",
+    "remark-mermaidjs": "^6.0.0",
     "remark-obsidian": "^1.8.0",
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.1",
+    "remark-unwrap-images": "^4.0.0",
     "shiki": "^1.18.0",
     "unified": "^11.0.5"
   },
@@ -37,6 +43,7 @@
     "@vueuse/nuxt": "^11.0.3",
     "d3": "^7.9.0",
     "eslint-config-prettier": "^9.1.0",
+    "mermaid-isomorphic": "^2.2.1",
     "v-onboarding": "^2.8.2"
   },
   "license": "UNLICENSED"

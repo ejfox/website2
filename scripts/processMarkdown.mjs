@@ -5,6 +5,17 @@ import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
+import rehypeSlug from 'rehype-slug'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import remarkObsidian from 'remark-obsidian'
+import remarkMermaid from 'remark-mermaidjs'
+import remarkGfm from 'remark-gfm'
+import remarkUnwrapImages from 'remark-unwrap-images'
+import rehypeMermaid from 'rehype-mermaid'
+import { createMermaidRenderer } from 'mermaid-isomorphic'
+
+const mermaidRenderer = createMermaidRenderer()
+
 import { visit } from 'unist-util-visit'
 import matter from 'gray-matter'
 
@@ -17,6 +28,73 @@ const outputDir = path.join(__dirname, '..', 'dist', 'processed')
 const CLOUDINARY_BASE_URL =
   'https://res.cloudinary.com/ejf/image/upload/w_900/dpr_auto/'
 
+async function processMarkdown(filePath) {
+  const fileContent = await fs.readFile(filePath, 'utf8')
+  const { data: frontmatter, content } = matter(fileContent)
+
+  const processor = unified()
+    .use(remarkParse)
+    .use(remarkObsidian)
+    .use(remarkCustomElements)
+    .use(remarkGfm)
+    .use(remarkUnwrapImages)
+
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeMermaid, {
+      strategy: 'inline-svg'
+      // other options as needed
+    })
+    .use(rehypeSlug)
+    .use(rehypeAutolinkHeadings)
+    .use(rehypeStringify, { allowDangerousHtml: true })
+
+  const ast = processor.parse(content)
+  const { firstH1, toc } = extractHeadersAndToc(ast)
+  // Process Mermaid diagrams
+  // await processMermaidDiagrams(ast)
+
+  const result = await processor.run(ast)
+
+  const html = processor.stringify(result)
+
+  const wordCount = content.split(/\s+/).length
+  const readingTime = Math.ceil(wordCount / 200)
+  const imageCount = (content.match(/!\[.*?\]\(.*?\)/g) || []).length
+  const linkCount = (content.match(/\[.*?\]\(.*?\)/g) || []).length
+
+  return {
+    html,
+    metadata: {
+      ...frontmatter,
+      title: frontmatter.title || firstH1 || path.basename(filePath, '.md'),
+      toc,
+      wordCount,
+      readingTime,
+      imageCount,
+      linkCount
+    }
+  }
+}
+
+async function processMermaidDiagrams(ast) {
+  const mermaidNodes = []
+  visit(ast, 'code', (node) => {
+    if (node.lang === 'mermaid') {
+      mermaidNodes.push(node)
+    }
+  })
+
+  if (mermaidNodes.length > 0) {
+    const diagrams = mermaidNodes.map((node) => node.value)
+    const renderedDiagrams = await mermaidRenderer(diagrams)
+
+    mermaidNodes.forEach((node, index) => {
+      node.type = 'html'
+      node.value = renderedDiagrams[index].svg
+    })
+  }
+}
+
 function remarkCustomElements() {
   return (tree) => {
     visit(tree, 'image', (node) => {
@@ -26,15 +104,21 @@ function remarkCustomElements() {
       }
     })
 
-    visit(tree, 'code', (node) => {
-      if (node.lang === 'mermaid') {
+    visit(tree, 'link', (node) => {
+      const { href, icon, isWikilink } = processLink(node.url)
+      node.url = href
+      if (icon || isWikilink) {
         node.type = 'html'
-        node.value = `<div class="mermaid-diagram" data-mermaid-source="${encodeURIComponent(
-          node.value
-        )}">
-          <pre>${node.value}</pre>
-        </div>`
-      } else if (node.meta === 'runnable') {
+        let linkClass = isWikilink ? 'class="internal-link"' : ''
+        let iconHtml = icon
+          ? `<sup><span class="${icon} ml-1"></span></sup>`
+          : ''
+        node.value = `<a href="${href}" ${linkClass}>${node.children[0].value}${iconHtml}</a>`
+      }
+    })
+
+    visit(tree, 'code', (node) => {
+      if (node.meta === 'runnable') {
         node.type = 'html'
         node.value = `<div class="runnable-code" data-language="${
           node.lang
@@ -83,39 +167,33 @@ function generateSlug(str) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-')
 }
 
-async function processMarkdown(filePath) {
-  const fileContent = await fs.readFile(filePath, 'utf8')
-  const { data: frontmatter, content } = matter(fileContent)
+function processLink(href) {
+  const socialPlatforms = {
+    wikipedia: 'i-simple-icons-wikipedia',
+    'github.com': 'i-simple-icons-github',
+    'youtube.com': 'i-simple-icons-youtube',
+    'twitter.com': 'i-simple-icons-twitter',
+    'itunes.apple': 'i-simple-icons-apple',
+    observablehq: 'i-simple-icons-observable',
+    'pinboard.in': 'i-simple-icons-pinboard',
+    'goodreads.com': 'i-simple-icons-goodreads',
+    'glitch.com': 'i-simple-icons-glitch',
+    'stackoverflow.com': 'i-simple-icons-stackoverflow',
+    'mailto:': 'i-ic-baseline-email'
+  }
 
-  const processor = unified()
-    .use(remarkParse)
-    .use(remarkCustomElements)
-    .use(remarkRehype)
-    .use(rehypeStringify)
-
-  const ast = processor.parse(content)
-  const { firstH1, toc } = extractHeadersAndToc(ast)
-  const result = await processor.run(ast)
-
-  const html = processor.stringify(result)
-
-  const wordCount = content.split(/\s+/).length
-  const readingTime = Math.ceil(wordCount / 200)
-  const imageCount = (content.match(/!\[.*?\]\(.*?\)/g) || []).length
-  const linkCount = (content.match(/\[.*?\]\(.*?\)/g) || []).length
-
-  return {
-    html,
-    metadata: {
-      ...frontmatter,
-      title: frontmatter.title || firstH1 || path.basename(filePath, '.md'),
-      toc,
-      wordCount,
-      readingTime,
-      imageCount,
-      linkCount
+  for (const [platform, icon] of Object.entries(socialPlatforms)) {
+    if (href.includes(platform)) {
+      return { href, icon }
     }
   }
+
+  if (href.startsWith('#/page/') || href.startsWith('blog/test#/page/')) {
+    const slug = href.split('/').pop()
+    return { href: `/blog/${slug}`, isWikilink: true }
+  }
+
+  return { href }
 }
 
 async function processAllFiles() {

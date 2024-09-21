@@ -17,15 +17,15 @@ onUnmounted(() => {
   <div>
     <!-- <pre>{{ JSON.stringify(posts, null, 2) }}</pre> -->
     <div if="posts">
-      <article v-for="post in posts" :key="post.slug" class="h-32 overflow-auto bg-gray-200 mt-8">
+      <article v-for="post in posts" :key="post.slug" class="p-8 bg-gray-200 mt-8">
         <h2>
           <NuxtLink :to="`/blog/${post.slug}`">{{ post.title }}</NuxtLink>
         </h2>
         <!-- all the post properties except content -->
         <div>
-          <span v-for="prop in Object.keys(post).filter(p => p !== 'content')" :key="prop" class="mr-1">
+          <div v-for="prop in Object.keys(post).filter(p => p !== 'content')" :key="prop" class="mr-1">
             <strong>{{ prop }}:</strong> {{ post[prop] }}
-          </span>
+          </div>
         </div>
         <article class="prose" v-html="post.content"></article>
 
