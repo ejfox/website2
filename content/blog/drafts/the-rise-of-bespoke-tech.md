@@ -1,10 +1,9 @@
 ---
 date: "2024-06-02T04:00:00.000Z"
-modified: "2024-08-11T03:04:41.000Z"
+modified: "2024-09-21T19:46:58.000Z"
 dek: "In which"
 inprogress: true
 tags: ["example","template","frontmatter","tech","programming","webdesign","opensource","systemsthinking"]
-images: [{"url":"https://example.com/image1.jpg","alt":"Description of image 1"}]
 hidden: true
 draft: true
 ---

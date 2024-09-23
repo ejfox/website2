@@ -1,0 +1,339 @@
+[
+  {
+    "id": "112617668296112489",
+    "scrap_id": "DeTVKl6w",
+    "href": "https://mastodon.social/@ejfox/112617668296112489",
+    "description": "<p>My favorite is when they blast YouTube ads to the entire neighborhood</p>",
+    "time": "2024-06-14T23:54:05.241Z",
+    "type": "mastodon-post",
+    "images": []
+  },
+  {
+    "id": "112617636378333854",
+    "scrap_id": "fzbpY-lH",
+    "href": "https://mastodon.social/@ejfox/112617636378333854",
+    "description": "<p>my neighbors have assigned themselves the jobs of the block DJ, and boy are they profoundly bad at their self-assigned job, only play the same 5 songs, constantly interrupted by notifications, stopping songs halfway through, absolutely awful</p>",
+    "time": "2024-06-14T23:45:58.216Z",
+    "type": "mastodon-post",
+    "images": []
+  },
+  {
+    "id": "112617271089770884",
+    "scrap_id": "Il38Ufvr",
+    "href": "https://mastodon.social/@ejfox/112617271089770884",
+    "description": "<p>took a few hours during this rainstorm to code up a little tool that pulls in my are.na channels and lets me rearrange my blocks spatially</p>",
+    "time": "2024-06-14T22:13:04.354Z",
+    "type": "mastodon-post",
+    "images": [
+      "https://files.mastodon.social/media_attachments/files/112/617/269/958/183/756/small/bd9dbfbf9056fd9d.png",
+      "https://files.mastodon.social/media_attachments/files/112/617/270/366/335/553/small/115da795fe3489dd.png",
+      "https://files.mastodon.social/media_attachments/files/112/617/270/815/470/959/small/817bcd222475f360.png"
+    ]
+  },
+  {
+    "id": 28767090,
+    "scrap_id": "tZj94XFq",
+    "href": "https://www.are.na/block/28767090",
+    "description": "",
+    "time": "2024-06-14T18:08:35.929Z",
+    "type": "arena",
+    "images": [
+      "https://images.are.na/eyJidWNrZXQiOiJhcmVuYV9pbWFnZXMiLCJrZXkiOiIyODc2NzA5MC9vcmlnaW5hbF9hMGI0ZDRhMmYxMDY0YzVlODQ4NmRlNmIxNWU1ZjMyNS5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6MTIwMCwiZml0IjoiaW5zaWRlIiwid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlfSwid2VicCI6eyJxdWFsaXR5Ijo2NX0sImpwZWciOnsicXVhbGl0eSI6NjV9LCJyb3RhdGUiOm51bGx9fQ==?bc=0"
+    ]
+  },
+  {
+    "scrap_id": "TKQq0Y-3",
+    "href": "https://www.storyblok.com/faq/setting-up-https-on-localhost-in-nuxt-3",
+    "description": "Setting Up HTTPS on localhost in Nuxt 3",
+    "time": "2024-06-14T18:07:56Z",
+    "type": "pinboard",
+    "images": [],
+    "tags": "",
+    "extended": ""
+  },
+  {
+    "id": 28766038,
+    "scrap_id": "qW5JWu3k",
+    "href": "https://www.are.na/block/28766038",
+    "description": "",
+    "time": "2024-06-14T17:15:27.188Z",
+    "type": "arena",
+    "images": [
+      "https://images.are.na/eyJidWNrZXQiOiJhcmVuYV9pbWFnZXMiLCJrZXkiOiIyODc2NjAzOC9vcmlnaW5hbF9jMjIzMmRhMzNlN2I2NWQ3OWY3NTQ3ZmIxOGFiNDhiNS5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6MTIwMCwiZml0IjoiaW5zaWRlIiwid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlfSwid2VicCI6eyJxdWFsaXR5Ijo2NX0sImpwZWciOnsicXVhbGl0eSI6NjV9LCJyb3RhdGUiOm51bGx9fQ==?bc=0"
+    ]
+  },
+  {
+    "scrap_id": "DGM-_zJP",
+    "href": "https://www.compadre.us/about",
+    "description": "About — Competitive Advantage Research",
+    "time": "2024-06-14T15:45:37Z",
+    "type": "pinboard",
+    "images": [],
+    "tags": "",
+    "extended": "Curiosity. Automation. Innovation."
+  },
+  {
+    "scrap_id": "qvzP-OIk",
+    "href": "https://stackblitz.com/edit/vitejs-vite-ik4fhx?file=src%2FApp.vue",
+    "description": "vueUse useNow (start) (forked) - StackBlitz",
+    "time": "2024-06-14T07:12:45Z",
+    "type": "pinboard",
+    "images": [],
+    "tags": "",
+    "extended": ""
+  },
+  {
+    "scrap_id": "t1H7dapU",
+    "href": "https://stackblitz.com/edit/vitejs-vite-e2rk8f?file=src%2FApp.vue",
+    "description": "Vitejs (forked) - StackBlitz",
+    "time": "2024-06-14T07:07:40Z",
+    "type": "pinboard",
+    "images": [],
+    "tags": "",
+    "extended": ""
+  },
+  {
+    "id": "112613388181228529",
+    "scrap_id": "LgoP2Kjn",
+    "href": "https://mastodon.social/@ejfox/112613388181228529",
+    "description": "<p>Me and the robot put together a little quality-of-life command line script that scans the current directory for git repos and reports their git status, polling for changes every 5 seconds – for lunatics like me who spin up new repos constantly and work on them across 2 computers: <a href=\"https://github.com/ejfox/git-status-monitor\" target=\"_blank\" rel=\"nofollow noopener noreferrer\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">github.com/ejfox/git-status-mo</span><span class=\"invisible\">nitor</span></a></p>",
+    "time": "2024-06-14T05:45:35.871Z",
+    "type": "mastodon-post",
+    "images": [
+      "https://files.mastodon.social/media_attachments/files/112/613/387/932/374/191/small/2817adf6d8c6e8d6.png"
+    ]
+  },
+  {
+    "id": "112613381527770198",
+    "scrap_id": "jcw2NcMJ",
+    "href": "https://mastodon.social/@ejfox/112613381527770198",
+    "description": "<p>there is virtue in learning to use someone elses difficult but powerful tool- and I have spent a lot of time doing it- but other times, and even moreso for the simple and everyday tasks, and with the ease of creation with AI writing code, it is nice to have my own</p>",
+    "time": "2024-06-14T05:43:54.347Z",
+    "type": "mastodon-post",
+    "images": []
+  },
+  {
+    "id": "112613191768016004",
+    "scrap_id": "pkLHWEQx",
+    "href": "https://mastodon.social/@ejfox/112613191768016004",
+    "description": "<p>I keep building my own tools- there are, of course, tools that already exist that perform the same if not the exact functions- but with one deficit that I am valuing more with age: they are not made by *me*</p>",
+    "time": "2024-06-14T04:55:38.845Z",
+    "type": "mastodon-post",
+    "images": []
+  },
+  {
+    "scrap_id": "FDxPgvAL",
+    "href": "https://journals.sagepub.com/doi/10.1177/02637758241232758",
+    "description": "The work of landlord technology: The fictions of frictionless property management - Erin McElroy, 2024",
+    "time": "2024-06-14T04:11:35Z",
+    "type": "pinboard",
+    "images": [],
+    "tags": "",
+    "extended": "Landlord technologyâor the systems used by landlords to control and regulate tenant lives, spaces, and dataâfrequently promises âfrictionlessâ building manageme..."
+  },
+  {
+    "id": "112611119269015257",
+    "scrap_id": "kPGnSvLH",
+    "href": "https://mastodon.social/@ejfox/112611119269015257",
+    "description": "<p>I want a whisper powered scene switcher in OBS- it listens to what I am saying, and given a brief description of what each scene shows, chooses to switch to the appropriate one. “Let’s look at the code” fullscreens my browser, “let’s sketch a bit” goes to the iPad sketching scene, giving advice goes to host close-up scene, stuff like that</p>",
+    "time": "2024-06-13T20:08:35.019Z",
+    "type": "mastodon-post",
+    "images": []
+  },
+  {
+    "scrap_id": "YSf7oQKB",
+    "href": "https://arstechnica.com/tech-policy/2024/06/cop-busted-for-unauthorized-use-of-clearview-ai-facial-recognition-resigns/",
+    "description": "Cop busted for unauthorized use of Clearview AI facial recognition resigns",
+    "time": "2024-06-13T20:05:26Z",
+    "type": "pinboard",
+    "images": [],
+    "tags": "",
+    "extended": "Indiana cop easily hid frequent personal use of Clearview AI face scans."
+  },
+  {
+    "scrap_id": "QJKRBQps",
+    "href": "https://www.wetdogweather.com/2024/06/12/how-to-make-stamen-watercolor-in-maplibre/",
+    "description": "How to Make Stamen Watercolor in MapLibre",
+    "time": "2024-06-13T19:59:23Z",
+    "type": "pinboard",
+    "images": [],
+    "tags": "",
+    "extended": "With a few adjustments, we can easily replicate the Stamen Watercolor style in MapLibre. This post provides a detailed guide on how to do this."
+  },
+  {
+    "id": "112611068999409869",
+    "scrap_id": "IiC_DVv_",
+    "href": "https://mastodon.social/@ejfox/112611068999409869",
+    "description": "<p>If programmers spoke like they chose frameworks and libraries, they would say the shortest word is always the best, and using longer words is inefficient and naive. They would say slow and dumb.</p>",
+    "time": "2024-06-13T19:55:47.963Z",
+    "type": "mastodon-post",
+    "images": []
+  },
+  {
+    "id": "112611065385158385",
+    "scrap_id": "fqhhW_Hu",
+    "href": "https://mastodon.social/@ejfox/112611065385158385",
+    "description": "<p>Learning to do things in multiple technologies is like acquiring a vocabulary; you can say the same thing in lots of different ways, choosing the most appropriate one based on your message</p>",
+    "time": "2024-06-13T19:54:52.817Z",
+    "type": "mastodon-post",
+    "images": []
+  },
+  {
+    "id": "112607955706765100",
+    "scrap_id": "ytJeAqbd",
+    "href": "https://mastodon.social/@ejfox/112607955706765100",
+    "description": "<p>one of the things I miss most about journalism is finishing anything, ever</p>",
+    "time": "2024-06-13T06:44:02.889Z",
+    "type": "mastodon-post",
+    "images": []
+  },
+  {
+    "id": "112606157469837338",
+    "scrap_id": "lbo2fE5D",
+    "href": "https://mastodon.social/@ejfox/112606157469837338",
+    "description": "<p>a pomodoro? you mean like one side of a record?</p>",
+    "time": "2024-06-12T23:06:43.972Z",
+    "type": "mastodon-post",
+    "images": []
+  },
+  {
+    "scrap_id": "68lLe_v8",
+    "href": "https://themarkup.org/2024/06/12/these-wrongly-arrested-black-men-say-a-california-bill-would-let-police-misuse-face-recognition",
+    "description": "These Wrongly Arrested Black Men Say a California Bill Would Let Police Misuse Face Recognition – The Markup",
+    "time": "2024-06-12T22:06:28Z",
+    "type": "pinboard",
+    "images": [],
+    "tags": "",
+    "extended": ""
+  },
+  {
+    "scrap_id": "AqY3ujCB",
+    "href": "https://github.com/vueuse/vueuse/issues/1288",
+    "description": "useDraggable with absolute positioning · Issue #1288 · vueuse/vueuse",
+    "time": "2024-06-12T21:52:43Z",
+    "type": "pinboard",
+    "images": [],
+    "tags": "",
+    "extended": ""
+  },
+  {
+    "id": "112605860748247941",
+    "scrap_id": "FOAL0pEE",
+    "href": "https://mastodon.social/@ejfox/112605860748247941",
+    "description": "<p>well this sparks joy for sure</p>",
+    "time": "2024-06-12T21:51:16.358Z",
+    "type": "mastodon-post",
+    "images": []
+  },
+  {
+    "scrap_id": "8GSGfzTO",
+    "href": "https://www.youtube.com/watch?v=zjkBMFhNj_g",
+    "description": "[1hr Talk] Intro to Large Language Models - YouTube",
+    "time": "2024-06-12T19:56:32Z",
+    "type": "pinboard",
+    "images": [],
+    "tags": "",
+    "extended": ""
+  },
+  {
+    "id": "112605236507611776",
+    "scrap_id": "YqHDUs2J",
+    "href": "https://mastodon.social/@ejfox/112605236507611776",
+    "description": "<p>I want my software to collect a patina from its ongoing usage</p>",
+    "time": "2024-06-12T19:12:31.206Z",
+    "type": "mastodon-post",
+    "images": []
+  },
+  {
+    "id": "112605130533106788",
+    "scrap_id": "QmKwwtc9",
+    "href": "https://mastodon.social/@ejfox/112605130533106788",
+    "description": "<p>or maybe just lay them all out as cards and arrange them myself</p>",
+    "time": "2024-06-12T18:45:34.158Z",
+    "type": "mastodon-post",
+    "images": [
+      "https://files.mastodon.social/media_attachments/files/112/605/130/270/972/066/small/a89fb2caabfc78b6.png"
+    ]
+  },
+  {
+    "id": "112604936366245238",
+    "scrap_id": "XAMfWRCN",
+    "href": "https://mastodon.social/@ejfox/112604936366245238",
+    "description": "<p>inside those IDs are little posts like this (all Mastodon posts right now, need to fix that next)</p>",
+    "time": "2024-06-12T17:56:11.407Z",
+    "type": "mastodon-post",
+    "images": [
+      "https://files.mastodon.social/media_attachments/files/112/604/936/123/240/257/small/9d473ba72553af29.png"
+    ]
+  },
+  {
+    "id": "112604878566702136",
+    "scrap_id": "cv54L1ax",
+    "href": "https://mastodon.social/@ejfox/112604878566702136",
+    "description": "<p>I have succeeded in creating a visual that looks at the patterns of my research/bookmarks/work each week (linking them sequentially) - there are definitely shapes to my research, but what they mean, or why I made this- very unclear</p>",
+    "time": "2024-06-12T17:41:29.460Z",
+    "type": "mastodon-post",
+    "images": []
+  },
+  {
+    "id": 28683784,
+    "scrap_id": "Cmh82J8u",
+    "href": "https://www.are.na/block/28683784",
+    "description": "",
+    "time": "2024-06-11T01:43:53.119Z",
+    "type": "arena",
+    "images": [
+      "https://images.are.na/eyJidWNrZXQiOiJhcmVuYV9pbWFnZXMiLCJrZXkiOiIyODY4Mzc4NC9vcmlnaW5hbF85MmI1Y2E4NzFkNThkMWMwZDg1OGUxMDY0Njg5MjAzZi5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6MTIwMCwiZml0IjoiaW5zaWRlIiwid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlfSwid2VicCI6eyJxdWFsaXR5Ijo2NX0sImpwZWciOnsicXVhbGl0eSI6NjV9LCJyb3RhdGUiOm51bGx9fQ==?bc=0"
+    ]
+  },
+  {
+    "scrap_id": "2DoVBJno",
+    "href": "https://www.bloomberg.com/news/articles/2024-06-03/corporations-learned-the-maximum-amount-they-can-charge-for-a-product",
+    "description": "Corporations Learned the Maximum Amount They Can Charge for a Product",
+    "time": "2024-06-10T20:24:02Z",
+    "type": "pinboard",
+    "images": [],
+    "tags": "",
+    "extended": ""
+  },
+  {
+    "scrap_id": "LPnw7M6S",
+    "href": "http://hudsonvalley.news12.com/environmental-investigation-underway-at-new-windsor-demolition-site-after-tests-show-contamination",
+    "description": "[no title]",
+    "time": "2024-06-10T15:00:53Z",
+    "type": "pinboard",
+    "images": [],
+    "tags": "",
+    "extended": ""
+  },
+  {
+    "scrap_id": "05r3RXC1",
+    "href": "https://www.alignmentforum.org/posts/vJFdjigzmcXMhNTsx/simulators",
+    "description": "Simulators — AI Alignment Forum",
+    "time": "2024-06-10T01:43:48Z",
+    "type": "pinboard",
+    "images": [],
+    "tags": "",
+    "extended": ""
+  },
+  {
+    "scrap_id": "PyY9IGOq",
+    "href": "https://www.dailyfreeman.com/2024/06/07/food-truck-festival-to-be-held-on-broadway-in-kingston-this-month/?fbclid=IwZXh0bgNhZW0CMTEAAR1HFiiLkY4RO8UJCPOq2RXcvvml5J8SUSrtMyQXZ03SWxvP81fkYLFkdTA_aem_AQOCJr3j29Tz2c5sCe300krlH2rHimJuQR_rbzOH5ZjMFYjwrCvhT5t58HRO7xxl7Oc5R1aWxwIKfU8SFXwQkkWY",
+    "description": "‘Food Truck Festival’ to be held on Broadway in Kingston this month – Daily Freeman",
+    "time": "2024-06-09T03:07:22Z",
+    "type": "pinboard",
+    "images": [],
+    "tags": "",
+    "extended": ""
+  },
+  {
+    "scrap_id": "zoKhkpcT",
+    "href": "https://arxiv.org/abs/2406.03476#",
+    "description": "[2406.03476] Does your data spark joy? Performance gains from domain upsampling at the end of training",
+    "time": "2024-06-09T02:39:54Z",
+    "type": "pinboard",
+    "images": [],
+    "tags": "",
+    "extended": ""
+  }
+]
