@@ -1,25 +1,61 @@
 <template>
   <div id="app-container" class="sans-serif w-full">
     <NuxtLoadingIndicator />
-    <div class="flex flex-col md:flex-row h-screen">
-      <Nav class="w-full md:w-1/6 md:min-h-min md:border-none" />
+    <section class="flex flex-col md:flex-row min-h-screen relative">
 
-      <div class="w-full md:w-5/6">
+
+
+      <nav class="sticky top-0 left-0 z-50 p-2 md:p-4 h-auto max-h-screen sans-serif">
+        <div
+          class="container mx-auto md:py-1 md:flex md:flex-col items-start shadow-lg dark:shadow-none w-full md:shadow-none border-b border-zinc-300 dark:border-zinc-900 md:border-none rounded bg-white/50 dark:bg-zinc-900/30 md:dark:bg-transparent backdrop-blur-md px-2 max-h-screen">
+          <div class="pt-3 pb-1 space-y-2 font-light">
+            <!-- Updated class: items-start -->
+            <NuxtLink class="text-zinc-800 dark:text-zinc-400 md:text-xl font-bold px-2 md:p-4 md:mb-2 block" to="/">EJ
+              Fox
+            </NuxtLink>
+            <NuxtLink :class="linkClasses" to="/"> Home </NuxtLink>
+            <NuxtLink :class="linkClasses" to="/projects"> Projects </NuxtLink>
+            <NuxtLink :class="linkClasses" to="/blog/">Blog </NuxtLink>
+
+            <NuxtLink :class="linkClasses" to="/scrapbook/">Scrapbook</NuxtLink>
+            <NuxtLink :class="linkClasses" to="/pottery/">Pottery</NuxtLink>
+
+            <NuxtLink :class="linkClasses" to="https://ejfox.photos">
+              Photos
+              <UIcon name="i-ei-external-link" class="w-3 md:w-4 h-3 md:h-4 inline-block" />
+            </NuxtLink>
+
+          </div>
+        </div>
+      </nav>
+
+
+      <article class="w-full md:w-5/6">
         <NuxtPage />
-      </div>
-    </div>
-
-
+      </article>
+    </section>
   </div>
+
 </template>
-<script setup></script>
+<script setup>
+const linkClasses =
+  "inline-block md:block md:w-full px-2 md:px-4 text-sm md:text-xl hover:bg-zinc-200/30 active:bg-zinc-200/80 active:backdrop-blur active:text-black rounded active:shadow-lg font-light tracking-wide mr-2 md:mr-0"
+
+</script>
 
 <style>
 .sans-serif {
   font-family: 'Signika Negative', sans-serif !important;
+  font-weight: 400;
 }
 
 .monospace {
   font-family: 'Red Hat Mono', monospace !important;
+}
+
+.sticky {
+  position: sticky !important;
+  top: 0;
+  z-index: 10;
 }
 </style>

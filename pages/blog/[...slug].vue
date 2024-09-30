@@ -1,4 +1,5 @@
 <script setup>
+import { animate, stagger } from '~/anime.esm.js'
 const processedMarkdown = useProcessedMarkdown()
 
 const { params } = useRoute()
@@ -18,18 +19,39 @@ const route = useRoute()
 const { data: nextPrevPosts } = await useAsyncData(`next-prev-${route.params.slug.join('-')}`, () =>
   processedMarkdown.getNextPrevPosts(route.params.slug.join('/'))
 )
+
+const postContent = ref(null)
+
+onMounted(() => {
+  animate(postContent.value.querySelectorAll('.internal-link'), {
+    // opacity: [1, 0.8, 1],
+    // color: ['#67e8f9', '#c2410c', '#facc15', '#d946ef', '#be185d'],
+    borderColor: ['#67e8f9', '#c2410c', '#facc15', '#be185d'],
+    duration: 65000,
+    // easing: 'easeInOutQuad',
+    loop: true,
+    alternate: true,
+    delay: stagger(4500)
+  })
+})
 </script>
 
 <template>
   <div>
-    <article v-if="post">
-      <h1 v-if="post?.title" class="text-4xl lg:text-8xl font-bold paddings max-w-screen-lg">{{ post?.title }}</h1>
+    <article v-if="post" class="pt-10 md:pt-8 md:pl-8">
+      <PostMetadata :doc="post" class="paddings" />
+
+      <div class="lg:h-[62vh] flex items-center">
+        <h1 v-if="post?.title"
+          class="text-4xl lg:text-8xl xl:text-10xl lg:text-balance font-bold w-full paddings-y pr-8 pl-4 md:pl-0">
+          {{ post?.title }}
+        </h1>
+      </div>
+
       <!-- <pre>{{ JSON.stringify(post, null, 2) }}</pre> -->
-      <PostMetadata :doc="post" 
-      class="paddings"
-      />
-      <article v-html="post.content"
-        class="prose-lg md:prose-xl dark:prose-invert prose-pre:bg-gray-100 dark:prose-pre:bg-zinc-950 prose-pre:leading-8 prose-pre:py-2 prose-pre:my-4 lg:prose-pre:my-6 paddings !max-w-none">
+
+      <article ref="postContent" v-html="post.content"
+        class="prose-lg md:prose-xl dark:prose-invert prose-pre:bg-zinc-950  prose-pre:leading-8 prose-pre:py-2 prose-pre:my-4 lg:prose-pre:my-6 paddings !max-w-none prose-a:text-blue-600 hover:prose-a:text-blue-500 dark:prose-a:text-blue-200 dark:hover:prose-a:text-blue-400 prose-a:underline transition-all duration-100 ease-in-out">
 
       </article>
       <div></div>
@@ -57,7 +79,15 @@ const { data: nextPrevPosts } = await useAsyncData(`next-prev-${route.params.slu
 </template>
 <style>
 .paddings {
-  @apply p-4 md:p-8 lg:p-16 xl:p-32;
+  @apply p-4 md:p-8 lg:px-16 xl:px-32;
+}
+
+.paddings-y {
+  @apply py-4 md:py-8 lg:py-16 xl:py-32;
+}
+
+.paddings-x {
+  @apply px-4 md:px-8 lg:px-16 xl:px-32;
 }
 
 pre [data-line] {
@@ -66,13 +96,14 @@ pre [data-line] {
 
 pre {
   overflow: auto;
+  /* @apply max-w-screen-xl; */
 }
 
-code[data-theme*=" "],
+/* code[data-theme*=" "],
 code[data-theme*=" "] span {
   color: var(--shiki-light);
   background-color: var(--shiki-light-bg);
-}
+} */
 
 pre code[data-line-numbers] {
   counter-reset: line;
@@ -107,5 +138,37 @@ code[data-line-numbers-max-digits="3"]>[data-line]::before {
 
 code[data-line-numbers-max-digits="4"]>[data-line]::before {
   width: 3rem;
+}
+
+img {
+  @apply rounded;
+}
+
+li {
+  @apply max-w-[75ch];
+}
+
+.internal-link {
+
+  text-decoration: none !important;
+  /* simpler, gentler, cyberpunk-y version */
+  /* background: linear-gradient(to right, #ff0080, #ff0000, #ffff00, #80ff00, #00ff80, #00ffff, #0000ff, #8000ff, #ff00ff);
+
+
+
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 2s linear infinite;
+
+  @keyframes shine {
+    to {
+      background-position: 200% center;
+    }
+  } */
+
+  /* double-underline with tailwind */
+  @apply tracking-wide text-black dark:text-white border-b-2 hover:border-b-4 border-blue-600 hover:border-blue-500 dark:border-blue-200 dark:hover:border-blue-400 transition-all duration-200;
 }
 </style>

@@ -5,7 +5,7 @@ hidden: false
 inprogress: false
 date: "2019-08-18T08:00:39.000Z"
 hidetimestamp: false
-modified: "2024-06-03T20:17:14.000Z"
+modified: "2024-09-23T16:13:27.000Z"
 tags: ["analog","linocut","art","design","activism"]
 draft: false
 ---
@@ -24,10 +24,6 @@ Through some combination of Red Dead Redemption and this decade’s resurged int
 As a result I’ve been experimenting with different methods of distributing information with analog methods. The easiest and most common is graffiti. People have been writing what they think (more often, their names) on walls in New York for a long time. A phrase written large enough in the right spot in the city can be seen by thousands of people in a day, no electricity required.
 
 The same way some people stock up on rice and beans and ammo I’ve been stocking up on linoleum, ink, and chisels.
-
-::table-of-contents
-
-::
 
 Linocut printing is a really interesting medium to me as a means for the easy distribution of information and imagery. It has a long history of successful usage. Descending from a long lineage of woodblock printing used by a range of printers from medieval monks illustrating their bibles to Japanese artisans depicting elaborate samurais and mountain views. The desired image is painstakingly carved into wood– in reverse. Ink is applied, covering only the uncarved parts of the wood. Paper is laid on top and gently rubbed, absorbing the shape of the image.
 

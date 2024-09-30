@@ -4,7 +4,7 @@ type: "words"
 hidden: false
 inprogress: false
 dek: "In which various tools and methods are explored for analyzing data that describes a network of complaints against NYPD officers (or any other PD with similar public data)"
-modified: "2024-06-06T19:35:49.000Z"
+modified: "2024-09-23T16:13:24.000Z"
 tags: ["data","nypd","visualization","network"]
 draft: false
 ---
@@ -17,10 +17,6 @@ draft: false
 Complaints filed against police officers by the public are often the first and only warning sign that a cop might be on a course of escalating violence.
 
 In the deaths of George Floyd and Eric Garner their killers had a documented history of complaints filed against them. Unfortunately nothing was done to disrupt their pattern of abuse, and both cases ended in those officers killing members of the public they had sworn to protect.
-
-::table-of-contents
-
-::
 
 #### George Floyd
 

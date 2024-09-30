@@ -5,7 +5,7 @@ hidden: false
 inprogress: true
 date: "2020-02-09T03:19:38.000Z"
 hidetimestamp: false
-modified: "2024-06-21T14:13:23.000Z"
+modified: "2024-09-23T16:13:21.000Z"
 tags: ["elections","politics","data","journalism","media","research"]
 draft: false
 ---
@@ -16,10 +16,6 @@ draft: false
 Elections are all edge cases. Votes are cast and tallied by a wide variety of Americans who all have the same goal but often different ideas about how to go about it. Votes are cast in cities and rural areas, in places with millions of constituents or dozens. Many elections are run locally by someone you should mentally picture as your well-meaning aunt. The sheer scale of such an operation is astounding. We live in a country that spans a continent and [9 time zones](https://en.wikipedia.org/wiki/File:US-Timezones-post-2007.png).
 
 This great country contains lots of different people with lots of different ways of going about things.
-
-::table-of-contents
-
-::
 
 The basic rules around voting are laid out in the constitution^[[Article 1 of the Constitution](https://constitutioncenter.org/interactive-constitution/articles/article-i#elections-clause) “The House of Representatives shall be composed of Members chosen every second Year by the People of the several States…” - [Section 4](https://www.usconstitution.net/xconst_A1Sec4.html): “The Times, Places and Manner of holding Elections for Senators and Representatives, shall be prescribed in each State by the Legislature thereof; but the Congress may at any time by Law make or alter such Regulations, except as to the Places of chusing Senators.”] but a remarkable amount of the nitty-gritty details are [left up to each state](https://www.brennancenter.org/analysis/voting-laws-roundup-2019) to figure out.
 

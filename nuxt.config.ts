@@ -20,6 +20,7 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxt/ui',
+    '@nuxt/icon',
     // '@nuxtjs/supabase',
     // '@nuxt/content'
     '@vueuse/nuxt',
@@ -39,6 +40,17 @@ export default defineNuxtConfig({
     public: {
       OPENAI_API_KEY: process.env.OPENAI_API_KEY,
       PRODUCTION: process.env.PRODUCTION
+    }
+  },
+
+  googleFonts: {
+    prefetch: true,
+    families: {
+      'Signika Negative': [200, 300, 400, 500, 600, 700, 800],
+      // "Paytone One": [400],
+      'Fjalla One': [400],
+      // Finlandica: [400, 500, 700],
+      'Red Hat Mono': [400]
     }
   },
 

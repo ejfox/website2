@@ -3,7 +3,7 @@ draft: false
 dek: "In which the importance of mindful CMS selection is examined, the option of \"no CMS\" is considered, and the benefits of using Markdown are revealed"
 inprogress: true
 date: "2023-04-04T18:50:35.000Z"
-modified: "2024-09-20T04:22:00.000Z"
+modified: "2024-09-23T16:13:32.000Z"
 tags: ["tech","cms","code","webdesign","writing"]
 hidden: false
 ---
@@ -22,10 +22,6 @@ Many times, you don't even need a traditional CMS at all: just use your computer
 My experience with Content Management Systems has primarily been within the bustling world of news organizations and startups, where work is often birthed in familiar tools like Word or Google Docs before being shepherded into a CMS for finalization, and time is of the essence.
 
 However, the limitations of many platforms become apparent when you want to do anything other than publish text. Elements such as full-screen videos, interactives, and scrollytelling might need to be hosted externally, accessed via links or iframes, and may not be responsive. This is extremely frustrating for everyone involved.
-
-::table-of-contents
-
-::
 
 ### The argument for no CMS
 

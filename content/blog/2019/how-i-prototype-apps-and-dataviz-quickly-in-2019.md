@@ -4,15 +4,11 @@ hidden: false
 inprogress: false
 date: "2019-03-20T01:25:22.000Z"
 hidetimestamp: false
-modified: "2024-08-01T14:21:39.000Z"
+modified: "2024-09-23T16:13:36.000Z"
 tags: ["vue","dataviz","d3","javascript","webdesign"]
 draft: false
 ---
 ## How I prototype apps and dataviz quickly
-
-::table-of-contents
-
-::
 
 I’ve been really enjoying using Vue as a framework for my javascript applications. It allows me to quickly and easily lay out my data structure, some DOM-elements that are controlled by data, and handle any interactions / application state stuff I might need.
 

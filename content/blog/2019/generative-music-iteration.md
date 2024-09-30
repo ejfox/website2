@@ -2,12 +2,13 @@
 type: "words"
 hidden: true
 inprogress: true
-date: "2019-03-24T01:25:33-04:00"
+date: "2019-03-24T08:00:33.000Z"
 hidetimestamp: false
 tags: ["generative","music","art","research","systemsthinking","visualization","coding"]
+modified: "2024-09-23T16:13:04.000Z"
 draft: true
 ---
-# Generative Music Iteration
+## Generative Music Iteration
 
 One of my first steps when embarking on a new project is to gather research and understand the world in which I’m working.
 
@@ -25,14 +26,11 @@ When I’m in a new place that I’m uncertain of, I don’t know the customs, I
 
 But first I need to find a rough direction to set out towards.
 
-::table-of-contents
-::
+### What do I want to create?
 
-## What do I want to create?
+### Mise-en-place
 
-## Mise-en-place
-
-### Hello World
+#### Hello World
 
 To begin, let’s make ourselves a sandbox to play in and get everything in place so we can think about making our project instead of how we are going to host it or share it with our friends.
 
@@ -45,4 +43,4 @@ To begin, let’s make ourselves a sandbox to play in and get everything in plac
   </iframe>
 </div>
 
-## What are the building blocks of the system we are working in?
+### What are the building blocks of the system we are working in?

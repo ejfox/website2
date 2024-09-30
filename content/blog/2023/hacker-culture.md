@@ -3,7 +3,7 @@ draft: false
 dek: "In which we illuminate the curious history of hackerdom and its transformative influence on our modern technological world"
 inprogress: true
 date: "2023-01-19T06:37:52.000Z"
-modified: "2024-09-20T04:24:11.000Z"
+modified: "2024-09-23T16:13:08.000Z"
 tags: ["hackers","personal","opensource","culture","activism","inspiration"]
 hidden: false
 ---
@@ -18,10 +18,6 @@ Hacker culture roots itself in the counterculture of the 1960s and '70s. It cons
 As a teenager attending HOPE (2600's Hackers on Planet Earth conference) in 2006 in New York City, the atmosphere was electrifying – a hotel floor filled with excited dorks buzzing around tables filled with lockpicking tools, old computers, LEDs, and soldering irons. The air fills with the energy of shared curiosity and passion, as people of all ages and demographics don their Thinkgeek T-shirts and talk shop.
 
 There was one surreal late-night interaction at the conference that felt like a rite of passage into this strange new world. A small group of us stands in a circle, holding hands while someone brandishes a Taser. I had never seen one in person before. As the two people at the ends of the circle touch their fingers to the prongs, we feel the electricity course through our bodies – a visceral reminder that we are all connected in this bizarre and exhilarating adventure.
-
-::table-of-contents
-
-::
 
 ### The Birth of Hacker Ideology: Challenging Authority and Finding Collective Solutions
 

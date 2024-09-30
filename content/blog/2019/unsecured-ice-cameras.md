@@ -5,7 +5,7 @@ hidden: false
 inprogress: false
 date: "2019-03-24T08:00:39.000Z"
 hidetimestamp: false
-modified: "2024-06-21T14:13:37.000Z"
+modified: "2024-09-23T16:13:18.000Z"
 tags: ["security","hacking","osint"]
 draft: false
 ---
@@ -17,10 +17,6 @@ A friend DMs me on Twitter:
 >is there any chance ICE fucked up in this very specific way at a facility?
 
 That sounds very plausible. Let’s give it a try. [Webcam scanning with Shodan](https://www.vice.com/en_us/article/59vm4x/tool-exposed-cameras-map-shodan-python-github) is a pretty well-known technique at this point. I’m not very familiar with it, so it’s time to learn.
-
-::table-of-contents
-
-::
 
 ### First idea: IP ranges
 

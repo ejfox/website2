@@ -4,7 +4,7 @@ type: "words"
 hidden: false
 inprogress: true
 dek: "In which a computer is used as divination tool for random numbers (for the purposes of beauty, art, and poetry)"
-modified: "2024-06-21T14:11:27.000Z"
+modified: "2024-09-23T16:13:15.000Z"
 tags: ["generative","art","javascript","audio"]
 draft: false
 ---
@@ -17,10 +17,6 @@ It is a medium that lets you be surprised as an artist. I like making art where 
 Working with certain materials have their own creative minds, like pottery or watercolors. You feel you are in a partnership with your material more than the master of it.
 
 Making a creative partnership with computers is an incredibly pleasurable way to spend time, at least for me. Computers are incredibly powerful and have an infinite capacity to surprise. Finding new ways to tune into the computer's ability to contribute as creative partner and diviner of random numbers is a lot of fun for me.
-
-::table-of-contents
-
-::
 
 ### My experiments in creative coding
 

@@ -1,13 +1,14 @@
 ---
-date: "2020-10-08T13:28:52-04:00"
+date: "2020-10-08T08:00:52.000Z"
 type: "words"
 hidden: false
 inprogress: false
 dek: "In which the skill of broadcasting yourself writing code to the entire internet is explored"
 tags: ["livestream","coding","dataviz","inspiration","education","visualization"]
+modified: "2024-09-23T16:12:59.000Z"
 draft: false
 ---
-# A summer of live streamed coding
+## A summer of live streamed coding
 
 For the past few months, Ian and I have been experimenting with [livestreaming ourselves working on dataviz projects](https://www.twitch.tv/enjalot) on Twitch and calling it **Coding With Fire**.
 
@@ -23,10 +24,7 @@ It has also been really inspiring to see the discipline and focus of [Shirley Wu
 
 I think that the more people who understand the skills required to visualize data, the more people who are exposing truths hidden in datasets, the better the world will be. I also hope helping people who want to get into data visualization see the process will be valuable in terms of education as well as inspiration.
 
-::table-of-contents
-::
-
-## The cooking show metaphor
+### The cooking show metaphor
 
 One thing that really helped us figure out how to think about how to present ourselves was the metaphor of a _cooking show_. I grew up watching all sorts of excellent and varied cooking shows; Masterchef, Kitchen Nightmares, Iron Chef, Chopped, Top Chef, and more.
 
@@ -38,7 +36,7 @@ Too many modern educational coding videos fall closer on the spectrum to watchin
 
 The cooking shows that I love are more than someone following a certain recipe. **I love when a chef lets me into their decision making process**, the sort of meta-thinking and skills that allow someone not only to imitate the immediate actions of a skilled chef but also adopt reusable formulas that can be used in yet-unforeseen circumstances.
 
-## Working in the open
+### Working in the open
 
 Another great benefit of livestreaming yourself working is that there is a flow of education back and forth between the audience and the hosts.
 
@@ -46,7 +44,7 @@ Feedback can range from "you missed a letter there" to "try out this new library
 
 You also get a record of the decisions you made, which I have used on more than one occasion to remind myself why I did something a certain way.
 
-## Livestream experiments
+### Livestream experiments
 
 #### Live animation
 
@@ -70,13 +68,13 @@ What they can't do is edit our color palette in a way that ends up with us sayin
 
 Letting the crowd control the colors has been such a rewarding and risk-free way to let the users interact with us directly and see the changes they are making in real time on the stream (when the background is showing).
 
-## Building the habit
+### Building the habit
 
 One of the best parts about doing the livestream with Ian is that we can hold each other accountable. Skipping a stream also means letting your friend down. As a result of this, the only streams we have missed happened when Ian had to move his entire family across the country from California to Florida in the middle of a pandemic.
 
 We do our streams on Sunday and Monday evenings every week, the repetition has been the key to figuring things out. Different technical and graphical elements emerged as we found that we needed them. We went through the occasional technical hiccup on air. We did a lot of streaming to 1 or 2 viewers and figuring out how pre-produce the shows, pace ourselves, estimate how long different tasks would take, and know when to move on when something was going more slowly than expected.
 
-## Surprisingly productive
+### Surprisingly productive
 
 One of the most surprising things of working in the open is that I feel like every time we stream we are surprisingly productive. _There is something unique about "performing" your job to the internet._ We usually stream for 3 hours and take a little 10-15 break in the middle. I rarely get that sort of consistently focused time in my private life. Because of that, I find myself waking up the morning after a livestream and looking at all the things that we created in astonishment.
 

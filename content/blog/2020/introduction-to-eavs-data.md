@@ -6,14 +6,10 @@ inprogress: false
 date: "2020-03-03T09:00:39.000Z"
 hidetimestamp: false
 draft: true
-modified: "2024-06-21T14:13:07.000Z"
+modified: "2024-09-23T16:13:29.000Z"
 tags: ["data","dataviz","election2020","visualization"]
 ---
 ## Processing, analyzing and visualizing EAVS data
-
-::table-of-contents
-
-::
 
 EAVS analysis, voters removed exceed election margin
 

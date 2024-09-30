@@ -21,43 +21,26 @@ const sortedProjectPosts = computed(() =>
 </script>
 
 <template>
-  <div class="container mx-auto px-4 py-8">
+  <div class="container mx-auto px-2 py-8">
     <h1 class="text-4xl font-bold mb-8">Projects</h1>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div v-for="post in sortedProjectPosts" :key="post.slug" class=" rounded-lg shadow-md overflow-hidden">
-        <div class="p-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div v-for="post in sortedProjectPosts" :key="post.slug"
+        class=" rounded-md border border-zinc-800 overflow-hidden">
+        <article class="p-6">
           <h2 class="text-2xl font-semibold mb-2">
-            <NuxtLink :to="`/blog/${post.slug}`" class="hover:underline">
+            <NuxtLink :to="`/blog/${post.slug}`" class="no-underline hover:underline">
               {{ post.title }}
             </NuxtLink>
           </h2>
-          <p class="text-sm text-gray-600 mb-4">{{ formatDate(post.date) }}</p>
-          <div class="prose dark:prose-invert max-w-none mb-4" v-html="post.content"></div>
-          <NuxtLink :to="`/blog/${post.slug}`" class="text-blue-600 dark:text-blue-300 hover:underline">
+          <!-- <p class="text-sm text-gray-600 mb-4">{{ formatDate(post.date) }}</p> -->
+          <div class="prose dark:prose-invert max-w-none mb-4 break-words " v-html="post.content"></div>
+          <!-- <NuxtLink :to="`/blog/${post.slug}`" class="text-blue-600 dark:text-blue-300 hover:underline">
             Read more
-          </NuxtLink>
-        </div>
+          </NuxtLink> -->
+        </article>
       </div>
     </div>
   </div>
 </template>
 
-<style>
-pre {
-  overflow: auto;
-}
-
-.prose img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* make dark prose links light */
-.prose a {
-  color: var(--color-primary-500);
-}
-
-article a {
-  text-decoration: underline !important;
-}
-</style>
+<style scoped></style>

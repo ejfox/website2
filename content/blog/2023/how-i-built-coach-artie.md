@@ -3,17 +3,13 @@ draft: false
 dek: "In which we build a robot to help around the shop"
 inprogress: true
 date: "2023-03-21T19:03:11.000Z"
-modified: "2024-09-20T04:26:22.000Z"
+modified: "2024-09-23T16:13:40.000Z"
 tags: ["dataviz","gpt3","machinelearning"]
 hidden: false
 ---
 ## How I Built An AI Assistant for our Dataviz Studio
 
 As I juggle between countless tasks and a constant desire to learn new skills, I often find my mind wandering to Twitter and YouTube instead of focusing on writing code or practicing watercolors. Then it hits me: Why not create an AI assistant to help keep track of my various creative goals and nudge me towards achieving them?
-
-::table-of-contents
-
-::
 
 So I created Coach Artie - an AI-powered life coach designed to monitor my artistic aspirations and ensure that I stay committed to them, who quickly evolved into a studio assistant and collaborator.
 
@@ -23,9 +19,9 @@ I told myself; talking to the robot has to be more productive than TikTok. Then 
 
 I've been playing with GPT and Large Language Models since my friend Dan first showed me [AI Dungeon](https://en.wikipedia.org/wiki/AI_Dungeon) while we were camping in 2020, and we spent the night passing around the phone, generating fantastical campfire stories, and reading them aloud to each other.
 
-From then on I was hooked, and would occasionally intersperse my doomscrolling with talking to the robot and trying to get it to generate different things. [[how-i-use-gpt3]]
+From then on I was hooked, and would occasionally intersperse my doomscrolling with talking to the robot and trying to get it to generate different things.
 
-Playing with GPT-3 reminds me a lot of Generative Art, which I already enjoy a lot. [[creative-coding]]
+Playing with GPT-3 reminds me a lot of Generative Art, which I already enjoy a lot. [[2021/creative-coding|creative-coding]]
 
 I dug up my first tweet mentioning GPT-3 from October 2020: [For my own curiosity, this is the result of prompting GPT-3 to create a conspiracy theory (via AI Dungeon) (first paragraph is prompt)](https://twitter.com/mrejfox/status/1319716459187261441)
 
