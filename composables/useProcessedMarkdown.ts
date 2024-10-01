@@ -164,8 +164,12 @@ export const useProcessedMarkdown = () => {
     console.log('Previous post:', prev)
 
     return {
-      next: next ? { slug: next.slug, title: next.title } : null,
-      prev: prev ? { slug: prev.slug, title: prev.title } : null
+      next: next
+        ? { slug: next.slug, title: next.title, date: next.date }
+        : null,
+      prev: prev
+        ? { slug: prev.slug, title: prev.title, date: prev.date }
+        : null
     }
   }
 

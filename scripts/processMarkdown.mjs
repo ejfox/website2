@@ -289,6 +289,8 @@ function processLink(href) {
   const socialPlatforms = {
     'wikipedia.org': 'simple-icons:wikipedia',
     'github.com': 'simple-icons:github',
+    'github.blog': 'simple-icons:github',
+    'github.io': 'typcn:social-github',
     'youtube.com': 'simple-icons:youtube',
     'twitter.com': 'simple-icons:twitter',
     'itunes.apple.com': 'simple-icons:apple',
@@ -335,7 +337,6 @@ function processLink(href) {
     '.gov': 'game-icons:usa-flag',
     'vuejs.org': 'mdi:vuejs',
     'reactjs.org': 'mdi:react',
-    'github.io': 'typcn:social-github',
     'netlify.com': 'file-icons:netlify',
     'nuxtjs.org': 'mdi:nuxt',
     'cloudinary.com': 'simple-icons:cloudinary',

@@ -1,8 +1,6 @@
 <script setup>
 import { format } from 'date-fns'
 import { computed } from 'vue'
-import { timeWeek, timeYear } from 'd3-time'
-import { timeFormat } from 'd3-time-format'
 import { startOfWeek } from 'date-fns'
 
 const processedMarkdown = useProcessedMarkdown()
@@ -50,39 +48,38 @@ const sortedYears = computed(() =>
 </script>
 
 <template>
-  <div class="container mx-auto px-4 py-8 lg:flex lg:flex-row lg:gap-4">
+  <div class="container mx-auto px-4 py-8 lg:flex lg:gap-8">
     <!-- Blog Posts -->
-    <section class="mb-12 lg:w-3/4">
-      <h2 class="text-2xl font-bold mb-6">Blog Posts</h2>
-      <div v-for="year in sortedYears" :key="`blog-${year}`" class="mb-8">
-        <h3
-          class="text-3xl md:text-4xl lg:text-6xl my-1 md:my-2 lg:my-4 font-semibold mb-4 text-zinc-400 dark:text-zinc-600 monospace">
-          {{ year }}</h3>
-        <ul class="space-y-2 w-full m-0 p-0">
+    <section class="lg:w-2/3 mb-16">
+      <h2 class="text-3xl font-bold mb-8">Blog Posts</h2>
+      <div v-for="year in sortedYears" :key="`blog-${year}`" class="mb-10">
+        <h3 class="text-4xl font-semibold text-zinc-500 dark:text-zinc-400 mb-6 tracking-tight">
+          {{ year }}
+        </h3>
+        <ul class="space-y-4">
           <li v-for="post in blogPostsByYear[year]" :key="post.slug"
-            class="border-b border-zinc-200 dark:border-zinc-800 pb-2 w-full m-0 flex flex-row min-h-24 py-1 md:py-4">
-            <NuxtLink :to="`/blog/${post?.slug}`" class="no-underline hover:underline   w-1/2 pr-8">
+            class="flex justify-between items-center border-b border-zinc-200 dark:border-zinc-700 pb-3">
+            <NuxtLink :to="`/blog/${post?.slug}`" class="no-underline hover:underline text-lg font-medium w-2/3">
               {{ post.title }}
             </NuxtLink>
-            <!-- <span class="text-sm text-zinc-600 ml-2">{{ formatDate(post.date) }}</span> -->
-            <PostMetadata :doc="post" class="inline-flex max-w-1/2 overflow-x-auto text-right text-[10px]" />
+            <PostMetadata :doc="post" class="text-xs text-zinc-600 dark:text-zinc-400 w-1/3 text-right" />
           </li>
         </ul>
       </div>
     </section>
 
     <!-- Week Notes -->
-    <section class="mb-12 lg:w-1/4">
-      <h2 class="text-2xl font-bold mb-6">Week Notes</h2>
+    <section class="lg:w-1/3">
+      <h2 class="text-3xl font-bold mb-8">Week Notes</h2>
       <div v-for="weekNote in sortedWeekNotes" :key="weekNote.slug"
-        class="border-b border-zinc-200 dark:border-zinc-800 py-3 text-justify">
+        class="border-b border-zinc-200 dark:border-zinc-700 py-4">
         <NuxtLink :to="`/blog/${weekNote.slug}`"
-          class="hover:underline text-xs rounded bg-zinc-50 dark:bg-transparent font-mono block">
+          class="hover:underline text-sm bg-zinc-50 dark:bg-transparent font-mono block px-2 py-1 rounded">
           {{ weekNote.slug.split('/')[1] }}
         </NuxtLink>
-        <span v-if="weekNote.dek" class="text-sm text-zinc-600 dark:text-zinc-400 py-2 xl:py-4">{{ weekNote.dek
-          }}</span>
-        <!-- <span v-if="weekNote.date" class="text-sm text-zinc-600 ml-2">{{ formatDate(weekNote.date) }}</span> -->
+        <p v-if="weekNote.dek" class="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
+          {{ weekNote.dek }}
+        </p>
       </div>
     </section>
   </div>

@@ -1,6 +1,7 @@
 ---
+title: "Coach Artie"
 date: "2024-09-21T19:59:42.000Z"
-modified: "2024-09-21T20:00:03.000Z"
+modified: "2024-10-01T02:02:47.000Z"
 hidden: false
 draft: false
 ---

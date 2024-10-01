@@ -1,21 +1,20 @@
 ---
-date: "2024-09-21T20:01:50.000Z"
-modified: "2024-09-21T20:02:29.000Z"
+title: "NBC News Specials"
+date: "2016-12-14T20:01:50.000Z"
+modified: "2024-10-01T02:16:06.000Z"
 hidden: false
 draft: false
 ---
-<https://www.nbcnews.com/specials/kentucky-prison-coal-country>
+During my time at NBC News, I worked on the Foundry team, creating bespoke longform articles in collaboration with journalists across the organization. These [specials](https://www.nbcnews.com/specials) focused on unique approaches to video, data visualiation, and storytelling on the web.
 
-<https://www.nbcnews.com/specials/bail-reform>
+[Does America Need Another Prison? (2018)](https://www.nbcnews.com/specials/kentucky-prison-coal-country)
 
-<https://www.nbcnews.com/specials/making-of-an-astronaut>
+[Post Bail (2017)](https://www.nbcnews.com/specials/bail-reform)
 
-<https://www.nbcnews.com/specials/journey-of-a-bullet>
+[The Making of an Astronaut (2017)](https://www.nbcnews.com/specials/making-of-an-astronaut)
 
-<https://www.nbcnews.com/specials/donald-trump-first-100-days>
+[Journey of a Bullet (2017)](https://www.nbcnews.com/specials/journey-of-a-bullet/)
 
-<https://www.nbcnews.com/specials/donald-trump-republican-party/presidency>
+[Donald Trump's First 100 Days (2017)](https://www.nbcnews.com/specials/donald-trump-first-100-days/)
 
-<https://www.youtube.com/watch?v=p4KIMQsVkt8>
-
-<http://www.vocativ.com/282689/the-road-to-yeezy-mapping-kanyes-fashion-universe/>
+[How Trump Won (2016)](https://www.nbcnews.com/specials/donald-trump-republican-party/presidency/)

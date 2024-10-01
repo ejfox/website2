@@ -835,7 +835,7 @@
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/@kwsites/promise-deferred/-/promise-deferred-1.1.1.tgz#8ace5259254426ccef57f3175bc64ed7095ed919"
   integrity sha512-GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==
 
-"@mapbox/node-pre-gyp@^1.0.5":
+"@mapbox/node-pre-gyp@^1.0.0", "@mapbox/node-pre-gyp@^1.0.5":
   version "1.0.11"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/@mapbox/node-pre-gyp/-/node-pre-gyp-1.0.11.tgz#417db42b7f5323d79e93b34a6d7a2a12c0df43fa"
   integrity sha512-Yhlar6v9WQgUp/He7BdgzOz8lqMQ8sU+jkCq7Wx8Myc5YFJLbEe7lgui/V7G1qB1DJykHSGwreceSaD60Y0PUQ==
@@ -1346,6 +1346,20 @@
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/@popperjs/core/-/core-2.11.8.tgz#6b79032e760a0899cd4204710beede972a3a185f"
   integrity sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==
 
+"@puppeteer/browsers@2.4.0":
+  version "2.4.0"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/@puppeteer/browsers/-/browsers-2.4.0.tgz#a0dd0f4e381e53f509109ae83b891db5972750f5"
+  integrity sha512-x8J1csfIygOwf6D6qUAZ0ASk3z63zPb7wkNeHRerCMh82qWKUrOgkuP005AJC8lDL6/evtXETGEJVcwykKT4/g==
+  dependencies:
+    debug "^4.3.6"
+    extract-zip "^2.0.1"
+    progress "^2.0.3"
+    proxy-agent "^6.4.0"
+    semver "^7.6.3"
+    tar-fs "^3.0.6"
+    unbzip2-stream "^1.4.3"
+    yargs "^17.7.2"
+
 "@rehype-pretty/transformers@^0.13.2":
   version "0.13.2"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/@rehype-pretty/transformers/-/transformers-0.13.2.tgz#10aa3eccf44a55c8721eaea74d4759e3fe522e7d"
@@ -1685,6 +1699,11 @@
   integrity sha512-DB5QA8c/LfqOqIUCpSs3RdOTVroRRdqeHMqBkYrcashSZtOzIv8xbiqHgg7RYxDfkH5F3Y+e0MkuuyGNDVB0BQ==
   dependencies:
     "@tanstack/virtual-core" "3.10.8"
+
+"@tootallnate/quickjs-emscripten@^0.23.0":
+  version "0.23.0"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/@tootallnate/quickjs-emscripten/-/quickjs-emscripten-0.23.0.tgz#db4ecfd499a9765ab24002c3b696d02e6d32a12c"
+  integrity sha512-C5Mc6rdnsaJDjO3UpGW/CQTHtCKaYlScZTly4JIu97Jxo/odCiH0ITnDXSJPTOrEKk/ycSZ0AOgTmkDtkOsvIA==
 
 "@trysound/sax@0.2.0":
   version "0.2.0"
@@ -2218,6 +2237,13 @@ agent-base@6:
   dependencies:
     debug "4"
 
+agent-base@^7.0.2, agent-base@^7.1.0, agent-base@^7.1.1:
+  version "7.1.1"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/agent-base/-/agent-base-7.1.1.tgz#bdbded7dfb096b751a2a087eeeb9664725b2e317"
+  integrity sha512-H0TSyFNDMomMNJQBn8wFV5YC/2eJ+VXECwOadZJT554xP6cODZHPX3H9QMQECxvrgiSOP1pHjy1sMWQVYJOUOA==
+  dependencies:
+    debug "^4.3.4"
+
 ansi-colors@^4.1.3:
   version "4.1.3"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/ansi-colors/-/ansi-colors-4.1.3.tgz#37611340eb2243e70cc604cad35d63270d48781b"
@@ -2336,6 +2362,13 @@ ast-kit@^1.0.1, ast-kit@^1.1.0:
     "@babel/parser" "^7.25.6"
     pathe "^1.1.2"
 
+ast-types@^0.13.4:
+  version "0.13.4"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/ast-types/-/ast-types-0.13.4.tgz#ee0d77b343263965ecc3fb62da16e7222b2b6782"
+  integrity sha512-x1FCFnFifvYDDzTaLII71vG5uvDwgtmDTEVWAxrgeiR8VjMONcCXJx7E+USjDtHlwFmt9MysbqgF9b9Vjr6w+w==
+  dependencies:
+    tslib "^2.0.1"
+
 ast-walker-scope@^0.6.2:
   version "0.6.2"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/ast-walker-scope/-/ast-walker-scope-0.6.2.tgz#b827e8949c129802f76fe0f142e95fd7efda57dc"
@@ -2392,7 +2425,7 @@ axios@^1.7.7:
     form-data "^4.0.0"
     proxy-from-env "^1.1.0"
 
-b4a@^1.6.4:
+b4a@^1.6.4, b4a@^1.6.6:
   version "1.6.7"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/b4a/-/b4a-1.6.7.tgz#a99587d4ebbfbd5a6e3b21bdb5d5fa385767abe4"
   integrity sha512-OnAYlL5b7LEkALw87fUVafQw5rVR9RjwGd4KUwNQ6DrrNmaVaUCgLipfVlzrPQ4tWOR9P0IXGNOx50jYCCdSJg==
@@ -2407,15 +2440,49 @@ balanced-match@^1.0.0:
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"
   integrity sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==
 
-bare-events@^2.2.0:
+bare-events@^2.0.0, bare-events@^2.2.0:
   version "2.5.0"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/bare-events/-/bare-events-2.5.0.tgz#305b511e262ffd8b9d5616b056464f8e1b3329cc"
   integrity sha512-/E8dDe9dsbLyh2qrZ64PEPadOQ0F4gbl1sUJOrmph7xOiIxfY8vwab/4bFLh4Y88/Hk/ujKcrQKc+ps0mv873A==
+
+bare-fs@^2.1.1:
+  version "2.3.5"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/bare-fs/-/bare-fs-2.3.5.tgz#05daa8e8206aeb46d13c2fe25a2cd3797b0d284a"
+  integrity sha512-SlE9eTxifPDJrT6YgemQ1WGFleevzwY+XAP1Xqgl56HtcrisC2CHCZ2tq6dBpcH2TnNxwUEUGhweo+lrQtYuiw==
+  dependencies:
+    bare-events "^2.0.0"
+    bare-path "^2.0.0"
+    bare-stream "^2.0.0"
+
+bare-os@^2.1.0:
+  version "2.4.4"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/bare-os/-/bare-os-2.4.4.tgz#01243392eb0a6e947177bb7c8a45123d45c9b1a9"
+  integrity sha512-z3UiI2yi1mK0sXeRdc4O1Kk8aOa/e+FNWZcTiPB/dfTWyLypuE99LibgRaQki914Jq//yAWylcAt+mknKdixRQ==
+
+bare-path@^2.0.0, bare-path@^2.1.0:
+  version "2.1.3"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/bare-path/-/bare-path-2.1.3.tgz#594104c829ef660e43b5589ec8daef7df6cedb3e"
+  integrity sha512-lh/eITfU8hrj9Ru5quUp0Io1kJWIk1bTjzo7JH1P5dWmQ2EL4hFUlfI8FonAhSlgIfhn63p84CDY/x+PisgcXA==
+  dependencies:
+    bare-os "^2.1.0"
+
+bare-stream@^2.0.0:
+  version "2.3.0"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/bare-stream/-/bare-stream-2.3.0.tgz#5bef1cab8222517315fca1385bd7f08dff57f435"
+  integrity sha512-pVRWciewGUeCyKEuRxwv06M079r+fRjAQjBEK2P6OYGrO43O+Z0LrPZZEjlc4mB6C2RpZ9AxJ1s7NLEtOHO6eA==
+  dependencies:
+    b4a "^1.6.6"
+    streamx "^2.20.0"
 
 base64-js@^1.3.1:
   version "1.5.1"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/base64-js/-/base64-js-1.5.1.tgz#1b1b440160a5bf7ad40b650f095963481903930a"
   integrity sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==
+
+basic-ftp@^5.0.2:
+  version "5.0.5"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/basic-ftp/-/basic-ftp-5.0.5.tgz#14a474f5fffecca1f4f406f1c26b18f800225ac0"
+  integrity sha512-4Bcg1P8xhUuqcii/S0Z9wiHIrQVPMermM1any+MX5GeGD7faD3/msQUDGLol9wOcz4/jbg/WJnGqoJF6LiBdtg==
 
 binary-extensions@^2.0.0:
   version "2.3.0"
@@ -2491,6 +2558,14 @@ buffer-from@^1.0.0:
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/buffer-from/-/buffer-from-1.1.2.tgz#2b146a6fd72e80b4f55d255f35ed59a3a9a41bd5"
   integrity sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==
 
+buffer@^5.2.1:
+  version "5.7.1"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/buffer/-/buffer-5.7.1.tgz#ba62e7c13133053582197160851a8f648e99eed0"
+  integrity sha512-EHcyIPBQ4BSGlvjB16k5KgAJ27CIsHY/2JBmCRReo48y9rQ3MaUzWX3KVlBa4U7MyX02HdVj0K7C3WaB3ju7FQ==
+  dependencies:
+    base64-js "^1.3.1"
+    ieee754 "^1.1.13"
+
 buffer@^6.0.3:
   version "6.0.3"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/buffer/-/buffer-6.0.3.tgz#2ace578459cc8fbe2a70aaa8f52ee63b6a74c6c6"
@@ -2556,6 +2631,15 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001646, caniuse-lite@^1.0.30001663:
   version "1.0.30001664"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/caniuse-lite/-/caniuse-lite-1.0.30001664.tgz#d588d75c9682d3301956b05a3749652a80677df4"
   integrity sha512-AmE7k4dXiNKQipgn7a2xg558IRqPN3jMQY/rOsbxDhrd0tyChwbITBfiwtnqz8bi2M5mIWbxAYBvk7W7QBUS2g==
+
+canvas@^2.11.2:
+  version "2.11.2"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/canvas/-/canvas-2.11.2.tgz#553d87b1e0228c7ac0fc72887c3adbac4abbd860"
+  integrity sha512-ItanGBMrmRV7Py2Z+Xhs7cT+FNt5K0vPL4p9EZ/UX/Mu7hFbkxSjKF2KVtPwX7UYWp7dRKnrTvReflgrItJbdw==
+  dependencies:
+    "@mapbox/node-pre-gyp" "^1.0.0"
+    nan "^2.17.0"
+    simple-get "^3.0.3"
 
 ccount@^2.0.0:
   version "2.0.1"
@@ -2677,6 +2761,15 @@ chownr@^2.0.0:
   version "2.0.0"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/chownr/-/chownr-2.0.0.tgz#15bfbe53d2eab4cf70f18a8cd68ebe5b3cb1dece"
   integrity sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==
+
+chromium-bidi@0.6.5:
+  version "0.6.5"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/chromium-bidi/-/chromium-bidi-0.6.5.tgz#31be98f9ee5c93fa99d240c680518c9293d8c6bb"
+  integrity sha512-RuLrmzYrxSb0s9SgpB+QN5jJucPduZQ/9SIe76MDxYJuecPW5mxMdacJ1f4EtgiV+R0p3sCkznTMvH0MPGFqjA==
+  dependencies:
+    mitt "3.0.1"
+    urlpattern-polyfill "10.0.0"
+    zod "3.23.8"
 
 ci-info@^4.0.0:
   version "4.0.0"
@@ -3340,6 +3433,16 @@ dagre-d3-es@7.0.10:
     d3 "^7.8.2"
     lodash-es "^4.17.21"
 
+data-uri-to-buffer@^6.0.2:
+  version "6.0.2"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/data-uri-to-buffer/-/data-uri-to-buffer-6.0.2.tgz#8a58bb67384b261a38ef18bea1810cb01badd28b"
+  integrity sha512-7hvf7/GW8e86rW0ptuwS3OcBGDjIi6SZva7hCyWC0yYry2cOPmLIjXAUHI6DK2HsnwJd9ifmt57i8eV2n4YNpw==
+
+date-fns@^4.1.0:
+  version "4.1.0"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/date-fns/-/date-fns-4.1.0.tgz#64b3d83fff5aa80438f5b1a633c2e83b8a1c2d14"
+  integrity sha512-Ukq0owbQXxa/U3EGtsdVBkR1w7KOQ5gIBqdH2hkvknzZPYvBxb/aa6E8L7tmjFtkwZBu3UXBbjIgPo/Ez4xaNg==
+
 dayjs@^1.11.7:
   version "1.11.13"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/dayjs/-/dayjs-1.11.13.tgz#92430b0139055c3ebb60150aa13e860a4b5a366c"
@@ -3357,7 +3460,7 @@ debug@2.6.9:
   dependencies:
     ms "2.0.0"
 
-debug@4, debug@^4.0.0, debug@^4.1.0, debug@^4.1.1, debug@^4.3.1, debug@^4.3.2, debug@^4.3.4, debug@^4.3.5, debug@^4.3.6, debug@~4.3.1, debug@~4.3.2:
+debug@4, debug@^4.0.0, debug@^4.1.0, debug@^4.1.1, debug@^4.3.1, debug@^4.3.2, debug@^4.3.4, debug@^4.3.5, debug@^4.3.6, debug@^4.3.7, debug@~4.3.1, debug@~4.3.2:
   version "4.3.7"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/debug/-/debug-4.3.7.tgz#87945b4151a011d76d95a198d7111c865c360a52"
   integrity sha512-Er2nc/H7RrMXZBFCEim6TCmMk02Z8vLC2Rbi1KEBggpo0fS6l0S1nnapwmIi3yW/+GOJap1Krg4w0Hg80oCqgQ==
@@ -3377,6 +3480,13 @@ decode-named-character-reference@^1.0.0:
   integrity sha512-O8x12RzrUF8xyVcY0KJowWsmaJxQbmy0/EtnNtHRpsOcT7dFk5W598coHqBVpmWo1oQQfsCqfCmkZN5DJrZVdg==
   dependencies:
     character-entities "^2.0.0"
+
+decompress-response@^4.2.0:
+  version "4.2.1"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/decompress-response/-/decompress-response-4.2.1.tgz#414023cc7a302da25ce2ec82d0d5238ccafd8986"
+  integrity sha512-jOSne2qbyE+/r8G1VU+G/82LBs2Fs4LAsTiLSHOCOMZQl2OKZ6i8i4IyHemTe+/yIXOtTcRQMzPcgyhoFlqPkw==
+  dependencies:
+    mimic-response "^2.0.0"
 
 deep-equal@~1.0.1:
   version "1.0.1"
@@ -3415,6 +3525,15 @@ defu@^6.1.4:
   version "6.1.4"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/defu/-/defu-6.1.4.tgz#4e0c9cf9ff68fe5f3d7f2765cc1a012dfdcb0479"
   integrity sha512-mEQCMmwJu317oSz8CwdIOdwf3xMif1ttiM8LTufzc3g6kR+9Pe236twL8j3IYT1F7GfRgGcW6MWxzZjLIkuHIg==
+
+degenerator@^5.0.0:
+  version "5.0.1"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/degenerator/-/degenerator-5.0.1.tgz#9403bf297c6dad9a1ece409b37db27954f91f2f5"
+  integrity sha512-TllpMR/t0M5sqCXfj85i4XaAzxmS5tVA16dqvdkMwGmzI+dXLXnw3J+3Vdv7VKw+ThlTMboK6i9rnZ6Nntj5CQ==
+  dependencies:
+    ast-types "^0.13.4"
+    escodegen "^2.1.0"
+    esprima "^4.0.1"
 
 delaunator@5:
   version "5.0.1"
@@ -3489,6 +3608,11 @@ devlop@^1.0.0, devlop@^1.1.0:
   integrity sha512-RWmIqhcFf1lRYBvNmr7qTNuyCt/7/ns2jbpp1+PalgE/rDQcBT0fioSMUpJ93irlUhC5hrg4cYqe6U+0ImW0rA==
   dependencies:
     dequal "^2.0.0"
+
+devtools-protocol@0.0.1342118:
+  version "0.0.1342118"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/devtools-protocol/-/devtools-protocol-0.0.1342118.tgz#ea136fc1701572c0830233dcb414dc857e582e0a"
+  integrity sha512-75fMas7PkYNDTmDyb6PRJCH7ILmHLp+BhrZGeMsa4bCh40DTxgCz2NRy5UDzII4C5KuD0oBMZ9vXKhEl6UD/3w==
 
 didyoumean@^1.2.2:
   version "1.2.2"
@@ -3774,15 +3898,31 @@ escape-string-regexp@^5.0.0:
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/escape-string-regexp/-/escape-string-regexp-5.0.0.tgz#4683126b500b61762f2dbebace1806e8be31b1c8"
   integrity sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==
 
+escodegen@^2.1.0:
+  version "2.1.0"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/escodegen/-/escodegen-2.1.0.tgz#ba93bbb7a43986d29d6041f99f5262da773e2e17"
+  integrity sha512-2NlIDTwUWJN0mRPQOdtQBzbUHvdGY2P1VXSyU83Q3xKxM7WHX2Ql8dKq782Q9TgQUNOLEzEYu9bzLNj1q88I5w==
+  dependencies:
+    esprima "^4.0.1"
+    estraverse "^5.2.0"
+    esutils "^2.0.2"
+  optionalDependencies:
+    source-map "~0.6.1"
+
 eslint-config-prettier@^9.1.0:
   version "9.1.0"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/eslint-config-prettier/-/eslint-config-prettier-9.1.0.tgz#31af3d94578645966c082fcb71a5846d3c94867f"
   integrity sha512-NSWl5BFQWEPi1j4TjVNItzYV7dZXZ+wP6I6ZhrBGpChQhZRUaElihE9uRRkcbRnNb76UMKDF3r+WTmNcGPKsqw==
 
-esprima@^4.0.0:
+esprima@^4.0.0, esprima@^4.0.1:
   version "4.0.1"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/esprima/-/esprima-4.0.1.tgz#13b04cdb3e6c5d19df91ab6987a8695619b0aa71"
   integrity sha512-eGuFFw7Upda+g4p+QHvnW0RyTX/SVeJBDM/gCtMARO0cLuT2HcEKnTPvhjV6aGeqrCB/sbNop0Kszm0jsaWU4A==
+
+estraverse@^5.2.0:
+  version "5.3.0"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/estraverse/-/estraverse-5.3.0.tgz#2eea5290702f26ab8fe5370370ff86c965d21123"
+  integrity sha512-MMdARuVEQziNTeJD8DgMqmhwR11BRQ/cBP+pLtYdSTnf3MIO8fFeiINEbX36ZdNlfU/7A9f3gUw49B3oQsvwBA==
 
 estree-walker@2.0.2, estree-walker@^2.0.1, estree-walker@^2.0.2:
   version "2.0.2"
@@ -3795,6 +3935,11 @@ estree-walker@^3.0.3:
   integrity sha512-7RUKfXgSMMkzt6ZuXmqapOurLGPPfgj6l9uRZ7lRGolvk0y2yocc35LdcxKC5PQZdn2DMqioAQ2NoWcrTKmm6g==
   dependencies:
     "@types/estree" "^1.0.0"
+
+esutils@^2.0.2:
+  version "2.0.3"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/esutils/-/esutils-2.0.3.tgz#74d2eb4de0b8da1293711910d50775b9b710ef64"
+  integrity sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==
 
 etag@^1.8.1, etag@~1.8.1:
   version "1.8.1"
@@ -4093,6 +4238,16 @@ get-stream@^8.0.1:
   version "8.0.1"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/get-stream/-/get-stream-8.0.1.tgz#def9dfd71742cd7754a7761ed43749a27d02eca2"
   integrity sha512-VaUJspBffn/LMCJVoMvSAdmscJyS1auj5Zulnn5UoYcY531UWmdwhRWkcGKnGU93m5HSXP9LP2usOryrBtQowA==
+
+get-uri@^6.0.1:
+  version "6.0.3"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/get-uri/-/get-uri-6.0.3.tgz#0d26697bc13cf91092e519aa63aa60ee5b6f385a"
+  integrity sha512-BzUrJBS9EcUb4cFol8r4W3v1cPsSyajLSthNkz5BxbpDcHN5tIrM10E2eNvfnvBn3DaT3DUgx0OpsBKkaOpanw==
+  dependencies:
+    basic-ftp "^5.0.2"
+    data-uri-to-buffer "^6.0.2"
+    debug "^4.3.4"
+    fs-extra "^11.2.0"
 
 giget@^1.2.3:
   version "1.2.3"
@@ -4518,6 +4673,14 @@ http-errors@~1.6.2:
     setprototypeof "1.1.0"
     statuses ">= 1.4.0 < 2"
 
+http-proxy-agent@^7.0.0, http-proxy-agent@^7.0.1:
+  version "7.0.2"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/http-proxy-agent/-/http-proxy-agent-7.0.2.tgz#9a8b1f246866c028509486585f62b8f2c18c270e"
+  integrity sha512-T1gkAiYYDWYx3V5Bmyu7HcfcvL7mUrTWiM6yOfa3PIphViJ/gFPbvidQ+veqSOHci/PxBcDabeUNCzpOODJZig==
+  dependencies:
+    agent-base "^7.1.0"
+    debug "^4.3.4"
+
 http-shutdown@^1.2.2:
   version "1.2.2"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/http-shutdown/-/http-shutdown-1.2.2.tgz#41bc78fc767637c4c95179bc492f312c0ae64c5f"
@@ -4529,6 +4692,14 @@ https-proxy-agent@^5.0.0:
   integrity sha512-dFcAjpTQFgoLMzC2VwU+C/CbS7uRL0lWmxDITmqm7C+7F0Odmj6s9l6alZc6AELXhrnggM2CeWSXHGOdX2YtwA==
   dependencies:
     agent-base "6"
+    debug "4"
+
+https-proxy-agent@^7.0.3, https-proxy-agent@^7.0.5:
+  version "7.0.5"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/https-proxy-agent/-/https-proxy-agent-7.0.5.tgz#9e8b5013873299e11fab6fd548405da2d6c602b2"
+  integrity sha512-1e4Wqeblerz+tMKPIq2EMGiiWW1dIjZOksyHWSUm1rmuvw/how9hBHZ38lAGj5ID4Ik6EdkOw7NmWPy6LAwalw==
+  dependencies:
+    agent-base "^7.0.2"
     debug "4"
 
 httpxy@^0.1.5:
@@ -4553,7 +4724,7 @@ iconv-lite@0.6, iconv-lite@0.6.3, iconv-lite@^0.6.3:
   dependencies:
     safer-buffer ">= 2.1.2 < 3.0.0"
 
-ieee754@^1.2.1:
+ieee754@^1.1.13, ieee754@^1.2.1:
   version "1.2.1"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/ieee754/-/ieee754-1.2.1.tgz#8eb7a10a63fff25d15a57b001586d177d1b0d352"
   integrity sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==
@@ -4631,6 +4802,14 @@ ioredis@^5.4.1:
     redis-errors "^1.2.0"
     redis-parser "^3.0.0"
     standard-as-callback "^2.1.0"
+
+ip-address@^9.0.5:
+  version "9.0.5"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/ip-address/-/ip-address-9.0.5.tgz#117a960819b08780c3bd1f14ef3c1cc1d3f3ea5a"
+  integrity sha512-zHtQzGojZXTwZTHQqra+ETKd4Sn3vgi7uBmlPoXVWZqYvuKmtI0l/VZTjqGmJY9x88GGOaZ9+G9ES8hC4T4X8g==
+  dependencies:
+    jsbn "1.1.0"
+    sprintf-js "^1.1.3"
 
 iron-webcrypto@^1.1.1:
   version "1.2.1"
@@ -4866,6 +5045,11 @@ js-yaml@^4.1.0:
   integrity sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==
   dependencies:
     argparse "^2.0.1"
+
+jsbn@1.1.0:
+  version "1.1.0"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/jsbn/-/jsbn-1.1.0.tgz#b01307cb29b618a1ed26ec79e911f803c4da0040"
+  integrity sha512-4bYVV3aAMtDTTu4+xsDYa6sy9GyJ69/amsu9sYF2zqjiEoZA5xJi3BrfX3uY+/IekIu7MwdObdbDWpoZdBv3/A==
 
 jsesc@^2.5.1:
   version "2.5.2"
@@ -5122,6 +5306,11 @@ lru-cache@^5.1.1:
   integrity sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==
   dependencies:
     yallist "^3.0.2"
+
+lru-cache@^7.14.1:
+  version "7.18.3"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/lru-cache/-/lru-cache-7.18.3.tgz#f793896e0fd0e954a59dfdd82f0773808df6aa89"
+  integrity sha512-jumlc0BIUrS3qJGgIkWZsyfAM7NCWiBcCDhnd+3NNM5KbBmLTgHVfWBcg6W+rLUsIpzpERPsvwUP7CckAQSOoA==
 
 magic-string-ast@^0.6.2:
   version "0.6.2"
@@ -5945,6 +6134,11 @@ mimic-fn@^4.0.0:
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/mimic-fn/-/mimic-fn-4.0.0.tgz#60a90550d5cb0b239cca65d893b1a53b29871ecc"
   integrity sha512-vqiC06CuhBTUdZH+RYl8sFrL096vA45Ok5ISO6sE/Mr1jRbGH4Csnhi8f3wKVl7x8mO4Au7Ir9D3Oyv1VYMFJw==
 
+mimic-response@^2.0.0:
+  version "2.1.0"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/mimic-response/-/mimic-response-2.1.0.tgz#d13763d35f613d09ec37ebb30bac0469c0ee8f43"
+  integrity sha512-wXqjST+SLt7R009ySCglWBCFpjUygmCIfD790/kVbiGmUgfYGuB14PiTd5DwVxSV4NcYHjzMkoj5LjQZwTQLEA==
+
 mini-svg-data-uri@^1.0.0, mini-svg-data-uri@^1.2.3:
   version "1.4.4"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/mini-svg-data-uri/-/mini-svg-data-uri-1.4.4.tgz#8ab0aabcdf8c29ad5693ca595af19dd2ead09939"
@@ -6011,7 +6205,7 @@ minizlib@^2.1.1:
     minipass "^3.0.0"
     yallist "^4.0.0"
 
-mitt@^3.0.1:
+mitt@3.0.1, mitt@^3.0.1:
   version "3.0.1"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/mitt/-/mitt-3.0.1.tgz#ea36cf0cc30403601ae074c8f77b7092cdab36d1"
   integrity sha512-vKivATfr97l2/QBCYAkXYDbrIWPM2IIKEl7YPhjCvKlG3kE2gm+uBo6nEXK3M5/Ffh/FLpKExzOQ3JJoJGFKBw==
@@ -6067,6 +6261,11 @@ mz@^2.7.0:
     object-assign "^4.0.1"
     thenify-all "^1.0.0"
 
+nan@^2.17.0:
+  version "2.20.0"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/nan/-/nan-2.20.0.tgz#08c5ea813dd54ed16e5bd6505bf42af4f7838ca3"
+  integrity sha512-bk3gXBZDGILuuo/6sKtr0DQmSThYHLtNCdSdXk9YkxD/jK6X2vmCyyXBBxyqZ4XcnzTyYEAThfX3DCEnLf6igw==
+
 nanoid@^3.3.4, nanoid@^3.3.7:
   version "3.3.7"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/nanoid/-/nanoid-3.3.7.tgz#d0c301a691bc8d54efa0a2226ccf3fe2fd656bd8"
@@ -6091,6 +6290,11 @@ negotiator@0.6.3:
   version "0.6.3"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/negotiator/-/negotiator-0.6.3.tgz#58e323a72fedc0d6f9cd4d31fe49f51479590ccd"
   integrity sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==
+
+netmask@^2.0.2:
+  version "2.0.2"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/netmask/-/netmask-2.0.2.tgz#8b01a07644065d536383835823bc52004ebac5e7"
+  integrity sha512-dBpDMdxv9Irdq66304OLfEmQ9tbNRFnFTuZiLo+bD+r332bBmMJ8GBLXklIXXgxd3+v9+KUnZaUR5PJMa75Gsg==
 
 nitropack@^2.9.7:
   version "2.9.7"
@@ -6448,6 +6652,35 @@ openapi-typescript@^6.7.6:
     supports-color "^9.4.0"
     undici "^5.28.4"
     yargs-parser "^21.1.1"
+
+p-limit@^6.1.0:
+  version "6.1.0"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/p-limit/-/p-limit-6.1.0.tgz#d91f9364d3fdff89b0a45c70d04ad4e0df30a0e8"
+  integrity sha512-H0jc0q1vOzlEk0TqAKXKZxdl7kX3OFUzCnNVUnq5Pc3DGo0kpeaMuPqxQn235HibwBEb0/pm9dgKTjXy66fBkg==
+  dependencies:
+    yocto-queue "^1.1.1"
+
+pac-proxy-agent@^7.0.1:
+  version "7.0.2"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/pac-proxy-agent/-/pac-proxy-agent-7.0.2.tgz#0fb02496bd9fb8ae7eb11cfd98386daaac442f58"
+  integrity sha512-BFi3vZnO9X5Qt6NRz7ZOaPja3ic0PhlsmCRYLOpN11+mWBCR6XJDqW5RF3j8jm4WGGQZtBA+bTfxYzeKW73eHg==
+  dependencies:
+    "@tootallnate/quickjs-emscripten" "^0.23.0"
+    agent-base "^7.0.2"
+    debug "^4.3.4"
+    get-uri "^6.0.1"
+    http-proxy-agent "^7.0.0"
+    https-proxy-agent "^7.0.5"
+    pac-resolver "^7.0.1"
+    socks-proxy-agent "^8.0.4"
+
+pac-resolver@^7.0.1:
+  version "7.0.1"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/pac-resolver/-/pac-resolver-7.0.1.tgz#54675558ea368b64d210fd9c92a640b5f3b8abb6"
+  integrity sha512-5NPgf87AT2STgwa2ntRMr45jTKrYBGkVU36yT0ig/n/GMAa3oPqhZfIQ2kMEimReg0+t9kZViDVZ83qfVUlckg==
+  dependencies:
+    degenerator "^5.0.0"
+    netmask "^2.0.2"
 
 package-json-from-dist@^1.0.0:
   version "1.0.1"
@@ -6922,6 +7155,11 @@ process@^0.11.10:
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/process/-/process-0.11.10.tgz#7332300e840161bda3e69a1d1d91a7d4bc16f182"
   integrity sha512-cdGef/drWFoydD1JsMzuFf8100nZl+GT+yacc2bEced5f9Rjk4z+WtFUTBu9PhOi9j/jfmBPu0mMEY4wIdAF8A==
 
+progress@^2.0.3:
+  version "2.0.3"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
+  integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
+
 prompts@^2.4.2:
   version "2.4.2"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/prompts/-/prompts-2.4.2.tgz#7b57e73b3a48029ad10ebd44f74b01722a4cb069"
@@ -6940,6 +7178,20 @@ protocols@^2.0.0, protocols@^2.0.1:
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/protocols/-/protocols-2.0.1.tgz#8f155da3fc0f32644e83c5782c8e8212ccf70a86"
   integrity sha512-/XJ368cyBJ7fzLMwLKv1e4vLxOju2MNAIokcr7meSaNcVbWz/CPcW22cP04mwxOErdA5mwjA8Q6w/cdAQxVn7Q==
 
+proxy-agent@^6.4.0:
+  version "6.4.0"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/proxy-agent/-/proxy-agent-6.4.0.tgz#b4e2dd51dee2b377748aef8d45604c2d7608652d"
+  integrity sha512-u0piLU+nCOHMgGjRbimiXmA9kM/L9EHh3zL81xCdp7m+Y2pHIsnmbdDoEDoAz5geaonNR6q6+yOPQs6n4T6sBQ==
+  dependencies:
+    agent-base "^7.0.2"
+    debug "^4.3.4"
+    http-proxy-agent "^7.0.1"
+    https-proxy-agent "^7.0.3"
+    lru-cache "^7.14.1"
+    pac-proxy-agent "^7.0.1"
+    proxy-from-env "^1.1.0"
+    socks-proxy-agent "^8.0.2"
+
 proxy-from-env@^1.1.0:
   version "1.1.0"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/proxy-from-env/-/proxy-from-env-1.1.0.tgz#e102f16ca355424865755d2c9e8ea4f24d58c3e2"
@@ -6952,6 +7204,18 @@ pump@^3.0.0:
   dependencies:
     end-of-stream "^1.1.0"
     once "^1.3.1"
+
+puppeteer-core@^23.4.1:
+  version "23.4.1"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/puppeteer-core/-/puppeteer-core-23.4.1.tgz#c1c0367b7f48645119b65b08889b0690ea00cc1f"
+  integrity sha512-uCxGtn8VE9PlKhdFJX/zZySi9K3Ufr3qUZe28jxJoZUqiMJOi+SFh2zhiFDSjWqZIDkc0FtnaCC+rewW3MYXmg==
+  dependencies:
+    "@puppeteer/browsers" "2.4.0"
+    chromium-bidi "0.6.5"
+    debug "^4.3.7"
+    devtools-protocol "0.0.1342118"
+    typed-query-selector "^2.12.0"
+    ws "^8.18.0"
 
 queue-microtask@^1.2.2:
   version "1.2.3"
@@ -7599,6 +7863,20 @@ signal-exit@^4.0.1, signal-exit@^4.1.0:
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/signal-exit/-/signal-exit-4.1.0.tgz#952188c1cbd546070e2dd20d0f41c0ae0530cb04"
   integrity sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==
 
+simple-concat@^1.0.0:
+  version "1.0.1"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/simple-concat/-/simple-concat-1.0.1.tgz#f46976082ba35c2263f1c8ab5edfe26c41c9552f"
+  integrity sha512-cSFtAPtRhljv69IK0hTVZQ+OfE9nePi/rtJmw5UjHeVyVroEqJXP1sFztKUy1qU+xvz3u/sfYJLa947b7nAN2Q==
+
+simple-get@^3.0.3:
+  version "3.1.1"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/simple-get/-/simple-get-3.1.1.tgz#cc7ba77cfbe761036fbfce3d021af25fc5584d55"
+  integrity sha512-CQ5LTKGfCpvE1K0n2us+kuMPbk/q0EKl82s4aheV9oXjFEz6W/Y7oQFVJuU6QG77hRT4Ghb5RURteF5vnWjupA==
+  dependencies:
+    decompress-response "^4.2.0"
+    once "^1.3.1"
+    simple-concat "^1.0.0"
+
 simple-git@^3.27.0:
   version "3.27.0"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/simple-git/-/simple-git-3.27.0.tgz#f4b09e807bda56a4a3968f635c0e4888d3decbd5"
@@ -7639,6 +7917,11 @@ slugify@^1.6.6:
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/slugify/-/slugify-1.6.6.tgz#2d4ac0eacb47add6af9e04d3be79319cbcc7924b"
   integrity sha512-h+z7HKHYXj6wJU+AnS/+IH8Uh9fdcX1Lrhg1/VMdf9PwoBQXFcXiAdsy2tSK0P6gKwJLXp02r90ahUCqHk9rrw==
 
+smart-buffer@^4.2.0:
+  version "4.2.0"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/smart-buffer/-/smart-buffer-4.2.0.tgz#6e1d71fa4f18c05f7d0ff216dd16a481d0e8d9ae"
+  integrity sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg==
+
 smob@^1.0.0:
   version "1.5.0"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/smob/-/smob-1.5.0.tgz#85d79a1403abf128d24d3ebc1cdc5e1a9548d3ab"
@@ -7662,6 +7945,23 @@ socket.io-parser@~4.2.4:
     "@socket.io/component-emitter" "~3.1.0"
     debug "~4.3.1"
 
+socks-proxy-agent@^8.0.2, socks-proxy-agent@^8.0.4:
+  version "8.0.4"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/socks-proxy-agent/-/socks-proxy-agent-8.0.4.tgz#9071dca17af95f483300316f4b063578fa0db08c"
+  integrity sha512-GNAq/eg8Udq2x0eNiFkr9gRg5bA7PXEWagQdeRX4cPSG+X/8V38v637gim9bjFptMk1QWsCTr0ttrJEiXbNnRw==
+  dependencies:
+    agent-base "^7.1.1"
+    debug "^4.3.4"
+    socks "^2.8.3"
+
+socks@^2.8.3:
+  version "2.8.3"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/socks/-/socks-2.8.3.tgz#1ebd0f09c52ba95a09750afe3f3f9f724a800cb5"
+  integrity sha512-l5x7VUUWbjVFbafGLxPWkYsHIhEvmF85tbIeFZWc8ZPtoMyybuEhL7Jye/ooC4/d48FgOjSJXgsF/AJPYCW8Zw==
+  dependencies:
+    ip-address "^9.0.5"
+    smart-buffer "^4.2.0"
+
 source-map-js@^1.0.1, source-map-js@^1.2.0, source-map-js@^1.2.1:
   version "1.2.1"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/source-map-js/-/source-map-js-1.2.1.tgz#1ce5650fddd87abc099eda37dcff024c2667ae46"
@@ -7675,7 +7975,7 @@ source-map-support@~0.5.20:
     buffer-from "^1.0.0"
     source-map "^0.6.0"
 
-source-map@^0.6.0:
+source-map@^0.6.0, source-map@~0.6.1:
   version "0.6.1"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
@@ -7694,6 +7994,11 @@ speakingurl@^14.0.1:
   version "14.0.1"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/speakingurl/-/speakingurl-14.0.1.tgz#f37ec8ddc4ab98e9600c1c9ec324a8c48d772a53"
   integrity sha512-1POYv7uv2gXoyGFpBCmpDVSNV74IfsWlDW216UPjbWufNf+bSU6GdbDsxdcxtfwb4xlI3yxzOTKClUosxARYrQ==
+
+sprintf-js@^1.1.3:
+  version "1.1.3"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/sprintf-js/-/sprintf-js-1.1.3.tgz#4914b903a2f8b685d17fdf78a70e917e872e444a"
+  integrity sha512-Oo+0REFV59/rz3gfJNKQiBlwfHaSESl1pcGyABQsnnIfWOFt6JNj5gCog2U6MLZ//IGYD+nA8nI+mTShREReaA==
 
 sprintf-js@~1.0.2:
   version "1.0.3"
@@ -7720,7 +8025,7 @@ std-env@^3.7.0:
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/std-env/-/std-env-3.7.0.tgz#c9f7386ced6ecf13360b6c6c55b8aaa4ef7481d2"
   integrity sha512-JPbdCEQLj1w5GilpiHAx3qJvFndqybBysA3qUOnznweH4QbNYUsW/ea8QzSrnh0vNsezMMw5bcVool8lM0gwzg==
 
-streamx@^2.15.0:
+streamx@^2.15.0, streamx@^2.20.0:
   version "2.20.1"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/streamx/-/streamx-2.20.1.tgz#471c4f8b860f7b696feb83d5b125caab2fdbb93c"
   integrity sha512-uTa0mU6WUC65iUvzKH4X9hEdvSW7rbPxPtwfWiLMSj3qTdQbAiUboZTxauKfpFuGIGa1C2BYijZ7wgdUXICJhA==
@@ -7963,7 +8268,18 @@ tapable@^2.2.0:
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/tapable/-/tapable-2.2.1.tgz#1967a73ef4060a82f12ab96af86d52fdb76eeca0"
   integrity sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==
 
-tar-stream@^3.0.0:
+tar-fs@^3.0.6:
+  version "3.0.6"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/tar-fs/-/tar-fs-3.0.6.tgz#eaccd3a67d5672f09ca8e8f9c3d2b89fa173f217"
+  integrity sha512-iokBDQQkUyeXhgPYaZxmczGPhnhXZ0CmrqI+MOb/WFGS9DW5wnfrLgtjUJBvz50vQ3qfRwJ62QVoCFu8mPVu5w==
+  dependencies:
+    pump "^3.0.0"
+    tar-stream "^3.1.5"
+  optionalDependencies:
+    bare-fs "^2.1.1"
+    bare-path "^2.1.0"
+
+tar-stream@^3.0.0, tar-stream@^3.1.5:
   version "3.1.7"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/tar-stream/-/tar-stream-3.1.7.tgz#24b3fb5eabada19fe7338ed6d26e5f7c482e792b"
   integrity sha512-qJj60CXt7IU1Ffyc3NJMjh6EkuCFej46zUqJ4J7pqYlThyd9bO0XBTmcOIhSzZJVWfsLks0+nle/j538YAW9RQ==
@@ -8014,6 +8330,11 @@ thenify-all@^1.0.0:
   integrity sha512-RVZSIV5IG10Hk3enotrhvz0T9em6cyHBLkH/YAZuKqd8hRkKhSfCGIcP2KUY0EPxndzANBmNllzWPwak+bheSw==
   dependencies:
     any-promise "^1.0.0"
+
+through@^2.3.8:
+  version "2.3.8"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
+  integrity sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==
 
 tiny-invariant@^1.1.0:
   version "1.3.3"
@@ -8093,6 +8414,11 @@ tslib@2.4.0:
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/tslib/-/tslib-2.4.0.tgz#7cecaa7f073ce680a05847aa77be941098f36dc3"
   integrity sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==
 
+tslib@^2.0.1:
+  version "2.7.0"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/tslib/-/tslib-2.7.0.tgz#d9b40c5c40ab59e8738f297df3087bf1a2690c01"
+  integrity sha512-gLXCKdN1/j47AiHiOkJN69hJmcbGTHI0ImLmbYLHykhgeN0jVGola9yVjFgzCUklsZQMW55o+dW7IXv3RCXDzA==
+
 tsscmp@1.0.6:
   version "1.0.6"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/tsscmp/-/tsscmp-1.0.6.tgz#85b99583ac3589ec4bfef825b5000aa911d605eb"
@@ -8116,6 +8442,11 @@ type-is@^1.6.16:
     media-typer "0.3.0"
     mime-types "~2.1.24"
 
+typed-query-selector@^2.12.0:
+  version "2.12.0"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/typed-query-selector/-/typed-query-selector-2.12.0.tgz#92b65dbc0a42655fccf4aeb1a08b1dddce8af5f2"
+  integrity sha512-SbklCd1F0EiZOyPiW192rrHZzZ5sBijB6xM+cpmrwDqObvdtunOHHIk9fCGsoK5JVIYXoyEp4iEdE3upFH3PAg==
+
 ufo@^1.1.2, ufo@^1.5.3, ufo@^1.5.4:
   version "1.5.4"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/ufo/-/ufo-1.5.4.tgz#16d6949674ca0c9e0fbbae1fa20a71d7b1ded754"
@@ -8125,6 +8456,14 @@ ultrahtml@^1.5.3:
   version "1.5.3"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/ultrahtml/-/ultrahtml-1.5.3.tgz#e7a903a4b28a0e49b71b0801b444050bb0a369c7"
   integrity sha512-GykOvZwgDWZlTQMtp5jrD4BVL+gNn2NVlVafjcFUJ7taY20tqYdwdoWBFy6GBJsNTZe1GkGPkSl5knQAjtgceg==
+
+unbzip2-stream@^1.4.3:
+  version "1.4.3"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/unbzip2-stream/-/unbzip2-stream-1.4.3.tgz#b0da04c4371311df771cdc215e87f2130991ace7"
+  integrity sha512-mlExGW4w71ebDJviH16lQLtZS32VKqsSfk80GCfUlwT/4/hNRFsoscrF/c++9xinkMzECL1uL9DDwXqFWkruPg==
+  dependencies:
+    buffer "^5.2.1"
+    through "^2.3.8"
 
 uncrypto@^0.1.3:
   version "0.1.3"
@@ -8449,6 +8788,11 @@ uqr@^0.1.2:
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/uqr/-/uqr-0.1.2.tgz#5c6cd5dcff9581f9bb35b982cb89e2c483a41d7d"
   integrity sha512-MJu7ypHq6QasgF5YRTjqscSzQp/W11zoUk6kvmlH+fmWEs63Y0Eib13hYFwAzagRJcVY8WVnlV+eBDUGMJ5IbA==
 
+urlpattern-polyfill@10.0.0:
+  version "10.0.0"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/urlpattern-polyfill/-/urlpattern-polyfill-10.0.0.tgz#f0a03a97bfb03cdf33553e5e79a2aadd22cac8ec"
+  integrity sha512-H/A06tKD7sS1O1X2SshBVeA5FLycRpjqiBeqGKmBwBDBy28EnRjORxTNe269KSSr5un5qyWi1iL61wLxpd+ZOg==
+
 urlpattern-polyfill@8.0.2:
   version "8.0.2"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/urlpattern-polyfill/-/urlpattern-polyfill-8.0.2.tgz#99f096e35eff8bf4b5a2aa7d58a1523d6ebc7ce5"
@@ -8646,11 +8990,6 @@ vscode-languageserver@^7.0.0:
   dependencies:
     vscode-languageserver-protocol "3.16.0"
 
-"vscode-textmate@git+https://github.com/octref/vscode-textmate.git":
-  version "4.0.1"
-  uid e65aabe2227febda7beaad31dd0fca1228c5ddf3
-  resolved "git+https://github.com/octref/vscode-textmate.git#e65aabe2227febda7beaad31dd0fca1228c5ddf3"
-
 "vscode-textmate@https://github.com/octref/vscode-textmate":
   version "4.0.1"
   resolved "https://github.com/octref/vscode-textmate#e65aabe2227febda7beaad31dd0fca1228c5ddf3"
@@ -8828,7 +9167,7 @@ yargs-parser@^21.1.1:
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/yargs-parser/-/yargs-parser-21.1.1.tgz#9096bceebf990d21bb31fa9516e0ede294a77d35"
   integrity sha512-tVpsJW7DdjecAiFpbIB1e3qxIQsE6NoPc5/eTdrbbIC4h0LVsWhnoa3g+m2HclBIujHzsxZ4VJVA+GUuc2/LBw==
 
-yargs@^17.2.1, yargs@^17.5.1:
+yargs@^17.2.1, yargs@^17.5.1, yargs@^17.7.2:
   version "17.7.2"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/yargs/-/yargs-17.7.2.tgz#991df39aca675a192b816e1e0363f9d75d2aa269"
   integrity sha512-7dSzzRQ++CKnNI/krKnYRV7JKKPUXMEh61soaHKg9mrWEhzFWhFnxPxGl+69cD1Ou63C13NUPCnmIcrvqCuM6w==
@@ -8854,6 +9193,11 @@ ylru@^1.2.0:
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/ylru/-/ylru-1.4.0.tgz#0cf0aa57e9c24f8a2cbde0cc1ca2c9592ac4e0f6"
   integrity sha512-2OQsPNEmBCvXuFlIni/a+Rn+R2pHW9INm0BxXJ4hVDA8TirqMj+J/Rp9ItLatT/5pZqWwefVrTQcHpixsxnVlA==
 
+yocto-queue@^1.1.1:
+  version "1.1.1"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/yocto-queue/-/yocto-queue-1.1.1.tgz#fef65ce3ac9f8a32ceac5a634f74e17e5b232110"
+  integrity sha512-b4JR1PFR10y1mKjhHY9LaGo6tmrgjit7hxVIeAmyMw3jegXR4dhYqLaQF5zMXZxY7tLpMyJeLjr1C4rLmkVe8g==
+
 zhead@^2.2.4:
   version "2.2.4"
   resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/zhead/-/zhead-2.2.4.tgz#87cd1e2c3d2f465fa9f43b8db23f9716dfe6bed7"
@@ -8867,6 +9211,11 @@ zip-stream@^6.0.1:
     archiver-utils "^5.0.0"
     compress-commons "^6.0.2"
     readable-stream "^4.0.0"
+
+zod@3.23.8:
+  version "3.23.8"
+  resolved "https://associatedpress.jfrog.io/artifactory/api/npm/npm/zod/-/zod-3.23.8.tgz#e37b957b5d52079769fb8097099b592f0ef4067d"
+  integrity sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==
 
 zwitch@^2.0.0, zwitch@^2.0.4:
   version "2.0.4"

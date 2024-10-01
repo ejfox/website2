@@ -52,11 +52,15 @@
     "@vueuse/motion": "^2.2.5",
     "@vueuse/nuxt": "^11.0.3",
     "blessed": "^0.1.81",
+    "canvas": "^2.11.2",
     "crypto-js": "^4.2.0",
     "d3": "^7.9.0",
+    "date-fns": "^4.1.0",
     "eslint-config-prettier": "^9.1.0",
     "js-md5": "^0.8.3",
     "mermaid-isomorphic": "^2.2.1",
+    "p-limit": "^6.1.0",
+    "puppeteer-core": "^23.4.1",
     "v-onboarding": "^2.8.2"
   },
   "license": "UNLICENSED"
