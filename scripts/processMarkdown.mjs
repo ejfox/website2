@@ -1,5 +1,9 @@
+// processMarkdown.mjs
+
+// =============================
+// Import Necessary Modules
+// =============================
 import { promises as fs } from 'fs'
-import { readFileSync } from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import { unified } from 'unified'
@@ -9,28 +13,58 @@ import rehypeStringify from 'rehype-stringify'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import remarkObsidian from 'remark-obsidian'
-import remarkMermaid from 'remark-mermaidjs'
 import remarkGfm from 'remark-gfm'
 import remarkUnwrapImages from 'remark-unwrap-images'
 import rehypeMermaid from 'rehype-mermaid'
-import rehypeShiki from 'rehype-shiki'
-import withShiki from '@stefanprobst/remark-shiki'
-import * as shiki from 'shiki'
 import rehypePrettyCode from 'rehype-pretty-code'
 import { transformerCopyButton } from '@rehype-pretty/transformers'
-import fetch from 'node-fetch' // Added for fetching SVGs
+import fetch from 'node-fetch' // For fetching SVGs
 import { visit } from 'unist-util-visit'
 import matter from 'gray-matter'
+import { fromHtmlIsomorphic } from 'hast-util-from-html-isomorphic'
+import dotenv from 'dotenv'
+import NodeCache from 'node-cache'
+import * as shiki from 'shiki'
 
+// =============================
+// Load Environment Variables
+// =============================
+dotenv.config()
+
+// =============================
+// Initialize Cloudinary SDK Correctly
+// =============================
+// Import the v2 API and configure it
+import { v2 as cloudinary } from 'cloudinary'
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+})
+
+// =============================
+// Define __filename and __dirname for ES Modules
+// =============================
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
+// =============================
+// Define Content and Output Directories
+// =============================
 const contentDir = path.join(__dirname, '..', 'content', 'blog')
 const outputDir = path.join(__dirname, '..', 'dist', 'processed')
 
-const CLOUDINARY_BASE_URL = 'https://res.cloudinary.com/ejf/image/upload/'
+// =============================
+// Define Cloudinary Base URL
+// =============================
+const CLOUDINARY_BASE_URL = `https://res.cloudinary.com/${
+  cloudinary.config().cloud_name
+}/image/upload/`
 
-// Set up Shiki highlighter
+// =============================
+// Set Up Shiki Highlighter
+// =============================
 const highlighter = await shiki.getHighlighter({
   theme: 'github-dark',
   langs: [
@@ -48,82 +82,304 @@ const highlighter = await shiki.getHighlighter({
   ]
 })
 
-async function processMarkdown(filePath) {
-  const fileContent = await fs.readFile(filePath, 'utf8')
-  const { data: frontmatter, content } = matter(fileContent)
+// =============================
+// Define SVGs
+// =============================
+const hrSvg = `
+<svg class="max-w-prose" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 365 17.45" style="opacity: 0.2;">
+  <path d="M363.07,7.35c-6.21-.45-12.42-.9-18.64-1.35-18.41-1.33-36.82-2.76-55.24-3.97-10.28-.67-20.58-1.22-30.88-1.42-18.17-.35-36.34-.41-54.51-.54-7.59-.05-15.19-.15-22.78.09-14.2.46-28.4,1.23-42.6,1.72-13.22.46-26.48.33-39.67,1.17-17.66,1.12-35.34,2.41-52.89,4.59-14.88,1.85-29.58,5.06-44.36,7.73-.56.1-1.01.83-1.51,1.26.46.29.96.86,1.38.81,2.08-.25,4.14-.63,6.19-1.04,10.8-2.18,21.52-5,32.41-6.41,14.22-1.84,28.58-2.71,42.9-3.73,13.56-.97,27.13-1.75,40.72-2.32,15.19-.64,30.4-1.13,45.6-1.39,20.64-.35,41.28-.59,61.92-.55,13.09.03,26.17.61,39.26,1.01,11.59.36,23.2.58,34.77,1.29,12.3.76,24.58,1.99,36.86,3.07,6.81.6,13.63,1.16,20.41,2.05.23-.68.44-1.37.64-2.07Z"/>
+</svg>`
 
-  const processor = unified()
-    .use(remarkParse)
-    .use(remarkObsidian)
-    .use(remarkCustomElements)
-    .use(remarkGfm)
-    .use(remarkUnwrapImages)
-    .use(remarkRehype, { allowDangerousHtml: true })
-    .use(rehypePrettyCode, {
-      defaultLang: 'ansi',
-      keepBackground: false,
-      theme: JSON.parse(await fs.readFile('./themes/ayu-mirage.json', 'utf-8')),
-      onVisitLine(node) {
-        if (node.children.length === 0) {
-          node.children = [{ type: 'text', value: ' ' }]
-        }
-      },
-      onVisitHighlightedLine(node) {
-        node.properties.className.push('highlighted')
-      },
-      onVisitHighlightedWord(node) {
-        node.properties.className = ['word']
-      },
-      transformers: [
-        transformerCopyButton({
-          visibility: 'always',
-          feedbackDuration: 3000
-        })
-      ]
-    })
-    .use(rehypeMermaid, {
-      strategy: 'inline-svg'
-      // other options as needed
-    })
-    .use(rehypeSlug)
-    .use(rehypeAutolinkHeadings)
-    .use(rehypeAddClassToParagraphs)
-    .use(rehypeStringify, { allowDangerousHtml: true })
+const headerStar = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.81 17.81" class="header-star inline-block mr-2" width="14" height="17" opacity="0.2">
+  <path d="M10.01,5.75c1.18-.82,2.19-1.55,3.22-2.24.48-.32,1.05-.52,1.45.07.39.58-.22.78-.54,1.07-1.15,1.05-2.29,2.12-3.46,3.14-1.61,1.41-1.68,2.82-.12,4.35.44.43.97.78,1.48,1.15.42.3.69.68.51,1.19-.2.58-.69.76-1.28.85-.87.14-1.6-1.14-2.32-.42-.47.48-.41,1.47-.65,2.2-.13.39-.52.6-.91.67-.54.1-.89-.26-1.1-.68-.37-.72-.37-1.45-.11-2.26.29-.91.9-2.19,0-2.72-.56-.33-1.53.82-2.14,1.53-.76.88-1.8,1.51-2.32,2.62-.23.48-.75.58-1.22.35-.67-.31-.56-.89-.31-1.4.71-1.44,1.94-2.43,3.1-3.46,2.66-2.37,2.68-2.36.36-5.11-.5-.6-1.05-1.16-1.57-1.74-.22-.25-.34-.56-.13-.84.2-.27.56-.24.87-.19,1.09.18,1.71,1.01,2.43,1.72.54.54,1.03,1.57,1.74,1.37.82-.24.4-1.36.48-2.08.18-1.48.32-2.95.89-4.33C8.48.27,8.7.01,9.04,0c.48-.01.69.37.72.75.07.93.1,1.87.07,2.81-.02.68-.26,1.36.17,2.19Z"/>
+</svg>`
 
-  const ast = processor.parse(content)
-  const { firstHeading, toc, firstHeadingNode } = extractHeadersAndToc(ast)
+// =============================
+// Initialize Cache with a TTL of 1 day (86400 seconds)
+// =============================
+const imageDimensionsCache = new NodeCache({ stdTTL: 86400, checkperiod: 120 })
 
-  // Remove the first heading from the AST
-  removeFirstHeading(ast, firstHeadingNode)
+// Path to Cache File
+const cacheFilePath = path.join(
+  __dirname,
+  '..',
+  'cache',
+  'imageDimensionsCache.json'
+)
 
-  const result = await processor.run(ast)
-
-  const html = processor.stringify(result)
-
-  const wordCount = content.split(/\s+/).length
-  const readingTime = Math.ceil(wordCount / 250)
-  const imageCount = (content.match(/!\[.*?\]\(.*?\)/g) || []).length
-  const linkCount = (content.match(/\[.*?\]\(.*?\)/g) || []).length
-
-  return {
-    html,
-    metadata: {
-      ...frontmatter,
-      title:
-        frontmatter.title || firstHeading || path.basename(filePath, '.md'),
-      toc,
-      wordCount,
-      readingTime,
-      imageCount,
-      linkCount
-    }
+// Load Cache from File if Exists
+async function loadCache() {
+  try {
+    await fs.access(cacheFilePath)
+    const cacheData = JSON.parse(await fs.readFile(cacheFilePath, 'utf-8'))
+    imageDimensionsCache.mset(
+      Object.keys(cacheData).map((key) => ({ key, val: cacheData[key] }))
+    )
+    console.log('Image dimensions cache loaded.')
+  } catch (error) {
+    console.warn('No existing cache found. Starting fresh.')
   }
 }
 
+// Save Cache to File on Exit
+async function saveCache() {
+  try {
+    const cacheData = {}
+    imageDimensionsCache.keys().forEach((key) => {
+      cacheData[key] = imageDimensionsCache.get(key)
+    })
+    await fs.mkdir(path.dirname(cacheFilePath), { recursive: true })
+    await fs.writeFile(cacheFilePath, JSON.stringify(cacheData), 'utf-8')
+    console.log('Image dimensions cache saved.')
+  } catch (error) {
+    console.error('Error saving cache:', error)
+  }
+}
+
+// Handle Process Exit Signals to Save Cache
+process.on('exit', saveCache)
+process.on('SIGINT', async () => {
+  await saveCache()
+  process.exit()
+})
+process.on('SIGTERM', async () => {
+  await saveCache()
+  process.exit()
+})
+
+// =============================
+// Define socialPlatforms Once (DRY)
+// =============================
+const socialPlatforms = {
+  'wikipedia.org': 'simple-icons:wikipedia',
+  'github.com': 'simple-icons:github',
+  'github.blog': 'simple-icons:github',
+  'github.io': 'typcn:social-github',
+  'youtube.com': 'simple-icons:youtube',
+  'twitter.com': 'simple-icons:twitter',
+  'itunes.apple.com': 'simple-icons:apple',
+  'observablehq.com': 'simple-icons:observable',
+  'pinboard.in': 'simple-icons:pinboard',
+  'goodreads.com': 'simple-icons:goodreads',
+  'glitch.com': 'simple-icons:glitch',
+  'stackoverflow.com': 'simple-icons:stackoverflow',
+  'mailto:': 'ic:baseline-email',
+  'nytimes.com': 'tabler:brand-nytimes',
+  'washingtonpost.com': 'simple-icons:thewashingtonpost',
+  'nbcnews.com': 'simple-icons:nbc',
+  'cnn.com': 'simple-icons:cnn',
+  'bbc.com': 'simple-icons:bbc',
+  'reuters.com': 'arcticons:reuters',
+  'archive.org': 'academicons:archive',
+  'web.archive.org': 'academicons:archive',
+  'buzzfeed.com': 'simple-icons:buzzfeed',
+  'vox.com': 'simple-icons:vox',
+  'medium.com': 'simple-icons:medium',
+  'scribd.com': 'simple-icons:scribd',
+  'patreon.com': 'simple-icons:patreon',
+  'soundcloud.com': 'simple-icons:soundcloud',
+  'bandcamp.com': 'simple-icons:bandcamp',
+  'npmjs.com': 'simple-icons:npm',
+  'hackernews.com': 'fa6-brands:square-hacker-news',
+  'instagram.com': 'simple-icons:instagram',
+  'facebook.com': 'simple-icons:facebook',
+  'discord.com': 'simple-icons:discord',
+  'reddit.com': 'fa6-brands:reddit',
+  'tiktok.com': 'simple-icons:tiktok',
+  'twitch.tv': 'simple-icons:twitch',
+  'linkedin.com': 'simple-icons:linkedin',
+  'pinterest.com': 'simple-icons:pinterest',
+  'snapchat.com': 'simple-icons:snapchat',
+  'tumblr.com': 'simple-icons:tumblr',
+  'whatsapp.com': 'simple-icons:whatsapp',
+  'telegram.com': 'simple-icons:telegram',
+  'signal.com': 'simple-icons:signal',
+  'slack.com': 'simple-icons:slack',
+  'zoom.us': 'simple-icons:zoom',
+  'meet.google.com': 'simple-icons:googlemeet',
+  'discord.gg': 'simple-icons:discord',
+  '.gov': 'game-icons:usa-flag',
+  'vuejs.org': 'mdi:vuejs',
+  'reactjs.org': 'mdi:react',
+  'netlify.com': 'file-icons:netlify',
+  'nuxtjs.org': 'mdi:nuxt',
+  'cloudinary.com': 'simple-icons:cloudinary',
+  'cloudflare.com': 'simple-icons:cloudflare',
+  'aws.amazon.com': 'simple-icons:amazonaws',
+  'gcp.google.com': 'simple-icons:googlecloud',
+  'firebase.google.com': 'simple-icons:firebase'
+}
+
+// =============================
+// Helper Functions
+// =============================
+
+/**
+ * Extracts the image public ID from the Cloudinary URL or local path.
+ * @param {string} url - The original image URL.
+ * @returns {string} - The Cloudinary public ID.
+ */
+function extractImageId(url) {
+  console.log('Extracting ID from:', url)
+  const urlParts = url.split('/')
+  const imageWithExtension = urlParts[urlParts.length - 1]
+  const imageId = imageWithExtension.split('.')[0] // Removes the extension
+  console.log('Extracted ID:', imageId)
+  return imageId
+}
+
+/**
+ * Fetches image dimensions from Cloudinary using the Admin API.
+ * Utilizes caching to minimize API calls.
+ * @param {string} imageId - The Cloudinary public ID of the image.
+ * @returns {Promise<{ width: number, height: number }>} - The dimensions of the image.
+ */
+// async function fetchCloudinaryImageDimensions(imageId) {
+//   if (imageDimensionsCache.has(imageId)) {
+//     return imageDimensionsCache.get(imageId)
+//   }
+
+//   try {
+//     const result = await cloudinary.api.resource(imageId)
+//     const dimensions = {
+//       width: result.width,
+//       height: result.height
+//     }
+//     imageDimensionsCache.set(imageId, dimensions)
+//     return dimensions
+//   } catch (error) {
+//     // console.error(`Error fetching dimensions for image ${imageId}:`, error)
+//     // Fallback dimensions if API call fails
+//     return { width: 800, height: 600 }
+//   }
+// }
+
+/**
+ * Generates a Cloudinary URL with specified transformations.
+ * @param {string} imageId - The Cloudinary public ID of the image.
+ * @param {object} options - Transformation options.
+ * @param {number[]} options.responsiveWidths - Array of widths for srcset.
+ * @returns {object} - Contains the transformed URL and srcset.
+ */
+function generateCloudinaryUrl(imageId, options) {
+  const { responsiveWidths, existingTransformations = '' } = options
+  const MAX_WIDTH = 1800
+
+  // Generate srcset for responsive images
+  const srcset = responsiveWidths
+    .map((w) => {
+      const respWidth = Math.min(w, MAX_WIDTH)
+      return `https://res.cloudinary.com/${
+        cloudinary.config().cloud_name
+      }/image/upload/${existingTransformations}/w_${respWidth},f_auto,q_auto/${imageId} ${respWidth}w`
+    })
+    .join(', ')
+
+  // Use the largest width for the main URL
+  const largestWidth = Math.min(Math.max(...responsiveWidths), MAX_WIDTH)
+  const url = `https://res.cloudinary.com/${
+    cloudinary.config().cloud_name
+  }/image/upload/${existingTransformations}/w_${largestWidth},f_auto,q_auto/${imageId}`
+
+  return { url, srcset }
+}
+/**
+ * Generates a responsive <img> tag with Cloudinary transformations.
+ * @param {object} params - Parameters for the img tag.
+ * @param {string} params.url - The optimized image URL.
+ * @param {number} params.width - Original image width.
+ * @param {number} params.height - Original image height.
+ * @param {string} params.srcset - The srcset attribute value.
+ * @returns {string} - The HTML string for the img tag.
+ */
+function generateResponsiveImgTag({ url, width, height, srcset }) {
+  return `<img src="${url}" srcset="${srcset}" width="${width}" height="${height}" loading="lazy" style="width: 100%; height: auto;" alt="" />`
+}
+
+/**
+ * Processes an image node to use Cloudinary's optimized URL and embeds dimensions.
+ * @param {object} node - The image node from the markdown AST.
+ */
+async function processCloudinaryImage(node) {
+  console.log('Processing image:', node.url)
+
+  if (node.url.includes('res.cloudinary.com')) {
+    // Extract the public ID and any existing transformations
+    const urlParts = node.url.split('/upload/')
+    const existingTransformations = urlParts[1].split('/')[0]
+    const publicId = urlParts[1].split('/').slice(1).join('/').split('.')[0]
+
+    console.log('Extracted public ID:', publicId)
+
+    // Generate new optimized URL and srcset
+    const { url, srcset } = generateCloudinaryUrl(publicId, {
+      responsiveWidths: [320, 480, 640, 768, 1024, 1280, 1536, 1800],
+      existingTransformations
+    })
+
+    const imgTag = generateResponsiveImgTag({
+      url,
+      width: 1024, // You might want to fetch actual dimensions if needed
+      height: 768,
+      srcset
+    })
+
+    console.log('Generated optimized imgTag:', imgTag)
+    node.type = 'html'
+    node.value = imgTag
+  } else {
+    console.log('Non-Cloudinary image, processing as before')
+    // Your existing logic for non-Cloudinary images
+  }
+}
+/**
+ * Processes a link to determine if it should have an icon or be treated as a wikilink.
+ * @param {string} href - The link URL.
+ * @returns {object} - Contains the processed href, icon, and wikilink status.
+ */
+function processLink(href) {
+  try {
+    const urlObj = new URL(href)
+    const domain = urlObj.hostname
+
+    for (const [platformDomain, icon] of Object.entries(socialPlatforms)) {
+      if (domain.includes(platformDomain)) {
+        return { href, icon }
+      }
+    }
+  } catch (e) {
+    // For non-URL hrefs like mailto:
+    for (const [platform, icon] of Object.entries(socialPlatforms)) {
+      if (href.startsWith(platform)) {
+        return { href, icon }
+      }
+    }
+  }
+
+  if (href.startsWith('#/page/') || href.startsWith('blog/test#/page/')) {
+    const slug = href.split('/').pop()
+    return { href: `/blog/${slug}`, isWikilink: true }
+  }
+
+  return { href }
+}
+
+// =============================
+// Plugin: remarkCustomElements
+// =============================
+/**
+ * Plugin to handle custom elements like images, links, and code blocks.
+ */
 function remarkCustomElements() {
   return async (tree) => {
     const iconCache = {} // Cache to store fetched SVGs
 
+    /**
+     * Fetches an SVG icon from Iconify.
+     * @param {string} iconName - The name of the icon to fetch.
+     * @returns {Promise<string|null>} - The SVG string or null if failed.
+     */
     async function getIconSVG(iconName) {
       if (iconCache[iconName]) {
         return iconCache[iconName]
@@ -131,18 +387,27 @@ function remarkCustomElements() {
 
       const [prefix, name] = iconName.split(':')
       const url = `https://api.iconify.design/${prefix}/${name}.svg`
-      const response = await fetch(url)
-      if (response.ok) {
-        const svg = await response.text()
-        iconCache[iconName] = svg
-        return svg
-      } else {
-        console.error(`Failed to fetch icon: ${iconName}`)
+      try {
+        const response = await fetch(url)
+        if (response.ok) {
+          const svg = await response.text()
+          iconCache[iconName] = svg
+          return svg
+        } else {
+          console.error(`Failed to fetch icon: ${iconName}`)
+          return null
+        }
+      } catch (error) {
+        console.error(`Error fetching icon ${iconName}:`, error)
         return null
       }
     }
 
-    // Function to get text content from a node
+    /**
+     * Recursively extracts text content from a node.
+     * @param {object} node - The node to extract text from.
+     * @returns {string} - The concatenated text content.
+     */
     function getNodeText(node) {
       if (!node) return ''
       if (node.type === 'text') {
@@ -158,6 +423,7 @@ function remarkCustomElements() {
     const linkNodes = []
     const codeNodes = []
 
+    // Collect nodes
     visit(tree, 'image', (node) => {
       imageNodes.push(node)
     })
@@ -170,15 +436,12 @@ function remarkCustomElements() {
       codeNodes.push(node)
     })
 
-    // Process images
+    // Process images: Convert to Cloudinary URLs and embed dimensions
     for (const node of imageNodes) {
-      if (!node.url.startsWith('http')) {
-        const imageId = path.basename(node.url)
-        node.url = `${CLOUDINARY_BASE_URL}${imageId}`
-      }
+      await processCloudinaryImage(node)
     }
 
-    // Process links
+    // Process links: Add icons or handle wikilinks
     for (const node of linkNodes) {
       const { href, icon, isWikilink } = processLink(node.url)
       node.url = href
@@ -202,7 +465,7 @@ function remarkCustomElements() {
       }
     }
 
-    // Process code nodes
+    // Process code nodes: Handle runnable code blocks
     for (const node of codeNodes) {
       if (node.meta === 'runnable') {
         node.type = 'html'
@@ -216,6 +479,12 @@ function remarkCustomElements() {
   }
 }
 
+// =============================
+// Plugin: rehypeAddClassToParagraphs
+// =============================
+/**
+ * Plugin to add classes and styles to paragraph elements.
+ */
 function rehypeAddClassToParagraphs() {
   return (tree) => {
     visit(tree, 'element', (node) => {
@@ -234,6 +503,14 @@ function rehypeAddClassToParagraphs() {
   }
 }
 
+// =============================
+// Helper: Extract Headers and TOC
+// =============================
+/**
+ * Extracts headers and generates a Table of Contents (TOC).
+ * @param {object} tree - The markdown AST.
+ * @returns {object} - Contains the first heading, TOC, and the first heading node.
+ */
 function extractHeadersAndToc(tree) {
   let firstHeading = null
   let firstHeadingNode = null
@@ -271,6 +548,11 @@ function extractHeadersAndToc(tree) {
   return { firstHeading, toc, firstHeadingNode }
 }
 
+/**
+ * Removes the first heading from the AST.
+ * @param {object} tree - The markdown AST.
+ * @param {object} firstHeadingNode - The first heading node to remove.
+ */
 function removeFirstHeading(tree, firstHeadingNode) {
   if (firstHeadingNode) {
     const index = tree.children.indexOf(firstHeadingNode)
@@ -281,97 +563,104 @@ function removeFirstHeading(tree, firstHeadingNode) {
   return tree
 }
 
+/**
+ * Generates a slug from a string.
+ * @param {string} str - The input string.
+ * @returns {string} - The generated slug.
+ */
 function generateSlug(str) {
-  return str.toLowerCase().replace(/[^a-z0-9]+/g, '-')
+  return str
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
 }
 
-function processLink(href) {
-  const socialPlatforms = {
-    'wikipedia.org': 'simple-icons:wikipedia',
-    'github.com': 'simple-icons:github',
-    'github.blog': 'simple-icons:github',
-    'github.io': 'typcn:social-github',
-    'youtube.com': 'simple-icons:youtube',
-    'twitter.com': 'simple-icons:twitter',
-    'itunes.apple.com': 'simple-icons:apple',
-    'observablehq.com': 'simple-icons:observable',
-    'pinboard.in': 'simple-icons:pinboard',
-    'goodreads.com': 'simple-icons:goodreads',
-    'glitch.com': 'simple-icons:glitch',
-    'stackoverflow.com': 'simple-icons:stackoverflow',
-    'mailto:': 'ic:baseline-email',
-    'nytimes.com': 'tabler:brand-nytimes',
-    'washingtonpost.com': 'simple-icons:thewashingtonpost',
-    'nbcnews.com': 'simple-icons:nbc',
-    'cnn.com': 'simple-icons:cnn',
-    'bbc.com': 'simple-icons:bbc',
-    'reuters.com': 'arcticons:reuters',
-    'archive.org': 'academicons:archive',
-    'web.archive.org': 'academicons:archive',
-    'buzzfeed.com': 'simple-icons:buzzfeed',
-    'vox.com': 'simple-icons:vox',
-    'medium.com': 'simple-icons:medium',
-    'scribd.com': 'simple-icons:scribd',
-    'patreon.com': 'simple-icons:patreon',
-    'soundcloud.com': 'simple-icons:soundcloud',
-    'bandcamp.com': 'simple-icons:bandcamp',
-    'npmjs.com': 'simple-icons:npm',
-    'hackernews.com': 'fa6-brands:square-hacker-news',
-    'instagram.com': 'simple-icons:instagram',
-    'facebook.com': 'simple-icons:facebook',
-    'discord.com': 'simple-icons:discord',
-    'reddit.com': 'fa6-brands:reddit',
-    'tiktok.com': 'simple-icons:tiktok',
-    'twitch.tv': 'simple-icons:twitch',
-    'linkedin.com': 'simple-icons:linkedin',
-    'pinterest.com': 'simple-icons:pinterest',
-    'snapchat.com': 'simple-icons:snapchat',
-    'tumblr.com': 'simple-icons:tumblr',
-    'whatsapp.com': 'simple-icons:whatsapp',
-    'telegram.com': 'simple-icons:telegram',
-    'signal.com': 'simple-icons:signal',
-    'slack.com': 'simple-icons:slack',
-    'zoom.us': 'simple-icons:zoom',
-    'meet.google.com': 'simple-icons:googlemeet',
-    'discord.gg': 'simple-icons:discord',
-    '.gov': 'game-icons:usa-flag',
-    'vuejs.org': 'mdi:vuejs',
-    'reactjs.org': 'mdi:react',
-    'netlify.com': 'file-icons:netlify',
-    'nuxtjs.org': 'mdi:nuxt',
-    'cloudinary.com': 'simple-icons:cloudinary',
-    'cloudflare.com': 'simple-icons:cloudflare',
-    'aws.amazon.com': 'simple-icons:amazonaws',
-    'gcp.google.com': 'simple-icons:googlecloud',
-    'firebase.google.com': 'simple-icons:firebase'
-  }
+// =============================
+// Plugin Integration and Markdown Processing
+// =============================
+/**
+ * Processes a single markdown file.
+ * @param {string} filePath - The path to the markdown file.
+ * @returns {object} - Contains the processed HTML and metadata.
+ */
+async function processMarkdown(filePath) {
+  const fileContent = await fs.readFile(filePath, 'utf8')
+  const { data: frontmatter, content } = matter(fileContent)
 
-  try {
-    const urlObj = new URL(href)
-    const domain = urlObj.hostname
+  const processor = unified()
+    .use(remarkParse)
+    .use(remarkObsidian)
+    .use(remarkCustomElements) // Custom plugin for images, links, and code
+    .use(remarkGfm)
+    .use(remarkUnwrapImages)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeAddClassToParagraphs)
+    // .use(rehypeConvertHrToSvg) // Uncomment if you want to convert <hr> to SVG
+    .use(rehypePrettyCode, {
+      theme: JSON.parse(await fs.readFile('./themes/ayu-mirage.json', 'utf-8')),
+      onVisitLine(node) {
+        if (node.children.length === 0) {
+          node.children = [{ type: 'text', value: ' ' }]
+        }
+      },
+      onVisitHighlightedLine(node) {
+        node.properties.className.push('highlighted')
+      },
+      onVisitHighlightedWord(node) {
+        node.properties.className = ['word']
+      },
+      // Pass Shiki highlighter
+      highlighter: highlighter,
+      transformers: [
+        transformerCopyButton({
+          visibility: 'always',
+          feedbackDuration: 3000
+        })
+      ]
+    })
+    .use(rehypeMermaid, {
+      strategy: 'inline-svg'
+      // other options as needed
+    })
+    .use(rehypeSlug)
+    .use(rehypeAutolinkHeadings, {
+      content: fromHtmlIsomorphic(headerStar, { fragment: true }).children
+    })
+    .use(rehypeStringify, { allowDangerousHtml: true })
 
-    for (const [platformDomain, icon] of Object.entries(socialPlatforms)) {
-      if (domain.includes(platformDomain)) {
-        return { href, icon }
-      }
+  const ast = processor.parse(content)
+  const { firstHeading, toc, firstHeadingNode } = extractHeadersAndToc(ast)
+
+  // Remove the first heading from the AST
+  removeFirstHeading(ast, firstHeadingNode)
+
+  const result = await processor.run(ast)
+
+  const html = processor.stringify(result)
+
+  const wordCount = content.split(/\s+/).length
+  const readingTime = Math.ceil(wordCount / 250)
+  const imageCount = (content.match(/!\[.*?\]\(.*?\)/g) || []).length
+  const linkCount = (content.match(/\[.*?\]\(.*?\)/g) || []).length
+
+  return {
+    html,
+    metadata: {
+      ...frontmatter,
+      title:
+        frontmatter.title || firstHeading || path.basename(filePath, '.md'),
+      toc,
+      wordCount,
+      readingTime,
+      imageCount,
+      linkCount
     }
-  } catch (e) {
-    // For non-URL hrefs like mailto:
-    for (const [platform, icon] of Object.entries(socialPlatforms)) {
-      if (href.startsWith(platform)) {
-        return { href, icon }
-      }
-    }
   }
-
-  if (href.startsWith('#/page/') || href.startsWith('blog/test#/page/')) {
-    const slug = href.split('/').pop()
-    return { href: `/blog/${slug}`, isWikilink: true }
-  }
-
-  return { href }
 }
 
+/**
+ * Recursively processes all markdown files in the content directory.
+ */
 async function processAllFiles() {
   const manifestLite = []
 
@@ -410,4 +699,12 @@ async function processAllFiles() {
   )
 }
 
+// =============================
+// Execute the Script
+// =============================
+
+// Load the cache before processing
+await loadCache()
+
+// Start processing all markdown files
 processAllFiles().catch(console.error)

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full text-sm text-zinc-600 dark:text-zinc-400 flex flex-wrap items-center gap-x-4 gap-y-2">
+  <div class="w-full text-sm text-zinc-600 dark:text-zinc-400 flex flex-wrap items-center gap-x-4 gap-y-2 monospace">
     <!-- Date -->
     <span v-if="doc.date" class="flex items-center" :title="formatRelativeTime(doc.date)">
       <UIcon name="ant-design:calendar-outlined" class="mr-2 text-zinc-400 dark:text-zinc-600" />

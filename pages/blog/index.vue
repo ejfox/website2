@@ -2,6 +2,8 @@
 import { format } from 'date-fns'
 import { computed } from 'vue'
 import { startOfWeek } from 'date-fns'
+import { animate, stagger } from '~/anime.esm.js'
+
 
 const processedMarkdown = useProcessedMarkdown()
 
@@ -18,14 +20,17 @@ const sortedWeekNotes = computed(() => {
       if (weekMatch) {
         const year = parseInt(weekMatch[1], 10)
         const week = parseInt(weekMatch[2], 10)
-        const date = startOfWeek(new Date(year, 0, 1), { weekStartsOn: 1 }) // Start from the first day of the week
-        const actualDate = new Date(date.setDate(date.getDate() + (week - 1) * 7)) // Calculate week start date
+        const date = startOfWeek(new Date(year, 0, 1), { weekStartsOn: 1 })
+        const actualDate = new Date(date.setDate(date.getDate() + (week - 1) * 7))
         return { ...note, actualDate }
       }
-      return note // Fallback if the slug doesn't match
+      return note
     })
-    .filter(note => note.actualDate) // Only keep notes with a valid date
-    .sort((a, b) => b.actualDate - a.actualDate) // Sort by actual date in descending order
+    // filter out weeks without deks
+    .filter(note => note.actualDate && note.dek)
+    // filter out weeks with `hidden` frontmatter
+    .filter(note => !note.hidden)
+    .sort((a, b) => b.actualDate - a.actualDate)
 })
 
 function groupByYear(posts) {
@@ -45,10 +50,50 @@ const blogPostsByYear = computed(() => groupByYear(blogPosts.value))
 const sortedYears = computed(() =>
   Object.keys(blogPostsByYear.value).sort((a, b) => b - a)
 )
+
+const blogPostElements = ref([])
+const weekNoteElements = ref([])
+
+const animDuration = 900
+const animStagger = 25
+onMounted(() => {
+  console.log(blogPostElements.value)
+  // Animate blog posts
+  animate(blogPostElements.value, {
+    opacity: [0, 1],
+    translateY: [20, 0],
+    // scale: [0.98, 1.02, 1],
+    duration: animDuration,
+    easing: 'easeOutQuad',
+    delay: stagger(animStagger)
+  })
+
+  // animate the metadata sliding in from the left
+
+  animate(blogPostElements.value.map((el,) => el.querySelector('.post-metadata')), {
+    opacity: [0, 1],
+    translateX: [-8, 0],
+    duration: animDuration * 2,
+    easing: 'easeOutQuad',
+    delay: animDuration * 0.82
+  })
+
+  // Animate week notes
+  animate(weekNoteElements.value, {
+    opacity: [0, 1],
+    translateX: [20, 0],
+    duration: animDuration,
+    easing: 'easeInOutQuad',
+    delay: stagger(animStagger, { start: 600 }) // Start after blog posts animation
+  })
+
+
+
+})
 </script>
 
 <template>
-  <div class="container mx-auto px-4 py-8 lg:flex lg:gap-8">
+  <div class="container mx-auto px-2 py-12 lg:flex lg:gap-4">
     <!-- Blog Posts -->
     <section class="lg:w-2/3 mb-16">
       <h2 class="text-3xl font-bold mb-8">Blog Posts</h2>
@@ -56,13 +101,17 @@ const sortedYears = computed(() =>
         <h3 class="text-4xl font-semibold text-zinc-500 dark:text-zinc-400 mb-6 tracking-tight">
           {{ year }}
         </h3>
-        <ul class="space-y-4">
-          <li v-for="post in blogPostsByYear[year]" :key="post.slug"
-            class="flex justify-between items-center border-b border-zinc-200 dark:border-zinc-700 pb-3">
-            <NuxtLink :to="`/blog/${post?.slug}`" class="no-underline hover:underline text-lg font-medium w-2/3">
+        <ul class="">
+          <li v-for="post in blogPostsByYear[year]" :key="post.slug" ref="blogPostElements"
+            class="flex flex-col border-b border-zinc-200 dark:border-zinc-700 pb-4 mb-4">
+
+            <NuxtLink :to="`/blog/${post.slug}`"
+              class="post-title no-underline hover:underline text-xl lg:text-3xl font-medium mb-2 pr-2 font-fjalla"
+              :style="{ viewTransitionName: `title-${post.slug}` }">
               {{ post.title }}
             </NuxtLink>
-            <PostMetadata :doc="post" class="text-xs text-zinc-600 dark:text-zinc-400 w-1/3 text-right" />
+
+            <PostMetadata :doc="post" class="post-metadata text-xs text-zinc-600 dark:text-zinc-400" />
           </li>
         </ul>
       </div>
@@ -71,7 +120,7 @@ const sortedYears = computed(() =>
     <!-- Week Notes -->
     <section class="lg:w-1/3">
       <h2 class="text-3xl font-bold mb-8">Week Notes</h2>
-      <div v-for="weekNote in sortedWeekNotes" :key="weekNote.slug"
+      <div v-for="weekNote in sortedWeekNotes" :key="weekNote.slug" ref="weekNoteElements"
         class="border-b border-zinc-200 dark:border-zinc-700 py-4">
         <NuxtLink :to="`/blog/${weekNote.slug}`"
           class="hover:underline text-sm bg-zinc-50 dark:bg-transparent font-mono block px-2 py-1 rounded">
@@ -84,3 +133,9 @@ const sortedYears = computed(() =>
     </section>
   </div>
 </template>
+<style scoped>
+/* .post-title:active {
+  view-transition-name: title;
+  contain: layout;
+} */
+</style>

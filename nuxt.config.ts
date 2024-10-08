@@ -2,6 +2,9 @@ import pkg from './package.json'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  // experimental: {
+  //   viewTransition: true
+  // },
   app: {
     head: {
       title: pkg.name,
@@ -23,6 +26,7 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     // '@nuxtjs/supabase',
     // '@nuxt/content'
+    '@unlok-co/nuxt-stripe',
     '@vueuse/nuxt',
     '@vueuse/motion/nuxt',
     [
@@ -38,6 +42,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     // add the openai api key to the runtime config
     public: {
+      // baseUrl: process.env.BASE_URL,
+      baseUrl: 'https://localhost:3000',
       OPENAI_API_KEY: process.env.OPENAI_API_KEY,
       PRODUCTION: process.env.PRODUCTION
     }
@@ -46,11 +52,11 @@ export default defineNuxtConfig({
   googleFonts: {
     prefetch: true,
     families: {
+      // Raleway: [100, 200, 300, 400, 500, 600, 700, 800, 900],
       'Signika Negative': [200, 300, 400, 500, 600, 700, 800],
-      // "Paytone One": [400],
       'Fjalla One': [400],
       // Finlandica: [400, 500, 700],
-      'Red Hat Mono': [400]
+      'Red Hat Mono': [300, 400]
     }
   },
 

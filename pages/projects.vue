@@ -1,5 +1,7 @@
 <script setup>
 import { format, parse, eachYearOfInterval } from 'date-fns'
+import { animate, stagger } from '~/anime.esm.js'
+
 
 const processedMarkdown = useProcessedMarkdown()
 
@@ -60,15 +62,29 @@ function calculateY() {
 function calculateX(baseX, index) {
   return baseX + index * 25 // Increased offset to 25 units for better spacing
 }
+
+
+const projectElements = ref(null)
+
+onMounted(() => {
+  animate(projectElements.value, {
+    opacity: [0, 1],
+    translateY: [20, 0],
+    duration: 800,
+    easing: 'easeOutQuad',
+    delay: stagger(50),
+  })
+})
+
 </script>
 
 <template>
   <div id="projects" class="container mx-auto px-2 py-8">
 
 
-    <h1 class="text-4xl font-bold mb-8">Projects</h1>
+    <h1 class="text-4xl font-bold mb-8 font-mono">Projects</h1>
     <div class="masonry-layout">
-      <div v-for="post in sortedProjectPosts" :key="post.slug" class="masonry-item">
+      <div v-for="post in sortedProjectPosts" :key="post.slug" class="masonry-item" ref="projectElements">
         <article class="rounded-md border-zinc-800 overflow-hidden prose-img:p-8">
           <h2 class="text-3xl font-semibold mb-2">
             <NuxtLink :to="`/blog/${post.slug}`" class="no-underline hover:underline">
@@ -85,21 +101,26 @@ function calculateX(baseX, index) {
       </div>
     </div>
 
-    <svg class="w-full h-80 mb-12" viewBox="0 0 1160 200" xmlns="http://www.w3.org/2000/svg">
-      <line x1="20" :y1="calculateY()" x2="1140" :y2="calculateY()" stroke="currentColor" stroke-width="1" />
+    <svg class="w-full h-80 my-12 xl:my-24" viewBox="0 0 1160 200" xmlns="http://www.w3.org/2000/svg">
+      <line x1="20" :y1="calculateY()" x2="1140" :y2="calculateY()" stroke="#CCC" stroke-width="0.5" />
 
       <g v-for="yearData in timelineData" :key="yearData.year">
-        <line :x1="yearData.x" :x2="yearData.x" :y1="calculateY() + 5" :y2="calculateY() + 5" stroke="currentColor"
-          stroke-width="1" />
-        <text :x="yearData.x" :y="calculateY() + 20" font-size="12" text-anchor="middle" class="timeline-text">
+        <line :x1="yearData.x" :x2="yearData.x" :y1="calculateY() + 5" :y2="calculateY() + 5" stroke="#CCC"
+          stroke-width="0.5" />
+        <text :x="yearData.x" :y="calculateY() + 20" font-size="14" text-anchor="middle" class="timeline-text">
           {{ yearData.year }}
         </text>
 
         <g v-for="(project, index) in yearData.projects" :key="project.title">
-          <circle :cx="calculateX(yearData.x, index)" :cy="calculateY()" r="4" fill="currentColor" />
-          <g transform="translate(0, -20)">
+          <!-- <circle :cx="calculateX(yearData.x, index)" :cy="calculateY()" r="4" fill="currentColor" /> -->
+
+
+          <path :transform="`translate(${calculateX(yearData.x, index) - 5}, ${calculateY() - 5}) scale(1.25)`"
+            d="M7.32,2.97c.06,2.9-5.03,7.04-7.15,2.41C-1.26,1.41,6.89-3.12,7.32,2.97ZM4.75,1.04c-1.38.98-3.78,1.28-3.52,3.96,1.78,4.02,7.85-3.11,3.52-3.96Z"
+            fill="#CCC" />
+          <g transform="translate(5, -20)">
             <text :x="calculateX(yearData.x, index)" :y="calculateY()" font-size="13" text-anchor="start"
-              font-weight="300" class="font-mono timeline-text"
+              font-weight="300" class="font-mono timeline-text text-gray-500"
               :transform="`rotate(-90, ${calculateX(yearData.x, index)}, ${calculateY()}) translate(-5, 0)`">
               {{ project.title }}
             </text>
