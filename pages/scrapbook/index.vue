@@ -6,7 +6,7 @@
     <div v-else-if="error" class="text-center text-red-500">Error: {{ error }}</div>
     <template v-else>
       <!-- <pre>{{ scraps }}</pre> -->
-      <div v-for="scrap in scraps" :key="scrap.id" class="mb-4">
+      <div v-for="scrap in scraps" :key="scrap.id" class="">
         <ScrapItem :scrap="scrap" />
       </div>
       <div v-if="isLoading" class="text-center">Loading more...</div>

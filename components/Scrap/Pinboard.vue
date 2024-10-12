@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <h4 class="text-lg">{{ scrap.title }}</h4>
+  <div class="py-5">
+    <h4 class="text-lg">{{ scrap.content }}</h4>
     <!-- show the actual URL as metadata -->
-    <div class="tracking-wide px-4 pt-4">
-      <a :href="scrap.metadata.href" target="_blank" class="text-xs">{{
-        scrap.metadata.href }}</a>
+    <div class="tracking-wide px-4">
+      <!-- <a :href="scrap.metadata.href" target="_blank" class="text-xs">{{
+      scrap.metadata.href }}</a> -->
     </div>
 
     <!-- <div class="text-xs mt-4 uppercase tracking-widest dark:text-gray-700 p-2">
@@ -12,16 +12,7 @@
       <UToggle v-if="scrap.summary" v-model="showSummary" label="Show summary" size="xs" />
     </div> -->
 
-    <div v-if="scrap.description" class="font-medium" v-html="scrap.description" />
-
-    <div class="">
-      <!-- Content -->
-      <div v-if="parsedMarkdown && showSummary"
-        class="font-serif prose prose-sm text-[12px] md:text-xs lg:text-sm dark:prose-invert p-2">
-        <!-- <ContentRenderer :value="parsedMarkdown" /> -->
-      </div>
-    </div>
-
+    <!-- <div v-if="scrap.description" class="font-medium" v-html="scrap.description" /> -->
 
 
   </div>

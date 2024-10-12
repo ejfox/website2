@@ -5,7 +5,7 @@
 
 
 
-      <nav class="sticky top-0 left-0 z-50 p-2 md:p-4 h-auto max-h-screen monospace">
+      <nav class="sticky w-52 h-auto max-h-screen top-0 left-0 z-50 p-2 md:p-4  monospace overflow-auto">
         <div
           class="container mx-auto md:py-1 md:flex md:flex-col items-start shadow-lg dark:shadow-none w-full md:shadow-none border-b border-zinc-300 dark:border-zinc-900 md:border-none rounded bg-zinc-50/50 dark:bg-zinc-900/30 md:dark:bg-transparent backdrop-blur-md px-2 max-h-screen">
           <div class="pt-3 pb-1 space-y-2">

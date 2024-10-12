@@ -12,7 +12,7 @@ import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import remarkObsidian from 'remark-obsidian'
+// import remarkObsidian from 'remark-obsidian'
 import remarkGfm from 'remark-gfm'
 import remarkUnwrapImages from 'remark-unwrap-images'
 import rehypeMermaid from 'rehype-mermaid'
@@ -37,7 +37,6 @@ dotenv.config()
 // =============================
 // Import the v2 API and configure it
 import { v2 as cloudinary } from 'cloudinary'
-import { UForm } from '#build/components'
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -336,9 +335,9 @@ function processLink(href) {
     }
   }
 
-  if (href.startsWith('#/page/') || href.startsWith('blog/test#/page/')) {
-    const slug = href.split('/').pop()
-    return { href: `/blog/${slug}`, isWikilink: true }
+  // Handle internal links that are not wikilinks
+  if (href.startsWith('/notes/')) {
+    return { href, isInternal: true }
   }
 
   return { href }
@@ -352,13 +351,8 @@ function processLink(href) {
  */
 function remarkCustomElements() {
   return async (tree) => {
-    const iconCache = {} // Cache to store fetched SVGs
+    const iconCache = {}
 
-    /**
-     * Fetches an SVG icon from Iconify.
-     * @param {string} iconName - The name of the icon to fetch.
-     * @returns {Promise<string|null>} - The SVG string or null if failed.
-     */
     async function getIconSVG(iconName) {
       if (iconCache[iconName]) {
         return iconCache[iconName]
@@ -382,11 +376,6 @@ function remarkCustomElements() {
       }
     }
 
-    /**
-     * Recursively extracts text content from a node.
-     * @param {object} node - The node to extract text from.
-     * @returns {string} - The concatenated text content.
-     */
     function getNodeText(node) {
       if (!node) return ''
       if (node.type === 'text') {
@@ -398,45 +387,23 @@ function remarkCustomElements() {
       }
     }
 
-    const imageNodes = []
     const linkNodes = []
-    const codeNodes = []
 
-    // Collect nodes
-    visit(tree, 'image', (node) => {
-      imageNodes.push(node)
-    })
-
+    // Collect link nodes
     visit(tree, 'link', (node) => {
       linkNodes.push(node)
     })
 
-    visit(tree, 'code', (node) => {
-      codeNodes.push(node)
-    })
-
-    // Process images: Convert to Cloudinary URLs and embed dimensions
-    let processedImages = 0
-    for (const node of imageNodes) {
-      const processed = await processCloudinaryImage(node)
-      if (processed) {
-        processedImages++
-      }
-      console.log('Processed images:', processedImages)
-    }
-
-    // Process links: Add icons or handle wikilinks
+    // Process links
     for (const node of linkNodes) {
-      const { href, icon, isWikilink } = processLink(node.url)
+      const { href, icon } = processLink(node.url)
       node.url = href
-      if (icon || isWikilink) {
+      if (icon) {
         node.type = 'html'
-        let linkClass = isWikilink ? 'class="internal-link"' : ''
         let iconHtml = ''
         if (icon) {
           const svg = await getIconSVG(icon)
           if (svg) {
-            // Add inline styles to make the SVG inline-block
             const styledSvg = svg.replace(
               '<svg',
               '<svg style="display: inline-block; vertical-align: middle; width: 0.7em; height: 0.7em; margin-left: 0.2rem; margin-right: 0.2rem; margin-top: -0.2em; opacity: 0.8;"'
@@ -445,19 +412,7 @@ function remarkCustomElements() {
           }
         }
         const linkText = getNodeText(node)
-        node.value = `<a href="${href}" ${linkClass}>${linkText}${iconHtml}</a>`
-      }
-    }
-
-    // Process code nodes: Handle runnable code blocks
-    for (const node of codeNodes) {
-      if (node.meta === 'runnable') {
-        node.type = 'html'
-        node.value = `<div class="runnable-code" data-language="${
-          node.lang
-        }" data-source="${encodeURIComponent(node.value)}">
-          <pre><code class="language-${node.lang}">${node.value}</code></pre>
-        </div>`
+        node.value = `<a href="${href}">${linkText}${iconHtml}</a>`
       }
     }
   }
@@ -482,6 +437,18 @@ function rehypeAddClassToParagraphs() {
         }
         node.properties.style = node.properties.style || ''
         node.properties.style += 'max-width: 50ch;'
+      } else if (node.tagName === 'blockquote') {
+        // look for the p inside the blockquote
+        const p = node.children.find((child) => child.tagName === 'p')
+        if (p) {
+          p.properties = p.properties || {}
+          p.properties.className = p.properties.className || []
+          if (Array.isArray(p.properties.className)) {
+            p.properties.className.push('max-w-prose')
+          } else {
+            p.properties.className += ' max-w-prose'
+          }
+        }
       }
     })
   }
@@ -640,7 +607,8 @@ async function processMarkdown(filePath) {
 
   const processor = unified()
     .use(remarkParse)
-    .use(remarkObsidian)
+    // .use(remarkObsidian)
+    .use(remarkObsidianSupport)
     .use(remarkCustomElements) // Custom plugin for images, links, and code
     .use(enhanceLinksWithScraps) // Enhance links with metadata from Supabase
     .use(remarkGfm)
@@ -749,6 +717,95 @@ async function processAllFiles() {
     path.join(outputDir, 'manifest-lite.json'),
     JSON.stringify(manifestLite, null, 2)
   )
+}
+
+// Helper function to extract the title from the frontmatter of the linked markdown file
+async function getTitleFromFrontmatter(match) {
+  const targetPath = path.join(contentDir, `${match}.md`)
+
+  try {
+    const fileContent = await fs.readFile(targetPath, 'utf8')
+    const { data: frontmatter } = matter(fileContent)
+
+    // Return the title from the frontmatter, or use the filename as fallback
+    return frontmatter.title || path.basename(match, '.md')
+  } catch (err) {
+    console.error(`Error reading file ${targetPath}:`, err)
+    return match // Fallback to the match if the file doesn't exist
+  }
+}
+
+function remarkObsidianSupport() {
+  return async (tree) => {
+    // Handle [[wikilinks]]
+    const visit = (await import('unist-util-visit')).visit // Dynamically import visit to support async
+    await visit(tree, 'text', async (node, index, parent) => {
+      const value = node.value
+      const wikilinkRegex = /\[\[([^\]]+)\]\]/g
+      let match
+      let lastIndex = 0
+      const nodes = []
+
+      while ((match = wikilinkRegex.exec(value)) !== null) {
+        const [fullMatch, linkText] = match
+        const start = match.index
+        const end = wikilinkRegex.lastIndex
+
+        // Add text before the wikilink
+        if (start > lastIndex) {
+          nodes.push({
+            type: 'text',
+            value: value.slice(lastIndex, start)
+          })
+        }
+
+        const linkParts = linkText.split('|')
+        const target = linkParts[0].split('#')[0]
+        // const alias = linkParts[1] || (await getTitleFromFrontmatter(match))
+        // TODO: Properly extract title from frontmatter
+        const alias = linkParts[1] || target
+        const heading = linkParts[0].split('#')[1]
+
+        // Generate the URL
+        let url = `/blog/${encodeURIComponent(target)}`
+        if (heading) {
+          url += `#${slugify(heading, { lower: true, strict: true })}`
+        }
+
+        // Create link node
+        nodes.push({
+          type: 'link',
+          url,
+          children: [{ type: 'text', value: alias }]
+        })
+
+        lastIndex = end
+      }
+
+      // Add remaining text after the last wikilink
+      if (lastIndex < value.length) {
+        nodes.push({
+          type: 'text',
+          value: value.slice(lastIndex)
+        })
+      }
+
+      // add a special internal-link class to the link
+      nodes.forEach((node) => {
+        if (node.type === 'link') {
+          node.data = node.data || {}
+          node.data.hProperties = node.data.hProperties || {}
+          node.data.hProperties.className = 'internal-link'
+        }
+      })
+
+      // Replace the original text node with the new nodes
+      if (nodes.length > 0) {
+        parent.children.splice(index, 1, ...nodes)
+        return [visit.SKIP, index + nodes.length]
+      }
+    })
+  }
 }
 
 // =============================

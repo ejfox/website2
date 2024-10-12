@@ -242,11 +242,11 @@ useHead({
     </article>
 
     <!-- Teleport the TOC to the sidebar -->
-    <teleport to="#toc-container">
+    <teleport to="#toc-container" v-if="post?.toc?.length">
       <div v-if="post?.toc?.length" class="p-2">
         <div
-          class="toc border-gray-100 dark:border-none dark:bg-gray-800 p-4 rounded-lg overflow-hidden w-48 text-xs my-4 font-sans text-zinc-400 dark:text-zinc-600">
-          <!-- <h3 class="text-lg mb-2">Table of Contents</h3> -->
+          class="toc dark:bg-zinc-900 p-1 pl-4 rounded-lg text-[11px] my-4 md:my-8 font-sans text-zinc-400 dark:text-zinc-600">
+          <h3 class="text-lg mb-2">Table of Contents</h3>
           <ul class="space-y-2">
             <div v-for="item in post.toc" :key="item.slug">
               <!-- <a :href="`#${item.slug}`" class="hover:text-blue-500 transition-colors">
@@ -254,8 +254,7 @@ useHead({
               </a> -->
               <ul v-if="item.children?.length" class="mt-2 space-y-2">
                 <li v-for="child in item.children" :key="child.slug" :class="{
-                  'text-decoration-underline': activeSection === child.slug,
-                  'text-red-500': activeSection === child.slug
+                  'text-zinc-700 dark:text-zinc-300': activeSection === child.slug
                 }">
                   <a :href="`#${child.slug}`" class="hover:text-blue-500 transition-colors">
                     {{ child.text }}

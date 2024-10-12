@@ -1,12 +1,14 @@
 <template>
-  <div class="max-w-screen-md border border-gray-100 dark:border-gray-800 rounded mb-8 break-words">
+  <div class="max-w-screen-md rounded my-1 break-words">
 
 
 
     <ScrapPinboard v-if="scrap.source === 'pinboard'" :scrap="scrap" />
+    <ScrapArena v-if="scrap.source === 'arena'" :scrap="scrap" />
+
 
     <!-- Rendered Markdown Content -->
-    <div v-if="scrap.content" class="p-4" v-html="renderedContent"></div>
+    <!-- <div v-if="scrap.content" class="p-4" v-html="renderedContent"></div> -->
 
     <!-- Relationships -->
     <div v-show="hasRelationships && showRelationships" class="mt-4 text-xs">
@@ -29,44 +31,33 @@
       </ClientOnly>
     </div>
 
-    <div class="flex ite ms-center justify-between text-[10px] text-gray-500 px-2">
-      <div class="flex items-center space-x-2 justify-center">
-        <UIcon :name="getIconName(scrap.source)" class="w-4 h-4" />
-        <span>{{ scrap.source }}</span>
-        <span class="text-gray-300 dark:text-gray-700">{{ scrap.scrap_id }}</span>
-      </div>
-
-      <p class="timestamp">{{ formatDate(scrap.created_at) }}</p>
-
-      <div v-if="hasLocation" class="opacity-50 hover:opacity-100 transition-opacity">
-        {{ scrap.metadata.latitude }}, {{ scrap.metadata.longitude }}
-      </div>
-
-      <UButton :to="scrap.href" target="_blank" color="primary" variant="ghost" icon="i-heroicons-link" size="xs">
-        Link
-      </UButton>
-
-      <div class="flex items-center space-x-2">
-        <span>Raw</span>
-        <UToggle v-model="showRaw" size="xs" />
-      </div>
-
-      <div v-if="hasRelationships" class="flex items-center space-x-2">
-        <span>Relationships</span>
-        <UToggle v-model="showRelationships" size="xs" />
-      </div>
+    <div v-if="scrap.source === 'arena'">
+      <!-- <pre>
+      {{ scrap }}      
+    </pre> -->
+      <img :src="scrap.metadata.image.thumb.url" v-if="scrap.metadata.image" class="max-h-16 inline-block" />
     </div>
 
-    <!-- Raw Data -->
-    <pre v-if="showRaw" class="text-[9px] max-h-48 overflow-auto bg-gray-950 text-white p-1">
-      {{ scrap }}
-    </pre>
+    <div v-if="scrap.source === 'mastodon'">
+
+      <span class="font-serif" v-html="scrap.content" />
+      <div v-if="scrap.metadata.images">
+        <img v-for="image in scrap.metadata.images" :src="image.url" class="max-h-16 inline-block" />
+      </div>
+
+    </div>
+
+
+
+    <ScrapMetadata v-if="scrap.source === 'pinboard'" :scrap="scrap" :has-relationships="hasRelationships" />
+
+
   </div>
 </template>
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
-import { format } from 'date-fns'
+
 import * as d3 from 'd3'
 import { renderMarkdown } from '~/utils/markdownRenderer'
 
@@ -97,19 +88,7 @@ function calcLineLabelTransform(edge) {
   return `translate(${x}, ${y}) rotate(${angle})`
 }
 
-const formatDate = (date) => format(new Date(date), 'MMM d')
 
-const getIconName = (type) => {
-  const iconMap = {
-    'github-pr': 'i-ph-git-pull-request-fill',
-    'github-star': 'i-material-symbols-light-kid-star-outline',
-    'mastodon': 'i-mingcute-thought-fill',
-    'user-github-issue': 'i-octicon-issue-opened-16',
-    'github-gist': 'i-material-symbols-code-blocks-outline-sharp',
-    'pinboard': 'i-cib-pinboard',
-  }
-  return iconMap[type] || 'i-heroicons-document'
-}
 
 const relationshipEdges = computed(() => {
   if (!hasRelationships.value) return []
