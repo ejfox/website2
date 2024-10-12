@@ -221,7 +221,7 @@ useHead({
             <span class="block text-sm text-gray-500">Previous</span>
             <span class="block text-sm text-gray-400">{{
               formatDate(nextPrevPosts.prev.date)
-              }}</span>
+            }}</span>
             ← {{ nextPrevPosts.prev?.title }}
           </NuxtLink>
         </div>
@@ -234,7 +234,7 @@ useHead({
             <span class="block text-sm text-gray-500">Next</span>
             <span class="block text-sm text-gray-400">{{
               formatDate(nextPrevPosts.next.date)
-              }}</span>
+            }}</span>
             {{ nextPrevPosts.next?.title }} →
           </NuxtLink>
         </div>
@@ -245,7 +245,7 @@ useHead({
     <teleport to="#toc-container">
       <div v-if="post?.toc?.length" class="p-2">
         <div
-          class="toc bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-hidden w-48 text-xs my-4 font-sans text-zinc-400 dark:text-zinc-600">
+          class="toc border-gray-100 dark:border-none dark:bg-gray-800 p-4 rounded-lg overflow-hidden w-48 text-xs my-4 font-sans text-zinc-400 dark:text-zinc-600">
           <!-- <h3 class="text-lg mb-2">Table of Contents</h3> -->
           <ul class="space-y-2">
             <div v-for="item in post.toc" :key="item.slug">
