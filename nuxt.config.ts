@@ -59,6 +59,17 @@ export default defineNuxtConfig({
       'Red Hat Mono': [300, 400]
     }
   },
+  stripe: {
+    // Server
+    server: {
+      key: process.env.STRIPE_SECRET_KEY,
+      options: {}
+    },
+    client: {
+      key: process.env.STRIPE_PUBLISHABLE_KEY,
 
+      options: {}
+    }
+  },
   compatibilityDate: '2024-09-15'
 })

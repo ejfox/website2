@@ -1,5 +1,12 @@
 <template>
   <div class="w-full text-sm text-zinc-600 dark:text-zinc-400 flex flex-wrap items-center gap-x-4 gap-y-2 monospace">
+
+    <!-- indicate if it's a draft or not -->
+    <span v-if="doc.draft" class="flex items-center text-red-500 dark:text-red-400 font-sans">
+      <UIcon name="bi:file-earmark-text" class="mr-2 text-red-400 dark:text-red-600" />
+      Draft, please do not publish, changes expected
+    </span>
+
     <!-- Date -->
     <span v-if="doc.date" class="flex items-center" :title="formatRelativeTime(doc.date)">
       <UIcon name="ant-design:calendar-outlined" class="mr-2 text-zinc-400 dark:text-zinc-600" />

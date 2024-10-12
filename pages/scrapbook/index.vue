@@ -1,5 +1,5 @@
 <template>
-  <div ref="scrapcontainer" class="container mx-auto px-4 py-12 h-screen overflow-y-auto monospace">
+  <div ref="scrapcontainer" class="container mx-auto px-4 py-12 max-h-screen overflow-y-auto monospace">
     <h1 class="text-3xl font-bold mb-4 lg:mb-8">Scrapbook</h1>
 
     <div v-if="!scraps.length" class="text-center">Loading data...</div>

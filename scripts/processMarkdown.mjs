@@ -25,6 +25,7 @@ import { fromHtmlIsomorphic } from 'hast-util-from-html-isomorphic'
 import dotenv from 'dotenv'
 import NodeCache from 'node-cache'
 import * as shiki from 'shiki'
+import { createClient } from '@supabase/supabase-js'
 
 // =============================
 // Load Environment Variables
@@ -36,6 +37,7 @@ dotenv.config()
 // =============================
 // Import the v2 API and configure it
 import { v2 as cloudinary } from 'cloudinary'
+import { UForm } from '#build/components'
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -61,6 +63,8 @@ const outputDir = path.join(__dirname, '..', 'dist', 'processed')
 const CLOUDINARY_BASE_URL = `https://res.cloudinary.com/${
   cloudinary.config().cloud_name
 }/image/upload/`
+
+const cacheFilePath = path.join(__dirname, 'scrapCache.json')
 
 // =============================
 // Set Up Shiki Highlighter
@@ -101,7 +105,7 @@ const headerStar = `
 const imageDimensionsCache = new NodeCache({ stdTTL: 86400, checkperiod: 120 })
 
 // Path to Cache File
-const cacheFilePath = path.join(
+const imageCacheFilePath = path.join(
   __dirname,
   '..',
   'cache',
@@ -111,7 +115,7 @@ const cacheFilePath = path.join(
 // Load Cache from File if Exists
 async function loadCache() {
   try {
-    await fs.access(cacheFilePath)
+    await fs.access(imageCacheFilePath)
     const cacheData = JSON.parse(await fs.readFile(cacheFilePath, 'utf-8'))
     imageDimensionsCache.mset(
       Object.keys(cacheData).map((key) => ({ key, val: cacheData[key] }))
@@ -220,39 +224,13 @@ const socialPlatforms = {
  * @param {string} url - The original image URL.
  * @returns {string} - The Cloudinary public ID.
  */
-function extractImageId(url) {
-  console.log('Extracting ID from:', url)
-  const urlParts = url.split('/')
-  const imageWithExtension = urlParts[urlParts.length - 1]
-  const imageId = imageWithExtension.split('.')[0] // Removes the extension
-  console.log('Extracted ID:', imageId)
-  return imageId
-}
-
-/**
- * Fetches image dimensions from Cloudinary using the Admin API.
- * Utilizes caching to minimize API calls.
- * @param {string} imageId - The Cloudinary public ID of the image.
- * @returns {Promise<{ width: number, height: number }>} - The dimensions of the image.
- */
-// async function fetchCloudinaryImageDimensions(imageId) {
-//   if (imageDimensionsCache.has(imageId)) {
-//     return imageDimensionsCache.get(imageId)
-//   }
-
-//   try {
-//     const result = await cloudinary.api.resource(imageId)
-//     const dimensions = {
-//       width: result.width,
-//       height: result.height
-//     }
-//     imageDimensionsCache.set(imageId, dimensions)
-//     return dimensions
-//   } catch (error) {
-//     // console.error(`Error fetching dimensions for image ${imageId}:`, error)
-//     // Fallback dimensions if API call fails
-//     return { width: 800, height: 600 }
-//   }
+// function extractImageId(url) {
+//   console.log('Extracting ID from:', url)
+//   const urlParts = url.split('/')
+//   const imageWithExtension = urlParts[urlParts.length - 1]
+//   const imageId = imageWithExtension.split('.')[0] // Removes the extension
+//   console.log('Extracted ID:', imageId)
+//   return imageId
 // }
 
 /**
@@ -266,22 +244,20 @@ function generateCloudinaryUrl(imageId, options) {
   const { responsiveWidths, existingTransformations = '' } = options
   const MAX_WIDTH = 1800
 
+  // a correct cloudinary URL should look like this
+  // https://res.cloudinary.com/ejf/image/upload/w_1200/dpr_auto/v1717945172/jm8gkazk2mfmarwvqvn6.jpg
+
   // Generate srcset for responsive images
   const srcset = responsiveWidths
     .map((w) => {
       const respWidth = Math.min(w, MAX_WIDTH)
-      return `https://res.cloudinary.com/${
-        cloudinary.config().cloud_name
-      }/image/upload/${existingTransformations}/w_${respWidth},f_auto,q_auto/${imageId} ${respWidth}w`
+      return `https://res.cloudinary.com/ejf/image/upload/${existingTransformations}/w_${respWidth},dpr_auto,f_auto,q_auto/${imageId}.webp ${respWidth}w`
     })
     .join(', ')
 
   // Use the largest width for the main URL
   const largestWidth = Math.min(Math.max(...responsiveWidths), MAX_WIDTH)
-  const url = `https://res.cloudinary.com/${
-    cloudinary.config().cloud_name
-  }/image/upload/${existingTransformations}/w_${largestWidth},f_auto,q_auto/${imageId}`
-
+  const url = `https://res.cloudinary.com/ejf/image/upload/${existingTransformations}/w_${largestWidth}/dpr_auto,f_auto,q_auto/${imageId}.webp`
   return { url, srcset }
 }
 /**
@@ -294,7 +270,7 @@ function generateCloudinaryUrl(imageId, options) {
  * @returns {string} - The HTML string for the img tag.
  */
 function generateResponsiveImgTag({ url, width, height, srcset }) {
-  return `<img src="${url}" srcset="${srcset}" width="${width}" height="${height}" loading="lazy" style="width: 100%; height: auto;" alt="" />`
+  return `<img src="${url}" srcset="${srcset}" width="${width}" height="${height}" loading="lazy" class="w-full h-auto" alt="" />`
 }
 
 /**
@@ -314,23 +290,26 @@ async function processCloudinaryImage(node) {
 
     // Generate new optimized URL and srcset
     const { url, srcset } = generateCloudinaryUrl(publicId, {
-      responsiveWidths: [320, 480, 640, 768, 1024, 1280, 1536, 1800],
+      responsiveWidths: [320, 480, 640, 768, 1024, 1280, 1800],
       existingTransformations
     })
 
     const imgTag = generateResponsiveImgTag({
       url,
-      width: 1024, // You might want to fetch actual dimensions if needed
-      height: 768,
+      width: 1920, // You might want to fetch actual dimensions if needed
+      height: 1080,
       srcset
     })
 
-    console.log('Generated optimized imgTag:', imgTag)
+    // console.log('Generated optimized imgTag:', imgTag)
     node.type = 'html'
     node.value = imgTag
+
+    return true
   } else {
-    console.log('Non-Cloudinary image, processing as before')
+    // console.log('Non-Cloudinary image, processing as before')
     // Your existing logic for non-Cloudinary images
+    return false
   }
 }
 /**
@@ -437,8 +416,13 @@ function remarkCustomElements() {
     })
 
     // Process images: Convert to Cloudinary URLs and embed dimensions
+    let processedImages = 0
     for (const node of imageNodes) {
-      await processCloudinaryImage(node)
+      const processed = await processCloudinaryImage(node)
+      if (processed) {
+        processedImages++
+      }
+      console.log('Processed images:', processedImages)
     }
 
     // Process links: Add icons or handle wikilinks
@@ -575,6 +559,73 @@ function generateSlug(str) {
     .replace(/^-+|-+$/g, '')
 }
 
+function enhanceLinksWithScraps(options = {}) {
+  // Initialize Supabase client
+  const supabaseUrl = process.env.SUPABASE_URL
+  const supabaseKey = process.env.SUPABASE_KEY
+  const supabase = createClient(supabaseUrl, supabaseKey)
+
+  // Initialize NodeCache with a TTL (e.g., 1 hour)
+  const cache = new NodeCache({ stdTTL: 3600 })
+
+  // Function to load all scraps into cache
+  async function loadScrapsIntoCache() {
+    // Check if scraps are already in cache
+    if (cache.has('scrapMap')) {
+      return cache.get('scrapMap')
+    }
+
+    // Fetch all scraps from Supabase
+    let { data: scraps, error } = await supabase
+      .from('scraps')
+      .select('scrap_id, metadata')
+
+    if (error) {
+      console.error('Error fetching scraps from Supabase:', error)
+      return {}
+    }
+
+    // Build a map of href to scrap
+    const scrapMap = {}
+    scraps.forEach((scrap) => {
+      const href = scrap.metadata?.href
+      if (href) {
+        scrapMap[href] = scrap
+      }
+    })
+
+    // Store the map in cache
+    cache.set('scrapMap', scrapMap)
+    return scrapMap
+  }
+
+  return async (tree) => {
+    const linkNodes = []
+
+    // Collect all link nodes
+    visit(tree, 'link', (node) => {
+      linkNodes.push(node)
+    })
+
+    // Load the scraps into cache
+    const scrapMap = await loadScrapsIntoCache()
+
+    // Process each link node
+    for (const node of linkNodes) {
+      const scrap = scrapMap[node.url]
+      if (scrap) {
+        // Inject scrap_id and metadata as attributes
+        node.data = node.data || {}
+        node.data.hProperties = node.data.hProperties || {}
+        node.data.hProperties['data-scrap-id'] = scrap.scrap_id
+        node.data.hProperties['data-scrap-metadata'] = JSON.stringify(
+          scrap.metadata
+        )
+      }
+    }
+  }
+}
+
 // =============================
 // Plugin Integration and Markdown Processing
 // =============================
@@ -591,6 +642,7 @@ async function processMarkdown(filePath) {
     .use(remarkParse)
     .use(remarkObsidian)
     .use(remarkCustomElements) // Custom plugin for images, links, and code
+    .use(enhanceLinksWithScraps) // Enhance links with metadata from Supabase
     .use(remarkGfm)
     .use(remarkUnwrapImages)
     .use(remarkRehype, { allowDangerousHtml: true })

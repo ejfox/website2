@@ -1,6 +1,7 @@
 import {
   readFileSync,
   writeFileSync,
+  unlinkSync,
   readdirSync,
   existsSync,
   mkdirSync,
@@ -110,10 +111,55 @@ function objToFrontmatter(attributes) {
   return frontmatterString
 }
 
+/**
+ * Recursively find and delete files that are in the destination but not in the source
+ * @param {string} destinationPath - Path in the destination directory
+ * @param {string} relativePath - Relative path from the source directory
+ */
+function deleteMissingFiles(destinationPath, relativePath = '') {
+  const files = readdirSync(destinationPath)
+  let deletedFilesCount = 0
+  let deletedFiles = []
+
+  files.forEach((file) => {
+    const destinationFilePath = path.join(destinationPath, file)
+    const sourceFilePath = path.join(sourceDirectory, relativePath, file)
+
+    const stat = statSync(destinationFilePath)
+
+    if (stat.isDirectory()) {
+      // Check recursively in subdirectories
+      const result = deleteMissingFiles(
+        destinationFilePath,
+        path.join(relativePath, file)
+      )
+      deletedFilesCount += result.deletedFilesCount
+      deletedFiles = deletedFiles.concat(result.deletedFiles)
+    } else if (!existsSync(sourceFilePath)) {
+      // If the file does not exist in the source, delete it from the destination
+      console.log(`Deleting missing file: ${destinationFilePath}`)
+      unlinkSync(destinationFilePath)
+      deletedFilesCount++
+      deletedFiles.push(destinationFilePath)
+    }
+  })
+
+  if (relativePath === '') {
+    console.log(
+      `Deleted ${deletedFilesCount} files: ${deletedFiles.join(', ')}`
+    )
+  }
+
+  return { deletedFilesCount, deletedFiles }
+}
+
 // Start processing from the source directory
 try {
   processDirectory(sourceDirectory)
   console.log('Import completed successfully.')
+
+  deleteMissingFiles(destinationDirectory)
+  console.log('Deleted missing files.')
 } catch (error) {
   console.error('Error during import:', error)
 }
