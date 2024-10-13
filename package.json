@@ -5,6 +5,7 @@
   "scripts": {
     "build": "nuxt build",
     "import": "node scripts/import.mjs && node scripts/processMarkdown.mjs",
+    "process": "node scripts/processMarkdown.mjs",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
