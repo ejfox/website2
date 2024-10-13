@@ -1,14 +1,26 @@
 {
-  "frontmatter": {
-    "date": "2022-12-13T21:42:33.000Z",
-    "modified": "2024-07-18T18:39:02.000Z",
-    "hidden": true,
-    "draft": true,
-    "tags": [
-      "programming",
-      "process",
-      "livestream"
-    ]
-  },
-  "content": "#programming #process #livestream\n\n## How quickly can you create a website?\n"
+  "slug": "drafts/speedrunning-making-websites",
+  "date": "2022-12-13T21:42:33.000Z",
+  "modified": "2024-07-18T18:39:02.000Z",
+  "hidden": true,
+  "draft": true,
+  "tags": [
+    "programming",
+    "process",
+    "livestream"
+  ],
+  "title": "How quickly can you create a website?",
+  "toc": [
+    {
+      "text": "How quickly can you create a website?",
+      "slug": "how-quickly-can-you-create-a-website",
+      "level": "h2",
+      "children": []
+    }
+  ],
+  "wordCount": 12,
+  "readingTime": 1,
+  "imageCount": 0,
+  "linkCount": 0,
+  "content": "<p class=\"max-w-prose\" style=\"max-width: 50ch;\">#programming #process #livestream</p>"
 }

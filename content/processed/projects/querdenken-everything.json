@@ -1,10 +1,14 @@
 {
-  "frontmatter": {
-    "title": "Querdenken Everything",
-    "date": "2023-01-01T20:00:34.000Z",
-    "modified": "2024-10-01T22:46:45.000Z",
-    "hidden": false,
-    "draft": false
-  },
-  "content": "I [helped gather and visualize data](https://longlead.com/article/querdenken-everything) to tell the story of extremists gathering in Telegram chats."
+  "slug": "projects/querdenken-everything",
+  "title": "Querdenken Everything",
+  "date": "2023-01-01T20:00:34.000Z",
+  "modified": "2024-10-01T22:46:45.000Z",
+  "hidden": false,
+  "draft": false,
+  "toc": [],
+  "wordCount": 16,
+  "readingTime": 1,
+  "imageCount": 0,
+  "linkCount": 1,
+  "content": "<p class=\"max-w-prose\" style=\"max-width: 50ch;\">I <a href=\"https://longlead.com/article/querdenken-everything\">helped gather and visualize data</a> to tell the story of extremists gathering in Telegram chats.</p>"
 }

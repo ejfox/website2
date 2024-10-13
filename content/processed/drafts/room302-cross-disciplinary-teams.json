@@ -1,16 +1,28 @@
 {
-  "frontmatter": {
-    "dek": "In which",
-    "inprogress": true,
-    "date": "2022-12-05T23:34:09.000Z",
-    "modified": "2024-09-20T04:28:26.000Z",
-    "tags": [
-      "process",
-      "personal",
-      "work"
-    ],
-    "hidden": true,
-    "draft": true
-  },
-  "content": "## The Role of Cross-Disciplinary Teams in Driving Innovation at Room 302\n"
+  "slug": "drafts/room302-cross-disciplinary-teams",
+  "dek": "In which",
+  "inprogress": true,
+  "date": "2022-12-05T23:34:09.000Z",
+  "modified": "2024-09-20T04:28:26.000Z",
+  "tags": [
+    "process",
+    "personal",
+    "work"
+  ],
+  "hidden": true,
+  "draft": true,
+  "title": "The Role of Cross-Disciplinary Teams in Driving Innovation at Room 302",
+  "toc": [
+    {
+      "text": "The Role of Cross-Disciplinary Teams in Driving Innovation at Room 302",
+      "slug": "the-role-of-cross-disciplinary-teams-in-driving-innovation-at-room-302",
+      "level": "h2",
+      "children": []
+    }
+  ],
+  "wordCount": 13,
+  "readingTime": 1,
+  "imageCount": 0,
+  "linkCount": 0,
+  "content": ""
 }

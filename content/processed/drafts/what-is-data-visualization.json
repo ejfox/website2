@@ -1,16 +1,21 @@
 {
-  "frontmatter": {
-    "draft": true,
-    "dek": "In which",
-    "inprogress": true,
-    "date": "2022-11-03T00:02:42.000Z",
-    "modified": "2022-12-23T14:10:54.000Z",
-    "hidden": true,
-    "tags": [
-      "dataviz",
-      "data",
-      "visualization"
-    ]
-  },
-  "content": "# What is dataviz to me?\n\n#dataviz \n\n- The problem\n- The approach\n- The tools\n- The benefits\n"
+  "slug": "drafts/what-is-data-visualization",
+  "draft": true,
+  "dek": "In which",
+  "inprogress": true,
+  "date": "2022-11-03T00:02:42.000Z",
+  "modified": "2022-12-23T14:10:54.000Z",
+  "hidden": true,
+  "tags": [
+    "dataviz",
+    "data",
+    "visualization"
+  ],
+  "title": "What is dataviz to me?",
+  "toc": [],
+  "wordCount": 20,
+  "readingTime": 1,
+  "imageCount": 0,
+  "linkCount": 0,
+  "content": "<p class=\"max-w-prose\" style=\"max-width: 50ch;\">#dataviz</p>\n<ul>\n<li>The problem</li>\n<li>The approach</li>\n<li>The tools</li>\n<li>The benefits</li>\n</ul>"
 }

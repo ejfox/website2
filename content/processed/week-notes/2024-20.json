@@ -1,20 +1,101 @@
 {
-  "frontmatter": {
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress",
-      "photography",
-      "design",
-      "webdesign",
-      "pottery",
-      "personal"
-    ],
-    "modified": "2024-05-16T17:20:32.000Z",
-    "date": "2022-12-26T16:57:44.000Z",
-    "dek": "In which the author embarks on creative endeavors in pottery, updates personal projects, and enhances backend functionalities for Coach Artie & Brain View.",
-    "hidden": false,
-    "draft": false
-  },
-  "content": "## 🌟 Overview of the Week\n\n\n## Projects Worked On\n\n### knowhv.com\n\nWorking on the homepage / index styling a bit, trying to find a balance between the map and the list of posts, and imagining the ways people would explore the content using both mechanisms.\n\n### ejfox.photos\n\nContinuing on my lifelong quest to have a photoblog that I like the design of and is easy to update, I have been working on tuning up ejfox.photos - a domain I acquired a year ago and haven’t used properly so far.\n\nThe main page is meant to imitate a table with a bunch of printed photos splayed out on it, the most recent at the top. Clicking on an image shows the EXIF data, a map if a lat/lng is attached to the image, and most importantly the EXIF caption, which can be easily edited in the iOS Photos app.\n\n### Room 302 Mission Control\n\n![](https://res.cloudinary.com/ejf/image/upload/v1715787764/jfst5feejetyeilv59ex.png)\n\n### Coach Artie & Brain View\n\nWorked on a blog post for the studio blog going over all of the features we have added to Coach Artie in the past few months\n\nAlso worked on the Brain View. Started sending all of the Winston logs to a supabase log table so that can be shown alongside memories and messages. I want to make it a more fully-functional backend, with the ability to edit prompts and change configuration values on-the-fly. It would also be good to see all schedules in pg_cron.\n\n## Creative Endeavors\n\n### Pottery\n\n<https://res.cloudinary.com/ejf/image/upload/v1715836425/uhu0xethwc3ob6jqgupd.jpg>\n\n<https://res.cloudinary.com/ejf/image/upload/v1715836737/u64tfrfmwnnmewx3usdv.jpg>\n\n## Technical Accomplishments\n\n\n## Books, Movies, TV\n\n\n## Personal Growth & Health\n\n\n## Social & Community Engagement\n\n\n## Goals for the Future\n<!-- Set Specific, Measurable, Achievable, Relevant, and Time-bound goals or intentions for the upcoming week. -->\n"
+  "slug": "week-notes/2024-20",
+  "tags": [
+    "weekly-notes",
+    "reflections",
+    "progress",
+    "photography",
+    "design",
+    "webdesign",
+    "pottery",
+    "personal"
+  ],
+  "modified": "2024-05-16T17:20:32.000Z",
+  "date": "2022-12-26T16:57:44.000Z",
+  "dek": "In which the author embarks on creative endeavors in pottery, updates personal projects, and enhances backend functionalities for Coach Artie & Brain View.",
+  "hidden": false,
+  "draft": false,
+  "title": "🌟 Overview of the Week",
+  "toc": [
+    {
+      "text": "🌟 Overview of the Week",
+      "slug": "overview-of-the-week",
+      "level": "h2",
+      "children": []
+    },
+    {
+      "text": "Projects Worked On",
+      "slug": "projects-worked-on",
+      "level": "h2",
+      "children": [
+        {
+          "text": "knowhv.com",
+          "slug": "knowhv-com",
+          "level": "h3"
+        },
+        {
+          "text": "ejfox.photos",
+          "slug": "ejfox-photos",
+          "level": "h3"
+        },
+        {
+          "text": "Room 302 Mission Control",
+          "slug": "room-302-mission-control",
+          "level": "h3"
+        },
+        {
+          "text": "Coach Artie & Brain View",
+          "slug": "coach-artie-brain-view",
+          "level": "h3"
+        }
+      ]
+    },
+    {
+      "text": "Creative Endeavors",
+      "slug": "creative-endeavors",
+      "level": "h2",
+      "children": [
+        {
+          "text": "Pottery",
+          "slug": "pottery",
+          "level": "h3"
+        }
+      ]
+    },
+    {
+      "text": "Technical Accomplishments",
+      "slug": "technical-accomplishments",
+      "level": "h2",
+      "children": []
+    },
+    {
+      "text": "Books, Movies, TV",
+      "slug": "books-movies-tv",
+      "level": "h2",
+      "children": []
+    },
+    {
+      "text": "Personal Growth & Health",
+      "slug": "personal-growth-health",
+      "level": "h2",
+      "children": []
+    },
+    {
+      "text": "Social & Community Engagement",
+      "slug": "social-community-engagement",
+      "level": "h2",
+      "children": []
+    },
+    {
+      "text": "Goals for the Future",
+      "slug": "goals-for-the-future",
+      "level": "h2",
+      "children": []
+    }
+  ],
+  "wordCount": 291,
+  "readingTime": 2,
+  "imageCount": 1,
+  "linkCount": 1,
+  "content": "<h2 id=\"projects-worked-on\"><a aria-hidden=\"true\" tabindex=\"-1\" href=\"#projects-worked-on\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 14.81 17.81\" class=\"header-star inline-block mr-2\" width=\"14\" height=\"17\" opacity=\"0.2\">\n  <path d=\"M10.01,5.75c1.18-.82,2.19-1.55,3.22-2.24.48-.32,1.05-.52,1.45.07.39.58-.22.78-.54,1.07-1.15,1.05-2.29,2.12-3.46,3.14-1.61,1.41-1.68,2.82-.12,4.35.44.43.97.78,1.48,1.15.42.3.69.68.51,1.19-.2.58-.69.76-1.28.85-.87.14-1.6-1.14-2.32-.42-.47.48-.41,1.47-.65,2.2-.13.39-.52.6-.91.67-.54.1-.89-.26-1.1-.68-.37-.72-.37-1.45-.11-2.26.29-.91.9-2.19,0-2.72-.56-.33-1.53.82-2.14,1.53-.76.88-1.8,1.51-2.32,2.62-.23.48-.75.58-1.22.35-.67-.31-.56-.89-.31-1.4.71-1.44,1.94-2.43,3.1-3.46,2.66-2.37,2.68-2.36.36-5.11-.5-.6-1.05-1.16-1.57-1.74-.22-.25-.34-.56-.13-.84.2-.27.56-.24.87-.19,1.09.18,1.71,1.01,2.43,1.72.54.54,1.03,1.57,1.74,1.37.82-.24.4-1.36.48-2.08.18-1.48.32-2.95.89-4.33C8.48.27,8.7.01,9.04,0c.48-.01.69.37.72.75.07.93.1,1.87.07,2.81-.02.68-.26,1.36.17,2.19Z\"></path>\n</svg></a>Projects Worked On</h2>\n<h3 id=\"knowhvcom\"><a aria-hidden=\"true\" tabindex=\"-1\" href=\"#knowhvcom\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 14.81 17.81\" class=\"header-star inline-block mr-2\" width=\"14\" height=\"17\" opacity=\"0.2\">\n  <path d=\"M10.01,5.75c1.18-.82,2.19-1.55,3.22-2.24.48-.32,1.05-.52,1.45.07.39.58-.22.78-.54,1.07-1.15,1.05-2.29,2.12-3.46,3.14-1.61,1.41-1.68,2.82-.12,4.35.44.43.97.78,1.48,1.15.42.3.69.68.51,1.19-.2.58-.69.76-1.28.85-.87.14-1.6-1.14-2.32-.42-.47.48-.41,1.47-.65,2.2-.13.39-.52.6-.91.67-.54.1-.89-.26-1.1-.68-.37-.72-.37-1.45-.11-2.26.29-.91.9-2.19,0-2.72-.56-.33-1.53.82-2.14,1.53-.76.88-1.8,1.51-2.32,2.62-.23.48-.75.58-1.22.35-.67-.31-.56-.89-.31-1.4.71-1.44,1.94-2.43,3.1-3.46,2.66-2.37,2.68-2.36.36-5.11-.5-.6-1.05-1.16-1.57-1.74-.22-.25-.34-.56-.13-.84.2-.27.56-.24.87-.19,1.09.18,1.71,1.01,2.43,1.72.54.54,1.03,1.57,1.74,1.37.82-.24.4-1.36.48-2.08.18-1.48.32-2.95.89-4.33C8.48.27,8.7.01,9.04,0c.48-.01.69.37.72.75.07.93.1,1.87.07,2.81-.02.68-.26,1.36.17,2.19Z\"></path>\n</svg></a>knowhv.com</h3>\n<p class=\"max-w-prose\" style=\"max-width: 50ch;\">Working on the homepage / index styling a bit, trying to find a balance between the map and the list of posts, and imagining the ways people would explore the content using both mechanisms.</p>\n<h3 id=\"ejfoxphotos\"><a aria-hidden=\"true\" tabindex=\"-1\" href=\"#ejfoxphotos\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 14.81 17.81\" class=\"header-star inline-block mr-2\" width=\"14\" height=\"17\" opacity=\"0.2\">\n  <path d=\"M10.01,5.75c1.18-.82,2.19-1.55,3.22-2.24.48-.32,1.05-.52,1.45.07.39.58-.22.78-.54,1.07-1.15,1.05-2.29,2.12-3.46,3.14-1.61,1.41-1.68,2.82-.12,4.35.44.43.97.78,1.48,1.15.42.3.69.68.51,1.19-.2.58-.69.76-1.28.85-.87.14-1.6-1.14-2.32-.42-.47.48-.41,1.47-.65,2.2-.13.39-.52.6-.91.67-.54.1-.89-.26-1.1-.68-.37-.72-.37-1.45-.11-2.26.29-.91.9-2.19,0-2.72-.56-.33-1.53.82-2.14,1.53-.76.88-1.8,1.51-2.32,2.62-.23.48-.75.58-1.22.35-.67-.31-.56-.89-.31-1.4.71-1.44,1.94-2.43,3.1-3.46,2.66-2.37,2.68-2.36.36-5.11-.5-.6-1.05-1.16-1.57-1.74-.22-.25-.34-.56-.13-.84.2-.27.56-.24.87-.19,1.09.18,1.71,1.01,2.43,1.72.54.54,1.03,1.57,1.74,1.37.82-.24.4-1.36.48-2.08.18-1.48.32-2.95.89-4.33C8.48.27,8.7.01,9.04,0c.48-.01.69.37.72.75.07.93.1,1.87.07,2.81-.02.68-.26,1.36.17,2.19Z\"></path>\n</svg></a>ejfox.photos</h3>\n<p class=\"max-w-prose\" style=\"max-width: 50ch;\">Continuing on my lifelong quest to have a photoblog that I like the design of and is easy to update, I have been working on tuning up ejfox.photos - a domain I acquired a year ago and haven’t used properly so far.</p>\n<p class=\"max-w-prose\" style=\"max-width: 50ch;\">The main page is meant to imitate a table with a bunch of printed photos splayed out on it, the most recent at the top. Clicking on an image shows the EXIF data, a map if a lat/lng is attached to the image, and most importantly the EXIF caption, which can be easily edited in the iOS Photos app.</p>\n<h3 id=\"room-302-mission-control\"><a aria-hidden=\"true\" tabindex=\"-1\" href=\"#room-302-mission-control\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 14.81 17.81\" class=\"header-star inline-block mr-2\" width=\"14\" height=\"17\" opacity=\"0.2\">\n  <path d=\"M10.01,5.75c1.18-.82,2.19-1.55,3.22-2.24.48-.32,1.05-.52,1.45.07.39.58-.22.78-.54,1.07-1.15,1.05-2.29,2.12-3.46,3.14-1.61,1.41-1.68,2.82-.12,4.35.44.43.97.78,1.48,1.15.42.3.69.68.51,1.19-.2.58-.69.76-1.28.85-.87.14-1.6-1.14-2.32-.42-.47.48-.41,1.47-.65,2.2-.13.39-.52.6-.91.67-.54.1-.89-.26-1.1-.68-.37-.72-.37-1.45-.11-2.26.29-.91.9-2.19,0-2.72-.56-.33-1.53.82-2.14,1.53-.76.88-1.8,1.51-2.32,2.62-.23.48-.75.58-1.22.35-.67-.31-.56-.89-.31-1.4.71-1.44,1.94-2.43,3.1-3.46,2.66-2.37,2.68-2.36.36-5.11-.5-.6-1.05-1.16-1.57-1.74-.22-.25-.34-.56-.13-.84.2-.27.56-.24.87-.19,1.09.18,1.71,1.01,2.43,1.72.54.54,1.03,1.57,1.74,1.37.82-.24.4-1.36.48-2.08.18-1.48.32-2.95.89-4.33C8.48.27,8.7.01,9.04,0c.48-.01.69.37.72.75.07.93.1,1.87.07,2.81-.02.68-.26,1.36.17,2.19Z\"></path>\n</svg></a>Room 302 Mission Control</h3>\n<img src=\"https://res.cloudinary.com/ejf/image/upload/v1715787764/jfst5feejetyeilv59ex.png\" alt=\"\">\n<h3 id=\"coach-artie--brain-view\"><a aria-hidden=\"true\" tabindex=\"-1\" href=\"#coach-artie--brain-view\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 14.81 17.81\" class=\"header-star inline-block mr-2\" width=\"14\" height=\"17\" opacity=\"0.2\">\n  <path d=\"M10.01,5.75c1.18-.82,2.19-1.55,3.22-2.24.48-.32,1.05-.52,1.45.07.39.58-.22.78-.54,1.07-1.15,1.05-2.29,2.12-3.46,3.14-1.61,1.41-1.68,2.82-.12,4.35.44.43.97.78,1.48,1.15.42.3.69.68.51,1.19-.2.58-.69.76-1.28.85-.87.14-1.6-1.14-2.32-.42-.47.48-.41,1.47-.65,2.2-.13.39-.52.6-.91.67-.54.1-.89-.26-1.1-.68-.37-.72-.37-1.45-.11-2.26.29-.91.9-2.19,0-2.72-.56-.33-1.53.82-2.14,1.53-.76.88-1.8,1.51-2.32,2.62-.23.48-.75.58-1.22.35-.67-.31-.56-.89-.31-1.4.71-1.44,1.94-2.43,3.1-3.46,2.66-2.37,2.68-2.36.36-5.11-.5-.6-1.05-1.16-1.57-1.74-.22-.25-.34-.56-.13-.84.2-.27.56-.24.87-.19,1.09.18,1.71,1.01,2.43,1.72.54.54,1.03,1.57,1.74,1.37.82-.24.4-1.36.48-2.08.18-1.48.32-2.95.89-4.33C8.48.27,8.7.01,9.04,0c.48-.01.69.37.72.75.07.93.1,1.87.07,2.81-.02.68-.26,1.36.17,2.19Z\"></path>\n</svg></a>Coach Artie &#x26; Brain View</h3>\n<p class=\"max-w-prose\" style=\"max-width: 50ch;\">Worked on a blog post for the studio blog going over all of the features we have added to Coach Artie in the past few months</p>\n<p class=\"max-w-prose\" style=\"max-width: 50ch;\">Also worked on the Brain View. Started sending all of the Winston logs to a supabase log table so that can be shown alongside memories and messages. I want to make it a more fully-functional backend, with the ability to edit prompts and change configuration values on-the-fly. It would also be good to see all schedules in pg_cron.</p>\n<h2 id=\"creative-endeavors\"><a aria-hidden=\"true\" tabindex=\"-1\" href=\"#creative-endeavors\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 14.81 17.81\" class=\"header-star inline-block mr-2\" width=\"14\" height=\"17\" opacity=\"0.2\">\n  <path d=\"M10.01,5.75c1.18-.82,2.19-1.55,3.22-2.24.48-.32,1.05-.52,1.45.07.39.58-.22.78-.54,1.07-1.15,1.05-2.29,2.12-3.46,3.14-1.61,1.41-1.68,2.82-.12,4.35.44.43.97.78,1.48,1.15.42.3.69.68.51,1.19-.2.58-.69.76-1.28.85-.87.14-1.6-1.14-2.32-.42-.47.48-.41,1.47-.65,2.2-.13.39-.52.6-.91.67-.54.1-.89-.26-1.1-.68-.37-.72-.37-1.45-.11-2.26.29-.91.9-2.19,0-2.72-.56-.33-1.53.82-2.14,1.53-.76.88-1.8,1.51-2.32,2.62-.23.48-.75.58-1.22.35-.67-.31-.56-.89-.31-1.4.71-1.44,1.94-2.43,3.1-3.46,2.66-2.37,2.68-2.36.36-5.11-.5-.6-1.05-1.16-1.57-1.74-.22-.25-.34-.56-.13-.84.2-.27.56-.24.87-.19,1.09.18,1.71,1.01,2.43,1.72.54.54,1.03,1.57,1.74,1.37.82-.24.4-1.36.48-2.08.18-1.48.32-2.95.89-4.33C8.48.27,8.7.01,9.04,0c.48-.01.69.37.72.75.07.93.1,1.87.07,2.81-.02.68-.26,1.36.17,2.19Z\"></path>\n</svg></a>Creative Endeavors</h2>\n<h3 id=\"pottery\"><a aria-hidden=\"true\" tabindex=\"-1\" href=\"#pottery\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 14.81 17.81\" class=\"header-star inline-block mr-2\" width=\"14\" height=\"17\" opacity=\"0.2\">\n  <path d=\"M10.01,5.75c1.18-.82,2.19-1.55,3.22-2.24.48-.32,1.05-.52,1.45.07.39.58-.22.78-.54,1.07-1.15,1.05-2.29,2.12-3.46,3.14-1.61,1.41-1.68,2.82-.12,4.35.44.43.97.78,1.48,1.15.42.3.69.68.51,1.19-.2.58-.69.76-1.28.85-.87.14-1.6-1.14-2.32-.42-.47.48-.41,1.47-.65,2.2-.13.39-.52.6-.91.67-.54.1-.89-.26-1.1-.68-.37-.72-.37-1.45-.11-2.26.29-.91.9-2.19,0-2.72-.56-.33-1.53.82-2.14,1.53-.76.88-1.8,1.51-2.32,2.62-.23.48-.75.58-1.22.35-.67-.31-.56-.89-.31-1.4.71-1.44,1.94-2.43,3.1-3.46,2.66-2.37,2.68-2.36.36-5.11-.5-.6-1.05-1.16-1.57-1.74-.22-.25-.34-.56-.13-.84.2-.27.56-.24.87-.19,1.09.18,1.71,1.01,2.43,1.72.54.54,1.03,1.57,1.74,1.37.82-.24.4-1.36.48-2.08.18-1.48.32-2.95.89-4.33C8.48.27,8.7.01,9.04,0c.48-.01.69.37.72.75.07.93.1,1.87.07,2.81-.02.68-.26,1.36.17,2.19Z\"></path>\n</svg></a>Pottery</h3>\n<p class=\"max-w-prose\" style=\"max-width: 50ch;\"><a href=\"https://res.cloudinary.com/ejf/image/upload/v1715836425/uhu0xethwc3ob6jqgupd.jpg\">https://res.cloudinary.com/ejf/image/upload/v1715836425/uhu0xethwc3ob6jqgupd.jpg<svg style=\"display: inline-block; vertical-align: middle; width: 0.7em; height: 0.7em; margin-left: 0.2rem; margin-right: 0.2rem; margin-top: -0.2em; opacity: 0.8;\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1em\" height=\"1em\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M24 14.86c0 2.173-1.376 3.974-3.59 4.7l-.1.031V17.99c1.378-.58 2.187-1.727 2.187-3.13a3.684 3.684 0 0 0-3.608-3.669h-.596l-.144-.569a6.5 6.5 0 0 0-6.272-4.97a6.39 6.39 0 0 0-5.81 3.664l-.184.376l-.417.044a4.43 4.43 0 0 0-3.305 2.088a4.43 4.43 0 0 0 1.458 6.095v1.69h-.01l-.149-.068a5.94 5.94 0 0 1-3.366-4.35a5.94 5.94 0 0 1 4.8-6.894a7.88 7.88 0 0 1 6.983-4.15a8.03 8.03 0 0 1 7.59 5.589A5.21 5.21 0 0 1 24 14.86M8.682 13.538h.565a.066.066 0 0 0 .046-.111l-2.209-2.211a.066.066 0 0 0-.093 0l-2.211 2.21a.066.066 0 0 0 .048.112h.556a.066.066 0 0 1 .066.065v5.058c0 .659.534 1.193 1.193 1.193h2.604a.066.066 0 0 0 .046-.112l-.33-.33a1.2 1.2 0 0 1-.348-.839v-4.97a.07.07 0 0 1 .067-.065m9.77 2.546h.566a.066.066 0 0 0 .046-.113l-2.21-2.209l-.002-.001a.064.064 0 0 0-.09.001l-2.211 2.209a.066.066 0 0 0 .046.113h.556a.066.066 0 0 1 .066.066v2.51c0 .66.534 1.193 1.193 1.193h2.606a.066.066 0 0 0 .046-.11l-.33-.33a1.2 1.2 0 0 1-.348-.84V16.15a.066.066 0 0 1 .066-.066m-4.885-1.274h.565a.066.066 0 0 0 .047-.111l-2.21-2.203h-.001a.066.066 0 0 0-.093 0l-2.208 2.207a.066.066 0 0 0 .045.111h.563a.07.07 0 0 1 .066.068v3.779c0 .659.534 1.193 1.192 1.193h2.599a.066.066 0 0 0 .047-.112l-.332-.33a1.2 1.2 0 0 1-.346-.839v-3.695c0-.037.03-.067.066-.068\"/></svg></a></p>\n<p class=\"max-w-prose\" style=\"max-width: 50ch;\"><a href=\"https://res.cloudinary.com/ejf/image/upload/v1715836737/u64tfrfmwnnmewx3usdv.jpg\">https://res.cloudinary.com/ejf/image/upload/v1715836737/u64tfrfmwnnmewx3usdv.jpg<svg style=\"display: inline-block; vertical-align: middle; width: 0.7em; height: 0.7em; margin-left: 0.2rem; margin-right: 0.2rem; margin-top: -0.2em; opacity: 0.8;\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1em\" height=\"1em\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M24 14.86c0 2.173-1.376 3.974-3.59 4.7l-.1.031V17.99c1.378-.58 2.187-1.727 2.187-3.13a3.684 3.684 0 0 0-3.608-3.669h-.596l-.144-.569a6.5 6.5 0 0 0-6.272-4.97a6.39 6.39 0 0 0-5.81 3.664l-.184.376l-.417.044a4.43 4.43 0 0 0-3.305 2.088a4.43 4.43 0 0 0 1.458 6.095v1.69h-.01l-.149-.068a5.94 5.94 0 0 1-3.366-4.35a5.94 5.94 0 0 1 4.8-6.894a7.88 7.88 0 0 1 6.983-4.15a8.03 8.03 0 0 1 7.59 5.589A5.21 5.21 0 0 1 24 14.86M8.682 13.538h.565a.066.066 0 0 0 .046-.111l-2.209-2.211a.066.066 0 0 0-.093 0l-2.211 2.21a.066.066 0 0 0 .048.112h.556a.066.066 0 0 1 .066.065v5.058c0 .659.534 1.193 1.193 1.193h2.604a.066.066 0 0 0 .046-.112l-.33-.33a1.2 1.2 0 0 1-.348-.839v-4.97a.07.07 0 0 1 .067-.065m9.77 2.546h.566a.066.066 0 0 0 .046-.113l-2.21-2.209l-.002-.001a.064.064 0 0 0-.09.001l-2.211 2.209a.066.066 0 0 0 .046.113h.556a.066.066 0 0 1 .066.066v2.51c0 .66.534 1.193 1.193 1.193h2.606a.066.066 0 0 0 .046-.11l-.33-.33a1.2 1.2 0 0 1-.348-.84V16.15a.066.066 0 0 1 .066-.066m-4.885-1.274h.565a.066.066 0 0 0 .047-.111l-2.21-2.203h-.001a.066.066 0 0 0-.093 0l-2.208 2.207a.066.066 0 0 0 .045.111h.563a.07.07 0 0 1 .066.068v3.779c0 .659.534 1.193 1.192 1.193h2.599a.066.066 0 0 0 .047-.112l-.332-.33a1.2 1.2 0 0 1-.346-.839v-3.695c0-.037.03-.067.066-.068\"/></svg></a></p>\n<h2 id=\"technical-accomplishments\"><a aria-hidden=\"true\" tabindex=\"-1\" href=\"#technical-accomplishments\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 14.81 17.81\" class=\"header-star inline-block mr-2\" width=\"14\" height=\"17\" opacity=\"0.2\">\n  <path d=\"M10.01,5.75c1.18-.82,2.19-1.55,3.22-2.24.48-.32,1.05-.52,1.45.07.39.58-.22.78-.54,1.07-1.15,1.05-2.29,2.12-3.46,3.14-1.61,1.41-1.68,2.82-.12,4.35.44.43.97.78,1.48,1.15.42.3.69.68.51,1.19-.2.58-.69.76-1.28.85-.87.14-1.6-1.14-2.32-.42-.47.48-.41,1.47-.65,2.2-.13.39-.52.6-.91.67-.54.1-.89-.26-1.1-.68-.37-.72-.37-1.45-.11-2.26.29-.91.9-2.19,0-2.72-.56-.33-1.53.82-2.14,1.53-.76.88-1.8,1.51-2.32,2.62-.23.48-.75.58-1.22.35-.67-.31-.56-.89-.31-1.4.71-1.44,1.94-2.43,3.1-3.46,2.66-2.37,2.68-2.36.36-5.11-.5-.6-1.05-1.16-1.57-1.74-.22-.25-.34-.56-.13-.84.2-.27.56-.24.87-.19,1.09.18,1.71,1.01,2.43,1.72.54.54,1.03,1.57,1.74,1.37.82-.24.4-1.36.48-2.08.18-1.48.32-2.95.89-4.33C8.48.27,8.7.01,9.04,0c.48-.01.69.37.72.75.07.93.1,1.87.07,2.81-.02.68-.26,1.36.17,2.19Z\"></path>\n</svg></a>Technical Accomplishments</h2>\n<h2 id=\"books-movies-tv\"><a aria-hidden=\"true\" tabindex=\"-1\" href=\"#books-movies-tv\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 14.81 17.81\" class=\"header-star inline-block mr-2\" width=\"14\" height=\"17\" opacity=\"0.2\">\n  <path d=\"M10.01,5.75c1.18-.82,2.19-1.55,3.22-2.24.48-.32,1.05-.52,1.45.07.39.58-.22.78-.54,1.07-1.15,1.05-2.29,2.12-3.46,3.14-1.61,1.41-1.68,2.82-.12,4.35.44.43.97.78,1.48,1.15.42.3.69.68.51,1.19-.2.58-.69.76-1.28.85-.87.14-1.6-1.14-2.32-.42-.47.48-.41,1.47-.65,2.2-.13.39-.52.6-.91.67-.54.1-.89-.26-1.1-.68-.37-.72-.37-1.45-.11-2.26.29-.91.9-2.19,0-2.72-.56-.33-1.53.82-2.14,1.53-.76.88-1.8,1.51-2.32,2.62-.23.48-.75.58-1.22.35-.67-.31-.56-.89-.31-1.4.71-1.44,1.94-2.43,3.1-3.46,2.66-2.37,2.68-2.36.36-5.11-.5-.6-1.05-1.16-1.57-1.74-.22-.25-.34-.56-.13-.84.2-.27.56-.24.87-.19,1.09.18,1.71,1.01,2.43,1.72.54.54,1.03,1.57,1.74,1.37.82-.24.4-1.36.48-2.08.18-1.48.32-2.95.89-4.33C8.48.27,8.7.01,9.04,0c.48-.01.69.37.72.75.07.93.1,1.87.07,2.81-.02.68-.26,1.36.17,2.19Z\"></path>\n</svg></a>Books, Movies, TV</h2>\n<h2 id=\"personal-growth--health\"><a aria-hidden=\"true\" tabindex=\"-1\" href=\"#personal-growth--health\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 14.81 17.81\" class=\"header-star inline-block mr-2\" width=\"14\" height=\"17\" opacity=\"0.2\">\n  <path d=\"M10.01,5.75c1.18-.82,2.19-1.55,3.22-2.24.48-.32,1.05-.52,1.45.07.39.58-.22.78-.54,1.07-1.15,1.05-2.29,2.12-3.46,3.14-1.61,1.41-1.68,2.82-.12,4.35.44.43.97.78,1.48,1.15.42.3.69.68.51,1.19-.2.58-.69.76-1.28.85-.87.14-1.6-1.14-2.32-.42-.47.48-.41,1.47-.65,2.2-.13.39-.52.6-.91.67-.54.1-.89-.26-1.1-.68-.37-.72-.37-1.45-.11-2.26.29-.91.9-2.19,0-2.72-.56-.33-1.53.82-2.14,1.53-.76.88-1.8,1.51-2.32,2.62-.23.48-.75.58-1.22.35-.67-.31-.56-.89-.31-1.4.71-1.44,1.94-2.43,3.1-3.46,2.66-2.37,2.68-2.36.36-5.11-.5-.6-1.05-1.16-1.57-1.74-.22-.25-.34-.56-.13-.84.2-.27.56-.24.87-.19,1.09.18,1.71,1.01,2.43,1.72.54.54,1.03,1.57,1.74,1.37.82-.24.4-1.36.48-2.08.18-1.48.32-2.95.89-4.33C8.48.27,8.7.01,9.04,0c.48-.01.69.37.72.75.07.93.1,1.87.07,2.81-.02.68-.26,1.36.17,2.19Z\"></path>\n</svg></a>Personal Growth &#x26; Health</h2>\n<h2 id=\"social--community-engagement\"><a aria-hidden=\"true\" tabindex=\"-1\" href=\"#social--community-engagement\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 14.81 17.81\" class=\"header-star inline-block mr-2\" width=\"14\" height=\"17\" opacity=\"0.2\">\n  <path d=\"M10.01,5.75c1.18-.82,2.19-1.55,3.22-2.24.48-.32,1.05-.52,1.45.07.39.58-.22.78-.54,1.07-1.15,1.05-2.29,2.12-3.46,3.14-1.61,1.41-1.68,2.82-.12,4.35.44.43.97.78,1.48,1.15.42.3.69.68.51,1.19-.2.58-.69.76-1.28.85-.87.14-1.6-1.14-2.32-.42-.47.48-.41,1.47-.65,2.2-.13.39-.52.6-.91.67-.54.1-.89-.26-1.1-.68-.37-.72-.37-1.45-.11-2.26.29-.91.9-2.19,0-2.72-.56-.33-1.53.82-2.14,1.53-.76.88-1.8,1.51-2.32,2.62-.23.48-.75.58-1.22.35-.67-.31-.56-.89-.31-1.4.71-1.44,1.94-2.43,3.1-3.46,2.66-2.37,2.68-2.36.36-5.11-.5-.6-1.05-1.16-1.57-1.74-.22-.25-.34-.56-.13-.84.2-.27.56-.24.87-.19,1.09.18,1.71,1.01,2.43,1.72.54.54,1.03,1.57,1.74,1.37.82-.24.4-1.36.48-2.08.18-1.48.32-2.95.89-4.33C8.48.27,8.7.01,9.04,0c.48-.01.69.37.72.75.07.93.1,1.87.07,2.81-.02.68-.26,1.36.17,2.19Z\"></path>\n</svg></a>Social &#x26; Community Engagement</h2>\n<h2 id=\"goals-for-the-future\"><a aria-hidden=\"true\" tabindex=\"-1\" href=\"#goals-for-the-future\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 14.81 17.81\" class=\"header-star inline-block mr-2\" width=\"14\" height=\"17\" opacity=\"0.2\">\n  <path d=\"M10.01,5.75c1.18-.82,2.19-1.55,3.22-2.24.48-.32,1.05-.52,1.45.07.39.58-.22.78-.54,1.07-1.15,1.05-2.29,2.12-3.46,3.14-1.61,1.41-1.68,2.82-.12,4.35.44.43.97.78,1.48,1.15.42.3.69.68.51,1.19-.2.58-.69.76-1.28.85-.87.14-1.6-1.14-2.32-.42-.47.48-.41,1.47-.65,2.2-.13.39-.52.6-.91.67-.54.1-.89-.26-1.1-.68-.37-.72-.37-1.45-.11-2.26.29-.91.9-2.19,0-2.72-.56-.33-1.53.82-2.14,1.53-.76.88-1.8,1.51-2.32,2.62-.23.48-.75.58-1.22.35-.67-.31-.56-.89-.31-1.4.71-1.44,1.94-2.43,3.1-3.46,2.66-2.37,2.68-2.36.36-5.11-.5-.6-1.05-1.16-1.57-1.74-.22-.25-.34-.56-.13-.84.2-.27.56-.24.87-.19,1.09.18,1.71,1.01,2.43,1.72.54.54,1.03,1.57,1.74,1.37.82-.24.4-1.36.48-2.08.18-1.48.32-2.95.89-4.33C8.48.27,8.7.01,9.04,0c.48-.01.69.37.72.75.07.93.1,1.87.07,2.81-.02.68-.26,1.36.17,2.19Z\"></path>\n</svg></a>Goals for the Future</h2>\n<!-- Set Specific, Measurable, Achievable, Relevant, and Time-bound goals or intentions for the upcoming week. -->"
 }

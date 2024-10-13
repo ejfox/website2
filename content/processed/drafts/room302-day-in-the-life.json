@@ -1,16 +1,28 @@
 {
-  "frontmatter": {
-    "dek": "In which",
-    "inprogress": true,
-    "date": "2022-12-05T23:34:09.000Z",
-    "modified": "2024-04-29T15:40:52.000Z",
-    "tags": [
-      "art",
-      "design",
-      "photography"
-    ],
-    "hidden": true,
-    "draft": true
-  },
-  "content": "## A Day in the Life at Room 302 Studio\n"
+  "slug": "drafts/room302-day-in-the-life",
+  "dek": "In which",
+  "inprogress": true,
+  "date": "2022-12-05T23:34:09.000Z",
+  "modified": "2024-04-29T15:40:52.000Z",
+  "tags": [
+    "art",
+    "design",
+    "photography"
+  ],
+  "hidden": true,
+  "draft": true,
+  "title": "A Day in the Life at Room 302 Studio",
+  "toc": [
+    {
+      "text": "A Day in the Life at Room 302 Studio",
+      "slug": "a-day-in-the-life-at-room-302-studio",
+      "level": "h2",
+      "children": []
+    }
+  ],
+  "wordCount": 11,
+  "readingTime": 1,
+  "imageCount": 0,
+  "linkCount": 0,
+  "content": ""
 }

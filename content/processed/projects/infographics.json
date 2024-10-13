@@ -1,9 +1,14 @@
 {
-  "frontmatter": {
-    "date": "2024-09-21T19:59:20.000Z",
-    "modified": "2024-09-21T19:59:42.000Z",
-    "hidden": false,
-    "draft": false
-  },
+  "slug": "projects/infographics",
+  "date": "2024-09-21T19:59:20.000Z",
+  "modified": "2024-09-21T19:59:42.000Z",
+  "hidden": false,
+  "draft": false,
+  "title": "infographics",
+  "toc": [],
+  "wordCount": 1,
+  "readingTime": 1,
+  "imageCount": 0,
+  "linkCount": 0,
   "content": ""
 }

@@ -1,10 +1,14 @@
 {
-  "frontmatter": {
-    "title": "Opening The Gateway",
-    "date": "2022-09-21T20:00:27.000Z",
-    "modified": "2024-10-01T22:48:23.000Z",
-    "hidden": false,
-    "draft": false
-  },
-  "content": "[I created an interactive scrollytelling map that showed the geography of the Skagit River from the sea to the dams the story centered on.](https://themargin.us/features/opening-the-gateway)"
+  "slug": "projects/opening-the-gateway",
+  "title": "Opening The Gateway",
+  "date": "2022-09-21T20:00:27.000Z",
+  "modified": "2024-10-01T22:48:23.000Z",
+  "hidden": false,
+  "draft": false,
+  "toc": [],
+  "wordCount": 24,
+  "readingTime": 1,
+  "imageCount": 0,
+  "linkCount": 1,
+  "content": "<p class=\"max-w-prose\" style=\"max-width: 50ch;\"><a href=\"https://themargin.us/features/opening-the-gateway\">I created an interactive scrollytelling map that showed the geography of the Skagit River from the sea to the dams the story centered on.</a></p>"
 }

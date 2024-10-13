@@ -1,16 +1,20 @@
-name: Process Markdown and Build
+name: Process Markdown and Auto-Toot
 
 on:
   push:
     branches:
       - main
+  schedule:
+    - cron: '0 0 * * *'  # Run daily at midnight
 
 jobs:
-  process-markdown:
+  process-and-toot:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 2  # Fetch the last two commits for diff
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -32,10 +36,16 @@ jobs:
           STRIPE_PUBLISHABLE_KEY: ${{ secrets.STRIPE_PUBLISHABLE_KEY }}
           STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
 
-      - name: Commit processed files
+      - name: Auto-Toot
+        run: node scripts/autoToot.mjs
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }}
+
+      - name: Commit changes
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
-          git add content/processed
-          git commit -m "Processed markdown files"
+          git add content
+          git commit -m "chore: process markdown and auto-toot" || echo "No changes to commit"
           git push

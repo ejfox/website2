@@ -1,10 +1,14 @@
 {
-  "frontmatter": {
-    "title": "Coach Artie",
-    "date": "2022-03-01T19:59:42.000Z",
-    "modified": "2024-10-01T22:48:51.000Z",
-    "hidden": false,
-    "draft": false
-  },
-  "content": "I created Coach Artie to serve as a Discord Studio Assistant and he has evolved into a powerful AI tool with memories and tool usage."
+  "slug": "projects/coach-artie",
+  "title": "Coach Artie",
+  "date": "2022-03-01T19:59:42.000Z",
+  "modified": "2024-10-01T22:48:51.000Z",
+  "hidden": false,
+  "draft": false,
+  "toc": [],
+  "wordCount": 25,
+  "readingTime": 1,
+  "imageCount": 0,
+  "linkCount": 0,
+  "content": "<p class=\"max-w-prose\" style=\"max-width: 50ch;\">I created Coach Artie to serve as a Discord Studio Assistant and he has evolved into a powerful AI tool with memories and tool usage.</p>"
 }

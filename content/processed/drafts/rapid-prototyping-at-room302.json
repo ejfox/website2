@@ -1,16 +1,28 @@
 {
-  "frontmatter": {
-    "dek": "In which",
-    "inprogress": true,
-    "date": "2022-12-05T23:34:09.000Z",
-    "modified": "2024-09-21T19:47:02.000Z",
-    "tags": [
-      "design",
-      "event",
-      "process"
-    ],
-    "hidden": true,
-    "draft": true
-  },
-  "content": "## Rapid Prototyping at Room 302: Behind the Scenes\n"
+  "slug": "drafts/rapid-prototyping-at-room302",
+  "dek": "In which",
+  "inprogress": true,
+  "date": "2022-12-05T23:34:09.000Z",
+  "modified": "2024-09-21T19:47:02.000Z",
+  "tags": [
+    "design",
+    "event",
+    "process"
+  ],
+  "hidden": true,
+  "draft": true,
+  "title": "Rapid Prototyping at Room 302: Behind the Scenes",
+  "toc": [
+    {
+      "text": "Rapid Prototyping at Room 302: Behind the Scenes",
+      "slug": "rapid-prototyping-at-room-302-behind-the-scenes",
+      "level": "h2",
+      "children": []
+    }
+  ],
+  "wordCount": 10,
+  "readingTime": 1,
+  "imageCount": 0,
+  "linkCount": 0,
+  "content": ""
 }

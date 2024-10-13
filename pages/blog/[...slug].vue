@@ -221,7 +221,7 @@ useHead({
             <span class="block text-sm text-gray-500">Previous</span>
             <span class="block text-sm text-gray-400">{{
               formatDate(nextPrevPosts.prev.date)
-            }}</span>
+              }}</span>
             ← {{ nextPrevPosts.prev?.title }}
           </NuxtLink>
         </div>
@@ -234,7 +234,7 @@ useHead({
             <span class="block text-sm text-gray-500">Next</span>
             <span class="block text-sm text-gray-400">{{
               formatDate(nextPrevPosts.next.date)
-            }}</span>
+              }}</span>
             {{ nextPrevPosts.next?.title }} →
           </NuxtLink>
         </div>

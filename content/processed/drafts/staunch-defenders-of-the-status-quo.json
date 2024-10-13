@@ -1,13 +1,25 @@
 {
-  "frontmatter": {
-    "date": "2022-11-13T15:46:47.000Z",
-    "modified": "2024-07-18T18:30:56.000Z",
-    "hidden": true,
-    "draft": true,
-    "tags": [
-      "culture",
-      "politics"
-    ]
-  },
-  "content": "## The Staunch Defenders of the Status Quo\n\n#culture\n\nIs Twitter the status quo now? What about when it wasn’t? Can you defend it if all you are you are saying is “don’t change anything”\n"
+  "slug": "drafts/staunch-defenders-of-the-status-quo",
+  "date": "2022-11-13T15:46:47.000Z",
+  "modified": "2024-07-18T18:30:56.000Z",
+  "hidden": true,
+  "draft": true,
+  "tags": [
+    "culture",
+    "politics"
+  ],
+  "title": "The Staunch Defenders of the Status Quo",
+  "toc": [
+    {
+      "text": "The Staunch Defenders of the Status Quo",
+      "slug": "the-staunch-defenders-of-the-status-quo",
+      "level": "h2",
+      "children": []
+    }
+  ],
+  "wordCount": 36,
+  "readingTime": 1,
+  "imageCount": 0,
+  "linkCount": 0,
+  "content": "<p class=\"max-w-prose\" style=\"max-width: 50ch;\">#culture</p>\n<p class=\"max-w-prose\" style=\"max-width: 50ch;\">Is Twitter the status quo now? What about when it wasn’t? Can you defend it if all you are you are saying is “don’t change anything”</p>"
 }

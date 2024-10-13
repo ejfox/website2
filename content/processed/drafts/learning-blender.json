@@ -1,14 +1,19 @@
 {
-  "frontmatter": {
-    "date": "2022-11-20T21:58:44.000Z",
-    "modified": "2022-12-23T16:30:14.000Z",
-    "hidden": true,
-    "draft": true,
-    "tags": [
-      "blender",
-      "3d",
-      "visualization"
-    ]
-  },
-  "content": "# Learning Blender: Winter 2022\n\n#3d \n\n[[using-polycam-scans-in-three-js]]\n"
+  "slug": "drafts/learning-blender",
+  "date": "2022-11-20T21:58:44.000Z",
+  "modified": "2022-12-23T16:30:14.000Z",
+  "hidden": true,
+  "draft": true,
+  "tags": [
+    "blender",
+    "3d",
+    "visualization"
+  ],
+  "title": "Learning Blender: Winter 2022",
+  "toc": [],
+  "wordCount": 8,
+  "readingTime": 1,
+  "imageCount": 0,
+  "linkCount": 0,
+  "content": "<p class=\"max-w-prose\" style=\"max-width: 50ch;\">#3d</p>\n<p class=\"max-w-prose\" style=\"max-width: 50ch;\"><a href=\"/blog/using-polycam-scans-in-three-js\" class=\"internal-link\">using-polycam-scans-in-three-js</a></p>"
 }
