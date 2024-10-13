@@ -1,6 +1,7 @@
 import type { H3Event } from 'h3'
 import { createClient } from '@supabase/supabase-js'
 import dotenv from 'dotenv'
+import { gzipSync } from 'zlib'
 
 dotenv.config()
 
@@ -10,22 +11,21 @@ export default defineEventHandler(async (event) => {
   const supabase = createClient(supabaseUrl, supabaseKey)
   const body = await readBody(event)
   const page = body?.page || 1
-  const pageSize = body?.pageSize || 32
+  const pageSize = body?.pageSize || 10 // Reduce the page size for smaller payloads
   const offset = (page - 1) * pageSize
 
   console.log({ page, pageSize, offset })
 
+  // Exclude large fields like 'embedding' and select only necessary columns
   const {
     data: scraps,
     error,
     count
   } = await supabase
     .from('scraps')
-    .select('id, source, content, summary, created_at, updated_at, tags, relationships, metadata, scrap_id, graph_imported', { count: 'exact' }) // Exclude embedding
+    .select('id, source, content, summary, created_at, updated_at, tags, scrap_id', { count: 'exact' })
     .range(offset, offset + pageSize - 1)
     .order('created_at', { ascending: false })
-
-  // console.log('scraps', scraps)
 
   if (error) {
     return new Response(JSON.stringify(error), {
@@ -35,9 +35,16 @@ export default defineEventHandler(async (event) => {
   }
 
   const returnObj = { scraps, count }
-  console.log('returnObj', returnObj)
+  
+  // Log the response size for debugging
+  const responseString = JSON.stringify(returnObj)
+  console.log(`Response size: ${Buffer.byteLength(responseString, 'utf8')} bytes`)
 
-  return new Response(JSON.stringify(returnObj), {
-    headers: { 'content-type': 'application/json' }
+  // Gzip the response to reduce payload size
+  return new Response(gzipSync(responseString), {
+    headers: { 
+      'content-type': 'application/json', 
+      'content-encoding': 'gzip' 
+    }
   })
 })
