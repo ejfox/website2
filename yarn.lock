@@ -796,14 +796,6 @@
   dependencies:
     "@iconify/types" "*"
 
-"@iconify/json@^2.2.251":
-  version "2.2.259"
-  resolved "https://registry.yarnpkg.com/@iconify/json/-/json-2.2.259.tgz#b6c789a8dea1e0440b484e68c592f211af87b7cd"
-  integrity sha512-QA5chdx3Jw/jpPv6NrABJIbG6++572KocO/hyebEpSx0KYPc1f5dWkGG1tFu6v9NB7Xls8bXZHXak011Gvoiiw==
-  dependencies:
-    "@iconify/types" "*"
-    pathe "^1.1.2"
-
 "@iconify/tools@^4.0.6":
   version "4.0.7"
   resolved "https://registry.yarnpkg.com/@iconify/tools/-/tools-4.0.7.tgz#8bd103a3252e3f693a7de9e903e342852158aa57"

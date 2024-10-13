@@ -13,7 +13,6 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src"
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.251",
     "@iconify/utils": "^2.1.33",
     "@nuxt/devtools": "^1.4.2",
     "@rehype-pretty/transformers": "^0.13.2",
