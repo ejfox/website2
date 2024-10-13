@@ -1,43 +1,41 @@
-name: Process Markdown
+name: Process Markdown and Build
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
     branches:
       - main
 
 jobs:
   process-markdown:
     runs-on: ubuntu-latest
-
     steps:
-      # Step 1: Check out the repository code
-      - name: Check out repository
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Set up Node.js environment
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20' # Use Node.js 20
+          node-version: 20
 
-      # Step 3: Install dependencies (adjust this depending on your setup)
       - name: Install dependencies
-        run: yarn install # If you use npm, replace with `npm install`
+        run: yarn install
 
-      # Step 4: Run the markdown processing script
-      - name: Run markdown processing
+      - name: Process Markdown
         run: node scripts/processMarkdown.mjs
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+          CLOUDINARY_URL: ${{ secrets.CLOUDINARY_URL }}
+          STRIPE_PUBLISHABLE_KEY: ${{ secrets.STRIPE_PUBLISHABLE_KEY }}
+          STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
 
-      # Step 5: Commit the processed files and push back to the repo
-      - name: Commit and push changes
+      - name: Commit processed files
         run: |
           git config --global user.name "GitHub Action"
-          git config --global user.email "actions@github.com"
+          git config --global user.email "action@github.com"
           git add dist/processed
           git commit -m "Processed markdown files"
           git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
