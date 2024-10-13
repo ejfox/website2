@@ -3,14 +3,17 @@ import path from 'path'
 import { execSync } from 'child_process'
 import matter from 'gray-matter'
 import OpenAI from 'openai'
-import { login } from 'masto'
+import { createRestAPIClient } from 'masto'
 import dotenv from 'dotenv'
 import fetch from 'node-fetch'
 
 dotenv.config()
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
-const masto = await login({ url: 'https://mastodon.social', accessToken: process.env.MASTODON_ACCESS_TOKEN })
+const masto = createRestAPIClient({
+  url: 'https://mastodon.social',
+  accessToken: process.env.MASTODON_ACCESS_TOKEN,
+})
 
 const CONTENT_DIR = path.join(process.cwd(), 'content', 'blog')
 const CHANGE_THRESHOLD = 0.1 // 10% change threshold
@@ -65,7 +68,7 @@ async function generateToot(content, title) {
 }
 
 async function postToMastodon(tootText, postUrl) {
-  const status = await masto.statuses.create({
+  const status = await masto.v1.statuses.create({
     status: `${tootText}\n\nRead more: ${postUrl}`,
     visibility: 'public',
   })
