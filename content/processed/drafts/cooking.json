@@ -1,15 +1,27 @@
 {
-  "frontmatter": {
-    "draft": true,
-    "dek": "In which the author explores the joys of cooking delicious food",
-    "inprogress": true,
-    "date": "2022-12-23T13:48:19.000Z",
-    "modified": "2024-09-20T04:26:04.000Z",
-    "tags": [
-      "food",
-      "cooking"
-    ],
-    "hidden": true
-  },
-  "content": "## Cooking\n\n[[food]]\n\n[[espresso]]\n\nKolaches: [[cooking-kolaches]]\n\nRamen: [[cooking-ramen-experiments]]\n\nSeitan: [[cooking-seitan]]\n"
+  "slug": "drafts/cooking",
+  "draft": true,
+  "dek": "In which the author explores the joys of cooking delicious food",
+  "inprogress": true,
+  "date": "2022-12-23T13:48:19.000Z",
+  "modified": "2024-09-20T04:26:04.000Z",
+  "tags": [
+    "food",
+    "cooking"
+  ],
+  "hidden": true,
+  "title": "Cooking",
+  "toc": [
+    {
+      "text": "Cooking",
+      "slug": "cooking",
+      "level": "h2",
+      "children": []
+    }
+  ],
+  "wordCount": 11,
+  "readingTime": 1,
+  "imageCount": 0,
+  "linkCount": 0,
+  "content": "<p class=\"max-w-prose\" style=\"max-width: 50ch;\"><a href=\"/blog/food\" class=\"internal-link\">food</a></p>\n<p class=\"max-w-prose\" style=\"max-width: 50ch;\"><a href=\"/blog/espresso\" class=\"internal-link\">espresso</a></p>\n<p class=\"max-w-prose\" style=\"max-width: 50ch;\">Kolaches: <a href=\"/blog/cooking-kolaches\" class=\"internal-link\">cooking-kolaches</a></p>\n<p class=\"max-w-prose\" style=\"max-width: 50ch;\">Ramen: <a href=\"/blog/cooking-ramen-experiments\" class=\"internal-link\">cooking-ramen-experiments</a></p>\n<p class=\"max-w-prose\" style=\"max-width: 50ch;\">Seitan: <a href=\"/blog/cooking-seitan\" class=\"internal-link\">cooking-seitan</a></p>"
 }

@@ -1,16 +1,21 @@
 {
-  "frontmatter": {
-    "draft": true,
-    "dek": "In which",
-    "inprogress": true,
-    "date": "2022-11-03T01:01:30.000Z",
-    "modified": "2022-12-23T14:10:01.000Z",
-    "hidden": true,
-    "tags": [
-      "cooking",
-      "food",
-      "recipe"
-    ]
-  },
-  "content": "# Cooking: Kolaches\n\n#cooking\n\n[[cooking]]\n"
+  "slug": "drafts/cooking-kolaches",
+  "draft": true,
+  "dek": "In which",
+  "inprogress": true,
+  "date": "2022-11-03T01:01:30.000Z",
+  "modified": "2022-12-23T14:10:01.000Z",
+  "hidden": true,
+  "tags": [
+    "cooking",
+    "food",
+    "recipe"
+  ],
+  "title": "Cooking: Kolaches",
+  "toc": [],
+  "wordCount": 6,
+  "readingTime": 1,
+  "imageCount": 0,
+  "linkCount": 0,
+  "content": "<p class=\"max-w-prose\" style=\"max-width: 50ch;\">#cooking</p>\n<p class=\"max-w-prose\" style=\"max-width: 50ch;\"><a href=\"/blog/cooking\" class=\"internal-link\">cooking</a></p>"
 }

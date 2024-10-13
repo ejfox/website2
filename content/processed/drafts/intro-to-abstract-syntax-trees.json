@@ -1,16 +1,28 @@
 {
-  "frontmatter": {
-    "dek": "In which",
-    "inprogress": true,
-    "date": "2024-04-25T21:21:40.000Z",
-    "modified": "2024-09-21T19:04:23.000Z",
-    "tags": [
-      "code",
-      "vue",
-      "programming"
-    ],
-    "hidden": true,
-    "draft": true
-  },
-  "content": "## Introduction To Abstract Syntax Trees\n\nAbstract Syntax Trees (ASTs) serve as a critical component in understanding the structure of our code. This understanding becomes even more important when working with frameworks such as Vue and Nuxt, or when trying to enforce code standards and find problematic patterns with tools like ESLint.\n"
+  "slug": "drafts/intro-to-abstract-syntax-trees",
+  "dek": "In which",
+  "inprogress": true,
+  "date": "2024-04-25T21:21:40.000Z",
+  "modified": "2024-09-21T19:04:23.000Z",
+  "tags": [
+    "code",
+    "vue",
+    "programming"
+  ],
+  "hidden": true,
+  "draft": true,
+  "title": "Introduction To Abstract Syntax Trees",
+  "toc": [
+    {
+      "text": "Introduction To Abstract Syntax Trees",
+      "slug": "introduction-to-abstract-syntax-trees",
+      "level": "h2",
+      "children": []
+    }
+  ],
+  "wordCount": 53,
+  "readingTime": 1,
+  "imageCount": 0,
+  "linkCount": 0,
+  "content": "<p class=\"max-w-prose\" style=\"max-width: 50ch;\">Abstract Syntax Trees (ASTs) serve as a critical component in understanding the structure of our code. This understanding becomes even more important when working with frameworks such as Vue and Nuxt, or when trying to enforce code standards and find problematic patterns with tools like ESLint.</p>"
 }

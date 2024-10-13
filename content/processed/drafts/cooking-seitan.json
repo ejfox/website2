@@ -1,13 +1,18 @@
 {
-  "frontmatter": {
-    "hidden": true,
-    "draft": true,
-    "tags": [
-      "food",
-      "cooking"
-    ],
-    "date": "2024-04-25T21:21:40.000Z",
-    "modified": "2024-09-21T19:06:22.000Z"
-  },
-  "content": "#cooking\n"
+  "slug": "drafts/cooking-seitan",
+  "hidden": true,
+  "draft": true,
+  "tags": [
+    "food",
+    "cooking"
+  ],
+  "date": "2024-04-25T21:21:40.000Z",
+  "modified": "2024-09-21T19:06:22.000Z",
+  "title": "cooking-seitan",
+  "toc": [],
+  "wordCount": 2,
+  "readingTime": 1,
+  "imageCount": 0,
+  "linkCount": 0,
+  "content": "<p class=\"max-w-prose\" style=\"max-width: 50ch;\">#cooking</p>"
 }

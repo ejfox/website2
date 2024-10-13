@@ -1,14 +1,19 @@
 {
-  "frontmatter": {
-    "draft": true,
-    "dek": "In which",
-    "inprogress": true,
-    "date": "2022-12-31T23:49:03.000Z",
-    "modified": "2022-12-31T23:49:34.000Z",
-    "hidden": true,
-    "tags": [
-      "woodworking"
-    ]
-  },
-  "content": "# Experiments in woodworking + sculpture spring 2022\n\nPart of the motivation for [[woodworking-setup]]\n"
+  "slug": "drafts/building-physical-things",
+  "draft": true,
+  "dek": "In which",
+  "inprogress": true,
+  "date": "2022-12-31T23:49:03.000Z",
+  "modified": "2022-12-31T23:49:34.000Z",
+  "hidden": true,
+  "tags": [
+    "woodworking"
+  ],
+  "title": "Experiments in woodworking + sculpture spring 2022",
+  "toc": [],
+  "wordCount": 15,
+  "readingTime": 1,
+  "imageCount": 0,
+  "linkCount": 0,
+  "content": "<p class=\"max-w-prose\" style=\"max-width: 50ch;\">Part of the motivation for <a href=\"/blog/woodworking-setup\" class=\"internal-link\">woodworking-setup</a></p>"
 }
