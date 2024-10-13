@@ -1,8 +1,9 @@
 <script setup>
-import { format } from 'date-fns'
+import { format, formatDistanceToNow } from 'date-fns'
 import { computed } from 'vue'
 import { startOfWeek } from 'date-fns'
 import { animate, stagger } from '~/anime.esm.js'
+import { subMonths } from 'date-fns'
 
 
 const processedMarkdown = useProcessedMarkdown()
@@ -11,6 +12,12 @@ const { data: blogPosts } = await useAsyncData('blog-posts', () => processedMark
 const { data: weekNotes } = await useAsyncData('week-notes', () => processedMarkdown.getWeekNotes())
 
 const formatDate = (date) => format(new Date(date), 'yyyy-MM-dd')
+
+const formatRelativeTime = (date) => {
+  return formatDistanceToNow(new Date(date), { addSuffix: true })
+}
+
+
 
 // Sort week notes and convert week slug to actual dates
 const sortedWeekNotes = computed(() => {
@@ -34,9 +41,12 @@ const sortedWeekNotes = computed(() => {
     .slice(0, 5)
 })
 
+// Updated groupByYear function to filter out hidden posts
 function groupByYear(posts) {
   if (!posts) return {}
-  const sortedPosts = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date))
+  const sortedPosts = [...posts]
+    .filter(post => !post.hidden) // Filter out hidden posts
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
   return sortedPosts.reduce((acc, post) => {
     const year = new Date(post.date).getFullYear()
     if (!acc[year]) acc[year] = []
@@ -91,6 +101,20 @@ onMounted(() => {
 
 
 })
+
+// Updated computed property for recently updated posts
+const recentlyUpdatedPosts = computed(() => {
+  if (!blogPosts.value) return []
+  const oneMonthAgo = subMonths(new Date(), 1)
+  return [...blogPosts.value]
+    .filter(post => !post.hidden)
+    .filter(post => {
+      const updateDate = new Date(post.lastUpdated || post.date)
+      return updateDate > oneMonthAgo
+    })
+    .sort((a, b) => new Date(b.lastUpdated || b.date) - new Date(a.lastUpdated || a.date))
+    .slice(0, 5)
+})
 </script>
 
 <template>
@@ -98,6 +122,10 @@ onMounted(() => {
     <!-- Blog Posts -->
     <section class="lg:w-2/3 mb-16">
       <h2 class="text-3xl font-bold mb-8">Blog Posts</h2>
+
+
+
+      <!-- Existing yearly blog posts list -->
       <div v-for="year in sortedYears" :key="`blog-${year}`" class="mb-10">
         <h3 class="text-4xl font-semibold text-zinc-500 dark:text-zinc-400 mb-6 tracking-tight">
           {{ year }}
@@ -149,6 +177,20 @@ onMounted(() => {
         All Week Notes
       </UButton>
 
+      <div v-if="recentlyUpdatedPosts.length" class="my-12">
+        <h3 class="text-2xl font-semibold text-zinc-600 dark:text-zinc-300 mb-4">Recently Updated</h3>
+        <ul>
+          <li v-for="post in recentlyUpdatedPosts" :key="`recent-${post.slug}`"
+            class="mb-3 border-l-4 border-zinc-300 dark:border-zinc-600 pl-4">
+            <NuxtLink :to="`/blog/${post.slug}`" class="text-lg font-medium hover:underline">
+              {{ post.title }}
+            </NuxtLink>
+            <div class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+              Updated {{ formatRelativeTime(post.lastUpdated || post.date) }}
+            </div>
+          </li>
+        </ul>
+      </div>
     </section>
   </div>
 </template>

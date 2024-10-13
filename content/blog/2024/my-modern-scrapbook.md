@@ -1,6 +1,6 @@
 ---
 dek: "In which we attempt to craft some treasure from the debris of a life lived on the internet"
-date: "2022-12-05T23:34:09.000Z"
+date: "2024-09-20T04:22:35.000Z"
 modified: "2024-09-20T04:22:35.000Z"
 tags: ["inspiration","dataviz","design","howto","politics"]
 hidden: false

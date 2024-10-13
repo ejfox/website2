@@ -26,6 +26,7 @@ import dotenv from 'dotenv'
 import NodeCache from 'node-cache'
 import * as shiki from 'shiki'
 import { createClient } from '@supabase/supabase-js'
+import crypto from 'crypto'
 
 // =============================
 // Load Environment Variables
@@ -161,6 +162,7 @@ const socialPlatforms = {
   'github.io': 'typcn:social-github',
   'youtube.com': 'simple-icons:youtube',
   'twitter.com': 'simple-icons:twitter',
+  'apple.com': 'simple-icons:apple',
   'itunes.apple.com': 'simple-icons:apple',
   'observablehq.com': 'simple-icons:observable',
   'pinboard.in': 'simple-icons:pinboard',
@@ -602,8 +604,11 @@ function enhanceLinksWithScraps(options = {}) {
  * @returns {object} - Contains the processed HTML and metadata.
  */
 async function processMarkdown(filePath) {
+  log(`Processing file: ${filePath}`)
   const fileContent = await fs.readFile(filePath, 'utf8')
+  log(`File content read: ${filePath}`)
   const { data: frontmatter, content } = matter(fileContent)
+  log(`Frontmatter extracted: ${JSON.stringify(frontmatter)}`)
 
   const processor = unified()
     .use(remarkParse)
@@ -648,27 +653,35 @@ async function processMarkdown(filePath) {
     })
     .use(rehypeStringify, { allowDangerousHtml: true })
 
+  log('Parsing content')
   const ast = processor.parse(content)
+  log('Content parsed, extracting headers and TOC')
   const { firstHeading, toc, firstHeadingNode } = extractHeadersAndToc(ast)
+  log(`First heading: "${firstHeading}", TOC entries: ${toc.length}`)
 
-  // Remove the first heading from the AST
+  log('Removing first heading from AST')
   removeFirstHeading(ast, firstHeadingNode)
 
+  log('Running processor')
   const result = await processor.run(ast)
+  log('Processor run complete')
 
+  log('Stringifying result')
   const html = processor.stringify(result)
+  log(`HTML generated, length: ${html.length} characters`)
 
   const wordCount = content.split(/\s+/).length
   const readingTime = Math.ceil(wordCount / 250)
   const imageCount = (content.match(/!\[.*?\]\(.*?\)/g) || []).length
   const linkCount = (content.match(/\[.*?\]\(.*?\)/g) || []).length
 
+  log(`Metadata calculated: ${wordCount} words, ${readingTime} min read, ${imageCount} images, ${linkCount} links`)
+
   return {
     html,
     metadata: {
       ...frontmatter,
-      title:
-        frontmatter.title || firstHeading || path.basename(filePath, '.md'),
+      title: frontmatter.title || firstHeading || path.basename(filePath, '.md'),
       toc,
       wordCount,
       readingTime,
@@ -682,41 +695,83 @@ async function processMarkdown(filePath) {
  * Recursively processes all markdown files in the content directory.
  */
 async function processAllFiles() {
+  log('Starting to process all files')
   const manifestLite = []
+  const cacheFile = path.join(outputDir, 'file-cache.json')
+  let fileCache = {}
+
+  // Load existing cache if available
+  try {
+    fileCache = JSON.parse(await fs.readFile(cacheFile, 'utf8'))
+    log('Loaded existing file cache')
+  } catch (error) {
+    log('No existing file cache found, creating new cache')
+  }
 
   async function processDirectory(dir) {
+    log(`Processing directory: ${dir}`)
     const entries = await fs.readdir(dir, { withFileTypes: true })
+    log(`Found ${entries.length} entries in ${dir}`)
 
     for (const entry of entries) {
       const fullPath = path.join(dir, entry.name)
 
       if (entry.isDirectory()) {
+        log(`Entering subdirectory: ${fullPath}`)
         await processDirectory(fullPath)
       } else if (entry.isFile() && path.extname(entry.name) === '.md') {
-        const { html, metadata } = await processMarkdown(fullPath)
-
         const relativePath = path.relative(contentDir, fullPath)
         const slug = relativePath.replace(/\.md$/, '')
         const outputPath = path.join(outputDir, `${slug}.json`)
 
+        // Check if file has changed
+        const fileStats = await fs.stat(fullPath)
+        const currentHash = crypto
+          .createHash('md5')
+          .update(fileStats.mtime.toISOString())
+          .digest('hex')
+
+        if (fileCache[fullPath] === currentHash) {
+          log(`File unchanged, skipping: ${fullPath}`)
+          // Load existing processed data
+          const existingData = JSON.parse(await fs.readFile(outputPath, 'utf8'))
+          manifestLite.push({ slug, ...existingData.metadata })
+          continue
+        }
+
+        log(`Processing markdown file: ${fullPath}`)
+        const { html, metadata } = await processMarkdown(fullPath)
+
+        log(`Writing processed file to: ${outputPath}`)
         await fs.mkdir(path.dirname(outputPath), { recursive: true })
 
         await fs.writeFile(
           outputPath,
           JSON.stringify({ slug, ...metadata, content: html }, null, 2)
         )
+        log(`File written: ${outputPath}`)
 
         manifestLite.push({ slug, ...metadata })
+        log(`Added to manifest: ${slug}`)
+
+        // Update cache
+        fileCache[fullPath] = currentHash
       }
     }
   }
 
   await processDirectory(contentDir)
 
+  log('Writing manifest-lite.json')
   await fs.writeFile(
     path.join(outputDir, 'manifest-lite.json'),
     JSON.stringify(manifestLite, null, 2)
   )
+  log('manifest-lite.json written successfully')
+
+  // Save updated cache
+  await fs.writeFile(cacheFile, JSON.stringify(fileCache, null, 2))
+  log('File cache updated and saved')
 }
 
 // Helper function to extract the title from the frontmatter of the linked markdown file
@@ -808,12 +863,21 @@ function remarkObsidianSupport() {
   }
 }
 
+// Add a new logging function
+function log(message, level = 'info') {
+  const timestamp = new Date().toISOString()
+  console[level](`[${timestamp}] ${message}`)
+}
+
 // =============================
 // Execute the Script
 // =============================
 
 // Load the cache before processing
 await loadCache()
+log('Cache loaded')
 
 // Start processing all markdown files
-processAllFiles().catch(console.error)
+processAllFiles()
+  .then(() => log('All files processed successfully'))
+  .catch((error) => log(`Error processing files: ${error}`, 'error'))

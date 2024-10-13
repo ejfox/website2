@@ -5,7 +5,7 @@ hidden: false
 inprogress: false
 date: "2019-02-01T10:00:56.000Z"
 hidetimestamp: false
-modified: "2024-06-21T14:13:20.000Z"
+modified: "2024-10-12T23:52:51.000Z"
 tags: ["hackers","internet","coding","activism"]
 draft: false
 ---
