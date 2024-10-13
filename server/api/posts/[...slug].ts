@@ -20,7 +20,7 @@ export default defineEventHandler(async (event) => {
     // Join the slug parts back together with slashes to create a valid file path
     const slug = slugParts.join('/')
     // Resolve the absolute path to the JSON file for the post
-    const postPath = resolve(process.cwd(), 'dist', 'processed', `${slug}.json`)
+    const postPath = resolve(process.cwd(), 'content', 'processed', `${slug}.json`)
 
     // Debug logs for clarity on the slug processing
     console.log('Slug parts:', slugParts) // Logs the individual parts of the slug after splitting

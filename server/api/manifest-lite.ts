@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
   try {
     const manifestPath = resolve(
       process.cwd(),
-      'dist/processed/manifest-lite.json'
+      'content/processed/manifest-lite.json'
     )
     const manifestContent = await readFile(manifestPath, 'utf-8')
     return JSON.parse(manifestContent)

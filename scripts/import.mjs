@@ -3,7 +3,7 @@ import path from 'path'
 import frontMatter from 'front-matter'
 
 const sourceDirectory = 'content/blog/'
-const destinationDirectory = 'dist/processed/'
+const destinationDirectory = 'content/processed/'
 
 const excludedFolders = ['.git', 'node_modules']
 const excludedExtensions = ['.canvas']

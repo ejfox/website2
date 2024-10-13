@@ -55,7 +55,7 @@ const __dirname = path.dirname(__filename)
 // Define Content and Output Directories
 // =============================
 const contentDir = path.join(process.cwd(), 'content', 'blog')
-const outputDir = path.join(process.cwd(), 'dist', 'processed')
+const outputDir = path.join(process.cwd(), 'content', 'processed')
 
 // =============================
 // Define Cloudinary Base URL
