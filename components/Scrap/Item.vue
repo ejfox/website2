@@ -35,14 +35,16 @@
       <!-- <pre>
       {{ scrap }}      
     </pre> -->
-      <img :src="scrap.metadata.image.thumb.url" v-if="scrap.metadata.image" class="max-h-16 inline-block" />
+      <span v-if="scrap.metadata?.image">
+        <img :src="scrap.metadata?.image?.thumb?.url" class="max-h-16 inline-block" />
+      </span>
     </div>
 
     <div v-if="scrap.source === 'mastodon'">
 
       <span class="font-serif" v-html="scrap.content" />
-      <div v-if="scrap.metadata.images">
-        <img v-for="image in scrap.metadata.images" :src="image.url" class="max-h-16 inline-block" />
+      <div v-if="scrap?.metadata?.images">
+        <img v-for="image in scrap?.metadata?.images" :src="image.url" class="max-h-16 inline-block" />
       </div>
 
     </div>
