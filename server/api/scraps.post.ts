@@ -21,7 +21,7 @@ export default defineEventHandler(async (event) => {
     count
   } = await supabase
     .from('scraps')
-    .select('*', { count: 'exact' })
+    .select('id, source, content, summary, created_at, updated_at, tags, relationships, metadata, scrap_id, graph_imported', { count: 'exact' }) // Exclude embedding
     .range(offset, offset + pageSize - 1)
     .order('created_at', { ascending: false })
 
