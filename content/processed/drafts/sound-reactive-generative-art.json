@@ -1,0 +1,19 @@
+{
+  "frontmatter": {
+    "dek": "In which",
+    "inprogress": true,
+    "date": "2024-04-25T21:21:40.000Z",
+    "modified": "2024-09-21T19:04:46.000Z",
+    "tags": [
+      "art",
+      "audio",
+      "visualization",
+      "vj",
+      "music",
+      "coding"
+    ],
+    "hidden": true,
+    "draft": true
+  },
+  "content": "## Sound-Reactive Art\n\n### P5js\n\n[Visualizing Music with p5.js](https://therewasaguy.github.io/p5-music-viz/)\n\n### TouchDesigner\n"
+}

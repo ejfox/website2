@@ -1,0 +1,20 @@
+{
+  "frontmatter": {
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "git",
+      "coding",
+      "database",
+      "demo",
+      "tech"
+    ],
+    "modified": "2024-10-01T22:56:45.000Z",
+    "date": "2024-08-20T15:12:56.000Z",
+    "dek": "In which the protagonist grapples with the complexities of integrating with Supabase for Connectology, seeking joy in details amidst the challenge.",
+    "hidden": false,
+    "draft": false
+  },
+  "content": "## 2024-34\n\n### Step 1: Basic commit\n\n<pre><ruby>git add -A<rt>Stage all changes</rt></ruby> && <ruby>git commit -m \"Update\"<rt>Commit with fixed message</rt></ruby></pre>\n\n### Step 2: Interactive commit message\n<pre><ruby>git add -A<rt>Stage all changes</rt></ruby> && <ruby>read -p \"Commit message: \" msg<rt>Get user input</rt></ruby> && <ruby>git commit -m \"$msg\"<rt>Commit with input</rt></ruby></pre>\n\n#### Step 3: LLM-generated messages\n\n<pre><ruby>git add -A<rt>Stage all changes</rt></ruby> &&\n<ruby>diff=$(git diff --cached)<rt>Get staged diff</rt></ruby> &&\n<ruby>msg=$(echo \"$diff\" | llm -m \"gpt-4o-mini\" -s \"Generate 5 commit messages\")<rt>Ask LLM to generate 5 potential commit messages</rt></ruby> &&\n<ruby>echo \"$msg\"<rt>Display messages</rt></ruby> &&\n<ruby>read -p \"Commit message: \" selected<rt>User chooses</rt></ruby> &&\n<ruby>git commit -m \"$selected\"<rt>Commit with choice</rt></ruby></pre>\n\n### Step 4: Interactive selection with fzf (Final version)\n<pre><ruby>git add -A<rt>Stage all changes</rt></ruby> &&\n<ruby>diff=$(git diff --cached)<rt>Get staged diff</rt></ruby> &&\n<ruby>msg=$(echo \"$diff\" | llm -m \"gpt-4o-mini\" -s \"Generate 5 commit messages\")<rt>Generate 5 potential commit messages</rt></ruby> &&\n<ruby>selected=$(echo \"$msg\" | fzf --prompt=\"Pick a message:\")<rt>Use fzf to let use interactively select which message</rt></ruby> &&\n<ruby>git commit -m \"$selected\"<rt>Commit with selection</rt></ruby></pre>\n\n## Projects Worked On\n\n### Connectology\n\nWorking on getting my local demo switched over to using supabase for storing nodes, edges, and doing basic auth. Its been a real slog, all of that shit is actually really complicated, it turns out. But hopefully it will be easier the next time.\n\nI’ve been trying to work on little joy-based details like animations, transitions, and helpful defaults but instead I am stuck recreating the basics with a remote database. Thats okay I guess. I think I need to be more disciplined in my refactors and how I spend my time.\n\n## Creative Endeavors\n\n\n## Books, Movies, TV\n\n\n## Personal Growth & Health\n\n\n## Social & Community Engagement\n\n\n## Goals for the Future\n<!-- Set Specific, Measurable, Achievable, Relevant, and Time-bound goals or intentions for the upcoming week. -->\n\n---\n"
+}

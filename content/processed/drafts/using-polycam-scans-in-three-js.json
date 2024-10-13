@@ -1,0 +1,14 @@
+{
+  "frontmatter": {
+    "date": "2022-11-20T21:03:54.000Z",
+    "modified": "2024-09-20T04:21:05.000Z",
+    "tags": [
+      "webdesign",
+      "howto",
+      "javascript"
+    ],
+    "hidden": true,
+    "draft": true
+  },
+  "content": "## How to use polycam scans in web applications with three.js\n\n#3d\n\n## Creating a scan\n\n## Exporting a scan from phone to computer\n\n## Creating your nuxt project\n\n## Adding the scan to your project and importing it\n\n## Getting the scan to show up on the page\n\n## Moving the camera\n\n## Setting different camera locations and transitioning between them\n\n## Making the scan auto-rotate\n\n## Using page scroll to move the camera from one location to another\n"
+}

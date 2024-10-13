@@ -1,0 +1,13 @@
+{
+  "frontmatter": {
+    "tags": [
+      "health",
+      "nutrition"
+    ],
+    "date": "2024-10-05T16:05:41.000Z",
+    "modified": "2024-10-05T16:06:18.000Z",
+    "hidden": true,
+    "draft": true
+  },
+  "content": "## Meal Log - {{date:YYYY-MM-DD}}\n\n### Meal: {{time}} (e.g., Breakfast, Lunch, Snack)\n\n**Main Components:**\n\n- <!-- List main ingredients or dishes (e.g., quinoa bowl with veggies) -->\n\n**Macros:**\n\n- **Protein:** <!-- Approx. grams (e.g., 25g) -->\n- **Carbs:** <!-- Approx. grams (e.g., 50g) -->\n- **Fats:** <!-- Approx. grams (e.g., 15g) -->\n\n**Portion Size:**\n\n<!-- Note approximate size (e.g., 1 bowl, handful, palm-sized) -->\n\n**Notes & Observations:**\n\n- **Satiety Level:** <!-- How full you felt post-meal (scale 1-10) -->\n- **Energy/Mood:** <!-- Energy level or mood within 1-2 hours post-meal -->"
+}

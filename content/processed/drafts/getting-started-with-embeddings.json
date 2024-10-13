@@ -1,0 +1,21 @@
+{
+  "frontmatter": {
+    "dek": "In which we put words into space and then explore the constellations they create",
+    "inprogress": true,
+    "date": "2023-07-16T20:34:14.000Z",
+    "modified": "2024-09-20T04:24:52.000Z",
+    "tags": [
+      "art",
+      "machinelearning",
+      "database",
+      "javascript",
+      "coding",
+      "data",
+      "visualization",
+      "programming"
+    ],
+    "hidden": true,
+    "draft": true
+  },
+  "content": "## Getting started with embeddings in JS\n\n[pgvector: Embeddings and vector similarity](https://supabase.com/docs/guides/database/extensions/pgvector)\n\n[Storing OpenAI embeddings in Postgres with pgvector](https://supabase.com/blog/openai-embeddings-postgres-vector)\n\n```js\nasync function memoryToEmbedding(memory) {\n  const embedding = openai.createEmbedding({\n    model: 'text-embedding-ada-002',\n    input: memory,\n  });\n  return embedding;\n}\n```\n\n```js\nconst title = 'First post!'\nconst body = 'Hello world!'\n\n// Generate a vector using OpenAI\nconst embeddingResponse = await openai.createEmbedding({\n  model: 'text-embedding-ada-002',\n  input: body,\n})\n\nconst [{ embedding }] = embeddingResponse.data.data\n\n// Store the vector in Postgres\nconst { data, error } = await supabase.from('posts').insert({\n  title,\n  body,\n  embedding,\n})\n```\n\nNeed to create `match_documents` function: [Database Functions | Supabase Docs](https://supabase.com/docs/guides/database/functions)\n\n[Storing OpenAI embeddings in Postgres with pgvector](https://supabase.com/blog/openai-embeddings-postgres-vector)\n\n```sql\ncreate or replace function match_documents (\n  query_embedding vector(1536),\n  match_threshold float,\n  match_count int\n)\nreturns table (\n  id bigint,\n  content text,\n  similarity float\n)\nlanguage sql stable\nas $$\n  select\n    documents.id,\n    documents.content,\n    1 - (documents.embedding <=> query_embedding) as similarity\n  from documents\n  where 1 - (documents.embedding <=> query_embedding) > match_threshold\n  order by similarity desc\n  limit match_count;\n$$;\n```\n\n>pgvector introduces 3 new operators that can be used to calculate similarity:\n\t- `<->` Euclidean distance\n\t- `<#>` Negative inner product\n\t- `<=>` Cosine distance\n\n```js\nasync function getRelevantMemories(queryString, limit = 5) {\n  // turn the queryString into an embedding\n  const embeddingResponse = await openai.createEmbedding({\n    model: 'text-embedding-ada-002',\n    input: queryString.toString(),\n  })\n\n  const [{ embedding }] = embeddingResponse.data.data\n\n  // query the database for the most relevant memories\n  const { data, error } = await supabase.rpc('match_documents', { \n    query_embedding: embedding,\n    match_threshold: 0.78,\n    match_count: limit\n  });\n\n  if (error) {\n    console.error(\"Error fetching relevant user memory:\", error);\n    return null;\n  }\n\n  return data\n}\n```\n\n[GitHub - ejfox/coachartie_discord](https://github.com/ejfox/coachartie_discord)\n"
+}

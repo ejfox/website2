@@ -1,0 +1,20 @@
+{
+  "frontmatter": {
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "photography",
+      "design",
+      "webdesign",
+      "pottery",
+      "personal"
+    ],
+    "modified": "2024-05-16T17:20:32.000Z",
+    "date": "2022-12-26T16:57:44.000Z",
+    "dek": "In which the author embarks on creative endeavors in pottery, updates personal projects, and enhances backend functionalities for Coach Artie & Brain View.",
+    "hidden": false,
+    "draft": false
+  },
+  "content": "## 🌟 Overview of the Week\n\n\n## Projects Worked On\n\n### knowhv.com\n\nWorking on the homepage / index styling a bit, trying to find a balance between the map and the list of posts, and imagining the ways people would explore the content using both mechanisms.\n\n### ejfox.photos\n\nContinuing on my lifelong quest to have a photoblog that I like the design of and is easy to update, I have been working on tuning up ejfox.photos - a domain I acquired a year ago and haven’t used properly so far.\n\nThe main page is meant to imitate a table with a bunch of printed photos splayed out on it, the most recent at the top. Clicking on an image shows the EXIF data, a map if a lat/lng is attached to the image, and most importantly the EXIF caption, which can be easily edited in the iOS Photos app.\n\n### Room 302 Mission Control\n\n![](https://res.cloudinary.com/ejf/image/upload/v1715787764/jfst5feejetyeilv59ex.png)\n\n### Coach Artie & Brain View\n\nWorked on a blog post for the studio blog going over all of the features we have added to Coach Artie in the past few months\n\nAlso worked on the Brain View. Started sending all of the Winston logs to a supabase log table so that can be shown alongside memories and messages. I want to make it a more fully-functional backend, with the ability to edit prompts and change configuration values on-the-fly. It would also be good to see all schedules in pg_cron.\n\n## Creative Endeavors\n\n### Pottery\n\n<https://res.cloudinary.com/ejf/image/upload/v1715836425/uhu0xethwc3ob6jqgupd.jpg>\n\n<https://res.cloudinary.com/ejf/image/upload/v1715836737/u64tfrfmwnnmewx3usdv.jpg>\n\n## Technical Accomplishments\n\n\n## Books, Movies, TV\n\n\n## Personal Growth & Health\n\n\n## Social & Community Engagement\n\n\n## Goals for the Future\n<!-- Set Specific, Measurable, Achievable, Relevant, and Time-bound goals or intentions for the upcoming week. -->\n"
+}

@@ -1,0 +1,14 @@
+{
+  "frontmatter": {
+    "dek": "In which we",
+    "inprogress": true,
+    "date": "2022-12-05T23:34:09.000Z",
+    "modified": "2024-07-18T18:42:19.000Z",
+    "tags": [
+      "javascript"
+    ],
+    "hidden": true,
+    "draft": true
+  },
+  "content": "## The future of AI will not be written in Python\n\nI think that anyone who translates the latest AI developments out of Python and into Javascript, or any of it's modern offshoots like Deno, Rust, or WebWorkers will be positioned both to scale better and provide a better experience to their developers and users, which will help them move faster and deliver more value.\n\nThe fact of the matter is that there are no scaled user-facing websites on the internet powered by Python. There are likely a lot of different reasons for that.\n\nBut Python has, for better worse, become the lingua franca of AI development.\n\nIt's worth exploring the history of AI and Python to understand why.\n\n## Why do AI developers love Python?\n\n## What are the alternatives?\n"
+}

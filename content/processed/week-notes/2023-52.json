@@ -1,0 +1,19 @@
+{
+  "frontmatter": {
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "code",
+      "javascript",
+      "music",
+      "health"
+    ],
+    "date": "2023-12-25T20:57:53.000Z",
+    "modified": "2023-12-29T16:49:51.000Z",
+    "dek": "In which the author reflects on a festive Christmas with family, experiments with browser-based ML workflows, and creates a quirky Sonic Pi Christmas medley.",
+    "hidden": false,
+    "draft": false
+  },
+  "content": "## 🌟 Overview of the Week\n\nWent to my parent's house and had a nice relaxed Christmas.\n\nStruggling a bit with giving myself the space to rest and relax without guilt or feeling useless.\n\n## 💻 Key Projects & Progress\n\n### LatentScope / Browser T-SNE\n\nDid some experiments on doing T-SNE / UMAP in the browser to visualize embedding positions, rather than in Python on Google Cloud like we are doing now. Getting as many ML workflows out of Python and into Javascript (client or server) is one of my ongoing goals.\n\n## 🎨 Creative Endeavors\n### Sonic Pi Christmas Medley\n\nAfter listening to a bunch of christmas music, I wanted to give it a shot. This is a Sonic PI script that randomly medleys between a few christmas classics, creating something unsettling, jazzy, and not entirely unlistenable.\n\n<https://gist.github.com/ejfox/075557d7bb167f6ccd70a653024a151e>\n\n## 📘 Learning & Development\n- *Material Consumed*:\n  - Note movies, podcasts, books, and articles that influenced you.\n- *Kindle Highlights*:\n  - Include standout Kindle highlights here.\n\n## 💡 Technical Accomplishments\n- <https://github.com/room302studio/browser-tsne>\n- *GitHub Repositories*:\n  - List new repositories or significant contributions.\n- *Development Breakthroughs*:\n  - Describe coding or development achievements.\n\n## 🌱 Personal Growth & Health\n- *Wellness Activities*:\n  - Note exercise and wellness activities.\n\n## 🤝 Social & Community Engagement\n- *Collaborations & Networking*:\n  - Detail collaborations, client work, and meaningful interactions.\n\n## 🚀 Looking Forward\n- *Goals for Next Week*:\n  - Set clear goals or intentions for the upcoming week.\n"
+}
