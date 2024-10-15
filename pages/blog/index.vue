@@ -70,7 +70,6 @@ const weekNoteElements = ref([])
 const animDuration = 900
 const animStagger = 25
 onMounted(() => {
-  console.log(blogPostElements.value)
   // Animate blog posts
   animate(blogPostElements.value, {
     opacity: [0, 1],

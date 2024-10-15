@@ -10,29 +10,18 @@ const processedMarkdown = useProcessedMarkdown()
 const route = useRoute()
 const router = useRouter()
 
-console.log('Current route:', route.path)
-console.log('Route params:', route.params)
-
 // Handle redirection and post fetching
 const { data: post, error } = await useAsyncData(`post-${route.params.slug.join('-')}`, async () => {
   const slugParts = route.params.slug
-
-  console.log('Fetching post for slug:', slugParts.join('/'))
 
   try {
     // Fetch the post data, including potential redirection info
     const response = await $fetch(`/api/posts/${slugParts.join('/')}`)
 
-    console.log('API response:', response)
-
     if (response.redirect) {
-      console.log('Received redirect:', response.redirect)
       // Check if we're already on the correct URL
       if (route.path !== response.redirect) {
-        console.log('Redirecting to:', response.redirect)
         return { redirect: response.redirect }
-      } else {
-        console.log('Already on the correct URL, not redirecting')
       }
     }
 
@@ -42,18 +31,14 @@ const { data: post, error } = await useAsyncData(`post-${route.params.slug.join(
 
     return response
   } catch (error) {
-    console.error('Error fetching post:', error)
     throw error
   }
 })
 
 // Perform redirection if necessary
 if (post.value && post.value.redirect) {
-  console.log('Performing redirection to:', post.value.redirect)
   if (route.path !== post.value.redirect) {
     navigateTo(post.value.redirect, { replace: true })
-  } else {
-    console.log('Already on the correct URL, not redirecting')
   }
 }
 
@@ -145,7 +130,6 @@ onMounted(() => {
           section,
           ([{ isIntersecting }]) => {
             if (isIntersecting) {
-              console.log('section', section.id)
               activeSection.value = section.id
             }
           },

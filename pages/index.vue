@@ -6,20 +6,14 @@ const { data: indexContent, error } = await useAsyncData('index-content', () =>
   getPostBySlug('index')
 )
 
-console.log('Index content:', indexContent.value)
 if (error.value) {
-  console.error('Error fetching index content:', error.value)
+  // Consider replacing this with a more appropriate error handling method
+  // console.error('Error fetching index content:', error.value)
 }
-
-// Add this logging
-watch(indexContent, (newValue) => {
-  console.log('indexContent changed:', newValue)
-}, { immediate: true })
 
 const indexContentContainer = ref(null)
 
 onMounted(() => {
-  console.log('Component mounted, indexContent:', indexContent.value)
   if (indexContentContainer.value) {
     animate(indexContentContainer.value.querySelectorAll('a'), {
       opacity: [0.82, 1],

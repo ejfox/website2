@@ -16,15 +16,15 @@ export const useProcessedMarkdown = () => {
    * @returns {Promise<Object[]>} The list of posts from the manifest.
    */
   const getManifestLite = async () => {
-    console.log('Fetching manifest-lite from /api/manifest-lite')
+    // console.log('Fetching manifest-lite from /api/manifest-lite')
     try {
       const result = await $fetch('/api/manifest-lite') // Fetching the manifest
-      console.log('Manifest-lite fetched successfully:', {
-        type: typeof result,
-        isArray: Array.isArray(result),
-        length: Array.isArray(result) ? result.length : 'N/A',
-        sampleData: Array.isArray(result) ? result.slice(0, 3) : result
-      })
+      // console.log('Manifest-lite fetched successfully:', {
+      //   type: typeof result,
+      //   isArray: Array.isArray(result),
+      //   length: Array.isArray(result) ? result.length : 'N/A',
+      //   sampleData: Array.isArray(result) ? result.slice(0, 3) : result
+      // })
       return result
     } catch (error) {
       console.error('Error fetching manifest-lite:', error)
@@ -38,18 +38,18 @@ export const useProcessedMarkdown = () => {
    * @returns {Promise<Object>} The post object, including title, date, and content.
    */
   const getPostBySlug = async (slug: string) => {
-    console.log(`Fetching post by slug: "${slug}"`)
+    // console.log(`Fetching post by slug: "${slug}"`)
     try {
       // Special handling for the main index
       if (slug === 'index') {
-        console.log('Fetching index content')
+        // console.log('Fetching index content')
         const result = await $fetch('/api/posts/index')
-        console.log('Index result:', result)
+        // console.log('Index result:', result)
         return result
       }
       
       const result = await $fetch(`/api/posts/${slug}`)
-      console.log(`Post fetched for slug "${slug}". Post details:`, result)
+      // console.log(`Post fetched for slug "${slug}". Post details:`, result)
       return result
     } catch (error) {
       console.error(`Error fetching post with slug "${slug}":`, error)
@@ -123,9 +123,9 @@ export const useProcessedMarkdown = () => {
     includeDrafts = false,
     includeWeekNotes = false
   ) => {
-    console.log(
-      `Fetching posts with content. Limit: ${limit}, Offset: ${offset}`
-    )
+    // console.log(
+    //   `Fetching posts with content. Limit: ${limit}, Offset: ${offset}`
+    // )
     try {
       const allPosts = await getAllPosts(includeDrafts, includeWeekNotes) // Get all posts first
       const postsToFetch = allPosts.slice(offset, offset + limit) // Apply limit and offset
@@ -135,7 +135,7 @@ export const useProcessedMarkdown = () => {
           return { ...post, ...fullPost } // Merge metadata with full content
         })
       )
-      console.log(`Fetched ${postsWithContent.length} posts with content`)
+      // console.log(`Fetched ${postsWithContent.length} posts with content`)
       return postsWithContent
     } catch (error) {
       console.error('Error fetching posts with content:', error)
@@ -197,9 +197,9 @@ export const useProcessedMarkdown = () => {
    * @returns {Promise<Object>} The next and previous posts, if available.
    */
   const getNextPrevPosts = async (currentSlug) => {
-    console.log(`Getting next/prev posts for slug: "${currentSlug}"`)
+    // console.log(`Getting next/prev posts for slug: "${currentSlug}"`)
     const allPosts = await getAllPosts(false, false) // Get all posts (excluding drafts and week notes)
-    console.log(`Total posts retrieved: ${allPosts.length}`)
+    // console.log(`Total posts retrieved: ${allPosts.length}`)
 
     if (allPosts.length === 0) {
       console.warn('No posts found in getAllPosts')
