@@ -55,7 +55,7 @@ const timelineData = computed(() => {
   return timelineYears.map((yearData, index) => ({
     ...yearData,
     x: 20 + (index / (totalYears - 1)) * availableWidth,
-  }))
+  }))clea
 })
 
 function calculateY() {
@@ -66,15 +66,20 @@ function calculateX(baseX, index) {
   return baseX + index * 25 // Increased offset to 25 units for better spacing
 }
 
-// Add this function to get the project URL
-function getProjectUrl(post) {
-  return post.url || `/blog/${post.slug}`
-}
+// add the count of projects to the title
+const projectCount = computed(() => sortedProjectPosts.value.length)
+
+useHead({
+  title: `Projects (${projectCount.value})`,
+})
+
+
 </script>
 
 <template>
   <div id="projects" class="container mx-auto px-4 py-16">
-    <h1 class="text-4xl font-serif font-normal mb-16 text-zinc-800 dark:text-zinc-200">Projects</h1>
+    <h1 class="text-4xl font-serif font-normal mb-16 text-zinc-800 dark:text-zinc-200">Projects
+    </h1>
 
     <div class="projects-grid">
       <div v-for="post in sortedProjectPosts" :key="post.slug" class="project-card">
@@ -87,10 +92,13 @@ function getProjectUrl(post) {
           <p class="text-sm font-sans text-zinc-500 dark:text-zinc-400 mb-4">
             {{ formatDate(post.date) }}
           </p>
-          <UButton :to="getProjectUrl(post)" target="_blank" rel="noopener noreferrer" color="gray" trailing size="sm"
-            class="mb-4" icon="i-heroicons-arrow-top-right-on-square">
-            Go to project
-          </UButton>
+          <span v-if="post.url">
+            <UButton :to="post.url" target="_blank" rel="noopener noreferrer" color="gray" trailing size="sm"
+              class="mb-4" icon="i-heroicons-arrow-top-right-on-square">
+              Go to project
+            </UButton>
+          </span>
+
 
           <div v-if="post.image" class="mb-4">
             <img :src="post.image" :alt="post.title" class="w-full h-auto">
