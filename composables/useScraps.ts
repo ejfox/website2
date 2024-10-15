@@ -1,44 +1,48 @@
 import { ref, computed } from 'vue'
-import * as d3 from 'd3'
+
+interface Scrap {
+  id: string
+  source: string
+  content: string
+  summary: string
+  created_at: string
+  updated_at: string
+  tags: string[]
+  scrap_id: string
+  metadata?: any
+  relationships?: Array<{
+    id: string
+    type: string
+    target_id: string
+  }>
+}
 
 export default function useScraps() {
-  const scraps = ref([])
-  const scrapsByWeek = ref(null)
-  const currentPage = ref(1)
+  const scraps = ref<Scrap[]>([])
   const isLoading = ref(false)
-  const hasMoreScraps = ref(true)
-  const error = ref(null)
+  const error = ref<Error | null>(null)
+  const currentPage = ref(1)
+  const totalScraps = ref(0)
+  const hasMoreScraps = computed(() => scraps.value.length < totalScraps.value)
 
   const fetchScraps = async (page = 1, limit = 20) => {
-    if (!hasMoreScraps.value) return
+    if (isLoading.value) return
 
     isLoading.value = true
     error.value = null
     try {
-      const response = await $fetch('/api/scraps', {
+      const response = await $fetch<{ scraps: Scrap[], count: number }>('/api/scraps', {
         method: 'POST',
         body: { page, limit }
       })
 
-      console.log('response', response)
-      // response is null??? why?
-
-      if (response && response.scraps && response.scraps.length > 0) {
-        const { processedScraps, scrapsByWeekMap } = processScrapData(
-          response.scraps
-        )
-        scraps.value = [...scraps.value, ...processedScraps]
-        scrapsByWeek.value = scrapsByWeekMap
+      if (response && response.scraps) {
+        scraps.value = page === 1 ? response.scraps : [...scraps.value, ...response.scraps]
+        totalScraps.value = response.count
         currentPage.value = page
-
-        if (response.scraps.length < limit) {
-          hasMoreScraps.value = false
-        }
-      } else {
-        hasMoreScraps.value = false
       }
     } catch (err) {
-      error.value = err
+      error.value = err instanceof Error ? err : new Error('Unknown error occurred')
       console.error('Error fetching scraps:', err)
     } finally {
       isLoading.value = false
@@ -51,40 +55,15 @@ export default function useScraps() {
     }
   }
 
-  const prefetchNextPage = () => {
-    if (scraps.value.length > 0 && !isLoading.value && hasMoreScraps.value) {
-      const threshold = scraps.value.length - 5
-      if (scraps.value.length >= threshold) {
-        fetchScraps(currentPage.value + 1)
-      }
-    }
-  }
-
-  function processScrapData(scrapData) {
-    const validScraps = scrapData.filter(
-      (scrap) => scrap.created_at && scrap.id
-    )
-    const sortedScraps = validScraps.sort(
-      (a, b) => new Date(b.created_at) - new Date(a.created_at)
-    )
-    const scrapsByWeekMap = groupScrapsByWeek(sortedScraps)
-    return { processedScraps: sortedScraps, scrapsByWeekMap }
-  }
-
-  function groupScrapsByWeek(scraps) {
-    if (!scraps.length) return null
-    return d3.group(scraps, (scrap) =>
-      d3.timeWeek.floor(new Date(scrap.created_at))
-    )
-  }
-
   // Initial fetch
   fetchScraps()
 
   return {
     scraps,
+    isLoading,
+    error,
     loadMore,
-    prefetchNextPage,
-    fetchScraps
+    hasMoreScraps,
+    totalScraps: computed(() => totalScraps.value)
   }
 }

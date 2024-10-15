@@ -47,7 +47,7 @@
 
         <div id="toc-container"></div>
 
-        <div v-if="isBlogPost" class="mt-4">
+        <div v-if="isBlogPost" class="mt-4 pl-4">
           <UButton to="/blog/" size="sm" class="" icon="i-heroicons-arrow-left" :color="isDark ? 'white' : 'black'">
             Back to Blog
           </UButton>

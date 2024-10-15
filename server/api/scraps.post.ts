@@ -10,27 +10,26 @@ export default defineEventHandler(async (event) => {
   const supabase = createClient(supabaseUrl, supabaseKey)
   const body = await readBody(event)
   const page = body?.page || 1
-  const pageSize = body?.pageSize || 10
-  const offset = (page - 1) * pageSize
+  const limit = body?.limit || 50
+  const offset = (page - 1) * limit
 
-  console.log({ page, pageSize, offset })
+  console.log({ page, limit, offset })
 
   const { data: scraps, error, count } = await supabase
     .from('scraps')
-    .select('id, source, content, summary, created_at, updated_at, tags, scrap_id', { count: 'exact' })
-    .range(offset, offset + pageSize - 1)
+    .select('*', { count: 'exact' })
+    .range(offset, offset + limit - 1)
     .order('created_at', { ascending: false })
 
   if (error) {
-    return new Response(JSON.stringify(error), {
+    console.error('Supabase error:', error)
+    return new Response(JSON.stringify({ error: 'Failed to fetch scraps' }), {
       status: 500,
       headers: { 'content-type': 'application/json' }
     })
   }
 
-  const returnObj = { scraps, count }
-
-  return new Response(JSON.stringify(returnObj), {
+  return new Response(JSON.stringify({ scraps, count }), {
     headers: { 'content-type': 'application/json' }
   })
 })

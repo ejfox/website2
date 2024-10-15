@@ -1,67 +1,77 @@
 <template>
-  <div class="max-w-screen-md rounded my-1 break-words">
-
-
-
-    <ScrapPinboard v-if="scrap.source === 'pinboard'" :scrap="scrap" />
-    <ScrapArena v-if="scrap.source === 'arena'" :scrap="scrap" />
-
-
-    <!-- Rendered Markdown Content -->
-    <!-- <div v-if="scrap.content" class="p-4" v-html="renderedContent"></div> -->
-
-    <!-- Relationships -->
-    <div v-show="hasRelationships && showRelationships" class="mt-4 text-xs">
-      <ClientOnly>
-        <svg ref="relationshipGraph" class="w-full h-96">
-          <g v-for="edge in edges" :key="`${edge.source}-${edge.target}`" class="group">
-            <line :x1="edge.source.x" :y1="edge.source.y" :x2="edge.target.x" :y2="edge.target.y"
-              :stroke="isDark ? '#999' : '#ccc'" />
-            <text :transform="calcLineLabelTransform(edge)" fill="red" font-size="8" text-anchor="middle">{{ edge.type
-              }}</text>
-          </g>
-          <g v-for="node in nodes" :key="node.name">
-            <foreignObject :x="node.x" :y="node.y - 16" width="128" height="64">
-              <div class="text-xs p-1 leading-none rounded w-full break-words text-balance">
-                <p class="text-black dark:text-white">{{ node.name }}</p>
-              </div>
-            </foreignObject>
-          </g>
-        </svg>
-      </ClientOnly>
-    </div>
-
-    <div v-if="scrap.source === 'arena'">
-      <!-- <pre>
-      {{ scrap }}      
-    </pre> -->
-      <span v-if="scrap.metadata?.image">
-        <img :src="scrap.metadata?.image?.thumb?.url" class="max-h-16 inline-block" />
-      </span>
-    </div>
-
-    <div v-if="scrap.source === 'mastodon'">
-
-      <span class="font-serif" v-html="scrap.content" />
-      <div v-if="scrap?.metadata?.images">
-        <img v-for="image in scrap?.metadata?.images" :src="image.url" class="max-h-16 inline-block" />
+  <div class="rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col h-full">
+    <div class="flex-grow">
+      <!-- Pinboard scrap -->
+      <div v-if="scrap.source === 'pinboard'" class="space-y-2">
+        <div class="text-sm font-bold line-clamp-3 font-sans flex items-center">
+          <UIcon name="simple-icons:pinboard" class="w-4 h-4 mr-2" />
+          <a :href="scrap.metadata?.href" target="_blank" rel="noopener noreferrer" class="">{{ scrap.content }}</a>
+        </div>
+        <!-- <p class="text-xs text-gray-600 dark:text-gray-400 line-clamp-5">{{ scrap.summary }}</p> -->
+        <div class="flex flex-wrap gap-1">
+          <span v-for="tag in scrap.tags" :key="tag"
+            class="px-1 py-0.5 text-xs font-light text-gray-700 bg-gray-200 dark:bg-gray-800 dark:text-gray-200 rounded-full">
+            {{ tag }}
+          </span>
+        </div>
+        <div v-if="scrap.metadata?.screenshotUrl" class="mt-1">
+          <img :src="scrap.metadata.screenshotUrl" alt="Screenshot" class="w-full h-32 object-cover rounded" />
+        </div>
       </div>
 
+      <!-- Arena scrap -->
+      <div v-else-if="scrap.source === 'arena'" class="space-y-2">
+        <div v-if="scrap.metadata?.image" class="mt-1">
+          <img :src="scrap.metadata.image.thumb.url" :alt="scrap.metadata.title"
+            class="w-full h-32 object-cover rounded" />
+        </div>
+        <p class="text-xs text-gray-600 line-clamp-3">{{ scrap.metadata?.description }}</p>
+      </div>
+
+      <!-- Mastodon scrap -->
+      <div v-else-if="scrap.source === 'mastodon'" class="space-y-2">
+        <UIcon name="simple-icons:mastodon" class="w-4 h-4 mr-2 block" />
+        <div class="text-xs font-serif line-clamp-4" v-html="scrap.content"></div>
+        <div v-if="scrap.metadata?.images" class="flex flex-wrap gap-1">
+          <img v-for="image in scrap.metadata.images.slice(0, 4)" :key="image.url" :src="image.url"
+            class="w-full h-auto object-cover rounded" />
+        </div>
+      </div>
+
+      <!-- GitHub scrap -->
+      <div v-else-if="scrap.source === 'github'" class="space-y-2">
+        <div class="flex items-center mb-2">
+          <UIcon name="simple-icons:github" class="w-4 h-4 mr-2" />
+        </div>
+        <h3 class="text-sm font-semibold">
+          {{ scrap.metadata.full_name }}
+        </h3>
+
+        <p class="text-xs line-clamp-3">{{ scrap.content || scrap.summary }}</p>
+
+
+      </div>
+
+      <!-- Default scrap -->
+      <div v-else class="space-y-2">
+        <div class="flex items-center mb-2">
+          <UIcon :name="getIconForSource(scrap.source)" class="w-4 h-4 mr-2" />
+          <h3 class="text-sm font-semibold">{{ scrap.source }} Scrap</h3>
+        </div>
+        <p class="text-xs line-clamp-3">{{ scrap.content || scrap.summary }}</p>
+      </div>
     </div>
 
-
-
-    <ScrapMetadata v-if="scrap.source === 'pinboard'" :scrap="scrap" :has-relationships="hasRelationships" />
-
-
+    <!-- Common footer -->
+    <div class="mt-2 text-xs text-gray-500 flex justify-between">
+      <span>{{ new Date(scrap.created_at).toLocaleDateString() }}</span>
+      <span>{{ scrap.scrap_id }}</span>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
-
-import * as d3 from 'd3'
-import { renderMarkdown } from '~/utils/markdownRenderer'
+import { computed } from 'vue'
 
 const props = defineProps({
   scrap: {
@@ -70,99 +80,19 @@ const props = defineProps({
   },
 })
 
-const showRaw = ref(false)
-const showRelationships = ref(false)
-const renderedContent = ref('')
-
-const isDark = useDark()
-
-const hasLocation = computed(() => props.scrap.metadata?.latitude && props.scrap.metadata?.longitude)
-const hasRelationships = computed(() => props.scrap.relationships?.length > 0)
-
-function calcLineLabelTransform(edge) {
-  const dx = edge.target.x - edge.source.x
-  const dy = edge.target.y - edge.source.y
-  let angle = Math.atan2(dy, dx) * 180 / Math.PI
-  if (angle > 90) angle -= 180
-  if (angle < -90) angle += 180
-  const x = (edge.source.x + edge.target.x) / 2
-  const y = (edge.source.y + edge.target.y) / 2 - 5
-  return `translate(${x}, ${y}) rotate(${angle})`
-}
-
-
-
-const relationshipEdges = computed(() => {
-  if (!hasRelationships.value) return []
-  return props.scrap.relationships.map(rel => ({
-    source: rel.source.name,
-    target: rel.target.name,
-    type: rel.type,
-  }))
-})
-
-const relationshipNodes = computed(() => {
-  if (!hasRelationships.value) return []
-  const nodes = new Set()
-  props.scrap.relationships.forEach(rel => {
-    nodes.add(rel.source.name)
-    nodes.add(rel.target.name)
-  })
-  return Array.from(nodes).map(name => ({ id: name }))
-})
-
-const relationshipGraph = ref(null)
-
-const { width: graphWidth, height: graphHeight } = useElementSize(relationshipGraph)
-
-const simulation = ref(null)
-const nodes = ref([])
-const edges = ref([])
-
-onMounted(async () => {
-  if (props.scrap.content) {
-    renderedContent.value = renderMarkdown(props.scrap.content)
+const getIconForSource = (source) => {
+  const iconMap = {
+    pinboard: 'simple-icons:pinboard',
+    arena: '',
+    mastodon: 'simple-icons:mastodon',
+    github: 'simple-icons:github',
+    twitter: 'simple-icons:twitter',
+    youtube: 'simple-icons:youtube',
+    // Add more mappings as needed
   }
 
-  await nextTick()
+  return iconMap[source.toLowerCase()] || 'uil:link'
+}
 
-  const width = Math.max(graphWidth.value, 700)
-  const height = Math.max(graphHeight.value, 320)
-
-  nodes.value = unref(relationshipNodes).map(d => ({
-    name: d.id,
-    x: Math.random() * width,
-    y: Math.random() * height
-  })).filter(d => relationshipEdges.value.some(e => e.source === d.name || e.target === d.name))
-
-  edges.value = relationshipEdges.value.map(d => ({
-    source: nodes.value.find(n => n.name === d.source),
-    target: nodes.value.find(n => n.name === d.target),
-    type: d.type
-  }))
-
-  simulation.value = d3.forceSimulation(nodes.value)
-    .force('center', d3.forceCenter(width / 2, height / 2).strength(2))
-    .force('link', d3.forceLink(edges.value).id(d => d.name).distance(92).strength(0.35))
-    .force('charge', d3.forceManyBody().strength(-1000).distanceMax(200))
-    .force('collide', d3.forceCollide().radius(132).strength(0.52))
-    .force('box', () => {
-      for (const node of nodes.value) {
-        node.x = Math.max(node.x, 92)
-        node.x = Math.min(node.x, width - 320)
-        node.y = Math.max(node.y, 124)
-        node.y = Math.min(node.y, height - 92)
-      }
-    })
-})
+const scrapIcon = computed(() => getIconForSource(props.scrap.source))
 </script>
-
-<style scoped>
-svg .group text {
-  opacity: 0;
-}
-
-svg .group:hover text {
-  opacity: 1;
-}
-</style>
