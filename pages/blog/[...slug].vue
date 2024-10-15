@@ -246,12 +246,19 @@ const isBlogPost = computed(() => {
         </div>
       </div>
     </article>
-    <div v-else-if="error" class="p-4 text-red-600">
-      <p>Error loading post: {{ error.message }}</p>
-      <NuxtLink to="/blog" class="text-blue-500 hover:underline">Return to Blog</NuxtLink>
+    <div v-else-if="error"
+      class="flex flex-col items-center justify-center min-h-[50vh] bg-gray-100 dark:bg-gray-900 px-4 rounded-lg shadow-md">
+      <h2 class="text-4xl font-bold text-gray-800 dark:text-gray-200 mb-4">Blog post not found...</h2>
+      <p class="text-xl text-gray-600 dark:text-gray-400 mb-6 text-center">
+        Error loading post: {{ error.message }}
+      </p>
+      <NuxtLink to="/blog"
+        class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-300">
+        Return to Blog
+      </NuxtLink>
     </div>
-    <div v-else class="p-4">
-      <p>Loading...</p>
+    <div v-else class="p-4 text-center">
+      <p class="text-xl text-gray-600 dark:text-gray-400">Loading...</p>
     </div>
 
     <!-- Mobile TOC component -->
