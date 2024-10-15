@@ -19,14 +19,35 @@ export default defineEventHandler(async (event) => {
 
     // Join the slug parts back together with slashes to create a valid file path
     const slug = slugParts.join('/')
-    // Resolve the absolute path to the JSON file for the post
+    // Load the manifest-lite.json
+    const manifestPath = resolve(process.cwd(), 'content/processed/manifest-lite.json')
+    const manifestContent = await readFile(manifestPath, 'utf-8')
+    const manifest = JSON.parse(manifestContent)
+
+    // Check if we're using the new URL structure (yyyy/slug)
+    if (slugParts.length === 2 && /^\d{4}$/.test(slugParts[0])) {
+      // Resolve the absolute path to the JSON file for the post
+      const postPath = resolve(process.cwd(), 'content', 'processed', `${slug}.json`)
+      // Read the content of the post's JSON file asynchronously
+      const postContent = await readFile(postPath, 'utf-8')
+      // Parse the JSON content and return it as the response
+      return JSON.parse(postContent)
+    }
+
+    // If not, look for a match in the manifest
+    const matchedPost = manifest.find(p => p.slug.endsWith(slug))
+
+    if (matchedPost) {
+      // Extract year from the full slug
+      const year = matchedPost.slug.split('/')[0]
+      // Return redirection info
+      return {
+        redirect: `/blog/${year}/${slug}`
+      }
+    }
+
+    // If no match found, try to fetch the post with the given slug (this will likely 404)
     const postPath = resolve(process.cwd(), 'content', 'processed', `${slug}.json`)
-
-    // Debug logs for clarity on the slug processing
-    console.log('Slug parts:', slugParts) // Logs the individual parts of the slug after splitting
-    console.log('Joined slug:', slug) // Logs the joined slug
-    console.log('Full post path:', postPath) // Logs the resolved path to the post's JSON file
-
     // Read the content of the post's JSON file asynchronously
     const postContent = await readFile(postPath, 'utf-8')
     // Parse the JSON content and return it as the response

@@ -1,18 +1,35 @@
 <script setup>
 import { format, isValid, parseISO } from 'date-fns'
-import { useRuntimeConfig } from '#app'
 import { animate, stagger, onScroll, utils } from '~/anime.esm.js'
 
 const config = useRuntimeConfig()
 const isDark = useDark()
 const processedMarkdown = useProcessedMarkdown()
 
-const { params } = useRoute()
-const { data: post } = await useAsyncData(`post-${params.slug}`, () =>
-  $fetch(`/api/posts/${params.slug}`)
-)
-
 const route = useRoute()
+const router = useRouter()
+
+// Handle redirection and post fetching
+const { data: post, error } = await useAsyncData(`post-${route.params.slug.join('-')}`, async () => {
+  const slugParts = route.params.slug
+
+  // Fetch the post data, including potential redirection info
+  const response = await $fetch(`/api/posts/${slugParts.join('/')}`)
+
+  if (response.redirect) {
+    // If we get a redirect response, use navigateTo for proper redirection
+    return { redirect: response.redirect }
+  }
+
+  return response
+})
+
+// Perform redirection if necessary
+if (post.value && post.value.redirect) {
+  navigateTo(post.value.redirect, { replace: true })
+}
+
+const { params } = useRoute()
 const { data: nextPrevPosts } = await useAsyncData(
   `next-prev-${route.params.slug.join('-')}`,
   () => processedMarkdown.getNextPrevPosts(route.params.slug.join('/'))
@@ -24,120 +41,52 @@ const postMetadata = ref(null)
 const postContent = ref(null)
 const navigationLinks = ref(null)
 
-onMounted(() => {
-  // Animate title
-  // animate(postTitle.value, {
-  //   // opacity: [0, 1],
-  //   translateY: [-20, 0],
-  //   duration: 2800,
-  //   easing: 'easeInOutQuad'
-  // })
-
-  // Animate metadata
-  animate(postMetadata.value, {
-    opacity: [0, 1],
-    translateY: ['-10vh', 0],
-    duration: 1200,
-    delay: 200,
-    easing: 'easeOutQuad'
-  })
-
-  // // Animate content
-  // animate(postContent.value, {
-  //   opacity: [0, 1],
-  //   translateY: [20, 0],
-  //   duration: 800,
-  //   delay: 400,
-  //   easing: 'easeOutQuad'
-  // })
-
-  // Animate internal links
-  animate(postContent.value.querySelectorAll('.internal-link'), {
-    borderColor: ['#67e8f9', '#c2410c', '#facc15', '#be185d'],
-    duration: 65000,
-    loop: true,
-    alternate: true,
-    delay: stagger(4500)
-  })
-
-  // all of the images
-  // const allImages = postContent.value.querySelectorAll('img')
-  // utils.set(allImages, { opacity: 0 })
-
-  // // const [container] = utils.$('.scroll-container');
-  // const container = postContent.value
-  // console.log({ container, allImages })
-
-  // for (const img of allImages) {
-  //   animate(img, {
-  //     opacity: [0, 1],
-  //     scale: [0, 1],
-  //     duration: 5000,
-  //     alternate: true,
-  //     autoplay: onScroll({
-  //       target: img,
-  //       sync: true,
-  //       container, enter: 'top bottom-=40',
-  //       leave: 'bottom top+=60', debug: true
-  //     }),
-  //   })
-  // }
-
-  /*
-  utils.$('.square').forEach($square => {
-  animate($square, {
-    x: '15rem',
-    rotate: '1turn',
-    duration: 2000,
-    alternate: true,
-    ease: 'inOutQuad',
-    autoplay: onScroll({
-      container: '.scroll-container',
-      sync: 1,
-      enter: 'bottom max',
-      leave: 'top min',
-      debug: true
-    })
-  });
-});
-*/
-
-  // utils.$('img').forEach($img => {
-  //   animate($img, {
-  //     opacity: [0, 1],
-  //     scale: [0.9, 1],
-  //     ease: 'linear',
-  //     duration: 2000,
-  //     autoplay: onScroll({
-  //       target: $img,
-  //       sync: true,
-  //       container: utils.$('.scroll-container'),
-  //       // enter: 'top bottom-=40',
-  //       // leave: 'bottom top+=60',
-  //       debug: true
-  //     })
-  //   })
-  // })
-})
-
 const activeSection = ref('')
 
 onMounted(() => {
+  if (post.value && !post.value.redirect) {
+    nextTick(() => {
+      // Animate metadata
+      if (postMetadata.value) {
+        animate(postMetadata.value, {
+          opacity: [0, 1],
+          translateY: ['-10vh', 0],
+          duration: 1200,
+          delay: 200,
+          easing: 'easeOutQuad'
+        })
+      }
 
-  // Set up intersection observers for each section
-  const sections = document.querySelectorAll('h2, h3')
-  sections.forEach(section => {
-    const { stop } = useIntersectionObserver(
-      section,
-      ([{ isIntersecting }]) => {
-        if (isIntersecting) {
-          console.log('section', section.id)
-          activeSection.value = section.id
+      // Animate internal links
+      if (postContent.value) {
+        const internalLinks = postContent.value.querySelectorAll('.internal-link')
+        if (internalLinks.length > 0) {
+          animate(internalLinks, {
+            borderColor: ['#67e8f9', '#c2410c', '#facc15', '#be185d'],
+            duration: 65000,
+            loop: true,
+            alternate: true,
+            delay: stagger(4500)
+          })
         }
-      },
-      { threshold: 0.5 } // Adjust this value as needed
-    )
-  })
+      }
+
+      // Set up intersection observers for each section
+      const sections = document.querySelectorAll('h2, h3')
+      sections.forEach(section => {
+        const { stop } = useIntersectionObserver(
+          section,
+          ([{ isIntersecting }]) => {
+            if (isIntersecting) {
+              console.log('section', section.id)
+              activeSection.value = section.id
+            }
+          },
+          { threshold: 0.5 } // Adjust this value as needed
+        )
+      })
+    })
+  }
 })
 
 function formatDate(date) {
@@ -161,30 +110,29 @@ function getBaseUrl() {
 }
 
 const baseURL = getBaseUrl()
-const shareImageUrl = new URL(
+const shareImageUrl = computed(() => new URL(
   `/images/share/${params.slug.join('/')}.png`,
   baseURL
-).href
-const postUrl = new URL(`/blog/${params.slug.join('/')}`, baseURL).href
+).href)
+const postUrl = computed(() => new URL(`/blog/${params.slug.join('/')}`, baseURL).href)
 
-useSeoMeta({
+useHead(() => ({
   title: post.value?.title,
-  description: post.value?.dek,
-  ogTitle: post.value?.title,
-  ogDescription: post.value?.dek,
-  ogImage: shareImageUrl,
-  ogUrl: postUrl,
-  ogType: 'article',
-  twitterCard: 'summary_large_image',
-  twitterTitle: post.value?.title,
-  twitterDescription: post.value?.dek,
-  twitterImage: shareImageUrl
-})
-
-useHead({
+  meta: [
+    { name: 'description', content: post.value?.dek },
+    { property: 'og:title', content: post.value?.title },
+    { property: 'og:description', content: post.value?.dek },
+    { property: 'og:image', content: shareImageUrl.value },
+    { property: 'og:url', content: postUrl.value },
+    { property: 'og:type', content: 'article' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: post.value?.title },
+    { name: 'twitter:description', content: post.value?.dek },
+    { name: 'twitter:image', content: shareImageUrl.value },
+  ],
+  link: [{ rel: 'canonical', href: postUrl.value }],
   htmlAttrs: { lang: 'en' },
-  link: [{ rel: 'canonical', href: postUrl }]
-})
+}))
 </script>
 
 <template>
@@ -240,6 +188,12 @@ useHead({
         </div>
       </div>
     </article>
+    <div v-else-if="error">
+      <p>Error loading post: {{ error.message }}</p>
+    </div>
+    <div v-else>
+      <p>Loading...</p>
+    </div>
 
     <!-- Teleport the TOC to the sidebar -->
     <teleport to="#toc-container" v-if="post?.toc?.length">

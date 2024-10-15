@@ -678,7 +678,7 @@ async function processMarkdown(filePath) {
   log(`Metadata calculated: ${wordCount} words, ${readingTime} min read, ${imageCount} images, ${linkCount} links`)
 
   return {
-    html,
+    html, // This is the processed HTML
     metadata: {
       ...frontmatter,
       title: frontmatter.title || firstHeading || path.basename(filePath, '.md'),

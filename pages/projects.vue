@@ -9,12 +9,15 @@ const { data: projectPosts } = await useAsyncData('project-posts', async () => {
   const posts = await processedMarkdown.getProjectPosts()
   return Promise.all(posts.map(async (post) => {
     const fullPost = await processedMarkdown.getPostBySlug(post.slug)
-    return { ...post, ...fullPost }
+    return {
+      ...post,
+      ...fullPost
+    }
   }))
 })
 
 function formatDate(date) {
-  return format(new Date(date), 'yyyy')
+  return format(new Date(date), 'MMMM yyyy')
 }
 
 const sortedProjectPosts = computed(
@@ -63,40 +66,39 @@ function calculateX(baseX, index) {
   return baseX + index * 25 // Increased offset to 25 units for better spacing
 }
 
-
-const projectElements = ref(null)
-
-onMounted(() => {
-  animate(projectElements.value, {
-    opacity: [0, 1],
-    translateY: [20, 0],
-    duration: 800,
-    easing: 'easeOutQuad',
-    delay: stagger(50),
-  })
-})
-
+// Add this function to get the project URL
+function getProjectUrl(post) {
+  return post.url || `/blog/${post.slug}`
+}
 </script>
 
 <template>
-  <div id="projects" class="container mx-auto px-2 py-8">
+  <div id="projects" class="container mx-auto px-4 py-16">
+    <h1 class="text-4xl font-serif font-normal mb-16 text-zinc-800 dark:text-zinc-200">Projects</h1>
 
-
-    <h1 class="text-4xl font-bold mb-8 font-mono">Projects</h1>
-    <div class="masonry-layout">
-      <div v-for="post in sortedProjectPosts" :key="post.slug" class="masonry-item" ref="projectElements">
-        <article class="rounded-md border-zinc-800 overflow-hidden prose-img:p-8">
-          <h2 class="text-3xl font-semibold mb-2">
+    <div class="projects-grid">
+      <div v-for="post in sortedProjectPosts" :key="post.slug" class="project-card">
+        <article class="mb-16">
+          <h2 class="text-2xl font-serif font-normal mb-2 text-zinc-700 dark:text-zinc-300">
             <NuxtLink :to="`/blog/${post.slug}`" class="no-underline hover:underline">
               {{ post.title }}
-              <span class="text-xs text-zinc-400 dark:text-zinc-500">
-                ({{ formatDate(post.date) }})
-              </span>
             </NuxtLink>
           </h2>
-          <div
-            class="prose-sm dark:prose-invert max-w-none mb-4 break-words prose-a:no-underline hover:prose-a:underline prose-a:text-blue-500 dark:prose-a:text-blue-200 dark:hover:prose-a:text-blue-400 prose-a:px-y prose-a:bg-zinc-100 dark:prose-a:bg-zinc-900 prose-a:rounded-sm prose-a:leading-0"
-            v-html="post.content"></div>
+          <p class="text-sm font-sans text-zinc-500 dark:text-zinc-400 mb-4">
+            {{ formatDate(post.date) }}
+          </p>
+          <UButton :to="getProjectUrl(post)" target="_blank" rel="noopener noreferrer" color="gray" trailing size="sm"
+            class="mb-4" icon="i-heroicons-arrow-top-right-on-square">
+            Go to project
+          </UButton>
+
+          <div v-if="post.image" class="mb-4">
+            <img :src="post.image" :alt="post.title" class="w-full h-auto">
+          </div>
+          <div class="prose prose-zinc prose-sm dark:prose-invert mb-4 text-zinc-600 dark:text-zinc-400"
+            v-html="post.content">
+          </div>
+
         </article>
       </div>
     </div>
@@ -132,24 +134,39 @@ onMounted(() => {
 </template>
 
 <style scoped>
-#projects img {
-  @apply rounded-lg shadow-md;
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem 4rem;
 }
 
-.masonry-layout {
-  column-count: 1;
-  column-gap: 2rem;
-}
-
-.masonry-item {
+.project-card {
   break-inside: avoid;
-  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
 }
 
-@media (min-width: 1024px) {
-  .masonry-layout {
-    column-count: 2;
-  }
+/* :deep(.prose) {
+  font-family: serif;
+  max-width: none;
+} */
+
+:deep(.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6) {
+  font-weight: normal;
+  color: inherit;
+}
+
+:deep(.prose a) {
+  text-decoration: none;
+  color: #1a5f7a;
+}
+
+:deep(.prose a:hover) {
+  text-decoration: underline;
+}
+
+:deep(.dark .prose a) {
+  /* color: #81c7ea; */
 }
 
 svg {
