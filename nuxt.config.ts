@@ -49,6 +49,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/ui',
     '@nuxt/icon',
+    // 'nuxt-gtag',
     // '@nuxtjs/supabase',
     // '@nuxt/content'
     '@unlok-co/nuxt-stripe',
@@ -62,7 +63,11 @@ export default defineNuxtConfig({
         }
       }
     ]
+    
   ],
+  // gtag: {
+  //   id: 'G-0CBMSSNG8P',
+  // },
   runtimeConfig: {
     // add the openai api key to the runtime config
     public: {
@@ -95,5 +100,5 @@ export default defineNuxtConfig({
       options: {}
     }
   },
-  compatibilityDate: '2024-09-15'
+  // compatibilityDate: '2024-09-15'
 })
