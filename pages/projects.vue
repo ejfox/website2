@@ -55,7 +55,7 @@ const timelineData = computed(() => {
   return timelineYears.map((yearData, index) => ({
     ...yearData,
     x: 20 + (index / (totalYears - 1)) * availableWidth,
-  }))clea
+  }))
 })
 
 function calculateY() {

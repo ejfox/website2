@@ -231,16 +231,17 @@ export const useProcessedMarkdown = () => {
    * Fetches all project-related posts.
    * @returns {Promise<Object[]>} A list of project posts.
    */
-  const getProjectPosts = async () => {
+  const getProjectPosts = async (): Promise<Post[]> => {
     const manifest = await getManifestLite() // Get the manifest first
     return manifest
-      .filter((post) => post.slug.startsWith('projects/')) // Filter for project posts
-      .map((post) => ({
+      .filter((post: Post) => post.slug.startsWith('projects/')) // Filter for project posts
+      .map((post: Post) => ({
         ...post,
         date: getValidDate(post.date), // Ensure valid date
-        modified: getValidDate(post.modified)
+        modified: getValidDate(post.modified),
+        url: post.url // Persist the .url property from the front matter
       }))
-      .sort((a, b) => b.date.getTime() - a.date.getTime()) // Sort project posts by date, newest first
+      .sort((a: Post, b: Post) => b.date.getTime() - a.date.getTime()) // Sort project posts by date, newest first
   }
 
   /**
@@ -274,4 +275,13 @@ export const useProcessedMarkdown = () => {
     getNextPrevPosts,
     getProjectPosts // Include the new project post function
   }
+}
+
+interface Post {
+  slug: string;
+  title: string;
+  date: string | Date;
+  modified?: string | Date;
+  url?: string;
+  [key: string]: any; // Allow for other properties
 }
