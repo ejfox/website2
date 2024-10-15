@@ -37,19 +37,23 @@ export const useProcessedMarkdown = () => {
    * @param {string} slug - The slug of the post to fetch.
    * @returns {Promise<Object>} The post object, including title, date, and content.
    */
-  const getPostBySlug = async (slug) => {
-    console.log(`Fetching post by slug: "${slug}" from /api/posts/${slug}`)
+  const getPostBySlug = async (slug: string) => {
+    console.log(`Fetching post by slug: "${slug}"`)
     try {
-      const result = await $fetch(`/api/posts/${slug}`) // Fetching the post by slug
-      console.log(`Post fetched for slug "${slug}". Post details:`, {
-        title: result?.title,
-        date: result?.date,
-        contentLength: result.content ? result.content.length : 'N/A'
-      })
+      // Special handling for the main index
+      if (slug === 'index') {
+        console.log('Fetching index content')
+        const result = await $fetch('/api/posts/index')
+        console.log('Index result:', result)
+        return result
+      }
+      
+      const result = await $fetch(`/api/posts/${slug}`)
+      console.log(`Post fetched for slug "${slug}". Post details:`, result)
       return result
     } catch (error) {
       console.error(`Error fetching post with slug "${slug}":`, error)
-      throw error // If fetch fails, an error is thrown
+      throw error
     }
   }
 

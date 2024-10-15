@@ -11,53 +11,57 @@ import { resolve } from 'path' // To resolve file paths in a cross-platform way
  */
 export default defineEventHandler(async (event) => {
   try {
-    let slugParts = event.context.params.slug // Access the slug from the URL parameters
-    if (typeof slugParts === 'string') {
-      // Split the slug by comma or slash to handle cases where the slug is joined in different formats
-      slugParts = slugParts.split(/[,\/]/)
-    }
+    const slugParts = event.context.params?.slug || ['index']
+    const slug = Array.isArray(slugParts) ? slugParts.join('/') : slugParts
 
-    // Join the slug parts back together with slashes to create a valid file path
-    const slug = slugParts.join('/')
+    console.log('Received request for slug:', slug)
+
     // Load the manifest-lite.json
     const manifestPath = resolve(process.cwd(), 'content/processed/manifest-lite.json')
     const manifestContent = await readFile(manifestPath, 'utf-8')
     const manifest = JSON.parse(manifestContent)
 
-    // Check if we're using the new URL structure (yyyy/slug)
-    if (slugParts.length === 2 && /^\d{4}$/.test(slugParts[0])) {
-      // Resolve the absolute path to the JSON file for the post
-      const postPath = resolve(process.cwd(), 'content', 'processed', `${slug}.json`)
-      // Read the content of the post's JSON file asynchronously
-      const postContent = await readFile(postPath, 'utf-8')
-      // Parse the JSON content and return it as the response
-      return JSON.parse(postContent)
+    // Special handling for the index page
+    if (slug === 'index') {
+      console.log('Fetching index page')
+      const indexPath = resolve(process.cwd(), 'content', 'processed', 'index.json')
+      const indexContent = await readFile(indexPath, 'utf-8')
+      return JSON.parse(indexContent)
     }
 
-    // If not, look for a match in the manifest
-    const matchedPost = manifest.find(p => p.slug.endsWith(slug))
-
-    if (matchedPost) {
-      // Extract year from the full slug
-      const year = matchedPost.slug.split('/')[0]
-      // Return redirection info
-      return {
-        redirect: `/blog/${year}/${slug}`
-      }
-    }
-
-    // If no match found, try to fetch the post with the given slug (this will likely 404)
+    // Try to fetch the post directly first
     const postPath = resolve(process.cwd(), 'content', 'processed', `${slug}.json`)
-    // Read the content of the post's JSON file asynchronously
-    const postContent = await readFile(postPath, 'utf-8')
-    // Parse the JSON content and return it as the response
-    return JSON.parse(postContent)
+    try {
+      console.log('Attempting to fetch post directly:', postPath)
+      const postContent = await readFile(postPath, 'utf-8')
+      return JSON.parse(postContent)
+    } catch (error) {
+      console.log('Post not found directly, searching in manifest')
+      // If not found, look for a match in the manifest
+      const matchedPost = manifest.find((p: { slug: string }) => p.slug.endsWith(slug))
+
+      if (matchedPost) {
+        const year = matchedPost.slug.split('/')[0]
+        const newSlug = `${year}/${slug}`
+        if (newSlug !== slug) {
+          console.log('Matched post in manifest, redirecting to:', `/blog/${newSlug}`)
+          return {
+            redirect: `/blog/${newSlug}`
+          }
+        } else {
+          console.log('Matched post in manifest, but no redirection needed')
+          const matchedPostPath = resolve(process.cwd(), 'content', 'processed', `${matchedPost.slug}.json`)
+          const matchedPostContent = await readFile(matchedPostPath, 'utf-8')
+          return JSON.parse(matchedPostContent)
+        }
+      }
+
+      // If still not found, throw an error
+      throw new Error('Post not found')
+    }
   } catch (error) {
-    // Log the error message if there's an issue fetching or reading the post
-    console.error(`Error fetching post: ${error.message}`)
-    // Set the response status code to 404 to indicate that the post was not found
-    event.res.statusCode = 404
-    // Return an error message as JSON
+    console.error(`Error fetching post: ${(error as Error).message}`)
+    event.node.res.statusCode = 404
     return { error: 'Post not found' }
   }
 })

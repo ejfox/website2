@@ -28,6 +28,11 @@ const { scraps, isLoading, error, loadMore, hasMoreScraps, totalScraps } = useSc
 
 const loadMoreTrigger = ref(null)
 
+// set page title to Scrapbook
+useHead({
+  title: 'Scrapbook',
+})
+
 useIntersectionObserver(
   loadMoreTrigger,
   ([{ isIntersecting }]) => {

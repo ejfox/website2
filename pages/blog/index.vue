@@ -17,7 +17,9 @@ const formatRelativeTime = (date) => {
   return formatDistanceToNow(new Date(date), { addSuffix: true })
 }
 
-
+useHead({
+  title: 'Blog',
+})
 
 // Sort week notes and convert week slug to actual dates
 const sortedWeekNotes = computed(() => {

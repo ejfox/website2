@@ -35,7 +35,7 @@
             <NuxtLink :class="linkClasses" to="/blog/">Blog </NuxtLink>
 
             <NuxtLink :class="linkClasses" to="/scrapbook/">Scrapbook</NuxtLink>
-            <NuxtLink :class="linkClasses" to="/pottery/">Pottery</NuxtLink>
+            <!-- <NuxtLink :class="linkClasses" to="/pottery/">Pottery</NuxtLink> -->
 
             <NuxtLink :class="linkClasses" to="https://ejfox.photos">
               Photos

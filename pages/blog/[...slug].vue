@@ -10,24 +10,51 @@ const processedMarkdown = useProcessedMarkdown()
 const route = useRoute()
 const router = useRouter()
 
+console.log('Current route:', route.path)
+console.log('Route params:', route.params)
+
 // Handle redirection and post fetching
 const { data: post, error } = await useAsyncData(`post-${route.params.slug.join('-')}`, async () => {
   const slugParts = route.params.slug
 
-  // Fetch the post data, including potential redirection info
-  const response = await $fetch(`/api/posts/${slugParts.join('/')}`)
+  console.log('Fetching post for slug:', slugParts.join('/'))
 
-  if (response.redirect) {
-    // If we get a redirect response, use navigateTo for proper redirection
-    return { redirect: response.redirect }
+  try {
+    // Fetch the post data, including potential redirection info
+    const response = await $fetch(`/api/posts/${slugParts.join('/')}`)
+
+    console.log('API response:', response)
+
+    if (response.redirect) {
+      console.log('Received redirect:', response.redirect)
+      // Check if we're already on the correct URL
+      if (route.path !== response.redirect) {
+        console.log('Redirecting to:', response.redirect)
+        return { redirect: response.redirect }
+      } else {
+        console.log('Already on the correct URL, not redirecting')
+      }
+    }
+
+    if (response.error) {
+      throw new Error(response.error)
+    }
+
+    return response
+  } catch (error) {
+    console.error('Error fetching post:', error)
+    throw error
   }
-
-  return response
 })
 
 // Perform redirection if necessary
 if (post.value && post.value.redirect) {
-  navigateTo(post.value.redirect, { replace: true })
+  console.log('Performing redirection to:', post.value.redirect)
+  if (route.path !== post.value.redirect) {
+    navigateTo(post.value.redirect, { replace: true })
+  } else {
+    console.log('Already on the correct URL, not redirecting')
+  }
 }
 
 const { params } = useRoute()
@@ -182,7 +209,7 @@ const isBlogPost = computed(() => {
 
 <template>
   <div>
-    <article v-if="post" class="scroll-container pt-4 md:pt-2">
+    <article v-if="post && !post.redirect" class="scroll-container pt-4 md:pt-2">
       <div ref="postMetadata">
         <PostMetadata :doc="post" class="paddings" />
       </div>
@@ -237,6 +264,7 @@ const isBlogPost = computed(() => {
     </article>
     <div v-else-if="error" class="p-4 text-red-600">
       <p>Error loading post: {{ error.message }}</p>
+      <NuxtLink to="/blog" class="text-blue-500 hover:underline">Return to Blog</NuxtLink>
     </div>
     <div v-else class="p-4">
       <p>Loading...</p>

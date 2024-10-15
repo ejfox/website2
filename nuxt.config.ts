@@ -7,11 +7,36 @@ export default defineNuxtConfig({
   // },
   app: {
     head: {
-      title: pkg.name,
+      title: 'EJ Fox',
       meta: [
-        { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: pkg.version }
+        {
+          name: 'description',
+          content:
+            'EJ Fox: Hacker, Journalist, & Dataviz Specialist finding interesting ways to look at the world by exploring and explaining data ',
+        },
+
+        // opengraph tags
+        { property: 'og:title', content: 'EJ Fox' },
+        {
+          property: 'og:description',
+          content:
+            'EJ Fox: Hacker, Journalist, & Dataviz Specialist finding interesting ways to look at the world by exploring and explaining data ',
+        },
+        { property: 'og:image', content: 'https://ejfox.com/og-image.png' },
+        { property: 'og:url', content: 'https://ejfox.com' },
+        { property: 'og:type', content: 'website' },
+
+        // twitter opengraph tags
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:site', content: '@mrejfox' },
+        { name: 'twitter:creator', content: '@mrejfox' },
+        { name: 'twitter:title', content: 'EJ Fox' },
+        {
+          name: 'twitter:description',
+          content:
+            'EJ Fox: Hacker, Journalist, & Dataviz Specialist finding interesting ways to look at the world by exploring and explaining data ',
+        },
+        { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' },
       ]
     }
   },
@@ -38,7 +63,6 @@ export default defineNuxtConfig({
       }
     ]
   ],
-
   runtimeConfig: {
     // add the openai api key to the runtime config
     public: {
