@@ -54,8 +54,10 @@ const __dirname = path.dirname(__filename)
 // =============================
 // Define Content and Output Directories
 // =============================
-const contentDir = path.join(process.cwd(), 'content', 'blog')
-const outputDir = path.join(process.cwd(), 'content', 'processed')
+const contentDir = path.resolve(process.cwd(), 'content', 'blog')
+const outputDir = path.resolve(process.cwd(), 'content', 'processed')
+const cacheDir = path.resolve(process.cwd(), 'cache')
+const cacheFilePath = path.join(cacheDir, 'content-hash-cache.json')
 
 // =============================
 // Define Cloudinary Base URL
@@ -63,8 +65,6 @@ const outputDir = path.join(process.cwd(), 'content', 'processed')
 const CLOUDINARY_BASE_URL = `https://res.cloudinary.com/${
   cloudinary.config().cloud_name
 }/image/upload/`
-
-const cacheFilePath = path.join(__dirname, 'scrapCache.json')
 
 // =============================
 // Set Up Shiki Highlighter
@@ -115,40 +115,52 @@ const imageCacheFilePath = path.join(
 // Load Cache from File if Exists
 async function loadCache() {
   try {
-    await fs.access(imageCacheFilePath)
-    const cacheData = JSON.parse(await fs.readFile(cacheFilePath, 'utf-8'))
-    imageDimensionsCache.mset(
-      Object.keys(cacheData).map((key) => ({ key, val: cacheData[key] }))
-    )
-    console.log('Image dimensions cache loaded.')
+    const cacheData = await fs.readFile(cacheFilePath, 'utf-8')
+    return JSON.parse(cacheData)
   } catch (error) {
-    console.warn('No existing cache found. Starting fresh.')
+    if (error.code === 'ENOENT') {
+      console.warn('No existing cache found. Starting fresh.')
+      return {}
+    }
+    console.error('Error loading cache:', error)
+    return {}
   }
 }
 
 // Save Cache to File on Exit
-async function saveCache() {
+async function saveCache(cache) {
   try {
-    const cacheData = {}
-    imageDimensionsCache.keys().forEach((key) => {
-      cacheData[key] = imageDimensionsCache.get(key)
-    })
     await fs.mkdir(path.dirname(cacheFilePath), { recursive: true })
-    await fs.writeFile(cacheFilePath, JSON.stringify(cacheData), 'utf-8')
-    console.log('Image dimensions cache saved.')
+    await fs.writeFile(cacheFilePath, JSON.stringify(cache, null, 2), 'utf-8')
+    console.log('Content hash cache saved.')
   } catch (error) {
     console.error('Error saving cache:', error)
   }
 }
 
+// Function to compute content hash
+function computeContentHash(content) {
+  return crypto.createHash('sha256').update(content).digest('hex')
+}
+
+// Cleanup function
+async function cleanup() {
+  try {
+    await saveCache(contentHashCache)
+    console.log('Cleanup completed successfully.')
+  } catch (error) {
+    console.error('Error during cleanup:', error)
+  }
+}
+
 // Handle Process Exit Signals to Save Cache
-process.on('exit', saveCache)
+process.on('exit', cleanup)
 process.on('SIGINT', async () => {
-  await saveCache()
+  await cleanup()
   process.exit()
 })
 process.on('SIGTERM', async () => {
-  await saveCache()
+  await cleanup()
   process.exit()
 })
 
@@ -603,11 +615,9 @@ function enhanceLinksWithScraps(options = {}) {
  * @param {string} filePath - The path to the markdown file.
  * @returns {object} - Contains the processed HTML and metadata.
  */
-async function processMarkdown(filePath) {
-  log(`Processing file: ${filePath}`)
-  const fileContent = await fs.readFile(filePath, 'utf8')
-  log(`File content read: ${filePath}`)
-  const { data: frontmatter, content } = matter(fileContent)
+async function processMarkdown(content, filePath) {
+  log(`Processing content from: ${filePath}`)
+  const { data: frontmatter, content: markdownContent } = matter(content)
   log(`Frontmatter extracted: ${JSON.stringify(frontmatter)}`)
 
   const processor = unified()
@@ -654,7 +664,7 @@ async function processMarkdown(filePath) {
     .use(rehypeStringify, { allowDangerousHtml: true })
 
   log('Parsing content')
-  const ast = processor.parse(content)
+  const ast = processor.parse(markdownContent)
   log('Content parsed, extracting headers and TOC')
   const { firstHeading, toc, firstHeadingNode } = extractHeadersAndToc(ast)
   log(`First heading: "${firstHeading}", TOC entries: ${toc.length}`)
@@ -670,10 +680,10 @@ async function processMarkdown(filePath) {
   const html = processor.stringify(result)
   log(`HTML generated, length: ${html.length} characters`)
 
-  const wordCount = content.split(/\s+/).length
+  const wordCount = markdownContent.split(/\s+/).length
   const readingTime = Math.ceil(wordCount / 250)
-  const imageCount = (content.match(/!\[.*?\]\(.*?\)/g) || []).length
-  const linkCount = (content.match(/\[.*?\]\(.*?\)/g) || []).length
+  const imageCount = (markdownContent.match(/!\[.*?\]\(.*?\)/g) || []).length
+  const linkCount = (markdownContent.match(/\[.*?\]\(.*?\)/g) || []).length
 
   log(`Metadata calculated: ${wordCount} words, ${readingTime} min read, ${imageCount} images, ${linkCount} links`)
 
@@ -691,22 +701,11 @@ async function processMarkdown(filePath) {
   }
 }
 
-/**
- * Recursively processes all markdown files in the content directory.
- */
+// Main function to process all files
 async function processAllFiles() {
   log('Starting to process all files')
   const manifestLite = []
-  const cacheFile = path.join(outputDir, 'file-cache.json')
-  let fileCache = {}
-
-  // Load existing cache if available
-  try {
-    fileCache = JSON.parse(await fs.readFile(cacheFile, 'utf8'))
-    log('Loaded existing file cache')
-  } catch (error) {
-    log('No existing file cache found, creating new cache')
-  }
+  let contentHashCache = await loadCache()
 
   async function processDirectory(dir) {
     log(`Processing directory: ${dir}`)
@@ -724,14 +723,12 @@ async function processAllFiles() {
         const slug = relativePath.replace(/\.md$/, '')
         const outputPath = path.join(outputDir, `${slug}.json`)
 
-        // Check if file has changed
-        const fileStats = await fs.stat(fullPath)
-        const currentHash = crypto
-          .createHash('md5')
-          .update(fileStats.mtime.toISOString())
-          .digest('hex')
+        // Read file content and compute hash
+        const fileContent = await fs.readFile(fullPath, 'utf-8')
+        const currentHash = computeContentHash(fileContent)
 
-        if (fileCache[fullPath] === currentHash) {
+        // Check if file has changed
+        if (contentHashCache[fullPath] === currentHash) {
           log(`File unchanged, skipping: ${fullPath}`)
           // Load existing processed data
           const existingData = JSON.parse(await fs.readFile(outputPath, 'utf8'))
@@ -740,7 +737,7 @@ async function processAllFiles() {
         }
 
         log(`Processing markdown file: ${fullPath}`)
-        const { html, metadata } = await processMarkdown(fullPath)
+        const { html, metadata } = await processMarkdown(fileContent, fullPath)
 
         log(`Writing processed file to: ${outputPath}`)
         await fs.mkdir(path.dirname(outputPath), { recursive: true })
@@ -755,23 +752,27 @@ async function processAllFiles() {
         log(`Added to manifest: ${slug}`)
 
         // Update cache
-        fileCache[fullPath] = currentHash
+        contentHashCache[fullPath] = currentHash
       }
     }
   }
 
-  await processDirectory(contentDir)
+  try {
+    await processDirectory(contentDir)
 
-  log('Writing manifest-lite.json')
-  await fs.writeFile(
-    path.join(outputDir, 'manifest-lite.json'),
-    JSON.stringify(manifestLite, null, 2)
-  )
-  log('manifest-lite.json written successfully')
+    log('Writing manifest-lite.json')
+    const manifestPath = path.join(outputDir, 'manifest-lite.json')
+    await fs.mkdir(path.dirname(manifestPath), { recursive: true })
+    await fs.writeFile(manifestPath, JSON.stringify(manifestLite, null, 2))
+    log('manifest-lite.json written successfully')
 
-  // Save updated cache
-  await fs.writeFile(cacheFile, JSON.stringify(fileCache, null, 2))
-  log('File cache updated and saved')
+    // Save updated cache
+    await saveCache(contentHashCache)
+    log('Content hash cache updated and saved')
+  } catch (error) {
+    console.error('Error processing files:', error)
+    throw error
+  }
 }
 
 // Helper function to extract the title from the frontmatter of the linked markdown file
@@ -873,11 +874,10 @@ function log(message, level = 'info') {
 // Execute the Script
 // =============================
 
-// Load the cache before processing
-await loadCache()
-log('Cache loaded')
-
 // Start processing all markdown files
 processAllFiles()
   .then(() => log('All files processed successfully'))
-  .catch((error) => log(`Error processing files: ${error}`, 'error'))
+  .catch((error) => {
+    log(`Error processing files: ${error}`, 'error')
+    process.exit(1)
+  })

@@ -65,6 +65,7 @@ export default defineNuxtConfig({
     ]
     
   ],
+
   // gtag: {
   //   id: 'G-0CBMSSNG8P',
   // },
@@ -88,6 +89,8 @@ export default defineNuxtConfig({
       'Red Hat Mono': [300, 400]
     }
   },
+
+  // compatibilityDate: '2024-09-15'
   stripe: {
     // Server
     server: {
@@ -100,5 +103,6 @@ export default defineNuxtConfig({
       options: {}
     }
   },
-  // compatibilityDate: '2024-09-15'
+
+  compatibilityDate: '2024-10-15'
 })
