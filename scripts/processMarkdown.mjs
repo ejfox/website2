@@ -485,7 +485,7 @@ async function processMarkdown(content, filePath) {
     .use(remarkParse)
     .use(remarkObsidianSupport)
     .use(remarkCustomElements) // Custom plugin for images, links, and code
-    .use(enhanceLinksWithScraps) // Enhance links with metadata from Supabase
+    // .use(enhanceLinksWithScraps) // Enhance links with metadata from Supabase
     .use(remarkGfm)
     .use(remarkUnwrapImages)
     .use(remarkRehype, { allowDangerousHtml: true })
