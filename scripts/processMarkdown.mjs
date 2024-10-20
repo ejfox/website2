@@ -27,6 +27,10 @@ import NodeCache from 'node-cache'
 import * as shiki from 'shiki'
 import { createClient } from '@supabase/supabase-js'
 import crypto from 'crypto'
+import { stat } from 'fs/promises'
+import { promisify } from 'util';
+import { socialPlatforms, hrSvg, headerStar } from '../helpers.mjs'
+const setTimeoutPromise = promisify(setTimeout);
 
 // =============================
 // Load Environment Variables
@@ -57,6 +61,7 @@ const __dirname = path.dirname(__filename)
 const contentDir = path.resolve(process.cwd(), 'content', 'blog')
 const outputDir = path.resolve(process.cwd(), 'content', 'processed')
 const cacheDir = path.resolve(process.cwd(), 'cache')
+const CACHE_VERSION = 1 // Increment this when making significant changes to the processing logic
 const cacheFilePath = path.join(cacheDir, 'content-hash-cache.json')
 
 // =============================
@@ -86,48 +91,34 @@ const highlighter = await shiki.getHighlighter({
   ]
 })
 
-// =============================
-// Define SVGs
-// =============================
-const hrSvg = `
-<svg class="max-w-prose" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 365 17.45" style="opacity: 0.2;">
-  <path d="M363.07,7.35c-6.21-.45-12.42-.9-18.64-1.35-18.41-1.33-36.82-2.76-55.24-3.97-10.28-.67-20.58-1.22-30.88-1.42-18.17-.35-36.34-.41-54.51-.54-7.59-.05-15.19-.15-22.78.09-14.2.46-28.48.93-42.6,1.72-13.22.46-26.48.33-39.67,1.17-17.66,1.12-35.34,2.41-52.89,4.59-14.88,1.85-29.58,5.06-44.36,7.73-.56.1-1.01.83-1.51,1.26.46.29.96.86,1.38.81,2.08-.25,4.14-.63,6.19-1.04,10.8-2.18,21.52-5,32.41-6.41,14.22-1.84,28.58-2.71,42.9-3.73,13.56-.97,27.13-1.75,40.72-2.32,15.19-.64,30.4-1.13,45.6-1.39,20.64-.35,41.28-.59,61.92-.55,13.09.03,26.17.61,39.26,1.01,11.59.36,23.2.58,34.77,1.29,12.3.76,24.58,1.99,36.86,3.07,6.81.6,13.63,1.16,20.41,2.05.23-.68.44-1.37.64-2.07Z"/>
-</svg>`
 
-const headerStar = `
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.81 17.81" class="header-star inline-block mr-2" width="14" height="17" opacity="0.2">
-  <path d="M10.01,5.75c1.18-.82,2.19-1.55,3.22-2.24.48-.32,1.05-.52,1.45.07.39.58-.22.78-.54,1.07-1.15,1.05-2.29,2.12-3.46,3.14-1.61,1.41-1.68,2.82-.12,4.35.44.43.97.78,1.48,1.15.42.3.69.68.51,1.19-.2.58-.69.76-1.28.85-.87.14-1.6-1.14-2.32-.42-.47.48-.41,1.47-.65,2.2-.13.39-.52.6-.91.67-.54.1-.89-.26-1.1-.68-.37-.72-.37-1.45-.11-2.26.29-.91.9-2.19,0-2.72-.56-.33-1.53.82-2.14,1.53-.76.88-1.8,1.51-2.32,2.62-.23.48-.75.58-1.22.35-.67-.31-.56-.89-.31-1.4.71-1.44,1.94-2.43,3.1-3.46,2.66-2.37,2.68-2.36.36-5.11-.5-.6-1.05-1.16-1.57-1.74-.22-.25-.34-.56-.13-.84.2-.27.56-.24.87-.19,1.09.18,1.71,1.01,2.43,1.72.54.54,1.03,1.57,1.74,1.37.82-.24.4-1.36.48-2.08.18-1.48.32-2.95.89-4.33C8.48.27,8.7.01,9.04,0c.48-.01.69.37.72.75.07.93.1,1.87.07,2.81-.02.68-.26,1.36.17,2.19Z"/>
-</svg>`
 
-// =============================
-// Initialize Cache with a TTL of 1 day (86400 seconds)
-// =============================
-const imageDimensionsCache = new NodeCache({ stdTTL: 86400, checkperiod: 120 })
+// Function to compute content hash
+function computeContentHash(content) {
+  return crypto.createHash('sha256').update(content).digest('hex')
+}
 
-// Path to Cache File
-const imageCacheFilePath = path.join(
-  __dirname,
-  '..',
-  'cache',
-  'imageDimensionsCache.json'
-)
-
-// Load Cache from File if Exists
+// Load cache from file
 async function loadCache() {
   try {
     const cacheData = await fs.readFile(cacheFilePath, 'utf-8')
-    return JSON.parse(cacheData)
+    const cache = JSON.parse(cacheData)
+    if (cache.version !== CACHE_VERSION) {
+      console.log('Cache version mismatch. Starting fresh.')
+      return { version: CACHE_VERSION, files: {} }
+    }
+    return cache
   } catch (error) {
     if (error.code === 'ENOENT') {
       console.warn('No existing cache found. Starting fresh.')
-      return {}
+    } else {
+      console.error('Error loading cache:', error)
     }
-    console.error('Error loading cache:', error)
-    return {}
+    return { version: CACHE_VERSION, files: {} }
   }
 }
 
-// Save Cache to File on Exit
+// Save cache to file
 async function saveCache(cache) {
   try {
     await fs.mkdir(path.dirname(cacheFilePath), { recursive: true })
@@ -136,11 +127,6 @@ async function saveCache(cache) {
   } catch (error) {
     console.error('Error saving cache:', error)
   }
-}
-
-// Function to compute content hash
-function computeContentHash(content) {
-  return crypto.createHash('sha256').update(content).digest('hex')
 }
 
 // Cleanup function
@@ -165,166 +151,9 @@ process.on('SIGTERM', async () => {
 })
 
 // =============================
-// Define socialPlatforms Once (DRY)
-// =============================
-const socialPlatforms = {
-  'wikipedia.org': 'simple-icons:wikipedia',
-  'github.com': 'simple-icons:github',
-  'github.blog': 'simple-icons:github',
-  'github.io': 'typcn:social-github',
-  'youtube.com': 'simple-icons:youtube',
-  'twitter.com': 'simple-icons:twitter',
-  'apple.com': 'simple-icons:apple',
-  'itunes.apple.com': 'simple-icons:apple',
-  'observablehq.com': 'simple-icons:observable',
-  'pinboard.in': 'simple-icons:pinboard',
-  'goodreads.com': 'simple-icons:goodreads',
-  'glitch.com': 'simple-icons:glitch',
-  'stackoverflow.com': 'simple-icons:stackoverflow',
-  'mailto:': 'ic:baseline-email',
-  'nytimes.com': 'tabler:brand-nytimes',
-  'washingtonpost.com': 'simple-icons:thewashingtonpost',
-  'nbcnews.com': 'simple-icons:nbc',
-  'cnn.com': 'simple-icons:cnn',
-  'bbc.com': 'simple-icons:bbc',
-  'reuters.com': 'arcticons:reuters',
-  'archive.org': 'academicons:archive',
-  'web.archive.org': 'academicons:archive',
-  'buzzfeed.com': 'simple-icons:buzzfeed',
-  'vox.com': 'simple-icons:vox',
-  'medium.com': 'simple-icons:medium',
-  'scribd.com': 'simple-icons:scribd',
-  'patreon.com': 'simple-icons:patreon',
-  'soundcloud.com': 'simple-icons:soundcloud',
-  'bandcamp.com': 'simple-icons:bandcamp',
-  'npmjs.com': 'simple-icons:npm',
-  'hackernews.com': 'fa6-brands:square-hacker-news',
-  'instagram.com': 'simple-icons:instagram',
-  'facebook.com': 'simple-icons:facebook',
-  'discord.com': 'simple-icons:discord',
-  'reddit.com': 'fa6-brands:reddit',
-  'tiktok.com': 'simple-icons:tiktok',
-  'twitch.tv': 'simple-icons:twitch',
-  'linkedin.com': 'simple-icons:linkedin',
-  'pinterest.com': 'simple-icons:pinterest',
-  'snapchat.com': 'simple-icons:snapchat',
-  'tumblr.com': 'simple-icons:tumblr',
-  'whatsapp.com': 'simple-icons:whatsapp',
-  'telegram.com': 'simple-icons:telegram',
-  'signal.com': 'simple-icons:signal',
-  'slack.com': 'simple-icons:slack',
-  'zoom.us': 'simple-icons:zoom',
-  'meet.google.com': 'simple-icons:googlemeet',
-  'discord.gg': 'simple-icons:discord',
-  '.gov': 'game-icons:usa-flag',
-  'vuejs.org': 'mdi:vuejs',
-  'reactjs.org': 'mdi:react',
-  'netlify.com': 'file-icons:netlify',
-  'nuxtjs.org': 'mdi:nuxt',
-  'cloudinary.com': 'simple-icons:cloudinary',
-  'cloudflare.com': 'simple-icons:cloudflare',
-  'aws.amazon.com': 'simple-icons:amazonaws',
-  'gcp.google.com': 'simple-icons:googlecloud',
-  'firebase.google.com': 'simple-icons:firebase'
-}
-
-// =============================
 // Helper Functions
 // =============================
 
-/**
- * Extracts the image public ID from the Cloudinary URL or local path.
- * @param {string} url - The original image URL.
- * @returns {string} - The Cloudinary public ID.
- */
-// function extractImageId(url) {
-//   console.log('Extracting ID from:', url)
-//   const urlParts = url.split('/')
-//   const imageWithExtension = urlParts[urlParts.length - 1]
-//   const imageId = imageWithExtension.split('.')[0] // Removes the extension
-//   console.log('Extracted ID:', imageId)
-//   return imageId
-// }
-
-/**
- * Generates a Cloudinary URL with specified transformations.
- * @param {string} imageId - The Cloudinary public ID of the image.
- * @param {object} options - Transformation options.
- * @param {number[]} options.responsiveWidths - Array of widths for srcset.
- * @returns {object} - Contains the transformed URL and srcset.
- */
-function generateCloudinaryUrl(imageId, options) {
-  const { responsiveWidths, existingTransformations = '' } = options
-  const MAX_WIDTH = 1800
-
-  // a correct cloudinary URL should look like this
-  // https://res.cloudinary.com/ejf/image/upload/w_1200/dpr_auto/v1717945172/jm8gkazk2mfmarwvqvn6.jpg
-
-  // Generate srcset for responsive images
-  const srcset = responsiveWidths
-    .map((w) => {
-      const respWidth = Math.min(w, MAX_WIDTH)
-      return `https://res.cloudinary.com/ejf/image/upload/${existingTransformations}/w_${respWidth},dpr_auto,f_auto,q_auto/${imageId}.webp ${respWidth}w`
-    })
-    .join(', ')
-
-  // Use the largest width for the main URL
-  const largestWidth = Math.min(Math.max(...responsiveWidths), MAX_WIDTH)
-  const url = `https://res.cloudinary.com/ejf/image/upload/${existingTransformations}/w_${largestWidth}/dpr_auto,f_auto,q_auto/${imageId}.webp`
-  return { url, srcset }
-}
-/**
- * Generates a responsive <img> tag with Cloudinary transformations.
- * @param {object} params - Parameters for the img tag.
- * @param {string} params.url - The optimized image URL.
- * @param {number} params.width - Original image width.
- * @param {number} params.height - Original image height.
- * @param {string} params.srcset - The srcset attribute value.
- * @returns {string} - The HTML string for the img tag.
- */
-function generateResponsiveImgTag({ url, width, height, srcset }) {
-  return `<img src="${url}" srcset="${srcset}" width="${width}" height="${height}" loading="lazy" class="w-full h-auto" alt="" />`
-}
-
-/**
- * Processes an image node to use Cloudinary's optimized URL and embeds dimensions.
- * @param {object} node - The image node from the markdown AST.
- */
-async function processCloudinaryImage(node) {
-  console.log('Processing image:', node.url)
-
-  if (node.url.includes('res.cloudinary.com')) {
-    // Extract the public ID and any existing transformations
-    const urlParts = node.url.split('/upload/')
-    const existingTransformations = urlParts[1].split('/')[0]
-    const publicId = urlParts[1].split('/').slice(1).join('/').split('.')[0]
-
-    console.log('Extracted public ID:', publicId)
-
-    // Generate new optimized URL and srcset
-    const { url, srcset } = generateCloudinaryUrl(publicId, {
-      responsiveWidths: [320, 480, 640, 768, 1024, 1280, 1800],
-      existingTransformations
-    })
-
-    const imgTag = generateResponsiveImgTag({
-      url,
-      width: 1920, // You might want to fetch actual dimensions if needed
-      height: 1080,
-      srcset
-    })
-
-    // console.log('Generated optimized imgTag:', imgTag)
-    node.type = 'html'
-    node.value = imgTag
-
-    return true
-  } else {
-    // console.log('Non-Cloudinary image, processing as before')
-    // Your existing logic for non-Cloudinary images
-    return false
-  }
-}
 /**
  * Processes a link to determine if it should have an icon or be treated as a wikilink.
  * @param {string} href - The link URL.
@@ -431,6 +260,38 @@ function remarkCustomElements() {
     }
   }
 }
+
+// =============================
+// Plugin: remarkAi2htmlEmbed
+// =============================
+/**
+ * Plugin to embed AI2HTML graphics.
+ * 
+ * @example
+ * # My Blog Post
+
+Here's my AI2HTML graphic:
+
+::ai2html{project-name}
+ */
+function remarkAi2htmlEmbed() {
+  return (tree) => {
+    visit(tree, 'paragraph', (node) => {
+      if (node.children.length === 1 && node.children[0].type === 'text') {
+        const match = node.children[0].value.match(/^::ai2html\{(.+)\}$/);
+        if (match) {
+          const projectName = match[1];
+          node.type = 'html';
+          node.value = `
+<div class="ai2html-responsive-embed" data-project="${projectName}">
+  <iframe src="/ai2html/${projectName}/index.html" width="100%" style="border: none;" scrolling="no"></iframe>
+</div>`;
+        }
+      }
+    });
+  };
+}
+
 
 // =============================
 // Plugin: rehypeAddClassToParagraphs
@@ -622,7 +483,6 @@ async function processMarkdown(content, filePath) {
 
   const processor = unified()
     .use(remarkParse)
-    // .use(remarkObsidian)
     .use(remarkObsidianSupport)
     .use(remarkCustomElements) // Custom plugin for images, links, and code
     .use(enhanceLinksWithScraps) // Enhance links with metadata from Supabase
@@ -630,6 +490,7 @@ async function processMarkdown(content, filePath) {
     .use(remarkUnwrapImages)
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeAddClassToParagraphs)
+    .use(remarkAi2htmlEmbed)
     // .use(rehypeConvertHrToSvg) // Uncomment if you want to convert <hr> to SVG
     .use(rehypePrettyCode, {
       theme: JSON.parse(await fs.readFile('./themes/ayu-mirage.json', 'utf-8')),
@@ -655,7 +516,6 @@ async function processMarkdown(content, filePath) {
     })
     .use(rehypeMermaid, {
       strategy: 'inline-svg'
-      // other options as needed
     })
     .use(rehypeSlug)
     .use(rehypeAutolinkHeadings, {
@@ -685,13 +545,16 @@ async function processMarkdown(content, filePath) {
   const imageCount = (markdownContent.match(/!\[.*?\]\(.*?\)/g) || []).length
   const linkCount = (markdownContent.match(/\[.*?\]\(.*?\)/g) || []).length
 
-  log(`Metadata calculated: ${wordCount} words, ${readingTime} min read, ${imageCount} images, ${linkCount} links`)
+  log(
+    `Metadata calculated: ${wordCount} words, ${readingTime} min read, ${imageCount} images, ${linkCount} links`
+  )
 
   return {
     html, // This is the processed HTML
     metadata: {
       ...frontmatter,
-      title: frontmatter.title || firstHeading || path.basename(filePath, '.md'),
+      title:
+        frontmatter.title || firstHeading || path.basename(filePath, '.md'),
       toc,
       wordCount,
       readingTime,
@@ -701,95 +564,129 @@ async function processMarkdown(content, filePath) {
   }
 }
 
-// Main function to process all files
-async function processAllFiles() {
-  log('Starting to process all files')
-  const manifestLite = []
-  let contentHashCache = await loadCache()
+// Process a single markdown file
+async function processMarkdownFile(fullPath, cache) {
+  const relativePath = path.relative(contentDir, fullPath)
+  const slug = relativePath.replace(/\.md$/, '')
+  const outputPath = path.join(outputDir, `${slug}.json`)
 
-  async function processDirectory(dir) {
-    log(`Processing directory: ${dir}`)
-    const entries = await fs.readdir(dir, { withFileTypes: true })
-    log(`Found ${entries.length} entries in ${dir}`)
+  const fileContent = await fs.readFile(fullPath, 'utf-8')
+  const currentHash = computeContentHash(fileContent)
 
-    for (const entry of entries) {
-      const fullPath = path.join(dir, entry.name)
-
-      if (entry.isDirectory()) {
-        log(`Entering subdirectory: ${fullPath}`)
-        await processDirectory(fullPath)
-      } else if (entry.isFile() && path.extname(entry.name) === '.md') {
-        const relativePath = path.relative(contentDir, fullPath)
-        const slug = relativePath.replace(/\.md$/, '')
-        const outputPath = path.join(outputDir, `${slug}.json`)
-
-        // Read file content and compute hash
-        const fileContent = await fs.readFile(fullPath, 'utf-8')
-        const currentHash = computeContentHash(fileContent)
-
-        // Check if file has changed
-        if (contentHashCache[fullPath] === currentHash) {
-          log(`File unchanged, skipping: ${fullPath}`)
-          // Load existing processed data
-          const existingData = JSON.parse(await fs.readFile(outputPath, 'utf8'))
-          manifestLite.push({ slug, ...existingData.metadata })
-          continue
-        }
-
-        log(`Processing markdown file: ${fullPath}`)
-        const { html, metadata } = await processMarkdown(fileContent, fullPath)
-
-        log(`Writing processed file to: ${outputPath}`)
-        await fs.mkdir(path.dirname(outputPath), { recursive: true })
-
-        await fs.writeFile(
-          outputPath,
-          JSON.stringify({ slug, ...metadata, content: html }, null, 2)
-        )
-        log(`File written: ${outputPath}`)
-
-        manifestLite.push({ slug, ...metadata })
-        log(`Added to manifest: ${slug}`)
-
-        // Update cache
-        contentHashCache[fullPath] = currentHash
-      }
-    }
+  if (cache.files[fullPath] && cache.files[fullPath].hash === currentHash) {
+    console.log(`File unchanged, using cached version: ${fullPath}`)
+    return { slug, ...cache.files[fullPath].metadata }
   }
 
+  console.log(`Processing markdown file: ${fullPath}`)
+  const { html, metadata } = await processMarkdown(fileContent, fullPath)
+
+  if (!html) {
+    throw new Error(`Failed to generate HTML for ${fullPath}`)
+  }
+
+  console.log(`Writing processed file to: ${outputPath}`)
+  await fs.mkdir(path.dirname(outputPath), { recursive: true })
+  await fs.writeFile(
+    outputPath,
+    JSON.stringify({ slug, ...metadata, content: html }, null, 2)
+  )
+
+  cache.files[fullPath] = { hash: currentHash, metadata }
+  return { slug, ...metadata }
+}
+
+// Add this function to your script
+async function getFilesRecursively(dir) {
+  const entries = await fs.readdir(dir, { withFileTypes: true });
+  const files = await Promise.all(entries.map(async (entry) => {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      return getFilesRecursively(fullPath);
+    } else if (entry.isFile() && path.extname(entry.name) === '.md') {
+      const stats = await stat(fullPath);
+      return { path: fullPath, mtime: stats.mtime };
+    }
+    return [];
+  }));
+
+  return files.flat();
+}
+
+// Main function to process all files
+async function processAllFiles() {
+  console.log('Starting to process all files')
+  const cache = await loadCache()
+  let isInterrupted = false;
+
+  // Set up interrupt handler
+  const interruptHandler = async () => {
+    if (isInterrupted) {
+      console.log('Forced exit. Some progress may be lost.');
+      process.exit(1);
+    }
+    console.log('\nInterrupt received. Saving progress...');
+    isInterrupted = true;
+  };
+
+  process.on('SIGINT', interruptHandler);
+
   try {
-    await processDirectory(contentDir)
+    console.log('Collecting and sorting files...')
+    const allFiles = await getFilesRecursively(contentDir)
+    allFiles.sort((a, b) => b.mtime - a.mtime) // Sort by modification time, newest first
 
-    log('Writing manifest-lite.json')
-    const manifestPath = path.join(outputDir, 'manifest-lite.json')
-    await fs.mkdir(path.dirname(manifestPath), { recursive: true })
-    await fs.writeFile(manifestPath, JSON.stringify(manifestLite, null, 2))
-    log('manifest-lite.json written successfully')
+    const manifestLite = [];
+    for (const file of allFiles) {
+      if (isInterrupted) break;
+      try {
+        const result = await processMarkdownFile(file.path, cache)
+        await saveCache(cache) // Save cache after each file is processed
+        manifestLite.push(result);
+      } catch (error) {
+        console.error(`Error processing ${file.path}:`, error)
+      }
+      // Small delay to allow interrupt to be processed
+      await setTimeoutPromise(0);
+    }
 
-    // Save updated cache
-    await saveCache(contentHashCache)
-    log('Content hash cache updated and saved')
+    // Filter out null results (from errors)
+    const filteredManifest = manifestLite.filter(Boolean)
+
+    if (!isInterrupted) {
+      console.log('Writing manifest-lite.json')
+      const manifestPath = path.join(outputDir, 'manifest-lite.json')
+      await fs.mkdir(path.dirname(manifestPath), { recursive: true })
+      await fs.writeFile(manifestPath, JSON.stringify(filteredManifest, null, 2))
+    }
+
+    await saveCache(cache)
   } catch (error) {
     console.error('Error processing files:', error)
     throw error
+  } finally {
+    process.off('SIGINT', interruptHandler);
+    if (isInterrupted) {
+      console.log('Progress saved. Exiting.');
+      process.exit(0);
+    }
   }
 }
-
 // Helper function to extract the title from the frontmatter of the linked markdown file
-async function getTitleFromFrontmatter(match) {
-  const targetPath = path.join(contentDir, `${match}.md`)
+// async function getTitleFromFrontmatter(match) {
+//   const targetPath = path.join(contentDir, `${match}.md`)
 
-  try {
-    const fileContent = await fs.readFile(targetPath, 'utf8')
-    const { data: frontmatter } = matter(fileContent)
+//   try {
+//     const fileContent = await fs.readFile(targetPath, 'utf8')
+//     const { data: frontmatter } = matter(fileContent)
 
-    // Return the title from the frontmatter, or use the filename as fallback
-    return frontmatter.title || path.basename(match, '.md')
-  } catch (err) {
-    console.error(`Error reading file ${targetPath}:`, err)
-    return match // Fallback to the match if the file doesn't exist
-  }
-}
+//     // Return the title from the frontmatter, or use the filename as fallback
+//     return frontmatter.title || path.basename(match, '.md')
+//   } catch (err) {
+//     console.error(`Error reading file ${targetPath}:`, err)
+//     return match // Fallback to the match if the file doesn't exist
+//   }
+// }
 
 function remarkObsidianSupport() {
   return async (tree) => {
@@ -875,9 +772,7 @@ function log(message, level = 'info') {
 // =============================
 
 // Start processing all markdown files
-processAllFiles()
-  .then(() => log('All files processed successfully'))
-  .catch((error) => {
-    log(`Error processing files: ${error}`, 'error')
-    process.exit(1)
-  })
+processAllFiles().catch(console.error)
+
+
+
