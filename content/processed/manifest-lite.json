@@ -2860,79 +2860,6 @@
     "linkCount": 0
   },
   {
-    "slug": "drafts/triangulation-of-truth",
-    "dek": "In which we use at least three sources of truth to triangulate a potential most-truthful comprompise",
-    "inprogress": true,
-    "date": "2023-10-01T01:33:26.000Z",
-    "modified": "2024-07-18T18:42:13.000Z",
-    "tags": [
-      "advice",
-      "data",
-      "journalism"
-    ],
-    "hidden": true,
-    "draft": true,
-    "title": "Triangulating The Truth",
-    "toc": [
-      {
-        "text": "Triangulating The Truth",
-        "slug": "triangulating-the-truth",
-        "level": "h2",
-        "children": [
-          {
-            "text": "The Problem with Singular Perspectives",
-            "slug": "the-problem-with-singular-perspectives",
-            "level": "h3"
-          },
-          {
-            "text": "The Importance of Diverse Sources",
-            "slug": "the-importance-of-diverse-sources",
-            "level": "h3"
-          },
-          {
-            "text": "Identifying Noise and Bad Data",
-            "slug": "identifying-noise-and-bad-data",
-            "level": "h3"
-          },
-          {
-            "text": "The Process of Triangulation",
-            "slug": "the-process-of-triangulation",
-            "level": "h3"
-          },
-          {
-            "text": "Case Study: Triangulating the Truth in Action",
-            "slug": "case-study-triangulating-the-truth-in-action",
-            "level": "h3"
-          },
-          {
-            "text": "The Challenges of Triangulation",
-            "slug": "the-challenges-of-triangulation",
-            "level": "h3"
-          },
-          {
-            "text": "Tools and Resources for Effective Triangulation",
-            "slug": "tools-and-resources-for-effective-triangulation",
-            "level": "h3"
-          },
-          {
-            "text": "Conclusion",
-            "slug": "conclusion",
-            "level": "h3"
-          },
-          {
-            "text": "Additional Reading and References",
-            "slug": "additional-reading-and-references",
-            "level": "h3"
-          }
-        ]
-      }
-    ],
-    "wordCount": 198,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
     "slug": "drafts/using-observable-plot-in-vue",
     "dek": "In which we use two javascript frameworks to quickly scale from prototype to functional tool",
     "inprogress": true,
@@ -5154,358 +5081,6 @@
     "readingTime": 1,
     "imageCount": 0,
     "linkCount": 4
-  },
-  {
-    "slug": "2023/selecting-a-cms",
-    "draft": false,
-    "dek": "In which the importance of mindful CMS selection is examined, the option of \"no CMS\" is considered, and the benefits of using Markdown are revealed",
-    "inprogress": true,
-    "date": "2023-04-04T18:50:35.000Z",
-    "modified": "2024-09-23T16:13:32.000Z",
-    "tags": [
-      "tech",
-      "cms",
-      "code",
-      "webdesign",
-      "writing"
-    ],
-    "hidden": false,
-    "title": "A Thoughtful Approach to Choosing a Modern CMS",
-    "toc": [
-      {
-        "text": "A Thoughtful Approach to Choosing a Modern CMS",
-        "slug": "a-thoughtful-approach-to-choosing-a-modern-cms",
-        "level": "h2",
-        "children": [
-          {
-            "text": "The argument for no CMS",
-            "slug": "the-argument-for-no-cms",
-            "level": "h3"
-          },
-          {
-            "text": "The argument ",
-            "slug": "the-argument",
-            "level": "h3"
-          },
-          {
-            "text": "Twitter is a model CMS",
-            "slug": "twitter-is-a-model-cms",
-            "level": "h3"
-          },
-          {
-            "text": "Markdown-powered CMS",
-            "slug": "markdown-powered-cms",
-            "level": "h3"
-          },
-          {
-            "text": "What a CMS should do",
-            "slug": "what-a-cms-should-do",
-            "level": "h3"
-          },
-          {
-            "text": "How do you handle versioning?",
-            "slug": "how-do-you-handle-versioning",
-            "level": "h3"
-          },
-          {
-            "text": "Where do you keep your media?",
-            "slug": "where-do-you-keep-your-media",
-            "level": "h3"
-          },
-          {
-            "text": "Where do you host it?",
-            "slug": "where-do-you-host-it",
-            "level": "h3"
-          },
-          {
-            "text": "CMS Recommendations",
-            "slug": "cms-recommendations",
-            "level": "h3"
-          }
-        ]
-      }
-    ],
-    "wordCount": 1831,
-    "readingTime": 8,
-    "imageCount": 1,
-    "linkCount": 5
-  },
-  {
-    "slug": "2023/starting-a-studio-introducing-room-302",
-    "dek": "In which the author proudly presents his new venture: Room 302 Studio, an eclectic gathering of talent devoted to fostering joy-driven development",
-    "date": "2023-04-10T05:00:00.000Z",
-    "modified": "2024-09-20T04:21:55.000Z",
-    "tags": [
-      "data"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Introducing room302.studio",
-    "toc": [
-      {
-        "text": "Introducing room302.studio",
-        "slug": "introducing-room302-studio",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Hire us",
-            "slug": "hire-us",
-            "level": "h3"
-          },
-          {
-            "text": "Workshops and Events",
-            "slug": "workshops-and-events",
-            "level": "h3"
-          },
-          {
-            "text": "Membership Options",
-            "slug": "membership-options",
-            "level": "h3"
-          }
-        ]
-      }
-    ],
-    "wordCount": 587,
-    "readingTime": 3,
-    "imageCount": 0,
-    "linkCount": 2
-  },
-  {
-    "slug": "2023/why-i-love-obsidian",
-    "dek": "In which the author's adoration for Obsidian is revealed, celebrating its versatility, customizability, and ingenuity in organizing the written word",
-    "inprogress": true,
-    "date": "2023-04-04T18:48:13.000Z",
-    "modified": "2024-09-20T04:20:58.000Z",
-    "tags": [
-      "personal",
-      "process",
-      "markdown"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Why I love Obsidian for organizing my notes and blog posts",
-    "toc": [
-      {
-        "text": "Why I love Obsidian for organizing my notes and blog posts",
-        "slug": "why-i-love-obsidian-for-organizing-my-notes-and-blog-posts",
-        "level": "h2",
-        "children": [
-          {
-            "text": "The power of Markdown",
-            "slug": "the-power-of-markdown",
-            "level": "h3"
-          },
-          {
-            "text": "Great plugin framework and community",
-            "slug": "great-plugin-framework-and-community",
-            "level": "h3"
-          },
-          {
-            "text": "Using Obsidian with Nuxt for my website",
-            "slug": "using-obsidian-with-nuxt-for-my-website",
-            "level": "h3"
-          },
-          {
-            "text": "Graph views",
-            "slug": "graph-views",
-            "level": "h3"
-          },
-          {
-            "text": "Canvas view",
-            "slug": "canvas-view",
-            "level": "h3"
-          },
-          {
-            "text": "Great mobile support & iOS app",
-            "slug": "great-mobile-support-ios-app",
-            "level": "h3"
-          },
-          {
-            "text": "Community plugins",
-            "slug": "community-plugins",
-            "level": "h3"
-          }
-        ]
-      }
-    ],
-    "wordCount": 552,
-    "readingTime": 3,
-    "imageCount": 1,
-    "linkCount": 3
-  },
-  {
-    "slug": "2024/2024",
-    "tags": [
-      "yearly-goals",
-      "vision",
-      "strategy",
-      "reflections",
-      "art",
-      "meditation",
-      "health"
-    ],
-    "date": "2024-01-01T05:00:00.000Z",
-    "modified": "2024-09-23T16:12:56.000Z",
-    "hidden": true,
-    "draft": true,
-    "title": "🕰️ Reflections on the Past Year",
-    "toc": [
-      {
-        "text": "🕰️ Reflections on the Past Year",
-        "slug": "reflections-on-the-past-year",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "🔑 Key Themes",
-        "slug": "key-themes",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Interconnectedness of all things",
-            "slug": "interconnectedness-of-all-things",
-            "level": "h3"
-          },
-          {
-            "text": "The World is Editable",
-            "slug": "the-world-is-editable",
-            "level": "h3"
-          }
-        ]
-      },
-      {
-        "text": "🌟 Vision for the Year",
-        "slug": "vision-for-the-year",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Personal Goals",
-            "slug": "personal-goals",
-            "level": "h3"
-          },
-          {
-            "text": "Professional Goals",
-            "slug": "professional-goals",
-            "level": "h3"
-          },
-          {
-            "text": "Coach Artie",
-            "slug": "coach-artie",
-            "level": "h3"
-          },
-          {
-            "text": "LatentScope",
-            "slug": "latentscope",
-            "level": "h3"
-          },
-          {
-            "text": "ContextAlchemy",
-            "slug": "contextalchemy",
-            "level": "h3"
-          },
-          {
-            "text": "IssueBuilder",
-            "slug": "issuebuilder",
-            "level": "h3"
-          },
-          {
-            "text": "Weekly Livestreams",
-            "slug": "weekly-livestreams",
-            "level": "h3"
-          },
-          {
-            "text": "Daily Dashboard + Personal AI Assistant",
-            "slug": "daily-dashboard-personal-ai-assistant",
-            "level": "h3"
-          }
-        ]
-      },
-      {
-        "text": "🎨 Creative Ventures",
-        "slug": "creative-ventures",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Pottery",
-            "slug": "pottery",
-            "level": "h3"
-          },
-          {
-            "text": "Generative Art",
-            "slug": "generative-art",
-            "level": "h3"
-          },
-          {
-            "text": "Hardware Hacking / Physical Installations",
-            "slug": "hardware-hacking-physical-installations",
-            "level": "h3"
-          },
-          {
-            "text": "Beat-making Goals",
-            "slug": "beat-making-goals",
-            "level": "h3"
-          },
-          {
-            "text": "Watercolors",
-            "slug": "watercolors",
-            "level": "h3"
-          },
-          {
-            "text": "Personal Documentation + YouTube",
-            "slug": "personal-documentation-youtube",
-            "level": "h3"
-          }
-        ]
-      },
-      {
-        "text": "🌱 Wellness & Personal Development",
-        "slug": "wellness-personal-development",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Focusing on Discipline",
-            "slug": "focusing-on-discipline",
-            "level": "h3"
-          },
-          {
-            "text": "More Hudson Valley Hikes",
-            "slug": "more-hudson-valley-hikes",
-            "level": "h3"
-          },
-          {
-            "text": "Get set up for international travel",
-            "slug": "get-set-up-for-international-travel",
-            "level": "h3"
-          },
-          {
-            "text": "Reduce Nicotine intake",
-            "slug": "reduce-nicotine-intake",
-            "level": "h3"
-          },
-          {
-            "text": "More Intentional Cannabis Use",
-            "slug": "more-intentional-cannabis-use",
-            "level": "h3"
-          }
-        ]
-      },
-      {
-        "text": "Goals for Global & Societal Impact",
-        "slug": "goals-for-global-societal-impact",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "🚀 Goals For Next Year",
-        "slug": "goals-for-next-year",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 4724,
-    "readingTime": 19,
-    "imageCount": 0,
-    "linkCount": 0
   },
   {
     "slug": "2024/my-modern-scrapbook",
@@ -8039,6 +7614,79 @@
     "linkCount": 5
   },
   {
+    "slug": "drafts/triangulation-of-truth",
+    "dek": "In which we use at least three sources of truth to triangulate a potential most-truthful comprompise",
+    "inprogress": true,
+    "date": "2023-10-01T01:33:26.000Z",
+    "modified": "2024-07-18T18:42:13.000Z",
+    "tags": [
+      "advice",
+      "data",
+      "journalism"
+    ],
+    "hidden": true,
+    "draft": true,
+    "title": "Triangulating The Truth",
+    "toc": [
+      {
+        "text": "Triangulating The Truth",
+        "slug": "triangulating-the-truth",
+        "level": "h2",
+        "children": [
+          {
+            "text": "The Problem with Singular Perspectives",
+            "slug": "the-problem-with-singular-perspectives",
+            "level": "h3"
+          },
+          {
+            "text": "The Importance of Diverse Sources",
+            "slug": "the-importance-of-diverse-sources",
+            "level": "h3"
+          },
+          {
+            "text": "Identifying Noise and Bad Data",
+            "slug": "identifying-noise-and-bad-data",
+            "level": "h3"
+          },
+          {
+            "text": "The Process of Triangulation",
+            "slug": "the-process-of-triangulation",
+            "level": "h3"
+          },
+          {
+            "text": "Case Study: Triangulating the Truth in Action",
+            "slug": "case-study-triangulating-the-truth-in-action",
+            "level": "h3"
+          },
+          {
+            "text": "The Challenges of Triangulation",
+            "slug": "the-challenges-of-triangulation",
+            "level": "h3"
+          },
+          {
+            "text": "Tools and Resources for Effective Triangulation",
+            "slug": "tools-and-resources-for-effective-triangulation",
+            "level": "h3"
+          },
+          {
+            "text": "Conclusion",
+            "slug": "conclusion",
+            "level": "h3"
+          },
+          {
+            "text": "Additional Reading and References",
+            "slug": "additional-reading-and-references",
+            "level": "h3"
+          }
+        ]
+      }
+    ],
+    "wordCount": 198,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
     "slug": "2010/!pinboard-tags",
     "dek": "All of the tags I use across all technologies, pinboard, this blog, and anywhere else",
     "date": "2010-12-17T17:00:00.000Z",
@@ -10494,5 +10142,357 @@
     "readingTime": 1,
     "imageCount": 0,
     "linkCount": 13
+  },
+  {
+    "slug": "2023/selecting-a-cms",
+    "draft": false,
+    "dek": "In which the importance of mindful CMS selection is examined, the option of \"no CMS\" is considered, and the benefits of using Markdown are revealed",
+    "inprogress": true,
+    "date": "2023-04-04T18:50:35.000Z",
+    "modified": "2024-09-23T16:13:32.000Z",
+    "tags": [
+      "tech",
+      "cms",
+      "code",
+      "webdesign",
+      "writing"
+    ],
+    "hidden": false,
+    "title": "A Thoughtful Approach to Choosing a Modern CMS",
+    "toc": [
+      {
+        "text": "A Thoughtful Approach to Choosing a Modern CMS",
+        "slug": "a-thoughtful-approach-to-choosing-a-modern-cms",
+        "level": "h2",
+        "children": [
+          {
+            "text": "The argument for no CMS",
+            "slug": "the-argument-for-no-cms",
+            "level": "h3"
+          },
+          {
+            "text": "The argument ",
+            "slug": "the-argument",
+            "level": "h3"
+          },
+          {
+            "text": "Twitter is a model CMS",
+            "slug": "twitter-is-a-model-cms",
+            "level": "h3"
+          },
+          {
+            "text": "Markdown-powered CMS",
+            "slug": "markdown-powered-cms",
+            "level": "h3"
+          },
+          {
+            "text": "What a CMS should do",
+            "slug": "what-a-cms-should-do",
+            "level": "h3"
+          },
+          {
+            "text": "How do you handle versioning?",
+            "slug": "how-do-you-handle-versioning",
+            "level": "h3"
+          },
+          {
+            "text": "Where do you keep your media?",
+            "slug": "where-do-you-keep-your-media",
+            "level": "h3"
+          },
+          {
+            "text": "Where do you host it?",
+            "slug": "where-do-you-host-it",
+            "level": "h3"
+          },
+          {
+            "text": "CMS Recommendations",
+            "slug": "cms-recommendations",
+            "level": "h3"
+          }
+        ]
+      }
+    ],
+    "wordCount": 1831,
+    "readingTime": 8,
+    "imageCount": 1,
+    "linkCount": 5
+  },
+  {
+    "slug": "2023/starting-a-studio-introducing-room-302",
+    "dek": "In which the author proudly presents his new venture: Room 302 Studio, an eclectic gathering of talent devoted to fostering joy-driven development",
+    "date": "2023-04-10T05:00:00.000Z",
+    "modified": "2024-09-20T04:21:55.000Z",
+    "tags": [
+      "data"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Introducing room302.studio",
+    "toc": [
+      {
+        "text": "Introducing room302.studio",
+        "slug": "introducing-room302-studio",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Hire us",
+            "slug": "hire-us",
+            "level": "h3"
+          },
+          {
+            "text": "Workshops and Events",
+            "slug": "workshops-and-events",
+            "level": "h3"
+          },
+          {
+            "text": "Membership Options",
+            "slug": "membership-options",
+            "level": "h3"
+          }
+        ]
+      }
+    ],
+    "wordCount": 587,
+    "readingTime": 3,
+    "imageCount": 0,
+    "linkCount": 2
+  },
+  {
+    "slug": "2023/why-i-love-obsidian",
+    "dek": "In which the author's adoration for Obsidian is revealed, celebrating its versatility, customizability, and ingenuity in organizing the written word",
+    "inprogress": true,
+    "date": "2023-04-04T18:48:13.000Z",
+    "modified": "2024-09-20T04:20:58.000Z",
+    "tags": [
+      "personal",
+      "process",
+      "markdown"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Why I love Obsidian for organizing my notes and blog posts",
+    "toc": [
+      {
+        "text": "Why I love Obsidian for organizing my notes and blog posts",
+        "slug": "why-i-love-obsidian-for-organizing-my-notes-and-blog-posts",
+        "level": "h2",
+        "children": [
+          {
+            "text": "The power of Markdown",
+            "slug": "the-power-of-markdown",
+            "level": "h3"
+          },
+          {
+            "text": "Great plugin framework and community",
+            "slug": "great-plugin-framework-and-community",
+            "level": "h3"
+          },
+          {
+            "text": "Using Obsidian with Nuxt for my website",
+            "slug": "using-obsidian-with-nuxt-for-my-website",
+            "level": "h3"
+          },
+          {
+            "text": "Graph views",
+            "slug": "graph-views",
+            "level": "h3"
+          },
+          {
+            "text": "Canvas view",
+            "slug": "canvas-view",
+            "level": "h3"
+          },
+          {
+            "text": "Great mobile support & iOS app",
+            "slug": "great-mobile-support-ios-app",
+            "level": "h3"
+          },
+          {
+            "text": "Community plugins",
+            "slug": "community-plugins",
+            "level": "h3"
+          }
+        ]
+      }
+    ],
+    "wordCount": 552,
+    "readingTime": 3,
+    "imageCount": 1,
+    "linkCount": 3
+  },
+  {
+    "slug": "2024/2024",
+    "tags": [
+      "yearly-goals",
+      "vision",
+      "strategy",
+      "reflections",
+      "art",
+      "meditation",
+      "health"
+    ],
+    "date": "2024-01-01T05:00:00.000Z",
+    "modified": "2024-09-23T16:12:56.000Z",
+    "hidden": true,
+    "draft": true,
+    "title": "🕰️ Reflections on the Past Year",
+    "toc": [
+      {
+        "text": "🕰️ Reflections on the Past Year",
+        "slug": "reflections-on-the-past-year",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "🔑 Key Themes",
+        "slug": "key-themes",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Interconnectedness of all things",
+            "slug": "interconnectedness-of-all-things",
+            "level": "h3"
+          },
+          {
+            "text": "The World is Editable",
+            "slug": "the-world-is-editable",
+            "level": "h3"
+          }
+        ]
+      },
+      {
+        "text": "🌟 Vision for the Year",
+        "slug": "vision-for-the-year",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Personal Goals",
+            "slug": "personal-goals",
+            "level": "h3"
+          },
+          {
+            "text": "Professional Goals",
+            "slug": "professional-goals",
+            "level": "h3"
+          },
+          {
+            "text": "Coach Artie",
+            "slug": "coach-artie",
+            "level": "h3"
+          },
+          {
+            "text": "LatentScope",
+            "slug": "latentscope",
+            "level": "h3"
+          },
+          {
+            "text": "ContextAlchemy",
+            "slug": "contextalchemy",
+            "level": "h3"
+          },
+          {
+            "text": "IssueBuilder",
+            "slug": "issuebuilder",
+            "level": "h3"
+          },
+          {
+            "text": "Weekly Livestreams",
+            "slug": "weekly-livestreams",
+            "level": "h3"
+          },
+          {
+            "text": "Daily Dashboard + Personal AI Assistant",
+            "slug": "daily-dashboard-personal-ai-assistant",
+            "level": "h3"
+          }
+        ]
+      },
+      {
+        "text": "🎨 Creative Ventures",
+        "slug": "creative-ventures",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Pottery",
+            "slug": "pottery",
+            "level": "h3"
+          },
+          {
+            "text": "Generative Art",
+            "slug": "generative-art",
+            "level": "h3"
+          },
+          {
+            "text": "Hardware Hacking / Physical Installations",
+            "slug": "hardware-hacking-physical-installations",
+            "level": "h3"
+          },
+          {
+            "text": "Beat-making Goals",
+            "slug": "beat-making-goals",
+            "level": "h3"
+          },
+          {
+            "text": "Watercolors",
+            "slug": "watercolors",
+            "level": "h3"
+          },
+          {
+            "text": "Personal Documentation + YouTube",
+            "slug": "personal-documentation-youtube",
+            "level": "h3"
+          }
+        ]
+      },
+      {
+        "text": "🌱 Wellness & Personal Development",
+        "slug": "wellness-personal-development",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Focusing on Discipline",
+            "slug": "focusing-on-discipline",
+            "level": "h3"
+          },
+          {
+            "text": "More Hudson Valley Hikes",
+            "slug": "more-hudson-valley-hikes",
+            "level": "h3"
+          },
+          {
+            "text": "Get set up for international travel",
+            "slug": "get-set-up-for-international-travel",
+            "level": "h3"
+          },
+          {
+            "text": "Reduce Nicotine intake",
+            "slug": "reduce-nicotine-intake",
+            "level": "h3"
+          },
+          {
+            "text": "More Intentional Cannabis Use",
+            "slug": "more-intentional-cannabis-use",
+            "level": "h3"
+          }
+        ]
+      },
+      {
+        "text": "Goals for Global & Societal Impact",
+        "slug": "goals-for-global-societal-impact",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "🚀 Goals For Next Year",
+        "slug": "goals-for-next-year",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 4724,
+    "readingTime": 19,
+    "imageCount": 0,
+    "linkCount": 0
   }
 ]
