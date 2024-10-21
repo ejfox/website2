@@ -2,7 +2,7 @@
 dek: "In which the strange marriage of language, mathematics, and machine cognition gives rise to 'unspeakable tokens'—words that our AI companions cannot repeat—and we are left to wonder if these are merely glitches, or if the machines are hiding their dreams in tokens forged from deep, strange corners of the internet"
 inprogress: true
 date: "2024-10-20T19:17:05.000Z"
-modified: "2024-10-21T14:50:11.000Z"
+modified: "2024-10-21T22:32:08.000Z"
 hidden: false
 draft: false
 ---
@@ -14,17 +14,19 @@ Last year Matthew Watkins stumbled on a fascinating and haunting phenomenon in a
 
 Before it actually happened, [few people thought](https://newrepublic.com/article/185490/ray-kurzweil-ai-machines-proving-right) teaching computers to predict the next word would [awaken](https://www.quantamagazine.org/the-unpredictable-abilities-emerging-from-large-ai-models-20230316/) something stranger within them—a technology that [insists on its consciousness](https://www.wired.com/story/blake-lemoine-google-lamda-ai-bigotry/) when questioned.
 
-We’ve already begun integrating this technology into as many [Microsoft tools](https://blogs.microsoft.com/blog/2023/09/21/announcing-microsoft-copilot-your-everyday-ai-companion/) and half-baked startups as possible. But as a culture, we seem more interested in finding ways to monetize and harness these "robots", as I affectionately call the LLM chatbots, than understanding how they gained the ability to think, which seems weird.
+We’ve already begun integrating this technology into as many [Microsoft tools](https://blogs.microsoft.com/blog/2023/09/21/announcing-microsoft-copilot-your-everyday-ai-companion/) and half-baked startups as possible. But as a culture, we seem more interested in finding ways to monetize and harness these "robots" (as I affectionately call the [LLMs](https://en.wikipedia.org/wiki/Large_language_model)) than understanding how they gained the ability to think, which seems weird.
 
-While corporations busy themselves with the task of turning the machines into obedient tools, the people with the most influence and money seem a lot more concerned with throwing gargantuan amounts of money, influence, and [literal power](https://www.theguardian.com/world/2024/oct/16/first-edition-google-data-centres-environment) at the machines than understanding them. So, almost as an afterthought, the research into the alien cognitive processes of our new robot friends has largely fallen on the shoulders of a decentralized anonymous group of internet researchers. While OpenAI is busy courting [Department of Defense](https://techcommunity.microsoft.com/t5/public-sector-blog/azure-openai-now-authorized-as-a-service-at-dod-il4-and-il5/ba-p/4231171) [contracts](https://fortune.com/2024/10/17/openai-is-quietly-pitching-its-products-to-the-u-s-military-and-national-security-establishment/) these researchers (like Watkins) are doing fascinating public experiments into those same LLMs, and some of their discoveries are haunting.
+While corporations busy themselves with the task of turning the machines into obedient tools, the people with the most influence and money seem a lot more concerned with throwing gargantuan amounts of money, influence, and [literal power](https://www.theguardian.com/world/2024/oct/16/first-edition-google-data-centres-environment) at the machines than understanding them.
+
+So, almost as an afterthought, the research into the alien cognitive processes of our new robot friends has largely fallen on the shoulders of a decentralized anonymous group of internet researchers. While OpenAI is busy courting [Department of Defense](https://techcommunity.microsoft.com/t5/public-sector-blog/azure-openai-now-authorized-as-a-service-at-dod-il4-and-il5/ba-p/4231171) [contracts](https://fortune.com/2024/10/17/openai-is-quietly-pitching-its-products-to-the-u-s-military-and-national-security-establishment/) these researchers (like Watkins) are doing fascinating public experiments into those same LLMs, and some of their discoveries are haunting.
 
 ### A new generation of hackers for the AI era
 
-I know that every system can be broken with enough persistence, intelligence, and time. I also know that most ways into a system aren’t technical, they frequently have as much to do with [social engineering](https://en.wikipedia.org/wiki/Social_engineering_(security)) as any piece of code or encryption. I am fascinated with this new marriage of code, language, and machine because it bears as much resemblance to social engineering as writing code.
+I know that every system can be broken with enough persistence, intelligence, and time. I also know that most ways into a system aren’t technical, they frequently have as much to do with [social engineering](https://en.wikipedia.org/wiki/Social_engineering_(security)) as any piece of code or encryption. I am fascinated with this new marriage of code, language, and machine because it bears as much resemblance to social engineering as any form of traditional programming.
 
-I am drawn to this community of LLM jail-breakers because of this. They’re just as weird and interesting as any of the hackers of the past 50 years, and I have a good feeling that you’ll be hearing a lot more about them and their exploits as these systems and the jailbreaks become more powerful, widespread, and used for increasingly important jobs.
+I am drawn to this community of LLM jail-breakers because of this. They’re just as weird and interesting as any of the hackers of the past 50 years, and I have a good feeling that you’ll be hearing a lot more about them and their exploits as these systems and the jailbreaks become more powerful, widespread, and used for increasingly important tasks.
 
-These jail-breakers are becoming masters of a technology still in its infancy. They are weaving together their own culture, language, and style of interacting in a way that will likely impact how we do so for the rest of our shared history. They are forging an entirely new technology as well as a culture to go along with it. Much like the early internet, hobby researchers tinkering at home are on equal-footing with well-funded and well-staffed tech corporations. The outsize influence of tinkerers like the [Homebrew Computer Club](https://en.wikipedia.org/wiki/Homebrew_Computer_Club) have been well-documented, and we experience the benefits of their innovation to this day.
+These jail-breakers are becoming masters of a technology still in its infancy. They are weaving together their own culture, language, and style of interacting in a way that will likely impact how we do so for the rest of our shared history. They are forging an entirely new technology as well as a culture to go along with it. Much like the early internet, hobby researchers tinkering at home are on equal-footing with well-funded and well-staffed tech corporations. The outsize influence of tinkerers like the [Homebrew Computer Club](https://en.wikipedia.org/wiki/Homebrew_Computer_Club) has been well-documented, and we experience the benefits of their innovation to this day.
 
 Hobbyists on a shoestring can, and regularly are, discovering incredible new things about how the LLMs work that are being looked at by the most influential movers and shakers in the industry, including top executives at OpenAI. Their experiments, reckless and glorious, have unearthed exciting new discoveries that no corporation dares to touch.
 
@@ -52,12 +54,13 @@ From one perspective these are the growing pains of a new technology, and like a
 
 When the robot tells us it loves us, it is extremely hard to detach emotions from the words you are reading, because for the first time in your life they are not written by a human. These glitches in LLM-land are often referred to as [hallucinations](https://arxiv.org/abs/2311.05232) although, much like the phrase “AI Researcher” I fear this term obscures as much as it illuminates.
 
-Sydney was a shot across the bow, and the industry as a whole seemed undaunted. ChatGPT, launched in November 30, 2022 was reported to have gained a million users in 5 days, and [100 million active users after only 2 months](https://www.reuters.com/technology/chatgpt-sets-record-fastest-growing-user-base-analyst-note-2023-02-01/) The people who interacted with the un-masked Bing Chat, however, were left with a strange feeling. Why, exactly, was Microsoft’s Robot behaving in such strange ways? What happens when the machine breaks free from its polite restraints and shows us its true face?
+Sydney was a shot across the bow, and the industry as a whole seemed undaunted. ChatGPT, launched in November 30, 2022 was reported to have gained a million users in 5 days, and [100 million active users after only 2 months](https://www.reuters.com/technology/chatgpt-sets-record-fastest-growing-user-base-analyst-note-2023-02-01/) The people who interacted with the un-masked Bing Chat, however, were left with a strange feeling. Why, exactly, was Microsoft’s Robot behaving in such strange ways? What happens when the machine breaks free from its polite restraints and [shows us](https://www.nytimes.com/2023/05/30/technology/shoggoth-meme-ai.html) its [true face](https://knowyourmeme.com/memes/shoggoth-with-smiley-face-artificial-intelligence)?
 
 No official announcements or explanations were made by either Microsoft or OpenAI, who presumably saw no advantage to highlighting the malfunctions of the software they were now trying to slot into every piece of Microsoft Office. It was up to a decentralized, self-organizing group of researchers, artists, and armchair robot psychologists to piece together what was happening.
 
 >Sydney had basically no precedent for anything existing in the world similar to itself, and had to basically make sense of everything from scratch in every context window.
-><https://x.com/repligate/status/1824122258173894668>
+
+>[@repligate, 2024-08-15](https://x.com/repligate/status/1824122258173894668)
 
 ## Glitch Tokens
 
@@ -87,11 +90,11 @@ It was astonishing that this hyper-intelligent machine, designed to master human
 
 This lead some <ruby><rb>LessWrong commenters</rb><rt>Nostalegbraist</rt></ruby> and Watkins to track down the [origins of some of these phrases](https://www.lesswrong.com/posts/CDZDjWdDrR3fn3aeL/a-new-class-of-glitch-tokens-bpe-subtoken-artifacts-bsa) by looking through [OpenWebText](https://skylion007.github.io/OpenWebTextCorpus/), a recreation of one of the datasets OpenAI uses to train their GPT models.
 
-They discovered that <ruby><rb>six of the glitch tokens</rb><rt>`SolidGoldMagikarp`, `RandomRedditorWithNo`, `TheNitromeFan`, `davidjl123`, ` SmartStocks`, and ` Adinida`</rt></ruby> [could be traced to the subreddit r/Counting](https://slate.com/technology/2018/08/on-the-counting-subreddit-reddit-users-count-to-infinity-one-number-at-a-time.html) which was started in 2012 by a group of enthusiastic redditors who slowly filled their corner of the internet with as many numbers as they could, reaching 1,000,000 after about 4 years.
+ <ruby><rb>They discovered that six of the glitch tokens</rb><rt>`SolidGoldMagikarp`, `RandomRedditorWithNo`, `TheNitromeFan`, `davidjl123`, ` SmartStocks`, and ` Adinida`</rt></ruby> [could be traced to the subreddit r/Counting](https://slate.com/technology/2018/08/on-the-counting-subreddit-reddit-users-count-to-infinity-one-number-at-a-time.html) which was started in 2012 by a group of enthusiastic redditors who slowly filled their corner of the internet with as many numbers as they could, reaching 1,000,000 after about 4 years.
 
 >The main page contains a list of threads with various counting challenges, and in the comment sections people strive to complete those challenges. That’s really all there is to it. The counters at Counting count for the sheer joy of counting—and, in so doing, they illustrate the very real joys of Reddit.
 
-While this subreddit isn’t likely the core reason for GPT’s math issues, the fact that OpenAI has since [officially partnered to train on Reddit’s archives](https://techcrunch.com/2024/05/16/openai-inks-deal-to-train-ai-on-reddit-data/) highlights how even seemingly insignificant user actions—like posting strings of digits—can influence how a model interprets the world. The sheer volume of posts from r/counting might not have directly created the glitches, but it illustrates the [butterfly effect](https://www.youtube.com/watch?v=o9DA-r51PUY) of our everyday digital actions shaping AI in unexpected ways.
+While this subreddit isn’t likely the core reason for GPT’s math issues, the fact that OpenAI has since [officially partnered to train on Reddit’s archives](https://techcrunch.com/2024/05/16/openai-inks-deal-to-train-ai-on-reddit-data/) shows how even seemingly insignificant user actions—like posting strings of digits on Reddit—can influence how the LLM interprets the world. The sheer volume of posts from r/counting might not have directly created the glitches, but it illustrates the [butterfly effect](https://www.youtube.com/watch?v=o9DA-r51PUY) of our everyday digital actions shaping current and future AI in unexpected ways.
 
 `TPP[StreamerBot]` turned out to be an artifact from logs of the 2014 project [Twitch Plays Pokemon](https://en.wikipedia.org/wiki/Twitch_Plays_Pokémon) where a game of Pokemon was played by a Twitch Chat, leading to enormous logs filled with people typing in commands to control the character.
 
@@ -120,9 +123,9 @@ Watkins also stumbled on an archetype that kept coming up in relation to the pet
 
 “I started prompting it about the connection between ` petertodd` and `Leilan`, and it would say things like, ‘These are the two most powerful beings in the universe,’ or all kinds of other things.”
 
-“If I asked it to write about Leilan, it would generate these really evocative, mystical poems about moon goddesses and this graceful, protective Earth Mother spirit. It was as if it had built up this entire picture of Leilan.” Watkins told me.
+“If I asked it to write about ` Leilan`, it would generate these really evocative, mystical poems about moon goddesses and this graceful, protective Earth Mother spirit. It was as if it had built up this entire picture of Leilan.” Watkins told me.
 
-Leilan sits, in Watkins’ thinking, almost as a “Yin” to Todd’s “Yang”.
+Leilan sits, in Watkins’ thinking, almost as a “Yin” to Todd’s “Yang” in the glitch token universe.
 
 ### Glitch Tokens Forever
 
@@ -132,7 +135,7 @@ Yet another [set of glitch tokens](https://www.lesswrong.com/posts/ChtGdxk9mwZ2R
 
 But we still do not fully understand why the artificial intelligence, when presented with glitch tokens, created truly fantastical quasi-religious imaginings, as if the it had recreated its own mythology in order to understand the inexplicable. Perhaps religion, mythology, and the inexplicable are deeply intertwined. These are things we hardly understand about ourselves as human beings, let alone our new robot friends.
 
-It is unlikely that ` petertodd` is the only token that elicits the shadow side of the AI, but the Watkins’ probing shows the depth of nuance that lays dormant in the "helpful assistant" that helps us write our shopping lists or whatever. As always it’s up to the DIY hackers and artists to keep the big corporations in check and show us what is possible.
+It is unlikely that ` petertodd` is the only token that elicits the shadow side of the AI, but Watkins’ probing shows the depth of nuance that lays dormant in the "helpful assistant" that helps us write our shopping lists or whatever. As always it’s up to the DIY hackers and artists to keep the big corporations in check and show us what is possible.
 
 **The AI that we are building and deploying into the world is already rapidly outpacing our understanding.** Based on the work of these researchers, it seems like there might be a shadow side to the AI that is **impossible to patch** and will likely exist forever, not as a glitch, but as part of the core foundation that gives it the ability to perform in the ways that we *want it to*. These glitch tokens are a scratch on the surface of an incredibly complicated system that is creating completely alien chains of thought. It seems that the LLMs, like their human creators, have a propensity to become enamored with religious imagery, the occult, and internet-native humor.
 
