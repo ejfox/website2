@@ -20,22 +20,26 @@
         {
           "text": "Goals For Spliff & Espresso Brand",
           "slug": "goals-for-spliff-espresso-brand",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Brand Identity",
           "slug": "brand-identity",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Products",
           "slug": "products",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Concepts",
           "slug": "concepts",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

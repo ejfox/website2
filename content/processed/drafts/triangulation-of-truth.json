@@ -21,47 +21,56 @@
         {
           "text": "The Problem with Singular Perspectives",
           "slug": "the-problem-with-singular-perspectives",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "The Importance of Diverse Sources",
           "slug": "the-importance-of-diverse-sources",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Identifying Noise and Bad Data",
           "slug": "identifying-noise-and-bad-data",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "The Process of Triangulation",
           "slug": "the-process-of-triangulation",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Case Study: Triangulating the Truth in Action",
           "slug": "case-study-triangulating-the-truth-in-action",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "The Challenges of Triangulation",
           "slug": "the-challenges-of-triangulation",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Tools and Resources for Effective Triangulation",
           "slug": "tools-and-resources-for-effective-triangulation",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Conclusion",
           "slug": "conclusion",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Additional Reading and References",
           "slug": "additional-reading-and-references",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

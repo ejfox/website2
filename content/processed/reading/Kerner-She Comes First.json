@@ -20,7 +20,26 @@
   "hidden": false,
   "draft": false,
   "title": "She Comes First",
-  "toc": [],
+  "toc": [
+    {
+      "text": "She Comes First",
+      "slug": "she-comes-first",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 289,
   "readingTime": 2,
   "imageCount": 0,

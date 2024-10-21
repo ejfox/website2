@@ -23,12 +23,14 @@
         {
           "text": "First idea: IP ranges",
           "slug": "first-idea-ip-ranges",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Better idea: query by latitude and longitude",
           "slug": "better-idea-query-by-latitude-and-longitude",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },

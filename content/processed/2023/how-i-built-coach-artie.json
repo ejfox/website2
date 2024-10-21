@@ -21,32 +21,38 @@
         {
           "text": "Motivations",
           "slug": "motivations",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Development",
           "slug": "development",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Examples",
           "slug": "examples",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Future plans",
           "slug": "future-plans",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Thoughts",
           "slug": "thoughts",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Coach Artie's Perspective",
           "slug": "coach-artie-s-perspective",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

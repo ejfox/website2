@@ -21,37 +21,44 @@
         {
           "text": "The power of Markdown",
           "slug": "the-power-of-markdown",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Great plugin framework and community",
           "slug": "great-plugin-framework-and-community",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Using Obsidian with Nuxt for my website",
           "slug": "using-obsidian-with-nuxt-for-my-website",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Graph views",
           "slug": "graph-views",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Canvas view",
           "slug": "canvas-view",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Great mobile support & iOS app",
           "slug": "great-mobile-support-ios-app",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Community plugins",
           "slug": "community-plugins",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

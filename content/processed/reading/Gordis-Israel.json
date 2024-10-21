@@ -17,7 +17,26 @@
   "hidden": false,
   "draft": false,
   "title": "Israel",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Israel",
+      "slug": "israel",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 435,
   "readingTime": 2,
   "imageCount": 0,

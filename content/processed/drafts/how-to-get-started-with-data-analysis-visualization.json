@@ -12,7 +12,44 @@
     "visualization"
   ],
   "title": "How to get started with data visualization",
-  "toc": [],
+  "toc": [
+    {
+      "text": "How to get started with data visualization",
+      "slug": "how-to-get-started-with-data-visualization",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "What is data visualization?",
+      "slug": "what-is-data-visualization",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "How I got started",
+      "slug": "how-i-got-started",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "How someone could get started today",
+      "slug": "how-someone-could-get-started-today",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Resources for learning",
+      "slug": "resources-for-learning",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Ideas for using data visualization",
+      "slug": "ideas-for-using-data-visualization",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 37,
   "readingTime": 1,
   "imageCount": 0,

@@ -1,7 +1,8 @@
 ---
 title: "Vocativ"
 date: "2014-10-13T20:02:28.000Z"
-modified: "2024-10-01T22:54:57.000Z"
+modified: "2024-10-14T16:35:37.000Z"
+url: "https://en.wikipedia.org/wiki/Vocativ"
 hidden: false
 draft: false
 ---

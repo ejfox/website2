@@ -1,7 +1,7 @@
 ---
 dek: "In which we attempt to craft some treasure from the debris of a life lived on the internet"
 date: "2024-09-20T04:22:35.000Z"
-modified: "2024-09-20T04:22:35.000Z"
+modified: "2024-10-13T14:17:27.000Z"
 tags: ["inspiration","dataviz","design","howto","politics"]
 hidden: false
 draft: false

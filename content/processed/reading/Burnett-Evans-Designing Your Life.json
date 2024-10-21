@@ -19,7 +19,26 @@
   "hidden": false,
   "draft": false,
   "title": "Designing Your Life",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Designing Your Life",
+      "slug": "designing-your-life",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 139,
   "readingTime": 1,
   "imageCount": 0,

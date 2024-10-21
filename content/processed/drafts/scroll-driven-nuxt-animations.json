@@ -20,17 +20,20 @@
         {
           "text": "VueUse Motion",
           "slug": "vueuse-motion",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "useScroll()",
           "slug": "usescroll",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "anime.js",
           "slug": "anime-js",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

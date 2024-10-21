@@ -22,32 +22,38 @@
         {
           "text": "The Universal Language of Radio",
           "slug": "the-universal-language-of-radio",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Radio Codes: A Primer",
           "slug": "radio-codes-a-primer",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Regional Nuances",
           "slug": "regional-nuances",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Professional Practices",
           "slug": "professional-practices",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "The Future of Radio Communication",
           "slug": "the-future-of-radio-communication",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Conclusion",
           "slug": "conclusion",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

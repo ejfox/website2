@@ -21,7 +21,26 @@
   "hidden": false,
   "draft": false,
   "title": "Futureproof",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Futureproof",
+      "slug": "futureproof",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 193,
   "readingTime": 1,
   "imageCount": 0,

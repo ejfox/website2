@@ -18,7 +18,26 @@
   "hidden": false,
   "draft": false,
   "title": "American Indian Myths and Legends",
-  "toc": [],
+  "toc": [
+    {
+      "text": "American Indian Myths and Legends",
+      "slug": "american-indian-myths-and-legends",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 969,
   "readingTime": 4,
   "imageCount": 0,

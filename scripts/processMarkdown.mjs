@@ -12,25 +12,23 @@ import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-// import remarkObsidian from 'remark-obsidian'
 import remarkGfm from 'remark-gfm'
 import remarkUnwrapImages from 'remark-unwrap-images'
 import rehypeMermaid from 'rehype-mermaid'
 import rehypePrettyCode from 'rehype-pretty-code'
 import { transformerCopyButton } from '@rehype-pretty/transformers'
-import fetch from 'node-fetch' // For fetching SVGs
+import fetch from 'node-fetch'
 import { visit } from 'unist-util-visit'
 import matter from 'gray-matter'
 import { fromHtmlIsomorphic } from 'hast-util-from-html-isomorphic'
 import dotenv from 'dotenv'
-import NodeCache from 'node-cache'
 import * as shiki from 'shiki'
 import { createClient } from '@supabase/supabase-js'
 import crypto from 'crypto'
 import { stat } from 'fs/promises'
-import { promisify } from 'util';
+import { promisify } from 'util'
 import { socialPlatforms, hrSvg, headerStar } from '../helpers.mjs'
-const setTimeoutPromise = promisify(setTimeout);
+const setTimeoutPromise = promisify(setTimeout)
 
 // =============================
 // Load Environment Variables
@@ -40,7 +38,6 @@ dotenv.config()
 // =============================
 // Initialize Cloudinary SDK Correctly
 // =============================
-// Import the v2 API and configure it
 import { v2 as cloudinary } from 'cloudinary'
 
 cloudinary.config({
@@ -60,9 +57,6 @@ const __dirname = path.dirname(__filename)
 // =============================
 const contentDir = path.resolve(process.cwd(), 'content', 'blog')
 const outputDir = path.resolve(process.cwd(), 'content', 'processed')
-const cacheDir = path.resolve(process.cwd(), 'cache')
-const CACHE_VERSION = 1 // Increment this when making significant changes to the processing logic
-const cacheFilePath = path.join(cacheDir, 'content-hash-cache.json')
 
 // =============================
 // Define Cloudinary Base URL
@@ -70,6 +64,342 @@ const cacheFilePath = path.join(cacheDir, 'content-hash-cache.json')
 const CLOUDINARY_BASE_URL = `https://res.cloudinary.com/${
   cloudinary.config().cloud_name
 }/image/upload/`
+
+// =============================
+// Plugin: rehypeAddClassToParagraphs
+// =============================
+function rehypeAddClassToParagraphs() {
+  return (tree) => {
+    visit(tree, 'element', (node) => {
+      if (node.tagName === 'p') {
+        node.properties = node.properties || {}
+        node.properties.className = node.properties.className || []
+        if (Array.isArray(node.properties.className)) {
+          node.properties.className.push('max-w-prose')
+        } else {
+          node.properties.className += ' max-w-prose'
+        }
+        node.properties.style = node.properties.style || ''
+        node.properties.style += 'max-width: 50ch;'
+      } else if (node.tagName === 'blockquote') {
+        const p = node.children.find((child) => child.tagName === 'p')
+        if (p) {
+          p.properties = p.properties || {}
+          p.properties.className = p.properties.className || []
+          if (Array.isArray(p.properties.className)) {
+            p.properties.className.push('max-w-prose')
+          } else {
+            p.properties.className += ' max-w-prose'
+          }
+        }
+      }
+    })
+  }
+}
+
+// =============================
+// Helper: Extract Headers and TOC
+// =============================
+function extractHeadersAndToc(tree, maxDepth = 3) {
+  let firstHeading = null
+  let firstHeadingNode = null
+  const toc = []
+  const headingStack = []
+
+  visit(tree, 'heading', (node) => {
+    if (node.depth > maxDepth) return
+
+    if (node.children && node.children[0] && node.children[0].value) {
+      const headingText = node.children[0].value
+      const headingSlug = generateSlug(headingText)
+
+      const headingItem = {
+        text: headingText,
+        slug: headingSlug,
+        level: `h${node.depth}`,
+        children: []
+      }
+
+      if (!firstHeading && (node.depth === 1 || node.depth === 2)) {
+        firstHeading = headingText
+        firstHeadingNode = node
+      }
+
+      while (headingStack.length > 0 && headingStack[headingStack.length - 1].level >= headingItem.level) {
+        headingStack.pop()
+      }
+
+      if (headingStack.length === 0) {
+        toc.push(headingItem)
+      } else {
+        headingStack[headingStack.length - 1].children.push(headingItem)
+      }
+
+      headingStack.push(headingItem)
+    }
+  })
+
+  return { firstHeading, toc, firstHeadingNode }
+}
+
+function removeFirstHeading(tree, firstHeadingNode) {
+  if (firstHeadingNode) {
+    const index = tree.children.indexOf(firstHeadingNode)
+    if (index !== -1) {
+      tree.children.splice(index, 1)
+    }
+  }
+  return tree
+}
+
+function generateSlug(str) {
+  return str
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+}
+
+function enhanceLinksWithScraps(options = {}) {
+  const supabaseUrl = process.env.SUPABASE_URL
+  const supabaseKey = process.env.SUPABASE_KEY
+  const supabase = createClient(supabaseUrl, supabaseKey)
+
+  const cache = new NodeCache({ stdTTL: 3600 })
+
+  async function loadScrapsIntoCache() {
+    if (cache.has('scrapMap')) {
+      return cache.get('scrapMap')
+    }
+
+    let { data: scraps, error } = await supabase
+      .from('scraps')
+      .select('scrap_id, metadata')
+
+    if (error) {
+      console.error('Error fetching scraps from Supabase:', error)
+      return {}
+    }
+
+    const scrapMap = {}
+    scraps.forEach((scrap) => {
+      const href = scrap.metadata?.href
+      if (href) {
+        scrapMap[href] = scrap
+      }
+    })
+
+    cache.set('scrapMap', scrapMap)
+    return scrapMap
+  }
+
+  return async (tree) => {
+    const linkNodes = []
+
+    visit(tree, 'link', (node) => {
+      linkNodes.push(node)
+    })
+
+    const scrapMap = await loadScrapsIntoCache()
+
+    for (const node of linkNodes) {
+      const scrap = scrapMap[node.url]
+      if (scrap) {
+        node.data = node.data || {}
+        node.data.hProperties = node.data.hProperties || {}
+        node.data.hProperties['data-scrap-id'] = scrap.scrap_id
+        node.data.hProperties['data-scrap-metadata'] = JSON.stringify(
+          scrap.metadata
+        )
+      }
+    }
+  }
+}
+
+// =============================
+// Plugin Integration and Markdown Processing
+// =============================
+async function processMarkdown(content, filePath) {
+  log(`Processing content from: ${filePath}`)
+  const { data: frontmatter, content: markdownContent } = matter(content)
+  log(`Frontmatter extracted: ${JSON.stringify(frontmatter)}`)
+
+  const processor = unified()
+    .use(remarkParse)
+    .use(remarkObsidianSupport)
+    .use(remarkCustomElements)
+    .use(remarkGfm)
+    .use(remarkUnwrapImages)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeAddClassToParagraphs)
+    .use(remarkAi2htmlEmbed)
+    .use(rehypePrettyCode, {
+      theme: JSON.parse(await fs.readFile('./themes/ayu-mirage.json', 'utf-8')),
+      onVisitLine(node) {
+        if (node.children.length === 0) {
+          node.children = [{ type: 'text', value: ' ' }]
+        }
+      },
+      onVisitHighlightedLine(node) {
+        node.properties.className.push('highlighted')
+      },
+      onVisitHighlightedWord(node) {
+        node.properties.className = ['word']
+      },
+      highlighter: highlighter,
+      transformers: [
+        transformerCopyButton({
+          visibility: 'always',
+          feedbackDuration: 3000
+        })
+      ]
+    })
+    .use(rehypeMermaid, {
+      strategy: 'inline-svg'
+    })
+    .use(rehypeSlug)
+    .use(rehypeAutolinkHeadings, {
+      content: fromHtmlIsomorphic(headerStar, { fragment: true }).children
+    })
+    .use(rehypeStringify, { allowDangerousHtml: true })
+
+  log('Parsing content')
+  const ast = processor.parse(markdownContent)
+  log('Content parsed, extracting headers and TOC')
+  const { firstHeading, toc, firstHeadingNode } = extractHeadersAndToc(ast)
+  log(`First heading: "${firstHeading}", TOC entries: ${toc.length}`)
+
+  log('Removing first heading from AST')
+  removeFirstHeading(ast, firstHeadingNode)
+
+  log('Running processor')
+  const result = await processor.run(ast)
+  log('Processor run complete')
+
+  log('Stringifying result')
+  const html = processor.stringify(result)
+  log(`HTML generated, length: ${html.length} characters`)
+
+  const wordCount = markdownContent.split(/\s+/).length
+  const readingTime = Math.ceil(wordCount / 250)
+  const imageCount = (markdownContent.match(/!\[.*?\]\(.*?\)/g) || []).length
+  const linkCount = (markdownContent.match(/\[.*?\]\(.*?\)/g) || []).length
+
+  log(
+    `Metadata calculated: ${wordCount} words, ${readingTime} min read, ${imageCount} images, ${linkCount} links`
+  )
+
+  return {
+    html,
+    metadata: {
+      ...frontmatter,
+      title: frontmatter.title || firstHeading || path.basename(filePath, '.md'),
+      toc,
+      wordCount,
+      readingTime,
+      imageCount,
+      linkCount
+    }
+  }
+}
+
+// Process a single markdown file
+async function processMarkdownFile(fullPath) {
+  const relativePath = path.relative(contentDir, fullPath)
+  const slug = relativePath.replace(/\.md$/, '')
+  const outputPath = path.join(outputDir, `${slug}.json`)
+
+  const fileContent = await fs.readFile(fullPath, 'utf-8')
+
+  console.log(`Processing markdown file: ${fullPath}`)
+  const { html, metadata } = await processMarkdown(fileContent, fullPath)
+
+  if (!html) {
+    throw new Error(`Failed to generate HTML for ${fullPath}`)
+  }
+
+  console.log(`Writing processed file to: ${outputPath}`)
+  await fs.mkdir(path.dirname(outputPath), { recursive: true })
+  await fs.writeFile(
+    outputPath,
+    JSON.stringify({ slug, ...metadata, content: html }, null, 2)
+  )
+
+  return { slug, ...metadata }
+}
+
+// Add this function to your script
+async function getFilesRecursively(dir) {
+  const entries = await fs.readdir(dir, { withFileTypes: true });
+  const files = await Promise.all(entries.map(async (entry) => {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      return getFilesRecursively(fullPath);
+    } else if (entry.isFile() && path.extname(entry.name) === '.md') {
+      const stats = await stat(fullPath);
+      const content = await fs.readFile(fullPath, 'utf-8'); // Read file content here
+      return { path: fullPath, mtime: stats.mtime, content }; // Include content in the return object
+    }
+    return [];
+  }));
+
+  return files.flat();
+}
+
+// Main function to process all files
+async function processAllFiles() {
+  console.log('Starting to process all files')
+  let isInterrupted = false;
+
+  // Set up interrupt handler
+  const interruptHandler = async () => {
+    if (isInterrupted) {
+      console.log('Forced exit. Some progress may be lost.');
+      process.exit(1);
+    }
+    console.log('\nInterrupt received. Saving progress...');
+    isInterrupted = true;
+  };
+
+  process.on('SIGINT', interruptHandler);
+
+  try {
+    console.log('Collecting and sorting files...')
+    const allFiles = await getFilesRecursively(contentDir)
+    allFiles.sort((a, b) => b.mtime - a.mtime) // Sort by modification time, newest first
+
+    const manifestLite = [];
+    for (const file of allFiles) {
+      if (isInterrupted) break;
+      try {
+        const result = await processMarkdownFile(file.path)
+        manifestLite.push(result);
+      } catch (error) {
+        console.error(`Error processing ${file.path}:`, error)
+      }
+      // Small delay to allow interrupt to be processed
+      await setTimeoutPromise(0);
+    }
+
+    // Filter out null results (from errors)
+    const filteredManifest = manifestLite.filter(Boolean)
+
+    if (!isInterrupted) {
+      console.log('Writing manifest-lite.json')
+      const manifestPath = path.join(outputDir, 'manifest-lite.json')
+      await fs.mkdir(path.dirname(manifestPath), { recursive: true })
+      await fs.writeFile(manifestPath, JSON.stringify(filteredManifest, null, 2))
+    }
+  } catch (error) {
+    console.error('Error processing files:', error)
+    throw error
+  } finally {
+    process.off('SIGINT', interruptHandler);
+    if (isInterrupted) {
+      console.log('Progress saved. Exiting.');
+      process.exit(0);
+    }
+  }
+}
 
 // =============================
 // Set Up Shiki Highlighter
@@ -89,65 +419,6 @@ const highlighter = await shiki.getHighlighter({
     'jsx',
     'tsx'
   ]
-})
-
-
-
-// Function to compute content hash
-function computeContentHash(content) {
-  return crypto.createHash('sha256').update(content).digest('hex')
-}
-
-// Load cache from file
-async function loadCache() {
-  try {
-    const cacheData = await fs.readFile(cacheFilePath, 'utf-8')
-    const cache = JSON.parse(cacheData)
-    if (cache.version !== CACHE_VERSION) {
-      console.log('Cache version mismatch. Starting fresh.')
-      return { version: CACHE_VERSION, files: {} }
-    }
-    return cache
-  } catch (error) {
-    if (error.code === 'ENOENT') {
-      console.warn('No existing cache found. Starting fresh.')
-    } else {
-      console.error('Error loading cache:', error)
-    }
-    return { version: CACHE_VERSION, files: {} }
-  }
-}
-
-// Save cache to file
-async function saveCache(cache) {
-  try {
-    await fs.mkdir(path.dirname(cacheFilePath), { recursive: true })
-    await fs.writeFile(cacheFilePath, JSON.stringify(cache, null, 2), 'utf-8')
-    console.log('Content hash cache saved.')
-  } catch (error) {
-    console.error('Error saving cache:', error)
-  }
-}
-
-// Cleanup function
-async function cleanup() {
-  try {
-    await saveCache(contentHashCache)
-    console.log('Cleanup completed successfully.')
-  } catch (error) {
-    console.error('Error during cleanup:', error)
-  }
-}
-
-// Handle Process Exit Signals to Save Cache
-process.on('exit', cleanup)
-process.on('SIGINT', async () => {
-  await cleanup()
-  process.exit()
-})
-process.on('SIGTERM', async () => {
-  await cleanup()
-  process.exit()
 })
 
 // =============================
@@ -193,72 +464,72 @@ function processLink(href) {
  * Plugin to handle custom elements like images, links, and code blocks.
  */
 function remarkCustomElements() {
-  return async (tree) => {
-    const iconCache = {}
+  const iconCache = {}; // In-memory cache for icons
 
-    async function getIconSVG(iconName) {
-      if (iconCache[iconName]) {
-        return iconCache[iconName]
-      }
-
-      const [prefix, name] = iconName.split(':')
-      const url = `https://api.iconify.design/${prefix}/${name}.svg`
-      try {
-        const response = await fetch(url)
-        if (response.ok) {
-          const svg = await response.text()
-          iconCache[iconName] = svg
-          return svg
-        } else {
-          console.error(`Failed to fetch icon: ${iconName}`)
-          return null
-        }
-      } catch (error) {
-        console.error(`Error fetching icon ${iconName}:`, error)
-        return null
-      }
+  async function getIconSVG(iconName) {
+    if (iconCache[iconName]) {
+      return iconCache[iconName];
     }
 
-    function getNodeText(node) {
-      if (!node) return ''
-      if (node.type === 'text') {
-        return node.value
-      } else if (node.children && node.children.length > 0) {
-        return node.children.map(getNodeText).join('')
+    const [prefix, name] = iconName.split(':');
+    const url = `https://api.iconify.design/${prefix}/${name}.svg`;
+    try {
+      const response = await fetch(url);
+      if (response.ok) {
+        const svg = await response.text();
+        iconCache[iconName] = svg; // Cache the SVG
+        return svg;
       } else {
-        return ''
+        console.error(`Failed to fetch icon: ${iconName}`);
+        return null;
       }
+    } catch (error) {
+      console.error(`Error fetching icon ${iconName}:`, error);
+      return null;
     }
+  }
 
-    const linkNodes = []
+  function getNodeText(node) {
+    if (!node) return '';
+    if (node.type === 'text') {
+      return node.value;
+    } else if (node.children && node.children.length > 0) {
+      return node.children.map(getNodeText).join('');
+    } else {
+      return '';
+    }
+  }
+
+  return async (tree) => {
+    const linkNodes = [];
 
     // Collect link nodes
     visit(tree, 'link', (node) => {
-      linkNodes.push(node)
-    })
+      linkNodes.push(node);
+    });
 
     // Process links
     for (const node of linkNodes) {
-      const { href, icon } = processLink(node.url)
-      node.url = href
+      const { href, icon } = processLink(node.url);
+      node.url = href;
       if (icon) {
-        node.type = 'html'
-        let iconHtml = ''
+        node.type = 'html';
+        let iconHtml = '';
         if (icon) {
-          const svg = await getIconSVG(icon)
+          const svg = await getIconSVG(icon);
           if (svg) {
             const styledSvg = svg.replace(
               '<svg',
               '<svg style="display: inline-block; vertical-align: middle; width: 0.7em; height: 0.7em; margin-left: 0.2rem; margin-right: 0.2rem; margin-top: -0.2em; opacity: 0.8;"'
-            )
-            iconHtml = `${styledSvg}`
+            );
+            iconHtml = `${styledSvg}`;
           }
         }
-        const linkText = getNodeText(node)
-        node.value = `<a href="${href}">${linkText}${iconHtml}</a>`
+        const linkText = getNodeText(node);
+        node.value = `<a href="${href}">${linkText}${iconHtml}</a>`;
       }
     }
-  }
+  };
 }
 
 // =============================
@@ -293,385 +564,6 @@ function remarkAi2htmlEmbed() {
 }
 
 
-// =============================
-// Plugin: rehypeAddClassToParagraphs
-// =============================
-/**
- * Plugin to add classes and styles to paragraph elements.
- */
-function rehypeAddClassToParagraphs() {
-  return (tree) => {
-    visit(tree, 'element', (node) => {
-      if (node.tagName === 'p') {
-        node.properties = node.properties || {}
-        node.properties.className = node.properties.className || []
-        if (Array.isArray(node.properties.className)) {
-          node.properties.className.push('max-w-prose')
-        } else {
-          node.properties.className += ' max-w-prose'
-        }
-        node.properties.style = node.properties.style || ''
-        node.properties.style += 'max-width: 50ch;'
-      } else if (node.tagName === 'blockquote') {
-        // look for the p inside the blockquote
-        const p = node.children.find((child) => child.tagName === 'p')
-        if (p) {
-          p.properties = p.properties || {}
-          p.properties.className = p.properties.className || []
-          if (Array.isArray(p.properties.className)) {
-            p.properties.className.push('max-w-prose')
-          } else {
-            p.properties.className += ' max-w-prose'
-          }
-        }
-      }
-    })
-  }
-}
-
-// =============================
-// Helper: Extract Headers and TOC
-// =============================
-/**
- * Extracts headers and generates a Table of Contents (TOC).
- * @param {object} tree - The markdown AST.
- * @returns {object} - Contains the first heading, TOC, and the first heading node.
- */
-function extractHeadersAndToc(tree) {
-  let firstHeading = null
-  let firstHeadingNode = null
-  const toc = []
-  let currentH2 = null
-
-  visit(tree, 'heading', (node) => {
-    if (node.children && node.children[0] && node.children[0].value) {
-      const headingText = node.children[0].value
-      const headingSlug = generateSlug(headingText)
-
-      if (!firstHeading && (node.depth === 1 || node.depth === 2)) {
-        firstHeading = headingText
-        firstHeadingNode = node
-      }
-
-      if (node.depth === 2) {
-        currentH2 = {
-          text: headingText,
-          slug: headingSlug,
-          level: 'h2',
-          children: []
-        }
-        toc.push(currentH2)
-      } else if (node.depth === 3 && currentH2) {
-        currentH2.children.push({
-          text: headingText,
-          slug: headingSlug,
-          level: 'h3'
-        })
-      }
-    }
-  })
-
-  return { firstHeading, toc, firstHeadingNode }
-}
-
-/**
- * Removes the first heading from the AST.
- * @param {object} tree - The markdown AST.
- * @param {object} firstHeadingNode - The first heading node to remove.
- */
-function removeFirstHeading(tree, firstHeadingNode) {
-  if (firstHeadingNode) {
-    const index = tree.children.indexOf(firstHeadingNode)
-    if (index !== -1) {
-      tree.children.splice(index, 1)
-    }
-  }
-  return tree
-}
-
-/**
- * Generates a slug from a string.
- * @param {string} str - The input string.
- * @returns {string} - The generated slug.
- */
-function generateSlug(str) {
-  return str
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-}
-
-function enhanceLinksWithScraps(options = {}) {
-  // Initialize Supabase client
-  const supabaseUrl = process.env.SUPABASE_URL
-  const supabaseKey = process.env.SUPABASE_KEY
-  const supabase = createClient(supabaseUrl, supabaseKey)
-
-  // Initialize NodeCache with a TTL (e.g., 1 hour)
-  const cache = new NodeCache({ stdTTL: 3600 })
-
-  // Function to load all scraps into cache
-  async function loadScrapsIntoCache() {
-    // Check if scraps are already in cache
-    if (cache.has('scrapMap')) {
-      return cache.get('scrapMap')
-    }
-
-    // Fetch all scraps from Supabase
-    let { data: scraps, error } = await supabase
-      .from('scraps')
-      .select('scrap_id, metadata')
-
-    if (error) {
-      console.error('Error fetching scraps from Supabase:', error)
-      return {}
-    }
-
-    // Build a map of href to scrap
-    const scrapMap = {}
-    scraps.forEach((scrap) => {
-      const href = scrap.metadata?.href
-      if (href) {
-        scrapMap[href] = scrap
-      }
-    })
-
-    // Store the map in cache
-    cache.set('scrapMap', scrapMap)
-    return scrapMap
-  }
-
-  return async (tree) => {
-    const linkNodes = []
-
-    // Collect all link nodes
-    visit(tree, 'link', (node) => {
-      linkNodes.push(node)
-    })
-
-    // Load the scraps into cache
-    const scrapMap = await loadScrapsIntoCache()
-
-    // Process each link node
-    for (const node of linkNodes) {
-      const scrap = scrapMap[node.url]
-      if (scrap) {
-        // Inject scrap_id and metadata as attributes
-        node.data = node.data || {}
-        node.data.hProperties = node.data.hProperties || {}
-        node.data.hProperties['data-scrap-id'] = scrap.scrap_id
-        node.data.hProperties['data-scrap-metadata'] = JSON.stringify(
-          scrap.metadata
-        )
-      }
-    }
-  }
-}
-
-// =============================
-// Plugin Integration and Markdown Processing
-// =============================
-/**
- * Processes a single markdown file.
- * @param {string} filePath - The path to the markdown file.
- * @returns {object} - Contains the processed HTML and metadata.
- */
-async function processMarkdown(content, filePath) {
-  log(`Processing content from: ${filePath}`)
-  const { data: frontmatter, content: markdownContent } = matter(content)
-  log(`Frontmatter extracted: ${JSON.stringify(frontmatter)}`)
-
-  const processor = unified()
-    .use(remarkParse)
-    .use(remarkObsidianSupport)
-    .use(remarkCustomElements) // Custom plugin for images, links, and code
-    // .use(enhanceLinksWithScraps) // Enhance links with metadata from Supabase
-    .use(remarkGfm)
-    .use(remarkUnwrapImages)
-    .use(remarkRehype, { allowDangerousHtml: true })
-    .use(rehypeAddClassToParagraphs)
-    .use(remarkAi2htmlEmbed)
-    // .use(rehypeConvertHrToSvg) // Uncomment if you want to convert <hr> to SVG
-    .use(rehypePrettyCode, {
-      theme: JSON.parse(await fs.readFile('./themes/ayu-mirage.json', 'utf-8')),
-      onVisitLine(node) {
-        if (node.children.length === 0) {
-          node.children = [{ type: 'text', value: ' ' }]
-        }
-      },
-      onVisitHighlightedLine(node) {
-        node.properties.className.push('highlighted')
-      },
-      onVisitHighlightedWord(node) {
-        node.properties.className = ['word']
-      },
-      // Pass Shiki highlighter
-      highlighter: highlighter,
-      transformers: [
-        transformerCopyButton({
-          visibility: 'always',
-          feedbackDuration: 3000
-        })
-      ]
-    })
-    .use(rehypeMermaid, {
-      strategy: 'inline-svg'
-    })
-    .use(rehypeSlug)
-    .use(rehypeAutolinkHeadings, {
-      content: fromHtmlIsomorphic(headerStar, { fragment: true }).children
-    })
-    .use(rehypeStringify, { allowDangerousHtml: true })
-
-  log('Parsing content')
-  const ast = processor.parse(markdownContent)
-  log('Content parsed, extracting headers and TOC')
-  const { firstHeading, toc, firstHeadingNode } = extractHeadersAndToc(ast)
-  log(`First heading: "${firstHeading}", TOC entries: ${toc.length}`)
-
-  log('Removing first heading from AST')
-  removeFirstHeading(ast, firstHeadingNode)
-
-  log('Running processor')
-  const result = await processor.run(ast)
-  log('Processor run complete')
-
-  log('Stringifying result')
-  const html = processor.stringify(result)
-  log(`HTML generated, length: ${html.length} characters`)
-
-  const wordCount = markdownContent.split(/\s+/).length
-  const readingTime = Math.ceil(wordCount / 250)
-  const imageCount = (markdownContent.match(/!\[.*?\]\(.*?\)/g) || []).length
-  const linkCount = (markdownContent.match(/\[.*?\]\(.*?\)/g) || []).length
-
-  log(
-    `Metadata calculated: ${wordCount} words, ${readingTime} min read, ${imageCount} images, ${linkCount} links`
-  )
-
-  return {
-    html, // This is the processed HTML
-    metadata: {
-      ...frontmatter,
-      title:
-        frontmatter.title || firstHeading || path.basename(filePath, '.md'),
-      toc,
-      wordCount,
-      readingTime,
-      imageCount,
-      linkCount
-    }
-  }
-}
-
-// Process a single markdown file
-async function processMarkdownFile(fullPath, cache) {
-  const relativePath = path.relative(contentDir, fullPath)
-  const slug = relativePath.replace(/\.md$/, '')
-  const outputPath = path.join(outputDir, `${slug}.json`)
-
-  const fileContent = await fs.readFile(fullPath, 'utf-8')
-  const currentHash = computeContentHash(fileContent)
-
-  if (cache.files[fullPath] && cache.files[fullPath].hash === currentHash) {
-    console.log(`File unchanged, using cached version: ${fullPath}`)
-    return { slug, ...cache.files[fullPath].metadata }
-  }
-
-  console.log(`Processing markdown file: ${fullPath}`)
-  const { html, metadata } = await processMarkdown(fileContent, fullPath)
-
-  if (!html) {
-    throw new Error(`Failed to generate HTML for ${fullPath}`)
-  }
-
-  console.log(`Writing processed file to: ${outputPath}`)
-  await fs.mkdir(path.dirname(outputPath), { recursive: true })
-  await fs.writeFile(
-    outputPath,
-    JSON.stringify({ slug, ...metadata, content: html }, null, 2)
-  )
-
-  cache.files[fullPath] = { hash: currentHash, metadata }
-  return { slug, ...metadata }
-}
-
-// Add this function to your script
-async function getFilesRecursively(dir) {
-  const entries = await fs.readdir(dir, { withFileTypes: true });
-  const files = await Promise.all(entries.map(async (entry) => {
-    const fullPath = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      return getFilesRecursively(fullPath);
-    } else if (entry.isFile() && path.extname(entry.name) === '.md') {
-      const stats = await stat(fullPath);
-      return { path: fullPath, mtime: stats.mtime };
-    }
-    return [];
-  }));
-
-  return files.flat();
-}
-
-// Main function to process all files
-async function processAllFiles() {
-  console.log('Starting to process all files')
-  const cache = await loadCache()
-  let isInterrupted = false;
-
-  // Set up interrupt handler
-  const interruptHandler = async () => {
-    if (isInterrupted) {
-      console.log('Forced exit. Some progress may be lost.');
-      process.exit(1);
-    }
-    console.log('\nInterrupt received. Saving progress...');
-    isInterrupted = true;
-  };
-
-  process.on('SIGINT', interruptHandler);
-
-  try {
-    console.log('Collecting and sorting files...')
-    const allFiles = await getFilesRecursively(contentDir)
-    allFiles.sort((a, b) => b.mtime - a.mtime) // Sort by modification time, newest first
-
-    const manifestLite = [];
-    for (const file of allFiles) {
-      if (isInterrupted) break;
-      try {
-        const result = await processMarkdownFile(file.path, cache)
-        await saveCache(cache) // Save cache after each file is processed
-        manifestLite.push(result);
-      } catch (error) {
-        console.error(`Error processing ${file.path}:`, error)
-      }
-      // Small delay to allow interrupt to be processed
-      await setTimeoutPromise(0);
-    }
-
-    // Filter out null results (from errors)
-    const filteredManifest = manifestLite.filter(Boolean)
-
-    if (!isInterrupted) {
-      console.log('Writing manifest-lite.json')
-      const manifestPath = path.join(outputDir, 'manifest-lite.json')
-      await fs.mkdir(path.dirname(manifestPath), { recursive: true })
-      await fs.writeFile(manifestPath, JSON.stringify(filteredManifest, null, 2))
-    }
-
-    await saveCache(cache)
-  } catch (error) {
-    console.error('Error processing files:', error)
-    throw error
-  } finally {
-    process.off('SIGINT', interruptHandler);
-    if (isInterrupted) {
-      console.log('Progress saved. Exiting.');
-      process.exit(0);
-    }
-  }
-}
 // Helper function to extract the title from the frontmatter of the linked markdown file
 // async function getTitleFromFrontmatter(match) {
 //   const targetPath = path.join(contentDir, `${match}.md`)
@@ -773,6 +665,3 @@ function log(message, level = 'info') {
 
 // Start processing all markdown files
 processAllFiles().catch(console.error)
-
-
-

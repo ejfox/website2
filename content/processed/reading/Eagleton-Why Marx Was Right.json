@@ -18,7 +18,26 @@
   "hidden": false,
   "draft": false,
   "title": "Why Marx Was Right",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Why Marx Was Right",
+      "slug": "why-marx-was-right",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 447,
   "readingTime": 2,
   "imageCount": 0,

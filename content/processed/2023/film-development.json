@@ -22,17 +22,20 @@
         {
           "text": "Film I shoot",
           "slug": "film-i-shoot",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "B&W 35mm Film Development Setup",
           "slug": "b-w-35mm-film-development-setup",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Darkroom Print Setup",
           "slug": "darkroom-print-setup",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

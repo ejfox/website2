@@ -13,7 +13,14 @@
   ],
   "draft": false,
   "title": "NYC’s Climate March",
-  "toc": [],
+  "toc": [
+    {
+      "text": "NYC’s Climate March",
+      "slug": "nyc-s-climate-march",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 171,
   "readingTime": 1,
   "imageCount": 13,

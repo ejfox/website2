@@ -18,7 +18,26 @@
   "hidden": false,
   "draft": false,
   "title": "On Trails",
-  "toc": [],
+  "toc": [
+    {
+      "text": "On Trails",
+      "slug": "on-trails",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 2083,
   "readingTime": 9,
   "imageCount": 0,

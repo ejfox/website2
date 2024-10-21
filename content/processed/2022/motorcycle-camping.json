@@ -22,47 +22,56 @@
         {
           "text": "Modular Design",
           "slug": "modular-design",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Motorcycle: Kawasaki Versys-X 300",
           "slug": "motorcycle-kawasaki-versys-x-300",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Gearing Up",
           "slug": "gearing-up",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Gear Up Your Motorcycle",
           "slug": "gear-up-your-motorcycle",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Bags",
           "slug": "bags",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Camping",
           "slug": "camping",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Campsite Considerations",
           "slug": "campsite-considerations",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Motorcycle repair kit (home + travel)",
           "slug": "motorcycle-repair-kit-home-travel",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Ready to explore",
           "slug": "ready-to-explore",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

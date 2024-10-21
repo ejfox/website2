@@ -23,47 +23,56 @@
         {
           "text": "Why?",
           "slug": "why",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "The Dataset",
           "slug": "the-dataset",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Analysis",
           "slug": "analysis",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Analyzing our data with Datasette / SQLite",
           "slug": "analyzing-our-data-with-datasette-sqlite",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Analyzing our data with Neo4J",
           "slug": "analyzing-our-data-with-neo4j",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Analyzing our data with Gephi",
           "slug": "analyzing-our-data-with-gephi",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Potential Next Steps",
           "slug": "potential-next-steps",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Flotsam & Jetsam",
           "slug": "flotsam-jetsam",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Hire me to do work like this",
           "slug": "hire-me-to-do-work-like-this",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

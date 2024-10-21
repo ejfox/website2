@@ -17,17 +17,20 @@
         {
           "text": "Week time planning",
           "slug": "week-time-planning",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Following Rough GTD Principles",
           "slug": "following-rough-gtd-principles",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Staying Organized with Things",
           "slug": "staying-organized-with-things",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

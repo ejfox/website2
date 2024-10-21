@@ -10,7 +10,7 @@
     "visualization"
   ],
   "date": "2023-12-11T21:22:43.000Z",
-  "modified": "2023-12-27T23:30:23.000Z",
+  "modified": "2024-10-14T23:53:39.000Z",
   "dek": "In which the author concludes a successful client project, compiles documentation for informed AI context, evaluates command-running capabilities, plans an EXIF photo printer tool, experiments with Tres JS, and treats wood panels for gouache painting.",
   "hidden": false,
   "draft": false,
@@ -24,22 +24,26 @@
         {
           "text": "Compiling framework docs for informed AI context",
           "slug": "compiling-framework-docs-for-informed-ai-context",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Evaluating command-running capabilities",
           "slug": "evaluating-command-running-capabilities",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "EXIF Photo Printer",
           "slug": "exif-photo-printer",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Experiments with Tres JS",
           "slug": "experiments-with-tres-js",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },

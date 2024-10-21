@@ -1,14 +1,9 @@
 {
-  "slug": "drafts/how-i-use-gpt3",
-  "date": "2024-09-23T15:30:41.000Z",
-  "modified": "2024-09-23T15:30:45.000Z",
-  "hidden": true,
-  "draft": true,
-  "title": "how-i-use-gpt3",
-  "toc": [],
-  "wordCount": 1,
-  "readingTime": 1,
-  "imageCount": 0,
-  "linkCount": 0,
+  "frontmatter": {
+    "date": "2024-09-23T15:30:41.000Z",
+    "modified": "2024-09-23T15:30:45.000Z",
+    "hidden": true,
+    "draft": true
+  },
   "content": ""
 }

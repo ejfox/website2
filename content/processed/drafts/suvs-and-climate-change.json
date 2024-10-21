@@ -20,32 +20,38 @@
         {
           "text": "Rising popularity of SUVs and Trucks in America",
           "slug": "rising-popularity-of-suvs-and-trucks-in-america",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Environmental impact of SUVs",
           "slug": "environmental-impact-of-suvs",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Safety (or lack thereof) being outside an SUV",
           "slug": "safety-or-lack-thereof-being-outside-an-suv",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "The Personal Economics of SUVs",
           "slug": "the-personal-economics-of-suvs",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "American SUVs vs. The Rest of The World",
           "slug": "american-suvs-vs-the-rest-of-the-world",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Alternatives to SUVs",
           "slug": "alternatives-to-suvs",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

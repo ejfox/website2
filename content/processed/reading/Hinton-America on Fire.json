@@ -21,7 +21,26 @@
   "hidden": false,
   "draft": false,
   "title": "America on Fire",
-  "toc": [],
+  "toc": [
+    {
+      "text": "America on Fire",
+      "slug": "america-on-fire",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 221,
   "readingTime": 1,
   "imageCount": 0,

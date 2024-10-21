@@ -23,47 +23,56 @@
         {
           "text": "The argument for no CMS",
           "slug": "the-argument-for-no-cms",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "The argument ",
           "slug": "the-argument",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Twitter is a model CMS",
           "slug": "twitter-is-a-model-cms",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Markdown-powered CMS",
           "slug": "markdown-powered-cms",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "What a CMS should do",
           "slug": "what-a-cms-should-do",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "How do you handle versioning?",
           "slug": "how-do-you-handle-versioning",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Where do you keep your media?",
           "slug": "where-do-you-keep-your-media",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Where do you host it?",
           "slug": "where-do-you-host-it",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "CMS Recommendations",
           "slug": "cms-recommendations",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

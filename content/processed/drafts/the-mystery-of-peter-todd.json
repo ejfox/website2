@@ -21,7 +21,14 @@
   "hidden": true,
   "draft": true,
   "title": "Peter Todd",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Peter Todd",
+      "slug": "peter-todd",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 11,
   "readingTime": 1,
   "imageCount": 0,

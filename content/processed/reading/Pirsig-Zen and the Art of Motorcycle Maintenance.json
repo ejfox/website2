@@ -19,7 +19,26 @@
   "hidden": false,
   "draft": false,
   "title": "Zen and the Art of Motorcycle Maintenance",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Zen and the Art of Motorcycle Maintenance",
+      "slug": "zen-and-the-art-of-motorcycle-maintenance",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 309,
   "readingTime": 2,
   "imageCount": 0,

@@ -25,27 +25,32 @@
         {
           "text": "The cooking show metaphor",
           "slug": "the-cooking-show-metaphor",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Working in the open",
           "slug": "working-in-the-open",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Livestream experiments",
           "slug": "livestream-experiments",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Building the habit",
           "slug": "building-the-habit",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Surprisingly productive",
           "slug": "surprisingly-productive",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

@@ -20,7 +20,26 @@
   "hidden": false,
   "draft": false,
   "title": "In the Plex",
-  "toc": [],
+  "toc": [
+    {
+      "text": "In the Plex",
+      "slug": "in-the-plex",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 66,
   "readingTime": 1,
   "imageCount": 0,

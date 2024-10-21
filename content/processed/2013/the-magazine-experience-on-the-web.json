@@ -23,37 +23,44 @@
         {
           "text": "A hint of what's to come",
           "slug": "a-hint-of-what-s-to-come",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Full Bleed Photos",
           "slug": "full-bleed-photos",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Collecting stories differently",
           "slug": "collecting-stories-differently",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Seamlessly importing more mediums",
           "slug": "seamlessly-importing-more-mediums",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Great presentation requires great stories",
           "slug": "great-presentation-requires-great-stories",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Everything should be naturally responsive",
           "slug": "everything-should-be-naturally-responsive",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Finding the path",
           "slug": "finding-the-path",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

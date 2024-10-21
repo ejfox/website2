@@ -24,22 +24,26 @@
         {
           "text": "Pulling in data",
           "slug": "pulling-in-data",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Combining Vue and D3 for dataviz",
           "slug": "combining-vue-and-d3-for-dataviz",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Database and user authentication",
           "slug": "database-and-user-authentication",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Deploying",
           "slug": "deploying",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

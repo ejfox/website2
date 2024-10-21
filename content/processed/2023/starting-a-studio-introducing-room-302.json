@@ -18,17 +18,20 @@
         {
           "text": "Hire us",
           "slug": "hire-us",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Workshops and Events",
           "slug": "workshops-and-events",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Membership Options",
           "slug": "membership-options",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

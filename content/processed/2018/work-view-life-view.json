@@ -18,40 +18,47 @@
   "title": "Work View / Life View",
   "toc": [
     {
-      "text": "Why work?",
-      "slug": "why-work",
-      "level": "h2",
-      "children": []
-    },
-    {
-      "text": "What’s work for?",
-      "slug": "what-s-work-for",
-      "level": "h2",
-      "children": []
-    },
-    {
-      "text": "What does work mean?",
-      "slug": "what-does-work-mean",
-      "level": "h2",
-      "children": []
-    },
-    {
-      "text": "What does money have to do with it?",
-      "slug": "what-does-money-have-to-do-with-it",
-      "level": "h2",
-      "children": []
-    },
-    {
-      "text": "Why are we here?",
-      "slug": "why-are-we-here",
-      "level": "h2",
-      "children": []
-    },
-    {
-      "text": "What is the meaning or purpose of life?",
-      "slug": "what-is-the-meaning-or-purpose-of-life",
-      "level": "h2",
-      "children": []
+      "text": "Work View / Life View",
+      "slug": "work-view-life-view",
+      "level": "h1",
+      "children": [
+        {
+          "text": "Why work?",
+          "slug": "why-work",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "What’s work for?",
+          "slug": "what-s-work-for",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "What does work mean?",
+          "slug": "what-does-work-mean",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "What does money have to do with it?",
+          "slug": "what-does-money-have-to-do-with-it",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Why are we here?",
+          "slug": "why-are-we-here",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "What is the meaning or purpose of life?",
+          "slug": "what-is-the-meaning-or-purpose-of-life",
+          "level": "h2",
+          "children": []
+        }
+      ]
     }
   ],
   "wordCount": 747,

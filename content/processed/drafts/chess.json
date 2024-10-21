@@ -17,7 +17,8 @@
         {
           "text": "Multi-dimensional Chess",
           "slug": "multi-dimensional-chess",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

@@ -18,7 +18,26 @@
   "hidden": false,
   "draft": false,
   "title": "Emotional Design",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Emotional Design",
+      "slug": "emotional-design",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 64,
   "readingTime": 1,
   "imageCount": 0,

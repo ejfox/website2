@@ -34,7 +34,8 @@
         {
           "text": "Integrating Anime.js and Vue",
           "slug": "integrating-anime-js-and-vue",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },
@@ -58,17 +59,20 @@
         {
           "text": "Named Transitions",
           "slug": "named-transitions",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Custom Transition Classes",
           "slug": "custom-transition-classes",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Transition Javascript Hooks",
           "slug": "transition-javascript-hooks",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },

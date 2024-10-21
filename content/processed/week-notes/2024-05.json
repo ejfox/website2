@@ -9,7 +9,7 @@
     "design"
   ],
   "date": "2022-12-26T16:57:44.000Z",
-  "modified": "2024-02-20T00:35:19.000Z",
+  "modified": "2024-10-14T23:52:03.000Z",
   "dek": "In which the author partakes in the redesign of the Room 302 Studio website and engages in learning and development through a video lecture.",
   "hidden": false,
   "draft": false,
@@ -23,7 +23,8 @@
         {
           "text": "Room 302 Studio Website Redesign",
           "slug": "room-302-studio-website-redesign",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },

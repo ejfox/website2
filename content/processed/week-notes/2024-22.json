@@ -10,7 +10,7 @@
     "webdesign",
     "visualization"
   ],
-  "modified": "2024-07-07T21:21:36.000Z",
+  "modified": "2024-10-14T23:51:10.000Z",
   "date": "2022-12-26T16:57:44.000Z",
   "dek": "In which the author explores the realms of memory and creativity through scrapbooking, pottery-making, and technical innovations, culminating in a showcase of projects and a foray into pricing models.",
   "hidden": false,
@@ -43,27 +43,32 @@
         {
           "text": "Scrapbook Core",
           "slug": "scrapbook-core",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Scrapscroller",
           "slug": "scrapscroller",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Scrapbook-cli",
           "slug": "scrapbook-cli",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Added Pottery Section to Website",
           "slug": "added-pottery-section-to-website",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Added RSS feeds to ejfox.com and ejfox.photos",
           "slug": "added-rss-feeds-to-ejfox-com-and-ejfox-photos",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },
@@ -75,7 +80,8 @@
         {
           "text": "LLM Pricing: May 2024",
           "slug": "llm-pricing-may-2024",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

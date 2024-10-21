@@ -12,7 +12,14 @@
     "recipe"
   ],
   "title": "Cooking: Kolaches",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Cooking: Kolaches",
+      "slug": "cooking-kolaches",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 6,
   "readingTime": 1,
   "imageCount": 0,

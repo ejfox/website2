@@ -12,7 +12,7 @@
     "travel"
   ],
   "date": "2022-12-26T16:57:44.000Z",
-  "modified": "2024-01-23T03:34:29.000Z",
+  "modified": "2024-10-14T23:52:28.000Z",
   "dek": "In which the author immerses themselves in learning about warfare footage and military equipment, experimenting with 3D graphics libraries, and preparing a first aid kit for motorcycle travel.",
   "hidden": false,
   "draft": false,
@@ -32,7 +32,8 @@
         {
           "text": "Remaking the Room302.studio Website",
           "slug": "remaking-the-room302-studio-website",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },
@@ -44,12 +45,14 @@
         {
           "text": "Experimenting with Tres js",
           "slug": "experimenting-with-tres-js",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Experimenting with Anime JS 4.0",
           "slug": "experimenting-with-anime-js-4-0",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },
@@ -61,7 +64,8 @@
         {
           "text": "Building A First Aid Kit For Motorcycle Travel",
           "slug": "building-a-first-aid-kit-for-motorcycle-travel",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

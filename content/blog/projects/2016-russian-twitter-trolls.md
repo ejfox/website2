@@ -1,7 +1,8 @@
 ---
 title: "2016 Russian Twitter Trolls"
 date: "2017-12-20T20:01:43.000Z"
-modified: "2024-10-01T01:39:26.000Z"
+modified: "2024-10-14T16:35:58.000Z"
+url: "https://www.nbcnews.com/tech/social-media/russian-trolls-went-attack-during-key-election-moments-n827176"
 hidden: false
 draft: false
 ---

@@ -23,7 +23,8 @@
         {
           "text": "Exercise",
           "slug": "exercise",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },
@@ -35,12 +36,14 @@
         {
           "text": "Chess",
           "slug": "chess",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Call of Duty",
           "slug": "call-of-duty",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

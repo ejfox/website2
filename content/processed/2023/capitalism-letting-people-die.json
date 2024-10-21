@@ -20,32 +20,38 @@
         {
           "text": "Radium Girls",
           "slug": "radium-girls",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "The NFL",
           "slug": "the-nfl",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "COVID",
           "slug": "covid",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "9/11 Responders",
           "slug": "9-11-responders",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "What does this mean for our future?",
           "slug": "what-does-this-mean-for-our-future",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Imagining a Post-Capitalist World",
           "slug": "imagining-a-post-capitalist-world",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

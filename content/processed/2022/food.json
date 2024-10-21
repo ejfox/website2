@@ -22,22 +22,26 @@
         {
           "text": "Breakfast",
           "slug": "breakfast",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Lunch",
           "slug": "lunch",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Dinner",
           "slug": "dinner",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Desserts",
           "slug": "desserts",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

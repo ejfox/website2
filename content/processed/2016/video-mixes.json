@@ -18,86 +18,100 @@
   "title": "Video Mixes",
   "toc": [
     {
-      "text": "Shadow Garden",
-      "slug": "shadow-garden",
-      "level": "h2",
+      "text": "Video Mixes",
+      "slug": "video-mixes",
+      "level": "h1",
       "children": [
         {
-          "text": "December 2016",
-          "slug": "december-2016",
-          "level": "h3"
-        }
-      ]
-    },
-    {
-      "text": "Aerial",
-      "slug": "aerial",
-      "level": "h2",
-      "children": [
+          "text": "Shadow Garden",
+          "slug": "shadow-garden",
+          "level": "h2",
+          "children": [
+            {
+              "text": "December 2016",
+              "slug": "december-2016",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
         {
-          "text": "December 2015",
-          "slug": "december-2015",
-          "level": "h3"
-        }
-      ]
-    },
-    {
-      "text": "M88",
-      "slug": "m88",
-      "level": "h2",
-      "children": [
+          "text": "Aerial",
+          "slug": "aerial",
+          "level": "h2",
+          "children": [
+            {
+              "text": "December 2015",
+              "slug": "december-2015",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
         {
-          "text": "September 2014",
-          "slug": "september-2014",
-          "level": "h3"
-        }
-      ]
-    },
-    {
-      "text": "Beautiful",
-      "slug": "beautiful",
-      "level": "h2",
-      "children": [
+          "text": "M88",
+          "slug": "m88",
+          "level": "h2",
+          "children": [
+            {
+              "text": "September 2014",
+              "slug": "september-2014",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
         {
-          "text": "February 2014",
-          "slug": "february-2014",
-          "level": "h3"
-        }
-      ]
-    },
-    {
-      "text": "I'm In This",
-      "slug": "i-m-in-this",
-      "level": "h2",
-      "children": [
+          "text": "Beautiful",
+          "slug": "beautiful",
+          "level": "h2",
+          "children": [
+            {
+              "text": "February 2014",
+              "slug": "february-2014",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
         {
-          "text": "May 2014",
-          "slug": "may-2014",
-          "level": "h3"
-        }
-      ]
-    },
-    {
-      "text": "PVRPL",
-      "slug": "pvrpl",
-      "level": "h2",
-      "children": [
+          "text": "I'm In This",
+          "slug": "i-m-in-this",
+          "level": "h2",
+          "children": [
+            {
+              "text": "May 2014",
+              "slug": "may-2014",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
         {
-          "text": "November 2013",
-          "slug": "november-2013",
-          "level": "h3"
-        }
-      ]
-    },
-    {
-      "text": "Sirius",
-      "slug": "sirius",
-      "level": "h2",
-      "children": [
+          "text": "PVRPL",
+          "slug": "pvrpl",
+          "level": "h2",
+          "children": [
+            {
+              "text": "November 2013",
+              "slug": "november-2013",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
         {
-          "text": "September 2013",
-          "slug": "september-2013",
-          "level": "h3"
+          "text": "Sirius",
+          "slug": "sirius",
+          "level": "h2",
+          "children": [
+            {
+              "text": "September 2013",
+              "slug": "september-2013",
+              "level": "h3",
+              "children": []
+            }
+          ]
         }
       ]
     }

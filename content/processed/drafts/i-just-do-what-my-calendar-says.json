@@ -19,7 +19,8 @@
         {
           "text": "My Process",
           "slug": "my-process",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

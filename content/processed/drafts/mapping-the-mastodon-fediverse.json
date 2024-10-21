@@ -22,12 +22,14 @@
         {
           "text": "Questions",
           "slug": "questions",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "How do we gather our data?",
           "slug": "how-do-we-gather-our-data",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

@@ -21,47 +21,56 @@
         {
           "text": "Defining computer literacy",
           "slug": "defining-computer-literacy",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Learning to google “Magic Words”",
           "slug": "learning-to-google-magic-words",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Noticing when you feel like a robot",
           "slug": "noticing-when-you-feel-like-a-robot",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Communicating with Artificial Intelligence",
           "slug": "communicating-with-artificial-intelligence",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Appreciating the “I can do that” moments",
           "slug": "appreciating-the-i-can-do-that-moments",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Control of the world around you",
           "slug": "control-of-the-world-around-you",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Making your work easier",
           "slug": "making-your-work-easier",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Improving your career prospects",
           "slug": "improving-your-career-prospects",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Having a set of tools that are ready",
           "slug": "having-a-set-of-tools-that-are-ready",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

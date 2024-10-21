@@ -15,7 +15,26 @@
   "hidden": false,
   "draft": false,
   "title": "The Fated Sky",
-  "toc": [],
+  "toc": [
+    {
+      "text": "The Fated Sky",
+      "slug": "the-fated-sky",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 1079,
   "readingTime": 5,
   "imageCount": 0,

@@ -17,37 +17,44 @@
         {
           "text": "How I track my ride data",
           "slug": "how-i-track-my-ride-data",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Fahnestock / 301",
           "slug": "fahnestock-301",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Bear Mountain Bridge / Anthony's Nose",
           "slug": "bear-mountain-bridge-anthony-s-nose",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Seven Lakes Drive",
           "slug": "seven-lakes-drive",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Greenwood Lake",
           "slug": "greenwood-lake",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Perkins Lookout",
           "slug": "perkins-lookout",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Catskills",
           "slug": "catskills",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

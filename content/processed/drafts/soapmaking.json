@@ -20,32 +20,38 @@
         {
           "text": "Choosing Colors",
           "slug": "choosing-colors",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Choosing Scents",
           "slug": "choosing-scents",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Weighing Ingredients",
           "slug": "weighing-ingredients",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Melting Oils",
           "slug": "melting-oils",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Lye + Mineral Water Reaction",
           "slug": "lye-mineral-water-reaction",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Pouring Techniques",
           "slug": "pouring-techniques",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

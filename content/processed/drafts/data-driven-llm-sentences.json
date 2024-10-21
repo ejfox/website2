@@ -30,7 +30,8 @@
         {
           "text": "Summarizing groups of datas",
           "slug": "summarizing-groups-of-datas",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

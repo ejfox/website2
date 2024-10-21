@@ -20,7 +20,26 @@
   "hidden": false,
   "draft": false,
   "title": "Film Directing Shot by Shot",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Film Directing Shot by Shot",
+      "slug": "film-directing-shot-by-shot",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 67,
   "readingTime": 1,
   "imageCount": 0,

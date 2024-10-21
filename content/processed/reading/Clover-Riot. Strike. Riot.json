@@ -19,7 +19,26 @@
   "hidden": false,
   "draft": false,
   "title": "Riot. Strike. Riot",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Riot. Strike. Riot",
+      "slug": "riot-strike-riot",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 69,
   "readingTime": 1,
   "imageCount": 0,

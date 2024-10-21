@@ -11,7 +11,14 @@
     "visualization"
   ],
   "title": "Network visualizations made easy: introducing connectology",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Network visualizations made easy: introducing connectology",
+      "slug": "network-visualizations-made-easy-introducing-connectology",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 55,
   "readingTime": 1,
   "imageCount": 0,

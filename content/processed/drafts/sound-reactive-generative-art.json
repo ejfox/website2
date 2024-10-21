@@ -24,12 +24,14 @@
         {
           "text": "P5js",
           "slug": "p5js",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "TouchDesigner",
           "slug": "touchdesigner",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

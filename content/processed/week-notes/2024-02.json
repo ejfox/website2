@@ -13,7 +13,7 @@
     "design"
   ],
   "date": "2022-12-26T16:57:44.000Z",
-  "modified": "2024-01-16T15:29:29.000Z",
+  "modified": "2024-10-14T23:52:43.000Z",
   "dek": "In which the author navigates the complexities of balancing project management, coding challenges, and personal AI development while exploring new ways to showcase the Hudson Valley and enhance personal organization.",
   "hidden": false,
   "draft": false,
@@ -33,32 +33,38 @@
         {
           "text": "Setting the studio up with a CRM",
           "slug": "setting-the-studio-up-with-a-crm",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Hudson Valley Guide: knowhv.com",
           "slug": "hudson-valley-guide-knowhv-com",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Refactoring Electology",
           "slug": "refactoring-electology",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Redesigning my Scrapbook",
           "slug": "redesigning-my-scrapbook",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Lil Fox",
           "slug": "lil-fox",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Experimenting with Tres js",
           "slug": "experimenting-with-tres-js",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },

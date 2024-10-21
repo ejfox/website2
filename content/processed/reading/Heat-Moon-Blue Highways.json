@@ -19,7 +19,26 @@
   "hidden": false,
   "draft": false,
   "title": "Blue Highways",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Blue Highways",
+      "slug": "blue-highways",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 149,
   "readingTime": 1,
   "imageCount": 0,

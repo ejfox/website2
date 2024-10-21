@@ -18,12 +18,14 @@
         {
           "text": "Material lingua franca",
           "slug": "material-lingua-franca",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "To buy",
           "slug": "to-buy",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

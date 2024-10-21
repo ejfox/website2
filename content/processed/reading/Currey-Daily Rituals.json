@@ -19,7 +19,26 @@
   "hidden": false,
   "draft": false,
   "title": "Daily Rituals",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Daily Rituals",
+      "slug": "daily-rituals",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 176,
   "readingTime": 1,
   "imageCount": 0,

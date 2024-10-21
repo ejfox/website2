@@ -10,7 +10,7 @@
     "visualization"
   ],
   "date": "2022-12-26T16:57:44.000Z",
-  "modified": "2024-05-07T17:10:10.000Z",
+  "modified": "2024-10-14T23:51:53.000Z",
   "dek": "In which the author meticulously crafts a cyberpunk visual aesthetic and explores the Hudson Valley through digital elevation models and contour maps.",
   "hidden": false,
   "draft": false,
@@ -36,12 +36,14 @@
         {
           "text": "Cyberpunk Visual Aesthetic",
           "slug": "cyberpunk-visual-aesthetic",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Hudson Valley Exploration",
           "slug": "hudson-valley-exploration",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

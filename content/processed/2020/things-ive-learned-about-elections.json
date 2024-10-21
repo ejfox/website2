@@ -26,52 +26,62 @@
         {
           "text": "Edge cases",
           "slug": "edge-cases",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Races",
           "slug": "races",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Voting",
           "slug": "voting",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Reporting units",
           "slug": "reporting-units",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Election data",
           "slug": "election-data",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Primary elections",
           "slug": "primary-elections",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Voting machines",
           "slug": "voting-machines",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Coverage of elections",
           "slug": "coverage-of-elections",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Why do we have elections on Tuesdays?",
           "slug": "why-do-we-have-elections-on-tuesdays",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Resources",
           "slug": "resources",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

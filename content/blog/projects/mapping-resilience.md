@@ -1,7 +1,8 @@
 ---
 title: "Mapping Resilience"
 date: "2024-09-21T20:00:16.000Z"
-modified: "2024-10-01T02:02:16.000Z"
+modified: "2024-10-14T23:57:50.000Z"
+url: "https://hopeunderwater.com/"
 hidden: false
 draft: false
 ---

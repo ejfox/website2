@@ -19,7 +19,26 @@
   "hidden": false,
   "draft": false,
   "title": "The New York Nobody Knows",
-  "toc": [],
+  "toc": [
+    {
+      "text": "The New York Nobody Knows",
+      "slug": "the-new-york-nobody-knows",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 624,
   "readingTime": 3,
   "imageCount": 0,

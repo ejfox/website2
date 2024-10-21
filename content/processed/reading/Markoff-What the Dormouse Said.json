@@ -19,7 +19,26 @@
   "hidden": false,
   "draft": false,
   "title": "What the Dormouse Said",
-  "toc": [],
+  "toc": [
+    {
+      "text": "What the Dormouse Said",
+      "slug": "what-the-dormouse-said",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 230,
   "readingTime": 1,
   "imageCount": 0,

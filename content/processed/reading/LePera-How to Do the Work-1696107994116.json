@@ -17,16 +17,23 @@
   "title": "How to Do the Work",
   "toc": [
     {
-      "text": "Metadata",
-      "slug": "metadata",
-      "level": "h2",
-      "children": []
-    },
-    {
-      "text": "Highlights",
-      "slug": "highlights",
-      "level": "h2",
-      "children": []
+      "text": "How to Do the Work",
+      "slug": "how-to-do-the-work",
+      "level": "h1",
+      "children": [
+        {
+          "text": "Metadata",
+          "slug": "metadata",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Highlights",
+          "slug": "highlights",
+          "level": "h2",
+          "children": []
+        }
+      ]
     }
   ],
   "wordCount": 899,

@@ -19,7 +19,8 @@
         {
           "text": "Goals",
           "slug": "goals",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },
@@ -31,12 +32,14 @@
         {
           "text": "Stripe Webhooks & Nuxt Server Functions",
           "slug": "stripe-webhooks-nuxt-server-functions",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Stripe + Nuxt + Supabase",
           "slug": "stripe-nuxt-supabase",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

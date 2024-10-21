@@ -23,7 +23,8 @@
         {
           "text": "Past Livestreams",
           "slug": "past-livestreams",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

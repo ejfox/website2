@@ -18,7 +18,26 @@
   "hidden": false,
   "draft": false,
   "title": "The I Ching or Book of Changes",
-  "toc": [],
+  "toc": [
+    {
+      "text": "The I Ching or Book of Changes",
+      "slug": "the-i-ching-or-book-of-changes",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 213,
   "readingTime": 1,
   "imageCount": 0,

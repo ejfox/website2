@@ -19,7 +19,26 @@
   "hidden": false,
   "draft": false,
   "title": "The Idea Factory",
-  "toc": [],
+  "toc": [
+    {
+      "text": "The Idea Factory",
+      "slug": "the-idea-factory",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 713,
   "readingTime": 3,
   "imageCount": 0,

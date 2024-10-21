@@ -20,7 +20,26 @@
   "hidden": false,
   "draft": false,
   "title": "Existential Kink",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Existential Kink",
+      "slug": "existential-kink",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 869,
   "readingTime": 4,
   "imageCount": 0,

@@ -24,22 +24,26 @@
         {
           "text": "Touchscreen Application",
           "slug": "touchscreen-application",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Digital Maps",
           "slug": "digital-maps",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Data Integration",
           "slug": "data-integration",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Analysis Tools",
           "slug": "analysis-tools",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

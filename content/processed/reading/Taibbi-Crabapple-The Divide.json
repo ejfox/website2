@@ -19,7 +19,26 @@
   "hidden": false,
   "draft": false,
   "title": "The Divide",
-  "toc": [],
+  "toc": [
+    {
+      "text": "The Divide",
+      "slug": "the-divide",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 629,
   "readingTime": 3,
   "imageCount": 0,

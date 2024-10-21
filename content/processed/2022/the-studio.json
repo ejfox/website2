@@ -24,17 +24,20 @@
         {
           "text": "Studio goals",
           "slug": "studio-goals",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Studio Agreements",
           "slug": "studio-agreements",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Appendix, brass tacks, etcetera",
           "slug": "appendix-brass-tacks-etcetera",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

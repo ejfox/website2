@@ -18,16 +18,23 @@
   "title": "The Dispossessed",
   "toc": [
     {
-      "text": "Metadata",
-      "slug": "metadata",
-      "level": "h2",
-      "children": []
-    },
-    {
-      "text": "Highlights",
-      "slug": "highlights",
-      "level": "h2",
-      "children": []
+      "text": "The Dispossessed",
+      "slug": "the-dispossessed",
+      "level": "h1",
+      "children": [
+        {
+          "text": "Metadata",
+          "slug": "metadata",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Highlights",
+          "slug": "highlights",
+          "level": "h2",
+          "children": []
+        }
+      ]
     }
   ],
   "wordCount": 54,

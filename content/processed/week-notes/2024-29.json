@@ -10,7 +10,7 @@
     "project",
     "personal"
   ],
-  "modified": "2024-07-24T23:07:10.000Z",
+  "modified": "2024-10-14T23:50:20.000Z",
   "date": "2024-07-17T14:53:14.000Z",
   "dek": "In which the author embarked on a week of creative endeavors in music, projects in coding, and personal growth while house-sitting and planning for the future.",
   "hidden": false,
@@ -31,17 +31,20 @@
         {
           "text": "Scrapbook",
           "slug": "scrapbook",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Connectology",
           "slug": "connectology",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Netlify Dashboard",
           "slug": "netlify-dashboard",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },
@@ -53,7 +56,8 @@
         {
           "text": "JZULY music",
           "slug": "jzuly-music",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },

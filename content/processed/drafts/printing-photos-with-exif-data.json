@@ -1,27 +1,15 @@
 {
-  "slug": "drafts/printing-photos-with-exif-data",
-  "dek": "In which",
-  "inprogress": true,
-  "date": "2023-09-24T17:57:43.000Z",
-  "modified": "2023-12-18T00:19:56.000Z",
-  "tags": [
-    "photography",
-    "data"
-  ],
-  "hidden": true,
-  "draft": true,
-  "title": "Printing Photos With EXIF Data",
-  "toc": [
-    {
-      "text": "Printing Photos With EXIF Data",
-      "slug": "printing-photos-with-exif-data",
-      "level": "h2",
-      "children": []
-    }
-  ],
-  "wordCount": 7,
-  "readingTime": 1,
-  "imageCount": 0,
-  "linkCount": 0,
-  "content": ""
+  "frontmatter": {
+    "dek": "In which",
+    "inprogress": true,
+    "date": "2023-09-24T17:57:43.000Z",
+    "modified": "2023-12-18T00:19:56.000Z",
+    "tags": [
+      "photography",
+      "data"
+    ],
+    "hidden": true,
+    "draft": true
+  },
+  "content": "## Printing Photos With EXIF Data\n"
 }

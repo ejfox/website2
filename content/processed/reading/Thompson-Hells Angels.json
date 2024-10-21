@@ -20,7 +20,26 @@
   "hidden": false,
   "draft": false,
   "title": "Hells Angels",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Hells Angels",
+      "slug": "hells-angels",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 115,
   "readingTime": 1,
   "imageCount": 0,

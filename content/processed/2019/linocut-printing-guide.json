@@ -25,7 +25,8 @@
         {
           "text": "Making a linocut",
           "slug": "making-a-linocut",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

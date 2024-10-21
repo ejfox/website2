@@ -15,7 +15,26 @@
   "hidden": false,
   "draft": false,
   "title": "Telling True Stories",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Telling True Stories",
+      "slug": "telling-true-stories",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 307,
   "readingTime": 2,
   "imageCount": 0,

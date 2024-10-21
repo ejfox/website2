@@ -21,12 +21,14 @@
         {
           "text": "Theme",
           "slug": "theme",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Plugins",
           "slug": "plugins",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

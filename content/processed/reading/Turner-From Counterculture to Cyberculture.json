@@ -19,7 +19,26 @@
   "hidden": false,
   "draft": false,
   "title": "From Counterculture to Cyberculture",
-  "toc": [],
+  "toc": [
+    {
+      "text": "From Counterculture to Cyberculture",
+      "slug": "from-counterculture-to-cyberculture",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 282,
   "readingTime": 2,
   "imageCount": 0,

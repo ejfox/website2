@@ -12,7 +12,7 @@
     "generative"
   ],
   "date": "2023-12-20T19:06:08.000Z",
-  "modified": "2023-12-27T23:31:07.000Z",
+  "modified": "2024-10-14T23:53:31.000Z",
   "dek": "In which the author collaborates on a website redesign, crafts AI-generated cyberpunk fanfiction, and successfully scrapes their YouTube 'Watch Later' playlist for future use.",
   "hidden": false,
   "draft": false,
@@ -26,7 +26,8 @@
         {
           "text": "Room 302 Studio Website Redesign",
           "slug": "room-302-studio-website-redesign",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },
@@ -38,7 +39,8 @@
         {
           "text": "AI-Generated Personal Fanfiction For Morale",
           "slug": "ai-generated-personal-fanfiction-for-morale",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },
@@ -50,7 +52,8 @@
         {
           "text": "YouTube 'Watch Later' Scraping",
           "slug": "youtube-watch-later-scraping",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

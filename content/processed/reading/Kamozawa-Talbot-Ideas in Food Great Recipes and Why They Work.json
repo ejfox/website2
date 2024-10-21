@@ -19,7 +19,26 @@
   "hidden": false,
   "draft": false,
   "title": "Ideas in Food: Great Recipes and Why They Work",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Ideas in Food: Great Recipes and Why They Work",
+      "slug": "ideas-in-food-great-recipes-and-why-they-work",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 124,
   "readingTime": 1,
   "imageCount": 0,

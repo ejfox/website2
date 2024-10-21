@@ -29,62 +29,74 @@
         {
           "text": "User stories",
           "slug": "user-stories",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Acceptance criteria",
           "slug": "acceptance-criteria",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Deadline",
           "slug": "deadline",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Core principles",
           "slug": "core-principles",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Gather context",
           "slug": "gather-context",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Gather data and explore",
           "slug": "gather-data-and-explore",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Metadata: what’s there? What’s missing?",
           "slug": "metadata-what-s-there-what-s-missing",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Go Wide, Establish Possibilities",
           "slug": "go-wide-establish-possibilities",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Make a prototype",
           "slug": "make-a-prototype",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Visual design and polish",
           "slug": "visual-design-and-polish",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "User Testing",
           "slug": "user-testing",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Documenting the Process",
           "slug": "documenting-the-process",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

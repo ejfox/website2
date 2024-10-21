@@ -1,27 +1,15 @@
 {
-  "slug": "drafts/make-a-portfolio-site-with-nuxt",
-  "dek": "In which",
-  "inprogress": true,
-  "modified": "2024-09-21T19:04:37.000Z",
-  "tags": [
-    "webdesign",
-    "tech"
-  ],
-  "hidden": true,
-  "draft": true,
-  "date": "2024-04-25T21:21:40.000Z",
-  "title": "How to make a portfolio site with Nuxt",
-  "toc": [
-    {
-      "text": "How to make a portfolio site with Nuxt",
-      "slug": "how-to-make-a-portfolio-site-with-nuxt",
-      "level": "h2",
-      "children": []
-    }
-  ],
-  "wordCount": 10,
-  "readingTime": 1,
-  "imageCount": 0,
-  "linkCount": 0,
-  "content": ""
+  "frontmatter": {
+    "dek": "In which",
+    "inprogress": true,
+    "modified": "2024-09-21T19:04:37.000Z",
+    "tags": [
+      "webdesign",
+      "tech"
+    ],
+    "hidden": true,
+    "draft": true,
+    "date": "2024-04-25T21:21:40.000Z"
+  },
+  "content": "## How to make a portfolio site with Nuxt\n"
 }

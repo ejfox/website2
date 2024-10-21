@@ -18,7 +18,26 @@
   "hidden": false,
   "draft": false,
   "title": "The Utopia of Rules",
-  "toc": [],
+  "toc": [
+    {
+      "text": "The Utopia of Rules",
+      "slug": "the-utopia-of-rules",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 171,
   "readingTime": 1,
   "imageCount": 0,

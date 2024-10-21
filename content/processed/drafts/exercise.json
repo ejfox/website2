@@ -19,27 +19,32 @@
         {
           "text": "Goals",
           "slug": "goals",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Plan",
           "slug": "plan",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Experiments and data",
           "slug": "experiments-and-data",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Equipment",
           "slug": "equipment",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Dreams / next steps",
           "slug": "dreams-next-steps",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

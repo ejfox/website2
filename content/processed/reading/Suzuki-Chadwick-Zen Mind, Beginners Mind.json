@@ -17,7 +17,26 @@
   "hidden": false,
   "draft": false,
   "title": "Zen Mind, Beginners Mind",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Zen Mind, Beginners Mind",
+      "slug": "zen-mind-beginners-mind",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 1090,
   "readingTime": 5,
   "imageCount": 0,

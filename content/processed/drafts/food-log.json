@@ -18,7 +18,8 @@
         {
           "text": "Meal: {{time}} (e.g., Breakfast, Lunch, Snack)",
           "slug": "meal-time-e-g-breakfast-lunch-snack",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

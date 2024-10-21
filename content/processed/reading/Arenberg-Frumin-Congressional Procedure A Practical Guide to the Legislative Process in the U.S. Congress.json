@@ -20,7 +20,26 @@
   "hidden": false,
   "draft": false,
   "title": "Congressional Procedure: A Practical Guide to the Legislative Process in the U.S. Congress",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Congressional Procedure: A Practical Guide to the Legislative Process in the U.S. Congress",
+      "slug": "congressional-procedure-a-practical-guide-to-the-legislative-process-in-the-u-s-congress",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 97,
   "readingTime": 1,
   "imageCount": 0,

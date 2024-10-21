@@ -28,12 +28,14 @@
         {
           "text": "Metadata",
           "slug": "metadata",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Highlights",
           "slug": "highlights",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

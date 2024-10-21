@@ -21,12 +21,14 @@
         {
           "text": "Assumptions / Principles",
           "slug": "assumptions-principles",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Focusing on Context-Stuffing and large context windows",
           "slug": "focusing-on-context-stuffing-and-large-context-windows",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },
@@ -38,7 +40,8 @@
         {
           "text": "Where we use randomness",
           "slug": "where-we-use-randomness",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },
@@ -62,22 +65,26 @@
         {
           "text": "Failures around teaching Capabilities",
           "slug": "failures-around-teaching-capabilities",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Failures around scheduled proactivity",
           "slug": "failures-around-scheduled-proactivity",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Pilot program in The Birch School",
           "slug": "pilot-program-in-the-birch-school",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Internal usage within Room 302 Studio",
           "slug": "internal-usage-within-room-302-studio",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },
@@ -89,12 +96,14 @@
         {
           "text": "1 Year Roadmap",
           "slug": "1-year-roadmap",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "5 Year Roadmap",
           "slug": "5-year-roadmap",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

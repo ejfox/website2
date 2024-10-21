@@ -20,7 +20,26 @@
   "hidden": false,
   "draft": false,
   "title": "The Rebels Apothecary",
-  "toc": [],
+  "toc": [
+    {
+      "text": "The Rebels Apothecary",
+      "slug": "the-rebels-apothecary",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 180,
   "readingTime": 1,
   "imageCount": 0,

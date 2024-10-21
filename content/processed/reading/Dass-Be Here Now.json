@@ -20,7 +20,26 @@
   "hidden": false,
   "draft": false,
   "title": "Be Here Now",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Be Here Now",
+      "slug": "be-here-now",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 92,
   "readingTime": 1,
   "imageCount": 0,

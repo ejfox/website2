@@ -22,27 +22,32 @@
         {
           "text": "Fundamentals of Looping",
           "slug": "fundamentals-of-looping",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Artists who live loop",
           "slug": "artists-who-live-loop",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Core principles",
           "slug": "core-principles",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Live Looping Pitfalls",
           "slug": "live-looping-pitfalls",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Equipment",
           "slug": "equipment",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

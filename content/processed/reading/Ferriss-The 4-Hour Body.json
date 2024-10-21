@@ -20,7 +20,26 @@
   "hidden": false,
   "draft": false,
   "title": "The 4-Hour Body",
-  "toc": [],
+  "toc": [
+    {
+      "text": "The 4-Hour Body",
+      "slug": "the-4-hour-body",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 382,
   "readingTime": 2,
   "imageCount": 0,

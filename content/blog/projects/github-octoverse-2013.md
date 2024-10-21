@@ -1,7 +1,8 @@
 ---
 title: "GitHub Octoverse 2013"
 date: "2013-04-05T20:02:45.000Z"
-modified: "2024-10-01T03:13:21.000Z"
+modified: "2024-10-14T16:35:28.000Z"
+url: "https://github.blog/news-insights/the-library/state-of-the-octoverse-2013-edition/"
 hidden: false
 draft: false
 ---

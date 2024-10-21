@@ -24,27 +24,32 @@
         {
           "text": "Get Vibes Right",
           "slug": "get-vibes-right",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Get Your Supplies",
           "slug": "get-your-supplies",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "My Setup for Maximum Efficiency",
           "slug": "my-setup-for-maximum-efficiency",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Travelling art setup",
           "slug": "travelling-art-setup",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Getting Started",
           "slug": "getting-started",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

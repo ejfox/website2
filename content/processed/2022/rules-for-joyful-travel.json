@@ -21,57 +21,68 @@
         {
           "text": "Coffee in the Morning",
           "slug": "coffee-in-the-morning",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Accept and Embrace Mistakes",
           "slug": "accept-and-embrace-mistakes",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Don't stress",
           "slug": "don-t-stress",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Leave Room for Synchronicities",
           "slug": "leave-room-for-synchronicities",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Keep it Moving",
           "slug": "keep-it-moving",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Handling Disagreements",
           "slug": "handling-disagreements",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Traveling on a Budget",
           "slug": "traveling-on-a-budget",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Splurge",
           "slug": "splurge",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Balancing the Planned and Unplanned: Tuning Into Your Energy",
           "slug": "balancing-the-planned-and-unplanned-tuning-into-your-energy",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Dancing in the Rain: Embracing Uncertainty in Travel",
           "slug": "dancing-in-the-rain-embracing-uncertainty-in-travel",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Scarcity mentality",
           "slug": "scarcity-mentality",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

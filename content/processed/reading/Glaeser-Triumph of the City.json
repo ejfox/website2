@@ -17,7 +17,26 @@
   "hidden": false,
   "draft": false,
   "title": "Triumph of the City",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Triumph of the City",
+      "slug": "triumph-of-the-city",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 81,
   "readingTime": 1,
   "imageCount": 0,

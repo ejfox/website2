@@ -18,7 +18,26 @@
   "hidden": false,
   "draft": false,
   "title": "Women",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Women",
+      "slug": "women",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 627,
   "readingTime": 3,
   "imageCount": 0,

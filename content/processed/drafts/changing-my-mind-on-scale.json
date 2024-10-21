@@ -19,57 +19,68 @@
         {
           "text": "Chasing Giants: A Silicon Valley Dream",
           "slug": "chasing-giants-a-silicon-valley-dream",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "The Siren Song of Silicon Valley",
           "slug": "the-siren-song-of-silicon-valley",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Scaling Up: The Tech Industry's Holy Grail",
           "slug": "scaling-up-the-tech-industry-s-holy-grail",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Cracks in the Façade: The Unseen Costs of Scale",
           "slug": "cracks-in-the-fa-ade-the-unseen-costs-of-scale",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "A New Perspective: Encounters with the Downsides of Scale",
           "slug": "a-new-perspective-encounters-with-the-downsides-of-scale",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Redefining Success: Sustainability Over Scale",
           "slug": "redefining-success-sustainability-over-scale",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Embracing Discipline: A Sustainable Tech Ethos",
           "slug": "embracing-discipline-a-sustainable-tech-ethos",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Choosing a Different Path: My Project Evolution",
           "slug": "choosing-a-different-path-my-project-evolution",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Collaborations and Choices: Reflecting My New Values",
           "slug": "collaborations-and-choices-reflecting-my-new-values",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "A Balanced Future: The Intersection of Scale and Sustainability",
           "slug": "a-balanced-future-the-intersection-of-scale-and-sustainability",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "My Ongoing Journey: Committing to Sustainable Tech",
           "slug": "my-ongoing-journey-committing-to-sustainable-tech",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

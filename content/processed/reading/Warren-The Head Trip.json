@@ -19,7 +19,26 @@
   "hidden": false,
   "draft": false,
   "title": "The Head Trip",
-  "toc": [],
+  "toc": [
+    {
+      "text": "The Head Trip",
+      "slug": "the-head-trip",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 154,
   "readingTime": 1,
   "imageCount": 0,

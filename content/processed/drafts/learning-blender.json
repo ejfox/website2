@@ -10,7 +10,14 @@
     "visualization"
   ],
   "title": "Learning Blender: Winter 2022",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Learning Blender: Winter 2022",
+      "slug": "learning-blender-winter-2022",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 8,
   "readingTime": 1,
   "imageCount": 0,

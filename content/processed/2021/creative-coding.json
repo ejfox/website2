@@ -23,17 +23,20 @@
         {
           "text": "My experiments in creative coding",
           "slug": "my-experiments-in-creative-coding",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "What I Want to Try More",
           "slug": "what-i-want-to-try-more",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "What I think the next 5-10 years will hold",
           "slug": "what-i-think-the-next-5-10-years-will-hold",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

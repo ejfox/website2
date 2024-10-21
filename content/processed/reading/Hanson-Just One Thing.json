@@ -17,7 +17,26 @@
   "hidden": false,
   "draft": false,
   "title": "Just One Thing",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Just One Thing",
+      "slug": "just-one-thing",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 137,
   "readingTime": 1,
   "imageCount": 0,

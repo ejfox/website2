@@ -18,7 +18,26 @@
   "hidden": false,
   "draft": false,
   "title": "Lao Tzu: Tao Te Ching",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Lao Tzu: Tao Te Ching",
+      "slug": "lao-tzu-tao-te-ching",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 966,
   "readingTime": 4,
   "imageCount": 0,

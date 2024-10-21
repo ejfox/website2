@@ -24,42 +24,50 @@
         {
           "text": "About EAVS",
           "slug": "about-eavs",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Voter removals",
           "slug": "voter-removals",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Using Datasette",
           "slug": "using-datasette",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Creating a Makefile",
           "slug": "creating-a-makefile",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Get election results by county",
           "slug": "get-election-results-by-county",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Do our analysis",
           "slug": "do-our-analysis",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Visualize",
           "slug": "visualize",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Resources",
           "slug": "resources",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

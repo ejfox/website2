@@ -11,7 +11,7 @@
     "health"
   ],
   "date": "2022-12-26T16:57:44.000Z",
-  "modified": "2024-04-03T00:14:48.000Z",
+  "modified": "2024-10-14T23:53:11.000Z",
   "dek": "In which the author undertakes various personal and professional pursuits, from creating a photography website and scripting screenshot uploads to exploring new creative outlets and engaging in community initiatives.",
   "hidden": false,
   "draft": false,
@@ -31,12 +31,14 @@
         {
           "text": "Made website for photos",
           "slug": "made-website-for-photos",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Screenshot to Cloudinary script",
           "slug": "screenshot-to-cloudinary-script",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },
@@ -48,7 +50,8 @@
         {
           "text": "Struggling making videos",
           "slug": "struggling-making-videos",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },
@@ -66,7 +69,8 @@
         {
           "text": "Getting back into RSS",
           "slug": "getting-back-into-rss",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },
@@ -84,7 +88,8 @@
         {
           "text": "For The Many",
           "slug": "for-the-many",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

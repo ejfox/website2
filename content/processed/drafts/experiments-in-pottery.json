@@ -1,28 +1,16 @@
 {
-  "slug": "drafts/experiments-in-pottery",
-  "dek": "In which",
-  "inprogress": true,
-  "date": "2023-01-19T06:17:14.000Z",
-  "modified": "2024-09-20T04:24:22.000Z",
-  "tags": [
-    "art",
-    "pottery",
-    "design"
-  ],
-  "hidden": true,
-  "draft": true,
-  "title": "Experiments in pottery",
-  "toc": [
-    {
-      "text": "Experiments in pottery",
-      "slug": "experiments-in-pottery",
-      "level": "h2",
-      "children": []
-    }
-  ],
-  "wordCount": 5,
-  "readingTime": 1,
-  "imageCount": 0,
-  "linkCount": 0,
-  "content": ""
+  "frontmatter": {
+    "dek": "In which",
+    "inprogress": true,
+    "date": "2023-01-19T06:17:14.000Z",
+    "modified": "2024-09-20T04:24:22.000Z",
+    "tags": [
+      "art",
+      "pottery",
+      "design"
+    ],
+    "hidden": true,
+    "draft": true
+  },
+  "content": "## Experiments in pottery\n"
 }

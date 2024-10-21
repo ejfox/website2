@@ -21,7 +21,26 @@
   "hidden": false,
   "draft": false,
   "title": "The Education of a Photographer",
-  "toc": [],
+  "toc": [
+    {
+      "text": "The Education of a Photographer",
+      "slug": "the-education-of-a-photographer",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 120,
   "readingTime": 1,
   "imageCount": 0,

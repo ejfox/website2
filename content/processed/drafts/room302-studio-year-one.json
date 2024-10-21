@@ -24,17 +24,20 @@
         {
           "text": "A Year of Templates & Systems",
           "slug": "a-year-of-templates-systems",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Weekly Livestreaming Labs",
           "slug": "weekly-livestreaming-labs",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Struggles and Successes with Discord",
           "slug": "struggles-and-successes-with-discord",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },
@@ -46,7 +49,8 @@
         {
           "text": "A System For Cooperative Products",
           "slug": "a-system-for-cooperative-products",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

@@ -10,7 +10,14 @@
     "woodworking"
   ],
   "title": "Experiments in woodworking + sculpture spring 2022",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Experiments in woodworking + sculpture spring 2022",
+      "slug": "experiments-in-woodworking-sculpture-spring-2022",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 15,
   "readingTime": 1,
   "imageCount": 0,

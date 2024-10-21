@@ -15,10 +15,17 @@
   "title": "Watercolor Sketching in NYC",
   "toc": [
     {
-      "text": "Resources",
-      "slug": "resources",
-      "level": "h2",
-      "children": []
+      "text": "Watercolor Sketching in NYC",
+      "slug": "watercolor-sketching-in-nyc",
+      "level": "h1",
+      "children": [
+        {
+          "text": "Resources",
+          "slug": "resources",
+          "level": "h2",
+          "children": []
+        }
+      ]
     }
   ],
   "wordCount": 538,

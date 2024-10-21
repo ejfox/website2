@@ -23,7 +23,26 @@
   "hidden": false,
   "draft": false,
   "title": "Anarchy Works",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Anarchy Works",
+      "slug": "anarchy-works",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 871,
   "readingTime": 4,
   "imageCount": 0,

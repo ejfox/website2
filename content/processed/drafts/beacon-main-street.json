@@ -20,22 +20,26 @@
         {
           "text": "Map",
           "slug": "map",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "3D Model / Lidar",
           "slug": "3d-model-lidar",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "History",
           "slug": "history",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "American Main Streets at Large",
           "slug": "american-main-streets-at-large",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

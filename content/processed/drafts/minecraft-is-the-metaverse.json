@@ -19,52 +19,62 @@
         {
           "text": "Introduction",
           "slug": "introduction",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "The Hype Around the Metaverse",
           "slug": "the-hype-around-the-metaverse",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "What Makes a Metaverse?",
           "slug": "what-makes-a-metaverse",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Minecraft: A Closer Look",
           "slug": "minecraft-a-closer-look",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Social Dynamics in Minecraft",
           "slug": "social-dynamics-in-minecraft",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "The Minecraft Economy",
           "slug": "the-minecraft-economy",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Skeptics and Counterarguments",
           "slug": "skeptics-and-counterarguments",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "The Future is Now",
           "slug": "the-future-is-now",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Conclusion",
           "slug": "conclusion",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Additional Sections (Optional)",
           "slug": "additional-sections-optional",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

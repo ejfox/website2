@@ -19,17 +19,20 @@
         {
           "text": "Discovering the Spark: What is Joy-Driven Development?",
           "slug": "discovering-the-spark-what-is-joy-driven-development",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Curiosity As Fuel: Incorporating Joy",
           "slug": "curiosity-as-fuel-incorporating-joy",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Addressing the Skeptics",
           "slug": "addressing-the-skeptics",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

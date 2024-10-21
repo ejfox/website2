@@ -18,7 +18,26 @@
   "hidden": false,
   "draft": false,
   "title": "The Origins of Political Order",
-  "toc": [],
+  "toc": [
+    {
+      "text": "The Origins of Political Order",
+      "slug": "the-origins-of-political-order",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 162,
   "readingTime": 1,
   "imageCount": 0,

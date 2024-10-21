@@ -25,7 +25,8 @@
         {
           "text": "Automatically uploading screenshots",
           "slug": "automatically-uploading-screenshots",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },
@@ -37,22 +38,26 @@
         {
           "text": "Getting EXIF data from a resource",
           "slug": "getting-exif-data-from-a-resource",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "All media starts in ",
           "slug": "all-media-starts-in",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Apple Shortcuts & Automator",
           "slug": "apple-shortcuts-automator",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Get all Cloudinary photos for a week",
           "slug": "get-all-cloudinary-photos-for-a-week",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

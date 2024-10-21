@@ -12,7 +12,14 @@
   ],
   "draft": false,
   "title": "Taking things for granted",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Taking things for granted",
+      "slug": "taking-things-for-granted",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 282,
   "readingTime": 2,
   "imageCount": 0,

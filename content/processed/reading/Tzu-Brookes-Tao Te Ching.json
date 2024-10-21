@@ -17,7 +17,26 @@
   "hidden": false,
   "draft": false,
   "title": "Tao Te Ching",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Tao Te Ching",
+      "slug": "tao-te-ching",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 230,
   "readingTime": 1,
   "imageCount": 0,

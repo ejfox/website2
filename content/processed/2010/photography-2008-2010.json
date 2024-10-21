@@ -12,7 +12,14 @@
   ],
   "draft": false,
   "title": "Photography 2008-2010",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Photography 2008-2010",
+      "slug": "photography-2008-2010",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 58,
   "readingTime": 1,
   "imageCount": 0,

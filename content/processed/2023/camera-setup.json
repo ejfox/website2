@@ -26,27 +26,32 @@
         {
           "text": "Fujifilm X-Pro 3",
           "slug": "fujifilm-x-pro-3",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "N90s",
           "slug": "n90s",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Olympus XA 2",
           "slug": "olympus-xa-2",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Black & White Film",
           "slug": "black-white-film",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Appendix",
           "slug": "appendix",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

@@ -13,7 +13,14 @@
   ],
   "draft": false,
   "title": "Step Zero",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Step Zero",
+      "slug": "step-zero",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 230,
   "readingTime": 1,
   "imageCount": 0,

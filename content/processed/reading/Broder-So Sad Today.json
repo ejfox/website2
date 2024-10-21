@@ -15,7 +15,26 @@
   "hidden": false,
   "draft": false,
   "title": "So Sad Today",
-  "toc": [],
+  "toc": [
+    {
+      "text": "So Sad Today",
+      "slug": "so-sad-today",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 732,
   "readingTime": 3,
   "imageCount": 0,

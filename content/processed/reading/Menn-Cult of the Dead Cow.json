@@ -24,7 +24,26 @@
   "hidden": false,
   "draft": false,
   "title": "Cult of the Dead Cow",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Cult of the Dead Cow",
+      "slug": "cult-of-the-dead-cow",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 2032,
   "readingTime": 9,
   "imageCount": 0,

@@ -29,12 +29,14 @@
         {
           "text": "Interconnectedness of all things",
           "slug": "interconnectedness-of-all-things",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "The World is Editable",
           "slug": "the-world-is-editable",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },
@@ -46,42 +48,50 @@
         {
           "text": "Personal Goals",
           "slug": "personal-goals",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Professional Goals",
           "slug": "professional-goals",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Coach Artie",
           "slug": "coach-artie",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "LatentScope",
           "slug": "latentscope",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "ContextAlchemy",
           "slug": "contextalchemy",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "IssueBuilder",
           "slug": "issuebuilder",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Weekly Livestreams",
           "slug": "weekly-livestreams",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Daily Dashboard + Personal AI Assistant",
           "slug": "daily-dashboard-personal-ai-assistant",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },
@@ -93,32 +103,38 @@
         {
           "text": "Pottery",
           "slug": "pottery",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Generative Art",
           "slug": "generative-art",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Hardware Hacking / Physical Installations",
           "slug": "hardware-hacking-physical-installations",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Beat-making Goals",
           "slug": "beat-making-goals",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Watercolors",
           "slug": "watercolors",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Personal Documentation + YouTube",
           "slug": "personal-documentation-youtube",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },
@@ -130,27 +146,32 @@
         {
           "text": "Focusing on Discipline",
           "slug": "focusing-on-discipline",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "More Hudson Valley Hikes",
           "slug": "more-hudson-valley-hikes",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Get set up for international travel",
           "slug": "get-set-up-for-international-travel",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Reduce Nicotine intake",
           "slug": "reduce-nicotine-intake",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "More Intentional Cannabis Use",
           "slug": "more-intentional-cannabis-use",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },

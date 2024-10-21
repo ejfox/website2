@@ -18,7 +18,8 @@
         {
           "text": "Hardcore Search & Destroy",
           "slug": "hardcore-search-destroy",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },
@@ -30,7 +31,8 @@
         {
           "text": "I ❤️ Riot Shield",
           "slug": "i-riot-shield",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },
@@ -42,7 +44,8 @@
         {
           "text": "Killcam culture",
           "slug": "killcam-culture",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },
@@ -54,17 +57,20 @@
         {
           "text": "How to get the data",
           "slug": "how-to-get-the-data",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Data overview / metadata",
           "slug": "data-overview-metadata",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Last 20 match analysis",
           "slug": "last-20-match-analysis",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },

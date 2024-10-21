@@ -17,7 +17,26 @@
   "hidden": false,
   "draft": false,
   "title": "The Joy of Less, A Minimalist Living Guide",
-  "toc": [],
+  "toc": [
+    {
+      "text": "The Joy of Less, A Minimalist Living Guide",
+      "slug": "the-joy-of-less-a-minimalist-living-guide",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 118,
   "readingTime": 1,
   "imageCount": 0,

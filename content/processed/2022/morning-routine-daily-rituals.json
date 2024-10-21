@@ -22,52 +22,62 @@
         {
           "text": "Shower and Listen to the Radio",
           "slug": "shower-and-listen-to-the-radio",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Make Coffee, Read, and Meditate",
           "slug": "make-coffee-read-and-meditate",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Exercise",
           "slug": "exercise",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Feed the cat",
           "slug": "feed-the-cat",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Journaling and Writing",
           "slug": "journaling-and-writing",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Plan Out My Day",
           "slug": "plan-out-my-day",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Making an espresso",
           "slug": "making-an-espresso",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "5 Minute morning journal",
           "slug": "5-minute-morning-journal",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Analog / paper time and being outside",
           "slug": "analog-paper-time-and-being-outside",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Connecting with friends and family",
           "slug": "connecting-with-friends-and-family",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

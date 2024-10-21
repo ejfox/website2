@@ -26,17 +26,20 @@
         {
           "text": "What do I want to create?",
           "slug": "what-do-i-want-to-create",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Mise-en-place",
           "slug": "mise-en-place",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "What are the building blocks of the system we are working in?",
           "slug": "what-are-the-building-blocks-of-the-system-we-are-working-in",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

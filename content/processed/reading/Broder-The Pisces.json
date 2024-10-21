@@ -19,7 +19,26 @@
   "hidden": false,
   "draft": false,
   "title": "The Pisces",
-  "toc": [],
+  "toc": [
+    {
+      "text": "The Pisces",
+      "slug": "the-pisces",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 797,
   "readingTime": 4,
   "imageCount": 0,

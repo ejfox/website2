@@ -21,7 +21,26 @@
   "hidden": false,
   "draft": false,
   "title": "The Hero’s Journey",
-  "toc": [],
+  "toc": [
+    {
+      "text": "The Hero’s Journey",
+      "slug": "the-hero-s-journey",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 479,
   "readingTime": 2,
   "imageCount": 0,

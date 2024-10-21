@@ -19,7 +19,26 @@
   "hidden": false,
   "draft": false,
   "title": "Kids These Days",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Kids These Days",
+      "slug": "kids-these-days",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 3028,
   "readingTime": 13,
   "imageCount": 0,

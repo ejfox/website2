@@ -18,7 +18,26 @@
   "hidden": false,
   "draft": false,
   "title": "Calling Bullshit",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Calling Bullshit",
+      "slug": "calling-bullshit",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 72,
   "readingTime": 1,
   "imageCount": 0,

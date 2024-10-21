@@ -23,7 +23,26 @@
   "hidden": false,
   "draft": false,
   "title": "Direct Action",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Direct Action",
+      "slug": "direct-action",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 86,
   "readingTime": 1,
   "imageCount": 0,

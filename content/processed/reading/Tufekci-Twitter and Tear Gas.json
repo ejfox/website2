@@ -18,7 +18,26 @@
   "hidden": false,
   "draft": false,
   "title": "Twitter and Tear Gas",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Twitter and Tear Gas",
+      "slug": "twitter-and-tear-gas",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 227,
   "readingTime": 1,
   "imageCount": 0,

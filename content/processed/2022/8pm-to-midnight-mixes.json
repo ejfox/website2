@@ -20,12 +20,14 @@
         {
           "text": "Genres",
           "slug": "genres",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Artist Network Analysis",
           "slug": "artist-network-analysis",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },

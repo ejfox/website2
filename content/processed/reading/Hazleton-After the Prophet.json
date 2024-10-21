@@ -19,7 +19,26 @@
   "hidden": false,
   "draft": false,
   "title": "After the Prophet",
-  "toc": [],
+  "toc": [
+    {
+      "text": "After the Prophet",
+      "slug": "after-the-prophet",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 137,
   "readingTime": 1,
   "imageCount": 0,

@@ -23,7 +23,26 @@
   "hidden": false,
   "draft": false,
   "title": "Silicon Values",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Silicon Values",
+      "slug": "silicon-values",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 58,
   "readingTime": 1,
   "imageCount": 0,

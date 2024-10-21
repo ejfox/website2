@@ -21,27 +21,32 @@
         {
           "text": "Procreate Pocket",
           "slug": "procreate-pocket",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "ChatGPT / OpenAI Playground",
           "slug": "chatgpt-openai-playground",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Obsidian",
           "slug": "obsidian",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Instagram",
           "slug": "instagram",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "iMovie",
           "slug": "imovie",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

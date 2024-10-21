@@ -19,7 +19,26 @@
   "hidden": false,
   "draft": false,
   "title": "The Fundamentals of Motorcycle Camping",
-  "toc": [],
+  "toc": [
+    {
+      "text": "The Fundamentals of Motorcycle Camping",
+      "slug": "the-fundamentals-of-motorcycle-camping",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 333,
   "readingTime": 2,
   "imageCount": 0,

@@ -19,7 +19,26 @@
   "hidden": false,
   "draft": false,
   "title": "Tools Of Titans",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Tools Of Titans",
+      "slug": "tools-of-titans",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 485,
   "readingTime": 2,
   "imageCount": 0,

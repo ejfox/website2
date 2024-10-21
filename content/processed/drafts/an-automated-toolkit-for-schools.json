@@ -20,17 +20,20 @@
         {
           "text": "Tools",
           "slug": "tools",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Artificial Intelligence",
           "slug": "artificial-intelligence",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Principles",
           "slug": "principles",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

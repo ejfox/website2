@@ -24,22 +24,26 @@
         {
           "text": "The Birth of Hacker Ideology: Challenging Authority and Finding Collective Solutions",
           "slug": "the-birth-of-hacker-ideology-challenging-authority-and-finding-collective-solutions",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Stewart Brand & The Whole Earth Catalog",
           "slug": "stewart-brand-the-whole-earth-catalog",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Steve Jobs & The Hippies",
           "slug": "steve-jobs-the-hippies",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Snow Crash & The Matrix",
           "slug": "snow-crash-the-matrix",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

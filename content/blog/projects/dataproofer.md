@@ -1,7 +1,8 @@
 ---
 title: "Dataproofer"
 date: "2015-11-04T00:40:35.000Z"
-modified: "2024-10-02T00:44:43.000Z"
+modified: "2024-10-14T16:33:44.000Z"
+url: "https://github.com/dataproofer/Dataproofer"
 hidden: false
 draft: false
 ---

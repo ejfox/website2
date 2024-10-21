@@ -19,7 +19,26 @@
   "hidden": false,
   "draft": false,
   "title": "Kasher in the Rye",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Kasher in the Rye",
+      "slug": "kasher-in-the-rye",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 104,
   "readingTime": 1,
   "imageCount": 0,

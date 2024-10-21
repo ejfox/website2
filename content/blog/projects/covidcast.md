@@ -1,7 +1,8 @@
 ---
 title: "COVIDcast"
 date: "2020-04-24T20:00:51.000Z"
-modified: "2024-10-01T02:16:31.000Z"
+modified: "2024-10-14T23:59:10.000Z"
+url: "https://campustechnology.com/articles/2020/04/24/carnegie-mellon-maps-offer-more-data-for-covid-19-forecasting.aspx"
 hidden: false
 draft: false
 ---

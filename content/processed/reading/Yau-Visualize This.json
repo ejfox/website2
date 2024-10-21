@@ -19,7 +19,26 @@
   "hidden": false,
   "draft": false,
   "title": "Visualize This",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Visualize This",
+      "slug": "visualize-this",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 128,
   "readingTime": 1,
   "imageCount": 0,

@@ -17,7 +17,26 @@
   "hidden": false,
   "draft": false,
   "title": "How to Do the Work",
-  "toc": [],
+  "toc": [
+    {
+      "text": "How to Do the Work",
+      "slug": "how-to-do-the-work",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 901,
   "readingTime": 4,
   "imageCount": 0,

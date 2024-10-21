@@ -15,7 +15,26 @@
   "hidden": false,
   "draft": false,
   "title": "Company Of One",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Company Of One",
+      "slug": "company-of-one",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 207,
   "readingTime": 1,
   "imageCount": 0,

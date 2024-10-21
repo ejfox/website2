@@ -21,12 +21,14 @@
         {
           "text": "Getting set up",
           "slug": "getting-set-up",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Making a chart with Plot and rendering with Vue",
           "slug": "making-a-chart-with-plot-and-rendering-with-vue",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

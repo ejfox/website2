@@ -9,7 +9,14 @@
     "howto"
   ],
   "title": "Getting started with Mastodon",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Getting started with Mastodon",
+      "slug": "getting-started-with-mastodon",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 8,
   "readingTime": 1,
   "imageCount": 0,

@@ -1,26 +1,14 @@
 {
-  "slug": "drafts/future-of-design-room302-prediction",
-  "dek": "In which",
-  "inprogress": true,
-  "date": "2022-12-05T23:34:09.000Z",
-  "modified": "2024-04-29T15:43:55.000Z",
-  "tags": [
-    "design"
-  ],
-  "hidden": true,
-  "draft": true,
-  "title": "The Future of Design: Predictions from Room 302’s Experts",
-  "toc": [
-    {
-      "text": "The Future of Design: Predictions from Room 302’s Experts",
-      "slug": "the-future-of-design-predictions-from-room-302-s-experts",
-      "level": "h2",
-      "children": []
-    }
-  ],
-  "wordCount": 11,
-  "readingTime": 1,
-  "imageCount": 0,
-  "linkCount": 0,
-  "content": ""
+  "frontmatter": {
+    "dek": "In which",
+    "inprogress": true,
+    "date": "2022-12-05T23:34:09.000Z",
+    "modified": "2024-04-29T15:43:55.000Z",
+    "tags": [
+      "design"
+    ],
+    "hidden": true,
+    "draft": true
+  },
+  "content": "## The Future of Design: Predictions from Room 302’s Experts\n"
 }

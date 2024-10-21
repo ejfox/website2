@@ -20,7 +20,26 @@
   "hidden": false,
   "draft": false,
   "title": "Data Feminism",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Data Feminism",
+      "slug": "data-feminism",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 252,
   "readingTime": 2,
   "imageCount": 0,

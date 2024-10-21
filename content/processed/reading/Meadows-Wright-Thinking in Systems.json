@@ -15,7 +15,26 @@
   "hidden": false,
   "draft": false,
   "title": "Thinking in Systems",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Thinking in Systems",
+      "slug": "thinking-in-systems",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 300,
   "readingTime": 2,
   "imageCount": 0,

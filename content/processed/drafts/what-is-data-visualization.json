@@ -12,7 +12,14 @@
     "visualization"
   ],
   "title": "What is dataviz to me?",
-  "toc": [],
+  "toc": [
+    {
+      "text": "What is dataviz to me?",
+      "slug": "what-is-dataviz-to-me",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 20,
   "readingTime": 1,
   "imageCount": 0,

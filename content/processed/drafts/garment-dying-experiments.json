@@ -22,22 +22,26 @@
         {
           "text": "Materials",
           "slug": "materials",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Dying Design Style Choices",
           "slug": "dying-design-style-choices",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Ice Dyeing",
           "slug": "ice-dyeing",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Gradient/Dip Dyeing",
           "slug": "gradient-dip-dyeing",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     },

@@ -20,16 +20,23 @@
   "title": "The Green Witch",
   "toc": [
     {
-      "text": "Metadata",
-      "slug": "metadata",
-      "level": "h2",
-      "children": []
-    },
-    {
-      "text": "Highlights",
-      "slug": "highlights",
-      "level": "h2",
-      "children": []
+      "text": "The Green Witch",
+      "slug": "the-green-witch",
+      "level": "h1",
+      "children": [
+        {
+          "text": "Metadata",
+          "slug": "metadata",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Highlights",
+          "slug": "highlights",
+          "level": "h2",
+          "children": []
+        }
+      ]
     }
   ],
   "wordCount": 709,

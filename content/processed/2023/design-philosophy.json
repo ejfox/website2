@@ -19,47 +19,56 @@
         {
           "text": "Simplicity & Minimalism",
           "slug": "simplicity-minimalism",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Universal Application Across Diverse Mediums",
           "slug": "universal-application-across-diverse-mediums",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Phases of the Design Process",
           "slug": "phases-of-the-design-process",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Paper & Sketching",
           "slug": "paper-sketching",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Using Grids",
           "slug": "using-grids",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "\"Designer Hat\" Vs \"Engineer Hat\"",
           "slug": "designer-hat-vs-engineer-hat",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "The Power of Constraints",
           "slug": "the-power-of-constraints",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Iterative process",
           "slug": "iterative-process",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         },
         {
           "text": "Pros/Cons Of Designing in Code",
           "slug": "pros-cons-of-designing-in-code",
-          "level": "h3"
+          "level": "h3",
+          "children": []
         }
       ]
     }

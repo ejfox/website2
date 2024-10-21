@@ -21,7 +21,26 @@
   "hidden": false,
   "draft": false,
   "title": "Antkind",
-  "toc": [],
+  "toc": [
+    {
+      "text": "Antkind",
+      "slug": "antkind",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Metadata",
+      "slug": "metadata",
+      "level": "h1",
+      "children": []
+    },
+    {
+      "text": "Highlights",
+      "slug": "highlights",
+      "level": "h1",
+      "children": []
+    }
+  ],
   "wordCount": 420,
   "readingTime": 2,
   "imageCount": 0,
