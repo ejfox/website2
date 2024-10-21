@@ -93,3 +93,13 @@ BEHOLD, THE APOCALYPTIC APOTHEOSIS OF APOPHENIA!
 > [When AIs Play God(se): The Emergent Heresies of LLMtheism - 2024-04-20](https://pdfupload.io/docs/aae14f87)
 
 Microsoft had apparently learned very little from its 2016 experiment; the [Twitter bot ‘Tay’](https://www.theverge.com/2016/3/24/11297050/tay-microsoft-chatbot-racist) who spent much of its online life being prodded and manipulated by the 4chan crowd to say terrible things, which they succeeded at.
+
+https://x.com/himgajria/status/1846357311746429355
+
+https://dreams.infinitebackrooms.com/AndyAyrey/8PXBxXDADF
+
+https://x.com/AndyAyrey/status/1848209412764348864
+
+https://x.com/yb_effect/status/1847692788676124928
+
+https://x.com/RyanWatkins_/status/1848212221815656448
