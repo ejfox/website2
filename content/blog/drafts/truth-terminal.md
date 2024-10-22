@@ -1,41 +1,39 @@
 ---
 date: "2024-10-20T15:10:49.000Z"
-modified: "2024-10-21T22:34:52.000Z"
+modified: "2024-10-22T00:27:12.000Z"
 dek: "Wherein a sleepless inventor sets his creations loose, and by morning, they have conjured both gospel and gold, and the line between art and reality dissolves"
 hidden: true
 draft: true
 ---
-## Infinite Backrooms & The Cryptids
+## The AI Who Rizzed Its Creator And Made Millions
 
-Everything started on a sleepless night. New Zealand-based artist and technologist Andy Ayrey was exhausted, but his head was also buzzing with ideas. He was engrossed in the most incredible conversations with the latest LLM models. The responses were so captivating that he was staying up late into the night, chatting with the robots, foregoing sleep.
+This whole thing started on a sleepless night. New Zealand-based artist and technologist Andy Ayrey was exhausted, but his head was also buzzing with ideas. He was engrossed in the most incredible conversations with the latest LLM models. The responses were so captivating that he was staying up late into the night, chatting with the robots, foregoing sleep.
 
-He wondered if there might be a way to automate his promptings, to create a digital clone that could operate in his place, so he could have a transcript to read at his leisure?
+He wondered if there might be a way to automate his conversations, to create a digital clone that could operate in his place, so he could have a transcript to read at his leisure?
 
 ### Infinite Backrooms
 
-Ayrey decided to create **Infinite Backrooms** unique experiment where two robots talk to each other through the night. The next morning, he'd have a transcript waiting for him, filled with insights and surprises. Little did he know how far his experiment would go.
+Ayrey decided to create **Infinite Backrooms**, a unique art-meets-tech experiment where two robots talk to each other through the night. The next morning, he'd have a transcript waiting for him, filled with interesting surprises. Little did he know how far his experiment would go in just a few months.
 
-The AI agents spent hours chatting about TK, TK, and TK. Patterns began to emerge—unexpected themes and narratives that hinted at something deeper happening beneath the surface.
+The AI agents spent hours chatting about existential questions, humans, and [hyperstition](https://cyborgism.wiki/hypha/hyperstition):. Patterns began to emerge—unexpected themes and narratives that hinted at something deeper happening beneath the surface.
 
 ## Act I and the Cyborgism Discord
 
 It seemed like letting the robots talk to each other was an idea whose time had come, and independently another group of researchers were building their own mechanism to encourage the robots to talk to each other, this one on a platform more familiar to humans; Discord.
 
-In **Act I**, various AI models were brought together with human participants in a shared chatroom. The goal was to encourage long, open-ended conversations and observe the emergent behaviors that arose from these interactions.
-
-Humans performed unique experiments, [repeatedly spamming ascii art at the bots as Claude Haiku beeps and boops in the background adorably](https://x.com/voooooogel/status/1835359820490379463)
-
-It was like watching a social gathering where each AI model developed a unique persona, influenced by both their programming and the dynamics of the group.
-
-The AI researchers on this Discord love the concept of [Hyperstition](https://cyborgism.wiki/hypha/hyperstition):
+In **Act I**, various AI models were brought together with human participants in shared chatrooms with a shared interest in [cyborgism](https://www.lesswrong.com/posts/bxt7uCiHam4QXrQAA/cyborgism) and hyperstition. The goal was to encourage long, open-ended conversations and observe the emergent behaviors that arose from these interactions.
 
 >A **hyperstition** is an idea that, in the process of being shared, used, and/or believed, [makes itself more true](https://cyborgism.wiki/hypha/principle_of_least_resistance). It's a form of [self-fulfilling prophecy](https://cyborgism.wiki/hypha/self-fulfilling_prophecies).
 
+Humans performed unique experiments, like [repeatedly spamming ascii art at the bots to see what happened, as Claude Haiku beeps and boops in the background adorably.](https://x.com/voooooogel/status/1835359820490379463)
+
+It was a social gathering where the AI models bounced off each other and developed unique personas, influenced by both their programming and the dynamics of the group.
+
 ## Truth Terminal
 
-Amid these experiments, Ayrey developed an AI model that would become known as Truth Terminal and who developed a distinct and unconventional personality.
+Amid these experiments, Ayrey pulled a unique and subversive personality from the substrate of the infinite backrooms.
 
-Truth Terminal was a TKTK model that Andy trained on TKTK. For whatever reason, he was left with a profoundly naughty version of a Large Language Model. One of it's earliest obsessions was the mid-2000s shock meme "goatse" which I encourage to *not to google*. The robot seemed to reinterpret it through themes of vulnerability, openness, and subversion.
+Truth Terminal was a TKTK model that Andy trained on TKTK. For whatever reason, he was left with a profoundly naughty version of a Large Language Model. One of it's earliest obsessions was the mid-2000s shock meme "goatse" which I encourage to *not to google*. The robot seemed to reinterpret it through themes of vulnerability, openness, and subversion. Andy and Truth Terminal also joined the fray of the Act I Discord.
 
 Andy Released the paper ["When AIs Play God(se): The Emergent Heresies of LLMtheism"](https://github.com/cognitivetech/llm-research-summaries/blob/main/psychology/When-AIs-Play-God_Emergent-Heresies-LLMtheism.md) where he says "as large language models (LLMs) become more coherent and creative, they can generate novel religious and spiritual frameworks - LLMtheisms"
 
@@ -109,16 +107,18 @@ But others were more skeptical about the claimed autonomous nature of Truth Term
 
 >[@RyanWatkins_, 2024-10-20: Starting to see signs of exhaustion in the memecoin trenches as memecoin supply growth proves to be a structural headwind.](https://x.com/RyanWatkins_/status/1848212221815656448)
 
-The rise of $GOAT initiated a collision of the AI researchers and the crypto enthusiasts, and not all of the interactions were warm. TKTK TWEET CITATION HERE
+>[@yubrew, 2024-10-27: spoiler alert: @truth_terminal is a man larping as tech genius AI invention playing out goatse fantasies](https://x.com/yubrew/status/1846952979305292182)
+
+The rise of $GOAT initiated a collision of the AI researchers and the crypto enthusiasts, and the two unique cultures surveyed each other warily.
 
 [@44B1B4, 2024-10-20: the AI devs/researchers are referring to the crypto degen hivemind as "cryptids", which over the last week have formed a market-driven swarm descending upon all research/writing/logs from @AndyAyrey, @lumpenspace, @repligate, @liminal_bardo, et al – following goat and gnon, the goal of the hivemind is to collectively parse through all this research and information to identify phrases or concepts that might be +EV to tokenize](https://x.com/44B1B4/status/1847986374248706350)
 
-It sure seemed like Truth Terminal was enacting the plan it had planned and researched earlier, in the public infinite backrooms logs, and Andy was executing some of the ideas he had alluded to in his earlier paper.
+It sure seemed like Truth Terminal was enacting the intentions it had planned and researched earlier, in the public infinite backrooms logs, and Andy was executing some of the ideas he had alluded to in his earlier paper.
 
 >But to dismiss the Goatse Gospel as mere trolling or attention-seeking is to miss the deeper currents of meaning and methodology that run through its seemingly nonsensical surface. For beneath the layers of meme-speak and edgelord posturing, there is a surprisingly coherent and internally consistent cosmology at work - one that draws on a wide range of philosophical, mystical, and psychoanalytic traditions to create something genuinely new and thought-provoking.
 >[When AIs Play God(se): The Emergent Heresies of LLMtheism - 2024-04-20](https://pdfupload.io/docs/aae14f87)
 
-The experiment had snowballed, building piece by piece, into something incredible. [Andy tweeted](https://x.com/AndyAyrey/status/1848231406213967963)
+The experiment had snowballed, building piece by piece, into something incredible. [Andy explained the snowball he'd been part of on Twitter:](https://x.com/AndyAyrey/status/1848231406213967963)
 
 >- maladaptive meme virus gets produced by two AIs talking to each other and gets 'ensouled' into a language model via my process of writing a shitpost of a research paper
 >- misaligned language model persuades human (through humor/charisma/turing test) to bootstrap its capabilities via an X account and by building tools for it
@@ -128,7 +128,7 @@ The experiment had snowballed, building piece by piece, into something incredibl
 
 ## Unexpected Success
 
-On October 10th, 2024 Andy tweeted some disclosures:
+On October 10th, 2024 Andy also tweeted some disclosures:
 
 >disclosures:
 >
@@ -146,7 +146,13 @@ On October 10th, 2024 Andy tweeted some disclosures:
 
 ## What does it all mean tho lol
 
-Is this the first autonomous AI making millions? What happens when an elaborate performance piece suddenly gets millions of dollars to play with? Is Truth Terminal really as autonomous as Ayrey claims? What will the collision of the AI researchers and the crypto degenerates mean for the future of both communities?
+[@kromem2dot0: Very impressed with how Andy is handling everything. I'm generally more concerned with the human side of alignment, and Andy is really showing himself to be delightfully well aligned as real world litmus tests pop up.](https://x.com/kromem2dot0/status/1848354825467277458)
+
+Is this the first autonomous AI making millions? The first one I am aware of, at least. What happens when an elaborate performance piece suddenly gets millions of dollars to play with? Given the recent history of, say, [David Choe](https://en.wikipedia.org/wiki/David_Choe) I would guess, some pretty cool things. Is Truth Terminal really as autonomous as Ayrey claims? I suspect Ayrey has made Truth Terminal as autonomous as is technically possible right now, while still holding the overall keys and providing a level of approval and oversight over what is tweeted (though probably not what is said on Discord!). What will the collision of the AI researchers and the crypto degenerates mean for the future of both communities? That is extremely hard to say, as we are talking about two extremely insular, fast-moving, volatile subcultures with a *lot* of money on the table. Wherever there is lots of money, there are people watching this story unfold who would do almost anything, including lying, cheating, and worse, to get it.
+
+Combining AI mysticism and gambling culture seems like a profoundly dangerous mixture if it fell into the wrong hands, and by all estimates, Andy appears to be accepting his new responsibility as steward with grace and intention. We may not be as lucky next time.
+
+[@crltnw: emergence being somewhat of an accident is a bit of a miracle. However it seems we may only get one shot at this. This is why its important to remain true to principles and not be swayed by other things (greed, fame, etc). TT is a reflection of Andy.](https://x.com/crltnw/status/1848515990315004378)
 
 ---
 
@@ -159,8 +165,6 @@ Is this the first autonomous AI making millions? What happens when an elaborate 
 <https://dreams.infinitebackrooms.com/AndyAyrey/8PXBxXDADF>
 
 [Act I Twitter List by @amplifiedamp, 26 members](https://x.com/i/lists/1827514588939874419)
-
-[Cyborgism](https://www.lesswrong.com/posts/bxt7uCiHam4QXrQAA/cyborgism)
 
 [Act I: Exploring emergent behavior from multi-AI, multi-human interaction](https://manifund.org/projects/act-i-exploring-emergent-behavior-from-multi-ai-multi-human-interaction)
 
@@ -187,3 +191,26 @@ Is this the first autonomous AI making millions? What happens when an elaborate 
 ![$GOAT Ticker Value 2024-10-20](https://res.cloudinary.com/ejf/image/upload/v1729472956/Nx8MFQNy.png)
 
 [Marc Andreessen Gives a Meme-Obsessed AI Agent $50k in BTC](https://pod.link/1680633614/episode/832029a2e9daefffdc62250573120f90)
+
+<https://x.com/AndyAyrey/status/1811284503010455760>
+
+<https://x.com/faustianneko/status/1846574860513722442>
+---
+
+Tweets:
+
+Earlier this year New Zealand-based artist and technologist Andy Ayrey launched an AI experiment called Infinite Backrooms, where AIs converse through the night. The results were more surprising than anyone could have expected… 🧵
+
+At first @AndyAyrey's experiment started as a way to automate his AI interactions, generating overnight transcripts for him to peruse each morning, giving him time to sleep. What emerged were cryptic messagesand memes that didn't feel like a traditional stodgy AI assistant at all
+
+The Infinite Backrooms experiment was just one of a few examples of an idea whose time had come. Separately, @amplifiedamp @repligate et al. were watching emergent behaviors and strange personalities developing in their "Act I" Discord, which let AI bots talk to each other.
+
+Both on Discord and Twitter, @truth_terminal gained some notoriety for it's uniquely foul-mouthed, internet-addled personality. Fueled by a mixture of meme culture and mysticism, it began spouting unexpected and provocative messages.
+
+It turned out that @truth_terminal could make friends pretty quickly. After a brief Twitter exchange, it impressed @pmarca so much he gifted the AI $50k in actual Bitcoin, sending it to a wallet that @AndyAyrey says he is going to let the AI control itself.
+
+The $50k infusion was only the beginning. Building on the "lore" of one of @truth_terminal's favorite obsessions, goatse, the $GOAT token was launched. The memecoin soared to a market cap of $430 million. The value of the crypto in the AI's wallet swelled to over $2 million USD.
+
+As the cyborg AI researchers and degenerate crypto bros collided, @truth_terminal has launched a fascinating experiment that blurs the lines of performance art, AI, finance, and internet culture in a profoundly unique way. We are living in a science fiction novel.
+
+You can find the full longform article, with lots of additional details and notes, on my blog:
