@@ -1,871 +1,5 @@
 [
   {
-    "slug": "week-notes/2024-31",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress",
-      "coding",
-      "automation",
-      "music",
-      "health"
-    ],
-    "modified": "2024-10-14T23:49:47.000Z",
-    "date": "2024-07-30T18:56:51.000Z",
-    "dek": "In which the author reflects on building a Scrapbook system, experiments with a modular synth, and efficiently uploads videos to their blog posts via Cloudinary.",
-    "hidden": false,
-    "draft": false,
-    "title": "🌟 Overview of the Week",
-    "toc": [
-      {
-        "text": "🌟 Overview of the Week",
-        "slug": "overview-of-the-week",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Projects Worked On",
-        "slug": "projects-worked-on",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Spliff & Espresso",
-            "slug": "spliff-espresso",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Creative Endeavors",
-        "slug": "creative-endeavors",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 638,
-    "readingTime": 3,
-    "imageCount": 19,
-    "linkCount": 22
-  },
-  {
-    "slug": "week-notes/2024-32",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress",
-      "cli",
-      "coding",
-      "tool"
-    ],
-    "modified": "2024-10-14T23:49:22.000Z",
-    "date": "2024-08-05T13:13:52.000Z",
-    "dek": "In which the author creates a mystical CLI tool, delves into turning bookmarks into a knowledge graph, and sets forth on a journey towards personal growth and community engagement.",
-    "hidden": false,
-    "draft": false,
-    "title": "🌟 Overview of the Week",
-    "toc": [
-      {
-        "text": "🌟 Overview of the Week",
-        "slug": "overview-of-the-week",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Projects Worked On",
-        "slug": "projects-worked-on",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Draft Assistant ",
-            "slug": "draft-assistant",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Studio Internal Mission Control",
-            "slug": "studio-internal-mission-control",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Creative Endeavors",
-        "slug": "creative-endeavors",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 89,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 1
-  },
-  {
-    "slug": "week-notes/2024-34",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress",
-      "git",
-      "coding",
-      "database",
-      "demo",
-      "tech"
-    ],
-    "modified": "2024-10-14T23:49:12.000Z",
-    "date": "2024-08-20T15:12:56.000Z",
-    "dek": "In which the protagonist grapples with the complexities of integrating with Supabase for Connectology, seeking joy in details amidst the challenge.",
-    "hidden": false,
-    "draft": false,
-    "title": "2024-34",
-    "toc": [
-      {
-        "text": "2024-34",
-        "slug": "2024-34",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Step 1: Basic commit",
-            "slug": "step-1-basic-commit",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Step 2: Interactive commit message",
-            "slug": "step-2-interactive-commit-message",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Step 4: Interactive selection with fzf (Final version)",
-            "slug": "step-4-interactive-selection-with-fzf-final-version",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Projects Worked On",
-        "slug": "projects-worked-on",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Connectology",
-            "slug": "connectology",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 258,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "week-notes/2024-36",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress",
-      "art",
-      "design",
-      "video",
-      "inspiration"
-    ],
-    "modified": "2024-10-01T22:55:12.000Z",
-    "date": "2024-09-03T17:03:11.000Z",
-    "hidden": false,
-    "draft": false,
-    "title": "2024-36",
-    "toc": [
-      {
-        "text": "2024-36",
-        "slug": "2024-36",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 87,
-    "readingTime": 1,
-    "imageCount": 21,
-    "linkCount": 21
-  },
-  {
-    "slug": "week-notes/2024-37",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress",
-      "elections",
-      "journalism",
-      "politics"
-    ],
-    "modified": "2024-09-23T13:52:21.000Z",
-    "date": "2024-09-09T14:55:30.000Z",
-    "hidden": false,
-    "draft": false,
-    "title": "🌟 Overview of the Week",
-    "toc": [
-      {
-        "text": "🌟 Overview of the Week",
-        "slug": "overview-of-the-week",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 139,
-    "readingTime": 1,
-    "imageCount": 27,
-    "linkCount": 27
-  },
-  {
-    "slug": "week-notes/2024-38",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress",
-      "motorcycle",
-      "coding",
-      "health",
-      "inspiration"
-    ],
-    "modified": "2024-10-14T23:48:21.000Z",
-    "date": "2024-09-16T12:51:03.000Z",
-    "dek": "In which the protagonist embarked on a week of creative endeavors, coding projects, and collaborations, culminating in a flurry of digital creations and video recordings.",
-    "hidden": false,
-    "draft": false,
-    "title": "🌟 Daily Check-In & Reflections",
-    "toc": [
-      {
-        "text": "🌟 Daily Check-In & Reflections",
-        "slug": "daily-check-in-reflections",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "💻 Code & Creations",
-        "slug": "code-creations",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Connectology",
-            "slug": "connectology",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Scrapbook-core",
-            "slug": "scrapbook-core",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Updated blog",
-            "slug": "updated-blog",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 477,
-    "readingTime": 2,
-    "imageCount": 9,
-    "linkCount": 11
-  },
-  {
-    "slug": "week-notes/2024-41",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress"
-    ],
-    "modified": "2024-10-14T23:45:51.000Z",
-    "date": "2024-10-07T15:39:59.000Z",
-    "hidden": false,
-    "draft": false,
-    "title": "2024-41",
-    "toc": [
-      {
-        "text": "2024-41",
-        "slug": "2024-41",
-        "level": "h2",
-        "children": [
-          {
-            "text": "💻 Code & Creations",
-            "slug": "code-creations",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 425,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "week-notes/2024-42",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress"
-    ],
-    "modified": "2024-10-18T01:35:31.000Z",
-    "date": "2024-10-14T22:55:47.000Z",
-    "hidden": false,
-    "draft": false,
-    "title": "2024-42",
-    "toc": [
-      {
-        "text": "2024-42",
-        "slug": "2024-42",
-        "level": "h2",
-        "children": [
-          {
-            "text": "🌟 Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "💻 Code & Creations",
-            "slug": "code-creations",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "💡 Ideas & Inspirations",
-            "slug": "ideas-inspirations",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "🏋️ Health & Wellness",
-            "slug": "health-wellness",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "📚 Learning & Media",
-            "slug": "learning-media",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "🔗 Connections & Insights",
-            "slug": "connections-insights",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Interview with MW",
-            "slug": "interview-with-mw",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "🎯 Next Week's Intentions",
-            "slug": "next-week-s-intentions",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 419,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 2
-  },
-  {
-    "slug": "week-notes/2024-43",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress"
-    ],
-    "modified": "2024-10-21T13:49:01.000Z",
-    "date": "Invalid date",
-    "hidden": false,
-    "draft": false,
-    "title": "2024-43",
-    "toc": [
-      {
-        "text": "2024-43",
-        "slug": "2024-43",
-        "level": "h2",
-        "children": [
-          {
-            "text": "🌟 Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "💻 Code & Creations",
-            "slug": "code-creations",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "💡 Ideas & Inspirations",
-            "slug": "ideas-inspirations",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "🏋️ Health & Wellness",
-            "slug": "health-wellness",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "📚 Learning & Media",
-            "slug": "learning-media",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "🔗 Connections & Insights",
-            "slug": "connections-insights",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "🎯 Next Week's Intentions",
-            "slug": "next-week-s-intentions",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 96,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "reading/Guin-The Dispossessed",
-    "kindle-sync": {
-      "bookId": "30475",
-      "title": "The Dispossessed (Hainish Cycle)",
-      "author": "Ursula K. Le Guin",
-      "asin": "B000FC11GA",
-      "lastAnnotatedDate": "2023-10-14",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/919GgLbYxpL._SY160.jpg",
-      "highlightsCount": 1
-    },
-    "tags": [
-      "book",
-      "reference"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "The Dispossessed",
-    "toc": [
-      {
-        "text": "The Dispossessed",
-        "slug": "the-dispossessed",
-        "level": "h1",
-        "children": [
-          {
-            "text": "Metadata",
-            "slug": "metadata",
-            "level": "h2",
-            "children": []
-          },
-          {
-            "text": "Highlights",
-            "slug": "highlights",
-            "level": "h2",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 54,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 3
-  },
-  {
-    "slug": "reading/Hanson-Just One Thing",
-    "kindle-sync": {
-      "bookId": "49395",
-      "title": "Just One Thing: Developing a Buddha Brain One Simple Practice at a Time",
-      "author": "Rick Hanson",
-      "asin": "B005LQ6UNO",
-      "lastAnnotatedDate": "2012-10-25",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/61ehh4-cDSL._SY160.jpg",
-      "highlightsCount": 4
-    },
-    "date": "2022-12-14T20:30:08.000Z",
-    "modified": "2022-12-23T15:53:49.000Z",
-    "tags": [
-      "inspiration"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Just One Thing",
-    "toc": [
-      {
-        "text": "Just One Thing",
-        "slug": "just-one-thing",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 137,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 6
-  },
-  {
-    "slug": "reading/Harris-Kids These Days",
-    "kindle-sync": {
-      "bookId": "58932",
-      "title": "Kids These Days: Human Capital and the Making of Millennials",
-      "author": "Malcolm Harris",
-      "asin": "B06XFTVQFK",
-      "lastAnnotatedDate": "2019-05-28",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/71qu7drpPiL._SY160.jpg",
-      "highlightsCount": 38
-    },
-    "date": "2022-12-14T20:27:41.000Z",
-    "modified": "2022-12-23T15:53:54.000Z",
-    "tags": [
-      "politics",
-      "education",
-      "activism"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Kids These Days",
-    "toc": [
-      {
-        "text": "Kids These Days",
-        "slug": "kids-these-days",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 3028,
-    "readingTime": 13,
-    "imageCount": 0,
-    "linkCount": 40
-  },
-  {
-    "slug": "reading/Hastings-The Last Magazine",
-    "kindle-sync": {
-      "bookId": "14217",
-      "title": "The Last Magazine: A Novel",
-      "author": "Michael Hastings",
-      "asin": "B00G3L7TRM",
-      "lastAnnotatedDate": "2019-04-11",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/819oeJKp3wL._SY160.jpg",
-      "highlightsCount": 6
-    },
-    "date": "2022-12-26T16:48:07.000Z",
-    "modified": "2022-12-27T20:13:52.000Z",
-    "tags": [
-      "journalism",
-      "media",
-      "politics",
-      "writing"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "The Last Magazine",
-    "toc": [
-      {
-        "text": "The Last Magazine",
-        "slug": "the-last-magazine",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 315,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 8
-  },
-  {
-    "slug": "reading/Hazleton-After the Prophet",
-    "kindle-sync": {
-      "bookId": "27992",
-      "title": "After the Prophet: The Epic Story of the Shia-Sunni Split in Islam",
-      "author": "Lesley Hazleton",
-      "asin": "B002NXOR6A",
-      "lastAnnotatedDate": "2019-04-11",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/51vqnntqqfL._SY160.jpg",
-      "highlightsCount": 3
-    },
-    "date": "2022-12-14T20:27:58.000Z",
-    "modified": "2022-12-23T16:23:59.000Z",
-    "tags": [
-      "book",
-      "reference",
-      "research"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "After the Prophet",
-    "toc": [
-      {
-        "text": "After the Prophet",
-        "slug": "after-the-prophet",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 137,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 5
-  },
-  {
-    "slug": "reading/Heat-Moon-Blue Highways",
-    "kindle-sync": {
-      "bookId": "19692",
-      "title": "Blue Highways: A Journey into America",
-      "author": "William Least Heat-Moon",
-      "asin": "B006BAW16O",
-      "lastAnnotatedDate": "2017-01-19",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/81dcq6h5WYL._SY160.jpg",
-      "highlightsCount": 4
-    },
-    "date": "2022-12-14T20:29:07.000Z",
-    "modified": "2022-12-23T16:02:56.000Z",
-    "tags": [
-      "travel",
-      "maps",
-      "america"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Blue Highways",
-    "toc": [
-      {
-        "text": "Blue Highways",
-        "slug": "blue-highways",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 149,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 6
-  },
-  {
-    "slug": "reading/Helmreich-The New York Nobody Knows",
-    "kindle-sync": {
-      "bookId": "6757",
-      "title": "The New York Nobody Knows: Walking 6,000 Miles in the City",
-      "author": "William B. Helmreich",
-      "asin": "B00F8MIIP4",
-      "lastAnnotatedDate": "2019-08-25",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/918djpiWyxL._SY160.jpg",
-      "highlightsCount": 8
-    },
-    "date": "2022-12-14T20:27:31.000Z",
-    "modified": "2022-12-23T16:08:22.000Z",
-    "tags": [
-      "culture",
-      "documentary",
-      "nature"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "The New York Nobody Knows",
-    "toc": [
-      {
-        "text": "The New York Nobody Knows",
-        "slug": "the-new-york-nobody-knows",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 624,
-    "readingTime": 3,
-    "imageCount": 0,
-    "linkCount": 10
-  },
-  {
-    "slug": "reading/Hinton-America on Fire",
-    "kindle-sync": {
-      "bookId": "24960",
-      "title": "America on Fire: The Untold History of Police Violence and Black Rebellion Since the 1960s",
-      "author": "Elizabeth Hinton",
-      "asin": "B08L6ZNW43",
-      "lastAnnotatedDate": "2021-06-22",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/81s8svAo1pL._SY160.jpg",
-      "highlightsCount": 4
-    },
-    "date": "2022-12-14T20:25:39.000Z",
-    "modified": "2022-12-23T16:02:41.000Z",
-    "tags": [
-      "politics",
-      "activism",
-      "protest",
-      "police",
-      "america"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "America on Fire",
-    "toc": [
-      {
-        "text": "America on Fire",
-        "slug": "america-on-fire",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 221,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 6
-  },
-  {
-    "slug": "reading/Illian-Metzger-A Potters Workbook",
-    "kindle-sync": {
-      "bookId": "41806",
-      "title": "A Potter's Workbook",
-      "author": "Clary Illian and Charles Metzger",
-      "asin": "B008XOF5K0",
-      "lastAnnotatedDate": "2022-07-14",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/71wu2qltGFL._SY160.jpg",
-      "highlightsCount": 3
-    },
-    "date": "2022-12-14T20:23:37.000Z",
-    "modified": "2022-12-23T16:26:11.000Z",
-    "tags": [
-      "art",
-      "howto",
-      "pottery",
-      "design"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "A Potters Workbook",
-    "toc": [
-      {
-        "text": "A Potters Workbook",
-        "slug": "a-potters-workbook",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 201,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 5
-  },
-  {
     "slug": "reading/Jarvis-Company Of One",
     "kindle-sync": {
       "bookId": "62764",
@@ -4495,276 +3629,454 @@
     "linkCount": 9
   },
   {
-    "slug": "drafts/reducing-my-carbon-footprint",
-    "date": "2023-01-19T06:16:08.000Z",
-    "modified": "2024-07-18T18:42:39.000Z",
-    "hidden": true,
-    "draft": true,
+    "slug": "week-notes/2024-31",
     "tags": [
-      "quantifiedself",
-      "motorcycle"
-    ],
-    "title": "Motorcycle for personal vehicle",
-    "toc": [
-      {
-        "text": "Motorcycle for personal vehicle",
-        "slug": "motorcycle-for-personal-vehicle",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Walk to the grocery store",
-        "slug": "walk-to-the-grocery-store",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Public transit",
-        "slug": "public-transit",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Buy local as much as possible",
-        "slug": "buy-local-as-much-as-possible",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Avoid air travel",
-        "slug": "avoid-air-travel",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Avoid red meat",
-        "slug": "avoid-red-meat",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 31,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "drafts/room302-livestream-learning",
-    "date": "2022-12-05T23:34:09.000Z",
-    "modified": "2024-09-21T19:47:00.000Z",
-    "tags": [
-      "livestream",
+      "weekly-notes",
+      "reflections",
+      "progress",
       "coding",
-      "education",
-      "programming"
-    ],
-    "hidden": true,
-    "draft": true,
-    "title": "Livestream Learning: How Room 302 Engages and Educates in Real-Time",
-    "toc": [
-      {
-        "text": "Livestream Learning: How Room 302 Engages and Educates in Real-Time",
-        "slug": "livestream-learning-how-room-302-engages-and-educates-in-real-time",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 472,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 9
-  },
-  {
-    "slug": "drafts/room302-studio-year-one",
-    "dek": "In which the author recaps an exciting year of prototyping and community building",
-    "inprogress": true,
-    "date": "2023-12-12T17:42:07.000Z",
-    "modified": "2024-07-18T18:39:14.000Z",
-    "tags": [
-      "coding",
-      "design",
-      "project",
-      "systemsthinking",
       "automation",
-      "livestream"
+      "music",
+      "health"
     ],
-    "hidden": true,
-    "draft": true,
-    "title": "Room 302 Studio: Year One",
+    "modified": "2024-10-14T23:49:47.000Z",
+    "date": "2024-07-30T18:56:51.000Z",
+    "dek": "In which the author reflects on building a Scrapbook system, experiments with a modular synth, and efficiently uploads videos to their blog posts via Cloudinary.",
+    "hidden": false,
+    "draft": false,
+    "title": "🌟 Overview of the Week",
     "toc": [
       {
-        "text": "Room 302 Studio: Year One",
-        "slug": "room-302-studio-year-one",
+        "text": "🌟 Overview of the Week",
+        "slug": "overview-of-the-week",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Projects Worked On",
+        "slug": "projects-worked-on",
         "level": "h2",
         "children": [
           {
-            "text": "A Year of Templates & Systems",
-            "slug": "a-year-of-templates-systems",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Weekly Livestreaming Labs",
-            "slug": "weekly-livestreaming-labs",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Struggles and Successes with Discord",
-            "slug": "struggles-and-successes-with-discord",
+            "text": "Spliff & Espresso",
+            "slug": "spliff-espresso",
             "level": "h3",
             "children": []
           }
         ]
       },
       {
-        "text": "Plans For The Year Ahead",
-        "slug": "plans-for-the-year-ahead",
+        "text": "Creative Endeavors",
+        "slug": "creative-endeavors",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 638,
+    "readingTime": 3,
+    "imageCount": 19,
+    "linkCount": 22
+  },
+  {
+    "slug": "week-notes/2024-32",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "cli",
+      "coding",
+      "tool"
+    ],
+    "modified": "2024-10-14T23:49:22.000Z",
+    "date": "2024-08-05T13:13:52.000Z",
+    "dek": "In which the author creates a mystical CLI tool, delves into turning bookmarks into a knowledge graph, and sets forth on a journey towards personal growth and community engagement.",
+    "hidden": false,
+    "draft": false,
+    "title": "🌟 Overview of the Week",
+    "toc": [
+      {
+        "text": "🌟 Overview of the Week",
+        "slug": "overview-of-the-week",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Projects Worked On",
+        "slug": "projects-worked-on",
         "level": "h2",
         "children": [
           {
-            "text": "A System For Cooperative Products",
-            "slug": "a-system-for-cooperative-products",
+            "text": "Draft Assistant ",
+            "slug": "draft-assistant",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Studio Internal Mission Control",
+            "slug": "studio-internal-mission-control",
             "level": "h3",
             "children": []
           }
         ]
+      },
+      {
+        "text": "Creative Endeavors",
+        "slug": "creative-endeavors",
+        "level": "h2",
+        "children": []
       }
     ],
-    "wordCount": 440,
-    "readingTime": 2,
+    "wordCount": 89,
+    "readingTime": 1,
     "imageCount": 0,
     "linkCount": 1
   },
   {
-    "slug": "drafts/scroll-driven-nuxt-animations",
-    "dek": "In which we make the elements of our page twirl and dance in order to spark joy.",
-    "inprogress": true,
-    "date": "2023-11-08T19:37:45.000Z",
-    "modified": "2024-09-20T04:22:14.000Z",
+    "slug": "week-notes/2024-34",
     "tags": [
-      "vue",
-      "javascript"
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "git",
+      "coding",
+      "database",
+      "demo",
+      "tech"
     ],
-    "hidden": true,
-    "draft": true,
-    "title": "Creating Scroll-Powered Animations in Nuxt",
+    "modified": "2024-10-14T23:49:12.000Z",
+    "date": "2024-08-20T15:12:56.000Z",
+    "dek": "In which the protagonist grapples with the complexities of integrating with Supabase for Connectology, seeking joy in details amidst the challenge.",
+    "hidden": false,
+    "draft": false,
+    "title": "2024-34",
     "toc": [
       {
-        "text": "Creating Scroll-Powered Animations in Nuxt",
-        "slug": "creating-scroll-powered-animations-in-nuxt",
+        "text": "2024-34",
+        "slug": "2024-34",
         "level": "h2",
         "children": [
           {
-            "text": "VueUse Motion",
-            "slug": "vueuse-motion",
+            "text": "Step 1: Basic commit",
+            "slug": "step-1-basic-commit",
             "level": "h3",
             "children": []
           },
           {
-            "text": "useScroll()",
-            "slug": "usescroll",
+            "text": "Step 2: Interactive commit message",
+            "slug": "step-2-interactive-commit-message",
             "level": "h3",
             "children": []
           },
           {
-            "text": "anime.js",
-            "slug": "anime-js",
+            "text": "Step 4: Interactive selection with fzf (Final version)",
+            "slug": "step-4-interactive-selection-with-fzf-final-version",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Projects Worked On",
+        "slug": "projects-worked-on",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Connectology",
+            "slug": "connectology",
             "level": "h3",
             "children": []
           }
         ]
       }
     ],
-    "wordCount": 14,
-    "readingTime": 1,
+    "wordCount": 258,
+    "readingTime": 2,
     "imageCount": 0,
     "linkCount": 0
   },
   {
-    "slug": "drafts/skins-tv-show",
-    "date": "2024-03-23T02:56:54.000Z",
-    "modified": "2024-07-18T18:31:16.000Z",
-    "hidden": true,
-    "draft": true,
+    "slug": "week-notes/2024-36",
     "tags": [
-      "personal",
-      "tv"
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "art",
+      "design",
+      "video",
+      "inspiration"
     ],
-    "title": "Season 1 Episode 1",
+    "modified": "2024-10-01T22:55:12.000Z",
+    "date": "2024-09-03T17:03:11.000Z",
+    "hidden": false,
+    "draft": false,
+    "title": "2024-36",
     "toc": [
       {
-        "text": "Season 1 Episode 1",
-        "slug": "season-1-episode-1",
+        "text": "2024-36",
+        "slug": "2024-36",
         "level": "h2",
         "children": []
       }
     ],
-    "wordCount": 48,
+    "wordCount": 87,
     "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
+    "imageCount": 21,
+    "linkCount": 21
   },
   {
-    "slug": "drafts/soapmaking",
-    "draft": true,
-    "dek": "In which",
-    "inprogress": true,
-    "date": "2023-01-19T05:39:28.000Z",
-    "modified": "2024-09-20T04:21:42.000Z",
+    "slug": "week-notes/2024-37",
     "tags": [
-      "art",
-      "analog"
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "elections",
+      "journalism",
+      "politics"
     ],
-    "hidden": true,
-    "title": "Making soap",
+    "modified": "2024-09-23T13:52:21.000Z",
+    "date": "2024-09-09T14:55:30.000Z",
+    "hidden": false,
+    "draft": false,
+    "title": "🌟 Overview of the Week",
     "toc": [
       {
-        "text": "Making soap",
-        "slug": "making-soap",
+        "text": "🌟 Overview of the Week",
+        "slug": "overview-of-the-week",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 139,
+    "readingTime": 1,
+    "imageCount": 27,
+    "linkCount": 27
+  },
+  {
+    "slug": "week-notes/2024-38",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "motorcycle",
+      "coding",
+      "health",
+      "inspiration"
+    ],
+    "modified": "2024-10-14T23:48:21.000Z",
+    "date": "2024-09-16T12:51:03.000Z",
+    "dek": "In which the protagonist embarked on a week of creative endeavors, coding projects, and collaborations, culminating in a flurry of digital creations and video recordings.",
+    "hidden": false,
+    "draft": false,
+    "title": "🌟 Daily Check-In & Reflections",
+    "toc": [
+      {
+        "text": "🌟 Daily Check-In & Reflections",
+        "slug": "daily-check-in-reflections",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "💻 Code & Creations",
+        "slug": "code-creations",
         "level": "h2",
         "children": [
           {
-            "text": "Choosing Colors",
-            "slug": "choosing-colors",
+            "text": "Connectology",
+            "slug": "connectology",
             "level": "h3",
             "children": []
           },
           {
-            "text": "Choosing Scents",
-            "slug": "choosing-scents",
+            "text": "Scrapbook-core",
+            "slug": "scrapbook-core",
             "level": "h3",
             "children": []
           },
           {
-            "text": "Weighing Ingredients",
-            "slug": "weighing-ingredients",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Melting Oils",
-            "slug": "melting-oils",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Lye + Mineral Water Reaction",
-            "slug": "lye-mineral-water-reaction",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Pouring Techniques",
-            "slug": "pouring-techniques",
+            "text": "Updated blog",
+            "slug": "updated-blog",
             "level": "h3",
             "children": []
           }
         ]
       }
     ],
-    "wordCount": 458,
+    "wordCount": 477,
     "readingTime": 2,
+    "imageCount": 9,
+    "linkCount": 11
+  },
+  {
+    "slug": "week-notes/2024-41",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
+    "modified": "2024-10-14T23:45:51.000Z",
+    "date": "2024-10-07T15:39:59.000Z",
+    "hidden": false,
+    "draft": false,
+    "title": "2024-41",
+    "toc": [
+      {
+        "text": "2024-41",
+        "slug": "2024-41",
+        "level": "h2",
+        "children": [
+          {
+            "text": "💻 Code & Creations",
+            "slug": "code-creations",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 425,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "week-notes/2024-42",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
+    "modified": "2024-10-18T01:35:31.000Z",
+    "date": "2024-10-14T22:55:47.000Z",
+    "hidden": false,
+    "draft": false,
+    "title": "2024-42",
+    "toc": [
+      {
+        "text": "2024-42",
+        "slug": "2024-42",
+        "level": "h2",
+        "children": [
+          {
+            "text": "🌟 Daily Check-In & Reflections",
+            "slug": "daily-check-in-reflections",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "💻 Code & Creations",
+            "slug": "code-creations",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "💡 Ideas & Inspirations",
+            "slug": "ideas-inspirations",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "🏋️ Health & Wellness",
+            "slug": "health-wellness",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "📚 Learning & Media",
+            "slug": "learning-media",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "🔗 Connections & Insights",
+            "slug": "connections-insights",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Interview with MW",
+            "slug": "interview-with-mw",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "🎯 Next Week's Intentions",
+            "slug": "next-week-s-intentions",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 419,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 2
+  },
+  {
+    "slug": "week-notes/2024-43",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
+    "modified": "2024-10-21T13:49:01.000Z",
+    "date": "Invalid date",
+    "hidden": false,
+    "draft": false,
+    "title": "2024-43",
+    "toc": [
+      {
+        "text": "2024-43",
+        "slug": "2024-43",
+        "level": "h2",
+        "children": [
+          {
+            "text": "🌟 Daily Check-In & Reflections",
+            "slug": "daily-check-in-reflections",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "💻 Code & Creations",
+            "slug": "code-creations",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "💡 Ideas & Inspirations",
+            "slug": "ideas-inspirations",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "🏋️ Health & Wellness",
+            "slug": "health-wellness",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "📚 Learning & Media",
+            "slug": "learning-media",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "🔗 Connections & Insights",
+            "slug": "connections-insights",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "🎯 Next Week's Intentions",
+            "slug": "next-week-s-intentions",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 96,
+    "readingTime": 1,
     "imageCount": 0,
     "linkCount": 0
   },
@@ -7441,340 +6753,418 @@
     "linkCount": 26
   },
   {
-    "slug": "2023/crypto-ai-colonization",
-    "dek": "In which we embrace new technology and strive for an equitable future",
-    "date": "2023-01-24T15:56:03.000Z",
-    "modified": "2024-09-26T01:30:20.000Z",
+    "slug": "reading/Guin-The Dispossessed",
+    "kindle-sync": {
+      "bookId": "30475",
+      "title": "The Dispossessed (Hainish Cycle)",
+      "author": "Ursula K. Le Guin",
+      "asin": "B000FC11GA",
+      "lastAnnotatedDate": "2023-10-14",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/919GgLbYxpL._SY160.jpg",
+      "highlightsCount": 1
+    },
     "tags": [
-      "activism",
-      "art",
-      "climatechange",
-      "cryptocurrency",
-      "ecology",
-      "machinelearning"
+      "book",
+      "reference"
     ],
     "hidden": false,
     "draft": false,
-    "title": "Deconstructing Crypto, AI, and the 21st Century Colonial Mindset",
+    "title": "The Dispossessed",
     "toc": [
       {
-        "text": "Deconstructing Crypto, AI, and the 21st Century Colonial Mindset",
-        "slug": "deconstructing-crypto-ai-and-the-21st-century-colonial-mindset",
-        "level": "h2",
+        "text": "The Dispossessed",
+        "slug": "the-dispossessed",
+        "level": "h1",
         "children": [
           {
-            "text": "Hoarding knowledge and technology",
-            "slug": "hoarding-knowledge-and-technology",
-            "level": "h3",
+            "text": "Metadata",
+            "slug": "metadata",
+            "level": "h2",
             "children": []
           },
           {
-            "text": "Colonial Algorithms",
-            "slug": "colonial-algorithms",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Old systems reinterpreted",
-            "slug": "old-systems-reinterpreted",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "The soul is built from greed",
-            "slug": "the-soul-is-built-from-greed",
-            "level": "h3",
+            "text": "Highlights",
+            "slug": "highlights",
+            "level": "h2",
             "children": []
           }
         ]
       }
     ],
-    "wordCount": 1397,
-    "readingTime": 6,
+    "wordCount": 54,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 3
+  },
+  {
+    "slug": "reading/Hanson-Just One Thing",
+    "kindle-sync": {
+      "bookId": "49395",
+      "title": "Just One Thing: Developing a Buddha Brain One Simple Practice at a Time",
+      "author": "Rick Hanson",
+      "asin": "B005LQ6UNO",
+      "lastAnnotatedDate": "2012-10-25",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/61ehh4-cDSL._SY160.jpg",
+      "highlightsCount": 4
+    },
+    "date": "2022-12-14T20:30:08.000Z",
+    "modified": "2022-12-23T15:53:49.000Z",
+    "tags": [
+      "inspiration"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Just One Thing",
+    "toc": [
+      {
+        "text": "Just One Thing",
+        "slug": "just-one-thing",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 137,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 6
+  },
+  {
+    "slug": "reading/Harris-Kids These Days",
+    "kindle-sync": {
+      "bookId": "58932",
+      "title": "Kids These Days: Human Capital and the Making of Millennials",
+      "author": "Malcolm Harris",
+      "asin": "B06XFTVQFK",
+      "lastAnnotatedDate": "2019-05-28",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/71qu7drpPiL._SY160.jpg",
+      "highlightsCount": 38
+    },
+    "date": "2022-12-14T20:27:41.000Z",
+    "modified": "2022-12-23T15:53:54.000Z",
+    "tags": [
+      "politics",
+      "education",
+      "activism"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Kids These Days",
+    "toc": [
+      {
+        "text": "Kids These Days",
+        "slug": "kids-these-days",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 3028,
+    "readingTime": 13,
+    "imageCount": 0,
+    "linkCount": 40
+  },
+  {
+    "slug": "reading/Hastings-The Last Magazine",
+    "kindle-sync": {
+      "bookId": "14217",
+      "title": "The Last Magazine: A Novel",
+      "author": "Michael Hastings",
+      "asin": "B00G3L7TRM",
+      "lastAnnotatedDate": "2019-04-11",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/819oeJKp3wL._SY160.jpg",
+      "highlightsCount": 6
+    },
+    "date": "2022-12-26T16:48:07.000Z",
+    "modified": "2022-12-27T20:13:52.000Z",
+    "tags": [
+      "journalism",
+      "media",
+      "politics",
+      "writing"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "The Last Magazine",
+    "toc": [
+      {
+        "text": "The Last Magazine",
+        "slug": "the-last-magazine",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 315,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 8
+  },
+  {
+    "slug": "reading/Hazleton-After the Prophet",
+    "kindle-sync": {
+      "bookId": "27992",
+      "title": "After the Prophet: The Epic Story of the Shia-Sunni Split in Islam",
+      "author": "Lesley Hazleton",
+      "asin": "B002NXOR6A",
+      "lastAnnotatedDate": "2019-04-11",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/51vqnntqqfL._SY160.jpg",
+      "highlightsCount": 3
+    },
+    "date": "2022-12-14T20:27:58.000Z",
+    "modified": "2022-12-23T16:23:59.000Z",
+    "tags": [
+      "book",
+      "reference",
+      "research"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "After the Prophet",
+    "toc": [
+      {
+        "text": "After the Prophet",
+        "slug": "after-the-prophet",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 137,
+    "readingTime": 1,
     "imageCount": 0,
     "linkCount": 5
   },
   {
-    "slug": "2023/design-philosophy",
-    "draft": false,
-    "dek": "In which we create a few rules so we can fully unlock our creativity",
-    "inprogress": true,
-    "date": "2023-01-19T06:23:52.000Z",
-    "modified": "2024-09-20T04:26:18.000Z",
+    "slug": "reading/Heat-Moon-Blue Highways",
+    "kindle-sync": {
+      "bookId": "19692",
+      "title": "Blue Highways: A Journey into America",
+      "author": "William Least Heat-Moon",
+      "asin": "B006BAW16O",
+      "lastAnnotatedDate": "2017-01-19",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/81dcq6h5WYL._SY160.jpg",
+      "highlightsCount": 4
+    },
+    "date": "2022-12-14T20:29:07.000Z",
+    "modified": "2022-12-23T16:02:56.000Z",
     "tags": [
+      "travel",
+      "maps",
+      "america"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Blue Highways",
+    "toc": [
+      {
+        "text": "Blue Highways",
+        "slug": "blue-highways",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 149,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 6
+  },
+  {
+    "slug": "reading/Helmreich-The New York Nobody Knows",
+    "kindle-sync": {
+      "bookId": "6757",
+      "title": "The New York Nobody Knows: Walking 6,000 Miles in the City",
+      "author": "William B. Helmreich",
+      "asin": "B00F8MIIP4",
+      "lastAnnotatedDate": "2019-08-25",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/918djpiWyxL._SY160.jpg",
+      "highlightsCount": 8
+    },
+    "date": "2022-12-14T20:27:31.000Z",
+    "modified": "2022-12-23T16:08:22.000Z",
+    "tags": [
+      "culture",
+      "documentary",
+      "nature"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "The New York Nobody Knows",
+    "toc": [
+      {
+        "text": "The New York Nobody Knows",
+        "slug": "the-new-york-nobody-knows",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 624,
+    "readingTime": 3,
+    "imageCount": 0,
+    "linkCount": 10
+  },
+  {
+    "slug": "reading/Hinton-America on Fire",
+    "kindle-sync": {
+      "bookId": "24960",
+      "title": "America on Fire: The Untold History of Police Violence and Black Rebellion Since the 1960s",
+      "author": "Elizabeth Hinton",
+      "asin": "B08L6ZNW43",
+      "lastAnnotatedDate": "2021-06-22",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/81s8svAo1pL._SY160.jpg",
+      "highlightsCount": 4
+    },
+    "date": "2022-12-14T20:25:39.000Z",
+    "modified": "2022-12-23T16:02:41.000Z",
+    "tags": [
+      "politics",
+      "activism",
+      "protest",
+      "police",
+      "america"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "America on Fire",
+    "toc": [
+      {
+        "text": "America on Fire",
+        "slug": "america-on-fire",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 221,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 6
+  },
+  {
+    "slug": "reading/Illian-Metzger-A Potters Workbook",
+    "kindle-sync": {
+      "bookId": "41806",
+      "title": "A Potter's Workbook",
+      "author": "Clary Illian and Charles Metzger",
+      "asin": "B008XOF5K0",
+      "lastAnnotatedDate": "2022-07-14",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/71wu2qltGFL._SY160.jpg",
+      "highlightsCount": 3
+    },
+    "date": "2022-12-14T20:23:37.000Z",
+    "modified": "2022-12-23T16:26:11.000Z",
+    "tags": [
+      "art",
+      "howto",
+      "pottery",
       "design"
     ],
     "hidden": false,
-    "title": "My design philosophy",
-    "toc": [
-      {
-        "text": "My design philosophy",
-        "slug": "my-design-philosophy",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Simplicity & Minimalism",
-            "slug": "simplicity-minimalism",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Universal Application Across Diverse Mediums",
-            "slug": "universal-application-across-diverse-mediums",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Phases of the Design Process",
-            "slug": "phases-of-the-design-process",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Paper & Sketching",
-            "slug": "paper-sketching",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Using Grids",
-            "slug": "using-grids",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "\"Designer Hat\" Vs \"Engineer Hat\"",
-            "slug": "designer-hat-vs-engineer-hat",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "The Power of Constraints",
-            "slug": "the-power-of-constraints",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Iterative process",
-            "slug": "iterative-process",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Pros/Cons Of Designing in Code",
-            "slug": "pros-cons-of-designing-in-code",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 901,
-    "readingTime": 4,
-    "imageCount": 0,
-    "linkCount": 1
-  },
-  {
-    "slug": "2023/film-development",
     "draft": false,
-    "inprogress": true,
-    "dek": "In which we use light and chemicals to make images appear, if we are lucky",
-    "date": "2023-01-06T21:50:52.000Z",
-    "modified": "2024-06-07T18:19:53.000Z",
-    "tags": [
-      "analog",
-      "photography",
-      "process",
-      "technique"
-    ],
-    "hidden": false,
-    "title": "Film Development",
+    "title": "A Potters Workbook",
     "toc": [
       {
-        "text": "Film Development",
-        "slug": "film-development",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Film I shoot",
-            "slug": "film-i-shoot",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "B&W 35mm Film Development Setup",
-            "slug": "b-w-35mm-film-development-setup",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Darkroom Print Setup",
-            "slug": "darkroom-print-setup",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 542,
-    "readingTime": 3,
-    "imageCount": 0,
-    "linkCount": 1
-  },
-  {
-    "slug": "2023/hacker-culture",
-    "draft": false,
-    "dek": "In which we illuminate the curious history of hackerdom and its transformative influence on our modern technological world",
-    "inprogress": true,
-    "date": "2023-01-19T06:37:52.000Z",
-    "modified": "2024-09-23T16:13:08.000Z",
-    "tags": [
-      "hackers",
-      "personal",
-      "opensource",
-      "culture",
-      "activism",
-      "inspiration"
-    ],
-    "hidden": false,
-    "title": "Hacker Culture: Unraveling the Threads of a Digital Revolution",
-    "toc": [
+        "text": "A Potters Workbook",
+        "slug": "a-potters-workbook",
+        "level": "h1",
+        "children": []
+      },
       {
-        "text": "Hacker Culture: Unraveling the Threads of a Digital Revolution",
-        "slug": "hacker-culture-unraveling-the-threads-of-a-digital-revolution",
-        "level": "h2",
-        "children": [
-          {
-            "text": "The Birth of Hacker Ideology: Challenging Authority and Finding Collective Solutions",
-            "slug": "the-birth-of-hacker-ideology-challenging-authority-and-finding-collective-solutions",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Stewart Brand & The Whole Earth Catalog",
-            "slug": "stewart-brand-the-whole-earth-catalog",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Steve Jobs & The Hippies",
-            "slug": "steve-jobs-the-hippies",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Snow Crash & The Matrix",
-            "slug": "snow-crash-the-matrix",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 1919,
-    "readingTime": 8,
-    "imageCount": 1,
-    "linkCount": 12
-  },
-  {
-    "slug": "2023/how-i-built-coach-artie",
-    "draft": false,
-    "dek": "In which we build a robot to help around the shop",
-    "inprogress": true,
-    "date": "2023-03-21T19:03:11.000Z",
-    "modified": "2024-09-23T16:13:40.000Z",
-    "tags": [
-      "dataviz",
-      "gpt3",
-      "machinelearning"
-    ],
-    "hidden": false,
-    "title": "How I Built An AI Assistant for our Dataviz Studio",
-    "toc": [
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
       {
-        "text": "How I Built An AI Assistant for our Dataviz Studio",
-        "slug": "how-i-built-an-ai-assistant-for-our-dataviz-studio",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Motivations",
-            "slug": "motivations",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Development",
-            "slug": "development",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Examples",
-            "slug": "examples",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Future plans",
-            "slug": "future-plans",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Thoughts",
-            "slug": "thoughts",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Coach Artie's Perspective",
-            "slug": "coach-artie-s-perspective",
-            "level": "h3",
-            "children": []
-          }
-        ]
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
       }
     ],
-    "wordCount": 1485,
-    "readingTime": 6,
-    "imageCount": 4,
-    "linkCount": 9
-  },
-  {
-    "slug": "2023/livestreaming",
-    "dek": "In which we make a list of the times I have livestreamed",
-    "date": "2023-01-03T18:21:22.000Z",
-    "modified": "2024-09-20T04:23:53.000Z",
-    "tags": [
-      "livestream",
-      "dataviz",
-      "vue",
-      "coding",
-      "climatechange",
-      "youtube"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Livestreaming",
-    "toc": [
-      {
-        "text": "Livestreaming",
-        "slug": "livestreaming",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Past Livestreams",
-            "slug": "past-livestreams",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 237,
+    "wordCount": 201,
     "readingTime": 1,
     "imageCount": 0,
-    "linkCount": 13
+    "linkCount": 5
   },
   {
     "slug": "2023/selecting-a-cms",
@@ -10479,6 +9869,280 @@
     "linkCount": 0
   },
   {
+    "slug": "drafts/reducing-my-carbon-footprint",
+    "date": "2023-01-19T06:16:08.000Z",
+    "modified": "2024-07-18T18:42:39.000Z",
+    "hidden": true,
+    "draft": true,
+    "tags": [
+      "quantifiedself",
+      "motorcycle"
+    ],
+    "title": "Motorcycle for personal vehicle",
+    "toc": [
+      {
+        "text": "Motorcycle for personal vehicle",
+        "slug": "motorcycle-for-personal-vehicle",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Walk to the grocery store",
+        "slug": "walk-to-the-grocery-store",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Public transit",
+        "slug": "public-transit",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Buy local as much as possible",
+        "slug": "buy-local-as-much-as-possible",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Avoid air travel",
+        "slug": "avoid-air-travel",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Avoid red meat",
+        "slug": "avoid-red-meat",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 31,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "drafts/room302-livestream-learning",
+    "date": "2022-12-05T23:34:09.000Z",
+    "modified": "2024-09-21T19:47:00.000Z",
+    "tags": [
+      "livestream",
+      "coding",
+      "education",
+      "programming"
+    ],
+    "hidden": true,
+    "draft": true,
+    "title": "Livestream Learning: How Room 302 Engages and Educates in Real-Time",
+    "toc": [
+      {
+        "text": "Livestream Learning: How Room 302 Engages and Educates in Real-Time",
+        "slug": "livestream-learning-how-room-302-engages-and-educates-in-real-time",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 472,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 9
+  },
+  {
+    "slug": "drafts/room302-studio-year-one",
+    "dek": "In which the author recaps an exciting year of prototyping and community building",
+    "inprogress": true,
+    "date": "2023-12-12T17:42:07.000Z",
+    "modified": "2024-07-18T18:39:14.000Z",
+    "tags": [
+      "coding",
+      "design",
+      "project",
+      "systemsthinking",
+      "automation",
+      "livestream"
+    ],
+    "hidden": true,
+    "draft": true,
+    "title": "Room 302 Studio: Year One",
+    "toc": [
+      {
+        "text": "Room 302 Studio: Year One",
+        "slug": "room-302-studio-year-one",
+        "level": "h2",
+        "children": [
+          {
+            "text": "A Year of Templates & Systems",
+            "slug": "a-year-of-templates-systems",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Weekly Livestreaming Labs",
+            "slug": "weekly-livestreaming-labs",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Struggles and Successes with Discord",
+            "slug": "struggles-and-successes-with-discord",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Plans For The Year Ahead",
+        "slug": "plans-for-the-year-ahead",
+        "level": "h2",
+        "children": [
+          {
+            "text": "A System For Cooperative Products",
+            "slug": "a-system-for-cooperative-products",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 440,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 1
+  },
+  {
+    "slug": "drafts/scroll-driven-nuxt-animations",
+    "dek": "In which we make the elements of our page twirl and dance in order to spark joy.",
+    "inprogress": true,
+    "date": "2023-11-08T19:37:45.000Z",
+    "modified": "2024-09-20T04:22:14.000Z",
+    "tags": [
+      "vue",
+      "javascript"
+    ],
+    "hidden": true,
+    "draft": true,
+    "title": "Creating Scroll-Powered Animations in Nuxt",
+    "toc": [
+      {
+        "text": "Creating Scroll-Powered Animations in Nuxt",
+        "slug": "creating-scroll-powered-animations-in-nuxt",
+        "level": "h2",
+        "children": [
+          {
+            "text": "VueUse Motion",
+            "slug": "vueuse-motion",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "useScroll()",
+            "slug": "usescroll",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "anime.js",
+            "slug": "anime-js",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 14,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "drafts/skins-tv-show",
+    "date": "2024-03-23T02:56:54.000Z",
+    "modified": "2024-07-18T18:31:16.000Z",
+    "hidden": true,
+    "draft": true,
+    "tags": [
+      "personal",
+      "tv"
+    ],
+    "title": "Season 1 Episode 1",
+    "toc": [
+      {
+        "text": "Season 1 Episode 1",
+        "slug": "season-1-episode-1",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 48,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "drafts/soapmaking",
+    "draft": true,
+    "dek": "In which",
+    "inprogress": true,
+    "date": "2023-01-19T05:39:28.000Z",
+    "modified": "2024-09-20T04:21:42.000Z",
+    "tags": [
+      "art",
+      "analog"
+    ],
+    "hidden": true,
+    "title": "Making soap",
+    "toc": [
+      {
+        "text": "Making soap",
+        "slug": "making-soap",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Choosing Colors",
+            "slug": "choosing-colors",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Choosing Scents",
+            "slug": "choosing-scents",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Weighing Ingredients",
+            "slug": "weighing-ingredients",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Melting Oils",
+            "slug": "melting-oils",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Lye + Mineral Water Reaction",
+            "slug": "lye-mineral-water-reaction",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Pouring Techniques",
+            "slug": "pouring-techniques",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 458,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
     "slug": "2010/!pinboard-tags",
     "dek": "All of the tags I use across all technologies, pinboard, this blog, and anywhere else",
     "date": "2010-12-17T17:00:00.000Z",
@@ -12800,5 +12464,341 @@
     "readingTime": 6,
     "imageCount": 0,
     "linkCount": 2
+  },
+  {
+    "slug": "2023/crypto-ai-colonization",
+    "dek": "In which we embrace new technology and strive for an equitable future",
+    "date": "2023-01-24T15:56:03.000Z",
+    "modified": "2024-09-26T01:30:20.000Z",
+    "tags": [
+      "activism",
+      "art",
+      "climatechange",
+      "cryptocurrency",
+      "ecology",
+      "machinelearning"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Deconstructing Crypto, AI, and the 21st Century Colonial Mindset",
+    "toc": [
+      {
+        "text": "Deconstructing Crypto, AI, and the 21st Century Colonial Mindset",
+        "slug": "deconstructing-crypto-ai-and-the-21st-century-colonial-mindset",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Hoarding knowledge and technology",
+            "slug": "hoarding-knowledge-and-technology",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Colonial Algorithms",
+            "slug": "colonial-algorithms",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Old systems reinterpreted",
+            "slug": "old-systems-reinterpreted",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "The soul is built from greed",
+            "slug": "the-soul-is-built-from-greed",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 1397,
+    "readingTime": 6,
+    "imageCount": 0,
+    "linkCount": 5
+  },
+  {
+    "slug": "2023/design-philosophy",
+    "draft": false,
+    "dek": "In which we create a few rules so we can fully unlock our creativity",
+    "inprogress": true,
+    "date": "2023-01-19T06:23:52.000Z",
+    "modified": "2024-09-20T04:26:18.000Z",
+    "tags": [
+      "design"
+    ],
+    "hidden": false,
+    "title": "My design philosophy",
+    "toc": [
+      {
+        "text": "My design philosophy",
+        "slug": "my-design-philosophy",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Simplicity & Minimalism",
+            "slug": "simplicity-minimalism",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Universal Application Across Diverse Mediums",
+            "slug": "universal-application-across-diverse-mediums",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Phases of the Design Process",
+            "slug": "phases-of-the-design-process",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Paper & Sketching",
+            "slug": "paper-sketching",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Using Grids",
+            "slug": "using-grids",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "\"Designer Hat\" Vs \"Engineer Hat\"",
+            "slug": "designer-hat-vs-engineer-hat",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "The Power of Constraints",
+            "slug": "the-power-of-constraints",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Iterative process",
+            "slug": "iterative-process",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Pros/Cons Of Designing in Code",
+            "slug": "pros-cons-of-designing-in-code",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 901,
+    "readingTime": 4,
+    "imageCount": 0,
+    "linkCount": 1
+  },
+  {
+    "slug": "2023/film-development",
+    "draft": false,
+    "inprogress": true,
+    "dek": "In which we use light and chemicals to make images appear, if we are lucky",
+    "date": "2023-01-06T21:50:52.000Z",
+    "modified": "2024-06-07T18:19:53.000Z",
+    "tags": [
+      "analog",
+      "photography",
+      "process",
+      "technique"
+    ],
+    "hidden": false,
+    "title": "Film Development",
+    "toc": [
+      {
+        "text": "Film Development",
+        "slug": "film-development",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Film I shoot",
+            "slug": "film-i-shoot",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "B&W 35mm Film Development Setup",
+            "slug": "b-w-35mm-film-development-setup",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Darkroom Print Setup",
+            "slug": "darkroom-print-setup",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 542,
+    "readingTime": 3,
+    "imageCount": 0,
+    "linkCount": 1
+  },
+  {
+    "slug": "2023/hacker-culture",
+    "draft": false,
+    "dek": "In which we illuminate the curious history of hackerdom and its transformative influence on our modern technological world",
+    "inprogress": true,
+    "date": "2023-01-19T06:37:52.000Z",
+    "modified": "2024-09-23T16:13:08.000Z",
+    "tags": [
+      "hackers",
+      "personal",
+      "opensource",
+      "culture",
+      "activism",
+      "inspiration"
+    ],
+    "hidden": false,
+    "title": "Hacker Culture: Unraveling the Threads of a Digital Revolution",
+    "toc": [
+      {
+        "text": "Hacker Culture: Unraveling the Threads of a Digital Revolution",
+        "slug": "hacker-culture-unraveling-the-threads-of-a-digital-revolution",
+        "level": "h2",
+        "children": [
+          {
+            "text": "The Birth of Hacker Ideology: Challenging Authority and Finding Collective Solutions",
+            "slug": "the-birth-of-hacker-ideology-challenging-authority-and-finding-collective-solutions",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Stewart Brand & The Whole Earth Catalog",
+            "slug": "stewart-brand-the-whole-earth-catalog",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Steve Jobs & The Hippies",
+            "slug": "steve-jobs-the-hippies",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Snow Crash & The Matrix",
+            "slug": "snow-crash-the-matrix",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 1919,
+    "readingTime": 8,
+    "imageCount": 1,
+    "linkCount": 12
+  },
+  {
+    "slug": "2023/how-i-built-coach-artie",
+    "draft": false,
+    "dek": "In which we build a robot to help around the shop",
+    "inprogress": true,
+    "date": "2023-03-21T19:03:11.000Z",
+    "modified": "2024-09-23T16:13:40.000Z",
+    "tags": [
+      "dataviz",
+      "gpt3",
+      "machinelearning"
+    ],
+    "hidden": false,
+    "title": "How I Built An AI Assistant for our Dataviz Studio",
+    "toc": [
+      {
+        "text": "How I Built An AI Assistant for our Dataviz Studio",
+        "slug": "how-i-built-an-ai-assistant-for-our-dataviz-studio",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Motivations",
+            "slug": "motivations",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Development",
+            "slug": "development",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Examples",
+            "slug": "examples",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Future plans",
+            "slug": "future-plans",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Thoughts",
+            "slug": "thoughts",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Coach Artie's Perspective",
+            "slug": "coach-artie-s-perspective",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 1485,
+    "readingTime": 6,
+    "imageCount": 4,
+    "linkCount": 9
+  },
+  {
+    "slug": "2023/livestreaming",
+    "dek": "In which we make a list of the times I have livestreamed",
+    "date": "2023-01-03T18:21:22.000Z",
+    "modified": "2024-09-20T04:23:53.000Z",
+    "tags": [
+      "livestream",
+      "dataviz",
+      "vue",
+      "coding",
+      "climatechange",
+      "youtube"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Livestreaming",
+    "toc": [
+      {
+        "text": "Livestreaming",
+        "slug": "livestreaming",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Past Livestreams",
+            "slug": "past-livestreams",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 237,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 13
   }
 ]
