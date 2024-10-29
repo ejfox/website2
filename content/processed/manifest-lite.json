@@ -1,236 +1,5 @@
 [
   {
-    "slug": "reading/Suzuki-Chadwick-Zen Mind, Beginners Mind",
-    "kindle-sync": {
-      "bookId": "56342",
-      "title": "Zen Mind, Beginner's Mind",
-      "author": "Shunryu Suzuki and David Chadwick",
-      "asin": "B004R9QFGS",
-      "lastAnnotatedDate": "2016-07-28",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/71ln75kZ4wL._SY160.jpg",
-      "highlightsCount": 24
-    },
-    "date": "2022-12-14T20:29:13.000Z",
-    "modified": "2022-12-23T16:09:16.000Z",
-    "tags": [
-      "meditation"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Zen Mind, Beginners Mind",
-    "toc": [
-      {
-        "text": "Zen Mind, Beginners Mind",
-        "slug": "zen-mind-beginners-mind",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 1090,
-    "readingTime": 5,
-    "imageCount": 0,
-    "linkCount": 26
-  },
-  {
-    "slug": "reading/Taibbi-Crabapple-The Divide",
-    "kindle-sync": {
-      "bookId": "2923",
-      "title": "The Divide: American Injustice in the Age of the Wealth Gap",
-      "author": "Matt Taibbi and Molly Crabapple",
-      "asin": "B00EBRUB02",
-      "lastAnnotatedDate": "2019-04-11",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/913cJQHSz+L._SY160.jpg",
-      "highlightsCount": 11
-    },
-    "date": "2022-12-14T20:28:14.000Z",
-    "modified": "2022-12-23T16:04:54.000Z",
-    "tags": [
-      "politics",
-      "america",
-      "journalism"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "The Divide",
-    "toc": [
-      {
-        "text": "The Divide",
-        "slug": "the-divide",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 629,
-    "readingTime": 3,
-    "imageCount": 0,
-    "linkCount": 13
-  },
-  {
-    "slug": "reading/Taylor_et_al-Darkest America",
-    "kindle-sync": {
-      "bookId": "51864",
-      "title": "Darkest America: Black Minstrelsy from Slavery to Hip-Hop",
-      "author": "Yuval Taylor, Jake Austen, and Mel Watkins",
-      "asin": "B007HXFLOI",
-      "lastAnnotatedDate": "2016-03-08",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/61UgA0cr+5L._SY160.jpg",
-      "highlightsCount": 6
-    },
-    "tags": [
-      "america",
-      "culture",
-      "comedy"
-    ],
-    "date": "2022-12-14T20:29:23.000Z",
-    "modified": "2022-12-23T16:05:43.000Z",
-    "hidden": false,
-    "draft": false,
-    "title": "Darkest America",
-    "toc": [
-      {
-        "text": "Darkest America",
-        "slug": "darkest-america",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 262,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 8
-  },
-  {
-    "slug": "reading/Thompson-Hells Angels",
-    "kindle-sync": {
-      "bookId": "54847",
-      "title": "Hell's Angels: A Strange and Terrible Saga",
-      "author": "Hunter S. Thompson",
-      "asin": "B008IU9IVG",
-      "lastAnnotatedDate": "2022-06-20",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/51WwckOYyQL._SY160.jpg",
-      "highlightsCount": 1
-    },
-    "date": "2022-12-26T16:47:01.000Z",
-    "modified": "2022-12-27T20:07:04.000Z",
-    "tags": [
-      "journalism",
-      "motorcycle",
-      "media",
-      "reference"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Hells Angels",
-    "toc": [
-      {
-        "text": "Hells Angels",
-        "slug": "hells-angels",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 115,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 3
-  },
-  {
-    "slug": "reading/Traub_et_al-The Education of a Photographer",
-    "kindle-sync": {
-      "bookId": "35281",
-      "title": "The Education of a Photographer",
-      "author": "Charles H. Traub, Steven Heller, Adam B. Bell, and Charles Traub",
-      "asin": "B0041IXRM0",
-      "lastAnnotatedDate": "2022-08-19",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/61zosjjESlL._SY160.jpg",
-      "highlightsCount": 2
-    },
-    "date": "2022-12-14T20:23:27.000Z",
-    "modified": "2022-12-23T15:54:22.000Z",
-    "tags": [
-      "photography",
-      "documentary",
-      "art",
-      "education",
-      "inspiration"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "The Education of a Photographer",
-    "toc": [
-      {
-        "text": "The Education of a Photographer",
-        "slug": "the-education-of-a-photographer",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 120,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 4
-  },
-  {
     "slug": "reading/Tufekci-Twitter and Tear Gas",
     "kindle-sync": {
       "bookId": "56548",
@@ -2299,227 +2068,6 @@
     "readingTime": 1,
     "imageCount": 0,
     "linkCount": 0
-  },
-  {
-    "slug": "reading/Bobrick-The Fated Sky",
-    "kindle-sync": {
-      "bookId": "32592",
-      "title": "The Fated Sky: Astrology in History",
-      "author": "Benson Bobrick",
-      "asin": "B000FCKKXA",
-      "lastAnnotatedDate": "2021-10-11",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/81VUHa-9LUL._SY160.jpg",
-      "highlightsCount": 13
-    },
-    "date": "2022-12-14T20:25:13.000Z",
-    "modified": "2022-12-23T14:45:29.000Z",
-    "tags": [],
-    "hidden": false,
-    "draft": false,
-    "title": "The Fated Sky",
-    "toc": [
-      {
-        "text": "The Fated Sky",
-        "slug": "the-fated-sky",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 1079,
-    "readingTime": 5,
-    "imageCount": 0,
-    "linkCount": 15
-  },
-  {
-    "slug": "reading/Broder-So Sad Today",
-    "kindle-sync": {
-      "bookId": "62203",
-      "title": "So Sad Today: Personal Essays",
-      "author": "Melissa Broder",
-      "asin": "B011J4H1NO",
-      "lastAnnotatedDate": "2023-07-28",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/71Xp3FcHKML._SY160.jpg",
-      "highlightsCount": 13
-    },
-    "date": "2022-12-14T20:25:18.000Z",
-    "modified": "2022-12-23T14:45:17.000Z",
-    "tags": [],
-    "hidden": false,
-    "draft": false,
-    "title": "So Sad Today",
-    "toc": [
-      {
-        "text": "So Sad Today",
-        "slug": "so-sad-today",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 732,
-    "readingTime": 3,
-    "imageCount": 0,
-    "linkCount": 16
-  },
-  {
-    "slug": "reading/Broder-The Pisces",
-    "kindle-sync": {
-      "bookId": "28653",
-      "title": "The Pisces: A Novel",
-      "author": "Melissa Broder",
-      "asin": "B074LVLHF2",
-      "lastAnnotatedDate": "2018-08-13",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/71IpwmRDlPL._SY160.jpg",
-      "highlightsCount": 15
-    },
-    "date": "2022-12-14T20:28:49.000Z",
-    "modified": "2022-12-23T15:53:24.000Z",
-    "tags": [
-      "book",
-      "personal",
-      "meditation"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "The Pisces",
-    "toc": [
-      {
-        "text": "The Pisces",
-        "slug": "the-pisces",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 797,
-    "readingTime": 4,
-    "imageCount": 0,
-    "linkCount": 17
-  },
-  {
-    "slug": "reading/Bukowski-Women",
-    "kindle-sync": {
-      "bookId": "62762",
-      "title": "Women: A Novel",
-      "author": "Charles Bukowski",
-      "asin": "B000W94FWS",
-      "lastAnnotatedDate": "2019-04-11",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/81M+SvV1aLL._SY160.jpg",
-      "highlightsCount": 15
-    },
-    "date": "2022-12-14T20:28:29.000Z",
-    "modified": "2022-12-23T14:46:21.000Z",
-    "tags": [
-      "writing",
-      "inspiration"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Women",
-    "toc": [
-      {
-        "text": "Women",
-        "slug": "women",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 627,
-    "readingTime": 3,
-    "imageCount": 0,
-    "linkCount": 17
-  },
-  {
-    "slug": "reading/Burnett-Evans-Designing Your Life",
-    "kindle-sync": {
-      "bookId": "37778",
-      "title": "Designing Your Life: How to Build a Well-Lived, Joyful Life",
-      "author": "Bill Burnett and Dave Evans",
-      "asin": "B01BJSRSEC",
-      "lastAnnotatedDate": "2021-01-18",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/71O3fHSPe8L._SY160.jpg",
-      "highlightsCount": 2
-    },
-    "date": "2022-12-14T20:26:28.000Z",
-    "modified": "2022-12-23T14:45:40.000Z",
-    "tags": [
-      "process",
-      "book",
-      "inspiration"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Designing Your Life",
-    "toc": [
-      {
-        "text": "Designing Your Life",
-        "slug": "designing-your-life",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 139,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 4
   },
   {
     "slug": "reading/Campbell_et_al-The Hero’s Journey",
@@ -6006,176 +5554,235 @@
     "linkCount": 3
   },
   {
-    "slug": "drafts/exercise",
-    "date": "2022-11-02T23:57:34.000Z",
-    "modified": "2024-06-06T19:57:24.000Z",
-    "hidden": true,
-    "draft": true,
+    "slug": "reading/Suzuki-Chadwick-Zen Mind, Beginners Mind",
+    "kindle-sync": {
+      "bookId": "56342",
+      "title": "Zen Mind, Beginner's Mind",
+      "author": "Shunryu Suzuki and David Chadwick",
+      "asin": "B004R9QFGS",
+      "lastAnnotatedDate": "2016-07-28",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/71ln75kZ4wL._SY160.jpg",
+      "highlightsCount": 24
+    },
+    "date": "2022-12-14T20:29:13.000Z",
+    "modified": "2022-12-23T16:09:16.000Z",
     "tags": [
-      "exercise",
-      "health",
-      "quantifiedself"
+      "meditation"
     ],
-    "title": "Exercise",
+    "hidden": false,
+    "draft": false,
+    "title": "Zen Mind, Beginners Mind",
     "toc": [
       {
-        "text": "Exercise",
-        "slug": "exercise",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Goals",
-            "slug": "goals",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Plan",
-            "slug": "plan",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Experiments and data",
-            "slug": "experiments-and-data",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Equipment",
-            "slug": "equipment",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Dreams / next steps",
-            "slug": "dreams-next-steps",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 1417,
-    "readingTime": 6,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "drafts/falun-gong-upstate-ny",
-    "dek": "In which",
-    "inprogress": true,
-    "date": "2024-04-25T21:21:40.000Z",
-    "modified": "2024-09-21T19:04:17.000Z",
-    "tags": [
-      "activism",
-      "legal"
-    ],
-    "hidden": true,
-    "draft": true,
-    "title": "Title",
-    "toc": [
-      {
-        "text": "Title",
-        "slug": "title",
-        "level": "h2",
+        "text": "Zen Mind, Beginners Mind",
+        "slug": "zen-mind-beginners-mind",
+        "level": "h1",
         "children": []
-      }
-    ],
-    "wordCount": 45,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 6
-  },
-  {
-    "slug": "drafts/food-log",
-    "tags": [
-      "health",
-      "nutrition"
-    ],
-    "date": "2024-10-05T16:05:41.000Z",
-    "modified": "2024-10-05T16:06:18.000Z",
-    "hidden": true,
-    "draft": true,
-    "title": "Meal Log - {{date:YYYY-MM-DD}}",
-    "toc": [
-      {
-        "text": "Meal Log - {{date:YYYY-MM-DD}}",
-        "slug": "meal-log-date-yyyy-mm-dd",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Meal: {{time}} (e.g., Breakfast, Lunch, Snack)",
-            "slug": "meal-time-e-g-breakfast-lunch-snack",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 91,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "drafts/garment-dying-experiments",
-    "draft": true,
-    "dek": "In which we take cloth of one color and make it another",
-    "inprogress": true,
-    "date": "2022-11-20T21:06:23.000Z",
-    "modified": "2024-09-20T04:24:48.000Z",
-    "tags": [
-      "art",
-      "Fashion",
-      "design",
-      "process"
-    ],
-    "hidden": true,
-    "title": "Transforming Clothing with Garment Dyeing",
-    "toc": [
-      {
-        "text": "Transforming Clothing with Garment Dyeing",
-        "slug": "transforming-clothing-with-garment-dyeing",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Materials",
-            "slug": "materials",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Dying Design Style Choices",
-            "slug": "dying-design-style-choices",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Ice Dyeing",
-            "slug": "ice-dyeing",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Gradient/Dip Dyeing",
-            "slug": "gradient-dip-dyeing",
-            "level": "h3",
-            "children": []
-          }
-        ]
       },
       {
-        "text": "Process",
-        "slug": "process",
-        "level": "h2",
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
         "children": []
       }
     ],
-    "wordCount": 292,
+    "wordCount": 1090,
+    "readingTime": 5,
+    "imageCount": 0,
+    "linkCount": 26
+  },
+  {
+    "slug": "reading/Taibbi-Crabapple-The Divide",
+    "kindle-sync": {
+      "bookId": "2923",
+      "title": "The Divide: American Injustice in the Age of the Wealth Gap",
+      "author": "Matt Taibbi and Molly Crabapple",
+      "asin": "B00EBRUB02",
+      "lastAnnotatedDate": "2019-04-11",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/913cJQHSz+L._SY160.jpg",
+      "highlightsCount": 11
+    },
+    "date": "2022-12-14T20:28:14.000Z",
+    "modified": "2022-12-23T16:04:54.000Z",
+    "tags": [
+      "politics",
+      "america",
+      "journalism"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "The Divide",
+    "toc": [
+      {
+        "text": "The Divide",
+        "slug": "the-divide",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 629,
+    "readingTime": 3,
+    "imageCount": 0,
+    "linkCount": 13
+  },
+  {
+    "slug": "reading/Taylor_et_al-Darkest America",
+    "kindle-sync": {
+      "bookId": "51864",
+      "title": "Darkest America: Black Minstrelsy from Slavery to Hip-Hop",
+      "author": "Yuval Taylor, Jake Austen, and Mel Watkins",
+      "asin": "B007HXFLOI",
+      "lastAnnotatedDate": "2016-03-08",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/61UgA0cr+5L._SY160.jpg",
+      "highlightsCount": 6
+    },
+    "tags": [
+      "america",
+      "culture",
+      "comedy"
+    ],
+    "date": "2022-12-14T20:29:23.000Z",
+    "modified": "2022-12-23T16:05:43.000Z",
+    "hidden": false,
+    "draft": false,
+    "title": "Darkest America",
+    "toc": [
+      {
+        "text": "Darkest America",
+        "slug": "darkest-america",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 262,
     "readingTime": 2,
     "imageCount": 0,
-    "linkCount": 0
+    "linkCount": 8
+  },
+  {
+    "slug": "reading/Thompson-Hells Angels",
+    "kindle-sync": {
+      "bookId": "54847",
+      "title": "Hell's Angels: A Strange and Terrible Saga",
+      "author": "Hunter S. Thompson",
+      "asin": "B008IU9IVG",
+      "lastAnnotatedDate": "2022-06-20",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/51WwckOYyQL._SY160.jpg",
+      "highlightsCount": 1
+    },
+    "date": "2022-12-26T16:47:01.000Z",
+    "modified": "2022-12-27T20:07:04.000Z",
+    "tags": [
+      "journalism",
+      "motorcycle",
+      "media",
+      "reference"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Hells Angels",
+    "toc": [
+      {
+        "text": "Hells Angels",
+        "slug": "hells-angels",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 115,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 3
+  },
+  {
+    "slug": "reading/Traub_et_al-The Education of a Photographer",
+    "kindle-sync": {
+      "bookId": "35281",
+      "title": "The Education of a Photographer",
+      "author": "Charles H. Traub, Steven Heller, Adam B. Bell, and Charles Traub",
+      "asin": "B0041IXRM0",
+      "lastAnnotatedDate": "2022-08-19",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/61zosjjESlL._SY160.jpg",
+      "highlightsCount": 2
+    },
+    "date": "2022-12-14T20:23:27.000Z",
+    "modified": "2022-12-23T15:54:22.000Z",
+    "tags": [
+      "photography",
+      "documentary",
+      "art",
+      "education",
+      "inspiration"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "The Education of a Photographer",
+    "toc": [
+      {
+        "text": "The Education of a Photographer",
+        "slug": "the-education-of-a-photographer",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 120,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 4
   },
   {
     "slug": "drafts/getting-started-with-embeddings",
@@ -8579,430 +8186,225 @@
     "linkCount": 3
   },
   {
-    "slug": "2020/coding-livestreams",
-    "date": "2020-10-08T08:00:52.000Z",
-    "type": "words",
+    "slug": "reading/Bobrick-The Fated Sky",
+    "kindle-sync": {
+      "bookId": "32592",
+      "title": "The Fated Sky: Astrology in History",
+      "author": "Benson Bobrick",
+      "asin": "B000FCKKXA",
+      "lastAnnotatedDate": "2021-10-11",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/81VUHa-9LUL._SY160.jpg",
+      "highlightsCount": 13
+    },
+    "date": "2022-12-14T20:25:13.000Z",
+    "modified": "2022-12-23T14:45:29.000Z",
+    "tags": [],
     "hidden": false,
-    "inprogress": false,
-    "dek": "In which the skill of broadcasting yourself writing code to the entire internet is explored",
-    "tags": [
-      "livestream",
-      "coding",
-      "dataviz",
-      "inspiration",
-      "education",
-      "visualization"
-    ],
-    "modified": "2024-09-23T16:12:59.000Z",
     "draft": false,
-    "title": "A summer of live streamed coding",
+    "title": "The Fated Sky",
     "toc": [
       {
-        "text": "A summer of live streamed coding",
-        "slug": "a-summer-of-live-streamed-coding",
-        "level": "h2",
-        "children": [
-          {
-            "text": "The cooking show metaphor",
-            "slug": "the-cooking-show-metaphor",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Working in the open",
-            "slug": "working-in-the-open",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Livestream experiments",
-            "slug": "livestream-experiments",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Building the habit",
-            "slug": "building-the-habit",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Surprisingly productive",
-            "slug": "surprisingly-productive",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 1231,
-    "readingTime": 5,
-    "imageCount": 0,
-    "linkCount": 11
-  },
-  {
-    "slug": "2020/introduction-to-eavs-data",
-    "dek": "In which voter data is explored and visualized with javascript and an assemblage of command line tools",
-    "type": "words",
-    "hidden": true,
-    "inprogress": false,
-    "date": "2020-03-03T09:00:39.000Z",
-    "hidetimestamp": false,
-    "draft": true,
-    "modified": "2024-09-23T16:13:29.000Z",
-    "tags": [
-      "data",
-      "dataviz",
-      "election2020",
-      "visualization"
-    ],
-    "title": "Processing, analyzing and visualizing EAVS data",
-    "toc": [
+        "text": "The Fated Sky",
+        "slug": "the-fated-sky",
+        "level": "h1",
+        "children": []
+      },
       {
-        "text": "Processing, analyzing and visualizing EAVS data",
-        "slug": "processing-analyzing-and-visualizing-eavs-data",
-        "level": "h2",
-        "children": [
-          {
-            "text": "About EAVS",
-            "slug": "about-eavs",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Voter removals",
-            "slug": "voter-removals",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Using Datasette",
-            "slug": "using-datasette",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Creating a Makefile",
-            "slug": "creating-a-makefile",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Get election results by county",
-            "slug": "get-election-results-by-county",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Do our analysis",
-            "slug": "do-our-analysis",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Visualize",
-            "slug": "visualize",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Resources",
-            "slug": "resources",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 993,
-    "readingTime": 4,
-    "imageCount": 0,
-    "linkCount": 4
-  },
-  {
-    "slug": "2020/online-brigades-gaming-twitter",
-    "dek": "The newest weapon in the arsenal of internet nazis is mass-brigading Twitter reports, and it’s working",
-    "type": "words",
-    "hidden": false,
-    "inprogress": false,
-    "date": "2020-02-14T21:19:39-04:00",
-    "hidetimestamp": false,
-    "tags": [
-      "activism",
-      "journalism",
-      "twitter",
-      "security"
-    ],
-    "draft": false,
-    "title": "Online Nazis Have Figured Out How To Game Twitter",
-    "toc": [
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
       {
-        "text": "Online Nazis Have Figured Out How To Game Twitter",
-        "slug": "online-nazis-have-figured-out-how-to-game-twitter",
+        "text": "Highlights",
+        "slug": "highlights",
         "level": "h1",
         "children": []
       }
     ],
-    "wordCount": 446,
-    "readingTime": 2,
+    "wordCount": 1079,
+    "readingTime": 5,
     "imageCount": 0,
-    "linkCount": 7
+    "linkCount": 15
   },
   {
-    "slug": "2020/things-ive-learned-about-elections",
-    "dek": "In which we explore the knotted beauty of American democracy",
-    "type": "words",
+    "slug": "reading/Broder-So Sad Today",
+    "kindle-sync": {
+      "bookId": "62203",
+      "title": "So Sad Today: Personal Essays",
+      "author": "Melissa Broder",
+      "asin": "B011J4H1NO",
+      "lastAnnotatedDate": "2023-07-28",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/71Xp3FcHKML._SY160.jpg",
+      "highlightsCount": 13
+    },
+    "date": "2022-12-14T20:25:18.000Z",
+    "modified": "2022-12-23T14:45:17.000Z",
+    "tags": [],
     "hidden": false,
-    "inprogress": true,
-    "date": "2020-02-09T03:19:38.000Z",
-    "hidetimestamp": false,
-    "modified": "2024-09-23T16:13:21.000Z",
-    "tags": [
-      "elections",
-      "politics",
-      "data",
-      "journalism",
-      "media",
-      "research"
-    ],
     "draft": false,
-    "title": "Things I've learned about elections",
+    "title": "So Sad Today",
     "toc": [
       {
-        "text": "Things I've learned about elections",
-        "slug": "things-i-ve-learned-about-elections",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Edge cases",
-            "slug": "edge-cases",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Races",
-            "slug": "races",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Voting",
-            "slug": "voting",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Reporting units",
-            "slug": "reporting-units",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Election data",
-            "slug": "election-data",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Primary elections",
-            "slug": "primary-elections",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Voting machines",
-            "slug": "voting-machines",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Coverage of elections",
-            "slug": "coverage-of-elections",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Why do we have elections on Tuesdays?",
-            "slug": "why-do-we-have-elections-on-tuesdays",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Resources",
-            "slug": "resources",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 2368,
-    "readingTime": 10,
-    "imageCount": 1,
-    "linkCount": 73
-  },
-  {
-    "slug": "2021/creative-coding",
-    "date": "2021-02-10T10:00:45.000Z",
-    "type": "words",
-    "hidden": false,
-    "inprogress": true,
-    "dek": "In which a computer is used as divination tool for random numbers (for the purposes of beauty, art, and poetry)",
-    "modified": "2024-09-23T16:13:15.000Z",
-    "tags": [
-      "generative",
-      "art",
-      "javascript",
-      "audio"
-    ],
-    "draft": false,
-    "title": "Generative Art",
-    "toc": [
+        "text": "So Sad Today",
+        "slug": "so-sad-today",
+        "level": "h1",
+        "children": []
+      },
       {
-        "text": "Generative Art",
-        "slug": "generative-art",
-        "level": "h2",
-        "children": [
-          {
-            "text": "My experiments in creative coding",
-            "slug": "my-experiments-in-creative-coding",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "What I Want to Try More",
-            "slug": "what-i-want-to-try-more",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "What I think the next 5-10 years will hold",
-            "slug": "what-i-think-the-next-5-10-years-will-hold",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 998,
-    "readingTime": 4,
-    "imageCount": 0,
-    "linkCount": 11
-  },
-  {
-    "slug": "2021/lack-of-data",
-    "date": "2021-05-17T08:00:10.000Z",
-    "type": "words",
-    "hidden": false,
-    "inprogress": true,
-    "dek": "An exploration of what we choose to track, and what we don't – and what that means if we want to make the world a better place",
-    "modified": "2024-09-27T17:44:44.000Z",
-    "tags": [
-      "data",
-      "datajournalism",
-      "dataviz",
-      "lackofdata",
-      "police",
-      "america"
-    ],
-    "draft": false,
-    "title": "The Lack of Data",
-    "toc": [
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
       {
-        "text": "The Lack of Data",
-        "slug": "the-lack-of-data",
-        "level": "h2",
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
         "children": []
       }
     ],
-    "wordCount": 601,
+    "wordCount": 732,
     "readingTime": 3,
     "imageCount": 0,
-    "linkCount": 2
+    "linkCount": 16
   },
   {
-    "slug": "2021/nypd-ccrb-complaint-clusters",
-    "date": "2021-06-11T08:00:17.000Z",
-    "type": "words",
-    "hidden": false,
-    "inprogress": false,
-    "dek": "In which various tools and methods are explored for analyzing data that describes a network of complaints against NYPD officers (or any other PD with similar public data)",
-    "modified": "2024-09-23T16:13:24.000Z",
+    "slug": "reading/Broder-The Pisces",
+    "kindle-sync": {
+      "bookId": "28653",
+      "title": "The Pisces: A Novel",
+      "author": "Melissa Broder",
+      "asin": "B074LVLHF2",
+      "lastAnnotatedDate": "2018-08-13",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/71IpwmRDlPL._SY160.jpg",
+      "highlightsCount": 15
+    },
+    "date": "2022-12-14T20:28:49.000Z",
+    "modified": "2022-12-23T15:53:24.000Z",
     "tags": [
-      "data",
-      "nypd",
-      "visualization",
-      "network"
+      "book",
+      "personal",
+      "meditation"
     ],
+    "hidden": false,
     "draft": false,
-    "title": "Finding Clusters of NYPD Officers In CCRB Complaint Data",
+    "title": "The Pisces",
     "toc": [
       {
-        "text": "Finding Clusters of NYPD Officers In CCRB Complaint Data",
-        "slug": "finding-clusters-of-nypd-officers-in-ccrb-complaint-data",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Why?",
-            "slug": "why",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "The Dataset",
-            "slug": "the-dataset",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Analysis",
-            "slug": "analysis",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Analyzing our data with Datasette / SQLite",
-            "slug": "analyzing-our-data-with-datasette-sqlite",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Analyzing our data with Neo4J",
-            "slug": "analyzing-our-data-with-neo4j",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Analyzing our data with Gephi",
-            "slug": "analyzing-our-data-with-gephi",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Potential Next Steps",
-            "slug": "potential-next-steps",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Flotsam & Jetsam",
-            "slug": "flotsam-jetsam",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Hire me to do work like this",
-            "slug": "hire-me-to-do-work-like-this",
-            "level": "h3",
-            "children": []
-          }
-        ]
+        "text": "The Pisces",
+        "slug": "the-pisces",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
       }
     ],
-    "wordCount": 3594,
-    "readingTime": 15,
+    "wordCount": 797,
+    "readingTime": 4,
     "imageCount": 0,
     "linkCount": 17
+  },
+  {
+    "slug": "reading/Bukowski-Women",
+    "kindle-sync": {
+      "bookId": "62762",
+      "title": "Women: A Novel",
+      "author": "Charles Bukowski",
+      "asin": "B000W94FWS",
+      "lastAnnotatedDate": "2019-04-11",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/81M+SvV1aLL._SY160.jpg",
+      "highlightsCount": 15
+    },
+    "date": "2022-12-14T20:28:29.000Z",
+    "modified": "2022-12-23T14:46:21.000Z",
+    "tags": [
+      "writing",
+      "inspiration"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Women",
+    "toc": [
+      {
+        "text": "Women",
+        "slug": "women",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 627,
+    "readingTime": 3,
+    "imageCount": 0,
+    "linkCount": 17
+  },
+  {
+    "slug": "reading/Burnett-Evans-Designing Your Life",
+    "kindle-sync": {
+      "bookId": "37778",
+      "title": "Designing Your Life: How to Build a Well-Lived, Joyful Life",
+      "author": "Bill Burnett and Dave Evans",
+      "asin": "B01BJSRSEC",
+      "lastAnnotatedDate": "2021-01-18",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/71O3fHSPe8L._SY160.jpg",
+      "highlightsCount": 2
+    },
+    "date": "2022-12-14T20:26:28.000Z",
+    "modified": "2022-12-23T14:45:40.000Z",
+    "tags": [
+      "process",
+      "book",
+      "inspiration"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Designing Your Life",
+    "toc": [
+      {
+        "text": "Designing Your Life",
+        "slug": "designing-your-life",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 139,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 4
   },
   {
     "slug": "2022/2022-prototyping-toolkit",
@@ -11932,6 +11334,178 @@
     "linkCount": 0
   },
   {
+    "slug": "drafts/exercise",
+    "date": "2022-11-02T23:57:34.000Z",
+    "modified": "2024-06-06T19:57:24.000Z",
+    "hidden": true,
+    "draft": true,
+    "tags": [
+      "exercise",
+      "health",
+      "quantifiedself"
+    ],
+    "title": "Exercise",
+    "toc": [
+      {
+        "text": "Exercise",
+        "slug": "exercise",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Goals",
+            "slug": "goals",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Plan",
+            "slug": "plan",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Experiments and data",
+            "slug": "experiments-and-data",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Equipment",
+            "slug": "equipment",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Dreams / next steps",
+            "slug": "dreams-next-steps",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 1417,
+    "readingTime": 6,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "drafts/falun-gong-upstate-ny",
+    "dek": "In which",
+    "inprogress": true,
+    "date": "2024-04-25T21:21:40.000Z",
+    "modified": "2024-09-21T19:04:17.000Z",
+    "tags": [
+      "activism",
+      "legal"
+    ],
+    "hidden": true,
+    "draft": true,
+    "title": "Title",
+    "toc": [
+      {
+        "text": "Title",
+        "slug": "title",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 45,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 6
+  },
+  {
+    "slug": "drafts/food-log",
+    "tags": [
+      "health",
+      "nutrition"
+    ],
+    "date": "2024-10-05T16:05:41.000Z",
+    "modified": "2024-10-05T16:06:18.000Z",
+    "hidden": true,
+    "draft": true,
+    "title": "Meal Log - {{date:YYYY-MM-DD}}",
+    "toc": [
+      {
+        "text": "Meal Log - {{date:YYYY-MM-DD}}",
+        "slug": "meal-log-date-yyyy-mm-dd",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Meal: {{time}} (e.g., Breakfast, Lunch, Snack)",
+            "slug": "meal-time-e-g-breakfast-lunch-snack",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 91,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "drafts/garment-dying-experiments",
+    "draft": true,
+    "dek": "In which we take cloth of one color and make it another",
+    "inprogress": true,
+    "date": "2022-11-20T21:06:23.000Z",
+    "modified": "2024-09-20T04:24:48.000Z",
+    "tags": [
+      "art",
+      "Fashion",
+      "design",
+      "process"
+    ],
+    "hidden": true,
+    "title": "Transforming Clothing with Garment Dyeing",
+    "toc": [
+      {
+        "text": "Transforming Clothing with Garment Dyeing",
+        "slug": "transforming-clothing-with-garment-dyeing",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Materials",
+            "slug": "materials",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Dying Design Style Choices",
+            "slug": "dying-design-style-choices",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Ice Dyeing",
+            "slug": "ice-dyeing",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Gradient/Dip Dyeing",
+            "slug": "gradient-dip-dyeing",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Process",
+        "slug": "process",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 292,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
     "slug": "2010/!pinboard-tags",
     "dek": "All of the tags I use across all technologies, pinboard, this blog, and anywhere else",
     "date": "2010-12-17T17:00:00.000Z",
@@ -12800,5 +12374,431 @@
     "readingTime": 3,
     "imageCount": 0,
     "linkCount": 13
+  },
+  {
+    "slug": "2020/coding-livestreams",
+    "date": "2020-10-08T08:00:52.000Z",
+    "type": "words",
+    "hidden": false,
+    "inprogress": false,
+    "dek": "In which the skill of broadcasting yourself writing code to the entire internet is explored",
+    "tags": [
+      "livestream",
+      "coding",
+      "dataviz",
+      "inspiration",
+      "education",
+      "visualization"
+    ],
+    "modified": "2024-09-23T16:12:59.000Z",
+    "draft": false,
+    "title": "A summer of live streamed coding",
+    "toc": [
+      {
+        "text": "A summer of live streamed coding",
+        "slug": "a-summer-of-live-streamed-coding",
+        "level": "h2",
+        "children": [
+          {
+            "text": "The cooking show metaphor",
+            "slug": "the-cooking-show-metaphor",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Working in the open",
+            "slug": "working-in-the-open",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Livestream experiments",
+            "slug": "livestream-experiments",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Building the habit",
+            "slug": "building-the-habit",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Surprisingly productive",
+            "slug": "surprisingly-productive",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 1231,
+    "readingTime": 5,
+    "imageCount": 0,
+    "linkCount": 11
+  },
+  {
+    "slug": "2020/introduction-to-eavs-data",
+    "dek": "In which voter data is explored and visualized with javascript and an assemblage of command line tools",
+    "type": "words",
+    "hidden": true,
+    "inprogress": false,
+    "date": "2020-03-03T09:00:39.000Z",
+    "hidetimestamp": false,
+    "draft": true,
+    "modified": "2024-09-23T16:13:29.000Z",
+    "tags": [
+      "data",
+      "dataviz",
+      "election2020",
+      "visualization"
+    ],
+    "title": "Processing, analyzing and visualizing EAVS data",
+    "toc": [
+      {
+        "text": "Processing, analyzing and visualizing EAVS data",
+        "slug": "processing-analyzing-and-visualizing-eavs-data",
+        "level": "h2",
+        "children": [
+          {
+            "text": "About EAVS",
+            "slug": "about-eavs",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Voter removals",
+            "slug": "voter-removals",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Using Datasette",
+            "slug": "using-datasette",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Creating a Makefile",
+            "slug": "creating-a-makefile",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Get election results by county",
+            "slug": "get-election-results-by-county",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Do our analysis",
+            "slug": "do-our-analysis",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Visualize",
+            "slug": "visualize",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Resources",
+            "slug": "resources",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 993,
+    "readingTime": 4,
+    "imageCount": 0,
+    "linkCount": 4
+  },
+  {
+    "slug": "2020/online-brigades-gaming-twitter",
+    "dek": "The newest weapon in the arsenal of internet nazis is mass-brigading Twitter reports, and it’s working",
+    "type": "words",
+    "hidden": false,
+    "inprogress": false,
+    "date": "2020-02-14T21:19:39-04:00",
+    "hidetimestamp": false,
+    "tags": [
+      "activism",
+      "journalism",
+      "twitter",
+      "security"
+    ],
+    "draft": false,
+    "title": "Online Nazis Have Figured Out How To Game Twitter",
+    "toc": [
+      {
+        "text": "Online Nazis Have Figured Out How To Game Twitter",
+        "slug": "online-nazis-have-figured-out-how-to-game-twitter",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 446,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 7
+  },
+  {
+    "slug": "2020/things-ive-learned-about-elections",
+    "dek": "In which we explore the knotted beauty of American democracy",
+    "type": "words",
+    "hidden": false,
+    "inprogress": true,
+    "date": "2020-02-09T03:19:38.000Z",
+    "hidetimestamp": false,
+    "modified": "2024-09-23T16:13:21.000Z",
+    "tags": [
+      "elections",
+      "politics",
+      "data",
+      "journalism",
+      "media",
+      "research"
+    ],
+    "draft": false,
+    "title": "Things I've learned about elections",
+    "toc": [
+      {
+        "text": "Things I've learned about elections",
+        "slug": "things-i-ve-learned-about-elections",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Edge cases",
+            "slug": "edge-cases",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Races",
+            "slug": "races",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Voting",
+            "slug": "voting",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Reporting units",
+            "slug": "reporting-units",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Election data",
+            "slug": "election-data",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Primary elections",
+            "slug": "primary-elections",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Voting machines",
+            "slug": "voting-machines",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Coverage of elections",
+            "slug": "coverage-of-elections",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Why do we have elections on Tuesdays?",
+            "slug": "why-do-we-have-elections-on-tuesdays",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Resources",
+            "slug": "resources",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 2368,
+    "readingTime": 10,
+    "imageCount": 1,
+    "linkCount": 73
+  },
+  {
+    "slug": "2021/creative-coding",
+    "date": "2021-02-10T10:00:45.000Z",
+    "type": "words",
+    "hidden": false,
+    "inprogress": true,
+    "dek": "In which a computer is used as divination tool for random numbers (for the purposes of beauty, art, and poetry)",
+    "modified": "2024-09-23T16:13:15.000Z",
+    "tags": [
+      "generative",
+      "art",
+      "javascript",
+      "audio"
+    ],
+    "draft": false,
+    "title": "Generative Art",
+    "toc": [
+      {
+        "text": "Generative Art",
+        "slug": "generative-art",
+        "level": "h2",
+        "children": [
+          {
+            "text": "My experiments in creative coding",
+            "slug": "my-experiments-in-creative-coding",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "What I Want to Try More",
+            "slug": "what-i-want-to-try-more",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "What I think the next 5-10 years will hold",
+            "slug": "what-i-think-the-next-5-10-years-will-hold",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 998,
+    "readingTime": 4,
+    "imageCount": 0,
+    "linkCount": 11
+  },
+  {
+    "slug": "2021/lack-of-data",
+    "date": "2021-05-17T08:00:10.000Z",
+    "type": "words",
+    "hidden": false,
+    "inprogress": true,
+    "dek": "An exploration of what we choose to track, and what we don't – and what that means if we want to make the world a better place",
+    "modified": "2024-09-27T17:44:44.000Z",
+    "tags": [
+      "data",
+      "datajournalism",
+      "dataviz",
+      "lackofdata",
+      "police",
+      "america"
+    ],
+    "draft": false,
+    "title": "The Lack of Data",
+    "toc": [
+      {
+        "text": "The Lack of Data",
+        "slug": "the-lack-of-data",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 601,
+    "readingTime": 3,
+    "imageCount": 0,
+    "linkCount": 2
+  },
+  {
+    "slug": "2021/nypd-ccrb-complaint-clusters",
+    "date": "2021-06-11T08:00:17.000Z",
+    "type": "words",
+    "hidden": false,
+    "inprogress": false,
+    "dek": "In which various tools and methods are explored for analyzing data that describes a network of complaints against NYPD officers (or any other PD with similar public data)",
+    "modified": "2024-09-23T16:13:24.000Z",
+    "tags": [
+      "data",
+      "nypd",
+      "visualization",
+      "network"
+    ],
+    "draft": false,
+    "title": "Finding Clusters of NYPD Officers In CCRB Complaint Data",
+    "toc": [
+      {
+        "text": "Finding Clusters of NYPD Officers In CCRB Complaint Data",
+        "slug": "finding-clusters-of-nypd-officers-in-ccrb-complaint-data",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Why?",
+            "slug": "why",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "The Dataset",
+            "slug": "the-dataset",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Analysis",
+            "slug": "analysis",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Analyzing our data with Datasette / SQLite",
+            "slug": "analyzing-our-data-with-datasette-sqlite",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Analyzing our data with Neo4J",
+            "slug": "analyzing-our-data-with-neo4j",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Analyzing our data with Gephi",
+            "slug": "analyzing-our-data-with-gephi",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Potential Next Steps",
+            "slug": "potential-next-steps",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Flotsam & Jetsam",
+            "slug": "flotsam-jetsam",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Hire me to do work like this",
+            "slug": "hire-me-to-do-work-like-this",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 3594,
+    "readingTime": 15,
+    "imageCount": 0,
+    "linkCount": 17
   }
 ]
