@@ -1,5 +1,1009 @@
 [
   {
+    "slug": "reading/Yau-Visualize This",
+    "kindle-sync": {
+      "bookId": "431",
+      "title": "Visualize This: The FlowingData Guide to Design, Visualization, and Statistics",
+      "author": "Nathan Yau",
+      "asin": "B005CCT19M",
+      "lastAnnotatedDate": "2011-07-24",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/511lwSnx7IL._SY160.jpg",
+      "highlightsCount": 2
+    },
+    "date": "2022-12-14T20:30:24.000Z",
+    "modified": "2022-12-23T16:08:05.000Z",
+    "tags": [
+      "dataviz",
+      "datajournalism",
+      "visualization"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Visualize This",
+    "toc": [
+      {
+        "text": "Visualize This",
+        "slug": "visualize-this",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 128,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 4
+  },
+  {
+    "slug": "reading/York-Silicon Values",
+    "kindle-sync": {
+      "bookId": "40211",
+      "title": "Silicon Values: The Future of Free Speech Under Surveillance Capitalism",
+      "author": "Jillian C. York",
+      "asin": "B089S6JCYN",
+      "lastAnnotatedDate": "2022-12-01",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/616o1iZ2KFL._SY160.jpg",
+      "highlightsCount": 1
+    },
+    "date": "2022-12-26T16:46:47.000Z",
+    "modified": "2022-12-27T20:10:11.000Z",
+    "tags": [
+      "tech",
+      "culture",
+      "book",
+      "reference",
+      "opinion",
+      "politics",
+      "america"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Silicon Values",
+    "toc": [
+      {
+        "text": "Silicon Values",
+        "slug": "silicon-values",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 58,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 3
+  },
+  {
+    "slug": "week-notes/2023-50",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "code",
+      "javascript",
+      "vue",
+      "visualization"
+    ],
+    "date": "2023-12-11T21:22:43.000Z",
+    "modified": "2024-10-14T23:53:39.000Z",
+    "dek": "In which the author concludes a successful client project, compiles documentation for informed AI context, evaluates command-running capabilities, plans an EXIF photo printer tool, experiments with Tres JS, and treats wood panels for gouache painting.",
+    "hidden": false,
+    "draft": false,
+    "title": "💻 Key Projects & Progress",
+    "toc": [
+      {
+        "text": "💻 Key Projects & Progress",
+        "slug": "key-projects-progress",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Compiling framework docs for informed AI context",
+            "slug": "compiling-framework-docs-for-informed-ai-context",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Evaluating command-running capabilities",
+            "slug": "evaluating-command-running-capabilities",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "EXIF Photo Printer",
+            "slug": "exif-photo-printer",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Experiments with Tres JS",
+            "slug": "experiments-with-tres-js",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "🎨 Creative Endeavors",
+        "slug": "creative-endeavors",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "💡 Technical Accomplishments",
+        "slug": "technical-accomplishments",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 569,
+    "readingTime": 3,
+    "imageCount": 0,
+    "linkCount": 5
+  },
+  {
+    "slug": "week-notes/2023-51",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "3d",
+      "design",
+      "coding",
+      "webdesign",
+      "automation",
+      "generative"
+    ],
+    "date": "2023-12-20T19:06:08.000Z",
+    "modified": "2024-10-14T23:53:31.000Z",
+    "dek": "In which the author collaborates on a website redesign, crafts AI-generated cyberpunk fanfiction, and successfully scrapes their YouTube 'Watch Later' playlist for future use.",
+    "hidden": false,
+    "draft": false,
+    "title": "🌟 Overview of the Week",
+    "toc": [
+      {
+        "text": "🌟 Overview of the Week",
+        "slug": "overview-of-the-week",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Room 302 Studio Website Redesign",
+            "slug": "room-302-studio-website-redesign",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "🎨 Creative Endeavors",
+        "slug": "creative-endeavors",
+        "level": "h2",
+        "children": [
+          {
+            "text": "AI-Generated Personal Fanfiction For Morale",
+            "slug": "ai-generated-personal-fanfiction-for-morale",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "💡 Technical Accomplishments",
+        "slug": "technical-accomplishments",
+        "level": "h2",
+        "children": [
+          {
+            "text": "YouTube 'Watch Later' Scraping",
+            "slug": "youtube-watch-later-scraping",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 430,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 6
+  },
+  {
+    "slug": "week-notes/2023-52",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "code",
+      "javascript",
+      "music",
+      "health"
+    ],
+    "date": "2023-12-25T20:57:53.000Z",
+    "modified": "2024-10-14T23:53:27.000Z",
+    "dek": "In which the author reflects on a festive Christmas with family, experiments with browser-based ML workflows, and creates a quirky Sonic Pi Christmas medley.",
+    "hidden": false,
+    "draft": false,
+    "title": "🌟 Overview of the Week",
+    "toc": [
+      {
+        "text": "🌟 Overview of the Week",
+        "slug": "overview-of-the-week",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "💻 Key Projects & Progress",
+        "slug": "key-projects-progress",
+        "level": "h2",
+        "children": [
+          {
+            "text": "LatentScope / Browser T-SNE",
+            "slug": "latentscope-browser-t-sne",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "🎨 Creative Endeavors",
+        "slug": "creative-endeavors",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Sonic Pi Christmas Medley",
+            "slug": "sonic-pi-christmas-medley",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 139,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "week-notes/2024-01",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "art",
+      "meditation",
+      "photography",
+      "video",
+      "health"
+    ],
+    "date": "2022-12-26T16:57:44.000Z",
+    "modified": "2024-10-14T23:53:11.000Z",
+    "dek": "In which the author undertakes various personal and professional pursuits, from creating a photography website and scripting screenshot uploads to exploring new creative outlets and engaging in community initiatives.",
+    "hidden": false,
+    "draft": false,
+    "title": "🌟 Overview of the Week",
+    "toc": [
+      {
+        "text": "🌟 Overview of the Week",
+        "slug": "overview-of-the-week",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "💻 Projects Worked On",
+        "slug": "projects-worked-on",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Made website for photos",
+            "slug": "made-website-for-photos",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Screenshot to Cloudinary script",
+            "slug": "screenshot-to-cloudinary-script",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "🎨 Creative Endeavors",
+        "slug": "creative-endeavors",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Struggling making videos",
+            "slug": "struggling-making-videos",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "💡 Technical Accomplishments",
+        "slug": "technical-accomplishments",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "📘 Learning & Development",
+        "slug": "learning-development",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Getting back into RSS",
+            "slug": "getting-back-into-rss",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "🌱 Personal Growth & Health",
+        "slug": "personal-growth-health",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "🤝 Social & Community Engagement",
+        "slug": "social-community-engagement",
+        "level": "h2",
+        "children": [
+          {
+            "text": "For The Many",
+            "slug": "for-the-many",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 772,
+    "readingTime": 4,
+    "imageCount": 1,
+    "linkCount": 3
+  },
+  {
+    "slug": "week-notes/2024-02",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "coding",
+      "project",
+      "webdesign",
+      "vue",
+      "data",
+      "visualization",
+      "design"
+    ],
+    "date": "2022-12-26T16:57:44.000Z",
+    "modified": "2024-10-14T23:52:43.000Z",
+    "dek": "In which the author navigates the complexities of balancing project management, coding challenges, and personal AI development while exploring new ways to showcase the Hudson Valley and enhance personal organization.",
+    "hidden": false,
+    "draft": false,
+    "title": "🌟 Overview of the Week",
+    "toc": [
+      {
+        "text": "🌟 Overview of the Week",
+        "slug": "overview-of-the-week",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "💻 Projects Worked On",
+        "slug": "projects-worked-on",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Setting the studio up with a CRM",
+            "slug": "setting-the-studio-up-with-a-crm",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Hudson Valley Guide: knowhv.com",
+            "slug": "hudson-valley-guide-knowhv-com",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Refactoring Electology",
+            "slug": "refactoring-electology",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Redesigning my Scrapbook",
+            "slug": "redesigning-my-scrapbook",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Lil Fox",
+            "slug": "lil-fox",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Experimenting with Tres js",
+            "slug": "experimenting-with-tres-js",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "📘 Learning & Development",
+        "slug": "learning-development",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 877,
+    "readingTime": 4,
+    "imageCount": 1,
+    "linkCount": 2
+  },
+  {
+    "slug": "week-notes/2024-03",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "3d",
+      "coding",
+      "health",
+      "military",
+      "personal",
+      "travel"
+    ],
+    "date": "2022-12-26T16:57:44.000Z",
+    "modified": "2024-10-14T23:52:28.000Z",
+    "dek": "In which the author immerses themselves in learning about warfare footage and military equipment, experimenting with 3D graphics libraries, and preparing a first aid kit for motorcycle travel.",
+    "hidden": false,
+    "draft": false,
+    "title": "🌟 Overview of the Week",
+    "toc": [
+      {
+        "text": "🌟 Overview of the Week",
+        "slug": "overview-of-the-week",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "💻 Projects Worked On",
+        "slug": "projects-worked-on",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Remaking the Room302.studio Website",
+            "slug": "remaking-the-room302-studio-website",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "📘 Learning & Development",
+        "slug": "learning-development",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Experimenting with Tres js",
+            "slug": "experimenting-with-tres-js",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Experimenting with Anime JS 4.0",
+            "slug": "experimenting-with-anime-js-4-0",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "🌱 Personal Growth & Health",
+        "slug": "personal-growth-health",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Building A First Aid Kit For Motorcycle Travel",
+            "slug": "building-a-first-aid-kit-for-motorcycle-travel",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 368,
+    "readingTime": 2,
+    "imageCount": 1,
+    "linkCount": 5
+  },
+  {
+    "slug": "week-notes/2024-04",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "livestream",
+      "gpt3",
+      "art"
+    ],
+    "date": "2022-12-26T16:57:44.000Z",
+    "modified": "2024-10-14T23:52:12.000Z",
+    "dek": "In which the author engages in interviews about glitch tokens and conducts a livestream on Coach Artie, showcasing a week filled with research and creativity.",
+    "hidden": false,
+    "draft": false,
+    "title": "💻 Projects Worked On",
+    "toc": [
+      {
+        "text": "💻 Projects Worked On",
+        "slug": "projects-worked-on",
+        "level": "h2",
+        "children": [
+          {
+            "text": "GPT Glitch Tokens",
+            "slug": "gpt-glitch-tokens",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "🎨 Creative Endeavors",
+        "slug": "creative-endeavors",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Livestream on Coach Artie",
+            "slug": "livestream-on-coach-artie",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 111,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 1
+  },
+  {
+    "slug": "week-notes/2024-05",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "webdesign",
+      "project",
+      "design"
+    ],
+    "date": "2022-12-26T16:57:44.000Z",
+    "modified": "2024-10-14T23:52:03.000Z",
+    "dek": "In which the author partakes in the redesign of the Room 302 Studio website and engages in learning and development through a video lecture.",
+    "hidden": false,
+    "draft": false,
+    "title": "💻 Projects Worked On",
+    "toc": [
+      {
+        "text": "💻 Projects Worked On",
+        "slug": "projects-worked-on",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Room 302 Studio Website Redesign",
+            "slug": "room-302-studio-website-redesign",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "📘 Learning & Development",
+        "slug": "learning-development",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 18,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "week-notes/2024-08",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
+    "date": "2022-12-26T16:57:44.000Z",
+    "modified": "2024-10-14T23:52:00.000Z",
+    "dek": "In which the author unveils a new studio site, delves into Electology plans, and experiences their first personal training session at the gym.",
+    "hidden": false,
+    "draft": false,
+    "title": "🌟 Overview of the Week",
+    "toc": [
+      {
+        "text": "🌟 Overview of the Week",
+        "slug": "overview-of-the-week",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 27,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "week-notes/2024-15",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "motorcycle",
+      "art",
+      "automation",
+      "music"
+    ],
+    "date": "2022-12-26T16:57:44.000Z",
+    "modified": "2024-10-14T23:51:56.000Z",
+    "dek": "In which the author braves a snowstorm on their motorcycle, enjoys watercolor painting with friends, indulges in a Lindsay Lohan movie night, and charts plans for automated text descriptions of screenshots and improved asset management in Obsidian.",
+    "hidden": false,
+    "draft": false,
+    "title": "🌟 Overview of the Week",
+    "toc": [
+      {
+        "text": "🌟 Overview of the Week",
+        "slug": "overview-of-the-week",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Creative Endeavors",
+        "slug": "creative-endeavors",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Books, Movies, TV",
+        "slug": "books-movies-tv",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Goals for the Future",
+        "slug": "goals-for-the-future",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 279,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "week-notes/2024-18",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "generative",
+      "mapping",
+      "hudsonvalley",
+      "visualization"
+    ],
+    "date": "2022-12-26T16:57:44.000Z",
+    "modified": "2024-10-14T23:51:53.000Z",
+    "dek": "In which the author meticulously crafts a cyberpunk visual aesthetic and explores the Hudson Valley through digital elevation models and contour maps.",
+    "hidden": false,
+    "draft": false,
+    "title": "🌟 Overview of the Week",
+    "toc": [
+      {
+        "text": "🌟 Overview of the Week",
+        "slug": "overview-of-the-week",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Projects Worked On",
+        "slug": "projects-worked-on",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Creative Endeavors",
+        "slug": "creative-endeavors",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Cyberpunk Visual Aesthetic",
+            "slug": "cyberpunk-visual-aesthetic",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Hudson Valley Exploration",
+            "slug": "hudson-valley-exploration",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 162,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "week-notes/2024-19",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "coding",
+      "video",
+      "health",
+      "camping"
+    ],
+    "modified": "2024-10-14T23:51:50.000Z",
+    "date": "2022-12-26T16:57:44.000Z",
+    "dek": "In which the author diligently works on multiple projects, explores new creative techniques, achieves technical accomplishments, and focuses on personal well-being and future goals.",
+    "hidden": false,
+    "draft": false,
+    "title": "🌟 Overview of the Week",
+    "toc": [
+      {
+        "text": "🌟 Overview of the Week",
+        "slug": "overview-of-the-week",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Projects Worked On",
+        "slug": "projects-worked-on",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Creative Endeavors",
+        "slug": "creative-endeavors",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Technical Accomplishments",
+        "slug": "technical-accomplishments",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Books, Movies, TV",
+        "slug": "books-movies-tv",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Personal Growth & Health",
+        "slug": "personal-growth-health",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Social & Community Engagement",
+        "slug": "social-community-engagement",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Goals for the Future",
+        "slug": "goals-for-the-future",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 375,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "week-notes/2024-20",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "photography",
+      "design",
+      "webdesign",
+      "pottery",
+      "personal"
+    ],
+    "modified": "2024-10-14T23:51:41.000Z",
+    "date": "2022-12-26T16:57:44.000Z",
+    "dek": "In which the author embarks on creative endeavors in pottery, updates personal projects, and enhances backend functionalities for Coach Artie & Brain View.",
+    "hidden": false,
+    "draft": false,
+    "title": "🌟 Overview of the Week",
+    "toc": [
+      {
+        "text": "🌟 Overview of the Week",
+        "slug": "overview-of-the-week",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Projects Worked On",
+        "slug": "projects-worked-on",
+        "level": "h2",
+        "children": [
+          {
+            "text": "knowhv.com",
+            "slug": "knowhv-com",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "ejfox.photos",
+            "slug": "ejfox-photos",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Room 302 Mission Control",
+            "slug": "room-302-mission-control",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Coach Artie & Brain View",
+            "slug": "coach-artie-brain-view",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Creative Endeavors",
+        "slug": "creative-endeavors",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Pottery",
+            "slug": "pottery",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 252,
+    "readingTime": 2,
+    "imageCount": 1,
+    "linkCount": 1
+  },
+  {
+    "slug": "week-notes/2024-21",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "coding",
+      "health",
+      "personal",
+      "music"
+    ],
+    "modified": "2024-10-14T23:51:32.000Z",
+    "date": "2022-12-26T16:57:44.000Z",
+    "dek": "In which the author contemplates a potential move, works on creative projects, achieves technical milestones, delves into video transcription methods, enjoys entertainment, focuses on personal health, and sets goals for the future.",
+    "hidden": false,
+    "draft": false,
+    "title": "🌟 Overview of the Week",
+    "toc": [
+      {
+        "text": "🌟 Overview of the Week",
+        "slug": "overview-of-the-week",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Projects Worked On",
+        "slug": "projects-worked-on",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Room 302 Studio Mission Control",
+            "slug": "room-302-studio-mission-control",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Creative Endeavors",
+        "slug": "creative-endeavors",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Scheduling kiln rental to get ceramics bisque fired",
+            "slug": "scheduling-kiln-rental-to-get-ceramics-bisque-fired",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Technical Accomplishments",
+        "slug": "technical-accomplishments",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Released v2.0.0 of gpt-browser package",
+            "slug": "released-v2-0-0-of-gpt-browser-package",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Amigo Sampler",
+            "slug": "amigo-sampler",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Transcribing Videos with FFMPEG and Whisper.cpp",
+        "slug": "transcribing-videos-with-ffmpeg-and-whisper-cpp",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Books, Movies, TV",
+        "slug": "books-movies-tv",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Personal Growth & Health",
+        "slug": "personal-growth-health",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 289,
+    "readingTime": 2,
+    "imageCount": 3,
+    "linkCount": 5
+  },
+  {
     "slug": "week-notes/2024-22",
     "tags": [
       "weekly-notes",
@@ -791,6 +1795,650 @@
     "readingTime": 1,
     "imageCount": 0,
     "linkCount": 0
+  },
+  {
+    "slug": "reading/DIgnazio-Klein-Data Feminism",
+    "kindle-sync": {
+      "bookId": "47184",
+      "title": "Data Feminism (Strong Ideas)",
+      "author": "Catherine D'Ignazio and Lauren F. Klein",
+      "asin": "B08BT3SY5N",
+      "lastAnnotatedDate": "2021-05-25",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/81vmeQxjkML._SY160.jpg",
+      "highlightsCount": 5
+    },
+    "date": "2022-12-14T20:25:45.000Z",
+    "modified": "2022-12-23T16:27:35.000Z",
+    "tags": [
+      "activism",
+      "data",
+      "datajournalism",
+      "health"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Data Feminism",
+    "toc": [
+      {
+        "text": "Data Feminism",
+        "slug": "data-feminism",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 252,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 7
+  },
+  {
+    "slug": "reading/Dass-Be Here Now",
+    "kindle-sync": {
+      "bookId": "63420",
+      "title": "Be Here Now (Enhanced Edition)",
+      "author": "Ram Dass",
+      "asin": "B005R9HK8O",
+      "lastAnnotatedDate": "2022-07-14",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/81Dpy5FsblL._SY160.jpg",
+      "highlightsCount": 2
+    },
+    "date": "2022-12-26T16:46:57.000Z",
+    "modified": "2022-12-27T20:08:28.000Z",
+    "tags": [
+      "book",
+      "meditation",
+      "reference",
+      "psychedelics"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Be Here Now",
+    "toc": [
+      {
+        "text": "Be Here Now",
+        "slug": "be-here-now",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 92,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 4
+  },
+  {
+    "slug": "reading/Doctorow-Walkaway",
+    "kindle-sync": {
+      "bookId": "45158",
+      "title": "Walkaway: A Novel",
+      "author": "Cory Doctorow",
+      "asin": "B01FQQ47OC",
+      "lastAnnotatedDate": "2022-06-20",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/71VhE105uhL._SY160.jpg",
+      "highlightsCount": 8
+    },
+    "date": "2022-12-14T20:24:13.000Z",
+    "modified": "2022-12-23T16:25:40.000Z",
+    "tags": [
+      "activism",
+      "culture"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Walkaway",
+    "toc": [
+      {
+        "text": "Walkaway",
+        "slug": "walkaway",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 611,
+    "readingTime": 3,
+    "imageCount": 0,
+    "linkCount": 10
+  },
+  {
+    "slug": "reading/Drasner-Engineering Management for the Rest of Us",
+    "tags": [
+      "advice",
+      "tech",
+      "process"
+    ],
+    "kindle-sync": {
+      "bookId": "43898",
+      "title": "Engineering Management for the Rest of Us",
+      "author": "Sarah Drasner",
+      "asin": "B0BGYVDX35",
+      "lastAnnotatedDate": "2023-09-02",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/910mP4Y5dSL._SY160.jpg",
+      "highlightsCount": 6
+    },
+    "date": "2023-01-30T22:26:02.000Z",
+    "modified": "2024-09-20T04:19:54.000Z",
+    "hidden": false,
+    "draft": false,
+    "title": "Engineering Management for the Rest of Us",
+    "toc": [
+      {
+        "text": "Engineering Management for the Rest of Us",
+        "slug": "engineering-management-for-the-rest-of-us",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Metadata",
+            "slug": "metadata",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Highlights",
+            "slug": "highlights",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 510,
+    "readingTime": 3,
+    "imageCount": 0,
+    "linkCount": 12
+  },
+  {
+    "slug": "reading/Eagleton-Why Marx Was Right",
+    "kindle-sync": {
+      "bookId": "3551",
+      "title": "Why Marx Was Right",
+      "author": "Terry Eagleton",
+      "asin": "B004V9IFDA",
+      "lastAnnotatedDate": "2012-03-18",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/41MZr3P0BIL._SY160.jpg",
+      "highlightsCount": 11
+    },
+    "date": "2022-12-14T20:30:19.000Z",
+    "modified": "2022-12-23T15:57:27.000Z",
+    "tags": [
+      "politics",
+      "activism"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Why Marx Was Right",
+    "toc": [
+      {
+        "text": "Why Marx Was Right",
+        "slug": "why-marx-was-right",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 447,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 13
+  },
+  {
+    "slug": "reading/Elliott-Existential Kink",
+    "kindle-sync": {
+      "bookId": "4715",
+      "title": "Existential Kink: Unmask Your Shadow and Embrace Your Power (A method for getting what you want by getting off on what you don't)",
+      "author": "Carolyn Elliott",
+      "asin": "B07XMG4BWN",
+      "lastAnnotatedDate": "2022-11-13",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/71AFYYftsML._SY160.jpg",
+      "highlightsCount": 17
+    },
+    "date": "2022-12-14T20:23:07.000Z",
+    "modified": "2022-12-23T15:52:06.000Z",
+    "tags": [
+      "health",
+      "inspiration",
+      "meditation",
+      "personal"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Existential Kink",
+    "toc": [
+      {
+        "text": "Existential Kink",
+        "slug": "existential-kink",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 869,
+    "readingTime": 4,
+    "imageCount": 0,
+    "linkCount": 19
+  },
+  {
+    "slug": "reading/Engelke-How to Think Like an Anthropologist",
+    "kindle-sync": {
+      "bookId": "41325",
+      "title": "How to Think Like an Anthropologist",
+      "author": "Matthew Engelke",
+      "asin": "B076ZYFFTX",
+      "lastAnnotatedDate": "2019-02-13",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/81Ap3UYdbEL._SY160.jpg",
+      "highlightsCount": 12
+    },
+    "date": "2022-12-14T20:28:44.000Z",
+    "modified": "2022-12-23T16:28:58.000Z",
+    "tags": [
+      "culture",
+      "journalism",
+      "reference"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "How to Think Like an Anthropologist",
+    "toc": [
+      {
+        "text": "How to Think Like an Anthropologist",
+        "slug": "how-to-think-like-an-anthropologist",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 687,
+    "readingTime": 3,
+    "imageCount": 0,
+    "linkCount": 14
+  },
+  {
+    "slug": "reading/Erdoes-Ortiz-American Indian Myths and Legends",
+    "kindle-sync": {
+      "bookId": "24240",
+      "title": "American Indian Myths and Legends (The Pantheon Fairy Tale and Folklore Library)",
+      "author": "Richard Erdoes and Alfonso Ortiz",
+      "asin": "B00GEYN1CK",
+      "lastAnnotatedDate": "2021-10-11",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/81Hq1qcjGbL._SY160.jpg",
+      "highlightsCount": 13
+    },
+    "date": "2022-12-14T20:25:03.000Z",
+    "modified": "2022-12-23T16:27:03.000Z",
+    "tags": [
+      "america",
+      "culture"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "American Indian Myths and Legends",
+    "toc": [
+      {
+        "text": "American Indian Myths and Legends",
+        "slug": "american-indian-myths-and-legends",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 969,
+    "readingTime": 4,
+    "imageCount": 0,
+    "linkCount": 15
+  },
+  {
+    "slug": "reading/Ferriss-Schwarzenegger-Tools Of Titans",
+    "kindle-sync": {
+      "bookId": "50540",
+      "title": "Tools Of Titans: The Tactics, Routines, and Habits of Billionaires, Icons, and World-Class Performers",
+      "author": "Timothy Ferriss and Arnold Schwarzenegger",
+      "asin": "B01HSMRWNU",
+      "lastAnnotatedDate": "2020-11-05",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/81QytMrzgdL._SY160.jpg",
+      "highlightsCount": 8
+    },
+    "date": "2022-12-14T20:26:50.000Z",
+    "modified": "2022-12-23T16:26:31.000Z",
+    "tags": [
+      "book",
+      "health",
+      "inspiration"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Tools Of Titans",
+    "toc": [
+      {
+        "text": "Tools Of Titans",
+        "slug": "tools-of-titans",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 485,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 10
+  },
+  {
+    "slug": "reading/Ferriss-The 4-Hour Body",
+    "kindle-sync": {
+      "bookId": "27622",
+      "title": "The 4-Hour Body: An Uncommon Guide to Rapid Fat-Loss, Incredible Sex, and Becoming Superhuman",
+      "author": "Timothy Ferriss",
+      "asin": "B003EI2EH2",
+      "lastAnnotatedDate": "2023-10-12",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/71Ucfn-BzcL._SY160.jpg",
+      "highlightsCount": 6
+    },
+    "date": "2022-12-14T20:23:17.000Z",
+    "modified": "2022-12-23T16:05:54.000Z",
+    "tags": [
+      "health",
+      "exercise",
+      "inspiration",
+      "research"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "The 4-Hour Body",
+    "toc": [
+      {
+        "text": "The 4-Hour Body",
+        "slug": "the-4-hour-body",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 382,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 8
+  },
+  {
+    "slug": "reading/Friedman-Ultimate Price",
+    "kindle-sync": {
+      "bookId": "12125",
+      "title": "Ultimate Price: The Value We Place on Life",
+      "author": "Howard Steven Friedman",
+      "asin": "B084WQSDD8",
+      "lastAnnotatedDate": "2021-02-07",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/81gWoGF2z6L._SY160.jpg",
+      "highlightsCount": 6
+    },
+    "date": "2022-12-14T20:25:55.000Z",
+    "modified": "2022-12-23T15:57:59.000Z",
+    "tags": [
+      "book",
+      "data"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Ultimate Price",
+    "toc": [
+      {
+        "text": "Ultimate Price",
+        "slug": "ultimate-price",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 364,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 8
+  },
+  {
+    "slug": "reading/Fukuyama-The Origins of Political Order",
+    "kindle-sync": {
+      "bookId": "5579",
+      "title": "The Origins of Political Order: From Prehuman Times to the French Revolution",
+      "author": "Francis Fukuyama",
+      "asin": "B00457X7VI",
+      "lastAnnotatedDate": "2012-11-05",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/51FsEr29TCL._SY160.jpg",
+      "highlightsCount": 3
+    },
+    "tags": [
+      "book",
+      "politics"
+    ],
+    "date": "2022-12-14T20:30:02.000Z",
+    "modified": "2022-12-23T16:05:21.000Z",
+    "hidden": false,
+    "draft": false,
+    "title": "The Origins of Political Order",
+    "toc": [
+      {
+        "text": "The Origins of Political Order",
+        "slug": "the-origins-of-political-order",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 162,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 5
+  },
+  {
+    "slug": "reading/Gaddis-On Grand Strategy",
+    "kindle-sync": {
+      "bookId": "44450",
+      "title": "On Grand Strategy",
+      "author": "John Lewis Gaddis",
+      "asin": "B073QZX7YX",
+      "lastAnnotatedDate": "2020-09-02",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/71ocFXZZP9L._SY160.jpg",
+      "highlightsCount": 3
+    },
+    "date": "2022-12-14T20:27:02.000Z",
+    "modified": "2022-12-23T15:57:50.000Z",
+    "tags": [],
+    "hidden": false,
+    "draft": false,
+    "title": "On Grand Strategy",
+    "toc": [
+      {
+        "text": "On Grand Strategy",
+        "slug": "on-grand-strategy",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 254,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 5
+  },
+  {
+    "slug": "reading/Gelderloos-Oleynik-Anarchy Works",
+    "kindle-sync": {
+      "bookId": "24436",
+      "title": "Anarchy Works (Annotated)",
+      "author": "Peter Gelderloos and Vladimir Oleynik",
+      "asin": "B018SN4HT0",
+      "lastAnnotatedDate": "2023-11-08",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/7165cK74S1L._SY160.jpg",
+      "highlightsCount": 16
+    },
+    "date": "2022-12-14T20:26:52.000Z",
+    "modified": "2022-12-23T15:56:09.000Z",
+    "tags": [
+      "activism",
+      "anarchism",
+      "politics",
+      "culture",
+      "education",
+      "inspiration",
+      "protest"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Anarchy Works",
+    "toc": [
+      {
+        "text": "Anarchy Works",
+        "slug": "anarchy-works",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 871,
+    "readingTime": 4,
+    "imageCount": 0,
+    "linkCount": 18
   },
   {
     "slug": "reading/Gertner-The Idea Factory",
@@ -3857,1008 +5505,502 @@
     "linkCount": 11
   },
   {
-    "slug": "reading/Yau-Visualize This",
-    "kindle-sync": {
-      "bookId": "431",
-      "title": "Visualize This: The FlowingData Guide to Design, Visualization, and Statistics",
-      "author": "Nathan Yau",
-      "asin": "B005CCT19M",
-      "lastAnnotatedDate": "2011-07-24",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/511lwSnx7IL._SY160.jpg",
-      "highlightsCount": 2
-    },
-    "date": "2022-12-14T20:30:24.000Z",
-    "modified": "2022-12-23T16:08:05.000Z",
+    "slug": "drafts/how-men-use-radios",
+    "dek": "In which we learn to use radios to the best of our ability",
+    "inprogress": true,
+    "date": "2023-09-03T16:33:47.000Z",
+    "modified": "2024-09-20T04:25:03.000Z",
     "tags": [
-      "dataviz",
-      "datajournalism",
-      "visualization"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Visualize This",
-    "toc": [
-      {
-        "text": "Visualize This",
-        "slug": "visualize-this",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 128,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 4
-  },
-  {
-    "slug": "reading/York-Silicon Values",
-    "kindle-sync": {
-      "bookId": "40211",
-      "title": "Silicon Values: The Future of Free Speech Under Surveillance Capitalism",
-      "author": "Jillian C. York",
-      "asin": "B089S6JCYN",
-      "lastAnnotatedDate": "2022-12-01",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/616o1iZ2KFL._SY160.jpg",
-      "highlightsCount": 1
-    },
-    "date": "2022-12-26T16:46:47.000Z",
-    "modified": "2022-12-27T20:10:11.000Z",
-    "tags": [
-      "tech",
       "culture",
-      "book",
-      "reference",
-      "opinion",
-      "politics",
-      "america"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Silicon Values",
-    "toc": [
-      {
-        "text": "Silicon Values",
-        "slug": "silicon-values",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 58,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 3
-  },
-  {
-    "slug": "week-notes/2023-50",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress",
       "code",
-      "javascript",
-      "vue",
-      "visualization"
+      "media",
+      "journalism"
     ],
-    "date": "2023-12-11T21:22:43.000Z",
-    "modified": "2024-10-14T23:53:39.000Z",
-    "dek": "In which the author concludes a successful client project, compiles documentation for informed AI context, evaluates command-running capabilities, plans an EXIF photo printer tool, experiments with Tres JS, and treats wood panels for gouache painting.",
-    "hidden": false,
-    "draft": false,
-    "title": "💻 Key Projects & Progress",
+    "hidden": true,
+    "draft": true,
+    "title": "How Men Use Radios",
     "toc": [
       {
-        "text": "💻 Key Projects & Progress",
-        "slug": "key-projects-progress",
+        "text": "How Men Use Radios",
+        "slug": "how-men-use-radios",
         "level": "h2",
         "children": [
           {
-            "text": "Compiling framework docs for informed AI context",
-            "slug": "compiling-framework-docs-for-informed-ai-context",
+            "text": "The Universal Language of Radio",
+            "slug": "the-universal-language-of-radio",
             "level": "h3",
             "children": []
           },
           {
-            "text": "Evaluating command-running capabilities",
-            "slug": "evaluating-command-running-capabilities",
+            "text": "Radio Codes: A Primer",
+            "slug": "radio-codes-a-primer",
             "level": "h3",
             "children": []
           },
           {
-            "text": "EXIF Photo Printer",
-            "slug": "exif-photo-printer",
+            "text": "Regional Nuances",
+            "slug": "regional-nuances",
             "level": "h3",
             "children": []
           },
           {
-            "text": "Experiments with Tres JS",
-            "slug": "experiments-with-tres-js",
+            "text": "Professional Practices",
+            "slug": "professional-practices",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "The Future of Radio Communication",
+            "slug": "the-future-of-radio-communication",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Conclusion",
+            "slug": "conclusion",
             "level": "h3",
             "children": []
           }
         ]
-      },
-      {
-        "text": "🎨 Creative Endeavors",
-        "slug": "creative-endeavors",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "💡 Technical Accomplishments",
-        "slug": "technical-accomplishments",
-        "level": "h2",
-        "children": []
       }
     ],
-    "wordCount": 569,
+    "wordCount": 504,
     "readingTime": 3,
     "imageCount": 0,
-    "linkCount": 5
+    "linkCount": 0
   },
   {
-    "slug": "week-notes/2023-51",
+    "slug": "drafts/how-to-get-started-with-data-analysis-visualization",
+    "draft": true,
+    "dek": "In which",
+    "inprogress": true,
+    "date": "2022-11-03T00:03:12.000Z",
+    "modified": "2022-12-23T14:10:44.000Z",
+    "hidden": true,
     "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress",
-      "3d",
-      "design",
-      "coding",
-      "webdesign",
-      "automation",
-      "generative"
+      "dataviz",
+      "data",
+      "visualization"
     ],
-    "date": "2023-12-20T19:06:08.000Z",
-    "modified": "2024-10-14T23:53:31.000Z",
-    "dek": "In which the author collaborates on a website redesign, crafts AI-generated cyberpunk fanfiction, and successfully scrapes their YouTube 'Watch Later' playlist for future use.",
-    "hidden": false,
-    "draft": false,
-    "title": "🌟 Overview of the Week",
+    "title": "How to get started with data visualization",
     "toc": [
       {
-        "text": "🌟 Overview of the Week",
-        "slug": "overview-of-the-week",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Room 302 Studio Website Redesign",
-            "slug": "room-302-studio-website-redesign",
-            "level": "h3",
-            "children": []
-          }
-        ]
+        "text": "How to get started with data visualization",
+        "slug": "how-to-get-started-with-data-visualization",
+        "level": "h1",
+        "children": []
       },
       {
-        "text": "🎨 Creative Endeavors",
-        "slug": "creative-endeavors",
-        "level": "h2",
-        "children": [
-          {
-            "text": "AI-Generated Personal Fanfiction For Morale",
-            "slug": "ai-generated-personal-fanfiction-for-morale",
-            "level": "h3",
-            "children": []
-          }
-        ]
+        "text": "What is data visualization?",
+        "slug": "what-is-data-visualization",
+        "level": "h1",
+        "children": []
       },
       {
-        "text": "💡 Technical Accomplishments",
-        "slug": "technical-accomplishments",
+        "text": "How I got started",
+        "slug": "how-i-got-started",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "How someone could get started today",
+        "slug": "how-someone-could-get-started-today",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Resources for learning",
+        "slug": "resources-for-learning",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Ideas for using data visualization",
+        "slug": "ideas-for-using-data-visualization",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 37,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "drafts/hudson-valley-food-and-farms",
+    "date": "2023-12-21T00:48:32.000Z",
+    "modified": "2024-01-11T04:37:27.000Z",
+    "hidden": true,
+    "draft": true,
+    "tags": [
+      "food",
+      "hudsonvalley",
+      "travel"
+    ],
+    "title": "hudson-valley-food-and-farms",
+    "toc": [],
+    "wordCount": 83,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "drafts/hudson-valley-motorcycle-rides",
+    "draft": true,
+    "dek": "In which",
+    "inprogress": true,
+    "date": "2022-11-03T01:22:25.000Z",
+    "modified": "2024-05-07T18:11:34.000Z",
+    "hidden": true,
+    "tags": [],
+    "title": "Hudson Valley Motorcycle Rides and Spots to Visit",
+    "toc": [
+      {
+        "text": "Hudson Valley Motorcycle Rides and Spots to Visit",
+        "slug": "hudson-valley-motorcycle-rides-and-spots-to-visit",
         "level": "h2",
         "children": [
           {
-            "text": "YouTube 'Watch Later' Scraping",
-            "slug": "youtube-watch-later-scraping",
+            "text": "How I track my ride data",
+            "slug": "how-i-track-my-ride-data",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Fahnestock / 301",
+            "slug": "fahnestock-301",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Bear Mountain Bridge / Anthony's Nose",
+            "slug": "bear-mountain-bridge-anthony-s-nose",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Seven Lakes Drive",
+            "slug": "seven-lakes-drive",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Greenwood Lake",
+            "slug": "greenwood-lake",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Perkins Lookout",
+            "slug": "perkins-lookout",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Catskills",
+            "slug": "catskills",
             "level": "h3",
             "children": []
           }
         ]
       }
     ],
-    "wordCount": 430,
+    "wordCount": 52,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "drafts/i-just-do-what-my-calendar-says",
+    "draft": true,
+    "dek": "In which the author explains his approach to schedule management",
+    "inprogress": true,
+    "date": "2023-01-06T22:34:06.000Z",
+    "modified": "2024-09-20T04:25:44.000Z",
+    "tags": [
+      "automation"
+    ],
+    "hidden": true,
+    "title": "I just do what my calendar tells me to do at any moment",
+    "toc": [
+      {
+        "text": "I just do what my calendar tells me to do at any moment",
+        "slug": "i-just-do-what-my-calendar-tells-me-to-do-at-any-moment",
+        "level": "h2",
+        "children": [
+          {
+            "text": "My Process",
+            "slug": "my-process",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 358,
     "readingTime": 2,
+    "imageCount": 1,
+    "linkCount": 1
+  },
+  {
+    "slug": "drafts/intro-to-abstract-syntax-trees",
+    "dek": "In which",
+    "inprogress": true,
+    "date": "2024-04-25T21:21:40.000Z",
+    "modified": "2024-09-21T19:04:23.000Z",
+    "tags": [
+      "code",
+      "vue",
+      "programming"
+    ],
+    "hidden": true,
+    "draft": true,
+    "title": "Introduction To Abstract Syntax Trees",
+    "toc": [
+      {
+        "text": "Introduction To Abstract Syntax Trees",
+        "slug": "introduction-to-abstract-syntax-trees",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 53,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "drafts/introducing-connectology",
+    "draft": true,
+    "dek": "In which",
+    "inprogress": true,
+    "date": "2023-03-16T18:32:06.000Z",
+    "modified": "2023-03-16T22:59:29.000Z",
+    "hidden": true,
+    "tags": [
+      "network",
+      "visualization"
+    ],
+    "title": "Network visualizations made easy: introducing connectology",
+    "toc": [
+      {
+        "text": "Network visualizations made easy: introducing connectology",
+        "slug": "network-visualizations-made-easy-introducing-connectology",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 55,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "drafts/learning-blender",
+    "date": "2022-11-20T21:58:44.000Z",
+    "modified": "2022-12-23T16:30:14.000Z",
+    "hidden": true,
+    "draft": true,
+    "tags": [
+      "blender",
+      "3d",
+      "visualization"
+    ],
+    "title": "Learning Blender: Winter 2022",
+    "toc": [
+      {
+        "text": "Learning Blender: Winter 2022",
+        "slug": "learning-blender-winter-2022",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 8,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "drafts/mapping-the-mastodon-fediverse",
+    "dek": "In which the author explores the newly-growing network of mastodon instances and the things that make each of them unique",
+    "inprogress": true,
+    "date": "2022-12-15T14:59:12.000Z",
+    "modified": "2024-07-18T18:40:56.000Z",
+    "hidden": true,
+    "draft": true,
+    "tags": [
+      "dataviz",
+      "network",
+      "mapping",
+      "mastodon"
+    ],
+    "title": "Mapping The Mastodon Fediverse",
+    "toc": [
+      {
+        "text": "Mapping The Mastodon Fediverse",
+        "slug": "mapping-the-mastodon-fediverse",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Questions",
+            "slug": "questions",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "How do we gather our data?",
+            "slug": "how-do-we-gather-our-data",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 75,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "drafts/markdown-kitchen-sink",
+    "dek": "In which",
+    "inprogress": true,
+    "date": "2024-06-02T00:00:00.000Z",
+    "modified": "2024-10-16T00:16:02.000Z",
+    "hidden": true,
+    "draft": true,
+    "title": "🌌 ",
+    "toc": [
+      {
+        "text": "🌌 ",
+        "slug": "",
+        "level": "h2",
+        "children": [
+          {
+            "text": "📈 ",
+            "slug": "",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "🔄 ",
+            "slug": "",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "🗺️ ",
+            "slug": "",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "📸 ",
+            "slug": "",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "💻 ",
+            "slug": "",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "🔗 ",
+            "slug": "",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "📚 ",
+            "slug": "",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "⚙️ ",
+            "slug": "",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "✨ ",
+            "slug": "",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "🚀 ",
+        "slug": "",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "📬 ",
+        "slug": "",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "🖥️ ",
+        "slug": "",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "📅 ",
+        "slug": "",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "🔒 ",
+        "slug": "",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "🏁 ",
+        "slug": "",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 1271,
+    "readingTime": 6,
     "imageCount": 0,
     "linkCount": 6
   },
   {
-    "slug": "week-notes/2023-52",
+    "slug": "drafts/media-diet",
+    "draft": true,
+    "dek": "In which",
+    "inprogress": true,
+    "date": "2023-01-19T06:33:45.000Z",
+    "modified": "2024-09-20T04:26:08.000Z",
     "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress",
-      "code",
-      "javascript",
-      "music",
-      "health"
+      "education",
+      "journalism",
+      "media",
+      "politics"
     ],
-    "date": "2023-12-25T20:57:53.000Z",
-    "modified": "2024-10-14T23:53:27.000Z",
-    "dek": "In which the author reflects on a festive Christmas with family, experiments with browser-based ML workflows, and creates a quirky Sonic Pi Christmas medley.",
-    "hidden": false,
-    "draft": false,
-    "title": "🌟 Overview of the Week",
+    "hidden": true,
+    "title": "How I keep up with the news",
     "toc": [
       {
-        "text": "🌟 Overview of the Week",
-        "slug": "overview-of-the-week",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "💻 Key Projects & Progress",
-        "slug": "key-projects-progress",
-        "level": "h2",
-        "children": [
-          {
-            "text": "LatentScope / Browser T-SNE",
-            "slug": "latentscope-browser-t-sne",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "🎨 Creative Endeavors",
-        "slug": "creative-endeavors",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Sonic Pi Christmas Medley",
-            "slug": "sonic-pi-christmas-medley",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 139,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "week-notes/2024-01",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress",
-      "art",
-      "meditation",
-      "photography",
-      "video",
-      "health"
-    ],
-    "date": "2022-12-26T16:57:44.000Z",
-    "modified": "2024-10-14T23:53:11.000Z",
-    "dek": "In which the author undertakes various personal and professional pursuits, from creating a photography website and scripting screenshot uploads to exploring new creative outlets and engaging in community initiatives.",
-    "hidden": false,
-    "draft": false,
-    "title": "🌟 Overview of the Week",
-    "toc": [
-      {
-        "text": "🌟 Overview of the Week",
-        "slug": "overview-of-the-week",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "💻 Projects Worked On",
-        "slug": "projects-worked-on",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Made website for photos",
-            "slug": "made-website-for-photos",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Screenshot to Cloudinary script",
-            "slug": "screenshot-to-cloudinary-script",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "🎨 Creative Endeavors",
-        "slug": "creative-endeavors",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Struggling making videos",
-            "slug": "struggling-making-videos",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "💡 Technical Accomplishments",
-        "slug": "technical-accomplishments",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "📘 Learning & Development",
-        "slug": "learning-development",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Getting back into RSS",
-            "slug": "getting-back-into-rss",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "🌱 Personal Growth & Health",
-        "slug": "personal-growth-health",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "🤝 Social & Community Engagement",
-        "slug": "social-community-engagement",
-        "level": "h2",
-        "children": [
-          {
-            "text": "For The Many",
-            "slug": "for-the-many",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 772,
-    "readingTime": 4,
-    "imageCount": 1,
-    "linkCount": 3
-  },
-  {
-    "slug": "week-notes/2024-02",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress",
-      "coding",
-      "project",
-      "webdesign",
-      "vue",
-      "data",
-      "visualization",
-      "design"
-    ],
-    "date": "2022-12-26T16:57:44.000Z",
-    "modified": "2024-10-14T23:52:43.000Z",
-    "dek": "In which the author navigates the complexities of balancing project management, coding challenges, and personal AI development while exploring new ways to showcase the Hudson Valley and enhance personal organization.",
-    "hidden": false,
-    "draft": false,
-    "title": "🌟 Overview of the Week",
-    "toc": [
-      {
-        "text": "🌟 Overview of the Week",
-        "slug": "overview-of-the-week",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "💻 Projects Worked On",
-        "slug": "projects-worked-on",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Setting the studio up with a CRM",
-            "slug": "setting-the-studio-up-with-a-crm",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Hudson Valley Guide: knowhv.com",
-            "slug": "hudson-valley-guide-knowhv-com",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Refactoring Electology",
-            "slug": "refactoring-electology",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Redesigning my Scrapbook",
-            "slug": "redesigning-my-scrapbook",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Lil Fox",
-            "slug": "lil-fox",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Experimenting with Tres js",
-            "slug": "experimenting-with-tres-js",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "📘 Learning & Development",
-        "slug": "learning-development",
+        "text": "How I keep up with the news",
+        "slug": "how-i-keep-up-with-the-news",
         "level": "h2",
         "children": []
       }
     ],
-    "wordCount": 877,
-    "readingTime": 4,
-    "imageCount": 1,
-    "linkCount": 2
-  },
-  {
-    "slug": "week-notes/2024-03",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress",
-      "3d",
-      "coding",
-      "health",
-      "military",
-      "personal",
-      "travel"
-    ],
-    "date": "2022-12-26T16:57:44.000Z",
-    "modified": "2024-10-14T23:52:28.000Z",
-    "dek": "In which the author immerses themselves in learning about warfare footage and military equipment, experimenting with 3D graphics libraries, and preparing a first aid kit for motorcycle travel.",
-    "hidden": false,
-    "draft": false,
-    "title": "🌟 Overview of the Week",
-    "toc": [
-      {
-        "text": "🌟 Overview of the Week",
-        "slug": "overview-of-the-week",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "💻 Projects Worked On",
-        "slug": "projects-worked-on",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Remaking the Room302.studio Website",
-            "slug": "remaking-the-room302-studio-website",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "📘 Learning & Development",
-        "slug": "learning-development",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Experimenting with Tres js",
-            "slug": "experimenting-with-tres-js",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Experimenting with Anime JS 4.0",
-            "slug": "experimenting-with-anime-js-4-0",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "🌱 Personal Growth & Health",
-        "slug": "personal-growth-health",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Building A First Aid Kit For Motorcycle Travel",
-            "slug": "building-a-first-aid-kit-for-motorcycle-travel",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 368,
-    "readingTime": 2,
-    "imageCount": 1,
-    "linkCount": 5
-  },
-  {
-    "slug": "week-notes/2024-04",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress",
-      "livestream",
-      "gpt3",
-      "art"
-    ],
-    "date": "2022-12-26T16:57:44.000Z",
-    "modified": "2024-10-14T23:52:12.000Z",
-    "dek": "In which the author engages in interviews about glitch tokens and conducts a livestream on Coach Artie, showcasing a week filled with research and creativity.",
-    "hidden": false,
-    "draft": false,
-    "title": "💻 Projects Worked On",
-    "toc": [
-      {
-        "text": "💻 Projects Worked On",
-        "slug": "projects-worked-on",
-        "level": "h2",
-        "children": [
-          {
-            "text": "GPT Glitch Tokens",
-            "slug": "gpt-glitch-tokens",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "🎨 Creative Endeavors",
-        "slug": "creative-endeavors",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Livestream on Coach Artie",
-            "slug": "livestream-on-coach-artie",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 111,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 1
-  },
-  {
-    "slug": "week-notes/2024-05",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress",
-      "webdesign",
-      "project",
-      "design"
-    ],
-    "date": "2022-12-26T16:57:44.000Z",
-    "modified": "2024-10-14T23:52:03.000Z",
-    "dek": "In which the author partakes in the redesign of the Room 302 Studio website and engages in learning and development through a video lecture.",
-    "hidden": false,
-    "draft": false,
-    "title": "💻 Projects Worked On",
-    "toc": [
-      {
-        "text": "💻 Projects Worked On",
-        "slug": "projects-worked-on",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Room 302 Studio Website Redesign",
-            "slug": "room-302-studio-website-redesign",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "📘 Learning & Development",
-        "slug": "learning-development",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 18,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "week-notes/2024-08",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress"
-    ],
-    "date": "2022-12-26T16:57:44.000Z",
-    "modified": "2024-10-14T23:52:00.000Z",
-    "dek": "In which the author unveils a new studio site, delves into Electology plans, and experiences their first personal training session at the gym.",
-    "hidden": false,
-    "draft": false,
-    "title": "🌟 Overview of the Week",
-    "toc": [
-      {
-        "text": "🌟 Overview of the Week",
-        "slug": "overview-of-the-week",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 27,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "week-notes/2024-15",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress",
-      "motorcycle",
-      "art",
-      "automation",
-      "music"
-    ],
-    "date": "2022-12-26T16:57:44.000Z",
-    "modified": "2024-10-14T23:51:56.000Z",
-    "dek": "In which the author braves a snowstorm on their motorcycle, enjoys watercolor painting with friends, indulges in a Lindsay Lohan movie night, and charts plans for automated text descriptions of screenshots and improved asset management in Obsidian.",
-    "hidden": false,
-    "draft": false,
-    "title": "🌟 Overview of the Week",
-    "toc": [
-      {
-        "text": "🌟 Overview of the Week",
-        "slug": "overview-of-the-week",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Creative Endeavors",
-        "slug": "creative-endeavors",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Books, Movies, TV",
-        "slug": "books-movies-tv",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Goals for the Future",
-        "slug": "goals-for-the-future",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 279,
+    "wordCount": 318,
     "readingTime": 2,
     "imageCount": 0,
     "linkCount": 0
-  },
-  {
-    "slug": "week-notes/2024-18",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress",
-      "generative",
-      "mapping",
-      "hudsonvalley",
-      "visualization"
-    ],
-    "date": "2022-12-26T16:57:44.000Z",
-    "modified": "2024-10-14T23:51:53.000Z",
-    "dek": "In which the author meticulously crafts a cyberpunk visual aesthetic and explores the Hudson Valley through digital elevation models and contour maps.",
-    "hidden": false,
-    "draft": false,
-    "title": "🌟 Overview of the Week",
-    "toc": [
-      {
-        "text": "🌟 Overview of the Week",
-        "slug": "overview-of-the-week",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Projects Worked On",
-        "slug": "projects-worked-on",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Creative Endeavors",
-        "slug": "creative-endeavors",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Cyberpunk Visual Aesthetic",
-            "slug": "cyberpunk-visual-aesthetic",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Hudson Valley Exploration",
-            "slug": "hudson-valley-exploration",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 162,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "week-notes/2024-19",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress",
-      "coding",
-      "video",
-      "health",
-      "camping"
-    ],
-    "modified": "2024-10-14T23:51:50.000Z",
-    "date": "2022-12-26T16:57:44.000Z",
-    "dek": "In which the author diligently works on multiple projects, explores new creative techniques, achieves technical accomplishments, and focuses on personal well-being and future goals.",
-    "hidden": false,
-    "draft": false,
-    "title": "🌟 Overview of the Week",
-    "toc": [
-      {
-        "text": "🌟 Overview of the Week",
-        "slug": "overview-of-the-week",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Projects Worked On",
-        "slug": "projects-worked-on",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Creative Endeavors",
-        "slug": "creative-endeavors",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Technical Accomplishments",
-        "slug": "technical-accomplishments",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Books, Movies, TV",
-        "slug": "books-movies-tv",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Personal Growth & Health",
-        "slug": "personal-growth-health",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Social & Community Engagement",
-        "slug": "social-community-engagement",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Goals for the Future",
-        "slug": "goals-for-the-future",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 375,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "week-notes/2024-20",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress",
-      "photography",
-      "design",
-      "webdesign",
-      "pottery",
-      "personal"
-    ],
-    "modified": "2024-10-14T23:51:41.000Z",
-    "date": "2022-12-26T16:57:44.000Z",
-    "dek": "In which the author embarks on creative endeavors in pottery, updates personal projects, and enhances backend functionalities for Coach Artie & Brain View.",
-    "hidden": false,
-    "draft": false,
-    "title": "🌟 Overview of the Week",
-    "toc": [
-      {
-        "text": "🌟 Overview of the Week",
-        "slug": "overview-of-the-week",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Projects Worked On",
-        "slug": "projects-worked-on",
-        "level": "h2",
-        "children": [
-          {
-            "text": "knowhv.com",
-            "slug": "knowhv-com",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "ejfox.photos",
-            "slug": "ejfox-photos",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Room 302 Mission Control",
-            "slug": "room-302-mission-control",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Coach Artie & Brain View",
-            "slug": "coach-artie-brain-view",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Creative Endeavors",
-        "slug": "creative-endeavors",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Pottery",
-            "slug": "pottery",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 252,
-    "readingTime": 2,
-    "imageCount": 1,
-    "linkCount": 1
-  },
-  {
-    "slug": "week-notes/2024-21",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress",
-      "coding",
-      "health",
-      "personal",
-      "music"
-    ],
-    "modified": "2024-10-14T23:51:32.000Z",
-    "date": "2022-12-26T16:57:44.000Z",
-    "dek": "In which the author contemplates a potential move, works on creative projects, achieves technical milestones, delves into video transcription methods, enjoys entertainment, focuses on personal health, and sets goals for the future.",
-    "hidden": false,
-    "draft": false,
-    "title": "🌟 Overview of the Week",
-    "toc": [
-      {
-        "text": "🌟 Overview of the Week",
-        "slug": "overview-of-the-week",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Projects Worked On",
-        "slug": "projects-worked-on",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Room 302 Studio Mission Control",
-            "slug": "room-302-studio-mission-control",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Creative Endeavors",
-        "slug": "creative-endeavors",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Scheduling kiln rental to get ceramics bisque fired",
-            "slug": "scheduling-kiln-rental-to-get-ceramics-bisque-fired",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Technical Accomplishments",
-        "slug": "technical-accomplishments",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Released v2.0.0 of gpt-browser package",
-            "slug": "released-v2-0-0-of-gpt-browser-package",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Amigo Sampler",
-            "slug": "amigo-sampler",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Transcribing Videos with FFMPEG and Whisper.cpp",
-        "slug": "transcribing-videos-with-ffmpeg-and-whisper-cpp",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Books, Movies, TV",
-        "slug": "books-movies-tv",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Personal Growth & Health",
-        "slug": "personal-growth-health",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 289,
-    "readingTime": 2,
-    "imageCount": 3,
-    "linkCount": 5
   },
   {
     "slug": "drafts/minecraft-is-the-metaverse",
@@ -7155,648 +8297,356 @@
     "linkCount": 4
   },
   {
-    "slug": "reading/DIgnazio-Klein-Data Feminism",
-    "kindle-sync": {
-      "bookId": "47184",
-      "title": "Data Feminism (Strong Ideas)",
-      "author": "Catherine D'Ignazio and Lauren F. Klein",
-      "asin": "B08BT3SY5N",
-      "lastAnnotatedDate": "2021-05-25",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/81vmeQxjkML._SY160.jpg",
-      "highlightsCount": 5
-    },
-    "date": "2022-12-14T20:25:45.000Z",
-    "modified": "2022-12-23T16:27:35.000Z",
+    "slug": "2022/election-night-2018",
+    "date": "2022-11-14T21:15:19.000Z",
+    "modified": "2024-08-01T14:21:42.000Z",
     "tags": [
-      "activism",
-      "data",
-      "datajournalism",
-      "health"
+      "elections",
+      "coding",
+      "media"
     ],
     "hidden": false,
     "draft": false,
-    "title": "Data Feminism",
+    "title": "Election Night 2018",
     "toc": [
       {
-        "text": "Data Feminism",
-        "slug": "data-feminism",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
+        "text": "Election Night 2018",
+        "slug": "election-night-2018",
+        "level": "h2",
         "children": []
       }
     ],
-    "wordCount": 252,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 7
+    "wordCount": 1581,
+    "readingTime": 7,
+    "imageCount": 5,
+    "linkCount": 5
   },
   {
-    "slug": "reading/Dass-Be Here Now",
-    "kindle-sync": {
-      "bookId": "63420",
-      "title": "Be Here Now (Enhanced Edition)",
-      "author": "Ram Dass",
-      "asin": "B005R9HK8O",
-      "lastAnnotatedDate": "2022-07-14",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/81Dpy5FsblL._SY160.jpg",
-      "highlightsCount": 2
-    },
-    "date": "2022-12-26T16:46:57.000Z",
-    "modified": "2022-12-27T20:08:28.000Z",
+    "slug": "2022/everyone-should-code-data-literacy",
+    "draft": false,
+    "dek": "In which we explore the transformative potential of computer literacy, unearthing its capacity to elevate both individual lives and collective progress",
+    "inprogress": true,
+    "date": "2022-11-03T00:02:01.000Z",
+    "modified": "2024-09-20T04:24:42.000Z",
     "tags": [
-      "book",
-      "meditation",
-      "reference",
-      "psychedelics"
+      "code",
+      "automation",
+      "tech"
     ],
     "hidden": false,
-    "draft": false,
-    "title": "Be Here Now",
+    "title": "Why I think everyone should learn to code",
     "toc": [
       {
-        "text": "Be Here Now",
-        "slug": "be-here-now",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 92,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 4
-  },
-  {
-    "slug": "reading/Doctorow-Walkaway",
-    "kindle-sync": {
-      "bookId": "45158",
-      "title": "Walkaway: A Novel",
-      "author": "Cory Doctorow",
-      "asin": "B01FQQ47OC",
-      "lastAnnotatedDate": "2022-06-20",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/71VhE105uhL._SY160.jpg",
-      "highlightsCount": 8
-    },
-    "date": "2022-12-14T20:24:13.000Z",
-    "modified": "2022-12-23T16:25:40.000Z",
-    "tags": [
-      "activism",
-      "culture"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Walkaway",
-    "toc": [
-      {
-        "text": "Walkaway",
-        "slug": "walkaway",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 611,
-    "readingTime": 3,
-    "imageCount": 0,
-    "linkCount": 10
-  },
-  {
-    "slug": "reading/Drasner-Engineering Management for the Rest of Us",
-    "tags": [
-      "advice",
-      "tech",
-      "process"
-    ],
-    "kindle-sync": {
-      "bookId": "43898",
-      "title": "Engineering Management for the Rest of Us",
-      "author": "Sarah Drasner",
-      "asin": "B0BGYVDX35",
-      "lastAnnotatedDate": "2023-09-02",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/910mP4Y5dSL._SY160.jpg",
-      "highlightsCount": 6
-    },
-    "date": "2023-01-30T22:26:02.000Z",
-    "modified": "2024-09-20T04:19:54.000Z",
-    "hidden": false,
-    "draft": false,
-    "title": "Engineering Management for the Rest of Us",
-    "toc": [
-      {
-        "text": "Engineering Management for the Rest of Us",
-        "slug": "engineering-management-for-the-rest-of-us",
+        "text": "Why I think everyone should learn to code",
+        "slug": "why-i-think-everyone-should-learn-to-code",
         "level": "h2",
         "children": [
           {
-            "text": "Metadata",
-            "slug": "metadata",
+            "text": "Defining computer literacy",
+            "slug": "defining-computer-literacy",
             "level": "h3",
             "children": []
           },
           {
-            "text": "Highlights",
-            "slug": "highlights",
+            "text": "Learning to google “Magic Words”",
+            "slug": "learning-to-google-magic-words",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Noticing when you feel like a robot",
+            "slug": "noticing-when-you-feel-like-a-robot",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Communicating with Artificial Intelligence",
+            "slug": "communicating-with-artificial-intelligence",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Appreciating the “I can do that” moments",
+            "slug": "appreciating-the-i-can-do-that-moments",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Control of the world around you",
+            "slug": "control-of-the-world-around-you",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Making your work easier",
+            "slug": "making-your-work-easier",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Improving your career prospects",
+            "slug": "improving-your-career-prospects",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Having a set of tools that are ready",
+            "slug": "having-a-set-of-tools-that-are-ready",
             "level": "h3",
             "children": []
           }
         ]
       }
     ],
-    "wordCount": 510,
+    "wordCount": 644,
     "readingTime": 3,
     "imageCount": 0,
-    "linkCount": 12
+    "linkCount": 0
   },
   {
-    "slug": "reading/Eagleton-Why Marx Was Right",
-    "kindle-sync": {
-      "bookId": "3551",
-      "title": "Why Marx Was Right",
-      "author": "Terry Eagleton",
-      "asin": "B004V9IFDA",
-      "lastAnnotatedDate": "2012-03-18",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/41MZr3P0BIL._SY160.jpg",
-      "highlightsCount": 11
-    },
-    "date": "2022-12-14T20:30:19.000Z",
-    "modified": "2022-12-23T15:57:27.000Z",
+    "slug": "2022/experiments-with-live-looping-performance",
+    "dek": "In which we delve into the artistry of live looping, illuminating the core concepts and essential gear that enable musicians to create immersive soundscapes on the fly",
+    "inprogress": true,
+    "date": "2022-11-02T23:59:14.000Z",
+    "modified": "2024-09-23T16:13:12.000Z",
     "tags": [
-      "politics",
-      "activism"
+      "music",
+      "art",
+      "experiments",
+      "dj"
     ],
     "hidden": false,
     "draft": false,
-    "title": "Why Marx Was Right",
+    "title": "Experiments with Live Looping",
     "toc": [
       {
-        "text": "Why Marx Was Right",
-        "slug": "why-marx-was-right",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
+        "text": "Experiments with Live Looping",
+        "slug": "experiments-with-live-looping",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Fundamentals of Looping",
+            "slug": "fundamentals-of-looping",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Artists who live loop",
+            "slug": "artists-who-live-loop",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Core principles",
+            "slug": "core-principles",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Live Looping Pitfalls",
+            "slug": "live-looping-pitfalls",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Equipment",
+            "slug": "equipment",
+            "level": "h3",
+            "children": []
+          }
+        ]
       }
     ],
-    "wordCount": 447,
-    "readingTime": 2,
+    "wordCount": 1119,
+    "readingTime": 5,
     "imageCount": 0,
-    "linkCount": 13
+    "linkCount": 1
   },
   {
-    "slug": "reading/Elliott-Existential Kink",
-    "kindle-sync": {
-      "bookId": "4715",
-      "title": "Existential Kink: Unmask Your Shadow and Embrace Your Power (A method for getting what you want by getting off on what you don't)",
-      "author": "Carolyn Elliott",
-      "asin": "B07XMG4BWN",
-      "lastAnnotatedDate": "2022-11-13",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/71AFYYftsML._SY160.jpg",
-      "highlightsCount": 17
-    },
-    "date": "2022-12-14T20:23:07.000Z",
-    "modified": "2022-12-23T15:52:06.000Z",
+    "slug": "2022/food",
+    "dek": "In which the author tries to put good food in his body",
+    "inprogress": true,
+    "date": "2022-12-28T18:20:58.000Z",
+    "modified": "2024-05-15T18:02:51.000Z",
     "tags": [
-      "health",
-      "inspiration",
-      "meditation",
-      "personal"
+      "food",
+      "cooking",
+      "recipe",
+      "health"
     ],
     "hidden": false,
     "draft": false,
-    "title": "Existential Kink",
+    "title": "Food",
     "toc": [
       {
-        "text": "Existential Kink",
-        "slug": "existential-kink",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
+        "text": "Food",
+        "slug": "food",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Breakfast",
+            "slug": "breakfast",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Lunch",
+            "slug": "lunch",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Dinner",
+            "slug": "dinner",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Desserts",
+            "slug": "desserts",
+            "level": "h3",
+            "children": []
+          }
+        ]
       }
     ],
-    "wordCount": 869,
-    "readingTime": 4,
-    "imageCount": 0,
-    "linkCount": 19
-  },
-  {
-    "slug": "reading/Engelke-How to Think Like an Anthropologist",
-    "kindle-sync": {
-      "bookId": "41325",
-      "title": "How to Think Like an Anthropologist",
-      "author": "Matthew Engelke",
-      "asin": "B076ZYFFTX",
-      "lastAnnotatedDate": "2019-02-13",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/81Ap3UYdbEL._SY160.jpg",
-      "highlightsCount": 12
-    },
-    "date": "2022-12-14T20:28:44.000Z",
-    "modified": "2022-12-23T16:28:58.000Z",
-    "tags": [
-      "culture",
-      "journalism",
-      "reference"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "How to Think Like an Anthropologist",
-    "toc": [
-      {
-        "text": "How to Think Like an Anthropologist",
-        "slug": "how-to-think-like-an-anthropologist",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 687,
+    "wordCount": 541,
     "readingTime": 3,
     "imageCount": 0,
-    "linkCount": 14
+    "linkCount": 0
   },
   {
-    "slug": "reading/Erdoes-Ortiz-American Indian Myths and Legends",
-    "kindle-sync": {
-      "bookId": "24240",
-      "title": "American Indian Myths and Legends (The Pantheon Fairy Tale and Folklore Library)",
-      "author": "Richard Erdoes and Alfonso Ortiz",
-      "asin": "B00GEYN1CK",
-      "lastAnnotatedDate": "2021-10-11",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/81Hq1qcjGbL._SY160.jpg",
-      "highlightsCount": 13
-    },
-    "date": "2022-12-14T20:25:03.000Z",
-    "modified": "2022-12-23T16:27:03.000Z",
+    "slug": "2022/joy-driven-development",
+    "dek": "In which we use joy and curiosity as fuel to propel us forward",
+    "inprogress": true,
+    "date": "2022-11-03T00:06:51.000Z",
+    "modified": "2024-09-20T04:25:41.000Z",
     "tags": [
-      "america",
-      "culture"
+      "coding"
     ],
     "hidden": false,
     "draft": false,
-    "title": "American Indian Myths and Legends",
+    "title": "Embracing Joy-Driven Development: A New Philosophy for Better Work",
     "toc": [
       {
-        "text": "American Indian Myths and Legends",
-        "slug": "american-indian-myths-and-legends",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
+        "text": "Embracing Joy-Driven Development: A New Philosophy for Better Work",
+        "slug": "embracing-joy-driven-development-a-new-philosophy-for-better-work",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Discovering the Spark: What is Joy-Driven Development?",
+            "slug": "discovering-the-spark-what-is-joy-driven-development",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Curiosity As Fuel: Incorporating Joy",
+            "slug": "curiosity-as-fuel-incorporating-joy",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Addressing the Skeptics",
+            "slug": "addressing-the-skeptics",
+            "level": "h3",
+            "children": []
+          }
+        ]
       }
     ],
-    "wordCount": 969,
-    "readingTime": 4,
+    "wordCount": 1076,
+    "readingTime": 5,
     "imageCount": 0,
-    "linkCount": 15
+    "linkCount": 0
   },
   {
-    "slug": "reading/Ferriss-Schwarzenegger-Tools Of Titans",
-    "kindle-sync": {
-      "bookId": "50540",
-      "title": "Tools Of Titans: The Tactics, Routines, and Habits of Billionaires, Icons, and World-Class Performers",
-      "author": "Timothy Ferriss and Arnold Schwarzenegger",
-      "asin": "B01HSMRWNU",
-      "lastAnnotatedDate": "2020-11-05",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/81QytMrzgdL._SY160.jpg",
-      "highlightsCount": 8
-    },
-    "date": "2022-12-14T20:26:50.000Z",
-    "modified": "2022-12-23T16:26:31.000Z",
-    "tags": [
-      "book",
-      "health",
-      "inspiration"
-    ],
-    "hidden": false,
+    "slug": "2022/morning-routine-daily-rituals",
     "draft": false,
-    "title": "Tools Of Titans",
-    "toc": [
-      {
-        "text": "Tools Of Titans",
-        "slug": "tools-of-titans",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 485,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 10
-  },
-  {
-    "slug": "reading/Ferriss-The 4-Hour Body",
-    "kindle-sync": {
-      "bookId": "27622",
-      "title": "The 4-Hour Body: An Uncommon Guide to Rapid Fat-Loss, Incredible Sex, and Becoming Superhuman",
-      "author": "Timothy Ferriss",
-      "asin": "B003EI2EH2",
-      "lastAnnotatedDate": "2023-10-12",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/71Ucfn-BzcL._SY160.jpg",
-      "highlightsCount": 6
-    },
-    "date": "2022-12-14T20:23:17.000Z",
-    "modified": "2022-12-23T16:05:54.000Z",
+    "dek": "In which we use intentional morning rituals to improve our lives and increase our happiness",
+    "inprogress": true,
+    "date": "2022-11-03T01:31:25.000Z",
+    "modified": "2024-09-20T04:22:56.000Z",
     "tags": [
-      "health",
       "exercise",
-      "inspiration",
-      "research"
+      "meditation",
+      "writing",
+      "health"
     ],
     "hidden": false,
-    "draft": false,
-    "title": "The 4-Hour Body",
+    "title": "My Morning Routine and Daily Rituals",
     "toc": [
       {
-        "text": "The 4-Hour Body",
-        "slug": "the-4-hour-body",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
+        "text": "My Morning Routine and Daily Rituals",
+        "slug": "my-morning-routine-and-daily-rituals",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Shower and Listen to the Radio",
+            "slug": "shower-and-listen-to-the-radio",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Make Coffee, Read, and Meditate",
+            "slug": "make-coffee-read-and-meditate",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Exercise",
+            "slug": "exercise",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Feed the cat",
+            "slug": "feed-the-cat",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Journaling and Writing",
+            "slug": "journaling-and-writing",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Plan Out My Day",
+            "slug": "plan-out-my-day",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Making an espresso",
+            "slug": "making-an-espresso",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "5 Minute morning journal",
+            "slug": "5-minute-morning-journal",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Analog / paper time and being outside",
+            "slug": "analog-paper-time-and-being-outside",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Connecting with friends and family",
+            "slug": "connecting-with-friends-and-family",
+            "level": "h3",
+            "children": []
+          }
+        ]
       }
     ],
-    "wordCount": 382,
-    "readingTime": 2,
+    "wordCount": 536,
+    "readingTime": 3,
     "imageCount": 0,
-    "linkCount": 8
-  },
-  {
-    "slug": "reading/Friedman-Ultimate Price",
-    "kindle-sync": {
-      "bookId": "12125",
-      "title": "Ultimate Price: The Value We Place on Life",
-      "author": "Howard Steven Friedman",
-      "asin": "B084WQSDD8",
-      "lastAnnotatedDate": "2021-02-07",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/81gWoGF2z6L._SY160.jpg",
-      "highlightsCount": 6
-    },
-    "date": "2022-12-14T20:25:55.000Z",
-    "modified": "2022-12-23T15:57:59.000Z",
-    "tags": [
-      "book",
-      "data"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Ultimate Price",
-    "toc": [
-      {
-        "text": "Ultimate Price",
-        "slug": "ultimate-price",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 364,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 8
-  },
-  {
-    "slug": "reading/Fukuyama-The Origins of Political Order",
-    "kindle-sync": {
-      "bookId": "5579",
-      "title": "The Origins of Political Order: From Prehuman Times to the French Revolution",
-      "author": "Francis Fukuyama",
-      "asin": "B00457X7VI",
-      "lastAnnotatedDate": "2012-11-05",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/51FsEr29TCL._SY160.jpg",
-      "highlightsCount": 3
-    },
-    "tags": [
-      "book",
-      "politics"
-    ],
-    "date": "2022-12-14T20:30:02.000Z",
-    "modified": "2022-12-23T16:05:21.000Z",
-    "hidden": false,
-    "draft": false,
-    "title": "The Origins of Political Order",
-    "toc": [
-      {
-        "text": "The Origins of Political Order",
-        "slug": "the-origins-of-political-order",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 162,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 5
-  },
-  {
-    "slug": "reading/Gaddis-On Grand Strategy",
-    "kindle-sync": {
-      "bookId": "44450",
-      "title": "On Grand Strategy",
-      "author": "John Lewis Gaddis",
-      "asin": "B073QZX7YX",
-      "lastAnnotatedDate": "2020-09-02",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/71ocFXZZP9L._SY160.jpg",
-      "highlightsCount": 3
-    },
-    "date": "2022-12-14T20:27:02.000Z",
-    "modified": "2022-12-23T15:57:50.000Z",
-    "tags": [],
-    "hidden": false,
-    "draft": false,
-    "title": "On Grand Strategy",
-    "toc": [
-      {
-        "text": "On Grand Strategy",
-        "slug": "on-grand-strategy",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 254,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 5
-  },
-  {
-    "slug": "reading/Gelderloos-Oleynik-Anarchy Works",
-    "kindle-sync": {
-      "bookId": "24436",
-      "title": "Anarchy Works (Annotated)",
-      "author": "Peter Gelderloos and Vladimir Oleynik",
-      "asin": "B018SN4HT0",
-      "lastAnnotatedDate": "2023-11-08",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/7165cK74S1L._SY160.jpg",
-      "highlightsCount": 16
-    },
-    "date": "2022-12-14T20:26:52.000Z",
-    "modified": "2022-12-23T15:56:09.000Z",
-    "tags": [
-      "activism",
-      "anarchism",
-      "politics",
-      "culture",
-      "education",
-      "inspiration",
-      "protest"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Anarchy Works",
-    "toc": [
-      {
-        "text": "Anarchy Works",
-        "slug": "anarchy-works",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 871,
-    "readingTime": 4,
-    "imageCount": 0,
-    "linkCount": 18
+    "linkCount": 0
   },
   {
     "slug": "2022/motorcycle-camping",
@@ -10481,504 +11331,6 @@
     "linkCount": 0
   },
   {
-    "slug": "drafts/how-men-use-radios",
-    "dek": "In which we learn to use radios to the best of our ability",
-    "inprogress": true,
-    "date": "2023-09-03T16:33:47.000Z",
-    "modified": "2024-09-20T04:25:03.000Z",
-    "tags": [
-      "culture",
-      "code",
-      "media",
-      "journalism"
-    ],
-    "hidden": true,
-    "draft": true,
-    "title": "How Men Use Radios",
-    "toc": [
-      {
-        "text": "How Men Use Radios",
-        "slug": "how-men-use-radios",
-        "level": "h2",
-        "children": [
-          {
-            "text": "The Universal Language of Radio",
-            "slug": "the-universal-language-of-radio",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Radio Codes: A Primer",
-            "slug": "radio-codes-a-primer",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Regional Nuances",
-            "slug": "regional-nuances",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Professional Practices",
-            "slug": "professional-practices",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "The Future of Radio Communication",
-            "slug": "the-future-of-radio-communication",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Conclusion",
-            "slug": "conclusion",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 504,
-    "readingTime": 3,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "drafts/how-to-get-started-with-data-analysis-visualization",
-    "draft": true,
-    "dek": "In which",
-    "inprogress": true,
-    "date": "2022-11-03T00:03:12.000Z",
-    "modified": "2022-12-23T14:10:44.000Z",
-    "hidden": true,
-    "tags": [
-      "dataviz",
-      "data",
-      "visualization"
-    ],
-    "title": "How to get started with data visualization",
-    "toc": [
-      {
-        "text": "How to get started with data visualization",
-        "slug": "how-to-get-started-with-data-visualization",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "What is data visualization?",
-        "slug": "what-is-data-visualization",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "How I got started",
-        "slug": "how-i-got-started",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "How someone could get started today",
-        "slug": "how-someone-could-get-started-today",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Resources for learning",
-        "slug": "resources-for-learning",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Ideas for using data visualization",
-        "slug": "ideas-for-using-data-visualization",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 37,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "drafts/hudson-valley-food-and-farms",
-    "date": "2023-12-21T00:48:32.000Z",
-    "modified": "2024-01-11T04:37:27.000Z",
-    "hidden": true,
-    "draft": true,
-    "tags": [
-      "food",
-      "hudsonvalley",
-      "travel"
-    ],
-    "title": "hudson-valley-food-and-farms",
-    "toc": [],
-    "wordCount": 83,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "drafts/hudson-valley-motorcycle-rides",
-    "draft": true,
-    "dek": "In which",
-    "inprogress": true,
-    "date": "2022-11-03T01:22:25.000Z",
-    "modified": "2024-05-07T18:11:34.000Z",
-    "hidden": true,
-    "tags": [],
-    "title": "Hudson Valley Motorcycle Rides and Spots to Visit",
-    "toc": [
-      {
-        "text": "Hudson Valley Motorcycle Rides and Spots to Visit",
-        "slug": "hudson-valley-motorcycle-rides-and-spots-to-visit",
-        "level": "h2",
-        "children": [
-          {
-            "text": "How I track my ride data",
-            "slug": "how-i-track-my-ride-data",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Fahnestock / 301",
-            "slug": "fahnestock-301",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Bear Mountain Bridge / Anthony's Nose",
-            "slug": "bear-mountain-bridge-anthony-s-nose",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Seven Lakes Drive",
-            "slug": "seven-lakes-drive",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Greenwood Lake",
-            "slug": "greenwood-lake",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Perkins Lookout",
-            "slug": "perkins-lookout",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Catskills",
-            "slug": "catskills",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 52,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "drafts/i-just-do-what-my-calendar-says",
-    "draft": true,
-    "dek": "In which the author explains his approach to schedule management",
-    "inprogress": true,
-    "date": "2023-01-06T22:34:06.000Z",
-    "modified": "2024-09-20T04:25:44.000Z",
-    "tags": [
-      "automation"
-    ],
-    "hidden": true,
-    "title": "I just do what my calendar tells me to do at any moment",
-    "toc": [
-      {
-        "text": "I just do what my calendar tells me to do at any moment",
-        "slug": "i-just-do-what-my-calendar-tells-me-to-do-at-any-moment",
-        "level": "h2",
-        "children": [
-          {
-            "text": "My Process",
-            "slug": "my-process",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 358,
-    "readingTime": 2,
-    "imageCount": 1,
-    "linkCount": 1
-  },
-  {
-    "slug": "drafts/intro-to-abstract-syntax-trees",
-    "dek": "In which",
-    "inprogress": true,
-    "date": "2024-04-25T21:21:40.000Z",
-    "modified": "2024-09-21T19:04:23.000Z",
-    "tags": [
-      "code",
-      "vue",
-      "programming"
-    ],
-    "hidden": true,
-    "draft": true,
-    "title": "Introduction To Abstract Syntax Trees",
-    "toc": [
-      {
-        "text": "Introduction To Abstract Syntax Trees",
-        "slug": "introduction-to-abstract-syntax-trees",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 53,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "drafts/introducing-connectology",
-    "draft": true,
-    "dek": "In which",
-    "inprogress": true,
-    "date": "2023-03-16T18:32:06.000Z",
-    "modified": "2023-03-16T22:59:29.000Z",
-    "hidden": true,
-    "tags": [
-      "network",
-      "visualization"
-    ],
-    "title": "Network visualizations made easy: introducing connectology",
-    "toc": [
-      {
-        "text": "Network visualizations made easy: introducing connectology",
-        "slug": "network-visualizations-made-easy-introducing-connectology",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 55,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "drafts/learning-blender",
-    "date": "2022-11-20T21:58:44.000Z",
-    "modified": "2022-12-23T16:30:14.000Z",
-    "hidden": true,
-    "draft": true,
-    "tags": [
-      "blender",
-      "3d",
-      "visualization"
-    ],
-    "title": "Learning Blender: Winter 2022",
-    "toc": [
-      {
-        "text": "Learning Blender: Winter 2022",
-        "slug": "learning-blender-winter-2022",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 8,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "drafts/mapping-the-mastodon-fediverse",
-    "dek": "In which the author explores the newly-growing network of mastodon instances and the things that make each of them unique",
-    "inprogress": true,
-    "date": "2022-12-15T14:59:12.000Z",
-    "modified": "2024-07-18T18:40:56.000Z",
-    "hidden": true,
-    "draft": true,
-    "tags": [
-      "dataviz",
-      "network",
-      "mapping",
-      "mastodon"
-    ],
-    "title": "Mapping The Mastodon Fediverse",
-    "toc": [
-      {
-        "text": "Mapping The Mastodon Fediverse",
-        "slug": "mapping-the-mastodon-fediverse",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Questions",
-            "slug": "questions",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "How do we gather our data?",
-            "slug": "how-do-we-gather-our-data",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 75,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "drafts/markdown-kitchen-sink",
-    "dek": "In which",
-    "inprogress": true,
-    "date": "2024-06-02T00:00:00.000Z",
-    "modified": "2024-10-16T00:16:02.000Z",
-    "hidden": true,
-    "draft": true,
-    "title": "🌌 ",
-    "toc": [
-      {
-        "text": "🌌 ",
-        "slug": "",
-        "level": "h2",
-        "children": [
-          {
-            "text": "📈 ",
-            "slug": "",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "🔄 ",
-            "slug": "",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "🗺️ ",
-            "slug": "",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "📸 ",
-            "slug": "",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "💻 ",
-            "slug": "",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "🔗 ",
-            "slug": "",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "📚 ",
-            "slug": "",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "⚙️ ",
-            "slug": "",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "✨ ",
-            "slug": "",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "🚀 ",
-        "slug": "",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "📬 ",
-        "slug": "",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "🖥️ ",
-        "slug": "",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "📅 ",
-        "slug": "",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "🔒 ",
-        "slug": "",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "🏁 ",
-        "slug": "",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 1271,
-    "readingTime": 6,
-    "imageCount": 0,
-    "linkCount": 6
-  },
-  {
-    "slug": "drafts/media-diet",
-    "draft": true,
-    "dek": "In which",
-    "inprogress": true,
-    "date": "2023-01-19T06:33:45.000Z",
-    "modified": "2024-09-20T04:26:08.000Z",
-    "tags": [
-      "education",
-      "journalism",
-      "media",
-      "politics"
-    ],
-    "hidden": true,
-    "title": "How I keep up with the news",
-    "toc": [
-      {
-        "text": "How I keep up with the news",
-        "slug": "how-i-keep-up-with-the-news",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 318,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
     "slug": "2010/!pinboard-tags",
     "dek": "All of the tags I use across all technologies, pinboard, this blog, and anywhere else",
     "date": "2010-12-17T17:00:00.000Z",
@@ -12446,358 +12798,6 @@
     ],
     "wordCount": 313,
     "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "2022/election-night-2018",
-    "date": "2022-11-14T21:15:19.000Z",
-    "modified": "2024-08-01T14:21:42.000Z",
-    "tags": [
-      "elections",
-      "coding",
-      "media"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Election Night 2018",
-    "toc": [
-      {
-        "text": "Election Night 2018",
-        "slug": "election-night-2018",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 1581,
-    "readingTime": 7,
-    "imageCount": 5,
-    "linkCount": 5
-  },
-  {
-    "slug": "2022/everyone-should-code-data-literacy",
-    "draft": false,
-    "dek": "In which we explore the transformative potential of computer literacy, unearthing its capacity to elevate both individual lives and collective progress",
-    "inprogress": true,
-    "date": "2022-11-03T00:02:01.000Z",
-    "modified": "2024-09-20T04:24:42.000Z",
-    "tags": [
-      "code",
-      "automation",
-      "tech"
-    ],
-    "hidden": false,
-    "title": "Why I think everyone should learn to code",
-    "toc": [
-      {
-        "text": "Why I think everyone should learn to code",
-        "slug": "why-i-think-everyone-should-learn-to-code",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Defining computer literacy",
-            "slug": "defining-computer-literacy",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Learning to google “Magic Words”",
-            "slug": "learning-to-google-magic-words",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Noticing when you feel like a robot",
-            "slug": "noticing-when-you-feel-like-a-robot",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Communicating with Artificial Intelligence",
-            "slug": "communicating-with-artificial-intelligence",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Appreciating the “I can do that” moments",
-            "slug": "appreciating-the-i-can-do-that-moments",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Control of the world around you",
-            "slug": "control-of-the-world-around-you",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Making your work easier",
-            "slug": "making-your-work-easier",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Improving your career prospects",
-            "slug": "improving-your-career-prospects",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Having a set of tools that are ready",
-            "slug": "having-a-set-of-tools-that-are-ready",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 644,
-    "readingTime": 3,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "2022/experiments-with-live-looping-performance",
-    "dek": "In which we delve into the artistry of live looping, illuminating the core concepts and essential gear that enable musicians to create immersive soundscapes on the fly",
-    "inprogress": true,
-    "date": "2022-11-02T23:59:14.000Z",
-    "modified": "2024-09-23T16:13:12.000Z",
-    "tags": [
-      "music",
-      "art",
-      "experiments",
-      "dj"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Experiments with Live Looping",
-    "toc": [
-      {
-        "text": "Experiments with Live Looping",
-        "slug": "experiments-with-live-looping",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Fundamentals of Looping",
-            "slug": "fundamentals-of-looping",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Artists who live loop",
-            "slug": "artists-who-live-loop",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Core principles",
-            "slug": "core-principles",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Live Looping Pitfalls",
-            "slug": "live-looping-pitfalls",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Equipment",
-            "slug": "equipment",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 1119,
-    "readingTime": 5,
-    "imageCount": 0,
-    "linkCount": 1
-  },
-  {
-    "slug": "2022/food",
-    "dek": "In which the author tries to put good food in his body",
-    "inprogress": true,
-    "date": "2022-12-28T18:20:58.000Z",
-    "modified": "2024-05-15T18:02:51.000Z",
-    "tags": [
-      "food",
-      "cooking",
-      "recipe",
-      "health"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Food",
-    "toc": [
-      {
-        "text": "Food",
-        "slug": "food",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Breakfast",
-            "slug": "breakfast",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Lunch",
-            "slug": "lunch",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Dinner",
-            "slug": "dinner",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Desserts",
-            "slug": "desserts",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 541,
-    "readingTime": 3,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "2022/joy-driven-development",
-    "dek": "In which we use joy and curiosity as fuel to propel us forward",
-    "inprogress": true,
-    "date": "2022-11-03T00:06:51.000Z",
-    "modified": "2024-09-20T04:25:41.000Z",
-    "tags": [
-      "coding"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Embracing Joy-Driven Development: A New Philosophy for Better Work",
-    "toc": [
-      {
-        "text": "Embracing Joy-Driven Development: A New Philosophy for Better Work",
-        "slug": "embracing-joy-driven-development-a-new-philosophy-for-better-work",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Discovering the Spark: What is Joy-Driven Development?",
-            "slug": "discovering-the-spark-what-is-joy-driven-development",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Curiosity As Fuel: Incorporating Joy",
-            "slug": "curiosity-as-fuel-incorporating-joy",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Addressing the Skeptics",
-            "slug": "addressing-the-skeptics",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 1076,
-    "readingTime": 5,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "2022/morning-routine-daily-rituals",
-    "draft": false,
-    "dek": "In which we use intentional morning rituals to improve our lives and increase our happiness",
-    "inprogress": true,
-    "date": "2022-11-03T01:31:25.000Z",
-    "modified": "2024-09-20T04:22:56.000Z",
-    "tags": [
-      "exercise",
-      "meditation",
-      "writing",
-      "health"
-    ],
-    "hidden": false,
-    "title": "My Morning Routine and Daily Rituals",
-    "toc": [
-      {
-        "text": "My Morning Routine and Daily Rituals",
-        "slug": "my-morning-routine-and-daily-rituals",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Shower and Listen to the Radio",
-            "slug": "shower-and-listen-to-the-radio",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Make Coffee, Read, and Meditate",
-            "slug": "make-coffee-read-and-meditate",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Exercise",
-            "slug": "exercise",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Feed the cat",
-            "slug": "feed-the-cat",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Journaling and Writing",
-            "slug": "journaling-and-writing",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Plan Out My Day",
-            "slug": "plan-out-my-day",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Making an espresso",
-            "slug": "making-an-espresso",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "5 Minute morning journal",
-            "slug": "5-minute-morning-journal",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Analog / paper time and being outside",
-            "slug": "analog-paper-time-and-being-outside",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Connecting with friends and family",
-            "slug": "connecting-with-friends-and-family",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 536,
-    "readingTime": 3,
     "imageCount": 0,
     "linkCount": 0
   }
