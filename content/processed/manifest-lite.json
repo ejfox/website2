@@ -1,190 +1,5 @@
 [
   {
-    "slug": "reading/Murphy-Hiscock-The Green Witch",
-    "kindle-sync": {
-      "bookId": "60661",
-      "title": "The Green Witch: Your Complete Guide to the Natural Magic of Herbs, Flowers, Essential Oils, and More",
-      "author": "Arin Murphy-Hiscock",
-      "asin": "B071XSVBQC",
-      "lastAnnotatedDate": "2021-01-28",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/81zQX2hGCPL._SY160.jpg",
-      "highlightsCount": 9
-    },
-    "date": "2022-12-14T20:26:21.000Z",
-    "modified": "2022-12-23T16:25:52.000Z",
-    "tags": [
-      "nature",
-      "health",
-      "meditation",
-      "ecology"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "The Green Witch",
-    "toc": [
-      {
-        "text": "The Green Witch",
-        "slug": "the-green-witch",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 710,
-    "readingTime": 3,
-    "imageCount": 0,
-    "linkCount": 11
-  },
-  {
-    "slug": "reading/Norman-Emotional Design",
-    "kindle-sync": {
-      "bookId": "59972",
-      "title": "Emotional Design: Why We Love (or Hate) Everyday Things",
-      "author": "Donald A. Norman",
-      "asin": "B005GKIYD4",
-      "lastAnnotatedDate": "2012-10-16",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/71lsCWwYwKL._SY160.jpg",
-      "highlightsCount": 1
-    },
-    "date": "2022-12-26T16:48:59.000Z",
-    "modified": "2022-12-27T20:10:31.000Z",
-    "tags": [
-      "design",
-      "book"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Emotional Design",
-    "toc": [
-      {
-        "text": "Emotional Design",
-        "slug": "emotional-design",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 64,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 3
-  },
-  {
-    "slug": "reading/Pirsig-Zen and the Art of Motorcycle Maintenance",
-    "kindle-sync": {
-      "bookId": "54365",
-      "title": "Zen and the Art of Motorcycle Maintenance: An Inquiry Into Values",
-      "author": "Robert M. Pirsig",
-      "asin": "B0026772N8",
-      "lastAnnotatedDate": "2021-02-03",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/71tZgyVVbfL._SY160.jpg",
-      "highlightsCount": 8
-    },
-    "date": "2022-12-14T20:26:06.000Z",
-    "modified": "2022-12-23T15:17:39.000Z",
-    "tags": [
-      "travel",
-      "motorcycle",
-      "inspiration"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Zen and the Art of Motorcycle Maintenance",
-    "toc": [
-      {
-        "text": "Zen and the Art of Motorcycle Maintenance",
-        "slug": "zen-and-the-art-of-motorcycle-maintenance",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 309,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 10
-  },
-  {
-    "slug": "reading/Pressfield-Coyne-The War of Art",
-    "kindle-sync": {
-      "bookId": "62220",
-      "title": "The War of Art",
-      "author": "Steven Pressfield and Shawn Coyne",
-      "asin": "B007A4SDCG",
-      "lastAnnotatedDate": "2021-01-05",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/71jgxi5WW2L._SY160.jpg",
-      "highlightsCount": 8
-    },
-    "date": "2022-12-14T20:26:39.000Z",
-    "modified": "2024-03-13T22:51:53.000Z",
-    "tags": [
-      "art",
-      "book",
-      "inspiration",
-      "writing"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "The War of Art",
-    "toc": [
-      {
-        "text": "The War of Art",
-        "slug": "the-war-of-art",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 685,
-    "readingTime": 3,
-    "imageCount": 0,
-    "linkCount": 10
-  },
-  {
     "slug": "reading/Rank-Historys Greatest Generals",
     "kindle-sync": {
       "bookId": "19008",
@@ -3122,102 +2937,6 @@
     "readingTime": 1,
     "imageCount": 0,
     "linkCount": 0
-  },
-  {
-    "slug": "projects/ccrb-clusters",
-    "title": "Clusters of NYPD Misconduct",
-    "date": "2024-09-21T20:00:47.000Z",
-    "modified": "2024-10-14T23:58:49.000Z",
-    "url": "https://gothamist.com/news/mapping-clusters-nypd-officers-repeatedly-accused-misconduct",
-    "hidden": false,
-    "draft": false,
-    "toc": [],
-    "wordCount": 25,
-    "readingTime": 1,
-    "imageCount": 1,
-    "linkCount": 1
-  },
-  {
-    "slug": "projects/cli-tools",
-    "date": "2024-10-12T23:52:50.000Z",
-    "modified": "2024-10-14T16:42:06.000Z",
-    "hidden": false,
-    "draft": false,
-    "title": "Command Line Tools",
-    "toc": [
-      {
-        "text": "Command Line Tools",
-        "slug": "command-line-tools",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Project List",
-            "slug": "project-list",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 139,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 14
-  },
-  {
-    "slug": "projects/coach-artie",
-    "title": "Coach Artie",
-    "date": "2022-03-01T19:59:42.000Z",
-    "modified": "2024-10-14T23:57:24.000Z",
-    "url": "https://github.com/room302studio/coachartie",
-    "hidden": false,
-    "draft": false,
-    "toc": [],
-    "wordCount": 25,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 1
-  },
-  {
-    "slug": "projects/covidcast",
-    "title": "COVIDcast",
-    "date": "2020-04-24T20:00:51.000Z",
-    "modified": "2024-10-14T23:59:10.000Z",
-    "url": "https://campustechnology.com/articles/2020/04/24/carnegie-mellon-maps-offer-more-data-for-covid-19-forecasting.aspx",
-    "hidden": false,
-    "draft": false,
-    "toc": [],
-    "wordCount": 44,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 2
-  },
-  {
-    "slug": "projects/dark-money-universe",
-    "title": "Mother Jones' Dark Money Universe",
-    "date": "2012-06-12T20:03:35.000Z",
-    "modified": "2024-10-01T00:42:06.000Z",
-    "hidden": false,
-    "draft": false,
-    "toc": [],
-    "wordCount": 36,
-    "readingTime": 1,
-    "imageCount": 1,
-    "linkCount": 2
-  },
-  {
-    "slug": "projects/dataproofer",
-    "title": "Dataproofer",
-    "date": "2015-11-04T00:40:35.000Z",
-    "modified": "2024-10-14T16:33:44.000Z",
-    "url": "https://github.com/dataproofer/Dataproofer",
-    "hidden": false,
-    "draft": false,
-    "toc": [],
-    "wordCount": 37,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 2
   },
   {
     "slug": "projects/david-bylers-election-simulator",
@@ -6419,324 +6138,189 @@
     "linkCount": 11
   },
   {
-    "slug": "drafts/best-ios-apps-for-creativity",
-    "dek": "In which we attempt to replace aimless scrolling with intentional creativity",
-    "inprogress": true,
-    "date": "2023-08-04T20:41:57.000Z",
-    "modified": "2024-09-20T04:18:55.000Z",
+    "slug": "reading/Murphy-Hiscock-The Green Witch",
+    "kindle-sync": {
+      "bookId": "60661",
+      "title": "The Green Witch: Your Complete Guide to the Natural Magic of Herbs, Flowers, Essential Oils, and More",
+      "author": "Arin Murphy-Hiscock",
+      "asin": "B071XSVBQC",
+      "lastAnnotatedDate": "2021-01-28",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/81zQX2hGCPL._SY160.jpg",
+      "highlightsCount": 9
+    },
+    "date": "2022-12-14T20:26:21.000Z",
+    "modified": "2022-12-23T16:25:52.000Z",
     "tags": [
-      "ios",
-      "design",
-      "art"
-    ],
-    "hidden": true,
-    "draft": true,
-    "title": "Best iOS Apps For Daily Creativity",
-    "toc": [
-      {
-        "text": "Best iOS Apps For Daily Creativity",
-        "slug": "best-ios-apps-for-daily-creativity",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Procreate Pocket",
-            "slug": "procreate-pocket",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "ChatGPT / OpenAI Playground",
-            "slug": "chatgpt-openai-playground",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Obsidian",
-            "slug": "obsidian",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Instagram",
-            "slug": "instagram",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "iMovie",
-            "slug": "imovie",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 22,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "drafts/book-of-changes",
-    "dek": "In which",
-    "inprogress": true,
-    "date": "2023-01-30T17:00:13.000Z",
-    "modified": "2024-09-20T04:19:02.000Z",
-    "tags": [
-      "book",
       "nature",
-      "inspiration"
+      "health",
+      "meditation",
+      "ecology"
     ],
-    "hidden": true,
-    "draft": true,
-    "title": "The Book of Changes",
+    "hidden": false,
+    "draft": false,
+    "title": "The Green Witch",
     "toc": [
       {
-        "text": "The Book of Changes",
-        "slug": "the-book-of-changes",
-        "level": "h2",
+        "text": "The Green Witch",
+        "slug": "the-green-witch",
+        "level": "h1",
         "children": []
-      }
-    ],
-    "wordCount": 13,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 1
-  },
-  {
-    "slug": "drafts/building-physical-things",
-    "draft": true,
-    "dek": "In which",
-    "inprogress": true,
-    "date": "2022-12-31T23:49:03.000Z",
-    "modified": "2022-12-31T23:49:34.000Z",
-    "hidden": true,
-    "tags": [
-      "woodworking"
-    ],
-    "title": "Experiments in woodworking + sculpture spring 2022",
-    "toc": [
+      },
       {
-        "text": "Experiments in woodworking + sculpture spring 2022",
-        "slug": "experiments-in-woodworking-sculpture-spring-2022",
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
         "level": "h1",
         "children": []
       }
     ],
-    "wordCount": 15,
-    "readingTime": 1,
+    "wordCount": 710,
+    "readingTime": 3,
     "imageCount": 0,
-    "linkCount": 0
+    "linkCount": 11
   },
   {
-    "slug": "drafts/call-of-duty-data-analysis",
-    "date": "2022-11-02T23:56:23.000Z",
-    "modified": "2024-07-18T18:43:59.000Z",
-    "hidden": true,
-    "draft": true,
+    "slug": "reading/Norman-Emotional Design",
+    "kindle-sync": {
+      "bookId": "59972",
+      "title": "Emotional Design: Why We Love (or Hate) Everyday Things",
+      "author": "Donald A. Norman",
+      "asin": "B005GKIYD4",
+      "lastAnnotatedDate": "2012-10-16",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/71lsCWwYwKL._SY160.jpg",
+      "highlightsCount": 1
+    },
+    "date": "2022-12-26T16:48:59.000Z",
+    "modified": "2022-12-27T20:10:31.000Z",
     "tags": [
-      "callofduty",
-      "data"
+      "design",
+      "book"
     ],
-    "title": "Call of Duty Stats Breakdown",
+    "hidden": false,
+    "draft": false,
+    "title": "Emotional Design",
     "toc": [
       {
-        "text": "Call of Duty Stats Breakdown",
-        "slug": "call-of-duty-stats-breakdown",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Hardcore Search & Destroy",
-            "slug": "hardcore-search-destroy",
-            "level": "h3",
-            "children": []
-          }
-        ]
+        "text": "Emotional Design",
+        "slug": "emotional-design",
+        "level": "h1",
+        "children": []
       },
       {
-        "text": "Playing with a friend",
-        "slug": "playing-with-a-friend",
-        "level": "h2",
-        "children": [
-          {
-            "text": "I ❤️ Riot Shield",
-            "slug": "i-riot-shield",
-            "level": "h3",
-            "children": []
-          }
-        ]
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
       },
       {
-        "text": "I have been playing Call of Duty games for over 10 years",
-        "slug": "i-have-been-playing-call-of-duty-games-for-over-10-years",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Killcam culture",
-            "slug": "killcam-culture",
-            "level": "h3",
-            "children": []
-          }
-        ]
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 64,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 3
+  },
+  {
+    "slug": "reading/Pirsig-Zen and the Art of Motorcycle Maintenance",
+    "kindle-sync": {
+      "bookId": "54365",
+      "title": "Zen and the Art of Motorcycle Maintenance: An Inquiry Into Values",
+      "author": "Robert M. Pirsig",
+      "asin": "B0026772N8",
+      "lastAnnotatedDate": "2021-02-03",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/71tZgyVVbfL._SY160.jpg",
+      "highlightsCount": 8
+    },
+    "date": "2022-12-14T20:26:06.000Z",
+    "modified": "2022-12-23T15:17:39.000Z",
+    "tags": [
+      "travel",
+      "motorcycle",
+      "inspiration"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Zen and the Art of Motorcycle Maintenance",
+    "toc": [
+      {
+        "text": "Zen and the Art of Motorcycle Maintenance",
+        "slug": "zen-and-the-art-of-motorcycle-maintenance",
+        "level": "h1",
+        "children": []
       },
       {
-        "text": "Questions I have for the data",
-        "slug": "questions-i-have-for-the-data",
-        "level": "h2",
-        "children": [
-          {
-            "text": "How to get the data",
-            "slug": "how-to-get-the-data",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Data overview / metadata",
-            "slug": "data-overview-metadata",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Last 20 match analysis",
-            "slug": "last-20-match-analysis",
-            "level": "h3",
-            "children": []
-          }
-        ]
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
       },
       {
-        "text": "Ideas for the future",
-        "slug": "ideas-for-the-future",
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 309,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 10
+  },
+  {
+    "slug": "reading/Pressfield-Coyne-The War of Art",
+    "kindle-sync": {
+      "bookId": "62220",
+      "title": "The War of Art",
+      "author": "Steven Pressfield and Shawn Coyne",
+      "asin": "B007A4SDCG",
+      "lastAnnotatedDate": "2021-01-05",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/71jgxi5WW2L._SY160.jpg",
+      "highlightsCount": 8
+    },
+    "date": "2022-12-14T20:26:39.000Z",
+    "modified": "2024-03-13T22:51:53.000Z",
+    "tags": [
+      "art",
+      "book",
+      "inspiration",
+      "writing"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "The War of Art",
+    "toc": [
+      {
+        "text": "The War of Art",
+        "slug": "the-war-of-art",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
         "level": "h2",
         "children": []
       }
     ],
-    "wordCount": 938,
-    "readingTime": 4,
+    "wordCount": 685,
+    "readingTime": 3,
     "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "drafts/changing-my-mind-on-scale",
-    "dek": "In which I recount my journey from idolizing the concept of scale in Silicon Valley to embracing the more sustainable, disciplined approach in technology",
-    "inprogress": true,
-    "date": "2024-04-25T21:21:40.000Z",
-    "modified": "2024-09-21T19:04:06.000Z",
-    "tags": [
-      "tech"
-    ],
-    "hidden": true,
-    "draft": true,
-    "title": "From Scale to Sustainability: My Silicon Valley Epiphany",
-    "toc": [
-      {
-        "text": "From Scale to Sustainability: My Silicon Valley Epiphany",
-        "slug": "from-scale-to-sustainability-my-silicon-valley-epiphany",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Chasing Giants: A Silicon Valley Dream",
-            "slug": "chasing-giants-a-silicon-valley-dream",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "The Siren Song of Silicon Valley",
-            "slug": "the-siren-song-of-silicon-valley",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Scaling Up: The Tech Industry's Holy Grail",
-            "slug": "scaling-up-the-tech-industry-s-holy-grail",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Cracks in the Façade: The Unseen Costs of Scale",
-            "slug": "cracks-in-the-fa-ade-the-unseen-costs-of-scale",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "A New Perspective: Encounters with the Downsides of Scale",
-            "slug": "a-new-perspective-encounters-with-the-downsides-of-scale",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Redefining Success: Sustainability Over Scale",
-            "slug": "redefining-success-sustainability-over-scale",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Embracing Discipline: A Sustainable Tech Ethos",
-            "slug": "embracing-discipline-a-sustainable-tech-ethos",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Choosing a Different Path: My Project Evolution",
-            "slug": "choosing-a-different-path-my-project-evolution",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Collaborations and Choices: Reflecting My New Values",
-            "slug": "collaborations-and-choices-reflecting-my-new-values",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "A Balanced Future: The Intersection of Scale and Sustainability",
-            "slug": "a-balanced-future-the-intersection-of-scale-and-sustainability",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "My Ongoing Journey: Committing to Sustainable Tech",
-            "slug": "my-ongoing-journey-committing-to-sustainable-tech",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 124,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "drafts/chess",
-    "draft": true,
-    "date": "2022-12-22T15:57:34.000Z",
-    "modified": "2024-07-18T18:43:56.000Z",
-    "hidden": true,
-    "tags": [
-      "chess"
-    ],
-    "title": "I am really bad at chess",
-    "toc": [
-      {
-        "text": "I am really bad at chess",
-        "slug": "i-am-really-bad-at-chess",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Multi-dimensional Chess",
-            "slug": "multi-dimensional-chess",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 44,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
+    "linkCount": 10
   },
   {
     "slug": "drafts/coach-artie-one-year",
@@ -9292,216 +8876,100 @@
     "linkCount": 2
   },
   {
-    "slug": "2018/watercolor-sketching-in-nyc",
-    "type": "words",
-    "hidden": true,
-    "date": "2018-06-10T14:58:10-04:00",
-    "hidetimestamp": false,
-    "tags": [
-      "art",
-      "documentary",
-      "photography",
-      "watercolor",
-      "inspiration"
-    ],
-    "draft": true,
-    "title": "Watercolor Sketching in NYC",
-    "toc": [
-      {
-        "text": "Watercolor Sketching in NYC",
-        "slug": "watercolor-sketching-in-nyc",
-        "level": "h1",
-        "children": [
-          {
-            "text": "Resources",
-            "slug": "resources",
-            "level": "h2",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 538,
-    "readingTime": 3,
-    "imageCount": 0,
-    "linkCount": 5
+    "slug": "projects/ccrb-clusters",
+    "title": "Clusters of NYPD Misconduct",
+    "date": "2024-09-21T20:00:47.000Z",
+    "modified": "2024-10-14T23:58:49.000Z",
+    "url": "https://gothamist.com/news/mapping-clusters-nypd-officers-repeatedly-accused-misconduct",
+    "hidden": false,
+    "draft": false,
+    "toc": [],
+    "wordCount": 25,
+    "readingTime": 1,
+    "imageCount": 1,
+    "linkCount": 1
   },
   {
-    "slug": "2018/work-view-life-view",
-    "dek": "In which the author explores the meaning of life and work",
-    "type": "words",
+    "slug": "projects/cli-tools",
+    "date": "2024-10-12T23:52:50.000Z",
+    "modified": "2024-10-14T16:42:06.000Z",
     "hidden": false,
-    "inprogress": false,
-    "date": "2018-09-30T21:58:20-04:00",
-    "hidetimestamp": false,
-    "tags": [
-      "advice",
-      "exercise",
-      "inspiration",
-      "personal",
-      "project",
-      "writing"
-    ],
     "draft": false,
-    "title": "Work View / Life View",
+    "title": "Command Line Tools",
     "toc": [
       {
-        "text": "Work View / Life View",
-        "slug": "work-view-life-view",
-        "level": "h1",
+        "text": "Command Line Tools",
+        "slug": "command-line-tools",
+        "level": "h2",
         "children": [
           {
-            "text": "Why work?",
-            "slug": "why-work",
-            "level": "h2",
-            "children": []
-          },
-          {
-            "text": "What’s work for?",
-            "slug": "what-s-work-for",
-            "level": "h2",
-            "children": []
-          },
-          {
-            "text": "What does work mean?",
-            "slug": "what-does-work-mean",
-            "level": "h2",
-            "children": []
-          },
-          {
-            "text": "What does money have to do with it?",
-            "slug": "what-does-money-have-to-do-with-it",
-            "level": "h2",
-            "children": []
-          },
-          {
-            "text": "Why are we here?",
-            "slug": "why-are-we-here",
-            "level": "h2",
-            "children": []
-          },
-          {
-            "text": "What is the meaning or purpose of life?",
-            "slug": "what-is-the-meaning-or-purpose-of-life",
-            "level": "h2",
+            "text": "Project List",
+            "slug": "project-list",
+            "level": "h3",
             "children": []
           }
         ]
       }
     ],
-    "wordCount": 747,
-    "readingTime": 3,
+    "wordCount": 139,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 14
+  },
+  {
+    "slug": "projects/coach-artie",
+    "title": "Coach Artie",
+    "date": "2022-03-01T19:59:42.000Z",
+    "modified": "2024-10-14T23:57:24.000Z",
+    "url": "https://github.com/room302studio/coachartie",
+    "hidden": false,
+    "draft": false,
+    "toc": [],
+    "wordCount": 25,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 1
+  },
+  {
+    "slug": "projects/covidcast",
+    "title": "COVIDcast",
+    "date": "2020-04-24T20:00:51.000Z",
+    "modified": "2024-10-14T23:59:10.000Z",
+    "url": "https://campustechnology.com/articles/2020/04/24/carnegie-mellon-maps-offer-more-data-for-covid-19-forecasting.aspx",
+    "hidden": false,
+    "draft": false,
+    "toc": [],
+    "wordCount": 44,
+    "readingTime": 1,
     "imageCount": 0,
     "linkCount": 2
   },
   {
-    "slug": "2019/climate-strike-nyc",
-    "dek": "In which the youths march through the street with extremely clever signs since they are too young to riot",
-    "type": "photo",
+    "slug": "projects/dark-money-universe",
+    "title": "Mother Jones' Dark Money Universe",
+    "date": "2012-06-12T20:03:35.000Z",
+    "modified": "2024-10-01T00:42:06.000Z",
     "hidden": false,
-    "inprogress": false,
-    "date": "2019-09-20T21:19:39-04:00",
-    "hidetimestamp": false,
-    "tags": [
-      "activism",
-      "climatechange",
-      "protest"
-    ],
     "draft": false,
-    "title": "NYC’s Climate March",
-    "toc": [
-      {
-        "text": "NYC’s Climate March",
-        "slug": "nyc-s-climate-march",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 171,
+    "toc": [],
+    "wordCount": 36,
     "readingTime": 1,
-    "imageCount": 13,
-    "linkCount": 13
+    "imageCount": 1,
+    "linkCount": 2
   },
   {
-    "slug": "2019/generative-music-iteration",
-    "type": "words",
-    "hidden": true,
-    "inprogress": true,
-    "date": "2019-03-24T08:00:33.000Z",
-    "hidetimestamp": false,
-    "tags": [
-      "generative",
-      "music",
-      "art",
-      "research",
-      "systemsthinking",
-      "visualization",
-      "coding"
-    ],
-    "modified": "2024-09-23T16:13:04.000Z",
-    "draft": true,
-    "title": "Generative Music Iteration",
-    "toc": [
-      {
-        "text": "Generative Music Iteration",
-        "slug": "generative-music-iteration",
-        "level": "h2",
-        "children": [
-          {
-            "text": "What do I want to create?",
-            "slug": "what-do-i-want-to-create",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Mise-en-place",
-            "slug": "mise-en-place",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "What are the building blocks of the system we are working in?",
-            "slug": "what-are-the-building-blocks-of-the-system-we-are-working-in",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 301,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "2019/hong-kong-protest-techniques",
-    "dek": "In which the citizens of Hong Kong find new creative ways to improve on public disobedience",
-    "type": "words",
+    "slug": "projects/dataproofer",
+    "title": "Dataproofer",
+    "date": "2015-11-04T00:40:35.000Z",
+    "modified": "2024-10-14T16:33:44.000Z",
+    "url": "https://github.com/dataproofer/Dataproofer",
     "hidden": false,
-    "inprogress": false,
-    "date": "2019-08-14T08:00:39.000Z",
-    "hidetimestamp": false,
-    "modified": "2024-08-01T14:21:12.000Z",
-    "tags": [
-      "protest",
-      "activism",
-      "tactics",
-      "security"
-    ],
     "draft": false,
-    "title": "Hong Kong Protest Techniques",
-    "toc": [
-      {
-        "text": "Hong Kong Protest Techniques",
-        "slug": "hong-kong-protest-techniques",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 129,
+    "toc": [],
+    "wordCount": 37,
     "readingTime": 1,
     "imageCount": 0,
-    "linkCount": 0
+    "linkCount": 2
   },
   {
     "slug": "2019/how-i-prototype-apps-and-dataviz-quickly-in-2019",
@@ -12434,6 +11902,326 @@
     "linkCount": 0
   },
   {
+    "slug": "drafts/best-ios-apps-for-creativity",
+    "dek": "In which we attempt to replace aimless scrolling with intentional creativity",
+    "inprogress": true,
+    "date": "2023-08-04T20:41:57.000Z",
+    "modified": "2024-09-20T04:18:55.000Z",
+    "tags": [
+      "ios",
+      "design",
+      "art"
+    ],
+    "hidden": true,
+    "draft": true,
+    "title": "Best iOS Apps For Daily Creativity",
+    "toc": [
+      {
+        "text": "Best iOS Apps For Daily Creativity",
+        "slug": "best-ios-apps-for-daily-creativity",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Procreate Pocket",
+            "slug": "procreate-pocket",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "ChatGPT / OpenAI Playground",
+            "slug": "chatgpt-openai-playground",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Obsidian",
+            "slug": "obsidian",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Instagram",
+            "slug": "instagram",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "iMovie",
+            "slug": "imovie",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 22,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "drafts/book-of-changes",
+    "dek": "In which",
+    "inprogress": true,
+    "date": "2023-01-30T17:00:13.000Z",
+    "modified": "2024-09-20T04:19:02.000Z",
+    "tags": [
+      "book",
+      "nature",
+      "inspiration"
+    ],
+    "hidden": true,
+    "draft": true,
+    "title": "The Book of Changes",
+    "toc": [
+      {
+        "text": "The Book of Changes",
+        "slug": "the-book-of-changes",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 13,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 1
+  },
+  {
+    "slug": "drafts/building-physical-things",
+    "draft": true,
+    "dek": "In which",
+    "inprogress": true,
+    "date": "2022-12-31T23:49:03.000Z",
+    "modified": "2022-12-31T23:49:34.000Z",
+    "hidden": true,
+    "tags": [
+      "woodworking"
+    ],
+    "title": "Experiments in woodworking + sculpture spring 2022",
+    "toc": [
+      {
+        "text": "Experiments in woodworking + sculpture spring 2022",
+        "slug": "experiments-in-woodworking-sculpture-spring-2022",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 15,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "drafts/call-of-duty-data-analysis",
+    "date": "2022-11-02T23:56:23.000Z",
+    "modified": "2024-07-18T18:43:59.000Z",
+    "hidden": true,
+    "draft": true,
+    "tags": [
+      "callofduty",
+      "data"
+    ],
+    "title": "Call of Duty Stats Breakdown",
+    "toc": [
+      {
+        "text": "Call of Duty Stats Breakdown",
+        "slug": "call-of-duty-stats-breakdown",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Hardcore Search & Destroy",
+            "slug": "hardcore-search-destroy",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Playing with a friend",
+        "slug": "playing-with-a-friend",
+        "level": "h2",
+        "children": [
+          {
+            "text": "I ❤️ Riot Shield",
+            "slug": "i-riot-shield",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "I have been playing Call of Duty games for over 10 years",
+        "slug": "i-have-been-playing-call-of-duty-games-for-over-10-years",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Killcam culture",
+            "slug": "killcam-culture",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Questions I have for the data",
+        "slug": "questions-i-have-for-the-data",
+        "level": "h2",
+        "children": [
+          {
+            "text": "How to get the data",
+            "slug": "how-to-get-the-data",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Data overview / metadata",
+            "slug": "data-overview-metadata",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Last 20 match analysis",
+            "slug": "last-20-match-analysis",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Ideas for the future",
+        "slug": "ideas-for-the-future",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 938,
+    "readingTime": 4,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "drafts/changing-my-mind-on-scale",
+    "dek": "In which I recount my journey from idolizing the concept of scale in Silicon Valley to embracing the more sustainable, disciplined approach in technology",
+    "inprogress": true,
+    "date": "2024-04-25T21:21:40.000Z",
+    "modified": "2024-09-21T19:04:06.000Z",
+    "tags": [
+      "tech"
+    ],
+    "hidden": true,
+    "draft": true,
+    "title": "From Scale to Sustainability: My Silicon Valley Epiphany",
+    "toc": [
+      {
+        "text": "From Scale to Sustainability: My Silicon Valley Epiphany",
+        "slug": "from-scale-to-sustainability-my-silicon-valley-epiphany",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Chasing Giants: A Silicon Valley Dream",
+            "slug": "chasing-giants-a-silicon-valley-dream",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "The Siren Song of Silicon Valley",
+            "slug": "the-siren-song-of-silicon-valley",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Scaling Up: The Tech Industry's Holy Grail",
+            "slug": "scaling-up-the-tech-industry-s-holy-grail",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Cracks in the Façade: The Unseen Costs of Scale",
+            "slug": "cracks-in-the-fa-ade-the-unseen-costs-of-scale",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "A New Perspective: Encounters with the Downsides of Scale",
+            "slug": "a-new-perspective-encounters-with-the-downsides-of-scale",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Redefining Success: Sustainability Over Scale",
+            "slug": "redefining-success-sustainability-over-scale",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Embracing Discipline: A Sustainable Tech Ethos",
+            "slug": "embracing-discipline-a-sustainable-tech-ethos",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Choosing a Different Path: My Project Evolution",
+            "slug": "choosing-a-different-path-my-project-evolution",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Collaborations and Choices: Reflecting My New Values",
+            "slug": "collaborations-and-choices-reflecting-my-new-values",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "A Balanced Future: The Intersection of Scale and Sustainability",
+            "slug": "a-balanced-future-the-intersection-of-scale-and-sustainability",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "My Ongoing Journey: Committing to Sustainable Tech",
+            "slug": "my-ongoing-journey-committing-to-sustainable-tech",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 124,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "drafts/chess",
+    "draft": true,
+    "date": "2022-12-22T15:57:34.000Z",
+    "modified": "2024-07-18T18:43:56.000Z",
+    "hidden": true,
+    "tags": [
+      "chess"
+    ],
+    "title": "I am really bad at chess",
+    "toc": [
+      {
+        "text": "I am really bad at chess",
+        "slug": "i-am-really-bad-at-chess",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Multi-dimensional Chess",
+            "slug": "multi-dimensional-chess",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 44,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
     "slug": "2010/!pinboard-tags",
     "dek": "All of the tags I use across all technologies, pinboard, this blog, and anywhere else",
     "date": "2010-12-17T17:00:00.000Z",
@@ -12797,6 +12585,218 @@
       }
     ],
     "wordCount": 143,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "2018/watercolor-sketching-in-nyc",
+    "type": "words",
+    "hidden": true,
+    "date": "2018-06-10T14:58:10-04:00",
+    "hidetimestamp": false,
+    "tags": [
+      "art",
+      "documentary",
+      "photography",
+      "watercolor",
+      "inspiration"
+    ],
+    "draft": true,
+    "title": "Watercolor Sketching in NYC",
+    "toc": [
+      {
+        "text": "Watercolor Sketching in NYC",
+        "slug": "watercolor-sketching-in-nyc",
+        "level": "h1",
+        "children": [
+          {
+            "text": "Resources",
+            "slug": "resources",
+            "level": "h2",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 538,
+    "readingTime": 3,
+    "imageCount": 0,
+    "linkCount": 5
+  },
+  {
+    "slug": "2018/work-view-life-view",
+    "dek": "In which the author explores the meaning of life and work",
+    "type": "words",
+    "hidden": false,
+    "inprogress": false,
+    "date": "2018-09-30T21:58:20-04:00",
+    "hidetimestamp": false,
+    "tags": [
+      "advice",
+      "exercise",
+      "inspiration",
+      "personal",
+      "project",
+      "writing"
+    ],
+    "draft": false,
+    "title": "Work View / Life View",
+    "toc": [
+      {
+        "text": "Work View / Life View",
+        "slug": "work-view-life-view",
+        "level": "h1",
+        "children": [
+          {
+            "text": "Why work?",
+            "slug": "why-work",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "What’s work for?",
+            "slug": "what-s-work-for",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "What does work mean?",
+            "slug": "what-does-work-mean",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "What does money have to do with it?",
+            "slug": "what-does-money-have-to-do-with-it",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Why are we here?",
+            "slug": "why-are-we-here",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "What is the meaning or purpose of life?",
+            "slug": "what-is-the-meaning-or-purpose-of-life",
+            "level": "h2",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 747,
+    "readingTime": 3,
+    "imageCount": 0,
+    "linkCount": 2
+  },
+  {
+    "slug": "2019/climate-strike-nyc",
+    "dek": "In which the youths march through the street with extremely clever signs since they are too young to riot",
+    "type": "photo",
+    "hidden": false,
+    "inprogress": false,
+    "date": "2019-09-20T21:19:39-04:00",
+    "hidetimestamp": false,
+    "tags": [
+      "activism",
+      "climatechange",
+      "protest"
+    ],
+    "draft": false,
+    "title": "NYC’s Climate March",
+    "toc": [
+      {
+        "text": "NYC’s Climate March",
+        "slug": "nyc-s-climate-march",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 171,
+    "readingTime": 1,
+    "imageCount": 13,
+    "linkCount": 13
+  },
+  {
+    "slug": "2019/generative-music-iteration",
+    "type": "words",
+    "hidden": true,
+    "inprogress": true,
+    "date": "2019-03-24T08:00:33.000Z",
+    "hidetimestamp": false,
+    "tags": [
+      "generative",
+      "music",
+      "art",
+      "research",
+      "systemsthinking",
+      "visualization",
+      "coding"
+    ],
+    "modified": "2024-09-23T16:13:04.000Z",
+    "draft": true,
+    "title": "Generative Music Iteration",
+    "toc": [
+      {
+        "text": "Generative Music Iteration",
+        "slug": "generative-music-iteration",
+        "level": "h2",
+        "children": [
+          {
+            "text": "What do I want to create?",
+            "slug": "what-do-i-want-to-create",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Mise-en-place",
+            "slug": "mise-en-place",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "What are the building blocks of the system we are working in?",
+            "slug": "what-are-the-building-blocks-of-the-system-we-are-working-in",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 301,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "2019/hong-kong-protest-techniques",
+    "dek": "In which the citizens of Hong Kong find new creative ways to improve on public disobedience",
+    "type": "words",
+    "hidden": false,
+    "inprogress": false,
+    "date": "2019-08-14T08:00:39.000Z",
+    "hidetimestamp": false,
+    "modified": "2024-08-01T14:21:12.000Z",
+    "tags": [
+      "protest",
+      "activism",
+      "tactics",
+      "security"
+    ],
+    "draft": false,
+    "title": "Hong Kong Protest Techniques",
+    "toc": [
+      {
+        "text": "Hong Kong Protest Techniques",
+        "slug": "hong-kong-protest-techniques",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 129,
     "readingTime": 1,
     "imageCount": 0,
     "linkCount": 0
