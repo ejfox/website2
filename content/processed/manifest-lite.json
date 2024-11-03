@@ -2939,6 +2939,20 @@
     "linkCount": 0
   },
   {
+    "slug": "projects/dataproofer",
+    "title": "Dataproofer",
+    "date": "2015-11-04T00:40:35.000Z",
+    "modified": "2024-10-14T16:33:44.000Z",
+    "url": "https://github.com/dataproofer/Dataproofer",
+    "hidden": false,
+    "draft": false,
+    "toc": [],
+    "wordCount": 37,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 2
+  },
+  {
     "slug": "projects/david-bylers-election-simulator",
     "title": "David Byler's Election Simulator",
     "date": "2020-01-09T20:00:59.000Z",
@@ -6323,6 +6337,36 @@
     "linkCount": 10
   },
   {
+    "slug": "drafts/chess",
+    "draft": true,
+    "date": "2022-12-22T15:57:34.000Z",
+    "modified": "2024-07-18T18:43:56.000Z",
+    "hidden": true,
+    "tags": [
+      "chess"
+    ],
+    "title": "I am really bad at chess",
+    "toc": [
+      {
+        "text": "I am really bad at chess",
+        "slug": "i-am-really-bad-at-chess",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Multi-dimensional Chess",
+            "slug": "multi-dimensional-chess",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 44,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
     "slug": "drafts/coach-artie-one-year",
     "date": "2024-04-21T22:29:38.000Z",
     "modified": "2024-09-20T04:49:29.000Z",
@@ -8958,18 +9002,113 @@
     "linkCount": 2
   },
   {
-    "slug": "projects/dataproofer",
-    "title": "Dataproofer",
-    "date": "2015-11-04T00:40:35.000Z",
-    "modified": "2024-10-14T16:33:44.000Z",
-    "url": "https://github.com/dataproofer/Dataproofer",
+    "slug": "2019/climate-strike-nyc",
+    "dek": "In which the youths march through the street with extremely clever signs since they are too young to riot",
+    "type": "photo",
     "hidden": false,
+    "inprogress": false,
+    "date": "2019-09-20T21:19:39-04:00",
+    "hidetimestamp": false,
+    "tags": [
+      "activism",
+      "climatechange",
+      "protest"
+    ],
     "draft": false,
-    "toc": [],
-    "wordCount": 37,
+    "title": "NYC’s Climate March",
+    "toc": [
+      {
+        "text": "NYC’s Climate March",
+        "slug": "nyc-s-climate-march",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 171,
+    "readingTime": 1,
+    "imageCount": 13,
+    "linkCount": 13
+  },
+  {
+    "slug": "2019/generative-music-iteration",
+    "type": "words",
+    "hidden": true,
+    "inprogress": true,
+    "date": "2019-03-24T08:00:33.000Z",
+    "hidetimestamp": false,
+    "tags": [
+      "generative",
+      "music",
+      "art",
+      "research",
+      "systemsthinking",
+      "visualization",
+      "coding"
+    ],
+    "modified": "2024-09-23T16:13:04.000Z",
+    "draft": true,
+    "title": "Generative Music Iteration",
+    "toc": [
+      {
+        "text": "Generative Music Iteration",
+        "slug": "generative-music-iteration",
+        "level": "h2",
+        "children": [
+          {
+            "text": "What do I want to create?",
+            "slug": "what-do-i-want-to-create",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Mise-en-place",
+            "slug": "mise-en-place",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "What are the building blocks of the system we are working in?",
+            "slug": "what-are-the-building-blocks-of-the-system-we-are-working-in",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 301,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "2019/hong-kong-protest-techniques",
+    "dek": "In which the citizens of Hong Kong find new creative ways to improve on public disobedience",
+    "type": "words",
+    "hidden": false,
+    "inprogress": false,
+    "date": "2019-08-14T08:00:39.000Z",
+    "hidetimestamp": false,
+    "modified": "2024-08-01T14:21:12.000Z",
+    "tags": [
+      "protest",
+      "activism",
+      "tactics",
+      "security"
+    ],
+    "draft": false,
+    "title": "Hong Kong Protest Techniques",
+    "toc": [
+      {
+        "text": "Hong Kong Protest Techniques",
+        "slug": "hong-kong-protest-techniques",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 129,
     "readingTime": 1,
     "imageCount": 0,
-    "linkCount": 2
+    "linkCount": 0
   },
   {
     "slug": "2019/how-i-prototype-apps-and-dataviz-quickly-in-2019",
@@ -12192,36 +12331,6 @@
     "linkCount": 0
   },
   {
-    "slug": "drafts/chess",
-    "draft": true,
-    "date": "2022-12-22T15:57:34.000Z",
-    "modified": "2024-07-18T18:43:56.000Z",
-    "hidden": true,
-    "tags": [
-      "chess"
-    ],
-    "title": "I am really bad at chess",
-    "toc": [
-      {
-        "text": "I am really bad at chess",
-        "slug": "i-am-really-bad-at-chess",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Multi-dimensional Chess",
-            "slug": "multi-dimensional-chess",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 44,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
     "slug": "2010/!pinboard-tags",
     "dek": "All of the tags I use across all technologies, pinboard, this blog, and anywhere else",
     "date": "2010-12-17T17:00:00.000Z",
@@ -12691,114 +12800,5 @@
     "readingTime": 3,
     "imageCount": 0,
     "linkCount": 2
-  },
-  {
-    "slug": "2019/climate-strike-nyc",
-    "dek": "In which the youths march through the street with extremely clever signs since they are too young to riot",
-    "type": "photo",
-    "hidden": false,
-    "inprogress": false,
-    "date": "2019-09-20T21:19:39-04:00",
-    "hidetimestamp": false,
-    "tags": [
-      "activism",
-      "climatechange",
-      "protest"
-    ],
-    "draft": false,
-    "title": "NYC’s Climate March",
-    "toc": [
-      {
-        "text": "NYC’s Climate March",
-        "slug": "nyc-s-climate-march",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 171,
-    "readingTime": 1,
-    "imageCount": 13,
-    "linkCount": 13
-  },
-  {
-    "slug": "2019/generative-music-iteration",
-    "type": "words",
-    "hidden": true,
-    "inprogress": true,
-    "date": "2019-03-24T08:00:33.000Z",
-    "hidetimestamp": false,
-    "tags": [
-      "generative",
-      "music",
-      "art",
-      "research",
-      "systemsthinking",
-      "visualization",
-      "coding"
-    ],
-    "modified": "2024-09-23T16:13:04.000Z",
-    "draft": true,
-    "title": "Generative Music Iteration",
-    "toc": [
-      {
-        "text": "Generative Music Iteration",
-        "slug": "generative-music-iteration",
-        "level": "h2",
-        "children": [
-          {
-            "text": "What do I want to create?",
-            "slug": "what-do-i-want-to-create",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Mise-en-place",
-            "slug": "mise-en-place",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "What are the building blocks of the system we are working in?",
-            "slug": "what-are-the-building-blocks-of-the-system-we-are-working-in",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 301,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "2019/hong-kong-protest-techniques",
-    "dek": "In which the citizens of Hong Kong find new creative ways to improve on public disobedience",
-    "type": "words",
-    "hidden": false,
-    "inprogress": false,
-    "date": "2019-08-14T08:00:39.000Z",
-    "hidetimestamp": false,
-    "modified": "2024-08-01T14:21:12.000Z",
-    "tags": [
-      "protest",
-      "activism",
-      "tactics",
-      "security"
-    ],
-    "draft": false,
-    "title": "Hong Kong Protest Techniques",
-    "toc": [
-      {
-        "text": "Hong Kong Protest Techniques",
-        "slug": "hong-kong-protest-techniques",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 129,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
   }
 ]
