@@ -1,826 +1,5 @@
 [
   {
-    "slug": "reading/Rank-Historys Greatest Generals",
-    "kindle-sync": {
-      "bookId": "19008",
-      "title": "History's Greatest Generals: 10 Commanders Who Conquered Empires, Revolutionized Warfare, and Changed History Forever",
-      "author": "Michael Rank",
-      "asin": "B00FYRKZRM",
-      "lastAnnotatedDate": "2015-02-28",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/91hdwM15ZqL._SY160.jpg",
-      "highlightsCount": 4
-    },
-    "tags": [
-      "military",
-      "reference"
-    ],
-    "date": "2022-12-14T20:29:41.000Z",
-    "modified": "2022-12-23T16:28:08.000Z",
-    "hidden": false,
-    "draft": false,
-    "title": "Historys Greatest Generals",
-    "toc": [
-      {
-        "text": "Historys Greatest Generals",
-        "slug": "historys-greatest-generals",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 141,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 6
-  },
-  {
-    "slug": "reading/Roose-Futureproof-1698075187370",
-    "kindle-sync": {
-      "bookId": "16297",
-      "title": "Futureproof: 9 Rules for Surviving in the Age of AI",
-      "author": "Kevin Roose",
-      "asin": "B07ZN3TDWH",
-      "lastAnnotatedDate": "2022-10-21",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/71auiVlh-OL._SY160.jpg",
-      "highlightsCount": 3
-    },
-    "tags": [
-      "book",
-      "machinelearning"
-    ],
-    "date": "2023-10-23T15:33:07.000Z",
-    "modified": "2024-09-21T19:03:49.000Z",
-    "hidden": false,
-    "draft": false,
-    "title": "Futureproof",
-    "toc": [
-      {
-        "text": "Futureproof",
-        "slug": "futureproof",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Metadata",
-            "slug": "metadata",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Highlights",
-            "slug": "highlights",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 191,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 5
-  },
-  {
-    "slug": "reading/Roose-Futureproof",
-    "kindle-sync": {
-      "bookId": "11969",
-      "title": "Futureproof: 9 Rules for Humans in the Age of Automation",
-      "author": "Kevin Roose",
-      "asin": "B07ZN3TDWH",
-      "lastAnnotatedDate": "2022-10-21",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/71ZsRekqAeL._SY160.jpg",
-      "highlightsCount": 3
-    },
-    "date": "2022-12-14T20:23:12.000Z",
-    "modified": "2022-12-23T16:06:45.000Z",
-    "tags": [
-      "tech",
-      "culture",
-      "machinelearning",
-      "data",
-      "automation"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Futureproof",
-    "toc": [
-      {
-        "text": "Futureproof",
-        "slug": "futureproof",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 193,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 5
-  },
-  {
-    "slug": "reading/Rowell-Eleanor & Park",
-    "kindle-sync": {
-      "bookId": "26878",
-      "title": "Eleanor & Park",
-      "author": "Rainbow Rowell",
-      "asin": "B008SAZHLQ",
-      "lastAnnotatedDate": "2014-01-19",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/71u8kDfMlTL._SY160.jpg",
-      "highlightsCount": 1
-    },
-    "tags": [
-      "book",
-      "inspiration"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Eleanor & Park",
-    "toc": [
-      {
-        "text": "Eleanor & Park",
-        "slug": "eleanor-park",
-        "level": "h1",
-        "children": [
-          {
-            "text": "Metadata",
-            "slug": "metadata",
-            "level": "h2",
-            "children": []
-          },
-          {
-            "text": "Highlights",
-            "slug": "highlights",
-            "level": "h2",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 47,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 3
-  },
-  {
-    "slug": "reading/Sacks-Hallucinations",
-    "kindle-sync": {
-      "bookId": "40419",
-      "title": "Hallucinations",
-      "author": "Oliver Sacks",
-      "asin": "B0082XLY6G",
-      "lastAnnotatedDate": "2020-09-02",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/81qLTBovPpL._SY160.jpg",
-      "highlightsCount": 2
-    },
-    "date": "2022-12-14T20:27:12.000Z",
-    "modified": "2022-12-23T16:07:12.000Z",
-    "tags": [
-      "psychedelics",
-      "research"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Hallucinations",
-    "toc": [
-      {
-        "text": "Hallucinations",
-        "slug": "hallucinations",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 127,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 4
-  },
-  {
-    "slug": "reading/Sansouci-Lipman-The Rebels Apothecary",
-    "kindle-sync": {
-      "bookId": "22789",
-      "title": "The Rebel's Apothecary: A Practical Guide to the Healing Magic of Cannabis, CBD, and Mushrooms",
-      "author": "Jenny Sansouci and Frank Lipman",
-      "asin": "B082H2P7KL",
-      "lastAnnotatedDate": "2022-06-20",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/91utc8xVz7L._SY160.jpg",
-      "highlightsCount": 2
-    },
-    "date": "2022-12-14T20:23:53.000Z",
-    "modified": "2022-12-23T16:04:07.000Z",
-    "tags": [
-      "health",
-      "cannabis",
-      "meditation",
-      "nature"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "The Rebels Apothecary",
-    "toc": [
-      {
-        "text": "The Rebels Apothecary",
-        "slug": "the-rebels-apothecary",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 180,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 4
-  },
-  {
-    "slug": "reading/Sedaris-Theft by Finding",
-    "tags": [
-      "book",
-      "politics"
-    ],
-    "kindle-sync": {
-      "bookId": "31637",
-      "title": "Theft by Finding: Diaries (1977-2002)",
-      "author": "David Sedaris",
-      "asin": "B01LZD935U",
-      "lastAnnotatedDate": "2018-08-13",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/81cRysFkH-L._SY160.jpg",
-      "highlightsCount": 5
-    },
-    "date": "2022-12-28T16:09:38.000Z",
-    "modified": "2024-09-20T04:23:48.000Z",
-    "hidden": false,
-    "draft": false,
-    "title": "Theft by Finding",
-    "toc": [
-      {
-        "text": "Theft by Finding",
-        "slug": "theft-by-finding",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Metadata",
-            "slug": "metadata",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Highlights",
-            "slug": "highlights",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 345,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 7
-  },
-  {
-    "slug": "reading/Self-American Babylon",
-    "tags": [
-      "america",
-      "politics",
-      "activism"
-    ],
-    "kindle-sync": {
-      "bookId": "57443",
-      "title": "American Babylon: Race and the Struggle for Postwar Oakland (Politics and Society in Modern America Book 37)",
-      "author": "Robert O. Self",
-      "asin": "B00GYW96C6",
-      "lastAnnotatedDate": "2014-11-01",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/81R5dWlWxzL._SY160.jpg",
-      "highlightsCount": 2
-    },
-    "date": "2022-12-14T20:29:47.000Z",
-    "modified": "2024-09-20T04:21:50.000Z",
-    "hidden": false,
-    "draft": false,
-    "title": "American Babylon",
-    "toc": [
-      {
-        "text": "American Babylon",
-        "slug": "american-babylon",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 105,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 4
-  },
-  {
-    "slug": "reading/Shields-Other People",
-    "kindle-sync": {
-      "bookId": "34315",
-      "title": "Other People: Takes & Mistakes",
-      "author": "David Shields",
-      "asin": "B01G0GD0WC",
-      "lastAnnotatedDate": "2020-12-23",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/91s3oyefvYL._SY160.jpg",
-      "highlightsCount": 4
-    },
-    "date": "2022-12-14T20:26:44.000Z",
-    "modified": "2022-12-23T15:54:10.000Z",
-    "tags": [
-      "writing",
-      "journalism",
-      "photography",
-      "health"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Other People",
-    "toc": [
-      {
-        "text": "Other People",
-        "slug": "other-people",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 256,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 6
-  },
-  {
-    "slug": "reading/Shields-Reality Hunger",
-    "kindle-sync": {
-      "bookId": "28584",
-      "title": "Reality Hunger",
-      "author": "David Shields",
-      "asin": "B0036S49D2",
-      "lastAnnotatedDate": "2022-08-19",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/81XahxBKE9L._SY160.jpg",
-      "highlightsCount": 15
-    },
-    "date": "2022-12-14T20:23:32.000Z",
-    "modified": "2022-12-23T16:06:17.000Z",
-    "tags": [
-      "writing",
-      "journalism"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Reality Hunger",
-    "toc": [
-      {
-        "text": "Reality Hunger",
-        "slug": "reality-hunger",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 653,
-    "readingTime": 3,
-    "imageCount": 0,
-    "linkCount": 17
-  },
-  {
-    "slug": "reading/Shields-The Trouble with Men",
-    "kindle-sync": {
-      "bookId": "3371",
-      "title": "The Trouble with Men: Reflections on Sex, Love, Marriage, Porn, and Power (21st Century Essays)",
-      "author": "David Shields",
-      "asin": "B07MT424DM",
-      "lastAnnotatedDate": "2020-06-04",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/81macwFNi8L._SY160.jpg",
-      "highlightsCount": 7
-    },
-    "date": "2022-12-14T20:27:24.000Z",
-    "modified": "2022-12-23T15:56:57.000Z",
-    "tags": [
-      "journalism"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "The Trouble with Men",
-    "toc": [
-      {
-        "text": "The Trouble with Men",
-        "slug": "the-trouble-with-men",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 300,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 9
-  },
-  {
-    "slug": "reading/Stephenson-Galland-The Rise and Fall of D.O.D.O",
-    "tags": [
-      "book"
-    ],
-    "kindle-sync": {
-      "bookId": "4772",
-      "title": "The Rise and Fall of D.O.D.O.: A Novel",
-      "author": "Neal Stephenson and Nicole Galland",
-      "asin": "B01M0HPHR6",
-      "lastAnnotatedDate": "2020-08-06",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/91KGdyDZWWL._SY160.jpg",
-      "highlightsCount": 7
-    },
-    "date": "2022-12-28T16:09:31.000Z",
-    "modified": "2024-09-20T04:22:05.000Z",
-    "hidden": false,
-    "draft": false,
-    "title": "The Rise and Fall of D.O.D.O.",
-    "toc": [
-      {
-        "text": "The Rise and Fall of D.O.D.O.",
-        "slug": "the-rise-and-fall-of-d-o-d-o",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Metadata",
-            "slug": "metadata",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Highlights",
-            "slug": "highlights",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 406,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 9
-  },
-  {
-    "slug": "reading/Stephenson-Reamde",
-    "kindle-sync": {
-      "bookId": "37234",
-      "title": "Reamde: A Novel",
-      "author": "Neal Stephenson",
-      "asin": "B004XVN0WW",
-      "lastAnnotatedDate": "2019-03-31",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/71VM4oRxfFL._SY160.jpg",
-      "highlightsCount": 1
-    },
-    "date": "2022-12-26T16:48:12.000Z",
-    "modified": "2024-09-20T04:36:01.000Z",
-    "tags": [
-      "book"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Reamde",
-    "toc": [
-      {
-        "text": "Reamde",
-        "slug": "reamde",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 63,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 3
-  },
-  {
-    "slug": "reading/Stern-Berger-ISIS",
-    "tags": [
-      "reference",
-      "politics"
-    ],
-    "kindle-sync": {
-      "bookId": "53840",
-      "title": "ISIS: The State of Terror",
-      "author": "Jessica Stern and J. M. Berger",
-      "asin": "B00NVLS3CM",
-      "lastAnnotatedDate": "2016-04-11",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/913bMxSydFL._SY160.jpg",
-      "highlightsCount": 1
-    },
-    "date": "2022-12-28T16:09:43.000Z",
-    "modified": "2024-09-20T04:22:10.000Z",
-    "hidden": false,
-    "draft": false,
-    "title": "ISIS",
-    "toc": [
-      {
-        "text": "ISIS",
-        "slug": "isis",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Metadata",
-            "slug": "metadata",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Highlights",
-            "slug": "highlights",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 101,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 3
-  },
-  {
-    "slug": "reading/Suzuki-Chadwick-Zen Mind, Beginners Mind",
-    "kindle-sync": {
-      "bookId": "56342",
-      "title": "Zen Mind, Beginner's Mind",
-      "author": "Shunryu Suzuki and David Chadwick",
-      "asin": "B004R9QFGS",
-      "lastAnnotatedDate": "2016-07-28",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/71ln75kZ4wL._SY160.jpg",
-      "highlightsCount": 24
-    },
-    "date": "2022-12-14T20:29:13.000Z",
-    "modified": "2022-12-23T16:09:16.000Z",
-    "tags": [
-      "meditation"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Zen Mind, Beginners Mind",
-    "toc": [
-      {
-        "text": "Zen Mind, Beginners Mind",
-        "slug": "zen-mind-beginners-mind",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 1090,
-    "readingTime": 5,
-    "imageCount": 0,
-    "linkCount": 26
-  },
-  {
-    "slug": "reading/Taibbi-Crabapple-The Divide",
-    "kindle-sync": {
-      "bookId": "2923",
-      "title": "The Divide: American Injustice in the Age of the Wealth Gap",
-      "author": "Matt Taibbi and Molly Crabapple",
-      "asin": "B00EBRUB02",
-      "lastAnnotatedDate": "2019-04-11",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/913cJQHSz+L._SY160.jpg",
-      "highlightsCount": 11
-    },
-    "date": "2022-12-14T20:28:14.000Z",
-    "modified": "2022-12-23T16:04:54.000Z",
-    "tags": [
-      "politics",
-      "america",
-      "journalism"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "The Divide",
-    "toc": [
-      {
-        "text": "The Divide",
-        "slug": "the-divide",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 629,
-    "readingTime": 3,
-    "imageCount": 0,
-    "linkCount": 13
-  },
-  {
-    "slug": "reading/Taylor_et_al-Darkest America",
-    "kindle-sync": {
-      "bookId": "51864",
-      "title": "Darkest America: Black Minstrelsy from Slavery to Hip-Hop",
-      "author": "Yuval Taylor, Jake Austen, and Mel Watkins",
-      "asin": "B007HXFLOI",
-      "lastAnnotatedDate": "2016-03-08",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/61UgA0cr+5L._SY160.jpg",
-      "highlightsCount": 6
-    },
-    "tags": [
-      "america",
-      "culture",
-      "comedy"
-    ],
-    "date": "2022-12-14T20:29:23.000Z",
-    "modified": "2022-12-23T16:05:43.000Z",
-    "hidden": false,
-    "draft": false,
-    "title": "Darkest America",
-    "toc": [
-      {
-        "text": "Darkest America",
-        "slug": "darkest-america",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 262,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 8
-  },
-  {
-    "slug": "reading/Thompson-Hells Angels",
-    "kindle-sync": {
-      "bookId": "54847",
-      "title": "Hell's Angels: A Strange and Terrible Saga",
-      "author": "Hunter S. Thompson",
-      "asin": "B008IU9IVG",
-      "lastAnnotatedDate": "2022-06-20",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/51WwckOYyQL._SY160.jpg",
-      "highlightsCount": 1
-    },
-    "date": "2022-12-26T16:47:01.000Z",
-    "modified": "2022-12-27T20:07:04.000Z",
-    "tags": [
-      "journalism",
-      "motorcycle",
-      "media",
-      "reference"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Hells Angels",
-    "toc": [
-      {
-        "text": "Hells Angels",
-        "slug": "hells-angels",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 115,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 3
-  },
-  {
     "slug": "reading/Traub_et_al-The Education of a Photographer",
     "kindle-sync": {
       "bookId": "35281",
@@ -2937,512 +2116,6 @@
     "readingTime": 1,
     "imageCount": 0,
     "linkCount": 0
-  },
-  {
-    "slug": "projects/dataproofer",
-    "title": "Dataproofer",
-    "date": "2015-11-04T00:40:35.000Z",
-    "modified": "2024-10-14T16:33:44.000Z",
-    "url": "https://github.com/dataproofer/Dataproofer",
-    "hidden": false,
-    "draft": false,
-    "toc": [],
-    "wordCount": 37,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 2
-  },
-  {
-    "slug": "projects/david-bylers-election-simulator",
-    "title": "David Byler's Election Simulator",
-    "date": "2020-01-09T20:00:59.000Z",
-    "modified": "2024-10-01T01:55:24.000Z",
-    "hidden": false,
-    "draft": false,
-    "toc": [],
-    "wordCount": 41,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 1
-  },
-  {
-    "slug": "projects/github-octoverse-2013",
-    "title": "GitHub Octoverse 2013",
-    "date": "2013-04-05T20:02:45.000Z",
-    "modified": "2024-10-14T16:35:28.000Z",
-    "url": "https://github.blog/news-insights/the-library/state-of-the-octoverse-2013-edition/",
-    "hidden": false,
-    "draft": false,
-    "toc": [],
-    "wordCount": 43,
-    "readingTime": 1,
-    "imageCount": 1,
-    "linkCount": 4
-  },
-  {
-    "slug": "projects/mapping-resilience",
-    "title": "Mapping Resilience",
-    "date": "2024-09-21T20:00:16.000Z",
-    "modified": "2024-10-14T23:57:50.000Z",
-    "url": "https://hopeunderwater.com/",
-    "hidden": false,
-    "draft": false,
-    "toc": [],
-    "wordCount": 29,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 3
-  },
-  {
-    "slug": "projects/nbc-big-board",
-    "title": "NBC News Big Board",
-    "date": "2018-11-08T20:01:25.000Z",
-    "modified": "2024-10-01T02:33:19.000Z",
-    "hidden": false,
-    "draft": false,
-    "toc": [],
-    "wordCount": 37,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 2
-  },
-  {
-    "slug": "projects/nbcnews-specials",
-    "title": "NBC News Specials",
-    "date": "2016-12-14T20:01:50.000Z",
-    "modified": "2024-10-14T16:35:49.000Z",
-    "url": "https://nbcnews.com/specials",
-    "hidden": false,
-    "draft": false,
-    "toc": [],
-    "wordCount": 69,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 7
-  },
-  {
-    "slug": "projects/opening-the-gateway",
-    "title": "Opening The Gateway",
-    "date": "2022-09-21T20:00:27.000Z",
-    "modified": "2024-10-14T23:57:58.000Z",
-    "url": "https://themargin.us/features/opening-the-gateway",
-    "hidden": false,
-    "draft": false,
-    "toc": [],
-    "wordCount": 24,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 1
-  },
-  {
-    "slug": "projects/pottery",
-    "title": "Pottery",
-    "date": "2023-08-01T20:04:09.000Z",
-    "modified": "2024-10-14T16:33:55.000Z",
-    "url": "https://ejfox.com/pottery/",
-    "hidden": false,
-    "draft": false,
-    "toc": [],
-    "wordCount": 31,
-    "readingTime": 1,
-    "imageCount": 1,
-    "linkCount": 2
-  },
-  {
-    "slug": "projects/querdenken-everything",
-    "title": "Querdenken Everything",
-    "date": "2023-01-01T20:00:34.000Z",
-    "modified": "2024-10-14T23:58:11.000Z",
-    "url": "https://longlead.com/article/querdenken-everything",
-    "hidden": false,
-    "draft": false,
-    "toc": [],
-    "wordCount": 16,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 1
-  },
-  {
-    "slug": "projects/room-302-studio-website",
-    "title": "Room 302 Studio Website",
-    "date": "2024-03-01T20:00:03.000Z",
-    "modified": "2024-10-14T23:57:34.000Z",
-    "url": "https://room302.studio",
-    "hidden": false,
-    "draft": false,
-    "toc": [],
-    "wordCount": 22,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "projects/the-depths",
-    "title": "The Depths She'll Reach",
-    "date": "2021-11-22T20:00:39.000Z",
-    "modified": "2024-10-14T23:58:26.000Z",
-    "url": "https://longlead.com/article/the-depths-shell-reach",
-    "hidden": false,
-    "draft": false,
-    "toc": [],
-    "wordCount": 18,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "projects/visually",
-    "title": "Staff Designer at Visual.ly",
-    "date": "2011-09-01T20:03:48.000Z",
-    "modified": "2024-10-14T16:34:07.000Z",
-    "url": "https://en.wikipedia.org/wiki/Visual.ly",
-    "hidden": false,
-    "draft": false,
-    "toc": [],
-    "wordCount": 75,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 2
-  },
-  {
-    "slug": "projects/vocativ",
-    "title": "Vocativ",
-    "date": "2014-10-13T20:02:28.000Z",
-    "modified": "2024-10-14T16:35:37.000Z",
-    "url": "https://en.wikipedia.org/wiki/Vocativ",
-    "hidden": false,
-    "draft": false,
-    "toc": [],
-    "wordCount": 52,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 2
-  },
-  {
-    "slug": "projects/we-glow-in-the-dark",
-    "title": "We Glow in the Dark",
-    "date": "2022-09-21T20:00:27.000Z",
-    "modified": "2024-10-14T23:58:05.000Z",
-    "url": "https://themargin.us/features/we-glow-in-the-dark",
-    "hidden": false,
-    "draft": false,
-    "toc": [],
-    "wordCount": 22,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 1
-  },
-  {
-    "slug": "reading/Arenberg-Frumin-Congressional Procedure A Practical Guide to the Legislative Process in the U.S. Congress",
-    "kindle-sync": {
-      "bookId": "4081",
-      "title": "Congressional Procedure: A Practical Guide to the Legislative Process in the U.S. Congress: The House of Representatives and Senate Explained",
-      "author": "Richard A. Arenberg and Alan S. Frumin",
-      "asin": "B07JYRPJ7S",
-      "lastAnnotatedDate": "2021-02-03",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/81otOXbOIiL._SY160.jpg",
-      "highlightsCount": 1
-    },
-    "date": "2022-12-26T16:47:30.000Z",
-    "modified": "2022-12-27T20:08:38.000Z",
-    "tags": [
-      "politics",
-      "book",
-      "reference",
-      "process"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Congressional Procedure: A Practical Guide to the Legislative Process in the U.S. Congress",
-    "toc": [
-      {
-        "text": "Congressional Procedure: A Practical Guide to the Legislative Process in the U.S. Congress",
-        "slug": "congressional-procedure-a-practical-guide-to-the-legislative-process-in-the-u-s-congress",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 97,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 3
-  },
-  {
-    "slug": "reading/Baldwin-Jones-Notes of a Native Son",
-    "kindle-sync": {
-      "bookId": "6077",
-      "title": "Notes of a Native Son",
-      "author": "James Baldwin and Edward P. Jones",
-      "asin": "B007WKEN4U",
-      "lastAnnotatedDate": "2022-06-20",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/517-wUXsdWL._SY160.jpg",
-      "highlightsCount": 2
-    },
-    "date": "2022-12-14T20:23:48.000Z",
-    "modified": "2022-12-23T16:26:46.000Z",
-    "tags": [
-      "america",
-      "activism"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Notes of a Native Son",
-    "toc": [
-      {
-        "text": "Notes of a Native Son",
-        "slug": "notes-of-a-native-son",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 135,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 4
-  },
-  {
-    "slug": "reading/Bergstrom-West-Calling Bullshit",
-    "kindle-sync": {
-      "bookId": "59385",
-      "title": "Calling Bullshit: The Art of Skepticism in a Data-Driven World",
-      "author": "Carl T. Bergstrom and Jevin D. West",
-      "asin": "B08191DV5T",
-      "lastAnnotatedDate": "2021-12-03",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/81Dd92++GgS._SY160.jpg",
-      "highlightsCount": 1
-    },
-    "date": "2022-12-26T16:47:11.000Z",
-    "modified": "2022-12-27T20:12:06.000Z",
-    "tags": [
-      "datajournalism",
-      "journalism"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Calling Bullshit",
-    "toc": [
-      {
-        "text": "Calling Bullshit",
-        "slug": "calling-bullshit",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 72,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 3
-  },
-  {
-    "slug": "reading/Bobrick-The Fated Sky",
-    "kindle-sync": {
-      "bookId": "32592",
-      "title": "The Fated Sky: Astrology in History",
-      "author": "Benson Bobrick",
-      "asin": "B000FCKKXA",
-      "lastAnnotatedDate": "2021-10-11",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/81VUHa-9LUL._SY160.jpg",
-      "highlightsCount": 13
-    },
-    "date": "2022-12-14T20:25:13.000Z",
-    "modified": "2022-12-23T14:45:29.000Z",
-    "tags": [],
-    "hidden": false,
-    "draft": false,
-    "title": "The Fated Sky",
-    "toc": [
-      {
-        "text": "The Fated Sky",
-        "slug": "the-fated-sky",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 1079,
-    "readingTime": 5,
-    "imageCount": 0,
-    "linkCount": 15
-  },
-  {
-    "slug": "reading/Broder-So Sad Today",
-    "kindle-sync": {
-      "bookId": "62203",
-      "title": "So Sad Today: Personal Essays",
-      "author": "Melissa Broder",
-      "asin": "B011J4H1NO",
-      "lastAnnotatedDate": "2023-07-28",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/71Xp3FcHKML._SY160.jpg",
-      "highlightsCount": 13
-    },
-    "date": "2022-12-14T20:25:18.000Z",
-    "modified": "2022-12-23T14:45:17.000Z",
-    "tags": [],
-    "hidden": false,
-    "draft": false,
-    "title": "So Sad Today",
-    "toc": [
-      {
-        "text": "So Sad Today",
-        "slug": "so-sad-today",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 732,
-    "readingTime": 3,
-    "imageCount": 0,
-    "linkCount": 16
-  },
-  {
-    "slug": "reading/Broder-The Pisces",
-    "kindle-sync": {
-      "bookId": "28653",
-      "title": "The Pisces: A Novel",
-      "author": "Melissa Broder",
-      "asin": "B074LVLHF2",
-      "lastAnnotatedDate": "2018-08-13",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/71IpwmRDlPL._SY160.jpg",
-      "highlightsCount": 15
-    },
-    "date": "2022-12-14T20:28:49.000Z",
-    "modified": "2022-12-23T15:53:24.000Z",
-    "tags": [
-      "book",
-      "personal",
-      "meditation"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "The Pisces",
-    "toc": [
-      {
-        "text": "The Pisces",
-        "slug": "the-pisces",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 797,
-    "readingTime": 4,
-    "imageCount": 0,
-    "linkCount": 17
-  },
-  {
-    "slug": "reading/Bukowski-Women",
-    "kindle-sync": {
-      "bookId": "62762",
-      "title": "Women: A Novel",
-      "author": "Charles Bukowski",
-      "asin": "B000W94FWS",
-      "lastAnnotatedDate": "2019-04-11",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/81M+SvV1aLL._SY160.jpg",
-      "highlightsCount": 15
-    },
-    "date": "2022-12-14T20:28:29.000Z",
-    "modified": "2022-12-23T14:46:21.000Z",
-    "tags": [
-      "writing",
-      "inspiration"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "Women",
-    "toc": [
-      {
-        "text": "Women",
-        "slug": "women",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 627,
-    "readingTime": 3,
-    "imageCount": 0,
-    "linkCount": 17
   },
   {
     "slug": "reading/Burnett-Evans-Designing Your Life",
@@ -6337,631 +5010,825 @@
     "linkCount": 10
   },
   {
-    "slug": "drafts/chess",
-    "draft": true,
-    "date": "2022-12-22T15:57:34.000Z",
-    "modified": "2024-07-18T18:43:56.000Z",
-    "hidden": true,
+    "slug": "reading/Rank-Historys Greatest Generals",
+    "kindle-sync": {
+      "bookId": "19008",
+      "title": "History's Greatest Generals: 10 Commanders Who Conquered Empires, Revolutionized Warfare, and Changed History Forever",
+      "author": "Michael Rank",
+      "asin": "B00FYRKZRM",
+      "lastAnnotatedDate": "2015-02-28",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/91hdwM15ZqL._SY160.jpg",
+      "highlightsCount": 4
+    },
     "tags": [
-      "chess"
+      "military",
+      "reference"
     ],
-    "title": "I am really bad at chess",
+    "date": "2022-12-14T20:29:41.000Z",
+    "modified": "2022-12-23T16:28:08.000Z",
+    "hidden": false,
+    "draft": false,
+    "title": "Historys Greatest Generals",
     "toc": [
       {
-        "text": "I am really bad at chess",
-        "slug": "i-am-really-bad-at-chess",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Multi-dimensional Chess",
-            "slug": "multi-dimensional-chess",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 44,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "drafts/coach-artie-one-year",
-    "date": "2024-04-21T22:29:38.000Z",
-    "modified": "2024-09-20T04:49:29.000Z",
-    "hidden": true,
-    "draft": true,
-    "tags": [
-      "art",
-      "automation",
-      "coding",
-      "data",
-      "design"
-    ],
-    "title": "Coach Artie - One Year Retrospective",
-    "toc": [
-      {
-        "text": "Coach Artie - One Year Retrospective",
-        "slug": "coach-artie-one-year-retrospective",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Assumptions / Principles",
-            "slug": "assumptions-principles",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Focusing on Context-Stuffing and large context windows",
-            "slug": "focusing-on-context-stuffing-and-large-context-windows",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Randomness and non-determinative systems",
-        "slug": "randomness-and-non-determinative-systems",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Where we use randomness",
-            "slug": "where-we-use-randomness",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Letting Coach Artie Manage His Own Systems",
-        "slug": "letting-coach-artie-manage-his-own-systems",
-        "level": "h2",
+        "text": "Historys Greatest Generals",
+        "slug": "historys-greatest-generals",
+        "level": "h1",
         "children": []
       },
       {
-        "text": "Building an extendable suite of capabilities",
-        "slug": "building-an-extendable-suite-of-capabilities",
-        "level": "h2",
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
         "children": []
       },
       {
-        "text": "Constant testing and iteration",
-        "slug": "constant-testing-and-iteration",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Failures around teaching Capabilities",
-            "slug": "failures-around-teaching-capabilities",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Failures around scheduled proactivity",
-            "slug": "failures-around-scheduled-proactivity",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Pilot program in The Birch School",
-            "slug": "pilot-program-in-the-birch-school",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Internal usage within Room 302 Studio",
-            "slug": "internal-usage-within-room-302-studio",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Future Plans: 1 year, 5 year outlook",
-        "slug": "future-plans-1-year-5-year-outlook",
-        "level": "h2",
-        "children": [
-          {
-            "text": "1 Year Roadmap",
-            "slug": "1-year-roadmap",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "5 Year Roadmap",
-            "slug": "5-year-roadmap",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 1361,
-    "readingTime": 6,
-    "imageCount": 2,
-    "linkCount": 2
-  },
-  {
-    "slug": "drafts/cooking-kolaches",
-    "draft": true,
-    "dek": "In which",
-    "inprogress": true,
-    "date": "2022-11-03T01:01:30.000Z",
-    "modified": "2022-12-23T14:10:01.000Z",
-    "hidden": true,
-    "tags": [
-      "cooking",
-      "food",
-      "recipe"
-    ],
-    "title": "Cooking: Kolaches",
-    "toc": [
-      {
-        "text": "Cooking: Kolaches",
-        "slug": "cooking-kolaches",
+        "text": "Highlights",
+        "slug": "highlights",
         "level": "h1",
         "children": []
       }
     ],
-    "wordCount": 6,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "drafts/cooking-ramen-experiments",
-    "draft": true,
-    "dek": "In which",
-    "inprogress": true,
-    "date": "2022-11-03T00:45:40.000Z",
-    "modified": "2024-07-18T18:43:36.000Z",
-    "hidden": true,
-    "tags": [
-      "food",
-      "recipe",
-      "cooking"
-    ],
-    "title": "Cooking: Ramen",
-    "toc": [
-      {
-        "text": "Cooking: Ramen",
-        "slug": "cooking-ramen",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 6,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "drafts/cooking-seitan",
-    "hidden": true,
-    "draft": true,
-    "tags": [
-      "food",
-      "cooking"
-    ],
-    "date": "2024-04-25T21:21:40.000Z",
-    "modified": "2024-09-21T19:06:22.000Z",
-    "title": "cooking-seitan",
-    "toc": [],
-    "wordCount": 2,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "drafts/cooking",
-    "draft": true,
-    "dek": "In which the author explores the joys of cooking delicious food",
-    "inprogress": true,
-    "date": "2022-12-23T13:48:19.000Z",
-    "modified": "2024-09-20T04:26:04.000Z",
-    "tags": [
-      "food",
-      "cooking"
-    ],
-    "hidden": true,
-    "title": "Cooking",
-    "toc": [
-      {
-        "text": "Cooking",
-        "slug": "cooking",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 11,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "drafts/core-principles",
-    "date": "2024-04-20T18:42:43.000Z",
-    "modified": "2024-07-18T18:48:54.000Z",
-    "hidden": true,
-    "draft": true,
-    "tags": [
-      "art",
-      "internet",
-      "photography",
-      "journalism",
-      "design"
-    ],
-    "title": "The truth is paramount",
-    "toc": [
-      {
-        "text": "The truth is paramount",
-        "slug": "the-truth-is-paramount",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 185,
-    "readingTime": 1,
-    "imageCount": 1,
-    "linkCount": 1
-  },
-  {
-    "slug": "drafts/data-driven-llm-sentences",
-    "dek": "In which we give the robot a bunch of data and ask it to tell us what it means",
-    "inprogress": true,
-    "date": "2023-07-19T12:27:21.000Z",
-    "modified": "2024-09-20T04:19:31.000Z",
-    "tags": [
-      "datajournalism",
-      "dataviz",
-      "gpt3",
-      "journalism",
-      "media",
-      "visualization"
-    ],
-    "hidden": true,
-    "draft": true,
-    "title": "Data-driven sentences with LLMs",
-    "toc": [
-      {
-        "text": "Data-driven sentences with LLMs",
-        "slug": "data-driven-sentences-with-llms",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Example: Summarizing a Scatterplot",
-        "slug": "example-summarizing-a-scatterplot",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Summarizing groups of datas",
-            "slug": "summarizing-groups-of-datas",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 392,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "drafts/election-data-analysis",
-    "draft": true,
-    "dek": "In which",
-    "inprogress": true,
-    "date": "2022-11-03T00:00:20.000Z",
-    "modified": "2024-07-18T18:43:34.000Z",
-    "hidden": true,
-    "tags": [
-      "elections",
-      "data",
-      "dataviz",
-      "nodejs",
-      "qgis",
-      "javascript"
-    ],
-    "title": "Election Results Data Analysis",
-    "toc": [
-      {
-        "text": "Election Results Data Analysis",
-        "slug": "election-results-data-analysis",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 368,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "drafts/electology-vision",
-    "dek": "See behind the scenes of election night coverage with Electology, the new tool transforming live data analysis.",
-    "inprogress": true,
-    "date": "2022-12-05T23:34:09.000Z",
-    "modified": "2024-05-16T18:14:44.000Z",
-    "tags": [
-      "elections",
-      "data",
-      "dataviz",
-      "visualization",
-      "tv",
-      "webdesign"
-    ],
-    "hidden": true,
-    "draft": true,
-    "title": "Unveiling Electology: The Election Analysis Tool You Didn’t Know You Needed",
-    "toc": [
-      {
-        "text": "Unveiling Electology: The Election Analysis Tool You Didn’t Know You Needed",
-        "slug": "unveiling-electology-the-election-analysis-tool-you-didn-t-know-you-needed",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Touchscreen Application",
-            "slug": "touchscreen-application",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Digital Maps",
-            "slug": "digital-maps",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Data Integration",
-            "slug": "data-integration",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Analysis Tools",
-            "slug": "analysis-tools",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 1369,
-    "readingTime": 6,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "drafts/espresso",
-    "draft": true,
-    "dek": "In which",
-    "inprogress": true,
-    "date": "2023-01-06T22:34:42.000Z",
-    "modified": "2024-07-18T18:26:05.000Z",
-    "hidden": true,
-    "tags": [
-      "food",
-      "howto"
-    ],
-    "title": "Making Perfect Espresso",
-    "toc": [
-      {
-        "text": "Making Perfect Espresso",
-        "slug": "making-perfect-espresso",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 20,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "drafts/exercise",
-    "date": "2022-11-02T23:57:34.000Z",
-    "modified": "2024-06-06T19:57:24.000Z",
-    "hidden": true,
-    "draft": true,
-    "tags": [
-      "exercise",
-      "health",
-      "quantifiedself"
-    ],
-    "title": "Exercise",
-    "toc": [
-      {
-        "text": "Exercise",
-        "slug": "exercise",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Goals",
-            "slug": "goals",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Plan",
-            "slug": "plan",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Experiments and data",
-            "slug": "experiments-and-data",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Equipment",
-            "slug": "equipment",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Dreams / next steps",
-            "slug": "dreams-next-steps",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 1417,
-    "readingTime": 6,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "drafts/falun-gong-upstate-ny",
-    "dek": "In which",
-    "inprogress": true,
-    "date": "2024-04-25T21:21:40.000Z",
-    "modified": "2024-09-21T19:04:17.000Z",
-    "tags": [
-      "activism",
-      "legal"
-    ],
-    "hidden": true,
-    "draft": true,
-    "title": "Title",
-    "toc": [
-      {
-        "text": "Title",
-        "slug": "title",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 45,
+    "wordCount": 141,
     "readingTime": 1,
     "imageCount": 0,
     "linkCount": 6
   },
   {
-    "slug": "drafts/food-log",
+    "slug": "reading/Roose-Futureproof-1698075187370",
+    "kindle-sync": {
+      "bookId": "16297",
+      "title": "Futureproof: 9 Rules for Surviving in the Age of AI",
+      "author": "Kevin Roose",
+      "asin": "B07ZN3TDWH",
+      "lastAnnotatedDate": "2022-10-21",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/71auiVlh-OL._SY160.jpg",
+      "highlightsCount": 3
+    },
     "tags": [
-      "health",
-      "nutrition"
+      "book",
+      "machinelearning"
     ],
-    "date": "2024-10-05T16:05:41.000Z",
-    "modified": "2024-10-05T16:06:18.000Z",
-    "hidden": true,
-    "draft": true,
-    "title": "Meal Log - {{date:YYYY-MM-DD}}",
+    "date": "2023-10-23T15:33:07.000Z",
+    "modified": "2024-09-21T19:03:49.000Z",
+    "hidden": false,
+    "draft": false,
+    "title": "Futureproof",
     "toc": [
       {
-        "text": "Meal Log - {{date:YYYY-MM-DD}}",
-        "slug": "meal-log-date-yyyy-mm-dd",
+        "text": "Futureproof",
+        "slug": "futureproof",
         "level": "h2",
         "children": [
           {
-            "text": "Meal: {{time}} (e.g., Breakfast, Lunch, Snack)",
-            "slug": "meal-time-e-g-breakfast-lunch-snack",
+            "text": "Metadata",
+            "slug": "metadata",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Highlights",
+            "slug": "highlights",
             "level": "h3",
             "children": []
           }
         ]
       }
     ],
-    "wordCount": 91,
+    "wordCount": 191,
     "readingTime": 1,
     "imageCount": 0,
-    "linkCount": 0
+    "linkCount": 5
   },
   {
-    "slug": "drafts/garment-dying-experiments",
-    "draft": true,
-    "dek": "In which we take cloth of one color and make it another",
-    "inprogress": true,
-    "date": "2022-11-20T21:06:23.000Z",
-    "modified": "2024-09-20T04:24:48.000Z",
+    "slug": "reading/Roose-Futureproof",
+    "kindle-sync": {
+      "bookId": "11969",
+      "title": "Futureproof: 9 Rules for Humans in the Age of Automation",
+      "author": "Kevin Roose",
+      "asin": "B07ZN3TDWH",
+      "lastAnnotatedDate": "2022-10-21",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/71ZsRekqAeL._SY160.jpg",
+      "highlightsCount": 3
+    },
+    "date": "2022-12-14T20:23:12.000Z",
+    "modified": "2022-12-23T16:06:45.000Z",
     "tags": [
-      "art",
-      "Fashion",
-      "design",
-      "process"
+      "tech",
+      "culture",
+      "machinelearning",
+      "data",
+      "automation"
     ],
-    "hidden": true,
-    "title": "Transforming Clothing with Garment Dyeing",
+    "hidden": false,
+    "draft": false,
+    "title": "Futureproof",
     "toc": [
       {
-        "text": "Transforming Clothing with Garment Dyeing",
-        "slug": "transforming-clothing-with-garment-dyeing",
+        "text": "Futureproof",
+        "slug": "futureproof",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 193,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 5
+  },
+  {
+    "slug": "reading/Rowell-Eleanor & Park",
+    "kindle-sync": {
+      "bookId": "26878",
+      "title": "Eleanor & Park",
+      "author": "Rainbow Rowell",
+      "asin": "B008SAZHLQ",
+      "lastAnnotatedDate": "2014-01-19",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/71u8kDfMlTL._SY160.jpg",
+      "highlightsCount": 1
+    },
+    "tags": [
+      "book",
+      "inspiration"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Eleanor & Park",
+    "toc": [
+      {
+        "text": "Eleanor & Park",
+        "slug": "eleanor-park",
+        "level": "h1",
+        "children": [
+          {
+            "text": "Metadata",
+            "slug": "metadata",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Highlights",
+            "slug": "highlights",
+            "level": "h2",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 47,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 3
+  },
+  {
+    "slug": "reading/Sacks-Hallucinations",
+    "kindle-sync": {
+      "bookId": "40419",
+      "title": "Hallucinations",
+      "author": "Oliver Sacks",
+      "asin": "B0082XLY6G",
+      "lastAnnotatedDate": "2020-09-02",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/81qLTBovPpL._SY160.jpg",
+      "highlightsCount": 2
+    },
+    "date": "2022-12-14T20:27:12.000Z",
+    "modified": "2022-12-23T16:07:12.000Z",
+    "tags": [
+      "psychedelics",
+      "research"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Hallucinations",
+    "toc": [
+      {
+        "text": "Hallucinations",
+        "slug": "hallucinations",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 127,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 4
+  },
+  {
+    "slug": "reading/Sansouci-Lipman-The Rebels Apothecary",
+    "kindle-sync": {
+      "bookId": "22789",
+      "title": "The Rebel's Apothecary: A Practical Guide to the Healing Magic of Cannabis, CBD, and Mushrooms",
+      "author": "Jenny Sansouci and Frank Lipman",
+      "asin": "B082H2P7KL",
+      "lastAnnotatedDate": "2022-06-20",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/91utc8xVz7L._SY160.jpg",
+      "highlightsCount": 2
+    },
+    "date": "2022-12-14T20:23:53.000Z",
+    "modified": "2022-12-23T16:04:07.000Z",
+    "tags": [
+      "health",
+      "cannabis",
+      "meditation",
+      "nature"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "The Rebels Apothecary",
+    "toc": [
+      {
+        "text": "The Rebels Apothecary",
+        "slug": "the-rebels-apothecary",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 180,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 4
+  },
+  {
+    "slug": "reading/Sedaris-Theft by Finding",
+    "tags": [
+      "book",
+      "politics"
+    ],
+    "kindle-sync": {
+      "bookId": "31637",
+      "title": "Theft by Finding: Diaries (1977-2002)",
+      "author": "David Sedaris",
+      "asin": "B01LZD935U",
+      "lastAnnotatedDate": "2018-08-13",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/81cRysFkH-L._SY160.jpg",
+      "highlightsCount": 5
+    },
+    "date": "2022-12-28T16:09:38.000Z",
+    "modified": "2024-09-20T04:23:48.000Z",
+    "hidden": false,
+    "draft": false,
+    "title": "Theft by Finding",
+    "toc": [
+      {
+        "text": "Theft by Finding",
+        "slug": "theft-by-finding",
         "level": "h2",
         "children": [
           {
-            "text": "Materials",
-            "slug": "materials",
+            "text": "Metadata",
+            "slug": "metadata",
             "level": "h3",
             "children": []
           },
           {
-            "text": "Dying Design Style Choices",
-            "slug": "dying-design-style-choices",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Ice Dyeing",
-            "slug": "ice-dyeing",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Gradient/Dip Dyeing",
-            "slug": "gradient-dip-dyeing",
+            "text": "Highlights",
+            "slug": "highlights",
             "level": "h3",
             "children": []
           }
         ]
-      },
-      {
-        "text": "Process",
-        "slug": "process",
-        "level": "h2",
-        "children": []
       }
     ],
-    "wordCount": 292,
+    "wordCount": 345,
     "readingTime": 2,
     "imageCount": 0,
-    "linkCount": 0
+    "linkCount": 7
   },
   {
-    "slug": "drafts/getting-started-with-embeddings",
-    "dek": "In which we put words into space and then explore the constellations they create",
-    "inprogress": true,
-    "date": "2023-07-16T20:34:14.000Z",
-    "modified": "2024-09-20T04:24:52.000Z",
+    "slug": "reading/Self-American Babylon",
     "tags": [
-      "art",
-      "machinelearning",
-      "database",
-      "javascript",
-      "coding",
-      "data",
-      "visualization",
-      "programming"
+      "america",
+      "politics",
+      "activism"
     ],
-    "hidden": true,
-    "draft": true,
-    "title": "Getting started with embeddings in JS",
+    "kindle-sync": {
+      "bookId": "57443",
+      "title": "American Babylon: Race and the Struggle for Postwar Oakland (Politics and Society in Modern America Book 37)",
+      "author": "Robert O. Self",
+      "asin": "B00GYW96C6",
+      "lastAnnotatedDate": "2014-11-01",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/81R5dWlWxzL._SY160.jpg",
+      "highlightsCount": 2
+    },
+    "date": "2022-12-14T20:29:47.000Z",
+    "modified": "2024-09-20T04:21:50.000Z",
+    "hidden": false,
+    "draft": false,
+    "title": "American Babylon",
     "toc": [
       {
-        "text": "Getting started with embeddings in JS",
-        "slug": "getting-started-with-embeddings-in-js",
+        "text": "American Babylon",
+        "slug": "american-babylon",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
         "level": "h2",
         "children": []
       }
     ],
-    "wordCount": 264,
+    "wordCount": 105,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 4
+  },
+  {
+    "slug": "reading/Shields-Other People",
+    "kindle-sync": {
+      "bookId": "34315",
+      "title": "Other People: Takes & Mistakes",
+      "author": "David Shields",
+      "asin": "B01G0GD0WC",
+      "lastAnnotatedDate": "2020-12-23",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/91s3oyefvYL._SY160.jpg",
+      "highlightsCount": 4
+    },
+    "date": "2022-12-14T20:26:44.000Z",
+    "modified": "2022-12-23T15:54:10.000Z",
+    "tags": [
+      "writing",
+      "journalism",
+      "photography",
+      "health"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Other People",
+    "toc": [
+      {
+        "text": "Other People",
+        "slug": "other-people",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 256,
     "readingTime": 2,
     "imageCount": 0,
-    "linkCount": 5
+    "linkCount": 6
+  },
+  {
+    "slug": "reading/Shields-Reality Hunger",
+    "kindle-sync": {
+      "bookId": "28584",
+      "title": "Reality Hunger",
+      "author": "David Shields",
+      "asin": "B0036S49D2",
+      "lastAnnotatedDate": "2022-08-19",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/81XahxBKE9L._SY160.jpg",
+      "highlightsCount": 15
+    },
+    "date": "2022-12-14T20:23:32.000Z",
+    "modified": "2022-12-23T16:06:17.000Z",
+    "tags": [
+      "writing",
+      "journalism"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Reality Hunger",
+    "toc": [
+      {
+        "text": "Reality Hunger",
+        "slug": "reality-hunger",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 653,
+    "readingTime": 3,
+    "imageCount": 0,
+    "linkCount": 17
+  },
+  {
+    "slug": "reading/Shields-The Trouble with Men",
+    "kindle-sync": {
+      "bookId": "3371",
+      "title": "The Trouble with Men: Reflections on Sex, Love, Marriage, Porn, and Power (21st Century Essays)",
+      "author": "David Shields",
+      "asin": "B07MT424DM",
+      "lastAnnotatedDate": "2020-06-04",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/81macwFNi8L._SY160.jpg",
+      "highlightsCount": 7
+    },
+    "date": "2022-12-14T20:27:24.000Z",
+    "modified": "2022-12-23T15:56:57.000Z",
+    "tags": [
+      "journalism"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "The Trouble with Men",
+    "toc": [
+      {
+        "text": "The Trouble with Men",
+        "slug": "the-trouble-with-men",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 300,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 9
+  },
+  {
+    "slug": "reading/Stephenson-Galland-The Rise and Fall of D.O.D.O",
+    "tags": [
+      "book"
+    ],
+    "kindle-sync": {
+      "bookId": "4772",
+      "title": "The Rise and Fall of D.O.D.O.: A Novel",
+      "author": "Neal Stephenson and Nicole Galland",
+      "asin": "B01M0HPHR6",
+      "lastAnnotatedDate": "2020-08-06",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/91KGdyDZWWL._SY160.jpg",
+      "highlightsCount": 7
+    },
+    "date": "2022-12-28T16:09:31.000Z",
+    "modified": "2024-09-20T04:22:05.000Z",
+    "hidden": false,
+    "draft": false,
+    "title": "The Rise and Fall of D.O.D.O.",
+    "toc": [
+      {
+        "text": "The Rise and Fall of D.O.D.O.",
+        "slug": "the-rise-and-fall-of-d-o-d-o",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Metadata",
+            "slug": "metadata",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Highlights",
+            "slug": "highlights",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 406,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 9
+  },
+  {
+    "slug": "reading/Stephenson-Reamde",
+    "kindle-sync": {
+      "bookId": "37234",
+      "title": "Reamde: A Novel",
+      "author": "Neal Stephenson",
+      "asin": "B004XVN0WW",
+      "lastAnnotatedDate": "2019-03-31",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/71VM4oRxfFL._SY160.jpg",
+      "highlightsCount": 1
+    },
+    "date": "2022-12-26T16:48:12.000Z",
+    "modified": "2024-09-20T04:36:01.000Z",
+    "tags": [
+      "book"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Reamde",
+    "toc": [
+      {
+        "text": "Reamde",
+        "slug": "reamde",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 63,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 3
+  },
+  {
+    "slug": "reading/Stern-Berger-ISIS",
+    "tags": [
+      "reference",
+      "politics"
+    ],
+    "kindle-sync": {
+      "bookId": "53840",
+      "title": "ISIS: The State of Terror",
+      "author": "Jessica Stern and J. M. Berger",
+      "asin": "B00NVLS3CM",
+      "lastAnnotatedDate": "2016-04-11",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/913bMxSydFL._SY160.jpg",
+      "highlightsCount": 1
+    },
+    "date": "2022-12-28T16:09:43.000Z",
+    "modified": "2024-09-20T04:22:10.000Z",
+    "hidden": false,
+    "draft": false,
+    "title": "ISIS",
+    "toc": [
+      {
+        "text": "ISIS",
+        "slug": "isis",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Metadata",
+            "slug": "metadata",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Highlights",
+            "slug": "highlights",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 101,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 3
+  },
+  {
+    "slug": "reading/Suzuki-Chadwick-Zen Mind, Beginners Mind",
+    "kindle-sync": {
+      "bookId": "56342",
+      "title": "Zen Mind, Beginner's Mind",
+      "author": "Shunryu Suzuki and David Chadwick",
+      "asin": "B004R9QFGS",
+      "lastAnnotatedDate": "2016-07-28",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/71ln75kZ4wL._SY160.jpg",
+      "highlightsCount": 24
+    },
+    "date": "2022-12-14T20:29:13.000Z",
+    "modified": "2022-12-23T16:09:16.000Z",
+    "tags": [
+      "meditation"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Zen Mind, Beginners Mind",
+    "toc": [
+      {
+        "text": "Zen Mind, Beginners Mind",
+        "slug": "zen-mind-beginners-mind",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 1090,
+    "readingTime": 5,
+    "imageCount": 0,
+    "linkCount": 26
+  },
+  {
+    "slug": "reading/Taibbi-Crabapple-The Divide",
+    "kindle-sync": {
+      "bookId": "2923",
+      "title": "The Divide: American Injustice in the Age of the Wealth Gap",
+      "author": "Matt Taibbi and Molly Crabapple",
+      "asin": "B00EBRUB02",
+      "lastAnnotatedDate": "2019-04-11",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/913cJQHSz+L._SY160.jpg",
+      "highlightsCount": 11
+    },
+    "date": "2022-12-14T20:28:14.000Z",
+    "modified": "2022-12-23T16:04:54.000Z",
+    "tags": [
+      "politics",
+      "america",
+      "journalism"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "The Divide",
+    "toc": [
+      {
+        "text": "The Divide",
+        "slug": "the-divide",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 629,
+    "readingTime": 3,
+    "imageCount": 0,
+    "linkCount": 13
+  },
+  {
+    "slug": "reading/Taylor_et_al-Darkest America",
+    "kindle-sync": {
+      "bookId": "51864",
+      "title": "Darkest America: Black Minstrelsy from Slavery to Hip-Hop",
+      "author": "Yuval Taylor, Jake Austen, and Mel Watkins",
+      "asin": "B007HXFLOI",
+      "lastAnnotatedDate": "2016-03-08",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/61UgA0cr+5L._SY160.jpg",
+      "highlightsCount": 6
+    },
+    "tags": [
+      "america",
+      "culture",
+      "comedy"
+    ],
+    "date": "2022-12-14T20:29:23.000Z",
+    "modified": "2022-12-23T16:05:43.000Z",
+    "hidden": false,
+    "draft": false,
+    "title": "Darkest America",
+    "toc": [
+      {
+        "text": "Darkest America",
+        "slug": "darkest-america",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 262,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 8
+  },
+  {
+    "slug": "reading/Thompson-Hells Angels",
+    "kindle-sync": {
+      "bookId": "54847",
+      "title": "Hell's Angels: A Strange and Terrible Saga",
+      "author": "Hunter S. Thompson",
+      "asin": "B008IU9IVG",
+      "lastAnnotatedDate": "2022-06-20",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/51WwckOYyQL._SY160.jpg",
+      "highlightsCount": 1
+    },
+    "date": "2022-12-26T16:47:01.000Z",
+    "modified": "2022-12-27T20:07:04.000Z",
+    "tags": [
+      "journalism",
+      "motorcycle",
+      "media",
+      "reference"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Hells Angels",
+    "toc": [
+      {
+        "text": "Hells Angels",
+        "slug": "hells-angels",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 115,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 3
   },
   {
     "slug": "drafts/getting-started-with-mastodon-as-a-developer",
@@ -9002,666 +7869,510 @@
     "linkCount": 2
   },
   {
-    "slug": "2019/climate-strike-nyc",
-    "dek": "In which the youths march through the street with extremely clever signs since they are too young to riot",
-    "type": "photo",
+    "slug": "projects/dataproofer",
+    "title": "Dataproofer",
+    "date": "2015-11-04T00:40:35.000Z",
+    "modified": "2024-10-14T16:33:44.000Z",
+    "url": "https://github.com/dataproofer/Dataproofer",
     "hidden": false,
-    "inprogress": false,
-    "date": "2019-09-20T21:19:39-04:00",
-    "hidetimestamp": false,
-    "tags": [
-      "activism",
-      "climatechange",
-      "protest"
-    ],
     "draft": false,
-    "title": "NYC’s Climate March",
-    "toc": [
-      {
-        "text": "NYC’s Climate March",
-        "slug": "nyc-s-climate-march",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 171,
+    "toc": [],
+    "wordCount": 37,
     "readingTime": 1,
-    "imageCount": 13,
-    "linkCount": 13
-  },
-  {
-    "slug": "2019/generative-music-iteration",
-    "type": "words",
-    "hidden": true,
-    "inprogress": true,
-    "date": "2019-03-24T08:00:33.000Z",
-    "hidetimestamp": false,
-    "tags": [
-      "generative",
-      "music",
-      "art",
-      "research",
-      "systemsthinking",
-      "visualization",
-      "coding"
-    ],
-    "modified": "2024-09-23T16:13:04.000Z",
-    "draft": true,
-    "title": "Generative Music Iteration",
-    "toc": [
-      {
-        "text": "Generative Music Iteration",
-        "slug": "generative-music-iteration",
-        "level": "h2",
-        "children": [
-          {
-            "text": "What do I want to create?",
-            "slug": "what-do-i-want-to-create",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Mise-en-place",
-            "slug": "mise-en-place",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "What are the building blocks of the system we are working in?",
-            "slug": "what-are-the-building-blocks-of-the-system-we-are-working-in",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 301,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "2019/hong-kong-protest-techniques",
-    "dek": "In which the citizens of Hong Kong find new creative ways to improve on public disobedience",
-    "type": "words",
-    "hidden": false,
-    "inprogress": false,
-    "date": "2019-08-14T08:00:39.000Z",
-    "hidetimestamp": false,
-    "modified": "2024-08-01T14:21:12.000Z",
-    "tags": [
-      "protest",
-      "activism",
-      "tactics",
-      "security"
-    ],
-    "draft": false,
-    "title": "Hong Kong Protest Techniques",
-    "toc": [
-      {
-        "text": "Hong Kong Protest Techniques",
-        "slug": "hong-kong-protest-techniques",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 129,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "2019/how-i-prototype-apps-and-dataviz-quickly-in-2019",
-    "type": "words",
-    "hidden": false,
-    "inprogress": false,
-    "date": "2019-03-20T01:25:22.000Z",
-    "hidetimestamp": false,
-    "modified": "2024-09-23T16:13:36.000Z",
-    "tags": [
-      "vue",
-      "dataviz",
-      "d3",
-      "javascript",
-      "webdesign"
-    ],
-    "draft": false,
-    "title": "How I prototype apps and dataviz quickly",
-    "toc": [
-      {
-        "text": "How I prototype apps and dataviz quickly",
-        "slug": "how-i-prototype-apps-and-dataviz-quickly",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Pulling in data",
-            "slug": "pulling-in-data",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Combining Vue and D3 for dataviz",
-            "slug": "combining-vue-and-d3-for-dataviz",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Database and user authentication",
-            "slug": "database-and-user-authentication",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Deploying",
-            "slug": "deploying",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 931,
-    "readingTime": 4,
-    "imageCount": 0,
-    "linkCount": 15
-  },
-  {
-    "slug": "2019/linocut-printing-guide",
-    "dek": "In which the author explains his reasoning for exploring analog methods of distributing information with ink and linoleum, and provides a guide on how to do so yourself if so inclined",
-    "type": "words",
-    "hidden": false,
-    "inprogress": false,
-    "date": "2019-08-18T08:00:39.000Z",
-    "hidetimestamp": false,
-    "modified": "2024-09-23T16:13:27.000Z",
-    "tags": [
-      "analog",
-      "linocut",
-      "art",
-      "design",
-      "activism"
-    ],
-    "draft": false,
-    "title": "Linocut printing for a bright future",
-    "toc": [
-      {
-        "text": "Linocut printing for a bright future",
-        "slug": "linocut-printing-for-a-bright-future",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Making a linocut",
-            "slug": "making-a-linocut",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 2174,
-    "readingTime": 9,
-    "imageCount": 3,
-    "linkCount": 5
-  },
-  {
-    "slug": "2019/movies-to-watch",
-    "dek": "In which the author divulges a shameful secret",
-    "type": "words",
-    "hidden": false,
-    "inprogress": false,
-    "date": "2019-06-13T08:00:39.000Z",
-    "hidetimestamp": true,
-    "modified": "2024-06-21T14:12:52.000Z",
-    "tags": [
-      "movies",
-      "drama",
-      "documentary"
-    ],
-    "draft": false,
-    "title": "Movies to Watch",
-    "toc": [
-      {
-        "text": "Movies to Watch",
-        "slug": "movies-to-watch",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 366,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "2019/step-zero",
-    "dek": "In which the author makes the case for the merits of a certain approach to preparation",
-    "type": "words",
-    "hidden": false,
-    "inprogress": false,
-    "date": "2019-06-12T17:40:00-04:00",
-    "hidetimestamp": false,
-    "tags": [
-      "advice",
-      "cooking",
-      "process"
-    ],
-    "draft": false,
-    "title": "Step Zero",
-    "toc": [
-      {
-        "text": "Step Zero",
-        "slug": "step-zero",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 230,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 5
-  },
-  {
-    "slug": "2019/taking-things-for-granted",
-    "dek": "In which the author attempts to dissuade you from the belief things will always be the way they are now",
-    "type": "words",
-    "hidden": false,
-    "inprogress": false,
-    "date": "2019-06-14T15:27:00-04:00",
-    "hidetimestamp": false,
-    "tags": [
-      "advice",
-      "personal"
-    ],
-    "draft": false,
-    "title": "Taking things for granted",
-    "toc": [
-      {
-        "text": "Taking things for granted",
-        "slug": "taking-things-for-granted",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 282,
-    "readingTime": 2,
     "imageCount": 0,
     "linkCount": 2
   },
   {
-    "slug": "2019/the-internet-was-built-to-be-hacked",
-    "dek": "In which the author is grateful for the hackers who invented the internet",
-    "type": "words",
+    "slug": "projects/david-bylers-election-simulator",
+    "title": "David Byler's Election Simulator",
+    "date": "2020-01-09T20:00:59.000Z",
+    "modified": "2024-10-01T01:55:24.000Z",
     "hidden": false,
-    "inprogress": false,
-    "date": "2019-02-01T10:00:56.000Z",
-    "hidetimestamp": false,
-    "modified": "2024-10-12T23:52:51.000Z",
-    "tags": [
-      "hackers",
-      "internet",
-      "coding",
-      "activism"
-    ],
     "draft": false,
-    "title": "The Internet Was Built To Be Hacked",
-    "toc": [
-      {
-        "text": "The Internet Was Built To Be Hacked",
-        "slug": "the-internet-was-built-to-be-hacked",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 1551,
-    "readingTime": 7,
+    "toc": [],
+    "wordCount": 41,
+    "readingTime": 1,
     "imageCount": 0,
-    "linkCount": 0
+    "linkCount": 1
   },
   {
-    "slug": "2019/two-reasons",
-    "dek": "In which the author discloses a peculiar and  dysfunctional part of his mind.",
-    "type": "words",
+    "slug": "projects/github-octoverse-2013",
+    "title": "GitHub Octoverse 2013",
+    "date": "2013-04-05T20:02:45.000Z",
+    "modified": "2024-10-14T16:35:28.000Z",
+    "url": "https://github.blog/news-insights/the-library/state-of-the-octoverse-2013-edition/",
     "hidden": false,
-    "inprogress": false,
-    "date": "2019-08-05T08:00:00.000Z",
-    "hidetimestamp": false,
-    "modified": "2023-12-02T01:04:54.000Z",
-    "tags": [
-      "advice",
-      "inspiration",
-      "personal"
-    ],
     "draft": false,
-    "title": "Always Have Two Reasons for Something",
-    "toc": [
-      {
-        "text": "Always Have Two Reasons for Something",
-        "slug": "always-have-two-reasons-for-something",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 448,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "2019/unsecured-ice-cameras",
-    "dek": "In which the author attempts and fails to find interesting unsecured webcams near known ICE facilities",
-    "type": "words",
-    "hidden": false,
-    "inprogress": false,
-    "date": "2019-03-24T08:00:39.000Z",
-    "hidetimestamp": false,
-    "modified": "2024-09-23T16:13:18.000Z",
-    "tags": [
-      "security",
-      "hacking",
-      "osint"
-    ],
-    "draft": false,
-    "title": "Attempting to find unsecured ICE cameras",
-    "toc": [
-      {
-        "text": "Attempting to find unsecured ICE cameras",
-        "slug": "attempting-to-find-unsecured-ice-cameras",
-        "level": "h2",
-        "children": [
-          {
-            "text": "First idea: IP ranges",
-            "slug": "first-idea-ip-ranges",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Better idea: query by latitude and longitude",
-            "slug": "better-idea-query-by-latitude-and-longitude",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Shodan CLI",
-        "slug": "shodan-cli",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Additional Resources",
-        "slug": "additional-resources",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 659,
-    "readingTime": 3,
-    "imageCount": 0,
-    "linkCount": 13
-  },
-  {
-    "slug": "2020/coding-livestreams",
-    "date": "2020-10-08T08:00:52.000Z",
-    "type": "words",
-    "hidden": false,
-    "inprogress": false,
-    "dek": "In which the skill of broadcasting yourself writing code to the entire internet is explored",
-    "tags": [
-      "livestream",
-      "coding",
-      "dataviz",
-      "inspiration",
-      "education",
-      "visualization"
-    ],
-    "modified": "2024-09-23T16:12:59.000Z",
-    "draft": false,
-    "title": "A summer of live streamed coding",
-    "toc": [
-      {
-        "text": "A summer of live streamed coding",
-        "slug": "a-summer-of-live-streamed-coding",
-        "level": "h2",
-        "children": [
-          {
-            "text": "The cooking show metaphor",
-            "slug": "the-cooking-show-metaphor",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Working in the open",
-            "slug": "working-in-the-open",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Livestream experiments",
-            "slug": "livestream-experiments",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Building the habit",
-            "slug": "building-the-habit",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Surprisingly productive",
-            "slug": "surprisingly-productive",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 1231,
-    "readingTime": 5,
-    "imageCount": 0,
-    "linkCount": 11
-  },
-  {
-    "slug": "2020/introduction-to-eavs-data",
-    "dek": "In which voter data is explored and visualized with javascript and an assemblage of command line tools",
-    "type": "words",
-    "hidden": true,
-    "inprogress": false,
-    "date": "2020-03-03T09:00:39.000Z",
-    "hidetimestamp": false,
-    "draft": true,
-    "modified": "2024-09-23T16:13:29.000Z",
-    "tags": [
-      "data",
-      "dataviz",
-      "election2020",
-      "visualization"
-    ],
-    "title": "Processing, analyzing and visualizing EAVS data",
-    "toc": [
-      {
-        "text": "Processing, analyzing and visualizing EAVS data",
-        "slug": "processing-analyzing-and-visualizing-eavs-data",
-        "level": "h2",
-        "children": [
-          {
-            "text": "About EAVS",
-            "slug": "about-eavs",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Voter removals",
-            "slug": "voter-removals",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Using Datasette",
-            "slug": "using-datasette",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Creating a Makefile",
-            "slug": "creating-a-makefile",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Get election results by county",
-            "slug": "get-election-results-by-county",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Do our analysis",
-            "slug": "do-our-analysis",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Visualize",
-            "slug": "visualize",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Resources",
-            "slug": "resources",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 993,
-    "readingTime": 4,
-    "imageCount": 0,
+    "toc": [],
+    "wordCount": 43,
+    "readingTime": 1,
+    "imageCount": 1,
     "linkCount": 4
   },
   {
-    "slug": "2020/online-brigades-gaming-twitter",
-    "dek": "The newest weapon in the arsenal of internet nazis is mass-brigading Twitter reports, and it’s working",
-    "type": "words",
+    "slug": "projects/mapping-resilience",
+    "title": "Mapping Resilience",
+    "date": "2024-09-21T20:00:16.000Z",
+    "modified": "2024-10-14T23:57:50.000Z",
+    "url": "https://hopeunderwater.com/",
     "hidden": false,
-    "inprogress": false,
-    "date": "2020-02-14T21:19:39-04:00",
-    "hidetimestamp": false,
-    "tags": [
-      "activism",
-      "journalism",
-      "twitter",
-      "security"
-    ],
     "draft": false,
-    "title": "Online Nazis Have Figured Out How To Game Twitter",
-    "toc": [
-      {
-        "text": "Online Nazis Have Figured Out How To Game Twitter",
-        "slug": "online-nazis-have-figured-out-how-to-game-twitter",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "wordCount": 446,
-    "readingTime": 2,
+    "toc": [],
+    "wordCount": 29,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 3
+  },
+  {
+    "slug": "projects/nbc-big-board",
+    "title": "NBC News Big Board",
+    "date": "2018-11-08T20:01:25.000Z",
+    "modified": "2024-10-01T02:33:19.000Z",
+    "hidden": false,
+    "draft": false,
+    "toc": [],
+    "wordCount": 37,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 2
+  },
+  {
+    "slug": "projects/nbcnews-specials",
+    "title": "NBC News Specials",
+    "date": "2016-12-14T20:01:50.000Z",
+    "modified": "2024-10-14T16:35:49.000Z",
+    "url": "https://nbcnews.com/specials",
+    "hidden": false,
+    "draft": false,
+    "toc": [],
+    "wordCount": 69,
+    "readingTime": 1,
     "imageCount": 0,
     "linkCount": 7
   },
   {
-    "slug": "2020/things-ive-learned-about-elections",
-    "dek": "In which we explore the knotted beauty of American democracy",
-    "type": "words",
+    "slug": "projects/opening-the-gateway",
+    "title": "Opening The Gateway",
+    "date": "2022-09-21T20:00:27.000Z",
+    "modified": "2024-10-14T23:57:58.000Z",
+    "url": "https://themargin.us/features/opening-the-gateway",
     "hidden": false,
-    "inprogress": true,
-    "date": "2020-02-09T03:19:38.000Z",
-    "hidetimestamp": false,
-    "modified": "2024-09-23T16:13:21.000Z",
-    "tags": [
-      "elections",
-      "politics",
-      "data",
-      "journalism",
-      "media",
-      "research"
-    ],
     "draft": false,
-    "title": "Things I've learned about elections",
+    "toc": [],
+    "wordCount": 24,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 1
+  },
+  {
+    "slug": "projects/pottery",
+    "title": "Pottery",
+    "date": "2023-08-01T20:04:09.000Z",
+    "modified": "2024-10-14T16:33:55.000Z",
+    "url": "https://ejfox.com/pottery/",
+    "hidden": false,
+    "draft": false,
+    "toc": [],
+    "wordCount": 31,
+    "readingTime": 1,
+    "imageCount": 1,
+    "linkCount": 2
+  },
+  {
+    "slug": "projects/querdenken-everything",
+    "title": "Querdenken Everything",
+    "date": "2023-01-01T20:00:34.000Z",
+    "modified": "2024-10-14T23:58:11.000Z",
+    "url": "https://longlead.com/article/querdenken-everything",
+    "hidden": false,
+    "draft": false,
+    "toc": [],
+    "wordCount": 16,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 1
+  },
+  {
+    "slug": "projects/room-302-studio-website",
+    "title": "Room 302 Studio Website",
+    "date": "2024-03-01T20:00:03.000Z",
+    "modified": "2024-10-14T23:57:34.000Z",
+    "url": "https://room302.studio",
+    "hidden": false,
+    "draft": false,
+    "toc": [],
+    "wordCount": 22,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "projects/the-depths",
+    "title": "The Depths She'll Reach",
+    "date": "2021-11-22T20:00:39.000Z",
+    "modified": "2024-10-14T23:58:26.000Z",
+    "url": "https://longlead.com/article/the-depths-shell-reach",
+    "hidden": false,
+    "draft": false,
+    "toc": [],
+    "wordCount": 18,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "projects/visually",
+    "title": "Staff Designer at Visual.ly",
+    "date": "2011-09-01T20:03:48.000Z",
+    "modified": "2024-10-14T16:34:07.000Z",
+    "url": "https://en.wikipedia.org/wiki/Visual.ly",
+    "hidden": false,
+    "draft": false,
+    "toc": [],
+    "wordCount": 75,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 2
+  },
+  {
+    "slug": "projects/vocativ",
+    "title": "Vocativ",
+    "date": "2014-10-13T20:02:28.000Z",
+    "modified": "2024-10-14T16:35:37.000Z",
+    "url": "https://en.wikipedia.org/wiki/Vocativ",
+    "hidden": false,
+    "draft": false,
+    "toc": [],
+    "wordCount": 52,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 2
+  },
+  {
+    "slug": "projects/we-glow-in-the-dark",
+    "title": "We Glow in the Dark",
+    "date": "2022-09-21T20:00:27.000Z",
+    "modified": "2024-10-14T23:58:05.000Z",
+    "url": "https://themargin.us/features/we-glow-in-the-dark",
+    "hidden": false,
+    "draft": false,
+    "toc": [],
+    "wordCount": 22,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 1
+  },
+  {
+    "slug": "reading/Arenberg-Frumin-Congressional Procedure A Practical Guide to the Legislative Process in the U.S. Congress",
+    "kindle-sync": {
+      "bookId": "4081",
+      "title": "Congressional Procedure: A Practical Guide to the Legislative Process in the U.S. Congress: The House of Representatives and Senate Explained",
+      "author": "Richard A. Arenberg and Alan S. Frumin",
+      "asin": "B07JYRPJ7S",
+      "lastAnnotatedDate": "2021-02-03",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/81otOXbOIiL._SY160.jpg",
+      "highlightsCount": 1
+    },
+    "date": "2022-12-26T16:47:30.000Z",
+    "modified": "2022-12-27T20:08:38.000Z",
+    "tags": [
+      "politics",
+      "book",
+      "reference",
+      "process"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Congressional Procedure: A Practical Guide to the Legislative Process in the U.S. Congress",
     "toc": [
       {
-        "text": "Things I've learned about elections",
-        "slug": "things-i-ve-learned-about-elections",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Edge cases",
-            "slug": "edge-cases",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Races",
-            "slug": "races",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Voting",
-            "slug": "voting",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Reporting units",
-            "slug": "reporting-units",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Election data",
-            "slug": "election-data",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Primary elections",
-            "slug": "primary-elections",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Voting machines",
-            "slug": "voting-machines",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Coverage of elections",
-            "slug": "coverage-of-elections",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Why do we have elections on Tuesdays?",
-            "slug": "why-do-we-have-elections-on-tuesdays",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Resources",
-            "slug": "resources",
-            "level": "h3",
-            "children": []
-          }
-        ]
+        "text": "Congressional Procedure: A Practical Guide to the Legislative Process in the U.S. Congress",
+        "slug": "congressional-procedure-a-practical-guide-to-the-legislative-process-in-the-u-s-congress",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
       }
     ],
-    "wordCount": 2368,
-    "readingTime": 10,
-    "imageCount": 1,
-    "linkCount": 73
+    "wordCount": 97,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 3
+  },
+  {
+    "slug": "reading/Baldwin-Jones-Notes of a Native Son",
+    "kindle-sync": {
+      "bookId": "6077",
+      "title": "Notes of a Native Son",
+      "author": "James Baldwin and Edward P. Jones",
+      "asin": "B007WKEN4U",
+      "lastAnnotatedDate": "2022-06-20",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/517-wUXsdWL._SY160.jpg",
+      "highlightsCount": 2
+    },
+    "date": "2022-12-14T20:23:48.000Z",
+    "modified": "2022-12-23T16:26:46.000Z",
+    "tags": [
+      "america",
+      "activism"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Notes of a Native Son",
+    "toc": [
+      {
+        "text": "Notes of a Native Son",
+        "slug": "notes-of-a-native-son",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 135,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 4
+  },
+  {
+    "slug": "reading/Bergstrom-West-Calling Bullshit",
+    "kindle-sync": {
+      "bookId": "59385",
+      "title": "Calling Bullshit: The Art of Skepticism in a Data-Driven World",
+      "author": "Carl T. Bergstrom and Jevin D. West",
+      "asin": "B08191DV5T",
+      "lastAnnotatedDate": "2021-12-03",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/81Dd92++GgS._SY160.jpg",
+      "highlightsCount": 1
+    },
+    "date": "2022-12-26T16:47:11.000Z",
+    "modified": "2022-12-27T20:12:06.000Z",
+    "tags": [
+      "datajournalism",
+      "journalism"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Calling Bullshit",
+    "toc": [
+      {
+        "text": "Calling Bullshit",
+        "slug": "calling-bullshit",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 72,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 3
+  },
+  {
+    "slug": "reading/Bobrick-The Fated Sky",
+    "kindle-sync": {
+      "bookId": "32592",
+      "title": "The Fated Sky: Astrology in History",
+      "author": "Benson Bobrick",
+      "asin": "B000FCKKXA",
+      "lastAnnotatedDate": "2021-10-11",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/81VUHa-9LUL._SY160.jpg",
+      "highlightsCount": 13
+    },
+    "date": "2022-12-14T20:25:13.000Z",
+    "modified": "2022-12-23T14:45:29.000Z",
+    "tags": [],
+    "hidden": false,
+    "draft": false,
+    "title": "The Fated Sky",
+    "toc": [
+      {
+        "text": "The Fated Sky",
+        "slug": "the-fated-sky",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 1079,
+    "readingTime": 5,
+    "imageCount": 0,
+    "linkCount": 15
+  },
+  {
+    "slug": "reading/Broder-So Sad Today",
+    "kindle-sync": {
+      "bookId": "62203",
+      "title": "So Sad Today: Personal Essays",
+      "author": "Melissa Broder",
+      "asin": "B011J4H1NO",
+      "lastAnnotatedDate": "2023-07-28",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/71Xp3FcHKML._SY160.jpg",
+      "highlightsCount": 13
+    },
+    "date": "2022-12-14T20:25:18.000Z",
+    "modified": "2022-12-23T14:45:17.000Z",
+    "tags": [],
+    "hidden": false,
+    "draft": false,
+    "title": "So Sad Today",
+    "toc": [
+      {
+        "text": "So Sad Today",
+        "slug": "so-sad-today",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 732,
+    "readingTime": 3,
+    "imageCount": 0,
+    "linkCount": 16
+  },
+  {
+    "slug": "reading/Broder-The Pisces",
+    "kindle-sync": {
+      "bookId": "28653",
+      "title": "The Pisces: A Novel",
+      "author": "Melissa Broder",
+      "asin": "B074LVLHF2",
+      "lastAnnotatedDate": "2018-08-13",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/71IpwmRDlPL._SY160.jpg",
+      "highlightsCount": 15
+    },
+    "date": "2022-12-14T20:28:49.000Z",
+    "modified": "2022-12-23T15:53:24.000Z",
+    "tags": [
+      "book",
+      "personal",
+      "meditation"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "The Pisces",
+    "toc": [
+      {
+        "text": "The Pisces",
+        "slug": "the-pisces",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 797,
+    "readingTime": 4,
+    "imageCount": 0,
+    "linkCount": 17
+  },
+  {
+    "slug": "reading/Bukowski-Women",
+    "kindle-sync": {
+      "bookId": "62762",
+      "title": "Women: A Novel",
+      "author": "Charles Bukowski",
+      "asin": "B000W94FWS",
+      "lastAnnotatedDate": "2019-04-11",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/81M+SvV1aLL._SY160.jpg",
+      "highlightsCount": 15
+    },
+    "date": "2022-12-14T20:28:29.000Z",
+    "modified": "2022-12-23T14:46:21.000Z",
+    "tags": [
+      "writing",
+      "inspiration"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "Women",
+    "toc": [
+      {
+        "text": "Women",
+        "slug": "women",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 627,
+    "readingTime": 3,
+    "imageCount": 0,
+    "linkCount": 17
   },
   {
     "slug": "2021/creative-coding",
@@ -12331,6 +11042,633 @@
     "linkCount": 0
   },
   {
+    "slug": "drafts/chess",
+    "draft": true,
+    "date": "2022-12-22T15:57:34.000Z",
+    "modified": "2024-07-18T18:43:56.000Z",
+    "hidden": true,
+    "tags": [
+      "chess"
+    ],
+    "title": "I am really bad at chess",
+    "toc": [
+      {
+        "text": "I am really bad at chess",
+        "slug": "i-am-really-bad-at-chess",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Multi-dimensional Chess",
+            "slug": "multi-dimensional-chess",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 44,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "drafts/coach-artie-one-year",
+    "date": "2024-04-21T22:29:38.000Z",
+    "modified": "2024-09-20T04:49:29.000Z",
+    "hidden": true,
+    "draft": true,
+    "tags": [
+      "art",
+      "automation",
+      "coding",
+      "data",
+      "design"
+    ],
+    "title": "Coach Artie - One Year Retrospective",
+    "toc": [
+      {
+        "text": "Coach Artie - One Year Retrospective",
+        "slug": "coach-artie-one-year-retrospective",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Assumptions / Principles",
+            "slug": "assumptions-principles",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Focusing on Context-Stuffing and large context windows",
+            "slug": "focusing-on-context-stuffing-and-large-context-windows",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Randomness and non-determinative systems",
+        "slug": "randomness-and-non-determinative-systems",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Where we use randomness",
+            "slug": "where-we-use-randomness",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Letting Coach Artie Manage His Own Systems",
+        "slug": "letting-coach-artie-manage-his-own-systems",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Building an extendable suite of capabilities",
+        "slug": "building-an-extendable-suite-of-capabilities",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Constant testing and iteration",
+        "slug": "constant-testing-and-iteration",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Failures around teaching Capabilities",
+            "slug": "failures-around-teaching-capabilities",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Failures around scheduled proactivity",
+            "slug": "failures-around-scheduled-proactivity",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Pilot program in The Birch School",
+            "slug": "pilot-program-in-the-birch-school",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Internal usage within Room 302 Studio",
+            "slug": "internal-usage-within-room-302-studio",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Future Plans: 1 year, 5 year outlook",
+        "slug": "future-plans-1-year-5-year-outlook",
+        "level": "h2",
+        "children": [
+          {
+            "text": "1 Year Roadmap",
+            "slug": "1-year-roadmap",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "5 Year Roadmap",
+            "slug": "5-year-roadmap",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 1361,
+    "readingTime": 6,
+    "imageCount": 2,
+    "linkCount": 2
+  },
+  {
+    "slug": "drafts/cooking-kolaches",
+    "draft": true,
+    "dek": "In which",
+    "inprogress": true,
+    "date": "2022-11-03T01:01:30.000Z",
+    "modified": "2022-12-23T14:10:01.000Z",
+    "hidden": true,
+    "tags": [
+      "cooking",
+      "food",
+      "recipe"
+    ],
+    "title": "Cooking: Kolaches",
+    "toc": [
+      {
+        "text": "Cooking: Kolaches",
+        "slug": "cooking-kolaches",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 6,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "drafts/cooking-ramen-experiments",
+    "draft": true,
+    "dek": "In which",
+    "inprogress": true,
+    "date": "2022-11-03T00:45:40.000Z",
+    "modified": "2024-07-18T18:43:36.000Z",
+    "hidden": true,
+    "tags": [
+      "food",
+      "recipe",
+      "cooking"
+    ],
+    "title": "Cooking: Ramen",
+    "toc": [
+      {
+        "text": "Cooking: Ramen",
+        "slug": "cooking-ramen",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 6,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "drafts/cooking-seitan",
+    "hidden": true,
+    "draft": true,
+    "tags": [
+      "food",
+      "cooking"
+    ],
+    "date": "2024-04-25T21:21:40.000Z",
+    "modified": "2024-09-21T19:06:22.000Z",
+    "title": "cooking-seitan",
+    "toc": [],
+    "wordCount": 2,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "drafts/cooking",
+    "draft": true,
+    "dek": "In which the author explores the joys of cooking delicious food",
+    "inprogress": true,
+    "date": "2022-12-23T13:48:19.000Z",
+    "modified": "2024-09-20T04:26:04.000Z",
+    "tags": [
+      "food",
+      "cooking"
+    ],
+    "hidden": true,
+    "title": "Cooking",
+    "toc": [
+      {
+        "text": "Cooking",
+        "slug": "cooking",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 11,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "drafts/core-principles",
+    "date": "2024-04-20T18:42:43.000Z",
+    "modified": "2024-07-18T18:48:54.000Z",
+    "hidden": true,
+    "draft": true,
+    "tags": [
+      "art",
+      "internet",
+      "photography",
+      "journalism",
+      "design"
+    ],
+    "title": "The truth is paramount",
+    "toc": [
+      {
+        "text": "The truth is paramount",
+        "slug": "the-truth-is-paramount",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 185,
+    "readingTime": 1,
+    "imageCount": 1,
+    "linkCount": 1
+  },
+  {
+    "slug": "drafts/data-driven-llm-sentences",
+    "dek": "In which we give the robot a bunch of data and ask it to tell us what it means",
+    "inprogress": true,
+    "date": "2023-07-19T12:27:21.000Z",
+    "modified": "2024-09-20T04:19:31.000Z",
+    "tags": [
+      "datajournalism",
+      "dataviz",
+      "gpt3",
+      "journalism",
+      "media",
+      "visualization"
+    ],
+    "hidden": true,
+    "draft": true,
+    "title": "Data-driven sentences with LLMs",
+    "toc": [
+      {
+        "text": "Data-driven sentences with LLMs",
+        "slug": "data-driven-sentences-with-llms",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Example: Summarizing a Scatterplot",
+        "slug": "example-summarizing-a-scatterplot",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Summarizing groups of datas",
+            "slug": "summarizing-groups-of-datas",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 392,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "drafts/election-data-analysis",
+    "draft": true,
+    "dek": "In which",
+    "inprogress": true,
+    "date": "2022-11-03T00:00:20.000Z",
+    "modified": "2024-07-18T18:43:34.000Z",
+    "hidden": true,
+    "tags": [
+      "elections",
+      "data",
+      "dataviz",
+      "nodejs",
+      "qgis",
+      "javascript"
+    ],
+    "title": "Election Results Data Analysis",
+    "toc": [
+      {
+        "text": "Election Results Data Analysis",
+        "slug": "election-results-data-analysis",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 368,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "drafts/electology-vision",
+    "dek": "See behind the scenes of election night coverage with Electology, the new tool transforming live data analysis.",
+    "inprogress": true,
+    "date": "2022-12-05T23:34:09.000Z",
+    "modified": "2024-05-16T18:14:44.000Z",
+    "tags": [
+      "elections",
+      "data",
+      "dataviz",
+      "visualization",
+      "tv",
+      "webdesign"
+    ],
+    "hidden": true,
+    "draft": true,
+    "title": "Unveiling Electology: The Election Analysis Tool You Didn’t Know You Needed",
+    "toc": [
+      {
+        "text": "Unveiling Electology: The Election Analysis Tool You Didn’t Know You Needed",
+        "slug": "unveiling-electology-the-election-analysis-tool-you-didn-t-know-you-needed",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Touchscreen Application",
+            "slug": "touchscreen-application",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Digital Maps",
+            "slug": "digital-maps",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Data Integration",
+            "slug": "data-integration",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Analysis Tools",
+            "slug": "analysis-tools",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 1369,
+    "readingTime": 6,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "drafts/espresso",
+    "draft": true,
+    "dek": "In which",
+    "inprogress": true,
+    "date": "2023-01-06T22:34:42.000Z",
+    "modified": "2024-07-18T18:26:05.000Z",
+    "hidden": true,
+    "tags": [
+      "food",
+      "howto"
+    ],
+    "title": "Making Perfect Espresso",
+    "toc": [
+      {
+        "text": "Making Perfect Espresso",
+        "slug": "making-perfect-espresso",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 20,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "drafts/exercise",
+    "date": "2022-11-02T23:57:34.000Z",
+    "modified": "2024-06-06T19:57:24.000Z",
+    "hidden": true,
+    "draft": true,
+    "tags": [
+      "exercise",
+      "health",
+      "quantifiedself"
+    ],
+    "title": "Exercise",
+    "toc": [
+      {
+        "text": "Exercise",
+        "slug": "exercise",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Goals",
+            "slug": "goals",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Plan",
+            "slug": "plan",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Experiments and data",
+            "slug": "experiments-and-data",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Equipment",
+            "slug": "equipment",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Dreams / next steps",
+            "slug": "dreams-next-steps",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 1417,
+    "readingTime": 6,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "drafts/falun-gong-upstate-ny",
+    "dek": "In which",
+    "inprogress": true,
+    "date": "2024-04-25T21:21:40.000Z",
+    "modified": "2024-09-21T19:04:17.000Z",
+    "tags": [
+      "activism",
+      "legal"
+    ],
+    "hidden": true,
+    "draft": true,
+    "title": "Title",
+    "toc": [
+      {
+        "text": "Title",
+        "slug": "title",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 45,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 6
+  },
+  {
+    "slug": "drafts/food-log",
+    "tags": [
+      "health",
+      "nutrition"
+    ],
+    "date": "2024-10-05T16:05:41.000Z",
+    "modified": "2024-10-05T16:06:18.000Z",
+    "hidden": true,
+    "draft": true,
+    "title": "Meal Log - {{date:YYYY-MM-DD}}",
+    "toc": [
+      {
+        "text": "Meal Log - {{date:YYYY-MM-DD}}",
+        "slug": "meal-log-date-yyyy-mm-dd",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Meal: {{time}} (e.g., Breakfast, Lunch, Snack)",
+            "slug": "meal-time-e-g-breakfast-lunch-snack",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 91,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "drafts/garment-dying-experiments",
+    "draft": true,
+    "dek": "In which we take cloth of one color and make it another",
+    "inprogress": true,
+    "date": "2022-11-20T21:06:23.000Z",
+    "modified": "2024-09-20T04:24:48.000Z",
+    "tags": [
+      "art",
+      "Fashion",
+      "design",
+      "process"
+    ],
+    "hidden": true,
+    "title": "Transforming Clothing with Garment Dyeing",
+    "toc": [
+      {
+        "text": "Transforming Clothing with Garment Dyeing",
+        "slug": "transforming-clothing-with-garment-dyeing",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Materials",
+            "slug": "materials",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Dying Design Style Choices",
+            "slug": "dying-design-style-choices",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Ice Dyeing",
+            "slug": "ice-dyeing",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Gradient/Dip Dyeing",
+            "slug": "gradient-dip-dyeing",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Process",
+        "slug": "process",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 292,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "drafts/getting-started-with-embeddings",
+    "dek": "In which we put words into space and then explore the constellations they create",
+    "inprogress": true,
+    "date": "2023-07-16T20:34:14.000Z",
+    "modified": "2024-09-20T04:24:52.000Z",
+    "tags": [
+      "art",
+      "machinelearning",
+      "database",
+      "javascript",
+      "coding",
+      "data",
+      "visualization",
+      "programming"
+    ],
+    "hidden": true,
+    "draft": true,
+    "title": "Getting started with embeddings in JS",
+    "toc": [
+      {
+        "text": "Getting started with embeddings in JS",
+        "slug": "getting-started-with-embeddings-in-js",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 264,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 5
+  },
+  {
     "slug": "2010/!pinboard-tags",
     "dek": "All of the tags I use across all technologies, pinboard, this blog, and anywhere else",
     "date": "2010-12-17T17:00:00.000Z",
@@ -12800,5 +12138,667 @@
     "readingTime": 3,
     "imageCount": 0,
     "linkCount": 2
+  },
+  {
+    "slug": "2019/climate-strike-nyc",
+    "dek": "In which the youths march through the street with extremely clever signs since they are too young to riot",
+    "type": "photo",
+    "hidden": false,
+    "inprogress": false,
+    "date": "2019-09-20T21:19:39-04:00",
+    "hidetimestamp": false,
+    "tags": [
+      "activism",
+      "climatechange",
+      "protest"
+    ],
+    "draft": false,
+    "title": "NYC’s Climate March",
+    "toc": [
+      {
+        "text": "NYC’s Climate March",
+        "slug": "nyc-s-climate-march",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 171,
+    "readingTime": 1,
+    "imageCount": 13,
+    "linkCount": 13
+  },
+  {
+    "slug": "2019/generative-music-iteration",
+    "type": "words",
+    "hidden": true,
+    "inprogress": true,
+    "date": "2019-03-24T08:00:33.000Z",
+    "hidetimestamp": false,
+    "tags": [
+      "generative",
+      "music",
+      "art",
+      "research",
+      "systemsthinking",
+      "visualization",
+      "coding"
+    ],
+    "modified": "2024-09-23T16:13:04.000Z",
+    "draft": true,
+    "title": "Generative Music Iteration",
+    "toc": [
+      {
+        "text": "Generative Music Iteration",
+        "slug": "generative-music-iteration",
+        "level": "h2",
+        "children": [
+          {
+            "text": "What do I want to create?",
+            "slug": "what-do-i-want-to-create",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Mise-en-place",
+            "slug": "mise-en-place",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "What are the building blocks of the system we are working in?",
+            "slug": "what-are-the-building-blocks-of-the-system-we-are-working-in",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 301,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "2019/hong-kong-protest-techniques",
+    "dek": "In which the citizens of Hong Kong find new creative ways to improve on public disobedience",
+    "type": "words",
+    "hidden": false,
+    "inprogress": false,
+    "date": "2019-08-14T08:00:39.000Z",
+    "hidetimestamp": false,
+    "modified": "2024-08-01T14:21:12.000Z",
+    "tags": [
+      "protest",
+      "activism",
+      "tactics",
+      "security"
+    ],
+    "draft": false,
+    "title": "Hong Kong Protest Techniques",
+    "toc": [
+      {
+        "text": "Hong Kong Protest Techniques",
+        "slug": "hong-kong-protest-techniques",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 129,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "2019/how-i-prototype-apps-and-dataviz-quickly-in-2019",
+    "type": "words",
+    "hidden": false,
+    "inprogress": false,
+    "date": "2019-03-20T01:25:22.000Z",
+    "hidetimestamp": false,
+    "modified": "2024-09-23T16:13:36.000Z",
+    "tags": [
+      "vue",
+      "dataviz",
+      "d3",
+      "javascript",
+      "webdesign"
+    ],
+    "draft": false,
+    "title": "How I prototype apps and dataviz quickly",
+    "toc": [
+      {
+        "text": "How I prototype apps and dataviz quickly",
+        "slug": "how-i-prototype-apps-and-dataviz-quickly",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Pulling in data",
+            "slug": "pulling-in-data",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Combining Vue and D3 for dataviz",
+            "slug": "combining-vue-and-d3-for-dataviz",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Database and user authentication",
+            "slug": "database-and-user-authentication",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Deploying",
+            "slug": "deploying",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 931,
+    "readingTime": 4,
+    "imageCount": 0,
+    "linkCount": 15
+  },
+  {
+    "slug": "2019/linocut-printing-guide",
+    "dek": "In which the author explains his reasoning for exploring analog methods of distributing information with ink and linoleum, and provides a guide on how to do so yourself if so inclined",
+    "type": "words",
+    "hidden": false,
+    "inprogress": false,
+    "date": "2019-08-18T08:00:39.000Z",
+    "hidetimestamp": false,
+    "modified": "2024-09-23T16:13:27.000Z",
+    "tags": [
+      "analog",
+      "linocut",
+      "art",
+      "design",
+      "activism"
+    ],
+    "draft": false,
+    "title": "Linocut printing for a bright future",
+    "toc": [
+      {
+        "text": "Linocut printing for a bright future",
+        "slug": "linocut-printing-for-a-bright-future",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Making a linocut",
+            "slug": "making-a-linocut",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 2174,
+    "readingTime": 9,
+    "imageCount": 3,
+    "linkCount": 5
+  },
+  {
+    "slug": "2019/movies-to-watch",
+    "dek": "In which the author divulges a shameful secret",
+    "type": "words",
+    "hidden": false,
+    "inprogress": false,
+    "date": "2019-06-13T08:00:39.000Z",
+    "hidetimestamp": true,
+    "modified": "2024-06-21T14:12:52.000Z",
+    "tags": [
+      "movies",
+      "drama",
+      "documentary"
+    ],
+    "draft": false,
+    "title": "Movies to Watch",
+    "toc": [
+      {
+        "text": "Movies to Watch",
+        "slug": "movies-to-watch",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 366,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "2019/step-zero",
+    "dek": "In which the author makes the case for the merits of a certain approach to preparation",
+    "type": "words",
+    "hidden": false,
+    "inprogress": false,
+    "date": "2019-06-12T17:40:00-04:00",
+    "hidetimestamp": false,
+    "tags": [
+      "advice",
+      "cooking",
+      "process"
+    ],
+    "draft": false,
+    "title": "Step Zero",
+    "toc": [
+      {
+        "text": "Step Zero",
+        "slug": "step-zero",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 230,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 5
+  },
+  {
+    "slug": "2019/taking-things-for-granted",
+    "dek": "In which the author attempts to dissuade you from the belief things will always be the way they are now",
+    "type": "words",
+    "hidden": false,
+    "inprogress": false,
+    "date": "2019-06-14T15:27:00-04:00",
+    "hidetimestamp": false,
+    "tags": [
+      "advice",
+      "personal"
+    ],
+    "draft": false,
+    "title": "Taking things for granted",
+    "toc": [
+      {
+        "text": "Taking things for granted",
+        "slug": "taking-things-for-granted",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 282,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 2
+  },
+  {
+    "slug": "2019/the-internet-was-built-to-be-hacked",
+    "dek": "In which the author is grateful for the hackers who invented the internet",
+    "type": "words",
+    "hidden": false,
+    "inprogress": false,
+    "date": "2019-02-01T10:00:56.000Z",
+    "hidetimestamp": false,
+    "modified": "2024-10-12T23:52:51.000Z",
+    "tags": [
+      "hackers",
+      "internet",
+      "coding",
+      "activism"
+    ],
+    "draft": false,
+    "title": "The Internet Was Built To Be Hacked",
+    "toc": [
+      {
+        "text": "The Internet Was Built To Be Hacked",
+        "slug": "the-internet-was-built-to-be-hacked",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 1551,
+    "readingTime": 7,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "2019/two-reasons",
+    "dek": "In which the author discloses a peculiar and  dysfunctional part of his mind.",
+    "type": "words",
+    "hidden": false,
+    "inprogress": false,
+    "date": "2019-08-05T08:00:00.000Z",
+    "hidetimestamp": false,
+    "modified": "2023-12-02T01:04:54.000Z",
+    "tags": [
+      "advice",
+      "inspiration",
+      "personal"
+    ],
+    "draft": false,
+    "title": "Always Have Two Reasons for Something",
+    "toc": [
+      {
+        "text": "Always Have Two Reasons for Something",
+        "slug": "always-have-two-reasons-for-something",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 448,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "2019/unsecured-ice-cameras",
+    "dek": "In which the author attempts and fails to find interesting unsecured webcams near known ICE facilities",
+    "type": "words",
+    "hidden": false,
+    "inprogress": false,
+    "date": "2019-03-24T08:00:39.000Z",
+    "hidetimestamp": false,
+    "modified": "2024-09-23T16:13:18.000Z",
+    "tags": [
+      "security",
+      "hacking",
+      "osint"
+    ],
+    "draft": false,
+    "title": "Attempting to find unsecured ICE cameras",
+    "toc": [
+      {
+        "text": "Attempting to find unsecured ICE cameras",
+        "slug": "attempting-to-find-unsecured-ice-cameras",
+        "level": "h2",
+        "children": [
+          {
+            "text": "First idea: IP ranges",
+            "slug": "first-idea-ip-ranges",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Better idea: query by latitude and longitude",
+            "slug": "better-idea-query-by-latitude-and-longitude",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Shodan CLI",
+        "slug": "shodan-cli",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Additional Resources",
+        "slug": "additional-resources",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 659,
+    "readingTime": 3,
+    "imageCount": 0,
+    "linkCount": 13
+  },
+  {
+    "slug": "2020/coding-livestreams",
+    "date": "2020-10-08T08:00:52.000Z",
+    "type": "words",
+    "hidden": false,
+    "inprogress": false,
+    "dek": "In which the skill of broadcasting yourself writing code to the entire internet is explored",
+    "tags": [
+      "livestream",
+      "coding",
+      "dataviz",
+      "inspiration",
+      "education",
+      "visualization"
+    ],
+    "modified": "2024-09-23T16:12:59.000Z",
+    "draft": false,
+    "title": "A summer of live streamed coding",
+    "toc": [
+      {
+        "text": "A summer of live streamed coding",
+        "slug": "a-summer-of-live-streamed-coding",
+        "level": "h2",
+        "children": [
+          {
+            "text": "The cooking show metaphor",
+            "slug": "the-cooking-show-metaphor",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Working in the open",
+            "slug": "working-in-the-open",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Livestream experiments",
+            "slug": "livestream-experiments",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Building the habit",
+            "slug": "building-the-habit",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Surprisingly productive",
+            "slug": "surprisingly-productive",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 1231,
+    "readingTime": 5,
+    "imageCount": 0,
+    "linkCount": 11
+  },
+  {
+    "slug": "2020/introduction-to-eavs-data",
+    "dek": "In which voter data is explored and visualized with javascript and an assemblage of command line tools",
+    "type": "words",
+    "hidden": true,
+    "inprogress": false,
+    "date": "2020-03-03T09:00:39.000Z",
+    "hidetimestamp": false,
+    "draft": true,
+    "modified": "2024-09-23T16:13:29.000Z",
+    "tags": [
+      "data",
+      "dataviz",
+      "election2020",
+      "visualization"
+    ],
+    "title": "Processing, analyzing and visualizing EAVS data",
+    "toc": [
+      {
+        "text": "Processing, analyzing and visualizing EAVS data",
+        "slug": "processing-analyzing-and-visualizing-eavs-data",
+        "level": "h2",
+        "children": [
+          {
+            "text": "About EAVS",
+            "slug": "about-eavs",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Voter removals",
+            "slug": "voter-removals",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Using Datasette",
+            "slug": "using-datasette",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Creating a Makefile",
+            "slug": "creating-a-makefile",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Get election results by county",
+            "slug": "get-election-results-by-county",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Do our analysis",
+            "slug": "do-our-analysis",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Visualize",
+            "slug": "visualize",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Resources",
+            "slug": "resources",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 993,
+    "readingTime": 4,
+    "imageCount": 0,
+    "linkCount": 4
+  },
+  {
+    "slug": "2020/online-brigades-gaming-twitter",
+    "dek": "The newest weapon in the arsenal of internet nazis is mass-brigading Twitter reports, and it’s working",
+    "type": "words",
+    "hidden": false,
+    "inprogress": false,
+    "date": "2020-02-14T21:19:39-04:00",
+    "hidetimestamp": false,
+    "tags": [
+      "activism",
+      "journalism",
+      "twitter",
+      "security"
+    ],
+    "draft": false,
+    "title": "Online Nazis Have Figured Out How To Game Twitter",
+    "toc": [
+      {
+        "text": "Online Nazis Have Figured Out How To Game Twitter",
+        "slug": "online-nazis-have-figured-out-how-to-game-twitter",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 446,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 7
+  },
+  {
+    "slug": "2020/things-ive-learned-about-elections",
+    "dek": "In which we explore the knotted beauty of American democracy",
+    "type": "words",
+    "hidden": false,
+    "inprogress": true,
+    "date": "2020-02-09T03:19:38.000Z",
+    "hidetimestamp": false,
+    "modified": "2024-09-23T16:13:21.000Z",
+    "tags": [
+      "elections",
+      "politics",
+      "data",
+      "journalism",
+      "media",
+      "research"
+    ],
+    "draft": false,
+    "title": "Things I've learned about elections",
+    "toc": [
+      {
+        "text": "Things I've learned about elections",
+        "slug": "things-i-ve-learned-about-elections",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Edge cases",
+            "slug": "edge-cases",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Races",
+            "slug": "races",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Voting",
+            "slug": "voting",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Reporting units",
+            "slug": "reporting-units",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Election data",
+            "slug": "election-data",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Primary elections",
+            "slug": "primary-elections",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Voting machines",
+            "slug": "voting-machines",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Coverage of elections",
+            "slug": "coverage-of-elections",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Why do we have elections on Tuesdays?",
+            "slug": "why-do-we-have-elections-on-tuesdays",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Resources",
+            "slug": "resources",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 2368,
+    "readingTime": 10,
+    "imageCount": 1,
+    "linkCount": 73
   }
 ]
