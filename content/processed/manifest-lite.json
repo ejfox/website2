@@ -1,5 +1,845 @@
 [
   {
+    "slug": "week-notes/2024-22",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "art",
+      "pottery",
+      "design",
+      "webdesign",
+      "visualization"
+    ],
+    "modified": "2024-10-14T23:51:10.000Z",
+    "date": "2022-12-26T16:57:44.000Z",
+    "dek": "In which the author explores the realms of memory and creativity through scrapbooking, pottery-making, and technical innovations, culminating in a showcase of projects and a foray into pricing models.",
+    "hidden": false,
+    "draft": false,
+    "title": "🌟 Overview of the Week",
+    "toc": [
+      {
+        "text": "🌟 Overview of the Week",
+        "slug": "overview-of-the-week",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Projects Worked On",
+        "slug": "projects-worked-on",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Creative Endeavors",
+        "slug": "creative-endeavors",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Technical Accomplishments",
+        "slug": "technical-accomplishments",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Scrapbook Core",
+            "slug": "scrapbook-core",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Scrapscroller",
+            "slug": "scrapscroller",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Scrapbook-cli",
+            "slug": "scrapbook-cli",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Added Pottery Section to Website",
+            "slug": "added-pottery-section-to-website",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Added RSS feeds to ejfox.com and ejfox.photos",
+            "slug": "added-rss-feeds-to-ejfox-com-and-ejfox-photos",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Books, Movies, TV",
+        "slug": "books-movies-tv",
+        "level": "h2",
+        "children": [
+          {
+            "text": "LLM Pricing: May 2024",
+            "slug": "llm-pricing-may-2024",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 476,
+    "readingTime": 2,
+    "imageCount": 5,
+    "linkCount": 6
+  },
+  {
+    "slug": "week-notes/2024-23",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
+    "modified": "2024-10-14T23:50:54.000Z",
+    "date": "2024-06-03T16:56:06.000Z",
+    "dek": "In which the author explores technology, political analysis, and personal productivity during a busy week of client work before a summer break.",
+    "hidden": false,
+    "draft": false,
+    "title": "🌟 Overview of the Week",
+    "toc": [
+      {
+        "text": "🌟 Overview of the Week",
+        "slug": "overview-of-the-week",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Comparing the contents of two folders for duplicated markdown posts",
+        "slug": "comparing-the-contents-of-two-folders-for-duplicated-markdown-posts",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 295,
+    "readingTime": 2,
+    "imageCount": 12,
+    "linkCount": 12
+  },
+  {
+    "slug": "week-notes/2024-24",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "coding",
+      "git",
+      "video",
+      "datajournalism",
+      "visualization",
+      "javascript"
+    ],
+    "modified": "2024-10-14T23:50:34.000Z",
+    "date": "2024-06-10T21:39:36.000Z",
+    "dek": "In which the author embarked on creative projects, recorded coding tutorials, and set goals for future storytelling endeavors.",
+    "hidden": false,
+    "draft": false,
+    "title": "🌟 Overview of the Week",
+    "toc": [
+      {
+        "text": "🌟 Overview of the Week",
+        "slug": "overview-of-the-week",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Projects Worked On",
+        "slug": "projects-worked-on",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Video Recording",
+            "slug": "video-recording",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Creative Endeavors",
+        "slug": "creative-endeavors",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Books, Movies, TV",
+        "slug": "books-movies-tv",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Personal Growth & Health",
+        "slug": "personal-growth-health",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Social & Community Engagement",
+        "slug": "social-community-engagement",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Goals for the Future",
+        "slug": "goals-for-the-future",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 217,
+    "readingTime": 1,
+    "imageCount": 4,
+    "linkCount": 4
+  },
+  {
+    "slug": "week-notes/2024-26",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "camping",
+      "travel",
+      "nature"
+    ],
+    "modified": "2024-10-14T23:50:25.000Z",
+    "date": "2024-06-25T01:39:23.000Z",
+    "dek": "In which the author recounts a delightful week spent camping at Lake George in the company of friends and family, capturing cherished moments through picturesque snapshots and videos.",
+    "hidden": false,
+    "draft": false,
+    "title": "🌟 Overview of the Week",
+    "toc": [
+      {
+        "text": "🌟 Overview of the Week",
+        "slug": "overview-of-the-week",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 50,
+    "readingTime": 1,
+    "imageCount": 6,
+    "linkCount": 6
+  },
+  {
+    "slug": "week-notes/2024-29",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "coding",
+      "design",
+      "music",
+      "project",
+      "personal"
+    ],
+    "modified": "2024-10-14T23:50:20.000Z",
+    "date": "2024-07-17T14:53:14.000Z",
+    "dek": "In which the author embarked on a week of creative endeavors in music, projects in coding, and personal growth while house-sitting and planning for the future.",
+    "hidden": false,
+    "draft": false,
+    "title": "🌟 Overview of the Week",
+    "toc": [
+      {
+        "text": "🌟 Overview of the Week",
+        "slug": "overview-of-the-week",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Projects Worked On",
+        "slug": "projects-worked-on",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Scrapbook",
+            "slug": "scrapbook",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Connectology",
+            "slug": "connectology",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Netlify Dashboard",
+            "slug": "netlify-dashboard",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Creative Endeavors",
+        "slug": "creative-endeavors",
+        "level": "h2",
+        "children": [
+          {
+            "text": "JZULY music",
+            "slug": "jzuly-music",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Books, Movies, TV",
+        "slug": "books-movies-tv",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Personal Growth & Health",
+        "slug": "personal-growth-health",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Social & Community Engagement",
+        "slug": "social-community-engagement",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Goals for the Future",
+        "slug": "goals-for-the-future",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 398,
+    "readingTime": 2,
+    "imageCount": 12,
+    "linkCount": 14
+  },
+  {
+    "slug": "week-notes/2024-30",
+    "date": "2024-07-22T15:34:03.000Z",
+    "modified": "2024-10-14T23:50:07.000Z",
+    "tags": [
+      "art",
+      "design",
+      "visualization",
+      "photography"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "2024-30",
+    "toc": [],
+    "wordCount": 37,
+    "readingTime": 1,
+    "imageCount": 9,
+    "linkCount": 9
+  },
+  {
+    "slug": "week-notes/2024-31",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "coding",
+      "automation",
+      "music",
+      "health"
+    ],
+    "modified": "2024-10-14T23:49:47.000Z",
+    "date": "2024-07-30T18:56:51.000Z",
+    "dek": "In which the author reflects on building a Scrapbook system, experiments with a modular synth, and efficiently uploads videos to their blog posts via Cloudinary.",
+    "hidden": false,
+    "draft": false,
+    "title": "🌟 Overview of the Week",
+    "toc": [
+      {
+        "text": "🌟 Overview of the Week",
+        "slug": "overview-of-the-week",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Projects Worked On",
+        "slug": "projects-worked-on",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Spliff & Espresso",
+            "slug": "spliff-espresso",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Creative Endeavors",
+        "slug": "creative-endeavors",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 638,
+    "readingTime": 3,
+    "imageCount": 19,
+    "linkCount": 22
+  },
+  {
+    "slug": "week-notes/2024-32",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "cli",
+      "coding",
+      "tool"
+    ],
+    "modified": "2024-10-14T23:49:22.000Z",
+    "date": "2024-08-05T13:13:52.000Z",
+    "dek": "In which the author creates a mystical CLI tool, delves into turning bookmarks into a knowledge graph, and sets forth on a journey towards personal growth and community engagement.",
+    "hidden": false,
+    "draft": false,
+    "title": "🌟 Overview of the Week",
+    "toc": [
+      {
+        "text": "🌟 Overview of the Week",
+        "slug": "overview-of-the-week",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Projects Worked On",
+        "slug": "projects-worked-on",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Draft Assistant ",
+            "slug": "draft-assistant",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Studio Internal Mission Control",
+            "slug": "studio-internal-mission-control",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Creative Endeavors",
+        "slug": "creative-endeavors",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 89,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 1
+  },
+  {
+    "slug": "week-notes/2024-34",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "git",
+      "coding",
+      "database",
+      "demo",
+      "tech"
+    ],
+    "modified": "2024-10-14T23:49:12.000Z",
+    "date": "2024-08-20T15:12:56.000Z",
+    "dek": "In which the protagonist grapples with the complexities of integrating with Supabase for Connectology, seeking joy in details amidst the challenge.",
+    "hidden": false,
+    "draft": false,
+    "title": "2024-34",
+    "toc": [
+      {
+        "text": "2024-34",
+        "slug": "2024-34",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Step 1: Basic commit",
+            "slug": "step-1-basic-commit",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Step 2: Interactive commit message",
+            "slug": "step-2-interactive-commit-message",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Step 4: Interactive selection with fzf (Final version)",
+            "slug": "step-4-interactive-selection-with-fzf-final-version",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Projects Worked On",
+        "slug": "projects-worked-on",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Connectology",
+            "slug": "connectology",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 258,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "week-notes/2024-36",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "art",
+      "design",
+      "video",
+      "inspiration"
+    ],
+    "modified": "2024-10-01T22:55:12.000Z",
+    "date": "2024-09-03T17:03:11.000Z",
+    "hidden": false,
+    "draft": false,
+    "title": "2024-36",
+    "toc": [
+      {
+        "text": "2024-36",
+        "slug": "2024-36",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 87,
+    "readingTime": 1,
+    "imageCount": 21,
+    "linkCount": 21
+  },
+  {
+    "slug": "week-notes/2024-37",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "elections",
+      "journalism",
+      "politics"
+    ],
+    "modified": "2024-09-23T13:52:21.000Z",
+    "date": "2024-09-09T14:55:30.000Z",
+    "hidden": false,
+    "draft": false,
+    "title": "🌟 Overview of the Week",
+    "toc": [
+      {
+        "text": "🌟 Overview of the Week",
+        "slug": "overview-of-the-week",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "wordCount": 139,
+    "readingTime": 1,
+    "imageCount": 27,
+    "linkCount": 27
+  },
+  {
+    "slug": "week-notes/2024-38",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "motorcycle",
+      "coding",
+      "health",
+      "inspiration"
+    ],
+    "modified": "2024-10-14T23:48:21.000Z",
+    "date": "2024-09-16T12:51:03.000Z",
+    "dek": "In which the protagonist embarked on a week of creative endeavors, coding projects, and collaborations, culminating in a flurry of digital creations and video recordings.",
+    "hidden": false,
+    "draft": false,
+    "title": "🌟 Daily Check-In & Reflections",
+    "toc": [
+      {
+        "text": "🌟 Daily Check-In & Reflections",
+        "slug": "daily-check-in-reflections",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "💻 Code & Creations",
+        "slug": "code-creations",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Connectology",
+            "slug": "connectology",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Scrapbook-core",
+            "slug": "scrapbook-core",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Updated blog",
+            "slug": "updated-blog",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 477,
+    "readingTime": 2,
+    "imageCount": 9,
+    "linkCount": 11
+  },
+  {
+    "slug": "week-notes/2024-41",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
+    "modified": "2024-10-14T23:45:51.000Z",
+    "date": "2024-10-07T15:39:59.000Z",
+    "hidden": false,
+    "draft": false,
+    "title": "2024-41",
+    "toc": [
+      {
+        "text": "2024-41",
+        "slug": "2024-41",
+        "level": "h2",
+        "children": [
+          {
+            "text": "💻 Code & Creations",
+            "slug": "code-creations",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 425,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "week-notes/2024-42",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
+    "modified": "2024-10-18T01:35:31.000Z",
+    "date": "2024-10-14T22:55:47.000Z",
+    "hidden": false,
+    "draft": false,
+    "title": "2024-42",
+    "toc": [
+      {
+        "text": "2024-42",
+        "slug": "2024-42",
+        "level": "h2",
+        "children": [
+          {
+            "text": "🌟 Daily Check-In & Reflections",
+            "slug": "daily-check-in-reflections",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "💻 Code & Creations",
+            "slug": "code-creations",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "💡 Ideas & Inspirations",
+            "slug": "ideas-inspirations",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "🏋️ Health & Wellness",
+            "slug": "health-wellness",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "📚 Learning & Media",
+            "slug": "learning-media",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "🔗 Connections & Insights",
+            "slug": "connections-insights",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Interview with MW",
+            "slug": "interview-with-mw",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "🎯 Next Week's Intentions",
+            "slug": "next-week-s-intentions",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 419,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 2
+  },
+  {
+    "slug": "week-notes/2024-43",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
+    "modified": "2024-10-21T13:49:01.000Z",
+    "date": "Invalid date",
+    "hidden": false,
+    "draft": false,
+    "title": "2024-43",
+    "toc": [
+      {
+        "text": "2024-43",
+        "slug": "2024-43",
+        "level": "h2",
+        "children": [
+          {
+            "text": "🌟 Daily Check-In & Reflections",
+            "slug": "daily-check-in-reflections",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "💻 Code & Creations",
+            "slug": "code-creations",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "💡 Ideas & Inspirations",
+            "slug": "ideas-inspirations",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "🏋️ Health & Wellness",
+            "slug": "health-wellness",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "📚 Learning & Media",
+            "slug": "learning-media",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "🔗 Connections & Insights",
+            "slug": "connections-insights",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "🎯 Next Week's Intentions",
+            "slug": "next-week-s-intentions",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 96,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 0
+  },
+  {
+    "slug": "reading/Hastings-The Last Magazine",
+    "kindle-sync": {
+      "bookId": "14217",
+      "title": "The Last Magazine: A Novel",
+      "author": "Michael Hastings",
+      "asin": "B00G3L7TRM",
+      "lastAnnotatedDate": "2019-04-11",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/819oeJKp3wL._SY160.jpg",
+      "highlightsCount": 6
+    },
+    "date": "2022-12-26T16:48:07.000Z",
+    "modified": "2022-12-27T20:13:52.000Z",
+    "tags": [
+      "journalism",
+      "media",
+      "politics",
+      "writing"
+    ],
+    "hidden": false,
+    "draft": false,
+    "title": "The Last Magazine",
+    "toc": [
+      {
+        "text": "The Last Magazine",
+        "slug": "the-last-magazine",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 315,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 8
+  },
+  {
     "slug": "reading/Hazleton-After the Prophet",
     "kindle-sync": {
       "bookId": "27992",
@@ -3521,799 +4361,6 @@
     "linkCount": 5
   },
   {
-    "slug": "week-notes/2024-22",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress",
-      "art",
-      "pottery",
-      "design",
-      "webdesign",
-      "visualization"
-    ],
-    "modified": "2024-10-14T23:51:10.000Z",
-    "date": "2022-12-26T16:57:44.000Z",
-    "dek": "In which the author explores the realms of memory and creativity through scrapbooking, pottery-making, and technical innovations, culminating in a showcase of projects and a foray into pricing models.",
-    "hidden": false,
-    "draft": false,
-    "title": "🌟 Overview of the Week",
-    "toc": [
-      {
-        "text": "🌟 Overview of the Week",
-        "slug": "overview-of-the-week",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Projects Worked On",
-        "slug": "projects-worked-on",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Creative Endeavors",
-        "slug": "creative-endeavors",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Technical Accomplishments",
-        "slug": "technical-accomplishments",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Scrapbook Core",
-            "slug": "scrapbook-core",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Scrapscroller",
-            "slug": "scrapscroller",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Scrapbook-cli",
-            "slug": "scrapbook-cli",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Added Pottery Section to Website",
-            "slug": "added-pottery-section-to-website",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Added RSS feeds to ejfox.com and ejfox.photos",
-            "slug": "added-rss-feeds-to-ejfox-com-and-ejfox-photos",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Books, Movies, TV",
-        "slug": "books-movies-tv",
-        "level": "h2",
-        "children": [
-          {
-            "text": "LLM Pricing: May 2024",
-            "slug": "llm-pricing-may-2024",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 476,
-    "readingTime": 2,
-    "imageCount": 5,
-    "linkCount": 6
-  },
-  {
-    "slug": "week-notes/2024-23",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress"
-    ],
-    "modified": "2024-10-14T23:50:54.000Z",
-    "date": "2024-06-03T16:56:06.000Z",
-    "dek": "In which the author explores technology, political analysis, and personal productivity during a busy week of client work before a summer break.",
-    "hidden": false,
-    "draft": false,
-    "title": "🌟 Overview of the Week",
-    "toc": [
-      {
-        "text": "🌟 Overview of the Week",
-        "slug": "overview-of-the-week",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Comparing the contents of two folders for duplicated markdown posts",
-        "slug": "comparing-the-contents-of-two-folders-for-duplicated-markdown-posts",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 295,
-    "readingTime": 2,
-    "imageCount": 12,
-    "linkCount": 12
-  },
-  {
-    "slug": "week-notes/2024-24",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress",
-      "coding",
-      "git",
-      "video",
-      "datajournalism",
-      "visualization",
-      "javascript"
-    ],
-    "modified": "2024-10-14T23:50:34.000Z",
-    "date": "2024-06-10T21:39:36.000Z",
-    "dek": "In which the author embarked on creative projects, recorded coding tutorials, and set goals for future storytelling endeavors.",
-    "hidden": false,
-    "draft": false,
-    "title": "🌟 Overview of the Week",
-    "toc": [
-      {
-        "text": "🌟 Overview of the Week",
-        "slug": "overview-of-the-week",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Projects Worked On",
-        "slug": "projects-worked-on",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Video Recording",
-            "slug": "video-recording",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Creative Endeavors",
-        "slug": "creative-endeavors",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Books, Movies, TV",
-        "slug": "books-movies-tv",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Personal Growth & Health",
-        "slug": "personal-growth-health",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Social & Community Engagement",
-        "slug": "social-community-engagement",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Goals for the Future",
-        "slug": "goals-for-the-future",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 217,
-    "readingTime": 1,
-    "imageCount": 4,
-    "linkCount": 4
-  },
-  {
-    "slug": "week-notes/2024-26",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress",
-      "camping",
-      "travel",
-      "nature"
-    ],
-    "modified": "2024-10-14T23:50:25.000Z",
-    "date": "2024-06-25T01:39:23.000Z",
-    "dek": "In which the author recounts a delightful week spent camping at Lake George in the company of friends and family, capturing cherished moments through picturesque snapshots and videos.",
-    "hidden": false,
-    "draft": false,
-    "title": "🌟 Overview of the Week",
-    "toc": [
-      {
-        "text": "🌟 Overview of the Week",
-        "slug": "overview-of-the-week",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 50,
-    "readingTime": 1,
-    "imageCount": 6,
-    "linkCount": 6
-  },
-  {
-    "slug": "week-notes/2024-29",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress",
-      "coding",
-      "design",
-      "music",
-      "project",
-      "personal"
-    ],
-    "modified": "2024-10-14T23:50:20.000Z",
-    "date": "2024-07-17T14:53:14.000Z",
-    "dek": "In which the author embarked on a week of creative endeavors in music, projects in coding, and personal growth while house-sitting and planning for the future.",
-    "hidden": false,
-    "draft": false,
-    "title": "🌟 Overview of the Week",
-    "toc": [
-      {
-        "text": "🌟 Overview of the Week",
-        "slug": "overview-of-the-week",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Projects Worked On",
-        "slug": "projects-worked-on",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Scrapbook",
-            "slug": "scrapbook",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Connectology",
-            "slug": "connectology",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Netlify Dashboard",
-            "slug": "netlify-dashboard",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Creative Endeavors",
-        "slug": "creative-endeavors",
-        "level": "h2",
-        "children": [
-          {
-            "text": "JZULY music",
-            "slug": "jzuly-music",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Books, Movies, TV",
-        "slug": "books-movies-tv",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Personal Growth & Health",
-        "slug": "personal-growth-health",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Social & Community Engagement",
-        "slug": "social-community-engagement",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Goals for the Future",
-        "slug": "goals-for-the-future",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 398,
-    "readingTime": 2,
-    "imageCount": 12,
-    "linkCount": 14
-  },
-  {
-    "slug": "week-notes/2024-30",
-    "date": "2024-07-22T15:34:03.000Z",
-    "modified": "2024-10-14T23:50:07.000Z",
-    "tags": [
-      "art",
-      "design",
-      "visualization",
-      "photography"
-    ],
-    "hidden": false,
-    "draft": false,
-    "title": "2024-30",
-    "toc": [],
-    "wordCount": 37,
-    "readingTime": 1,
-    "imageCount": 9,
-    "linkCount": 9
-  },
-  {
-    "slug": "week-notes/2024-31",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress",
-      "coding",
-      "automation",
-      "music",
-      "health"
-    ],
-    "modified": "2024-10-14T23:49:47.000Z",
-    "date": "2024-07-30T18:56:51.000Z",
-    "dek": "In which the author reflects on building a Scrapbook system, experiments with a modular synth, and efficiently uploads videos to their blog posts via Cloudinary.",
-    "hidden": false,
-    "draft": false,
-    "title": "🌟 Overview of the Week",
-    "toc": [
-      {
-        "text": "🌟 Overview of the Week",
-        "slug": "overview-of-the-week",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Projects Worked On",
-        "slug": "projects-worked-on",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Spliff & Espresso",
-            "slug": "spliff-espresso",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Creative Endeavors",
-        "slug": "creative-endeavors",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 638,
-    "readingTime": 3,
-    "imageCount": 19,
-    "linkCount": 22
-  },
-  {
-    "slug": "week-notes/2024-32",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress",
-      "cli",
-      "coding",
-      "tool"
-    ],
-    "modified": "2024-10-14T23:49:22.000Z",
-    "date": "2024-08-05T13:13:52.000Z",
-    "dek": "In which the author creates a mystical CLI tool, delves into turning bookmarks into a knowledge graph, and sets forth on a journey towards personal growth and community engagement.",
-    "hidden": false,
-    "draft": false,
-    "title": "🌟 Overview of the Week",
-    "toc": [
-      {
-        "text": "🌟 Overview of the Week",
-        "slug": "overview-of-the-week",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Projects Worked On",
-        "slug": "projects-worked-on",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Draft Assistant ",
-            "slug": "draft-assistant",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Studio Internal Mission Control",
-            "slug": "studio-internal-mission-control",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Creative Endeavors",
-        "slug": "creative-endeavors",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 89,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 1
-  },
-  {
-    "slug": "week-notes/2024-34",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress",
-      "git",
-      "coding",
-      "database",
-      "demo",
-      "tech"
-    ],
-    "modified": "2024-10-14T23:49:12.000Z",
-    "date": "2024-08-20T15:12:56.000Z",
-    "dek": "In which the protagonist grapples with the complexities of integrating with Supabase for Connectology, seeking joy in details amidst the challenge.",
-    "hidden": false,
-    "draft": false,
-    "title": "2024-34",
-    "toc": [
-      {
-        "text": "2024-34",
-        "slug": "2024-34",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Step 1: Basic commit",
-            "slug": "step-1-basic-commit",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Step 2: Interactive commit message",
-            "slug": "step-2-interactive-commit-message",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Step 4: Interactive selection with fzf (Final version)",
-            "slug": "step-4-interactive-selection-with-fzf-final-version",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Projects Worked On",
-        "slug": "projects-worked-on",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Connectology",
-            "slug": "connectology",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 258,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "week-notes/2024-36",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress",
-      "art",
-      "design",
-      "video",
-      "inspiration"
-    ],
-    "modified": "2024-10-01T22:55:12.000Z",
-    "date": "2024-09-03T17:03:11.000Z",
-    "hidden": false,
-    "draft": false,
-    "title": "2024-36",
-    "toc": [
-      {
-        "text": "2024-36",
-        "slug": "2024-36",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 87,
-    "readingTime": 1,
-    "imageCount": 21,
-    "linkCount": 21
-  },
-  {
-    "slug": "week-notes/2024-37",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress",
-      "elections",
-      "journalism",
-      "politics"
-    ],
-    "modified": "2024-09-23T13:52:21.000Z",
-    "date": "2024-09-09T14:55:30.000Z",
-    "hidden": false,
-    "draft": false,
-    "title": "🌟 Overview of the Week",
-    "toc": [
-      {
-        "text": "🌟 Overview of the Week",
-        "slug": "overview-of-the-week",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "wordCount": 139,
-    "readingTime": 1,
-    "imageCount": 27,
-    "linkCount": 27
-  },
-  {
-    "slug": "week-notes/2024-38",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress",
-      "motorcycle",
-      "coding",
-      "health",
-      "inspiration"
-    ],
-    "modified": "2024-10-14T23:48:21.000Z",
-    "date": "2024-09-16T12:51:03.000Z",
-    "dek": "In which the protagonist embarked on a week of creative endeavors, coding projects, and collaborations, culminating in a flurry of digital creations and video recordings.",
-    "hidden": false,
-    "draft": false,
-    "title": "🌟 Daily Check-In & Reflections",
-    "toc": [
-      {
-        "text": "🌟 Daily Check-In & Reflections",
-        "slug": "daily-check-in-reflections",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "💻 Code & Creations",
-        "slug": "code-creations",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Connectology",
-            "slug": "connectology",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Scrapbook-core",
-            "slug": "scrapbook-core",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Updated blog",
-            "slug": "updated-blog",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 477,
-    "readingTime": 2,
-    "imageCount": 9,
-    "linkCount": 11
-  },
-  {
-    "slug": "week-notes/2024-41",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress"
-    ],
-    "modified": "2024-10-14T23:45:51.000Z",
-    "date": "2024-10-07T15:39:59.000Z",
-    "hidden": false,
-    "draft": false,
-    "title": "2024-41",
-    "toc": [
-      {
-        "text": "2024-41",
-        "slug": "2024-41",
-        "level": "h2",
-        "children": [
-          {
-            "text": "💻 Code & Creations",
-            "slug": "code-creations",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 425,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
-    "slug": "week-notes/2024-42",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress"
-    ],
-    "modified": "2024-10-18T01:35:31.000Z",
-    "date": "2024-10-14T22:55:47.000Z",
-    "hidden": false,
-    "draft": false,
-    "title": "2024-42",
-    "toc": [
-      {
-        "text": "2024-42",
-        "slug": "2024-42",
-        "level": "h2",
-        "children": [
-          {
-            "text": "🌟 Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "💻 Code & Creations",
-            "slug": "code-creations",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "💡 Ideas & Inspirations",
-            "slug": "ideas-inspirations",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "🏋️ Health & Wellness",
-            "slug": "health-wellness",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "📚 Learning & Media",
-            "slug": "learning-media",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "🔗 Connections & Insights",
-            "slug": "connections-insights",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Interview with MW",
-            "slug": "interview-with-mw",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "🎯 Next Week's Intentions",
-            "slug": "next-week-s-intentions",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 419,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 2
-  },
-  {
-    "slug": "week-notes/2024-43",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress"
-    ],
-    "modified": "2024-10-21T13:49:01.000Z",
-    "date": "Invalid date",
-    "hidden": false,
-    "draft": false,
-    "title": "2024-43",
-    "toc": [
-      {
-        "text": "2024-43",
-        "slug": "2024-43",
-        "level": "h2",
-        "children": [
-          {
-            "text": "🌟 Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "💻 Code & Creations",
-            "slug": "code-creations",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "💡 Ideas & Inspirations",
-            "slug": "ideas-inspirations",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "🏋️ Health & Wellness",
-            "slug": "health-wellness",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "📚 Learning & Media",
-            "slug": "learning-media",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "🔗 Connections & Insights",
-            "slug": "connections-insights",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "🎯 Next Week's Intentions",
-            "slug": "next-week-s-intentions",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 96,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0
-  },
-  {
     "slug": "drafts/room302-livestream-learning",
     "date": "2022-12-05T23:34:09.000Z",
     "modified": "2024-09-21T19:47:00.000Z",
@@ -7340,51 +7387,250 @@
     "linkCount": 40
   },
   {
-    "slug": "reading/Hastings-The Last Magazine",
-    "kindle-sync": {
-      "bookId": "14217",
-      "title": "The Last Magazine: A Novel",
-      "author": "Michael Hastings",
-      "asin": "B00G3L7TRM",
-      "lastAnnotatedDate": "2019-04-11",
-      "bookImageUrl": "https://m.media-amazon.com/images/I/819oeJKp3wL._SY160.jpg",
-      "highlightsCount": 6
-    },
-    "date": "2022-12-26T16:48:07.000Z",
-    "modified": "2022-12-27T20:13:52.000Z",
+    "slug": "2023/design-philosophy",
+    "draft": false,
+    "dek": "In which we create a few rules so we can fully unlock our creativity",
+    "inprogress": true,
+    "date": "2023-01-19T06:23:52.000Z",
+    "modified": "2024-09-20T04:26:18.000Z",
     "tags": [
-      "journalism",
-      "media",
-      "politics",
-      "writing"
+      "design"
     ],
     "hidden": false,
-    "draft": false,
-    "title": "The Last Magazine",
+    "title": "My design philosophy",
     "toc": [
       {
-        "text": "The Last Magazine",
-        "slug": "the-last-magazine",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
+        "text": "My design philosophy",
+        "slug": "my-design-philosophy",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Simplicity & Minimalism",
+            "slug": "simplicity-minimalism",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Universal Application Across Diverse Mediums",
+            "slug": "universal-application-across-diverse-mediums",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Phases of the Design Process",
+            "slug": "phases-of-the-design-process",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Paper & Sketching",
+            "slug": "paper-sketching",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Using Grids",
+            "slug": "using-grids",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "\"Designer Hat\" Vs \"Engineer Hat\"",
+            "slug": "designer-hat-vs-engineer-hat",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "The Power of Constraints",
+            "slug": "the-power-of-constraints",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Iterative process",
+            "slug": "iterative-process",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Pros/Cons Of Designing in Code",
+            "slug": "pros-cons-of-designing-in-code",
+            "level": "h3",
+            "children": []
+          }
+        ]
       }
     ],
-    "wordCount": 315,
-    "readingTime": 2,
+    "wordCount": 901,
+    "readingTime": 4,
     "imageCount": 0,
-    "linkCount": 8
+    "linkCount": 1
+  },
+  {
+    "slug": "2023/film-development",
+    "draft": false,
+    "inprogress": true,
+    "dek": "In which we use light and chemicals to make images appear, if we are lucky",
+    "date": "2023-01-06T21:50:52.000Z",
+    "modified": "2024-06-07T18:19:53.000Z",
+    "tags": [
+      "analog",
+      "photography",
+      "process",
+      "technique"
+    ],
+    "hidden": false,
+    "title": "Film Development",
+    "toc": [
+      {
+        "text": "Film Development",
+        "slug": "film-development",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Film I shoot",
+            "slug": "film-i-shoot",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "B&W 35mm Film Development Setup",
+            "slug": "b-w-35mm-film-development-setup",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Darkroom Print Setup",
+            "slug": "darkroom-print-setup",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 542,
+    "readingTime": 3,
+    "imageCount": 0,
+    "linkCount": 1
+  },
+  {
+    "slug": "2023/hacker-culture",
+    "draft": false,
+    "dek": "In which we illuminate the curious history of hackerdom and its transformative influence on our modern technological world",
+    "inprogress": true,
+    "date": "2023-01-19T06:37:52.000Z",
+    "modified": "2024-09-23T16:13:08.000Z",
+    "tags": [
+      "hackers",
+      "personal",
+      "opensource",
+      "culture",
+      "activism",
+      "inspiration"
+    ],
+    "hidden": false,
+    "title": "Hacker Culture: Unraveling the Threads of a Digital Revolution",
+    "toc": [
+      {
+        "text": "Hacker Culture: Unraveling the Threads of a Digital Revolution",
+        "slug": "hacker-culture-unraveling-the-threads-of-a-digital-revolution",
+        "level": "h2",
+        "children": [
+          {
+            "text": "The Birth of Hacker Ideology: Challenging Authority and Finding Collective Solutions",
+            "slug": "the-birth-of-hacker-ideology-challenging-authority-and-finding-collective-solutions",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Stewart Brand & The Whole Earth Catalog",
+            "slug": "stewart-brand-the-whole-earth-catalog",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Steve Jobs & The Hippies",
+            "slug": "steve-jobs-the-hippies",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Snow Crash & The Matrix",
+            "slug": "snow-crash-the-matrix",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 1919,
+    "readingTime": 8,
+    "imageCount": 1,
+    "linkCount": 12
+  },
+  {
+    "slug": "2023/how-i-built-coach-artie",
+    "draft": false,
+    "dek": "In which we build a robot to help around the shop",
+    "inprogress": true,
+    "date": "2023-03-21T19:03:11.000Z",
+    "modified": "2024-09-23T16:13:40.000Z",
+    "tags": [
+      "dataviz",
+      "gpt3",
+      "machinelearning"
+    ],
+    "hidden": false,
+    "title": "How I Built An AI Assistant for our Dataviz Studio",
+    "toc": [
+      {
+        "text": "How I Built An AI Assistant for our Dataviz Studio",
+        "slug": "how-i-built-an-ai-assistant-for-our-dataviz-studio",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Motivations",
+            "slug": "motivations",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Development",
+            "slug": "development",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Examples",
+            "slug": "examples",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Future plans",
+            "slug": "future-plans",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Thoughts",
+            "slug": "thoughts",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Coach Artie's Perspective",
+            "slug": "coach-artie-s-perspective",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 1485,
+    "readingTime": 6,
+    "imageCount": 4,
+    "linkCount": 9
   },
   {
     "slug": "2023/livestreaming",
@@ -12554,251 +12800,5 @@
     "readingTime": 6,
     "imageCount": 0,
     "linkCount": 5
-  },
-  {
-    "slug": "2023/design-philosophy",
-    "draft": false,
-    "dek": "In which we create a few rules so we can fully unlock our creativity",
-    "inprogress": true,
-    "date": "2023-01-19T06:23:52.000Z",
-    "modified": "2024-09-20T04:26:18.000Z",
-    "tags": [
-      "design"
-    ],
-    "hidden": false,
-    "title": "My design philosophy",
-    "toc": [
-      {
-        "text": "My design philosophy",
-        "slug": "my-design-philosophy",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Simplicity & Minimalism",
-            "slug": "simplicity-minimalism",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Universal Application Across Diverse Mediums",
-            "slug": "universal-application-across-diverse-mediums",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Phases of the Design Process",
-            "slug": "phases-of-the-design-process",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Paper & Sketching",
-            "slug": "paper-sketching",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Using Grids",
-            "slug": "using-grids",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "\"Designer Hat\" Vs \"Engineer Hat\"",
-            "slug": "designer-hat-vs-engineer-hat",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "The Power of Constraints",
-            "slug": "the-power-of-constraints",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Iterative process",
-            "slug": "iterative-process",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Pros/Cons Of Designing in Code",
-            "slug": "pros-cons-of-designing-in-code",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 901,
-    "readingTime": 4,
-    "imageCount": 0,
-    "linkCount": 1
-  },
-  {
-    "slug": "2023/film-development",
-    "draft": false,
-    "inprogress": true,
-    "dek": "In which we use light and chemicals to make images appear, if we are lucky",
-    "date": "2023-01-06T21:50:52.000Z",
-    "modified": "2024-06-07T18:19:53.000Z",
-    "tags": [
-      "analog",
-      "photography",
-      "process",
-      "technique"
-    ],
-    "hidden": false,
-    "title": "Film Development",
-    "toc": [
-      {
-        "text": "Film Development",
-        "slug": "film-development",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Film I shoot",
-            "slug": "film-i-shoot",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "B&W 35mm Film Development Setup",
-            "slug": "b-w-35mm-film-development-setup",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Darkroom Print Setup",
-            "slug": "darkroom-print-setup",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 542,
-    "readingTime": 3,
-    "imageCount": 0,
-    "linkCount": 1
-  },
-  {
-    "slug": "2023/hacker-culture",
-    "draft": false,
-    "dek": "In which we illuminate the curious history of hackerdom and its transformative influence on our modern technological world",
-    "inprogress": true,
-    "date": "2023-01-19T06:37:52.000Z",
-    "modified": "2024-09-23T16:13:08.000Z",
-    "tags": [
-      "hackers",
-      "personal",
-      "opensource",
-      "culture",
-      "activism",
-      "inspiration"
-    ],
-    "hidden": false,
-    "title": "Hacker Culture: Unraveling the Threads of a Digital Revolution",
-    "toc": [
-      {
-        "text": "Hacker Culture: Unraveling the Threads of a Digital Revolution",
-        "slug": "hacker-culture-unraveling-the-threads-of-a-digital-revolution",
-        "level": "h2",
-        "children": [
-          {
-            "text": "The Birth of Hacker Ideology: Challenging Authority and Finding Collective Solutions",
-            "slug": "the-birth-of-hacker-ideology-challenging-authority-and-finding-collective-solutions",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Stewart Brand & The Whole Earth Catalog",
-            "slug": "stewart-brand-the-whole-earth-catalog",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Steve Jobs & The Hippies",
-            "slug": "steve-jobs-the-hippies",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Snow Crash & The Matrix",
-            "slug": "snow-crash-the-matrix",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 1919,
-    "readingTime": 8,
-    "imageCount": 1,
-    "linkCount": 12
-  },
-  {
-    "slug": "2023/how-i-built-coach-artie",
-    "draft": false,
-    "dek": "In which we build a robot to help around the shop",
-    "inprogress": true,
-    "date": "2023-03-21T19:03:11.000Z",
-    "modified": "2024-09-23T16:13:40.000Z",
-    "tags": [
-      "dataviz",
-      "gpt3",
-      "machinelearning"
-    ],
-    "hidden": false,
-    "title": "How I Built An AI Assistant for our Dataviz Studio",
-    "toc": [
-      {
-        "text": "How I Built An AI Assistant for our Dataviz Studio",
-        "slug": "how-i-built-an-ai-assistant-for-our-dataviz-studio",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Motivations",
-            "slug": "motivations",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Development",
-            "slug": "development",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Examples",
-            "slug": "examples",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Future plans",
-            "slug": "future-plans",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Thoughts",
-            "slug": "thoughts",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Coach Artie's Perspective",
-            "slug": "coach-artie-s-perspective",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "wordCount": 1485,
-    "readingTime": 6,
-    "imageCount": 4,
-    "linkCount": 9
   }
 ]
