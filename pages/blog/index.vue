@@ -141,7 +141,7 @@ const recentlyUpdatedPosts = computed(() => {
               {{ post.title }}
             </NuxtLink>
 
-            <div class="font-mono text-xs text-zinc-300 dark:text-zinc-700 mb-2">
+            <div class="font-mono text-xs text-zinc-600 dark:text-zinc-400 mb-2">
               {{ post?.dek }}
             </div>
 
@@ -163,7 +163,7 @@ const recentlyUpdatedPosts = computed(() => {
             {{ weekNote.slug.split('/')[1] }}
           </span>
 
-          <p v-if="weekNote.dek" class="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
+          <p v-if="weekNote.dek" class="text-xs text-zinc-500 mt-2">
             {{ weekNote.dek }}
           </p>
         </NuxtLink>

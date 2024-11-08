@@ -2,8 +2,8 @@
 date: "2024-11-07T16:50:52.000Z"
 modified: "2024-11-08T18:32:54.000Z"
 share: true
-hidden: true
-draft: true
+hidden: false
+draft: false
 ---
 ## QuestsIRL (MVP Scope)
 
