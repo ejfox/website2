@@ -16,7 +16,6 @@ const destinationDirectory = 'content/blog/'
 
 const excludedFolders = [
   'project-notes',
-  'robots',
   'templates',
   'video-scripts',
   '.obsidian',
@@ -61,7 +60,22 @@ function processFile(filePath, relativePath) {
     const data = readFileSync(filePath, 'utf8')
     const { attributes, body } = frontMatter(data)
 
-    const destinationFolder = path.join(destinationDirectory, relativePath)
+    // Skip files that don't have explicit sharing enabled in sensitive folders
+    const sensitiveDirectories = ['robots']
+    if (sensitiveDirectories.some(dir => relativePath.includes(dir))) {
+      if (!attributes.share) {
+        console.log(`Skipping private file in sensitive directory: ${filePath}`)
+        return
+      }
+    }
+
+    // Determine destination path - put shared robot notes in a special folder
+    let destinationRelativePath = relativePath
+    if (relativePath.includes('robots') && attributes.share) {
+      destinationRelativePath = 'robots'
+    }
+
+    const destinationFolder = path.join(destinationDirectory, destinationRelativePath)
     const destinationFilePath = path.join(
       destinationFolder,
       path.basename(filePath)

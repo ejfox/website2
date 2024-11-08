@@ -110,5 +110,15 @@ export default defineNuxtConfig({
     routeRules: {
       '/rss.xml': { prerender: true }
     }
+  },
+
+  imports: {
+    // ... other imports
+    imports: [
+      {
+        from: '#imports',
+        name: 'queryContent'
+      }
+    ]
   }
 })

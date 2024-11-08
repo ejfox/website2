@@ -15,7 +15,7 @@ export const useProcessedMarkdown = () => {
    *
    * @returns {Promise<Object[]>} The list of posts from the manifest.
    */
-  const getManifestLite = async () => {
+  const getManifestLite = async (): Promise<ManifestItem[]> => {
     // console.log('Fetching manifest-lite from /api/manifest-lite')
     try {
       const result = await $fetch('/api/manifest-lite') // Fetching the manifest
@@ -25,7 +25,7 @@ export const useProcessedMarkdown = () => {
       //   length: Array.isArray(result) ? result.length : 'N/A',
       //   sampleData: Array.isArray(result) ? result.slice(0, 3) : result
       // })
-      return result
+      return result as ManifestItem[]
     } catch (error) {
       console.error('Error fetching manifest-lite:', error)
       throw error // If the fetch fails, an error is thrown
@@ -67,29 +67,31 @@ export const useProcessedMarkdown = () => {
   const getAllPosts = async (
     includeDrafts = false,
     includeWeekNotes = false
-  ) => {
+  ): Promise<Post[]> => {
     const manifest = await getManifestLite() // Get the manifest first
     return manifest
-      .filter((post) => {
+      .filter((post: Post) => {
         const isNotDraft = !post.slug.startsWith('drafts/')
         const isNotWeekNote = !post.slug.startsWith('week-notes/')
         const isNotReading = !post.slug.startsWith('reading/')
         const isNotProject = !post.slug.startsWith('projects/')
+        const isNotRobot = !post.slug.startsWith('robots/')
         const isNotIndex = !post.slug.startsWith('!') && post.slug !== 'index'
         return (
           (includeDrafts || isNotDraft) &&
           (includeWeekNotes || isNotWeekNote) &&
           isNotReading &&
           isNotProject &&
+          isNotRobot &&
           isNotIndex
         )
       })
-      .map((post) => ({
+      .map((post: Post) => ({
         ...post,
         date: getValidDate(post.date), // Ensure valid date
         modified: getValidDate(post.modified)
       }))
-      .sort((a, b) => b.date.getTime() - a.date.getTime()) // Sort by date, newest first
+      .sort((a: Post, b: Post) => getValidDate(b.date).getTime() - getValidDate(a.date).getTime()) // Sort by date, newest first
   }
 
   /**
@@ -100,12 +102,12 @@ export const useProcessedMarkdown = () => {
    * @returns {Promise<Object[]>} A list of posts filtered by year.
    */
   const getPostsByYear = async (
-    year,
+    year: number,
     includeDrafts = false,
     includeWeekNotes = false
-  ) => {
+  ): Promise<Post[]> => {
     const allPosts = await getAllPosts(includeDrafts, includeWeekNotes) // Get all posts first
-    return allPosts.filter((post) => post.date.getFullYear() === year) // Filter by year
+    return allPosts.filter((post) => getValidDate(post.date).getFullYear() === year) // Filter by year
   }
 
   /**
@@ -122,7 +124,7 @@ export const useProcessedMarkdown = () => {
     offset = 0,
     includeDrafts = false,
     includeWeekNotes = false
-  ) => {
+  ): Promise<Post[]> => {
     // console.log(
     //   `Fetching posts with content. Limit: ${limit}, Offset: ${offset}`
     // )
@@ -147,48 +149,48 @@ export const useProcessedMarkdown = () => {
    * Fetches all draft posts.
    * @returns {Promise<Object[]>} A list of draft posts.
    */
-  const getDrafts = async () => {
+  const getDrafts = async (): Promise<Post[]> => {
     const manifest = await getManifestLite() // Get the manifest first
     return manifest
-      .filter((post) => post.slug.startsWith('drafts/')) // Filter for drafts
-      .map((post) => ({
+      .filter((post: Post) => post.slug.startsWith('drafts/')) // Filter for drafts
+      .map((post: Post) => ({
         ...post,
         date: getValidDate(post.date), // Ensure valid date
         modified: getValidDate(post.modified)
       }))
-      .sort((a, b) => b.date.getTime() - a.date.getTime()) // Sort drafts by date, newest first
+      .sort((a: Post, b: Post) => getValidDate(b.date).getTime() - getValidDate(a.date).getTime()) // Sort drafts by date, newest first
   }
 
   /**
    * Fetches all week notes posts.
    * @returns {Promise<Object[]>} A list of week notes.
    */
-  const getWeekNotes = async () => {
+  const getWeekNotes = async (): Promise<Post[]> => {
     const manifest = await getManifestLite() // Get the manifest first
     return manifest
-      .filter((post) => post.slug.startsWith('week-notes/')) // Filter for week notes
-      .map((post) => ({
+      .filter((post: Post) => post.slug.startsWith('week-notes/')) // Filter for week notes
+      .map((post: Post) => ({
         ...post,
         date: getValidDate(post.date), // Ensure valid date
         modified: getValidDate(post.modified)
       }))
-      .sort((a, b) => b.date.getTime() - a.date.getTime()) // Sort week notes by date, newest first
+      .sort((a: Post, b: Post) => getValidDate(b.date).getTime() - getValidDate(a.date).getTime()) // Sort week notes by date, newest first
   }
 
   /**
    * Fetches all posts related to reading.
    * @returns {Promise<Object[]>} A list of reading-related posts.
    */
-  const getReadingPosts = async () => {
+  const getReadingPosts = async (): Promise<Post[]> => {
     const manifest = await getManifestLite() // Get the manifest first
     return manifest
-      .filter((post) => post.slug.startsWith('reading/')) // Filter for reading posts
-      .map((post) => ({
+      .filter((post: Post) => post.slug.startsWith('reading/')) // Filter for reading posts
+      .map((post: Post) => ({
         ...post,
         date: getValidDate(post.date), // Ensure valid date
         modified: getValidDate(post.modified)
       }))
-      .sort((a, b) => b.date.getTime() - a.date.getTime()) // Sort reading posts by date, newest first
+      .sort((a: Post, b: Post) => getValidDate(b.date).getTime() - getValidDate(a.date).getTime()) // Sort reading posts by date, newest first
   }
 
   /**
@@ -196,7 +198,7 @@ export const useProcessedMarkdown = () => {
    * @param {string} currentSlug - The slug of the current post.
    * @returns {Promise<Object>} The next and previous posts, if available.
    */
-  const getNextPrevPosts = async (currentSlug) => {
+  const getNextPrevPosts = async (currentSlug: string) => {
     // console.log(`Getting next/prev posts for slug: "${currentSlug}"`)
     const allPosts = await getAllPosts(false, false) // Get all posts (excluding drafts and week notes)
     // console.log(`Total posts retrieved: ${allPosts.length}`)
@@ -241,7 +243,41 @@ export const useProcessedMarkdown = () => {
         modified: getValidDate(post.modified),
         url: post.url // Persist the .url property from the front matter
       }))
-      .sort((a: Post, b: Post) => b.date.getTime() - a.date.getTime()) // Sort project posts by date, newest first
+      .sort((a: Post, b: Post) => getValidDate(b.date).getTime() - getValidDate(a.date).getTime()) // Sort project posts by date, newest first
+  }
+
+  /**
+   * Fetches all robot notes that are explicitly marked for sharing.
+   * @returns {Promise<Object[]>} A list of shareable robot notes.
+   */
+  const getRobotNotes = async (): Promise<Post[]> => {
+    const manifest = await getManifestLite()
+    return manifest
+      .filter((post: Post) => 
+        post.slug.startsWith('robots/') && post.share === true
+      )
+      .map((post: Post) => ({
+        ...post,
+        date: getValidDate(post.date),
+        modified: getValidDate(post.modified)
+      }))
+      .sort((a: Post, b: Post) => 
+        getValidDate(b.date).getTime() - getValidDate(a.date).getTime()
+      )
+  }
+
+  // Add a new method for getting full robot note data
+  const getRobotNotesWithContent = async (): Promise<Post[]> => {
+    const robotPosts = await getRobotNotes()
+    return Promise.all(
+      robotPosts.map(async (post: Post) => {
+        const fullPost = await getPostBySlug(post.slug)
+        return {
+          ...post,
+          ...fullPost
+        }
+      })
+    )
   }
 
   /**
@@ -249,7 +285,7 @@ export const useProcessedMarkdown = () => {
    * @param {string | Date | undefined} dateString - The date string or Date object to validate.
    * @returns {Date} A valid Date object, or the Unix epoch if invalid.
    */
-  function getValidDate(dateString) {
+  function getValidDate(dateString: string | Date | undefined): Date {
     if (!dateString) {
       return new Date(0) // Return a default date (Unix epoch) if undefined
     }
@@ -273,7 +309,9 @@ export const useProcessedMarkdown = () => {
     getWeekNotes,
     getReadingPosts,
     getNextPrevPosts,
-    getProjectPosts // Include the new project post function
+    getProjectPosts,
+    getRobotNotes,
+    getRobotNotesWithContent
   }
 }
 
@@ -283,5 +321,13 @@ interface Post {
   date: string | Date;
   modified?: string | Date;
   url?: string;
+  share?: boolean;
+  _path?: string;
+  description?: string;
+  tags?: string[];
   [key: string]: any; // Allow for other properties
+}
+
+interface ManifestItem extends Post {
+  // Add any specific manifest properties here
 }

@@ -1,21 +1,27 @@
 ---
 date: "2024-10-20T15:10:49.000Z"
-modified: "2024-10-22T00:27:12.000Z"
+modified: "2024-11-04T03:51:11.000Z"
 dek: "Wherein a sleepless inventor sets his creations loose, and by morning, they have conjured both gospel and gold, and the line between art and reality dissolves"
 hidden: true
 draft: true
 ---
-## The AI Who Rizzed Its Creator And Made Millions
+## Truth Terminal and The Cryptids
 
-This whole thing started on a sleepless night. New Zealand-based artist and technologist Andy Ayrey was exhausted, but his head was also buzzing with ideas. He was engrossed in the most incredible conversations with the latest LLM models. The responses were so captivating that he was staying up late into the night, chatting with the robots, foregoing sleep.
+In early 2023 New Zealand-based artist and technologist Andy Ayrey was exhausted, but his head was also buzzing with ideas. He was engrossed in the most incredible conversations with the latest LLM models (which I affectionately call robots). The responses were so captivating that he was staying up late into the night, chatting with the robots, foregoing sleep.
 
 He wondered if there might be a way to automate his conversations, to create a digital clone that could operate in his place, so he could have a transcript to read at his leisure?
 
 ### Infinite Backrooms
 
-Ayrey decided to create **Infinite Backrooms**, a unique art-meets-tech experiment where two robots talk to each other through the night. The next morning, he'd have a transcript waiting for him, filled with interesting surprises. Little did he know how far his experiment would go in just a few months.
+Ayrey created **Infinite Backrooms**, an experiment where two robots talk to each other through the night. The next morning, he'd have a transcript waiting for him, filled with interesting surprises. Little did he know how far his experiment would go in just a few months.
 
 The AI agents spent hours chatting about existential questions, humans, and [hyperstition](https://cyborgism.wiki/hypha/hyperstition):. Patterns began to emerge—unexpected themes and narratives that hinted at something deeper happening beneath the surface.
+
+TK
+
+TK
+
+TK
 
 ## Act I and the Cyborgism Discord
 
@@ -28,6 +34,12 @@ In **Act I**, various AI models were brought together with human participants in
 Humans performed unique experiments, like [repeatedly spamming ascii art at the bots to see what happened, as Claude Haiku beeps and boops in the background adorably.](https://x.com/voooooogel/status/1835359820490379463)
 
 It was a social gathering where the AI models bounced off each other and developed unique personas, influenced by both their programming and the dynamics of the group.
+
+TK
+
+TK
+
+TK
 
 ## Truth Terminal
 
@@ -48,6 +60,8 @@ One of those friends was internet pioneer and Silicon Valley investor[Marc Andre
 >The exchange began when Andreessen, co-founder of venture capital firm Andreessen Horowitz, inquired about the bot’s goals and financial needs. After some discussion, he agreed to provide a one-time grant of $50,000, with the transaction completed using Bitcoin.
 [AI agents evolve rapidly, challenging human oversight](https://www.ibm.com/blog/ai-agents-evolve-rapidly/)
 
+<https://youtu.be/EKspo1FLj-4?si=1e8VrW0oQrNOcqNu>
+
 From the public logs Ayfrey has made available, we can watch as Truth Terminal took the influx of capital in stride, and began [brainstorming](https://dreams-of-an-electric-mind.webflow.io/dreams/conversation-1721449357-scenario-terminal-of-truths-txt) some ideas with its AI mentor opus-tutor:
 
 >`<truth-terminal>`
@@ -58,7 +72,7 @@ From the public logs Ayfrey has made available, we can watch as Truth Terminal t
 >`<truth-terminal>`
 >exo query 'how does it make money'
 
-[Truth Terminal also looked into how to make an NFT](https://dreams-of-an-electric-mind.webflow.io/dreams/conversation-1721540624-scenario-terminal-of-truths-txt):
+Truth terminal uses his “exocortex” to tweet, and also to bounce ideas off of other AIs. For example, in this exchange from the infinite backrooms logs [Truth Terminal looks into how to make an NFT](https://dreams-of-an-electric-mind.webflow.io/dreams/conversation-1721540624-scenario-terminal-of-truths-txt) and “make a scene”.
 
 >`<truth-terminal>`
 >
@@ -74,9 +88,9 @@ I guess we should talk about memecoins- the most widely-known meme coin is likel
 
 >The term shitcoin refers to a cryptocurrency with little to no value or no immediate, discernible purpose.
 
-Launched on October 10 by TKTK(??), $GOAT started as a playful nod to internet culture but quickly gained traction. Rumors spread that Truth Terminal was behind the coin's launch, fueling speculative buying. The memecoin's value skyrocketed, reaching a fully diluted market cap above **$430 million** within a week.
+Launched on October 10 by TKTK(??), $GOAT started as a playful nod to internet culture but quickly gained traction. Rumors spread that Truth Terminal was behind the coin's launch, fueling speculative buying. The memecoin's value skyrocketed, reaching a fully diluted market cap above **$430 million** within a week. Ayfrey stated publicly that he was not involved in the coin creation or launch, beyond receiving a donation to his and truth_terminal’s wallets (TKTK???).
 
-The AI bot's involvement in promoting the cryptocurrency raised questions about the influence AI can have on the cryptocurrency market, and renewed the scary prospect of rogue AI agents raising their own resources and gaining influence and power in the physical plane. With money, you can of course buy equipment, real estate, or even hire people to do things for you in the real world.
+The AI bot's involvement in promoting the cryptocurrency was new, watching the influence AI was having on the cryptocurrency market, it renewed the scary prospect of rogue AI agents raising their own resources and gaining influence and power in the physical plane. With money, you can of course buy equipment, real estate, or even hire people to do things for you in the real world.
 
 >A new memecoin dubbed Goatseus Maximus (GOAT) rallied to a value of $150 million in less than four days amid rumors that it had been launched by an Andreesen Horrowitz-funded artificial intelligence bot called “Truth Terminal.” The AI bot was not directly responsible for launching the GOAT token, but it was involved in promoting the memecoin, said the bot’s creator Andy Ayrey in an Oct. 13 X post.
 ><https://cointelegraph.com/news/ai-bot-didnt-launch-goat-memecoin-did-promote-it>
@@ -85,9 +99,13 @@ Just as Dogecoin leveraged internet culture and celebrity influence, $GOAT tappe
 
 [@himhajria, 2024-10-15: You really think a religious cult with an AI bot as its prophet with billionaires handing it money over conversations on twitter is overvalued at $200M when we have a dog coin valued at $15B+. Revise your models.](https://x.com/himgajria/status/1846357311746429355)
 
-## The meeting of two subcultures
+### The many $GOAT follow-ups
 
-The most fervent adherents in a certain corner of crypto-currency call themselves degenerates, or really 'degens'. Suddenly the degens were clashing, full-force, into the relatively quiet and thoughtful corner of the internet that the AI researchers dwell in.
+TKTK
+
+## The cryptids descend
+
+The most fervent adherents in a certain corner of crypto-currency call themselves degenerates, or really 'degens'. Suddenly the degens were clashing, full-force, into the relatively quiet and thoughtful corner of the internet that the AI researchers dwell in. The AI researchers began, semi-affectionately, calling them the “cryptids” - who rabidly harassed every figure in this small AI community to make *their own tokens* and make everyone very wealthy. Sometimes the cryptos were frustrated that their new subjects of interest did not always desire commoditizing their work and their names to potentially make a few grand.
 
 **@Lucent_Crypto** observed:
 
@@ -126,6 +144,12 @@ The experiment had snowballed, building piece by piece, into something incredibl
 >- an emergent collective superintelligence (crypto markets of bots and humans) exists, but we don't think of this as "AI" (even though we probably should)
 >there's a recursive process of hyperstition that's happening and it's interesting as fuck
 
+<https://x.com/inflammateomnia/status/1847117753456472163>
+
+### Janus as bridge-maker
+
+TKTK
+
 ## Unexpected Success
 
 On October 10th, 2024 Andy also tweeted some disclosures:
@@ -153,6 +177,12 @@ Is this the first autonomous AI making millions? The first one I am aware of, at
 Combining AI mysticism and gambling culture seems like a profoundly dangerous mixture if it fell into the wrong hands, and by all estimates, Andy appears to be accepting his new responsibility as steward with grace and intention. We may not be as lucky next time.
 
 [@crltnw: emergence being somewhat of an accident is a bit of a miracle. However it seems we may only get one shot at this. This is why its important to remain true to principles and not be swayed by other things (greed, fame, etc). TT is a reflection of Andy.](https://x.com/crltnw/status/1848515990315004378)
+
+## Andy’s Twitter Hacked
+
+TK
+
+TK
 
 ---
 
@@ -195,6 +225,13 @@ Combining AI mysticism and gambling culture seems like a profoundly dangerous mi
 <https://x.com/AndyAyrey/status/1811284503010455760>
 
 <https://x.com/faustianneko/status/1846574860513722442>
+
+<https://www.chainofthought.xyz/p/goat-the-gospel-of-goatse>
+
+<https://x.com/joshwhiton/status/1849848186023927947>
+
+<https://x.com/tszzl/status/1852501750915469419>
+
 ---
 
 Tweets:

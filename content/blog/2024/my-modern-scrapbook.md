@@ -1,7 +1,7 @@
 ---
 dek: "In which we attempt to craft some treasure from the debris of a life lived on the internet"
 date: "2024-09-20T04:22:35.000Z"
-modified: "2024-10-13T14:17:27.000Z"
+modified: "2024-11-05T16:50:13.000Z"
 tags: ["inspiration","dataviz","design","howto","politics"]
 hidden: false
 draft: false
@@ -94,8 +94,6 @@ The robot and I created a [command-line tool to explore my scraps](https://githu
 I've also been itching to replace my doomscrolling with something productive, and I wish that in the moments I caught myself aimlessly wading through brainrot videos, I was instead doing something creative. Going back through my research isn't exactly the same as *making something*, but it's definitely better than other ways I spend my time. So I decided to create an [infinite-scrolling interface for my scraps called scrapscroller](https://github.com/ejfox/scrapscroller).
 
 ![](http://res.cloudinary.com/ejf/video/upload/q_auto/w_768/e_loop/v1722611463/Screen_Recording_2024-08-02_at_11.10.26_AM.gif)
-
-<iframe src="https://vizhub.com/ejfox/da3067b792034b859717e257798d9bc1?mode=embed&embed=branded" width="960" height="500" style="width: 100%;" scrolling="no" frameborder="no"></iframe>
 
 ## Quickly recalling my research
 

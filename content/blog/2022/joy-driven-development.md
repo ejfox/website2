@@ -2,7 +2,7 @@
 dek: "In which we use joy and curiosity as fuel to propel us forward"
 inprogress: true
 date: "2022-11-03T00:06:51.000Z"
-modified: "2024-09-20T04:25:41.000Z"
+modified: "2024-10-29T18:10:00.000Z"
 tags: ["coding"]
 hidden: false
 draft: false
@@ -43,38 +43,3 @@ There may be misconceptions about centering joy in the work process, and it may 
 There are times when you need to do your chores, and that is not always fun. But having all of your chores done is joyful. Making a client happy is joyful. Creating work that makes the world better is joyful. If you can remember that as you hand-clean a dataset or debug a complicated SQL query, you can find the joy in those tasks too. Joy-driven development doesn't mean that we only do work that brings us joy, it means that joy is the gas that powers the engine.
 
 By entwining threads of joy into the fabric of our work, we not only cultivate more satisfying experiences for ourselves but also craft joy-filled creations that resonate with users.
-
-1. Introduction (1-2 minutes):
-   - Open with a vibrant, colorful montage of you and your team working on various projects, showcasing the energy and enthusiasm that comes with enjoying your work.
-   - Introduce the concept of "Joy-Driven Development" as a philosophy that has been guiding your approach to work for the past few years.
-   - Emphasize the core idea of using joy and curiosity as fuel to propel your work forward and create better outcomes.
-
-2. Discovering the Spark (2-3 minutes):
-   - Explain what Joy-Driven Development is and how it differs from traditional development methodologies.
-   - Use engaging visuals and animations to illustrate the key principles of this approach, such as prioritizing happiness, well-being, and passion for coding and collaboration.
-   - Highlight the benefits of Joy-Driven Development, including increased productivity, creativity, and overall better work.
-
-3. Curiosity as Fuel (2-3 minutes):
-   - Discuss the importance of leaning into your natural curiosity and using it as a driving force in your work.
-   - Share personal examples of how following your curiosity has led to joyful and successful projects.
-   - Use metaphorical visuals to represent the idea of curiosity as fuel, such as a rocket being propelled by a vibrant, colorful energy source.
-
-4. The Joyful Compass (2-3 minutes):
-   - Introduce the concept of the "Joyful Compass" as a tool for decision-making in Joy-Driven Development.
-   - Explain how prioritizing joy for yourself and your team can guide you towards the best outcomes.
-   - Use a creative visual representation of a compass, with joy as the north star, to illustrate this concept.
-
-5. Addressing the Skeptics (2-3 minutes):
-   - Acknowledge the potential misconceptions about Joy-Driven Development, such as it being frivolous or lazy.
-   - Counter these misconceptions by emphasizing the focus on both the experience of the team and the quality of the final product.
-   - Use examples from your own work to demonstrate how finding joy in even the most mundane tasks can lead to better results.
-
-6. The Impact of Joy-Driven Development (2-3 minutes):
-   - Share success stories and testimonials from your team and clients about the positive impact of Joy-Driven Development.
-   - Highlight the ways in which this approach has led to more satisfying work experiences, better collaboration, and ultimately, more successful projects.
-   - Use a combination of interviews, project footage, and data visualizations to illustrate the tangible benefits of this philosophy.
-
-7. Conclusion and Call-to-Action (1-2 minutes):
-   - Summarize the key points of Joy-Driven Development and the importance of using joy and curiosity as fuel in your work.
-   - Encourage viewers to embrace this philosophy in their own lives and work, and to prioritize their happiness and well-being as a means to create better outcomes.
-   - End with an inspiring visual metaphor, such as a team of developers riding a wave of colorful energy, representing the power and potential of Joy-Driven Development.
