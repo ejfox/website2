@@ -13,8 +13,8 @@ export default defineEventHandler(async (event) => {
     const manifest = JSON.parse(await readFile(manifestPath, 'utf-8'))
 
     const filteredPosts = manifest
-      .filter(post => !post.hidden) // Filter out hidden posts
-      .filter(post => {
+      .filter((post: { hidden?: boolean; slug: string; dek?: string; draft?: boolean }) => !post.hidden) // Filter out hidden posts
+      .filter((post: { slug: string; dek?: string }) => {
         // Filter out week notes without deks
         if (post.slug.startsWith('week-notes/')) {
           const weekMatch = post.slug.match(/(\d{4})-(\d{2})/)
@@ -29,12 +29,14 @@ export default defineEventHandler(async (event) => {
         }
         return true
       })
-      .filter(note => !note.hidden)
-      // filter out any projects or drafts  
-      .filter(note => !note.draft)
+      .filter((note: { hidden?: boolean }) => !note.hidden)
+      // filter out any drafts  
+      .filter((note: { draft?: boolean }) => !note.draft)
       // make sure not in the /projects folder
-      .filter(note => !note.slug.startsWith('projects/'))
-      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+      .filter((note: { slug: string }) => !note.slug.startsWith('projects/'))
+      // Add protection for robot notes
+      .filter((note: { slug: string }) => !note.slug.startsWith('robots/'))
+      .sort((a: { date: string }, b: { date: string }) => new Date(b.date).getTime() - new Date(a.date).getTime())
       .slice(0, 20)
 
     const rss = `<?xml version="1.0" encoding="UTF-8"?>
