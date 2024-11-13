@@ -75,7 +75,16 @@ export default defineNuxtConfig({
       // baseUrl: process.env.BASE_URL,
       baseUrl: 'https://localhost:3000',
       OPENAI_API_KEY: process.env.OPENAI_API_KEY,
-      PRODUCTION: process.env.PRODUCTION
+      PRODUCTION: process.env.PRODUCTION,
+      donations: {
+        crypto: {
+          BTC: '3DE42VUyUKSikQ9eUeFKv2EkKVms7Pmd1G',
+          ETH: '0x63958715F8e9Fd6CF0652394a89bb2AdD0a11686',
+          SOL: '97V8rDTyHuL1oTTt3qC3oUXckTKSQVM7Fhd3rj5692cL'
+        },
+        github: 'ejfox',
+        kofi: 'ejfox'
+      }
     }
   },
 
@@ -99,7 +108,6 @@ export default defineNuxtConfig({
     },
     client: {
       key: process.env.STRIPE_PUBLISHABLE_KEY,
-
       options: {}
     }
   },

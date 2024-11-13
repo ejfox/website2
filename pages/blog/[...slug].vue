@@ -2,6 +2,7 @@
 import { format, isValid, parseISO } from 'date-fns'
 import { animate, stagger, onScroll, utils } from '~/anime.esm.js'
 import { useWindowSize } from '@vueuse/core'
+import DonationSection from '~/components/blog/DonationSection.vue'
 
 const config = useRuntimeConfig()
 const isDark = useDark()
@@ -189,6 +190,12 @@ useHead(() => ({
 const isBlogPost = computed(() => {
   return route.path.startsWith('/blog/') && route.path !== '/blog/'
 })
+
+// Add computed property to check if donations should be shown
+const showDonations = computed(() => {
+  // Show donations by default unless explicitly disabled in frontmatter
+  return post.value?.donation !== false
+})
 </script>
 
 <template>
@@ -245,6 +252,9 @@ const isBlogPost = computed(() => {
           </NuxtLink>
         </div>
       </div>
+
+      <!-- Add donation section only if not explicitly disabled -->
+      <DonationSection v-if="showDonations" />
     </article>
     <div v-else-if="error"
       class="flex flex-col items-center justify-center min-h-[50vh] bg-gray-100 dark:bg-gray-900 px-4 rounded-lg shadow-md">

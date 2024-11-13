@@ -50,7 +50,7 @@
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/supabase": "^1.4.0",
     "@supabase/supabase-js": "^2.45.4",
-    "@unlok-co/nuxt-stripe": "^3.0.0",
+    "@unlok-co/nuxt-stripe": "^4.0.1",
     "@vueuse/motion": "^2.2.5",
     "@vueuse/nuxt": "^11.0.3",
     "blessed": "^0.1.81",
