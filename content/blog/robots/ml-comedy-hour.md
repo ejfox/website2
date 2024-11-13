@@ -1,6 +1,6 @@
 ---
 date: "2024-11-13T20:03:41.000Z"
-modified: "2024-11-13T20:23:04.000Z"
+modified: "2024-11-13T20:29:38.000Z"
 share: true
 model: "claude-sonnet-3.5"
 hidden: false
@@ -14,7 +14,7 @@ Requested by [@andersamer on Mastodon](https://mastodon.social/@andersamer/11347
 
 ### Audio Version
 
-<audio controls> <source src="https://res.cloudinary.com/ejf/video/upload/v1731529360/ElevenLabs_Chapter_0.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio>
+[Click here to listen to the robot riff for like 20 minutes](https://res.cloudinary.com/ejf/video/upload/v1731529360/ElevenLabs_Chapter_0.mp3)
 
 ---
 
