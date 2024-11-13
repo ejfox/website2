@@ -1,36 +1,72 @@
-name: Process Markdown and Auto-Toot
+name: Process New Markdown Files
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'content/**/*.md'  # Only run on markdown file changes
+      - 'content/**/*.md'
   pull_request:
     types: [opened, synchronize, reopened]
     paths:
-      - 'content/**/*.md'  # Only run on markdown file changes
+      - 'content/**/*.md'
 
 jobs:
-  process-and-toot:
+  check-and-process:
     runs-on: ubuntu-latest
-    # Don't run on PRs from forks for security
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          fetch-depth: 2  # Fetch the last two commits for diff
+          fetch-depth: 2
+
+      - name: Check for new markdown files
+        id: check-files
+        run: |
+          # Get all changed .md files
+          CHANGED_FILES=$(git diff --name-only HEAD^ HEAD | grep '\.md$' || true)
+          
+          # Debug output
+          echo "Changed markdown files:"
+          echo "$CHANGED_FILES"
+          
+          # Initialize flag
+          NEEDS_PROCESSING=false
+          
+          # Check each changed .md file
+          while IFS= read -r file; do
+            if [ -n "$file" ]; then
+              # Convert path from content/blog/post.md to content/processed/blog/post.json
+              JSON_PATH=$(echo "$file" | sed 's/\.md$/.json/' | sed 's|content/|content/processed/|')
+              
+              # Debug output
+              echo "Checking for: $JSON_PATH"
+              
+              # If .json doesn't exist, we need to process
+              if [ ! -f "$JSON_PATH" ]; then
+                echo "JSON file not found - will process"
+                NEEDS_PROCESSING=true
+                break
+              fi
+            fi
+          done <<< "$CHANGED_FILES"
+          
+          # Set output
+          echo "needs_processing=$NEEDS_PROCESSING" >> $GITHUB_OUTPUT
 
       - name: Set up Node.js
+        if: steps.check-files.outputs.needs_processing == 'true'
         uses: actions/setup-node@v3
         with:
           node-version: 20
 
       - name: Install dependencies
+        if: steps.check-files.outputs.needs_processing == 'true'
         run: yarn install
 
       - name: Cache content hash
+        if: steps.check-files.outputs.needs_processing == 'true'
         uses: actions/cache@v2
         with:
           path: cache/content-hash-cache.json
@@ -39,6 +75,7 @@ jobs:
             ${{ runner.os }}-content-hash-
 
       - name: Process Markdown
+        if: steps.check-files.outputs.needs_processing == 'true'
         run: node scripts/processMarkdown.mjs
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
@@ -50,15 +87,16 @@ jobs:
           STRIPE_PUBLISHABLE_KEY: ${{ secrets.STRIPE_PUBLISHABLE_KEY }}
           STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
 
-
       - name: Commit changes
+        if: steps.check-files.outputs.needs_processing == 'true'
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add content cache
-          git commit -m "chore: process markdown and auto-toot" || echo "No changes to commit"
+          git commit -m "chore: process new markdown files" || echo "No changes to commit"
 
       - name: Push changes
+        if: steps.check-files.outputs.needs_processing == 'true'
         run: |
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
           git push
