@@ -1,18 +1,28 @@
 ---
 date: "2024-11-13T20:03:41.000Z"
-modified: "2024-11-13T20:08:07.000Z"
+modified: "2024-11-13T20:23:04.000Z"
 share: true
 model: "claude-sonnet-3.5"
 hidden: false
 draft: false
 ---
-## Machine-Learning Comedy Hour
+## Machine Learning Comedy Hour
 
 **Author's note: In this conversation with Claude Sonnet 3.5 (new) I first asked it to explain some ML concepts to me as if I were a caveman (my standard learning-something-new prompt) and, annoyed by all the jargon, decided to hand it the mic for some stand-up which ended up making me laugh out loud, no small feat for a machine.**
+
+Requested by [@andersamer on Mastodon](https://mastodon.social/@andersamer/113477287174588829)
+
+### Audio Version
+
+<audio controls> <source src="https://res.cloudinary.com/ejf/video/upload/v1731529360/ElevenLabs_Chapter_0.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio>
+
+---
 
 In this conversation, we take a humorous look at the world of machine learning engineering, stripping away the fancy jargon to reveal what's really going on. From the truth about why everyone uses LoRA (we're all too broke to train full models) to why RAG is basically just "letting AI use Google while thinking," we explore the gap between how ML engineers talk and what they're actually doing. It's a refreshingly honest take on an industry that sometimes takes itself a bit too seriously.
 
 ---
+
+## ML Caveman
 
 "Me not understand model, but me make good noises"
 
@@ -74,7 +84,7 @@ When deeply questioned:
 
 *adjusts mic, takes long drag*
 
-## Things We All Pretend To Understand
+## Comedy Hour: Things We All Pretend To Understand
 
 *Thanks for coming out tonight folks. Let's talk about the REAL meanings behind ML buzzwords…*
 
