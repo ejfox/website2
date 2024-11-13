@@ -1169,7 +1169,7 @@
     std-env "^3.7.0"
     tinyglobby "^0.2.9"
 
-"@nuxt/kit@3.13.2", "@nuxt/kit@^3.10.3", "@nuxt/kit@^3.11.2", "@nuxt/kit@^3.12.3", "@nuxt/kit@^3.13.0", "@nuxt/kit@^3.13.1", "@nuxt/kit@^3.13.2":
+"@nuxt/kit@3.13.2", "@nuxt/kit@^3.10.3", "@nuxt/kit@^3.12.3", "@nuxt/kit@^3.13.0", "@nuxt/kit@^3.13.1", "@nuxt/kit@^3.13.2":
   version "3.13.2"
   resolved "https://registry.yarnpkg.com/@nuxt/kit/-/kit-3.13.2.tgz#4c019a87e08c33ec14d1059497ba40568b82bfed"
   integrity sha512-KvRw21zU//wdz25IeE1E5m/aFSzhJloBRAQtv+evcFeZvuroIxpIQuUqhbzuwznaUwpiWbmwlcsp5uOWmi4vwA==
@@ -1717,10 +1717,10 @@
     unified "^10.1.0"
     unist-util-visit "^4.0.0"
 
-"@stripe/stripe-js@^3.3.0":
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/@stripe/stripe-js/-/stripe-js-3.5.0.tgz#7fff3d9d931e972c24dcc8ee25f7481a58879b2b"
-  integrity sha512-pKS3wZnJoL1iTyGBXAvCwduNNeghJHY6QSRSNNvpYnrrQrLZ6Owsazjyynu0e0ObRgks0i7Rv+pe2M7/MBTZpQ==
+"@stripe/stripe-js@^4.7.0":
+  version "4.10.0"
+  resolved "https://registry.yarnpkg.com/@stripe/stripe-js/-/stripe-js-4.10.0.tgz#5c785f9a5a500113d69d98c16061e0addd1c0305"
+  integrity sha512-KrMOL+sH69htCIXCaZ4JluJ35bchuCCznyPyrbN8JXSGQfwBI1SuIEMZNwvy8L8ykj29t6sa5BAAiL7fNoLZ8A==
 
 "@supabase/auth-js@2.65.0":
   version "2.65.0"
@@ -2061,16 +2061,16 @@
     hookable "^5.5.3"
     unhead "1.11.9"
 
-"@unlok-co/nuxt-stripe@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@unlok-co/nuxt-stripe/-/nuxt-stripe-3.0.0.tgz#769dac36fec068b0bcf5294040823fe9bcaaadc5"
-  integrity sha512-68PdI/CO8CkrtJEIbvaWRXUrfpZTHXL2uf+kmeuZ/JuLDkY1/496oTA4chvRhHt0m0C7RWCR0nEVYdcFGIaArQ==
+"@unlok-co/nuxt-stripe@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@unlok-co/nuxt-stripe/-/nuxt-stripe-4.0.1.tgz#d6e2d1cef7429f1457288bc0f38f978b0a2d1f3e"
+  integrity sha512-ThRf6RcUV3OJpRMRw18bMPmncBeCCe9CLWTZ2H1fD2uJ+lfjBi4f6Wysg+suHIv8bxTyIRBx6mgjbsbjeH3EXg==
   dependencies:
     "@jest/globals" "^29.7.0"
-    "@nuxt/kit" "^3.11.2"
-    "@stripe/stripe-js" "^3.3.0"
+    "@nuxt/kit" "^3.13.2"
+    "@stripe/stripe-js" "^4.7.0"
     defu "^6.1.2"
-    stripe "^15.1.0"
+    stripe "^17.1.0"
 
 "@vercel/nft@^0.26.5":
   version "0.26.5"
@@ -2539,6 +2539,16 @@ argparse@^2.0.1:
   resolved "https://registry.yarnpkg.com/argparse/-/argparse-2.0.1.tgz#246f50f3ca78a3240f6c997e8a9bd1eac49e4b38"
   integrity sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==
 
+asn1.js@^5.0.0:
+  version "5.4.1"
+  resolved "https://registry.yarnpkg.com/asn1.js/-/asn1.js-5.4.1.tgz#11a980b84ebb91781ce35b0fdc2ee294e3783f07"
+  integrity sha512-+I//4cYPccV8LdmBLiX8CYvf9Sp3vQsrqu2QNXRcrbiWvcx/UdlFiqUJJzxRQxgsZmvhXhn4cSKeSmoFjVdupA==
+  dependencies:
+    bn.js "^4.0.0"
+    inherits "^2.0.1"
+    minimalistic-assert "^1.0.0"
+    safer-buffer "^2.1.0"
+
 ast-kit@^1.0.1, ast-kit@^1.1.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/ast-kit/-/ast-kit-1.3.0.tgz#37c8b7418b6c59b1e593d7790dc6c2b1c0814761"
@@ -2722,6 +2732,11 @@ blessed@^0.1.81:
   version "0.1.81"
   resolved "https://registry.yarnpkg.com/blessed/-/blessed-0.1.81.tgz#f962d687ec2c369570ae71af843256e6d0ca1129"
   integrity sha512-LoF5gae+hlmfORcG1M5+5XZi4LBmvlXTzwJWzUlPryN/SJdSflZvROM2TwkT0GMpq7oqT48NRd4GS7BiVBc5OQ==
+
+bn.js@^4.0.0:
+  version "4.12.1"
+  resolved "https://registry.yarnpkg.com/bn.js/-/bn.js-4.12.1.tgz#215741fe3c9dba2d7e12c001d0cfdbae43975ba7"
+  integrity sha512-k8TVBiPkPJT9uHLdOKfFpqcfprwBFOAAXXozRubr7R7PfIuKvQlzcI4M0pALeqXN09vdaMbUdUj+pass+uULAg==
 
 boolbase@^1.0.0:
   version "1.0.0"
@@ -5152,7 +5167,7 @@ inflight@^1.0.4:
     once "^1.3.0"
     wrappy "1"
 
-inherits@2, inherits@2.0.4, inherits@^2.0.3, inherits@~2.0.3:
+inherits@2, inherits@2.0.4, inherits@^2.0.1, inherits@^2.0.3, inherits@~2.0.3:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.4.tgz#0fa2c64f932917c3433a0ded55363aae37416b7c"
   integrity sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==
@@ -6679,6 +6694,11 @@ mini-svg-data-uri@^1.0.0, mini-svg-data-uri@^1.2.3:
   resolved "https://registry.yarnpkg.com/mini-svg-data-uri/-/mini-svg-data-uri-1.4.4.tgz#8ab0aabcdf8c29ad5693ca595af19dd2ead09939"
   integrity sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==
 
+minimalistic-assert@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/minimalistic-assert/-/minimalistic-assert-1.0.1.tgz#2e194de044626d4a10e7f7fbc00ce73e83e4d5c7"
+  integrity sha512-UtJcAD4yEaGtjPezWuO9wC4nwUnVH/8/Im3yEHQP4b67cXlD/Qr9hdITCU1xDbSEXg2XKNaP8jsReV7vQd00/A==
+
 minimatch@^3.0.4, minimatch@^3.1.1:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.1.2.tgz#19cd194bfd3e428f049a70817c038d89ab4be35b"
@@ -7240,6 +7260,13 @@ openapi-typescript@^6.7.6:
     supports-color "^9.4.0"
     undici "^5.28.4"
     yargs-parser "^21.1.1"
+
+openpgp@5.10.2:
+  version "5.10.2"
+  resolved "https://registry.yarnpkg.com/openpgp/-/openpgp-5.10.2.tgz#695112abbccbdf13a399094e2153dcb899c99ede"
+  integrity sha512-nRqMp4o31rBagWB02tgfKCsocXWq4uYobZf9GDVlD5rQXBq/wRIZHiDhGX1dlDAI2inkZcPd2dSZOqmtGnsK1A==
+  dependencies:
+    asn1.js "^5.0.0"
 
 p-limit@^2.2.0:
   version "2.3.0"
@@ -8299,7 +8326,7 @@ safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"
   integrity sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==
 
-"safer-buffer@>= 2.1.2 < 3.0.0":
+"safer-buffer@>= 2.1.2 < 3.0.0", safer-buffer@^2.1.0:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
@@ -8737,10 +8764,10 @@ strip-literal@^2.1.0:
   dependencies:
     js-tokens "^9.0.0"
 
-stripe@^15.1.0:
-  version "15.12.0"
-  resolved "https://registry.yarnpkg.com/stripe/-/stripe-15.12.0.tgz#a30c242861f9c97dd31d3078fb0673d9bd10efe2"
-  integrity sha512-slTbYS1WhRJXVB8YXU8fgHizkUrM9KJyrw4Dd8pLEwzKHYyQTIE46EePC2MVbSDZdE24o1GdNtzmJV4PrPpmJA==
+stripe@^17.1.0:
+  version "17.3.1"
+  resolved "https://registry.yarnpkg.com/stripe/-/stripe-17.3.1.tgz#901e91e85f6bdbbe10094debab13ef2a9d4c0fc0"
+  integrity sha512-E9/u+GFBPkYnTmfFCoKX3+gP4R3SkZoGunHe4cw9J+sqkj5uxpLFf1LscuI9BuEyIQ0PFAgPTHavgQwRtOvnag==
   dependencies:
     "@types/node" ">=8.1.0"
     qs "^6.11.0"
@@ -9654,11 +9681,6 @@ vscode-languageserver@^7.0.0:
   integrity sha512-60HTx5ID+fLRcgdHfmz0LDZAXYEV68fzwG0JWwEPBode9NuMYTIxuYXPg4ngO8i8+Ou0lM7y6GzaYWbiDL0drw==
   dependencies:
     vscode-languageserver-protocol "3.16.0"
-
-"vscode-textmate@git+https://github.com/octref/vscode-textmate.git":
-  version "4.0.1"
-  uid e65aabe2227febda7beaad31dd0fca1228c5ddf3
-  resolved "git+https://github.com/octref/vscode-textmate.git#e65aabe2227febda7beaad31dd0fca1228c5ddf3"
 
 "vscode-textmate@https://github.com/octref/vscode-textmate":
   version "4.0.1"

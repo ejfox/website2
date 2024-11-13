@@ -2,6 +2,8 @@
 import { format, isValid, parseISO } from 'date-fns'
 import { animate, stagger, onScroll, utils } from '~/anime.esm.js'
 import { useWindowSize } from '@vueuse/core'
+import DonationSection from '~/components/blog/DonationSection.vue'
+import BlogSignatureInfo from '~/components/blog/SignatureInfo.vue'
 
 const config = useRuntimeConfig()
 const isDark = useDark()
@@ -189,6 +191,42 @@ useHead(() => ({
 const isBlogPost = computed(() => {
   return route.path.startsWith('/blog/') && route.path !== '/blog/'
 })
+
+// Add computed property to check if donations should be shown
+const showDonations = computed(() => {
+  // Show donations by default unless explicitly disabled in frontmatter
+  return post.value?.donation !== false
+})
+
+const verificationStatus = ref(null)
+
+// Only verify if there's a signature in the frontmatter
+onMounted(async () => {
+  if (post.value?.signature) {
+    try {
+      const publicKey = await fetch('/pgp.txt').then(r => r.text())
+      const openpgp = await import('openpgp')
+
+      // Create message from post content
+      const message = [
+        post.value.title,
+        post.value.date,
+        post.value.content
+      ].join('\n')
+
+      const verified = await openpgp.verify({
+        message: await openpgp.createMessage({ text: message }),
+        signature: await openpgp.readSignature({ armoredSignature: post.value.signature }),
+        verificationKeys: await openpgp.readKey({ armoredKey: publicKey })
+      })
+
+      verificationStatus.value = verified.signatures[0].valid
+    } catch (err) {
+      console.error('Verification failed:', err)
+      verificationStatus.value = false
+    }
+  }
+})
 </script>
 
 <template>
@@ -245,6 +283,14 @@ const isBlogPost = computed(() => {
           </NuxtLink>
         </div>
       </div>
+
+      <!-- Add donation section only if not explicitly disabled -->
+      <DonationSection v-if="showDonations" />
+
+      <!-- Add this near the end of the post if it has a signature -->
+      <div v-if="post.content.includes('PGP SIGNATURE')" class="mt-8 border-t pt-4">
+        <BlogSignatureInfo :path="route.params.slug.join('/')" />
+      </div>
     </article>
     <div v-else-if="error"
       class="flex flex-col items-center justify-center min-h-[50vh] bg-gray-100 dark:bg-gray-900 px-4 rounded-lg shadow-md">
@@ -299,6 +345,19 @@ const isBlogPost = computed(() => {
         </div>
       </div>
     </teleport>
+
+    <!-- Add subtle verification badge -->
+    <div v-if="verificationStatus !== null"
+      class="fixed bottom-4 right-4 flex items-center space-x-2 text-sm px-3 py-1.5 rounded-full" :class="{
+        'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300': verificationStatus,
+        'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300': !verificationStatus
+      }">
+      <span class="font-mono">
+        {{ verificationStatus ? '✓ Verified' : '⚠ Unverified' }}
+      </span>
+      <UIcon :name="verificationStatus ? 'i-heroicons-shield-check' : 'i-heroicons-shield-exclamation'"
+        class="w-4 h-4" />
+    </div>
   </div>
 </template>
 
