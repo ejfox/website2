@@ -17,6 +17,17 @@
               {{ link.text }}
               <UIcon v-if="link.external" name="i-ei-external-link" class="w-3 h-3 inline-block" />
             </NuxtLink>
+
+            <div class="border-t border-zinc-200 dark:border-zinc-800 mt-2 pt-2">
+              <div class="px-4 py-2 text-sm text-zinc-500 dark:text-zinc-400 flex items-center justify-between">
+                <a href="/pgp.txt" class="hover:text-zinc-800 dark:hover:text-zinc-300">
+                  PGP: E207 8E65...
+                </a>
+                <NuxtLink to="/verify" class="hover:text-zinc-800 dark:hover:text-zinc-300">
+                  verify →
+                </NuxtLink>
+              </div>
+            </div>
           </div>
         </Transition>
       </nav>
@@ -42,6 +53,21 @@
               <UIcon name="i-ei-external-link" class="w-3 md:w-4 h-3 md:h-4 inline-block" />
             </NuxtLink>
 
+          </div>
+
+          <div class="mt-8 px-4 opacity-50 hover:opacity-100 transition-opacity group hidden md:block">
+            <svg id="pgp-fingerprint" width="200" height="32" class="w-full">
+              <!-- Will be populated by D3 -->
+            </svg>
+            <div class="text-xs mt-1 text-zinc-500 dark:text-zinc-400 flex items-center justify-between">
+              <a href="/pgp.txt" class="hover:text-zinc-800 dark:hover:text-zinc-300 transition-colors">
+                PGP: E207 8E65 3FE3 89CD
+              </a>
+              <NuxtLink to="/verify"
+                class="opacity-0 group-hover:opacity-100 transition-opacity hover:text-zinc-800 dark:hover:text-zinc-300">
+                verify →
+              </NuxtLink>
+            </div>
           </div>
         </div>
 

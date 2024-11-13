@@ -11,7 +11,8 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "prettier": "prettier {*.*,**/*.*} --single-quote --write",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src"
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
+    "sign-post": "bash scripts/sign-post.sh"
   },
   "devDependencies": {
     "@iconify/utils": "^2.1.33",
@@ -67,6 +68,7 @@
     "mermaid-isomorphic": "^2.2.1",
     "node-cache": "^5.1.2",
     "openai": "^4.67.3",
+    "openpgp": "5.10.2",
     "p-limit": "^6.1.0",
     "puppeteer-core": "^23.4.1",
     "rehype-slug": "^6.0.0",

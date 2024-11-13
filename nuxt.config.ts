@@ -116,7 +116,12 @@ export default defineNuxtConfig({
 
   nitro: {
     routeRules: {
-      '/rss.xml': { prerender: true }
+      '/rss.xml': { prerender: true },
+      '/pgp.txt': {
+        headers: {
+          'content-type': 'application/pgp-keys'
+        }
+      }
     }
   },
 
