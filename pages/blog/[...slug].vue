@@ -231,6 +231,10 @@ onMounted(async () => {
 
 <template>
   <div>
+
+    <Head>
+      <Meta name="robots" :content="post.robotsMeta || 'index, follow'" />
+    </Head>
     <article v-if="post && !post.redirect" class="scroll-container pt-4 md:pt-2">
       <div ref="postMetadata">
         <PostMetadata :doc="post" class="paddings" />

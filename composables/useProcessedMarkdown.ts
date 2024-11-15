@@ -68,17 +68,20 @@ export const useProcessedMarkdown = () => {
     includeDrafts = false,
     includeWeekNotes = false
   ): Promise<Post[]> => {
-    const manifest = await getManifestLite() // Get the manifest first
+    const manifest = await getManifestLite()
     return manifest
       .filter((post: Post) => {
         const isNotDraft = !post.slug.startsWith('drafts/')
+        const isSharedDraft = post.slug.startsWith('drafts/') && post.share === true
         const isNotWeekNote = !post.slug.startsWith('week-notes/')
         const isNotReading = !post.slug.startsWith('reading/')
         const isNotProject = !post.slug.startsWith('projects/')
         const isNotRobot = !post.slug.startsWith('robots/')
         const isNotIndex = !post.slug.startsWith('!') && post.slug !== 'index'
+        
         return (
-          (includeDrafts || isNotDraft) &&
+          // Only include drafts if they're explicitly shared
+          (includeDrafts ? isSharedDraft : isNotDraft) &&
           (includeWeekNotes || isNotWeekNote) &&
           isNotReading &&
           isNotProject &&
@@ -88,10 +91,10 @@ export const useProcessedMarkdown = () => {
       })
       .map((post: Post) => ({
         ...post,
-        date: getValidDate(post.date), // Ensure valid date
+        date: getValidDate(post.date),
         modified: getValidDate(post.modified)
       }))
-      .sort((a: Post, b: Post) => getValidDate(b.date).getTime() - getValidDate(a.date).getTime()) // Sort by date, newest first
+      .sort((a: Post, b: Post) => getValidDate(b.date).getTime() - getValidDate(a.date).getTime())
   }
 
   /**
@@ -150,15 +153,18 @@ export const useProcessedMarkdown = () => {
    * @returns {Promise<Object[]>} A list of draft posts.
    */
   const getDrafts = async (): Promise<Post[]> => {
-    const manifest = await getManifestLite() // Get the manifest first
+    const manifest = await getManifestLite()
     return manifest
-      .filter((post: Post) => post.slug.startsWith('drafts/')) // Filter for drafts
+      .filter((post: Post) => 
+        // Only include drafts that are explicitly marked for sharing
+        post.slug.startsWith('drafts/') && post.share === true
+      )
       .map((post: Post) => ({
         ...post,
-        date: getValidDate(post.date), // Ensure valid date
+        date: getValidDate(post.date),
         modified: getValidDate(post.modified)
       }))
-      .sort((a: Post, b: Post) => getValidDate(b.date).getTime() - getValidDate(a.date).getTime()) // Sort drafts by date, newest first
+      .sort((a: Post, b: Post) => getValidDate(b.date).getTime() - getValidDate(a.date).getTime())
   }
 
   /**

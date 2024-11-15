@@ -28,6 +28,7 @@ import crypto from 'crypto'
 import { stat } from 'fs/promises'
 import { promisify } from 'util'
 import { socialPlatforms, hrSvg, headerStar } from '../helpers.mjs'
+import { createHash } from 'crypto'
 const setTimeoutPromise = promisify(setTimeout)
 
 // =============================
@@ -288,17 +289,24 @@ async function processMarkdown(content, filePath) {
     `Metadata calculated: ${wordCount} words, ${readingTime} min read, ${imageCount} images, ${linkCount} links`
   )
 
+  // Generate robots meta content
+  const robotsMeta = generateRobotsMetaContent(frontmatter, filePath)
+  
+  // Add robots meta to the metadata
+  const metadata = {
+    ...frontmatter,
+    robotsMeta,
+    title: frontmatter.title || firstHeading || path.basename(filePath, '.md'),
+    toc,
+    wordCount,
+    readingTime,
+    imageCount,
+    linkCount
+  }
+
   return {
     html,
-    metadata: {
-      ...frontmatter,
-      title: frontmatter.title || firstHeading || path.basename(filePath, '.md'),
-      toc,
-      wordCount,
-      readingTime,
-      imageCount,
-      linkCount
-    }
+    metadata
   }
 }
 
@@ -665,3 +673,19 @@ function log(message, level = 'info') {
 
 // Start processing all markdown files
 processAllFiles().catch(console.error)
+
+// Add this function to generate robots meta tag content
+function generateRobotsMetaContent(frontmatter, filePath) {
+  // Always noindex drafts unless explicitly shared
+  if (filePath.includes('/drafts/') && frontmatter.share !== true) {
+    return 'noindex, nofollow'
+  }
+  
+  // Use frontmatter robots directive if present
+  if (frontmatter.robots) {
+    return frontmatter.robots
+  }
+  
+  // Default to index, follow
+  return 'index, follow'
+}

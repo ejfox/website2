@@ -60,8 +60,14 @@ function processFile(filePath, relativePath) {
     const data = readFileSync(filePath, 'utf8')
     const { attributes, body } = frontMatter(data)
 
+    // Skip drafts that don't have explicit sharing enabled
+    if (relativePath.includes('drafts/') && !attributes.share) {
+      console.log(`Skipping non-shared draft: ${filePath}`)
+      return
+    }
+
     // Skip files that don't have explicit sharing enabled in sensitive folders
-    const sensitiveDirectories = ['robots']
+    const sensitiveDirectories = ['robots', 'drafts']
     if (sensitiveDirectories.some(dir => relativePath.includes(dir))) {
       if (!attributes.share) {
         console.log(`Skipping private file in sensitive directory: ${filePath}`)
