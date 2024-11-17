@@ -6,6 +6,7 @@
   "url": "https://ejfox.com/pottery/",
   "hidden": false,
   "draft": false,
+  "robotsMeta": "index, follow",
   "toc": [],
   "wordCount": 31,
   "readingTime": 1,

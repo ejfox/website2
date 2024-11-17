@@ -6,6 +6,7 @@
   "url": "https://hopeunderwater.com/",
   "hidden": false,
   "draft": false,
+  "robotsMeta": "index, follow",
   "toc": [],
   "wordCount": 29,
   "readingTime": 1,

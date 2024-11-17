@@ -6,6 +6,7 @@
   "model": "claude-sonnet-3.5",
   "hidden": false,
   "draft": false,
+  "robotsMeta": "index, follow",
   "title": "Machine Learning Comedy Hour",
   "toc": [
     {

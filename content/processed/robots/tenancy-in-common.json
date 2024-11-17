@@ -5,6 +5,7 @@
   "share": true,
   "hidden": false,
   "draft": false,
+  "robotsMeta": "index, follow",
   "title": "Co-Buyer Pre-Meeting Checklist",
   "toc": [
     {

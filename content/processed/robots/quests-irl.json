@@ -5,6 +5,7 @@
   "share": true,
   "hidden": false,
   "draft": false,
+  "robotsMeta": "index, follow",
   "title": "QuestsIRL (MVP Scope)",
   "toc": [
     {

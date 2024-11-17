@@ -5,6 +5,7 @@
   "share": true,
   "hidden": false,
   "draft": false,
+  "robotsMeta": "index, follow",
   "title": "ejfox.news Phase 1: Core Development Plan",
   "toc": [
     {

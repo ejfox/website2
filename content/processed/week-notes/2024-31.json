@@ -14,6 +14,7 @@
   "dek": "In which the author reflects on building a Scrapbook system, experiments with a modular synth, and efficiently uploads videos to their blog posts via Cloudinary.",
   "hidden": false,
   "draft": false,
+  "robotsMeta": "index, follow",
   "title": "🌟 Overview of the Week",
   "toc": [
     {

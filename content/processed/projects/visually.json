@@ -6,6 +6,7 @@
   "url": "https://en.wikipedia.org/wiki/Visual.ly",
   "hidden": false,
   "draft": false,
+  "robotsMeta": "index, follow",
   "toc": [],
   "wordCount": 75,
   "readingTime": 1,

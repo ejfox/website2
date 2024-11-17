@@ -9,6 +9,7 @@
   "date": "Invalid date",
   "hidden": false,
   "draft": false,
+  "robotsMeta": "index, follow",
   "title": "2024-43",
   "toc": [
     {
