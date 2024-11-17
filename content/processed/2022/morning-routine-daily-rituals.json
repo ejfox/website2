@@ -12,6 +12,7 @@
     "health"
   ],
   "hidden": false,
+  "robotsMeta": "index, follow",
   "title": "My Morning Routine and Daily Rituals",
   "toc": [
     {

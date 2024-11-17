@@ -12,6 +12,7 @@
     "event"
   ],
   "draft": false,
+  "robotsMeta": "index, follow",
   "title": "2018 In Review",
   "toc": [
     {

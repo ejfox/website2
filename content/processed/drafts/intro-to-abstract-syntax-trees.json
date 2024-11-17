@@ -11,6 +11,7 @@
   ],
   "hidden": true,
   "draft": true,
+  "robotsMeta": "noindex, nofollow",
   "title": "Introduction To Abstract Syntax Trees",
   "toc": [
     {

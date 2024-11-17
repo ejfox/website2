@@ -15,6 +15,7 @@
     "visualization"
   ],
   "draft": true,
+  "robotsMeta": "index, follow",
   "title": "Tags",
   "toc": [
     {

@@ -10,6 +10,7 @@
   ],
   "hidden": false,
   "draft": false,
+  "robotsMeta": "index, follow",
   "title": "Camera Setup",
   "toc": [
     {

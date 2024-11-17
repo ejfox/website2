@@ -16,6 +16,7 @@
   ],
   "hidden": true,
   "draft": true,
+  "robotsMeta": "noindex, nofollow",
   "title": "Getting started with embeddings in JS",
   "toc": [
     {

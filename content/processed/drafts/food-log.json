@@ -8,6 +8,7 @@
   "modified": "2024-10-05T16:06:18.000Z",
   "hidden": true,
   "draft": true,
+  "robotsMeta": "noindex, nofollow",
   "title": "Meal Log - {{date:YYYY-MM-DD}}",
   "toc": [
     {

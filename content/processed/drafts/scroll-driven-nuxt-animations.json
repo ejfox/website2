@@ -10,6 +10,7 @@
   ],
   "hidden": true,
   "draft": true,
+  "robotsMeta": "noindex, nofollow",
   "title": "Creating Scroll-Powered Animations in Nuxt",
   "toc": [
     {

@@ -12,6 +12,7 @@
   ],
   "hidden": false,
   "draft": false,
+  "robotsMeta": "index, follow",
   "title": "Experiments with Live Looping",
   "toc": [
     {

@@ -12,6 +12,7 @@
     "mapping",
     "mastodon"
   ],
+  "robotsMeta": "noindex, nofollow",
   "title": "Mapping The Mastodon Fediverse",
   "toc": [
     {

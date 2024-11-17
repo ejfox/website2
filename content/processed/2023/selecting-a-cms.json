@@ -13,6 +13,7 @@
     "writing"
   ],
   "hidden": false,
+  "robotsMeta": "index, follow",
   "title": "A Thoughtful Approach to Choosing a Modern CMS",
   "toc": [
     {

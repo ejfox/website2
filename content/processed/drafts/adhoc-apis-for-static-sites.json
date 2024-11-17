@@ -12,6 +12,7 @@
     "sqlite",
     "api"
   ],
+  "robotsMeta": "noindex, nofollow",
   "title": "Host and client-side query Parquet",
   "toc": [
     {

@@ -8,6 +8,7 @@
     "tech",
     "howto"
   ],
+  "robotsMeta": "noindex, nofollow",
   "title": "Getting started with Mastodon",
   "toc": [
     {

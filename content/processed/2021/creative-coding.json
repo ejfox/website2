@@ -13,6 +13,7 @@
     "audio"
   ],
   "draft": false,
+  "robotsMeta": "index, follow",
   "title": "Generative Art",
   "toc": [
     {
