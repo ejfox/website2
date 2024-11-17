@@ -13,6 +13,7 @@
     "network"
   ],
   "draft": false,
+  "robotsMeta": "index, follow",
   "title": "Finding Clusters of NYPD Officers In CCRB Complaint Data",
   "toc": [
     {

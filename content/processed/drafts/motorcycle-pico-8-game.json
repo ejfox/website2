@@ -14,6 +14,7 @@
   ],
   "hidden": true,
   "draft": true,
+  "robotsMeta": "noindex, nofollow",
   "title": "My first Pico-8 game: Motorcycle.p8",
   "toc": [
     {

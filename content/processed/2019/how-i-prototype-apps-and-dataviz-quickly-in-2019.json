@@ -14,6 +14,7 @@
     "webdesign"
   ],
   "draft": false,
+  "robotsMeta": "index, follow",
   "title": "How I prototype apps and dataviz quickly",
   "toc": [
     {

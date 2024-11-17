@@ -13,6 +13,7 @@
   ],
   "hidden": false,
   "draft": false,
+  "robotsMeta": "index, follow",
   "title": "The Art of Coding: A Developer's Guide",
   "toc": [
     {

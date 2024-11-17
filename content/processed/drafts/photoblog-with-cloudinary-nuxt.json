@@ -9,6 +9,7 @@
     "automation"
   ],
   "hidden": true,
+  "robotsMeta": "noindex, nofollow",
   "title": "Creating a photoblog with Cloudinary and Nuxt",
   "toc": [
     {

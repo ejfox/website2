@@ -12,6 +12,7 @@
   ],
   "hidden": true,
   "draft": true,
+  "robotsMeta": "noindex, nofollow",
   "title": "Advanced Animations and Transitions in Vue",
   "toc": [
     {

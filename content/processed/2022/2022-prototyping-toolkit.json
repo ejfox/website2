@@ -16,6 +16,7 @@
     "tool"
   ],
   "hidden": false,
+  "robotsMeta": "index, follow",
   "title": "2022 Toolkit for Prototyping",
   "toc": [
     {

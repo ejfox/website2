@@ -9,6 +9,7 @@
   ],
   "hidden": true,
   "draft": true,
+  "robotsMeta": "noindex, nofollow",
   "title": "Adding a Paywall to your Nuxt+Supabase App",
   "toc": [
     {

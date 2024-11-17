@@ -9,6 +9,7 @@
   ],
   "hidden": true,
   "draft": true,
+  "robotsMeta": "noindex, nofollow",
   "title": "How to use polycam scans in web applications with three.js",
   "toc": [
     {

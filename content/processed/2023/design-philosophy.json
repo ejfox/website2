@@ -9,6 +9,7 @@
     "design"
   ],
   "hidden": false,
+  "robotsMeta": "index, follow",
   "title": "My design philosophy",
   "toc": [
     {

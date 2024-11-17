@@ -15,6 +15,7 @@
     "america"
   ],
   "draft": false,
+  "robotsMeta": "index, follow",
   "title": "The Lack of Data",
   "toc": [
     {

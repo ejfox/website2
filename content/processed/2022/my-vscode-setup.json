@@ -11,6 +11,7 @@
     "process"
   ],
   "hidden": false,
+  "robotsMeta": "index, follow",
   "title": "My VSCode setup and favorite plugins",
   "toc": [
     {

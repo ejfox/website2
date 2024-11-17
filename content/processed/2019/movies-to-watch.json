@@ -13,6 +13,7 @@
     "documentary"
   ],
   "draft": false,
+  "robotsMeta": "index, follow",
   "title": "Movies to Watch",
   "toc": [
     {

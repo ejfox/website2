@@ -13,6 +13,7 @@
     "osint"
   ],
   "draft": false,
+  "robotsMeta": "index, follow",
   "title": "Attempting to find unsecured ICE cameras",
   "toc": [
     {

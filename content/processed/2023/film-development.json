@@ -12,6 +12,7 @@
     "technique"
   ],
   "hidden": false,
+  "robotsMeta": "index, follow",
   "title": "Film Development",
   "toc": [
     {

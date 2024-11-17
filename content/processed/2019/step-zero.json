@@ -12,6 +12,7 @@
     "process"
   ],
   "draft": false,
+  "robotsMeta": "index, follow",
   "title": "Step Zero",
   "toc": [
     {
