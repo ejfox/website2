@@ -35,30 +35,32 @@
         <div class="flex items-start justify-between gap-3">
           <div class="min-w-0 flex-1">
             <div class="flex items-start gap-2">
-              <h3 class="font-medium leading-snug truncate flex-1" :title="item.Name">
+              <h3 class="font-medium uppercase leading-snug truncate flex-1" :title="item.Name">
                 {{ item.Name }}
               </h3>
             </div>
 
+            <!-- Comment out Amazon section for now -->
             <div class="py-2" v-if="item.amazon">
               <!-- Enhanced Amazon link -->
-              <a :href="item.amazon" target="_blank" rel="nofollow noopener" class="px-2 py-0.5 text-xs rounded-full 
-                        bg-black text-white dark:bg-white dark:text-black" :title="`Buy ${item.Name} on Amazon`">
+              <a :href="item.amazon" target="_blank" rel="nofollow noopener" class="inline-flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-medium rounded-full 
+                        bg-amber-50 text-amber-600 border border-amber-200 hover:bg-amber-100
+                        dark:bg-amber-500/10 dark:text-amber-400 dark:border-amber-500/20 dark:hover:bg-amber-500/20
+                        transition-colors" :title="`Buy ${item.Name} on Amazon`">
                 <UIcon name="i-heroicons-shopping-cart" class="w-3 h-3" />
                 <span>Buy yourself</span>
               </a>
             </div>
 
-
             <!-- Stats row -->
             <div class="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1 text-xs">
               <!-- Weight(s) -->
               <div class="flex items-center gap-2 text-zinc-500 dark:text-zinc-400 group/weight">
-                <UIcon name="i-heroicons-scale" class="w-3.5 h-3.5" />
-                <div class="flex items-center gap-2">
+                <UIcon name="i-heroicons-scale" class="w-3.5 h-3.5 shrink-0" />
+                <div class="flex flex-col gap-1">
                   <!-- Base Weight -->
                   <div v-if="baseWeight" class="flex items-center gap-1.5">
-                    <div class="flex flex-wrap gap-px max-w-[4rem]">
+                    <div class="flex flex-wrap gap-px max-w-[3rem] sm:max-w-[4rem]">
                       <div v-for="n in Math.floor(baseWeight)" :key="n"
                         class="w-1 h-1 rounded-full bg-current opacity-50" :title="`${baseWeight}oz base weight`">
                       </div>
@@ -66,15 +68,15 @@
                         :style="{ transform: `scale(${partialBaseOunce})` }" :title="`${baseWeight}oz base weight`">
                       </div>
                     </div>
-                    <span class="tabular-nums text-[10px] shrink-0">
+                    <span class="tabular-nums text-[10px] shrink-0 whitespace-nowrap">
                       {{ baseWeight }}oz
                       <span class="text-zinc-400">(base)</span>
                     </span>
                   </div>
 
-                  <!-- Loaded Weight if different -->
+                  <!-- Loaded Weight -->
                   <div v-if="loadedWeight && loadedWeight !== baseWeight" class="flex items-center gap-1.5">
-                    <div class="flex flex-wrap gap-px max-w-[4rem]">
+                    <div class="flex flex-wrap gap-px max-w-[3rem] sm:max-w-[4rem]">
                       <div v-for="n in Math.floor(loadedWeight)" :key="n"
                         class="w-1 h-1 rounded-full bg-current opacity-50" :title="`${loadedWeight}oz loaded`">
                       </div>
@@ -82,7 +84,7 @@
                         :style="{ transform: `scale(${partialLoadedOunce})` }" :title="`${loadedWeight}oz loaded`">
                       </div>
                     </div>
-                    <span class="tabular-nums text-[10px] shrink-0">
+                    <span class="tabular-nums text-[10px] shrink-0 whitespace-nowrap">
                       {{ loadedWeight }}oz
                       <span class="text-zinc-400">(loaded)</span>
                     </span>
@@ -207,4 +209,7 @@ const updateViz = useDebounceFn(() => {
 
 onMounted(() => window.addEventListener('resize', updateViz))
 onUnmounted(() => window.removeEventListener('resize', updateViz))
+
+// Comment out Amazon import
+// import AmazonReferenceItem from './AmazonReferenceItem.vue'
 </script>

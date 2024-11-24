@@ -114,7 +114,7 @@
     <div class="max-w-3xl mb-12">
       <!-- Primary Stats -->
       <div class="prose prose-zinc dark:prose-invert mb-8">
-        <h2 class="text-2xl text-zinc-600 dark:text-zinc-300 leading-relaxed">
+        <h2 class="uppercase text-2xl text-zinc-600 dark:text-zinc-300 leading-relaxed">
           Currently tracking <span class="px-1 bg-black/30 rounded tabular-nums">{{ totalItems }}</span> items
           across <span class="px-1 bg-black/30 rounded tabular-nums">{{ containerCount }}</span> containers.
         </h2>
@@ -129,7 +129,8 @@
             <div class="text-xs text-zinc-500 font-medium tracking-wide uppercase">Total Items</div>
           </div>
           <div class="space-y-1">
-            <div class="font-mono text-4xl tabular-nums">{{ totalWeight }}oz</div>
+            <div class="font-mono text-4xl tabular-nums">{{ totalWeight }}oz
+            </div>
             <div class="text-xs text-zinc-500 font-medium tracking-wide uppercase">Total Weight</div>
           </div>
           <div class="space-y-1">
@@ -223,7 +224,7 @@
         <!-- Add this after the h1 and before the container-based layout -->
         <div class="mb-8">
           <div class="bg-zinc-50 dark:bg-zinc-900/50 rounded-lg p-4">
-            <h2 class="text-base font-medium mb-3">Quick Navigation</h2>
+            <h2 class="uppercase text-base font-medium mb-3">Quick Navigation</h2>
             <div class="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
               <template v-for="[container, items] in groupedGear" :key="container">
                 <a :href="`#${container.toLowerCase().replace(/\s+/g, '-')}`"
@@ -257,9 +258,9 @@
               <!-- Container Header - More compact on mobile -->
               <div class="w-full p-3 sm:p-4 flex items-center justify-between bg-zinc-50 dark:bg-zinc-900/50">
                 <div class="flex items-center gap-2 sm:gap-3">
-                  <h2 class="text-base sm:text-lg font-bold">{{ container }}</h2>
+                  <h2 class="uppercase text-base sm:text-lg font-bold">{{ container }}</h2>
                   <span class="text-xs sm:text-sm text-zinc-500">
-                    ({{ items.length }} items)
+                    ({{ items.length }} items, sorted by TCWM score)
                   </span>
                 </div>
                 <span class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400">
@@ -269,7 +270,8 @@
 
               <!-- Container Items - More compact on mobile -->
               <div class="divide-y divide-zinc-100 dark:divide-zinc-800">
-                <GearItem v-for="item in items" :key="item.Name" :item="item" :create-viz="createViz" />
+                <GearItem v-for="item in sortItemsByScore(items)" :key="item.Name" :item="item"
+                  :create-viz="createViz" />
               </div>
             </div>
           </template>
@@ -934,14 +936,16 @@ const groupedGear = computed(() => {
   })
 
   // Sort containers to ensure Body and important containers come first
-  return new Map([...groups.entries()].sort((a, b) => {
+  const sortedEntries = Array.from(groups.entries()).sort((a, b) => {
     const aIndex = PRIORITY_CONTAINERS.indexOf(a[0])
     const bIndex = PRIORITY_CONTAINERS.indexOf(b[0])
     if (aIndex === -1 && bIndex === -1) return a[0].localeCompare(b[0])
     if (aIndex === -1) return 1
     if (bIndex === -1) return -1
     return aIndex - bIndex
-  }))
+  })
+
+  return new Map(sortedEntries)
 })
 
 // Calculate total weight for a container
@@ -951,6 +955,7 @@ const calculateTotalWeight = (items) => {
     .reduce((sum, item) => sum + (parseFloat(item['Base Weight ()']) || 0), 0)
     .toFixed(1)
 }
+
 
 // Modify onMounted to not sort items (we're using groupedGear now)
 onMounted(async () => {
@@ -1059,7 +1064,7 @@ const typeBreakdown = computed(() => {
 
 // SEO metadata
 useHead(() => ({
-  title: 'Adventure Gear Inventory',
+  title: 'Aventure Gear Inventory',
   meta: [
     {
       name: 'description',
@@ -1250,13 +1255,26 @@ const avgItemsPerContainer = computed(() => {
 
 const densestContainer = computed(() => {
   if (!groupedGear.value?.size) return { name: '-', count: 0 }
-  const sorted = [...groupedGear.value].sort((a, b) => b[1].length - a[1].length)
+  const entries = Array.from(groupedGear.value.entries())
+  const sorted = entries.sort((a, b) => b[1].length - a[1].length)
+  if (!sorted.length) return { name: '-', count: 0 }
+  const [container, items] = sorted[0]
+  return {
+    name: container,
+    count: items.length
+  }
 })
 
 const heaviestContainer = computed(() => {
   if (!groupedGear.value?.size) return { name: '-', weight: '0.0' }
-  const sorted = [...groupedGear.value]
-    .sort((a, b) => calculateTotalWeight(b[1]) - calculateTotalWeight(a[1]))
+  const entries = Array.from(groupedGear.value.entries())
+  const sorted = entries.sort((a, b) => calculateTotalWeight(b[1]) - calculateTotalWeight(a[1]))
+  if (!sorted.length) return { name: '-', weight: '0.0' }
+  const [container, items] = sorted[0]
+  return {
+    name: container,
+    weight: calculateTotalWeight(items)
+  }
 })
 
 // Add this new computed property for TCWM distribution
@@ -1420,6 +1438,11 @@ const ouncesToKilos = computed(() => {
   const kilos = Number(totalWeight.value) * 0.0283495
   return kilos.toFixed(1)
 })
+
+// Add sorting helper function
+const sortItemsByScore = (items) => {
+  return [...items].sort((a, b) => calculateTCWMScore(b) - calculateTCWMScore(a))
+}
 </script>
 
 <style>
