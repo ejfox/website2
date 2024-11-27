@@ -68,7 +68,7 @@ function processFile(filePath, relativePath) {
 
     // Skip files that don't have explicit sharing enabled in sensitive folders
     const sensitiveDirectories = ['robots', 'drafts']
-    if (sensitiveDirectories.some(dir => relativePath.includes(dir))) {
+    if (sensitiveDirectories.some((dir) => relativePath.includes(dir))) {
       if (!attributes.share) {
         console.log(`Skipping private file in sensitive directory: ${filePath}`)
         return
@@ -81,7 +81,10 @@ function processFile(filePath, relativePath) {
       destinationRelativePath = 'robots'
     }
 
-    const destinationFolder = path.join(destinationDirectory, destinationRelativePath)
+    const destinationFolder = path.join(
+      destinationDirectory,
+      destinationRelativePath
+    )
     const destinationFilePath = path.join(
       destinationFolder,
       path.basename(filePath)

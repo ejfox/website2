@@ -12,7 +12,7 @@ export default defineNuxtConfig({
         {
           name: 'description',
           content:
-            'EJ Fox: Hacker, Journalist, & Dataviz Specialist finding interesting ways to look at the world by exploring and explaining data ',
+            'EJ Fox: Hacker, Journalist, & Dataviz Specialist finding interesting ways to look at the world by exploring and explaining data '
         },
 
         // opengraph tags
@@ -20,7 +20,7 @@ export default defineNuxtConfig({
         {
           property: 'og:description',
           content:
-            'EJ Fox: Hacker, Journalist, & Dataviz Specialist finding interesting ways to look at the world by exploring and explaining data ',
+            'EJ Fox: Hacker, Journalist, & Dataviz Specialist finding interesting ways to look at the world by exploring and explaining data '
         },
         { property: 'og:image', content: 'https://ejfox.com/og-image.png' },
         { property: 'og:url', content: 'https://ejfox.com' },
@@ -34,9 +34,9 @@ export default defineNuxtConfig({
         {
           name: 'twitter:description',
           content:
-            'EJ Fox: Hacker, Journalist, & Dataviz Specialist finding interesting ways to look at the world by exploring and explaining data ',
+            'EJ Fox: Hacker, Journalist, & Dataviz Specialist finding interesting ways to look at the world by exploring and explaining data '
         },
-        { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' },
+        { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' }
       ]
     }
   },
@@ -63,16 +63,17 @@ export default defineNuxtConfig({
         }
       }
     ]
-    
   ],
 
   // gtag: {
   //   id: 'G-0CBMSSNG8P',
   // },
   runtimeConfig: {
-    // add the openai api key to the runtime config
+    // Private keys
+    MONKEYTYPE_TOKEN: process.env.MONKEYTYPE_TOKEN,
+
+    // Public keys
     public: {
-      // baseUrl: process.env.BASE_URL,
       baseUrl: 'https://localhost:3000',
       OPENAI_API_KEY: process.env.OPENAI_API_KEY,
       PRODUCTION: process.env.PRODUCTION,
@@ -84,7 +85,25 @@ export default defineNuxtConfig({
         },
         github: 'ejfox',
         kofi: 'ejfox'
-      }
+      },
+      MONKEY_TYPE_API: process.env.MONKEY_TYPE_API,
+      LASTFM_API: process.env.LASTFM_API || 'https://ws.audioscrobbler.com/2.0',
+      LASTFM_USER: process.env.LASTFM_USER,
+      LASTFM_TOKEN: process.env.LASTFM_TOKEN,
+      STRAVA_API: process.env.STRAVA_API,
+      STRAVA_TOKEN: process.env.STRAVA_TOKEN,
+      GITHUB_API: process.env.GITHUB_API,
+      GITHUB_TOKEN: process.env.GITHUB_TOKEN || '',
+      CHESS_API: process.env.CHESS_API,
+      CHESS_USER: process.env.CHESS_USER,
+      RESCUETIME_API: process.env.RESCUETIME_API,
+      RESCUETIME_TOKEN: process.env.RESCUETIME_TOKEN,
+      FLICKR_API_KEY: process.env.FLICKR_API_KEY,
+      FLICKR_USER_ID: process.env.FLICKR_USER_ID,
+      INSTAGRAM_TOKEN: process.env.INSTAGRAM_TOKEN,
+      OPENWEATHER_API_KEY: process.env.OPENWEATHER_API_KEY,
+      HOME_LAT: process.env.HOME_LAT,
+      HOME_LNG: process.env.HOME_LNG
     }
   },
 

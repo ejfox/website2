@@ -47,7 +47,7 @@ export const useProcessedMarkdown = () => {
         // console.log('Index result:', result)
         return result
       }
-      
+
       const result = await $fetch(`/api/posts/${slug}`)
       // console.log(`Post fetched for slug "${slug}". Post details:`, result)
       return result
@@ -72,13 +72,14 @@ export const useProcessedMarkdown = () => {
     return manifest
       .filter((post: Post) => {
         const isNotDraft = !post.slug.startsWith('drafts/')
-        const isSharedDraft = post.slug.startsWith('drafts/') && post.share === true
+        const isSharedDraft =
+          post.slug.startsWith('drafts/') && post.share === true
         const isNotWeekNote = !post.slug.startsWith('week-notes/')
         const isNotReading = !post.slug.startsWith('reading/')
         const isNotProject = !post.slug.startsWith('projects/')
         const isNotRobot = !post.slug.startsWith('robots/')
         const isNotIndex = !post.slug.startsWith('!') && post.slug !== 'index'
-        
+
         return (
           // Only include drafts if they're explicitly shared
           (includeDrafts ? isSharedDraft : isNotDraft) &&
@@ -94,7 +95,10 @@ export const useProcessedMarkdown = () => {
         date: getValidDate(post.date),
         modified: getValidDate(post.modified)
       }))
-      .sort((a: Post, b: Post) => getValidDate(b.date).getTime() - getValidDate(a.date).getTime())
+      .sort(
+        (a: Post, b: Post) =>
+          getValidDate(b.date).getTime() - getValidDate(a.date).getTime()
+      )
   }
 
   /**
@@ -110,7 +114,9 @@ export const useProcessedMarkdown = () => {
     includeWeekNotes = false
   ): Promise<Post[]> => {
     const allPosts = await getAllPosts(includeDrafts, includeWeekNotes) // Get all posts first
-    return allPosts.filter((post) => getValidDate(post.date).getFullYear() === year) // Filter by year
+    return allPosts.filter(
+      (post) => getValidDate(post.date).getFullYear() === year
+    ) // Filter by year
   }
 
   /**
@@ -155,16 +161,20 @@ export const useProcessedMarkdown = () => {
   const getDrafts = async (): Promise<Post[]> => {
     const manifest = await getManifestLite()
     return manifest
-      .filter((post: Post) => 
-        // Only include drafts that are explicitly marked for sharing
-        post.slug.startsWith('drafts/') && post.share === true
+      .filter(
+        (post: Post) =>
+          // Only include drafts that are explicitly marked for sharing
+          post.slug.startsWith('drafts/') && post.share === true
       )
       .map((post: Post) => ({
         ...post,
         date: getValidDate(post.date),
         modified: getValidDate(post.modified)
       }))
-      .sort((a: Post, b: Post) => getValidDate(b.date).getTime() - getValidDate(a.date).getTime())
+      .sort(
+        (a: Post, b: Post) =>
+          getValidDate(b.date).getTime() - getValidDate(a.date).getTime()
+      )
   }
 
   /**
@@ -180,7 +190,10 @@ export const useProcessedMarkdown = () => {
         date: getValidDate(post.date), // Ensure valid date
         modified: getValidDate(post.modified)
       }))
-      .sort((a: Post, b: Post) => getValidDate(b.date).getTime() - getValidDate(a.date).getTime()) // Sort week notes by date, newest first
+      .sort(
+        (a: Post, b: Post) =>
+          getValidDate(b.date).getTime() - getValidDate(a.date).getTime()
+      ) // Sort week notes by date, newest first
   }
 
   /**
@@ -196,7 +209,10 @@ export const useProcessedMarkdown = () => {
         date: getValidDate(post.date), // Ensure valid date
         modified: getValidDate(post.modified)
       }))
-      .sort((a: Post, b: Post) => getValidDate(b.date).getTime() - getValidDate(a.date).getTime()) // Sort reading posts by date, newest first
+      .sort(
+        (a: Post, b: Post) =>
+          getValidDate(b.date).getTime() - getValidDate(a.date).getTime()
+      ) // Sort reading posts by date, newest first
   }
 
   /**
@@ -249,7 +265,10 @@ export const useProcessedMarkdown = () => {
         modified: getValidDate(post.modified),
         url: post.url // Persist the .url property from the front matter
       }))
-      .sort((a: Post, b: Post) => getValidDate(b.date).getTime() - getValidDate(a.date).getTime()) // Sort project posts by date, newest first
+      .sort(
+        (a: Post, b: Post) =>
+          getValidDate(b.date).getTime() - getValidDate(a.date).getTime()
+      ) // Sort project posts by date, newest first
   }
 
   /**
@@ -259,16 +278,17 @@ export const useProcessedMarkdown = () => {
   const getRobotNotes = async (): Promise<Post[]> => {
     const manifest = await getManifestLite()
     return manifest
-      .filter((post: Post) => 
-        post.slug.startsWith('robots/') && post.share === true
+      .filter(
+        (post: Post) => post.slug.startsWith('robots/') && post.share === true
       )
       .map((post: Post) => ({
         ...post,
         date: getValidDate(post.date),
         modified: getValidDate(post.modified)
       }))
-      .sort((a: Post, b: Post) => 
-        getValidDate(b.date).getTime() - getValidDate(a.date).getTime()
+      .sort(
+        (a: Post, b: Post) =>
+          getValidDate(b.date).getTime() - getValidDate(a.date).getTime()
       )
   }
 
@@ -322,16 +342,16 @@ export const useProcessedMarkdown = () => {
 }
 
 interface Post {
-  slug: string;
-  title: string;
-  date: string | Date;
-  modified?: string | Date;
-  url?: string;
-  share?: boolean;
-  _path?: string;
-  description?: string;
-  tags?: string[];
-  [key: string]: any; // Allow for other properties
+  slug: string
+  title: string
+  date: string | Date
+  modified?: string | Date
+  url?: string
+  share?: boolean
+  _path?: string
+  description?: string
+  tags?: string[]
+  [key: string]: any // Allow for other properties
 }
 
 interface ManifestItem extends Post {
