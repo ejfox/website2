@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue'
+import { ref, onMounted, watch, computed } from 'vue'
 import { select } from 'd3-selection'
 import { scaleLinear, scaleTime } from 'd3-scale'
 import { extent, max } from 'd3-array'
@@ -21,6 +21,7 @@ import { line, curveMonotoneX } from 'd3-shape'
 import { axisBottom, axisLeft } from 'd3-axis'
 import { timeFormat } from 'd3-time-format'
 import { useDark } from '@vueuse/core'
+import { useTransition } from '~/composables/useTransition'
 
 const props = defineProps({
   data: {
@@ -31,6 +32,10 @@ const props = defineProps({
 
 const container = ref(null)
 const svgContainer = ref(null)
+
+// Create smooth transitions for our data
+const transitionedValues = useTransition(computed(() => props.data.values))
+const transitionedLabels = useTransition(computed(() => props.data.labels))
 
 const drawChart = () => {
   if (!container.value || !props.data?.values?.length || !svgContainer.value) return
