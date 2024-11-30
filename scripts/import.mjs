@@ -60,6 +60,17 @@ function processFile(filePath, relativePath) {
     const data = readFileSync(filePath, 'utf8')
     const { attributes, body } = frontMatter(data)
 
+    // Calculate word count from the body text
+    const wordCount = body
+      .replace(/\s+/g, ' ') // Normalize whitespace
+      .replace(/#+\s/g, '') // Remove markdown headers
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Replace links with just text
+      .replace(/`[^`]+`/g, '') // Remove inline code
+      .replace(/```[\s\S]*?```/g, '') // Remove code blocks
+      .replace(/\*\*|__|\*|_/g, '') // Remove bold/italic markers
+      .trim()
+      .split(/\s+/).length
+
     // Skip drafts that don't have explicit sharing enabled
     if (relativePath.includes('drafts/') && !attributes.share) {
       console.log(`Skipping non-shared draft: ${filePath}`)
@@ -97,7 +108,12 @@ function processFile(filePath, relativePath) {
     // Determine if the file should be marked as hidden (draft)
     const isHidden = attributes.hidden || relativePath.startsWith('drafts')
 
-    const updatedContent = addFrontmatter(body, attributes, isHidden)
+    const updatedContent = addFrontmatter(body, {
+      ...attributes,
+      wordCount,
+      hidden: isHidden,
+      draft: isHidden
+    })
     writeFileSync(destinationFilePath, updatedContent, 'utf8')
     console.log(`Processed file: ${destinationFilePath}`)
   } catch (error) {

@@ -1,302 +1,193 @@
 <template>
-  <div class="max-w-7xl mx-auto px-4 py-16">
-    <div v-if="isLoading" class="text-center py-12">
-      <div class="animate-pulse">Loading stats...</div>
-    </div>
+  <div class="max-w-6xl mx-auto px-4 py-24 uppercase">
 
-    <div v-if="Object.keys(errors).length" class="mb-8 p-4 bg-red-50 rounded-lg">
-      <h3 class="text-sm font-medium text-red-800 mb-2">Some data sources are unavailable:</h3>
-      <div v-for="(error, service) in errors" :key="service" class="text-red-600 text-sm capitalize">
+
+    <!-- Error States -->
+    <div v-if="Object.keys(errors).length" class="mb-16 p-4 bg-red-50/50 rounded-lg">
+      <h3 class="text-sm font-medium text-red-800/75">Some data sources are unavailable:</h3>
+      <div v-for="(error, service) in errors" :key="service" class="text-red-600/75 text-sm capitalize">
         {{ service }}: {{ error }}
       </div>
     </div>
 
-    <div>
-      <div v-if="hasTypingData" class="mb-24">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-16">
-          <div class="flex flex-col">
-            <p class="text-6xl font-extralight tabular-nums">{{ currentWPM }}</p>
-            <div class="w-full h-px bg-gray-200 my-4"></div>
-            <h3 class="text-xs uppercase tracking-wider text-gray-500">Current WPM</h3>
-          </div>
-          <div class="flex flex-col">
-            <p class="text-6xl font-extralight tabular-nums">{{ productivityPulse }}%</p>
-            <div class="w-full h-px bg-gray-200 my-4"></div>
-            <h3 class="text-xs uppercase tracking-wider text-gray-500">Productivity Pulse</h3>
-          </div>
-        </div>
-      </div>
+    <div class="space-y-32">
+      <!-- All-time Stats Section -->
+      <section class="space-y-16">
+        <h2 class="text-sm tracking-wider text-gray-500">LIFETIME METRICS</h2>
 
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12 mb-24">
-        <div v-for="metric in availableHeaderMetrics" :key="metric.label" class="flex flex-col">
-          <p class="text-4xl font-light tabular-nums">{{ metric.value }}</p>
-          <div class="w-full h-px bg-gray-200 my-3"></div>
-          <h3 class="text-xs uppercase tracking-wider text-gray-500">{{ metric.label }}</h3>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-        <section v-if="hasTypingData" class="space-y-8">
-          <h2 class="text-sm uppercase tracking-wider">Typing Performance</h2>
-          <div class="h-64 border border-gray-200 p-6">All-time Best: {{ bestWPM }} WPM</div>
-          <div class="grid grid-cols-2 gap-6">
-            <div class="border border-gray-200 p-6">Last 30 Tests</div>
-            <div class="border border-gray-200 p-6">Accuracy: {{ accuracy }}%</div>
+        <!-- Primary Metrics -->
+        <section v-if="hasTypingData || hasCodeData" class="grid grid-cols-1 md:grid-cols-2 gap-24">
+          <div v-if="hasTypingData" class="space-y-3">
+            <p class="text-[8rem] leading-none font-extralight tabular-nums tracking-tight">{{ currentWPM }}</p>
+            <div class="w-16 h-px bg-gray-900"></div>
+            <h3 class="text-sm tracking-wider text-gray-500">AVERAGE WPM</h3>
           </div>
         </section>
 
-        <section v-if="hasMusicData" class="space-y-8">
-          <h2 class="text-sm uppercase tracking-wider">Music Analytics</h2>
-          <div class="h-64 border border-gray-200 p-6">
-            <div class="mb-4">
-              <span class="text-xs uppercase text-gray-500">Current Streak</span>
-              <p class="text-2xl font-light">{{ musicStreak }} days</p>
-            </div>
-            <div class="w-full h-px bg-gray-200 my-4"></div>
-            <div>Listening Calendar</div>
+        <!-- Secondary Metrics -->
+        <h3 class="text-sm tracking-wider text-gray-500 mb-8">CUMULATIVE TOTALS</h3>
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-24">
+          <div v-for="metric in availableHeaderMetrics" :key="metric.label" class="space-y-3">
+            <p class="text-6xl font-extralight tabular-nums tracking-tight">{{ metric.value }}</p>
+            <div class="w-12 h-px bg-gray-900"></div>
+            <h3 class="text-sm tracking-wider text-gray-500">{{ metric.label }}</h3>
           </div>
-          <div class="border border-gray-200 p-6">
-            <h3 class="text-xs uppercase mb-4">Top 5 Artists</h3>
-            <div v-for="artist in topArtists" :key="artist.name" class="flex justify-between py-2">
-              <span>{{ artist.name }}</span>
-              <span class="tabular-nums">{{ artist.plays }}</span>
-            </div>
-          </div>
-        </section>
 
-        <section v-if="hasHealthData" class="space-y-8">
-          <h2 class="text-sm uppercase tracking-wider">Health Metrics</h2>
-          <div class="grid grid-cols-2 gap-6 mb-6">
-            <div class="border border-gray-200 p-6">
-              <span class="text-xs uppercase text-gray-500">Sleep Score</span>
-              <p class="text-2xl font-light mt-2">{{ sleepScore }}</p>
-            </div>
-            <div class="border border-gray-200 p-6">
-              <span class="text-xs uppercase text-gray-500">Active Minutes</span>
-              <p class="text-2xl font-light mt-2">{{ activeMinutes }}</p>
-            </div>
-          </div>
-          <div class="h-64 border border-gray-200 p-6">Activity Heatmap</div>
-        </section>
-
-        <section v-if="hasChessData" class="space-y-8">
-          <h2 class="text-sm uppercase tracking-wider">Chess Statistics</h2>
-          <div class="border border-gray-200 p-6">
-            <div class="mb-6">
-              <span class="text-xs uppercase text-gray-500">Current Rating</span>
-              <p class="text-3xl font-light mt-2">{{ chessRating }}</p>
-            </div>
-            <div class="w-full h-px bg-gray-200 my-4"></div>
-            <div class="mt-6">
-              <span class="text-xs uppercase text-gray-500">Peak Rating</span>
-              <p class="text-2xl font-light mt-2">{{ peakRating }}</p>
-            </div>
-          </div>
-          <div class="grid grid-cols-2 gap-6">
-            <div class="border border-gray-200 p-6">Win Rate</div>
-            <div class="border border-gray-200 p-6">Accuracy</div>
+          <div v-if="hasCodeData" class="space-y-3">
+            <p class="text-[8rem] leading-none font-extralight tabular-nums tracking-tight">{{ codeStreak }}</p>
+            <div class="w-16 h-px bg-gray-900"></div>
+            <h3 class="text-sm tracking-wider text-gray-500">DAY CURRENT CODING STREAK</h3>
+            <h5 class="text-xs text-gray-500">
+              <UIcon name="i-mdi-github" class="w-4 h-4" />
+            </h5>
           </div>
         </section>
 
-        <section class="space-y-8">
-          <h2 class="text-sm uppercase tracking-wider">Reading Stats</h2>
-          <div class="border border-gray-200 p-6">
-            <div class="mb-6">
-              <span class="text-xs uppercase text-gray-500">Reading Speed</span>
-              <p class="text-3xl font-light mt-2">381 WPM</p>
-            </div>
-            <div class="w-full h-px bg-gray-200 my-4"></div>
-            <div class="mt-6">
-              <span class="text-xs uppercase text-gray-500">Comprehension</span>
-              <p class="text-2xl font-light mt-2">75%</p>
-            </div>
-          </div>
-        </section>
 
-        <section v-if="hasCodeData" class="space-y-8">
-          <h2 class="text-sm uppercase tracking-wider">Coding Activity</h2>
-          <div class="grid grid-cols-1 gap-6">
-            <div class="border border-gray-200 p-6">
-              <div class="h-[250px] w-full">
-                <HeatMap :data="{
-                  values: stats?.code?.contributions ?? [],
-                  details: stats?.code?.hourlyDetails ?? []
-                }" />
-              </div>
-            </div>
-
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-              <div class="border border-gray-200 p-3">
-                <span class="text-xs uppercase text-gray-500">Current Streak</span>
-                <p class="text-xl font-light mt-1">{{ codeStreak }} days</p>
-              </div>
-
-              <div class="border border-gray-200 p-3">
-                <span class="text-xs uppercase text-gray-500">PRs Merged</span>
-                <p class="text-xl font-light mt-1">{{ prCount }}</p>
-              </div>
-
-              <div class="border border-gray-200 p-3">
-                <span class="text-xs uppercase text-gray-500">Top Languages</span>
-                <div class="mt-1">
-                  <div v-for="lang in stats?.code?.languages?.slice(0, 3)" :key="lang" class="text-sm leading-tight">
-                    {{ lang }}
-                  </div>
-                </div>
-              </div>
-
-              <div class="border border-gray-200 p-3">
-                <span class="text-xs uppercase text-gray-500">Active Repos</span>
-                <p class="text-xl font-light mt-1">
-                  {{ stats?.code?.repositories?.length ?? 0 }}
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section v-if="hasPhotoData" class="space-y-8">
-          <h2 class="text-sm uppercase tracking-wider">Photography</h2>
-
-          <div class="grid grid-cols-2 gap-6 mb-6">
-            <div class="border border-gray-200 p-6">
-              <span class="text-xs uppercase text-gray-500">Total Photos</span>
-              <p class="text-2xl font-light mt-2">{{ stats?.photography?.totalPhotos ?? 0 }}</p>
-            </div>
-            <div class="border border-gray-200 p-6">
-              <span class="text-xs uppercase text-gray-500">Average ISO</span>
-              <p class="text-2xl font-light mt-2">{{ Math.round(stats?.photography?.stats?.avgISO ?? 0) }}</p>
-            </div>
-          </div>
-
-          <div class="border border-gray-200 p-6">
-            <h3 class="text-xs uppercase mb-4">Camera Breakdown</h3>
+        <!-- All-time Photography Stats -->
+        <section v-if="hasPhotoData" class="space-y-16">
+          <h3 class="text-sm tracking-wider text-gray-500 mb-4">PHOTOGRAPHY OVERVIEW</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-24">
             <div class="space-y-3">
-              <div v-for="camera in stats?.photography?.cameras" :key="camera.model"
-                class="flex items-center justify-between">
-                <span class="text-sm">{{ camera.model }}</span>
-                <div class="flex items-center gap-4">
-                  <span class="text-sm text-gray-500">{{ camera.count }} photos</span>
-                  <div class="w-20 bg-gray-100 rounded-full h-2">
-                    <div class="bg-blue-500 h-2 rounded-full" :style="{ width: `${camera.percentage}%` }">
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <p class="text-5xl font-extralight tabular-nums">{{ stats?.photography?.totalPhotos || 0 }}</p>
+              <div class="w-12 h-px bg-gray-900"></div>
+              <h3 class="text-sm tracking-wider text-gray-500">TOTAL PHOTOGRAPHS</h3>
+              <p class="text-xs text-gray-400">Captured {{ new Date().getFullYear() }}</p>
             </div>
           </div>
+        </section>
+      </section>
 
-          <div class="border border-gray-200 p-6">
-            <h3 class="text-xs uppercase mb-4">Favorite Lenses</h3>
-            <div class="space-y-3">
-              <div v-for="lens in stats?.photography?.lenses" :key="lens.model"
-                class="flex items-center justify-between">
-                <span class="text-sm">{{ lens.model }}</span>
-                <span class="text-sm text-gray-500">{{ lens.count }} photos</span>
-              </div>
-            </div>
+      <!-- Code Stats Section -->
+      <section v-if="hasCodeData" class="space-y-12">
+        <div class="border-t border-gray-100 pt-12 space-y-4">
+          <div class="flex justify-between items-baseline">
+            <h4 class="text-sm tracking-wider text-gray-500">CONTRIBUTION PATTERNS</h4>
+            <p class="text-xs text-gray-400">{{ new Date().getFullYear() }} Calendar</p>
           </div>
-
-          <div class="border border-gray-200 p-6">
-            <h3 class="text-xs uppercase mb-4">Recent Activity</h3>
-            <div class="h-32">
-              <LineChart :data="{
-                values: stats?.photography?.timeline?.map(d => d.count) ?? [],
-                labels: stats?.photography?.timeline?.map(d => d.date) ?? []
-              }" />
-            </div>
+          <div class="h-[160px]">
+            <HeatMap :data="githubHeatmapData" :showFullYear="true" :showLegend="true" :legendLabels="{
+              start: 'No Contributions',
+              end: `${Math.max(...(stats?.code?.contributions || [0]))} Contributions`
+            }" />
           </div>
+          <p class="text-xs text-gray-400 text-center">
+            Total Contributions: {{ stats?.code?.contributions?.reduce((a, b) => a + b, 0) || 0 }}
+            · Peak Day: {{ Math.max(...(stats?.code?.contributions || [0])) }} commits
+            · Active Days: {{ stats?.code?.contributions?.filter(c => c > 0).length || 0 }}
+          </p>
+        </div>
+      </section>
 
-          <div class="grid grid-cols-3 gap-4">
-            <div class="border border-gray-200 p-4">
-              <span class="text-xs uppercase text-gray-500 block mb-2">Avg Aperture</span>
-              <p class="text-xl font-light">ƒ/{{ stats?.photography?.stats?.avgAperture?.toFixed(1) ?? '0.0' }}</p>
-            </div>
-            <div class="border border-gray-200 p-4">
-              <span class="text-xs uppercase text-gray-500 block mb-2">Favorite Focal Length</span>
-              <p class="text-xl font-light">{{ stats?.photography?.stats?.favoriteFocalLength ?? 0 }}mm</p>
-            </div>
-            <div class="border border-gray-200 p-4">
-              <span class="text-xs uppercase text-gray-500 block mb-2">Photos This Month</span>
-              <p class="text-xl font-light">
-                {{
-                  stats?.photography?.timeline
-                    ?.filter(d => new Date(d.date).getMonth() === new Date().getMonth())
-                    ?.reduce((sum, d) => sum + d.count, 0) ?? 0
-                }}
+      <!-- Blog Stats Section -->
+      <section v-if="blogStats" class="space-y-12">
+        <div class="border-t border-gray-200/50 dark:border-gray-700/50 pt-12">
+          <h4 class="text-sm tracking-wider text-gray-500/80 dark:text-gray-400/80 mb-4">WRITING ACTIVITY</h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
+            <div class="space-y-2">
+              <p class="text-4xl font-extralight tabular-nums">
+                {{ formatNumber(blogStats.totalPosts) }}
+              </p>
+              <div class="w-12 h-px bg-gray-900/10 dark:bg-gray-100/10"></div>
+              <h3 class="text-sm tracking-wider text-gray-500/80 dark:text-gray-400/80">TOTAL POSTS</h3>
+              <p class="text-xs text-gray-400">
+                First post: {{ format(new Date(blogStats.firstPost), 'MMMM d, yyyy') }}
               </p>
             </div>
-          </div>
-        </section>
 
-        <section v-if="hasWeatherData" class="space-y-8">
-          <h2 class="text-sm uppercase tracking-wider">Winter Training</h2>
-          <div class="h-64 border border-gray-200 p-6">
-            <div class="mb-4">
-              <span class="text-xs uppercase text-gray-500">Current Streak</span>
-              <p class="text-2xl font-light">{{ winterTraining.currentStreak }} days</p>
+            <div class="space-y-2">
+              <p class="text-4xl font-extralight tabular-nums">
+                {{ formatNumber(blogStats.totalWords) }}
+              </p>
+              <div class="w-12 h-px bg-gray-900/10 dark:bg-gray-100/10"></div>
+              <h3 class="text-sm tracking-wider text-gray-500/80 dark:text-gray-400/80">WORDS WRITTEN</h3>
+              <p class="text-xs text-gray-400">
+                {{ formatNumber(blogStats.averageWords) }} words per post
+              </p>
             </div>
-            <div class="w-full h-px bg-gray-200 my-4"></div>
-            <div>Training Calendar</div>
-          </div>
-          <div class="grid grid-cols-2 gap-6">
-            <div class="border border-gray-200 p-6">
-              <span class="text-xs uppercase text-gray-500">Days Completed</span>
-              <p class="text-2xl font-light mt-2">{{ winterTraining.daysCompleted }}</p>
-            </div>
-            <div class="border border-gray-200 p-6">
-              <span class="text-xs uppercase text-gray-500">Conditions Faced</span>
-              <p class="text-2xl font-light mt-2">{{ winterTraining.conditionCount }}</p>
-            </div>
-          </div>
-          <div class="border border-gray-200 p-6">
-            <h3 class="text-xs uppercase mb-4">Achievements</h3>
-            <div class="grid grid-cols-3 gap-4">
-              <div v-for="badge in winterTraining.badges" :key="badge.name"
-                class="flex flex-col items-center text-center">
-                <div class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mb-2">
-                  {{ badge.emoji }}
-                </div>
-                <span class="text-xs">{{ badge.name }}</span>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
 
-      <section v-if="hasMultipleDataSources" class="mt-24">
-        <h2 class="text-sm uppercase tracking-wider mb-8">Patterns & Discoveries</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div v-for="pattern in patterns" :key="pattern.id" class="border border-gray-200 p-6 h-48">
-            <h3 class="font-medium mb-2">{{ pattern.title }}</h3>
-            <p class="text-sm text-gray-600 mb-4">{{ pattern.description }}</p>
-
-            <div class="h-24">
-              <LineChart v-if="pattern.viz === 'line'" :data="pattern.data" />
-              <ScatterPlot v-else-if="pattern.viz === 'scatter'" :data="pattern.data" />
-              <HeatMap v-else-if="pattern.viz === 'heatmap'" :data="pattern.data" />
-              <Calendar v-else :data="pattern.data" />
+            <div class="space-y-2">
+              <p class="text-4xl font-extralight tabular-nums">
+                {{ formatNumber(Math.round((blogStats.totalPosts /
+                  (((new Date()) - new Date(blogStats.firstPost)) / (1000 * 60 * 60 * 24 * 30))) * 10) / 10) }}
+              </p>
+              <div class="w-12 h-px bg-gray-900/10 dark:bg-gray-100/10"></div>
+              <h3 class="text-sm tracking-wider text-gray-500/80 dark:text-gray-400/80">POSTS PER MONTH</h3>
+              <p class="text-xs text-gray-400">
+                Last post: {{ format(new Date(blogStats.lastPost), 'MMMM d, yyyy') }}
+              </p>
             </div>
           </div>
         </div>
       </section>
+
+      <!-- Temporal View Section -->
+      <PeriodAnalysis v-model:startDate="startDate" v-model:endDate="endDate" v-model:period="selectedPeriod"
+        :stats="stats" :hasCodeData="hasCodeData" :hasPhotoData="hasPhotoData" :today="today" />
+
+
+
     </div>
   </div>
 </template>
 
 <script setup>
 import LineChart from '~/components/viz/LineChart.vue'
-import ScatterPlot from '~/components/viz/ScatterPlot.vue'
 import HeatMap from '~/components/viz/HeatMap.vue'
-import Calendar from '~/components/viz/Calendar.vue'
+import { computed, ref, onMounted, watch } from 'vue'
+import { useStats } from '~/composables/useStats'
+import { useProcessedMarkdown } from '~/composables/useProcessedMarkdown'
+import { useRoute, useRouter } from 'vue-router'
+import { useClipboard } from '@vueuse/core'
+import { format, subMonths, startOfMonth, endOfMonth } from 'date-fns'
+import PeriodAnalysis from '~/components/stats/PeriodAnalysis.vue'
 
-const { stats, isLoading, isReady, errors } = useStats()
+const { stats, isLoading, errors } = useStats()
+const { getAllPosts } = useProcessedMarkdown()
 
+const route = useRoute()
+const router = useRouter()
+const { copy } = useClipboard()
+
+// Time period state
+const today = computed(() => format(new Date(), 'yyyy-MM-dd'))
+const selectedPeriod = ref('This Month')
+const startDate = ref(format(startOfMonth(new Date()), 'yyyy-MM-dd'))
+const endDate = ref(format(endOfMonth(new Date()), 'yyyy-MM-dd'))
+
+// URL handling
+onMounted(() => {
+  const { start, end, period } = route.query
+  if (start && end) {
+    startDate.value = start
+    endDate.value = end
+    selectedPeriod.value = period || 'Custom'
+  }
+})
+
+// Update URL when dates change
+watch([startDate, endDate, selectedPeriod], () => {
+  router.push({
+    query: {
+      ...route.query,
+      start: startDate.value,
+      end: endDate.value,
+      period: selectedPeriod.value
+    }
+  })
+})
+
+// Share functionality
+const copyShareLink = async () => {
+  await copy(window.location.href)
+  // You might want to add a toast notification here
+}
+
+// Data availability checks
 const hasTypingData = computed(() => !!stats?.typing?.currentWPM)
 const hasMusicData = computed(() => !!stats?.music?.currentStreak)
-const hasHealthData = computed(() => !!stats?.health?.sleepScore)
 const hasChessData = computed(() => !!stats?.chess?.currentRating)
-const hasCodeData = computed(() => Array.isArray(stats?.code?.contributions))
+const hasCodeData = computed(() => Array.isArray(stats?.code?.contributions) && stats.code.contributions.length > 0)
 const hasPhotoData = computed(() => !!stats?.photography?.totalPhotos)
 const hasWeatherData = computed(() => !!stats?.weather?.current)
 
@@ -304,7 +195,6 @@ const hasMultipleDataSources = computed(() => {
   const availableSources = [
     hasTypingData.value,
     hasMusicData.value,
-    hasHealthData.value,
     hasChessData.value,
     hasCodeData.value,
     hasPhotoData.value,
@@ -316,6 +206,21 @@ const hasMultipleDataSources = computed(() => {
 
 const availableHeaderMetrics = computed(() => {
   const metrics = []
+
+  if (blogStats.value) {
+    metrics.push({
+      label: 'Blog Posts',
+      value: formatNumber(blogStats.value.totalPosts)
+    })
+    metrics.push({
+      label: 'Words Written',
+      value: formatNumber(blogStats.value.totalWords)
+    })
+    metrics.push({
+      label: 'Avg Words per Post',
+      value: formatNumber(blogStats.value.averageWords)
+    })
+  }
 
   if (hasTypingData.value) {
     metrics.push({
@@ -338,13 +243,6 @@ const availableHeaderMetrics = computed(() => {
     })
   }
 
-  if (hasHealthData.value) {
-    metrics.push({
-      label: 'Steps Taken',
-      value: formatNumber(stats?.metrics?.steps)
-    })
-  }
-
   if (hasPhotoData.value) {
     metrics.push({
       label: 'Photos Captured',
@@ -356,6 +254,36 @@ const availableHeaderMetrics = computed(() => {
     metrics.push({
       label: 'Lines of Code',
       value: formatNumber(stats?.metrics?.linesOfCode)
+    })
+  }
+
+  if (stats?.monkeyType) {
+    metrics.push({
+      label: 'Total Tests Completed',
+      value: formatNumber(stats.monkeyType.completedTests)
+    })
+    metrics.push({
+      label: 'Time Typing (minutes)',
+      value: formatNumber(Math.floor(stats.monkeyType.timeTyping))
+    })
+  }
+
+  if (stats?.github) {
+    metrics.push({
+      label: 'Total Repositories',
+      value: formatNumber(stats.github.totalRepos)
+    })
+    metrics.push({
+      label: 'Followers',
+      value: formatNumber(stats.github.followers)
+    })
+    metrics.push({
+      label: 'Stars',
+      value: formatNumber(stats.github.stars)
+    })
+    metrics.push({
+      label: 'Contributions in the Last Year',
+      value: formatNumber(stats.github.contributions)
     })
   }
 
@@ -389,24 +317,117 @@ const formatNumber = (num) => {
   return new Intl.NumberFormat().format(num ?? 0)
 }
 
-const winterTraining = reactive({
-  currentStreak: 5,
-  daysCompleted: 23,
-  conditionCount: 8,
-  badges: [
-    { name: 'Snow Master', emoji: '❄️' },
-    { name: 'Rain Warrior', emoji: '🌧️' },
-    { name: 'Early Bird', emoji: '🌅' },
-    { name: 'Week Streak', emoji: '🔥' },
-    { name: 'Sub-Zero', emoji: '🥶' },
-    { name: 'Night Owl', emoji: '🌙' },
-  ]
+const photoHeatmapData = computed(() => {
+  if (!stats?.photography?.photos?.length) return { values: [] }
+
+  const days = Array(365).fill(0)
+  const details = Array(365).fill([])
+  const now = new Date()
+
+  stats.photography.photos.forEach(photo => {
+    const date = new Date(photo.uploaded_at)
+    const daysDiff = Math.floor((now - date) / (1000 * 60 * 60 * 24))
+
+    if (daysDiff >= 0 && daysDiff < 365) {
+      days[daysDiff]++
+
+      if (!details[daysDiff]) details[daysDiff] = []
+      details[daysDiff].push({
+        name: photo.id.split('/').pop(),
+        count: 1
+      })
+    }
+  })
+
+  return {
+    values: days,
+    details
+  }
 })
 
-const { findPatterns } = usePatterns()
-const patterns = computed(() => hasMultipleDataSources.value ? findPatterns.value : [])
+const githubHeatmapData = computed(() => {
+  if (!stats?.code?.contributions?.length) return { values: [] }
+
+  // GitHub data is already in the right order (oldest to newest)
+  // but we need to pad it to 365 days if shorter
+  const values = [...stats.code.contributions]
+  while (values.length < 365) {
+    values.unshift(0)
+  }
+
+  // Add repository details from hourlyDetails if available
+  const details = stats.code.hourlyDetails?.map(hour =>
+    hour.map(repo => ({
+      name: repo.name,
+      count: repo.count
+    }))
+  ) || Array(365).fill([])
+
+  return {
+    values,
+    details
+  }
+})
+
+// Loading progress tracking
+const loadingProgress = ref(0)
+const loadingStatus = ref('Initializing...')
+
+// Track loading progress
+watch(isLoading, (loading) => {
+  if (loading) {
+    // Reset progress when loading starts
+    loadingProgress.value = 0
+    loadingStatus.value = 'Initializing...'
+
+    // Simulate realistic loading progress
+    const progressSteps = [
+      { progress: 15, status: 'Fetching GitHub stats...' },
+      { progress: 35, status: 'Loading photo data...' },
+      { progress: 55, status: 'Processing code contributions...' },
+      { progress: 75, status: 'Calculating metrics...' },
+      { progress: 90, status: 'Preparing visualizations...' },
+      { progress: 100, status: 'Almost there...' }
+    ]
+
+    let currentStep = 0
+    const progressInterval = setInterval(() => {
+      if (currentStep < progressSteps.length && isLoading.value) {
+        const { progress, status } = progressSteps[currentStep]
+        loadingProgress.value = progress
+        loadingStatus.value = status
+        currentStep++
+      } else {
+        clearInterval(progressInterval)
+      }
+    }, 400) // Adjust timing as needed
+
+    // Cleanup
+    watch(isLoading, () => {
+      clearInterval(progressInterval)
+    }, { immediate: true })
+  }
+})
+
+// Fetch blog stats
+const blogStats = ref(null)
+onMounted(async () => {
+  const posts = await getAllPosts(false, false)
+  blogStats.value = {
+    totalPosts: posts.length,
+    totalWords: posts.reduce((sum, post) => sum + (post.wordCount || 0), 0),
+    averageWords: Math.round(posts.reduce((sum, post) => sum + (post.wordCount || 0), 0) / posts.length),
+    firstPost: posts[posts.length - 1]?.date,
+    lastPost: posts[0]?.date,
+    // Could add more metrics like posts per month, etc.
+  }
+})
+
 </script>
 
 <style scoped>
 /* Custom styles if needed */
+input[type="date"] {
+  color-scheme: light dark;
+}
 </style>
