@@ -6,24 +6,40 @@
     </div>
 
     <!-- Tooltip -->
-    <div ref="tooltip"
-      class="absolute hidden z-10 bg-gray-900 text-white p-3 rounded-lg shadow-lg text-xs max-w-[250px]">
-      <div class="font-mono"></div>
+    <div v-show="hoveredCell" class="absolute z-10 px-3 py-2 text-xs backdrop-blur-sm bg-white/80 dark:bg-gray-900/80 
+             rounded-lg shadow-lg border border-gray-100/20 transition-opacity duration-200" :style="{
+              left: `${tooltipX}px`,
+              top: `${tooltipY}px`,
+              pointerEvents: 'none',
+            }">
+      <div class="space-y-1">
+        <div class="font-medium">{{ hoveredCell?.date }}</div>
+        <div class="text-blue-500 dark:text-blue-400">
+          {{ hoveredCell?.count }} {{ hoveredCell?.count === 1 ? 'item' : 'items' }}
+        </div>
+        <div v-if="hoveredCell?.details?.length" class="pt-1 space-y-1">
+          <div v-for="detail in hoveredCell.details" :key="detail.name" class="flex items-center justify-between gap-4">
+            <span class="text-gray-500 dark:text-gray-400 truncate max-w-[180px]">{{ detail.name }}</span>
+            <span class="text-gray-400 dark:text-gray-500 tabular-nums">{{ detail.count }}</span>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- SVG Container -->
-    <div class="w-full h-full" ref="svgContainer">
+    <div ref="svgContainer" class="w-full h-full">
       <!-- SVG will be injected here by D3 -->
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, watch, onUnmounted } from 'vue'
-import { scaleLinear, scaleSequential } from 'd3-scale'
-import { interpolateBlues } from 'd3-scale-chromatic'
+import { ref, computed } from 'vue'
+import { scaleSequential } from 'd3-scale'
+import { interpolateBlues, interpolateTurbo } from 'd3-scale-chromatic'
 import { select } from 'd3-selection'
 import { max } from 'd3-array'
+import { useMouseInElement, useDark } from '@vueuse/core'
 
 const props = defineProps({
   data: {
@@ -34,11 +50,30 @@ const props = defineProps({
 
 const container = ref(null)
 const svgContainer = ref(null)
-const tooltip = ref(null)
+const hoveredCell = ref(null)
 
-const DAYS_TO_SHOW = 365 // Show full year
+// Use mouse for smooth tooltip positioning only
+const { x, y } = useMouseInElement(container)
+
+// Compute tooltip position
+const tooltipX = computed(() => Math.min(x.value + 10, (container.value?.offsetWidth || 0) - 200))
+const tooltipY = computed(() => Math.min(y.value + 10, (container.value?.offsetHeight || 0) - 100))
+
+// Format date for tooltip
+const formatDate = (date) => {
+  return date.toLocaleDateString(undefined, {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  })
+}
+
+// Constants
+const DAYS_TO_SHOW = 365
 const DAYS_IN_WEEK = 7
-const CELL_PADDING = 2
+const CELL_PADDING = 1
+const DAYS = ['Mon', 'Wed', 'Fri']
 
 const drawHeatmap = () => {
   if (!container.value || !props.data?.values || !svgContainer.value) return
@@ -48,20 +83,22 @@ const drawHeatmap = () => {
 
   // Get container dimensions
   const containerRect = container.value.getBoundingClientRect()
+
+  // Calculate optimal cell size based on container
   const CELL_SIZE = Math.floor(Math.min(
-    containerRect.height / 9, // Increased from 8 to 9 for better spacing
-    containerRect.width / 54 // Increased from 53 to 54 for better spacing
+    (containerRect.height - 10) / 7, // Reduced padding from 15 to 10
+    (containerRect.width - 25) / 53
   ))
 
   const values = props.data.values.slice(-DAYS_TO_SHOW)
   const details = props.data.details || Array(DAYS_TO_SHOW).fill([])
 
-  // Calculate dimensions
+  // Tighter dimensions calculation
   const weeks = Math.ceil(DAYS_TO_SHOW / DAYS_IN_WEEK)
-  const width = (CELL_SIZE + CELL_PADDING) * weeks + 50 // Extra space for labels
-  const height = (CELL_SIZE + CELL_PADDING) * DAYS_IN_WEEK + 30 // Extra space for labels
+  const width = (CELL_SIZE + CELL_PADDING) * weeks + 25
+  const height = (CELL_SIZE + CELL_PADDING) * DAYS_IN_WEEK + 12 // Reduced from 15 to 12
 
-  // Create SVG with responsive sizing
+  // Create SVG with tighter viewBox
   const svg = select(svgContainer.value)
     .append('svg')
     .attr('width', '100%')
@@ -71,9 +108,21 @@ const drawHeatmap = () => {
 
   // Create color scale
   const maxValue = max(values) || 0
+
+  const isDark = useDark()
+
+  // custom dark interpolator
+  const darkInterpolator = (t) => {
+    // return interpolateRdBu(1 - t)
+    // Unhandled Promise Rejection: ReferenceError: Can't find variable: interpolateRdBu
+    // need a real d3 interpolator
+    // like turbo
+    return interpolateTurbo(t)
+  }
+
   const colorScale = scaleSequential()
     .domain([0, maxValue])
-    .interpolator(interpolateBlues)
+    .interpolator(isDark.value ? darkInterpolator : interpolateBlues)
 
   // Create month labels
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -90,33 +139,33 @@ const drawHeatmap = () => {
     })
   }
 
+  // Adjust month labels to sit closer to cells
   svg.selectAll('.month-label')
     .data(monthPositions)
     .join('text')
     .attr('class', 'month-label')
     .attr('x', d => d.x)
-    .attr('y', 10)
-    .attr('font-size', '9px')
+    .attr('y', 4) // Reduced from 6 to 4
+    .attr('font-size', '8px') // Slightly smaller
     .attr('fill', '#666')
     .text(d => d.month)
 
-  // Create day labels (Mon, Wed, Fri)
-  const days = ['Mon', 'Wed', 'Fri']
+  // Move day labels closer
   svg.selectAll('.day-label')
-    .data(days)
+    .data(DAYS)
     .join('text')
     .attr('class', 'day-label')
-    .attr('x', 0)
-    .attr('y', (d, i) => (i * 2 + 1) * (CELL_SIZE + CELL_PADDING) + 20)
-    .attr('font-size', '9px')
+    .attr('x', -2)
+    .attr('y', (d, i) => (i * 2 + 1) * (CELL_SIZE + CELL_PADDING) + 12)
+    .attr('font-size', '8px')
     .attr('fill', '#666')
     .attr('text-anchor', 'end')
     .attr('dominant-baseline', 'middle')
     .text(d => d)
 
-  // Create contribution cells
+  // Move cell group even closer to top
   const cellGroup = svg.append('g')
-    .attr('transform', `translate(35, 25)`) // Adjusted position
+    .attr('transform', `translate(20, 10)`) // Reduced y from 12 to 10
 
   const cells = cellGroup.selectAll('.contribution')
     .data(values)
@@ -128,41 +177,22 @@ const drawHeatmap = () => {
     .attr('x', (d, i) => Math.floor((DAYS_TO_SHOW - i - 1) / 7) * (CELL_SIZE + CELL_PADDING))
     .attr('y', (d, i) => (DAYS_TO_SHOW - i - 1) % 7 * (CELL_SIZE + CELL_PADDING))
     .attr('fill', d => colorScale(d))
-    .on('mouseover', (event, d, i) => {
+    .on('mouseenter', (event, d, i) => {
+      // Calculate date for this cell
       const date = new Date()
-      date.setDate(date.getDate() - (DAYS_TO_SHOW - i - 1))
+      const dayOffset = DAYS_TO_SHOW - i - 1
+      const timestamp = date.getTime() - (dayOffset * 24 * 60 * 60 * 1000)
+      const cellDate = new Date(timestamp)
 
-      const repos = details[i] || []
-
-      tooltip.value.innerHTML = `
-        <div class="space-y-1">
-          <div class="font-semibold">${date.toLocaleDateString()}</div>
-          <div class="text-blue-200">${d} commits</div>
-          ${repos.length ? `
-            <div class="text-gray-300 mt-2 mb-1">Repositories:</div>
-            <div class="max-h-32 overflow-y-auto">
-              ${repos.map(repo => `
-                <div class="flex justify-between gap-2 py-0.5">
-                  <span class="text-gray-400">${repo.name}</span>
-                  <span class="text-gray-500">${repo.count}</span>
-                </div>
-              `).join('')}
-            </div>
-          ` : ''}
-        </div>
-      `
-
-      const tooltipEl = tooltip.value
-      const containerRect = container.value.getBoundingClientRect()
-      const x = event.pageX - containerRect.left
-      const y = event.pageY - containerRect.top
-
-      tooltipEl.style.left = `${x + 10}px`
-      tooltipEl.style.top = `${y + 10}px`
-      tooltipEl.classList.remove('hidden')
+      // Update hovered cell data
+      hoveredCell.value = {
+        date: formatDate(cellDate),
+        count: d,
+        details: details[i] || []
+      }
     })
-    .on('mouseout', () => {
-      tooltip.value.classList.add('hidden')
+    .on('mouseleave', () => {
+      hoveredCell.value = null
     })
 }
 
@@ -193,5 +223,16 @@ onMounted(() => {
   stroke: #666;
   stroke-width: 1px;
   filter: brightness(1.1);
+}
+
+/* Fade animation for tooltip */
+.tooltip-enter-active,
+.tooltip-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.tooltip-enter-from,
+.tooltip-leave-to {
+  opacity: 0;
 }
 </style>

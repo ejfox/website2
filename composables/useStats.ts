@@ -65,6 +65,7 @@ interface StatsData {
       name: string
       count: number
     }[]
+    dates: string[]
   }
   productivity: {
     dailyProductivityPulse: number
@@ -107,6 +108,11 @@ interface StatsData {
     byAspectRatio: Array<{
       ratio: string
       count: number
+    }>
+    photos: Array<{
+      public_id: string
+      secure_url: string
+      created_at: string
     }>
   }
   weather: {
@@ -289,7 +295,8 @@ export const useStats = () => {
       repositories: [],
       commitMessages: [],
       activeHours: [],
-      hourlyDetails: []
+      hourlyDetails: [],
+      dates: []
     },
     productivity: {
       dailyProductivityPulse: 0,
@@ -316,7 +323,8 @@ export const useStats = () => {
       recentPhotos: [],
       byMonth: [],
       byFormat: [],
-      byAspectRatio: []
+      byAspectRatio: [],
+      photos: []
     },
     weather: {
       current: {
@@ -479,7 +487,8 @@ export const useStats = () => {
         repositories: repos.map((r) => r.name),
         commitMessages: commitMessages.map((c) => c.message),
         activeHours,
-        hourlyDetails
+        hourlyDetails,
+        dates: contributions.map((c) => c.date.toISOString().split('T')[0])
       }
 
       // Update metrics
@@ -501,12 +510,16 @@ export const useStats = () => {
       const response = await fetch('/api/photos')
       const photos = await response.json()
 
+      console.log('Raw photos response:', photos)
       console.log(`Processing ${photos.length} photos`)
 
       // Group photos by month
       const byMonth = new Map<string, number>()
       const byFormat = new Map<string, number>()
       const byAspectRatio = new Map<string, number>()
+
+      // Log a sample photo to see its structure
+      console.log('Sample photo structure:', photos[0])
 
       photos.forEach((photo) => {
         // Count by month
@@ -523,10 +536,15 @@ export const useStats = () => {
         byAspectRatio.set(ratioKey, (byAspectRatio.get(ratioKey) || 0) + 1)
       })
 
+      // Log the grouped data
+      console.log('Photos by month:', Object.fromEntries(byMonth))
+      console.log('Photos by format:', Object.fromEntries(byFormat))
+      console.log('Photos by aspect ratio:', Object.fromEntries(byAspectRatio))
+
       // Update stats
       stats.photography = {
         totalPhotos: photos.length,
-        recentPhotos: photos.slice(0, 10), // Keep just 10 most recent
+        recentPhotos: photos.slice(0, 10),
         byMonth: Array.from(byMonth.entries())
           .map(([month, count]) => ({ month, count }))
           .sort((a, b) => b.month.localeCompare(a.month)),
@@ -535,13 +553,28 @@ export const useStats = () => {
           .sort((a, b) => b.count - a.count),
         byAspectRatio: Array.from(byAspectRatio.entries())
           .map(([ratio, count]) => ({ ratio, count }))
-          .sort((a, b) => b.count - a.count)
+          .sort((a, b) => b.count - a.count),
+        photos // Add the photos array to fix TypeScript error
       }
+
+      // Log the final processed stats
+      console.log('Final photography stats:', {
+        totalPhotos: stats.photography.totalPhotos,
+        recentPhotosCount: stats.photography.recentPhotos.length,
+        byMonth: stats.photography.byMonth,
+        byFormat: stats.photography.byFormat,
+        byAspectRatio: stats.photography.byAspectRatio
+      })
 
       // Update metrics
       stats.metrics.photos = photos.length
 
-      console.log('Photo stats processed:', stats.photography)
+      console.log(
+        'Photo stats processed:',
+        stats.photography,
+        'from URL',
+        response.url
+      )
     } catch (e) {
       if (e instanceof Error) {
         errors.photos = e.message
