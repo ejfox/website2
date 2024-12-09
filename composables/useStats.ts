@@ -226,62 +226,233 @@ interface MonkeyTypeStats {
 }
 
 interface MonkeyTypeResponse {
-  message: string
-  data: {
-    typingStats: MonkeyTypeStats
+  typingStats: {
+    testsCompleted: number
+    testsStarted: number
+    bestWPM: number
+    bestAccuracy: number
+    bestConsistency: number
+    timePercentile: number
+    wordsPercentile: number
   }
+  personalBests: {
+    time: { [key: string]: any[] }
+    words: { [key: string]: any[] }
+  }
+  speedHistogram: {
+    time: { [key: string]: number }
+    words: { [key: string]: number }
+  }
+  lastUpdated: string
+}
+
+interface StatsResponse {
+  monkeyType: MonkeyTypeResponse
+  github: {
+    contributions: number[]
+    dates: string[]
+    currentStreak: number
+    prCount: number
+    totalContributions: number
+    repositories: any[]
+  }
+  photos: any[]
+}
+
+// Default/fallback values
+const DEFAULT_STATS: StatsResponse = {
+  monkeyType: {
+    typingStats: {
+      testsCompleted: 0,
+      testsStarted: 0,
+      bestWPM: 0,
+      bestAccuracy: 0,
+      bestConsistency: 0,
+      timePercentile: 0,
+      wordsPercentile: 0
+    },
+    personalBests: {
+      time: {},
+      words: {}
+    },
+    speedHistogram: {
+      time: {},
+      words: {}
+    },
+    lastUpdated: new Date().toISOString()
+  },
+  github: {
+    contributions: [],
+    dates: [],
+    currentStreak: 0,
+    prCount: 0,
+    totalContributions: 0,
+    repositories: []
+  },
+  photos: []
 }
 
 import { useStorage } from '@vueuse/core'
 
 export const useStats = () => {
-  const stats = useStorage<{
-    monkeyType: any | null
-    github: any | null
-    photos: any | null
-  }>('stats-cache', {
-    monkeyType: null,
-    github: null,
-    photos: null
-  })
+  const stats = useStorage<StatsResponse>('stats-cache', DEFAULT_STATS)
   const isLoading = ref(true)
   const errors = useStorage<Record<string, string>>('stats-errors', {})
+  const hasStaleData = ref(false)
+  const lastFetchAttempt = useStorage('stats-last-fetch', 0)
+  const CACHE_DURATION = 5 * 60 * 1000 // 5 minutes
 
-  const fetchStats = async () => {
+  const fetchWithTimeout = async (url: string, timeout = 5000) => {
+    const controller = new AbortController()
+    const id = setTimeout(() => controller.abort(), timeout)
+
+    try {
+      const response = await $fetch(url, {
+        signal: controller.signal,
+        retry: 1,
+        onResponseError: ({ response }) => {
+          console.error(`Error from ${url}:`, response._data)
+          throw new Error(
+            response._data?.message || `Failed to fetch from ${url}`
+          )
+        }
+      })
+      clearTimeout(id)
+      return response
+    } catch (error) {
+      clearTimeout(id)
+      throw error
+    }
+  }
+
+  const fetchStats = async (force = false) => {
+    // Check if we should use cache
+    const now = Date.now()
+    if (!force && now - lastFetchAttempt.value < CACHE_DURATION) {
+      console.log('Using cached stats')
+      return
+    }
+
     isLoading.value = true
     errors.value = {}
+    hasStaleData.value = false
+    lastFetchAttempt.value = now
 
     try {
       const [monkeyType, github, photos] = await Promise.allSettled([
-        $fetch('/api/monkeytype'),
-        $fetch('/api/github'),
-        $fetch('/api/photos')
+        fetchWithTimeout('/api/monkeytype').catch((error) => {
+          console.error('MonkeyType API error:', error)
+          errors.value.monkeyType =
+            error.message || 'Failed to fetch typing stats'
+          hasStaleData.value = true
+          return stats.value.monkeyType || DEFAULT_STATS.monkeyType
+        }),
+        fetchWithTimeout('/api/github').catch((error) => {
+          console.error('GitHub API error:', error)
+          errors.value.github = error.message || 'Failed to fetch GitHub stats'
+          hasStaleData.value = true
+          return stats.value.github || DEFAULT_STATS.github
+        }),
+        fetchWithTimeout('/api/photos').catch((error) => {
+          console.error('Photos API error:', error)
+          errors.value.photos = error.message || 'Failed to fetch photo stats'
+          hasStaleData.value = true
+          return stats.value.photos || DEFAULT_STATS.photos
+        })
       ])
 
-      stats.value = {
-        monkeyType: monkeyType.status === 'fulfilled' ? monkeyType.value : null,
-        github: github.status === 'fulfilled' ? github.value : null,
-        photos: photos.status === 'fulfilled' ? photos.value : null
+      // Update stats with new data or fallback to cached/default values
+      const newStats = {
+        monkeyType:
+          monkeyType.status === 'fulfilled'
+            ? monkeyType.value
+            : stats.value.monkeyType || DEFAULT_STATS.monkeyType,
+        github:
+          github.status === 'fulfilled'
+            ? github.value
+            : stats.value.github || DEFAULT_STATS.github,
+        photos:
+          photos.status === 'fulfilled'
+            ? photos.value
+            : stats.value.photos || DEFAULT_STATS.photos
       }
 
-      // Record any errors
-      if (monkeyType.status === 'rejected')
-        errors.value.monkeyType = monkeyType.reason
-      if (github.status === 'rejected') errors.value.github = github.reason
-      if (photos.status === 'rejected') errors.value.photos = photos.reason
+      // Only update stats if we have at least some valid data
+      if (
+        Object.values(newStats).some((val) => val !== null && val !== undefined)
+      ) {
+        stats.value = newStats
+      }
+
+      // Record any errors and set stale flag
+      if (monkeyType.status === 'rejected') {
+        errors.value.monkeyType =
+          monkeyType.reason?.message || 'Failed to fetch typing stats'
+        hasStaleData.value = true
+      }
+      if (github.status === 'rejected') {
+        errors.value.github =
+          github.reason?.message || 'Failed to fetch GitHub stats'
+        hasStaleData.value = true
+      }
+      if (photos.status === 'rejected') {
+        errors.value.photos =
+          photos.reason?.message || 'Failed to fetch photo stats'
+        hasStaleData.value = true
+      }
     } catch (error) {
       console.error('Error fetching stats:', error)
+      errors.value.general = error.message || 'Failed to fetch stats'
+      hasStaleData.value = true
     } finally {
       isLoading.value = false
     }
   }
 
-  onMounted(fetchStats)
+  // Fetch on mount if cache is stale
+  onMounted(() => {
+    const now = Date.now()
+    if (now - lastFetchAttempt.value >= CACHE_DURATION) {
+      fetchStats()
+    }
+  })
+
+  // Computed properties for data availability
+  const hasTypingData = computed(() => {
+    try {
+      return !!stats.value?.monkeyType?.typingStats?.timeTyping
+    } catch (error) {
+      console.error('Error checking typing data:', error)
+      return false
+    }
+  })
+
+  const hasGitHubData = computed(() => {
+    try {
+      return !!stats.value?.github?.contributions?.length
+    } catch (error) {
+      console.error('Error checking GitHub data:', error)
+      return false
+    }
+  })
+
+  const hasPhotoData = computed(() => {
+    try {
+      return !!stats.value?.photos?.photos?.length
+    } catch (error) {
+      console.error('Error checking photo data:', error)
+      return false
+    }
+  })
 
   return {
     stats,
     isLoading,
     errors,
-    refresh: fetchStats
+    hasStaleData,
+    hasTypingData,
+    hasGitHubData,
+    hasPhotoData,
+    refresh: () => fetchStats(true)
   }
 }

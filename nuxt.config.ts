@@ -106,7 +106,8 @@ export default defineNuxtConfig({
       HOME_LNG: process.env.HOME_LNG,
       SUPABASE_URL: process.env.SUPABASE_URL,
       SUPABASE_KEY: process.env.SUPABASE_KEY
-    }
+    },
+    githubToken: process.env.GITHUB_TOKEN
   },
 
   googleFonts: {

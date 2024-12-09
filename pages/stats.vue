@@ -27,14 +27,23 @@
         <!-- Primary Metrics -->
         <section v-if="hasTypingData || hasCodeData" class="grid grid-cols-1 md:grid-cols-2 gap-24">
           <div v-if="hasTypingData" class="space-y-3">
-            <p class="text-[8rem] leading-none font-extralight tabular-nums tracking-tight">{{ currentWPM }}</p>
+            <p class="text-[8rem] leading-none font-extralight tabular-nums tracking-tight">{{ bestWPM }}</p>
             <div class="w-16 h-px bg-gray-900"></div>
-            <h3 class="text-sm tracking-wider text-gray-500">AVERAGE WPM</h3>
+            <h3 class="text-sm tracking-wider text-gray-500">BEST WPM</h3>
+            <p class="text-xs text-gray-400">
+              {{ stats?.monkeyType?.typingStats?.testsCompleted || 0 }} tests completed
+              · {{ stats?.monkeyType?.typingStats?.bestAccuracy?.toFixed(1) || 0 }}% accuracy
+              · {{ stats?.monkeyType?.typingStats?.bestConsistency?.toFixed(1) || 0 }}% consistency
+            </p>
+            <!-- <p class="text-xs text-gray-400">
+              Faster than {{ stats?.monkeyType?.typingStats?.timePercentile?.toFixed(1) || 0 }}% of users on 60s tests
+              · {{ stats?.monkeyType?.typingStats?.wordsPercentile?.toFixed(1) || 0 }}% on word tests
+            </p> -->
           </div>
         </section>
 
         <!-- Secondary Metrics -->
-        <h3 class="text-sm tracking-wider text-gray-500 mb-8">CUMULATIVE TOTALS</h3>
+        <!-- <h3 class="text-sm tracking-wider text-gray-500 mb-8">CUMULATIVE TOTALS</h3>
         <section class="grid grid-cols-1 md:grid-cols-3 gap-24">
           <div v-for="metric in availableHeaderMetrics" :key="metric.label" class="space-y-3">
             <p class="text-6xl font-extralight tabular-nums tracking-tight">{{ metric.value }}</p>
@@ -50,7 +59,7 @@
               <UIcon name="i-mdi-github" class="w-4 h-4" />
             </h5>
           </div>
-        </section>
+        </section> -->
 
 
         <!-- All-time Photography Stats -->
@@ -90,7 +99,7 @@
 
       <!-- Blog Stats Section -->
       <section v-if="blogStats" class="space-y-12">
-        <div class="border-t border-gray-200/50 dark:border-gray-700/50 pt-12">
+        <div class="">
           <h4 class="text-sm tracking-wider text-gray-500/80 dark:text-gray-400/80 mb-4">WRITING ACTIVITY</h4>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
             <div class="space-y-2">
@@ -115,17 +124,6 @@
               </p>
             </div>
 
-            <div class="space-y-2">
-              <p class="text-4xl font-extralight tabular-nums">
-                {{ formatNumber(Math.round((blogStats.totalPosts /
-                  (((new Date()) - new Date(blogStats.firstPost)) / (1000 * 60 * 60 * 24 * 30))) * 10) / 10) }}
-              </p>
-              <div class="w-12 h-px bg-gray-900/10 dark:bg-gray-100/10"></div>
-              <h3 class="text-sm tracking-wider text-gray-500/80 dark:text-gray-400/80">POSTS PER MONTH</h3>
-              <p class="text-xs text-gray-400">
-                Last post: {{ formatDate(blogStats.lastPost) }}
-              </p>
-            </div>
           </div>
         </div>
       </section>
@@ -147,8 +145,10 @@
       </section>
 
       <!-- Temporal View Section -->
-      <PeriodAnalysis v-model:startDate="startDate" v-model:endDate="endDate" v-model:period="selectedPeriod"
-        :stats="stats" :hasCodeData="hasCodeData" :hasPhotoData="hasPhotoData" :today="today" />
+      <PeriodAnalysis :stats="stats" :start-date="startDate" :end-date="endDate" :selected-period="selectedPeriod"
+        :has-code-data="!!stats?.github" :has-photo-data="!!stats?.photos" :today="today"
+        @update:start-date="startDate = $event" @update:end-date="endDate = $event"
+        @update:period="selectedPeriod = $event" />
 
 
 
@@ -156,7 +156,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import LineChart from '~/components/viz/LineChart.vue'
 import HeatMap from '~/components/viz/HeatMap.vue'
 import { computed, ref, onMounted, watch } from 'vue'
@@ -166,6 +166,40 @@ import { useRoute, useRouter } from 'vue-router'
 import { useClipboard } from '@vueuse/core'
 import { format, subMonths, startOfMonth, endOfMonth } from 'date-fns'
 import PeriodAnalysis from '~/components/stats/PeriodAnalysis.vue'
+
+interface MonkeyTypeResponse {
+  typingStats: {
+    testsCompleted: number
+    testsStarted: number
+    bestWPM: number
+    bestAccuracy: number
+    bestConsistency: number
+    timePercentile: number
+    wordsPercentile: number
+  }
+  personalBests: {
+    time: { [key: string]: any[] }
+    words: { [key: string]: any[] }
+  }
+  speedHistogram: {
+    time: { [key: string]: number }
+    words: { [key: string]: number }
+  }
+  lastUpdated: string
+}
+
+interface StatsResponse {
+  monkeyType: MonkeyTypeResponse
+  github: {
+    contributions: number[]
+    dates: string[]
+    currentStreak: number
+    prCount: number
+    totalContributions: number
+    repositories: any[]
+  }
+  photos: any[]
+}
 
 const { stats, isLoading, errors, hasStaleData } = useStats()
 const { getAllPosts } = useProcessedMarkdown()
@@ -209,21 +243,18 @@ const copyShareLink = async () => {
 }
 
 // Data availability checks
-const hasTypingData = computed(() => !!stats?.typing?.currentWPM)
-const hasMusicData = computed(() => !!stats?.music?.currentStreak)
-const hasChessData = computed(() => !!stats?.chess?.currentRating)
-const hasCodeData = computed(() => Array.isArray(stats?.code?.contributions) && stats.code.contributions.length > 0)
-const hasPhotoData = computed(() => !!stats?.photography?.totalPhotos)
-const hasWeatherData = computed(() => !!stats?.weather?.current)
+const hasTypingData = computed(() => {
+  return !!stats.value?.monkeyType?.typingStats?.bestWPM
+})
+
+const hasCodeData = computed(() => Array.isArray(stats?.github?.contributions) && stats.github.contributions.length > 0)
+const hasPhotoData = computed(() => Array.isArray(stats?.photos))
 
 const hasMultipleDataSources = computed(() => {
   const availableSources = [
     hasTypingData.value,
-    hasMusicData.value,
-    hasChessData.value,
     hasCodeData.value,
-    hasPhotoData.value,
-    hasWeatherData.value
+    hasPhotoData.value
   ].filter(Boolean).length
 
   return availableSources >= 2
@@ -233,98 +264,57 @@ const availableHeaderMetrics = computed(() => {
   const metrics = []
 
   if (blogStats.value) {
-    metrics.push({
-      label: 'Blog Posts',
-      value: formatNumber(blogStats.value.totalPosts)
-    })
-    metrics.push({
-      label: 'Words Written',
-      value: formatNumber(blogStats.value.totalWords)
-    })
-    metrics.push({
-      label: 'Avg Words per Post',
-      value: formatNumber(blogStats.value.averageWords)
-    })
+    // metrics.push({
+    //   label: 'Blog Posts',
+    //   value: formatNumber(blogStats.value.totalPosts)
+    // })
+    // metrics.push({
+    //   label: 'Total Words Written',
+    //   value: formatNumber(blogStats.value.totalWords)
+    // })
+    // metrics.push({
+    //   label: 'Avg Words per Post',
+    //   value: formatNumber(blogStats.value.averageWords)
+    // })
   }
 
-  if (hasTypingData.value) {
+  if (hasCodeData.value) {
     metrics.push({
-      label: 'Total Keystrokes',
-      value: formatNumber(stats?.metrics?.keystrokes)
+      label: 'Total Contributions',
+      value: formatNumber(stats.value.github.totalContributions)
     })
-  }
-
-  if (hasMusicData.value) {
     metrics.push({
-      label: 'Hours of Music',
-      value: formatNumber(stats?.metrics?.musicHours)
+      label: 'Pull Requests',
+      value: formatNumber(stats.value.github.prCount)
     })
-  }
-
-  if (hasChessData.value) {
     metrics.push({
-      label: 'Chess Games',
-      value: formatNumber(stats?.metrics?.chessGames)
+      label: 'Current Streak',
+      value: formatNumber(stats.value.github.currentStreak)
     })
   }
 
   if (hasPhotoData.value) {
     metrics.push({
-      label: 'Photos Captured',
-      value: formatNumber(stats?.metrics?.photos)
-    })
-  }
-
-  if (hasCodeData.value) {
-    metrics.push({
-      label: 'Lines of Code',
-      value: formatNumber(stats?.metrics?.linesOfCode)
-    })
-  }
-
-  if (stats?.monkeyType) {
-    metrics.push({
-      label: 'Total Tests Completed',
-      value: formatNumber(stats.monkeyType.completedTests)
-    })
-    metrics.push({
-      label: 'Time Typing (minutes)',
-      value: formatNumber(Math.floor(stats.monkeyType.timeTyping))
-    })
-  }
-
-  if (stats?.github) {
-    metrics.push({
-      label: 'Total Repositories',
-      value: formatNumber(stats.github.totalRepos)
-    })
-    metrics.push({
-      label: 'Followers',
-      value: formatNumber(stats.github.followers)
-    })
-    metrics.push({
-      label: 'Stars',
-      value: formatNumber(stats.github.stars)
-    })
-    metrics.push({
-      label: 'Contributions in the Last Year',
-      value: formatNumber(stats.github.contributions)
+      label: 'Photos',
+      value: formatNumber(stats.value.photos.length)
     })
   }
 
   return metrics
 })
 
-const currentWPM = computed(() => stats?.typing?.currentWPM ?? 0)
+const bestWPM = computed(() => {
+  return Math.round(stats.value?.monkeyType?.typingStats?.bestWPM || 0)
+})
+
 const productivityPulse = computed(() => stats?.typing?.productivityPulse ?? 0)
-const bestWPM = computed(() => stats?.typing?.bestWPM ?? 0)
 const accuracy = computed(() => stats?.typing?.accuracy ?? 0)
 const musicStreak = computed(() => stats?.music?.currentStreak ?? 0)
 const sleepScore = computed(() => stats?.health?.sleepScore ?? 0)
 const activeMinutes = computed(() => stats?.health?.activeMinutes ?? 0)
 const chessRating = computed(() => stats?.chess?.currentRating ?? 0)
 const peakRating = computed(() => stats?.chess?.peakRating ?? 0)
-const codeStreak = computed(() => stats?.code?.currentStreak ?? 0)
+const codeStreak = computed(() => stats.value?.github?.currentStreak ?? 0)
 const prCount = computed(() => stats?.code?.prCount ?? 0)
 
 const topArtists = computed(() => {
@@ -438,9 +428,47 @@ watch(isLoading, (loading) => {
 const blogStats = ref(null)
 const wordsPerYear = ref(null)
 onMounted(async () => {
-  const posts = await getAllPosts(false, false)
-  if (!posts?.length) {
-    console.warn('No posts found')
+  try {
+    const posts = await getAllPosts(false, false)
+    if (!posts?.length) {
+      console.warn('No posts found')
+      blogStats.value = {
+        totalPosts: 0,
+        totalWords: 0,
+        averageWords: 0,
+        firstPost: null,
+        lastPost: null
+      }
+      return
+    }
+
+    // Calculate words per year while we already have the posts
+    const yearCounts = {}
+    posts.forEach(post => {
+      if (!post?.date) return
+      const year = getValidDate(post.date).getFullYear()
+      if (!yearCounts[year]) {
+        yearCounts[year] = 0
+      }
+      yearCounts[year] += post.wordCount || 0
+    })
+
+    // Sort years in descending order
+    wordsPerYear.value = Object.fromEntries(
+      Object.entries(yearCounts)
+        .sort(([yearA], [yearB]) => Number(yearB) - Number(yearA))
+    )
+
+    // Calculate blog stats with null checks
+    blogStats.value = {
+      totalPosts: posts.length,
+      totalWords: posts.reduce((sum, post) => sum + (post?.wordCount || 0), 0),
+      averageWords: Math.round(posts.reduce((sum, post) => sum + (post?.wordCount || 0), 0) / (posts.length || 1)),
+      firstPost: posts[posts.length - 1]?.date,
+      lastPost: posts[0]?.date,
+    }
+  } catch (error) {
+    console.error('Error calculating blog stats:', error)
     blogStats.value = {
       totalPosts: 0,
       totalWords: 0,
@@ -448,31 +476,7 @@ onMounted(async () => {
       firstPost: null,
       lastPost: null
     }
-    return
-  }
-
-  // Calculate words per year while we already have the posts
-  const yearCounts = {}
-  posts.forEach(post => {
-    const year = getValidDate(post.date).getFullYear()
-    if (!yearCounts[year]) {
-      yearCounts[year] = 0
-    }
-    yearCounts[year] += post.wordCount || 0
-  })
-
-  // Sort years in descending order
-  wordsPerYear.value = Object.fromEntries(
-    Object.entries(yearCounts)
-      .sort(([yearA], [yearB]) => Number(yearB) - Number(yearA))
-  )
-
-  blogStats.value = {
-    totalPosts: posts.length,
-    totalWords: posts.reduce((sum, post) => sum + (post.wordCount || 0), 0),
-    averageWords: Math.round(posts.reduce((sum, post) => sum + (post.wordCount || 0), 0) / posts.length),
-    firstPost: posts[posts.length - 1]?.date,
-    lastPost: posts[0]?.date,
+    wordsPerYear.value = {}
   }
 })
 
@@ -482,6 +486,13 @@ const formatDate = (dateString) => {
   const date = new Date(dateString)
   if (isNaN(date.getTime())) return 'Invalid Date'
   return format(date, 'MMMM d, yyyy')
+}
+
+// Add helper function for date validation
+const getValidDate = (dateString) => {
+  if (!dateString) return new Date()
+  const date = new Date(dateString)
+  return isNaN(date.getTime()) ? new Date() : date
 }
 
 </script>
