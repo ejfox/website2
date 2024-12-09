@@ -11,54 +11,52 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  try {
-    const response = await $fetch('https://api.github.com/graphql', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json',
-      },
-      body: {
-        query: `
-          query {
-            viewer {
-              contributionsCollection {
-                contributionCalendar {
-                  totalContributions
-                  weeks {
-                    contributionDays {
-                      contributionCount
-                      date
-                    }
-                  }
-                }
-                pullRequestContributions(first: 100) {
-                  totalCount
-                  nodes {
-                    pullRequest {
-                      title
-                      merged
-                      mergedAt
-                    }
+  const response = await $fetch('https://api.github.com/graphql', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    },
+    body: {
+      query: `
+        query {
+          viewer {
+            contributionsCollection {
+              contributionCalendar {
+                totalContributions
+                weeks {
+                  contributionDays {
+                    contributionCount
+                    date
                   }
                 }
               }
-              repositories(first: 100, orderBy: {field: PUSHED_AT, direction: DESC}) {
+              pullRequestContributions(first: 100) {
+                totalCount
                 nodes {
-                  name
-                  primaryLanguage {
-                    name
+                  pullRequest {
+                    title
+                    merged
+                    mergedAt
                   }
-                  refs(refPrefix: "refs/heads/", first: 1) {
-                    nodes {
-                      name
-                      target {
-                        ... on Commit {
-                          history(first: 100) {
-                            nodes {
-                              message
-                              committedDate
-                            }
+                }
+              }
+            }
+            repositories(first: 100, orderBy: {field: PUSHED_AT, direction: DESC}) {
+              nodes {
+                name
+                primaryLanguage {
+                  name
+                }
+                refs(refPrefix: "refs/heads/", first: 1) {
+                  nodes {
+                    name
+                    target {
+                      ... on Commit {
+                        history(first: 100) {
+                          nodes {
+                            message
+                            committedDate
                           }
                         }
                       }
@@ -68,17 +66,10 @@ export default defineEventHandler(async (event) => {
               }
             }
           }
-        `
-      }
-    })
+        }
+      `
+    }
+  })
 
-    return response
-
-  } catch (error: any) {
-    console.error('Error fetching GitHub data:', error)
-    throw createError({
-      statusCode: error.statusCode || 500,
-      message: error.message || 'Failed to fetch GitHub data'
-    })
-  }
-}) 
+  return response
+})

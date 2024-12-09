@@ -12,7 +12,6 @@ export default defineEventHandler(async (event) => {
     return JSON.parse(manifestContent)
   } catch (error) {
     console.error(`Error fetching manifest: ${error.message}`)
-    event.res.statusCode = 500
-    return { error: 'Unable to fetch manifest' }
+    return []
   }
 })

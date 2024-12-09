@@ -1,9 +1,11 @@
 <script setup>
 import { format, isValid, parseISO } from 'date-fns'
-import { animate, stagger, onScroll, utils } from '~/anime.esm.js'
-import { useWindowSize } from '@vueuse/core'
+import { animate, stagger, onScroll, utils, engine } from '~/anime.esm.js'
+import { useWindowSize, useElementVisibility, useMutationObserver } from '@vueuse/core'
+import { TransitionPresets, useTransition } from '@vueuse/core'
 import DonationSection from '~/components/blog/DonationSection.vue'
 import BlogSignatureInfo from '~/components/blog/SignatureInfo.vue'
+import { useScrollAnimation } from '~/composables/useScrollAnimation'
 
 const config = useRuntimeConfig()
 const isDark = useDark()
@@ -53,6 +55,7 @@ const { data: nextPrevPosts } = await useAsyncData(
 // New refs for animation targets
 const postTitle = ref(null)
 const postMetadata = ref(null)
+const postMetadataComponent = ref(null)
 const postContent = ref(null)
 const navigationLinks = ref(null)
 
@@ -67,7 +70,7 @@ const trimmedToc = computed(() => {
   return post.value.toc.flatMap(item =>
     item.children?.map(child => ({
       ...child,
-      text: child.text.length > 20 ? child.text.slice(0, 17) + '...' : child.text
+      text: child.text.length > 35 ? child.text.slice(0, 32) + '...' : child.text
     })) || []
   )
 })
@@ -76,71 +79,76 @@ const trimmedToc = computed(() => {
 const tocScrollPosition = ref(0)
 
 // Update these constants
-const TOC_ITEM_WIDTH = 80 // Width of each TOC item in pixels
-const VIEWPORT_WIDTH = 300 // Approximate width of the visible area
+const TOC_CONSTANTS = {
+  ITEM_WIDTH: 80,
+  VIEWPORT_WIDTH: 300
+}
 
 // Updated function to center the active TOC item
-const updateTocScroll = () => {
+const updateTocScroll = useDebounceFn(() => {
   const activeIndex = trimmedToc.value.findIndex(item => item.slug === activeSection.value)
-  if (activeIndex !== -1) {
-    const totalWidth = trimmedToc.value.length * TOC_ITEM_WIDTH
-    const halfViewport = VIEWPORT_WIDTH / 2
-    let newScrollPosition = activeIndex * TOC_ITEM_WIDTH - halfViewport + TOC_ITEM_WIDTH / 2
+  if (activeIndex === -1) return
 
-    // Ensure we don't scroll past the start or end
-    newScrollPosition = Math.max(0, Math.min(newScrollPosition, totalWidth - VIEWPORT_WIDTH))
+  const totalWidth = trimmedToc.value.length * TOC_CONSTANTS.ITEM_WIDTH
+  const halfViewport = TOC_CONSTANTS.VIEWPORT_WIDTH / 2
+  const newScrollPosition = Math.max(
+    0,
+    Math.min(
+      activeIndex * TOC_CONSTANTS.ITEM_WIDTH - halfViewport + TOC_CONSTANTS.ITEM_WIDTH / 2,
+      totalWidth - TOC_CONSTANTS.VIEWPORT_WIDTH
+    )
+  )
 
-    tocScrollPosition.value = newScrollPosition
-  }
-}
+  tocScrollPosition.value = newScrollPosition
+}, 100)
 
 // Watch for changes in activeSection
 watch(activeSection, updateTocScroll)
 
-onMounted(() => {
-  if (post.value && !post.value.redirect) {
-    nextTick(() => {
-      // Animate metadata
-      if (postMetadata.value) {
-        animate(postMetadata.value, {
-          opacity: [0, 1],
-          translateY: ['-10vh', 0],
-          duration: 1200,
-          delay: 200,
-          easing: 'easeOutQuad'
-        })
-      }
-
-      // Animate internal links
-      if (postContent.value) {
-        const internalLinks = postContent.value.querySelectorAll('.internal-link')
-        if (internalLinks.length > 0) {
-          animate(internalLinks, {
-            borderColor: ['#67e8f9', '#c2410c', '#facc15', '#be185d'],
-            duration: 65000,
-            loop: true,
-            alternate: true,
-            delay: stagger(4500)
-          })
-        }
-      }
-
-      // Set up intersection observers for each section
-      const sections = document.querySelectorAll('h2, h3')
-      sections.forEach(section => {
-        const { stop } = useIntersectionObserver(
-          section,
-          ([{ isIntersecting }]) => {
-            if (isIntersecting) {
-              activeSection.value = section.id
-            }
-          },
-          { threshold: 0.5 } // Adjust this value as needed
-        )
-      })
-    })
-  }
+// Create scroll animation instance
+const { setupAnimation, slideUp, slideLeft, fadeIn, expandLine } = useScrollAnimation({
+  debug: false,
+  threshold: 0.1,
+  rootMargin: '0px 0px -10% 0px',
 })
+
+// Set up global animation defaults
+engine.defaults = {
+  duration: 1600,
+  ease: 'inOutQuad',
+  autoplay: true
+}
+
+// Add a ref to control the typed text
+const typedTitle = ref('')
+
+// Function to animate text typing
+function typeText(text) {
+  if (process.server) return
+
+  let currentIndex = 0
+  const totalChars = text.length
+  const typeSpeed = 50
+
+  // Clear any existing text
+  typedTitle.value = ''
+
+  // Start typing
+  const typeInterval = setInterval(() => {
+    if (currentIndex < totalChars) {
+      typedTitle.value = text.slice(0, currentIndex + 1)
+      currentIndex++
+    } else {
+      clearInterval(typeInterval)
+    }
+  }, typeSpeed)
+}
+
+// Start typing when post title is available
+watch(() => post.value?.title, (newTitle) => {
+  if (process.server) return
+  if (newTitle) typeText(newTitle)
+}, { immediate: true })
 
 function formatDate(date) {
   if (!date) return 'No date'
@@ -195,7 +203,9 @@ const isBlogPost = computed(() => {
 // Add computed property to check if donations should be shown
 const showDonations = computed(() => {
   // Show donations by default unless explicitly disabled in frontmatter
-  return post.value?.donation !== false
+  // return post.value?.donation !== false
+  // actually lets hide by default
+  return false
 })
 
 const verificationStatus = ref(null)
@@ -227,6 +237,95 @@ onMounted(async () => {
     }
   }
 })
+
+const articleContent = ref(null)
+
+// Watch for content changes
+watch(() => post.value?.content, async () => {
+  if (post.value?.content) {
+    await nextTick()
+    await nextTick()
+    await new Promise(resolve => setTimeout(resolve, 100))
+    // Make sure component is mounted before animating
+    if (postMetadataComponent.value) {
+      setupImageAnimations()
+      if (postMetadataComponent.value?.animateItems) {
+        postMetadataComponent.value.animateItems()
+      }
+    }
+  }
+}, { immediate: true })
+
+// Set up mutation observer
+let stopMutationObserver = null
+
+function setupImageAnimations() {
+  if (!articleContent.value) return
+
+  // Images slide up from bottom
+  const images = articleContent.value.querySelectorAll('img')
+  images.forEach(img => slideUp(img))
+
+  // Blockquotes slide in from left
+  const blockquotes = articleContent.value.querySelectorAll('blockquote')
+  blockquotes.forEach(quote => slideLeft(quote))
+
+  // Horizontal rules expand from center
+  const horizontalRules = articleContent.value.querySelectorAll('hr')
+  horizontalRules.forEach(rule => expandLine(rule))
+
+  // Animate headings
+  const headingLevels = ['h2', 'h3', 'h4']
+  for (const level of headingLevels) {
+    const headings = articleContent.value.querySelectorAll(level)
+    if (headings.length > 0) {
+      headings.forEach(heading => slideLeft(heading))
+    }
+  }
+
+  const { stop } = useMutationObserver(
+    articleContent.value,
+    (mutations) => {
+      mutations.forEach(mutation => {
+        mutation.addedNodes.forEach(node => {
+          if (node.nodeName === 'IMG') {
+            slideUp(node)
+          }
+          if (node.nodeName === 'BLOCKQUOTE') {
+            slideLeft(node)
+          }
+          if (['H2', 'H3', 'H4'].includes(node.nodeName)) {
+            const settings = ANIMATION_SETTINGS[node.nodeName.toLowerCase()]
+            slideLeft(node, settings)
+          }
+          const nestedImages = node.querySelectorAll?.('img') || []
+          nestedImages.forEach(img => slideUp(img))
+          const nestedQuotes = node.querySelectorAll?.('blockquote') || []
+          nestedQuotes.forEach(quote => slideLeft(quote))
+          // Handle nested headings
+          headingLevels.forEach(level => {
+            const headings = node.querySelectorAll?.(level) || []
+            if (headings.length > 0) {
+              headings.forEach(heading => {
+                const settings = ANIMATION_SETTINGS[level]
+                slideLeft(heading, settings)
+              })
+            }
+          })
+        })
+      })
+    },
+    { childList: true, subtree: true }
+  )
+  stopMutationObserver = stop
+}
+
+// Clean up mutation observer
+onUnmounted(() => {
+  if (stopMutationObserver) {
+    stopMutationObserver()
+  }
+})
 </script>
 
 <template>
@@ -237,13 +336,13 @@ onMounted(async () => {
     </Head>
     <article v-if="post && !post.redirect" class="scroll-container pt-4 md:pt-2">
       <div ref="postMetadata">
-        <PostMetadata :doc="post" class="paddings" />
+        <PostMetadata :doc="post" class="paddings" ref="postMetadataComponent" />
       </div>
 
       <div class="lg:h-[62vh] flex items-center">
         <h1 ref="postTitle" v-if="post?.title"
           class="post-title text-4xl lg:text-8xl xl:text-10xl font-bold w-full paddings-y pr-8 pl-4 md:pl-0 text-balance">
-          {{ post?.title }}
+          {{ typedTitle }}<span class="cursor">|</span>
         </h1>
       </div>
 
@@ -254,9 +353,9 @@ onMounted(async () => {
         </UButton>
       </div>
 
-      <div ref="postContent">
-        <article v-html="post.content"
-          class="px-2 prose-lg md:prose-xl dark:prose-invert prose-headings:font-bold prose-headings:tracking-tight prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-p:leading-8 prose-p:py-2 prose-a:text-blue-600 hover:prose-a:text-blue-500 dark:prose-a:text-blue-200 dark:hover:prose-a:text-blue-400 prose-a:underline transition-all duration-100 ease-in-out prose-strong:font-semibold prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:my-8 prose-ul:list-disc prose-ol:list-decimal prose-li:my-2 prose-img:rounded-lg prose-hr:border-gray-300 dark:prose-hr:border-gray-700 prose-table:border-collapse prose-th:border prose-th:border-gray-300 dark:prose-th:border-gray-700 prose-th:px-3 prose-th:py-2 prose-td:border prose-td:border-gray-300 dark:prose-td:border-gray-700 prose-td:px-3 prose-td:py-2 prose-pre:bg-white dark:prose-pre:bg-zinc-800 prose-pre:overflow-x-auto prose-pre:max-w-full prose-code:overflow-x-auto prose-code:max-w-full !max-w-none font-normal">
+      <div ref="articleContent">
+        <article v-html="post.content" ref="articleContent"
+          class="px-2 prose-lg md:prose-xl dark:prose-invert prose-img:my-8 prose-img:rounded-lg font-normal">
         </article>
       </div>
 
@@ -272,7 +371,7 @@ onMounted(async () => {
             class="block text-left no-underline hover:underline">
             <span class="block text-sm text-gray-500">Previous</span>
             <span class="block text-sm text-gray-400">{{ formatDate(nextPrevPosts.prev.date) }}</span>
-            <span class="text-current">← {{ nextPrevPosts.prev?.title }}</span>
+            <span class="text-current"> {{ nextPrevPosts.prev?.title }}</span>
           </NuxtLink>
         </div>
 
@@ -312,17 +411,22 @@ onMounted(async () => {
     </div>
 
     <!-- Mobile TOC component -->
-    <Transition name="fade">
-      <div v-if="isMobile && trimmedToc.length"
-        class="fixed bottom-0 left-0 w-full bg-black/70 backdrop-blur-sm text-white overflow-x-auto py-2 z-50">
-        <div class="flex transition-transform duration-300 ease-in-out"
-          :style="{ transform: `translateX(-${tocScrollPosition}px)` }">
-          <div v-for="item in trimmedToc" :key="item.slug" class="flex-shrink-0 w-20 px-2 text-center">
-            <a :href="`#${item.slug}`"
-              class="text-xs leading-tight block hover:text-blue-400 transition-colors truncate"
-              :class="{ 'text-blue-400 font-bold': activeSection === item.slug }">
-              {{ item.text }}
-            </a>
+    <Transition name="slide-up">
+      <div v-if="isMobile && trimmedToc.length > 2" class="fixed bottom-0 left-0 w-full bg-white/80 dark:bg-black/80 backdrop-blur-sm 
+               text-zinc-900 dark:text-white z-50 pb-safe">
+        <div class="w-[94%] mx-auto">
+          <div class="overflow-x-auto no-scrollbar py-3">
+            <div class="flex gap-8 transition-transform duration-300 ease-out"
+              :style="{ transform: `translateX(-${tocScrollPosition}px)` }">
+              <a v-for="item in trimmedToc" :key="item.slug" :href="`#${item.slug}`"
+                class="py-1.5 transition-colors whitespace-nowrap text-sm flex-shrink-0 min-w-fit" :class="[
+                  activeSection === item.slug
+                    ? 'text-zinc-900 dark:text-white font-medium'
+                    : 'text-zinc-500 dark:text-zinc-400'
+                ]">
+                {{ item.text }}
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -330,16 +434,20 @@ onMounted(async () => {
 
     <!-- Desktop TOC -->
     <teleport to="#toc-container" v-if="!isMobile && post?.toc?.length">
-      <div v-if="post?.toc?.length" class="p-2">
+      <div class="p-2 max-w-[250px]">
         <div
-          class="toc dark:bg-zinc-900 p-1 pl-4 rounded-lg text-xs my-4 md:my-8 font-sans text-zinc-400 dark:text-zinc-600">
-          <h3 class="text-lg mb-2">Table of Contents</h3>
+          class="toc bg-zinc-50/50 dark:bg-zinc-900/50 backdrop-blur-sm p-4 rounded-lg text-sm font-sans text-zinc-600 dark:text-zinc-400 border border-zinc-200/50 dark:border-zinc-800/50">
+          <h3 class="text-base font-medium mb-3">Table of Contents</h3>
           <ul class="space-y-2">
             <div v-for="item in post.toc" :key="item.slug">
-              <ul v-if="item.children?.length" class="mt-2 space-y-2">
+              <ul v-if="item.children?.length" class="space-y-2">
                 <li v-for="child in item.children" :key="child.slug"
-                  :class="{ 'text-zinc-700 dark:text-zinc-300': activeSection === child.slug }">
-                  <a :href="`#${child.slug}`" class="hover:text-blue-500 transition-colors">
+                  class="transition-colors duration-200 hover:bg-zinc-100/50 dark:hover:bg-zinc-800/50 rounded">
+                  <a :href="`#${child.slug}`" class="block px-2 py-1 rounded transition-colors" :class="[
+                    activeSection === child.slug
+                      ? 'text-zinc-900 dark:text-zinc-100 bg-zinc-200/50 dark:bg-zinc-700/50'
+                      : 'hover:text-zinc-900 dark:hover:text-zinc-200'
+                  ]">
                     {{ child.text }}
                   </a>
                 </li>
@@ -428,5 +536,119 @@ onMounted(async () => {
 /* Smooth scrolling for the TOC */
 .flex {
   scroll-behavior: smooth;
+}
+
+/* Hide scrollbar but keep functionality */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Content handling */
+.post-content {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.post-content blockquote {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.post-content a {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+/* Optimize CSS by combining similar rules */
+.toc-common {
+  @apply transition-colors duration-200;
+}
+
+.toc-hover {
+  @apply hover:bg-zinc-100/50 dark:hover:bg-zinc-800/50 rounded;
+}
+
+/* Hero animation setup */
+.post-title {
+  will-change: contents;
+}
+
+/* Scrollytelling animations */
+.prose img,
+.prose blockquote,
+.prose h2,
+.prose h3,
+.prose h4 {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .post-title,
+  .prose img,
+  .prose blockquote,
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+  opacity: 1;
+}
+</style>
+
+<style>
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+a {
+  word-break: break-word;
+}
+
+/* Respect user preferences */
+@media (prefers-reduced-motion: reduce) {
+
+  .prose img,
+  .prose blockquote {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    animation: none !important;
+  }
 }
 </style>

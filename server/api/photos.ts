@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        numPhotos: 1000, // Increased from 64
+        numPhotos: 1000,
         filterOutScreenshots: true,
         onlyScreenshots: false,
         onlyPhotoblog: false
@@ -20,7 +20,7 @@ export default defineEventHandler(async (event) => {
     console.log(`Fetched ${photos.length} photos`)
 
     // Just return basic photo data without EXIF
-    return photos.map(photo => ({
+    return photos.map((photo) => ({
       id: photo.public_id,
       url: photo.secure_url,
       uploaded_at: photo.uploaded_at,
@@ -28,7 +28,6 @@ export default defineEventHandler(async (event) => {
       height: photo.height,
       format: photo.format
     }))
-
   } catch (error) {
     console.error('Error fetching photos:', error)
     throw createError({
@@ -36,4 +35,4 @@ export default defineEventHandler(async (event) => {
       message: 'Failed to fetch photos'
     })
   }
-}) 
+})

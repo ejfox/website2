@@ -10,6 +10,15 @@
       </div>
     </div>
 
+    <div v-if="hasStaleData" class="mb-8 p-4 bg-yellow-50/50 dark:bg-yellow-900/20 rounded-lg">
+      <h3 class="text-sm font-medium text-yellow-800/75 dark:text-yellow-200/75">
+        Some data may be outdated
+      </h3>
+      <p class="text-yellow-600/75 dark:text-yellow-300/75 text-sm">
+        Using cached data while services are unavailable
+      </p>
+    </div>
+
     <div class="space-y-32">
       <!-- All-time Stats Section -->
       <section class="space-y-16">
@@ -91,7 +100,7 @@
               <div class="w-12 h-px bg-gray-900/10 dark:bg-gray-100/10"></div>
               <h3 class="text-sm tracking-wider text-gray-500/80 dark:text-gray-400/80">TOTAL POSTS</h3>
               <p class="text-xs text-gray-400">
-                First post: {{ format(new Date(blogStats.firstPost), 'MMMM d, yyyy') }}
+                First post: {{ formatDate(blogStats.firstPost) }}
               </p>
             </div>
 
@@ -114,8 +123,24 @@
               <div class="w-12 h-px bg-gray-900/10 dark:bg-gray-100/10"></div>
               <h3 class="text-sm tracking-wider text-gray-500/80 dark:text-gray-400/80">POSTS PER MONTH</h3>
               <p class="text-xs text-gray-400">
-                Last post: {{ format(new Date(blogStats.lastPost), 'MMMM d, yyyy') }}
+                Last post: {{ formatDate(blogStats.lastPost) }}
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Words Per Year Section -->
+      <section v-if="wordsPerYear" class="space-y-12">
+        <div class="border-t border-gray-200/50 dark:border-gray-700/50 pt-12">
+          <h4 class="text-sm tracking-wider text-gray-500/80 dark:text-gray-400/80 mb-8">WORDS WRITTEN PER YEAR</h4>
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div v-for="(words, year) in wordsPerYear" :key="year" class="space-y-2">
+              <p class="text-4xl font-extralight tabular-nums">
+                {{ formatNumber(words) }}
+              </p>
+              <div class="w-12 h-px bg-gray-900/10 dark:bg-gray-100/10"></div>
+              <h3 class="text-sm tracking-wider text-gray-500/80 dark:text-gray-400/80">{{ year }}</h3>
             </div>
           </div>
         </div>
@@ -142,7 +167,7 @@ import { useClipboard } from '@vueuse/core'
 import { format, subMonths, startOfMonth, endOfMonth } from 'date-fns'
 import PeriodAnalysis from '~/components/stats/PeriodAnalysis.vue'
 
-const { stats, isLoading, errors } = useStats()
+const { stats, isLoading, errors, hasStaleData } = useStats()
 const { getAllPosts } = useProcessedMarkdown()
 
 const route = useRoute()
@@ -411,17 +436,53 @@ watch(isLoading, (loading) => {
 
 // Fetch blog stats
 const blogStats = ref(null)
+const wordsPerYear = ref(null)
 onMounted(async () => {
   const posts = await getAllPosts(false, false)
+  if (!posts?.length) {
+    console.warn('No posts found')
+    blogStats.value = {
+      totalPosts: 0,
+      totalWords: 0,
+      averageWords: 0,
+      firstPost: null,
+      lastPost: null
+    }
+    return
+  }
+
+  // Calculate words per year while we already have the posts
+  const yearCounts = {}
+  posts.forEach(post => {
+    const year = getValidDate(post.date).getFullYear()
+    if (!yearCounts[year]) {
+      yearCounts[year] = 0
+    }
+    yearCounts[year] += post.wordCount || 0
+  })
+
+  // Sort years in descending order
+  wordsPerYear.value = Object.fromEntries(
+    Object.entries(yearCounts)
+      .sort(([yearA], [yearB]) => Number(yearB) - Number(yearA))
+  )
+
   blogStats.value = {
     totalPosts: posts.length,
     totalWords: posts.reduce((sum, post) => sum + (post.wordCount || 0), 0),
     averageWords: Math.round(posts.reduce((sum, post) => sum + (post.wordCount || 0), 0) / posts.length),
     firstPost: posts[posts.length - 1]?.date,
     lastPost: posts[0]?.date,
-    // Could add more metrics like posts per month, etc.
   }
 })
+
+// Add this helper function
+const formatDate = (dateString) => {
+  if (!dateString) return 'Unknown'
+  const date = new Date(dateString)
+  if (isNaN(date.getTime())) return 'Invalid Date'
+  return format(date, 'MMMM d, yyyy')
+}
 
 </script>
 
