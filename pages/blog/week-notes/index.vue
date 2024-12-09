@@ -64,7 +64,7 @@ onMounted(() => {
     translateY: [20, 0],
     // scale: [0.98, 1.02, 1],
     duration: animDuration,
-    easing: 'easeOutQuad',
+    ease: 'easeOutQuad',
     delay: stagger(animStagger)
   })
 
@@ -74,7 +74,7 @@ onMounted(() => {
     opacity: [0, 1],
     translateX: [-8, 0],
     duration: animDuration * 2,
-    easing: 'easeOutQuad',
+    ease: 'easeOutQuad',
     delay: animDuration * 0.82
   })
 
@@ -83,7 +83,7 @@ onMounted(() => {
     opacity: [0, 1],
     translateX: [20, 0],
     duration: animDuration,
-    easing: 'easeInOutQuad',
+    ease: 'easeInOutQuad',
     delay: stagger(animStagger, { start: 600 }) // Start after blog posts animation
   })
 

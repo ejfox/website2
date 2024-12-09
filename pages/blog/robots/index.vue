@@ -60,7 +60,7 @@ onMounted(() => {
     opacity: [0, 1],
     translateY: [20, 0],
     duration: animDuration,
-    easing: 'easeOutQuad',
+    ease: 'easeOutQuad',
     delay: stagger(animStagger)
   })
 
@@ -69,7 +69,7 @@ onMounted(() => {
     opacity: [0, 1],
     translateX: [-8, 0],
     duration: animDuration * 2,
-    easing: 'easeOutQuad',
+    ease: 'easeOutQuad',
     delay: animDuration * 0.82
   })
 

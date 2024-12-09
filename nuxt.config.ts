@@ -103,8 +103,11 @@ export default defineNuxtConfig({
       INSTAGRAM_TOKEN: process.env.INSTAGRAM_TOKEN,
       OPENWEATHER_API_KEY: process.env.OPENWEATHER_API_KEY,
       HOME_LAT: process.env.HOME_LAT,
-      HOME_LNG: process.env.HOME_LNG
-    }
+      HOME_LNG: process.env.HOME_LNG,
+      SUPABASE_URL: process.env.SUPABASE_URL,
+      SUPABASE_KEY: process.env.SUPABASE_KEY
+    },
+    githubToken: process.env.GITHUB_TOKEN
   },
 
   googleFonts: {

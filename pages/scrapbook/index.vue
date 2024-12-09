@@ -31,6 +31,14 @@ const loadMoreTrigger = ref(null)
 // set page title to Scrapbook
 useHead({
   title: 'Scrapbook',
+  link: [
+    {
+      rel: 'alternate',
+      type: 'application/rss+xml',
+      title: 'EJ Fox - Scraps RSS Feed',
+      href: '/scraps-rss.xml'
+    }
+  ]
 })
 
 useIntersectionObserver(

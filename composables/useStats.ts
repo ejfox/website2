@@ -65,6 +65,7 @@ interface StatsData {
       name: string
       count: number
     }[]
+    dates: string[]
   }
   productivity: {
     dailyProductivityPulse: number
@@ -107,6 +108,11 @@ interface StatsData {
     byAspectRatio: Array<{
       ratio: string
       count: number
+    }>
+    photos: Array<{
+      public_id: string
+      secure_url: string
+      created_at: string
     }>
   }
   weather: {
@@ -220,380 +226,233 @@ interface MonkeyTypeStats {
 }
 
 interface MonkeyTypeResponse {
-  message: string
-  data: {
-    typingStats: MonkeyTypeStats
+  typingStats: {
+    testsCompleted: number
+    testsStarted: number
+    bestWPM: number
+    bestAccuracy: number
+    bestConsistency: number
+    timePercentile: number
+    wordsPercentile: number
   }
+  personalBests: {
+    time: { [key: string]: any[] }
+    words: { [key: string]: any[] }
+  }
+  speedHistogram: {
+    time: { [key: string]: number }
+    words: { [key: string]: number }
+  }
+  lastUpdated: string
 }
 
-export const useStats = () => {
-  const config = useRuntimeConfig()
-  const GITHUB_TOKEN = config.public.GITHUB_TOKEN
+interface StatsResponse {
+  monkeyType: MonkeyTypeResponse
+  github: {
+    contributions: number[]
+    dates: string[]
+    currentStreak: number
+    prCount: number
+    totalContributions: number
+    repositories: any[]
+  }
+  photos: any[]
+}
 
-  const stats = reactive<StatsData>({
-    metrics: {
-      keystrokes: 0,
-      musicHours: 0,
-      chessGames: 0,
-      steps: 0,
-      photos: 0,
-      linesOfCode: 0,
-      hoursTracked: 0,
-      activeDays: 0
-    },
-    typing: {
-      currentWPM: 0,
-      productivityPulse: 0,
+// Default/fallback values
+const DEFAULT_STATS: StatsResponse = {
+  monkeyType: {
+    typingStats: {
+      testsCompleted: 0,
+      testsStarted: 0,
       bestWPM: 0,
-      accuracy: 0,
-      recentTests: [],
-      historicalWPM: []
+      bestAccuracy: 0,
+      bestConsistency: 0,
+      timePercentile: 0,
+      wordsPercentile: 0
     },
-    music: {
-      currentStreak: 0,
-      topArtists: [],
-      recentTracks: [],
-      dailyMinutes: [],
-      favoriteGenres: [],
-      listenHistory: []
+    personalBests: {
+      time: {},
+      words: {}
     },
-    health: {
-      sleepScore: 0,
-      activeMinutes: 0,
-      stepCount: 0,
-      sleepHistory: [],
-      activityHeatmap: [],
-      workouts: [],
-      heartRate: {
-        resting: 0,
-        zones: []
-      }
+    speedHistogram: {
+      time: {},
+      words: {}
     },
-    chess: {
-      currentRating: 0,
-      peakRating: 0,
-      recentGames: [],
-      winRate: 0,
-      accuracy: 0,
-      openings: {
-        white: [],
-        black: []
-      },
-      ratingHistory: []
-    },
-    code: {
-      currentStreak: 0,
-      prCount: 0,
-      contributions: [],
-      languages: [],
-      repositories: [],
-      commitMessages: [],
-      activeHours: [],
-      hourlyDetails: []
-    },
-    productivity: {
-      dailyProductivityPulse: 0,
-      topActivities: [],
-      focusedWork: {
-        hours: 0,
-        peak: '',
-        streak: 0
-      },
-      distractions: {
-        count: 0,
-        topSources: [],
-        timeWasted: 0
-      },
-      categories: [],
-      trends: {
-        daily: [],
-        weekly: [],
-        monthly: []
-      }
-    },
-    photography: {
-      totalPhotos: 0,
-      recentPhotos: [],
-      byMonth: [],
-      byFormat: [],
-      byAspectRatio: []
-    },
-    weather: {
-      current: {
-        temp: 0,
-        feelsLike: 0,
-        conditions: '',
-        windSpeed: 0
-      },
-      history: [],
-      extremes: {
-        coldest: 0,
-        windiest: 0,
-        snowiest: 0
-      },
-      trainingConditions: []
-    }
-  })
+    lastUpdated: new Date().toISOString()
+  },
+  github: {
+    contributions: [],
+    dates: [],
+    currentStreak: 0,
+    prCount: 0,
+    totalContributions: 0,
+    repositories: []
+  },
+  photos: []
+}
 
+import { useStorage } from '@vueuse/core'
+
+export const useStats = () => {
+  const stats = useStorage<StatsResponse>('stats-cache', DEFAULT_STATS)
   const isLoading = ref(true)
-  const errors = reactive<Record<string, string>>({})
+  const errors = useStorage<Record<string, string>>('stats-errors', {})
+  const hasStaleData = ref(false)
+  const lastFetchAttempt = useStorage('stats-last-fetch', 0)
+  const CACHE_DURATION = 5 * 60 * 1000 // 5 minutes
 
-  const isReady = ref(false)
+  const fetchWithTimeout = async (url: string, timeout = 5000) => {
+    const controller = new AbortController()
+    const id = setTimeout(() => controller.abort(), timeout)
 
-  const fetchAllStats = async () => {
-    isLoading.value = true
-
-    // Execute all fetches and track their results individually
-    const results = await Promise.allSettled([
-      fetchGitHub().catch((e) => {
-        console.error('GitHub fetch failed:', e)
-        errors.github = e?.message || 'Failed to fetch GitHub data'
-      }),
-      fetchPhotos().catch((e) => {
-        console.error('Photos fetch failed:', e)
-        errors.photos = e?.message || 'Failed to fetch photo data'
-      }),
-      fetchMonkeyType().catch((e) => {
-        console.error('MonkeyType fetch failed:', e)
-        errors.monkeyType = e?.message || 'Failed to fetch typing data'
+    try {
+      const response = await $fetch(url, {
+        signal: controller.signal,
+        retry: 1,
+        onResponseError: ({ response }) => {
+          console.error(`Error from ${url}:`, response._data)
+          throw new Error(
+            response._data?.message || `Failed to fetch from ${url}`
+          )
+        }
       })
-    ])
-
-    // Log results for debugging
-    results.forEach((result, index) => {
-      const services = ['GitHub', 'Photos', 'MonkeyType']
-      if (result.status === 'rejected') {
-        console.warn(`${services[index]} fetch failed:`, result.reason)
-      }
-    })
-
-    isLoading.value = false
+      clearTimeout(id)
+      return response
+    } catch (error) {
+      clearTimeout(id)
+      throw error
+    }
   }
 
-  onMounted(async () => {
-    await fetchAllStats()
-    // Set ready even if some services failed
-    isReady.value = true
+  const fetchStats = async (force = false) => {
+    // Check if we should use cache
+    const now = Date.now()
+    if (!force && now - lastFetchAttempt.value < CACHE_DURATION) {
+      console.log('Using cached stats')
+      return
+    }
+
+    isLoading.value = true
+    errors.value = {}
+    hasStaleData.value = false
+    lastFetchAttempt.value = now
+
+    try {
+      const [monkeyType, github, photos] = await Promise.allSettled([
+        fetchWithTimeout('/api/monkeytype').catch((error) => {
+          console.error('MonkeyType API error:', error)
+          errors.value.monkeyType =
+            error.message || 'Failed to fetch typing stats'
+          hasStaleData.value = true
+          return stats.value.monkeyType || DEFAULT_STATS.monkeyType
+        }),
+        fetchWithTimeout('/api/github').catch((error) => {
+          console.error('GitHub API error:', error)
+          errors.value.github = error.message || 'Failed to fetch GitHub stats'
+          hasStaleData.value = true
+          return stats.value.github || DEFAULT_STATS.github
+        }),
+        fetchWithTimeout('/api/photos').catch((error) => {
+          console.error('Photos API error:', error)
+          errors.value.photos = error.message || 'Failed to fetch photo stats'
+          hasStaleData.value = true
+          return stats.value.photos || DEFAULT_STATS.photos
+        })
+      ])
+
+      // Update stats with new data or fallback to cached/default values
+      const newStats = {
+        monkeyType:
+          monkeyType.status === 'fulfilled'
+            ? monkeyType.value
+            : stats.value.monkeyType || DEFAULT_STATS.monkeyType,
+        github:
+          github.status === 'fulfilled'
+            ? github.value
+            : stats.value.github || DEFAULT_STATS.github,
+        photos:
+          photos.status === 'fulfilled'
+            ? photos.value
+            : stats.value.photos || DEFAULT_STATS.photos
+      }
+
+      // Only update stats if we have at least some valid data
+      if (
+        Object.values(newStats).some((val) => val !== null && val !== undefined)
+      ) {
+        stats.value = newStats
+      }
+
+      // Record any errors and set stale flag
+      if (monkeyType.status === 'rejected') {
+        errors.value.monkeyType =
+          monkeyType.reason?.message || 'Failed to fetch typing stats'
+        hasStaleData.value = true
+      }
+      if (github.status === 'rejected') {
+        errors.value.github =
+          github.reason?.message || 'Failed to fetch GitHub stats'
+        hasStaleData.value = true
+      }
+      if (photos.status === 'rejected') {
+        errors.value.photos =
+          photos.reason?.message || 'Failed to fetch photo stats'
+        hasStaleData.value = true
+      }
+    } catch (error) {
+      console.error('Error fetching stats:', error)
+      errors.value.general = error.message || 'Failed to fetch stats'
+      hasStaleData.value = true
+    } finally {
+      isLoading.value = false
+    }
+  }
+
+  // Fetch on mount if cache is stale
+  onMounted(() => {
+    const now = Date.now()
+    if (now - lastFetchAttempt.value >= CACHE_DURATION) {
+      fetchStats()
+    }
   })
 
-  // Move fetchGitHub inside useStats to access stats and errors
-  const fetchGitHub = async () => {
+  // Computed properties for data availability
+  const hasTypingData = computed(() => {
     try {
-      console.log('GitHub Token Debug:', {
-        hasToken: !!config.public.GITHUB_TOKEN,
-        tokenLength: config.public.GITHUB_TOKEN?.length,
-        tokenStart: config.public.GITHUB_TOKEN?.substring(0, 10),
-        isPlaceholder: config.public.GITHUB_TOKEN === 'your_token_here',
-        configKeys: Object.keys(config.public)
-      })
-
-      // Use our server proxy instead of direct GitHub API call
-      const response = await fetch('/api/github')
-      const data = await response.json()
-
-      console.log('GitHub API response:', data)
-
-      if (data.errors) {
-        throw new Error(data.errors[0].message)
-      }
-
-      if (!data.data?.viewer) {
-        throw new Error('Invalid GitHub API response')
-      }
-
-      const viewer = data.data.viewer
-      const calendar = viewer.contributionsCollection.contributionCalendar
-      const repos = viewer.repositories.nodes
-
-      // Process contribution data
-      const contributions = calendar.weeks.flatMap((week) =>
-        week.contributionDays.map((day) => ({
-          count: day.contributionCount,
-          date: new Date(day.date)
-        }))
-      )
-
-      // Calculate streak
-      let currentStreak = 0
-      const today = new Date()
-      today.setHours(0, 0, 0, 0)
-
-      for (let i = contributions.length - 1; i >= 0; i--) {
-        const contrib = contributions[i]
-        if (contrib.count > 0) {
-          currentStreak++
-        } else {
-          break
-        }
-      }
-
-      // Get languages
-      const languages = repos
-        .map((repo) => repo.primaryLanguage?.name)
-        .filter((name): name is string => !!name)
-
-      // Get commit messages
-      const commitMessages = repos
-        .flatMap(
-          (repo) =>
-            repo.refs?.nodes?.[0]?.target?.history?.nodes?.map((commit) => ({
-              message: commit.message,
-              date: new Date(commit.committedDate),
-              repo: repo.name
-            })) ?? []
-        )
-        .sort((a, b) => b.date.getTime() - a.date.getTime())
-
-      // Calculate active hours
-      const activeHours = new Array(24).fill(0)
-      const commitsByHour = new Array(24).fill(0).map(() => new Map())
-
-      commitMessages.forEach((commit) => {
-        const hour = commit.date.getHours()
-        const repo = commit.repo
-
-        // Increment total commits for this hour
-        activeHours[hour]++
-
-        // Track commits per repo for this hour
-        const repoCount = commitsByHour[hour].get(repo) || 0
-        commitsByHour[hour].set(repo, repoCount + 1)
-      })
-
-      // Format the data for the heatmap
-      const hourlyDetails = commitsByHour.map((hourMap) =>
-        Array.from(hourMap.entries())
-          .map(([name, count]) => ({ name, count }))
-          .sort((a, b) => b.count - a.count)
-      )
-
-      // Update stats object
-      stats.code = {
-        currentStreak,
-        prCount:
-          viewer.contributionsCollection.pullRequestContributions.nodes.filter(
-            (node) => node.pullRequest.merged
-          ).length,
-        contributions: contributions.map((c) => c.count),
-        languages,
-        repositories: repos.map((r) => r.name),
-        commitMessages: commitMessages.map((c) => c.message),
-        activeHours,
-        hourlyDetails
-      }
-
-      // Update metrics
-      stats.metrics.linesOfCode = calendar.totalContributions
-      stats.metrics.activeDays = contributions.filter((c) => c.count > 0).length
-
-      console.log('GitHub data fetched successfully:', stats.code)
-    } catch (e) {
-      if (e instanceof Error) {
-        errors.github = e.message
-      }
-      console.error('GitHub API error:', e)
+      return !!stats.value?.monkeyType?.typingStats?.timeTyping
+    } catch (error) {
+      console.error('Error checking typing data:', error)
+      return false
     }
-  }
+  })
 
-  const fetchPhotos = async () => {
+  const hasGitHubData = computed(() => {
     try {
-      console.log('Fetching photos...')
-      const response = await fetch('/api/photos')
-      const photos = await response.json()
-
-      console.log(`Processing ${photos.length} photos`)
-
-      // Group photos by month
-      const byMonth = new Map<string, number>()
-      const byFormat = new Map<string, number>()
-      const byAspectRatio = new Map<string, number>()
-
-      photos.forEach((photo) => {
-        // Count by month
-        const month = photo.uploaded_at.substring(0, 7) // YYYY-MM
-        byMonth.set(month, (byMonth.get(month) || 0) + 1)
-
-        // Count by format
-        byFormat.set(photo.format, (byFormat.get(photo.format) || 0) + 1)
-
-        // Count by aspect ratio
-        const ratio = photo.width / photo.height
-        const ratioKey =
-          ratio === 1 ? 'square' : ratio > 1 ? 'landscape' : 'portrait'
-        byAspectRatio.set(ratioKey, (byAspectRatio.get(ratioKey) || 0) + 1)
-      })
-
-      // Update stats
-      stats.photography = {
-        totalPhotos: photos.length,
-        recentPhotos: photos.slice(0, 10), // Keep just 10 most recent
-        byMonth: Array.from(byMonth.entries())
-          .map(([month, count]) => ({ month, count }))
-          .sort((a, b) => b.month.localeCompare(a.month)),
-        byFormat: Array.from(byFormat.entries())
-          .map(([format, count]) => ({ format, count }))
-          .sort((a, b) => b.count - a.count),
-        byAspectRatio: Array.from(byAspectRatio.entries())
-          .map(([ratio, count]) => ({ ratio, count }))
-          .sort((a, b) => b.count - a.count)
-      }
-
-      // Update metrics
-      stats.metrics.photos = photos.length
-
-      console.log('Photo stats processed:', stats.photography)
-    } catch (e) {
-      if (e instanceof Error) {
-        errors.photos = e.message
-      }
-      console.error('Photo API error:', e)
+      return !!stats.value?.github?.contributions?.length
+    } catch (error) {
+      console.error('Error checking GitHub data:', error)
+      return false
     }
-  }
+  })
 
-  const fetchMonkeyType = async () => {
+  const hasPhotoData = computed(() => {
     try {
-      console.log('Fetching MonkeyType stats...')
-      const response = await fetch('/api/monkeytype')
-      const data = await response.json()
-
-      console.log('Raw MonkeyType response:', data)
-
-      // Update validation to match our new structure
-      if (!data?.Typing) {
-        throw new Error(
-          `Invalid MonkeyType API response: ${JSON.stringify(data)}`
-        )
-      }
-
-      // Update stats with the new data structure
-      stats.typing = {
-        currentWPM: data.Typing.CurrentWPM,
-        productivityPulse: Math.round(
-          (data.Typing.Accuracy + data.Typing.CurrentWPM / 100) * 50
-        ),
-        bestWPM: data.Typing.BestWPM,
-        accuracy: data.Typing.Accuracy,
-        recentTests: data.Typing.TestHistory || [],
-        historicalWPM: data.Typing.TestHistory?.map((test) => test.Wpm) || []
-      }
-
-      // Update metrics
-      stats.metrics.keystrokes = data.Typing.TimeTyping * 5 // Rough estimate
-
-      console.log('Processed MonkeyType stats:', stats.typing)
-    } catch (e) {
-      if (e instanceof Error) {
-        errors.monkeyType = e.message
-      }
-      console.error('MonkeyType API error:', e)
+      return !!stats.value?.photos?.photos?.length
+    } catch (error) {
+      console.error('Error checking photo data:', error)
+      return false
     }
-  }
+  })
 
   return {
-    stats: readonly(stats),
-    isLoading: readonly(isLoading),
-    isReady: readonly(isReady),
-    errors: readonly(errors),
-    fetchAllStats
+    stats,
+    isLoading,
+    errors,
+    hasStaleData,
+    hasTypingData,
+    hasGitHubData,
+    hasPhotoData,
+    refresh: () => fetchStats(true)
   }
 }

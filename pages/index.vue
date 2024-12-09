@@ -18,7 +18,7 @@ onMounted(() => {
     animate(indexContentContainer.value.querySelectorAll('a'), {
       opacity: [0.82, 1],
       borderColor: ['rgba(0,0,0,0)', '#CCC', '#FFF'],
-      easing: 'easeOutQuad',
+      ease: 'easeOutQuad',
       duration: 5500,
       delay: stagger(1200),
     })
