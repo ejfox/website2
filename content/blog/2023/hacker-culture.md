@@ -1,11 +1,10 @@
 ---
-draft: false
 dek: "In which we illuminate the curious history of hackerdom and its transformative influence on our modern technological world"
 inprogress: true
 date: "2023-01-19T06:37:52.000Z"
 modified: "2024-09-23T16:13:08.000Z"
 tags: ["hackers","personal","opensource","culture","activism","inspiration"]
-hidden: false
+wordCount: 1913
 ---
 ## Hacker Culture: Unraveling the Threads of a Digital Revolution
 

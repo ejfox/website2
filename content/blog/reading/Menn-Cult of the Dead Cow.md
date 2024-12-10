@@ -3,8 +3,7 @@ kindle-sync: {"bookId":"25545","title":"Cult of the Dead Cow: How the Original H
 date: "2022-12-14T20:27:36.000Z"
 modified: "2022-12-23T16:07:37.000Z"
 tags: ["hackers","tech","culture","activism","security","politics","internet","data"]
-hidden: false
-draft: false
+wordCount: 2023
 ---
 # Cult of the Dead Cow
 

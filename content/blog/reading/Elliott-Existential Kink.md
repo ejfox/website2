@@ -3,8 +3,7 @@ kindle-sync: {"bookId":"4715","title":"Existential Kink: Unmask Your Shadow and 
 date: "2022-12-14T20:23:07.000Z"
 modified: "2022-12-23T15:52:06.000Z"
 tags: ["health","inspiration","meditation","personal"]
-hidden: false
-draft: false
+wordCount: 860
 ---
 # Existential Kink
 

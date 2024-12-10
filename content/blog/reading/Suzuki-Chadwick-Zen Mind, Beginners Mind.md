@@ -3,8 +3,7 @@ kindle-sync: {"bookId":"56342","title":"Zen Mind, Beginner's Mind","author":"Shu
 date: "2022-12-14T20:29:13.000Z"
 modified: "2022-12-23T16:09:16.000Z"
 tags: ["meditation"]
-hidden: false
-draft: false
+wordCount: 1082
 ---
 # Zen Mind, Beginners Mind
 

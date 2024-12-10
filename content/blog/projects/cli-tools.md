@@ -1,8 +1,7 @@
 ---
 date: "2024-10-12T23:52:50.000Z"
 modified: "2024-10-14T16:42:06.000Z"
-hidden: false
-draft: false
+wordCount: 137
 ---
 ## Command Line Tools
 

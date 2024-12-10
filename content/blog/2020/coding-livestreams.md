@@ -6,6 +6,7 @@ inprogress: false
 dek: "In which the skill of broadcasting yourself writing code to the entire internet is explored"
 tags: ["livestream","coding","dataviz","inspiration","education","visualization"]
 modified: "2024-09-23T16:12:59.000Z"
+wordCount: 1221
 draft: false
 ---
 ## A summer of live streamed coding

@@ -100,8 +100,9 @@ useHead({
           </span>
 
 
-          <div v-if="post.image" class="mb-4">
-            <img :src="post.image" :alt="post.title" class="w-full h-auto">
+          <div v-if="post.image" class="mb-4 project-image">
+            <img :src="post.image" :alt="post.title" class="rounded" loading="lazy"
+              @error="$event.target.style.display = 'none'">
           </div>
           <div class="prose prose-zinc prose-sm dark:prose-invert mb-4 text-zinc-600 dark:text-zinc-400"
             v-html="post.content">
@@ -146,12 +147,43 @@ useHead({
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 3rem 4rem;
+  align-items: start;
 }
 
 .project-card {
   break-inside: avoid;
   display: flex;
   flex-direction: column;
+}
+
+.project-image {
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: #f5f5f5;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+:deep(.dark) .project-image {
+  background: #27272a;
+}
+
+:deep(.prose) {
+  max-width: none;
+
+  img {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: transform 0.3s ease;
+  }
 }
 
 /* :deep(.prose) {

@@ -6,6 +6,7 @@ inprogress: true
 dek: "In which a computer is used as divination tool for random numbers (for the purposes of beauty, art, and poetry)"
 modified: "2024-09-23T16:13:15.000Z"
 tags: ["generative","art","javascript","audio"]
+wordCount: 986
 draft: false
 ---
 ## Generative Art

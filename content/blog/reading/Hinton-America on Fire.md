@@ -3,8 +3,7 @@ kindle-sync: {"bookId":"24960","title":"America on Fire: The Untold History of P
 date: "2022-12-14T20:25:39.000Z"
 modified: "2022-12-23T16:02:41.000Z"
 tags: ["politics","activism","protest","police","america"]
-hidden: false
-draft: false
+wordCount: 212
 ---
 # America on Fire
 

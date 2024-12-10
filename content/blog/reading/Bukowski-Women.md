@@ -3,8 +3,7 @@ kindle-sync: {"bookId":"62762","title":"Women: A Novel","author":"Charles Bukows
 date: "2022-12-14T20:28:29.000Z"
 modified: "2022-12-23T14:46:21.000Z"
 tags: ["writing","inspiration"]
-hidden: false
-draft: false
+wordCount: 618
 ---
 # Women
 

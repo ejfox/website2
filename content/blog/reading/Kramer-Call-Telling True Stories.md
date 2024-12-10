@@ -3,8 +3,7 @@ kindle-sync: {"bookId":"16215","title":"Telling True Stories: A Nonfiction Write
 date: "2022-12-14T20:27:07.000Z"
 modified: "2022-12-23T16:05:32.000Z"
 tags: []
-hidden: false
-draft: false
+wordCount: 299
 ---
 # Telling True Stories
 

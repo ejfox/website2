@@ -6,6 +6,7 @@ inprogress: false
 date: "2019-06-14T15:27:00-04:00"
 hidetimestamp: false
 tags: ["advice","personal"]
+wordCount: 280
 draft: false
 ---
 # Taking things for granted

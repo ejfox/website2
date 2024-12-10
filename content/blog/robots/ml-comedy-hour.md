@@ -3,8 +3,7 @@ date: "2024-11-13T20:03:41.000Z"
 modified: "2024-11-13T20:29:38.000Z"
 share: true
 model: "claude-sonnet-3.5"
-hidden: false
-draft: false
+wordCount: 2075
 ---
 ## Machine Learning Comedy Hour
 

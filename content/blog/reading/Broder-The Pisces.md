@@ -3,8 +3,7 @@ kindle-sync: {"bookId":"28653","title":"The Pisces: A Novel","author":"Melissa B
 date: "2022-12-14T20:28:49.000Z"
 modified: "2022-12-23T15:53:24.000Z"
 tags: ["book","personal","meditation"]
-hidden: false
-draft: false
+wordCount: 788
 ---
 # The Pisces
 

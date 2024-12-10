@@ -3,8 +3,7 @@ kindle-sync: {"bookId":"62203","title":"So Sad Today: Personal Essays","author":
 date: "2022-12-14T20:25:18.000Z"
 modified: "2022-12-23T14:45:17.000Z"
 tags: []
-hidden: false
-draft: false
+wordCount: 723
 ---
 # So Sad Today
 

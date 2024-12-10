@@ -3,8 +3,7 @@ kindle-sync: {"bookId":"64404","title":"How to Do the Work: Recognize Your Patte
 date: "2022-12-14T20:22:57.000Z"
 modified: "2022-12-23T16:24:53.000Z"
 tags: ["howto"]
-hidden: false
-draft: false
+wordCount: 892
 ---
 # How to Do the Work
 

@@ -3,8 +3,7 @@ dek: "In which the strange marriage of language, mathematics, and machine cognit
 inprogress: true
 date: "2024-10-20T19:17:05.000Z"
 modified: "2024-10-22T13:04:43.000Z"
-hidden: false
-draft: false
+wordCount: 4100
 ---
 ## Meet The AI Hackers Wielding Glitch Tokens
 

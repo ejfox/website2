@@ -3,8 +3,7 @@ kindle-sync: {"bookId":"38803","title":"On Trails: An Exploration","author":"Rob
 date: "2022-12-14T20:24:19.000Z"
 modified: "2022-12-23T16:05:01.000Z"
 tags: ["travel","maps"]
-hidden: false
-draft: false
+wordCount: 2074
 ---
 # On Trails
 

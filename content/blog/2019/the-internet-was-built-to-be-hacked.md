@@ -7,6 +7,7 @@ date: "2019-02-01T10:00:56.000Z"
 hidetimestamp: false
 modified: "2024-10-12T23:52:51.000Z"
 tags: ["hackers","internet","coding","activism"]
+wordCount: 1549
 draft: false
 ---
 ## The Internet Was Built To Be Hacked

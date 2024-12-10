@@ -3,8 +3,7 @@ kindle-sync: {"bookId":"62701","title":"Antkind: A Novel","author":"Charlie Kauf
 date: "2022-12-26T16:47:21.000Z"
 modified: "2022-12-27T20:13:14.000Z"
 tags: ["book","writing","comedy","drama","personal"]
-hidden: false
-draft: false
+wordCount: 411
 ---
 # Antkind
 

@@ -3,8 +3,7 @@ kindle-sync: {"bookId":"431","title":"Visualize This: The FlowingData Guide to D
 date: "2022-12-14T20:30:24.000Z"
 modified: "2022-12-23T16:08:05.000Z"
 tags: ["dataviz","datajournalism","visualization"]
-hidden: false
-draft: false
+wordCount: 120
 ---
 # Visualize This
 

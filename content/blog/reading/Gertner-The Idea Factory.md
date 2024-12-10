@@ -3,8 +3,7 @@ kindle-sync: {"bookId":"43213","title":"The Idea Factory: Bell Labs and the Grea
 date: "2022-12-14T20:28:24.000Z"
 modified: "2022-12-23T16:08:38.000Z"
 tags: ["tech","book","research"]
-hidden: false
-draft: false
+wordCount: 704
 ---
 # The Idea Factory
 

@@ -3,8 +3,7 @@ kindle-sync: {"bookId":"14102","title":"Direct Action: An Ethnography","author":
 date: "2022-12-26T16:47:46.000Z"
 modified: "2022-12-27T20:09:32.000Z"
 tags: ["politics","protest","activism","police","book","reference","inspiration"]
-hidden: false
-draft: false
+wordCount: 77
 ---
 # Direct Action
 

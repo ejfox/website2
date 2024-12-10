@@ -3,8 +3,7 @@ kindle-sync: {"bookId":"56548","title":"Twitter and Tear Gas: The Power and Frag
 date: "2022-12-14T20:26:57.000Z"
 modified: "2022-12-23T16:25:14.000Z"
 tags: ["politics","activism"]
-hidden: false
-draft: false
+wordCount: 218
 ---
 # Twitter and Tear Gas
 

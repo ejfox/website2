@@ -3,8 +3,7 @@ kindle-sync: {"bookId":"47184","title":"Data Feminism (Strong Ideas)","author":"
 date: "2022-12-14T20:25:45.000Z"
 modified: "2022-12-23T16:27:35.000Z"
 tags: ["activism","data","datajournalism","health"]
-hidden: false
-draft: false
+wordCount: 243
 ---
 # Data Feminism
 

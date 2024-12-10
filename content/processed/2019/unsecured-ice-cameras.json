@@ -12,6 +12,7 @@
     "hacking",
     "osint"
   ],
+  "wordCount": 659,
   "draft": false,
   "robotsMeta": "index, follow",
   "title": "Attempting to find unsecured ICE cameras",
@@ -48,7 +49,6 @@
       "children": []
     }
   ],
-  "wordCount": 659,
   "readingTime": 3,
   "imageCount": 0,
   "linkCount": 13,

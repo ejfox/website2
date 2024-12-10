@@ -1,14 +1,27 @@
 {
-  "frontmatter": {
-    "dek": "In which",
-    "inprogress": true,
-    "date": "2022-12-05T23:34:09.000Z",
-    "modified": "2024-07-18T18:39:45.000Z",
-    "tags": [
-      "opensource"
-    ],
-    "hidden": true,
-    "draft": true
-  },
-  "content": "## Open Source at Room 302: Behind Our Decision to Share Everything\n"
+  "slug": "drafts/open-source-everything",
+  "dek": "In which",
+  "inprogress": true,
+  "date": "2022-12-05T23:34:09.000Z",
+  "modified": "2024-07-18T18:39:45.000Z",
+  "tags": [
+    "opensource"
+  ],
+  "hidden": true,
+  "draft": true,
+  "robotsMeta": "noindex, nofollow",
+  "title": "Open Source at Room 302: Behind Our Decision to Share Everything",
+  "toc": [
+    {
+      "text": "Open Source at Room 302: Behind Our Decision to Share Everything",
+      "slug": "open-source-at-room-302-behind-our-decision-to-share-everything",
+      "level": "h2",
+      "children": []
+    }
+  ],
+  "wordCount": 13,
+  "readingTime": 1,
+  "imageCount": 0,
+  "linkCount": 0,
+  "content": ""
 }

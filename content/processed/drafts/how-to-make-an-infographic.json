@@ -1,15 +1,21 @@
 {
-  "frontmatter": {
-    "date": "2023-01-19T06:18:33.000Z",
-    "modified": "2024-09-20T04:23:32.000Z",
-    "tags": [
-      "art",
-      "design",
-      "inspiration",
-      "visualization"
-    ],
-    "hidden": true,
-    "draft": true
-  },
+  "slug": "drafts/how-to-make-an-infographic",
+  "date": "2023-01-19T06:18:33.000Z",
+  "modified": "2024-09-20T04:23:32.000Z",
+  "tags": [
+    "art",
+    "design",
+    "inspiration",
+    "visualization"
+  ],
+  "hidden": true,
+  "draft": true,
+  "robotsMeta": "noindex, nofollow",
+  "title": "how-to-make-an-infographic",
+  "toc": [],
+  "wordCount": 1,
+  "readingTime": 1,
+  "imageCount": 0,
+  "linkCount": 0,
   "content": ""
 }

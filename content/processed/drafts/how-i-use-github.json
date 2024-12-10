@@ -1,16 +1,29 @@
 {
-  "frontmatter": {
-    "date": "2023-01-19T06:26:10.000Z",
-    "modified": "2024-09-20T04:24:20.000Z",
-    "dek": "In which",
-    "inprogress": true,
-    "tags": [
-      "code",
-      "git",
-      "github"
-    ],
-    "hidden": true,
-    "draft": true
-  },
-  "content": "## How I use GitHub\n"
+  "slug": "drafts/how-i-use-github",
+  "date": "2023-01-19T06:26:10.000Z",
+  "modified": "2024-09-20T04:24:20.000Z",
+  "dek": "In which",
+  "inprogress": true,
+  "tags": [
+    "code",
+    "git",
+    "github"
+  ],
+  "hidden": true,
+  "draft": true,
+  "robotsMeta": "noindex, nofollow",
+  "title": "How I use GitHub",
+  "toc": [
+    {
+      "text": "How I use GitHub",
+      "slug": "how-i-use-github",
+      "level": "h2",
+      "children": []
+    }
+  ],
+  "wordCount": 6,
+  "readingTime": 1,
+  "imageCount": 0,
+  "linkCount": 0,
+  "content": ""
 }

@@ -8,7 +8,13 @@ import { subMonths } from 'date-fns'
 
 const processedMarkdown = useProcessedMarkdown()
 
-const { data: blogPosts } = await useAsyncData('blog-posts', () => processedMarkdown.getAllPosts())
+const { data: blogPosts } = await useAsyncData('blog-posts', async () => {
+  // Get all posts including shared drafts, but excluding week notes and special sections
+  const posts = await processedMarkdown.getAllPosts(true, false)
+  console.log('All posts before filtering:', posts.length, posts)
+  return posts
+})
+
 const { data: weekNotes } = await useAsyncData('week-notes', () => processedMarkdown.getWeekNotes())
 
 const formatDate = (date) => format(new Date(date), 'yyyy-MM-dd')
@@ -38,7 +44,7 @@ const sortedWeekNotes = computed(() => {
     // filter out weeks without deks
     .filter(note => note.actualDate && note.dek)
     // filter out weeks with `hidden` frontmatter
-    .filter(note => !note.hidden)
+    .filter(note => note.hidden !== true)
     .sort((a, b) => b.actualDate - a.actualDate)
     .slice(0, 5)
 })
@@ -46,15 +52,39 @@ const sortedWeekNotes = computed(() => {
 // Updated groupByYear function to filter out hidden posts
 function groupByYear(posts) {
   if (!posts) return {}
+
+  console.log('Starting groupByYear with', posts.length, 'posts')
+
   const sortedPosts = [...posts]
-    .filter(post => !post.hidden) // Filter out hidden posts
-    .sort((a, b) => new Date(b.date) - new Date(a.date))
-  return sortedPosts.reduce((acc, post) => {
+    .filter(post => {
+      const isHidden = post.hidden === true || post.hidden === 'true'
+      console.log(`Post ${post.slug}: hidden=${isHidden}`)
+      return !isHidden
+    })
+    .sort((a, b) => {
+      const dateA = new Date(a.date)
+      const dateB = new Date(b.date)
+      console.log(`Comparing dates: ${a.slug} ${dateA} vs ${dateB}`)
+      return dateB - dateA
+    })
+
+  console.log('After filtering and sorting:', sortedPosts.length, 'posts')
+
+  const grouped = sortedPosts.reduce((acc, post) => {
     const year = new Date(post.date).getFullYear()
     if (!acc[year]) acc[year] = []
     acc[year].push(post)
+    console.log(`Grouped ${post.slug} into year ${year}`)
     return acc
   }, {})
+
+  // Log final grouping results
+  Object.entries(grouped).forEach(([year, posts]) => {
+    console.log(`Year ${year}: ${posts.length} posts`)
+    posts.forEach(p => console.log(`  - ${p.slug} (${p.date})`))
+  })
+
+  return grouped
 }
 
 const blogPostsByYear = computed(() => groupByYear(blogPosts.value))
@@ -108,7 +138,7 @@ const recentlyUpdatedPosts = computed(() => {
   if (!blogPosts.value) return []
   const oneMonthAgo = subMonths(new Date(), 1)
   return [...blogPosts.value]
-    .filter(post => !post.hidden)
+    .filter(post => post.hidden !== true)
     .filter(post => {
       const updateDate = new Date(post.lastUpdated || post.date)
       return updateDate > oneMonthAgo
@@ -141,11 +171,11 @@ const recentlyUpdatedPosts = computed(() => {
               {{ post.title }}
             </NuxtLink>
 
-            <div class="font-mono text-xs text-zinc-600 dark:text-zinc-400 mb-2">
+            <div class="font-mono text-xs text-zinc-600 dark:text-zinc-400">
               {{ post?.dek }}
             </div>
 
-            <PostMetadata :doc="post" class="post-metadata text-xs text-zinc-600 dark:text-zinc-400" />
+            <!-- <PostMetadata :doc="post" class="post-metadata text-xs text-zinc-600 dark:text-zinc-400" /> -->
 
 
           </li>

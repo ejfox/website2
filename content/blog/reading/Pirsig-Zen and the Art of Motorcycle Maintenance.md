@@ -3,8 +3,7 @@ kindle-sync: {"bookId":"54365","title":"Zen and the Art of Motorcycle Maintenanc
 date: "2022-12-14T20:26:06.000Z"
 modified: "2022-12-23T15:17:39.000Z"
 tags: ["travel","motorcycle","inspiration"]
-hidden: false
-draft: false
+wordCount: 301
 ---
 # Zen and the Art of Motorcycle Maintenance
 

@@ -1,11 +1,10 @@
 ---
-draft: false
 dek: "In which we modify our tools to more precisely fit our intentions"
 inprogress: true
 date: "2022-11-03T00:00:38.000Z"
 modified: "2024-09-20T04:23:03.000Z"
 tags: ["code","vue","process"]
-hidden: false
+wordCount: 332
 ---
 ## My VSCode setup and favorite plugins
 

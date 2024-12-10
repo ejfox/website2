@@ -355,7 +355,7 @@ onUnmounted(() => {
 
       <div ref="articleContent">
         <article v-html="post.content" ref="articleContent"
-          class="px-2 prose-lg md:prose-xl dark:prose-invert prose-img:my-8 prose-img:rounded-lg font-normal">
+          class="blog-post-content px-2 prose-lg md:prose-xl dark:prose-invert prose-img:my-8 prose-img:rounded-lg font-normal">
         </article>
       </div>
 
@@ -579,29 +579,35 @@ onUnmounted(() => {
 }
 
 /* Scrollytelling animations */
-.prose img,
-.prose blockquote,
-.prose h2,
-.prose h3,
-.prose h4 {
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-  perspective: 1000px;
-  opacity: 0;
+.blog-post-content {
+
+  img,
+  blockquote,
+  h2,
+  h3,
+  h4 {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    opacity: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
 
   .post-title,
-  .prose img,
-  .prose blockquote,
-  .prose h2,
-  .prose h3,
-  .prose h4 {
-    transition: none !important;
-    transform: none !important;
-    opacity: 1 !important;
+  .blog-post-content {
+
+    img,
+    blockquote,
+    h2,
+    h3,
+    h4 {
+      transition: none !important;
+      transform: none !important;
+      opacity: 1 !important;
+    }
   }
 }
 

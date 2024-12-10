@@ -1,11 +1,10 @@
 ---
-draft: false
 dek: "In which we use intentional morning rituals to improve our lives and increase our happiness"
 inprogress: true
 date: "2022-11-03T01:31:25.000Z"
 modified: "2024-09-20T04:22:56.000Z"
 tags: ["exercise","meditation","writing","health"]
-hidden: false
+wordCount: 524
 ---
 ## My Morning Routine and Daily Rituals
 

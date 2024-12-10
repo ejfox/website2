@@ -12,6 +12,7 @@
     "visualization",
     "network"
   ],
+  "wordCount": 3594,
   "draft": false,
   "robotsMeta": "index, follow",
   "title": "Finding Clusters of NYPD Officers In CCRB Complaint Data",
@@ -78,7 +79,6 @@
       ]
     }
   ],
-  "wordCount": 3594,
   "readingTime": 15,
   "imageCount": 0,
   "linkCount": 17,

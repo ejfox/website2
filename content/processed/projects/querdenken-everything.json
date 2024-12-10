@@ -4,13 +4,12 @@
   "date": "2023-01-01T20:00:34.000Z",
   "modified": "2024-10-14T23:58:11.000Z",
   "url": "https://longlead.com/article/querdenken-everything",
-  "hidden": false,
-  "draft": false,
+  "wordCount": 16,
   "robotsMeta": "index, follow",
   "toc": [],
-  "wordCount": 16,
   "readingTime": 1,
   "imageCount": 0,
   "linkCount": 1,
+  "hidden": false,
   "content": "<p class=\"max-w-prose\" style=\"max-width: 50ch;\">I <a href=\"https://longlead.com/article/querdenken-everything\">helped gather and visualize data</a> to tell the story of extremists gathering in Telegram chats.</p>"
 }

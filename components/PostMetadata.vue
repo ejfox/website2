@@ -1,5 +1,13 @@
 <template>
   <div class="w-full text-sm text-zinc-600 dark:text-zinc-400 flex flex-wrap items-center gap-x-4 gap-y-2 monospace">
+    <!-- we wanna include the folder name here -->
+    <span class="flex items-center metadata-item text-xs tracking-widest" ref="folderRef" v-if="doc.slug">
+      <!-- <UIcon name="bi:folder" class="mr-2 text-zinc-400 dark:text-zinc-600" /> -->
+
+      /{{ doc.slug.split('/')[0] }}/
+    </span>
+
+    <!-- <pre>{{ doc }}</pre> -->
 
     <!-- Draft status -->
     <span v-if="doc.draft" class="flex items-center text-red-500 dark:text-red-400 font-sans metadata-item"
@@ -13,6 +21,9 @@
       <UIcon name="ant-design:calendar-outlined" class="mr-2 text-zinc-400 dark:text-zinc-600" />
       <time>{{ formatBlogDate(new Date(doc.date)) }}</time>
     </span>
+
+
+
 
     <!-- Reading Time -->
     <span v-if="doc.readingTime > 1" class="flex items-center metadata-item" ref="readingTimeRef">
@@ -63,9 +74,10 @@ const readingTimeRef = ref(null)
 const wordCountRef = ref(null)
 const imageCountRef = ref(null)
 const linkCountRef = ref(null)
+const folderRef = ref(null)
 
 const formatNumber = format(',d')
-const formatBlogDate = timeFormat('%b %Y')
+const formatBlogDate = timeFormat('%b %d %Y')
 
 const formatRelativeTime = (date) => {
   try {
@@ -86,7 +98,8 @@ const animateItems = async () => {
     readingTimeRef.value,
     wordCountRef.value,
     imageCountRef.value,
-    linkCountRef.value
+    linkCountRef.value,
+    folderRef.value
   ].filter(Boolean)
 
   if (!items.length) return

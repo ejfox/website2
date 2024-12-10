@@ -12,6 +12,7 @@
     "drama",
     "documentary"
   ],
+  "wordCount": 366,
   "draft": false,
   "robotsMeta": "index, follow",
   "title": "Movies to Watch",
@@ -23,7 +24,6 @@
       "children": []
     }
   ],
-  "wordCount": 366,
   "readingTime": 2,
   "imageCount": 0,
   "linkCount": 0,

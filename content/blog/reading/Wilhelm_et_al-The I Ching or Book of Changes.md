@@ -3,8 +3,7 @@ kindle-sync: {"bookId":"33305","title":"The I Ching or Book of Changes (Bollinge
 date: "2022-12-26T16:47:16.000Z"
 modified: "2022-12-27T20:13:40.000Z"
 tags: ["meditation","reference"]
-hidden: false
-draft: false
+wordCount: 205
 ---
 # The I Ching or Book of Changes
 

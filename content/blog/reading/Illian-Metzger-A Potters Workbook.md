@@ -3,8 +3,7 @@ kindle-sync: {"bookId":"41806","title":"A Potter's Workbook","author":"Clary Ill
 date: "2022-12-14T20:23:37.000Z"
 modified: "2022-12-23T16:26:11.000Z"
 tags: ["art","howto","pottery","design"]
-hidden: false
-draft: false
+wordCount: 192
 ---
 # A Potters Workbook
 

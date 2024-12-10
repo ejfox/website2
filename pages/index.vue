@@ -13,15 +13,21 @@ if (error.value) {
 
 const indexContentContainer = ref(null)
 
-onMounted(() => {
+onMounted(async () => {
+  // Wait for the next tick to ensure content is rendered
+  await nextTick()
+
   if (indexContentContainer.value) {
-    animate(indexContentContainer.value.querySelectorAll('a'), {
-      opacity: [0.82, 1],
-      borderColor: ['rgba(0,0,0,0)', '#CCC', '#FFF'],
-      ease: 'easeOutQuad',
-      duration: 5500,
-      delay: stagger(1200),
-    })
+    const links = indexContentContainer.value.querySelectorAll('a')
+    if (links.length > 0) {
+      animate(links, {
+        opacity: [0.82, 1],
+        borderColor: ['rgba(0,0,0,0)', '#CCC', '#FFF'],
+        ease: 'easeOutQuad',
+        duration: 5500,
+        delay: stagger(1200),
+      })
+    }
   }
 })
 </script>

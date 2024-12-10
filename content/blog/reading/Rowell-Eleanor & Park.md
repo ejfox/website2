@@ -1,8 +1,7 @@
 ---
 kindle-sync: {"bookId":"26878","title":"Eleanor & Park","author":"Rainbow Rowell","asin":"B008SAZHLQ","lastAnnotatedDate":"2014-01-19","bookImageUrl":"https://m.media-amazon.com/images/I/71u8kDfMlTL._SY160.jpg","highlightsCount":1}
 tags: ["book","inspiration"]
-hidden: false
-draft: false
+wordCount: 38
 ---
 # Eleanor & Park
 ## Metadata

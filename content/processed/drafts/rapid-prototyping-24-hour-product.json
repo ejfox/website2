@@ -1,14 +1,27 @@
 {
-  "frontmatter": {
-    "dek": "In which",
-    "inprogress": true,
-    "date": "2022-12-05T23:34:09.000Z",
-    "modified": "2024-04-29T15:43:05.000Z",
-    "tags": [
-      "product"
-    ],
-    "hidden": true,
-    "draft": true
-  },
-  "content": "## See How The Studio Developed a Product in 24 Hours\n\n"
+  "slug": "drafts/rapid-prototyping-24-hour-product",
+  "dek": "In which",
+  "inprogress": true,
+  "date": "2022-12-05T23:34:09.000Z",
+  "modified": "2024-04-29T15:43:05.000Z",
+  "tags": [
+    "product"
+  ],
+  "hidden": true,
+  "draft": true,
+  "robotsMeta": "noindex, nofollow",
+  "title": "See How The Studio Developed a Product in 24 Hours",
+  "toc": [
+    {
+      "text": "See How The Studio Developed a Product in 24 Hours",
+      "slug": "see-how-the-studio-developed-a-product-in-24-hours",
+      "level": "h2",
+      "children": []
+    }
+  ],
+  "wordCount": 12,
+  "readingTime": 1,
+  "imageCount": 0,
+  "linkCount": 0,
+  "content": ""
 }

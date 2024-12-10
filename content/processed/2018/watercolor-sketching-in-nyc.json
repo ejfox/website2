@@ -1,7 +1,7 @@
 {
   "slug": "2018/watercolor-sketching-in-nyc",
   "type": "words",
-  "hidden": true,
+  "hidden": false,
   "date": "2018-06-10T14:58:10-04:00",
   "hidetimestamp": false,
   "tags": [
@@ -11,7 +11,8 @@
     "watercolor",
     "inspiration"
   ],
-  "draft": true,
+  "wordCount": 538,
+  "draft": "undefined",
   "robotsMeta": "index, follow",
   "title": "Watercolor Sketching in NYC",
   "toc": [
@@ -29,7 +30,6 @@
       ]
     }
   ],
-  "wordCount": 538,
   "readingTime": 3,
   "imageCount": 0,
   "linkCount": 5,

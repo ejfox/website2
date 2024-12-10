@@ -3,8 +3,7 @@ kindle-sync: {"bookId":"27622","title":"The 4-Hour Body: An Uncommon Guide to Ra
 date: "2022-12-14T20:23:17.000Z"
 modified: "2022-12-23T16:05:54.000Z"
 tags: ["health","exercise","inspiration","research"]
-hidden: false
-draft: false
+wordCount: 374
 ---
 # The 4-Hour Body
 

@@ -4,8 +4,7 @@ modified: "2024-09-20T04:25:08.000Z"
 dek: "In which we go into detail about how to write code to accomplish a goal"
 inprogress: true
 tags: ["personal","process","design","project","coding"]
-hidden: false
-draft: false
+wordCount: 2405
 ---
 ## The Art of Coding: A Developer's Guide
 

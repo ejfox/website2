@@ -1,11 +1,10 @@
 ---
-draft: false
 inprogress: true
 dek: "In which we use light and chemicals to make images appear, if we are lucky"
 date: "2023-01-06T21:50:52.000Z"
 modified: "2024-06-07T18:19:53.000Z"
 tags: ["analog","photography","process","technique"]
-hidden: false
+wordCount: 533
 ---
 ## Film Development
 

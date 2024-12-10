@@ -1,17 +1,30 @@
 {
-  "frontmatter": {
-    "date": "2023-01-19T06:25:04.000Z",
-    "modified": "2024-09-20T04:19:28.000Z",
-    "dek": "In which",
-    "inprogress": true,
-    "tags": [
-      "art",
-      "design",
-      "inspiration",
-      "ui"
-    ],
-    "hidden": true,
-    "draft": true
-  },
-  "content": "## Title\n"
+  "slug": "drafts/current-computer-setup",
+  "date": "2023-01-19T06:25:04.000Z",
+  "modified": "2024-09-20T04:19:28.000Z",
+  "dek": "In which",
+  "inprogress": true,
+  "tags": [
+    "art",
+    "design",
+    "inspiration",
+    "ui"
+  ],
+  "hidden": true,
+  "draft": true,
+  "robotsMeta": "noindex, nofollow",
+  "title": "Title",
+  "toc": [
+    {
+      "text": "Title",
+      "slug": "title",
+      "level": "h2",
+      "children": []
+    }
+  ],
+  "wordCount": 3,
+  "readingTime": 1,
+  "imageCount": 0,
+  "linkCount": 0,
+  "content": ""
 }

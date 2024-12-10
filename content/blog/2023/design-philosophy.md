@@ -1,11 +1,10 @@
 ---
-draft: false
 dek: "In which we create a few rules so we can fully unlock our creativity"
 inprogress: true
 date: "2023-01-19T06:23:52.000Z"
 modified: "2024-09-20T04:26:18.000Z"
 tags: ["design"]
-hidden: false
+wordCount: 888
 ---
 ## My design philosophy
 

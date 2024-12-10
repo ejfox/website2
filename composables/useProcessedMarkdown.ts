@@ -1,4 +1,59 @@
 /**
+ * Content Processing Pipeline
+ * =========================
+ *
+ * Stage 1: Import (import.mjs)
+ * ---------------------------
+ * - Reads markdown files from Obsidian vault
+ * - Initial filtering:
+ *   - Skips drafts without share: true
+ *   - Skips files in sensitive directories (robots/, drafts/) without share: true
+ *   - Sets hidden: true for drafts (unless it's a week note)
+ *   - Preserves frontmatter properties (hidden, share, etc.)
+ * - Processes dates:
+ *   - Auto-corrects week note dates based on filename (YYYY-WW)
+ * - Generates word count and other metadata
+ *
+ * Stage 2: Process (processMarkdown.mjs)
+ * ------------------------------------
+ * - Converts markdown to HTML
+ * - Processes frontmatter
+ * - Generates manifest-lite.json with:
+ *   - Slug
+ *   - Title
+ *   - Date
+ *   - Hidden status
+ *   - Share status
+ *   - Other metadata
+ *
+ * Stage 3: Runtime (useProcessedMarkdown.ts)
+ * ----------------------------------------
+ * This composable handles the final stage of content filtering and processing:
+ *
+ * getAllPosts():
+ * - Filters out:
+ *   - Index files (slug === 'index' or starts with '!')
+ *   - Hidden posts (hidden === true)
+ *   - Special sections (reading/, projects/, etc.)
+ *   - Week notes (unless includeWeekNotes is true)
+ *   - Non-shared drafts (unless includeDrafts is true)
+ *
+ * getWeekNotes():
+ * - Only includes posts from week-notes/
+ * - Filters out:
+ *   - Hidden posts (hidden === true)
+ *   - Posts without deks
+ *
+ * Visibility Rules:
+ * ---------------
+ * - hidden: true -> Post is hidden everywhere
+ * - In drafts/ -> hidden by default unless share: true
+ * - In robots/ -> hidden by default unless share: true
+ * - Week notes -> never auto-hidden, respect hidden: true from frontmatter
+ * - Other posts -> respect hidden: true from frontmatter
+ */
+
+/**
  * A composable to process and retrieve markdown content, specifically blog posts and their metadata.
  * This includes fetching individual posts, filtering posts by year, managing drafts, and more.
  * The component interacts with a backend API and handles common tasks such as sorting and formatting dates.
@@ -59,46 +114,122 @@ export const useProcessedMarkdown = () => {
 
   /**
    * Fetches all posts, with options to include drafts and week notes.
-   * Filters out certain categories of posts such as reading posts and project posts.
-   * @param {boolean} [includeDrafts=false] - Whether to include drafts.
-   * @param {boolean} [includeWeekNotes=false] - Whether to include week notes.
-   * @returns {Promise<Object[]>} A list of filtered and sorted posts.
+   *
+   * Filtering Process:
+   * 1. Gets manifest-lite.json (all posts)
+   * 2. Applies visibility filters:
+   *    - Drafts: Only shown if includeDrafts=true AND share=true
+   *    - Hidden posts: Filtered out if hidden=true
+   *    - Special sections: Filtered out (reading/, projects/, etc.)
+   *    - Week notes: Only included if includeWeekNotes=true
+   * 3. Processes dates and sorts by date (newest first)
+   *
+   * @param {boolean} [includeDrafts=false] - Whether to include drafts with share=true
+   * @param {boolean} [includeWeekNotes=false] - Whether to include week notes
+   * @returns {Promise<Post[]>} A list of filtered and sorted posts
    */
   const getAllPosts = async (
     includeDrafts = false,
     includeWeekNotes = false
   ): Promise<Post[]> => {
     const manifest = await getManifestLite()
-    return manifest
-      .filter((post: Post) => {
-        const isNotDraft = !post.slug.startsWith('drafts/')
-        const isSharedDraft =
-          post.slug.startsWith('drafts/') && post.share === true
-        const isNotWeekNote = !post.slug.startsWith('week-notes/')
-        const isNotReading = !post.slug.startsWith('reading/')
-        const isNotProject = !post.slug.startsWith('projects/')
-        const isNotRobot = !post.slug.startsWith('robots/')
-        const isNotIndex = !post.slug.startsWith('!') && post.slug !== 'index'
+    console.log(`Starting getAllPosts with ${manifest.length} total posts`)
+    console.log(
+      `Parameters: includeDrafts=${includeDrafts}, includeWeekNotes=${includeWeekNotes}`
+    )
 
-        return (
-          // Only include drafts if they're explicitly shared
-          (includeDrafts ? isSharedDraft : isNotDraft) &&
-          (includeWeekNotes || isNotWeekNote) &&
-          isNotReading &&
-          isNotProject &&
-          isNotRobot &&
-          isNotIndex
-        )
+    const filteredPosts = manifest.filter((post: Post) => {
+      // Handle drafts
+      const isNotDraft = !post.slug.startsWith('drafts/')
+      const isSharedDraft =
+        post.slug.startsWith('drafts/') && post.share === true
+
+      // Special cases that should always be excluded
+      const isNotIndex = !post.slug.startsWith('!') && post.slug !== 'index'
+
+      // Handle week notes
+      const isWeekNote = post.slug.includes('week-notes/')
+
+      // Check if post is in a special section that should be excluded
+      const isSpecialSection = [
+        'reading/',
+        'projects/',
+        'robots/',
+        'study-notes/',
+        'prompts/'
+      ].some((section) => post.slug.startsWith(section))
+
+      // Only exclude posts that are explicitly hidden
+      const isNotHidden = !(post.hidden === true || post.hidden === 'true')
+
+      // Debug log for every post
+      console.log(`Filtering post ${post.slug}:`, {
+        isNotDraft,
+        isSharedDraft,
+        isNotIndex,
+        isWeekNote,
+        isSpecialSection,
+        isNotHidden,
+        hidden: post.hidden,
+        share: post.share,
+        shouldKeep:
+          (includeDrafts ? isSharedDraft || isNotDraft : isNotDraft) &&
+          isNotIndex &&
+          (includeWeekNotes ? true : !isWeekNote) &&
+          !isSpecialSection &&
+          isNotHidden
       })
-      .map((post: Post) => ({
-        ...post,
-        date: getValidDate(post.date),
-        modified: getValidDate(post.modified)
-      }))
-      .sort(
-        (a: Post, b: Post) =>
-          getValidDate(b.date).getTime() - getValidDate(a.date).getTime()
+
+      return (
+        (includeDrafts ? isSharedDraft || isNotDraft : isNotDraft) &&
+        isNotIndex &&
+        (includeWeekNotes ? true : !isWeekNote) &&
+        !isSpecialSection &&
+        isNotHidden
       )
+    })
+
+    console.log(`After filtering: ${filteredPosts.length} posts remain`)
+    console.log(
+      'Filtered posts:',
+      filteredPosts.map((p) => ({
+        slug: p.slug,
+        date: p.date,
+        hidden: p.hidden,
+        share: p.share
+      }))
+    )
+
+    const postsWithDates = filteredPosts.map((post: Post) => ({
+      ...post,
+      date: getValidDate(post.date, post.slug),
+      modified: getValidDate(post.modified, post.slug)
+    }))
+
+    console.log(
+      'After date processing:',
+      postsWithDates.map((p) => ({
+        slug: p.slug,
+        date: p.date,
+        modified: p.modified
+      }))
+    )
+
+    const sortedPosts = postsWithDates.sort(
+      (a: Post, b: Post) =>
+        getValidDate(b.date, b.slug).getTime() -
+        getValidDate(a.date, a.slug).getTime()
+    )
+
+    console.log(
+      'Final sorted posts:',
+      sortedPosts.map((p) => ({
+        slug: p.slug,
+        date: p.date
+      }))
+    )
+
+    return sortedPosts
   }
 
   /**
@@ -178,22 +309,120 @@ export const useProcessedMarkdown = () => {
   }
 
   /**
+   * Ensures the date is valid and returns a Date object.
+   * For week notes, attempts to extract date from filename if frontmatter date is invalid.
+   * @param {string | Date | undefined} dateString - The date string or Date object to validate.
+   * @param {string} [slug] - Optional slug to extract date from filename for week notes
+   * @returns {Date} A valid Date object, or the Unix epoch if invalid.
+   */
+  function getValidDate(
+    dateString: string | Date | undefined,
+    slug?: string
+  ): Date {
+    // First try the provided date
+    if (dateString) {
+      const date = new Date(dateString)
+      if (!isNaN(date.getTime())) {
+        return date
+      }
+    }
+
+    // For week notes, try to extract date from filename
+    if (slug?.includes('week-notes/')) {
+      const weekMatch = slug.match(/(\d{4})-(\d+)/)
+      if (weekMatch) {
+        const [_, year, week] = weekMatch
+        const date = new Date(parseInt(year, 10))
+        date.setDate(1 + (parseInt(week, 10) - 1) * 7)
+        if (!isNaN(date.getTime())) {
+          return date
+        }
+      }
+    }
+
+    // Try to extract date from filename for other posts
+    if (slug) {
+      // Try YYYY-MM-DD format
+      const dateMatch = slug.match(/(\d{4})-(\d{2})-(\d{2})/)
+      if (dateMatch) {
+        const [_, year, month, day] = dateMatch
+        const date = new Date(
+          parseInt(year, 10),
+          parseInt(month, 10) - 1,
+          parseInt(day, 10)
+        )
+        if (!isNaN(date.getTime())) {
+          return date
+        }
+      }
+
+      // Try YYYY format
+      const yearMatch = slug.match(/(\d{4})/)
+      if (yearMatch) {
+        const year = parseInt(yearMatch[1], 10)
+        if (year > 1970 && year < 2025) {
+          const date = new Date(year, 0, 1)
+          if (!isNaN(date.getTime())) {
+            return date
+          }
+        }
+      }
+    }
+
+    // If no valid date found, use file modification time or a recent date
+    console.warn(
+      `Invalid date: ${dateString} for ${
+        slug || 'unknown file'
+      }. Using recent date.`
+    )
+    return new Date() // Use current date as fallback instead of Unix epoch
+  }
+
+  /**
    * Fetches all week notes posts.
-   * @returns {Promise<Object[]>} A list of week notes.
+   *
+   * Filtering Process:
+   * 1. Gets manifest-lite.json
+   * 2. Filters for:
+   *    - Posts in week-notes/ directory
+   *    - Not hidden (hidden !== true)
+   *    - Has a dek (description)
+   * 3. Processes dates and sorts by date (newest first)
+   *
+   * @returns {Promise<Post[]>} A list of filtered and sorted week notes
    */
   const getWeekNotes = async (): Promise<Post[]> => {
-    const manifest = await getManifestLite() // Get the manifest first
+    const manifest = await getManifestLite()
     return manifest
-      .filter((post: Post) => post.slug.startsWith('week-notes/')) // Filter for week notes
+      .filter((post: Post) => {
+        // Check for week notes in either location
+        const isWeekNote = post.slug.includes('week-notes/')
+        // Only exclude posts that are explicitly hidden
+        const isNotHidden = post.hidden !== true
+        const isNotIndex = !post.slug.startsWith('!') && post.slug !== 'index'
+
+        // Debug log
+        console.log('Week note filtering:', {
+          slug: post.slug,
+          isWeekNote,
+          isNotHidden,
+          isNotIndex,
+          hidden: post.hidden,
+          shouldKeep: isWeekNote && isNotHidden && isNotIndex
+        })
+
+        return isWeekNote && isNotHidden && isNotIndex
+      })
       .map((post: Post) => ({
         ...post,
-        date: getValidDate(post.date), // Ensure valid date
-        modified: getValidDate(post.modified)
+        date: getValidDate(post.date, post.slug),
+        modified: getValidDate(post.modified, post.slug)
       }))
       .sort(
         (a: Post, b: Post) =>
-          getValidDate(b.date).getTime() - getValidDate(a.date).getTime()
-      ) // Sort week notes by date, newest first
+          getValidDate(b.date, b.slug).getTime() -
+          getValidDate(a.date, a.slug).getTime()
+      )
   }
 
   /**
@@ -306,23 +535,35 @@ export const useProcessedMarkdown = () => {
     )
   }
 
-  /**
-   * Ensures the date is valid and returns a Date object. If the date is invalid, it defaults to the Unix epoch.
-   * @param {string | Date | undefined} dateString - The date string or Date object to validate.
-   * @returns {Date} A valid Date object, or the Unix epoch if invalid.
-   */
-  function getValidDate(dateString: string | Date | undefined): Date {
-    if (!dateString) {
-      return new Date(0) // Return a default date (Unix epoch) if undefined
-    }
+  // Add new helper functions for the new sections
+  const getStudyNotes = async (): Promise<Post[]> => {
+    const manifest = await getManifestLite()
+    return manifest
+      .filter((post: Post) => post.slug.startsWith('study-notes/'))
+      .map((post: Post) => ({
+        ...post,
+        date: getValidDate(post.date),
+        modified: getValidDate(post.modified)
+      }))
+      .sort(
+        (a: Post, b: Post) =>
+          getValidDate(b.date).getTime() - getValidDate(a.date).getTime()
+      )
+  }
 
-    const date = new Date(dateString)
-    if (isNaN(date.getTime())) {
-      console.warn(`Invalid date: ${dateString}. Using default date.`)
-      return new Date(0) // Return a default date if invalid
-    }
-
-    return date
+  const getPrompts = async (): Promise<Post[]> => {
+    const manifest = await getManifestLite()
+    return manifest
+      .filter((post: Post) => post.slug.startsWith('prompts/'))
+      .map((post: Post) => ({
+        ...post,
+        date: getValidDate(post.date),
+        modified: getValidDate(post.modified)
+      }))
+      .sort(
+        (a: Post, b: Post) =>
+          getValidDate(b.date).getTime() - getValidDate(a.date).getTime()
+      )
   }
 
   // Return the available functions for external usage
@@ -337,7 +578,9 @@ export const useProcessedMarkdown = () => {
     getNextPrevPosts,
     getProjectPosts,
     getRobotNotes,
-    getRobotNotesWithContent
+    getRobotNotesWithContent,
+    getStudyNotes,
+    getPrompts
   }
 }
 

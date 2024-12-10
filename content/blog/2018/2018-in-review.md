@@ -5,6 +5,7 @@ date: "2018-12-14T10:00:16.000Z"
 hidetimestamp: false
 modified: "2024-08-01T14:21:46.000Z"
 tags: ["photography","nature","travel","event"]
+wordCount: 141
 draft: false
 ---
 ## 2018 In Review

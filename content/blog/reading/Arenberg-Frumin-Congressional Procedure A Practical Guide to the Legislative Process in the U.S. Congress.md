@@ -3,8 +3,7 @@ kindle-sync: {"bookId":"4081","title":"Congressional Procedure: A Practical Guid
 date: "2022-12-26T16:47:30.000Z"
 modified: "2022-12-27T20:08:38.000Z"
 tags: ["politics","book","reference","process"]
-hidden: false
-draft: false
+wordCount: 88
 ---
 # Congressional Procedure: A Practical Guide to the Legislative Process in the U.S. Congress
 

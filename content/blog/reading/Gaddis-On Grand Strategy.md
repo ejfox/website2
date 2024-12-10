@@ -3,8 +3,7 @@ kindle-sync: {"bookId":"44450","title":"On Grand Strategy","author":"John Lewis 
 date: "2022-12-14T20:27:02.000Z"
 modified: "2022-12-23T15:57:50.000Z"
 tags: []
-hidden: false
-draft: false
+wordCount: 245
 ---
 # On Grand Strategy
 

@@ -1,11 +1,10 @@
 ---
-draft: false
 dek: "In which the author talks through his DIY art studio setup, and encourages you tou create your own"
 inprogress: false
 date: "2022-12-23T16:12:28.000Z"
 modified: "2024-09-20T04:18:41.000Z"
 tags: ["art","linocut","soap","woodworking","design","inspiration"]
-hidden: false
+wordCount: 306
 ---
 ## Making Space to Make Dope Shit
 

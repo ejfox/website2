@@ -3,8 +3,7 @@ kindle-sync: {"bookId":"51864","title":"Darkest America: Black Minstrelsy from S
 tags: ["america","culture","comedy"]
 date: "2022-12-14T20:29:23.000Z"
 modified: "2022-12-23T16:05:43.000Z"
-hidden: false
-draft: false
+wordCount: 253
 ---
 # Darkest America
 

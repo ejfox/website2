@@ -3,8 +3,7 @@ kindle-sync: {"bookId":"28584","title":"Reality Hunger","author":"David Shields"
 date: "2022-12-14T20:23:32.000Z"
 modified: "2022-12-23T16:06:17.000Z"
 tags: ["writing","journalism"]
-hidden: false
-draft: false
+wordCount: 644
 ---
 # Reality Hunger
 

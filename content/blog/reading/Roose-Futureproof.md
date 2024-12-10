@@ -3,8 +3,7 @@ kindle-sync: {"bookId":"11969","title":"Futureproof: 9 Rules for Humans in the A
 date: "2022-12-14T20:23:12.000Z"
 modified: "2022-12-23T16:06:45.000Z"
 tags: ["tech","culture","machinelearning","data","automation"]
-hidden: false
-draft: false
+wordCount: 184
 ---
 # Futureproof
 

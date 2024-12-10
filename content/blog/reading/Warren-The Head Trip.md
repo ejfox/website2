@@ -3,8 +3,7 @@ kindle-sync: {"bookId":"9400","title":"The Head Trip: Adventures on the Wheel of
 date: "2022-12-14T20:29:37.000Z"
 modified: "2022-12-23T15:56:46.000Z"
 tags: ["health","meditation","psychedelics"]
-hidden: false
-draft: false
+wordCount: 146
 ---
 # The Head Trip
 

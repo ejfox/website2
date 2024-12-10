@@ -3,8 +3,7 @@ kindle-sync: {"bookId":"54060","title":"She Comes First: The Thinking Man's Guid
 date: "2022-12-14T20:24:32.000Z"
 modified: "2022-12-23T16:09:26.000Z"
 tags: ["health","book","sex","inspiration"]
-hidden: false
-draft: false
+wordCount: 280
 ---
 # She Comes First
 
