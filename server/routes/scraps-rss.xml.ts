@@ -1,6 +1,5 @@
 import { defineEventHandler } from 'h3'
 import { createClient } from '@supabase/supabase-js'
-import { sanitizeHtml } from 'h3-utils'
 import type { Database } from '~/types/supabase'
 
 const siteURL = 'https://ejfox.com'
@@ -16,22 +15,46 @@ const supabase = createClient<Database>(
   process.env.SUPABASE_KEY!
 )
 
-function formatLocation(scrap: any) {
-  if (scrap.location && scrap.latitude && scrap.longitude) {
-    return `<geo:lat>${scrap.latitude}</geo:lat>
-    <geo:long>${scrap.longitude}</geo:long>
-    <geo:location>${scrap.location}</geo:location>`
-  }
-  return ''
+function formatDateTime(date: string | null): string {
+  if (!date) return ''
+  return new Date(date).toUTCString()
 }
 
-function formatMetadata(metadata: any) {
+function formatLocation(scrap: any): string {
+  if (!scrap.location || !scrap.latitude || !scrap.longitude) return ''
+
+  return `
+    <geo:lat>${scrap.latitude}</geo:lat>
+    <geo:long>${scrap.longitude}</geo:long>
+    <geo:location>${scrap.location}</geo:location>
+    <location:formatted>${scrap.location}</location:formatted>`
+}
+
+function formatMetadata(metadata: any): string {
   if (!metadata) return ''
   try {
-    const metadataStr = Object.entries(metadata)
-      .map(([key, value]) => `${key}: ${value}`)
-      .join('<br/>')
-    return `<br/><br/>Additional Info:<br/>${metadataStr}`
+    return Object.entries(metadata)
+      .map(([key, value]) => {
+        // Format key for better readability
+        const formattedKey = key
+          .replace(/_/g, ' ')
+          .replace(/\b\w/g, (l) => l.toUpperCase())
+        return `<metadata:${key}>${value}</metadata:${key}>`
+      })
+      .join('\n')
+  } catch (e) {
+    return ''
+  }
+}
+
+function formatRelationships(relationships: any): string {
+  if (!relationships) return ''
+  try {
+    return Object.entries(relationships)
+      .map(
+        ([key, value]) => `<relationship:${key}>${value}</relationship:${key}>`
+      )
+      .join('\n')
   } catch (e) {
     return ''
   }
@@ -48,7 +71,7 @@ export default defineEventHandler(async (event) => {
     const { data: scraps, error } = await supabase
       .from('scraps')
       .select('*')
-      .eq('shared', true) // Only fetch shared scraps
+      .eq('shared', true)
       .order('created_at', { ascending: false })
       .limit(SCRAPS_LIMIT)
 
@@ -59,14 +82,11 @@ export default defineEventHandler(async (event) => {
       return scrapDate > latest ? scrapDate : latest
     }, new Date(0))
 
-    // Add ETag header based on the last update time
+    // ETag handling
     const etag = `"${lastBuildDate.getTime()}"`
     event.node.res.setHeader('ETag', etag)
-
-    // Check if content hasn't changed
-    const ifNoneMatch = event.node.req.headers['if-none-match']
-    if (ifNoneMatch === etag) {
-      event.node.res.statusCode = 304 // Not Modified
+    if (event.node.req.headers['if-none-match'] === etag) {
+      event.node.res.statusCode = 304
       return ''
     }
 
@@ -76,7 +96,10 @@ export default defineEventHandler(async (event) => {
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
   xmlns:dc="http://purl.org/dc/elements/1.1/"
   xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
-  xmlns:media="http://search.yahoo.com/mrss/">
+  xmlns:media="http://search.yahoo.com/mrss/"
+  xmlns:metadata="http://ejfox.com/ns/metadata/"
+  xmlns:relationship="http://ejfox.com/ns/relationship/"
+  xmlns:location="http://ejfox.com/ns/location/">
 <channel>
   <title>${siteName}</title>
   <description>${siteDescription}</description>
@@ -89,18 +112,11 @@ export default defineEventHandler(async (event) => {
     .map((scrap) => {
       const title =
         scrap.title || scrap.summary?.slice(0, 100) || 'Untitled Scrap'
-      const content = scrap.content || ''
-      const summary = scrap.summary || ''
-      const tags = scrap.tags ? `<br/><br/>Tags: ${scrap.tags.join(', ')}` : ''
-      const source = scrap.url
-        ? `<br/>Source: <a href="${scrap.url}">${scrap.url}</a>`
-        : ''
-      const type = scrap.type ? `<br/>Type: ${scrap.type}` : ''
-      const metadata = formatMetadata(scrap.metadata)
+      const pubDate = formatDateTime(scrap.published_at || scrap.created_at)
+      const updateDate = formatDateTime(scrap.updated_at)
       const location = formatLocation(scrap)
-      const pubDate = new Date(
-        scrap.published_at || scrap.created_at
-      ).toUTCString()
+      const metadata = formatMetadata(scrap.metadata)
+      const relationships = formatRelationships(scrap.relationships)
 
       const mediaContent = scrap.screenshot_url
         ? `<media:content url="${scrap.screenshot_url}" medium="image" />`
@@ -110,17 +126,24 @@ export default defineEventHandler(async (event) => {
       <title><![CDATA[${title}]]></title>
       <link>${siteURL}/scrapbook#${scrap.id}</link>
       <guid isPermaLink="true">${siteURL}/scrapbook#${scrap.id}</guid>
-      <description><![CDATA[${summary}]]></description>
       <pubDate>${pubDate}</pubDate>
+      ${updateDate ? `<dc:modified>${updateDate}</dc:modified>` : ''}
+      <dc:creator>EJ Fox</dc:creator>
+      <dc:type>${scrap.type || 'unknown'}</dc:type>
+      ${scrap.source ? `<dc:source>${scrap.source}</dc:source>` : ''}
       ${location}
       ${mediaContent}
-      <dc:creator>EJ Fox</dc:creator>
+      ${metadata}
+      ${relationships}
+      <description><![CDATA[${scrap.summary || ''}]]></description>
       <content:encoded><![CDATA[
-        ${content}
-        ${source}
-        ${type}
-        ${tags}
-        ${metadata}
+        ${scrap.content || ''}
+        ${
+          scrap.url
+            ? `<p>Source: <a href="${scrap.url}">${scrap.url}</a></p>`
+            : ''
+        }
+        ${scrap.tags ? `<p>Tags: ${scrap.tags.join(', ')}</p>` : ''}
       ]]></content:encoded>
     </item>`
     })
