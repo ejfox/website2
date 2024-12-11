@@ -1,71 +1,78 @@
 <template>
-  <div class="rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col h-full">
-    <div class="flex-grow">
-      <!-- Pinboard scrap -->
-      <div v-if="scrap.source === 'pinboard'" class="space-y-2">
-        <div class="text-sm font-bold line-clamp-3 font-sans flex items-center">
-          <UIcon name="simple-icons:pinboard" class="w-4 h-4 mr-2" />
-          <a :href="scrap.metadata?.href" target="_blank" rel="noopener noreferrer" class="">{{ scrap.content }}</a>
-        </div>
-        <!-- <p class="text-xs text-gray-600 dark:text-gray-400 line-clamp-5">{{ scrap.summary }}</p> -->
-        <div class="flex flex-wrap gap-1">
-          <span v-for="tag in scrap.tags" :key="tag"
-            class="px-1 py-0.5 text-xs font-light text-gray-700 bg-gray-200 dark:bg-gray-800 dark:text-gray-200 rounded-full">
-            {{ tag }}
-          </span>
-        </div>
-        <div v-if="scrap.metadata?.screenshotUrl" class="mt-1">
-          <img :src="scrap.metadata.screenshotUrl" alt="Screenshot" class="w-full h-32 object-cover rounded" />
-        </div>
-      </div>
-
-      <!-- Arena scrap -->
-      <div v-else-if="scrap.source === 'arena'" class="space-y-2">
-        <div v-if="scrap.metadata?.image" class="mt-1">
-          <img :src="scrap.metadata.image.thumb.url" :alt="scrap.metadata.title"
-            class="w-full h-32 object-cover rounded" />
-        </div>
-        <p class="text-xs text-gray-600 line-clamp-3">{{ scrap.metadata?.description }}</p>
-      </div>
-
-      <!-- Mastodon scrap -->
-      <div v-else-if="scrap.source === 'mastodon'" class="space-y-2">
-        <UIcon name="simple-icons:mastodon" class="w-4 h-4 mr-2 block" />
-        <div class="text-xs font-serif line-clamp-4" v-html="scrap.content"></div>
-        <div v-if="scrap.metadata?.images" class="flex flex-wrap gap-1">
-          <img v-for="image in scrap.metadata.images.slice(0, 4)" :key="image.url" :src="image.url"
-            class="w-full h-auto object-cover rounded" />
-        </div>
-      </div>
-
-      <!-- GitHub scrap -->
-      <div v-else-if="scrap.source === 'github'" class="space-y-2">
-        <div class="flex items-center mb-2">
-          <UIcon name="simple-icons:github" class="w-4 h-4 mr-2" />
-        </div>
-        <h3 class="text-sm font-semibold">
-          {{ scrap.metadata.full_name }}
-        </h3>
-
-        <p class="text-xs line-clamp-3">{{ scrap.content || scrap.summary }}</p>
-
-
-      </div>
-
-      <!-- Default scrap -->
-      <div v-else class="space-y-2">
-        <div class="flex items-center mb-2">
-          <UIcon :name="getIconForSource(scrap.source)" class="w-4 h-4 mr-2" />
-          <h3 class="text-sm font-semibold">{{ scrap.source }} Scrap</h3>
-        </div>
-        <p class="text-xs line-clamp-3">{{ scrap.content || scrap.summary }}</p>
-      </div>
+  <div :class="[
+    'bg-zinc-50/50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-sm hover:border-zinc-400 dark:hover:border-zinc-700 transition-all duration-200',
+    hasMedia ? 'aspect-[4/3]' : 'aspect-auto min-h-[6rem]',
+    'group relative overflow-hidden'
+  ]">
+    <!-- Media Background -->
+    <div v-if="hasMedia" class="absolute inset-0">
+      <img :src="mediaUrl" :alt="displayTitle"
+        class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
     </div>
 
-    <!-- Common footer -->
-    <div class="mt-2 text-xs text-gray-500 flex justify-between">
-      <span>{{ new Date(scrap.created_at).toLocaleDateString() }}</span>
-      <span>{{ scrap.scrap_id }}</span>
+    <!-- Content Overlay -->
+    <div :class="[
+      'relative z-10 flex flex-col h-full p-2',
+      hasMedia ? 'justify-between text-white' : 'text-zinc-900 dark:text-zinc-100'
+    ]">
+      <!-- Header -->
+      <div class="flex items-center gap-1 text-xs font-mono mb-1">
+        <UIcon :name="sourceData.icon" class="w-3.5 h-3.5" />
+        <span>{{ sourceData.label }}</span>
+        <span v-if="scrap.type" class="opacity-60">[{{ scrap.type }}]</span>
+      </div>
+
+      <!-- Main Content -->
+      <div class="flex-1">
+        <a v-if="scrap.url" :href="scrap.url" target="_blank" rel="noopener noreferrer"
+          class="font-mono text-sm hover:underline line-clamp-3">
+          {{ displayTitle }}
+        </a>
+        <div v-else class="font-mono text-sm line-clamp-3">
+          {{ displayTitle }}
+        </div>
+
+        <!-- Description if available -->
+        <p v-if="description && !hasMedia" class="mt-1 text-xs opacity-75 line-clamp-2">
+          {{ description }}
+        </p>
+      </div>
+
+      <!-- Footer -->
+      <div class="flex flex-wrap items-center gap-x-2 gap-y-1 mt-2 text-[10px] font-mono"
+        :class="hasMedia ? 'text-zinc-200' : 'text-zinc-500 dark:text-zinc-400'">
+        <!-- Tags -->
+        <div v-if="scrap.tags?.length" class="flex flex-wrap gap-1">
+          <span v-for="tag in scrap.tags.slice(0, 3)" :key="tag" :class="[
+            'px-1 rounded',
+            hasMedia ? 'bg-white/20' : 'bg-zinc-100 dark:bg-zinc-800'
+          ]">
+            #{{ tag }}
+          </span>
+          <span v-if="scrap.tags.length > 3" class="opacity-60">
+            +{{ scrap.tags.length - 3 }}
+          </span>
+        </div>
+
+        <!-- Location -->
+        <div v-if="scrap.location" class="flex items-center gap-1">
+          <UIcon name="i-heroicons-map-pin-20-solid" class="w-3 h-3" />
+          {{ scrap.location }}
+        </div>
+
+        <!-- Links -->
+        <div v-if="scrap.relationships?.length" class="flex items-center gap-1">
+          <UIcon name="i-heroicons-link" class="w-3 h-3" />
+          {{ scrap.relationships.length }}
+        </div>
+
+        <!-- Media count -->
+        <div v-if="mediaCount > 1" class="flex items-center gap-1">
+          <UIcon name="i-heroicons-photo" class="w-3 h-3" />
+          {{ mediaCount }}
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -80,19 +87,41 @@ const props = defineProps({
   },
 })
 
-const getIconForSource = (source) => {
-  const iconMap = {
-    pinboard: 'simple-icons:pinboard',
-    arena: '',
-    mastodon: 'simple-icons:mastodon',
-    github: 'simple-icons:github',
-    twitter: 'simple-icons:twitter',
-    youtube: 'simple-icons:youtube',
-    // Add more mappings as needed
+const sourceData = computed(() => {
+  const sourceMap = {
+    pinboard: { icon: 'simple-icons:pinboard', label: 'Pinboard' },
+    github: { icon: 'simple-icons:github', label: 'GitHub' },
+    arena: { icon: 'i-heroicons-square-3-stack-3d', label: 'Are.na' },
+    mastodon: { icon: 'simple-icons:mastodon', label: 'Mastodon' },
+    twitter: { icon: 'simple-icons:twitter', label: 'Twitter' },
+    youtube: { icon: 'simple-icons:youtube', label: 'YouTube' },
+    lock: { icon: 'i-heroicons-lock-closed', label: 'Private' }
   }
+  return sourceMap[props.scrap.source?.toLowerCase()] || {
+    icon: 'i-heroicons-question-mark-circle',
+    label: props.scrap.source || 'Unknown'
+  }
+})
 
-  return iconMap[source.toLowerCase()] || 'uil:link'
-}
+const mediaUrl = computed(() => {
+  return props.scrap.screenshot_url ||
+    props.scrap.metadata?.screenshotUrl ||
+    props.scrap.metadata?.image?.thumb?.url ||
+    props.scrap.metadata?.images?.[0]?.url
+})
 
-const scrapIcon = computed(() => getIconForSource(props.scrap.source))
+const hasMedia = computed(() => !!mediaUrl.value)
+
+const mediaCount = computed(() => {
+  return (props.scrap.metadata?.images?.length || 0) +
+    (props.scrap.screenshot_url ? 1 : 0)
+})
+
+const displayTitle = computed(() =>
+  props.scrap.title || props.scrap.content || props.scrap.summary || ''
+)
+
+const description = computed(() =>
+  props.scrap.summary || props.scrap.metadata?.description
+)
 </script>
