@@ -85,19 +85,19 @@ useHead({
       <div v-for="post in sortedProjectPosts" :key="post.slug" class="project-card">
         <article class="mb-16">
           <h2 class="text-2xl font-serif font-normal mb-2 text-zinc-700 dark:text-zinc-300">
-            <NuxtLink :to="`/blog/${post.slug}`" class="no-underline hover:underline">
+            <NuxtLink :to="post.url" class="pointer no-underline hover:underline">
               {{ post.title }}
             </NuxtLink>
           </h2>
-          <p class="text-sm font-sans text-zinc-500 dark:text-zinc-400 mb-4">
+          <!-- <p class="text-sm font-sans text-zinc-500 dark:text-zinc-400 mb-4">
             {{ formatDate(post.date) }}
-          </p>
-          <span v-if="post.url">
+          </p> -->
+          <!-- <span v-if="post.url">
             <UButton :to="post.url" target="_blank" rel="noopener noreferrer" color="gray" trailing size="sm"
               class="mb-4" icon="i-heroicons-arrow-top-right-on-square">
               Go to project
             </UButton>
-          </span>
+          </span> -->
 
 
           <div v-if="post.image" class="mb-4 project-image">
@@ -156,13 +156,13 @@ useHead({
   flex-direction: column;
 }
 
-.project-image {
+/* .project-image {
   aspect-ratio: 16/9;
   overflow: hidden;
   background: #f5f5f5;
   border-radius: 0.5rem;
   transition: all 0.3s ease;
-}
+} */
 
 .project-image img {
   width: 100%;
