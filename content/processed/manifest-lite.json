@@ -7746,6 +7746,64 @@
     "hidden": false
   },
   {
+    "slug": "robots/hudson-valley-maps",
+    "date": "2024-11-27T16:23:08.000Z",
+    "modified": "2024-12-13T18:31:30.000Z",
+    "share": true,
+    "wordCount": 1816,
+    "robotsMeta": "index, follow",
+    "title": "Hudson Valley Systems & Trail Mapping Project",
+    "toc": [
+      {
+        "text": "Hudson Valley Systems & Trail Mapping Project",
+        "slug": "hudson-valley-systems-trail-mapping-project",
+        "level": "h2",
+        "children": [
+          {
+            "text": "1. Scoping & Requirements Gathering",
+            "slug": "1-scoping-requirements-gathering",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "2. Data Acquisition & Processing",
+            "slug": "2-data-acquisition-processing",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "3. Cartographic Design & Layout",
+            "slug": "3-cartographic-design-layout",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "4. Review & Refinement",
+            "slug": "4-review-refinement",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "5. Production & Distribution",
+            "slug": "5-production-distribution",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Hudson Valley Radio & Trail Mapping Project",
+            "slug": "hudson-valley-radio-trail-mapping-project",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "readingTime": 8,
+    "imageCount": 0,
+    "linkCount": 0,
+    "hidden": false
+  },
+  {
     "slug": "robots/ml-comedy-hour",
     "date": "2024-11-13T20:03:41.000Z",
     "modified": "2024-11-13T20:29:38.000Z",
@@ -10201,8 +10259,8 @@
       "progress"
     ],
     "date": "2024-12-09T15:00:45.000Z",
-    "modified": "2024-12-09T18:59:37.000Z",
-    "wordCount": 285,
+    "modified": "2024-12-11T23:58:36.000Z",
+    "wordCount": 305,
     "robotsMeta": "index, follow",
     "title": "2024-50",
     "toc": [
@@ -10227,8 +10285,8 @@
       }
     ],
     "readingTime": 2,
-    "imageCount": 26,
-    "linkCount": 26,
+    "imageCount": 28,
+    "linkCount": 28,
     "hidden": false
   }
 ]
