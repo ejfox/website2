@@ -69,10 +69,11 @@ export default defineNuxtConfig({
   //   id: 'G-0CBMSSNG8P',
   // },
   runtimeConfig: {
-    // Private keys
+    // Private keys that are only available on the server
     MONKEYTYPE_TOKEN: process.env.MONKEYTYPE_TOKEN,
+    githubToken: process.env.GITHUB_TOKEN,
 
-    // Public keys
+    // Keys that are exposed to the client
     public: {
       baseUrl: 'https://localhost:3000',
       OPENAI_API_KEY: process.env.OPENAI_API_KEY,
@@ -92,8 +93,8 @@ export default defineNuxtConfig({
       LASTFM_TOKEN: process.env.LASTFM_TOKEN,
       STRAVA_API: process.env.STRAVA_API,
       STRAVA_TOKEN: process.env.STRAVA_TOKEN,
-      GITHUB_API: process.env.GITHUB_API,
-      GITHUB_TOKEN: process.env.GITHUB_TOKEN || '',
+      GITHUB_API: process.env.GITHUB_API || 'https://api.github.com',
+      GITHUB_TOKEN: process.env.GITHUB_TOKEN,
       CHESS_API: process.env.CHESS_API,
       CHESS_USER: process.env.CHESS_USER,
       RESCUETIME_API: process.env.RESCUETIME_API,
@@ -105,9 +106,12 @@ export default defineNuxtConfig({
       HOME_LAT: process.env.HOME_LAT,
       HOME_LNG: process.env.HOME_LNG,
       SUPABASE_URL: process.env.SUPABASE_URL,
-      SUPABASE_KEY: process.env.SUPABASE_KEY
-    },
-    githubToken: process.env.GITHUB_TOKEN
+      SUPABASE_KEY: process.env.SUPABASE_KEY,
+      apiBase:
+        process.env.NODE_ENV === 'production'
+          ? 'https://ejfox.com/api' // Replace with your production domain
+          : 'http://localhost:3000/api'
+    }
   },
 
   googleFonts: {

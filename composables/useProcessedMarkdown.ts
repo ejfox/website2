@@ -133,10 +133,10 @@ export const useProcessedMarkdown = () => {
     includeWeekNotes = false
   ): Promise<Post[]> => {
     const manifest = await getManifestLite()
-    console.log(`Starting getAllPosts with ${manifest.length} total posts`)
-    console.log(
-      `Parameters: includeDrafts=${includeDrafts}, includeWeekNotes=${includeWeekNotes}`
-    )
+    // console.log(`Starting getAllPosts with ${manifest.length} total posts`)
+    // console.log(
+    //   `Parameters: includeDrafts=${includeDrafts}, includeWeekNotes=${includeWeekNotes}`
+    // )
 
     const filteredPosts = manifest.filter((post: Post) => {
       // Handle drafts
@@ -163,22 +163,22 @@ export const useProcessedMarkdown = () => {
       const isNotHidden = !(post.hidden === true || post.hidden === 'true')
 
       // Debug log for every post
-      console.log(`Filtering post ${post.slug}:`, {
-        isNotDraft,
-        isSharedDraft,
-        isNotIndex,
-        isWeekNote,
-        isSpecialSection,
-        isNotHidden,
-        hidden: post.hidden,
-        share: post.share,
-        shouldKeep:
-          (includeDrafts ? isSharedDraft || isNotDraft : isNotDraft) &&
-          isNotIndex &&
-          (includeWeekNotes ? true : !isWeekNote) &&
-          !isSpecialSection &&
-          isNotHidden
-      })
+      // console.log(`Filtering post ${post.slug}:`, {
+      //   isNotDraft,
+      //   isSharedDraft,
+      //   isNotIndex,
+      //   isWeekNote,
+      //   isSpecialSection,
+      //   isNotHidden,
+      //   hidden: post.hidden,
+      //   share: post.share,
+      //   shouldKeep:
+      //     (includeDrafts ? isSharedDraft || isNotDraft : isNotDraft) &&
+      //     isNotIndex &&
+      //     (includeWeekNotes ? true : !isWeekNote) &&
+      //     !isSpecialSection &&
+      //     isNotHidden
+      // })
 
       return (
         (includeDrafts ? isSharedDraft || isNotDraft : isNotDraft) &&
@@ -189,16 +189,16 @@ export const useProcessedMarkdown = () => {
       )
     })
 
-    console.log(`After filtering: ${filteredPosts.length} posts remain`)
-    console.log(
-      'Filtered posts:',
-      filteredPosts.map((p) => ({
-        slug: p.slug,
-        date: p.date,
-        hidden: p.hidden,
-        share: p.share
-      }))
-    )
+    // console.log(`After filtering: ${filteredPosts.length} posts remain`)
+    // console.log(
+    //   'Filtered posts:',
+    //   filteredPosts.map((p) => ({
+    //     slug: p.slug,
+    //     date: p.date,
+    //     hidden: p.hidden,
+    //     share: p.share
+    //   }))
+    // )
 
     const postsWithDates = filteredPosts.map((post: Post) => ({
       ...post,
@@ -206,14 +206,14 @@ export const useProcessedMarkdown = () => {
       modified: getValidDate(post.modified, post.slug)
     }))
 
-    console.log(
-      'After date processing:',
-      postsWithDates.map((p) => ({
-        slug: p.slug,
-        date: p.date,
-        modified: p.modified
-      }))
-    )
+    // console.log(
+    //   'After date processing:',
+    //   postsWithDates.map((p) => ({
+    //     slug: p.slug,
+    //     date: p.date,
+    //     modified: p.modified
+    //   }))
+    // )
 
     const sortedPosts = postsWithDates.sort(
       (a: Post, b: Post) =>
