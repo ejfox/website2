@@ -29,6 +29,42 @@
     "linkCount": 0
   },
   {
+    "slug": "2018/watercolor-sketching-in-nyc",
+    "type": "words",
+    "hidden": true,
+    "date": "2018-06-10T14:58:10-04:00",
+    "hidetimestamp": false,
+    "tags": [
+      "art",
+      "documentary",
+      "photography",
+      "watercolor",
+      "inspiration"
+    ],
+    "wordCount": 538,
+    "draft": true,
+    "robotsMeta": "noindex, nofollow",
+    "title": "Watercolor Sketching in NYC",
+    "toc": [
+      {
+        "text": "Watercolor Sketching in NYC",
+        "slug": "watercolor-sketching-in-nyc",
+        "level": "h1",
+        "children": [
+          {
+            "text": "Resources",
+            "slug": "resources",
+            "level": "h2",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "readingTime": 3,
+    "imageCount": 0,
+    "linkCount": 5
+  },
+  {
     "slug": "2018/work-view-life-view",
     "dek": "In which the author explores the meaning of life and work",
     "type": "words",
@@ -125,6 +161,58 @@
     "readingTime": 1,
     "imageCount": 13,
     "linkCount": 13
+  },
+  {
+    "slug": "2019/generative-music-iteration",
+    "type": "words",
+    "hidden": true,
+    "inprogress": true,
+    "date": "2019-03-24T08:00:33.000Z",
+    "hidetimestamp": false,
+    "tags": [
+      "generative",
+      "music",
+      "art",
+      "research",
+      "systemsthinking",
+      "visualization",
+      "coding"
+    ],
+    "modified": "2024-09-23T16:13:04.000Z",
+    "wordCount": 301,
+    "draft": true,
+    "robotsMeta": "noindex, nofollow",
+    "title": "Generative Music Iteration",
+    "toc": [
+      {
+        "text": "Generative Music Iteration",
+        "slug": "generative-music-iteration",
+        "level": "h2",
+        "children": [
+          {
+            "text": "What do I want to create?",
+            "slug": "what-do-i-want-to-create",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Mise-en-place",
+            "slug": "mise-en-place",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "What are the building blocks of the system we are working in?",
+            "slug": "what-are-the-building-blocks-of-the-system-we-are-working-in",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 0
   },
   {
     "slug": "2019/hong-kong-protest-techniques",
@@ -517,6 +605,86 @@
     "readingTime": 5,
     "imageCount": 0,
     "linkCount": 11
+  },
+  {
+    "slug": "2020/introduction-to-eavs-data",
+    "dek": "In which voter data is explored and visualized with javascript and an assemblage of command line tools",
+    "type": "words",
+    "hidden": true,
+    "inprogress": false,
+    "date": "2020-03-03T09:00:39.000Z",
+    "hidetimestamp": false,
+    "draft": true,
+    "modified": "2024-09-23T16:13:29.000Z",
+    "tags": [
+      "data",
+      "dataviz",
+      "election2020",
+      "visualization"
+    ],
+    "wordCount": 993,
+    "robotsMeta": "noindex, nofollow",
+    "title": "Processing, analyzing and visualizing EAVS data",
+    "toc": [
+      {
+        "text": "Processing, analyzing and visualizing EAVS data",
+        "slug": "processing-analyzing-and-visualizing-eavs-data",
+        "level": "h2",
+        "children": [
+          {
+            "text": "About EAVS",
+            "slug": "about-eavs",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Voter removals",
+            "slug": "voter-removals",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Using Datasette",
+            "slug": "using-datasette",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Creating a Makefile",
+            "slug": "creating-a-makefile",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Get election results by county",
+            "slug": "get-election-results-by-county",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Do our analysis",
+            "slug": "do-our-analysis",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Visualize",
+            "slug": "visualize",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Resources",
+            "slug": "resources",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "readingTime": 4,
+    "imageCount": 0,
+    "linkCount": 4
   },
   {
     "slug": "2020/online-brigades-gaming-twitter",
@@ -1661,6 +1829,56 @@
     "hidden": false
   },
   {
+    "slug": "2022/the-studio",
+    "dek": "In which we state our values upfront such that we might collaborate more effectively",
+    "date": "2022-12-27T20:04:55.000Z",
+    "modified": "2024-06-21T14:13:59.000Z",
+    "hidden": true,
+    "tags": [
+      "art",
+      "design",
+      "inspiration",
+      "process",
+      "technique",
+      "tool",
+      "visualization"
+    ],
+    "wordCount": 1360,
+    "draft": true,
+    "robotsMeta": "noindex, nofollow",
+    "title": "Fox Studio (Beacon)",
+    "toc": [
+      {
+        "text": "Fox Studio (Beacon)",
+        "slug": "fox-studio-beacon",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Studio goals",
+            "slug": "studio-goals",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Studio Agreements",
+            "slug": "studio-agreements",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Appendix, brass tacks, etcetera",
+            "slug": "appendix-brass-tacks-etcetera",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "readingTime": 6,
+    "imageCount": 0,
+    "linkCount": 3
+  },
+  {
     "slug": "2023/camera-setup",
     "inprogress": true,
     "date": "2023-01-01T20:06:48.000Z",
@@ -2318,6 +2536,202 @@
     "imageCount": 1,
     "linkCount": 3,
     "hidden": false
+  },
+  {
+    "slug": "2024/2024",
+    "tags": [
+      "yearly-goals",
+      "vision",
+      "strategy",
+      "reflections",
+      "art",
+      "meditation",
+      "health"
+    ],
+    "date": "2024-01-01T05:00:00.000Z",
+    "modified": "2024-09-23T16:12:56.000Z",
+    "hidden": true,
+    "wordCount": 4724,
+    "draft": true,
+    "robotsMeta": "noindex, nofollow",
+    "title": "🕰️ Reflections on the Past Year",
+    "toc": [
+      {
+        "text": "🕰️ Reflections on the Past Year",
+        "slug": "reflections-on-the-past-year",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "🔑 Key Themes",
+        "slug": "key-themes",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Interconnectedness of all things",
+            "slug": "interconnectedness-of-all-things",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "The World is Editable",
+            "slug": "the-world-is-editable",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "🌟 Vision for the Year",
+        "slug": "vision-for-the-year",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Personal Goals",
+            "slug": "personal-goals",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Professional Goals",
+            "slug": "professional-goals",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Coach Artie",
+            "slug": "coach-artie",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "LatentScope",
+            "slug": "latentscope",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "ContextAlchemy",
+            "slug": "contextalchemy",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "IssueBuilder",
+            "slug": "issuebuilder",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Weekly Livestreams",
+            "slug": "weekly-livestreams",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Daily Dashboard + Personal AI Assistant",
+            "slug": "daily-dashboard-personal-ai-assistant",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "🎨 Creative Ventures",
+        "slug": "creative-ventures",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Pottery",
+            "slug": "pottery",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Generative Art",
+            "slug": "generative-art",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Hardware Hacking / Physical Installations",
+            "slug": "hardware-hacking-physical-installations",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Beat-making Goals",
+            "slug": "beat-making-goals",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Watercolors",
+            "slug": "watercolors",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Personal Documentation + YouTube",
+            "slug": "personal-documentation-youtube",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "🌱 Wellness & Personal Development",
+        "slug": "wellness-personal-development",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Focusing on Discipline",
+            "slug": "focusing-on-discipline",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "More Hudson Valley Hikes",
+            "slug": "more-hudson-valley-hikes",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Get set up for international travel",
+            "slug": "get-set-up-for-international-travel",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Reduce Nicotine intake",
+            "slug": "reduce-nicotine-intake",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "More Intentional Cannabis Use",
+            "slug": "more-intentional-cannabis-use",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Goals for Global & Societal Impact",
+        "slug": "goals-for-global-societal-impact",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "🚀 Goals For Next Year",
+        "slug": "goals-for-next-year",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "readingTime": 19,
+    "imageCount": 0,
+    "linkCount": 0
   },
   {
     "slug": "2024/my-modern-scrapbook",
@@ -10259,8 +10673,8 @@
       "progress"
     ],
     "date": "2024-12-09T15:00:45.000Z",
-    "modified": "2024-12-11T23:58:36.000Z",
-    "wordCount": 305,
+    "modified": "2024-12-23T22:23:28.000Z",
+    "wordCount": 315,
     "robotsMeta": "index, follow",
     "title": "2024-50",
     "toc": [
@@ -10285,8 +10699,21 @@
       }
     ],
     "readingTime": 2,
-    "imageCount": 28,
-    "linkCount": 28,
+    "imageCount": 29,
+    "linkCount": 29,
+    "hidden": false
+  },
+  {
+    "slug": "week-notes/2024-52",
+    "date": "2024-12-23T17:08:14.000Z",
+    "modified": "2024-12-23T22:22:25.000Z",
+    "wordCount": 61,
+    "robotsMeta": "index, follow",
+    "title": "2024-52",
+    "toc": [],
+    "readingTime": 1,
+    "imageCount": 6,
+    "linkCount": 6,
     "hidden": false
   }
 ]

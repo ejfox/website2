@@ -42,6 +42,9 @@ import path from 'path'
 import frontMatter from 'front-matter'
 import chalk from 'chalk'
 import { glob } from 'glob'
+import ora from 'ora'
+import boxen from 'boxen'
+import gradient from 'gradient-string'
 
 const sourceDirectory =
   '/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/'
@@ -85,6 +88,8 @@ const stats = {
   skippedFiles: [],
   hiddenFiles: []
 }
+
+const spinner = ora()
 
 /**
  * Clean the destination directory before import
@@ -145,50 +150,41 @@ function processFile(filePath) {
       throw new Error('Path is not a file')
     }
 
-    // Get relative path from source directory
     const relativePath = path.relative(sourceDirectory, filePath)
     const data = readFileSync(filePath, 'utf8')
     const { attributes, body } = frontMatter(data)
     const fileName = path.basename(filePath)
     const fileType = getFileType(relativePath)
+    const wordCount = calculateWordCount(body)
 
     debug('Processing', { fileName, fileType })
 
-    // Early filtering with clear visual indicators
-    if (attributes.hidden === true) {
-      console.log(chalk.red('✖ HIDDEN:'), chalk.dim(fileName))
-      stats.hiddenFiles.push(filePath)
-      return
-    }
-
-    // Handle sensitive content
+    // Handle private content more quietly
     if (relativePath.includes('drafts/') || relativePath.includes('robots/')) {
       if (!attributes.share) {
-        console.log(
-          chalk.yellow('⚠ PRIVATE:'),
-          chalk.dim(`${fileName} (${fileType})`)
-        )
+        if (process.env.DEBUG_IMPORT) {
+          console.log(chalk.yellow('⚠ PRIVATE:'), chalk.dim(`${fileName}`))
+        }
         stats.skippedFiles.push(filePath)
         return
       }
-      debug('Processing sensitive content', {
-        fileName,
-        share: attributes.share
-      })
     }
 
-    // Track file type stats
+    // Track stats
     updateFileTypeStats(fileType)
     stats.filesProcessed++
 
-    // Process the file
-    const wordCount = calculateWordCount(body)
+    // More concise status line
+    const status = stats.filesAdded.includes(filePath)
+      ? '+'
+      : stats.filesUpdated.includes(filePath)
+      ? '~'
+      : ' '
 
-    // Simple status line with type and word count
     console.log(
-      chalk.green('✓'),
-      chalk.bold(fileName.padEnd(40)),
-      chalk.dim(`${fileType} • ${wordCount} words`)
+      `${status} ${chalk.bold(fileName.padEnd(35))} ${chalk.dim(
+        fileType.padEnd(10)
+      )} ${wordCount}w`
     )
 
     // Fix dates for week notes
@@ -254,8 +250,8 @@ function processFile(filePath) {
     console.log(`Processed file: ${destinationFilePath}`)
   } catch (error) {
     console.error(
-      chalk.red('✖ ERROR:'),
-      chalk.dim(`${path.basename(filePath)} ${error.message}`)
+      chalk.red('✖'),
+      chalk.dim(`${path.basename(filePath)}: ${error.message}`)
     )
     stats.errors.push({ file: filePath, error: error.message })
   }
@@ -385,7 +381,7 @@ function printSummary() {
 
   // Print errors if any
   if (stats.errors.length > 0) {
-    console.log('─'.repeat(50))
+    console.log('��'.repeat(50))
     console.log('Errors:')
     stats.errors.forEach(({ file, error }) => {
       console.log(chalk.red(`✖ ${path.basename(file)} ${error}`))
@@ -463,24 +459,79 @@ function getDateOfISOWeek(year, week) {
 // Start processing from the source directory
 async function main() {
   try {
-    // Clean destination directory
+    console.log(gradient.rainbow('\n📝 Blog Import Pipeline\n'))
+
+    spinner.start('Preparing import')
     cleanDestination()
 
-    // Find all markdown files
     const files = await findMarkdownFiles()
-    console.log(chalk.blue(`Found ${files.length} markdown files to process\n`))
+    spinner.succeed(`Found ${files.length} files to process`)
 
-    // Process each file
+    console.log('\n' + chalk.bold('Processing files:'))
+    console.log(
+      chalk.dim('Status | File'.padEnd(38) + 'Type'.padEnd(12) + 'Words')
+    )
+    console.log(chalk.dim('─'.repeat(60)))
+
     for (const file of files) {
       processFile(file)
     }
 
-    // Print summary
-    printSummary()
+    const summary = boxen(formatSummary(), {
+      padding: 1,
+      margin: 1,
+      borderStyle: 'round',
+      borderColor: 'green',
+      title: '📊 Import Summary',
+      titleAlignment: 'center'
+    })
+
+    console.log(summary)
   } catch (error) {
-    console.error('Fatal error:', error)
+    spinner.fail('Import failed')
+    console.error(chalk.red('\nFatal error:'), error)
     process.exit(1)
   }
+}
+
+// Add this helper function
+function formatSummary() {
+  const totalWords =
+    stats.filesProcessed > 0
+      ? Object.values(stats.filesByType).reduce((sum, count) => sum + count, 0)
+      : 0
+
+  const lines = [
+    chalk.bold(`Files: ${stats.filesProcessed}`),
+    `${chalk.green('+')} Added: ${stats.filesAdded.length}`,
+    `${chalk.yellow('~')} Updated: ${stats.filesUpdated.length}`,
+    `${chalk.red('-')} Skipped: ${stats.skippedFiles.length}`,
+    '',
+    chalk.bold('Content Types:'),
+    ...Object.entries(stats.filesByType)
+      .filter(([_, count]) => count > 0)
+      .map(
+        ([type, count]) =>
+          `${type.padEnd(12)} ${count.toString().padStart(3)} files`
+      )
+  ]
+
+  if (stats.errors.length > 0) {
+    lines.push(
+      '',
+      chalk.red.bold(`Errors (${stats.errors.length}):`),
+      ...stats.errors
+        .map(({ file, error }) =>
+          chalk.red(`• ${path.basename(file)}: ${error}`)
+        )
+        .slice(0, 5) // Show only first 5 errors
+    )
+    if (stats.errors.length > 5) {
+      lines.push(chalk.red(`  ... and ${stats.errors.length - 5} more errors`))
+    }
+  }
+
+  return lines.join('\n')
 }
 
 // Start the import process

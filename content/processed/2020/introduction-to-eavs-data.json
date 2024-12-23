@@ -2,11 +2,11 @@
   "slug": "2020/introduction-to-eavs-data",
   "dek": "In which voter data is explored and visualized with javascript and an assemblage of command line tools",
   "type": "words",
-  "hidden": false,
+  "hidden": true,
   "inprogress": false,
   "date": "2020-03-03T09:00:39.000Z",
   "hidetimestamp": false,
-  "draft": "undefined",
+  "draft": true,
   "modified": "2024-09-23T16:13:29.000Z",
   "tags": [
     "data",
@@ -15,7 +15,7 @@
     "visualization"
   ],
   "wordCount": 993,
-  "robotsMeta": "index, follow",
+  "robotsMeta": "noindex, nofollow",
   "title": "Processing, analyzing and visualizing EAVS data",
   "toc": [
     {

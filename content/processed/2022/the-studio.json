@@ -3,7 +3,7 @@
   "dek": "In which we state our values upfront such that we might collaborate more effectively",
   "date": "2022-12-27T20:04:55.000Z",
   "modified": "2024-06-21T14:13:59.000Z",
-  "hidden": false,
+  "hidden": true,
   "tags": [
     "art",
     "design",
@@ -14,8 +14,8 @@
     "visualization"
   ],
   "wordCount": 1360,
-  "draft": "undefined",
-  "robotsMeta": "index, follow",
+  "draft": true,
+  "robotsMeta": "noindex, nofollow",
   "title": "Fox Studio (Beacon)",
   "toc": [
     {

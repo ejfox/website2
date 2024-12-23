@@ -1,7 +1,7 @@
 {
   "slug": "2019/generative-music-iteration",
   "type": "words",
-  "hidden": false,
+  "hidden": true,
   "inprogress": true,
   "date": "2019-03-24T08:00:33.000Z",
   "hidetimestamp": false,
@@ -16,8 +16,8 @@
   ],
   "modified": "2024-09-23T16:13:04.000Z",
   "wordCount": 301,
-  "draft": "undefined",
-  "robotsMeta": "index, follow",
+  "draft": true,
+  "robotsMeta": "noindex, nofollow",
   "title": "Generative Music Iteration",
   "toc": [
     {
