@@ -63,10 +63,7 @@
 
           </div>
 
-          <div class="mt-8 px-4 opacity-50 hover:opacity-100 transition-opacity group hidden md:block">
-            <svg id="pgp-fingerprint" width="200" height="32" class="w-full">
-              <!-- Will be populated by D3 -->
-            </svg>
+          <div class="px-4 opacity-50 hover:opacity-100 transition-opacity group hidden md:block">
             <div class="text-xs mt-1 text-zinc-500 dark:text-zinc-400 flex items-center justify-between">
               <a href="/pgp.txt" class="hover:text-zinc-800 dark:hover:text-zinc-300 transition-colors">
                 PGP: E207 8E65 3FE3 89CD
@@ -78,9 +75,11 @@
         <div id="toc-container" class="font-sans"></div>
 
         <div v-if="isBlogPost" class="mt-4 pl-4">
-          <UButton to="/blog/" size="sm" class="" icon="i-heroicons-arrow-left" :color="isDark ? 'white' : 'black'">
-            Back to Blog
-          </UButton>
+          <NuxtLink to="/blog/"
+            class="inline-flex items-center gap-2 px-3 py-1 text-sm rounded-full bg-black/10 text-black hover:bg-black/20 dark:bg-white/10 dark:text-white dark:hover:bg-white/20">
+            <Icon name="i-heroicons-arrow-left" class="w-4 h-4" />
+            <span>Back to Blog</span>
+          </NuxtLink>
         </div>
 
       </nav>
