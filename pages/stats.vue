@@ -3,24 +3,29 @@
 
 
     <!-- Error States -->
-    <div v-if="Object.keys(errors).length" class="mb-16 p-4 bg-red-50/10 rounded-lg border border-red-500/20">
-      <h3 class="text-sm font-medium text-red-400 mb-2">Some data sources require configuration:</h3>
-      <div v-for="(error, service) in errors" :key="service" class="text-red-300/75 text-sm capitalize">
-        <span class="font-medium">{{ service }}:</span> {{ error }}
+    <div v-if="Object.keys(errors).length && showErrors"
+      class="mb-8 p-4 bg-gray-50/5 rounded-lg border border-gray-500/10">
+      <div class="flex items-center justify-between mb-2">
+        <h3 class="text-sm font-medium text-gray-400">Data Source Status</h3>
+        <button @click="showErrors = false" class="text-gray-400 hover:text-gray-300">
+          <UIcon name="i-heroicons-x-mark" class="w-4 h-4" />
+        </button>
       </div>
-      <p class="mt-4 text-xs text-gray-400">
-        Note: This is expected if you haven't configured the API tokens for these services.
-        The page will still work with available data sources.
-      </p>
+      <div class="space-y-1">
+        <div v-for="(error, service) in errors" :key="service"
+          class="text-gray-400/75 text-sm capitalize flex items-center space-x-2">
+          <UIcon :name="error ? 'i-heroicons-x-circle' : 'i-heroicons-check-circle'" class="w-4 h-4"
+            :class="error ? 'text-gray-500' : 'text-green-500'" />
+          <span>{{ service }}</span>
+        </div>
+      </div>
     </div>
 
-    <div v-if="hasStaleData" class="mb-8 p-4 bg-yellow-50/50 dark:bg-yellow-900/20 rounded-lg">
-      <h3 class="text-sm font-medium text-yellow-800/75 dark:text-yellow-200/75">
-        Some data may be outdated
-      </h3>
-      <p class="text-yellow-600/75 dark:text-yellow-300/75 text-sm">
-        Using cached data while services are unavailable
-      </p>
+    <div v-if="hasStaleData" class="mb-8 p-4 bg-gray-50/5 rounded-lg border border-gray-500/10">
+      <div class="flex items-center space-x-2 text-gray-400/75">
+        <UIcon name="i-heroicons-clock" class="w-4 h-4" />
+        <span class="text-sm">Using cached data</span>
+      </div>
     </div>
 
     <div class="space-y-32">
@@ -213,7 +218,11 @@ interface StatsResponse {
   music?: any
   health?: any
   chess?: any
-  code?: any
+  code?: {
+    prCount?: number
+    contributions?: number[]
+    currentStreak?: number
+  }
   photography?: any
 }
 
@@ -278,17 +287,24 @@ const copyShareLink = async () => {
   // You might want to add a toast notification here
 }
 
-// Data availability checks
+// Add this near the top of the script
+const showErrors = ref(true)
+
+// Update the data availability checks to be more graceful
 const hasMonkeyTypeData = computed(() => {
-  return !!stats.value?.monkeyType?.typingStats?.bestWPM
+  return !!(stats.value?.monkeyType?.typingStats?.bestWPM)
 })
 
 const hasGithubData = computed(() => {
-  return !!stats.value?.github?.contributions?.length
+  return !!(stats.value?.github?.contributions?.length || stats.value?.github?.totalContributions)
 })
 
 const hasPhotoData = computed(() => {
-  return !!stats.value?.photos?.length
+  return !!(stats.value?.photos?.length)
+})
+
+const hasCodeData = computed(() => {
+  return !!(stats.value?.github || stats.value?.code)
 })
 
 const hasMultipleDataSources = computed(() => {
