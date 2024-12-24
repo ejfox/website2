@@ -1,7 +1,5 @@
 <template>
-  <div class="max-w-6xl mx-auto px-4 py-24 uppercase">
-
-
+  <div class="max-w-6xl mx-auto px-4 py-12 uppercase">
     <!-- Error States -->
     <div v-if="Object.keys(errors).length && showErrors"
       class="mb-8 p-4 bg-gray-50/5 rounded-lg border border-gray-500/10">
@@ -31,23 +29,55 @@
     <div class="space-y-32">
       <!-- All-time Stats Section -->
       <section class="space-y-16">
-        <h2 class="text-sm tracking-wider text-gray-500">LIFETIME METRICS</h2>
+        <h2 class="text-sm tracking-wider text-gray-500">STATS</h2>
 
         <!-- Primary Metrics -->
-        <section v-if="hasMonkeyTypeData || hasGithubData" class="grid grid-cols-1 md:grid-cols-2 gap-24">
+        <section v-if="hasMonkeyTypeData || hasGithubData || hasPhotoData || blogStats"
+          class="grid grid-cols-1 md:grid-cols-2 gap-24">
           <div v-if="hasMonkeyTypeData" class="space-y-3">
-            <p class="text-[8rem] leading-none font-extralight tabular-nums tracking-tight">{{ bestWPM }}</p>
-            <div class="w-16 h-px bg-gray-900"></div>
+            <p class="text-[10rem] leading-none font-extralight tabular-nums tracking-tight">{{ bestWPM }}</p>
+            <div class="w-16 h-px bg-gray-500/20"></div>
             <h3 class="text-sm tracking-wider text-gray-500">BEST WPM</h3>
-            <p class="text-xs text-gray-400">
-              {{ stats?.monkeyType?.typingStats?.testsCompleted || 0 }} tests completed
-              · {{ stats?.monkeyType?.typingStats?.bestAccuracy?.toFixed(1) || 0 }}% accuracy
-              · {{ stats?.monkeyType?.typingStats?.bestConsistency?.toFixed(1) || 0 }}% consistency
+            <p class="text-xs text-gray-400 tracking-wider">
+              {{ formatNumber(stats?.monkeyType?.typingStats?.testsCompleted || 0) }} TESTS
+              · {{ stats?.monkeyType?.typingStats?.bestAccuracy?.toFixed(1) || 0 }}% ACC
+              · {{ stats?.monkeyType?.typingStats?.bestConsistency?.toFixed(1) || 0 }}% CON
             </p>
-            <!-- <p class="text-xs text-gray-400">
-              Faster than {{ stats?.monkeyType?.typingStats?.timePercentile?.toFixed(1) || 0 }}% of users on 60s tests
-              · {{ stats?.monkeyType?.typingStats?.wordsPercentile?.toFixed(1) || 0 }}% on word tests
-            </p> -->
+          </div>
+
+          <div v-if="hasGithubData" class="space-y-3">
+            <p class="text-[10rem] leading-none font-extralight tabular-nums tracking-tight">{{
+              formatNumber(stats?.github?.totalContributions || 0) }}</p>
+            <div class="w-16 h-px bg-gray-500/20"></div>
+            <h3 class="text-sm tracking-wider text-gray-500">TOTAL CONTRIBUTIONS</h3>
+            <p class="text-xs text-gray-400 tracking-wider">
+              {{ formatNumber(stats?.github?.prCount || 0) }} PULL REQUESTS
+              · {{ formatNumber(stats?.github?.currentStreak || 0) }} DAY STREAK
+            </p>
+          </div>
+
+          <ClientOnly>
+            <div v-if="hasPhotoData" class="space-y-3">
+              <p class="text-[10rem] leading-none font-extralight tabular-nums tracking-tight">
+                {{ formatNumber(stats?.photos?.length || 0) }}
+              </p>
+              <div class="w-16 h-px bg-gray-500/20"></div>
+              <h3 class="text-sm tracking-wider text-gray-500">TOTAL PHOTOGRAPHS</h3>
+              <p class="text-xs text-gray-400 tracking-wider">
+                {{ new Date().getFullYear() }}
+              </p>
+            </div>
+          </ClientOnly>
+
+          <div v-if="blogStats" class="space-y-3">
+            <p class="text-[10rem] leading-none font-extralight tabular-nums tracking-tight">{{
+              formatNumber(blogStats.totalWords) }}</p>
+            <div class="w-16 h-px bg-gray-500/20"></div>
+            <h3 class="text-sm tracking-wider text-gray-500">WORDS WRITTEN</h3>
+            <p class="text-xs text-gray-400 tracking-wider">
+              {{ formatNumber(blogStats.totalPosts) }} POSTS
+              · {{ formatNumber(blogStats.averageWords) }} AVG
+            </p>
           </div>
         </section>
 
@@ -72,37 +102,38 @@
 
 
         <!-- All-time Photography Stats -->
-        <section v-if="hasPhotoData" class="space-y-16">
-          <h3 class="text-sm tracking-wider text-gray-500 mb-4">PHOTOGRAPHY OVERVIEW</h3>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-24">
-            <div class="space-y-3">
-              <p class="text-5xl font-extralight tabular-nums">{{ (stats as any)?.photography?.totalPhotos || 0 }}</p>
-              <div class="w-12 h-px bg-gray-900"></div>
-              <h3 class="text-sm tracking-wider text-gray-500">TOTAL PHOTOGRAPHS</h3>
-              <p class="text-xs text-gray-400">Captured {{ new Date().getFullYear() }}</p>
+        <ClientOnly>
+          <section v-if="hasPhotoData" class="space-y-16">
+            <h3 class="text-sm tracking-wider text-gray-500 mb-4">PHOTOGRAPHY OVERVIEW</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-24">
+              <div class="space-y-3">
+                <p class="text-5xl font-extralight tabular-nums">{{ stats?.photos?.length || 0 }}</p>
+                <div class="w-12 h-px bg-gray-900"></div>
+                <h3 class="text-sm tracking-wider text-gray-500">TOTAL PHOTOGRAPHS</h3>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </ClientOnly>
       </section>
 
       <!-- Code Stats Section -->
-      <section v-if="hasGithubData" class="space-y-12">
-        <div class="border-t border-gray-100 pt-12 space-y-4">
+      <section v-if="hasGithubData" class="mt-32 space-y-12">
+        <div class="border-t border-gray-500/20 pt-12 space-y-8">
           <div class="flex justify-between items-baseline">
             <h4 class="text-sm tracking-wider text-gray-500">CONTRIBUTION PATTERNS</h4>
-            <p class="text-xs text-gray-400">{{ new Date().getFullYear() }} Calendar</p>
+            <p class="text-xs text-gray-400 tracking-wider">{{ new Date().getFullYear() }}</p>
           </div>
           <div class="h-[160px]">
             <HeatMap :data="githubHeatmapData" :showFullYear="true" :showLegend="true" :legendLabels="{
-              start: 'No Contributions',
-              end: `${Math.max(...((stats as any)?.code?.contributions || [0]))} Contributions`
+              start: '0',
+              end: formatNumber(Math.max(...(stats?.github?.contributions || [0])))
             }" />
           </div>
-          <p class="text-xs text-gray-400 text-center">
-            Total Contributions: {{ (stats?.github?.contributions as any[])?.reduce((a: number, b: number) => a + b, 0)
-              || 0 }}
-            · Peak Day: {{ Math.max(...((stats?.github?.contributions as any[]) || [0])) }} commits
-            · Active Days: {{ (stats?.github?.contributions as any[])?.filter((c: number) => c > 0).length || 0 }}
+          <p class="text-xs text-gray-400 tracking-wider text-center space-x-4">
+            <span>PEAK: {{ formatNumber(Math.max(...((stats?.github?.contributions as any[]) || [0]))) }}</span>
+            <span>·</span>
+            <span>ACTIVE: {{ formatNumber((stats?.github?.contributions as any[])?.filter((c: number) => c > 0).length
+              || 0) }} DAYS</span>
           </p>
         </div>
       </section>
@@ -139,26 +170,26 @@
       </section>
 
       <!-- Words Per Year Section -->
-      <section v-if="wordsPerYear" class="space-y-12">
-        <div class="border-t border-gray-200/50 dark:border-gray-700/50 pt-12">
-          <h4 class="text-sm tracking-wider text-gray-500/80 dark:text-gray-400/80 mb-8">WORDS WRITTEN PER YEAR</h4>
+      <section v-if="wordsPerYear && Object.keys(wordsPerYear).length" class="mt-32 space-y-12">
+        <div class="border-t border-gray-500/20 pt-12">
+          <h4 class="text-sm tracking-wider text-gray-500 mb-12">WORDS BY YEAR</h4>
           <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
-            <div v-for="(words, year) in wordsPerYear" :key="year" class="space-y-2">
-              <p class="text-4xl font-extralight tabular-nums">
+            <div v-for="(words, year) in wordsPerYear" :key="year" class="space-y-3">
+              <p class="text-6xl font-extralight tabular-nums tracking-tight">
                 {{ formatNumber(words) }}
               </p>
-              <div class="w-12 h-px bg-gray-900/10 dark:bg-gray-100/10"></div>
-              <h3 class="text-sm tracking-wider text-gray-500/80 dark:text-gray-400/80">{{ year }}</h3>
+              <div class="w-12 h-px bg-gray-500/20"></div>
+              <h3 class="text-sm tracking-wider text-gray-500">{{ year }}</h3>
             </div>
           </div>
         </div>
       </section>
 
       <!-- Temporal View Section -->
-      <PeriodAnalysis :stats="stats" :start-date="startDate" :end-date="endDate" :selected-period="selectedPeriod"
+      <!-- <PeriodAnalysis :stats="stats" :start-date="startDate" :end-date="endDate" :selected-period="selectedPeriod"
         :has-code-data="!!stats?.github" :has-photo-data="!!stats?.photos" :today="today"
         @update:start-date="startDate = $event" @update:end-date="endDate = $event"
-        @update:period="selectedPeriod = $event" />
+        @update:period="selectedPeriod = $event" /> -->
 
 
 
@@ -526,6 +557,11 @@ const getValidDate = (dateString: string | null): Date => {
   const date = new Date(dateString)
   return isNaN(date.getTime()) ? new Date() : date
 }
+
+// Add this to your script section to debug
+watch(() => stats.value, (newStats) => {
+  console.log('Stats structure:', newStats)
+}, { immediate: true })
 
 </script>
 
