@@ -1,5 +1,28 @@
 <template>
   <main class="p-4 md:p-8 space-y-8">
+    <!-- Quick TCWM Explanation -->
+    <div class="max-w-3xl mb-8 p-4 rounded-lg bg-zinc-50 dark:bg-zinc-900/50">
+      <h3 class="text-lg font-medium mb-3">How to Read This List</h3>
+      <p class="text-base text-zinc-600 dark:text-zinc-400">
+        Each item is scored on four factors:
+        <span class="text-blue-500">Time Criticality</span> (how quickly you need it),
+        <span class="text-purple-500">Consequence</span> (impact if you don't have it),
+        <span class="text-green-500">Weight</span> (how much it impacts mobility), and
+        <span class="text-amber-500">Multi-use</span> (versatility).
+        Higher scores (T1) mean the item should be immediately accessible.
+      </p>
+    </div>
+
+    <!-- Add download option -->
+    <div class="flex justify-end mb-4">
+      <a href="/gear.csv" download class="inline-flex items-center gap-2 text-sm px-3 py-1.5 rounded-full
+                bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700
+                transition-colors">
+        <UIcon name="i-heroicons-arrow-down-tray" class="w-4 h-4" />
+        Download Full List
+      </a>
+    </div>
+
     <!-- Add this before the stats grid -->
     <div class="max-w-6xl mb-12">
       <!-- Two-column layout on md+ -->
@@ -7,29 +30,31 @@
         <!-- Left column: Text content -->
         <div class="prose prose-zinc dark:prose-invert mb-8 md:mb-0">
 
-          <p class="text-lg">
-            When
+          <p class="text-lg serif">
+            For me
             everything must be weatherproof at highway speeds, when total capacity is limited to what a <span
               class="text-primary font-bold">Versys X 300</span> can
             carry, when items must be both accessible and waterproof, when creative tools need to coexist with survival
-            gear
-            it requires thinking about every ounce deeply. I am really proud of this system, ever-evolving as I test and
+            gear.
+            This requires thinking about every ounce deeply. I am really proud of this system, ever-evolving as I test
+            and
             push it to new limits.
           </p>
 
           <p>
             The system currently manifests across a few primary containers
-            <span class="inline-flex items-baseline gap-1 font-mono text-sm">
-              <span>{{ totalWeight }}oz</span>
-              <span class="text-xs text-zinc-500">
-                ({{ ouncesToPounds }}lb / {{ ouncesToKilos }}kg)
-              </span>
-            </span>:
+            <ruby class="font-mono text-sm">
+              {{ totalWeight }}oz
+              <rt class="flex gap-2 text-[10px] text-zinc-500">
+                <span>{{ ouncesToPounds }}lb</span>
+                <span>{{ ouncesToKilos }}kg</span>
+              </rt>
+            </ruby>:
           </p>
 
           <!-- Container List with Micro Stats -->
           <div class="space-y-2 my-6">
-            <template v-for="[container, items] in groupedGear" :key="container">
+            <div v-for="[container, items] in groupedGear" :key="container">
               <!-- Only show primary containers -->
               <div v-if="PRIORITY_CONTAINERS.includes(container)" class="flex items-center gap-3 py-1">
                 <UIcon :name="containerIcons[container] || 'i-material-symbols-light-backpack-rounded'"
@@ -50,7 +75,12 @@
                           class="w-1 h-3 bg-zinc-200 dark:bg-zinc-700">
                         </div>
                       </div>
-                      <span class="font-mono tabular-nums">{{ calculateTotalWeight(items) }}oz</span>
+                      <ruby class="font-mono tabular-nums">
+                        {{ calculateTotalWeight(items) }}oz
+                        <rt class="text-[10px] text-zinc-500">
+                          {{ (Number(calculateTotalWeight(items)) / 16).toFixed(1) }}lb
+                        </rt>
+                      </ruby>
                     </div>
                   </div>
                   <div class="text-xs text-zinc-500">
@@ -58,17 +88,9 @@
                   </div>
                 </div>
               </div>
-            </template>
+            </div>
           </div>
 
-          <p>
-            The constraints of motorcycle mobility force unnatural optimizations. You can't minimize weight without
-            limit
-            <span class="font-mono text-zinc-500">(↓0)</span> - you need tools that work.
-            You can't maximize capacity <span class="font-mono text-zinc-500">(↑∞)</span> - everything must fit on the
-            bike.
-            You can't specialize - a journey requires diverse capabilities.
-          </p>
           <div class="grid grid-cols-2 gap-4 my-6 text-sm">
             <div v-for="(score, type) in avgScores" :key="type" class="flex items-baseline justify-between gap-2">
               <span :class="scoreColors[type]">{{ scoreLabels[type] }}</span>
@@ -81,12 +103,6 @@
               </div>
             </div>
           </div>
-
-          <p>
-            The constraints of camping on a motorcycle helped me create a system to
-            support the
-            type of lifestyle I want.
-          </p>
 
           <p class="text-sm text-zinc-500">
             Whether you ride or not, the principles here apply to anyone interested in maintaining multiple capabilities
@@ -125,17 +141,16 @@
         <!-- Key Metrics - Big Numbers -->
         <div class="grid grid-cols-2 md:grid-cols-3 gap-8 border-b border-zinc-200 dark:border-zinc-800 pb-8">
           <div class="space-y-1">
-            <div class="font-mono text-4xl tabular-nums">{{ totalItems }}</div>
-            <div class="text-xs text-zinc-500 font-medium tracking-wide uppercase">Total Items</div>
+            <div class="font-mono text-5xl tabular-nums">{{ totalItems }}</div>
+            <div class="text-sm text-zinc-500 font-medium tracking-wide uppercase">Total Items</div>
           </div>
           <div class="space-y-1">
-            <div class="font-mono text-4xl tabular-nums">{{ totalWeight }}oz
-            </div>
-            <div class="text-xs text-zinc-500 font-medium tracking-wide uppercase">Total Weight</div>
+            <div class="font-mono text-5xl tabular-nums">{{ totalWeight }}oz</div>
+            <div class="text-sm text-zinc-500 font-medium tracking-wide uppercase">Total Weight</div>
           </div>
           <div class="space-y-1">
-            <div class="font-mono text-4xl tabular-nums">{{ avgTCWMScore }}</div>
-            <div class="text-xs text-zinc-500 font-medium tracking-wide uppercase">Avg TCWM Score</div>
+            <div class="font-mono text-5xl tabular-nums">{{ avgTCWMScore }}</div>
+            <div class="text-sm text-zinc-500 font-medium tracking-wide uppercase">Avg TCWM Score</div>
           </div>
         </div>
 
@@ -143,14 +158,14 @@
         <div class="grid grid-cols-2 gap-12">
           <!-- Weight Distribution -->
           <div class="space-y-4">
-            <div class="text-sm font-medium">Weight Distribution</div>
+            <div class="text-base font-medium">Weight Distribution</div>
             <div class="h-24 flex items-end gap-px">
               <div v-for="(count, i) in weightDistribution" :key="i"
                 class="flex-1 bg-zinc-900/5 dark:bg-zinc-100/5 hover:bg-zinc-900/10 dark:hover:bg-zinc-100/10 transition-colors"
                 :style="{ height: `${(count / Math.max(...weightDistribution)) * 100}%` }">
               </div>
             </div>
-            <div class="flex justify-between text-xs text-zinc-500 font-mono">
+            <div class="flex justify-between text-sm text-zinc-500 font-mono">
               <span>0oz</span>
               <span>{{ Math.max(...gearItems.map(item => parseFloat(item['Base Weight ()']) || 0)).toFixed(1)
                 }}oz</span>
@@ -159,7 +174,7 @@
 
           <!-- Score Distribution -->
           <div class="space-y-4">
-            <div class="text-sm font-medium">TCWM Score Distribution</div>
+            <div class="text-base font-medium">TCWM Score Distribution</div>
             <div class="h-24 flex items-end gap-px">
               <div v-for="(count, i) in tcwmDistribution" :key="i" :class="[
                 'flex-1 transition-colors',
@@ -169,7 +184,7 @@
               ]" :style="{ height: `${(count / Math.max(...tcwmDistribution)) * 100}%` }">
               </div>
             </div>
-            <div class="flex justify-between text-xs font-mono">
+            <div class="flex justify-between text-sm font-mono">
               <span class="text-green-500">T₃</span>
               <span class="text-amber-500">T₂</span>
               <span class="text-blue-500">T₁</span>
@@ -182,34 +197,34 @@
           <!-- Heaviest -->
           <div class="space-y-4">
             <div class="space-y-1">
-              <div class="font-mono text-2xl tabular-nums">{{ heaviestItem?.weight }}oz</div>
-              <div class="text-sm text-zinc-600 dark:text-zinc-400 line-clamp-1" :title="heaviestItem?.name">
+              <div class="font-mono text-3xl tabular-nums">{{ heaviestItem?.weight }}oz</div>
+              <div class="text-base text-zinc-600 dark:text-zinc-400 line-clamp-1" :title="heaviestItem?.name">
                 {{ heaviestItem?.name }}
               </div>
             </div>
-            <div class="text-xs text-zinc-500 font-medium tracking-wide uppercase">Heaviest Item</div>
+            <div class="text-sm text-zinc-500 font-medium tracking-wide uppercase">Heaviest Item</div>
           </div>
 
           <!-- Lightest -->
           <div class="space-y-4">
             <div class="space-y-1">
-              <div class="font-mono text-2xl tabular-nums">{{ lightestItem?.weight }}oz</div>
-              <div class="text-sm text-zinc-600 dark:text-zinc-400 line-clamp-1" :title="lightestItem?.name">
+              <div class="font-mono text-3xl tabular-nums">{{ lightestItem?.weight }}oz</div>
+              <div class="text-base text-zinc-600 dark:text-zinc-400 line-clamp-1" :title="lightestItem?.name">
                 {{ lightestItem?.name }}
               </div>
             </div>
-            <div class="text-xs text-zinc-500 font-medium tracking-wide uppercase">Lightest Item</div>
+            <div class="text-sm text-zinc-500 font-medium tracking-wide uppercase">Lightest Item</div>
           </div>
 
           <!-- Highest Multi-use -->
           <div class="space-y-4">
             <div class="space-y-1">
-              <div class="font-mono text-2xl tabular-nums">{{ highestMultiUse?.score }}</div>
-              <div class="text-sm text-zinc-600 dark:text-zinc-400 line-clamp-1" :title="highestMultiUse?.name">
+              <div class="font-mono text-3xl tabular-nums">{{ highestMultiUse?.score }}</div>
+              <div class="text-base text-zinc-600 dark:text-zinc-400 line-clamp-1" :title="highestMultiUse?.name">
                 {{ highestMultiUse?.name }}
               </div>
             </div>
-            <div class="text-xs text-zinc-500 font-medium tracking-wide uppercase">Highest Multi-Use</div>
+            <div class="text-sm text-zinc-500 font-medium tracking-wide uppercase">Highest Multi-Use</div>
           </div>
         </div>
       </div>
@@ -226,25 +241,24 @@
           <div class="bg-zinc-50 dark:bg-zinc-900/50 rounded-lg p-4">
             <h2 class="uppercase text-base font-medium mb-3">Quick Navigation</h2>
             <div class="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-              <template v-for="[container, items] in groupedGear" :key="container">
+              <div v-for="[container, items] in groupedGear" :key="container">
                 <a :href="`#${container.toLowerCase().replace(/\s+/g, '-')}`"
                   class="group flex items-center justify-between p-2 rounded hover:bg-zinc-100 dark:hover:bg-zinc-800/50 transition-colors">
                   <div class="min-w-0">
                     <div class="font-medium truncate flex items-center gap-1.5">
                       <UIcon :name="containerIcons[container] || typeIcons[getContainerType(items)]"
-                        class="w-4 h-4 text-zinc-400" />
+                        class="w-4 h-4 shrink-0" />
                       {{ container }}
                     </div>
                     <div class="text-xs text-zinc-500">
-                      {{ items.length }} item{{ items.length === 1 ? '' : 's' }} •
-                      {{ calculateTotalWeight(items) }}oz
+                      {{ items.length }} items • {{ calculateTotalWeight(items) }}oz
                     </div>
                   </div>
                   <div class="text-zinc-400 group-hover:text-zinc-600 dark:group-hover:text-zinc-300">
                     <UIcon name="i-heroicons-arrow-down" class="w-4 h-4" />
                   </div>
                 </a>
-              </template>
+              </div>
             </div>
           </div>
         </div>
@@ -252,29 +266,36 @@
         <!-- Container-based layout -->
         <div class="grid grid-cols-1 gap-4 sm:gap-6">
           <!-- Loop through containers -->
-          <template v-for="[container, items] in groupedGear" :key="container">
-            <div :id="container.toLowerCase().replace(/\s+/g, '-')"
-              class="border dark:border-zinc-800 rounded-lg overflow-hidden scroll-mt-4">
-              <!-- Container Header - More compact on mobile -->
-              <div class="w-full p-3 sm:p-4 flex items-center justify-between bg-zinc-50 dark:bg-zinc-900/50">
-                <div class="flex items-center gap-2 sm:gap-3">
-                  <h2 class="uppercase text-base sm:text-lg font-bold">{{ container }}</h2>
-                  <span class="text-xs sm:text-sm text-zinc-500">
-                    ({{ items.length }} items, sorted by TCWM score)
-                  </span>
-                </div>
-                <span class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400">
-                  {{ calculateTotalWeight(items) }}oz
+          <div v-for="[container, items] in groupedGear" :key="container"
+            :id="container.toLowerCase().replace(/\s+/g, '-')"
+            class="border dark:border-zinc-800 rounded-lg overflow-hidden scroll-mt-4">
+            <!-- Container Header -->
+            <div class="w-full p-3 sm:p-4 flex items-center justify-between bg-zinc-50 dark:bg-zinc-900/50">
+              <div class="flex items-center gap-2 sm:gap-3">
+                <h2 class="uppercase text-base sm:text-lg font-bold">{{ container }}</h2>
+                <span class="text-xs sm:text-sm text-zinc-500">
+                  ({{ items.length }} items)
                 </span>
               </div>
-
-              <!-- Container Items - More compact on mobile -->
-              <div class="divide-y divide-zinc-100 dark:divide-zinc-800">
-                <GearItem v-for="item in sortItemsByScore(items)" :key="item.Name" :item="item"
-                  :create-viz="createViz" />
-              </div>
+              <span class="text-xs md:text-sm text-zinc-600 dark:text-zinc-400">
+                <!-- <ruby class="font-mono tabular-nums">
+                  {{ calculateTotalWeight(items) }}oz
+                  <rt class="text-zinc-500">
+                    {{ (Number(calculateTotalWeight(items)) / 16).toFixed(1) }}lb
+                  </rt>
+                </ruby> -->
+                {{ calculateTotalWeight(items) }}oz
+                <span class="opacity-50">
+                  ({{ (Number(calculateTotalWeight(items)) / 16).toFixed(1) }}lb)
+                </span>
+              </span>
             </div>
-          </template>
+
+            <!-- Container Items -->
+            <div class="divide-y divide-zinc-100 dark:divide-zinc-800">
+              <GearItem v-for="item in sortItemsByScore(items)" :key="item.Name" :item="item" :create-viz="createViz" />
+            </div>
+          </div>
         </div>
       </div>
 
@@ -562,7 +583,7 @@
                 <div class="flex items-baseline gap-3">
                   <ruby class="font-mono text-lg tracking-tight">
                     T₁
-                    <rt class="text-[10px] font-sans text-zinc-400">on-person</rt>
+                    <rt class="text-[10px] sans-serif text-zinc-400">on-person</rt>
                   </ruby>
                   <span class="font-mono text-sm tabular-nums text-zinc-500">35–47.5</span>
                 </div>
@@ -576,13 +597,13 @@
 
             <!-- Tier 2 -->
             <div class="relative">
-              <div class="absolute -left-3 top-0 bottom-0 w-[2px] bg-gradient-to-b from-amber-500/80 to-amber-500/20">
+              <div class="absolute -left-3 top-0 bottom-0 w-[2px] bg-gradient-to-b from-blue-500/80 to-blue-500/20">
               </div>
               <div class="space-y-2">
                 <div class="flex items-baseline gap-3">
                   <ruby class="font-mono text-lg tracking-tight">
                     T₂
-                    <rt class="text-[10px] font-sans text-zinc-400">vehicle/pack</rt>
+                    <rt class="text-[10px] sans-serif text-zinc-400">vehicle/pack</rt>
                   </ruby>
                   <span class="font-mono text-sm tabular-nums text-zinc-500">25–34.5</span>
                 </div>
@@ -595,13 +616,13 @@
 
             <!-- Tier 3 -->
             <div class="relative">
-              <div class="absolute -left-3 top-0 bottom-0 w-[2px] bg-gradient-to-b from-green-500/80 to-green-500/20">
+              <div class="absolute -left-3 top-0 bottom-0 w-[2px] bg-gradient-to-b from-blue-500/80 to-blue-500/20">
               </div>
               <div class="space-y-2">
                 <div class="flex items-baseline gap-3">
                   <ruby class="font-mono text-lg tracking-tight">
                     T₃
-                    <rt class="text-[10px] font-sans text-zinc-400">base cache</rt>
+                    <rt class="text-[10px] sans-serif text-zinc-400">base cache</rt>
                   </ruby>
                   <span class="font-mono text-sm tabular-nums text-zinc-500">&lt; 25</span>
                 </div>
@@ -657,13 +678,13 @@ const svgRefs = new Map()
 
 // Add color scale for types
 const typeColors = {
-  'Tech': '#3b82f6',     // blue
-  'Utility': '#84cc16',  // green
-  'Comfort': '#8b5cf6',  // purple
-  'Sleep': '#6366f1',    // indigo
-  'Bag': '#f59e0b',      // amber
-  'Safety': '#ef4444',   // red
-  'Creativity': '#ec4899' // pink
+  'Tech': '#71717a',
+  'Utility': '#71717a',
+  'Comfort': '#71717a',
+  'Sleep': '#71717a',
+  'Bag': '#71717a',
+  'Safety': '#ef4444',  // Keep red for safety items
+  'Creativity': '#71717a'
 }
 
 // Helper function to get color with fallback
@@ -995,7 +1016,7 @@ onUnmounted(() => {
 })
 
 // Add this helper function to determine container type
-const getContainerType = (items) => {
+function getContainerType(items) {
   // Return the most common type in the container
   const types = items.map(item => item.Type).filter(Boolean)
   if (!types.length) return null
@@ -1010,24 +1031,24 @@ const getContainerType = (items) => {
 
 // Update typeIcons to match GearItem.vue
 const typeIcons = {
-  'Tech': 'i-heroicons-cpu-chip',
+  'Tech': 'i-material-symbols-light-earbuds-battery',
   'Utility': 'i-heroicons-wrench',
   'Comfort': 'i-heroicons-heart',
   'Sleep': 'i-heroicons-moon',
-  'Bag': 'i-material-symbols-light-backpack-rounded',
+  'Bag': 'i-material-symbols-light-backpack-outline',
   'Safety': 'i-heroicons-shield-check',
   'Creativity': 'i-heroicons-sparkles'
 }
 
 // Add typeClasses to match GearItem.vue for consistent styling
 const typeClasses = {
-  'Tech': 'text-blue-600 dark:text-blue-400',
-  'Utility': 'text-green-600 dark:text-green-400',
-  'Comfort': 'text-purple-600 dark:text-purple-400',
-  'Sleep': 'text-indigo-600 dark:text-indigo-400',
-  'Bag': 'text-amber-600 dark:text-amber-400',
-  'Safety': 'text-red-600 dark:text-red-400',
-  'Creativity': 'text-pink-600 dark:text-pink-400'
+  'Tech': 'text-zinc-600 dark:text-zinc-400',
+  'Utility': 'text-zinc-600 dark:text-zinc-400',
+  'Comfort': 'text-zinc-600 dark:text-zinc-400',
+  'Sleep': 'text-zinc-600 dark:text-zinc-400',
+  'Bag': 'text-zinc-600 dark:text-zinc-400',
+  'Safety': 'text-red-600 dark:text-red-400',  // Keep red for safety
+  'Creativity': 'text-zinc-600 dark:text-zinc-400'
 }
 
 // Container-specific icons take precedence over type icons
@@ -1198,41 +1219,43 @@ const heaviestItem = computed(() => {
 })
 
 const lightestItem = computed(() => {
-  if (!gearItems.value?.length) return null
-  const items = gearItems.value.filter(item => parseFloat(item['Base Weight ()']) > 0)
-  if (!items.length) return null
+  if (!gearItems.value?.length) return null;
+  const items = gearItems.value.filter(item => parseFloat(item['Base Weight ()']) > 0);
+  if (!items.length) return null;
+
   const item = items.sort((a, b) =>
     (parseFloat(a['Base Weight ()']) || 0) - (parseFloat(b['Base Weight ()']) || 0)
-  )[0]
+  )[0];
+
   return item ? {
     name: item.Name,
     weight: parseFloat(item['Base Weight ()']).toFixed(1)
-  } : null
-})
+  } : null;
+});
 
 // Add new computed property for space efficiency
 const leastEfficientItem = computed(() => {
-  if (!gearItems.value?.length) return null
+  if (!gearItems.value?.length) return null;
   // Calculate efficiency score: weight / (TCWM score)
   const items = gearItems.value.map(item => {
-    const weight = parseFloat(item['Base Weight ()']) || 0
-    const tcwmScore = calculateTCWMScore(item)
+    const weight = parseFloat(item['Base Weight ()']) || 0;
+    const tcwmScore = calculateTCWMScore(item);
     return {
       name: item.Name,
       weight,
       tcwmScore,
       efficiency: weight / (tcwmScore || 1) // Avoid division by zero
-    }
-  })
+    };
+  });
 
-  const worst = items.sort((a, b) => b.efficiency - a.efficiency)[0]
+  const worst = items.sort((a, b) => b.efficiency - a.efficiency)[0];
   return worst ? {
     name: worst.name,
     score: worst.efficiency.toFixed(2),
     weight: worst.weight.toFixed(1),
     tcwm: worst.tcwmScore.toFixed(1)
-  } : null
-})
+  } : null;
+});
 
 const avgTCWMScore = computed(() => {
   const scores = gearItems.value.map(item => calculateTCWMScore(item))
@@ -1304,8 +1327,7 @@ const primaryContainers = computed(() => {
 })
 
 // Update the kit weight lookups
-const getKitWeight = (kitName) => {
-  // Look for exact matches in the Name field
+function getKitWeight(kitName) {
   const kit = gearItems.value?.find(item => {
     switch (kitName.toLowerCase()) {
       case 'sleep system':
@@ -1319,7 +1341,6 @@ const getKitWeight = (kitName) => {
     }
   })
 
-  // Return the appropriate weight (loaded or base)
   if (kitName.toLowerCase() === 'sleep system') {
     return Number(kit?.['Loaded Weight ()']) || 0
   }
@@ -1338,10 +1359,10 @@ const avgScores = computed(() => {
   if (!gearItems.value?.length) return { T: 0, C: 0, W: 0, M: 0 }
 
   const scores = {
-    T: d3.mean(gearItems.value, d => Number(d['Time Criticality (T)']) || 0) || 0,
-    C: d3.mean(gearItems.value, d => Number(d['Consequence Severity (C)']) || 0) || 0,
-    W: d3.mean(gearItems.value, d => Number(d['Weight/Space Penalty (W)']) || 0) || 0,
-    M: d3.mean(gearItems.value, d => Number(d['Multi-Use Factor (M)']) || 0) || 0
+    T: d3.mean(gearItems.value, d => Number(d['Time Criticality (T)']) || 0),
+    C: d3.mean(gearItems.value, d => Number(d['Consequence Severity (C)']) || 0),
+    W: d3.mean(gearItems.value, d => Number(d['Weight/Space Penalty (W)']) || 0),
+    M: d3.mean(gearItems.value, d => Number(d['Multi-Use Factor (M)']) || 0)
   }
 
   // Ensure all values are numbers
@@ -1420,8 +1441,9 @@ const containerLocations = {
 // Add this computed property
 const highestMultiUse = computed(() => {
   if (!gearItems.value?.length) return null
-  const item = [...gearItems.value]
-    .sort((a, b) => (Number(b['Multi-Use Factor (M)']) || 0) - (Number(a['Multi-Use Factor (M)']) || 0))[0]
+  const item = [...gearItems.value].sort((a, b) =>
+    (Number(b['Multi-Use Factor (M)']) || 0) - (Number(a['Multi-Use Factor (M)']) || 0)
+  )[0]
   return item ? {
     name: item.Name,
     score: Number(item['Multi-Use Factor (M)']).toFixed(1)

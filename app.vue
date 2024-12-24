@@ -75,7 +75,7 @@
           </div>
         </div>
 
-        <div id="toc-container"></div>
+        <div id="toc-container" class="font-sans"></div>
 
         <div v-if="isBlogPost" class="mt-4 pl-4">
           <UButton to="/blog/" size="sm" class="" icon="i-heroicons-arrow-left" :color="isDark ? 'white' : 'black'">

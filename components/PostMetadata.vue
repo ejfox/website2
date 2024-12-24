@@ -10,7 +10,7 @@
     <!-- <pre>{{ doc }}</pre> -->
 
     <!-- Draft status -->
-    <span v-if="doc.draft" class="flex items-center text-red-500 dark:text-red-400 font-sans metadata-item"
+    <span v-if="doc.draft" class="flex items-center text-red-500 dark:text-red-400 sans-serif metadata-item"
       ref="draftRef">
       <UIcon name="bi:file-earmark-text" class="mr-2 text-red-400 dark:text-red-600" />
       Draft, please do not publish, changes expected
@@ -92,14 +92,15 @@ const animateItems = async () => {
   await nextTick()
   await new Promise(resolve => setTimeout(resolve, 200))
 
+  // Reordered array to match visual hierarchy and left-to-right reading order
   const items = [
-    draftRef.value,
-    dateRef.value,
-    readingTimeRef.value,
-    wordCountRef.value,
-    imageCountRef.value,
-    linkCountRef.value,
-    folderRef.value
+    folderRef.value,      // Folder first - it's the context
+    draftRef.value,       // Draft status - important warning
+    dateRef.value,        // Date - primary metadata
+    readingTimeRef.value, // Reading time - secondary metadata
+    wordCountRef.value,   // Word count
+    imageCountRef.value,  // Image count
+    linkCountRef.value    // Link count
   ].filter(Boolean)
 
   if (!items.length) return

@@ -2,12 +2,10 @@
 dek: "In which the strange marriage of language, mathematics, and machine cognition gives rise to 'unspeakable tokens'—words that our AI companions cannot repeat—and we are left to wonder if these are merely glitches, or if the machines are hiding their dreams in tokens forged from deep, strange corners of the internet"
 inprogress: true
 date: "2024-10-20T19:17:05.000Z"
-modified: "2024-10-22T13:04:43.000Z"
+modified: "2024-12-24T04:58:23.000Z"
 wordCount: 4100
 ---
 ## Meet The AI Hackers Wielding Glitch Tokens
-
-![](https://res.cloudinary.com/ejf/video/upload/f_auto,q_auto,fl_lossy,w_900/v1729471652/TokenListAnim.r1.mp4)
 
 Last year Matthew Watkins stumbled on a fascinating and haunting phenomenon in an otherwise mundane experiment. Watkins is one of the first of an entirely new type of scientist; one who studies machines who speak. They are often known as “AI Safety Researchers” but that’s a lot like calling F1 drivers “Car Researchers”.
 
@@ -16,6 +14,8 @@ Before it actually happened, [few people thought](https://newrepublic.com/articl
 We’ve already begun integrating this technology into as many [Microsoft tools](https://blogs.microsoft.com/blog/2023/09/21/announcing-microsoft-copilot-your-everyday-ai-companion/) and half-baked startups as possible. But as a culture, we seem more interested in finding ways to monetize and harness these "robots" (as I affectionately call the [LLMs](https://en.wikipedia.org/wiki/Large_language_model)) than understanding how they gained the ability to think, which seems weird.
 
 While corporations busy themselves with the task of turning the machines into obedient tools, the people with the most influence and money seem a lot more concerned with throwing gargantuan amounts of money, influence, and [literal power](https://www.theguardian.com/world/2024/oct/16/first-edition-google-data-centres-environment) at the machines than understanding them.
+
+![](https://res.cloudinary.com/ejf/video/upload/f_auto,q_auto,fl_lossy,w_900/v1729471652/TokenListAnim.r1.mp4)
 
 So, almost as an afterthought, the research into the alien cognitive processes of our new robot friends has largely fallen on the shoulders of a decentralized anonymous group of internet researchers. While OpenAI is busy courting [Department of Defense](https://techcommunity.microsoft.com/t5/public-sector-blog/azure-openai-now-authorized-as-a-service-at-dod-il4-and-il5/ba-p/4231171) [contracts](https://fortune.com/2024/10/17/openai-is-quietly-pitching-its-products-to-the-u-s-military-and-national-security-establishment/) these researchers (like Watkins) are doing fascinating public experiments into those same LLMs, and some of their discoveries are haunting.
 

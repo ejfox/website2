@@ -4,7 +4,7 @@
       <!-- Left: Visualization -->
       <div class="relative shrink-0">
         <div class="w-16 h-16 sm:w-20 sm:h-20">
-          <svg ref="svgRef" class="w-full h-full" />
+          <svg ref="svgRef" class="w-full h-full"></svg>
         </div>
 
         <!-- Score overlay -->
@@ -44,8 +44,8 @@
             <div class="py-2" v-if="item.amazon">
               <!-- Enhanced Amazon link -->
               <a :href="item.amazon" target="_blank" rel="nofollow noopener" class="inline-flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-medium rounded-full 
-                        bg-amber-50 text-amber-600 border border-amber-200 hover:bg-amber-100
-                        dark:bg-amber-500/10 dark:text-amber-400 dark:border-amber-500/20 dark:hover:bg-amber-500/20
+                        bg-amber-50 text-orange-600 border border-orange-200 hover:bg-orange-100
+                        dark:bg-orange-500/10 dark:text-orange-400 dark:border-orange-500/20 dark:hover:bg-orange-500/20
                         transition-colors" :title="`Buy ${item.Name} on Amazon`">
                 <UIcon name="i-heroicons-shopping-cart" class="w-3 h-3" />
                 <span>Buy yourself</span>
@@ -54,6 +54,13 @@
 
             <!-- Stats row -->
             <div class="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1 text-xs">
+              <!-- Waterproof indicator -->
+              <div v-if="item.Waterproof" class="flex items-center gap-1 text-blue-500 dark:text-blue-400"
+                :title="`${item.Waterproof} waterproof rating`">
+                <UIcon name="i-heroicons-droplet" class="w-3.5 h-3.5 shrink-0" />
+                <span class="font-mono text-[10px]">{{ item.Waterproof }}</span>
+              </div>
+
               <!-- Weight(s) -->
               <div class="flex items-center gap-2 text-zinc-500 dark:text-zinc-400 group/weight">
                 <UIcon name="i-heroicons-scale" class="w-3.5 h-3.5 shrink-0" />
@@ -68,10 +75,10 @@
                         :style="{ transform: `scale(${partialBaseOunce})` }" :title="`${baseWeight}oz base weight`">
                       </div>
                     </div>
-                    <span class="tabular-nums text-[10px] shrink-0 whitespace-nowrap">
+                    <ruby class="tabular-nums text-[10px] shrink-0 whitespace-nowrap">
                       {{ baseWeight }}oz
-                      <span class="text-zinc-400">(base)</span>
-                    </span>
+                      <rt class="text-zinc-400">{{ (baseWeight / 16).toFixed(1) }}lb</rt>
+                    </ruby>
                   </div>
 
                   <!-- Loaded Weight -->
@@ -84,10 +91,10 @@
                         :style="{ transform: `scale(${partialLoadedOunce})` }" :title="`${loadedWeight}oz loaded`">
                       </div>
                     </div>
-                    <span class="tabular-nums text-[10px] shrink-0 whitespace-nowrap">
+                    <ruby class="tabular-nums text-[10px] shrink-0 whitespace-nowrap">
                       {{ loadedWeight }}oz
-                      <span class="text-zinc-400">(loaded)</span>
-                    </span>
+                      <rt class="text-zinc-400">{{ (loadedWeight / 16).toFixed(1) }}lb</rt>
+                    </ruby>
                   </div>
                 </div>
               </div>
@@ -175,13 +182,13 @@ const typeIcons = {
 }
 
 const typeClasses = {
-  'Tech': 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-500/20',
-  'Utility': 'bg-green-50 dark:bg-green-500/10 text-green-600 dark:text-green-400 border border-green-200 dark:border-green-500/20',
-  'Comfort': 'bg-purple-50 dark:bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-200 dark:border-purple-500/20',
-  'Sleep': 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-500/20',
-  'Bag': 'bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-200 dark:border-amber-500/20',
+  'Tech': 'bg-zinc-50 dark:bg-zinc-500/10 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-500/20',
+  'Utility': 'bg-zinc-50 dark:bg-zinc-500/10 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-500/20',
+  'Comfort': 'bg-zinc-50 dark:bg-zinc-500/10 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-500/20',
+  'Sleep': 'bg-zinc-50 dark:bg-zinc-500/10 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-500/20',
+  'Bag': 'bg-zinc-50 dark:bg-zinc-500/10 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-500/20',
   'Safety': 'bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400 border border-red-200 dark:border-red-500/20',
-  'Creativity': 'bg-pink-50 dark:bg-pink-500/10 text-pink-600 dark:text-pink-400 border border-pink-200 dark:border-pink-500/20'
+  'Creativity': 'bg-zinc-50 dark:bg-zinc-500/10 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-500/20'
 }
 
 // Update weight calculations
@@ -213,3 +220,25 @@ onUnmounted(() => window.removeEventListener('resize', updateViz))
 // Comment out Amazon import
 // import AmazonReferenceItem from './AmazonReferenceItem.vue'
 </script>
+
+<style>
+ruby {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+rt {
+  transform: translateY(-0.5em);
+  text-align: center;
+  font-feature-settings: "tnum";
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+ruby:hover rt {
+  opacity: 1;
+}
+</style>

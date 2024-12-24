@@ -436,14 +436,14 @@ onUnmounted(() => {
     <teleport to="#toc-container" v-if="!isMobile && post?.toc?.length">
       <div class="p-2 max-w-[250px]">
         <div
-          class="toc bg-zinc-50/50 dark:bg-zinc-900/50 backdrop-blur-sm p-4 rounded-lg text-sm font-sans text-zinc-600 dark:text-zinc-400 border border-zinc-200/50 dark:border-zinc-800/50">
+          class="toc bg-zinc-50/50 dark:bg-zinc-900/50 backdrop-blur-sm py-4 px-2 rounded-lg text-sm sans-serif text-zinc-600 dark:text-zinc-400 border border-zinc-200/50 dark:border-zinc-800/50">
           <h3 class="text-base font-medium mb-3">Table of Contents</h3>
           <ul class="space-y-2">
             <div v-for="item in post.toc" :key="item.slug">
-              <ul v-if="item.children?.length" class="space-y-2">
+              <ul v-if="item.children?.length" class="space-y-0.5">
                 <li v-for="child in item.children" :key="child.slug"
-                  class="transition-colors duration-200 hover:bg-zinc-100/50 dark:hover:bg-zinc-800/50 rounded">
-                  <a :href="`#${child.slug}`" class="block px-2 py-1 rounded transition-colors" :class="[
+                  class="transition-colors duration-200 hover:bg-zinc-100/50 dark:hover:bg-zinc-800/50 rounded line-clamp-1">
+                  <a :href="`#${child.slug}`" class="block px-1 py-0.5 rounded transition-colors" :class="[
                     activeSection === child.slug
                       ? 'text-zinc-900 dark:text-zinc-100 bg-zinc-200/50 dark:bg-zinc-700/50'
                       : 'hover:text-zinc-900 dark:hover:text-zinc-200'

@@ -89,7 +89,7 @@ useHead({
               {{ post.title }}
             </NuxtLink>
           </h2>
-          <!-- <p class="text-sm font-sans text-zinc-500 dark:text-zinc-400 mb-4">
+          <!-- <p class="text-sm sans-serif text-zinc-500 dark:text-zinc-400 mb-4">
             {{ formatDate(post.date) }}
           </p> -->
           <!-- <span v-if="post.url">
