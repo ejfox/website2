@@ -34,83 +34,29 @@
         <!-- Primary Metrics -->
         <section v-if="hasMonkeyTypeData || hasGithubData || hasPhotoData || blogStats"
           class="grid grid-cols-1 md:grid-cols-2 gap-24">
-          <div v-if="hasMonkeyTypeData" class="space-y-3">
-            <p class="text-[10rem] leading-none font-extralight tabular-nums tracking-tight">{{ bestWPM }}</p>
-            <div class="w-16 h-px bg-gray-500/20"></div>
-            <h3 class="text-sm tracking-wider text-gray-500">BEST WPM</h3>
-            <p class="text-xs text-gray-400 tracking-wider">
-              {{ formatNumber(stats?.monkeyType?.typingStats?.testsCompleted || 0) }} TESTS
-              · {{ stats?.monkeyType?.typingStats?.bestAccuracy?.toFixed(1) || 0 }}% ACC
-              · {{ stats?.monkeyType?.typingStats?.bestConsistency?.toFixed(1) || 0 }}% CON
-            </p>
-          </div>
+          <IndividualStat v-if="hasMonkeyTypeData" :value="bestWPM" size="large" label="BEST WPM"
+            :details="`${formatNumber(stats?.monkeyType?.typingStats?.testsCompleted || 0)} TESTS · ${stats?.monkeyType?.typingStats?.bestAccuracy?.toFixed(1) || 0}% ACC · ${stats?.monkeyType?.typingStats?.bestConsistency?.toFixed(1) || 0}% CON`" />
 
-          <div v-if="hasGithubData" class="space-y-3">
-            <p class="text-[10rem] leading-none font-extralight tabular-nums tracking-tight">{{
-              formatNumber(stats?.github?.totalContributions || 0) }}</p>
-            <div class="w-16 h-px bg-gray-500/20"></div>
-            <h3 class="text-sm tracking-wider text-gray-500">TOTAL CONTRIBUTIONS</h3>
-            <p class="text-xs text-gray-400 tracking-wider">
-              {{ formatNumber(stats?.github?.prCount || 0) }} PULL REQUESTS
-              · {{ formatNumber(stats?.github?.currentStreak || 0) }} DAY STREAK
-            </p>
-          </div>
+          <IndividualStat v-if="hasGithubData" :value="stats?.github?.totalContributions || 0" size="large"
+            label="CONTRIBUTIONS"
+            :details="`${formatNumber(stats?.github?.prCount || 0)} PULL REQUESTS · ${formatNumber(stats?.github?.currentStreak || 0)} DAY STREAK`" />
 
           <ClientOnly>
-            <div v-if="hasPhotoData" class="space-y-3">
-              <p class="text-[10rem] leading-none font-extralight tabular-nums tracking-tight">
-                {{ formatNumber(stats?.photos?.length || 0) }}
-              </p>
-              <div class="w-16 h-px bg-gray-500/20"></div>
-              <h3 class="text-sm tracking-wider text-gray-500">TOTAL PHOTOGRAPHS</h3>
-              <p class="text-xs text-gray-400 tracking-wider">
-                {{ new Date().getFullYear() }}
-              </p>
-            </div>
+            <IndividualStat v-if="hasPhotoData" :value="stats?.photos?.length || 0" size="large" label="PHOTOGRAPHS"
+              :details="new Date().getFullYear().toString()" />
           </ClientOnly>
 
-          <div v-if="blogStats" class="space-y-3">
-            <p class="text-[10rem] leading-none font-extralight tabular-nums tracking-tight">{{
-              formatNumber(blogStats.totalWords) }}</p>
-            <div class="w-16 h-px bg-gray-500/20"></div>
-            <h3 class="text-sm tracking-wider text-gray-500">WORDS WRITTEN</h3>
-            <p class="text-xs text-gray-400 tracking-wider">
-              {{ formatNumber(blogStats.totalPosts) }} POSTS
-              · {{ formatNumber(blogStats.averageWords) }} AVG
-            </p>
-          </div>
+          <IndividualStat v-if="blogStats" :value="blogStats.totalWords" size="large" label="WORDS WRITTEN"
+            :details="`${formatNumber(blogStats.totalPosts)} POSTS · ${formatNumber(blogStats.averageWords)} AVG`" />
         </section>
 
-        <!-- Secondary Metrics -->
-        <!-- <h3 class="text-sm tracking-wider text-gray-500 mb-8">CUMULATIVE TOTALS</h3>
-        <section class="grid grid-cols-1 md:grid-cols-3 gap-24">
-          <div v-for="metric in availableHeaderMetrics" :key="metric.label" class="space-y-3">
-            <p class="text-6xl font-extralight tabular-nums tracking-tight">{{ metric.value }}</p>
-            <div class="w-12 h-px bg-gray-900"></div>
-            <h3 class="text-sm tracking-wider text-gray-500">{{ metric.label }}</h3>
-          </div>
-
-          <div v-if="hasCodeData" class="space-y-3">
-            <p class="text-[8rem] leading-none font-extralight tabular-nums tracking-tight">{{ codeStreak }}</p>
-            <div class="w-16 h-px bg-gray-900"></div>
-            <h3 class="text-sm tracking-wider text-gray-500">DAY CURRENT CODING STREAK</h3>
-            <h5 class="text-xs text-gray-500">
-              <UIcon name="i-mdi-github" class="w-4 h-4" />
-            </h5>
-          </div>
-        </section> -->
-
-
-        <!-- All-time Photography Stats -->
+        <!-- Photography Overview -->
         <ClientOnly>
           <section v-if="hasPhotoData" class="space-y-16">
             <h3 class="text-sm tracking-wider text-gray-500 mb-4">PHOTOGRAPHY OVERVIEW</h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-24">
-              <div class="space-y-3">
-                <p class="text-5xl font-extralight tabular-nums">{{ stats?.photos?.length || 0 }}</p>
-                <div class="w-12 h-px bg-gray-900"></div>
-                <h3 class="text-sm tracking-wider text-gray-500">TOTAL PHOTOGRAPHS</h3>
-              </div>
+              <IndividualStat :value="stats?.photos?.length || 0" size="medium" label="PHOTOGRAPHS" />
+              <!-- Add WaffleChart for published photos here if needed -->
             </div>
           </section>
         </ClientOnly>
@@ -143,28 +89,11 @@
         <div class="">
           <h4 class="text-sm tracking-wider text-gray-500/80 dark:text-gray-400/80 mb-4">WRITING ACTIVITY</h4>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
-            <div class="space-y-2">
-              <p class="text-4xl font-extralight tabular-nums">
-                {{ formatNumber(blogStats.totalPosts) }}
-              </p>
-              <div class="w-12 h-px bg-gray-900/10 dark:bg-gray-100/10"></div>
-              <h3 class="text-sm tracking-wider text-gray-500/80 dark:text-gray-400/80">TOTAL POSTS</h3>
-              <p class="text-xs text-gray-400">
-                First post: {{ formatDate(blogStats.firstPost) }}
-              </p>
-            </div>
+            <IndividualStat :value="blogStats.totalPosts" size="medium" label="POSTS"
+              :details="`First post: ${formatDate(blogStats.firstPost)}`" />
 
-            <div class="space-y-2">
-              <p class="text-4xl font-extralight tabular-nums">
-                {{ formatNumber(blogStats.totalWords) }}
-              </p>
-              <div class="w-12 h-px bg-gray-900/10 dark:bg-gray-100/10"></div>
-              <h3 class="text-sm tracking-wider text-gray-500/80 dark:text-gray-400/80">WORDS WRITTEN</h3>
-              <p class="text-xs text-gray-400">
-                {{ formatNumber(blogStats.averageWords) }} words per post
-              </p>
-            </div>
-
+            <IndividualStat :value="blogStats.totalWords" size="medium" label="WORDS"
+              :details="`${formatNumber(blogStats.averageWords)} words per post`" />
           </div>
         </div>
       </section>
@@ -174,12 +103,12 @@
         <div class="border-t border-gray-500/20 pt-12">
           <h4 class="text-sm tracking-wider text-gray-500 mb-12">WORDS BY YEAR</h4>
           <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
-            <div v-for="(words, year) in wordsPerYear" :key="year" class="space-y-3">
-              <p class="text-6xl font-extralight tabular-nums tracking-tight">
-                {{ formatNumber(words) }}
-              </p>
-              <div class="w-12 h-px bg-gray-500/20"></div>
-              <h3 class="text-sm tracking-wider text-gray-500">{{ year }}</h3>
+            <div v-for="(words, year) in wordsPerYear" :key="year" class="flex flex-col items-center">
+              <WaffleChart :data="words" :total="maxWordsByYear" />
+              <div class="mt-4 text-center">
+                <div class="text-4xl font-condensed">{{ formatNumber(words) }}</div>
+                <div class="text-gray-500 text-sm">{{ year }}</div>
+              </div>
             </div>
           </div>
         </div>
@@ -207,6 +136,9 @@ import { useRoute, useRouter } from 'vue-router'
 import { useClipboard } from '@vueuse/core'
 import { format, subMonths, startOfMonth, endOfMonth } from 'date-fns'
 import PeriodAnalysis from '~/components/stats/PeriodAnalysis.vue'
+import IndividualStat from '~/components/stats/IndividualStat.vue'
+import WaffleChart from '~/components/viz/WaffleChart.vue'
+import * as d3 from 'd3'
 
 interface MonkeyTypeResponse {
   typingStats: {
@@ -562,6 +494,12 @@ const getValidDate = (dateString: string | null): Date => {
 watch(() => stats.value, (newStats) => {
   console.log('Stats structure:', newStats)
 }, { immediate: true })
+
+// Add this computed property
+const maxWordsByYear = computed(() => {
+  if (!wordsPerYear.value || !Object.keys(wordsPerYear.value).length) return 1000
+  return Math.max(...Object.values(wordsPerYear.value))
+})
 
 </script>
 

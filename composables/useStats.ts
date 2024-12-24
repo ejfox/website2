@@ -445,6 +445,11 @@ export const useStats = () => {
     }
   })
 
+  // Compute published photos
+  const publishedPhotos = computed(() => {
+    return stats.value?.photos?.filter((photo) => photo.published) || []
+  })
+
   return {
     stats,
     isLoading,
@@ -453,6 +458,7 @@ export const useStats = () => {
     hasTypingData,
     hasGitHubData,
     hasPhotoData,
-    refresh: () => fetchStats(true)
+    refresh: () => fetchStats(true),
+    publishedPhotos
   }
 }
