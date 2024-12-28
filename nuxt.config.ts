@@ -48,13 +48,13 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxt/ui',
-    '@nuxt/icon',
-    // 'nuxt-gtag',
+    '@nuxt/icon', // 'nuxt-gtag',
     // '@nuxtjs/supabase',
     // '@nuxt/content'
     '@unlok-co/nuxt-stripe',
     '@vueuse/nuxt',
     '@vueuse/motion/nuxt',
+    '@tresjs/nuxt',
     [
       '@nuxtjs/google-fonts',
       {
@@ -62,7 +62,8 @@ export default defineNuxtConfig({
           Figtree: [400, 700]
         }
       }
-    ]
+    ],
+    'nuxt-umami'
   ],
 
   // gtag: {
@@ -112,6 +113,12 @@ export default defineNuxtConfig({
           ? 'https://ejfox.com/api' // Replace with your production domain
           : 'http://localhost:3000/api'
     }
+  },
+
+  umami: {
+    id: '9350451a-f9e6-4689-982a-8cca95c64978',
+    host: 'https://umami.tools.ejfox.com',
+    autoTrack: true
   },
 
   googleFonts: {

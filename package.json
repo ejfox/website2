@@ -55,6 +55,10 @@
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/supabase": "^1.4.0",
     "@supabase/supabase-js": "^2.45.4",
+    "@tresjs/cientos": "^4.0.3",
+    "@tresjs/core": "^4.3.1",
+    "@tresjs/nuxt": "^3.0.7",
+    "@tresjs/post-processing": "^1.0.0",
     "@unlok-co/nuxt-stripe": "^4.0.1",
     "@vueuse/motion": "^2.2.5",
     "@vueuse/nuxt": "^11.0.3",
@@ -84,6 +88,8 @@
     "rehype-slug": "^6.0.0",
     "rss": "^1.2.2",
     "sanitize-html": "^2.14.0",
+    "simplex-noise": "^4.0.3",
+    "three": "^0.171.0",
     "v-onboarding": "^2.8.2"
   },
   "license": "UNLICENSED"
