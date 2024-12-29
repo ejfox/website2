@@ -48,6 +48,9 @@
 
           <IndividualStat v-if="blogStats" :value="blogStats.totalWords" size="large" label="WORDS WRITTEN"
             :details="`${formatNumber(blogStats.totalPosts)} POSTS · ${formatNumber(blogStats.averageWords)} AVG`" />
+
+          <IndividualStat v-if="hasLeetCodeData" :value="totalLeetCodeSolved" size="large" label="LEETCODE PROBLEMS"
+            :details="`${stats?.leetcode?.submissionStats?.easy?.count || 0} EASY · ${stats?.leetcode?.submissionStats?.medium?.count || 0} MEDIUM · ${stats?.leetcode?.submissionStats?.hard?.count || 0} HARD`" />
         </section>
 
         <!-- Photography Overview -->
@@ -120,7 +123,36 @@
         @update:start-date="startDate = $event" @update:end-date="endDate = $event"
         @update:period="selectedPeriod = $event" /> -->
 
+      <!-- LeetCode Section -->
+      <section v-if="hasLeetCodeData" class="mt-32 space-y-12">
+        <div class="border-t border-gray-500/20 pt-12">
+          <h4 class="text-sm tracking-wider text-gray-500 mb-12">LEETCODE PROGRESS</h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <IndividualStat :value="stats?.leetcode?.submissionStats?.easy?.count || 0" size="medium" label="EASY"
+              :details="`${stats?.leetcode?.submissionStats?.easy?.submissions || 0} submissions`" />
+            <IndividualStat :value="stats?.leetcode?.submissionStats?.medium?.count || 0" size="medium" label="MEDIUM"
+              :details="`${stats?.leetcode?.submissionStats?.medium?.submissions || 0} submissions`" />
+            <IndividualStat :value="stats?.leetcode?.submissionStats?.hard?.count || 0" size="medium" label="HARD"
+              :details="`${stats?.leetcode?.submissionStats?.hard?.submissions || 0} submissions`" />
+          </div>
 
+          <div v-if="stats?.leetcode?.recentSubmissions?.length" class="mt-12">
+            <h4 class="text-sm tracking-wider text-gray-500 mb-6">RECENT SUBMISSIONS</h4>
+            <div class="space-y-2">
+              <div v-for="submission in stats.leetcode.recentSubmissions.slice(0, 5)" :key="submission.titleSlug"
+                class="flex items-center justify-between text-sm">
+                <span class="text-gray-400">{{ submission.title }}</span>
+                <div class="flex items-center space-x-4">
+                  <span class="text-gray-500">{{ submission.lang }}</span>
+                  <span :class="submission.statusDisplay === 'Accepted' ? 'text-green-500' : 'text-gray-500'">
+                    {{ submission.statusDisplay }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
     </div>
   </div>
@@ -187,6 +219,26 @@ interface StatsResponse {
     currentStreak?: number
   }
   photography?: any
+  leetcode?: {
+    contestStats: {
+      rating: number
+      globalRanking: number
+      totalParticipants: number
+      topPercentage: number
+    } | null
+    submissionStats: {
+      easy: { count: number, submissions: number }
+      medium: { count: number, submissions: number }
+      hard: { count: number, submissions: number }
+    }
+    recentSubmissions: Array<{
+      title: string
+      titleSlug: string
+      timestamp: string
+      statusDisplay: string
+      lang: string
+    }>
+  }
 }
 
 interface BlogStats {
@@ -499,6 +551,17 @@ watch(() => stats.value, (newStats) => {
 const maxWordsByYear = computed(() => {
   if (!wordsPerYear.value || !Object.keys(wordsPerYear.value).length) return 1000
   return Math.max(...Object.values(wordsPerYear.value))
+})
+
+// Add these computed properties
+const hasLeetCodeData = computed(() => {
+  return !!(stats.value?.leetcode?.submissionStats)
+})
+
+const totalLeetCodeSolved = computed(() => {
+  if (!stats.value?.leetcode?.submissionStats) return 0
+  const { easy, medium, hard } = stats.value.leetcode.submissionStats
+  return (easy?.count || 0) + (medium?.count || 0) + (hard?.count || 0)
 })
 
 </script>

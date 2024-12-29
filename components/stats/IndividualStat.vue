@@ -1,7 +1,7 @@
 <template>
   <div class="space-y-3">
     <p class="tabular-nums tracking-tight font-fjalla" :class="[
-      size === 'large' && 'text-[10rem] leading-none',
+      size === 'large' && 'text-[7.8rem] leading-none',
       size === 'medium' && 'text-6xl leading-tight',
       size === 'small' && 'text-4xl leading-snug',
     ]">

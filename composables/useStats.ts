@@ -400,6 +400,17 @@ export const useStats = () => {
           photos.reason?.message || 'Failed to fetch photo stats'
         hasStaleData.value = true
       }
+
+      console.log('Fetching LeetCode stats...')
+      const leetcode = await $fetch('/api/leetcode')
+      console.log('LeetCode stats received:', leetcode)
+
+      stats.value = {
+        ...stats.value,
+        leetcode
+      }
+
+      console.log('Final stats object:', stats.value)
     } catch (error) {
       console.error('Error fetching stats:', error)
       errors.value.general = error.message || 'Failed to fetch stats'

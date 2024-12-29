@@ -2616,14 +2616,6 @@
     typescript "^5.5.4"
     vite-plugin-glsl "^1.3.0"
 
-"@tresjs/post-processing@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@tresjs/post-processing/-/post-processing-1.0.0.tgz#bc7e7f8e9c2547e5ffff1ab543b96330df672fa4"
-  integrity sha512-SGRdr9NL+w06JwcR9nGIUuPFAHUyD9wg3KlKeK/ITp7933+Phb60bCIe2B/N574gc3O5/vejMttnMp6B2pxTRg==
-  dependencies:
-    "@vueuse/core" "^11.3.0"
-    postprocessing "^6.36.4"
-
 "@trysound/sax@0.2.0":
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@trysound/sax/-/sax-0.2.0.tgz#cccaab758af56761eb7bf37af6f03f326dd798ad"
@@ -4277,7 +4269,7 @@
     "@vueuse/shared" "12.2.0"
     vue "^3.5.13"
 
-"@vueuse/core@^11.0.1", "@vueuse/core@^11.3.0":
+"@vueuse/core@^11.0.1":
   version "11.3.0"
   resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-11.3.0.tgz#bb0bd1f0edd5435d20694dbe51091cf548653a4d"
   integrity sha512-7OC4Rl1f9G8IT6rUfi9JrKiXy4bfmHhZ5x2Ceojy0jnd3mHNEvV4JaRygH362ror6/NZ+Nl+n13LPzGiPN8cKA==
@@ -9455,6 +9447,14 @@ nuxt-gtag@^3.0.1:
     pathe "^1.1.2"
     ufo "^1.5.4"
 
+nuxt-umami@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/nuxt-umami/-/nuxt-umami-3.1.1.tgz#ab1a041632ecc4de29bb4be8d4b0e920bcb9f009"
+  integrity sha512-o3I0IGo0GHn0I4B8iHiIZmlQ/2123I4FJ+ed3FwlvNLgGoy5yM6R/htsRFz1Cdl72Tx/JjEGU+KQ3umXW/2ZOw==
+  dependencies:
+    "@nuxt/kit" "3.13.2"
+    request-ip "^3.3.0"
+
 nuxt@^3.13.1:
   version "3.13.2"
   resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-3.13.2.tgz#af43a1fb5ccaaf98be0aaeca1bee504eeee24135"
@@ -10252,11 +10252,6 @@ postcss@^8.4.23, postcss@^8.4.38, postcss@^8.4.43, postcss@^8.4.47:
     picocolors "^1.1.0"
     source-map-js "^1.2.1"
 
-postprocessing@^6.36.4:
-  version "6.36.4"
-  resolved "https://registry.yarnpkg.com/postprocessing/-/postprocessing-6.36.4.tgz#f4ad199b31ed08e224bd494df730d552ed882760"
-  integrity sha512-3fAyBGuLNR7Rg/q+f2SNlsVCI5mDrymvxhOif3tPKEej8M38z4TvwzNZm+RNpRY2tACE7qQUNE5IHyMcqgvlAg==
-
 potpack@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/potpack/-/potpack-1.0.2.tgz#23b99e64eb74f5741ffe7656b5b5c4ddce8dfc14"
@@ -10695,6 +10690,11 @@ replace-in-file@^6.1.0:
     chalk "^4.1.2"
     glob "^7.2.0"
     yargs "^17.2.1"
+
+request-ip@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/request-ip/-/request-ip-3.3.0.tgz#863451e8fec03847d44f223e30a5d63e369fa611"
+  integrity sha512-cA6Xh6e0fDBBBwH77SLJaJPBmD3nWVAcF9/XAcsrIHdjhFzFiB5aNQFytdjCGPezU3ROwrR11IddKAM08vohxA==
 
 require-directory@^2.1.1:
   version "2.1.1"

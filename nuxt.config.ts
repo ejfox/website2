@@ -54,7 +54,7 @@ export default defineNuxtConfig({
     '@unlok-co/nuxt-stripe',
     '@vueuse/nuxt',
     '@vueuse/motion/nuxt',
-    '@tresjs/nuxt',
+    // '@tresjs/nuxt',
     [
       '@nuxtjs/google-fonts',
       {
