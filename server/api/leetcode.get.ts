@@ -92,7 +92,7 @@ export default defineEventHandler(async (event) => {
 
   try {
     const data = await makeRequest<any>('https://leetcode.com/graphql')
-    console.log('LeetCode API raw response:', data)
+    console.log('LeetCode API raw response:', JSON.stringify(data, null, 2))
 
     const response = {
       contestStats: data.data.userContestRanking || null,
@@ -126,10 +126,16 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    console.log('Processed LeetCode response:', response)
+    console.log(
+      'Processed LeetCode response:',
+      JSON.stringify(response, null, 2)
+    )
     return response
   } catch (error: any) {
     console.error('LeetCode API error:', error)
-    throw error
+    throw createError({
+      statusCode: 500,
+      message: `LeetCode API error: ${error.message}`
+    })
   }
 })

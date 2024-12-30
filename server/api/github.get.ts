@@ -112,86 +112,138 @@ interface GitHubViewer {
   }
 }
 
-export default defineEventHandler(async (event) => {
+async function makeRequest(query: string) {
   const config = useRuntimeConfig()
-  const token = config.githubToken || config.public.GITHUB_TOKEN
+  const token = config.githubToken || config.GITHUB_TOKEN
 
   if (!token) {
+    console.error('No GitHub token found')
     throw createError({
-      statusCode: 401,
+      statusCode: 500,
       message: 'GitHub token not configured'
     })
   }
 
-  // Return mock data if something goes wrong
-  const fallbackData = {
-    languages: [],
-    stats: {
-      totalRepos: 0,
-      totalPRs: 0,
-      mergedPRs: 0,
-      followers: 0,
-      following: 0,
-      totalLinesChanged: 0,
-      totalFilesChanged: 0
-    },
-    repositories: [],
-    mergedPRs: [],
-    contributions: [],
-    dates: [],
-    currentStreak: 0,
-    longestStreak: 0,
-    totalContributions: 0
-  }
+  console.log('Using GitHub token:', token.slice(0, 4) + '...')
 
-  try {
-    const response = await $fetch<{ data: { viewer: GitHubViewer } }>(
-      'https://api.github.com/graphql',
-      {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
-        body: {
-          query: `
+  const response = await $fetch<{ data: { viewer: GitHubViewer } }>(
+    'https://api.github.com/graphql',
+    {
+      method: 'POST',
+      headers: {
+        Authorization: `bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: {
+        query: `
           query {
             viewer {
-              followers { totalCount }
-              following { totalCount }
-              contributionsCollection(from: "${new Date(
-                Date.now() - 365 * 24 * 60 * 60 * 1000
-              ).toISOString()}", to: "${new Date().toISOString()}") {
-                contributionCalendar {
-                  totalContributions
-                  weeks {
-                    contributionDays {
-                      contributionCount
-                      date
-                    }
-                  }
-                }
-              }
-              repositories(first: 100, orderBy: {field: STARGAZERS, direction: DESC}, privacy: PUBLIC) {
+              login
+              repositories(first: 10, privacy: PUBLIC) {
                 nodes {
                   name
-                  description
-                  stargazerCount
-                  forkCount
-                  primaryLanguage {
-                    name
-                    color
-                  }
                 }
               }
             }
           }
         `
+      }
+    }
+  )
+
+  console.log('GitHub API response:', JSON.stringify(response, null, 2))
+
+  if (!response?.data?.viewer) {
+    console.error('Invalid GitHub response:', response)
+    throw createError({
+      statusCode: 500,
+      message: 'Invalid GitHub API response'
+    })
+  }
+
+  return response.data.viewer
+}
+
+export default defineEventHandler(async (event) => {
+  try {
+    const config = useRuntimeConfig()
+    const token = config.githubToken || config.GITHUB_TOKEN
+
+    if (!token) {
+      console.error('No GitHub token found')
+      throw createError({
+        statusCode: 500,
+        message: 'GitHub token not configured'
+      })
+    }
+
+    // Make a single request with all the data we need
+    const response = await $fetch<{ data: { viewer: GitHubViewer } }>(
+      'https://api.github.com/graphql',
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: {
+          query: `
+            query {
+              viewer {
+                login
+                repositories(first: 100, privacy: PUBLIC) {
+                  nodes {
+                    name
+                    description
+                    stargazerCount
+                    forkCount
+                    primaryLanguage {
+                      name
+                      color
+                    }
+                    updatedAt
+                    createdAt
+                  }
+                }
+                contributionsCollection {
+                  contributionCalendar {
+                    totalContributions
+                    weeks {
+                      contributionDays {
+                        contributionCount
+                        date
+                      }
+                    }
+                  }
+                }
+                followers {
+                  totalCount
+                }
+                following {
+                  totalCount
+                }
+                pullRequests(first: 100) {
+                  totalCount
+                  nodes {
+                    additions
+                    deletions
+                    mergedAt
+                  }
+                }
+              }
+            }
+          `
         }
       }
     )
 
-    if (!response?.data?.viewer) return fallbackData
+    if (!response?.data?.viewer) {
+      console.error('Invalid GitHub response:', response)
+      throw createError({
+        statusCode: 500,
+        message: 'Invalid GitHub API response'
+      })
+    }
 
     const viewer = response.data.viewer
     const contributions =
@@ -200,24 +252,28 @@ export default defineEventHandler(async (event) => {
         .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
 
     return {
-      languages: [], // Simplified since we removed language query
       stats: {
         totalRepos: viewer.repositories.nodes.length,
-        totalPRs: 0, // Simplified since we removed PR query
-        mergedPRs: 0,
+        totalPRs: viewer.pullRequests.totalCount,
+        mergedPRs: viewer.pullRequests.nodes.filter((pr) => pr?.mergedAt)
+          .length,
         followers: viewer.followers.totalCount,
         following: viewer.following.totalCount,
-        totalLinesChanged: 0,
+        totalLinesChanged: viewer.pullRequests.nodes.reduce(
+          (sum, pr) => sum + (pr?.additions || 0) + (pr?.deletions || 0),
+          0
+        ),
         totalFilesChanged: 0
       },
       repositories: viewer.repositories.nodes.map((repo) => ({
         name: repo.name,
-        description: repo.description,
+        description: repo.description || '',
         stars: repo.stargazerCount,
         forks: repo.forkCount,
-        primaryLanguage: repo.primaryLanguage
+        primaryLanguage: repo.primaryLanguage,
+        updatedAt: repo.updatedAt,
+        createdAt: repo.createdAt
       })),
-      mergedPRs: [], // Simplified since we removed PR query
       contributions: contributions.map((day) => day.contributionCount),
       dates: contributions.map((day) => day.date),
       currentStreak: calculateStreak(contributions),
@@ -225,9 +281,15 @@ export default defineEventHandler(async (event) => {
       totalContributions:
         viewer.contributionsCollection.contributionCalendar.totalContributions
     }
-  } catch (error) {
-    console.error('GitHub API error:', error)
-    return fallbackData
+  } catch (error: any) {
+    console.error('GitHub API error:', error.message)
+    if (error.response) {
+      console.error('GitHub API response:', error.response)
+    }
+    throw createError({
+      statusCode: 500,
+      message: `GitHub API error: ${error.message}`
+    })
   }
 })
 

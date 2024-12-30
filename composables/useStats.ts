@@ -246,17 +246,69 @@ interface MonkeyTypeResponse {
   lastUpdated: string
 }
 
+// Add LeetCode interfaces
+interface SubmissionStats {
+  count: number
+  submissions: number
+}
+
+interface ContestRanking {
+  rating: number
+  globalRanking: number
+  totalParticipants: number
+  topPercentage: number
+}
+
+interface RecentSubmission {
+  title: string
+  titleSlug: string
+  timestamp: string
+  statusDisplay: string
+  lang: string
+}
+
+// Update StatsResponse interface to include LeetCode
 interface StatsResponse {
   monkeyType: MonkeyTypeResponse
   github: {
+    stats: {
+      totalRepos: number
+      totalPRs: number
+      mergedPRs: number
+      followers: number
+      following: number
+      totalLinesChanged: number
+      totalFilesChanged: number
+    }
+    repositories: Array<{
+      name: string
+      description: string
+      stars: number
+      forks: number
+      primaryLanguage?: {
+        name: string
+        color: string
+      }
+      updatedAt: string
+      createdAt: string
+    }>
     contributions: number[]
     dates: string[]
     currentStreak: number
-    prCount: number
+    longestStreak: number
     totalContributions: number
-    repositories: any[]
   }
   photos: any[]
+  leetcode?: {
+    contestStats: ContestRanking | null
+    recentSubmissions: RecentSubmission[]
+    submissionStats: {
+      easy: SubmissionStats
+      medium: SubmissionStats
+      hard: SubmissionStats
+    }
+    lastUpdated: string
+  }
 }
 
 // Default/fallback values
@@ -282,14 +334,33 @@ const DEFAULT_STATS: StatsResponse = {
     lastUpdated: new Date().toISOString()
   },
   github: {
+    stats: {
+      totalRepos: 0,
+      totalPRs: 0,
+      mergedPRs: 0,
+      followers: 0,
+      following: 0,
+      totalLinesChanged: 0,
+      totalFilesChanged: 0
+    },
+    repositories: [],
     contributions: [],
     dates: [],
     currentStreak: 0,
-    prCount: 0,
-    totalContributions: 0,
-    repositories: []
+    longestStreak: 0,
+    totalContributions: 0
   },
-  photos: []
+  photos: [],
+  leetcode: {
+    contestStats: null,
+    recentSubmissions: [],
+    submissionStats: {
+      easy: { count: 0, submissions: 0 },
+      medium: { count: 0, submissions: 0 },
+      hard: { count: 0, submissions: 0 }
+    },
+    lastUpdated: new Date().toISOString()
+  }
 }
 
 import { useStorage } from '@vueuse/core'
@@ -339,7 +410,7 @@ export const useStats = () => {
     lastFetchAttempt.value = now
 
     try {
-      const [monkeyType, github, photos] = await Promise.allSettled([
+      const [monkeyType, github, photos, leetcode] = await Promise.allSettled([
         fetchWithTimeout('/api/monkeytype').catch((error) => {
           console.error('MonkeyType API error:', error)
           errors.value.monkeyType =
@@ -358,6 +429,13 @@ export const useStats = () => {
           errors.value.photos = error.message || 'Failed to fetch photo stats'
           hasStaleData.value = true
           return stats.value.photos || DEFAULT_STATS.photos
+        }),
+        fetchWithTimeout('/api/leetcode').catch((error) => {
+          console.error('LeetCode API error:', error)
+          errors.value.leetcode =
+            error.message || 'Failed to fetch LeetCode stats'
+          hasStaleData.value = true
+          return stats.value.leetcode || DEFAULT_STATS.leetcode
         })
       ])
 
@@ -374,7 +452,11 @@ export const useStats = () => {
         photos:
           photos.status === 'fulfilled'
             ? photos.value
-            : stats.value.photos || DEFAULT_STATS.photos
+            : stats.value.photos || DEFAULT_STATS.photos,
+        leetcode:
+          leetcode.status === 'fulfilled'
+            ? leetcode.value
+            : stats.value.leetcode || DEFAULT_STATS.leetcode
       }
 
       // Only update stats if we have at least some valid data
@@ -400,21 +482,19 @@ export const useStats = () => {
           photos.reason?.message || 'Failed to fetch photo stats'
         hasStaleData.value = true
       }
-
-      console.log('Fetching LeetCode stats...')
-      const leetcode = await $fetch('/api/leetcode')
-      console.log('LeetCode stats received:', leetcode)
-
-      stats.value = {
-        ...stats.value,
-        leetcode
+      if (leetcode.status === 'rejected') {
+        errors.value.leetcode =
+          leetcode.reason?.message || 'Failed to fetch LeetCode stats'
+        hasStaleData.value = true
       }
 
       console.log('Final stats object:', stats.value)
     } catch (error) {
       console.error('Error fetching stats:', error)
-      errors.value.general = error.message || 'Failed to fetch stats'
-      hasStaleData.value = true
+      errors.value = {
+        ...errors.value,
+        leetcode: true
+      }
     } finally {
       isLoading.value = false
     }
@@ -440,7 +520,11 @@ export const useStats = () => {
 
   const hasGitHubData = computed(() => {
     try {
-      return !!stats.value?.github?.contributions?.length
+      return !!(
+        stats.value?.github?.stats &&
+        (stats.value?.github?.contributions?.length > 0 ||
+          stats.value?.github?.repositories?.length > 0)
+      )
     } catch (error) {
       console.error('Error checking GitHub data:', error)
       return false
@@ -461,6 +545,16 @@ export const useStats = () => {
     return stats.value?.photos?.filter((photo) => photo.published) || []
   })
 
+  // Add hasLeetCodeData computed property
+  const hasLeetCodeData = computed(() => {
+    try {
+      return !!stats.value?.leetcode?.submissionStats
+    } catch (error) {
+      console.error('Error checking LeetCode data:', error)
+      return false
+    }
+  })
+
   return {
     stats,
     isLoading,
@@ -469,6 +563,7 @@ export const useStats = () => {
     hasTypingData,
     hasGitHubData,
     hasPhotoData,
+    hasLeetCodeData,
     refresh: () => fetchStats(true),
     publishedPhotos
   }
