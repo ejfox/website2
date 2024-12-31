@@ -42,8 +42,8 @@
             :details="`${formatNumber(stats?.github?.stats?.totalPRs || 0)} PULL REQUESTS · ${formatNumber(stats?.github?.currentStreak || 0)} DAY STREAK`" />
 
           <ClientOnly>
-            <IndividualStat v-if="hasPhotoData" :value="stats?.photos?.length || 0" size="large" label="PHOTOGRAPHS"
-              :details="new Date().getFullYear().toString()" />
+            <IndividualStat v-if="hasPhotoData" :value="currentYearPhotos" size="large" label="PHOTOGRAPHS"
+              :details="currentYear.toString()" />
           </ClientOnly>
 
           <IndividualStat v-if="blogStats" :value="blogStats.totalWords" size="large" label="WORDS WRITTEN"
@@ -52,16 +52,6 @@
           <IndividualStat v-if="hasLeetCodeData" :value="totalLeetCodeSolved" size="large" label="LEETCODE PROBLEMS"
             :details="`${stats?.leetcode?.submissionStats?.easy?.count || 0} EASY · ${stats?.leetcode?.submissionStats?.medium?.count || 0} MEDIUM · ${stats?.leetcode?.submissionStats?.hard?.count || 0} HARD`" />
         </section>
-
-        <!-- Photography Overview -->
-        <ClientOnly>
-          <section v-if="hasPhotoData" class="space-y-16">
-            <h3 class="text-sm tracking-wider text-gray-500 mb-4">PHOTOGRAPHY OVERVIEW</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-24">
-              <IndividualStat :value="stats?.photos?.length || 0" size="medium" label="PHOTOGRAPHS" />
-            </div>
-          </section>
-        </ClientOnly>
 
 
         <!-- Code Stats Section -->
@@ -139,6 +129,67 @@
           </div>
         </section>
 
+        <!-- Chess Stats Section -->
+        <section v-if="hasChessData" class="mt-32 space-y-12">
+          <div class="border-t border-gray-500/20 pt-12">
+            <h4 class="text-sm tracking-wider text-gray-500 mb-12">CHESS PROGRESS</h4>
+
+            <!-- Main Chess Stats Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+              <IndividualStat :value="stats.chess.currentRating.rapid" size="medium" label="RAPID RATING"
+                :details="`Peak: ${stats.chess.bestRating.rapid || 'N/A'}`" />
+              <IndividualStat :value="stats.chess.currentRating.blitz" size="medium" label="BLITZ RATING"
+                :details="`Peak: ${stats.chess.bestRating.blitz}`" />
+              <IndividualStat :value="stats.chess.currentRating.bullet" size="medium" label="BULLET RATING"
+                :details="`Peak: ${stats.chess.bestRating.bullet}`" />
+            </div>
+
+            <!-- Games Overview -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+              <div>
+                <div class="text-4xl font-light mb-2">{{ formatNumber(stats.chess.gamesPlayed.total) }}</div>
+                <div class="text-xs tracking-wider text-gray-500">TOTAL GAMES</div>
+              </div>
+              <div>
+                <div class="text-4xl font-light mb-2">{{ stats.chess.winRate.overall.toFixed(1) }}%</div>
+                <div class="text-xs tracking-wider text-gray-500">WIN RATE</div>
+              </div>
+              <div>
+                <div class="text-4xl font-light mb-2">{{ stats.chess.puzzleStats.rating }}</div>
+                <div class="text-xs tracking-wider text-gray-500">PUZZLE RATING</div>
+              </div>
+              <div>
+                <div class="text-4xl font-light mb-2">{{ formatNumber(stats.chess.puzzleStats.totalSolved) }}</div>
+                <div class="text-xs tracking-wider text-gray-500">PUZZLES SOLVED</div>
+              </div>
+            </div>
+
+            <!-- Recent Games -->
+            <div v-if="stats.chess.recentGames?.length" class="mt-12">
+              <h4 class="text-sm tracking-wider text-gray-500 mb-6">RECENT GAMES</h4>
+              <div class="space-y-2">
+                <div v-for="game in stats.chess.recentGames" :key="game.id"
+                  class="flex items-center justify-between text-sm">
+                  <span class="text-gray-400">{{ game.opponent }}</span>
+                  <div class="flex items-center space-x-4">
+                    <span class="text-gray-500">{{ game.timeControl }}</span>
+                    <span :class="{
+                      'text-green-500': game.result === 'win',
+                      'text-red-500': game.result === 'loss',
+                      'text-gray-500': game.result === 'draw'
+                    }">
+                      {{ game.result.toUpperCase() }}
+                      <span class="text-gray-600 text-xs ml-1">
+                        {{ game.ratingDiff > 0 ? '+' : '' }}{{ game.ratingDiff }}
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <!-- Blog Stats Section -->
         <section v-if="blogStats" class="space-y-12">
           <div class="">
@@ -193,6 +244,74 @@
           </div>
         </section>
 
+        <!-- Photo Contributions Section -->
+        <section v-if="hasPhotoData" class="mt-32 space-y-16">
+          <ContributionHeatmap :data="photoContributions" title="PHOTO UPLOADS"
+            :subtitle="`${currentYearPhotos} photos in ${currentYear}`" :showLegend="true" :colorScheme="heatmapColors"
+            :legendLabels="{
+              start: '0',
+              end: `${maxContributions} per day`
+            }" />
+
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <IndividualStat :value="photoStats.photosThisMonth" label="THIS MONTH" size="small" />
+            <IndividualStat :value="photoStats.averagePerMonth" label="AVG / MONTH" size="small" />
+            <IndividualStat :value="stats.value?.photos?.currentStreak" label="DAY STREAK" size="small" />
+            <IndividualStat :value="stats.value?.photos?.longestStreak" label="LONGEST STREAK" size="small" />
+          </div>
+        </section>
+
+        <!-- Add this section where you want the health stats to appear -->
+        <section v-if="hasHealthData" class="mt-32 space-y-12">
+          <div class="border-t border-gray-500/20 pt-12">
+            <h4 class="text-sm tracking-wider text-gray-500 mb-12">HEALTH METRICS</h4>
+
+            <!-- Today's Stats -->
+            <div class="space-y-16">
+              <h5 class="text-sm tracking-wider text-gray-500">TODAY</h5>
+              <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <IndividualStat :value="stats.health.today.steps" size="medium" label="STEPS"
+                  :details="`${formatNumber(stats.health.averages.dailySteps)} daily average`" />
+                <IndividualStat :value="stats.health.today.standHours" size="medium" label="STAND HOURS"
+                  :details="`${formatNumber(stats.health.averages.dailyStandHours)} daily average`" />
+                <IndividualStat :value="stats.health.today.exerciseMinutes" size="medium" label="EXERCISE MINUTES"
+                  :details="`${formatNumber(stats.health.averages.dailyExerciseMinutes)} daily average`" />
+                <IndividualStat :value="stats.health.today.calories" size="medium" label="ACTIVE CALORIES" />
+              </div>
+
+              <!-- This Week's Stats -->
+              <h5 class="text-sm tracking-wider text-gray-500 mt-16">THIS WEEK</h5>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <IndividualStat :value="stats.health.thisWeek.steps" size="medium" label="WEEKLY STEPS"
+                  :details="`${formatNumber(stats.health.thisYear.averageStepsPerDay)} daily average`" />
+                <IndividualStat :value="stats.health.thisWeek.exerciseMinutes" size="medium" label="WEEKLY EXERCISE"
+                  :details="`${formatNumber(stats.health.thisYear.averageExercisePerWeek)} minutes per week avg`" />
+                <IndividualStat :value="stats.health.thisWeek.calories" size="medium" label="WEEKLY CALORIES" />
+              </div>
+
+              <!-- Monthly Activity -->
+              <h5 class="text-sm tracking-wider text-gray-500 mt-16">THIS MONTH</h5>
+              <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <IndividualStat :value="stats.health.activity.monthlySteps" size="medium" label="MONTHLY STEPS" />
+                <IndividualStat :value="stats.health.activity.monthlyExerciseMinutes" size="medium"
+                  label="MONTHLY EXERCISE" />
+                <IndividualStat :value="stats.health.activity.monthlyDistance" size="medium" label="DISTANCE (KM)" />
+                <IndividualStat :value="stats.health.activity.flightsClimbed" size="medium" label="FLIGHTS CLIMBED" />
+              </div>
+
+              <!-- Heart Rate Stats (if available) -->
+              <template v-if="hasHeartRateData">
+                <h5 class="text-sm tracking-wider text-gray-500 mt-16">HEART RATE</h5>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                  <IndividualStat :value="stats.health.heartRate.current" size="medium" label="CURRENT BPM" />
+                  <IndividualStat :value="stats.health.heartRate.resting" size="medium" label="RESTING BPM" />
+                  <IndividualStat :value="stats.health.heartRate.walking" size="medium" label="WALKING BPM" />
+                  <IndividualStat :value="stats.health.heartRate.variability" size="medium" label="HRV" />
+                </div>
+              </template>
+            </div>
+          </div>
+        </section>
 
       </section>
     </div>
@@ -212,6 +331,7 @@ import PeriodAnalysis from '~/components/stats/PeriodAnalysis.vue'
 import IndividualStat from '~/components/stats/IndividualStat.vue'
 import WaffleChart from '~/components/viz/WaffleChart.vue'
 import * as d3 from 'd3'
+import { useColorMode } from '@vueuse/core'
 
 interface MonkeyTypeResponse {
   typingStats: {
@@ -253,11 +373,44 @@ interface StatsResponse {
   typing?: any
   music?: any
   health?: any
-  chess?: any
-  code?: {
-    prCount?: number
-    contributions?: number[]
-    currentStreak?: number
+  chess?: {
+    currentRating: {
+      bullet: number
+      blitz: number
+      rapid: number
+    }
+    bestRating: {
+      bullet: number
+      blitz: number
+      rapid: number
+    }
+    gamesPlayed: {
+      bullet: number
+      blitz: number
+      rapid: number
+      total: number
+    }
+    winRate: {
+      bullet: number
+      blitz: number
+      rapid: number
+      overall: number
+    }
+    puzzleStats: {
+      rating: number
+      totalSolved: number
+      bestRating: number
+    }
+    recentGames: Array<{
+      id: string
+      opponent: string
+      timeControl: string
+      result: 'win' | 'loss' | 'draw'
+      timestamp: number
+      rating: number
+      ratingDiff: number
+    }>
+    lastUpdated: string
   }
   photography?: any
   leetcode?: {
@@ -302,7 +455,7 @@ interface Post {
   wordCount?: number
 }
 
-const { stats, isLoading, errors, hasStaleData } = useStats()
+const { stats, isLoading, errors: statsErrors, hasStaleData: statsHasStaleData } = useStats()
 const { getAllPosts } = useProcessedMarkdown()
 
 const route = useRoute()
@@ -352,11 +505,29 @@ const hasMonkeyTypeData = computed(() => {
 })
 
 const hasGithubData = computed(() => {
-  return !!(stats.value?.github?.contributions?.length || stats.value?.github?.totalContributions)
+  try {
+    console.log('Checking GitHub Data:', {
+      stats: stats.value?.github,
+      hasStats: !!stats.value?.github?.stats,
+      hasContributions: !!stats.value?.github?.contributions?.length,
+      hasRepos: !!stats.value?.github?.repositories?.length,
+      totalContributions: stats.value?.github?.totalContributions
+    })
+
+    return !!(
+      stats.value?.github?.stats &&
+      (stats.value?.github?.contributions?.length > 0 ||
+        stats.value?.github?.repositories?.length > 0 ||
+        stats.value?.github?.totalContributions > 0)
+    )
+  } catch (error) {
+    console.error('Error checking GitHub data:', error)
+    return false
+  }
 })
 
 const hasPhotoData = computed(() => {
-  return !!(stats.value?.photos?.length)
+  return !!(stats.value?.photos?.stats?.totalPhotos)
 })
 
 const hasCodeData = computed(() => {
@@ -908,6 +1079,151 @@ function renderReposByMonthChart() {
     .attr('class', 'text-gray-500 text-xs')
     .call(yAxis)
 }
+
+// Add with other computed properties
+const hasChessData = computed(() => {
+  return !!(stats.value?.chess?.currentRating)
+})
+
+// Add these computed properties and functions
+const isServiceLoaded = (service: string) => {
+  switch (service.toLowerCase()) {
+    case 'github':
+      return !!(stats.value?.github?.totalContributions || stats.value?.github?.repositories?.length)
+    case 'photos':
+      return !!(stats.value?.photos?.stats?.totalPhotos)
+    case 'chess':
+      return !!(stats.value?.chess?.currentRating?.blitz ||
+        stats.value?.chess?.currentRating?.bullet ||
+        stats.value?.chess?.currentRating?.rapid)
+    case 'leetcode':
+      return !!(stats.value?.leetcode?.submissionStats?.easy?.count ||
+        stats.value?.leetcode?.submissionStats?.medium?.count ||
+        stats.value?.leetcode?.submissionStats?.hard?.count)
+    case 'monkeytype':
+      return !!(stats.value?.monkeyType?.typingStats?.bestWPM)
+    default:
+      return false
+  }
+}
+
+// Update the errors computed property
+const errors = computed(() => ({
+  github: !isServiceLoaded('github'),
+  photos: !isServiceLoaded('photos'),
+  chess: !isServiceLoaded('chess'),
+  leetcode: !isServiceLoaded('leetcode'),
+  monkeytype: !isServiceLoaded('monkeytype')
+}))
+
+// Update hasStaleData computed
+const hasStaleData = computed(() => {
+  const now = new Date()
+  const staleThreshold = 5 * 60 * 1000 // 5 minutes in milliseconds
+
+  return Object.entries({
+    github: stats.value?.github?.lastUpdated,
+    photos: stats.value?.photos?.[0]?.lastUpdated,
+    chess: stats.value?.chess?.lastUpdated,
+    leetcode: stats.value?.leetcode?.lastUpdated,
+    monkeytype: stats.value?.monkeyType?.lastUpdated
+  }).some(([_, lastUpdated]) => {
+    if (!lastUpdated) return false
+    const timeDiff = now.getTime() - new Date(lastUpdated).getTime()
+    return timeDiff > staleThreshold
+  })
+})
+
+const githubContributions = computed(() => {
+  if (!stats.value?.github?.contributions) return []
+  return stats.value.github.dates.map((date, i) => ({
+    date,
+    count: stats.value.github.contributions[i]
+  }))
+})
+
+const photoContributions = computed(() => {
+  if (!stats.value?.photos?.dates || !stats.value?.photos?.contributions) return []
+
+  return stats.value.photos.dates.map((date, i) => ({
+    date,
+    count: stats.value.photos.contributions[i]
+  }))
+})
+
+// Add this to help debug
+watch(() => stats.value?.photos, (newPhotos) => {
+  console.log('Photos data:', newPhotos)
+  console.log('Has photo data:', hasPhotoData.value)
+  console.log('Photo contributions:', photoContributions.value)
+}, { immediate: true })
+
+// Add some debug logging
+watch(() => stats.value?.photos, (photos) => {
+  if (photos) {
+    console.log('Photo stats:', photos.stats)
+    console.log('Max contributions:', Math.max(...(photos.contributions || [0])))
+    console.log('Current streak:', photos.currentStreak)
+    console.log('Longest streak:', photos.longestStreak)
+  }
+}, { immediate: true })
+
+const maxContributions = computed(() => {
+  return Math.max(...(stats.value?.photos?.contributions || [0]))
+})
+
+const photoStats = computed(() => {
+  const data = stats.value?.photos?.stats
+  if (!data) return {
+    totalPhotos: 0,
+    photosThisYear: 0,
+    photosThisMonth: 0,
+    averagePerMonth: 0
+  }
+
+  const currentYear = new Date().getFullYear()
+  return {
+    totalPhotos: data.totalPhotos || 0,
+    photosThisYear: stats.value?.photos?.photos?.filter(p =>
+      new Date(p.uploaded_at).getFullYear() === currentYear
+    ).length || 0,
+    photosThisMonth: data.photosThisMonth || 0,
+    averagePerMonth: data.averagePerMonth || 0
+  }
+})
+
+// Add color scheme handling at the top of the script
+const colorMode = useColorMode()
+
+const heatmapColors = computed(() => {
+  return colorMode.value === 'dark'
+    ? ['rgb(22, 27, 34)', '#312e81', '#4338ca', '#6366f1', '#818cf8']  // Dark mode blues
+    : ['#f1f5f9', '#cbd5e1', '#94a3b8', '#64748b', '#475569']  // Light mode grays
+})
+
+// Create a single source of truth for the current year
+const currentYear = computed(() => new Date().getFullYear())
+
+// Update currentYearPhotos to use the computed year
+const currentYearPhotos = computed(() => {
+  if (!stats.value?.photos?.photos) return 0
+  return stats.value.photos.photos.filter(p =>
+    new Date(p.uploaded_at).getFullYear() === currentYear.value
+  ).length
+})
+
+const hasHealthData = computed(() => {
+  return !!stats.value?.health?.today
+})
+
+const hasHeartRateData = computed(() => {
+  return !!(
+    stats.value?.health?.heartRate?.current ||
+    stats.value?.health?.heartRate?.resting ||
+    stats.value?.health?.heartRate?.walking ||
+    stats.value?.health?.heartRate?.variability
+  )
+})
 
 </script>
 

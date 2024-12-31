@@ -309,6 +309,45 @@ interface StatsResponse {
     }
     lastUpdated: string
   }
+  chess?: {
+    currentRating: {
+      bullet: number
+      blitz: number
+      rapid: number
+    }
+    bestRating: {
+      bullet: number
+      blitz: number
+      rapid: number
+    }
+    gamesPlayed: {
+      bullet: number
+      blitz: number
+      rapid: number
+      total: number
+    }
+    winRate: {
+      bullet: number
+      blitz: number
+      rapid: number
+      overall: number
+    }
+    puzzleStats: {
+      rating: number
+      totalSolved: number
+      bestRating: number
+    }
+    recentGames: Array<{
+      id: string
+      opponent: string
+      timeControl: string
+      result: 'win' | 'loss' | 'draw'
+      timestamp: number
+      rating: number
+      ratingDiff: number
+    }>
+    lastUpdated: string
+  }
 }
 
 // Default/fallback values
@@ -350,7 +389,20 @@ const DEFAULT_STATS: StatsResponse = {
     longestStreak: 0,
     totalContributions: 0
   },
-  photos: [],
+  photos: {
+    stats: {
+      totalPhotos: 0,
+      photosThisYear: 0,
+      photosThisMonth: 0,
+      averagePerMonth: 0,
+      mostActiveMonth: { month: '', count: 0 }
+    },
+    photos: [],
+    contributions: [],
+    dates: [],
+    currentStreak: 0,
+    longestStreak: 0
+  },
   leetcode: {
     contestStats: null,
     recentSubmissions: [],
@@ -359,6 +411,37 @@ const DEFAULT_STATS: StatsResponse = {
       medium: { count: 0, submissions: 0 },
       hard: { count: 0, submissions: 0 }
     },
+    lastUpdated: new Date().toISOString()
+  },
+  chess: {
+    currentRating: {
+      bullet: 0,
+      blitz: 0,
+      rapid: 0
+    },
+    bestRating: {
+      bullet: 0,
+      blitz: 0,
+      rapid: 0
+    },
+    gamesPlayed: {
+      bullet: 0,
+      blitz: 0,
+      rapid: 0,
+      total: 0
+    },
+    winRate: {
+      bullet: 0,
+      blitz: 0,
+      rapid: 0,
+      overall: 0
+    },
+    puzzleStats: {
+      rating: 0,
+      totalSolved: 0,
+      bestRating: 0
+    },
+    recentGames: [],
     lastUpdated: new Date().toISOString()
   }
 }
@@ -374,28 +457,69 @@ export const useStats = () => {
   const CACHE_DURATION = 5 * 60 * 1000 // 5 minutes
 
   const fetchWithTimeout = async (url: string, timeout = 5000) => {
-    const controller = new AbortController()
-    const id = setTimeout(() => controller.abort(), timeout)
-
     try {
+      const controller = new AbortController()
+      const timeoutId = setTimeout(() => controller.abort(), timeout)
+
       const response = await $fetch(url, {
-        signal: controller.signal,
-        retry: 1,
-        onResponseError: ({ response }) => {
-          console.error(`Error from ${url}:`, response._data)
-          throw new Error(
-            response._data?.message || `Failed to fetch from ${url}`
-          )
-        }
+        signal: controller.signal
       })
-      clearTimeout(id)
+
+      clearTimeout(timeoutId)
       return response
     } catch (error) {
-      clearTimeout(id)
+      console.error(`Fetch error for ${url}:`, error)
+      // If it's an abort error, throw a more specific error
+      if (error.name === 'AbortError') {
+        throw new Error(`Request to ${url} timed out after ${timeout}ms`)
+      }
       throw error
     }
   }
 
+  // Add this helper function to transform GitHub data
+  const transformGithubData = (rawData: any) => {
+    if (!rawData?.data?.viewer) return null
+
+    const { viewer } = rawData.data
+    const contributions =
+      viewer.contributionsCollection.contributionCalendar.weeks
+        .flatMap((week) => week.contributionDays)
+        .map((day) => ({
+          date: day.date,
+          count: day.contributionCount
+        }))
+
+    return {
+      stats: {
+        totalRepos: viewer.repositories.nodes.length,
+        totalPRs:
+          viewer.contributionsCollection.pullRequestContributions.totalCount,
+        mergedPRs:
+          viewer.contributionsCollection.pullRequestContributions.nodes.filter(
+            (pr) => pr.pullRequest.merged
+          ).length,
+        totalContributions:
+          viewer.contributionsCollection.contributionCalendar.totalContributions
+      },
+      repositories: viewer.repositories.nodes.map((repo) => ({
+        name: repo.name,
+        description: repo.description || '',
+        stars: repo.stargazerCount,
+        forks: repo.forkCount,
+        primaryLanguage: repo.primaryLanguage
+      })),
+      contributions: contributions.map((c) => c.count),
+      dates: contributions.map((c) => c.date),
+      currentStreak: calculateStreak(contributions),
+      longestStreak: calculateLongestStreak(contributions),
+      totalContributions:
+        viewer.contributionsCollection.contributionCalendar.totalContributions,
+      lastUpdated: new Date().toISOString()
+    }
+  }
+
+  // Update the fetchStats function's GitHub handling
   const fetchStats = async (force = false) => {
     // Check if we should use cache
     const now = Date.now()
@@ -410,91 +534,47 @@ export const useStats = () => {
     lastFetchAttempt.value = now
 
     try {
-      const [monkeyType, github, photos, leetcode] = await Promise.allSettled([
-        fetchWithTimeout('/api/monkeytype').catch((error) => {
-          console.error('MonkeyType API error:', error)
-          errors.value.monkeyType =
-            error.message || 'Failed to fetch typing stats'
-          hasStaleData.value = true
-          return stats.value.monkeyType || DEFAULT_STATS.monkeyType
-        }),
-        fetchWithTimeout('/api/github').catch((error) => {
-          console.error('GitHub API error:', error)
-          errors.value.github = error.message || 'Failed to fetch GitHub stats'
-          hasStaleData.value = true
-          return stats.value.github || DEFAULT_STATS.github
-        }),
-        fetchWithTimeout('/api/photos').catch((error) => {
-          console.error('Photos API error:', error)
-          errors.value.photos = error.message || 'Failed to fetch photo stats'
-          hasStaleData.value = true
-          return stats.value.photos || DEFAULT_STATS.photos
-        }),
-        fetchWithTimeout('/api/leetcode').catch((error) => {
-          console.error('LeetCode API error:', error)
-          errors.value.leetcode =
-            error.message || 'Failed to fetch LeetCode stats'
-          hasStaleData.value = true
-          return stats.value.leetcode || DEFAULT_STATS.leetcode
-        })
-      ])
+      console.log('Fetching stats...')
+      const [monkeyType, github, photos, leetcode, chess, health] =
+        await Promise.allSettled([
+          $fetch('/api/monkeytype'),
+          $fetch('/api/github'),
+          $fetch('/api/photos'),
+          $fetch('/api/leetcode'),
+          $fetch('/api/chess'),
+          $fetch('/api/health')
+        ])
 
-      // Update stats with new data or fallback to cached/default values
+      console.log('Health response:', health)
+
       const newStats = {
-        monkeyType:
-          monkeyType.status === 'fulfilled'
-            ? monkeyType.value
-            : stats.value.monkeyType || DEFAULT_STATS.monkeyType,
-        github:
-          github.status === 'fulfilled'
-            ? github.value
-            : stats.value.github || DEFAULT_STATS.github,
-        photos:
-          photos.status === 'fulfilled'
-            ? photos.value
-            : stats.value.photos || DEFAULT_STATS.photos,
-        leetcode:
-          leetcode.status === 'fulfilled'
-            ? leetcode.value
-            : stats.value.leetcode || DEFAULT_STATS.leetcode
+        monkeyType: monkeyType.status === 'fulfilled' ? monkeyType.value : null,
+        github: github.status === 'fulfilled' ? github.value : null,
+        photos: photos.status === 'fulfilled' ? photos.value : null,
+        leetcode: leetcode.status === 'fulfilled' ? leetcode.value : null,
+        chess: chess.status === 'fulfilled' ? chess.value : null,
+        health: health.status === 'fulfilled' ? health.value : null
       }
 
-      // Only update stats if we have at least some valid data
-      if (
-        Object.values(newStats).some((val) => val !== null && val !== undefined)
-      ) {
-        stats.value = newStats
+      // Update stats
+      stats.value = {
+        ...stats.value,
+        ...newStats
       }
 
-      // Record any errors and set stale flag
-      if (monkeyType.status === 'rejected') {
-        errors.value.monkeyType =
-          monkeyType.reason?.message || 'Failed to fetch typing stats'
-        hasStaleData.value = true
-      }
-      if (github.status === 'rejected') {
-        errors.value.github =
-          github.reason?.message || 'Failed to fetch GitHub stats'
-        hasStaleData.value = true
-      }
-      if (photos.status === 'rejected') {
-        errors.value.photos =
-          photos.reason?.message || 'Failed to fetch photo stats'
-        hasStaleData.value = true
-      }
-      if (leetcode.status === 'rejected') {
-        errors.value.leetcode =
-          leetcode.reason?.message || 'Failed to fetch LeetCode stats'
-        hasStaleData.value = true
-      }
-
-      console.log('Final stats object:', stats.value)
-    } catch (error) {
-      console.error('Error fetching stats:', error)
+      // Update errors object
       errors.value = {
-        ...errors.value,
-        leetcode: true
+        monkeyType: monkeyType.status === 'rejected',
+        github: github.status === 'rejected',
+        photos: photos.status === 'rejected',
+        leetcode: leetcode.status === 'rejected',
+        chess: chess.status === 'rejected',
+        health: health.status === 'rejected'
       }
+
+      console.log('Updated errors:', errors.value)
+    } catch (error) {
+      console.error('Error in fetchStats:', error)
     } finally {
       isLoading.value = false
     }
@@ -520,10 +600,19 @@ export const useStats = () => {
 
   const hasGitHubData = computed(() => {
     try {
+      console.log('GitHub Data Check:', {
+        stats: stats.value?.github,
+        totalContributions: stats.value?.github?.totalContributions,
+        reposLength: stats.value?.github?.repositories?.length,
+        contributionsLength: stats.value?.github?.contributions?.length
+      })
+
       return !!(
-        stats.value?.github?.stats &&
-        (stats.value?.github?.contributions?.length > 0 ||
-          stats.value?.github?.repositories?.length > 0)
+        stats.value?.github &&
+        (stats.value.github.totalContributions > 0 ||
+          stats.value.github.repositories?.length > 0 ||
+          stats.value.github.contributions?.length > 0 ||
+          stats.value.github.stats?.totalRepos > 0)
       )
     } catch (error) {
       console.error('Error checking GitHub data:', error)
@@ -533,7 +622,11 @@ export const useStats = () => {
 
   const hasPhotoData = computed(() => {
     try {
-      return !!stats.value?.photos?.photos?.length
+      return !!(
+        stats.value?.photos?.stats?.totalPhotos &&
+        Array.isArray(stats.value?.photos?.photos) &&
+        stats.value?.photos?.photos.length > 0
+      )
     } catch (error) {
       console.error('Error checking photo data:', error)
       return false
@@ -555,6 +648,64 @@ export const useStats = () => {
     }
   })
 
+  // Add hasChessData computed property
+  const hasChessData = computed(() => {
+    try {
+      return !!stats.value?.chess?.currentRating
+    } catch (error) {
+      console.error('Error checking chess data:', error)
+      return false
+    }
+  })
+
+  // Helper function to calculate current streak
+  const calculateStreak = (
+    contributions: Array<{ date: string; count: number }>
+  ) => {
+    let streak = 0
+    const today = new Date()
+    today.setHours(0, 0, 0, 0)
+
+    for (let i = contributions.length - 1; i >= 0; i--) {
+      const contribution = contributions[i]
+      const date = new Date(contribution.date)
+      date.setHours(0, 0, 0, 0)
+
+      if (contribution.count === 0) break
+      streak++
+    }
+
+    return streak
+  }
+
+  // Helper function to calculate longest streak
+  const calculateLongestStreak = (
+    contributions: Array<{ date: string; count: number }>
+  ) => {
+    let currentStreak = 0
+    let longestStreak = 0
+
+    for (const contribution of contributions) {
+      if (contribution.count > 0) {
+        currentStreak++
+        longestStreak = Math.max(longestStreak, currentStreak)
+      } else {
+        currentStreak = 0
+      }
+    }
+
+    return longestStreak
+  }
+
+  // Add a computed for this year's photos
+  const photosThisYear = computed(() => {
+    if (!stats.value?.photos?.photos) return 0
+    const currentYear = new Date().getFullYear()
+    return stats.value.photos.photos.filter(
+      (photo) => new Date(photo.uploaded_at).getFullYear() === currentYear
+    ).length
+  })
+
   return {
     stats,
     isLoading,
@@ -564,7 +715,9 @@ export const useStats = () => {
     hasGitHubData,
     hasPhotoData,
     hasLeetCodeData,
+    hasChessData,
     refresh: () => fetchStats(true),
-    publishedPhotos
+    publishedPhotos,
+    photosThisYear
   }
 }

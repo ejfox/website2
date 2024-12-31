@@ -164,6 +164,57 @@ async function makeRequest(query: string) {
   return response.data.viewer
 }
 
+async function fetchAllRepositories(token: string) {
+  let hasNextPage = true
+  let endCursor: string | null = null
+  let allRepositories: any[] = []
+
+  while (hasNextPage) {
+    const paginatedQuery = `
+      query {
+        viewer {
+          repositories(first: 100, privacy: PUBLIC, orderBy: {field: CREATED_AT, direction: DESC}, after: ${
+            endCursor ? `"${endCursor}"` : 'null'
+          }) {
+            pageInfo {
+              hasNextPage
+              endCursor
+            }
+            nodes {
+              name
+              description
+              stargazerCount
+              forkCount
+              primaryLanguage {
+                name
+                color
+              }
+              updatedAt
+              createdAt
+            }
+          }
+        }
+      }
+    `
+
+    const response = await $fetch<any>('https://api.github.com/graphql', {
+      method: 'POST',
+      headers: {
+        Authorization: `bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: { query: paginatedQuery }
+    })
+
+    const repos = response.data.viewer.repositories
+    allRepositories = [...allRepositories, ...repos.nodes]
+    hasNextPage = repos.pageInfo.hasNextPage
+    endCursor = repos.pageInfo.endCursor
+  }
+
+  return allRepositories
+}
+
 export default defineEventHandler(async (event) => {
   try {
     const config = useRuntimeConfig()
@@ -177,75 +228,20 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    // Make a single request with all the data we need
-    const response = await $fetch<{ data: { viewer: GitHubViewer } }>(
-      'https://api.github.com/graphql',
-      {
+    // Fetch all data in parallel
+    const [basicData, allRepositories] = await Promise.all([
+      $fetch<any>('https://api.github.com/graphql', {
         method: 'POST',
         headers: {
           Authorization: `bearer ${token}`,
           'Content-Type': 'application/json'
         },
-        body: {
-          query: `
-            query {
-              viewer {
-                login
-                repositories(first: 100, privacy: PUBLIC) {
-                  nodes {
-                    name
-                    description
-                    stargazerCount
-                    forkCount
-                    primaryLanguage {
-                      name
-                      color
-                    }
-                    updatedAt
-                    createdAt
-                  }
-                }
-                contributionsCollection {
-                  contributionCalendar {
-                    totalContributions
-                    weeks {
-                      contributionDays {
-                        contributionCount
-                        date
-                      }
-                    }
-                  }
-                }
-                followers {
-                  totalCount
-                }
-                following {
-                  totalCount
-                }
-                pullRequests(first: 100) {
-                  totalCount
-                  nodes {
-                    additions
-                    deletions
-                    mergedAt
-                  }
-                }
-              }
-            }
-          `
-        }
-      }
-    )
+        body: { query }
+      }),
+      fetchAllRepositories(token)
+    ])
 
-    if (!response?.data?.viewer) {
-      console.error('Invalid GitHub response:', response)
-      throw createError({
-        statusCode: 500,
-        message: 'Invalid GitHub API response'
-      })
-    }
-
-    const viewer = response.data.viewer
+    const viewer = basicData.data.viewer
     const contributions =
       viewer.contributionsCollection.contributionCalendar.weeks
         .flatMap((week) => week.contributionDays)
@@ -253,7 +249,7 @@ export default defineEventHandler(async (event) => {
 
     return {
       stats: {
-        totalRepos: viewer.repositories.nodes.length,
+        totalRepos: allRepositories.length,
         totalPRs: viewer.pullRequests.totalCount,
         mergedPRs: viewer.pullRequests.nodes.filter((pr) => pr?.mergedAt)
           .length,
@@ -265,7 +261,7 @@ export default defineEventHandler(async (event) => {
         ),
         totalFilesChanged: 0
       },
-      repositories: viewer.repositories.nodes.map((repo) => ({
+      repositories: allRepositories.map((repo) => ({
         name: repo.name,
         description: repo.description || '',
         stars: repo.stargazerCount,
@@ -283,9 +279,6 @@ export default defineEventHandler(async (event) => {
     }
   } catch (error: any) {
     console.error('GitHub API error:', error.message)
-    if (error.response) {
-      console.error('GitHub API response:', error.response)
-    }
     throw createError({
       statusCode: 500,
       message: `GitHub API error: ${error.message}`
