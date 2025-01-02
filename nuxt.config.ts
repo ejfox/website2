@@ -70,6 +70,7 @@ export default defineNuxtConfig({
   //   id: 'G-0CBMSSNG8P',
   // },
   runtimeConfig: {
+    rescuetimeToken: process.env.RESCUETIME_TOKEN,
     CHESS_USERNAME: process.env.CHESS_USERNAME,
     // Private keys that are only available on the server
     MONKEYTYPE_TOKEN: process.env.MONKEYTYPE_TOKEN,

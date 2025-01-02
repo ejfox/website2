@@ -9,24 +9,34 @@ interface Contribution {
 
 interface Props {
   data: Contribution[]
-  colorScheme?: string[]
   showFullYear?: boolean
   showLegend?: boolean
   legendLabels?: {
     start: string
     end: string
   }
-  emptyColor?: string
   title?: string
   subtitle?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  colorScheme: () => ['rgb(22, 27, 34)', 'rgb(14, 68, 41)', 'rgb(0, 109, 50)', 'rgb(38, 166, 65)', 'rgb(57, 211, 83)'],
   showFullYear: false,
   showLegend: false,
-  emptyColor: 'rgb(22, 27, 34)',
   legendLabels: () => ({ start: '0', end: 'Many' })
+})
+
+// Color schemes
+const darkModeColors = ['rgb(22, 27, 34)', 'rgb(14, 68, 41)', 'rgb(0, 109, 50)', 'rgb(38, 166, 65)', 'rgb(57, 211, 83)']
+const lightModeColors = ['rgb(235, 237, 240)', 'rgb(172, 230, 174)', 'rgb(87, 195, 89)', 'rgb(45, 164, 78)', 'rgb(25, 97, 39)']
+
+const colorScheme = computed(() => {
+  // TODO: Replace with actual dark mode detection
+  const isDarkMode = true
+  return isDarkMode ? darkModeColors : lightModeColors
+})
+
+const emptyColor = computed(() => {
+  return colorScheme.value[0]
 })
 
 const heatmapRef = ref<HTMLElement>()
@@ -52,10 +62,10 @@ const processedData = computed(() => {
 
 // Calculate color scale
 const colorScale = computed(() => {
-  const maxValue = d3.max(props.data, d => d.count) || 0
-  return d3.scaleQuantize()
+  const maxValue = d3.max(props.data, (d: Contribution) => d.count) || 0
+  return d3.scaleQuantize<string>()
     .domain([0, maxValue])
-    .range(props.colorScheme as string[])
+    .range(colorScheme.value.slice(1)) // Skip the empty color
 })
 
 // Draw heatmap
@@ -84,7 +94,7 @@ const drawHeatmap = () => {
         .attr('width', cellSize)
         .attr('height', cellSize)
         .attr('rx', 2)
-        .attr('fill', day.count > 0 ? colorScale.value(day.count) : props.emptyColor)
+        .attr('fill', day.count > 0 ? colorScale.value(day.count) : emptyColor.value)
         .attr('data-date', day.date)
         .attr('data-count', day.count)
     })
@@ -95,19 +105,19 @@ const drawHeatmap = () => {
     const legendX = width.value - 200
     const legendY = totalHeight + 20
     const legendWidth = 180
-    const legendItemWidth = legendWidth / props.colorScheme.length
+    const legendItemWidth = legendWidth / colorScheme.value.length
 
     // Legend background
     svg.append('g')
       .attr('transform', `translate(${legendX}, ${legendY})`)
       .selectAll('rect')
-      .data(props.colorScheme)
+      .data(colorScheme.value)
       .enter()
       .append('rect')
-      .attr('x', (_, i) => i * legendItemWidth)
+      .attr('x', (d: string, i: number) => i * legendItemWidth)
       .attr('width', legendItemWidth)
       .attr('height', 8)
-      .attr('fill', d => d)
+      .attr('fill', (d: string) => d)
       .attr('rx', 1)
 
     // Legend labels
@@ -126,8 +136,8 @@ const drawHeatmap = () => {
   }
 }
 
-// Redraw on width changes
-watch([width, () => props.data], () => {
+// Redraw on width changes or color scheme changes
+watch([width, colorScheme], () => {
   drawHeatmap()
 }, { immediate: true })
 </script>
@@ -135,8 +145,8 @@ watch([width, () => props.data], () => {
 <template>
   <div class="space-y-4">
     <div v-if="title || subtitle" class="flex justify-between items-baseline">
-      <h4 v-if="title" class="text-sm tracking-wider text-gray-500">{{ title }}</h4>
-      <p v-if="subtitle" class="text-xs text-gray-400 tracking-wider">{{ subtitle }}</p>
+      <h4 v-if="title" class="text-xs tracking-[0.2em] text-gray-500 font-light">{{ title }}</h4>
+      <p v-if="subtitle" class="text-[0.65rem] text-gray-400 tracking-wider">{{ subtitle }}</p>
     </div>
     <div ref="heatmapRef" class="w-full"></div>
   </div>

@@ -44,7 +44,7 @@ interface ChessStats {
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig()
-  const username = config.CHESS_USERNAME // e.g. 'mrejfox'
+  const username = config.CHESS_USERNAME
 
   if (!username) {
     throw createError({
@@ -97,17 +97,17 @@ export default defineEventHandler(async (event) => {
       },
       gamesPlayed: {
         bullet:
-          stats.chess_bullet?.record?.win +
-            stats.chess_bullet?.record?.loss +
-            stats.chess_bullet?.record?.draw || 0,
+          (stats.chess_bullet?.record?.win || 0) +
+          (stats.chess_bullet?.record?.loss || 0) +
+          (stats.chess_bullet?.record?.draw || 0),
         blitz:
-          stats.chess_blitz?.record?.win +
-            stats.chess_blitz?.record?.loss +
-            stats.chess_blitz?.record?.draw || 0,
+          (stats.chess_blitz?.record?.win || 0) +
+          (stats.chess_blitz?.record?.loss || 0) +
+          (stats.chess_blitz?.record?.draw || 0),
         rapid:
-          stats.chess_rapid?.record?.win +
-            stats.chess_rapid?.record?.loss +
-            stats.chess_rapid?.record?.draw || 0,
+          (stats.chess_rapid?.record?.win || 0) +
+          (stats.chess_rapid?.record?.loss || 0) +
+          (stats.chess_rapid?.record?.draw || 0),
         total: 0 // Will calculate below
       },
       winRate: {
@@ -141,11 +141,18 @@ export default defineEventHandler(async (event) => {
       response.gamesPlayed.blitz +
       response.gamesPlayed.rapid
 
+    // Calculate overall win rate as average of non-zero rates
+    const nonZeroRates = [
+      response.winRate.bullet,
+      response.winRate.blitz,
+      response.winRate.rapid
+    ].filter((rate) => rate > 0)
+
     response.winRate.overall =
-      (response.winRate.bullet +
-        response.winRate.blitz +
-        response.winRate.rapid) /
-      3
+      nonZeroRates.length > 0
+        ? nonZeroRates.reduce((sum, rate) => sum + rate, 0) /
+          nonZeroRates.length
+        : 0
 
     return response
   } catch (error: any) {
