@@ -3,14 +3,7 @@ export default defineNuxtConfig({
   // SSR configuration
   ssr: false,
 
-  modules: [
-    '@nuxt/ui',
-    '@nuxt/icon',
-    '@vueuse/nuxt',
-    '@vueuse/motion/nuxt',
-    '@nuxtjs/google-fonts',
-    'nuxt-umami'
-  ],
+  modules: ['@nuxt/ui', '@nuxt/icon', '@nuxtjs/google-fonts', 'nuxt-umami'],
 
   // Component loading optimization
   build: {

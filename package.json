@@ -66,8 +66,6 @@
     "@tresjs/cientos": "^4.0.3",
     "@tresjs/core": "^4.3.1",
     "@tresjs/nuxt": "^3.0.7",
-    "@vueuse/motion": "^2.2.5",
-    "@vueuse/nuxt": "^11.0.3",
     "canvas": "^2.11.2",
     "chalk": "^5.3.0",
     "cloudinary": "^2.5.0",
