@@ -1,0 +1,7 @@
+[build]
+  command = "npm run generate"
+  publish = "dist"
+  environment = { NODE_VERSION = "20" }
+
+[build.environment]
+  NITRO_PRESET = "netlify" 

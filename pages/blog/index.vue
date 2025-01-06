@@ -6,32 +6,14 @@ import { animate, stagger } from '~/anime.esm.js'
 
 const processedMarkdown = useProcessedMarkdown()
 
-const { data: blogPosts, pending: blogPostsPending, error: blogPostsError } = await useAsyncData('blog-posts', async () => {
-  try {
-    console.log('Fetching blog posts...')
-    const posts = await processedMarkdown.getAllPosts(false, false)
-    console.log('Raw posts:', posts?.length, 'posts received')
-    console.log('Sample post:', posts?.[0])
-    if (!posts || !posts.length) {
-      console.warn('No posts returned from getAllPosts')
-    }
-    return posts || []
-  } catch (err) {
-    console.error('Error fetching blog posts:', err)
-    return []
-  }
-})
+// Use useAsyncData for data fetching
+const { data: posts } = await useAsyncData('blog-posts', () =>
+  processedMarkdown.getAllPosts(false, false)
+)
 
-const { data: weekNotes, pending: weekNotesPending, error: weekNotesError } = await useAsyncData('week-notes', async () => {
-  try {
-    const notes = await processedMarkdown.getWeekNotes()
-    console.log('Week notes:', notes)
-    return notes || []
-  } catch (err) {
-    console.error('Error fetching week notes:', err)
-    return []
-  }
-})
+const { data: notes } = await useAsyncData('week-notes', () =>
+  processedMarkdown.getWeekNotes()
+)
 
 const formatDate = (date) => format(new Date(date), 'yyyy-MM-dd')
 
@@ -48,9 +30,9 @@ useHead({
 
 // Sort week notes and convert week slug to actual dates
 const sortedWeekNotes = computed(() => {
-  if (!weekNotes.value) return []
+  if (!notes.value) return []
 
-  return weekNotes.value
+  return notes.value
     .map(note => {
       const weekMatch = note?.slug?.match(/(\d{4})-(\d{2})/)
       if (weekMatch) {
@@ -63,11 +45,7 @@ const sortedWeekNotes = computed(() => {
       return note
     })
     .filter(note => note?.actualDate && note?.dek)
-    .filter(note => {
-      // Handle both old and new visibility formats
-      const isHidden = note?.visibility?.isHidden || note?.hidden === true || note?.hidden === 'true'
-      return !isHidden
-    })
+    .filter(note => !note?.hidden)
     .sort((a, b) => b.actualDate - a.actualDate)
     .slice(0, 5)
 })
@@ -92,8 +70,8 @@ function groupByYear(posts) {
 }
 
 const blogPostsByYear = computed(() => {
-  console.log('Computing blogPostsByYear with:', blogPosts.value?.length, 'posts')
-  return groupByYear(blogPosts.value)
+  console.log('Computing blogPostsByYear with:', posts.value?.length, 'posts')
+  return groupByYear(posts.value)
 })
 
 const sortedYears = computed(() => Object.keys(blogPostsByYear.value).sort((a, b) => b - a))
@@ -135,9 +113,9 @@ onMounted(() => {
 })
 
 const recentlyUpdatedPosts = computed(() => {
-  if (!blogPosts.value) return []
+  if (!posts.value) return []
   const oneMonthAgo = subMonths(new Date(), 1)
-  return [...blogPosts.value]
+  return [...posts.value]
     .filter(post => {
       // Handle both old and new visibility formats
       const isHidden = post?.visibility?.isHidden || post?.hidden === true || post?.hidden === 'true'
@@ -154,11 +132,11 @@ const recentlyUpdatedPosts = computed(() => {
 
 <template>
   <div>
-    <div v-if="blogPostsPending || weekNotesPending" class="container mx-auto px-2 py-12 text-center">
+    <div v-if="loading" class="container mx-auto px-2 py-12 text-center">
       <p class="text-lg">Loading...</p>
     </div>
 
-    <div v-else-if="blogPostsError || weekNotesError" class="container mx-auto px-2 py-12 text-center">
+    <div v-else-if="error" class="container mx-auto px-2 py-12 text-center">
       <p class="text-lg text-red-500">Error loading content. Please try again later.</p>
     </div>
 
@@ -221,7 +199,6 @@ const recentlyUpdatedPosts = computed(() => {
             All Week Notes
           </UButton>
         </template>
-
         <div v-if="recentlyUpdatedPosts.length" class="my-12">
           <h3 class="text-2xl font-semibold text-zinc-600 dark:text-zinc-300 mb-4">Recently Updated</h3>
           <ul>
@@ -240,7 +217,6 @@ const recentlyUpdatedPosts = computed(() => {
     </div>
   </div>
 </template>
-
 <style scoped>
 .post-title {
   transition: color 0.2s ease;
