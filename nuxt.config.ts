@@ -57,7 +57,8 @@ export default defineNuxtConfig({
 
   // Component loading optimization
   build: {
-    transpile: ['vue-toastification']
+    transpile: ['vue-toastification'],
+    analyze: false
   },
 
   runtimeConfig: {
@@ -136,7 +137,10 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    preset: 'netlify'
+    preset: 'netlify',
+    prerender: {
+      failOnError: false
+    }
   },
 
   imports: {
