@@ -150,5 +150,7 @@ export default defineNuxtConfig({
 
   components: true,
 
-  experimental: false
+  experimental: {
+    payloadExtraction: false
+  }
 })
