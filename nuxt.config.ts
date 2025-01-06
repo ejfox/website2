@@ -1,5 +1,3 @@
-import pkg from './package.json'
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   app: {
@@ -154,7 +152,9 @@ export default defineNuxtConfig({
         dir: 'content/processed',
         maxAge: 60 * 60 * 24 * 7 // 1 week
       }
-    ]
+    ],
+    // Add error handling for SSR
+    errorHandler: '~/server/error-handler.ts'
   },
 
   imports: {
@@ -167,10 +167,15 @@ export default defineNuxtConfig({
   },
 
   components: {
-    dirs: ['~/components']
+    dirs: [
+      {
+        path: '~/components',
+        pathPrefix: false
+      }
+    ]
   },
 
-  // Ensure proper SSR handling
+  // Simplify experimental features
   experimental: {
     payloadExtraction: false
   }
