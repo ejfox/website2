@@ -7,21 +7,33 @@ import { animate, stagger } from '~/anime.esm.js'
 // Add console logs to track component lifecycle
 console.log('Component setup starting')
 
+// Add debug logs
+const route = useRoute()
+console.log('Route:', route.path)
+
 const processedMarkdown = useProcessedMarkdown()
 console.log('processedMarkdown initialized')
 
 // Add error handling and logging to data fetching
-const { data: posts, error: postsError } = await useAsyncData('blog-posts', () => {
-  console.log('Fetching posts...')
-  try {
-    const result = await processedMarkdown.getAllPosts(false, false)
-    console.log('Posts fetched:', result?.length)
-    return result
-  } catch (err) {
-    console.error('Error fetching posts:', err)
-    return []
+const { data: posts, error: postsError } = await useAsyncData(
+  'blog-posts',
+  async () => {
+    console.log('Fetching posts...')
+    try {
+      const result = await processedMarkdown.getAllPosts(false, false)
+      console.log('Posts fetched successfully:', result?.length)
+      return result
+    } catch (err) {
+      console.error('Error fetching posts:', err)
+      throw err // Let Nuxt handle the error
+    }
+  },
+  {
+    // Add error handling options
+    default: () => [],
+    immediate: true
   }
-})
+)
 
 const { data: notes, error: notesError } = await useAsyncData('week-notes', () => {
   console.log('Fetching notes...')

@@ -136,25 +136,7 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    preset: 'netlify',
-    routeRules: {
-      '/stats': { ssr: true },
-      '/rss.xml': { prerender: true },
-      '/pgp.txt': {
-        headers: {
-          'content-type': 'application/pgp-keys'
-        }
-      }
-    },
-    // Add content directory to public assets
-    publicAssets: [
-      {
-        dir: 'content/processed',
-        maxAge: 60 * 60 * 24 * 7 // 1 week
-      }
-    ],
-    // Add error handling for SSR
-    errorHandler: '~/server/error-handler.ts'
+    preset: 'netlify'
   },
 
   imports: {
@@ -166,17 +148,7 @@ export default defineNuxtConfig({
     ]
   },
 
-  components: {
-    dirs: [
-      {
-        path: '~/components',
-        pathPrefix: false
-      }
-    ]
-  },
+  components: true,
 
-  // Simplify experimental features
-  experimental: {
-    payloadExtraction: false
-  }
+  experimental: false
 })
