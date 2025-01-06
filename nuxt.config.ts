@@ -137,7 +137,7 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    preset: 'node-server',
+    preset: 'netlify',
     routeRules: {
       '/stats': { ssr: true },
       '/rss.xml': { prerender: true },
@@ -166,11 +166,11 @@ export default defineNuxtConfig({
   },
 
   components: {
-    dirs: [
-      {
-        path: '~/components',
-        pathPrefix: false
-      }
-    ]
+    dirs: ['~/components']
+  },
+
+  // Ensure proper SSR handling
+  experimental: {
+    payloadExtraction: false
   }
 })

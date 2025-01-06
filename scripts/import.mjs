@@ -71,22 +71,33 @@ const whitelistedFolders = [
 
 const stats = {
   filesProcessed: 0,
-  directoriesScanned: 0,
-  filesByType: {
-    blog: 0,
-    weekNotes: 0,
-    reading: 0,
-    projects: 0,
-    robots: 0,
-    drafts: 0,
-    prompts: 0
-  },
+  totalFiles: 0,
+  currentFile: null,
   filesAdded: [],
   filesUpdated: [],
-  filesDeleted: [],
-  errors: [],
   skippedFiles: [],
-  hiddenFiles: []
+  filesByType: {},
+  errors: [],
+  startTime: Date.now(),
+  contentStats: {
+    totalSize: 0,
+    averageSize: 0,
+    largest: { size: 0, file: '' },
+    wordCounts: [],
+    imageRefs: 0,
+    linkRefs: 0
+  },
+  systemStats: {
+    initialMemory: process.memoryUsage().heapUsed,
+    peakMemory: 0,
+    lastMemory: 0
+  },
+  queue: {
+    pending: new Set(),
+    active: new Set(),
+    completed: new Set(),
+    failed: new Set()
+  }
 }
 
 const spinner = ora()
@@ -95,13 +106,13 @@ const spinner = ora()
  * Clean the destination directory before import
  */
 function cleanDestination() {
-  console.log(chalk.yellow('\nCleaning destination directory...'))
+  debug('Cleaning destination directory...')
   if (existsSync(destinationDirectory)) {
     rmSync(destinationDirectory, { recursive: true, force: true })
-    console.log(chalk.yellow('✓ Cleaned:', chalk.dim(destinationDirectory)))
+    debug('Cleaned destination directory', 'success')
   }
   mkdirSync(destinationDirectory, { recursive: true })
-  console.log(chalk.green('✓ Created fresh destination directory\n'))
+  debug('Created fresh destination directory', 'success')
 }
 
 /**
@@ -124,14 +135,19 @@ async function findMarkdownFiles() {
   return files
 }
 
-// Add a simple debug log helper at the top
-const debug = (msg, data) => {
-  if (process.env.DEBUG_IMPORT === 'true') {
-    console.log(
-      chalk.blue('→'),
-      msg,
-      data ? chalk.dim(JSON.stringify(data)) : ''
-    )
+// Update the debug function to match log() style
+function debug(message, level = 'info') {
+  if (process.env.DEBUG_IMPORT === 'true' || level === 'error') {
+    const prefix =
+      {
+        info: chalk.blue('ℹ'),
+        warn: chalk.yellow('⚠'),
+        error: chalk.red('✖'),
+        success: chalk.green('✓'),
+        debug: chalk.gray('→')
+      }[level] || chalk.blue('ℹ')
+
+    console[level === 'error' ? 'error' : 'log'](`${prefix} ${message}`)
   }
 }
 
@@ -140,7 +156,10 @@ const debug = (msg, data) => {
  */
 function processFile(filePath) {
   try {
-    // Verify file exists and is actually a file
+    stats.queue.active.add(filePath)
+    stats.queue.pending.delete(filePath)
+    stats.currentFile = filePath
+
     if (!existsSync(filePath)) {
       throw new Error('File does not exist')
     }
@@ -153,107 +172,73 @@ function processFile(filePath) {
     const relativePath = path.relative(sourceDirectory, filePath)
     const data = readFileSync(filePath, 'utf8')
     const { attributes, body } = frontMatter(data)
-    const fileName = path.basename(filePath)
     const fileType = getFileType(relativePath)
-    const wordCount = calculateWordCount(body)
 
-    debug('Processing', { fileName, fileType })
-
-    // Handle private content more quietly
+    // Handle private content quietly
     if (relativePath.includes('drafts/') || relativePath.includes('robots/')) {
       if (!attributes.share) {
-        if (process.env.DEBUG_IMPORT) {
-          console.log(chalk.yellow('⚠ PRIVATE:'), chalk.dim(`${fileName}`))
-        }
         stats.skippedFiles.push(filePath)
+        stats.queue.completed.add(filePath)
+        stats.queue.active.delete(filePath)
+        debug(`Skipping private file: ${path.basename(filePath)}`, 'warn')
         return
       }
     }
 
     // Track stats
-    updateFileTypeStats(fileType)
     stats.filesProcessed++
+    stats.filesByType[fileType] = (stats.filesByType[fileType] || 0) + 1
 
-    // More concise status line
-    const status = stats.filesAdded.includes(filePath)
-      ? '+'
-      : stats.filesUpdated.includes(filePath)
-      ? '~'
-      : ' '
-
-    console.log(
-      `${status} ${chalk.bold(fileName.padEnd(35))} ${chalk.dim(
-        fileType.padEnd(10)
-      )} ${wordCount}w`
-    )
-
-    // Fix dates for week notes
-    if (fileType === 'week-note') {
-      const weekMatch = fileName.match(/(\d{4})-(\d+)/)
-      if (weekMatch) {
-        const [_, year, week] = weekMatch
-        if (!attributes.date || isNaN(new Date(attributes.date).getTime())) {
-          const date = new Date(year)
-          date.setDate(1 + (week - 1) * 7)
-          attributes.date = date.toISOString()
-          debug('Fixed week note date', { fileName, date: attributes.date })
-        }
-      }
-    }
-
-    // Determine destination path - put shared robot notes in a special folder
-    let destinationRelativePath = path.dirname(relativePath)
-    if (fileType === 'robot' && attributes.share) {
-      destinationRelativePath = 'robots'
-    }
-
-    // Ensure the destination folder exists
+    // Determine destination path and ensure it exists
     const destinationFolder = path.join(
       destinationDirectory,
-      destinationRelativePath
+      path.dirname(relativePath)
     )
-    try {
-      if (!existsSync(destinationFolder)) {
-        mkdirSync(destinationFolder, { recursive: true })
-      }
-    } catch (error) {
-      console.error(`Error creating directory ${destinationFolder}:`, error)
-      stats.errors.push({ file: filePath, error: error.message })
-      return
-    }
+    mkdirSync(destinationFolder, { recursive: true })
 
-    // Construct the destination file path
-    const destinationFilePath = path.join(destinationFolder, fileName)
+    // Write the file
+    const destinationFilePath = path.join(
+      destinationFolder,
+      path.basename(filePath)
+    )
 
     const isNewFile = !existsSync(destinationFilePath)
-    const oldContent = isNewFile
-      ? null
-      : readFileSync(destinationFilePath, 'utf8')
+
+    // Convert string boolean to real boolean if needed, or else preserve as-is:
+    function convertBool(val) {
+      if (val === 'true') return true
+      if (val === 'false') return false
+      return val // Preserves existing boolean values
+    }
 
     const updatedContent = addFrontmatter(body, {
       ...attributes,
-      wordCount,
-      hidden: attributes.hidden,
-      draft: attributes.hidden
+      hidden: convertBool(attributes.hidden),
+      draft: convertBool(attributes.draft),
+      date: attributes.date || new Date().toISOString()
     })
+
     writeFileSync(destinationFilePath, updatedContent, 'utf8')
 
-    // Track what changed
+    // Track changes
     if (isNewFile) {
       stats.filesAdded.push(destinationFilePath)
-      console.log(chalk.dim.green(`+ ${fileName}`))
-    } else if (oldContent !== updatedContent) {
+      debug(`Added: ${path.basename(filePath)}`, 'success')
+    } else {
       stats.filesUpdated.push(destinationFilePath)
-      console.log(chalk.dim.yellow(`~ ${fileName}`))
+      debug(`Updated: ${path.basename(filePath)}`, 'success')
     }
 
-    console.log(`Processed file: ${destinationFilePath}`)
+    stats.queue.completed.add(filePath)
+    stats.queue.active.delete(filePath)
   } catch (error) {
-    console.error(
-      chalk.red('✖'),
-      chalk.dim(`${path.basename(filePath)}: ${error.message}`)
+    debug(
+      `Error processing ${path.basename(filePath)}: ${error.message}`,
+      'error'
     )
     stats.errors.push({ file: filePath, error: error.message })
+    stats.queue.failed.add(filePath)
+    stats.queue.active.delete(filePath)
   }
 }
 
@@ -264,13 +249,18 @@ function processFile(filePath) {
  * @returns {string} Updated content with frontmatter
  */
 function addFrontmatter(body, attributes) {
-  // Only include hidden/draft if they're explicitly set
+  // Convert string booleans to actual booleans
+  const convertToBoolean = (value) => {
+    if (value === 'true') return true
+    if (value === 'false') return false
+    return value
+  }
+
+  // Only include hidden/draft if they're explicitly true
   const updatedFrontmatter = {
     ...attributes,
-    // Only set hidden if it's explicitly true
-    ...(attributes.hidden === true && { hidden: true }),
-    // Only set draft if it's explicitly true
-    ...(attributes.draft === true && { draft: true })
+    ...(convertToBoolean(attributes.hidden) === true && { hidden: true }),
+    ...(convertToBoolean(attributes.draft) === true && { draft: true })
   }
   return `---\n${objToFrontmatter(updatedFrontmatter)}---\n${body}`
 }
@@ -456,78 +446,116 @@ function getDateOfISOWeek(year, week) {
   return targetDate
 }
 
-// Start processing from the source directory
+// Add these stats tracking functions
+function updateRealTimeStats(filePath, fileType) {
+  stats.currentFile = path.basename(filePath)
+  stats.filesByType[fileType] = (stats.filesByType[fileType] || 0) + 1
+  printRealTimeStats()
+}
+
+function printRealTimeStats() {
+  const progress = Math.round((stats.filesProcessed / stats.totalFiles) * 100)
+  const memoryUsed = Math.round(process.memoryUsage().heapUsed / 1024 / 1024)
+
+  // Clear the entire line before writing
+  process.stdout.write('\r\x1b[K')
+
+  // Get relative path and format it
+  const relativePath = stats.currentFile
+    ? path.relative(sourceDirectory, stats.currentFile)
+    : 'Initializing...'
+  const fileInfo = `${relativePath}`.padEnd(60)
+  const progressInfo =
+    `${progress}% (${stats.filesProcessed}/${stats.totalFiles})`.padEnd(20)
+  const memInfo = `mem: ${memoryUsed}MB`
+
+  process.stdout.write(`${fileInfo} | ${progressInfo} | ${memInfo}`)
+}
+
+// Helper functions for formatting
+function formatTime(ms) {
+  const seconds = Math.floor(ms / 1000)
+  const minutes = Math.floor(seconds / 60)
+  const hours = Math.floor(minutes / 60)
+  return `${hours.toString().padStart(2, '0')}:${(minutes % 60)
+    .toString()
+    .padStart(2, '0')}:${(seconds % 60).toString().padStart(2, '0')}`
+}
+
+function formatFileSize(bytes) {
+  if (bytes < 1024) return `${bytes}B`
+  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)}KB`
+  return `${(bytes / 1024 / 1024).toFixed(1)}MB`
+}
+
+function formatMemoryDelta(bytes) {
+  const mb = bytes / 1024 / 1024
+  const sign = mb >= 0 ? '+' : ''
+  return `${sign}${mb.toFixed(1)}MB`
+}
+
+// Update the main function
 async function main() {
   try {
-    console.log(gradient.rainbow('\n📝 Blog Import Pipeline\n'))
+    const mainSpinner = ora('Scanning for files...').start()
 
-    spinner.start('Preparing import')
-    cleanDestination()
-
+    // Find files first
     const files = await findMarkdownFiles()
-    spinner.succeed(`Found ${files.length} files to process`)
+    stats.totalFiles = files.length
+    files.forEach((file) => stats.queue.pending.add(file))
+    mainSpinner.succeed(`Found ${files.length} files`)
 
-    console.log('\n' + chalk.bold('Processing files:'))
-    console.log(
-      chalk.dim('Status | File'.padEnd(38) + 'Type'.padEnd(12) + 'Words')
-    )
-    console.log(chalk.dim('─'.repeat(60)))
+    // Clean destination
+    mainSpinner.start('Cleaning destination directory')
+    cleanDestination()
+    mainSpinner.succeed('Cleaned destination directory')
+
+    console.log('\nProcessing files...\n')
 
     for (const file of files) {
       processFile(file)
+      await new Promise((resolve) => setTimeout(resolve, 50))
     }
 
-    const summary = boxen(formatSummary(), {
-      padding: 1,
-      margin: 1,
-      borderStyle: 'round',
-      borderColor: 'green',
-      title: '📊 Import Summary',
-      titleAlignment: 'center'
-    })
-
-    console.log(summary)
+    process.stdout.write('\n\n')
+    console.log(formatSummary())
   } catch (error) {
-    spinner.fail('Import failed')
-    console.error(chalk.red('\nFatal error:'), error)
+    console.error('\nError:', error)
     process.exit(1)
   }
 }
 
-// Add this helper function
 function formatSummary() {
-  const totalWords =
-    stats.filesProcessed > 0
-      ? Object.values(stats.filesByType).reduce((sum, count) => sum + count, 0)
-      : 0
-
   const lines = [
-    chalk.bold(`Files: ${stats.filesProcessed}`),
-    `${chalk.green('+')} Added: ${stats.filesAdded.length}`,
-    `${chalk.yellow('~')} Updated: ${stats.filesUpdated.length}`,
-    `${chalk.red('-')} Skipped: ${stats.skippedFiles.length}`,
     '',
-    chalk.bold('Content Types:'),
-    ...Object.entries(stats.filesByType)
-      .filter(([_, count]) => count > 0)
-      .map(
-        ([type, count]) =>
-          `${type.padEnd(12)} ${count.toString().padStart(3)} files`
-      )
+    '',
+    'Import Complete',
+    '--------------',
+    `Total Processed: ${stats.filesProcessed}`,
+    `Added: ${stats.filesAdded.length}`,
+    `Skipped: ${stats.skippedFiles.length}`,
+    '',
+    'Content Summary',
+    '--------------'
   ]
+
+  Object.entries(stats.filesByType)
+    .filter(([_, count]) => count > 0)
+    .forEach(([type, count]) => {
+      lines.push(`${type}: ${count} files`)
+    })
 
   if (stats.errors.length > 0) {
     lines.push(
       '',
-      chalk.red.bold(`Errors (${stats.errors.length}):`),
+      'Errors',
+      '------',
       ...stats.errors
-        .map(({ file, error }) =>
-          chalk.red(`• ${path.basename(file)}: ${error}`)
-        )
-        .slice(0, 5) // Show only first 5 errors
+        .slice(0, 5)
+        .map(({ file, error }) => `${path.basename(file)}: ${error}`)
     )
     if (stats.errors.length > 5) {
-      lines.push(chalk.red(`  ... and ${stats.errors.length - 5} more errors`))
+      lines.push(`... and ${stats.errors.length - 5} more errors`)
     }
   }
 

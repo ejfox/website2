@@ -31,6 +31,9 @@ import { socialPlatforms, hrSvg, headerStar } from '../helpers.mjs'
 import { createHash } from 'crypto'
 import chalk from 'chalk'
 import { existsSync } from 'fs'
+import ora from 'ora'
+import boxen from 'boxen'
+import gradient from 'gradient-string'
 const setTimeoutPromise = promisify(setTimeout)
 
 // =============================
@@ -341,6 +344,23 @@ async function processMarkdown(content, filePath) {
     // Generate robots meta content
     const robotsMeta = generateRobotsMetaContent(frontmatter, filePath)
 
+    const processedDate = getValidDate(frontmatter.date, filePath)
+    const processedModified = getValidDate(frontmatter.modified, filePath)
+
+    const visibilityStatus = {
+      isHidden: frontmatter.hidden === true || frontmatter.hidden === 'true',
+      isShared: frontmatter.share === true,
+      isSpecialSection: [
+        'reading/',
+        'projects/',
+        'robots/',
+        'study-notes/',
+        'prompts/'
+      ].some((section) => filePath.startsWith(section)),
+      isIndex: filePath === 'index' || filePath.startsWith('!')
+    }
+
+    // Return the processed content with metadata
     return {
       html,
       metadata: {
@@ -349,11 +369,15 @@ async function processMarkdown(content, filePath) {
         title:
           frontmatter.title || firstHeading || path.basename(filePath, '.md'),
         toc,
-        wordCount,
+        wordCount: wordCount || frontmatter.wordCount,
         readingTime,
         imageCount,
         linkCount,
-        hidden: frontmatter.hidden === true
+        hidden: frontmatter.hidden === true,
+        date: processedDate.toISOString(),
+        modified: processedModified.toISOString(),
+        type: getPostType(filePath),
+        visibility: visibilityStatus
       }
     }
   } catch (error) {
@@ -365,70 +389,78 @@ async function processMarkdown(content, filePath) {
 // Process a single markdown file
 async function processMarkdownFile(fullPath) {
   try {
+    processStats.queue.active.add(fullPath)
+    const fileContent = await fs.readFile(fullPath, 'utf8')
+    const fileSize = Buffer.byteLength(fileContent)
+
+    // Parse frontmatter and content
+    const { data: frontmatter, content: markdownContent } = matter(fileContent)
+
+    // Calculate word count
+    const wordCount = calculateWordCount(markdownContent)
+
+    // Convert string booleans or preserve existing flags:
+    function convertBool(val) {
+      if (val === 'true') return true
+      if (val === 'false') return false
+      return val
+    }
+
+    const updatedFrontmatter = {
+      ...frontmatter,
+      wordCount,
+      hidden: convertBool(frontmatter.hidden),
+      draft: convertBool(frontmatter.draft),
+      date: frontmatter.date || new Date().toISOString()
+    }
+
+    // Create updated content
+    const updatedContent = matter.stringify(markdownContent, updatedFrontmatter)
+
+    // Write back the file with updated frontmatter
+    await fs.writeFile(fullPath, updatedContent)
+
+    // Process the file using processMarkdown with the UPDATED content
+    const result = await processMarkdown(updatedContent, fullPath)
+
+    // Ensure the word count is included in the manifest
     const relativePath = path.relative(contentDir, fullPath)
-    const fileContent = await fs.readFile(fullPath, 'utf-8')
-
-    // Skip empty files
-    if (!fileContent.trim()) {
-      log(`Skipping empty file: ${chalk.bold(path.basename(fullPath))}`, 'warn')
-      processStats.warnings.push({ file: fullPath, message: 'Empty file' })
-      return null
+    const manifestEntry = {
+      ...result,
+      slug: relativePath.replace(/\.md$/, ''),
+      wordCount,
+      metadata: {
+        ...result.metadata,
+        wordCount
+      }
     }
 
-    // Track file type and update stats silently
-    if (relativePath.startsWith('week-notes/')) {
-      processStats.byType.weekNotes++
-    } else if (relativePath.startsWith('reading/')) {
-      processStats.byType.reading++
-    } else if (relativePath.startsWith('projects/')) {
-      processStats.byType.projects++
-    } else if (relativePath.startsWith('robots/')) {
-      processStats.byType.robots++
-    } else if (relativePath.startsWith('drafts/')) {
-      processStats.byType.drafts++
-    } else if (relativePath.startsWith('prompts/')) {
-      processStats.byType.prompts++
-    } else {
-      processStats.byType.blog++
-    }
+    processStats.queue.completed.add(fullPath)
+    processStats.queue.active.delete(fullPath)
 
-    const { html, metadata } = await processMarkdown(fileContent, fullPath)
-    const outputPath = path.join(
-      outputDir,
-      `${relativePath.replace(/\.md$/, '')}.json`
-    )
-
-    await fs.mkdir(path.dirname(outputPath), { recursive: true })
-    await fs.writeFile(
-      outputPath,
-      JSON.stringify(
-        { slug: relativePath.replace(/\.md$/, ''), ...metadata, content: html },
-        null,
-        2
-      )
-    )
-
-    // Update stats
-    processStats.filesProcessed++
-    processStats.totalWordCount += metadata.wordCount || 0
-    processStats.totalImageCount += metadata.imageCount || 0
-    processStats.totalLinkCount += metadata.linkCount || 0
-
-    return { slug: relativePath.replace(/\.md$/, ''), ...metadata }
+    return manifestEntry
   } catch (error) {
-    processStats.errors.push({
-      file: fullPath,
-      error: error.message,
-      details: error.stack
-    })
-    log(
-      `Error processing ${chalk.bold(path.basename(fullPath))}: ${
-        error.message
-      }`,
-      'error'
-    )
-    return null
+    processStats.queue.failed.add(fullPath)
+    processStats.queue.active.delete(fullPath)
+    throw error
   }
+}
+
+// Helper function to calculate word count
+function calculateWordCount(content) {
+  // Remove HTML tags first
+  const textContent = content.replace(/<[^>]*>/g, ' ')
+
+  return textContent
+    .replace(/\s+/g, ' ') // Normalize whitespace
+    .replace(/#+\s/g, '') // Remove markdown headers
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Keep link text, remove URLs
+    .replace(/`[^`]+`/g, '') // Remove inline code
+    .replace(/```[\s\S]*?```/g, '') // Remove code blocks
+    .replace(/\*\*|__|\*|_/g, '') // Remove bold/italic markers
+    .trim()
+    .split(/\s+/)
+    .filter((word) => word.length > 0).length // Filter out empty strings
 }
 
 // Add this function to your script
@@ -451,62 +483,177 @@ async function getFilesRecursively(dir) {
   return files.flat()
 }
 
+// Add these stats tracking functions
+function updateRealTimeStats(file, metadata = {}) {
+  const type = getPostType(path.relative(contentDir, file))
+  processStats.currentFile = file // Store full path instead of basename
+  processStats.byType[type] = (processStats.byType[type] || 0) + 1
+  processStats.totalWordCount += metadata.wordCount || 0
+  processStats.totalImageCount += metadata.imageCount || 0
+  processStats.totalLinkCount += metadata.linkCount || 0
+  processStats.averageWordCount = Math.round(
+    processStats.totalWordCount / processStats.filesProcessed
+  )
+  printRealTimeStats()
+}
+
+function printRealTimeStats() {
+  const progress = Math.round(
+    (processStats.filesProcessed / processStats.totalFiles) * 100
+  )
+  const memoryUsed = Math.round(process.memoryUsage().heapUsed / 1024 / 1024)
+
+  // Clear the entire line before writing
+  process.stdout.write('\r\x1b[K')
+
+  // Get relative path and format it
+  const relativePath = processStats.currentFile
+    ? path.relative(contentDir, processStats.currentFile)
+    : 'Initializing...'
+  const fileInfo = `${relativePath}`.padEnd(60)
+  const progressInfo =
+    `${progress}% (${processStats.filesProcessed}/${processStats.totalFiles})`.padEnd(
+      20
+    )
+  const memInfo = `mem: ${memoryUsed}MB`
+
+  process.stdout.write(`${fileInfo} | ${progressInfo} | ${memInfo}`)
+}
+
+function printProcessingReport() {
+  const lines = [
+    '',
+    '',
+    'Processing Complete',
+    '------------------',
+    `Files Processed: ${processStats.filesProcessed}`,
+    `Total Words: ${processStats.totalWordCount.toLocaleString()}`,
+    `Total Images: ${processStats.totalImageCount}`,
+    `Total Links: ${processStats.totalLinkCount}`,
+    '',
+    'Document Analysis',
+    '-----------------',
+    `Headers: H1: ${processStats.contentAnalysis.h1}, H2: ${processStats.contentAnalysis.h2}, H3: ${processStats.contentAnalysis.h3}`,
+    `Code Blocks: JS: ${processStats.contentAnalysis.codeBlocks.js}, Python: ${processStats.contentAnalysis.codeBlocks.py}, Other: ${processStats.contentAnalysis.codeBlocks.other}`,
+    `Tables: ${processStats.contentAnalysis.tables}, Footnotes: ${processStats.contentAnalysis.footnotes}`,
+    '',
+    'Content Types',
+    '------------'
+  ]
+
+  Object.entries(processStats.byType)
+    .filter(([_, count]) => count > 0)
+    .forEach(([type, count]) => {
+      lines.push(`${type}: ${count} files`)
+    })
+
+  if (processStats.errors.length > 0) {
+    lines.push(
+      '',
+      'Errors',
+      '------',
+      ...processStats.errors
+        .slice(0, 5)
+        .map(({ file, error }) => `${path.basename(file)}: ${error}`)
+    )
+    if (processStats.errors.length > 5) {
+      lines.push(`... and ${processStats.errors.length - 5} more errors`)
+    }
+  }
+
+  console.log(lines.join('\n'))
+}
+
+// Helper functions for formatting
+function formatTime(ms) {
+  const seconds = Math.floor(ms / 1000)
+  const minutes = Math.floor(seconds / 60)
+  const hours = Math.floor(minutes / 60)
+  return `${hours.toString().padStart(2, '0')}:${(minutes % 60)
+    .toString()
+    .padStart(2, '0')}:${(seconds % 60).toString().padStart(2, '0')}`
+}
+
+function formatFileSize(bytes) {
+  if (bytes < 1024) return `${bytes}B`
+  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)}KB`
+  return `${(bytes / 1024 / 1024).toFixed(1)}MB`
+}
+
+function formatReadingTime(times) {
+  if (times.length === 0) return '0.0 MIN'
+  const avg = times.reduce((a, b) => a + b, 0) / times.length
+  return `${avg.toFixed(1)} MIN`
+}
+
 // Main function to process all files
 async function processAllFiles() {
-  log('Starting markdown processing...', 'info')
+  const mainSpinner = ora('Starting markdown processing...').start()
   let isInterrupted = false
 
   const interruptHandler = async () => {
     if (isInterrupted) {
-      log('Forced exit. Some progress may be lost.', 'error')
+      mainSpinner.fail('Forced exit')
       process.exit(1)
     }
-    log('Interrupt received. Saving progress...', 'warn')
+    mainSpinner.warn('Interrupt received, saving progress...')
     isInterrupted = true
   }
 
   process.on('SIGINT', interruptHandler)
 
   try {
-    log('Collecting files...')
     const allFiles = await getFilesRecursively(contentDir)
-    log(`Found ${chalk.green(allFiles.length)} markdown files`)
+    processStats.totalFiles = allFiles.length
+    mainSpinner.succeed(`Found ${allFiles.length} markdown files`)
+
+    // Add two blank lines before processing
+    console.log('\nProcessing files...\n')
 
     const manifestLite = []
+
     for (const file of allFiles) {
       if (isInterrupted) break
       try {
         const result = await processMarkdownFile(file.path)
         manifestLite.push(result)
+        processStats.filesProcessed++
+        updateRealTimeStats(file.path, result)
+        printRealTimeStats()
       } catch (error) {
-        // Error already logged in processMarkdownFile
-        continue
+        processStats.errors.push({
+          file: file.path,
+          error: error.message
+        })
       }
-      await setTimeoutPromise(0)
+      await setTimeoutPromise(50)
     }
 
     const filteredManifest = manifestLite.filter(Boolean)
 
     if (!isInterrupted) {
-      log('Writing manifest...', 'info')
+      // Add newlines after progress
+      process.stdout.write('\n\n')
+      mainSpinner.start('Writing manifest')
       const manifestPath = path.join(outputDir, 'manifest-lite.json')
       await fs.mkdir(path.dirname(manifestPath), { recursive: true })
       await fs.writeFile(
         manifestPath,
         JSON.stringify(filteredManifest, null, 2)
       )
-      log('Manifest written successfully', 'success')
+      mainSpinner.succeed('Manifest written successfully')
     }
 
+    console.log('')
     printProcessingReport()
   } catch (error) {
-    log('Processing failed', 'error')
+    mainSpinner.fail('Processing failed')
     console.error(error)
     throw error
   } finally {
     process.off('SIGINT', interruptHandler)
     if (isInterrupted) {
-      log('Progress saved. Exiting.', 'warn')
+      mainSpinner.warn('Progress saved')
       process.exit(0)
     }
   }
@@ -773,27 +920,20 @@ function remarkObsidianSupport() {
   }
 }
 
-// Update the log function to use correct console methods
+// Update the log function to be more minimal
 function log(message, level = 'info') {
-  const timestamp = chalk.dim(new Date().toISOString())
-  const prefix =
-    {
-      info: chalk.blue('ℹ'),
-      warn: chalk.yellow('⚠'),
-      error: chalk.red('✖'),
-      success: chalk.green('✓')
-    }[level] || chalk.blue('ℹ')
+  if (process.env.DEBUG_PROCESS === 'true' || level === 'error') {
+    const prefix =
+      {
+        info: chalk.blue('ℹ'),
+        warn: chalk.yellow('⚠'),
+        error: chalk.red('✖'),
+        success: chalk.green('✓'),
+        debug: chalk.gray('→')
+      }[level] || chalk.blue('ℹ')
 
-  // Map our levels to valid console methods
-  const consoleMethod =
-    {
-      info: 'log',
-      warn: 'warn',
-      error: 'error',
-      success: 'log'
-    }[level] || 'log'
-
-  console[consoleMethod](`${prefix} ${message}`)
+    console[level === 'error' ? 'error' : 'log'](`${prefix} ${message}`)
+  }
 }
 
 // =============================
@@ -824,75 +964,88 @@ function generateRobotsMetaContent(frontmatter, filePath) {
   return 'index, follow'
 }
 
-// Add after other stats/constants
+// Update the processStats object
 const processStats = {
   filesProcessed: 0,
+  totalFiles: 0,
   totalWordCount: 0,
   totalImageCount: 0,
   totalLinkCount: 0,
+  averageWordCount: 0,
+  currentFile: null,
   byType: {
-    blog: 0,
-    weekNotes: 0,
+    post: 0,
+    weekNote: 0,
     reading: 0,
-    projects: 0,
-    robots: 0,
-    drafts: 0,
-    prompts: 0
+    project: 0,
+    robot: 0,
+    draft: 0,
+    prompt: 0,
+    studyNote: 0
   },
   errors: [],
-  warnings: []
+  warnings: [],
+  startTime: Date.now(),
+  lastProcessed: [],
+  contentAnalysis: {
+    h1: 0,
+    h2: 0,
+    h3: 0,
+    codeBlocks: { js: 0, py: 0, other: 0 },
+    tables: 0,
+    footnotes: 0
+  },
+  fileSizes: {
+    total: 0,
+    average: 0,
+    largest: { size: 0, file: '' }
+  },
+  resourceUsage: {
+    initialMemory: process.memoryUsage().heapUsed,
+    peakMemory: 0
+  },
+  queue: {
+    active: new Set(),
+    completed: new Set(),
+    failed: new Set()
+  },
+  keywords: new Map(),
+  readingTimes: [],
+  linkAnalysis: {
+    internal: 0,
+    external: 0
+  }
 }
 
-// Add report function
-function printProcessingReport() {
-  const separator = chalk.dim('='.repeat(80))
-  console.log('\n' + separator)
-  console.log(chalk.bold.blue('📊 Markdown Processing Report'))
-  console.log(separator)
+// Add helper functions
+function getPostType(relativePath) {
+  if (relativePath.startsWith('drafts/')) return 'draft'
+  if (relativePath.startsWith('robots/')) return 'robot'
+  if (relativePath.startsWith('week-notes/')) return 'weekNote'
+  if (relativePath.startsWith('reading/')) return 'reading'
+  if (relativePath.startsWith('projects/')) return 'project'
+  if (relativePath.startsWith('study-notes/')) return 'studyNote'
+  if (relativePath.startsWith('prompts/')) return 'prompt'
+  return 'post'
+}
 
-  // Summary
-  console.log(chalk.bold('\n📈 Summary'))
-  console.log(chalk.dim('─'.repeat(40)))
-  console.log(
-    chalk.bold('Files Processed:     ') +
-      chalk.green(processStats.filesProcessed)
-  )
-  console.log(
-    chalk.bold('Total Words:         ') +
-      chalk.green(processStats.totalWordCount.toLocaleString())
-  )
-  console.log(
-    chalk.bold('Total Images:        ') +
-      chalk.green(processStats.totalImageCount)
-  )
-  console.log(
-    chalk.bold('Total Links:         ') +
-      chalk.green(processStats.totalLinkCount)
-  )
-
-  // Files by type
-  console.log(chalk.bold('\n📝 Files by Type'))
-  console.log(chalk.dim('─'.repeat(40)))
-  Object.entries(processStats.byType)
-    .filter(([_, count]) => count > 0)
-    .sort(([, a], [, b]) => b - a)
-    .forEach(([type, count]) => {
-      console.log(
-        `${chalk.bold(type.padEnd(15))} ${chalk.green(
-          count.toString().padStart(3)
-        )} files`
-      )
-    })
-
-  if (processStats.errors.length > 0) {
-    console.log(chalk.bold.red('\n❌ Errors'))
-    console.log(chalk.dim('─'.repeat(40)))
-    processStats.errors.forEach(({ file, error }) => {
-      console.log(chalk.dim.red(`✖ ${path.basename(file)}: ${error}`))
-    })
+// Add this helper function for date handling
+function getValidDate(dateString, filePath) {
+  if (!dateString) {
+    // Try to extract date from filename for week notes
+    if (filePath.includes('week-notes/')) {
+      const weekMatch = path.basename(filePath).match(/(\d{4})-(\d+)/)
+      if (weekMatch) {
+        const [_, year, week] = weekMatch
+        const date = new Date(year)
+        date.setDate(1 + (week - 1) * 7)
+        return date
+      }
+    }
+    // For other files without dates, use file creation time
+    return new Date()
   }
 
-  console.log('\n' + separator)
-  console.log(chalk.bold.green('✨ Markdown processing completed!'))
-  console.log(separator + '\n')
+  const date = new Date(dateString)
+  return isNaN(date.getTime()) ? new Date() : date
 }

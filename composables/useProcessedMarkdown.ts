@@ -40,7 +40,6 @@
  *
  * getWeekNotes():
  * - Only includes posts from week-notes/
- * - Filters out:
  *   - Hidden posts (hidden === true)
  *   - Posts without deks
  *
@@ -60,6 +59,14 @@
  *
  * @returns {Object} An object with various methods to retrieve blog posts and their metadata.
  */
+
+// Add a simple debug helper at the top
+const debug = (msg: string, data?: any) => {
+  if (process.env.DEBUG_CONTENT === 'true') {
+    console.log(`[content] ${msg}`, data || '')
+  }
+}
+
 export const useProcessedMarkdown = () => {
   // Access the runtime configuration for the application
   const config = useRuntimeConfig()
@@ -72,24 +79,21 @@ export const useProcessedMarkdown = () => {
    */
   const getManifestLite = async (): Promise<ManifestItem[]> => {
     try {
-      console.log('Fetching manifest-lite...')
+      debug('Fetching manifest-lite')
       const result = await $fetch('/api/manifest-lite')
 
       if (!Array.isArray(result)) {
-        console.error('Manifest-lite is not an array:', result)
+        console.error('Error: Manifest-lite is not an array')
         return []
       }
 
-      console.log('Manifest-lite stats:', {
+      // Only log stats in debug mode
+      debug('Manifest stats', {
         total: result.length,
         posts: result.filter((p) => p?.metadata?.type === 'post').length,
         weekNotes: result.filter((p) => p?.slug?.includes('week-notes/'))
           .length,
-        hidden: result.filter((p) => p?.metadata?.hidden || p?.hidden).length,
-        drafts: result.filter((p) => p?.metadata?.draft || p?.draft).length,
-        withContent: result.filter(
-          (p) => p?.wordCount || p?.metadata?.wordCount || p?.html
-        ).length
+        hidden: result.filter((p) => p?.metadata?.hidden || p?.hidden).length
       })
 
       return result as ManifestItem[]
@@ -106,15 +110,12 @@ export const useProcessedMarkdown = () => {
    */
   const getPostBySlug = async (slug: string) => {
     try {
-      if (slug === 'index') {
-        const result = await $fetch('/api/posts/index')
-        return result
-      }
-
-      const result = await $fetch(`/api/posts/${slug}`)
+      const result = await $fetch(
+        slug === 'index' ? '/api/posts/index' : `/api/posts/${slug}`
+      )
       return result
     } catch (error) {
-      console.error(`Error fetching post with slug "${slug}":`, error)
+      console.error(`Error fetching post "${slug}":`, error)
       throw error
     }
   }
@@ -140,26 +141,16 @@ export const useProcessedMarkdown = () => {
     includeWeekNotes = false
   ): Promise<Post[]> => {
     const manifest = await getManifestLite()
-
-    console.log('Filtering posts with params:', {
-      includeDrafts,
-      includeWeekNotes
-    })
+    debug('Filtering posts', { includeDrafts, includeWeekNotes })
 
     return manifest
       .filter((post: Post) => {
-        // Skip posts without content - but be more lenient
-        const hasContent =
-          post?.wordCount ||
-          post?.metadata?.wordCount ||
-          post?.metadata?.wordcount ||
-          post?.html
-        if (!hasContent) {
-          console.warn(`Post ${post?.slug} has no content, skipping`)
+        // Skip posts without content
+        if (!post?.wordCount && !post?.metadata?.wordCount && !post?.html) {
+          debug(`Skipping post without content: ${post?.slug}`)
           return false
         }
 
-        // Handle both old and new visibility formats
         const isHidden = post?.metadata?.hidden || post?.hidden === true
         const isIndex = post?.slug === 'index' || post?.slug?.startsWith('!')
         const isSpecialSection = [
@@ -170,37 +161,16 @@ export const useProcessedMarkdown = () => {
           'prompts/'
         ].some((section) => post.slug.startsWith(section))
         const isDraft = post?.metadata?.draft || post?.draft === true
-
-        // Debug logging
-        console.log('Post visibility check:', {
-          slug: post?.slug,
-          isHidden,
-          isIndex,
-          isSpecialSection,
-          isDraft,
-          type: post?.metadata?.type,
-          hidden: post?.hidden,
-          draft: post?.draft,
-          wordCount: post?.wordCount || post?.metadata?.wordCount
-        })
+        const isWeekNote = post.slug.includes('week-notes/')
 
         // Skip hidden and index posts
-        if (isHidden || isIndex) {
-          return false
-        }
+        if (isHidden || isIndex) return false
 
         // Skip special sections unless it's a week note we want to include
-        if (
-          isSpecialSection &&
-          !(includeWeekNotes && post.slug.includes('week-notes/'))
-        ) {
-          return false
-        }
+        if (isSpecialSection && !(includeWeekNotes && isWeekNote)) return false
 
         // Skip week notes unless explicitly included
-        if (post.slug.includes('week-notes/') && !includeWeekNotes) {
-          return false
-        }
+        if (isWeekNote && !includeWeekNotes) return false
 
         // Handle drafts
         if (isDraft) {
@@ -209,7 +179,6 @@ export const useProcessedMarkdown = () => {
           )
         }
 
-        // Regular posts that made it through all filters
         return true
       })
       .sort(
