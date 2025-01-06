@@ -24,7 +24,7 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    preset: 'netlify-edge',
+    preset: 'netlify',
     prerender: {
       failOnError: false
     }
@@ -49,10 +49,5 @@ export default defineNuxtConfig({
       'Signika Negative': [200, 300, 400, 500, 600, 700, 800],
       'Red Hat Mono': [300, 400]
     }
-  },
-
-  experimental: {
-    payloadExtraction: true,
-    renderJsonPayloads: true
   }
 })
