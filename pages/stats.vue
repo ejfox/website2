@@ -1,7 +1,7 @@
 <template>
   <div class="max-w-6xl mx-auto px-8 py-32">
     <!-- Error States -->
-    <DataStatus :errors="errors" :show-errors="showErrors" :has-stale-data="hasStaleData"
+    <AsyncDataStatus :errors="errors" :show-errors="showErrors" :has-stale-data="hasStaleData"
       @hide-errors="showErrors = false" />
 
     <!-- All-time Stats Section -->
@@ -14,23 +14,23 @@
       </div>
 
       <!-- Top Stats -->
-      <ClientOnly>
-        <Suspense>
-          <template #default>
+      <Suspense>
+        <template #default>
+          <ClientOnly>
             <Transition name="fade" appear>
               <div v-if="stats" class="relative">
                 <div class="absolute -left-16 top-1/2 -translate-y-1/2 w-8 border-t border-gray-500/10"></div>
-                <TopStats :stats="stats" :blog-stats="validBlogStats" />
+                <AsyncTopStats :stats="stats" :blog-stats="validBlogStats" />
               </div>
             </Transition>
-          </template>
-          <template #fallback>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
-              <div v-for="i in 4" :key="i" class="animate-pulse bg-gray-800/50 rounded-lg h-32"></div>
-            </div>
-          </template>
-        </Suspense>
-      </ClientOnly>
+          </ClientOnly>
+        </template>
+        <template #fallback>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
+            <div v-for="i in 4" :key="i" class="animate-pulse bg-gray-800/50 rounded-lg h-32"></div>
+          </div>
+        </template>
+      </Suspense>
 
       <!-- Primary Metrics -->
       <ClientOnly>
@@ -42,11 +42,11 @@
                 <div
                   class="absolute -left-16 top-0 h-full w-px bg-gradient-to-b from-gray-500/0 via-gray-500/10 to-gray-500/0">
                 </div>
-                <MonkeyTypeStats v-if="hasMonkeyTypeData" :stats="{ typingStats: stats.monkeyType!.typingStats! }"
+                <AsyncMonkeyTypeStats v-if="hasMonkeyTypeData" :stats="{ typingStats: stats.monkeyType!.typingStats! }"
                   key="monkeytype" />
-                <GitHubStats v-if="hasGithubData" :stats="stats.github!" key="github" />
-                <RescueTimeStats v-if="hasRescueTimeData" :stats="stats" key="rescuetime" />
-                <LeetCodeStats v-if="hasLeetCodeData" :stats="stats.leetcode!" key="leetcode" />
+                <AsyncGitHubStats v-if="hasGithubData" :stats="stats.github!" key="github" />
+                <AsyncRescueTimeStats v-if="hasRescueTimeData" :stats="stats" key="rescuetime" />
+                <AsyncLeetCodeStats v-if="hasLeetCodeData" :stats="stats.leetcode!" key="leetcode" />
               </div>
 
               <!-- Creative & Gaming Stats: Photos, Chess, Blog -->
@@ -54,9 +54,9 @@
                 <div
                   class="absolute -left-16 top-0 h-full w-px bg-gradient-to-b from-gray-500/0 via-gray-500/10 to-gray-500/0">
                 </div>
-                <PhotoStats v-if="hasPhotoData" :stats="stats.photos!" key="photos" />
-                <ChessStats v-if="hasChessData" :stats="stats.chess!" key="chess" />
-                <BlogStats v-if="blogStats" :stats="blogStats" key="blog" />
+                <AsyncPhotoStats v-if="hasPhotoData" :stats="stats.photos!" key="photos" />
+                <AsyncChessStats v-if="hasChessData" :stats="stats.chess!" key="chess" />
+                <AsyncBlogStats v-if="blogStats" :stats="blogStats" key="blog" />
               </div>
             </TransitionGroup>
           </template>
@@ -75,7 +75,7 @@
             <div class="absolute -left-16 top-0 w-8 border-t border-gray-500/10"></div>
             <div class="border-t border-gray-500/10 pt-32">
               <h4 class="text-xs tracking-[0.2em] text-gray-500 font-light mb-32">HEALTH METRICS</h4>
-              <HealthStats :stats="stats.health" />
+              <AsyncHealthStats :stats="stats.health" />
             </div>
           </section>
         </Transition>
@@ -95,22 +95,22 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, onMounted } from 'vue'
+import { computed, ref, onMounted, defineAsyncComponent } from 'vue'
 import { useStats } from '~/composables/useStats'
 import type { StatsResponse } from '~/composables/useStats'
 import { useProcessedMarkdown } from '~/composables/useProcessedMarkdown'
 
 // Component imports
-import MonkeyTypeStats from '~/components/stats/MonkeyTypeStats.vue'
-import GitHubStats from '~/components/stats/GitHubStats.vue'
-import PhotoStats from '~/components/stats/PhotoStats.vue'
-import HealthStats from '~/components/stats/HealthStats.vue'
-import DataStatus from '~/components/stats/DataStatus.vue'
-import LeetCodeStats from '~/components/stats/LeetCodeStats.vue'
-import BlogStats from '~/components/stats/BlogStats.vue'
-import TopStats from '~/components/stats/TopStats.vue'
-import ChessStats from '~/components/stats/ChessStats.vue'
-import RescueTimeStats from '~/components/stats/RescueTimeStats.vue'
+const AsyncMonkeyTypeStats = defineAsyncComponent(() => import('~/components/stats/MonkeyTypeStats.vue'))
+const AsyncGitHubStats = defineAsyncComponent(() => import('~/components/stats/GitHubStats.vue'))
+const AsyncPhotoStats = defineAsyncComponent(() => import('~/components/stats/PhotoStats.vue'))
+const AsyncHealthStats = defineAsyncComponent(() => import('~/components/stats/HealthStats.vue'))
+const AsyncDataStatus = defineAsyncComponent(() => import('~/components/stats/DataStatus.vue'))
+const AsyncLeetCodeStats = defineAsyncComponent(() => import('~/components/stats/LeetCodeStats.vue'))
+const AsyncBlogStats = defineAsyncComponent(() => import('~/components/stats/BlogStats.vue'))
+const AsyncTopStats = defineAsyncComponent(() => import('~/components/stats/TopStats.vue'))
+const AsyncChessStats = defineAsyncComponent(() => import('~/components/stats/ChessStats.vue'))
+const AsyncRescueTimeStats = defineAsyncComponent(() => import('~/components/stats/RescueTimeStats.vue'))
 
 interface BlogStats {
   totalPosts: number
@@ -129,7 +129,6 @@ const currentYear = new Date().getFullYear()
 // Error handling
 const showErrors = ref(true)
 const errors = computed(() => {
-  console.log('Checking errors:', { stats: stats.value, hasGithubData: hasGithubData.value })
   return {
     github: !hasGithubData.value,
     photos: !hasPhotoData.value,

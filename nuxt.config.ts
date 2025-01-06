@@ -2,9 +2,6 @@ import pkg from './package.json'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  // experimental: {
-  //   viewTransition: true
-  // },
   app: {
     head: {
       title: 'EJ Fox',
@@ -14,8 +11,6 @@ export default defineNuxtConfig({
           content:
             'EJ Fox: Hacker, Journalist, & Dataviz Specialist finding interesting ways to look at the world by exploring and explaining data '
         },
-
-        // opengraph tags
         { property: 'og:title', content: 'EJ Fox' },
         {
           property: 'og:description',
@@ -25,8 +20,6 @@ export default defineNuxtConfig({
         { property: 'og:image', content: 'https://ejfox.com/og-image.png' },
         { property: 'og:url', content: 'https://ejfox.com' },
         { property: 'og:type', content: 'website' },
-
-        // twitter opengraph tags
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:site', content: '@mrejfox' },
         { name: 'twitter:creator', content: '@mrejfox' },
@@ -41,20 +34,17 @@ export default defineNuxtConfig({
     }
   },
 
-  // for netlify deploy
+  // SSR configuration
   ssr: true,
 
   devtools: { enabled: true },
 
   modules: [
     '@nuxt/ui',
-    '@nuxt/icon', // 'nuxt-gtag',
-    // '@nuxtjs/supabase',
-    // '@nuxt/content'
+    '@nuxt/icon',
     '@unlok-co/nuxt-stripe',
     '@vueuse/nuxt',
     '@vueuse/motion/nuxt',
-    // '@tresjs/nuxt',
     [
       '@nuxtjs/google-fonts',
       {
@@ -66,19 +56,22 @@ export default defineNuxtConfig({
     'nuxt-umami'
   ],
 
-  // gtag: {
-  //   id: 'G-0CBMSSNG8P',
-  // },
+  // Component loading optimization
+  build: {
+    transpile: ['vue-toastification']
+  },
+
   runtimeConfig: {
     rescuetimeToken: process.env.RESCUETIME_TOKEN,
     CHESS_USERNAME: process.env.CHESS_USERNAME,
-    // Private keys that are only available on the server
     MONKEYTYPE_TOKEN: process.env.MONKEYTYPE_TOKEN,
     githubToken: process.env.GITHUB_TOKEN,
 
-    // Keys that are exposed to the client
     public: {
-      baseUrl: 'https://localhost:3000',
+      baseUrl:
+        process.env.NODE_ENV === 'production'
+          ? 'https://ejfox.com'
+          : 'http://localhost:3000',
       OPENAI_API_KEY: process.env.OPENAI_API_KEY,
       PRODUCTION: process.env.PRODUCTION,
       donations: {
@@ -112,7 +105,7 @@ export default defineNuxtConfig({
       SUPABASE_KEY: process.env.SUPABASE_KEY,
       apiBase:
         process.env.NODE_ENV === 'production'
-          ? 'https://ejfox.com/api' // Replace with your production domain
+          ? 'https://ejfox.com/api'
           : 'http://localhost:3000/api'
     }
   },
@@ -126,17 +119,13 @@ export default defineNuxtConfig({
   googleFonts: {
     prefetch: true,
     families: {
-      // Raleway: [100, 200, 300, 400, 500, 600, 700, 800, 900],
       'Signika Negative': [200, 300, 400, 500, 600, 700, 800],
       'Fjalla One': [400],
-      // Finlandica: [400, 500, 700],
       'Red Hat Mono': [300, 400]
     }
   },
 
-  // compatibilityDate: '2024-09-15'
   stripe: {
-    // Server
     server: {
       key: process.env.STRIPE_SECRET_KEY,
       options: {}
@@ -147,21 +136,27 @@ export default defineNuxtConfig({
     }
   },
 
-  compatibilityDate: '2024-10-15',
-
   nitro: {
+    preset: 'node-server',
     routeRules: {
+      '/stats': { ssr: true },
       '/rss.xml': { prerender: true },
       '/pgp.txt': {
         headers: {
           'content-type': 'application/pgp-keys'
         }
       }
-    }
+    },
+    // Add content directory to public assets
+    publicAssets: [
+      {
+        dir: 'content/processed',
+        maxAge: 60 * 60 * 24 * 7 // 1 week
+      }
+    ]
   },
 
   imports: {
-    // ... other imports
     imports: [
       {
         from: '#imports',
@@ -170,5 +165,12 @@ export default defineNuxtConfig({
     ]
   },
 
-  components: true // Enable auto-imports
+  components: {
+    dirs: [
+      {
+        path: '~/components',
+        pathPrefix: false
+      }
+    ]
+  }
 })

@@ -74,39 +74,81 @@ function adaptGitHubStats(githubStats: any) {
 
 export default defineEventHandler(async (event): Promise<StatsResponse> => {
   try {
+    // Run all API calls in parallel but handle individual failures
     const [
-      githubRaw,
-      monkeyType,
-      photos,
-      health,
-      leetcode,
-      chessRaw,
-      rescueTime
-    ] = await Promise.all([
-      githubHandler(event),
-      monkeyTypeHandler(event),
-      photosHandler(event),
-      healthHandler(event),
-      leetcodeHandler(event),
-      chessHandler(event),
-      rescuetimeHandler(event)
+      githubResult,
+      monkeyTypeResult,
+      photosResult,
+      healthResult,
+      leetcodeResult,
+      chessResult,
+      rescueTimeResult
+    ] = await Promise.allSettled([
+      githubHandler(event).catch((err) => {
+        console.error('GitHub API error:', err)
+        return null
+      }),
+      monkeyTypeHandler(event).catch((err) => {
+        console.error('MonkeyType API error:', err)
+        return null
+      }),
+      photosHandler(event).catch((err) => {
+        console.error('Photos API error:', err)
+        return null
+      }),
+      healthHandler(event).catch((err) => {
+        console.error('Health API error:', err)
+        return null
+      }),
+      leetcodeHandler(event).catch((err) => {
+        console.error('LeetCode API error:', err)
+        return null
+      }),
+      chessHandler(event).catch((err) => {
+        console.error('Chess API error:', err)
+        return null
+      }),
+      rescuetimeHandler(event).catch((err) => {
+        console.error('RescueTime API error:', err)
+        return null
+      })
     ])
 
-    return {
-      github: adaptGitHubStats(githubRaw),
-      monkeyType,
-      photos,
-      health,
-      leetcode,
-      chess: adaptChessStats(chessRaw),
-      rescueTime
+    // Helper function to safely get value from Promise result
+    const getValue = (result: PromiseSettledResult<any>) =>
+      result.status === 'fulfilled' ? result.value : null
+
+    // Construct response with available data
+    const response: StatsResponse = {
+      github: getValue(githubResult)
+        ? adaptGitHubStats(getValue(githubResult))
+        : undefined,
+      monkeyType: getValue(monkeyTypeResult) || undefined,
+      photos: getValue(photosResult) || undefined,
+      health: getValue(healthResult) || undefined,
+      leetcode: getValue(leetcodeResult) || undefined,
+      chess: getValue(chessResult)
+        ? adaptChessStats(getValue(chessResult))
+        : undefined,
+      rescueTime: getValue(rescueTimeResult) || undefined
     }
+
+    // Check if we have at least some data
+    const hasAnyData = Object.values(response).some(
+      (value) => value !== undefined
+    )
+    if (!hasAnyData) {
+      throw new Error('No data available from any source')
+    }
+
+    return response
   } catch (error) {
     console.error('Error fetching stats:', error)
+    const errorMessage =
+      error instanceof Error ? error.message : 'Unknown error'
     throw createError({
       statusCode: 500,
-      message: 'Failed to fetch stats',
-      cause: error
+      message: `Failed to fetch stats: ${errorMessage}`
     })
   }
 })

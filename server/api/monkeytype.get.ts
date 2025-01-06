@@ -92,7 +92,6 @@ export default defineEventHandler(async (event) => {
     }
 
     const data = await response.json()
-    console.log(`MonkeyType ${url} response:`, JSON.stringify(data, null, 2))
     return data as T
   }
 

@@ -41,20 +41,70 @@ dek: Description      # Required for week notes
 ### 1. Import Stage (import.mjs)
 
 First line of defense - reads from Obsidian vault and performs initial filtering:
-- Immediately skips any content with hidden: true
-- Filters sensitive content (drafts, robots) based on share status
-- Auto-corrects week note dates from filenames
-- Generates metadata (word count, reading time)
+```mermaid
+graph TD
+    A[Read from Obsidian] --> B{Check Location}
+    B -->|drafts/| C{share: true?}
+    B -->|robots/| D{share: true?}
+    B -->|Other| E[Import Public]
+    C -->|Yes| F[Import Hidden]
+    C -->|No| G[Skip]
+    D -->|Yes| H[Import Public]
+    D -->|No| G
+```
+
+Key Features:
+- **Location-based filtering**: Different rules for drafts/, robots/, and other content
+- **Share status checking**: Required for sensitive directories
+- **Metadata generation**: 
+  - Word count
+  - Reading time
+  - Image count
+  - Link count
+- **Debug mode**: Set `DEBUG_IMPORT=true` for detailed logging
 
 ### 2. Processing Stage (processMarkdown.mjs)
 
-Second line of defense - transforms content for web display:
-- Double-checks hidden status before processing
-- Converts markdown to HTML
-- Handles syntax highlighting
-- Processes Mermaid diagrams
-- Optimizes images via Cloudinary
-- Generates manifest-lite.json for quick access
+Transforms content for web display with advanced features:
+
+**Content Processing:**
+- Markdown to HTML conversion
+- Syntax highlighting via Shiki
+- Mermaid diagram rendering
+- Cloudinary image optimization
+- Wiki-style internal linking
+
+**Special Features:**
+- Table of Contents generation
+- Header slug creation
+- Social platform icon integration
+- AI2HTML graphic embedding
+
+**Metadata Processing:**
+- Robots meta tag generation
+- Reading time calculation
+- Content categorization
+- Link analysis
+
+**Debug Options:**
+```bash
+# Show detailed processing information
+DEBUG_PROCESS=true
+
+# Track content transformation
+DEBUG_POSTS=true
+```
+
+### Content Visibility Matrix
+
+| Location    | share: true | hidden: true | Result        |
+|------------|-------------|--------------|---------------|
+| /drafts/   | No          | Any          | Skipped       |
+| /drafts/   | Yes         | No           | Hidden Import |
+| /robots/   | No          | Any          | Skipped       |
+| /robots/   | Yes         | No           | Public Import |
+| /week-notes| N/A         | No           | Public Import |
+| /* (other) | N/A         | No           | Public Import |
 
 ### 3. Runtime Stage (useProcessedMarkdown.ts)
 

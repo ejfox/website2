@@ -19,15 +19,12 @@
 const product_id = useRouteQuery('productId');
 
 const markProductAsSold = async () => {
-  // console.log('trying to mark product as sold', product_id.value);
   if (product_id.value) {
-    // console.log('Marking product as sold:', product_id.value);
     try {
       const { data } = await useFetch('/api/mark-product-sold', {
         method: 'POST',
         body: JSON.stringify({ productId: product_id.value }),
       });
-      // console.log('Product marked as sold:', data.value);
     } catch (error) {
       console.error('Failed to mark product as sold:', error);
     }

@@ -46,7 +46,7 @@ watch(data, () => {
 
 
 
-// console.log(products);
+// Removed console.log(products)
 
 
 </script>

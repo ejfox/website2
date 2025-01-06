@@ -147,11 +147,6 @@ export default defineEventHandler(async (event) => {
     const today = new Date()
     const thirtyDaysAgo = subDays(today, 30)
 
-    console.log('Date range:', {
-      start: thirtyDaysAgo.toISOString(),
-      end: today.toISOString()
-    })
-
     const { data: healthData, error } = await supabase
       .from('health_data')
       .select('*')
@@ -173,17 +168,10 @@ export default defineEventHandler(async (event) => {
 
     if (error) throw error
 
-    console.log('Raw data sample:', healthData.slice(0, 2))
-
     // Filter out invalid dates and future dates
     const validHealthData = healthData.filter((d) => {
       const date = parseISO(d.date)
       return isValid(date) && date <= today
-    })
-
-    console.log('Valid dates range:', {
-      first: validHealthData[0]?.date,
-      last: validHealthData[validHealthData.length - 1]?.date
     })
 
     // Group by date using D3
@@ -197,8 +185,6 @@ export default defineEventHandler(async (event) => {
         return [date, metricsObj]
       })
     )
-
-    console.log('Daily data dates:', Object.keys(dailyData))
 
     // Weekly aggregation using D3
     const weeklyGroups = group(validHealthData, (d) =>
@@ -408,12 +394,6 @@ export default defineEventHandler(async (event) => {
       },
       lastUpdated: new Date().toISOString()
     }
-
-    console.log('Response trends dates:', {
-      daily: response.trends.daily.dates,
-      weekly: response.trends.weekly.dates,
-      monthly: response.trends.monthly.dates
-    })
 
     return response
   } catch (error: any) {

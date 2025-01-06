@@ -64,7 +64,6 @@ export default defineEventHandler(async (event) => {
     }
 
     const data = await response.json()
-    console.log(`Chess.com ${url} response:`, JSON.stringify(data, null, 2))
     return data as T
   }
 

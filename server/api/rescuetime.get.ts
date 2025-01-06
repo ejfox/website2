@@ -48,6 +48,11 @@ interface ProcessedData {
   lastUpdated: string
 }
 
+interface RescueTimeResponse {
+  rows: Array<[string, number, number, string, string, number]>
+  row_headers: string[]
+}
+
 function calculateTimeBreakdown(seconds: number): TimeBreakdown {
   return {
     seconds,
@@ -72,14 +77,20 @@ export default defineEventHandler(async () => {
   }
 
   try {
-    // Get the first day of the current month
-    const now = new Date()
-    const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1)
-    const startDate = startOfMonth.toISOString().split('T')[0]
-    const endDate = now.toISOString().split('T')[0]
-
-    const response = await $fetch(
-      `https://www.rescuetime.com/anapi/data?key=${token}&format=json&perspective=interval&resolution_time=month&restrict_begin=${startDate}&restrict_end=${endDate}`
+    // Following the documented example query format:
+    // https://www.rescuetime.com/anapi/data?key=YOUR_API_KEY&perspective=rank&restrict_kind=overview&restrict_begin=2020-01-01&restrict_end=2020-01-01&format=json
+    const response = await $fetch<RescueTimeResponse>(
+      'https://www.rescuetime.com/anapi/data',
+      {
+        params: {
+          key: token,
+          format: 'json',
+          perspective: 'rank',
+          restrict_kind: 'overview',
+          restrict_begin: '2024-01-01',
+          restrict_end: '2024-01-05'
+        }
+      }
     )
 
     const rows: RescueTimeRow[] = response.rows.map((row: any[]) => ({

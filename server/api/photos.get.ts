@@ -53,7 +53,6 @@ export default defineEventHandler(async (event) => {
     })
 
     const photos: PhotoResponse[] = await response.json()
-    console.log(`Fetched ${photos.length} photos`)
 
     // Process photos into daily contributions
     const photosByDate = new Map<string, number>()

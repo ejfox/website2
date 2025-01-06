@@ -127,15 +127,6 @@ const props = defineProps<{
   stats?: ChessStats | null
 }>()
 
-// Debug logging
-console.log('ChessStats component received:', {
-  stats: props.stats,
-  currentRating: props.stats?.currentRating,
-  bestRating: props.stats?.bestRating,
-  winRate: props.stats?.winRate,
-  puzzleStats: props.stats?.puzzleStats
-})
-
 const isNewFormat = computed(() => {
   return typeof props.stats?.currentRating === 'object'
 })

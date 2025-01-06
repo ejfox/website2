@@ -71,19 +71,31 @@ export const useProcessedMarkdown = () => {
    * @returns {Promise<Object[]>} The list of posts from the manifest.
    */
   const getManifestLite = async (): Promise<ManifestItem[]> => {
-    // console.log('Fetching manifest-lite from /api/manifest-lite')
     try {
-      const result = await $fetch('/api/manifest-lite') // Fetching the manifest
-      // console.log('Manifest-lite fetched successfully:', {
-      //   type: typeof result,
-      //   isArray: Array.isArray(result),
-      //   length: Array.isArray(result) ? result.length : 'N/A',
-      //   sampleData: Array.isArray(result) ? result.slice(0, 3) : result
-      // })
+      console.log('Fetching manifest-lite...')
+      const result = await $fetch('/api/manifest-lite')
+
+      if (!Array.isArray(result)) {
+        console.error('Manifest-lite is not an array:', result)
+        return []
+      }
+
+      console.log('Manifest-lite stats:', {
+        total: result.length,
+        posts: result.filter((p) => p?.metadata?.type === 'post').length,
+        weekNotes: result.filter((p) => p?.slug?.includes('week-notes/'))
+          .length,
+        hidden: result.filter((p) => p?.metadata?.hidden || p?.hidden).length,
+        drafts: result.filter((p) => p?.metadata?.draft || p?.draft).length,
+        withContent: result.filter(
+          (p) => p?.wordCount || p?.metadata?.wordCount || p?.html
+        ).length
+      })
+
       return result as ManifestItem[]
     } catch (error) {
       console.error('Error fetching manifest-lite:', error)
-      throw error // If the fetch fails, an error is thrown
+      throw error
     }
   }
 
@@ -93,18 +105,13 @@ export const useProcessedMarkdown = () => {
    * @returns {Promise<Object>} The post object, including title, date, and content.
    */
   const getPostBySlug = async (slug: string) => {
-    // console.log(`Fetching post by slug: "${slug}"`)
     try {
-      // Special handling for the main index
       if (slug === 'index') {
-        // console.log('Fetching index content')
         const result = await $fetch('/api/posts/index')
-        // console.log('Index result:', result)
         return result
       }
 
       const result = await $fetch(`/api/posts/${slug}`)
-      // console.log(`Post fetched for slug "${slug}". Post details:`, result)
       return result
     } catch (error) {
       console.error(`Error fetching post with slug "${slug}":`, error)
@@ -133,103 +140,82 @@ export const useProcessedMarkdown = () => {
     includeWeekNotes = false
   ): Promise<Post[]> => {
     const manifest = await getManifestLite()
-    // console.log(`Starting getAllPosts with ${manifest.length} total posts`)
-    // console.log(
-    //   `Parameters: includeDrafts=${includeDrafts}, includeWeekNotes=${includeWeekNotes}`
-    // )
 
-    const filteredPosts = manifest.filter((post: Post) => {
-      // Handle drafts
-      const isNotDraft = !post.slug.startsWith('drafts/')
-      const isSharedDraft =
-        post.slug.startsWith('drafts/') && post.share === true
-
-      // Special cases that should always be excluded
-      const isNotIndex = !post.slug.startsWith('!') && post.slug !== 'index'
-
-      // Handle week notes
-      const isWeekNote = post.slug.includes('week-notes/')
-
-      // Check if post is in a special section that should be excluded
-      const isSpecialSection = [
-        'reading/',
-        'projects/',
-        'robots/',
-        'study-notes/',
-        'prompts/'
-      ].some((section) => post.slug.startsWith(section))
-
-      // Only exclude posts that are explicitly hidden
-      const isNotHidden = !(post.hidden === true || post.hidden === 'true')
-
-      // Debug log for every post
-      // console.log(`Filtering post ${post.slug}:`, {
-      //   isNotDraft,
-      //   isSharedDraft,
-      //   isNotIndex,
-      //   isWeekNote,
-      //   isSpecialSection,
-      //   isNotHidden,
-      //   hidden: post.hidden,
-      //   share: post.share,
-      //   shouldKeep:
-      //     (includeDrafts ? isSharedDraft || isNotDraft : isNotDraft) &&
-      //     isNotIndex &&
-      //     (includeWeekNotes ? true : !isWeekNote) &&
-      //     !isSpecialSection &&
-      //     isNotHidden
-      // })
-
-      return (
-        (includeDrafts ? isSharedDraft || isNotDraft : isNotDraft) &&
-        isNotIndex &&
-        (includeWeekNotes ? true : !isWeekNote) &&
-        !isSpecialSection &&
-        isNotHidden
-      )
+    console.log('Filtering posts with params:', {
+      includeDrafts,
+      includeWeekNotes
     })
 
-    // console.log(`After filtering: ${filteredPosts.length} posts remain`)
-    // console.log(
-    //   'Filtered posts:',
-    //   filteredPosts.map((p) => ({
-    //     slug: p.slug,
-    //     date: p.date,
-    //     hidden: p.hidden,
-    //     share: p.share
-    //   }))
-    // )
+    return manifest
+      .filter((post: Post) => {
+        // Skip posts without content - but be more lenient
+        const hasContent =
+          post?.wordCount ||
+          post?.metadata?.wordCount ||
+          post?.metadata?.wordcount ||
+          post?.html
+        if (!hasContent) {
+          console.warn(`Post ${post?.slug} has no content, skipping`)
+          return false
+        }
 
-    const postsWithDates = filteredPosts.map((post: Post) => ({
-      ...post,
-      date: getValidDate(post.date, post.slug),
-      modified: getValidDate(post.modified, post.slug)
-    }))
+        // Handle both old and new visibility formats
+        const isHidden = post?.metadata?.hidden || post?.hidden === true
+        const isIndex = post?.slug === 'index' || post?.slug?.startsWith('!')
+        const isSpecialSection = [
+          'reading/',
+          'projects/',
+          'robots/',
+          'study-notes/',
+          'prompts/'
+        ].some((section) => post.slug.startsWith(section))
+        const isDraft = post?.metadata?.draft || post?.draft === true
 
-    // console.log(
-    //   'After date processing:',
-    //   postsWithDates.map((p) => ({
-    //     slug: p.slug,
-    //     date: p.date,
-    //     modified: p.modified
-    //   }))
-    // )
+        // Debug logging
+        console.log('Post visibility check:', {
+          slug: post?.slug,
+          isHidden,
+          isIndex,
+          isSpecialSection,
+          isDraft,
+          type: post?.metadata?.type,
+          hidden: post?.hidden,
+          draft: post?.draft,
+          wordCount: post?.wordCount || post?.metadata?.wordCount
+        })
 
-    const sortedPosts = postsWithDates.sort(
-      (a: Post, b: Post) =>
-        getValidDate(b.date, b.slug).getTime() -
-        getValidDate(a.date, a.slug).getTime()
-    )
+        // Skip hidden and index posts
+        if (isHidden || isIndex) {
+          return false
+        }
 
-    console.log(
-      'Final sorted posts:',
-      sortedPosts.map((p) => ({
-        slug: p.slug,
-        date: p.date
-      }))
-    )
+        // Skip special sections unless it's a week note we want to include
+        if (
+          isSpecialSection &&
+          !(includeWeekNotes && post.slug.includes('week-notes/'))
+        ) {
+          return false
+        }
 
-    return sortedPosts
+        // Skip week notes unless explicitly included
+        if (post.slug.includes('week-notes/') && !includeWeekNotes) {
+          return false
+        }
+
+        // Handle drafts
+        if (isDraft) {
+          return (
+            includeDrafts && (post?.metadata?.share || post?.share === true)
+          )
+        }
+
+        // Regular posts that made it through all filters
+        return true
+      })
+      .sort(
+        (a: Post, b: Post) =>
+          new Date(b.date).getTime() - new Date(a.date).getTime()
+      )
   }
 
   /**
@@ -265,23 +251,19 @@ export const useProcessedMarkdown = () => {
     includeDrafts = false,
     includeWeekNotes = false
   ): Promise<Post[]> => {
-    // console.log(
-    //   `Fetching posts with content. Limit: ${limit}, Offset: ${offset}`
-    // )
     try {
-      const allPosts = await getAllPosts(includeDrafts, includeWeekNotes) // Get all posts first
-      const postsToFetch = allPosts.slice(offset, offset + limit) // Apply limit and offset
+      const allPosts = await getAllPosts(includeDrafts, includeWeekNotes)
+      const postsToFetch = allPosts.slice(offset, offset + limit)
       const postsWithContent = await Promise.all(
         postsToFetch.map(async (post) => {
-          const fullPost = await getPostBySlug(post.slug) // Fetch full content for each post
-          return { ...post, ...fullPost } // Merge metadata with full content
+          const fullPost = await getPostBySlug(post.slug)
+          return { ...post, ...fullPost }
         })
       )
-      // console.log(`Fetched ${postsWithContent.length} posts with content`)
       return postsWithContent
     } catch (error) {
       console.error('Error fetching posts with content:', error)
-      throw error // If something goes wrong, throw an error
+      throw error
     }
   }
 
@@ -395,13 +377,10 @@ export const useProcessedMarkdown = () => {
     const manifest = await getManifestLite()
     return manifest
       .filter((post: Post) => {
-        // Check for week notes in either location
         const isWeekNote = post.slug.includes('week-notes/')
-        // Only exclude posts that are explicitly hidden
         const isNotHidden = post.hidden !== true
         const isNotIndex = !post.slug.startsWith('!') && post.slug !== 'index'
 
-        // Debug log
         console.log('Week note filtering:', {
           slug: post.slug,
           isWeekNote,
@@ -450,34 +429,22 @@ export const useProcessedMarkdown = () => {
    * @returns {Promise<Object>} The next and previous posts, if available.
    */
   const getNextPrevPosts = async (currentSlug: string) => {
-    // console.log(`Getting next/prev posts for slug: "${currentSlug}"`)
-    const allPosts = await getAllPosts(false, false) // Get all posts (excluding drafts and week notes)
-    // console.log(`Total posts retrieved: ${allPosts.length}`)
+    const allPosts = await getAllPosts(false, false)
 
     if (allPosts.length === 0) {
-      console.warn('No posts found in getAllPosts')
       return { next: null, prev: null }
     }
 
-    const currentIndex = allPosts.findIndex((post) => post.slug === currentSlug) // Find index of the current post
+    const currentIndex = allPosts.findIndex((post) => post.slug === currentSlug)
     if (currentIndex === -1) {
-      console.warn(`Post with slug "${currentSlug}" not found.`)
       return { next: null, prev: null }
     }
 
-    // Get next and previous posts based on the current index
     const next = currentIndex > 0 ? allPosts[currentIndex - 1] : null
     const prev =
       currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null
 
-    return {
-      next: next
-        ? { slug: next.slug, title: next.title, date: next.date }
-        : null,
-      prev: prev
-        ? { slug: prev.slug, title: prev.title, date: prev.date }
-        : null
-    }
+    return { next, prev }
   }
 
   /**

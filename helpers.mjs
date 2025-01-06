@@ -41,7 +41,6 @@ function articleExists(article) {
 export function countWords(article) {
   if (!articleExists(article)) return 0
   if (!article.excerpt.children) return 0
-  // console.log('Counting words in', article)
   const words = article.excerpt.children
     .filter(
       (node) =>
@@ -207,7 +206,6 @@ export function stringLengthToFontSize(string) {
     return 'text-xxs'
   }
 }
-
 
 export const socialPlatforms = {
   'wikipedia.org': 'simple-icons:wikipedia',
