@@ -9,8 +9,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@vueuse/motion/nuxt',
     '@nuxtjs/google-fonts',
-    'nuxt-umami',
-    '@nuxt/content'
+    'nuxt-umami'
   ],
 
   // Component loading optimization

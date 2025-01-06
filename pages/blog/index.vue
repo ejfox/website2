@@ -16,13 +16,15 @@ console.log('processedMarkdown initialized')
 
 const { data: posts, error: postsError } = useAsyncData(
   'blog-posts',
-  () => {
+  async () => {
     console.log('Fetching posts...')
     try {
-      return processedMarkdown.getAllPosts(false, false)
+      const result = await processedMarkdown.getAllPosts(false, false)
+      // Add type checking and default value
+      return result || []
     } catch (err) {
       console.error('Error fetching posts:', err)
-      throw err
+      return [] // Return empty array on error
     }
   },
   {
@@ -99,7 +101,10 @@ function groupByYear(posts) {
 }
 
 const blogPostsByYear = computed(() => {
-  console.log('Computing blogPostsByYear with:', posts.value?.length, 'posts')
+  if (!posts.value || !Array.isArray(posts.value)) {
+    console.warn('Posts is not an array:', posts.value)
+    return {}
+  }
   return groupByYear(posts.value)
 })
 
@@ -165,22 +170,14 @@ const recentlyUpdatedPosts = computed(() => {
 
 <template>
   <NuxtErrorBoundary>
-    <div v-if="isLoading" class="container mx-auto px-2 py-12 text-center">
-      <p class="text-lg">Loading...</p>
-    </div>
+    <!-- Default content -->
+    <template #default>
+      <div v-if="isLoading" class="container mx-auto px-2 py-12 text-center">
+        <p class="text-lg">Loading...</p>
+      </div>
 
-    <div v-else>
-      <template #error="{ error }">
-        <div class="container mx-auto px-2 py-12 text-center">
-          <p class="text-lg text-red-500">{{ error.message }}</p>
-          <button class="mt-4 px-4 py-2 bg-zinc-200 dark:bg-zinc-700 rounded" @click="error.value = null">
-            Try Again
-          </button>
-        </div>
-      </template>
-
-      <div class="container mx-auto px-2 py-12 lg:flex lg:gap-4">
-        <!-- Blog Posts -->
+      <div v-else class="container mx-auto px-2 py-12 lg:flex lg:gap-4">
+        <!-- Blog Posts section -->
         <section class="lg:w-2/3 mb-16">
           <h2 class="text-3xl font-bold mb-8">Blog Posts</h2>
 
@@ -211,7 +208,7 @@ const recentlyUpdatedPosts = computed(() => {
           </div>
         </section>
 
-        <!-- Week Notes -->
+        <!-- Week Notes section -->
         <section class="lg:w-1/3">
           <h2 class="text-3xl font-bold mb-8">Week Notes</h2>
 
@@ -254,16 +251,20 @@ const recentlyUpdatedPosts = computed(() => {
           </div>
         </section>
       </div>
-    </div>
+    </template>
 
-    <!-- Add error handling -->
+    <!-- Error handling -->
     <template #error="{ error }">
       <div class="container mx-auto px-2 py-12 text-center">
         <p class="text-lg text-red-500">Error loading blog: {{ error.message }}</p>
+        <button class="mt-4 px-4 py-2 bg-zinc-200 dark:bg-zinc-700 rounded" @click="error.value = null">
+          Try Again
+        </button>
       </div>
     </template>
   </NuxtErrorBoundary>
 </template>
+
 <style scoped>
 .post-title {
   transition: color 0.2s ease;

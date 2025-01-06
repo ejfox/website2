@@ -60,7 +60,7 @@
  * @returns {Object} An object with various methods to retrieve blog posts and their metadata.
  */
 
-// Add a simple debug helper at the top
+// Add debug helper
 const debug = (msg: string, data?: any) => {
   if (process.env.DEBUG_CONTENT === 'true') {
     console.log(`[content] ${msg}`, data || '')
