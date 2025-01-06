@@ -14,38 +14,35 @@ console.log('Route:', route.path)
 const processedMarkdown = useProcessedMarkdown()
 console.log('processedMarkdown initialized')
 
-// Add error handling and logging to data fetching
-const { data: posts, error: postsError } = await useAsyncData(
+const { data: posts, error: postsError } = useAsyncData(
   'blog-posts',
-  async () => {
+  () => {
     console.log('Fetching posts...')
     try {
-      const result = await processedMarkdown.getAllPosts(false, false)
-      console.log('Posts fetched successfully:', result?.length)
-      return result
+      return processedMarkdown.getAllPosts(false, false)
     } catch (err) {
       console.error('Error fetching posts:', err)
-      throw err // Let Nuxt handle the error
+      throw err
     }
   },
   {
-    // Add error handling options
     default: () => [],
     immediate: true
   }
 )
 
-const { data: notes, error: notesError } = await useAsyncData('week-notes', () => {
-  console.log('Fetching notes...')
-  try {
-    const result = await processedMarkdown.getWeekNotes()
-    console.log('Notes fetched:', result?.length)
-    return result
-  } catch (err) {
-    console.error('Error fetching notes:', err)
-    return []
+const { data: notes, error: notesError } = useAsyncData(
+  'week-notes',
+  () => {
+    console.log('Fetching notes...')
+    try {
+      return processedMarkdown.getWeekNotes()
+    } catch (err) {
+      console.error('Error fetching notes:', err)
+      return []
+    }
   }
-})
+)
 
 const formatDate = (date) => format(new Date(date), 'yyyy-MM-dd')
 
