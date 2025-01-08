@@ -30,6 +30,7 @@
     "@types/node": "^22.5.5",
     "@types/sanitize-html": "^2.13.0",
     "@types/stripe": "^8.0.417",
+    "eslint-config-prettier": "^9.1.0",
     "front-matter": "^4.0.2",
     "gray-matter": "^4.0.3",
     "js-yaml": "^4.1.0",
@@ -53,13 +54,13 @@
     "remark-unwrap-images": "^4.0.0",
     "shiki": "^1.18.0",
     "typescript": "^5.x.x",
-    "unified": "^11.0.5",
-    "eslint-config-prettier": "^9.1.0"
+    "unified": "^11.0.5"
   },
   "dependencies": {
     "@iconify/tools": "^4.0.6",
+    "@netlify/edge-functions": "^2.0.0",
     "@nuxt/icon": "^1.5.1",
-    "@nuxt/ui": "^2.18.5",
+    "@nuxt/ui": "2.11.1",
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/supabase": "^1.4.0",
     "@supabase/supabase-js": "^2.45.4",
@@ -91,9 +92,8 @@
     "rss": "^1.2.2",
     "sanitize-html": "^2.14.0",
     "simplex-noise": "^4.0.3",
-    "three": "^0.171.0",
-    "@netlify/edge-functions": "^2.0.0",
-    "stripe": "^14.21.0"
+    "stripe": "^14.21.0",
+    "three": "^0.171.0"
   },
   "license": "UNLICENSED"
 }
