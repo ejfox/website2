@@ -7,7 +7,6 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxt/icon',
     '@vueuse/nuxt',
-    '@vueuse/motion/nuxt',
     '@nuxtjs/google-fonts',
     'nuxt-umami'
   ],

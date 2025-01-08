@@ -93,7 +93,9 @@
     "sanitize-html": "^2.14.0",
     "simplex-noise": "^4.0.3",
     "stripe": "^14.21.0",
-    "three": "^0.171.0"
+    "three": "^0.171.0",
+    "@vueuse/nuxt": "^10.7.0",
+    "@vueuse/motion": "^2.0.0"
   },
   "license": "UNLICENSED"
 }
