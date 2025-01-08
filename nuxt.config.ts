@@ -53,7 +53,8 @@ export default defineNuxtConfig({
   googleFonts: {
     families: {
       'Signika Negative': [200, 300, 400, 500, 600, 700, 800],
-      'Red Hat Mono': [300, 400]
+      'Red Hat Mono': [300, 400],
+      'Fjalla One': [400]
     }
   }
 })
