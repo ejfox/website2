@@ -57,11 +57,12 @@ export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig()
   const token = config.MONKEYTYPE_TOKEN
 
-  if (!token) {
-    throw createError({
-      statusCode: 401,
-      message: 'MonkeyType token not configured'
-    })
+  if (!token?.trim()) {
+    console.warn('MonkeyType token not configured')
+    return {
+      typingStats: null,
+      lastUpdated: new Date().toISOString()
+    }
   }
 
   const makeRequest = async <T>(
@@ -82,6 +83,9 @@ export default defineEventHandler(async (event) => {
     )
 
     if (!response.ok) {
+      console.error(
+        `MonkeyType API error: ${response.status} ${response.statusText}`
+      )
       const error = await response
         .json()
         .catch(() => ({ message: 'Unknown error' }))
@@ -97,77 +101,57 @@ export default defineEventHandler(async (event) => {
 
   try {
     // Fetch all data in parallel
-    const [statsData, timeTests, wordTests, histogramTime, histogramWords] =
-      await Promise.all([
-        makeRequest<MonkeyTypeStats>('/users/stats'),
-        makeRequest<MonkeyTypePB>('/users/personalBests', { mode: 'time' }),
-        makeRequest<MonkeyTypePB>('/users/personalBests', { mode: 'words' }),
-        makeRequest<SpeedHistogram>('/public/speedHistogram', {
-          mode: 'time',
-          mode2: '60',
-          language: 'english'
-        }),
-        makeRequest<SpeedHistogram>('/public/speedHistogram', {
-          mode: 'words',
-          mode2: '50',
-          language: 'english'
-        })
-      ])
+    const [statsData, timeTests, wordTests] = await Promise.all([
+      makeRequest<MonkeyTypeStats>('/users/stats'),
+      makeRequest<MonkeyTypePB>('/users/personalBests', { mode: 'time' }),
+      makeRequest<MonkeyTypePB>('/users/personalBests', { mode: 'words' })
+    ]).catch((error) => {
+      console.error('Error fetching MonkeyType data:', error)
+      throw error
+    })
 
     // Find best WPM across all test types
     const allTimeTests = Object.values(timeTests?.data || {}).flat()
     const allWordTests = Object.values(wordTests?.data || {}).flat()
     const allTests = [...allTimeTests, ...allWordTests] as MonkeyTypeTest[]
 
+    if (!allTests.length || !statsData?.data) {
+      console.warn('No MonkeyType test data found')
+      return {
+        typingStats: null,
+        lastUpdated: new Date().toISOString()
+      }
+    }
+
     const bestWPM = allTests.reduce((max, test) => Math.max(max, test.wpm), 0)
     const bestTest = allTests.find((test) => test.wpm === bestWPM)
 
-    // Get percentile from histogram
-    const getPercentile = (wpm: number, histogram: SpeedHistogram) => {
-      const histogramData = histogram.data
-      const totalUsers = Object.values(histogramData).reduce(
-        (sum, count) => sum + count,
-        0
-      )
-      const wpmLevel = Math.floor(wpm / 10) * 10
-      const usersBelow = Object.entries(histogramData)
-        .filter(([level]) => parseInt(level) <= wpmLevel)
-        .reduce((sum, [_, count]) => sum + count, 0)
+    // Get recent tests from personal bests
+    const recentTests = allTests
+      .sort((a, b) => b.timestamp - a.timestamp)
+      .slice(0, 5)
+      .map((test) => ({
+        timestamp: new Date(test.timestamp).toISOString(),
+        wpm: test.wpm,
+        accuracy: test.acc
+      }))
 
-      return ((usersBelow / totalUsers) * 100).toFixed(1)
-    }
-
-    // Calculate percentiles for best scores
-    const timePercentile = getPercentile(bestWPM, histogramTime)
-    const wordsPercentile = getPercentile(bestWPM, histogramWords)
-
-    const response: MonkeyTypeResponse = {
+    return {
       typingStats: {
-        testsCompleted: statsData.data.completedTests,
-        testsStarted: statsData.data.startedTests,
         bestWPM,
+        testsCompleted: statsData.data.completedTests,
         bestAccuracy: bestTest?.acc || 0,
         bestConsistency: bestTest?.consistency || 0,
-        timePercentile: parseFloat(timePercentile),
-        wordsPercentile: parseFloat(wordsPercentile)
-      },
-      personalBests: {
-        time: timeTests?.data || {},
-        words: wordTests?.data || {}
-      },
-      speedHistogram: {
-        time: histogramTime?.data || {},
-        words: histogramWords?.data || {}
+        recentTests
       },
       lastUpdated: new Date().toISOString()
     }
-
-    return response
   } catch (error: any) {
     console.error('MonkeyType API error details:', error)
-    throw createError({
-      statusCode: error.statusCode || 500,
-      message: error.message || 'Failed to fetch MonkeyType data'
-    })
+    // Only return null if we actually failed to fetch data
+    return {
+      typingStats: null,
+      lastUpdated: new Date().toISOString()
+    }
   }
 })

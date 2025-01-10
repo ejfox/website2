@@ -17,6 +17,13 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    // Private keys that are exposed to the server
+    MONKEYTYPE_TOKEN: process.env.MONKEYTYPE_TOKEN,
+    githubToken: process.env.GITHUB_TOKEN,
+    GITHUB_TOKEN: process.env.GITHUB_TOKEN,
+    CHESS_USERNAME: process.env.CHESS_USERNAME,
+    RESCUETIME_TOKEN: process.env.RESCUETIME_TOKEN,
+
     public: {
       baseUrl:
         process.env.NODE_ENV === 'production'
@@ -33,6 +40,15 @@ export default defineNuxtConfig({
     preset: 'netlify',
     prerender: {
       failOnError: false
+    },
+    routeRules: {
+      '/api/**': {
+        cors: true,
+        headers: {
+          'Access-Control-Allow-Methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+          'Access-Control-Allow-Origin': '*'
+        }
+      }
     }
   },
 

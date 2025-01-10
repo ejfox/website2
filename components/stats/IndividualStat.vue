@@ -1,5 +1,5 @@
 <template>
-  <div class="space-y-4">
+  <div class="space-y-3">
     <Transition name="fade" mode="out-in">
       <p :key="value" class="tabular-nums tracking-tight font-fjalla" :class="[
         size === 'large' && 'text-[8rem] leading-[0.85]',
@@ -9,9 +9,9 @@
         {{ formattedValue }}
       </p>
     </Transition>
-    <div class="space-y-2">
-      <h3 class="text-xs tracking-[0.2em] text-gray-500 font-light uppercase">{{ label }}</h3>
-      <p v-if="details" class="text-[0.65rem] text-gray-400 tracking-wider leading-relaxed max-w-xs font-sans">
+    <div class="space-y-1.5">
+      <h3 class="text-sm tracking-wider text-gray-400 font-medium uppercase">{{ label }}</h3>
+      <p v-if="details" class="text-xs text-gray-500 tracking-wide leading-relaxed max-w-xs font-light">
         {{ details }}
       </p>
     </div>

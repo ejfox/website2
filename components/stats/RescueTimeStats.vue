@@ -1,3 +1,48 @@
+<template>
+  <div class="space-y-16">
+    <!-- Primary Stats -->
+    <div>
+      <IndividualStat :value="weeklyHours" size="large" label="HOURS THIS WEEK"
+        :details="`${formatNumber(weeklyProductiveHours)} PRODUCTIVE · ${weeklyProductivePercent}%`" />
+    </div>
+
+    <!-- Weekly Activity -->
+    <div class="space-y-6">
+      <h3 class="text-sm tracking-wider text-gray-500">THIS WEEK</h3>
+      <div class="space-y-4">
+        <template v-for="activity in weeklyTopActivities" :key="activity.name">
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-gray-400">{{ activity.name }}</span>
+            <div class="flex items-center gap-4">
+              <span :class="[getProductivityColor(activity.productivity)]">{{ activity.time.formatted }}</span>
+              <span class="text-gray-500 w-12 text-right">{{ activity.percentageOfTotal }}%</span>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+
+    <!-- Monthly Overview -->
+    <div class="space-y-6">
+      <h3 class="text-sm tracking-wider text-gray-500">THIS MONTH</h3>
+      <div class="space-y-4">
+        <div class="flex items-center justify-between text-sm">
+          <span class="text-gray-400">Total Hours</span>
+          <span class="text-gray-500">{{ monthlyHours }}</span>
+        </div>
+        <div class="flex items-center justify-between text-sm">
+          <span class="text-gray-400">Productive Time</span>
+          <span class="text-gray-500">{{ monthlyProductiveHours }} hours ({{ monthlyProductivePercent }}%)</span>
+        </div>
+        <div class="flex items-center justify-between text-sm">
+          <span class="text-gray-400">Top Category</span>
+          <span class="text-gray-500">{{ monthlyTopCategory?.name || 'N/A' }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { StatsResponse } from '~/composables/useStats'
@@ -18,15 +63,17 @@ const props = defineProps<{
 
 const rescueTime = computed(() => props.stats.rescueTime)
 
-// Get top 5 categories by time spent
-const topCategories = computed(() => {
-  return rescueTime.value?.categories?.slice(0, 5) || []
-})
+// Weekly Stats
+const weeklyHours = computed(() => Math.round(rescueTime.value?.week.summary.total.hoursDecimal || 0))
+const weeklyProductiveHours = computed(() => Math.round(rescueTime.value?.week.summary.productive.time.hoursDecimal || 0))
+const weeklyProductivePercent = computed(() => rescueTime.value?.week.summary.productive.percentage || 0)
+const weeklyTopActivities = computed(() => rescueTime.value?.week.activities.slice(0, 5) || [])
 
-// Get top 5 activities
-const topActivities = computed(() => {
-  return rescueTime.value?.activities?.slice(0, 5) || []
-})
+// Monthly Stats
+const monthlyHours = computed(() => Math.round(rescueTime.value?.month.summary.total.hoursDecimal || 0))
+const monthlyProductiveHours = computed(() => Math.round(rescueTime.value?.month.summary.productive.time.hoursDecimal || 0))
+const monthlyProductivePercent = computed(() => rescueTime.value?.month.summary.productive.percentage || 0)
+const monthlyTopCategory = computed(() => rescueTime.value?.month.categories[0])
 
 // Helper to get color based on productivity score
 const getProductivityColor = (score: number) => {
@@ -45,139 +92,4 @@ const getProductivityColor = (score: number) => {
       return 'text-gray-500'
   }
 }
-
-// Computed values for main stats
-const productiveHours = computed(() => {
-  if (!rescueTime.value?.summary?.productive?.time?.hoursDecimal) return 0
-  return rescueTime.value.summary.productive.time.hoursDecimal
-})
-
-const totalHours = computed(() => {
-  if (!rescueTime.value?.summary?.total?.time?.hoursDecimal) return 0
-  return rescueTime.value.summary.total.time.hoursDecimal
-})
-
-const productivityScore = computed(() => {
-  if (!rescueTime.value?.summary?.productive?.percentage) return 0
-  return rescueTime.value.summary.productive.percentage
-})
-
-const mostProductiveCategory = computed(() => {
-  if (!topCategories.value?.length) return null
-  return topCategories.value.reduce((prev, curr) => {
-    return curr.productivity > prev.productivity ? curr : prev
-  })
-})
-
-const formatTime = (time: TimeBreakdown) => {
-  if (!time?.hoursDecimal) return '0m'
-  return time.hoursDecimal >= 1 ? time.formatted : Math.round(time.hoursDecimal * 60) + 'm'
-}
-
-const currentMonth = computed(() => {
-  return new Date().toLocaleString('en-US', { month: 'long' })
-})
-
-const statsDetails = computed(() => {
-  return productivityScore.value + '% PRODUCTIVE · ' + formatNumber(totalHours.value) + 'H THIS MONTH'
-})
-
-const averageHoursPerDay = computed(() => {
-  if (!totalHours.value) return 0
-  const now = new Date()
-  const daysInMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate()
-  return Math.round((totalHours.value / daysInMonth) * 10) / 10
-})
 </script>
-
-<template>
-  <div v-if="rescueTime?.summary" class="space-y-16">
-    <!-- Primary Stats -->
-    <div class="space-y-12">
-      <!-- Month Indicator -->
-      <div class="text-xs tracking-[0.2em] text-gray-500 font-light">
-        {{ currentMonth.toUpperCase() }} OVERVIEW
-      </div>
-
-      <!-- Productive Hours -->
-      <IndividualStat :value="productiveHours" size="large" label="PRODUCTIVE HOURS" :details="statsDetails" />
-
-      <div class="grid grid-cols-2 gap-8">
-        <!-- Most Productive Category -->
-        <div v-if="mostProductiveCategory" class="space-y-2">
-          <div class="text-2xl font-fjalla">
-            {{ mostProductiveCategory.name }}
-          </div>
-          <div class="text-xs tracking-wider text-gray-500">
-            MOST PRODUCTIVE CATEGORY
-          </div>
-          <div class="text-sm text-gray-600">
-            {{ formatTime(mostProductiveCategory.time) }}
-          </div>
-        </div>
-
-        <!-- Average Time -->
-        <div class="space-y-2">
-          <div class="text-2xl font-fjalla tabular-nums">
-            {{ averageHoursPerDay }}h
-          </div>
-          <div class="text-xs tracking-wider text-gray-500">
-            AVERAGE DAILY HOURS
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Category Breakdown -->
-    <div v-if="topCategories.length">
-      <h4 class="text-xs tracking-[0.2em] text-gray-500 font-light mb-8">MONTHLY CATEGORIES</h4>
-      <div class="space-y-4">
-        <div v-for="category in topCategories" :key="category.name"
-          class="flex items-center justify-between p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">
-          <div class="flex items-center gap-4">
-            <div class="w-24 text-xs tracking-wider text-gray-500">
-              {{ formatTime(category.time) }}
-            </div>
-            <div :class="getProductivityColor(category.productivity)" class="font-medium">
-              {{ category.name }}
-            </div>
-          </div>
-          <div class="text-sm text-gray-600 dark:text-gray-400 tabular-nums">
-            {{ category.percentageOfTotal }}%
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Activity Details -->
-    <div v-if="topActivities.length">
-      <h4 class="text-xs tracking-[0.2em] text-gray-500 font-light mb-8">TOP MONTHLY ACTIVITIES</h4>
-      <div class="space-y-4">
-        <div v-for="activity in topActivities" :key="activity.name"
-          class="flex items-center justify-between p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">
-          <div class="flex items-center gap-4">
-            <div class="w-24 text-xs tracking-wider text-gray-500">
-              {{ formatTime(activity.time) }}
-            </div>
-            <div class="space-y-1">
-              <div :class="getProductivityColor(activity.productivity)" class="font-medium">
-                {{ activity.name }}
-              </div>
-              <div class="text-xs text-gray-500">{{ activity.category }}</div>
-            </div>
-          </div>
-          <div class="text-sm text-gray-600 dark:text-gray-400 tabular-nums">
-            {{ activity.percentageOfTotal }}%
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div v-if="rescueTime.lastUpdated" class="text-xs text-gray-500 dark:text-gray-400">
-      Last updated: {{ new Date(rescueTime.lastUpdated).toLocaleString() }}
-    </div>
-  </div>
-  <div v-else class="text-gray-500 dark:text-gray-400">
-    No RescueTime data available
-  </div>
-</template>

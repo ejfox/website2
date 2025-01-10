@@ -67,7 +67,12 @@ function calculateTimeBreakdown(seconds: number): TimeBreakdown {
 
 export default defineEventHandler(async () => {
   const config = useRuntimeConfig()
-  const token = config.rescuetimeToken
+  const token = config.RESCUETIME_TOKEN
+
+  console.log('RescueTime config:', {
+    hasToken: !!token,
+    tokenLength: token?.length
+  })
 
   if (!token) {
     throw createError({
@@ -77,114 +82,151 @@ export default defineEventHandler(async () => {
   }
 
   try {
-    // Following the documented example query format:
-    // https://www.rescuetime.com/anapi/data?key=YOUR_API_KEY&perspective=rank&restrict_kind=overview&restrict_begin=2020-01-01&restrict_end=2020-01-01&format=json
-    const response = await $fetch<RescueTimeResponse>(
-      'https://www.rescuetime.com/anapi/data',
-      {
+    // Get current week start (Monday) and month start
+    const now = new Date()
+    const weekStart = new Date(now)
+    weekStart.setDate(
+      now.getDate() - now.getDay() + (now.getDay() === 0 ? -6 : 1)
+    ) // Monday
+    weekStart.setHours(0, 0, 0, 0)
+
+    const monthStart = new Date(now.getFullYear(), now.getMonth(), 1)
+
+    console.log('RescueTime date ranges:', {
+      weekStart: weekStart.toISOString(),
+      monthStart: monthStart.toISOString(),
+      now: now.toISOString()
+    })
+
+    // Format dates as YYYY-MM-DD
+    const formatDate = (date: Date) => {
+      return date.toISOString().split('T')[0]
+    }
+
+    // Fetch both week and month data in parallel
+    const [weekData, monthData] = await Promise.all([
+      $fetch<RescueTimeResponse>('https://www.rescuetime.com/anapi/data', {
         params: {
           key: token,
           format: 'json',
           perspective: 'rank',
           restrict_kind: 'overview',
-          restrict_begin: '2024-01-01',
-          restrict_end: '2024-01-05'
+          restrict_begin: formatDate(weekStart),
+          restrict_end: formatDate(now)
+        }
+      }),
+      $fetch<RescueTimeResponse>('https://www.rescuetime.com/anapi/data', {
+        params: {
+          key: token,
+          format: 'json',
+          perspective: 'rank',
+          restrict_kind: 'overview',
+          restrict_begin: formatDate(monthStart),
+          restrict_end: formatDate(now)
+        }
+      })
+    ])
+
+    // Process week data
+    const processData = (response: RescueTimeResponse) => {
+      const rows: RescueTimeRow[] = response.rows.map((row: any[]) => ({
+        date: row[0],
+        seconds: row[1],
+        activity: row[3],
+        category: row[4],
+        productivity: row[5]
+      }))
+
+      const totalSeconds = rows.reduce((sum, row) => sum + row.seconds, 0)
+
+      // Group by category
+      const categoryMap = new Map()
+      rows.forEach((row) => {
+        if (!categoryMap.has(row.category)) {
+          categoryMap.set(row.category, {
+            name: row.category,
+            seconds: 0,
+            productivity: row.productivity
+          })
+        }
+        const cat = categoryMap.get(row.category)
+        cat.seconds += row.seconds
+      })
+
+      // Group by activity
+      const activityMap = new Map()
+      rows.forEach((row) => {
+        if (!activityMap.has(row.activity)) {
+          activityMap.set(row.activity, {
+            name: row.activity,
+            seconds: 0,
+            category: row.category,
+            productivity: row.productivity
+          })
+        }
+        const act = activityMap.get(row.activity)
+        act.seconds += row.seconds
+      })
+
+      // Sort activities by time and get top 10
+      const activities = Array.from(activityMap.values())
+        .sort((a, b) => b.seconds - a.seconds)
+        .slice(0, 10)
+        .map((act) => ({
+          name: act.name,
+          time: calculateTimeBreakdown(act.seconds),
+          percentageOfTotal: Math.round((act.seconds / totalSeconds) * 100),
+          category: act.category,
+          productivity: act.productivity
+        }))
+
+      // Process categories
+      const categories = Array.from(categoryMap.values())
+        .sort((a, b) => b.seconds - a.seconds)
+        .map((cat) => ({
+          name: cat.name,
+          time: calculateTimeBreakdown(cat.seconds),
+          percentageOfTotal: Math.round((cat.seconds / totalSeconds) * 100),
+          productivity: cat.productivity
+        }))
+
+      // Calculate summary
+      const productiveSeconds = rows
+        .filter((row) => row.productivity > 0)
+        .reduce((sum, row) => sum + row.seconds, 0)
+
+      const distractingSeconds = rows
+        .filter((row) => row.productivity < 0)
+        .reduce((sum, row) => sum + row.seconds, 0)
+
+      const neutralSeconds = rows
+        .filter((row) => row.productivity === 0)
+        .reduce((sum, row) => sum + row.seconds, 0)
+
+      return {
+        categories,
+        activities,
+        summary: {
+          total: calculateTimeBreakdown(totalSeconds),
+          productive: {
+            time: calculateTimeBreakdown(productiveSeconds),
+            percentage: Math.round((productiveSeconds / totalSeconds) * 100)
+          },
+          distracting: {
+            time: calculateTimeBreakdown(distractingSeconds),
+            percentage: Math.round((distractingSeconds / totalSeconds) * 100)
+          },
+          neutral: {
+            time: calculateTimeBreakdown(neutralSeconds),
+            percentage: Math.round((neutralSeconds / totalSeconds) * 100)
+          }
         }
       }
-    )
-
-    const rows: RescueTimeRow[] = response.rows.map((row: any[]) => ({
-      date: row[0],
-      seconds: row[1],
-      activity: row[3],
-      category: row[4],
-      productivity: row[5]
-    }))
-
-    const totalSeconds = rows.reduce((sum, row) => sum + row.seconds, 0)
-
-    // Group by category
-    const categoryMap = new Map()
-    rows.forEach((row) => {
-      if (!categoryMap.has(row.category)) {
-        categoryMap.set(row.category, {
-          name: row.category,
-          seconds: 0,
-          productivity: row.productivity
-        })
-      }
-      const cat = categoryMap.get(row.category)
-      cat.seconds += row.seconds
-    })
-
-    // Group by activity (only store top 10 by time)
-    const activityMap = new Map()
-    rows.forEach((row) => {
-      if (!activityMap.has(row.activity)) {
-        activityMap.set(row.activity, {
-          name: row.activity,
-          seconds: 0,
-          category: row.category,
-          productivity: row.productivity
-        })
-      }
-      const act = activityMap.get(row.activity)
-      act.seconds += row.seconds
-    })
-
-    // Sort activities by time and get top 10
-    const activities = Array.from(activityMap.values())
-      .sort((a, b) => b.seconds - a.seconds)
-      .slice(0, 10)
-      .map((act) => ({
-        name: act.name,
-        time: calculateTimeBreakdown(act.seconds),
-        percentageOfTotal: Math.round((act.seconds / totalSeconds) * 100),
-        category: act.category,
-        productivity: act.productivity
-      }))
-
-    // Process categories
-    const categories = Array.from(categoryMap.values())
-      .sort((a, b) => b.seconds - a.seconds)
-      .map((cat) => ({
-        name: cat.name,
-        time: calculateTimeBreakdown(cat.seconds),
-        percentageOfTotal: Math.round((cat.seconds / totalSeconds) * 100),
-        productivity: cat.productivity
-      }))
-
-    // Calculate summary
-    const productiveSeconds = rows
-      .filter((row) => row.productivity > 0)
-      .reduce((sum, row) => sum + row.seconds, 0)
-
-    const distractingSeconds = rows
-      .filter((row) => row.productivity < 0)
-      .reduce((sum, row) => sum + row.seconds, 0)
-
-    const neutralSeconds = rows
-      .filter((row) => row.productivity === 0)
-      .reduce((sum, row) => sum + row.seconds, 0)
+    }
 
     return {
-      categories,
-      activities,
-      summary: {
-        total: calculateTimeBreakdown(totalSeconds),
-        productive: {
-          time: calculateTimeBreakdown(productiveSeconds),
-          percentage: Math.round((productiveSeconds / totalSeconds) * 100)
-        },
-        distracting: {
-          time: calculateTimeBreakdown(distractingSeconds),
-          percentage: Math.round((distractingSeconds / totalSeconds) * 100)
-        },
-        neutral: {
-          time: calculateTimeBreakdown(neutralSeconds),
-          percentage: Math.round((neutralSeconds / totalSeconds) * 100)
-        }
-      },
+      week: processData(weekData),
+      month: processData(monthData),
       lastUpdated: new Date().toISOString()
     }
   } catch (error: any) {

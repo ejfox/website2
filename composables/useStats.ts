@@ -12,43 +12,81 @@ interface TimeBreakdown {
 
 export interface StatsResponse {
   rescueTime?: {
-    categories: Array<{
-      name: string
-      time: TimeBreakdown
-      percentageOfTotal: number
-      productivity: number
-    }>
-    activities: Array<{
-      name: string
-      time: TimeBreakdown
-      percentageOfTotal: number
-      category: string
-      productivity: number
-    }>
-    summary: {
-      total: TimeBreakdown
-      productive: {
+    week: {
+      categories: Array<{
+        name: string
         time: TimeBreakdown
-        percentage: number
+        percentageOfTotal: number
+        productivity: number
+      }>
+      activities: Array<{
+        name: string
+        time: TimeBreakdown
+        percentageOfTotal: number
+        category: string
+        productivity: number
+      }>
+      summary: {
+        total: TimeBreakdown
+        productive: {
+          time: TimeBreakdown
+          percentage: number
+        }
+        distracting: {
+          time: TimeBreakdown
+          percentage: number
+        }
+        neutral: {
+          time: TimeBreakdown
+          percentage: number
+        }
       }
-      distracting: {
+    }
+    month: {
+      categories: Array<{
+        name: string
         time: TimeBreakdown
-        percentage: number
-      }
-      neutral: {
+        percentageOfTotal: number
+        productivity: number
+      }>
+      activities: Array<{
+        name: string
         time: TimeBreakdown
-        percentage: number
+        percentageOfTotal: number
+        category: string
+        productivity: number
+      }>
+      summary: {
+        total: TimeBreakdown
+        productive: {
+          time: TimeBreakdown
+          percentage: number
+        }
+        distracting: {
+          time: TimeBreakdown
+          percentage: number
+        }
+        neutral: {
+          time: TimeBreakdown
+          percentage: number
+        }
       }
     }
     lastUpdated: string
   }
   monkeyType?: {
-    typingStats?: {
+    typingStats: {
       bestWPM: number
       testsCompleted: number
       bestAccuracy: number
       bestConsistency: number
-    }
+      recentTests: Array<{
+        timestamp: string
+        wpm: number
+        accuracy: number
+      }>
+    } | null
+    lastUpdated: string
   }
   github?: {
     stats: {

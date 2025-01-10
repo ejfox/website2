@@ -25,14 +25,8 @@
     </div>
 
     <!-- Chess Rating -->
-    <div v-if="stats.chess">
+    <div v-if="stats.chess && chessRating > 400">
       <IndividualStat :value="chessRating" size="medium" label="CHESS RATING" :details="`${chessWinRate}% WIN RATE`" />
-    </div>
-
-    <!-- RescueTime Stats -->
-    <div v-if="stats.rescueTime?.summary">
-      <IndividualStat :value="productiveHours" size="medium" label="PRODUCTIVE HOURS"
-        :details="`${productivityScore}% PRODUCTIVE`" />
     </div>
 
     <!-- Health Stats -->
@@ -44,7 +38,13 @@
     <!-- Blog Stats -->
     <div v-if="blogStats">
       <IndividualStat :value="blogStats.totalPosts" size="medium" label="BLOG POSTS"
-        :details="`${formatNumber(blogStats.totalWords)} WORDS`" />
+        :details="`${postsThisMonth} THIS MONTH`" />
+    </div>
+
+    <!-- Total Words -->
+    <div v-if="blogStats">
+      <IndividualStat :value="blogStats.totalWords" size="medium" label="TOTAL WORDS"
+        :details="`${formatNumber(averageWordsPerPost)} AVG/POST`" />
     </div>
   </div>
 </template>
@@ -91,14 +91,16 @@ const chessWinRate = computed(() => {
     : props.stats.chess.winRate
 })
 
-// RescueTime computed properties
-const productiveHours = computed(() => {
-  if (!props.stats.rescueTime?.summary?.productive?.time?.hoursDecimal) return 0
-  return Math.round(props.stats.rescueTime.summary.productive.time.hoursDecimal)
+const averageWordsPerPost = computed(() => {
+  if (!props.blogStats) return 0
+  return Math.round(props.blogStats.averageWords)
 })
 
-const productivityScore = computed(() => {
-  if (!props.stats.rescueTime?.summary?.productive?.percentage) return 0
-  return props.stats.rescueTime.summary.productive.percentage
+const postsThisMonth = computed(() => {
+  if (!props.blogStats?.lastPost) return 0
+  const lastPostDate = new Date(props.blogStats.lastPost)
+  const oneMonthAgo = new Date()
+  oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1)
+  return props.blogStats.totalPosts > 0 && lastPostDate > oneMonthAgo ? 1 : 0
 })
 </script>
