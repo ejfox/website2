@@ -16,6 +16,13 @@ export default defineNuxtConfig({
     transpile: ['vue-toastification']
   },
 
+  umami: {
+    id: 'd9e7297b-be5d-4f91-a116-38f9c960a9af',
+    host: 'https://umami.tools.ejfox.com',
+    autoTrack: true,
+    ignoreLocalhost: true
+  },
+
   runtimeConfig: {
     // Private keys that are exposed to the server
     MONKEYTYPE_TOKEN: process.env.MONKEYTYPE_TOKEN,
