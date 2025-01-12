@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"59385","title":"Calling Bullshit: The Art of Skepticism 
 date: "2022-12-26T16:47:11.000Z"
 modified: "2022-12-27T20:12:06.000Z"
 tags: ["datajournalism","journalism"]
+wordCount: 63
 ---
 # Calling Bullshit
 

@@ -3,6 +3,7 @@ tags: ["book"]
 kindle-sync: {"bookId":"4772","title":"The Rise and Fall of D.O.D.O.: A Novel","author":"Neal Stephenson and Nicole Galland","asin":"B01M0HPHR6","lastAnnotatedDate":"2020-08-06","bookImageUrl":"https://m.media-amazon.com/images/I/91KGdyDZWWL._SY160.jpg","highlightsCount":7}
 date: "2022-12-28T16:09:31.000Z"
 modified: "2024-09-20T04:22:05.000Z"
+wordCount: 397
 ---
 ## The Rise and Fall of D.O.D.O.
 ### Metadata

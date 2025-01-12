@@ -3,6 +3,7 @@ dek: "In which we attempt to craft some treasure from the debris of a life lived
 date: "2024-09-20T04:22:35.000Z"
 modified: "2024-11-05T16:50:13.000Z"
 tags: ["inspiration","dataviz","design","howto","politics"]
+wordCount: 903
 ---
 ## Building myself a scrapbook
 

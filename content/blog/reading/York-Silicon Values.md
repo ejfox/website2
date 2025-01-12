@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"40211","title":"Silicon Values: The Future of Free Speec
 date: "2022-12-26T16:46:47.000Z"
 modified: "2022-12-27T20:10:11.000Z"
 tags: ["tech","culture","book","reference","opinion","politics","america"]
+wordCount: 49
 ---
 # Silicon Values
 

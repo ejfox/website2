@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"52934","title":"The Fundamentals of Motorcycle Camping",
 date: "2022-12-14T20:24:52.000Z"
 modified: "2022-12-23T15:19:47.000Z"
 tags: ["camping","motorcycle","travel"]
+wordCount: 325
 ---
 # The Fundamentals of Motorcycle Camping
 

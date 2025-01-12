@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"16297","title":"Futureproof: 9 Rules for Surviving in th
 tags: ["book","machinelearning"]
 date: "2023-10-23T15:33:07.000Z"
 modified: "2024-09-21T19:03:49.000Z"
+wordCount: 182
 ---
 ## Futureproof
 ### Metadata

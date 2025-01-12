@@ -1,10 +1,10 @@
 ---
-draft: true
 dek: "In which the author discusses methods to travel efficiently and have spontaneous and joyous experiences"
 inprogress: true
 date: "2022-12-26T20:09:25.000Z"
 modified: "2024-09-20T04:22:18.000Z"
 tags: ["travel","personal","howto"]
+wordCount: 1369
 ---
 ## How to Travel for Maximum Joy
 

@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"60606","title":"Theory of Fun for Game Design","author":
 date: "2022-12-26T16:48:23.000Z"
 modified: "2022-12-27T20:12:25.000Z"
 tags: ["design","games","videogames"]
+wordCount: 93
 ---
 # Theory of Fun for Game Design
 

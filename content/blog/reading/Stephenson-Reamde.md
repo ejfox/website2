@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"37234","title":"Reamde: A Novel","author":"Neal Stephens
 date: "2022-12-26T16:48:12.000Z"
 modified: "2024-09-20T04:36:01.000Z"
 tags: ["book"]
+wordCount: 54
 ---
 ## Reamde
 

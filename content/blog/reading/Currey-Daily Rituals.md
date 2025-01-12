@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"57847","title":"Daily Rituals: How Artists Work","author
 date: "2022-12-14T20:24:07.000Z"
 modified: "2022-12-23T14:45:53.000Z"
 tags: ["book","writing","inspiration"]
+wordCount: 168
 ---
 # Daily Rituals
 

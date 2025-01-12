@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"33471","title":"Forest Bathing: How Trees Can Help You F
 date: "2022-12-14T20:24:36.000Z"
 modified: "2022-12-23T16:03:59.000Z"
 tags: ["nature","health","meditation","climatechange"]
+wordCount: 197
 ---
 # Forest Bathing
 

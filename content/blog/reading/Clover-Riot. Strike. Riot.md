@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"44304","title":"Riot. Strike. Riot: The New Era of Upris
 date: "2022-12-26T16:47:52.000Z"
 modified: "2022-12-27T20:08:53.000Z"
 tags: ["politics","protest","reference"]
+wordCount: 60
 ---
 # Riot. Strike. Riot
 

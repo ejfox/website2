@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"19008","title":"History's Greatest Generals: 10 Commande
 tags: ["military","reference"]
 date: "2022-12-14T20:29:41.000Z"
 modified: "2022-12-23T16:28:08.000Z"
+wordCount: 132
 ---
 # Historys Greatest Generals
 

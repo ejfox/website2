@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"19692","title":"Blue Highways: A Journey into America","
 date: "2022-12-14T20:29:07.000Z"
 modified: "2022-12-23T16:02:56.000Z"
 tags: ["travel","maps","america"]
+wordCount: 140
 ---
 # Blue Highways
 

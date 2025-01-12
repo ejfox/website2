@@ -1,10 +1,10 @@
 ---
-draft: true
 dek: "In which we build a robot to help around the shop"
 inprogress: true
 date: "2023-03-21T19:03:11.000Z"
 modified: "2024-09-23T16:13:40.000Z"
 tags: ["dataviz","gpt3","machinelearning"]
+wordCount: 1370
 ---
 ## How I Built An AI Assistant for our Dataviz Studio
 

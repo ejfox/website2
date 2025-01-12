@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"60661","title":"The Green Witch: Your Complete Guide to 
 date: "2022-12-14T20:26:21.000Z"
 modified: "2022-12-23T16:25:52.000Z"
 tags: ["nature","health","meditation","ecology"]
+wordCount: 701
 ---
 # The Green Witch
 

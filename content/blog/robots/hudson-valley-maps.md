@@ -1,7 +1,8 @@
 ---
 date: "2024-11-27T16:23:08.000Z"
-modified: "2024-12-31T00:44:34.000Z"
+modified: "2024-12-13T18:31:30.000Z"
 share: true
+wordCount: 1658
 ---
 ## Hudson Valley Systems & Trail Mapping Project
 
@@ -258,40 +259,3 @@ This structure allows you to:
 3. Maintain data quality
 4. Share with others if needed
 5. Keep emergency info current
-
----
-
-### **Forestpunk OSM Contribution: Mapping for Mutual Aid**
-
-**Why We Map**: In the Forestpunk ethos, maps are more than tools—they are acts of care. Every updated trail, repeater location, or water source is a gift to those who walk after us. By contributing to OpenStreetMap (OSM), we strengthen the invisible networks that sustain freedom, resilience, and connection in wild places. Mapping isn’t just preparation—it’s a form of decentralized empowerment.
-
----
-
-### **The Forestpunk Approach to OSM**
-1. **Decentralized Knowledge**: Your updates make critical local data accessible to anyone, breaking reliance on centralized systems.
-2. **Regenerative Action**: Each contribution enhances the land’s role as a resource for safety, exploration, and mutual support.
-3. **Radical Connection**: By mapping, you weave the forest and digital realms together, ensuring technology whispers rather than controls.
-
----
-
-### **How To Start Contributing**
-1. **Create an Account**:
-   - Visit [openstreetmap.org](https://openstreetmap.org) and sign up.
-2. **Learn the Basics**:
-   - Use the **iD Editor** (in-browser) for beginner-friendly edits.
-   - Install **JOSM** (advanced) for GPS tracks, bulk edits, and detailed tagging.
-3. **Collect Field Data**:
-   - Record GPS tracks with a smartphone (OsmAnd, Gaia GPS).
-   - Take geotagged photos or notes using apps like **Mapillary** or **StreetComplete**.
-   - Annotate printed maps with field observations (Field Papers).
-4. **Follow Best Practices**:
-   - Tag accurately: Use OSM tagging guides to classify features (e.g., `highway=path`, `amenity=drinking_water`).
-   - Validate edits: Check for errors before uploading.
-   - Document changes clearly in your upload description.
-
----
-
-### **Contributing With Purpose**
-- **Trails**: Map every path, junction, and reroute—add tags for visibility, difficulty, and seasonal conditions.
-- **Emergency Resources**: Mark radio repeaters, helispots, and water sources for SAR and preparedness.
-- **Local Knowledge**: Share the wisdom of the land—POIs, shelters, or hazards.

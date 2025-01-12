@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"34315","title":"Other People: Takes & Mistakes","author"
 date: "2022-12-14T20:26:44.000Z"
 modified: "2022-12-23T15:54:10.000Z"
 tags: ["writing","journalism","photography","health"]
+wordCount: 247
 ---
 # Other People
 

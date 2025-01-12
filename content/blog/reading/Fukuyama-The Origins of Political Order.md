@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"5579","title":"The Origins of Political Order: From Preh
 tags: ["book","politics"]
 date: "2022-12-14T20:30:02.000Z"
 modified: "2022-12-23T16:05:21.000Z"
+wordCount: 153
 ---
 # The Origins of Political Order
 

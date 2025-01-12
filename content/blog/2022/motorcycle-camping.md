@@ -1,10 +1,10 @@
 ---
-draft: true
 dek: "In which we drive our motorcycles into the woods"
 inprogress: true
 date: "2022-12-23T16:32:14.000Z"
 modified: "2024-09-20T04:22:45.000Z"
 tags: ["motorcycle","camping","travel","hudsonvalley"]
+wordCount: 1356
 ---
 ## Into the Wild: Motorcycle Camping Gearlist
 

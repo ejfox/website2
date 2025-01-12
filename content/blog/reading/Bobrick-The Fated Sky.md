@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"32592","title":"The Fated Sky: Astrology in History","au
 date: "2022-12-14T20:25:13.000Z"
 modified: "2022-12-23T14:45:29.000Z"
 tags: []
+wordCount: 1070
 ---
 # The Fated Sky
 

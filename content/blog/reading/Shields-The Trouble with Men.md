@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"3371","title":"The Trouble with Men: Reflections on Sex,
 date: "2022-12-14T20:27:24.000Z"
 modified: "2022-12-23T15:56:57.000Z"
 tags: ["journalism"]
+wordCount: 291
 ---
 # The Trouble with Men
 

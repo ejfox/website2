@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"55623","title":"Film Directing Shot by Shot: Visualizing
 date: "2022-12-26T16:47:37.000Z"
 modified: "2022-12-27T20:12:54.000Z"
 tags: ["video","howto","book","reference"]
+wordCount: 59
 ---
 # Film Directing Shot by Shot
 

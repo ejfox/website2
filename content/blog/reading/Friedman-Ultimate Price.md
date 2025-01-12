@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"12125","title":"Ultimate Price: The Value We Place on Li
 date: "2022-12-14T20:25:55.000Z"
 modified: "2022-12-23T15:57:59.000Z"
 tags: ["book","data"]
+wordCount: 356
 ---
 # Ultimate Price
 

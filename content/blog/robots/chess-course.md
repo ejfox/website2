@@ -2,6 +2,7 @@
 date: "2024-10-15T21:05:33.000Z"
 modified: "2024-11-24T22:19:45.000Z"
 share: true
+wordCount: 2878
 ---
 ## Week 1: Chess Fundamentals and Effective Study Techniques
 

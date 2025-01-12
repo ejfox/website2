@@ -2,6 +2,7 @@
 date: "2024-10-12T23:52:50.000Z"
 modified: "2024-12-11T18:49:33.000Z"
 image: "http://res.cloudinary.com/ejf/image/upload/v1733942968/Screenshot_2024-12-11_at_1.49.13_PM.png"
+wordCount: 137
 ---
 ## Command Line Tools
 

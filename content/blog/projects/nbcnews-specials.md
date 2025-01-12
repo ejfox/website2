@@ -3,6 +3,7 @@ title: "NBC News Specials"
 date: "2016-12-14T20:01:50.000Z"
 modified: "2024-10-14T16:35:49.000Z"
 url: "https://nbcnews.com/specials"
+wordCount: 68
 ---
 During my time at NBC News, I worked on the Foundry team, creating bespoke longform articles in collaboration with journalists across the organization. These [specials](https://www.nbcnews.com/specials) focused on unique approaches to video, data visualiation, and storytelling on the web.
 

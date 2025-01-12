@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"2923","title":"The Divide: American Injustice in the Age
 date: "2022-12-14T20:28:14.000Z"
 modified: "2022-12-23T16:04:54.000Z"
 tags: ["politics","america","journalism"]
+wordCount: 620
 ---
 # The Divide
 

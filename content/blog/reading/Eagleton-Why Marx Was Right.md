@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"3551","title":"Why Marx Was Right","author":"Terry Eagle
 date: "2022-12-14T20:30:19.000Z"
 modified: "2022-12-23T15:57:27.000Z"
 tags: ["politics","activism"]
+wordCount: 439
 ---
 # Why Marx Was Right
 

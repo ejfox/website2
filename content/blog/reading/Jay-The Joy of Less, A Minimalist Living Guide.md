@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"46201","title":"The Joy of Less, A Minimalist Living Gui
 date: "2022-12-26T16:49:04.000Z"
 modified: "2022-12-27T20:08:10.000Z"
 tags: ["design"]
+wordCount: 109
 ---
 # The Joy of Less, A Minimalist Living Guide
 

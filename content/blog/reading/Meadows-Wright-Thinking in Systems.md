@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"52163","title":"Thinking in Systems: International Bests
 date: "2022-12-14T20:24:46.000Z"
 modified: "2022-12-23T16:25:27.000Z"
 tags: []
+wordCount: 292
 ---
 # Thinking in Systems
 

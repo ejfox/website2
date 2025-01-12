@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"56373","title":"The Utopia of Rules: On Technology, Stup
 date: "2022-12-26T16:47:26.000Z"
 modified: "2022-12-27T20:07:54.000Z"
 tags: ["politics","book"]
+wordCount: 162
 ---
 # The Utopia of Rules
 

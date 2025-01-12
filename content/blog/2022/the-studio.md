@@ -4,6 +4,8 @@ date: "2022-12-27T20:04:55.000Z"
 modified: "2024-06-21T14:13:59.000Z"
 hidden: true
 tags: ["art","design","inspiration","process","technique","tool","visualization"]
+wordCount: 1342
+draft: true
 ---
 ## Fox Studio (Beacon)
 

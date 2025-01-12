@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"54847","title":"Hell's Angels: A Strange and Terrible Sa
 date: "2022-12-26T16:47:01.000Z"
 modified: "2022-12-27T20:07:04.000Z"
 tags: ["journalism","motorcycle","media","reference"]
+wordCount: 106
 ---
 # Hells Angels
 

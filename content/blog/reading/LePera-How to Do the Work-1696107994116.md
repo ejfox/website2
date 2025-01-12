@@ -1,7 +1,7 @@
 ---
 kindle-sync: {"bookId":"64404","title":"How to Do the Work: Recognize Your Patterns, Heal from Your Past, and Create Your Self","author":"Nicole LePera","asin":"B089SZ9JKW","lastAnnotatedDate":"2023-09-23","bookImageUrl":"https://m.media-amazon.com/images/I/819-DBs0KBL._SY160.jpg","highlightsCount":17}
 tags: ["book"]
-date: "2025-01-12T18:47:20.349Z"
+wordCount: 890
 ---
 # How to Do the Work
 ## Metadata

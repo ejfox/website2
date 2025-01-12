@@ -6,6 +6,8 @@ date: "2019-03-20T01:25:22.000Z"
 hidetimestamp: false
 modified: "2024-09-23T16:13:36.000Z"
 tags: ["vue","dataviz","d3","javascript","webdesign"]
+wordCount: 606
+draft: false
 ---
 ## How I prototype apps and dataviz quickly
 

@@ -3,6 +3,7 @@ dek: "In which the author proudly presents his new venture: Room 302 Studio, an 
 date: "2023-04-10T05:00:00.000Z"
 modified: "2024-09-20T04:21:55.000Z"
 tags: ["data"]
+wordCount: 582
 ---
 ## Introducing room302.studio
 

@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"24436","title":"Anarchy Works (Annotated)","author":"Pet
 date: "2022-12-14T20:26:52.000Z"
 modified: "2022-12-23T15:56:09.000Z"
 tags: ["activism","anarchism","politics","culture","education","inspiration","protest"]
+wordCount: 863
 ---
 # Anarchy Works
 

@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"62220","title":"The War of Art","author":"Steven Pressfi
 date: "2022-12-14T20:26:39.000Z"
 modified: "2024-03-13T22:51:53.000Z"
 tags: ["art","book","inspiration","writing"]
+wordCount: 676
 ---
 ## The War of Art
 

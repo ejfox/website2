@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"2199","title":"Exhalation: Stories","author":"Ted Chiang
 date: "2022-12-26T16:46:52.000Z"
 modified: "2022-12-27T20:14:05.000Z"
 tags: ["tech","book"]
+wordCount: 66
 ---
 # Exhalation
 

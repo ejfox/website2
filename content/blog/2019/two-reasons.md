@@ -7,6 +7,8 @@ date: "2019-08-05T08:00:00.000Z"
 hidetimestamp: false
 modified: "2023-12-02T01:04:54.000Z"
 tags: ["advice","inspiration","personal"]
+wordCount: 446
+draft: false
 ---
 ## Always Have Two Reasons for Something
 

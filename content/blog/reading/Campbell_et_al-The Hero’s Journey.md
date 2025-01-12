@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"58173","title":"The Hero’s Journey: Joseph Campbell on
 date: "2022-12-14T20:25:29.000Z"
 modified: "2022-12-23T16:04:35.000Z"
 tags: ["writing","book","inspiration","education","meditation"]
+wordCount: 470
 ---
 # The Hero’s Journey
 

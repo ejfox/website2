@@ -1,10 +1,10 @@
 ---
-draft: true
 dek: "In which we explore the transformative potential of computer literacy, unearthing its capacity to elevate both individual lives and collective progress"
 inprogress: true
 date: "2022-11-03T00:02:01.000Z"
 modified: "2024-09-20T04:24:42.000Z"
 tags: ["code","automation","tech"]
+wordCount: 633
 ---
 ## Why I think everyone should learn to code
 

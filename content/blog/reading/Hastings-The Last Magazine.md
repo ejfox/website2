@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"14217","title":"The Last Magazine: A Novel","author":"Mi
 date: "2022-12-26T16:48:07.000Z"
 modified: "2022-12-27T20:13:52.000Z"
 tags: ["journalism","media","politics","writing"]
+wordCount: 306
 ---
 # The Last Magazine
 

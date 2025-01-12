@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"50540","title":"Tools Of Titans: The Tactics, Routines, 
 date: "2022-12-14T20:26:50.000Z"
 modified: "2022-12-23T16:26:31.000Z"
 tags: ["book","health","inspiration"]
+wordCount: 476
 ---
 # Tools Of Titans
 

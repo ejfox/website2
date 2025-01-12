@@ -3,6 +3,7 @@ kindle-sync: {"bookId":"24240","title":"American Indian Myths and Legends (The P
 date: "2022-12-14T20:25:03.000Z"
 modified: "2022-12-23T16:27:03.000Z"
 tags: ["america","culture"]
+wordCount: 960
 ---
 # American Indian Myths and Legends
 
