@@ -50,31 +50,140 @@ function adaptChessStats(chessStats: any) {
   }
 }
 
-// Adapter function to convert GitHub stats to the expected format
+interface GitHubCommit {
+  repository: {
+    name: string
+    url: string
+  }
+  message: string
+  occurredAt: string
+  url: string
+  type: string
+}
+
+interface CommitType {
+  type: string
+  count: number
+  percentage: number
+}
+
+function processCommits(commits: any[]): {
+  commits: GitHubCommit[]
+  commitTypes: CommitType[]
+} {
+  // Clean and process commits
+  const processedCommits = commits.reduce(
+    (acc: GitHubCommit[], commit: any) => {
+      // Skip merge commits and empty messages
+      if (commit.message.startsWith('Merge') || !commit.message.trim()) {
+        return acc
+      }
+
+      // Clean up commit message - take first line only
+      const cleanMessage = commit.message.split('\n')[0].trim()
+
+      // Parse commit type
+      const typeMatch = cleanMessage.match(
+        /^(feat|fix|docs|style|refactor|test|chore|build|ci|perf|revert|blog|scaffold)(\(.+?\))?:/
+      )
+      const type = typeMatch?.[1] || 'other'
+
+      return [
+        ...acc,
+        {
+          repository: commit.repository,
+          message: cleanMessage,
+          occurredAt: commit.occurredAt,
+          url: commit.url,
+          type
+        }
+      ]
+    },
+    []
+  )
+
+  // Calculate type breakdown
+  const typeCount = processedCommits.reduce(
+    (acc: Record<string, number>, commit) => {
+      acc[commit.type] = (acc[commit.type] || 0) + 1
+      return acc
+    },
+    {}
+  )
+
+  const total = Object.values(typeCount).reduce((sum, count) => sum + count, 0)
+  const commitTypes = Object.entries(typeCount)
+    .map(([type, count]) => ({
+      type,
+      count,
+      percentage: (count / total) * 100
+    }))
+    .sort((a, b) => b.count - a.count)
+
+  return { commits: processedCommits, commitTypes }
+}
+
 function adaptGitHubStats(githubStats: any) {
-  return {
+  console.log('Adapting GitHub stats:', githubStats)
+
+  if (!githubStats) {
+    console.error('No GitHub stats to adapt!')
+    return undefined
+  }
+
+  // Handle both old and new data structures
+  const isOldFormat =
+    'repositories' in githubStats && !('detail' in githubStats)
+
+  if (isOldFormat) {
+    console.log('Converting from old GitHub format')
+    // Convert old format to new format
+    return {
+      stats: {
+        totalRepos: githubStats.stats.totalRepos,
+        totalContributions: githubStats.stats.totalContributions || 0,
+        followers: githubStats.stats.followers,
+        following: githubStats.stats.following
+      },
+      contributions: githubStats.contributions || [],
+      dates: githubStats.dates || [],
+      detail: {
+        commits: [], // We'll need to fetch fresh data
+        commitTypes: []
+      }
+    }
+  }
+
+  // Process new format
+  const { commits, commitTypes } = processCommits(
+    githubStats.detail?.commits || []
+  )
+
+  const adapted = {
     stats: {
       totalRepos: githubStats.stats.totalRepos,
-      totalPRs: githubStats.stats.totalPRs,
-      mergedPRs: githubStats.stats.mergedPRs,
+      totalContributions: githubStats.stats.totalContributions,
       followers: githubStats.stats.followers,
-      following: githubStats.stats.following,
-      totalLinesChanged: githubStats.stats.totalLinesChanged,
-      totalFilesChanged: githubStats.stats.totalFilesChanged,
-      totalContributions: githubStats.stats.totalContributions
+      following: githubStats.stats.following
     },
-    repositories: githubStats.repositories || [],
-    dates: githubStats.dates || [],
     contributions: githubStats.contributions || [],
-    currentStreak: githubStats.currentStreak || 0,
-    longestStreak: githubStats.longestStreak || 0,
-    totalContributions: githubStats.totalContributions || 0
+    dates: githubStats.dates || [],
+    detail: { commits, commitTypes }
   }
+
+  console.log('Adapted GitHub stats:', adapted)
+  return adapted
+}
+
+// Helper function to safely get value from Promise result
+function getValue(result: PromiseSettledResult<any>) {
+  return result.status === 'fulfilled' ? result.value : null
 }
 
 export default defineEventHandler(async (event): Promise<StatsResponse> => {
   try {
-    // Run all API calls in parallel but handle individual failures
+    console.log('🎯 Stats handler called')
+
     const [
       githubResult,
       monkeyTypeResult,
@@ -85,70 +194,52 @@ export default defineEventHandler(async (event): Promise<StatsResponse> => {
       rescueTimeResult
     ] = await Promise.allSettled([
       githubHandler(event).catch((err) => {
-        console.error('GitHub API error:', err)
+        console.error('❌ GitHub API error:', err)
         return null
       }),
       monkeyTypeHandler(event).catch((err) => {
-        console.error('MonkeyType API error:', err)
+        console.error('❌ MonkeyType API error:', err)
         return null
       }),
       photosHandler(event).catch((err) => {
-        console.error('Photos API error:', err)
+        console.error('❌ Photos API error:', err)
         return null
       }),
       healthHandler(event).catch((err) => {
-        console.error('Health API error:', err)
+        console.error('❌ Health API error:', err)
         return null
       }),
       leetcodeHandler(event).catch((err) => {
-        console.error('LeetCode API error:', err)
+        console.error('❌ LeetCode API error:', err)
         return null
       }),
       chessHandler(event).catch((err) => {
-        console.error('Chess API error:', err)
+        console.error('❌ Chess API error:', err)
         return null
       }),
       rescuetimeHandler(event).catch((err) => {
-        console.error('RescueTime API error:', err)
+        console.error('❌ RescueTime API error:', err)
         return null
       })
     ])
 
-    // Helper function to safely get value from Promise result
-    const getValue = (result: PromiseSettledResult<any>) =>
-      result.status === 'fulfilled' ? result.value : null
-
-    // Construct response with available data
     const response: StatsResponse = {
       github: getValue(githubResult)
         ? adaptGitHubStats(getValue(githubResult))
         : undefined,
-      monkeyType: getValue(monkeyTypeResult) || undefined,
-      photos: getValue(photosResult) || undefined,
-      health: getValue(healthResult) || undefined,
-      leetcode: getValue(leetcodeResult) || undefined,
+      monkeyType: getValue(monkeyTypeResult),
+      photos: getValue(photosResult),
+      health: getValue(healthResult),
+      leetcode: getValue(leetcodeResult),
       chess: getValue(chessResult)
         ? adaptChessStats(getValue(chessResult))
         : undefined,
-      rescueTime: getValue(rescueTimeResult) || undefined
-    }
-
-    // Check if we have at least some data
-    const hasAnyData = Object.values(response).some(
-      (value) => value !== undefined
-    )
-    if (!hasAnyData) {
-      throw new Error('No data available from any source')
+      rescueTime: getValue(rescueTimeResult)
     }
 
     return response
   } catch (error) {
-    console.error('Error fetching stats:', error)
-    const errorMessage =
-      error instanceof Error ? error.message : 'Unknown error'
-    throw createError({
-      statusCode: 500,
-      message: `Failed to fetch stats: ${errorMessage}`
-    })
+    console.error('💥 Error in stats handler:', error)
+    throw error
   }
 })

@@ -91,26 +91,30 @@ export interface StatsResponse {
   github?: {
     stats: {
       totalRepos: number
-      totalPRs: number
-      mergedPRs: number
+      totalContributions: number
       followers: number
       following: number
-      totalLinesChanged: number
-      totalFilesChanged: number
-      totalContributions: number
     }
-    repositories: Array<{
-      name: string
-      description: string
-      language: string
-      stars: number
-      createdAt: string
-    }>
-    dates: string[]
-    contributions: number[]
-    currentStreak: number
-    longestStreak: number
-    totalContributions: number
+    contributions: number[] // Daily contribution counts
+    dates: string[] // Corresponding dates for contributions
+    detail: {
+      commits: Array<{
+        // Recent commits (last 7 days)
+        repository: {
+          name: string
+          url: string
+        }
+        message: string
+        occurredAt: string
+        url: string
+        type: string
+      }>
+      commitTypes: Array<{
+        type: string
+        count: number
+        percentage: number
+      }>
+    }
   }
   photos?: {
     stats: {
@@ -251,50 +255,37 @@ export function useStats() {
   const stats = ref<StatsResponse | null>(null)
   const isLoading = ref(true)
   const errors = ref<Record<string, boolean>>({})
-  const hasStaleData = ref(false)
+
+  const hasGithubData = computed(() => {
+    return !!(
+      stats.value?.github?.stats && stats.value?.github?.detail?.commits
+    )
+  })
+
+  const hasMonkeyTypeData = computed(() => {
+    return !!stats.value?.monkeyType?.typingStats?.bestWPM
+  })
+
+  const hasPhotoData = computed(() => !!stats.value?.photos?.stats)
+  const hasHealthData = computed(() => !!stats.value?.health)
+  const hasLeetCodeData = computed(
+    () => !!stats.value?.leetcode?.submissionStats
+  )
+  const hasChessData = computed(() => !!stats.value?.chess)
+  const hasRescueTimeData = computed(() => !!stats.value?.rescueTime)
 
   onMounted(async () => {
-    console.log('Fetching stats...')
     try {
-      // Try to get cached data first
-      const cached = localStorage.getItem('stats')
-      if (cached) {
-        const { data, timestamp } = JSON.parse(cached)
-        const age = Date.now() - timestamp
-        if (age < 5 * 60 * 1000) {
-          // 5 minutes
-          stats.value = data
-          console.log('Using cached stats')
-          return
-        } else {
-          hasStaleData.value = true
-          stats.value = data // Use stale data while fetching
-        }
-      }
-
+      // Force fresh data
       const response = await fetch('/api/stats')
-      console.log('Stats response:', response)
       if (!response.ok) {
-        throw new Error(
-          `Failed to fetch stats: ${response.status} ${response.statusText}`
-        )
+        throw new Error(`Failed to fetch stats: ${response.status}`)
       }
       const data = await response.json()
-      console.log('Stats data:', data)
       stats.value = data
-
-      // Cache the fresh data
-      localStorage.setItem(
-        'stats',
-        JSON.stringify({
-          data,
-          timestamp: Date.now()
-        })
-      )
-      hasStaleData.value = false
     } catch (error) {
       console.error('Error fetching stats:', error)
-      errors.value = { fetch: true }
+      errors.value.fetch = true
     } finally {
       isLoading.value = false
     }
@@ -304,6 +295,12 @@ export function useStats() {
     stats,
     isLoading,
     errors,
-    hasStaleData
+    hasGithubData,
+    hasMonkeyTypeData,
+    hasPhotoData,
+    hasHealthData,
+    hasLeetCodeData,
+    hasChessData,
+    hasRescueTimeData
   }
 }

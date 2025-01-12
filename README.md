@@ -2,6 +2,64 @@
 
 A personal website and blog built with Nuxt 3, Vue 3, and D3.js. Content is managed through Obsidian and processed through a custom pipeline for seamless publishing.
 
+## Stats Pipeline
+
+```mermaid
+graph TD
+    A[useStats.ts] --> B{Cache Check}
+    B -->|Stale/Missing| C[Fetch Fresh Data]
+    B -->|Valid| D[Use Cached]
+    
+    C --> E[/api/stats.get.ts]
+    E -->|Parallel Fetch| F1[GitHub]
+    E -->|Parallel Fetch| F2[MonkeyType]
+    E -->|Parallel Fetch| F3[Photos]
+    E -->|Parallel Fetch| F4[Health]
+    E -->|Parallel Fetch| F5[LeetCode]
+    E -->|Parallel Fetch| F6[Chess]
+    E -->|Parallel Fetch| F7[RescueTime]
+    
+    F1 --> G1[github.get.ts]
+    G1 --> H1[Process Commits]
+    H1 --> I1[Group by Repo]
+    H1 --> I2[Parse Types]
+    
+    F1 & F2 & F3 & F4 & F5 & F6 & F7 --> J[Combine Results]
+    J --> K[Cache Response]
+    K --> L[Return to Components]
+```
+
+### Stats Flow
+
+1. **Client Request (`useStats.ts`)**
+   - Checks localStorage for cached data
+   - If valid cache exists (< 5 min old), use it
+   - Otherwise, fetch fresh data
+
+2. **API Handler (`/api/stats.get.ts`)**
+   - Coordinates parallel API requests
+   - Handles individual provider failures
+   - Combines results into single response
+
+3. **Provider Handlers**
+   - **GitHub**: Recent commits, contributions, repo stats
+   - **MonkeyType**: Typing speed and accuracy
+   - **Photos**: Photography stats and recent uploads
+   - **Health**: Activity and fitness data
+   - **LeetCode**: Coding challenge progress
+   - **Chess**: Game history and ratings
+   - **RescueTime**: Productivity tracking
+
+4. **Data Processing**
+   - Each provider has its own adapter
+   - Transforms raw API data into consistent format
+   - Handles error cases and missing data
+
+5. **Caching**
+   - Response cached in localStorage
+   - 5-minute TTL to prevent API spam
+   - Stale data shown while fetching fresh
+
 ## Features
 
 - **Content Management**: Write in Obsidian with markdown, publish with git
