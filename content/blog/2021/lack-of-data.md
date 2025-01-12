@@ -6,8 +6,6 @@ inprogress: true
 dek: "An exploration of what we choose to track, and what we don't – and what that means if we want to make the world a better place"
 modified: "2024-09-27T17:44:44.000Z"
 tags: ["data","datajournalism","dataviz","lackofdata","police","america"]
-wordCount: 599
-draft: false
 ---
 ## The Lack of Data
 

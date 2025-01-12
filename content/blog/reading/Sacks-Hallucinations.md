@@ -3,7 +3,6 @@ kindle-sync: {"bookId":"40419","title":"Hallucinations","author":"Oliver Sacks",
 date: "2022-12-14T20:27:12.000Z"
 modified: "2022-12-23T16:07:12.000Z"
 tags: ["psychedelics","research"]
-wordCount: 119
 ---
 # Hallucinations
 

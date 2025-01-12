@@ -3,7 +3,6 @@ kindle-sync: {"bookId":"54227","title":"Triumph of the City: How Our Greatest In
 date: "2022-12-26T16:48:03.000Z"
 modified: "2022-12-27T20:11:51.000Z"
 tags: ["culture"]
-wordCount: 72
 ---
 # Triumph of the City
 

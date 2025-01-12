@@ -2,7 +2,6 @@
 date: "2024-11-11T04:16:16.000Z"
 modified: "2024-11-12T17:27:05.000Z"
 share: true
-wordCount: 648
 ---
 ## Co-Buyer Pre-Meeting Checklist
 ### Personal Information & Documentation Checklist

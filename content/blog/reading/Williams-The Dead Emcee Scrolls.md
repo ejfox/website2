@@ -3,7 +3,6 @@ kindle-sync: {"bookId":"21088","title":"The Dead Emcee Scrolls: The Lost Teachin
 date: "2022-12-14T20:25:23.000Z"
 modified: "2022-12-23T16:07:47.000Z"
 tags: ["music","art","inspiration","meditation"]
-wordCount: 302
 ---
 # The Dead Emcee Scrolls
 

@@ -6,8 +6,6 @@ inprogress: false
 date: "2018-09-30T21:58:20-04:00"
 hidetimestamp: false
 tags: ["advice","exercise","inspiration","personal","project","writing"]
-wordCount: 739
-draft: false
 ---
 # Work View / Life View
 

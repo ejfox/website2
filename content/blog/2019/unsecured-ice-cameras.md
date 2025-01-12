@@ -7,8 +7,6 @@ date: "2019-03-24T08:00:39.000Z"
 hidetimestamp: false
 modified: "2024-09-23T16:13:18.000Z"
 tags: ["security","hacking","osint"]
-wordCount: 640
-draft: false
 ---
 ## Attempting to find unsecured ICE cameras
 

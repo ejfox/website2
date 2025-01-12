@@ -3,7 +3,6 @@ kindle-sync: {"bookId":"28232","title":"Israel: A Concise History of a Nation Re
 date: "2022-12-14T20:28:40.000Z"
 modified: "2022-12-23T16:06:08.000Z"
 tags: ["politics"]
-wordCount: 426
 ---
 # Israel
 

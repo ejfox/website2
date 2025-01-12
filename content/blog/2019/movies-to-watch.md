@@ -7,8 +7,6 @@ date: "2019-06-13T08:00:39.000Z"
 hidetimestamp: true
 modified: "2024-06-21T14:12:52.000Z"
 tags: ["movies","drama","documentary"]
-wordCount: 364
-draft: false
 ---
 ## Movies to Watch
 

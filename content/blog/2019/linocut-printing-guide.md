@@ -7,8 +7,6 @@ date: "2019-08-18T08:00:39.000Z"
 hidetimestamp: false
 modified: "2024-09-23T16:13:27.000Z"
 tags: ["analog","linocut","art","design","activism"]
-wordCount: 2168
-draft: false
 ---
 ## Linocut printing for a bright future
 

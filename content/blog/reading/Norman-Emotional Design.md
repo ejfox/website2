@@ -3,7 +3,6 @@ kindle-sync: {"bookId":"59972","title":"Emotional Design: Why We Love (or Hate) 
 date: "2022-12-26T16:48:59.000Z"
 modified: "2022-12-27T20:10:31.000Z"
 tags: ["design","book"]
-wordCount: 55
 ---
 # Emotional Design
 

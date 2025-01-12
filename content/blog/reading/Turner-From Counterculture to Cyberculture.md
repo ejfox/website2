@@ -3,7 +3,6 @@ kindle-sync: {"bookId":"4098","title":"From Counterculture to Cyberculture: Stew
 date: "2022-12-14T20:29:12.000Z"
 modified: "2022-12-23T15:56:21.000Z"
 tags: ["culture","hackers","journalism"]
-wordCount: 274
 ---
 # From Counterculture to Cyberculture
 

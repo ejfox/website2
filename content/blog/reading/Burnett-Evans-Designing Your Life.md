@@ -3,7 +3,6 @@ kindle-sync: {"bookId":"37778","title":"Designing Your Life: How to Build a Well
 date: "2022-12-14T20:26:28.000Z"
 modified: "2022-12-23T14:45:40.000Z"
 tags: ["process","book","inspiration"]
-wordCount: 130
 ---
 # Designing Your Life
 

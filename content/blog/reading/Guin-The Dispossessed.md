@@ -1,7 +1,7 @@
 ---
 kindle-sync: {"bookId":"30475","title":"The Dispossessed (Hainish Cycle)","author":"Ursula K. Le Guin","asin":"B000FC11GA","lastAnnotatedDate":"2023-10-14","bookImageUrl":"https://m.media-amazon.com/images/I/919GgLbYxpL._SY160.jpg","highlightsCount":1}
 tags: ["book","reference"]
-wordCount: 45
+date: "2025-01-12T18:47:21.385Z"
 ---
 # The Dispossessed
 ## Metadata

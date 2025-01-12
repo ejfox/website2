@@ -4,7 +4,6 @@ inprogress: true
 date: "2023-04-04T18:48:13.000Z"
 modified: "2024-09-20T04:20:58.000Z"
 tags: ["personal","process","markdown"]
-wordCount: 506
 ---
 ## Why I love Obsidian for organizing my notes and blog posts
 

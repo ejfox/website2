@@ -4,7 +4,6 @@ inprogress: true
 date: "2022-11-03T00:06:51.000Z"
 modified: "2024-10-29T18:10:00.000Z"
 tags: ["coding"]
-wordCount: 597
 ---
 ## Embracing Joy-Driven Development: A New Philosophy for Better Work
 

@@ -2,7 +2,6 @@
 date: "2022-11-14T21:15:19.000Z"
 modified: "2024-08-01T14:21:42.000Z"
 tags: ["elections","coding","media"]
-wordCount: 1579
 ---
 ## Election Night 2018
 

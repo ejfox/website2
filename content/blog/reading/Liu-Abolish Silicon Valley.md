@@ -3,7 +3,6 @@ kindle-sync: {"bookId":"8003","title":"Abolish Silicon Valley: How to Liberate T
 date: "2022-12-14T20:26:01.000Z"
 modified: "2022-12-23T16:26:01.000Z"
 tags: ["activism","culture","tech"]
-wordCount: 205
 ---
 # Abolish Silicon Valley
 

@@ -3,7 +3,6 @@ tags: ["book","climatechange","ecology","inspiration","nature"]
 kindle-sync: {"bookId":"22075","title":"Overshoot: The Ecological Basis of Revolutionary Change","author":"William R. Catton","asin":"B00VVH4UGG","lastAnnotatedDate":"2023-03-07","bookImageUrl":"https://m.media-amazon.com/images/I/51geicggF5L._SY160.jpg","highlightsCount":4}
 date: "2023-03-13T23:00:12.000Z"
 modified: "2024-09-20T04:19:39.000Z"
-wordCount: 241
 ---
 ## Overshoot
 ### Metadata

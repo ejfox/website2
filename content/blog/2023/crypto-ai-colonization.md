@@ -3,7 +3,6 @@ dek: "In which we embrace new technology and strive for an equitable future"
 date: "2023-01-24T15:56:03.000Z"
 modified: "2024-09-26T01:30:20.000Z"
 tags: ["activism","art","climatechange","cryptocurrency","ecology","machinelearning"]
-wordCount: 1391
 ---
 ## Deconstructing Crypto, AI, and the 21st Century Colonial Mindset
 

@@ -6,8 +6,6 @@ inprogress: false
 date: "2019-06-12T17:40:00-04:00"
 hidetimestamp: false
 tags: ["advice","cooking","process"]
-wordCount: 228
-draft: false
 ---
 # Step Zero
 

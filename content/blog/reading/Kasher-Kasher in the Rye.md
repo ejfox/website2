@@ -3,7 +3,6 @@ kindle-sync: {"bookId":"58479","title":"Kasher in the Rye: The True Tale of a Wh
 date: "2022-12-26T16:47:58.000Z"
 modified: "2022-12-27T20:11:37.000Z"
 tags: ["book","comedy","oakland"]
-wordCount: 95
 ---
 # Kasher in the Rye
 

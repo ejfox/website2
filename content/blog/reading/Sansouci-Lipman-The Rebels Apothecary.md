@@ -3,7 +3,6 @@ kindle-sync: {"bookId":"22789","title":"The Rebel's Apothecary: A Practical Guid
 date: "2022-12-14T20:23:53.000Z"
 modified: "2022-12-23T16:04:07.000Z"
 tags: ["health","cannabis","meditation","nature"]
-wordCount: 171
 ---
 # The Rebels Apothecary
 

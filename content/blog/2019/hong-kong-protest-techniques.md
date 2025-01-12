@@ -7,8 +7,6 @@ date: "2019-08-14T08:00:39.000Z"
 hidetimestamp: false
 modified: "2024-08-01T14:21:12.000Z"
 tags: ["protest","activism","tactics","security"]
-wordCount: 127
-draft: false
 ---
 ## Hong Kong Protest Techniques
 

@@ -2,7 +2,6 @@
 date: "2024-11-06T20:22:53.000Z"
 modified: "2024-11-08T18:33:01.000Z"
 share: true
-wordCount: 96
 ---
 WINTER SYSTEM OVERVIEW - FUNCTIONAL BREAKDOWN
 

@@ -3,7 +3,6 @@ kindle-sync: {"bookId":"6077","title":"Notes of a Native Son","author":"James Ba
 date: "2022-12-14T20:23:48.000Z"
 modified: "2022-12-23T16:26:46.000Z"
 tags: ["america","activism"]
-wordCount: 126
 ---
 # Notes of a Native Son
 

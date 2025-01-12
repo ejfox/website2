@@ -3,7 +3,6 @@ kindle-sync: {"bookId":"63420","title":"Be Here Now (Enhanced Edition)","author"
 date: "2022-12-26T16:46:57.000Z"
 modified: "2022-12-27T20:08:28.000Z"
 tags: ["book","meditation","reference","psychedelics"]
-wordCount: 83
 ---
 # Be Here Now
 

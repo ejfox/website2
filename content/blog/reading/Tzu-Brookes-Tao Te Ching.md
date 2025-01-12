@@ -3,7 +3,6 @@ kindle-sync: {"bookId":"23914","title":"Tao Te Ching","author":"Lao Tzu and Robe
 date: "2022-12-14T20:27:26.000Z"
 modified: "2022-12-23T16:03:38.000Z"
 tags: ["meditation"]
-wordCount: 222
 ---
 # Tao Te Ching
 

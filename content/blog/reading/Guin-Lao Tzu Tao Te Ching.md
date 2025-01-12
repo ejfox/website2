@@ -3,7 +3,6 @@ kindle-sync: {"bookId":"18161","title":"Lao Tzu: Tao Te Ching: A Book about the 
 date: "2022-12-14T20:26:16.000Z"
 modified: "2022-12-23T16:03:45.000Z"
 tags: ["meditation","inspiration"]
-wordCount: 957
 ---
 # Lao Tzu: Tao Te Ching
 

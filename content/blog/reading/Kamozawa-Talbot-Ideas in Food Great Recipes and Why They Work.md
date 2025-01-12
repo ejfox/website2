@@ -3,7 +3,6 @@ kindle-sync: {"bookId":"61196","title":"Ideas in Food: Great Recipes and Why The
 date: "2022-12-26T16:48:49.000Z"
 modified: "2022-12-27T20:11:27.000Z"
 tags: ["cooking","food","recipe"]
-wordCount: 115
 ---
 # Ideas in Food: Great Recipes and Why They Work
 

@@ -3,7 +3,6 @@ dek: "In which we make a list of the times I have livestreamed"
 date: "2023-01-03T18:21:22.000Z"
 modified: "2024-09-20T04:23:53.000Z"
 tags: ["livestream","dataviz","vue","coding","climatechange","youtube"]
-wordCount: 219
 ---
 ## Livestreaming
 

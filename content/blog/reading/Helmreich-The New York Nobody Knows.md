@@ -3,7 +3,6 @@ kindle-sync: {"bookId":"6757","title":"The New York Nobody Knows: Walking 6,000 
 date: "2022-12-14T20:27:31.000Z"
 modified: "2022-12-23T16:08:22.000Z"
 tags: ["culture","documentary","nature"]
-wordCount: 615
 ---
 # The New York Nobody Knows
 

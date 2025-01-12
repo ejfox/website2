@@ -6,8 +6,6 @@ inprogress: false
 dek: "In which various tools and methods are explored for analyzing data that describes a network of complaints against NYPD officers (or any other PD with similar public data)"
 modified: "2024-09-23T16:13:24.000Z"
 tags: ["data","nypd","visualization","network"]
-wordCount: 832
-draft: false
 ---
 ## Finding Clusters of NYPD Officers In CCRB Complaint Data
 

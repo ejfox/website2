@@ -3,7 +3,6 @@ kindle-sync: {"bookId":"49395","title":"Just One Thing: Developing a Buddha Brai
 date: "2022-12-14T20:30:08.000Z"
 modified: "2022-12-23T15:53:49.000Z"
 tags: ["inspiration"]
-wordCount: 128
 ---
 # Just One Thing
 

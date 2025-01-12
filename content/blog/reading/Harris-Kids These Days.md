@@ -3,7 +3,6 @@ kindle-sync: {"bookId":"58932","title":"Kids These Days: Human Capital and the M
 date: "2022-12-14T20:27:41.000Z"
 modified: "2022-12-23T15:53:54.000Z"
 tags: ["politics","education","activism"]
-wordCount: 3019
 ---
 # Kids These Days
 

@@ -2,7 +2,6 @@
 date: "2024-12-08T20:13:29.000Z"
 modified: "2024-12-08T22:46:33.000Z"
 share: true
-wordCount: 119
 ---
 I'll create a detailed walkthrough of how we got this stack working:
 

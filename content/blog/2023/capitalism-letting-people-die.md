@@ -1,10 +1,10 @@
 ---
+draft: true
 dek: "In which we dissect the merciless nature of capitalism, revealing a callous pattern of placing profits above human lives"
 inprogress: true
 date: "2023-02-07T15:36:05.000Z"
 modified: "2024-09-20T04:19:08.000Z"
 tags: ["activism","covid"]
-wordCount: 1390
 ---
 ## How Capitalism Idly Watches as People Die
 

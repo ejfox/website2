@@ -2,7 +2,6 @@
 date: "2024-11-05T17:00:28.000Z"
 modified: "2024-11-08T21:19:49.000Z"
 share: true
-wordCount: 2060
 ---
 ## ejfox.news Phase 1: Core Development Plan
 

@@ -4,7 +4,6 @@ inprogress: true
 date: "2022-12-28T18:20:58.000Z"
 modified: "2024-05-15T18:02:51.000Z"
 tags: ["food","cooking","recipe","health"]
-wordCount: 523
 ---
 ## Food
 

@@ -3,7 +3,6 @@ kindle-sync: {"bookId":"27992","title":"After the Prophet: The Epic Story of the
 date: "2022-12-14T20:27:58.000Z"
 modified: "2022-12-23T16:23:59.000Z"
 tags: ["book","reference","research"]
-wordCount: 129
 ---
 # After the Prophet
 

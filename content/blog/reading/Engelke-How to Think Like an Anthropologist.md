@@ -3,7 +3,6 @@ kindle-sync: {"bookId":"41325","title":"How to Think Like an Anthropologist","au
 date: "2022-12-14T20:28:44.000Z"
 modified: "2022-12-23T16:28:58.000Z"
 tags: ["culture","journalism","reference"]
-wordCount: 678
 ---
 # How to Think Like an Anthropologist
 

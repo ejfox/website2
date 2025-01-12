@@ -3,7 +3,6 @@ kindle-sync: {"bookId":"29818","title":"In the Plex: How Google Thinks, Works, a
 date: "2022-12-26T16:48:33.000Z"
 modified: "2022-12-27T20:06:29.000Z"
 tags: ["book","tech","reference","inspiration"]
-wordCount: 57
 ---
 # In the Plex
 

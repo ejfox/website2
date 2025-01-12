@@ -1,14 +1,20 @@
 ---
-dek: "In which voter data is explored and visualized with javascript and an assemblage of command line tools"
-type: "words"
+dek: >-
+  In which voter data is explored and visualized with javascript and an
+  assemblage of command line tools
+type: words
 hidden: true
 inprogress: false
-date: "2020-03-03T09:00:39.000Z"
+date: '2020-03-03T09:00:39.000Z'
 hidetimestamp: false
 draft: true
-modified: "2024-09-23T16:13:29.000Z"
-tags: ["data","dataviz","election2020","visualization"]
-wordCount: 978
+modified: '2024-09-23T16:13:29.000Z'
+tags:
+  - data
+  - dataviz
+  - election2020
+  - visualization
+wordCount: 975
 ---
 ## Processing, analyzing and visualizing EAVS data
 
