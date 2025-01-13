@@ -30,14 +30,7 @@
           <span class="text-gray-400">Total Hours</span>
           <span class="text-gray-500">{{ monthlyHours }}</span>
         </div>
-        <div class="flex items-center justify-between text-sm">
-          <span class="text-gray-400">Productive Time</span>
-          <span class="text-gray-500">{{ monthlyProductiveHours }} hours ({{ monthlyProductivePercent }}%)</span>
-        </div>
-        <div class="flex items-center justify-between text-sm">
-          <span class="text-gray-400">Top Category</span>
-          <span class="text-gray-500">{{ monthlyTopCategory?.name || 'N/A' }}</span>
-        </div>
+
       </div>
     </div>
   </div>
