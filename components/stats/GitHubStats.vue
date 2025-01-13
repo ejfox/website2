@@ -2,36 +2,17 @@
   <div class="space-y-16">
     <!-- Top Stats -->
     <div class="space-y-8">
-      <IndividualStat 
-        :value="stats.stats.totalContributions" 
-        size="large" 
-        label="ALL-TIME CONTRIBUTIONS"
-        :details="`${formatNumber(stats.stats.totalRepos)} PUBLIC REPOSITORIES`" 
-      />
+      <IndividualStat :value="stats.stats.totalContributions" size="large" label="ALL-TIME CONTRIBUTIONS"
+        :details="`${formatNumber(stats.stats.totalRepos)} PUBLIC REPOSITORIES`" />
 
       <div class="grid grid-cols-2 gap-8">
-        <IndividualStat 
-          :value="recentCommits" 
-          size="medium" 
-          label="RECENT COMMITS"
-          :details="`${formatNumber(averageCommitsPerDay)} DAILY AVERAGE`" 
-        />
+        <IndividualStat :value="recentCommits" size="medium" label="RECENT COMMITS"
+          :details="`${formatNumber(averageCommitsPerDay)} DAILY AVERAGE`" />
 
-        <IndividualStat 
-          :value="stats.stats.followers" 
-          size="medium" 
-          label="GITHUB FOLLOWERS"
-          :details="`FOLLOWING ${formatNumber(stats.stats.following)}`" 
-        />
+        <IndividualStat :value="stats.stats.followers" size="medium" label="GITHUB FOLLOWERS"
+          :details="`FOLLOWING ${formatNumber(stats.stats.following)}`" />
       </div>
     </div>
-
-    <!-- Debug Info -->
-    <pre class="text-xs text-gray-500">
-      Commits by Repo: {{ commitsByRepo.length }}
-      First Repo: {{ commitsByRepo[0]?.name }}
-      First Commit: {{ commitsByRepo[0]?.commits[0]?.message }}
-    </pre>
 
     <!-- Recent Commits -->
     <div v-if="commitsByRepo.length" class="space-y-8">
@@ -46,13 +27,12 @@
             <span class="text-gray-600">&middot;</span>
             <span class="text-gray-500">{{ repo.commits.length }} commits</span>
           </div>
-          
+
           <!-- Commits -->
           <div class="space-y-2 pl-4 border-l border-gray-800">
             <div v-for="commit in repo.commits.slice(0, 3)" :key="commit.url"
               class="flex items-center justify-between text-sm group">
-              <a :href="commit.url" target="_blank" 
-                class="text-gray-500 truncate max-w-[70%] hover:text-gray-300">
+              <a :href="commit.url" target="_blank" class="text-gray-500 truncate max-w-[70%] hover:text-gray-300">
                 {{ commit.message }}
               </a>
               <span class="text-gray-600 text-xs">
@@ -68,14 +48,12 @@
     <div v-if="commitTypeBreakdown.length" class="space-y-4">
       <h4 class="text-xs tracking-[0.2em] text-gray-500 font-light">COMMIT TYPES</h4>
       <div class="space-y-2">
-        <div v-for="type in commitTypeBreakdown" :key="type.type" 
-          class="flex items-center space-x-3 text-sm group" 
+        <div v-for="type in commitTypeBreakdown" :key="type.type" class="flex items-center space-x-3 text-sm group"
           :title="`${type.count} commits (${type.percentage.toFixed(1)}%)`">
           <span class="w-16 text-gray-400">{{ type.type }}</span>
           <div class="flex-1 h-1.5 bg-gray-800 rounded-full overflow-hidden">
-            <div class="h-full rounded-full transition-all group-hover:opacity-100 opacity-75" 
-              :class="getTypeColor(type.type)"
-              :style="{ width: `${type.percentage}%` }" />
+            <div class="h-full rounded-full transition-all group-hover:opacity-100 opacity-75"
+              :class="getTypeColor(type.type)" :style="{ width: `${type.percentage}%` }" />
           </div>
           <span class="text-gray-500 tabular-nums w-12 text-right">
             {{ Math.round(type.percentage) }}%
@@ -98,7 +76,7 @@ const props = defineProps<{
   stats: GitHubStats
 }>()
 
-const recentCommits = computed(() => 
+const recentCommits = computed(() =>
   props.stats.detail.commits.length || 0
 )
 
@@ -122,7 +100,7 @@ const commitsByRepo = computed(() => {
     }
     acc[repo.name].commits.push(commit)
     return acc
-  }, {} as Record<string, { name: string; url: string; commits: typeof props.stats.detail.commits }>) 
+  }, {} as Record<string, { name: string; url: string; commits: typeof props.stats.detail.commits }>)
 
   console.log('Grouped commits:', grouped)
   // Convert to array and sort by most recent commit
@@ -153,10 +131,10 @@ const typeColors = {
   other: 'bg-gray-700/30'
 } as const
 
-const getTypeColor = (type: string) => 
+const getTypeColor = (type: string) =>
   typeColors[type as keyof typeof typeColors] || typeColors.other
 
-const commitTypeBreakdown = computed(() => 
+const commitTypeBreakdown = computed(() =>
   props.stats.detail.commitTypes
 )
 </script>
