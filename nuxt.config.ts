@@ -17,7 +17,7 @@ export default defineNuxtConfig({
   },
 
   umami: {
-    id: 'd9e7297b-be5d-4f91-a116-38f9c960a9af',
+    id: '9350451a-f9e6-4689-982a-8cca95c64978',
     host: 'https://umami.tools.ejfox.com',
     autoTrack: true,
     ignoreLocalhost: true
