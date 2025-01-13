@@ -1,108 +1,159 @@
 #!/bin/bash
 
 # -----------------------------------------------------------------------------
-# Folder Action: Publish Blog Script
+# Folder Action: Blog Publishing Script
 # -----------------------------------------------------------------------------
-# When Automator sees new files in your Obsidian vault, it forwards them
-# as arguments ($@). This script copies any .md files into your blog, runs
-# "yarn import", optionally signs the posts, and then commits/pushes changes.
+# Integrates with import.mjs and processMarkdown.mjs to process new Markdown files
+# from Obsidian into the blog pipeline.
 # -----------------------------------------------------------------------------
 
-# --- EDIT THESE PATHS FOR YOUR SYSTEM ----------------------------------------
-ROOT_FOLDER="/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox"
+# --- PATHS & ENV -----------------------------------------------------------
 WEBSITE_FOLDER="/Users/ejfox/code/website2"
-BLOG_FOLDER="$WEBSITE_FOLDER/content/blog"
+LOGFILE="/tmp/publish_blog_automator.log"
 LOCK_FILE="$WEBSITE_FOLDER/.import.lock"
+STASH_NAME="pre-automator-import-$(date +%s)"
 
-# Node environment and other Path settings
+# Load Node environment
 export SHELL=/bin/zsh
 export PATH="$HOME/.nvm/versions/node/v20.16.0/bin:$HOME/.yarn/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-nvm use 20.16.0 || echo "Could not switch to Node 20.16.0. Using default node..."
 
-# -----------------------------------------------------------------------------
-#  Utility & Helper Functions
-# -----------------------------------------------------------------------------
-error_exit() {
-  echo "ERROR: $1"
-  exit 1
+# --- NOTIFICATIONS & LOGGING -----------------------------------------------
+notify() {
+  # First arg is the message, second (optional) is the title
+  title=${2:-"Blog Publisher"}
+  osascript -e "display notification \"$1\" with title \"$title\""
 }
 
-cleanup() {
-  [ -f "$LOCK_FILE" ] && rm "$LOCK_FILE"
-}
-
-# Runs yarn import and checks for success keywords
-run_import() {
-  local output
-  output=$(yarn import 2>&1)
-  echo "$output"
-  if echo "$output" | grep -q "Manifest written successfully"; then
-    echo "Import finished OK!"
-    return 0
-  else
-    echo "Import may have failed"
-    return 1
+log() {
+  echo "[$(date +'%Y-%m-%d %H:%M:%S')] $*" | tee -a "$LOGFILE"
+  # If message starts with ERROR, send notification
+  if [[ "$1" == ERROR* ]]; then
+    notify "$*" "Blog Publisher Error"
   fi
 }
 
-git_commit_and_push() {
-  yarn sign-post || echo "Sign-post step failed or was skipped."
-  git add . || error_exit "git add failed"
-  git commit -m "blog: auto-publish new content" || {
-    echo "Nothing to commit or commit failed"
-    return 0
-  }
-  git push || echo "Failed to push changes"
+# --- CLEANUP & SAFETY -----------------------------------------------------
+cleanup() {
+  local exit_code=$?
+  
+  # If we're exiting due to an error and have a stash
+  if [[ $exit_code -ne 0 && -n "$STASH_REF" ]]; then
+    log "Restoring changes from stash ($STASH_NAME)..."
+    git stash pop "$STASH_REF" || log "ERROR: Could not restore stashed changes"
+  fi
+  
+  # Remove lock file
+  if [ -f "$LOCK_FILE" ]; then
+    rm "$LOCK_FILE"
+    log "Removed lock file"
+  fi
+  
+  # Final notification based on exit code
+  if [ $exit_code -eq 0 ]; then
+    notify "Blog publish completed successfully"
+  else
+    notify "Blog publish failed - check logs" "Blog Publisher Error"
+  fi
+  
+  exit $exit_code
 }
 
-# -----------------------------------------------------------------------------
-#  Main Script
-# -----------------------------------------------------------------------------
-main() {
-  trap cleanup EXIT
+ensure_clean_workspace() {
+  if [[ -n "$(git status --porcelain)" ]]; then
+    log "Stashing existing changes as: $STASH_NAME"
+    STASH_REF=$(git stash push -m "$STASH_NAME")
+    if [ $? -ne 0 ]; then
+      log "ERROR: Failed to stash changes"
+      exit 1
+    fi
+  fi
+}
 
-  # Ensure no parallel runs 
+# --- MAIN ----------------------------------------------------------------
+main() {
+  # Set up cleanup trap and lock file
+  trap cleanup EXIT
   if [ -f "$LOCK_FILE" ]; then
-    echo "Another import is in progress – skipping!"
-    exit 0
+    log "Another import is in progress (lock file exists)"
+    exit 1
   fi
   touch "$LOCK_FILE"
-
-  cd "$WEBSITE_FOLDER" || error_exit "Cannot cd into $WEBSITE_FOLDER"
-
-  # Automator passes changed files as arguments. Filter for .md only.
-  local md_files=()
-  for f in "$@"; do
-    if [[ -f "$f" && "$f" == *.md ]]; then
-      md_files+=("$f")
+  
+  log "=== Blog Publish Started ==="
+  notify "Starting blog publish..."
+  
+  # Switch to website directory
+  cd "$WEBSITE_FOLDER" || {
+    log "ERROR: Cannot cd to $WEBSITE_FOLDER"
+    exit 1
+  }
+  
+  # Load correct Node version
+  nvm use 20.16.0 || log "Warning: Could not switch to Node 20.16.0"
+  
+  # Ensure clean workspace (stash if needed)
+  ensure_clean_workspace
+  
+  # Run the import pipeline (import.mjs followed by processMarkdown.mjs)
+  log "Running import pipeline..."
+  
+  # Run import.mjs first
+  log "Running import step..."
+  if ! node scripts/import.mjs; then
+    log "ERROR: Import step failed"
+    exit 1
+  fi
+  log "Import step completed"
+  
+  # Then run processMarkdown.mjs
+  log "Running markdown processing..."
+  if ! node scripts/processMarkdown.mjs; then
+    log "ERROR: Markdown processing failed"
+    exit 1
+  fi
+  log "Markdown processing completed"
+  
+  # Add build step
+  log "Running nuxt build..."
+  if ! yarn build; then
+    log "ERROR: Build failed"
+    exit 1
+  fi
+  log "Build completed"
+  
+  notify "Import and build completed successfully"
+  
+  # Commit and push if there are changes
+  if [[ -n "$(git status --porcelain)" ]]; then
+    log "Changes detected, committing..."
+    
+    if git add . && \
+       git commit -m "blog: auto-publish new content" && \
+       git push; then
+      log "Changes pushed successfully"
+      notify "Changes pushed to repository"
+    else
+      log "ERROR: Git operations failed"
+      exit 1
     fi
-  done
-
-  if [ ${#md_files[@]} -eq 0 ]; then
-    echo "No new .md files to process."
-    exit 0
+  else
+    log "No changes to commit"
+    notify "No changes to publish"
   fi
-
-  echo "Received new/changed .md files from Automator:"
-  printf '%s\n' "${md_files[@]}"
-  echo
-
-  # Copy .md files to your blog folder
-  for file in "${md_files[@]}"; do
-    cp "$file" "$BLOG_FOLDER" || echo "Warning: could not copy $file"
-  done
-
-  # Run the import
-  if ! run_import; then
-    error_exit "Import script encountered an error"
+  
+  # Pop stash if we had one
+  if [ -n "$STASH_REF" ]; then
+    log "Restoring stashed changes..."
+    git stash pop "$STASH_REF" || {
+      log "ERROR: Could not restore stashed changes"
+      exit 1
+    }
   fi
-
-  # Commit & push
-  git_commit_and_push
-
-  echo "Automator Blog Publish: Completed Successfully"
+  
+  log "=== Blog Publish Completed ==="
 }
 
-main "$@" 
+# Run main and capture all output to log
+main "$@" 2>&1 | tee -a "$LOGFILE" 
