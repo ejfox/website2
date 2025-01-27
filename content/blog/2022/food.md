@@ -1,11 +1,15 @@
 ---
-dek: "In which the author tries to put good food in his body"
+dek: In which the author tries to put good food in his body
 inprogress: true
-date: "2022-12-28T18:20:58.000Z"
-modified: "2024-05-15T18:02:51.000Z"
-tags: ["food","cooking","recipe","health"]
-wordCount: 523
+date: 2022-12-28T18:20:58.000Z
+modified: 2024-05-15T18:02:51.000Z
+tags:
+  - food
+  - cooking
+  - recipe
+  - health
 ---
+
 ## Food
 
 This article focuses on ingredients and a balanced diet. For information on heating, combining, and serving, see [[cooking]]

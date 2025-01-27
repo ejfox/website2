@@ -1,9 +1,17 @@
 ---
-kindle-sync: {"bookId":"28584","title":"Reality Hunger","author":"David Shields","asin":"B0036S49D2","lastAnnotatedDate":"2022-08-19","bookImageUrl":"https://m.media-amazon.com/images/I/81XahxBKE9L._SY160.jpg","highlightsCount":15}
-date: "2022-12-14T20:23:32.000Z"
-modified: "2022-12-23T16:06:17.000Z"
-tags: ["writing","journalism"]
-wordCount: 644
+kindle-sync:
+  bookId: '28584'
+  title: Reality Hunger
+  author: David Shields
+  asin: B0036S49D2
+  lastAnnotatedDate: '2022-08-19'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/81XahxBKE9L._SY160.jpg'
+  highlightsCount: 15
+date: 2022-12-14T20:23:32.000Z
+modified: 2022-12-23T16:06:17.000Z
+tags:
+  - writing
+  - journalism
 ---
 # Reality Hunger
 

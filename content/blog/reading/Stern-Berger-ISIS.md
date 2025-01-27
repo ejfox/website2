@@ -1,9 +1,17 @@
 ---
-tags: ["reference","politics"]
-kindle-sync: {"bookId":"53840","title":"ISIS: The State of Terror","author":"Jessica Stern and J. M. Berger","asin":"B00NVLS3CM","lastAnnotatedDate":"2016-04-11","bookImageUrl":"https://m.media-amazon.com/images/I/913bMxSydFL._SY160.jpg","highlightsCount":1}
-date: "2022-12-28T16:09:43.000Z"
-modified: "2024-09-20T04:22:10.000Z"
-wordCount: 92
+tags:
+  - reference
+  - politics
+kindle-sync:
+  bookId: '53840'
+  title: 'ISIS: The State of Terror'
+  author: Jessica Stern and J. M. Berger
+  asin: B00NVLS3CM
+  lastAnnotatedDate: '2016-04-11'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/913bMxSydFL._SY160.jpg'
+  highlightsCount: 1
+date: 2022-12-28T11:09:43-05:00
+modified: 2024-09-20T00:22:10-04:00
 ---
 ## ISIS
 ### Metadata

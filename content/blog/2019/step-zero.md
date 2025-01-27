@@ -1,14 +1,18 @@
 ---
-dek: "In which the author makes the case for the merits of a certain approach to preparation"
-type: "words"
+dek: >-
+  In which the author makes the case for the merits of a certain approach to
+  preparation
+type: words
 hidden: false
 inprogress: false
-date: "2019-06-12T17:40:00-04:00"
+date: '2019-06-12T17:40:00-04:00'
 hidetimestamp: false
-tags: ["advice","cooking","process"]
-wordCount: 228
-draft: false
+tags:
+  - advice
+  - cooking
+  - process
 ---
+
 # Step Zero
 
 This can also be called <em>[mise en place](https://en.wikipedia.org/wiki/Mise_en_place)</em>. It’s a concept from cooking that describes advanced preparation for a meal. You cut your onions and carrots beforehand and keep them in an accessible place. You gather all the spices you will need. You make your sauces.

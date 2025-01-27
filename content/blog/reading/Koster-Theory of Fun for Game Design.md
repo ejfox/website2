@@ -1,9 +1,18 @@
 ---
-kindle-sync: {"bookId":"60606","title":"Theory of Fun for Game Design","author":"Raph Koster","asin":"B00GK5SRFY","lastAnnotatedDate":"2017-08-04","bookImageUrl":"https://m.media-amazon.com/images/I/A11vGLbYKcL._SY160.jpg","highlightsCount":2}
-date: "2022-12-26T16:48:23.000Z"
-modified: "2022-12-27T20:12:25.000Z"
-tags: ["design","games","videogames"]
-wordCount: 93
+kindle-sync:
+  bookId: '60606'
+  title: Theory of Fun for Game Design
+  author: Raph Koster
+  asin: B00GK5SRFY
+  lastAnnotatedDate: '2017-08-04'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/A11vGLbYKcL._SY160.jpg'
+  highlightsCount: 2
+date: 2022-12-26T16:48:23.000Z
+modified: 2022-12-27T20:12:25.000Z
+tags:
+  - design
+  - games
+  - videogames
 ---
 # Theory of Fun for Game Design
 

@@ -1,9 +1,18 @@
 ---
-kindle-sync: {"bookId":"27992","title":"After the Prophet: The Epic Story of the Shia-Sunni Split in Islam","author":"Lesley Hazleton","asin":"B002NXOR6A","lastAnnotatedDate":"2019-04-11","bookImageUrl":"https://m.media-amazon.com/images/I/51vqnntqqfL._SY160.jpg","highlightsCount":3}
-date: "2022-12-14T20:27:58.000Z"
-modified: "2022-12-23T16:23:59.000Z"
-tags: ["book","reference","research"]
-wordCount: 129
+kindle-sync:
+  bookId: '27992'
+  title: 'After the Prophet: The Epic Story of the Shia-Sunni Split in Islam'
+  author: Lesley Hazleton
+  asin: B002NXOR6A
+  lastAnnotatedDate: '2019-04-11'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/51vqnntqqfL._SY160.jpg'
+  highlightsCount: 3
+date: 2022-12-14T20:27:58.000Z
+modified: 2022-12-23T16:23:59.000Z
+tags:
+  - book
+  - reference
+  - research
 ---
 # After the Prophet
 

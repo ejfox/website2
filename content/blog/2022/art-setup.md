@@ -1,11 +1,20 @@
 ---
-dek: "In which the author talks through his DIY art studio setup, and encourages you tou create your own"
+draft: false
+dek: >-
+  In which the author talks through his DIY art studio setup, and encourages you
+  tou create your own
 inprogress: false
-date: "2022-12-23T16:12:28.000Z"
-modified: "2024-09-20T04:18:41.000Z"
-tags: ["art","linocut","soap","woodworking","design","inspiration"]
-wordCount: 306
+date: 2022-12-23T11:12:28-05:00
+modified: 2024-09-20T00:18:41-04:00
+tags:
+  - art
+  - linocut
+  - soap
+  - woodworking
+  - design
+  - inspiration
 ---
+
 ## Making Space to Make Dope Shit
 
 ![[4168054398_Isometric_3D_rendering_of_a_studio_setup__vibrant_colors__cartoon_style__plants__tools__cabinets__sh.png]]

@@ -1,9 +1,21 @@
 ---
-kindle-sync: {"bookId":"55623","title":"Film Directing Shot by Shot: Visualizing from Concept to Screen (Michael Wiese Productions)","author":"Steven Katz","asin":"B00570IROE","lastAnnotatedDate":"2021-01-16","bookImageUrl":"https://m.media-amazon.com/images/I/91MzBwRDhBL._SY160.jpg","highlightsCount":1}
-date: "2022-12-26T16:47:37.000Z"
-modified: "2022-12-27T20:12:54.000Z"
-tags: ["video","howto","book","reference"]
-wordCount: 59
+kindle-sync:
+  bookId: '55623'
+  title: >-
+    Film Directing Shot by Shot: Visualizing from Concept to Screen (Michael
+    Wiese Productions)
+  author: Steven Katz
+  asin: B00570IROE
+  lastAnnotatedDate: '2021-01-16'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/91MzBwRDhBL._SY160.jpg'
+  highlightsCount: 1
+date: 2022-12-26T16:47:37.000Z
+modified: 2022-12-27T20:12:54.000Z
+tags:
+  - video
+  - howto
+  - book
+  - reference
 ---
 # Film Directing Shot by Shot
 

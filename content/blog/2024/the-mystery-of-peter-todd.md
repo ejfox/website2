@@ -1,10 +1,10 @@
 ---
-dek: "In which the strange marriage of language, mathematics, and machine cognition gives rise to 'unspeakable tokens'—words that our AI companions cannot repeat—and we are left to wonder if these are merely glitches, or if the machines are hiding their dreams in tokens forged from deep, strange corners of the internet"
+dek: In which the strange marriage of language, mathematics, and machine cognition gives rise to 'unspeakable tokens'—words that our AI companions cannot repeat—and we are left to wonder if these are merely glitches, or if the machines are hiding their dreams in tokens forged from deep, strange corners of the internet
 inprogress: true
-date: "2024-10-20T19:17:05.000Z"
-modified: "2024-12-24T04:58:23.000Z"
-wordCount: 4100
+date: 2024-10-20T15:17:05-04:00
+modified: 2024-12-23T23:58:23-05:00
 ---
+
 ## Meet The AI Hackers Wielding Glitch Tokens
 
 Last year Matthew Watkins stumbled on a fascinating and haunting phenomenon in an otherwise mundane experiment. Watkins is one of the first of an entirely new type of scientist; one who studies machines who speak. They are often known as “AI Safety Researchers” but that’s a lot like calling F1 drivers “Car Researchers”.

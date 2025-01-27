@@ -1,9 +1,18 @@
 ---
-kindle-sync: {"bookId":"3371","title":"The Trouble with Men: Reflections on Sex, Love, Marriage, Porn, and Power (21st Century Essays)","author":"David Shields","asin":"B07MT424DM","lastAnnotatedDate":"2020-06-04","bookImageUrl":"https://m.media-amazon.com/images/I/81macwFNi8L._SY160.jpg","highlightsCount":7}
-date: "2022-12-14T20:27:24.000Z"
-modified: "2022-12-23T15:56:57.000Z"
-tags: ["journalism"]
-wordCount: 291
+kindle-sync:
+  bookId: '3371'
+  title: >-
+    The Trouble with Men: Reflections on Sex, Love, Marriage, Porn, and Power
+    (21st Century Essays)
+  author: David Shields
+  asin: B07MT424DM
+  lastAnnotatedDate: '2020-06-04'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/81macwFNi8L._SY160.jpg'
+  highlightsCount: 7
+date: 2022-12-14T20:27:24.000Z
+modified: 2022-12-23T15:56:57.000Z
+tags:
+  - journalism
 ---
 # The Trouble with Men
 

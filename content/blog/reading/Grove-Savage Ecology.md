@@ -1,9 +1,18 @@
 ---
-kindle-sync: {"bookId":"57250","title":"Savage Ecology: War and Geopolitics at the End of the World","author":"Jairus Victor Grove","asin":"B07V5V2P1V","lastAnnotatedDate":"2022-12-16","bookImageUrl":"https://m.media-amazon.com/images/I/91lJLAMxYPL._SY160.jpg","highlightsCount":2}
-tags: ["ecology","climatechange","military"]
-date: "2022-12-14T20:22:52.000Z"
-modified: "2022-12-23T15:54:41.000Z"
-wordCount: 123
+kindle-sync:
+  bookId: '57250'
+  title: 'Savage Ecology: War and Geopolitics at the End of the World'
+  author: Jairus Victor Grove
+  asin: B07V5V2P1V
+  lastAnnotatedDate: '2022-12-16'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/91lJLAMxYPL._SY160.jpg'
+  highlightsCount: 2
+tags:
+  - ecology
+  - climatechange
+  - military
+date: 2022-12-14T20:22:52.000Z
+modified: 2022-12-23T15:54:41.000Z
 ---
 # Savage Ecology
 

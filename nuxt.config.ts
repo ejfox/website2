@@ -8,7 +8,8 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@vueuse/nuxt',
     '@nuxtjs/google-fonts',
-    'nuxt-umami'
+    'nuxt-umami',
+    '@nuxtjs/tailwindcss'
   ],
 
   // Component loading optimization
@@ -39,7 +40,8 @@ export default defineNuxtConfig({
       apiBase:
         process.env.NODE_ENV === 'production'
           ? 'https://ejfox.com/api'
-          : 'http://localhost:3000/api'
+          : 'http://localhost:3000/api',
+      debug: process.env.DEBUG === 'true'
     }
   },
 
@@ -78,6 +80,33 @@ export default defineNuxtConfig({
       'Signika Negative': [200, 300, 400, 500, 600, 700, 800],
       'Red Hat Mono': [300, 400],
       'Fjalla One': [400]
+    }
+  },
+
+  tailwindcss: {
+    config: {
+      content: [
+        'content/**/*.md' // Make sure markdown content is included
+      ],
+      plugins: [require('@tailwindcss/typography')],
+      theme: {
+        extend: {
+          typography: {
+            DEFAULT: {
+              css: {
+                maxWidth: 'none', // Override prose max-width
+                color: 'inherit', // Let parent color flow through
+                a: {
+                  color: 'inherit',
+                  '&:hover': {
+                    color: 'inherit'
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 })

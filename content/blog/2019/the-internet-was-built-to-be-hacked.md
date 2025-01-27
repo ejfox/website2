@@ -1,15 +1,18 @@
 ---
-dek: "In which the author is grateful for the hackers who invented the internet"
-type: "words"
+dek: In which the author is grateful for the hackers who invented the internet
+type: words
 hidden: false
 inprogress: false
-date: "2019-02-01T10:00:56.000Z"
+date: 2019-02-01T05:00:56-05:00
 hidetimestamp: false
-modified: "2024-10-12T23:52:51.000Z"
-tags: ["hackers","internet","coding","activism"]
-wordCount: 1549
-draft: false
+modified: 2024-10-12T19:52:51-04:00
+tags:
+  - hackers
+  - internet
+  - coding
+  - activism
 ---
+
 ## The Internet Was Built To Be Hacked
 
 Nothing we ever do is truly novel, no matter how much we convince ourselves it is. Faced with nearly any seemingly insurmountable problem, you can easily scare up comparable examples from the not-too-distant past.

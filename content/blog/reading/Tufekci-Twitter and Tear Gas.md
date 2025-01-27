@@ -1,9 +1,17 @@
 ---
-kindle-sync: {"bookId":"56548","title":"Twitter and Tear Gas: The Power and Fragility of Networked Protest","author":"Zeynep Tufekci","asin":"B06XR259MG","lastAnnotatedDate":"2020-09-02","bookImageUrl":"https://m.media-amazon.com/images/I/81BnC8AFxbL._SY160.jpg","highlightsCount":2}
-date: "2022-12-14T20:26:57.000Z"
-modified: "2022-12-23T16:25:14.000Z"
-tags: ["politics","activism"]
-wordCount: 218
+kindle-sync:
+  bookId: '56548'
+  title: 'Twitter and Tear Gas: The Power and Fragility of Networked Protest'
+  author: Zeynep Tufekci
+  asin: B06XR259MG
+  lastAnnotatedDate: '2020-09-02'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/81BnC8AFxbL._SY160.jpg'
+  highlightsCount: 2
+date: 2022-12-14T20:26:57.000Z
+modified: 2022-12-23T16:25:14.000Z
+tags:
+  - politics
+  - activism
 ---
 # Twitter and Tear Gas
 

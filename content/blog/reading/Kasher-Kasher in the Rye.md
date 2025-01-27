@@ -1,9 +1,20 @@
 ---
-kindle-sync: {"bookId":"58479","title":"Kasher in the Rye: The True Tale of a White Boy from Oakland Who Became a Drug Addict, Criminal, Mental Patient, and Then Turned 16","author":"Moshe Kasher","asin":"B004RCNGSA","lastAnnotatedDate":"2019-04-11","bookImageUrl":"https://m.media-amazon.com/images/I/81aNsuBcfjL._SY160.jpg","highlightsCount":1}
-date: "2022-12-26T16:47:58.000Z"
-modified: "2022-12-27T20:11:37.000Z"
-tags: ["book","comedy","oakland"]
-wordCount: 95
+kindle-sync:
+  bookId: '58479'
+  title: >-
+    Kasher in the Rye: The True Tale of a White Boy from Oakland Who Became a
+    Drug Addict, Criminal, Mental Patient, and Then Turned 16
+  author: Moshe Kasher
+  asin: B004RCNGSA
+  lastAnnotatedDate: '2019-04-11'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/81aNsuBcfjL._SY160.jpg'
+  highlightsCount: 1
+date: 2022-12-26T16:47:58.000Z
+modified: 2022-12-27T20:11:37.000Z
+tags:
+  - book
+  - comedy
+  - oakland
 ---
 # Kasher in the Rye
 

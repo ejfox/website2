@@ -1,12 +1,20 @@
 ---
-dek: "In which we state our values upfront such that we might collaborate more effectively"
-date: "2022-12-27T20:04:55.000Z"
-modified: "2024-06-21T14:13:59.000Z"
+dek: >-
+  In which we state our values upfront such that we might collaborate more
+  effectively
+date: 2022-12-27T20:04:55.000Z
+modified: 2024-06-21T14:13:59.000Z
 hidden: true
-tags: ["art","design","inspiration","process","technique","tool","visualization"]
-wordCount: 1342
-draft: true
+tags:
+  - art
+  - design
+  - inspiration
+  - process
+  - technique
+  - tool
+  - visualization
 ---
+
 ## Fox Studio (Beacon)
 
 For specifics on the art materials and tools I use: [[art-setup]]

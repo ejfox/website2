@@ -1,9 +1,19 @@
 ---
-kindle-sync: {"bookId":"54060","title":"She Comes First: The Thinking Man's Guide to Pleasuring a Woman (Kerner)","author":"Ian Kerner","asin":"B000FC1PRK","lastAnnotatedDate":"2022-01-13","bookImageUrl":"https://m.media-amazon.com/images/I/81VT7iM7WzL._SY160.jpg","highlightsCount":5}
-date: "2022-12-14T20:24:32.000Z"
-modified: "2022-12-23T16:09:26.000Z"
-tags: ["health","book","sex","inspiration"]
-wordCount: 280
+kindle-sync:
+  bookId: '54060'
+  title: 'She Comes First: The Thinking Man''s Guide to Pleasuring a Woman (Kerner)'
+  author: Ian Kerner
+  asin: B000FC1PRK
+  lastAnnotatedDate: '2022-01-13'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/81VT7iM7WzL._SY160.jpg'
+  highlightsCount: 5
+date: 2022-12-14T20:24:32.000Z
+modified: 2022-12-23T16:09:26.000Z
+tags:
+  - health
+  - book
+  - sex
+  - inspiration
 ---
 # She Comes First
 

@@ -1,15 +1,22 @@
 ---
-dek: "In which the author explains his reasoning for exploring analog methods of distributing information with ink and linoleum, and provides a guide on how to do so yourself if so inclined"
-type: "words"
+dek: >-
+  In which the author explains his reasoning for exploring analog methods of
+  distributing information with ink and linoleum, and provides a guide on how to
+  do so yourself if so inclined
+type: words
 hidden: false
 inprogress: false
-date: "2019-08-18T08:00:39.000Z"
+date: 2019-08-18T04:00:39-04:00
 hidetimestamp: false
-modified: "2024-09-23T16:13:27.000Z"
-tags: ["analog","linocut","art","design","activism"]
-wordCount: 2168
-draft: false
+modified: 2024-09-23T12:13:27-04:00
+tags:
+  - analog
+  - linocut
+  - art
+  - design
+  - activism
 ---
+
 ## Linocut printing for a bright future
 
 I have made my income using computers for my entire adult life. Designing graphics, writing code, and making websites. I think a lot about what would happen if our world suddenly shifted (for any variety of reasons) and we lost our easy access to computers or the internet.

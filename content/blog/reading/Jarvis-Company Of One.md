@@ -1,9 +1,15 @@
 ---
-kindle-sync: {"bookId":"62764","title":"Company Of One: Why Staying Small Is the Next Big Thing for Business","author":"Paul Jarvis","asin":"B078962RHQ","lastAnnotatedDate":"2022-06-20","bookImageUrl":"https://m.media-amazon.com/images/I/81SGSncwNFL._SY160.jpg","highlightsCount":4}
-date: "2022-12-14T20:24:03.000Z"
-modified: "2022-12-23T16:06:31.000Z"
+kindle-sync:
+  bookId: '62764'
+  title: 'Company Of One: Why Staying Small Is the Next Big Thing for Business'
+  author: Paul Jarvis
+  asin: B078962RHQ
+  lastAnnotatedDate: '2022-06-20'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/81SGSncwNFL._SY160.jpg'
+  highlightsCount: 4
+date: 2022-12-14T20:24:03.000Z
+modified: 2022-12-23T16:06:31.000Z
 tags: []
-wordCount: 198
 ---
 # Company Of One
 

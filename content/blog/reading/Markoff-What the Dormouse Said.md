@@ -1,9 +1,20 @@
 ---
-kindle-sync: {"bookId":"43912","title":"What the Dormouse Said: How the Sixties Counterculture Shaped the Personal Computer Industry","author":"John Markoff","asin":"B000OCXFYM","lastAnnotatedDate":"2021-02-23","bookImageUrl":"https://m.media-amazon.com/images/I/91GbAowsg4L._SY160.jpg","highlightsCount":4}
-date: "2022-12-14T20:25:50.000Z"
-modified: "2022-12-23T16:28:21.000Z"
-tags: ["tech","culture","hackers"]
-wordCount: 221
+kindle-sync:
+  bookId: '43912'
+  title: >-
+    What the Dormouse Said: How the Sixties Counterculture Shaped the Personal
+    Computer Industry
+  author: John Markoff
+  asin: B000OCXFYM
+  lastAnnotatedDate: '2021-02-23'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/91GbAowsg4L._SY160.jpg'
+  highlightsCount: 4
+date: 2022-12-14T20:25:50.000Z
+modified: 2022-12-23T16:28:21.000Z
+tags:
+  - tech
+  - culture
+  - hackers
 ---
 # What the Dormouse Said
 

@@ -42,10 +42,11 @@ const productImageUrl = computed(() => {
   return `https://res.cloudinary.com/ejf/image/fetch/f_auto,q_auto,w_200/${encodeURIComponent(amazonImageUrl)}`
 })
 
-// Add affiliate ID to URL (you can add your ID later)
+// Add affiliate ID to URL
 const affiliateUrl = computed(() => {
   if (!props.amazonUrl) return '#'
-  // TODO: Add affiliate ID
-  return props.amazonUrl
+  const url = new URL(props.amazonUrl)
+  url.searchParams.set('tag', 'ejfox0c-20')
+  return url.toString()
 })
 </script>

@@ -1,9 +1,16 @@
 ---
-kindle-sync: {"bookId":"28232","title":"Israel: A Concise History of a Nation Reborn","author":"Daniel Gordis","asin":"B01B19O4FA","lastAnnotatedDate":"2019-02-15","bookImageUrl":"https://m.media-amazon.com/images/I/91+4ktlXqlL._SY160.jpg","highlightsCount":5}
-date: "2022-12-14T20:28:40.000Z"
-modified: "2022-12-23T16:06:08.000Z"
-tags: ["politics"]
-wordCount: 426
+kindle-sync:
+  bookId: '28232'
+  title: 'Israel: A Concise History of a Nation Reborn'
+  author: Daniel Gordis
+  asin: B01B19O4FA
+  lastAnnotatedDate: '2019-02-15'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/91+4ktlXqlL._SY160.jpg'
+  highlightsCount: 5
+date: 2022-12-14T20:28:40.000Z
+modified: 2022-12-23T16:06:08.000Z
+tags:
+  - politics
 ---
 # Israel
 

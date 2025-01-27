@@ -1,0 +1,19 @@
+{
+  "slug": "projects/coach-artie",
+  "title": "Coach Artie",
+  "date": "2022-03-01T19:59:42.000Z",
+  "type": "project",
+  "html": "<p>I created <a href=\"https://coachartiebot.com\">Coach Artie</a> to serve as a Discord Studio Assistant and he has evolved into a powerful AI tool with memories and tool usage.</p>",
+  "modified": "2024-10-14T23:57:24.000Z",
+  "description": "",
+  "dek": "",
+  "url": "https://github.com/room302studio/coachartie",
+  "tags": [],
+  "hidden": false,
+  "draft": false,
+  "wordCount": 26,
+  "readingTime": 1,
+  "imageCount": 0,
+  "linkCount": 1,
+  "share": true
+}

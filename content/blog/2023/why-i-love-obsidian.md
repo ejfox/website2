@@ -1,11 +1,16 @@
 ---
-dek: "In which the author's adoration for Obsidian is revealed, celebrating its versatility, customizability, and ingenuity in organizing the written word"
+dek: >-
+  In which the author's adoration for Obsidian is revealed, celebrating its
+  versatility, customizability, and ingenuity in organizing the written word
 inprogress: true
-date: "2023-04-04T18:48:13.000Z"
-modified: "2024-09-20T04:20:58.000Z"
-tags: ["personal","process","markdown"]
-wordCount: 506
+date: 2023-04-04T14:48:13-04:00
+modified: 2024-09-20T00:20:58-04:00
+tags:
+  - personal
+  - process
+  - markdown
 ---
+
 ## Why I love Obsidian for organizing my notes and blog posts
 
 #process #personal

@@ -1,11 +1,13 @@
 ---
 inprogress: true
-date: "2023-01-01T20:06:48.000Z"
-modified: "2024-06-21T14:13:55.000Z"
-dek: "In which the author itemizes the cameras he uses to make photographs"
-tags: ["photography","video"]
-wordCount: 75
+date: 2023-01-01T20:06:48.000Z
+modified: 2024-06-21T14:13:55.000Z
+dek: In which the author itemizes the cameras he uses to make photographs
+tags:
+  - photography
+  - video
 ---
+
 ## Camera Setup
 
 ## Street Photography

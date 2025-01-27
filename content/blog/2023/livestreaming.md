@@ -1,10 +1,16 @@
 ---
-dek: "In which we make a list of the times I have livestreamed"
-date: "2023-01-03T18:21:22.000Z"
-modified: "2024-09-20T04:23:53.000Z"
-tags: ["livestream","dataviz","vue","coding","climatechange","youtube"]
-wordCount: 219
+dek: In which we make a list of the times I have livestreamed
+date: 2023-01-03T13:21:22-05:00
+modified: 2024-09-20T00:23:53-04:00
+tags:
+  - livestream
+  - dataviz
+  - vue
+  - coding
+  - climatechange
+  - youtube
 ---
+
 ## Livestreaming
 
 [Outlier 2021 Talk on Livestreaming with Ian Johnson](https://www.youtube.com/watch?v=wWqmqiG3HRs)

@@ -1,9 +1,18 @@
 ---
-kindle-sync: {"bookId":"19692","title":"Blue Highways: A Journey into America","author":"William Least Heat-Moon","asin":"B006BAW16O","lastAnnotatedDate":"2017-01-19","bookImageUrl":"https://m.media-amazon.com/images/I/81dcq6h5WYL._SY160.jpg","highlightsCount":4}
-date: "2022-12-14T20:29:07.000Z"
-modified: "2022-12-23T16:02:56.000Z"
-tags: ["travel","maps","america"]
-wordCount: 140
+kindle-sync:
+  bookId: '19692'
+  title: 'Blue Highways: A Journey into America'
+  author: William Least Heat-Moon
+  asin: B006BAW16O
+  lastAnnotatedDate: '2017-01-19'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/81dcq6h5WYL._SY160.jpg'
+  highlightsCount: 4
+date: 2022-12-14T20:29:07.000Z
+modified: 2022-12-23T16:02:56.000Z
+tags:
+  - travel
+  - maps
+  - america
 ---
 # Blue Highways
 

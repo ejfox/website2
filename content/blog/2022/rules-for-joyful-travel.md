@@ -1,11 +1,17 @@
 ---
-dek: "In which the author discusses methods to travel efficiently and have spontaneous and joyous experiences"
+draft: true
+dek: >-
+  In which the author discusses methods to travel efficiently and have
+  spontaneous and joyous experiences
 inprogress: true
-date: "2022-12-26T20:09:25.000Z"
-modified: "2024-09-20T04:22:18.000Z"
-tags: ["travel","personal","howto"]
-wordCount: 1369
+date: 2022-12-26T15:09:25-05:00
+modified: 2024-09-20T00:22:18-04:00
+tags:
+  - travel
+  - personal
+  - howto
 ---
+
 ## How to Travel for Maximum Joy
 
 #travel #personal

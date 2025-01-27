@@ -1,46 +1,91 @@
 <script setup>
 import { format, formatDistanceToNow } from 'date-fns'
-import { computed, ref, onMounted } from 'vue'
+import { computed, ref, onMounted, watch } from 'vue'
 import { startOfWeek, subMonths } from 'date-fns'
 import { animate, stagger } from '~/anime.esm.js'
 
-// Add console logs to track component lifecycle
-console.log('Component setup starting')
-
-// Add debug logs
 const route = useRoute()
-console.log('Route:', route.path)
-
 const processedMarkdown = useProcessedMarkdown()
-console.log('processedMarkdown initialized')
+const now = new Date()
 
 const { data: posts, error: postsError } = useAsyncData(
   'blog-posts',
   async () => {
-    console.log('Fetching posts...')
     try {
+      // Only get blog posts (not reading notes, etc)
       const result = await processedMarkdown.getAllPosts(false, false)
-      // Add type checking and default value
+      console.log('Blog posts fetched:', {
+        count: result?.length,
+        firstPost: result?.[0],
+        dates: result?.map(p => p?.date || p?.metadata?.date)
+      })
       return result || []
     } catch (err) {
       console.error('Error fetching posts:', err)
-      return [] // Return empty array on error
+      return []
     }
   },
   {
     default: () => [],
-    immediate: true
+    immediate: true,
+    onError: (error) => {
+      console.error('Error in blog posts:', error)
+      return []
+    }
   }
 )
 
 const { data: notes, error: notesError } = useAsyncData(
   'week-notes',
-  () => {
-    console.log('Fetching notes...')
+  async () => {
+    console.log('Fetching week notes...')
     try {
-      return processedMarkdown.getWeekNotes()
+      // Get all posts including week notes
+      const result = await processedMarkdown.getAllPosts(false, true)
+      console.log('All posts for week notes:', {
+        total: result?.length,
+        types: result?.map(p => p?.metadata?.type || p?.type),
+        slugs: result?.map(p => p?.metadata?.slug || p?.slug)
+      })
+
+      // Filter for week notes only
+      const weekNotes = result?.filter(post => {
+        const type = post?.metadata?.type || post?.type
+        const slug = post?.metadata?.slug || post?.slug
+        const isWeekNote = type === 'weekNote' || slug?.startsWith('week-notes/')
+        if (isWeekNote) {
+          console.log('Found week note:', { 
+            type, 
+            slug, 
+            dek: post?.metadata?.dek || post?.dek,
+            metadata: post?.metadata
+          })
+        }
+        return isWeekNote
+      }) || []
+
+      // Process week notes to ensure all required fields
+      return weekNotes.map(note => {
+        // Ensure we have a proper metadata structure
+        const metadata = note?.metadata || {}
+        return {
+          ...note,
+          metadata,
+          slug: note?.slug || metadata?.slug,
+          dek: note?.dek || metadata?.dek,
+          date: note?.date || metadata?.date,
+          type: note?.type || metadata?.type || 'weekNote'
+        }
+      })
     } catch (err) {
-      console.error('Error fetching notes:', err)
+      console.error('Error fetching week notes:', err)
+      return []
+    }
+  },
+  {
+    default: () => [],
+    onError: (error) => {
+      console.error('Error in week notes:', error)
       return []
     }
   }
@@ -65,50 +110,100 @@ const sortedWeekNotes = computed(() => {
 
   return notes.value
     .map(note => {
+      // Create a new object to avoid mutating the reactive source
+      const processedNote = { ...note }
       const weekMatch = note?.slug?.match(/(\d{4})-(\d{2})/)
+      
       if (weekMatch) {
         const year = parseInt(weekMatch[1], 10)
         const week = parseInt(weekMatch[2], 10)
         const date = startOfWeek(new Date(year, 0, 1), { weekStartsOn: 1 })
-        const actualDate = new Date(date.setDate(date.getDate() + (week - 1) * 7))
-        return { ...note, actualDate }
+        processedNote.actualDate = new Date(date.setDate(date.getDate() + (week - 1) * 7))
+      } else {
+        // If no week match, use the note's date
+        const noteDate = note?.date || note?.metadata?.date
+        if (noteDate) {
+          processedNote.actualDate = new Date(noteDate)
+        }
       }
-      return note
+      return processedNote
     })
-    .filter(note => note?.actualDate && note?.dek)
-    .filter(note => !note?.hidden)
+    .filter(note => {
+      // Must have a date and a dek
+      if (!note?.actualDate || !note?.slug) return false
+      const hasDek = note?.dek || note?.metadata?.dek
+      if (!hasDek) return false
+      const isHidden = note?.hidden || note?.metadata?.hidden
+      if (isHidden) return false
+      return true
+    })
     .sort((a, b) => b.actualDate - a.actualDate)
     .slice(0, 5)
 })
 
-function groupByYear(posts) {
-  if (!posts) {
-    console.warn('No posts passed to groupByYear')
-    return {}
+// Watch notes for debugging
+watch(() => notes.value, (newNotes) => {
+  if (!newNotes) {
+    console.log('No notes value available')
+    return
   }
 
-  console.log('Grouping posts by year:', posts.length, 'posts')
-  const sortedPosts = [...posts]
-    .sort((a, b) => new Date(b.date) - new Date(a.date))
+  console.log('Processing week notes:', {
+    total: newNotes?.length,
+    notes: newNotes?.map(n => ({
+      slug: n?.slug,
+      type: n?.type || n?.metadata?.type,
+      dek: n?.dek || n?.metadata?.dek,
+      hidden: n?.hidden || n?.metadata?.hidden
+    }))
+  })
+}, { immediate: true })
 
-  console.log('After sorting posts:', sortedPosts.length, 'posts')
-  return sortedPosts.reduce((acc, post) => {
-    const year = new Date(post.date).getFullYear()
-    if (!acc[year]) acc[year] = []
-    acc[year].push(post)
-    return acc
-  }, {})
+function groupByYear(posts) {
+  if (!posts || !Array.isArray(posts)) return {}
+
+  const grouped = {}
+  posts.forEach((post) => {
+    const postDate = post?.date || post?.metadata?.date
+    if (!postDate) return
+    const date = new Date(postDate)
+    if (isNaN(date.getTime())) return
+    const year = date.getFullYear()
+    if (!grouped[year]) {
+      grouped[year] = []
+    }
+    grouped[year].push(post)
+  })
+
+  // Sort posts within each year by date (newest first)
+  Object.keys(grouped).forEach((year) => {
+    grouped[year].sort((a, b) => {
+      const dateA = new Date(b?.date || b?.metadata?.date)
+      const dateB = new Date(a?.date || a?.metadata?.date)
+      return dateA - dateB
+    })
+  })
+
+  return grouped
 }
 
 const blogPostsByYear = computed(() => {
-  if (!posts.value || !Array.isArray(posts.value)) {
-    console.warn('Posts is not an array:', posts.value)
-    return {}
-  }
+  if (!posts.value || !Array.isArray(posts.value)) return {}
   return groupByYear(posts.value)
 })
 
-const sortedYears = computed(() => Object.keys(blogPostsByYear.value).sort((a, b) => b - a))
+const sortedYears = computed(() => {
+  return Object.keys(blogPostsByYear.value).sort((a, b) => b - a)
+})
+
+// Watch posts for debugging
+watch(() => posts.value, (newPosts) => {
+  console.log('Grouping posts:', {
+    total: newPosts?.length,
+    sample: newPosts?.[0],
+    titles: newPosts?.map(p => (p?.metadata || p)?.title)
+  })
+}, { immediate: true })
 
 const blogPostElements = ref([])
 const weekNoteElements = ref([])
@@ -155,15 +250,22 @@ const recentlyUpdatedPosts = computed(() => {
   const oneMonthAgo = subMonths(new Date(), 1)
   return [...posts.value]
     .filter(post => {
-      // Handle both old and new visibility formats
-      const isHidden = post?.visibility?.isHidden || post?.hidden === true || post?.hidden === 'true'
-      return !isHidden
+      // Get metadata from either location
+      const metadata = post?.metadata || post
+      const isHidden = metadata?.hidden === true || metadata?.hidden === 'true'
+      const isDraft = metadata?.draft === true || metadata?.draft === 'true'
+      return !isHidden && !isDraft
     })
     .filter(post => {
-      const updateDate = new Date(post?.lastUpdated || post?.date)
+      const metadata = post?.metadata || post
+      const updateDate = new Date(metadata?.lastUpdated || metadata?.date)
       return updateDate > oneMonthAgo
     })
-    .sort((a, b) => new Date(b?.lastUpdated || b?.date) - new Date(a?.lastUpdated || a?.date))
+    .sort((a, b) => {
+      const metaA = a?.metadata || a
+      const metaB = b?.metadata || b
+      return new Date(metaB?.lastUpdated || metaB?.date) - new Date(metaA?.lastUpdated || metaA?.date)
+    })
     .slice(0, 5)
 })
 </script>
@@ -186,22 +288,26 @@ const recentlyUpdatedPosts = computed(() => {
           </div>
 
           <!-- Existing yearly blog posts list -->
-          <div v-else v-for="year in sortedYears" :key="`blog-${year}`" class="mb-10">
+          <div v-for="year in sortedYears" :key="`blog-${year}`" class="mb-10">
             <h3 class="text-4xl font-semibold text-zinc-500 dark:text-zinc-400 mb-6 tracking-tight">
               {{ year }}
             </h3>
             <ul class="">
-              <li v-for="post in blogPostsByYear[year]" :key="post.slug" ref="blogPostElements"
+              <li v-for="post in blogPostsByYear[year]" :key="(post?.metadata || post)?.slug" ref="blogPostElements"
                 class="flex flex-col border-b border-zinc-200 dark:border-zinc-700 pb-4 mb-4">
 
-                <NuxtLink :to="`/blog/${post.slug}`"
+                <NuxtLink :to="`/blog/${(post?.metadata || post)?.slug}`"
                   class="post-title no-underline hover:underline text-xl lg:text-3xl font-medium mb-2 pr-2 font-fjalla"
-                  :style="{ viewTransitionName: `title-${post.slug}` }">
-                  {{ post.title }}
+                  :style="{ viewTransitionName: `title-${(post?.metadata || post)?.slug}` }">
+                  {{ (post?.metadata || post)?.title || 'Untitled Post' }}
+                  <span v-if="new Date((post?.metadata || post)?.date) > now"
+                    class="text-sm font-normal text-zinc-500 dark:text-zinc-400 ml-2">
+                    (Future Post)
+                  </span>
                 </NuxtLink>
 
-                <div v-if="post.dek" class="font-mono text-xs text-zinc-600 dark:text-zinc-400">
-                  {{ post.dek }}
+                <div v-if="(post?.metadata || post)?.dek" class="font-mono text-xs text-zinc-600 dark:text-zinc-400">
+                  {{ (post?.metadata || post)?.dek }}
                 </div>
               </li>
             </ul>
@@ -224,8 +330,8 @@ const recentlyUpdatedPosts = computed(() => {
                   {{ weekNote.slug.split('/')[1] }}
                 </span>
 
-                <p v-if="weekNote.dek" class="text-xs text-zinc-500 mt-2">
-                  {{ weekNote.dek }}
+                <p class="text-xs text-zinc-500 mt-2">
+                  {{ weekNote.metadata?.dek || weekNote.dek }}
                 </p>
               </NuxtLink>
             </div>
@@ -241,10 +347,12 @@ const recentlyUpdatedPosts = computed(() => {
               <li v-for="post in recentlyUpdatedPosts" :key="`recent-${post.slug}`"
                 class="mb-3 border-l-4 border-zinc-300 dark:border-zinc-600 pl-4">
                 <NuxtLink :to="`/blog/${post.slug}`" class="text-lg font-medium hover:underline">
-                  {{ post.title }}
+                  {{ post?.metadata?.title || post?.title }}
                 </NuxtLink>
                 <div class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
-                  Updated {{ formatRelativeTime(post.lastUpdated || post.date) }}
+                  Updated {{ formatRelativeTime(post?.metadata?.lastUpdated || post?.metadata?.date || post?.lastUpdated
+                    ||
+                    post?.date) }}
                 </div>
               </li>
             </ul>
@@ -255,11 +363,53 @@ const recentlyUpdatedPosts = computed(() => {
 
     <!-- Error handling -->
     <template #error="{ error }">
-      <div class="container mx-auto px-2 py-12 text-center">
-        <p class="text-lg text-red-500">Error loading blog: {{ error.message }}</p>
-        <button class="mt-4 px-4 py-2 bg-zinc-200 dark:bg-zinc-700 rounded" @click="error.value = null">
-          Try Again
-        </button>
+      <div class="container mx-auto px-2 py-12">
+        <div class="lg:w-2/3">
+          <h2 class="text-3xl font-bold mb-8">Blog Posts</h2>
+          <div v-if="posts?.length" class="mb-10">
+            <template v-for="year in sortedYears" :key="`blog-${year}`">
+              <h3 class="text-4xl font-semibold text-zinc-500 dark:text-zinc-400 mb-6 tracking-tight">
+                {{ year }}
+              </h3>
+              <ul class="mb-10">
+                <li v-for="post in blogPostsByYear[year]" :key="(post?.metadata || post)?.slug"
+                  class="flex flex-col border-b border-zinc-200 dark:border-zinc-700 pb-4 mb-4">
+                  <NuxtLink :to="`/blog/${(post?.metadata || post)?.slug}`"
+                    class="post-title no-underline hover:underline text-xl lg:text-3xl font-medium mb-2 pr-2 font-fjalla">
+                    {{ (post?.metadata || post)?.title || 'Untitled Post' }}
+                  </NuxtLink>
+                  <div v-if="(post?.metadata || post)?.dek"
+                    class="font-mono text-xs text-zinc-600 dark:text-zinc-400">
+                    {{ (post?.metadata || post)?.dek }}
+                  </div>
+                </li>
+              </ul>
+            </template>
+          </div>
+          <div v-else class="text-center py-8">
+            <p class="text-lg text-zinc-600 dark:text-zinc-400">No blog posts found.</p>
+          </div>
+        </div>
+
+        <div class="lg:w-1/3">
+          <h2 class="text-3xl font-bold mb-8">Week Notes</h2>
+          <div v-if="sortedWeekNotes?.length">
+            <div v-for="weekNote in sortedWeekNotes" :key="weekNote.slug"
+              class="border-b border-zinc-200 dark:border-zinc-700 py-4">
+              <NuxtLink :to="`/blog/${weekNote.slug}`" class="text-sm font-mono block py-1 rounded">
+                <span class="hover:underline">
+                  {{ weekNote.slug.split('/')[1] }}
+                </span>
+                <p v-if="(weekNote?.metadata || weekNote)?.dek" class="text-xs text-zinc-500 mt-2">
+                  {{ (weekNote?.metadata || weekNote)?.dek }}
+                </p>
+              </NuxtLink>
+            </div>
+          </div>
+          <div v-else class="text-center py-8">
+            <p class="text-lg text-zinc-600 dark:text-zinc-400">No week notes found.</p>
+          </div>
+        </div>
       </div>
     </template>
   </NuxtErrorBoundary>

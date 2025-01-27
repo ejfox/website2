@@ -1,11 +1,16 @@
 ---
-dek: "In which we dissect the merciless nature of capitalism, revealing a callous pattern of placing profits above human lives"
+draft: true
+dek: >-
+  In which we dissect the merciless nature of capitalism, revealing a callous
+  pattern of placing profits above human lives
 inprogress: true
-date: "2023-02-07T15:36:05.000Z"
-modified: "2024-09-20T04:19:08.000Z"
-tags: ["activism","covid"]
-wordCount: 1390
+date: 2023-02-07T10:36:05-05:00
+modified: 2024-09-20T00:19:08-04:00
+tags:
+  - activism
+  - covid
 ---
+
 ## How Capitalism Idly Watches as People Die
 
 Within the luminous halls of affluence, a disconcerting melody resonates, the leitmotif of the cold equations of capitalism. This melody, which is unrelentingly hammered out on the harsh anvil of human suffering, creates a bleak symphony where the quest for profit supersedes the value of human life.

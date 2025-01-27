@@ -1,14 +1,17 @@
 ---
-dek: "In which the author attempts to dissuade you from the belief things will always be the way they are now"
-type: "words"
+dek: >-
+  In which the author attempts to dissuade you from the belief things will
+  always be the way they are now
+type: words
 hidden: false
 inprogress: false
-date: "2019-06-14T15:27:00-04:00"
+date: '2019-06-14T15:27:00-04:00'
 hidetimestamp: false
-tags: ["advice","personal"]
-wordCount: 280
-draft: false
+tags:
+  - advice
+  - personal
 ---
+
 # Taking things for granted
 
 One of the traits I get most annoyed at myself about is taking things for granted. It is a pernicious vice. It is very easy to do without thinking. It is, in some ways, built into our DNA as humans. To expect that the sun will always rise, grass will always be green, and our favorite coffeeshop will always be on the corner to make the perfect cup of coffee in the morning. Oh wait, shit. No, the coffee shop is gone. You loved it, but you still took it for granted.

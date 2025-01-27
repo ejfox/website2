@@ -1,14 +1,20 @@
 ---
-date: "2021-06-11T08:00:17.000Z"
-type: "words"
+date: 2021-06-11T04:00:17-04:00
+type: words
 hidden: false
 inprogress: false
-dek: "In which various tools and methods are explored for analyzing data that describes a network of complaints against NYPD officers (or any other PD with similar public data)"
-modified: "2024-09-23T16:13:24.000Z"
-tags: ["data","nypd","visualization","network"]
-wordCount: 832
-draft: false
+dek: >-
+  In which various tools and methods are explored for analyzing data that
+  describes a network of complaints against NYPD officers (or any other PD with
+  similar public data)
+modified: 2024-09-23T12:13:24-04:00
+tags:
+  - data
+  - nypd
+  - visualization
+  - network
 ---
+
 ## Finding Clusters of NYPD Officers In CCRB Complaint Data
 
 <img src="https://res.cloudinary.com/ejf/image/upload/v1624505769/Screen_Shot_2021-06-21_at_8.58.50_PM.jpg" />

@@ -1,8 +1,7 @@
 ---
-date: "2024-11-11T04:16:16.000Z"
-modified: "2024-11-12T17:27:05.000Z"
+date: 2024-11-10T23:16:16-05:00
+modified: 2024-11-12T12:27:05-05:00
 share: true
-wordCount: 648
 ---
 ## Co-Buyer Pre-Meeting Checklist
 ### Personal Information & Documentation Checklist

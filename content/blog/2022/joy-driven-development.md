@@ -1,11 +1,12 @@
 ---
-dek: "In which we use joy and curiosity as fuel to propel us forward"
+dek: In which we use joy and curiosity as fuel to propel us forward
 inprogress: true
-date: "2022-11-03T00:06:51.000Z"
-modified: "2024-10-29T18:10:00.000Z"
-tags: ["coding"]
-wordCount: 597
+date: 2022-11-02T20:06:51-04:00
+modified: 2024-10-29T14:10:00-04:00
+tags:
+  - coding
 ---
+
 ## Embracing Joy-Driven Development: A New Philosophy for Better Work
 
 I want to take some time to put into words the philosophy that has been guiding my approach to work for the past few years. My ideas and approaches have evolved as I have tried to explain these motivations to different collaborators, and I will try to distill that here.

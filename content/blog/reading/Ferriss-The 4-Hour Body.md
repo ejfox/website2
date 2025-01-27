@@ -1,9 +1,21 @@
 ---
-kindle-sync: {"bookId":"27622","title":"The 4-Hour Body: An Uncommon Guide to Rapid Fat-Loss, Incredible Sex, and Becoming Superhuman","author":"Timothy Ferriss","asin":"B003EI2EH2","lastAnnotatedDate":"2023-10-12","bookImageUrl":"https://m.media-amazon.com/images/I/71Ucfn-BzcL._SY160.jpg","highlightsCount":6}
-date: "2022-12-14T20:23:17.000Z"
-modified: "2022-12-23T16:05:54.000Z"
-tags: ["health","exercise","inspiration","research"]
-wordCount: 374
+kindle-sync:
+  bookId: '27622'
+  title: >-
+    The 4-Hour Body: An Uncommon Guide to Rapid Fat-Loss, Incredible Sex, and
+    Becoming Superhuman
+  author: Timothy Ferriss
+  asin: B003EI2EH2
+  lastAnnotatedDate: '2023-10-12'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/71Ucfn-BzcL._SY160.jpg'
+  highlightsCount: 6
+date: 2022-12-14T20:23:17.000Z
+modified: 2022-12-23T16:05:54.000Z
+tags:
+  - health
+  - exercise
+  - inspiration
+  - research
 ---
 # The 4-Hour Body
 

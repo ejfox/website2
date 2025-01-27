@@ -1,0 +1,25 @@
+{
+  "content": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">Along with Gerald Rich, and the Vocativ data team, I received a <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Knight Prototype Fund</a> grant to create an initial prototype for <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Dataproofer</a> an open source tool to check data for reliability, missing data, and outliers.</p>",
+  "html": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">Along with Gerald Rich, and the Vocativ data team, I received a <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Knight Prototype Fund</a> grant to create an initial prototype for <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Dataproofer</a> an open source tool to check data for reliability, missing data, and outliers.</p>",
+  "title": "Dataproofer",
+  "metadata": {
+    "title": "Dataproofer",
+    "date": "2015-11-04T00:40:35.000Z",
+    "modified": "2024-10-14T16:33:44.000Z",
+    "url": "https://github.com/dataproofer/Dataproofer",
+    "robotsMeta": null,
+    "toc": [],
+    "wordCount": 38,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 2,
+    "hidden": false,
+    "type": "post",
+    "visibility": {
+      "isHidden": false,
+      "isShared": false,
+      "isSpecialSection": false,
+      "isIndex": false
+    }
+  }
+}

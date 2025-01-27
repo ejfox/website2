@@ -1,0 +1,25 @@
+{
+  "content": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">I worked closely with GitHub's internal data, design, and visualization teams <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">in 2013</a> to create a <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">year-in-review website</a> that included a number of visualizations, including a spinning globe showing the locations of actions taken on GitHub, powered by GitHub's enormous <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">BigQuery</a> database.</p>\n<img src=\"http://res.cloudinary.com/ejf/image/upload/q_auto,f_auto,fl_progressive,w_auto,dpr_2/v1727749657/Screenshot_2024-09-30_at_10.27.22_PM.png\" alt=\"https://res.cloudinary.com/ejf/image/upload/v1727743139/octoverse-github-com.png\" class=\"w-full max-w-full mx-auto opacity-0 transition-all duration-300 ease-in-out pr-2 py-2 md:pr-6 md:py-4 lg:pr-12 lg:py-6 animate-on-scroll slide-from-bottom will-change-transform\">",
+  "html": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">I worked closely with GitHub's internal data, design, and visualization teams <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">in 2013</a> to create a <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">year-in-review website</a> that included a number of visualizations, including a spinning globe showing the locations of actions taken on GitHub, powered by GitHub's enormous <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">BigQuery</a> database.</p>\n<img src=\"http://res.cloudinary.com/ejf/image/upload/q_auto,f_auto,fl_progressive,w_auto,dpr_2/v1727749657/Screenshot_2024-09-30_at_10.27.22_PM.png\" alt=\"https://res.cloudinary.com/ejf/image/upload/v1727743139/octoverse-github-com.png\" class=\"w-full max-w-full mx-auto opacity-0 transition-all duration-300 ease-in-out pr-2 py-2 md:pr-6 md:py-4 lg:pr-12 lg:py-6 animate-on-scroll slide-from-bottom will-change-transform\">",
+  "title": "GitHub Octoverse 2013",
+  "metadata": {
+    "title": "GitHub Octoverse 2013",
+    "date": "2013-04-05T20:02:45.000Z",
+    "modified": "2024-10-14T16:35:28.000Z",
+    "url": "https://github.blog/news-insights/the-library/state-of-the-octoverse-2013-edition/",
+    "robotsMeta": null,
+    "toc": [],
+    "wordCount": 44,
+    "readingTime": 1,
+    "imageCount": 1,
+    "linkCount": 4,
+    "hidden": false,
+    "type": "post",
+    "visibility": {
+      "isHidden": false,
+      "isShared": false,
+      "isSpecialSection": false,
+      "isIndex": false
+    }
+  }
+}

@@ -1,10 +1,17 @@
 ---
-dek: "In which we attempt to craft some treasure from the debris of a life lived on the internet"
-date: "2024-09-20T04:22:35.000Z"
-modified: "2024-11-05T16:50:13.000Z"
-tags: ["inspiration","dataviz","design","howto","politics"]
-wordCount: 903
+dek: >-
+  In which we attempt to craft some treasure from the debris of a life lived on
+  the internet
+date: 2024-09-20T00:22:35-04:00
+modified: 2024-11-05T11:50:13-05:00
+tags:
+  - inspiration
+  - dataviz
+  - design
+  - howto
+  - politics
 ---
+
 ## Building myself a scrapbook
 
 I have gotten pretty good at saving interesting things that I see on the internet. On my iPhone, I have the [Pins app](https://apps.apple.com/us/app/pins-for-pinboard/id1547106997), which allows me to add any link I see to my Pinboard bookmarks. Anytime I read something I think I might want to reference, show someone, or think about later, I chuck it into my bookmarks. I've done this for over 10 years now, making little notes of my favorite things while wading through the ever-expanding deluge of "content". Now I want to take a step back and map the constellations that emerge.

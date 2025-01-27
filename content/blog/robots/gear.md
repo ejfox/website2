@@ -1,9 +1,9 @@
 ---
-date: "2024-11-11T07:28:49.000Z"
-modified: "2024-11-19T15:56:06.000Z"
+date: 2024-11-11T02:28:49-05:00
+modified: 2024-11-19T10:56:06-05:00
 share: true
-wordCount: 1245
 ---
+
 There's a specific elegance that emerges when systems are forced to optimize under strict constraints. When everything must be weatherproof at highway speeds, when total capacity is limited to what a Versys X 300 can carry, when items must be both accessible and secure, when creative tools need to coexist with survival gear - traditional optimization strategies break down.
 
 The system currently manifests across three primary containers:

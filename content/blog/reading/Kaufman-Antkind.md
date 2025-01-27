@@ -1,9 +1,20 @@
 ---
-kindle-sync: {"bookId":"62701","title":"Antkind: A Novel","author":"Charlie Kaufman","asin":"B07Y7J61HZ","lastAnnotatedDate":"2021-10-11","bookImageUrl":"https://m.media-amazon.com/images/I/91vf8KVztsS._SY160.jpg","highlightsCount":4}
-date: "2022-12-26T16:47:21.000Z"
-modified: "2022-12-27T20:13:14.000Z"
-tags: ["book","writing","comedy","drama","personal"]
-wordCount: 411
+kindle-sync:
+  bookId: '62701'
+  title: 'Antkind: A Novel'
+  author: Charlie Kaufman
+  asin: B07Y7J61HZ
+  lastAnnotatedDate: '2021-10-11'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/91vf8KVztsS._SY160.jpg'
+  highlightsCount: 4
+date: 2022-12-26T16:47:21.000Z
+modified: 2022-12-27T20:13:14.000Z
+tags:
+  - book
+  - writing
+  - comedy
+  - drama
+  - personal
 ---
 # Antkind
 

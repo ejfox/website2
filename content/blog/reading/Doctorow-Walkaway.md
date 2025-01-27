@@ -1,9 +1,17 @@
 ---
-kindle-sync: {"bookId":"45158","title":"Walkaway: A Novel","author":"Cory Doctorow","asin":"B01FQQ47OC","lastAnnotatedDate":"2022-06-20","bookImageUrl":"https://m.media-amazon.com/images/I/71VhE105uhL._SY160.jpg","highlightsCount":8}
-date: "2022-12-14T20:24:13.000Z"
-modified: "2022-12-23T16:25:40.000Z"
-tags: ["activism","culture"]
-wordCount: 603
+kindle-sync:
+  bookId: '45158'
+  title: 'Walkaway: A Novel'
+  author: Cory Doctorow
+  asin: B01FQQ47OC
+  lastAnnotatedDate: '2022-06-20'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/71VhE105uhL._SY160.jpg'
+  highlightsCount: 8
+date: 2022-12-14T20:24:13.000Z
+modified: 2022-12-23T16:25:40.000Z
+tags:
+  - activism
+  - culture
 ---
 # Walkaway
 

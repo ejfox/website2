@@ -1,0 +1,85 @@
+{
+  "content": "<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose text-zinc-800 dark:text-zinc-200 md:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"-daily-check-in--reflections\">🌟 Daily Check-In &#x26; Reflections</h3>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Monday: Took a personal day for indigenous people's day, did some bug-squashing on Connectology, trying to wrap up the refactor of my personal site</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Tuesday: Did kettlebell workout, wrote in journal, took a shower, made some PRs for work, made some plans of things to study / work on over the winter</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Wednesday:</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Thursday:</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Friday:</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Saturday:</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Sunday:</li>\n</ul>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose text-zinc-800 dark:text-zinc-200 md:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"-code--creations\">💻 Code &#x26; Creations</h3>\n<h4 class=\"\" id=\"connectology\">Connectology</h4>\n<h4 class=\"\" id=\"personal-website-website2\">Personal Website (website2)</h4>\n<h4 class=\"\" id=\"daily-screenshots\">Daily-Screenshots</h4>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">This <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">script</a> automates the creation of a daily timelapse video of your screen activity and generates an <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">AI-powered summary</a> of your day. It integrates screen captures with your online activities to provide comprehensive insights into your daily productivity and focus areas.</p>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose text-zinc-800 dark:text-zinc-200 md:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"-ideas--inspirations\">💡 Ideas &#x26; Inspirations</h3>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose text-zinc-800 dark:text-zinc-200 md:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"️-health--wellness\">🏋️ Health &#x26; Wellness</h3>\n<h4 class=\"\" id=\"winter-workout-training-plans\">Winter Workout Training Plans</h4>\n<!-- Note any physical activity, mindfulness practice, or self-care -->\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose text-zinc-800 dark:text-zinc-200 md:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"-learning--media\">📚 Learning &#x26; Media</h3>\n<!-- Books, articles, movies, TV shows, podcasts consumed -->\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Watched the new HBO documentary on Bitcoin: “Money Electric: The Bitcoin Mystery”</li>\n</ul>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose text-zinc-800 dark:text-zinc-200 md:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"-connections--insights\">🔗 Connections &#x26; Insights</h3>\n<!-- Note any interesting connections between ideas or new realizations -->\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose text-zinc-800 dark:text-zinc-200 md:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"interview-with-mw\">Interview with MW</h3>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">What did you think about the Peter Todd bitcoin documentary?</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\"><code class=\"font-mono text-sm bg-zinc-100 dark:bg-zinc-800 rounded px-1.5 py-0.5\">gmaxwell</code> is another core Bitcoin dev associated with PeterTodd, which also appears as one of the initial glitch tokens</li>\n</ul>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Tell me about the multi-LLM discord</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Can you tell me about some of the well-known personalities in the AI research community</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">How would you describe the <em class=\"\">stakes</em> of the research that this alternative-AI-research community?</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Can you tell me a bit about the Neuronpedia project?</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">How much kayfabe is going on? How do we separate speculative fiction from reality?</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Is there any data from the glitch token explorations you'd be willing to share to let me explore/visualize? The more the better</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Have you been following along with the growth of Truth Terminal?</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Why do you think so many of these twitter personalities are anonymous or semi-anonymous?</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Why do you think it has been so difficult to get in touch with Janus for an interview?</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Tell me about your work on Terrence McKenna's theory</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">how to best go about visualizing/ animating the process of finding glitch tokens - applicable to other LLMs? Do all LLMs have glitch tokens?</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Dr Watkins?</li>\n</ul>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose text-zinc-800 dark:text-zinc-200 md:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"-next-weeks-intentions\">🎯 Next Week's Intentions</h3>\n<!-- What do you want to focus on or accomplish next week? -->",
+  "html": "<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose text-zinc-800 dark:text-zinc-200 md:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"-daily-check-in--reflections\">🌟 Daily Check-In &#x26; Reflections</h3>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Monday: Took a personal day for indigenous people's day, did some bug-squashing on Connectology, trying to wrap up the refactor of my personal site</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Tuesday: Did kettlebell workout, wrote in journal, took a shower, made some PRs for work, made some plans of things to study / work on over the winter</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Wednesday:</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Thursday:</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Friday:</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Saturday:</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Sunday:</li>\n</ul>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose text-zinc-800 dark:text-zinc-200 md:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"-code--creations\">💻 Code &#x26; Creations</h3>\n<h4 class=\"\" id=\"connectology\">Connectology</h4>\n<h4 class=\"\" id=\"personal-website-website2\">Personal Website (website2)</h4>\n<h4 class=\"\" id=\"daily-screenshots\">Daily-Screenshots</h4>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">This <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">script</a> automates the creation of a daily timelapse video of your screen activity and generates an <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">AI-powered summary</a> of your day. It integrates screen captures with your online activities to provide comprehensive insights into your daily productivity and focus areas.</p>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose text-zinc-800 dark:text-zinc-200 md:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"-ideas--inspirations\">💡 Ideas &#x26; Inspirations</h3>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose text-zinc-800 dark:text-zinc-200 md:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"️-health--wellness\">🏋️ Health &#x26; Wellness</h3>\n<h4 class=\"\" id=\"winter-workout-training-plans\">Winter Workout Training Plans</h4>\n<!-- Note any physical activity, mindfulness practice, or self-care -->\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose text-zinc-800 dark:text-zinc-200 md:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"-learning--media\">📚 Learning &#x26; Media</h3>\n<!-- Books, articles, movies, TV shows, podcasts consumed -->\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Watched the new HBO documentary on Bitcoin: “Money Electric: The Bitcoin Mystery”</li>\n</ul>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose text-zinc-800 dark:text-zinc-200 md:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"-connections--insights\">🔗 Connections &#x26; Insights</h3>\n<!-- Note any interesting connections between ideas or new realizations -->\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose text-zinc-800 dark:text-zinc-200 md:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"interview-with-mw\">Interview with MW</h3>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">What did you think about the Peter Todd bitcoin documentary?</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\"><code class=\"font-mono text-sm bg-zinc-100 dark:bg-zinc-800 rounded px-1.5 py-0.5\">gmaxwell</code> is another core Bitcoin dev associated with PeterTodd, which also appears as one of the initial glitch tokens</li>\n</ul>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Tell me about the multi-LLM discord</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Can you tell me about some of the well-known personalities in the AI research community</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">How would you describe the <em class=\"\">stakes</em> of the research that this alternative-AI-research community?</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Can you tell me a bit about the Neuronpedia project?</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">How much kayfabe is going on? How do we separate speculative fiction from reality?</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Is there any data from the glitch token explorations you'd be willing to share to let me explore/visualize? The more the better</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Have you been following along with the growth of Truth Terminal?</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Why do you think so many of these twitter personalities are anonymous or semi-anonymous?</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Why do you think it has been so difficult to get in touch with Janus for an interview?</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Tell me about your work on Terrence McKenna's theory</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">how to best go about visualizing/ animating the process of finding glitch tokens - applicable to other LLMs? Do all LLMs have glitch tokens?</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Dr Watkins?</li>\n</ul>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose text-zinc-800 dark:text-zinc-200 md:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"-next-weeks-intentions\">🎯 Next Week's Intentions</h3>\n<!-- What do you want to focus on or accomplish next week? -->",
+  "title": "2024-42",
+  "metadata": {
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
+    "modified": "2024-10-18T01:35:31.000Z",
+    "date": "2024-10-14T22:55:47.000Z",
+    "robotsMeta": null,
+    "title": "2024-42",
+    "toc": [
+      {
+        "text": "2024-42",
+        "slug": "2024-42",
+        "level": "h2",
+        "children": [
+          {
+            "text": "🌟 Daily Check-In & Reflections",
+            "slug": "daily-check-in-reflections",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "💻 Code & Creations",
+            "slug": "code-creations",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "💡 Ideas & Inspirations",
+            "slug": "ideas-inspirations",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "🏋️ Health & Wellness",
+            "slug": "health-wellness",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "📚 Learning & Media",
+            "slug": "learning-media",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "🔗 Connections & Insights",
+            "slug": "connections-insights",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Interview with MW",
+            "slug": "interview-with-mw",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "🎯 Next Week's Intentions",
+            "slug": "next-week-s-intentions",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 419,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 2,
+    "hidden": false,
+    "type": "post",
+    "visibility": {
+      "isHidden": false,
+      "isShared": false,
+      "isSpecialSection": false,
+      "isIndex": false
+    }
+  }
+}

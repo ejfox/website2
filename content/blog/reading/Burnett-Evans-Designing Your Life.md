@@ -1,9 +1,18 @@
 ---
-kindle-sync: {"bookId":"37778","title":"Designing Your Life: How to Build a Well-Lived, Joyful Life","author":"Bill Burnett and Dave Evans","asin":"B01BJSRSEC","lastAnnotatedDate":"2021-01-18","bookImageUrl":"https://m.media-amazon.com/images/I/71O3fHSPe8L._SY160.jpg","highlightsCount":2}
-date: "2022-12-14T20:26:28.000Z"
-modified: "2022-12-23T14:45:40.000Z"
-tags: ["process","book","inspiration"]
-wordCount: 130
+kindle-sync:
+  bookId: '37778'
+  title: 'Designing Your Life: How to Build a Well-Lived, Joyful Life'
+  author: Bill Burnett and Dave Evans
+  asin: B01BJSRSEC
+  lastAnnotatedDate: '2021-01-18'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/71O3fHSPe8L._SY160.jpg'
+  highlightsCount: 2
+date: 2022-12-14T20:26:28.000Z
+modified: 2022-12-23T14:45:40.000Z
+tags:
+  - process
+  - book
+  - inspiration
 ---
 # Designing Your Life
 

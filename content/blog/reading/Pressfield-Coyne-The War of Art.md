@@ -1,9 +1,19 @@
 ---
-kindle-sync: {"bookId":"62220","title":"The War of Art","author":"Steven Pressfield and Shawn Coyne","asin":"B007A4SDCG","lastAnnotatedDate":"2021-01-05","bookImageUrl":"https://m.media-amazon.com/images/I/71jgxi5WW2L._SY160.jpg","highlightsCount":8}
-date: "2022-12-14T20:26:39.000Z"
-modified: "2024-03-13T22:51:53.000Z"
-tags: ["art","book","inspiration","writing"]
-wordCount: 676
+kindle-sync:
+  bookId: '62220'
+  title: The War of Art
+  author: Steven Pressfield and Shawn Coyne
+  asin: B007A4SDCG
+  lastAnnotatedDate: '2021-01-05'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/71jgxi5WW2L._SY160.jpg'
+  highlightsCount: 8
+date: 2022-12-14T20:26:39.000Z
+modified: 2024-03-13T22:51:53.000Z
+tags:
+  - art
+  - book
+  - inspiration
+  - writing
 ---
 ## The War of Art
 

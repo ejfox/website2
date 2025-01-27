@@ -1,9 +1,21 @@
 ---
-kindle-sync: {"bookId":"4081","title":"Congressional Procedure: A Practical Guide to the Legislative Process in the U.S. Congress: The House of Representatives and Senate Explained","author":"Richard A. Arenberg and Alan S. Frumin","asin":"B07JYRPJ7S","lastAnnotatedDate":"2021-02-03","bookImageUrl":"https://m.media-amazon.com/images/I/81otOXbOIiL._SY160.jpg","highlightsCount":1}
-date: "2022-12-26T16:47:30.000Z"
-modified: "2022-12-27T20:08:38.000Z"
-tags: ["politics","book","reference","process"]
-wordCount: 88
+kindle-sync:
+  bookId: '4081'
+  title: >-
+    Congressional Procedure: A Practical Guide to the Legislative Process in the
+    U.S. Congress: The House of Representatives and Senate Explained
+  author: Richard A. Arenberg and Alan S. Frumin
+  asin: B07JYRPJ7S
+  lastAnnotatedDate: '2021-02-03'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/81otOXbOIiL._SY160.jpg'
+  highlightsCount: 1
+date: 2022-12-26T16:47:30.000Z
+modified: 2022-12-27T20:08:38.000Z
+tags:
+  - politics
+  - book
+  - reference
+  - process
 ---
 # Congressional Procedure: A Practical Guide to the Legislative Process in the U.S. Congress
 

@@ -1,9 +1,18 @@
 ---
-kindle-sync: {"bookId":"52934","title":"The Fundamentals of Motorcycle Camping","author":"Tim Collins and Amanda Zito","asin":"B08HX77KVM","lastAnnotatedDate":"2021-10-30","bookImageUrl":"https://m.media-amazon.com/images/I/81BOMFlBzPL._SY160.jpg","highlightsCount":5}
-date: "2022-12-14T20:24:52.000Z"
-modified: "2022-12-23T15:19:47.000Z"
-tags: ["camping","motorcycle","travel"]
-wordCount: 325
+kindle-sync:
+  bookId: '52934'
+  title: The Fundamentals of Motorcycle Camping
+  author: Tim Collins and Amanda Zito
+  asin: B08HX77KVM
+  lastAnnotatedDate: '2021-10-30'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/81BOMFlBzPL._SY160.jpg'
+  highlightsCount: 5
+date: 2022-12-14T20:24:52.000Z
+modified: 2022-12-23T15:19:47.000Z
+tags:
+  - camping
+  - motorcycle
+  - travel
 ---
 # The Fundamentals of Motorcycle Camping
 

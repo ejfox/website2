@@ -1,0 +1,27 @@
+{
+  "slug": "week-notes/2024-18",
+  "title": "🌟 Overview of the Week",
+  "date": "2024-04-29T04:00:00.000Z",
+  "type": "weekNote",
+  "html": "<h2 id=\"-overview-of-the-week\"><a aria-hidden=\"true\" tabindex=\"-1\" href=\"#-overview-of-the-week\"><span class=\"icon icon-link\"></span></a>🌟 Overview of the Week</h2>\n<ul>\n<li></li>\n</ul>\n<h2 id=\"projects-worked-on\"><a aria-hidden=\"true\" tabindex=\"-1\" href=\"#projects-worked-on\"><span class=\"icon icon-link\"></span></a>Projects Worked On</h2>\n<ul>\n<li>Worked a bunch on my Scrapbook project, particularly finding UUID/hashes I can use for scraps from multiple services</li>\n<li>Added 2 new views to the scrapbook part of my website: graph and cards</li>\n<li>Added an “art mode” to my daily dashboard project</li>\n</ul>\n<h2 id=\"creative-endeavors\"><a aria-hidden=\"true\" tabindex=\"-1\" href=\"#creative-endeavors\"><span class=\"icon icon-link\"></span></a>Creative Endeavors</h2>\n<h3 id=\"cyberpunk-visual-aesthetic\"><a aria-hidden=\"true\" tabindex=\"-1\" href=\"#cyberpunk-visual-aesthetic\"><span class=\"icon icon-link\"></span></a>Cyberpunk Visual Aesthetic</h3>\n<p>Looking more into a cyberpunk aesthetic, gathering visual inspiration <a href=\"https://www.are.na/ej-fox/cyberpunk-2zwvyihuauk\">https://www.are.na/ej-fox/cyberpunk-2zwvyihuauk</a></p>\n<p>Playing around with different techniques in After Effects, building stacks of glow, motion blur, bulge distortion, mosaic pixelation, and randomizing parameters so it has an unexpected generative feel.</p>\n<h3 id=\"hudson-valley-exploration\"><a aria-hidden=\"true\" tabindex=\"-1\" href=\"#hudson-valley-exploration\"><span class=\"icon icon-link\"></span></a>Hudson Valley Exploration</h3>\n<p>I downloaded Digital Elevation Model TIFFs of the Hudson Valley, combined them all together in QGIS, and then played around a bit with generating contour maps from it. I have an image of a very stylized, iso-metric sort of view of the Hudson Valley with some towns / cities highlighted, and probably exaggerated height on the mountains</p>",
+  "modified": "2024-10-14T23:51:53.000Z",
+  "description": "",
+  "dek": "In which the author meticulously crafts a cyberpunk visual aesthetic and explores the Hudson Valley through digital elevation models and contour maps.",
+  "url": "",
+  "tags": [
+    "weekly-notes",
+    "reflections",
+    "progress",
+    "generative",
+    "mapping",
+    "hudsonvalley",
+    "visualization"
+  ],
+  "hidden": false,
+  "draft": false,
+  "wordCount": 163,
+  "readingTime": 1,
+  "imageCount": 0,
+  "linkCount": 0,
+  "share": true
+}

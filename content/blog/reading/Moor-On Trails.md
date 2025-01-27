@@ -1,9 +1,17 @@
 ---
-kindle-sync: {"bookId":"38803","title":"On Trails: An Exploration","author":"Robert Moor","asin":"B0176M3ZG0","lastAnnotatedDate":"2022-03-02","bookImageUrl":"https://m.media-amazon.com/images/I/71QTTsXaDdL._SY160.jpg","highlightsCount":25}
-date: "2022-12-14T20:24:19.000Z"
-modified: "2022-12-23T16:05:01.000Z"
-tags: ["travel","maps"]
-wordCount: 2074
+kindle-sync:
+  bookId: '38803'
+  title: 'On Trails: An Exploration'
+  author: Robert Moor
+  asin: B0176M3ZG0
+  lastAnnotatedDate: '2022-03-02'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/71QTTsXaDdL._SY160.jpg'
+  highlightsCount: 25
+date: 2022-12-14T20:24:19.000Z
+modified: 2022-12-23T16:05:01.000Z
+tags:
+  - travel
+  - maps
 ---
 # On Trails
 

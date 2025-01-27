@@ -1,15 +1,20 @@
 ---
-dek: "In which we explore the knotted beauty of American democracy"
-type: "words"
+dek: In which we explore the knotted beauty of American democracy
+type: words
 hidden: false
 inprogress: true
-date: "2020-02-09T03:19:38.000Z"
+date: 2020-02-08T22:19:38-05:00
 hidetimestamp: false
-modified: "2024-09-23T16:13:21.000Z"
-tags: ["elections","politics","data","journalism","media","research"]
-wordCount: 2347
-draft: false
+modified: 2024-09-23T12:13:21-04:00
+tags:
+  - elections
+  - politics
+  - data
+  - journalism
+  - media
+  - research
 ---
+
 ## Things I've learned about elections
 
 ### Edge cases

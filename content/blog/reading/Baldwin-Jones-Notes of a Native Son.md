@@ -1,9 +1,17 @@
 ---
-kindle-sync: {"bookId":"6077","title":"Notes of a Native Son","author":"James Baldwin and Edward P. Jones","asin":"B007WKEN4U","lastAnnotatedDate":"2022-06-20","bookImageUrl":"https://m.media-amazon.com/images/I/517-wUXsdWL._SY160.jpg","highlightsCount":2}
-date: "2022-12-14T20:23:48.000Z"
-modified: "2022-12-23T16:26:46.000Z"
-tags: ["america","activism"]
-wordCount: 126
+kindle-sync:
+  bookId: '6077'
+  title: Notes of a Native Son
+  author: James Baldwin and Edward P. Jones
+  asin: B007WKEN4U
+  lastAnnotatedDate: '2022-06-20'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/517-wUXsdWL._SY160.jpg'
+  highlightsCount: 2
+date: 2022-12-14T20:23:48.000Z
+modified: 2022-12-23T16:26:46.000Z
+tags:
+  - america
+  - activism
 ---
 # Notes of a Native Son
 

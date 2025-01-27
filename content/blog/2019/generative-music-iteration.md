@@ -1,14 +1,20 @@
 ---
-type: "words"
+type: words
 hidden: true
 inprogress: true
-date: "2019-03-24T08:00:33.000Z"
+date: 2019-03-24T04:00:33-04:00
 hidetimestamp: false
-tags: ["generative","music","art","research","systemsthinking","visualization","coding"]
-modified: "2024-09-23T16:13:04.000Z"
-wordCount: 295
-draft: true
+tags:
+  - generative
+  - music
+  - art
+  - research
+  - systemsthinking
+  - visualization
+  - coding
+modified: 2024-09-23T12:13:04-04:00
 ---
+
 ## Generative Music Iteration
 
 One of my first steps when embarking on a new project is to gather research and understand the world in which I’m working.

@@ -1,9 +1,17 @@
 ---
-tags: ["data","hacking"]
-kindle-sync: {"bookId":"2409","title":"No Place to Hide: Edward Snowden, the NSA, and the U.S. Surveillance State","author":"Glenn Greenwald","asin":"B00E0CZX0G","lastAnnotatedDate":"2015-02-28","bookImageUrl":"https://m.media-amazon.com/images/I/717C3YRXF9L._SY160.jpg","highlightsCount":2}
-date: "2022-12-28T16:09:49.000Z"
-modified: "2024-09-20T04:24:15.000Z"
-wordCount: 86
+tags:
+  - data
+  - hacking
+kindle-sync:
+  bookId: '2409'
+  title: 'No Place to Hide: Edward Snowden, the NSA, and the U.S. Surveillance State'
+  author: Glenn Greenwald
+  asin: B00E0CZX0G
+  lastAnnotatedDate: '2015-02-28'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/717C3YRXF9L._SY160.jpg'
+  highlightsCount: 2
+date: 2022-12-28T11:09:49-05:00
+modified: 2024-09-20T00:24:15-04:00
 ---
 ## No Place to Hide
 ### Metadata

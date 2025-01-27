@@ -1,9 +1,18 @@
 ---
-kindle-sync: {"bookId":"43213","title":"The Idea Factory: Bell Labs and the Great Age of American Innovation","author":"Jon Gertner","asin":"B005GSZIWG","lastAnnotatedDate":"2019-04-11","bookImageUrl":"https://m.media-amazon.com/images/I/81H1fcNpImL._SY160.jpg","highlightsCount":16}
-date: "2022-12-14T20:28:24.000Z"
-modified: "2022-12-23T16:08:38.000Z"
-tags: ["tech","book","research"]
-wordCount: 704
+kindle-sync:
+  bookId: '43213'
+  title: 'The Idea Factory: Bell Labs and the Great Age of American Innovation'
+  author: Jon Gertner
+  asin: B005GSZIWG
+  lastAnnotatedDate: '2019-04-11'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/81H1fcNpImL._SY160.jpg'
+  highlightsCount: 16
+date: 2022-12-14T20:28:24.000Z
+modified: 2022-12-23T16:08:38.000Z
+tags:
+  - tech
+  - book
+  - research
 ---
 # The Idea Factory
 

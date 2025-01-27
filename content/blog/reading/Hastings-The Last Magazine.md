@@ -1,9 +1,19 @@
 ---
-kindle-sync: {"bookId":"14217","title":"The Last Magazine: A Novel","author":"Michael Hastings","asin":"B00G3L7TRM","lastAnnotatedDate":"2019-04-11","bookImageUrl":"https://m.media-amazon.com/images/I/819oeJKp3wL._SY160.jpg","highlightsCount":6}
-date: "2022-12-26T16:48:07.000Z"
-modified: "2022-12-27T20:13:52.000Z"
-tags: ["journalism","media","politics","writing"]
-wordCount: 306
+kindle-sync:
+  bookId: '14217'
+  title: 'The Last Magazine: A Novel'
+  author: Michael Hastings
+  asin: B00G3L7TRM
+  lastAnnotatedDate: '2019-04-11'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/819oeJKp3wL._SY160.jpg'
+  highlightsCount: 6
+date: 2022-12-26T16:48:07.000Z
+modified: 2022-12-27T20:13:52.000Z
+tags:
+  - journalism
+  - media
+  - politics
+  - writing
 ---
 # The Last Magazine
 

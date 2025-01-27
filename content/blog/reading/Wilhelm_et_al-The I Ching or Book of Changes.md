@@ -1,9 +1,17 @@
 ---
-kindle-sync: {"bookId":"33305","title":"The I Ching or Book of Changes (Bollingen Series 31)","author":"Hellmut Wilhelm, C. G. Jung, Richard Wilhelm, and Cary F. Baynes","asin":"B004S6QSYO","lastAnnotatedDate":"2023-06-09","bookImageUrl":"https://m.media-amazon.com/images/I/51fzxLryJTL._SY160.jpg","highlightsCount":2}
-date: "2022-12-26T16:47:16.000Z"
-modified: "2022-12-27T20:13:40.000Z"
-tags: ["meditation","reference"]
-wordCount: 205
+kindle-sync:
+  bookId: '33305'
+  title: The I Ching or Book of Changes (Bollingen Series 31)
+  author: 'Hellmut Wilhelm, C. G. Jung, Richard Wilhelm, and Cary F. Baynes'
+  asin: B004S6QSYO
+  lastAnnotatedDate: '2023-06-09'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/51fzxLryJTL._SY160.jpg'
+  highlightsCount: 2
+date: 2022-12-26T16:47:16.000Z
+modified: 2022-12-27T20:13:40.000Z
+tags:
+  - meditation
+  - reference
 ---
 # The I Ching or Book of Changes
 

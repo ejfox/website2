@@ -1,9 +1,19 @@
 ---
-kindle-sync: {"bookId":"41806","title":"A Potter's Workbook","author":"Clary Illian and Charles Metzger","asin":"B008XOF5K0","lastAnnotatedDate":"2022-07-14","bookImageUrl":"https://m.media-amazon.com/images/I/71wu2qltGFL._SY160.jpg","highlightsCount":3}
-date: "2022-12-14T20:23:37.000Z"
-modified: "2022-12-23T16:26:11.000Z"
-tags: ["art","howto","pottery","design"]
-wordCount: 192
+kindle-sync:
+  bookId: '41806'
+  title: A Potter's Workbook
+  author: Clary Illian and Charles Metzger
+  asin: B008XOF5K0
+  lastAnnotatedDate: '2022-07-14'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/71wu2qltGFL._SY160.jpg'
+  highlightsCount: 3
+date: 2022-12-14T20:23:37.000Z
+modified: 2022-12-23T16:26:11.000Z
+tags:
+  - art
+  - howto
+  - pottery
+  - design
 ---
 # A Potters Workbook
 

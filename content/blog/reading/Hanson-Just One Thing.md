@@ -1,9 +1,16 @@
 ---
-kindle-sync: {"bookId":"49395","title":"Just One Thing: Developing a Buddha Brain One Simple Practice at a Time","author":"Rick Hanson","asin":"B005LQ6UNO","lastAnnotatedDate":"2012-10-25","bookImageUrl":"https://m.media-amazon.com/images/I/61ehh4-cDSL._SY160.jpg","highlightsCount":4}
-date: "2022-12-14T20:30:08.000Z"
-modified: "2022-12-23T15:53:49.000Z"
-tags: ["inspiration"]
-wordCount: 128
+kindle-sync:
+  bookId: '49395'
+  title: 'Just One Thing: Developing a Buddha Brain One Simple Practice at a Time'
+  author: Rick Hanson
+  asin: B005LQ6UNO
+  lastAnnotatedDate: '2012-10-25'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/61ehh4-cDSL._SY160.jpg'
+  highlightsCount: 4
+date: 2022-12-14T20:30:08.000Z
+modified: 2022-12-23T15:53:49.000Z
+tags:
+  - inspiration
 ---
 # Just One Thing
 

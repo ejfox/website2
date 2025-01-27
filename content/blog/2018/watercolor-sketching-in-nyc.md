@@ -1,12 +1,16 @@
 ---
-type: "words"
+type: words
 hidden: true
-date: "2018-06-10T14:58:10-04:00"
+date: '2018-06-10T14:58:10-04:00'
 hidetimestamp: false
-tags: ["art","documentary","photography","watercolor","inspiration"]
-wordCount: 535
-draft: true
+tags:
+  - art
+  - documentary
+  - photography
+  - watercolor
+  - inspiration
 ---
+
 # Watercolor Sketching in NYC
 
 I've taken photos for most of my life now. My favorites are the photos with people in them. A beautiful place, with beautiful light, captured at the perfect moment with the perfect exposure is alright. But put a person there reacting to it and you feel the moment. It feels large. You can put yourself in their shoes.

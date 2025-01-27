@@ -1,9 +1,9 @@
 ---
-date: "2024-12-08T20:13:29.000Z"
-modified: "2024-12-08T22:46:33.000Z"
+date: 2024-12-08T15:13:29-05:00
+modified: 2024-12-08T17:46:33-05:00
 share: true
-wordCount: 119
 ---
+
 I'll create a detailed walkthrough of how we got this stack working:
 
 ## Setting up Smallweb with Cloudflare Tunnel and Caddy

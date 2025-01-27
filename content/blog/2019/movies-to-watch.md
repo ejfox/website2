@@ -1,15 +1,17 @@
 ---
-dek: "In which the author divulges a shameful secret"
-type: "words"
+dek: In which the author divulges a shameful secret
+type: words
 hidden: false
 inprogress: false
-date: "2019-06-13T08:00:39.000Z"
+date: 2019-06-13T08:00:39.000Z
 hidetimestamp: true
-modified: "2024-06-21T14:12:52.000Z"
-tags: ["movies","drama","documentary"]
-wordCount: 364
-draft: false
+modified: 2024-06-21T14:12:52.000Z
+tags:
+  - movies
+  - drama
+  - documentary
 ---
+
 ## Movies to Watch
 
 For a variety of reasons there are many movies that I have not seen. Often in conversation, these movies will come up and people will say “you haven’t seen that?” and I feel pangs of guilt.

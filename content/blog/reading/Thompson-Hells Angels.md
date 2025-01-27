@@ -1,9 +1,19 @@
 ---
-kindle-sync: {"bookId":"54847","title":"Hell's Angels: A Strange and Terrible Saga","author":"Hunter S. Thompson","asin":"B008IU9IVG","lastAnnotatedDate":"2022-06-20","bookImageUrl":"https://m.media-amazon.com/images/I/51WwckOYyQL._SY160.jpg","highlightsCount":1}
-date: "2022-12-26T16:47:01.000Z"
-modified: "2022-12-27T20:07:04.000Z"
-tags: ["journalism","motorcycle","media","reference"]
-wordCount: 106
+kindle-sync:
+  bookId: '54847'
+  title: 'Hell''s Angels: A Strange and Terrible Saga'
+  author: Hunter S. Thompson
+  asin: B008IU9IVG
+  lastAnnotatedDate: '2022-06-20'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/51WwckOYyQL._SY160.jpg'
+  highlightsCount: 1
+date: 2022-12-26T16:47:01.000Z
+modified: 2022-12-27T20:07:04.000Z
+tags:
+  - journalism
+  - motorcycle
+  - media
+  - reference
 ---
 # Hells Angels
 

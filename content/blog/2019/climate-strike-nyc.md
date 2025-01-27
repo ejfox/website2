@@ -1,14 +1,18 @@
 ---
-dek: "In which the youths march through the street with extremely clever signs since they are too young to riot"
-type: "photo"
+dek: >-
+  In which the youths march through the street with extremely clever signs since
+  they are too young to riot
+type: photo
 hidden: false
 inprogress: false
-date: "2019-09-20T21:19:39-04:00"
+date: '2019-09-20T21:19:39-04:00'
 hidetimestamp: false
-tags: ["activism","climatechange","protest"]
-wordCount: 169
-draft: false
+tags:
+  - activism
+  - climatechange
+  - protest
 ---
+
 # NYC’s Climate March
 
 ![News cameras cover the front of the march as volunteers in vests clear the way](https://res.cloudinary.com/ejf/image/upload/v1569366291/20190920-climate-strike-march_20190920-398.jpg)

@@ -1,10 +1,10 @@
 ---
-date: "2024-11-13T20:03:41.000Z"
-modified: "2024-11-13T20:29:38.000Z"
+date: 2024-11-13T15:03:41-05:00
+modified: 2024-11-13T15:29:38-05:00
 share: true
-model: "claude-sonnet-3.5"
-wordCount: 2075
+model: claude-sonnet-3.5
 ---
+
 ## Machine Learning Comedy Hour
 
 **Author's note: In this conversation with Claude Sonnet 3.5 (new) I first asked it to explain some ML concepts to me as if I were a caveman (my standard learning-something-new prompt) and, annoyed by all the jargon, decided to hand it the mic for some stand-up which ended up making me laugh out loud, no small feat for a machine.**

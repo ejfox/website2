@@ -1,15 +1,19 @@
 ---
-dek: "In which the author attempts and fails to find interesting unsecured webcams near known ICE facilities"
-type: "words"
+dek: >-
+  In which the author attempts and fails to find interesting unsecured webcams
+  near known ICE facilities
+type: words
 hidden: false
 inprogress: false
-date: "2019-03-24T08:00:39.000Z"
+date: 2019-03-24T04:00:39-04:00
 hidetimestamp: false
-modified: "2024-09-23T16:13:18.000Z"
-tags: ["security","hacking","osint"]
-wordCount: 640
-draft: false
+modified: 2024-09-23T12:13:18-04:00
+tags:
+  - security
+  - hacking
+  - osint
 ---
+
 ## Attempting to find unsecured ICE cameras
 
 A friend DMs me on Twitter:

@@ -1,11 +1,15 @@
 ---
-dek: "In which we build a robot to help around the shop"
+draft: true
+dek: In which we build a robot to help around the shop
 inprogress: true
-date: "2023-03-21T19:03:11.000Z"
-modified: "2024-09-23T16:13:40.000Z"
-tags: ["dataviz","gpt3","machinelearning"]
-wordCount: 1370
+date: 2023-03-21T15:03:11-04:00
+modified: 2024-09-23T12:13:40-04:00
+tags:
+  - dataviz
+  - gpt3
+  - machinelearning
 ---
+
 ## How I Built An AI Assistant for our Dataviz Studio
 
 As I juggle between countless tasks and a constant desire to learn new skills, I often find my mind wandering to Twitter and YouTube instead of focusing on writing code or practicing watercolors. Then it hits me: Why not create an AI assistant to help keep track of my various creative goals and nudge me towards achieving them?

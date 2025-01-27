@@ -1,10 +1,13 @@
 ---
-dek: "In which the author proudly presents his new venture: Room 302 Studio, an eclectic gathering of talent devoted to fostering joy-driven development"
-date: "2023-04-10T05:00:00.000Z"
-modified: "2024-09-20T04:21:55.000Z"
-tags: ["data"]
-wordCount: 582
+dek: >-
+  In which the author proudly presents his new venture: Room 302 Studio, an
+  eclectic gathering of talent devoted to fostering joy-driven development
+date: 2023-04-10T01:00:00-04:00
+modified: 2024-09-20T00:21:55-04:00
+tags:
+  - data
 ---
+
 ## Introducing room302.studio
 
 It's been a long journey since I first started in data visualization contracting over ten years ago, and **I'm incredibly proud to introduce my new data and prototyping studio: [Room 302 Studio](https://room302.studio).**

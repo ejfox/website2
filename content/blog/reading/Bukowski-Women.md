@@ -1,9 +1,17 @@
 ---
-kindle-sync: {"bookId":"62762","title":"Women: A Novel","author":"Charles Bukowski","asin":"B000W94FWS","lastAnnotatedDate":"2019-04-11","bookImageUrl":"https://m.media-amazon.com/images/I/81M+SvV1aLL._SY160.jpg","highlightsCount":15}
-date: "2022-12-14T20:28:29.000Z"
-modified: "2022-12-23T14:46:21.000Z"
-tags: ["writing","inspiration"]
-wordCount: 618
+kindle-sync:
+  bookId: '62762'
+  title: 'Women: A Novel'
+  author: Charles Bukowski
+  asin: B000W94FWS
+  lastAnnotatedDate: '2019-04-11'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/81M+SvV1aLL._SY160.jpg'
+  highlightsCount: 15
+date: 2022-12-14T20:28:29.000Z
+modified: 2022-12-23T14:46:21.000Z
+tags:
+  - writing
+  - inspiration
 ---
 # Women
 

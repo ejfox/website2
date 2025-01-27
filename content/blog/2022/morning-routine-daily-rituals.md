@@ -1,11 +1,18 @@
 ---
-dek: "In which we use intentional morning rituals to improve our lives and increase our happiness"
+draft: true
+dek: >-
+  In which we use intentional morning rituals to improve our lives and increase
+  our happiness
 inprogress: true
-date: "2022-11-03T01:31:25.000Z"
-modified: "2024-09-20T04:22:56.000Z"
-tags: ["exercise","meditation","writing","health"]
-wordCount: 524
+date: 2022-11-02T21:31:25-04:00
+modified: 2024-09-20T00:22:56-04:00
+tags:
+  - exercise
+  - meditation
+  - writing
+  - health
 ---
+
 ## My Morning Routine and Daily Rituals
 
 The morning time is important to me. I naturally run a but hurried and agitated so it takes some time to calm down my mind and body and focus on the things I want to do.

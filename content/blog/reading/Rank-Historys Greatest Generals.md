@@ -1,9 +1,19 @@
 ---
-kindle-sync: {"bookId":"19008","title":"History's Greatest Generals: 10 Commanders Who Conquered Empires, Revolutionized Warfare, and Changed History Forever","author":"Michael Rank","asin":"B00FYRKZRM","lastAnnotatedDate":"2015-02-28","bookImageUrl":"https://m.media-amazon.com/images/I/91hdwM15ZqL._SY160.jpg","highlightsCount":4}
-tags: ["military","reference"]
-date: "2022-12-14T20:29:41.000Z"
-modified: "2022-12-23T16:28:08.000Z"
-wordCount: 132
+kindle-sync:
+  bookId: '19008'
+  title: >-
+    History's Greatest Generals: 10 Commanders Who Conquered Empires,
+    Revolutionized Warfare, and Changed History Forever
+  author: Michael Rank
+  asin: B00FYRKZRM
+  lastAnnotatedDate: '2015-02-28'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/91hdwM15ZqL._SY160.jpg'
+  highlightsCount: 4
+tags:
+  - military
+  - reference
+date: 2022-12-14T20:29:41.000Z
+modified: 2022-12-23T16:28:08.000Z
 ---
 # Historys Greatest Generals
 

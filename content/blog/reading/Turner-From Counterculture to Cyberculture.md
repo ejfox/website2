@@ -1,9 +1,20 @@
 ---
-kindle-sync: {"bookId":"4098","title":"From Counterculture to Cyberculture: Stewart Brand, the Whole Earth Network, and the Rise of Digital Utopianism","author":"Fred Turner","asin":"B004BKJVYG","lastAnnotatedDate":"2016-09-23","bookImageUrl":"https://m.media-amazon.com/images/I/41vl1IkuGgL._SY160.jpg","highlightsCount":5}
-date: "2022-12-14T20:29:12.000Z"
-modified: "2022-12-23T15:56:21.000Z"
-tags: ["culture","hackers","journalism"]
-wordCount: 274
+kindle-sync:
+  bookId: '4098'
+  title: >-
+    From Counterculture to Cyberculture: Stewart Brand, the Whole Earth Network,
+    and the Rise of Digital Utopianism
+  author: Fred Turner
+  asin: B004BKJVYG
+  lastAnnotatedDate: '2016-09-23'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/41vl1IkuGgL._SY160.jpg'
+  highlightsCount: 5
+date: 2022-12-14T20:29:12.000Z
+modified: 2022-12-23T15:56:21.000Z
+tags:
+  - culture
+  - hackers
+  - journalism
 ---
 # From Counterculture to Cyberculture
 

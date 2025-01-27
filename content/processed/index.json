@@ -1,14 +1,24 @@
 {
-  "slug": "index",
-  "date": "2024-09-22T00:33:21.000Z",
-  "modified": "2024-10-03T20:10:46.000Z",
-  "wordCount": 113,
-  "robotsMeta": "index, follow",
-  "title": "index",
-  "toc": [],
-  "readingTime": 1,
-  "imageCount": 0,
-  "linkCount": 6,
-  "hidden": false,
-  "content": "<p class=\"max-w-prose\" style=\"max-width: 50ch;\">Hi there! I'm <strong>EJ Fox</strong>, a hacker-journalist using code and art to uncover hidden patterns. I try to use my skills to empower others to explore those connections. I believe the world is interconnected and editable, and by using technology for good we can empower people to change the world for the better. I founded <a href=\"http://room302.studio\">room302.studio</a>, an innovation lab, to take on even larger projects and datasets. If you're interested in a fresh take on some data or just want to chat, reach out at <a href=\"mailto:ejfox@ejfox.com\">ejfox@ejfox.com</a> or <a href=\"/calendar\">grab some time on my calendar</a>.</p>\n<br />\n<p class=\"max-w-prose\" style=\"max-width: 50ch;\">Or, if you'd like, browse <a href=\"/projects\">some of my work</a>, read my <a href=\"/blog\">blog posts</a>, or check out <a href=\"http://ejfox.com/resume.pdf\">my resume</a>.</p>"
+  "content": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Hi there! I'm <strong class=\"\">EJ Fox</strong>, a hacker-journalist using code and art to uncover hidden patterns. I try to use my skills to empower others to explore those connections. I believe the world is interconnected and editable, and by using technology for good we can empower people to change the world for the better. I founded <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">room302.studio</a>, an innovation lab, to take on even larger projects and datasets. If you're interested in a fresh take on some data or just want to chat, reach out at <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">ejfox@ejfox.com</a> or <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">grab some time on my calendar</a>.</p>\n<br class=\"\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Or, if you'd like, browse <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">some of my work</a>, read my <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">blog posts</a>, or check out <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">my resume</a>.</p>",
+  "html": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Hi there! I'm <strong class=\"\">EJ Fox</strong>, a hacker-journalist using code and art to uncover hidden patterns. I try to use my skills to empower others to explore those connections. I believe the world is interconnected and editable, and by using technology for good we can empower people to change the world for the better. I founded <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">room302.studio</a>, an innovation lab, to take on even larger projects and datasets. If you're interested in a fresh take on some data or just want to chat, reach out at <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">ejfox@ejfox.com</a> or <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">grab some time on my calendar</a>.</p>\n<br class=\"\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Or, if you'd like, browse <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">some of my work</a>, read my <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">blog posts</a>, or check out <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">my resume</a>.</p>",
+  "title": "Index",
+  "metadata": {
+    "date": "2024-09-22T00:33:21.000Z",
+    "modified": "2024-10-03T20:10:46.000Z",
+    "robotsMeta": null,
+    "title": "Index",
+    "toc": [],
+    "wordCount": 114,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 6,
+    "hidden": false,
+    "type": "post",
+    "visibility": {
+      "isHidden": false,
+      "isShared": false,
+      "isSpecialSection": false,
+      "isIndex": false
+    }
+  }
 }

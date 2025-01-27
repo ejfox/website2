@@ -1,9 +1,17 @@
 ---
-kindle-sync: {"bookId":"3551","title":"Why Marx Was Right","author":"Terry Eagleton","asin":"B004V9IFDA","lastAnnotatedDate":"2012-03-18","bookImageUrl":"https://m.media-amazon.com/images/I/41MZr3P0BIL._SY160.jpg","highlightsCount":11}
-date: "2022-12-14T20:30:19.000Z"
-modified: "2022-12-23T15:57:27.000Z"
-tags: ["politics","activism"]
-wordCount: 439
+kindle-sync:
+  bookId: '3551'
+  title: Why Marx Was Right
+  author: Terry Eagleton
+  asin: B004V9IFDA
+  lastAnnotatedDate: '2012-03-18'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/41MZr3P0BIL._SY160.jpg'
+  highlightsCount: 11
+date: 2022-12-14T20:30:19.000Z
+modified: 2022-12-23T15:57:27.000Z
+tags:
+  - politics
+  - activism
 ---
 # Why Marx Was Right
 

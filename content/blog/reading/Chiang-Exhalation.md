@@ -1,9 +1,17 @@
 ---
-kindle-sync: {"bookId":"2199","title":"Exhalation: Stories","author":"Ted Chiang","asin":"B07GD46PQZ","lastAnnotatedDate":"2022-10-21","bookImageUrl":"https://m.media-amazon.com/images/I/71rxUxpcPgL._SY160.jpg","highlightsCount":1}
-date: "2022-12-26T16:46:52.000Z"
-modified: "2022-12-27T20:14:05.000Z"
-tags: ["tech","book"]
-wordCount: 66
+kindle-sync:
+  bookId: '2199'
+  title: 'Exhalation: Stories'
+  author: Ted Chiang
+  asin: B07GD46PQZ
+  lastAnnotatedDate: '2022-10-21'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/71rxUxpcPgL._SY160.jpg'
+  highlightsCount: 1
+date: 2022-12-26T16:46:52.000Z
+modified: 2022-12-27T20:14:05.000Z
+tags:
+  - tech
+  - book
 ---
 # Exhalation
 

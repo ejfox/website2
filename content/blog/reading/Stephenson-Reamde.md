@@ -1,9 +1,16 @@
 ---
-kindle-sync: {"bookId":"37234","title":"Reamde: A Novel","author":"Neal Stephenson","asin":"B004XVN0WW","lastAnnotatedDate":"2019-03-31","bookImageUrl":"https://m.media-amazon.com/images/I/71VM4oRxfFL._SY160.jpg","highlightsCount":1}
-date: "2022-12-26T16:48:12.000Z"
-modified: "2024-09-20T04:36:01.000Z"
-tags: ["book"]
-wordCount: 54
+kindle-sync:
+  bookId: '37234'
+  title: 'Reamde: A Novel'
+  author: Neal Stephenson
+  asin: B004XVN0WW
+  lastAnnotatedDate: '2019-03-31'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/71VM4oRxfFL._SY160.jpg'
+  highlightsCount: 1
+date: 2022-12-26T11:48:12-05:00
+modified: 2024-09-20T00:36:01-04:00
+tags:
+  - book
 ---
 ## Reamde
 

@@ -1,9 +1,10 @@
 ---
-date: "2024-10-15T21:05:33.000Z"
-modified: "2024-11-24T22:19:45.000Z"
+date: 2024-10-15T17:05:33-04:00
+modified: 2024-11-24T17:19:45-05:00
 share: true
-wordCount: 2878
 ---
+
+
 ## Week 1: Chess Fundamentals and Effective Study Techniques
 
 Objective: Build a solid foundation by learning how to read chess notation and adopt effective study habits, setting the stage for more advanced topics in the following weeks.

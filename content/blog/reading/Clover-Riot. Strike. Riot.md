@@ -1,9 +1,18 @@
 ---
-kindle-sync: {"bookId":"44304","title":"Riot. Strike. Riot: The New Era of Uprisings","author":"Joshua Clover","asin":"B013NI8WB4","lastAnnotatedDate":"2019-04-11","bookImageUrl":"https://m.media-amazon.com/images/I/81LVOVLefKL._SY160.jpg","highlightsCount":1}
-date: "2022-12-26T16:47:52.000Z"
-modified: "2022-12-27T20:08:53.000Z"
-tags: ["politics","protest","reference"]
-wordCount: 60
+kindle-sync:
+  bookId: '44304'
+  title: 'Riot. Strike. Riot: The New Era of Uprisings'
+  author: Joshua Clover
+  asin: B013NI8WB4
+  lastAnnotatedDate: '2019-04-11'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/81LVOVLefKL._SY160.jpg'
+  highlightsCount: 1
+date: 2022-12-26T16:47:52.000Z
+modified: 2022-12-27T20:08:53.000Z
+tags:
+  - politics
+  - protest
+  - reference
 ---
 # Riot. Strike. Riot
 

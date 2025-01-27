@@ -1,0 +1,60 @@
+{
+  "content": "<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose text-zinc-800 dark:text-zinc-200 md:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"metadata\">Metadata</h3>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">Author: <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">William R. Catton</a></p>\n</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">ASIN: B00VVH4UGG</p>\n</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">ISBN: 0252009886</p>\n</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">Reference: <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">https://www.amazon.com/dp/B00VVH4UGG</a></p>\n</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\"><a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Kindle link</a></p>\n</li>\n</ul>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose text-zinc-800 dark:text-zinc-200 md:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"highlights\">Highlights</h3>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">Today mankind is locked into stealing ravenously from the future. — location: <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">233</a> ^ref-8368</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">Man has recognized the many-faceted interdependence of diverse organisms, their impact upon their habitat, their impermanence, and their inability to foresee and evade the processes leading to their own displacement by successors. — location: <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">298</a> ^ref-45341</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">The paramount need of post-exuberant humanity is to remain human in the face of dehumanizing pressures. To do this we must learn somehow to base exuberance of spirit upon something more lasting than the expansive living that sustained it in the recent past. But, as if we were driving a car that has become stuck on a muddy road, we feel an urge to bear down harder than ever on the accelerator and to spin our wheels vigorously in an effort to power ourselves out of the quagmire. This reflex will only dig us in deeper. — location: <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">307</a> ^ref-27356</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">Let us begin with the fact that all the many forms of life on this planet have the same ultimate chemical basis. In many and varied ways, their life processes are also interdependent. Each form (including man) takes certain substances from its environment and puts certain substances into its environment; these affect other organisms. The influences of various species upon each other are often intricate, indirect, and subtle. — location: <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">1988</a> ^ref-19726</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
+  "html": "<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose text-zinc-800 dark:text-zinc-200 md:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"metadata\">Metadata</h3>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">Author: <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">William R. Catton</a></p>\n</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">ASIN: B00VVH4UGG</p>\n</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">ISBN: 0252009886</p>\n</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">Reference: <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">https://www.amazon.com/dp/B00VVH4UGG</a></p>\n</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\"><a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Kindle link</a></p>\n</li>\n</ul>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose text-zinc-800 dark:text-zinc-200 md:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"highlights\">Highlights</h3>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">Today mankind is locked into stealing ravenously from the future. — location: <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">233</a> ^ref-8368</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">Man has recognized the many-faceted interdependence of diverse organisms, their impact upon their habitat, their impermanence, and their inability to foresee and evade the processes leading to their own displacement by successors. — location: <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">298</a> ^ref-45341</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">The paramount need of post-exuberant humanity is to remain human in the face of dehumanizing pressures. To do this we must learn somehow to base exuberance of spirit upon something more lasting than the expansive living that sustained it in the recent past. But, as if we were driving a car that has become stuck on a muddy road, we feel an urge to bear down harder than ever on the accelerator and to spin our wheels vigorously in an effort to power ourselves out of the quagmire. This reflex will only dig us in deeper. — location: <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">307</a> ^ref-27356</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">Let us begin with the fact that all the many forms of life on this planet have the same ultimate chemical basis. In many and varied ways, their life processes are also interdependent. Each form (including man) takes certain substances from its environment and puts certain substances into its environment; these affect other organisms. The influences of various species upon each other are often intricate, indirect, and subtle. — location: <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">1988</a> ^ref-19726</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
+  "title": "Overshoot",
+  "metadata": {
+    "tags": [
+      "book",
+      "climatechange",
+      "ecology",
+      "inspiration",
+      "nature"
+    ],
+    "kindle-sync": {
+      "bookId": "22075",
+      "title": "Overshoot: The Ecological Basis of Revolutionary Change",
+      "author": "William R. Catton",
+      "asin": "B00VVH4UGG",
+      "lastAnnotatedDate": "2023-03-07",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/51geicggF5L._SY160.jpg",
+      "highlightsCount": 4
+    },
+    "date": "2023-03-13T23:00:12.000Z",
+    "modified": "2024-09-20T04:19:39.000Z",
+    "robotsMeta": null,
+    "title": "Overshoot",
+    "toc": [
+      {
+        "text": "Overshoot",
+        "slug": "overshoot",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Metadata",
+            "slug": "metadata",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Highlights",
+            "slug": "highlights",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 250,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 6,
+    "hidden": false,
+    "type": "post",
+    "visibility": {
+      "isHidden": false,
+      "isShared": false,
+      "isSpecialSection": false,
+      "isIndex": false
+    }
+  }
+}

@@ -1,9 +1,15 @@
 ---
-kindle-sync: {"bookId":"44450","title":"On Grand Strategy","author":"John Lewis Gaddis","asin":"B073QZX7YX","lastAnnotatedDate":"2020-09-02","bookImageUrl":"https://m.media-amazon.com/images/I/71ocFXZZP9L._SY160.jpg","highlightsCount":3}
-date: "2022-12-14T20:27:02.000Z"
-modified: "2022-12-23T15:57:50.000Z"
+kindle-sync:
+  bookId: '44450'
+  title: On Grand Strategy
+  author: John Lewis Gaddis
+  asin: B073QZX7YX
+  lastAnnotatedDate: '2020-09-02'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/71ocFXZZP9L._SY160.jpg'
+  highlightsCount: 3
+date: 2022-12-14T20:27:02.000Z
+modified: 2022-12-23T15:57:50.000Z
 tags: []
-wordCount: 245
 ---
 # On Grand Strategy
 

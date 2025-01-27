@@ -1,15 +1,20 @@
 ---
-dek: "In which the citizens of Hong Kong find new creative ways to improve on public disobedience"
-type: "words"
+dek: >-
+  In which the citizens of Hong Kong find new creative ways to improve on public
+  disobedience
+type: words
 hidden: false
 inprogress: false
-date: "2019-08-14T08:00:39.000Z"
+date: 2019-08-14T08:00:39.000Z
 hidetimestamp: false
-modified: "2024-08-01T14:21:12.000Z"
-tags: ["protest","activism","tactics","security"]
-wordCount: 127
-draft: false
+modified: 2024-08-01T14:21:12.000Z
+tags:
+  - protest
+  - activism
+  - tactics
+  - security
 ---
+
 ## Hong Kong Protest Techniques
 
 - Traffic cones - to help contain tear gas cannisters

@@ -1,9 +1,18 @@
 ---
-tags: ["advice","tech","process"]
-kindle-sync: {"bookId":"43898","title":"Engineering Management for the Rest of Us","author":"Sarah Drasner","asin":"B0BGYVDX35","lastAnnotatedDate":"2023-09-02","bookImageUrl":"https://m.media-amazon.com/images/I/910mP4Y5dSL._SY160.jpg","highlightsCount":6}
-date: "2023-01-30T22:26:02.000Z"
-modified: "2024-09-20T04:19:54.000Z"
-wordCount: 502
+tags:
+  - advice
+  - tech
+  - process
+kindle-sync:
+  bookId: '43898'
+  title: Engineering Management for the Rest of Us
+  author: Sarah Drasner
+  asin: B0BGYVDX35
+  lastAnnotatedDate: '2023-09-02'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/910mP4Y5dSL._SY160.jpg'
+  highlightsCount: 6
+date: 2023-01-30T17:26:02-05:00
+modified: 2024-09-20T00:19:54-04:00
 ---
 ## Engineering Management for the Rest of Us
 ### Metadata

@@ -1,9 +1,21 @@
 ---
-kindle-sync: {"bookId":"60661","title":"The Green Witch: Your Complete Guide to the Natural Magic of Herbs, Flowers, Essential Oils, and More","author":"Arin Murphy-Hiscock","asin":"B071XSVBQC","lastAnnotatedDate":"2021-01-28","bookImageUrl":"https://m.media-amazon.com/images/I/81zQX2hGCPL._SY160.jpg","highlightsCount":9}
-date: "2022-12-14T20:26:21.000Z"
-modified: "2022-12-23T16:25:52.000Z"
-tags: ["nature","health","meditation","ecology"]
-wordCount: 701
+kindle-sync:
+  bookId: '60661'
+  title: >-
+    The Green Witch: Your Complete Guide to the Natural Magic of Herbs, Flowers,
+    Essential Oils, and More
+  author: Arin Murphy-Hiscock
+  asin: B071XSVBQC
+  lastAnnotatedDate: '2021-01-28'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/81zQX2hGCPL._SY160.jpg'
+  highlightsCount: 9
+date: 2022-12-14T20:26:21.000Z
+modified: 2022-12-23T16:25:52.000Z
+tags:
+  - nature
+  - health
+  - meditation
+  - ecology
 ---
 # The Green Witch
 

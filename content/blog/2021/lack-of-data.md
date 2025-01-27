@@ -1,14 +1,21 @@
 ---
-date: "2021-05-17T08:00:10.000Z"
-type: "words"
+date: 2021-05-17T04:00:10-04:00
+type: words
 hidden: false
 inprogress: true
-dek: "An exploration of what we choose to track, and what we don't – and what that means if we want to make the world a better place"
-modified: "2024-09-27T17:44:44.000Z"
-tags: ["data","datajournalism","dataviz","lackofdata","police","america"]
-wordCount: 599
-draft: false
+dek: >-
+  An exploration of what we choose to track, and what we don't – and what that
+  means if we want to make the world a better place
+modified: 2024-09-27T13:44:44-04:00
+tags:
+  - data
+  - datajournalism
+  - dataviz
+  - lackofdata
+  - police
+  - america
 ---
+
 ## The Lack of Data
 
 If I wanted to, I could tell you the precise angle and speed of a small ball thrown in a game of professional baseball. I can tell you all sorts of information about each of the nearly 300 pitches thrown in any of the 162 games each baseball team plays each year.

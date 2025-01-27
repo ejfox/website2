@@ -1,0 +1,26 @@
+{
+  "content": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">I created an <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">interactive map</a> that overlaid historic redlining maps with the locations of the story's subjects and the toxic Defense Depot.</p>",
+  "html": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">I created an <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">interactive map</a> that overlaid historic redlining maps with the locations of the story's subjects and the toxic Defense Depot.</p>",
+  "title": "We Glow in the Dark",
+  "metadata": {
+    "title": "We Glow in the Dark",
+    "date": "2022-09-21T20:00:27.000Z",
+    "modified": "2024-12-11T19:03:30.000Z",
+    "url": "https://themargin.us/features/we-glow-in-the-dark",
+    "image": "https://res.cloudinary.com/ejf/image/upload/v1733943670/Screenshot_2024-12-11_at_2.00.44_PM.png",
+    "robotsMeta": null,
+    "toc": [],
+    "wordCount": 23,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 1,
+    "hidden": false,
+    "type": "post",
+    "visibility": {
+      "isHidden": false,
+      "isShared": false,
+      "isSpecialSection": false,
+      "isIndex": false
+    }
+  }
+}

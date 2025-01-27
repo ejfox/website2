@@ -1,9 +1,18 @@
 ---
-kindle-sync: {"bookId":"58932","title":"Kids These Days: Human Capital and the Making of Millennials","author":"Malcolm Harris","asin":"B06XFTVQFK","lastAnnotatedDate":"2019-05-28","bookImageUrl":"https://m.media-amazon.com/images/I/71qu7drpPiL._SY160.jpg","highlightsCount":38}
-date: "2022-12-14T20:27:41.000Z"
-modified: "2022-12-23T15:53:54.000Z"
-tags: ["politics","education","activism"]
-wordCount: 3019
+kindle-sync:
+  bookId: '58932'
+  title: 'Kids These Days: Human Capital and the Making of Millennials'
+  author: Malcolm Harris
+  asin: B06XFTVQFK
+  lastAnnotatedDate: '2019-05-28'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/71qu7drpPiL._SY160.jpg'
+  highlightsCount: 38
+date: 2022-12-14T20:27:41.000Z
+modified: 2022-12-23T15:53:54.000Z
+tags:
+  - politics
+  - education
+  - activism
 ---
 # Kids These Days
 

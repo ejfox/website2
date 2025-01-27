@@ -1,9 +1,15 @@
 ---
-kindle-sync: {"bookId":"62203","title":"So Sad Today: Personal Essays","author":"Melissa Broder","asin":"B011J4H1NO","lastAnnotatedDate":"2023-07-28","bookImageUrl":"https://m.media-amazon.com/images/I/71Xp3FcHKML._SY160.jpg","highlightsCount":13}
-date: "2022-12-14T20:25:18.000Z"
-modified: "2022-12-23T14:45:17.000Z"
+kindle-sync:
+  bookId: '62203'
+  title: 'So Sad Today: Personal Essays'
+  author: Melissa Broder
+  asin: B011J4H1NO
+  lastAnnotatedDate: '2023-07-28'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/71Xp3FcHKML._SY160.jpg'
+  highlightsCount: 13
+date: 2022-12-14T20:25:18.000Z
+modified: 2022-12-23T14:45:17.000Z
 tags: []
-wordCount: 723
 ---
 # So Sad Today
 

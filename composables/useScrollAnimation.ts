@@ -45,32 +45,34 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
 
     // Set initial state
     target.style.opacity = '0'
-    target.style.transform = 'translateY(20px)'
-    target.style.transformOrigin = 'center bottom'
-    target.style.filter = 'drop-shadow(0 0 0 rgba(0,0,0,0))'
+    target.style.transform = 'translateY(12px)'
 
     const { stop } = useIntersectionObserver(
       target,
       ([{ isIntersecting }]) => {
         if (isIntersecting) {
           animatedElements.add(target)
+
+          // Separate animations for smoother effect
           animate(target, {
             opacity: [0, 1],
-            translateY: [20, 0],
-            filter: [
-              'drop-shadow(0 0 0 rgba(0,0,0,0))',
-              'drop-shadow(0 4px 6px rgba(0,0,0,0.1))'
-            ],
-            duration: 1800,
-            ease: 'spring(1, 95, 8, 0)',
+            duration: 400,
+            easing: 'linear' // Linear fade for smoothness
+          })
+
+          animate(target, {
+            translateY: [12, 0],
+            duration: 800,
+            easing: 'cubicBezier(0.16, 1, 0.3, 1)', // Custom ease-out
             ...options
           })
+
           stop()
         }
       },
       {
         threshold: 0.15,
-        rootMargin: config.rootMargin
+        rootMargin: '-5% 0px -5% 0px'
       }
     )
     return stop
@@ -178,7 +180,48 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
     return stop
   }
 
+  function setupAnimation(
+    element: AnimationTarget,
+    animationOptions: Record<string, any>
+  ) {
+    if (!element) return
+    if (animatedElements.has(element)) return
+
+    // Set initial state
+    element.style.opacity = '0'
+    element.style.transform = 'translateY(30px)'
+    element.style.transformOrigin = 'center bottom'
+    element.style.filter = 'drop-shadow(0 0 0 rgba(0,0,0,0))'
+
+    const { stop } = useIntersectionObserver(
+      element,
+      ([{ isIntersecting }]) => {
+        if (isIntersecting) {
+          animatedElements.add(element)
+          animate(element, {
+            opacity: [0, 1],
+            translateY: [30, 0],
+            filter: [
+              'drop-shadow(0 0 0 rgba(0,0,0,0))',
+              'drop-shadow(0 4px 6px rgba(0,0,0,0.1))'
+            ],
+            duration: 350,
+            easing: 'spring(1, 80, 10, 0)',
+            ...animationOptions
+          })
+          stop()
+        }
+      },
+      {
+        threshold: 0.15,
+        rootMargin: config.rootMargin
+      }
+    )
+    return stop
+  }
+
   return {
+    setupAnimation,
     slideUp,
     slideLeft,
     fadeIn,

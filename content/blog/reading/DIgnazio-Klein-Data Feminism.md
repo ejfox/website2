@@ -1,9 +1,19 @@
 ---
-kindle-sync: {"bookId":"47184","title":"Data Feminism (Strong Ideas)","author":"Catherine D'Ignazio and Lauren F. Klein","asin":"B08BT3SY5N","lastAnnotatedDate":"2021-05-25","bookImageUrl":"https://m.media-amazon.com/images/I/81vmeQxjkML._SY160.jpg","highlightsCount":5}
-date: "2022-12-14T20:25:45.000Z"
-modified: "2022-12-23T16:27:35.000Z"
-tags: ["activism","data","datajournalism","health"]
-wordCount: 243
+kindle-sync:
+  bookId: '47184'
+  title: Data Feminism (Strong Ideas)
+  author: Catherine D'Ignazio and Lauren F. Klein
+  asin: B08BT3SY5N
+  lastAnnotatedDate: '2021-05-25'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/81vmeQxjkML._SY160.jpg'
+  highlightsCount: 5
+date: 2022-12-14T20:25:45.000Z
+modified: 2022-12-23T16:27:35.000Z
+tags:
+  - activism
+  - data
+  - datajournalism
+  - health
 ---
 # Data Feminism
 

@@ -1,14 +1,19 @@
 ---
-dek: "The newest weapon in the arsenal of internet nazis is mass-brigading Twitter reports, and it’s working"
-type: "words"
+dek: >-
+  The newest weapon in the arsenal of internet nazis is mass-brigading Twitter
+  reports, and it’s working
+type: words
 hidden: false
 inprogress: false
-date: "2020-02-14T21:19:39-04:00"
+date: '2020-02-14T21:19:39-04:00'
 hidetimestamp: false
-tags: ["activism","journalism","twitter","security"]
-wordCount: 444
-draft: false
+tags:
+  - activism
+  - journalism
+  - twitter
+  - security
 ---
+
 # Online Nazis Have Figured Out How To Game Twitter
 
 One of the newest weaknesses online trolls are exploiting is one of the mechanisms built to defend against them, Twitter’s system for reporting tweets that violate their Terms of Service.

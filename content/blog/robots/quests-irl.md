@@ -1,8 +1,7 @@
 ---
-date: "2024-11-07T16:50:52.000Z"
-modified: "2024-11-08T21:43:10.000Z"
+date: 2024-11-07T11:50:52-05:00
+modified: 2024-11-08T16:43:10-05:00
 share: true
-wordCount: 1533
 ---
 ## QuestsIRL (MVP Scope)
 

@@ -1,10 +1,16 @@
 ---
-dek: "In which we embrace new technology and strive for an equitable future"
-date: "2023-01-24T15:56:03.000Z"
-modified: "2024-09-26T01:30:20.000Z"
-tags: ["activism","art","climatechange","cryptocurrency","ecology","machinelearning"]
-wordCount: 1391
+dek: In which we embrace new technology and strive for an equitable future
+date: 2023-01-24T10:56:03-05:00
+modified: 2024-09-25T21:30:20-04:00
+tags:
+  - activism
+  - art
+  - climatechange
+  - cryptocurrency
+  - ecology
+  - machinelearning
 ---
+
 ## Deconstructing Crypto, AI, and the 21st Century Colonial Mindset
 
 In the swirling chaos of the 21st century, we find ourselves in the throes of a digital revolution, but we are in danger of entrenching the systems of oppression that already pervade our society.

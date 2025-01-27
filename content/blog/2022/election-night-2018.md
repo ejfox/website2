@@ -1,9 +1,12 @@
 ---
-date: "2022-11-14T21:15:19.000Z"
-modified: "2024-08-01T14:21:42.000Z"
-tags: ["elections","coding","media"]
-wordCount: 1579
+date: 2022-11-14T21:15:19.000Z
+modified: 2024-08-01T14:21:42.000Z
+tags:
+  - elections
+  - coding
+  - media
 ---
+
 ## Election Night 2018
 
 Around 1AM I saw a note in Slack that said, very simply, that there were bacon pancakes in studio 3B. Studio 3B had been accurately described to me as “that costco looking studio” and it held a makeshift control room. Screens were stacked at the front, different desks decked out with multiple monitors encompassing the director’s desk.

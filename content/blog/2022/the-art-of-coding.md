@@ -1,10 +1,14 @@
 ---
-date: "2022-11-03T00:01:31.000Z"
-modified: "2024-09-20T04:25:08.000Z"
-dek: "In which we go into detail about how to write code to accomplish a goal"
+date: 2022-11-02T20:01:31-04:00
+modified: 2024-09-20T00:25:08-04:00
+dek: In which we go into detail about how to write code to accomplish a goal
 inprogress: true
-tags: ["personal","process","design","project","coding"]
-wordCount: 2405
+tags:
+  - personal
+  - process
+  - design
+  - project
+  - coding
 ---
 ## The Art of Coding: A Developer's Guide
 

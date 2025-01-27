@@ -1,0 +1,19 @@
+{
+  "slug": "projects/cli-tools",
+  "title": "Command Line Tools",
+  "date": "2024-10-12T23:52:50.000Z",
+  "type": "project",
+  "html": "<h2 id=\"command-line-tools\"><a aria-hidden=\"true\" tabindex=\"-1\" href=\"#command-line-tools\"><span class=\"icon icon-link\"></span></a>Command Line Tools</h2>\n<p>Cyberpunk-inspired CLI tools for developers. These apps enhance productivity, creativity, and add futuristic vibes to your terminal. From <a href=\"https://github.com/ejfox/cli-conway\">Conway's Game of Life</a> to <a href=\"https://github.com/ejfox/git-status-dash\">git management</a>, each tool is designed for both functionality and aesthetics. Perfect for livestreaming or just making your coding sessions feel more cyberpunk.</p>\n<h3 id=\"project-list\"><a aria-hidden=\"true\" tabindex=\"-1\" href=\"#project-list\"><span class=\"icon icon-link\"></span></a>Project List</h3>\n<ol>\n<li><a href=\"https://github.com/ejfox/cli-conway\">cli-conway</a>: ASCII Conway's Game of Life with interactive features.</li>\n<li><a href=\"https://github.com/ejfox/git-status-dash\">git-status-dash</a>: Multi-repo git status reporter.</li>\n<li><a href=\"https://github.com/ejfox/cli-ching\">cli-ching</a>: Digital I Ching with LLM-powered readings.</li>\n<li><a href=\"https://github.com/ejfox/cli-ascii-3d\">cli-ascii-3d</a>: Terminal-based 3D ASCII shape visualizer.</li>\n<li><a href=\"https://github.com/ejfox/cli-alias-wizard\">cli-alias-wizard</a>: Guided CLI alias creator.</li>\n<li><a href=\"https://github.com/ejfox/cli-ai-chat\">cli-ai-chat</a>: AI-powered chat in IRC-style CLI interface.</li>\n<li><a href=\"https://github.com/ejfox/directory-sync-tool\">directory-sync-tool</a>: Visual directory comparison and syncing.</li>\n<li><a href=\"https://github.com/ejfox/cli-content\">cli-content</a>: AI-assisted content creation from Obsidian drafts.</li>\n<li><a href=\"https://github.com/ejfox/showtouch\">showtouch</a>: Large ASCII keystroke visualizer.</li>\n<li><a href=\"https://github.com/ejfox/ascii_webcam\">ascii_webcam</a>: Live webcam-to-ASCII converter.</li>\n<li><a href=\"https://github.com/ejfox/scrapbook-cli\">scrapbook-cli</a>: Terminal-based digital scrapbook manager.</li>\n<li><a href=\"https://github.com/ejfox/cli-delta-dojo\">cli-delta-dojo</a>: JSON comparison game for code review practice.</li>\n</ol>",
+  "modified": "2024-12-11T18:49:33.000Z",
+  "description": "",
+  "dek": "",
+  "url": "",
+  "tags": [],
+  "hidden": false,
+  "draft": false,
+  "wordCount": 139,
+  "readingTime": 1,
+  "imageCount": 0,
+  "linkCount": 14,
+  "share": true
+}

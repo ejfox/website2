@@ -1,9 +1,16 @@
 ---
-kindle-sync: {"bookId":"23914","title":"Tao Te Ching","author":"Lao Tzu and Robert Brookes","asin":"B009WA8ZKG","lastAnnotatedDate":"2020-05-03","bookImageUrl":"https://m.media-amazon.com/images/I/91x+WlgMW1L._SY160.jpg","highlightsCount":6}
-date: "2022-12-14T20:27:26.000Z"
-modified: "2022-12-23T16:03:38.000Z"
-tags: ["meditation"]
-wordCount: 222
+kindle-sync:
+  bookId: '23914'
+  title: Tao Te Ching
+  author: Lao Tzu and Robert Brookes
+  asin: B009WA8ZKG
+  lastAnnotatedDate: '2020-05-03'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/91x+WlgMW1L._SY160.jpg'
+  highlightsCount: 6
+date: 2022-12-14T20:27:26.000Z
+modified: 2022-12-23T16:03:38.000Z
+tags:
+  - meditation
 ---
 # Tao Te Ching
 

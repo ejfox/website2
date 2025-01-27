@@ -1,11 +1,16 @@
 ---
+draft: true
 inprogress: true
-dek: "In which we use light and chemicals to make images appear, if we are lucky"
-date: "2023-01-06T21:50:52.000Z"
-modified: "2024-06-07T18:19:53.000Z"
-tags: ["analog","photography","process","technique"]
-wordCount: 533
+dek: 'In which we use light and chemicals to make images appear, if we are lucky'
+date: 2023-01-06T21:50:52.000Z
+modified: 2024-06-07T18:19:53.000Z
+tags:
+  - analog
+  - photography
+  - process
+  - technique
 ---
+
 ## Film Development
 
 Developing film is an essential part of the analog photography workflow. Whether you're an experienced enthusiast or a beginner, being aware of film development techniques is critical to achieving beautiful prints. In this post, I'll walk you through how I develop my 35mm Black and White film.

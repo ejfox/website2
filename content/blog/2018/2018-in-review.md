@@ -1,13 +1,16 @@
 ---
-type: "photos"
+type: photos
 hidden: false
-date: "2018-12-14T10:00:16.000Z"
+date: 2018-12-14T10:00:16.000Z
 hidetimestamp: false
-modified: "2024-08-01T14:21:46.000Z"
-tags: ["photography","nature","travel","event"]
-wordCount: 141
-draft: false
+modified: 2024-08-01T14:21:46.000Z
+tags:
+  - photography
+  - nature
+  - travel
+  - event
 ---
+
 ## 2018 In Review
 
 <img src="https://res.cloudinary.com/ejf/image/upload/v1544846833/20180509-DSCF9221.jpg" />

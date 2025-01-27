@@ -1,9 +1,18 @@
 ---
-kindle-sync: {"bookId":"54365","title":"Zen and the Art of Motorcycle Maintenance: An Inquiry Into Values","author":"Robert M. Pirsig","asin":"B0026772N8","lastAnnotatedDate":"2021-02-03","bookImageUrl":"https://m.media-amazon.com/images/I/71tZgyVVbfL._SY160.jpg","highlightsCount":8}
-date: "2022-12-14T20:26:06.000Z"
-modified: "2022-12-23T15:17:39.000Z"
-tags: ["travel","motorcycle","inspiration"]
-wordCount: 301
+kindle-sync:
+  bookId: '54365'
+  title: 'Zen and the Art of Motorcycle Maintenance: An Inquiry Into Values'
+  author: Robert M. Pirsig
+  asin: B0026772N8
+  lastAnnotatedDate: '2021-02-03'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/71tZgyVVbfL._SY160.jpg'
+  highlightsCount: 8
+date: 2022-12-14T20:26:06.000Z
+modified: 2022-12-23T15:17:39.000Z
+tags:
+  - travel
+  - motorcycle
+  - inspiration
 ---
 # Zen and the Art of Motorcycle Maintenance
 

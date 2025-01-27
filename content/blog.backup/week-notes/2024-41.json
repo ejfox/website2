@@ -1,0 +1,23 @@
+{
+  "slug": "week-notes/2024-41",
+  "title": "2024-41",
+  "date": "2024-10-07T04:00:00.000Z",
+  "type": "weekNote",
+  "html": "<h2 id=\"2024-41\"><a aria-hidden=\"true\" tabindex=\"-1\" href=\"#2024-41\"><span class=\"icon icon-link\"></span></a>2024-41</h2>\n<h3 id=\"-code--creations\"><a aria-hidden=\"true\" tabindex=\"-1\" href=\"#-code--creations\"><span class=\"icon icon-link\"></span></a>💻 Code &#x26; Creations</h3>\n<h3 id=\"the-epic-quest-to-deploy-a-website-a-tale-of-code-and-chaos\"><a aria-hidden=\"true\" tabindex=\"-1\" href=\"#the-epic-quest-to-deploy-a-website-a-tale-of-code-and-chaos\"><span class=\"icon icon-link\"></span></a><strong>THE EPIC QUEST TO DEPLOY A WEBSITE: A Tale of Code and Chaos</strong></h3>\n<ol>\n<li>\n<p><strong>Months of Tireless Effort</strong>: First, you’ve been grinding away on your personal site for weeks (maybe months?), crafting, tweaking, and perfecting the code into something truly worthy of the cyberpunk gods.</p>\n</li>\n<li>\n<p><strong>Repository Hijinks</strong>: Realizing the local <code>website2</code> repo wasn’t even on GitHub yet, you discovered a time capsule version of your site in an old <code>website2</code> repo, which is hilariously out of date. Cue existential sigh.</p>\n</li>\n<li>\n<p><strong>Repo Renaming Adventures</strong>: We pulled off a classic repo shuffle, renaming the ancient <code>website2</code> to <code>website2-archive</code> like it was a retired general, and then uploaded the new, shiny <code>website2</code> repo to GitHub like a phoenix rising from the ashes.</p>\n</li>\n<li>\n<p><strong>Netlify Shuffle</strong>: Time to delete the old Netlify setup. Why? Because we’re not just keeping things simple here. We nuked the old Netlify deployment and set up a fresh one with the codename <code>warm-crostata-e31905</code>—delicious and mysterious.</p>\n</li>\n<li>\n<p><strong>NPMRC Shenanigans</strong>: Enter the <code>.npmrc</code> problem—your work settings decided to sabotage the build, pulling packages from some cursed corporate registry like a rogue AI gone mad. This resulted in a critical failure mid-build, and frustration levels skyrocketed.</p>\n</li>\n<li>\n<p><strong>Backup Your Backup’s Backup</strong>: After a moment of controlled rage, we backed up the <code>.npmrc</code> file like responsible coders and restored the “normal” one from <code>npmrc-normal-bak</code>. Why do we have all these backups? Only the code gods know.</p>\n</li>\n<li>\n<p><strong>The Great Cache Purge</strong>: We hit <code>npm cache clean --force</code>, effectively giving npm the middle finger and telling it to start fresh, because if you're gonna fix npm problems, might as well go nuclear.</p>\n</li>\n<li>\n<p><strong>\"Where the Hell is my Repo?\"</strong>: After all this meticulous cleaning, you tried to <code>cd</code> into the wrong directory—because, of course, your local <code>website2</code> repo has decided to play hide-and-seek. A quick mental facepalm, and then back on track.</p>\n</li>\n<li>\n<p><strong>Node Versioning Ritual</strong>: We prayed to the version gods, invoking the <code>.nvmrc</code> file to ensure Node v20.16.0 is active, like a secret spell whispered in a forgotten tongue.</p>\n</li>\n<li>\n<p><strong>Vanquishing Node Modules</strong>: With a battle cry, we nuked <code>node_modules</code>, that bloated directory of dependency hell, followed by removing the ghost of a <code>yarn.lock</code> that apparently never existed, but we tried twice anyway just for good measure.</p>\n</li>\n<li>\n<p><strong>Yarn Rebirth</strong>: With our path cleared of wreckage, we summoned the powers of <code>yarn install</code> to begin the next chapter—installing fresh dependencies from the land of npmjs.org. Would it succeed? Only time (and another cup of coffee) would tell.</p>\n</li>\n</ol>",
+  "modified": "2024-10-14T23:45:51.000Z",
+  "description": "",
+  "dek": "",
+  "url": "",
+  "tags": [
+    "weekly-notes",
+    "reflections",
+    "progress"
+  ],
+  "hidden": false,
+  "draft": false,
+  "wordCount": 425,
+  "readingTime": 2,
+  "imageCount": 0,
+  "linkCount": 0,
+  "share": true
+}

@@ -1,0 +1,25 @@
+{
+  "content": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">I created <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Coach Artie</a> to serve as a Discord Studio Assistant and he has evolved into a powerful AI tool with memories and tool usage.</p>",
+  "html": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">I created <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Coach Artie</a> to serve as a Discord Studio Assistant and he has evolved into a powerful AI tool with memories and tool usage.</p>",
+  "title": "Coach Artie",
+  "metadata": {
+    "title": "Coach Artie",
+    "date": "2022-03-01T19:59:42.000Z",
+    "modified": "2024-10-14T23:57:24.000Z",
+    "url": "https://github.com/room302studio/coachartie",
+    "robotsMeta": null,
+    "toc": [],
+    "wordCount": 26,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 1,
+    "hidden": false,
+    "type": "post",
+    "visibility": {
+      "isHidden": false,
+      "isShared": false,
+      "isSpecialSection": false,
+      "isIndex": false
+    }
+  }
+}

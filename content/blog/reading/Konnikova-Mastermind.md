@@ -1,9 +1,18 @@
 ---
-tags: ["book","reference","howto"]
-kindle-sync: {"bookId":"29974","title":"Mastermind: How to Think Like Sherlock Holmes","author":"Maria Konnikova","asin":"B008EKOSXS","lastAnnotatedDate":"2022-12-06","bookImageUrl":"https://m.media-amazon.com/images/I/71RyhJW-UwL._SY160.jpg","highlightsCount":3}
-date: "2022-12-14T20:22:48.000Z"
-modified: "2024-09-20T04:23:17.000Z"
-wordCount: 128
+tags:
+  - book
+  - reference
+  - howto
+kindle-sync:
+  bookId: '29974'
+  title: 'Mastermind: How to Think Like Sherlock Holmes'
+  author: Maria Konnikova
+  asin: B008EKOSXS
+  lastAnnotatedDate: '2022-12-06'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/71RyhJW-UwL._SY160.jpg'
+  highlightsCount: 3
+date: 2022-12-14T15:22:48-05:00
+modified: 2024-09-20T00:23:17-04:00
 ---
 ## Mastermind
 ### Metadata

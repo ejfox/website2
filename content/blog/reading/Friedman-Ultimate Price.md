@@ -1,9 +1,17 @@
 ---
-kindle-sync: {"bookId":"12125","title":"Ultimate Price: The Value We Place on Life","author":"Howard Steven Friedman","asin":"B084WQSDD8","lastAnnotatedDate":"2021-02-07","bookImageUrl":"https://m.media-amazon.com/images/I/81gWoGF2z6L._SY160.jpg","highlightsCount":6}
-date: "2022-12-14T20:25:55.000Z"
-modified: "2022-12-23T15:57:59.000Z"
-tags: ["book","data"]
-wordCount: 356
+kindle-sync:
+  bookId: '12125'
+  title: 'Ultimate Price: The Value We Place on Life'
+  author: Howard Steven Friedman
+  asin: B084WQSDD8
+  lastAnnotatedDate: '2021-02-07'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/81gWoGF2z6L._SY160.jpg'
+  highlightsCount: 6
+date: 2022-12-14T20:25:55.000Z
+modified: 2022-12-23T15:57:59.000Z
+tags:
+  - book
+  - data
 ---
 # Ultimate Price
 

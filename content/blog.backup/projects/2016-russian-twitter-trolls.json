@@ -1,0 +1,19 @@
+{
+  "slug": "projects/2016-russian-twitter-trolls",
+  "title": "2016 Russian Twitter Trolls",
+  "date": "2017-12-20T20:01:43.000Z",
+  "type": "project",
+  "html": "<p>I worked with NBC News Reporter Ben Popken to analyze and visualize over 200k tweets sent by known Russian trolls during the 2016 election.</p>\n<p><a href=\"https://www.nbcnews.com/tech/social-media/russian-trolls-went-attack-during-key-election-moments-n827176\">Russian trolls went on attack during key election moments</a></p>\n<p><a href=\"https://github.com/neo4j-graph-examples/twitter-trolls\">Neo4J example dataset</a></p>",
+  "modified": "2024-10-14T16:35:58.000Z",
+  "description": "",
+  "dek": "",
+  "url": "https://www.nbcnews.com/tech/social-media/russian-trolls-went-attack-during-key-election-moments-n827176",
+  "tags": [],
+  "hidden": false,
+  "draft": false,
+  "wordCount": 37,
+  "readingTime": 1,
+  "imageCount": 0,
+  "linkCount": 2,
+  "share": true
+}

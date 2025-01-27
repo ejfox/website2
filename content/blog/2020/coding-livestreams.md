@@ -1,14 +1,21 @@
 ---
-date: "2020-10-08T08:00:52.000Z"
-type: "words"
+date: 2020-10-08T04:00:52-04:00
+type: words
 hidden: false
 inprogress: false
-dek: "In which the skill of broadcasting yourself writing code to the entire internet is explored"
-tags: ["livestream","coding","dataviz","inspiration","education","visualization"]
-modified: "2024-09-23T16:12:59.000Z"
-wordCount: 1221
-draft: false
+dek: >-
+  In which the skill of broadcasting yourself writing code to the entire
+  internet is explored
+tags:
+  - livestream
+  - coding
+  - dataviz
+  - inspiration
+  - education
+  - visualization
+modified: 2024-09-23T12:12:59-04:00
 ---
+
 ## A summer of live streamed coding
 
 For the past few months, Ian and I have been experimenting with [livestreaming ourselves working on dataviz projects](https://www.twitch.tv/enjalot) on Twitch and calling it **Coding With Fire**.

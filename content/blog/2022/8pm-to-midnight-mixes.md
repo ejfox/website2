@@ -1,11 +1,16 @@
 ---
-dek: "In which we use data to explore the ⚡️vibes✨ in a sequence of hand-selected playlists created by the author"
+draft: true
+dek: >-
+  In which we use data to explore the ⚡️vibes✨ in a sequence of hand-selected
+  playlists created by the author
 inprogress: true
-date: "2022-11-02T23:59:30.000Z"
-modified: "2024-09-20T04:25:56.000Z"
-tags: ["dj","music"]
-wordCount: 168
+date: 2022-11-02T19:59:30-04:00
+modified: 2024-09-20T00:25:56-04:00
+tags:
+  - dj
+  - music
 ---
+
 ## 8pm To Midnight Mixes
 
 #dj #music

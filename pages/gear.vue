@@ -977,13 +977,28 @@ const calculateTotalWeight = (items) => {
     .toFixed(1)
 }
 
+// Add affiliate URL handling
+const addAffiliateCode = (url) => {
+  if (!url || !url.includes('amazon.com')) return url
+  const amazonUrl = new URL(url)
+  amazonUrl.searchParams.set('tag', 'ejfox0c-20')
+  return amazonUrl.toString()
+}
 
-// Modify onMounted to not sort items (we're using groupedGear now)
+// Update the GearItem component to use the affiliate URL
+const processGearItem = (item) => {
+  if (item.amazon) {
+    item.amazon = addAffiliateCode(item.amazon)
+  }
+  return item
+}
+
+// Update the onMounted hook to process Amazon links
 onMounted(async () => {
   try {
     const response = await fetch('/gear.csv')
     const csvText = await response.text()
-    gearItems.value = d3.csvParse(csvText)
+    gearItems.value = d3.csvParse(csvText).map(processGearItem)
 
     await nextTick()
     gearItems.value.forEach(item => {

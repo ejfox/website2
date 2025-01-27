@@ -1,9 +1,22 @@
 ---
-kindle-sync: {"bookId":"14102","title":"Direct Action: An Ethnography","author":"David Graeber","asin":"B0051QH31W","lastAnnotatedDate":"2019-04-11","bookImageUrl":"https://m.media-amazon.com/images/I/51CLzpOuyHL._SY160.jpg","highlightsCount":1}
-date: "2022-12-26T16:47:46.000Z"
-modified: "2022-12-27T20:09:32.000Z"
-tags: ["politics","protest","activism","police","book","reference","inspiration"]
-wordCount: 77
+kindle-sync:
+  bookId: '14102'
+  title: 'Direct Action: An Ethnography'
+  author: David Graeber
+  asin: B0051QH31W
+  lastAnnotatedDate: '2019-04-11'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/51CLzpOuyHL._SY160.jpg'
+  highlightsCount: 1
+date: 2022-12-26T16:47:46.000Z
+modified: 2022-12-27T20:09:32.000Z
+tags:
+  - politics
+  - protest
+  - activism
+  - police
+  - book
+  - reference
+  - inspiration
 ---
 # Direct Action
 

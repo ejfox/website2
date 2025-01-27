@@ -1,14 +1,19 @@
 ---
-dek: "In which the author explores the meaning of life and work"
-type: "words"
+dek: In which the author explores the meaning of life and work
+type: words
 hidden: false
 inprogress: false
-date: "2018-09-30T21:58:20-04:00"
+date: '2018-09-30T21:58:20-04:00'
 hidetimestamp: false
-tags: ["advice","exercise","inspiration","personal","project","writing"]
-wordCount: 739
-draft: false
+tags:
+  - advice
+  - exercise
+  - inspiration
+  - personal
+  - project
+  - writing
 ---
+
 # Work View / Life View
 
 _Exercise from [“designing your life”](http://a.co/4Tf8ZZh)._

@@ -1,0 +1,57 @@
+{
+  "content": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">#dataviz</p>\n<h1 class=\"prose-lg text-4xl font-bold mb-6 mt-8 max-w-prose text-zinc-900 dark:text-zinc-100 lg:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"metadata\">Metadata</h1>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">Author: <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Nathan Yau</a></p>\n</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">ASIN: B005CCT19M</p>\n</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">Reference: <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">https://www.amazon.com/dp/B005CCT19M</a></p>\n</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\"><a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Kindle link</a></p>\n</li>\n</ul>\n<h1 class=\"prose-lg text-4xl font-bold mb-6 mt-8 max-w-prose text-zinc-900 dark:text-zinc-100 lg:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"highlights\">Highlights</h1>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">There was one day when my only goal was to verify three numbers in a dataset, because when The New York Times graphics desk creates a graphic, it makes sure what it reports is accurate. Only after we knew the data was reliable did we move on to the presentation. It’s this attention to detail that makes its graphics so good. — location: <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">112</a> ^ref-18691</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">A label or legend can completely mess up the vibe of a piece of work, but at the least, you can include some information in a short description paragraph. It helps others appreciate your efforts. — location: <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">292</a> ^ref-42545</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
+  "html": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">#dataviz</p>\n<h1 class=\"prose-lg text-4xl font-bold mb-6 mt-8 max-w-prose text-zinc-900 dark:text-zinc-100 lg:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"metadata\">Metadata</h1>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">Author: <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Nathan Yau</a></p>\n</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">ASIN: B005CCT19M</p>\n</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">Reference: <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">https://www.amazon.com/dp/B005CCT19M</a></p>\n</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\"><a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Kindle link</a></p>\n</li>\n</ul>\n<h1 class=\"prose-lg text-4xl font-bold mb-6 mt-8 max-w-prose text-zinc-900 dark:text-zinc-100 lg:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"highlights\">Highlights</h1>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">There was one day when my only goal was to verify three numbers in a dataset, because when The New York Times graphics desk creates a graphic, it makes sure what it reports is accurate. Only after we knew the data was reliable did we move on to the presentation. It’s this attention to detail that makes its graphics so good. — location: <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">112</a> ^ref-18691</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">A label or legend can completely mess up the vibe of a piece of work, but at the least, you can include some information in a short description paragraph. It helps others appreciate your efforts. — location: <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">292</a> ^ref-42545</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
+  "title": "Visualize This",
+  "metadata": {
+    "kindle-sync": {
+      "bookId": "431",
+      "title": "Visualize This: The FlowingData Guide to Design, Visualization, and Statistics",
+      "author": "Nathan Yau",
+      "asin": "B005CCT19M",
+      "lastAnnotatedDate": "2011-07-24",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/511lwSnx7IL._SY160.jpg",
+      "highlightsCount": 2
+    },
+    "date": "2022-12-14T20:30:24.000Z",
+    "modified": "2022-12-23T16:08:05.000Z",
+    "tags": [
+      "dataviz",
+      "datajournalism",
+      "visualization"
+    ],
+    "robotsMeta": null,
+    "title": "Visualize This",
+    "toc": [
+      {
+        "text": "Visualize This",
+        "slug": "visualize-this",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "wordCount": 128,
+    "readingTime": 1,
+    "imageCount": 0,
+    "linkCount": 4,
+    "hidden": false,
+    "type": "post",
+    "visibility": {
+      "isHidden": false,
+      "isShared": false,
+      "isSpecialSection": false,
+      "isIndex": false
+    }
+  }
+}

@@ -1,9 +1,17 @@
 ---
-tags: ["book","politics"]
-kindle-sync: {"bookId":"31637","title":"Theft by Finding: Diaries (1977-2002)","author":"David Sedaris","asin":"B01LZD935U","lastAnnotatedDate":"2018-08-13","bookImageUrl":"https://m.media-amazon.com/images/I/81cRysFkH-L._SY160.jpg","highlightsCount":5}
-date: "2022-12-28T16:09:38.000Z"
-modified: "2024-09-20T04:23:48.000Z"
-wordCount: 336
+tags:
+  - book
+  - politics
+kindle-sync:
+  bookId: '31637'
+  title: 'Theft by Finding: Diaries (1977-2002)'
+  author: David Sedaris
+  asin: B01LZD935U
+  lastAnnotatedDate: '2018-08-13'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/81cRysFkH-L._SY160.jpg'
+  highlightsCount: 5
+date: 2022-12-28T11:09:38-05:00
+modified: 2024-09-20T00:23:48-04:00
 ---
 ## Theft by Finding
 ### Metadata

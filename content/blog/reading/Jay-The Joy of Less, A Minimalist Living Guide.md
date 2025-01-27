@@ -1,9 +1,18 @@
 ---
-kindle-sync: {"bookId":"46201","title":"The Joy of Less, A Minimalist Living Guide: How to Declutter, Organize, and Simplify Your Life","author":"Francine Jay","asin":"B003UNJX4S","lastAnnotatedDate":"2012-10-08","bookImageUrl":"https://m.media-amazon.com/images/I/81RtzVXh7zL._SY160.jpg","highlightsCount":4}
-date: "2022-12-26T16:49:04.000Z"
-modified: "2022-12-27T20:08:10.000Z"
-tags: ["design"]
-wordCount: 109
+kindle-sync:
+  bookId: '46201'
+  title: >-
+    The Joy of Less, A Minimalist Living Guide: How to Declutter, Organize, and
+    Simplify Your Life
+  author: Francine Jay
+  asin: B003UNJX4S
+  lastAnnotatedDate: '2012-10-08'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/81RtzVXh7zL._SY160.jpg'
+  highlightsCount: 4
+date: 2022-12-26T16:49:04.000Z
+modified: 2022-12-27T20:08:10.000Z
+tags:
+  - design
 ---
 # The Joy of Less, A Minimalist Living Guide
 

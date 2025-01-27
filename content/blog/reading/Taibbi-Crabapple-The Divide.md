@@ -1,9 +1,18 @@
 ---
-kindle-sync: {"bookId":"2923","title":"The Divide: American Injustice in the Age of the Wealth Gap","author":"Matt Taibbi and Molly Crabapple","asin":"B00EBRUB02","lastAnnotatedDate":"2019-04-11","bookImageUrl":"https://m.media-amazon.com/images/I/913cJQHSz+L._SY160.jpg","highlightsCount":11}
-date: "2022-12-14T20:28:14.000Z"
-modified: "2022-12-23T16:04:54.000Z"
-tags: ["politics","america","journalism"]
-wordCount: 620
+kindle-sync:
+  bookId: '2923'
+  title: 'The Divide: American Injustice in the Age of the Wealth Gap'
+  author: Matt Taibbi and Molly Crabapple
+  asin: B00EBRUB02
+  lastAnnotatedDate: '2019-04-11'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/913cJQHSz+L._SY160.jpg'
+  highlightsCount: 11
+date: 2022-12-14T20:28:14.000Z
+modified: 2022-12-23T16:04:54.000Z
+tags:
+  - politics
+  - america
+  - journalism
 ---
 # The Divide
 

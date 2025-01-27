@@ -1,9 +1,21 @@
 ---
-kindle-sync: {"bookId":"22789","title":"The Rebel's Apothecary: A Practical Guide to the Healing Magic of Cannabis, CBD, and Mushrooms","author":"Jenny Sansouci and Frank Lipman","asin":"B082H2P7KL","lastAnnotatedDate":"2022-06-20","bookImageUrl":"https://m.media-amazon.com/images/I/91utc8xVz7L._SY160.jpg","highlightsCount":2}
-date: "2022-12-14T20:23:53.000Z"
-modified: "2022-12-23T16:04:07.000Z"
-tags: ["health","cannabis","meditation","nature"]
-wordCount: 171
+kindle-sync:
+  bookId: '22789'
+  title: >-
+    The Rebel's Apothecary: A Practical Guide to the Healing Magic of Cannabis,
+    CBD, and Mushrooms
+  author: Jenny Sansouci and Frank Lipman
+  asin: B082H2P7KL
+  lastAnnotatedDate: '2022-06-20'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/91utc8xVz7L._SY160.jpg'
+  highlightsCount: 2
+date: 2022-12-14T20:23:53.000Z
+modified: 2022-12-23T16:04:07.000Z
+tags:
+  - health
+  - cannabis
+  - meditation
+  - nature
 ---
 # The Rebels Apothecary
 

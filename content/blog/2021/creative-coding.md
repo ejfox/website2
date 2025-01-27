@@ -1,14 +1,19 @@
 ---
-date: "2021-02-10T10:00:45.000Z"
-type: "words"
+date: 2021-02-10T05:00:45-05:00
+type: words
 hidden: false
 inprogress: true
-dek: "In which a computer is used as divination tool for random numbers (for the purposes of beauty, art, and poetry)"
-modified: "2024-09-23T16:13:15.000Z"
-tags: ["generative","art","javascript","audio"]
-wordCount: 986
-draft: false
+dek: >-
+  In which a computer is used as divination tool for random numbers (for the
+  purposes of beauty, art, and poetry)
+modified: 2024-09-23T12:13:15-04:00
+tags:
+  - generative
+  - art
+  - javascript
+  - audio
 ---
+
 ## Generative Art
 
 Writing code that makes shapes move on a screen is a rewarding feeling.

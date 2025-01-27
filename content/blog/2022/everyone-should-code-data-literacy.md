@@ -1,11 +1,18 @@
 ---
-dek: "In which we explore the transformative potential of computer literacy, unearthing its capacity to elevate both individual lives and collective progress"
+draft: true
+dek: >-
+  In which we explore the transformative potential of computer literacy,
+  unearthing its capacity to elevate both individual lives and collective
+  progress
 inprogress: true
-date: "2022-11-03T00:02:01.000Z"
-modified: "2024-09-20T04:24:42.000Z"
-tags: ["code","automation","tech"]
-wordCount: 633
+date: 2022-11-02T20:02:01-04:00
+modified: 2024-09-20T00:24:42-04:00
+tags:
+  - code
+  - automation
+  - tech
 ---
+
 ## Why I think everyone should learn to code
 
 ![[1312706448_An_award_winning_lineart_illustration_of_a_student_coding_on_a_laptop__programming_language_syntax_i.png]]

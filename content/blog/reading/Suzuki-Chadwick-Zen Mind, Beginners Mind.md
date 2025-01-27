@@ -1,9 +1,16 @@
 ---
-kindle-sync: {"bookId":"56342","title":"Zen Mind, Beginner's Mind","author":"Shunryu Suzuki and David Chadwick","asin":"B004R9QFGS","lastAnnotatedDate":"2016-07-28","bookImageUrl":"https://m.media-amazon.com/images/I/71ln75kZ4wL._SY160.jpg","highlightsCount":24}
-date: "2022-12-14T20:29:13.000Z"
-modified: "2022-12-23T16:09:16.000Z"
-tags: ["meditation"]
-wordCount: 1082
+kindle-sync:
+  bookId: '56342'
+  title: 'Zen Mind, Beginner''s Mind'
+  author: Shunryu Suzuki and David Chadwick
+  asin: B004R9QFGS
+  lastAnnotatedDate: '2016-07-28'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/71ln75kZ4wL._SY160.jpg'
+  highlightsCount: 24
+date: 2022-12-14T20:29:13.000Z
+modified: 2022-12-23T16:09:16.000Z
+tags:
+  - meditation
 ---
 # Zen Mind, Beginners Mind
 

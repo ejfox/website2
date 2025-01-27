@@ -1,9 +1,19 @@
 ---
-kindle-sync: {"bookId":"33471","title":"Forest Bathing: How Trees Can Help You Find Health and Happiness","author":"Dr Qing  Li","asin":"B077CQKQRR","lastAnnotatedDate":"2022-01-11","bookImageUrl":"https://m.media-amazon.com/images/I/91+LiTVgwmL._SY160.jpg","highlightsCount":2}
-date: "2022-12-14T20:24:36.000Z"
-modified: "2022-12-23T16:03:59.000Z"
-tags: ["nature","health","meditation","climatechange"]
-wordCount: 197
+kindle-sync:
+  bookId: '33471'
+  title: 'Forest Bathing: How Trees Can Help You Find Health and Happiness'
+  author: Dr Qing  Li
+  asin: B077CQKQRR
+  lastAnnotatedDate: '2022-01-11'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/91+LiTVgwmL._SY160.jpg'
+  highlightsCount: 2
+date: 2022-12-14T20:24:36.000Z
+modified: 2022-12-23T16:03:59.000Z
+tags:
+  - nature
+  - health
+  - meditation
+  - climatechange
 ---
 # Forest Bathing
 

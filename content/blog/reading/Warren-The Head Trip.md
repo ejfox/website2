@@ -1,9 +1,18 @@
 ---
-kindle-sync: {"bookId":"9400","title":"The Head Trip: Adventures on the Wheel of Consciousness","author":"Jeff Warren","asin":"B000W917RY","lastAnnotatedDate":"2015-02-28","bookImageUrl":"https://m.media-amazon.com/images/I/41fYLnP17DL._SY160.jpg","highlightsCount":2}
-date: "2022-12-14T20:29:37.000Z"
-modified: "2022-12-23T15:56:46.000Z"
-tags: ["health","meditation","psychedelics"]
-wordCount: 146
+kindle-sync:
+  bookId: '9400'
+  title: 'The Head Trip: Adventures on the Wheel of Consciousness'
+  author: Jeff Warren
+  asin: B000W917RY
+  lastAnnotatedDate: '2015-02-28'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/41fYLnP17DL._SY160.jpg'
+  highlightsCount: 2
+date: 2022-12-14T20:29:37.000Z
+modified: 2022-12-23T15:56:46.000Z
+tags:
+  - health
+  - meditation
+  - psychedelics
 ---
 # The Head Trip
 

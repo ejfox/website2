@@ -1,9 +1,18 @@
 ---
-kindle-sync: {"bookId":"54227","title":"Triumph of the City: How Our Greatest Invention Makes Us Richer, Smarter, Greener, Healthier, and Happier","author":"Edward Glaeser","asin":"B0049U4HTW","lastAnnotatedDate":"2019-04-11","bookImageUrl":"https://m.media-amazon.com/images/I/91o-pwFeUmL._SY160.jpg","highlightsCount":1}
-date: "2022-12-26T16:48:03.000Z"
-modified: "2022-12-27T20:11:51.000Z"
-tags: ["culture"]
-wordCount: 72
+kindle-sync:
+  bookId: '54227'
+  title: >-
+    Triumph of the City: How Our Greatest Invention Makes Us Richer, Smarter,
+    Greener, Healthier, and Happier
+  author: Edward Glaeser
+  asin: B0049U4HTW
+  lastAnnotatedDate: '2019-04-11'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/91o-pwFeUmL._SY160.jpg'
+  highlightsCount: 1
+date: 2022-12-26T16:48:03.000Z
+modified: 2022-12-27T20:11:51.000Z
+tags:
+  - culture
 ---
 # Triumph of the City
 

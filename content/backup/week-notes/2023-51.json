@@ -1,0 +1,76 @@
+{
+  "content": "<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose text-zinc-800 dark:text-zinc-200 md:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"room-302-studio-website-redesign\">Room 302 Studio Website Redesign</h3>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">I've been working with Room 302 Studio Member <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Sam Vogt</a>to rethink the studio website for 2024.</p>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose text-zinc-800 dark:text-zinc-200 border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"-creative-endeavors\">🎨 Creative Endeavors</h2>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose text-zinc-800 dark:text-zinc-200 md:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"ai-generated-personal-fanfiction-for-morale\">AI-Generated Personal Fanfiction For Morale</h3>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">I got a little distracted and worked with the robot to write some <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">cyberpunk fanfiction</a> based on my life, for morale purposes - before I knew it, I had 16k words, which when converted to audio with ElevenLabs' new <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Projects</a>feature, resulted in a nearly [2-hour audio file](<a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">https://res.cloudinary.com/ejf/video/upload/v1703099932/ElevenLabs_2023-12-19T21_41_04_EJ_Cyberpunk_Story.mp3</a>. The fun-to-effort ratio is out of this world, and I mostly worked as an editor and choose-your-own-adventure player. It's cheesy and dumb, but it made me laugh a few times, and it's as entertaining as any other poorly-written TV show I could be watching.</p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">Every time we hit a decision point, I would ask for 5-10 approaches of how to continue. Sometimes I would choose one, or combinations. I probably only wrote 2 or 3 lines of dialogue myself in the entire thing. I also ended up discarding 2-3 times the content that I ended up using. I also struggled a lot to get ChatGPT to be creative enough for me; most of the best content came from dialing the temperature up to 2, turning half-p down to 0.5 or so, and pasting the entire contents of the story until then (with no chat/assistant dialogue to confuse it).</p>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose text-zinc-800 dark:text-zinc-200 border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"-technical-accomplishments\">💡 Technical Accomplishments</h2>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose text-zinc-800 dark:text-zinc-200 md:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"youtube-watch-later-scraping\">YouTube 'Watch Later' Scraping</h3>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">It is annoyingly difficult to pull down your entire Watch Later playlist, which for me, is over 300 videos that are extremely specific to my interests. Unfortunately for me, they are all mashed together in increasingly-inaccessible parts of the YouTube UI, and I want to be able to use them to create my own tools for watching things I have decided are worth watching, rather than doomscrolling.</p>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Step 1: Go to the <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Watch Later</a> page on YouTube</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Step 2: Scroll to the very bottom of the page</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Step 3: <code class=\"font-mono text-sm bg-zinc-100 dark:bg-zinc-800 rounded px-1.5 py-0.5\">Inspect Element</code> on one of the Watch Later videos, and find the parent DOM element that holds all of them</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Step 4: <code class=\"font-mono text-sm bg-zinc-100 dark:bg-zinc-800 rounded px-1.5 py-0.5\">Copy as HTML</code> and paste into a new file</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Step 5: Add some styles and javascript to hide parts of the page we don't want</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Step 6: <code class=\"font-mono text-sm bg-zinc-100 dark:bg-zinc-800 rounded px-1.5 py-0.5\">Select All</code> on our newly-trimmed page, and copy into <code class=\"font-mono text-sm bg-zinc-100 dark:bg-zinc-800 rounded px-1.5 py-0.5\">watchlater.txt</code></li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Step 7: Run the text file through <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">text-to-csv.js</a> to create a .csv of links</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Step 8: Finally, at long last, have my Watch Later playlist as data I can use elsewhere</li>\n</ul>",
+  "html": "<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose text-zinc-800 dark:text-zinc-200 md:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"room-302-studio-website-redesign\">Room 302 Studio Website Redesign</h3>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">I've been working with Room 302 Studio Member <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Sam Vogt</a>to rethink the studio website for 2024.</p>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose text-zinc-800 dark:text-zinc-200 border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"-creative-endeavors\">🎨 Creative Endeavors</h2>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose text-zinc-800 dark:text-zinc-200 md:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"ai-generated-personal-fanfiction-for-morale\">AI-Generated Personal Fanfiction For Morale</h3>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">I got a little distracted and worked with the robot to write some <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">cyberpunk fanfiction</a> based on my life, for morale purposes - before I knew it, I had 16k words, which when converted to audio with ElevenLabs' new <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Projects</a>feature, resulted in a nearly [2-hour audio file](<a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">https://res.cloudinary.com/ejf/video/upload/v1703099932/ElevenLabs_2023-12-19T21_41_04_EJ_Cyberpunk_Story.mp3</a>. The fun-to-effort ratio is out of this world, and I mostly worked as an editor and choose-your-own-adventure player. It's cheesy and dumb, but it made me laugh a few times, and it's as entertaining as any other poorly-written TV show I could be watching.</p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">Every time we hit a decision point, I would ask for 5-10 approaches of how to continue. Sometimes I would choose one, or combinations. I probably only wrote 2 or 3 lines of dialogue myself in the entire thing. I also ended up discarding 2-3 times the content that I ended up using. I also struggled a lot to get ChatGPT to be creative enough for me; most of the best content came from dialing the temperature up to 2, turning half-p down to 0.5 or so, and pasting the entire contents of the story until then (with no chat/assistant dialogue to confuse it).</p>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose text-zinc-800 dark:text-zinc-200 border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"-technical-accomplishments\">💡 Technical Accomplishments</h2>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose text-zinc-800 dark:text-zinc-200 md:pr-12 animate-on-scroll opacity-0 slide-from-left\" id=\"youtube-watch-later-scraping\">YouTube 'Watch Later' Scraping</h3>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll opacity-0\" style=\"max-width: 60ch;\">It is annoyingly difficult to pull down your entire Watch Later playlist, which for me, is over 300 videos that are extremely specific to my interests. Unfortunately for me, they are all mashed together in increasingly-inaccessible parts of the YouTube UI, and I want to be able to use them to create my own tools for watching things I have decided are worth watching, rather than doomscrolling.</p>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Step 1: Go to the <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Watch Later</a> page on YouTube</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Step 2: Scroll to the very bottom of the page</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Step 3: <code class=\"font-mono text-sm bg-zinc-100 dark:bg-zinc-800 rounded px-1.5 py-0.5\">Inspect Element</code> on one of the Watch Later videos, and find the parent DOM element that holds all of them</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Step 4: <code class=\"font-mono text-sm bg-zinc-100 dark:bg-zinc-800 rounded px-1.5 py-0.5\">Copy as HTML</code> and paste into a new file</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Step 5: Add some styles and javascript to hide parts of the page we don't want</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Step 6: <code class=\"font-mono text-sm bg-zinc-100 dark:bg-zinc-800 rounded px-1.5 py-0.5\">Select All</code> on our newly-trimmed page, and copy into <code class=\"font-mono text-sm bg-zinc-100 dark:bg-zinc-800 rounded px-1.5 py-0.5\">watchlater.txt</code></li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Step 7: Run the text file through <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">text-to-csv.js</a> to create a .csv of links</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Step 8: Finally, at long last, have my Watch Later playlist as data I can use elsewhere</li>\n</ul>",
+  "title": "🌟 Overview of the Week",
+  "metadata": {
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "3d",
+      "design",
+      "coding",
+      "webdesign",
+      "automation",
+      "generative"
+    ],
+    "date": "2023-12-20T19:06:08.000Z",
+    "modified": "2024-10-14T23:53:31.000Z",
+    "dek": "In which the author collaborates on a website redesign, crafts AI-generated cyberpunk fanfiction, and successfully scrapes their YouTube 'Watch Later' playlist for future use.",
+    "robotsMeta": null,
+    "title": "🌟 Overview of the Week",
+    "toc": [
+      {
+        "text": "🌟 Overview of the Week",
+        "slug": "overview-of-the-week",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Room 302 Studio Website Redesign",
+            "slug": "room-302-studio-website-redesign",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "🎨 Creative Endeavors",
+        "slug": "creative-endeavors",
+        "level": "h2",
+        "children": [
+          {
+            "text": "AI-Generated Personal Fanfiction For Morale",
+            "slug": "ai-generated-personal-fanfiction-for-morale",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "💡 Technical Accomplishments",
+        "slug": "technical-accomplishments",
+        "level": "h2",
+        "children": [
+          {
+            "text": "YouTube 'Watch Later' Scraping",
+            "slug": "youtube-watch-later-scraping",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "wordCount": 431,
+    "readingTime": 2,
+    "imageCount": 0,
+    "linkCount": 6,
+    "hidden": false,
+    "type": "post",
+    "visibility": {
+      "isHidden": false,
+      "isShared": false,
+      "isSpecialSection": false,
+      "isIndex": false
+    }
+  }
+}

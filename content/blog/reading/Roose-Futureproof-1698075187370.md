@@ -1,9 +1,17 @@
 ---
-kindle-sync: {"bookId":"16297","title":"Futureproof: 9 Rules for Surviving in the Age of AI","author":"Kevin Roose","asin":"B07ZN3TDWH","lastAnnotatedDate":"2022-10-21","bookImageUrl":"https://m.media-amazon.com/images/I/71auiVlh-OL._SY160.jpg","highlightsCount":3}
-tags: ["book","machinelearning"]
-date: "2023-10-23T15:33:07.000Z"
-modified: "2024-09-21T19:03:49.000Z"
-wordCount: 182
+kindle-sync:
+  bookId: '16297'
+  title: 'Futureproof: 9 Rules for Surviving in the Age of AI'
+  author: Kevin Roose
+  asin: B07ZN3TDWH
+  lastAnnotatedDate: '2022-10-21'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/71auiVlh-OL._SY160.jpg'
+  highlightsCount: 3
+tags:
+  - book
+  - machinelearning
+date: 2023-10-23T11:33:07-04:00
+modified: 2024-09-21T15:03:49-04:00
 ---
 ## Futureproof
 ### Metadata

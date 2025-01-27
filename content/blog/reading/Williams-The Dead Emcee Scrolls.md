@@ -1,9 +1,19 @@
 ---
-kindle-sync: {"bookId":"21088","title":"The Dead Emcee Scrolls: The Lost Teachings of Hip-Hop","author":"Saul Williams","asin":"B000FCKROM","lastAnnotatedDate":"2021-08-16","bookImageUrl":"https://m.media-amazon.com/images/I/81aJ6OQP8KL._SY160.jpg","highlightsCount":9}
-date: "2022-12-14T20:25:23.000Z"
-modified: "2022-12-23T16:07:47.000Z"
-tags: ["music","art","inspiration","meditation"]
-wordCount: 302
+kindle-sync:
+  bookId: '21088'
+  title: 'The Dead Emcee Scrolls: The Lost Teachings of Hip-Hop'
+  author: Saul Williams
+  asin: B000FCKROM
+  lastAnnotatedDate: '2021-08-16'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/81aJ6OQP8KL._SY160.jpg'
+  highlightsCount: 9
+date: 2022-12-14T20:25:23.000Z
+modified: 2022-12-23T16:07:47.000Z
+tags:
+  - music
+  - art
+  - inspiration
+  - meditation
 ---
 # The Dead Emcee Scrolls
 

@@ -1,11 +1,15 @@
 ---
-dek: "In which we modify our tools to more precisely fit our intentions"
+draft: true
+dek: In which we modify our tools to more precisely fit our intentions
 inprogress: true
-date: "2022-11-03T00:00:38.000Z"
-modified: "2024-09-20T04:23:03.000Z"
-tags: ["code","vue","process"]
-wordCount: 332
+date: 2022-11-02T20:00:38-04:00
+modified: 2024-09-20T00:23:03-04:00
+tags:
+  - code
+  - vue
+  - process
 ---
+
 ## My VSCode setup and favorite plugins
 
 ![[1316824112_Cute_Pixel_Art_of_a_coder_s_desk_cluttered_with_various_plugins_and_VSCode_open__reflecting_off_a_go.png]]

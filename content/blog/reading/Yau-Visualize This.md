@@ -1,9 +1,20 @@
 ---
-kindle-sync: {"bookId":"431","title":"Visualize This: The FlowingData Guide to Design, Visualization, and Statistics","author":"Nathan Yau","asin":"B005CCT19M","lastAnnotatedDate":"2011-07-24","bookImageUrl":"https://m.media-amazon.com/images/I/511lwSnx7IL._SY160.jpg","highlightsCount":2}
-date: "2022-12-14T20:30:24.000Z"
-modified: "2022-12-23T16:08:05.000Z"
-tags: ["dataviz","datajournalism","visualization"]
-wordCount: 120
+kindle-sync:
+  bookId: '431'
+  title: >-
+    Visualize This: The FlowingData Guide to Design, Visualization, and
+    Statistics
+  author: Nathan Yau
+  asin: B005CCT19M
+  lastAnnotatedDate: '2011-07-24'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/511lwSnx7IL._SY160.jpg'
+  highlightsCount: 2
+date: 2022-12-14T20:30:24.000Z
+modified: 2022-12-23T16:08:05.000Z
+tags:
+  - dataviz
+  - datajournalism
+  - visualization
 ---
 # Visualize This
 

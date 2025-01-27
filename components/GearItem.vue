@@ -43,7 +43,7 @@
             <!-- Comment out Amazon section for now -->
             <div class="py-2" v-if="item.amazon">
               <!-- Enhanced Amazon link -->
-              <a :href="item.amazon" target="_blank" rel="nofollow noopener" class="inline-flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-medium rounded-full 
+              <a :href="amazonAffiliateUrl" target="_blank" rel="nofollow noopener" class="inline-flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-medium rounded-full 
                         bg-amber-50 text-orange-600 border border-orange-200 hover:bg-orange-100
                         dark:bg-orange-500/10 dark:text-orange-400 dark:border-orange-500/20 dark:hover:bg-orange-500/20
                         transition-colors" :title="`Buy ${item.Name} on Amazon`">
@@ -219,6 +219,13 @@ onUnmounted(() => window.removeEventListener('resize', updateViz))
 
 // Comment out Amazon import
 // import AmazonReferenceItem from './AmazonReferenceItem.vue'
+
+const amazonAffiliateUrl = computed(() => {
+  if (!props.item.amazon) return '#'
+  const url = new URL(props.item.amazon)
+  url.searchParams.set('tag', 'ejfox0c-20')
+  return url.toString()
+})
 </script>
 
 <style>

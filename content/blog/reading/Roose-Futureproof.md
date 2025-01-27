@@ -1,9 +1,20 @@
 ---
-kindle-sync: {"bookId":"11969","title":"Futureproof: 9 Rules for Humans in the Age of Automation","author":"Kevin Roose","asin":"B07ZN3TDWH","lastAnnotatedDate":"2022-10-21","bookImageUrl":"https://m.media-amazon.com/images/I/71ZsRekqAeL._SY160.jpg","highlightsCount":3}
-date: "2022-12-14T20:23:12.000Z"
-modified: "2022-12-23T16:06:45.000Z"
-tags: ["tech","culture","machinelearning","data","automation"]
-wordCount: 184
+kindle-sync:
+  bookId: '11969'
+  title: 'Futureproof: 9 Rules for Humans in the Age of Automation'
+  author: Kevin Roose
+  asin: B07ZN3TDWH
+  lastAnnotatedDate: '2022-10-21'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/71ZsRekqAeL._SY160.jpg'
+  highlightsCount: 3
+date: 2022-12-14T20:23:12.000Z
+modified: 2022-12-23T16:06:45.000Z
+tags:
+  - tech
+  - culture
+  - machinelearning
+  - data
+  - automation
 ---
 # Futureproof
 

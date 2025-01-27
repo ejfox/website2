@@ -1,9 +1,19 @@
 ---
-kindle-sync: {"bookId":"56373","title":"The Utopia of Rules: On Technology, Stupidity, and the Secret Joys of Bureaucracy","author":"David Graeber","asin":"B00MKZ0QZ2","lastAnnotatedDate":"2023-08-31","bookImageUrl":"https://m.media-amazon.com/images/I/8160beMcnzL._SY160.jpg","highlightsCount":3}
-date: "2022-12-26T16:47:26.000Z"
-modified: "2022-12-27T20:07:54.000Z"
-tags: ["politics","book"]
-wordCount: 162
+kindle-sync:
+  bookId: '56373'
+  title: >-
+    The Utopia of Rules: On Technology, Stupidity, and the Secret Joys of
+    Bureaucracy
+  author: David Graeber
+  asin: B00MKZ0QZ2
+  lastAnnotatedDate: '2023-08-31'
+  bookImageUrl: 'https://m.media-amazon.com/images/I/8160beMcnzL._SY160.jpg'
+  highlightsCount: 3
+date: 2022-12-26T16:47:26.000Z
+modified: 2022-12-27T20:07:54.000Z
+tags:
+  - politics
+  - book
 ---
 # The Utopia of Rules
 
