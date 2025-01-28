@@ -1,6 +1,6 @@
 {
-  "content": "<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">launched new studio site</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Worked on Electology plans</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Went to the gym, got first personal training session</li>\n</ul>",
-  "html": "<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">launched new studio site</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Worked on Electology plans</li>\n<li class=\"prose-lg text-zinc-700 dark:text-zinc-300 max-w-prose\">Went to the gym, got first personal training session</li>\n</ul>",
+  "content": "<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">launched new studio site</li>\n<li class=\"prose-lg max-w-prose\">Worked on Electology plans</li>\n<li class=\"prose-lg max-w-prose\">Went to the gym, got first personal training session</li>\n</ul>",
+  "html": "<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">launched new studio site</li>\n<li class=\"prose-lg max-w-prose\">Worked on Electology plans</li>\n<li class=\"prose-lg max-w-prose\">Went to the gym, got first personal training session</li>\n</ul>",
   "title": "🌟 Overview of the Week",
   "metadata": {
     "tags": [

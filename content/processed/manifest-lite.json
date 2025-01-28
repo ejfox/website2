@@ -27,7 +27,7 @@
     "date": "2018-06-10T18:58:10.000Z",
     "type": "words",
     "hidden": true,
-    "modified": "2025-01-27T03:28:09.207Z",
+    "modified": "2025-01-28T14:59:07.547Z",
     "tags": [
       "art",
       "documentary",
@@ -58,7 +58,7 @@
     "type": "words",
     "hidden": false,
     "dek": "In which the author explores the meaning of life and work",
-    "modified": "2025-01-27T03:28:09.270Z",
+    "modified": "2025-01-28T14:59:07.612Z",
     "tags": [
       "advice",
       "exercise",
@@ -120,7 +120,7 @@
     "type": "photo",
     "hidden": false,
     "dek": "In which the youths march through the street with extremely clever signs since they are too young to riot",
-    "modified": "2025-01-27T03:28:09.326Z",
+    "modified": "2025-01-28T14:59:07.671Z",
     "tags": [
       "activism",
       "climatechange",
@@ -310,7 +310,7 @@
     "type": "words",
     "hidden": false,
     "dek": "In which the author makes the case for the merits of a certain approach to preparation",
-    "modified": "2025-01-27T03:28:09.772Z",
+    "modified": "2025-01-28T14:59:08.135Z",
     "tags": [
       "advice",
       "cooking",
@@ -332,7 +332,7 @@
     "type": "words",
     "hidden": false,
     "dek": "In which the author attempts to dissuade you from the belief things will always be the way they are now",
-    "modified": "2025-01-27T03:28:09.827Z",
+    "modified": "2025-01-28T14:59:08.191Z",
     "tags": [
       "advice",
       "personal"
@@ -574,7 +574,7 @@
     "type": "words",
     "hidden": false,
     "dek": "The newest weapon in the arsenal of internet nazis is mass-brigading Twitter reports, and it’s working",
-    "modified": "2025-01-27T03:28:10.191Z",
+    "modified": "2025-01-28T14:59:08.568Z",
     "tags": [
       "activism",
       "journalism",
@@ -4102,10 +4102,10 @@
   {
     "slug": "reading/Guin-The Dispossessed",
     "title": "The Dispossessed",
-    "date": "2025-01-27T03:28:15.712Z",
+    "date": "2025-01-28T14:59:14.144Z",
     "type": "post",
     "hidden": false,
-    "modified": "2025-01-27T03:28:15.712Z",
+    "modified": "2025-01-28T14:59:14.144Z",
     "tags": [
       "book",
       "reference"
@@ -4726,10 +4726,10 @@
   {
     "slug": "reading/LePera-How to Do the Work-1696107994116",
     "title": "How to Do the Work",
-    "date": "2025-01-27T03:28:16.824Z",
+    "date": "2025-01-28T14:59:15.267Z",
     "type": "post",
     "hidden": false,
-    "modified": "2025-01-27T03:28:16.824Z",
+    "modified": "2025-01-28T14:59:15.267Z",
     "tags": [
       "book"
     ],
@@ -5022,10 +5022,10 @@
   {
     "slug": "reading/Murphy-Hiscock-The Green Witch-1695005068861",
     "title": "The Green Witch",
-    "date": "2025-01-27T03:28:17.379Z",
+    "date": "2025-01-28T14:59:15.822Z",
     "type": "post",
     "hidden": false,
-    "modified": "2025-01-27T03:28:17.379Z",
+    "modified": "2025-01-28T14:59:15.822Z",
     "tags": [
       "nature",
       "ecology",
@@ -5290,10 +5290,10 @@
   {
     "slug": "reading/Rowell-Eleanor & Park",
     "title": "Eleanor & Park",
-    "date": "2025-01-27T03:28:17.845Z",
+    "date": "2025-01-28T14:59:16.282Z",
     "type": "post",
     "hidden": false,
-    "modified": "2025-01-27T03:28:17.845Z",
+    "modified": "2025-01-28T14:59:16.282Z",
     "tags": [
       "book",
       "inspiration"
@@ -6693,6 +6693,35 @@
           {
             "text": "Version Notes",
             "slug": "version-notes",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "robots/hudson-valley-cannabis-doc",
+    "title": "Hudson Valley Cannabis: Growing a New Legacy",
+    "date": "2024-11-26T16:40:25.000Z",
+    "type": "post",
+    "hidden": false,
+    "modified": "2025-01-28T14:58:21.000Z",
+    "toc": [
+      {
+        "text": "Hudson Valley Cannabis: Growing a New Legacy",
+        "slug": "hudson-valley-cannabis-growing-a-new-legacy",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Documentary Series Proposal for Hudsy.tv",
+            "slug": "documentary-series-proposal-for-hudsy-tv",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Pre Production Phase",
+            "slug": "pre-production-phase",
             "level": "h3",
             "children": []
           }
@@ -8709,7 +8738,7 @@
   {
     "slug": "week-notes/2024-45",
     "title": "2024-45",
-    "date": "2025-01-27T03:28:21.890Z",
+    "date": "2025-01-28T14:59:20.406Z",
     "type": "post",
     "hidden": false,
     "modified": "2024-11-05T16:37:55.000Z",
@@ -8773,7 +8802,7 @@
   {
     "slug": "week-notes/2024-46",
     "title": "2024-46",
-    "date": "2025-01-27T03:28:21.949Z",
+    "date": "2025-01-28T14:59:20.462Z",
     "type": "post",
     "hidden": false,
     "modified": "2024-11-17T00:04:13.000Z",
@@ -9123,7 +9152,16 @@
     "date": "2025-01-20T15:36:39.000Z",
     "type": "post",
     "hidden": false,
-    "modified": "2025-01-20T17:39:31.000Z",
+    "modified": "2025-01-27T03:50:56.000Z",
+    "toc": []
+  },
+  {
+    "slug": "week-notes/2025-05",
+    "title": "2025 05",
+    "date": "2025-01-28T14:59:21.042Z",
+    "type": "post",
+    "hidden": false,
+    "modified": "2025-01-28T14:59:21.042Z",
     "toc": []
   }
 ]
