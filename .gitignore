@@ -22,4 +22,7 @@ logs
 .env.*
 !.env.example
 
+# Backup files
+content/backup/
 content/processed.backup
+*.backup
