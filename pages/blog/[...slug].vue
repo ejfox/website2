@@ -446,23 +446,62 @@ onUnmounted(() => {
   }
 })
 
+/**
+ * Post Metadata Structure
+ * ======================
+ * All post metadata MUST be inside the metadata object:
+ * 
+ * {
+ *   content: "<article>...</article>",
+ *   html: "<article>...</article>",
+ *   title: "Post Title",
+ *   metadata: {
+ *     // Required
+ *     date: "2024-01-01T00:00:00.000Z",
+ *     modified: "2024-01-02T00:00:00.000Z",
+ *     dek: "Post description",
+ *     type: "post",
+ *     
+ *     // Stats (auto-calculated)
+ *     words: 2077,
+ *     images: 3,
+ *     links: 6,
+ *     
+ *     // Optional
+ *     tags: ["tag1", "tag2"],
+ *     draft: false,
+ *     hidden: false
+ *   }
+ * }
+ */
+
 // Prepare metadata for PostMetadata component
 const processedMetadata = computed(() => {
   if (!post.value) return null
 
-  // Handle both old and new data formats
-  const metadata = post.value.metadata || post.value
+  const metadata = post.value.metadata
+  if (!metadata) {
+    console.warn('Post is missing metadata object:', post.value)
+    return null
+  }
+
   return {
+    // Basic metadata
     slug: metadata.slug || route.params.slug.join('/'),
     title: metadata.title,
     date: metadata.date,
     draft: metadata.draft,
-    readingTime: metadata.readingTime,
-    wordCount: metadata.wordCount,
-    imageCount: metadata.imageCount,
-    linkCount: metadata.linkCount,
+    
+    // Stats
+    readingTime: Math.ceil(metadata.words / 200),
+    wordCount: metadata.words,
+    imageCount: metadata.images,
+    linkCount: metadata.links,
+    
+    // Additional metadata
     type: metadata.type,
-    // Add any additional metadata fields needed
+    dek: metadata.dek,
+    metadata // Pass through full metadata object
   }
 })
 </script>

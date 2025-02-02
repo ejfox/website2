@@ -1,6 +1,6 @@
 {
-  "content": "<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"-overview-of-the-week\">🌟 Overview of the Week</h2>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\"></li>\n</ul>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"projects-worked-on\">Projects Worked On</h2>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">Worked a bunch on my Scrapbook project, particularly finding UUID/hashes I can use for scraps from multiple services</li>\n<li class=\"prose-lg max-w-prose\">Added 2 new views to the scrapbook part of my website: graph and cards</li>\n<li class=\"prose-lg max-w-prose\">Added an “art mode” to my daily dashboard project</li>\n</ul>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"creative-endeavors\">Creative Endeavors</h2>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"cyberpunk-visual-aesthetic\">Cyberpunk Visual Aesthetic</h3>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Looking more into a cyberpunk aesthetic, gathering visual inspiration <a href=\"https://www.are.na/ej-fox/cyberpunk-2zwvyihuauk\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">https://www.are.na/ej-fox/cyberpunk-2zwvyihuauk</a></p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Playing around with different techniques in After Effects, building stacks of glow, motion blur, bulge distortion, mosaic pixelation, and randomizing parameters so it has an unexpected generative feel.</p>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"hudson-valley-exploration\">Hudson Valley Exploration</h3>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I downloaded Digital Elevation Model TIFFs of the Hudson Valley, combined them all together in QGIS, and then played around a bit with generating contour maps from it. I have an image of a very stylized, iso-metric sort of view of the Hudson Valley with some towns / cities highlighted, and probably exaggerated height on the mountains</p>",
-  "html": "<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"-overview-of-the-week\">🌟 Overview of the Week</h2>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\"></li>\n</ul>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"projects-worked-on\">Projects Worked On</h2>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">Worked a bunch on my Scrapbook project, particularly finding UUID/hashes I can use for scraps from multiple services</li>\n<li class=\"prose-lg max-w-prose\">Added 2 new views to the scrapbook part of my website: graph and cards</li>\n<li class=\"prose-lg max-w-prose\">Added an “art mode” to my daily dashboard project</li>\n</ul>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"creative-endeavors\">Creative Endeavors</h2>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"cyberpunk-visual-aesthetic\">Cyberpunk Visual Aesthetic</h3>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Looking more into a cyberpunk aesthetic, gathering visual inspiration <a href=\"https://www.are.na/ej-fox/cyberpunk-2zwvyihuauk\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">https://www.are.na/ej-fox/cyberpunk-2zwvyihuauk</a></p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Playing around with different techniques in After Effects, building stacks of glow, motion blur, bulge distortion, mosaic pixelation, and randomizing parameters so it has an unexpected generative feel.</p>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"hudson-valley-exploration\">Hudson Valley Exploration</h3>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I downloaded Digital Elevation Model TIFFs of the Hudson Valley, combined them all together in QGIS, and then played around a bit with generating contour maps from it. I have an image of a very stylized, iso-metric sort of view of the Hudson Valley with some towns / cities highlighted, and probably exaggerated height on the mountains</p>",
+  "content": "<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\"></li>\n</ul>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"projects-worked-on\">Projects Worked On</h2>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">Worked a bunch on my Scrapbook project, particularly finding UUID/hashes I can use for scraps from multiple services</li>\n<li class=\"prose-lg max-w-prose\">Added 2 new views to the scrapbook part of my website: graph and cards</li>\n<li class=\"prose-lg max-w-prose\">Added an “art mode” to my daily dashboard project</li>\n</ul>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"creative-endeavors\">Creative Endeavors</h2>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"cyberpunk-visual-aesthetic\">Cyberpunk Visual Aesthetic</h3>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Looking more into a cyberpunk aesthetic, gathering visual inspiration <a href=\"https://www.are.na/ej-fox/cyberpunk-2zwvyihuauk\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">https://www.are.na/ej-fox/cyberpunk-2zwvyihuauk</a></p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Playing around with different techniques in After Effects, building stacks of glow, motion blur, bulge distortion, mosaic pixelation, and randomizing parameters so it has an unexpected generative feel.</p>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"hudson-valley-exploration\">Hudson Valley Exploration</h3>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I downloaded Digital Elevation Model TIFFs of the Hudson Valley, combined them all together in QGIS, and then played around a bit with generating contour maps from it. I have an image of a very stylized, iso-metric sort of view of the Hudson Valley with some towns / cities highlighted, and probably exaggerated height on the mountains</p>",
+  "html": "<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\"></li>\n</ul>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"projects-worked-on\">Projects Worked On</h2>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">Worked a bunch on my Scrapbook project, particularly finding UUID/hashes I can use for scraps from multiple services</li>\n<li class=\"prose-lg max-w-prose\">Added 2 new views to the scrapbook part of my website: graph and cards</li>\n<li class=\"prose-lg max-w-prose\">Added an “art mode” to my daily dashboard project</li>\n</ul>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"creative-endeavors\">Creative Endeavors</h2>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"cyberpunk-visual-aesthetic\">Cyberpunk Visual Aesthetic</h3>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Looking more into a cyberpunk aesthetic, gathering visual inspiration <a href=\"https://www.are.na/ej-fox/cyberpunk-2zwvyihuauk\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">https://www.are.na/ej-fox/cyberpunk-2zwvyihuauk</a></p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Playing around with different techniques in After Effects, building stacks of glow, motion blur, bulge distortion, mosaic pixelation, and randomizing parameters so it has an unexpected generative feel.</p>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"hudson-valley-exploration\">Hudson Valley Exploration</h3>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I downloaded Digital Elevation Model TIFFs of the Hudson Valley, combined them all together in QGIS, and then played around a bit with generating contour maps from it. I have an image of a very stylized, iso-metric sort of view of the Hudson Valley with some towns / cities highlighted, and probably exaggerated height on the mountains</p>",
   "title": "🌟 Overview of the Week",
   "metadata": {
     "tags": [
@@ -20,29 +20,39 @@
     "links": 0,
     "codeBlocks": 0,
     "headers": {
-      "h2": 3,
-      "h3": 2
+      "h2": 3
     },
     "toc": [
       {
-        "depth": 2,
-        "text": "🌟 Overview of the Week"
+        "text": "🌟 Overview of the Week",
+        "slug": "overview-of-the-week",
+        "level": "h2",
+        "children": []
       },
       {
-        "depth": 2,
-        "text": "Projects Worked On"
+        "text": "Projects Worked On",
+        "slug": "projects-worked-on",
+        "level": "h2",
+        "children": []
       },
       {
-        "depth": 2,
-        "text": "Creative Endeavors"
-      },
-      {
-        "depth": 3,
-        "text": "Cyberpunk Visual Aesthetic"
-      },
-      {
-        "depth": 3,
-        "text": "Hudson Valley Exploration"
+        "text": "Creative Endeavors",
+        "slug": "creative-endeavors",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Cyberpunk Visual Aesthetic",
+            "slug": "cyberpunk-visual-aesthetic",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Hudson Valley Exploration",
+            "slug": "hudson-valley-exploration",
+            "level": "h3",
+            "children": []
+          }
+        ]
       }
     ],
     "type": "post",

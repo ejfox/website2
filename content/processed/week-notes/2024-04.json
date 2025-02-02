@@ -1,6 +1,6 @@
 {
-  "content": "<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"-projects-worked-on\">💻 Projects Worked On</h2>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"gpt-glitch-tokens\">GPT Glitch Tokens</h3>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I did another interview with Matthew Watkins, who has been doing fascinating research into glitch tokens.</p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I also started editing our interviews down, and thinking about how to narratively lay them out. I edited our initial 3 hour interview down about 50%, but that's still 90 minutes, and I haven't even gotten to our most recent interview which recaps his research over the year since our last interview.</p>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"-creative-endeavors\">🎨 Creative Endeavors</h2>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">List art created, mediums used, and significant writings or quotes.</li>\n</ul>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"livestream-on-coach-artie\">Livestream on Coach Artie</h3>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Did a <a href=\"https://www.youtube.com/watch?v=Od5aqBwYU-I\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">livestream</a><svg class=\"inline-block w-4 h-4 ml-1 opacity-50 group-hover:opacity-100 transition-opacity\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1em\" height=\"1em\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M23.498 6.186a3.02 3.02 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.02 3.02 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.02 3.02 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.02 3.02 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814M9.545 15.568V8.432L15.818 12z\" class=\"\"></path></svg> with room302.studio going over the latest updates to Coach Artie</p>",
-  "html": "<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"-projects-worked-on\">💻 Projects Worked On</h2>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"gpt-glitch-tokens\">GPT Glitch Tokens</h3>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I did another interview with Matthew Watkins, who has been doing fascinating research into glitch tokens.</p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I also started editing our interviews down, and thinking about how to narratively lay them out. I edited our initial 3 hour interview down about 50%, but that's still 90 minutes, and I haven't even gotten to our most recent interview which recaps his research over the year since our last interview.</p>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"-creative-endeavors\">🎨 Creative Endeavors</h2>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">List art created, mediums used, and significant writings or quotes.</li>\n</ul>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"livestream-on-coach-artie\">Livestream on Coach Artie</h3>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Did a <a href=\"https://www.youtube.com/watch?v=Od5aqBwYU-I\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">livestream</a><svg class=\"inline-block w-4 h-4 ml-1 opacity-50 group-hover:opacity-100 transition-opacity\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1em\" height=\"1em\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M23.498 6.186a3.02 3.02 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.02 3.02 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.02 3.02 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.02 3.02 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814M9.545 15.568V8.432L15.818 12z\" class=\"\"></path></svg> with room302.studio going over the latest updates to Coach Artie</p>",
+  "content": "<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"gpt-glitch-tokens\">GPT Glitch Tokens</h3>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I did another interview with Matthew Watkins, who has been doing fascinating research into glitch tokens.</p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I also started editing our interviews down, and thinking about how to narratively lay them out. I edited our initial 3 hour interview down about 50%, but that's still 90 minutes, and I haven't even gotten to our most recent interview which recaps his research over the year since our last interview.</p>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"-creative-endeavors\">🎨 Creative Endeavors</h2>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">List art created, mediums used, and significant writings or quotes.</li>\n</ul>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"livestream-on-coach-artie\">Livestream on Coach Artie</h3>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Did a <a href=\"https://www.youtube.com/watch?v=Od5aqBwYU-I\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">livestream</a><svg class=\"inline-block w-4 h-4 ml-1 opacity-50 dark:opacity-75 group-hover:opacity-100 transition-opacity\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1em\" height=\"1em\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M23.498 6.186a3.02 3.02 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.02 3.02 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.02 3.02 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.02 3.02 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814M9.545 15.568V8.432L15.818 12z\" class=\"\"></path></svg> with room302.studio going over the latest updates to Coach Artie</p>",
+  "html": "<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"gpt-glitch-tokens\">GPT Glitch Tokens</h3>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I did another interview with Matthew Watkins, who has been doing fascinating research into glitch tokens.</p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I also started editing our interviews down, and thinking about how to narratively lay them out. I edited our initial 3 hour interview down about 50%, but that's still 90 minutes, and I haven't even gotten to our most recent interview which recaps his research over the year since our last interview.</p>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"-creative-endeavors\">🎨 Creative Endeavors</h2>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">List art created, mediums used, and significant writings or quotes.</li>\n</ul>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"livestream-on-coach-artie\">Livestream on Coach Artie</h3>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Did a <a href=\"https://www.youtube.com/watch?v=Od5aqBwYU-I\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">livestream</a><svg class=\"inline-block w-4 h-4 ml-1 opacity-50 dark:opacity-75 group-hover:opacity-100 transition-opacity\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1em\" height=\"1em\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M23.498 6.186a3.02 3.02 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.02 3.02 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.02 3.02 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.02 3.02 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814M9.545 15.568V8.432L15.818 12z\" class=\"\"></path></svg> with room302.studio going over the latest updates to Coach Artie</p>",
   "title": "💻 Projects Worked On",
   "metadata": {
     "tags": [
@@ -19,25 +19,34 @@
     "links": 1,
     "codeBlocks": 0,
     "headers": {
-      "h2": 2,
-      "h3": 2
+      "h2": 2
     },
     "toc": [
       {
-        "depth": 2,
-        "text": "💻 Projects Worked On"
+        "text": "💻 Projects Worked On",
+        "slug": "projects-worked-on",
+        "level": "h2",
+        "children": [
+          {
+            "text": "GPT Glitch Tokens",
+            "slug": "gpt-glitch-tokens",
+            "level": "h3",
+            "children": []
+          }
+        ]
       },
       {
-        "depth": 3,
-        "text": "GPT Glitch Tokens"
-      },
-      {
-        "depth": 2,
-        "text": "🎨 Creative Endeavors"
-      },
-      {
-        "depth": 3,
-        "text": "Livestream on Coach Artie"
+        "text": "🎨 Creative Endeavors",
+        "slug": "creative-endeavors",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Livestream on Coach Artie",
+            "slug": "livestream-on-coach-artie",
+            "level": "h3",
+            "children": []
+          }
+        ]
       }
     ],
     "type": "post",

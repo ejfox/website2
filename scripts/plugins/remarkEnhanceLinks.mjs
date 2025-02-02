@@ -78,7 +78,7 @@ const fetchIcon = async (name) => {
     const svg = await res.text()
     const processed = svg.replace(
       '<svg',
-      '<svg class="inline-block w-4 h-4 ml-1 opacity-50 group-hover:opacity-100 transition-opacity"'
+      '<svg class="inline-block w-4 h-4 ml-1 opacity-50 dark:opacity-75 group-hover:opacity-100 transition-opacity"'
     )
     iconCache.set(name, processed)
     return processed

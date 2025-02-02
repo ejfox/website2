@@ -13,35 +13,54 @@ const { data: note } = await useAsyncData(`robot-${route.params.slug.join('/')}`
   processedMarkdown.getPostBySlug(`robots/${route.params.slug.join('/')}`)
 )
 
+// Add debug logging
+console.log('Robot note fetch:', {
+  slug: `robots/${route.params.slug.join('/')}`,
+  note: note.value,
+  isShared: note.value?.metadata?.share
+})
+
 // Redirect if note doesn't exist or isn't shared
-if (!note.value || !note.value.share) {
+if (!note.value || !note.value.metadata?.share) {
   throw createError({
     statusCode: 404,
     message: 'Robot note not found'
   })
 }
 
-// New computed property to trim TOC items
+// Update the trimmedToc computed to handle our TOC structure correctly
 const trimmedToc = computed(() => {
-  if (!note.value?.toc) return []
-  return note.value.toc.flatMap(item =>
-    item.children?.map(child => ({
-      ...child,
-      text: child.text.length > 20 ? child.text.slice(0, 17) + '...' : child.text
-    })) || []
-  )
+  if (!note.value?.metadata?.toc) return []
+  
+  return note.value.metadata.toc
+    .filter(item => item.depth === 2 || item.depth === 3)
+    .map(item => ({
+      text: item.text.length > 40 ? item.text.slice(0, 37) + '...' : item.text,
+      slug: generateSlug(item.text),
+      level: `h${item.depth}`
+    }))
 })
 
-// Move word count logic into a client-only computed property
+// Add the generateSlug helper function
+const generateSlug = (str) => {
+  return str
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+}
+
+// Update the word count logic to work with our structure
 const sectionWordCounts = computed(() => {
-  // Only run in client
   if (process.server || !note.value?.content) return {}
 
   const counts = {}
-  note.value.toc?.forEach(item => {
-    item.children?.forEach(child => {
-      counts[child.slug] = getSectionWordCount(note.value.content, child.slug)
-    })
+  const sections = note.value.metadata?.toc || []
+  
+  sections.forEach(section => {
+    if (section.depth <= 3) {
+      const slug = generateSlug(section.text)
+      counts[slug] = getSectionWordCount(note.value.content, slug)
+    }
   })
 
   return counts
@@ -85,33 +104,67 @@ const isDateString = (str) => {
 
 // Computed property to get all metadata fields
 const metadataFields = computed(() => {
-  if (!note.value) return {}
+  if (!note.value?.metadata) return {}
 
-  // Get all fields except content and toc
-  const fields = { ...note.value }
-  delete fields.content
-  delete fields.toc
+  const fields = {
+    // Only include relevant fields in a specific order
+    type: note.value.metadata.type,
+    date: note.value.metadata.date,
+    modified: note.value.metadata.modified,
+    words: note.value.metadata.words,
+    stats: {
+      images: note.value.metadata.images,
+      links: note.value.metadata.links,
+      codeBlocks: note.value.metadata.codeBlocks,
+      headers: note.value.metadata.headers
+    }
+  }
 
-  // Sort fields by key
-  return Object.keys(fields)
-    .sort()
-    .reduce((obj, key) => {
-      obj[key] = fields[key]
-      return obj
-    }, {})
+  return fields
 })
 
-// Update the formatDate function to be more verbose
+// Format numbers with commas
+const formatNumber = (num) => {
+  return new Intl.NumberFormat().format(num)
+}
+
+// Update the formatDate function to be more concise
 const formatDate = (date) => {
   if (!date) return ''
-  return format(
-    new Date(date),
-    "MMMM do, yyyy 'at' h:mm:ss aaaa zzz"
-  )
+  return format(new Date(date), "MMM d, yyyy 'at' h:mma")
 }
 
 // Add scroll progress tracking
 const scrollProgress = ref(0)
+
+// Add these computed properties and refs for the animation
+const titleChars = computed(() => note.value?.title.split(''))
+const titleRefs = ref([])
+
+// Add the animation function
+const animateTitle = () => {
+  animate(titleRefs.value, {
+    opacity: [0, 1],
+    translateY: [20, 0],
+    duration: 800,
+    easing: 'easeOutExpo',
+    delay: stagger(50)
+  })
+}
+
+// Add this to process the content and add IDs to headings
+const processedContent = computed(() => {
+  if (!note.value?.content) return ''
+  
+  // Simple regex-based approach that works on both client and server
+  return note.value.content.replace(
+    /<(h[23])[^>]*>(.*?)<\/\1>/g,
+    (match, tag, content) => {
+      const slug = generateSlug(content.replace(/<[^>]+>/g, ''))
+      return `<${tag} id="${slug}">${content}</${tag}>`
+    }
+  )
+})
 
 onMounted(() => {
   // Set up intersection observers for each section
@@ -137,6 +190,11 @@ onMounted(() => {
 
   window.addEventListener('scroll', updateProgress)
   onUnmounted(() => window.removeEventListener('scroll', updateProgress))
+
+  // Add title animation
+  nextTick(() => {
+    animateTitle()
+  })
 })
 
 // Add useHead for robot-specific styling
@@ -173,32 +231,38 @@ useHead({
     <div class="lg:grid lg:grid-cols-[1fr,300px] xl:grid-cols-[1fr,350px] gap-8">
       <article v-if="note">
         <!-- Metadata Display -->
-        <div class="font-mono text-xs bg-zinc-100 dark:bg-zinc-900 p-4 rounded-lg mb-8 overflow-x-auto">
-          <div class="grid grid-cols-[auto,1fr] gap-x-4 gap-y-1">
-            <template v-for="(value, key) in metadataFields" :key="key">
-              <!-- Skip content and internal fields -->
-              <template v-if="!['content', '_id', '_path', 'body'].includes(key)">
-                <div class="text-zinc-500 dark:text-zinc-400">{{ key }}:</div>
-                <div class="text-zinc-700 dark:text-zinc-300">
-                  <!-- Format arrays nicely -->
-                  <template v-if="Array.isArray(value)">
-                    [{{ value.join(', ') }}]
-                  </template>
-                  <!-- Format dates nicely -->
-                  <template v-else-if="isDateString(value)">
-                    {{ formatDate(value) }}
-                  </template>
-                  <!-- Format booleans -->
-                  <template v-else-if="typeof value === 'boolean'">
-                    {{ value ? 'true' : 'false' }}
-                  </template>
-                  <!-- Default display -->
-                  <template v-else>
-                    {{ value }}
-                  </template>
+        <div class="font-mono text-xs bg-zinc-100 dark:bg-zinc-900 p-4 rounded-lg mb-8">
+          <div class="grid grid-cols-[auto,1fr] gap-x-4 gap-y-2">
+            <!-- Type -->
+            <div class="text-zinc-500 dark:text-zinc-400">type:</div>
+            <div class="text-zinc-700 dark:text-zinc-300 capitalize">{{ metadataFields.type }}</div>
+
+            <!-- Date -->
+            <div class="text-zinc-500 dark:text-zinc-400">published:</div>
+            <div class="text-zinc-700 dark:text-zinc-300">{{ formatDate(metadataFields.date) }}</div>
+
+            <!-- Modified -->
+            <div class="text-zinc-500 dark:text-zinc-400">updated:</div>
+            <div class="text-zinc-700 dark:text-zinc-300">{{ formatDate(metadataFields.modified) }}</div>
+
+            <!-- Word count -->
+            <div class="text-zinc-500 dark:text-zinc-400">words:</div>
+            <div class="text-zinc-700 dark:text-zinc-300">{{ formatNumber(metadataFields.words) }}</div>
+
+            <!-- Stats -->
+            <div class="text-zinc-500 dark:text-zinc-400">stats:</div>
+            <div class="text-zinc-700 dark:text-zinc-300 grid gap-1">
+              <template v-if="metadataFields.stats">
+                <div v-if="metadataFields.stats.images">{{ metadataFields.stats.images }} images</div>
+                <div v-if="metadataFields.stats.links">{{ metadataFields.stats.links }} links</div>
+                <div v-if="metadataFields.stats.codeBlocks">{{ metadataFields.stats.codeBlocks }} code blocks</div>
+                <div v-if="metadataFields.stats.headers" class="flex gap-2">
+                  <span v-for="(count, level) in metadataFields.stats.headers" :key="level">
+                    {{ count }} {{ level }}
+                  </span>
                 </div>
               </template>
-            </template>
+            </div>
           </div>
         </div>
 
@@ -207,7 +271,16 @@ useHead({
           class="mb-8" />
 
         <header class="mb-8">
-          <h1 class="text-4xl font-bold mb-4">{{ note.title }}</h1>
+          <!-- Hero title with animation -->
+          <h1 class="text-4xl md:text-6xl font-bold mb-4 flex flex-wrap">
+            <span
+              v-for="(char, i) in titleChars"
+              :key="i"
+              class="inline-block opacity-0"
+              :class="{ 'mr-[0.2em]': char === ' ' }"
+              ref="titleRefs"
+            >{{ char }}</span>
+          </h1>
           <p v-if="note.description" class="text-xl text-zinc-600 dark:text-zinc-400">
             {{ note.description }}
           </p>
@@ -216,7 +289,7 @@ useHead({
         <!-- Content with adjusted max-width -->
         <div class="prose prose-sm font-mono dark:prose-invert 
              prose-headings:font-bold prose-headings:tracking-tight 
-             prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl 
+             prose-h2:text-3xl prose-h3:text-2xl 
              prose-p:leading-8 prose-p:py-2 
              prose-a:text-blue-600 hover:prose-a:text-blue-500 
              dark:prose-a:text-blue-200 dark:hover:prose-a:text-blue-400 
@@ -227,7 +300,7 @@ useHead({
              prose-ul:list-disc prose-ol:list-decimal prose-li:my-2 
              prose-img:rounded-lg prose-hr:border-gray-300 
              dark:prose-hr:border-gray-700
-             !max-w-none" v-html="note.content" />
+             !max-w-none" v-html="processedContent" />
 
         <footer class="mt-12 pt-8 border-t border-zinc-200 dark:border-zinc-800">
           <NuxtLink to="/blog/robots" class="text-blue-500 dark:text-blue-400 hover:underline">
@@ -237,44 +310,20 @@ useHead({
       </article>
 
       <!-- Right Sidebar with TOC -->
-      <aside v-if="!isMobile && note?.toc?.length" class="hidden lg:block h-screen sticky top-0 pt-12">
+      <aside v-if="!isMobile" class="hidden lg:block h-screen sticky top-0 pt-12">
         <div class="space-y-8 max-h-[calc(100vh-6rem)] flex flex-col">
-          <!-- Progress Bar - moved inside the dark background -->
+          <!-- Progress Bar -->
           <div class="dark:bg-zinc-900 p-4 rounded-lg flex-1 overflow-y-auto">
             <div class="w-full bg-zinc-200 dark:bg-zinc-800 h-1 rounded-full overflow-hidden flex-shrink-0 mb-4">
               <div class="bg-blue-500 h-full transition-all duration-200" :style="{ width: `${scrollProgress}%` }" />
             </div>
 
-            <h3
-              class="text-lg font-semibold mb-4 sticky top-0 bg-inherit pb-2 border-b border-zinc-200 dark:border-zinc-700">
+            <h3 class="text-lg font-semibold mb-4 sticky top-0 bg-inherit pb-2 border-b border-zinc-200 dark:border-zinc-700">
               Table of Contents
             </h3>
 
-            <nav :class="{
-              'columns-1': note.toc.reduce((acc, item) => acc + (item.children?.length || 0), 0) < 10,
-              'columns-2 gap-8': note.toc.reduce((acc, item) => acc + (item.children?.length || 0), 0) >= 10
-            }">
-              <div v-for="item in note.toc" :key="item.slug">
-                <div v-if="item.children?.length" class="break-inside-avoid-column mb-4">
-                  <div class="space-y-1">
-                    <a v-for="child in item.children" :key="child.slug" :href="`#${child.slug}`"
-                      class="block py-1 px-2 text-sm rounded transition-colors" :class="[
-                        activeSection === child.slug
-                          ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300'
-                          : 'hover:bg-zinc-100 dark:hover:bg-zinc-800'
-                      ]">
-                      {{ child.text }}
-                      <ClientOnly>
-                        <div v-if="sectionWordCounts[child.slug] && sectionWordCounts[child.slug] > 100"
-                          class="text-xs text-zinc-400 dark:text-zinc-600 mt-0.5">
-                          {{ sectionWordCounts[child.slug] }} words
-                        </div>
-                      </ClientOnly>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </nav>
+            <!-- Add a target div for the TOC -->
+            <div id="toc-target"></div>
           </div>
         </div>
       </aside>
@@ -282,6 +331,34 @@ useHead({
     <UAlert icon="i-majesticons-robot" color="orange" variant="solid" title="LLM-Generated / Augmented Content"
       description="This note was written by or with the assistance of AI." class="mb-8" />
   </div>
+
+  <!-- Teleport the TOC into the sidebar -->
+  <Teleport to="#toc-target">
+    <nav v-if="trimmedToc.length" class="space-y-2">
+      <template v-for="section in trimmedToc" :key="section.slug">
+        <NuxtLink
+          :to="`#${section.slug}`"
+          class="block py-1.5 transition-colors duration-200 text-sm"
+          :class="[
+            section.level === 'h3' ? 'pl-4' : '',
+            activeSection === section.slug
+              ? 'text-blue-500 dark:text-blue-400'
+              : 'text-zinc-600 dark:text-zinc-400 hover:text-blue-500 dark:hover:text-blue-400'
+          ]"
+        >
+          <div class="flex justify-between items-center group">
+            <span>{{ section.text }}</span>
+            <span
+              v-if="sectionWordCounts[section.slug]"
+              class="text-xs text-zinc-400 dark:text-zinc-500 group-hover:text-blue-500 dark:group-hover:text-blue-400"
+            >
+              {{ sectionWordCounts[section.slug] }} words
+            </span>
+          </div>
+        </NuxtLink>
+      </template>
+    </nav>
+  </Teleport>
 </template>
 
 <style scoped>

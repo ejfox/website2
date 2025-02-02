@@ -313,20 +313,20 @@ async function processMarkdown(content, filePath) {
     const { data: frontmatter, content: markdownContent } = matter(content)
     let ast = processor.parse(markdownContent)
 
-    // Extract title and headers first
-    const headings = []
-    visit(ast, 'heading', (node) => {
-      const text = node.children
-        .map((child) => (child.type === 'text' ? child.value : ''))
-        .join('')
-        .trim()
-      if (text) headings.push({ depth: node.depth, text })
-    })
+    // Extract headers and TOC, including the first heading node
+    const { firstHeading, toc, firstHeadingNode } = extractHeadersAndToc(ast)
 
-    const firstHeading = headings.length > 0 ? headings[0].text : null
+    // Remove the first H1 from the AST before processing
+    ast = removeFirstHeading(ast, firstHeadingNode)
 
     let result = await processor.run(ast)
     let html = processor.stringify(result)
+
+    // Get title with proper fallbacks
+    const extractedTitle =
+      frontmatter.title ||
+      firstHeading ||
+      formatTitle(path.basename(filePath, '.md'))
 
     // Calculate metadata quietly
     const stats = {
@@ -334,8 +334,8 @@ async function processMarkdown(content, filePath) {
       images: (markdownContent.match(/!\[.*?\]\(.*?\)/g) || []).length,
       links: (markdownContent.match(/\[.*?\]\(.*?\)/g) || []).length,
       codeBlocks: (markdownContent.match(/```[\s\S]*?```/g) || []).length,
-      headers: headings.reduce((acc, h) => {
-        acc[`h${h.depth}`] = (acc[`h${h.depth}`] || 0) + 1
+      headers: toc.reduce((acc, h) => {
+        acc[h.level] = (acc[h.level] || 0) + 1
         return acc
       }, {})
     }
@@ -346,12 +346,6 @@ async function processMarkdown(content, filePath) {
         (processStats.filesProcessed / processStats.totalFiles) * 100
       )}%`
     )
-
-    // Get title with proper fallbacks
-    const extractedTitle =
-      frontmatter.title ||
-      firstHeading ||
-      formatTitle(path.basename(filePath, '.md'))
 
     // Get source path relative to Obsidian vault (if available)
     const sourcePath = SOURCE_DIR ? path.relative(SOURCE_DIR, filePath) : null
@@ -369,7 +363,7 @@ async function processMarkdown(content, filePath) {
       metadata: {
         ...frontmatter,
         ...stats,
-        toc: headings,
+        toc: toc,
         type: frontmatter.type || getPostType(filePath),
         ...sourceInfo // Only include if SOURCE_DIR exists
       }
