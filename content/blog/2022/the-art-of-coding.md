@@ -25,13 +25,13 @@ The rough shape of the project changes depending on a few factors:
 - Fast vs slow
 - Public vs private
 
-For more less-technical specifics around project management in general (not just code): [[how-to-run-a-project]]
+For more less-technical specifics around project management in general (not just code): [how-to-run-a-projec](how-to-run-a-projec)t]]
 
-For design philosophy [[design-philosophy]] and work philosophy [[joy-driven-development]]
+For design philosophy [design-philosoph](design-philosoph)y]] and work philosophy [joy-driven-developmen](joy-driven-developmen)t]]
 
-The tools I use to prototype quickly: [[2022-prototyping-toolkit]]
+The tools I use to prototype quickly: [2022-prototyping-toolki](2022-prototyping-toolki)t]]
 
-My coding setup, including theme and plugins: [[my-vscode-setup]]
+My coding setup, including theme and plugins: [my-vscode-setu](my-vscode-setu)p]]
 
 ## Establish a clear goal
 
@@ -53,7 +53,7 @@ You can usually only accomplish a few of those goals, and knowing the bounds of 
 
 ### User stories
 
-User stories are essential to writing software that will be used by people. I talk more about user stories in [[how-to-run-a-project]]
+User stories are essential to writing software that will be used by people. I talk more about user stories in [how-to-run-a-projec](how-to-run-a-projec)t]]
 
 #### tl;dr
 
@@ -76,7 +76,7 @@ Deadlines, while sometimes stressful, actually serve an important role in managi
 
 ### Core principles
 
-[[joy-driven-development]]
+[joy-driven-developmen](joy-driven-developmen)t]]
 
 ### Gather context
 #### Stakeholder Needs

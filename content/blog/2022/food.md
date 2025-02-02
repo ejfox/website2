@@ -12,11 +12,11 @@ tags:
 
 ## Food
 
-This article focuses on ingredients and a balanced diet. For information on heating, combining, and serving, see [[cooking]]
+This article focuses on ingredients and a balanced diet. For information on heating, combining, and serving, see [cookin](cookin)g]]
 
 My approach to food emphasizes meat-free whole foods and keeping good food around instead of counting every calorie.
 
-Much like wearing a uniform might save cognitive overhead of choosing an outfit every day, having a limited menu of go-tos that are always stocked is [[step-zero]] for eating well.
+Much like wearing a uniform might save cognitive overhead of choosing an outfit every day, having a limited menu of go-tos that are always stocked is [step-zer](step-zer)o]] for eating well.
 
 Because I am often cooking for one and don't really enjoy leftovers, a lot of this is oriented around cooking or assembling single meals fresh to eat immediately.
 
@@ -75,13 +75,13 @@ What should I have for lunch? Just have a salad. Its not that complicated.
 
 ### Dinner
 
-[[cooking-ramen-experiments]]
+[cooking-ramen-experiment](cooking-ramen-experiment)s]]
 
 ### Desserts
 #### Chocolate chip cookies
 
-[[chocolate-chip-cookies]]
+[chocolate-chip-cookie](chocolate-chip-cookie)s]]
 
 #### Kolaches
 
-[[cooking-kolaches]]
+[cooking-kolache](cooking-kolache)s]]

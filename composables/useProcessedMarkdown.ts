@@ -53,12 +53,49 @@
  */
 
 /**
+ * Content Type Detection Rules
+ * ==========================
+ *
+ * Week Notes
+ * ----------
+ * A post is considered a week note if ANY of these conditions are met:
+ * 1. Type is 'weekNote'
+ * 2. Slug starts with 'week-notes/'
+ * 3. Slug matches YYYY-WW pattern (e.g. "2024-45")
+ *
+ * Special Sections
+ * ---------------
+ * These sections are filtered out of main blog posts:
+ * - reading/
+ * - projects/
+ * - robots/
+ * - drafts/
+ * - study-notes/
+ *
+ * System Files
+ * -----------
+ * These are always excluded:
+ * - index files (slug === 'index')
+ * - System files (slug starts with '!' or '_')
+ *
+ * Visibility Rules
+ * --------------
+ * - hidden: true -> Post is hidden everywhere
+ * - In drafts/ -> hidden by default unless share: true
+ * - In robots/ -> hidden by default unless share: true
+ * - Week notes -> never auto-hidden, respect hidden: true from frontmatter
+ * - Other posts -> respect hidden: true from frontmatter
+ */
+
+/**
  * A composable to process and retrieve markdown content, specifically blog posts and their metadata.
  * This includes fetching individual posts, filtering posts by year, managing drafts, and more.
  * The component interacts with a backend API and handles common tasks such as sorting and formatting dates.
  *
  * @returns {Object} An object with various methods to retrieve blog posts and their metadata.
  */
+
+import { parseISO, isValid, parse, startOfWeek, format } from 'date-fns'
 
 // Add debug helper
 const debug = (msg: string, data?: any) => {
@@ -79,27 +116,25 @@ function compareDates(a: string, b: string): number {
 /**
  * Ensures a valid date string is returned
  */
-function getValidDate(date?: string | Date, slug?: string): string {
-  // If we have a date, convert it to ISO string
-  if (date) {
-    if (date instanceof Date) {
-      return date.toISOString()
-    }
-    // Parse the date string and preserve timezone
-    const parsedDate = new Date(date)
-    return parsedDate.toISOString()
-  }
+function getValidDate(date: string | Date | undefined): string {
+  try {
+    // If no date, return current date
+    if (!date) return new Date().toISOString()
 
-  // Try to extract date from slug if provided
-  if (slug) {
-    const match = slug.match(/\d{4}-\d{2}-\d{2}/)
-    if (match) {
-      return new Date(match[0]).toISOString()
-    }
-  }
+    // If it's already a Date object
+    if (date instanceof Date) return date.toISOString()
 
-  // Default to current date
-  return new Date().toISOString()
+    // If it's a string (which it usually is from metadata)
+    const parsed = new Date(date)
+    if (!isNaN(parsed.getTime())) {
+      return parsed.toISOString()
+    }
+
+    // If parsing failed, return current date
+    return new Date().toISOString()
+  } catch (error) {
+    return new Date().toISOString()
+  }
 }
 
 // Add type definitions at the top of the file
@@ -115,6 +150,7 @@ interface PostMetadata {
   modified?: string
   description?: string
   tags?: string[]
+  firstHeading?: string
 }
 
 // Add type for HTML content
@@ -155,27 +191,15 @@ export const useProcessedMarkdown = () => {
    */
   const getManifestLite = async (): Promise<ManifestItem[]> => {
     try {
-      debug('Fetching manifest')
-      const result = await $fetch('/api/manifest')
-
-      if (!Array.isArray(result)) {
-        console.error('Error: Manifest is not an array')
-        return []
-      }
-
-      // Log the first item that has 'project' in its slug
-      const firstProject = result.find((p) => p.slug?.includes('project'))
-      console.log('First project-like item in manifest:', firstProject)
-
-      // Log all project slugs
-      const projectSlugs = result
-        .filter((p) => p.slug?.startsWith('projects/'))
-        .map((p) => p.slug)
-      console.log('All project slugs in manifest:', projectSlugs)
-
-      return result as ManifestItem[]
+      const response = await $fetch('/api/manifest-lite')
+      console.log('Manifest loaded:', {
+        total: response?.length,
+        firstPost: response?.[0],
+        types: response?.map((p: ManifestItem) => p.type).slice(0, 5)
+      })
+      return response
     } catch (error) {
-      console.error('Error fetching manifest:', error)
+      console.error('Error loading manifest:', error)
       throw error
     }
   }
@@ -187,20 +211,47 @@ export const useProcessedMarkdown = () => {
    */
   const getPostBySlug = async (slug: string): Promise<Post> => {
     try {
-      const result = await $fetch<Partial<Post>>(
-        slug === 'index' ? '/api/posts/index' : `/api/posts/${slug}`
+      // Determine the correct API endpoint based on the slug
+      let apiEndpoint = '/api/posts'
+      let apiSlug = slug
+
+      // Debug the incoming slug
+      console.log('getPostBySlug called with:', { slug })
+
+      if (slug.startsWith('robots/')) {
+        apiEndpoint = '/api/robots'
+        // Remove the robots/ prefix since the API route already includes it
+        apiSlug = slug.replace('robots/', '')
+        console.log('Using robots endpoint:', { apiEndpoint, apiSlug })
+      }
+
+      const result = await $fetch<Post>(
+        apiSlug === 'index'
+          ? `${apiEndpoint}/index`
+          : `${apiEndpoint}/${apiSlug}`
       )
 
+      // Log the result for debugging
+      console.log('API response:', {
+        apiEndpoint,
+        apiSlug,
+        hasResult: !!result,
+        hasMetadata: !!result?.metadata,
+        resultType: result?.type,
+        resultShare: result?.share
+      })
+
       // Ensure we return a complete Post object with required fields
-      const post: Post = {
+      return {
         slug: result.metadata?.slug || slug,
-        date: getValidDate(result.metadata?.date || result.date, slug),
+        date: getValidDate(result.metadata?.date || result.date),
         title: result.metadata?.title || result.title || formatTitle(slug),
         content: result.content,
         html: result.html,
-        metadata: result.metadata
+        metadata: result.metadata,
+        share: result.share,
+        type: result.type || result.metadata?.type
       }
-      return post
     } catch (error) {
       console.error(`Error fetching post "${slug}":`, error)
       throw error
@@ -214,32 +265,18 @@ export const useProcessedMarkdown = () => {
   function isRegularBlogPost(post: Post): boolean {
     const metadata = post?.metadata || post
     const slug = metadata?.slug || post?.slug
-    const type = metadata?.type || post?.type
-    const hidden = metadata?.hidden || post?.hidden
-    const draft = metadata?.draft || post?.draft
 
-    // Must have a slug and not be hidden/draft
-    if (!slug || hidden || draft) return false
-
-    // Exclude special sections
+    // Only exclude index and system files
     if (
-      slug.startsWith('reading/') ||
-      slug.startsWith('projects/') ||
-      slug.startsWith('robots/') ||
-      slug.startsWith('prompts/') ||
-      slug.startsWith('drafts/') ||
-      slug.startsWith('week-notes/') ||
-      slug.startsWith('study-notes/') ||
+      !slug ||
+      slug === 'index' ||
       slug.startsWith('!') ||
-      slug.startsWith('_') ||
-      slug === 'index'
+      slug.startsWith('_')
     ) {
       return false
     }
 
-    // Must be a post type or in a year directory
-    const isYearDirectory = /^\d{4}\//.test(slug)
-    return type === 'post' || isYearDirectory
+    return true
   }
 
   /**
@@ -259,32 +296,109 @@ export const useProcessedMarkdown = () => {
   ): Promise<Post[]> => {
     try {
       const manifest = await getManifestLite()
-      const filtered = manifest.filter((post: Post) => {
-        // Handle both old and new formats
-        const metadata = post.metadata || post
-        const slug = metadata.slug || post.slug
-        const type = metadata.type || post.type
-        const hidden = metadata.hidden || post.hidden
-        const draft = metadata.draft || post.draft
 
-        // Handle week notes separately if requested
-        if (
-          includeWeekNotes &&
-          (type === 'weekNote' || slug.startsWith('week-notes/'))
-        ) {
-          return !hidden && !draft
-        }
+      return manifest
+        .filter((post: Post) => {
+          const slug = post.slug
+          const type = post.type || post.metadata?.type
 
-        // Handle drafts separately if requested
-        if (includeDrafts && draft) {
-          return !hidden
-        }
+          // Skip if no slug
+          if (!slug) {
+            console.log('❌ No slug:', post)
+            return false
+          }
 
-        // For regular blog posts, use our strict helper
-        return isRegularBlogPost(post)
-      })
+          // Skip system files
+          if (slug === 'index' || slug.startsWith('!')) {
+            console.log('❌ System file:', slug)
+            return false
+          }
 
-      return filtered
+          // Skip if explicitly hidden
+          if (post.hidden === true || post.metadata?.hidden === true) {
+            console.log('❌ Hidden:', slug)
+            return false
+          }
+
+          // Skip drafts unless includeDrafts is true
+          if (
+            (post.draft === true || post.metadata?.draft === true) &&
+            !includeDrafts
+          ) {
+            console.log('❌ Draft:', slug)
+            return false
+          }
+
+          // Handle special sections - check both with and without year prefix
+          const pathParts = slug.split('/')
+          const basePath =
+            pathParts.length > 1 && /^\d{4}$/.test(pathParts[0])
+              ? pathParts.slice(1).join('/')
+              : slug
+
+          // Skip special sections
+          if (
+            basePath.startsWith('reading/') ||
+            basePath.startsWith('projects/') ||
+            basePath.startsWith('robots/') ||
+            basePath.startsWith('drafts/') ||
+            basePath.startsWith('study-notes/')
+          ) {
+            console.log('❌ Special section:', slug)
+            return false
+          }
+
+          // Handle week notes
+          if (basePath.startsWith('week-notes/')) {
+            const keep = includeWeekNotes
+            console.log(keep ? '✅ Week note:' : '❌ Week note:', slug)
+            return keep
+          }
+
+          console.log('✅ Keeping:', slug)
+          return true
+        })
+        .map((post) => {
+          // SUPER VERBOSE DEBUG
+          console.log('Processing post:', {
+            slug: post.slug,
+            rootTitle: post.title,
+            metadataTitle: post?.metadata?.title,
+            dek: post?.metadata?.dek
+          })
+
+          // Ensure we have a title
+          let title = post.title || post?.metadata?.title || ''
+
+          if (!title && post?.metadata?.dek) {
+            title = post.metadata.dek.split('\n')[0]
+            console.log('Using dek as title:', title)
+          }
+
+          if (!title) {
+            title = formatTitle(post.slug)
+            console.log('Using formatted slug as title:', title)
+          }
+
+          const metadata: PostMetadata = {
+            ...post.metadata,
+            title,
+            slug: post.slug,
+            date: getValidDate(post.metadata?.date || post.date)
+          }
+
+          return {
+            ...post,
+            title,
+            metadata,
+            date: getValidDate(post.metadata?.date || post.date),
+            modified: getValidDate(post.metadata?.modified || post.modified),
+            type: post.type || post.metadata?.type,
+            dek: post.dek || post.metadata?.dek,
+            tags: post.tags || post.metadata?.tags
+          } as Post
+        })
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     } catch (error) {
       console.error('Error fetching posts:', error)
       throw error
@@ -388,14 +502,8 @@ export const useProcessedMarkdown = () => {
         const metadata = post.metadata || post
         return {
           ...metadata,
-          date: getValidDate(
-            metadata.date || post.date,
-            metadata.slug || post.slug
-          ),
-          modified: getValidDate(
-            metadata.modified || post.modified,
-            metadata.slug || post.slug
-          )
+          date: getValidDate(metadata.date || post.date),
+          modified: getValidDate(metadata.modified || post.modified)
         }
       })
       .sort((a: Post, b: Post) => compareDates(a.date, b.date))
@@ -499,21 +607,41 @@ export const useProcessedMarkdown = () => {
   }
 
   /**
-   * Fetches all robot notes that are explicitly marked for sharing.
-   * @returns {Promise<Object[]>} A list of shareable robot notes.
+   * Fetches all robot-generated posts that are marked as shared.
+   * @returns {Promise<Post[]>} Array of robot posts.
    */
   const getRobotNotes = async (): Promise<Post[]> => {
-    const manifest = await getManifestLite()
-    return manifest
-      .filter(
-        (post: Post) => post.slug.startsWith('robots/') && post.share === true
-      )
-      .map((post: Post) => ({
-        ...post,
-        date: getValidDate(post.date),
-        modified: getValidDate(post.modified)
-      }))
-      .sort((a: Post, b: Post) => compareDates(b.date, a.date))
+    try {
+      const manifest = await getManifestLite()
+      return manifest
+        .filter((post: Post) => {
+          // Check both the post and its metadata for robot indicators
+          const isRobot =
+            post.slug.startsWith('robots/') || post.type === 'robot'
+          const isShared = post.metadata?.share || post.share
+
+          console.log('Checking robot post:', {
+            slug: post.slug,
+            isRobot,
+            isShared,
+            type: post.type,
+            share: post.share,
+            metadataShare: post.metadata?.share
+          })
+
+          return isRobot && isShared
+        })
+        .map((post: Post) => ({
+          ...post,
+          date: getValidDate(post.metadata?.date || post.date),
+          modified: getValidDate(post.metadata?.modified || post.modified),
+          type: 'robot'
+        }))
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    } catch (error) {
+      console.error('Error fetching robot notes:', error)
+      return []
+    }
   }
 
   /**

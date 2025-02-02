@@ -1,0 +1,34 @@
+{
+  "content": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">#programming #process #livestream</p>",
+  "html": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">#programming #process #livestream</p>",
+  "title": "How quickly can you create a website?",
+  "metadata": {
+    "date": "2022-12-13T21:42:33.000Z",
+    "modified": "2024-07-18T18:39:02.000Z",
+    "hidden": true,
+    "draft": true,
+    "tags": [
+      "programming",
+      "process",
+      "livestream"
+    ],
+    "words": 13,
+    "images": 0,
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "How quickly can you create a website?",
+        "slug": "how-quickly-can-you-create-a-website",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/drafts/speedrunning-making-websites.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

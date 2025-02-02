@@ -15,8 +15,13 @@
       "inspiration",
       "personal"
     ],
-    "robotsMeta": null,
-    "title": "Always Have Two Reasons for Something",
+    "words": 449,
+    "images": 0,
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 1
+    },
     "toc": [
       {
         "text": "Always Have Two Reasons for Something",
@@ -25,15 +30,7 @@
         "children": []
       }
     ],
-    "wordCount": 449,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 0,
-    "visibility": {
-      "isHidden": false,
-      "isShared": false,
-      "isSpecialSection": false,
-      "isIndex": false
-    }
+    "sourcePath": "../../../../../code/website2/content/blog/2019/two-reasons.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

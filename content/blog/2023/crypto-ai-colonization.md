@@ -16,11 +16,11 @@ tags:
 In the swirling chaos of the 21st century, we find ourselves in the throes of a digital revolution, but we are in danger of entrenching the systems of oppression that already pervade our society.
 
 >Badly designed AI can harm vulnerable and marginalized groups even when it “works,” by subjecting them to new forms of data-gathering and surveillance and encoding historical patterns of discrimination into automated systems.
->Kevin Roose [[reading/Roose-Futureproof|Roose-Futureproof]]
+>Kevin Roose [reading/Roose-Futureproof|Roose-Futureproo](reading/roose-futureproof|roose-futureproo)f]]
 
 Cryptocurrency and artificial intelligence (AI) have been heralded as saviors of economic opportunity, promising to enfranchise communities across the globe. But beneath the surface lies a shadow: the same oppressive forces entrenched by colonialism are being re-calibrated for the 21st Century and let loose in increasingly complicated systems.
 
-These forces are diametrically opposed to the traditional [[2023/hacker-culture|hacker-culture]] that birthed many of the technological underpinnings of these innovations- and we must return them to their roots.
+These forces are diametrically opposed to the traditional [2023/hacker-culture|hacker-cultur](2023/hacker-culture|hacker-cultur)e]] that birthed many of the technological underpinnings of these innovations- and we must return them to their roots.
 
 ### Hoarding knowledge and technology
 
@@ -55,7 +55,7 @@ The commodification of human labor, which was a key feature of the colonial proj
 Cryptocurrency and machine learning algorithms are gaining traction and becoming increasingly sophisticated. As they spread and increase in complexity, they could potentially enable further subjugation of minority voices and entrench existing power dynamics that have been shaped by a long history of colonialism.
 
 >There is a centuries-long investment in research, development, and deployment of techniques to ensure that survival is only ever a right for some. This right for some, more often than not, is ensured at the expense of the self-determination and continuation of living for the overwhelming majority of the planet’s human population.
->[[reading/Grove-Savage Ecology|Grove-Savage Ecology]]
+>[reading/Grove-Savage Ecology|Grove-Savage Ecolog](reading/grove-savage-ecology|grove-savage-ecolog)y]]
 
 Crypto assets are created and traded predominantly by those with access to capital. Colonialism has historically relied on a system of control through economic exploitation, often enabled by technologies such as currency or infrastructure. The goal is always the same: extract as much economic value as possible.
 

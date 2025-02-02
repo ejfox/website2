@@ -1,6 +1,6 @@
 {
-  "content": "<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"step-1-basic-commit\">Step 1: Basic commit</h3>\n<pre class=\"prose-lg relative rounded-lg overflow-hidden shadow-sm\"><ruby class=\"\">git add -A<rt class=\"\">Stage all changes</rt></ruby> &#x26;&#x26; <ruby class=\"\">git commit -m \"Update\"<rt class=\"\">Commit with fixed message</rt></ruby></pre>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"step-2-interactive-commit-message\">Step 2: Interactive commit message</h3>\n<pre class=\"prose-lg relative rounded-lg overflow-hidden shadow-sm\"><ruby class=\"\">git add -A<rt class=\"\">Stage all changes</rt></ruby> &#x26;&#x26; <ruby class=\"\">read -p \"Commit message: \" msg<rt class=\"\">Get user input</rt></ruby> &#x26;&#x26; <ruby class=\"\">git commit -m \"$msg\"<rt class=\"\">Commit with input</rt></ruby></pre>\n<h4 class=\"\" id=\"step-3-llm-generated-messages\">Step 3: LLM-generated messages</h4>\n<pre class=\"prose-lg relative rounded-lg overflow-hidden shadow-sm\"><ruby class=\"\">git add -A<rt class=\"\">Stage all changes</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">diff=$(git diff --cached)<rt class=\"\">Get staged diff</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">msg=$(echo \"$diff\" | llm -m \"gpt-4o-mini\" -s \"Generate 5 commit messages\")<rt class=\"\">Ask LLM to generate 5 potential commit messages</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">echo \"$msg\"<rt class=\"\">Display messages</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">read -p \"Commit message: \" selected<rt class=\"\">User chooses</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">git commit -m \"$selected\"<rt class=\"\">Commit with choice</rt></ruby></pre>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"step-4-interactive-selection-with-fzf-final-version\">Step 4: Interactive selection with fzf (Final version)</h3>\n<pre class=\"prose-lg relative rounded-lg overflow-hidden shadow-sm\"><ruby class=\"\">git add -A<rt class=\"\">Stage all changes</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">diff=$(git diff --cached)<rt class=\"\">Get staged diff</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">msg=$(echo \"$diff\" | llm -m \"gpt-4o-mini\" -s \"Generate 5 commit messages\")<rt class=\"\">Generate 5 potential commit messages</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">selected=$(echo \"$msg\" | fzf --prompt=\"Pick a message:\")<rt class=\"\">Use fzf to let use interactively select which message</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">git commit -m \"$selected\"<rt class=\"\">Commit with selection</rt></ruby></pre>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"projects-worked-on\">Projects Worked On</h2>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"connectology\">Connectology</h3>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Working on getting my local demo switched over to using supabase for storing nodes, edges, and doing basic auth. Its been a real slog, all of that shit is actually really complicated, it turns out. But hopefully it will be easier the next time.</p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I’ve been trying to work on little joy-based details like animations, transitions, and helpful defaults but instead I am stuck recreating the basics with a remote database. Thats okay I guess. I think I need to be more disciplined in my refactors and how I spend my time.</p>",
-  "html": "<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"step-1-basic-commit\">Step 1: Basic commit</h3>\n<pre class=\"prose-lg relative rounded-lg overflow-hidden shadow-sm\"><ruby class=\"\">git add -A<rt class=\"\">Stage all changes</rt></ruby> &#x26;&#x26; <ruby class=\"\">git commit -m \"Update\"<rt class=\"\">Commit with fixed message</rt></ruby></pre>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"step-2-interactive-commit-message\">Step 2: Interactive commit message</h3>\n<pre class=\"prose-lg relative rounded-lg overflow-hidden shadow-sm\"><ruby class=\"\">git add -A<rt class=\"\">Stage all changes</rt></ruby> &#x26;&#x26; <ruby class=\"\">read -p \"Commit message: \" msg<rt class=\"\">Get user input</rt></ruby> &#x26;&#x26; <ruby class=\"\">git commit -m \"$msg\"<rt class=\"\">Commit with input</rt></ruby></pre>\n<h4 class=\"\" id=\"step-3-llm-generated-messages\">Step 3: LLM-generated messages</h4>\n<pre class=\"prose-lg relative rounded-lg overflow-hidden shadow-sm\"><ruby class=\"\">git add -A<rt class=\"\">Stage all changes</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">diff=$(git diff --cached)<rt class=\"\">Get staged diff</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">msg=$(echo \"$diff\" | llm -m \"gpt-4o-mini\" -s \"Generate 5 commit messages\")<rt class=\"\">Ask LLM to generate 5 potential commit messages</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">echo \"$msg\"<rt class=\"\">Display messages</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">read -p \"Commit message: \" selected<rt class=\"\">User chooses</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">git commit -m \"$selected\"<rt class=\"\">Commit with choice</rt></ruby></pre>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"step-4-interactive-selection-with-fzf-final-version\">Step 4: Interactive selection with fzf (Final version)</h3>\n<pre class=\"prose-lg relative rounded-lg overflow-hidden shadow-sm\"><ruby class=\"\">git add -A<rt class=\"\">Stage all changes</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">diff=$(git diff --cached)<rt class=\"\">Get staged diff</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">msg=$(echo \"$diff\" | llm -m \"gpt-4o-mini\" -s \"Generate 5 commit messages\")<rt class=\"\">Generate 5 potential commit messages</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">selected=$(echo \"$msg\" | fzf --prompt=\"Pick a message:\")<rt class=\"\">Use fzf to let use interactively select which message</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">git commit -m \"$selected\"<rt class=\"\">Commit with selection</rt></ruby></pre>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"projects-worked-on\">Projects Worked On</h2>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"connectology\">Connectology</h3>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Working on getting my local demo switched over to using supabase for storing nodes, edges, and doing basic auth. Its been a real slog, all of that shit is actually really complicated, it turns out. But hopefully it will be easier the next time.</p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I’ve been trying to work on little joy-based details like animations, transitions, and helpful defaults but instead I am stuck recreating the basics with a remote database. Thats okay I guess. I think I need to be more disciplined in my refactors and how I spend my time.</p>",
+  "content": "<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"2024-34\">2024-34</h2>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"step-1-basic-commit\">Step 1: Basic commit</h3>\n<pre class=\"prose-lg relative rounded-lg overflow-hidden shadow-sm\"><ruby class=\"\">git add -A<rt class=\"\">Stage all changes</rt></ruby> &#x26;&#x26; <ruby class=\"\">git commit -m \"Update\"<rt class=\"\">Commit with fixed message</rt></ruby></pre>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"step-2-interactive-commit-message\">Step 2: Interactive commit message</h3>\n<pre class=\"prose-lg relative rounded-lg overflow-hidden shadow-sm\"><ruby class=\"\">git add -A<rt class=\"\">Stage all changes</rt></ruby> &#x26;&#x26; <ruby class=\"\">read -p \"Commit message: \" msg<rt class=\"\">Get user input</rt></ruby> &#x26;&#x26; <ruby class=\"\">git commit -m \"$msg\"<rt class=\"\">Commit with input</rt></ruby></pre>\n<h4 class=\"\" id=\"step-3-llm-generated-messages\">Step 3: LLM-generated messages</h4>\n<pre class=\"prose-lg relative rounded-lg overflow-hidden shadow-sm\"><ruby class=\"\">git add -A<rt class=\"\">Stage all changes</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">diff=$(git diff --cached)<rt class=\"\">Get staged diff</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">msg=$(echo \"$diff\" | llm -m \"gpt-4o-mini\" -s \"Generate 5 commit messages\")<rt class=\"\">Ask LLM to generate 5 potential commit messages</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">echo \"$msg\"<rt class=\"\">Display messages</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">read -p \"Commit message: \" selected<rt class=\"\">User chooses</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">git commit -m \"$selected\"<rt class=\"\">Commit with choice</rt></ruby></pre>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"step-4-interactive-selection-with-fzf-final-version\">Step 4: Interactive selection with fzf (Final version)</h3>\n<pre class=\"prose-lg relative rounded-lg overflow-hidden shadow-sm\"><ruby class=\"\">git add -A<rt class=\"\">Stage all changes</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">diff=$(git diff --cached)<rt class=\"\">Get staged diff</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">msg=$(echo \"$diff\" | llm -m \"gpt-4o-mini\" -s \"Generate 5 commit messages\")<rt class=\"\">Generate 5 potential commit messages</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">selected=$(echo \"$msg\" | fzf --prompt=\"Pick a message:\")<rt class=\"\">Use fzf to let use interactively select which message</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">git commit -m \"$selected\"<rt class=\"\">Commit with selection</rt></ruby></pre>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"projects-worked-on\">Projects Worked On</h2>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"connectology\">Connectology</h3>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Working on getting my local demo switched over to using supabase for storing nodes, edges, and doing basic auth. Its been a real slog, all of that shit is actually really complicated, it turns out. But hopefully it will be easier the next time.</p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I’ve been trying to work on little joy-based details like animations, transitions, and helpful defaults but instead I am stuck recreating the basics with a remote database. Thats okay I guess. I think I need to be more disciplined in my refactors and how I spend my time.</p>",
+  "html": "<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"2024-34\">2024-34</h2>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"step-1-basic-commit\">Step 1: Basic commit</h3>\n<pre class=\"prose-lg relative rounded-lg overflow-hidden shadow-sm\"><ruby class=\"\">git add -A<rt class=\"\">Stage all changes</rt></ruby> &#x26;&#x26; <ruby class=\"\">git commit -m \"Update\"<rt class=\"\">Commit with fixed message</rt></ruby></pre>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"step-2-interactive-commit-message\">Step 2: Interactive commit message</h3>\n<pre class=\"prose-lg relative rounded-lg overflow-hidden shadow-sm\"><ruby class=\"\">git add -A<rt class=\"\">Stage all changes</rt></ruby> &#x26;&#x26; <ruby class=\"\">read -p \"Commit message: \" msg<rt class=\"\">Get user input</rt></ruby> &#x26;&#x26; <ruby class=\"\">git commit -m \"$msg\"<rt class=\"\">Commit with input</rt></ruby></pre>\n<h4 class=\"\" id=\"step-3-llm-generated-messages\">Step 3: LLM-generated messages</h4>\n<pre class=\"prose-lg relative rounded-lg overflow-hidden shadow-sm\"><ruby class=\"\">git add -A<rt class=\"\">Stage all changes</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">diff=$(git diff --cached)<rt class=\"\">Get staged diff</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">msg=$(echo \"$diff\" | llm -m \"gpt-4o-mini\" -s \"Generate 5 commit messages\")<rt class=\"\">Ask LLM to generate 5 potential commit messages</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">echo \"$msg\"<rt class=\"\">Display messages</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">read -p \"Commit message: \" selected<rt class=\"\">User chooses</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">git commit -m \"$selected\"<rt class=\"\">Commit with choice</rt></ruby></pre>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"step-4-interactive-selection-with-fzf-final-version\">Step 4: Interactive selection with fzf (Final version)</h3>\n<pre class=\"prose-lg relative rounded-lg overflow-hidden shadow-sm\"><ruby class=\"\">git add -A<rt class=\"\">Stage all changes</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">diff=$(git diff --cached)<rt class=\"\">Get staged diff</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">msg=$(echo \"$diff\" | llm -m \"gpt-4o-mini\" -s \"Generate 5 commit messages\")<rt class=\"\">Generate 5 potential commit messages</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">selected=$(echo \"$msg\" | fzf --prompt=\"Pick a message:\")<rt class=\"\">Use fzf to let use interactively select which message</rt></ruby> &#x26;&#x26;\n<ruby class=\"\">git commit -m \"$selected\"<rt class=\"\">Commit with selection</rt></ruby></pre>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"projects-worked-on\">Projects Worked On</h2>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"connectology\">Connectology</h3>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Working on getting my local demo switched over to using supabase for storing nodes, edges, and doing basic auth. Its been a real slog, all of that shit is actually really complicated, it turns out. But hopefully it will be easier the next time.</p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I’ve been trying to work on little joy-based details like animations, transitions, and helpful defaults but instead I am stuck recreating the basics with a remote database. Thats okay I guess. I think I need to be more disciplined in my refactors and how I spend my time.</p>",
   "title": "2024-34",
   "metadata": {
     "tags": [
@@ -16,59 +16,47 @@
     "modified": "2024-10-14T23:49:12.000Z",
     "date": "2024-08-20T15:12:56.000Z",
     "dek": "In which the protagonist grapples with the complexities of integrating with Supabase for Connectology, seeking joy in details amidst the challenge.",
-    "robotsMeta": null,
-    "title": "2024-34",
+    "words": 259,
+    "images": 0,
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 2,
+      "h3": 4,
+      "h4": 1
+    },
     "toc": [
       {
-        "text": "2024-34",
-        "slug": "2024-34",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Step 1: Basic commit",
-            "slug": "step-1-basic-commit",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Step 2: Interactive commit message",
-            "slug": "step-2-interactive-commit-message",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Step 4: Interactive selection with fzf (Final version)",
-            "slug": "step-4-interactive-selection-with-fzf-final-version",
-            "level": "h3",
-            "children": []
-          }
-        ]
+        "depth": 2,
+        "text": "2024-34"
       },
       {
-        "text": "Projects Worked On",
-        "slug": "projects-worked-on",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Connectology",
-            "slug": "connectology",
-            "level": "h3",
-            "children": []
-          }
-        ]
+        "depth": 3,
+        "text": "Step 1: Basic commit"
+      },
+      {
+        "depth": 3,
+        "text": "Step 2: Interactive commit message"
+      },
+      {
+        "depth": 4,
+        "text": "Step 3: LLM-generated messages"
+      },
+      {
+        "depth": 3,
+        "text": "Step 4: Interactive selection with fzf (Final version)"
+      },
+      {
+        "depth": 2,
+        "text": "Projects Worked On"
+      },
+      {
+        "depth": 3,
+        "text": "Connectology"
       }
     ],
-    "wordCount": 259,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 0,
-    "hidden": false,
     "type": "post",
-    "visibility": {
-      "isHidden": false,
-      "isShared": false,
-      "isSpecialSection": false,
-      "isIndex": false
-    }
+    "sourcePath": "../../../../../code/website2/content/blog/week-notes/2024-34.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

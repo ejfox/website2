@@ -18,8 +18,13 @@
       "coding"
     ],
     "modified": "2024-09-23T16:13:04.000Z",
-    "robotsMeta": "noindex",
-    "title": "Generative Music Iteration",
+    "words": 302,
+    "images": 0,
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 1
+    },
     "toc": [
       {
         "text": "Generative Music Iteration",
@@ -47,15 +52,7 @@
         ]
       }
     ],
-    "wordCount": 302,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 0,
-    "visibility": {
-      "isHidden": true,
-      "isShared": false,
-      "isSpecialSection": false,
-      "isIndex": false
-    }
+    "sourcePath": "../../../../../code/website2/content/blog/2019/generative-music-iteration.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

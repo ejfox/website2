@@ -16,7 +16,7 @@ By sharply focusing on core essentials and vigorously eradicating unnecessary di
 
 My adherence to Design Thinking guarantees that user needs guide my designs, whereas my minimalist inclinations work to keep the experience straightforward and uncluttered. I see constraints not as barriers, but as springboards for creative solutions, and I thrive with short feedback loops and tight deadlines.
 
-See also [[how-to-run-a-project]] and [[joy-driven-development]]
+See also [how-to-run-a-projec](how-to-run-a-projec)t]] and [joy-driven-developmen](joy-driven-developmen)t]]
 
 ### Simplicity & Minimalism
 

@@ -20,6 +20,7 @@ import remarkGfm from 'remark-gfm'
 import remarkUnwrapImages from 'remark-unwrap-images'
 import rehypeMermaid from 'rehype-mermaid'
 import rehypePrettyCode from 'rehype-pretty-code'
+import { visit } from 'unist-util-visit'
 
 import { dirs } from '../config.mjs'
 
@@ -35,6 +36,7 @@ const WHITELISTED_FOLDERS = [
   'reading',
   'projects',
   'prompts',
+  'drafts',
   '2025',
   '2024',
   '2023',
@@ -87,6 +89,21 @@ function getWeekNoteDate(slug) {
   return new Date().toISOString()
 }
 
+// Add a pre-processor for wiki links
+function fixWikiLinks(content) {
+  // Fix malformed wiki links
+  content = content.replace(/\[\[([^\]]+)(?!\]\])/g, '[[$1]]')
+
+  // Convert wiki links to markdown links
+  content = content.replace(/\[\[([^\]]+)\]\]/g, (match, p1) => {
+    const linkText = p1.trim()
+    const url = linkText.toLowerCase().replace(/\s+/g, '-')
+    return `[${linkText}](${url})`
+  })
+
+  return content
+}
+
 // Process a single file
 async function processFile(filePath, isDryRun = false) {
   const relativePath = path.relative(SOURCE_DIR, filePath)
@@ -116,10 +133,10 @@ async function processFile(filePath, isDryRun = false) {
     linkCount: (markdown.match(/\[.*?\]\(.*?\)/g) || []).length
   }
 
-  // Handle share flag for drafts and robot posts
-  const isInDraftsFolder = relativePath.includes('drafts/')
+  // Handle share flag - drafts don't need share: true
+  const isInDraftsFolder = relativePath.startsWith('drafts/')
   const isRobotPost = metadata.type === 'robot'
-  const needsShareFlag = isInDraftsFolder || isRobotPost
+  const needsShareFlag = isRobotPost // Only robots need share flag now
   metadata.share = needsShareFlag ? frontmatter.share === true : true
 
   // Skip private content
@@ -135,6 +152,9 @@ async function processFile(filePath, isDryRun = false) {
   }
 
   if (!isDryRun) {
+    // Pre-process content to fix wiki links
+    const fixedContent = fixWikiLinks(content)
+
     // Save processed file
     const outputPath = path.join(dirs.content, relativePath)
     const isNew = !(await fs
@@ -143,7 +163,7 @@ async function processFile(filePath, isDryRun = false) {
       .catch(() => false))
 
     await fs.mkdir(path.dirname(outputPath), { recursive: true })
-    await fs.writeFile(outputPath, content)
+    await fs.writeFile(outputPath, fixedContent)
 
     if (isNew) {
       console.log(chalk.green(`  Added new file: ${metadata.slug}`))
@@ -244,6 +264,21 @@ async function main() {
       console.log(`${type}: ${count}`)
     })
     console.log(`Hidden/Skipped: ${stats.filesSkipped.length}`)
+
+    // Add new files report
+    if (stats.filesAdded.length > 0) {
+      console.log('\nNew/Updated Files:')
+      console.log('----------------')
+      stats.filesAdded.forEach((file) => {
+        const relativePath = path.relative(dirs.content, file)
+        const type = getPostType(relativePath)
+        console.log(chalk.green(`${type.padEnd(8)}`), chalk.blue(relativePath))
+      })
+    }
+
+    // Duration report
+    const duration = ((Date.now() - stats.startTime) / 1000).toFixed(1)
+    console.log(chalk.gray(`\nCompleted in ${duration}s`))
 
     if (stats.errors.length > 0) {
       console.log(chalk.yellow(`\nWarnings/Errors: ${stats.errors.length}`))

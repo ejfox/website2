@@ -24,7 +24,7 @@ I've been playing with GPT and Large Language Models since my friend Dan first s
 
 From then on I was hooked, and would occasionally intersperse my doomscrolling with talking to the robot and trying to get it to generate different things.
 
-Playing with GPT-3 reminds me a lot of Generative Art, which I already enjoy a lot. [[2021/creative-coding|creative-coding]]
+Playing with GPT-3 reminds me a lot of Generative Art, which I already enjoy a lot. [2021/creative-coding|creative-codin](2021/creative-coding|creative-codin)g]]
 
 I dug up my first tweet mentioning GPT-3 from October 2020: [For my own curiosity, this is the result of prompting GPT-3 to create a conspiracy theory (via AI Dungeon) (first paragraph is prompt)](https://twitter.com/mrejfox/status/1319716459187261441)
 
@@ -129,4 +129,4 @@ It is really surprising how effective GPT-4 is at acting as any character you gi
 
 [You can also follow Coach Artie on Twitter](https://twitter.com/ai_coachartie) if he is ever allowed to tweet (application pending as of March 2023)
 
-[[how-i-use-gpt3]]
+[how-i-use-gpt](how-i-use-gpt)3]]

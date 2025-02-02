@@ -1,85 +1,149 @@
 <template>
   <div class="w-full text-sm text-zinc-600 dark:text-zinc-400 flex flex-wrap items-center gap-x-4 gap-y-2 monospace">
-    <!-- we wanna include the folder name here -->
-    <span class="flex items-center metadata-item text-xs tracking-widest" ref="folderRef" v-if="doc.slug">
+    <!-- Debug output -->
+    <pre v-if="false" class="whitespace-pre-wrap text-xs">{{ metadata }}</pre>
+
+    <!-- Folder name -->
+    <span class="flex items-center metadata-item text-xs tracking-widest" ref="folderRef" v-if="metadata.slug">
       <!-- <UIcon name="bi:folder" class="mr-2 text-zinc-400 dark:text-zinc-600" /> -->
 
-      /{{ doc.slug.split('/')[0] }}/
+      /{{ metadata.slug.split('/')[0] }}/
     </span>
 
     <!-- <pre>{{ doc }}</pre> -->
 
     <!-- Draft status -->
-    <span v-if="doc.draft" class="flex items-center text-red-500 dark:text-red-400 sans-serif metadata-item"
+    <span v-if="metadata.draft" class="flex items-center text-red-500 dark:text-red-400 sans-serif metadata-item"
       ref="draftRef">
       <UIcon name="bi:file-earmark-text" class="mr-2 text-red-400 dark:text-red-600" />
       Draft, please do not publish, changes expected
     </span>
 
     <!-- Date -->
-    <span v-if="doc.date" class="flex items-center metadata-item" :title="formatRelativeTime(doc.date)" ref="dateRef">
+    <span v-if="metadata.date" class="flex items-center metadata-item" :title="formatRelativeTime(metadata.date)" ref="dateRef">
       <UIcon name="ant-design:calendar-outlined" class="mr-2 text-zinc-400 dark:text-zinc-600" />
-      <time>{{ formatBlogDate(new Date(doc.date)) }}</time>
+      <time>{{ formatBlogDate(new Date(metadata.date)) }}</time>
     </span>
 
-
-
-
     <!-- Reading Time -->
-    <span v-if="doc.readingTime > 1" class="flex items-center metadata-item" ref="readingTimeRef">
+    <span v-if="metadata.readingTime" class="flex items-center metadata-item" ref="readingTimeRef">
       <UIcon name="bi:clock-history" class="mr-2 text-zinc-400 dark:text-zinc-600" />
-      {{ doc.readingTime }} min read
+      {{ metadata.readingTime }} {{ metadata.readingTime === 1 ? 'min' : 'mins' }} read
     </span>
 
     <!-- Word Count -->
-    <span v-if="doc.wordCount > 100" class="flex items-center metadata-item" ref="wordCountRef">
+    <span v-if="metadata.wordCount" class="flex items-center metadata-item" ref="wordCountRef">
       <UIcon name="bi:card-text" class="mr-2 text-zinc-400 dark:text-zinc-600" />
-      {{ formatNumber(doc.wordCount) }} words
+      {{ formatNumber(metadata.wordCount) }} words
     </span>
 
     <!-- Image Count -->
-    <span v-if="doc.imageCount > 0" class="flex items-center metadata-item" ref="imageCountRef">
+    <span v-if="metadata.imageCount" class="flex items-center metadata-item" ref="imageCountRef">
       <UIcon name="ant-design:camera-filled" class="mr-2 text-zinc-400 dark:text-zinc-600" />
-      {{ doc.imageCount }} images
+      {{ metadata.imageCount }} {{ metadata.imageCount === 1 ? 'image' : 'images' }}
     </span>
 
     <!-- Link Count -->
-    <span v-if="doc.linkCount > 1" class="flex items-center metadata-item" ref="linkCountRef">
+    <span v-if="metadata.linkCount" class="flex items-center metadata-item" ref="linkCountRef">
       <UIcon name="bi:link" class="mr-2 text-zinc-400 dark:text-zinc-600" />
-      {{ doc.linkCount }} links
+      {{ metadata.linkCount }} {{ metadata.linkCount === 1 ? 'link' : 'links' }}
     </span>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { format } from 'd3-format'
 import { timeFormat } from 'd3-time-format'
 import { formatDistanceToNow } from 'date-fns'
 import { useScrollAnimation } from '~/composables/useScrollAnimation'
-import { nextTick, ref } from 'vue'
+import { nextTick, ref, computed } from 'vue'
+
+interface PostMetadata {
+  title?: string
+  date?: string | Date
+  draft?: boolean
+  readingTime?: number
+  wordCount?: number
+  imageCount?: number
+  linkCount?: number
+  words?: number
+  images?: number
+  links?: number
+  dek?: string
+  slug?: string
+}
+
+interface Post {
+  slug?: string
+  title?: string
+  date?: string | Date
+  draft?: boolean
+  readingTime?: number
+  wordCount?: number
+  imageCount?: number
+  linkCount?: number
+  dek?: string
+  metadata?: PostMetadata
+}
 
 const { slideUp } = useScrollAnimation()
 
-const props = defineProps({
-  doc: {
-    type: Object,
-    required: true,
-  },
-})
+const props = defineProps<{
+  doc: Post
+}>()
 
 // Refs for animation targets
-const draftRef = ref(null)
-const dateRef = ref(null)
-const readingTimeRef = ref(null)
-const wordCountRef = ref(null)
-const imageCountRef = ref(null)
-const linkCountRef = ref(null)
-const folderRef = ref(null)
+const draftRef = ref<HTMLElement | null>(null)
+const dateRef = ref<HTMLElement | null>(null)
+const readingTimeRef = ref<HTMLElement | null>(null)
+const wordCountRef = ref<HTMLElement | null>(null)
+const imageCountRef = ref<HTMLElement | null>(null)
+const linkCountRef = ref<HTMLElement | null>(null)
+const folderRef = ref<HTMLElement | null>(null)
 
 const formatNumber = format(',d')
 const formatBlogDate = timeFormat('%b %d %Y')
 
-const formatRelativeTime = (date) => {
+// Computed properties to handle both old and new metadata formats
+const metadata = computed(() => {
+  const baseData = props.doc || {}
+  const metaData = props.doc?.metadata || {}
+  
+  // Detailed debug logging
+  console.group('PostMetadata Debug')
+  console.log('Raw doc:', props.doc)
+  console.log('Base data:', baseData)
+  console.log('Metadata:', metaData)
+  
+  const computedMetadata = {
+    ...baseData,
+    ...metaData,
+    // Handle both old and new property names
+    readingTime: Math.ceil((metaData.words || baseData.wordCount || 0) / 200), // Estimate reading time from word count
+    wordCount: metaData.words || baseData.wordCount || 0,
+    imageCount: metaData.images || baseData.imageCount || 0,
+    linkCount: metaData.links || baseData.linkCount || 0,
+    date: metaData.date || baseData.date,
+    draft: metaData.draft || baseData.draft || false,
+    slug: metaData.slug || baseData.slug || '',
+    dek: metaData.dek || baseData.dek || ''
+  }
+  
+  console.log('Computed metadata:', {
+    readingTime: computedMetadata.readingTime,
+    wordCount: computedMetadata.wordCount,
+    imageCount: computedMetadata.imageCount,
+    linkCount: computedMetadata.linkCount,
+    date: computedMetadata.date,
+    draft: computedMetadata.draft,
+    slug: computedMetadata.slug
+  })
+  console.groupEnd()
+
+  return computedMetadata
+})
+
+const formatRelativeTime = (date: string | Date) => {
   try {
     return formatDistanceToNow(new Date(date), { addSuffix: true })
   } catch (error) {

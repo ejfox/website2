@@ -15,7 +15,7 @@ tags:
 
 Developing film is an essential part of the analog photography workflow. Whether you're an experienced enthusiast or a beginner, being aware of film development techniques is critical to achieving beautiful prints. In this post, I'll walk you through how I develop my 35mm Black and White film.
 
-For more on cameras see [[camera-setup]]
+For more on cameras see [camera-setu](camera-setu)p]]
 
 ### Film I shoot
 - Tri-X 400
@@ -33,7 +33,7 @@ Once you've accumulated 2 matching rolls (no mixing!), the fun can begin:
 
 #### Loading rolls onto film holder
 
-1. Get all materials set up [[step-zero]] and arranged
+1. Get all materials set up [step-zer](step-zer)o]] and arranged
 2. Put everything inside dark bag
 3. Open up 35mm rolls of film
 4. Cut the ends off and load them onto the plastic film holders

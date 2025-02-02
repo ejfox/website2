@@ -15,8 +15,13 @@
     "modified": "2024-10-14T23:51:50.000Z",
     "date": "2022-12-26T16:57:44.000Z",
     "dek": "In which the author diligently works on multiple projects, explores new creative techniques, achieves technical accomplishments, and focuses on personal well-being and future goals.",
-    "robotsMeta": null,
-    "title": "🌟 Overview of the Week",
+    "words": 376,
+    "images": 0,
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 8
+    },
     "toc": [
       {
         "text": "🌟 Overview of the Week",
@@ -67,17 +72,8 @@
         "children": []
       }
     ],
-    "wordCount": 376,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 0,
-    "hidden": false,
     "type": "post",
-    "visibility": {
-      "isHidden": false,
-      "isShared": false,
-      "isSpecialSection": false,
-      "isIndex": false
-    }
+    "sourcePath": "../../../../../code/website2/content/blog/week-notes/2024-19.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

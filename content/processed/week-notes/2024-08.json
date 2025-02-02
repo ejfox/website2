@@ -1,6 +1,6 @@
 {
-  "content": "<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">launched new studio site</li>\n<li class=\"prose-lg max-w-prose\">Worked on Electology plans</li>\n<li class=\"prose-lg max-w-prose\">Went to the gym, got first personal training session</li>\n</ul>",
-  "html": "<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">launched new studio site</li>\n<li class=\"prose-lg max-w-prose\">Worked on Electology plans</li>\n<li class=\"prose-lg max-w-prose\">Went to the gym, got first personal training session</li>\n</ul>",
+  "content": "<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"-overview-of-the-week\">🌟 Overview of the Week</h2>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">launched new studio site</li>\n<li class=\"prose-lg max-w-prose\">Worked on Electology plans</li>\n<li class=\"prose-lg max-w-prose\">Went to the gym, got first personal training session</li>\n</ul>",
+  "html": "<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"-overview-of-the-week\">🌟 Overview of the Week</h2>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">launched new studio site</li>\n<li class=\"prose-lg max-w-prose\">Worked on Electology plans</li>\n<li class=\"prose-lg max-w-prose\">Went to the gym, got first personal training session</li>\n</ul>",
   "title": "🌟 Overview of the Week",
   "metadata": {
     "tags": [
@@ -11,27 +11,21 @@
     "date": "2022-12-26T16:57:44.000Z",
     "modified": "2024-10-14T23:52:00.000Z",
     "dek": "In which the author unveils a new studio site, delves into Electology plans, and experiences their first personal training session at the gym.",
-    "robotsMeta": null,
-    "title": "🌟 Overview of the Week",
+    "words": 28,
+    "images": 0,
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 1
+    },
     "toc": [
       {
-        "text": "🌟 Overview of the Week",
-        "slug": "overview-of-the-week",
-        "level": "h2",
-        "children": []
+        "depth": 2,
+        "text": "🌟 Overview of the Week"
       }
     ],
-    "wordCount": 28,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0,
-    "hidden": false,
     "type": "post",
-    "visibility": {
-      "isHidden": false,
-      "isShared": false,
-      "isSpecialSection": false,
-      "isIndex": false
-    }
+    "sourcePath": "../../../../../code/website2/content/blog/week-notes/2024-08.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

@@ -14,8 +14,13 @@
       "writing",
       "health"
     ],
-    "robotsMeta": "noindex",
-    "title": "My Morning Routine and Daily Rituals",
+    "words": 537,
+    "images": 0,
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 1
+    },
     "toc": [
       {
         "text": "My Morning Routine and Daily Rituals",
@@ -85,17 +90,8 @@
         ]
       }
     ],
-    "wordCount": 537,
-    "readingTime": 3,
-    "imageCount": 0,
-    "linkCount": 0,
-    "hidden": false,
     "type": "post",
-    "visibility": {
-      "isHidden": false,
-      "isShared": false,
-      "isSpecialSection": false,
-      "isIndex": false
-    }
+    "sourcePath": "../../../../../code/website2/content/blog/2022/morning-routine-daily-rituals.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

@@ -1,0 +1,36 @@
+{
+  "content": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">#cooking</p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\"><a href=\"cookin\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">cookin</a>g]]</p>",
+  "html": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">#cooking</p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\"><a href=\"cookin\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">cookin</a>g]]</p>",
+  "title": "Cooking: Ramen",
+  "metadata": {
+    "draft": true,
+    "dek": "In which",
+    "inprogress": true,
+    "date": "2022-11-03T00:45:40.000Z",
+    "modified": "2024-07-18T18:43:36.000Z",
+    "hidden": true,
+    "tags": [
+      "food",
+      "recipe",
+      "cooking"
+    ],
+    "words": 7,
+    "images": 0,
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "Cooking: Ramen",
+        "slug": "cooking-ramen",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/drafts/cooking-ramen-experiments.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

@@ -16,8 +16,13 @@
     "modified": "2024-10-14T23:49:12.000Z",
     "date": "2024-08-20T15:12:56.000Z",
     "dek": "In which the protagonist grapples with the complexities of integrating with Supabase for Connectology, seeking joy in details amidst the challenge.",
-    "robotsMeta": null,
-    "title": "2024-34",
+    "words": 259,
+    "images": 0,
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 2
+    },
     "toc": [
       {
         "text": "2024-34",
@@ -58,17 +63,8 @@
         ]
       }
     ],
-    "wordCount": 259,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 0,
-    "hidden": false,
     "type": "post",
-    "visibility": {
-      "isHidden": false,
-      "isShared": false,
-      "isSpecialSection": false,
-      "isIndex": false
-    }
+    "sourcePath": "../../../../../code/website2/content/blog/week-notes/2024-34.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

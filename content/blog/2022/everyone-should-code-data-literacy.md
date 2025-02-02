@@ -15,7 +15,7 @@ tags:
 
 ## Why I think everyone should learn to code
 
-![[1312706448_An_award_winning_lineart_illustration_of_a_student_coding_on_a_laptop__programming_language_syntax_i.png]]
+![1312706448_An_award_winning_lineart_illustration_of_a_student_coding_on_a_laptop__programming_language_syntax_i.pn](1312706448_an_award_winning_lineart_illustration_of_a_student_coding_on_a_laptop__programming_language_syntax_i.pn)g]]
 
 ### Defining computer literacy
 
@@ -25,7 +25,7 @@ You can gain a lot of this through intuition. The best way to learn is to accomp
 
 It is not remembering the name of obscure tools, functions, or frameworks.
 
-[[drafts/approach-to-learning]]
+[drafts/approach-to-learnin](drafts/approach-to-learnin)g]]
 
 ### Learning to google “Magic Words”
 
@@ -39,7 +39,7 @@ Sometimes I will find myself doing an arduous and repetitive task. When I find m
 
 ### Communicating with Artificial Intelligence
 
-See [[how-i-use-gpt3]] and [[how-i-use-stable-diffusion]] for more.
+See [how-i-use-gpt](how-i-use-gpt)3]] and [how-i-use-stable-diffusio](how-i-use-stable-diffusio)n]] for more.
 
 ### Appreciating the “I can do that” moments
 
@@ -51,7 +51,7 @@ You start to see automation possibilities everywhere. You can make a computer do
 
 With coding, you have the ability to define the world around you. In a very real sense, you can make the world work the way you want it to.
 
-Of course, you can’t do everything, but the ability to code gives you a lot of power to shape the world to your liking. [[the-internet-was-built-to-be-hacked]]
+Of course, you can’t do everything, but the ability to code gives you a lot of power to shape the world to your liking. [the-internet-was-built-to-be-hacke](the-internet-was-built-to-be-hacke)d]]
 
 ### Making your work easier
 
@@ -67,4 +67,4 @@ Coding skills are in high demand. Or they can help you start your own business. 
 
 Once you have learned to code, you have a set of tools at your disposal that can be utilized for a wide range of tasks. From data analysis to web development, the possibilities are endless.
 
-From there you can build a computer setup (like [[computer-setup]]) that has your tools ready to go for when you get an idea for a project.
+From there you can build a computer setup (like [computer-setu](computer-setu)p]]) that has your tools ready to go for when you get an idea for a project.

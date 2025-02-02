@@ -5,8 +5,13 @@
   "metadata": {
     "date": "2024-11-24T21:21:49.000Z",
     "modified": "2025-01-24T15:31:03.000Z",
-    "robotsMeta": null,
-    "title": "date: 2024-11-24T16:21:49-05:00\nmodified: 2024-11-24T16:53:08-05:00",
+    "words": 592,
+    "images": 0,
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 2
+    },
     "toc": [
       {
         "text": "date: 2024-11-24T16:21:49-05:00\nmodified: 2024-11-24T16:53:08-05:00",
@@ -58,17 +63,8 @@
         ]
       }
     ],
-    "wordCount": 592,
-    "readingTime": 3,
-    "imageCount": 0,
-    "linkCount": 0,
-    "hidden": false,
     "type": "post",
-    "visibility": {
-      "isHidden": false,
-      "isShared": false,
-      "isSpecialSection": false,
-      "isIndex": false
-    }
+    "sourcePath": "../../../../../code/website2/content/blog/prompts/room302-dev-team.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

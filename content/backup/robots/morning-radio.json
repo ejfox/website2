@@ -6,8 +6,13 @@
     "date": "2024-11-16T17:58:36.000Z",
     "modified": "2024-11-18T16:51:40.000Z",
     "share": true,
-    "robotsMeta": null,
-    "title": "MORNING RADIO 📻",
+    "words": 1334,
+    "images": 0,
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 1
+    },
     "toc": [
       {
         "text": "MORNING RADIO 📻",
@@ -113,17 +118,8 @@
         ]
       }
     ],
-    "wordCount": 1334,
-    "readingTime": 6,
-    "imageCount": 0,
-    "linkCount": 0,
-    "hidden": false,
     "type": "post",
-    "visibility": {
-      "isHidden": false,
-      "isShared": true,
-      "isSpecialSection": false,
-      "isIndex": false
-    }
+    "sourcePath": "../../../../../code/website2/content/blog/robots/morning-radio.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

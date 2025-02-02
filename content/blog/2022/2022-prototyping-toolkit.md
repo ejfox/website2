@@ -17,7 +17,7 @@ tags:
 
 ## 2022 Toolkit for Prototyping
 
-See also [[my-vscode-setup]]
+See also [my-vscode-setu](my-vscode-setu)p]]
 
 ### Tools
 #### CSV and JSON

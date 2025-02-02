@@ -10,8 +10,13 @@
     ],
     "modified": "2024-10-29T18:22:08.000Z",
     "date": "2024-10-28T15:50:44.000Z",
-    "robotsMeta": null,
-    "title": "2024-44",
+    "words": 233,
+    "images": 0,
+    "links": 0,
+    "codeBlocks": 1,
+    "headers": {
+      "h2": 1
+    },
     "toc": [
       {
         "text": "2024-44",
@@ -63,17 +68,8 @@
         ]
       }
     ],
-    "wordCount": 233,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 0,
-    "hidden": false,
     "type": "post",
-    "visibility": {
-      "isHidden": false,
-      "isShared": false,
-      "isSpecialSection": false,
-      "isIndex": false
-    }
+    "sourcePath": "../../../../../code/website2/content/blog/week-notes/2024-44.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

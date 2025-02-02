@@ -1,9 +1,8 @@
 import { visit } from 'unist-util-visit'
-import { createClient } from '@supabase/supabase-js'
-import NodeCache from 'node-cache'
 import fetch from 'node-fetch'
+import NodeCache from 'node-cache'
 
-// Cache for fetched icons to avoid duplicate requests
+// Cache for fetched icons
 const iconCache = new NodeCache({ stdTTL: 3600 })
 
 // Social platform icons mapping
@@ -70,165 +69,65 @@ const socialPlatforms = {
   'arxiv.org': 'cib:arxiv'
 }
 
-// Function to fetch SVG from Iconify API
-async function fetchIconSvg(iconName) {
-  const cacheKey = `icon:${iconName}`
-  if (iconCache.has(cacheKey)) {
-    return iconCache.get(cacheKey)
-  }
+const fetchIcon = async (name) => {
+  const cached = iconCache.get(name)
+  if (cached) return cached
 
   try {
-    const response = await fetch(`https://api.iconify.design/${iconName}.svg`)
-    if (!response.ok) throw new Error(`Failed to fetch icon: ${iconName}`)
-    const svg = await response.text()
-
-    // Add classes for proper sizing and alignment
-    const processedSvg = svg.replace(
+    const res = await fetch(`https://api.iconify.design/${name}.svg`)
+    const svg = await res.text()
+    const processed = svg.replace(
       '<svg',
       '<svg class="inline-block w-4 h-4 ml-1 opacity-50 group-hover:opacity-100 transition-opacity"'
     )
-    iconCache.set(cacheKey, processedSvg)
-    return processedSvg
-  } catch (error) {
-    console.error(`Error fetching icon ${iconName}:`, error)
+    iconCache.set(name, processed)
+    return processed
+  } catch {
     return null
   }
 }
 
-export function remarkEnhanceLinks(options = {}) {
-  const supabaseUrl = process.env.SUPABASE_URL
-  const supabaseKey = process.env.SUPABASE_KEY
-  const supabase = createClient(supabaseUrl, supabaseKey)
-
-  const scrapCache = new NodeCache({ stdTTL: 3600 })
-
-  // Add Amazon affiliate handling
-  function addAffiliateCode(url) {
-    try {
-      const urlObj = new URL(url)
-      if (urlObj.hostname.includes('amazon.com')) {
-        urlObj.searchParams.set('tag', 'ejfox0c-20')
-        return urlObj.toString()
-      }
-    } catch (e) {
-      console.error('Error processing Amazon URL:', e)
-    }
-    return url
-  }
-
-  async function loadScrapsIntoCache() {
-    if (scrapCache.has('scrapMap')) {
-      return scrapCache.get('scrapMap')
-    }
-
-    let { data: scraps, error } = await supabase
-      .from('scraps')
-      .select('scrap_id, metadata')
-
-    if (error) {
-      console.error('Error fetching scraps from Supabase:', error)
-      return {}
-    }
-
-    const scrapMap = {}
-    scraps.forEach((scrap) => {
-      const href = scrap.metadata?.href
-      if (href) {
-        scrapMap[href] = scrap
-      }
-    })
-
-    scrapCache.set('scrapMap', scrapMap)
-    return scrapMap
-  }
-
+export function remarkEnhanceLinks() {
   return async (tree) => {
-    const linkNodes = []
-    const iconPromises = []
+    const icons = []
 
-    // Collect link nodes
-    visit(tree, 'link', (node) => {
-      if (!node || typeof node !== 'object') return
-      if (node.url === null || node.url === undefined) {
-        node.url = ''
-        return
-      }
-      // Add affiliate code to Amazon links
-      node.url = addAffiliateCode(node.url)
-      linkNodes.push(node)
-    })
+    visit(tree, 'link', (node, index, parent) => {
+      // ONLY handle external http(s) links
+      if (!node?.url?.startsWith('http')) return
 
-    // Load scraps into cache if needed
-    if (!scrapCache.has('scrapMap')) {
+      // Add target="_blank" and class
+      node.data = node.data || {}
+      node.data.hProperties = node.data.hProperties || {}
+      node.data.hProperties.target = '_blank'
+      node.data.hProperties.rel = 'noopener noreferrer'
+      node.data.hProperties.class = 'external-link group'
+
+      // Try to add social icon
       try {
-        const scrapMap = await loadScrapsIntoCache()
-        scrapCache.set('scrapMap', scrapMap)
-      } catch (error) {
-        console.error('Error loading scraps:', error)
-        scrapCache.set('scrapMap', {})
-      }
-    }
+        const url = new URL(node.url)
+        const domain = url.hostname.toLowerCase()
 
-    const scrapMap = scrapCache.get('scrapMap')
-
-    // Process links
-    for (const node of linkNodes) {
-      try {
-        if (!node.url) continue
-
-        // Add scrap data if available
-        const scrap = scrapMap[node.url]
-        if (scrap) {
-          node.data = node.data || {}
-          node.data.hProperties = node.data.hProperties || {}
-          node.data.hProperties['data-scrap-id'] = scrap.scrap_id
-          if (scrap.metadata) {
-            node.data.hProperties['data-scrap-metadata'] = JSON.stringify(
-              scrap.metadata
-            )
-          }
-        }
-
-        // Add social platform icons
-        try {
-          const url = new URL(node.url)
-          const domain = url.hostname
-
-          for (const [platformDomain, icon] of Object.entries(
-            socialPlatforms
-          )) {
-            if (domain.includes(platformDomain)) {
-              // Add group class for hover effects
-              node.data = node.data || {}
-              node.data.hProperties = node.data.hProperties || {}
-              node.data.hProperties.className =
-                (node.data.hProperties.className || '') +
-                ' group inline-flex items-center'
-
-              // Create a promise to fetch and process the icon
-              const iconPromise = (async () => {
-                const svg = await fetchIconSvg(icon)
-                if (svg) {
-                  // Add the SVG as a child of the link
-                  node.children.push({
+        for (const [key, icon] of Object.entries(socialPlatforms)) {
+          if (domain === key || domain.endsWith(`.${key}`)) {
+            icons.push(
+              fetchIcon(icon).then((svg) => {
+                if (svg && parent?.children) {
+                  parent.children.splice(index + 1, 0, {
                     type: 'html',
                     value: svg
                   })
                 }
-              })()
-              iconPromises.push(iconPromise)
-              break
-            }
+              })
+            )
+            break
           }
-        } catch (e) {
-          // Not a valid URL, skip icon
         }
-      } catch (error) {
-        console.error(`Error enhancing link: ${error.message}`)
+      } catch (err) {
+        // Ignore URL parsing errors
       }
-    }
+    })
 
-    // Wait for all icon fetching to complete
-    await Promise.all(iconPromises)
+    await Promise.all(icons)
+    return tree
   }
 }

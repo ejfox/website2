@@ -38,7 +38,7 @@ Room 302 Studio will be regularly hosting events in the coming year that promote
 
 ### Membership Options
 
-In addition to our consulting services, we have set up an accessible Discord community that allows members to tap into the studio, engage in thought-provoking discussions, and start collaborating on projects that make a genuine difference. I am really trying to focus on creating a space and sparking collaborations that center joy: [[joy-driven-development]]
+In addition to our consulting services, we have set up an accessible Discord community that allows members to tap into the studio, engage in thought-provoking discussions, and start collaborating on projects that make a genuine difference. I am really trying to focus on creating a space and sparking collaborations that center joy: [joy-driven-developmen](joy-driven-developmen)t]]
 
 We offer two types of membership options depending on your needs:
 

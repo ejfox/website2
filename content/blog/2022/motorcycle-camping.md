@@ -140,10 +140,10 @@ Because no matter how much research and preparation goes into a journey there ar
 
 Now that you’ve got your gear and a plan in place, it’s time to start your journey! Even with the best-laid plans, things can still go wrong on the trail, and that’s all part of the fun.
 
-If you live in the Hudson Valley, check out [[hudson-valley-motorcycle-rides]] for some great spots to explore. Happy camping!
+If you live in the Hudson Valley, check out [hudson-valley-motorcycle-ride](hudson-valley-motorcycle-ride)s]] for some great spots to explore. Happy camping!
 
 ---
 
 #setup #motorcycle #travel
 
-[[reading/Thompson-Hells Angels]]
+[reading/Thompson-Hells Angel](reading/thompson-hells-angel)s]]

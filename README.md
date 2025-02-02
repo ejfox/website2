@@ -102,21 +102,59 @@ graph TD
    └── processed/        # Output JSON files
    ```
 
-2. **Frontmatter Options**
+2. **Metadata Structure**
+   ```javascript
+   // Processed JSON Structure
+   {
+     "content": "<article>HTML content here</article>",
+     "html": "<article>HTML content here</article>",
+     "title": "Post Title",
+     "metadata": {
+       // Required metadata
+       "date": "2024-01-01T00:00:00.000Z",
+       "modified": "2024-01-02T00:00:00.000Z",
+       "dek": "Post description",
+       "type": "post",
+       
+       // Stats (automatically calculated)
+       "words": 2077,        // Total word count
+       "images": 3,          // Number of images
+       "links": 6,           // Number of links
+       "codeBlocks": 0,      // Number of code blocks
+       
+       // Optional metadata
+       "tags": ["tag1", "tag2"],
+       "draft": false,       // If true, won't show in lists
+       "hidden": false,      // If true, won't be processed
+       "inprogress": false,  // If true, shows WIP badge
+       
+       // Table of contents (if headers exist)
+       "toc": [{
+         "depth": 2,
+         "text": "Heading"
+       }]
+     }
+   }
+   ```
+
+   **Important Notes:**
+   - All metadata MUST be inside the `metadata` object
+   - Reading time is calculated as `Math.ceil(words / 200)` words per minute
+   - Stats (words, images, links) are calculated automatically during processing
+   - Debug logs available in console under "PostMetadata Debug"
+
+3. **Frontmatter Format**
    ```yaml
    ---
    title: "Post Title"
    date: 2024-01-01
-   type: post          # Set automatically from directory
-   
-   # Optional Fields
-   description: "SEO description"
+   dek: "A clear, one-sentence description of the post"
    tags: ["tag1", "tag2"]
    
-   # Visibility
-   hidden: false      # Exclude from processing
-   share: true        # Required for drafts/robots
-   draft: false       # Process but don't display
+   # Optional flags
+   draft: false      # Process but don't display in lists
+   hidden: false     # Don't process at all
+   inprogress: true  # Show WIP badge
    ---
    ```
 

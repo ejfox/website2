@@ -21,7 +21,7 @@ This article aims to introduce the reader to the techniques used in live looping
 >To program a drumbeat is to align an external rhythmic device to an individual’s biorhythm.
 >Saul Williams [Williams-The Dead Emcee Scrolls](Williams-The%20Dead%20Emcee%20Scrolls.md)
 
-See also [[generative-music-iteration]]
+See also [generative-music-iteratio](generative-music-iteratio)n]]
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/trFeqgcHQ6A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 

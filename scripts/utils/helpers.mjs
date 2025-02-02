@@ -268,13 +268,14 @@ function getTitleFromFrontmatter(frontmatter, filePath = '') {
 }
 
 function getPostType(relativePath) {
+  // Check path prefixes first
   if (relativePath.startsWith('drafts/')) return 'draft'
   if (relativePath.startsWith('robots/')) return 'robot'
   if (relativePath.startsWith('week-notes/')) return 'weekNote'
   if (relativePath.startsWith('reading/')) return 'reading'
   if (relativePath.startsWith('projects/')) return 'project'
-  if (relativePath.startsWith('prompts/')) return 'prompt'
-  if (relativePath.startsWith('study-notes/')) return 'studyNote'
+
+  // Default to post
   return 'post'
 }
 

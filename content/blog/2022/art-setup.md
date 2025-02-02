@@ -17,7 +17,7 @@ tags:
 
 ## Making Space to Make Dope Shit
 
-![[4168054398_Isometric_3D_rendering_of_a_studio_setup__vibrant_colors__cartoon_style__plants__tools__cabinets__sh.png]]
+![4168054398_Isometric_3D_rendering_of_a_studio_setup__vibrant_colors__cartoon_style__plants__tools__cabinets__sh.pn](4168054398_isometric_3d_rendering_of_a_studio_setup__vibrant_colors__cartoon_style__plants__tools__cabinets__sh.pn)g]]
 
 Creating a studio for your creative endeavors doesn't have to break the bank. When you know your shit, it's easy to turn any space - big or small - into a place for your transformative ideas to come to life. Here's an insider look at my current setup.
 
@@ -47,8 +47,8 @@ TODO
 
 ### Getting Started
 
-- For more info on the studio as a whole and my overall goals: [[the-studio]]
-- For digital art and prototyping: [[2022-prototyping-toolkit]]
-- For garment dying: [[drafts/garment-dying-experiments]]
-- For woodworking: [[woodworking-setup]]
-- For soapmaking [[drafts/soapmaking]]
+- For more info on the studio as a whole and my overall goals: [the-studi](the-studi)o]]
+- For digital art and prototyping: [2022-prototyping-toolki](2022-prototyping-toolki)t]]
+- For garment dying: [drafts/garment-dying-experiment](drafts/garment-dying-experiment)s]]
+- For woodworking: [woodworking-setu](woodworking-setu)p]]
+- For soapmaking [drafts/soapmakin](drafts/soapmakin)g]]

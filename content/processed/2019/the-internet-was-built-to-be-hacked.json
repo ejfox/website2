@@ -16,8 +16,13 @@
       "coding",
       "activism"
     ],
-    "robotsMeta": null,
-    "title": "The Internet Was Built To Be Hacked",
+    "words": 1552,
+    "images": 0,
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 1
+    },
     "toc": [
       {
         "text": "The Internet Was Built To Be Hacked",
@@ -26,15 +31,7 @@
         "children": []
       }
     ],
-    "wordCount": 1552,
-    "readingTime": 7,
-    "imageCount": 0,
-    "linkCount": 0,
-    "visibility": {
-      "isHidden": false,
-      "isShared": false,
-      "isSpecialSection": false,
-      "isIndex": false
-    }
+    "sourcePath": "../../../../../code/website2/content/blog/2019/the-internet-was-built-to-be-hacked.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

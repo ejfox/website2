@@ -27,10 +27,10 @@ import ora from 'ora'
 import { promisify } from 'util'
 import { stat } from 'fs/promises'
 import { config } from './config.mjs'
+import util from 'util'
 
 // Import our plugins
 import {
-  remarkCustomElements,
   remarkAi2htmlEmbed,
   remarkObsidianSupport,
   rehypeAddClassToParagraphs,
@@ -76,9 +76,15 @@ console.log('Content directory:', process.cwd())
 // Get absolute paths
 const paths = {
   contentDir: config.dirs.content, // content/blog - source markdown
-  outputDir: config.dirs.output, // content/processed - processed JSON
-  backupDir: config.dirs.backup // content/backup - backups
+  draftsDir: path.join(config.dirs.content, '../drafts'), // Add drafts dir
+  outputDir: config.dirs.output,
+  backupDir: config.dirs.backup
 }
+
+// Define source directory (Obsidian vault)
+const SOURCE_DIR =
+  process.env.OBSIDIAN_VAULT_PATH ||
+  '/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/'
 
 // =============================
 // Set Up Shiki Highlighter
@@ -218,10 +224,10 @@ function generateSlug(str) {
 const processor = unified()
   // 1. Parse markdown into mdast
   .use(remarkParse)
+  .use(remarkExtractToc)
 
   // 2. All remark plugins (operating on markdown AST)
   .use(remarkObsidianSupport)
-  .use(remarkCustomElements)
   .use(remarkGfm)
   .use(remarkUnwrapImages)
   .use(remarkEnhanceLinks)
@@ -263,133 +269,114 @@ const processor = unified()
   .use(rehypeStringify, { allowDangerousHtml: true })
 
 // =============================
+// Add this helper function
+// =============================
+function debugLog(label, data, depth = 3) {
+  console.log(`\n[DEBUG] ${label}:`)
+  console.log(util.inspect(data, { depth, colors: true }))
+  console.log()
+}
+
+// =============================
+// Add near the top with other debugging functions
+// =============================
+function debugLinks(tree) {
+  const links = []
+  visit(tree, 'link', (node) => {
+    links.push({
+      text: node.children?.[0]?.value,
+      url: node.url,
+      position: node.position
+    })
+  })
+  if (links.length > 0) {
+    debugLog('Links found in document:', links)
+  }
+}
+
+// Near the top, add a DEBUG flag
+const DEBUG = process.env.DEBUG === 'true'
+
+// Replace console.log with debug function
+function debug(...args) {
+  if (DEBUG) {
+    console.log(chalk.gray('[DEBUG]'), ...args)
+  }
+}
+
+// =============================
 // Core Processing Functions
 // =============================
 async function processMarkdown(content, filePath) {
   const filename = path.basename(filePath)
-  log(`Processing ${chalk.bold(filename)}`)
-
   try {
     const { data: frontmatter, content: markdownContent } = matter(content)
+    let ast = processor.parse(markdownContent)
 
-    // Add project-specific logging
-    if (filePath.startsWith('projects/') || frontmatter.type === 'project') {
-      console.log('Processing project file:', {
-        filePath,
-        frontmatterType: frontmatter.type,
-        detectedType: getPostType(filePath)
-      })
-    }
-
-    // First pass to extract title
-    const ast = processor.parse(markdownContent)
-    if (!ast) {
-      throw new Error('Failed to parse markdown')
-    }
-
-    const { firstHeading, toc, firstHeadingNode } = extractHeadersAndToc(ast)
-    console.log('Markdown Processing: TOC extracted:', {
-      filePath,
-      tocLength: toc?.length,
-      firstHeading,
-      headings: toc?.map((h) => h.text)
+    // Extract title and headers first
+    const headings = []
+    visit(ast, 'heading', (node) => {
+      const text = node.children
+        .map((child) => (child.type === 'text' ? child.value : ''))
+        .join('')
+        .trim()
+      if (text) headings.push({ depth: node.depth, text })
     })
 
-    // Clean up frontmatter to ensure date fields don't get mixed into title
-    const cleanFrontmatter = { ...frontmatter }
-    // Remove date fields from being considered as title
-    delete cleanFrontmatter.date
-    delete cleanFrontmatter.modified
+    const firstHeading = headings.length > 0 ? headings[0].text : null
+
+    let result = await processor.run(ast)
+    let html = processor.stringify(result)
+
+    // Calculate metadata quietly
+    const stats = {
+      words: markdownContent.split(/\s+/).length,
+      images: (markdownContent.match(/!\[.*?\]\(.*?\)/g) || []).length,
+      links: (markdownContent.match(/\[.*?\]\(.*?\)/g) || []).length,
+      codeBlocks: (markdownContent.match(/```[\s\S]*?```/g) || []).length,
+      headers: headings.reduce((acc, h) => {
+        acc[`h${h.depth}`] = (acc[`h${h.depth}`] || 0) + 1
+        return acc
+      }, {})
+    }
+
+    // Simple progress indicator
+    process.stdout.write(
+      `\r${chalk.gray(`Processing: ${filename.padEnd(50)}`)}${Math.round(
+        (processStats.filesProcessed / processStats.totalFiles) * 100
+      )}%`
+    )
 
     // Get title with proper fallbacks
     const extractedTitle =
-      cleanFrontmatter.title ||
+      frontmatter.title ||
       firstHeading ||
       formatTitle(path.basename(filePath, '.md'))
 
-    // Log the extracted title info for debugging
-    console.log('Title extraction:', {
-      frontmatterTitle: cleanFrontmatter.title,
-      firstHeading,
-      extractedTitle,
-      fallbackTitle: path.basename(filePath, '.md')
-    })
+    // Get source path relative to Obsidian vault (if available)
+    const sourcePath = SOURCE_DIR ? path.relative(SOURCE_DIR, filePath) : null
+    const sourceInfo = SOURCE_DIR
+      ? {
+          sourcePath,
+          sourceDir: SOURCE_DIR
+        }
+      : {}
 
-    // Remove the first heading from the content
-    removeFirstHeading(ast, firstHeadingNode)
-
-    // Process the content
-    const result = await processor.run(ast)
-    if (!result) {
-      throw new Error('Failed to process markdown')
-    }
-
-    const html = processor.stringify(result)
-    if (!html && html !== '') {
-      throw new Error('Failed to stringify HTML')
-    }
-
-    // Add debug logging for HTML content
-    console.log('Processed HTML preview:', {
-      htmlLength: html.length,
-      preview: html.slice(0, 200),
-      hasContent: !!html
-    })
-
-    // Calculate metadata
-    const wordCount = markdownContent.split(/\s+/).length
-    const readingTime = Math.ceil(wordCount / 250)
-    const imageCount = (markdownContent.match(/!\[.*?\]\(.*?\)/g) || []).length
-    const linkCount = (markdownContent.match(/\[.*?\]\(.*?\)/g) || []).length
-
-    log(
-      `${chalk.bold(filename)}: ${chalk.green(wordCount)} words, ` +
-        `${chalk.green(imageCount)} images, ${chalk.green(linkCount)} links`,
-      'success'
-    )
-
-    // Generate robots meta content
-    const robotsMeta = generateRobotsMetaContent(frontmatter, filePath)
-
-    const processedDate = getValidDate(frontmatter.date, filePath)
-    const processedModified = getValidDate(frontmatter.modified, filePath)
-
-    const visibilityStatus = {
-      isHidden: frontmatter.hidden === true || frontmatter.hidden === 'true',
-      isShared: frontmatter.share === true,
-      isSpecialSection: [
-        'reading/',
-        'projects/',
-        'robots/',
-        'study-notes/',
-        'prompts/'
-      ].some((section) => filePath.startsWith(section)),
-      isIndex: filePath === 'index' || filePath.startsWith('!')
-    }
-
-    // Return the processed content with metadata
     return {
       content: html,
       html,
       title: extractedTitle,
       metadata: {
         ...frontmatter,
-        robotsMeta,
-        title: extractedTitle,
-        toc,
-        wordCount: wordCount || frontmatter.wordCount,
-        readingTime,
-        imageCount,
-        linkCount,
-        hidden: frontmatter.hidden === true,
-        date: processedDate.toISOString(),
-        modified: processedModified.toISOString(),
+        ...stats,
+        toc: headings,
         type: frontmatter.type || getPostType(filePath),
-        visibility: visibilityStatus
+        ...sourceInfo // Only include if SOURCE_DIR exists
       }
     }
   } catch (error) {
-    log(`Failed to process ${chalk.bold(filename)}: ${error.message}`, 'error')
+    console.error(chalk.red(`\n[ERROR] Failed processing ${filename}:`))
+    console.error(chalk.red(error.message))
     throw error
   }
 }
@@ -414,32 +401,42 @@ async function getFilesRecursively(dir) {
 // Main Processing Function
 // =============================
 async function processAllFiles() {
-  const spinner = ora('Starting markdown processing...').start()
+  const spinner = ora('Processing markdown files...').start()
 
   try {
     // Create backup
     await backupProcessedContent(paths.outputDir, paths.backupDir)
 
-    const allFiles = await getFilesRecursively(paths.contentDir)
+    // Create necessary directories if they don't exist
+    await fs.mkdir(paths.contentDir, { recursive: true })
+    await fs.mkdir(paths.draftsDir, { recursive: true })
+
+    const allFiles = [
+      ...(await getFilesRecursively(paths.contentDir)),
+      ...(await getFilesRecursively(paths.draftsDir))
+    ]
     processStats.totalFiles = allFiles.length
     spinner.succeed(`Found ${allFiles.length} markdown files`)
 
     console.log('\nProcessing files...\n')
 
-    const manifestEntries = []
-
+    const results = []
     for (const filePath of allFiles) {
       try {
-        const content = await fs.readFile(filePath, 'utf8')
-        const result = await processMarkdown(content, filePath)
+        const result = await processMarkdown(
+          await fs.readFile(filePath, 'utf8'),
+          filePath
+        )
         const relativePath = path.relative(paths.contentDir, filePath)
 
-        console.log('Processing file:', {
-          filePath,
-          relativePath,
-          type: getPostType(relativePath),
-          contentDir: paths.contentDir
-        })
+        // Just show the progress indicator, no debug info
+        process.stdout.write(
+          `\r${chalk.gray(
+            `Processing: ${path.basename(filePath).padEnd(40)}`
+          )}${Math.round(
+            (processStats.filesProcessed / processStats.totalFiles) * 100
+          )}%`
+        )
 
         // Save the processed file
         const outputPath = path.join(
@@ -449,83 +446,67 @@ async function processAllFiles() {
         await fs.mkdir(path.dirname(outputPath), { recursive: true })
         await fs.writeFile(outputPath, JSON.stringify(result, null, 2))
 
-        // Update stats with the correct format
-        processStats.totalWordCount += result.metadata.wordCount || 0
-        processStats.totalImageCount += result.metadata.imageCount || 0
-        processStats.totalLinkCount += result.metadata.linkCount || 0
-        processStats.currentFile = relativePath
-        const type = result.metadata.type || 'unknown'
-        processStats.byType[type] = (processStats.byType[type] || 0) + 1
-
-        manifestEntries.push({
-          metadata: {
-            ...result.metadata,
-            slug: relativePath
-              .replace(/\.md$/, '')
-              .replace(/^projects\//, 'projects/'),
-            title:
-              result.metadata.title ||
-              formatTitle(path.basename(relativePath, '.md')),
-            date: result.metadata.date || new Date().toISOString(),
-            type: result.metadata.type || getPostType(relativePath)
-          },
-          html: result.html
-        })
+        results.push(result)
         processStats.filesProcessed++
-        printRealTimeStats()
       } catch (error) {
         processStats.errors.push({
           file: filePath,
           error: error.message
         })
       }
-      await setTimeoutPromise(50) // Small delay between files
     }
 
-    console.log('\n')
-    spinner.start('Writing manifest')
-    const manifestPath = path.join(paths.outputDir, 'manifest-lite.json')
-    await fs.mkdir(path.dirname(manifestPath), { recursive: true })
+    // Clear the progress line
+    process.stdout.write('\r' + ' '.repeat(80) + '\r')
 
-    // Clean up manifest entries by deleting unwanted fields
-    manifestEntries.forEach((entry) => {
+    // Generate summary
+    printSummary(results)
+
+    // Now clean up results for manifest
+    const manifestResults = results.map((entry, index) => {
+      const cleanEntry = { ...entry }
+      const originalFilePath = allFiles[index]
+
       // Delete content/html fields
-      delete entry.html
-      delete entry.content
-      delete entry.processedContent
+      delete cleanEntry.html
+      delete cleanEntry.content
+      delete cleanEntry.processedContent
 
-      // Delete unnecessary metadata fields but keep TOC
-      if (entry.metadata) {
-        const toc = entry.metadata.toc // Save TOC
+      // Get the slug
+      const slug = path
+        .relative(paths.contentDir, originalFilePath)
+        .replace(/\.md$/, '')
 
-        delete entry.metadata.wordCount
-        delete entry.metadata.readingTime
-        delete entry.metadata.imageCount
-        delete entry.metadata.linkCount
-        delete entry.metadata.robotsMeta
-        delete entry.metadata.visibility
+      // Get the type
+      const type = cleanEntry.metadata?.type || getPostType(slug)
 
-        // Move essential metadata fields to top level
-        entry.slug = entry.metadata.slug
-        entry.title = entry.metadata.title
-        entry.date = entry.metadata.date
-        entry.type = entry.metadata.type
-        entry.hidden = entry.metadata.hidden
-        entry.draft = entry.metadata.draft
-        entry.dek = entry.metadata.dek
-        entry.modified = entry.metadata.modified
-        entry.tags = entry.metadata.tags
-        entry.toc = toc // Restore TOC at top level
-
-        // Delete the metadata object since we moved everything up
-        delete entry.metadata
+      // Keep metadata nested but ensure essential fields at top level
+      return {
+        slug,
+        title: cleanEntry.metadata?.title || cleanEntry.title,
+        date: cleanEntry.metadata?.date,
+        type,
+        hidden: cleanEntry.metadata?.hidden,
+        draft: cleanEntry.metadata?.draft,
+        dek: cleanEntry.metadata?.dek,
+        modified: cleanEntry.metadata?.modified,
+        tags: cleanEntry.metadata?.tags,
+        toc: cleanEntry.metadata?.toc,
+        // Keep original metadata intact
+        metadata: {
+          ...cleanEntry.metadata,
+          slug,
+          type
+        }
       }
     })
 
-    await fs.writeFile(manifestPath, JSON.stringify(manifestEntries, null, 2))
+    // Write manifest with cleaned data
+    const manifestPath = path.join(paths.outputDir, 'manifest-lite.json')
+    await fs.writeFile(manifestPath, JSON.stringify(manifestResults, null, 2))
     spinner.succeed('Manifest written successfully')
 
-    printProcessingReport()
+    return results
   } catch (error) {
     spinner.fail('Processing failed')
     console.error(error)
@@ -556,4 +537,67 @@ function formatTitle(filename) {
     .split('-')
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ')
+}
+
+// Add a nice summary function
+function printSummary(files) {
+  const stats = files.reduce(
+    (acc, file) => {
+      acc.totalWords += file.metadata.words || 0
+      acc.totalImages += file.metadata.images || 0
+      acc.totalLinks += file.metadata.links || 0
+      acc.totalCodeBlocks += file.metadata.codeBlocks || 0
+      acc.h1 += file.metadata.headers?.h1 || 0
+      acc.h2 += file.metadata.headers?.h2 || 0
+      acc.h3 += file.metadata.headers?.h3 || 0
+      acc.byType[file.metadata.type] = (acc.byType[file.metadata.type] || 0) + 1
+
+      // Add tag counting
+      if (file.metadata.tags) {
+        file.metadata.tags.forEach((tag) => {
+          acc.tags[tag] = (acc.tags[tag] || 0) + 1
+        })
+      }
+
+      return acc
+    },
+    {
+      totalWords: 0,
+      totalImages: 0,
+      totalLinks: 0,
+      totalCodeBlocks: 0,
+      h1: 0,
+      h2: 0,
+      h3: 0,
+      byType: {},
+      tags: {}
+    }
+  )
+
+  console.log('\n📊 Content Analysis')
+  console.log('=================')
+  console.log(`📝 Total Files: ${files.length}`)
+  console.log(`📚 Total Words: ${stats.totalWords.toLocaleString()}`)
+  console.log(`🖼️  Total Images: ${stats.totalImages}`)
+  console.log(`🔗 Total Links: ${stats.totalLinks}`)
+  console.log(`💻 Code Blocks: ${stats.totalCodeBlocks}`)
+
+  console.log('\n📑 Headers')
+  console.log(`H1: ${stats.h1}, H2: ${stats.h2}, H3: ${stats.h3}`)
+
+  console.log('\n📂 Content Types')
+  Object.entries(stats.byType)
+    .sort(([, a], [, b]) => b - a)
+    .forEach(([type, count]) => {
+      console.log(`${type.padEnd(10)} ${count}`)
+    })
+
+  // Add top 10 tags section
+  console.log('\n🏷️  Top 10 Tags')
+  Object.entries(stats.tags)
+    .sort(([, a], [, b]) => b - a)
+    .slice(0, 10)
+    .forEach(([tag, count]) => {
+      console.log(`${tag.padEnd(20)} ${count}`)
+    })
 }

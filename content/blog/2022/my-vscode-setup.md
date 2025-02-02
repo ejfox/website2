@@ -12,11 +12,11 @@ tags:
 
 ## My VSCode setup and favorite plugins
 
-![[1316824112_Cute_Pixel_Art_of_a_coder_s_desk_cluttered_with_various_plugins_and_VSCode_open__reflecting_off_a_go.png]]
+![1316824112_Cute_Pixel_Art_of_a_coder_s_desk_cluttered_with_various_plugins_and_VSCode_open__reflecting_off_a_go.pn](1316824112_cute_pixel_art_of_a_coder_s_desk_cluttered_with_various_plugins_and_vscode_open__reflecting_off_a_go.pn)g]]
 
 Imagine a coding environment that not only boosts your productivity but also sparks joy with every keystroke. Recently, I've fine-tuned my Visual Studio Code (VSCode) setup to help me work most efficiently and center joy. Trying a few various themes and plugins has ultimately allowed me to craft a toolkit that's geared towards my preferred workflow.
 
-For more info about how VSCode fits into my broader prototyping toolkit see [[2022-prototyping-toolkit]]
+For more info about how VSCode fits into my broader prototyping toolkit see [2022-prototyping-toolki](2022-prototyping-toolki)t]]
 
 ### Theme
 

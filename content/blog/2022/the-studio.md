@@ -17,7 +17,7 @@ tags:
 
 ## Fox Studio (Beacon)
 
-For specifics on the art materials and tools I use: [[art-setup]]
+For specifics on the art materials and tools I use: [art-setu](art-setu)p]]
 
 Inspired by Tom Sachs' studio rules: [Tom Sachs: 10 Bullets](https://www.youtube.com/watch?v=49p1JVLHUos)
 
@@ -41,7 +41,7 @@ A blank canvas must be met, immediately, with a mark of some kind. You worry tha
 
 Following intuition is not always a natural process, not as easy as a faucet turned on and off. Creating art with new collaborators requires feeling the power of the studio as a sacred altar to the act of creation. Every act of earnest creation is correct. Intuition needs to feel safe to speak loudly enough for us to hear it.
 
-Every artist has different rituals, though many involve coffee. Creating the space to follow intuition is [[step-zero]] for creating the work. If the intuition is quiet today, get something down on the page until it wakes up.
+Every artist has different rituals, though many involve coffee. Creating the space to follow intuition is [step-zer](step-zer)o]] for creating the work. If the intuition is quiet today, get something down on the page until it wakes up.
 
 #### 3. We verbalize our plans
 

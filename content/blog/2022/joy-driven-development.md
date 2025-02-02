@@ -13,7 +13,7 @@ I want to take some time to put into words the philosophy that has been guiding 
 
 The core of what I think of as "Joy-Driven Development" is a drive to embrace the sparks of joy that illuminate our work, guiding us along a path infused with curiosity and effortless innovation.
 
-In this post, I'll discuss the principles of Joy-Driven Development and how it can lead to more fulfilling work experiences and better final products. Joy-driven development is an important piece of [[how-to-run-a-project]]
+In this post, I'll discuss the principles of Joy-Driven Development and how it can lead to more fulfilling work experiences and better final products. Joy-driven development is an important piece of [how-to-run-a-projec](how-to-run-a-projec)t]]
 
 ### Discovering the Spark: What is Joy-Driven Development?
 

@@ -1,3 +1,29 @@
+/**
+ * Blog Index Page
+ * ==============
+ * 
+ * Week Note Detection Rules
+ * ------------------------
+ * A post is considered a week note if ANY of these conditions are met:
+ * 1. Type is 'weekNote'
+ * 2. Slug starts with 'week-notes/'
+ * 3. Slug matches YYYY-WW pattern (e.g. "2024-45")
+ * 
+ * The third pattern was crucial and initially missed, causing week notes
+ * to appear in both the main blog posts section and the week notes section.
+ * 
+ * Week Note Formats We Support:
+ * - Modern format: week-notes/2024-45
+ * - Legacy format: 2024-45 (at root level)
+ * - Type-based: Any post with type: 'weekNote'
+ * 
+ * Filtering Logic
+ * --------------
+ * - Blog Posts section: Excludes anything matching week note patterns
+ * - Week Notes section: Only includes posts matching week note patterns
+ * - Recently Updated: Includes both types but filters by update date
+ */
+
 <script setup>
 import { format, formatDistanceToNow } from 'date-fns'
 import { computed, ref, onMounted, watch } from 'vue'
@@ -12,24 +38,70 @@ const { data: posts, error: postsError } = useAsyncData(
   'blog-posts',
   async () => {
     try {
-      // Only get blog posts (not reading notes, etc)
+      // Get all regular posts (no drafts, no week notes)
       const result = await processedMarkdown.getAllPosts(false, false)
-      console.log('Blog posts fetched:', {
-        count: result?.length,
-        firstPost: result?.[0],
-        dates: result?.map(p => p?.date || p?.metadata?.date)
+      
+      // Debug logging
+      console.log('Blog posts data:', {
+        total: result?.length,
+        firstFew: result?.slice(0, 3).map(p => ({
+          slug: p.slug,
+          title: p.title,
+          metadataTitle: p?.metadata?.title,
+          rootTitle: p?.title,
+          type: p.type,
+          hidden: p.hidden,
+          draft: p.draft,
+          date: p.date,
+          dek: p?.metadata?.dek || p?.dek,
+          isWeekNote: p?.type === 'weekNote' || p?.slug?.startsWith('week-notes/') || /^\d{4}-\d{2}$/.test(p?.slug?.split('/').pop() || '')
+        }))
       })
-      return result || []
+
+      // Process posts to ensure titles are set and filter out week notes
+      return result
+        .filter(post => {
+          const slug = post?.slug || ''
+          const type = post?.type || post?.metadata?.type
+          const slugParts = slug.split('/')
+          const lastPart = slugParts[slugParts.length - 1]
+          
+          // Check if it's a week note by:
+          // 1. Type is weekNote
+          // 2. Slug starts with week-notes/
+          // 3. Slug matches YYYY-WW pattern (e.g. 2024-45)
+          const isWeekNote = 
+            type === 'weekNote' || 
+            slug.startsWith('week-notes/') || 
+            /^\d{4}-\d{2}$/.test(lastPart)
+
+          // Check if it's a special section that should be excluded
+          const isSpecialSection = 
+            slug.startsWith('reading/') ||
+            slug.startsWith('projects/') ||
+            slug.startsWith('robots/') ||
+            slug.startsWith('drafts/') ||
+            slug.startsWith('study-notes/') ||
+            slug.startsWith('prompts/')
+
+          // Keep only regular blog posts (not week notes or special sections)
+          return !isWeekNote && !isSpecialSection
+        })
+        .map(post => {
+          // Get title with proper fallbacks
+          const title = post.title || post?.metadata?.title || formatTitle(post.slug)
+          
+          return {
+            ...post,
+            title,
+            metadata: {
+              ...post.metadata,
+              title
+            }
+          }
+        })
     } catch (err) {
-      console.error('Error fetching posts:', err)
-      return []
-    }
-  },
-  {
-    default: () => [],
-    immediate: true,
-    onError: (error) => {
-      console.error('Error in blog posts:', error)
+      console.error('Error in blog index:', err)
       return []
     }
   }
@@ -42,23 +114,29 @@ const { data: notes, error: notesError } = useAsyncData(
     try {
       // Get all posts including week notes
       const result = await processedMarkdown.getAllPosts(false, true)
-      console.log('All posts for week notes:', {
-        total: result?.length,
-        types: result?.map(p => p?.metadata?.type || p?.type),
-        slugs: result?.map(p => p?.metadata?.slug || p?.slug)
-      })
 
       // Filter for week notes only
       const weekNotes = result?.filter(post => {
-        const type = post?.metadata?.type || post?.type
-        const slug = post?.metadata?.slug || post?.slug
-        const isWeekNote = type === 'weekNote' || slug?.startsWith('week-notes/')
+        const slug = post?.slug || ''
+        const type = post?.type || post?.metadata?.type
+        const slugParts = slug.split('/')
+        const lastPart = slugParts[slugParts.length - 1]
+        
+        // Check if it's a week note by:
+        // 1. Type is weekNote
+        // 2. Slug starts with week-notes/
+        // 3. Slug matches YYYY-WW pattern (e.g. 2024-45)
+        const isWeekNote = 
+          type === 'weekNote' || 
+          slug.startsWith('week-notes/') || 
+          /^\d{4}-\d{2}$/.test(lastPart)
+
         if (isWeekNote) {
           console.log('Found week note:', { 
             type, 
-            slug, 
-            dek: post?.metadata?.dek || post?.dek,
-            metadata: post?.metadata
+            slug,
+            lastPart,
+            dek: post?.metadata?.dek || post?.dek
           })
         }
         return isWeekNote
@@ -79,13 +157,6 @@ const { data: notes, error: notesError } = useAsyncData(
       })
     } catch (err) {
       console.error('Error fetching week notes:', err)
-      return []
-    }
-  },
-  {
-    default: () => [],
-    onError: (error) => {
-      console.error('Error in week notes:', error)
       return []
     }
   }
@@ -268,6 +339,18 @@ const recentlyUpdatedPosts = computed(() => {
     })
     .slice(0, 5)
 })
+
+// Add a helper function to format titles from slugs
+function formatTitle(slug) {
+  // Remove year prefix and get last part of path
+  const baseName = slug.split('/').pop() || slug
+  
+  // Convert kebab-case to Title Case
+  return baseName
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
+}
 </script>
 
 <template>
@@ -293,21 +376,21 @@ const recentlyUpdatedPosts = computed(() => {
               {{ year }}
             </h3>
             <ul class="">
-              <li v-for="post in blogPostsByYear[year]" :key="(post?.metadata || post)?.slug" ref="blogPostElements"
+              <li v-for="post in blogPostsByYear[year]" :key="post?.slug" ref="blogPostElements"
                 class="flex flex-col border-b border-zinc-200 dark:border-zinc-700 pb-4 mb-4">
 
-                <NuxtLink :to="`/blog/${(post?.metadata || post)?.slug}`"
+                <NuxtLink :to="`/blog/${post?.slug}`"
                   class="post-title no-underline hover:underline text-xl lg:text-3xl font-medium mb-2 pr-2 font-fjalla"
-                  :style="{ viewTransitionName: `title-${(post?.metadata || post)?.slug}` }">
-                  {{ (post?.metadata || post)?.title || 'Untitled Post' }}
-                  <span v-if="new Date((post?.metadata || post)?.date) > now"
+                  :style="{ viewTransitionName: `title-${post?.slug}` }">
+                  {{ post?.title || formatTitle(post?.slug) }}
+                  <span v-if="new Date(post?.date) > now"
                     class="text-sm font-normal text-zinc-500 dark:text-zinc-400 ml-2">
                     (Future Post)
                   </span>
                 </NuxtLink>
 
-                <div v-if="(post?.metadata || post)?.dek" class="font-mono text-xs text-zinc-600 dark:text-zinc-400">
-                  {{ (post?.metadata || post)?.dek }}
+                <div v-if="post?.metadata?.dek || post?.dek" class="font-mono text-xs text-zinc-600 dark:text-zinc-400">
+                  {{ post?.metadata?.dek || post?.dek }}
                 </div>
               </li>
             </ul>
@@ -372,15 +455,15 @@ const recentlyUpdatedPosts = computed(() => {
                 {{ year }}
               </h3>
               <ul class="mb-10">
-                <li v-for="post in blogPostsByYear[year]" :key="(post?.metadata || post)?.slug"
+                <li v-for="post in blogPostsByYear[year]" :key="post?.slug"
                   class="flex flex-col border-b border-zinc-200 dark:border-zinc-700 pb-4 mb-4">
-                  <NuxtLink :to="`/blog/${(post?.metadata || post)?.slug}`"
+                  <NuxtLink :to="`/blog/${post?.slug}`"
                     class="post-title no-underline hover:underline text-xl lg:text-3xl font-medium mb-2 pr-2 font-fjalla">
-                    {{ (post?.metadata || post)?.title || 'Untitled Post' }}
+                    {{ post?.title || formatTitle(post?.slug) }}
                   </NuxtLink>
-                  <div v-if="(post?.metadata || post)?.dek"
+                  <div v-if="post?.metadata?.dek || post?.dek"
                     class="font-mono text-xs text-zinc-600 dark:text-zinc-400">
-                    {{ (post?.metadata || post)?.dek }}
+                    {{ post?.metadata?.dek || post?.dek }}
                   </div>
                 </li>
               </ul>

@@ -6,8 +6,13 @@
     "date": "2024-11-11T04:16:16.000Z",
     "modified": "2024-11-12T17:27:05.000Z",
     "share": true,
-    "robotsMeta": null,
-    "title": "Co-Buyer Pre-Meeting Checklist",
+    "words": 660,
+    "images": 0,
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 1
+    },
     "toc": [
       {
         "text": "Co-Buyer Pre-Meeting Checklist",
@@ -23,17 +28,8 @@
         ]
       }
     ],
-    "wordCount": 660,
-    "readingTime": 3,
-    "imageCount": 0,
-    "linkCount": 0,
-    "hidden": false,
     "type": "post",
-    "visibility": {
-      "isHidden": false,
-      "isShared": true,
-      "isSpecialSection": false,
-      "isIndex": false
-    }
+    "sourcePath": "../../../../../code/website2/content/blog/robots/tenancy-in-common.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

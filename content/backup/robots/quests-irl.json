@@ -6,8 +6,13 @@
     "date": "2024-11-07T16:50:52.000Z",
     "modified": "2024-11-08T21:43:10.000Z",
     "share": true,
-    "robotsMeta": null,
-    "title": "QuestsIRL (MVP Scope)",
+    "words": 3343,
+    "images": 0,
+    "links": 0,
+    "codeBlocks": 3,
+    "headers": {
+      "h2": 5
+    },
     "toc": [
       {
         "text": "QuestsIRL (MVP Scope)",
@@ -85,17 +90,8 @@
         ]
       }
     ],
-    "wordCount": 3343,
-    "readingTime": 14,
-    "imageCount": 0,
-    "linkCount": 0,
-    "hidden": false,
     "type": "post",
-    "visibility": {
-      "isHidden": false,
-      "isShared": true,
-      "isSpecialSection": false,
-      "isIndex": false
-    }
+    "sourcePath": "../../../../../code/website2/content/blog/robots/quests-irl.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

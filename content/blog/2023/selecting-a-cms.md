@@ -38,7 +38,7 @@ The longer you keep your content outside of the CMS, the longer you have complet
 
 The downside is that it takes time, effort, and intentionality to build everything from scratch. If you want to add features like comments or social sharing, you have to build those yourself or find a plugin that works with your system. This approach is only valuable if you want to create work that looks unlike everyone else's, and can benefit from the value of complete control.
 
-The tools and frameworks for creating websites quickly change the equation. If I can use tools like Tachyons, Nuxt, and Supabase to create complex scalable applications in hours, why would you then spend additional hours trying to get it to work within the limitations of a legacy CMS? [[2022-prototyping-toolkit]]
+The tools and frameworks for creating websites quickly change the equation. If I can use tools like Tachyons, Nuxt, and Supabase to create complex scalable applications in hours, why would you then spend additional hours trying to get it to work within the limitations of a legacy CMS? [2022-prototyping-toolki](2022-prototyping-toolki)t]]
 
 #### Redefine 'CMS' and bring your own
 
@@ -78,7 +78,7 @@ Nuxt Content also provides a lot of powerful features like automatic syntax high
 
 #### Markdown editing tools
 - IA Writer [Site Unreachable](https://ia.net/writer)
-- [Obsidian](http://obsidian.md) [[why-i-love-obsidian]]
+- [Obsidian](http://obsidian.md) [why-i-love-obsidia](why-i-love-obsidia)n]]
 
 Ultimately, the decision to implement a CMS rests on carefully assessing the available options and considering one's unique situation; but "we need a CMS" should never be the default option.
 

@@ -1,25 +1,20 @@
 {
-  "content": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I created <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Coach Artie</a> to serve as a Discord Studio Assistant and he has evolved into a powerful AI tool with memories and tool usage.</p>",
-  "html": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I created <a href=\"\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Coach Artie</a> to serve as a Discord Studio Assistant and he has evolved into a powerful AI tool with memories and tool usage.</p>",
+  "content": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I created <a href=\"https://coachartiebot.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Coach Artie</a> to serve as a Discord Studio Assistant and he has evolved into a powerful AI tool with memories and tool usage.</p>",
+  "html": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I created <a href=\"https://coachartiebot.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Coach Artie</a> to serve as a Discord Studio Assistant and he has evolved into a powerful AI tool with memories and tool usage.</p>",
   "title": "Coach Artie",
   "metadata": {
     "title": "Coach Artie",
     "date": "2022-03-01T19:59:42.000Z",
     "modified": "2024-10-14T23:57:24.000Z",
     "url": "https://github.com/room302studio/coachartie",
-    "robotsMeta": null,
+    "words": 26,
+    "images": 0,
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
     "toc": [],
-    "wordCount": 26,
-    "readingTime": 1,
-    "imageCount": 0,
-    "linkCount": 1,
-    "hidden": false,
     "type": "post",
-    "visibility": {
-      "isHidden": false,
-      "isShared": false,
-      "isSpecialSection": false,
-      "isIndex": false
-    }
+    "sourcePath": "../../../../../code/website2/content/blog/projects/coach-artie.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

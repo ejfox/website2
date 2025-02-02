@@ -6,8 +6,13 @@
     "date": "2024-12-08T20:13:29.000Z",
     "modified": "2024-12-08T22:46:33.000Z",
     "share": true,
-    "robotsMeta": null,
-    "title": "Setting up Smallweb with Cloudflare Tunnel and Caddy",
+    "words": 393,
+    "images": 0,
+    "links": 0,
+    "codeBlocks": 6,
+    "headers": {
+      "h2": 1
+    },
     "toc": [
       {
         "text": "Setting up Smallweb with Cloudflare Tunnel and Caddy",
@@ -47,17 +52,8 @@
         ]
       }
     ],
-    "wordCount": 393,
-    "readingTime": 2,
-    "imageCount": 0,
-    "linkCount": 0,
-    "hidden": false,
     "type": "post",
-    "visibility": {
-      "isHidden": false,
-      "isShared": true,
-      "isSpecialSection": false,
-      "isIndex": false
-    }
+    "sourcePath": "../../../../../code/website2/content/blog/robots/smallweb-with-cloudflare-on-vps.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }
