@@ -6,7 +6,7 @@ tags:
   - radio
   - howto
 date: 2025-01-26T19:33:10-05:00
-modified: 2025-01-30T13:18:45-05:00
+modified: 2025-02-02T20:41:14-05:00
 ---
 
 ## Dipping Your Toes Into Amateur Radio
