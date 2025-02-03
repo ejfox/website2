@@ -491,13 +491,13 @@ const processedMetadata = computed(() => {
     title: metadata.title,
     date: metadata.date,
     draft: metadata.draft,
-    
+
     // Stats
     readingTime: Math.ceil(metadata.words / 200),
     wordCount: metadata.words,
     imageCount: metadata.images,
     linkCount: metadata.links,
-    
+
     // Additional metadata
     type: metadata.type,
     dek: metadata.dek,
@@ -532,18 +532,12 @@ const processedMetadata = computed(() => {
       </div>
 
       <div ref="articleContent">
-        <article
-          v-if="post?.html"
-          v-html="post.html"
-          class="blog-post-content px-2 prose-lg md:prose-xl
+        <article v-if="post?.html" v-html="post.html" class="blog-post-content px-2 prose-lg md:prose-xl
                  dark:prose-invert
                  prose-img:my-8 prose-img:rounded-lg
                  font-normal opacity-100">
         </article>
-        <div
-          v-else-if="post?.content"
-          v-html="post.content"
-          class="blog-post-content px-2 prose-lg md:prose-xl
+        <div v-else-if="post?.content" v-html="post.content" class="blog-post-content px-2 prose-lg md:prose-xl
                  dark:prose-invert
                  prose-img:my-8 prose-img:rounded-lg
                  font-normal opacity-100">

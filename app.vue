@@ -79,8 +79,8 @@
 
         <div v-if="isBlogPost" class="mt-4 pl-4">
           <NuxtLink to="/blog/"
-            class="inline-flex items-center gap-2 px-3 py-1 text-sm rounded-full bg-black/10 text-black hover:bg-black/20 dark:bg-white/10 dark:text-white dark:hover:bg-white/20">
-            <Icon name="i-heroicons-arrow-left" class="w-4 h-4" />
+            class="inline-flex items-center gap-1.5 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors">
+            <Icon name="i-heroicons-arrow-left" class="w-3.5 h-3.5" />
             <span>Back to Blog</span>
           </NuxtLink>
         </div>
@@ -91,6 +91,12 @@
       <article class="w-full md:w-5/6 mt-16 md:mt-0">
         <NuxtPage />
       </article>
+
+      <!-- Add TOC container for blog posts -->
+      <aside v-if="isBlogPost" class="hidden lg:block w-64 shrink-0 sticky top-0 h-screen overflow-y-auto p-4">
+        <div id="toc-container" class="space-y-4"></div>
+      </aside>
+
     </section>
 
     <Footer />

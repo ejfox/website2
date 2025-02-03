@@ -276,6 +276,36 @@ export const useProcessedMarkdown = () => {
       return false
     }
 
+    // Handle special sections - check both with and without year prefix
+    const pathParts = slug.split('/')
+    const basePath =
+      pathParts.length > 1 && /^\d{4}$/.test(pathParts[0])
+        ? pathParts.slice(1).join('/')
+        : slug
+
+    // Skip special sections and drafts
+    if (
+      basePath.startsWith('reading/') ||
+      basePath.startsWith('projects/') ||
+      basePath.startsWith('robots/') ||
+      basePath.startsWith('drafts/') ||
+      basePath.startsWith('study-notes/') ||
+      basePath.startsWith('prompts/') ||
+      basePath.startsWith('week-notes/')
+    ) {
+      return false
+    }
+
+    // Skip if explicitly hidden or draft
+    if (
+      metadata?.hidden === true ||
+      metadata?.draft === true ||
+      post?.hidden === true ||
+      post?.draft === true
+    ) {
+      return false
+    }
+
     return true
   }
 
