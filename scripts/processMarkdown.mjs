@@ -230,6 +230,7 @@ const processor = unified()
   .use(remarkObsidianSupport)
   .use(remarkGfm)
   .use(remarkUnwrapImages)
+  .use(remarkEnhanceImages)
   .use(remarkEnhanceLinks)
   .use(remarkAi2htmlEmbed)
 
@@ -594,4 +595,45 @@ function printSummary(files) {
     .forEach(([tag, count]) => {
       console.log(`${tag.padEnd(20)} ${count}`)
     })
+}
+
+// Add this helper function near the top with other helpers
+function enhanceImageUrl(url) {
+  // Only process Cloudinary URLs
+  if (!url.includes('cloudinary.com/ejf/')) return url
+
+  // Basic responsive image transformation
+  const base = url.split('/upload/')[0] + '/upload/'
+  const path = url.split('/upload/')[1]
+
+  return {
+    src: `${base}c_scale,f_auto,q_auto:good,w_800/${path}`,
+    srcset: `
+      ${base}c_scale,f_auto,q_auto:good,w_400/${path} 400w,
+      ${base}c_scale,f_auto,q_auto:good,w_800/${path} 800w,
+      ${base}c_scale,f_auto,q_auto:good,w_1200/${path} 1200w
+    `.trim(),
+    sizes: '(min-width: 768px) 80vw, 100vw'
+  }
+}
+
+// Add this function to enhance images in the AST
+function remarkEnhanceImages() {
+  return (tree) => {
+    visit(tree, 'image', (node) => {
+      if (node.url) {
+        const enhanced = enhanceImageUrl(node.url)
+        // Only modify if it's a Cloudinary URL
+        if (enhanced !== node.url) {
+          node.data = node.data || {}
+          node.data.hProperties = node.data.hProperties || {}
+          node.data.hProperties.srcset = enhanced.srcset
+          node.data.hProperties.sizes = enhanced.sizes
+          node.url = enhanced.src
+          node.data.hProperties.loading = 'lazy'
+          node.data.hProperties.decoding = 'async'
+        }
+      }
+    })
+  }
 }

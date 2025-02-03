@@ -22,7 +22,8 @@ logs
 .env.*
 !.env.example
 
-# Backup files
-content/backup/
-content/processed.backup
+# Generated content
+content/backup/**/*
+content/processed/**/*
+content/processed.backup/**/*
 *.backup

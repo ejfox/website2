@@ -113,8 +113,20 @@
         <!-- Right column: Hero image -->
         <div class="md:sticky md:top-8 min-w-full md:w-[33vw] md:min-w-[33vw]">
           <div class="relative rounded-2xl overflow-hidden shadow-2xl dark:shadow-zinc-950/50">
-            <img src="https://res.cloudinary.com/ejf/image/upload/v1732053354/IMG_0010.jpg"
-              alt="Motorcycle packed with gear and hand-drawn annotations" class="w-full h-auto" />
+            <img 
+              :src="`https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_400/v1732053354/IMG_0010.jpg`"
+              :srcset="`
+                https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_400/v1732053354/IMG_0010.jpg 400w,
+                https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1732053354/IMG_0010.jpg 800w,
+                https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1732053354/IMG_0010.jpg 1200w,
+                https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1600/v1732053354/IMG_0010.jpg 1600w
+              `"
+              sizes="(min-width: 768px) 33vw, 100vw"
+              loading="lazy"
+              decoding="async"
+              alt="Motorcycle packed with gear and hand-drawn annotations" 
+              class="w-full h-auto" 
+            />
             <div
               class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-zinc-150/90 via-zinc-900/30 to-transparent backdrop-blur-[2px] p-4">
               <div class="text-xs text-zinc-950 font-mono">
@@ -178,9 +190,9 @@
             <div class="h-24 flex items-end gap-px">
               <div v-for="(count, i) in tcwmDistribution" :key="i" :class="[
                 'flex-1 transition-colors',
-                i >= 35 ? 'bg-blue-500/20 hover:bg-blue-500/30' :
-                  i >= 25 ? 'bg-amber-500/20 hover:bg-amber-500/30' :
-                    'bg-green-500/20 hover:bg-green-500/30'
+                i >= 35 ? 'bg-blue-500/20 hover:bg-blue-500/30 dark:bg-blue-400/10 dark:hover:bg-blue-400/20' :
+                  i >= 25 ? 'bg-amber-500/20 hover:bg-amber-500/30 dark:bg-amber-400/10 dark:hover:bg-amber-400/20' :
+                    'bg-green-500/20 hover:bg-green-500/30 dark:bg-green-400/10 dark:hover:bg-green-400/20'
               ]" :style="{ height: `${(count / Math.max(...tcwmDistribution)) * 100}%` }">
               </div>
             </div>
@@ -278,14 +290,8 @@
                 </span>
               </div>
               <span class="text-xs md:text-sm text-zinc-600 dark:text-zinc-400">
-                <!-- <ruby class="font-mono tabular-nums">
-                  {{ calculateTotalWeight(items) }}oz
-                  <rt class="text-zinc-500">
-                    {{ (Number(calculateTotalWeight(items)) / 16).toFixed(1) }}lb
-                  </rt>
-                </ruby> -->
-                {{ calculateTotalWeight(items) }}oz
-                <span class="opacity-50">
+                <span class="font-mono tabular-nums">{{ calculateTotalWeight(items) }}oz</span>
+                <span class="opacity-50 font-mono tabular-nums">
                   ({{ (Number(calculateTotalWeight(items)) / 16).toFixed(1) }}lb)
                 </span>
               </span>
@@ -678,13 +684,13 @@ const svgRefs = new Map()
 
 // Add color scale for types
 const typeColors = {
-  'Tech': '#71717a',
-  'Utility': '#71717a',
-  'Comfort': '#71717a',
-  'Sleep': '#71717a',
-  'Bag': '#71717a',
-  'Safety': '#ef4444',  // Keep red for safety items
-  'Creativity': '#71717a'
+  'Tech': '#71717a',      // zinc-500
+  'Utility': '#71717a',   // zinc-500
+  'Comfort': '#71717a',   // zinc-500
+  'Sleep': '#71717a',     // zinc-500
+  'Bag': '#71717a',       // zinc-500
+  'Safety': '#dc2626',    // red-600 for better visibility
+  'Creativity': '#71717a' // zinc-500
 }
 
 // Helper function to get color with fallback
@@ -1447,10 +1453,10 @@ const getArtSupplies = () => {
 
 // Add container locations
 const containerLocations = {
-  'Body': 'on my person',
-  'Motorcycle': '',
+  'Body': 'on person',
+  'Motorcycle': 'mounted',
   'WLF Enduro Backpack': 'worn',
-  '5.11 Rush 24 Backpack': 'on motorcycle'
+  '5.11 Rush 24 Backpack': 'mounted'
 }
 
 // Add this computed property
