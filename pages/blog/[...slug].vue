@@ -512,9 +512,9 @@ const processedMetadata = computed(() => {
     <Head>
       <Meta name="robots" :content="post?.metadata?.robotsMeta || post?.robotsMeta || 'index, follow'" />
     </Head>
-    <article v-if="post && !post.redirect" class="scroll-container pt-4 md:pt-2">
-      <div ref="postMetadata">
-        <PostMetadata v-if="processedMetadata" :doc="processedMetadata" class="paddings" ref="postMetadataComponent" />
+    <article v-if="post && !post.redirect" class="scroll-container pt-4 md:pt-12 pl-0 md:pl-4">
+      <div ref="postMetadata" class="w-full">
+        <PostMetadata v-if="processedMetadata" :doc="processedMetadata" ref="postMetadataComponent" />
       </div>
 
       <div class="lg:h-[62vh] flex items-center">

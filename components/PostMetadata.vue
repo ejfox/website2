@@ -1,10 +1,11 @@
 <template>
-  <div class="w-full text-sm text-zinc-600 dark:text-zinc-400 flex flex-wrap items-center gap-x-4 gap-y-2 monospace">
+  <div
+    class="w-full text-sm text-zinc-600 dark:text-zinc-400 flex flex-wrap items-center gap-x-4 gap-y-2 monospace p-2">
     <!-- Debug output -->
     <pre v-if="false" class="whitespace-pre-wrap text-xs">{{ metadata }}</pre>
 
     <!-- Folder name -->
-    <span class="flex items-center metadata-item text-xs tracking-widest" ref="folderRef" v-if="metadata.slug">
+    <span class="flex items-center metadata-item text-xs tracking-widest pl-2" ref="folderRef" v-if="metadata.slug">
       <!-- <UIcon name="bi:folder" class="mr-2 text-zinc-400 dark:text-zinc-600" /> -->
 
       /{{ metadata.slug.split('/')[0] }}/
@@ -20,7 +21,8 @@
     </span>
 
     <!-- Date -->
-    <span v-if="metadata.date" class="flex items-center metadata-item" :title="formatRelativeTime(metadata.date)" ref="dateRef">
+    <span v-if="metadata.date" class="flex items-center metadata-item" :title="formatRelativeTime(metadata.date)"
+      ref="dateRef">
       <UIcon name="ant-design:calendar-outlined" class="mr-2 text-zinc-400 dark:text-zinc-600" />
       <time>{{ formatBlogDate(new Date(metadata.date)) }}</time>
     </span>
@@ -108,13 +110,13 @@ const formatBlogDate = timeFormat('%b %d %Y')
 const metadata = computed(() => {
   const baseData = props.doc || {}
   const metaData = props.doc?.metadata || {}
-  
+
   // Detailed debug logging
   console.group('PostMetadata Debug')
   console.log('Raw doc:', props.doc)
   console.log('Base data:', baseData)
   console.log('Metadata:', metaData)
-  
+
   const computedMetadata = {
     ...baseData,
     ...metaData,
@@ -128,7 +130,7 @@ const metadata = computed(() => {
     slug: metaData.slug || baseData.slug || '',
     dek: metaData.dek || baseData.dek || ''
   }
-  
+
   console.log('Computed metadata:', {
     readingTime: computedMetadata.readingTime,
     wordCount: computedMetadata.wordCount,
