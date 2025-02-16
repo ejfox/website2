@@ -4,7 +4,7 @@
       <!-- Header -->
       <header>
         <h1 class="text-xs tracking-[0.2em] text-gray-500 font-light pb-2 border-b border-gray-500/10">
-          ANNUAL REPORT · {{ currentYear }}
+          FOX ANNUAL REPORT · {{ currentYear }}
         </h1>
       </header>
 
@@ -34,7 +34,7 @@
         <section v-if="!isLoading && stats">
           <TransitionGroup name="fade-up" tag="div" class="grid grid-cols-1 lg:grid-cols-2 gap-16 sm:gap-24" appear>
             <!-- Left Column: Productivity -->
-            <div class="space-y-16 sm:space-y-24">
+            <div class="space-y-16 sm:space-y-24 ">
               <div class="relative">
                 <div
                   class="absolute -left-8 sm:-left-16 top-0 h-full w-px bg-gradient-to-b from-gray-500/0 via-gray-500/10 to-gray-500/0">

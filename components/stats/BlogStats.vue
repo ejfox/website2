@@ -17,48 +17,21 @@
         </div>
 
         <!-- Writing Pace -->
-        <div class="flex items-center justify-between text-sm">
+        <!--         <div class="flex items-center justify-between text-sm">
           <span class="text-gray-400">Writing Pace</span>
           <span class="text-gray-500">{{ writingConsistency }}</span>
         </div>
+      -->
 
-        <!-- Output -->
         <div class="flex items-center justify-between text-sm">
           <span class="text-gray-400">Annual Output</span>
-          <span class="text-gray-500">{{ postsPerYear }} posts · {{ formatNumber(wordsPerYear) }} words</span>
+          <span class="text-gray-500">~{{ postsPerYear }} posts per year</span>
         </div>
 
-        <!-- Writing Volume -->
-        <div class="flex items-center justify-between text-sm">
-          <span class="text-gray-400">Total Volume</span>
-          <span class="text-gray-500">{{ wordsMilestone }}</span>
-        </div>
       </div>
     </div>
 
     <!-- Writing Patterns -->
-    <div class="space-y-6">
-      <h3 class="text-sm tracking-wider text-gray-500">WRITING PATTERNS</h3>
-      <div class="space-y-4">
-        <!-- Post Length -->
-        <div class="flex items-center justify-between text-sm">
-          <span class="text-gray-400">Average Length</span>
-          <span class="text-gray-500">{{ formatNumber(stats.averageWords) }} words</span>
-        </div>
-
-        <!-- Consistency Score -->
-        <div class="flex items-center justify-between text-sm">
-          <span class="text-gray-400">Post Frequency</span>
-          <span class="text-gray-500">{{ formatNumber(postsPerMonth) }} per month</span>
-        </div>
-
-        <!-- Writing Intensity -->
-        <div class="flex items-center justify-between text-sm">
-          <span class="text-gray-400">Writing Intensity</span>
-          <span class="text-gray-500">{{ formatNumber(wordsPerPost) }} words/post</span>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
