@@ -1,0 +1,6 @@
+[[edge_handlers]]
+  handler = "log_drain"
+  filter = "*"
+
+[build.environment]
+  LOKI_URL = "https://loki.tools.ejfox.com/loki/api/v1/push"
