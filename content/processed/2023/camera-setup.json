@@ -1,0 +1,70 @@
+{
+  "content": "<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"street-photography\">Street Photography</h2>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"fujifilm-x-pro-3\">Fujifilm X-Pro 3</h3>\n<h4 class=\"\" id=\"lenses\">Lenses</h4>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">18mm f2</li>\n<li class=\"prose-lg max-w-prose\">56mm f1.2</li>\n<li class=\"prose-lg max-w-prose\">35mm f2</li>\n<li class=\"prose-lg max-w-prose\">23mm f2</li>\n</ul>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"n90s\">N90s</h3>\n<h4 class=\"\" id=\"50mm-nikkor-lens\">50mm Nikkor Lens</h4>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"olympus-xa-2\">Olympus XA 2</h3>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"black--white-film\">Black &#x26; White Film</h3>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">For my film development process see: <a href=\"film-developmen\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">film-developmen</a>t]]</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"appendix\">Appendix</h3>\n<h4 class=\"\" id=\"video-settings\">Video settings</h4>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">When shooting video:</p>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">f-log</li>\n<li class=\"prose-lg max-w-prose\">24fps</li>\n<li class=\"prose-lg max-w-prose\">1080p</li>\n<li class=\"prose-lg max-w-prose\">4k used sparingly for large shots, to crop/zoom later</li>\n<li class=\"prose-lg max-w-prose\">4:3 ratio (????)</li>\n</ul>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">When creating animations</p>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">4k</li>\n<li class=\"prose-lg max-w-prose\">12fps or 24fps</li>\n</ul>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">#setup</p>",
+  "html": "<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"street-photography\">Street Photography</h2>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"fujifilm-x-pro-3\">Fujifilm X-Pro 3</h3>\n<h4 class=\"\" id=\"lenses\">Lenses</h4>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">18mm f2</li>\n<li class=\"prose-lg max-w-prose\">56mm f1.2</li>\n<li class=\"prose-lg max-w-prose\">35mm f2</li>\n<li class=\"prose-lg max-w-prose\">23mm f2</li>\n</ul>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"n90s\">N90s</h3>\n<h4 class=\"\" id=\"50mm-nikkor-lens\">50mm Nikkor Lens</h4>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"olympus-xa-2\">Olympus XA 2</h3>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"black--white-film\">Black &#x26; White Film</h3>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">For my film development process see: <a href=\"film-developmen\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">film-developmen</a>t]]</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"appendix\">Appendix</h3>\n<h4 class=\"\" id=\"video-settings\">Video settings</h4>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">When shooting video:</p>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">f-log</li>\n<li class=\"prose-lg max-w-prose\">24fps</li>\n<li class=\"prose-lg max-w-prose\">1080p</li>\n<li class=\"prose-lg max-w-prose\">4k used sparingly for large shots, to crop/zoom later</li>\n<li class=\"prose-lg max-w-prose\">4:3 ratio (????)</li>\n</ul>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">When creating animations</p>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">4k</li>\n<li class=\"prose-lg max-w-prose\">12fps or 24fps</li>\n</ul>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">#setup</p>",
+  "title": "Camera Setup",
+  "metadata": {
+    "inprogress": true,
+    "date": "2023-01-01T20:06:48.000Z",
+    "modified": "2024-06-21T14:13:55.000Z",
+    "dek": "In which the author itemizes the cameras he uses to make photographs",
+    "tags": [
+      "photography",
+      "video"
+    ],
+    "words": 87,
+    "images": 0,
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 2
+    },
+    "toc": [
+      {
+        "text": "Camera Setup",
+        "slug": "camera-setup",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Street Photography",
+        "slug": "street-photography",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Fujifilm X-Pro 3",
+            "slug": "fujifilm-x-pro-3",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "N90s",
+            "slug": "n90s",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Olympus XA 2",
+            "slug": "olympus-xa-2",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Black & White Film",
+            "slug": "black-white-film",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Appendix",
+            "slug": "appendix",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/2023/camera-setup.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

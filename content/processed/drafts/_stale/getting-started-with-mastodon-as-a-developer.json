@@ -1,0 +1,33 @@
+{
+  "content": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">#tech #howto</p>",
+  "html": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">#tech #howto</p>",
+  "title": "Getting started with Mastodon",
+  "metadata": {
+    "date": "2022-11-29T21:56:17.000Z",
+    "modified": "2022-12-23T16:09:46.000Z",
+    "hidden": true,
+    "draft": true,
+    "tags": [
+      "tech",
+      "howto"
+    ],
+    "words": 8,
+    "images": 0,
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h1": 1
+    },
+    "toc": [
+      {
+        "text": "Getting started with Mastodon",
+        "slug": "getting-started-with-mastodon",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/getting-started-with-mastodon-as-a-developer.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "content": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I created an <a href=\"https://themargin.us/features/we-glow-in-the-dark\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">interactive map</a> that overlaid historic redlining maps with the locations of the story's subjects and the toxic Defense Depot.</p>",
+  "html": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I created an <a href=\"https://themargin.us/features/we-glow-in-the-dark\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">interactive map</a> that overlaid historic redlining maps with the locations of the story's subjects and the toxic Defense Depot.</p>",
+  "title": "We Glow in the Dark",
+  "metadata": {
+    "title": "We Glow in the Dark",
+    "date": "2022-09-21T20:00:27.000Z",
+    "modified": "2024-12-11T19:03:30.000Z",
+    "url": "https://themargin.us/features/we-glow-in-the-dark",
+    "image": "https://res.cloudinary.com/ejf/image/upload/v1733943670/Screenshot_2024-12-11_at_2.00.44_PM.png",
+    "words": 23,
+    "images": 0,
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/projects/we-glow-in-the-dark.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

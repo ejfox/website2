@@ -1,0 +1,50 @@
+{
+  "content": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I am a big fan of data visualization, but it is even better when paired with well-crafted human readable text that reiterates or enhances what the visual is conveying. Graphics and text used together in this way can create something greater than the sum of their parts.</p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">These data-driven sentences can be enhanced <em class=\"\">even further</em> with Large Language Models (LLMs) if given the correct contextual data, templates, and prompting. This data-driven text can help make data graphics and user interfaces more understandable to our users, and provide a way to surface interesting contextual information that might not have a place in a traditional user interface.</p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Historically data-driven sentences have followed a sort of “mad libs” formula, where a sentence template is created and variables are filled in. These results can sometimes feel robotic, less like a caption and more like a receipt! But even within these limits, the results are pretty good.</p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">In this article we are going to explore different techniques and experiment with both how to provide contextual data and correctly prompt LLMs to be produce high-quality and factual data-driven sentences based on our own datasets.</p>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"example-summarizing-a-scatterplot\">Example: Summarizing a Scatterplot</h2>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Scatterplots are useful visual explanations, but are sometimes hard to read if you don't already know what is being plotted and what the axes are. As a reader, I much prefer a scatterplot accompanied by a short explanation of what it shows, and maybe some useful annotations of the outliers.</p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Data-driven sentences can help with this.</p>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"summarizing-groups-of-datas\">Summarizing groups of datas</h3>\n<h4 class=\"\" id=\"latentscope-summarizing-umap-clusters-of-qualitative-data\">LatentScope: summarizing UMAP clusters of qualitative data</h4>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">One experiment in data-driven sentences happened during the development of LatentScope with Room 302 Studio Member Ian Johnson who built a tool to create embeddings from any CSV, map, cluster, and explore them. We were curious about the groupings the tool created, and we would often poke around the individual nodes in each group to get a sense of what the commonalities were.</p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">To automate summaries and naming of the groups, we take a random sample (as much as will fit in token space) and prompt-stuff that before our request; “can you summarize the common themes between these entries?”</p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">The automated summaries proved to be surprisingly high-quality.</p>\n<h4 class=\"\" id=\"electology-data-driven-election-results-and-history\">Electology: data-driven election results and history</h4>\n<h4 class=\"\" id=\"gpt-browser-summarizing-webpages-info-facts-in-the-command-line\">Gpt-browser: summarizing webpages info facts in the command line</h4>",
+  "html": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I am a big fan of data visualization, but it is even better when paired with well-crafted human readable text that reiterates or enhances what the visual is conveying. Graphics and text used together in this way can create something greater than the sum of their parts.</p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">These data-driven sentences can be enhanced <em class=\"\">even further</em> with Large Language Models (LLMs) if given the correct contextual data, templates, and prompting. This data-driven text can help make data graphics and user interfaces more understandable to our users, and provide a way to surface interesting contextual information that might not have a place in a traditional user interface.</p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Historically data-driven sentences have followed a sort of “mad libs” formula, where a sentence template is created and variables are filled in. These results can sometimes feel robotic, less like a caption and more like a receipt! But even within these limits, the results are pretty good.</p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">In this article we are going to explore different techniques and experiment with both how to provide contextual data and correctly prompt LLMs to be produce high-quality and factual data-driven sentences based on our own datasets.</p>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"example-summarizing-a-scatterplot\">Example: Summarizing a Scatterplot</h2>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Scatterplots are useful visual explanations, but are sometimes hard to read if you don't already know what is being plotted and what the axes are. As a reader, I much prefer a scatterplot accompanied by a short explanation of what it shows, and maybe some useful annotations of the outliers.</p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Data-driven sentences can help with this.</p>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"summarizing-groups-of-datas\">Summarizing groups of datas</h3>\n<h4 class=\"\" id=\"latentscope-summarizing-umap-clusters-of-qualitative-data\">LatentScope: summarizing UMAP clusters of qualitative data</h4>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">One experiment in data-driven sentences happened during the development of LatentScope with Room 302 Studio Member Ian Johnson who built a tool to create embeddings from any CSV, map, cluster, and explore them. We were curious about the groupings the tool created, and we would often poke around the individual nodes in each group to get a sense of what the commonalities were.</p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">To automate summaries and naming of the groups, we take a random sample (as much as will fit in token space) and prompt-stuff that before our request; “can you summarize the common themes between these entries?”</p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">The automated summaries proved to be surprisingly high-quality.</p>\n<h4 class=\"\" id=\"electology-data-driven-election-results-and-history\">Electology: data-driven election results and history</h4>\n<h4 class=\"\" id=\"gpt-browser-summarizing-webpages-info-facts-in-the-command-line\">Gpt-browser: summarizing webpages info facts in the command line</h4>",
+  "title": "Data-driven sentences with LLMs",
+  "metadata": {
+    "dek": "In which we give the robot a bunch of data and ask it to tell us what it means",
+    "inprogress": true,
+    "date": "2023-07-19T12:27:21.000Z",
+    "modified": "2024-09-20T04:19:31.000Z",
+    "tags": [
+      "datajournalism",
+      "dataviz",
+      "gpt3",
+      "journalism",
+      "media",
+      "visualization"
+    ],
+    "words": 393,
+    "images": 0,
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 2
+    },
+    "toc": [
+      {
+        "text": "Data-driven sentences with LLMs",
+        "slug": "data-driven-sentences-with-llms",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Example: Summarizing a Scatterplot",
+        "slug": "example-summarizing-a-scatterplot",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Summarizing groups of datas",
+            "slug": "summarizing-groups-of-datas",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/drafts/data-driven-llm-sentences.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

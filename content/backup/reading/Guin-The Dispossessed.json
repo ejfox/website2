@@ -1,0 +1,51 @@
+{
+  "content": "<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"metadata\">Metadata</h2>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Ursula K. Le Guin</a></li>\n<li class=\"prose-lg max-w-prose\">ASIN: B000FC11GA</li>\n<li class=\"prose-lg max-w-prose\">ISBN: 0062421077</li>\n<li class=\"prose-lg max-w-prose\">Reference: <a href=\"https://www.amazon.com/dp/B000FC11GA\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">https://www.amazon.com/dp/B000FC11GA</a></li>\n<li class=\"prose-lg max-w-prose\"><a href=\"kindle://book?action=open&#x26;asin=B000FC11GA\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Kindle link</a></li>\n</ul>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"highlights\">Highlights</h2>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">He patted the thing he wore on his belt, a metal object like a deformed penis, and looked patronizingly at the unarmed woman. — location: <a href=\"kindle://book?action=open&#x26;asin=B000FC11GA&#x26;location=68\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">68</a> ^ref-42548</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
+  "html": "<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"metadata\">Metadata</h2>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Ursula K. Le Guin</a></li>\n<li class=\"prose-lg max-w-prose\">ASIN: B000FC11GA</li>\n<li class=\"prose-lg max-w-prose\">ISBN: 0062421077</li>\n<li class=\"prose-lg max-w-prose\">Reference: <a href=\"https://www.amazon.com/dp/B000FC11GA\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">https://www.amazon.com/dp/B000FC11GA</a></li>\n<li class=\"prose-lg max-w-prose\"><a href=\"kindle://book?action=open&#x26;asin=B000FC11GA\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Kindle link</a></li>\n</ul>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"highlights\">Highlights</h2>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">He patted the thing he wore on his belt, a metal object like a deformed penis, and looked patronizingly at the unarmed woman. — location: <a href=\"kindle://book?action=open&#x26;asin=B000FC11GA&#x26;location=68\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">68</a> ^ref-42548</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
+  "title": "The Dispossessed",
+  "metadata": {
+    "kindle-sync": {
+      "bookId": "30475",
+      "title": "The Dispossessed (Hainish Cycle)",
+      "author": "Ursula K. Le Guin",
+      "asin": "B000FC11GA",
+      "lastAnnotatedDate": "2023-10-14",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/919GgLbYxpL._SY160.jpg",
+      "highlightsCount": 1
+    },
+    "tags": [
+      "book",
+      "reference"
+    ],
+    "words": 54,
+    "images": 0,
+    "links": 3,
+    "codeBlocks": 0,
+    "headers": {
+      "h1": 1
+    },
+    "toc": [
+      {
+        "text": "The Dispossessed",
+        "slug": "the-dispossessed",
+        "level": "h1",
+        "children": [
+          {
+            "text": "Metadata",
+            "slug": "metadata",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Highlights",
+            "slug": "highlights",
+            "level": "h2",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/reading/Guin-The Dispossessed.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

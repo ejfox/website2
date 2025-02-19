@@ -1,0 +1,66 @@
+{
+  "content": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">#dataviz</p>\n<h1 class=\"prose-lg text-4xl font-bold mb-6 mt-8 max-w-prose lg:pr-12 animate-on-scroll slide-from-left\" id=\"what-is-data-visualization\">What is data visualization?</h1>\n<h1 class=\"prose-lg text-4xl font-bold mb-6 mt-8 max-w-prose lg:pr-12 animate-on-scroll slide-from-left\" id=\"how-i-got-started\">How I got started</h1>\n<h1 class=\"prose-lg text-4xl font-bold mb-6 mt-8 max-w-prose lg:pr-12 animate-on-scroll slide-from-left\" id=\"how-someone-could-get-started-today\">How someone could get started today</h1>\n<h1 class=\"prose-lg text-4xl font-bold mb-6 mt-8 max-w-prose lg:pr-12 animate-on-scroll slide-from-left\" id=\"resources-for-learning\">Resources for learning</h1>\n<h1 class=\"prose-lg text-4xl font-bold mb-6 mt-8 max-w-prose lg:pr-12 animate-on-scroll slide-from-left\" id=\"ideas-for-using-data-visualization\">Ideas for using data visualization</h1>",
+  "html": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">#dataviz</p>\n<h1 class=\"prose-lg text-4xl font-bold mb-6 mt-8 max-w-prose lg:pr-12 animate-on-scroll slide-from-left\" id=\"what-is-data-visualization\">What is data visualization?</h1>\n<h1 class=\"prose-lg text-4xl font-bold mb-6 mt-8 max-w-prose lg:pr-12 animate-on-scroll slide-from-left\" id=\"how-i-got-started\">How I got started</h1>\n<h1 class=\"prose-lg text-4xl font-bold mb-6 mt-8 max-w-prose lg:pr-12 animate-on-scroll slide-from-left\" id=\"how-someone-could-get-started-today\">How someone could get started today</h1>\n<h1 class=\"prose-lg text-4xl font-bold mb-6 mt-8 max-w-prose lg:pr-12 animate-on-scroll slide-from-left\" id=\"resources-for-learning\">Resources for learning</h1>\n<h1 class=\"prose-lg text-4xl font-bold mb-6 mt-8 max-w-prose lg:pr-12 animate-on-scroll slide-from-left\" id=\"ideas-for-using-data-visualization\">Ideas for using data visualization</h1>",
+  "title": "How to get started with data visualization",
+  "metadata": {
+    "draft": true,
+    "dek": "In which",
+    "inprogress": true,
+    "date": "2022-11-03T00:03:12.000Z",
+    "modified": "2022-12-23T14:10:44.000Z",
+    "hidden": true,
+    "tags": [
+      "dataviz",
+      "data",
+      "visualization"
+    ],
+    "words": 37,
+    "images": 0,
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h1": 6
+    },
+    "toc": [
+      {
+        "text": "How to get started with data visualization",
+        "slug": "how-to-get-started-with-data-visualization",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "What is data visualization?",
+        "slug": "what-is-data-visualization",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "How I got started",
+        "slug": "how-i-got-started",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "How someone could get started today",
+        "slug": "how-someone-could-get-started-today",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Resources for learning",
+        "slug": "resources-for-learning",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Ideas for using data visualization",
+        "slug": "ideas-for-using-data-visualization",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/drafts/how-to-get-started-with-data-analysis-visualization.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

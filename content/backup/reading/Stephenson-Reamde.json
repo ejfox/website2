@@ -1,0 +1,51 @@
+{
+  "content": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">#fiction</p>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"metadata\">Metadata</h2>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Author: <a href=\"https://www.amazon.com/Neal-Stephenson/e/B000APS8L8/ref=dp_byline_cont_ebooks_1\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Neal Stephenson</a></p>\n</li>\n<li class=\"prose-lg max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">ASIN: B004XVN0WW</p>\n</li>\n<li class=\"prose-lg max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">ISBN: 0061977969</p>\n</li>\n<li class=\"prose-lg max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Reference: <a href=\"https://www.amazon.com/dp/B004XVN0WW\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">https://www.amazon.com/dp/B004XVN0WW</a></p>\n</li>\n<li class=\"prose-lg max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\"><a href=\"kindle://book?action=open&#x26;asin=B004XVN0WW\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Kindle link</a></p>\n</li>\n</ul>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"highlights\">Highlights</h2>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">The young woman had turned toward him and thrust her pink gloves up in the air in a gesture that, from a man, meant “Touchdown!” and, from a woman, “I will hug you now!” — location: <a href=\"kindle://book?action=open&#x26;asin=B004XVN0WW&#x26;location=140\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">140</a> ^ref-41393</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
+  "html": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">#fiction</p>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"metadata\">Metadata</h2>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Author: <a href=\"https://www.amazon.com/Neal-Stephenson/e/B000APS8L8/ref=dp_byline_cont_ebooks_1\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Neal Stephenson</a></p>\n</li>\n<li class=\"prose-lg max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">ASIN: B004XVN0WW</p>\n</li>\n<li class=\"prose-lg max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">ISBN: 0061977969</p>\n</li>\n<li class=\"prose-lg max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Reference: <a href=\"https://www.amazon.com/dp/B004XVN0WW\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">https://www.amazon.com/dp/B004XVN0WW</a></p>\n</li>\n<li class=\"prose-lg max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\"><a href=\"kindle://book?action=open&#x26;asin=B004XVN0WW\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Kindle link</a></p>\n</li>\n</ul>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"highlights\">Highlights</h2>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">The young woman had turned toward him and thrust her pink gloves up in the air in a gesture that, from a man, meant “Touchdown!” and, from a woman, “I will hug you now!” — location: <a href=\"kindle://book?action=open&#x26;asin=B004XVN0WW&#x26;location=140\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">140</a> ^ref-41393</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
+  "title": "Reamde",
+  "metadata": {
+    "kindle-sync": {
+      "bookId": "37234",
+      "title": "Reamde: A Novel",
+      "author": "Neal Stephenson",
+      "asin": "B004XVN0WW",
+      "lastAnnotatedDate": "2019-03-31",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/71VM4oRxfFL._SY160.jpg",
+      "highlightsCount": 1
+    },
+    "date": "2022-12-26T16:48:12.000Z",
+    "modified": "2024-09-20T04:36:01.000Z",
+    "tags": [
+      "book"
+    ],
+    "words": 63,
+    "images": 0,
+    "links": 3,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 3
+    },
+    "toc": [
+      {
+        "text": "Reamde",
+        "slug": "reamde",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/reading/Stephenson-Reamde.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

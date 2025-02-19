@@ -1,0 +1,63 @@
+{
+  "content": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\"><a href=\"quantified-sel\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">quantified-sel</a>f]]</p>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"walk-to-the-grocery-store\">Walk to the grocery store</h2>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"public-transit\">Public transit</h2>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"buy-local-as-much-as-possible\">Buy local as much as possible</h2>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"avoid-air-travel\">Avoid air travel</h2>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"avoid-red-meat\">Avoid red meat</h2>",
+  "html": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\"><a href=\"quantified-sel\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">quantified-sel</a>f]]</p>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"walk-to-the-grocery-store\">Walk to the grocery store</h2>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"public-transit\">Public transit</h2>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"buy-local-as-much-as-possible\">Buy local as much as possible</h2>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"avoid-air-travel\">Avoid air travel</h2>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"avoid-red-meat\">Avoid red meat</h2>",
+  "title": "Motorcycle for personal vehicle",
+  "metadata": {
+    "date": "2023-01-19T06:16:08.000Z",
+    "modified": "2024-07-18T18:42:39.000Z",
+    "hidden": true,
+    "draft": true,
+    "tags": [
+      "quantifiedself",
+      "motorcycle"
+    ],
+    "words": 32,
+    "images": 0,
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 6
+    },
+    "toc": [
+      {
+        "text": "Motorcycle for personal vehicle",
+        "slug": "motorcycle-for-personal-vehicle",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Walk to the grocery store",
+        "slug": "walk-to-the-grocery-store",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Public transit",
+        "slug": "public-transit",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Buy local as much as possible",
+        "slug": "buy-local-as-much-as-possible",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Avoid air travel",
+        "slug": "avoid-air-travel",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Avoid red meat",
+        "slug": "avoid-red-meat",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/reducing-my-carbon-footprint.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

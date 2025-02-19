@@ -1,0 +1,55 @@
+{
+  "content": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">#photography</p>\n<h1 class=\"prose-lg text-4xl font-bold mb-6 mt-8 max-w-prose lg:pr-12 animate-on-scroll slide-from-left\" id=\"metadata\">Metadata</h1>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Author: <a href=\"https://www.amazon.com/Charles-Traub/e/B001H6QVJA/ref=dp_byline_cont_ebooks_4\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Charles H. Traub, Steven Heller, Adam B. Bell, and Charles Traub</a></p>\n</li>\n<li class=\"prose-lg max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">ASIN: B0041IXRM0</p>\n</li>\n<li class=\"prose-lg max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">ISBN: 158115450X</p>\n</li>\n<li class=\"prose-lg max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Reference: <a href=\"https://www.amazon.com/dp/B0041IXRM0\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">https://www.amazon.com/dp/B0041IXRM0</a></p>\n</li>\n<li class=\"prose-lg max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\"><a href=\"kindle://book?action=open&#x26;asin=B0041IXRM0\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Kindle link</a></p>\n</li>\n</ul>\n<h1 class=\"prose-lg text-4xl font-bold mb-6 mt-8 max-w-prose lg:pr-12 animate-on-scroll slide-from-left\" id=\"highlights\">Highlights</h1>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">One should shoot the subject from several different points and in varying positions in different photographs, as if encompassing it—not peer through one keyhole. Don’t make photo-pictures, make photo-moments of documentary (not artistic) value. — location: <a href=\"kindle://book?action=open&#x26;asin=B0041IXRM0&#x26;location=450\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">450</a> ^ref-27110</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">It seems to me it would be pretty difficult to be a portrait photographer for customers who order and pay since, apart from a Maecenas or two, they want to be flattered, and the result is no longer real. — location: <a href=\"kindle://book?action=open&#x26;asin=B0041IXRM0&#x26;location=686\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">686</a> ^ref-44744</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
+  "html": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">#photography</p>\n<h1 class=\"prose-lg text-4xl font-bold mb-6 mt-8 max-w-prose lg:pr-12 animate-on-scroll slide-from-left\" id=\"metadata\">Metadata</h1>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Author: <a href=\"https://www.amazon.com/Charles-Traub/e/B001H6QVJA/ref=dp_byline_cont_ebooks_4\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Charles H. Traub, Steven Heller, Adam B. Bell, and Charles Traub</a></p>\n</li>\n<li class=\"prose-lg max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">ASIN: B0041IXRM0</p>\n</li>\n<li class=\"prose-lg max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">ISBN: 158115450X</p>\n</li>\n<li class=\"prose-lg max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Reference: <a href=\"https://www.amazon.com/dp/B0041IXRM0\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">https://www.amazon.com/dp/B0041IXRM0</a></p>\n</li>\n<li class=\"prose-lg max-w-prose\">\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\"><a href=\"kindle://book?action=open&#x26;asin=B0041IXRM0\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">Kindle link</a></p>\n</li>\n</ul>\n<h1 class=\"prose-lg text-4xl font-bold mb-6 mt-8 max-w-prose lg:pr-12 animate-on-scroll slide-from-left\" id=\"highlights\">Highlights</h1>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">One should shoot the subject from several different points and in varying positions in different photographs, as if encompassing it—not peer through one keyhole. Don’t make photo-pictures, make photo-moments of documentary (not artistic) value. — location: <a href=\"kindle://book?action=open&#x26;asin=B0041IXRM0&#x26;location=450\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">450</a> ^ref-27110</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">It seems to me it would be pretty difficult to be a portrait photographer for customers who order and pay since, apart from a Maecenas or two, they want to be flattered, and the result is no longer real. — location: <a href=\"kindle://book?action=open&#x26;asin=B0041IXRM0&#x26;location=686\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">686</a> ^ref-44744</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
+  "title": "The Education of a Photographer",
+  "metadata": {
+    "kindle-sync": {
+      "bookId": "35281",
+      "title": "The Education of a Photographer",
+      "author": "Charles H. Traub, Steven Heller, Adam B. Bell, and Charles Traub",
+      "asin": "B0041IXRM0",
+      "lastAnnotatedDate": "2022-08-19",
+      "bookImageUrl": "https://m.media-amazon.com/images/I/61zosjjESlL._SY160.jpg",
+      "highlightsCount": 2
+    },
+    "date": "2022-12-14T20:23:27.000Z",
+    "modified": "2022-12-23T15:54:22.000Z",
+    "tags": [
+      "photography",
+      "documentary",
+      "art",
+      "education",
+      "inspiration"
+    ],
+    "words": 120,
+    "images": 0,
+    "links": 4,
+    "codeBlocks": 0,
+    "headers": {
+      "h1": 3
+    },
+    "toc": [
+      {
+        "text": "The Education of a Photographer",
+        "slug": "the-education-of-a-photographer",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Metadata",
+        "slug": "metadata",
+        "level": "h1",
+        "children": []
+      },
+      {
+        "text": "Highlights",
+        "slug": "highlights",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/reading/Traub_et_al-The Education of a Photographer.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

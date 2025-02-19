@@ -1,0 +1,49 @@
+{
+  "content": "<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"room-302-studio-website-redesign\">Room 302 Studio Website Redesign</h3>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"-learning--development\">📘 Learning &#x26; Development</h2>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\"><a href=\"https://youtu.be/eo4gIihETu8?si=FeSscE6Dyt1cxI_C\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">https://youtu.be/eo4gIihETu8?si=FeSscE6Dyt1cxI_C</a></p>",
+  "html": "<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"room-302-studio-website-redesign\">Room 302 Studio Website Redesign</h3>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"-learning--development\">📘 Learning &#x26; Development</h2>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\"><a href=\"https://youtu.be/eo4gIihETu8?si=FeSscE6Dyt1cxI_C\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">https://youtu.be/eo4gIihETu8?si=FeSscE6Dyt1cxI_C</a></p>",
+  "title": "💻 Projects Worked On",
+  "metadata": {
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress",
+      "webdesign",
+      "project",
+      "design"
+    ],
+    "date": "2022-12-26T16:57:44.000Z",
+    "modified": "2024-10-14T23:52:03.000Z",
+    "dek": "In which the author partakes in the redesign of the Room 302 Studio website and engages in learning and development through a video lecture.",
+    "words": 19,
+    "images": 0,
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 2
+    },
+    "toc": [
+      {
+        "text": "💻 Projects Worked On",
+        "slug": "projects-worked-on",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Room 302 Studio Website Redesign",
+            "slug": "room-302-studio-website-redesign",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "📘 Learning & Development",
+        "slug": "learning-development",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/week-notes/2024-05.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "content": "",
+  "html": "",
+  "title": "How To Give an LLM As Much Context In As Little Tokens As Possible",
+  "metadata": {
+    "dek": "In which, in the pursuit of intelligent answers, we try to give the robot as much information about the world as possible very few words",
+    "inprogress": true,
+    "date": "2023-08-07T13:28:25.000Z",
+    "modified": "2024-09-20T04:19:11.000Z",
+    "tags": [
+      "howto",
+      "data",
+      "dataviz",
+      "design"
+    ],
+    "hidden": true,
+    "draft": true,
+    "words": 16,
+    "images": 0,
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "How To Give an LLM As Much Context In As Little Tokens As Possible",
+        "slug": "how-to-give-an-llm-as-much-context-in-as-little-tokens-as-possible",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/drafts/compressing-information-for-llm-context.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "content": "",
+  "html": "",
+  "title": "Title",
+  "metadata": {
+    "date": "2023-01-19T06:10:57.000Z",
+    "modified": "2024-09-20T04:24:03.000Z",
+    "dek": "In which",
+    "inprogress": true,
+    "tags": [
+      "art",
+      "design",
+      "inspiration",
+      "visualization"
+    ],
+    "hidden": true,
+    "draft": true,
+    "words": 3,
+    "images": 0,
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "Title",
+        "slug": "title",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/how-i-use-netlify.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "content": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">#cooking</p>",
+  "html": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">#cooking</p>",
+  "title": "Cooking Seitan",
+  "metadata": {
+    "hidden": true,
+    "draft": true,
+    "tags": [
+      "food",
+      "cooking"
+    ],
+    "date": "2024-04-25T21:21:40.000Z",
+    "modified": "2024-09-21T19:06:22.000Z",
+    "words": 3,
+    "images": 0,
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/cooking-seitan.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

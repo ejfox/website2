@@ -23,7 +23,6 @@ logs
 !.env.example
 
 # Generated content
-content/backup/**/*
-content/processed/**/*
+# content/backup/**/*
 content/processed.backup/**/*
 *.backup

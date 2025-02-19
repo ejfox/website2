@@ -1,0 +1,45 @@
+{
+  "content": "<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"-daily-check-in--reflections\">🌟 Daily Check-In &#x26; Reflections</h3>\n<!-- Note any physical activity, mindfulness practice, or self-care -->\n<h4 class=\"\" id=\"tuesday\">Tuesday</h4>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I'm trying to untangle all of my ongoing projects. Like, a lot of things are at, like, 90% completion. And that final 10% is really difficult.</p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I was trying to share authentication between multiple projects using the same Supabase project, but that was causing all sorts of bugs. So I made new Supabase projects for a bunch of my projects which will hopefully make it easier to get them shippable.</p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I worked on debugging some - I'm really working towards making some demo videos ideally by the end of the week. I want, like, demo videos for all the projects. I want them to be usable MVPs, but even if they're not, we have videos of the features and the ideas that I was working towards.​​​​​​ as a historical record.</p>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"-learning--media\">📚 Learning &#x26; Media</h3>\n<!-- Books, articles, movies, TV shows, podcasts consumed -->",
+  "html": "<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"-daily-check-in--reflections\">🌟 Daily Check-In &#x26; Reflections</h3>\n<!-- Note any physical activity, mindfulness practice, or self-care -->\n<h4 class=\"\" id=\"tuesday\">Tuesday</h4>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I'm trying to untangle all of my ongoing projects. Like, a lot of things are at, like, 90% completion. And that final 10% is really difficult.</p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I was trying to share authentication between multiple projects using the same Supabase project, but that was causing all sorts of bugs. So I made new Supabase projects for a bunch of my projects which will hopefully make it easier to get them shippable.</p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I worked on debugging some - I'm really working towards making some demo videos ideally by the end of the week. I want, like, demo videos for all the projects. I want them to be usable MVPs, but even if they're not, we have videos of the features and the ideas that I was working towards.​​​​​​ as a historical record.</p>\n<h3 class=\"prose-lg text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"-learning--media\">📚 Learning &#x26; Media</h3>\n<!-- Books, articles, movies, TV shows, podcasts consumed -->",
+  "title": "2025-08",
+  "metadata": {
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
+    "date": "2025-02-17T22:29:35.000Z",
+    "modified": "2025-02-19T15:22:17.000Z",
+    "words": 165,
+    "images": 0,
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "2025-08",
+        "slug": "2025-08",
+        "level": "h2",
+        "children": [
+          {
+            "text": "🌟 Daily Check-In & Reflections",
+            "slug": "daily-check-in-reflections",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "📚 Learning & Media",
+            "slug": "learning-media",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-08.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

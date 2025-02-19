@@ -1,0 +1,33 @@
+{
+  "content": "<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">Smallweb</li>\n<li class=\"prose-lg max-w-prose\">Caddy</li>\n<li class=\"prose-lg max-w-prose\">DNS</li>\n<li class=\"prose-lg max-w-prose\">Cloudflare Tunnel</li>\n<li class=\"prose-lg max-w-prose\">PM2</li>\n<li class=\"prose-lg max-w-prose\">SSH Certificates / Termius</li>\n<li class=\"prose-lg max-w-prose\">Loki</li>\n<li class=\"prose-lg max-w-prose\">Grafana</li>\n<li class=\"prose-lg max-w-prose\">Uptime Kuma</li>\n<li class=\"prose-lg max-w-prose\">n8n</li>\n</ul>",
+  "html": "<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">Smallweb</li>\n<li class=\"prose-lg max-w-prose\">Caddy</li>\n<li class=\"prose-lg max-w-prose\">DNS</li>\n<li class=\"prose-lg max-w-prose\">Cloudflare Tunnel</li>\n<li class=\"prose-lg max-w-prose\">PM2</li>\n<li class=\"prose-lg max-w-prose\">SSH Certificates / Termius</li>\n<li class=\"prose-lg max-w-prose\">Loki</li>\n<li class=\"prose-lg max-w-prose\">Grafana</li>\n<li class=\"prose-lg max-w-prose\">Uptime Kuma</li>\n<li class=\"prose-lg max-w-prose\">n8n</li>\n</ul>",
+  "title": "Building A VPS For Business and Pleasure",
+  "metadata": {
+    "date": "2025-01-05T17:25:05.000Z",
+    "modified": "2025-01-27T04:35:12.000Z",
+    "dek": "In which the author prepares a little computer far away from home to do his bidding",
+    "inprogress": true,
+    "tags": [
+      "cli",
+      "tech"
+    ],
+    "words": 35,
+    "images": 0,
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "Building A VPS For Business and Pleasure",
+        "slug": "building-a-vps-for-business-and-pleasure",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/drafts/vps-micro-endpoints-smallweb.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}
