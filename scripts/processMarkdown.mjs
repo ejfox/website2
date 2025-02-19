@@ -498,7 +498,9 @@ async function processAllFiles() {
 
     // Write manifest with cleaned data
     const manifestPath = path.join(paths.outputDir, 'manifest-lite.json')
+    console.log('Writing manifest to:', manifestPath)
     await fs.writeFile(manifestPath, JSON.stringify(manifestResults, null, 2))
+    console.log('Manifest written successfully at:', manifestPath)
     spinner.succeed('Manifest written successfully')
 
     return results

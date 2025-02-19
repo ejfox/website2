@@ -6,7 +6,7 @@ tags:
   - radio
   - howto
 date: 2025-01-26T19:33:10-05:00
-modified: 2025-02-02T20:41:14-05:00
+modified: 2025-02-06T16:19:58-05:00
 ---
 
 ## Dipping Your Toes Into Amateur Radio
@@ -42,6 +42,8 @@ Luckily amateur radio has some of the best infrastructure for self-directed lear
 The HamStudy app is top-tier, and you could probably get your license just by spending 15-30 minutes a day with it, like duolingo, or pokemon go. It does have a very plodding feeling of learning random facts and lore, but after a few weeks for me the knowledge started to cohere together and take a form, for me particularly rounded out by playing around and experimenting and spinning different dials and seeing what happens.
 
 ### WebSDR
+
+[](http://websdr.ewi.utwente.nl:8901)
 
 ## Community & Practice
 ### Finding Frequencies and Repeaters

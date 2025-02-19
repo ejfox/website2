@@ -14,7 +14,8 @@ export default defineNuxtConfig({
 
   // Component loading optimization
   build: {
-    transpile: ['vue-toastification']
+    transpile: ['vue-toastification'],
+    analyze: process.env.ANALYZE === 'true'
   },
 
   umami: {
@@ -26,11 +27,11 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     // Private keys that are exposed to the server
-    MONKEYTYPE_TOKEN: process.env.MONKEYTYPE_TOKEN,
-    githubToken: process.env.GITHUB_TOKEN,
-    GITHUB_TOKEN: process.env.GITHUB_TOKEN,
-    CHESS_USERNAME: process.env.CHESS_USERNAME,
-    RESCUETIME_TOKEN: process.env.RESCUETIME_TOKEN,
+    MONKEYTYPE_TOKEN: process.env.MONKEYTYPE_TOKEN || '',
+    githubToken: process.env.GITHUB_TOKEN || '',
+    GITHUB_TOKEN: process.env.GITHUB_TOKEN || '',
+    CHESS_USERNAME: process.env.CHESS_USERNAME || '',
+    RESCUETIME_TOKEN: process.env.RESCUETIME_TOKEN || '',
 
     public: {
       baseUrl:
@@ -58,7 +59,8 @@ export default defineNuxtConfig({
           'Access-Control-Allow-Origin': '*'
         }
       }
-    }
+    },
+    errorHandler: '~/server/middleware/errorHandler.js'
   },
 
   components: true,

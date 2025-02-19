@@ -15,12 +15,23 @@ export default defineEventHandler(async () => {
 
     console.log('Manifest loaded:', {
       total: data?.length,
-      types: [...new Set(data?.map((p) => p.type))].slice(0, 5)
+      types: [...new Set(data?.map((p: { type: string }) => p.type))].slice(
+        0,
+        5
+      )
     })
 
     return data
   } catch (error) {
-    console.error('Error reading manifest:', error)
-    throw error
+    const err = error as NodeJS.ErrnoException
+    if (err.code === 'ENOENT') {
+      console.error('Manifest file not found:', err.path)
+      return {
+        error:
+          'Manifest file not found. Please ensure the file exists at the specified path.'
+      }
+    }
+    console.error('Error reading manifest:', err)
+    throw err
   }
 })
