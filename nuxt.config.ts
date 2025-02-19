@@ -59,8 +59,7 @@ export default defineNuxtConfig({
           'Access-Control-Allow-Origin': '*'
         }
       }
-    },
-    errorHandler: '~/server/middleware/errorHandler.js'
+    }
   },
 
   components: true,
