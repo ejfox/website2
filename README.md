@@ -199,6 +199,44 @@ DEBUG_IMPORT=true    # Show import details
 DEBUG_POSTS=true     # Show post filtering
 ```
 
+### Logging System
+
+The site uses Grafana Loki for centralized logging through Netlify Edge Functions:
+
+```bash
+# Required for logging
+LOKI_URL=https://loki.tools.ejfox.com/loki/api/v1/push  # Loki endpoint
+```
+
+#### Log Types Captured
+1. **Build Logs**
+   - Build errors and warnings
+   - Plugin issues
+   - Build process messages
+
+2. **Runtime Logs**
+   - Console logs from server-side
+   - API endpoint errors
+   - User interaction errors
+
+#### Log Structure
+```javascript
+{
+  stream: {
+    app: 'website2',
+    environment: 'production|preview',
+    level: 'error|info',
+    source: 'build|runtime'
+  },
+  values: [
+    [timestamp, JSON.stringify({
+      message: 'Log message',
+      // Additional context...
+    })]
+  ]
+}
+```
+
 ## License
 
 MIT License - See LICENSE file for details
