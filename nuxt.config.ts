@@ -117,7 +117,7 @@ export default defineNuxtConfig({
       org: 'ej-fox',
       project: 'website2'
     },
-
+    dsn: 'https://f705c0c6c4843d3f5560ce4af0909611@o4507578103431168.ingest.us.sentry.io/4508847853338624',
     autoInjectServerSentry: 'top-level-import'
   },
 
