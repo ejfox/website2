@@ -9,7 +9,8 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxtjs/google-fonts',
     'nuxt-umami',
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@sentry/nuxt/module'
   ],
 
   // Component loading optimization
@@ -109,5 +110,18 @@ export default defineNuxtConfig({
         }
       }
     }
+  },
+
+  sentry: {
+    sourceMapsUploadOptions: {
+      org: 'ej-fox',
+      project: 'website2'
+    },
+
+    autoInjectServerSentry: 'top-level-import'
+  },
+
+  sourcemap: {
+    client: 'hidden'
   }
 })
