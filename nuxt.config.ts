@@ -3,14 +3,18 @@ export default defineNuxtConfig({
   // SSR configuration
   ssr: false,
 
+  // Add compatibility date
+  compatibilityDate: '2024-02-23',
+
   modules: [
     '@nuxt/ui',
     '@nuxt/icon',
     '@vueuse/nuxt',
     '@nuxtjs/google-fonts',
     'nuxt-umami',
-    '@nuxtjs/tailwindcss',
-    '@sentry/nuxt/module'
+    '@nuxtjs/tailwindcss'
+    // Temporarily removing Sentry
+    // '@sentry/nuxt/module'
   ],
 
   // Component loading optimization
@@ -49,8 +53,13 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: 'netlify',
+    experimental: {
+      asyncContext: true
+    },
     prerender: {
-      failOnError: false
+      failOnError: false,
+      crawlLinks: false,
+      routes: ['/']
     },
     routeRules: {
       '/api/**': {
@@ -86,39 +95,9 @@ export default defineNuxtConfig({
   },
 
   tailwindcss: {
-    config: {
-      content: [
-        'content/**/*.md' // Make sure markdown content is included
-      ],
-      plugins: [require('@tailwindcss/typography')],
-      theme: {
-        extend: {
-          typography: {
-            DEFAULT: {
-              css: {
-                maxWidth: 'none', // Override prose max-width
-                color: 'inherit', // Let parent color flow through
-                a: {
-                  color: 'inherit',
-                  '&:hover': {
-                    color: 'inherit'
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-
-  sentry: {
-    sourceMapsUploadOptions: {
-      org: 'ej-fox',
-      project: 'website2'
-    },
-    dsn: 'https://f705c0c6c4843d3f5560ce4af0909611@o4507578103431168.ingest.us.sentry.io/4508847853338624',
-    autoInjectServerSentry: 'top-level-import'
+    configPath: './tailwind.config.js',
+    exposeConfig: true,
+    quiet: true
   },
 
   sourcemap: {

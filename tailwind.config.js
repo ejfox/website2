@@ -1,18 +1,24 @@
 module.exports = {
+  content: [
+    'content/**/*.md' // Make sure markdown content is included
+  ],
+  plugins: [require('@tailwindcss/typography')],
   theme: {
     extend: {
-      typography: (theme) => ({
+      typography: {
         DEFAULT: {
           css: {
-            color: theme('colors.zinc.800')
-          }
-        },
-        invert: {
-          css: {
-            color: theme('colors.zinc.200')
+            maxWidth: 'none', // Override prose max-width
+            color: 'inherit', // Let parent color flow through
+            a: {
+              color: 'inherit',
+              '&:hover': {
+                color: 'inherit'
+              }
+            }
           }
         }
-      })
+      }
     }
   }
 }
