@@ -104,9 +104,11 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, defineAsyncComponent, onMounted } from 'vue'
 import { useWindowSize } from '@vueuse/core'
-import Footer from '@/components/Footer.vue'
+
+// Lazy load the Footer component
+const Footer = defineAsyncComponent(() => import('@/components/Footer.vue'))
 
 const { width } = useWindowSize()
 const isDark = useDark()
@@ -168,7 +170,86 @@ h3,
   z-index: 10;
 }
 
-.slide-down-enter-active,
+/* View Transitions API support - REMOVED */
+/* 
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 2147483646;
+}
+
+/* Default animations for view transitions */
+@keyframes slide-from-right {
+  from {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-to-left {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+/* Apply animations to all view transitions by default */
+::view-transition-old(*) {
+  animation: 300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
+}
+
+::view-transition-new(*) {
+  animation: 300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+}
+
+/* Respect user preferences */
+@media (prefers-reduced-motion: reduce) {
+
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+*/ .slide-down-enter-active,
 .slide-down-leave-active {
   transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
   max-height: 300px;
