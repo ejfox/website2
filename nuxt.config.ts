@@ -6,6 +6,11 @@ export default defineNuxtConfig({
   // Add compatibility date
   compatibilityDate: '2024-02-23',
 
+  // Enable View Transitions API
+  experimental: {
+    viewTransition: true
+  },
+
   modules: [
     '@nuxt/ui',
     '@nuxt/icon',
@@ -102,5 +107,8 @@ export default defineNuxtConfig({
 
   sourcemap: {
     client: 'hidden'
-  }
+  },
+
+  // Add global CSS for transitions
+  css: ['~/assets/css/transitions.css']
 })

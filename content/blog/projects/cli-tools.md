@@ -2,7 +2,11 @@
 date: 2024-10-12T19:52:50-04:00
 modified: 2024-12-11T13:49:33-05:00
 image: http://res.cloudinary.com/ejf/image/upload/v1733942968/Screenshot_2024-12-11_at_1.49.13_PM.png
-
+tags: ["CLI", "Developer Tools", "Cyberpunk"]
+type: "Tool"
+github: https://github.com/ejfox/cli-conway
+demo: https://asciinema.org/a/123456
+behindTheScenes: "These tools were created during late-night coding sessions with Mingus playing in the background. Each one started as a simple utility but evolved into a cyberpunk-inspired experience."
 ---
 ## Command Line Tools
 
