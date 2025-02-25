@@ -249,7 +249,7 @@ h3,
   }
 }
 
-*/ .slide-down-enter-active,
+.slide-down-enter-active,
 .slide-down-leave-active {
   transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
   max-height: 300px;
