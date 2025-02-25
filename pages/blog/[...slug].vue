@@ -1,8 +1,7 @@
 <script setup>
 import { format, isValid, parseISO } from 'date-fns'
-import { animate, stagger, onScroll, utils, engine } from '~/anime.esm.js'
-import { useWindowSize, useElementVisibility, useMutationObserver } from '@vueuse/core'
-import { TransitionPresets, useTransition } from '@vueuse/core'
+import { animate, stagger, engine } from '~/anime.esm.js'
+import { useWindowSize, useMutationObserver } from '@vueuse/core'
 import DonationSection from '~/components/blog/DonationSection.vue'
 import BlogSignatureInfo from '~/components/blog/SignatureInfo.vue'
 import { useScrollAnimation } from '~/composables/useScrollAnimation'
@@ -62,12 +61,10 @@ const { data: nextPrevPosts } = await useAsyncData(
 const postTitle = ref(null)
 const postMetadata = ref(null)
 const postMetadataComponent = ref(null)
-const postContent = ref(null)
 const navigationLinks = ref(null)
 const articleContent = ref(null)
 const headings = ref([])
 const activeSection = ref('')
-const typedTitle = ref('')
 const titleWidth = ref(0)
 const titleFontSize = ref(24)
 
@@ -308,7 +305,6 @@ useHead(() => ({
 const isBlogPost = computed(() => {
   return route.path.startsWith('/blog/') && route.path !== '/blog/'
 })
-
 // Add computed property to check if donations should be shown
 const showDonations = computed(() => {
   // Show donations by default unless explicitly disabled in frontmatter
