@@ -1,34 +1,35 @@
 /**
- * Blog Index Page
- * ==============
- * 
- * Week Note Detection Rules
- * ------------------------
- * A post is considered a week note if ANY of these conditions are met:
- * 1. Type is 'weekNote'
- * 2. Slug starts with 'week-notes/'
- * 3. Slug matches YYYY-WW pattern (e.g. "2024-45")
- * 
- * The third pattern was crucial and initially missed, causing week notes
- * to appear in both the main blog posts section and the week notes section.
- * 
- * Week Note Formats We Support:
- * - Modern format: week-notes/2024-45
- * - Legacy format: 2024-45 (at root level)
- * - Type-based: Any post with type: 'weekNote'
- * 
- * Filtering Logic
- * --------------
- * - Blog Posts section: Excludes anything matching week note patterns
- * - Week Notes section: Only includes posts matching week note patterns
- * - Recently Updated: Includes both types but filters by update date
- */
+* Blog Index Page
+* ==============
+*
+* Week Note Detection Rules
+* ------------------------
+* A post is considered a week note if ANY of these conditions are met:
+* 1. Type is 'weekNote'
+* 2. Slug starts with 'week-notes/'
+* 3. Slug matches YYYY-WW pattern (e.g. "2024-45")
+*
+* The third pattern was crucial and initially missed, causing week notes
+* to appear in both the main blog posts section and the week notes section.
+*
+* Week Note Formats We Support:
+* - Modern format: week-notes/2024-45
+* - Legacy format: 2024-45 (at root level)
+* - Type-based: Any post with type: 'weekNote'
+*
+* Filtering Logic
+* --------------
+* - Blog Posts section: Excludes anything matching week note patterns
+* - Week Notes section: Only includes posts matching week note patterns
+* - Recently Updated: Includes both types but filters by update date
+*/
 
 <script setup>
 import { format, formatDistanceToNow } from 'date-fns'
 import { computed, ref, onMounted, watch } from 'vue'
 import { startOfWeek, subMonths } from 'date-fns'
 import { animate, stagger } from '~/anime.esm.js'
+import PostMetadata from '~/components/PostMetadata.vue'
 
 const route = useRoute()
 const processedMarkdown = useProcessedMarkdown()
@@ -40,23 +41,6 @@ const { data: posts, error: postsError } = useAsyncData(
     try {
       // Get all regular posts (no drafts, no week notes)
       const result = await processedMarkdown.getAllPosts(false, false)
-      
-      // Debug logging
-      console.log('Blog posts data:', {
-        total: result?.length,
-        firstFew: result?.slice(0, 3).map(p => ({
-          slug: p.slug,
-          title: p.title,
-          metadataTitle: p?.metadata?.title,
-          rootTitle: p?.title,
-          type: p.type,
-          hidden: p.hidden,
-          draft: p.draft,
-          date: p.date,
-          dek: p?.metadata?.dek || p?.dek,
-          isWeekNote: p?.type === 'weekNote' || p?.slug?.startsWith('week-notes/') || /^\d{4}-\d{2}$/.test(p?.slug?.split('/').pop() || '')
-        }))
-      })
 
       // Process posts to ensure titles are set and filter out week notes
       return result
@@ -65,18 +49,18 @@ const { data: posts, error: postsError } = useAsyncData(
           const type = post?.type || post?.metadata?.type
           const slugParts = slug.split('/')
           const lastPart = slugParts[slugParts.length - 1]
-          
+
           // Check if it's a week note by:
           // 1. Type is weekNote
           // 2. Slug starts with week-notes/
           // 3. Slug matches YYYY-WW pattern (e.g. 2024-45)
-          const isWeekNote = 
-            type === 'weekNote' || 
-            slug.startsWith('week-notes/') || 
+          const isWeekNote =
+            type === 'weekNote' ||
+            slug.startsWith('week-notes/') ||
             /^\d{4}-\d{2}$/.test(lastPart)
 
           // Check if it's a special section that should be excluded
-          const isSpecialSection = 
+          const isSpecialSection =
             slug.startsWith('reading/') ||
             slug.startsWith('projects/') ||
             slug.startsWith('robots/') ||
@@ -90,7 +74,7 @@ const { data: posts, error: postsError } = useAsyncData(
         .map(post => {
           // Get title with proper fallbacks
           const title = post.title || post?.metadata?.title || formatTitle(post.slug)
-          
+
           return {
             ...post,
             title,
@@ -110,7 +94,6 @@ const { data: posts, error: postsError } = useAsyncData(
 const { data: notes, error: notesError } = useAsyncData(
   'week-notes',
   async () => {
-    console.log('Fetching week notes...')
     try {
       // Get all posts including week notes
       const result = await processedMarkdown.getAllPosts(false, true)
@@ -121,24 +104,16 @@ const { data: notes, error: notesError } = useAsyncData(
         const type = post?.type || post?.metadata?.type
         const slugParts = slug.split('/')
         const lastPart = slugParts[slugParts.length - 1]
-        
+
         // Check if it's a week note by:
         // 1. Type is weekNote
         // 2. Slug starts with week-notes/
         // 3. Slug matches YYYY-WW pattern (e.g. 2024-45)
-        const isWeekNote = 
-          type === 'weekNote' || 
-          slug.startsWith('week-notes/') || 
+        const isWeekNote =
+          type === 'weekNote' ||
+          slug.startsWith('week-notes/') ||
           /^\d{4}-\d{2}$/.test(lastPart)
 
-        if (isWeekNote) {
-          console.log('Found week note:', { 
-            type, 
-            slug,
-            lastPart,
-            dek: post?.metadata?.dek || post?.dek
-          })
-        }
         return isWeekNote
       }) || []
 
@@ -184,7 +159,7 @@ const sortedWeekNotes = computed(() => {
       // Create a new object to avoid mutating the reactive source
       const processedNote = { ...note }
       const weekMatch = note?.slug?.match(/(\d{4})-(\d{2})/)
-      
+
       if (weekMatch) {
         const year = parseInt(weekMatch[1], 10)
         const week = parseInt(weekMatch[2], 10)
@@ -215,19 +190,8 @@ const sortedWeekNotes = computed(() => {
 // Watch notes for debugging
 watch(() => notes.value, (newNotes) => {
   if (!newNotes) {
-    console.log('No notes value available')
     return
   }
-
-  console.log('Processing week notes:', {
-    total: newNotes?.length,
-    notes: newNotes?.map(n => ({
-      slug: n?.slug,
-      type: n?.type || n?.metadata?.type,
-      dek: n?.dek || n?.metadata?.dek,
-      hidden: n?.hidden || n?.metadata?.hidden
-    }))
-  })
 }, { immediate: true })
 
 function groupByYear(posts) {
@@ -269,11 +233,11 @@ const sortedYears = computed(() => {
 
 // Watch posts for debugging
 watch(() => posts.value, (newPosts) => {
-  console.log('Grouping posts:', {
-    total: newPosts?.length,
-    sample: newPosts?.[0],
-    titles: newPosts?.map(p => (p?.metadata || p)?.title)
-  })
+  // console.log('Grouping posts:', {
+  //   total: newPosts?.length,
+  //   sample: newPosts?.[0],
+  //   titles: newPosts?.map(p => (p?.metadata || p)?.title)
+  // })
 }, { immediate: true })
 
 const blogPostElements = ref([])
@@ -344,12 +308,31 @@ const recentlyUpdatedPosts = computed(() => {
 function formatTitle(slug) {
   // Remove year prefix and get last part of path
   const baseName = slug.split('/').pop() || slug
-  
+
   // Convert kebab-case to Title Case
   return baseName
     .split('-')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ')
+}
+
+// Helper function to create metadata object for PostMetadata component
+function createPostMetadata(post) {
+  if (!post) return null
+
+  const metadata = post?.metadata || {}
+
+  return {
+    slug: post?.slug || metadata?.slug,
+    title: post?.title || metadata?.title,
+    date: post?.date || metadata?.date,
+    draft: post?.draft || metadata?.draft,
+    wordCount: post?.wordCount || metadata?.words,
+    imageCount: post?.imageCount || metadata?.images,
+    linkCount: post?.linkCount || metadata?.links,
+    dek: post?.dek || metadata?.dek,
+    metadata
+  }
 }
 </script>
 
@@ -380,8 +363,7 @@ function formatTitle(slug) {
                 class="flex flex-col border-b border-zinc-200 dark:border-zinc-700 pb-4 mb-4">
 
                 <NuxtLink :to="`/blog/${post?.slug}`"
-                  class="post-title no-underline hover:underline text-xl lg:text-3xl font-medium mb-2 pr-2 font-fjalla"
-                  :style="{ viewTransitionName: `title-${post?.slug}` }">
+                  class="post-title no-underline hover:underline text-xl lg:text-3xl font-medium mb-2 pr-2 font-fjalla">
                   {{ post?.title || formatTitle(post?.slug) }}
                   <span v-if="new Date(post?.date) > now"
                     class="text-sm font-normal text-zinc-500 dark:text-zinc-400 ml-2">
@@ -389,9 +371,14 @@ function formatTitle(slug) {
                   </span>
                 </NuxtLink>
 
-                <div v-if="post?.metadata?.dek || post?.dek" class="font-mono text-xs text-zinc-600 dark:text-zinc-400">
+                <div v-if="post?.metadata?.dek || post?.dek"
+                  class="font-mono text-xs text-zinc-600 dark:text-zinc-400 mb-2">
                   {{ post?.metadata?.dek || post?.dek }}
                 </div>
+
+                <!-- Add PostMetadata component for each post -->
+                <PostMetadata v-if="post" :doc="createPostMetadata(post)"
+                  class="opacity-60 hover:opacity-100 transition-opacity" />
               </li>
             </ul>
           </div>
@@ -502,4 +489,31 @@ function formatTitle(slug) {
 .post-title {
   transition: color 0.2s ease;
 }
+
+/* View Transitions API support */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+/* Removed view transition styles */
 </style>

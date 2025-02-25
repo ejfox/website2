@@ -6,9 +6,24 @@ export default defineNuxtConfig({
   // Add compatibility date
   compatibilityDate: '2024-02-23',
 
-  // Enable View Transitions API
-  experimental: {
-    viewTransition: true
+  // Remove View Transitions API
+  // experimental: {
+  //   viewTransition: true
+  // },
+
+  // Remove plugin registration
+  // plugins: ['~/plugins/viewTransitions.client.ts'],
+
+  // Dev server configuration
+  devServer: {
+    port: 3006
+  },
+
+  // Disable HMR completely
+  vite: {
+    server: {
+      hmr: false
+    }
   },
 
   modules: [
@@ -47,11 +62,11 @@ export default defineNuxtConfig({
       baseUrl:
         process.env.NODE_ENV === 'production'
           ? 'https://ejfox.com'
-          : 'http://localhost:3000',
+          : 'http://localhost:3006',
       apiBase:
         process.env.NODE_ENV === 'production'
           ? 'https://ejfox.com/api'
-          : 'http://localhost:3000/api',
+          : 'http://localhost:3006/api',
       debug: process.env.DEBUG === 'true'
     }
   },
@@ -73,6 +88,23 @@ export default defineNuxtConfig({
           'Access-Control-Allow-Methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
           'Access-Control-Allow-Origin': '*'
         }
+      },
+      // Add caching for static assets
+      '/assets/**': {
+        headers: {
+          'cache-control': 'public, max-age=31536000, immutable'
+        }
+      },
+      // Add caching for static pages
+      '/blog/**': {
+        headers: {
+          'cache-control': 'public, max-age=3600, s-maxage=86400'
+        }
+      },
+      '/projects': {
+        headers: {
+          'cache-control': 'public, max-age=3600, s-maxage=86400'
+        }
       }
     }
   },
@@ -87,7 +119,24 @@ export default defineNuxtConfig({
           name: 'description',
           content: 'EJ Fox: Hacker, Journalist, & Dataviz Specialist'
         }
-      ]
+      ],
+      link: [
+        {
+          rel: 'dns-prefetch',
+          href: 'https://fonts.gstatic.com'
+        },
+        {
+          rel: 'dns-prefetch',
+          href: 'https://res.cloudinary.com'
+        }
+      ],
+      htmlAttrs: {
+        lang: 'en'
+      }
+    },
+    pageTransition: {
+      name: 'page',
+      mode: 'out-in'
     }
   },
 
@@ -96,7 +145,12 @@ export default defineNuxtConfig({
       'Signika Negative': [200, 300, 400, 500, 600, 700, 800],
       'Red Hat Mono': [300, 400],
       'Fjalla One': [400]
-    }
+    },
+    display: 'swap',
+    prefetch: true,
+    preconnect: true,
+    preload: true,
+    download: true
   },
 
   tailwindcss: {
@@ -109,6 +163,6 @@ export default defineNuxtConfig({
     client: 'hidden'
   },
 
-  // Add global CSS for transitions
-  css: ['~/assets/css/transitions.css']
+  // Keep basic CSS but remove transitions.css
+  css: []
 })

@@ -1,6 +1,6 @@
 <template>
   <div id="app-container" class="sans-serif w-full h-screen">
-    <NuxtLoadingIndicator color="#999999" height="1" />
+    <NuxtLoadingIndicator color="#999999" :height="1" />
     <section class="flex flex-col md:flex-row min-h-screen relative">
       <!-- Mobile navigation -->
       <nav v-if="isMobile" class="fixed top-0 left-0 w-full z-50 bg-zinc-100/80 dark:bg-zinc-900/80 backdrop-blur-lg">

@@ -2,11 +2,14 @@
 import { animate, stagger } from '~/anime.esm.js'
 const { getPostBySlug, getAllPosts } = useProcessedMarkdown()
 
-const { data: indexContent } = await useAsyncData('index-content', () =>
+const { data: indexContent, pending: indexPending } = await useAsyncData('index-content', () =>
   getPostBySlug('index')
 )
 
-const { data: posts } = await useAsyncData('posts', () => getAllPosts())
+const { data: posts, pending: postsPending } = await useAsyncData('posts', () => getAllPosts())
+
+// Combine the pending states
+const pending = computed(() => indexPending.value || postsPending.value)
 
 const indexContentContainer = ref(null)
 

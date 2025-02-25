@@ -20,11 +20,6 @@ router.get(
     // Get the full path from the URL
     const fullPath = event.path?.replace('/api/robots/', '') || ''
 
-    console.log('Robot API: Fetching note:', {
-      path: event.path,
-      fullPath
-    })
-
     if (!fullPath) {
       throw createError({
         statusCode: 400,
@@ -45,34 +40,16 @@ router.get(
         `${fullPath}.json`
       )
 
-      console.log('Robot API: Looking for file at:', {
-        processedPath,
-        blogPath,
-        processedExists: existsSync(processedPath),
-        blogExists: existsSync(blogPath),
-        cwd: process.cwd()
-      })
-
       let rawData
       if (existsSync(processedPath)) {
         rawData = await readFile(processedPath, 'utf-8')
-        console.log('Robot API: Found file in processed path')
       } else if (existsSync(blogPath)) {
         rawData = await readFile(blogPath, 'utf-8')
-        console.log('Robot API: Found file in blog path')
       } else {
-        console.log('Robot API: No file found in either location')
         throw new Error(`No file found at ${processedPath} or ${blogPath}`)
       }
 
       const data = JSON.parse(rawData)
-
-      console.log('Robot API: Found post:', {
-        fullPath,
-        hasPost: !!data,
-        isShared: data?.metadata?.share,
-        metadata: data?.metadata
-      })
 
       if (!data || !data.metadata?.share) {
         throw createError({
@@ -83,7 +60,6 @@ router.get(
 
       return data
     } catch (error) {
-      console.error('Robot API Error:', error)
       throw createError({
         statusCode: 404,
         message: 'Robot note not found'

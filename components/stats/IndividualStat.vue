@@ -1,7 +1,7 @@
 <template>
   <div class="space-y-3">
     <Transition name="fade" mode="out-in">
-      <p :key="value" class="tabular-nums tracking-tight font-fjalla" :class="[
+      <p :key="value" class="tabular-nums tracking-tight font-mono" :class="[
         size === 'large' && 'text-[8rem] leading-[0.85]',
         size === 'medium' && 'text-6xl leading-[0.9]',
         size === 'small' && 'text-4xl leading-[0.95]',
@@ -10,8 +10,8 @@
       </p>
     </Transition>
     <div class="space-y-1.5">
-      <h3 class="text-sm tracking-wider text-gray-400 font-medium uppercase">{{ label }}</h3>
-      <p v-if="details" class="text-xs text-gray-500 tracking-wide leading-relaxed max-w-xs font-light">
+      <h3 class="text-sm tracking-wider text-zinc-400 uppercase font-mono">{{ label }}</h3>
+      <p v-if="details" class="text-xs text-zinc-500 tracking-wide leading-relaxed max-w-xs font-mono">
         {{ details }}
       </p>
     </div>
@@ -93,13 +93,8 @@ const formattedValue = computed(() => {
   transform: translateY(10px);
 }
 
-/* Tufte-inspired typography */
+/* Monospace typography */
 p {
   font-feature-settings: "tnum", "zero";
-}
-
-/* Ensure Fjalla One is used for numbers */
-.font-fjalla {
-  font-family: 'Fjalla One', sans-serif !important;
 }
 </style>

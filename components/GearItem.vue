@@ -1,5 +1,5 @@
 <template>
-  <div class="p-3 sm:p-4 group hover:bg-zinc-50 dark:hover:bg-zinc-900/30 transition-colors">
+  <div class="border-t border-zinc-800/50 py-3 group hover:bg-zinc-900/20 transition-colors">
     <div class="flex gap-4 sm:gap-6">
       <!-- Left: Visualization -->
       <div class="relative shrink-0">
@@ -9,20 +9,19 @@
 
         <!-- Score overlay -->
         <div
-          class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 bg-zinc-50/90 dark:bg-zinc-900/90 backdrop-blur-sm rounded-lg">
+          class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 bg-zinc-900/90 backdrop-blur-sm">
           <div class="grid gap-1.5">
             <!-- TCWM Breakdown -->
             <div class="grid grid-cols-2 gap-x-3 gap-y-1">
               <div v-for="(score, type) in scores" :key="type"
                 class="flex items-center justify-between font-mono text-[10px]">
-                <span class="text-zinc-400">{{ type }}</span>
-                <span class="tabular-nums font-medium">{{ score }}</span>
+                <span class="text-zinc-500">{{ type }}</span>
+                <span class="tabular-nums font-medium text-zinc-300">{{ score }}</span>
               </div>
             </div>
             <!-- Final Score -->
-            <div
-              class="font-mono text-[10px] border-t border-zinc-200 dark:border-zinc-700 pt-1 mt-0.5 flex justify-between items-center">
-              <span class="text-zinc-400">Total</span>
+            <div class="font-mono text-[10px] border-t border-zinc-700 pt-1 mt-0.5 flex justify-between items-center">
+              <span class="text-zinc-500">TOTAL</span>
               <span class="tabular-nums font-medium" :class="tierTextColor">{{ calculatedScore }}</span>
             </div>
           </div>
@@ -35,7 +34,7 @@
         <div class="flex items-start justify-between gap-3">
           <div class="min-w-0 flex-1">
             <div class="flex items-start gap-2">
-              <h3 class="font-medium uppercase leading-snug truncate flex-1" :title="item.Name">
+              <h3 class="font-mono uppercase leading-snug truncate flex-1" :title="item.Name">
                 {{ item.Name }}
               </h3>
             </div>
@@ -43,64 +42,61 @@
             <!-- Comment out Amazon section for now -->
             <div class="py-2" v-if="item.amazon">
               <!-- Enhanced Amazon link -->
-              <a :href="amazonAffiliateUrl" target="_blank" rel="nofollow noopener" class="inline-flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-medium rounded-full 
-                        bg-amber-50 text-orange-600 border border-orange-200 hover:bg-orange-100
-                        dark:bg-orange-500/10 dark:text-orange-400 dark:border-orange-500/20 dark:hover:bg-orange-500/20
+              <a :href="amazonAffiliateUrl" target="_blank" rel="nofollow noopener" class="inline-flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-mono 
+                        border border-orange-500/30 text-orange-400 hover:bg-orange-500/10
                         transition-colors" :title="`Buy ${item.Name} on Amazon`">
                 <UIcon name="i-heroicons-shopping-cart" class="w-3 h-3" />
-                <span>Buy yourself</span>
+                <span>BUY</span>
               </a>
             </div>
 
             <!-- Stats row -->
-            <div class="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1 text-xs">
+            <div class="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1 text-xs font-mono">
               <!-- Waterproof indicator -->
-              <div v-if="item.Waterproof" class="flex items-center gap-1 text-blue-500 dark:text-blue-400"
+              <div v-if="item.Waterproof" class="flex items-center gap-1 text-blue-400"
                 :title="`${item.Waterproof} waterproof rating`">
                 <UIcon name="i-heroicons-droplet" class="w-3.5 h-3.5 shrink-0" />
                 <span class="font-mono text-[10px]">{{ item.Waterproof }}</span>
               </div>
 
               <!-- Weight(s) -->
-              <div class="flex items-center gap-2 text-zinc-500 dark:text-zinc-400 group/weight">
+              <div class="flex items-center gap-2 text-zinc-500 group/weight">
                 <UIcon name="i-heroicons-scale" class="w-3.5 h-3.5 shrink-0" />
                 <div class="flex flex-col gap-1">
                   <!-- Base Weight -->
                   <div v-if="baseWeight" class="flex items-center gap-1.5">
                     <div class="flex flex-wrap gap-px max-w-[3rem] sm:max-w-[4rem]">
-                      <div v-for="n in Math.floor(baseWeight)" :key="n"
-                        class="w-1 h-1 rounded-full bg-current opacity-50" :title="`${baseWeight}oz base weight`">
+                      <div v-for="n in Math.floor(baseWeight)" :key="n" class="w-1 h-1 bg-current opacity-50"
+                        :title="`${baseWeight}oz base weight`">
                       </div>
-                      <div v-if="hasPartialBaseOunce" class="w-1 h-1 rounded-full bg-current opacity-25"
+                      <div v-if="hasPartialBaseOunce" class="w-1 h-1 bg-current opacity-25"
                         :style="{ transform: `scale(${partialBaseOunce})` }" :title="`${baseWeight}oz base weight`">
                       </div>
                     </div>
-                    <ruby class="tabular-nums text-[10px] shrink-0 whitespace-nowrap">
+                    <span class="tabular-nums text-[10px] shrink-0 whitespace-nowrap text-zinc-400">
                       {{ baseWeight }}oz
-                      <rt class="text-zinc-400">{{ (baseWeight / 16).toFixed(1) }}lb</rt>
-                    </ruby>
+                    </span>
                   </div>
 
                   <!-- Loaded Weight -->
                   <div v-if="loadedWeight && loadedWeight !== baseWeight" class="flex items-center gap-1.5">
                     <div class="flex flex-wrap gap-px max-w-[3rem] sm:max-w-[4rem]">
-                      <div v-for="n in Math.floor(loadedWeight)" :key="n"
-                        class="w-1 h-1 rounded-full bg-current opacity-50" :title="`${loadedWeight}oz loaded`">
+                      <div v-for="n in Math.floor(loadedWeight)" :key="n" class="w-1 h-1 bg-current opacity-50"
+                        :title="`${loadedWeight}oz loaded`">
                       </div>
-                      <div v-if="hasPartialLoadedOunce" class="w-1 h-1 rounded-full bg-current opacity-25"
+                      <div v-if="hasPartialLoadedOunce" class="w-1 h-1 bg-current opacity-25"
                         :style="{ transform: `scale(${partialLoadedOunce})` }" :title="`${loadedWeight}oz loaded`">
                       </div>
                     </div>
-                    <ruby class="tabular-nums text-[10px] shrink-0 whitespace-nowrap">
+                    <span class="tabular-nums text-[10px] shrink-0 whitespace-nowrap text-zinc-400">
                       {{ loadedWeight }}oz
-                      <rt class="text-zinc-400">{{ (loadedWeight / 16).toFixed(1) }}lb</rt>
-                    </ruby>
+                    </span>
                   </div>
                 </div>
               </div>
 
-              <!-- Tier indicator (unchanged) -->
-              <span class="font-mono text-[10px] tabular-nums text-zinc-400 dark:text-zinc-500">
+              <!-- Tier indicator -->
+              <span class="font-mono text-[10px] tabular-nums text-zinc-500">
                 <span :class="tierTextColor">T{{ tier }}</span>
                 <span class="mx-0.5">/</span>
                 <span>{{ calculatedScore }}</span>
@@ -110,7 +106,7 @@
 
           <!-- Type badge -->
           <span v-if="item.Type"
-            class="shrink-0 px-2 py-1 text-[11px] font-medium rounded-full tracking-wide flex items-center gap-1.5"
+            class="shrink-0 px-2 py-1 text-[11px] font-mono tracking-wide flex items-center gap-1.5 border border-zinc-800"
             :class="typeClasses[item.Type]">
             <UIcon :name="typeIcons[item.Type]" class="w-3.5 h-3.5" />
             {{ item.Type }}
@@ -118,7 +114,7 @@
         </div>
 
         <!-- Notes section -->
-        <p v-if="item.Notes" class="mt-6 mb-2 text-zinc-600 dark:text-zinc-400 leading-relaxed">
+        <p v-if="item.Notes" class="mt-6 mb-2 text-zinc-500 leading-relaxed font-mono text-xs">
           {{ item.Notes }}
         </p>
       </div>
@@ -182,13 +178,13 @@ const typeIcons = {
 }
 
 const typeClasses = {
-  'Tech': 'bg-zinc-50 dark:bg-zinc-500/10 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-500/20',
-  'Utility': 'bg-zinc-50 dark:bg-zinc-500/10 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-500/20',
-  'Comfort': 'bg-zinc-50 dark:bg-zinc-500/10 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-500/20',
-  'Sleep': 'bg-zinc-50 dark:bg-zinc-500/10 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-500/20',
-  'Bag': 'bg-zinc-50 dark:bg-zinc-500/10 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-500/20',
-  'Safety': 'bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400 border border-red-200 dark:border-red-500/20',
-  'Creativity': 'bg-zinc-50 dark:bg-zinc-500/10 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-500/20'
+  'Tech': 'bg-transparent text-zinc-400 border-zinc-700',
+  'Utility': 'bg-transparent text-zinc-400 border-zinc-700',
+  'Comfort': 'bg-transparent text-zinc-400 border-zinc-700',
+  'Sleep': 'bg-transparent text-zinc-400 border-zinc-700',
+  'Bag': 'bg-transparent text-zinc-400 border-zinc-700',
+  'Safety': 'bg-transparent text-red-400 border-red-800/50',
+  'Creativity': 'bg-transparent text-zinc-400 border-zinc-700'
 }
 
 // Update weight calculations

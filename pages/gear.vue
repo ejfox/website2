@@ -1,64 +1,138 @@
 <template>
   <main class="p-4 md:p-8 space-y-8">
-    <!-- Quick TCWM Explanation -->
-    <div class="max-w-3xl mb-8 p-4 rounded-lg bg-zinc-50 dark:bg-zinc-900/50">
-      <h3 class="text-lg font-medium mb-3">How to Read This List</h3>
-      <p class="text-base text-zinc-600 dark:text-zinc-400">
-        Each item is scored on four factors:
-        <span class="text-blue-500">Time Criticality</span> (how quickly you need it),
-        <span class="text-purple-500">Consequence</span> (impact if you don't have it),
-        <span class="text-green-500">Weight</span> (how much it impacts mobility), and
-        <span class="text-amber-500">Multi-use</span> (versatility).
-        Higher scores (T1) mean the item should be immediately accessible.
+    <!-- Header Section - Feltron Style -->
+    <div class="max-w-4xl mx-auto mb-16">
+      <div class="border-b border-zinc-800 pb-8 mb-8">
+        <h1 class="text-4xl md:text-6xl font-mono uppercase tracking-tight mb-6">GEAR INVENTORY</h1>
+        <div class="text-xl md:text-2xl text-zinc-600 dark:text-zinc-400 font-mono">
+          SYSTEMATIC APPROACH TO ADVENTURE GEAR OPTIMIZATION
+        </div>
+      </div>
+
+      <!-- Key Stats in BBS Style -->
+      <div class="font-mono mb-12">
+        <div class="grid grid-cols-1 gap-1 text-sm text-zinc-500 uppercase mb-6">
+          <div class="flex flex-wrap gap-x-4 gap-y-1">
+            <div>TOTAL ITEMS: <span class="text-zinc-300">{{ totalItems }}</span></div>
+            <div>TOTAL WEIGHT: <span class="text-zinc-300">{{ totalWeight }}oz</span></div>
+            <div>CONTAINERS: <span class="text-zinc-300">{{ containerCount }}</span></div>
+            <div>AVG TCWM: <span class="text-zinc-300">{{ avgTCWMScore }}</span></div>
+          </div>
+          <div class="mt-2 text-xs">
+            LAST UPDATED: <span class="text-zinc-300">{{ currentDate }}</span> |
+            WEIGHT CONVERSION: <span class="text-zinc-300">{{ ouncesToPounds }}lb / {{ ouncesToKilos }}kg</span>
+          </div>
+        </div>
+
+        <!-- Language-style distribution bars -->
+        <div class="mb-8">
+          <div class="text-xs uppercase mb-2">CONTAINER DISTRIBUTION:</div>
+          <div class="space-y-1">
+            <div v-for="[container, items] in Array.from(groupedGear).slice(0, 6)" :key="container"
+              class="flex items-center gap-2 text-xs">
+              <div class="w-24 text-right truncate text-zinc-500">{{ container }}</div>
+              <div class="h-4 bg-zinc-800/50"
+                :style="{ width: `${(items.length / Math.max(...Array.from(groupedGear).map(g => g[1].length))) * 200}px` }">
+              </div>
+              <span class="text-zinc-400">{{ items.length }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-lg font-mono max-w-3xl">
+        FOR ME, EVERYTHING MUST BE WEATHERPROOF AT HIGHWAY SPEEDS, WHEN TOTAL CAPACITY IS LIMITED TO WHAT A <span
+          class="text-zinc-300 font-medium">VERSYS X 300</span> CAN
+        CARRY, WHEN ITEMS MUST BE BOTH ACCESSIBLE AND WATERPROOF, WHEN CREATIVE TOOLS NEED TO COEXIST WITH SURVIVAL
+        GEAR. THIS REQUIRES THINKING ABOUT EVERY OUNCE DEEPLY.
       </p>
     </div>
 
+    <!-- Quick TCWM Explanation -->
+    <div class="max-w-3xl mx-auto mb-12">
+      <div class="bg-zinc-900/50 border border-zinc-800 p-6 font-mono">
+        <h3 class="text-base uppercase tracking-wider mb-4 text-zinc-300">TCWM SCORING SYSTEM</h3>
+        <p class="text-sm text-zinc-400 mb-4 leading-relaxed">
+          EACH ITEM IS SCORED ON FOUR FACTORS THAT DETERMINE ITS PLACEMENT IN THE GEAR SYSTEM:
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 border border-blue-500/50 flex items-center justify-center shrink-0">
+              <span class="text-blue-400 font-mono font-medium">T</span>
+            </div>
+            <div>
+              <div class="font-medium text-blue-400">TIME CRITICALITY</div>
+              <div class="text-xs text-zinc-500 mt-1">HOW QUICKLY YOU NEED ACCESS TO THE ITEM</div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 border border-purple-500/50 flex items-center justify-center shrink-0">
+              <span class="text-purple-400 font-mono font-medium">C</span>
+            </div>
+            <div>
+              <div class="font-medium text-purple-400">CONSEQUENCE</div>
+              <div class="text-xs text-zinc-500 mt-1">IMPACT IF YOU DON'T HAVE THE ITEM WHEN NEEDED</div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 border border-green-500/50 flex items-center justify-center shrink-0">
+              <span class="text-green-400 font-mono font-medium">W</span>
+            </div>
+            <div>
+              <div class="font-medium text-green-400">WEIGHT/SPACE</div>
+              <div class="text-xs text-zinc-500 mt-1">HOW MUCH THE ITEM IMPACTS MOBILITY</div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 border border-amber-500/50 flex items-center justify-center shrink-0">
+              <span class="text-amber-400 font-mono font-medium">M</span>
+            </div>
+            <div>
+              <div class="font-medium text-amber-400">MULTI-USE</div>
+              <div class="text-xs text-zinc-500 mt-1">VERSATILITY AND NUMBER OF USE CASES</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 pt-4 border-t border-zinc-800">
+          <div class="text-xs text-zinc-500">
+            HIGHER SCORES (T1) MEAN THE ITEM SHOULD BE IMMEDIATELY ACCESSIBLE. THE FORMULA WEIGHTS TIME CRITICALITY AND
+            CONSEQUENCE MORE HEAVILY.
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Add download option -->
-    <div class="flex justify-end mb-4">
-      <a href="/gear.csv" download class="inline-flex items-center gap-2 text-sm px-3 py-1.5 rounded-full
-                bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700
-                transition-colors">
+    <div class="max-w-4xl mx-auto flex justify-end mb-8">
+      <a href="/gear.csv" download class="inline-flex items-center gap-2 text-sm px-4 py-2 
+              border border-zinc-700 
+              bg-zinc-900 hover:bg-zinc-800
+              transition-colors uppercase tracking-wider font-mono">
         <UIcon name="i-heroicons-arrow-down-tray" class="w-4 h-4" />
-        Download Full List
+        DOWNLOAD DATA
       </a>
     </div>
 
     <!-- Add this before the stats grid -->
-    <div class="max-w-6xl mb-12">
+    <div class="max-w-6xl mx-auto mb-12">
       <!-- Two-column layout on md+ -->
       <div class="md:grid md:grid-cols-[1fr_auto] md:gap-12 items-start">
         <!-- Left column: Text content -->
         <div class="prose prose-zinc dark:prose-invert mb-8 md:mb-0">
-
-          <p class="text-lg serif">
-            For me
-            everything must be weatherproof at highway speeds, when total capacity is limited to what a <span
-              class="text-primary font-bold">Versys X 300</span> can
-            carry, when items must be both accessible and waterproof, when creative tools need to coexist with survival
-            gear.
-            This requires thinking about every ounce deeply. I am really proud of this system, ever-evolving as I test
-            and
-            push it to new limits.
-          </p>
-
-          <p>
-            The system currently manifests across a few primary containers
-            <ruby class="font-mono text-sm">
-              {{ totalWeight }}oz
-              <rt class="flex gap-2 text-[10px] text-zinc-500">
-                <span>{{ ouncesToPounds }}lb</span>
-                <span>{{ ouncesToKilos }}kg</span>
-              </rt>
-            </ruby>:
-          </p>
+          <h3 class="text-base font-medium uppercase tracking-wider text-zinc-500 mb-4">Primary Containers</h3>
 
           <!-- Container List with Micro Stats -->
-          <div class="space-y-2 my-6">
+          <div class="space-y-3">
             <div v-for="[container, items] in groupedGear" :key="container">
               <!-- Only show primary containers -->
-              <div v-if="PRIORITY_CONTAINERS.includes(container)" class="flex items-center gap-3 py-1">
+              <div v-if="PRIORITY_CONTAINERS.includes(container)"
+                class="flex items-center gap-3 py-2 px-3 bg-zinc-50 dark:bg-zinc-900/50 rounded-lg">
                 <UIcon :name="containerIcons[container] || 'i-material-symbols-light-backpack-rounded'"
-                  class="w-4 h-4 text-zinc-400" />
+                  class="w-5 h-5 text-zinc-500" />
                 <div class="flex-1 min-w-0">
                   <div class="flex items-baseline justify-between gap-2">
                     <div class="flex items-center gap-2">
@@ -91,7 +165,8 @@
             </div>
           </div>
 
-          <div class="grid grid-cols-2 gap-4 my-6 text-sm">
+          <h3 class="text-base font-medium uppercase tracking-wider text-zinc-500 mt-8 mb-4">Average TCWM Scores</h3>
+          <div class="grid grid-cols-2 gap-4 mb-6 text-sm">
             <div v-for="(score, type) in avgScores" :key="type" class="flex items-baseline justify-between gap-2">
               <span :class="scoreColors[type]">{{ scoreLabels[type] }}</span>
               <div class="flex items-center gap-2">
@@ -104,7 +179,7 @@
             </div>
           </div>
 
-          <p class="text-sm text-zinc-500">
+          <p class="text-sm text-zinc-500 mt-6">
             Whether you ride or not, the principles here apply to anyone interested in maintaining multiple capabilities
             within strict constraints.
           </p>
@@ -113,20 +188,15 @@
         <!-- Right column: Hero image -->
         <div class="md:sticky md:top-8 min-w-full md:w-[33vw] md:min-w-[33vw]">
           <div class="relative rounded-2xl overflow-hidden shadow-2xl dark:shadow-zinc-950/50">
-            <img 
+            <img
               :src="`https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_400/v1732053354/IMG_0010.jpg`"
               :srcset="`
                 https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_400/v1732053354/IMG_0010.jpg 400w,
                 https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1732053354/IMG_0010.jpg 800w,
                 https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1732053354/IMG_0010.jpg 1200w,
                 https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1600/v1732053354/IMG_0010.jpg 1600w
-              `"
-              sizes="(min-width: 768px) 33vw, 100vw"
-              loading="lazy"
-              decoding="async"
-              alt="Motorcycle packed with gear and hand-drawn annotations" 
-              class="w-full h-auto" 
-            />
+              `" sizes="(min-width: 768px) 33vw, 100vw" loading="lazy" decoding="async"
+              alt="Motorcycle packed with gear and hand-drawn annotations" class="w-full h-auto" />
             <div
               class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-zinc-150/90 via-zinc-900/30 to-transparent backdrop-blur-[2px] p-4">
               <div class="text-xs text-zinc-950 font-mono">
@@ -139,39 +209,15 @@
     </div>
 
     <!-- Add this right after <main> and before the two-column layout -->
-    <div class="max-w-3xl mb-12">
-      <!-- Primary Stats -->
-      <div class="prose prose-zinc dark:prose-invert mb-8">
-        <h2 class="uppercase text-2xl text-zinc-600 dark:text-zinc-300 leading-relaxed">
-          Currently tracking <span class="px-1 bg-black/30 rounded tabular-nums">{{ totalItems }}</span> items
-          across <span class="px-1 bg-black/30 rounded tabular-nums">{{ containerCount }}</span> containers.
-        </h2>
-      </div>
-
+    <div class="max-w-3xl mx-auto mb-12">
       <!-- Feltron-style Stats Grid -->
       <div class="space-y-12">
-        <!-- Key Metrics - Big Numbers -->
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-8 border-b border-zinc-200 dark:border-zinc-800 pb-8">
-          <div class="space-y-1">
-            <div class="font-mono text-5xl tabular-nums">{{ totalItems }}</div>
-            <div class="text-sm text-zinc-500 font-medium tracking-wide uppercase">Total Items</div>
-          </div>
-          <div class="space-y-1">
-            <div class="font-mono text-5xl tabular-nums">{{ totalWeight }}oz</div>
-            <div class="text-sm text-zinc-500 font-medium tracking-wide uppercase">Total Weight</div>
-          </div>
-          <div class="space-y-1">
-            <div class="font-mono text-5xl tabular-nums">{{ avgTCWMScore }}</div>
-            <div class="text-sm text-zinc-500 font-medium tracking-wide uppercase">Avg TCWM Score</div>
-          </div>
-        </div>
-
         <!-- Distribution Charts -->
-        <div class="grid grid-cols-2 gap-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
           <!-- Weight Distribution -->
           <div class="space-y-4">
-            <div class="text-base font-medium">Weight Distribution</div>
-            <div class="h-24 flex items-end gap-px">
+            <div class="text-base font-medium uppercase tracking-wider text-zinc-500">Weight Distribution</div>
+            <div class="h-32 flex items-end gap-px">
               <div v-for="(count, i) in weightDistribution" :key="i"
                 class="flex-1 bg-zinc-900/5 dark:bg-zinc-100/5 hover:bg-zinc-900/10 dark:hover:bg-zinc-100/10 transition-colors"
                 :style="{ height: `${(count / Math.max(...weightDistribution)) * 100}%` }">
@@ -179,15 +225,15 @@
             </div>
             <div class="flex justify-between text-sm text-zinc-500 font-mono">
               <span>0oz</span>
-              <span>{{ Math.max(...gearItems.map(item => parseFloat(item['Base Weight ()']) || 0)).toFixed(1)
-                }}oz</span>
+              <span>{{Math.max(...gearItems.map(item => parseFloat(item['Base Weight ()']) || 0)).toFixed(1)
+              }}oz</span>
             </div>
           </div>
 
           <!-- Score Distribution -->
           <div class="space-y-4">
-            <div class="text-base font-medium">TCWM Score Distribution</div>
-            <div class="h-24 flex items-end gap-px">
+            <div class="text-base font-medium uppercase tracking-wider text-zinc-500">TCWM Score Distribution</div>
+            <div class="h-32 flex items-end gap-px">
               <div v-for="(count, i) in tcwmDistribution" :key="i" :class="[
                 'flex-1 transition-colors',
                 i >= 35 ? 'bg-blue-500/20 hover:bg-blue-500/30 dark:bg-blue-400/10 dark:hover:bg-blue-400/20' :
@@ -204,8 +250,52 @@
           </div>
         </div>
 
+        <!-- Container Breakdown -->
+        <div class="space-y-4">
+          <div class="text-base font-medium uppercase tracking-wider text-zinc-500">Container Breakdown</div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Container Items Count -->
+            <div class="space-y-4">
+              <div class="h-48 flex flex-col justify-end">
+                <div v-for="[container, items] in Array.from(groupedGear).slice(0, 6)" :key="container"
+                  class="flex items-center w-full mb-2">
+                  <div class="w-24 text-xs text-right pr-2 truncate">{{ container }}</div>
+                  <div class="flex-1 h-6 bg-zinc-100 dark:bg-zinc-800 relative">
+                    <div class="absolute inset-y-0 left-0 bg-zinc-300 dark:bg-zinc-700"
+                      :style="{ width: `${(items.length / Math.max(...Array.from(groupedGear).map(g => g[1].length))) * 100}%` }">
+                    </div>
+                    <div class="absolute inset-y-0 right-2 flex items-center text-xs font-mono">
+                      {{ items.length }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="text-xs text-zinc-500 text-center">Items per container</div>
+            </div>
+
+            <!-- Container Weight -->
+            <div class="space-y-4">
+              <div class="h-48 flex flex-col justify-end">
+                <div v-for="[container, items] in Array.from(groupedGear).slice(0, 6)" :key="container"
+                  class="flex items-center w-full mb-2">
+                  <div class="w-24 text-xs text-right pr-2 truncate">{{ container }}</div>
+                  <div class="flex-1 h-6 bg-zinc-100 dark:bg-zinc-800 relative">
+                    <div class="absolute inset-y-0 left-0 bg-zinc-300 dark:bg-zinc-700"
+                      :style="{ width: `${(Number(calculateTotalWeight(items)) / Math.max(...Array.from(groupedGear).map(g => Number(calculateTotalWeight(g[1]))))) * 100}%` }">
+                    </div>
+                    <div class="absolute inset-y-0 right-2 flex items-center text-xs font-mono">
+                      {{ calculateTotalWeight(items) }}oz
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="text-xs text-zinc-500 text-center">Weight per container</div>
+            </div>
+          </div>
+        </div>
+
         <!-- Notable Items -->
-        <div class="grid grid-cols-3 gap-8 pt-8 border-t border-zinc-200 dark:border-zinc-800">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-zinc-200 dark:border-zinc-800">
           <!-- Heaviest -->
           <div class="space-y-4">
             <div class="space-y-1">
@@ -214,7 +304,7 @@
                 {{ heaviestItem?.name }}
               </div>
             </div>
-            <div class="text-sm text-zinc-500 font-medium tracking-wide uppercase">Heaviest Item</div>
+            <div class="text-sm text-zinc-500 uppercase tracking-wider">Heaviest Item</div>
           </div>
 
           <!-- Lightest -->
@@ -225,7 +315,7 @@
                 {{ lightestItem?.name }}
               </div>
             </div>
-            <div class="text-sm text-zinc-500 font-medium tracking-wide uppercase">Lightest Item</div>
+            <div class="text-sm text-zinc-500 uppercase tracking-wider">Lightest Item</div>
           </div>
 
           <!-- Highest Multi-use -->
@@ -236,22 +326,22 @@
                 {{ highestMultiUse?.name }}
               </div>
             </div>
-            <div class="text-sm text-zinc-500 font-medium tracking-wide uppercase">Highest Multi-Use</div>
+            <div class="text-sm text-zinc-500 uppercase tracking-wider">Highest Multi-Use</div>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Two-column layout for gear items and legend -->
-    <div class="lg:grid lg:grid-cols-[1fr_minmax(auto,24rem)] lg:gap-8">
+    <div class="lg:grid lg:grid-cols-[1fr_minmax(auto,24rem)] lg:gap-8 max-w-6xl mx-auto">
       <!-- Left column: Gear items -->
       <div>
-        <h1 class="text-4xl font-bold mb-8">Gear</h1>
+        <h2 class="text-2xl font-bold mb-8 uppercase tracking-wider">Gear Inventory</h2>
 
-        <!-- Add this after the h1 and before the container-based layout -->
+        <!-- Add this after the h2 and before the container-based layout -->
         <div class="mb-8">
           <div class="bg-zinc-50 dark:bg-zinc-900/50 rounded-lg p-4">
-            <h2 class="uppercase text-base font-medium mb-3">Quick Navigation</h2>
+            <h3 class="uppercase text-sm font-medium mb-3 tracking-wider">Container Navigation</h3>
             <div class="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
               <div v-for="[container, items] in groupedGear" :key="container">
                 <a :href="`#${container.toLowerCase().replace(/\s+/g, '-')}`"
@@ -284,7 +374,7 @@
             <!-- Container Header -->
             <div class="w-full p-3 sm:p-4 flex items-center justify-between bg-zinc-50 dark:bg-zinc-900/50">
               <div class="flex items-center gap-2 sm:gap-3">
-                <h2 class="uppercase text-base sm:text-lg font-bold">{{ container }}</h2>
+                <h3 class="uppercase text-base sm:text-lg font-bold">{{ container }}</h3>
                 <span class="text-xs sm:text-sm text-zinc-500">
                   ({{ items.length }} items)
                 </span>
@@ -310,7 +400,7 @@
         <div class="sticky top-8 space-y-8 max-h-[calc(100vh-4rem)] flex flex-col">
           <!-- Type legend -->
           <div class="bg-zinc-50 dark:bg-zinc-900/50 rounded-lg p-4 shrink-0">
-            <h3 class="text-sm font-medium mb-3">Gear Types</h3>
+            <h3 class="text-sm font-medium mb-3 uppercase tracking-wider">Gear Types</h3>
             <div class="grid grid-cols-2 gap-x-6 gap-y-2">
               <div v-for="(icon, type) in typeIcons" :key="type" class="flex items-center gap-2 text-sm"
                 :class="typeClasses[type]">
@@ -324,7 +414,7 @@
           <div class="space-y-8 shrink-0">
             <!-- Visualization Legend -->
             <div class="bg-zinc-50 dark:bg-zinc-900/50 rounded-lg p-6">
-              <h2 class="text-lg font-bold mb-4">How to Read the Charts</h2>
+              <h2 class="text-lg font-bold mb-4 uppercase tracking-wider">Chart Legend</h2>
               <div class="flex gap-8 items-center">
                 <!-- Example visualization -->
                 <div class="w-32 h-32 relative shrink-0">
@@ -359,7 +449,7 @@
 
             <!-- TCWM Categories only (remove formula section) -->
             <div class="bg-zinc-50 dark:bg-zinc-900/50 rounded-lg p-4">
-              <h2 class="text-base font-medium mb-4">Understanding TCWM Scores</h2>
+              <h2 class="text-base font-medium mb-4 uppercase tracking-wider">TCWM Scores</h2>
 
               <!-- Add back scrolling container -->
               <div class="overflow-x-auto thin-scrollbar">
@@ -492,11 +582,11 @@
     </div>
 
     <!-- New full-width formula section at bottom -->
-    <div class="mx-auto">
-      <div class="bg-zinc-50 dark:bg-zinc-900/50 rounded-lg p-2 md:p-4 space-y-8">
+    <div class="max-w-4xl mx-auto mt-16">
+      <div class="bg-zinc-50 dark:bg-zinc-900/50 rounded-lg p-4 md:p-6 space-y-8">
         <!-- Formula section -->
         <div>
-          <h3 class="text-lg font-medium mb-6">TCWM Score Formula</h3>
+          <h3 class="text-lg font-bold mb-6 uppercase tracking-wider">TCWM Score Formula</h3>
           <div class="bg-zinc-100 dark:bg-zinc-800/50 p-6 rounded-lg">
             <!-- Main formula with semantic markup -->
             <div class="flex flex-wrap items-center justify-center gap-4 font-mono text-xl mb-8">
@@ -577,9 +667,9 @@
           </div>
         </div>
 
-        <!-- Replace the Tier Classification section -->
+        <!-- Access Tiers -->
         <div>
-          <h3 class="text-lg font-medium mb-6">Access Tiers</h3>
+          <h3 class="text-lg font-bold mb-6 uppercase tracking-wider">Access Tiers</h3>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <!-- Tier 1 -->
             <div class="relative">
@@ -603,7 +693,7 @@
 
             <!-- Tier 2 -->
             <div class="relative">
-              <div class="absolute -left-3 top-0 bottom-0 w-[2px] bg-gradient-to-b from-blue-500/80 to-blue-500/20">
+              <div class="absolute -left-3 top-0 bottom-0 w-[2px] bg-gradient-to-b from-amber-500/80 to-amber-500/20">
               </div>
               <div class="space-y-2">
                 <div class="flex items-baseline gap-3">
@@ -622,7 +712,7 @@
 
             <!-- Tier 3 -->
             <div class="relative">
-              <div class="absolute -left-3 top-0 bottom-0 w-[2px] bg-gradient-to-b from-blue-500/80 to-blue-500/20">
+              <div class="absolute -left-3 top-0 bottom-0 w-[2px] bg-gradient-to-b from-green-500/80 to-green-500/20">
               </div>
               <div class="space-y-2">
                 <div class="flex items-baseline gap-3">
@@ -640,7 +730,7 @@
             </div>
           </div>
 
-          <!-- Optional: Add a minimal data visualization -->
+          <!-- Tier visualization -->
           <div class="mt-6 pt-6 border-t border-zinc-200 dark:border-zinc-800">
             <div class="h-12 flex items-stretch gap-px">
               <div class="flex-1 bg-blue-500/20 dark:bg-blue-500/10 relative">

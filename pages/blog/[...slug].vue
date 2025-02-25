@@ -20,12 +20,6 @@ const { data: post, error } = await useAsyncData(`post-${route.params.slug.join(
   try {
     // Fetch the post data, including potential redirection info
     const response = await $fetch(`/api/posts/${slugParts.join('/')}`)
-    console.log('Post data received:', {
-      hasToc: !!response?.toc,
-      tocLength: response?.toc?.length,
-      metadata: response?.metadata,
-      metadataToc: response?.metadata?.toc
-    })
 
     if (response.redirect) {
       // Check if we're already on the correct URL
@@ -678,19 +672,7 @@ const processedMetadata = computed(() => {
 }
 
 /* Transition styles */
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation: none;
-  mix-blend-mode: normal;
-}
-
-::view-transition-old(root) {
-  z-index: 1;
-}
-
-::view-transition-new(root) {
-  z-index: 2147483646;
-}
+/* Removed view transition styles */
 
 .fade-enter-active,
 .fade-leave-active {

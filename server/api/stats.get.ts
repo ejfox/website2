@@ -71,49 +71,37 @@ function processCommits(commits: any[]): {
   commits: GitHubCommit[]
   commitTypes: CommitType[]
 } {
-  // Clean and process commits
-  const processedCommits = commits.reduce(
-    (acc: GitHubCommit[], commit: any) => {
-      // Skip merge commits and empty messages
-      if (commit.message.startsWith('Merge') || !commit.message.trim()) {
-        return acc
-      }
+  // Process commits to extract types and other metadata
+  const processedCommits = commits.map((commit: any) => {
+    // Extract commit type from message (e.g., "feat: add new feature")
+    const typeMatch = commit.message.match(/^(\w+)(\([\w-]+\))?:/i)
+    const type = typeMatch ? typeMatch[1].toLowerCase() : 'other'
 
-      // Clean up commit message - take first line only
-      const cleanMessage = commit.message.split('\n')[0].trim()
+    return {
+      ...commit,
+      type
+    }
+  })
 
-      // Parse commit type
-      const typeMatch = cleanMessage.match(
-        /^(feat|fix|docs|style|refactor|test|chore|build|ci|perf|revert|blog|scaffold)(\(.+?\))?:/
-      )
-      const type = typeMatch?.[1] || 'other'
-
-      return [
-        ...acc,
-        {
-          repository: commit.repository,
-          message: cleanMessage,
-          occurredAt: commit.occurredAt,
-          url: commit.url,
-          type
-        }
-      ]
-    },
-    []
-  )
-
-  // Calculate type breakdown
-  const typeCount = processedCommits.reduce(
-    (acc: Record<string, number>, commit) => {
-      acc[commit.type] = (acc[commit.type] || 0) + 1
+  // Count commit types
+  const typeCounts = processedCommits.reduce(
+    (acc: Record<string, number>, commit: any) => {
+      const type = commit.type
+      acc[type] = (acc[type] || 0) + 1
       return acc
     },
     {}
   )
 
-  const total = Object.values(typeCount).reduce((sum, count) => sum + count, 0)
-  const commitTypes = Object.entries(typeCount)
-    .map(([type, count]) => ({
+  // Calculate total commits
+  const total = Object.values(typeCounts).reduce(
+    (sum: number, count: number) => sum + count,
+    0
+  )
+
+  // Convert to array with percentages
+  const commitTypes = Object.entries(typeCounts)
+    .map(([type, count]: [string, number]) => ({
       type,
       count,
       percentage: (count / total) * 100
@@ -124,7 +112,7 @@ function processCommits(commits: any[]): {
 }
 
 function adaptGitHubStats(githubStats: any) {
-  console.log('Adapting GitHub stats:', githubStats)
+  // console.log('Adapting GitHub stats:', githubStats)
 
   if (!githubStats) {
     console.error('No GitHub stats to adapt!')
@@ -136,7 +124,7 @@ function adaptGitHubStats(githubStats: any) {
     'repositories' in githubStats && !('detail' in githubStats)
 
   if (isOldFormat) {
-    console.log('Converting from old GitHub format')
+    // console.log('Converting from old GitHub format')
     // Convert old format to new format
     return {
       stats: {
@@ -171,7 +159,7 @@ function adaptGitHubStats(githubStats: any) {
     detail: { commits, commitTypes }
   }
 
-  console.log('Adapted GitHub stats:', adapted)
+  // console.log('Adapted GitHub stats:', adapted)
   return adapted
 }
 
@@ -182,7 +170,7 @@ function getValue(result: PromiseSettledResult<any>) {
 
 export default defineEventHandler(async (event): Promise<StatsResponse> => {
   try {
-    console.log('🎯 Stats handler called')
+    // console.log('🎯 Stats handler called')
 
     const [
       githubResult,

@@ -13,13 +13,6 @@ const { data: note } = await useAsyncData(`robot-${route.params.slug.join('/')}`
   processedMarkdown.getPostBySlug(`robots/${route.params.slug.join('/')}`)
 )
 
-// Add debug logging
-console.log('Robot note fetch:', {
-  slug: `robots/${route.params.slug.join('/')}`,
-  note: note.value,
-  isShared: note.value?.metadata?.share
-})
-
 // Redirect if note doesn't exist or isn't shared
 if (!note.value || !note.value.metadata?.share) {
   throw createError({
@@ -31,7 +24,7 @@ if (!note.value || !note.value.metadata?.share) {
 // Update the trimmedToc computed to handle our TOC structure correctly
 const trimmedToc = computed(() => {
   if (!note.value?.metadata?.toc) return []
-  
+
   return note.value.metadata.toc
     .filter(item => item.depth === 2 || item.depth === 3)
     .map(item => ({
@@ -55,7 +48,7 @@ const sectionWordCounts = computed(() => {
 
   const counts = {}
   const sections = note.value.metadata?.toc || []
-  
+
   sections.forEach(section => {
     if (section.depth <= 3) {
       const slug = generateSlug(section.text)
@@ -155,7 +148,7 @@ const animateTitle = () => {
 // Add this to process the content and add IDs to headings
 const processedContent = computed(() => {
   if (!note.value?.content) return ''
-  
+
   // Simple regex-based approach that works on both client and server
   return note.value.content.replace(
     /<(h[23])[^>]*>(.*?)<\/\1>/g,
@@ -273,13 +266,8 @@ useHead({
         <header class="mb-8">
           <!-- Hero title with animation -->
           <h1 class="text-4xl md:text-6xl font-bold mb-4 flex flex-wrap">
-            <span
-              v-for="(char, i) in titleChars"
-              :key="i"
-              class="inline-block opacity-0"
-              :class="{ 'mr-[0.2em]': char === ' ' }"
-              ref="titleRefs"
-            >{{ char }}</span>
+            <span v-for="(char, i) in titleChars" :key="i" class="inline-block opacity-0"
+              :class="{ 'mr-[0.2em]': char === ' ' }" ref="titleRefs">{{ char }}</span>
           </h1>
           <p v-if="note.description" class="text-xl text-zinc-600 dark:text-zinc-400">
             {{ note.description }}
@@ -318,7 +306,8 @@ useHead({
               <div class="bg-blue-500 h-full transition-all duration-200" :style="{ width: `${scrollProgress}%` }" />
             </div>
 
-            <h3 class="text-lg font-semibold mb-4 sticky top-0 bg-inherit pb-2 border-b border-zinc-200 dark:border-zinc-700">
+            <h3
+              class="text-lg font-semibold mb-4 sticky top-0 bg-inherit pb-2 border-b border-zinc-200 dark:border-zinc-700">
               Table of Contents
             </h3>
 
@@ -336,22 +325,16 @@ useHead({
   <Teleport to="#toc-target">
     <nav v-if="trimmedToc.length" class="space-y-2">
       <template v-for="section in trimmedToc" :key="section.slug">
-        <NuxtLink
-          :to="`#${section.slug}`"
-          class="block py-1.5 transition-colors duration-200 text-sm"
-          :class="[
-            section.level === 'h3' ? 'pl-4' : '',
-            activeSection === section.slug
-              ? 'text-blue-500 dark:text-blue-400'
-              : 'text-zinc-600 dark:text-zinc-400 hover:text-blue-500 dark:hover:text-blue-400'
-          ]"
-        >
+        <NuxtLink :to="`#${section.slug}`" class="block py-1.5 transition-colors duration-200 text-sm" :class="[
+          section.level === 'h3' ? 'pl-4' : '',
+          activeSection === section.slug
+            ? 'text-blue-500 dark:text-blue-400'
+            : 'text-zinc-600 dark:text-zinc-400 hover:text-blue-500 dark:hover:text-blue-400'
+        ]">
           <div class="flex justify-between items-center group">
             <span>{{ section.text }}</span>
-            <span
-              v-if="sectionWordCounts[section.slug]"
-              class="text-xs text-zinc-400 dark:text-zinc-500 group-hover:text-blue-500 dark:group-hover:text-blue-400"
-            >
+            <span v-if="sectionWordCounts[section.slug]"
+              class="text-xs text-zinc-400 dark:text-zinc-500 group-hover:text-blue-500 dark:group-hover:text-blue-400">
               {{ sectionWordCounts[section.slug] }} words
             </span>
           </div>

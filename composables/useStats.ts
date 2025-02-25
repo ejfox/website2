@@ -2,12 +2,40 @@
 import { ref, computed, onMounted } from 'vue'
 import type { Ref } from 'vue'
 
+// Cache duration in milliseconds (5 minutes)
+const CACHE_DURATION = 5 * 60 * 1000
+
 interface TimeBreakdown {
   seconds: number
   minutes: number
   hours: number
   hoursDecimal: number
   formatted: string
+}
+
+// Define the HealthDataRecord interface
+interface HealthDataRecord {
+  id?: string
+  record_id?: number
+  date: string
+  metric_type: string
+  data: {
+    value?: number
+    units?: string
+    workoutType?: string
+    sleepType?: string
+    moodType?: string
+    duration?: number
+    distance?: number
+    calories?: number
+    quality?: number
+    deepSleep?: number
+    notes?: string
+    [key: string]: any
+  }
+  source?: string
+  created_at?: string
+  [key: string]: any
 }
 
 export interface StatsResponse {
@@ -188,6 +216,28 @@ export interface StatsResponse {
         distance: number[]
       }
     }
+    aggregatedMetrics?: {
+      availableMetricTypes: string[]
+      sleepSummary?: {
+        averageDuration: number // in minutes
+        averageQuality?: number // if available
+        totalRecords: number
+        lastRecordDate: string
+      }
+      workoutSummary?: {
+        totalWorkouts: number
+        totalDuration: number // in minutes
+        totalDistance?: number // in km
+        totalCalories?: number
+        lastWorkoutDate: string
+        workoutTypes: string[]
+      }
+      mindfulnessSummary?: {
+        totalSessions: number
+        totalMinutes: number
+        lastSessionDate: string
+      }
+    }
     lastUpdated: string
   }
   leetcode?: {
@@ -255,6 +305,7 @@ export function useStats() {
   const stats = ref<StatsResponse | null>(null)
   const isLoading = ref(true)
   const errors = ref<Record<string, boolean>>({})
+  const hasStaleData = ref(false)
 
   const hasGithubData = computed(() => {
     return !!(
@@ -274,33 +325,97 @@ export function useStats() {
   const hasChessData = computed(() => !!stats.value?.chess)
   const hasRescueTimeData = computed(() => !!stats.value?.rescueTime)
 
-  onMounted(async () => {
+  // Check if we have cached data
+  const getCachedStats = (): StatsResponse | null => {
+    if (process.server) return null
+
     try {
-      // Force fresh data
+      const cachedData = localStorage.getItem('stats_cache')
+      const timestamp = localStorage.getItem('stats_cache_timestamp')
+
+      if (!cachedData || !timestamp) return null
+
+      // Check if cache is still valid
+      const cacheTime = parseInt(timestamp, 10)
+      const now = Date.now()
+
+      if (now - cacheTime > CACHE_DURATION) return null
+
+      // Set hasStaleData to true if we're using cached data
+      hasStaleData.value = true
+
+      return JSON.parse(cachedData)
+    } catch (e) {
+      return null
+    }
+  }
+
+  // Save data to cache
+  const cacheStats = (data: StatsResponse) => {
+    if (process.server) return
+
+    try {
+      localStorage.setItem('stats_cache', JSON.stringify(data))
+      localStorage.setItem('stats_cache_timestamp', Date.now().toString())
+    } catch (e) {
+      // Ignore cache errors
+    }
+  }
+
+  onMounted(async () => {
+    // Try to load from cache first
+    const cachedData = getCachedStats()
+
+    if (cachedData) {
+      stats.value = cachedData
+      isLoading.value = false
+
+      // Refresh in background after using cache
+      fetchFreshData(true)
+    } else {
+      // No cache, fetch fresh data
+      await fetchFreshData(false)
+    }
+  })
+
+  const fetchFreshData = async (isBackgroundFetch = false) => {
+    if (!isBackgroundFetch) {
+      isLoading.value = true
+    }
+
+    try {
       const response = await fetch('/api/stats')
       if (!response.ok) {
         throw new Error(`Failed to fetch stats: ${response.status}`)
       }
       const data = await response.json()
       stats.value = data
+
+      // Reset stale data flag when we get fresh data
+      hasStaleData.value = false
+
+      // Cache the fresh data
+      cacheStats(data)
     } catch (error) {
       console.error('Error fetching stats:', error)
       errors.value.fetch = true
     } finally {
       isLoading.value = false
     }
-  })
+  }
 
   return {
     stats,
     isLoading,
     errors,
+    hasStaleData,
     hasGithubData,
     hasMonkeyTypeData,
     hasPhotoData,
     hasHealthData,
     hasLeetCodeData,
     hasChessData,
-    hasRescueTimeData
+    hasRescueTimeData,
+    refreshStats: () => fetchFreshData(false) // Expose refresh method
   }
 }

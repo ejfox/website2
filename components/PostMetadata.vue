@@ -112,10 +112,10 @@ const metadata = computed(() => {
   const metaData = props.doc?.metadata || {}
 
   // Detailed debug logging
-  console.group('PostMetadata Debug')
-  console.log('Raw doc:', props.doc)
-  console.log('Base data:', baseData)
-  console.log('Metadata:', metaData)
+  // console.group('PostMetadata Debug')
+  // console.log('Raw doc:', props.doc)
+  // console.log('Base data:', baseData)
+  // console.log('Metadata:', metaData)
 
   const computedMetadata = {
     ...baseData,
@@ -131,16 +131,16 @@ const metadata = computed(() => {
     dek: metaData.dek || baseData.dek || ''
   }
 
-  console.log('Computed metadata:', {
-    readingTime: computedMetadata.readingTime,
-    wordCount: computedMetadata.wordCount,
-    imageCount: computedMetadata.imageCount,
-    linkCount: computedMetadata.linkCount,
-    date: computedMetadata.date,
-    draft: computedMetadata.draft,
-    slug: computedMetadata.slug
-  })
-  console.groupEnd()
+  // console.log('Computed metadata:', {
+  //   readingTime: computedMetadata.readingTime,
+  //   wordCount: computedMetadata.wordCount,
+  //   imageCount: computedMetadata.imageCount,
+  //   linkCount: computedMetadata.linkCount,
+  //   date: computedMetadata.date,
+  //   draft: computedMetadata.draft,
+  //   slug: computedMetadata.slug
+  // })
+  // console.groupEnd()
 
   return computedMetadata
 })
@@ -188,6 +188,9 @@ defineExpose({ animateItems })
   opacity: 0;
   transform: translateY(20px);
 }
+
+/* View Transitions API support */
+/* Removed view transition styles */
 
 @media (prefers-reduced-motion: reduce) {
   .metadata-item {

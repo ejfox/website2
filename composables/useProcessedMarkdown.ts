@@ -100,7 +100,7 @@ import { parseISO, isValid, parse, startOfWeek, format } from 'date-fns'
 // Add debug helper
 const debug = (msg: string, data?: any) => {
   if (process.env.DEBUG_CONTENT === 'true') {
-    console.log(`[content] ${msg}`, data || '')
+    // console.log(`[content] ${msg}`, data || '')
   }
 }
 
@@ -192,11 +192,11 @@ export const useProcessedMarkdown = () => {
   const getManifestLite = async (): Promise<ManifestItem[]> => {
     try {
       const response = await $fetch('/api/manifest-lite')
-      console.log('Manifest loaded:', {
-        total: response?.length,
-        firstPost: response?.[0],
-        types: response?.map((p: ManifestItem) => p.type).slice(0, 5)
-      })
+      // console.log('Manifest loaded:', {
+      //   total: response?.length,
+      //   firstPost: response?.[0],
+      //   types: response?.map((p: ManifestItem) => p.type).slice(0, 5)
+      // })
       return response
     } catch (error) {
       console.error('Error loading manifest:', error)
@@ -216,13 +216,13 @@ export const useProcessedMarkdown = () => {
       let apiSlug = slug
 
       // Debug the incoming slug
-      console.log('getPostBySlug called with:', { slug })
+      // console.log('getPostBySlug called with:', { slug })
 
       if (slug.startsWith('robots/')) {
         apiEndpoint = '/api/robots'
         // Remove the robots/ prefix since the API route already includes it
         apiSlug = slug.replace('robots/', '')
-        console.log('Using robots endpoint:', { apiEndpoint, apiSlug })
+        // console.log('Using robots endpoint:', { apiEndpoint, apiSlug })
       }
 
       const result = await $fetch<Post>(
@@ -232,14 +232,14 @@ export const useProcessedMarkdown = () => {
       )
 
       // Log the result for debugging
-      console.log('API response:', {
-        apiEndpoint,
-        apiSlug,
-        hasResult: !!result,
-        hasMetadata: !!result?.metadata,
-        resultType: result?.type,
-        resultShare: result?.share
-      })
+      // console.log('API response:', {
+      //   apiEndpoint,
+      //   apiSlug,
+      //   hasResult: !!result,
+      //   hasMetadata: !!result?.metadata,
+      //   resultType: result?.type,
+      //   resultShare: result?.share
+      // })
 
       // Ensure we return a complete Post object with required fields
       return {
@@ -334,19 +334,19 @@ export const useProcessedMarkdown = () => {
 
           // Skip if no slug
           if (!slug) {
-            console.log('❌ No slug:', post)
+            // console.log('❌ No slug:', post)
             return false
           }
 
           // Skip system files
           if (slug === 'index' || slug.startsWith('!')) {
-            console.log('❌ System file:', slug)
+            // console.log('❌ System file:', slug)
             return false
           }
 
           // Skip if explicitly hidden
           if (post.hidden === true || post.metadata?.hidden === true) {
-            console.log('❌ Hidden:', slug)
+            // console.log('❌ Hidden:', slug)
             return false
           }
 
@@ -355,7 +355,7 @@ export const useProcessedMarkdown = () => {
             (post.draft === true || post.metadata?.draft === true) &&
             !includeDrafts
           ) {
-            console.log('❌ Draft:', slug)
+            // console.log('❌ Draft:', slug)
             return false
           }
 
@@ -374,40 +374,40 @@ export const useProcessedMarkdown = () => {
             basePath.startsWith('drafts/') ||
             basePath.startsWith('study-notes/')
           ) {
-            console.log('❌ Special section:', slug)
+            // console.log('❌ Special section:', slug)
             return false
           }
 
           // Handle week notes
           if (basePath.startsWith('week-notes/')) {
             const keep = includeWeekNotes
-            console.log(keep ? '✅ Week note:' : '❌ Week note:', slug)
+            // console.log(keep ? '✅ Week note:' : '❌ Week note:', slug)
             return keep
           }
 
-          console.log('✅ Keeping:', slug)
+          // console.log('✅ Keeping:', slug)
           return true
         })
         .map((post) => {
           // SUPER VERBOSE DEBUG
-          console.log('Processing post:', {
-            slug: post.slug,
-            rootTitle: post.title,
-            metadataTitle: post?.metadata?.title,
-            dek: post?.metadata?.dek
-          })
+          // console.log('Processing post:', {
+          //   slug: post.slug,
+          //   rootTitle: post.title,
+          //   metadataTitle: post?.metadata?.title,
+          //   dek: post?.metadata?.dek
+          // })
 
           // Ensure we have a title
           let title = post.title || post?.metadata?.title || ''
 
           if (!title && post?.metadata?.dek) {
             title = post.metadata.dek.split('\n')[0]
-            console.log('Using dek as title:', title)
+            // console.log('Using dek as title:', title)
           }
 
           if (!title) {
             title = formatTitle(post.slug)
-            console.log('Using formatted slug as title:', title)
+            // console.log('Using formatted slug as title:', title)
           }
 
           const metadata: PostMetadata = {
@@ -593,7 +593,7 @@ export const useProcessedMarkdown = () => {
    * @returns {Promise<Object[]>} A list of project posts.
    */
   const getProjectPosts = async (): Promise<Post[]> => {
-    console.log('getProjectPosts called')
+    // console.log('getProjectPosts called')
     const manifest = await getManifestLite()
 
     // Filter for project posts
@@ -650,14 +650,14 @@ export const useProcessedMarkdown = () => {
             post.slug.startsWith('robots/') || post.type === 'robot'
           const isShared = post.metadata?.share || post.share
 
-          console.log('Checking robot post:', {
-            slug: post.slug,
-            isRobot,
-            isShared,
-            type: post.type,
-            share: post.share,
-            metadataShare: post.metadata?.share
-          })
+          // console.log('Checking robot post:', {
+          //   slug: post.slug,
+          //   isRobot,
+          //   isShared,
+          //   type: post.type,
+          //   share: post.share,
+          //   metadataShare: post.metadata?.share
+          // })
 
           return isRobot && isShared
         })

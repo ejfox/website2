@@ -14,58 +14,95 @@
       </div>
     </div>
 
-    <!-- Recent Commits -->
-    <div v-if="commitsByRepo.length" class="space-y-8">
-      <h4 class="text-xs tracking-[0.2em] text-gray-500 font-light">RECENT ACTIVITY</h4>
-      <div class="space-y-8">
-        <div v-for="repo in commitsByRepo" :key="repo.name" class="space-y-3">
-          <!-- Repo Header -->
-          <div class="flex items-center space-x-2 text-sm text-gray-400">
-            <a :href="repo.url" target="_blank" class="hover:text-gray-300">
-              {{ repo.name }}
-            </a>
-            <span class="text-gray-600">&middot;</span>
-            <span class="text-gray-500">{{ repo.commits.length }} commits</span>
-          </div>
+    <!-- Recent Commits - Lazy loaded -->
+    <ClientOnly>
+      <Suspense>
+        <div v-if="commitsByRepo.length" class="space-y-8">
+          <h4 class="text-xs tracking-[0.2em] text-gray-500 font-light">RECENT ACTIVITY</h4>
+          <div class="space-y-8">
+            <div v-for="repo in commitsByRepo.slice(0, 3)" :key="repo.name" class="space-y-3">
+              <!-- Repo Header -->
+              <div class="flex items-center space-x-2 text-sm text-gray-400">
+                <a :href="repo.url" target="_blank" class="hover:text-gray-300">
+                  {{ repo.name }}
+                </a>
+                <span class="text-gray-600">&middot;</span>
+                <span class="text-gray-500">{{ repo.commits.length }} commits</span>
+              </div>
 
-          <!-- Commits -->
-          <div class="space-y-2 pl-4 border-l border-gray-800">
-            <div v-for="commit in repo.commits.slice(0, 3)" :key="commit.url"
-              class="flex items-center justify-between text-sm group">
-              <a :href="commit.url" target="_blank" class="text-gray-500 truncate max-w-[70%] hover:text-gray-300">
-                {{ commit.message }}
-              </a>
-              <span class="text-gray-600 text-xs">
-                {{ formatDate(commit.occurredAt) }}
+              <!-- Commits -->
+              <div class="space-y-2 pl-4 border-l border-gray-800">
+                <div v-for="commit in repo.commits.slice(0, 3)" :key="commit.url"
+                  class="flex items-center justify-between text-sm group">
+                  <a :href="commit.url" target="_blank" class="text-gray-500 truncate max-w-[70%] hover:text-gray-300">
+                    {{ commit.message }}
+                  </a>
+                  <span class="text-gray-600 text-xs">
+                    {{ formatDate(commit.occurredAt) }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <template #fallback>
+          <div class="space-y-8 animate-pulse">
+            <h4 class="text-xs tracking-[0.2em] text-gray-500 font-light">RECENT ACTIVITY</h4>
+            <div class="space-y-8">
+              <div v-for="i in 3" :key="i" class="space-y-3">
+                <div class="h-5 bg-gray-800 rounded w-1/3"></div>
+                <div class="space-y-2 pl-4 border-l border-gray-800">
+                  <div v-for="j in 3" :key="j" class="flex items-center justify-between">
+                    <div class="h-4 bg-gray-800 rounded w-2/3"></div>
+                    <div class="h-4 bg-gray-800 rounded w-16"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
+      </Suspense>
+    </ClientOnly>
+
+    <!-- Commit Type Breakdown - Lazy loaded -->
+    <ClientOnly>
+      <Suspense>
+        <div v-if="commitTypeBreakdown.length" class="space-y-4">
+          <h4 class="text-xs tracking-[0.2em] text-gray-500 font-light">COMMIT TYPES</h4>
+          <div class="space-y-2">
+            <div v-for="type in commitTypeBreakdown.slice(0, 5)" :key="type.type"
+              class="flex items-center space-x-3 text-sm group"
+              :title="`${type.count} commits (${type.percentage.toFixed(1)}%)`">
+              <span class="w-16 text-gray-400">{{ type.type }}</span>
+              <div class="flex-1 h-1.5 bg-gray-800 rounded-full overflow-hidden">
+                <div class="h-full rounded-full transition-all group-hover:opacity-100 opacity-75"
+                  :class="getTypeColor(type.type)" :style="{ width: `${type.percentage}%` }" />
+              </div>
+              <span class="text-gray-500 tabular-nums w-12 text-right">
+                {{ Math.round(type.percentage) }}%
               </span>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <!-- Commit Type Breakdown -->
-    <div v-if="commitTypeBreakdown.length" class="space-y-4">
-      <h4 class="text-xs tracking-[0.2em] text-gray-500 font-light">COMMIT TYPES</h4>
-      <div class="space-y-2">
-        <div v-for="type in commitTypeBreakdown" :key="type.type" class="flex items-center space-x-3 text-sm group"
-          :title="`${type.count} commits (${type.percentage.toFixed(1)}%)`">
-          <span class="w-16 text-gray-400">{{ type.type }}</span>
-          <div class="flex-1 h-1.5 bg-gray-800 rounded-full overflow-hidden">
-            <div class="h-full rounded-full transition-all group-hover:opacity-100 opacity-75"
-              :class="getTypeColor(type.type)" :style="{ width: `${type.percentage}%` }" />
+        <template #fallback>
+          <div class="space-y-4 animate-pulse">
+            <h4 class="text-xs tracking-[0.2em] text-gray-500 font-light">COMMIT TYPES</h4>
+            <div class="space-y-2">
+              <div v-for="i in 5" :key="i" class="flex items-center space-x-3">
+                <div class="w-16 h-4 bg-gray-800 rounded"></div>
+                <div class="flex-1 h-1.5 bg-gray-800 rounded-full"></div>
+                <div class="w-12 h-4 bg-gray-800 rounded"></div>
+              </div>
+            </div>
           </div>
-          <span class="text-gray-500 tabular-nums w-12 text-right">
-            {{ Math.round(type.percentage) }}%
-          </span>
-        </div>
-      </div>
-    </div>
+        </template>
+      </Suspense>
+    </ClientOnly>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, defineAsyncComponent } from 'vue'
 import IndividualStat from './IndividualStat.vue'
 import type { StatsResponse } from '~/composables/useStats'
 import { formatNumber } from '~/composables/useNumberFormat'
@@ -86,8 +123,8 @@ const averageCommitsPerDay = computed(() => {
   return Math.round(recentCommits.value / days)
 })
 
+// Memoized computed property with limited results
 const commitsByRepo = computed(() => {
-  console.log('Processing commits:', props.stats.detail.commits)
   // Group commits by repo
   const grouped = props.stats.detail.commits.reduce((acc, commit) => {
     const repo = commit.repository
@@ -102,7 +139,6 @@ const commitsByRepo = computed(() => {
     return acc
   }, {} as Record<string, { name: string; url: string; commits: typeof props.stats.detail.commits }>)
 
-  console.log('Grouped commits:', grouped)
   // Convert to array and sort by most recent commit
   return Object.values(grouped).sort((a, b) => {
     const aDate = new Date(a.commits[0].occurredAt)

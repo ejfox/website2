@@ -1,10 +1,10 @@
 <template>
-  <div class="max-w-6xl mx-auto px-4 sm:px-8 py-8 sm:py-16">
+  <div class="max-w-6xl mx-auto px-4 sm:px-8 py-8 sm:py-16 font-mono">
     <section class="space-y-16 sm:space-y-24">
       <!-- Header -->
       <header>
-        <h1 class="text-xs tracking-[0.2em] text-gray-500 font-light pb-2 border-b border-gray-500/10">
-          FOX ANNUAL REPORT · {{ currentYear }}
+        <h1 class="text-xs tracking-[0.2em] font-mono text-zinc-500 pb-2 border-b border-zinc-800/50">
+          FOX_ANNUAL_REPORT :: {{ currentYear }}
         </h1>
       </header>
 
@@ -15,7 +15,7 @@
             <Transition name="fade" appear>
               <div v-if="stats" class="relative">
                 <div
-                  class="absolute -left-8 sm:-left-16 top-1/2 -translate-y-1/2 w-4 sm:w-8 border-t border-gray-500/10">
+                  class="absolute -left-8 sm:-left-16 top-1/2 -translate-y-1/2 w-4 sm:w-8 border-t border-zinc-800/50">
                 </div>
                 <AsyncTopStats :stats="stats" :blog-stats="validBlogStats" />
               </div>
@@ -24,7 +24,8 @@
         </template>
         <template #fallback>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div v-for="i in 4" :key="i" class="animate-pulse bg-gray-800/50 rounded-lg h-24"></div>
+            <div v-for="i in 4" :key="i"
+              class="animate-pulse bg-zinc-900/50 rounded-none h-24 border border-zinc-800/50"></div>
           </div>
         </template>
       </Suspense>
@@ -34,15 +35,15 @@
         <section v-if="!isLoading && stats">
           <TransitionGroup name="fade-up" tag="div" class="grid grid-cols-1 lg:grid-cols-2 gap-16 sm:gap-24" appear>
             <!-- Left Column: Productivity -->
-            <div class="space-y-16 sm:space-y-24 ">
+            <div class="space-y-16 sm:space-y-24">
               <div class="relative">
                 <div
-                  class="absolute -left-8 sm:-left-16 top-0 h-full w-px bg-gradient-to-b from-gray-500/0 via-gray-500/10 to-gray-500/0">
+                  class="absolute -left-8 sm:-left-16 top-0 h-full w-px bg-gradient-to-b from-zinc-800/0 via-zinc-800/50 to-zinc-800/0">
                 </div>
                 <div class="space-y-16">
                   <!-- Writing -->
                   <section v-if="blogStats" class="space-y-6">
-                    <h2 class="text-xs tracking-[0.2em] text-gray-500 font-light pb-2 border-b border-gray-500/10">
+                    <h2 class="text-xs tracking-[0.2em] font-mono text-zinc-500 pb-2 border-b border-zinc-800/50">
                       WRITING
                     </h2>
                     <AsyncBlogStats :stats="blogStats" key="blog" />
@@ -50,24 +51,34 @@
 
                   <!-- Typing -->
                   <section v-if="hasMonkeyTypeData" class="space-y-6">
-                    <h2 class="text-xs tracking-[0.2em] text-gray-500 font-light pb-2 border-b border-gray-500/10">
+                    <h2 class="text-xs tracking-[0.2em] font-mono text-zinc-500 pb-2 border-b border-zinc-800/50">
                       TYPING</h2>
-                    <AsyncMonkeyTypeStats :stats="{ typingStats: stats.monkeyType?.typingStats }" key="monkeytype" />
+                    <AsyncMonkeyTypeStats v-if="stats.monkeyType?.typingStats"
+                      :stats="{ typingStats: stats.monkeyType.typingStats }" key="monkeytype" />
+                    <div v-else class="text-sm text-zinc-400 font-mono">
+                      TYPING_DATA_UNAVAILABLE
+                    </div>
                   </section>
 
                   <!-- GitHub -->
                   <section v-if="hasGithubData" class="space-y-6">
-                    <h2 class="text-xs tracking-[0.2em] text-gray-500 font-light pb-2 border-b border-gray-500/10">
+                    <h2 class="text-xs tracking-[0.2em] font-mono text-zinc-500 pb-2 border-b border-zinc-800/50">
                       GITHUB</h2>
-                    <AsyncGitHubStats :stats="stats.github!" key="github" />
+                    <AsyncGitHubStats v-if="stats.github" :stats="stats.github" key="github" />
+                    <div v-else class="text-sm text-zinc-400 font-mono">
+                      GITHUB_DATA_UNAVAILABLE
+                    </div>
                   </section>
 
                   <!-- LeetCode -->
                   <section v-if="hasLeetCodeData" class="space-y-6">
-                    <h2 class="text-xs tracking-[0.2em] text-gray-500 font-light pb-2 border-b border-gray-500/10">
+                    <h2 class="text-xs tracking-[0.2em] font-mono text-zinc-500 pb-2 border-b border-zinc-800/50">
                       LEETCODE
                     </h2>
-                    <AsyncLeetCodeStats :stats="stats.leetcode!" key="leetcode" />
+                    <AsyncLeetCodeStats v-if="stats.leetcode" :stats="stats.leetcode" key="leetcode" />
+                    <div v-else class="text-sm text-zinc-400 font-mono">
+                      LEETCODE_DATA_UNAVAILABLE
+                    </div>
                   </section>
                 </div>
               </div>
@@ -77,27 +88,33 @@
             <div class="space-y-16 sm:space-y-24">
               <div class="relative">
                 <div
-                  class="absolute -left-8 sm:-left-16 top-0 h-full w-px bg-gradient-to-b from-gray-500/0 via-gray-500/10 to-gray-500/0">
+                  class="absolute -left-8 sm:-left-16 top-0 h-full w-px bg-gradient-to-b from-zinc-800/0 via-zinc-800/50 to-zinc-800/0">
                 </div>
                 <div class="space-y-16">
                   <!-- Photography -->
                   <section v-if="hasPhotoData" class="space-y-6">
-                    <h2 class="text-xs tracking-[0.2em] text-gray-500 font-light pb-2 border-b border-gray-500/10">
+                    <h2 class="text-xs tracking-[0.2em] font-mono text-zinc-500 pb-2 border-b border-zinc-800/50">
                       PHOTOGRAPHY
                     </h2>
-                    <AsyncPhotoStats :stats="stats.photos!" key="photos" />
+                    <AsyncPhotoStats v-if="stats.photos" :stats="stats.photos" key="photos" />
+                    <div v-else class="text-sm text-zinc-400 font-mono">
+                      PHOTO_DATA_UNAVAILABLE
+                    </div>
                   </section>
 
                   <!-- Chess -->
                   <section v-if="hasChessData" class="space-y-6">
-                    <h2 class="text-xs tracking-[0.2em] text-gray-500 font-light pb-2 border-b border-gray-500/10">CHESS
+                    <h2 class="text-xs tracking-[0.2em] font-mono text-zinc-500 pb-2 border-b border-zinc-800/50">CHESS
                     </h2>
-                    <AsyncChessStats :stats="stats.chess!" key="chess" />
+                    <AsyncChessStats v-if="stats.chess" :stats="stats.chess" key="chess" />
+                    <div v-else class="text-sm text-zinc-400 font-mono">
+                      CHESS_DATA_UNAVAILABLE
+                    </div>
                   </section>
 
                   <!-- Productivity -->
                   <section v-if="hasRescueTimeData" class="space-y-6">
-                    <h2 class="text-xs tracking-[0.2em] text-gray-500 font-light pb-2 border-b border-gray-500/10">
+                    <h2 class="text-xs tracking-[0.2em] font-mono text-zinc-500 pb-2 border-b border-zinc-800/50">
                       PRODUCTIVITY</h2>
                     <AsyncRescueTimeStats :stats="stats" key="rescuetime" />
                   </section>
@@ -107,20 +124,33 @@
           </TransitionGroup>
         </section>
         <section v-else class="grid grid-cols-1 lg:grid-cols-2 gap-16 sm:gap-24">
-          <div v-for="i in 6" :key="i" class="animate-pulse bg-gray-800/50 rounded-lg h-32"></div>
+          <div v-for="i in 6" :key="i" class="animate-pulse bg-zinc-900/50 rounded-none h-32 border border-zinc-800/50">
+          </div>
         </section>
       </ClientOnly>
 
       <!-- Health Stats -->
       <ClientOnly>
         <Transition name="fade-up" appear>
-          <section v-if="hasHealthData && stats?.health" class="relative">
-            <div class="absolute -left-8 sm:-left-16 top-0 w-4 sm:w-8 border-t border-gray-500/10"></div>
-            <div class="border-t border-gray-500/10 pt-16 sm:pt-24">
+          <section v-if="hasHealthData && stats.health" class="relative">
+            <div class="absolute -left-8 sm:-left-16 top-0 w-4 sm:w-8 border-t border-zinc-800/50"></div>
+            <div class="border-t border-zinc-800/50 pt-16 sm:pt-24">
               <div class="space-y-6">
-                <h2 class="text-xs tracking-[0.2em] text-gray-500 font-light pb-2 border-b border-gray-500/10">HEALTH
+                <h2 class="text-xs tracking-[0.2em] font-mono text-zinc-500 pb-2 border-b border-zinc-800/50">HEALTH
                 </h2>
                 <AsyncHealthStats :stats="stats.health" />
+              </div>
+            </div>
+          </section>
+          <section v-else-if="hasHealthData" class="relative">
+            <div class="absolute -left-8 sm:-left-16 top-0 w-4 sm:w-8 border-t border-zinc-800/50"></div>
+            <div class="border-t border-zinc-800/50 pt-16 sm:pt-24">
+              <div class="space-y-6">
+                <h2 class="text-xs tracking-[0.2em] font-mono text-zinc-500 pb-2 border-b border-zinc-800/50">HEALTH
+                </h2>
+                <div class="text-sm text-zinc-400 font-mono">
+                  HEALTH_DATA_UNAVAILABLE
+                </div>
               </div>
             </div>
           </section>
@@ -131,10 +161,10 @@
     <!-- Status Indicator -->
     <Transition name="fade">
       <div v-if="hasStaleData"
-        class="fixed bottom-4 right-4 p-2 bg-gray-900/40 backdrop-blur-sm rounded-lg border border-gray-500/5 shadow-lg">
-        <div class="flex items-center gap-2 text-gray-400/40 text-xs tracking-wider">
+        class="fixed bottom-4 right-4 p-2 bg-zinc-900/80 backdrop-blur-sm border border-zinc-800/50 font-mono">
+        <div class="flex items-center gap-2 text-zinc-500 text-xs tracking-wider">
           <UIcon name="i-heroicons-clock" class="w-3 h-3" />
-          <span>Cached data</span>
+          <span>CACHED_DATA</span>
         </div>
       </div>
     </Transition>
@@ -180,7 +210,7 @@ const currentYear = new Date().getFullYear()
 
 // Data availability checks
 const hasMonkeyTypeData = computed(() => {
-  return !!(stats.monkeyType?.typingStats?.bestWPM)
+  return !!(stats.value?.monkeyType?.typingStats?.bestWPM)
 })
 const hasGithubData = computed(() => !!(stats.value?.github?.stats))
 const hasPhotoData = computed(() => !!(stats.value?.photos?.stats))
@@ -294,7 +324,7 @@ h2 {
   position: absolute;
   inset: 0;
   padding: 1px;
-  background: linear-gradient(to bottom, transparent, rgb(107 114 128 / 0.1), transparent);
+  background: linear-gradient(to bottom, transparent, rgb(39 39 42 / 0.5), transparent);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
