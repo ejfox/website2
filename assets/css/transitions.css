@@ -3,7 +3,7 @@
 /* Project card transitions */
 ::view-transition-old(project-card),
 ::view-transition-new(project-card) {
-  animation-duration: 0.5s;
+  animation-duration: 0.4s;
   animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
   mix-blend-mode: normal;
 }
@@ -42,4 +42,9 @@
 /* Custom view transition names for project cards */
 .project-card {
   view-transition-name: project-card;
+}
+
+/* Focused project transition */
+.project-card.focused {
+  view-transition-name: focused-project;
 } 

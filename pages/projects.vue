@@ -5,7 +5,6 @@ import { ref, computed, onMounted, onBeforeUnmount, nextTick } from 'vue'
 const processedMarkdown = useProcessedMarkdown()
 const hoveredProject = ref(null)
 const focusedProject = ref(null)
-const activeCategory = ref(null)
 const route = useRoute()
 const currentSlide = ref(0)
 
@@ -50,18 +49,8 @@ const handleKeyDown = (event) => {
             top: window.scrollY + el.getBoundingClientRect().top - 100,
             behavior: 'smooth'
           })
-
-          // Add animation class
-          el.classList.add('animate-whoosh-right')
-
-          // Remove animation class after animation completes
-          setTimeout(() => {
-            if (el && document.body.contains(el)) {
-              el.classList.remove('animate-whoosh-right')
-            }
-          }, 400) // Match the animation duration in CSS
         }
-      }, 10) // Reduced from 50ms to 10ms for faster response
+      }, 10)
     }
   } else if (event.key === 'ArrowLeft') {
     // Navigate to previous project
@@ -82,18 +71,8 @@ const handleKeyDown = (event) => {
             top: window.scrollY + el.getBoundingClientRect().top - 100,
             behavior: 'smooth'
           })
-
-          // Add animation class
-          el.classList.add('animate-whoosh-left')
-
-          // Remove animation class after animation completes
-          setTimeout(() => {
-            if (el && document.body.contains(el)) {
-              el.classList.remove('animate-whoosh-left')
-            }
-          }, 400) // Match the animation duration in CSS
         }
-      }, 10) // Reduced from 50ms to 10ms for faster response
+      }, 10)
     }
   }
 }
@@ -109,7 +88,6 @@ onMounted(() => {
     window.addEventListener('scroll', updateScrollPosition)
     window.addEventListener('keydown', handleKeyDown)
     updateScrollPosition()
-    console.log('Event listeners added successfully')
   } catch (error) {
     console.error('Error setting up event listeners:', error)
   }
@@ -119,7 +97,6 @@ onBeforeUnmount(() => {
   try {
     window.removeEventListener('scroll', updateScrollPosition)
     window.removeEventListener('keydown', handleKeyDown)
-    console.log('Event listeners removed successfully')
   } catch (error) {
     console.error('Error removing event listeners:', error)
   }
@@ -134,13 +111,8 @@ function formatTitle(slug = '') {
 }
 
 const { data: projectPosts } = await useAsyncData('project-posts', async () => {
-  console.log('Fetching project posts...')
   try {
     const projects = await processedMarkdown.getProjectPosts()
-    console.log('Found projects:', {
-      count: projects?.length,
-      slugs: projects?.map(p => p.slug)
-    })
     return projects || []
   } catch (err) {
     console.error('Error fetching projects:', err)
@@ -156,17 +128,6 @@ const sortedProjectPosts = computed(() => {
   return projectPosts.value?.sort((a, b) =>
     new Date(b.metadata?.date || b.date) - new Date(a.metadata?.date || a.date)
   ) || []
-})
-
-// Extract unique categories for the sidebar navigation
-const categories = computed(() => {
-  const cats = new Set()
-  sortedProjectPosts.value.forEach(project => {
-    if (project.metadata?.type) {
-      cats.add(project.metadata.type)
-    }
-  })
-  return Array.from(cats)
 })
 
 // Get a short excerpt from the project content
@@ -186,135 +147,57 @@ function getExcerpt(html) {
 
 // Extract all images from project content
 function extractImages(project) {
-  if (!project || !project.html) return []
+  if (!project || !project.html || typeof document === 'undefined') return []
 
   const images = []
 
-  // Add featured image if it exists
-  if (project.metadata?.image) {
-    images.push({
-      src: project.metadata.image,
-      alt: project.title || project.metadata?.title || formatTitle(project.slug),
-      isFeatured: true
-    })
-    console.log(`Added featured image for ${project.slug}:`, project.metadata.image)
-  }
+  try {
+    // Add featured image if it exists
+    if (project.metadata?.image) {
+      images.push({
+        src: project.metadata.image,
+        alt: project.title || project.metadata?.title || formatTitle(project.slug),
+        isFeatured: true
+      })
+    }
 
-  // Parse HTML to find all images
-  const div = document.createElement('div')
-  div.innerHTML = project.html
+    // Parse HTML to find all images
+    const div = document.createElement('div')
+    div.innerHTML = project.html
 
-  // Get all img elements
-  const imgElements = div.querySelectorAll('img')
-
-  // Process each image
-  imgElements.forEach((img, index) => {
-    // Skip images that are too small or likely icons
-    const src = img.getAttribute('src')
-    if (!src) return
-
-    // Avoid duplicating the featured image
-    if (project.metadata?.image === src) return
-
-    // Check if the image is large enough (skip tiny icons)
-    const width = img.getAttribute('width')
-    const height = img.getAttribute('height')
-    if (width && height && parseInt(width) < 100 && parseInt(height) < 100) return
-
-    // Check if we already have this image
-    if (images.some(existingImg => existingImg.src === src)) return
-
-    // Add the image to our collection
-    images.push({
-      src: src,
-      alt: img.getAttribute('alt') || '',
-      isFeatured: false
-    })
-
-    console.log(`Added HTML image for ${project.slug}:`, src)
-  })
-
-  // Also look for image URLs in the raw HTML that might not be properly parsed as img elements
-  if (project.html) {
-    // Look for Markdown image syntax or other image patterns
-    const markdownImageRegex = /!\[([^\]]*)\]\(([^)]+)\)/g
-
-    // Extract Markdown images
-    let match
-    while ((match = markdownImageRegex.exec(project.html)) !== null) {
-      const alt = match[1]
-      let src = match[2]
-
-      // Clean up the URL if needed (remove quotes, etc.)
-      src = src.replace(/["']/g, '').trim()
-
-      // Check if we already have this image
-      if (images.some(img => img.src === src)) continue
-
-      // Avoid duplicating the featured image
-      if (project.metadata?.image === src) continue
+    // Get all img elements
+    const imgElements = div.querySelectorAll('img')
+    imgElements.forEach(img => {
+      const src = img.getAttribute('src')
+      if (!src || project.metadata?.image === src || images.some(existingImg => existingImg.src === src)) return
 
       images.push({
         src,
-        alt,
+        alt: img.getAttribute('alt') || '',
         isFeatured: false
       })
-
-      console.log(`Added Markdown image for ${project.slug}:`, src)
-    }
-
-    // Also check for HTML img tags that might be in the raw HTML as text
-    // This can happen with certain Markdown renderers
-    const htmlImageRegex = /<img[^>]+src=["']([^"']+)["'][^>]*>/g
-
-    while ((match = htmlImageRegex.exec(project.html)) !== null) {
-      const src = match[1]
-
-      // Check if we already have this image
-      if (images.some(img => img.src === src)) continue
-
-      // Avoid duplicating the featured image
-      if (project.metadata?.image === src) continue
-
-      images.push({
-        src,
-        alt: '',
-        isFeatured: false
-      })
-
-      console.log(`Added HTML tag image for ${project.slug}:`, src)
-    }
-  }
-
-  // Special case for NYPD clusters project
-  if (project.slug === 'projects/ccrb-clusters' && images.length === 0) {
-    // Hardcode the image URL from the markdown file
-    const nypd_image = 'https://res.cloudinary.com/ejf/image/upload/fl_progressive:semi,c_scale,dpr_auto,w_1280/v1624505769/Screen_Shot_2021-06-21_at_8.58.50_PM.jpg'
-    images.push({
-      src: nypd_image,
-      alt: 'Clusters of NYPD Misconduct',
-      isFeatured: false
     })
-    console.log(`Added hardcoded image for NYPD clusters project:`, nypd_image)
-  }
 
-  console.log(`Found ${images.length} total images for project ${project.slug}`)
+    // Special case for NYPD clusters project
+    if (project.slug === 'projects/ccrb-clusters' && images.length === 0) {
+      images.push({
+        src: 'https://res.cloudinary.com/ejf/image/upload/fl_progressive:semi,c_scale,dpr_auto,w_1280/v1624505769/Screen_Shot_2021-06-21_at_8.58.50_PM.jpg',
+        alt: 'Clusters of NYPD Misconduct',
+        isFeatured: false
+      })
+    }
+  } catch (error) {
+    console.error(`Error extracting images for ${project.slug}:`, error)
+  }
 
   return images
-}
-
-// Scroll to category
-function scrollToCategory(category) {
-  activeCategory.value = category
-  const el = document.getElementById(`category-${category.toLowerCase().replace(/\s+/g, '-')}`)
-  if (el) {
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
 }
 
 // Focus on a project
 function focusProject(project) {
   try {
+    if (typeof document === 'undefined') return
+
     if (focusedProject.value === project.slug) {
       // If clicking the already focused project, navigate to it
       navigateToProject(project)
@@ -336,14 +219,6 @@ function focusProject(project) {
           top: window.scrollY + el.getBoundingClientRect().top - 100,
           behavior: 'smooth'
         })
-
-        // Add a subtle animation when focusing
-        el.classList.add('animate-whoosh-right')
-        setTimeout(() => {
-          if (el && document.body.contains(el)) {
-            el.classList.remove('animate-whoosh-right')
-          }
-        }, 400)
       }
     }, 10)
   } catch (error) {
@@ -364,7 +239,6 @@ function clearFocus() {
     focusedProject.value = null
     hoveredProject.value = null
     currentSlide.value = 0
-    console.log('Focus cleared')
   } catch (error) {
     console.error('Error clearing focus:', error)
   }
@@ -410,11 +284,10 @@ useHead({
           :id="`project-${project.slug}`"
           class="group relative rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 transition-all duration-300 project-card min-h-[280px]"
           :class="{
-            'z-20 scale-100 opacity-100 shadow-2xl': focusedProject === project.slug,
+            'z-20 scale-100 opacity-100 shadow-2xl focused': focusedProject === project.slug,
             'scale-95 opacity-40': focusedProject && focusedProject !== project.slug,
             'hover:shadow-lg': !focusedProject
-          }" :style="focusedProject === project.slug ? 'view-transition-name: focused-project;' : ''"
-          @mouseenter="!focusedProject && (hoveredProject = project.slug)"
+          }" @mouseenter="!focusedProject && (hoveredProject = project.slug)"
           @mouseleave="!focusedProject && (hoveredProject = null)">
 
           <!-- Project card content -->
@@ -436,8 +309,10 @@ useHead({
               <h2 class="text-base font-medium text-zinc-900 dark:text-white truncate">
                 {{ project.title || project.metadata?.title || formatTitle(project.slug) }}
               </h2>
-              <div v-if="project.metadata?.date" class="text-xs font-mono text-zinc-500 dark:text-zinc-400 mt-0.5">
-                {{ formatDate(project.metadata.date) }}
+              <div class="flex items-center justify-between mt-0.5">
+                <div v-if="project.metadata?.date" class="text-xs font-mono text-zinc-500 dark:text-zinc-400">
+                  {{ formatDate(project.metadata.date) }}
+                </div>
               </div>
             </div>
 
@@ -480,9 +355,6 @@ useHead({
                     Website
                   </a>
                 </div>
-                <div v-if="project.metadata?.behindTheScenes" class="text-zinc-300 line-clamp-2 italic text-xs">
-                  {{ project.metadata.behindTheScenes }}
-                </div>
               </div>
             </div>
           </div>
@@ -502,8 +374,10 @@ useHead({
               <h2 class="text-xl font-medium text-zinc-900 dark:text-white mb-1">
                 {{ project.title || project.metadata?.title || formatTitle(project.slug) }}
               </h2>
-              <div v-if="project.metadata?.date" class="text-sm font-mono text-zinc-500 dark:text-zinc-400">
-                {{ formatDate(project.metadata.date) }}
+              <div class="flex items-center gap-2">
+                <div v-if="project.metadata?.date" class="text-sm font-mono text-zinc-500 dark:text-zinc-400">
+                  {{ formatDate(project.metadata.date) }}
+                </div>
               </div>
             </div>
 
@@ -599,20 +473,6 @@ useHead({
       </div>
     </div>
   </div>
-
-  <!-- Teleport navigation to sidebar -->
-  <Teleport to="#toc-container">
-    <div v-if="categories.length > 0" class="py-2 px-2.5 bg-zinc-50 dark:bg-zinc-900 rounded-lg">
-      <h3 class="text-xs font-medium text-zinc-500 dark:text-zinc-400 mb-1.5">Project Categories</h3>
-      <ul class="space-y-0.5">
-        <li v-for="category in categories" :key="category" class="text-xs transition-colors cursor-pointer"
-          :class="activeCategory === category ? 'text-blue-500 dark:text-blue-400 font-medium' : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200'"
-          @click="scrollToCategory(category)">
-          {{ category }}
-        </li>
-      </ul>
-    </div>
-  </Teleport>
 </template>
 
 <style scoped>
@@ -677,46 +537,6 @@ useHead({
 
 .project-card:hover:not(.focused) {
   transform: translateY(-2px);
-}
-
-/* Ensure smooth transitions for the focused state */
-::view-transition-old(focused-project),
-::view-transition-new(focused-project) {
-  animation-duration: 0.4s;
-  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Add a whoosh effect for project navigation */
-@keyframes whoosh-right {
-  0% {
-    transform: translateX(-30px);
-    opacity: 0.8;
-  }
-
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes whoosh-left {
-  0% {
-    transform: translateX(30px);
-    opacity: 0.8;
-  }
-
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-.animate-whoosh-right {
-  animation: whoosh-right 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-whoosh-left {
-  animation: whoosh-left 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Carousel styles */
