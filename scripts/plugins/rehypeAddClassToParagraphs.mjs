@@ -15,7 +15,7 @@ export function rehypeAddClassToParagraphs() {
         case 'p':
           addClasses(node, [
             'prose-p',
-            'prose-lg',
+            'prose-sm',
             'max-w-prose',
             'mb-4',
             'leading-relaxed',
@@ -28,7 +28,7 @@ export function rehypeAddClassToParagraphs() {
         case 'blockquote':
           addClasses(node, [
             'prose-blockquote',
-            'prose-lg',
+            'prose-sm',
             'max-w-prose',
             'pl-4',
             'border-l-4',
@@ -68,7 +68,7 @@ export function rehypeAddClassToParagraphs() {
 
         case 'h1':
           addClasses(node, [
-            'prose-lg',
+            'prose-sm',
             'text-4xl',
             'font-bold',
             'mb-6',
@@ -82,7 +82,7 @@ export function rehypeAddClassToParagraphs() {
 
         case 'h2':
           addClasses(node, [
-            'prose-lg',
+            'prose-sm',
             'text-3xl',
             'font-semibold',
             'mb-4',
@@ -100,7 +100,7 @@ export function rehypeAddClassToParagraphs() {
 
         case 'h3':
           addClasses(node, [
-            'prose-lg',
+            'prose-sm',
             'text-2xl',
             'font-medium',
             'mb-3',
@@ -114,7 +114,7 @@ export function rehypeAddClassToParagraphs() {
 
         case 'ul':
           addClasses(node, [
-            'prose-lg',
+            'prose-sm',
             'list-disc',
             'list-outside',
             'ml-6',
@@ -126,7 +126,7 @@ export function rehypeAddClassToParagraphs() {
 
         case 'ol':
           addClasses(node, [
-            'prose-lg',
+            'prose-sm',
             'list-decimal',
             'list-outside',
             'ml-6',
@@ -137,12 +137,12 @@ export function rehypeAddClassToParagraphs() {
           break
 
         case 'li':
-          addClasses(node, ['prose-lg', 'max-w-prose'])
+          addClasses(node, ['prose-sm', 'max-w-prose'])
           break
 
         case 'a':
           addClasses(node, [
-            'prose-lg',
+            'prose-sm',
             'text-blue-600',
             'dark:text-blue-400',
             'hover:underline',
@@ -155,7 +155,7 @@ export function rehypeAddClassToParagraphs() {
           if (node.properties.className?.includes('language-')) {
             // Code block
             addClasses(node, [
-              'prose-lg',
+              'prose-sm',
               'block',
               'rounded-lg',
               'bg-zinc-100',
@@ -169,7 +169,7 @@ export function rehypeAddClassToParagraphs() {
           } else {
             // Inline code
             addClasses(node, [
-              'prose-lg',
+              'prose-sm',
               'font-mono',
               'text-sm',
               'bg-zinc-100',
@@ -183,7 +183,7 @@ export function rehypeAddClassToParagraphs() {
 
         case 'pre':
           addClasses(node, [
-            'prose-lg',
+            'prose-sm',
             'relative',
             'rounded-lg',
             'overflow-hidden',
@@ -193,7 +193,7 @@ export function rehypeAddClassToParagraphs() {
 
         case 'table':
           addClasses(node, [
-            'prose-lg',
+            'prose-sm',
             'min-w-full',
             'border-collapse',
             'table-auto',
@@ -257,7 +257,7 @@ export function rehypeAddClassToParagraphs() {
           if (child.tagName === 'p') {
             addClasses(child, [
               'prose-p',
-              'prose-lg',
+              'prose-sm',
               'max-w-prose',
               'mb-4',
               'text-zinc-600',

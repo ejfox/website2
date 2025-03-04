@@ -73,8 +73,8 @@
         </div>
 
         <!-- Table of Contents Container -->
-        <div v-if="isBlogPost" class="mt-4">
-          <div id="toc-container" class="font-sans bg-zinc-50/50 dark:bg-zinc-900/50 backdrop-blur-sm rounded-lg"></div>
+        <div v-if="isBlogPost || isStatsPage || isProjectsPage" class="mt-4">
+          <div id="toc-container" class="font-sans"></div>
         </div>
 
         <div v-if="isBlogPost" class="mt-4 pl-4">
@@ -92,8 +92,9 @@
         <NuxtPage />
       </article>
 
-      <!-- Add TOC container for blog posts -->
-      <aside v-if="isBlogPost" class="hidden lg:block w-64 shrink-0 sticky top-0 h-screen overflow-y-auto p-4">
+      <!-- Add TOC container for blog posts and stats page -->
+      <aside v-if="isBlogPost || isStatsPage || isProjectsPage"
+        class="hidden lg:block w-64 shrink-0 sticky top-0 h-screen overflow-y-auto p-4">
         <div id="toc-container" class="space-y-4"></div>
       </aside>
 
@@ -104,7 +105,7 @@
 </template>
 
 <script setup>
-import { ref, computed, defineAsyncComponent, onMounted } from 'vue'
+import { ref, computed, defineAsyncComponent, onMounted, watch, nextTick } from 'vue'
 import { useWindowSize } from '@vueuse/core'
 
 // Lazy load the Footer component
@@ -134,6 +135,14 @@ const isBlogPost = computed(() => {
   return route.path.startsWith('/blog/') && route.path !== '/blog/'
 })
 
+const isStatsPage = computed(() => {
+  return route.path === '/stats'
+})
+
+const isProjectsPage = computed(() => {
+  return route.path === '/projects'
+})
+
 const navLinks = [
   { to: '/', text: 'Home' },
   { to: '/projects', text: 'Projects' },
@@ -144,6 +153,27 @@ const navLinks = [
 ]
 
 const linkClasses = "block px-4 py-2 text-sm hover:bg-zinc-200/30 dark:hover:bg-zinc-700/30 rounded"
+
+// Add a watcher to update the TOC container visibility when route changes
+watch(
+  () => [route.path, isBlogPost.value, isStatsPage.value, isProjectsPage.value],
+  () => {
+    nextTick(() => {
+      // Force re-render of TOC container when route changes
+      if (isBlogPost.value || isStatsPage.value || isProjectsPage.value) {
+        const tocContainer = document.querySelector('#toc-container')
+        if (tocContainer) {
+          // Trigger a DOM update by toggling a class
+          tocContainer.classList.add('toc-update')
+          setTimeout(() => {
+            tocContainer.classList.remove('toc-update')
+          }, 0)
+        }
+      }
+    })
+  },
+  { immediate: true }
+)
 </script>
 
 <style>

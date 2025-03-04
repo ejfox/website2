@@ -14530,16 +14530,54 @@
     }
   },
   {
+    "slug": "drafts/cursor-rules-and-smallbot",
+    "title": "Exploring Cursor Rules and Smallbot",
+    "date": "2025-02-21T17:00:05.000Z",
+    "type": "post",
+    "modified": "2025-02-21T17:00:51.000Z",
+    "toc": [
+      {
+        "text": "Exploring Cursor Rules and Smallbot",
+        "slug": "exploring-cursor-rules-and-smallbot",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "metadata": {
+      "date": "2025-02-21T17:00:05.000Z",
+      "modified": "2025-02-21T17:00:51.000Z",
+      "words": 7,
+      "images": 0,
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "Exploring Cursor Rules and Smallbot",
+          "slug": "exploring-cursor-rules-and-smallbot",
+          "level": "h2",
+          "children": []
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/cursor-rules-and-smallbot.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/cursor-rules-and-smallbot"
+    }
+  },
+  {
     "slug": "drafts/how-i-start-my-mornings-lately",
     "title": "How I Start My Mornings Lately",
     "date": "2025-02-17T15:29:04.000Z",
     "type": "post",
-    "modified": "2025-02-18T16:17:03.000Z",
+    "modified": "2025-02-20T18:10:19.000Z",
     "toc": [],
     "metadata": {
       "date": "2025-02-17T15:29:04.000Z",
-      "modified": "2025-02-18T16:17:03.000Z",
-      "words": 72,
+      "modified": "2025-02-20T18:10:19.000Z",
+      "words": 153,
       "images": 0,
       "links": 0,
       "codeBlocks": 0,
@@ -15057,6 +15095,30 @@
       "sourcePath": "../../../../../code/website2/content/blog/projects/vocativ.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "projects/vocativ"
+    }
+  },
+  {
+    "slug": "projects/vulpecula-loom",
+    "title": "Vulpecula Loom",
+    "date": "2025-02-22T23:13:49.000Z",
+    "type": "post",
+    "modified": "2025-03-03T22:34:50.000Z",
+    "toc": [],
+    "metadata": {
+      "title": "Vulpecula Loom",
+      "github": "https://github.com/ejfox/vulpecula-loom",
+      "date": "2025-02-22T23:13:49.000Z",
+      "modified": "2025-03-03T22:34:50.000Z",
+      "words": 74,
+      "images": 5,
+      "links": 5,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/projects/vulpecula-loom.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "projects/vulpecula-loom"
     }
   },
   {
@@ -29819,7 +29881,7 @@
     "title": "2025-08",
     "date": "2025-02-17T22:29:35.000Z",
     "type": "post",
-    "modified": "2025-02-19T15:22:17.000Z",
+    "modified": "2025-02-27T14:47:30.000Z",
     "tags": [
       "weekly-notes",
       "reflections",
@@ -29853,10 +29915,10 @@
         "progress"
       ],
       "date": "2025-02-17T22:29:35.000Z",
-      "modified": "2025-02-19T15:22:17.000Z",
-      "words": 165,
-      "images": 0,
-      "links": 0,
+      "modified": "2025-02-27T14:47:30.000Z",
+      "words": 683,
+      "images": 25,
+      "links": 25,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -29886,6 +29948,102 @@
       "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-08.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "week-notes/2025-08"
+    }
+  },
+  {
+    "slug": "week-notes/2025-09",
+    "title": "2025 09",
+    "date": "2025-02-24T19:02:26.000Z",
+    "type": "post",
+    "modified": "2025-02-28T00:41:51.000Z",
+    "toc": [],
+    "metadata": {
+      "date": "2025-02-24T19:02:26.000Z",
+      "modified": "2025-02-28T00:41:51.000Z",
+      "words": 162,
+      "images": 16,
+      "links": 16,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-09.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-09"
+    }
+  },
+  {
+    "slug": "week-notes/2025-10",
+    "title": "2025-10",
+    "date": "2025-03-03T17:35:18.000Z",
+    "type": "post",
+    "modified": "2025-03-03T17:35:24.000Z",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
+    "toc": [
+      {
+        "text": "2025-10",
+        "slug": "2025-10",
+        "level": "h2",
+        "children": [
+          {
+            "text": "🌟 Daily Check-In & Reflections",
+            "slug": "daily-check-in-reflections",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "📚 Learning & Media",
+            "slug": "learning-media",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
+      "date": "2025-03-03T17:35:18.000Z",
+      "modified": "2025-03-03T17:35:24.000Z",
+      "words": 63,
+      "images": 3,
+      "links": 3,
+      "codeBlocks": 0,
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "2025-10",
+          "slug": "2025-10",
+          "level": "h2",
+          "children": [
+            {
+              "text": "🌟 Daily Check-In & Reflections",
+              "slug": "daily-check-in-reflections",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "📚 Learning & Media",
+              "slug": "learning-media",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-10.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-10"
     }
   }
 ]

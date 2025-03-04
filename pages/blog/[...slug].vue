@@ -121,6 +121,38 @@ onMounted(() => {
   tocTarget.value = document.querySelector('#toc-container')
 })
 
+// Add a watcher for route changes to reinitialize the TOC
+watch(
+  () => route.path,
+  async () => {
+    await nextTick()
+    // Re-initialize TOC target when route changes
+    tocTarget.value = document.querySelector('#toc-container')
+
+    // Re-initialize headings and observers
+    if (articleContent.value) {
+      nextTick(() => {
+        headings.value = Array.from(articleContent.value.querySelectorAll('h2, h3, h4'))
+
+        // Re-observe headings with the intersection observer
+        const headingObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                activeSection.value = entry.target.id
+              }
+            })
+          },
+          { rootMargin: '-10% 0px -80% 0px', threshold: 0 }
+        )
+
+        headings.value.forEach(heading => headingObserver.observe(heading))
+      })
+    }
+  },
+  { immediate: true }
+)
+
 // Remove the wrappedTitle computed property and replace with this simpler letter-based system
 const letters = computed(() => {
   const title = post.value?.metadata?.title || post.value?.title

@@ -33,11 +33,17 @@
       <IndividualStat :value="blogStats.totalPosts" size="medium" label="BLOG POSTS"
         :details="`${postsThisMonth} THIS MONTH`" />
     </div>
+    <div v-else class="flex flex-col justify-center items-center h-24 bg-zinc-900/30 border border-zinc-800/50 p-4">
+      <div class="text-zinc-400 text-sm font-mono animate-pulse">Loading blog stats...</div>
+    </div>
 
     <!-- Total Words -->
     <div v-if="blogStats">
       <IndividualStat :value="blogStats.totalWords" size="medium" label="TOTAL WORDS"
         :details="`${formatNumber(averageWordsPerPost)} AVG/POST`" />
+    </div>
+    <div v-else class="flex flex-col justify-center items-center h-24 bg-zinc-900/30 border border-zinc-800/50 p-4">
+      <div class="text-zinc-400 text-sm font-mono animate-pulse">Loading word counts...</div>
     </div>
 
     <!-- MonkeyType WPM -->
