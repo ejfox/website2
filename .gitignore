@@ -30,3 +30,4 @@ content/processed.backup/**/*
 .env.sentry-build-plugin
 content/backup/**
 content/backup/**/*
+content/backup/drafts/_stale/*
