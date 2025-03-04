@@ -28,3 +28,4 @@ content/processed.backup/**/*
 *.backup
 # Sentry Config File
 .env.sentry-build-plugin
+content/backup/**/*
