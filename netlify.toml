@@ -12,11 +12,3 @@
 # Disable post-processing that might be breaking image loading
 [build.processing]
   skip_processing = true
-
-# If you still want some optimizations but not the ones breaking images
-[build.processing]
-#   skip_processing = false
-  css.minify = true
-#   js.minify = true
-#   html.pretty_urls = true
-#   images.compress = false  # Disable image compression
