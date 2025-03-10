@@ -604,6 +604,9 @@ function enhanceImageUrl(url) {
   // Only process Cloudinary URLs
   if (!url.includes('cloudinary.com/ejf/')) return url
 
+  // Ensure URL uses HTTPS
+  url = url.replace(/^http:\/\//i, 'https://')
+
   // Basic responsive image transformation
   const base = url.split('/upload/')[0] + '/upload/'
   const path = url.split('/upload/')[1]
@@ -634,9 +637,14 @@ function remarkEnhanceImages() {
           node.url = enhanced.src
           node.data.hProperties.loading = 'lazy'
           node.data.hProperties.decoding = 'async'
+          // Use a simpler class setup without animations that might interfere with loading
           node.data.hProperties.className = 'w-full max-w-full mx-auto'
-          // Remove animation classes that might be causing issues
-          // node.data.hProperties.className = 'w-full max-w-full mx-auto transition-all duration-300 ease-in-out pr-2 py-2 md:pr-6 md:py-4 lg:pr-12 lg:py-6 animate-on-scroll slide-from-bottom will-change-transform'
+
+          // Add crossorigin attribute to help with CORS issues
+          node.data.hProperties.crossorigin = 'anonymous'
+
+          // Ensure images have proper display style
+          node.data.hProperties.style = 'display: block; max-width: 100%;'
         }
       }
     })

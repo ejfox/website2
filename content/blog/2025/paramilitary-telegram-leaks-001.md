@@ -1,6 +1,6 @@
 ---
 date: 2025-03-09T13:49:01-04:00
-modified: 2025-03-09T21:16:48-04:00
+modified: 2025-03-09T22:12:58-04:00
 title: Processing Telegram Leaks for Fast Web Visualization
 dek: In which I describe my workflow for transforming a Telegram database dump into a web-friendly format for analysis and visualization
 inprogress: true
@@ -15,11 +15,11 @@ tags:
 
 The other day I was perusing Mastodon, as one does, and noticed a post from [journalist](https://theintercept.com/staff/micah-lee/) and [author](https://hacksandleaks.com) Micah Lee [saying he was exploring](https://micahflee.com/exploring-the-paramilitary-leaks/) a 200GB dump from [American paramilitary groups.](https://www.propublica.org/article/ap3-oath-keepers-militia-mole)
 
-![Screenshot - 2025-03-05 12:11:34 - Screenshot 2025-03-05 at 12.11.19 PM.png](http://res.cloudinary.com/ejf/image/upload/v1741194693/Screenshot_2025-03-05_at_12.11.19_PM.png)
+![Screenshot - 2025-03-05 12:11:34 - Screenshot 2025-03-05 at 12.11.19 PM.png](https://res.cloudinary.com/ejf/image/upload/v1741194693/Screenshot_2025-03-05_at_12.11.19_PM.png)
 
 I hadn't heard of such a dump before, and immediately sent Micah an email offering to help with any dataviz.
 
-![](http://res.cloudinary.com/ejf/image/upload/v1741542940/Screenshot_2025-03-09_at_1.55.27_PM.png)
+![](https://res.cloudinary.com/ejf/image/upload/v1741542940/Screenshot_2025-03-09_at_1.55.27_PM.png)
 
 ## From SQLite to Parquet: Processing Telegram Leaks for Fast Web Visualization
 
@@ -34,7 +34,7 @@ Telegram leaks typically come as SQLite databases - great for structured storage
 3. Make it quickly accessible for visualization
 4. Cache it for fast loading across browsers
 
-![Screenshot - 2025-03-05 23:49:03 - Screenshot 2025-03-05 at 11.48.45 PM.png](http://res.cloudinary.com/ejf/image/upload/v1741236542/Screenshot_2025-03-05_at_11.48.45_PM.png)
+![Screenshot - 2025-03-05 23:49:03 - Screenshot 2025-03-05 at 11.48.45 PM.png](https://res.cloudinary.com/ejf/image/upload/v1741236542/Screenshot_2025-03-05_at_11.48.45_PM.png)
 
 ### The Workflow
 
@@ -93,13 +93,13 @@ order by media_filename desc
 limit 101
 ```
 
-![Datasette query for top media senders](http://res.cloudinary.com/ejf/image/upload/v1741547576/Screenshot_2025-03-09_at_3.12.44_PM.png)
+![Datasette query for top media senders](https://res.cloudinary.com/ejf/image/upload/v1741547576/Screenshot_2025-03-09_at_3.12.44_PM.png)
 
 Because so much information is in these media files, I took a stab at having Gemini write data transcriptions of each photo so they could be indexed for text search later.
 
-![Screenshot - 2025-03-07 15:06:40 - Screenshot 2025-03-07 at 3.06.14 PM.png](http://res.cloudinary.com/ejf/image/upload/v1741377995/Screenshot_2025-03-07_at_3.06.14_PM.png)
+![Screenshot - 2025-03-07 15:06:40 - Screenshot 2025-03-07 at 3.06.14 PM.png](https://res.cloudinary.com/ejf/image/upload/v1741377995/Screenshot_2025-03-07_at_3.06.14_PM.png)
 
-![Screenshot - 2025-03-07 15:08:31 - Screenshot 2025-03-07 at 3.08.18 PM.png](http://res.cloudinary.com/ejf/image/upload/v1741378110/Screenshot_2025-03-07_at_3.08.18_PM.png)
+![Screenshot - 2025-03-07 15:08:31 - Screenshot 2025-03-07 at 3.08.18 PM.png](https://res.cloudinary.com/ejf/image/upload/v1741378110/Screenshot_2025-03-07_at_3.08.18_PM.png)
 
 This experiment went pretty well, but I shelved it to come back to, there's enough to analyze here without involving LLMs and prompt engineering.
 
