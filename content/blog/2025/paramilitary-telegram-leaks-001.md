@@ -1,6 +1,6 @@
 ---
 date: 2025-03-09T13:49:01-04:00
-modified: 2025-03-09T22:12:58-04:00
+modified: 2025-03-09T22:17:28-04:00
 title: Processing Telegram Leaks for Fast Web Visualization
 dek: In which I describe my workflow for transforming a Telegram database dump into a web-friendly format for analysis and visualization
 inprogress: true
@@ -75,7 +75,16 @@ I've developed a Nuxt / [regl-scatterplot](https://github.com/flekschas/regl-sca
 
 [https://github.com/ejfox/paramilitary-leaks-frontend](https://github.com/ejfox/paramilitary-leaks-frontend)
 
-<div class="video-container"> <video controls> <source src="https://res.cloudinary.com/ejf/video/upload/v1741568702/text-search.mp4" type="video/mp4"> Your browser does not support the video tag. </video> </div>
+<div class="video-container relative aspect-video w-full max-w-full mx-auto rounded-lg overflow-hidden shadow-lg">
+  <video
+    controls
+    preload="none"
+    poster="https://res.cloudinary.com/ejf/video/upload/v1741568702/text-search.jpg"
+    class="w-full h-full object-cover">
+    <source src="https://res.cloudinary.com/ejf/video/upload/v1741568702/text-search.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
 
 You can view it the front-end <https://para-leaks.ejfox.com>
 
