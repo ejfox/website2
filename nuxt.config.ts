@@ -101,6 +101,13 @@ export default defineNuxtConfig({
           'cache-control': 'public, max-age=3600, s-maxage=86400'
         }
       },
+      // Add special handling for Cloudinary images
+      '/_ipx/**': {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'cache-control': 'public, max-age=31536000, immutable'
+        }
+      },
       '/projects': {
         headers: {
           'cache-control': 'public, max-age=3600, s-maxage=86400'
@@ -118,6 +125,11 @@ export default defineNuxtConfig({
         {
           name: 'description',
           content: 'EJ Fox: Hacker, Journalist, & Dataviz Specialist'
+        },
+        {
+          'http-equiv': 'Content-Security-Policy',
+          content:
+            "default-src 'self'; img-src 'self' data: https://res.cloudinary.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://umami.tools.ejfox.com;"
         }
       ],
       link: [
