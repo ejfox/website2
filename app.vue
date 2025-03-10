@@ -106,7 +106,7 @@
 
 <script setup>
 import { ref, computed, defineAsyncComponent, onMounted, watch, nextTick } from 'vue'
-import { useWindowSize } from '@vueuse/core'
+import { useWindowSize, useDark } from '@vueuse/core'
 
 // Lazy load the Footer component
 const Footer = defineAsyncComponent(() => import('@/components/Footer.vue'))

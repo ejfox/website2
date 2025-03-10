@@ -33,6 +33,8 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     'nuxt-umami',
     '@nuxtjs/tailwindcss'
+    // Removing nuxt-security as it's causing conflicts
+    // 'nuxt-security'
     // Temporarily removing Sentry
     // '@sentry/nuxt/module'
   ],
@@ -129,7 +131,7 @@ export default defineNuxtConfig({
         {
           'http-equiv': 'Content-Security-Policy',
           content:
-            "default-src 'self'; img-src 'self' data: https://res.cloudinary.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://umami.tools.ejfox.com;"
+            "default-src 'self'; img-src 'self' data: https://res.cloudinary.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://umami.tools.ejfox.com; frame-src 'self' https://cal.com;"
         }
       ],
       link: [
