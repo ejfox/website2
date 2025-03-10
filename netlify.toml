@@ -5,10 +5,6 @@
 [build.environment]
   LOKI_URL = "https://loki.tools.ejfox.com/loki/api/v1/push"
 
-[build]
-  publish = ".output/public"
-  command = "npm run build"
-
 # Disable post-processing that might be breaking image loading
 [build.processing]
   skip_processing = true
