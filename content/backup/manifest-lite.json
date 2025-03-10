@@ -5708,6 +5708,24 @@
     }
   },
   {
+    "slug": "drafts/So the world is changing a lot, and I’ve been having really",
+    "title": "So the world is changing a lot, and I’ve been having really",
+    "type": "post",
+    "toc": [],
+    "metadata": {
+      "words": 384,
+      "images": 0,
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/So the world is changing a lot, and I’ve been having really.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/So the world is changing a lot, and I’ve been having really"
+    }
+  },
+  {
     "slug": "drafts/_stale/!index_drafts",
     "title": "!index_drafts",
     "date": "2023-01-15T20:08:41.000Z",
@@ -14530,6 +14548,28 @@
     }
   },
   {
+    "slug": "drafts/automating-podcast-editing",
+    "title": "Automating Podcast Editing",
+    "date": "2025-03-05T04:05:00.000Z",
+    "type": "post",
+    "modified": "2025-03-05T14:26:10.000Z",
+    "toc": [],
+    "metadata": {
+      "date": "2025-03-05T04:05:00.000Z",
+      "modified": "2025-03-05T14:26:10.000Z",
+      "words": 106,
+      "images": 8,
+      "links": 10,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/automating-podcast-editing.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/automating-podcast-editing"
+    }
+  },
+  {
     "slug": "drafts/cursor-rules-and-smallbot",
     "title": "Exploring Cursor Rules and Smallbot",
     "date": "2025-02-21T17:00:05.000Z",
@@ -14565,6 +14605,40 @@
       "sourcePath": "../../../../../code/website2/content/blog/drafts/cursor-rules-and-smallbot.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "drafts/cursor-rules-and-smallbot"
+    }
+  },
+  {
+    "slug": "drafts/how-i-get-acquainted-with-a-new-codebase",
+    "title": "How I get acquainted with a new codebase",
+    "type": "post",
+    "toc": [
+      {
+        "text": "How I get acquainted with a new codebase",
+        "slug": "how-i-get-acquainted-with-a-new-codebase",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "metadata": {
+      "words": 150,
+      "images": 0,
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {
+        "h1": 1
+      },
+      "toc": [
+        {
+          "text": "How I get acquainted with a new codebase",
+          "slug": "how-i-get-acquainted-with-a-new-codebase",
+          "level": "h1",
+          "children": []
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/how-i-get-acquainted-with-a-new-codebase.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/how-i-get-acquainted-with-a-new-codebase"
     }
   },
   {
@@ -14640,12 +14714,12 @@
     "title": "Clusters of NYPD Misconduct",
     "date": "2024-09-21T20:00:47.000Z",
     "type": "post",
-    "modified": "2024-10-14T23:58:49.000Z",
+    "modified": "2025-03-04T04:09:11.000Z",
     "toc": [],
     "metadata": {
       "title": "Clusters of NYPD Misconduct",
       "date": "2024-09-21T20:00:47.000Z",
-      "modified": "2024-10-14T23:58:49.000Z",
+      "modified": "2025-03-04T04:09:11.000Z",
       "url": "https://gothamist.com/news/mapping-clusters-nypd-officers-repeatedly-accused-misconduct",
       "words": 26,
       "images": 1,
@@ -14765,14 +14839,14 @@
     "title": "Mother Jones' Dark Money Universe",
     "date": "2012-06-12T20:03:35.000Z",
     "type": "post",
-    "modified": "2024-12-09T18:59:59.000Z",
+    "modified": "2025-03-05T00:41:15.000Z",
     "toc": [],
     "metadata": {
       "date": "2012-06-12T20:03:35.000Z",
-      "modified": "2024-12-09T18:59:59.000Z",
+      "modified": "2025-03-05T00:41:15.000Z",
       "title": "Mother Jones' Dark Money Universe",
       "url": "https://www.motherjones.com/politics/2012/06/interactive-chart-super-pac-election-money/",
-      "words": 37,
+      "words": 38,
       "images": 1,
       "links": 3,
       "codeBlocks": 0,
@@ -14836,14 +14910,14 @@
     "title": "GitHub Octoverse 2013",
     "date": "2013-04-05T20:02:45.000Z",
     "type": "post",
-    "modified": "2024-10-14T16:35:28.000Z",
+    "modified": "2025-03-04T04:09:26.000Z",
     "toc": [],
     "metadata": {
       "title": "GitHub Octoverse 2013",
       "date": "2013-04-05T20:02:45.000Z",
-      "modified": "2024-10-14T16:35:28.000Z",
+      "modified": "2025-03-04T04:09:26.000Z",
       "url": "https://github.blog/news-insights/the-library/state-of-the-octoverse-2013-edition/",
-      "words": 44,
+      "words": 45,
       "images": 1,
       "links": 4,
       "codeBlocks": 0,
@@ -14957,12 +15031,12 @@
     "title": "Pottery",
     "date": "2023-08-01T20:04:09.000Z",
     "type": "post",
-    "modified": "2024-10-14T16:33:55.000Z",
+    "modified": "2025-03-04T04:08:53.000Z",
     "toc": [],
     "metadata": {
       "title": "Pottery",
       "date": "2023-08-01T20:04:09.000Z",
-      "modified": "2024-10-14T16:33:55.000Z",
+      "modified": "2025-03-04T04:08:53.000Z",
       "url": "https://ejfox.com/pottery/",
       "words": 32,
       "images": 1,
@@ -15102,13 +15176,13 @@
     "title": "Vulpecula Loom",
     "date": "2025-02-22T23:13:49.000Z",
     "type": "post",
-    "modified": "2025-03-03T22:34:50.000Z",
+    "modified": "2025-03-04T04:08:46.000Z",
     "toc": [],
     "metadata": {
       "title": "Vulpecula Loom",
       "github": "https://github.com/ejfox/vulpecula-loom",
       "date": "2025-02-22T23:13:49.000Z",
-      "modified": "2025-03-03T22:34:50.000Z",
+      "modified": "2025-03-04T04:08:46.000Z",
       "words": 74,
       "images": 5,
       "links": 5,
@@ -29977,7 +30051,7 @@
     "title": "2025-10",
     "date": "2025-03-03T17:35:18.000Z",
     "type": "post",
-    "modified": "2025-03-03T17:35:24.000Z",
+    "modified": "2025-03-10T00:10:33.000Z",
     "tags": [
       "weekly-notes",
       "reflections",
@@ -29990,18 +30064,18 @@
         "level": "h2",
         "children": [
           {
-            "text": "🌟 Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "📚 Learning & Media",
-            "slug": "learning-media",
+            "text": "Tuesday",
+            "slug": "tuesday",
             "level": "h3",
             "children": []
           }
         ]
+      },
+      {
+        "text": "📚 Learning & Media",
+        "slug": "learning-media",
+        "level": "h2",
+        "children": []
       }
     ],
     "metadata": {
@@ -30011,13 +30085,13 @@
         "progress"
       ],
       "date": "2025-03-03T17:35:18.000Z",
-      "modified": "2025-03-03T17:35:24.000Z",
-      "words": 63,
-      "images": 3,
-      "links": 3,
+      "modified": "2025-03-10T00:10:33.000Z",
+      "words": 489,
+      "images": 44,
+      "links": 44,
       "codeBlocks": 0,
       "headers": {
-        "h2": 1
+        "h2": 2
       },
       "toc": [
         {
@@ -30026,18 +30100,18 @@
           "level": "h2",
           "children": [
             {
-              "text": "🌟 Daily Check-In & Reflections",
-              "slug": "daily-check-in-reflections",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "📚 Learning & Media",
-              "slug": "learning-media",
+              "text": "Tuesday",
+              "slug": "tuesday",
               "level": "h3",
               "children": []
             }
           ]
+        },
+        {
+          "text": "📚 Learning & Media",
+          "slug": "learning-media",
+          "level": "h2",
+          "children": []
         }
       ],
       "type": "post",

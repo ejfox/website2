@@ -1,0 +1,77 @@
+/* Global typography overrides to increase text size for all pages except projects */
+:root:not(.projects-page) .prose p,
+:root:not(.projects-page) .prose li,
+:root:not(.projects-page) .prose blockquote,
+:root:not(.projects-page) .prose div,
+:root:not(.projects-page) .prose-p,
+:root:not(.projects-page) .prose-sm p,
+:root:not(.projects-page) .prose-sm li {
+  font-size: 1.125rem !important; /* text-lg */
+  line-height: 2rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+:root:not(.projects-page) .prose-sm {
+  font-size: 1.125rem !important; /* Override prose-sm with larger text */
+  line-height: 2rem !important;
+}
+
+:root:not(.projects-page) article p,
+:root:not(.projects-page) article li,
+:root:not(.projects-page) article blockquote,
+:root:not(.projects-page) article div,
+:root:not(.projects-page) .prose p {
+  font-size: 1.125rem !important;
+  line-height: 2rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+/* Target specific elements that might be getting the prose-sm class */
+:root:not(.projects-page) [class*="prose-sm"] p,
+:root:not(.projects-page) [class*="prose-sm"] li,
+:root:not(.projects-page) [class*="prose-sm"] blockquote,
+:root:not(.projects-page) [class*="prose-sm"] div,
+:root:not(.projects-page) [class*="prose-sm"] {
+  font-size: 1.125rem !important;
+  line-height: 2rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+@media (min-width: 768px) {
+  :root:not(.projects-page) .prose p,
+  :root:not(.projects-page) .prose li,
+  :root:not(.projects-page) .prose blockquote,
+  :root:not(.projects-page) .prose div,
+  :root:not(.projects-page) .prose-p,
+  :root:not(.projects-page) .prose-sm p,
+  :root:not(.projects-page) .prose-sm li {
+    font-size: 1.25rem !important; /* text-xl */
+    line-height: 2rem !important;
+  }
+
+  :root:not(.projects-page) article p,
+  :root:not(.projects-page) article li,
+  :root:not(.projects-page) article blockquote,
+  :root:not(.projects-page) article div,
+  :root:not(.projects-page) .prose p {
+    font-size: 1.25rem !important;
+    line-height: 2rem !important;
+  }
+
+  /* Target specific elements that might be getting the prose-sm class */
+  :root:not(.projects-page) [class*="prose-sm"] p,
+  :root:not(.projects-page) [class*="prose-sm"] li,
+  :root:not(.projects-page) [class*="prose-sm"] blockquote,
+  :root:not(.projects-page) [class*="prose-sm"] div,
+  :root:not(.projects-page) [class*="prose-sm"] {
+    font-size: 1.25rem !important;
+    line-height: 2rem !important;
+  }
+}
+
+/* Remove TOC-specific styles since we're now using Tailwind classes directly */
+
+/* Responsive styles for larger screens */
+@media (min-width: 1024px) {
+  /* Keep any other responsive styles that aren't TOC-related */
+} 

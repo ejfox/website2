@@ -5708,6 +5708,152 @@
     }
   },
   {
+    "slug": "2025/paramilitary-telegram-leaks-001",
+    "title": "Processing Telegram Leaks for Fast Web Visualization",
+    "date": "2025-03-09T17:49:01.000Z",
+    "type": "post",
+    "dek": "In which I describe my workflow for transforming a Telegram database dump into a web-friendly format for analysis and visualization",
+    "modified": "2025-03-10T00:13:53.000Z",
+    "tags": [
+      "data",
+      "dataviz",
+      "journalism",
+      "politics"
+    ],
+    "toc": [
+      {
+        "text": "Paramilitary Telegram Leaks: From Dump To Data",
+        "slug": "paramilitary-telegram-leaks-from-dump-to-data",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "From SQLite to Parquet: Processing Telegram Leaks for Fast Web Visualization",
+        "slug": "from-sqlite-to-parquet-processing-telegram-leaks-for-fast-web-visualization",
+        "level": "h2",
+        "children": [
+          {
+            "text": "The Challenge",
+            "slug": "the-challenge",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "The Workflow",
+            "slug": "the-workflow",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "The Frontend",
+            "slug": "the-frontend",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Data Exploration Examples",
+            "slug": "data-exploration-examples",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Building Custom Visualizations",
+            "slug": "building-custom-visualizations",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "date": "2025-03-09T17:49:01.000Z",
+      "modified": "2025-03-10T00:13:53.000Z",
+      "title": "Processing Telegram Leaks for Fast Web Visualization",
+      "dek": "In which I describe my workflow for transforming a Telegram database dump into a web-friendly format for analysis and visualization",
+      "inprogress": true,
+      "tags": [
+        "data",
+        "dataviz",
+        "journalism",
+        "politics"
+      ],
+      "words": 670,
+      "images": 6,
+      "links": 16,
+      "codeBlocks": 4,
+      "headers": {
+        "h2": 2
+      },
+      "toc": [
+        {
+          "text": "Paramilitary Telegram Leaks: From Dump To Data",
+          "slug": "paramilitary-telegram-leaks-from-dump-to-data",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "From SQLite to Parquet: Processing Telegram Leaks for Fast Web Visualization",
+          "slug": "from-sqlite-to-parquet-processing-telegram-leaks-for-fast-web-visualization",
+          "level": "h2",
+          "children": [
+            {
+              "text": "The Challenge",
+              "slug": "the-challenge",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "The Workflow",
+              "slug": "the-workflow",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "The Frontend",
+              "slug": "the-frontend",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Data Exploration Examples",
+              "slug": "data-exploration-examples",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Building Custom Visualizations",
+              "slug": "building-custom-visualizations",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/2025/paramilitary-telegram-leaks-001.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "2025/paramilitary-telegram-leaks-001"
+    }
+  },
+  {
+    "slug": "drafts/So the world is changing a lot, and I’ve been having really",
+    "title": "So the world is changing a lot, and I’ve been having really",
+    "type": "post",
+    "toc": [],
+    "metadata": {
+      "words": 384,
+      "images": 0,
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/So the world is changing a lot, and I’ve been having really.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/So the world is changing a lot, and I’ve been having really"
+    }
+  },
+  {
     "slug": "drafts/_stale/!index_drafts",
     "title": "!index_drafts",
     "date": "2023-01-15T20:08:41.000Z",
@@ -14530,6 +14676,28 @@
     }
   },
   {
+    "slug": "drafts/automating-podcast-editing",
+    "title": "Automating Podcast Editing",
+    "date": "2025-03-05T04:05:00.000Z",
+    "type": "post",
+    "modified": "2025-03-05T14:26:10.000Z",
+    "toc": [],
+    "metadata": {
+      "date": "2025-03-05T04:05:00.000Z",
+      "modified": "2025-03-05T14:26:10.000Z",
+      "words": 106,
+      "images": 8,
+      "links": 10,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/automating-podcast-editing.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/automating-podcast-editing"
+    }
+  },
+  {
     "slug": "drafts/cursor-rules-and-smallbot",
     "title": "Exploring Cursor Rules and Smallbot",
     "date": "2025-02-21T17:00:05.000Z",
@@ -14565,6 +14733,40 @@
       "sourcePath": "../../../../../code/website2/content/blog/drafts/cursor-rules-and-smallbot.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "drafts/cursor-rules-and-smallbot"
+    }
+  },
+  {
+    "slug": "drafts/how-i-get-acquainted-with-a-new-codebase",
+    "title": "How I get acquainted with a new codebase",
+    "type": "post",
+    "toc": [
+      {
+        "text": "How I get acquainted with a new codebase",
+        "slug": "how-i-get-acquainted-with-a-new-codebase",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "metadata": {
+      "words": 150,
+      "images": 0,
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {
+        "h1": 1
+      },
+      "toc": [
+        {
+          "text": "How I get acquainted with a new codebase",
+          "slug": "how-i-get-acquainted-with-a-new-codebase",
+          "level": "h1",
+          "children": []
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/how-i-get-acquainted-with-a-new-codebase.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/how-i-get-acquainted-with-a-new-codebase"
     }
   },
   {
@@ -14765,11 +14967,11 @@
     "title": "Mother Jones' Dark Money Universe",
     "date": "2012-06-12T20:03:35.000Z",
     "type": "post",
-    "modified": "2025-03-04T04:09:38.000Z",
+    "modified": "2025-03-05T00:41:15.000Z",
     "toc": [],
     "metadata": {
       "date": "2012-06-12T20:03:35.000Z",
-      "modified": "2025-03-04T04:09:38.000Z",
+      "modified": "2025-03-05T00:41:15.000Z",
       "title": "Mother Jones' Dark Money Universe",
       "url": "https://www.motherjones.com/politics/2012/06/interactive-chart-super-pac-election-money/",
       "words": 38,
@@ -29977,7 +30179,7 @@
     "title": "2025-10",
     "date": "2025-03-03T17:35:18.000Z",
     "type": "post",
-    "modified": "2025-03-03T17:35:24.000Z",
+    "modified": "2025-03-10T00:10:33.000Z",
     "tags": [
       "weekly-notes",
       "reflections",
@@ -29990,18 +30192,18 @@
         "level": "h2",
         "children": [
           {
-            "text": "🌟 Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "📚 Learning & Media",
-            "slug": "learning-media",
+            "text": "Tuesday",
+            "slug": "tuesday",
             "level": "h3",
             "children": []
           }
         ]
+      },
+      {
+        "text": "📚 Learning & Media",
+        "slug": "learning-media",
+        "level": "h2",
+        "children": []
       }
     ],
     "metadata": {
@@ -30011,13 +30213,13 @@
         "progress"
       ],
       "date": "2025-03-03T17:35:18.000Z",
-      "modified": "2025-03-03T17:35:24.000Z",
-      "words": 63,
-      "images": 3,
-      "links": 3,
+      "modified": "2025-03-10T00:10:33.000Z",
+      "words": 489,
+      "images": 44,
+      "links": 44,
       "codeBlocks": 0,
       "headers": {
-        "h2": 1
+        "h2": 2
       },
       "toc": [
         {
@@ -30026,18 +30228,18 @@
           "level": "h2",
           "children": [
             {
-              "text": "🌟 Daily Check-In & Reflections",
-              "slug": "daily-check-in-reflections",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "📚 Learning & Media",
-              "slug": "learning-media",
+              "text": "Tuesday",
+              "slug": "tuesday",
               "level": "h3",
               "children": []
             }
           ]
+        },
+        {
+          "text": "📚 Learning & Media",
+          "slug": "learning-media",
+          "level": "h2",
+          "children": []
         }
       ],
       "type": "post",

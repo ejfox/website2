@@ -1,0 +1,25 @@
+{
+  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">If it has a README, I read it. Even if it's old, even if a robot wrote it. You don't want to be the idiot asking a question that's answered in the README.</p>\n<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">If it's a front-end application, I'm going to use the user flow to start dissecting the codebase logically and figuring out where things live. The first place that I will start is the router; what URLs does this site support? Is there a list of them somewhere?</p>\n<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Most importantly, where can I find the code that powers the index?</p>\n<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">If it's a data processing or analysis application- I'll start at the top, where does data come in? What is the source file or API? Is there a file that orchestrates a series of processes (like a script or a Makefile) or are they run ad-hoc by hand?</p>",
+  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">If it has a README, I read it. Even if it's old, even if a robot wrote it. You don't want to be the idiot asking a question that's answered in the README.</p>\n<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">If it's a front-end application, I'm going to use the user flow to start dissecting the codebase logically and figuring out where things live. The first place that I will start is the router; what URLs does this site support? Is there a list of them somewhere?</p>\n<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Most importantly, where can I find the code that powers the index?</p>\n<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">If it's a data processing or analysis application- I'll start at the top, where does data come in? What is the source file or API? Is there a file that orchestrates a series of processes (like a script or a Makefile) or are they run ad-hoc by hand?</p>",
+  "title": "How I get acquainted with a new codebase",
+  "metadata": {
+    "words": 150,
+    "images": 0,
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h1": 1
+    },
+    "toc": [
+      {
+        "text": "How I get acquainted with a new codebase",
+        "slug": "how-i-get-acquainted-with-a-new-codebase",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/drafts/how-i-get-acquainted-with-a-new-codebase.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}
