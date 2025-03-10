@@ -5713,7 +5713,7 @@
     "date": "2025-03-09T17:49:01.000Z",
     "type": "post",
     "dek": "In which I describe my workflow for transforming a Telegram database dump into a web-friendly format for analysis and visualization",
-    "modified": "2025-03-10T00:13:53.000Z",
+    "modified": "2025-03-10T01:16:48.000Z",
     "tags": [
       "data",
       "dataviz",
@@ -5767,7 +5767,7 @@
     ],
     "metadata": {
       "date": "2025-03-09T17:49:01.000Z",
-      "modified": "2025-03-10T00:13:53.000Z",
+      "modified": "2025-03-10T01:16:48.000Z",
       "title": "Processing Telegram Leaks for Fast Web Visualization",
       "dek": "In which I describe my workflow for transforming a Telegram database dump into a web-friendly format for analysis and visualization",
       "inprogress": true,
@@ -5777,9 +5777,9 @@
         "journalism",
         "politics"
       ],
-      "words": 670,
+      "words": 688,
       "images": 6,
-      "links": 16,
+      "links": 17,
       "codeBlocks": 4,
       "headers": {
         "h2": 2
@@ -30214,9 +30214,9 @@
       ],
       "date": "2025-03-03T17:35:18.000Z",
       "modified": "2025-03-10T00:10:33.000Z",
-      "words": 489,
-      "images": 44,
-      "links": 44,
+      "words": 499,
+      "images": 45,
+      "links": 45,
       "codeBlocks": 0,
       "headers": {
         "h2": 2

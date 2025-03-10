@@ -1,6 +1,6 @@
 ---
 date: 2025-03-09T13:49:01-04:00
-modified: 2025-03-09T20:13:53-04:00
+modified: 2025-03-09T21:16:48-04:00
 title: Processing Telegram Leaks for Fast Web Visualization
 dek: In which I describe my workflow for transforming a Telegram database dump into a web-friendly format for analysis and visualization
 inprogress: true
@@ -13,7 +13,7 @@ tags:
 
 ## Paramilitary Telegram Leaks: From Dump To Data
 
-The other day I was perusing Mastodon, as one does, and noticed a post from [journalist](https://theintercept.com/staff/micah-lee/) and [author](https://hacksandleaks.com) Micah Lee [saying he was exploring]((<https://micahflee.com/exploring-the-paramilitary-leaks/>) a 200GB dump from American paramilitary groups.
+The other day I was perusing Mastodon, as one does, and noticed a post from [journalist](https://theintercept.com/staff/micah-lee/) and [author](https://hacksandleaks.com) Micah Lee [saying he was exploring](https://micahflee.com/exploring-the-paramilitary-leaks/) a 200GB dump from [American paramilitary groups.](https://www.propublica.org/article/ap3-oath-keepers-militia-mole)
 
 ![Screenshot - 2025-03-05 12:11:34 - Screenshot 2025-03-05 at 12.11.19 PM.png](http://res.cloudinary.com/ejf/image/upload/v1741194693/Screenshot_2025-03-05_at_12.11.19_PM.png)
 
@@ -25,8 +25,6 @@ I hadn't heard of such a dump before, and immediately sent Micah an email offeri
 
 When working with large datasets like Telegram chat dumps, getting from raw data to meaningful visualization requires a few key steps. Recently, I've been working with the "Paramilitary Leaks" dataset, and I wanted to share my workflow for transforming this data into a format that's fast to query and visualize directly in the browser.
 
-[The Militia and the Mole (Jan. 4, 2025)](https://www.propublica.org/article/ap3-oath-keepers-militia-mole)
-
 ### The Challenge
 
 Telegram leaks typically come as SQLite databases - great for structured storage but not ideal for web-based analysis. The challenge was to:
@@ -35,6 +33,7 @@ Telegram leaks typically come as SQLite databases - great for structured storage
 2. Convert it to a web-friendly format
 3. Make it quickly accessible for visualization
 4. Cache it for fast loading across browsers
+
 ![Screenshot - 2025-03-05 23:49:03 - Screenshot 2025-03-05 at 11.48.45 PM.png](http://res.cloudinary.com/ejf/image/upload/v1741236542/Screenshot_2025-03-05_at_11.48.45_PM.png)
 
 ### The Workflow
@@ -75,6 +74,8 @@ R2_PARQUET_URL=https://r2.ejfox.com/para-leaks/telegram_chats.r5.parquet
 I've developed a Nuxt / [regl-scatterplot](https://github.com/flekschas/regl-scatterplot) frontend application to interact with this data, available on GitHub:
 
 [https://github.com/ejfox/paramilitary-leaks-frontend](https://github.com/ejfox/paramilitary-leaks-frontend)
+
+<div class="video-container"> <video controls> <source src="https://res.cloudinary.com/ejf/video/upload/v1741568702/text-search.mp4" type="video/mp4"> Your browser does not support the video tag. </video> </div>
 
 You can view it the front-end <https://para-leaks.ejfox.com>
 
@@ -118,3 +119,5 @@ Some ideas I'm exploring:
 For more information on this topic, I recommend reading Micah Lee's excellent article:
 
 [Exploring the Paramilitary Leaks](https://micahflee.com/exploring-the-paramilitary-leaks/)
+
+ProPublica: [The Militia and the Mole (Jan. 4, 2025)](https://www.propublica.org/article/ap3-oath-keepers-militia-mole)

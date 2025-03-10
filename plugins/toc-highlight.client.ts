@@ -3,7 +3,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   // Function to update active TOC item based on scroll position
   const updateActiveTocItem = () => {
     // Only run on pages with TOC
-    const tocContainer = document.querySelector('#toc-container')
+    const tocContainer = document.querySelector('#nav-toc-container')
     if (!tocContainer) return
 
     // Get all section headings

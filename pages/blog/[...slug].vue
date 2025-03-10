@@ -118,16 +118,60 @@ onMounted(() => {
 const tocTarget = ref(null)
 
 onMounted(() => {
-  tocTarget.value = document.querySelector('#toc-container')
+  console.log('Looking for TOC container with ID: #nav-toc-container')
+  tocTarget.value = document.querySelector('#nav-toc-container')
+  console.log('TOC container found:', !!tocTarget.value)
+
+  // Also check if the post has TOC data
+  console.log('Post TOC data:', {
+    hasToc: !!post.value?.toc,
+    hasMetadataToc: !!post.value?.metadata?.toc,
+    tocLength: post.value?.toc?.length,
+    metadataTocLength: post.value?.metadata?.toc?.length,
+    hasChildren: !!post.value?.toc?.[0]?.children,
+    hasMetadataChildren: !!post.value?.metadata?.toc?.[0]?.children,
+    childrenLength: post.value?.toc?.[0]?.children?.length,
+    metadataChildrenLength: post.value?.metadata?.toc?.[0]?.children?.length
+  })
+
+  // Log the full TOC structure to understand its format
+  console.log('Full TOC structure:', JSON.stringify(post.value?.metadata?.toc || post.value?.toc, null, 2))
 })
 
 // Add a watcher for route changes to reinitialize the TOC
 watch(
   () => route.path,
   async () => {
+    // Wait for DOM updates to complete
     await nextTick()
+    await nextTick()
+
+    // Add a small delay to ensure DOM is fully updated
+    await new Promise(resolve => setTimeout(resolve, 100))
+
     // Re-initialize TOC target when route changes
-    tocTarget.value = document.querySelector('#toc-container')
+    tocTarget.value = document.querySelector('#nav-toc-container')
+    console.log('Route changed, TOC container found:', !!tocTarget.value)
+
+    // If not found on first try, retry with increasing delays
+    if (!tocTarget.value) {
+      const retryFindTocContainer = async (attempts = 1, maxAttempts = 5) => {
+        if (attempts > maxAttempts) return
+
+        // Exponential backoff
+        const delay = 100 * Math.pow(2, attempts - 1)
+        await new Promise(resolve => setTimeout(resolve, delay))
+
+        tocTarget.value = document.querySelector('#nav-toc-container')
+        console.log(`Retry ${attempts}/${maxAttempts}, TOC container found:`, !!tocTarget.value)
+
+        if (!tocTarget.value && attempts < maxAttempts) {
+          await retryFindTocContainer(attempts + 1, maxAttempts)
+        }
+      }
+
+      await retryFindTocContainer()
+    }
 
     // Re-initialize headings and observers
     if (articleContent.value) {
@@ -229,8 +273,11 @@ watch(
 
 // New computed property to trim TOC items
 const trimmedToc = computed(() => {
-  if (!post.value?.toc) return []
-  return post.value.toc.flatMap(item =>
+  // Check both possible locations for TOC data
+  const tocData = post.value?.toc || post.value?.metadata?.toc
+  if (!tocData) return []
+
+  return tocData.flatMap(item =>
     item.children?.map(child => ({
       ...child,
       text: child.text.length > 35 ? child.text.slice(0, 32) + '...' : child.text
@@ -541,7 +588,7 @@ const processedMetadata = computed(() => {
 
       <div class="lg:h-[62vh] flex items-center">
         <h1 ref="postTitle" v-if="post?.metadata?.title || post?.title"
-          class="post-title text-4xl lg:text-8xl xl:text-10xl font-bold w-full paddings-y pr-8 pl-4 md:pl-0">
+          class="post-title text-3xl lg:text-7xl xl:text-8xl font-bold w-full paddings-y pr-8 pl-4 md:pl-0 tracking-tight leading-tight">
           <div v-html="renderedTitle" class="typing-container"></div>
         </h1>
       </div>
@@ -556,12 +603,16 @@ const processedMetadata = computed(() => {
       <div ref="articleContent">
         <article v-if="post?.html" v-html="post.html" class="blog-post-content px-2 prose-lg md:prose-xl
                  dark:prose-invert
-                 prose-img:my-8 prose-img:rounded-lg
+                 prose-img:my-8 prose-img:rounded-lg prose-img:w-full prose-img:max-w-full
+                 prose-pre:overflow-x-auto prose-pre:whitespace-pre-wrap prose-pre:break-words
+                 prose-code:break-words prose-code:whitespace-pre-wrap
                  font-normal opacity-100">
         </article>
         <div v-else-if="post?.content" v-html="post.content" class="blog-post-content px-2 prose-lg md:prose-xl
                  dark:prose-invert
-                 prose-img:my-8 prose-img:rounded-lg
+                 prose-img:my-8 prose-img:rounded-lg prose-img:w-full prose-img:max-w-full
+                 prose-pre:overflow-x-auto prose-pre:whitespace-pre-wrap prose-pre:break-words
+                 prose-code:break-words prose-code:whitespace-pre-wrap
                  font-normal opacity-100">
         </div>
         <div v-else class="p-4 text-center text-red-500">
@@ -581,7 +632,7 @@ const processedMetadata = computed(() => {
             class="block text-left no-underline hover:underline">
             <span class="block text-sm text-gray-500">Previous</span>
             <span class="block text-sm text-gray-400">{{ formatDate(nextPrevPosts.prev.date) }}</span>
-            <span class="text-current"> {{ nextPrevPosts.prev?.title }}</span>
+            <span class="text-current truncate block"> {{ nextPrevPosts.prev?.title }}</span>
           </NuxtLink>
         </div>
 
@@ -592,7 +643,7 @@ const processedMetadata = computed(() => {
             class="block text-right no-underline hover:underline">
             <span class="block text-sm text-gray-500">Next</span>
             <span class="block text-sm text-gray-400">{{ formatDate(nextPrevPosts.next.date) }}</span>
-            <span class="text-current">{{ nextPrevPosts.next?.title }} →</span>
+            <span class="text-current truncate block">{{ nextPrevPosts.next?.title }} →</span>
           </NuxtLink>
         </div>
       </div>
@@ -620,46 +671,57 @@ const processedMetadata = computed(() => {
       <p class="text-xl text-gray-600 dark:text-gray-400">Loading...</p>
     </div>
 
-    <!-- Mobile TOC -->
-    <Transition name="slide-up">
-      <div v-if="isMobile && post?.metadata?.toc?.[0]?.children?.length" class="fixed bottom-0 left-0 w-full bg-white/80 dark:bg-black/80 backdrop-blur-sm 
-                  text-zinc-900 dark:text-white z-50 pb-safe border-t border-zinc-200/50 dark:border-zinc-800/50">
-        <div class="w-[94%] mx-auto">
-          <div class="overflow-x-auto no-scrollbar py-3">
-            <div class="flex gap-8 transition-transform duration-300 ease-out"
-              :style="{ transform: `translateX(-${tocScrollPosition}px)` }">
-              <template v-for="child in post.metadata.toc[0].children" :key="child.slug">
-                <a :href="`#${child.slug}`"
-                  class="py-1.5 transition-colors whitespace-nowrap text-sm flex-shrink-0 min-w-fit" :class="[
-                    activeSection === child.slug
-                      ? 'text-zinc-900 dark:text-white font-medium'
-                      : 'text-zinc-500 dark:text-zinc-400'
-                  ]">
-                  {{ child.text }}
-                </a>
-              </template>
-            </div>
-          </div>
-        </div>
-      </div>
-    </Transition>
-
     <!-- Desktop TOC -->
-    <teleport to="#toc-container" v-if="!isMobile && tocTarget">
-      <div v-if="post?.metadata?.toc?.[0]?.children?.length" class="toc py-4 px-2 text-sm">
-        <h3 class="text-base font-medium mb-3">Table of Contents</h3>
-        <ul class="space-y-2">
-          <li v-for="child in post.metadata.toc[0].children" :key="child.slug"
+    <teleport to="#nav-toc-container" v-if="tocTarget">
+      <div v-if="post?.toc?.[0]?.children?.length || post?.metadata?.toc?.[0]?.children?.length"
+        class="toc py-4 px-4 text-sm">
+        <h3 class="text-base font-medium mb-4 font-sans tracking-tight">Table of Contents</h3>
+        <ul class="space-y-4">
+          <li v-for="child in (post.toc?.[0]?.children || post.metadata?.toc?.[0]?.children)" :key="child.slug"
             class="transition-colors duration-200 hover:bg-zinc-100/50 dark:hover:bg-zinc-800/50 rounded line-clamp-1">
-            <a :href="`#${child.slug}`" class="block px-1 py-0.5 rounded transition-colors" :class="[
-              activeSection === child.slug
-                ? 'text-zinc-900 dark:text-zinc-100 bg-zinc-200/50 dark:bg-zinc-700/50'
-                : 'hover:text-zinc-900 dark:hover:text-zinc-200'
-            ]">
+            <a :href="`#${child.slug}`"
+              class="block px-1 py-0.5 rounded transition-colors font-sans text-sm tracking-tight" :class="[
+                activeSection === child.slug
+                  ? 'text-zinc-900 dark:text-zinc-100 bg-zinc-200/50 dark:bg-zinc-700/50 font-medium'
+                  : 'text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-200'
+              ]">
               {{ child.text }}
             </a>
           </li>
         </ul>
+      </div>
+      <div v-else class="toc py-4 px-4 text-sm">
+        <h3 class="text-base font-medium mb-4 font-sans tracking-tight">Table of Contents</h3>
+        <!-- First try to find children in any TOC item -->
+        <template
+          v-if="post?.toc?.some(item => item?.children?.length) || post?.metadata?.toc?.some(item => item?.children?.length)">
+          <ul class="space-y-4">
+            <!-- Iterate through all TOC items and their children -->
+            <template v-for="(tocItem, index) in (post?.toc || post?.metadata?.toc)" :key="index">
+              <li v-for="child in tocItem?.children || []" :key="child.slug"
+                class="transition-colors duration-200 hover:bg-zinc-100/50 dark:hover:bg-zinc-800/50 rounded line-clamp-1">
+                <a :href="`#${child.slug}`"
+                  class="block px-1 py-0.5 rounded transition-colors font-sans text-sm tracking-tight" :class="[
+                    activeSection === child.slug
+                      ? 'text-zinc-900 dark:text-zinc-100 bg-zinc-200/50 dark:bg-zinc-700/50 font-medium'
+                      : 'text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-200'
+                  ]">
+                  {{ child.text }}
+                </a>
+              </li>
+            </template>
+          </ul>
+        </template>
+        <!-- If no children found in any TOC item, show debug info -->
+        <template v-else>
+          <p class="text-xs text-zinc-500 font-sans">Debug info:</p>
+          <pre class="text-xs opacity-50 font-mono">tocTarget: {{ !!tocTarget }}
+post?.toc: {{ !!post?.toc }}
+post?.metadata?.toc: {{ !!post?.metadata?.toc }}
+toc length: {{ post?.toc?.length }}
+metadata toc length: {{ post?.metadata?.toc?.length }}
+toc structure: {{ JSON.stringify(post?.toc || post?.metadata?.toc, null, 2) }}</pre>
+        </template>
       </div>
     </teleport>
 
@@ -757,64 +819,52 @@ const processedMetadata = computed(() => {
   overflow-wrap: break-word;
 }
 
-/* Optimize CSS by combining similar rules */
-.toc-common {
-  @apply transition-colors duration-200;
+/* Add styles for code blocks to prevent layout breaking */
+.blog-post-content pre,
+.blog-post-content code {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  word-wrap: break-word;
+  box-sizing: border-box;
 }
 
-.toc-hover {
-  @apply hover:bg-zinc-100/50 dark:hover:bg-zinc-800/50 rounded;
+/* Ensure code blocks don't push the layout */
+.blog-post-content pre {
+  padding: 1rem;
+  border-radius: 0.375rem;
+  margin: 1.5rem 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
 }
 
-/* Hero animation setup */
-.post-title {
-  will-change: contents;
-  white-space: pre-line;
-  word-break: normal;
-  overflow-wrap: break-word;
+/* Inline code */
+.blog-post-content :not(pre)>code {
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+  word-break: break-word;
 }
 
-/* Scrollytelling animations */
 .blog-post-content {
   img {
     @apply w-full max-w-full mx-auto;
     /* Spacing */
-    @apply pr-2 py-2 md:pr-6 md:py-4 lg:pr-12 lg:py-6;
+    @apply py-2 md:py-4 lg:py-6;
   }
 }
 
-/* Respect user preferences */
-@media (prefers-reduced-motion: reduce) {
-  .blog-post-content img {
-    opacity: 1 !important;
-    transform: none !important;
-  }
+.toc {
+  @apply py-4 px-4;
 }
 
-@keyframes blink {
-
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0;
-  }
+.toc h3 {
+  @apply text-zinc-800 dark:text-zinc-200 font-medium mb-4;
 }
 
-.cursor {
-  display: inline-block;
-  width: 3px;
-  height: 1.1em;
-  background-color: currentColor;
-  animation: blink 1s step-end infinite;
-  margin-left: 0.1em;
-  margin-right: -3px;
-  /* Offset the width */
-  vertical-align: baseline;
-  position: relative;
-  top: 0.1em;
+.toc ul {
+  @apply pl-0 space-y-4;
 }
 </style>
 
@@ -895,10 +945,12 @@ a {
 
 /* Remove any conflicting styles */
 .post-title {
-  line-height: 1.2;
+  line-height: 1.1;
   white-space: normal;
   word-break: normal;
   overflow-wrap: break-word;
+  max-width: 100%;
+  hyphens: auto;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -922,6 +974,25 @@ a {
   backface-visibility: hidden;
   transform-style: preserve-3d;
   perspective: 1000px;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Additional styles for images in blog posts */
+.blog-post-content figure {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.blog-post-content figure img {
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
 @media (prefers-reduced-motion: reduce) {

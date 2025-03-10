@@ -41,7 +41,7 @@
       </nav>
 
       <!-- Desktop navigation -->
-      <nav v-else class="sticky w-52 h-auto max-h-screen top-0 left-0 z-50 p-4 monospace overflow-auto">
+      <nav v-else class="sticky min-w-[200px] h-auto max-h-screen top-0 left-0 z-50 p-4 monospace overflow-auto">
         <div
           class="container mx-auto md:py-1 md:flex md:flex-col items-start shadow-lg dark:shadow-none w-full md:shadow-none border-b border-zinc-300 dark:border-zinc-900 md:border-none rounded bg-zinc-50/50 md:bg-transparent dark:bg-zinc-900/30 md:dark:bg-transparent backdrop-blur-md px-2 max-h-screen">
           <div class="pt-3 pb-1 space-y-2">
@@ -74,7 +74,7 @@
 
         <!-- Table of Contents Container -->
         <div v-if="isBlogPost || isStatsPage || isProjectsPage" class="mt-4">
-          <div id="toc-container" class="font-sans"></div>
+          <div id="nav-toc-container" class="font-sans"></div>
         </div>
 
         <div v-if="isBlogPost" class="mt-4 pl-4">
@@ -88,14 +88,14 @@
       </nav>
 
 
-      <article class="w-full md:w-5/6 mt-16 md:mt-0">
+      <article class="w-full md:w-4/5 mt-16 md:mt-0 overflow-x-auto">
         <NuxtPage />
       </article>
 
       <!-- Add TOC container for blog posts and stats page -->
       <aside v-if="isBlogPost || isStatsPage || isProjectsPage"
         class="hidden lg:block w-64 shrink-0 sticky top-0 h-screen overflow-y-auto p-4">
-        <div id="toc-container" class="space-y-4"></div>
+        <div id="aside-toc-container" class="space-y-4"></div>
       </aside>
 
     </section>

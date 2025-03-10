@@ -340,11 +340,11 @@ function createPostMetadata(post) {
   <NuxtErrorBoundary>
     <!-- Default content -->
     <template #default>
-      <div v-if="isLoading" class="container mx-auto px-2 py-12 text-center">
+      <div v-if="isLoading" class="container mx-auto px-4 py-12 text-center">
         <p class="text-lg">Loading...</p>
       </div>
 
-      <div v-else class="container mx-auto px-2 py-12 lg:flex lg:gap-4">
+      <div v-else class="container mx-auto px-4 py-12 lg:flex lg:gap-8">
         <!-- Blog Posts section -->
         <section class="lg:w-2/3 mb-16">
           <h2 class="text-3xl font-bold mb-8">Blog Posts</h2>
@@ -354,31 +354,30 @@ function createPostMetadata(post) {
           </div>
 
           <!-- Existing yearly blog posts list -->
-          <div v-for="year in sortedYears" :key="`blog-${year}`" class="mb-10">
-            <h3 class="text-4xl font-semibold text-zinc-500 dark:text-zinc-400 mb-6 tracking-tight">
+          <div v-for="year in sortedYears" :key="`blog-${year}`" class="mb-8">
+            <h3 class="text-4xl font-semibold text-zinc-500 dark:text-zinc-400 mb-4 tracking-tight">
               {{ year }}
             </h3>
-            <ul class="">
+            <ul>
               <li v-for="post in blogPostsByYear[year]" :key="post?.slug" ref="blogPostElements"
                 class="flex flex-col border-b border-zinc-200 dark:border-zinc-700 pb-4 mb-4">
 
+                <!-- PostMetadata now above the title -->
+                <PostMetadata v-if="post" :doc="createPostMetadata(post)" :compact="true"
+                  class="post-metadata transition-opacity my-4" />
+
                 <NuxtLink :to="`/blog/${post?.slug}`"
-                  class="post-title no-underline hover:underline text-xl lg:text-3xl font-medium mb-2 pr-2 font-fjalla">
+                  class="post-title no-underline hover:underline text-xl lg:text-3xl font-medium mb-2 pr-4 font-fjalla">
                   {{ post?.title || formatTitle(post?.slug) }}
                   <span v-if="new Date(post?.date) > now"
-                    class="text-sm font-normal text-zinc-500 dark:text-zinc-400 ml-2">
+                    class="text-sm font-normal text-zinc-500 dark:text-zinc-400 ml-4">
                     (Future Post)
                   </span>
                 </NuxtLink>
 
-                <div v-if="post?.metadata?.dek || post?.dek"
-                  class="font-mono text-xs text-zinc-600 dark:text-zinc-400 mb-2">
+                <div v-if="post?.metadata?.dek || post?.dek" class="font-mono text-xs text-zinc-600 dark:text-zinc-400">
                   {{ post?.metadata?.dek || post?.dek }}
                 </div>
-
-                <!-- Add PostMetadata component for each post -->
-                <PostMetadata v-if="post" :doc="createPostMetadata(post)"
-                  class="opacity-60 hover:opacity-100 transition-opacity" />
               </li>
             </ul>
           </div>
@@ -395,31 +394,31 @@ function createPostMetadata(post) {
           <template v-else>
             <div v-for="weekNote in sortedWeekNotes" :key="weekNote.slug" ref="weekNoteElements"
               class="border-b border-zinc-200 dark:border-zinc-700 py-4">
-              <NuxtLink :to="`/blog/${weekNote.slug}`" class="text-sm font-mono block py-1 rounded">
+              <NuxtLink :to="`/blog/${weekNote.slug}`" class="text-sm font-mono block py-4 rounded">
                 <span class="hover:underline">
                   {{ weekNote.slug.split('/')[1] }}
                 </span>
 
-                <p class="text-xs text-zinc-500 mt-2">
+                <p class="text-xs text-zinc-500 mt-4">
                   {{ weekNote.metadata?.dek || weekNote.dek }}
                 </p>
               </NuxtLink>
             </div>
 
-            <UButton :to="`/blog/week-notes`" color="black" class="mt-4" icon="i-ei-arrow-right" trailing
+            <UButton :to="`/blog/week-notes`" color="black" class="mt-8" icon="i-ei-arrow-right" trailing
               variant="outline">
               All Week Notes
             </UButton>
           </template>
-          <div v-if="recentlyUpdatedPosts.length" class="my-12">
-            <h3 class="text-2xl font-semibold text-zinc-600 dark:text-zinc-300 mb-4">Recently Updated</h3>
+          <div v-if="recentlyUpdatedPosts.length" class="mt-16 mb-8">
+            <h3 class="text-2xl font-semibold text-zinc-600 dark:text-zinc-300 mb-8">Recently Updated</h3>
             <ul>
               <li v-for="post in recentlyUpdatedPosts" :key="`recent-${post.slug}`"
-                class="mb-3 border-l-4 border-zinc-300 dark:border-zinc-600 pl-4">
+                class="mb-4 border-l-4 border-zinc-300 dark:border-zinc-600 pl-4">
                 <NuxtLink :to="`/blog/${post.slug}`" class="text-lg font-medium hover:underline">
                   {{ post?.metadata?.title || post?.title }}
                 </NuxtLink>
-                <div class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+                <div class="text-xs text-zinc-500 dark:text-zinc-400 mt-4">
                   Updated {{ formatRelativeTime(post?.metadata?.lastUpdated || post?.metadata?.date || post?.lastUpdated
                     ||
                     post?.date) }}
@@ -433,19 +432,23 @@ function createPostMetadata(post) {
 
     <!-- Error handling -->
     <template #error="{ error }">
-      <div class="container mx-auto px-2 py-12">
+      <div class="container mx-auto px-4 py-12">
         <div class="lg:w-2/3">
           <h2 class="text-3xl font-bold mb-8">Blog Posts</h2>
-          <div v-if="posts?.length" class="mb-10">
+          <div v-if="posts?.length" class="mb-8">
             <template v-for="year in sortedYears" :key="`blog-${year}`">
-              <h3 class="text-4xl font-semibold text-zinc-500 dark:text-zinc-400 mb-6 tracking-tight">
+              <h3 class="text-4xl font-semibold text-zinc-500 dark:text-zinc-400 mb-4 tracking-tight">
                 {{ year }}
               </h3>
-              <ul class="mb-10">
+              <ul class="mb-8">
                 <li v-for="post in blogPostsByYear[year]" :key="post?.slug"
                   class="flex flex-col border-b border-zinc-200 dark:border-zinc-700 pb-4 mb-4">
+                  <!-- PostMetadata now above the title -->
+                  <PostMetadata v-if="post" :doc="createPostMetadata(post)" :compact="true"
+                    class="post-metadata transition-opacity my-4" />
+
                   <NuxtLink :to="`/blog/${post?.slug}`"
-                    class="post-title no-underline hover:underline text-xl lg:text-3xl font-medium mb-2 pr-2 font-fjalla">
+                    class="post-title no-underline hover:underline text-xl lg:text-3xl font-medium mb-2 pr-4 font-fjalla">
                     {{ post?.title || formatTitle(post?.slug) }}
                   </NuxtLink>
                   <div v-if="post?.metadata?.dek || post?.dek"
@@ -466,11 +469,11 @@ function createPostMetadata(post) {
           <div v-if="sortedWeekNotes?.length">
             <div v-for="weekNote in sortedWeekNotes" :key="weekNote.slug"
               class="border-b border-zinc-200 dark:border-zinc-700 py-4">
-              <NuxtLink :to="`/blog/${weekNote.slug}`" class="text-sm font-mono block py-1 rounded">
+              <NuxtLink :to="`/blog/${weekNote.slug}`" class="text-sm font-mono block py-4 rounded">
                 <span class="hover:underline">
                   {{ weekNote.slug.split('/')[1] }}
                 </span>
-                <p v-if="(weekNote?.metadata || weekNote)?.dek" class="text-xs text-zinc-500 mt-2">
+                <p v-if="(weekNote?.metadata || weekNote)?.dek" class="text-xs text-zinc-500 mt-4">
                   {{ (weekNote?.metadata || weekNote)?.dek }}
                 </p>
               </NuxtLink>
@@ -488,6 +491,22 @@ function createPostMetadata(post) {
 <style scoped>
 .post-title {
   transition: color 0.2s ease;
+}
+
+.post-metadata {
+  border-bottom: none;
+  margin: 0 0 2px 0;
+  padding: 0;
+  font-size: 0.7rem;
+  opacity: 0.5;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  line-height: 1.2;
+}
+
+.post-metadata:hover {
+  opacity: 0.75;
 }
 
 /* View Transitions API support */

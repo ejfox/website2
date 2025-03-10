@@ -1,11 +1,12 @@
 <template>
-  <div
-    class="w-full text-sm text-zinc-600 dark:text-zinc-400 flex flex-wrap items-center gap-x-4 gap-y-2 monospace p-2">
+  <div class="w-full text-zinc-600 dark:text-zinc-400 flex flex-wrap items-center"
+    :class="[compact ? 'text-xs p-0 gap-x-3 gap-y-1' : 'text-sm p-4 gap-x-4 gap-y-4']">
     <!-- Debug output -->
     <pre v-if="false" class="whitespace-pre-wrap text-xs">{{ metadata }}</pre>
 
     <!-- Folder name -->
-    <span class="flex items-center metadata-item text-xs tracking-widest pl-2" ref="folderRef" v-if="metadata.slug">
+    <span class="flex items-center metadata-item text-xs tracking-widest" :class="[compact ? 'pl-0' : 'pl-4']"
+      ref="folderRef" v-if="metadata.slug && !compact">
       <!-- <UIcon name="bi:folder" class="mr-2 text-zinc-400 dark:text-zinc-600" /> -->
 
       /{{ metadata.slug.split('/')[0] }}/
@@ -16,39 +17,45 @@
     <!-- Draft status -->
     <span v-if="metadata.draft" class="flex items-center text-red-500 dark:text-red-400 sans-serif metadata-item"
       ref="draftRef">
-      <UIcon name="bi:file-earmark-text" class="mr-2 text-red-400 dark:text-red-600" />
-      Draft, please do not publish, changes expected
+      <UIcon :name="'bi:file-earmark-text'" :class="[compact ? 'mr-1 w-3 h-3' : 'mr-4']"
+        class="text-red-400 dark:text-red-600" />
+      <span v-if="!compact">Draft, please do not publish, changes expected</span>
+      <span v-else>Draft</span>
     </span>
 
     <!-- Date -->
     <span v-if="metadata.date" class="flex items-center metadata-item" :title="formatRelativeTime(metadata.date)"
       ref="dateRef">
-      <UIcon name="ant-design:calendar-outlined" class="mr-2 text-zinc-400 dark:text-zinc-600" />
-      <time>{{ formatBlogDate(new Date(metadata.date)) }}</time>
+      <UIcon :name="'ant-design:calendar-outlined'" :class="[compact ? 'mr-1 w-3 h-3' : 'mr-4']"
+        class="text-zinc-400 dark:text-zinc-600" />
+      <time>{{ compact ? formatCompactDate(new Date(metadata.date)) : formatBlogDate(new Date(metadata.date)) }}</time>
     </span>
 
     <!-- Reading Time -->
     <span v-if="metadata.readingTime" class="flex items-center metadata-item" ref="readingTimeRef">
-      <UIcon name="bi:clock-history" class="mr-2 text-zinc-400 dark:text-zinc-600" />
-      {{ metadata.readingTime }} {{ metadata.readingTime === 1 ? 'min' : 'mins' }} read
+      <UIcon :name="'bi:clock-history'" :class="[compact ? 'mr-1 w-3 h-3' : 'mr-4']"
+        class="text-zinc-400 dark:text-zinc-600" />
+      {{ metadata.readingTime }} {{ compact ? 'min read' : metadata.readingTime === 1 ? 'min' : 'mins' }}
     </span>
 
     <!-- Word Count -->
     <span v-if="metadata.wordCount" class="flex items-center metadata-item" ref="wordCountRef">
-      <UIcon name="bi:card-text" class="mr-2 text-zinc-400 dark:text-zinc-600" />
-      {{ formatNumber(metadata.wordCount) }} words
+      <UIcon :name="'bi:card-text'" :class="[compact ? 'mr-1 w-3 h-3' : 'mr-4']"
+        class="text-zinc-400 dark:text-zinc-600" />
+      {{ formatCompactNumber(metadata.wordCount) }} {{ compact ? 'words' : 'words' }}
     </span>
 
     <!-- Image Count -->
     <span v-if="metadata.imageCount" class="flex items-center metadata-item" ref="imageCountRef">
-      <UIcon name="ant-design:camera-filled" class="mr-2 text-zinc-400 dark:text-zinc-600" />
-      {{ metadata.imageCount }} {{ metadata.imageCount === 1 ? 'image' : 'images' }}
+      <UIcon :name="'ant-design:camera-filled'" :class="[compact ? 'mr-1 w-3 h-3' : 'mr-4']"
+        class="text-zinc-400 dark:text-zinc-600" />
+      {{ metadata.imageCount }} {{ compact ? 'images' : metadata.imageCount === 1 ? 'image' : 'images' }}
     </span>
 
     <!-- Link Count -->
     <span v-if="metadata.linkCount" class="flex items-center metadata-item" ref="linkCountRef">
-      <UIcon name="bi:link" class="mr-2 text-zinc-400 dark:text-zinc-600" />
-      {{ metadata.linkCount }} {{ metadata.linkCount === 1 ? 'link' : 'links' }}
+      <UIcon :name="'bi:link'" :class="[compact ? 'mr-1 w-3 h-3' : 'mr-4']" class="text-zinc-400 dark:text-zinc-600" />
+      {{ metadata.linkCount }} {{ compact ? 'links' : metadata.linkCount === 1 ? 'link' : 'links' }}
     </span>
   </div>
 </template>
@@ -92,6 +99,7 @@ const { slideUp } = useScrollAnimation()
 
 const props = defineProps<{
   doc: Post
+  compact?: boolean
 }>()
 
 // Refs for animation targets
@@ -105,6 +113,15 @@ const folderRef = ref<HTMLElement | null>(null)
 
 const formatNumber = format(',d')
 const formatBlogDate = timeFormat('%b %d %Y')
+const formatCompactDate = timeFormat('%b %d')
+
+// Add a more compact number formatter for the compact view
+const formatCompactNumber = (num: number) => {
+  if (num >= 1000) {
+    return (num / 1000).toFixed(1) + 'k'
+  }
+  return num
+}
 
 // Computed properties to handle both old and new metadata formats
 const metadata = computed(() => {
@@ -185,8 +202,8 @@ defineExpose({ animateItems })
 .metadata-item {
   will-change: transform, opacity;
   backface-visibility: hidden;
-  opacity: 0;
-  transform: translateY(20px);
+  opacity: 1;
+  transform: none;
 }
 
 /* View Transitions API support */

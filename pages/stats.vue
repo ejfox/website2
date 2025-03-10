@@ -1,7 +1,7 @@
 <template>
   <div class="max-w-6xl mx-auto px-4 sm:px-8 py-8 sm:py-16 font-mono">
     <!-- Stats TOC -->
-    <teleport to="#toc-container" v-if="tocTarget">
+    <teleport to="#nav-toc-container" v-if="tocTarget">
       <div class="toc py-2 text-sm font-mono px-4">
         <h3 class="text-xs tracking-[0.2em] font-mono text-zinc-500 mb-3">STATS INDEX</h3>
         <ul class="space-y-2">
@@ -511,7 +511,7 @@ const { width } = useWindowSize()
 const isMobile = computed(() => width.value < 1024) // Match the lg breakpoint
 
 onMounted(() => {
-  tocTarget.value = document.querySelector('#toc-container')
+  tocTarget.value = document.querySelector('#nav-toc-container')
 })
 
 // Define the sections for the TOC
@@ -534,7 +534,7 @@ const activeSection = ref('top-stats')
 onMounted(() => {
   nextTick(() => {
     // First, make sure we have the TOC target
-    tocTarget.value = document.querySelector('#toc-container')
+    tocTarget.value = document.querySelector('#nav-toc-container')
 
     // Then set up the observer
     const headingObserver = new IntersectionObserver(

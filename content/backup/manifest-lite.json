@@ -5708,6 +5708,134 @@
     }
   },
   {
+    "slug": "2025/paramilitary-telegram-leaks-001",
+    "title": "Processing Telegram Leaks for Fast Web Visualization",
+    "date": "2025-03-09T17:49:01.000Z",
+    "type": "post",
+    "dek": "In which I describe my workflow for transforming a Telegram database dump into a web-friendly format for analysis and visualization",
+    "modified": "2025-03-10T01:07:27.000Z",
+    "tags": [
+      "data",
+      "dataviz",
+      "journalism",
+      "politics"
+    ],
+    "toc": [
+      {
+        "text": "Paramilitary Telegram Leaks: From Dump To Data",
+        "slug": "paramilitary-telegram-leaks-from-dump-to-data",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "From SQLite to Parquet: Processing Telegram Leaks for Fast Web Visualization",
+        "slug": "from-sqlite-to-parquet-processing-telegram-leaks-for-fast-web-visualization",
+        "level": "h2",
+        "children": [
+          {
+            "text": "The Challenge",
+            "slug": "the-challenge",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "The Workflow",
+            "slug": "the-workflow",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "The Frontend",
+            "slug": "the-frontend",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Data Exploration Examples",
+            "slug": "data-exploration-examples",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Building Custom Visualizations",
+            "slug": "building-custom-visualizations",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "date": "2025-03-09T17:49:01.000Z",
+      "modified": "2025-03-10T01:07:27.000Z",
+      "title": "Processing Telegram Leaks for Fast Web Visualization",
+      "dek": "In which I describe my workflow for transforming a Telegram database dump into a web-friendly format for analysis and visualization",
+      "inprogress": true,
+      "tags": [
+        "data",
+        "dataviz",
+        "journalism",
+        "politics"
+      ],
+      "words": 687,
+      "images": 6,
+      "links": 16,
+      "codeBlocks": 4,
+      "headers": {
+        "h2": 2
+      },
+      "toc": [
+        {
+          "text": "Paramilitary Telegram Leaks: From Dump To Data",
+          "slug": "paramilitary-telegram-leaks-from-dump-to-data",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "From SQLite to Parquet: Processing Telegram Leaks for Fast Web Visualization",
+          "slug": "from-sqlite-to-parquet-processing-telegram-leaks-for-fast-web-visualization",
+          "level": "h2",
+          "children": [
+            {
+              "text": "The Challenge",
+              "slug": "the-challenge",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "The Workflow",
+              "slug": "the-workflow",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "The Frontend",
+              "slug": "the-frontend",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Data Exploration Examples",
+              "slug": "data-exploration-examples",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Building Custom Visualizations",
+              "slug": "building-custom-visualizations",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/2025/paramilitary-telegram-leaks-001.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "2025/paramilitary-telegram-leaks-001"
+    }
+  },
+  {
     "slug": "drafts/So the world is changing a lot, and I’ve been having really",
     "title": "So the world is changing a lot, and I’ve been having really",
     "type": "post",
@@ -30086,9 +30214,9 @@
       ],
       "date": "2025-03-03T17:35:18.000Z",
       "modified": "2025-03-10T00:10:33.000Z",
-      "words": 489,
-      "images": 44,
-      "links": 44,
+      "words": 499,
+      "images": 45,
+      "links": 45,
       "codeBlocks": 0,
       "headers": {
         "h2": 2
