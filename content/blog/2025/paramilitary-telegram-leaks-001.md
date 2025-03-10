@@ -1,6 +1,6 @@
 ---
 date: 2025-03-09T13:49:01-04:00
-modified: 2025-03-09T22:23:52-04:00
+modified: 2025-03-09T22:38:25-04:00
 title: Processing Telegram Leaks for Fast Web Visualization
 dek: In which I describe my workflow for transforming a Telegram database dump into a web-friendly format for analysis and visualization
 inprogress: true
@@ -14,6 +14,8 @@ tags:
 ## Paramilitary Telegram Leaks: From Dump To Data
 
 The other day I was perusing Mastodon, as one does, and noticed a post from [journalist](https://theintercept.com/staff/micah-lee/) and [author](https://hacksandleaks.com) Micah Lee [saying he was exploring](https://micahflee.com/exploring-the-paramilitary-leaks/) a 200GB dump from [American paramilitary groups.](https://www.propublica.org/article/ap3-oath-keepers-militia-mole)
+
+This leak was made possible through the incredible bravery of [John Williams](https://www.reddit.com/user/shitshowshaman/) who infiltrated these groups and exfiltrated all this data. He is currently [crowdfunding $10k](https://www.every.org/psstorg-inc/f/help-john-infiltrate) in part, to "move safe houses and to change his identity" and he also [has a Patreon where you can support him](https://www.patreon.com/mobiusblack)
 
 ![Screenshot - 2025-03-05 12:11:34 - Screenshot 2025-03-05 at 12.11.19 PM.png](https://res.cloudinary.com/ejf/image/upload/v1741194693/Screenshot_2025-03-05_at_12.11.19_PM.png)
 
