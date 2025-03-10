@@ -1,6 +1,6 @@
 ---
 date: 2025-03-09T13:49:01-04:00
-modified: 2025-03-09T22:17:28-04:00
+modified: 2025-03-09T22:23:52-04:00
 title: Processing Telegram Leaks for Fast Web Visualization
 dek: In which I describe my workflow for transforming a Telegram database dump into a web-friendly format for analysis and visualization
 inprogress: true
@@ -23,11 +23,8 @@ I hadn't heard of such a dump before, and immediately sent Micah an email offeri
 
 ## From SQLite to Parquet: Processing Telegram Leaks for Fast Web Visualization
 
-When working with large datasets like Telegram chat dumps, getting from raw data to meaningful visualization requires a few key steps. Recently, I've been working with the "Paramilitary Leaks" dataset, and I wanted to share my workflow for transforming this data into a format that's fast to query and visualize directly in the browser.
 
 ### The Challenge
-
-Telegram leaks typically come as SQLite databases - great for structured storage but not ideal for web-based analysis. The challenge was to:
 
 1. Extract the relevant data
 2. Convert it to a web-friendly format
@@ -38,7 +35,15 @@ Telegram leaks typically come as SQLite databases - great for structured storage
 
 ### The Workflow
 
-Here's the pipeline I developed:
+We start with the [repo Micah started](https://github.com/micahflee/paramilitary-leaks) that takes the raw dump of .html exports from Telegram and transforms them into a structured sqlite db we can work with.
+
+Once you get that repo setup you can just do
+
+```bash
+poetry run tasks build-db ~/RAW-LEAK-LOCATION`
+```
+
+… and you get a sqlite database in your `output` folder.
 
 #### Step 1: Export from SQLite to CSV
 
