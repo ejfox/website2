@@ -634,6 +634,9 @@ function remarkEnhanceImages() {
           node.url = enhanced.src
           node.data.hProperties.loading = 'lazy'
           node.data.hProperties.decoding = 'async'
+          node.data.hProperties.className = 'w-full max-w-full mx-auto'
+          // Remove animation classes that might be causing issues
+          // node.data.hProperties.className = 'w-full max-w-full mx-auto transition-all duration-300 ease-in-out pr-2 py-2 md:pr-6 md:py-4 lg:pr-12 lg:py-6 animate-on-scroll slide-from-bottom will-change-transform'
         }
       }
     })
