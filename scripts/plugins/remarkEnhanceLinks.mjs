@@ -78,7 +78,7 @@ const fetchIcon = async (name) => {
     const svg = await res.text()
     const processed = svg.replace(
       '<svg',
-      '<svg class="inline-block w-4 h-4 ml-1 opacity-50 dark:opacity-75 group-hover:opacity-100 transition-opacity"'
+      '<svg class="inline-block w-4 h-4 ml-1 opacity-50 dark:opacity-75 group-hover:opacity-100 transition-opacity align-text-bottom"'
     )
     iconCache.set(name, processed)
     return processed
@@ -89,9 +89,9 @@ const fetchIcon = async (name) => {
 
 export function remarkEnhanceLinks() {
   return async (tree) => {
-    const icons = []
+    const iconPromises = []
 
-    visit(tree, 'link', (node, index, parent) => {
+    visit(tree, 'link', (node) => {
       // ONLY handle external http(s) links
       if (!node?.url?.startsWith('http')) return
 
@@ -100,7 +100,8 @@ export function remarkEnhanceLinks() {
       node.data.hProperties = node.data.hProperties || {}
       node.data.hProperties.target = '_blank'
       node.data.hProperties.rel = 'noopener noreferrer'
-      node.data.hProperties.class = 'external-link group'
+      node.data.hProperties.class =
+        'external-link group inline-flex items-center'
 
       // Try to add social icon
       try {
@@ -109,16 +110,23 @@ export function remarkEnhanceLinks() {
 
         for (const [key, icon] of Object.entries(socialPlatforms)) {
           if (domain === key || domain.endsWith(`.${key}`)) {
-            icons.push(
-              fetchIcon(icon).then((svg) => {
-                if (svg && parent?.children) {
-                  parent.children.splice(index + 1, 0, {
-                    type: 'html',
-                    value: svg
-                  })
+            // Store the current node for later icon insertion
+            const iconPromise = fetchIcon(icon).then((svg) => {
+              if (svg) {
+                // Instead of adding as separate node, we'll embed the icon inside the link node
+                // Create a span wrapper to hold the icon
+                const iconSpan = {
+                  type: 'html',
+                  value: svg
                 }
-              })
-            )
+
+                // Make sure this node has children, and add the icon as the last child
+                node.children = node.children || []
+                node.children.push(iconSpan)
+              }
+            })
+
+            iconPromises.push(iconPromise)
             break
           }
         }
@@ -127,7 +135,7 @@ export function remarkEnhanceLinks() {
       }
     })
 
-    await Promise.all(icons)
+    await Promise.all(iconPromises)
     return tree
   }
 }

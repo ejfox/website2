@@ -30250,20 +30250,36 @@
   },
   {
     "slug": "week-notes/2025-11",
-    "title": "2025 11",
+    "title": "date: 2025-03-10T15:16:48-04:00\nmodified: 2025-03-17T13:23:12-04:00",
     "date": "2025-03-10T19:16:48.000Z",
     "type": "post",
-    "modified": "2025-03-17T17:23:12.000Z",
-    "toc": [],
+    "modified": "2025-03-22T20:06:38.000Z",
+    "toc": [
+      {
+        "text": "date: 2025-03-10T15:16:48-04:00\nmodified: 2025-03-17T13:23:12-04:00",
+        "slug": "date-2025-03-10t15-16-48-04-00-modified-2025-03-17t13-23-12-04-00",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "metadata": {
       "date": "2025-03-10T19:16:48.000Z",
-      "modified": "2025-03-17T17:23:12.000Z",
-      "words": 183,
+      "modified": "2025-03-22T20:06:38.000Z",
+      "words": 189,
       "images": 10,
       "links": 10,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "date: 2025-03-10T15:16:48-04:00\nmodified: 2025-03-17T13:23:12-04:00",
+          "slug": "date-2025-03-10t15-16-48-04-00-modified-2025-03-17t13-23-12-04-00",
+          "level": "h2",
+          "children": []
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-11.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -30272,16 +30288,72 @@
   },
   {
     "slug": "week-notes/2025-12",
-    "title": "2025 12",
+    "title": "2025-12",
+    "date": "2025-03-17T16:57:36.000Z",
     "type": "post",
-    "toc": [],
+    "modified": "2025-03-22T20:07:12.000Z",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
+    "toc": [
+      {
+        "text": "2025-12",
+        "slug": "2025-12",
+        "level": "h2",
+        "children": [
+          {
+            "text": "🌟 Daily Check-In & Reflections",
+            "slug": "daily-check-in-reflections",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "📚 Learning & Media",
+            "slug": "learning-media",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "metadata": {
-      "words": 23,
+      "date": "2025-03-17T16:57:36.000Z",
+      "modified": "2025-03-22T20:07:12.000Z",
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
+      "words": 54,
       "images": 2,
       "links": 2,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "2025-12",
+          "slug": "2025-12",
+          "level": "h2",
+          "children": [
+            {
+              "text": "🌟 Daily Check-In & Reflections",
+              "slug": "daily-check-in-reflections",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "📚 Learning & Media",
+              "slug": "learning-media",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-12.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
