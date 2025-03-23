@@ -1,17 +1,18 @@
 <template>
-  <div class="space-y-3">
-    <Transition name="fade" mode="out-in">
-      <p :key="value" class="tabular-nums tracking-tight font-mono" :class="[
-        size === 'large' && 'text-[8rem] leading-[0.85]',
-        size === 'medium' && 'text-6xl leading-[0.9]',
-        size === 'small' && 'text-4xl leading-[0.95]',
+  <div class="leading-tight font-mono">
+    <div class="flex">
+      <div class="w-4 text-zinc-400">+</div>
+      <p :key="value" class="tabular-nums font-mono flex-1" :class="[
+        size === 'large' && 'text-[5rem] leading-[0.9]',
+        size === 'medium' && 'text-4xl leading-[0.9]',
+        size === 'small' && 'text-3xl leading-[0.95]',
       ]">
         {{ formattedValue }}
       </p>
-    </Transition>
-    <div class="space-y-1.5">
-      <h3 class="text-sm tracking-wider text-zinc-400 uppercase font-mono">{{ label }}</h3>
-      <p v-if="details" class="text-xs text-zinc-500 tracking-wide leading-relaxed max-w-xs font-mono">
+    </div>
+    <div class="border-b border-dotted border-zinc-300 dark:border-zinc-700 py-1">
+      <h3 class="text-sm tracking-wider text-zinc-500 uppercase font-mono">{{ label }}</h3>
+      <p v-if="details" class="text-xs text-zinc-500 tracking-wide font-mono">
         {{ details }}
       </p>
     </div>
@@ -78,21 +79,6 @@ const formattedValue = computed(() => {
 </script>
 
 <style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: all 0.3s ease;
-}
-
-.fade-enter-from {
-  opacity: 0;
-  transform: translateY(-10px);
-}
-
-.fade-leave-to {
-  opacity: 0;
-  transform: translateY(10px);
-}
-
 /* Monospace typography */
 p {
   font-feature-settings: "tnum", "zero";

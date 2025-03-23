@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { useFetch } from '#app'
+import { useStats } from '~/composables/useStats'
+import GitHubStats from '~/components/stats/GitHubStats.vue'
 
 interface GistFile {
   filename: string
@@ -17,6 +19,11 @@ interface Gist {
   files: Record<string, GistFile>
   html_url: string
 }
+
+// Fetch GitHub stats for the top section
+const { stats: rawStats, isLoading: statsLoading } = useStats()
+const stats = computed(() => rawStats.value || {})
+const hasGithubData = computed(() => !!(stats.value?.github?.stats))
 
 const currentPage = ref(1)
 const perPage = 64
@@ -82,6 +89,20 @@ const languageCountsFormatted = computed(() => {
 
 <template>
   <div class="py-8 px-4 font-mono text-sm">
+    <!-- GitHub Stats Section -->
+    <ClientOnly>
+      <div v-if="hasGithubData" class="mb-12 pb-8 border-b border-zinc-800/50">
+        <div class="mb-6">
+          <h2 class="text-xs tracking-[0.2em] text-zinc-500 mb-6">GITHUB_ACTIVITY</h2>
+          <GitHubStats v-if="stats.github" :stats="stats.github" />
+        </div>
+      </div>
+      <div v-else-if="statsLoading" class="mb-12 pb-8 animate-pulse">
+        <div class="h-4 w-48 bg-zinc-800/50 rounded-sm mb-8"></div>
+        <div class="h-32 bg-zinc-800/30 rounded-sm"></div>
+      </div>
+    </ClientOnly>
+    
     <!-- Header -->
     <div class="mb-8 border-b border-zinc-800 pb-4">
       <h1 class="text-2xl uppercase tracking-wide mb-2">GitHub Gists</h1>

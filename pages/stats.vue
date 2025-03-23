@@ -125,6 +125,19 @@
         </section>
       </ClientOnly>
 
+      <!-- Gear Stats -->
+      <ClientOnly>
+        <Transition name="fade-up" appear>
+          <section v-if="true" class="relative" id="gear">
+            <div class="pt-16 sm:pt-24">
+              <StatsSection title="GEAR">
+                <AsyncGearStats />
+              </StatsSection>
+            </div>
+          </section>
+        </Transition>
+      </ClientOnly>
+
       <!-- Health Stats -->
       <ClientOnly>
         <Transition name="fade-up" appear>
@@ -178,6 +191,7 @@ const AsyncBlogStats = defineAsyncComponent(() => import('~/components/stats/Blo
 const AsyncTopStats = defineAsyncComponent(() => import('~/components/stats/TopStats.vue' /* webpackPrefetch: true */))
 const AsyncChessStats = defineAsyncComponent(() => import('~/components/stats/ChessStats.vue' /* webpackPrefetch: true */))
 const AsyncRescueTimeStats = defineAsyncComponent(() => import('~/components/stats/RescueTimeStats.vue' /* webpackPrefetch: true */))
+const AsyncGearStats = defineAsyncComponent(() => import('~/components/stats/GearStats.vue' /* webpackPrefetch: true */))
 
 interface BlogPost {
   wordCount?: number
@@ -499,6 +513,7 @@ const statsSections = [
   { id: 'photography', text: 'PHOTOGRAPHY' },
   { id: 'chess', text: 'CHESS' },
   { id: 'productivity', text: 'PRODUCTIVITY' },
+  { id: 'gear', text: 'GEAR' },
   { id: 'health', text: 'HEALTH' }
 ]
 

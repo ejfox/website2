@@ -111,56 +111,30 @@ function processCommits(commits: any[]): {
   return { commits: processedCommits, commitTypes }
 }
 
-function adaptGitHubStats(githubStats: any) {
-  // console.log('Adapting GitHub stats:', githubStats)
-
-  if (!githubStats) {
-    console.error('No GitHub stats to adapt!')
+// Helper function to adapt GitHub stats for compatibility
+function adaptGitHubStats(githubData: any) {
+  // If there's no data, return undefined to show data unavailable
+  if (!githubData || !githubData.stats) {
     return undefined
   }
 
-  // Handle both old and new data structures
-  const isOldFormat =
-    'repositories' in githubStats && !('detail' in githubStats)
-
-  if (isOldFormat) {
-    // console.log('Converting from old GitHub format')
-    // Convert old format to new format
-    return {
-      stats: {
-        totalRepos: githubStats.stats.totalRepos,
-        totalContributions: githubStats.stats.totalContributions || 0,
-        followers: githubStats.stats.followers,
-        following: githubStats.stats.following
-      },
-      contributions: githubStats.contributions || [],
-      dates: githubStats.dates || [],
-      detail: {
-        commits: [], // We'll need to fetch fresh data
-        commitTypes: []
-      }
+  // Map the data to expected format
+  return {
+    stats: {
+      totalCommits: githubData.stats.totalContributions || 0,
+      totalContributions: githubData.stats.totalContributions || 0,
+      totalRepos: githubData.stats.totalRepos || 0,
+      followers: githubData.stats.followers || 0,
+      following: githubData.stats.following || 0
+    },
+    // Include these required properties
+    contributions: githubData.contributions || [],
+    dates: githubData.dates || [],
+    detail: {
+      commits: githubData.detail?.commits || [],
+      commitTypes: githubData.detail?.commitTypes || []
     }
   }
-
-  // Process new format
-  const { commits, commitTypes } = processCommits(
-    githubStats.detail?.commits || []
-  )
-
-  const adapted = {
-    stats: {
-      totalRepos: githubStats.stats.totalRepos,
-      totalContributions: githubStats.stats.totalContributions,
-      followers: githubStats.stats.followers,
-      following: githubStats.stats.following
-    },
-    contributions: githubStats.contributions || [],
-    dates: githubStats.dates || [],
-    detail: { commits, commitTypes }
-  }
-
-  // console.log('Adapted GitHub stats:', adapted)
-  return adapted
 }
 
 // Helper function to safely get value from Promise result
@@ -173,7 +147,7 @@ export default defineEventHandler(async (event): Promise<StatsResponse> => {
     // console.log('🎯 Stats handler called')
 
     const [
-      githubResult,
+      githubResult, // Re-enable GitHub result
       monkeyTypeResult,
       photosResult,
       healthResult,

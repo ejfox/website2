@@ -45,6 +45,7 @@ interface GitHubUserStats {
 interface GitHubContributions {
   viewer: {
     contributionsCollection: {
+      totalCommitContributions: number
       commitContributionsByRepository: Array<{
         repository: {
           name: string
@@ -114,12 +115,12 @@ async function fetchUserStats(token: string): Promise<GitHubUserStats> {
 
 async function fetchContributions(
   token: string,
-  lastWeek: string,
+  lastMonth: string,
   today: string
 ): Promise<GitHubContributions> {
-  const query = `query($lastWeek: DateTime!, $today: DateTime!) {
+  const query = `query($lastMonth: DateTime!, $today: DateTime!) {
     viewer {
-      contributionsCollection(from: $lastWeek, to: $today) {
+      contributionsCollection(from: $lastMonth, to: $today) {
         totalCommitContributions
         commitContributionsByRepository {
           repository {
@@ -150,7 +151,7 @@ async function fetchContributions(
       Authorization: `bearer ${token}`,
       'Content-Type': 'application/json'
     },
-    body: { query, variables: { lastWeek, today } }
+    body: { query, variables: { lastMonth, today } }
   })
 
   if (response.errors) {
@@ -193,9 +194,49 @@ async function checkRateLimit(token: string) {
 export default defineEventHandler(async (event): Promise<GitHubStats> => {
   console.log('🚀 GitHub handler called')
   const config = useRuntimeConfig()
-  const token = config.githubToken || config.GITHUB_TOKEN
+
+  // Add more detailed logging
+  console.log('Runtime config keys:', Object.keys(config))
+  console.log('githubToken value type:', typeof config.githubToken)
+  console.log('GITHUB_TOKEN value type:', typeof config.GITHUB_TOKEN)
+  console.log('githubToken length:', config.githubToken?.length)
+  console.log('GITHUB_TOKEN length:', config.GITHUB_TOKEN?.length)
+
+  // Get token and handle potential whitespace issues
+  let token = config.githubToken || config.GITHUB_TOKEN
+
+  // Check if we have the placeholder token instead of the real one
+  if (token === 'your_token_here') {
+    console.warn(
+      '⚠️ Detected placeholder token - this suggests .env is not being loaded correctly'
+    )
+    // Log all available environment variables for debugging (excluding values)
+    console.log('Available env vars:', Object.keys(process.env))
+    // Try loading directly from process.env as a fallback
+    const directEnvToken = process.env.GITHUB_TOKEN
+    if (directEnvToken && directEnvToken !== 'your_token_here') {
+      console.log('Found token directly in process.env, using that instead')
+      token = directEnvToken
+    }
+  }
+
+  // Very important: Check if there are any whitespace issues with the token
+  if (token) {
+    const trimmedToken = token.trim()
+    if (trimmedToken !== token) {
+      console.warn('⚠️ GitHub token contains whitespace! Trimming...')
+      token = trimmedToken
+    }
+
+    // Check if token has the correct prefix
+    if (!token.startsWith('ghp_')) {
+      console.warn('⚠️ GitHub token does not start with expected prefix "ghp_"')
+    }
+  }
 
   console.log('🔑 GitHub token available:', !!token)
+  console.log('🔑 GitHub token length:', token?.length)
+  console.log('🔑 GitHub token first 10 chars:', token?.substring(0, 10))
 
   if (!token) {
     console.error('❌ No GitHub token found!')
@@ -210,12 +251,12 @@ export default defineEventHandler(async (event): Promise<GitHubStats> => {
     console.log('✅ Rate limit check passed')
 
     const today = new Date()
-    const lastWeek = new Date(today)
-    lastWeek.setDate(lastWeek.getDate() - 7)
+    const lastMonth = new Date(today)
+    lastMonth.setDate(lastMonth.getDate() - 30)
 
     const [userStats, contributions] = await Promise.all([
       fetchUserStats(token),
-      fetchContributions(token, lastWeek.toISOString(), today.toISOString())
+      fetchContributions(token, lastMonth.toISOString(), today.toISOString())
     ])
 
     console.log('📊 GitHub API responses:', {
@@ -304,6 +345,27 @@ export default defineEventHandler(async (event): Promise<GitHubStats> => {
   } catch (error) {
     const gitHubError = error as GitHubError
     console.error('GitHub API Error:', gitHubError)
+
+    // Add specific guidance for 401 Unauthorized errors
+    if (gitHubError.statusCode === 401) {
+      console.error(`
+        ⚠️ GitHub Authentication Failed ⚠️
+        
+        Your GitHub token appears to be invalid or expired. To generate a new token:
+        
+        1. Go to https://github.com/settings/tokens
+        2. Click "Generate new token" (classic)
+        3. Give it a name like "ejfox.com stats"
+        4. Set the expiration as needed
+        5. Select these scopes: repo, read:user, user:email
+        6. Click "Generate token"
+        7. Copy the token and update it in:
+           - Your .env file
+           - Your Netlify environment variables (if deployed)
+        
+        The token should start with "ghp_"
+      `)
+    }
 
     throw createError({
       statusCode: gitHubError.statusCode || 500,

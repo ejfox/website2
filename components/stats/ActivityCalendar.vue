@@ -5,10 +5,16 @@
     <!-- Activity Grid -->
     <div class="activity-grid">
       <div v-for="(day, index) in activityData" :key="index" 
-          class="activity-cell"
+          class="activity-cell relative"
           :class="day.active ? 'active' : 'inactive'"
           :style="day.active ? { backgroundColor: activeColor } : {}"
-          :title="day.date + (day.active ? ': Active' : '')">
+          @mouseenter="showTooltip(index)"
+          @mouseleave="hideTooltip()">
+          <!-- Custom Tooltip -->
+          <div v-if="activeTooltipIndex === index" 
+               class="custom-tooltip absolute z-10 bg-white dark:bg-zinc-800 p-2 text-2xs rounded shadow-md">
+            {{ formatTooltip(day) }}
+          </div>
       </div>
     </div>
 
@@ -21,7 +27,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { format } from 'date-fns'
 
 interface ActivityDay {
@@ -57,6 +63,28 @@ const props = defineProps({
   }
 })
 
+// Tooltip state
+const activeTooltipIndex = ref<number | null>(null)
+
+// Show tooltip for a specific day
+const showTooltip = (index: number) => {
+  activeTooltipIndex.value = index
+}
+
+// Hide tooltip
+const hideTooltip = () => {
+  activeTooltipIndex.value = null
+}
+
+// Format a friendly tooltip
+const formatTooltip = (day: ActivityDay) => {
+  const date = new Date(day.date)
+  const formattedDate = format(date, 'MMMM d, yyyy')
+  return day.active 
+    ? `${formattedDate}: Active` 
+    : formattedDate
+}
+
 // Generate activity data based on props
 const activityData = computed<ActivityDay[]>(() => {
   // If custom data is provided, use it
@@ -91,7 +119,7 @@ const activeCount = computed(() => {
 
 <style scoped>
 .section-subheader {
-  @apply text-2xs tracking-[0.2em] text-zinc-500 border-b border-zinc-800/30 pb-1 mb-3;
+  @apply text-2xs tracking-[0.2em] text-zinc-500 border-b border-zinc-200 dark:border-zinc-800/30 pb-1 mb-3;
 }
 
 .activity-grid {
@@ -100,7 +128,7 @@ const activeCount = computed(() => {
 }
 
 .activity-cell {
-  @apply w-full h-full rounded-[1px] transition-colors duration-300;
+  @apply w-full h-full rounded-[1px] transition-colors duration-300 cursor-pointer;
 }
 
 .active {
@@ -108,7 +136,17 @@ const activeCount = computed(() => {
 }
 
 .inactive {
-  @apply bg-zinc-200/30 dark:bg-zinc-900/30;
+  @apply bg-zinc-200/30 dark:bg-zinc-800/30;
+}
+
+.custom-tooltip {
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 150px;
+  color: var(--color-text);
+  white-space: nowrap;
 }
 
 /* Custom text size smaller than xs */

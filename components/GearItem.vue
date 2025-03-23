@@ -1,31 +1,10 @@
 <template>
   <div class="border-t border-zinc-800/50 py-3 group hover:bg-zinc-900/20 transition-colors">
     <div class="flex gap-4 sm:gap-6">
-      <!-- Left: Visualization -->
-      <div class="relative shrink-0">
-        <div class="w-16 h-16 sm:w-20 sm:h-20">
-          <svg ref="svgRef" class="w-full h-full"></svg>
-        </div>
-
-        <!-- Score overlay -->
-        <div
-          class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 bg-zinc-900/90 backdrop-blur-sm">
-          <div class="grid gap-1.5">
-            <!-- TCWM Breakdown -->
-            <div class="grid grid-cols-2 gap-x-3 gap-y-1">
-              <div v-for="(score, type) in scores" :key="type"
-                class="flex items-center justify-between font-mono text-[10px]">
-                <span class="text-zinc-500">{{ type }}</span>
-                <span class="tabular-nums font-medium text-zinc-300">{{ score }}</span>
-              </div>
-            </div>
-            <!-- Final Score -->
-            <div class="font-mono text-[10px] border-t border-zinc-700 pt-1 mt-0.5 flex justify-between items-center">
-              <span class="text-zinc-500">TOTAL</span>
-              <span class="tabular-nums font-medium" :class="tierTextColor">{{ calculatedScore }}</span>
-            </div>
-          </div>
-        </div>
+      <!-- Left: Simple weight/score display instead of viz -->
+      <div class="shrink-0 flex flex-col items-center justify-center w-16 h-16 sm:w-20 sm:h-20 border border-zinc-800/30 rounded">
+        <div class="text-lg font-mono font-medium tabular-nums">{{ baseWeight }}oz</div>
+        <div class="text-xs font-mono text-zinc-500 mt-1">TCWM: {{ calculatedScore }}</div>
       </div>
 
       <!-- Right: Content -->
@@ -59,47 +38,17 @@
                 <span class="font-mono text-[10px]">{{ item.Waterproof }}</span>
               </div>
 
-              <!-- Weight(s) -->
-              <div class="flex items-center gap-2 text-zinc-500 group/weight">
-                <UIcon name="i-heroicons-scale" class="w-3.5 h-3.5 shrink-0" />
-                <div class="flex flex-col gap-1">
-                  <!-- Base Weight -->
-                  <div v-if="baseWeight" class="flex items-center gap-1.5">
-                    <div class="flex flex-wrap gap-px max-w-[3rem] sm:max-w-[4rem]">
-                      <div v-for="n in Math.floor(baseWeight)" :key="n" class="w-1 h-1 bg-current opacity-50"
-                        :title="`${baseWeight}oz base weight`">
-                      </div>
-                      <div v-if="hasPartialBaseOunce" class="w-1 h-1 bg-current opacity-25"
-                        :style="{ transform: `scale(${partialBaseOunce})` }" :title="`${baseWeight}oz base weight`">
-                      </div>
-                    </div>
-                    <span class="tabular-nums text-[10px] shrink-0 whitespace-nowrap text-zinc-400">
-                      {{ baseWeight }}oz
-                    </span>
-                  </div>
-
-                  <!-- Loaded Weight -->
-                  <div v-if="loadedWeight && loadedWeight !== baseWeight" class="flex items-center gap-1.5">
-                    <div class="flex flex-wrap gap-px max-w-[3rem] sm:max-w-[4rem]">
-                      <div v-for="n in Math.floor(loadedWeight)" :key="n" class="w-1 h-1 bg-current opacity-50"
-                        :title="`${loadedWeight}oz loaded`">
-                      </div>
-                      <div v-if="hasPartialLoadedOunce" class="w-1 h-1 bg-current opacity-25"
-                        :style="{ transform: `scale(${partialLoadedOunce})` }" :title="`${loadedWeight}oz loaded`">
-                      </div>
-                    </div>
-                    <span class="tabular-nums text-[10px] shrink-0 whitespace-nowrap text-zinc-400">
-                      {{ loadedWeight }}oz
-                    </span>
-                  </div>
-                </div>
+              <!-- TCWM Breakdown -->
+              <div class="flex items-center gap-2">
+                <span class="text-blue-400 text-[10px]">T:{{ scores.T }}</span>
+                <span class="text-purple-400 text-[10px]">C:{{ scores.C }}</span>
+                <span class="text-green-400 text-[10px]">W:{{ scores.W }}</span>
+                <span class="text-amber-400 text-[10px]">M:{{ scores.M }}</span>
               </div>
 
               <!-- Tier indicator -->
               <span class="font-mono text-[10px] tabular-nums text-zinc-500">
                 <span :class="tierTextColor">T{{ tier }}</span>
-                <span class="mx-0.5">/</span>
-                <span>{{ calculatedScore }}</span>
               </span>
             </div>
           </div>
@@ -130,11 +79,9 @@ const props = defineProps({
   },
   createViz: {
     type: Function,
-    required: true
+    required: false 
   }
 })
-
-const svgRef = ref(null)
 
 // TCWM Score calculation
 const scores = computed(() => ({
@@ -191,31 +138,7 @@ const typeClasses = {
 const baseWeight = computed(() => parseFloat(props.item['Base Weight ()']) || 0)
 const loadedWeight = computed(() => parseFloat(props.item['Loaded Weight ()']) || 0)
 
-const hasPartialBaseOunce = computed(() => baseWeight.value % 1 !== 0)
-const partialBaseOunce = computed(() => baseWeight.value % 1)
-
-const hasPartialLoadedOunce = computed(() => loadedWeight.value % 1 !== 0)
-const partialLoadedOunce = computed(() => loadedWeight.value % 1)
-
-// Visualization handling (unchanged)
-onMounted(() => {
-  if (svgRef.value) {
-    props.createViz(props.item, svgRef.value)
-  }
-})
-
-const updateViz = useDebounceFn(() => {
-  if (svgRef.value) {
-    props.createViz(props.item, svgRef.value)
-  }
-}, 250)
-
-onMounted(() => window.addEventListener('resize', updateViz))
-onUnmounted(() => window.removeEventListener('resize', updateViz))
-
-// Comment out Amazon import
-// import AmazonReferenceItem from './AmazonReferenceItem.vue'
-
+// Amazon affiliate URL
 const amazonAffiliateUrl = computed(() => {
   if (!props.item.amazon) return '#'
   const url = new URL(props.item.amazon)
