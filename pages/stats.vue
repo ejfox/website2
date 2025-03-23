@@ -42,8 +42,7 @@
         </template>
         <template #fallback>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div v-for="i in 4" :key="i"
-              class="animate-pulse bg-zinc-900/50 rounded-none h-24 border border-zinc-800/50"></div>
+            <div v-for="i in 4" :key="i" class="pulse-placeholder"></div>
           </div>
         </template>
       </Suspense>
@@ -51,99 +50,78 @@
       <!-- Main Stats Grid -->
       <ClientOnly>
         <section v-if="!isLoading && stats">
-          <TransitionGroup name="fade-up" tag="div" class="grid grid-cols-1 lg:grid-cols-2 gap-16 sm:gap-24" appear>
+          <TransitionGroup name="fade-up" tag="div" class="stats-grid" appear>
             <!-- Left Column: Productivity -->
-            <div class="space-y-16 sm:space-y-24">
+            <div class="stats-column" key="productivity-column">
               <div class="relative">
-                <div
-                  class="absolute -left-8 sm:-left-16 top-0 h-full w-px bg-gradient-to-b from-zinc-800/0 via-zinc-800/50 to-zinc-800/0">
-                </div>
+                <div class="stats-vertical-divider"></div>
                 <div class="space-y-16">
                   <!-- Writing -->
-                  <section v-if="blogStats" class="space-y-6" id="writing">
-                    <h2 class="text-xs tracking-[0.2em] font-mono text-zinc-500">
-                      WRITING
-                    </h2>
+                  <StatsSection v-if="blogStats" id="writing" title="WRITING" key="writing-section">
                     <AsyncBlogStats :stats="blogStats" key="blog" />
-                  </section>
+                  </StatsSection>
 
                   <!-- Typing -->
-                  <section v-if="hasMonkeyTypeData" class="space-y-6" id="typing">
-                    <h2 class="text-xs tracking-[0.2em] font-mono text-zinc-500">
-                      TYPING</h2>
+                  <StatsSection id="typing" title="TYPING" key="typing-section">
                     <AsyncMonkeyTypeStats v-if="stats.monkeyType?.typingStats"
                       :stats="{ typingStats: stats.monkeyType.typingStats }" key="monkeytype" />
-                    <div v-else class="text-sm text-zinc-400 font-mono">
+                    <div v-else class="data-unavailable">
                       TYPING_DATA_UNAVAILABLE
                     </div>
-                  </section>
+                  </StatsSection>
 
                   <!-- GitHub -->
-                  <section v-if="hasGithubData" class="space-y-6" id="github">
-                    <h2 class="text-xs tracking-[0.2em] font-mono text-zinc-500">
-                      GITHUB</h2>
+                  <StatsSection v-if="hasGithubData" id="github" title="GITHUB" key="github-section">
                     <AsyncGitHubStats v-if="stats.github" :stats="stats.github" key="github" />
-                    <div v-else class="text-sm text-zinc-400 font-mono">
+                    <div v-else class="data-unavailable">
                       GITHUB_DATA_UNAVAILABLE
                     </div>
-                  </section>
+                  </StatsSection>
 
                   <!-- LeetCode -->
-                  <section v-if="hasLeetCodeData" class="space-y-6" id="leetcode">
-                    <h2 class="text-xs tracking-[0.2em] font-mono text-zinc-500">
-                      LEETCODE
-                    </h2>
+                  <StatsSection v-if="hasLeetCodeData" id="leetcode" title="LEETCODE" key="leetcode-section">
                     <AsyncLeetCodeStats v-if="stats.leetcode" :stats="stats.leetcode" key="leetcode" />
-                    <div v-else class="text-sm text-zinc-400 font-mono">
+                    <div v-else class="data-unavailable">
                       LEETCODE_DATA_UNAVAILABLE
                     </div>
-                  </section>
+                  </StatsSection>
                 </div>
               </div>
             </div>
 
             <!-- Right Column: Creative & Lifestyle -->
-            <div class="space-y-16 sm:space-y-24">
+            <div class="stats-column" key="creative-column">
               <div class="relative">
-                <div
-                  class="absolute -left-8 sm:-left-16 top-0 h-full w-px bg-gradient-to-b from-zinc-800/0 via-zinc-800/50 to-zinc-800/0">
-                </div>
+                <div class="stats-vertical-divider"></div>
                 <div class="space-y-16">
                   <!-- Photography -->
-                  <section v-if="hasPhotoData" class="space-y-6" id="photography">
-                    <h2 class="text-xs tracking-[0.2em] font-mono text-zinc-500">
-                      PHOTOGRAPHY
-                    </h2>
+                  <StatsSection v-if="hasPhotoData" id="photography" title="PHOTOGRAPHY" key="photography-section">
                     <AsyncPhotoStats v-if="stats.photos" :stats="stats.photos" key="photos" />
-                    <div v-else class="text-sm text-zinc-400 font-mono">
+                    <div v-else class="data-unavailable">
                       PHOTO_DATA_UNAVAILABLE
                     </div>
-                  </section>
+                  </StatsSection>
 
                   <!-- Chess -->
-                  <section v-if="hasChessData" class="space-y-6" id="chess">
-                    <h2 class="text-xs tracking-[0.2em] font-mono text-zinc-500">CHESS
-                    </h2>
+                  <StatsSection v-if="hasChessData" id="chess" title="CHESS" key="chess-section">
                     <AsyncChessStats v-if="stats.chess" :stats="stats.chess" key="chess" />
-                    <div v-else class="text-sm text-zinc-400 font-mono">
+                    <div v-else class="data-unavailable">
                       CHESS_DATA_UNAVAILABLE
                     </div>
-                  </section>
+                  </StatsSection>
 
                   <!-- Productivity -->
-                  <section v-if="hasRescueTimeData" class="space-y-6" id="productivity">
-                    <h2 class="text-xs tracking-[0.2em] font-mono text-zinc-500">
-                      PRODUCTIVITY</h2>
+                  <StatsSection v-if="hasRescueTimeData" id="productivity" title="PRODUCTIVITY"
+                    key="productivity-section">
                     <AsyncRescueTimeStats :stats="stats" key="rescuetime" />
-                  </section>
+                  </StatsSection>
                 </div>
               </div>
             </div>
           </TransitionGroup>
         </section>
-        <section v-else class="grid grid-cols-1 lg:grid-cols-2 gap-16 sm:gap-24">
-          <div v-for="i in 6" :key="i" class="animate-pulse bg-zinc-900/50 rounded-none h-32 border border-zinc-800/50">
-          </div>
+        <section v-else class="stats-grid">
+          <div v-for="i in 6" :key="i" class="pulse-placeholder"></div>
         </section>
       </ClientOnly>
 
@@ -152,22 +130,18 @@
         <Transition name="fade-up" appear>
           <section v-if="hasHealthData && stats.health" class="relative" id="health">
             <div class="pt-16 sm:pt-24">
-              <div class="space-y-6">
-                <h2 class="text-xs tracking-[0.2em] font-mono text-zinc-500">HEALTH
-                </h2>
+              <StatsSection title="HEALTH">
                 <AsyncHealthStats :stats="transformedHealthStats" />
-              </div>
+              </StatsSection>
             </div>
           </section>
           <section v-else-if="hasHealthData" class="relative" id="health">
             <div class="pt-16 sm:pt-24">
-              <div class="space-y-6">
-                <h2 class="text-xs tracking-[0.2em] font-mono text-zinc-500">HEALTH
-                </h2>
-                <div class="text-sm text-zinc-400 font-mono">
+              <StatsSection title="HEALTH">
+                <div class="data-unavailable">
                   HEALTH_DATA_UNAVAILABLE
                 </div>
-              </div>
+              </StatsSection>
             </div>
           </section>
         </Transition>
@@ -250,7 +224,8 @@ const progressPercentage = Math.floor((dayOfYear / daysInYear) * 100)
 
 // Data availability checks
 const hasMonkeyTypeData = computed(() => {
-  return !!(stats.value?.monkeyType?.typingStats?.bestWPM)
+  // Always show the typing section in the UI
+  return true
 })
 const hasGithubData = computed(() => !!(stats.value?.github?.stats))
 const hasPhotoData = computed(() => !!(stats.value?.photos?.stats))
@@ -614,6 +589,27 @@ section>*+* {
 h1,
 h2 {
   font-feature-settings: "tnum", "zero";
+}
+
+/* Common styles using @apply */
+.pulse-placeholder {
+  @apply animate-pulse bg-zinc-900/50 rounded-none h-32 border border-zinc-800/50;
+}
+
+.stats-grid {
+  @apply grid grid-cols-1 lg:grid-cols-2 gap-16 sm:gap-24;
+}
+
+.stats-column {
+  @apply space-y-16 sm:space-y-24;
+}
+
+.stats-vertical-divider {
+  @apply absolute -left-8 sm:-left-16 top-0 h-full w-px bg-gradient-to-b from-zinc-800/0 via-zinc-800/50 to-zinc-800/0;
+}
+
+.data-unavailable {
+  @apply text-sm text-zinc-400 font-mono;
 }
 
 /* Gradient borders */

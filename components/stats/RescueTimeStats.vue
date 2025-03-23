@@ -1,90 +1,54 @@
 <template>
-  <div v-if="hasData" class="space-y-16 font-mono">
+  <div v-if="hasData" class="space-y-10 font-mono">
     <!-- Primary Stats -->
-    <div class="space-y-12">
-      <IndividualStat :value="weeklyHours" size="large" label="HOURS THIS WEEK"
-        :details="`${formatNumber(weeklyProductiveHours)} PRODUCTIVE (${weeklyProductivePercent}%)`" />
+    <div>
+      <IndividualStat :value="weeklyHours" size="large" label="HOURS TRACKED"
+        :details="`${weeklyProductivePercent}% PRODUCTIVE`" />
     </div>
 
-    <!-- Weekly Activity -->
-    <div class="space-y-8">
-      <h4 class="text-xs tracking-[0.2em] text-zinc-500 border-b border-zinc-800/50 pb-2 mb-4">TOP ACTIVITIES</h4>
-
-      <div class="space-y-4">
-        <template v-for="activity in weeklyTopActivities" :key="activity.name">
-          <div class="flex items-center justify-between text-sm">
-            <span class="text-zinc-400">{{ activity.name }}</span>
-            <div class="flex items-center gap-4">
-              <span class="text-zinc-400" :title="getProductivityLabel(activity.productivity)">
-                {{ activity.time.formatted }}
-              </span>
-              <span class="text-zinc-500 w-12 text-right tabular-nums">{{ activity.percentageOfTotal }}%</span>
-            </div>
-          </div>
-        </template>
-      </div>
+    <!-- Activity Calendar -->
+    <div>
+      <ActivityCalendar title="ACTIVITY" :active-dates="activityDates" :active-color="'#71717a'" />
     </div>
 
-    <!-- Monthly Overview -->
-    <div class="space-y-8">
-      <h4 class="text-xs tracking-[0.2em] text-zinc-500 border-b border-zinc-800/50 pb-2 mb-4">MONTHLY SUMMARY</h4>
-
-      <div class="border border-zinc-800/50 p-4 bg-zinc-900/30">
-        <div class="grid grid-cols-2 gap-4 text-xs">
-          <div class="space-y-1">
-            <div class="text-zinc-500">TOTAL HOURS</div>
-            <div class="text-xl text-zinc-300 tabular-nums">{{ monthlyHours }}</div>
-          </div>
-          <div class="space-y-1">
-            <div class="text-zinc-500">PRODUCTIVE TIME</div>
-            <div class="text-xl text-zinc-300 tabular-nums">{{ monthlyProductiveHours }}h ({{ monthlyProductivePercent
-            }}%)
-            </div>
-          </div>
-          <div v-if="monthlyTopCategory" class="space-y-1">
-            <div class="text-zinc-500">TOP CATEGORY</div>
-            <div class="text-zinc-300">{{ monthlyTopCategory.name }}</div>
-          </div>
+    <!-- Application Distribution Waffle Chart -->
+    <div>
+      <h4 class="section-subheader">TIME DISTRIBUTION</h4>
+      <div class="waffle-container">
+        <div v-for="(cell, i) in waffleCells" :key="i" class="waffle-cell" :style="{ backgroundColor: cell.color }"
+          :title="cell.title">
         </div>
       </div>
-    </div>
-
-    <!-- Date Range Info -->
-    <div class="space-y-8">
-      <h4 class="text-xs tracking-[0.2em] text-zinc-500 border-b border-zinc-800/50 pb-2 mb-4">TIME PERIODS</h4>
-
-      <div class="border border-zinc-800/50 p-4 bg-zinc-900/30">
-        <div class="grid grid-cols-2 gap-4 text-xs">
-          <div class="space-y-1">
-            <div class="text-zinc-500">CURRENT WEEK</div>
-            <div class="text-zinc-300">{{ formatDateRange(weekStart, now) }}</div>
-          </div>
-          <div class="space-y-1">
-            <div class="text-zinc-500">CURRENT MONTH</div>
-            <div class="text-zinc-300">{{ formatDateRange(monthStart, now) }}</div>
-          </div>
-          <div class="space-y-1">
-            <div class="text-zinc-500">LAST UPDATED</div>
-            <div class="text-zinc-300">{{ formatUpdateTime(lastUpdated) }}</div>
-          </div>
-        </div>
+      <div class="flex justify-between text-2xs text-zinc-500 mt-2">
+        <span>EACH SQUARE = 1% OF TOTAL TIME</span>
+        <span>COLOR = CATEGORY</span>
       </div>
     </div>
 
-    <!-- Productivity Legend -->
-    <div class="space-y-8">
-      <h4 class="text-xs tracking-[0.2em] text-zinc-500 border-b border-zinc-800/50 pb-2 mb-4">PRODUCTIVITY SCALE</h4>
-
-      <div class="flex flex-wrap gap-3">
-        <div class="px-2 py-1 text-[10px] border border-zinc-800/50 bg-zinc-900/50 text-zinc-400">VERY PRODUCTIVE</div>
-        <div class="px-2 py-1 text-[10px] border border-zinc-800/50 bg-zinc-900/50 text-zinc-400">PRODUCTIVE</div>
-        <div class="px-2 py-1 text-[10px] border border-zinc-800/50 bg-zinc-900/50 text-zinc-400">NEUTRAL</div>
-        <div class="px-2 py-1 text-[10px] border border-zinc-800/50 bg-zinc-900/50 text-zinc-400">DISTRACTING</div>
-        <div class="px-2 py-1 text-[10px] border border-zinc-800/50 bg-zinc-900/50 text-zinc-400">VERY DISTRACTING</div>
+    <!-- Category Legend + Top Categories Combined -->
+    <div>
+      <h4 class="section-subheader">CATEGORIES</h4>
+      <div class="space-y-3">
+        <div v-for="category in sortedCategories" :key="category.name" class="flex items-start gap-2">
+          <div class="w-3 h-3 mt-1 flex-shrink-0" :style="{ backgroundColor: category.color }"></div>
+          <div class="flex-1">
+            <div class="flex justify-between items-center">
+              <span class="text-xs text-zinc-700 dark:text-zinc-300">{{ category.name }}</span>
+              <span class="text-2xs text-zinc-500 tabular-nums">{{ category.percentageOfTotal }}%</span>
+            </div>
+            <div class="category-bar-bg mt-1">
+              <div class="category-bar-fill" :style="{
+                width: `${category.percentageOfTotal}%`,
+                backgroundColor: category.color
+              }">
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div v-else class="text-sm text-zinc-400 font-mono">
+  <div v-else class="data-unavailable">
     RESCUETIME_DATA_UNAVAILABLE
   </div>
 </template>
@@ -93,7 +57,7 @@
 import { computed } from 'vue'
 import type { StatsResponse } from '~/composables/useStats'
 import IndividualStat from './IndividualStat.vue'
-import { formatNumber } from '~/composables/useNumberFormat'
+import ActivityCalendar from './ActivityCalendar.vue'
 import { format } from 'date-fns'
 
 interface TimeBreakdown {
@@ -102,6 +66,38 @@ interface TimeBreakdown {
   hours: number
   hoursDecimal: number
   formatted: string
+}
+
+interface Activity {
+  name?: string;
+  time?: {
+    seconds?: number;
+    minutes?: number;
+    hours?: number;
+    hoursDecimal?: number;
+  };
+  timeSpent?: {
+    seconds?: number;
+    minutes?: number;
+    hours?: number;
+    hoursDecimal?: number;
+  };
+  percentageOfTotal?: number;
+  productivity?: number;
+  productivityScore?: number;
+  category?: {
+    name?: string;
+    productivity?: number;
+  };
+}
+
+// Add interface for daily activity data
+interface DailyActivity {
+  date: string;
+  time?: TimeBreakdown;
+  activities?: Activity[];
+  steps?: number;
+  activeMinutes?: number;
 }
 
 const props = defineProps<{
@@ -114,74 +110,186 @@ const lastUpdated = computed(() => rescueTime.value?.lastUpdated || new Date().t
 // Check if we have data
 const hasData = computed(() => {
   return !!rescueTime.value &&
-    ((rescueTime.value.week?.summary?.total?.hoursDecimal || 0) > 0 ||
-      (rescueTime.value.month?.summary?.total?.hoursDecimal || 0) > 0)
+    ((rescueTime.value.week?.summary?.total?.hoursDecimal || 0) > 0)
 })
 
-// Calculate date ranges
-const now = computed(() => new Date())
-const weekStart = computed(() => {
-  const date = new Date()
-  date.setDate(date.getDate() - date.getDay() + (date.getDay() === 0 ? -6 : 1)) // Monday
-  date.setHours(0, 0, 0, 0)
-  return date
-})
-const monthStart = computed(() => {
-  const date = new Date()
-  date.setDate(1) // First day of current month
-  date.setHours(0, 0, 0, 0)
-  return date
-})
-
-// Format date ranges for display
-const formatDateRange = (start: Date, end: Date) => {
-  return `${format(start, 'MMM d')} - ${format(end, 'MMM d')}`
-}
-
+// Format date for display
 const formatUpdateTime = (dateString: string) => {
   try {
     const date = new Date(dateString)
-    return format(date, 'MMM d, h:mm a')
+    return format(date, 'MMM d, yyyy')
   } catch (e) {
-    return 'Unknown'
+    return 'Unknown date'
   }
 }
 
 // Weekly Stats
 const weeklyHours = computed(() => Math.round(rescueTime.value?.week.summary.total.hoursDecimal || 0))
-const weeklyProductiveHours = computed(() => Math.round(rescueTime.value?.week.summary.productive.time.hoursDecimal || 0))
 const weeklyProductivePercent = computed(() => rescueTime.value?.week.summary.productive.percentage || 0)
-const weeklyTopActivities = computed(() => rescueTime.value?.week.activities.slice(0, 5) || [])
+const weeklyDistractingPercent = computed(() => rescueTime.value?.week.summary.distracting.percentage || 0)
+const weeklyNeutralPercent = computed(() => rescueTime.value?.week.summary.neutral.percentage || 0)
 
-// Monthly Stats
-const monthlyHours = computed(() => Math.round(rescueTime.value?.month.summary.total.hoursDecimal || 0))
-const monthlyProductiveHours = computed(() => Math.round(rescueTime.value?.month.summary.productive.time.hoursDecimal || 0))
-const monthlyProductivePercent = computed(() => rescueTime.value?.month.summary.productive.percentage || 0)
-const monthlyTopCategory = computed(() => rescueTime.value?.month.categories[0])
+// Generate activity dates from daily data (if available)
+const activityDates = computed(() => {
+  // This is a best-effort method without knowing the exact data structure
+  // Try to find any daily activity data in the RescueTime object
+  const dailyData: DailyActivity[] =
+    (rescueTime.value as any)?.dailyActivities || // Try standard path
+    (rescueTime.value as any)?.daily || // Try alternate path
+    []; // Fallback to empty array
 
-// Helper to get productivity label
-const getProductivityLabel = (score: number) => {
-  switch (score) {
-    case 2:
-      return 'Very Productive'
-    case 1:
-      return 'Productive'
-    case 0:
-      return 'Neutral'
-    case -1:
-      return 'Distracting'
-    case -2:
-      return 'Very Distracting'
-    default:
-      return 'Neutral'
+  if (dailyData.length > 0 && dailyData[0]?.date) {
+    // If we have proper daily activity objects with dates
+    return dailyData
+      .filter(day => (day.time?.seconds || 0) > 0) // Only days with activity
+      .map(day => day.date)
   }
-}
+
+  // Fallback: Mark the last 7 days as active (since we have weekly data)
+  const days: string[] = []
+  for (let i = 0; i < 7; i++) {
+    const date = new Date()
+    date.setDate(date.getDate() - i)
+    days.push(format(date, 'yyyy-MM-dd'))
+  }
+  return days
+})
+
+// A vibrant turbo-like color scale (inverted)
+const turboColors = [
+  '#dd2e06', '#f57e00', '#fbb508', '#c8e020', '#7cf357',
+  '#3bdf92', '#1ac7c2', '#24aad8', '#337bc3', '#4444a4', '#30123b'
+];
+
+// Generate a color from our palette
+const getColorForValue = (value: number) => {
+  // Clamp value between 0 and 1
+  const clampedValue = Math.max(0, Math.min(1, value));
+  // Scale to the array index range
+  const index = Math.floor(clampedValue * (turboColors.length - 1));
+  return turboColors[index];
+};
+
+// Create a unified categories data source with colors
+const categoriesWithColors = computed(() => {
+  const activities = rescueTime.value?.week?.activities || [];
+
+  if (activities.length === 0) return [];
+
+  // Get unique categories 
+  const uniqueNames = [...new Set(activities.map(a => a.name))]
+    .filter(name => name); // Filter out undefined/null
+
+  // Map categories to objects with colors
+  return uniqueNames.map((name, i) => {
+    // Find the matching activity to get percentage
+    const activity = activities.find(a => a.name === name);
+
+    return {
+      name,
+      percentageOfTotal: activity?.percentageOfTotal || 0,
+      color: getColorForValue(i / Math.max(uniqueNames.length - 1, 1))
+    };
+  });
+})
+
+// Sorted categories for display
+const sortedCategories = computed(() => {
+  return [...categoriesWithColors.value]
+    .sort((a, b) => b.percentageOfTotal - a.percentageOfTotal);
+})
+
+// Waffle chart cells
+const waffleCells = computed(() => {
+  const activities = rescueTime.value?.week?.activities || [];
+  const categoryColorMap = Object.fromEntries(
+    categoriesWithColors.value.map(c => [c.name, c.color])
+  );
+
+  if (activities.length === 0) {
+    return Array(100).fill(null).map(() => ({
+      color: '#444',
+      title: 'No activity data available'
+    }));
+  }
+
+  // Create the cells
+  const cells = Array(100).fill(null).map((_, i) => {
+    // Find which activity corresponds to this position
+    let runningPercentage = 0;
+    let matchingActivity = null;
+
+    for (const activity of activities) {
+      runningPercentage += activity.percentageOfTotal;
+
+      if (i < Math.floor(runningPercentage)) {
+        matchingActivity = activity;
+        break;
+      }
+    }
+
+    if (!matchingActivity) {
+      return {
+        color: '#444',
+        title: 'Other activities'
+      };
+    }
+
+    // Get color for this category
+    const color = categoryColorMap[matchingActivity.name] || '#777';
+    const hours = matchingActivity.time?.hours || 0;
+    const minutes = matchingActivity.time?.minutes || 0;
+    const timeStr = hours > 0 ? `${hours}h ${minutes}m` : `${minutes}m`;
+
+    return {
+      color,
+      title: `${matchingActivity.name}: ${matchingActivity.percentageOfTotal}% (${timeStr})`
+    };
+  });
+
+  return cells;
+})
 </script>
 
 <style scoped>
-/* Custom tooltip styling */
-[title] {
-  position: relative;
-  cursor: help;
+.section-subheader {
+  @apply text-2xs tracking-[0.2em] text-zinc-500 border-b border-zinc-800/30 pb-1 mb-3;
+}
+
+.data-unavailable {
+  @apply text-sm text-zinc-400 font-mono;
+}
+
+.category-bar-bg {
+  @apply h-1.5 rounded-sm overflow-hidden bg-transparent dark:bg-zinc-800/10 border-b border-zinc-200/10 dark:border-zinc-800/30;
+}
+
+.category-bar-fill {
+  @apply h-full rounded-sm;
+  /* We'll set the background color dynamically */
+}
+
+/* Custom text size smaller than xs */
+.text-2xs {
+  font-size: 0.65rem;
+  line-height: 1rem;
+}
+
+/* Waffle chart styling */
+.waffle-container {
+  @apply grid grid-cols-10 gap-0.5 w-full border border-zinc-100/10 dark:border-zinc-800/50 p-2 rounded-sm;
+  grid-template-rows: repeat(10, 1fr);
+  aspect-ratio: 1 / 1;
+}
+
+.waffle-cell {
+  @apply transition-colors duration-300 rounded-[1px];
+  aspect-ratio: 1 / 1;
+}
+
+@media (max-width: 640px) {
+  .waffle-container {
+    @apply gap-[1px];
+  }
 }
 </style>

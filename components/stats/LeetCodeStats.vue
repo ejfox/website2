@@ -1,92 +1,131 @@
 <template>
-  <div>
-    <!-- Problem Stats -->
-    <div v-if="stats.submissionStats" class="mt-12">
-      <h4 class="text-xs tracking-[0.2em] text-gray-500 font-light mb-8">PROBLEM STATS</h4>
-      <div class="space-y-4">
-        <div class="flex items-center justify-between text-sm">
-          <span class="text-gray-400">Easy</span>
-          <div class="flex items-center space-x-4">
-            <span class="text-gray-500 tabular-nums">{{ formatNumber(stats.submissionStats.easy.count) }} Solved</span>
-            <!--<span class="text-gray-500 tabular-nums">{{ formatNumber(stats.submissionStats.easy.submissions) }}
-              Submissions</span>-->
+  <div class="font-mono">
+    <!-- Main Stats -->
+    <div v-if="stats.submissionStats">
+      <IndividualStat :value="totalSolved" size="large" label="PROBLEMS SOLVED"
+        :details="`${formatNumber(stats.submissionStats.easy.count)} EASY · ${formatNumber(stats.submissionStats.medium.count)} MEDIUM · ${formatNumber(stats.submissionStats.hard.count)} HARD`" />
+
+      <!-- Difficulty Distribution -->
+      <div class="mt-4">
+        <div class="difficulty-bar">
+          <div class="easy-bar" :style="{
+            width: `${difficultyPercentages.easy}%`,
+            opacity: difficultyPercentages.easy > 5 ? 1 : 0.7,
+            backgroundColor: '#a1a1aa' /* Gray-400 */
+          }"
+            :title="`Easy: ${stats.submissionStats.easy.count} problems (${Math.round(difficultyPercentages.easy)}%)`">
+          </div>
+          <div class="medium-bar" :style="{
+            width: `${difficultyPercentages.medium}%`,
+            opacity: difficultyPercentages.medium > 5 ? 1 : 0.7,
+            backgroundColor: '#71717a' /* Gray-500 */
+          }"
+            :title="`Medium: ${stats.submissionStats.medium.count} problems (${Math.round(difficultyPercentages.medium)}%)`">
+          </div>
+          <div class="hard-bar" :style="{
+            width: `${difficultyPercentages.hard}%`,
+            opacity: difficultyPercentages.hard > 5 ? 1 : 0.7,
+            backgroundColor: '#3f3f46' /* Gray-700 */
+          }"
+            :title="`Hard: ${stats.submissionStats.hard.count} problems (${Math.round(difficultyPercentages.hard)}%)`">
           </div>
         </div>
-        <div class="flex items-center justify-between text-sm">
-          <span class="text-gray-400">Medium</span>
-          <div class="flex items-center space-x-4">
-            <span class="text-gray-500 tabular-nums">{{ formatNumber(stats.submissionStats.medium.count) }}
-              Solved</span>
-          </div>
+        <div class="flex justify-between text-2xs text-zinc-500 mt-1">
+          <span>EASY</span>
+          <span>MEDIUM</span>
+          <span>HARD</span>
         </div>
-        <div class="flex items-center justify-between text-sm">
-          <span class="text-gray-400">Hard</span>
-          <div class="flex items-center space-x-4">
-            <span class="text-gray-500 tabular-nums">{{ formatNumber(stats.submissionStats.hard.count) }} Solved</span>
+      </div>
+
+      <!-- Activity Calendar (using new reusable component) -->
+      <div v-if="hasActivityData" class="mt-6">
+        <ActivityCalendar title="ACTIVITY" :active-dates="activityDates" :active-color="'#71717a'" :days="30" />
+      </div>
+    </div>
+
+    <!-- Problem Stats - Simplified Table -->
+    <div v-if="stats.submissionStats" class="mt-8">
+      <h4 class="section-subheader">DIFFICULTY BREAKDOWN</h4>
+      <div class="grid grid-cols-3 gap-x-4 gap-y-1">
+        <!-- Column Headers -->
+        <div class="text-zinc-500 text-2xs tracking-wider">EASY</div>
+        <div class="text-zinc-500 text-2xs tracking-wider">MEDIUM</div>
+        <div class="text-zinc-500 text-2xs tracking-wider">HARD</div>
+
+        <!-- Values -->
+        <div class="tabular-nums font-medium">{{ stats.submissionStats.easy.count }}</div>
+        <div class="tabular-nums font-medium">{{ stats.submissionStats.medium.count }}</div>
+        <div class="tabular-nums font-medium">{{ stats.submissionStats.hard.count }}</div>
+      </div>
+    </div>
+
+    <!-- Language Stats - Refined with bars -->
+    <div v-if="hasLanguageStats" class="mt-8">
+      <h4 class="section-subheader">LANGUAGES</h4>
+      <div class="space-y-2.5">
+        <div v-for="(item, index) in languageEntries" :key="index" class="language-item">
+          <div class="flex justify-between items-center mb-1">
+            <span class="text-zinc-700 dark:text-zinc-300 text-xs">{{ item.language }}</span>
+            <span class="text-zinc-500 text-2xs tabular-nums">
+              {{ item.count }} <span class="ml-0.5">{{ item.count > 1 ? 'SOLUTIONS' : 'SOLUTION' }}</span>
+            </span>
+          </div>
+          <div class="lang-bar-bg">
+            <div class="lang-bar-fill" :style="{
+              width: `${(item.count / totalLanguageSolutions) * 100}%`,
+              backgroundColor: item.color
+            }"></div>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Recent Submissions -->
-    <div v-if="stats.recentSubmissions?.length" class="my-6">
-      <h4 class="text-xs tracking-[0.2em] text-gray-500 font-light mb-8">RECENT SUBMISSIONS</h4>
-      <div class="space-y-4">
-        <div v-for="submission in stats.recentSubmissions.filter(s => s.statusDisplay === 'Accepted')"
-          :key="submission.titleSlug" class="flex items-start justify-between space-x-2 text-sm">
-          <!-- <pre>{{ submission }}</pre> -->
-          <!-- make a timestamp from submission.timestamp iso timestamp -->
-          <span class="text-gray-400">{{ submission.title }}</span>
-
-          <div class="flex items-center space-x-4">
-            <span class="text-gray-500 font-mono text-xs">{{ submission.lang }}</span>
-            <span class="font-medium tracking-wider">
-              {{ submission.statusDisplay }}
-            </span>
-
-            <span class="text-gray-400">{{ formatTime(submission.timestamp) }}</span>
+    <div v-if="recentAcceptedSubmissions.length" class="mt-8">
+      <h4 class="section-subheader">RECENT SOLUTIONS</h4>
+      <div class="space-y-2">
+        <div v-for="submission in recentAcceptedSubmissions" :key="submission.titleSlug" class="submission-row">
+          <div class="flex-none">
+            <span class="text-zinc-400 text-2xs tabular-nums">{{ formatDateMinimal(submission.timestamp) }}</span>
           </div>
+          <a :href="`https://leetcode.com/problems/${submission.titleSlug}/`" target="_blank" class="problem-title">
+            {{ truncateTitle(submission.title) }}
+          </a>
+          <div class="submission-lang text-2xs">{{ submission.lang }}</div>
         </div>
-      </div>
-    </div>
-
-    <!-- Total Stats -->
-    <div v-if="stats.submissionStats" class="mt-12">
-      <div class="flex flex-col items-end space-y-4">
-        <div class="flex items-center justify-between w-full text-sm">
-          <span class="text-gray-400">Total Problems</span>
-          <span class="text-gray-500 tabular-nums">{{ formatNumber(totalSolved) }} / {{ formatNumber(totalSubmissions)
-          }}</span>
-        </div>
-        <span class="text-[0.65rem] text-gray-400 tracking-wider">via LeetCode</span>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import IndividualStat from './IndividualStat.vue'
-import type { StatsResponse } from '~/composables/useStats'
-import { formatNumber, formatPercent } from '~/composables/useNumberFormat'
+import { computed, h } from 'vue'
 import { format, parse } from 'date-fns'
+import IndividualStat from './IndividualStat.vue'
+import ActivityCalendar from './ActivityCalendar.vue'
+import { formatNumber } from '~/composables/useNumberFormat'
+
+// Turbo color palette for language visualization
+const turboColors = [
+  '#30123b', '#4444a4', '#337bc3', '#24aad8', '#1ac7c2',
+  '#3bdf92', '#7cf357', '#c8e020', '#fbb508', '#f57e00', '#dd2e06'
+];
+
+// Get color from the turbo palette
+const getColorForIndex = (index: number, total: number) => {
+  if (total <= 1) return turboColors[5]; // Middle color
+  const position = index / (total - 1);
+  const colorIndex = Math.floor(position * (turboColors.length - 1));
+  return turboColors[colorIndex];
+};
+
 type LeetCodeStats = NonNullable<StatsResponse['leetcode']>
 
 const props = defineProps<{
   stats: LeetCodeStats
 }>()
 
-function formatTime(timestamp: string): string {
-  // time looks like 1739414874
-  // first parse with date-fns
-  const date = parse(timestamp, 't', new Date())
-  // then format it
-  // const formatted = format(date, 'MMM dd, yyyy')
-  // format yy-mm-dd format
-  const formatted = format(date, 'yyyy-MM-dd')
-  return formatted
-}
-
+// Total problems solved
 const totalSolved = computed(() => {
   if (!props.stats.submissionStats) return 0
   return (
@@ -96,25 +135,176 @@ const totalSolved = computed(() => {
   )
 })
 
-const totalSubmissions = computed(() => {
-  if (!props.stats.submissionStats) return 0
-  return (
-    props.stats.submissionStats.easy.submissions +
-    props.stats.submissionStats.medium.submissions +
-    props.stats.submissionStats.hard.submissions
-  )
+// Difficulty distribution
+const difficultyPercentages = computed(() => {
+  if (totalSolved.value === 0) return { easy: 33.3, medium: 33.3, hard: 33.3 }
+
+  return {
+    easy: (props.stats.submissionStats.easy.count / totalSolved.value) * 100,
+    medium: (props.stats.submissionStats.medium.count / totalSolved.value) * 100,
+    hard: (props.stats.submissionStats.hard.count / totalSolved.value) * 100
+  }
 })
 
-const submissionStatusClass = (status: string): string => {
-  switch (status.toLowerCase()) {
-    case 'accepted':
-      return 'text-green-500'
-    case 'wrong answer':
-      return 'text-red-500'
-    case 'time limit exceeded':
-      return 'text-yellow-500'
-    default:
-      return 'text-gray-500'
+// Language statistics
+const languageEntries = computed(() => {
+  const stats: Record<string, number> = {}
+
+  props.stats.recentSubmissions
+    .filter(s => s.statusDisplay === 'Accepted')
+    .forEach(submission => {
+      const lang = submission.lang
+      stats[lang] = (stats[lang] || 0) + 1
+    })
+
+  // Convert to array for easier iteration with indices
+  return Object.entries(stats)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 4) // Limit to top 4 languages
+    .map(([language, count], index, array) => ({
+      language,
+      count,
+      color: getColorForIndex(index, array.length)
+    }))
+})
+
+const totalLanguageSolutions = computed(() => {
+  return languageEntries.value.reduce((sum, item) => sum + item.count, 0)
+})
+
+const hasLanguageStats = computed(() => languageEntries.value.length > 0)
+
+// Recent submissions
+const recentAcceptedSubmissions = computed(() => {
+  return props.stats.recentSubmissions
+    .filter(s => s.statusDisplay === 'Accepted')
+    .slice(0, 5)
+})
+
+// Format utilities
+const formatDateMinimal = (timestamp: string): string => {
+  // Parse timestamp as epoch seconds
+  const date = new Date(parseInt(timestamp) * 1000)
+  return format(date, 'MM.dd')
+}
+
+// Truncate long problem titles
+const truncateTitle = (title: string): string => {
+  return title.length > 30 ? title.substring(0, 28) + '...' : title
+}
+
+// Activity calendar
+const hasActivityData = computed(() => {
+  return props.stats.recentSubmissions && props.stats.recentSubmissions.length > 0
+})
+
+const activityDates = computed(() => {
+  if (!props.stats.recentSubmissions) return []
+
+  // Extract active dates from submissions
+  return props.stats.recentSubmissions
+    .filter(s => s.statusDisplay === 'Accepted')
+    .map(s => {
+      const date = new Date(parseInt(s.timestamp) * 1000)
+      return format(date, 'yyyy-MM-dd')
+    })
+})
+</script>
+
+<style scoped>
+.section-subheader {
+  @apply text-2xs tracking-[0.2em] text-zinc-500 border-b border-zinc-800/30 pb-1 mb-3;
+}
+
+.difficulty-bar {
+  @apply flex h-2 w-full rounded-sm overflow-hidden;
+}
+
+.easy-bar {
+  @apply bg-green-500;
+}
+
+.medium-bar {
+  @apply bg-yellow-500;
+}
+
+.hard-bar {
+  @apply bg-red-500;
+}
+
+.difficulty-bar {
+  @apply flex h-2 w-full rounded-sm overflow-hidden;
+}
+
+.easy-bar {
+  background-color: #a1a1aa;
+  /* Gray-400 */
+}
+
+.medium-bar {
+  background-color: #71717a;
+  /* Gray-500 */
+}
+
+.hard-bar {
+  background-color: #3f3f46;
+  /* Gray-700 */
+}
+
+.submission-row {
+  @apply flex items-center text-xs;
+}
+
+.problem-title {
+  @apply ml-2 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 hover:underline truncate max-w-[16rem];
+}
+
+.submission-lang {
+  @apply ml-auto text-zinc-500;
+}
+
+/* Language bar styles */
+.language-item {
+  @apply w-full;
+}
+
+.lang-bar-bg {
+  @apply h-1 w-full bg-zinc-800/30 rounded-sm overflow-hidden;
+}
+
+.lang-bar-fill {
+  @apply h-full bg-zinc-700 dark:bg-zinc-400;
+}
+
+/* Custom text size smaller than xs */
+.text-2xs {
+  font-size: 0.65rem;
+  line-height: 1rem;
+}
+
+/* Activity calendar */
+.activity-grid {
+  @apply grid grid-cols-30 gap-1 h-4;
+}
+
+.activity-cell {
+  @apply w-full h-full rounded-[1px];
+}
+
+/* For grid-cols-30 */
+@media (min-width: 640px) {
+  .grid-cols-30 {
+    grid-template-columns: repeat(30, minmax(0, 1fr));
   }
 }
-</script>
+
+@media (max-width: 639px) {
+  .grid-cols-30 {
+    grid-template-columns: repeat(15, minmax(0, 1fr));
+  }
+
+  .activity-grid {
+    @apply grid-rows-2;
+  }
+}
+</style>

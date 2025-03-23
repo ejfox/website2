@@ -1,52 +1,63 @@
 <template>
   <div class="font-mono">
     <!-- Main Stats -->
-    <div v-if="stats.typingStats">
-      <IndividualStat :value="stats.typingStats.bestWPM" size="large" label="BEST WPM"
-        :details="`${formatNumber(stats.typingStats.testsCompleted)} TESTS · ${formatNumber(stats.typingStats.bestAccuracy)}% ACC`" />
+    <div v-if="hasStats">
+      <div class="space-y-4">
+        <IndividualStat :value="stats.typingStats.bestWPM" size="large" label="BEST WPM" :details="statsDetails" />
+      </div>
+    </div>
+    <div v-else class="text-center py-6">
+      <div class="text-xl font-mono text-zinc-700 dark:text-zinc-500">NO TYPING DATA</div>
+      <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
+        Visit <a href="https://monkeytype.com" target="_blank"
+          class="text-zinc-800 dark:text-zinc-300 hover:underline">MonkeyType.com</a> to start tracking
+      </div>
     </div>
 
     <!-- Recent Tests -->
-    <div v-if="stats.typingStats?.recentTests?.length" class="mt-12 space-y-8">
-      <h4 class="text-xs tracking-[0.2em] text-zinc-500 border-b border-zinc-800/50 pb-2 mb-4">RECENT TESTS</h4>
+    <div v-if="hasRecentTests" class="mt-8 space-y-6">
+      <h4 class="section-subheader">RECENT TESTS</h4>
 
       <div class="space-y-4">
-        <div v-for="test in stats.typingStats.recentTests.slice(0, 5)" :key="test.timestamp"
-          class="flex items-center justify-between text-sm">
-          <div class="flex flex-col">
-            <span class="text-zinc-400">{{ formatDate(test.timestamp) }}</span>
-            <span class="text-zinc-500 text-xs">{{ formatTestType(test) }}</span>
+        <div v-for="test in recentTests" :key="test.timestamp" class="test-row">
+          <div class="flex-none">
+            <!-- Simplified date format -->
+            <span class="text-zinc-400 text-2xs tabular-nums">{{ formatDateMinimal(test.timestamp) }}</span>
           </div>
-          <div class="flex items-center gap-4">
-            <span class="text-zinc-400 tabular-nums">{{ test.wpm }} WPM</span>
-            <span class="text-zinc-500 tabular-nums w-16 text-right">{{ test.accuracy }}% ACC</span>
+          <div v-if="hasTestType(test)" class="test-type">
+            {{ formatTestTypeMinimal(test) }}
+          </div>
+          <div class="flex items-center gap-2 ml-auto">
+            <span class="wpm-value">{{ test.wpm }}</span>
+            <span class="accuracy-value">{{ test.accuracy }}%</span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Average Stats -->
-    <div v-if="stats.typingStats" class="mt-12 space-y-8">
-      <h4 class="text-xs tracking-[0.2em] text-zinc-500 border-b border-zinc-800/50 pb-2 mb-4">AVERAGES</h4>
+    <!-- Performance Metrics -->
+    <div v-if="stats.typingStats" class="mt-8 space-y-6">
+      <h4 class="section-subheader">PERFORMANCE</h4>
 
-      <div class="border border-zinc-800/50 p-4 bg-zinc-900/30">
-        <div class="grid grid-cols-2 gap-4 text-xs">
-          <div class="space-y-1">
-            <div class="text-zinc-500">BEST CONSISTENCY</div>
-            <div class="text-xl text-zinc-300 tabular-nums">{{ stats.typingStats.bestConsistency }}%</div>
-          </div>
-          <div class="space-y-1">
-            <div class="text-zinc-500">BEST ACCURACY</div>
-            <div class="text-xl text-zinc-300 tabular-nums">{{ stats.typingStats.bestAccuracy }}%</div>
-          </div>
-          <div v-if="stats.typingStats.averageWPM" class="space-y-1">
-            <div class="text-zinc-500">AVERAGE WPM</div>
-            <div class="text-xl text-zinc-300 tabular-nums">{{ stats.typingStats.averageWPM }}</div>
-          </div>
-          <div v-if="stats.typingStats.favoriteTestType" class="space-y-1">
-            <div class="text-zinc-500">FAVORITE TEST</div>
-            <div class="text-zinc-300">{{ formatFavoriteTest(stats.typingStats.favoriteTestType) }}</div>
-          </div>
+      <div class="grid grid-cols-2 gap-4">
+        <StatDisplay label="TESTS" :value="stats.typingStats.testsCompleted" />
+        <StatDisplay label="BEST ACC" :value="`${stats.typingStats.bestAccuracy}%`" />
+        <StatDisplay v-if="stats.typingStats.bestConsistency" label="CONSISTENCY"
+          :value="`${stats.typingStats.bestConsistency}%`" />
+        <StatDisplay v-if="stats.typingStats.averageWPM" label="AVG WPM" :value="stats.typingStats.averageWPM" />
+      </div>
+    </div>
+
+    <!-- Testing Patterns -->
+    <div v-if="hasTestTypes" class="mt-12 space-y-8">
+      <h4 class="section-subheader">TEST PREFERENCES</h4>
+
+      <div class="grid grid-cols-2 gap-4">
+        <div v-for="(count, type) in testTypeDistribution" :key="type" class="flex justify-between items-center">
+          <span class="text-zinc-700 dark:text-zinc-400 text-sm">{{ formatTestPref(type) }}</span>
+          <span class="text-zinc-500 text-xs tabular-nums">
+            {{ Math.round(count / totalTests * 100) }}%
+          </span>
         </div>
       </div>
     </div>
@@ -54,10 +65,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, h } from 'vue'
 import { format } from 'date-fns'
 import IndividualStat from './IndividualStat.vue'
-import type { StatsResponse } from '~/composables/useStats'
 
 interface MonkeyTypeTest {
   timestamp: string
@@ -68,6 +78,7 @@ interface MonkeyTypeTest {
   language?: string
   wordCount?: number
   difficulty?: string
+  consistency?: number
 }
 
 interface MonkeyTypeStats {
@@ -77,12 +88,8 @@ interface MonkeyTypeStats {
     bestAccuracy: number
     bestConsistency: number
     averageWPM?: number
-    favoriteTestType?: {
-      mode?: string
-      duration?: number
-      wordCount?: number
-    }
     recentTests?: Array<MonkeyTypeTest>
+    testTypeDistribution?: Record<string, number>
   }
 }
 
@@ -90,57 +97,142 @@ const props = defineProps<{
   stats: MonkeyTypeStats
 }>()
 
-const formatNumber = (num: number): string => {
-  return new Intl.NumberFormat().format(num)
+// Computed properties for conditional rendering and data formatting
+const hasRecentTests = computed(() =>
+  !!props.stats.typingStats?.recentTests?.length
+)
+
+const recentTests = computed(() => {
+  if (!props.stats.typingStats?.recentTests) return []
+
+  return [...props.stats.typingStats.recentTests]
+    .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
+    .slice(0, 5)
+})
+
+const statsDetails = computed(() => {
+  const { testsCompleted, bestAccuracy } = props.stats.typingStats
+  return `${testsCompleted} TESTS · ${bestAccuracy}% ACC`
+})
+
+// Test type distribution data
+const testTypeDistribution = computed(() => {
+  // If available, use the API's test type distribution
+  if (props.stats.typingStats?.testTypeDistribution) {
+    return props.stats.typingStats.testTypeDistribution
+  }
+
+  // Otherwise, calculate from recent tests as fallback
+  if (!hasRecentTests.value) return {}
+
+  const distribution: Record<string, number> = {}
+  recentTests.value.forEach(test => {
+    const type = getTestType(test)
+    distribution[type] = (distribution[type] || 0) + 1
+  })
+
+  return distribution
+})
+
+const totalTests = computed(() => {
+  return Object.values(testTypeDistribution.value).reduce((sum, count) => sum + count, 0) || 1
+})
+
+const hasTestTypes = computed(() => {
+  return Object.keys(testTypeDistribution.value).length > 0
+})
+
+// Helper to determine the test type from a test object
+const getTestType = (test: MonkeyTypeTest): string => {
+  if (test.duration) return `time_${test.duration}`
+  if (test.wordCount) return `words_${test.wordCount}`
+  return 'unknown'
 }
 
-const formatDate = (timestamp: string): string => {
-  return format(new Date(timestamp), 'MMM d, h:mm a')
+// Format test preference display
+const formatTestPref = (type: string): string => {
+  if (type.startsWith('time_')) {
+    return `${type.split('_')[1]}s TEST`
+  }
+  if (type.startsWith('words_')) {
+    return `${type.split('_')[1]} WORDS`
+  }
+  return type.toUpperCase()
 }
 
-const formatTestType = (test: MonkeyTypeTest): string => {
-  const parts = []
+// Format utilities for minimal date display
+const formatDateMinimal = (timestamp: string): string => {
+  const date = new Date(timestamp)
+  return format(date, 'MM.dd').toLowerCase()
+}
 
-  // Add duration or word count - this is the most important info
+// Determine if test has meaningful type info
+const hasTestType = (test: MonkeyTypeTest): boolean => {
+  return !!(test.duration || test.wordCount || test.mode)
+}
+
+// Format test type in minimal style
+const formatTestTypeMinimal = (test: MonkeyTypeTest): string => {
   if (test.duration) {
-    parts.push(`${test.duration}s TEST`)
+    return `${test.duration}s`
   } else if (test.wordCount) {
-    parts.push(`${test.wordCount} WORDS`)
+    return `${test.wordCount}w`
+  } else if (test.mode && test.mode.toLowerCase() !== 'time') {
+    return test.mode.toLowerCase()
   }
-
-  // Add mode if available and not "time" (since we already show duration)
-  if (test.mode && test.mode.toLowerCase() !== 'time') {
-    parts.push(test.mode.toUpperCase())
-  }
-
-  // Add language if available and not English
-  if (test.language && test.language.toLowerCase() !== 'english') {
-    parts.push(test.language.toUpperCase())
-  }
-
-  // Add difficulty if available
-  if (test.difficulty) {
-    parts.push(test.difficulty.toUpperCase())
-  }
-
-  return parts.join(' · ') || 'UNKNOWN TEST TYPE'
+  return ''
 }
 
-const formatFavoriteTest = (favoriteTest: { mode?: string, duration?: number, wordCount?: number }): string => {
-  const parts = []
+// Add a computed property to check if we have stats
+const hasStats = computed(() => {
+  return !!props.stats.typingStats?.bestWPM
+})
 
-  // Add duration or word count - this is the most important info
-  if (favoriteTest.duration) {
-    parts.push(`${favoriteTest.duration}s TEST`)
-  } else if (favoriteTest.wordCount) {
-    parts.push(`${favoriteTest.wordCount} WORDS`)
-  }
-
-  // Add mode if available and not "time" (since we already show duration)
-  if (favoriteTest.mode && favoriteTest.mode.toLowerCase() !== 'time') {
-    parts.push(favoriteTest.mode.toUpperCase())
-  }
-
-  return parts.join(' · ') || 'UNKNOWN TEST TYPE'
+// Reusable stat display component
+const StatDisplay = (props: { label: string, value: string | number }) => {
+  return h('div', { class: 'stat-item' }, [
+    h('div', { class: 'stat-label' }, props.label),
+    h('div', { class: 'stat-value' }, props.value)
+  ])
 }
 </script>
+
+<style scoped>
+.section-subheader {
+  @apply text-2xs tracking-[0.2em] text-zinc-500 border-b border-zinc-800/30 pb-1 mb-3;
+}
+
+.test-row {
+  @apply flex items-center text-xs;
+}
+
+.test-type {
+  @apply text-zinc-500 text-2xs ml-2;
+}
+
+.wpm-value {
+  @apply text-zinc-700 dark:text-zinc-400 tabular-nums font-medium;
+}
+
+.accuracy-value {
+  @apply text-zinc-500 tabular-nums w-12 text-right;
+}
+
+.stat-item {
+  @apply space-y-0.5;
+}
+
+.stat-label {
+  @apply text-2xs text-zinc-500 tracking-wider;
+}
+
+.stat-value {
+  @apply text-sm text-zinc-700 dark:text-zinc-300 tabular-nums;
+}
+
+/* Custom text size smaller than xs */
+.text-2xs {
+  font-size: 0.65rem;
+  line-height: 1rem;
+}
+</style>

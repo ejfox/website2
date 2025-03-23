@@ -14,43 +14,51 @@
       </div>
     </div>
 
+    <!-- Activity Momentum -->
+    <div v-if="hasWeeklyActivity">
+      <h4 class="section-subheader">ACTIVITY MOMENTUM</h4>
+      <div class="momentum-stats grid grid-cols-3 gap-4 mb-6">
+        <div class="momentum-stat">
+          <div class="momentum-value">{{ currentStreak }}</div>
+          <div class="momentum-label">CURRENT STREAK</div>
+        </div>
+        <div class="momentum-stat">
+          <div class="momentum-value">{{ longestStreak }}</div>
+          <div class="momentum-label">LONGEST STREAK</div>
+        </div>
+        <div class="momentum-stat">
+          <div class="momentum-value">{{ activeWeeks }}<span class="text-zinc-500">/{{ totalWeeks }}</span></div>
+          <div class="momentum-label">ACTIVE WEEKS</div>
+        </div>
+      </div>
+
+      <ActivityCalendar :active-dates="activityDates" :active-color="'#10b981'" :days="90" />
+    </div>
+
     <!-- Weekly Activity -->
     <div v-if="hasWeeklyActivity">
-      <h4 class="text-xs tracking-[0.2em] text-zinc-500 border-b border-zinc-800/50 pb-2 mb-8">WEEKLY ACTIVITY</h4>
+      <h4 class="section-subheader">WEEKLY ACTIVITY</h4>
 
       <!-- Weekly Stats Grid -->
       <div class="grid grid-cols-2 gap-8 mb-8">
-        <div v-if="weeklyAverage > 0" class="space-y-2">
-          <div class="text-2xl font-mono tabular-nums">
-            {{ formatNumber(weeklyAverage) }}
-          </div>
-          <div class="text-xs tracking-wider text-zinc-500">
-            AVG STEPS PER WEEK
-          </div>
-        </div>
+        <StatSummary v-if="weeklyAverage > 0" :value="formatNumber(weeklyAverage)" label="AVG STEPS PER WEEK" />
 
-        <div v-if="mostActiveWeek.steps > 0" class="space-y-2">
-          <div class="text-2xl font-mono tabular-nums">
-            {{ formatNumber(mostActiveWeek.steps) }}
-          </div>
-          <div class="text-xs tracking-wider text-zinc-500">
-            MOST ACTIVE WEEK
-            <div class="text-xs">{{ mostActiveWeek.date }}</div>
-          </div>
-        </div>
+        <StatSummary v-if="mostActiveWeek.steps > 0" :value="formatNumber(mostActiveWeek.steps)"
+          label="MOST ACTIVE WEEK">
+          <div class="text-xs">{{ mostActiveWeek.date }}</div>
+        </StatSummary>
       </div>
 
       <!-- Weekly Steps Chart -->
       <div v-if="hasWeeklyData" class="space-y-4">
-        <div v-for="(week, index) in weeklyActivity" :key="week.startDate" class="flex items-center gap-4">
-          <div class="w-24 text-xs text-zinc-500">
+        <div v-for="(week, index) in weeklyActivity" :key="week.startDate" class="weekly-activity-row">
+          <div class="week-label">
             {{ formatWeekRange(week.startDate, week.endDate) }}
           </div>
-          <div class="flex-grow h-2 bg-zinc-800/50 rounded-none overflow-hidden">
-            <div class="h-full bg-zinc-600 rounded-none"
-              :style="{ width: `${(week.steps / mostActiveWeek.steps) * 100}%` }" />
+          <div class="activity-bar-container">
+            <div class="activity-bar" :style="{ width: `${(week.steps / mostActiveWeek.steps) * 100}%` }" />
           </div>
-          <div class="w-20 text-xs text-zinc-500 tabular-nums text-right">
+          <div class="step-count">
             {{ formatNumber(week.steps) }}
           </div>
         </div>
@@ -59,118 +67,84 @@
 
     <!-- Aggregated Metrics Section -->
     <div v-if="hasAggregatedMetrics" class="space-y-8">
-      <h4 class="text-xs tracking-[0.2em] text-zinc-500 border-b border-zinc-800/50 pb-2 mb-4">HEALTH METRICS</h4>
+      <h4 class="section-subheader">HEALTH METRICS</h4>
 
       <!-- Workouts Summary -->
-      <div v-if="stats.aggregatedMetrics?.workoutSummary" class="space-y-4">
-        <h5 class="text-xs tracking-wider text-zinc-400 uppercase">WORKOUT SUMMARY</h5>
-        <div class="border border-zinc-800/50 p-4 bg-zinc-900/30">
-          <div class="grid grid-cols-2 gap-4 text-xs">
-            <div class="space-y-1">
-              <div class="text-zinc-500">TOTAL WORKOUTS</div>
-              <div class="text-xl text-zinc-300">{{ stats.aggregatedMetrics.workoutSummary.totalWorkouts }}</div>
-            </div>
-            <div class="space-y-1">
-              <div class="text-zinc-500">TOTAL DURATION</div>
-              <div class="text-xl text-zinc-300">{{ stats.aggregatedMetrics.workoutSummary.totalDuration }} MIN</div>
-            </div>
-            <div v-if="stats.aggregatedMetrics.workoutSummary.totalDistance" class="space-y-1">
-              <div class="text-zinc-500">TOTAL DISTANCE</div>
-              <div class="text-xl text-zinc-300">{{ stats.aggregatedMetrics.workoutSummary.totalDistance }} KM</div>
-            </div>
-            <div v-if="stats.aggregatedMetrics.workoutSummary.totalCalories" class="space-y-1">
-              <div class="text-zinc-500">TOTAL CALORIES</div>
-              <div class="text-xl text-zinc-300">{{ stats.aggregatedMetrics.workoutSummary.totalCalories }}</div>
-            </div>
-          </div>
+      <MetricSection v-if="stats.aggregatedMetrics?.workoutSummary" title="WORKOUT SUMMARY">
+        <template #stats>
+          <MetricStatsGrid :items="workoutStats" />
 
           <!-- Workout Types -->
-          <div class="mt-4 pt-4 border-t border-zinc-800/50">
-            <div class="text-zinc-500 text-xs mb-2">WORKOUT TYPES</div>
-            <div class="flex flex-wrap gap-2">
-              <div v-for="type in stats.aggregatedMetrics.workoutSummary.workoutTypes" :key="type"
-                class="px-2 py-1 text-[10px] border border-zinc-800/50 bg-zinc-900/50 text-zinc-400">
+          <div class="metric-subsection">
+            <div class="metric-subtitle">WORKOUT TYPES</div>
+            <div class="tag-container">
+              <div v-for="type in stats.aggregatedMetrics.workoutSummary.workoutTypes" :key="type" class="tag-item">
                 {{ type.toUpperCase() }}
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </template>
+      </MetricSection>
 
       <!-- Sleep Summary -->
-      <div v-if="stats.aggregatedMetrics?.sleepSummary" class="space-y-4">
-        <h5 class="text-xs tracking-wider text-zinc-400 uppercase">SLEEP SUMMARY</h5>
-        <div class="border border-zinc-800/50 p-4 bg-zinc-900/30">
-          <div class="grid grid-cols-2 gap-4 text-xs">
-            <div class="space-y-1">
-              <div class="text-zinc-500">AVERAGE DURATION</div>
-              <div class="text-xl text-zinc-300">
-                <template v-if="stats.aggregatedMetrics.sleepSummary.averageDuration > 0">
-                  {{ stats.aggregatedMetrics.sleepSummary.averageDuration }} MIN
-                </template>
-                <template v-else>
-                  NO DATA
-                </template>
-              </div>
-            </div>
-            <div class="space-y-1">
-              <div class="text-zinc-500">TOTAL RECORDS</div>
-              <div class="text-xl text-zinc-300">{{ stats.aggregatedMetrics.sleepSummary.totalRecords }}</div>
-            </div>
-            <div v-if="stats.aggregatedMetrics.sleepSummary.averageQuality" class="space-y-1">
-              <div class="text-zinc-500">AVERAGE QUALITY</div>
-              <div class="text-xl text-zinc-300">{{ stats.aggregatedMetrics.sleepSummary.averageQuality }}/10</div>
-            </div>
-            <div class="space-y-1">
-              <div class="text-zinc-500">LAST RECORD</div>
-              <div class="text-zinc-300">{{ formatSimpleDate(stats.aggregatedMetrics.sleepSummary.lastRecordDate) }}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <MetricSection v-if="stats.aggregatedMetrics?.sleepSummary" title="SLEEP SUMMARY">
+        <template #stats>
+          <MetricStatsGrid :items="sleepStats" />
+        </template>
+      </MetricSection>
 
       <!-- Mindfulness Summary -->
-      <div v-if="stats.aggregatedMetrics?.mindfulnessSummary" class="space-y-4">
-        <h5 class="text-xs tracking-wider text-zinc-400 uppercase">MINDFULNESS SUMMARY</h5>
-        <div class="border border-zinc-800/50 p-4 bg-zinc-900/30">
-          <div class="grid grid-cols-2 gap-4 text-xs">
-            <div class="space-y-1">
-              <div class="text-zinc-500">TOTAL SESSIONS</div>
-              <div class="text-xl text-zinc-300">{{ stats.aggregatedMetrics.mindfulnessSummary.totalSessions }}</div>
-            </div>
-            <div class="space-y-1">
-              <div class="text-zinc-500">TOTAL MINUTES</div>
-              <div class="text-xl text-zinc-300">
-                <template v-if="stats.aggregatedMetrics.mindfulnessSummary.totalMinutes > 0">
-                  {{ stats.aggregatedMetrics.mindfulnessSummary.totalMinutes }} MIN
-                </template>
-                <template v-else>
-                  NO DATA
-                </template>
-              </div>
-            </div>
-            <div class="space-y-1">
-              <div class="text-zinc-500">LAST SESSION</div>
-              <div class="text-zinc-300">{{ formatSimpleDate(stats.aggregatedMetrics.mindfulnessSummary.lastSessionDate)
-                }}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <MetricSection v-if="stats.aggregatedMetrics?.mindfulnessSummary" title="MINDFULNESS SUMMARY">
+        <template #stats>
+          <MetricStatsGrid :items="mindfulnessStats" />
+        </template>
+      </MetricSection>
     </div>
   </div>
-  <div v-else class="text-sm text-zinc-400 font-mono">
+  <div v-else class="data-unavailable">
     HEALTH_DATA_UNAVAILABLE
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, h } from 'vue'
 import IndividualStat from './IndividualStat.vue'
+import ActivityCalendar from './ActivityCalendar.vue'
 import type { StatsResponse } from '~/composables/useStats'
 import { formatNumber } from '~/composables/useNumberFormat'
+
+// Stat summary component for consistent stat display
+const StatSummary = (props: { value: string | number, label: string }, { slots }: { slots: any }) => {
+  return h('div', { class: 'stat-summary' }, [
+    h('div', { class: 'stat-value' }, props.value),
+    h('div', { class: 'stat-label' }, [
+      props.label,
+      slots.default?.()
+    ])
+  ])
+}
+
+// Metric section component for health metrics
+const MetricSection = (props: { title: string }, { slots }: { slots: any }) => {
+  return h('div', { class: 'space-y-4' }, [
+    h('h5', { class: 'metric-title' }, props.title),
+    h('div', { class: 'metric-box' }, [
+      slots.stats?.()
+    ])
+  ])
+}
+
+// Component for metric stats grid
+const MetricStatsGrid = (props: { items: Array<{ label: string, value: string | number, class?: string }> }) => {
+  return h('div', { class: 'grid grid-cols-2 gap-4 text-xs' },
+    props.items.map(item => {
+      return h('div', { class: 'stat-item' }, [
+        h('div', { class: 'stat-label' }, item.label),
+        h('div', { class: item.class || 'text-xl text-zinc-300' }, item.value)
+      ])
+    })
+  )
+}
 
 // Update the HealthStats type to include the new weekly activity data structure
 type HealthStats = NonNullable<StatsResponse['health']> & {
@@ -213,10 +187,17 @@ type HealthStats = NonNullable<StatsResponse['health']> & {
   }
 }
 
+interface MetricItem {
+  label: string
+  value: string | number
+  class?: string
+}
+
 const props = defineProps<{
   stats?: HealthStats | null
 }>()
 
+// Data availability checks
 const hasAnyData = computed(() => {
   if (!props.stats) return false
   return props.stats.thisYear.steps > 0 ||
@@ -252,6 +233,7 @@ const hasAggregatedMetrics = computed(() => {
   )
 })
 
+// Statistics computations
 const weeklyAverage = computed(() => {
   if (!props.stats?.weeklyActivity?.length) return 0
   const nonZeroWeeks = props.stats.weeklyActivity.filter(week => week.steps > 0)
@@ -271,6 +253,73 @@ const mostActiveWeek = computed(() => {
   }
 })
 
+// Workout stats items
+const workoutStats = computed<MetricItem[]>(() => {
+  if (!props.stats?.aggregatedMetrics?.workoutSummary) return []
+
+  const summary = props.stats.aggregatedMetrics.workoutSummary
+  const items: MetricItem[] = [
+    { label: 'TOTAL WORKOUTS', value: summary.totalWorkouts },
+    { label: 'TOTAL DURATION', value: `${summary.totalDuration} MIN` }
+  ]
+
+  if (summary.totalDistance) {
+    items.push({ label: 'TOTAL DISTANCE', value: `${summary.totalDistance} KM` })
+  }
+
+  if (summary.totalCalories) {
+    items.push({ label: 'TOTAL CALORIES', value: summary.totalCalories })
+  }
+
+  return items
+})
+
+// Sleep stats items
+const sleepStats = computed<MetricItem[]>(() => {
+  if (!props.stats?.aggregatedMetrics?.sleepSummary) return []
+
+  const summary = props.stats.aggregatedMetrics.sleepSummary
+  const items: MetricItem[] = [
+    {
+      label: 'AVERAGE DURATION',
+      value: summary.averageDuration > 0 ? `${summary.averageDuration} MIN` : 'NO DATA'
+    },
+    { label: 'TOTAL RECORDS', value: summary.totalRecords }
+  ]
+
+  if (summary.averageQuality) {
+    items.push({ label: 'AVERAGE QUALITY', value: `${summary.averageQuality}/10` })
+  }
+
+  items.push({
+    label: 'LAST RECORD',
+    value: formatSimpleDate(summary.lastRecordDate),
+    class: 'text-zinc-300'
+  })
+
+  return items
+})
+
+// Mindfulness stats items
+const mindfulnessStats = computed<MetricItem[]>(() => {
+  if (!props.stats?.aggregatedMetrics?.mindfulnessSummary) return []
+
+  const summary = props.stats.aggregatedMetrics.mindfulnessSummary
+  return [
+    { label: 'TOTAL SESSIONS', value: summary.totalSessions },
+    {
+      label: 'TOTAL MINUTES',
+      value: summary.totalMinutes > 0 ? `${summary.totalMinutes} MIN` : 'NO DATA'
+    },
+    {
+      label: 'LAST SESSION',
+      value: formatSimpleDate(summary.lastSessionDate),
+      class: 'text-zinc-300'
+    }
+  ]
+})
+
+// Formatting helpers
 const formatWeekRange = (startDate: string, endDate: string) => {
   const start = new Date(startDate)
   const end = new Date(endDate)
@@ -282,13 +331,6 @@ const formatWeekRange = (startDate: string, endDate: string) => {
 
   // Different months
   return `${start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} - ${end.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`
-}
-
-const formatDate = (dateStr: string) => {
-  return new Date(dateStr).toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric'
-  })
 }
 
 const formatSimpleDate = (dateStr: string) => {
@@ -306,4 +348,155 @@ const formatSimpleDate = (dateStr: string) => {
     return dateStr;
   }
 }
+
+// Activity calendar data
+const activityDates = computed(() => {
+  if (!props.stats?.weeklyActivity?.length) return []
+
+  // Extract dates from weekly activity
+  const dates: string[] = []
+
+  props.stats.weeklyActivity.forEach(week => {
+    if (week.steps > 0) {
+      // Add the start date of active weeks
+      dates.push(week.startDate)
+
+      // For simplicity, also add the day after the start date
+      // This gives a better representation of weekly activity
+      const nextDay = new Date(week.startDate)
+      nextDay.setDate(nextDay.getDate() + 1)
+      dates.push(nextDay.toISOString().split('T')[0])
+    }
+  })
+
+  return dates
+})
+
+// Streak calculations
+const currentStreak = computed(() => {
+  if (!props.stats?.weeklyActivity?.length) return 0
+  let streak = 0
+  for (let i = props.stats.weeklyActivity.length - 1; i >= 0; i--) {
+    if (props.stats.weeklyActivity[i].steps > 0) {
+      streak++
+    } else {
+      break
+    }
+  }
+  return streak
+})
+
+const longestStreak = computed(() => {
+  if (!props.stats?.weeklyActivity?.length) return 0
+  let maxStreak = 0
+  let currentStreak = 0
+  for (let i = 0; i < props.stats.weeklyActivity.length; i++) {
+    if (props.stats.weeklyActivity[i].steps > 0) {
+      currentStreak++
+      if (currentStreak > maxStreak) {
+        maxStreak = currentStreak
+      }
+    } else {
+      currentStreak = 0
+    }
+  }
+  return maxStreak
+})
+
+const activeWeeks = computed(() => {
+  if (!props.stats?.weeklyActivity?.length) return 0
+  return props.stats.weeklyActivity.filter(week => week.steps > 0).length
+})
+
+const totalWeeks = computed(() => {
+  if (!props.stats?.weeklyActivity?.length) return 0
+  return props.stats.weeklyActivity.length
+})
 </script>
+
+<style scoped>
+.section-subheader {
+  @apply text-xs tracking-[0.2em] text-zinc-500 border-b border-zinc-800/50 pb-2 mb-8;
+}
+
+.stat-summary {
+  @apply space-y-2;
+}
+
+.stat-value {
+  @apply text-2xl font-mono tabular-nums;
+}
+
+.stat-label {
+  @apply text-xs tracking-wider text-zinc-500;
+}
+
+.weekly-activity-row {
+  @apply flex items-center gap-4 py-2;
+}
+
+.week-label {
+  @apply w-32 text-xs;
+}
+
+.activity-bar-container {
+  @apply flex-1 h-4 bg-zinc-100 dark:bg-zinc-800 rounded-full overflow-hidden;
+}
+
+.activity-bar {
+  @apply h-full bg-emerald-500 rounded-full;
+}
+
+.step-count {
+  @apply w-20 text-right text-xs;
+}
+
+.metric-title {
+  @apply text-xs tracking-wider text-zinc-400 uppercase;
+}
+
+.metric-box {
+  @apply border border-zinc-800/50 p-4 bg-zinc-900/30;
+}
+
+.metric-subsection {
+  @apply mt-4;
+}
+
+.metric-subtitle {
+  @apply text-xs text-zinc-500 mb-2;
+}
+
+.tag-container {
+  @apply flex flex-wrap gap-2 mt-2;
+}
+
+.tag-item {
+  @apply px-2 py-1 text-xs rounded-md bg-zinc-100 dark:bg-zinc-800;
+}
+
+.stat-item {
+  @apply space-y-1;
+}
+
+.data-unavailable {
+  @apply text-sm text-zinc-400 font-mono;
+}
+
+/* Momentum stat styles */
+.momentum-stats {
+  @apply my-4;
+}
+
+.momentum-stat {
+  @apply p-3 rounded-md border border-zinc-200 dark:border-zinc-800 flex flex-col items-center justify-center;
+}
+
+.momentum-value {
+  @apply text-2xl font-bold mb-1;
+}
+
+.momentum-label {
+  @apply text-xs text-zinc-500;
+}
+</style>

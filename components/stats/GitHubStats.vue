@@ -1,176 +1,250 @@
 <template>
-  <div class="space-y-16">
-    <!-- Top Stats -->
-    <div class="space-y-8">
-      <IndividualStat :value="stats.stats.totalContributions" size="large" label="ALL-TIME CONTRIBUTIONS"
-        :details="`${formatNumber(stats.stats.totalRepos)} PUBLIC REPOSITORIES`" />
+  <div v-if="stats" class="space-y-16 font-mono">
+    <!-- Primary Stats -->
+    <div>
+      <IndividualStat :value="stats.stats.totalCommits" size="large" label="GITHUB COMMITS"
+        :details="`${stats.stats.totalRepos} REPOS · ${stats.stats.totalPRs || 0} PRS`" />
+    </div>
 
-      <div class="grid grid-cols-2 gap-8">
-        <IndividualStat :value="recentCommits" size="medium" label="RECENT COMMITS"
-          :details="`${formatNumber(averageCommitsPerDay)} DAILY AVERAGE`" />
+    <!-- Activity Calendar -->
+    <div v-if="hasCommits">
+      <ActivityCalendar title="COMMIT ACTIVITY" :active-dates="commitActivityDates" :active-color="'#4b5563'" />
+    </div>
 
-        <IndividualStat :value="stats.stats.followers" size="medium" label="GITHUB FOLLOWERS"
-          :details="`FOLLOWING ${formatNumber(stats.stats.following)}`" />
+    <!-- Commit Activity -->
+    <div v-if="hasCommits" class="space-y-8">
+      <h4 class="section-subheader">COMMIT STATISTICS</h4>
+
+      <div class="grid grid-cols-2 gap-8 mb-8">
+        <StatSummary :value="commitStats.mostActiveDay.count" :label="`MOST ACTIVE DAY`">
+          <div class="text-xs">{{ commitStats.mostActiveDay.date }}</div>
+        </StatSummary>
+
+        <StatSummary :value="commitStats.averagePerDay" label="AVG COMMITS PER DAY" />
+      </div>
+
+      <!-- Recent Commits Chart -->
+      <div v-if="processedCommits.length" class="space-y-4">
+        <div v-for="commit in processedCommits" :key="commit.date" class="commit-row">
+          <div class="date-label">{{ formatDate(commit.date) }}</div>
+          <div class="commit-bar-container">
+            <div class="commit-bar" :style="{ width: `${(commit.count / commitStats.maxCommits) * 100}%` }" />
+          </div>
+          <div class="commit-count">{{ commit.count }}</div>
+        </div>
       </div>
     </div>
 
-    <!-- Recent Commits - Lazy loaded -->
-    <ClientOnly>
-      <Suspense>
-        <div v-if="commitsByRepo.length" class="space-y-8">
-          <h4 class="text-xs tracking-[0.2em] text-gray-500 font-light">RECENT ACTIVITY</h4>
-          <div class="space-y-8">
-            <div v-for="repo in commitsByRepo.slice(0, 3)" :key="repo.name" class="space-y-3">
-              <!-- Repo Header -->
-              <div class="flex items-center space-x-2 text-sm text-gray-400">
-                <a :href="repo.url" target="_blank" class="hover:text-gray-300">
-                  {{ repo.name }}
-                </a>
-                <span class="text-gray-600">&middot;</span>
-                <span class="text-gray-500">{{ repo.commits.length }} commits</span>
-              </div>
+    <!-- Top Repos -->
+    <div v-if="hasRepos" class="space-y-6">
+      <h4 class="section-subheader">TOP REPOSITORIES</h4>
 
-              <!-- Commits -->
-              <div class="space-y-2 pl-4 border-l border-gray-800">
-                <div v-for="commit in repo.commits.slice(0, 3)" :key="commit.url"
-                  class="flex items-center justify-between text-sm group">
-                  <a :href="commit.url" target="_blank" class="text-gray-500 truncate max-w-[70%] hover:text-gray-300">
-                    {{ commit.message }}
-                  </a>
-                  <span class="text-gray-600 text-xs">
-                    {{ formatDate(commit.occurredAt) }}
-                  </span>
-                </div>
-              </div>
-            </div>
+      <div class="space-y-4">
+        <div v-for="repo in topRepos" :key="repo.name" class="repo-row">
+          <div class="flex flex-col">
+            <span class="text-zinc-400">{{ repo.name }}</span>
+            <span class="text-zinc-500 text-xs">{{ repo.language }}</span>
+          </div>
+          <div class="text-zinc-500 tabular-nums">
+            {{ repo.stars }} ⭐
           </div>
         </div>
-        <template #fallback>
-          <div class="space-y-8 animate-pulse">
-            <h4 class="text-xs tracking-[0.2em] text-gray-500 font-light">RECENT ACTIVITY</h4>
-            <div class="space-y-8">
-              <div v-for="i in 3" :key="i" class="space-y-3">
-                <div class="h-5 bg-gray-800 rounded w-1/3"></div>
-                <div class="space-y-2 pl-4 border-l border-gray-800">
-                  <div v-for="j in 3" :key="j" class="flex items-center justify-between">
-                    <div class="h-4 bg-gray-800 rounded w-2/3"></div>
-                    <div class="h-4 bg-gray-800 rounded w-16"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </template>
-      </Suspense>
-    </ClientOnly>
-
-    <!-- Commit Type Breakdown - Lazy loaded -->
-    <ClientOnly>
-      <Suspense>
-        <div v-if="commitTypeBreakdown.length" class="space-y-4">
-          <h4 class="text-xs tracking-[0.2em] text-gray-500 font-light">COMMIT TYPES</h4>
-          <div class="space-y-2">
-            <div v-for="type in commitTypeBreakdown.slice(0, 5)" :key="type.type"
-              class="flex items-center space-x-3 text-sm group"
-              :title="`${type.count} commits (${type.percentage.toFixed(1)}%)`">
-              <span class="w-16 text-gray-400">{{ type.type }}</span>
-              <div class="flex-1 h-1.5 bg-gray-800 rounded-full overflow-hidden">
-                <div class="h-full rounded-full transition-all group-hover:opacity-100 opacity-75"
-                  :class="getTypeColor(type.type)" :style="{ width: `${type.percentage}%` }" />
-              </div>
-              <span class="text-gray-500 tabular-nums w-12 text-right">
-                {{ Math.round(type.percentage) }}%
-              </span>
-            </div>
-          </div>
-        </div>
-        <template #fallback>
-          <div class="space-y-4 animate-pulse">
-            <h4 class="text-xs tracking-[0.2em] text-gray-500 font-light">COMMIT TYPES</h4>
-            <div class="space-y-2">
-              <div v-for="i in 5" :key="i" class="flex items-center space-x-3">
-                <div class="w-16 h-4 bg-gray-800 rounded"></div>
-                <div class="flex-1 h-1.5 bg-gray-800 rounded-full"></div>
-                <div class="w-12 h-4 bg-gray-800 rounded"></div>
-              </div>
-            </div>
-          </div>
-        </template>
-      </Suspense>
-    </ClientOnly>
+      </div>
+    </div>
+  </div>
+  <div v-else class="data-unavailable">
+    GITHUB_DATA_UNAVAILABLE
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, defineAsyncComponent } from 'vue'
+import { computed, h } from 'vue'
+import { format } from 'date-fns'
 import IndividualStat from './IndividualStat.vue'
+import ActivityCalendar from './ActivityCalendar.vue'
 import type { StatsResponse } from '~/composables/useStats'
 import { formatNumber } from '~/composables/useNumberFormat'
 
-type GitHubStats = NonNullable<StatsResponse['github']>
+// Stat summary component
+const StatSummary = (props, { slots }) => {
+  return h('div', { class: 'stat-summary' }, [
+    h('div', { class: 'stat-value' }, props.value),
+    h('div', { class: 'stat-label' }, [
+      props.label,
+      slots.default?.()
+    ])
+  ])
+}
+
+interface GitHubRepo {
+  name: string
+  url: string
+  stars: number
+  forks: number
+  language: string
+  description?: string
+}
+
+interface GitHubCommit {
+  sha: string
+  date: string
+  message: string
+  repo: string
+}
+
+interface GitHubStats {
+  stats: {
+    totalCommits: number
+    totalRepos: number
+    totalPRs?: number
+    totalIssues?: number
+    followers?: number
+    following?: number
+  }
+  detail?: {
+    topRepos?: GitHubRepo[]
+    commits?: GitHubCommit[]
+  }
+}
 
 const props = defineProps<{
-  stats: GitHubStats
+  stats?: GitHubStats | null
 }>()
 
-const recentCommits = computed(() =>
-  props.stats.detail.commits.length || 0
-)
-
-const averageCommitsPerDay = computed(() => {
-  if (!props.stats.detail.commits.length) return 0
-  const days = 7 // We're getting a week's worth
-  return Math.round(recentCommits.value / days)
+// Data availability checks
+const hasCommits = computed(() => {
+  return !!props.stats?.detail?.commits?.length
 })
 
-// Memoized computed property with limited results
-const commitsByRepo = computed(() => {
-  // Group commits by repo
-  const grouped = props.stats.detail.commits.reduce((acc, commit) => {
-    const repo = commit.repository
-    if (!acc[repo.name]) {
-      acc[repo.name] = {
-        name: repo.name,
-        url: repo.url,
+const hasRepos = computed(() => {
+  return !!props.stats?.detail?.topRepos?.length
+})
+
+// Data processing
+const processedCommits = computed(() => {
+  if (!props.stats?.detail?.commits) return []
+
+  const commits = props.stats.detail.commits
+  // Group commits by date
+  const grouped = {}
+
+  commits.forEach(commit => {
+    const date = new Date(commit.date)
+    const dateKey = format(date, 'yyyy-MM-dd')
+
+    if (!grouped[dateKey]) {
+      grouped[dateKey] = {
+        date: dateKey,
+        count: 0,
         commits: []
       }
     }
-    acc[repo.name].commits.push(commit)
-    return acc
-  }, {} as Record<string, { name: string; url: string; commits: typeof props.stats.detail.commits }>)
 
-  // Convert to array and sort by most recent commit
-  return Object.values(grouped).sort((a, b) => {
-    const aDate = new Date(a.commits[0].occurredAt)
-    const bDate = new Date(b.commits[0].occurredAt)
-    return bDate.getTime() - aDate.getTime()
+    grouped[dateKey].count++
+    grouped[dateKey].commits.push(commit)
   })
+
+  // Convert to array and sort by date
+  return Object.values(grouped)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 7) // Show most recent 7 days
 })
 
-const formatDate = (date: string) => {
-  return new Date(date).toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric'
-  })
+// Calculated stats
+const commitStats = computed(() => {
+  if (!processedCommits.value.length) {
+    return {
+      maxCommits: 0,
+      averagePerDay: 0,
+      mostActiveDay: { date: '', count: 0 }
+    }
+  }
+
+  // Find most active day
+  const sortedByCount = [...processedCommits.value].sort((a, b) => b.count - a.count)
+  const maxCommits = sortedByCount[0].count
+
+  // Calculate average commits per day
+  const totalCommits = processedCommits.value.reduce((sum, day) => sum + day.count, 0)
+  const averagePerDay = Math.round(totalCommits / processedCommits.value.length)
+
+  return {
+    maxCommits,
+    averagePerDay,
+    mostActiveDay: {
+      date: formatDate(sortedByCount[0].date),
+      count: sortedByCount[0].count
+    }
+  }
+})
+
+// Top repositories
+const topRepos = computed(() => {
+  return props.stats?.detail?.topRepos?.slice(0, 5) || []
+})
+
+// Formatting utilities
+const formatDate = (dateStr: string) => {
+  return format(new Date(dateStr), 'MMM d')
 }
 
-const typeColors = {
-  feat: 'bg-emerald-500/30',
-  fix: 'bg-red-500/30',
-  docs: 'bg-blue-500/30',
-  style: 'bg-purple-500/30',
-  refactor: 'bg-yellow-500/30',
-  build: 'bg-orange-500/30',
-  blog: 'bg-pink-500/30',
-  scaffold: 'bg-indigo-500/30',
-  chore: 'bg-gray-500/30',
-  other: 'bg-gray-700/30'
-} as const
+// Data for activity calendar
+const commitActivityDates = computed(() => {
+  if (!props.stats?.detail?.commits) return []
 
-const getTypeColor = (type: string) =>
-  typeColors[type as keyof typeof typeColors] || typeColors.other
+  // Convert commit dates to yyyy-MM-dd format
+  const dates = props.stats.detail.commits.map(commit => {
+    const date = new Date(commit.date)
+    return format(date, 'yyyy-MM-dd')
+  })
 
-const commitTypeBreakdown = computed(() =>
-  props.stats.detail.commitTypes
-)
+  // Return unique dates (a day with multiple commits should only count once)
+  return [...new Set(dates)]
+})
 </script>
+
+<style scoped>
+.section-subheader {
+  @apply text-xs tracking-[0.2em] text-zinc-500 border-b border-zinc-800/50 pb-2 mb-4;
+}
+
+.stat-summary {
+  @apply space-y-2;
+}
+
+.stat-value {
+  @apply text-2xl font-mono tabular-nums;
+}
+
+.stat-label {
+  @apply text-xs tracking-wider text-zinc-500;
+}
+
+.commit-row {
+  @apply flex items-center gap-4;
+}
+
+.date-label {
+  @apply w-16 text-xs text-zinc-500;
+}
+
+.commit-bar-container {
+  @apply flex-grow h-2 bg-zinc-800/50 rounded-none overflow-hidden;
+}
+
+.commit-bar {
+  @apply h-full bg-zinc-600 rounded-none;
+}
+
+.commit-count {
+  @apply w-8 text-xs text-zinc-500 tabular-nums text-right;
+}
+
+.repo-row {
+  @apply flex items-center justify-between text-sm;
+}
+
+.data-unavailable {
+  @apply text-sm text-zinc-400 font-mono;
+}
+</style>

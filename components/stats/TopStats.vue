@@ -1,33 +1,11 @@
 <template>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
     <!-- GitHub Contributions -->
     <div v-if="stats.github?.stats">
       <IndividualStat :value="stats.github.stats.totalContributions" size="medium" label="CONTRIBUTIONS"
         :details="`${formatNumber(stats.github.stats.totalRepos)} REPOS`" />
     </div>
-    <!-- Total Photos -->
-    <div v-if="stats.photos?.stats">
-      <IndividualStat :value="stats.photos.stats.totalPhotos" size="medium" label="PHOTOS"
-        :details="`${formatNumber(stats.photos.stats.photosThisMonth)} THIS MONTH`" />
-    </div>
-    <!-- 
-    <div v-if="stats.leetcode?.submissionStats">
-      <IndividualStat :value="totalLeetCodeSolved" size="medium" label="LEETCODE"
-        :details="`${stats.leetcode.submissionStats.easy.count} EASY · ${stats.leetcode.submissionStats.medium.count} MED · ${stats.leetcode.submissionStats.hard.count} HARD`" />
-    </div>
-    -->
-    <!-- Chess Rating -->
-    <!-- <div v-if="stats.chess && chessRating > 400">
-      <IndividualStat :value="chessRating" size="medium" label="CHESS RATING" :details="`${chessWinRate}% WIN RATE`" />
-    </div>
-    -->
-    <!-- Health Stats -->
-    <!--    <div v-if="stats.health?.today">
-      <IndividualStat :value="stats.health.today.steps" size="medium" label="STEPS TODAY"
-        :details="`${formatNumber(stats.health.today.exerciseMinutes)} ACTIVE MINS`" />
-    </div>
-     -->
-
+    
     <!-- Blog Stats -->
     <div v-if="blogStats">
       <IndividualStat :value="blogStats.totalPosts" size="medium" label="BLOG POSTS"
@@ -45,14 +23,6 @@
     <div v-else class="flex flex-col justify-center items-center h-24 bg-zinc-900/30 border border-zinc-800/50 p-4">
       <div class="text-zinc-400 text-sm font-mono animate-pulse">Loading word counts...</div>
     </div>
-
-    <!-- MonkeyType WPM -->
-    <!--     <div v-if="stats.monkeyType?.typingStats">
-      <IndividualStat :value="stats.monkeyType.typingStats.bestWPM" size="medium" label="BEST WPM"
-        :details="`${formatNumber(stats.monkeyType.typingStats.testsCompleted)} TESTS`" />
-    </div> -->
-
-
   </div>
 </template>
 

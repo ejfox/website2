@@ -28,12 +28,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Weekly Posting Consistency -->
-    <div class="stat-section">
-      <h3 class="section-subheader">WEEKLY CONSISTENCY</h3>
-      <ActivityCalendar :active-dates="weeklyConsistencyDates" :days="52" />
-    </div>
   </div>
 </template>
 
@@ -41,10 +35,6 @@
 import { computed } from 'vue'
 import { differenceInDays, differenceInYears, differenceInMonths } from 'date-fns'
 import IndividualStat from './IndividualStat.vue'
-
-// Import ActivityCalendar
-import ActivityCalendar from './ActivityCalendar.vue'
-import { format } from 'date-fns'
 
 interface BlogStats {
   totalPosts: number
@@ -57,7 +47,6 @@ interface BlogStats {
   topTags?: string[]
   uniqueTags?: number
   averageReadingTime?: number
-  postsByMonth?: Record<string, number>
 }
 
 interface StatItem {
@@ -140,93 +129,9 @@ const postsPerYear = computed(() => {
 
   const firstDate = new Date(props.stats.firstPost)
   const lastDate = new Date(props.stats.lastPost)
-  const days = differenceInDays(lastDate, firstDate)
-  if (days <= 0) return props.stats.totalPosts
-
-  const years = days / 365
+  const years = differenceInDays(lastDate, firstDate) / 365
   return Number((props.stats.totalPosts / years).toFixed(1))
 })
-
-// Calculate post activity dates for the calendar
-const postActivityDates = computed(() => {
-  if (!props.stats.postsByMonth) return []
-
-  // Convert the postsByMonth record to active dates
-  const activeDates: string[] = []
-
-  // Using a set to avoid duplicates
-  const dates = new Set<string>()
-
-  // Each month key in postsByMonth is in the format YYYY-MM
-  Object.entries(props.stats.postsByMonth).forEach(([month, count]) => {
-    // For each post in that month, add a date (spread them throughout the month)
-    const [year, monthNum] = month.split('-').map(Number)
-
-    // For each post in this month, add an active date
-    // Spread them evenly through the month for visualization
-    const daysInMonth = new Date(year, monthNum, 0).getDate()
-    const postInterval = Math.floor(daysInMonth / count)
-
-    for (let i = 0; i < count; i++) {
-      const day = 1 + (i * postInterval)
-      // Format as YYYY-MM-DD (standard date format for the calendar)
-      const date = format(new Date(year, monthNum - 1, day), 'yyyy-MM-dd')
-      dates.add(date)
-    }
-  })
-
-  return Array.from(dates)
-})
-
-// Calculate weekly consistency dates
-const weeklyConsistencyDates = computed(() => {
-  if (!props.stats.postsByMonth) return []
-
-  // Using a Map to track weeks that have posts
-  // Key: ISO week string (YYYY-WW), Value: date string for that week (YYYY-MM-DD)
-  const weekMap = new Map<string, string>()
-
-  // Each month key in postsByMonth is in the format YYYY-MM
-  Object.entries(props.stats.postsByMonth).forEach(([month, count]) => {
-    const [year, monthNum] = month.split('-').map(Number)
-
-    // For each post in this month, add an active week
-    const daysInMonth = new Date(year, monthNum, 0).getDate()
-    const postInterval = Math.floor(daysInMonth / count)
-
-    for (let i = 0; i < count; i++) {
-      const day = 1 + (i * postInterval)
-      const postDate = new Date(year, monthNum - 1, day)
-
-      // Get ISO week number (1-53)
-      const weekNum = getWeekNumber(postDate)
-
-      // Create a week key in the format YYYY-WW
-      const weekKey = `${postDate.getFullYear()}-${weekNum.toString().padStart(2, '0')}`
-
-      // Store one date per week
-      if (!weekMap.has(weekKey)) {
-        weekMap.set(weekKey, format(postDate, 'yyyy-MM-dd'))
-      }
-    }
-  })
-
-  // Return array of dates representing weeks with posts
-  return Array.from(weekMap.values())
-})
-
-// Helper to get ISO week number (1-53)
-const getWeekNumber = (date: Date): number => {
-  const target = new Date(date.valueOf())
-  const dayNum = (date.getDay() + 6) % 7 // Make Monday day 0
-  target.setDate(target.getDate() - dayNum + 3) // Go to Thursday of this week
-  const firstThursday = target.valueOf()
-  target.setMonth(0, 1)
-  if (target.getDay() !== 4) {
-    target.setMonth(0, 1 + ((4 - target.getDay()) + 7) % 7)
-  }
-  return 1 + Math.ceil((firstThursday - target.valueOf()) / 604800000) // 604800000 = 7 * 24 * 60 * 60 * 1000
-}
 </script>
 
 <style scoped>
@@ -255,7 +160,6 @@ const getWeekNumber = (date: Date): number => {
 }
 
 .stat-section::before {
-  content: '';
-  @apply absolute -left-8 top-0 h-full w-px bg-gradient-to-b from-zinc-800/0 via-zinc-800/50 to-zinc-800/0;
+  @apply absolute -left-8 top-0 h-full w-px bg-gradient-to-b from-zinc-800/0 via-zinc-800/50 to-zinc-800/0 content-[''];
 }
 </style>

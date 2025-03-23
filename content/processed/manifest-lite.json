@@ -5713,7 +5713,7 @@
     "date": "2025-03-09T17:49:01.000Z",
     "type": "post",
     "dek": "In which I describe my workflow for transforming a Telegram database dump into a web-friendly format for analysis and visualization",
-    "modified": "2025-03-10T02:38:25.000Z",
+    "modified": "2025-03-16T01:25:05.000Z",
     "tags": [
       "data",
       "dataviz",
@@ -5767,7 +5767,7 @@
     ],
     "metadata": {
       "date": "2025-03-09T17:49:01.000Z",
-      "modified": "2025-03-10T02:38:25.000Z",
+      "modified": "2025-03-16T01:25:05.000Z",
       "title": "Processing Telegram Leaks for Fast Web Visualization",
       "dek": "In which I describe my workflow for transforming a Telegram database dump into a web-friendly format for analysis and visualization",
       "inprogress": true,
@@ -30179,7 +30179,7 @@
     "title": "2025-10",
     "date": "2025-03-03T17:35:18.000Z",
     "type": "post",
-    "modified": "2025-03-10T00:10:33.000Z",
+    "modified": "2025-03-12T01:44:37.000Z",
     "tags": [
       "weekly-notes",
       "reflections",
@@ -30213,7 +30213,7 @@
         "progress"
       ],
       "date": "2025-03-03T17:35:18.000Z",
-      "modified": "2025-03-10T00:10:33.000Z",
+      "modified": "2025-03-12T01:44:37.000Z",
       "words": 499,
       "images": 45,
       "links": 45,
@@ -30246,6 +30246,46 @@
       "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-10.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "week-notes/2025-10"
+    }
+  },
+  {
+    "slug": "week-notes/2025-11",
+    "title": "2025 11",
+    "date": "2025-03-10T19:16:48.000Z",
+    "type": "post",
+    "modified": "2025-03-17T17:23:12.000Z",
+    "toc": [],
+    "metadata": {
+      "date": "2025-03-10T19:16:48.000Z",
+      "modified": "2025-03-17T17:23:12.000Z",
+      "words": 183,
+      "images": 10,
+      "links": 10,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-11.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-11"
+    }
+  },
+  {
+    "slug": "week-notes/2025-12",
+    "title": "2025 12",
+    "type": "post",
+    "toc": [],
+    "metadata": {
+      "words": 23,
+      "images": 2,
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-12.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-12"
     }
   }
 ]

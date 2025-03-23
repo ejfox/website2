@@ -1,6 +1,6 @@
 ---
 date: 2025-03-09T13:49:01-04:00
-modified: 2025-03-09T22:38:25-04:00
+modified: 2025-03-15T21:25:05-04:00
 title: Processing Telegram Leaks for Fast Web Visualization
 dek: In which I describe my workflow for transforming a Telegram database dump into a web-friendly format for analysis and visualization
 inprogress: true
@@ -52,7 +52,7 @@ poetry run tasks build-db ~/RAW-LEAK-LOCATION`
 First, I extract the messages table to a .csv using SQLite's command-line tool:
 
 ```bash
-sqlite3 -header -csv output/telegram_chats.db 'select * from messages;' > output/telegram_chats.csv
+sqlite3 -header -csv output/data.db 'select * from messages;' > output/telegram_chats.csv
 ```
 
 This gives us a clean CSV file with all our message data, ready for the next transformation- we could also play around with something like [csvkit](https://github.com/wireservice/csvkit) or [visitdata](https://www.visidata.org)
@@ -62,7 +62,7 @@ This gives us a clean CSV file with all our message data, ready for the next tra
 Parquet is a columnar storage format that's incredibly efficient for analytical queries and works brilliantly in browser environments. I use DuckDB (an in-process analytical database) to handle the conversion:
 
 ```bash
-duckdb -c "INSTALL parquet; LOAD parquet; CREATE TABLE temp AS SELECT * FROM read_csv('output/telegram_chats.csv'); COPY temp TO 'output/telegram_chats.r4.parquet' (FORMAT PARQUET, COMPRESSION 'SNAPPY');"
+duckdb -c "INSTALL parquet; LOAD parquet; CREATE TABLE temp AS SELECT * FROM read_csv('output/telegram_chats.csv'); COPY temp TO 'output/telegram_chats.r5.parquet' (FORMAT PARQUET, COMPRESSION 'SNAPPY');"
 ```
 
 The compression with Snappy ensures it's both compact and fast to decompress.
