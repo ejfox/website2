@@ -102,6 +102,14 @@
                     </div>
                   </StatsSection>
 
+                  <!-- YouTube -->
+                  <StatsSection v-if="hasYouTubeData" id="youtube" title="YOUTUBE" key="youtube-section">
+                    <AsyncYouTubeStats v-if="stats.youtube" :stats="stats.youtube" key="youtube" />
+                    <div v-else class="data-unavailable">
+                      YOUTUBE_DATA_UNAVAILABLE
+                    </div>
+                  </StatsSection>
+
                   <!-- Chess -->
                   <StatsSection v-if="hasChessData" id="chess" title="CHESS" key="chess-section">
                     <AsyncChessStats v-if="stats.chess" :stats="stats.chess" key="chess" />
@@ -192,6 +200,7 @@ const AsyncTopStats = defineAsyncComponent(() => import('~/components/stats/TopS
 const AsyncChessStats = defineAsyncComponent(() => import('~/components/stats/ChessStats.vue' /* webpackPrefetch: true */))
 const AsyncRescueTimeStats = defineAsyncComponent(() => import('~/components/stats/RescueTimeStats.vue' /* webpackPrefetch: true */))
 const AsyncGearStats = defineAsyncComponent(() => import('~/components/stats/GearStats.vue' /* webpackPrefetch: true */))
+const AsyncYouTubeStats = defineAsyncComponent(() => import('~/components/stats/YouTubeStats.vue' /* webpackPrefetch: true */))
 
 interface BlogPost {
   wordCount?: number
@@ -247,6 +256,7 @@ const hasHealthData = computed(() => !!(stats.value?.health))
 const hasLeetCodeData = computed(() => !!(stats.value?.leetcode?.submissionStats))
 const hasChessData = computed(() => !!(stats.value?.chess))
 const hasRescueTimeData = computed(() => !!(stats.value?.rescueTime))
+const hasYouTubeData = computed(() => !!(stats.value?.youtube))
 
 // Blog stats
 const blogStats = ref<BlogStats | null>(null)
@@ -511,6 +521,7 @@ const statsSections = [
   { id: 'github', text: 'GITHUB' },
   { id: 'leetcode', text: 'LEETCODE' },
   { id: 'photography', text: 'PHOTOGRAPHY' },
+  { id: 'youtube', text: 'YOUTUBE' },
   { id: 'chess', text: 'CHESS' },
   { id: 'productivity', text: 'PRODUCTIVITY' },
   { id: 'gear', text: 'GEAR' },
