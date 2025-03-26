@@ -6,6 +6,7 @@ import healthHandler from './health.get'
 import leetcodeHandler from './leetcode.get'
 import chessHandler from './chess.get'
 import rescuetimeHandler from './rescuetime.get'
+import youtubeHandler from './youtube.get'
 
 // Adapter function to convert chess stats to the expected format
 function adaptChessStats(chessStats: any) {
@@ -147,13 +148,14 @@ export default defineEventHandler(async (event): Promise<StatsResponse> => {
     // console.log('🎯 Stats handler called')
 
     const [
-      githubResult, // Re-enable GitHub result
+      githubResult,
       monkeyTypeResult,
       photosResult,
       healthResult,
       leetcodeResult,
       chessResult,
-      rescueTimeResult
+      rescueTimeResult,
+      youtubeResult
     ] = await Promise.allSettled([
       githubHandler(event).catch((err) => {
         console.error('❌ GitHub API error:', err)
@@ -182,6 +184,10 @@ export default defineEventHandler(async (event): Promise<StatsResponse> => {
       rescuetimeHandler(event).catch((err) => {
         console.error('❌ RescueTime API error:', err)
         return null
+      }),
+      youtubeHandler(event).catch((err) => {
+        console.error('❌ YouTube API error:', err)
+        return null
       })
     ])
 
@@ -196,7 +202,8 @@ export default defineEventHandler(async (event): Promise<StatsResponse> => {
       chess: getValue(chessResult)
         ? adaptChessStats(getValue(chessResult))
         : undefined,
-      rescueTime: getValue(rescueTimeResult)
+      rescueTime: getValue(rescueTimeResult),
+      youtube: getValue(youtubeResult)
     }
 
     return response
