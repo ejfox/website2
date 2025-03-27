@@ -5708,6 +5708,57 @@
     }
   },
   {
+    "slug": "2025/mcp-meta-mapping",
+    "title": "Mapping Novel Territories: Untangling MCP Servers",
+    "date": "2025-03-25T04:12:41.000Z",
+    "type": "post",
+    "dek": "In which we the author gets his bearings by doing one of the things he knows best; making a map",
+    "modified": "2025-03-27T20:12:50.000Z",
+    "tags": [
+      "embeddings",
+      "cartography",
+      "dataviz"
+    ],
+    "toc": [
+      {
+        "text": "Mapping Novel Territories: Untangling MCP Servers",
+        "slug": "mapping-novel-territories-untangling-mcp-servers",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "metadata": {
+      "dek": "In which we the author gets his bearings by doing one of the things he knows best; making a map",
+      "inprogress": true,
+      "tags": [
+        "embeddings",
+        "cartography",
+        "dataviz"
+      ],
+      "date": "2025-03-25T04:12:41.000Z",
+      "modified": "2025-03-27T20:12:50.000Z",
+      "words": 746,
+      "images": 8,
+      "links": 8,
+      "codeBlocks": 0,
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "Mapping Novel Territories: Untangling MCP Servers",
+          "slug": "mapping-novel-territories-untangling-mcp-servers",
+          "level": "h2",
+          "children": []
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/2025/mcp-meta-mapping.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "2025/mcp-meta-mapping"
+    }
+  },
+  {
     "slug": "2025/paramilitary-telegram-leaks-001",
     "title": "Processing Telegram Leaks for Fast Web Visualization",
     "date": "2025-03-09T17:49:01.000Z",
@@ -5838,9 +5889,13 @@
   {
     "slug": "drafts/So the world is changing a lot, and I’ve been having really",
     "title": "So the world is changing a lot, and I’ve been having really",
+    "date": "2025-03-08T21:04:52.000Z",
     "type": "post",
+    "modified": "2025-03-25T04:12:41.000Z",
     "toc": [],
     "metadata": {
+      "date": "2025-03-08T21:04:52.000Z",
+      "modified": "2025-03-25T04:12:41.000Z",
       "words": 384,
       "images": 0,
       "links": 0,
@@ -30291,7 +30346,7 @@
     "title": "2025-12",
     "date": "2025-03-17T16:57:36.000Z",
     "type": "post",
-    "modified": "2025-03-22T20:07:12.000Z",
+    "modified": "2025-03-25T15:17:18.000Z",
     "tags": [
       "weekly-notes",
       "reflections",
@@ -30320,7 +30375,7 @@
     ],
     "metadata": {
       "date": "2025-03-17T16:57:36.000Z",
-      "modified": "2025-03-22T20:07:12.000Z",
+      "modified": "2025-03-25T15:17:18.000Z",
       "tags": [
         "weekly-notes",
         "reflections",
@@ -30358,6 +30413,80 @@
       "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-12.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "week-notes/2025-12"
+    }
+  },
+  {
+    "slug": "week-notes/2025-13",
+    "title": "2025-13",
+    "date": "2025-03-24T07:54:19.000Z",
+    "type": "post",
+    "modified": "2025-03-26T18:01:57.000Z",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
+    "toc": [
+      {
+        "text": "2025-13",
+        "slug": "2025-13",
+        "level": "h2",
+        "children": [
+          {
+            "text": "🌟 Daily Check-In & Reflections",
+            "slug": "daily-check-in-reflections",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "📚 Learning & Media",
+            "slug": "learning-media",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
+      "date": "2025-03-24T07:54:19.000Z",
+      "modified": "2025-03-26T18:01:57.000Z",
+      "words": 304,
+      "images": 22,
+      "links": 22,
+      "codeBlocks": 0,
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "2025-13",
+          "slug": "2025-13",
+          "level": "h2",
+          "children": [
+            {
+              "text": "🌟 Daily Check-In & Reflections",
+              "slug": "daily-check-in-reflections",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "📚 Learning & Media",
+              "slug": "learning-media",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-13.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-13"
     }
   }
 ]
