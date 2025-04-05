@@ -1,6 +1,6 @@
 /**
  * anime.js - ESM
- * @version v4.0.0-rc.4
+ * @version v4.0.0-rc.7
  * @author Julian Garnier
  * @license MIT
  * @copyright (c) 2025 Julian Garnier
@@ -450,7 +450,7 @@ const globals = {
   tickThreshold: 200,
 };
 
-const globalVersions = { version: '4.0.0-rc.4', engine: null };
+const globalVersions = { version: '4.0.0-rc.7', engine: null };
 
 if (isBrowser) {
   if (!win.AnimeJS) win.AnimeJS = [];
@@ -814,11 +814,11 @@ const render = (tickable, time, muteCallbacks, internalRender, tickMode) => {
   const _ease = /** @type {Renderable} */(tickable)._ease;
   let iterationTime = isCurrentTimeEqualOrAboveDuration ? isReversed ? 0 : duration : isReversed ? iterationDuration - iterationElapsedTime : iterationElapsedTime;
   if (_ease) iterationTime = iterationDuration * _ease(iterationTime / iterationDuration) || 0;
-  const isRunningBackwards = (parent ? parent._backwards : tickableAbsoluteTime < tickablePrevAbsoluteTime) ? !isReversed : !!isReversed;
+  const isRunningBackwards = (parent ? parent.backwards : tickableAbsoluteTime < tickablePrevAbsoluteTime) ? !isReversed : !!isReversed;
 
   tickable._currentTime = tickableAbsoluteTime;
   tickable._iterationTime = iterationTime;
-  tickable._backwards = isRunningBackwards;
+  tickable.backwards = isRunningBackwards;
 
   if (isCurrentTimeAboveZero && !tickable.began) {
     tickable.began = true;
@@ -827,6 +827,12 @@ const render = (tickable, time, muteCallbacks, internalRender, tickMode) => {
     }
   } else if (tickableAbsoluteTime <= 0) {
     tickable.began = false;
+  }
+
+  // Only triggers onLoop for tickable without children, otherwise call the the onLoop callback in the tick function
+  // Make sure to trigger the onLoop before rendering to allow .refresh() to pickup the current values
+  if (!muteCallbacks && !_hasChildren && isCurrentTimeAboveZero && tickable._currentIteration !== _currentIteration) {
+    tickable.onLoop(/** @type {CallbackArgument} */(tickable));
   }
 
   if (
@@ -1000,11 +1006,6 @@ const render = (tickable, time, muteCallbacks, internalRender, tickMode) => {
 
   // End tweens rendering
 
-  // Only triggers onLoop for tickable without children, otherwise call the the onLoop callback in the tick function
-  if (!muteCallbacks && !_hasChildren && isCurrentTimeAboveZero && tickable._currentIteration !== _currentIteration) {
-    tickable.onLoop(/** @type {CallbackArgument} */(tickable));
-  }
-
   // Handle setters on timeline differently and allow re-trigering the onComplete callback when seeking backwards
   if (parent && isSetter) {
     if (!muteCallbacks && (
@@ -1036,7 +1037,7 @@ const render = (tickable, time, muteCallbacks, internalRender, tickMode) => {
     tickable.completed = false;
   }
 
-  // NOTE: hasRendered * direction (negative for backwards) this way we can remove the tickable._backwards property completly ?
+  // NOTE: hasRendered * direction (negative for backwards) this way we can remove the tickable.backwards property completly ?
   return hasRendered;
 };
 
@@ -1053,7 +1054,7 @@ const tick = (tickable, time, muteCallbacks, internalRender, tickMode) => {
   render(tickable, time, muteCallbacks, internalRender, tickMode);
   if (tickable._hasChildren) {
     const tl = /** @type {Timeline} */(tickable);
-    const tlIsRunningBackwards = tl._backwards;
+    const tlIsRunningBackwards = tl.backwards;
     const tlChildrenTime = internalRender ? time : tl._iterationTime;
     const tlCildrenTickTime = now();
 
@@ -1066,7 +1067,7 @@ const tick = (tickable, time, muteCallbacks, internalRender, tickMode) => {
       forEachChildren(tl, (/** @type {JSAnimation} */child) => {
         if (!tlIsRunningBackwards) {
           // Force an internal render to trigger the callbacks if the child has not completed on loop
-          if (!child.completed && !child._backwards && child._currentTime < child.iterationDuration) {
+          if (!child.completed && !child.backwards && child._currentTime < child.iterationDuration) {
             render(child, tlIterationDuration, muteCallbacks, 1, tickModes.FORCE);
           }
           // Reset their began and completed flags to allow retrigering callbacks on the next iteration
@@ -1534,7 +1535,7 @@ function createDrawableProxy($el, start, end) {
             const os = v1 * -1e3;
             const d1 = (v2 * pathLength) + os;
             // Prevents linecap to smear by offsetting the dasharray length by 0.01% when v2 is not at max
-            const d2 = (pathLength + (v2 === 1 ? 0 : 10) - d1);
+            const d2 = (pathLength + ((v1 === 0 && v2 === 1) || (v1 === 1 && v2 === 0) ? 0 : 10) - d1);
             // Handle cases where the cap is still visible when the line is completly hidden
             if (strokeLineCap !== 'butt') {
               const newCap = v1 === v2 ? 'butt' : strokeLineCap;
@@ -1626,9 +1627,9 @@ const createMotionPath = path => {
   const $path = getPath(path);
   if (!$path) return;
   return {
-    x: getPathProgess($path, 'x'),
-    y: getPathProgess($path, 'y'),
-    angle: getPathProgess($path, 'a'),
+    translateX: getPathProgess($path, 'x'),
+    translateY: getPathProgess($path, 'y'),
+    rotate: getPathProgess($path, 'a'),
   }
 };
 
@@ -2291,6 +2292,8 @@ class Timer extends Clock {
     // Total duration of the timer
     this.duration = clampInfinity(((timerDuration + timerLoopDelay) * timerIterationCount) - timerLoopDelay) || minValue;
     /** @type {Boolean} */
+    this.backwards = false;
+    /** @type {Boolean} */
     this.paused = true;
     /** @type {Boolean} */
     this.began = false;
@@ -2336,8 +2339,6 @@ class Timer extends Clock {
     this._cancelled = 0;
     /** @type {Boolean} */
     this._alternate = setValue(alternate, timerDefaults.alternate);
-    /** @type {Boolean} */
-    this._backwards = false;
     /** @type {Renderable} */
     this._prev = null;
     /** @type {Renderable} */
@@ -2604,7 +2605,7 @@ class Timer extends Clock {
    * @return {this}
    */
   revert() {
-    tick(this, 0, 1, 0, tickModes.FORCE);
+    tick(this, 0, 1, 0, tickModes.AUTO);
     const ap = /** @type {ScrollObserver} */(this._autoplay);
     if (ap && ap.linked && ap.linked === this) ap.revert();
     return this.cancel();
@@ -2774,27 +2775,27 @@ const irregular = (length = 10, randomness = 1) => {
 
 /**
  * @callback PowerEasing
- * @param {Number} [power=1.675]
+ * @param {Number|String} [power=1.675]
  * @return {EasingFunction}
  */
 
 /**
  * @callback BackEasing
- * @param {Number} [overshoot=1.70158]
+ * @param {Number|String} [overshoot=1.70158]
  * @return {EasingFunction}
  */
 
 /**
  * @callback ElasticEasing
- * @param {Number} [amplitude=1]
- * @param {Number} [period=.3]
+ * @param {Number|String} [amplitude=1]
+ * @param {Number|String} [period=.3]
  * @return {EasingFunction}
  */
 
 /**
  * @callback EaseFactory
- * @param {Number} [paramA]
- * @param {Number} [paramB]
+ * @param {Number|String} [paramA]
+ * @param {Number|String} [paramB]
  * @return {EasingFunction|Number}
  */
 
@@ -2847,11 +2848,12 @@ const easeTypes = {
   in: easeIn => t => easeIn(t),
   out: easeIn => t => 1 - easeIn(1 - t),
   inOut: easeIn => t => t < .5 ? easeIn(t * 2) / 2 : 1 - easeIn(t * -2 + 2) / 2,
+  outIn: easeIn => t => t < .5 ? (1 - easeIn(1 - t * 2)) / 2 : (easeIn(t * 2 - 1) + 1) / 2,
 };
 
 /**
  * @param  {String} string
- * @param  {EasesFunctions} easesFunctions
+ * @param  {Record<String, EasesFactory|EasingFunction>} easesFunctions
  * @param  {Object} easesLookups
  * @return {EasingFunction}
  */
@@ -2859,59 +2861,68 @@ const parseEaseString = (string, easesFunctions, easesLookups) => {
   if (easesLookups[string]) return easesLookups[string];
   if (string.indexOf('(') <= -1) {
     const hasParams = easeTypes[string] || string.includes('Back') || string.includes('Elastic');
-    const parsedFn = hasParams ? easesFunctions[string]() : easesFunctions[string];
+    const parsedFn = /** @type {EasingFunction} */(hasParams ? /** @type {EasesFactory} */(easesFunctions[string])() : easesFunctions[string]);
     return parsedFn ? easesLookups[string] = parsedFn : none;
   } else {
     const split = string.slice(0, -1).split('(');
-    const parsedFn = easesFunctions[split[0]];
+    const parsedFn = /** @type {EasesFactory} */(easesFunctions[split[0]]);
     return parsedFn ? easesLookups[string] = parsedFn(...split[1].split(',')) : none;
   }
 };
 
 /**
  * @typedef  {Object} EasesFunctions
- * @property {typeof linear} [linear]
- * @property {typeof irregular} [irregular]
- * @property {typeof steps} [steps]
- * @property {typeof cubicBezier} [cubicBezier]
- * @property {PowerEasing} [in]
- * @property {PowerEasing} [out]
- * @property {PowerEasing} [inOut]
- * @property {EasingFunction} [inQuad]
- * @property {EasingFunction} [outQuad]
- * @property {EasingFunction} [inOutQuad]
- * @property {EasingFunction} [inCubic]
- * @property {EasingFunction} [outCubic]
- * @property {EasingFunction} [inOutCubic]
- * @property {EasingFunction} [inQuart]
- * @property {EasingFunction} [outQuart]
- * @property {EasingFunction} [inOutQuart]
- * @property {EasingFunction} [inQuint]
- * @property {EasingFunction} [outQuint]
- * @property {EasingFunction} [inOutQuint]
- * @property {EasingFunction} [inSine]
- * @property {EasingFunction} [outSine]
- * @property {EasingFunction} [inOutSine]
- * @property {EasingFunction} [inCirc]
- * @property {EasingFunction} [outCirc]
- * @property {EasingFunction} [inOutCirc]
- * @property {EasingFunction} [inExpo]
- * @property {EasingFunction} [outExpo]
- * @property {EasingFunction} [inOutExpo]
- * @property {EasingFunction} [inBounce]
- * @property {EasingFunction} [outBounce]
- * @property {EasingFunction} [inOutBounce]
- * @property {BackEasing} [inBack]
- * @property {BackEasing} [outBack]
- * @property {BackEasing} [inOutBack]
- * @property {ElasticEasing} [inElastic]
- * @property {ElasticEasing} [outElastic]
- * @property {ElasticEasing} [inOutElastic]
+ * @property {typeof linear} linear
+ * @property {typeof irregular} irregular
+ * @property {typeof steps} steps
+ * @property {typeof cubicBezier} cubicBezier
+ * @property {PowerEasing} in
+ * @property {PowerEasing} out
+ * @property {PowerEasing} inOut
+ * @property {PowerEasing} outIn
+ * @property {EasingFunction} inQuad
+ * @property {EasingFunction} outQuad
+ * @property {EasingFunction} inOutQuad
+ * @property {EasingFunction} outInQuad
+ * @property {EasingFunction} inCubic
+ * @property {EasingFunction} outCubic
+ * @property {EasingFunction} inOutCubic
+ * @property {EasingFunction} outInCubic
+ * @property {EasingFunction} inQuart
+ * @property {EasingFunction} outQuart
+ * @property {EasingFunction} inOutQuart
+ * @property {EasingFunction} outInQuart
+ * @property {EasingFunction} inQuint
+ * @property {EasingFunction} outQuint
+ * @property {EasingFunction} inOutQuint
+ * @property {EasingFunction} outInQuint
+ * @property {EasingFunction} inSine
+ * @property {EasingFunction} outSine
+ * @property {EasingFunction} inOutSine
+ * @property {EasingFunction} outInSine
+ * @property {EasingFunction} inCirc
+ * @property {EasingFunction} outCirc
+ * @property {EasingFunction} inOutCirc
+ * @property {EasingFunction} outInCirc
+ * @property {EasingFunction} inExpo
+ * @property {EasingFunction} outExpo
+ * @property {EasingFunction} inOutExpo
+ * @property {EasingFunction} outInExpo
+ * @property {EasingFunction} inBounce
+ * @property {EasingFunction} outBounce
+ * @property {EasingFunction} inOutBounce
+ * @property {EasingFunction} outInBounce
+ * @property {BackEasing} inBack
+ * @property {BackEasing} outBack
+ * @property {BackEasing} inOutBack
+ * @property {BackEasing} outInBack
+ * @property {ElasticEasing} inElastic
+ * @property {ElasticEasing} outElastic
+ * @property {ElasticEasing} inOutElastic
+ * @property {ElasticEasing} outInElastic
  */
 
-/** @type {EasesFunctions} */
-const eases = /*#__PURE__*/ (() => {
-  /** @type {EasesFunctions} */
+const eases = (/*#__PURE__*/ (() => {
   const list = { linear, irregular, steps, cubicBezier };
   for (let type in easeTypes) {
     for (let name in easeInFunctions) {
@@ -2924,8 +2935,8 @@ const eases = /*#__PURE__*/ (() => {
       );
     }
   }
-  return list;
-})();
+  return /** @type {EasesFunctions} */(list);
+})());
 
 /** @type {Record<String, EasingFunction>} */
 const JSEasesLookups = { linear: none };
@@ -3709,7 +3720,7 @@ const WAAPIEasesLookups = {
 const WAAPIeases = /*#__PURE__*/(() => {
   const list = {};
   for (let type in easeTypes) list[type] = a => easeTypes[type](easeInPower(a));
-  return list;
+  return /** @type {Record<String, EasingFunction>} */(list);
 })();
 
 /**
@@ -3850,8 +3861,7 @@ const removeWAAPIAnimation = ($el, property, parent) => {
     const matchParent = !parent || nextLookup.parent === parent;
     if (matchTarget && matchProperty && matchParent) {
       const anim = nextLookup.animation;
-      anim.commitStyles();
-      anim.cancel();
+      try { anim.commitStyles(); } catch {}      anim.cancel();
       removeChild(WAAPIAnimationsLookups, nextLookup);
       const lookupParent = nextLookup.parent;
       if (lookupParent) {
@@ -5799,8 +5809,8 @@ class Draggable {
     this.$scrollContainer = this.useWin ? win : this.$container;
     this.isFinePointer = matchMedia('(pointer:fine)').matches;
     this.containerPadding = setValue(containerPadding, [0, 0, 0, 0]);
-    this.containerFriction = clamp(0, setValue(parseDraggableFunctionParameter(params.containerFriction, this), .8), 1);
-    this.releaseContainerFriction = clamp(0, setValue(parseDraggableFunctionParameter(params.releaseContainerFriction, this), this.containerFriction), 1);
+    this.containerFriction = clamp(setValue(parseDraggableFunctionParameter(params.containerFriction, this), .8), 0, 1);
+    this.releaseContainerFriction = clamp(setValue(parseDraggableFunctionParameter(params.releaseContainerFriction, this), this.containerFriction), 0, 1);
     this.snapX = parseDraggableFunctionParameter(isObj(paramX) && !isUnd(paramX.snap) ? paramX.snap : params.snap, this);
     this.snapY = parseDraggableFunctionParameter(isObj(paramY) && !isUnd(paramY.snap) ? paramY.snap : params.snap, this);
     this.scrollSpeed = setValue(parseDraggableFunctionParameter(params.scrollSpeed, this), 1.5);
@@ -6287,7 +6297,9 @@ class Draggable {
     if (!this.enabled) {
       this.enabled = true;
       this.$target.classList.remove('is-disabled');
-      this.touchActionStyles = setTargetValues([this.$trigger], { touchAction: 'none' });
+      this.touchActionStyles = setTargetValues(this.$trigger, {
+        touchAction: this.disabled[0] ? 'pan-x' : this.disabled[1] ? 'pan-y' : 'none'
+      });
       this.$trigger.addEventListener('touchstart', this, { passive: true });
       this.$trigger.addEventListener('mousedown', this, { passive: true });
       this.$trigger.addEventListener('mouseenter', this);
@@ -6407,6 +6419,23 @@ const createDraggable = (target, parameters) => new Draggable(target, parameters
  * @property {Record<String, String>} [mediaQueries]
  */
 
+/**
+ * @callback ScopeCleanup
+ * @param {Scope} [scope]
+ */
+
+/**
+ * @callback ScopeConstructor
+ * @param {Scope} [scope]
+ * @return {ScopeCleanup|void}
+ */
+
+/**
+ * @callback ScopeMethod
+ * @param {...*} args
+ * @return {ScopeCleanup|void}
+ */
+
 class Scope {
   /** @param {ScopeParams} [parameters] */
   constructor(parameters = {}) {
@@ -6427,13 +6456,13 @@ class Scope {
     this.defaults = scopeDefaults ? mergeObjects(scopeDefaults, globalDefault) : globalDefault;
     /** @type {Document|DOMTarget} */
     this.root = root;
-    /** @type {Array<Function>} */
+    /** @type {Array<ScopeConstructor>} */
     this.constructors = [];
     /** @type {Array<Function>} */
     this.revertConstructors = [];
     /** @type {Array<Revertible>} */
     this.revertibles = [];
-    /** @type {Record<String, any>} */
+    /** @type {Record<String, Function>} */
     this.methods = {};
     /** @type {Record<String, Boolean>} */
     this.matches = {};
@@ -6501,7 +6530,7 @@ class Scope {
    *
    * @overload
    * @param {String} a1
-   * @param {Function} a2
+   * @param {ScopeMethod} a2
    * @return {this}
    *
    * @overload
@@ -6509,7 +6538,7 @@ class Scope {
    * @return {this}
    *
    * @param {String|contructorCallback} a1
-   * @param {Function} [a2]
+   * @param {ScopeMethod} [a2]
    */
   add(a1, a2) {
     if (isFnc(a1)) {
@@ -6671,7 +6700,7 @@ class ScrollContainer {
     /** @type {Timer} */
     this.wakeTicker = new Timer({
       autoplay: false,
-      duration: 66 * globals.timeScale,
+      duration: 500 * globals.timeScale,
       onBegin: () => {
         this.scrollTicker.resume();
       },
@@ -7008,6 +7037,8 @@ class ScrollObserver {
     this.offsetEnd = 0;
     /** @type {Number} */
     this.distance = 0;
+    /** @type {Number} */
+    this.prevProgress = 0;
     /** @type {Array} */
     this.thresholds = ['start', 'end', 'end', 'start'];
     /** @type {[Number, Number, Number, Number]} */
@@ -7024,6 +7055,7 @@ class ScrollObserver {
     this._next = null;
     /** @type {ScrollObserver} */
     this._prev = null;
+    addChild(this.container, this);
     // Wait for the next frame to add to the container in order to handle calls to link()
     sync(() => {
       if (this.reverted) return;
@@ -7033,7 +7065,6 @@ class ScrollObserver {
         this.refresh();
       }
       if (this._debug) this.debug();
-      addChild(this.container, this);
     });
   }
 
@@ -7373,7 +7404,7 @@ class ScrollObserver {
       } else if (syncEase) {
         p = syncEase(p);
       }
-      hasUpdated = p !== lp;
+      hasUpdated = p !== this.prevProgress;
       syncCompleted = lp === 1;
       if (hasUpdated && !syncCompleted && (syncSmooth && lp)) {
         container.wakeTicker.restart();
@@ -7444,6 +7475,8 @@ class ScrollObserver {
     if (p < 1 && this.completed) {
       this.completed = false;
     }
+
+    this.prevProgress = p;
   }
 
   revert() {
