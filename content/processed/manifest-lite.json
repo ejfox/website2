@@ -5887,28 +5887,6 @@
     }
   },
   {
-    "slug": "drafts/So the world is changing a lot, and I’ve been having really",
-    "title": "So the world is changing a lot, and I’ve been having really",
-    "date": "2025-03-08T21:04:52.000Z",
-    "type": "post",
-    "modified": "2025-03-25T04:12:41.000Z",
-    "toc": [],
-    "metadata": {
-      "date": "2025-03-08T21:04:52.000Z",
-      "modified": "2025-03-25T04:12:41.000Z",
-      "words": 384,
-      "images": 0,
-      "links": 0,
-      "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/drafts/So the world is changing a lot, and I’ve been having really.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "drafts/So the world is changing a lot, and I’ve been having really"
-    }
-  },
-  {
     "slug": "drafts/_stale/!index_drafts",
     "title": "!index_drafts",
     "date": "2023-01-15T20:08:41.000Z",
@@ -14731,6 +14709,28 @@
     }
   },
   {
+    "slug": "drafts/anime-v4-and-vue",
+    "title": "Anime V4 And Vue",
+    "date": "2025-04-02T16:48:49.000Z",
+    "type": "post",
+    "modified": "2025-04-05T19:54:31.000Z",
+    "toc": [],
+    "metadata": {
+      "date": "2025-04-02T16:48:49.000Z",
+      "modified": "2025-04-05T19:54:31.000Z",
+      "words": 53,
+      "images": 0,
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/anime-v4-and-vue.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/anime-v4-and-vue"
+    }
+  },
+  {
     "slug": "drafts/automating-podcast-editing",
     "title": "Automating Podcast Editing",
     "date": "2025-03-05T04:05:00.000Z",
@@ -14847,6 +14847,28 @@
     }
   },
   {
+    "slug": "drafts/the-world-is-changing",
+    "title": "The World Is Changing",
+    "date": "2025-03-08T21:04:52.000Z",
+    "type": "post",
+    "modified": "2025-03-25T04:12:41.000Z",
+    "toc": [],
+    "metadata": {
+      "date": "2025-03-08T21:04:52.000Z",
+      "modified": "2025-03-25T04:12:41.000Z",
+      "words": 384,
+      "images": 0,
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/the-world-is-changing.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/the-world-is-changing"
+    }
+  },
+  {
     "slug": "index",
     "title": "Index",
     "date": "2024-09-22T00:33:21.000Z",
@@ -14873,16 +14895,16 @@
     "title": "2016 Russian Twitter Trolls",
     "date": "2017-12-20T20:01:43.000Z",
     "type": "post",
-    "modified": "2024-10-14T16:35:58.000Z",
+    "modified": "2025-04-05T20:07:27.000Z",
     "toc": [],
     "metadata": {
       "title": "2016 Russian Twitter Trolls",
       "date": "2017-12-20T20:01:43.000Z",
-      "modified": "2024-10-14T16:35:58.000Z",
+      "modified": "2025-04-05T20:07:27.000Z",
       "url": "https://www.nbcnews.com/tech/social-media/russian-trolls-went-attack-during-key-election-moments-n827176",
-      "words": 37,
-      "images": 0,
-      "links": 2,
+      "words": 189,
+      "images": 1,
+      "links": 4,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -14897,14 +14919,14 @@
     "title": "Clusters of NYPD Misconduct",
     "date": "2024-09-21T20:00:47.000Z",
     "type": "post",
-    "modified": "2025-03-04T04:09:11.000Z",
+    "modified": "2025-04-05T20:10:29.000Z",
     "toc": [],
     "metadata": {
       "title": "Clusters of NYPD Misconduct",
       "date": "2024-09-21T20:00:47.000Z",
-      "modified": "2025-03-04T04:09:11.000Z",
+      "modified": "2025-04-05T20:10:29.000Z",
       "url": "https://gothamist.com/news/mapping-clusters-nypd-officers-repeatedly-accused-misconduct",
-      "words": 26,
+      "words": 213,
       "images": 1,
       "links": 1,
       "codeBlocks": 0,
@@ -14914,6 +14936,119 @@
       "sourcePath": "../../../../../code/website2/content/blog/projects/ccrb-clusters.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "projects/ccrb-clusters"
+    }
+  },
+  {
+    "slug": "projects/cli-alias-wizard",
+    "title": "Cli Alias Wizard",
+    "date": "2025-04-05T20:14:06.000Z",
+    "type": "post",
+    "modified": "2025-04-05T20:17:15.000Z",
+    "toc": [],
+    "metadata": {
+      "date": "2025-04-05T20:14:06.000Z",
+      "modified": "2025-04-05T20:17:15.000Z",
+      "words": 76,
+      "images": 1,
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/projects/cli-alias-wizard.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "projects/cli-alias-wizard"
+    }
+  },
+  {
+    "slug": "projects/cli-ascii-3d",
+    "title": "Cli Ascii 3d",
+    "date": "2025-04-05T20:17:15.000Z",
+    "type": "post",
+    "modified": "2025-04-05T20:24:35.000Z",
+    "toc": [],
+    "metadata": {
+      "date": "2025-04-05T20:17:15.000Z",
+      "modified": "2025-04-05T20:24:35.000Z",
+      "words": 140,
+      "images": 2,
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/projects/cli-ascii-3d.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "projects/cli-ascii-3d"
+    }
+  },
+  {
+    "slug": "projects/cli-ching",
+    "title": "CLI-CHING",
+    "date": "2025-01-15T23:42:31.000Z",
+    "type": "post",
+    "modified": "2025-04-05T20:26:53.000Z",
+    "toc": [],
+    "metadata": {
+      "title": "CLI-CHING",
+      "date": "2025-01-15T23:42:31.000Z",
+      "modified": "2025-04-05T20:26:53.000Z",
+      "words": 175,
+      "images": 1,
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/projects/cli-ching.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "projects/cli-ching"
+    }
+  },
+  {
+    "slug": "projects/cli-content",
+    "title": "Draft Assistant",
+    "date": "2025-01-30T18:12:53.000Z",
+    "type": "post",
+    "modified": "2025-04-05T20:29:15.000Z",
+    "toc": [],
+    "metadata": {
+      "title": "Draft Assistant",
+      "date": "2025-01-30T18:12:53.000Z",
+      "modified": "2025-04-05T20:29:15.000Z",
+      "words": 162,
+      "images": 1,
+      "links": 1,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/projects/cli-content.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "projects/cli-content"
+    }
+  },
+  {
+    "slug": "projects/cli-conway",
+    "title": "CLI-Conway",
+    "date": "2025-02-22T15:34:16.000Z",
+    "type": "post",
+    "modified": "2025-04-05T20:33:36.000Z",
+    "toc": [],
+    "metadata": {
+      "title": "CLI-Conway",
+      "date": "2025-02-22T15:34:16.000Z",
+      "modified": "2025-04-05T20:33:36.000Z",
+      "words": 87,
+      "images": 1,
+      "links": 1,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/projects/cli-conway.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "projects/cli-conway"
     }
   },
   {
@@ -15359,16 +15494,16 @@
     "title": "Vulpecula Loom",
     "date": "2025-02-22T23:13:49.000Z",
     "type": "post",
-    "modified": "2025-03-04T04:08:46.000Z",
+    "modified": "2025-04-06T16:01:29.000Z",
     "toc": [],
     "metadata": {
       "title": "Vulpecula Loom",
       "github": "https://github.com/ejfox/vulpecula-loom",
       "date": "2025-02-22T23:13:49.000Z",
-      "modified": "2025-03-04T04:08:46.000Z",
-      "words": 74,
-      "images": 5,
-      "links": 5,
+      "modified": "2025-04-06T16:01:29.000Z",
+      "words": 72,
+      "images": 3,
+      "links": 3,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -15376,6 +15511,29 @@
       "sourcePath": "../../../../../code/website2/content/blog/projects/vulpecula-loom.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "projects/vulpecula-loom"
+    }
+  },
+  {
+    "slug": "projects/vulpes-spotify-mcp",
+    "title": "Vulpes Spotify Mcp",
+    "date": "2025-04-06T14:27:20.000Z",
+    "type": "post",
+    "modified": "2025-04-06T14:35:14.000Z",
+    "toc": [],
+    "metadata": {
+      "date": "2025-04-06T14:27:20.000Z",
+      "modified": "2025-04-06T14:35:14.000Z",
+      "github": "https://github.com/ejfox/vulpes-spotify-mcp",
+      "words": 52,
+      "images": 1,
+      "links": 1,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/projects/vulpes-spotify-mcp.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "projects/vulpes-spotify-mcp"
     }
   },
   {
@@ -15401,6 +15559,50 @@
       "sourcePath": "../../../../../code/website2/content/blog/projects/we-glow-in-the-dark.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "projects/we-glow-in-the-dark"
+    }
+  },
+  {
+    "slug": "projects/webhook-desktop-color",
+    "title": "Webhook Desktop Color",
+    "date": "2025-04-06T14:23:58.000Z",
+    "type": "post",
+    "modified": "2025-04-06T14:27:20.000Z",
+    "toc": [],
+    "metadata": {
+      "date": "2025-04-06T14:23:58.000Z",
+      "modified": "2025-04-06T14:27:20.000Z",
+      "words": 123,
+      "images": 1,
+      "links": 1,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/projects/webhook-desktop-color.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "projects/webhook-desktop-color"
+    }
+  },
+  {
+    "slug": "projects/zackgaydos",
+    "title": "Zackgaydos",
+    "date": "2025-04-06T14:13:03.000Z",
+    "type": "post",
+    "modified": "2025-04-06T14:15:52.000Z",
+    "toc": [],
+    "metadata": {
+      "date": "2025-04-06T14:13:03.000Z",
+      "modified": "2025-04-06T14:15:52.000Z",
+      "words": 82,
+      "images": 1,
+      "links": 1,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/projects/zackgaydos.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "projects/zackgaydos"
     }
   },
   {
@@ -30420,7 +30622,7 @@
     "title": "2025-13",
     "date": "2025-03-24T07:54:19.000Z",
     "type": "post",
-    "modified": "2025-03-26T18:01:57.000Z",
+    "modified": "2025-04-02T04:12:52.000Z",
     "tags": [
       "weekly-notes",
       "reflections",
@@ -30454,10 +30656,10 @@
         "progress"
       ],
       "date": "2025-03-24T07:54:19.000Z",
-      "modified": "2025-03-26T18:01:57.000Z",
-      "words": 304,
-      "images": 22,
-      "links": 22,
+      "modified": "2025-04-02T04:12:52.000Z",
+      "words": 232,
+      "images": 15,
+      "links": 15,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -30487,6 +30689,28 @@
       "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-13.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "week-notes/2025-13"
+    }
+  },
+  {
+    "slug": "week-notes/2025-14",
+    "title": "2025 14",
+    "date": "2025-03-31T17:44:43.000Z",
+    "type": "post",
+    "modified": "2025-04-06T14:13:03.000Z",
+    "toc": [],
+    "metadata": {
+      "date": "2025-03-31T17:44:43.000Z",
+      "modified": "2025-04-06T14:13:03.000Z",
+      "words": 183,
+      "images": 18,
+      "links": 18,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-14.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-14"
     }
   }
 ]
