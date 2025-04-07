@@ -113,17 +113,43 @@ export default defineEventHandler(async (event) => {
 
     if (!response.ok) {
       console.error(`Last.fm API error: ${response.status} ${response.statusText}`)
+      const errorText = await response.text().catch(() => 'Could not read error response')
+      console.error('Last.fm API error response:', errorText)
       throw createError({
         statusCode: response.status,
-        message: `Last.fm API error: ${response.statusText}`
+        message: `Last.fm API error: ${response.statusText}`,
+        data: { errorText }
       })
     }
 
     const data = await response.json()
+    
+    // Check for Last.fm API errors in the response
+    if (data.error) {
+      console.error(`Last.fm API returned error code ${data.error} with message: ${data.message}`)
+      throw createError({
+        statusCode: 500,
+        message: `Last.fm API error: ${data.message || 'Unknown error'}`,
+        data: { errorCode: data.error }
+      })
+    }
+    
     return data as T
   }
 
   try {
+    console.log('Last.fm API key:', apiKey ? `${apiKey.substring(0, 4)}...${apiKey.substring(apiKey.length - 4)}` : 'Not set')
+    console.log('Last.fm shared secret:', sharedSecret ? `${sharedSecret.substring(0, 4)}...${sharedSecret.substring(sharedSecret.length - 4)}` : 'Not set')
+    
+    // Test the API connection first
+    try {
+      const testResponse = await makeRequest('user.getinfo')
+      console.log('Last.fm API test successful:', testResponse.user?.name === username ? 'Username matches' : 'Username mismatch')
+    } catch (testError) {
+      console.error('Last.fm API test failed:', testError)
+      throw testError
+    }
+    
     // Fetch all data in parallel
     const [recentTracks, topArtists, topAlbums, topTracks, userInfo] = await Promise.all([
       makeRequest('user.getrecenttracks', { limit: '10' }),
@@ -208,7 +234,7 @@ export default defineEventHandler(async (event) => {
     const daysSinceRegistered = Math.floor((now.getTime() - registeredDate.getTime()) / (1000 * 60 * 60 * 24))
     const averagePerDay = Math.round((totalScrobbles / daysSinceRegistered) * 10) / 10
 
-    return {
+    const result = {
       recentTracks: processedRecentTracks,
       topArtists: processedTopArtists,
       topAlbums: processedTopAlbums,
@@ -223,6 +249,20 @@ export default defineEventHandler(async (event) => {
       },
       lastUpdated: new Date().toISOString()
     }
+    
+    // Log a summary of the data we're returning
+    console.log('Last.fm API data summary:', {
+      recentTracksCount: processedRecentTracks.tracks.length,
+      topArtistsCount: processedTopArtists.artists.length,
+      topAlbumsCount: processedTopAlbums.albums.length,
+      topTracksCount: processedTopTracks.tracks.length,
+      totalScrobbles,
+      uniqueArtists,
+      uniqueTracks,
+      averagePerDay
+    })
+    
+    return result
   } catch (error: any) {
     console.error('Last.fm API error details:', error)
     throw createError({
