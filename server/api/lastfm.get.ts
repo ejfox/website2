@@ -83,8 +83,8 @@ interface LastFmResponse {
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig()
-  const apiKey = config.LASTFM_API_KEY || process.env.LASTFM_API_KEY || '3e1f9761376a48e5d6b38aa0dba8274f'
-  const sharedSecret = config.LASTFM_SHARED_SECRET || process.env.LASTFM_SHARED_SECRET || 'f0ba21c7a486f694b889521ca0f26d7a'
+  const apiKey = config.LASTFM_API_KEY || process.env.LASTFM_API_KEY
+  const sharedSecret = config.LASTFM_SHARED_SECRET || process.env.LASTFM_SHARED_SECRET
   const username = 'pseudoplacebo' // Hardcoded username as specified
 
   if (!apiKey) {
