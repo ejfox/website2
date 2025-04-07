@@ -61,6 +61,8 @@ export default defineNuxtConfig({
     RESCUETIME_TOKEN: process.env.RESCUETIME_TOKEN || '',
     LASTFM_API_KEY: process.env.LASTFM_API_KEY || '',
     LASTFM_SHARED_SECRET: process.env.LASTFM_SHARED_SECRET || '',
+    LASTFM_API_KEY: process.env.LASTFM_API_KEY || '',
+    LASTFM_SHARED_SECRET: process.env.LASTFM_SHARED_SECRET || '',
 
     public: {
       baseUrl:

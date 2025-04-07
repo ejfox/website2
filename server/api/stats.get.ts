@@ -7,6 +7,7 @@ import leetcodeHandler from './leetcode.get'
 import chessHandler from './chess.get'
 import rescuetimeHandler from './rescuetime.get'
 import lastfmHandler from './lastfm.get'
+import lastfmHandler from './lastfm.get'
 
 // Adapter function to convert chess stats to the expected format
 function adaptChessStats(chessStats: any) {
