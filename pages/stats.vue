@@ -115,6 +115,14 @@
                     key="productivity-section">
                     <AsyncRescueTimeStats :stats="stats" key="rescuetime" />
                   </StatsSection>
+
+                  <!-- Last.fm -->
+                  <StatsSection v-if="hasLastFmData" id="lastfm" title="MUSIC" key="lastfm-section">
+                    <AsyncLastFmStats v-if="stats.lastfm" :stats="stats.lastfm" key="lastfm" />
+                    <div v-else class="data-unavailable">
+                      LASTFM_DATA_UNAVAILABLE
+                    </div>
+                  </StatsSection>
                 </div>
               </div>
             </div>
@@ -192,6 +200,7 @@ const AsyncTopStats = defineAsyncComponent(() => import('~/components/stats/TopS
 const AsyncChessStats = defineAsyncComponent(() => import('~/components/stats/ChessStats.vue' /* webpackPrefetch: true */))
 const AsyncRescueTimeStats = defineAsyncComponent(() => import('~/components/stats/RescueTimeStats.vue' /* webpackPrefetch: true */))
 const AsyncGearStats = defineAsyncComponent(() => import('~/components/stats/GearStats.vue' /* webpackPrefetch: true */))
+const AsyncLastFmStats = defineAsyncComponent(() => import('~/components/stats/LastFmStats.vue' /* webpackPrefetch: true */))
 
 interface BlogPost {
   wordCount?: number
@@ -247,6 +256,7 @@ const hasHealthData = computed(() => !!(stats.value?.health))
 const hasLeetCodeData = computed(() => !!(stats.value?.leetcode?.submissionStats))
 const hasChessData = computed(() => !!(stats.value?.chess))
 const hasRescueTimeData = computed(() => !!(stats.value?.rescueTime))
+const hasLastFmData = computed(() => !!(stats.value?.lastfm))
 
 // Blog stats
 const blogStats = ref<BlogStats | null>(null)
@@ -514,7 +524,8 @@ const statsSections = [
   { id: 'chess', text: 'CHESS' },
   { id: 'productivity', text: 'PRODUCTIVITY' },
   { id: 'gear', text: 'GEAR' },
-  { id: 'health', text: 'HEALTH' }
+  { id: 'health', text: 'HEALTH' },
+  { id: 'lastfm', text: 'MUSIC' }
 ]
 
 // Track active section

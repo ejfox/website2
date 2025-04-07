@@ -39,6 +39,91 @@ interface HealthDataRecord {
 }
 
 export interface StatsResponse {
+  lastfm?: {
+    recentTracks: {
+      tracks: Array<{
+        name: string
+        artist: {
+          name: string
+          url: string
+        }
+        url: string
+        date?: {
+          uts: string
+          '#text': string
+        }
+        image: Array<{
+          size: string
+          '#text': string
+        }>
+      }>
+      total: number
+    }
+    topArtists: {
+      artists: Array<{
+        name: string
+        playcount: string
+        url: string
+        image: Array<{
+          size: string
+          '#text': string
+        }>
+      }>
+      total: number
+    }
+    topAlbums: {
+      albums: Array<{
+        name: string
+        playcount: string
+        artist: {
+          name: string
+          url: string
+        }
+        url: string
+        image: Array<{
+          size: string
+          '#text': string
+        }>
+      }>
+      total: number
+    }
+    topTracks: {
+      tracks: Array<{
+        name: string
+        artist: {
+          name: string
+          url: string
+        }
+        url: string
+        playcount?: string
+        image: Array<{
+          size: string
+          '#text': string
+        }>
+      }>
+      total: number
+    }
+    userInfo: {
+      playcount: number
+      registered: {
+        unixtime: string
+        formatted: string
+      }
+      url: string
+      image: string
+    }
+    stats: {
+      totalScrobbles: number
+      uniqueArtists: number
+      uniqueTracks: number
+      averagePerDay: number
+      topGenres: Array<{
+        name: string
+        count: number
+      }>
+    }
+    lastUpdated: string
+  }
   rescueTime?: {
     week: {
       categories: Array<{
@@ -324,6 +409,7 @@ export function useStats() {
   )
   const hasChessData = computed(() => !!stats.value?.chess)
   const hasRescueTimeData = computed(() => !!stats.value?.rescueTime)
+  const hasLastFmData = computed(() => !!stats.value?.lastfm)
 
   // Check if we have cached data
   const getCachedStats = (): StatsResponse | null => {
@@ -416,6 +502,7 @@ export function useStats() {
     hasLeetCodeData,
     hasChessData,
     hasRescueTimeData,
+    hasLastFmData,
     refreshStats: () => fetchFreshData(false) // Expose refresh method
   }
 }
