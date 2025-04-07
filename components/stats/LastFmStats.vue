@@ -1,31 +1,42 @@
 <template>
-  <div class="space-y-8">
+  <div v-if="stats.error" class="space-y-4">
+    <div class="text-sm text-zinc-400">
+      Unable to load Last.fm data: {{ stats.error.message }}
+    </div>
+    <div class="text-xs text-zinc-500">
+      <a href="https://www.last.fm/user/pseudoplacebo" target="_blank" rel="noopener noreferrer" 
+         class="hover:text-zinc-300 transition-colors">
+        View Last.fm Profile →
+      </a>
+    </div>
+  </div>
+  <div v-else class="space-y-8">
     <!-- Overview -->
     <div class="space-y-4">
       <div class="grid grid-cols-2 gap-4">
         <div class="stat-card">
-          <div class="text-2xl font-mono">{{ formatNumber(stats.stats.totalScrobbles) }}</div>
+          <div class="text-2xl font-mono">{{ formatNumber(stats.stats?.totalScrobbles || 0) }}</div>
           <div class="text-xs text-zinc-500 uppercase tracking-wider">Total Scrobbles</div>
         </div>
         <div class="stat-card">
-          <div class="text-2xl font-mono">{{ formatNumber(stats.stats.averagePerDay) }}</div>
+          <div class="text-2xl font-mono">{{ formatNumber(stats.stats?.averagePerDay || 0) }}</div>
           <div class="text-xs text-zinc-500 uppercase tracking-wider">Daily Average</div>
         </div>
       </div>
       <div class="grid grid-cols-2 gap-4">
         <div class="stat-card">
-          <div class="text-2xl font-mono">{{ formatNumber(stats.stats.uniqueArtists) }}</div>
+          <div class="text-2xl font-mono">{{ formatNumber(stats.stats?.uniqueArtists || 0) }}</div>
           <div class="text-xs text-zinc-500 uppercase tracking-wider">Unique Artists</div>
         </div>
         <div class="stat-card">
-          <div class="text-2xl font-mono">{{ formatNumber(stats.stats.uniqueTracks) }}</div>
+          <div class="text-2xl font-mono">{{ formatNumber(stats.stats?.uniqueTracks || 0) }}</div>
           <div class="text-xs text-zinc-500 uppercase tracking-wider">Unique Tracks</div>
         </div>
       </div>
     </div>
 
     <!-- Recent Tracks -->
-    <div class="space-y-4">
+    <div v-if="stats.recentTracks?.tracks?.length" class="space-y-4">
       <h3 class="text-xs text-zinc-500 uppercase tracking-wider">Recently Played</h3>
       <div class="space-y-3">
         <div v-for="(track, index) in stats.recentTracks.tracks.slice(0, 5)" :key="index" class="flex items-center gap-3">
@@ -56,7 +67,7 @@
     </div>
 
     <!-- Top Artists -->
-    <div class="space-y-4">
+    <div v-if="stats.topArtists?.artists?.length" class="space-y-4">
       <h3 class="text-xs text-zinc-500 uppercase tracking-wider">Top Artists (Month)</h3>
       <div class="space-y-2">
         <div v-for="(artist, index) in stats.topArtists.artists.slice(0, 5)" :key="index" 
@@ -71,7 +82,7 @@
     </div>
 
     <!-- Top Albums -->
-    <div class="space-y-4">
+    <div v-if="stats.topAlbums?.albums?.length" class="space-y-4">
       <h3 class="text-xs text-zinc-500 uppercase tracking-wider">Top Albums (Month)</h3>
       <div class="space-y-2">
         <div v-for="(album, index) in stats.topAlbums.albums.slice(0, 5)" :key="index" 
@@ -89,7 +100,7 @@
     </div>
 
     <!-- Top Tracks -->
-    <div class="space-y-4">
+    <div v-if="stats.topTracks?.tracks?.length" class="space-y-4">
       <h3 class="text-xs text-zinc-500 uppercase tracking-wider">Top Tracks (Month)</h3>
       <div class="space-y-2">
         <div v-for="(track, index) in stats.topTracks.tracks.slice(0, 5)" :key="index" 
@@ -203,6 +214,10 @@ interface LastFmStats {
     }>
   }
   lastUpdated: string
+  error?: {
+    message: string
+    statusCode: number
+  }
 }
 
 const props = defineProps<{
