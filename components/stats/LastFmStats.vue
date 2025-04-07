@@ -88,6 +88,24 @@
       </div>
     </div>
 
+    <!-- Top Tracks -->
+    <div class="space-y-4">
+      <h3 class="text-xs text-zinc-500 uppercase tracking-wider">Top Tracks (Month)</h3>
+      <div class="space-y-2">
+        <div v-for="(track, index) in stats.topTracks.tracks.slice(0, 5)" :key="index" 
+             class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <div class="text-xs text-zinc-500 w-4 text-right">{{ index + 1 }}</div>
+            <div class="min-w-0 flex-1">
+              <div class="text-sm truncate">{{ track.name }}</div>
+              <div class="text-xs text-zinc-500 truncate">{{ track.artist.name }}</div>
+            </div>
+          </div>
+          <div class="text-xs text-zinc-500">{{ track.playcount }} plays</div>
+        </div>
+      </div>
+    </div>
+
     <!-- Last.fm Profile Link -->
     <div class="text-center pt-4">
       <a :href="stats.userInfo.url" target="_blank" rel="noopener noreferrer" 
@@ -199,6 +217,12 @@ const formatNumber = (num: number): string => {
 // Get medium-sized image from track
 const getTrackImage = (track: LastFmTrack): string => {
   const mediumImage = track.image.find(img => img.size === 'medium')
+  return mediumImage && mediumImage['#text'] ? mediumImage['#text'] : ''
+}
+
+// Get album image
+const getAlbumImage = (album: any): string => {
+  const mediumImage = album.image.find(img => img.size === 'medium')
   return mediumImage && mediumImage['#text'] ? mediumImage['#text'] : ''
 }
 

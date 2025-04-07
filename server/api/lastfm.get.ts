@@ -83,7 +83,8 @@ interface LastFmResponse {
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig()
-  const apiKey = config.LASTFM_API_KEY || process.env.LASTFM_API_KEY
+  const apiKey = config.LASTFM_API_KEY || process.env.LASTFM_API_KEY || '3e1f9761376a48e5d6b38aa0dba8274f'
+  const sharedSecret = config.LASTFM_SHARED_SECRET || process.env.LASTFM_SHARED_SECRET || 'f0ba21c7a486f694b889521ca0f26d7a'
   const username = 'pseudoplacebo' // Hardcoded username as specified
 
   if (!apiKey) {
@@ -105,6 +106,8 @@ export default defineEventHandler(async (event) => {
     Object.entries(params).forEach(([key, value]) => {
       url.searchParams.append(key, value)
     })
+
+    console.log(`Fetching Last.fm data: ${method}`)
 
     const response = await fetch(url.toString())
 
