@@ -2,19 +2,17 @@
   <section class="space-y-2 text-xs">
     <!-- Minimal header -->
     <div
-      class="flex justify-between items-center text-[10px] tracking-[0.2em] text-zinc-500 mb-4"
+      class="flex justify-between items-center text-[10px] tracking-[0.2em] text-zinc-500 p-4"
     >
       <div>FOX_STATS</div>
       <div>{{ dayOfYear }}/{{ daysInYear }}</div>
     </div>
 
     <!-- Dense stats layout -->
-    <div class="space-y-4">
+    <div class="space-y-4 p-4">
       <!-- Writing Stats -->
       <div v-if="blogStats" class="space-y-1">
-        <div class="text-[10px] tracking-[0.2em] text-zinc-500">
-          WRITING
-        </div>
+        <div class="text-[10px] tracking-[0.2em] text-zinc-500">WRITING</div>
         <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
           <div class="flex justify-between">
             <span>Posts</span>
@@ -28,9 +26,7 @@
           </div>
           <div class="flex justify-between">
             <span>This Month</span>
-            <span class="tabular-nums">{{
-              blogStats.postsThisMonth
-            }}</span>
+            <span class="tabular-nums">{{ blogStats.postsThisMonth }}</span>
           </div>
           <div class="flex justify-between">
             <span>Avg Words</span>
@@ -41,9 +37,7 @@
 
       <!-- Typing Stats -->
       <div v-if="stats.monkeyType?.typingStats" class="space-y-1">
-        <div class="text-[10px] tracking-[0.2em] text-zinc-500">
-          TYPING
-        </div>
+        <div class="text-[10px] tracking-[0.2em] text-zinc-500">TYPING</div>
         <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
           <div class="flex justify-between">
             <span>Best WPM</span>
@@ -74,9 +68,7 @@
 
       <!-- GitHub Stats -->
       <div v-if="stats.github?.stats" class="space-y-1">
-        <div class="text-[10px] tracking-[0.2em] text-zinc-500">
-          GITHUB
-        </div>
+        <div class="text-[10px] tracking-[0.2em] text-zinc-500">GITHUB</div>
         <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
           <div class="flex justify-between">
             <span>Contributions</span>
@@ -107,9 +99,7 @@
 
       <!-- LeetCode Stats -->
       <div v-if="stats.leetcode?.submissionStats" class="space-y-1">
-        <div class="text-[10px] tracking-[0.2em] text-zinc-500">
-          LEETCODE
-        </div>
+        <div class="text-[10px] tracking-[0.2em] text-zinc-500">LEETCODE</div>
         <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
           <div class="flex justify-between">
             <span>Easy</span>
@@ -142,50 +132,62 @@
 
       <!-- Chess Stats -->
       <div v-if="stats.chess" class="space-y-1">
-        <div class="text-[10px] tracking-[0.2em] text-zinc-500">
-          CHESS
-        </div>
+        <div class="text-[10px] tracking-[0.2em] text-zinc-500">CHESS</div>
         <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
           <div class="flex justify-between">
             <span>Blitz</span>
-            <span class="tabular-nums">{{ stats.chess.currentRating.blitz }}</span>
+            <span class="tabular-nums">{{
+              stats.chess.currentRating.blitz
+            }}</span>
           </div>
           <div class="flex justify-between">
             <span>Rapid</span>
-            <span class="tabular-nums">{{ stats.chess.currentRating.rapid }}</span>
+            <span class="tabular-nums">{{
+              stats.chess.currentRating.rapid
+            }}</span>
           </div>
           <div class="flex justify-between">
             <span>Bullet</span>
-            <span class="tabular-nums">{{ stats.chess.currentRating.bullet }}</span>
+            <span class="tabular-nums">{{
+              stats.chess.currentRating.bullet
+            }}</span>
           </div>
           <div class="flex justify-between">
             <span>Puzzles</span>
-            <span class="tabular-nums">{{ stats.chess.puzzleStats.rating }}</span>
+            <span class="tabular-nums">{{
+              stats.chess.puzzleStats.rating
+            }}</span>
           </div>
         </div>
       </div>
 
       <!-- Health Stats -->
       <div v-if="stats.health" class="space-y-1">
-        <div class="text-[10px] tracking-[0.2em] text-zinc-500">
-          HEALTH
-        </div>
+        <div class="text-[10px] tracking-[0.2em] text-zinc-500">HEALTH</div>
         <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
           <div class="flex justify-between">
             <span>Steps Today</span>
-            <span class="tabular-nums">{{ stats.health.today?.steps?.toLocaleString() || 0 }}</span>
+            <span class="tabular-nums">{{
+              stats.health.today?.steps?.toLocaleString() || 0
+            }}</span>
           </div>
           <div class="flex justify-between">
             <span>Exercise</span>
-            <span class="tabular-nums">{{ stats.health.today?.exerciseMinutes || 0 }}m</span>
+            <span class="tabular-nums"
+              >{{ stats.health.today?.exerciseMinutes || 0 }}m</span
+            >
           </div>
           <div class="flex justify-between">
             <span>Avg Steps</span>
-            <span class="tabular-nums">{{ stats.health.averages?.dailySteps?.toLocaleString() || 0 }}</span>
+            <span class="tabular-nums">{{
+              stats.health.averages?.dailySteps?.toLocaleString() || 0
+            }}</span>
           </div>
           <div class="flex justify-between">
             <span>Heart Rate</span>
-            <span class="tabular-nums">{{ stats.health.heartRate?.resting || 0 }}</span>
+            <span class="tabular-nums">{{
+              stats.health.heartRate?.resting || 0
+            }}</span>
           </div>
         </div>
       </div>
@@ -198,15 +200,21 @@
         <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
           <div class="flex justify-between">
             <span>Total</span>
-            <span class="tabular-nums">{{ stats.photos.stats.totalPhotos }}</span>
+            <span class="tabular-nums">{{
+              stats.photos.stats.totalPhotos
+            }}</span>
           </div>
           <div class="flex justify-between">
             <span>This Month</span>
-            <span class="tabular-nums">{{ stats.photos.stats.photosThisMonth }}</span>
+            <span class="tabular-nums">{{
+              stats.photos.stats.photosThisMonth
+            }}</span>
           </div>
           <div class="flex justify-between">
             <span>Avg/Month</span>
-            <span class="tabular-nums">{{ stats.photos.stats.averagePerMonth.toFixed(1) }}</span>
+            <span class="tabular-nums">{{
+              stats.photos.stats.averagePerMonth.toFixed(1)
+            }}</span>
           </div>
         </div>
       </div>
@@ -219,24 +227,32 @@
         <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
           <div class="flex justify-between">
             <span>Weekly</span>
-            <span class="tabular-nums">{{ stats.rescueTime.week.summary.total.hours }}h</span>
+            <span class="tabular-nums"
+              >{{ stats.rescueTime.week.summary.total.hours }}h</span
+            >
           </div>
           <div class="flex justify-between">
             <span>Productive</span>
-            <span class="tabular-nums">{{ stats.rescueTime.week.summary.productive.percentage.toFixed(0) }}%</span>
+            <span class="tabular-nums"
+              >{{
+                stats.rescueTime.week.summary.productive.percentage.toFixed(0)
+              }}%</span
+            >
           </div>
           <div class="flex justify-between">
             <span>Distracting</span>
-            <span class="tabular-nums">{{ stats.rescueTime.week.summary.distracting.percentage.toFixed(0) }}%</span>
+            <span class="tabular-nums"
+              >{{
+                stats.rescueTime.week.summary.distracting.percentage.toFixed(0)
+              }}%</span
+            >
           </div>
         </div>
       </div>
 
       <!-- Last.fm Stats -->
       <div v-if="stats.lastfm" class="space-y-1">
-        <div class="text-[10px] tracking-[0.2em] text-zinc-500">
-          MUSIC
-        </div>
+        <div class="text-[10px] tracking-[0.2em] text-zinc-500">MUSIC</div>
         <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
           <div class="flex justify-between">
             <span>Scrobbles</span>
@@ -282,15 +298,14 @@
           <div class="text-[10px] text-zinc-500 mb-1">TOP_ARTISTS</div>
           <div class="space-y-0.5">
             <div
-              v-for="(
-                artist, index
-              ) in stats.lastfm.topArtists.artists.slice(0, 3)"
+              v-for="(artist, index) in stats.lastfm.topArtists.artists.slice(
+                0,
+                3
+              )"
               :key="artist.name"
               class="flex items-baseline justify-between text-[10px]"
             >
-              <div class="truncate">
-                {{ index + 1 }}. {{ artist.name }}
-              </div>
+              <div class="truncate">{{ index + 1 }}. {{ artist.name }}</div>
               <div class="text-zinc-500 tabular-nums">
                 {{ artist.playcount }}x
               </div>
@@ -303,15 +318,14 @@
           <div class="text-[10px] text-zinc-500 mb-1">TOP_TRACKS</div>
           <div class="space-y-0.5">
             <div
-              v-for="(
-                track, index
-              ) in stats.lastfm.topTracks.tracks.slice(0, 3)"
+              v-for="(track, index) in stats.lastfm.topTracks.tracks.slice(
+                0,
+                3
+              )"
               :key="track.name"
               class="flex items-baseline justify-between text-[10px]"
             >
-              <div class="truncate">
-                {{ index + 1 }}. {{ track.name }}
-              </div>
+              <div class="truncate">{{ index + 1 }}. {{ track.name }}</div>
               <div class="text-zinc-500 tabular-nums">
                 {{ track.playcount }}x
               </div>
