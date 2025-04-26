@@ -570,7 +570,6 @@ h2 {
   @apply space-y-16 sm:space-y-24;
 }
 </style>
-</template>
 
 <script setup lang="ts">
 import {
