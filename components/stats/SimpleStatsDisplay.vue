@@ -11,7 +11,7 @@
     <!-- Dense stats layout -->
     <div class="space-y-4 p-4">
       <!-- Writing Stats -->
-      <div v-if="blogStats" class="space-y-1">
+      <div v-if="blogStats" class="stats-section">
         <div class="text-[10px] tracking-[0.2em] text-zinc-500">WRITING</div>
         <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
           <div class="flex justify-between">
@@ -36,7 +36,7 @@
       </div>
 
       <!-- Typing Stats -->
-      <div v-if="stats.monkeyType?.typingStats" class="space-y-1">
+      <div v-if="stats.monkeyType?.typingStats" class="stats-section">
         <div class="text-[10px] tracking-[0.2em] text-zinc-500">TYPING</div>
         <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
           <div class="flex justify-between">
@@ -67,7 +67,7 @@
       </div>
 
       <!-- GitHub Stats -->
-      <div v-if="stats.github?.stats" class="space-y-1">
+      <div v-if="stats.github?.stats" class="stats-section">
         <div class="text-[10px] tracking-[0.2em] text-zinc-500">GITHUB</div>
         <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
           <div class="flex justify-between">
@@ -98,7 +98,7 @@
       </div>
 
       <!-- LeetCode Stats -->
-      <div v-if="stats.leetcode?.submissionStats" class="space-y-1">
+      <div v-if="stats.leetcode?.submissionStats" class="stats-section">
         <div class="text-[10px] tracking-[0.2em] text-zinc-500">LEETCODE</div>
         <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
           <div class="flex justify-between">
@@ -131,7 +131,7 @@
       </div>
 
       <!-- Chess Stats -->
-      <div v-if="stats.chess" class="space-y-1">
+      <div v-if="stats.chess" class="stats-section">
         <div class="text-[10px] tracking-[0.2em] text-zinc-500">CHESS</div>
         <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
           <div class="flex justify-between">
@@ -162,7 +162,7 @@
       </div>
 
       <!-- Health Stats -->
-      <div v-if="stats.health" class="space-y-1">
+      <div v-if="stats.health" class="stats-section">
         <div class="text-[10px] tracking-[0.2em] text-zinc-500">HEALTH</div>
         <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
           <div class="flex justify-between">
@@ -193,7 +193,7 @@
       </div>
 
       <!-- Photography Stats -->
-      <div v-if="stats.photos?.stats" class="space-y-1">
+      <div v-if="stats.photos?.stats" class="stats-section">
         <div class="text-[10px] tracking-[0.2em] text-zinc-500">
           PHOTOGRAPHY
         </div>
@@ -220,7 +220,7 @@
       </div>
 
       <!-- Productivity Stats -->
-      <div v-if="stats.rescueTime?.week" class="space-y-1">
+      <div v-if="stats.rescueTime?.week" class="stats-section">
         <div class="text-[10px] tracking-[0.2em] text-zinc-500">
           PRODUCTIVITY
         </div>
@@ -251,7 +251,7 @@
       </div>
 
       <!-- Last.fm Stats -->
-      <div v-if="stats.lastfm" class="space-y-1">
+      <div v-if="stats.lastfm" class="stats-section">
         <div class="text-[10px] tracking-[0.2em] text-zinc-500">MUSIC</div>
         <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
           <div class="flex justify-between">
@@ -368,5 +368,9 @@ const daysInYear = isLeapYear ? 366 : 365
 .tabular-nums {
   font-feature-settings: 'tnum';
   font-variant-numeric: tabular-nums;
+}
+
+.stats-section {
+  @apply space-y-1;
 }
 </style>
