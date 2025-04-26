@@ -180,7 +180,42 @@
 </template>
 
 <script setup>
-import { computed, defineProps } from 'vue'
+import { computed, defineProps, defineAsyncComponent } from 'vue'
+
+// Component imports with prefetch hints
+const AsyncMonkeyTypeStats = defineAsyncComponent(
+  () => import('~/components/stats/MonkeyTypeStats.vue')
+)
+const AsyncGitHubStats = defineAsyncComponent(
+  () => import('~/components/stats/GitHubStats.vue')
+)
+const AsyncPhotoStats = defineAsyncComponent(
+  () => import('~/components/stats/PhotoStats.vue')
+)
+const AsyncHealthStats = defineAsyncComponent(
+  () => import('~/components/stats/HealthStats.vue')
+)
+const AsyncLeetCodeStats = defineAsyncComponent(
+  () => import('~/components/stats/LeetCodeStats.vue')
+)
+const AsyncBlogStats = defineAsyncComponent(
+  () => import('~/components/stats/BlogStats.vue')
+)
+const AsyncTopStats = defineAsyncComponent(
+  () => import('~/components/stats/TopStats.vue')
+)
+const AsyncChessStats = defineAsyncComponent(
+  () => import('~/components/stats/ChessStats.vue')
+)
+const AsyncRescueTimeStats = defineAsyncComponent(
+  () => import('~/components/stats/RescueTimeStats.vue')
+)
+const AsyncGearStats = defineAsyncComponent(
+  () => import('~/components/stats/GearStats.vue')
+)
+const AsyncLastFmStats = defineAsyncComponent(
+  () => import('~/components/stats/LastFmStats.vue')
+)
 
 const props = defineProps({
   stats: {

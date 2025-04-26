@@ -48,13 +48,9 @@
         </section>
 
         <!-- Show appropriate display based on mode -->
-        <SimpleStatsDisplay 
-          v-else-if="isSimpleMode" 
-          :stats="stats" 
-          :blog-stats="validBlogStats" 
-        />
-        <FullStatsDisplay 
-          v-else 
+        <component 
+          :is="isSimpleMode ? SimpleStatsDisplay : FullStatsDisplay"
+          v-else
           :stats="stats" 
           :blog-stats="validBlogStats" 
           :transformed-health-stats="transformedHealthStats"
@@ -86,7 +82,8 @@ import {
   ref,
   shallowRef,
   onMounted,
-  nextTick
+  nextTick,
+  defineAsyncComponent
 } from 'vue'
 import { useWindowSize } from '@vueuse/core'
 import { useRoute } from 'vue-router'
@@ -121,6 +118,49 @@ interface BlogStats {
   averageReadingTime: number
   postsByMonth: Record<string, number>
 }
+
+// Component imports with prefetch hints and loading optimization
+const AsyncMonkeyTypeStats = defineAsyncComponent(
+  () => import('~/components/stats/MonkeyTypeStats.vue' /* webpackPrefetch: true */)
+)
+const AsyncGitHubStats = defineAsyncComponent(
+  () => import('~/components/stats/GitHubStats.vue' /* webpackPrefetch: true */)
+)
+const AsyncPhotoStats = defineAsyncComponent(
+  () => import('~/components/stats/PhotoStats.vue' /* webpackPrefetch: true */)
+)
+const AsyncHealthStats = defineAsyncComponent(
+  () => import('~/components/stats/HealthStats.vue' /* webpackPrefetch: true */)
+)
+const AsyncLeetCodeStats = defineAsyncComponent(
+  () => import('~/components/stats/LeetCodeStats.vue' /* webpackPrefetch: true */)
+)
+const AsyncBlogStats = defineAsyncComponent(
+  () => import('~/components/stats/BlogStats.vue' /* webpackPrefetch: true */)
+)
+const AsyncTopStats = defineAsyncComponent(
+  () => import('~/components/stats/TopStats.vue' /* webpackPrefetch: true */)
+)
+const AsyncChessStats = defineAsyncComponent(
+  () => import('~/components/stats/ChessStats.vue' /* webpackPrefetch: true */)
+)
+const AsyncRescueTimeStats = defineAsyncComponent(
+  () => import('~/components/stats/RescueTimeStats.vue' /* webpackPrefetch: true */)
+)
+const AsyncGearStats = defineAsyncComponent(
+  () => import('~/components/stats/GearStats.vue' /* webpackPrefetch: true */)
+)
+const AsyncLastFmStats = defineAsyncComponent(
+  () => import('~/components/stats/LastFmStats.vue' /* webpackPrefetch: true */)
+)
+
+// Import the new component displays
+const SimpleStatsDisplay = defineAsyncComponent(
+  () => import('~/components/stats/SimpleStatsDisplay.vue')
+)
+const FullStatsDisplay = defineAsyncComponent(
+  () => import('~/components/stats/FullStatsDisplay.vue')
+)
 
 const { stats: rawStats, isLoading, hasStaleData } = useStats()
 const stats = computed<StatsResponse>(() => rawStats.value || {})
