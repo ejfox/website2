@@ -1,10 +1,6 @@
 <template>
-  <div
-    :class="[
-      isSimpleMode ? 'p-0' : 'max-w-6xl mx-auto px-4 sm:px-8 py-8 sm:py-16',
-      'font-mono'
-    ]"
-  >
+  <NuxtLayout :name="isSimpleMode ? 'simple' : 'default'">
+    <div class="font-mono">
     <!-- Stats TOC -->
     <teleport to="#nav-toc-container" v-if="tocTarget && !isSimpleMode">
       <div class="toc py-2 text-sm font-mono px-4">
@@ -475,7 +471,8 @@
         </div>
       </div>
     </Transition>
-  </div>
+    </div>
+  </NuxtLayout>
 </template>
 
 <script setup lang="ts">
