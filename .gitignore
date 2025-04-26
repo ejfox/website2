@@ -31,3 +31,6 @@ content/processed.backup/**/*
 content/backup/**
 content/backup/**/*
 content/backup/drafts/_stale/*
+.aider*
+
+.cursor/*

@@ -410,7 +410,6 @@ export function useStats() {
   const hasChessData = computed(() => !!stats.value?.chess)
   const hasRescueTimeData = computed(() => !!stats.value?.rescueTime)
   const hasLastFmData = computed(() => !!stats.value?.lastfm)
-  const hasLastFmData = computed(() => !!stats.value?.lastfm)
 
   // Check if we have cached data
   const getCachedStats = (): StatsResponse | null => {

@@ -77,6 +77,71 @@ interface GitHubError extends Error {
   }
 }
 
+async function makeGitHubRequest<T>(
+  token: string,
+  query: string,
+  variables?: Record<string, any>
+): Promise<T> {
+  const maxRetries = 3
+  const timeout = 10000 // 10 seconds
+  let attempt = 0
+
+  while (attempt < maxRetries) {
+    try {
+      const controller = new AbortController()
+      const timeoutId = setTimeout(() => controller.abort(), timeout)
+
+      const response = await $fetch<any>('https://api.github.com/graphql', {
+        method: 'POST',
+        headers: {
+          Authorization: `bearer ${token}`,
+          'Content-Type': 'application/json',
+          'User-Agent': 'EJFox-Website/1.0'
+        },
+        body: { query, variables },
+        signal: controller.signal
+      })
+
+      clearTimeout(timeoutId)
+
+      if (response.errors) {
+        throw createError({
+          statusCode: 500,
+          message: `GitHub API Error: ${
+            response.errors[0]?.message || 'Unknown error'
+          }`
+        })
+      }
+
+      return response.data as T
+    } catch (error: any) {
+      attempt++
+
+      if (error.name === 'AbortError') {
+        console.warn(`GitHub request timeout, attempt ${attempt}/${maxRetries}`)
+      } else {
+        console.error(
+          `Error making GitHub request, attempt ${attempt}/${maxRetries}:`,
+          error
+        )
+      }
+
+      if (attempt === maxRetries) {
+        throw error
+      }
+
+      // Exponential backoff with jitter
+      const backoffTime = Math.min(
+        1000 * Math.pow(2, attempt) + Math.random() * 1000,
+        10000
+      )
+      await new Promise((resolve) => setTimeout(resolve, backoffTime))
+    }
+  }
+
+  throw new Error('Should not reach here')
+}
+
 async function fetchUserStats(token: string): Promise<GitHubUserStats> {
   const query = `query {
     viewer {
@@ -92,25 +157,7 @@ async function fetchUserStats(token: string): Promise<GitHubUserStats> {
     }
   }`
 
-  const response = await $fetch<any>('https://api.github.com/graphql', {
-    method: 'POST',
-    headers: {
-      Authorization: `bearer ${token}`,
-      'Content-Type': 'application/json'
-    },
-    body: { query }
-  })
-
-  if (response.errors) {
-    throw createError({
-      statusCode: 500,
-      message: `GitHub API Error: ${
-        response.errors[0]?.message || 'Unknown error'
-      }`
-    })
-  }
-
-  return response.data
+  return makeGitHubRequest<GitHubUserStats>(token, query)
 }
 
 async function fetchContributions(
@@ -145,25 +192,10 @@ async function fetchContributions(
     }
   }`
 
-  const response = await $fetch<any>('https://api.github.com/graphql', {
-    method: 'POST',
-    headers: {
-      Authorization: `bearer ${token}`,
-      'Content-Type': 'application/json'
-    },
-    body: { query, variables: { lastMonth, today } }
+  return makeGitHubRequest<GitHubContributions>(token, query, {
+    lastMonth,
+    today
   })
-
-  if (response.errors) {
-    throw createError({
-      statusCode: 500,
-      message: `GitHub API Error: ${
-        response.errors[0]?.message || 'Unknown error'
-      }`
-    })
-  }
-
-  return response.data
 }
 
 async function checkRateLimit(token: string) {
@@ -174,19 +206,12 @@ async function checkRateLimit(token: string) {
     }
   }`
 
-  const response = await $fetch<any>('https://api.github.com/graphql', {
-    method: 'POST',
-    headers: {
-      Authorization: `bearer ${token}`,
-      'Content-Type': 'application/json'
-    },
-    body: { query }
-  })
+  const response = await makeGitHubRequest<any>(token, query)
 
-  if (response.data?.rateLimit?.remaining === 0) {
+  if (response.rateLimit?.remaining === 0) {
     throw createError({
       statusCode: 429,
-      message: `GitHub API rate limit exceeded. Resets at ${response.data.rateLimit.resetAt}`
+      message: `GitHub API rate limit exceeded. Resets at ${response.rateLimit.resetAt}`
     })
   }
 }

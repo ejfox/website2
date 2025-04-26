@@ -1,9 +1,4 @@
 <template>
-  <div class="p-24 px-2 bg-red-500">
-    <slot />
-  </div>
-</template>
-<template>
   <div class="simple-layout p-4 sm:p-8 md:p-12">
     <slot />
   </div>
