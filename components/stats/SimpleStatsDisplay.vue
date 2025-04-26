@@ -105,6 +105,133 @@
         </div>
       </div>
 
+      <!-- LeetCode Stats -->
+      <div v-if="stats.leetcode?.submissionStats" class="space-y-1">
+        <div class="text-[10px] tracking-[0.2em] text-zinc-500">
+          LEETCODE
+        </div>
+        <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
+          <div class="flex justify-between">
+            <span>Easy</span>
+            <span class="tabular-nums">{{
+              stats.leetcode.submissionStats.easy.count
+            }}</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Medium</span>
+            <span class="tabular-nums">{{
+              stats.leetcode.submissionStats.medium.count
+            }}</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Hard</span>
+            <span class="tabular-nums">{{
+              stats.leetcode.submissionStats.hard.count
+            }}</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Total</span>
+            <span class="tabular-nums">{{
+              stats.leetcode.submissionStats.easy.count +
+              stats.leetcode.submissionStats.medium.count +
+              stats.leetcode.submissionStats.hard.count
+            }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chess Stats -->
+      <div v-if="stats.chess" class="space-y-1">
+        <div class="text-[10px] tracking-[0.2em] text-zinc-500">
+          CHESS
+        </div>
+        <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
+          <div class="flex justify-between">
+            <span>Blitz</span>
+            <span class="tabular-nums">{{ stats.chess.currentRating.blitz }}</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Rapid</span>
+            <span class="tabular-nums">{{ stats.chess.currentRating.rapid }}</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Bullet</span>
+            <span class="tabular-nums">{{ stats.chess.currentRating.bullet }}</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Puzzles</span>
+            <span class="tabular-nums">{{ stats.chess.puzzleStats.rating }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Health Stats -->
+      <div v-if="stats.health" class="space-y-1">
+        <div class="text-[10px] tracking-[0.2em] text-zinc-500">
+          HEALTH
+        </div>
+        <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
+          <div class="flex justify-between">
+            <span>Steps Today</span>
+            <span class="tabular-nums">{{ stats.health.today?.steps?.toLocaleString() || 0 }}</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Exercise</span>
+            <span class="tabular-nums">{{ stats.health.today?.exerciseMinutes || 0 }}m</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Avg Steps</span>
+            <span class="tabular-nums">{{ stats.health.averages?.dailySteps?.toLocaleString() || 0 }}</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Heart Rate</span>
+            <span class="tabular-nums">{{ stats.health.heartRate?.resting || 0 }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Photography Stats -->
+      <div v-if="stats.photos?.stats" class="space-y-1">
+        <div class="text-[10px] tracking-[0.2em] text-zinc-500">
+          PHOTOGRAPHY
+        </div>
+        <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
+          <div class="flex justify-between">
+            <span>Total</span>
+            <span class="tabular-nums">{{ stats.photos.stats.totalPhotos }}</span>
+          </div>
+          <div class="flex justify-between">
+            <span>This Month</span>
+            <span class="tabular-nums">{{ stats.photos.stats.photosThisMonth }}</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Avg/Month</span>
+            <span class="tabular-nums">{{ stats.photos.stats.averagePerMonth.toFixed(1) }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Productivity Stats -->
+      <div v-if="stats.rescueTime?.week" class="space-y-1">
+        <div class="text-[10px] tracking-[0.2em] text-zinc-500">
+          PRODUCTIVITY
+        </div>
+        <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
+          <div class="flex justify-between">
+            <span>Weekly</span>
+            <span class="tabular-nums">{{ stats.rescueTime.week.summary.total.hours }}h</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Productive</span>
+            <span class="tabular-nums">{{ stats.rescueTime.week.summary.productive.percentage.toFixed(0) }}%</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Distracting</span>
+            <span class="tabular-nums">{{ stats.rescueTime.week.summary.distracting.percentage.toFixed(0) }}%</span>
+          </div>
+        </div>
+      </div>
+
       <!-- Last.fm Stats -->
       <div v-if="stats.lastfm" class="space-y-1">
         <div class="text-[10px] tracking-[0.2em] text-zinc-500">
@@ -198,6 +325,7 @@
 
 <script setup>
 import { computed, defineProps } from 'vue'
+import { useStats } from '~/composables/useStats'
 
 const props = defineProps({
   stats: {
