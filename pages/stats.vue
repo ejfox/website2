@@ -119,7 +119,8 @@ interface BlogStats {
 
 // Component imports with prefetch hints and loading optimization
 const AsyncMonkeyTypeStats = defineAsyncComponent(
-  () => import('~/components/stats/MonkeyTypeStats.vue' /* webpackPrefetch: true */)
+  () =>
+    import('~/components/stats/MonkeyTypeStats.vue' /* webpackPrefetch: true */)
 )
 const AsyncGitHubStats = defineAsyncComponent(
   () => import('~/components/stats/GitHubStats.vue' /* webpackPrefetch: true */)
@@ -131,7 +132,8 @@ const AsyncHealthStats = defineAsyncComponent(
   () => import('~/components/stats/HealthStats.vue' /* webpackPrefetch: true */)
 )
 const AsyncLeetCodeStats = defineAsyncComponent(
-  () => import('~/components/stats/LeetCodeStats.vue' /* webpackPrefetch: true */)
+  () =>
+    import('~/components/stats/LeetCodeStats.vue' /* webpackPrefetch: true */)
 )
 const AsyncBlogStats = defineAsyncComponent(
   () => import('~/components/stats/BlogStats.vue' /* webpackPrefetch: true */)
@@ -143,7 +145,8 @@ const AsyncChessStats = defineAsyncComponent(
   () => import('~/components/stats/ChessStats.vue' /* webpackPrefetch: true */)
 )
 const AsyncRescueTimeStats = defineAsyncComponent(
-  () => import('~/components/stats/RescueTimeStats.vue' /* webpackPrefetch: true */)
+  () =>
+    import('~/components/stats/RescueTimeStats.vue' /* webpackPrefetch: true */)
 )
 const AsyncGearStats = defineAsyncComponent(
   () => import('~/components/stats/GearStats.vue' /* webpackPrefetch: true */)
@@ -505,26 +508,16 @@ const route = useRoute()
 // Add simple mode computed property with proper typing
 const isSimpleMode = computed<boolean>(() => route.query.simple !== undefined)
 
-// Set the page layout based on simple mode
+// Set the page layout
 definePageMeta({
-  layout: false
+  layout: 'default'
 })
 
 // Use the appropriate layout
 onMounted(() => {
-  if (isSimpleMode.value) {
-    setPageLayout('simple')
-  } else {
-    setPageLayout('default')
-  }
+  const layout = route.query.simple !== undefined ? 'simple' : 'default'
+  useNuxtApp().$router.push({ query: { ...route.query }, hash: route.hash })
 })
-
-function setPageLayout(layout: string) {
-  const nuxtApp = useNuxtApp()
-  nuxtApp.$router.afterEach(() => {
-    nuxtApp.islandContext.slots.default = () => h(resolveComponent(`NuxtLayout`), { name: layout })
-  })
-}
 </script>
 
 <style scoped>
