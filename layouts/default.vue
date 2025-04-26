@@ -2,8 +2,8 @@
   <div id="app-container" class="sans-serif w-full h-screen">
     <NuxtLoadingIndicator color="#999999" :height="1" />
     <section class="flex flex-col md:flex-row min-h-screen relative">
-      <!-- Mobile navigation -->
-      <nav v-if="isMobile" class="fixed top-0 left-0 w-full z-50 bg-zinc-100/80 dark:bg-zinc-900/80 backdrop-blur-lg">
+      <!-- Mobile navigation - hide on stats page with simple mode -->
+      <nav v-if="isMobile && !(route.path === '/stats' && route.query.simple !== undefined)" class="fixed top-0 left-0 w-full z-50 bg-zinc-100/80 dark:bg-zinc-900/80 backdrop-blur-lg">
         <div class="px-4 py-3">
           <div class="flex justify-between items-center">
             <NuxtLink class="text-zinc-800 dark:text-zinc-400 text-xl font-bold" to="/">EJ Fox</NuxtLink>
@@ -40,8 +40,8 @@
         </Transition>
       </nav>
 
-      <!-- Desktop navigation -->
-      <nav v-else class="sticky min-w-[200px] h-auto max-h-screen top-0 left-0 z-50 p-4 monospace overflow-auto">
+      <!-- Desktop navigation - hide on stats page with simple mode -->
+      <nav v-else-if="!(route.path === '/stats' && route.query.simple !== undefined)" class="sticky min-w-[200px] h-auto max-h-screen top-0 left-0 z-50 p-4 monospace overflow-auto">
         <div
           class="container mx-auto md:py-1 md:flex md:flex-col items-start shadow-lg dark:shadow-none w-full md:shadow-none border-b border-zinc-300 dark:border-zinc-900 md:border-none rounded bg-zinc-50/50 md:bg-transparent dark:bg-zinc-900/30 md:dark:bg-transparent backdrop-blur-md px-2 max-h-screen">
           <div class="pt-3 pb-1 space-y-2">
@@ -88,12 +88,15 @@
       </nav>
 
 
-      <article class="w-full md:w-4/5 mt-16 md:mt-0 overflow-x-auto">
+      <article :class="[
+        'w-full overflow-x-auto',
+        route.path === '/stats' && route.query.simple !== undefined ? 'mt-0' : 'md:w-4/5 mt-16 md:mt-0'
+      ]">
         <slot />
       </article>
 
-      <!-- Add TOC container for blog posts and stats page -->
-      <aside v-if="isBlogPost || isStatsPage || isProjectsPage"
+      <!-- Add TOC container for blog posts and stats page - hide on stats page with simple mode -->
+      <aside v-if="(isBlogPost || isStatsPage || isProjectsPage) && !(route.path === '/stats' && route.query.simple !== undefined)"
         class="hidden lg:block w-64 shrink-0 sticky top-0 h-screen overflow-y-auto p-4">
         <div id="aside-toc-container" class="space-y-4"></div>
       </aside>
