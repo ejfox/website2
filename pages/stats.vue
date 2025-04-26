@@ -570,54 +570,6 @@ h2 {
   @apply space-y-16 sm:space-y-24;
 }
 </style>
-      </div>
-    </teleport>
-
-    <!-- Main Content -->
-    <ClientOnly>
-        <!-- Show loading state while data is being fetched -->
-        <section v-if="isLoading" class="stats-grid">
-          <div class="stats-column">
-            <div v-for="i in 3" :key="i" class="space-y-4">
-              <div class="pulse-placeholder pulse-placeholder-text"></div>
-              <div class="pulse-placeholder pulse-placeholder-md"></div>
-            </div>
-          </div>
-          <div class="stats-column">
-            <div v-for="i in 3" :key="i" class="space-y-4">
-              <div class="pulse-placeholder pulse-placeholder-text"></div>
-              <div class="pulse-placeholder pulse-placeholder-md"></div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Show appropriate display based on mode -->
-        <component
-          :is="isSimpleMode ? SimpleStatsDisplay : FullStatsDisplay"
-          v-else
-          :stats="stats"
-          :blog-stats="validBlogStats"
-          :transformed-health-stats="transformedHealthStats"
-          :is-loading="isLoading"
-        />
-      </ClientOnly>
-
-      <!-- Status Indicator -->
-      <Transition name="fade">
-        <div
-          v-if="hasStaleData && !isSimpleMode"
-          class="fixed bottom-4 right-4 p-2 bg-zinc-900/80 backdrop-blur-sm border border-zinc-800/50 font-mono"
-        >
-          <div
-            class="flex items-center gap-2 text-zinc-500 text-xs tracking-wider"
-          >
-            <UIcon name="i-heroicons-clock" class="w-3 h-3" />
-            <span>CACHED_DATA</span>
-          </div>
-        </div>
-      </Transition>
-    </div>
-  </div>
 </template>
 
 <script setup lang="ts">
