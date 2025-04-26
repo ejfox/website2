@@ -4,6 +4,6 @@
   </NuxtLayout>
 </template>
 
-<style>
+<style lang="css">
 /* Empty style section to prevent PostCSS parsing errors */
 </style>

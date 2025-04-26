@@ -176,7 +176,7 @@ watch(
 )
 </script>
 
-<style>
+<style lang="css">
 .sans-serif {
   font-family: 'Signika Negative', sans-serif !important;
   /* font-family: 'Raleway', Helvetica, Arial, sans-serif !important; */
