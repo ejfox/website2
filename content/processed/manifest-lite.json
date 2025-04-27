@@ -14713,11 +14713,11 @@
     "title": "Anime V4 And Vue",
     "date": "2025-04-02T16:48:49.000Z",
     "type": "post",
-    "modified": "2025-04-05T19:54:31.000Z",
+    "modified": "2025-04-06T18:21:20.000Z",
     "toc": [],
     "metadata": {
       "date": "2025-04-02T16:48:49.000Z",
-      "modified": "2025-04-05T19:54:31.000Z",
+      "modified": "2025-04-06T18:21:20.000Z",
       "words": 53,
       "images": 0,
       "links": 0,
@@ -14844,6 +14844,57 @@
       "sourcePath": "../../../../../code/website2/content/blog/drafts/how-i-start-my-mornings-lately.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "drafts/how-i-start-my-mornings-lately"
+    }
+  },
+  {
+    "slug": "drafts/hudson-valley-politics",
+    "title": "Title",
+    "date": "2025-04-09T18:28:08.000Z",
+    "type": "post",
+    "dek": "In which",
+    "modified": "2025-04-09T18:28:15.000Z",
+    "tags": [
+      "example",
+      "design",
+      "inspiration"
+    ],
+    "toc": [
+      {
+        "text": "Title",
+        "slug": "title",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "metadata": {
+      "dek": "In which",
+      "inprogress": true,
+      "tags": [
+        "example",
+        "design",
+        "inspiration"
+      ],
+      "date": "2025-04-09T18:28:08.000Z",
+      "modified": "2025-04-09T18:28:15.000Z",
+      "words": 12,
+      "images": 0,
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "Title",
+          "slug": "title",
+          "level": "h2",
+          "children": []
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/hudson-valley-politics.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/hudson-valley-politics"
     }
   },
   {
@@ -30696,11 +30747,11 @@
     "title": "2025 14",
     "date": "2025-03-31T17:44:43.000Z",
     "type": "post",
-    "modified": "2025-04-06T14:13:03.000Z",
+    "modified": "2025-04-06T18:21:40.000Z",
     "toc": [],
     "metadata": {
       "date": "2025-03-31T17:44:43.000Z",
-      "modified": "2025-04-06T14:13:03.000Z",
+      "modified": "2025-04-06T18:21:40.000Z",
       "words": 183,
       "images": 18,
       "links": 18,
@@ -30711,6 +30762,116 @@
       "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-14.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "week-notes/2025-14"
+    }
+  },
+  {
+    "slug": "week-notes/2025-15",
+    "title": "2025-15",
+    "date": "2025-04-07T04:27:52.000Z",
+    "type": "post",
+    "modified": "2025-04-09T18:28:09.000Z",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
+    "toc": [
+      {
+        "text": "2025-15",
+        "slug": "2025-15",
+        "level": "h2",
+        "children": [
+          {
+            "text": "🌟 Daily Check-In & Reflections",
+            "slug": "daily-check-in-reflections",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "📚 Learning & Media",
+            "slug": "learning-media",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
+      "date": "2025-04-07T04:27:52.000Z",
+      "modified": "2025-04-09T18:28:09.000Z",
+      "words": 223,
+      "images": 19,
+      "links": 19,
+      "codeBlocks": 0,
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "2025-15",
+          "slug": "2025-15",
+          "level": "h2",
+          "children": [
+            {
+              "text": "🌟 Daily Check-In & Reflections",
+              "slug": "daily-check-in-reflections",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "📚 Learning & Media",
+              "slug": "learning-media",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-15.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-15"
+    }
+  },
+  {
+    "slug": "week-notes/2025-16",
+    "title": "2025 16",
+    "type": "post",
+    "toc": [],
+    "metadata": {
+      "words": 162,
+      "images": 16,
+      "links": 16,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-16.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-16"
+    }
+  },
+  {
+    "slug": "week-notes/2025-17",
+    "title": "2025 17",
+    "type": "post",
+    "toc": [],
+    "metadata": {
+      "words": 92,
+      "images": 9,
+      "links": 9,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-17.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-17"
     }
   }
 ]
