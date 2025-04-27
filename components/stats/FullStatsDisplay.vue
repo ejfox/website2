@@ -51,10 +51,10 @@
               </StatsSection>
 
               <!-- Typing -->
-              <StatsSection 
-                v-if="stats.monkeyType?.typingStats" 
-                id="typing" 
-                title="TYPING" 
+              <StatsSection
+                v-if="stats.monkeyType?.typingStats"
+                id="typing"
+                title="TYPING"
                 key="typing-section"
               >
                 <AsyncMonkeyTypeStats
@@ -70,30 +70,11 @@
                 title="GITHUB"
                 key="github-section"
               >
-                <AsyncGitHubStats
-                  :stats="stats.github"
-                  key="github"
-                />
-              </StatsSection>
-
-              <!-- LeetCode -->
-              <StatsSection
-                v-if="stats.leetcode?.submissionStats"
-                id="leetcode"
-                title="LEETCODE"
-                key="leetcode-section"
-              >
-                <AsyncLeetCodeStats
-                  :stats="stats.leetcode"
-                  key="leetcode"
-                />
+                <AsyncGitHubStats :stats="stats.github" key="github" />
               </StatsSection>
             </div>
           </div>
-        </div>
 
-        <!-- Right Column: Creative & Lifestyle -->
-        <div class="stats-column" key="creative-column">
           <div class="relative">
             <div class="stats-vertical-divider"></div>
             <div class="space-y-16">
@@ -104,10 +85,7 @@
                 title="PHOTOGRAPHY"
                 key="photography-section"
               >
-                <AsyncPhotoStats
-                  :stats="stats.photos"
-                  key="photos"
-                />
+                <AsyncPhotoStats :stats="stats.photos" key="photos" />
               </StatsSection>
 
               <!-- Chess -->
@@ -117,10 +95,7 @@
                 title="CHESS"
                 key="chess-section"
               >
-                <AsyncChessStats
-                  :stats="stats.chess"
-                  key="chess"
-                />
+                <AsyncChessStats :stats="stats.chess" key="chess" />
               </StatsSection>
 
               <!-- Productivity -->
@@ -132,7 +107,15 @@
               >
                 <AsyncRescueTimeStats :stats="stats" key="rescuetime" />
               </StatsSection>
-
+              <!-- LeetCode -->
+              <StatsSection
+                v-if="stats.leetcode?.submissionStats"
+                id="leetcode"
+                title="LEETCODE"
+                key="leetcode-section"
+              >
+                <AsyncLeetCodeStats :stats="stats.leetcode" key="leetcode" />
+              </StatsSection>
               <!-- Last.fm -->
               <StatsSection
                 v-if="stats.lastfm"
@@ -140,10 +123,7 @@
                 title="MUSIC"
                 key="lastfm-section"
               >
-                <AsyncLastFmStats
-                  :stats="stats.lastfm"
-                  key="lastfm"
-                />
+                <AsyncLastFmStats :stats="stats.lastfm" key="lastfm" />
               </StatsSection>
             </div>
           </div>
@@ -164,11 +144,7 @@
 
     <!-- Health Stats -->
     <Transition name="fade-up" appear>
-      <section
-        v-if="stats.health"
-        class="relative"
-        id="health"
-      >
+      <section v-if="stats.health" class="relative" id="health">
         <div class="pt-16 sm:pt-24">
           <StatsSection title="HEALTH">
             <AsyncHealthStats :stats="transformedHealthStats" />
@@ -285,7 +261,7 @@ const progressPercentage = Math.floor((dayOfYear / daysInYear) * 100)
 }
 
 .stats-grid {
-  @apply grid grid-cols-1 lg:grid-cols-2 gap-16 sm:gap-24;
+  @apply p-2;
 }
 
 .stats-column {

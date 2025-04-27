@@ -2,32 +2,53 @@
   <div v-if="stats" class="space-y-10 font-mono">
     <!-- Primary Stats -->
     <div>
-      <IndividualStat :value="totalCommits" size="large" label="GITHUB COMMITS"
-        :details="`${stats.stats.totalRepos} REPOS · ${stats.stats.followers || 0} FOLLOWERS`" />
+      <IndividualStat
+        :value="totalCommits"
+        size="large"
+        label="GITHUB COMMITS"
+        :details="`${stats.stats.totalRepos} REPOS · ${stats.stats.followers || 0} FOLLOWERS`"
+      />
     </div>
 
     <!-- Activity Calendar -->
     <div v-if="hasCommits">
-      <ActivityCalendar title="COMMIT ACTIVITY" :active-dates="commitActivityDates" :active-color="'#71717a'" />
+      <ActivityCalendar
+        title="COMMIT ACTIVITY"
+        :active-dates="commitActivityDates"
+        :active-color="'#71717a'"
+      />
     </div>
 
     <!-- Commit Types Analysis -->
     <div v-if="commitTypes.length">
       <h4 class="section-subheader">COMMIT PATTERNS</h4>
       <div class="space-y-3">
-        <div v-for="type in commitTypes.slice(0, 5)" :key="type.type" class="flex items-start gap-2">
-          <div class="w-3 h-3 mt-1 flex-shrink-0 rounded-sm" :class="getTypeClass(type.type)"></div>
+        <div
+          v-for="type in commitTypes.slice(0, 5)"
+          :key="type.type"
+          class="flex items-start gap-2"
+        >
+          <div
+            class="w-3 h-3 mt-1 flex-shrink-0 rounded-sm"
+            :class="getTypeClass(type.type)"
+          ></div>
           <div class="flex-1">
             <div class="flex justify-between items-center">
-              <span class="text-xs text-zinc-700 dark:text-zinc-300">{{ type.type }}</span>
-              <span class="text-2xs text-zinc-500 tabular-nums">{{ type.count }} ({{ Math.round(type.percentage)
-              }}%)</span>
+              <span class="text-xs text-zinc-700 dark:text-zinc-300">{{
+                type.type
+              }}</span>
+              <span class="text-2xs text-zinc-500 tabular-nums"
+                >{{ type.count }} ({{ Math.round(type.percentage) }}%)</span
+              >
             </div>
             <div class="category-bar-bg mt-1">
-              <div class="category-bar-fill" :class="getTypeClass(type.type)" :style="{
-                width: `${type.percentage}%`
-              }">
-              </div>
+              <div
+                class="category-bar-fill"
+                :class="getTypeClass(type.type)"
+                :style="{
+                  width: `${type.percentage}%`
+                }"
+              ></div>
             </div>
           </div>
         </div>
@@ -36,15 +57,25 @@
 
     <!-- Recent Projects -->
     <div v-if="hasCommits">
-      <h4 class="section-subheader">RECENT PROJECTS</h4>
+      <h4 class="section-subheader">RECENT COMMITS</h4>
       <div class="space-y-3">
-        <div v-for="project in recentProjects.slice(0, 3)" :key="project.name" class="project-item">
+        <div
+          v-for="project in recentProjects.slice(0, 3)"
+          :key="project.name"
+          class="project-item"
+        >
           <div class="flex justify-between items-start">
-            <a :href="project.url" target="_blank" rel="noopener"
-              class="text-zinc-700 dark:text-zinc-300 hover:text-black dark:hover:text-white transition-colors font-medium">
+            <a
+              :href="project.url"
+              target="_blank"
+              rel="noopener"
+              class="text-zinc-700 dark:text-zinc-300 hover:text-black dark:hover:text-white transition-colors font-medium"
+            >
               {{ project.name }}
             </a>
-            <span class="text-2xs text-zinc-500">{{ formatRelativeTime(project.lastCommit) }}</span>
+            <span class="text-2xs text-zinc-500">{{
+              formatRelativeTime(project.lastCommit)
+            }}</span>
           </div>
           <p class="text-xs text-zinc-600 dark:text-zinc-400 mt-1 line-clamp-1">
             "{{ project.lastMessage }}"
@@ -52,8 +83,12 @@
           <div class="flex justify-between text-2xs text-zinc-500 mt-2">
             <span>{{ project.commitCount }} commits</span>
             <div class="flex items-center gap-1">
-              <span v-for="type in project.topTypes" :key="type"
-                class="px-1.5 py-0.5 rounded-sm text-[10px] uppercase tracking-wider" :class="getTypeClass(type)">
+              <span
+                v-for="type in project.topTypes"
+                :key="type"
+                class="px-1.5 py-0.5 rounded-sm text-[10px] uppercase tracking-wider"
+                :class="getTypeClass(type)"
+              >
                 {{ type }}
               </span>
             </div>
@@ -66,21 +101,18 @@
     <div v-if="hasCommits">
       <h4 class="section-subheader">GITHUB INSIGHTS</h4>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="insight-card p-3 bg-zinc-100/50 dark:bg-zinc-900/30 rounded-md">
-          <div class="text-xs text-zinc-500 mb-1">MOST PRODUCTIVE DAY</div>
-          <div class="text-zinc-700 dark:text-zinc-300">{{ getMostProductiveDate }}</div>
-        </div>
-
-        <div class="insight-card p-3 bg-zinc-100/50 dark:bg-zinc-900/30 rounded-md">
-          <div class="text-xs text-zinc-500 mb-1">CONTRIBUTION STREAK</div>
-          <div class="text-zinc-700 dark:text-zinc-300">{{ getContributionStreak }} days</div>
+        <div
+          class="insight-card p-3 bg-zinc-100/50 dark:bg-zinc-900/30 rounded-md"
+        >
+          <div class="text-xs text-zinc-500 mb-1">LATEST STREAK</div>
+          <div class="text-zinc-700 dark:text-zinc-300">
+            {{ getContributionStreak }} days
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div v-else class="data-unavailable">
-    GITHUB_DATA_UNAVAILABLE
-  </div>
+  <div v-else class="data-unavailable">GITHUB_DATA_UNAVAILABLE</div>
 </template>
 
 <script setup lang="ts">
@@ -92,13 +124,13 @@ import type { StatsResponse } from '~/composables/useStats'
 import { formatNumber } from '~/composables/useNumberFormat'
 
 // Stat summary component
-const StatSummary = (props: { value: number | string, label: string }, { slots }: { slots: any }) => {
+const StatSummary = (
+  props: { value: number | string; label: string },
+  { slots }: { slots: any }
+) => {
   return h('div', { class: 'stat-summary' }, [
     h('div', { class: 'stat-value' }, props.value),
-    h('div', { class: 'stat-label' }, [
-      props.label,
-      slots.default?.()
-    ])
+    h('div', { class: 'stat-label' }, [props.label, slots.default?.()])
   ])
 }
 
@@ -160,8 +192,11 @@ const props = defineProps<{
 
 // Get totalCommits safely - use either totalCommits or totalContributions
 const totalCommits = computed(() => {
-  return props.stats?.stats?.totalCommits ||
-    props.stats?.stats?.totalContributions || 0
+  return (
+    props.stats?.stats?.totalCommits ||
+    props.stats?.stats?.totalContributions ||
+    0
+  )
 })
 
 // Data availability checks
@@ -186,7 +221,7 @@ const recentProjects = computed(() => {
   const typesByRepo = new Map<string, Map<string, number>>()
 
   // Process commits to group by repository
-  props.stats.detail.commits.forEach(commit => {
+  props.stats.detail.commits.forEach((commit) => {
     const repoName = commit.repository.name
     const repoUrl = commit.repository.url
     const commitType = commit.type || 'other'
@@ -236,7 +271,10 @@ const recentProjects = computed(() => {
 
   // Sort by most recent commit and take top 5
   return Array.from(projects.values())
-    .sort((a, b) => new Date(b.lastCommit).getTime() - new Date(a.lastCommit).getTime())
+    .sort(
+      (a, b) =>
+        new Date(b.lastCommit).getTime() - new Date(a.lastCommit).getTime()
+    )
     .slice(0, 5)
 })
 
@@ -251,14 +289,16 @@ function formatRelativeTime(dateStr: string) {
 
 function getTypeClass(type: string) {
   const classes = {
-    'feat': 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200',
-    'fix': 'bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200',
-    'docs': 'bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200',
-    'style': 'bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200',
-    'refactor': 'bg-cyan-100 dark:bg-cyan-900/30 text-cyan-800 dark:text-cyan-200',
-    'test': 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200',
-    'chore': 'bg-zinc-100 dark:bg-zinc-900/30 text-zinc-700 dark:text-zinc-300',
-    'other': 'bg-zinc-100 dark:bg-zinc-800/30 text-zinc-600 dark:text-zinc-400'
+    feat: 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200',
+    fix: 'bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200',
+    docs: 'bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200',
+    style:
+      'bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200',
+    refactor:
+      'bg-cyan-100 dark:bg-cyan-900/30 text-cyan-800 dark:text-cyan-200',
+    test: 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200',
+    chore: 'bg-zinc-100 dark:bg-zinc-900/30 text-zinc-700 dark:text-zinc-300',
+    other: 'bg-zinc-100 dark:bg-zinc-800/30 text-zinc-600 dark:text-zinc-400'
   }
 
   // @ts-ignore - Type might not be in our predefined map
@@ -270,7 +310,7 @@ const commitActivityDates = computed(() => {
   if (!props.stats?.detail?.commits) return []
 
   // Convert commit dates to yyyy-MM-dd format
-  const dates = props.stats.detail.commits.map(commit => {
+  const dates = props.stats.detail.commits.map((commit) => {
     const date = new Date(commit.occurredAt)
     return format(date, 'yyyy-MM-dd')
   })
@@ -286,7 +326,7 @@ const getMostProductiveDate = computed(() => {
   // Count commits by date
   const dateCount = new Map<string, number>()
 
-  props.stats.detail.commits.forEach(commit => {
+  props.stats.detail.commits.forEach((commit) => {
     const date = new Date(commit.occurredAt)
     const dateKey = format(date, 'yyyy-MM-dd')
     dateCount.set(dateKey, (dateCount.get(dateKey) || 0) + 1)
@@ -313,8 +353,9 @@ const getContributionStreak = computed(() => {
   if (!commitActivityDates.value.length) return 0
 
   // Sort dates
-  const sortedDates = [...commitActivityDates.value]
-    .sort((a, b) => new Date(b).getTime() - new Date(a).getTime())
+  const sortedDates = [...commitActivityDates.value].sort(
+    (a, b) => new Date(b).getTime() - new Date(a).getTime()
+  )
 
   // Count consecutive days from most recent
   let streak = 1
@@ -322,7 +363,9 @@ const getContributionStreak = computed(() => {
 
   for (let i = 1; i < sortedDates.length; i++) {
     const nextDate = new Date(sortedDates[i])
-    const dayDiff = Math.round((currentDate.getTime() - nextDate.getTime()) / (1000 * 60 * 60 * 24))
+    const dayDiff = Math.round(
+      (currentDate.getTime() - nextDate.getTime()) / (1000 * 60 * 60 * 24)
+    )
 
     if (dayDiff === 1) {
       streak++

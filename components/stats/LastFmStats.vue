@@ -8,27 +8,17 @@
           <div class="text-xl @[300px]:text-2xl @[400px]:text-3xl tabular-nums">
             {{ (stats?.stats?.totalScrobbles ?? 0).toLocaleString() }}
           </div>
-          <div class="text-[10px] text-zinc-500 tracking-[0.2em]">TOTAL_SCROBBLES</div>
+          <div class="text-[10px] text-zinc-500 tracking-[0.2em]">
+            TOTAL_SCROBBLES
+          </div>
         </div>
         <div class="stat-block">
           <div class="text-xl @[300px]:text-2xl @[400px]:text-3xl tabular-nums">
             {{ formatAverage(stats?.stats?.averagePerDay) }}
           </div>
-          <div class="text-[10px] text-zinc-500 tracking-[0.2em]">DAILY_AVERAGE</div>
-        </div>
-      </div>
-      <div class="grid grid-cols-1 @[400px]:grid-cols-2 gap-4">
-        <div class="stat-block">
-          <div class="text-xl @[300px]:text-2xl @[400px]:text-3xl tabular-nums">
-            {{ (stats?.stats?.uniqueArtists ?? 0).toLocaleString() }}
+          <div class="text-[10px] text-zinc-500 tracking-[0.2em]">
+            DAILY_AVERAGE
           </div>
-          <div class="text-[10px] text-zinc-500 tracking-[0.2em]">UNIQUE_ARTISTS</div>
-        </div>
-        <div class="stat-block">
-          <div class="text-xl @[300px]:text-2xl @[400px]:text-3xl tabular-nums">
-            {{ (stats?.stats?.uniqueTracks ?? 0).toLocaleString() }}
-          </div>
-          <div class="text-[10px] text-zinc-500 tracking-[0.2em]">UNIQUE_TRACKS</div>
         </div>
       </div>
     </div>
@@ -37,28 +27,43 @@
     <div v-if="stats.recentTracks?.tracks?.length" class="space-y-6">
       <h3 class="text-[10px] text-zinc-500 tracking-[0.2em]">RECENT_TRACKS</h3>
       <div class="space-y-4">
-        <div v-for="(track, index) in stats.recentTracks.tracks.slice(0, 5)" :key="index"
-          class="flex items-start gap-2 @[350px]:gap-3 group">
+        <div
+          v-for="(track, index) in stats.recentTracks.tracks.slice(0, 5)"
+          :key="index"
+          class="flex items-start gap-2 @[350px]:gap-3 group"
+        >
           <!-- Track Number -->
-          <div class="w-4 pt-1 text-right text-xs text-zinc-600 tabular-nums">{{ index + 1 }}</div>
+          <div class="w-4 pt-1 text-right text-xs text-zinc-600 tabular-nums">
+            {{ index + 1 }}
+          </div>
 
           <!-- Track Info -->
           <div class="min-w-0 flex-1 space-y-1">
-            <div class="text-sm truncate">{{ track?.name || 'UNKNOWN_TRACK' }}</div>
-            <div class="text-xs text-zinc-500 truncate">{{ track?.artist?.name || 'UNKNOWN_ARTIST' }}</div>
+            <div class="text-sm truncate">
+              {{ track?.name || 'UNKNOWN_TRACK' }}
+            </div>
+            <div class="text-xs text-zinc-500 truncate">
+              {{ track?.artist?.name || 'UNKNOWN_ARTIST' }}
+            </div>
           </div>
 
           <!-- Timestamp - Hide on very small containers -->
           <div class="hidden @[350px]:block text-right pt-1">
-            <div v-if="track?.date" class="text-xs text-zinc-500 tabular-nums whitespace-nowrap">
+            <div
+              v-if="track?.date"
+              class="text-xs text-zinc-500 tabular-nums whitespace-nowrap"
+            >
               {{ formatTrackTime(track) }}
             </div>
             <div v-else class="text-xs text-zinc-500">
               <span class="inline-flex items-center gap-1.5">
                 <span class="relative flex h-1.5 w-1.5">
                   <span
-                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
+                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"
+                  ></span>
+                  <span
+                    class="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"
+                  ></span>
                 </span>
                 <span class="tracking-[0.2em] text-[10px]">NOW</span>
               </span>
@@ -75,29 +80,51 @@
         <div class="space-y-12">
           <!-- Monthly Top Artists -->
           <div v-if="stats.topArtists?.month" class="space-y-6">
-            <h3 class="text-[10px] text-zinc-500 tracking-[0.2em]">TOP_ARTISTS_30D</h3>
+            <h3 class="text-[10px] text-zinc-500 tracking-[0.2em]">
+              TOP_ARTISTS_30D
+            </h3>
             <div class="space-y-2">
-              <div v-for="(artist, index) in stats.topArtists.month.slice(0, 5)" :key="artist.name"
-                class="flex items-baseline gap-2 @[350px]:gap-3">
-                <div class="w-4 text-right text-xs text-zinc-600 tabular-nums">{{ index + 1 }}</div>
+              <div
+                v-for="(artist, index) in stats.topArtists.month.slice(0, 5)"
+                :key="artist.name"
+                class="flex items-baseline gap-2 @[350px]:gap-3"
+              >
+                <div class="w-4 text-right text-xs text-zinc-600 tabular-nums">
+                  {{ index + 1 }}
+                </div>
                 <div class="flex-1 text-sm truncate">{{ artist.name }}</div>
-                <div class="text-xs text-zinc-500 tabular-nums">{{ artist.playcount }}x</div>
+                <div class="text-xs text-zinc-500 tabular-nums">
+                  {{ artist.playcount }}x
+                </div>
               </div>
             </div>
           </div>
 
           <!-- Monthly Top Tracks -->
           <div v-if="stats.topTracks?.month" class="space-y-6">
-            <h3 class="text-[10px] text-zinc-500 tracking-[0.2em]">TOP_TRACKS_30D</h3>
+            <h3 class="text-[10px] text-zinc-500 tracking-[0.2em]">
+              TOP_TRACKS_30D
+            </h3>
             <div class="space-y-2">
-              <div v-for="(track, index) in stats.topTracks.month.slice(0, 5)" :key="track.name"
-                class="flex items-baseline gap-2 @[350px]:gap-3">
-                <div class="w-4 text-right text-xs text-zinc-600 tabular-nums">{{ index + 1 }}</div>
+              <div
+                v-for="(track, index) in stats.topTracks.month.slice(0, 5)"
+                :key="track.name"
+                class="flex items-baseline gap-2 @[350px]:gap-3"
+              >
+                <div class="w-4 text-right text-xs text-zinc-600 tabular-nums">
+                  {{ index + 1 }}
+                </div>
                 <div class="min-w-0 flex-1">
                   <div class="text-sm truncate">{{ track.name }}</div>
-                  <div class="text-xs text-zinc-500 truncate">{{ track.artist.name }}</div>
+                  <div class="text-xs text-zinc-500 truncate">
+                    {{ track.artist.name }}
+                  </div>
                 </div>
-                <div class="text-xs text-zinc-500 tabular-nums whitespace-nowrap">{{ track.playcount }}x</div>
+                <div
+                  class="text-xs text-zinc-500 tabular-nums whitespace-nowrap"
+                >
+                  {{ track.playcount }}x
+                </div>
               </div>
             </div>
           </div>
@@ -107,29 +134,51 @@
         <div class="space-y-12">
           <!-- Yearly Top Artists -->
           <div v-if="stats.topArtists?.year" class="space-y-6">
-            <h3 class="text-[10px] text-zinc-500 tracking-[0.2em]">TOP_ARTISTS_365D</h3>
+            <h3 class="text-[10px] text-zinc-500 tracking-[0.2em]">
+              TOP_ARTISTS_365D
+            </h3>
             <div class="space-y-2">
-              <div v-for="(artist, index) in stats.topArtists.year.slice(0, 5)" :key="artist.name"
-                class="flex items-baseline gap-2 @[350px]:gap-3">
-                <div class="w-4 text-right text-xs text-zinc-600 tabular-nums">{{ index + 1 }}</div>
+              <div
+                v-for="(artist, index) in stats.topArtists.year.slice(0, 5)"
+                :key="artist.name"
+                class="flex items-baseline gap-2 @[350px]:gap-3"
+              >
+                <div class="w-4 text-right text-xs text-zinc-600 tabular-nums">
+                  {{ index + 1 }}
+                </div>
                 <div class="flex-1 text-sm truncate">{{ artist.name }}</div>
-                <div class="text-xs text-zinc-500 tabular-nums">{{ artist.playcount }}x</div>
+                <div class="text-xs text-zinc-500 tabular-nums">
+                  {{ artist.playcount }}x
+                </div>
               </div>
             </div>
           </div>
 
           <!-- Yearly Top Tracks -->
           <div v-if="stats.topTracks?.year" class="space-y-6">
-            <h3 class="text-[10px] text-zinc-500 tracking-[0.2em]">TOP_TRACKS_365D</h3>
+            <h3 class="text-[10px] text-zinc-500 tracking-[0.2em]">
+              TOP_TRACKS_365D
+            </h3>
             <div class="space-y-2">
-              <div v-for="(track, index) in stats.topTracks.year.slice(0, 5)" :key="track.name"
-                class="flex items-baseline gap-2 @[350px]:gap-3">
-                <div class="w-4 text-right text-xs text-zinc-600 tabular-nums">{{ index + 1 }}</div>
+              <div
+                v-for="(track, index) in stats.topTracks.year.slice(0, 5)"
+                :key="track.name"
+                class="flex items-baseline gap-2 @[350px]:gap-3"
+              >
+                <div class="w-4 text-right text-xs text-zinc-600 tabular-nums">
+                  {{ index + 1 }}
+                </div>
                 <div class="min-w-0 flex-1">
                   <div class="text-sm truncate">{{ track.name }}</div>
-                  <div class="text-xs text-zinc-500 truncate">{{ track.artist.name }}</div>
+                  <div class="text-xs text-zinc-500 truncate">
+                    {{ track.artist.name }}
+                  </div>
                 </div>
-                <div class="text-xs text-zinc-500 tabular-nums whitespace-nowrap">{{ track.playcount }}x</div>
+                <div
+                  class="text-xs text-zinc-500 tabular-nums whitespace-nowrap"
+                >
+                  {{ track.playcount }}x
+                </div>
               </div>
             </div>
           </div>
@@ -203,8 +252,14 @@ const handleImageError = (event: Event) => {
   }
 }
 
-const getImageUrl = (images: LastFmImage[], size: string = 'medium'): string => {
-  return images.find(img => img.size === size)?.['#text'] || '/placeholder-artist.png'
+const getImageUrl = (
+  images: LastFmImage[],
+  size: string = 'medium'
+): string => {
+  return (
+    images.find((img) => img.size === size)?.['#text'] ||
+    '/placeholder-artist.png'
+  )
 }
 
 defineProps<{
@@ -221,7 +276,9 @@ function formatTrackTime(track: LastFmTrack): string {
   try {
     const date = new Date(Number(track.date.uts) * 1000)
     const now = new Date()
-    const diffMinutes = Math.floor((now.getTime() - date.getTime()) / (1000 * 60))
+    const diffMinutes = Math.floor(
+      (now.getTime() - date.getTime()) / (1000 * 60)
+    )
 
     if (diffMinutes < 60) {
       return `${diffMinutes}m`
@@ -229,12 +286,14 @@ function formatTrackTime(track: LastFmTrack): string {
       const hours = Math.floor(diffMinutes / 60)
       return `${hours}h`
     } else {
-      return date.toLocaleDateString('en-US', {
-        month: 'numeric',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
-      }).replace(',', '')
+      return date
+        .toLocaleDateString('en-US', {
+          month: 'numeric',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        })
+        .replace(',', '')
     }
   } catch (error) {
     console.warn('Error formatting track time:', error)
@@ -250,7 +309,7 @@ function formatTrackTime(track: LastFmTrack): string {
 
 /* Ensure all numbers use tabular figures */
 .tabular-nums {
-  font-feature-settings: "tnum";
+  font-feature-settings: 'tnum';
   font-variant-numeric: tabular-nums;
 }
 </style>

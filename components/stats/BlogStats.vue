@@ -1,16 +1,20 @@
 <template>
   <div class="font-mono flex flex-col space-y-20">
     <!-- Primary Stats -->
-    <div>
-      <IndividualStat :value="stats.totalPosts" size="large" label="BLOG POSTS" :details="primaryDetails" />
-    </div>
-
+    <!-- <div> -->
+    <!--   <IndividualStat :value="stats.totalPosts" size="large" label="BLOG POSTS" :details="primaryDetails" /> -->
+    <!-- </div> -->
+    <!---->
     <!-- Writing Velocity -->
     <div class="stat-section">
       <h3 class="section-subheader">WRITING VELOCITY</h3>
 
       <div class="stats-table">
-        <div v-for="(item, index) in velocityStats" :key="index" class="stats-row">
+        <div
+          v-for="(item, index) in velocityStats"
+          :key="index"
+          class="stats-row"
+        >
           <div class="stats-label">{{ item.label }}</div>
           <div class="stats-value">{{ item.value }}</div>
         </div>
@@ -22,7 +26,11 @@
       <h3 class="section-subheader">CONTENT</h3>
 
       <div class="stats-table">
-        <div v-for="(item, index) in contentStats" :key="index" class="stats-row">
+        <div
+          v-for="(item, index) in contentStats"
+          :key="index"
+          class="stats-row"
+        >
           <div class="stats-label">{{ item.label }}</div>
           <div class="stats-value">{{ item.value }}</div>
         </div>
@@ -31,7 +39,7 @@
 
     <!-- Weekly Posting Consistency -->
     <div class="stat-section">
-      <h3 class="section-subheader">WEEKLY CONSISTENCY</h3>
+      <h3 class="section-subheader">RECENT WRITING</h3>
       <ActivityCalendar :active-dates="weeklyConsistencyDates" :days="52" />
     </div>
   </div>
@@ -39,7 +47,11 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { differenceInDays, differenceInYears, differenceInMonths } from 'date-fns'
+import {
+  differenceInDays,
+  differenceInYears,
+  differenceInMonths
+} from 'date-fns'
 import IndividualStat from './IndividualStat.vue'
 
 // Import ActivityCalendar
@@ -76,7 +88,11 @@ const primaryDetails = computed(() => {
 })
 
 const hasTagsData = computed(() => {
-  return !!(props.stats.topTags?.length || props.stats.uniqueTags || props.stats.averageReadingTime)
+  return !!(
+    props.stats.topTags?.length ||
+    props.stats.uniqueTags ||
+    props.stats.averageReadingTime
+  )
 })
 
 const topTagsDisplay = computed(() => {
@@ -85,34 +101,38 @@ const topTagsDisplay = computed(() => {
 })
 
 // Velocity stats items
-const velocityStats = computed<StatItem[]>(() => [
-  { label: 'Active Period', value: writingSpan.value },
-  { label: 'Annual Output', value: `~${postsPerYear.value} posts per year` },
-  {
-    label: 'Recent Activity',
-    value: `${props.stats.postsThisMonth} posts this month`,
-    condition: !!props.stats.postsThisMonth
-  }
-].filter(item => item.condition !== false))
+const velocityStats = computed<StatItem[]>(() =>
+  [
+    // { label: 'Active Period', value: writingSpan.value },
+    { label: 'Annual Output', value: `~${postsPerYear.value} posts per year` },
+    {
+      label: 'Recent Activity',
+      value: `${props.stats.postsThisMonth} posts this month`,
+      condition: !!props.stats.postsThisMonth
+    }
+  ].filter((item) => item.condition !== false)
+)
 
 // Content stats items
-const contentStats = computed<StatItem[]>(() => [
-  {
-    label: 'Top Topics',
-    value: topTagsDisplay.value,
-    condition: !!props.stats.topTags?.length
-  },
-  {
-    label: 'Topics Covered',
-    value: `${props.stats.uniqueTags} unique tags`,
-    condition: !!props.stats.uniqueTags
-  },
-  {
-    label: 'Avg. Reading Time',
-    value: `${props.stats.averageReadingTime} min`,
-    condition: !!props.stats.averageReadingTime
-  }
-].filter(item => item.condition !== false))
+const contentStats = computed<StatItem[]>(() =>
+  [
+    // {
+    //   label: 'Top Topics',
+    //   value: topTagsDisplay.value,
+    //   condition: !!props.stats.topTags?.length
+    // },
+    {
+      label: 'Topics Covered',
+      value: `${props.stats.uniqueTags} unique tags`,
+      condition: !!props.stats.uniqueTags
+    },
+    {
+      label: 'Avg. Reading Time',
+      value: `${props.stats.averageReadingTime} min`,
+      condition: !!props.stats.averageReadingTime
+    }
+  ].filter((item) => item.condition !== false)
+)
 
 // Formatting utilities
 const formatNumber = (num: number): string => {
@@ -168,7 +188,7 @@ const postActivityDates = computed(() => {
     const postInterval = Math.floor(daysInMonth / count)
 
     for (let i = 0; i < count; i++) {
-      const day = 1 + (i * postInterval)
+      const day = 1 + i * postInterval
       // Format as YYYY-MM-DD (standard date format for the calendar)
       const date = format(new Date(year, monthNum - 1, day), 'yyyy-MM-dd')
       dates.add(date)
@@ -195,7 +215,7 @@ const weeklyConsistencyDates = computed(() => {
     const postInterval = Math.floor(daysInMonth / count)
 
     for (let i = 0; i < count; i++) {
-      const day = 1 + (i * postInterval)
+      const day = 1 + i * postInterval
       const postDate = new Date(year, monthNum - 1, day)
 
       // Get ISO week number (1-53)
@@ -223,7 +243,7 @@ const getWeekNumber = (date: Date): number => {
   const firstThursday = target.valueOf()
   target.setMonth(0, 1)
   if (target.getDay() !== 4) {
-    target.setMonth(0, 1 + ((4 - target.getDay()) + 7) % 7)
+    target.setMonth(0, 1 + ((4 - target.getDay() + 7) % 7))
   }
   return 1 + Math.ceil((firstThursday - target.valueOf()) / 604800000) // 604800000 = 7 * 24 * 60 * 60 * 1000
 }

@@ -3,14 +3,27 @@
     <!-- Main Stats -->
     <div v-if="hasStats">
       <div class="space-y-4">
-        <IndividualStat :value="stats.typingStats.bestWPM" size="large" label="BEST WPM" :details="statsDetails" />
+        <IndividualStat
+          :value="stats.typingStats.bestWPM"
+          size="large"
+          label="BEST WPM"
+          :details="statsDetails"
+        />
       </div>
     </div>
     <div v-else class="text-center py-6">
-      <div class="text-xl font-mono text-zinc-700 dark:text-zinc-500">NO TYPING DATA</div>
+      <div class="text-xl font-mono text-zinc-700 dark:text-zinc-500">
+        NO TYPING DATA
+      </div>
       <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
-        Visit <a href="https://monkeytype.com" target="_blank"
-          class="text-zinc-800 dark:text-zinc-300 hover:underline">MonkeyType.com</a> to start tracking
+        Visit
+        <a
+          href="https://monkeytype.com"
+          target="_blank"
+          class="text-zinc-800 dark:text-zinc-300 hover:underline"
+          >MonkeyType.com</a
+        >
+        to start tracking
       </div>
     </div>
 
@@ -22,7 +35,9 @@
         <div v-for="test in recentTests" :key="test.timestamp" class="test-row">
           <div class="flex-none">
             <!-- Simplified date format -->
-            <span class="text-zinc-400 text-2xs tabular-nums">{{ formatDateMinimal(test.timestamp) }}</span>
+            <span class="text-zinc-400 text-2xs tabular-nums">{{
+              formatDateMinimal(test.timestamp)
+            }}</span>
           </div>
           <div v-if="hasTestType(test)" class="test-type">
             {{ formatTestTypeMinimal(test) }}
@@ -41,24 +56,17 @@
 
       <div class="grid grid-cols-2 gap-4">
         <StatDisplay label="TESTS" :value="stats.typingStats.testsCompleted" />
-        <StatDisplay label="BEST ACC" :value="`${stats.typingStats.bestAccuracy}%`" />
-        <StatDisplay v-if="stats.typingStats.bestConsistency" label="CONSISTENCY"
-          :value="`${stats.typingStats.bestConsistency}%`" />
-        <StatDisplay v-if="stats.typingStats.averageWPM" label="AVG WPM" :value="stats.typingStats.averageWPM" />
-      </div>
-    </div>
-
-    <!-- Testing Patterns -->
-    <div v-if="hasTestTypes" class="mt-12 space-y-8">
-      <h4 class="section-subheader">TEST PREFERENCES</h4>
-
-      <div class="grid grid-cols-2 gap-4">
-        <div v-for="(count, type) in testTypeDistribution" :key="type" class="flex justify-between items-center">
-          <span class="text-zinc-700 dark:text-zinc-400 text-sm">{{ formatTestPref(type) }}</span>
-          <span class="text-zinc-500 text-xs tabular-nums">
-            {{ Math.round(count / totalTests * 100) }}%
-          </span>
-        </div>
+        <!-- <StatDisplay label="BEST ACC" :value="`${stats.typingStats.bestAccuracy}%`" /> -->
+        <StatDisplay
+          v-if="stats.typingStats.bestConsistency"
+          label="CONSISTENCY"
+          :value="`${stats.typingStats.bestConsistency}%`"
+        />
+        <StatDisplay
+          v-if="stats.typingStats.averageWPM"
+          label="AVG WPM"
+          :value="stats.typingStats.averageWPM"
+        />
       </div>
     </div>
   </div>
@@ -98,15 +106,18 @@ const props = defineProps<{
 }>()
 
 // Computed properties for conditional rendering and data formatting
-const hasRecentTests = computed(() =>
-  !!props.stats.typingStats?.recentTests?.length
+const hasRecentTests = computed(
+  () => !!props.stats.typingStats?.recentTests?.length
 )
 
 const recentTests = computed(() => {
   if (!props.stats.typingStats?.recentTests) return []
 
   return [...props.stats.typingStats.recentTests]
-    .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
+    .sort(
+      (a, b) =>
+        new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+    )
     .slice(0, 5)
 })
 
@@ -126,7 +137,7 @@ const testTypeDistribution = computed(() => {
   if (!hasRecentTests.value) return {}
 
   const distribution: Record<string, number> = {}
-  recentTests.value.forEach(test => {
+  recentTests.value.forEach((test) => {
     const type = getTestType(test)
     distribution[type] = (distribution[type] || 0) + 1
   })
@@ -135,7 +146,12 @@ const testTypeDistribution = computed(() => {
 })
 
 const totalTests = computed(() => {
-  return Object.values(testTypeDistribution.value).reduce((sum, count) => sum + count, 0) || 1
+  return (
+    Object.values(testTypeDistribution.value).reduce(
+      (sum, count) => sum + count,
+      0
+    ) || 1
+  )
 })
 
 const hasTestTypes = computed(() => {
@@ -189,7 +205,7 @@ const hasStats = computed(() => {
 })
 
 // Reusable stat display component
-const StatDisplay = (props: { label: string, value: string | number }) => {
+const StatDisplay = (props: { label: string; value: string | number }) => {
   return h('div', { class: 'stat-item' }, [
     h('div', { class: 'stat-label' }, props.label),
     h('div', { class: 'stat-value' }, props.value)
