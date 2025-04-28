@@ -168,13 +168,13 @@
           <div class="flex justify-between">
             <span>Steps Today</span>
             <span class="tabular-nums">{{
-              stats.health.today?.steps?.toLocaleString() || 0
+              healthToday.steps.toLocaleString()
             }}</span>
           </div>
           <div class="flex justify-between">
             <span>Exercise</span>
             <span class="tabular-nums"
-              >{{ stats.health.today?.exerciseMinutes || 0 }}m</span
+              >{{ healthToday.exerciseMinutes }}m</span
             >
           </div>
           <div class="flex justify-between">
@@ -361,6 +361,30 @@ const dayOfYear = Math.floor(diff / (1000 * 60 * 60 * 24))
 const isLeapYear =
   (currentYear % 4 === 0 && currentYear % 100 !== 0) || currentYear % 400 === 0
 const daysInYear = isLeapYear ? 366 : 365
+
+// Helper to get local (Eastern) date string in YYYY-MM-DD
+const getEasternDateString = () => {
+  return new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' })
+}
+
+const todayLocal = getEasternDateString()
+
+// If stats.health.today.day is not todayLocal, find the correct index in trends
+const healthToday = computed(() => {
+  if (!props.stats?.health) return { steps: 0, exerciseMinutes: 0 }
+  // If the API's today is correct, use it
+  if (props.stats.health.trends?.daily?.dates) {
+    const idx = props.stats.health.trends.daily.dates.indexOf(todayLocal)
+    if (idx !== -1) {
+      return {
+        steps: props.stats.health.trends.daily.steps[idx] || 0,
+        exerciseMinutes: props.stats.health.trends.daily.exercise[idx] || 0
+      }
+    }
+  }
+  // fallback to API's today
+  return props.stats.health.today || { steps: 0, exerciseMinutes: 0 }
+})
 </script>
 
 <style scoped>

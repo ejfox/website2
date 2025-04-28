@@ -54,6 +54,7 @@
         :blog-stats="validBlogStats"
         :transformed-health-stats="transformedHealthStats"
         :is-loading="isLoading"
+        :health-today="healthToday"
       />
     </ClientOnly>
 
@@ -517,6 +518,26 @@ definePageMeta({
 onMounted(() => {
   const layout = route.query.simple !== undefined ? 'simple' : 'default'
   useNuxtApp().$router.push({ query: { ...route.query }, hash: route.hash })
+})
+
+// Helper to get local (Eastern) date string in YYYY-MM-DD
+const getEasternDateString = () => {
+  return new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' })
+}
+const todayLocal = getEasternDateString()
+
+const healthToday = computed(() => {
+  if (!stats.value?.health) return { steps: 0, exerciseMinutes: 0 }
+  if (stats.value.health.trends?.daily?.dates) {
+    const idx = stats.value.health.trends.daily.dates.indexOf(todayLocal)
+    if (idx !== -1) {
+      return {
+        steps: stats.value.health.trends.daily.steps[idx] || 0,
+        exerciseMinutes: stats.value.health.trends.daily.exercise[idx] || 0
+      }
+    }
+  }
+  return stats.value.health.today || { steps: 0, exerciseMinutes: 0 }
 })
 </script>
 
