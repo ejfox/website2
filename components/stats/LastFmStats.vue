@@ -304,7 +304,7 @@ function formatTrackTime(track: LastFmTrack): string {
 
 <style scoped>
 .stat-block {
-  @apply p-3 bg-zinc-900/30 border border-zinc-800/50;
+  /* Removed background and border for a clean typographical look */
 }
 
 /* Ensure all numbers use tabular figures */

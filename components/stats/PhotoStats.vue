@@ -3,16 +3,16 @@
     <!-- Main Stats -->
     <div>
       <IndividualStat :value="stats.stats.totalPhotos" size="large" label="TOTAL PHOTOS"
-        :details="`${formatNumber(stats.stats.photosThisMonth)} THIS MONTH · ${formatNumber(stats.stats.averagePerMonth)} AVG/MONTH`" />
+        :details="`${formatNumber(stats.stats.photosThisMonth)} THIS MONTH`" />
     </div>
 
     <!-- Monthly Stats -->
     <div>
       <h4 class="section-subheader">MONTHLY STATS</h4>
       <div class="space-y-4">
-        <div v-for="item in monthlyStatItems" :key="item.label" class="stat-row">
-          <span class="text-zinc-400">{{ item.label }}</span>
-          <span class="text-zinc-500 tabular-nums">{{ item.value }}</span>
+        <div class="stat-row">
+          <span class="text-zinc-400">Photos This Month</span>
+          <span class="text-zinc-500 tabular-nums">{{ formatNumber(stats.stats.photosThisMonth) }}</span>
         </div>
       </div>
     </div>
@@ -22,13 +22,10 @@
       <h4 class="section-subheader">CAMERA EQUIPMENT</h4>
       <div class="metric-box">
         <div class="grid grid-cols-2 gap-4 text-xs">
-          <StatItem v-if="stats.stats.topCamera" label="MOST USED CAMERA" :value="stats.stats.topCamera"
-            valueClass="text-zinc-300" />
-          <StatItem v-if="stats.stats.topLens" label="MOST USED LENS" :value="stats.stats.topLens"
-            valueClass="text-zinc-300" />
-          <StatItem v-if="stats.stats.topFocalLength" label="FAVORITE FOCAL LENGTH"
-            :value="`${stats.stats.topFocalLength}mm`" />
-          <StatItem v-if="stats.stats.topAperture" label="FAVORITE APERTURE" :value="`f/${stats.stats.topAperture}`" />
+          <StatItem v-if="topCamera" label="MOST USED CAMERA" :value="topCamera" valueClass="text-zinc-300" />
+          <StatItem v-if="topLens" label="MOST USED LENS" :value="topLens" valueClass="text-zinc-300" />
+          <StatItem v-if="topFocalLength" label="FAVORITE FOCAL LENGTH" :value="`${topFocalLength}`" />
+          <StatItem v-if="topAperture" label="FAVORITE APERTURE" :value="topAperture" />
         </div>
       </div>
     </div>
@@ -56,19 +53,16 @@ const StatItem = (props: {
   ])
 }
 
-interface PhotoStatsInterface {
-  stats: {
-    totalPhotos: number
-    photosThisMonth: number
-    averagePerMonth: number
-    topCamera?: string
-    topLens?: string
-    topFocalLength?: number
-    topAperture?: number
+type PhotoStats = NonNullable<StatsResponse['photos']> & {
+  gearStats?: {
+    cameras: { name: string; count: number; percentage: number }[]
+    lenses: { name: string; count: number; percentage: number }[]
+    mostUsedSettings?: {
+      apertures?: { value: string; count: number }[]
+      focalLengths?: { value: string; count: number }[]
+    }
   }
 }
-
-type PhotoStats = NonNullable<StatsResponse['photos']>
 
 const props = defineProps<{
   stats: PhotoStats
@@ -82,26 +76,14 @@ const formatDate = (dateString: string): string => {
   return format(new Date(dateString), 'MMM d, yyyy')
 }
 
-// Monthly stats items
-const monthlyStatItems = computed(() => {
-  if (!props.stats.stats) return []
+// Camera/lens/focal length/aperture extraction from gearStats
+const topCamera = computed(() => props.stats.gearStats?.cameras?.[0]?.name || null)
+const topLens = computed(() => props.stats.gearStats?.lenses?.[0]?.name || null)
+const topFocalLength = computed(() => props.stats.gearStats?.mostUsedSettings?.focalLengths?.[0]?.value || null)
+const topAperture = computed(() => props.stats.gearStats?.mostUsedSettings?.apertures?.[0]?.value || null)
 
-  return [
-    {
-      label: 'Photos This Month',
-      value: formatNumber(props.stats.stats.photosThisMonth)
-    },
-    {
-      label: 'Monthly Average',
-      value: formatNumber(props.stats.stats.averagePerMonth)
-    }
-  ]
-})
-
-// Check if we have any camera equipment data
 const hasCameraData = computed(() => {
-  const stats = props.stats.stats
-  return !!(stats?.topCamera || stats?.topLens || stats?.topFocalLength || stats?.topAperture)
+  return !!(topCamera.value || topLens.value || topFocalLength.value || topAperture.value)
 })
 </script>
 
