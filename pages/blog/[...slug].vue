@@ -3,7 +3,6 @@ import { format, isValid, parseISO } from 'date-fns'
 import { animate, stagger, engine } from '~/anime.esm.js'
 import { useWindowSize, useMutationObserver } from '@vueuse/core'
 import DonationSection from '~/components/blog/DonationSection.vue'
-import BlogSignatureInfo from '~/components/blog/SignatureInfo.vue'
 import { useScrollAnimation } from '~/composables/useScrollAnimation'
 
 const config = useRuntimeConfig()
@@ -14,29 +13,32 @@ const route = useRoute()
 const router = useRouter()
 
 // Handle redirection and post fetching
-const { data: post, error } = await useAsyncData(`post-${route.params.slug.join('-')}`, async () => {
-  const slugParts = route.params.slug
+const { data: post, error } = await useAsyncData(
+  `post-${route.params.slug.join('-')}`,
+  async () => {
+    const slugParts = route.params.slug
 
-  try {
-    // Fetch the post data, including potential redirection info
-    const response = await $fetch(`/api/posts/${slugParts.join('/')}`)
+    try {
+      // Fetch the post data, including potential redirection info
+      const response = await $fetch(`/api/posts/${slugParts.join('/')}`)
 
-    if (response.redirect) {
-      // Check if we're already on the correct URL
-      if (route.path !== response.redirect) {
-        return { redirect: response.redirect }
+      if (response.redirect) {
+        // Check if we're already on the correct URL
+        if (route.path !== response.redirect) {
+          return { redirect: response.redirect }
+        }
       }
-    }
 
-    if (response.error) {
-      throw new Error(response.error)
-    }
+      if (response.error) {
+        throw new Error(response.error)
+      }
 
-    return response
-  } catch (error) {
-    throw error
+      return response
+    } catch (error) {
+      throw error
+    }
   }
-})
+)
 
 // Perform redirection if necessary
 if (post.value && post.value.redirect) {
@@ -67,9 +69,12 @@ const isMobile = computed(() => width.value < 768)
 
 // Compute font size based on viewport
 watchEffect(() => {
-  if (width.value >= 1280) titleFontSize.value = 72 // xl
-  else if (width.value >= 1024) titleFontSize.value = 64 // lg
-  else if (width.value >= 768) titleFontSize.value = 48 // md
+  if (width.value >= 1280)
+    titleFontSize.value = 72 // xl
+  else if (width.value >= 1024)
+    titleFontSize.value = 64 // lg
+  else if (width.value >= 768)
+    titleFontSize.value = 48 // md
   else titleFontSize.value = 24 // mobile
 })
 
@@ -103,8 +108,10 @@ onMounted(() => {
 
   nextTick(() => {
     if (!articleContent.value) return
-    headings.value = Array.from(articleContent.value.querySelectorAll('h2, h3, h4'))
-    headings.value.forEach(heading => headingObserver.observe(heading))
+    headings.value = Array.from(
+      articleContent.value.querySelectorAll('h2, h3, h4')
+    )
+    headings.value.forEach((heading) => headingObserver.observe(heading))
   })
 
   // Clean up
@@ -119,7 +126,7 @@ const tocTarget = ref(null)
 
 onMounted(() => {
   tocTarget.value = document.querySelector('#nav-toc-container')
-  
+
   // Also check if the post has TOC data
 })
 
@@ -132,7 +139,7 @@ watch(
     await nextTick()
 
     // Add a small delay to ensure DOM is fully updated
-    await new Promise(resolve => setTimeout(resolve, 100))
+    await new Promise((resolve) => setTimeout(resolve, 100))
 
     // Re-initialize TOC target when route changes
     tocTarget.value = document.querySelector('#nav-toc-container')
@@ -144,7 +151,7 @@ watch(
 
         // Exponential backoff
         const delay = 100 * Math.pow(2, attempts - 1)
-        await new Promise(resolve => setTimeout(resolve, delay))
+        await new Promise((resolve) => setTimeout(resolve, delay))
 
         tocTarget.value = document.querySelector('#nav-toc-container')
 
@@ -159,7 +166,9 @@ watch(
     // Re-initialize headings and observers
     if (articleContent.value) {
       nextTick(() => {
-        headings.value = Array.from(articleContent.value.querySelectorAll('h2, h3, h4'))
+        headings.value = Array.from(
+          articleContent.value.querySelectorAll('h2, h3, h4')
+        )
 
         // Re-observe headings with the intersection observer
         const headingObserver = new IntersectionObserver(
@@ -173,7 +182,7 @@ watch(
           { rootMargin: '-10% 0px -80% 0px', threshold: 0 }
         )
 
-        headings.value.forEach(heading => headingObserver.observe(heading))
+        headings.value.forEach((heading) => headingObserver.observe(heading))
       })
     }
   },
@@ -205,7 +214,10 @@ const animationState = reactive({
 const renderedTitle = computed(() => {
   const spans = letters.value.map(({ char, id, isSpace }, index) => {
     const isVisible = animationState.visibleLetters.has(id)
-    const isCursorHere = !isSpace && index === animationState.cursorPosition && animationState.isAnimating
+    const isCursorHere =
+      !isSpace &&
+      index === animationState.cursorPosition &&
+      animationState.isAnimating
 
     // Start a new word wrapper if it's a space
     if (isSpace) {
@@ -231,14 +243,17 @@ async function typeText() {
 
   for (let i = 0; i < letters.value.length; i++) {
     const letter = letters.value[i]
-    const delay = letter.isSpace || /[.,!?;:]/.test(letter.char) ? PAUSE_DELAY : LETTER_DELAY
+    const delay =
+      letter.isSpace || /[.,!?;:]/.test(letter.char)
+        ? PAUSE_DELAY
+        : LETTER_DELAY
 
-    await new Promise(resolve => setTimeout(resolve, delay))
+    await new Promise((resolve) => setTimeout(resolve, delay))
     animationState.visibleLetters.add(letter.id)
     animationState.cursorPosition = i
   }
 
-  await new Promise(resolve => setTimeout(resolve, 500))
+  await new Promise((resolve) => setTimeout(resolve, 500))
   animationState.isAnimating = false
 }
 
@@ -260,11 +275,13 @@ const trimmedToc = computed(() => {
   const tocData = post.value?.toc || post.value?.metadata?.toc
   if (!tocData) return []
 
-  return tocData.flatMap(item =>
-    item.children?.map(child => ({
-      ...child,
-      text: child.text.length > 35 ? child.text.slice(0, 32) + '...' : child.text
-    })) || []
+  return tocData.flatMap(
+    (item) =>
+      item.children?.map((child) => ({
+        ...child,
+        text:
+          child.text.length > 35 ? child.text.slice(0, 32) + '...' : child.text
+      })) || []
   )
 })
 
@@ -279,7 +296,9 @@ const TOC_CONSTANTS = {
 
 // Updated function to center the active TOC item
 const updateTocScroll = useDebounceFn(() => {
-  const activeIndex = trimmedToc.value.findIndex(item => item.slug === activeSection.value)
+  const activeIndex = trimmedToc.value.findIndex(
+    (item) => item.slug === activeSection.value
+  )
   if (activeIndex === -1) return
 
   const totalWidth = trimmedToc.value.length * TOC_CONSTANTS.ITEM_WIDTH
@@ -287,7 +306,9 @@ const updateTocScroll = useDebounceFn(() => {
   const newScrollPosition = Math.max(
     0,
     Math.min(
-      activeIndex * TOC_CONSTANTS.ITEM_WIDTH - halfViewport + TOC_CONSTANTS.ITEM_WIDTH / 2,
+      activeIndex * TOC_CONSTANTS.ITEM_WIDTH -
+        halfViewport +
+        TOC_CONSTANTS.ITEM_WIDTH / 2,
       totalWidth - TOC_CONSTANTS.VIEWPORT_WIDTH
     )
   )
@@ -299,11 +320,12 @@ const updateTocScroll = useDebounceFn(() => {
 watch(activeSection, updateTocScroll)
 
 // Create scroll animation instance
-const { setupAnimation, slideUp, slideLeft, fadeIn, expandLine } = useScrollAnimation({
-  debug: false,
-  threshold: 0.1,
-  rootMargin: '-5% 0px -5% 0px',
-})
+const { setupAnimation, slideUp, slideLeft, fadeIn, expandLine } =
+  useScrollAnimation({
+    debug: false,
+    threshold: 0.1,
+    rootMargin: '-5% 0px -5% 0px'
+  })
 
 // Set up global animation defaults
 engine.defaults = {
@@ -333,28 +355,44 @@ function getBaseUrl() {
 }
 
 const baseURL = getBaseUrl()
-const shareImageUrl = computed(() => new URL(
-  `/images/share/${params.slug.join('/')}.png`,
-  baseURL
-).href)
-const postUrl = computed(() => new URL(`/blog/${params.slug.join('/')}`, baseURL).href)
+const shareImageUrl = computed(
+  () => new URL(`/images/share/${params.slug.join('/')}.png`, baseURL).href
+)
+const postUrl = computed(
+  () => new URL(`/blog/${params.slug.join('/')}`, baseURL).href
+)
 
 useHead(() => ({
   title: post.value?.metadata?.title || post.value?.title,
   meta: [
-    { name: 'description', content: post.value?.metadata?.dek || post.value?.dek },
-    { property: 'og:title', content: post.value?.metadata?.title || post.value?.title },
-    { property: 'og:description', content: post.value?.metadata?.dek || post.value?.dek },
+    {
+      name: 'description',
+      content: post.value?.metadata?.dek || post.value?.dek
+    },
+    {
+      property: 'og:title',
+      content: post.value?.metadata?.title || post.value?.title
+    },
+    {
+      property: 'og:description',
+      content: post.value?.metadata?.dek || post.value?.dek
+    },
     { property: 'og:image', content: shareImageUrl.value },
     { property: 'og:url', content: postUrl.value },
     { property: 'og:type', content: 'article' },
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: post.value?.metadata?.title || post.value?.title },
-    { name: 'twitter:description', content: post.value?.metadata?.dek || post.value?.dek },
-    { name: 'twitter:image', content: shareImageUrl.value },
+    {
+      name: 'twitter:title',
+      content: post.value?.metadata?.title || post.value?.title
+    },
+    {
+      name: 'twitter:description',
+      content: post.value?.metadata?.dek || post.value?.dek
+    },
+    { name: 'twitter:image', content: shareImageUrl.value }
   ],
   link: [{ rel: 'canonical', href: postUrl.value }],
-  htmlAttrs: { lang: 'en' },
+  htmlAttrs: { lang: 'en' }
 }))
 
 // Add this new computed property
@@ -375,7 +413,7 @@ const verificationStatus = ref(null)
 onMounted(async () => {
   if (post.value?.signature) {
     try {
-      const publicKey = await fetch('/pgp.txt').then(r => r.text())
+      const publicKey = await fetch('/pgp.txt').then((r) => r.text())
       const openpgp = await import('openpgp')
 
       // Create message from post content
@@ -387,7 +425,9 @@ onMounted(async () => {
 
       const verified = await openpgp.verify({
         message: await openpgp.createMessage({ text: message }),
-        signature: await openpgp.readSignature({ armoredSignature: post.value.signature }),
+        signature: await openpgp.readSignature({
+          armoredSignature: post.value.signature
+        }),
         verificationKeys: await openpgp.readKey({ armoredKey: publicKey })
       })
 
@@ -400,33 +440,39 @@ onMounted(async () => {
 })
 
 // Watch for content changes
-watch(() => post.value?.content, async () => {
-  if (post.value?.content) {
-    await nextTick()
-    await nextTick()
-    await new Promise(resolve => setTimeout(resolve, 50))
+watch(
+  () => post.value?.content,
+  async () => {
+    if (post.value?.content) {
+      await nextTick()
+      await nextTick()
+      await new Promise((resolve) => setTimeout(resolve, 50))
 
-    // Initial fade-in animation for everything EXCEPT images
-    if (articleContent.value) {
-      const content = articleContent.value.querySelectorAll('.animate-on-scroll:not(img)')
-      if (content.length > 0) {
-        animate(content, {
-          opacity: [0, 1],
-          translateY: [20, 0],
-          duration: 300,
-          ease: 'spring(1, 80, 10, 0)',
-          delay: stagger(50)
-        })
+      // Initial fade-in animation for everything EXCEPT images
+      if (articleContent.value) {
+        const content = articleContent.value.querySelectorAll(
+          '.animate-on-scroll:not(img)'
+        )
+        if (content.length > 0) {
+          animate(content, {
+            opacity: [0, 1],
+            translateY: [20, 0],
+            duration: 300,
+            ease: 'spring(1, 80, 10, 0)',
+            delay: stagger(50)
+          })
+        }
+      }
+
+      // Set up scroll-triggered animations
+      setupImageAnimations()
+      if (postMetadataComponent.value?.animateItems) {
+        postMetadataComponent.value.animateItems()
       }
     }
-
-    // Set up scroll-triggered animations
-    setupImageAnimations()
-    if (postMetadataComponent.value?.animateItems) {
-      postMetadataComponent.value.animateItems()
-    }
-  }
-}, { immediate: true })
+  },
+  { immediate: true }
+)
 
 // Set up mutation observer
 let stopMutationObserver = null
@@ -436,20 +482,20 @@ function setupImageAnimations() {
 
   // Images slide up from bottom
   const images = articleContent.value.querySelectorAll('img')
-  images.forEach(img => slideUp(img))
+  images.forEach((img) => slideUp(img))
 
   // Other animations remain the same
   const blockquotes = articleContent.value.querySelectorAll('blockquote')
-  blockquotes.forEach(quote => slideLeft(quote))
+  blockquotes.forEach((quote) => slideLeft(quote))
 
   const horizontalRules = articleContent.value.querySelectorAll('hr')
-  horizontalRules.forEach(rule => expandLine(rule))
+  horizontalRules.forEach((rule) => expandLine(rule))
 
   const headingLevels = ['h2', 'h3', 'h4']
   for (const level of headingLevels) {
     const headings = articleContent.value.querySelectorAll(level)
     if (headings.length > 0) {
-      headings.forEach(heading => slideLeft(heading))
+      headings.forEach((heading) => slideLeft(heading))
     }
   }
 
@@ -457,8 +503,8 @@ function setupImageAnimations() {
   const { stop } = useMutationObserver(
     articleContent.value,
     (mutations) => {
-      mutations.forEach(mutation => {
-        mutation.addedNodes.forEach(node => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
           if (node.nodeName === 'IMG') {
             slideUp(node)
           }
@@ -471,13 +517,13 @@ function setupImageAnimations() {
           }
           // Handle nested elements
           const nestedImages = node.querySelectorAll?.('img') || []
-          nestedImages.forEach(img => slideUp(img))
+          nestedImages.forEach((img) => slideUp(img))
           const nestedQuotes = node.querySelectorAll?.('blockquote') || []
-          nestedQuotes.forEach(quote => slideLeft(quote))
-          headingLevels.forEach(level => {
+          nestedQuotes.forEach((quote) => slideLeft(quote))
+          headingLevels.forEach((level) => {
             const headings = node.querySelectorAll?.(level) || []
             if (headings.length > 0) {
-              headings.forEach(heading => {
+              headings.forEach((heading) => {
                 const settings = ANIMATION_SETTINGS[level]
                 slideLeft(heading, settings)
               })
@@ -502,7 +548,7 @@ onUnmounted(() => {
  * Post Metadata Structure
  * ======================
  * All post metadata MUST be inside the metadata object:
- * 
+ *
  * {
  *   content: "<article>...</article>",
  *   html: "<article>...</article>",
@@ -513,12 +559,12 @@ onUnmounted(() => {
  *     modified: "2024-01-02T00:00:00.000Z",
  *     dek: "Post description",
  *     type: "post",
- *     
+ *
  *     // Stats (auto-calculated)
  *     words: 2077,
  *     images: 3,
  *     links: 6,
- *     
+ *
  *     // Optional
  *     tags: ["tag1", "tag2"],
  *     draft: false,
@@ -561,91 +607,130 @@ const processedMetadata = computed(() => {
 <template>
   <div>
     <Head>
-      <Meta name="robots" :content="post?.metadata?.robotsMeta || post?.robotsMeta || 'index, follow'" />
+      <Meta
+        name="robots"
+        :content="
+          post?.metadata?.robotsMeta || post?.robotsMeta || 'index, follow'
+        "
+      />
     </Head>
-    <article v-if="post && !post.redirect" class="scroll-container pt-4 md:pt-12 pl-0 md:pl-4">
+    <article
+      v-if="post && !post.redirect"
+      class="scroll-container pt-4 md:pt-12 pl-0 md:pl-4"
+    >
       <div ref="postMetadata" class="w-full">
-        <PostMetadata v-if="processedMetadata" :doc="processedMetadata" ref="postMetadataComponent" />
+        <PostMetadata
+          v-if="processedMetadata"
+          :doc="processedMetadata"
+          ref="postMetadataComponent"
+        />
       </div>
 
       <div class="lg:h-[62vh] flex items-center">
-        <h1 ref="postTitle" v-if="post?.metadata?.title || post?.title"
-          class="post-title text-3xl lg:text-7xl xl:text-8xl font-bold w-full paddings-y pr-8 pl-4 md:pl-0 tracking-tight leading-tight">
+        <h1
+          ref="postTitle"
+          v-if="post?.metadata?.title || post?.title"
+          class="post-title text-3xl lg:text-7xl xl:text-8xl font-bold w-full paddings-y pr-8 pl-4 md:pl-0 tracking-tight leading-tight"
+        >
           <div v-html="renderedTitle" class="typing-container"></div>
         </h1>
       </div>
 
       <!-- Back to Blog link - only visible on mobile -->
       <div v-if="isBlogPost && isMobile" class="paddings mb-8">
-        <UButton to="/blog/" size="sm" icon="i-heroicons-arrow-left" :color="isDark ? 'white' : 'black'">
+        <UButton
+          to="/blog/"
+          size="sm"
+          icon="i-heroicons-arrow-left"
+          :color="isDark ? 'white' : 'black'"
+        >
           Back to Blog
         </UButton>
       </div>
 
       <div ref="articleContent">
-        <article v-if="post?.html" v-html="post.html" class="blog-post-content px-2 prose-lg md:prose-xl
-                 dark:prose-invert
-                 prose-img:my-8 prose-img:rounded-lg prose-img:w-full prose-img:max-w-full
-                 prose-pre:overflow-x-auto prose-pre:whitespace-pre-wrap prose-pre:break-words
-                 prose-code:break-words prose-code:whitespace-pre-wrap
-                 font-normal opacity-100">
-        </article>
-        <div v-else-if="post?.content" v-html="post.content" class="blog-post-content px-2 prose-lg md:prose-xl
-                 dark:prose-invert
-                 prose-img:my-8 prose-img:rounded-lg prose-img:w-full prose-img:max-w-full
-                 prose-pre:overflow-x-auto prose-pre:whitespace-pre-wrap prose-pre:break-words
-                 prose-code:break-words prose-code:whitespace-pre-wrap
-                 font-normal opacity-100">
-        </div>
+        <article
+          v-if="post?.html"
+          v-html="post.html"
+          class="blog-post-content px-2 prose-lg md:prose-xl dark:prose-invert prose-img:my-8 prose-img:rounded-lg prose-img:w-full prose-img:max-w-full prose-pre:overflow-x-auto prose-pre:whitespace-pre-wrap prose-pre:break-words prose-code:break-words prose-code:whitespace-pre-wrap font-normal opacity-100"
+        ></article>
+        <div
+          v-else-if="post?.content"
+          v-html="post.content"
+          class="blog-post-content px-2 prose-lg md:prose-xl dark:prose-invert prose-img:my-8 prose-img:rounded-lg prose-img:w-full prose-img:max-w-full prose-pre:overflow-x-auto prose-pre:whitespace-pre-wrap prose-pre:break-words prose-code:break-words prose-code:whitespace-pre-wrap font-normal opacity-100"
+        ></div>
         <div v-else class="p-4 text-center text-red-500">
           No content available for this post
         </div>
       </div>
 
       <div v-if="post.tags" class="mt-4">
-        <span v-for="tag in post.tags" :key="tag" class="inline-block mr-2 mb-2">
+        <span
+          v-for="tag in post.tags"
+          :key="tag"
+          class="inline-block mr-2 mb-2"
+        >
           <UBadge :color="isDark ? 'zinc-700' : 'zinc-300'" :text="tag" />
         </span>
       </div>
 
-      <div ref="navigationLinks" class="flex justify-between items-center mt-8 w-full p-4 md:p-8" v-if="nextPrevPosts">
+      <div
+        ref="navigationLinks"
+        class="flex justify-between items-center mt-8 w-full p-4 md:p-8"
+        v-if="nextPrevPosts"
+      >
         <div class="w-1/3 pr-2">
-          <NuxtLink v-if="nextPrevPosts.prev" :to="`/blog/${nextPrevPosts.prev.slug}`"
-            class="block text-left no-underline hover:underline">
+          <NuxtLink
+            v-if="nextPrevPosts.prev"
+            :to="`/blog/${nextPrevPosts.prev.slug}`"
+            class="block text-left no-underline hover:underline"
+          >
             <span class="block text-sm text-gray-500">Previous</span>
-            <span class="block text-sm text-gray-400">{{ formatDate(nextPrevPosts.prev.date) }}</span>
-            <span class="text-current truncate block"> {{ nextPrevPosts.prev?.title }}</span>
+            <span class="block text-sm text-gray-400">{{
+              formatDate(nextPrevPosts.prev.date)
+            }}</span>
+            <span class="text-current truncate block">
+              {{ nextPrevPosts.prev?.title }}</span
+            >
           </NuxtLink>
         </div>
 
         <div class="w-1/3"></div>
 
         <div class="w-1/3 pl-2 text-right">
-          <NuxtLink v-if="nextPrevPosts.next" :to="`/blog/${nextPrevPosts.next.slug}`"
-            class="block text-right no-underline hover:underline">
+          <NuxtLink
+            v-if="nextPrevPosts.next"
+            :to="`/blog/${nextPrevPosts.next.slug}`"
+            class="block text-right no-underline hover:underline"
+          >
             <span class="block text-sm text-gray-500">Next</span>
-            <span class="block text-sm text-gray-400">{{ formatDate(nextPrevPosts.next.date) }}</span>
-            <span class="text-current truncate block">{{ nextPrevPosts.next?.title }} →</span>
+            <span class="block text-sm text-gray-400">{{
+              formatDate(nextPrevPosts.next.date)
+            }}</span>
+            <span class="text-current truncate block"
+              >{{ nextPrevPosts.next?.title }} →</span
+            >
           </NuxtLink>
         </div>
       </div>
 
       <!-- Add donation section only if not explicitly disabled -->
       <DonationSection v-if="showDonations" />
-
-      <!-- Add this near the end of the post if it has a signature -->
-      <div v-if="post?.content?.includes('PGP SIGNATURE')" class="mt-8 border-t pt-4">
-        <BlogSignatureInfo :path="route.params.slug.join('/')" />
-      </div>
     </article>
-    <div v-else-if="error"
-      class="flex flex-col items-center justify-center min-h-[50vh] bg-gray-100 dark:bg-gray-900 px-4 rounded-lg shadow-md">
-      <h2 class="text-4xl font-bold text-gray-800 dark:text-gray-200 mb-4">Blog post not found...</h2>
+    <div
+      v-else-if="error"
+      class="flex flex-col items-center justify-center min-h-[50vh] bg-gray-100 dark:bg-gray-900 px-4 rounded-lg shadow-md"
+    >
+      <h2 class="text-4xl font-bold text-gray-800 dark:text-gray-200 mb-4">
+        Blog post not found...
+      </h2>
       <p class="text-xl text-gray-600 dark:text-gray-400 mb-6 text-center">
         Error loading post: {{ error.message }}
       </p>
-      <NuxtLink to="/blog"
-        class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-300">
+      <NuxtLink
+        to="/blog"
+        class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-300"
+      >
         Return to Blog
       </NuxtLink>
     </div>
@@ -655,18 +740,32 @@ const processedMetadata = computed(() => {
 
     <!-- Desktop TOC -->
     <teleport to="#nav-toc-container" v-if="tocTarget">
-      <div v-if="post?.toc?.[0]?.children?.length || post?.metadata?.toc?.[0]?.children?.length"
-        class="toc py-4 px-4 text-sm">
-        <h3 class="text-base font-medium mb-4 font-sans tracking-tight">Table of Contents</h3>
+      <div
+        v-if="
+          post?.toc?.[0]?.children?.length ||
+          post?.metadata?.toc?.[0]?.children?.length
+        "
+        class="toc py-4 px-4 text-sm"
+      >
+        <h3 class="text-base font-medium mb-4 font-sans tracking-tight">
+          Table of Contents
+        </h3>
         <ul class="space-y-4">
-          <li v-for="child in (post.toc?.[0]?.children || post.metadata?.toc?.[0]?.children)" :key="child.slug"
-            class="transition-colors duration-200 hover:bg-zinc-100/50 dark:hover:bg-zinc-800/50 rounded line-clamp-1">
-            <a :href="`#${child.slug}`"
-              class="block px-1 py-0.5 rounded transition-colors font-sans text-sm tracking-tight" :class="[
+          <li
+            v-for="child in post.toc?.[0]?.children ||
+            post.metadata?.toc?.[0]?.children"
+            :key="child.slug"
+            class="transition-colors duration-200 hover:bg-zinc-100/50 dark:hover:bg-zinc-800/50 rounded line-clamp-1"
+          >
+            <a
+              :href="`#${child.slug}`"
+              class="block px-1 py-0.5 rounded transition-colors font-sans text-sm tracking-tight"
+              :class="[
                 activeSection === child.slug
                   ? 'text-zinc-900 dark:text-zinc-100 bg-zinc-200/50 dark:bg-zinc-700/50 font-medium'
                   : 'text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-200'
-              ]">
+              ]"
+            >
               {{ child.text }}
             </a>
           </li>
@@ -675,17 +774,27 @@ const processedMetadata = computed(() => {
     </teleport>
 
     <!-- Add subtle verification badge -->
-    <div v-if="verificationStatus !== null"
+    <div
+      v-if="verificationStatus !== null"
       class="fixed bottom-4 right-4 flex items-center space-x-2 text-sm px-3 py-1.5 rounded-full"
       :class="{
-        'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300': verificationStatus,
-        'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300': !verificationStatus
-      }">
+        'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300':
+          verificationStatus,
+        'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300':
+          !verificationStatus
+      }"
+    >
       <span class="font-mono">
         {{ verificationStatus ? '✓ Verified' : '⚠ Unverified' }}
       </span>
-      <UIcon :name="verificationStatus ? 'i-heroicons-shield-check' : 'i-heroicons-shield-exclamation'"
-        class="w-4 h-4" />
+      <UIcon
+        :name="
+          verificationStatus
+            ? 'i-heroicons-shield-check'
+            : 'i-heroicons-shield-exclamation'
+        "
+        class="w-4 h-4"
+      />
     </div>
   </div>
 </template>
@@ -790,7 +899,7 @@ const processedMetadata = computed(() => {
 }
 
 /* Inline code */
-.blog-post-content :not(pre)>code {
+.blog-post-content :not(pre) > code {
   padding: 0.2em 0.4em;
   border-radius: 0.25rem;
   font-size: 0.875em;
@@ -834,7 +943,6 @@ a {
 
 /* Respect user preferences */
 @media (prefers-reduced-motion: reduce) {
-
   .prose img,
   .prose blockquote {
     transition: none !important;
@@ -882,7 +990,6 @@ a {
 }
 
 @keyframes blink {
-
   0%,
   100% {
     opacity: 0.8;
@@ -904,7 +1011,6 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
-
   .letter,
   .space {
     transition: none !important;
@@ -954,3 +1060,4 @@ a {
   }
 }
 </style>
+
