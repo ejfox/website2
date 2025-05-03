@@ -5887,6 +5887,132 @@
     }
   },
   {
+    "slug": "2025/personal-apis",
+    "title": "Building Personal APIs",
+    "date": "2025-01-05T00:07:17.000Z",
+    "type": "post",
+    "dek": "In which the author steals his data back from various tools and APIs and uses them to build his own panopticon-for-one",
+    "modified": "2025-05-03T22:17:43.000Z",
+    "toc": [
+      {
+        "text": "Building Personal APIs",
+        "slug": "building-personal-apis",
+        "level": "h2",
+        "children": [
+          {
+            "text": "🏃‍♂️ Health & Fitness",
+            "slug": "health-fitness",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "🎮 Gaming & Skills",
+            "slug": "gaming-skills",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "💻 Development",
+            "slug": "development",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "📸 Creative",
+            "slug": "creative",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "🎵 Entertainment",
+            "slug": "entertainment",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "⏰ Productivity",
+            "slug": "productivity",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "📝 Writing",
+            "slug": "writing",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "date": "2025-01-05T00:07:17.000Z",
+      "modified": "2025-05-03T22:17:43.000Z",
+      "dek": "In which the author steals his data back from various tools and APIs and uses them to build his own panopticon-for-one",
+      "words": 918,
+      "images": 0,
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "Building Personal APIs",
+          "slug": "building-personal-apis",
+          "level": "h2",
+          "children": [
+            {
+              "text": "🏃‍♂️ Health & Fitness",
+              "slug": "health-fitness",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "🎮 Gaming & Skills",
+              "slug": "gaming-skills",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "💻 Development",
+              "slug": "development",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "📸 Creative",
+              "slug": "creative",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "🎵 Entertainment",
+              "slug": "entertainment",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "⏰ Productivity",
+              "slug": "productivity",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "📝 Writing",
+              "slug": "writing",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/2025/personal-apis.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "2025/personal-apis"
+    }
+  },
+  {
     "slug": "drafts/_stale/!index_drafts",
     "title": "!index_drafts",
     "date": "2023-01-15T20:08:41.000Z",
@@ -11459,142 +11585,6 @@
     }
   },
   {
-    "slug": "drafts/_stale/personal-apis",
-    "title": "Building Personal APIs",
-    "date": "2025-01-05T00:07:17.000Z",
-    "type": "post",
-    "modified": "2025-01-27T04:34:18.000Z",
-    "toc": [
-      {
-        "text": "Building Personal APIs",
-        "slug": "building-personal-apis",
-        "level": "h2",
-        "children": [
-          {
-            "text": "GitHub",
-            "slug": "github",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "RescueTime",
-            "slug": "rescuetime",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Chess",
-            "slug": "chess",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "MonkeyType",
-            "slug": "monkeytype",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Leetcode",
-            "slug": "leetcode",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Photos",
-            "slug": "photos",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Health",
-            "slug": "health",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "RSS Feed",
-            "slug": "rss-feed",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "metadata": {
-      "date": "2025-01-05T00:07:17.000Z",
-      "modified": "2025-01-27T04:34:18.000Z",
-      "words": 1141,
-      "images": 0,
-      "links": 0,
-      "codeBlocks": 7,
-      "headers": {
-        "h2": 1
-      },
-      "toc": [
-        {
-          "text": "Building Personal APIs",
-          "slug": "building-personal-apis",
-          "level": "h2",
-          "children": [
-            {
-              "text": "GitHub",
-              "slug": "github",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "RescueTime",
-              "slug": "rescuetime",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Chess",
-              "slug": "chess",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "MonkeyType",
-              "slug": "monkeytype",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Leetcode",
-              "slug": "leetcode",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Photos",
-              "slug": "photos",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Health",
-              "slug": "health",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "RSS Feed",
-              "slug": "rss-feed",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        }
-      ],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/personal-apis.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "drafts/_stale/personal-apis"
-    }
-  },
-  {
     "slug": "drafts/_stale/personal-automation-patterns",
     "title": "I Love n8n",
     "date": "2025-01-14T15:20:05.000Z",
@@ -14852,7 +14842,7 @@
     "date": "2025-04-09T18:28:08.000Z",
     "type": "post",
     "dek": "In which",
-    "modified": "2025-04-09T18:28:15.000Z",
+    "modified": "2025-04-27T16:09:49.000Z",
     "tags": [
       "example",
       "design",
@@ -14875,7 +14865,7 @@
         "inspiration"
       ],
       "date": "2025-04-09T18:28:08.000Z",
-      "modified": "2025-04-09T18:28:15.000Z",
+      "modified": "2025-04-27T16:09:49.000Z",
       "words": 12,
       "images": 0,
       "links": 0,
@@ -30858,20 +30848,98 @@
   },
   {
     "slug": "week-notes/2025-17",
-    "title": "2025 17",
+    "title": "2025-17",
+    "date": "2025-04-21T20:22:04.000Z",
     "type": "post",
-    "toc": [],
+    "modified": "2025-05-03T00:41:05.000Z",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
+    "toc": [
+      {
+        "text": "2025-17",
+        "slug": "2025-17",
+        "level": "h2",
+        "children": [
+          {
+            "text": "🌟 Daily Check-In & Reflections",
+            "slug": "daily-check-in-reflections",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "📚 Learning & Media",
+            "slug": "learning-media",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "metadata": {
-      "words": 92,
-      "images": 9,
-      "links": 9,
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
+      "date": "2025-04-21T20:22:04.000Z",
+      "modified": "2025-05-03T00:41:05.000Z",
+      "words": 165,
+      "images": 12,
+      "links": 12,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "2025-17",
+          "slug": "2025-17",
+          "level": "h2",
+          "children": [
+            {
+              "text": "🌟 Daily Check-In & Reflections",
+              "slug": "daily-check-in-reflections",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "📚 Learning & Media",
+              "slug": "learning-media",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-17.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "week-notes/2025-17"
+    }
+  },
+  {
+    "slug": "week-notes/2025-18",
+    "title": "2025 18",
+    "date": "2025-05-02T01:41:22.000Z",
+    "type": "post",
+    "modified": "2025-05-03T22:11:26.000Z",
+    "toc": [],
+    "metadata": {
+      "date": "2025-05-02T01:41:22.000Z",
+      "modified": "2025-05-03T22:11:26.000Z",
+      "words": 85,
+      "images": 4,
+      "links": 4,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-18.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-18"
     }
   }
 ]
