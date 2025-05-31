@@ -61,6 +61,11 @@
               <UIcon name="i-ei-external-link" class="w-3 md:w-4 h-3 md:h-4 inline-block" />
             </NuxtLink>
 
+            <NuxtLink :class="linkClasses" to="https://archive.ejfox.com">
+              Archive
+              <UIcon name="i-ei-external-link" class="w-3 md:w-4 h-3 md:h-4 inline-block" />
+            </NuxtLink>
+
           </div>
 
           <div class="px-4 opacity-50 hover:opacity-100 transition-opacity group hidden md:block">
@@ -153,6 +158,7 @@ const navLinks = [
   { to: '/scrapbook/', text: 'Scrapbook' },
   { to: '/pottery/', text: 'Pottery' },
   { to: 'https://ejfox.photos', text: 'Photos', external: true },
+  { to: 'https://archive.ejfox.com', text: 'Archive', external: true },
 ]
 
 const linkClasses = "block px-4 py-2 text-sm hover:bg-zinc-200/30 dark:hover:bg-zinc-700/30 rounded"
