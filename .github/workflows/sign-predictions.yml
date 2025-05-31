@@ -1,0 +1,46 @@
+name: Sign Predictions
+
+on:
+  push:
+    paths:
+      - 'content/blog/predictions/*.md'
+  workflow_dispatch:
+
+jobs:
+  sign:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        
+    - name: Install gray-matter
+      run: npm install gray-matter
+        
+    - name: Sign predictions
+      run: |
+        for file in content/blog/predictions/*.md; do
+          if [ -f "$file" ]; then
+            echo "Signing $file"
+            node scripts/predictions/sign-prediction.mjs "$file"
+          fi
+        done
+        
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add -A
+        git diff --cached --exit-code || git commit -m "sign: Update prediction signatures [skip ci]"
+        
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
