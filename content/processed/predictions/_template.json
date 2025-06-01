@@ -1,0 +1,72 @@
+{
+  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">This page contains my predictions for YEAR, each cryptographically signed and timestamped.</p>\n<h2 class=\"prose-sm text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"category-name\">Category Name</h2>\n<h3 class=\"prose-sm text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"prediction-1-title\">Prediction 1: Title</h3>\n<ul class=\"prose-sm list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-sm max-w-prose\"><strong class=\"\">Confidence</strong>: XX%</li>\n<li class=\"prose-sm max-w-prose\"><strong class=\"\">Deadline</strong>: Month DD, YYYY</li>\n<li class=\"prose-sm max-w-prose\"><strong class=\"\">Description</strong>: Clear statement of what you're predicting</li>\n<li class=\"prose-sm max-w-prose\"><strong class=\"\">Reasoning</strong>: Why you believe this will or won't happen</li>\n</ul>\n<h3 class=\"prose-sm text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"prediction-2-title\">Prediction 2: Title</h3>\n<ul class=\"prose-sm list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-sm max-w-prose\"><strong class=\"\">Confidence</strong>: XX%</li>\n<li class=\"prose-sm max-w-prose\"><strong class=\"\">Deadline</strong>: Month DD, YYYY</li>\n<li class=\"prose-sm max-w-prose\"><strong class=\"\">Description</strong>: Clear statement of what you're predicting</li>\n<li class=\"prose-sm max-w-prose\"><strong class=\"\">Reasoning</strong>: Why you believe this will or won't happen</li>\n</ul>\n<h2 class=\"prose-sm text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"status-updates\">Status Updates</h2>\n<h3 class=\"prose-sm text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"update-1---date\">Update 1 - Date</h3>\n<ul class=\"prose-sm list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-sm max-w-prose\">Details about resolution or partial resolution</li>\n<li class=\"prose-sm max-w-prose\">Updated confidence levels if applicable</li>\n</ul>",
+  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">This page contains my predictions for YEAR, each cryptographically signed and timestamped.</p>\n<h2 class=\"prose-sm text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"category-name\">Category Name</h2>\n<h3 class=\"prose-sm text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"prediction-1-title\">Prediction 1: Title</h3>\n<ul class=\"prose-sm list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-sm max-w-prose\"><strong class=\"\">Confidence</strong>: XX%</li>\n<li class=\"prose-sm max-w-prose\"><strong class=\"\">Deadline</strong>: Month DD, YYYY</li>\n<li class=\"prose-sm max-w-prose\"><strong class=\"\">Description</strong>: Clear statement of what you're predicting</li>\n<li class=\"prose-sm max-w-prose\"><strong class=\"\">Reasoning</strong>: Why you believe this will or won't happen</li>\n</ul>\n<h3 class=\"prose-sm text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"prediction-2-title\">Prediction 2: Title</h3>\n<ul class=\"prose-sm list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-sm max-w-prose\"><strong class=\"\">Confidence</strong>: XX%</li>\n<li class=\"prose-sm max-w-prose\"><strong class=\"\">Deadline</strong>: Month DD, YYYY</li>\n<li class=\"prose-sm max-w-prose\"><strong class=\"\">Description</strong>: Clear statement of what you're predicting</li>\n<li class=\"prose-sm max-w-prose\"><strong class=\"\">Reasoning</strong>: Why you believe this will or won't happen</li>\n</ul>\n<h2 class=\"prose-sm text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"status-updates\">Status Updates</h2>\n<h3 class=\"prose-sm text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"update-1---date\">Update 1 - Date</h3>\n<ul class=\"prose-sm list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-sm max-w-prose\">Details about resolution or partial resolution</li>\n<li class=\"prose-sm max-w-prose\">Updated confidence levels if applicable</li>\n</ul>",
+  "title": "YEAR Predictions",
+  "metadata": {
+    "title": "YEAR Predictions",
+    "date": "YYYY-MM-DD",
+    "published": true,
+    "tags": [
+      "predictions"
+    ],
+    "series": "predictions",
+    "description": "My predictions for YEAR, with cryptographic verification",
+    "verification": {
+      "hash": "",
+      "timestamp": "",
+      "gitCommit": "",
+      "gitDate": ""
+    },
+    "words": 100,
+    "images": 0,
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h1": 1
+    },
+    "toc": [
+      {
+        "text": "YEAR Predictions",
+        "slug": "year-predictions",
+        "level": "h1",
+        "children": [
+          {
+            "text": "Category Name",
+            "slug": "category-name",
+            "level": "h2",
+            "children": [
+              {
+                "text": "Prediction 1: Title",
+                "slug": "prediction-1-title",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Prediction 2: Title",
+                "slug": "prediction-2-title",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Status Updates",
+            "slug": "status-updates",
+            "level": "h2",
+            "children": [
+              {
+                "text": "Update 1 - Date",
+                "slug": "update-1-date",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/predictions/_template.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

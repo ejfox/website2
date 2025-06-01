@@ -14932,6 +14932,364 @@
     }
   },
   {
+    "slug": "predictions/2025-predictions",
+    "title": "2025 Predictions",
+    "date": "2025-01-18",
+    "type": "post",
+    "tags": [
+      "predictions"
+    ],
+    "toc": [
+      {
+        "text": "2025 Predictions",
+        "slug": "2025-predictions",
+        "level": "h1",
+        "children": [
+          {
+            "text": "AI Predictions",
+            "slug": "ai-predictions",
+            "level": "h2",
+            "children": [
+              {
+                "text": "Prediction 1: Claude Achieves AGI",
+                "slug": "prediction-1-claude-achieves-agi",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Prediction 2: Open Source Models Reach GPT-4 Level",
+                "slug": "prediction-2-open-source-models-reach-gpt-4-level",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Technology Predictions",
+            "slug": "technology-predictions",
+            "level": "h2",
+            "children": [
+              {
+                "text": "Prediction 3: Apple Vision Pro Sales Disappoint",
+                "slug": "prediction-3-apple-vision-pro-sales-disappoint",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Prediction 4: Crypto Winter Continues",
+                "slug": "prediction-4-crypto-winter-continues",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Geopolitical Predictions",
+            "slug": "geopolitical-predictions",
+            "level": "h2",
+            "children": [
+              {
+                "text": "Prediction 5: Russia-Ukraine War Continues",
+                "slug": "prediction-5-russia-ukraine-war-continues",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "title": "2025 Predictions",
+      "date": "2025-01-18",
+      "published": true,
+      "tags": [
+        "predictions"
+      ],
+      "series": "predictions",
+      "description": "My predictions for 2025, with cryptographic verification",
+      "verification": {
+        "hash": "8c4bbd72212c60e6b3d74232c5d5f4c42223afccfaaf28278c89f7d0ab6421ab",
+        "timestamp": "2025-05-18T13:20:03.513Z",
+        "gitCommit": "66ce634c4c287cf4736a46b9b5ce6ea2cb43db3e",
+        "gitDate": "2025-05-03T18:21:55-04:00"
+      },
+      "words": 269,
+      "images": 0,
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {
+        "h1": 1
+      },
+      "toc": [
+        {
+          "text": "2025 Predictions",
+          "slug": "2025-predictions",
+          "level": "h1",
+          "children": [
+            {
+              "text": "AI Predictions",
+              "slug": "ai-predictions",
+              "level": "h2",
+              "children": [
+                {
+                  "text": "Prediction 1: Claude Achieves AGI",
+                  "slug": "prediction-1-claude-achieves-agi",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "Prediction 2: Open Source Models Reach GPT-4 Level",
+                  "slug": "prediction-2-open-source-models-reach-gpt-4-level",
+                  "level": "h3",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "text": "Technology Predictions",
+              "slug": "technology-predictions",
+              "level": "h2",
+              "children": [
+                {
+                  "text": "Prediction 3: Apple Vision Pro Sales Disappoint",
+                  "slug": "prediction-3-apple-vision-pro-sales-disappoint",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "Prediction 4: Crypto Winter Continues",
+                  "slug": "prediction-4-crypto-winter-continues",
+                  "level": "h3",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "text": "Geopolitical Predictions",
+              "slug": "geopolitical-predictions",
+              "level": "h2",
+              "children": [
+                {
+                  "text": "Prediction 5: Russia-Ukraine War Continues",
+                  "slug": "prediction-5-russia-ukraine-war-continues",
+                  "level": "h3",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/predictions/2025-predictions.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "predictions/2025-predictions"
+    }
+  },
+  {
+    "slug": "predictions/README",
+    "title": "Predictions System",
+    "type": "post",
+    "toc": [
+      {
+        "text": "Predictions System",
+        "slug": "predictions-system",
+        "level": "h1",
+        "children": [
+          {
+            "text": "Creating a New Prediction",
+            "slug": "creating-a-new-prediction",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Verifying a Prediction",
+            "slug": "verifying-a-prediction",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Format",
+            "slug": "format",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Resolution",
+            "slug": "resolution",
+            "level": "h2",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "words": 213,
+      "images": 0,
+      "links": 0,
+      "codeBlocks": 1,
+      "headers": {
+        "h1": 1
+      },
+      "toc": [
+        {
+          "text": "Predictions System",
+          "slug": "predictions-system",
+          "level": "h1",
+          "children": [
+            {
+              "text": "Creating a New Prediction",
+              "slug": "creating-a-new-prediction",
+              "level": "h2",
+              "children": []
+            },
+            {
+              "text": "Verifying a Prediction",
+              "slug": "verifying-a-prediction",
+              "level": "h2",
+              "children": []
+            },
+            {
+              "text": "Format",
+              "slug": "format",
+              "level": "h2",
+              "children": []
+            },
+            {
+              "text": "Resolution",
+              "slug": "resolution",
+              "level": "h2",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/predictions/README.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "predictions/README"
+    }
+  },
+  {
+    "slug": "predictions/_template",
+    "title": "YEAR Predictions",
+    "date": "YYYY-MM-DD",
+    "type": "post",
+    "tags": [
+      "predictions"
+    ],
+    "toc": [
+      {
+        "text": "YEAR Predictions",
+        "slug": "year-predictions",
+        "level": "h1",
+        "children": [
+          {
+            "text": "Category Name",
+            "slug": "category-name",
+            "level": "h2",
+            "children": [
+              {
+                "text": "Prediction 1: Title",
+                "slug": "prediction-1-title",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Prediction 2: Title",
+                "slug": "prediction-2-title",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Status Updates",
+            "slug": "status-updates",
+            "level": "h2",
+            "children": [
+              {
+                "text": "Update 1 - Date",
+                "slug": "update-1-date",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "title": "YEAR Predictions",
+      "date": "YYYY-MM-DD",
+      "published": true,
+      "tags": [
+        "predictions"
+      ],
+      "series": "predictions",
+      "description": "My predictions for YEAR, with cryptographic verification",
+      "verification": {
+        "hash": "",
+        "timestamp": "",
+        "gitCommit": "",
+        "gitDate": ""
+      },
+      "words": 100,
+      "images": 0,
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {
+        "h1": 1
+      },
+      "toc": [
+        {
+          "text": "YEAR Predictions",
+          "slug": "year-predictions",
+          "level": "h1",
+          "children": [
+            {
+              "text": "Category Name",
+              "slug": "category-name",
+              "level": "h2",
+              "children": [
+                {
+                  "text": "Prediction 1: Title",
+                  "slug": "prediction-1-title",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "Prediction 2: Title",
+                  "slug": "prediction-2-title",
+                  "level": "h3",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "text": "Status Updates",
+              "slug": "status-updates",
+              "level": "h2",
+              "children": [
+                {
+                  "text": "Update 1 - Date",
+                  "slug": "update-1-date",
+                  "level": "h3",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/predictions/_template.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "predictions/_template"
+    }
+  },
+  {
     "slug": "projects/2016-russian-twitter-trolls",
     "title": "2016 Russian Twitter Trolls",
     "date": "2017-12-20T20:01:43.000Z",
