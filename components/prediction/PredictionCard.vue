@@ -46,7 +46,7 @@
   </article>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue'
 import PredictionVerificationDisplay from './VerificationDisplay.vue'
 

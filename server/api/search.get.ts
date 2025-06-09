@@ -168,7 +168,6 @@ export default defineEventHandler(async (event) => {
             const textContent = stripHtml(data.content)
             const title = data.title || 'Untitled'
             const tags = data.metadata?.tags || []
-            const slug = relativePath.replace('.json', '').replace(/\\/g, '/')
             
             // Calculate relevance score
             const score = calculateRelevanceScore(searchTerms, textContent, title, tags)

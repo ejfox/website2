@@ -16,7 +16,8 @@ export default defineNuxtConfig({
 
   // Dev server configuration
   devServer: {
-    port: 3006
+    port: 3006,
+    host: '0.0.0.0'
   },
 
   // Disable HMR completely
@@ -78,13 +79,14 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    preset: 'netlify',
+    preset: 'node-server',
+    compressPublicAssets: true,
     experimental: {
       asyncContext: true
     },
     prerender: {
       failOnError: false,
-      crawlLinks: false,
+      crawlLinks: true,
       routes: ['/']
     },
     routeRules: {
