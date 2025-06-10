@@ -62,6 +62,9 @@ RUN apk add --no-cache \
 # Copy only the built output
 COPY --from=build --chown=1001:1001 /app/.output ./.output
 
+# Copy content directory needed by API endpoints at runtime
+COPY --from=build --chown=1001:1001 /app/content ./content
+
 # Set environment variables
 ENV HOST=0.0.0.0
 ENV PORT=3000
