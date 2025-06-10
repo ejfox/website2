@@ -87,11 +87,13 @@ curl http://localhost:3006/api/healthcheck
 - Vue TypeScript compilation is strict about interface usage
 - Multiple dependency layers (system → npm → build → runtime)
 
-## Deployment Commands for VPS
+## Production Deployment Commands
 
+### Option 1: Direct deployment (if you have Docker registry access)
 ```bash
-# On your local machine - push image to registry
-docker tag website2-test your-registry.com/website2:latest
+# Build and tag production image
+docker build -t website2:latest .
+docker tag website2:latest your-registry.com/website2:latest
 docker push your-registry.com/website2:latest
 
 # On VPS - pull and run
@@ -102,6 +104,38 @@ docker run -d \
   -p 3006:3000 \
   --env-file .env \
   your-registry.com/website2:latest
+```
+
+### Option 2: Direct deployment via docker-compose
+```bash
+# Copy these files to your VPS:
+# - docker-compose.yml
+# - .env (based on .env.example)
+# - Dockerfile
+# - (entire project if building on VPS)
+
+# On VPS:
+docker-compose up -d
+```
+
+### Option 3: Build directly on VPS
+```bash
+# Clone repo on VPS
+git clone https://github.com/ejfox/website2.git
+cd website2
+
+# Create .env file from .env.example
+cp .env.example .env
+# Edit .env with your actual values
+
+# Build and run
+docker build -t website2:latest .
+docker run -d \
+  --name website2 \
+  --restart unless-stopped \
+  -p 3006:3000 \
+  --env-file .env \
+  website2:latest
 ```
 
 ---
