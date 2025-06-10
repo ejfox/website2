@@ -89,6 +89,24 @@ curl http://localhost:3006/api/healthcheck
 
 ## Production Deployment Commands
 
+### 🔄 Restarting After .env Updates
+
+When you update environment variables in the `.env` file, the container needs to be restarted to pick up the new values:
+
+```bash
+# Quick restart (keeps same image)
+docker-compose restart
+
+# Or restart specific service
+docker restart website2-prod
+
+# Or full rebuild if dependencies changed
+docker-compose down
+docker-compose up -d --build
+```
+
+**Note**: Environment variables are only read when the container starts, so a restart is required after any `.env` changes.
+
 ### Option 1: Direct deployment (if you have Docker registry access)
 ```bash
 # Build and tag production image
