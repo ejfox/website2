@@ -4,9 +4,6 @@ services:
   website2:
     build: 
       context: .
-      platforms:
-        - linux/amd64
-        - linux/arm64
     image: website2:latest
     container_name: website2-prod
     ports:

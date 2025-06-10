@@ -4,7 +4,7 @@ ARG TARGETPLATFORM
 ARG BUILDPLATFORM
 
 # Build stage
-FROM --platform=$BUILDPLATFORM node:${NODE_VERSION}-alpine AS build
+FROM node:${NODE_VERSION}-alpine AS build
 
 WORKDIR /app
 
