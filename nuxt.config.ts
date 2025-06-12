@@ -16,7 +16,8 @@ export default defineNuxtConfig({
 
   // Dev server configuration
   devServer: {
-    port: 3006
+    port: 3006,
+    host: '0.0.0.0'
   },
 
   // Disable HMR completely
@@ -59,6 +60,10 @@ export default defineNuxtConfig({
     GITHUB_TOKEN: process.env.GITHUB_TOKEN || '',
     CHESS_USERNAME: process.env.CHESS_USERNAME || '',
     RESCUETIME_TOKEN: process.env.RESCUETIME_TOKEN || '',
+    LASTFM_API_KEY: process.env.LASTFM_API_KEY || '',
+    LASTFM_SHARED_SECRET: process.env.LASTFM_SHARED_SECRET || '',
+    LASTFM_API_KEY: process.env.LASTFM_API_KEY || '',
+    LASTFM_SHARED_SECRET: process.env.LASTFM_SHARED_SECRET || '',
 
     public: {
       baseUrl:
@@ -74,13 +79,14 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    preset: 'netlify',
+    preset: 'node-server',
+    compressPublicAssets: true,
     experimental: {
       asyncContext: true
     },
     prerender: {
       failOnError: false,
-      crawlLinks: false,
+      crawlLinks: true,
       routes: ['/']
     },
     routeRules: {
@@ -131,7 +137,7 @@ export default defineNuxtConfig({
         {
           'http-equiv': 'Content-Security-Policy',
           content:
-            "default-src 'self'; img-src 'self' data: https://res.cloudinary.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://umami.tools.ejfox.com; frame-src 'self' https://cal.com;"
+            "default-src 'self'; img-src 'self' data: https://res.cloudinary.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://umami.tools.ejfox.com; frame-src 'self' https://cal.com; connect-src 'self' https://umami.tools.ejfox.com;"
         }
       ],
       link: [

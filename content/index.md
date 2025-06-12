@@ -2,4 +2,4 @@ Hi there! I'm **EJ Fox**, a freelance journalist and data visualization speciali
 
 <br />
 
-Or, if you'd like, browse [some of my work](/projects), read my [blog posts](/blog), or check out [my resume](http://ejfox.com/resume.pdf).
+Or, if you'd like, browse [some of my work](/projects), read my [blog posts](/blog), check out my [predictions](/predictions), or view [my resume](http://ejfox.com/resume.pdf).

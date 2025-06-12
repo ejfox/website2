@@ -1,0 +1,34 @@
+{
+  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\"><strong class=\"\">Assemblymember Sarahana Shrestha</strong></p>\n<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\"><strong class=\"\">For The Many</strong></p>\n<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\"><strong class=\"\">Novo Foundation</strong></p>",
+  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\"><strong class=\"\">Assemblymember Sarahana Shrestha</strong></p>\n<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\"><strong class=\"\">For The Many</strong></p>\n<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\"><strong class=\"\">Novo Foundation</strong></p>",
+  "title": "Title",
+  "metadata": {
+    "dek": "In which",
+    "inprogress": true,
+    "tags": [
+      "example",
+      "design",
+      "inspiration"
+    ],
+    "date": "2025-04-09T18:28:08.000Z",
+    "modified": "2025-04-27T16:09:49.000Z",
+    "words": 12,
+    "images": 0,
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "Title",
+        "slug": "title",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/drafts/hudson-valley-politics.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

@@ -393,6 +393,61 @@ async function getFilesRecursively(dir) {
 }
 
 // =============================
+// External Links Extraction
+// =============================
+function extractExternalLinks(content) {
+  // Extract all URLs matching http/https pattern
+  const urlRegex = /https?:\/\/[^\s\)\]\"]+/g
+  const urls = content.match(urlRegex) || []
+  
+  // Filter out internal domains
+  const externalUrls = urls.filter(url => {
+    return !url.includes('res.cloudinary.com') && 
+           !url.includes('ejfox.com')
+  })
+  
+  return [...new Set(externalUrls)] // Remove duplicates
+}
+
+async function generateExternalLinksCSV(allFiles) {
+  const spinner = ora('Extracting external links...').start()
+  
+  try {
+    const allExternalLinks = new Set()
+    
+    for (const filePath of allFiles) {
+      // Skip reading directory files
+      if (filePath.includes('content/blog/reading/')) continue
+      
+      const content = await fs.readFile(filePath, 'utf8')
+      const links = extractExternalLinks(content)
+      
+      links.forEach(link => {
+        // Filter out Amazon links
+        if (!link.includes('amazon.com') && !link.includes('m.media-amazon.com')) {
+          allExternalLinks.add(link)
+        }
+      })
+    }
+    
+    // Convert to array and sort
+    const linksList = Array.from(allExternalLinks).sort()
+    
+    // Write to CSV file
+    const csvPath = path.join(process.cwd(), 'external_links_final.csv')
+    await fs.writeFile(csvPath, linksList.join('\n'))
+    
+    spinner.succeed(`Extracted ${linksList.length} external links to external_links_final.csv`)
+    
+    return linksList
+  } catch (error) {
+    spinner.fail('Failed to extract external links')
+    console.error(error)
+    throw error
+  }
+}
+
+// =============================
 // Main Processing Function
 // =============================
 async function processAllFiles() {
@@ -412,6 +467,9 @@ async function processAllFiles() {
     ]
     processStats.totalFiles = allFiles.length
     spinner.succeed(`Found ${allFiles.length} markdown files`)
+
+    // Generate external links CSV
+    await generateExternalLinksCSV(allFiles)
 
     console.log('\nProcessing files...\n')
 

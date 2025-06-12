@@ -21,6 +21,9 @@
               <NuxtLink to="/gear" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors">/gear</NuxtLink>
             </li>
             <li>
+              <NuxtLink to="/predictions" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors">/predictions</NuxtLink>
+            </li>
+            <li>
               <NuxtLink to="https://ejfox.com/rss.xml" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors">/rss</NuxtLink>
             </li>
           </ul>

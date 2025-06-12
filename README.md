@@ -28,6 +28,17 @@ A personal website and blog built with **Nuxt 3**, **Vue 3**, and **D3.js**. Con
    yarn build
    ```
 
+## 🔮 **Predictions**
+
+The site includes a cryptographically verifiable predictions tracking system at `/future`. 
+
+- Predictions are stored as markdown files in `/content/predictions/`
+- Each prediction is hashed with SHA-256 and timestamped via Git commits
+- Optional PGP signing for additional verification
+- Public commitment log prevents post-hoc modifications
+
+See `/content/predictions/README.md` for details on creating and verifying predictions.
+
 ## 🛠️ **Content Pipeline**
 
 ### Overview

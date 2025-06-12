@@ -1,61 +1,85 @@
 <template>
-  <div class="w-full text-zinc-600 dark:text-zinc-400 flex flex-wrap items-center"
-    :class="[compact ? 'text-xs p-0 gap-x-3 gap-y-1' : 'text-sm p-4 gap-x-4 gap-y-4']">
+  <div
+    class="w-full text-zinc-600 dark:text-zinc-400 py-4 gap-1"
+    :class="[compact ? 'text-xs' : 'text-sm gap-y-4']"
+  >
     <!-- Debug output -->
     <pre v-if="false" class="whitespace-pre-wrap text-xs">{{ metadata }}</pre>
 
     <!-- Folder name -->
-    <span class="flex items-center metadata-item text-xs tracking-widest" :class="[compact ? 'pl-0' : 'pl-4']"
-      ref="folderRef" v-if="metadata.slug && !compact">
-      <!-- <UIcon name="bi:folder" class="mr-2 text-zinc-400 dark:text-zinc-600" /> -->
-
+    <span
+      class="flex items-center metadata-item text-xs tracking-widest"
+      :class="[compact ? 'pl-0' : 'pl-4']"
+      ref="folderRef"
+      v-if="metadata.slug && !compact"
+    >
       /{{ metadata.slug.split('/')[0] }}/
     </span>
 
-    <!-- <pre>{{ doc }}</pre> -->
-
     <!-- Draft status -->
-    <span v-if="metadata.draft" class="flex items-center text-red-500 dark:text-red-400 sans-serif metadata-item"
-      ref="draftRef">
-      <UIcon :name="'bi:file-earmark-text'" :class="[compact ? 'mr-1 w-3 h-3' : 'mr-4']"
-        class="text-red-400 dark:text-red-600" />
-      <span v-if="!compact">Draft, please do not publish, changes expected</span>
+    <span
+      v-if="metadata.draft"
+      class="flex items-center text-red-500 dark:text-red-400 sans-serif metadata-item"
+      ref="draftRef"
+    >
+      <span v-if="!compact"
+        >Draft, please do not publish, changes expected</span
+      >
       <span v-else>Draft</span>
     </span>
 
     <!-- Date -->
-    <span v-if="metadata.date" class="flex items-center metadata-item" :title="formatRelativeTime(metadata.date)"
-      ref="dateRef">
-      <UIcon :name="'ant-design:calendar-outlined'" :class="[compact ? 'mr-1 w-3 h-3' : 'mr-4']"
-        class="text-zinc-400 dark:text-zinc-600" />
-      <time>{{ compact ? formatCompactDate(new Date(metadata.date)) : formatBlogDate(new Date(metadata.date)) }}</time>
+    <span
+      v-if="metadata.date"
+      class="flex items-center metadata-item"
+      :title="formatRelativeTime(metadata.date)"
+      ref="dateRef"
+    >
+      <time>{{
+        compact
+          ? formatCompactDate(new Date(metadata.date))
+          : formatBlogDate(new Date(metadata.date))
+      }}</time>
     </span>
 
     <!-- Reading Time -->
-    <span v-if="metadata.readingTime" class="flex items-center metadata-item" ref="readingTimeRef">
-      <UIcon :name="'bi:clock-history'" :class="[compact ? 'mr-1 w-3 h-3' : 'mr-4']"
-        class="text-zinc-400 dark:text-zinc-600" />
-      {{ metadata.readingTime }} {{ compact ? 'min read' : metadata.readingTime === 1 ? 'min' : 'mins' }}
+    <span
+      v-if="metadata.readingTime"
+      class="flex items-center metadata-item"
+      ref="readingTimeRef"
+    >
+      {{ metadata.readingTime }}
+      {{ compact ? 'min read' : metadata.readingTime === 1 ? 'min' : 'mins' }}
     </span>
 
     <!-- Word Count -->
-    <span v-if="metadata.wordCount" class="flex items-center metadata-item" ref="wordCountRef">
-      <UIcon :name="'bi:card-text'" :class="[compact ? 'mr-1 w-3 h-3' : 'mr-4']"
-        class="text-zinc-400 dark:text-zinc-600" />
-      {{ formatCompactNumber(metadata.wordCount) }} {{ compact ? 'words' : 'words' }}
+    <span
+      v-if="metadata.wordCount"
+      class="flex items-center metadata-item"
+      ref="wordCountRef"
+    >
+      {{ formatCompactNumber(metadata.wordCount) }}
+      {{ compact ? 'words' : 'words' }}
     </span>
 
     <!-- Image Count -->
-    <span v-if="metadata.imageCount" class="flex items-center metadata-item" ref="imageCountRef">
-      <UIcon :name="'ant-design:camera-filled'" :class="[compact ? 'mr-1 w-3 h-3' : 'mr-4']"
-        class="text-zinc-400 dark:text-zinc-600" />
-      {{ metadata.imageCount }} {{ compact ? 'images' : metadata.imageCount === 1 ? 'image' : 'images' }}
+    <span
+      v-if="metadata.imageCount"
+      class="flex items-center metadata-item"
+      ref="imageCountRef"
+    >
+      {{ metadata.imageCount }}
+      {{ compact ? 'images' : metadata.imageCount === 1 ? 'image' : 'images' }}
     </span>
 
     <!-- Link Count -->
-    <span v-if="metadata.linkCount" class="flex items-center metadata-item" ref="linkCountRef">
-      <UIcon :name="'bi:link'" :class="[compact ? 'mr-1 w-3 h-3' : 'mr-4']" class="text-zinc-400 dark:text-zinc-600" />
-      {{ metadata.linkCount }} {{ compact ? 'links' : metadata.linkCount === 1 ? 'link' : 'links' }}
+    <span
+      v-if="metadata.linkCount"
+      class="flex items-center metadata-item"
+      ref="linkCountRef"
+    >
+      {{ metadata.linkCount }}
+      {{ compact ? 'links' : metadata.linkCount === 1 ? 'link' : 'links' }}
     </span>
   </div>
 </template>
@@ -173,17 +197,17 @@ const formatRelativeTime = (date: string | Date) => {
 
 const animateItems = async () => {
   await nextTick()
-  await new Promise(resolve => setTimeout(resolve, 200))
+  await new Promise((resolve) => setTimeout(resolve, 200))
 
   // Reordered array to match visual hierarchy and left-to-right reading order
   const items = [
-    folderRef.value,      // Folder first - it's the context
-    draftRef.value,       // Draft status - important warning
-    dateRef.value,        // Date - primary metadata
+    folderRef.value, // Folder first - it's the context
+    draftRef.value, // Draft status - important warning
+    dateRef.value, // Date - primary metadata
     readingTimeRef.value, // Reading time - secondary metadata
-    wordCountRef.value,   // Word count
-    imageCountRef.value,  // Image count
-    linkCountRef.value    // Link count
+    wordCountRef.value, // Word count
+    imageCountRef.value, // Image count
+    linkCountRef.value // Link count
   ].filter(Boolean)
 
   if (!items.length) return
@@ -204,6 +228,7 @@ defineExpose({ animateItems })
   backface-visibility: hidden;
   opacity: 1;
   transform: none;
+  @apply py-1;
 }
 
 /* View Transitions API support */

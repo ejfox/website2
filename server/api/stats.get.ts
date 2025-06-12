@@ -6,7 +6,7 @@ import healthHandler from './health.get'
 import leetcodeHandler from './leetcode.get'
 import chessHandler from './chess.get'
 import rescuetimeHandler from './rescuetime.get'
-import youtubeHandler from './youtube.get'
+import lastfmHandler from './lastfm.get'
 
 // Adapter function to convert chess stats to the expected format
 function adaptChessStats(chessStats: any) {
@@ -148,14 +148,14 @@ export default defineEventHandler(async (event): Promise<StatsResponse> => {
     // console.log('🎯 Stats handler called')
 
     const [
-      githubResult,
+      githubResult, // Re-enable GitHub result
       monkeyTypeResult,
       photosResult,
       healthResult,
       leetcodeResult,
       chessResult,
       rescueTimeResult,
-      youtubeResult
+      lastfmResult
     ] = await Promise.allSettled([
       githubHandler(event).catch((err) => {
         console.error('❌ GitHub API error:', err)
@@ -185,8 +185,8 @@ export default defineEventHandler(async (event): Promise<StatsResponse> => {
         console.error('❌ RescueTime API error:', err)
         return null
       }),
-      youtubeHandler(event).catch((err) => {
-        console.error('❌ YouTube API error:', err)
+      lastfmHandler(event).catch((err) => {
+        console.error('❌ Last.fm API error:', err)
         return null
       })
     ])
@@ -203,7 +203,7 @@ export default defineEventHandler(async (event): Promise<StatsResponse> => {
         ? adaptChessStats(getValue(chessResult))
         : undefined,
       rescueTime: getValue(rescueTimeResult),
-      youtube: getValue(youtubeResult)
+      lastfm: getValue(lastfmResult)
     }
 
     return response

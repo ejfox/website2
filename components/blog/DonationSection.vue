@@ -7,7 +7,7 @@ const loading = ref(false)
 const isDark = useDark()
 
 // Add clipboard functionality
-const { copy, copied } = useClipboard()
+const { copy } = useClipboard()
 
 // Track which address was last copied
 const lastCopied = ref('')
@@ -54,33 +54,75 @@ async function handleDonation() {
 }
 
 const donationLevels = [
-  { min: 1, max: 2, label: "No contribution is too small. I really appreciate it!" },
-  { min: 3, max: 5, label: "Every bit matters. Thank you!" },
-  { min: 6, max: 10, label: "Keeping the lights on, one contribution at a time. Your support is felt." },
-  { min: 11, max: 20, label: "A meaningful nudge forward. Thank you for backing the work that goes into this." },
-  { min: 21, max: 30, label: "You're a real ally to this journey. This level of support makes a tangible impact." },
-  { min: 31, max: 50, label: "Thank you deeply for helping sustain this. Your support directly impacts me making more work like this." },
-  { min: 51, max: 75, label: "A real investment in my work and acknowledgement of the time it takes to make this. Thank you." },
-  { min: 76, max: 98, label: "Incredible. You've made a real investment in my work and process—your generosity is humbling." },
-  { min: 99, max: 100, label: "Incredible. You've made a real investment in this—your generosity is humbling. Please let me know if there's anything specific you'd like to see!" }
+  {
+    min: 1,
+    max: 2,
+    label: 'No contribution is too small. I really appreciate it!'
+  },
+  { min: 3, max: 5, label: 'Every bit matters. Thank you!' },
+  {
+    min: 6,
+    max: 10,
+    label:
+      'Keeping the lights on, one contribution at a time. Your support is felt.'
+  },
+  {
+    min: 11,
+    max: 20,
+    label:
+      'A meaningful nudge forward. Thank you for backing the work that goes into this.'
+  },
+  {
+    min: 21,
+    max: 30,
+    label:
+      "You're a real ally to this journey. This level of support makes a tangible impact."
+  },
+  {
+    min: 31,
+    max: 50,
+    label:
+      'Thank you deeply for helping sustain this. Your support directly impacts me making more work like this.'
+  },
+  {
+    min: 51,
+    max: 75,
+    label:
+      'A real investment in my work and acknowledgement of the time it takes to make this. Thank you.'
+  },
+  {
+    min: 76,
+    max: 98,
+    label:
+      "Incredible. You've made a real investment in my work and process—your generosity is humbling."
+  },
+  {
+    min: 99,
+    max: 100,
+    label:
+      "Incredible. You've made a real investment in this—your generosity is humbling. Please let me know if there's anything specific you'd like to see!"
+  }
 ]
 
 // Add a computed property to get the current donation level message
 const currentDonationMessage = computed(() => {
   const level = donationLevels.find(
-    level => amount.value >= level.min && amount.value <= level.max
+    (level) => amount.value >= level.min && amount.value <= level.max
   )
   return level?.label || ''
 })
-
 </script>
 
 <template>
   <section class="donation-section mt-16 mb-8 font-mono">
     <div class="max-w-3xl mx-auto">
       <div class="text-center mb-12">
-        <UText class="text-2xl font-light tracking-wider mb-3">Support This Work</UText>
-        <div class="w-16 h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent mx-auto"></div>
+        <UText class="text-2xl font-light tracking-wider mb-3"
+          >Support This Work</UText
+        >
+        <div
+          class="w-16 h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent mx-auto"
+        ></div>
       </div>
 
       <div class="grid md:grid-cols-2 gap-8">
@@ -94,25 +136,42 @@ const currentDonationMessage = computed(() => {
             <div>
               <div class="flex justify-between mb-2">
                 <UText class="text-sm text-gray-500">Amount</UText>
-                <UBadge :color="isDark ? 'white' : 'gray'" size="lg">{{ formatAmount }}</UBadge>
+                <UBadge :color="isDark ? 'white' : 'gray'" size="lg">{{
+                  formatAmount
+                }}</UBadge>
               </div>
 
               <div class="mb-2">
-                <URange v-model="amount" :min="1" :max="100" :step="1" class="w-full" />
+                <URange
+                  v-model="amount"
+                  :min="1"
+                  :max="100"
+                  :step="1"
+                  class="w-full"
+                />
                 <div class="flex justify-between text-xs text-gray-500 mt-1">
                   <span>$1</span>
                   <span>$100</span>
                 </div>
               </div>
 
-              <UButton @click="handleDonation" :loading="loading" :disabled="loading" color="blue" variant="solid" block
-                icon="i-material-symbols-payments-outline">
+              <UButton
+                @click="handleDonation"
+                :loading="loading"
+                :disabled="loading"
+                color="blue"
+                variant="solid"
+                block
+                icon="i-material-symbols-payments-outline"
+              >
                 {{ loading ? 'Processing...' : 'Support via Stripe' }}
               </UButton>
 
               <div class="mt-4 flex items-center justify-center min-h-[2rem]">
-
-                <p :key="currentDonationMessage" class="text-[0.7rem] text-gray-400 dark:text-gray-500 italic px-4">
+                <p
+                  :key="currentDonationMessage"
+                  class="text-[0.7rem] text-gray-400 dark:text-gray-500 italic px-4"
+                >
                   {{ currentDonationMessage }}
                 </p>
               </div>
@@ -131,18 +190,33 @@ const currentDonationMessage = computed(() => {
               <div class="crypto-address group">
                 <div class="flex items-center justify-between mb-2">
                   <div class="flex items-center gap-2">
-                    <Icon :name="`i-simple-icons-${currency.toLowerCase()}`" class="text-lg" />
+                    <Icon
+                      :name="`i-simple-icons-${currency.toLowerCase()}`"
+                      class="text-lg"
+                    />
                     <span class="font-medium">{{ currency }}</span>
                   </div>
-                  <UButton size="xs" :color="lastCopied === currency ? 'green' : 'gray'" variant="ghost"
+                  <UButton
+                    size="xs"
+                    :color="lastCopied === currency ? 'green' : 'gray'"
+                    variant="ghost"
                     @click="copyAddress(address, currency)"
-                    :icon="lastCopied === currency ? 'i-heroicons-check' : 'i-heroicons-clipboard'">
+                    :icon="
+                      lastCopied === currency
+                        ? 'i-heroicons-check'
+                        : 'i-heroicons-clipboard'
+                    "
+                  >
                     {{ lastCopied === currency ? 'Copied!' : 'Copy' }}
                   </UButton>
                 </div>
-                <div class="p-2 bg-gray-100 dark:bg-gray-800 rounded cursor-pointer group transition-colors"
-                  @click="copyAddress(address, currency)">
-                  <UText class="font-mono text-xs break-all">{{ address }}</UText>
+                <div
+                  class="p-2 bg-gray-100 dark:bg-gray-800 rounded cursor-pointer group transition-colors"
+                  @click="copyAddress(address, currency)"
+                >
+                  <UText class="font-mono text-xs break-all">{{
+                    address
+                  }}</UText>
                 </div>
               </div>
             </template>
@@ -152,8 +226,14 @@ const currentDonationMessage = computed(() => {
 
       <!-- GitHub Sponsors -->
       <div class="text-center mt-8">
-        <UButton :to="`https://github.com/sponsors/${github}`" target="_blank" rel="noopener" color="pink"
-          variant="ghost" icon="i-mdi-github">
+        <UButton
+          :to="`https://github.com/sponsors/${github}`"
+          target="_blank"
+          rel="noopener"
+          color="pink"
+          variant="ghost"
+          icon="i-mdi-github"
+        >
           Also available on GitHub Sponsors
         </UButton>
       </div>
