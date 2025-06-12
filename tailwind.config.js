@@ -2,6 +2,7 @@ module.exports = {
   content: [
     'content/**/*.md' // Make sure markdown content is included
   ],
+  darkMode: 'media', // Use system preference for dark mode
   plugins: [require('@tailwindcss/typography')],
   theme: {
     extend: {
