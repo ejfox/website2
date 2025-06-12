@@ -42,17 +42,18 @@ const { data: posts } = useAsyncData('blog-posts', async () => {
           slug.startsWith('week-notes/') ||
           /^\d{4}-\d{2}$/.test(lastPart)
 
-        // Check if it's a special section that should be excluded
-        const isSpecialSection =
-          slug.startsWith('reading/') ||
-          slug.startsWith('projects/') ||
-          slug.startsWith('robots/') ||
-          slug.startsWith('drafts/') ||
-          slug.startsWith('study-notes/') ||
-          slug.startsWith('prompts/')
+        // Whitelist approach: only show posts that match these patterns
+        const isRegularBlogPost = 
+          // Year-based posts (e.g., 2024/my-post)
+          /^\d{4}\/[^/]+$/.test(slug)
 
-        // Keep only regular blog posts (not week notes or special sections)
-        return !isWeekNote && !isSpecialSection
+        // Also check if it's not hidden, draft, or future
+        const isHidden = post?.hidden === true || post?.metadata?.hidden === true
+        const isDraft = post?.draft === true || post?.metadata?.draft === true
+        const postDate = post?.date || post?.metadata?.date
+        const isFuturePost = postDate && new Date(postDate) > now
+        
+        return !isWeekNote && isRegularBlogPost && !isHidden && !isDraft && !isFuturePost
       })
       .map((post) => {
         // Get title with proper fallbacks

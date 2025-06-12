@@ -475,7 +475,24 @@ onMounted(async () => {
   
   try {
     const data = await $fetch('/api/manifest-lite')
-    allContent.value = data || []
+    // Whitelist approach: only show specific content types
+    allContent.value = (data || []).filter(item => {
+      // Skip if explicitly hidden or draft
+      if (item.hidden === true || item.draft === true) return false
+      
+      const slug = item.slug || ''
+      
+      // Whitelist: only show these types of content
+      const isAllowed = 
+        // Regular blog posts in year directories
+        /^\d{4}\/[^/]+$/.test(slug) ||
+        // Week notes
+        slug.startsWith('week-notes/') ||
+        // Projects (they're meant to be public)
+        slug.startsWith('projects/')
+      
+      return isAllowed
+    })
     
     // If there's a URL path, try to extract search terms from it
     const currentPath = window.location.pathname
@@ -607,7 +624,21 @@ const performSearch = () => {
   const query = searchQuery.value.toLowerCase()
   const queryWords = query.split(/\s+/).filter(word => word.length > 1)
   
-  const results = allContent.value.map(item => {
+  const results = allContent.value
+    .filter(item => {
+      // Extra safety: ensure whitelist filtering
+      if (item.hidden === true || item.draft === true) return false
+      const slug = item.slug || ''
+      
+      // Same whitelist as above
+      const isAllowed = 
+        /^\d{4}\/[^/]+$/.test(slug) ||
+        slug.startsWith('week-notes/') ||
+        slug.startsWith('projects/')
+      
+      return isAllowed
+    })
+    .map(item => {
     let score = 0
     let matches = []
     
