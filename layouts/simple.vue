@@ -8,7 +8,14 @@
 .simple-layout {
   min-height: 100vh;
   width: 100%;
-  background-color: var(--color-bg, #18181b);
-  color: var(--color-text, #f4f4f5);
+  background-color: rgb(249, 250, 251); /* gray-50 light mode */
+  color: rgb(31, 41, 55); /* gray-800 light mode */
+}
+
+@media (prefers-color-scheme: dark) {
+  .simple-layout {
+    background-color: rgb(17, 24, 39); /* gray-900 dark mode */
+    color: rgb(243, 244, 246); /* gray-100 dark mode */
+  }
 }
 </style>
