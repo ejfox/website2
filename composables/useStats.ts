@@ -384,6 +384,29 @@ export interface StatsResponse {
     }>
     lastUpdated: string
   }
+  youtube?: {
+    stats: {
+      totalVideos: number
+      videosThisMonth: number
+      totalViews: number
+      subscriberCount: number
+    }
+    latestVideos: Array<{
+      id: string
+      title: string
+      description: string
+      publishedAt: string
+      thumbnails: {
+        default: string
+        medium: string
+        high: string
+      }
+      url: string
+      views: number
+      likes: number
+    }>
+    lastUpdated: string
+  }
 }
 
 export function useStats() {
