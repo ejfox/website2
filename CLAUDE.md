@@ -157,4 +157,50 @@ docker run -d \
 ```
 
 ---
-*Last updated: June 9, 2025 - Docker build working!*
+
+# Recent Session TODOs & Context (January 6, 2025)
+
+## ✅ COMPLETED THIS SESSION
+1. **Fixed blog index showing future/prediction posts** - Implemented whitelist filtering to only show year-based posts (`2024/post-name`)
+2. **Fixed 404 page showing unpublished drafts** - Added filtering to prevent drafts and `_stale` content from appearing in search results
+3. **Implemented whitelist content filtering** - Much safer than blacklist approach, prevents any unwanted content exposure
+4. **Created PR #8** - https://github.com/ejfox/website2/pull/8 with comprehensive security improvements
+
+## 🔧 CURRENT ISSUE: Supabase Integration
+- **Problem**: Scrapbook page failing with CSP and config issues
+- **Fixed**: Added Supabase URLs to CSP and runtime config in `nuxt.config.ts`
+- **Status**: Need to restart dev server for changes to take effect
+
+## 🎯 NEXT OBJECTIVES
+1. **Set up Supabase MCP** - User wants to use MCP for database operations instead of direct client calls
+2. **Create data-dense scrap display** - User wants a verbose/detailed view of scraps with rich metadata
+3. **Explore scrap data structure** - Use MCP to examine real schema and example data
+
+## 📊 Scrap Data Available (from existing code analysis)
+- **Sources**: Pinboard, GitHub, Are.na, Mastodon, Twitter, YouTube
+- **Rich metadata**: Tags, location, relationships, screenshots, embeddings
+- **Timestamps**: created_at, updated_at, published_at
+- **Processing**: embeddings (text + image), graph relationships
+
+## 🛠️ Technical Notes
+- Current scrapbook at `/scrapbook` uses infinite scroll grid layout
+- Components: `Scrap/Item.vue`, `Scrap/Metadata.vue`, `Scrap/Pinboard.vue`
+- Composable: `useScraps.ts` handles Supabase client operations
+- API: `/api/scraps.post.ts` for server-side operations
+
+## 🔐 Environment Setup Needed
+```bash
+# Required in .env
+SUPABASE_URL=your_supabase_url
+SUPABASE_KEY=your_supabase_anon_key
+```
+
+## 💡 Design Direction for Data-Dense View
+User wants to pivot from visual grid to data-rich display. Options discussed:
+- Dense table view with metadata columns
+- Compact cards with more text info
+- List view with expanded details
+- Dashboard with stats + detailed items
+
+---
+*Last updated: January 6, 2025 - Ready for MCP setup and data-dense scrap display*

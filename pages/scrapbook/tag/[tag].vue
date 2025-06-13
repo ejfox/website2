@@ -5,10 +5,10 @@
       <div class="container mx-auto px-3 py-2">
         <div class="flex items-baseline justify-between font-mono text-xs">
           <div class="flex items-baseline gap-4">
-            <h1 class="text-zinc-100 font-medium">~/scraps</h1>
+            <NuxtLink to="/scrapbook" class="text-zinc-500 hover:text-zinc-300">~/scraps</NuxtLink>
+            <span class="text-zinc-600">/</span>
+            <h1 class="text-zinc-100 font-medium">{{ route.params.tag }}</h1>
             <span class="text-zinc-500">{{ totalScraps }} items</span>
-            <span class="text-zinc-600">|</span>
-            <span class="text-zinc-500">{{ Object.keys(groupedScraps).length }} groups</span>
             <span v-if="isLoading" class="text-zinc-400 animate-pulse">syncing...</span>
           </div>
           
@@ -41,11 +41,16 @@
     <main class="container mx-auto px-3 py-4">
       <!-- Loading States -->
       <div v-if="isLoading && !scraps.length" class="font-mono text-center py-12 text-xs opacity-60">
-        Loading scraps...
+        Loading scraps for {{ route.params.tag }}...
       </div>
 
       <div v-else-if="error" class="font-mono text-center py-12 text-xs">
         {{ error.message }}
+      </div>
+
+      <!-- No results -->
+      <div v-else-if="!scraps.length" class="font-mono text-center py-12 text-xs opacity-60">
+        No scraps found with tag {{ route.params.tag }}
       </div>
 
       <!-- Scrap Groups -->
@@ -72,16 +77,100 @@
 </template>
 
 <script setup>
+import { ref, computed } from 'vue'
+import { useRoute } from 'vue-router'
 import { useIntersectionObserver } from '@vueuse/core'
 import { format, parseISO, isThisMonth, isThisYear } from 'date-fns'
 import ScrapDataDense from '~/components/Scrap/DataDense.vue'
-import useScraps from '~/composables/useScraps'
 
+const route = useRoute()
 const ITEMS_PER_PAGE = 200
 
-const { scraps, isLoading, error, loadMore, hasMoreScraps, totalScraps } = useScraps()
+// We'll implement a custom fetch for tag filtering since useScraps doesn't support it yet
+const scraps = ref([])
+const isLoading = ref(false)
+const error = ref(null)
+const totalScraps = ref(0)
+const currentPage = ref(1)
+const hasMore = ref(true)
 const loadMoreTrigger = ref(null)
 const scrapElements = ref([])
+
+const config = useRuntimeConfig()
+const { createClient } = await import('@supabase/supabase-js')
+const supabase = createClient(
+  config.public.SUPABASE_URL,
+  config.public.SUPABASE_KEY
+)
+
+const fetchTaggedScraps = async (page = 1) => {
+  if (isLoading.value) return
+  
+  isLoading.value = true
+  error.value = null
+
+  try {
+    const tag = route.params.tag
+    
+    // For now, let's fetch all shared scraps and filter client-side
+    // This is less efficient but will work reliably
+    let query = supabase
+      .from('scraps')
+      .select('*', { count: 'exact' })
+      .order('published_at', { ascending: false, nullsFirst: false })
+      .order('updated_at', { ascending: false })
+      .order('created_at', { ascending: false })
+
+    // For initial version, fetch a larger set and filter client-side
+    const limit = ITEMS_PER_PAGE * 5 // Fetch more to account for filtering
+    query = query.range(0, limit - 1)
+
+    const { data: allData, error: queryError, count: totalCount } = await query
+
+    if (queryError) throw queryError
+
+    // Filter client-side for tags
+    const filteredData = allData?.filter(scrap => 
+      scrap.tags && Array.isArray(scrap.tags) && scrap.tags.includes(tag)
+    ) || []
+
+    // Paginate the filtered results
+    const offset = (page - 1) * ITEMS_PER_PAGE
+    const data = filteredData.slice(offset, offset + ITEMS_PER_PAGE)
+    const count = filteredData.length
+
+    if (data && count !== null) {
+      // Process dates to ensure none are in the future
+      const processedScraps = data.map((scrap) => ({
+        ...scrap,
+        created_at:
+          new Date(scrap.created_at) > new Date()
+            ? new Date().toISOString()
+            : scrap.created_at,
+        published_at:
+          scrap.published_at && new Date(scrap.published_at) > new Date()
+            ? new Date().toISOString()
+            : scrap.published_at
+      }))
+
+      scraps.value = page === 1 ? processedScraps : [...scraps.value, ...processedScraps]
+      totalScraps.value = count
+      currentPage.value = page
+      hasMore.value = data.length === ITEMS_PER_PAGE
+    }
+  } catch (err) {
+    console.error('Error fetching tagged scraps:', err)
+    error.value = err instanceof Error ? err : new Error('Failed to fetch scraps')
+  } finally {
+    isLoading.value = false
+  }
+}
+
+const loadMore = () => {
+  if (!isLoading.value && hasMore.value) {
+    fetchTaggedScraps(currentPage.value + 1)
+  }
+}
 
 const getMostRelevantDate = (scrap) => {
   return new Date(
@@ -137,35 +226,26 @@ const formatGroupDate = (date) => date
 useIntersectionObserver(
   loadMoreTrigger,
   ([{ isIntersecting }]) => {
-    if (isIntersecting && !isLoading.value && hasMoreScraps.value) {
-      loadMore({ limit: ITEMS_PER_PAGE })
+    if (isIntersecting && !isLoading.value && hasMore.value) {
+      loadMore()
     }
   },
   { threshold: 0.5 }
 )
 
+// Initial fetch
+fetchTaggedScraps(1)
+
 // Page metadata
 useHead({
-  title: 'Scrapbook',
+  title: `Scrapbook: ${route.params.tag}`,
   meta: [
-    { name: 'description', content: 'A collection of interesting things found around the web' }
+    { name: 'description', content: `Scraps tagged with ${route.params.tag}` }
   ]
 })
 </script>
 
 <style scoped>
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(4px)
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0)
-  }
-}
-
 @keyframes marquee {
   0% {
     transform: translateX(100%)
@@ -177,9 +257,5 @@ useHead({
 
 .animate-marquee {
   animation: marquee 30s linear infinite;
-}
-
-.grid>* {
-  animation: fadeIn 0.2s ease-out forwards;
 }
 </style>
