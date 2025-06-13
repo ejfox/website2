@@ -18,6 +18,7 @@ interface Gist {
   updated_at: string
   files: Record<string, GistFile>
   html_url: string
+  content?: string
 }
 
 // Fetch GitHub stats for the top section
@@ -29,7 +30,7 @@ const currentPage = ref(1)
 const perPage = 64
 
 const { data: gists, pending, error, refresh } = await useFetch<Gist[]>(() =>
-  `https://api.github.com/users/ejfox/gists?per_page=${perPage}&page=${currentPage.value}`
+  `/api/gists?per_page=${perPage}&page=${currentPage.value}`
 )
 
 const formatDate = (dateString: string) => {
@@ -85,23 +86,48 @@ const languageCounts = computed(() => {
 const languageCountsFormatted = computed(() => {
   return languageCounts.value.map(([lang, count]) => `${lang}(${count})`).join(', ')
 })
+
+// Expand/collapse state for gists
+const expandedGists = ref<Set<string>>(new Set())
+
+const toggleGist = (gistId: string) => {
+  if (expandedGists.value.has(gistId)) {
+    expandedGists.value.delete(gistId)
+  } else {
+    expandedGists.value.add(gistId)
+  }
+}
+
+// Syntax highlighting
+const highlightCode = async (code: string, language: string) => {
+  if (process.client) {
+    try {
+      const { createHighlighter } = await import('shiki')
+      const highlighter = await createHighlighter({
+        themes: ['github-dark', 'github-light'],
+        langs: ['javascript', 'typescript', 'json', 'html', 'css', 'markdown', 'bash', 'python', 'go', 'rust', 'java', 'cpp']
+      })
+      
+      return highlighter.codeToHtml(code, {
+        lang: language.toLowerCase() || 'text',
+        theme: 'github-dark'
+      })
+    } catch (error) {
+      console.warn('Failed to highlight code:', error)
+      return `<pre><code>${code}</code></pre>`
+    }
+  }
+  return `<pre><code>${code}</code></pre>`
+}
+
+// Get preview lines (first 10 lines)
+const getPreviewLines = (content: string) => {
+  return content.split('\n').slice(0, 10).join('\n')
+}
 </script>
 
 <template>
   <div class="py-8 px-4 font-mono text-sm">
-    <!-- GitHub Stats Section -->
-    <ClientOnly>
-      <div v-if="hasGithubData" class="mb-12 pb-8 border-b border-zinc-800/50">
-        <div class="mb-6">
-          <h2 class="text-xs tracking-[0.2em] text-zinc-500 mb-6">GITHUB_ACTIVITY</h2>
-          <GitHubStats v-if="stats.github" :stats="stats.github" />
-        </div>
-      </div>
-      <div v-else-if="statsLoading" class="mb-12 pb-8 animate-pulse">
-        <div class="h-4 w-48 bg-zinc-800/50 rounded-sm mb-8"></div>
-        <div class="h-32 bg-zinc-800/30 rounded-sm"></div>
-      </div>
-    </ClientOnly>
     
     <!-- Header -->
     <div class="mb-8 border-b border-zinc-800 pb-4">
@@ -146,6 +172,16 @@ const languageCountsFormatted = computed(() => {
             <span class="opacity-70">[{{ file.language || 'txt' }}]</span>
             <span class="opacity-70">{{ Math.round(file.size / 1024) }}kb</span>
           </div>
+        </div>
+
+        <!-- Single file gist preview -->
+        <div v-if="gist.content && Object.keys(gist.files).length === 1" class="pl-8 mt-3">
+          <GistPreview 
+            :gist="gist" 
+            :file="Object.values(gist.files)[0]"
+            :expanded="expandedGists.has(gist.id)"
+            @toggle="toggleGist(gist.id)"
+          />
         </div>
       </div>
 
