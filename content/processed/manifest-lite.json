@@ -5892,7 +5892,7 @@
     "date": "2025-05-03T22:17:43.000Z",
     "type": "post",
     "dek": "In which the author steals his data back from various tools and APIs and uses them to build his own panopticon-for-one",
-    "modified": "2025-05-03T22:17:43.000Z",
+    "modified": "2025-05-23T05:29:38.000Z",
     "toc": [
       {
         "text": "Building Personal APIs",
@@ -5946,7 +5946,7 @@
     ],
     "metadata": {
       "date": "2025-05-03T22:17:43.000Z",
-      "modified": "2025-05-03T22:17:43.000Z",
+      "modified": "2025-05-23T05:29:38.000Z",
       "dek": "In which the author steals his data back from various tools and APIs and uses them to build his own panopticon-for-one",
       "words": 918,
       "images": 0,
@@ -14722,20 +14722,48 @@
   },
   {
     "slug": "drafts/automating-podcast-editing",
-    "title": "Automating Podcast Editing",
+    "title": "Editing A Podcast With Embeddings & CLI Tools",
     "date": "2025-03-05T04:05:00.000Z",
     "type": "post",
-    "modified": "2025-03-05T14:26:10.000Z",
-    "toc": [],
+    "dek": "In which the author enlists some unlikely tools and dorkily redeploys them to make a podcast worth listening to",
+    "modified": "2025-06-02T14:02:28.000Z",
+    "tags": [
+      "process",
+      "cli",
+      "audio"
+    ],
+    "toc": [
+      {
+        "text": "Editing A Podcast With Embeddings & CLI Tools",
+        "slug": "editing-a-podcast-with-embeddings-cli-tools",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "metadata": {
+      "dek": "In which the author enlists some unlikely tools and dorkily redeploys them to make a podcast worth listening to",
+      "tags": [
+        "process",
+        "cli",
+        "audio"
+      ],
       "date": "2025-03-05T04:05:00.000Z",
-      "modified": "2025-03-05T14:26:10.000Z",
-      "words": 106,
+      "modified": "2025-06-02T14:02:28.000Z",
+      "words": 115,
       "images": 8,
       "links": 10,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "Editing A Podcast With Embeddings & CLI Tools",
+          "slug": "editing-a-podcast-with-embeddings-cli-tools",
+          "level": "h2",
+          "children": []
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/drafts/automating-podcast-editing.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -14783,28 +14811,32 @@
   {
     "slug": "drafts/how-i-get-acquainted-with-a-new-codebase",
     "title": "How I get acquainted with a new codebase",
+    "date": "2025-03-05T15:10:06.000Z",
     "type": "post",
+    "modified": "2025-06-02T14:00:23.000Z",
     "toc": [
       {
         "text": "How I get acquainted with a new codebase",
         "slug": "how-i-get-acquainted-with-a-new-codebase",
-        "level": "h1",
+        "level": "h2",
         "children": []
       }
     ],
     "metadata": {
-      "words": 150,
+      "date": "2025-03-05T15:10:06.000Z",
+      "modified": "2025-06-02T14:00:23.000Z",
+      "words": 149,
       "images": 0,
       "links": 0,
       "codeBlocks": 0,
       "headers": {
-        "h1": 1
+        "h2": 1
       },
       "toc": [
         {
           "text": "How I get acquainted with a new codebase",
           "slug": "how-i-get-acquainted-with-a-new-codebase",
-          "level": "h1",
+          "level": "h2",
           "children": []
         }
       ],
@@ -14819,11 +14851,11 @@
     "title": "How I Start My Mornings Lately",
     "date": "2025-02-17T15:29:04.000Z",
     "type": "post",
-    "modified": "2025-02-20T18:10:19.000Z",
+    "modified": "2025-06-02T14:00:02.000Z",
     "toc": [],
     "metadata": {
       "date": "2025-02-17T15:29:04.000Z",
-      "modified": "2025-02-20T18:10:19.000Z",
+      "modified": "2025-06-02T14:00:02.000Z",
       "words": 153,
       "images": 0,
       "links": 0,
@@ -14888,16 +14920,93 @@
     }
   },
   {
+    "slug": "drafts/irl-photo-editing-workflow",
+    "title": "Real-World Processes For Photography",
+    "date": "2025-06-02T13:55:03.000Z",
+    "type": "post",
+    "dek": "In which the author expounds on the joys of working physically both in capturing photographs as well as viewing and editing them",
+    "modified": "2025-06-02T13:59:51.000Z",
+    "tags": [
+      "photography",
+      "personal",
+      "process"
+    ],
+    "toc": [
+      {
+        "text": "Real-World Processes For Photography",
+        "slug": "real-world-processes-for-photography",
+        "level": "h2",
+        "children": [
+          {
+            "text": "X-Pro 3: A Real Dial For Everything",
+            "slug": "x-pro-3-a-real-dial-for-everything",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "EXIF Printer & Editing On A Table",
+            "slug": "exif-printer-editing-on-a-table",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "dek": "In which the author expounds on the joys of working physically both in capturing photographs as well as viewing and editing them",
+      "inprogress": true,
+      "tags": [
+        "photography",
+        "personal",
+        "process"
+      ],
+      "date": "2025-06-02T13:55:03.000Z",
+      "modified": "2025-06-02T13:59:51.000Z",
+      "words": 24,
+      "images": 0,
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "Real-World Processes For Photography",
+          "slug": "real-world-processes-for-photography",
+          "level": "h2",
+          "children": [
+            {
+              "text": "X-Pro 3: A Real Dial For Everything",
+              "slug": "x-pro-3-a-real-dial-for-everything",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "EXIF Printer & Editing On A Table",
+              "slug": "exif-printer-editing-on-a-table",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/irl-photo-editing-workflow.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/irl-photo-editing-workflow"
+    }
+  },
+  {
     "slug": "drafts/the-world-is-changing",
     "title": "The World Is Changing",
     "date": "2025-03-08T21:04:52.000Z",
     "type": "post",
-    "modified": "2025-03-25T04:12:41.000Z",
+    "modified": "2025-06-02T14:00:13.000Z",
     "toc": [],
     "metadata": {
       "date": "2025-03-08T21:04:52.000Z",
-      "modified": "2025-03-25T04:12:41.000Z",
-      "words": 384,
+      "modified": "2025-06-02T14:00:13.000Z",
+      "words": 385,
       "images": 0,
       "links": 0,
       "codeBlocks": 0,
@@ -14929,364 +15038,6 @@
       "sourcePath": "../../../../../code/website2/content/blog/index.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "index"
-    }
-  },
-  {
-    "slug": "predictions/2025-predictions",
-    "title": "2025 Predictions",
-    "date": "2025-01-18",
-    "type": "post",
-    "tags": [
-      "predictions"
-    ],
-    "toc": [
-      {
-        "text": "2025 Predictions",
-        "slug": "2025-predictions",
-        "level": "h1",
-        "children": [
-          {
-            "text": "AI Predictions",
-            "slug": "ai-predictions",
-            "level": "h2",
-            "children": [
-              {
-                "text": "Prediction 1: Claude Achieves AGI",
-                "slug": "prediction-1-claude-achieves-agi",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "Prediction 2: Open Source Models Reach GPT-4 Level",
-                "slug": "prediction-2-open-source-models-reach-gpt-4-level",
-                "level": "h3",
-                "children": []
-              }
-            ]
-          },
-          {
-            "text": "Technology Predictions",
-            "slug": "technology-predictions",
-            "level": "h2",
-            "children": [
-              {
-                "text": "Prediction 3: Apple Vision Pro Sales Disappoint",
-                "slug": "prediction-3-apple-vision-pro-sales-disappoint",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "Prediction 4: Crypto Winter Continues",
-                "slug": "prediction-4-crypto-winter-continues",
-                "level": "h3",
-                "children": []
-              }
-            ]
-          },
-          {
-            "text": "Geopolitical Predictions",
-            "slug": "geopolitical-predictions",
-            "level": "h2",
-            "children": [
-              {
-                "text": "Prediction 5: Russia-Ukraine War Continues",
-                "slug": "prediction-5-russia-ukraine-war-continues",
-                "level": "h3",
-                "children": []
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "metadata": {
-      "title": "2025 Predictions",
-      "date": "2025-01-18",
-      "published": true,
-      "tags": [
-        "predictions"
-      ],
-      "series": "predictions",
-      "description": "My predictions for 2025, with cryptographic verification",
-      "verification": {
-        "hash": "8c4bbd72212c60e6b3d74232c5d5f4c42223afccfaaf28278c89f7d0ab6421ab",
-        "timestamp": "2025-05-18T13:20:03.513Z",
-        "gitCommit": "66ce634c4c287cf4736a46b9b5ce6ea2cb43db3e",
-        "gitDate": "2025-05-03T18:21:55-04:00"
-      },
-      "words": 269,
-      "images": 0,
-      "links": 0,
-      "codeBlocks": 0,
-      "headers": {
-        "h1": 1
-      },
-      "toc": [
-        {
-          "text": "2025 Predictions",
-          "slug": "2025-predictions",
-          "level": "h1",
-          "children": [
-            {
-              "text": "AI Predictions",
-              "slug": "ai-predictions",
-              "level": "h2",
-              "children": [
-                {
-                  "text": "Prediction 1: Claude Achieves AGI",
-                  "slug": "prediction-1-claude-achieves-agi",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "Prediction 2: Open Source Models Reach GPT-4 Level",
-                  "slug": "prediction-2-open-source-models-reach-gpt-4-level",
-                  "level": "h3",
-                  "children": []
-                }
-              ]
-            },
-            {
-              "text": "Technology Predictions",
-              "slug": "technology-predictions",
-              "level": "h2",
-              "children": [
-                {
-                  "text": "Prediction 3: Apple Vision Pro Sales Disappoint",
-                  "slug": "prediction-3-apple-vision-pro-sales-disappoint",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "Prediction 4: Crypto Winter Continues",
-                  "slug": "prediction-4-crypto-winter-continues",
-                  "level": "h3",
-                  "children": []
-                }
-              ]
-            },
-            {
-              "text": "Geopolitical Predictions",
-              "slug": "geopolitical-predictions",
-              "level": "h2",
-              "children": [
-                {
-                  "text": "Prediction 5: Russia-Ukraine War Continues",
-                  "slug": "prediction-5-russia-ukraine-war-continues",
-                  "level": "h3",
-                  "children": []
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/predictions/2025-predictions.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "predictions/2025-predictions"
-    }
-  },
-  {
-    "slug": "predictions/README",
-    "title": "Predictions System",
-    "type": "post",
-    "toc": [
-      {
-        "text": "Predictions System",
-        "slug": "predictions-system",
-        "level": "h1",
-        "children": [
-          {
-            "text": "Creating a New Prediction",
-            "slug": "creating-a-new-prediction",
-            "level": "h2",
-            "children": []
-          },
-          {
-            "text": "Verifying a Prediction",
-            "slug": "verifying-a-prediction",
-            "level": "h2",
-            "children": []
-          },
-          {
-            "text": "Format",
-            "slug": "format",
-            "level": "h2",
-            "children": []
-          },
-          {
-            "text": "Resolution",
-            "slug": "resolution",
-            "level": "h2",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "metadata": {
-      "words": 213,
-      "images": 0,
-      "links": 0,
-      "codeBlocks": 1,
-      "headers": {
-        "h1": 1
-      },
-      "toc": [
-        {
-          "text": "Predictions System",
-          "slug": "predictions-system",
-          "level": "h1",
-          "children": [
-            {
-              "text": "Creating a New Prediction",
-              "slug": "creating-a-new-prediction",
-              "level": "h2",
-              "children": []
-            },
-            {
-              "text": "Verifying a Prediction",
-              "slug": "verifying-a-prediction",
-              "level": "h2",
-              "children": []
-            },
-            {
-              "text": "Format",
-              "slug": "format",
-              "level": "h2",
-              "children": []
-            },
-            {
-              "text": "Resolution",
-              "slug": "resolution",
-              "level": "h2",
-              "children": []
-            }
-          ]
-        }
-      ],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/predictions/README.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "predictions/README"
-    }
-  },
-  {
-    "slug": "predictions/_template",
-    "title": "YEAR Predictions",
-    "date": "YYYY-MM-DD",
-    "type": "post",
-    "tags": [
-      "predictions"
-    ],
-    "toc": [
-      {
-        "text": "YEAR Predictions",
-        "slug": "year-predictions",
-        "level": "h1",
-        "children": [
-          {
-            "text": "Category Name",
-            "slug": "category-name",
-            "level": "h2",
-            "children": [
-              {
-                "text": "Prediction 1: Title",
-                "slug": "prediction-1-title",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "Prediction 2: Title",
-                "slug": "prediction-2-title",
-                "level": "h3",
-                "children": []
-              }
-            ]
-          },
-          {
-            "text": "Status Updates",
-            "slug": "status-updates",
-            "level": "h2",
-            "children": [
-              {
-                "text": "Update 1 - Date",
-                "slug": "update-1-date",
-                "level": "h3",
-                "children": []
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "metadata": {
-      "title": "YEAR Predictions",
-      "date": "YYYY-MM-DD",
-      "published": true,
-      "tags": [
-        "predictions"
-      ],
-      "series": "predictions",
-      "description": "My predictions for YEAR, with cryptographic verification",
-      "verification": {
-        "hash": "",
-        "timestamp": "",
-        "gitCommit": "",
-        "gitDate": ""
-      },
-      "words": 100,
-      "images": 0,
-      "links": 0,
-      "codeBlocks": 0,
-      "headers": {
-        "h1": 1
-      },
-      "toc": [
-        {
-          "text": "YEAR Predictions",
-          "slug": "year-predictions",
-          "level": "h1",
-          "children": [
-            {
-              "text": "Category Name",
-              "slug": "category-name",
-              "level": "h2",
-              "children": [
-                {
-                  "text": "Prediction 1: Title",
-                  "slug": "prediction-1-title",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "Prediction 2: Title",
-                  "slug": "prediction-2-title",
-                  "level": "h3",
-                  "children": []
-                }
-              ]
-            },
-            {
-              "text": "Status Updates",
-              "slug": "status-updates",
-              "level": "h2",
-              "children": [
-                {
-                  "text": "Update 1 - Date",
-                  "slug": "update-1-date",
-                  "level": "h3",
-                  "children": []
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/predictions/_template.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "predictions/_template"
     }
   },
   {
@@ -31288,9 +31039,9 @@
     "metadata": {
       "date": "2025-05-02T01:41:22.000Z",
       "modified": "2025-05-03T22:11:26.000Z",
-      "words": 85,
-      "images": 4,
-      "links": 4,
+      "words": 115,
+      "images": 7,
+      "links": 7,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -31298,6 +31049,316 @@
       "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-18.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "week-notes/2025-18"
+    }
+  },
+  {
+    "slug": "week-notes/2025-19",
+    "title": "2025-19",
+    "date": "2025-05-05T23:55:46.000Z",
+    "type": "post",
+    "modified": "2025-06-10T22:34:44.000Z",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
+    "toc": [
+      {
+        "text": "2025-19",
+        "slug": "2025-19",
+        "level": "h2",
+        "children": [
+          {
+            "text": "🌟 Daily Check-In & Reflections",
+            "slug": "daily-check-in-reflections",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "📚 Learning & Media",
+            "slug": "learning-media",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
+      "date": "2025-05-05T23:55:46.000Z",
+      "modified": "2025-06-10T22:34:44.000Z",
+      "words": 53,
+      "images": 2,
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "2025-19",
+          "slug": "2025-19",
+          "level": "h2",
+          "children": [
+            {
+              "text": "🌟 Daily Check-In & Reflections",
+              "slug": "daily-check-in-reflections",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "📚 Learning & Media",
+              "slug": "learning-media",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-19.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-19"
+    }
+  },
+  {
+    "slug": "week-notes/2025-20",
+    "title": "2025 20",
+    "date": "2025-05-14T09:36:26.000Z",
+    "type": "post",
+    "modified": "2025-05-28T00:18:50.000Z",
+    "toc": [],
+    "metadata": {
+      "date": "2025-05-14T09:36:26.000Z",
+      "modified": "2025-05-28T00:18:50.000Z",
+      "words": 161,
+      "images": 16,
+      "links": 16,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-20.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-20"
+    }
+  },
+  {
+    "slug": "week-notes/2025-21",
+    "title": "2025 21",
+    "date": "2025-05-19T16:52:10.000Z",
+    "type": "post",
+    "modified": "2025-05-25T19:18:52.000Z",
+    "toc": [],
+    "metadata": {
+      "date": "2025-05-19T16:52:10.000Z",
+      "modified": "2025-05-25T19:18:52.000Z",
+      "words": 42,
+      "images": 4,
+      "links": 4,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-21.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-21"
+    }
+  },
+  {
+    "slug": "week-notes/2025-22",
+    "title": "2025 22",
+    "date": "2025-05-26T16:07:48.000Z",
+    "type": "post",
+    "modified": "2025-06-09T18:24:08.000Z",
+    "toc": [],
+    "metadata": {
+      "date": "2025-05-26T16:07:48.000Z",
+      "modified": "2025-06-09T18:24:08.000Z",
+      "words": 133,
+      "images": 13,
+      "links": 13,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-22.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-22"
+    }
+  },
+  {
+    "slug": "week-notes/2025-23",
+    "title": "2025 23",
+    "date": "2025-06-02T15:25:00.000Z",
+    "type": "post",
+    "modified": "2025-06-09T18:23:49.000Z",
+    "toc": [],
+    "metadata": {
+      "date": "2025-06-02T15:25:00.000Z",
+      "modified": "2025-06-09T18:23:49.000Z",
+      "words": 144,
+      "images": 14,
+      "links": 14,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-23.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-23"
+    }
+  },
+  {
+    "slug": "week-notes/2025-24",
+    "title": "2025-24",
+    "date": "2025-06-09T18:20:48.000Z",
+    "type": "post",
+    "modified": "2025-06-17T18:01:34.000Z",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
+    "toc": [
+      {
+        "text": "2025-24",
+        "slug": "2025-24",
+        "level": "h2",
+        "children": [
+          {
+            "text": "🌟 Daily Check-In & Reflections",
+            "slug": "daily-check-in-reflections",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "📚 Learning & Media",
+            "slug": "learning-media",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
+      "date": "2025-06-09T18:20:48.000Z",
+      "modified": "2025-06-17T18:01:34.000Z",
+      "words": 406,
+      "images": 27,
+      "links": 27,
+      "codeBlocks": 0,
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "2025-24",
+          "slug": "2025-24",
+          "level": "h2",
+          "children": [
+            {
+              "text": "🌟 Daily Check-In & Reflections",
+              "slug": "daily-check-in-reflections",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "📚 Learning & Media",
+              "slug": "learning-media",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-24.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-24"
+    }
+  },
+  {
+    "slug": "week-notes/2025-25",
+    "title": "2025-25",
+    "date": "2025-06-17T15:30:58.000Z",
+    "type": "post",
+    "modified": "2025-06-17T18:01:46.000Z",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
+    "toc": [
+      {
+        "text": "2025-25",
+        "slug": "2025-25",
+        "level": "h2",
+        "children": [
+          {
+            "text": "🌟 Daily Check-In & Reflections",
+            "slug": "daily-check-in-reflections",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "📚 Learning & Media",
+            "slug": "learning-media",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
+      "date": "2025-06-17T15:30:58.000Z",
+      "modified": "2025-06-17T18:01:46.000Z",
+      "words": 62,
+      "images": 1,
+      "links": 1,
+      "codeBlocks": 0,
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "2025-25",
+          "slug": "2025-25",
+          "level": "h2",
+          "children": [
+            {
+              "text": "🌟 Daily Check-In & Reflections",
+              "slug": "daily-check-in-reflections",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "📚 Learning & Media",
+              "slug": "learning-media",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-25.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-25"
     }
   }
 ]

@@ -1,7 +1,14 @@
 ---
+dek: In which the author enlists some unlikely tools and dorkily redeploys them to make a podcast worth listening to
+tags:
+  - process
+  - cli
+  - audio
 date: 2025-03-04T23:05:00-05:00
-modified: 2025-03-05T09:26:10-05:00
+modified: 2025-06-02T10:02:28-04:00
 ---
+
+## Editing A Podcast With Embeddings & CLI Tools
 
 skippity boppity boo
 

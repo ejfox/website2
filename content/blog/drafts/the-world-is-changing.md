@@ -1,7 +1,8 @@
 ---
 date: 2025-03-08T16:04:52-05:00
-modified: 2025-03-25T00:12:41-04:00
+modified: 2025-06-02T10:00:13-04:00
 ---
+
 So the world is changing very rapidly and I’ve been having really interesting conversations with different people, individually, fractured and fragmented. I feel compelled the “raise the flag”, so to speak, and start working to create more space (real and virtual) where smart kind people can come together to create things and collaborate on making the world better.
 
 So that’s how this email found you. I am sending it to about 20 people I trust. If it’s unwelcome or bothersome please accept my sincerest apologies and no hard feelings about unsubscribing…

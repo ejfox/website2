@@ -1,6 +1,6 @@
 ---
 date: 2025-05-03T18:17:43-04:00
-modified: 2025-05-03T18:17:43-04:00
+modified: 2025-05-23T01:29:38-04:00
 dek: In which the author steals his data back from various tools and APIs and uses them to build his own panopticon-for-one
 ---
 
