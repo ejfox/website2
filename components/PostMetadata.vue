@@ -1,7 +1,7 @@
 <template>
   <div
     class="w-full text-zinc-600 dark:text-zinc-400 py-4 gap-1"
-    :class="[compact ? 'text-xs' : 'text-sm gap-y-4']"
+    :class="[compact ? 'text-xs' : 'text-sm gap-y-4 pl-2']"
   >
     <!-- Debug output -->
     <pre v-if="false" class="whitespace-pre-wrap text-xs">{{ metadata }}</pre>
@@ -9,7 +9,7 @@
     <!-- Folder name -->
     <span
       class="flex items-center metadata-item text-xs tracking-widest"
-      :class="[compact ? 'pl-0' : 'pl-4']"
+      :class="[compact ? 'pl-0' : 'pl-0']"
       ref="folderRef"
       v-if="metadata.slug && !compact"
     >
