@@ -34,3 +34,4 @@ content/backup/drafts/_stale/*
 .aider*
 
 .cursor/*
+.claude/settings.local.json
