@@ -616,7 +616,7 @@ const processedMetadata = computed(() => {
     </Head>
     <article
       v-if="post && !post.redirect"
-      class="scroll-container pt-4 md:pt-12 pl-0 md:pl-4"
+      class="scroll-container pt-4 md:pt-12 pl-2 md:pl-4"
     >
       <div ref="postMetadata" class="w-full">
         <PostMetadata
@@ -1060,4 +1060,3 @@ a {
   }
 }
 </style>
-
