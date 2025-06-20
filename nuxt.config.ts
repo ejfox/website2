@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   // SSR configuration
-  ssr: false,
+  ssr: true,
 
   // Add compatibility date
   compatibilityDate: '2024-02-23',
