@@ -1,5 +1,5 @@
 <template>
-  <div class="font-mono">
+  <div class="font-mono overflow-hidden">
     <!-- Stats TOC -->
     <teleport to="#nav-toc-container" v-if="tocTarget && !isSimpleMode">
       <div class="toc py-2 text-sm font-mono px-4">
@@ -31,18 +31,9 @@
     <!-- Main Content -->
     <ClientOnly>
       <!-- Show loading state while data is being fetched -->
-      <section v-if="isLoading" class="stats-grid">
-        <div class="stats-column">
-          <div v-for="i in 3" :key="i" class="space-y-4">
-            <div class="pulse-placeholder pulse-placeholder-text"></div>
-            <div class="pulse-placeholder pulse-placeholder-md"></div>
-          </div>
-        </div>
-        <div class="stats-column">
-          <div v-for="i in 3" :key="i" class="space-y-4">
-            <div class="pulse-placeholder pulse-placeholder-text"></div>
-            <div class="pulse-placeholder pulse-placeholder-md"></div>
-          </div>
+      <section v-if="isLoading" class="grid gap-3 sm:gap-4 md:gap-6 auto-fit-columns p-4">
+        <div v-for="i in 8" :key="i" class="space-y-3">
+          <div class="pulse-placeholder-sm"></div>
         </div>
       </section>
 
@@ -62,12 +53,12 @@
     <Transition name="fade">
       <div
         v-if="hasStaleData && !isSimpleMode"
-        class="fixed bottom-4 right-4 p-2 bg-zinc-900/80 backdrop-blur-sm border border-zinc-800/50 font-mono"
+        class="fixed bottom-4 right-4 border border-zinc-800/50 bg-zinc-900/80 p-2 font-mono backdrop-blur-sm"
       >
         <div
-          class="flex items-center gap-2 text-zinc-500 text-xs tracking-wider"
+          class="flex items-center gap-2 text-xs tracking-wider text-zinc-500"
         >
-          <UIcon name="i-heroicons-clock" class="w-3 h-3" />
+          <UIcon name="i-heroicons-clock" class="h-3 w-3" />
           <span>CACHED_DATA</span>
         </div>
       </div>
@@ -283,11 +274,58 @@ onMounted(async () => {
 
     if (!cachedPosts.value) {
       console.log('Fetching blog posts')
-      // Get all posts including drafts for a complete word count
-      cachedPosts.value = await getAllPosts(true, true)
+      // Get all posts (no drafts, no week notes) to match blog index behavior
+      const allPosts = await getAllPosts(false, false)
+      
+      // Use EXACT same filtering logic as blog index
+      // Whitelist approach: only show posts that match year-based pattern
+      cachedPosts.value = allPosts.filter((post) => {
+        const slug = post?.slug || ''
+        const type = post?.type || post?.metadata?.type
+        const slugParts = slug.split('/')
+        const lastPart = slugParts[slugParts.length - 1]
+
+        // Check if it's a week note (exclude these)
+        const isWeekNote =
+          type === 'weekNote' ||
+          slug.startsWith('week-notes/') ||
+          /^\d{4}-\d{2}$/.test(lastPart)
+
+        // Whitelist approach: only show posts that match year-based pattern
+        const isRegularBlogPost = /^\d{4}\/[^/]+$/.test(slug)
+
+        // Additional filtering like blog index
+        const isHidden = post?.hidden === true || post?.metadata?.hidden === true
+        const isDraft = post?.draft === true || post?.metadata?.draft === true
+        const postDate = post?.date || post?.metadata?.date
+        const isFuturePost = postDate && new Date(postDate) > new Date()
+        
+        return isRegularBlogPost && !isWeekNote && !isHidden && !isDraft && !isFuturePost
+      })
+      
       if (DEBUG_BLOG_STATS) {
+        console.log(`Raw posts from getAllPosts: ${allPosts.length}`)
+        console.log(`Filtered posts (blog stats): ${cachedPosts.value?.length || 0}`)
+        
+        // Show a few examples of what was filtered out
+        const filtered = allPosts.filter(post => {
+          const slug = post?.slug || ''
+          const type = post?.type || post?.metadata?.type
+          const slugParts = slug.split('/')
+          const lastPart = slugParts[slugParts.length - 1]
+          const isWeekNote = type === 'weekNote' || slug.startsWith('week-notes/') || /^\d{4}-\d{2}$/.test(lastPart)
+          const isRegularBlogPost = /^\d{4}\/[^/]+$/.test(slug)
+          const isHidden = post?.hidden === true || post?.metadata?.hidden === true
+          const isDraft = post?.draft === true || post?.metadata?.draft === true
+          const postDate = post?.date || post?.metadata?.date
+          const isFuturePost = postDate && new Date(postDate) > new Date()
+          return !(isRegularBlogPost && !isWeekNote && !isHidden && !isDraft && !isFuturePost)
+        })
+        
+        console.log(`Filtered out ${filtered.length} posts:`, filtered.slice(0, 5).map(p => p.slug))
+        
         console.log(
-          `Fetched ${cachedPosts.value?.length || 0} posts`,
+          'Sample blog post:',
           cachedPosts.value?.[0]
             ? {
                 sampleSlug: cachedPosts.value[0].slug,
@@ -464,6 +502,7 @@ onMounted(() => {
   nextTick(() => {
     // First, make sure we have the TOC target
     tocTarget.value = document.querySelector('#nav-toc-container')
+    console.log('TOC Target found:', !!tocTarget.value, 'Simple mode:', isSimpleMode.value)
 
     // Then set up the observer
     const headingObserver = new IntersectionObserver(
@@ -559,28 +598,15 @@ h2 {
   font-feature-settings: 'tnum', 'zero';
 }
 
-/* Common styles using @apply */
-.pulse-placeholder {
-  @apply animate-pulse bg-zinc-900/50 rounded-none border border-zinc-800/50;
+/* Auto-fit grid for loading placeholders */
+.auto-fit-columns {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
-.pulse-placeholder-lg {
-  @apply h-32;
-}
-
-.pulse-placeholder-md {
-  @apply h-24;
-}
-
-.pulse-placeholder-text {
-  @apply h-4 max-w-[80%];
-}
-
-.stats-grid {
-  @apply grid grid-cols-1 lg:grid-cols-2 gap-16 sm:gap-24;
-}
-
-.stats-column {
-  @apply space-y-16 sm:space-y-24;
+/* Responsive breakpoints */
+@media (max-width: 640px) {
+  .auto-fit-columns {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

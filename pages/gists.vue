@@ -141,8 +141,17 @@ const getPreviewLines = (content: string) => {
     </div>
 
     <!-- Loading state -->
-    <div v-if="pending" class="py-4 text-center text-zinc-500">
-      Loading...
+    <div v-if="pending" class="space-y-3">
+      <div v-for="i in 8" :key="i" class="border-t border-zinc-800/30 py-3">
+        <div class="flex items-baseline gap-2">
+          <div class="skeleton w-6 h-4"></div>
+          <div class="skeleton w-64 h-4"></div>
+          <div class="skeleton w-20 h-4 ml-auto"></div>
+        </div>
+        <div class="pl-8 mt-1">
+          <div class="skeleton w-96 h-3"></div>
+        </div>
+      </div>
     </div>
 
     <!-- Error state -->

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="hasData" class="space-y-10 font-mono">
+  <div v-if="hasData" class="space-y-4 font-mono">
     <!-- Primary Stats -->
     <div>
       <IndividualStat :value="weeklyHours" size="large" label="HOURS TRACKED"
@@ -19,24 +19,24 @@
           :title="cell.title">
         </div>
       </div>
-      <div class="flex justify-between text-2xs text-zinc-500 mt-2">
-        <span>EACH SQUARE = 1% OF TOTAL TIME</span>
-        <span>COLOR = CATEGORY</span>
+      <div class="flex justify-between text-zinc-500 mt-1" style="font-size: 10px; line-height: 12px;">
+        <span>EACH COLOR = CATEGORY</span>
+        <span>SQUARE = 1% OF TOTAL TIME</span>
       </div>
     </div>
 
     <!-- Category Legend + Top Categories Combined -->
     <div>
       <h4 class="section-subheader">CATEGORIES</h4>
-      <div class="space-y-3">
-        <div v-for="category in sortedCategories" :key="category.name" class="flex items-start gap-2">
-          <div class="w-3 h-3 mt-1 flex-shrink-0" :style="{ backgroundColor: category.color }"></div>
-          <div class="flex-1">
-            <div class="flex justify-between items-center">
-              <span class="text-xs text-zinc-700 dark:text-zinc-300">{{ category.name }}</span>
-              <span class="text-2xs text-zinc-500 tabular-nums">{{ category.percentageOfTotal }}%</span>
+      <div class="space-y-1.5">
+        <div v-for="category in sortedCategories" :key="category.name" class="flex items-center gap-1.5">
+          <div class="w-2 h-2 flex-shrink-0 rounded-sm" :style="{ backgroundColor: category.color }"></div>
+          <div class="flex-1 min-w-0">
+            <div class="flex justify-between items-center gap-1">
+              <span class="text-zinc-700 dark:text-zinc-300 truncate" style="font-size: 10px; line-height: 12px;">{{ category.name }}</span>
+              <span class="text-zinc-500 tabular-nums flex-shrink-0" style="font-size: 10px; line-height: 12px;">{{ category.percentageOfTotal }}%</span>
             </div>
-            <div class="category-bar-bg mt-1">
+            <div class="category-bar-bg mt-0.5">
               <div class="category-bar-fill" :style="{
                 width: `${category.percentageOfTotal}%`,
                 backgroundColor: category.color
@@ -253,7 +253,9 @@ const waffleCells = computed(() => {
 
 <style scoped>
 .section-subheader {
-  @apply text-2xs tracking-[0.2em] text-zinc-500 border-b border-zinc-800/30 pb-1 mb-3;
+  @apply tracking-[0.2em] text-zinc-500 border-b border-zinc-800/30 pb-1 mb-3;
+  font-size: 0.65rem;
+  line-height: 1rem;
 }
 
 .data-unavailable {
@@ -261,18 +263,12 @@ const waffleCells = computed(() => {
 }
 
 .category-bar-bg {
-  @apply h-1.5 rounded-sm overflow-hidden bg-transparent dark:bg-zinc-800/10 border-b border-zinc-200/10 dark:border-zinc-800/30;
+  @apply h-1 rounded-sm overflow-hidden bg-transparent dark:bg-zinc-800/10 border-b border-zinc-200/10 dark:border-zinc-800/30;
 }
 
 .category-bar-fill {
   @apply h-full rounded-sm;
   /* We'll set the background color dynamically */
-}
-
-/* Custom text size smaller than xs */
-.text-2xs {
-  font-size: 0.65rem;
-  line-height: 1rem;
 }
 
 /* Waffle chart styling */

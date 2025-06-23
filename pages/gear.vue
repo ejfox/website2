@@ -12,67 +12,75 @@
         </div>
       </div>
       
-      <!-- Key metrics bar - minimal design -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mb-6 text-sm">
-        <div>
-          <div class="flex items-baseline gap-1">
-            <span class="text-3xl font-mono tabular-nums font-bold">{{ totalItems }}</span>
-            <span class="text-zinc-500">items</span>
-          </div>
-          <div class="text-xs text-zinc-500 mt-1">across {{ containerCount }} containers</div>
-        </div>
-        
-        <div>
-          <div class="flex items-baseline gap-1">
-            <span class="text-3xl font-mono tabular-nums font-bold">{{ totalWeight }}</span>
-            <span class="text-zinc-500">oz</span>
-          </div>
-          <div class="text-xs text-zinc-500 mt-1">{{ ouncesToPounds }}lb / {{ ouncesToKilos }}kg</div>
-        </div>
-        
-        <div>
-          <div class="flex items-baseline gap-1">
-            <span class="text-3xl font-mono tabular-nums font-bold">{{ avgTCWMScore }}</span>
-            <span class="text-zinc-500">avg TCWM</span>
-          </div>
-          <div class="text-xs text-zinc-500 mt-1">
-            <span class="text-blue-400">T</span>{{ avgScores.T.toFixed(1) }}
-            <span class="text-purple-400 ml-1">C</span>{{ avgScores.C.toFixed(1) }}
-            <span class="text-green-400 ml-1">W</span>{{ avgScores.W.toFixed(1) }}
-            <span class="text-amber-400 ml-1">M</span>{{ avgScores.M.toFixed(1) }}
-          </div>
-        </div>
-        
-        <div>
-          <div class="flex items-baseline gap-1">
-            <span class="text-3xl font-mono tabular-nums font-bold">{{ avgWeight }}</span>
-            <span class="text-zinc-500">oz/item</span>
-          </div>
-          <div class="text-xs text-zinc-500 mt-1">updated {{ currentDate }}</div>
-        </div>
-      </div>
-      
-      <!-- Container distribution - minimal bar graph -->
-      <div class="mb-6">
+      <!-- Inventory stats - more data dense -->
+      <div class="mb-8 font-mono text-xs text-zinc-600 dark:text-zinc-400 space-y-2 bg-zinc-50/50 dark:bg-zinc-900/30 p-4 rounded-lg border border-zinc-200/50 dark:border-zinc-800/50">
         <div class="flex flex-wrap gap-x-8 gap-y-2">
-          <div v-for="[container, items] in Array.from(groupedGear).slice(0, 6)" :key="container" 
-               class="flex items-center gap-2 min-w-[200px]">
-            <div class="w-20 text-right truncate text-xs text-zinc-400">{{ container }}</div>
-            <div class="h-2 bg-blue-600/30 dark:bg-blue-600/40 rounded-full"
-              :style="{ width: `${(items.length / Math.max(...Array.from(groupedGear).map(g => g[1].length))) * 150}px` }">
+          <span class="tracking-wide">TOTAL: <span class="text-zinc-950 dark:text-zinc-50 font-semibold tabular-nums">{{ totalItems }}</span> items</span>
+          <span class="tracking-wide">WEIGHT: <span class="text-zinc-950 dark:text-zinc-50 font-semibold tabular-nums">{{ totalWeight }}</span>oz (<span class="text-zinc-950 dark:text-zinc-50 font-semibold tabular-nums">{{ ouncesToPounds }}</span>lb)</span>
+          <span class="tracking-wide">AVG_TCWM: <span class="text-zinc-950 dark:text-zinc-50 font-semibold tabular-nums">{{ avgTCWMScore }}</span></span>
+          <span class="tracking-wide">AVG_WT: <span class="text-zinc-950 dark:text-zinc-50 font-semibold tabular-nums">{{ avgWeight }}</span>oz</span>
+          <span class="tracking-wide">CONTAINERS: <span class="text-zinc-950 dark:text-zinc-50 font-semibold tabular-nums">{{ containerCount }}</span></span>
+        </div>
+        <div class="flex gap-6 text-[10px] pt-1 border-t border-zinc-200/50 dark:border-zinc-800/50">
+          <span class="tracking-wider text-zinc-500 dark:text-zinc-500">TCWM_BREAKDOWN:</span>
+          <span class="text-zinc-700 dark:text-zinc-300 font-semibold tabular-nums">T={{ avgScores.T.toFixed(1) }}</span>
+          <span class="text-zinc-700 dark:text-zinc-300 font-semibold tabular-nums">C={{ avgScores.C.toFixed(1) }}</span>
+          <span class="text-zinc-700 dark:text-zinc-300 font-semibold tabular-nums">W={{ avgScores.W.toFixed(1) }}</span>
+          <span class="text-zinc-700 dark:text-zinc-300 font-semibold tabular-nums">M={{ avgScores.M.toFixed(1) }}</span>
+          <span class="ml-auto text-zinc-400 dark:text-zinc-600 tracking-wider">LAST_UPDATE: {{ currentDate }}</span>
+        </div>
+      </div>
+      
+      <!-- Container distribution - elegant sparkline viz -->
+      <div class="mb-6 group">
+        <div class="text-[10px] font-mono text-zinc-500 dark:text-zinc-500 mb-2 tracking-wider">CONTAINER_DISTRIBUTION:</div>
+        <div class="flex items-end gap-1 h-12">
+          <div v-for="[container, items] in Array.from(groupedGear)" :key="container" 
+               class="group/bar cursor-help relative"
+               :title="`${container}: ${items.length} items, ${calculateTotalWeight(items)}oz`">
+            <!-- Sparkline bar -->
+            <div class="w-3 bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-600 dark:hover:bg-zinc-400 transition-colors rounded-t-sm"
+                 :style="{ height: `${(items.length / Math.max(...Array.from(groupedGear).map(g => g[1].length))) * 40 + 4}px` }">
             </div>
-            <span class="text-xs text-zinc-500">{{ items.length }}</span>
+            <!-- Hover label -->
+            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 opacity-0 group-hover/bar:opacity-100 transition-opacity">
+              <div class="bg-zinc-900 dark:bg-zinc-100 text-zinc-100 dark:text-zinc-900 text-[8px] font-mono px-1.5 py-0.5 rounded whitespace-nowrap">
+                {{ container.split(' ')[0] }}: {{ items.length }}
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Weight distribution mini-chart -->
+        <div class="mt-4 pt-3 border-t border-zinc-200/50 dark:border-zinc-800/50">
+          <div class="text-[10px] font-mono text-zinc-500 dark:text-zinc-500 mb-2 tracking-wider">WEIGHT_DISTRIBUTION:</div>
+          <div class="flex items-center gap-4">
+            <!-- Lightweight items dot -->
+            <div class="flex items-center gap-1">
+              <div class="w-2 h-2 rounded-full bg-zinc-400 dark:bg-zinc-600"></div>
+              <span class="text-[9px] font-mono text-zinc-500 dark:text-zinc-500">{{ lightweightCount }} &lt; 5oz</span>
+            </div>
+            <!-- Medium weight items dot -->
+            <div class="flex items-center gap-1">
+              <div class="w-3 h-3 rounded-full bg-zinc-500 dark:bg-zinc-500"></div>
+              <span class="text-[9px] font-mono text-zinc-500 dark:text-zinc-500">{{ mediumweightCount }} 5-15oz</span>
+            </div>
+            <!-- Heavy items dot -->
+            <div class="flex items-center gap-1">
+              <div class="w-4 h-4 rounded-full bg-zinc-600 dark:bg-zinc-400"></div>
+              <span class="text-[9px] font-mono text-zinc-500 dark:text-zinc-500">{{ heavyweightCount }} &gt; 15oz</span>
+            </div>
           </div>
         </div>
       </div>
       
-      <!-- TCWM legend - compact horizontal format -->
-      <div class="flex items-center gap-2 text-xs py-2 border-t border-zinc-800">
-        <div class="flex items-center gap-1 mr-3 text-zinc-400">TCWM:</div>
-        <div class="flex items-center gap-1 mr-3"><span class="text-blue-400 font-medium">T</span>ime Criticality</div>
-        <div class="flex items-center gap-1 mr-3"><span class="text-purple-400 font-medium">C</span>onsequence</div>
-        <div class="flex items-center gap-1 mr-3"><span class="text-green-400 font-medium">W</span>eight/Space</div>
-        <div class="flex items-center gap-1"><span class="text-amber-400 font-medium">M</span>ulti-Use</div>
+      <!-- TCWM legend - minimal, monochrome -->
+      <div class="flex items-center gap-3 text-xs py-3 text-zinc-500 dark:text-zinc-500 font-mono tracking-wide">
+        <div class="flex items-center gap-1 mr-4 text-zinc-700 dark:text-zinc-300 font-medium">TCWM:</div>
+        <div class="flex items-center gap-1 mr-4"><span class="text-zinc-800 dark:text-zinc-200 font-semibold">T</span>ime Criticality</div>
+        <div class="flex items-center gap-1 mr-4"><span class="text-zinc-800 dark:text-zinc-200 font-semibold">C</span>onsequence</div>
+        <div class="flex items-center gap-1 mr-4"><span class="text-zinc-800 dark:text-zinc-200 font-semibold">W</span>eight/Space</div>
+        <div class="flex items-center gap-1"><span class="text-zinc-800 dark:text-zinc-200 font-semibold">M</span>ulti-Use</div>
       </div>
     </header>
 
@@ -96,25 +104,33 @@
       <section v-for="[container, items] in groupedGear" :key="container"
               :id="container.toLowerCase().replace(/\s+/g, '-')"
               class="scroll-mt-4">
-        <!-- Container header -->
-        <div class="flex items-baseline justify-between border-b border-zinc-800/50 pb-2 mb-4">
-          <h2 class="text-xl font-bold">{{ container }}</h2>
-          <div class="text-sm text-zinc-500">
-            <span class="font-mono">{{ calculateTotalWeight(items) }}oz</span>
-            <span class="opacity-70 ml-1">({{ items.length }} items)</span>
+        <!-- Container header - minimal underline -->
+        <div class="flex items-baseline justify-between pb-3 mb-6 border-b border-zinc-300 dark:border-zinc-700">
+          <h2 class="text-xl font-bold text-zinc-950 dark:text-zinc-50 tracking-tight">{{ container }}</h2>
+          <div class="text-sm text-zinc-600 dark:text-zinc-400 font-mono">
+            <span class="font-semibold tabular-nums">{{ calculateTotalWeight(items) }}oz</span>
+            <span class="opacity-60 ml-2 text-xs tracking-wider">({{ items.length }} items)</span>
           </div>
         </div>
 
-        <!-- Container items in grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-          <GearItem v-for="item in sortItemsByScore(items)" :key="item.Name" :item="item" :create-viz="createViz"
-            class="bg-zinc-50/30 dark:bg-zinc-900/30 rounded p-3 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 transition-colors">
-            <template #viz="{ svgRef }">
-              <div class="relative w-full aspect-square">
-                <svg ref="svgRef" class="w-full h-full absolute inset-0"></svg>
-              </div>
-            </template>
-          </GearItem>
+        <!-- Container items - inventory table format -->
+        <div class="relative">
+          <!-- Table header - sticky -->
+          <div class="sticky top-0 z-30 grid grid-cols-12 gap-3 py-3 px-2 text-[10px] font-mono font-semibold text-zinc-800 dark:text-zinc-200 border-b-2 border-zinc-300 dark:border-zinc-700 tracking-wider">
+            <div class="col-span-1 text-right cursor-help" title="Weight in ounces — every gram matters">WT</div>
+            <div class="col-span-1 text-center cursor-help" title="Time Criticality + Consequence + Weight/Space + Multi-Use score — higher is more essential">TCWM</div>
+            <div class="col-span-4 cursor-help" title="What it is — the gear that gets you there">ITEM</div>
+            <div class="col-span-1 text-center cursor-help" title="Category — how it fits into the system">TYPE</div>
+            <div class="col-span-2 text-center cursor-help" title="Individual TCWM component scores — the breakdown">T C W M</div>
+            <div class="col-span-1 text-center cursor-help" title="Waterproof rating — protection from the elements">H₂O</div>
+            <div class="col-span-1 text-center cursor-help" title="Purchase link — gear that's worth owning">BUY</div>
+            <div class="col-span-1 text-center cursor-help" title="Priority tier — T1 is mission-critical, T3 is nice-to-have">TIER</div>
+          </div>
+          
+          <!-- Items -->
+          <div class="divide-y divide-zinc-800/10">
+            <GearItem v-for="item in sortItemsByScore(items)" :key="item.Name" :item="item" />
+          </div>
         </div>
       </section>
     </div>
@@ -427,6 +443,28 @@ const PRIORITY_CONTAINERS = [
 
 // Get current date for last updated
 const currentDate = new Date().toISOString().split('T')[0]
+
+// Weight distribution computed properties for sparkly viz
+const lightweightCount = computed(() => {
+  return gearItems.value.filter(item => {
+    const weight = parseFloat(item['Base Weight ()']) || 0
+    return weight < 5
+  }).length
+})
+
+const mediumweightCount = computed(() => {
+  return gearItems.value.filter(item => {
+    const weight = parseFloat(item['Base Weight ()']) || 0
+    return weight >= 5 && weight <= 15
+  }).length
+})
+
+const heavyweightCount = computed(() => {
+  return gearItems.value.filter(item => {
+    const weight = parseFloat(item['Base Weight ()']) || 0
+    return weight > 15
+  }).length
+})
 </script>
 
 <style>

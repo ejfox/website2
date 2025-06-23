@@ -1,27 +1,45 @@
 <template>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+  <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 md:grid-cols-4 md:gap-6 lg:grid-cols-6">
     <!-- GitHub Contributions -->
     <div v-if="stats.github?.stats">
-      <IndividualStat :value="stats.github.stats.totalContributions" size="medium" label="TOTAL GH CONTRIBUTIONS"
+      <IndividualStat :value="stats.github.stats.totalContributions" size="medium" label="GH COMMITS"
         :details="`${formatNumber(stats.github.stats.totalRepos)} REPOS`" />
     </div>
 
     <!-- Blog Stats -->
     <div v-if="blogStats">
-      <IndividualStat :value="blogStats.totalPosts" size="medium" label="TOTAL BLOG POSTS"
+      <IndividualStat :value="blogStats.totalPosts" size="medium" label="BLOG POSTS"
         :details="`${postsThisMonth} THIS MONTH`" />
     </div>
-    <div v-else class="flex flex-col justify-center items-center h-24 bg-zinc-900/30 border border-zinc-800/50 p-4">
-      <div class="text-zinc-400 text-sm font-mono animate-pulse">Loading blog stats...</div>
+    <div v-else class="flex h-24 flex-col items-center justify-center border border-zinc-800/50 bg-zinc-900/30 p-4">
+      <div class="animate-pulse text-sm font-mono text-zinc-400">Loading blog stats...</div>
     </div>
 
     <!-- Total Words -->
     <div v-if="blogStats">
-      <IndividualStat :value="blogStats.totalWords" size="medium" label="TOTAL WORDS PUBLISHED"
+      <IndividualStat :value="blogStats.totalWords" size="medium" label="WORDS"
         :details="`${formatNumber(averageWordsPerPost)} AVG/POST`" />
     </div>
-    <div v-else class="flex flex-col justify-center items-center h-24 bg-zinc-900/30 border border-zinc-800/50 p-4">
-      <div class="text-zinc-400 text-sm font-mono animate-pulse">Loading word counts...</div>
+    <div v-else class="flex h-24 flex-col items-center justify-center border border-zinc-800/50 bg-zinc-900/30 p-4">
+      <div class="animate-pulse text-sm font-mono text-zinc-400">Loading word counts...</div>
+    </div>
+
+    <!-- LeetCode Problems -->
+    <div v-if="stats.leetcode?.submissionStats">
+      <IndividualStat :value="totalLeetCodeSolved" size="medium" label="LEETCODE"
+        :details="`${stats.leetcode.submissionStats.hard.count}H ${stats.leetcode.submissionStats.medium.count}M ${stats.leetcode.submissionStats.easy.count}E`" />
+    </div>
+
+    <!-- Chess Rating -->
+    <div v-if="stats.chess">
+      <IndividualStat :value="chessRating" size="medium" label="CHESS"
+        :details="`${Math.round(chessWinRate)}% WIN`" />
+    </div>
+
+    <!-- Typing Speed -->
+    <div v-if="stats.monkeyType?.typingStats">
+      <IndividualStat :value="Math.round(stats.monkeyType.typingStats.averageWpm || 0)" size="medium" label="AVG WPM"
+        :details="`${Math.round(stats.monkeyType.typingStats.averageAccuracy || 0)}% ACC`" />
     </div>
   </div>
 </template>
@@ -74,10 +92,7 @@ const averageWordsPerPost = computed(() => {
 })
 
 const postsThisMonth = computed(() => {
-  if (!props.blogStats?.lastPost) return 0
-  const lastPostDate = new Date(props.blogStats.lastPost)
-  const oneMonthAgo = new Date()
-  oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1)
-  return props.blogStats.totalPosts > 0 && lastPostDate > oneMonthAgo ? 1 : 0
+  // Use the actual postsThisMonth value from blogStats
+  return props.blogStats?.postsThisMonth || 0
 })
 </script>

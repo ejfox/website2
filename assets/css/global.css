@@ -74,4 +74,87 @@
 /* Responsive styles for larger screens */
 @media (min-width: 1024px) {
   /* Keep any other responsive styles that aren't TOC-related */
-} 
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .text-2xs {
+    font-size: 0.65rem;
+    line-height: 1rem;
+  }
+}
+
+/* Global utility styles */
+.section-subheader {
+  @apply tracking-[0.2em] text-zinc-500 border-b border-zinc-200 dark:border-zinc-800/30 pb-1 mb-3 transition-colors duration-200;
+  font-size: 0.65rem;
+  line-height: 1rem;
+}
+
+/* Hover state for parent containers */
+.stats-section:hover .section-subheader {
+  @apply text-zinc-600 dark:text-zinc-400 border-zinc-300 dark:border-zinc-700;
+}
+
+/* Skeleton loading styles - more subtle and light/dark mode compatible */
+@layer components {
+  .skeleton {
+    @apply relative overflow-hidden;
+    background: theme('colors.zinc.100');
+  }
+  
+  .dark .skeleton {
+    background: theme('colors.zinc.800');
+  }
+  
+  .skeleton::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      theme('colors.zinc.200' / 0.4),
+      transparent
+    );
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+  }
+  
+  .dark .skeleton::after {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      theme('colors.zinc.700' / 0.3),
+      transparent
+    );
+  }
+  
+  @keyframes skeleton-loading {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  /* Pulse placeholder - more subtle */
+  .pulse-placeholder {
+    @apply h-32 rounded-md border animate-pulse;
+    @apply border-zinc-200 bg-zinc-100;
+    @apply dark:border-zinc-800 dark:bg-zinc-900/50;
+  }
+  
+  .pulse-placeholder-sm {
+    @apply h-20 rounded-md border animate-pulse;
+    @apply border-zinc-200 bg-zinc-100;
+    @apply dark:border-zinc-800 dark:bg-zinc-900/50;
+  }
+  
+  .pulse-placeholder-lg {
+    @apply h-48 rounded-md border animate-pulse;
+    @apply border-zinc-200 bg-zinc-100;
+    @apply dark:border-zinc-800 dark:bg-zinc-900/50;
+  }
+}

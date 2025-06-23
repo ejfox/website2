@@ -44,7 +44,7 @@
           </div>
           <div class="flex items-center gap-2 ml-auto">
             <span class="wpm-value">{{ test.wpm }}</span>
-            <span class="accuracy-value">{{ test.accuracy }}%</span>
+            <span class="accuracy-value">{{ test.accuracy.toFixed(1) }}%</span>
           </div>
         </div>
       </div>
@@ -215,7 +215,9 @@ const StatDisplay = (props: { label: string; value: string | number }) => {
 
 <style scoped>
 .section-subheader {
-  @apply text-2xs tracking-[0.2em] text-zinc-500 border-b border-zinc-800/30 pb-1 mb-3;
+  @apply tracking-[0.2em] text-zinc-500 border-b border-zinc-800/30 pb-1 mb-3;
+  font-size: 0.65rem;
+  line-height: 1rem;
 }
 
 .test-row {
@@ -223,7 +225,9 @@ const StatDisplay = (props: { label: string; value: string | number }) => {
 }
 
 .test-type {
-  @apply text-zinc-500 text-2xs ml-2;
+  @apply text-zinc-500 ml-2;
+  font-size: 0.65rem;
+  line-height: 1rem;
 }
 
 .wpm-value {
@@ -239,16 +243,12 @@ const StatDisplay = (props: { label: string; value: string | number }) => {
 }
 
 .stat-label {
-  @apply text-2xs text-zinc-500 tracking-wider;
+  @apply text-zinc-500 tracking-wider;
+  font-size: 0.65rem;
+  line-height: 1rem;
 }
 
 .stat-value {
   @apply text-sm text-zinc-700 dark:text-zinc-300 tabular-nums;
-}
-
-/* Custom text size smaller than xs */
-.text-2xs {
-  font-size: 0.65rem;
-  line-height: 1rem;
 }
 </style>

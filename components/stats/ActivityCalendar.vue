@@ -119,7 +119,9 @@ const activeCount = computed(() => {
 
 <style scoped>
 .section-subheader {
-  @apply text-2xs tracking-[0.2em] text-zinc-500 border-b border-zinc-200 dark:border-zinc-800/30 pb-1 mb-3;
+  @apply tracking-[0.2em] text-zinc-500 border-b border-zinc-200 dark:border-zinc-800/30 pb-1 mb-3;
+  font-size: 0.65rem;
+  line-height: 1rem;
 }
 
 .activity-grid {
@@ -147,12 +149,6 @@ const activeCount = computed(() => {
   max-width: 150px;
   color: var(--color-text);
   white-space: nowrap;
-}
-
-/* Custom text size smaller than xs */
-.text-2xs {
-  font-size: 0.65rem;
-  line-height: 1rem;
 }
 
 @media (max-width: 639px) {

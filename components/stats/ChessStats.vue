@@ -1,5 +1,5 @@
 <template>
-  <div v-if="stats" class="space-y-8">
+  <div v-if="stats" class="space-y-4">
     <!-- Primary Stats -->
     <div class="space-y-4">
       <!-- Chess Rating -->
@@ -16,8 +16,8 @@
           }" :title="`${game.rating} - ${game.result.toUpperCase()}`"></div>
         </div>
         <div class="histogram-labels">
-          <span class="text-zinc-400 text-2xs">RECENT GAMES</span>
-          <span class="text-zinc-400 text-2xs">{{ ratingRange }}</span>
+          <span class="text-zinc-400" style="font-size: 10px; line-height: 12px;">RECENT GAMES</span>
+          <span class="text-zinc-400 tabular-nums" style="font-size: 10px; line-height: 12px;">{{ ratingRange }}</span>
         </div>
       </div>
 
@@ -26,56 +26,74 @@
         <ActivityCalendar title="CHESS ACTIVITY" :active-dates="chessActivityDates" :active-color="'#71717a'" />
       </div>
 
-      <!-- Variant Ratings -->
-      <div class="grid grid-cols-3 gap-4 mt-2">
-        <div class="text-center" v-if="hasRating('bullet')">
-          <div class="text-xl tabular-nums">{{ formatNumber(getRating('bullet')) }}</div>
-          <div class="text-2xs text-zinc-500 mt-1">BULLET</div>
+      <!-- Variant Ratings with Sparklines -->
+      <div class="space-y-2 mt-3">
+        <div v-if="hasRating('bullet')" class="flex items-center justify-between py-1">
+          <div class="flex items-center gap-2">
+            <div class="bullet-sparkline"></div>
+            <span class="text-zinc-500" style="font-size: 10px; line-height: 12px;">BULLET</span>
+          </div>
+          <div class="text-lg tabular-nums font-bold">{{ formatNumber(getRating('bullet')) }}</div>
         </div>
-        <div class="text-center" v-if="hasRating('blitz')">
-          <div class="text-xl tabular-nums">{{ formatNumber(getRating('blitz')) }}</div>
-          <div class="text-2xs text-zinc-500 mt-1">BLITZ</div>
+        <div v-if="hasRating('blitz')" class="flex items-center justify-between py-1">
+          <div class="flex items-center gap-2">
+            <div class="blitz-sparkline"></div>
+            <span class="text-zinc-500" style="font-size: 10px; line-height: 12px;">BLITZ</span>
+          </div>
+          <div class="text-lg tabular-nums font-bold">{{ formatNumber(getRating('blitz')) }}</div>
         </div>
-        <div class="text-center" v-if="hasRating('rapid')">
-          <div class="text-xl tabular-nums">{{ formatNumber(getRating('rapid')) }}</div>
-          <div class="text-2xs text-zinc-500 mt-1">RAPID</div>
+        <div v-if="hasRating('rapid')" class="flex items-center justify-between py-1">
+          <div class="flex items-center gap-2">
+            <div class="rapid-sparkline"></div>
+            <span class="text-zinc-500" style="font-size: 10px; line-height: 12px;">RAPID</span>
+          </div>
+          <div class="text-lg tabular-nums font-bold">{{ formatNumber(getRating('rapid')) }}</div>
         </div>
       </div>
     </div>
 
     <!-- Game Stats -->
     <div v-if="hasGameStats">
-      <h4 class="section-subheader">METRICS</h4>
-      <div class="grid grid-cols-3 gap-3">
-        <div class="stat-summary">
-          <div class="stat-value">{{ formatNumber(gamesPlayed) }}</div>
-          <div class="stat-label">GAMES</div>
+      <h4 class="section-subheader">PERFORMANCE</h4>
+      <div class="space-y-2">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <div class="games-sparkline"></div>
+            <span class="text-zinc-500" style="font-size: 10px; line-height: 12px;">GAMES PLAYED</span>
+          </div>
+          <div class="text-base tabular-nums font-bold">{{ formatNumber(gamesPlayed) }}</div>
         </div>
-
-        <div class="stat-summary">
-          <div class="stat-value">{{ Math.round(overallWinRate) }}%</div>
-          <div class="stat-label">WINS</div>
+        
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <div class="winrate-sparkline"></div>
+            <span class="text-zinc-500" style="font-size: 10px; line-height: 12px;">WIN RATE</span>
+          </div>
+          <div class="text-base tabular-nums font-bold">{{ Math.round(overallWinRate) }}%</div>
         </div>
-
-        <div class="stat-summary">
-          <div class="stat-value">{{ formatNumber(stats.puzzleStats.rating) }}</div>
-          <div class="stat-label">PUZZLE</div>
+        
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <div class="puzzle-sparkline"></div>
+            <span class="text-zinc-500" style="font-size: 10px; line-height: 12px;">PUZZLE RATING</span>
+          </div>
+          <div class="text-base tabular-nums font-bold">{{ formatNumber(stats.puzzleStats.rating) }}</div>
         </div>
       </div>
 
       <!-- Recent Games -->
-      <h4 class="section-subheader mt-6">MATCHES</h4>
-      <div v-if="stats.recentGames?.length" class="space-y-2">
+      <h4 class="section-subheader mt-4">RECENT MATCHES</h4>
+      <div v-if="stats.recentGames?.length" class="space-y-1">
         <div v-for="game in recentGamesSorted" :key="game.id || game.url" class="game-row">
-          <div class="flex-none flex items-center">
-            <span class="text-zinc-400 text-2xs tabular-nums">{{ formatGameDateMinimal(game.timestamp) }}</span>
-            <span class="text-zinc-400 text-2xs ml-1">{{ formatGameTime(game.timestamp) }}</span>
+          <div class="flex-none flex items-center gap-1">
+            <span class="text-zinc-400 tabular-nums" style="font-size: 10px; line-height: 12px;">{{ formatGameDateMinimal(game.timestamp) }}</span>
+            <span class="text-zinc-400 tabular-nums" style="font-size: 9px; line-height: 10px;">{{ formatGameTime(game.timestamp) }}</span>
           </div>
-          <div class="game-type text-2xs ml-2">{{ formatGameTypeMinimal(game.timeControl) }}</div>
+          <div class="game-type text-zinc-500 ml-2" style="font-size: 9px; line-height: 10px;">{{ formatGameTypeMinimal(game.timeControl) }}</div>
           <div class="result-indicator" :class="resultColor(game.result)"></div>
-          <div class="ml-auto flex items-center">
-            <span class="rating-value">{{ game.rating }}</span>
-            <span v-if="game.ratingDiff && game.ratingDiff !== 0" class="text-2xs ml-1"
+          <div class="ml-auto flex items-center gap-1">
+            <span class="rating-value text-sm tabular-nums font-medium">{{ game.rating }}</span>
+            <span v-if="game.ratingDiff && game.ratingDiff !== 0" class="tabular-nums font-medium" style="font-size: 10px; line-height: 12px;"
               :class="ratingDiffClass(game.ratingDiff)">
               {{ formatRatingDiff(game.ratingDiff) }}
             </span>
@@ -151,11 +169,11 @@ const formatRatingDiff = (diff: number): string => {
 }
 
 const ratingDiffClass = (diff: number) => {
-  return diff > 0 ? 'text-green-500' : 'text-red-500'
+  return diff > 0 ? 'text-zinc-600 dark:text-zinc-400' : 'text-red-500'
 }
 
 const resultColor = (result: string) => {
-  if (result === 'win') return 'bg-green-500'
+  if (result === 'win') return 'bg-zinc-400 dark:bg-zinc-500'
   if (result === 'loss') return 'bg-red-500'
   return 'bg-zinc-500' // draw
 }
@@ -340,7 +358,9 @@ const recentGamesSorted = computed(() => {
 
 <style scoped>
 .section-subheader {
-  @apply text-2xs tracking-[0.2em] text-zinc-500 border-b border-zinc-800/30 pb-1 mb-3;
+  @apply tracking-[0.2em] text-zinc-500 border-b border-zinc-800/30 pb-1 mb-3;
+  font-size: 0.65rem;
+  line-height: 1rem;
 }
 
 .stat-summary {
@@ -352,7 +372,9 @@ const recentGamesSorted = computed(() => {
 }
 
 .stat-label {
-  @apply text-2xs text-zinc-500 tracking-wider;
+  @apply text-zinc-500 tracking-wider;
+  font-size: 0.65rem;
+  line-height: 1rem;
 }
 
 .game-row {
@@ -388,9 +410,103 @@ const recentGamesSorted = computed(() => {
   @apply flex justify-between pt-1 text-zinc-400;
 }
 
-/* Custom text size smaller than xs */
-.text-2xs {
-  font-size: 0.65rem;
-  line-height: 1rem;
+/* Sparkline indicators */
+.bullet-sparkline,
+.blitz-sparkline,
+.rapid-sparkline,
+.games-sparkline,
+.winrate-sparkline,
+.puzzle-sparkline {
+  @apply w-8 h-3 flex items-end gap-px;
+}
+
+.bullet-sparkline::before,
+.bullet-sparkline::after {
+  content: '';
+  @apply bg-zinc-400 dark:bg-zinc-500;
+  width: 2px;
+}
+
+.bullet-sparkline::before {
+  height: 8px;
+}
+
+.bullet-sparkline::after {
+  height: 12px;
+}
+
+.blitz-sparkline::before,
+.blitz-sparkline::after {
+  content: '';
+  @apply bg-zinc-500 dark:bg-zinc-400;
+  width: 2px;
+}
+
+.blitz-sparkline::before {
+  height: 10px;
+}
+
+.blitz-sparkline::after {
+  height: 6px;
+}
+
+.rapid-sparkline::before,
+.rapid-sparkline::after {
+  content: '';
+  @apply bg-zinc-600 dark:bg-zinc-300;
+  width: 2px;
+}
+
+.rapid-sparkline::before {
+  height: 6px;
+}
+
+.rapid-sparkline::after {
+  height: 10px;
+}
+
+.games-sparkline::before,
+.games-sparkline::after {
+  content: '';
+  @apply bg-zinc-300 dark:bg-zinc-600;
+  width: 2px;
+}
+
+.games-sparkline::before {
+  height: 4px;
+}
+
+.games-sparkline::after {
+  height: 12px;
+}
+
+.winrate-sparkline::before,
+.winrate-sparkline::after {
+  content: '';
+  @apply bg-zinc-400 dark:bg-zinc-500;
+  width: 2px;
+}
+
+.winrate-sparkline::before {
+  height: 8px;
+}
+
+.winrate-sparkline::after {
+  height: 10px;
+}
+
+.puzzle-sparkline::before,
+.puzzle-sparkline::after {
+  content: '';
+  @apply bg-zinc-500 dark:bg-zinc-400;
+  width: 2px;
+}
+
+.puzzle-sparkline::before {
+  height: 12px;
+}
+
+.puzzle-sparkline::after {
+  height: 8px;
 }
 </style>

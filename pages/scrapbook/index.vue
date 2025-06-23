@@ -13,8 +13,13 @@
     <!-- Main Content -->
     <main class="container mx-auto px-3 py-4">
       <!-- Loading States -->
-      <div v-if="isLoading && !scraps.length" class="font-mono text-center py-12 text-xs opacity-60">
-        Loading scraps...
+      <div v-if="isLoading && !scraps.length" class="space-y-8">
+        <section v-for="i in 3" :key="i">
+          <div class="skeleton w-32 h-4 mb-3"></div>
+          <div class="grid gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+            <div v-for="j in 12" :key="j" class="pulse-placeholder-sm aspect-square"></div>
+          </div>
+        </section>
       </div>
 
       <div v-else-if="error" class="font-mono text-center py-12 text-xs">
@@ -33,8 +38,11 @@
         </section>
 
         <!-- Load More States -->
-        <div v-if="isLoading" class="text-center font-mono text-xs opacity-60 py-4">
-          Loading more...
+        <div v-if="isLoading" class="space-y-2">
+          <div class="skeleton w-32 h-4"></div>
+          <div class="grid gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+            <div v-for="j in 6" :key="j" class="pulse-placeholder-sm aspect-square"></div>
+          </div>
         </div>
       </div>
     </main>

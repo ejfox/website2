@@ -1,12 +1,31 @@
 <template>
-  <section class="space-y-16 sm:space-y-24">
-    <!-- Header -->
-    <header class="flex justify-between items-center">
-      <h1 class="text-xs tracking-[0.2em] font-mono text-zinc-500">
+  <div class="relative overflow-hidden">
+    <!-- Stats Sidebar -->
+    <StatsSidebar 
+      :stats="stats" 
+      :health-today="healthToday || { steps: 0, exerciseMinutes: 0 }"
+      class="hidden 2xl:block"
+    />
+    
+    <!-- Main Content -->
+    <section class="space-y-6 sm:space-y-8 md:space-y-12 2xl:pr-80 min-w-0">
+    <!-- Header - compact -->
+    <header class="flex items-center justify-between py-2">
+      <h1 class="text-xs font-mono tracking-[0.2em] text-zinc-500">
         FOX_ANNUAL_REPORT :: {{ currentYear }}
       </h1>
-      <div class="text-xs tracking-[0.2em] font-mono text-zinc-500">
-        DAY {{ dayOfYear }}/{{ daysInYear }} · {{ progressPercentage }}%
+      <div class="flex items-center gap-4">
+        <div class="text-xs font-mono tracking-[0.2em] text-zinc-500">
+          DAY {{ dayOfYear }}/{{ daysInYear }} · {{ progressPercentage }}%
+        </div>
+        <!-- Data freshness indicator -->
+        <div class="flex items-center gap-1.5 text-xs font-mono" v-if="dataAge">
+          <div 
+            class="w-1.5 h-1.5 rounded-full animate-pulse"
+            :class="dataFreshnessClass"
+          ></div>
+          <span class="text-zinc-500 tracking-wider">{{ dataAge }}</span>
+        </div>
       </div>
     </header>
 
@@ -22,137 +41,135 @@
         </ClientOnly>
       </template>
       <template #fallback>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="grid grid-cols-1 gap-3 sm:gap-4 md:gap-6 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
           <div
-            v-for="i in 4"
+            v-for="i in 6"
             :key="i"
-            class="pulse-placeholder pulse-placeholder-lg"
+            class="pulse-placeholder-sm"
           ></div>
         </div>
       </template>
     </Suspense>
 
-    <!-- Main Stats Grid -->
-    <section class="stats-grid">
-      <TransitionGroup name="fade-up" tag="div" class="stats-grid" appear>
-        <!-- Left Column: Productivity -->
-        <div class="stats-column" key="productivity-column">
-          <div class="relative">
-            <div class="stats-vertical-divider"></div>
-            <div class="space-y-16">
-              <!-- Writing -->
-              <StatsSection
-                v-if="blogStats"
-                id="writing"
-                title="WRITING"
-                key="writing-section"
-              >
-                <AsyncBlogStats :stats="blogStats" key="blog" />
-              </StatsSection>
+    <!-- Main Stats Grid - infinitely stackable robot sauce -->
+    <section class="grid gap-3 sm:gap-4 md:gap-6 auto-fit-columns overflow-hidden">
+      <!-- Modular stat sections - flow freely like robot sauce -->
+      <TransitionGroup name="fade-up" tag="div" class="contents" appear>
+        <!-- Writing -->
+        <StatsSection
+          v-if="blogStats"
+          id="writing"
+          title="WRITING"
+          key="writing-section"
+          class="break-inside-avoid"
+        >
+          <AsyncBlogStats :stats="blogStats" key="blog" />
+        </StatsSection>
 
-              <!-- Typing -->
-              <StatsSection
-                v-if="stats.monkeyType?.typingStats"
-                id="typing"
-                title="TYPING"
-                key="typing-section"
-              >
-                <AsyncMonkeyTypeStats
-                  :stats="{ typingStats: stats.monkeyType.typingStats }"
-                  key="monkeytype"
-                />
-              </StatsSection>
+        <!-- Typing -->
+        <StatsSection
+          v-if="stats.monkeyType?.typingStats"
+          id="typing"
+          title="TYPING"
+          key="typing-section"
+          class="break-inside-avoid"
+        >
+          <AsyncMonkeyTypeStats
+            :stats="{ typingStats: stats.monkeyType.typingStats }"
+            key="monkeytype"
+          />
+        </StatsSection>
 
-              <!-- GitHub -->
-              <StatsSection
-                v-if="stats.github?.stats"
-                id="github"
-                title="GITHUB"
-                key="github-section"
-              >
-                <AsyncGitHubStats :stats="stats.github" key="github" />
-              </StatsSection>
-            </div>
-          </div>
+        <!-- GitHub -->
+        <StatsSection
+          v-if="stats.github?.stats"
+          id="github"
+          title="GITHUB"
+          key="github-section"
+          class="break-inside-avoid"
+        >
+          <AsyncGitHubStats :stats="stats.github" key="github" />
+        </StatsSection>
 
-          <div class="relative">
-            <div class="stats-vertical-divider"></div>
-            <div class="space-y-16">
-              <!-- Photography -->
-              <StatsSection
-                v-if="stats.photos?.stats"
-                id="photography"
-                title="PHOTOGRAPHY"
-                key="photography-section"
-              >
-                <AsyncPhotoStats :stats="stats.photos" key="photos" />
-              </StatsSection>
+        <!-- Photography -->
+        <StatsSection
+          v-if="stats.photos?.stats"
+          id="photography"
+          title="PHOTOGRAPHY"
+          key="photography-section"
+          class="break-inside-avoid"
+        >
+          <AsyncPhotoStats :stats="stats.photos" key="photos" />
+        </StatsSection>
 
-              <!-- Chess -->
-              <StatsSection
-                v-if="stats.chess"
-                id="chess"
-                title="CHESS"
-                key="chess-section"
-              >
-                <AsyncChessStats :stats="stats.chess" key="chess" />
-              </StatsSection>
+        <!-- Chess -->
+        <StatsSection
+          v-if="stats.chess"
+          id="chess"
+          title="CHESS"
+          key="chess-section"
+          class="break-inside-avoid"
+        >
+          <AsyncChessStats :stats="stats.chess" key="chess" />
+        </StatsSection>
 
-              <!-- Productivity -->
-              <StatsSection
-                v-if="stats.rescueTime"
-                id="productivity"
-                title="PRODUCTIVITY"
-                key="productivity-section"
-              >
-                <AsyncRescueTimeStats :stats="stats" key="rescuetime" />
-              </StatsSection>
-              <!-- LeetCode -->
-              <StatsSection
-                v-if="stats.leetcode?.submissionStats"
-                id="leetcode"
-                title="LEETCODE"
-                key="leetcode-section"
-              >
-                <AsyncLeetCodeStats :stats="stats.leetcode" key="leetcode" />
-              </StatsSection>
-              <!-- Last.fm -->
-              <StatsSection
-                v-if="stats.lastfm"
-                id="lastfm"
-                title="MUSIC"
-                key="lastfm-section"
-              >
-                <AsyncLastFmStats :stats="stats.lastfm" key="lastfm" />
-              </StatsSection>
-            </div>
-          </div>
-        </div>
+        <!-- LeetCode -->
+        <StatsSection
+          v-if="stats.leetcode?.submissionStats"
+          id="leetcode"
+          title="LEETCODE"
+          key="leetcode-section"
+          class="break-inside-avoid"
+        >
+          <AsyncLeetCodeStats :stats="stats.leetcode" key="leetcode" />
+        </StatsSection>
+
+        <!-- Productivity -->
+        <StatsSection
+          v-if="stats.rescueTime"
+          id="productivity"
+          title="PRODUCTIVITY"
+          key="productivity-section"
+          class="break-inside-avoid"
+        >
+          <AsyncRescueTimeStats :stats="stats" key="rescuetime" />
+        </StatsSection>
+
+        <!-- Last.fm -->
+        <StatsSection
+          v-if="stats.lastfm"
+          id="lastfm"
+          title="MUSIC"
+          key="lastfm-section"
+          class="break-inside-avoid"
+        >
+          <AsyncLastFmStats :stats="stats.lastfm" key="lastfm" />
+        </StatsSection>
       </TransitionGroup>
     </section>
 
-    <!-- Gear Stats -->
-    <Transition name="fade-up" appear>
-      <section class="relative" id="gear">
-        <div class="pt-16 sm:pt-24">
+    <!-- Full Width Sections -->
+    <section class="col-span-full space-y-6">
+      <!-- Gear Stats -->
+      <Transition name="fade-up" appear>
+        <div class="relative" id="gear">
           <StatsSection title="GEAR">
             <AsyncGearStats />
           </StatsSection>
         </div>
-      </section>
-    </Transition>
+      </Transition>
 
-    <!-- Health Stats -->
-    <Transition name="fade-up" appear>
-      <section v-if="stats.health" class="relative" id="health">
-        <div class="pt-16 sm:pt-24">
+      <!-- Health Stats -->
+      <Transition name="fade-up" appear>
+        <div v-if="stats.health" class="relative" id="health">
           <StatsSection title="HEALTH">
             <AsyncHealthStats :stats="transformedHealthStats" />
           </StatsSection>
         </div>
-      </section>
-    </Transition>
-  </section>
+      </Transition>
+    </section>
+    </section>
+  </div>
 </template>
 
 <script setup>
@@ -192,6 +209,9 @@ const AsyncGearStats = defineAsyncComponent(
 const AsyncLastFmStats = defineAsyncComponent(
   () => import('~/components/stats/LastFmStats.vue')
 )
+const StatsSidebar = defineAsyncComponent(
+  () => import('~/components/stats/StatsSidebar.vue')
+)
 
 const props = defineProps({
   stats: {
@@ -209,6 +229,10 @@ const props = defineProps({
   isLoading: {
     type: Boolean,
     default: false
+  },
+  healthToday: {
+    type: Object,
+    default: () => ({ steps: 0, exerciseMinutes: 0 })
   }
 })
 
@@ -224,6 +248,29 @@ const isLeapYear =
   (currentYear % 4 === 0 && currentYear % 100 !== 0) || currentYear % 400 === 0
 const daysInYear = isLeapYear ? 366 : 365
 const progressPercentage = Math.floor((dayOfYear / daysInYear) * 100)
+
+// Data freshness indicator
+const dataAge = computed(() => {
+  // This would ideally come from your stats API
+  // For now, we'll use a simple time-based calculation
+  const lastUpdate = new Date() // Replace with actual last update time from stats
+  const minutesAgo = Math.floor((new Date().getTime() - lastUpdate.getTime()) / 60000)
+  
+  if (minutesAgo < 1) return 'LIVE'
+  if (minutesAgo < 60) return `${minutesAgo}M AGO`
+  if (minutesAgo < 1440) return `${Math.floor(minutesAgo / 60)}H AGO`
+  return `${Math.floor(minutesAgo / 1440)}D AGO`
+})
+
+const dataFreshnessClass = computed(() => {
+  const lastUpdate = new Date() // Replace with actual last update time
+  const minutesAgo = Math.floor((new Date().getTime() - lastUpdate.getTime()) / 60000)
+  
+  if (minutesAgo < 5) return 'bg-green-500'
+  if (minutesAgo < 60) return 'bg-zinc-500'
+  if (minutesAgo < 1440) return 'bg-yellow-500'
+  return 'bg-red-500'
+})
 </script>
 
 <style scoped>
@@ -251,24 +298,37 @@ const progressPercentage = Math.floor((dayOfYear / daysInYear) * 100)
   transition-delay: calc(var(--el-transition-index, 0) * 100ms);
 }
 
-/* Common styles using @apply */
-.pulse-placeholder {
-  @apply animate-pulse bg-zinc-900/50 rounded-none border border-zinc-800/50;
+/* Responsive column grid - predictable column counts */
+.auto-fit-columns {
+  /* Small screens: 1 column */
+  grid-template-columns: 1fr;
 }
 
-.pulse-placeholder-lg {
-  @apply h-32;
+/* Medium screens (sm): 2 columns */
+@media (min-width: 640px) {
+  .auto-fit-columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.stats-grid {
-  @apply p-2;
+/* Large screens (lg): 2 columns */
+@media (min-width: 1024px) {
+  .auto-fit-columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.stats-column {
-  @apply space-y-16 sm:space-y-24;
+/* Extra-large screens (xl): 3 columns */
+@media (min-width: 1280px) {
+  .auto-fit-columns {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-.stats-vertical-divider {
-  @apply absolute -left-8 sm:-left-16 top-0 h-full w-px bg-gradient-to-b from-zinc-800/0 via-zinc-800/50 to-zinc-800/0;
+/* When sidebar is active (2xl), keep 3 columns but account for sidebar space */
+@media (min-width: 1536px) {
+  .auto-fit-columns {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 </style>

@@ -105,18 +105,17 @@ import IndividualStat from './IndividualStat.vue'
 import ActivityCalendar from './ActivityCalendar.vue'
 import { formatNumber } from '~/composables/useNumberFormat'
 
-// Turbo color palette for language visualization
-const turboColors = [
-  '#30123b', '#4444a4', '#337bc3', '#24aad8', '#1ac7c2',
-  '#3bdf92', '#7cf357', '#c8e020', '#fbb508', '#f57e00', '#dd2e06'
+// Monochromatic zinc shades for language differentiation
+const zincShades = [
+  'rgb(161, 161, 170)', // zinc-400
+  'rgb(113, 113, 122)', // zinc-500  
+  'rgb(82, 82, 91)',    // zinc-600
+  'rgb(63, 63, 70)'     // zinc-700
 ];
 
-// Get color from the turbo palette
+// Get zinc shade for index
 const getColorForIndex = (index: number, total: number) => {
-  if (total <= 1) return turboColors[5]; // Middle color
-  const position = index / (total - 1);
-  const colorIndex = Math.floor(position * (turboColors.length - 1));
-  return turboColors[colorIndex];
+  return zincShades[index % zincShades.length];
 };
 
 type LeetCodeStats = NonNullable<StatsResponse['leetcode']>
@@ -213,7 +212,9 @@ const activityDates = computed(() => {
 
 <style scoped>
 .section-subheader {
-  @apply text-2xs tracking-[0.2em] text-zinc-500 border-b border-zinc-800/30 pb-1 mb-3;
+  @apply tracking-[0.2em] text-zinc-500 border-b border-zinc-800/30 pb-1 mb-3;
+  font-size: 0.65rem;
+  line-height: 1rem;
 }
 
 .difficulty-bar {
@@ -221,34 +222,15 @@ const activityDates = computed(() => {
 }
 
 .easy-bar {
-  @apply bg-green-500;
+  @apply bg-zinc-300 dark:bg-zinc-600;
 }
 
 .medium-bar {
-  @apply bg-yellow-500;
+  @apply bg-zinc-400 dark:bg-zinc-500;
 }
 
 .hard-bar {
-  @apply bg-red-500;
-}
-
-.difficulty-bar {
-  @apply flex h-2 w-full rounded-sm overflow-hidden;
-}
-
-.easy-bar {
-  background-color: #a1a1aa;
-  /* Gray-400 */
-}
-
-.medium-bar {
-  background-color: #71717a;
-  /* Gray-500 */
-}
-
-.hard-bar {
-  background-color: #3f3f46;
-  /* Gray-700 */
+  @apply bg-zinc-600 dark:bg-zinc-400;
 }
 
 .submission-row {
@@ -274,12 +256,6 @@ const activityDates = computed(() => {
 
 .lang-bar-fill {
   @apply h-full bg-zinc-700 dark:bg-zinc-400;
-}
-
-/* Custom text size smaller than xs */
-.text-2xs {
-  font-size: 0.65rem;
-  line-height: 1rem;
 }
 
 /* Activity calendar */
