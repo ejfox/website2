@@ -65,7 +65,7 @@ const stripe = useClientStripe();
 
 
 const buyProduct = async (productId) => {
-  const { data } = await useFetch('/api/stripe-checkout', {
+  const { data } = await useFetch('/api/checkout-session', {
     method: 'POST',
     body: JSON.stringify({
       productId,

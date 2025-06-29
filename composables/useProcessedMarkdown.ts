@@ -191,7 +191,7 @@ export const useProcessedMarkdown = () => {
    */
   const getManifestLite = async (): Promise<ManifestItem[]> => {
     try {
-      const response = await $fetch('/api/manifest-lite')
+      const response = await $fetch('/api/manifest')
       // console.log('Manifest loaded:', {
       //   total: response?.length,
       //   firstPost: response?.[0],

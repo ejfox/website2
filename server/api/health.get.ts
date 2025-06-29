@@ -1,4 +1,4 @@
-import { defineEventHandler, createError } from 'h3'
+import { defineEventHandler, createError, getQuery } from 'h3'
 import { createClient } from '@supabase/supabase-js'
 import {
   format,
@@ -248,11 +248,20 @@ const processSleepData = (data: HealthDataRecord[]) => {
 
 export default defineEventHandler(async (event) => {
   try {
+    // Check for format query parameter
+    const query = getQuery(event)
+    const format = query.format as string | undefined
+
     const { data, error } = await supabase
       .from('health_daily_summary')
       .select('*')
       .order('day', { ascending: false })
     if (error) throw error
+
+    // If format=raw, return the raw data format
+    if (format === 'raw') {
+      return { days: data }
+    }
 
     if (!data || !data.length) {
       return {

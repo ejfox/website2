@@ -4,28 +4,24 @@
   "title": "How I use GitHub",
   "metadata": {
     "date": "2023-01-19T06:26:10.000Z",
-    "modified": "2024-09-20T04:24:20.000Z",
+    "modified": "2023-01-19T06:26:11.000Z",
     "dek": "In which",
     "inprogress": true,
-    "tags": [
-      "code",
-      "git",
-      "github"
-    ],
+    "tags": "tech howto",
     "hidden": true,
     "draft": true,
-    "words": 6,
+    "words": 5,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,
     "headers": {
-      "h2": 1
+      "h1": 1
     },
     "toc": [
       {
         "text": "How I use GitHub",
         "slug": "how-i-use-github",
-        "level": "h2",
+        "level": "h1",
         "children": []
       }
     ],

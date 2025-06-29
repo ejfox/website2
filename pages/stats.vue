@@ -31,7 +31,10 @@
     <!-- Main Content -->
     <ClientOnly>
       <!-- Show loading state while data is being fetched -->
-      <section v-if="isLoading" class="grid gap-3 sm:gap-4 md:gap-6 auto-fit-columns p-4">
+      <section
+        v-if="isLoading"
+        class="grid gap-3 sm:gap-4 md:gap-6 auto-fit-columns p-4"
+      >
         <div v-for="i in 8" :key="i" class="space-y-3">
           <div class="pulse-placeholder-sm"></div>
         </div>
@@ -108,45 +111,45 @@ interface BlogStats {
   averageReadingTime: number
   postsByMonth: Record<string, number>
 }
-
-// Component imports with prefetch hints and loading optimization
-const AsyncMonkeyTypeStats = defineAsyncComponent(
-  () =>
-    import('~/components/stats/MonkeyTypeStats.vue' /* webpackPrefetch: true */)
-)
-const AsyncGitHubStats = defineAsyncComponent(
-  () => import('~/components/stats/GitHubStats.vue' /* webpackPrefetch: true */)
-)
-const AsyncPhotoStats = defineAsyncComponent(
-  () => import('~/components/stats/PhotoStats.vue' /* webpackPrefetch: true */)
-)
-const AsyncHealthStats = defineAsyncComponent(
-  () => import('~/components/stats/HealthStats.vue' /* webpackPrefetch: true */)
-)
-const AsyncLeetCodeStats = defineAsyncComponent(
-  () =>
-    import('~/components/stats/LeetCodeStats.vue' /* webpackPrefetch: true */)
-)
-const AsyncBlogStats = defineAsyncComponent(
-  () => import('~/components/stats/BlogStats.vue' /* webpackPrefetch: true */)
-)
-const AsyncTopStats = defineAsyncComponent(
-  () => import('~/components/stats/TopStats.vue' /* webpackPrefetch: true */)
-)
-const AsyncChessStats = defineAsyncComponent(
-  () => import('~/components/stats/ChessStats.vue' /* webpackPrefetch: true */)
-)
-const AsyncRescueTimeStats = defineAsyncComponent(
-  () =>
-    import('~/components/stats/RescueTimeStats.vue' /* webpackPrefetch: true */)
-)
-const AsyncGearStats = defineAsyncComponent(
-  () => import('~/components/stats/GearStats.vue' /* webpackPrefetch: true */)
-)
-const AsyncLastFmStats = defineAsyncComponent(
-  () => import('~/components/stats/LastFmStats.vue' /* webpackPrefetch: true */)
-)
-
+//
+// // Component imports with prefetch hints and loading optimization
+// const AsyncMonkeyTypeStats = defineAsyncComponent(
+//   () =>
+//     import('~/components/stats/MonkeyTypeStats.vue' /* webpackPrefetch: true */)
+// )
+// const AsyncGitHubStats = defineAsyncComponent(
+//   () => import('~/components/stats/GitHubStats.vue' /* webpackPrefetch: true */)
+// )
+// const AsyncPhotoStats = defineAsyncComponent(
+//   () => import('~/components/stats/PhotoStats.vue' /* webpackPrefetch: true */)
+// )
+// const AsyncHealthStats = defineAsyncComponent(
+//   () => import('~/components/stats/HealthStats.vue' /* webpackPrefetch: true */)
+// )
+// const AsyncLeetCodeStats = defineAsyncComponent(
+//   () =>
+//     import('~/components/stats/LeetCodeStats.vue' /* webpackPrefetch: true */)
+// )
+// const AsyncBlogStats = defineAsyncComponent(
+//   () => import('~/components/stats/BlogStats.vue' /* webpackPrefetch: true */)
+// )
+// const AsyncTopStats = defineAsyncComponent(
+//   () => import('~/components/stats/TopStats.vue' /* webpackPrefetch: true */)
+// )
+// const AsyncChessStats = defineAsyncComponent(
+//   () => import('~/components/stats/ChessStats.vue' /* webpackPrefetch: true */)
+// )
+// const AsyncRescueTimeStats = defineAsyncComponent(
+//   () =>
+//     import('~/components/stats/RescueTimeStats.vue' /* webpackPrefetch: true */)
+// )
+// const AsyncGearStats = defineAsyncComponent(
+//   () => import('~/components/stats/GearStats.vue' /* webpackPrefetch: true */)
+// )
+// const AsyncLastFmStats = defineAsyncComponent(
+//   () => import('~/components/stats/LastFmStats.vue' /* webpackPrefetch: true */)
+// )
+//
 // Import the new component displays
 const SimpleStatsDisplay = defineAsyncComponent(
   () => import('~/components/stats/SimpleStatsDisplay.vue')
@@ -276,7 +279,7 @@ onMounted(async () => {
       console.log('Fetching blog posts')
       // Get all posts (no drafts, no week notes) to match blog index behavior
       const allPosts = await getAllPosts(false, false)
-      
+
       // Use EXACT same filtering logic as blog index
       // Whitelist approach: only show posts that match year-based pattern
       cachedPosts.value = allPosts.filter((post) => {
@@ -295,35 +298,57 @@ onMounted(async () => {
         const isRegularBlogPost = /^\d{4}\/[^/]+$/.test(slug)
 
         // Additional filtering like blog index
-        const isHidden = post?.hidden === true || post?.metadata?.hidden === true
+        const isHidden =
+          post?.hidden === true || post?.metadata?.hidden === true
         const isDraft = post?.draft === true || post?.metadata?.draft === true
         const postDate = post?.date || post?.metadata?.date
         const isFuturePost = postDate && new Date(postDate) > new Date()
-        
-        return isRegularBlogPost && !isWeekNote && !isHidden && !isDraft && !isFuturePost
+
+        return (
+          isRegularBlogPost &&
+          !isWeekNote &&
+          !isHidden &&
+          !isDraft &&
+          !isFuturePost
+        )
       })
-      
+
       if (DEBUG_BLOG_STATS) {
         console.log(`Raw posts from getAllPosts: ${allPosts.length}`)
-        console.log(`Filtered posts (blog stats): ${cachedPosts.value?.length || 0}`)
-        
+        console.log(
+          `Filtered posts (blog stats): ${cachedPosts.value?.length || 0}`
+        )
+
         // Show a few examples of what was filtered out
-        const filtered = allPosts.filter(post => {
+        const filtered = allPosts.filter((post) => {
           const slug = post?.slug || ''
           const type = post?.type || post?.metadata?.type
           const slugParts = slug.split('/')
           const lastPart = slugParts[slugParts.length - 1]
-          const isWeekNote = type === 'weekNote' || slug.startsWith('week-notes/') || /^\d{4}-\d{2}$/.test(lastPart)
+          const isWeekNote =
+            type === 'weekNote' ||
+            slug.startsWith('week-notes/') ||
+            /^\d{4}-\d{2}$/.test(lastPart)
           const isRegularBlogPost = /^\d{4}\/[^/]+$/.test(slug)
-          const isHidden = post?.hidden === true || post?.metadata?.hidden === true
+          const isHidden =
+            post?.hidden === true || post?.metadata?.hidden === true
           const isDraft = post?.draft === true || post?.metadata?.draft === true
           const postDate = post?.date || post?.metadata?.date
           const isFuturePost = postDate && new Date(postDate) > new Date()
-          return !(isRegularBlogPost && !isWeekNote && !isHidden && !isDraft && !isFuturePost)
+          return !(
+            isRegularBlogPost &&
+            !isWeekNote &&
+            !isHidden &&
+            !isDraft &&
+            !isFuturePost
+          )
         })
-        
-        console.log(`Filtered out ${filtered.length} posts:`, filtered.slice(0, 5).map(p => p.slug))
-        
+
+        console.log(
+          `Filtered out ${filtered.length} posts:`,
+          filtered.slice(0, 5).map((p) => p.slug)
+        )
+
         console.log(
           'Sample blog post:',
           cachedPosts.value?.[0]
@@ -502,7 +527,12 @@ onMounted(() => {
   nextTick(() => {
     // First, make sure we have the TOC target
     tocTarget.value = document.querySelector('#nav-toc-container')
-    console.log('TOC Target found:', !!tocTarget.value, 'Simple mode:', isSimpleMode.value)
+    console.log(
+      'TOC Target found:',
+      !!tocTarget.value,
+      'Simple mode:',
+      isSimpleMode.value
+    )
 
     // Then set up the observer
     const headingObserver = new IntersectionObserver(
@@ -561,7 +591,9 @@ onMounted(() => {
 
 // Helper to get local (Eastern) date string in YYYY-MM-DD
 const getEasternDateString = () => {
-  return new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' })
+  return new Date().toLocaleDateString('en-CA', {
+    timeZone: 'America/New_York'
+  })
 }
 const todayLocal = getEasternDateString()
 

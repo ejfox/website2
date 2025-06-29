@@ -6,10 +6,8 @@
     "dek": "In which",
     "inprogress": true,
     "date": "2023-03-21T01:14:36.000Z",
-    "modified": "2024-09-20T04:25:36.000Z",
-    "tags": [
-      "machinelearning"
-    ],
+    "modified": "2023-09-09T19:15:20.000Z",
+    "tags": "machinelearning",
     "hidden": true,
     "draft": true,
     "words": 9,
@@ -17,13 +15,13 @@
     "links": 0,
     "codeBlocks": 0,
     "headers": {
-      "h2": 1
+      "h1": 1
     },
     "toc": [
       {
         "text": "Building a Mental Model of Robot Brains",
         "slug": "building-a-mental-model-of-robot-brains",
-        "level": "h2",
+        "level": "h1",
         "children": []
       }
     ],

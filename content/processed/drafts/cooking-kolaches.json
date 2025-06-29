@@ -1,6 +1,6 @@
 {
-  "content": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">#cooking</p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\"><a href=\"cookin\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">cookin</a>g]]</p>",
-  "html": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">#cooking</p>\n<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\"><a href=\"cookin\" class=\"prose-lg text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">cookin</a>g]]</p>",
+  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">#cooking</p>\n<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\"><a href=\"cookin\" class=\"prose-sm text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">cookin</a>g]]</p>",
+  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">#cooking</p>\n<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\"><a href=\"cookin\" class=\"prose-sm text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">cookin</a>g]]</p>",
   "title": "Cooking: Kolaches",
   "metadata": {
     "draft": true,
@@ -9,11 +9,6 @@
     "date": "2022-11-03T01:01:30.000Z",
     "modified": "2022-12-23T14:10:01.000Z",
     "hidden": true,
-    "tags": [
-      "cooking",
-      "food",
-      "recipe"
-    ],
     "words": 6,
     "images": 0,
     "links": 1,

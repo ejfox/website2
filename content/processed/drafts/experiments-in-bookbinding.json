@@ -7,25 +7,21 @@
     "dek": "In which",
     "inprogress": true,
     "date": "2023-01-19T06:47:25.000Z",
-    "modified": "2024-09-20T04:24:44.000Z",
-    "tags": [
-      "art",
-      "design",
-      "woodworking"
-    ],
+    "modified": "2023-01-19T18:35:02.000Z",
+    "tags": "art",
     "hidden": true,
     "words": 5,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,
     "headers": {
-      "h2": 1
+      "h1": 1
     },
     "toc": [
       {
         "text": "Experiments in Bookbinding",
         "slug": "experiments-in-bookbinding",
-        "level": "h2",
+        "level": "h1",
         "children": []
       }
     ],

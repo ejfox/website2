@@ -1,19 +1,16 @@
 {
-  "content": "<ol class=\"prose-lg list-decimal list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">Introduction</li>\n<li class=\"prose-lg max-w-prose\">The Emotional Weight of Leftovers</li>\n<li class=\"prose-lg max-w-prose\">The Cycle of Overindulgence</li>\n<li class=\"prose-lg max-w-prose\">The Guilt of Waste</li>\n<li class=\"prose-lg max-w-prose\">A Philosophical Perspective on Food and Waste</li>\n<li class=\"prose-lg max-w-prose\">The Environmental and Social Impact</li>\n<li class=\"prose-lg max-w-prose\">Personal Attempts to Break the Cycle</li>\n<li class=\"prose-lg max-w-prose\">The Mental Barriers to Change</li>\n<li class=\"prose-lg max-w-prose\">Lessons Learned and Steps Forward</li>\n</ol>",
-  "html": "<ol class=\"prose-lg list-decimal list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">Introduction</li>\n<li class=\"prose-lg max-w-prose\">The Emotional Weight of Leftovers</li>\n<li class=\"prose-lg max-w-prose\">The Cycle of Overindulgence</li>\n<li class=\"prose-lg max-w-prose\">The Guilt of Waste</li>\n<li class=\"prose-lg max-w-prose\">A Philosophical Perspective on Food and Waste</li>\n<li class=\"prose-lg max-w-prose\">The Environmental and Social Impact</li>\n<li class=\"prose-lg max-w-prose\">Personal Attempts to Break the Cycle</li>\n<li class=\"prose-lg max-w-prose\">The Mental Barriers to Change</li>\n<li class=\"prose-lg max-w-prose\">Lessons Learned and Steps Forward</li>\n</ol>",
+  "content": "<ol class=\"prose-sm list-decimal list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-sm max-w-prose\">Introduction</li>\n<li class=\"prose-sm max-w-prose\">The Emotional Weight of Leftovers</li>\n<li class=\"prose-sm max-w-prose\">The Cycle of Overindulgence</li>\n<li class=\"prose-sm max-w-prose\">The Guilt of Waste</li>\n<li class=\"prose-sm max-w-prose\">A Philosophical Perspective on Food and Waste</li>\n<li class=\"prose-sm max-w-prose\">The Environmental and Social Impact</li>\n<li class=\"prose-sm max-w-prose\">Personal Attempts to Break the Cycle</li>\n<li class=\"prose-sm max-w-prose\">The Mental Barriers to Change</li>\n<li class=\"prose-sm max-w-prose\">Lessons Learned and Steps Forward</li>\n</ol>",
+  "html": "<ol class=\"prose-sm list-decimal list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-sm max-w-prose\">Introduction</li>\n<li class=\"prose-sm max-w-prose\">The Emotional Weight of Leftovers</li>\n<li class=\"prose-sm max-w-prose\">The Cycle of Overindulgence</li>\n<li class=\"prose-sm max-w-prose\">The Guilt of Waste</li>\n<li class=\"prose-sm max-w-prose\">A Philosophical Perspective on Food and Waste</li>\n<li class=\"prose-sm max-w-prose\">The Environmental and Social Impact</li>\n<li class=\"prose-sm max-w-prose\">Personal Attempts to Break the Cycle</li>\n<li class=\"prose-sm max-w-prose\">The Mental Barriers to Change</li>\n<li class=\"prose-sm max-w-prose\">Lessons Learned and Steps Forward</li>\n</ol>",
   "title": "My Struggle With Being A Food Waster",
   "metadata": {
     "dek": "In which",
     "inprogress": true,
     "date": "2023-09-30T21:07:44.000Z",
     "modified": "2023-12-18T00:19:45.000Z",
-    "tags": [
-      "food",
-      "personal"
-    ],
+    "tags": null,
     "hidden": true,
     "draft": true,
-    "words": 60,
+    "words": 59,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,

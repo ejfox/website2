@@ -5,26 +5,23 @@
   "metadata": {
     "dek": "In which",
     "inprogress": true,
-    "modified": "2024-09-21T19:04:37.000Z",
-    "tags": [
-      "webdesign",
-      "tech"
-    ],
+    "date": null,
+    "modified": null,
+    "tags": "tech",
     "hidden": true,
     "draft": true,
-    "date": "2024-04-25T21:21:40.000Z",
-    "words": 10,
+    "words": 9,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,
     "headers": {
-      "h2": 1
+      "h1": 1
     },
     "toc": [
       {
         "text": "How to make a portfolio site with Nuxt",
         "slug": "how-to-make-a-portfolio-site-with-nuxt",
-        "level": "h2",
+        "level": "h1",
         "children": []
       }
     ],

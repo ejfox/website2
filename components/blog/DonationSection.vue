@@ -34,14 +34,17 @@ const formatAmount = computed(() => {
 async function handleDonation() {
   loading.value = true
   try {
-    const response = await $fetch('/api/create-checkout-session', {
+    const response = await $fetch('/api/checkout-session', {
       method: 'POST',
       body: {
         amount: amount.value * 100 // Convert to cents for Stripe
       }
     })
 
-    if (response.url) {
+    if (response.body?.url) {
+      window.location.href = response.body.url
+    } else if (response.url) {
+      // Fallback for direct response format
       window.location.href = response.url
     } else {
       throw new Error('No checkout URL received')

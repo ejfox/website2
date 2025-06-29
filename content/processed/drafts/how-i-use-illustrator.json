@@ -4,15 +4,10 @@
   "title": "Title",
   "metadata": {
     "date": "2023-01-19T06:24:20.000Z",
-    "modified": "2024-09-20T04:24:58.000Z",
+    "modified": "2023-01-19T06:24:21.000Z",
     "dek": "In which",
     "inprogress": true,
-    "tags": [
-      "art",
-      "design",
-      "inspiration",
-      "visualization"
-    ],
+    "tags": "howto design",
     "hidden": true,
     "draft": true,
     "words": 3,
@@ -20,13 +15,13 @@
     "links": 0,
     "codeBlocks": 0,
     "headers": {
-      "h2": 1
+      "h1": 1
     },
     "toc": [
       {
         "text": "Title",
         "slug": "title",
-        "level": "h2",
+        "level": "h1",
         "children": []
       }
     ],

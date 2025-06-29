@@ -474,7 +474,7 @@ onMounted(async () => {
   setInterval(generateMetadata, 4000)
   
   try {
-    const data = await $fetch('/api/manifest-lite')
+    const data = await $fetch('/api/manifest')
     // Whitelist approach: only show specific content types
     allContent.value = (data || []).filter(item => {
       // Skip if explicitly hidden or draft

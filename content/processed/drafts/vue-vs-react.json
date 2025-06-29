@@ -1,18 +1,13 @@
 {
-  "content": "<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"vue-lets-you-write-less-code\">Vue lets you write less code</h2>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"vue-recommends-patterns\">Vue recommends patterns</h2>",
-  "html": "<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"vue-lets-you-write-less-code\">Vue lets you write less code</h2>\n<h2 class=\"prose-lg text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"vue-recommends-patterns\">Vue recommends patterns</h2>",
+  "content": "<h2 class=\"prose-sm text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"vue-lets-you-write-less-code\">Vue lets you write less code</h2>\n<h2 class=\"prose-sm text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"vue-recommends-patterns\">Vue recommends patterns</h2>",
+  "html": "<h2 class=\"prose-sm text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"vue-lets-you-write-less-code\">Vue lets you write less code</h2>\n<h2 class=\"prose-sm text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"vue-recommends-patterns\">Vue recommends patterns</h2>",
   "title": "Vue vs React vs Svelte",
   "metadata": {
     "date": "2024-01-29T20:04:25.000Z",
     "modified": "2024-07-18T18:30:34.000Z",
     "hidden": true,
     "draft": true,
-    "tags": [
-      "vue",
-      "code",
-      "javascript"
-    ],
-    "words": 18,
+    "words": 17,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,

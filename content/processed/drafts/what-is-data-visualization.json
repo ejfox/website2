@@ -1,6 +1,6 @@
 {
-  "content": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">#dataviz</p>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">The problem</li>\n<li class=\"prose-lg max-w-prose\">The approach</li>\n<li class=\"prose-lg max-w-prose\">The tools</li>\n<li class=\"prose-lg max-w-prose\">The benefits</li>\n</ul>",
-  "html": "<p class=\"prose-p prose-lg max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">#dataviz</p>\n<ul class=\"prose-lg list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-lg max-w-prose\">The problem</li>\n<li class=\"prose-lg max-w-prose\">The approach</li>\n<li class=\"prose-lg max-w-prose\">The tools</li>\n<li class=\"prose-lg max-w-prose\">The benefits</li>\n</ul>",
+  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">#dataviz</p>\n<ul class=\"prose-sm list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-sm max-w-prose\">The problem</li>\n<li class=\"prose-sm max-w-prose\">The approach</li>\n<li class=\"prose-sm max-w-prose\">The tools</li>\n<li class=\"prose-sm max-w-prose\">The benefits</li>\n</ul>",
+  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">#dataviz</p>\n<ul class=\"prose-sm list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-sm max-w-prose\">The problem</li>\n<li class=\"prose-sm max-w-prose\">The approach</li>\n<li class=\"prose-sm max-w-prose\">The tools</li>\n<li class=\"prose-sm max-w-prose\">The benefits</li>\n</ul>",
   "title": "What is dataviz to me?",
   "metadata": {
     "draft": true,
@@ -9,11 +9,6 @@
     "date": "2022-11-03T00:02:42.000Z",
     "modified": "2022-12-23T14:10:54.000Z",
     "hidden": true,
-    "tags": [
-      "dataviz",
-      "data",
-      "visualization"
-    ],
     "words": 20,
     "images": 0,
     "links": 0,

@@ -28,11 +28,6 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    '@nuxt/ui',
-    '@nuxt/icon',
-    '@vueuse/nuxt',
-    '@nuxtjs/google-fonts',
-    'nuxt-umami',
     '@nuxtjs/tailwindcss'
     // Removing nuxt-security as it's causing conflicts
     // 'nuxt-security'
@@ -46,12 +41,6 @@ export default defineNuxtConfig({
     analyze: process.env.ANALYZE === 'true'
   },
 
-  umami: {
-    id: '9350451a-f9e6-4689-982a-8cca95c64978',
-    host: 'https://umami.tools.ejfox.com',
-    autoTrack: true,
-    ignoreLocalhost: true
-  },
 
   runtimeConfig: {
     // Private keys that are exposed to the server
@@ -160,18 +149,6 @@ export default defineNuxtConfig({
     }
   },
 
-  googleFonts: {
-    families: {
-      'Signika Negative': [200, 300, 400, 500, 600, 700, 800],
-      'Red Hat Mono': [300, 400],
-      'Fjalla One': [400]
-    },
-    display: 'swap',
-    prefetch: true,
-    preconnect: true,
-    preload: true,
-    download: true
-  },
 
   tailwindcss: {
     configPath: './tailwind.config.js',
