@@ -2,6 +2,11 @@
   <div
     class="w-full text-zinc-600 dark:text-zinc-400 py-4 gap-1"
     :class="[compact ? 'text-xs' : 'text-sm gap-y-4 pl-2']"
+    :style="colors && {
+      '--post-color': isDark ? colors.dark.primary : colors.light.primary,
+      '--post-color-rgb': isDark ? colors.dark.primaryRgb : colors.light.primaryRgb,
+      '--post-color-subtle': isDark ? colors.dark.subtle : colors.light.subtle
+    }"
   >
     <!-- Debug output -->
     <pre v-if="false" class="whitespace-pre-wrap text-xs">{{ metadata }}</pre>
@@ -10,6 +15,7 @@
     <span
       class="flex items-center metadata-item text-xs tracking-widest"
       :class="[compact ? 'pl-0' : 'pl-0']"
+      :style="colors && { color: 'var(--post-color)' }"
       ref="folderRef"
       v-if="metadata.slug && !compact"
     >
@@ -124,6 +130,8 @@ const { slideUp } = useScrollAnimation()
 const props = defineProps<{
   doc: Post
   compact?: boolean
+  colors?: any
+  isDark?: boolean
 }>()
 
 // Refs for animation targets

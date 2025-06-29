@@ -4,6 +4,7 @@ import { animate, stagger, engine } from '~/anime.esm.js'
 import { useWindowSize, useMutationObserver } from '@vueuse/core'
 import DonationSection from '~/components/blog/DonationSection.vue'
 import { useScrollAnimation } from '~/composables/useScrollAnimation'
+import { generatePostColor } from '~/utils/postColors'
 
 const config = useRuntimeConfig()
 const isDark = useDark()
@@ -52,6 +53,12 @@ const { data: nextPrevPosts } = await useAsyncData(
   `next-prev-${route.params.slug.join('-')}`,
   () => processedMarkdown.getNextPrevPosts(route.params.slug.join('/'))
 )
+
+// Generate colors based on post slug
+const postColors = computed(() => {
+  if (!post.value || !post.value.slug) return null
+  return generatePostColor(post.value.slug)
+})
 
 // New refs for animation targets
 const postTitle = ref(null)
@@ -389,7 +396,12 @@ useHead(() => ({
       name: 'twitter:description',
       content: post.value?.metadata?.dek || post.value?.dek
     },
-    { name: 'twitter:image', content: shareImageUrl.value }
+    { name: 'twitter:image', content: shareImageUrl.value },
+    // Add theme-color meta tag for Safari
+    {
+      name: 'theme-color',
+      content: postColors.value ? (isDark.value ? postColors.value.dark.primary : postColors.value.light.primary) : (isDark.value ? '#18181b' : '#ffffff')
+    }
   ],
   link: [{ rel: 'canonical', href: postUrl.value }],
   htmlAttrs: { lang: 'en' }
@@ -617,11 +629,19 @@ const processedMetadata = computed(() => {
     <article
       v-if="post && !post.redirect"
       class="scroll-container pt-4 md:pt-12 pl-2 md:pl-4"
+      :style="postColors && {
+        '--post-color': isDark ? postColors.dark.primary : postColors.light.primary,
+        '--post-color-rgb': isDark ? postColors.dark.primaryRgb : postColors.light.primaryRgb,
+        '--post-color-subtle': isDark ? postColors.dark.subtle : postColors.light.subtle,
+        '--post-color-accent': isDark ? postColors.dark.accent : postColors.light.accent
+      }"
     >
       <div ref="postMetadata" class="w-full">
         <PostMetadata
           v-if="processedMetadata"
           :doc="processedMetadata"
+          :colors="postColors"
+          :is-dark="isDark"
           ref="postMetadataComponent"
         />
       </div>
@@ -813,7 +833,46 @@ const processedMetadata = computed(() => {
 }
 
 .internal-link {
-  @apply tracking-wide text-black dark:text-white border-b-2 hover:border-b-4 border-blue-600 hover:border-blue-500 dark:border-blue-200 dark:hover:border-blue-400 transition-all duration-200;
+  @apply tracking-wide text-black dark:text-white border-b-2 hover:border-b-4 transition-all duration-200;
+  border-color: var(--post-color, theme('colors.blue.600'));
+}
+
+.internal-link:hover {
+  border-color: var(--post-color-accent, theme('colors.blue.500'));
+}
+
+/* Blog post content styling with post colors */
+.blog-post-content {
+  /* Links */
+  a {
+    color: var(--post-color, theme('colors.blue.600'));
+    text-decoration: underline;
+    text-decoration-color: rgba(var(--post-color-rgb, 37, 99, 235), 0.3);
+    text-underline-offset: 2px;
+    transition: all 0.2s ease;
+  }
+  
+  a:hover {
+    color: var(--post-color-accent, theme('colors.blue.700'));
+    text-decoration-color: rgba(var(--post-color-rgb, 37, 99, 235), 0.6);
+  }
+  
+  /* Blockquotes */
+  blockquote {
+    border-left-color: var(--post-color, theme('colors.gray.300'));
+    background: var(--post-color-subtle, theme('colors.gray.50'));
+  }
+  
+  /* Code blocks */
+  pre {
+    border: 1px solid rgba(var(--post-color-rgb, 37, 99, 235), 0.1);
+  }
+  
+  /* Headings subtle accent */
+  h2, h3, h4 {
+    border-bottom: 1px solid var(--post-color-subtle, transparent);
+    padding-bottom: 0.5rem;
+  }
 }
 
 .header-star {
