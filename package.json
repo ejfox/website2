@@ -15,6 +15,7 @@
     "blog:publish": "bash scripts/blog/publish.sh",
     "blog:revert": "rm -rf content/processed/* && cp -r content/processed.backup/* content/processed/",
     "create-prediction": "node scripts/blog/create-prediction.mjs",
+    "predict": "node scripts/predict-pro.mjs",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",

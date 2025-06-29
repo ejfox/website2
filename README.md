@@ -30,14 +30,30 @@ A personal website and blog built with **Nuxt 3**, **Vue 3**, and **D3.js**. Con
 
 ## 🔮 **Predictions**
 
-The site includes a cryptographically verifiable predictions tracking system at `/future`. 
+Create cryptographically verifiable predictions with optional deadlines:
 
-- Predictions are stored as markdown files in `/content/predictions/`
-- Each prediction is hashed with SHA-256 and timestamped via Git commits
-- Optional PGP signing for additional verification
-- Public commitment log prevents post-hoc modifications
+**Interactive Mode:**
+```bash
+yarn predict
+```
 
-See `/content/predictions/README.md` for details on creating and verifying predictions.
+**CLI Mode:**
+```bash
+# Time-bound prediction
+yarn predict --statement "Bitcoin will hit $200k by 2025" --confidence 75 --deadline 2025-12-31 --resolution "Using CoinGecko closing price"
+
+# Event-based prediction (no deadline)  
+yarn predict --statement "Next recession will last 18+ months" --confidence 70 --resolution "Using NBER recession dating"
+```
+
+**Features:**
+- AI-powered quality analysis with OpenRouter integration
+- Cryptographic verification (SHA-256, Git commits, PGP signing)
+- Both interactive wizard and CLI automation modes
+- Optional deadlines for time-bound vs event-based predictions
+- Automatic file organization and frontend integration
+
+See [docs/PREDICTIONS.md](docs/PREDICTIONS.md) for complete documentation.
 
 ## 🛠️ **Content Pipeline**
 

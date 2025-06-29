@@ -3,7 +3,7 @@ export interface Prediction {
   statement: string;         // The prediction itself
   created: Date;             // When the prediction was made
   confidence: number;        // 0-100% confidence level
-  deadline: Date;            // When to evaluate the prediction
+  deadline?: Date;           // When to evaluate the prediction (optional)
   categories: string[];      // Tags/categories
   outcome?: {
     resolved: Date;          // When evaluated
