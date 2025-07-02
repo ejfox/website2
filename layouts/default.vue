@@ -169,7 +169,7 @@ watch(
   () => {
     nextTick(() => {
       // Force re-render of TOC container when route changes
-      if (isBlogPost.value || isStatsPage.value || isProjectsPage.value) {
+      if (process.client && (isBlogPost.value || isStatsPage.value || isProjectsPage.value)) {
         const tocContainer = document.querySelector('#toc-container')
         if (tocContainer) {
           // Trigger a DOM update by toggling a class
