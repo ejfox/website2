@@ -413,16 +413,13 @@ function createPostMetadata(post) {
           </NuxtLink>
         </div>
 
-        <UButton
-          :to="`/blog/week-notes`"
-          color="black"
-          class="mt-8"
-          icon="i-ei-arrow-right"
-          trailing
-          variant="outline"
+        <NuxtLink
+          to="/blog/week-notes"
+          class="inline-flex items-center gap-1.5 px-4 py-2 mt-8 border border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100 hover:bg-zinc-50 dark:hover:bg-zinc-800 rounded-lg transition-colors"
         >
           All Week Notes
-        </UButton>
+          <Icon name="heroicons:arrow-right" class="w-4 h-4" />
+        </NuxtLink>
       </template>
       <div v-if="recentlyUpdatedPosts.length" class="mt-16 mb-8">
         <h3

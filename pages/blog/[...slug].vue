@@ -658,14 +658,13 @@ const processedMetadata = computed(() => {
 
       <!-- Back to Blog link - only visible on mobile -->
       <div v-if="isBlogPost && isMobile" class="paddings mb-8">
-        <UButton
+        <NuxtLink
           to="/blog/"
-          size="sm"
-          icon="i-heroicons-arrow-left"
-          :color="isDark ? 'white' : 'black'"
+          class="inline-flex items-center gap-1.5 px-3 py-2 text-sm bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-900 dark:text-zinc-100 rounded-lg transition-colors"
         >
+          <Icon name="heroicons:arrow-left" class="w-4 h-4" />
           Back to Blog
-        </UButton>
+        </NuxtLink>
       </div>
 
       <div ref="articleContent">
