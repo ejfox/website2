@@ -28,12 +28,29 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/google-fonts',
+    '@nuxt/icon'
     // Removing nuxt-security as it's causing conflicts
     // 'nuxt-security'
     // Temporarily removing Sentry
     // '@sentry/nuxt/module'
   ],
+
+  // Google Fonts configuration
+  googleFonts: {
+    families: {
+      'Signika Negative': [300, 400, 500, 600, 700],
+      'Red Hat Mono': [300, 400, 500, 600, 700],
+      'Fjalla One': [400]
+    },
+    display: 'swap',
+    preload: true,
+    prefetch: true,
+    preconnect: true,
+    download: false,
+    base64: false
+  },
 
   // Component loading optimization
   build: {

@@ -10,7 +10,7 @@
             <button @click="toggleMobileMenu"
               class="p-2 -mr-2 text-zinc-800 dark:text-zinc-400 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 rounded-lg transition-colors"
               aria-label="Toggle menu" :aria-expanded="mobileMenuOpen">
-              <UIcon :name="mobileMenuOpen ? 'i-heroicons-x-mark' : 'i-heroicons-bars-3'" class="w-6 h-6" />
+              <Icon :name="mobileMenuOpen ? 'heroicons:x-mark' : 'heroicons:bars-3'" class="w-6 h-6" />
             </button>
           </div>
         </div>
@@ -26,7 +26,7 @@
                   route.path === link.to ? 'text-zinc-900 dark:text-zinc-100 bg-zinc-200/30 dark:bg-zinc-800/30' : 'text-zinc-600 dark:text-zinc-400'
                 ]" @click="closeMobileMenu" :style="{ 'animation': `fadeIn 0.2s ease-out forwards ${index * 0.05}s` }">
                 <span>{{ link.text }}</span>
-                <UIcon v-if="link.external" name="i-ei-external-link" class="w-4 h-4 ml-2 opacity-60" />
+                <Icon v-if="link.external" name="heroicons:arrow-top-right-on-square" class="w-4 h-4 ml-2 opacity-60" />
               </NuxtLink>
             </div>
 
@@ -85,7 +85,7 @@
         <div v-if="isBlogPost" class="mt-4 pl-4">
           <NuxtLink to="/blog/"
             class="inline-flex items-center gap-1.5 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors">
-            <Icon name="i-heroicons-arrow-left" class="w-3.5 h-3.5" />
+            <Icon name="heroicons:arrow-left" class="w-3.5 h-3.5" />
             <span>Back to Blog</span>
           </NuxtLink>
         </div>

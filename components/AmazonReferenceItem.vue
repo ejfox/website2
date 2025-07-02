@@ -11,7 +11,7 @@
              bg-amber-50 text-amber-600 border border-amber-200 hover:bg-amber-100
              dark:bg-amber-500/10 dark:text-amber-400 dark:border-amber-500/20 dark:hover:bg-amber-500/20
              transition-colors shrink-0" :title="`Buy ${productName} on Amazon`">
-      <UIcon name="i-heroicons-shopping-cart" class="w-3 h-3" />
+      <Icon name="heroicons:shopping-cart" class="w-3 h-3" />
       <span>Buy yourself</span>
     </a>
   </div>
