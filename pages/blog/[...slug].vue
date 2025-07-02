@@ -132,7 +132,9 @@ onMounted(() => {
 const tocTarget = ref(null)
 
 onMounted(() => {
-  tocTarget.value = document.querySelector('#nav-toc-container')
+  if (process.client) {
+    tocTarget.value = document.querySelector('#nav-toc-container')
+  }
 
   // Also check if the post has TOC data
 })
@@ -149,7 +151,9 @@ watch(
     await new Promise((resolve) => setTimeout(resolve, 100))
 
     // Re-initialize TOC target when route changes
+    if (process.client) {
     tocTarget.value = document.querySelector('#nav-toc-container')
+  }
 
     // If not found on first try, retry with increasing delays
     if (!tocTarget.value) {
@@ -160,7 +164,9 @@ watch(
         const delay = 100 * Math.pow(2, attempts - 1)
         await new Promise((resolve) => setTimeout(resolve, delay))
 
-        tocTarget.value = document.querySelector('#nav-toc-container')
+        if (process.client) {
+    tocTarget.value = document.querySelector('#nav-toc-container')
+  }
 
         if (!tocTarget.value && attempts < maxAttempts) {
           await retryFindTocContainer(attempts + 1, maxAttempts)
