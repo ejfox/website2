@@ -109,6 +109,7 @@
     </section>
 
     <Footer />
+    <WebVitalsReporter />
   </div>
 </template>
 

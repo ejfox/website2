@@ -2,8 +2,11 @@
   <div v-if="amazonUrl" class="flex items-center gap-2">
     <!-- Product Image from Cloudinary -->
     <div class="relative w-12 h-12 rounded-md overflow-hidden bg-zinc-100 dark:bg-zinc-800/50">
-      <img v-if="productImageUrl" :src="productImageUrl" :alt="productName" class="w-full h-full object-cover"
-        loading="lazy" />
+      <NuxtImg v-if="productImageUrl" :src="productImageUrl" :alt="productName" 
+        class="w-full h-full object-cover"
+        loading="lazy"
+        preset="avatar"
+        sizes="48px" />
     </div>
 
     <!-- Buy Button -->

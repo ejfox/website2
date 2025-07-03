@@ -6,8 +6,11 @@
   ]">
     <!-- Media Background -->
     <div v-if="hasMedia" class="absolute inset-0">
-      <img :src="mediaUrl" :alt="displayTitle"
-        class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" />
+      <NuxtImg :src="mediaUrl" :alt="displayTitle"
+        class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+        loading="lazy"
+        format="webp"
+        quality="80" />
       <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
     </div>
 

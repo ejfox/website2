@@ -30,7 +30,9 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/google-fonts',
-    '@nuxt/icon'
+    '@nuxt/icon',
+    '@nuxt/image',
+    '@nuxtjs/web-vitals'
     // Removing nuxt-security as it's causing conflicts
     // 'nuxt-security'
     // Temporarily removing Sentry
@@ -56,6 +58,47 @@ export default defineNuxtConfig({
   build: {
     transpile: ['vue-toastification'],
     analyze: process.env.ANALYZE === 'true'
+  },
+
+  // Image optimization with @nuxt/image
+  image: {
+    cloudinary: {
+      baseURL: 'https://res.cloudinary.com/ejf/image/upload/'
+    },
+    quality: 80,
+    format: ['webp', 'avif'],
+    screens: {
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536
+    },
+    presets: {
+      avatar: {
+        modifiers: {
+          format: 'webp',
+          width: 50,
+          height: 50,
+          quality: 80
+        }
+      },
+      cover: {
+        modifiers: {
+          format: 'webp',
+          quality: 80,
+          width: 1200
+        }
+      }
+    }
+  },
+
+  // Web Vitals configuration
+  webVitals: {
+    provider: 'log', // Options: 'log', 'ga', 'gtm', 'partytown', etc.
+    debug: process.env.NODE_ENV === 'development',
+    disabled: false
   },
 
 
@@ -87,13 +130,23 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'node-server',
     compressPublicAssets: true,
+    minify: true,
     experimental: {
-      asyncContext: true
+      asyncContext: true,
+      wasm: true
     },
     prerender: {
       failOnError: false,
       crawlLinks: true,
-      routes: ['/']
+      routes: ['/'],
+      ignore: ['/api/**']
+    },
+    storage: {
+      redis: {
+        driver: 'redis',
+        // Enable Redis caching in production
+        // host: process.env.REDIS_HOST || 'localhost'
+      }
     },
     routeRules: {
       '/api/**': {
@@ -113,6 +166,23 @@ export default defineNuxtConfig({
       '/blog/**': {
         headers: {
           'cache-control': 'public, max-age=3600, s-maxage=86400'
+        },
+        prerender: true
+      },
+      // Cache API responses
+      '/api/stats': {
+        headers: {
+          'cache-control': 'public, max-age=300, s-maxage=600'
+        }
+      },
+      '/api/youtube': {
+        headers: {
+          'cache-control': 'public, max-age=1800, s-maxage=3600'
+        }
+      },
+      '/api/github': {
+        headers: {
+          'cache-control': 'public, max-age=1800, s-maxage=3600'
         }
       },
       // Add special handling for Cloudinary images
@@ -141,6 +211,10 @@ export default defineNuxtConfig({
           content: 'EJ Fox: Hacker, Journalist, & Dataviz Specialist'
         },
         {
+          name: 'viewport',
+          content: 'width=device-width, initial-scale=1'
+        },
+        {
           'http-equiv': 'Content-Security-Policy',
           content:
             "default-src 'self'; img-src 'self' data: https://res.cloudinary.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://umami.tools.ejfox.com; frame-src 'self' https://cal.com; connect-src 'self' https://umami.tools.ejfox.com;"
@@ -148,12 +222,17 @@ export default defineNuxtConfig({
       ],
       link: [
         {
-          rel: 'dns-prefetch',
-          href: 'https://fonts.gstatic.com'
+          rel: 'preconnect',
+          href: 'https://fonts.gstatic.com',
+          crossorigin: ''
+        },
+        {
+          rel: 'preconnect',
+          href: 'https://res.cloudinary.com'
         },
         {
           rel: 'dns-prefetch',
-          href: 'https://res.cloudinary.com'
+          href: 'https://fonts.googleapis.com'
         }
       ],
       htmlAttrs: {
@@ -163,6 +242,20 @@ export default defineNuxtConfig({
     pageTransition: {
       name: 'page',
       mode: 'out-in'
+    }
+  },
+
+  // Performance optimizations
+  experimental: {
+    payloadExtraction: false, // Reduce hydration payload
+    inlineSSRStyles: false,   // Prevent FOUC but reduce initial HTML size
+    viewTransition: true      // Modern page transitions
+  },
+
+  // Bundle optimization
+  optimization: {
+    treeShake: {
+      body: true
     }
   },
 
