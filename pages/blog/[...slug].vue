@@ -749,23 +749,23 @@ const processedMetadata = computed(() => {
     </article>
     <div
       v-else-if="error"
-      class="flex flex-col items-center justify-center min-h-[50vh] bg-gray-100 dark:bg-gray-900 px-4 rounded-lg shadow-md"
+      class="flex flex-col items-center justify-center min-h-[50vh] bg-zinc-100 dark:bg-zinc-800 px-4 rounded-lg shadow-md"
     >
-      <h2 class="text-4xl font-bold text-gray-800 dark:text-gray-200 mb-4">
+      <h2 class="text-4xl font-bold text-zinc-800 dark:text-zinc-200 mb-4">
         Blog post not found...
       </h2>
-      <p class="text-xl text-gray-600 dark:text-gray-400 mb-6 text-center">
+      <p class="text-xl text-zinc-600 dark:text-zinc-400 mb-6 text-center">
         Error loading post: {{ error.message }}
       </p>
       <NuxtLink
         to="/blog"
-        class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-300"
+        class="px-6 py-3 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors duration-300"
       >
         Return to Blog
       </NuxtLink>
     </div>
     <div v-else class="p-4 text-center">
-      <p class="text-xl text-gray-600 dark:text-gray-400">Loading...</p>
+      <p class="text-xl text-zinc-600 dark:text-zinc-400">Loading...</p>
     </div>
 
     <!-- Desktop TOC -->
