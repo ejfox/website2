@@ -193,7 +193,7 @@ async function fetchChannelVideos(
 }
 
 export default defineEventHandler(async (event): Promise<YouTubeStats> => {
-  console.log('🎥 YouTube handler called')
+  // console.log('🎥 YouTube handler called')
   const config = useRuntimeConfig()
   const token = config.YOUTUBE_API_KEY
   const channelId = config.YOUTUBE_CHANNEL_ID

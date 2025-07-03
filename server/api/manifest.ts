@@ -24,12 +24,12 @@ export default defineEventHandler(async (event) => {
       .filter((p: Post) => p.slug?.startsWith('projects/'))
       .map((p: Post) => p.slug)
 
-    console.log('Manifest endpoint check:', {
-      total: manifest.length,
-      projectSlugs,
-      // Log a sample project if we have one
-      sampleProject: manifest.find((p: Post) => p.slug?.startsWith('projects/'))
-    })
+    // console.log('Manifest endpoint check:', {
+    //   total: manifest.length,
+    //   projectSlugs,
+    //   // Log a sample project if we have one
+    //   sampleProject: manifest.find((p: Post) => p.slug?.startsWith('projects/'))
+    // })
 
     return manifest
   } catch (error: any) {

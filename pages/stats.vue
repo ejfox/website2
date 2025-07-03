@@ -273,10 +273,10 @@ const DEBUG_BLOG_STATS = false
 // Optimize blog stats calculation
 onMounted(async () => {
   try {
-    console.log('Starting blog stats calculation')
+    // console.log('Starting blog stats calculation')
 
     if (!cachedPosts.value) {
-      console.log('Fetching blog posts')
+      // console.log('Fetching blog posts')
       // Get all posts (no drafts, no week notes) to match blog index behavior
       const allPosts = await getAllPosts(false, false)
 
@@ -314,10 +314,10 @@ onMounted(async () => {
       })
 
       if (DEBUG_BLOG_STATS) {
-        console.log(`Raw posts from getAllPosts: ${allPosts.length}`)
-        console.log(
-          `Filtered posts (blog stats): ${cachedPosts.value?.length || 0}`
-        )
+        // console.log(`Raw posts from getAllPosts: ${allPosts.length}`)
+        // console.log(
+        //   `Filtered posts (blog stats): ${cachedPosts.value?.length || 0}`
+        // )
 
         // Show a few examples of what was filtered out
         const filtered = allPosts.filter((post) => {
@@ -344,21 +344,21 @@ onMounted(async () => {
           )
         })
 
-        console.log(
-          `Filtered out ${filtered.length} posts:`,
-          filtered.slice(0, 5).map((p) => p.slug)
-        )
+        // console.log(
+        //   `Filtered out ${filtered.length} posts:`,
+        //   filtered.slice(0, 5).map((p) => p.slug)
+        // )
 
-        console.log(
-          'Sample blog post:',
-          cachedPosts.value?.[0]
-            ? {
-                sampleSlug: cachedPosts.value[0].slug,
-                wordCount: cachedPosts.value[0].wordCount,
-                words: cachedPosts.value[0].metadata?.words
-              }
-            : 'No posts found'
-        )
+        // console.log(
+        //   'Sample blog post:',
+        //   cachedPosts.value?.[0]
+        //     ? {
+        //         sampleSlug: cachedPosts.value[0].slug,
+        //         wordCount: cachedPosts.value[0].wordCount,
+        //         words: cachedPosts.value[0].metadata?.words
+        //       }
+        //     : 'No posts found'
+        // )
       }
     }
 
@@ -452,14 +452,14 @@ onMounted(async () => {
       .map(([tag]) => tag)
 
     if (DEBUG_BLOG_STATS) {
-      console.log('Blog stats calculation complete:', {
-        totalPosts: posts.length,
-        totalWords,
-        wordCount,
-        topTags,
-        postsByMonth: Object.keys(postsByMonth).length,
-        uniqueTags: allTags.size
-      })
+      // console.log('Blog stats calculation complete:', {
+      //   totalPosts: posts.length,
+      //   totalWords,
+      //   wordCount,
+      //   topTags,
+      //   postsByMonth: Object.keys(postsByMonth).length,
+      //   uniqueTags: allTags.size
+      // })
     }
 
     blogStats.value = {
@@ -527,12 +527,12 @@ onMounted(() => {
   nextTick(() => {
     // First, make sure we have the TOC target
     tocTarget.value = document.querySelector('#nav-toc-container')
-    console.log(
-      'TOC Target found:',
-      !!tocTarget.value,
-      'Simple mode:',
-      isSimpleMode.value
-    )
+    // console.log(
+    //   'TOC Target found:',
+    //   !!tocTarget.value,
+    //   'Simple mode:',
+    //   isSimpleMode.value
+    // )
 
     // Then set up the observer
     const headingObserver = new IntersectionObserver(
@@ -544,7 +544,7 @@ onMounted(() => {
               entry.target.id || entry.target.parentElement?.id || ''
             if (sectionId) {
               activeSection.value = sectionId
-              console.log('Active section:', sectionId)
+              // console.log('Active section:', sectionId)
             }
           }
         })

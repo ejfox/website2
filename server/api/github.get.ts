@@ -217,15 +217,15 @@ async function checkRateLimit(token: string) {
 }
 
 export default defineEventHandler(async (event): Promise<GitHubStats> => {
-  console.log('🚀 GitHub handler called')
+  // console.log('🚀 GitHub handler called')
   const config = useRuntimeConfig()
 
   // Add more detailed logging
-  console.log('Runtime config keys:', Object.keys(config))
-  console.log('githubToken value type:', typeof config.githubToken)
-  console.log('GITHUB_TOKEN value type:', typeof config.GITHUB_TOKEN)
-  console.log('githubToken length:', config.githubToken?.length)
-  console.log('GITHUB_TOKEN length:', config.GITHUB_TOKEN?.length)
+  // console.log('Runtime config keys:', Object.keys(config))
+  // console.log('githubToken value type:', typeof config.githubToken)
+  // console.log('GITHUB_TOKEN value type:', typeof config.GITHUB_TOKEN)
+  // console.log('githubToken length:', config.githubToken?.length)
+  // console.log('GITHUB_TOKEN length:', config.GITHUB_TOKEN?.length)
 
   // Get token and handle potential whitespace issues
   let token = config.githubToken || config.GITHUB_TOKEN
@@ -236,11 +236,11 @@ export default defineEventHandler(async (event): Promise<GitHubStats> => {
       '⚠️ Detected placeholder token - this suggests .env is not being loaded correctly'
     )
     // Log all available environment variables for debugging (excluding values)
-    console.log('Available env vars:', Object.keys(process.env))
+    // console.log('Available env vars:', Object.keys(process.env))
     // Try loading directly from process.env as a fallback
     const directEnvToken = process.env.GITHUB_TOKEN
     if (directEnvToken && directEnvToken !== 'your_token_here') {
-      console.log('Found token directly in process.env, using that instead')
+      // console.log('Found token directly in process.env, using that instead')
       token = directEnvToken
     }
   }
@@ -259,9 +259,9 @@ export default defineEventHandler(async (event): Promise<GitHubStats> => {
     }
   }
 
-  console.log('🔑 GitHub token available:', !!token)
-  console.log('🔑 GitHub token length:', token?.length)
-  console.log('🔑 GitHub token first 10 chars:', token?.substring(0, 10))
+  // console.log('🔑 GitHub token available:', !!token)
+  // console.log('🔑 GitHub token length:', token?.length)
+  // console.log('🔑 GitHub token first 10 chars:', token?.substring(0, 10))
 
   if (!token) {
     console.error('❌ No GitHub token found!')
@@ -273,7 +273,7 @@ export default defineEventHandler(async (event): Promise<GitHubStats> => {
 
   try {
     await checkRateLimit(token)
-    console.log('✅ Rate limit check passed')
+    // console.log('✅ Rate limit check passed')
 
     const today = new Date()
     const lastMonth = new Date(today)
@@ -284,10 +284,10 @@ export default defineEventHandler(async (event): Promise<GitHubStats> => {
       fetchContributions(token, lastMonth.toISOString(), today.toISOString())
     ])
 
-    console.log('📊 GitHub API responses:', {
-      userStats: !!userStats,
-      contributions: !!contributions
-    })
+    // console.log('📊 GitHub API responses:', {
+    //   userStats: !!userStats,
+    //   contributions: !!contributions
+    // })
 
     if (!userStats?.viewer || !contributions?.viewer) {
       throw createError({
@@ -342,12 +342,12 @@ export default defineEventHandler(async (event): Promise<GitHubStats> => {
       }))
       .sort((a, b) => b.count - a.count)
 
-    console.log('GitHub API Response:', {
-      userStats,
-      contributions,
-      commits,
-      commitTypes
-    })
+    // console.log('GitHub API Response:', {
+    //   userStats,
+    //   contributions,
+    //   commits,
+    //   commitTypes
+    // })
 
     const baseStats: GitHubStats = {
       stats: {

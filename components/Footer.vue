@@ -42,7 +42,7 @@
 import NewsletterSignup from '~/components/NewsletterSignup.vue'
 
 onMounted(() => {
-  console.log('Footer component mounted')
+  // console.log('Footer component mounted')
 })
 </script>
 

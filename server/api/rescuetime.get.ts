@@ -69,10 +69,10 @@ export default defineEventHandler(async () => {
   const config = useRuntimeConfig()
   const token = config.RESCUETIME_TOKEN
 
-  console.log('RescueTime config:', {
-    hasToken: !!token,
-    tokenLength: token?.length
-  })
+  // console.log('RescueTime config:', {
+  //   hasToken: !!token,
+  //   tokenLength: token?.length
+  // })
 
   if (!token) {
     throw createError({
@@ -92,11 +92,11 @@ export default defineEventHandler(async () => {
 
     const monthStart = new Date(now.getFullYear(), now.getMonth(), 1)
 
-    console.log('RescueTime date ranges:', {
-      weekStart: weekStart.toISOString(),
-      monthStart: monthStart.toISOString(),
-      now: now.toISOString()
-    })
+    // console.log('RescueTime date ranges:', {
+    //   weekStart: weekStart.toISOString(),
+    //   monthStart: monthStart.toISOString(),
+    //   now: now.toISOString()
+    // })
 
     // Format dates as YYYY-MM-DD
     const formatDate = (date: Date) => {

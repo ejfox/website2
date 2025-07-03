@@ -11,12 +11,12 @@ export default defineEventHandler(async (event) => {
     'f0ba21c7a486f694b889521ca0f26d7a'
   const username = 'pseudoplacebo' // Hardcoded username as specified
 
-  console.log('Last.fm config:', {
-    hasApiKey: !!apiKey,
-    hasSharedSecret: !!sharedSecret,
-    apiKeyLength: apiKey?.length,
-    username
-  })
+  // console.log('Last.fm config:', {
+  //   hasApiKey: !!apiKey,
+  //   hasSharedSecret: !!sharedSecret,
+  //   apiKeyLength: apiKey?.length,
+  //   username
+  // })
 
   const makeRequest = async <T>(
     method: string,
@@ -30,7 +30,7 @@ export default defineEventHandler(async (event) => {
     const cacheKey = `lastfm:${method}:${JSON.stringify(params)}`
     const cachedData = await useStorage().getItem(cacheKey)
     if (cachedData) {
-      console.log(`Using cached data for ${method}`)
+      // console.log(`Using cached data for ${method}`)
       return cachedData as T
     }
 
@@ -50,11 +50,11 @@ export default defineEventHandler(async (event) => {
           url.searchParams.append(key, value)
         })
 
-        console.log(
-          `Fetching Last.fm data: ${method} (attempt ${
-            attempt + 1
-          }/${maxRetries})`
-        )
+        // console.log(
+        //   `Fetching Last.fm data: ${method} (attempt ${
+        //     attempt + 1
+        //   }/${maxRetries})`
+        // )
 
         const controller = new AbortController()
         const timeoutId = setTimeout(() => controller.abort(), timeout)
@@ -137,33 +137,33 @@ export default defineEventHandler(async (event) => {
 
   try {
     // Log API key info (safely)
-    if (apiKey) {
-      console.log(
-        'Last.fm API key:',
-        `${apiKey.substring(0, 4)}...${apiKey.substring(apiKey.length - 4)}`
-      )
-    } else {
-      console.warn('Last.fm API key is not set')
-    }
+    // if (apiKey) {
+    //   console.log(
+    //     'Last.fm API key:',
+    //     `${apiKey.substring(0, 4)}...${apiKey.substring(apiKey.length - 4)}`
+    //   )
+    // } else {
+    //   console.warn('Last.fm API key is not set')
+    // }
 
-    if (sharedSecret) {
-      console.log(
-        'Last.fm shared secret:',
-        `${sharedSecret.substring(0, 4)}...${sharedSecret.substring(
-          sharedSecret.length - 4
-        )}`
-      )
-    }
+    // if (sharedSecret) {
+    //   console.log(
+    //     'Last.fm shared secret:',
+    //     `${sharedSecret.substring(0, 4)}...${sharedSecret.substring(
+    //       sharedSecret.length - 4
+    //     )}`
+    //   )
+    // }
 
     // Test the API connection first
     try {
       const testResponse = await makeRequest<any>('user.getinfo')
-      console.log(
-        'Last.fm API test successful:',
-        testResponse.user?.name === username
-          ? 'Username matches'
-          : 'Username mismatch'
-      )
+      // console.log(
+      //   'Last.fm API test successful:',
+      //   testResponse.user?.name === username
+      //     ? 'Username matches'
+      //     : 'Username mismatch'
+      // )
     } catch (testError) {
       console.error('Last.fm API test failed:', testError)
       // Don't throw here, continue with other requests
@@ -289,16 +289,16 @@ export default defineEventHandler(async (event) => {
     }
 
     // Log a summary of the data we're returning
-    console.log('Last.fm API data summary:', {
-      recentTracksCount: processedRecentTracks.tracks.length,
-      topArtistsCount: processedTopArtists.artists.length,
-      topAlbumsCount: processedTopAlbums.albums.length,
-      topTracksCount: processedTopTracks.tracks.length,
-      totalScrobbles,
-      uniqueArtists,
-      uniqueTracks,
-      averagePerDay
-    })
+    // console.log('Last.fm API data summary:', {
+    //   recentTracksCount: processedRecentTracks.tracks.length,
+    //   topArtistsCount: processedTopArtists.artists.length,
+    //   topAlbumsCount: processedTopAlbums.albums.length,
+    //   topTracksCount: processedTopTracks.tracks.length,
+    //   totalScrobbles,
+    //   uniqueArtists,
+    //   uniqueTracks,
+    //   averagePerDay
+    // })
 
     return result
   } catch (error: any) {
