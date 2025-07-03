@@ -843,45 +843,32 @@ const processedMetadata = computed(() => {
 }
 
 .internal-link {
-  @apply tracking-wide text-black dark:text-white border-b-2 hover:border-b-4 transition-all duration-200;
-  border-color: var(--post-color, theme('colors.blue.600'));
+  @apply tracking-wide text-zinc-700 dark:text-zinc-300 border-b-2 hover:border-b-4 transition-all duration-200;
+  @apply border-zinc-400 hover:border-zinc-600 dark:border-zinc-500 dark:hover:border-zinc-400;
 }
 
-.internal-link:hover {
-  border-color: var(--post-color-accent, theme('colors.blue.500'));
-}
-
-/* Blog post content styling with post colors */
+/* Blog post content styling */
 .blog-post-content {
   /* Links */
   a {
-    color: var(--post-color, theme('colors.blue.600'));
-    text-decoration: underline;
-    text-decoration-color: rgba(var(--post-color-rgb, 37, 99, 235), 0.3);
-    text-underline-offset: 2px;
-    transition: all 0.2s ease;
-  }
-  
-  a:hover {
-    color: var(--post-color-accent, theme('colors.blue.700'));
-    text-decoration-color: rgba(var(--post-color-rgb, 37, 99, 235), 0.6);
+    @apply text-zinc-700 dark:text-zinc-300 underline underline-offset-2;
+    @apply hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors duration-200;
   }
   
   /* Blockquotes */
   blockquote {
-    border-left-color: var(--post-color, theme('colors.gray.300'));
-    background: var(--post-color-subtle, theme('colors.gray.50'));
+    @apply border-l-zinc-300 dark:border-l-zinc-600;
+    @apply bg-zinc-50 dark:bg-zinc-800/50;
   }
   
   /* Code blocks */
   pre {
-    border: 1px solid rgba(var(--post-color-rgb, 37, 99, 235), 0.1);
+    @apply border border-zinc-200 dark:border-zinc-700;
   }
   
   /* Headings subtle accent */
   h2, h3, h4 {
-    border-bottom: 1px solid var(--post-color-subtle, transparent);
-    padding-bottom: 0.5rem;
+    @apply border-b border-zinc-200 dark:border-zinc-700 pb-2;
   }
 }
 

@@ -245,10 +245,10 @@
         <div class="pt-6 border-t border-zinc-200 dark:border-zinc-800">
           <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-3">Quick links:</p>
           <div class="flex flex-wrap justify-center gap-3">
-            <NuxtLink to="/stats" class="text-sm text-blue-600 dark:text-blue-400 hover:underline">/stats</NuxtLink>
-            <NuxtLink to="/gear" class="text-sm text-blue-600 dark:text-blue-400 hover:underline">/gear</NuxtLink>
-            <NuxtLink to="/predictions" class="text-sm text-blue-600 dark:text-blue-400 hover:underline">/predictions</NuxtLink>
-            <NuxtLink to="/scrapbook" class="text-sm text-blue-600 dark:text-blue-400 hover:underline">/scrapbook</NuxtLink>
+            <NuxtLink to="/stats" class="text-sm link-muted">/stats</NuxtLink>
+            <NuxtLink to="/gear" class="text-sm link-muted">/gear</NuxtLink>
+            <NuxtLink to="/predictions" class="text-sm link-muted">/predictions</NuxtLink>
+            <NuxtLink to="/scrapbook" class="text-sm link-muted">/scrapbook</NuxtLink>
           </div>
         </div>
       </div>

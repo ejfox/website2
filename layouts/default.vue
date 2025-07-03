@@ -1,5 +1,5 @@
 <template>
-  <div id="app-container" class="sans-serif w-full h-screen bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100">
+  <div id="app-container" class="sans-serif w-full min-h-screen bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100">
     <NuxtLoadingIndicator color="#999999" :height="1" />
     <section class="flex flex-col md:flex-row min-h-screen relative">
       <!-- Mobile navigation - hide on stats page with simple mode -->
