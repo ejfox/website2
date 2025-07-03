@@ -314,10 +314,6 @@ onMounted(async () => {
       })
 
       if (DEBUG_BLOG_STATS) {
-        // console.log(`Raw posts from getAllPosts: ${allPosts.length}`)
-        // console.log(
-        //   `Filtered posts (blog stats): ${cachedPosts.value?.length || 0}`
-        // )
 
         // Show a few examples of what was filtered out
         const filtered = allPosts.filter((post) => {
@@ -452,14 +448,7 @@ onMounted(async () => {
       .map(([tag]) => tag)
 
     if (DEBUG_BLOG_STATS) {
-      // console.log('Blog stats calculation complete:', {
-      //   totalPosts: posts.length,
-      //   totalWords,
-      //   wordCount,
-      //   topTags,
-      //   postsByMonth: Object.keys(postsByMonth).length,
-      //   uniqueTags: allTags.size
-      // })
+      // Debug stats calculation complete
     }
 
     blogStats.value = {

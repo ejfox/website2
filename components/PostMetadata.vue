@@ -17,9 +17,9 @@
       :class="[compact ? 'pl-0' : 'pl-0']"
       :style="colors && { color: 'var(--post-color)' }"
       ref="folderRef"
-      v-if="metadata.slug && !compact"
+      v-if="metadata?.slug && !compact"
     >
-      /{{ metadata.slug.split('/')[0] }}/
+      /{{ metadata.slug?.split('/')[0] || '' }}/
     </span>
 
     <!-- Draft status -->
@@ -38,13 +38,13 @@
     <span
       v-if="metadata.date"
       class="flex items-center metadata-item"
-      :title="formatRelativeTime(metadata.date)"
+      :title="metadata.date ? formatRelativeTime(metadata.date) : ''"
       ref="dateRef"
     >
       <time>{{
-        compact
+        metadata.date ? (compact
           ? formatCompactDate(new Date(metadata.date))
-          : formatBlogDate(new Date(metadata.date))
+          : formatBlogDate(new Date(metadata.date))) : ''
       }}</time>
     </span>
 

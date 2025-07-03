@@ -17,7 +17,7 @@ import rehypeStringify from 'rehype-stringify'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import remarkGfm from 'remark-gfm'
-import remarkUnwrapImages from 'remark-unwrap-images'
+import rehypeUnwrapImages from 'rehype-unwrap-images'
 import rehypeMermaid from 'rehype-mermaid'
 import rehypePrettyCode from 'rehype-pretty-code'
 import { visit } from 'unist-util-visit'
@@ -112,8 +112,8 @@ async function processFile(filePath, isDryRun = false) {
   const result = await unified()
     .use(remarkParse)
     .use(remarkGfm)
-    .use(remarkUnwrapImages)
     .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeUnwrapImages)
     .use(rehypePrettyCode, { theme: 'github-dark' })
     .use(rehypeMermaid)
     .use(rehypeSlug)

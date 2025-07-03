@@ -569,6 +569,7 @@ export const useProcessedMarkdown = () => {
       .sort((a: Post, b: Post) => compareDates(b.date, a.date))
 
     if (filteredPosts.length === 0) {
+      console.warn('No regular blog posts found')
       return { next: null, prev: null }
     }
 
@@ -576,6 +577,7 @@ export const useProcessedMarkdown = () => {
       (post) => post.slug === currentSlug
     )
     if (currentIndex === -1) {
+      console.warn(`Post with slug "${currentSlug}" not found in regular blog posts`)
       return { next: null, prev: null }
     }
 
