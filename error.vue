@@ -84,7 +84,7 @@
             <span v-else>Found in content ({{ fullTextResults.length }} results):</span>
           </h3>
           <div v-if="isSearchingContent" class="flex justify-center py-4">
-            <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600"></div>
+            <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600 dark:border-blue-400"></div>
           </div>
           <div v-else class="space-y-3">
             <NuxtLink
@@ -126,7 +126,7 @@
             <span v-else>Found {{ archiveResults.length }} results in my MediaWiki archive:</span>
           </h3>
           <div v-if="isSearchingArchive" class="flex justify-center py-4">
-            <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600"></div>
+            <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600 dark:border-blue-400"></div>
           </div>
           <div v-else class="space-y-3">
             <a
@@ -419,7 +419,9 @@ const initCanvas = () => {
       
       ctx.beginPath()
       ctx.arc(this.x, this.y, size, 0, Math.PI * 2)
-      ctx.fillStyle = `rgba(100, 100, 100, ${alpha})`
+      const isDark = document.documentElement.classList.contains('dark')
+      const baseColor = isDark ? '200, 200, 200' : '100, 100, 100'
+      ctx.fillStyle = `rgba(${baseColor}, ${alpha})`
       ctx.fill()
     }
   }
@@ -440,7 +442,9 @@ const initCanvas = () => {
     })
     
     // Draw connections between nearby particles (very subtle)
-    ctx.strokeStyle = 'rgba(100, 100, 100, 0.1)'
+    const isDark = document.documentElement.classList.contains('dark')
+    const connectionColor = isDark ? '200, 200, 200' : '100, 100, 100'
+    ctx.strokeStyle = `rgba(${connectionColor}, 0.1)`
     ctx.lineWidth = 0.5
     
     for (let i = 0; i < particles.length; i++) {
@@ -454,7 +458,7 @@ const initCanvas = () => {
           ctx.beginPath()
           ctx.moveTo(particles[i].x, particles[i].y)
           ctx.lineTo(particles[j].x, particles[j].y)
-          ctx.strokeStyle = `rgba(100, 100, 100, ${opacity})`
+          ctx.strokeStyle = `rgba(${connectionColor}, ${opacity})`
           ctx.stroke()
         }
       }

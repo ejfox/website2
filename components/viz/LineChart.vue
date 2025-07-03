@@ -2,7 +2,7 @@
   <div ref="container" class="relative w-full h-full">
     <!-- Loading state -->
     <div v-if="!props.data?.values?.length" class="absolute inset-0 flex items-center justify-center">
-      <div class="text-gray-400 text-sm">Loading data...</div>
+      <div class="text-zinc-400 dark:text-zinc-500 text-sm">Loading data...</div>
     </div>
 
     <!-- SVG Container -->

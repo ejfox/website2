@@ -2,12 +2,12 @@
   <div ref="container" class="relative w-full h-full">
     <!-- Loading state -->
     <div v-if="!props.data?.values" class="absolute inset-0 flex items-center justify-center">
-      <div class="text-gray-400 text-sm">Loading data...</div>
+      <div class="text-zinc-400 dark:text-zinc-500 text-sm">Loading data...</div>
     </div>
 
     <!-- Tooltip -->
-    <div v-show="hoveredCellData && !isOutside" class="absolute z-10 px-3 py-2 text-xs backdrop-blur-sm bg-white/80 dark:bg-gray-900/80 
-                rounded-lg shadow-lg border border-gray-100/20 transition-all duration-200 pointer-events-none" :style="{
+    <div v-show="hoveredCellData && !isOutside" class="absolute z-10 px-3 py-2 text-xs backdrop-blur-sm bg-white/80 dark:bg-zinc-900/80 
+                rounded-lg shadow-lg border border-zinc-100/20 dark:border-zinc-800/20 transition-all duration-200 pointer-events-none" :style="{
                   left: `${tooltipX}px`,
                   top: `${tooltipY}px`,
                 }">
