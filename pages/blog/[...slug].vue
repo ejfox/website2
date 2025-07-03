@@ -1,10 +1,10 @@
 <script setup>
 import { format, isValid, parseISO } from 'date-fns'
 import { animate, stagger, engine } from '~/anime.esm.js'
-import { useWindowSize, useMutationObserver } from '@vueuse/core'
+import { useWindowSize, useMutationObserver, useDark, useDebounceFn } from '@vueuse/core'
 import DonationSection from '~/components/blog/DonationSection.vue'
 import { useScrollAnimation } from '~/composables/useScrollAnimation'
-import { generatePostColor } from '~/utils/postColors'
+// import { generatePostColor } from '~/utils/postColors'
 
 const config = useRuntimeConfig()
 const isDark = useDark()
@@ -36,6 +36,7 @@ const { data: post, error } = await useAsyncData(
 
       return response
     } catch (error) {
+      console.error('Error fetching post:', error)
       throw error
     }
   }
@@ -51,14 +52,23 @@ if (post.value && post.value.redirect) {
 const { params } = useRoute()
 const { data: nextPrevPosts } = await useAsyncData(
   `next-prev-${route.params.slug.join('-')}`,
-  () => processedMarkdown.getNextPrevPosts(route.params.slug.join('/'))
+  async () => {
+    try {
+      return await processedMarkdown.getNextPrevPosts(route.params.slug.join('/'))
+    } catch (error) {
+      console.error('Error getting next/prev posts:', error)
+      return { next: null, prev: null }
+    }
+  }
 )
 
 // Generate colors based on post slug
-const postColors = computed(() => {
-  if (!post.value || !post.value.slug) return null
-  return generatePostColor(post.value.slug)
-})
+// const postColors = computed(() => {
+//   if (!post.value) return null
+//   const slug = post.value.slug || post.value.metadata?.slug || route.params.slug.join('/')
+//   return generatePostColor(slug)
+// })
+const postColors = ref(null)
 
 // New refs for animation targets
 const postTitle = ref(null)
@@ -152,8 +162,8 @@ watch(
 
     // Re-initialize TOC target when route changes
     if (process.client) {
-    tocTarget.value = document.querySelector('#nav-toc-container')
-  }
+      tocTarget.value = document.querySelector('#nav-toc-container')
+    }
 
     // If not found on first try, retry with increasing delays
     if (!tocTarget.value) {
@@ -165,8 +175,8 @@ watch(
         await new Promise((resolve) => setTimeout(resolve, delay))
 
         if (process.client) {
-    tocTarget.value = document.querySelector('#nav-toc-container')
-  }
+          tocTarget.value = document.querySelector('#nav-toc-container')
+        }
 
         if (!tocTarget.value && attempts < maxAttempts) {
           await retryFindTocContainer(attempts + 1, maxAttempts)
@@ -404,10 +414,10 @@ useHead(() => ({
     },
     { name: 'twitter:image', content: shareImageUrl.value },
     // Add theme-color meta tag for Safari
-    {
-      name: 'theme-color',
-      content: postColors.value ? (isDark.value ? postColors.value.dark.primary : postColors.value.light.primary) : (isDark.value ? '#18181b' : '#ffffff')
-    }
+    // {
+    //   name: 'theme-color',
+    //   content: postColors.value ? (isDark.value ? postColors.value.dark.primary : postColors.value.light.primary) : (isDark.value ? '#18181b' : '#ffffff')
+    // }
   ],
   link: [{ rel: 'canonical', href: postUrl.value }],
   htmlAttrs: { lang: 'en' }
@@ -604,7 +614,7 @@ const processedMetadata = computed(() => {
   return {
     // Basic metadata
     slug: metadata.slug || route.params.slug.join('/'),
-    title: metadata.title,
+    title: post.value.title || metadata.title, // Use top-level title first
     date: metadata.date,
     draft: metadata.draft,
 
@@ -635,18 +645,13 @@ const processedMetadata = computed(() => {
     <article
       v-if="post && !post.redirect"
       class="scroll-container pt-4 md:pt-12 pl-2 md:pl-4"
-      :style="postColors && {
-        '--post-color': isDark ? postColors.dark.primary : postColors.light.primary,
-        '--post-color-rgb': isDark ? postColors.dark.primaryRgb : postColors.light.primaryRgb,
-        '--post-color-subtle': isDark ? postColors.dark.subtle : postColors.light.subtle,
-        '--post-color-accent': isDark ? postColors.dark.accent : postColors.light.accent
-      }"
+      :style="{}"
     >
       <div ref="postMetadata" class="w-full">
         <PostMetadata
           v-if="processedMetadata"
           :doc="processedMetadata"
-          :colors="postColors"
+          :colors="null"
           :is-dark="isDark"
           ref="postMetadataComponent"
         />
@@ -777,8 +782,8 @@ const processedMetadata = computed(() => {
         </h3>
         <ul class="space-y-4">
           <li
-            v-for="child in post.toc?.[0]?.children ||
-            post.metadata?.toc?.[0]?.children"
+            v-for="child in post?.toc?.[0]?.children ||
+            post?.metadata?.toc?.[0]?.children"
             :key="child.slug"
             class="transition-colors duration-200 hover:bg-zinc-100/50 dark:hover:bg-zinc-800/50 rounded line-clamp-1"
           >

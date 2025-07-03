@@ -178,5 +178,5 @@ export default defineNuxtConfig({
   },
 
   // Keep basic CSS but remove transitions.css
-  css: []
+  css: ['~/assets/css/global.css']
 })

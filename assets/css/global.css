@@ -1,3 +1,8 @@
+/* Set body and html background colors for dark mode */
+html, body {
+  @apply bg-white dark:bg-zinc-900;
+}
+
 /* Projects page typography - smaller text for projects listing */
 .projects-page .prose p,
 .projects-page .prose li,
@@ -19,8 +24,7 @@
 }
 
 /* Skeleton loading styles - more subtle and light/dark mode compatible */
-@layer components {
-  .skeleton {
+.skeleton {
     @apply relative overflow-hidden;
     background: theme('colors.zinc.100');
   }
@@ -79,4 +83,3 @@
     @apply border-zinc-200 bg-zinc-100;
     @apply dark:border-zinc-800 dark:bg-zinc-900/50;
   }
-}
