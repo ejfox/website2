@@ -60,7 +60,7 @@
 </template>
 
 <script setup>
-import { format } from 'date-fns'
+import { formatDate } from '~/utils/dateFormatters'
 
 const route = useRoute()
 
@@ -71,14 +71,7 @@ const props = defineProps({
 
 const relatedPosts = ref([])
 
-// Simple date formatting
-const formatDate = (dateString) => {
-  try {
-    return format(new Date(dateString), 'MMM d, yyyy')
-  } catch {
-    return dateString
-  }
-}
+// Note: formatDate is now imported from utils/dateFormatters
 
 // Get post type from slug
 const getPostType = (slug) => {
