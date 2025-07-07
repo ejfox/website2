@@ -115,6 +115,8 @@ export default defineNuxtConfig({
     LASTFM_SHARED_SECRET: process.env.LASTFM_SHARED_SECRET || '',
 
     public: {
+      supabaseUrl: process.env.SUPABASE_URL,
+      supabaseKey: process.env.SUPABASE_KEY,
       baseUrl:
         process.env.NODE_ENV === 'production'
           ? 'https://ejfox.com'
