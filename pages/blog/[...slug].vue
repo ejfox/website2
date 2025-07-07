@@ -775,31 +775,38 @@ const processedMetadata = computed(() => {
           post?.toc?.[0]?.children?.length ||
           post?.metadata?.toc?.[0]?.children?.length
         "
-        class="toc py-4 px-4 text-sm"
+        class="toc"
       >
-        <h3 class="text-base font-medium mb-4 font-sans tracking-tight">
-          Table of Contents
-        </h3>
-        <ul class="space-y-4">
-          <li
-            v-for="child in post?.toc?.[0]?.children ||
-            post?.metadata?.toc?.[0]?.children"
-            :key="child.slug"
-            class="transition-colors duration-200 hover:bg-zinc-100/50 dark:hover:bg-zinc-800/50 rounded line-clamp-1"
-          >
-            <a
-              :href="`#${child.slug}`"
-              class="block px-1 py-0.5 rounded transition-colors font-sans text-sm tracking-tight"
-              :class="[
-                activeSection === child.slug
-                  ? 'text-zinc-900 dark:text-zinc-100 bg-zinc-200/50 dark:bg-zinc-700/50 font-medium'
-                  : 'text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-200'
-              ]"
+        <div class="px-6 py-6">
+          <h3 class="text-xs font-semibold uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400 mb-6">
+            Table of Contents
+          </h3>
+          <ul class="space-y-1">
+            <li
+              v-for="child in post?.toc?.[0]?.children ||
+              post?.metadata?.toc?.[0]?.children"
+              :key="child.slug"
+              class="group relative"
             >
-              {{ child.text }}
-            </a>
-          </li>
-        </ul>
+              <a
+                :href="`#${child.slug}`"
+                class="block py-2 pr-3 pl-4 -ml-4 text-[13px] leading-relaxed transition-all duration-200 rounded-lg"
+                :class="[
+                  activeSection === child.slug
+                    ? 'text-zinc-900 dark:text-zinc-100 bg-zinc-100 dark:bg-zinc-800 font-medium'
+                    : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-50 dark:hover:bg-zinc-800/50'
+                ]"
+              >
+                <span class="block truncate">{{ child.text }}</span>
+              </a>
+              <!-- Active indicator -->
+              <div 
+                v-if="activeSection === child.slug"
+                class="absolute left-0 top-2 bottom-2 w-[2px] bg-zinc-900 dark:bg-zinc-100 rounded-full"
+              ></div>
+            </li>
+          </ul>
+        </div>
       </div>
     </teleport>
 

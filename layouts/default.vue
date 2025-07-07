@@ -41,35 +41,43 @@
       </nav>
 
       <!-- Desktop navigation - hide on stats page with simple mode -->
-      <nav v-else-if="!(route.path === '/stats' && route.query.simple !== undefined)" class="sticky min-w-[200px] h-auto max-h-screen top-0 left-0 z-50 p-4 monospace overflow-auto">
+      <nav v-else-if="!(route.path === '/stats' && route.query.simple !== undefined)" class="sticky min-w-[240px] h-auto max-h-screen top-0 left-0 z-50 monospace overflow-auto">
         <div
-          class="container mx-auto md:py-1 md:flex md:flex-col items-start shadow-lg dark:shadow-none w-full md:shadow-none border-b border-zinc-300 dark:border-zinc-900 md:border-none rounded bg-zinc-50/50 md:bg-transparent dark:bg-zinc-900/30 md:dark:bg-transparent backdrop-blur-md px-2 max-h-screen">
-          <div class="pt-3 pb-1 space-y-2">
+          class="container mx-auto md:flex md:flex-col items-start w-full max-h-screen">
+          <div class="px-6 py-6 space-y-1 w-full">
             <!-- Updated class: items-start -->
-            <NuxtLink class="text-zinc-800 dark:text-zinc-400 md:text-xl font-bold px-2 md:p-4 md:mb-2 block" to="/">EJ
-              Fox
-            </NuxtLink>
-            <NuxtLink :class="linkClasses" to="/"> Home </NuxtLink>
-            <NuxtLink :class="linkClasses" to="/projects"> Projects </NuxtLink>
-            <NuxtLink :class="linkClasses" to="/blog/">Blog </NuxtLink>
+            <NuxtLink class="text-zinc-900 dark:text-zinc-100 text-2xl font-bold block mb-8" to="/">EJ Fox</NuxtLink>
+            <div class="space-y-1">
+              <NuxtLink :class="linkClasses" to="/"> Home </NuxtLink>
+              <NuxtLink :class="linkClasses" to="/projects"> Projects </NuxtLink>
+              <NuxtLink :class="linkClasses" to="/blog/">Blog </NuxtLink>
+            </div>
 
             <!-- <NuxtLink :class="linkClasses" to="/scrapbook/">Scrapbook</NuxtLink> -->
             <!-- <NuxtLink :class="linkClasses" to="/pottery/">Pottery</NuxtLink> -->
 
-            <NuxtLink :class="linkClasses" to="https://ejfox.photos">
-              Photos
-              <UIcon name="i-ei-external-link" class="w-3 md:w-4 h-3 md:h-4 inline-block" />
-            </NuxtLink>
+            <div class="my-6"></div>
 
-            <NuxtLink :class="linkClasses" to="https://archive.ejfox.com">
-              Archive
-              <UIcon name="i-ei-external-link" class="w-3 md:w-4 h-3 md:h-4 inline-block" />
-            </NuxtLink>
+            <div class="space-y-1">
+              <NuxtLink :class="linkClasses" to="https://ejfox.photos">
+                <span class="flex items-center justify-between">
+                  <span>Photos</span>
+                  <UIcon name="i-ei-external-link" class="w-3 h-3 opacity-50" />
+                </span>
+              </NuxtLink>
+
+              <NuxtLink :class="linkClasses" to="https://archive.ejfox.com">
+                <span class="flex items-center justify-between">
+                  <span>Archive</span>
+                  <UIcon name="i-ei-external-link" class="w-3 h-3 opacity-50" />
+                </span>
+              </NuxtLink>
+            </div>
 
           </div>
 
-          <div class="px-4 opacity-50 hover:opacity-100 transition-opacity group hidden md:block">
-            <div class="text-xs mt-1 text-zinc-500 dark:text-zinc-400 flex items-center justify-between">
+          <div class="px-6 mt-auto pt-8 opacity-60 hover:opacity-100 transition-opacity group hidden md:block">
+            <div class="text-xs text-zinc-500 dark:text-zinc-400">
               <a href="/pgp.txt" class="hover:text-zinc-800 dark:hover:text-zinc-300 transition-colors">
                 PGP: E207 8E65 3FE3 89CD
               </a>
@@ -78,14 +86,14 @@
         </div>
 
         <!-- Table of Contents Container -->
-        <div v-if="isBlogPost || isStatsPage || isProjectsPage" class="mt-4">
-          <div id="nav-toc-container" class="font-sans"></div>
+        <div v-if="isBlogPost || isStatsPage || isProjectsPage" class="mt-8">
+          <div id="nav-toc-container" class="sans-serif"></div>
         </div>
 
-        <div v-if="isBlogPost" class="mt-4 pl-4">
+        <div v-if="isBlogPost" class="px-6 py-4 mt-8">
           <NuxtLink to="/blog/"
-            class="inline-flex items-center gap-1.5 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors">
-            <Icon name="heroicons:arrow-left" class="w-3.5 h-3.5" />
+            class="inline-flex items-center gap-2 text-xs text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">
+            <Icon name="heroicons:arrow-left" class="w-3 h-3" />
             <span>Back to Blog</span>
           </NuxtLink>
         </div>
@@ -103,7 +111,7 @@
       <!-- Add TOC container for blog posts and stats page - hide on stats page with simple mode -->
       <aside v-if="(isBlogPost || isStatsPage || isProjectsPage) && !(route.path === '/stats' && route.query.simple !== undefined)"
         class="hidden lg:block w-64 shrink-0 sticky top-0 h-screen overflow-y-auto p-4">
-        <div id="aside-toc-container" class="space-y-4"></div>
+        <div id="aside-toc-container" class="space-y-4 sans-serif"></div>
       </aside>
 
     </section>
@@ -162,7 +170,7 @@ const navLinks = [
   { to: 'https://archive.ejfox.com', text: 'Archive', external: true },
 ]
 
-const linkClasses = "block px-4 py-2 text-sm hover:bg-zinc-200/30 dark:hover:bg-zinc-700/30 rounded"
+const linkClasses = "block px-3 py-2 text-sm transition-all duration-200 rounded-lg -mx-3 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-100"
 
 // Add a watcher to update the TOC container visibility when route changes
 watch(

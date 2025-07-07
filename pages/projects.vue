@@ -16,6 +16,7 @@ const activeProject = ref(null)
 const projectsLoaded = ref(false)
 const hoveredProject = ref(null)
 const timelineWidth = ref(0)
+const tocTarget = ref(null)
 
 // -----------------------------------------------
 // DATA FETCHING
@@ -160,6 +161,9 @@ function updateTimelineWidth() {
 // LIFECYCLE HOOKS
 // -----------------------------------------------
 onMounted(() => {
+  // Set up TOC target
+  tocTarget.value = document.querySelector('#nav-toc-container')
+  
   // Check if there's a hash in the URL to scroll to a specific project
   if (route.hash) {
     const projectSlug = route.hash.substring(1)
@@ -174,11 +178,32 @@ onMounted(() => {
 
   // Add resize listener
   window.addEventListener('resize', updateTimelineWidth)
+  
+  // Add scroll listener for active project tracking
+  window.addEventListener('scroll', trackActiveProject)
 })
 
+// Track which project is currently in view
+function trackActiveProject() {
+  const projects = document.querySelectorAll('[id^="project-"]')
+  let current = null
+  
+  projects.forEach(project => {
+    const rect = project.getBoundingClientRect()
+    if (rect.top <= 100 && rect.bottom >= 100) {
+      current = project.id.replace('project-', '')
+    }
+  })
+  
+  if (current && current !== activeProject.value) {
+    activeProject.value = current
+  }
+}
+
 onBeforeUnmount(() => {
-  // Remove resize listener
+  // Remove listeners
   window.removeEventListener('resize', updateTimelineWidth)
+  window.removeEventListener('scroll', trackActiveProject)
 })
 
 // -----------------------------------------------
@@ -190,137 +215,214 @@ useHead({
 </script>
 
 <template>
-  <div class="p-5 font-mono">
-    <!-- HEADER SECTION -->
-    <div class="mb-5 pb-2.5 dark:border-white">
-      <h1 class="text-[1.6rem] font-bold font-mono">Projects ({{ sortedProjectPosts.length }})</h1>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+    <!-- Header -->
+    <header class="mb-8 sm:mb-12 lg:mb-16">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 mb-3 sm:mb-4">Projects</h1>
+      <div class="flex items-center gap-4 mb-4">
+        <p class="text-base sm:text-lg text-zinc-600 dark:text-zinc-400">A collection of experiments, tools, and creative explorations.</p>
+        <div class="text-xs uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400 font-medium font-mono">
+          {{ sortedProjectPosts.length }} {{ sortedProjectPosts.length === 1 ? 'Project' : 'Projects' }}
+        </div>
+      </div>
+    </header>
+
+    <!-- Loading and empty states -->
+    <div v-if="!projectsLoaded" class="text-center py-16">
+      <p class="text-zinc-600 dark:text-zinc-400">Loading...</p>
     </div>
 
-    <!-- MINIMALIST SVG TIMELINE -->
-    <!-- LOADING STATE -->
-    <div v-if="!projectsLoaded" class="text-center py-10 text-sm">
-      Loading...
+    <div v-else-if="sortedProjectPosts.length === 0" class="text-center py-16">
+      <p class="text-zinc-600 dark:text-zinc-400">No projects found.</p>
     </div>
 
-    <!-- NO RESULTS STATE -->
-    <div v-else-if="sortedProjectPosts.length === 0" class="text-center py-10 text-sm">
-      No projects found.
-    </div>
-
-    <!-- PROJECTS LIST -->
-    <div v-else>
-      <div v-for="project in sortedProjectPosts" :key="project.slug" :id="`project-${project.slug}`"
-        class="mb-[60px] pb-10 dark:border-white">
+    <!-- Projects list -->
+    <div v-else class="space-y-16 lg:space-y-20">
+      <article v-for="project in sortedProjectPosts" :key="project.slug" :id="`project-${project.slug}`"
+        class="group">
         <!-- Project header -->
-        <div class="mb-5">
-          <!-- <div class="text-xs font-bold mb-1.5">{{ formatYear(project.metadata?.date || project.date) }}</div> -->
-          <div class="text-xs font-bold mb-1.5">{{ formatDate(project.metadata?.date || project.date) }}</div>
-          <h2 class="text-xl md:text-2xl mb-2.5">
-            <NuxtLink :to="project.metadata?.url" target="_blank" class="hover:underline">{{ project.title ||
-              project.metadata?.title }}</NuxtLink>
-          </h2>
-          <div class="flex flex-wrap gap-[15px] text-xs mb-4">
-            <div class="flex flex-wrap gap-[5px]">
+        <div class="space-y-4 mb-6">
+          <!-- Date and tags -->
+          <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+            <time class="text-xs tabular-nums text-zinc-500 dark:text-zinc-400 font-mono uppercase tracking-wide">
+              {{ formatDate(project.metadata?.date || project.date) }}
+            </time>
+            <div class="hidden sm:block w-px h-3 bg-zinc-300 dark:bg-zinc-700"></div>
+            <div class="flex flex-wrap gap-2" v-if="project.metadata?.tags">
               <span v-for="(tag, index) in project.metadata?.tags" :key="index"
-                class="bg-black text-white px-1.5 py-0.5 text-[11px] dark:bg-white dark:text-black">
+                class="text-[10px] font-mono uppercase tracking-[0.1em] text-zinc-600 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-800 px-2 py-1 rounded">
                 {{ tag }}
               </span>
             </div>
           </div>
+          
+          <!-- Title -->
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-zinc-900 dark:text-zinc-100 tracking-tight leading-tight">
+            <NuxtLink v-if="project.metadata?.url" :to="project.metadata?.url" target="_blank" 
+              class="hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors hover:underline decoration-1 underline-offset-2">
+              {{ project.title || project.metadata?.title }}
+            </NuxtLink>
+            <span v-else>{{ project.title || project.metadata?.title }}</span>
+          </h2>
         </div>
 
         <!-- Project content -->
-        <div class="">
-          <div class="w-full block leading-normal" v-html="project.html"></div>
-          <div class="flex gap-1.5">
+        <div class="space-y-6">
+          <div class="prose prose-zinc dark:prose-invert max-w-none text-zinc-600 dark:text-zinc-400 leading-relaxed content" v-html="project.html"></div>
+          
+          <!-- Links -->
+          <div class="flex flex-wrap gap-4 pt-4 border-t border-zinc-200 dark:border-zinc-800" v-if="project.metadata?.github || project.metadata?.demo || project.metadata?.website || project.metadata?.url">
             <a v-if="project.metadata?.github" :href="project.metadata.github" target="_blank"
-              class="underline text-sm">GitHub</a>
+              class="inline-flex items-center gap-2 text-xs text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-medium">
+              <span>GitHub</span>
+              <Icon name="heroicons:arrow-top-right-on-square" class="w-3 h-3" />
+            </a>
             <a v-if="project.metadata?.demo" :href="project.metadata.demo" target="_blank"
-              class="underline text-sm">Demo</a>
+              class="inline-flex items-center gap-2 text-xs text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-medium">
+              <span>Demo</span>
+              <Icon name="heroicons:arrow-top-right-on-square" class="w-3 h-3" />
+            </a>
             <a v-if="project.metadata?.website" :href="project.metadata.website" target="_blank"
-              class="underline text-sm">Website</a>
-            <a v-if="project.metadata?.url" :href="project.metadata.url" target="_blank"
-              class="underline text-sm">URL</a>
+              class="inline-flex items-center gap-2 text-xs text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-medium">
+              <span>Website</span>
+              <Icon name="heroicons:arrow-top-right-on-square" class="w-3 h-3" />
+            </a>
+            <a v-if="project.metadata?.url && !project.metadata?.github && !project.metadata?.demo && !project.metadata?.website" 
+              :href="project.metadata.url" target="_blank"
+              class="inline-flex items-center gap-2 text-xs text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-medium">
+              <span>View Project</span>
+              <Icon name="heroicons:arrow-top-right-on-square" class="w-3 h-3" />
+            </a>
           </div>
-
-          <!-- Project HTML content -->
         </div>
-      </div>
-      <div class="mb-10 pb-2.5 overflow-visible">
-        <svg class="timeline-svg overflow-visible" width="100%" height="40" @mouseleave="hoveredProject = null">
-          <!-- Main timeline line -->
-          <line x1="0" y1="30" x2="100%" y2="30" stroke="currentColor" stroke-width="1" />
+      </article>
+      <!-- Timeline visualization -->
+      <section class="mt-16 lg:mt-20 pt-8 border-t border-zinc-200 dark:border-zinc-800">
+        <h3 class="text-xs uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400 font-semibold mb-6">Timeline</h3>
+        <div class="overflow-visible">
+          <svg class="timeline-svg overflow-visible w-full" height="60" @mouseleave="hoveredProject = null">
+            <!-- Main timeline line -->
+            <line x1="0" y1="40" x2="100%" y2="40" stroke="currentColor" stroke-width="1" class="stroke-zinc-300 dark:stroke-zinc-700" />
 
-          <!-- Year markers -->
-          <template v-for="yearData in timelineYears" :key="yearData.year">
-            <line :x1="`${yearData.position}%`" y1="25" :x2="`${yearData.position}%`" y2="35" stroke="currentColor"
-              stroke-width="1" />
-            <text :x="`${yearData.position}%`" y="45" text-anchor="middle"
-              class="text-[10px] fill-gray-500 font-mono dark:fill-gray-400">
-              {{ yearData.year }}
-            </text>
-          </template>
-
-          <!-- Project markers -->
-          <template v-for="project in timelineData" :key="project.slug">
-            <!-- Project dot -->
-            <circle :cx="`${project.position}%`" cy="30" r="3" :class="[
-              'cursor-pointer transition-all duration-200 ease-in-out',
-              hoveredProject === project.slug ? 'r-[5]' : '',
-              {
-                'fill-black stroke-white stroke-1 dark:fill-white dark:stroke-gray-900':
-                  !project.type.toLowerCase().includes('visualization') &&
-                  !project.type.toLowerCase().includes('tool') &&
-                  !project.type.toLowerCase().includes('experiment'),
-                'fill-blue-500': project.type.toLowerCase().includes('visualization'),
-                'fill-green-500': project.type.toLowerCase().includes('tool'),
-                'fill-purple-500': project.type.toLowerCase().includes('experiment')
-              }
-            ]" @mouseenter="hoveredProject = project.slug" @click="scrollToProject(project.slug)" />
-
-            <!-- Project label (only visible on hover) -->
-            <g v-if="hoveredProject === project.slug">
-              <!-- Connecting line -->
-              <line :x1="`${project.position}%`" y1="18" :x2="`${project.position}%`" y2="27" stroke="currentColor"
-                stroke-width="0.5" />
-
-              <!-- Project label -->
-              <text :x="`${project.position}%`" y="15" text-anchor="middle"
-                class="text-[9px] fill-gray-700 font-mono font-bold cursor-pointer dark:fill-gray-300"
-                @click="scrollToProject(project.slug)">
-                {{ project.title }}
+            <!-- Year markers -->
+            <template v-for="yearData in timelineYears" :key="yearData.year">
+              <line :x1="`${yearData.position}%`" y1="35" :x2="`${yearData.position}%`" y2="45" 
+                class="stroke-zinc-400 dark:stroke-zinc-600" stroke-width="1" />
+              <text :x="`${yearData.position}%`" y="55" text-anchor="middle"
+                class="text-[10px] fill-zinc-500 dark:fill-zinc-400 font-mono">
+                {{ yearData.year }}
               </text>
-            </g>
-          </template>
-        </svg>
-      </div>
+            </template>
+
+            <!-- Project markers -->
+            <template v-for="project in timelineData" :key="project.slug">
+              <!-- Project dot -->
+              <circle :cx="`${project.position}%`" cy="40" :r="hoveredProject === project.slug ? '5' : '3'" :class="[
+                'cursor-pointer transition-all duration-200 ease-in-out fill-zinc-900 dark:fill-zinc-100 hover:fill-zinc-700 dark:hover:fill-zinc-300'
+              ]" @mouseenter="hoveredProject = project.slug" @click="scrollToProject(project.slug)" />
+
+              <!-- Project label (only visible on hover) -->
+              <g v-if="hoveredProject === project.slug">
+                <!-- Connecting line -->
+                <line :x1="`${project.position}%`" y1="25" :x2="`${project.position}%`" y2="35" 
+                  class="stroke-zinc-400 dark:stroke-zinc-600" stroke-width="1" />
+
+                <!-- Project label -->
+                <text :x="`${project.position}%`" y="20" text-anchor="middle"
+                  class="text-[10px] fill-zinc-700 dark:fill-zinc-300 font-mono cursor-pointer"
+                  @click="scrollToProject(project.slug)">
+                  {{ project.title }}
+                </text>
+              </g>
+            </template>
+          </svg>
+        </div>
+      </section>
 
     </div>
+
+    <!-- Project TOC for sidebar -->
+    <teleport to="#nav-toc-container" v-if="tocTarget && sortedProjectPosts.length">
+      <div class="toc">
+        <div class="px-6 py-6">
+          <h3 class="text-xs font-semibold uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400 mb-6">
+            Projects
+          </h3>
+          <ul class="space-y-1">
+            <li
+              v-for="project in sortedProjectPosts"
+              :key="project.slug"
+              class="group relative"
+            >
+              <a
+                :href="`#${project.slug}`"
+                @click.prevent="scrollToProject(project.slug)"
+                class="flex items-center justify-between py-2 pr-3 pl-8 -ml-4 text-[13px] leading-relaxed transition-all duration-200 rounded-lg group"
+                :class="[
+                  activeProject === project.slug
+                    ? 'text-zinc-800 dark:text-zinc-200 bg-zinc-100 dark:bg-zinc-800 font-medium'
+                    : 'text-zinc-500 dark:text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800/50'
+                ]"
+              >
+                <span class="truncate font-mono flex-1 mr-2">
+                  {{ project.title || project.metadata?.title }}
+                </span>
+                <span class="text-[10px] font-mono opacity-40 shrink-0">
+                  '{{ formatYear(project.metadata?.date || project.date).slice(-2) }}
+                </span>
+              </a>
+              <!-- Active indicator -->
+              <div 
+                v-if="activeProject === project.slug"
+                class="absolute left-1 top-2 bottom-2 w-[2px] bg-zinc-900 dark:bg-zinc-100 rounded-full"
+              ></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </teleport>
   </div>
 </template>
 
 <style>
-/* Styles for deep selectors that can't be easily converted to Tailwind */
+/* Refined content styles to match blog aesthetic */
 .content :deep(img) {
   display: none;
   /* Hide images in content since we're displaying them separately */
 }
 
 .content :deep(a) {
-  @apply underline;
+  @apply text-zinc-900 dark:text-zinc-100 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors underline decoration-1 underline-offset-2;
 }
 
 .content :deep(h1),
 .content :deep(h2),
 .content :deep(h3) {
-  @apply mt-5 mb-2.5 text-[1.1em] !important;
+  @apply mt-6 mb-3 text-lg font-semibold text-zinc-900 dark:text-zinc-100 !important;
 }
 
 .content :deep(p) {
-  @apply mb-4 text-[13px];
+  @apply mb-4 leading-relaxed;
+}
+
+.content :deep(ul),
+.content :deep(ol) {
+  @apply mb-4 pl-4;
+}
+
+.content :deep(li) {
+  @apply mb-2 leading-relaxed;
 }
 
 .content :deep(pre) {
-  @apply bg-gray-100 p-2.5 overflow-x-auto mb-4 text-xs dark:bg-gray-800;
+  @apply bg-zinc-100 dark:bg-zinc-800 p-4 overflow-x-auto mb-4 text-sm font-mono rounded-lg;
+}
+
+.content :deep(code) {
+  @apply bg-zinc-100 dark:bg-zinc-800 px-1.5 py-0.5 text-sm font-mono rounded;
+}
+
+.content :deep(blockquote) {
+  @apply border-l-4 border-zinc-300 dark:border-zinc-700 pl-4 my-4 italic text-zinc-600 dark:text-zinc-400;
 }
 </style>
