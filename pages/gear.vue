@@ -139,6 +139,7 @@
 
 <script setup>
 import { ref, onMounted, computed } from 'vue'
+import { useDebounceFn } from '@vueuse/core'
 import * as d3 from 'd3'
 
 const gearItems = ref([])
