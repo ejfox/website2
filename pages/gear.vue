@@ -1,33 +1,55 @@
 <template>
-  <main class="p-4 md:p-8 max-w-6xl mx-auto">
-    <!-- Header - Minimalist with key stats inline -->
-    <header class="mb-8">
-      <div class="flex items-baseline justify-between border-b border-zinc-800 pb-4 mb-6">
-        <h1 class="text-4xl md:text-5xl font-bold tracking-tight">Gear Inventory</h1>
-        <div class="text-sm text-zinc-500">
-          <a href="/gear.csv" download class="inline-flex items-center gap-1 hover:text-zinc-300 transition-colors">
-            <UIcon name="i-heroicons-arrow-down-tray" class="w-4 h-4" />
-            Download CSV
+  <main class="sans-serif max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+    <!-- Header - Swiss minimalist -->
+    <header class="mb-12 lg:mb-16">
+      <div class="flex items-baseline justify-between pb-6 mb-8 border-b border-zinc-300 dark:border-zinc-700">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">Gear Inventory</h1>
+        <div class="text-xs font-mono uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400">
+          <a href="/gear.csv" download class="inline-flex items-center gap-1.5 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors">
+            <UIcon name="i-heroicons-arrow-down-tray" class="w-3 h-3" />
+            CSV
           </a>
         </div>
       </div>
       
-      <!-- Inventory stats - more data dense -->
-      <div class="mb-8 font-mono text-xs text-zinc-600 dark:text-zinc-400 space-y-2 bg-zinc-50/50 dark:bg-zinc-900/30 p-4 rounded-lg border border-zinc-200/50 dark:border-zinc-800/50">
-        <div class="flex flex-wrap gap-x-8 gap-y-2">
-          <span class="tracking-wide">TOTAL: <span class="text-zinc-950 dark:text-zinc-50 font-semibold tabular-nums">{{ totalItems }}</span> items</span>
-          <span class="tracking-wide">WEIGHT: <span class="text-zinc-950 dark:text-zinc-50 font-semibold tabular-nums">{{ totalWeight }}</span>oz (<span class="text-zinc-950 dark:text-zinc-50 font-semibold tabular-nums">{{ ouncesToPounds }}</span>lb)</span>
-          <span class="tracking-wide">AVG_TCWM: <span class="text-zinc-950 dark:text-zinc-50 font-semibold tabular-nums">{{ avgTCWMScore }}</span></span>
-          <span class="tracking-wide">AVG_WT: <span class="text-zinc-950 dark:text-zinc-50 font-semibold tabular-nums">{{ avgWeight }}</span>oz</span>
-          <span class="tracking-wide">CONTAINERS: <span class="text-zinc-950 dark:text-zinc-50 font-semibold tabular-nums">{{ containerCount }}</span></span>
+      <!-- Summary statistics - minimal data presentation -->
+      <div class="mb-8 lg:mb-12">
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-6 lg:gap-8 mb-6">
+          <div class="space-y-1">
+            <div class="text-xs font-mono uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400">Total</div>
+            <div class="text-lg font-semibold tabular-nums text-zinc-900 dark:text-zinc-100">{{ totalItems }}</div>
+            <div class="text-xs text-zinc-500 dark:text-zinc-400">items</div>
+          </div>
+          <div class="space-y-1">
+            <div class="text-xs font-mono uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400">Weight</div>
+            <div class="text-lg font-semibold tabular-nums text-zinc-900 dark:text-zinc-100">{{ ouncesToPounds }}</div>
+            <div class="text-xs text-zinc-500 dark:text-zinc-400">pounds</div>
+          </div>
+          <div class="space-y-1">
+            <div class="text-xs font-mono uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400">Avg TCWM</div>
+            <div class="text-lg font-semibold tabular-nums text-zinc-900 dark:text-zinc-100">{{ avgTCWMScore }}</div>
+            <div class="text-xs text-zinc-500 dark:text-zinc-400">score</div>
+          </div>
+          <div class="space-y-1">
+            <div class="text-xs font-mono uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400">Avg Wt</div>
+            <div class="text-lg font-semibold tabular-nums text-zinc-900 dark:text-zinc-100">{{ avgWeight }}</div>
+            <div class="text-xs text-zinc-500 dark:text-zinc-400">oz</div>
+          </div>
+          <div class="space-y-1">
+            <div class="text-xs font-mono uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400">Containers</div>
+            <div class="text-lg font-semibold tabular-nums text-zinc-900 dark:text-zinc-100">{{ containerCount }}</div>
+            <div class="text-xs text-zinc-500 dark:text-zinc-400">total</div>
+          </div>
         </div>
-        <div class="flex gap-6 text-[10px] pt-1 border-t border-zinc-200/50 dark:border-zinc-800/50">
-          <span class="tracking-wider text-zinc-500 dark:text-zinc-500">TCWM_BREAKDOWN:</span>
-          <span class="text-zinc-700 dark:text-zinc-300 font-semibold tabular-nums">T={{ avgScores.T.toFixed(1) }}</span>
-          <span class="text-zinc-700 dark:text-zinc-300 font-semibold tabular-nums">C={{ avgScores.C.toFixed(1) }}</span>
-          <span class="text-zinc-700 dark:text-zinc-300 font-semibold tabular-nums">W={{ avgScores.W.toFixed(1) }}</span>
-          <span class="text-zinc-700 dark:text-zinc-300 font-semibold tabular-nums">M={{ avgScores.M.toFixed(1) }}</span>
-          <span class="ml-auto text-zinc-400 dark:text-zinc-600 tracking-wider">LAST_UPDATE: {{ currentDate }}</span>
+        
+        <!-- TCWM breakdown - subtle detail -->
+        <div class="flex flex-wrap gap-4 text-xs font-mono text-zinc-500 dark:text-zinc-400 pt-4 border-t border-zinc-200/50 dark:border-zinc-700/50">
+          <span class="uppercase tracking-[0.1em]">TCWM:</span>
+          <span class="tabular-nums">T={{ avgScores.T.toFixed(1) }}</span>
+          <span class="tabular-nums">C={{ avgScores.C.toFixed(1) }}</span>
+          <span class="tabular-nums">W={{ avgScores.W.toFixed(1) }}</span>
+          <span class="tabular-nums">M={{ avgScores.M.toFixed(1) }}</span>
+          <span class="ml-auto uppercase tracking-[0.1em]">{{ currentDate }}</span>
         </div>
       </div>
       
@@ -84,47 +106,45 @@
       </div>
     </header>
 
-    <!-- Container Quick Jump -->
-    <div class="mb-8">
-      <div class="flex flex-wrap gap-2">
+    <!-- Container navigation - minimal list -->
+    <div class="mb-12">
+      <h2 class="text-xs font-mono uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400 mb-4">Containers</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
         <a v-for="[container, items] in groupedGear" :key="container"
            :href="`#${container.toLowerCase().replace(/\s+/g, '-')}`"
-           class="px-3 py-1.5 text-xs rounded-full bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors">
-          <div class="flex items-center gap-1.5">
-            <UIcon :name="containerIcons[container] || typeIcons[getContainerType(items)]" class="w-3 h-3" />
-            <span>{{ container }}</span>
-            <span class="text-zinc-500">{{ items.length }}</span>
-          </div>
+           class="group flex items-center justify-between py-2 px-3 text-sm hover:bg-zinc-50 dark:hover:bg-zinc-900/50 transition-colors border-b border-zinc-200/30 dark:border-zinc-700/30">
+          <span class="font-medium text-zinc-900 dark:text-zinc-100">{{ container }}</span>
+          <span class="text-xs font-mono tabular-nums text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-700 dark:group-hover:text-zinc-300">{{ items.length }}</span>
         </a>
       </div>
     </div>
 
-    <!-- Gear list by container - minimal design -->
+    <!-- Gear inventory by container -->
     <div class="space-y-10">
       <section v-for="[container, items] in groupedGear" :key="container"
               :id="container.toLowerCase().replace(/\s+/g, '-')"
               class="scroll-mt-4">
-        <!-- Container header - minimal underline -->
-        <div class="flex items-baseline justify-between pb-3 mb-6 border-b border-zinc-300 dark:border-zinc-700">
-          <h2 class="text-xl font-bold text-zinc-950 dark:text-zinc-50 tracking-tight">{{ container }}</h2>
-          <div class="text-sm text-zinc-600 dark:text-zinc-400 font-mono">
-            <span class="font-semibold tabular-nums">{{ calculateTotalWeight(items) }}oz</span>
-            <span class="opacity-60 ml-2 text-xs tracking-wider">({{ items.length }} items)</span>
+        <!-- Container header -->
+        <div class="flex items-baseline justify-between pb-4 mb-8 border-b border-zinc-300 dark:border-zinc-700">
+          <h2 class="text-lg font-semibold text-zinc-900 dark:text-zinc-100 tracking-tight">{{ container }}</h2>
+          <div class="text-xs font-mono text-zinc-500 dark:text-zinc-400 space-x-4">
+            <span class="tabular-nums">{{ calculateTotalWeight(items) }}oz</span>
+            <span class="uppercase tracking-[0.1em]">{{ items.length }} items</span>
           </div>
         </div>
 
         <!-- Container items - inventory table format -->
         <div class="relative">
-          <!-- Table header - sticky -->
-          <div class="sticky top-0 z-30 grid grid-cols-12 gap-3 py-3 px-2 text-[10px] font-mono font-semibold text-zinc-800 dark:text-zinc-200 border-b-2 border-zinc-300 dark:border-zinc-700 tracking-wider">
-            <div class="col-span-1 text-right cursor-help" title="Weight in ounces — every gram matters">WT</div>
-            <div class="col-span-1 text-center cursor-help" title="Time Criticality + Consequence + Weight/Space + Multi-Use score — higher is more essential">TCWM</div>
-            <div class="col-span-4 cursor-help" title="What it is — the gear that gets you there">ITEM</div>
-            <div class="col-span-1 text-center cursor-help" title="Category — how it fits into the system">TYPE</div>
-            <div class="col-span-2 text-center cursor-help" title="Individual TCWM component scores — the breakdown">T C W M</div>
-            <div class="col-span-1 text-center cursor-help" title="Waterproof rating — protection from the elements">H₂O</div>
-            <div class="col-span-1 text-center cursor-help" title="Purchase link — gear that's worth owning">BUY</div>
-            <div class="col-span-1 text-center cursor-help" title="Priority tier — T1 is mission-critical, T3 is nice-to-have">TIER</div>
+          <!-- Table header -->
+          <div class="grid grid-cols-12 gap-3 py-3 px-2 text-xs font-mono uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400 border-b border-zinc-200/50 dark:border-zinc-700/50 mb-4">
+            <div class="col-span-1 text-right">Wt</div>
+            <div class="col-span-1 text-center">Score</div>
+            <div class="col-span-4">Item</div>
+            <div class="col-span-1 text-center">Type</div>
+            <div class="col-span-2 text-center">T·C·W·M</div>
+            <div class="col-span-1 text-center">H₂O</div>
+            <div class="col-span-1 text-center">Buy</div>
+            <div class="col-span-1 text-center">Tier</div>
           </div>
           
           <!-- Items -->
