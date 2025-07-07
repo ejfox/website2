@@ -14,7 +14,7 @@
       
       <!-- Summary statistics - minimal data presentation -->
       <div class="mb-8 lg:mb-12">
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-6 lg:gap-8 mb-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 mb-6">
           <div class="space-y-1">
             <div class="text-xs font-mono uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400">Total</div>
             <div class="text-lg font-semibold tabular-nums text-zinc-900 dark:text-zinc-100">{{ totalItems }}</div>
@@ -24,11 +24,6 @@
             <div class="text-xs font-mono uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400">Weight</div>
             <div class="text-lg font-semibold tabular-nums text-zinc-900 dark:text-zinc-100">{{ ouncesToPounds }}</div>
             <div class="text-xs text-zinc-500 dark:text-zinc-400">pounds</div>
-          </div>
-          <div class="space-y-1">
-            <div class="text-xs font-mono uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400">Avg TCWM</div>
-            <div class="text-lg font-semibold tabular-nums text-zinc-900 dark:text-zinc-100">{{ avgTCWMScore }}</div>
-            <div class="text-xs text-zinc-500 dark:text-zinc-400">score</div>
           </div>
           <div class="space-y-1">
             <div class="text-xs font-mono uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400">Avg Wt</div>
@@ -42,14 +37,9 @@
           </div>
         </div>
         
-        <!-- TCWM breakdown - subtle detail -->
-        <div class="flex flex-wrap gap-4 text-xs font-mono text-zinc-500 dark:text-zinc-400 pt-4 border-t border-zinc-200/50 dark:border-zinc-700/50">
-          <span class="uppercase tracking-[0.1em]">TCWM:</span>
-          <span class="tabular-nums">T={{ avgScores.T.toFixed(1) }}</span>
-          <span class="tabular-nums">C={{ avgScores.C.toFixed(1) }}</span>
-          <span class="tabular-nums">W={{ avgScores.W.toFixed(1) }}</span>
-          <span class="tabular-nums">M={{ avgScores.M.toFixed(1) }}</span>
-          <span class="ml-auto uppercase tracking-[0.1em]">{{ currentDate }}</span>
+        <!-- Minimal metadata -->
+        <div class="flex justify-end text-xs font-mono text-zinc-500 dark:text-zinc-400 pt-4 border-t border-zinc-200/50 dark:border-zinc-700/50">
+          <span class="uppercase tracking-[0.1em]">{{ currentDate }}</span>
         </div>
       </div>
       
@@ -96,14 +86,6 @@
         </div>
       </div>
       
-      <!-- TCWM legend - minimal, monochrome -->
-      <div class="flex items-center gap-3 text-xs py-3 text-zinc-500 dark:text-zinc-500 font-mono tracking-wide">
-        <div class="flex items-center gap-1 mr-4 text-zinc-700 dark:text-zinc-300 font-medium">TCWM:</div>
-        <div class="flex items-center gap-1 mr-4"><span class="text-zinc-800 dark:text-zinc-200 font-semibold">T</span>ime Criticality</div>
-        <div class="flex items-center gap-1 mr-4"><span class="text-zinc-800 dark:text-zinc-200 font-semibold">C</span>onsequence</div>
-        <div class="flex items-center gap-1 mr-4"><span class="text-zinc-800 dark:text-zinc-200 font-semibold">W</span>eight/Space</div>
-        <div class="flex items-center gap-1"><span class="text-zinc-800 dark:text-zinc-200 font-semibold">M</span>ulti-Use</div>
-      </div>
     </header>
 
     <!-- Container navigation - minimal list -->
@@ -138,10 +120,8 @@
           <!-- Table header -->
           <div class="grid grid-cols-12 gap-3 py-3 px-2 text-xs font-mono uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400 border-b border-zinc-200/50 dark:border-zinc-700/50 mb-4">
             <div class="col-span-1 text-right">Wt</div>
-            <div class="col-span-1 text-center">Score</div>
-            <div class="col-span-4">Item</div>
-            <div class="col-span-1 text-center">Type</div>
-            <div class="col-span-2 text-center">T·C·W·M</div>
+            <div class="col-span-6">Item</div>
+            <div class="col-span-2 text-center">Type</div>
             <div class="col-span-1 text-center">H₂O</div>
             <div class="col-span-1 text-center">Buy</div>
             <div class="col-span-1 text-center">Tier</div>
