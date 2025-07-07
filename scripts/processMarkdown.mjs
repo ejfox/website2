@@ -13,7 +13,7 @@ import rehypeStringify from 'rehype-stringify'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import remarkGfm from 'remark-gfm'
-import remarkUnwrapImages from 'remark-unwrap-images'
+// import remarkUnwrapImages from 'remark-unwrap-images' // Temporarily disabled - deprecated package
 import rehypeMermaid from 'rehype-mermaid'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeRaw from 'rehype-raw'
@@ -89,8 +89,8 @@ const SOURCE_DIR =
 // =============================
 // Set Up Shiki Highlighter
 // =============================
-const highlighter = await shiki.getHighlighter({
-  theme: 'github-dark',
+const highlighter = await shiki.createHighlighter({
+  themes: ['github-dark'],
   langs: ['javascript', 'typescript', 'json', 'html', 'css', 'markdown']
 })
 
@@ -229,7 +229,7 @@ const processor = unified()
   // 2. All remark plugins (operating on markdown AST)
   .use(remarkObsidianSupport)
   .use(remarkGfm)
-  .use(remarkUnwrapImages)
+  // .use(remarkUnwrapImages) // Temporarily disabled - deprecated package
   .use(remarkEnhanceImages)
   .use(remarkEnhanceLinks)
   .use(remarkAi2htmlEmbed)

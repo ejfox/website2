@@ -1,0 +1,18 @@
+{
+  "content": "<ul class=\"prose-sm list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-sm max-w-prose\">Publishing Nuxt apps via smallweb (how to build + cp properly)</li>\n<li class=\"prose-sm max-w-prose\"></li>\n</ul>",
+  "html": "<ul class=\"prose-sm list-disc list-outside ml-6 mb-4 space-y-2 max-w-prose\">\n<li class=\"prose-sm max-w-prose\">Publishing Nuxt apps via smallweb (how to build + cp properly)</li>\n<li class=\"prose-sm max-w-prose\"></li>\n</ul>",
+  "title": "Smallweb",
+  "metadata": {
+    "date": "2025-07-02T01:14:47.000Z",
+    "modified": "2025-07-02T14:38:12.000Z",
+    "words": 14,
+    "images": 0,
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/drafts/smallweb.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}
