@@ -24,13 +24,18 @@ interface Gist {
 // Fetch GitHub stats for the top section
 const { stats: rawStats, isLoading: statsLoading } = useStats()
 const stats = computed(() => rawStats.value || {})
-const hasGithubData = computed(() => !!(stats.value?.github?.stats))
+const hasGithubData = computed(() => !!stats.value?.github?.stats)
 
 const currentPage = ref(1)
 const perPage = 64
 
-const { data: gists, pending, error, refresh } = await useFetch<Gist[]>(() =>
-  `/api/gists?per_page=${perPage}&page=${currentPage.value}`
+const {
+  data: gists,
+  pending,
+  error,
+  refresh
+} = await useFetch<Gist[]>(
+  () => `/api/gists?per_page=${perPage}&page=${currentPage.value}`
 )
 
 const formatDate = (dateString: string) => {
@@ -56,12 +61,21 @@ const prevPage = () => {
 const totalGists = computed(() => gists.value?.length || 0)
 const totalFiles = computed(() => {
   if (!gists.value) return 0
-  return gists.value.reduce((sum, gist) => sum + Object.keys(gist.files).length, 0)
+  return gists.value.reduce(
+    (sum, gist) => sum + Object.keys(gist.files).length,
+    0
+  )
 })
 const totalSize = computed(() => {
   if (!gists.value) return 0
   return gists.value.reduce((sum, gist) => {
-    return sum + Object.values(gist.files).reduce((fileSum, file) => fileSum + (file.size || 0), 0)
+    return (
+      sum +
+      Object.values(gist.files).reduce(
+        (fileSum, file) => fileSum + (file.size || 0),
+        0
+      )
+    )
   }, 0)
 })
 
@@ -70,8 +84,8 @@ const languageCounts = computed(() => {
 
   const counts: Record<string, number> = {}
 
-  gists.value.forEach(gist => {
-    Object.values(gist.files).forEach(file => {
+  gists.value.forEach((gist) => {
+    Object.values(gist.files).forEach((file) => {
       if (file.language) {
         counts[file.language] = (counts[file.language] || 0) + 1
       }
@@ -84,7 +98,9 @@ const languageCounts = computed(() => {
 })
 
 const languageCountsFormatted = computed(() => {
-  return languageCounts.value.map(([lang, count]) => `${lang}(${count})`).join(', ')
+  return languageCounts.value
+    .map(([lang, count]) => `${lang}(${count})`)
+    .join(', ')
 })
 
 // Expand/collapse state for gists
@@ -105,9 +121,22 @@ const highlightCode = async (code: string, language: string) => {
       const { createHighlighter } = await import('shiki')
       const highlighter = await createHighlighter({
         themes: ['github-dark', 'github-light'],
-        langs: ['javascript', 'typescript', 'json', 'html', 'css', 'markdown', 'bash', 'python', 'go', 'rust', 'java', 'cpp']
+        langs: [
+          'javascript',
+          'typescript',
+          'json',
+          'html',
+          'css',
+          'markdown',
+          'bash',
+          'python',
+          'go',
+          'rust',
+          'java',
+          'cpp'
+        ]
       })
-      
+
       return highlighter.codeToHtml(code, {
         lang: language.toLowerCase() || 'text',
         theme: 'github-dark'
@@ -128,21 +157,25 @@ const getPreviewLines = (content: string) => {
 
 <template>
   <div class="py-8 px-4 font-mono text-sm">
-    
     <!-- Header -->
-    <div class="mb-8 border-b border-zinc-800 pb-4">
-      <h1 class="text-2xl uppercase tracking-wide mb-2">GitHub Gists</h1>
+    <div class="mb-8 border-b border-muted pb-4">
+      <h1 class="text-2xl uppercase tracking-wide mb-2">
+        GitHub Gists
+      </h1>
 
       <!-- Minimal stats -->
-      <div class="grid grid-cols-1 gap-1 text-xs text-zinc-500">
-        <div>GISTS: {{ totalGists }} | FILES: {{ totalFiles }} | SIZE: {{ Math.round(totalSize / 1024) }}KB</div>
+      <div class="grid grid-cols-1 gap-1 text-xs text-muted">
+        <div>
+          GISTS: {{ totalGists }} | FILES: {{ totalFiles }} | SIZE:
+          {{ Math.round(totalSize / 1024) }}KB
+        </div>
         <div>LANGUAGES: {{ languageCountsFormatted }}</div>
       </div>
     </div>
 
     <!-- Loading state -->
     <div v-if="pending" class="space-y-3">
-      <div v-for="i in 8" :key="i" class="border-t border-zinc-800/30 py-3">
+      <div v-for="i in 8" :key="i" class="border-t border-subtle py-3">
         <div class="flex items-baseline gap-2">
           <div class="skeleton w-6 h-4"></div>
           <div class="skeleton w-64 h-4"></div>
@@ -161,21 +194,36 @@ const getPreviewLines = (content: string) => {
 
     <!-- Gist list -->
     <div v-else-if="gists" class="space-y-0">
-      <div v-for="(gist, index) in gists" :key="gist.id" class="border-t border-zinc-800/30 py-3">
+      <div
+        v-for="(gist, index) in gists"
+        :key="gist.id"
+        class="border-t border-subtle py-3"
+      >
         <div class="flex items-baseline gap-2">
-          <span class="text-zinc-500 w-6 text-right">{{ index + 1 + (currentPage - 1) * perPage }}.</span>
-          <a :href="gist.html_url" target="_blank" rel="noopener" class="hover:underline hover:text-zinc-300 truncate">
+          <span class="text-muted w-6 text-right">{{ index + 1 + (currentPage - 1) * perPage }}.</span>
+          <a
+            :href="gist.html_url"
+            target="_blank"
+            rel="noopener"
+            class="hover:underline hover:text-zinc-300 truncate"
+          >
             {{ Object.values(gist.files)[0]?.filename || 'Untitled' }}
           </a>
-          <span class="text-zinc-500 ml-auto">{{ formatDate(gist.created_at) }}</span>
+          <span class="text-muted ml-auto">{{
+            formatDate(gist.created_at)
+          }}</span>
         </div>
 
-        <div v-if="gist.description" class="pl-8 text-zinc-400 text-xs mt-1">
+        <div v-if="gist.description" class="pl-8 text-secondary text-xs mt-1">
           {{ gist.description }}
         </div>
 
-        <div class="pl-8 text-zinc-500 text-xs mt-1 grid grid-cols-1 gap-1">
-          <div v-for="(file, filename) in gist.files" :key="filename" class="flex items-center gap-2">
+        <div class="pl-8 text-muted text-xs mt-1 grid grid-cols-1 gap-1">
+          <div
+            v-for="(file, filename) in gist.files"
+            :key="filename"
+            class="flex items-center gap-2"
+          >
             <span class="opacity-70">-</span>
             <span class="truncate">{{ filename }}</span>
             <span class="opacity-70">[{{ file.language || 'txt' }}]</span>
@@ -184,9 +232,12 @@ const getPreviewLines = (content: string) => {
         </div>
 
         <!-- Single file gist preview -->
-        <div v-if="gist.content && Object.keys(gist.files).length === 1" class="pl-8 mt-3">
-          <GistPreview 
-            :gist="gist" 
+        <div
+          v-if="gist.content && Object.keys(gist.files).length === 1"
+          class="pl-8 mt-3"
+        >
+          <GistPreview
+            :gist="gist"
             :file="Object.values(gist.files)[0]"
             :expanded="expandedGists.has(gist.id)"
             @toggle="toggleGist(gist.id)"
@@ -195,13 +246,20 @@ const getPreviewLines = (content: string) => {
       </div>
 
       <!-- Pagination -->
-      <div class="flex justify-between items-center pt-4 border-t border-zinc-800 mt-6 text-xs">
-        <button @click="prevPage" :disabled="currentPage === 1" class="disabled:opacity-30 disabled:cursor-not-allowed">
+      <div class="flex-between pt-4 border-t border-muted mt-6 text-xs">
+        <button
+          :disabled="currentPage === 1"
+          class="disabled:opacity-30 disabled:cursor-not-allowed"
+          @click="prevPage"
+        >
           &lt;&lt; PREV
         </button>
-        <span class="text-zinc-500">PAGE {{ currentPage }}</span>
-        <button @click="nextPage" :disabled="!gists?.length || gists.length < perPage"
-          class="disabled:opacity-30 disabled:cursor-not-allowed">
+        <span class="text-muted">PAGE {{ currentPage }}</span>
+        <button
+          :disabled="!gists?.length || gists.length < perPage"
+          class="disabled:opacity-30 disabled:cursor-not-allowed"
+          @click="nextPage"
+        >
           NEXT &gt;&gt;
         </button>
       </div>

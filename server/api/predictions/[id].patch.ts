@@ -1,6 +1,7 @@
 import type { Prediction, UpdatePredictionInput } from '~/types/prediction'
 import { readFile, writeFile } from 'fs/promises'
 import { join } from 'path'
+import { getRouterParam } from 'h3'
 
 const PREDICTIONS_FILE = join(process.cwd(), 'data/predictions.json')
 

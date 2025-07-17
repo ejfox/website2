@@ -4,7 +4,9 @@
     <header class="sticky top-0 z-50 backdrop-blur-sm border-b">
       <div class="container mx-auto px-3 py-2">
         <div class="flex items-baseline gap-3 font-mono">
-          <h1 class="text-sm font-medium">Scrapbook</h1>
+          <h1 class="text-sm font-medium">
+            Scrapbook
+          </h1>
           <span class="text-xs opacity-60">{{ totalScraps }} items</span>
         </div>
       </div>
@@ -29,11 +31,15 @@
       <!-- Scrap Groups -->
       <div v-else class="space-y-8">
         <section v-for="(group, date) in groupedScraps" :key="date">
-          <h3 class="font-mono text-xs opacity-60 mb-3">{{ formatGroupDate(date) }}</h3>
+          <h3 class="font-mono text-xs opacity-60 mb-3">
+            {{ formatGroupDate(date) }}
+          </h3>
 
           <div class="grid gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-            <ScrapItem v-for="scrap in group" :key="scrap.id" :scrap="scrap" ref="scrapElements"
-              @click="handleScrapClick(scrap)" />
+            <ScrapItem
+              v-for="scrap in group" :key="scrap.id" ref="scrapElements" :scrap="scrap"
+              @click="handleScrapClick(scrap)"
+            />
           </div>
         </section>
 
@@ -52,8 +58,10 @@
 
     <!-- Image Viewer Modal -->
     <UModal v-model="showImageViewer" :ui="{ width: 'max-w-5xl' }">
-      <img v-if="selectedImage" :src="selectedImage" :alt="selectedScrap?.title || 'Scrap image'"
-        class="w-full h-auto rounded" />
+      <img
+        v-if="selectedImage" :src="selectedImage" :alt="selectedScrap?.title || 'Scrap image'"
+        class="w-full h-auto rounded"
+      />
     </UModal>
   </div>
 </template>

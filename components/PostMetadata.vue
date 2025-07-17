@@ -99,7 +99,7 @@ import { format } from 'd3-format'
 import { timeFormat } from 'd3-time-format'
 import { formatDistanceToNow } from 'date-fns'
 import { useScrollAnimation } from '~/composables/useScrollAnimation'
-import { nextTick, ref, computed, watchEffect } from 'vue'
+import { nextTick, ref, computed } from 'vue'
 
 interface PostMetadata {
   title?: string
@@ -148,7 +148,7 @@ const imageCountRef = ref<HTMLElement | null>(null)
 const linkCountRef = ref<HTMLElement | null>(null)
 const folderRef = ref<HTMLElement | null>(null)
 
-const formatNumber = format(',d')
+const _formatNumber = format(',d')
 const formatBlogDate = timeFormat('%b %d %Y')
 const formatCompactDate = timeFormat('%b %d')
 
@@ -220,8 +220,7 @@ const animateItems = async () => {
     readingTimeRef.value, // Reading time - secondary metadata
     wordCountRef.value, // Word count
     imageCountRef.value, // Image count
-    linkCountRef.value, // Link count
-    pageViewsRef.value // Page views - engagement metric
+    linkCountRef.value // Link count
   ].filter(Boolean)
 
   if (!items.length) return

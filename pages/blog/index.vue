@@ -20,6 +20,7 @@ import PostMetadata from '~/components/PostMetadata.vue'
 const processedMarkdown = useProcessedMarkdown()
 const now = new Date()
 
+
 const { data: posts } = useAsyncData('blog-posts', async () => {
   try {
     // Get all regular posts (no drafts, no week notes)
@@ -229,34 +230,23 @@ const isLoading = ref(true)
 onMounted(() => {
   isLoading.value = false
 
+  // Simple fade-in for all content
   if (blogPostElements.value?.length) {
     animate(blogPostElements.value, {
       opacity: [0, 1],
-      translateY: [20, 0],
-      duration: animDuration,
-      ease: 'easeOutQuad',
-      delay: stagger(animStagger)
+      translateY: [10, 0],
+      duration: 600,
+      easing: 'easeOutQuad',
+      delay: (el, i) => i * 50
     })
-
-    animate(
-      blogPostElements.value.map((el) => el?.querySelector('.post-metadata')),
-      {
-        opacity: [0, 1],
-        translateX: [-8, 0],
-        duration: animDuration * 2,
-        ease: 'easeOutQuad',
-        delay: animDuration * 0.82
-      }
-    )
   }
 
   if (weekNoteElements.value?.length) {
     animate(weekNoteElements.value, {
       opacity: [0, 1],
-      translateX: [20, 0],
-      duration: animDuration,
-      ease: 'easeInOutQuad',
-      delay: stagger(animStagger, { start: 600 })
+      duration: 600,
+      easing: 'easeOutQuad',
+      delay: (el, i) => 300 + (i * 50)
     })
   }
 })
@@ -321,218 +311,173 @@ function createPostMetadata(post) {
 </script>
 
 <template>
-  <div v-if="isLoading" class="container mx-auto px-4 py-12 text-center">
-    <p class="text-lg">Loading...</p>
-  </div>
+  <SwissGrid v-if="isLoading">
+    <div class="animate-pulse">
+      <div class="h-8 bg-zinc-200 dark:bg-zinc-800 rounded w-3/4 mb-4"></div>
+      <div class="space-y-3">
+        <div class="h-4 bg-zinc-200 dark:bg-zinc-800 rounded w-full"></div>
+        <div class="h-4 bg-zinc-200 dark:bg-zinc-800 rounded w-5/6"></div>
+      </div>
+    </div>
+  </SwissGrid>
 
-  <div v-else class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+  <SwissGrid v-else>
     <!-- Header -->
-    <header class="mb-8 sm:mb-12 lg:mb-16">
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 mb-3 sm:mb-4">Blog</h1>
-      <p class="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl">Thoughts, projects, and explorations in technology, design, and making.</p>
+    <header class="mb-20">
+      <h1 class="text-display mb-8">
+        Blog
+      </h1>
+      <p class="text-body">
+        Thoughts, projects, and explorations in technology, design, and making.
+      </p>
     </header>
 
-    <div class="space-y-12 lg:space-y-0 lg:grid lg:grid-cols-12 lg:gap-12">
+    <div>
       <!-- Main Blog Posts section -->
-      <section class="lg:col-span-8">
+      <section>
+        <div v-if="!sortedYears.length" class="text-center py-16">
+          <p class="text-zinc-600 dark:text-zinc-400">
+            No blog posts found.
+          </p>
+        </div>
 
-      <div v-if="!sortedYears.length" class="text-center py-16">
-        <p class="text-zinc-600 dark:text-zinc-400">
-          No blog posts found.
-        </p>
-      </div>
-
-      <!-- Yearly blog posts with refined grid -->
-      <div v-for="year in sortedYears" :key="`blog-${year}`" class="mb-12 lg:mb-16">
-        <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6 mb-6 sm:mb-8 border-b border-zinc-200 dark:border-zinc-800 pb-3 sm:pb-4">
-          <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-zinc-900 dark:text-zinc-100 tabular-nums tracking-tight">
+        <!-- Yearly blog posts with Swiss design -->
+        <div v-for="year in sortedYears" :key="`blog-${year}`" class="mb-24">
+          <h2 class="text-xs font-normal uppercase tracking-[0.15em] text-zinc-500 dark:text-zinc-500 mb-8" style="font-family: 'Signika Negative', sans-serif;">
             {{ year }}
           </h2>
-          <div class="text-xs uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400 font-medium">
-            {{ blogPostsByYear[year].length }} {{ blogPostsByYear[year].length === 1 ? 'Post' : 'Posts' }}
+        
+          <div class="space-y-12">
+            <article
+              v-for="post in blogPostsByYear[year]"
+              :key="post?.slug"
+              ref="blogPostElements"
+              class="group grid grid-cols-12 gap-4"
+            >
+              <!-- Date column -->
+              <div class="col-span-3 md:col-span-2">
+                <time class="text-sm text-zinc-500 dark:text-zinc-500">
+                  {{ format(new Date(post?.date || post?.metadata?.date), 'MMM dd') }}
+                </time>
+              </div>
+
+              <!-- Content column -->
+              <div class="col-span-9 md:col-span-10">
+                <h3 class="mb-2">
+                  <NuxtLink
+                    :to="`/blog/${post?.slug}`"
+                    class="text-lg text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors"
+                  >
+                    {{ post?.title || formatTitle(post?.slug) }}
+                  </NuxtLink>
+                </h3>
+              
+                <p
+                  v-if="post?.metadata?.dek || post?.dek"
+                  class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed"
+                >
+                  {{ post?.metadata?.dek || post?.dek }}
+                </p>
+              
+                <PostMetadata
+                  v-if="post"
+                  :doc="createPostMetadata(post)"
+                  :compact="true"
+                  class="post-metadata mt-2"
+                />
+              </div>
+            </article>
           </div>
         </div>
-        
-        <div class="space-y-6 sm:space-y-8">
-          <article
-            v-for="post in blogPostsByYear[year]"
-            :key="post?.slug"
-            ref="blogPostElements"
-            class="group"
-          >
-            <!-- Date and metadata -->
-            <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-3">
-              <time class="text-xs tabular-nums text-zinc-500 dark:text-zinc-400 font-mono">
-                {{ format(new Date(post?.date || post?.metadata?.date), 'MMM dd') }}
-              </time>
-              <div class="hidden sm:block w-px h-3 bg-zinc-300 dark:bg-zinc-700"></div>
-              <PostMetadata
-                v-if="post"
-                :doc="createPostMetadata(post)"
-                :compact="true"
-                class="post-metadata transition-opacity"
-              />
-            </div>
+      </section>
 
-            <!-- Title and description -->
-            <div class="space-y-2 sm:space-y-3">
-              <h3>
-                <NuxtLink
-                  :to="`/blog/${post?.slug}`"
-                  class="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors group-hover:underline decoration-1 underline-offset-2 leading-tight"
-                >
-                  {{ post?.title || formatTitle(post?.slug) }}
-                </NuxtLink>
-              </h3>
-              
-              <p
-                v-if="post?.metadata?.dek || post?.dek"
-                class="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed"
-              >
-                {{ post?.metadata?.dek || post?.dek }}
+      <!-- Sidebar sections -->
+      <aside class="mt-24 pt-12 border-t border-zinc-200 dark:border-zinc-800">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+          <!-- Week Notes -->
+          <section>
+            <h2 class="text-xs font-normal uppercase tracking-[0.15em] text-zinc-500 dark:text-zinc-500 mb-8">
+              Week Notes
+            </h2>
+
+            <div v-if="!sortedWeekNotes.length" class="text-center py-8">
+              <p class="text-sm text-zinc-600 dark:text-zinc-400">
+                No week notes found.
               </p>
             </div>
-          </article>
-        </div>
-      </div>
-    </section>
 
-      <!-- Sidebar -->
-      <aside class="lg:col-span-4 space-y-8 lg:space-y-16">
-        <!-- Week Notes -->
-        <section>
-          <h2 class="text-xs uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400 font-semibold mb-4 sm:mb-6">Week Notes</h2>
+            <template v-else>
+              <div class="space-y-6">
+                <article
+                  v-for="weekNote in sortedWeekNotes"
+                  :key="weekNote.slug"
+                  ref="weekNoteElements"
+                >
+                  <NuxtLink
+                    :to="`/blog/${weekNote.slug}`"
+                    class="block group"
+                  >
+                    <div class="mb-1">
+                      <span class="text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-400 transition-colors">
+                        Week {{ weekNote.slug.split('/')[1] }}
+                      </span>
+                    </div>
 
-          <div v-if="!sortedWeekNotes.length" class="text-center py-8">
-            <p class="text-sm text-zinc-600 dark:text-zinc-400">
-              No week notes found.
-            </p>
-          </div>
+                    <p class="text-sm text-zinc-500 dark:text-zinc-500 leading-relaxed">
+                      {{ weekNote.metadata?.dek || weekNote.dek }}
+                    </p>
+                  </NuxtLink>
+                </article>
+              </div>
 
-          <template v-else>
-            <div class="space-y-3 sm:space-y-4">
+              <div class="mt-8">
+                <NuxtLink
+                  to="/blog/week-notes"
+                  class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+                >
+                  View all →
+                </NuxtLink>
+              </div>
+            </template>
+          </section>
+          <!-- Recently Updated -->
+          <section v-if="recentlyUpdatedPosts.length">
+            <h2 class="text-xs font-normal uppercase tracking-[0.15em] text-zinc-500 dark:text-zinc-500 mb-8">
+              Recently Updated
+            </h2>
+            <div class="space-y-6">
               <article
-                v-for="weekNote in sortedWeekNotes"
-                :key="weekNote.slug"
-                ref="weekNoteElements"
-                class="group"
+                v-for="post in recentlyUpdatedPosts"
+                :key="`recent-${post.slug}`"
               >
                 <NuxtLink
-                  :to="`/blog/${weekNote.slug}`"
-                  class="block space-y-2 p-3 sm:p-4 -mx-3 sm:-mx-4 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors"
+                  :to="`/blog/${post.slug}`"
+                  class="block group"
                 >
-                  <div class="flex items-center gap-2">
-                    <span class="text-xs tabular-nums font-mono text-zinc-900 dark:text-zinc-100 font-medium">
-                      {{ weekNote.slug.split('/')[1] }}
-                    </span>
-                    <div class="flex-1 h-px bg-zinc-200 dark:bg-zinc-800"></div>
-                  </div>
-
-                  <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                    {{ weekNote.metadata?.dek || weekNote.dek }}
-                  </p>
-                </NuxtLink>
-              </article>
-            </div>
-
-            <div class="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-zinc-200 dark:border-zinc-800">
-              <NuxtLink
-                to="/blog/week-notes"
-                class="inline-flex items-center gap-2 text-xs text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-medium"
-              >
-                <span>View all week notes</span>
-                <Icon name="heroicons:arrow-right" class="w-3 h-3" />
-              </NuxtLink>
-            </div>
-          </template>
-        </section>
-        <!-- Recently Updated -->
-        <section v-if="recentlyUpdatedPosts.length">
-          <h2 class="text-xs uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400 font-semibold mb-4 sm:mb-6">
-            Recently Updated
-          </h2>
-          <div class="space-y-3 sm:space-y-4">
-            <article
-              v-for="post in recentlyUpdatedPosts"
-              :key="`recent-${post.slug}`"
-              class="group"
-            >
-              <NuxtLink
-                :to="`/blog/${post.slug}`"
-                class="block space-y-2 p-3 sm:p-4 -mx-3 sm:-mx-4 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors"
-              >
-                <h3 class="text-sm font-medium text-zinc-900 dark:text-zinc-100 group-hover:underline decoration-1 underline-offset-2 leading-tight">
-                  {{ post?.metadata?.title || post?.title }}
-                </h3>
-                <div class="text-xs text-zinc-500 dark:text-zinc-400 font-mono">
-                  Updated {{
-                    formatRelativeTime(
+                  <h3 class="text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-400 transition-colors mb-1">
+                    {{ post?.metadata?.title || post?.title }}
+                  </h3>
+                  <div class="text-sm text-zinc-500 dark:text-zinc-500">
+                    {{ formatRelativeTime(
                       post?.metadata?.lastUpdated ||
                         post?.metadata?.date ||
                         post?.lastUpdated ||
                         post?.date
-                    )
-                  }}
-                </div>
-              </NuxtLink>
-            </article>
-          </div>
-        </section>
+                    ) }}
+                  </div>
+                </NuxtLink>
+              </article>
+            </div>
+          </section>
+        </div>
       </aside>
     </div>
-  </div>
+  </SwissGrid>
 </template>
 
 <style scoped>
-.post-title {
-  transition: color 0.2s ease;
-}
-
+/* Swiss minimal styling */
 .post-metadata {
-  border-bottom: none;
-  margin: 0;
-  padding: 0;
-  font-size: 0.625rem;
-  opacity: 0.6;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  line-height: 1.3;
-  font-weight: 300;
-  letter-spacing: 0.1em;
-  align-items: center;
-  text-transform: uppercase;
-  font-family: 'Red Hat Mono', monospace;
+  @apply text-xs text-zinc-500 dark:text-zinc-500;
 }
-
-.post-metadata:hover {
-  opacity: 0.8;
-}
-
-/* View Transitions API support */
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fade-out {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  to {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-}
-
-/* Removed view transition styles */
 </style>

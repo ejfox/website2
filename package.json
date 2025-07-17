@@ -21,16 +21,19 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "prettier": "prettier {*.*,**/*.*} --single-quote --write",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
+    "lint": "eslint --fix .",
     "start": "node .output/server/index.mjs",
     "clean": "rm -rf .nuxt dist .output content/processed/*"
   },
   "devDependencies": {
+    "@eslint/js": "^9.31.0",
     "@iconify-json/heroicons": "^1.2.2",
     "@rehype-pretty/transformers": "^0.13.2",
     "@types/node": "^24.0.10",
     "@types/sanitize-html": "^2.13.0",
     "@types/stripe": "^8.0.417",
+    "@typescript-eslint/eslint-plugin": "^8.37.0",
+    "@typescript-eslint/parser": "^8.37.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-vue": "^10.3.0",
     "gray-matter": "^4.0.3",
@@ -45,8 +48,10 @@
     "remark-rehype": "^11.1.1",
     "shiki": "^3.7.0",
     "typescript": "^5.x.x",
+    "typescript-eslint": "^8.37.0",
     "unified": "^11.0.5",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.4",
+    "vue-eslint-parser": "^10.2.0"
   },
   "dependencies": {
     "@nuxt/icon": "^1.15.0",
@@ -65,6 +70,7 @@
     "@vueuse/core": "^13.5.0",
     "canvas": "^3.1.2",
     "chalk": "^5.3.0",
+    "chance": "^1.1.13",
     "chroma-js": "^3.1.2",
     "d3": "^7.9.0",
     "d3-array": "^3.2.4",

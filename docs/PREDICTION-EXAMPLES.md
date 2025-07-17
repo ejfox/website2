@@ -5,14 +5,17 @@ Real examples of well-formatted predictions using both CLI and interactive modes
 ## 📋 Two Types of Predictions
 
 ### **Time-bound Predictions** (with deadlines)
+
 Have specific end dates when they should be evaluated.
 
-### **Event-based Predictions** (no deadlines)  
+### **Event-based Predictions** (no deadlines)
+
 Resolve when the event naturally occurs, regardless of timing.
 
 ## Technology Predictions
 
 ### AI/ML Development (Time-bound)
+
 ```bash
 yarn predict \
   --statement "At least one open-source AI model will achieve human-level performance on the MMLU benchmark by June 30, 2025" \
@@ -23,6 +26,7 @@ yarn predict \
 ```
 
 ### Company/Product Launches (Time-bound)
+
 ```bash
 yarn predict \
   --statement "Apple will announce a consumer AR headset priced under $2,000 by December 31, 2025" \
@@ -33,6 +37,7 @@ yarn predict \
 ```
 
 ### Technology Breakthroughs (Event-based)
+
 ```bash
 yarn predict \
   --statement "The first practical room-temperature superconductor will be discovered by a university research team" \
@@ -44,6 +49,7 @@ yarn predict \
 ## Economic/Financial Predictions
 
 ### Market Performance (Time-bound)
+
 ```bash
 yarn predict \
   --statement "The S&P 500 will close above 6,000 points at least once during 2025" \
@@ -54,6 +60,7 @@ yarn predict \
 ```
 
 ### Cryptocurrency (Time-bound)
+
 ```bash
 yarn predict \
   --statement "Bitcoin will reach a new all-time high above $100,000 USD by March 31, 2025" \
@@ -64,6 +71,7 @@ yarn predict \
 ```
 
 ### Economic Cycles (Event-based)
+
 ```bash
 yarn predict \
   --statement "The next major recession will last longer than 18 months from peak to trough" \
@@ -75,6 +83,7 @@ yarn predict \
 ## Climate/Environment
 
 ### Temperature Records
+
 ```
 Statement: "2024 will be declared the hottest year on record globally"
 
@@ -85,6 +94,7 @@ Categories: climate, temperature, environment
 ```
 
 ### Policy/Agreements
+
 ```
 Statement: "At least 5 G20 countries will announce binding net-zero carbon commitments with interim 2030 targets by COP30"
 
@@ -97,6 +107,7 @@ Categories: climate, policy, international
 ## Sports/Entertainment
 
 ### Sports Championships
+
 ```
 Statement: "A team from the Eastern Conference will win the 2025 NBA Championship"
 
@@ -107,6 +118,7 @@ Categories: sports, basketball, nba
 ```
 
 ### Entertainment Industry
+
 ```
 Statement: "The top-grossing movie of 2025 will earn over $1.5 billion worldwide"
 
@@ -119,6 +131,7 @@ Categories: entertainment, movies, box-office
 ## Politics/Governance
 
 ### Elections
+
 ```
 Statement: "Voter turnout in the 2026 US midterm elections will exceed 50% of eligible voters"
 
@@ -129,6 +142,7 @@ Categories: politics, elections, turnout
 ```
 
 ### Policy Changes
+
 ```
 Statement: "At least 10 US states will have legalized recreational marijuana by January 1, 2026"
 
@@ -141,6 +155,7 @@ Categories: politics, policy, marijuana
 ## Science/Research
 
 ### Space Exploration
+
 ```
 Statement: "SpaceX will successfully land humans on the Moon before NASA's Artemis 3 mission"
 
@@ -151,6 +166,7 @@ Categories: space, spacex, nasa, moon
 ```
 
 ### Medical Breakthroughs
+
 ```
 Statement: "A COVID-19 vaccine providing sterilizing immunity will complete Phase 3 trials by December 31, 2025"
 
@@ -163,6 +179,7 @@ Categories: medical, covid, vaccines
 ## Personal/Lifestyle
 
 ### Remote Work Trends
+
 ```
 Statement: "More than 40% of US knowledge workers will be fully remote by end of 2025"
 
@@ -173,6 +190,7 @@ Categories: work, remote, labor
 ```
 
 ### Social Media
+
 ```
 Statement: "TikTok will have fewer than 100 million monthly active users in the US by December 31, 2025"
 
@@ -185,6 +203,7 @@ Categories: social-media, tiktok, technology
 ## Tips for Good Predictions
 
 ### ✅ What Makes These Good:
+
 1. **Specific numbers and dates** - No vague terms
 2. **Clear resolution criteria** - Exactly how to determine the outcome
 3. **Objective data sources** - Third-party verification possible
@@ -192,6 +211,7 @@ Categories: social-media, tiktok, technology
 5. **Single, focused outcomes** - Not compound predictions
 
 ### ❌ Common Mistakes to Avoid:
+
 - "Things will get better" (too vague)
 - "AI will be amazing by 2030" (not measurable)
 - "Bitcoin will moon and Tesla will crash" (compound prediction)
@@ -199,11 +219,13 @@ Categories: social-media, tiktok, technology
 - "Something big will happen in tech" (no specificity)
 
 ### 🕐 Deadline Guidelines:
+
 - **Use deadlines for**: Market predictions, product launches, time-sensitive events
 - **Skip deadlines for**: "Next recession", "First to achieve X", natural event timing
 - **Consider carefully**: Will this naturally resolve at a specific time, or when an event occurs?
 
 ### 🎯 Confidence Calibration:
+
 - **90%+** - You'd bet your house on it
 - **70-80%** - Strong conviction, significant research
 - **50-60%** - Slight lean, meaningful uncertainty
@@ -214,4 +236,4 @@ Remember: The goal is to make predictions you can learn from, not just win. Good
 
 ---
 
-*Ready to make your own? Run `yarn predict` to get started!*
+_Ready to make your own? Run `yarn predict` to get started!_

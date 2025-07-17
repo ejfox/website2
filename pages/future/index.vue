@@ -1,6 +1,8 @@
 <template>
   <div class="predictions-page">
-    <h1 class="page-title">Future Predictions</h1>
+    <h1 class="page-title">
+      Future Predictions
+    </h1>
     
     <div class="page-info mb-6">
       <p class="text-gray-600">
@@ -11,26 +13,48 @@
     <div class="page-controls">
       <div class="filter-controls">
         <select v-model="filter" class="form-input">
-          <option value="all">All Predictions</option>
-          <option value="pending">Pending</option>
-          <option value="resolved">Resolved</option>
-          <option value="correct">Correct</option>
-          <option value="incorrect">Incorrect</option>
+          <option value="all">
+            All Predictions
+          </option>
+          <option value="pending">
+            Pending
+          </option>
+          <option value="resolved">
+            Resolved
+          </option>
+          <option value="correct">
+            Correct
+          </option>
+          <option value="incorrect">
+            Incorrect
+          </option>
         </select>
         
         <select v-model="categoryFilter" class="form-input">
-          <option value="">All Categories</option>
+          <option value="">
+            All Categories
+          </option>
           <option v-for="category in uniqueCategories" :key="category" :value="category">
             {{ category }}
           </option>
         </select>
         
         <select v-model="sortBy" class="form-input">
-          <option value="created-desc">Newest First</option>
-          <option value="created-asc">Oldest First</option>
-          <option value="deadline-asc">Soonest Deadline</option>
-          <option value="confidence-desc">Highest Confidence</option>
-          <option value="confidence-asc">Lowest Confidence</option>
+          <option value="created-desc">
+            Newest First
+          </option>
+          <option value="created-asc">
+            Oldest First
+          </option>
+          <option value="deadline-asc">
+            Soonest Deadline
+          </option>
+          <option value="confidence-desc">
+            Highest Confidence
+          </option>
+          <option value="confidence-asc">
+            Lowest Confidence
+          </option>
         </select>
       </div>
     </div>

@@ -1,7 +1,14 @@
 <script setup>
 import { format, isValid, parseISO } from 'date-fns'
 import { animate, stagger, engine } from '~/anime.esm.js'
-import { useWindowSize, useMutationObserver, useDark, useDebounceFn } from '@vueuse/core'
+import { Chance } from 'chance'
+const chance = new Chance()
+import {
+  useWindowSize,
+  useMutationObserver,
+  useDark,
+  useDebounceFn
+} from '@vueuse/core'
 import DonationSection from '~/components/blog/DonationSection.vue'
 import { useScrollAnimation } from '~/composables/useScrollAnimation'
 // import { generatePostColor } from '~/utils/postColors'
@@ -54,7 +61,9 @@ const { data: nextPrevPosts } = await useAsyncData(
   `next-prev-${route.params.slug.join('-')}`,
   async () => {
     try {
-      return await processedMarkdown.getNextPrevPosts(route.params.slug.join('/'))
+      return await processedMarkdown.getNextPrevPosts(
+        route.params.slug.join('/')
+      )
     } catch (error) {
       console.error('Error getting next/prev posts:', error)
       return { next: null, prev: null }
@@ -261,16 +270,16 @@ async function typeText() {
   animationState.visibleLetters.clear()
   animationState.cursorPosition = 0
 
-  const LETTER_DELAY = 35
-  const PAUSE_DELAY = 150
+  const LETTER_DELAY = 125
+  const PAUSE_DELAY = 800
 
   for (let i = 0; i < letters.value.length; i++) {
     const letter = letters.value[i]
     const delay =
       letter.isSpace || /[.,!?;:]/.test(letter.char)
-        ? PAUSE_DELAY
-        : LETTER_DELAY
-
+        ? chance.integer({ min: PAUSE_DELAY * 0.5, max: PAUSE_DELAY })
+        : chance.integer({ min: LETTER_DELAY * 0.5, max: LETTER_DELAY })
+    // const delay = chance.integer({ min: 40, max: 250 })
     await new Promise((resolve) => setTimeout(resolve, delay))
     animationState.visibleLetters.add(letter.id)
     animationState.cursorPosition = i
@@ -412,7 +421,7 @@ useHead(() => ({
       name: 'twitter:description',
       content: post.value?.metadata?.dek || post.value?.dek
     },
-    { name: 'twitter:image', content: shareImageUrl.value },
+    { name: 'twitter:image', content: shareImageUrl.value }
     // Add theme-color meta tag for Safari
     // {
     //   name: 'theme-color',
@@ -650,20 +659,20 @@ const processedMetadata = computed(() => {
       <div ref="postMetadata" class="w-full">
         <PostMetadata
           v-if="processedMetadata"
+          ref="postMetadataComponent"
           :doc="processedMetadata"
           :colors="null"
           :is-dark="isDark"
-          ref="postMetadataComponent"
         />
       </div>
 
       <div class="lg:h-[62vh] flex items-center">
         <h1
-          ref="postTitle"
           v-if="post?.metadata?.title || post?.title"
+          ref="postTitle"
           class="post-title text-3xl lg:text-7xl xl:text-8xl font-bold w-full paddings-y pr-8 pl-4 md:pl-0 tracking-tight leading-tight"
         >
-          <div v-html="renderedTitle" class="typing-container"></div>
+          <div class="typing-container" v-html="renderedTitle"></div>
         </h1>
       </div>
 
@@ -681,13 +690,13 @@ const processedMetadata = computed(() => {
       <div ref="articleContent">
         <article
           v-if="post?.html"
-          v-html="post.html"
           class="blog-post-content px-2 prose-lg md:prose-xl dark:prose-invert prose-img:my-8 prose-img:rounded-lg prose-img:w-full prose-img:max-w-full prose-pre:overflow-x-auto prose-pre:whitespace-pre-wrap prose-pre:break-words prose-code:break-words prose-code:whitespace-pre-wrap font-normal opacity-100"
+          v-html="post.html"
         ></article>
         <div
           v-else-if="post?.content"
-          v-html="post.content"
           class="blog-post-content px-2 prose-lg md:prose-xl dark:prose-invert prose-img:my-8 prose-img:rounded-lg prose-img:w-full prose-img:max-w-full prose-pre:overflow-x-auto prose-pre:whitespace-pre-wrap prose-pre:break-words prose-code:break-words prose-code:whitespace-pre-wrap font-normal opacity-100"
+          v-html="post.content"
         ></div>
         <div v-else class="p-4 text-center text-red-500">
           No content available for this post
@@ -705,9 +714,9 @@ const processedMetadata = computed(() => {
       </div>
 
       <div
+        v-if="nextPrevPosts"
         ref="navigationLinks"
         class="flex justify-between items-center mt-8 w-full p-4 md:p-8"
-        v-if="nextPrevPosts"
       >
         <div class="w-1/3 pr-2">
           <NuxtLink
@@ -720,8 +729,7 @@ const processedMetadata = computed(() => {
               formatDate(nextPrevPosts.prev.date)
             }}</span>
             <span class="text-current truncate block">
-              {{ nextPrevPosts.prev?.title }}</span
-            >
+              {{ nextPrevPosts.prev?.title }}</span>
           </NuxtLink>
         </div>
 
@@ -737,9 +745,7 @@ const processedMetadata = computed(() => {
             <span class="block text-sm text-gray-400">{{
               formatDate(nextPrevPosts.next.date)
             }}</span>
-            <span class="text-current truncate block"
-              >{{ nextPrevPosts.next?.title }} →</span
-            >
+            <span class="text-current truncate block">{{ nextPrevPosts.next?.title }} →</span>
           </NuxtLink>
         </div>
       </div>
@@ -765,26 +771,30 @@ const processedMetadata = computed(() => {
       </NuxtLink>
     </div>
     <div v-else class="p-4 text-center">
-      <p class="text-xl text-zinc-600 dark:text-zinc-400">Loading...</p>
+      <p class="text-xl text-zinc-600 dark:text-zinc-400">
+        Loading...
+      </p>
     </div>
 
     <!-- Desktop TOC -->
-    <teleport to="#nav-toc-container" v-if="tocTarget">
+    <teleport v-if="tocTarget" to="#nav-toc-container">
       <div
         v-if="
           post?.toc?.[0]?.children?.length ||
-          post?.metadata?.toc?.[0]?.children?.length
+            post?.metadata?.toc?.[0]?.children?.length
         "
         class="toc"
       >
         <div class="px-6 py-6">
-          <h3 class="text-xs font-semibold uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400 mb-6">
+          <h3
+            class="text-xs font-semibold uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400 mb-6"
+          >
             Table of Contents
           </h3>
           <ul class="space-y-1">
             <li
               v-for="child in post?.toc?.[0]?.children ||
-              post?.metadata?.toc?.[0]?.children"
+                post?.metadata?.toc?.[0]?.children"
               :key="child.slug"
               class="group relative"
             >
@@ -800,7 +810,7 @@ const processedMetadata = computed(() => {
                 <span class="block truncate">{{ child.text }}</span>
               </a>
               <!-- Active indicator -->
-              <div 
+              <div
                 v-if="activeSection === child.slug"
                 class="absolute left-0 top-2 bottom-2 w-[2px] bg-zinc-900 dark:bg-zinc-100 rounded-full"
               ></div>
@@ -861,20 +871,22 @@ const processedMetadata = computed(() => {
     @apply text-zinc-700 dark:text-zinc-300 underline underline-offset-2;
     @apply hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors duration-200;
   }
-  
+
   /* Blockquotes */
   blockquote {
     @apply border-l-zinc-300 dark:border-l-zinc-600;
     @apply bg-zinc-50 dark:bg-zinc-800/50;
   }
-  
+
   /* Code blocks */
   pre {
     @apply border border-zinc-200 dark:border-zinc-700;
   }
-  
+
   /* Headings subtle accent */
-  h2, h3, h4 {
+  h2,
+  h3,
+  h4 {
     @apply border-b border-zinc-200 dark:border-zinc-700 pb-2;
   }
 }

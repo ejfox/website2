@@ -5,18 +5,23 @@ This directory contains all the scripts for processing markdown content, generat
 ## Content Type Detection Rules
 
 ### Week Notes
+
 A post is considered a week note if ANY of these conditions are met:
+
 1. Type is 'weekNote'
 2. Slug starts with 'week-notes/'
 3. Slug matches YYYY-WW pattern (e.g. "2024-45")
 
 Supported formats:
+
 - Modern format: `week-notes/2024-45`
 - Legacy format: `2024-45` (at root level)
 - Type-based: Any post with `type: 'weekNote'`
 
 ### Special Sections
+
 These sections are filtered out of main blog posts:
+
 - `reading/` - Book notes and reading logs
 - `projects/` - Project documentation
 - `robots/` - Robot-related content
@@ -25,11 +30,14 @@ These sections are filtered out of main blog posts:
 - `prompts/` - AI prompts and templates
 
 ### System Files
+
 These are always excluded:
+
 - Index files (slug === 'index')
-- System files (slug starts with '!' or '_')
+- System files (slug starts with '!' or '\_')
 
 ### Visibility Rules
+
 - `hidden: true` -> Post is hidden everywhere
 - In `drafts/` -> hidden by default unless `share: true`
 - In `robots/` -> hidden by default unless `share: true`
@@ -82,10 +90,10 @@ The `utils/` directory contains shared utility functions:
 Most functionality can be imported from the main index:
 
 ```javascript
-import { 
-  processMarkdown, 
+import {
+  processMarkdown,
   processAllFiles,
-  generateShareImages 
+  generateShareImages
 } from './scripts/index.mjs'
 ```
 
@@ -111,17 +119,21 @@ When adding new functionality:
 ## Common Issues
 
 ### Week Note Detection
+
 Week notes can appear in multiple formats. Make sure to check for all three patterns:
+
 ```javascript
-const isWeekNote = 
-  type === 'weekNote' || 
-  slug.startsWith('week-notes/') || 
+const isWeekNote =
+  type === 'weekNote' ||
+  slug.startsWith('week-notes/') ||
   /^\d{4}-\d{2}$/.test(lastPart) // YYYY-WW format
 ```
 
 ### Content Filtering
+
 When filtering content:
+
 1. Check both root-level and metadata properties
 2. Handle legacy formats and patterns
 3. Use consistent filtering logic across all components
-4. Test with various content types and formats 
+4. Test with various content types and formats

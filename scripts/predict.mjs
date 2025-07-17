@@ -14,7 +14,8 @@ const rl = readline.createInterface({
   terminal: false
 })
 
-const question = (prompt) => new Promise((resolve) => rl.question(prompt, resolve))
+const question = (prompt) =>
+  new Promise((resolve) => rl.question(prompt, resolve))
 
 // Elegant console output
 const log = {
@@ -39,19 +40,22 @@ const validateConfidence = (conf) => {
 
 // Generate unique ID
 const generateId = (statement) => {
-  const hash = createHash('sha256').update(statement + Date.now()).digest('hex')
+  const hash = createHash('sha256')
+    .update(statement + Date.now())
+    .digest('hex')
   return hash.substring(0, 8)
 }
 
 // Smart filename generation
 const generateFilename = (statement, deadline) => {
   const year = new Date(deadline).getFullYear()
-  const slug = statement.toLowerCase()
+  const slug = statement
+    .toLowerCase()
     .replace(/[^a-z0-9\s]/g, '')
     .replace(/\s+/g, '-')
     .substring(0, 40)
     .replace(/-+$/, '')
-  
+
   return `${year}-${slug}.md`
 }
 
@@ -75,16 +79,18 @@ const commitToGit = async (filename, statement) => {
   try {
     // Add the file
     execSync(`git add "content/predictions/${filename}"`, { stdio: 'inherit' })
-    
+
     // Create commit message
     const commitMsg = `predict: ${statement.substring(0, 50)}${statement.length > 50 ? '...' : ''}`
-    
+
     // Commit with message
     execSync(`git commit -m "${commitMsg}"`, { stdio: 'inherit' })
-    
+
     // Try to sign the commit (optional, won't fail if no key)
     try {
-      const commitHash = execSync('git rev-parse HEAD', { encoding: 'utf8' }).trim()
+      const commitHash = execSync('git rev-parse HEAD', {
+        encoding: 'utf8'
+      }).trim()
       log.success(`Committed with hash: ${commitHash.substring(0, 8)}`)
       return commitHash
     } catch {
@@ -100,7 +106,9 @@ const commitToGit = async (filename, statement) => {
 // Main wizard
 async function predictWizard() {
   log.header('Prediction Wizard')
-  console.log(chalk.gray('   Create a cryptographically verifiable prediction\n'))
+  console.log(
+    chalk.gray('   Create a cryptographically verifiable prediction\n')
+  )
 
   // Step 1: Statement
   let statement = ''
@@ -116,7 +124,9 @@ async function predictWizard() {
   // Step 2: Confidence
   let confidence = ''
   while (!validateConfidence(confidence)) {
-    confidence = await question(chalk.bold('🎯 How confident are you? (0-100): '))
+    confidence = await question(
+      chalk.bold('🎯 How confident are you? (0-100): ')
+    )
     if (!validateConfidence(confidence)) {
       log.warning('Please enter a number between 0 and 100')
     }
@@ -126,25 +136,37 @@ async function predictWizard() {
   // Step 3: Deadline
   let deadline = ''
   while (!validateDate(deadline)) {
-    deadline = await question(chalk.bold('📅 When will this resolve? (YYYY-MM-DD): '))
+    deadline = await question(
+      chalk.bold('📅 When will this resolve? (YYYY-MM-DD): ')
+    )
     if (!validateDate(deadline)) {
       log.warning('Please enter a valid future date (YYYY-MM-DD)')
     }
   }
 
   // Step 4: Categories (optional)
-  const categoriesInput = await question(chalk.bold('🏷️  Categories (comma-separated, optional): '))
-  const categories = categoriesInput ? 
-    categoriesInput.split(',').map(c => c.trim()).filter(c => c) : []
+  const categoriesInput = await question(
+    chalk.bold('🏷️  Categories (comma-separated, optional): ')
+  )
+  const categories = categoriesInput
+    ? categoriesInput
+        .split(',')
+        .map((c) => c.trim())
+        .filter((c) => c)
+    : []
 
   // Step 5: Evidence (optional)
   console.log(chalk.bold('\n📖 Evidence/reasoning (optional):'))
-  console.log(chalk.gray('   Type your reasoning. Press Enter twice when done, or just Enter twice to skip.\n'))
-  
+  console.log(
+    chalk.gray(
+      '   Type your reasoning. Press Enter twice when done, or just Enter twice to skip.\n'
+    )
+  )
+
   let evidence = ''
   let line = ''
   let emptyLineCount = 0
-  
+
   while (emptyLineCount < 2) {
     line = await question('')
     if (line === '') {
@@ -156,8 +178,11 @@ async function predictWizard() {
   }
 
   // Step 6: Visibility
-  const visibilityInput = await question(chalk.bold('👁️  Visibility (public/private) [public]: '))
-  const visibility = visibilityInput.toLowerCase() === 'private' ? 'private' : 'public'
+  const visibilityInput = await question(
+    chalk.bold('👁️  Visibility (public/private) [public]: ')
+  )
+  const visibility =
+    visibilityInput.toLowerCase() === 'private' ? 'private' : 'public'
 
   rl.close()
 
@@ -185,10 +210,10 @@ async function predictWizard() {
 
   // Generate markdown content
   const content = matter.stringify(evidence.trim() || '', frontmatter)
-  
+
   // Calculate hash
   const hash = calculateHash(content)
-  
+
   // Add hash to frontmatter
   const finalFrontmatter = { ...frontmatter, hash }
   const finalContent = matter.stringify(evidence.trim() || '', finalFrontmatter)
@@ -200,7 +225,7 @@ async function predictWizard() {
   // Write file
   const filePath = join(predictionsDir, filename)
   await fs.writeFile(filePath, finalContent)
-  
+
   log.success(`Created: content/predictions/${filename}`)
   log.step(`SHA-256: ${hash}`)
 
@@ -217,14 +242,16 @@ async function predictWizard() {
 
   // Summary
   log.header('Prediction Created Successfully!')
-  console.log(chalk.gray(`
+  console.log(
+    chalk.gray(`
    Statement: ${statement}
    Confidence: ${confidence}%
    Deadline: ${deadline}
    ID: ${id}
    File: content/predictions/${filename}
    Hash: ${hash.substring(0, 16)}...
-  `))
+  `)
+  )
 
   log.info('Your prediction is now cryptographically verifiable and ready!')
 }

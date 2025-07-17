@@ -1,9 +1,9 @@
 <template>
   <div class="calendar-wrapper">
-    <iframe 
-      :src="calendarUrl" 
+    <iframe
+      :src="calendarUrl"
       class="calendar-iframe"
-      frameborder="0" 
+      frameborder="0"
       allowfullscreen
     ></iframe>
   </div>
@@ -13,10 +13,9 @@
 // Detect system theme
 const colorMode = useColorMode()
 const calendarUrl = computed(() => {
-  const theme = colorMode.preference === 'system' 
-    ? colorMode.value 
-    : colorMode.preference
-  
+  const theme =
+    colorMode.preference === 'system' ? colorMode.value : colorMode.preference
+
   return `https://cal.com/ejfox/30min?embed=true&layout=month_view&theme=${theme === 'dark' ? 'dark' : 'light'}`
 })
 
@@ -94,7 +93,7 @@ useHead({
   .calendar-wrapper {
     border-left: 1px solid rgb(228 228 231);
   }
-  
+
   :global(.dark) .calendar-wrapper {
     border-left-color: rgb(39 39 42);
   }

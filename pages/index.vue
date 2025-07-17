@@ -86,9 +86,11 @@ onMounted(async () => {
       <div v-if="posts?.length" class="max-w-3xl space-y-8">
         <template v-if="indexContent">
           <h1>{{ indexContent.title }}</h1>
-          <div ref="indexContentContainer" id="index-content" class="prose prose-lg dark:prose-invert" v-html="indexContent.html"></div>
+          <div id="index-content" ref="indexContentContainer" class="prose prose-lg dark:prose-invert" v-html="indexContent.html"></div>
         </template>
-        <div v-else class="text-center py-12">Loading...</div>
+        <div v-else class="text-center py-12">
+          Loading...
+        </div>
       </div>
       <div v-else class="text-center text-zinc-500 dark:text-zinc-400">
         No posts found

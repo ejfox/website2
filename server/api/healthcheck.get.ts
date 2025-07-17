@@ -1,7 +1,9 @@
+import { setResponseStatus } from 'h3'
+
 export default defineEventHandler(async (event) => {
   try {
     // Basic health checks
-    const health: any = {
+    const health: unknown = {
       status: 'healthy',
       timestamp: new Date().toISOString(),
       uptime: process.uptime(),
@@ -16,7 +18,7 @@ export default defineEventHandler(async (event) => {
     try {
       await $fetch('/api/manifest')
       health.manifest = 'ok'
-    } catch (error) {
+    } catch (_error) {
       health.manifest = 'error'
       health.status = 'degraded'
     }
@@ -27,7 +29,7 @@ export default defineEventHandler(async (event) => {
     }
 
     return health
-  } catch (error) {
+  } catch (_error) {
     setResponseStatus(event, 500)
     return {
       status: 'error',

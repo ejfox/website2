@@ -1,94 +1,115 @@
-/* Set body and html background colors for dark mode */
+/* Swiss Design System - Minimal, Clear, Functional */
+
+/* Base */
 html, body {
-  @apply bg-white dark:bg-zinc-900;
+  @apply bg-white dark:bg-zinc-950;
 }
 
-/* Consistent link styles to replace harsh blue colors */
-.link-muted {
-  @apply text-zinc-600 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 hover:underline;
+/* Typography Scale - Consistent Swiss Design */
+.text-display {
+  @apply text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-zinc-900 dark:text-zinc-100;
+  font-family: 'Fjalla One', sans-serif;
 }
 
-.link-primary {
-  @apply text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 underline underline-offset-2;
+.text-title {
+  @apply text-2xl md:text-3xl font-light text-zinc-900 dark:text-zinc-100;
+  font-family: 'Fjalla One', sans-serif;
 }
 
-/* Projects page typography - smaller text for projects listing */
-.projects-page .prose p,
-.projects-page .prose li,
-.projects-page .prose-sm p,
-.projects-page .prose-sm li {
-  font-size: 0.875rem;
-  line-height: 1.5rem;
+.text-heading {
+  @apply text-lg font-normal text-zinc-900 dark:text-zinc-100;
+  font-family: 'Signika Negative', sans-serif;
 }
 
-
-/* Global utility styles */
-.section-subheader {
-  @apply tracking-[0.2em] text-zinc-500 border-b border-zinc-200 dark:border-zinc-800/30 pb-1 mb-3 transition-colors duration-200 text-2xs;
+.text-body {
+  @apply text-base leading-relaxed text-zinc-600 dark:text-zinc-400;
+  font-family: 'Signika Negative', sans-serif;
 }
 
-/* Hover state for parent containers */
-.stats-section:hover .section-subheader {
-  @apply text-zinc-600 dark:text-zinc-400 border-zinc-300 dark:border-zinc-700;
+.text-small {
+  @apply text-sm text-zinc-600 dark:text-zinc-400;
+  font-family: 'Signika Negative', sans-serif;
 }
 
-/* Skeleton loading styles - more subtle and light/dark mode compatible */
+.text-caption {
+  @apply text-xs uppercase tracking-[0.15em] text-zinc-500 dark:text-zinc-500;
+  font-family: 'Signika Negative', sans-serif;
+}
+
+/* Color System */
+.text-primary {
+  @apply text-zinc-900 dark:text-zinc-100;
+}
+
+.text-secondary {
+  @apply text-zinc-600 dark:text-zinc-400;
+}
+
+.text-muted {
+  @apply text-zinc-500 dark:text-zinc-500;
+}
+
+/* Links - Minimal */
+a {
+  @apply text-inherit border-b border-zinc-300 dark:border-zinc-700 hover:border-zinc-900 dark:hover:border-zinc-100 transition-colors duration-200;
+}
+
+a.link-plain {
+  @apply border-none;
+}
+
+/* Section Headers */
+.section-header {
+  @apply text-xs font-normal uppercase tracking-[0.15em] text-zinc-500 dark:text-zinc-500;
+}
+
+/* Loading States - Minimal */
 .skeleton {
-    @apply relative overflow-hidden;
-    background: theme('colors.zinc.100');
-  }
-  
-  .dark .skeleton {
-    background: theme('colors.zinc.800');
-  }
-  
-  .skeleton::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    transform: translateX(-100%);
-    background: linear-gradient(
-      90deg,
-      transparent,
-      theme('colors.zinc.200' / 0.4),
-      transparent
-    );
-    animation: skeleton-loading 1.5s ease-in-out infinite;
-  }
-  
-  .dark .skeleton::after {
-    background: linear-gradient(
-      90deg,
-      transparent,
-      theme('colors.zinc.700' / 0.3),
-      transparent
-    );
-  }
-  
-  @keyframes skeleton-loading {
-    100% {
-      transform: translateX(100%);
-    }
-  }
-  
-  /* Pulse placeholder - more subtle */
-  .pulse-placeholder {
-    @apply h-32 rounded-md border animate-pulse;
-    @apply border-zinc-200 bg-zinc-100;
-    @apply dark:border-zinc-800 dark:bg-zinc-900/50;
-  }
-  
-  .pulse-placeholder-sm {
-    @apply h-20 rounded-md border animate-pulse;
-    @apply border-zinc-200 bg-zinc-100;
-    @apply dark:border-zinc-800 dark:bg-zinc-900/50;
-  }
-  
-  .pulse-placeholder-lg {
-    @apply h-48 rounded-md border animate-pulse;
-    @apply border-zinc-200 bg-zinc-100;
-    @apply dark:border-zinc-800 dark:bg-zinc-900/50;
-  }
+  @apply bg-zinc-100 dark:bg-zinc-900;
+}
+
+.skeleton-text {
+  @apply h-4 w-full bg-zinc-100 dark:bg-zinc-900 rounded;
+}
+
+.skeleton-title {
+  @apply h-8 w-3/4 bg-zinc-100 dark:bg-zinc-900 rounded;
+}
+
+/* Grid System */
+.container-grid {
+  @apply grid grid-cols-12 gap-x-4 px-6 md:px-8;
+}
+
+.content-grid {
+  @apply col-span-12 md:col-start-2 md:col-span-10 lg:col-start-3 lg:col-span-8;
+}
+
+/* Spacing System */
+.section-spacing {
+  @apply py-24;
+}
+
+.element-spacing {
+  @apply mb-12;
+}
+
+/* Borders - Minimal */
+.border-default {
+  @apply border-zinc-200 dark:border-zinc-800;
+}
+
+/* Cards - Flat Design */
+.card {
+  @apply bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800;
+}
+
+/* Buttons - Text Only */
+.btn-text {
+  @apply text-zinc-900 dark:text-zinc-100 border-b-2 border-zinc-900 dark:border-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400 hover:border-zinc-600 dark:hover:border-zinc-400 transition-colors duration-200;
+}
+
+/* Focus States - Accessible */
+*:focus-visible {
+  @apply outline-2 outline-offset-4 outline-zinc-900 dark:outline-zinc-100;
+}

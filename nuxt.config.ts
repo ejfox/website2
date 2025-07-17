@@ -56,6 +56,11 @@ export default defineNuxtConfig({
       'utils/**'
     ]
   },
+  
+  // TypeScript configuration
+  typescript: {
+    typeCheck: false // Disable type checking during build for performance
+  },
 
   // Google Fonts configuration
   googleFonts: {

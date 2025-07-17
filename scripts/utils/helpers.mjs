@@ -1,5 +1,5 @@
 // Remove the commented out import statements if they're not needed
-// import CryptoJS from 'crypto-js'
+import CryptoJS from 'crypto-js'
 // import { md5 } from 'js-md5'
 import path from 'path'
 import chalk from 'chalk'

@@ -7,19 +7,27 @@
     <div class="spacer">
       <div class="spacer-content">
         <h2>Vue + Anime.js v4</h2>
-        <p class="text-lg md:text-xl text-zinc-600 dark:text-zinc-400">Unleashing the Power of Modern Web Animation</p>
-        <p class="mt-4 text-base text-zinc-500 dark:text-zinc-500">A deep dive into creating fluid, responsive
-          animations that bring your Vue applications to life</p>
+        <p class="text-lg md:text-xl text-zinc-600 dark:text-zinc-400">
+          Unleashing the Power of Modern Web Animation
+        </p>
+        <p class="mt-4 text-base text-zinc-500 dark:text-zinc-500">
+          A deep dive into creating fluid, responsive
+          animations that bring your Vue applications to life
+        </p>
       </div>
     </div>
 
     <div class="scroll-section">
       <div class="scroll-content">
-        <h1 id="basic-scroll-animation">Basic Scroll Animation</h1>
+        <h1 id="basic-scroll-animation">
+          Basic Scroll Animation
+        </h1>
 
         <div class="prose prose-lg dark:prose-invert max-w-none mb-8">
           <div class="mb-8 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-            <h3 class="text-lg font-semibold mb-2">🎯 What you'll learn</h3>
+            <h3 class="text-lg font-semibold mb-2">
+              🎯 What you'll learn
+            </h3>
             <ul class="list-disc list-inside space-y-1">
               <li>How to seamlessly integrate Anime.js v4 with Vue's reactivity system</li>
               <li>Creating scroll-driven animations that respond naturally to user interaction</li>
@@ -33,7 +41,9 @@
           </p>
 
           <div class="my-6 p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
-            <h4 class="font-semibold mb-2">💡 Key Concept: Scroll-Driven Animation</h4>
+            <h4 class="font-semibold mb-2">
+              💡 Key Concept: Scroll-Driven Animation
+            </h4>
             <p>
               Anime.js's <code>onScroll</code> function is your gateway to creating scroll-responsive animations.
               It provides granular control over:
@@ -73,9 +83,13 @@ animate('.scroll-content', {
   })
 })</code></pre>
           <div class="p-4 bg-green-50 dark:bg-green-900/20 text-sm">
-            <p class="font-medium">🚀 Try This:</p>
-            <p class="mt-1">Experiment with different <code>enter</code> and <code>leave</code> points to create various
-              scroll effects:</p>
+            <p class="font-medium">
+              🚀 Try This:
+            </p>
+            <p class="mt-1">
+              Experiment with different <code>enter</code> and <code>leave</code> points to create various
+              scroll effects:
+            </p>
             <ul class="mt-2 list-disc list-inside space-y-1">
               <li>Use <code>center center</code> for center-aligned triggers</li>
               <li>Add offsets like <code>top+=100</code> for earlier/later activation</li>
@@ -89,18 +103,24 @@ animate('.scroll-content', {
     <div class="spacer">
       <div class="spacer-content">
         <h3>Next: Bringing Data to Life</h3>
-        <p class="mt-2 text-sm text-zinc-500">Discover how to animate SVG charts for engaging data visualization</p>
+        <p class="mt-2 text-sm text-zinc-500">
+          Discover how to animate SVG charts for engaging data visualization
+        </p>
       </div>
     </div>
 
     <!-- Second section - SVG Line Chart -->
     <div class="scroll-section dark">
       <div class="scroll-content chart-content">
-        <h2 id="animated-line-chart">Animated Line Chart</h2>
+        <h2 id="animated-line-chart">
+          Animated Line Chart
+        </h2>
 
         <div class="prose prose-lg dark:prose-invert max-w-none mb-8">
           <div class="mb-8 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-            <h3 class="text-lg font-semibold mb-2">🎨 Animation + Data Visualization</h3>
+            <h3 class="text-lg font-semibold mb-2">
+              🎨 Animation + Data Visualization
+            </h3>
             <p class="mb-2">
               Discover how to combine Vue's reactivity with Anime.js's SVG capabilities to create
               engaging data visualizations that tell a story through motion.
@@ -113,7 +133,9 @@ animate('.scroll-content', {
           </div>
 
           <div class="my-6 p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
-            <h4 class="font-semibold mb-2">💡 Key Technique: The Line Drawing Effect</h4>
+            <h4 class="font-semibold mb-2">
+              💡 Key Technique: The Line Drawing Effect
+            </h4>
             <p>
               The magic behind the line drawing animation lies in two powerful SVG properties:
             </p>
@@ -141,10 +163,14 @@ animate('.scroll-content', {
         </div>
 
         <svg ref="chartSvg" width="600" height="500" class="line-chart">
-          <path ref="chartPath" class="line-path" d="M0,350 L100,175 L200,250 L300,130 L400,300 L500,100" fill="none"
-            stroke="#FF6B6B" stroke-width="3" />
-          <circle v-for="(point, i) in [350, 175, 250, 130, 300, 100]" :key="i" :cx="i * 100" :cy="point" r="6"
-            class="data-point" fill="#FF6B6B" />
+          <path
+            ref="chartPath" class="line-path" d="M0,350 L100,175 L200,250 L300,130 L400,300 L500,100" fill="none"
+            stroke="#FF6B6B" stroke-width="3"
+          />
+          <circle
+            v-for="(point, i) in [350, 175, 250, 130, 300, 100]" :key="i" :cx="i * 100" :cy="point" r="6"
+            class="data-point" fill="#FF6B6B"
+          />
         </svg>
 
         <div class="code-example">
@@ -171,7 +197,9 @@ animate(chartPath.value, {
   })
 })</code></pre>
           <div class="p-4 bg-green-50 dark:bg-green-900/20 text-sm">
-            <p class="font-medium">🚀 Enhancement Ideas:</p>
+            <p class="font-medium">
+              🚀 Enhancement Ideas:
+            </p>
             <ul class="mt-2 list-disc list-inside space-y-1">
               <li>Add tooltips that appear as each data point is revealed</li>
               <li>Animate the line color or thickness based on data values</li>
@@ -186,7 +214,8 @@ animate(chartPath.value, {
     <div class="spacer">
       <div class="spacer-content">
         <h3>Next: High-Performance Grid Animations</h3>
-        <p class="mt-2 text-sm text-zinc-500">Learn how to animate hundreds of elements smoothly with the Animatable API
+        <p class="mt-2 text-sm text-zinc-500">
+          Learn how to animate hundreds of elements smoothly with the Animatable API
         </p>
       </div>
     </div>
@@ -194,7 +223,9 @@ animate(chartPath.value, {
     <!-- Fourth section - Animatable Grid -->
     <div class="scroll-section gradient">
       <div class="scroll-content animatable-content">
-        <h2 id="animatable-performance">Animatable Performance</h2>
+        <h2 id="animatable-performance">
+          Animatable Performance
+        </h2>
 
         <div class="prose prose-lg dark:prose-invert max-w-none mb-8">
           <p>
@@ -209,8 +240,10 @@ animate(chartPath.value, {
         </div>
 
         <div class="grid-container">
-          <div v-for="i in 25" :key="i" class="grid-item" @mouseover="onGridItemHover(i - 1)"
-            @mouseout="onGridItemReset(i - 1)"></div>
+          <div
+            v-for="i in 25" :key="i" class="grid-item" @mouseover="onGridItemHover(i - 1)"
+            @mouseout="onGridItemReset(i - 1)"
+          ></div>
         </div>
 
         <div class="code-example">
@@ -267,7 +300,9 @@ const onGridItemReset = (index) => {
     <!-- Fifth section - 3D Parallax -->
     <div class="scroll-section dark-blue">
       <div class="scroll-content parallax-content">
-        <h2 id="parallax-3d">3D Parallax Scrolling</h2>
+        <h2 id="parallax-3d">
+          3D Parallax Scrolling
+        </h2>
 
         <div class="prose prose-lg dark:prose-invert max-w-none mb-8">
           <p>
@@ -338,7 +373,9 @@ animate('.parallax-layer.front', {
     <!-- Sixth section - 3D Card -->
     <div class="scroll-section dark-green">
       <div class="scroll-content card3d-content">
-        <h2 id="3d-card">Interactive 3D Card</h2>
+        <h2 id="3d-card">
+          Interactive 3D Card
+        </h2>
 
         <div class="prose prose-lg dark:prose-invert max-w-none mb-8">
           <p>
@@ -354,11 +391,15 @@ animate('.parallax-layer.front', {
         </div>
 
         <div class="card3d-container">
-          <div class="card3d" ref="card3dEl">
+          <div ref="card3dEl" class="card3d">
             <div class="card3d-content">
-              <div class="card3d-title">3D PERSPECTIVE</div>
+              <div class="card3d-title">
+                3D PERSPECTIVE
+              </div>
               <div class="card3d-shine"></div>
-              <div class="card3d-badge">CSS3 + ANIME.JS</div>
+              <div class="card3d-badge">
+                CSS3 + ANIME.JS
+              </div>
             </div>
           </div>
         </div>
@@ -411,18 +452,24 @@ const handleCardLeave = () => {
     </div>
 
     <!-- Add teleport for TOC -->
-    <teleport to="#nav-toc-container" v-if="tocTarget">
+    <teleport v-if="tocTarget" to="#nav-toc-container">
       <div class="toc py-4 px-4 text-sm">
-        <h3 class="text-base font-medium mb-4 font-sans tracking-tight">Table of Contents</h3>
+        <h3 class="text-base font-medium mb-4 sans-serif tracking-tight">
+          Table of Contents
+        </h3>
         <ul class="space-y-4">
-          <li v-for="section in sections" :key="section.id"
-            class="transition-colors duration-200 hover:bg-zinc-100/50 dark:hover:bg-zinc-800/50 rounded line-clamp-1">
-            <a :href="`#${section.id}`"
-              class="block px-1 py-0.5 rounded transition-colors font-sans text-sm tracking-tight" :class="[
+          <li
+            v-for="section in sections" :key="section.id"
+            class="transition-colors duration-200 hover:bg-zinc-100/50 dark:hover:bg-zinc-800/50 rounded line-clamp-1"
+          >
+            <a
+              :href="`#${section.id}`"
+              class="block px-1 py-0.5 rounded transition-colors sans-serif text-sm tracking-tight" :class="[
                 activeSection === section.id
                   ? 'text-zinc-900 dark:text-zinc-100 bg-zinc-200/50 dark:bg-zinc-700/50 font-medium'
                   : 'text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-200'
-              ]">
+              ]"
+            >
               {{ section.text }}
             </a>
           </li>

@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './components/**/*.{js,vue,ts}',
@@ -67,7 +68,7 @@ module.exports = {
               }
             },
             li: {
-              fontSize: '1.125rem', 
+              fontSize: '1.125rem',
               lineHeight: '2rem',
               '@media (min-width: 768px)': {
                 fontSize: '1.25rem',
@@ -78,19 +79,19 @@ module.exports = {
         }
       },
       fontSize: {
-        '2xs': ['0.65rem', '1rem'],
+        '2xs': ['0.65rem', '1rem']
       },
       animation: {
-        'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
       },
       keyframes: {
         pulse: {
           '0%, 100%': {
-            opacity: '0.8',
+            opacity: '0.8'
           },
           '50%': {
-            opacity: '0.5',
-          },
+            opacity: '0.5'
+          }
         }
       }
     }

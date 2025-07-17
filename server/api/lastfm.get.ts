@@ -1,3 +1,5 @@
+import { useStorage } from 'nitro/storage'
+
 export default defineEventHandler(async () => {
   const config = useRuntimeConfig()
   // Use hardcoded API key as fallback if environment variables aren't available

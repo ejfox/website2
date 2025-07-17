@@ -94,14 +94,19 @@ onMounted(() => {
 
 <template>
   <div class="container mx-auto px-2 py-12 lg:flex lg:gap-4 max-w-prose">
-
     <!-- Week Notes -->
     <section class="">
-      <h2 class="text-3xl font-bold mb-8">Week Notes</h2>
-      <div v-for="weekNote in sortedWeekNotes" :key="weekNote.slug" ref="weekNoteElements"
-        class="border-b border-zinc-200 dark:border-zinc-700 py-4 my-8 xl:my-16">
-        <NuxtLink :to="`/blog/${weekNote.slug}`"
-          class="hover:underline text-sm bg-zinc-50 dark:bg-transparent font-mono block px-2 py-1 rounded">
+      <h2 class="text-3xl font-bold mb-8">
+        Week Notes
+      </h2>
+      <div
+        v-for="weekNote in sortedWeekNotes" :key="weekNote.slug" ref="weekNoteElements"
+        class="border-b border-zinc-200 dark:border-zinc-700 py-4 my-8 xl:my-16"
+      >
+        <NuxtLink
+          :to="`/blog/${weekNote.slug}`"
+          class="hover:underline text-sm bg-zinc-50 dark:bg-transparent font-mono block px-2 py-1 rounded"
+        >
           {{ weekNote.slug.split('/')[1] }}
         </NuxtLink>
         <p v-if="weekNote.dek" class="text-sm text-zinc-600 dark:text-zinc-400 mt-2">

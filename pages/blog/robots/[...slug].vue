@@ -227,28 +227,52 @@ useHead({
         <div class="font-mono text-xs bg-zinc-100 dark:bg-zinc-900 p-4 rounded-lg mb-8">
           <div class="grid grid-cols-[auto,1fr] gap-x-4 gap-y-2">
             <!-- Type -->
-            <div class="text-zinc-500 dark:text-zinc-400">type:</div>
-            <div class="text-zinc-700 dark:text-zinc-300 capitalize">{{ metadataFields.type }}</div>
+            <div class="text-zinc-500 dark:text-zinc-400">
+              type:
+            </div>
+            <div class="text-zinc-700 dark:text-zinc-300 capitalize">
+              {{ metadataFields.type }}
+            </div>
 
             <!-- Date -->
-            <div class="text-zinc-500 dark:text-zinc-400">published:</div>
-            <div class="text-zinc-700 dark:text-zinc-300">{{ formatDate(metadataFields.date) }}</div>
+            <div class="text-zinc-500 dark:text-zinc-400">
+              published:
+            </div>
+            <div class="text-zinc-700 dark:text-zinc-300">
+              {{ formatDate(metadataFields.date) }}
+            </div>
 
             <!-- Modified -->
-            <div class="text-zinc-500 dark:text-zinc-400">updated:</div>
-            <div class="text-zinc-700 dark:text-zinc-300">{{ formatDate(metadataFields.modified) }}</div>
+            <div class="text-zinc-500 dark:text-zinc-400">
+              updated:
+            </div>
+            <div class="text-zinc-700 dark:text-zinc-300">
+              {{ formatDate(metadataFields.modified) }}
+            </div>
 
             <!-- Word count -->
-            <div class="text-zinc-500 dark:text-zinc-400">words:</div>
-            <div class="text-zinc-700 dark:text-zinc-300">{{ formatNumber(metadataFields.words) }}</div>
+            <div class="text-zinc-500 dark:text-zinc-400">
+              words:
+            </div>
+            <div class="text-zinc-700 dark:text-zinc-300">
+              {{ formatNumber(metadataFields.words) }}
+            </div>
 
             <!-- Stats -->
-            <div class="text-zinc-500 dark:text-zinc-400">stats:</div>
+            <div class="text-zinc-500 dark:text-zinc-400">
+              stats:
+            </div>
             <div class="text-zinc-700 dark:text-zinc-300 grid gap-1">
               <template v-if="metadataFields.stats">
-                <div v-if="metadataFields.stats.images">{{ metadataFields.stats.images }} images</div>
-                <div v-if="metadataFields.stats.links">{{ metadataFields.stats.links }} links</div>
-                <div v-if="metadataFields.stats.codeBlocks">{{ metadataFields.stats.codeBlocks }} code blocks</div>
+                <div v-if="metadataFields.stats.images">
+                  {{ metadataFields.stats.images }} images
+                </div>
+                <div v-if="metadataFields.stats.links">
+                  {{ metadataFields.stats.links }} links
+                </div>
+                <div v-if="metadataFields.stats.codeBlocks">
+                  {{ metadataFields.stats.codeBlocks }} code blocks
+                </div>
                 <div v-if="metadataFields.stats.headers" class="flex gap-2">
                   <span v-for="(count, level) in metadataFields.stats.headers" :key="level">
                     {{ count }} {{ level }}
@@ -259,15 +283,19 @@ useHead({
           </div>
         </div>
 
-        <UAlert icon="i-majesticons-robot" color="orange" variant="solid" title="LLM-Generated / Augmented Content"
+        <UAlert
+          icon="i-majesticons-robot" color="orange" variant="solid" title="LLM-Generated / Augmented Content"
           description="This note was written by or with the assistance of AI. While I've reviewed and edited the content, you might notice some quirks in the writing style or reasoning, and it may not all be factually accurate."
-          class="mb-8" />
+          class="mb-8"
+        />
 
         <header class="mb-8">
           <!-- Hero title with animation -->
           <h1 class="text-4xl md:text-6xl font-bold mb-4 flex flex-wrap">
-            <span v-for="(char, i) in titleChars" :key="i" class="inline-block opacity-0"
-              :class="{ 'mr-[0.2em]': char === ' ' }" ref="titleRefs">{{ char }}</span>
+            <span
+              v-for="(char, i) in titleChars" :key="i" ref="titleRefs"
+              class="inline-block opacity-0" :class="{ 'mr-[0.2em]': char === ' ' }"
+            >{{ char }}</span>
           </h1>
           <p v-if="note.description" class="text-xl text-zinc-600 dark:text-zinc-400">
             {{ note.description }}
@@ -275,7 +303,8 @@ useHead({
         </header>
 
         <!-- Content with adjusted max-width -->
-        <div class="prose prose-sm font-mono dark:prose-invert 
+        <div
+          class="prose prose-sm font-mono dark:prose-invert 
              prose-headings:font-bold prose-headings:tracking-tight 
              prose-h2:text-3xl prose-h3:text-2xl 
              prose-p:leading-8 prose-p:py-2 
@@ -288,7 +317,8 @@ useHead({
              prose-ul:list-disc prose-ol:list-decimal prose-li:my-2 
              prose-img:rounded-lg prose-hr:border-gray-300 
              dark:prose-hr:border-gray-700
-             !max-w-none" v-html="processedContent" />
+             !max-w-none" v-html="processedContent"
+        />
 
         <footer class="mt-12 pt-8 border-t border-zinc-200 dark:border-zinc-800">
           <NuxtLink to="/blog/robots" class="text-blue-500 dark:text-blue-400 hover:underline">
@@ -307,7 +337,8 @@ useHead({
             </div>
 
             <h3
-              class="text-lg font-semibold mb-4 sticky top-0 bg-inherit pb-2 border-b border-zinc-200 dark:border-zinc-700">
+              class="text-lg font-semibold mb-4 sticky top-0 bg-inherit pb-2 border-b border-zinc-200 dark:border-zinc-700"
+            >
               Table of Contents
             </h3>
 
@@ -317,24 +348,30 @@ useHead({
         </div>
       </aside>
     </div>
-    <UAlert icon="i-majesticons-robot" color="orange" variant="solid" title="LLM-Generated / Augmented Content"
-      description="This note was written by or with the assistance of AI." class="mb-8" />
+    <UAlert
+      icon="i-majesticons-robot" color="orange" variant="solid" title="LLM-Generated / Augmented Content"
+      description="This note was written by or with the assistance of AI." class="mb-8"
+    />
   </div>
 
   <!-- Teleport the TOC into the sidebar -->
   <Teleport to="#toc-target">
     <nav v-if="trimmedToc.length" class="space-y-2">
       <template v-for="section in trimmedToc" :key="section.slug">
-        <NuxtLink :to="`#${section.slug}`" class="block py-1.5 transition-colors duration-200 text-sm" :class="[
-          section.level === 'h3' ? 'pl-4' : '',
-          activeSection === section.slug
-            ? 'text-blue-500 dark:text-blue-400'
-            : 'text-zinc-600 dark:text-zinc-400 hover:text-blue-500 dark:hover:text-blue-400'
-        ]">
+        <NuxtLink
+          :to="`#${section.slug}`" class="block py-1.5 transition-colors duration-200 text-sm" :class="[
+            section.level === 'h3' ? 'pl-4' : '',
+            activeSection === section.slug
+              ? 'text-blue-500 dark:text-blue-400'
+              : 'text-zinc-600 dark:text-zinc-400 hover:text-blue-500 dark:hover:text-blue-400'
+          ]"
+        >
           <div class="flex justify-between items-center group">
             <span>{{ section.text }}</span>
-            <span v-if="sectionWordCounts[section.slug]"
-              class="text-xs text-zinc-400 dark:text-zinc-500 group-hover:text-blue-500 dark:group-hover:text-blue-400">
+            <span
+              v-if="sectionWordCounts[section.slug]"
+              class="text-xs text-zinc-400 dark:text-zinc-500 group-hover:text-blue-500 dark:group-hover:text-blue-400"
+            >
               {{ sectionWordCounts[section.slug] }} words
             </span>
           </div>

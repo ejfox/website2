@@ -1,6 +1,68 @@
 // Global type definitions for the website
 
 declare global {
+  // DOM types
+  interface CustomEvent<T = any> extends Event {
+    detail: T;
+  }
+  
+  interface Location {
+    href: string;
+    pathname: string;
+    search: string;
+    hash: string;
+  }
+  
+  interface ScrollToOptions {
+    top?: number;
+    left?: number;
+    behavior?: 'auto' | 'smooth';
+  }
+  
+  interface EventListener {
+    (event: Event): void;
+  }
+  
+  interface AddEventListenerOptions {
+    capture?: boolean;
+    once?: boolean;
+    passive?: boolean;
+  }
+  
+  // Fetch API types
+  type RequestMode = 'cors' | 'no-cors' | 'same-origin' | 'navigate';
+  type RequestCredentials = 'omit' | 'same-origin' | 'include';
+  type RequestCache = 'default' | 'no-store' | 'reload' | 'no-cache' | 'force-cache' | 'only-if-cached';
+  type RequestRedirect = 'follow' | 'error' | 'manual';
+  type HeadersInit = string[][] | Record<string, string> | Headers;
+  type BodyInit = Blob | BufferSource | FormData | URLSearchParams | string;
+  
+  interface AbortSignal {
+    aborted: boolean;
+    addEventListener(type: string, listener: EventListener): void;
+    removeEventListener(type: string, listener: EventListener): void;
+  }
+  
+  interface Headers {
+    append(name: string, value: string): void;
+    delete(name: string): void;
+    get(name: string): string | null;
+    has(name: string): boolean;
+    set(name: string, value: string): void;
+  }
+  
+  interface RequestInit {
+    method?: string;
+    headers?: HeadersInit;
+    body?: BodyInit | null;
+    mode?: RequestMode;
+    credentials?: RequestCredentials;
+    cache?: RequestCache;
+    redirect?: RequestRedirect;
+    referrer?: string;
+    signal?: AbortSignal | null;
+  }
+  
   // Window properties
   interface Window {
     // Web Vitals
@@ -31,6 +93,22 @@ declare global {
   
   // Global d3 UMD module
   var d3: any;
+  
+  // Node.js globals
+  var setTimeout: (callback: () => void, delay: number) => number;
+  var clearTimeout: (id: number) => void;
+  var setInterval: (callback: () => void, delay: number) => number;
+  var clearInterval: (id: number) => void;
+  
+  // Nuxt auto-imports
+  var useColorMode: () => any;
+  var useRouteQuery: () => any;
+  var defineNuxtPlugin: (plugin: any) => any;
+  var useCookie: (name: string, options?: any) => any;
+  var useNuxtApp: () => any;
+  var useRouter: () => any;
+  var useRoute: () => any;
+  var navigateTo: (url: string) => any;
   
   // Process env for Node.js
   namespace NodeJS {

@@ -2,7 +2,8 @@ import { format, parseISO, formatDistanceToNow, isValid } from 'date-fns'
 
 export function formatDate(dateString: string | Date): string {
   try {
-    const date = typeof dateString === 'string' ? parseISO(dateString) : dateString
+    const date =
+      typeof dateString === 'string' ? parseISO(dateString) : dateString
     if (!isValid(date)) return 'Invalid date'
     return format(date, 'MMM d, yyyy')
   } catch {
@@ -22,7 +23,8 @@ export function formatTimestamp(timestamp: string | Date): string {
 
 export function formatRelativeTime(dateString: string | Date): string {
   try {
-    const date = typeof dateString === 'string' ? parseISO(dateString) : dateString
+    const date =
+      typeof dateString === 'string' ? parseISO(dateString) : dateString
     if (!isValid(date)) return 'Invalid date'
     return formatDistanceToNow(date, { addSuffix: true })
   } catch {
@@ -42,9 +44,24 @@ export function formatTrackTime(timestamp: string): string {
 
 export function formatFullDateTime(dateString: string | Date): string {
   try {
-    const date = typeof dateString === 'string' ? parseISO(dateString) : dateString
+    const date =
+      typeof dateString === 'string' ? parseISO(dateString) : dateString
     if (!isValid(date)) return 'Invalid date'
-    return format(date, 'MMMM d, yyyy \'at\' h:mm a')
+    return format(date, "MMMM d, yyyy 'at' h:mm a")
+  } catch {
+    return 'Invalid date'
+  }
+}
+
+export function formatTooltipDate(date: Date): string {
+  try {
+    if (!isValid(date)) return 'Invalid date'
+    return date.toLocaleDateString(undefined, {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    })
   } catch {
     return 'Invalid date'
   }

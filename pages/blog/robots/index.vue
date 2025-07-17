@@ -93,17 +93,23 @@ onMounted(() => {
     <!-- Main Content -->
     <section class="lg:w-2/3">
       <div class="mb-8">
-        <h1 class="text-3xl font-bold">Robot Notes</h1>
+        <h1 class="text-3xl font-bold">
+          Robot Notes
+        </h1>
         <p class="text-zinc-600 dark:text-zinc-400 mt-2">
-          <a href="https://www.are.na/ej-fox/conversations-with-robots" target="_blank"
-            class="text-blue-500 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors">
+          <a
+            href="https://www.are.na/ej-fox/conversations-with-robots" target="_blank"
+            class="text-blue-500 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
+          >
             Conversations with Robots
           </a>, notes from various AI models, projects, and experiments.
         </p>
       </div>
 
-      <div v-for="note in robotNotes" :key="note.slug" ref="robotElements" :id="note.slug.replace('robots/', '')"
-        class="border-b border-zinc-200 dark:border-zinc-700 py-4 my-8 xl:my-16">
+      <div
+        v-for="note in robotNotes" :id="note.slug.replace('robots/', '')" :key="note.slug" ref="robotElements"
+        class="border-b border-zinc-200 dark:border-zinc-700 py-4 my-8 xl:my-16"
+      >
         <!-- Metadata row -->
         <div class="flex items-center justify-between mb-2">
           <div class="post-metadata text-sm text-zinc-500 dark:text-zinc-400 font-mono">
@@ -116,7 +122,8 @@ onMounted(() => {
 
         <NuxtLink :to="`/blog/robots/${note.slug.replace('robots/', '')}`" class="group">
           <h2
-            class="text-xl font-semibold font-mono group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors">
+            class="text-xl font-semibold font-mono group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors"
+          >
             {{ note.title }}
           </h2>
         </NuxtLink>
@@ -127,13 +134,17 @@ onMounted(() => {
 
         <!-- TOC Preview -->
         <div v-if="note.toc?.length" class="mt-6 space-y-2">
-          <div class="text-xs uppercase text-zinc-500 dark:text-zinc-400 font-mono">Sections:</div>
+          <div class="text-xs uppercase text-zinc-500 dark:text-zinc-400 font-mono">
+            Sections:
+          </div>
           <div class="flex flex-wrap gap-3">
             <template v-for="section in note.toc" :key="section.slug">
               <template v-if="section.children?.length">
-                <NuxtLink v-for="child in section.children" :key="child.slug"
+                <NuxtLink
+                  v-for="child in section.children" :key="child.slug"
                   :to="`/blog/robots/${note.slug.replace('robots/', '')}#${child.slug}`"
-                  class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors bg-zinc-200 dark:bg-zinc-800 rounded-md px-2 py-1">
+                  class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors bg-zinc-200 dark:bg-zinc-800 rounded-md px-2 py-1"
+                >
                   {{ child.text }}
                 </NuxtLink>
               </template>

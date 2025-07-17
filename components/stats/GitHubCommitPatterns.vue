@@ -71,7 +71,7 @@ function getTypeClass(type: string) {
     other: 'bg-zinc-100 dark:bg-zinc-800/30 text-zinc-600 dark:text-zinc-400'
   }
 
-  // @ts-ignore - Type might not be in our predefined map
+  // @ts-expect-error - Type might not be in our predefined map
   return classes[type] || classes.other
 }
 </script>
