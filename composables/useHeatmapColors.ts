@@ -41,16 +41,16 @@ export function useHeatmapColors(options: HeatmapColorsOptions) {
     
     const color = colorScale.value(value)
     const dayOffset = options.daysToShow - index - 1
-    const cellDate = new Date(options.startDate.getTime() + (dayOffset * 24 * 60 * 60 * 1000))
+    const _cellDate = new Date(options.startDate.getTime() + (dayOffset * 24 * 60 * 60 * 1000))
     
-    return isWeekend(cellDate)
+    return isWeekend(_cellDate)
       ? `${color.replace('rgb', 'rgba').replace(')', ', 0.85)')}` // Reduce saturation for weekends
       : color
   }
 
   const getCellOpacity = (value: number, index: number) => {
     const dayOffset = options.daysToShow - index - 1
-    const cellDate = new Date(options.startDate.getTime() + (dayOffset * 24 * 60 * 60 * 1000))
+    const _cellDate = new Date(options.startDate.getTime() + (dayOffset * 24 * 60 * 60 * 1000))
     // Reduce opacity more for empty data
     const baseOpacity = hasData.value ? 1 : 0.5
     return baseOpacity // Let the fill color handle the weekend distinction

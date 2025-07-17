@@ -1,15 +1,15 @@
-import { scaleLinear } from 'd3-scale'
+// import { scaleLinear } from 'd3-scale' // Unused
 import {
   mean,
   quantile,
   deviation,
-  extent,
-  ascending,
+  // extent,
+  // ascending, // Unused
   sum,
   min,
   max
 } from 'd3-array'
-import { range } from 'd3-array'
+// import { range } from 'd3-array' // Unused
 
 export const usePatterns = () => {
   const { stats } = useStats()
@@ -117,7 +117,7 @@ export const usePatterns = () => {
   // Find patterns across all data streams
   const findPatterns = computed(() => {
     const patterns: Pattern[] = []
-    const now = new Date()
+    const _now = new Date()
 
     // Compare each data stream with every other stream
     for (let i = 0; i < dataStreams.length; i++) {
@@ -228,12 +228,12 @@ export const usePatterns = () => {
     }
   }
 
-  const findCycles = (data: number[]) => {
+  const findCycles = (_data: number[]) => {
     // Implement cycle detection (e.g., FFT or autocorrelation)
     return []
   }
 
-  const findPhaseShift = (data1: number[], data2: number[]) => {
+  const findPhaseShift = (_data1: number[], _data2: number[]) => {
     // Implement phase shift detection
     return { shift: 0, significance: 0 }
   }
@@ -244,8 +244,8 @@ export const usePatterns = () => {
     stream: DataStream,
     data: any
   ): Pattern => {
-    const now = new Date()
-    const id = `${type}-${stream.id}-${now.getTime()}`
+    const _now = new Date()
+    const id = `${type}-${stream.id}-${_now.getTime()}`
 
     return {
       id,
@@ -253,7 +253,7 @@ export const usePatterns = () => {
       description: generateDescription(type, stream, data),
       score: calculatePatternScore(type, data),
       confidence: calculateConfidence(type, data),
-      lastSeen: now,
+      lastSeen: _now,
       frequency: calculateFrequency(data),
       type,
       viz: determineVisualization(type, data),
@@ -272,7 +272,7 @@ export const usePatterns = () => {
     correlation: number,
     pValue: number
   ): Pattern => {
-    const now = new Date()
+    const _now = new Date()
     return {
       id: `correlation-${stream1.id}-${stream2.id}-${now.getTime()}`,
       title: `${stream1.id} × ${stream2.id} Correlation`,
@@ -283,7 +283,7 @@ export const usePatterns = () => {
       ),
       score: Math.abs(correlation),
       confidence: 1 - pValue,
-      lastSeen: now,
+      lastSeen: _now,
       frequency: 1, // Updated by pattern history
       type: 'correlation',
       viz: 'scatter',
@@ -299,14 +299,14 @@ export const usePatterns = () => {
     stream2: DataStream,
     phaseShift: { shift: number; significance: number }
   ): Pattern => {
-    const now = new Date()
+    const _now = new Date()
     return {
       id: `phase-${stream1.id}-${stream2.id}-${now.getTime()}`,
       title: `${stream1.id} Leads ${stream2.id}`,
       description: `${stream1.id} changes typically precede ${stream2.id} by ${phaseShift.shift} periods`,
       score: phaseShift.significance,
       confidence: phaseShift.significance,
-      lastSeen: now,
+      lastSeen: _now,
       frequency: 1,
       type: 'rhythm',
       viz: 'line',
