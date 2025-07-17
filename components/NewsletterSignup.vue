@@ -86,7 +86,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted, onUnmounted } from 'vue'
+import { ref, reactive } from 'vue'
 import { animate } from '~/anime.esm.js'
 
 const email = ref('')

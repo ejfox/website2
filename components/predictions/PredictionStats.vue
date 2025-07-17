@@ -34,7 +34,7 @@
 </template>
 
 <script setup>
-const props = defineProps({
+const _props = defineProps({
   stats: {
     type: Object,
     required: true

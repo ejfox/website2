@@ -123,8 +123,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, h } from 'vue'
-import { format, parse } from 'date-fns'
+import { computed, h as _h } from 'vue'
+import { format, parse as _parse } from 'date-fns'
 import IndividualStat from './IndividualStat.vue'
 import ActivityCalendar from './ActivityCalendar.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'
@@ -140,7 +140,7 @@ const zincShades = [
 ];
 
 // Get zinc shade for index
-const getColorForIndex = (index: number, total: number) => {
+const getColorForIndex = (index: number, _total: number) => {
   return zincShades[index % zincShades.length];
 };
 

@@ -37,7 +37,7 @@
 
 <script setup>
 import { format } from 'date-fns'
-const props = defineProps({
+const _props = defineProps({
   scrap: {
     type: Object,
     required: true,

@@ -195,7 +195,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref as _ref, computed } from 'vue'
 import { formatNumber, formatDecimal } from '~/composables/useNumberFormat'
 import StatsSectionHeader from './StatsSectionHeader.vue'
 import StatsDataState from './StatsDataState.vue'
@@ -249,14 +249,14 @@ interface LastFmStats {
   lastUpdated: string
 }
 
-const handleImageError = (event: Event) => {
+const _handleImageError = (event: Event) => {
   const target = event.target as HTMLImageElement
   if (target) {
     target.src = '/placeholder-artist.png'
   }
 }
 
-const getImageUrl = (
+const _getImageUrl = (
   images: LastFmImage[],
   size: string = 'medium'
 ): string => {

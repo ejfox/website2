@@ -39,6 +39,7 @@ export default tseslint.config(
         
         // Vue/Nuxt auto-imports (available everywhere)
         defineNuxtConfig: 'readonly',
+        defineNuxtPlugin: 'readonly',
         useRuntimeConfig: 'readonly',
         $fetch: 'readonly',
         createError: 'readonly',
@@ -81,6 +82,12 @@ export default tseslint.config(
         
         // Common utilities
         format: 'readonly',
+        
+        // Timers
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly',
+        setInterval: 'readonly',
+        clearInterval: 'readonly',
         
         // Project-specific globals
         ANIMATION_SETTINGS: 'readonly'
@@ -212,6 +219,8 @@ export default tseslint.config(
         
         // VueUse composables (common ones)
         useDark: 'readonly',
+        useColorMode: 'readonly',
+        useRouteQuery: 'readonly',
         useClipboard: 'readonly',
         useStorage: 'readonly',
         useLocalStorage: 'readonly',
@@ -383,7 +392,10 @@ export default tseslint.config(
         FormData: 'readonly',
         ReadableStream: 'readonly',
         WritableStream: 'readonly',
-        TransformStream: 'readonly'
+        TransformStream: 'readonly',
+        Blob: 'readonly',
+        BufferSource: 'readonly',
+        RequestInit: 'readonly'
       }
     }
   },

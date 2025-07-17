@@ -65,9 +65,18 @@
   </div>
 </template>
 
-<script setup>
-const { product } = defineProps(['product']);
-const stripe = useClientStripe();
+<script setup lang="ts">
+interface Props {
+  product: {
+    id: string;
+    name: string;
+    price: number;
+    [key: string]: any;
+  };
+}
+
+const { product } = defineProps<Props>();
+const _stripe = useClientStripe();
 
 
 const buyProduct = async (productId) => {
@@ -81,7 +90,7 @@ const buyProduct = async (productId) => {
     }),
   });
 
-  const { id: sessionId, url } = data.value.body;
+  const { id: _sessionId, url } = data.value.body;
 
   navigateTo(url, { external: true });
 };

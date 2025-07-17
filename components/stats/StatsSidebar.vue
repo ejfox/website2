@@ -305,7 +305,7 @@ onMounted(async () => {
       battery.addEventListener('levelchange', () => {
         batteryLevel.value = Math.round(battery.level * 100)
       })
-    } catch (e) {
+    } catch (_e) {
       // Battery API not supported
     }
   }

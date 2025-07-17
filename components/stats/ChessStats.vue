@@ -214,7 +214,7 @@ const hasRating = (type: keyof NewFormatRatings) => {
   return getRating(type) > 0
 }
 
-const currentRating = computed(() => {
+const _currentRating = computed(() => {
   if (!props.stats) return 0
   return isNewFormat.value
     ? (props.stats.currentRating as NewFormatRatings).blitz

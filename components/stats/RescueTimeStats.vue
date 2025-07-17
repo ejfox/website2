@@ -112,7 +112,7 @@ const props = defineProps<{
 }>()
 
 const rescueTime = computed(() => props.stats.rescueTime)
-const lastUpdated = computed(() => rescueTime.value?.lastUpdated || new Date().toISOString())
+const _lastUpdated = computed(() => rescueTime.value?.lastUpdated || new Date().toISOString())
 
 // Check if we have data
 const hasData = computed(() => {
@@ -121,11 +121,11 @@ const hasData = computed(() => {
 })
 
 // Format date for display
-const formatUpdateTime = (dateString: string) => {
+const _formatUpdateTime = (dateString: string) => {
   try {
     const date = new Date(dateString)
     return format(date, 'MMM d, yyyy')
-  } catch (e) {
+  } catch (_e) {
     return 'Unknown date'
   }
 }
@@ -133,8 +133,8 @@ const formatUpdateTime = (dateString: string) => {
 // Weekly Stats
 const weeklyHours = computed(() => Math.round(rescueTime.value?.week.summary.total.hoursDecimal || 0))
 const weeklyProductivePercent = computed(() => rescueTime.value?.week.summary.productive.percentage || 0)
-const weeklyDistractingPercent = computed(() => rescueTime.value?.week.summary.distracting.percentage || 0)
-const weeklyNeutralPercent = computed(() => rescueTime.value?.week.summary.neutral.percentage || 0)
+const _weeklyDistractingPercent = computed(() => rescueTime.value?.week.summary.distracting.percentage || 0)
+const _weeklyNeutralPercent = computed(() => rescueTime.value?.week.summary.neutral.percentage || 0)
 
 // Generate activity dates from daily data (if available)
 const activityDates = computed(() => {

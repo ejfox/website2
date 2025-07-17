@@ -130,7 +130,7 @@ const statsDetails = computed(() => {
 })
 
 // Test type distribution data
-const testTypeDistribution = computed(() => {
+const _testTypeDistribution = computed(() => {
   // If available, use the API's test type distribution
   if (props.stats.typingStats?.testTypeDistribution) {
     return props.stats.typingStats.testTypeDistribution
@@ -141,35 +141,35 @@ const testTypeDistribution = computed(() => {
 
   const distribution: Record<string, number> = {}
   recentTests.value.forEach((test) => {
-    const type = getTestType(test)
+    const type = _getTestType(test)
     distribution[type] = (distribution[type] || 0) + 1
   })
 
   return distribution
 })
 
-const totalTests = computed(() => {
+const _totalTests = computed(() => {
   return (
-    Object.values(testTypeDistribution.value).reduce(
+    Object.values(_testTypeDistribution.value).reduce(
       (sum, count) => sum + count,
       0
     ) || 1
   )
 })
 
-const hasTestTypes = computed(() => {
-  return Object.keys(testTypeDistribution.value).length > 0
+const _hasTestTypes = computed(() => {
+  return Object.keys(_testTypeDistribution.value).length > 0
 })
 
 // Helper to determine the test type from a test object
-const getTestType = (test: MonkeyTypeTest): string => {
+const _getTestType = (test: MonkeyTypeTest): string => {
   if (test.duration) return `time_${test.duration}`
   if (test.wordCount) return `words_${test.wordCount}`
   return 'unknown'
 }
 
 // Format test preference display
-const formatTestPref = (type: string): string => {
+const _formatTestPref = (type: string): string => {
   if (type.startsWith('time_')) {
     return `${type.split('_')[1]}s TEST`
   }

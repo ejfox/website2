@@ -1,6 +1,6 @@
-import { ref, type Ref } from 'vue'
+import { type Ref } from 'vue'
 import { select } from 'd3-selection'
-import { format, differenceInDays, parseISO } from 'date-fns'
+import { format, differenceInDays } from 'date-fns'
 import { formatTooltipDate } from '~/utils/dateFormatters'
 import type { HeatmapLayoutResult } from './useHeatmapLayout'
 
@@ -111,7 +111,7 @@ export function useD3Heatmap() {
       .attr('transform', `translate(${MARGIN.left}, ${MARGIN.top})`)
 
     // Create cells
-    const cells = cellGroup.selectAll('.contribution')
+    const _cells = cellGroup.selectAll('.contribution')
       .data(values)
       .join('rect')
       .attr('class', 'contribution')

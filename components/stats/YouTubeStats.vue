@@ -104,7 +104,7 @@ interface YouTubeStats {
   lastUpdated: string
 }
 
-const props = defineProps<{
+const _props = defineProps<{
   stats: YouTubeStats
 }>()
 

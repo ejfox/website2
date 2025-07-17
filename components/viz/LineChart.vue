@@ -36,8 +36,8 @@ const container = ref(null)
 const svgContainer = ref(null)
 
 // Create smooth transitions for our data
-const transitionedValues = useTransition(computed(() => props.data.values))
-const transitionedLabels = useTransition(computed(() => props.data.labels))
+const _transitionedValues = useTransition(computed(() => props.data.values))
+const _transitionedLabels = useTransition(computed(() => props.data.labels))
 
 const drawChart = () => {
   if (!container.value || !props.data?.values?.length || !svgContainer.value) return

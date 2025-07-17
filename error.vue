@@ -77,7 +77,10 @@ const route = useRoute()
 
 // Props passed by Nuxt error handling
 const props = defineProps({
-  error: Object
+  error: {
+    type: Object,
+    default: () => ({})
+  }
 })
 
 const relatedPosts = ref([])

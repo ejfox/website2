@@ -23,6 +23,7 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useWindowSize } from '@vueuse/core'
 import { format } from 'd3-format'
 
@@ -34,18 +35,19 @@ interface Props {
   // Format options
   abbreviateOnMobile?: boolean
   precision?: number
-  format?: 'number' | 'percent' | 'currency' | 'smart'
+  formatType?: 'number' | 'percent' | 'currency' | 'smart'
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  details: undefined,
   size: 'large',
   abbreviateOnMobile: true,
   precision: 1,
-  format: 'smart'
+  formatType: 'smart'
 })
 
 const { width } = useWindowSize()
-const isMobile = computed(() => width.value < 768)
+const _isMobile = computed(() => width.value < 768)
 
 // Format functions - more compact by default
 const formatLarge = format(',.0f')
@@ -64,16 +66,16 @@ const formattedValue = computed(() => {
   if (!Number.isFinite(val)) return '∞'
 
   // Format based on type and size
-  if (props.format === 'percent') {
+  if (props.formatType === 'percent') {
     return formatPercent(val / 100) // Assuming input is already 0-100
   }
 
-  if (props.format === 'currency') {
+  if (props.formatType === 'currency') {
     return formatCurrency(val)
   }
 
   // Smart formatting based on the value
-  if (props.format === 'smart' || props.format === 'number') {
+  if (props.formatType === 'smart' || props.formatType === 'number') {
     // Keep exact values for smaller numbers
     if (val < 1000) {
       return formatLarge(val)

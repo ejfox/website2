@@ -73,7 +73,7 @@ const props = defineProps<{
 
 const { formatNumber } = useNumberFormat()
 
-const formatDate = (dateString: string): string => {
+const _formatDate = (dateString: string): string => {
   return format(new Date(dateString), 'MMM d, yyyy')
 }
 

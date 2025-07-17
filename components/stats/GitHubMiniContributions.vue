@@ -32,7 +32,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { format, startOfWeek, addDays, differenceInDays } from 'date-fns'
+import { format, startOfWeek, addDays, differenceInDays as _differenceInDays } from 'date-fns'
 
 interface GitHubCommit {
   repository: {

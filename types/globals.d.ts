@@ -35,6 +35,44 @@ declare global {
   type RequestCache = 'default' | 'no-store' | 'reload' | 'no-cache' | 'force-cache' | 'only-if-cached';
   type RequestRedirect = 'follow' | 'error' | 'manual';
   type HeadersInit = string[][] | Record<string, string> | Headers;
+  
+  // Web API types
+  interface Blob {
+    readonly size: number;
+    readonly type: string;
+    slice(start?: number, end?: number, contentType?: string): Blob;
+  }
+  
+  interface BufferSource {
+    readonly byteLength: number;
+  }
+  
+  interface File extends Blob {
+    readonly name: string;
+    readonly lastModified: number;
+  }
+  
+  type FormDataEntryValue = string | File;
+  
+  interface FormData {
+    append(name: string, value: string | Blob, fileName?: string): void;
+    delete(name: string): void;
+    get(name: string): FormDataEntryValue | null;
+    getAll(name: string): FormDataEntryValue[];
+    has(name: string): boolean;
+    set(name: string, value: string | Blob, fileName?: string): void;
+  }
+  
+  interface URLSearchParams {
+    append(name: string, value: string): void;
+    delete(name: string): void;
+    get(name: string): string | null;
+    getAll(name: string): string[];
+    has(name: string): boolean;
+    set(name: string, value: string): void;
+    toString(): string;
+  }
+  
   type BodyInit = Blob | BufferSource | FormData | URLSearchParams | string;
   
   interface AbortSignal {

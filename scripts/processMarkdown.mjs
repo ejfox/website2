@@ -397,7 +397,7 @@ async function getFilesRecursively(dir) {
 // =============================
 function extractExternalLinks(content) {
   // Extract all URLs matching http/https pattern
-  const urlRegex = /https?:\/\/[^\s\)\]\"]+/g
+  const urlRegex = /https?:\/\/[^\s)\]"]+/g
   const urls = content.match(urlRegex) || []
 
   // Filter out internal domains

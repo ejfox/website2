@@ -264,7 +264,7 @@ function getBuiltInAnalysis(statement, resolutionCriteria) {
   }
 
   if (/\d{4}/.test(statement)) analysis.strengths.push('Includes specific year')
-  if (/\$|\%/.test(statement))
+  if (/\$|%/.test(statement))
     analysis.strengths.push('Includes specific numerical targets')
 
   return analysis
@@ -297,7 +297,7 @@ function generateSuggestions(statement) {
   }
 
   // Suggest measurement units
-  if (/price|cost|value/i.test(statement) && !/\$|\€|\£/.test(statement)) {
+  if (/price|cost|value/i.test(statement) && !/\$|€|£/.test(statement)) {
     suggestions.push('Specify currency (USD, EUR, etc.)')
   }
 

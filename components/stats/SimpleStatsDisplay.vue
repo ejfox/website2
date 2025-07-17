@@ -295,7 +295,7 @@
 
 <script setup>
 import { computed, defineProps } from 'vue'
-import { useStats } from '~/composables/useStats'
+import { useStats as _useStats } from '~/composables/useStats'
 import { useNumberFormat } from '~/composables/useNumberFormat'
 
 const { formatNumber, formatDecimal, formatPercentage } = useNumberFormat()

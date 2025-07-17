@@ -69,6 +69,7 @@
 <script setup>
 import { useIntersectionObserver } from '@vueuse/core'
 import { format, parseISO, isThisMonth, isThisYear } from 'date-fns'
+const _parseISO = parseISO
 import ScrapItem from '~/components/Scrap/Item.vue'
 import useScraps from '~/composables/useScraps'
 

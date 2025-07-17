@@ -21,7 +21,7 @@
 <script setup>
 import { computedAsync } from '@vueuse/core'
 
-const showSummary = ref(true)
+const _showSummary = ref(true)
 
 const props = defineProps({
   scrap: {
@@ -30,7 +30,7 @@ const props = defineProps({
   },
 })
 
-const parsedMarkdown = computedAsync(async () => {
+const _parsedMarkdown = computedAsync(async () => {
   const markdownContent = props.scrap.summary
   if (!markdownContent) return null
   return await markdownParser.parse(null, markdownContent)

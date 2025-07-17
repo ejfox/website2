@@ -374,7 +374,7 @@ function generateBackgroundArt({
 }
 
 function processText(text) {
-  const sentences = text.split(/(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?|\!)\s/g)
+  const sentences = text.split(/(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?|!)\s/g)
   const codeBlocks = text.match(/```[\s\S]*?```/g) || []
   const imageLinks = text.match(/!\[(?:.*?)\]\((.*?)\)/g) || []
   const regularLinks = text.match(/\[(?!!\[).*?\]\(.*?\)/g) || []

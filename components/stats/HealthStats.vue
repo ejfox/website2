@@ -353,7 +353,7 @@ const formatSimpleDate = (dateStr: string) => {
       month: 'short',
       day: 'numeric'
     })
-  } catch (e) {
+  } catch (_e) {
     return dateStr
   }
 }

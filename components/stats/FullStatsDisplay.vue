@@ -210,7 +210,7 @@ const StatsSidebar = defineAsyncComponent(
   () => import('~/components/stats/StatsSidebar.vue')
 )
 
-const props = defineProps({
+const _props = defineProps({
   stats: {
     type: Object,
     required: true

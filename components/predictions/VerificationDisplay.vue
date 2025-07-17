@@ -83,7 +83,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed as _computed, onMounted } from 'vue'
 
 const props = defineProps({
   prediction: {

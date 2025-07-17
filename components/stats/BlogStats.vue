@@ -134,7 +134,7 @@ import {
   differenceInYears,
   differenceInMonths
 } from 'date-fns'
-import IndividualStat from './IndividualStat.vue'
+// import IndividualStat from './IndividualStat.vue' // Unused component
 
 // Import ActivityCalendar
 import ActivityCalendar from './ActivityCalendar.vue'
@@ -145,7 +145,7 @@ import { useNumberFormat } from '../../composables/useNumberFormat'
 import StatsSectionHeader from './StatsSectionHeader.vue'
 
 // Use the shared number formatting utilities
-const { formatNumber, zincShades, getColorForIndex } = useNumberFormat()
+const { formatNumber } = useNumberFormat()
 
 interface BlogStats {
   totalPosts: number
@@ -161,7 +161,7 @@ interface BlogStats {
   postsByMonth?: Record<string, number>
 }
 
-interface StatItem {
+interface _StatItem {
   label: string
   value: string
   condition?: boolean
@@ -172,11 +172,11 @@ const props = defineProps<{
 }>()
 
 // Computed properties for conditional rendering and data formatting
-const primaryDetails = computed(() => {
+const _primaryDetails = computed(() => {
   return `${formatNumber(props.stats.totalWords)} WORDS · ${formatNumber(props.stats.averageWords)} AVG/POST`
 })
 
-const hasTagsData = computed(() => {
+const _hasTagsData = computed(() => {
   return !!(
     props.stats.topTags?.length ||
     props.stats.uniqueTags ||
@@ -184,7 +184,7 @@ const hasTagsData = computed(() => {
   )
 })
 
-const topTagsDisplay = computed(() => {
+const _topTagsDisplay = computed(() => {
   if (!props.stats.topTags?.length) return ''
   return props.stats.topTags.slice(0, 3).join(', ')
 })
@@ -195,7 +195,7 @@ const topTagsDisplay = computed(() => {
 // formatNumber is imported from useNumberFormat()
 
 // Calculate writing span (e.g., "2 years, 3 months")
-const writingSpan = computed(() => {
+const _writingSpan = computed(() => {
   if (!props.stats.firstPost || !props.stats.lastPost) return 'Unknown'
 
   const firstDate = new Date(props.stats.firstPost)
@@ -223,11 +223,11 @@ const postsPerYear = computed(() => {
 })
 
 // Calculate post activity dates for the calendar
-const postActivityDates = computed(() => {
+const _postActivityDates = computed(() => {
   if (!props.stats.postsByMonth) return []
 
   // Convert the postsByMonth record to active dates
-  const activeDates: string[] = []
+  const _activeDates: string[] = []
 
   // Using a set to avoid duplicates
   const dates = new Set<string>()
@@ -307,8 +307,8 @@ const getWeekNumber = (date: Date): number => {
 const postsThisWeek = computed(() => {
   const today = new Date()
   const weekStart = new Date(today.setDate(today.getDate() - today.getDay()))
-  const currentWeek = getWeekNumber(weekStart)
-  const currentYear = today.getFullYear()
+  const _currentWeek = getWeekNumber(weekStart)
+  const _currentYear = today.getFullYear()
   
   // Rough estimate based on this month's activity
   const thisMonth = props.stats.postsThisMonth || 0
