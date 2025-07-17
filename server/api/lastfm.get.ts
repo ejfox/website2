@@ -1,5 +1,5 @@
 // Note: useStorage is auto-imported in Nitro
-// import { useStorage } from '#imports'
+import { useStorage } from '#imports'
 
 export default defineEventHandler(async () => {
   const config = useRuntimeConfig()

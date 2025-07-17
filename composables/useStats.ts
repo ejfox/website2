@@ -1,6 +1,6 @@
 // composables/useStats.ts
 import { ref, computed, onMounted } from 'vue'
-import type { Ref } from 'vue'
+import type { Ref as _Ref } from 'vue'
 
 // Cache duration in milliseconds (5 minutes)
 const CACHE_DURATION = 5 * 60 * 1000
@@ -14,7 +14,7 @@ interface TimeBreakdown {
 }
 
 // Define the HealthDataRecord interface
-interface HealthDataRecord {
+interface _HealthDataRecord {
   id?: string
   record_id?: number
   date: string
@@ -454,7 +454,7 @@ export function useStats() {
       hasStaleData.value = true
 
       return JSON.parse(cachedData)
-    } catch (e) {
+    } catch (_e) {
       return null
     }
   }
@@ -466,7 +466,7 @@ export function useStats() {
     try {
       localStorage.setItem('stats_cache', JSON.stringify(data))
       localStorage.setItem('stats_cache_timestamp', Date.now().toString())
-    } catch (e) {
+    } catch (_e) {
       // Ignore cache errors
     }
   }

@@ -23,7 +23,7 @@ export default defineNuxtConfig({
   // Reduce router warnings in dev
   vue: {
     compilerOptions: {
-      isCustomElement: (tag) => false
+      isCustomElement: (_tag) => false
     }
   },
 

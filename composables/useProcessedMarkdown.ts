@@ -95,10 +95,10 @@
  * @returns {Object} An object with various methods to retrieve blog posts and their metadata.
  */
 
-import { parseISO, isValid, parse, startOfWeek, format } from 'date-fns'
+import { parseISO as _parseISO, isValid as _isValid, parse as _parse, startOfWeek as _startOfWeek, format as _format } from 'date-fns'
 
 // Add debug helper
-const debug = (msg: string, data?: any) => {
+const debug = (_msg: string, _data?: any) => {
   if (process.env.DEBUG_CONTENT === 'true') {
     // console.log(`[content] ${msg}`, data || '')
   }
@@ -132,7 +132,7 @@ function getValidDate(date: string | Date | undefined): string {
 
     // If parsing failed, return current date
     return new Date().toISOString()
-  } catch (error) {
+  } catch (_error) {
     return new Date().toISOString()
   }
 }
@@ -181,7 +181,7 @@ function formatTitle(filename: string): string {
 
 export const useProcessedMarkdown = () => {
   // Access the runtime configuration for the application
-  const config = useRuntimeConfig()
+  const _config = useRuntimeConfig()
 
   /**
    * Fetches the "manifest-lite" JSON, which contains a lightweight list of posts and metadata.
@@ -330,7 +330,7 @@ export const useProcessedMarkdown = () => {
       return manifest
         .filter((post: Post) => {
           const slug = post.slug
-          const type = post.type || post.metadata?.type
+          const _type = post.type || post.metadata?.type
 
           // Skip if no slug
           if (!slug) {
@@ -743,7 +743,8 @@ export const useProcessedMarkdown = () => {
 }
 
 interface ManifestItem extends Post {
-  // Add any specific manifest properties here
+  // Add any specific manifest properties here if needed
+  _isManifestItem?: true
 }
 
 // Helper to ensure dates are ISO strings

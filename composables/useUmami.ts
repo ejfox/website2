@@ -99,7 +99,7 @@ export function useUmami(initialUrl?: string | Ref<string | null>) {
       hasStaleData.value = true
 
       return JSON.parse(cachedData)
-    } catch (e) {
+    } catch (_e) {
       return null
     }
   }
@@ -113,9 +113,9 @@ export function useUmami(initialUrl?: string | Ref<string | null>) {
       const timestampKey = `umami_stats_timestamp_${url}`
       localStorage.setItem(cacheKey, JSON.stringify(data))
       localStorage.setItem(timestampKey, Date.now().toString())
-    } catch (e) {
+    } catch (_e) {
       // Ignore cache errors
-      console.warn('Failed to cache Umami stats:', e)
+      console.warn('Failed to cache Umami stats:', _e)
     }
   }
 

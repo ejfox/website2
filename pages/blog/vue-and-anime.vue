@@ -275,14 +275,14 @@ const gridItems = Array.from({ length: 25 }).map((_, i) => {
 
 // Simple hover handlers
 const onGridItemHover = (index) => {
-  if (index < 0 || index >= gridItems.length || !gridItems[index]) return;
+  if (index &lt; 0 || index &gt;= gridItems.length || !gridItems[index]) return;
   
   gridItems[index].scale(1.2);  // Scale up
   gridItems[index].backgroundColor('#60a5fa');  // Bright blue
 };
 
 const onGridItemReset = (index) => {
-  if (index < 0 || index >= gridItems.length || !gridItems[index]) return;
+  if (index &lt; 0 || index &gt;= gridItems.length || !gridItems[index]) return;
   
   gridItems[index].scale(1);  // Reset scale
   gridItems[index].backgroundColor('#e2e8f0');  // Reset color
@@ -616,14 +616,14 @@ function setupAnimatableGrid() {
   });
 
   // Simple hover handlers
-  onGridItemHover = (index) => {
+  const onGridItemHover = (index) => {
     if (index < 0 || index >= gridItems.length || !gridItems[index]) return;
 
     gridItems[index].scale(1.2);  // Scale up
     gridItems[index].backgroundColor('#60a5fa');  // Bright blue
   };
 
-  onGridItemReset = (index) => {
+  const onGridItemReset = (index) => {
     if (index < 0 || index >= gridItems.length || !gridItems[index]) return;
 
     gridItems[index].scale(1);  // Reset scale

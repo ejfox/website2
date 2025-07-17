@@ -274,7 +274,7 @@ export const usePatterns = () => {
   ): Pattern => {
     const _now = new Date()
     return {
-      id: `correlation-${stream1.id}-${stream2.id}-${now.getTime()}`,
+      id: `correlation-${stream1.id}-${stream2.id}-${_now.getTime()}`,
       title: `${stream1.id} × ${stream2.id} Correlation`,
       description: generateCorrelationDescription(
         correlation,
@@ -301,7 +301,7 @@ export const usePatterns = () => {
   ): Pattern => {
     const _now = new Date()
     return {
-      id: `phase-${stream1.id}-${stream2.id}-${now.getTime()}`,
+      id: `phase-${stream1.id}-${stream2.id}-${_now.getTime()}`,
       title: `${stream1.id} Leads ${stream2.id}`,
       description: `${stream1.id} changes typically precede ${stream2.id} by ${phaseShift.shift} periods`,
       score: phaseShift.significance,
@@ -353,7 +353,7 @@ export const usePatterns = () => {
   }
 
   // Find peaks using simple algorithm
-  const findSignificantPeaks = (
+  const _findSignificantPeaks = (
     data: number[]
   ): { peaks: number[]; valleys: number[]; confidence: number } => {
     const peaks: number[] = []
@@ -436,7 +436,7 @@ export const usePatterns = () => {
 
   const determineVisualization = (
     type: Pattern['type'],
-    data: any
+    _data: any
   ): Pattern['viz'] => {
     switch (type) {
       case 'correlation':
@@ -455,7 +455,7 @@ export const usePatterns = () => {
   const generateTitle = (
     type: Pattern['type'],
     stream: DataStream,
-    data: any
+    _data: any
   ): string => {
     switch (type) {
       case 'anomaly':
@@ -486,7 +486,7 @@ export const usePatterns = () => {
     }
   }
 
-  const calculateFrequency = (data: any): number => {
+  const calculateFrequency = (_data: any): number => {
     // Stub implementation
     return Math.random() * 7 // Random frequency between 0-7 times per week
   }

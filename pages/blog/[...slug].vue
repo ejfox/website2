@@ -18,7 +18,7 @@ const isDark = useDark()
 const processedMarkdown = useProcessedMarkdown()
 
 const route = useRoute()
-const router = useRouter()
+const _router = useRouter()
 
 // Handle redirection and post fetching
 const { data: post, error } = await useAsyncData(
@@ -77,7 +77,7 @@ const { data: nextPrevPosts } = await useAsyncData(
 //   const slug = post.value.slug || post.value.metadata?.slug || route.params.slug.join('/')
 //   return generatePostColor(slug)
 // })
-const postColors = ref(null)
+const _postColors = ref(null)
 
 // New refs for animation targets
 const postTitle = ref(null)
@@ -352,7 +352,7 @@ const updateTocScroll = useDebounceFn(() => {
 watch(activeSection, updateTocScroll)
 
 // Create scroll animation instance
-const { setupAnimation, slideUp, slideLeft, fadeIn, expandLine } =
+const { setupAnimation: _setupAnimation, slideUp, slideLeft, fadeIn: _fadeIn, expandLine } =
   useScrollAnimation({
     debug: false,
     threshold: 0.1,

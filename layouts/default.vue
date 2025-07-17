@@ -144,14 +144,14 @@
 </template>
 
 <script setup>
-import { ref, computed, defineAsyncComponent, onMounted, watch, nextTick } from 'vue'
+import { ref, computed, defineAsyncComponent, onMounted as _onMounted, watch, nextTick } from 'vue'
 import { useWindowSize, useDark } from '@vueuse/core'
 
 // Lazy load the Footer component
 const Footer = defineAsyncComponent(() => import('@/components/Footer.vue'))
 
 const { width } = useWindowSize()
-const isDark = useDark()
+const _isDark = useDark()
 const isMobile = computed(() => width.value < 768)
 
 const mobileMenuOpen = ref(false)
@@ -166,7 +166,7 @@ const closeMobileMenu = () => {
 
 const route = useRoute()
 
-const isBlog = computed(() => {
+const _isBlog = computed(() => {
   return route.path.startsWith('/blog')
 })
 

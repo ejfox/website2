@@ -39,11 +39,11 @@ const { data: projectPosts } = await useAsyncData('project-posts', async () => {
 // Sort projects by date (newest first)
 const sortedProjectPosts = computed(() => {
   return (
-    projectPosts.value?.sort(
+    [...(projectPosts.value || [])].sort(
       (a, b) =>
         new Date(b.metadata?.date || b.date) -
         new Date(a.metadata?.date || a.date)
-    ) || []
+    )
   )
 })
 

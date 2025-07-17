@@ -76,7 +76,7 @@ import { formatDate } from '~/utils/dateFormatters'
 const route = useRoute()
 
 // Props passed by Nuxt error handling
-const props = defineProps({
+const _props = defineProps({
   error: {
     type: Object,
     default: () => ({})

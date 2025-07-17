@@ -14,7 +14,7 @@ patterns * - Week Notes section: Only includes posts matching week note patterns
 import { format, formatDistanceToNow } from 'date-fns'
 import { computed, ref, onMounted, watch } from 'vue'
 import { startOfWeek, subMonths } from 'date-fns'
-import { animate, stagger } from '~/anime.esm.js'
+import { animate, stagger as _stagger } from '~/anime.esm.js'
 import PostMetadata from '~/components/PostMetadata.vue'
 
 const processedMarkdown = useProcessedMarkdown()
@@ -76,7 +76,7 @@ const { data: posts } = useAsyncData('blog-posts', async () => {
   }
 })
 
-const { data: notes, error: notesError } = useAsyncData(
+const { data: notes, error: _notesError } = useAsyncData(
   'week-notes',
   async () => {
     try {
@@ -222,8 +222,8 @@ const sortedYears = computed(() => {
 const blogPostElements = ref([])
 const weekNoteElements = ref([])
 
-const animDuration = 900
-const animStagger = 125
+const _animDuration = 900
+const _animStagger = 125
 
 const isLoading = ref(true)
 

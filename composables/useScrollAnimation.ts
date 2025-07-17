@@ -1,6 +1,6 @@
 import { useIntersectionObserver } from '@vueuse/core'
-import type { MaybeElementRef } from '@vueuse/core'
-import { animate, stagger } from '~/anime.esm.js'
+import type { MaybeElementRef as _MaybeElementRef } from '@vueuse/core'
+import { animate, stagger as _stagger } from '~/anime.esm.js'
 
 export interface ScrollAnimationOptions {
   threshold?: number
