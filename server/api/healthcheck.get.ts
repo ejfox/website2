@@ -1,7 +1,7 @@
 export default defineEventHandler(async (event) => {
   try {
     // Basic health checks
-    const health = {
+    const health: any = {
       status: 'healthy',
       timestamp: new Date().toISOString(),
       uptime: process.uptime(),

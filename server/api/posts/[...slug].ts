@@ -62,7 +62,7 @@ export default defineEventHandler(async (event) => {
   }
 })
 
-async function readPost(slug: string): Promise<PostData> {
+async function _readPost(slug: string): Promise<PostData> {
   const filePath = path.join(process.cwd(), 'content/processed', `${slug}.json`)
 
   if (!existsSync(filePath)) {

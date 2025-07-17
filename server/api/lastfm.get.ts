@@ -1,11 +1,11 @@
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async () => {
   const config = useRuntimeConfig()
   // Use hardcoded API key as fallback if environment variables aren't available
   const apiKey =
     config.LASTFM_API_KEY ||
     process.env.LASTFM_API_KEY ||
     '3e1f9761376a48e5d6b38aa0dba8274f'
-  const sharedSecret =
+  const _sharedSecret =
     config.LASTFM_SHARED_SECRET ||
     process.env.LASTFM_SHARED_SECRET ||
     'f0ba21c7a486f694b889521ca0f26d7a'
@@ -157,7 +157,7 @@ export default defineEventHandler(async (event) => {
 
     // Test the API connection first
     try {
-      const testResponse = await makeRequest<any>('user.getinfo')
+      const _testResponse = await makeRequest<any>('user.getinfo')
       // console.log(
       //   'Last.fm API test successful:',
       //   testResponse.user?.name === username

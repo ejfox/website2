@@ -2,22 +2,26 @@
   <div
     class="w-full text-zinc-600 dark:text-zinc-400 py-4 gap-1"
     :class="[compact ? 'text-xs' : 'text-sm gap-y-4 pl-2']"
-    :style="colors && {
-      '--post-color': isDark ? colors.dark.primary : colors.light.primary,
-      '--post-color-rgb': isDark ? colors.dark.primaryRgb : colors.light.primaryRgb,
-      '--post-color-subtle': isDark ? colors.dark.subtle : colors.light.subtle
-    }"
+    :style="
+      colors && {
+        '--post-color': isDark ? colors.dark.primary : colors.light.primary,
+        '--post-color-rgb': isDark
+          ? colors.dark.primaryRgb
+          : colors.light.primaryRgb,
+        '--post-color-subtle': isDark ? colors.dark.subtle : colors.light.subtle
+      }
+    "
   >
     <!-- Debug output -->
     <pre v-if="false" class="whitespace-pre-wrap text-xs">{{ metadata }}</pre>
 
     <!-- Folder name -->
     <span
+      v-if="metadata?.slug && !compact"
+      ref="folderRef"
       class="flex items-center metadata-item text-xs tracking-widest"
       :class="[compact ? 'pl-0' : 'pl-0']"
       :style="colors && { color: 'var(--post-color)' }"
-      ref="folderRef"
-      v-if="metadata?.slug && !compact"
     >
       /{{ metadata.slug?.split('/')[0] || '' }}/
     </span>
@@ -25,34 +29,34 @@
     <!-- Draft status -->
     <span
       v-if="metadata.draft"
-      class="flex items-center text-red-500 dark:text-red-400 sans-serif metadata-item"
       ref="draftRef"
+      class="flex items-center text-red-500 dark:text-red-400 sans-serif metadata-item"
     >
-      <span v-if="!compact"
-        >Draft, please do not publish, changes expected</span
-      >
+      <span v-if="!compact">Draft, please do not publish, changes expected</span>
       <span v-else>Draft</span>
     </span>
 
     <!-- Date -->
     <span
       v-if="metadata.date"
+      ref="dateRef"
       class="flex items-center metadata-item"
       :title="metadata.date ? formatRelativeTime(metadata.date) : ''"
-      ref="dateRef"
     >
       <time>{{
-        metadata.date ? (compact
-          ? formatCompactDate(new Date(metadata.date))
-          : formatBlogDate(new Date(metadata.date))) : ''
+        metadata.date
+          ? compact
+            ? formatCompactDate(new Date(metadata.date))
+            : formatBlogDate(new Date(metadata.date))
+          : ''
       }}</time>
     </span>
 
     <!-- Reading Time -->
     <span
       v-if="metadata.readingTime"
-      class="flex items-center metadata-item"
       ref="readingTimeRef"
+      class="flex items-center metadata-item"
     >
       {{ metadata.readingTime }}
       {{ compact ? 'min read' : metadata.readingTime === 1 ? 'min' : 'mins' }}
@@ -61,8 +65,8 @@
     <!-- Word Count -->
     <span
       v-if="metadata.wordCount"
-      class="flex items-center metadata-item"
       ref="wordCountRef"
+      class="flex items-center metadata-item"
     >
       {{ formatCompactNumber(metadata.wordCount) }}
       {{ compact ? 'words' : 'words' }}
@@ -71,8 +75,8 @@
     <!-- Image Count -->
     <span
       v-if="metadata.imageCount"
-      class="flex items-center metadata-item"
       ref="imageCountRef"
+      class="flex items-center metadata-item"
     >
       {{ metadata.imageCount }}
       {{ compact ? 'images' : metadata.imageCount === 1 ? 'image' : 'images' }}
@@ -81,8 +85,8 @@
     <!-- Link Count -->
     <span
       v-if="metadata.linkCount"
-      class="flex items-center metadata-item"
       ref="linkCountRef"
+      class="flex items-center metadata-item"
     >
       {{ metadata.linkCount }}
       {{ compact ? 'links' : metadata.linkCount === 1 ? 'link' : 'links' }}
@@ -95,7 +99,7 @@ import { format } from 'd3-format'
 import { timeFormat } from 'd3-time-format'
 import { formatDistanceToNow } from 'date-fns'
 import { useScrollAnimation } from '~/composables/useScrollAnimation'
-import { nextTick, ref, computed } from 'vue'
+import { nextTick, ref, computed, watchEffect } from 'vue'
 
 interface PostMetadata {
   title?: string
@@ -133,6 +137,7 @@ const props = defineProps<{
   colors?: any
   isDark?: boolean
 }>()
+
 
 // Refs for animation targets
 const draftRef = ref<HTMLElement | null>(null)
@@ -215,7 +220,8 @@ const animateItems = async () => {
     readingTimeRef.value, // Reading time - secondary metadata
     wordCountRef.value, // Word count
     imageCountRef.value, // Image count
-    linkCountRef.value // Link count
+    linkCountRef.value, // Link count
+    pageViewsRef.value // Page views - engagement metric
   ].filter(Boolean)
 
   if (!items.length) return

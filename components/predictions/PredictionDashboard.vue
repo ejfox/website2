@@ -23,12 +23,16 @@
       <h3>Calibration</h3>
       <div class="calibration-bins">
         <div v-for="bin in calibrationBins" :key="bin.range" class="calibration-bin">
-          <div class="bin-label">{{ bin.range }}</div>
+          <div class="bin-label">
+            {{ bin.range }}
+          </div>
           <div class="bin-bar-container">
             <div class="bin-bar expected" :style="{height: bin.expected + '%'}"></div>
             <div class="bin-bar actual" :style="{height: bin.actual + '%'}"></div>
           </div>
-          <div class="bin-count">{{ bin.count }}</div>
+          <div class="bin-count">
+            {{ bin.count }}
+          </div>
         </div>
       </div>
       <div class="chart-legend">

@@ -120,9 +120,9 @@ const currentDonationMessage = computed(() => {
   <section class="donation-section mt-16 mb-8 font-mono">
     <div class="max-w-3xl mx-auto">
       <div class="text-center mb-12">
-        <UText class="text-2xl font-light tracking-wider mb-3"
-          >Support This Work</UText
-        >
+        <UText class="text-2xl font-light tracking-wider mb-3">
+          Support This Work
+        </UText>
         <div
           class="w-16 h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent mx-auto"
         ></div>
@@ -132,16 +132,22 @@ const currentDonationMessage = computed(() => {
         <!-- Stripe Payment -->
         <UCard>
           <template #header>
-            <h4 class="text-lg font-light">One-time Support</h4>
+            <h4 class="text-lg font-light">
+              One-time Support
+            </h4>
           </template>
 
           <div class="space-y-6">
             <div>
               <div class="flex justify-between mb-2">
-                <UText class="text-sm text-gray-500">Amount</UText>
-                <UBadge :color="isDark ? 'white' : 'gray'" size="lg">{{
-                  formatAmount
-                }}</UBadge>
+                <UText class="text-sm text-gray-500">
+                  Amount
+                </UText>
+                <UBadge :color="isDark ? 'white' : 'gray'" size="lg">
+                  {{
+                    formatAmount
+                  }}
+                </UBadge>
               </div>
 
               <div class="mb-2">
@@ -159,13 +165,13 @@ const currentDonationMessage = computed(() => {
               </div>
 
               <UButton
-                @click="handleDonation"
                 :loading="loading"
                 :disabled="loading"
                 color="blue"
                 variant="solid"
                 block
                 icon="i-material-symbols-payments-outline"
+                @click="handleDonation"
               >
                 {{ loading ? 'Processing...' : 'Support via Stripe' }}
               </UButton>
@@ -185,7 +191,9 @@ const currentDonationMessage = computed(() => {
         <!-- Updated Crypto Section -->
         <UCard>
           <template #header>
-            <h4 class="text-lg font-light">Cryptocurrency</h4>
+            <h4 class="text-lg font-light">
+              Cryptocurrency
+            </h4>
           </template>
 
           <div class="space-y-4">
@@ -203,12 +211,12 @@ const currentDonationMessage = computed(() => {
                     size="xs"
                     :color="lastCopied === currency ? 'green' : 'gray'"
                     variant="ghost"
-                    @click="copyAddress(address, currency)"
                     :icon="
                       lastCopied === currency
                         ? 'i-heroicons-check'
                         : 'i-heroicons-clipboard'
                     "
+                    @click="copyAddress(address, currency)"
                   >
                     {{ lastCopied === currency ? 'Copied!' : 'Copy' }}
                   </UButton>
@@ -217,9 +225,11 @@ const currentDonationMessage = computed(() => {
                   class="p-2 bg-gray-100 dark:bg-gray-800 rounded cursor-pointer group transition-colors"
                   @click="copyAddress(address, currency)"
                 >
-                  <UText class="font-mono text-xs break-all">{{
-                    address
-                  }}</UText>
+                  <UText class="font-mono text-xs break-all">
+                    {{
+                      address
+                    }}
+                  </UText>
                 </div>
               </div>
             </template>

@@ -42,7 +42,7 @@ interface ChessStats {
   lastUpdated: string
 }
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async () => {
   const config = useRuntimeConfig()
   const username = config.CHESS_USERNAME
 

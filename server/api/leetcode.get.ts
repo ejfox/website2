@@ -33,10 +33,10 @@ interface LeetCodeResponse {
   lastUpdated: string
 }
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async () => {
   const username = 'ejfox'
 
-  const makeRequest = async <T>(url: string): Promise<T> => {
+  const makeRequest = async <T>(_url: string): Promise<T> => {
     const query = `
     {
       userContestRanking(username: "${username}") {

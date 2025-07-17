@@ -30,7 +30,9 @@
       <GitHubMiniContributions :stats="stats" />
     </div>
   </div>
-  <div v-else class="data-unavailable">GITHUB_DATA_UNAVAILABLE</div>
+  <div v-else class="data-unavailable">
+    GITHUB_DATA_UNAVAILABLE
+  </div>
 </template>
 
 <script setup lang="ts">

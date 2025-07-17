@@ -2,22 +2,30 @@
   <div class="space-y-3 font-mono">
     <!-- Current Status - Big Numbers for Motivation -->
     <div>
-      <h4 class="section-subheader">WRITING STATUS</h4>
+      <StatsSectionHeader title="WRITING STATUS" />
       <div class="grid grid-cols-2 gap-2">
         <div class="metric-card">
-          <div class="text-lg font-bold tabular-nums">{{ stats.totalPosts }}</div>
-          <div class="metric-label">TOTAL POSTS</div>
+          <div class="text-lg font-bold tabular-nums">
+            {{ stats.totalPosts }}
+          </div>
+          <div class="metric-label">
+            TOTAL POSTS
+          </div>
         </div>
         <div class="metric-card">
-          <div class="text-lg font-bold tabular-nums">{{ formatNumber(stats.totalWords) }}</div>
-          <div class="metric-label">TOTAL WORDS</div>
+          <div class="text-lg font-bold tabular-nums">
+            {{ formatNumber(stats.totalWords) }}
+          </div>
+          <div class="metric-label">
+            TOTAL WORDS
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Temporal Windows - Motivation Dashboard -->
     <div>
-      <h4 class="section-subheader">PROGRESS TRACKER</h4>
+      <StatsSectionHeader title="PROGRESS TRACKER" />
       <div class="space-y-1.5">
         <!-- This Month -->
         <div class="progress-row">
@@ -25,7 +33,9 @@
             <div class="month-indicator" :class="monthIndicatorClass"></div>
             <span class="progress-label">THIS MONTH</span>
           </div>
-          <div class="progress-value">{{ stats.postsThisMonth || 0 }} posts · {{ formatNumber(stats.wordsThisMonth || 0) }} words</div>
+          <div class="progress-value">
+            {{ stats.postsThisMonth || 0 }} posts · {{ formatNumber(stats.wordsThisMonth || 0) }} words
+          </div>
         </div>
 
         <!-- This Week (estimated) -->
@@ -34,7 +44,9 @@
             <div class="week-indicator"></div>
             <span class="progress-label">THIS WEEK</span>
           </div>
-          <div class="progress-value">{{ postsThisWeek }} posts · {{ wordsThisWeek }} words</div>
+          <div class="progress-value">
+            {{ postsThisWeek }} posts · {{ wordsThisWeek }} words
+          </div>
         </div>
 
         <!-- Writing Streak -->
@@ -43,7 +55,9 @@
             <div class="streak-indicator" :class="streakIndicatorClass"></div>
             <span class="progress-label">CURRENT STREAK</span>
           </div>
-          <div class="progress-value">{{ currentStreak }} {{ currentStreak === 1 ? 'week' : 'weeks' }}</div>
+          <div class="progress-value">
+            {{ currentStreak }} {{ currentStreak === 1 ? 'week' : 'weeks' }}
+          </div>
         </div>
 
         <!-- Days Since Last Post -->
@@ -52,14 +66,16 @@
             <div class="recency-indicator" :class="recencyIndicatorClass"></div>
             <span class="progress-label">LAST POST</span>
           </div>
-          <div class="progress-value">{{ daysSinceLastPost }} {{ daysSinceLastPost === 1 ? 'day' : 'days' }} ago</div>
+          <div class="progress-value">
+            {{ daysSinceLastPost }} {{ daysSinceLastPost === 1 ? 'day' : 'days' }} ago
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Velocity & Patterns -->
     <div>
-      <h4 class="section-subheader">VELOCITY</h4>
+      <StatsSectionHeader title="VELOCITY" />
       <div class="space-y-1.5">
         <div class="flex items-center justify-between">
           <span class="velocity-label">POSTS/YEAR</span>
@@ -73,7 +89,7 @@
           <span class="velocity-label">WORDS/DAY</span>
           <span class="velocity-value">{{ wordsPerDay.toFixed(0) }}</span>
         </div>
-        <div class="flex items-center justify-between" v-if="stats.averageReadingTime">
+        <div v-if="stats.averageReadingTime" class="flex items-center justify-between">
           <span class="velocity-label">AVG READ TIME</span>
           <span class="velocity-value">{{ stats.averageReadingTime }}min</span>
         </div>
@@ -82,7 +98,7 @@
 
     <!-- Seasonal Analysis -->
     <div>
-      <h4 class="section-subheader">PATTERNS</h4>
+      <StatsSectionHeader title="PATTERNS" />
       <div class="space-y-1.5">
         <div class="flex items-center justify-between">
           <span class="velocity-label">BEST MONTH</span>
@@ -92,7 +108,7 @@
           <span class="velocity-label">MOST PRODUCTIVE</span>
           <span class="velocity-value">{{ mostProductiveYear.year }} ({{ mostProductiveYear.count }} posts)</span>
         </div>
-        <div class="flex items-center justify-between" v-if="stats.uniqueTags">
+        <div v-if="stats.uniqueTags" class="flex items-center justify-between">
           <span class="velocity-label">TOPICS</span>
           <span class="velocity-value">{{ stats.uniqueTags }} unique</span>
         </div>
@@ -101,7 +117,7 @@
 
     <!-- Writing Activity Calendar -->
     <div>
-      <h4 class="section-subheader">ACTIVITY HEATMAP</h4>
+      <StatsSectionHeader title="ACTIVITY HEATMAP" />
       <ActivityCalendar :active-dates="weeklyConsistencyDates" :days="365" title="" />
       <div class="flex justify-between text-zinc-500 mt-1" style="font-size: 9px; line-height: 10px;">
         <span>{{ Math.round((weeklyConsistencyDates.length / 52) * 100) }}% of weeks active</span>
@@ -123,6 +139,13 @@ import IndividualStat from './IndividualStat.vue'
 // Import ActivityCalendar
 import ActivityCalendar from './ActivityCalendar.vue'
 import { format } from 'date-fns'
+
+// Import shared utilities
+import { useNumberFormat } from '../../composables/useNumberFormat'
+import StatsSectionHeader from './StatsSectionHeader.vue'
+
+// Use the shared number formatting utilities
+const { formatNumber, zincShades, getColorForIndex } = useNumberFormat()
 
 interface BlogStats {
   totalPosts: number
@@ -168,10 +191,8 @@ const topTagsDisplay = computed(() => {
 
 // Simplified - no longer need these verbose computed arrays
 
-// Formatting utilities
-const formatNumber = (num: number): string => {
-  return new Intl.NumberFormat().format(Math.round(num))
-}
+// Formatting utilities (now using shared utility)
+// formatNumber is imported from useNumberFormat()
 
 // Calculate writing span (e.g., "2 years, 3 months")
 const writingSpan = computed(() => {
@@ -367,19 +388,21 @@ const mostProductiveYear = computed(() => {
   return { year: bestYear || 'Unknown', count: maxCount }
 })
 
-// Indicator classes for visual feedback
+// Indicator classes for visual feedback - using shared utilities
+const getIndicatorClass = (value: number, thresholds: number[]) => {
+  if (value >= thresholds[0]) return 'bg-zinc-800 dark:bg-zinc-200'
+  if (value >= thresholds[1]) return 'bg-zinc-600 dark:bg-zinc-400'
+  return 'bg-zinc-400 dark:bg-zinc-600'
+}
+
 const monthIndicatorClass = computed(() => {
   const posts = props.stats.postsThisMonth || 0
-  if (posts >= 4) return 'bg-zinc-800 dark:bg-zinc-200'
-  if (posts >= 2) return 'bg-zinc-600 dark:bg-zinc-400'
-  return 'bg-zinc-400 dark:bg-zinc-600'
+  return getIndicatorClass(posts, [4, 2])
 })
 
 const streakIndicatorClass = computed(() => {
   const streak = currentStreak.value
-  if (streak >= 4) return 'bg-zinc-800 dark:bg-zinc-200'
-  if (streak >= 2) return 'bg-zinc-600 dark:bg-zinc-400'
-  return 'bg-zinc-400 dark:bg-zinc-600'
+  return getIndicatorClass(streak, [4, 2])
 })
 
 const recencyIndicatorClass = computed(() => {
@@ -392,35 +415,8 @@ const recencyIndicatorClass = computed(() => {
 </script>
 
 <style scoped>
-.section-subheader {
-  @apply tracking-[0.2em] text-zinc-500 border-b border-zinc-200 dark:border-zinc-800/30 pb-1 mb-3;
-  font-size: 0.65rem;
-  line-height: 1rem;
-}
-
-/* Simplified sparklines */
-.writing-sparkline,
-.activity-sparkline {
-  @apply w-8 h-3 flex items-end gap-px;
-}
-
-.writing-sparkline::before,
-.writing-sparkline::after {
-  @apply bg-zinc-500 dark:bg-zinc-400 w-0.5;
-  content: '';
-}
-
-.writing-sparkline::before { height: 8px; }
-.writing-sparkline::after { height: 12px; }
-
-.activity-sparkline::before,
-.activity-sparkline::after {
-  @apply bg-zinc-400 dark:bg-zinc-500 w-0.5;
-  content: '';
-}
-
-.activity-sparkline::before { height: 6px; }
-.activity-sparkline::after { height: 10px; }
+/* Removed .section-subheader - now using StatsSectionHeader component */
+/* Removed unused sparkline styles */
 
 /* Motivation Dashboard Styles */
 .metric-card {

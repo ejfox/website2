@@ -72,13 +72,13 @@ function extractSnippet(content: string, searchTerms: string[], maxLength = 300)
   
   // Find first occurrence of any search term
   let firstMatchIndex = -1
-  let matchedTerm = ''
+  let _matchedTerm = ''
   
   for (const term of lowerTerms) {
     const index = lowerText.indexOf(term)
     if (index !== -1 && (firstMatchIndex === -1 || index < firstMatchIndex)) {
       firstMatchIndex = index
-      matchedTerm = term
+      _matchedTerm = term
     }
   }
   

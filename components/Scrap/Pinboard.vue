@@ -1,6 +1,8 @@
 <template>
   <div class="py-5">
-    <h4 class="text-lg">{{ scrap.content }}</h4>
+    <h4 class="text-lg">
+      {{ scrap.content }}
+    </h4>
     <!-- show the actual URL as metadata -->
     <div class="tracking-wide px-4">
       <!-- <a :href="scrap.metadata.href" target="_blank" class="text-xs">{{
@@ -13,8 +15,6 @@
     </div> -->
 
     <!-- <div v-if="scrap.description" class="font-medium" v-html="scrap.description" /> -->
-
-
   </div>
 </template>
 

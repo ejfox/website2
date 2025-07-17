@@ -59,7 +59,7 @@ router.get(
       }
 
       return data
-    } catch (error) {
+    } catch (_error) {
       throw createError({
         statusCode: 404,
         message: 'Robot note not found'

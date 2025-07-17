@@ -2,32 +2,40 @@
   <div class="font-mono">
     <!-- Main Stats -->
     <div v-if="stats.submissionStats">
-      <IndividualStat :value="formatNumber(totalSolved)" size="large" label="PROBLEMS SOLVED"
-        :details="`${formatNumber(stats.submissionStats.easy.count)} EASY · ${formatNumber(stats.submissionStats.medium.count)} MEDIUM · ${formatNumber(stats.submissionStats.hard.count)} HARD`" />
+      <IndividualStat
+        :value="formatNumber(totalSolved)" size="large" label="PROBLEMS SOLVED"
+        :details="`${formatNumber(stats.submissionStats.easy.count)} EASY · ${formatNumber(stats.submissionStats.medium.count)} MEDIUM · ${formatNumber(stats.submissionStats.hard.count)} HARD`"
+      />
 
       <!-- Difficulty Distribution -->
       <div class="mt-4">
         <div class="difficulty-bar">
-          <div class="easy-bar" :style="{
-            width: `${difficultyPercentages.easy}%`,
-            opacity: difficultyPercentages.easy > 5 ? 1 : 0.7,
-            backgroundColor: '#a1a1aa' /* Gray-400 */
-          }"
-            :title="`Easy: ${formatNumber(stats.submissionStats.easy.count)} problems (${formatPercent(difficultyPercentages.easy / 100, 0)})`">
+          <div
+            class="easy-bar" :style="{
+              width: `${difficultyPercentages.easy}%`,
+              opacity: difficultyPercentages.easy > 5 ? 1 : 0.7,
+              backgroundColor: '#a1a1aa' /* Gray-400 */
+            }"
+            :title="`Easy: ${formatNumber(stats.submissionStats.easy.count)} problems (${formatPercent(difficultyPercentages.easy / 100, 0)})`"
+          >
           </div>
-          <div class="medium-bar" :style="{
-            width: `${difficultyPercentages.medium}%`,
-            opacity: difficultyPercentages.medium > 5 ? 1 : 0.7,
-            backgroundColor: '#71717a' /* Gray-500 */
-          }"
-            :title="`Medium: ${formatNumber(stats.submissionStats.medium.count)} problems (${formatPercent(difficultyPercentages.medium / 100, 0)})`">
+          <div
+            class="medium-bar" :style="{
+              width: `${difficultyPercentages.medium}%`,
+              opacity: difficultyPercentages.medium > 5 ? 1 : 0.7,
+              backgroundColor: '#71717a' /* Gray-500 */
+            }"
+            :title="`Medium: ${formatNumber(stats.submissionStats.medium.count)} problems (${formatPercent(difficultyPercentages.medium / 100, 0)})`"
+          >
           </div>
-          <div class="hard-bar" :style="{
-            width: `${difficultyPercentages.hard}%`,
-            opacity: difficultyPercentages.hard > 5 ? 1 : 0.7,
-            backgroundColor: '#3f3f46' /* Gray-700 */
-          }"
-            :title="`Hard: ${formatNumber(stats.submissionStats.hard.count)} problems (${formatPercent(difficultyPercentages.hard / 100, 0)})`">
+          <div
+            class="hard-bar" :style="{
+              width: `${difficultyPercentages.hard}%`,
+              opacity: difficultyPercentages.hard > 5 ? 1 : 0.7,
+              backgroundColor: '#3f3f46' /* Gray-700 */
+            }"
+            :title="`Hard: ${formatNumber(stats.submissionStats.hard.count)} problems (${formatPercent(difficultyPercentages.hard / 100, 0)})`"
+          >
           </div>
         </div>
         <div class="flex justify-between text-2xs text-zinc-500 mt-1">
@@ -48,14 +56,26 @@
       <StatsSectionHeader>DIFFICULTY BREAKDOWN</StatsSectionHeader>
       <div class="grid grid-cols-3 gap-x-4 gap-y-1">
         <!-- Column Headers -->
-        <div class="text-zinc-500 text-2xs tracking-wider">EASY</div>
-        <div class="text-zinc-500 text-2xs tracking-wider">MEDIUM</div>
-        <div class="text-zinc-500 text-2xs tracking-wider">HARD</div>
+        <div class="text-zinc-500 text-2xs tracking-wider">
+          EASY
+        </div>
+        <div class="text-zinc-500 text-2xs tracking-wider">
+          MEDIUM
+        </div>
+        <div class="text-zinc-500 text-2xs tracking-wider">
+          HARD
+        </div>
 
         <!-- Values -->
-        <div class="tabular-nums font-medium">{{ formatNumber(stats.submissionStats.easy.count) }}</div>
-        <div class="tabular-nums font-medium">{{ formatNumber(stats.submissionStats.medium.count) }}</div>
-        <div class="tabular-nums font-medium">{{ formatNumber(stats.submissionStats.hard.count) }}</div>
+        <div class="tabular-nums font-medium">
+          {{ formatNumber(stats.submissionStats.easy.count) }}
+        </div>
+        <div class="tabular-nums font-medium">
+          {{ formatNumber(stats.submissionStats.medium.count) }}
+        </div>
+        <div class="tabular-nums font-medium">
+          {{ formatNumber(stats.submissionStats.hard.count) }}
+        </div>
       </div>
     </div>
 
@@ -71,10 +91,12 @@
             </span>
           </div>
           <div class="lang-bar-bg">
-            <div class="lang-bar-fill" :style="{
-              width: `${(item.count / totalLanguageSolutions) * 100}%`,
-              backgroundColor: item.color
-            }"></div>
+            <div
+              class="lang-bar-fill" :style="{
+                width: `${(item.count / totalLanguageSolutions) * 100}%`,
+                backgroundColor: item.color
+              }"
+            ></div>
           </div>
         </div>
       </div>
@@ -91,7 +113,9 @@
           <a :href="`https://leetcode.com/problems/${submission.titleSlug}/`" target="_blank" class="problem-title">
             {{ truncateTitle(submission.title) }}
           </a>
-          <div class="submission-lang text-2xs">{{ submission.lang }}</div>
+          <div class="submission-lang text-2xs">
+            {{ submission.lang }}
+          </div>
         </div>
       </div>
     </div>

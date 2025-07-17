@@ -2,8 +2,10 @@
   <div v-if="hasData" class="space-y-4 font-mono">
     <!-- Primary Stats -->
     <div>
-      <IndividualStat :value="formatNumber(weeklyHours)" size="large" label="HOURS TRACKED"
-        :details="`${formatPercent(weeklyProductivePercent / 100, 0)} PRODUCTIVE`" />
+      <IndividualStat
+        :value="formatNumber(weeklyHours)" size="large" label="HOURS TRACKED"
+        :details="`${formatPercent(weeklyProductivePercent / 100, 0)} PRODUCTIVE`"
+      />
     </div>
 
     <!-- Activity Calendar -->
@@ -15,8 +17,10 @@
     <div>
       <StatsSectionHeader>TIME DISTRIBUTION</StatsSectionHeader>
       <div class="waffle-container">
-        <div v-for="(cell, i) in waffleCells" :key="i" class="waffle-cell" :style="{ backgroundColor: cell.color }"
-          :title="cell.title">
+        <div
+          v-for="(cell, i) in waffleCells" :key="i" class="waffle-cell" :style="{ backgroundColor: cell.color }"
+          :title="cell.title"
+        >
         </div>
       </div>
       <div class="flex justify-between text-zinc-500 mt-1" style="font-size: 10px; line-height: 12px;">
@@ -37,10 +41,12 @@
               <span class="text-zinc-500 tabular-nums flex-shrink-0" style="font-size: 10px; line-height: 12px;">{{ formatPercent(category.percentageOfTotal / 100, 0) }}</span>
             </div>
             <div class="category-bar-bg mt-0.5">
-              <div class="category-bar-fill" :style="{
-                width: `${category.percentageOfTotal}%`,
-                backgroundColor: category.color
-              }">
+              <div
+                class="category-bar-fill" :style="{
+                  width: `${category.percentageOfTotal}%`,
+                  backgroundColor: category.color
+                }"
+              >
               </div>
             </div>
           </div>

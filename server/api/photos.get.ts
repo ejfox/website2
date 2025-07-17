@@ -1,6 +1,6 @@
 import { defineEventHandler, createError } from 'h3'
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async () => {
   try {
     const response = await fetch('https://ejfox.photos/api/stats')
     if (!response.ok) {

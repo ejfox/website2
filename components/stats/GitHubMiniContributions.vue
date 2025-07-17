@@ -1,6 +1,8 @@
 <template>
   <div v-if="hasCommits">
-    <h4 class="section-subheader">CONTRIBUTIONS</h4>
+    <h4 class="section-subheader">
+      CONTRIBUTIONS
+    </h4>
     <div class="mini-calendar">
       <div class="contribution-grid">
         <div

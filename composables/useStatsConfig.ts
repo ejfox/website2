@@ -26,7 +26,7 @@ export const useStatsConfig = () => {
     margin: { top: 20, right: 20, bottom: 30, left: 40 },
     transition: {
       duration: 750,
-      ease: d3.easeCubicInOut
+      ease: 'cubic-in-out'
     },
     responsive: {
       aspectRatio: 16 / 9,

@@ -4,35 +4,57 @@
     <div class="space-y-4">
       <div class="grid grid-cols-2 gap-4">
         <div class="stat-card">
-          <div class="text-2xl font-mono">{{ stats.stats.totalVideos }}</div>
-          <div class="text-xs text-zinc-500 tracking-wider">TOTAL VIDEOS</div>
+          <div class="text-2xl font-mono">
+            {{ stats.stats.totalVideos }}
+          </div>
+          <div class="text-xs text-zinc-500 tracking-wider">
+            TOTAL VIDEOS
+          </div>
         </div>
         <div class="stat-card">
-          <div class="text-2xl font-mono">{{ stats.stats.videosThisMonth }}</div>
-          <div class="text-xs text-zinc-500 tracking-wider">VIDEOS THIS MONTH</div>
+          <div class="text-2xl font-mono">
+            {{ stats.stats.videosThisMonth }}
+          </div>
+          <div class="text-xs text-zinc-500 tracking-wider">
+            VIDEOS THIS MONTH
+          </div>
         </div>
         <div class="stat-card">
-          <div class="text-2xl font-mono">{{ formatNumber(stats.stats.totalViews) }}</div>
-          <div class="text-xs text-zinc-500 tracking-wider">TOTAL VIEWS</div>
+          <div class="text-2xl font-mono">
+            {{ formatNumber(stats.stats.totalViews) }}
+          </div>
+          <div class="text-xs text-zinc-500 tracking-wider">
+            TOTAL VIEWS
+          </div>
         </div>
         <div class="stat-card">
-          <div class="text-2xl font-mono">{{ formatNumber(stats.stats.subscriberCount) }}</div>
-          <div class="text-xs text-zinc-500 tracking-wider">SUBSCRIBERS</div>
+          <div class="text-2xl font-mono">
+            {{ formatNumber(stats.stats.subscriberCount) }}
+          </div>
+          <div class="text-xs text-zinc-500 tracking-wider">
+            SUBSCRIBERS
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Latest Videos -->
     <div class="space-y-4">
-      <h3 class="text-xs text-zinc-500 tracking-wider">LATEST VIDEOS</h3>
+      <StatsSectionHeader title="LATEST VIDEOS" />
       <div class="space-y-4">
-        <div v-for="video in stats.latestVideos" :key="video.id" 
-             class="group relative overflow-hidden border border-zinc-800/50 hover:border-zinc-700/50 transition-colors">
-          <a :href="video.url" target="_blank" rel="noopener" 
-             class="block relative aspect-video overflow-hidden">
-            <img :src="video.thumbnails.medium" 
-                 :alt="video.title"
-                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+        <div
+          v-for="video in stats.latestVideos" :key="video.id" 
+          class="group relative overflow-hidden border border-zinc-800/50 hover:border-zinc-700/50 transition-colors"
+        >
+          <a
+            :href="video.url" target="_blank" rel="noopener" 
+            class="block relative aspect-video overflow-hidden"
+          >
+            <img
+              :src="video.thumbnails.medium" 
+              :alt="video.title"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
             <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
             <div class="absolute bottom-0 left-0 right-0 p-4">
               <h4 class="text-sm font-medium line-clamp-2">{{ video.title }}</h4>
@@ -56,6 +78,8 @@
 </template>
 
 <script setup lang="ts">
+import StatsSectionHeader from './StatsSectionHeader.vue'
+import { useNumberFormat } from '~/composables/useNumberFormat'
 interface YouTubeStats {
   stats: {
     totalVideos: number
@@ -84,15 +108,7 @@ const props = defineProps<{
   stats: YouTubeStats
 }>()
 
-function formatNumber(num: number): string {
-  if (num >= 1000000) {
-    return (num / 1000000).toFixed(1) + 'M'
-  }
-  if (num >= 1000) {
-    return (num / 1000).toFixed(1) + 'K'
-  }
-  return num.toString()
-}
+const { formatNumber } = useNumberFormat()
 
 function formatDate(dateString: string): string {
   const date = new Date(dateString)

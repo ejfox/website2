@@ -1,24 +1,30 @@
 <template>
-  <div :class="[
-    'bg-zinc-50/50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-sm hover:border-zinc-400 dark:hover:border-zinc-700 transition-all duration-200',
-    hasMedia ? 'aspect-[4/3]' : 'aspect-auto min-h-[6rem]',
-    'group relative overflow-hidden'
-  ]">
+  <div
+    :class="[
+      'bg-zinc-50/50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-sm hover:border-zinc-400 dark:hover:border-zinc-700 transition-all duration-200',
+      hasMedia ? 'aspect-[4/3]' : 'aspect-auto min-h-[6rem]',
+      'group relative overflow-hidden'
+    ]"
+  >
     <!-- Media Background -->
     <div v-if="hasMedia" class="absolute inset-0">
-      <NuxtImg :src="mediaUrl" :alt="displayTitle"
+      <NuxtImg
+        :src="mediaUrl" :alt="displayTitle"
         class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
         loading="lazy"
         format="webp"
-        quality="80" />
+        quality="80"
+      />
       <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
     </div>
 
     <!-- Content Overlay -->
-    <div :class="[
-      'relative z-10 flex flex-col h-full p-2',
-      hasMedia ? 'justify-between text-white' : 'text-zinc-900 dark:text-zinc-100'
-    ]">
+    <div
+      :class="[
+        'relative z-10 flex flex-col h-full p-2',
+        hasMedia ? 'justify-between text-white' : 'text-zinc-900 dark:text-zinc-100'
+      ]"
+    >
       <!-- Header -->
       <div class="flex items-center gap-1 text-xs font-mono mb-1">
         <UIcon :name="sourceData.icon" class="w-3.5 h-3.5" />
@@ -28,8 +34,10 @@
 
       <!-- Main Content -->
       <div class="flex-1">
-        <a v-if="scrap.url" :href="scrap.url" target="_blank" rel="noopener noreferrer"
-          class="font-mono text-sm hover:underline line-clamp-3">
+        <a
+          v-if="scrap.url" :href="scrap.url" target="_blank" rel="noopener noreferrer"
+          class="font-mono text-sm hover:underline line-clamp-3"
+        >
           {{ displayTitle }}
         </a>
         <div v-else class="font-mono text-sm line-clamp-3">
@@ -43,14 +51,18 @@
       </div>
 
       <!-- Footer -->
-      <div class="flex flex-wrap items-center gap-x-2 gap-y-1 mt-2 text-[10px] font-mono"
-        :class="hasMedia ? 'text-zinc-200' : 'text-zinc-500 dark:text-zinc-400'">
+      <div
+        class="flex flex-wrap items-center gap-x-2 gap-y-1 mt-2 text-[10px] font-mono"
+        :class="hasMedia ? 'text-zinc-200' : 'text-zinc-500 dark:text-zinc-400'"
+      >
         <!-- Tags -->
         <div v-if="scrap.tags?.length" class="flex flex-wrap gap-1">
-          <span v-for="tag in scrap.tags.slice(0, 3)" :key="tag" :class="[
-            'px-1 rounded',
-            hasMedia ? 'bg-white/20' : 'bg-zinc-100 dark:bg-zinc-800'
-          ]">
+          <span
+            v-for="tag in scrap.tags.slice(0, 3)" :key="tag" :class="[
+              'px-1 rounded',
+              hasMedia ? 'bg-white/20' : 'bg-zinc-100 dark:bg-zinc-800'
+            ]"
+          >
             #{{ tag }}
           </span>
           <span v-if="scrap.tags.length > 3" class="opacity-60">

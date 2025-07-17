@@ -6,9 +6,12 @@ const fingerprint = 'E2078E653FE389CD'
 const blocks = fingerprint.match(/.{1,2}/g)
 
 // Create a more subtle color scale that works with your theme
-const colorScale = d3.scaleSequential()
+const colorScale = d3
+  .scaleSequential()
   .domain([0, blocks.length])
-  .interpolator(d3.interpolateHslLong('hsl(200, 30%, 40%)', 'hsl(340, 30%, 40%)'))
+  .interpolator(
+    d3.interpolateHslLong('hsl(200, 30%, 40%)', 'hsl(340, 30%, 40%)')
+  )
 
 // Create unique visual pattern from fingerprint
 onMounted(() => {
@@ -22,13 +25,14 @@ onMounted(() => {
 
   // Add blocks
   blocks.forEach((block, i) => {
-    const x = (i * 24)
+    const x = i * 24
 
     // Convert hex to decimal for height variation
     const value = parseInt(block, 16)
     const height = 20 + (value % 12)
 
-    group.append('rect')
+    group
+      .append('rect')
       .attr('x', x)
       .attr('y', (32 - height) / 2)
       .attr('width', 20)
@@ -44,7 +48,8 @@ onMounted(() => {
 
   // Add subtle animation on hover
   svg.on('mouseover', () => {
-    group.selectAll('rect')
+    group
+      .selectAll('rect')
       .transition()
       .duration(500)
       .attr('height', (_, i) => {
@@ -55,7 +60,8 @@ onMounted(() => {
   })
 
   svg.on('mouseout', () => {
-    group.selectAll('rect')
+    group
+      .selectAll('rect')
       .transition()
       .duration(500)
       .attr('height', (_, i) => {

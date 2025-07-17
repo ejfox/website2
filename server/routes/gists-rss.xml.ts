@@ -6,7 +6,7 @@ const siteDescription =
   'A collection of useful code snippets, experiments, and tools.'
 const CACHE_DURATION = 3600
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async (event): Promise<string> => {
   try {
     // Add cache control headers
     event.node.res.setHeader(
@@ -51,7 +51,7 @@ export default defineEventHandler(async (event) => {
       }
     `
 
-    const response = await $fetch<any>('https://api.github.com/graphql', {
+    const response: any = await $fetch<any>('https://api.github.com/graphql', {
       method: 'POST',
       headers: {
         Authorization: `bearer ${token}`,
@@ -64,10 +64,10 @@ export default defineEventHandler(async (event) => {
       throw new Error('Invalid GitHub API response')
     }
 
-    const gists = response.data.viewer.gists.nodes
+    const gists: any[] = response.data.viewer.gists.nodes
 
     // Get the latest update time for ETag
-    const lastBuildDate = gists.reduce((latest: Date, gist: any) => {
+    const lastBuildDate: Date = gists.reduce((latest: Date, gist: any) => {
       const gistDate = new Date(gist.pushedAt)
       return gistDate > latest ? gistDate : latest
     }, new Date(0))
@@ -80,7 +80,7 @@ export default defineEventHandler(async (event) => {
       return ''
     }
 
-    const rss = `<?xml version="1.0" encoding="UTF-8"?>
+    const rss: string = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" 
   xmlns:atom="http://www.w3.org/2005/Atom" 
   xmlns:content="http://purl.org/rss/1.0/modules/content/"

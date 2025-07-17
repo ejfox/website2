@@ -1,6 +1,8 @@
 <template>
   <div class="commitment-log">
-    <h2 class="log-title">Public Commitment Log</h2>
+    <h2 class="log-title">
+      Public Commitment Log
+    </h2>
     <p class="log-description">
       All predictions are cryptographically hashed and timestamped through Git commits.
       This public log provides an immutable record preventing post-hoc modifications.
@@ -35,7 +37,9 @@
         <tbody>
           <tr v-for="commitment in recentCommitments" :key="commitment.hash">
             <td>{{ formatDate(commitment.signed) }}</td>
-            <td class="statement-cell">{{ commitment.statement }}</td>
+            <td class="statement-cell">
+              {{ commitment.statement }}
+            </td>
             <td>
               <code>{{ commitment.hash.substring(0, 8) }}...</code>
             </td>

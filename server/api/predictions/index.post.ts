@@ -13,7 +13,7 @@ interface PredictionsData {
 async function ensurePredictionsFile(): Promise<void> {
   try {
     await readFile(PREDICTIONS_FILE)
-  } catch (error) {
+  } catch (_error) {
     // File doesn't exist, create it with empty data
     const emptyData: PredictionsData = { predictions: [] }
     await writeFile(PREDICTIONS_FILE, JSON.stringify(emptyData, null, 2))
@@ -43,8 +43,9 @@ export default defineEventHandler(async (event) => {
       categories: body.categories || [],
       evidence: body.evidence,
       visibility: body.visibility || 'public',
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString()
+      created: new Date(),
+      createdAt: new Date(),
+      updatedAt: new Date()
     }
 
     // Read existing predictions

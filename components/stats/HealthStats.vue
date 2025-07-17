@@ -2,33 +2,51 @@
   <div v-if="stats && hasAnyData" class="space-y-16 font-mono">
     <!-- Primary Stats -->
     <div class="space-y-12">
-      <IndividualStat v-if="stats.thisYear.steps > 0" :value="stats.thisYear.steps" size="large" label="STEPS THIS YEAR"
-        :details="`${formatNumber(stats.thisYear.averageStepsPerDay)} DAILY AVERAGE`" />
+      <IndividualStat
+        v-if="stats.thisYear.steps > 0" :value="stats.thisYear.steps" size="large" label="STEPS THIS YEAR"
+        :details="`${formatNumber(stats.thisYear.averageStepsPerDay)} DAILY AVERAGE`"
+      />
 
       <div v-if="hasCurrentStats" class="grid grid-cols-2 gap-8">
-        <IndividualStat v-if="stats.thisWeek?.steps > 0" :value="stats.thisWeek.steps" size="medium"
-          label="STEPS THIS WEEK" :details="`${formatNumber(stats.today?.steps || 0)} TODAY`" />
+        <IndividualStat
+          v-if="stats.thisWeek?.steps > 0" :value="stats.thisWeek.steps" size="medium"
+          label="STEPS THIS WEEK" :details="`${formatNumber(stats.today?.steps || 0)} TODAY`"
+        />
 
-        <IndividualStat v-if="stats.activity.monthlySteps > 0" :value="stats.activity.monthlySteps" size="medium"
-          label="STEPS THIS MONTH" :details="`${stats.activity.flightsClimbed} FLIGHTS CLIMBED`" />
+        <IndividualStat
+          v-if="stats.activity.monthlySteps > 0" :value="stats.activity.monthlySteps" size="medium"
+          label="STEPS THIS MONTH" :details="`${stats.activity.flightsClimbed} FLIGHTS CLIMBED`"
+        />
       </div>
     </div>
 
     <!-- Activity Momentum -->
     <div v-if="hasWeeklyActivity">
-      <h4 class="section-subheader">ACTIVITY MOMENTUM</h4>
+      <StatsSectionHeader title="ACTIVITY MOMENTUM" />
       <div class="momentum-stats grid grid-cols-3 gap-4 mb-6">
         <div class="momentum-stat">
-          <div class="momentum-value">{{ currentStreak }}</div>
-          <div class="momentum-label">CURRENT STREAK</div>
+          <div class="momentum-value">
+            {{ currentStreak }}
+          </div>
+          <div class="momentum-label">
+            CURRENT STREAK
+          </div>
         </div>
         <div class="momentum-stat">
-          <div class="momentum-value">{{ longestStreak }}</div>
-          <div class="momentum-label">LONGEST STREAK</div>
+          <div class="momentum-value">
+            {{ longestStreak }}
+          </div>
+          <div class="momentum-label">
+            LONGEST STREAK
+          </div>
         </div>
         <div class="momentum-stat">
-          <div class="momentum-value">{{ activeWeeks }}<span class="text-zinc-500">/{{ totalWeeks }}</span></div>
-          <div class="momentum-label">ACTIVE WEEKS</div>
+          <div class="momentum-value">
+            {{ activeWeeks }}<span class="text-zinc-500">/{{ totalWeeks }}</span>
+          </div>
+          <div class="momentum-label">
+            ACTIVE WEEKS
+          </div>
         </div>
       </div>
 
@@ -37,21 +55,25 @@
 
     <!-- Weekly Activity -->
     <div v-if="hasWeeklyActivity">
-      <h4 class="section-subheader">WEEKLY ACTIVITY</h4>
+      <StatsSectionHeader title="WEEKLY ACTIVITY" />
 
       <!-- Weekly Stats Grid -->
       <div class="grid grid-cols-2 gap-8 mb-8">
         <StatSummary v-if="weeklyAverage > 0" :value="formatNumber(weeklyAverage)" label="AVG STEPS PER WEEK" />
 
-        <StatSummary v-if="mostActiveWeek.steps > 0" :value="formatNumber(mostActiveWeek.steps)"
-          label="MOST ACTIVE WEEK">
-          <div class="text-xs">{{ mostActiveWeek.date }}</div>
+        <StatSummary
+          v-if="mostActiveWeek.steps > 0" :value="formatNumber(mostActiveWeek.steps)"
+          label="MOST ACTIVE WEEK"
+        >
+          <div class="text-xs">
+            {{ mostActiveWeek.date }}
+          </div>
         </StatSummary>
       </div>
 
       <!-- Weekly Steps Chart -->
       <div v-if="hasWeeklyData" class="space-y-4">
-        <div v-for="(week, index) in weeklyActivity" :key="week.startDate" class="weekly-activity-row">
+        <div v-for="week in weeklyActivity" :key="week.startDate" class="weekly-activity-row">
           <div class="week-label">
             {{ formatWeekRange(week.startDate, week.endDate) }}
           </div>
@@ -67,7 +89,7 @@
 
     <!-- Aggregated Metrics Section -->
     <div v-if="hasAggregatedMetrics" class="space-y-8">
-      <h4 class="section-subheader">HEALTH METRICS</h4>
+      <StatsSectionHeader title="HEALTH METRICS" />
 
       <!-- Workouts Summary -->
       <MetricSection v-if="stats.aggregatedMetrics?.workoutSummary" title="WORKOUT SUMMARY">
@@ -76,7 +98,9 @@
 
           <!-- Workout Types -->
           <div class="metric-subsection">
-            <div class="metric-subtitle">WORKOUT TYPES</div>
+            <div class="metric-subtitle">
+              WORKOUT TYPES
+            </div>
             <div class="tag-container">
               <div v-for="type in stats.aggregatedMetrics.workoutSummary.workoutTypes" :key="type" class="tag-item">
                 {{ type.toUpperCase() }}
@@ -101,20 +125,20 @@
       </MetricSection>
     </div>
   </div>
-  <div v-else class="data-unavailable">
-    HEALTH_DATA_UNAVAILABLE
-  </div>
+  <StatsDataState v-else message="HEALTH_DATA_UNAVAILABLE" />
 </template>
 
 <script setup lang="ts">
 import { computed, h } from 'vue'
 import IndividualStat from './IndividualStat.vue'
 import ActivityCalendar from './ActivityCalendar.vue'
+import StatsSectionHeader from './StatsSectionHeader.vue'
+import StatsDataState from './StatsDataState.vue'
 import type { StatsResponse } from '~/composables/useStats'
-import { formatNumber } from '~/composables/useNumberFormat'
+import { formatNumber, formatWeekRange } from '~/composables/useNumberFormat'
 
 // Stat summary component for consistent stat display
-const StatSummary = (props: { value: string | number, label: string }, { slots }: { slots: any }) => {
+const StatSummary = (props: { value: string | number, label: string }, { slots }: { slots: Record<string, () => any> }) => {
   return h('div', { class: 'stat-summary' }, [
     h('div', { class: 'stat-value' }, props.value),
     h('div', { class: 'stat-label' }, [
@@ -125,7 +149,7 @@ const StatSummary = (props: { value: string | number, label: string }, { slots }
 }
 
 // Metric section component for health metrics
-const MetricSection = (props: { title: string }, { slots }: { slots: any }) => {
+const MetricSection = (props: { title: string }, { slots }: { slots: Record<string, () => any> }) => {
   return h('div', { class: 'space-y-4' }, [
     h('h5', { class: 'metric-title' }, props.title),
     h('div', { class: 'metric-box' }, [
@@ -319,33 +343,18 @@ const mindfulnessStats = computed<MetricItem[]>(() => {
   ]
 })
 
-// Formatting helpers
-const formatWeekRange = (startDate: string, endDate: string) => {
-  const start = new Date(startDate)
-  const end = new Date(endDate)
-
-  // If in the same month, only show month once
-  if (start.getMonth() === end.getMonth()) {
-    return `${start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} - ${end.getDate()}`
-  }
-
-  // Different months
-  return `${start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} - ${end.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`
-}
-
+// Simple date formatting helper
 const formatSimpleDate = (dateStr: string) => {
-  // Handle both ISO date strings and simple YYYY-MM-DD formats
-  if (!dateStr) return '';
-
+  if (!dateStr) return ''
+  
   try {
-    const date = new Date(dateStr);
+    const date = new Date(dateStr)
     return date.toLocaleDateString('en-US', {
       month: 'short',
       day: 'numeric'
-    });
+    })
   } catch (e) {
-    // If parsing fails, return the original string
-    return dateStr;
+    return dateStr
   }
 }
 
@@ -415,9 +424,6 @@ const totalWeeks = computed(() => {
 </script>
 
 <style scoped>
-.section-subheader {
-  @apply text-xs tracking-[0.2em] text-zinc-500 border-b border-zinc-800/50 pb-2 mb-8;
-}
 
 .stat-summary {
   @apply space-y-2;
@@ -479,9 +485,6 @@ const totalWeeks = computed(() => {
   @apply space-y-1;
 }
 
-.data-unavailable {
-  @apply text-sm text-zinc-400 font-mono;
-}
 
 /* Momentum stat styles */
 .momentum-stats {

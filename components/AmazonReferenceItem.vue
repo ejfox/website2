@@ -1,19 +1,28 @@
 <template>
   <div v-if="amazonUrl" class="flex items-center gap-2">
     <!-- Product Image from Cloudinary -->
-    <div class="relative w-12 h-12 rounded-md overflow-hidden bg-zinc-100 dark:bg-zinc-800/50">
-      <NuxtImg v-if="productImageUrl" :src="productImageUrl" :alt="productName" 
+    <div
+      class="relative w-12 h-12 rounded-md overflow-hidden bg-zinc-100 dark:bg-zinc-800/50"
+    >
+      <NuxtImg
+        v-if="productImageUrl"
+        :src="productImageUrl"
+        :alt="productName"
         class="w-full h-full object-cover"
         loading="lazy"
         preset="avatar"
-        sizes="48px" />
+        sizes="48px"
+      />
     </div>
 
     <!-- Buy Button -->
-    <a :href="affiliateUrl" target="_blank" rel="nofollow noopener" class="flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-medium rounded-full 
-             bg-amber-50 text-amber-600 border border-amber-200 hover:bg-amber-100
-             dark:bg-amber-500/10 dark:text-amber-400 dark:border-amber-500/20 dark:hover:bg-amber-500/20
-             transition-colors shrink-0" :title="`Buy ${productName} on Amazon`">
+    <a
+      :href="affiliateUrl"
+      target="_blank"
+      rel="nofollow noopener"
+      class="flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-medium rounded-full bg-amber-50 text-amber-600 border border-amber-200 hover:bg-amber-100 dark:bg-amber-500/10 dark:text-amber-400 dark:border-amber-500/20 dark:hover:bg-amber-500/20 transition-colors shrink-0"
+      :title="`Buy ${productName} on Amazon`"
+    >
       <Icon name="heroicons:shopping-cart" class="w-3 h-3" />
       <span>Buy yourself</span>
     </a>

@@ -1,6 +1,8 @@
 <template>
   <div class="verification-display">
-    <h3 class="verification-title">Verification & Commitment</h3>
+    <h3 class="verification-title">
+      Verification & Commitment
+    </h3>
     
     <div class="verification-item">
       <span class="verification-label">SHA-256 Hash:</span>
@@ -21,7 +23,7 @@
     <div v-if="prediction.pgpSignature" class="verification-item">
       <span class="verification-label">PGP Signed:</span>
       <span class="verification-status verified">✓ Signed</span>
-      <button @click="showSignature = !showSignature" class="verification-toggle">
+      <button class="verification-toggle" @click="showSignature = !showSignature">
         {{ showSignature ? 'Hide' : 'Show' }} Signature
       </button>
     </div>
@@ -63,10 +65,18 @@
     <div class="verification-methods">
       <h4>Verification Methods Used</h4>
       <ul>
-        <li v-if="prediction.hash">✓ SHA-256 Content Hash</li>
-        <li v-if="prediction.gitCommit">✓ Git Commit Timestamp</li>
-        <li v-if="prediction.pgpSignature">✓ PGP Signature</li>
-        <li v-if="prediction.blockchainAnchor">✓ Blockchain Anchor</li>
+        <li v-if="prediction.hash">
+          ✓ SHA-256 Content Hash
+        </li>
+        <li v-if="prediction.gitCommit">
+          ✓ Git Commit Timestamp
+        </li>
+        <li v-if="prediction.pgpSignature">
+          ✓ PGP Signature
+        </li>
+        <li v-if="prediction.blockchainAnchor">
+          ✓ Blockchain Anchor
+        </li>
       </ul>
     </div>
   </div>

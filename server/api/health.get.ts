@@ -2,8 +2,8 @@ import { defineEventHandler, createError, getQuery } from 'h3'
 import { createClient } from '@supabase/supabase-js'
 import {
   format,
-  subDays,
-  startOfWeek,
+  subDays as _subDays,
+  startOfWeek as _startOfWeek,
   startOfYear,
   parseISO,
   isValid

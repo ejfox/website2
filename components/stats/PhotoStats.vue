@@ -2,13 +2,15 @@
   <div v-if="stats.stats" class="space-y-16 font-mono">
     <!-- Main Stats -->
     <div>
-      <IndividualStat :value="stats.stats.totalPhotos" size="large" label="TOTAL PHOTOS"
-        :details="`${formatNumber(stats.stats.photosThisMonth)} THIS MONTH`" />
+      <IndividualStat
+        :value="stats.stats.totalPhotos" size="large" label="TOTAL PHOTOS"
+        :details="`${formatNumber(stats.stats.photosThisMonth)} THIS MONTH`"
+      />
     </div>
 
     <!-- Monthly Stats -->
     <div>
-      <h4 class="section-subheader">MONTHLY STATS</h4>
+      <StatsSectionHeader title="MONTHLY STATS" />
       <div class="space-y-4">
         <div class="stat-row">
           <span class="text-zinc-400">Photos This Month</span>
@@ -19,27 +21,28 @@
 
     <!-- Camera Stats -->
     <div v-if="hasCameraData">
-      <h4 class="section-subheader">CAMERA EQUIPMENT</h4>
+      <StatsSectionHeader title="CAMERA EQUIPMENT" />
       <div class="metric-box">
         <div class="grid grid-cols-2 gap-4 text-xs">
-          <StatItem v-if="topCamera" label="MOST USED CAMERA" :value="topCamera" valueClass="text-zinc-300" />
-          <StatItem v-if="topLens" label="MOST USED LENS" :value="topLens" valueClass="text-zinc-300" />
+          <StatItem v-if="topCamera" label="MOST USED CAMERA" :value="topCamera" value-class="text-zinc-300" />
+          <StatItem v-if="topLens" label="MOST USED LENS" :value="topLens" value-class="text-zinc-300" />
           <StatItem v-if="topFocalLength" label="FAVORITE FOCAL LENGTH" :value="`${topFocalLength}`" />
           <StatItem v-if="topAperture" label="FAVORITE APERTURE" :value="topAperture" />
         </div>
       </div>
     </div>
   </div>
-  <div v-else class="data-unavailable">
-    PHOTO_DATA_UNAVAILABLE
-  </div>
+  <StatsDataState message="PHOTO_DATA_UNAVAILABLE" />
 </template>
 
 <script setup lang="ts">
 import { computed, h } from 'vue'
 import { format } from 'date-fns'
 import IndividualStat from './IndividualStat.vue'
+import StatsSectionHeader from './StatsSectionHeader.vue'
+import StatsDataState from './StatsDataState.vue'
 import type { StatsResponse } from '~/composables/useStats'
+import { useNumberFormat } from '~/composables/useNumberFormat'
 
 // Reusable StatItem component
 const StatItem = (props: {
@@ -68,9 +71,7 @@ const props = defineProps<{
   stats: PhotoStats
 }>()
 
-const formatNumber = (num: number): string => {
-  return new Intl.NumberFormat().format(num)
-}
+const { formatNumber } = useNumberFormat()
 
 const formatDate = (dateString: string): string => {
   return format(new Date(dateString), 'MMM d, yyyy')
@@ -88,9 +89,6 @@ const hasCameraData = computed(() => {
 </script>
 
 <style scoped>
-.section-subheader {
-  @apply text-xs tracking-[0.2em] text-zinc-500 border-b border-zinc-800/50 pb-2 mb-4;
-}
 
 .stat-row {
   @apply flex items-center justify-between text-sm;
@@ -108,7 +106,4 @@ const hasCameraData = computed(() => {
   @apply text-zinc-500;
 }
 
-.data-unavailable {
-  @apply text-sm text-zinc-400 font-mono;
-}
 </style>

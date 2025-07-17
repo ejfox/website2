@@ -21,15 +21,16 @@
           href="https://monkeytype.com"
           target="_blank"
           class="text-zinc-800 dark:text-zinc-300 hover:underline"
-          >MonkeyType.com</a
-        >
+        >MonkeyType.com</a>
         to start tracking
       </div>
     </div>
 
     <!-- Recent Tests -->
     <div v-if="hasRecentTests" class="mt-8 space-y-6">
-      <h4 class="section-subheader">RECENT TESTS</h4>
+      <h4 class="section-subheader">
+        RECENT TESTS
+      </h4>
 
       <div class="space-y-4">
         <div v-for="test in recentTests" :key="test.timestamp" class="test-row">
@@ -52,7 +53,9 @@
 
     <!-- Performance Metrics -->
     <div v-if="stats.typingStats" class="mt-8 space-y-6">
-      <h4 class="section-subheader">PERFORMANCE</h4>
+      <h4 class="section-subheader">
+        PERFORMANCE
+      </h4>
 
       <div class="grid grid-cols-2 gap-4">
         <StatDisplay label="TESTS" :value="stats.typingStats.testsCompleted" />

@@ -4,7 +4,7 @@ import StripeAPI from 'stripe'
 // Initialize Stripe with a type-safe configuration
 export const stripe: Stripe | null = process.env.STRIPE_SECRET_KEY
   ? new StripeAPI(process.env.STRIPE_SECRET_KEY, {
-      apiVersion: '2023-10-16' // Use latest API version
+      apiVersion: '2025-06-30.basil' // Use latest API version
     })
   : null
 

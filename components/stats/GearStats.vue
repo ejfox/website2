@@ -3,8 +3,12 @@
     <!-- Top-level stats in grid -->
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono">
       <div class="space-y-1">
-        <div class="text-2xl tabular-nums">{{ totalItems }}</div>
-        <div class="text-xs text-zinc-500 uppercase tracking-wider">Total Items</div>
+        <div class="text-2xl tabular-nums">
+          {{ totalItems }}
+        </div>
+        <div class="text-xs text-zinc-500 uppercase tracking-wider">
+          Total Items
+        </div>
       </div>
       
       <div class="space-y-1">
@@ -12,29 +16,47 @@
           {{ totalWeight }}
           <span class="text-sm text-zinc-500">oz</span>
         </div>
-        <div class="text-xs text-zinc-500 uppercase tracking-wider">Total Weight</div>
+        <div class="text-xs text-zinc-500 uppercase tracking-wider">
+          Total Weight
+        </div>
       </div>
 
       <div class="space-y-1">
-        <div class="text-2xl tabular-nums">{{ containerCount }}</div>
-        <div class="text-xs text-zinc-500 uppercase tracking-wider">Containers</div>
+        <div class="text-2xl tabular-nums">
+          {{ containerCount }}
+        </div>
+        <div class="text-xs text-zinc-500 uppercase tracking-wider">
+          Containers
+        </div>
       </div>
 
       <div class="space-y-1">
-        <div class="text-2xl tabular-nums">{{ avgTCWMScore }}</div>
-        <div class="text-xs text-zinc-500 uppercase tracking-wider">Avg TCWM</div>
+        <div class="text-2xl tabular-nums">
+          {{ avgTCWMScore }}
+        </div>
+        <div class="text-xs text-zinc-500 uppercase tracking-wider">
+          Avg TCWM
+        </div>
       </div>
     </div>
 
     <!-- Type distribution -->
     <div class="space-y-3">
-      <div class="text-xs text-zinc-500 uppercase tracking-wider">Gear Type Distribution</div>
+      <div class="text-xs text-zinc-500 uppercase tracking-wider">
+        Gear Type Distribution
+      </div>
       <div class="space-y-2">
-        <div v-for="[type, count] in sortedTypeDistribution" :key="type" 
-             class="flex items-center gap-2 text-xs">
-          <div class="w-24 text-right truncate text-zinc-500">{{ type }}</div>
-          <div class="h-4 bg-zinc-800/50" 
-               :style="{ width: `${(count / maxTypeCount) * 200}px` }">
+        <div
+          v-for="[type, count] in sortedTypeDistribution" :key="type" 
+          class="flex items-center gap-2 text-xs"
+        >
+          <div class="w-24 text-right truncate text-zinc-500">
+            {{ type }}
+          </div>
+          <div
+            class="h-4 bg-zinc-800/50" 
+            :style="{ width: `${(count / maxTypeCount) * 200}px` }"
+          >
           </div>
           <span class="text-zinc-400">{{ count }}</span>
         </div>

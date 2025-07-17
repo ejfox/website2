@@ -20,6 +20,13 @@ export default defineNuxtConfig({
     host: '0.0.0.0'
   },
 
+  // Reduce router warnings in dev
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => false
+    }
+  },
+
   // Disable HMR completely
   vite: {
     server: {
@@ -38,6 +45,17 @@ export default defineNuxtConfig({
     // Temporarily removing Sentry
     // '@sentry/nuxt/module'
   ],
+
+  // Auto-imports configuration
+  imports: {
+    // Auto-import from these directories
+    dirs: [
+      'composables',
+      'composables/**',
+      'utils',
+      'utils/**'
+    ]
+  },
 
   // Google Fonts configuration
   googleFonts: {
@@ -101,7 +119,6 @@ export default defineNuxtConfig({
     disabled: false
   },
 
-
   runtimeConfig: {
     // Private keys that are exposed to the server
     MONKEYTYPE_TOKEN: process.env.MONKEYTYPE_TOKEN || '',
@@ -111,8 +128,10 @@ export default defineNuxtConfig({
     RESCUETIME_TOKEN: process.env.RESCUETIME_TOKEN || '',
     LASTFM_API_KEY: process.env.LASTFM_API_KEY || '',
     LASTFM_SHARED_SECRET: process.env.LASTFM_SHARED_SECRET || '',
-    LASTFM_API_KEY: process.env.LASTFM_API_KEY || '',
-    LASTFM_SHARED_SECRET: process.env.LASTFM_SHARED_SECRET || '',
+    UMAMI_USERNAME: process.env.UMAMI_USERNAME || 'admin',
+    UMAMI_PASSWORD:
+      process.env.UMAMI_PASSWORD ||
+      'muzzle-binding-credits-suspense-nevada-defied-remedy-cups',
 
     public: {
       baseUrl:
@@ -143,7 +162,7 @@ export default defineNuxtConfig({
     },
     storage: {
       redis: {
-        driver: 'redis',
+        driver: 'redis'
         // Enable Redis caching in production
         // host: process.env.REDIS_HOST || 'localhost'
       }
@@ -248,17 +267,8 @@ export default defineNuxtConfig({
   // Performance optimizations
   experimental: {
     payloadExtraction: false, // Reduce hydration payload
-    inlineSSRStyles: false,   // Prevent FOUC but reduce initial HTML size
-    viewTransition: true      // Modern page transitions
+    viewTransition: true // Modern page transitions
   },
-
-  // Bundle optimization
-  optimization: {
-    treeShake: {
-      body: true
-    }
-  },
-
 
   tailwindcss: {
     configPath: './tailwind.config.js',

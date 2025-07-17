@@ -1,20 +1,26 @@
 <template>
   <div class="activity-calendar font-mono">
-    <h4 v-if="title" class="section-subheader">{{ title }}</h4>
+    <h4 v-if="title" class="section-subheader">
+      {{ title }}
+    </h4>
 
     <!-- Activity Grid -->
     <div class="activity-grid">
-      <div v-for="(day, index) in activityData" :key="index" 
-          class="activity-cell relative"
-          :class="day.active ? 'active' : 'inactive'"
-          :style="day.active ? { backgroundColor: activeColor } : {}"
-          @mouseenter="showTooltip(index)"
-          @mouseleave="hideTooltip()">
-          <!-- Custom Tooltip -->
-          <div v-if="activeTooltipIndex === index" 
-               class="custom-tooltip absolute z-10 bg-white dark:bg-zinc-800 p-2 text-2xs rounded shadow-md">
-            {{ formatTooltip(day) }}
-          </div>
+      <div
+        v-for="(day, index) in activityData" :key="index" 
+        class="activity-cell relative"
+        :class="day.active ? 'active' : 'inactive'"
+        :style="day.active ? { backgroundColor: activeColor } : {}"
+        @mouseenter="showTooltip(index)"
+        @mouseleave="hideTooltip()"
+      >
+        <!-- Custom Tooltip -->
+        <div
+          v-if="activeTooltipIndex === index" 
+          class="custom-tooltip absolute z-10 bg-white dark:bg-zinc-800 p-2 text-2xs rounded shadow-md"
+        >
+          {{ formatTooltip(day) }}
+        </div>
       </div>
     </div>
 

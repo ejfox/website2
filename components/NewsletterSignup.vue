@@ -1,19 +1,19 @@
 <template>
   <div ref="signupContainer" class="newsletter-signup">
     <!-- Form -->
-    <form @submit.prevent="submitForm" class="flex items-center gap-1.5 relative">
+    <form class="flex items-center gap-1.5 relative" @submit.prevent="submitForm">
       <div class="flex-1 flex items-center gap-1.5 min-w-0">
         <input 
           v-model="email" 
           type="email" 
           placeholder="your@email.com" 
           required 
-          @input="revealNameFields"
           class="w-full min-w-0 py-1 px-2 bg-transparent border border-zinc-200 dark:border-zinc-800 rounded
               text-sm focus:outline-none focus:ring-1 focus:ring-zinc-400 dark:focus:ring-zinc-600 
               text-zinc-600 dark:text-zinc-400 placeholder-zinc-400 dark:placeholder-zinc-600
-              transition-all duration-200" 
-          :disabled="state.loading"
+              transition-all duration-200"
+          :disabled="state.loading" 
+          @input="revealNameFields"
         />
         
         <!-- Name fields that slide out -->
@@ -71,7 +71,8 @@
       leave-from-class="transform translate-y-0 opacity-100"
       leave-to-class="transform -translate-y-1 opacity-0"
     >
-      <div v-if="state.success || state.error" 
+      <div
+        v-if="state.success || state.error" 
         class="absolute left-0 right-0 mt-1.5 text-xs"
         :class="{
           'text-green-600 dark:text-green-400': state.success,

@@ -9,163 +9,163 @@
     
     <!-- Main Content -->
     <section class="space-y-12 2xl:pr-80 min-w-0">
-    <!-- Header -->
-    <header class="flex items-center justify-between py-6">
-      <h1 class="text-mono-label">
-        FOX_ANNUAL_REPORT :: {{ currentYear }}
-      </h1>
-      <div class="flex items-center gap-6">
-        <div class="text-mono-label">
-          DAY {{ formatNumber(dayOfYear) }}/{{ formatNumber(daysInYear) }} · {{ progressPercentage }}
+      <!-- Header -->
+      <header class="flex items-center justify-between py-6">
+        <h1 class="text-mono-label">
+          FOX_ANNUAL_REPORT :: {{ currentYear }}
+        </h1>
+        <div class="flex items-center gap-6">
+          <div class="text-mono-label">
+            DAY {{ formatNumber(dayOfYear) }}/{{ formatNumber(daysInYear) }} · {{ progressPercentage }}
+          </div>
+          <div v-if="dataAge" class="flex items-center gap-2 text-xs font-mono">
+            <div 
+              class="w-1.5 h-1.5 rounded-full animate-pulse"
+              :class="dataFreshnessClass"
+            ></div>
+            <span class="text-muted uppercase tracking-wider">{{ dataAge }}</span>
+          </div>
         </div>
-        <div class="flex items-center gap-2 text-xs font-mono" v-if="dataAge">
-          <div 
-            class="w-1.5 h-1.5 rounded-full animate-pulse"
-            :class="dataFreshnessClass"
-          ></div>
-          <span class="text-muted uppercase tracking-wider">{{ dataAge }}</span>
-        </div>
-      </div>
-    </header>
+      </header>
 
-    <!-- Top Stats -->
-    <Suspense>
-      <template #default>
-        <ClientOnly>
-          <Transition name="fade" appear>
-            <div v-if="stats" class="relative" id="top-stats">
-              <AsyncTopStats :stats="stats" :blog-stats="blogStats" />
-            </div>
-          </Transition>
-        </ClientOnly>
-      </template>
-      <template #fallback>
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
-          <div
-            v-for="i in 6"
-            :key="i"
-            class="h-24 bg-zinc-200 dark:bg-zinc-800 rounded-lg animate-pulse"
-          ></div>
-        </div>
-      </template>
-    </Suspense>
+      <!-- Top Stats -->
+      <Suspense>
+        <template #default>
+          <ClientOnly>
+            <Transition name="fade" appear>
+              <div v-if="stats" id="top-stats" class="relative">
+                <AsyncTopStats :stats="stats" :blog-stats="blogStats" />
+              </div>
+            </Transition>
+          </ClientOnly>
+        </template>
+        <template #fallback>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+            <div
+              v-for="i in 6"
+              :key="i"
+              class="h-24 bg-zinc-200 dark:bg-zinc-800 rounded-lg animate-pulse"
+            ></div>
+          </div>
+        </template>
+      </Suspense>
 
-    <!-- Main Stats Grid -->
-    <section class="grid gap-6 auto-fit-columns overflow-hidden">
-      <TransitionGroup name="fade-up" tag="div" class="contents" appear>
-        <!-- Writing -->
-        <StatsSection
-          v-if="blogStats"
-          id="writing"
-          title="WRITING"
-          key="writing-section"
-          class="break-inside-avoid"
-        >
-          <AsyncBlogStats :stats="blogStats" key="blog" />
-        </StatsSection>
-
-        <!-- Typing -->
-        <StatsSection
-          v-if="stats.monkeyType?.typingStats"
-          id="typing"
-          title="TYPING"
-          key="typing-section"
-          class="break-inside-avoid"
-        >
-          <AsyncMonkeyTypeStats
-            :stats="{ typingStats: stats.monkeyType.typingStats }"
-            key="monkeytype"
-          />
-        </StatsSection>
-
-        <!-- GitHub -->
-        <StatsSection
-          v-if="stats.github?.stats"
-          id="github"
-          title="GITHUB"
-          key="github-section"
-          class="break-inside-avoid"
-        >
-          <AsyncGitHubStats :stats="stats.github" key="github" />
-        </StatsSection>
-
-        <!-- Photography -->
-        <StatsSection
-          v-if="stats.photos?.stats"
-          id="photography"
-          title="PHOTOGRAPHY"
-          key="photography-section"
-          class="break-inside-avoid"
-        >
-          <AsyncPhotoStats :stats="stats.photos" key="photos" />
-        </StatsSection>
-
-        <!-- Chess -->
-        <StatsSection
-          v-if="stats.chess"
-          id="chess"
-          title="CHESS"
-          key="chess-section"
-          class="break-inside-avoid"
-        >
-          <AsyncChessStats :stats="stats.chess" key="chess" />
-        </StatsSection>
-
-        <!-- LeetCode -->
-        <StatsSection
-          v-if="stats.leetcode?.submissionStats"
-          id="leetcode"
-          title="LEETCODE"
-          key="leetcode-section"
-          class="break-inside-avoid"
-        >
-          <AsyncLeetCodeStats :stats="stats.leetcode" key="leetcode" />
-        </StatsSection>
-
-        <!-- Productivity -->
-        <StatsSection
-          v-if="stats.rescueTime"
-          id="productivity"
-          title="PRODUCTIVITY"
-          key="productivity-section"
-          class="break-inside-avoid"
-        >
-          <AsyncRescueTimeStats :stats="stats" key="rescuetime" />
-        </StatsSection>
-
-        <!-- Last.fm -->
-        <StatsSection
-          v-if="stats.lastfm"
-          id="lastfm"
-          title="MUSIC"
-          key="lastfm-section"
-          class="break-inside-avoid"
-        >
-          <AsyncLastFmStats :stats="stats.lastfm" key="lastfm" />
-        </StatsSection>
-      </TransitionGroup>
-    </section>
-
-    <!-- Full Width Sections -->
-    <section class="col-span-full space-y-12">
-      <!-- Gear Stats -->
-      <Transition name="fade-up" appear>
-        <div class="relative" id="gear">
-          <StatsSection title="GEAR">
-            <AsyncGearStats />
+      <!-- Main Stats Grid -->
+      <section class="grid gap-6 auto-fit-columns overflow-hidden">
+        <TransitionGroup name="fade-up" tag="div" class="contents" appear>
+          <!-- Writing -->
+          <StatsSection
+            v-if="blogStats"
+            id="writing"
+            key="writing-section"
+            title="WRITING"
+            class="break-inside-avoid"
+          >
+            <AsyncBlogStats key="blog" :stats="blogStats" />
           </StatsSection>
-        </div>
-      </Transition>
 
-      <!-- Health Stats -->
-      <Transition name="fade-up" appear>
-        <div v-if="stats.health" class="relative" id="health">
-          <StatsSection title="HEALTH">
-            <AsyncHealthStats :stats="transformedHealthStats" />
+          <!-- Typing -->
+          <StatsSection
+            v-if="stats.monkeyType?.typingStats"
+            id="typing"
+            key="typing-section"
+            title="TYPING"
+            class="break-inside-avoid"
+          >
+            <AsyncMonkeyTypeStats
+              key="monkeytype"
+              :stats="{ typingStats: stats.monkeyType.typingStats }"
+            />
           </StatsSection>
-        </div>
-      </Transition>
-    </section>
+
+          <!-- GitHub -->
+          <StatsSection
+            v-if="stats.github?.stats"
+            id="github"
+            key="github-section"
+            title="GITHUB"
+            class="break-inside-avoid"
+          >
+            <AsyncGitHubStats key="github" :stats="stats.github" />
+          </StatsSection>
+
+          <!-- Photography -->
+          <StatsSection
+            v-if="stats.photos?.stats"
+            id="photography"
+            key="photography-section"
+            title="PHOTOGRAPHY"
+            class="break-inside-avoid"
+          >
+            <AsyncPhotoStats key="photos" :stats="stats.photos" />
+          </StatsSection>
+
+          <!-- Chess -->
+          <StatsSection
+            v-if="stats.chess"
+            id="chess"
+            key="chess-section"
+            title="CHESS"
+            class="break-inside-avoid"
+          >
+            <AsyncChessStats key="chess" :stats="stats.chess" />
+          </StatsSection>
+
+          <!-- LeetCode -->
+          <StatsSection
+            v-if="stats.leetcode?.submissionStats"
+            id="leetcode"
+            key="leetcode-section"
+            title="LEETCODE"
+            class="break-inside-avoid"
+          >
+            <AsyncLeetCodeStats key="leetcode" :stats="stats.leetcode" />
+          </StatsSection>
+
+          <!-- Productivity -->
+          <StatsSection
+            v-if="stats.rescueTime"
+            id="productivity"
+            key="productivity-section"
+            title="PRODUCTIVITY"
+            class="break-inside-avoid"
+          >
+            <AsyncRescueTimeStats key="rescuetime" :stats="stats" />
+          </StatsSection>
+
+          <!-- Last.fm -->
+          <StatsSection
+            v-if="stats.lastfm"
+            id="lastfm"
+            key="lastfm-section"
+            title="MUSIC"
+            class="break-inside-avoid"
+          >
+            <AsyncLastFmStats key="lastfm" :stats="stats.lastfm" />
+          </StatsSection>
+        </TransitionGroup>
+      </section>
+
+      <!-- Full Width Sections -->
+      <section class="col-span-full space-y-12">
+        <!-- Gear Stats -->
+        <Transition name="fade-up" appear>
+          <div id="gear" class="relative">
+            <StatsSection title="GEAR">
+              <AsyncGearStats />
+            </StatsSection>
+          </div>
+        </Transition>
+
+        <!-- Health Stats -->
+        <Transition name="fade-up" appear>
+          <div v-if="stats.health" id="health" class="relative">
+            <StatsSection title="HEALTH">
+              <AsyncHealthStats :stats="transformedHealthStats" />
+            </StatsSection>
+          </div>
+        </Transition>
+      </section>
     </section>
   </div>
 </template>

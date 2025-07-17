@@ -1,18 +1,16 @@
 <template>
   <div class="gist-preview">
     <div class="code-container" :class="{ expanded: expanded }">
-      <div v-html="highlightedCode" class="code-content" />
+      <div class="code-content" v-html="highlightedCode" />
 
       <!-- Expand/Collapse button at bottom -->
       <div v-if="lineCount > 10" class="action-overlay">
-        <button @click="$emit('toggle')" class="action-button">
+        <button class="action-button" @click="$emit('toggle')">
           <span class="button-icon">{{ expanded ? '▼' : '▶' }}</span>
-          <span
-            >{{ expanded ? 'Collapse' : 'Expand' }} ({{
-              formatNumber(lineCount)
-            }}
-            lines)</span
-          >
+          <span>{{ expanded ? 'Collapse' : 'Expand' }} ({{
+            formatNumber(lineCount)
+          }}
+            lines)</span>
         </button>
       </div>
     </div>

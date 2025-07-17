@@ -216,7 +216,7 @@ async function checkRateLimit(token: string) {
   }
 }
 
-export default defineEventHandler(async (event): Promise<GitHubStats> => {
+export default defineEventHandler(async (): Promise<GitHubStats> => {
   // console.log('🚀 GitHub handler called')
   const config = useRuntimeConfig()
 

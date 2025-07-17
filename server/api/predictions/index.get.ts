@@ -12,7 +12,7 @@ interface PredictionsData {
 async function ensurePredictionsFile(): Promise<void> {
   try {
     await readFile(PREDICTIONS_FILE)
-  } catch (error) {
+  } catch (_error) {
     // File doesn't exist, create it with empty data
     const emptyData: PredictionsData = { predictions: [] }
     await writeFile(PREDICTIONS_FILE, JSON.stringify(emptyData, null, 2))
@@ -33,7 +33,7 @@ function calculateBrierScore(predictions: Prediction[]): number {
   return squaredDiffs.reduce((sum, diff) => sum + diff, 0) / resolvedPredictions.length
 }
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async () => {
   await ensurePredictionsFile()
 
   try {
@@ -75,7 +75,7 @@ export default defineEventHandler(async (event) => {
 
     return {
       predictions: data.predictions.sort((a, b) => 
-        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        new Date(b.createdAt || b.created).getTime() - new Date(a.createdAt || a.created).getTime()
       ),
       stats
     }

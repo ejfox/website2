@@ -1,16 +1,20 @@
 <template>
   <div class="stat-container leading-tight font-mono group relative">
     <div class="flex">
-      <p :key="value" class="stat-value tabular-nums font-mono flex-1 transition-colors duration-200" :class="[
-        size === 'large' && 'text-[5rem] leading-[0.9]',
-        size === 'medium' && 'text-4xl leading-[0.9]',
-        size === 'small' && 'text-3xl leading-[0.95]',
-      ]">
+      <p
+        :key="value" class="stat-value tabular-nums font-mono flex-1 transition-colors duration-200" :class="[
+          size === 'large' && 'text-[5rem] leading-[0.9]',
+          size === 'medium' && 'text-4xl leading-[0.9]',
+          size === 'small' && 'text-3xl leading-[0.95]',
+        ]"
+      >
         {{ formattedValue }}
       </p>
     </div>
     <div class="stat-footer border-b border-dotted border-zinc-300 dark:border-zinc-700 py-1 transition-all duration-200">
-      <h3 class="text-sm tracking-wider text-zinc-500 uppercase font-mono transition-colors duration-200">{{ label }}</h3>
+      <h3 class="text-sm tracking-wider text-zinc-500 uppercase font-mono transition-colors duration-200">
+        {{ label }}
+      </h3>
       <p v-if="details" class="text-xs text-zinc-500 tracking-wide font-mono transition-colors duration-200">
         {{ details }}
       </p>

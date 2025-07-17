@@ -3,18 +3,16 @@ import sanitizeHtml from 'sanitize-html'
 import { useProcessedMarkdown } from '~/composables/useProcessedMarkdown'
 import { parseISO, isValid, compareDesc, formatISO } from 'date-fns'
 
-// Add type declaration for RSS module
-declare module 'rss' {
-  export interface ItemOptions {
-    title: string
-    description: string
-    url: string
-    guid: string
-    categories?: string[]
-    author?: string
-    date?: Date
-    custom_elements?: any[]
-  }
+// RSS item type
+interface RSSItemOptions {
+  title: string
+  description: string
+  url: string
+  guid: string
+  categories?: string[]
+  author?: string
+  date?: Date | string
+  custom_elements?: any[]
 }
 
 // Helper to create a short excerpt
@@ -28,7 +26,7 @@ function createExcerpt(html: string, length = 280): string {
 export default defineEventHandler(async (event) => {
   const { getAllPosts } = useProcessedMarkdown()
   const config = useRuntimeConfig()
-  const siteUrl = config.public.siteUrl || 'https://ejfox.com'
+  const siteUrl = (config.public.siteUrl as string) || 'https://ejfox.com'
 
   // Initialize RSS feed with enhanced metadata
   const feed = new RSS({
@@ -75,7 +73,7 @@ export default defineEventHandler(async (event) => {
     const postUrl = `${siteUrl}/blog/${metadata.slug}`
 
     // Create feed item with enhanced metadata
-    const feedItem: RSS.ItemOptions = {
+    const feedItem: RSSItemOptions = {
       title: metadata.title || '',
       description: metadata.description || metadata.dek || createExcerpt(html),
       url: postUrl,
@@ -89,7 +87,7 @@ export default defineEventHandler(async (event) => {
       ]
     }
 
-    feed.item(feedItem)
+    feed.item(feedItem as any)
   }
 
   // Set response headers with longer cache for production

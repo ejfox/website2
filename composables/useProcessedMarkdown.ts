@@ -577,7 +577,9 @@ export const useProcessedMarkdown = () => {
       (post) => post.slug === currentSlug
     )
     if (currentIndex === -1) {
-      console.warn(`Post with slug "${currentSlug}" not found in regular blog posts`)
+      console.warn(
+        `Post with slug "${currentSlug}" not found in regular blog posts`
+      )
       return { next: null, prev: null }
     }
 

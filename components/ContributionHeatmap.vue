@@ -22,12 +22,26 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   showFullYear: false,
   showLegend: false,
-  legendLabels: () => ({ start: '0', end: 'Many' })
+  legendLabels: () => ({ start: '0', end: 'Many' }),
+  title: undefined,
+  subtitle: undefined
 })
 
 // Color schemes
-const darkModeColors = ['rgb(22, 27, 34)', 'rgb(14, 68, 41)', 'rgb(0, 109, 50)', 'rgb(38, 166, 65)', 'rgb(57, 211, 83)']
-const lightModeColors = ['rgb(235, 237, 240)', 'rgb(172, 230, 174)', 'rgb(87, 195, 89)', 'rgb(45, 164, 78)', 'rgb(25, 97, 39)']
+const darkModeColors = [
+  'rgb(22, 27, 34)',
+  'rgb(14, 68, 41)',
+  'rgb(0, 109, 50)',
+  'rgb(38, 166, 65)',
+  'rgb(57, 211, 83)'
+]
+const lightModeColors = [
+  'rgb(235, 237, 240)',
+  'rgb(172, 230, 174)',
+  'rgb(87, 195, 89)',
+  'rgb(45, 164, 78)',
+  'rgb(25, 97, 39)'
+]
 
 const colorScheme = computed(() => {
   // TODO: Replace with actual dark mode detection
@@ -49,7 +63,10 @@ const processedData = computed(() => {
 
   props.data.forEach((day) => {
     const date = new Date(day.date)
-    if (currentWeek.length === 0 || new Date(currentWeek[0].date).getDay() > date.getDay()) {
+    if (
+      currentWeek.length === 0 ||
+      new Date(currentWeek[0].date).getDay() > date.getDay()
+    ) {
       if (currentWeek.length) weeks.push(currentWeek)
       currentWeek = []
     }
@@ -63,7 +80,8 @@ const processedData = computed(() => {
 // Calculate color scale
 const colorScale = computed(() => {
   const maxValue = d3.max(props.data, (d: Contribution) => d.count) || 0
-  return d3.scaleQuantize<string>()
+  return d3
+    .scaleQuantize<string>()
     .domain([0, maxValue])
     .range(colorScheme.value.slice(1)) // Skip the empty color
 })
@@ -79,7 +97,8 @@ const drawHeatmap = () => {
   // Clear previous content
   d3.select(heatmapRef.value).selectAll('*').remove()
 
-  const svg = d3.select(heatmapRef.value)
+  const svg = d3
+    .select(heatmapRef.value)
     .append('svg')
     .attr('width', '100%')
     .attr('height', totalHeight + (props.showLegend ? 30 : 0))
@@ -88,13 +107,17 @@ const drawHeatmap = () => {
   processedData.value.forEach((week, weekIndex) => {
     week.forEach((day) => {
       const date = new Date(day.date)
-      svg.append('rect')
+      svg
+        .append('rect')
         .attr('x', weekIndex * (cellSize + cellPadding))
         .attr('y', date.getDay() * (cellSize + cellPadding))
         .attr('width', cellSize)
         .attr('height', cellSize)
         .attr('rx', 2)
-        .attr('fill', day.count > 0 ? colorScale.value(day.count) : emptyColor.value)
+        .attr(
+          'fill',
+          day.count > 0 ? colorScale.value(day.count) : emptyColor.value
+        )
         .attr('data-date', day.date)
         .attr('data-count', day.count)
     })
@@ -108,7 +131,8 @@ const drawHeatmap = () => {
     const legendItemWidth = legendWidth / colorScheme.value.length
 
     // Legend background
-    svg.append('g')
+    svg
+      .append('g')
       .attr('transform', `translate(${legendX}, ${legendY})`)
       .selectAll('rect')
       .data(colorScheme.value)
@@ -121,13 +145,15 @@ const drawHeatmap = () => {
       .attr('rx', 1)
 
     // Legend labels
-    svg.append('text')
+    svg
+      .append('text')
       .attr('x', legendX)
       .attr('y', legendY - 5)
       .attr('class', 'text-xs text-gray-400')
       .text(props.legendLabels.start)
 
-    svg.append('text')
+    svg
+      .append('text')
       .attr('x', legendX + legendWidth)
       .attr('y', legendY - 5)
       .attr('class', 'text-xs text-gray-400 text-right')
@@ -137,16 +163,27 @@ const drawHeatmap = () => {
 }
 
 // Redraw on width changes or color scheme changes
-watch([width, colorScheme], () => {
-  drawHeatmap()
-}, { immediate: true })
+watch(
+  [width, colorScheme],
+  () => {
+    drawHeatmap()
+  },
+  { immediate: true }
+)
 </script>
 
 <template>
   <div class="space-y-4">
     <div v-if="title || subtitle" class="flex justify-between items-baseline">
-      <h4 v-if="title" class="text-xs tracking-[0.2em] text-gray-500 font-light">{{ title }}</h4>
-      <p v-if="subtitle" class="text-[0.65rem] text-gray-400 tracking-wider">{{ subtitle }}</p>
+      <h4
+        v-if="title"
+        class="text-xs tracking-[0.2em] text-gray-500 font-light"
+      >
+        {{ title }}
+      </h4>
+      <p v-if="subtitle" class="text-[0.65rem] text-gray-400 tracking-wider">
+        {{ subtitle }}
+      </p>
     </div>
     <div ref="heatmapRef" class="w-full"></div>
   </div>

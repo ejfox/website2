@@ -1,61 +1,67 @@
 <template>
   <div class="rounded-lg">
     <!-- <pre class="max-h-96 overflow-y-auto">{{ product }}</pre> -->
-    <div class="product-image-container relative shadow-lg overflow-hidden rounded-lg" v-if="product?.images">
+    <div v-if="product?.images" class="product-image-container relative shadow-lg overflow-hidden rounded-lg">
       <!-- get the price SVG and put it on the top right -->
-      <img :src="priceSvgPath" alt="Price"
-        class="w-16 md:w-24 xl:w-30 h-auto absolute top-4 right-4 md:right-8 z-20 invert" v-if="!productSold" />
-      <img v-else src="/images/handdrawn_ceramics_text/handdrawn_ceramics_text-14.svg"
-        class="w-1/3 h-auto absolute top-4 right-4 md:right-8 z-20 invert" alt="Sold Out" />
+      <img
+        v-if="!productSold" :src="priceSvgPath"
+        alt="Price" class="w-16 md:w-24 xl:w-30 h-auto absolute top-4 right-4 md:right-8 z-20 invert"
+      />
+      <img
+        v-else src="/images/handdrawn_ceramics_text/handdrawn_ceramics_text-14.svg"
+        class="w-1/3 h-auto absolute top-4 right-4 md:right-8 z-20 invert" alt="Sold Out"
+      />
 
       <!-- grayscale if sold -->
-      <img :src="product?.images[0]" alt="product image"
-        :class="['product-image z-10', productSold ? 'grayscale hover:grayscale-0' : '']" />
-
-
-
-
+      <img
+        :src="product?.images[0]" alt="product image"
+        :class="['product-image z-10', productSold ? 'grayscale hover:grayscale-0' : '']"
+      />
     </div>
     <div class="product-actions-container py-4 flex flex-row justify-between">
-
-
       <div v-if="!productSold">
-        <UButton @click="buyProduct(product.id)" color="green">
-          <img :src="`/images/handdrawn_ceramics_text/handdrawn_ceramics_text-11.svg`" alt="Buy"
-            class="mx-4 my-1 w-16 h-auto" />
+        <UButton color="green" @click="buyProduct(product.id)">
+          <img
+            :src="`/images/handdrawn_ceramics_text/handdrawn_ceramics_text-11.svg`" alt="Buy"
+            class="mx-4 my-1 w-16 h-auto"
+          />
         </UButton>
       </div>
       <div v-else>
         <UButton color="gray" disabled>
-          <img :src="`/images/handdrawn_ceramics_text/handdrawn_ceramics_text-14.svg`" alt="Sold Out"
-            class="w-16 h-auto dark:invert invert-0" />
+          <img
+            :src="`/images/handdrawn_ceramics_text/handdrawn_ceramics_text-14.svg`" alt="Sold Out"
+            class="w-16 h-auto dark:invert invert-0"
+          />
         </UButton>
       </div>
 
-      <div v-show="!productSold" class="product-price text-lg py-2
+      <div
+        v-show="!productSold" class="product-price text-lg py-2
       hidden xl:block
-      ">{{ unitAmountToUSD(product.price.unit_amount) }} + shipping</div>
+      "
+      >
+        {{ unitAmountToUSD(product.price.unit_amount) }} + shipping
+      </div>
     </div>
     <!-- make more like this button -->
     <!-- <UButton @click="addProductLike" color="green" variant="outline">Make More Like This</UButton> -->
   </div>
   <div class="product-info-container py-2">
-
     <div class="flex flex-wrap justify-between items-center">
       <!-- <div class="product-name text-3xl py-2">{{ product.name }}</div> -->
 
 
 
-      <div class="product-description prose dark:prose-invert my-1 lg:my-2">{{ product.description }}</div>
+      <div class="product-description prose dark:prose-invert my-1 lg:my-2">
+        {{ product.description }}
+      </div>
 
-      <img :src="`/images/handdrawn_ceramics_text/handdrawn_ceramics_text-13.svg`" alt="USA Shipping Only"
-        class="h-10 xl:h-12 w-auto my-2 dark:invert inline-block" />
-
-
-
-
+      <img
+        :src="`/images/handdrawn_ceramics_text/handdrawn_ceramics_text-13.svg`" alt="USA Shipping Only"
+        class="h-10 xl:h-12 w-auto my-2 dark:invert inline-block"
+      />
     </div>
-
   </div>
 </template>
 

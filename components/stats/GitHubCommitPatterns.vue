@@ -1,6 +1,8 @@
 <template>
   <div v-if="commitTypes.length">
-    <h4 class="section-subheader">COMMIT PATTERNS</h4>
+    <h4 class="section-subheader">
+      COMMIT PATTERNS
+    </h4>
     <div class="space-y-3">
       <div
         v-for="type in commitTypes.slice(0, 5)"
@@ -16,9 +18,7 @@
             <span class="text-xs text-zinc-700 dark:text-zinc-300 truncate">{{
               type.type
             }}</span>
-            <span class="text-2xs text-zinc-500 tabular-nums flex-shrink-0"
-              >{{ type.count }} ({{ Math.round(type.percentage) }}%)</span
-            >
+            <span class="text-2xs text-zinc-500 tabular-nums flex-shrink-0">{{ type.count }} ({{ Math.round(type.percentage) }}%)</span>
           </div>
           <div class="category-bar-bg mt-1">
             <div

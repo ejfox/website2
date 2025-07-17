@@ -29,7 +29,11 @@ export default defineEventHandler(async () => {
           visibility: data.visibility || 'public',
           created: data.created,
           resolved: data.resolved,
-          evidence: body.trim()
+          resolved_date: data.resolved_date,
+          status: data.status,
+          evidence: body.trim(),
+          resolution: data.resolution,
+          related: data.related || []
         }
       })
     )

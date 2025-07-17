@@ -6,7 +6,9 @@
       <span class="text-gray-300 dark:text-gray-700">{{ scrap.scrap_id }}</span>
     </div>
 
-    <p class="timestamp">{{ formatDate(scrap.created_at) }}</p>
+    <p class="timestamp">
+      {{ formatDate(scrap.created_at) }}
+    </p>
 
     <div class="opacity-50 hover:opacity-100 transition-opacity w-48 overflow-x-auto">
       {{ scrap.metadata.latitude }}, {{ scrap.metadata.longitude }}

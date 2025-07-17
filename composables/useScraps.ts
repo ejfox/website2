@@ -84,8 +84,8 @@ interface FetchOptions {
 export default function useScraps() {
   const config = useRuntimeConfig()
   const supabase = createClient(
-    config.public.SUPABASE_URL,
-    config.public.SUPABASE_KEY
+    config.public.SUPABASE_URL as string,
+    config.public.SUPABASE_KEY as string
   )
 
   const scraps = ref<Scrap[]>([])

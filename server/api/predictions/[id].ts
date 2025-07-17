@@ -14,7 +14,9 @@ async function findPredictionFile(id: string): Promise<string | null> {
   try {
     await fs.access(filePath)
     return filePath
-  } catch {}
+  } catch {
+    // File doesn't exist, try next location
+  }
   
   // Try year-based structure
   if (id.includes('-')) {
@@ -27,14 +29,18 @@ async function findPredictionFile(id: string): Promise<string | null> {
     try {
       await fs.access(filePath)
       return filePath
-    } catch {}
+    } catch {
+      // File doesn't exist, try next location
+    }
     
     // Try reconstructed filename
     filePath = join(predictionsDir, year, `${id.substring(5)}.md`)
     try {
       await fs.access(filePath)
       return filePath
-    } catch {}
+    } catch {
+      // File doesn't exist, continue to return null
+    }
   }
   
   return null
@@ -85,7 +91,7 @@ export default defineEventHandler(async (event) => {
         visibility: data.visibility || 'public',
         evidence: markdownBody.trim()
       }
-    } catch (error) {
+    } catch (_error) {
       throw createError({
         statusCode: 404,
         statusMessage: 'Prediction not found'

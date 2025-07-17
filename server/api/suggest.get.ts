@@ -32,7 +32,7 @@ export default defineEventHandler(async (event) => {
     // For now, let's implement basic tag suggestions based on existing tags
     // We'll enhance this with embeddings/vector search later
     
-    let scrapsWithTags = []
+    let scrapsWithTags: any[] = []
     
     try {
       // Get all existing scraps with tags
@@ -145,7 +145,7 @@ export default defineEventHandler(async (event) => {
       
       // Add some common tech/web tags based on URL patterns and TLD
       const urlLower = url.toLowerCase()
-      const fallbackTags = []
+      const fallbackTags: string[] = []
       
       // Domain-specific tags
       if (urlLower.includes('github.com')) fallbackTags.push('github', 'code', 'development')
@@ -191,7 +191,7 @@ export default defineEventHandler(async (event) => {
             fallbackTags.push('news', 'journalism', 'current-events')
             break
         }
-      } catch (e) {
+      } catch (_e) {
         // Invalid URL, skip TLD analysis
       }
       
@@ -237,7 +237,7 @@ export default defineEventHandler(async (event) => {
         if (!scrap.title || !scrap.tags || !Array.isArray(scrap.tags)) return null
         
         // Count how many tags this scrap shares with our suggestions
-        const sharedTags = scrap.tags.filter(tag => topSuggestedTagNames.includes(tag))
+        const sharedTags = scrap.tags.filter((tag: string) => topSuggestedTagNames.includes(tag))
         const score = sharedTags.length
         
         return {
@@ -246,7 +246,7 @@ export default defineEventHandler(async (event) => {
           score
         }
       })
-      .filter(item => item && item.score > 0) // Only items with shared tags
+      .filter((item): item is NonNullable<typeof item> => item !== null && item.score > 0) // Only items with shared tags
       .sort((a, b) => b.score - a.score) // Sort by most shared tags
       .slice(0, 4)
       .map(item => ({
@@ -259,7 +259,7 @@ export default defineEventHandler(async (event) => {
 
     // TODO: Implement proper threads detection based on content similarity clusters
     // For now, just return empty array
-    const activeThreads = []
+    const activeThreads: any[] = []
 
     return {
       suggested_tags: suggestedTags,

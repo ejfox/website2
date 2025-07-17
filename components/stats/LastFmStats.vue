@@ -90,7 +90,9 @@
                 <div class="w-4 text-right text-xs text-zinc-600 tabular-nums">
                   {{ index + 1 }}
                 </div>
-                <div class="flex-1 text-sm truncate">{{ artist.name }}</div>
+                <div class="flex-1 text-sm truncate">
+                  {{ artist.name }}
+                </div>
                 <div class="text-xs text-zinc-500 tabular-nums">
                   {{ artist.playcount }}x
                 </div>
@@ -111,7 +113,9 @@
                   {{ index + 1 }}
                 </div>
                 <div class="min-w-0 flex-1">
-                  <div class="text-sm truncate">{{ track.name }}</div>
+                  <div class="text-sm truncate">
+                    {{ track.name }}
+                  </div>
                   <div class="text-xs text-zinc-500 truncate">
                     {{ track.artist.name }}
                   </div>
@@ -140,7 +144,9 @@
                 <div class="w-4 text-right text-xs text-zinc-600 tabular-nums">
                   {{ index + 1 }}
                 </div>
-                <div class="flex-1 text-sm truncate">{{ artist.name }}</div>
+                <div class="flex-1 text-sm truncate">
+                  {{ artist.name }}
+                </div>
                 <div class="text-xs text-zinc-500 tabular-nums">
                   {{ artist.playcount }}x
                 </div>
@@ -161,7 +167,9 @@
                   {{ index + 1 }}
                 </div>
                 <div class="min-w-0 flex-1">
-                  <div class="text-sm truncate">{{ track.name }}</div>
+                  <div class="text-sm truncate">
+                    {{ track.name }}
+                  </div>
                   <div class="text-xs text-zinc-500 truncate">
                     {{ track.artist.name }}
                   </div>

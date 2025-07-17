@@ -36,13 +36,13 @@ function formatMetadata(metadata: any): string {
     return Object.entries(metadata)
       .map(([key, value]) => {
         // Format key for better readability
-        const formattedKey = key
+        const _formattedKey = key
           .replace(/_/g, ' ')
           .replace(/\b\w/g, (l) => l.toUpperCase())
         return `<metadata:${key}>${value}</metadata:${key}>`
       })
       .join('\n')
-  } catch (e) {
+  } catch (_e) {
     return ''
   }
 }
@@ -55,7 +55,7 @@ function formatRelationships(relationships: any): string {
         ([key, value]) => `<relationship:${key}>${value}</relationship:${key}>`
       )
       .join('\n')
-  } catch (e) {
+  } catch (_e) {
     return ''
   }
 }

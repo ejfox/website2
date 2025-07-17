@@ -1,6 +1,5 @@
 import { defineEventHandler, createError } from 'h3'
 import { readFile } from 'fs/promises'
-import path from 'path'
 import { resolve } from 'path'
 
 interface Post {
@@ -15,12 +14,12 @@ interface Post {
   }
 }
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async () => {
   try {
     const manifest = await readManifest()
 
     // Simple check for projects
-    const projectSlugs = manifest
+    const _projectSlugs = manifest
       .filter((p: Post) => p.slug?.startsWith('projects/'))
       .map((p: Post) => p.slug)
 

@@ -4,27 +4,39 @@
       <div class="flex flex-col items-center space-y-6">
         <!-- Profile image section -->
         <div class="flex justify-center">
-          <img src="https://res.cloudinary.com/ejf/image/upload/w_128/v1733606048/me_full.png" alt="Profile"
-            class="w-12 h-12 rounded-full" />
+          <img
+            src="https://res.cloudinary.com/ejf/image/upload/w_128/v1733606048/me_full.png" alt="Profile"
+            class="w-12 h-12 rounded-full"
+          />
         </div>
 
         <!-- Navigation links -->
         <nav class="flex justify-center">
           <ul class="flex items-center space-x-6 text-sm text-zinc-600 dark:text-zinc-400">
             <li>
-              <NuxtLink to="/stats" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors">/stats</NuxtLink>
+              <NuxtLink to="/stats" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors">
+                /stats
+              </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/gists" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors">/gists</NuxtLink>
+              <NuxtLink to="/gists" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors">
+                /gists
+              </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/gear" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors">/gear</NuxtLink>
+              <NuxtLink to="/gear" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors">
+                /gear
+              </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/predictions" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors">/predictions</NuxtLink>
+              <NuxtLink to="/predictions" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors">
+                /predictions
+              </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="https://ejfox.com/rss.xml" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors">/rss</NuxtLink>
+              <NuxtLink to="https://ejfox.com/rss.xml" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors">
+                /rss
+              </NuxtLink>
             </li>
           </ul>
         </nav>

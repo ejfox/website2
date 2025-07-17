@@ -2,27 +2,43 @@
   <aside class="fixed top-0 right-0 w-80 h-screen overflow-y-auto p-4 font-mono text-xs bg-zinc-50/95 dark:bg-zinc-900/95 backdrop-blur border-l border-zinc-200 dark:border-zinc-800 z-40">
     <!-- Sidebar Header -->
     <div class="pb-3 mb-6 border-b border-zinc-300 dark:border-zinc-700">
-      <h3 class="mb-2 text-xs tracking-[0.2em] text-zinc-500">REAL-TIME METRICS</h3>
-      <div class="text-[10px] text-zinc-400">{{ currentTime }}</div>
+      <h3 class="mb-2 text-xs tracking-[0.2em] text-zinc-500">
+        REAL-TIME METRICS
+      </h3>
+      <div class="text-[10px] text-zinc-400">
+        {{ currentTime }}
+      </div>
     </div>
 
     <!-- Mini Health Dashboard -->
     <section v-if="stats.health" class="mb-6">
-      <h4 class="text-[10px] tracking-wider text-zinc-600 dark:text-zinc-400 mb-2">TODAY</h4>
+      <h4 class="text-[10px] tracking-wider text-zinc-600 dark:text-zinc-400 mb-2">
+        TODAY
+      </h4>
       <div class="grid grid-cols-2 gap-2 mb-3">
         <div class="p-2 bg-zinc-100 dark:bg-zinc-800 rounded">
-          <div class="text-lg font-bold tabular-nums">{{ formatCompact(healthToday.steps) }}</div>
-          <div class="text-[9px] text-zinc-500">STEPS</div>
+          <div class="text-lg font-bold tabular-nums">
+            {{ formatCompact(healthToday.steps) }}
+          </div>
+          <div class="text-[9px] text-zinc-500">
+            STEPS
+          </div>
         </div>
         <div class="p-2 bg-zinc-100 dark:bg-zinc-800 rounded">
-          <div class="text-lg font-bold tabular-nums">{{ healthToday.exerciseMinutes }}</div>
-          <div class="text-[9px] text-zinc-500">EXERCISE MIN</div>
+          <div class="text-lg font-bold tabular-nums">
+            {{ healthToday.exerciseMinutes }}
+          </div>
+          <div class="text-[9px] text-zinc-500">
+            EXERCISE MIN
+          </div>
         </div>
       </div>
       
       <!-- 7-day step sparkline -->
       <div class="mb-3">
-        <div class="mb-1 text-[9px] text-zinc-500">7-DAY STEPS</div>
+        <div class="mb-1 text-[9px] text-zinc-500">
+          7-DAY STEPS
+        </div>
         <div class="flex items-end h-8 gap-0.5">
           <div 
             v-for="(steps, i) in last7DaysSteps" 
@@ -37,21 +53,33 @@
 
     <!-- GitHub Activity Pulse -->
     <section v-if="stats.github" class="mb-6">
-      <h4 class="text-[10px] tracking-wider text-zinc-600 dark:text-zinc-400 mb-2">CODE ACTIVITY</h4>
+      <h4 class="text-[10px] tracking-wider text-zinc-600 dark:text-zinc-400 mb-2">
+        CODE ACTIVITY
+      </h4>
       <div class="flex items-baseline justify-between mb-2">
         <div>
-          <div class="text-lg font-bold tabular-nums">{{ stats.github.stats.totalContributions }}</div>
-          <div class="text-[9px] text-zinc-500">TOTAL COMMITS</div>
+          <div class="text-lg font-bold tabular-nums">
+            {{ stats.github.stats.totalContributions }}
+          </div>
+          <div class="text-[9px] text-zinc-500">
+            TOTAL COMMITS
+          </div>
         </div>
         <div class="text-right">
-          <div class="text-sm font-bold tabular-nums">{{ todayContributions }}</div>
-          <div class="text-[9px] text-zinc-500">TODAY</div>
+          <div class="text-sm font-bold tabular-nums">
+            {{ todayContributions }}
+          </div>
+          <div class="text-[9px] text-zinc-500">
+            TODAY
+          </div>
         </div>
       </div>
       
       <!-- Commit type breakdown pie chart -->
       <div class="mb-2">
-        <div class="mb-1 text-[9px] text-zinc-500">COMMIT TYPES</div>
+        <div class="mb-1 text-[9px] text-zinc-500">
+          COMMIT TYPES
+        </div>
         <div class="flex h-2 overflow-hidden rounded">
           <div 
             v-for="commitType in topCommitTypes" 
@@ -66,22 +94,34 @@
 
     <!-- Typing Performance -->
     <section v-if="stats.monkeyType" class="mb-6">
-      <h4 class="text-[10px] tracking-wider text-zinc-600 dark:text-zinc-400 mb-2">TYPING</h4>
+      <h4 class="text-[10px] tracking-wider text-zinc-600 dark:text-zinc-400 mb-2">
+        TYPING
+      </h4>
       <div class="grid grid-cols-2 gap-2">
         <div>
-          <div class="text-lg font-bold tabular-nums">{{ Math.round(stats.monkeyType.typingStats.averageWpm) }}</div>
-          <div class="text-[9px] text-zinc-500">AVG WPM</div>
+          <div class="text-lg font-bold tabular-nums">
+            {{ Math.round(stats.monkeyType.typingStats.averageWpm) }}
+          </div>
+          <div class="text-[9px] text-zinc-500">
+            AVG WPM
+          </div>
         </div>
         <div>
-          <div class="text-lg font-bold tabular-nums">{{ Math.round(stats.monkeyType.typingStats.averageAccuracy) }}%</div>
-          <div class="text-[9px] text-zinc-500">ACCURACY</div>
+          <div class="text-lg font-bold tabular-nums">
+            {{ Math.round(stats.monkeyType.typingStats.averageAccuracy) }}%
+          </div>
+          <div class="text-[9px] text-zinc-500">
+            ACCURACY
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Chess Performance -->
     <section v-if="stats.chess" class="mb-6">
-      <h4 class="text-[10px] tracking-wider text-zinc-600 dark:text-zinc-400 mb-2">CHESS</h4>
+      <h4 class="text-[10px] tracking-wider text-zinc-600 dark:text-zinc-400 mb-2">
+        CHESS
+      </h4>
       <div class="space-y-2">
         <div class="flex justify-between">
           <span class="text-[9px] text-zinc-500">BLITZ</span>
@@ -100,15 +140,23 @@
 
     <!-- Music Listening -->
     <section v-if="stats.lastfm" class="mb-6">
-      <h4 class="text-[10px] tracking-wider text-zinc-600 dark:text-zinc-400 mb-2">MUSIC</h4>
+      <h4 class="text-[10px] tracking-wider text-zinc-600 dark:text-zinc-400 mb-2">
+        MUSIC
+      </h4>
       <div>
-        <div class="text-lg font-bold tabular-nums">{{ formatCompact(stats.lastfm.totalScrobbles || 0) }}</div>
-        <div class="text-[9px] text-zinc-500">TOTAL SCROBBLES</div>
+        <div class="text-lg font-bold tabular-nums">
+          {{ formatCompact(stats.lastfm.totalScrobbles || 0) }}
+        </div>
+        <div class="text-[9px] text-zinc-500">
+          TOTAL SCROBBLES
+        </div>
       </div>
       
       <!-- Recent tracks mini list -->
       <div v-if="stats.lastfm.recentTracks" class="mt-2 space-y-1">
-        <div class="text-[9px] text-zinc-500 mb-1">RECENT</div>
+        <div class="text-[9px] text-zinc-500 mb-1">
+          RECENT
+        </div>
         <div 
           v-for="track in stats.lastfm.recentTracks.slice(0, 3)" 
           :key="track.name"
@@ -121,7 +169,9 @@
 
     <!-- System Stats -->
     <section class="mb-6">
-      <h4 class="text-[10px] tracking-wider text-zinc-600 dark:text-zinc-400 mb-2">SYSTEM</h4>
+      <h4 class="text-[10px] tracking-wider text-zinc-600 dark:text-zinc-400 mb-2">
+        SYSTEM
+      </h4>
       <div class="space-y-1 text-[9px]">
         <div class="flex justify-between">
           <span class="text-zinc-500">VIEWPORT</span>
@@ -140,7 +190,9 @@
 
     <!-- Data Freshness -->
     <section class="border-t border-zinc-300 dark:border-zinc-700 pt-3">
-      <h4 class="text-[10px] tracking-wider text-zinc-600 dark:text-zinc-400 mb-2">DATA STATUS</h4>
+      <h4 class="text-[10px] tracking-wider text-zinc-600 dark:text-zinc-400 mb-2">
+        DATA STATUS
+      </h4>
       <div class="space-y-1 text-[9px]">
         <div class="flex justify-between items-center">
           <span class="text-zinc-500">GITHUB</span>

@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="submitPrediction" class="prediction-form">
+  <form class="prediction-form" @submit.prevent="submitPrediction">
     <div class="form-group">
       <label for="statement">Prediction Statement</label>
       <textarea 
@@ -16,8 +16,8 @@
       <label for="confidence">Confidence ({{ prediction.confidence }}%)</label>
       <input 
         id="confidence"
-        type="range" 
         v-model.number="prediction.confidence" 
+        type="range" 
         min="0" 
         max="100" 
         step="5"
@@ -29,8 +29,8 @@
       <label for="deadline">Deadline</label>
       <input 
         id="deadline"
-        type="date" 
         v-model="prediction.deadline" 
+        type="date" 
         required
         class="form-input"
       >
@@ -40,8 +40,8 @@
       <label for="categories">Categories (comma separated)</label>
       <input 
         id="categories"
-        type="text" 
-        v-model="categoriesInput"
+        v-model="categoriesInput" 
+        type="text"
         class="form-input"
         placeholder="tech, politics, personal"
       >
@@ -61,12 +61,18 @@
     <div class="form-group">
       <label for="visibility">Visibility</label>
       <select id="visibility" v-model="prediction.visibility" class="form-input">
-        <option value="public">Public</option>
-        <option value="private">Private</option>
+        <option value="public">
+          Public
+        </option>
+        <option value="private">
+          Private
+        </option>
       </select>
     </div>
     
-    <button type="submit" class="btn btn-primary">Save Prediction</button>
+    <button type="submit" class="btn btn-primary">
+      Save Prediction
+    </button>
   </form>
 </template>
 

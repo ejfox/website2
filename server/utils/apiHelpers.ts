@@ -1,4 +1,4 @@
-import type { H3Event } from 'h3'
+import type { H3Event as _H3Event } from 'h3'
 
 export interface ApiRequestOptions extends RequestInit {
   timeout?: number

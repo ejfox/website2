@@ -6,7 +6,9 @@
     </div>
     
     <div class="prediction-body">
-      <p class="prediction-statement">{{ prediction.statement }}</p>
+      <p class="prediction-statement">
+        {{ prediction.statement }}
+      </p>
       
       <div v-if="prediction.evidence" class="prediction-evidence">
         <details>
@@ -31,11 +33,13 @@
         <span :class="prediction.resolved.correct ? 'outcome-correct' : 'outcome-incorrect'">
           {{ prediction.resolved.correct ? '✓ Correct' : '✗ Incorrect' }}
         </span>
-        <p v-if="prediction.resolved.explanation" class="outcome-notes">{{ prediction.resolved.explanation }}</p>
+        <p v-if="prediction.resolved.explanation" class="outcome-notes">
+          {{ prediction.resolved.explanation }}
+        </p>
       </div>
       
       <div v-else-if="isPastDeadline" class="prediction-actions">
-        <button @click="showResolutionModal = true" class="btn btn-sm btn-secondary">
+        <button class="btn btn-sm btn-secondary" @click="showResolutionModal = true">
           Resolve
         </button>
       </div>
@@ -47,7 +51,7 @@
     </div>
     
     <div class="card-actions">
-      <button @click="showVerification = !showVerification" class="btn btn-sm btn-secondary">
+      <button class="btn btn-sm btn-secondary" @click="showVerification = !showVerification">
         {{ showVerification ? 'Hide' : 'Show' }} Verification
       </button>
     </div>
@@ -60,8 +64,12 @@
           <p>{{ prediction.statement }}</p>
           
           <div class="resolution-buttons">
-            <button @click="resolve(true)" class="btn btn-success">Correct</button>
-            <button @click="resolve(false)" class="btn btn-danger">Incorrect</button>
+            <button class="btn btn-success" @click="resolve(true)">
+              Correct
+            </button>
+            <button class="btn btn-danger" @click="resolve(false)">
+              Incorrect
+            </button>
           </div>
           
           <div class="resolution-notes">
@@ -70,8 +78,12 @@
           </div>
           
           <div class="modal-actions">
-            <button @click="showResolutionModal = false" class="btn btn-secondary">Cancel</button>
-            <button @click="submitResolution" class="btn btn-primary">Submit</button>
+            <button class="btn btn-secondary" @click="showResolutionModal = false">
+              Cancel
+            </button>
+            <button class="btn btn-primary" @click="submitResolution">
+              Submit
+            </button>
           </div>
         </div>
       </div>

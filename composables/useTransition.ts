@@ -1,4 +1,4 @@
-import { ref, watch } from 'vue'
+import { ref, watch, type Ref } from 'vue'
 import { interpolate } from 'd3-interpolate'
 import { easeQuadOut } from 'd3-ease'
 
@@ -25,8 +25,8 @@ export function useTransition<T>(
       const interpolator = Array.isArray(next)
         ? interpolate(prev as any[], next as any[])
         : typeof next === 'object'
-        ? interpolate(prev as object, next as object)
-        : interpolate(prev as number, next as number)
+          ? interpolate(prev as object, next as object)
+          : interpolate(prev as number, next as number)
 
       // Start animation
       const animate = (timestamp: number) => {
@@ -34,7 +34,7 @@ export function useTransition<T>(
         const progress = Math.min(1, (timestamp - startTime) / duration)
         const eased = ease(progress)
 
-        current.value = interpolator(eased)
+        current.value = interpolator(eased) as T
 
         if (progress < 1) {
           frame = requestAnimationFrame(animate)

@@ -68,7 +68,7 @@ interface CommitType {
   percentage: number
 }
 
-function processCommits(commits: any[]): {
+function _processCommits(commits: any[]): {
   commits: GitHubCommit[]
   commitTypes: CommitType[]
 } {

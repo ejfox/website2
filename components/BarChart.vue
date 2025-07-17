@@ -40,18 +40,21 @@ const drawChart = () => {
   const chartHeight = height.value - margin.top - margin.bottom
 
   // Create scales
-  const x = d3.scaleBand<string>()
-    .domain(props.data.map(d => d.label))
+  const x = d3
+    .scaleBand<string>()
+    .domain(props.data.map((d) => d.label))
     .range([0, chartWidth])
     .padding(0.1)
 
-  const y = d3.scaleLinear()
-    .domain([0, d3.max(props.data, d => d.value) || 0])
+  const y = d3
+    .scaleLinear()
+    .domain([0, d3.max(props.data, (d) => d.value) || 0])
     .nice()
     .range([chartHeight, 0])
 
   // Create SVG
-  const svg = d3.select(chartRef.value)
+  const svg = d3
+    .select(chartRef.value)
     .append('svg')
     .attr('width', width.value)
     .attr('height', height.value)
@@ -59,7 +62,8 @@ const drawChart = () => {
     .attr('transform', `translate(${margin.left},${margin.top})`)
 
   // Draw bars
-  svg.selectAll('rect')
+  svg
+    .selectAll('rect')
     .data(props.data)
     .enter()
     .append('rect')
@@ -71,7 +75,8 @@ const drawChart = () => {
     .attr('rx', 2)
 
   // Add x-axis
-  svg.append('g')
+  svg
+    .append('g')
     .attr('transform', `translate(0,${chartHeight})`)
     .call(d3.axisBottom(x))
     .selectAll('text')
@@ -79,14 +84,16 @@ const drawChart = () => {
     .style('text-anchor', 'middle')
 
   // Add y-axis
-  svg.append('g')
+  svg
+    .append('g')
     .call(d3.axisLeft(y).ticks(5))
     .selectAll('text')
     .attr('class', 'text-xs text-gray-400')
 
   // Add axis labels if provided
   if (props.options?.xAxis?.label) {
-    svg.append('text')
+    svg
+      .append('text')
       .attr('class', 'text-xs text-gray-400')
       .attr('text-anchor', 'middle')
       .attr('x', chartWidth / 2)
@@ -95,7 +102,8 @@ const drawChart = () => {
   }
 
   if (props.options?.yAxis?.label) {
-    svg.append('text')
+    svg
+      .append('text')
       .attr('class', 'text-xs text-gray-400')
       .attr('text-anchor', 'middle')
       .attr('transform', 'rotate(-90)')
@@ -106,7 +114,11 @@ const drawChart = () => {
 }
 
 // Redraw on size changes or data updates
-watch([width, height, () => props.data], () => {
-  drawChart()
-}, { immediate: true })
+watch(
+  [width, height, () => props.data],
+  () => {
+    drawChart()
+  },
+  { immediate: true }
+)
 </script>
