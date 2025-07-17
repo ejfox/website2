@@ -2,8 +2,8 @@
   <div v-if="hasData" class="space-y-4 font-mono">
     <!-- Primary Stats -->
     <div>
-      <IndividualStat :value="weeklyHours" size="large" label="HOURS TRACKED"
-        :details="`${weeklyProductivePercent}% PRODUCTIVE`" />
+      <IndividualStat :value="formatNumber(weeklyHours)" size="large" label="HOURS TRACKED"
+        :details="`${formatPercent(weeklyProductivePercent / 100, 0)} PRODUCTIVE`" />
     </div>
 
     <!-- Activity Calendar -->
@@ -13,7 +13,7 @@
 
     <!-- Application Distribution Waffle Chart -->
     <div>
-      <h4 class="section-subheader">TIME DISTRIBUTION</h4>
+      <StatsSectionHeader>TIME DISTRIBUTION</StatsSectionHeader>
       <div class="waffle-container">
         <div v-for="(cell, i) in waffleCells" :key="i" class="waffle-cell" :style="{ backgroundColor: cell.color }"
           :title="cell.title">
@@ -27,14 +27,14 @@
 
     <!-- Category Legend + Top Categories Combined -->
     <div>
-      <h4 class="section-subheader">CATEGORIES</h4>
+      <StatsSectionHeader>CATEGORIES</StatsSectionHeader>
       <div class="space-y-1.5">
         <div v-for="category in sortedCategories" :key="category.name" class="flex items-center gap-1.5">
           <div class="w-2 h-2 flex-shrink-0 rounded-sm" :style="{ backgroundColor: category.color }"></div>
           <div class="flex-1 min-w-0">
             <div class="flex justify-between items-center gap-1">
               <span class="text-zinc-700 dark:text-zinc-300 truncate" style="font-size: 10px; line-height: 12px;">{{ category.name }}</span>
-              <span class="text-zinc-500 tabular-nums flex-shrink-0" style="font-size: 10px; line-height: 12px;">{{ category.percentageOfTotal }}%</span>
+              <span class="text-zinc-500 tabular-nums flex-shrink-0" style="font-size: 10px; line-height: 12px;">{{ formatPercent(category.percentageOfTotal / 100, 0) }}</span>
             </div>
             <div class="category-bar-bg mt-0.5">
               <div class="category-bar-fill" :style="{
@@ -48,9 +48,7 @@
       </div>
     </div>
   </div>
-  <div v-else class="data-unavailable">
-    RESCUETIME_DATA_UNAVAILABLE
-  </div>
+  <StatsDataState v-else state="unavailable" message="RESCUETIME_DATA_UNAVAILABLE" />
 </template>
 
 <script setup lang="ts">
@@ -58,7 +56,10 @@ import { computed } from 'vue'
 import type { StatsResponse } from '~/composables/useStats'
 import IndividualStat from './IndividualStat.vue'
 import ActivityCalendar from './ActivityCalendar.vue'
+import StatsSectionHeader from './StatsSectionHeader.vue'
+import StatsDataState from './StatsDataState.vue'
 import { format } from 'date-fns'
+import { formatNumber, formatPercent } from '~/composables/useNumberFormat'
 
 interface TimeBreakdown {
   seconds: number
@@ -252,15 +253,6 @@ const waffleCells = computed(() => {
 </script>
 
 <style scoped>
-.section-subheader {
-  @apply tracking-[0.2em] text-zinc-500 border-b border-zinc-800/30 pb-1 mb-3;
-  font-size: 0.65rem;
-  line-height: 1rem;
-}
-
-.data-unavailable {
-  @apply text-sm text-zinc-400 font-mono;
-}
 
 .category-bar-bg {
   @apply h-1 rounded-sm overflow-hidden bg-transparent dark:bg-zinc-800/10 border-b border-zinc-200/10 dark:border-zinc-800/30;

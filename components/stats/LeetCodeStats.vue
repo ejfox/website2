@@ -2,7 +2,7 @@
   <div class="font-mono">
     <!-- Main Stats -->
     <div v-if="stats.submissionStats">
-      <IndividualStat :value="totalSolved" size="large" label="PROBLEMS SOLVED"
+      <IndividualStat :value="formatNumber(totalSolved)" size="large" label="PROBLEMS SOLVED"
         :details="`${formatNumber(stats.submissionStats.easy.count)} EASY · ${formatNumber(stats.submissionStats.medium.count)} MEDIUM · ${formatNumber(stats.submissionStats.hard.count)} HARD`" />
 
       <!-- Difficulty Distribution -->
@@ -13,21 +13,21 @@
             opacity: difficultyPercentages.easy > 5 ? 1 : 0.7,
             backgroundColor: '#a1a1aa' /* Gray-400 */
           }"
-            :title="`Easy: ${stats.submissionStats.easy.count} problems (${Math.round(difficultyPercentages.easy)}%)`">
+            :title="`Easy: ${formatNumber(stats.submissionStats.easy.count)} problems (${formatPercent(difficultyPercentages.easy / 100, 0)})`">
           </div>
           <div class="medium-bar" :style="{
             width: `${difficultyPercentages.medium}%`,
             opacity: difficultyPercentages.medium > 5 ? 1 : 0.7,
             backgroundColor: '#71717a' /* Gray-500 */
           }"
-            :title="`Medium: ${stats.submissionStats.medium.count} problems (${Math.round(difficultyPercentages.medium)}%)`">
+            :title="`Medium: ${formatNumber(stats.submissionStats.medium.count)} problems (${formatPercent(difficultyPercentages.medium / 100, 0)})`">
           </div>
           <div class="hard-bar" :style="{
             width: `${difficultyPercentages.hard}%`,
             opacity: difficultyPercentages.hard > 5 ? 1 : 0.7,
             backgroundColor: '#3f3f46' /* Gray-700 */
           }"
-            :title="`Hard: ${stats.submissionStats.hard.count} problems (${Math.round(difficultyPercentages.hard)}%)`">
+            :title="`Hard: ${formatNumber(stats.submissionStats.hard.count)} problems (${formatPercent(difficultyPercentages.hard / 100, 0)})`">
           </div>
         </div>
         <div class="flex justify-between text-2xs text-zinc-500 mt-1">
@@ -45,7 +45,7 @@
 
     <!-- Problem Stats - Simplified Table -->
     <div v-if="stats.submissionStats" class="mt-8">
-      <h4 class="section-subheader">DIFFICULTY BREAKDOWN</h4>
+      <StatsSectionHeader>DIFFICULTY BREAKDOWN</StatsSectionHeader>
       <div class="grid grid-cols-3 gap-x-4 gap-y-1">
         <!-- Column Headers -->
         <div class="text-zinc-500 text-2xs tracking-wider">EASY</div>
@@ -53,21 +53,21 @@
         <div class="text-zinc-500 text-2xs tracking-wider">HARD</div>
 
         <!-- Values -->
-        <div class="tabular-nums font-medium">{{ stats.submissionStats.easy.count }}</div>
-        <div class="tabular-nums font-medium">{{ stats.submissionStats.medium.count }}</div>
-        <div class="tabular-nums font-medium">{{ stats.submissionStats.hard.count }}</div>
+        <div class="tabular-nums font-medium">{{ formatNumber(stats.submissionStats.easy.count) }}</div>
+        <div class="tabular-nums font-medium">{{ formatNumber(stats.submissionStats.medium.count) }}</div>
+        <div class="tabular-nums font-medium">{{ formatNumber(stats.submissionStats.hard.count) }}</div>
       </div>
     </div>
 
     <!-- Language Stats - Refined with bars -->
     <div v-if="hasLanguageStats" class="mt-8">
-      <h4 class="section-subheader">LANGUAGES</h4>
+      <StatsSectionHeader>LANGUAGES</StatsSectionHeader>
       <div class="space-y-2.5">
         <div v-for="(item, index) in languageEntries" :key="index" class="language-item">
           <div class="flex justify-between items-center mb-1">
             <span class="text-zinc-700 dark:text-zinc-300 text-xs">{{ item.language }}</span>
             <span class="text-zinc-500 text-2xs tabular-nums">
-              {{ item.count }} <span class="ml-0.5">{{ item.count > 1 ? 'SOLUTIONS' : 'SOLUTION' }}</span>
+              {{ formatNumber(item.count) }} <span class="ml-0.5">{{ item.count > 1 ? 'SOLUTIONS' : 'SOLUTION' }}</span>
             </span>
           </div>
           <div class="lang-bar-bg">
@@ -82,7 +82,7 @@
 
     <!-- Recent Submissions -->
     <div v-if="recentAcceptedSubmissions.length" class="mt-8">
-      <h4 class="section-subheader">RECENT SOLUTIONS</h4>
+      <StatsSectionHeader>RECENT SOLUTIONS</StatsSectionHeader>
       <div class="space-y-2">
         <div v-for="submission in recentAcceptedSubmissions" :key="submission.titleSlug" class="submission-row">
           <div class="flex-none">
@@ -103,7 +103,9 @@ import { computed, h } from 'vue'
 import { format, parse } from 'date-fns'
 import IndividualStat from './IndividualStat.vue'
 import ActivityCalendar from './ActivityCalendar.vue'
-import { formatNumber } from '~/composables/useNumberFormat'
+import StatsSectionHeader from './StatsSectionHeader.vue'
+import { formatNumber, formatPercent } from '~/composables/useNumberFormat'
+import type { StatsResponse } from '~/composables/useStats'
 
 // Monochromatic zinc shades for language differentiation
 const zincShades = [
@@ -211,11 +213,6 @@ const activityDates = computed(() => {
 </script>
 
 <style scoped>
-.section-subheader {
-  @apply tracking-[0.2em] text-zinc-500 border-b border-zinc-800/30 pb-1 mb-3;
-  font-size: 0.65rem;
-  line-height: 1rem;
-}
 
 .difficulty-bar {
   @apply flex h-2 w-full rounded-sm overflow-hidden;

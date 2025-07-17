@@ -1,12 +1,12 @@
 <template>
-  <div class="space-y-12 font-mono @container">
+  <div v-if="hasData" class="space-y-12 font-mono @container">
     <!-- Overview Stats -->
     <div class="space-y-4">
       <!-- Stats Grid - Responsive with container queries -->
       <div class="grid grid-cols-1 @[400px]:grid-cols-2 gap-4">
         <div class="stat-block">
           <div class="text-xl @[300px]:text-2xl @[400px]:text-3xl tabular-nums">
-            {{ (stats?.stats?.totalScrobbles ?? 0).toLocaleString() }}
+            {{ formatNumber(stats?.stats?.totalScrobbles ?? 0) }}
           </div>
           <div class="text-[10px] text-zinc-500 tracking-[0.2em]">
             TOTAL_SCROBBLES
@@ -14,7 +14,7 @@
         </div>
         <div class="stat-block">
           <div class="text-xl @[300px]:text-2xl @[400px]:text-3xl tabular-nums">
-            {{ formatAverage(stats?.stats?.averagePerDay) }}
+            {{ formatDecimal(stats?.stats?.averagePerDay, 1) }}
           </div>
           <div class="text-[10px] text-zinc-500 tracking-[0.2em]">
             DAILY_AVERAGE
@@ -25,7 +25,7 @@
 
     <!-- Recent Tracks - Adjust spacing for mobile -->
     <div v-if="stats.recentTracks?.tracks?.length" class="space-y-6">
-      <h3 class="text-[10px] text-zinc-500 tracking-[0.2em]">RECENT_TRACKS</h3>
+      <StatsSectionHeader>RECENT_TRACKS</StatsSectionHeader>
       <div class="space-y-4">
         <div
           v-for="(track, index) in stats.recentTracks.tracks.slice(0, 5)"
@@ -80,9 +80,7 @@
         <div class="space-y-12">
           <!-- Monthly Top Artists -->
           <div v-if="stats.topArtists?.month" class="space-y-6">
-            <h3 class="text-[10px] text-zinc-500 tracking-[0.2em]">
-              TOP_ARTISTS_30D
-            </h3>
+            <StatsSectionHeader>TOP_ARTISTS_30D</StatsSectionHeader>
             <div class="space-y-2">
               <div
                 v-for="(artist, index) in stats.topArtists.month.slice(0, 5)"
@@ -102,9 +100,7 @@
 
           <!-- Monthly Top Tracks -->
           <div v-if="stats.topTracks?.month" class="space-y-6">
-            <h3 class="text-[10px] text-zinc-500 tracking-[0.2em]">
-              TOP_TRACKS_30D
-            </h3>
+            <StatsSectionHeader>TOP_TRACKS_30D</StatsSectionHeader>
             <div class="space-y-2">
               <div
                 v-for="(track, index) in stats.topTracks.month.slice(0, 5)"
@@ -134,9 +130,7 @@
         <div class="space-y-12">
           <!-- Yearly Top Artists -->
           <div v-if="stats.topArtists?.year" class="space-y-6">
-            <h3 class="text-[10px] text-zinc-500 tracking-[0.2em]">
-              TOP_ARTISTS_365D
-            </h3>
+            <StatsSectionHeader>TOP_ARTISTS_365D</StatsSectionHeader>
             <div class="space-y-2">
               <div
                 v-for="(artist, index) in stats.topArtists.year.slice(0, 5)"
@@ -156,9 +150,7 @@
 
           <!-- Yearly Top Tracks -->
           <div v-if="stats.topTracks?.year" class="space-y-6">
-            <h3 class="text-[10px] text-zinc-500 tracking-[0.2em]">
-              TOP_TRACKS_365D
-            </h3>
+            <StatsSectionHeader>TOP_TRACKS_365D</StatsSectionHeader>
             <div class="space-y-2">
               <div
                 v-for="(track, index) in stats.topTracks.year.slice(0, 5)"
@@ -191,10 +183,14 @@
       LAST_UPDATE :: {{ new Date(stats?.lastUpdated).toLocaleString() }}
     </div>
   </div>
+  <StatsDataState v-else state="unavailable" message="LASTFM_DATA_UNAVAILABLE" />
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { formatNumber, formatDecimal } from '~/composables/useNumberFormat'
+import StatsSectionHeader from './StatsSectionHeader.vue'
+import StatsDataState from './StatsDataState.vue'
 
 interface LastFmImage {
   '#text': string
@@ -262,14 +258,14 @@ const getImageUrl = (
   )
 }
 
-defineProps<{
+const props = defineProps<{
   stats: LastFmStats
 }>()
 
-function formatAverage(avg?: number): string {
-  if (typeof avg !== 'number') return '0'
-  return avg.toFixed(1)
-}
+// Check if we have meaningful data
+const hasData = computed(() => {
+  return !!(props.stats?.stats?.totalScrobbles && props.stats.stats.totalScrobbles > 0)
+})
 
 function formatTrackTime(track: LastFmTrack): string {
   if (!track?.date?.uts) return ''

@@ -8,23 +8,22 @@
     />
     
     <!-- Main Content -->
-    <section class="space-y-6 sm:space-y-8 md:space-y-12 2xl:pr-80 min-w-0">
-    <!-- Header - compact -->
-    <header class="flex items-center justify-between py-2">
-      <h1 class="text-xs font-mono tracking-[0.2em] text-zinc-500">
+    <section class="space-y-12 2xl:pr-80 min-w-0">
+    <!-- Header -->
+    <header class="flex items-center justify-between py-6">
+      <h1 class="text-mono-label">
         FOX_ANNUAL_REPORT :: {{ currentYear }}
       </h1>
-      <div class="flex items-center gap-4">
-        <div class="text-xs font-mono tracking-[0.2em] text-zinc-500">
-          DAY {{ dayOfYear }}/{{ daysInYear }} · {{ progressPercentage }}%
+      <div class="flex items-center gap-6">
+        <div class="text-mono-label">
+          DAY {{ formatNumber(dayOfYear) }}/{{ formatNumber(daysInYear) }} · {{ progressPercentage }}
         </div>
-        <!-- Data freshness indicator -->
-        <div class="flex items-center gap-1.5 text-xs font-mono" v-if="dataAge">
+        <div class="flex items-center gap-2 text-xs font-mono" v-if="dataAge">
           <div 
             class="w-1.5 h-1.5 rounded-full animate-pulse"
             :class="dataFreshnessClass"
           ></div>
-          <span class="text-zinc-500 tracking-wider">{{ dataAge }}</span>
+          <span class="text-muted uppercase tracking-wider">{{ dataAge }}</span>
         </div>
       </div>
     </header>
@@ -41,19 +40,18 @@
         </ClientOnly>
       </template>
       <template #fallback>
-        <div class="grid grid-cols-1 gap-3 sm:gap-4 md:gap-6 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
           <div
             v-for="i in 6"
             :key="i"
-            class="pulse-placeholder-sm"
+            class="h-24 bg-zinc-200 dark:bg-zinc-800 rounded-lg animate-pulse"
           ></div>
         </div>
       </template>
     </Suspense>
 
-    <!-- Main Stats Grid - infinitely stackable robot sauce -->
-    <section class="grid gap-3 sm:gap-4 md:gap-6 auto-fit-columns overflow-hidden">
-      <!-- Modular stat sections - flow freely like robot sauce -->
+    <!-- Main Stats Grid -->
+    <section class="grid gap-6 auto-fit-columns overflow-hidden">
       <TransitionGroup name="fade-up" tag="div" class="contents" appear>
         <!-- Writing -->
         <StatsSection
@@ -149,7 +147,7 @@
     </section>
 
     <!-- Full Width Sections -->
-    <section class="col-span-full space-y-6">
+    <section class="col-span-full space-y-12">
       <!-- Gear Stats -->
       <Transition name="fade-up" appear>
         <div class="relative" id="gear">
@@ -174,8 +172,7 @@
 
 <script setup>
 import { computed, defineProps, defineAsyncComponent } from 'vue'
-
-// Component imports with prefetch hints
+import { formatNumber, formatPercent } from '~/composables/useNumberFormat'
 const AsyncMonkeyTypeStats = defineAsyncComponent(
   () => import('~/components/stats/MonkeyTypeStats.vue')
 )
@@ -247,13 +244,10 @@ const dayOfYear = Math.floor(diff / (1000 * 60 * 60 * 24))
 const isLeapYear =
   (currentYear % 4 === 0 && currentYear % 100 !== 0) || currentYear % 400 === 0
 const daysInYear = isLeapYear ? 366 : 365
-const progressPercentage = Math.floor((dayOfYear / daysInYear) * 100)
+const progressPercentage = formatPercent(dayOfYear / daysInYear, 0)
 
-// Data freshness indicator
 const dataAge = computed(() => {
-  // This would ideally come from your stats API
-  // For now, we'll use a simple time-based calculation
-  const lastUpdate = new Date() // Replace with actual last update time from stats
+  const lastUpdate = new Date()
   const minutesAgo = Math.floor((new Date().getTime() - lastUpdate.getTime()) / 60000)
   
   if (minutesAgo < 1) return 'LIVE'
@@ -263,7 +257,7 @@ const dataAge = computed(() => {
 })
 
 const dataFreshnessClass = computed(() => {
-  const lastUpdate = new Date() // Replace with actual last update time
+  const lastUpdate = new Date()
   const minutesAgo = Math.floor((new Date().getTime() - lastUpdate.getTime()) / 60000)
   
   if (minutesAgo < 5) return 'bg-green-500'
@@ -274,7 +268,6 @@ const dataFreshnessClass = computed(() => {
 </script>
 
 <style scoped>
-/* Base transitions */
 .fade-enter-active,
 .fade-leave-active,
 .fade-up-enter-active,
@@ -293,39 +286,26 @@ const dataFreshnessClass = computed(() => {
   transform: translateY(20px);
 }
 
-/* Stagger children in transition group */
 .fade-up-enter-active {
   transition-delay: calc(var(--el-transition-index, 0) * 100ms);
 }
 
-/* Responsive column grid - predictable column counts */
 .auto-fit-columns {
-  /* Small screens: 1 column */
   grid-template-columns: 1fr;
 }
 
-/* Medium screens (sm): 2 columns */
 @media (min-width: 640px) {
   .auto-fit-columns {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Large screens (lg): 2 columns */
-@media (min-width: 1024px) {
-  .auto-fit-columns {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Extra-large screens (xl): 3 columns */
 @media (min-width: 1280px) {
   .auto-fit-columns {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-/* When sidebar is active (2xl), keep 3 columns but account for sidebar space */
 @media (min-width: 1536px) {
   .auto-fit-columns {
     grid-template-columns: repeat(3, 1fr);

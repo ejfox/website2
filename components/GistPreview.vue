@@ -1,22 +1,18 @@
 <template>
   <div class="gist-preview">
-    <div 
-      class="code-container"
-      :class="{ 'expanded': expanded }"
-    >
-      <div 
-        v-html="highlightedCode" 
-        class="code-content"
-      />
-      
+    <div class="code-container" :class="{ expanded: expanded }">
+      <div v-html="highlightedCode" class="code-content" />
+
       <!-- Expand/Collapse button at bottom -->
       <div v-if="lineCount > 10" class="action-overlay">
-        <button 
-          @click="$emit('toggle')" 
-          class="action-button"
-        >
-          <span class="button-icon">{{expanded ? '▼' : '▶'}}</span>
-          <span>{{ expanded ? 'Collapse' : 'Expand' }} ({{ lineCount }} lines)</span>
+        <button @click="$emit('toggle')" class="action-button">
+          <span class="button-icon">{{ expanded ? '▼' : '▶' }}</span>
+          <span
+            >{{ expanded ? 'Collapse' : 'Expand' }} ({{
+              formatNumber(lineCount)
+            }}
+            lines)</span
+          >
         </button>
       </div>
     </div>
@@ -24,6 +20,8 @@
 </template>
 
 <script setup lang="ts">
+import { formatNumber } from '~/composables/useNumberFormat'
+
 interface GistFile {
   filename: string
   type: string
@@ -78,7 +76,10 @@ watch([() => props.expanded, () => props.gist.content], async () => {
 if (process.client) {
   const observer = new MutationObserver(async (mutations) => {
     for (const mutation of mutations) {
-      if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+      if (
+        mutation.type === 'attributes' &&
+        mutation.attributeName === 'class'
+      ) {
         await updateHighlighting()
         break
       }
@@ -103,15 +104,31 @@ const updateHighlighting = async () => {
       const { createHighlighter } = await import('shiki')
       const highlighter = await createHighlighter({
         themes: ['github-dark', 'github-light'],
-        langs: ['javascript', 'typescript', 'json', 'html', 'css', 'markdown', 'bash', 'python', 'go', 'rust', 'java', 'cpp', 'vue', 'jsx', 'tsx']
+        langs: [
+          'javascript',
+          'typescript',
+          'json',
+          'html',
+          'css',
+          'markdown',
+          'bash',
+          'python',
+          'go',
+          'rust',
+          'java',
+          'cpp',
+          'vue',
+          'jsx',
+          'tsx'
+        ]
       })
-      
+
       const language = props.file.language?.toLowerCase() || 'text'
-      
+
       // Detect current theme
       const isDark = document.documentElement.classList.contains('dark')
       const theme = isDark ? 'github-dark' : 'github-light'
-      
+
       highlightedCode.value = highlighter.codeToHtml(codeToShow.value, {
         lang: language,
         theme: theme
