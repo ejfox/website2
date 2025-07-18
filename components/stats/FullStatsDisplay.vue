@@ -1,29 +1,30 @@
 <template>
   <div class="relative overflow-hidden">
     <!-- Stats Sidebar -->
-    <StatsSidebar 
-      :stats="stats" 
+    <StatsSidebar
+      :stats="stats"
       :health-today="healthToday || { steps: 0, exerciseMinutes: 0 }"
       class="hidden 2xl:block"
     />
-    
+
     <!-- Main Content -->
-    <section class="space-y-12 2xl:pr-80 min-w-0">
+    <section class="space-y-12 2xl:pr-80 min-w-0 w-full pr-2">
       <!-- Header -->
       <header class="flex items-center justify-between py-6">
-        <h1 class="text-mono-label">
-          FOX_ANNUAL_REPORT :: {{ currentYear }}
-        </h1>
+        <h1 class="text-mono-label">FOX_ANNUAL_REPORT :: {{ currentYear }}</h1>
         <div class="flex items-center gap-6">
           <div class="text-mono-label">
-            DAY {{ formatNumber(dayOfYear) }}/{{ formatNumber(daysInYear) }} · {{ progressPercentage }}
+            DAY {{ formatNumber(dayOfYear) }}/{{ formatNumber(daysInYear) }} ·
+            {{ progressPercentage }}
           </div>
           <div v-if="dataAge" class="flex items-center gap-2 text-xs font-mono">
-            <div 
+            <div
               class="w-1.5 h-1.5 rounded-full animate-pulse"
               :class="dataFreshnessClass"
             ></div>
-            <span class="text-muted uppercase tracking-wider">{{ dataAge }}</span>
+            <span class="text-muted uppercase tracking-wider">{{
+              dataAge
+            }}</span>
           </div>
         </div>
       </header>
@@ -51,7 +52,7 @@
       </Suspense>
 
       <!-- Main Stats Grid -->
-      <section class="grid gap-6 auto-fit-columns overflow-hidden">
+      <section class="grid gap-6 md:gap-16 auto-fit-columns overflow-hidden">
         <TransitionGroup name="fade-up" tag="div" class="contents" appear>
           <!-- Writing -->
           <StatsSection
@@ -248,8 +249,10 @@ const progressPercentage = formatPercent(dayOfYear / daysInYear, 0)
 
 const dataAge = computed(() => {
   const lastUpdate = new Date()
-  const minutesAgo = Math.floor((new Date().getTime() - lastUpdate.getTime()) / 60000)
-  
+  const minutesAgo = Math.floor(
+    (new Date().getTime() - lastUpdate.getTime()) / 60000
+  )
+
   if (minutesAgo < 1) return 'LIVE'
   if (minutesAgo < 60) return `${minutesAgo}M AGO`
   if (minutesAgo < 1440) return `${Math.floor(minutesAgo / 60)}H AGO`
@@ -258,8 +261,10 @@ const dataAge = computed(() => {
 
 const dataFreshnessClass = computed(() => {
   const lastUpdate = new Date()
-  const minutesAgo = Math.floor((new Date().getTime() - lastUpdate.getTime()) / 60000)
-  
+  const minutesAgo = Math.floor(
+    (new Date().getTime() - lastUpdate.getTime()) / 60000
+  )
+
   if (minutesAgo < 5) return 'bg-green-500'
   if (minutesAgo < 60) return 'bg-zinc-500'
   if (minutesAgo < 1440) return 'bg-yellow-500'

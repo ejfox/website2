@@ -28,9 +28,7 @@
 
     <!-- Recent Tests -->
     <div v-if="hasRecentTests" class="mt-8 space-y-6">
-      <h4 class="section-subheader">
-        RECENT TESTS
-      </h4>
+      <StatsSectionHeader title="RECENT TESTS" />
 
       <div class="space-y-4">
         <div v-for="test in recentTests" :key="test.timestamp" class="test-row">
@@ -53,9 +51,7 @@
 
     <!-- Performance Metrics -->
     <div v-if="stats.typingStats" class="mt-8 space-y-6">
-      <h4 class="section-subheader">
-        PERFORMANCE
-      </h4>
+      <StatsSectionHeader title="PERFORMANCE" />
 
       <div class="grid grid-cols-2 gap-4">
         <StatDisplay label="TESTS" :value="stats.typingStats.testsCompleted" />
@@ -66,9 +62,9 @@
           :value="`${stats.typingStats.bestConsistency}%`"
         />
         <StatDisplay
-          v-if="stats.typingStats.averageWPM"
+          v-if="stats.typingStats.averageWpm"
           label="AVG WPM"
-          :value="stats.typingStats.averageWPM"
+          :value="Math.round(stats.typingStats.averageWpm)"
         />
       </div>
     </div>
@@ -79,6 +75,7 @@
 import { computed, h } from 'vue'
 import { format } from 'date-fns'
 import IndividualStat from './IndividualStat.vue'
+import StatsSectionHeader from './StatsSectionHeader.vue'
 
 interface MonkeyTypeTest {
   timestamp: string
@@ -217,12 +214,6 @@ const StatDisplay = (props: { label: string; value: string | number }) => {
 </script>
 
 <style scoped>
-.section-subheader {
-  @apply tracking-[0.2em] text-zinc-500 border-b border-zinc-800/30 pb-1 mb-3;
-  font-size: 0.65rem;
-  line-height: 1rem;
-}
-
 .test-row {
   @apply flex items-center text-xs;
 }
@@ -241,17 +232,5 @@ const StatDisplay = (props: { label: string; value: string | number }) => {
   @apply text-zinc-500 tabular-nums w-12 text-right;
 }
 
-.stat-item {
-  @apply space-y-0.5;
-}
-
-.stat-label {
-  @apply text-zinc-500 tracking-wider;
-  font-size: 0.65rem;
-  line-height: 1rem;
-}
-
-.stat-value {
-  @apply text-sm text-zinc-700 dark:text-zinc-300 tabular-nums;
-}
+/* Using shared styles from global.css for .stat-item, .stat-label, .stat-value */
 </style>

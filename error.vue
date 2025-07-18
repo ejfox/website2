@@ -1,49 +1,31 @@
 <template>
-  <div
-    class="min-h-screen bg-white dark:bg-zinc-900 flex items-center justify-center px-4"
-  >
-    <div class="max-w-2xl w-full text-center">
+  <div class="min-h-screen flex items-center justify-center p-4">
+    <div class="max-w-2xl text-center space-y-12">
       <!-- Error Message -->
-      <div class="mb-8">
-        <h1
-          class="text-6xl font-bold text-zinc-900 dark:text-zinc-100 mb-4 font-mono"
-        >
+      <div class="space-y-2">
+        <h1 class="text-base font-mono text-zinc-600 dark:text-zinc-400">
           {{ error.statusCode || 404 }}
         </h1>
-        <h2
-          class="text-2xl font-semibold text-zinc-800 dark:text-zinc-200 mb-4"
-        >
+        <p class="text-base text-zinc-600 dark:text-zinc-400">
           Page not found
-        </h2>
-        <p class="text-zinc-600 dark:text-zinc-400 mb-4">
-          The page you're looking for doesn't exist.
         </p>
       </div>
 
       <!-- Related Posts -->
-      <div v-if="relatedPosts.length > 0" class="mb-8">
-        <h3 class="text-lg font-semibold text-zinc-800 dark:text-zinc-200 mb-4">
+      <div v-if="relatedPosts.length > 0" class="space-y-6">
+        <h3 class="text-lg font-medium">
           Maybe you were looking for:
         </h3>
-        <div class="space-y-3 text-left">
+        <div class="space-y-4">
           <NuxtLink
             v-for="post in relatedPosts"
             :key="post.slug"
             :to="`/blog/${post.slug}`"
-            class="block p-4 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-750 transition-colors"
+            class="block p-6 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
           >
-            <h4
-              class="font-semibold text-zinc-900 dark:text-zinc-100 mb-1"
-              v-html="highlightMatches(post.title, post.matchedTerms)"
-            ></h4>
-            <p class="text-sm text-zinc-600 dark:text-zinc-400">
+            <h4 class="text-base mb-2" v-html="highlightMatches(post.title, post.matchedTerms)"></h4>
+            <p class="text-base text-zinc-600 dark:text-zinc-400">
               {{ getPostType(post.slug) }} • {{ formatDate(post.date) }}
-            </p>
-            <p class="text-xs text-zinc-500 dark:text-zinc-500 mt-1">
-              Matches:
-              <span class="font-medium">{{
-                post.matchedTerms.join(', ')
-              }}</span>
             </p>
           </NuxtLink>
         </div>
@@ -51,16 +33,16 @@
 
       <!-- Action Buttons -->
       <div class="space-y-4">
-        <div class="flex flex-wrap justify-center gap-3">
-          <NuxtLink
-            to="/"
-            class="px-6 py-3 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"
-          >
-            Go Home
-          </NuxtLink>
+        <NuxtLink
+          to="/"
+          class="inline-block px-8 py-4 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors text-lg"
+        >
+          Go Home
+        </NuxtLink>
+        <div>
           <NuxtLink
             to="/blog"
-            class="px-6 py-3 border border-zinc-300 dark:border-zinc-600 text-zinc-700 dark:text-zinc-300 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
+            class="text-base text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
           >
             Browse Blog
           </NuxtLink>

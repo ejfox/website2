@@ -15,7 +15,7 @@
         :details="`${postsThisMonth} THIS MONTH`"
       />
     </div>
-    <div v-else class="flex h-24 flex-col items-center justify-center border border-zinc-800/50 bg-zinc-900/30 p-4">
+    <div v-else class="flex h-24 flex-col items-center justify-center p-4">
       <StatsDataState message="Loading blog stats..." type="loading" />
     </div>
 
@@ -26,7 +26,7 @@
         :details="`${formatNumber(averageWordsPerPost)} AVG/POST`"
       />
     </div>
-    <div v-else class="flex h-24 flex-col items-center justify-center border border-zinc-800/50 bg-zinc-900/30 p-4">
+    <div v-else class="flex h-24 flex-col items-center justify-center p-4">
       <StatsDataState message="Loading word counts..." type="loading" />
     </div>
 

@@ -1,234 +1,196 @@
 <template>
   <div
-    class="w-full text-zinc-600 dark:text-zinc-400 py-4 gap-1"
-    :class="[compact ? 'text-xs' : 'text-sm gap-y-4 pl-2']"
-    :style="
-      colors && {
-        '--post-color': isDark ? colors.dark.primary : colors.light.primary,
-        '--post-color-rgb': isDark
-          ? colors.dark.primaryRgb
-          : colors.light.primaryRgb,
-        '--post-color-subtle': isDark ? colors.dark.subtle : colors.light.subtle
-      }
-    "
+    class="metadata-container"
+    :style="colorVars"
   >
-    <!-- Debug output -->
-    <pre v-if="false" class="whitespace-pre-wrap text-xs">{{ metadata }}</pre>
-
     <!-- Folder name -->
     <span
       v-if="metadata?.slug && !compact"
       ref="folderRef"
-      class="flex items-center metadata-item text-xs tracking-widest"
-      :class="[compact ? 'pl-0' : 'pl-0']"
-      :style="colors && { color: 'var(--post-color)' }"
+      class="metadata-item metadata-folder"
     >
-      /{{ metadata.slug?.split('/')[0] || '' }}/
+      /{{ folderName }}/
     </span>
 
     <!-- Draft status -->
     <span
       v-if="metadata.draft"
       ref="draftRef"
-      class="flex items-center text-red-500 dark:text-red-400 sans-serif metadata-item"
+      class="metadata-item metadata-draft"
     >
-      <span v-if="!compact">Draft, please do not publish, changes expected</span>
-      <span v-else>Draft</span>
+      {{ draftText }}
     </span>
 
     <!-- Date -->
     <span
       v-if="metadata.date"
       ref="dateRef"
-      class="flex items-center metadata-item"
-      :title="metadata.date ? formatRelativeTime(metadata.date) : ''"
+      class="metadata-item"
+      :title="relativeDate"
     >
-      <time>{{
-        metadata.date
-          ? compact
-            ? formatCompactDate(new Date(metadata.date))
-            : formatBlogDate(new Date(metadata.date))
-          : ''
-      }}</time>
+      <time>{{ formattedDate }}</time>
     </span>
 
     <!-- Reading Time -->
     <span
-      v-if="metadata.readingTime"
+      v-if="readingTime"
       ref="readingTimeRef"
-      class="flex items-center metadata-item"
+      class="metadata-item"
     >
-      {{ metadata.readingTime }}
-      {{ compact ? 'min read' : metadata.readingTime === 1 ? 'min' : 'mins' }}
+      {{ readingTime }}
+      {{ readingTimeUnit }}
     </span>
 
     <!-- Word Count -->
-    <span
-      v-if="metadata.wordCount"
-      ref="wordCountRef"
-      class="flex items-center metadata-item"
-    >
-      {{ formatCompactNumber(metadata.wordCount) }}
-      {{ compact ? 'words' : 'words' }}
+    <span v-if="metadata.words" ref="wordCountRef" class="metadata-item">
+      {{ formatCompactNumber(metadata.words) }}
+      words
     </span>
 
     <!-- Image Count -->
-    <span
-      v-if="metadata.imageCount"
-      ref="imageCountRef"
-      class="flex items-center metadata-item"
-    >
-      {{ metadata.imageCount }}
-      {{ compact ? 'images' : metadata.imageCount === 1 ? 'image' : 'images' }}
+    <span v-if="metadata.images" ref="imageCountRef" class="metadata-item">
+      {{ metadata.images }}
+      {{ pluralize('image', metadata.images) }}
     </span>
 
     <!-- Link Count -->
-    <span
-      v-if="metadata.linkCount"
-      ref="linkCountRef"
-      class="flex items-center metadata-item"
-    >
-      {{ metadata.linkCount }}
-      {{ compact ? 'links' : metadata.linkCount === 1 ? 'link' : 'links' }}
+    <span v-if="metadata.links" ref="linkCountRef" class="metadata-item">
+      {{ metadata.links }}
+      {{ pluralize('link', metadata.links) }}
     </span>
   </div>
 </template>
 
 <script setup lang="ts">
-import { format } from 'd3-format'
 import { timeFormat } from 'd3-time-format'
 import { formatDistanceToNow } from 'date-fns'
 import { useScrollAnimation } from '~/composables/useScrollAnimation'
-import { nextTick, ref, computed } from 'vue'
 
 interface PostMetadata {
-  title?: string
   date?: string | Date
   draft?: boolean
-  readingTime?: number
-  wordCount?: number
-  imageCount?: number
-  linkCount?: number
   words?: number
   images?: number
   links?: number
-  dek?: string
   slug?: string
 }
 
-interface Post {
-  slug?: string
-  title?: string
-  date?: string | Date
-  draft?: boolean
-  readingTime?: number
-  wordCount?: number
-  imageCount?: number
-  linkCount?: number
-  dek?: string
-  metadata?: PostMetadata
+interface ColorScheme {
+  light: {
+    primary: string
+    primaryRgb: string
+    subtle: string
+  }
+  dark: {
+    primary: string
+    primaryRgb: string
+    subtle: string
+  }
 }
 
+interface Props {
+  doc: {
+    metadata?: PostMetadata
+  }
+  compact?: boolean
+  colors?: ColorScheme
+  isDark?: boolean
+}
+
+const props = defineProps<Props>()
 const { slideUp } = useScrollAnimation()
 
-const props = defineProps<{
-  doc: Post
-  compact?: boolean
-  colors?: any
-  isDark?: boolean
-}>()
-
-
-// Refs for animation targets
+// Refs for animation
+const folderRef = ref<HTMLElement | null>(null)
 const draftRef = ref<HTMLElement | null>(null)
 const dateRef = ref<HTMLElement | null>(null)
 const readingTimeRef = ref<HTMLElement | null>(null)
 const wordCountRef = ref<HTMLElement | null>(null)
 const imageCountRef = ref<HTMLElement | null>(null)
 const linkCountRef = ref<HTMLElement | null>(null)
-const folderRef = ref<HTMLElement | null>(null)
 
-const _formatNumber = format(',d')
+// Date formatters
 const formatBlogDate = timeFormat('%b %d %Y')
 const formatCompactDate = timeFormat('%b %d')
 
-// Add a more compact number formatter for the compact view
-const formatCompactNumber = (num: number) => {
-  if (num >= 1000) {
-    return (num / 1000).toFixed(1) + 'k'
+// Simplified metadata getter
+const metadata = computed(() => props.doc?.metadata || {})
+
+// Computed values
+const folderName = computed(() => metadata.value.slug?.split('/')[0] || '')
+const draftText = computed(() => props.compact ? 'Draft' : 'Draft, please do not publish, changes expected')
+const readingTime = computed(() => metadata.value.words ? Math.ceil(metadata.value.words / 200) : 0)
+const readingTimeUnit = computed(() => {
+  if (props.compact) return 'min read'
+  return readingTime.value === 1 ? 'min' : 'mins'
+})
+
+const formattedDate = computed(() => {
+  if (!metadata.value.date) return ''
+  const date = new Date(metadata.value.date)
+  return props.compact ? formatCompactDate(date) : formatBlogDate(date)
+})
+
+const relativeDate = computed(() => {
+  if (!metadata.value.date) return ''
+  try {
+    return formatDistanceToNow(new Date(metadata.value.date), { addSuffix: true })
+  } catch {
+    return ''
   }
+})
+
+const colorVars = computed(() => {
+  if (!props.colors) return null
+  const scheme = props.isDark ? props.colors.dark : props.colors.light
+  return {
+    '--post-color': scheme.primary,
+    '--post-color-rgb': scheme.primaryRgb,
+    '--post-color-subtle': scheme.subtle
+  }
+})
+
+// Utilities
+const formatCompactNumber = (num: number): string | number => {
+  if (num >= 1000) return `${(num / 1000).toFixed(1)}k`
   return num
 }
 
-// Computed properties to handle both old and new metadata formats
-const metadata = computed(() => {
-  const baseData = props.doc || {}
-  const metaData = props.doc?.metadata || {}
-
-  // Detailed debug logging
-  // console.group('PostMetadata Debug')
-  // console.log('Raw doc:', props.doc)
-  // console.log('Base data:', baseData)
-  // console.log('Metadata:', metaData)
-
-  const computedMetadata = {
-    ...baseData,
-    ...metaData,
-    // Handle both old and new property names
-    readingTime: Math.ceil((metaData.words || baseData.wordCount || 0) / 200), // Estimate reading time from word count
-    wordCount: metaData.words || baseData.wordCount || 0,
-    imageCount: metaData.images || baseData.imageCount || 0,
-    linkCount: metaData.links || baseData.linkCount || 0,
-    date: metaData.date || baseData.date,
-    draft: metaData.draft || baseData.draft || false,
-    slug: metaData.slug || baseData.slug || '',
-    dek: metaData.dek || baseData.dek || ''
-  }
-
-  // console.log('Computed metadata:', {
-  //   readingTime: computedMetadata.readingTime,
-  //   wordCount: computedMetadata.wordCount,
-  //   imageCount: computedMetadata.imageCount,
-  //   linkCount: computedMetadata.linkCount,
-  //   date: computedMetadata.date,
-  //   draft: computedMetadata.draft,
-  //   slug: computedMetadata.slug
-  // })
-  // console.groupEnd()
-
-  return computedMetadata
-})
-
-const formatRelativeTime = (date: string | Date) => {
-  try {
-    return formatDistanceToNow(new Date(date), { addSuffix: true })
-  } catch (error) {
-    console.error('Error formatting relative time:', error)
-    return ''
-  }
+const pluralize = (word: string, count: number): string => {
+  if (props.compact) return `${word}s`
+  return count === 1 ? word : `${word}s`
 }
 
+// Animation
 const animateItems = async () => {
+  // SSR guard - only run on client
+  if (process.server) return
+  
   await nextTick()
-  await new Promise((resolve) => setTimeout(resolve, 200))
-
-  // Reordered array to match visual hierarchy and left-to-right reading order
+  
   const items = [
-    folderRef.value, // Folder first - it's the context
-    draftRef.value, // Draft status - important warning
-    dateRef.value, // Date - primary metadata
-    readingTimeRef.value, // Reading time - secondary metadata
-    wordCountRef.value, // Word count
-    imageCountRef.value, // Image count
-    linkCountRef.value // Link count
-  ].filter(Boolean)
+    folderRef.value,
+    draftRef.value,
+    dateRef.value,
+    readingTimeRef.value,
+    wordCountRef.value,
+    imageCountRef.value,
+    linkCountRef.value
+  ].filter(Boolean) as HTMLElement[]
 
-  if (!items.length) return
+  // Ensure items are visible before animation
+  items.forEach((item) => {
+    if (item) {
+      item.style.opacity = '1'
+      item.style.transform = 'none'
+    }
+  })
 
+  // Small delay then animate
+  await new Promise((resolve) => setTimeout(resolve, 200))
+  
   items.forEach((item, i) => {
-    setTimeout(() => {
-      slideUp(item)
-    }, i * 150)
+    setTimeout(() => slideUp(item), i * 150)
   })
 }
 
@@ -236,16 +198,48 @@ defineExpose({ animateItems })
 </script>
 
 <style scoped>
-.metadata-item {
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-  opacity: 1;
-  transform: none;
-  @apply py-1;
+.metadata-container {
+  @apply w-full flex items-center gap-3;
+  @apply text-zinc-600 dark:text-zinc-400;
+  @apply uppercase font-mono text-xs;
 }
 
-/* View Transitions API support */
-/* Removed view transition styles */
+.metadata-item {
+  @apply py-1 flex-shrink-0 whitespace-nowrap;
+  @apply text-zinc-600 dark:text-zinc-400;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  /* Ensure visible on SSR */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Only animate on client side */
+@media (prefers-reduced-motion: no-preference) {
+  .metadata-item {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.metadata-folder {
+  @apply text-xs pl-0;
+  color: var(--post-color);
+}
+
+.metadata-draft {
+  @apply text-red-500 dark:text-red-400 font-sans !important;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .metadata-item {

@@ -2,11 +2,14 @@
 import { animate, stagger } from '~/anime.esm.js'
 const { getPostBySlug, getAllPosts } = useProcessedMarkdown()
 
-const { data: indexContent, pending: indexPending } = await useAsyncData('index-content', () =>
-  getPostBySlug('index')
+const { data: indexContent, pending: indexPending } = await useAsyncData(
+  'index-content',
+  () => getPostBySlug('index')
 )
 
-const { data: posts, pending: postsPending } = await useAsyncData('posts', () => getAllPosts())
+const { data: posts, pending: postsPending } = await useAsyncData('posts', () =>
+  getAllPosts()
+)
 
 // Combine the pending states
 const pending = computed(() => indexPending.value || postsPending.value)
@@ -19,7 +22,8 @@ onMounted(async () => {
 
   if (indexContentContainer.value) {
     // First make content visible
-    const content = indexContentContainer.value.querySelectorAll('.animate-on-scroll')
+    const content =
+      indexContentContainer.value.querySelectorAll('.animate-on-scroll')
     if (content.length > 0) {
       animate(content, {
         opacity: [0, 1],
@@ -38,7 +42,7 @@ onMounted(async () => {
         borderColor: ['rgba(0,0,0,0)', '#CCC', '#FFF'],
         ease: 'easeOutQuad',
         duration: 5500,
-        delay: stagger(1200),
+        delay: stagger(1200)
       })
     }
   }
@@ -48,37 +52,7 @@ onMounted(async () => {
 <template>
   <main class="p-4 md:p-8">
     <!-- Loading State -->
-    <div v-if="pending" class="max-w-3xl space-y-8">
-      <!-- Skeleton for featured post -->
-      <div class="relative rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900/50 animate-pulse">
-        <div class="aspect-[2/1] bg-zinc-200 dark:bg-zinc-800"></div>
-        <div class="p-6 space-y-4">
-          <div class="h-8 w-2/3 bg-zinc-200 dark:bg-zinc-800 rounded"></div>
-          <div class="space-y-2">
-            <div class="h-4 w-full bg-zinc-200 dark:bg-zinc-800 rounded"></div>
-            <div class="h-4 w-5/6 bg-zinc-200 dark:bg-zinc-800 rounded"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Skeleton for post list -->
-      <div class="space-y-12">
-        <div v-for="i in 3" :key="i" class="flex gap-6 animate-pulse">
-          <!-- Date column -->
-          <div class="w-24 shrink-0">
-            <div class="h-5 w-16 bg-zinc-200 dark:bg-zinc-800 rounded"></div>
-          </div>
-          <!-- Content column -->
-          <div class="flex-1 space-y-3">
-            <div class="h-6 w-3/4 bg-zinc-200 dark:bg-zinc-800 rounded"></div>
-            <div class="space-y-2">
-              <div class="h-4 w-full bg-zinc-200 dark:bg-zinc-800 rounded"></div>
-              <div class="h-4 w-5/6 bg-zinc-200 dark:bg-zinc-800 rounded"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div v-if="pending" class="max-w-3xl space-y-8"></div>
 
     <!-- Content State -->
     <div v-else>
@@ -86,11 +60,14 @@ onMounted(async () => {
       <div v-if="posts?.length" class="max-w-3xl space-y-8">
         <template v-if="indexContent">
           <h1>{{ indexContent.title }}</h1>
-          <div id="index-content" ref="indexContentContainer" class="prose prose-lg dark:prose-invert" v-html="indexContent.html"></div>
+          <div
+            id="index-content"
+            ref="indexContentContainer"
+            class="prose prose-lg dark:prose-invert"
+            v-html="indexContent.html"
+          ></div>
         </template>
-        <div v-else class="text-center py-12">
-          Loading...
-        </div>
+        <div v-else class="text-center py-12">Loading...</div>
       </div>
       <div v-else class="text-center text-zinc-500 dark:text-zinc-400">
         No posts found
@@ -112,14 +89,14 @@ onMounted(async () => {
   @apply my-4;
 }
 
-:deep(#index-content a) {
-  @apply border-b border-zinc-400 dark:border-zinc-600 
-         hover:border-zinc-700 dark:hover:border-zinc-300
-         transition-colors duration-300 
-         px-0.5 py-0.5 
-         text-zinc-900 dark:text-zinc-100
-         no-underline;
-}
+/* :deep(#index-content a) { */
+/*   @apply border-b border-zinc-400 dark:border-zinc-600 */
+/*          hover:border-zinc-700 dark:hover:border-zinc-300 */
+/*          transition-colors duration-300 */
+/*          px-0.5 py-0.5 */
+/*          text-zinc-900 dark:text-zinc-100 */
+/*          no-underline; */
+/* } */
 
 :deep(#index-content h2) {
   @apply text-2xl font-bold mt-8 mb-4;

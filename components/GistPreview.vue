@@ -99,81 +99,11 @@ if (process.client) {
 const updateHighlighting = async () => {
   if (process.client && props.gist.content) {
     try {
-      const { createHighlighterCore } = await import('@shikijs/core')
+      const { createHighlighter } = await import('shiki')
       
-      // Only import the languages we actually use
-      const [
-        langJs,
-        langTs,
-        langJson,
-        langHtml,
-        langCss,
-        langMd,
-        langBash,
-        langPython,
-        langGo,
-        langRust,
-        langJava,
-        langCpp,
-        langVue,
-        langJsx,
-        langTsx,
-        langCypher,
-        langSql,
-        langYaml,
-        langXml,
-        langShell,
-        themeGithubDark,
-        themeGithubLight
-      ] = await Promise.all([
-        import('@shikijs/langs/javascript'),
-        import('@shikijs/langs/typescript'),
-        import('@shikijs/langs/json'),
-        import('@shikijs/langs/html'),
-        import('@shikijs/langs/css'),
-        import('@shikijs/langs/markdown'),
-        import('@shikijs/langs/bash'),
-        import('@shikijs/langs/python'),
-        import('@shikijs/langs/go'),
-        import('@shikijs/langs/rust'),
-        import('@shikijs/langs/java'),
-        import('@shikijs/langs/cpp'),
-        import('@shikijs/langs/vue'),
-        import('@shikijs/langs/jsx'),
-        import('@shikijs/langs/tsx'),
-        import('@shikijs/langs/cypher'),
-        import('@shikijs/langs/sql'),
-        import('@shikijs/langs/yaml'),
-        import('@shikijs/langs/xml'),
-        import('@shikijs/langs/shell'),
-        import('@shikijs/themes/github-dark'),
-        import('@shikijs/themes/github-light')
-      ])
-
-      const highlighter = await createHighlighterCore({
-        themes: [themeGithubDark.default, themeGithubLight.default],
-        langs: [
-          langJs.default,
-          langTs.default,
-          langJson.default,
-          langHtml.default,
-          langCss.default,
-          langMd.default,
-          langBash.default,
-          langPython.default,
-          langGo.default,
-          langRust.default,
-          langJava.default,
-          langCpp.default,
-          langVue.default,
-          langJsx.default,
-          langTsx.default,
-          langCypher.default,
-          langSql.default,
-          langYaml.default,
-          langXml.default,
-          langShell.default
-        ]
+      const highlighter = await createHighlighter({
+        themes: ['github-light', 'github-dark'],
+        langs: ['javascript', 'typescript', 'json', 'html', 'css', 'markdown', 'bash', 'python', 'go', 'rust', 'java', 'cpp', 'vue', 'jsx', 'tsx', 'sql', 'yaml', 'xml', 'shell']
       })
 
       const language = props.file.language?.toLowerCase() || 'text'

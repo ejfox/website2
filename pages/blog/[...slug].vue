@@ -352,12 +352,17 @@ const updateTocScroll = useDebounceFn(() => {
 watch(activeSection, updateTocScroll)
 
 // Create scroll animation instance
-const { setupAnimation: _setupAnimation, slideUp, slideLeft, fadeIn: _fadeIn, expandLine } =
-  useScrollAnimation({
-    debug: false,
-    threshold: 0.1,
-    rootMargin: '-5% 0px -5% 0px'
-  })
+const {
+  setupAnimation: _setupAnimation,
+  slideUp,
+  slideLeft,
+  fadeIn: _fadeIn,
+  expandLine
+} = useScrollAnimation({
+  debug: false,
+  threshold: 0.1,
+  rootMargin: '-5% 0px -5% 0px'
+})
 
 // Set up global animation defaults
 engine.defaults = {
@@ -653,7 +658,7 @@ const processedMetadata = computed(() => {
     </Head>
     <article
       v-if="post && !post.redirect"
-      class="scroll-container pt-4 md:pt-12 pl-2 md:pl-4"
+      class="scroll-container pt-4 md:pt-0 pl-2 md:pl-4"
       :style="{}"
     >
       <div ref="postMetadata" class="w-full">
@@ -728,8 +733,9 @@ const processedMetadata = computed(() => {
             <span class="block text-sm text-gray-400">{{
               formatDate(nextPrevPosts.prev.date)
             }}</span>
-            <span class="text-current truncate block">
-              {{ nextPrevPosts.prev?.title }}</span>
+            <span class="text-current block">
+              {{ nextPrevPosts.prev?.title }}</span
+            >
           </NuxtLink>
         </div>
 
@@ -745,7 +751,9 @@ const processedMetadata = computed(() => {
             <span class="block text-sm text-gray-400">{{
               formatDate(nextPrevPosts.next.date)
             }}</span>
-            <span class="text-current truncate block">{{ nextPrevPosts.next?.title }} →</span>
+            <span class="text-current block"
+              >{{ nextPrevPosts.next?.title }} →</span
+            >
           </NuxtLink>
         </div>
       </div>
@@ -771,9 +779,7 @@ const processedMetadata = computed(() => {
       </NuxtLink>
     </div>
     <div v-else class="p-4 text-center">
-      <p class="text-xl text-zinc-600 dark:text-zinc-400">
-        Loading...
-      </p>
+      <p class="text-xl text-zinc-600 dark:text-zinc-400">Loading...</p>
     </div>
 
     <!-- Desktop TOC -->
@@ -781,11 +787,11 @@ const processedMetadata = computed(() => {
       <div
         v-if="
           post?.toc?.[0]?.children?.length ||
-            post?.metadata?.toc?.[0]?.children?.length
+          post?.metadata?.toc?.[0]?.children?.length
         "
         class="toc"
       >
-        <div class="px-6 py-6">
+        <div class="pl-2">
           <h3
             class="text-xs font-semibold uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400 mb-6"
           >
@@ -794,13 +800,13 @@ const processedMetadata = computed(() => {
           <ul class="space-y-1">
             <li
               v-for="child in post?.toc?.[0]?.children ||
-                post?.metadata?.toc?.[0]?.children"
+              post?.metadata?.toc?.[0]?.children"
               :key="child.slug"
               class="group relative"
             >
               <a
                 :href="`#${child.slug}`"
-                class="block py-2 pr-3 pl-4 -ml-4 text-[13px] leading-relaxed transition-all duration-200 rounded-lg"
+                class="block pr-3 pl-4 -ml-4 text-sm leading-relaxed transition-all duration-200 rounded-lg"
                 :class="[
                   activeSection === child.slug
                     ? 'text-zinc-900 dark:text-zinc-100 bg-zinc-100 dark:bg-zinc-800 font-medium'
@@ -819,30 +825,6 @@ const processedMetadata = computed(() => {
         </div>
       </div>
     </teleport>
-
-    <!-- Add subtle verification badge -->
-    <div
-      v-if="verificationStatus !== null"
-      class="fixed bottom-4 right-4 flex items-center space-x-2 text-sm px-3 py-1.5 rounded-full"
-      :class="{
-        'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300':
-          verificationStatus,
-        'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300':
-          !verificationStatus
-      }"
-    >
-      <span class="font-mono">
-        {{ verificationStatus ? '✓ Verified' : '⚠ Unverified' }}
-      </span>
-      <UIcon
-        :name="
-          verificationStatus
-            ? 'i-heroicons-shield-check'
-            : 'i-heroicons-shield-exclamation'
-        "
-        class="w-4 h-4"
-      />
-    </div>
   </div>
 </template>
 
@@ -1000,9 +982,6 @@ const processedMetadata = computed(() => {
 .toc ul {
   @apply pl-0 space-y-4;
 }
-</style>
-
-<style>
 .no-scrollbar {
   scrollbar-width: none;
   -ms-overflow-style: none;

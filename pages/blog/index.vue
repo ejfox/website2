@@ -20,7 +20,6 @@ import PostMetadata from '~/components/PostMetadata.vue'
 const processedMarkdown = useProcessedMarkdown()
 const now = new Date()
 
-
 const { data: posts } = useAsyncData('blog-posts', async () => {
   try {
     // Get all regular posts (no drafts, no week notes)
@@ -44,17 +43,24 @@ const { data: posts } = useAsyncData('blog-posts', async () => {
           /^\d{4}-\d{2}$/.test(lastPart)
 
         // Whitelist approach: only show posts that match these patterns
-        const isRegularBlogPost = 
+        const isRegularBlogPost =
           // Year-based posts (e.g., 2024/my-post)
           /^\d{4}\/[^/]+$/.test(slug)
 
         // Also check if it's not hidden, draft, or future
-        const isHidden = post?.hidden === true || post?.metadata?.hidden === true
+        const isHidden =
+          post?.hidden === true || post?.metadata?.hidden === true
         const isDraft = post?.draft === true || post?.metadata?.draft === true
         const postDate = post?.date || post?.metadata?.date
         const isFuturePost = postDate && new Date(postDate) > now
-        
-        return !isWeekNote && isRegularBlogPost && !isHidden && !isDraft && !isFuturePost
+
+        return (
+          !isWeekNote &&
+          isRegularBlogPost &&
+          !isHidden &&
+          !isDraft &&
+          !isFuturePost
+        )
       })
       .map((post) => {
         // Get title with proper fallbacks
@@ -246,7 +252,7 @@ onMounted(() => {
       opacity: [0, 1],
       duration: 600,
       easing: 'easeOutQuad',
-      delay: (el, i) => 300 + (i * 50)
+      delay: (el, i) => 300 + i * 50
     })
   }
 })
@@ -311,7 +317,7 @@ function createPostMetadata(post) {
 </script>
 
 <template>
-  <SwissGrid v-if="isLoading">
+  <div v-if="isLoading">
     <div class="animate-pulse">
       <div class="h-8 bg-zinc-200 dark:bg-zinc-800 rounded w-3/4 mb-4"></div>
       <div class="space-y-3">
@@ -319,14 +325,12 @@ function createPostMetadata(post) {
         <div class="h-4 bg-zinc-200 dark:bg-zinc-800 rounded w-5/6"></div>
       </div>
     </div>
-  </SwissGrid>
+  </div>
 
-  <SwissGrid v-else>
+  <div v-else>
     <!-- Header -->
-    <header class="mb-20">
-      <h1 class="text-display mb-8">
-        Blog
-      </h1>
+    <header class="my-20 md:mt-6 pl-4 md:pl-0">
+      <h1 class="text-display mb-8">Blog</h1>
       <p class="text-body">
         Thoughts, projects, and explorations in technology, design, and making.
       </p>
@@ -334,19 +338,20 @@ function createPostMetadata(post) {
 
     <div>
       <!-- Main Blog Posts section -->
-      <section>
+      <section class="mt-16 md:mt-0">
         <div v-if="!sortedYears.length" class="text-center py-16">
-          <p class="text-zinc-600 dark:text-zinc-400">
-            No blog posts found.
-          </p>
+          <p class="text-zinc-600 dark:text-zinc-400">No blog posts found.</p>
         </div>
 
         <!-- Yearly blog posts with Swiss design -->
         <div v-for="year in sortedYears" :key="`blog-${year}`" class="mb-24">
-          <h2 class="text-xs font-normal uppercase tracking-[0.15em] text-zinc-500 dark:text-zinc-500 mb-8" style="font-family: 'Signika Negative', sans-serif;">
+          <h2
+            class="text-xs font-normal uppercase pl-2 md:pl-0 text-zinc-500 dark:text-zinc-500 mb-8"
+            style="font-family: 'Signika Negative', sans-serif"
+          >
             {{ year }}
           </h2>
-        
+
           <div class="space-y-12">
             <article
               v-for="post in blogPostsByYear[year]"
@@ -355,14 +360,19 @@ function createPostMetadata(post) {
               class="group grid grid-cols-12 gap-4"
             >
               <!-- Date column -->
-              <div class="col-span-3 md:col-span-2">
+              <div class="col-span-1 md:col-span-2 pl-2 md:pl-0">
                 <time class="text-sm text-zinc-500 dark:text-zinc-500">
-                  {{ format(new Date(post?.date || post?.metadata?.date), 'MMM dd') }}
+                  {{
+                    format(
+                      new Date(post?.date || post?.metadata?.date),
+                      'MMM dd'
+                    )
+                  }}
                 </time>
               </div>
 
               <!-- Content column -->
-              <div class="col-span-9 md:col-span-10">
+              <div class="col-span-11 md:col-span-10">
                 <h3 class="mb-2">
                   <NuxtLink
                     :to="`/blog/${post?.slug}`"
@@ -371,14 +381,14 @@ function createPostMetadata(post) {
                     {{ post?.title || formatTitle(post?.slug) }}
                   </NuxtLink>
                 </h3>
-              
+
                 <p
                   v-if="post?.metadata?.dek || post?.dek"
                   class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed"
                 >
                   {{ post?.metadata?.dek || post?.dek }}
                 </p>
-              
+
                 <PostMetadata
                   v-if="post"
                   :doc="createPostMetadata(post)"
@@ -396,7 +406,9 @@ function createPostMetadata(post) {
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
           <!-- Week Notes -->
           <section>
-            <h2 class="text-xs font-normal uppercase tracking-[0.15em] text-zinc-500 dark:text-zinc-500 mb-8">
+            <h2
+              class="text-xs font-normal uppercase tracking-[0.15em] text-zinc-500 dark:text-zinc-500 mb-8"
+            >
               Week Notes
             </h2>
 
@@ -413,17 +425,18 @@ function createPostMetadata(post) {
                   :key="weekNote.slug"
                   ref="weekNoteElements"
                 >
-                  <NuxtLink
-                    :to="`/blog/${weekNote.slug}`"
-                    class="block group"
-                  >
+                  <NuxtLink :to="`/blog/${weekNote.slug}`" class="block group">
                     <div class="mb-1">
-                      <span class="text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-400 transition-colors">
+                      <span
+                        class="text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-400 transition-colors"
+                      >
                         Week {{ weekNote.slug.split('/')[1] }}
                       </span>
                     </div>
 
-                    <p class="text-sm text-zinc-500 dark:text-zinc-500 leading-relaxed">
+                    <p
+                      class="text-sm text-zinc-500 dark:text-zinc-500 leading-relaxed"
+                    >
                       {{ weekNote.metadata?.dek || weekNote.dek }}
                     </p>
                   </NuxtLink>
@@ -442,7 +455,9 @@ function createPostMetadata(post) {
           </section>
           <!-- Recently Updated -->
           <section v-if="recentlyUpdatedPosts.length">
-            <h2 class="text-xs font-normal uppercase tracking-[0.15em] text-zinc-500 dark:text-zinc-500 mb-8">
+            <h2
+              class="text-xs font-normal uppercase tracking-[0.15em] text-zinc-500 dark:text-zinc-500 mb-8"
+            >
               Recently Updated
             </h2>
             <div class="space-y-6">
@@ -450,20 +465,21 @@ function createPostMetadata(post) {
                 v-for="post in recentlyUpdatedPosts"
                 :key="`recent-${post.slug}`"
               >
-                <NuxtLink
-                  :to="`/blog/${post.slug}`"
-                  class="block group"
-                >
-                  <h3 class="text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-400 transition-colors mb-1">
+                <NuxtLink :to="`/blog/${post.slug}`" class="block group">
+                  <h3
+                    class="text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-400 transition-colors mb-1"
+                  >
                     {{ post?.metadata?.title || post?.title }}
                   </h3>
                   <div class="text-sm text-zinc-500 dark:text-zinc-500">
-                    {{ formatRelativeTime(
-                      post?.metadata?.lastUpdated ||
-                        post?.metadata?.date ||
-                        post?.lastUpdated ||
-                        post?.date
-                    ) }}
+                    {{
+                      formatRelativeTime(
+                        post?.metadata?.lastUpdated ||
+                          post?.metadata?.date ||
+                          post?.lastUpdated ||
+                          post?.date
+                      )
+                    }}
                   </div>
                 </NuxtLink>
               </article>
@@ -472,7 +488,7 @@ function createPostMetadata(post) {
         </div>
       </aside>
     </div>
-  </SwissGrid>
+  </div>
 </template>
 
 <style scoped>

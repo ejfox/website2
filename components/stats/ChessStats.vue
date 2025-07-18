@@ -66,32 +66,32 @@
     <div v-if="hasGameStats">
       <StatsSectionHeader title="PERFORMANCE" />
       <div class="space-y-2">
-        <div class="flex items-center justify-between">
+        <div class="velocity-row">
           <div class="flex items-center gap-2">
             <div class="games-sparkline"></div>
-            <span class="text-zinc-500" style="font-size: 10px; line-height: 12px;">GAMES PLAYED</span>
+            <span class="velocity-label">GAMES PLAYED</span>
           </div>
-          <div class="text-base tabular-nums font-bold">
+          <div class="velocity-value">
             {{ formatNumber(gamesPlayed) }}
           </div>
         </div>
         
-        <div class="flex items-center justify-between">
+        <div class="velocity-row">
           <div class="flex items-center gap-2">
             <div class="winrate-sparkline"></div>
-            <span class="text-zinc-500" style="font-size: 10px; line-height: 12px;">WIN RATE</span>
+            <span class="velocity-label">WIN RATE</span>
           </div>
-          <div class="text-base tabular-nums font-bold">
+          <div class="velocity-value">
             {{ Math.round(overallWinRate) }}%
           </div>
         </div>
         
-        <div class="flex items-center justify-between">
+        <div class="velocity-row">
           <div class="flex items-center gap-2">
             <div class="puzzle-sparkline"></div>
-            <span class="text-zinc-500" style="font-size: 10px; line-height: 12px;">PUZZLE RATING</span>
+            <span class="velocity-label">PUZZLE RATING</span>
           </div>
-          <div class="text-base tabular-nums font-bold">
+          <div class="velocity-value">
             {{ formatNumber(stats.puzzleStats.rating) }}
           </div>
         </div>

@@ -27,12 +27,6 @@ export default defineNuxtConfig({
     }
   },
 
-  // Disable HMR completely
-  vite: {
-    server: {
-      hmr: false
-    }
-  },
 
   modules: [
     '@nuxtjs/tailwindcss',
@@ -71,16 +65,40 @@ export default defineNuxtConfig({
     },
     display: 'swap',
     preload: true,
-    prefetch: true,
+    prefetch: false, // Reduce prefetch to avoid over-fetching
     preconnect: true,
-    download: false,
-    base64: false
+    download: true, // Enable local font download for better performance
+    base64: false,
+    subsets: ['latin'], // Only load latin subset
+    stylePath: 'css/fonts.css' // Optimize CSS delivery
   },
 
   // Component loading optimization
   build: {
     transpile: ['vue-toastification'],
     analyze: process.env.ANALYZE === 'true'
+  },
+
+  // Vite optimizations
+  vite: {
+    server: {
+      hmr: false // Disable HMR completely for production-like dev
+    },
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            // Separate vendor chunks for better caching
+            'vue-vendor': ['vue', 'vue-router'],
+            'utils': ['date-fns', 'lodash-es']
+          }
+        }
+      }
+    },
+    optimizeDeps: {
+      include: ['vue', 'vue-router', 'date-fns'],
+      exclude: ['vue-demi']
+    }
   },
 
   // Image optimization with @nuxt/image
@@ -155,7 +173,10 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: 'node-server',
-    compressPublicAssets: true,
+    compressPublicAssets: {
+      gzip: true,
+      brotli: true
+    },
     minify: true,
     experimental: {
       asyncContext: true,
@@ -219,6 +240,38 @@ export default defineNuxtConfig({
         }
       },
       '/projects': {
+        headers: {
+          'cache-control': 'public, max-age=3600, s-maxage=86400'
+        }
+      },
+      // Add more aggressive caching for static routes
+      '/': {
+        headers: {
+          'cache-control': 'public, max-age=1800, s-maxage=3600'
+        }
+      },
+      '/stats': {
+        headers: {
+          'cache-control': 'public, max-age=1800, s-maxage=3600'
+        }
+      },
+      '/gear': {
+        headers: {
+          'cache-control': 'public, max-age=3600, s-maxage=86400'
+        }
+      },
+      '/gists': {
+        headers: {
+          'cache-control': 'public, max-age=3600, s-maxage=86400'
+        }
+      },
+      // Cache RSS feeds aggressively
+      '/rss.xml': {
+        headers: {
+          'cache-control': 'public, max-age=3600, s-maxage=86400'
+        }
+      },
+      '/scraps-rss.xml': {
         headers: {
           'cache-control': 'public, max-age=3600, s-maxage=86400'
         }

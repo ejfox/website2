@@ -5,7 +5,7 @@
       <StatsSectionHeader title="WRITING STATUS" />
       <div class="grid grid-cols-2 gap-2">
         <div class="metric-card">
-          <div class="text-lg font-bold tabular-nums">
+          <div class="stat-value">
             {{ stats.totalPosts }}
           </div>
           <div class="metric-label">
@@ -13,7 +13,7 @@
           </div>
         </div>
         <div class="metric-card">
-          <div class="text-lg font-bold tabular-nums">
+          <div class="stat-value">
             {{ formatNumber(stats.totalWords) }}
           </div>
           <div class="metric-label">
@@ -30,7 +30,7 @@
         <!-- This Month -->
         <div class="progress-row">
           <div class="flex items-center gap-2">
-            <div class="month-indicator" :class="monthIndicatorClass"></div>
+            <div class="status-indicator" :class="monthIndicatorClass"></div>
             <span class="progress-label">THIS MONTH</span>
           </div>
           <div class="progress-value">
@@ -41,7 +41,7 @@
         <!-- This Week (estimated) -->
         <div class="progress-row">
           <div class="flex items-center gap-2">
-            <div class="week-indicator"></div>
+            <div class="status-indicator bg-zinc-500 dark:bg-zinc-400"></div>
             <span class="progress-label">THIS WEEK</span>
           </div>
           <div class="progress-value">
@@ -52,7 +52,7 @@
         <!-- Writing Streak -->
         <div class="progress-row">
           <div class="flex items-center gap-2">
-            <div class="streak-indicator" :class="streakIndicatorClass"></div>
+            <div class="status-indicator" :class="streakIndicatorClass"></div>
             <span class="progress-label">CURRENT STREAK</span>
           </div>
           <div class="progress-value">
@@ -63,7 +63,7 @@
         <!-- Days Since Last Post -->
         <div class="progress-row">
           <div class="flex items-center gap-2">
-            <div class="recency-indicator" :class="recencyIndicatorClass"></div>
+            <div class="status-indicator" :class="recencyIndicatorClass"></div>
             <span class="progress-label">LAST POST</span>
           </div>
           <div class="progress-value">
@@ -415,59 +415,5 @@ const recencyIndicatorClass = computed(() => {
 </script>
 
 <style scoped>
-/* Removed .section-subheader - now using StatsSectionHeader component */
-/* Removed unused sparkline styles */
-
-/* Motivation Dashboard Styles */
-.metric-card {
-  @apply bg-zinc-50 dark:bg-zinc-900/30 rounded p-2 text-center border border-zinc-200 dark:border-zinc-800;
-}
-
-.metric-label {
-  @apply text-zinc-500 tracking-[0.15em];
-  font-size: 0.6rem;
-  line-height: 0.8rem;
-}
-
-.progress-row {
-  @apply flex items-center justify-between;
-  font-size: 10px;
-  line-height: 12px;
-}
-
-.progress-label {
-  @apply text-zinc-600 dark:text-zinc-400 tracking-[0.1em];
-  font-size: 9px;
-  line-height: 10px;
-}
-
-.progress-value {
-  @apply text-zinc-800 dark:text-zinc-200 tabular-nums;
-  font-size: 10px;
-  line-height: 12px;
-}
-
-.velocity-label {
-  @apply text-zinc-600 dark:text-zinc-400 tracking-[0.1em];
-  font-size: 9px;
-  line-height: 10px;
-}
-
-.velocity-value {
-  @apply text-zinc-800 dark:text-zinc-200 tabular-nums font-mono;
-  font-size: 10px;
-  line-height: 12px;
-}
-
-/* Status Indicators */
-.month-indicator,
-.week-indicator,
-.streak-indicator,
-.recency-indicator {
-  @apply w-2 h-2 rounded-full;
-}
-
-.week-indicator {
-  @apply bg-zinc-500 dark:bg-zinc-400;
-}
+/* Using shared styles from global.css */
 </style>

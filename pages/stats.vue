@@ -3,14 +3,12 @@
     <!-- Stats TOC -->
     <teleport v-if="tocTarget && !isSimpleMode" to="#nav-toc-container">
       <div class="py-6 px-4">
-        <h3 class="text-mono-label mb-4">
-          Stats Index
-        </h3>
-        <ul class="space-y-2">
+        <h3 class="text-mono-label mb-4">Stats Index</h3>
+        <ul class="space-y-1">
           <li v-for="section in statsSections" :key="section.id">
             <a
               :href="`#${section.id}`"
-              class="block py-1 text-xs font-mono uppercase tracking-wider transition-colors"
+              class="block py-1 text-sm font-mono uppercase tracking-wider transition-colors"
               :class="[
                 activeSection === section.id
                   ? 'text-primary'
@@ -29,7 +27,7 @@
       <!-- Loading state -->
       <section
         v-if="isLoading"
-        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16"
+        class="mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16"
       >
         <div
           class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"

@@ -272,7 +272,7 @@ const activityDates = computed(() => {
 }
 
 .lang-bar-bg {
-  @apply h-1 w-full bg-zinc-800/30 rounded-sm overflow-hidden;
+  @apply h-1 w-full rounded-sm overflow-hidden;
 }
 
 .lang-bar-fill {

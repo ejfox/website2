@@ -158,9 +158,9 @@ const getPreviewLines = (content: string) => {
 <template>
   <div class="py-8 px-4 font-mono text-sm">
     <!-- Header -->
-    <div class="mb-8 border-b border-muted pb-4">
-      <h1 class="text-2xl uppercase tracking-wide mb-2">
-        GitHub Gists
+    <div class="mb-8 pb-4">
+      <h1 class="text-mono-label mb-2">
+        GITHUB_GISTS
       </h1>
 
       <!-- Minimal stats -->
@@ -175,7 +175,7 @@ const getPreviewLines = (content: string) => {
 
     <!-- Loading state -->
     <div v-if="pending" class="space-y-3">
-      <div v-for="i in 8" :key="i" class="border-t border-subtle py-3">
+      <div v-for="i in 8" :key="i" class="py-3">
         <div class="flex items-baseline gap-2">
           <div class="skeleton w-6 h-4"></div>
           <div class="skeleton w-64 h-4"></div>
@@ -197,7 +197,7 @@ const getPreviewLines = (content: string) => {
       <div
         v-for="(gist, index) in gists"
         :key="gist.id"
-        class="border-t border-subtle py-3"
+        class="py-3"
       >
         <div class="flex items-baseline gap-2">
           <span class="text-muted w-6 text-right">{{ index + 1 + (currentPage - 1) * perPage }}.</span>
@@ -246,7 +246,7 @@ const getPreviewLines = (content: string) => {
       </div>
 
       <!-- Pagination -->
-      <div class="flex-between pt-4 border-t border-muted mt-6 text-xs">
+      <div class="flex justify-between pt-4 mt-6 text-xs">
         <button
           :disabled="currentPage === 1"
           class="disabled:opacity-30 disabled:cursor-not-allowed"

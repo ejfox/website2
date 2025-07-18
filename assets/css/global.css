@@ -1,7 +1,8 @@
 /* Swiss Design System - Minimal, Clear, Functional */
 
 /* Base */
-html, body {
+html,
+body {
   @apply bg-white dark:bg-zinc-950;
 }
 
@@ -50,13 +51,13 @@ html, body {
 }
 
 /* Links - Minimal */
-a {
-  @apply text-inherit border-b border-zinc-300 dark:border-zinc-700 hover:border-zinc-900 dark:hover:border-zinc-100 transition-colors duration-200;
-}
-
-a.link-plain {
-  @apply border-none;
-}
+/* a { */
+/*   @apply text-inherit border-b border-zinc-300 dark:border-zinc-700 hover:border-zinc-900 dark:hover:border-zinc-100 transition-colors duration-200; */
+/* } */
+/**/
+/* a.link-plain { */
+/*   @apply border-none; */
+/* } */
 
 /* Section Headers */
 .section-header {
@@ -112,4 +113,73 @@ a.link-plain {
 /* Focus States - Accessible */
 *:focus-visible {
   @apply outline-2 outline-offset-4 outline-zinc-900 dark:outline-zinc-100;
+}
+
+/* Stats Components - Shared Styles */
+.stat-card {
+  @apply space-y-1 font-mono;
+}
+
+.stat-value {
+  @apply text-lg font-bold tabular-nums text-zinc-900 dark:text-zinc-100;
+}
+
+.stat-label {
+  @apply text-xs uppercase tracking-[0.15em] text-zinc-500 dark:text-zinc-500;
+}
+
+.stat-row {
+  @apply flex items-center justify-between text-sm;
+}
+
+.stat-item {
+  @apply space-y-1;
+}
+
+.progress-row {
+  @apply flex items-center justify-between;
+  font-size: 10px;
+  line-height: 12px;
+}
+
+.progress-label {
+  @apply text-zinc-600 dark:text-zinc-400 tracking-[0.1em];
+  font-size: 9px;
+  line-height: 10px;
+}
+
+.progress-value {
+  @apply text-zinc-800 dark:text-zinc-200 tabular-nums;
+  font-size: 10px;
+  line-height: 12px;
+}
+
+.velocity-label {
+  @apply text-zinc-600 dark:text-zinc-400 tracking-[0.1em];
+  font-size: 9px;
+  line-height: 10px;
+}
+
+.velocity-value {
+  @apply text-zinc-800 dark:text-zinc-200 tabular-nums font-mono;
+  font-size: 10px;
+  line-height: 12px;
+}
+
+.velocity-row {
+  @apply flex items-center justify-between;
+}
+
+.metric-card {
+  @apply p-2 text-center;
+}
+
+.metric-label {
+  @apply text-zinc-500 tracking-[0.15em];
+  font-size: 0.6rem;
+  line-height: 0.8rem;
+}
+
+.status-indicator {
+  @apply w-2 h-2 rounded-full;
 }

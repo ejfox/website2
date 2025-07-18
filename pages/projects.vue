@@ -38,12 +38,10 @@ const { data: projectPosts } = await useAsyncData('project-posts', async () => {
 // -----------------------------------------------
 // Sort projects by date (newest first)
 const sortedProjectPosts = computed(() => {
-  return (
-    [...(projectPosts.value || [])].sort(
-      (a, b) =>
-        new Date(b.metadata?.date || b.date) -
-        new Date(a.metadata?.date || a.date)
-    )
+  return [...(projectPosts.value || [])].sort(
+    (a, b) =>
+      new Date(b.metadata?.date || b.date) -
+      new Date(a.metadata?.date || a.date)
   )
 })
 
@@ -231,12 +229,10 @@ useHead({
 </script>
 
 <template>
-  <SwissGrid>
+  <div class="mt-24 md:mt-0">
     <!-- Header -->
-    <header class="mb-20">
-      <h1 class="text-display mb-8">
-        Projects
-      </h1>
+    <header class="my-6">
+      <h1 class="text-display mb-8">Projects</h1>
       <p class="text-body">
         A collection of experiments, tools, and creative explorations.
       </p>
@@ -252,9 +248,7 @@ useHead({
     </div>
 
     <div v-else-if="sortedProjectPosts.length === 0" class="text-center py-16">
-      <p class="text-body">
-        No projects found.
-      </p>
+      <p class="text-body">&nbsp;</p>
     </div>
 
     <!-- Projects list -->
@@ -269,16 +263,65 @@ useHead({
         <!-- Project header -->
         <div class="grid grid-cols-12 gap-4 mb-8">
           <!-- Date column -->
-          <div class="col-span-3 md:col-span-2">
-            <time class="text-sm text-zinc-500 dark:text-zinc-500">
+          <div class="col-span-2 pl-2 md:pl-0">
+            <time class="md:text-xs text-zinc-500">
               {{ formatDate(project.metadata?.date || project.date) }}
             </time>
+            <div
+              v-if="
+                project.metadata?.github ||
+                project.metadata?.demo ||
+                project.metadata?.website ||
+                project.metadata?.url
+              "
+              class="flex flex-wrap gap-6 pt-6"
+            >
+              <a
+                v-if="project.metadata?.github"
+                :href="project.metadata.github"
+                target="_blank"
+                class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+              >
+                GitHub ↗
+              </a>
+              <a
+                v-if="project.metadata?.demo"
+                :href="project.metadata.demo"
+                target="_blank"
+                class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+              >
+                Demo ↗
+              </a>
+              <a
+                v-if="project.metadata?.website"
+                :href="project.metadata.website"
+                target="_blank"
+                class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+              >
+                Website ↗
+              </a>
+              <a
+                v-if="
+                  project.metadata?.url &&
+                  !project.metadata?.github &&
+                  !project.metadata?.demo &&
+                  !project.metadata?.website
+                "
+                :href="project.metadata.url"
+                target="_blank"
+                class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+              >
+                View Project ↗
+              </a>
+            </div>
           </div>
 
           <!-- Content column -->
-          <div class="col-span-9 md:col-span-10">
+          <div class="col-span-10">
             <!-- Title -->
-            <h2 class="text-2xl md:text-3xl font-light text-zinc-900 dark:text-zinc-100 mb-4">
+            <h2
+              class="text-3xl md:text-4xl font-light text-zinc-900 dark:text-zinc-100 mb-4"
+            >
               <NuxtLink
                 v-if="project.metadata?.url"
                 :to="project.metadata?.url"
@@ -291,7 +334,10 @@ useHead({
             </h2>
 
             <!-- Tags -->
-            <div v-if="project.metadata?.tags" class="flex flex-wrap gap-4 mb-4">
+            <div
+              v-if="project.metadata?.tags"
+              class="flex flex-wrap gap-4 mb-4"
+            >
               <span
                 v-for="(tag, index) in project.metadata?.tags"
                 :key="index"
@@ -300,13 +346,7 @@ useHead({
                 {{ tag }}
               </span>
             </div>
-          </div>
-        </div>
 
-        <!-- Project content -->
-        <div class="grid grid-cols-12 gap-4">
-          <div class="col-span-3 md:col-span-2"></div>
-          <div class="col-span-9 md:col-span-10">
             <div class="space-y-6">
               <div
                 class="prose prose-zinc dark:prose-invert max-w-none text-zinc-600 dark:text-zinc-400 leading-relaxed content"
@@ -314,75 +354,44 @@ useHead({
               ></div>
 
               <!-- Links -->
-              <div
-                v-if="
-                  project.metadata?.github ||
-                    project.metadata?.demo ||
-                    project.metadata?.website ||
-                    project.metadata?.url
-                "
-                class="flex flex-wrap gap-6 pt-6 border-t border-zinc-200 dark:border-zinc-800"
-              >
-                <a
-                  v-if="project.metadata?.github"
-                  :href="project.metadata.github"
-                  target="_blank"
-                  class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
-                >
-                  GitHub ↗
-                </a>
-                <a
-                  v-if="project.metadata?.demo"
-                  :href="project.metadata.demo"
-                  target="_blank"
-                  class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
-                >
-                  Demo ↗
-                </a>
-                <a
-                  v-if="project.metadata?.website"
-                  :href="project.metadata.website"
-                  target="_blank"
-                  class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
-                >
-                  Website ↗
-                </a>
-                <a
-                  v-if="
-                    project.metadata?.url &&
-                      !project.metadata?.github &&
-                      !project.metadata?.demo &&
-                      !project.metadata?.website
-                  "
-                  :href="project.metadata.url"
-                  target="_blank"
-                  class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
-                >
-                  View Project ↗
-                </a>
-              </div>
             </div>
           </div>
         </div>
       </article>
       <!-- Simplified timeline -->
-      <section class="content-grid mt-24 pt-12 border-t border-zinc-200 dark:border-zinc-800">
-        <h3 class="text-xs font-normal uppercase tracking-[0.15em] text-zinc-500 dark:text-zinc-500 mb-12">
+      <section
+        class="content-grid mt-24 pt-12 border-t border-zinc-200 dark:border-zinc-800"
+      >
+        <h3
+          class="text-xs font-normal uppercase tracking-[0.15em] text-zinc-500 dark:text-zinc-500 mb-12"
+        >
           Timeline
         </h3>
         <div class="space-y-6">
           <div
-            v-for="year in [...new Set(sortedProjectPosts.map(p => new Date(p.metadata?.date || p.date).getFullYear()))].sort((a, b) => b - a)"
+            v-for="year in [
+              ...new Set(
+                sortedProjectPosts.map((p) =>
+                  new Date(p.metadata?.date || p.date).getFullYear()
+                )
+              )
+            ].sort((a, b) => b - a)"
             :key="year"
             class="grid grid-cols-12 gap-4"
           >
-            <div class="col-span-3 md:col-span-2">
-              <span class="text-sm text-zinc-500 dark:text-zinc-500">{{ year }}</span>
+            <div class="col-span-3">
+              <span class="text-sm text-zinc-500 dark:text-zinc-500">{{
+                year
+              }}</span>
             </div>
-            <div class="col-span-9 md:col-span-10">
+            <div class="col-span-9">
               <div class="space-y-2">
                 <div
-                  v-for="project in sortedProjectPosts.filter(p => new Date(p.metadata?.date || p.date).getFullYear() === year)"
+                  v-for="project in sortedProjectPosts.filter(
+                    (p) =>
+                      new Date(p.metadata?.date || p.date).getFullYear() ===
+                      year
+                  )"
                   :key="project.slug"
                 >
                   <a
@@ -407,7 +416,9 @@ useHead({
     >
       <div class="toc">
         <div class="px-6 py-6">
-          <h3 class="text-xs font-normal uppercase tracking-[0.15em] text-zinc-500 dark:text-zinc-500 mb-6">
+          <h3
+            class="text-xs font-normal uppercase tracking-[0.15em] text-zinc-500 dark:text-zinc-500 mb-6"
+          >
             Projects
           </h3>
           <ul class="space-y-2">
@@ -433,7 +444,7 @@ useHead({
         </div>
       </div>
     </teleport>
-  </SwissGrid>
+  </div>
 </template>
 
 <style>

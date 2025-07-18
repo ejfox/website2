@@ -1,17 +1,17 @@
 <template>
-  <main class="py-32 px-8 mx-auto max-w-5xl">
-    <header class="mb-48">
+  <main class="pt-8 px-8 mx-auto max-w-5xl">
+    <header class="">
       <div class="mb-32">
         <h1
           class="text-5xl md:text-6xl lg:text-7xl font-light text-zinc-900 dark:text-zinc-100 leading-[1.05] tracking-tight mb-16"
-          style="font-family: 'Fjalla One', sans-serif;"
+          style="font-family: 'Fjalla One', sans-serif"
         >
           Predictions & Forecasts
         </h1>
 
         <p
-          class="text-xl md:text-2xl font-light text-zinc-600 dark:text-zinc-400 leading-[1.6] max-w-3xl"
-          style="font-family: 'Signika Negative', sans-serif;"
+          class="text-zinc-600 dark:text-zinc-400 text-xl max-w-3xl"
+          style="font-family: 'Signika Negative', sans-serif"
         >
           I don't know if I am any good at predicting the future, so I wanted to
           formalize the process. This is an effort to track and record a
@@ -36,7 +36,7 @@
 
         <p
           class="text-base text-zinc-600 dark:text-zinc-400 leading-[1.8] max-w-2xl"
-          style="font-family: 'Signika Negative', sans-serif;"
+          style="font-family: 'Signika Negative', sans-serif"
         >
           Inspired by
           <a
@@ -44,7 +44,8 @@
             target="_blank"
             class="text-zinc-800 dark:text-zinc-200 underline decoration-zinc-300 dark:decoration-zinc-700 decoration-1 underline-offset-4 hover:decoration-zinc-500 dark:hover:decoration-zinc-500 transition-all duration-300"
           >
-            Gwern's prediction system </a>, and efforts like PredictIt or PolyMarket. But of course I want to
+            Gwern's prediction system </a
+          >, and efforts like PredictIt or PolyMarket. But of course I want to
           own my own data and presentation. All predictions are
           cryptographically signed and commited to github for version history.
           Showing my failed predictions is an important part of this project.
@@ -53,7 +54,7 @@
     </header>
 
     <!-- Zero State -->
-    <section v-if="transformedPredictions.length === 0" class="py-48">
+    <section v-if="transformedPredictions.length === 0" class="">
       <div class="text-center mb-32">
         <div
           class="w-24 h-24 mx-auto mb-12 bg-zinc-100 dark:bg-zinc-900 rounded-full flex items-center justify-center"
@@ -65,13 +66,13 @@
         </div>
         <h3
           class="text-2xl font-light text-zinc-700 dark:text-zinc-300 mb-8 tracking-wide"
-          style="font-family: 'Fjalla One', sans-serif;"
+          style="font-family: 'Fjalla One', sans-serif"
         >
           No Predictions Yet
         </h3>
         <p
           class="text-lg text-zinc-500 dark:text-zinc-500 leading-[1.8] max-w-lg mx-auto"
-          style="font-family: 'Signika Negative', sans-serif;"
+          style="font-family: 'Signika Negative', sans-serif"
         >
           This space will host cryptographically verified predictions and
           forecasts. Each entry will be immutably timestamped for
@@ -79,7 +80,7 @@
         </p>
       </div>
 
-      <div class="border-t border-zinc-100 dark:border-zinc-800 pt-24">
+      <div class="border-t border-zinc-100 dark:border-zinc-800">
         <div class="text-center">
           <p
             class="text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.3em] mb-8"
@@ -88,7 +89,7 @@
           </p>
           <p
             class="text-base text-zinc-500 dark:text-zinc-500 leading-[1.8] max-w-xl mx-auto"
-            style="font-family: 'Signika Negative', sans-serif;"
+            style="font-family: 'Signika Negative', sans-serif"
           >
             Following academic forecasting standards with SHA-256 hashing, PGP
             signatures, and git-based version control for complete transparency.
@@ -145,20 +146,15 @@
           <div class="flex items-center gap-4">
             <span
               class="text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.3em]"
-            >Sort</span>
+              >Sort</span
+            >
             <select
               v-model="sortBy"
               class="px-4 py-2 text-xs bg-transparent text-zinc-700 dark:text-zinc-300 border border-zinc-300 dark:border-zinc-700 focus:outline-none focus:border-zinc-500 dark:focus:border-zinc-400 transition-colors uppercase tracking-[0.2em]"
             >
-              <option value="date">
-                Date Created
-              </option>
-              <option value="confidence">
-                Confidence
-              </option>
-              <option value="statement">
-                Statement (A-Z)
-              </option>
+              <option value="date">Date Created</option>
+              <option value="confidence">Confidence</option>
+              <option value="statement">Statement (A-Z)</option>
             </select>
           </div>
         </div>
@@ -198,7 +194,7 @@
         <div class="text-center py-12">
           <p
             class="text-5xl font-light text-zinc-900 dark:text-zinc-100 mb-6 font-mono"
-            style="font-family: 'Red Hat Mono', monospace;"
+            style="font-family: 'Red Hat Mono', monospace"
           >
             {{ totalPredictions }}
           </p>
@@ -212,7 +208,7 @@
         <div class="text-center py-12">
           <p
             class="text-5xl font-light text-zinc-900 dark:text-zinc-100 mb-6 font-mono"
-            style="font-family: 'Red Hat Mono', monospace;"
+            style="font-family: 'Red Hat Mono', monospace"
           >
             {{ avgConfidence }}%
           </p>
@@ -226,7 +222,7 @@
         <div class="text-center py-12">
           <p
             class="text-5xl font-light mb-6 font-mono"
-            style="font-family: 'Red Hat Mono', monospace;"
+            style="font-family: 'Red Hat Mono', monospace"
             :class="
               correctCount > 0
                 ? 'text-green-600 dark:text-green-400'
@@ -245,7 +241,7 @@
         <div class="text-center py-12">
           <p
             class="text-5xl font-light mb-6 font-mono"
-            style="font-family: 'Red Hat Mono', monospace;"
+            style="font-family: 'Red Hat Mono', monospace"
             :class="
               incorrectCount > 0
                 ? 'text-red-600 dark:text-red-400'
@@ -275,7 +271,7 @@
           </p>
           <p
             class="text-2xl font-mono font-light text-zinc-900 dark:text-zinc-100"
-            style="font-family: 'Red Hat Mono', monospace;"
+            style="font-family: 'Red Hat Mono', monospace"
           >
             {{ accuracyRate }}%
           </p>
@@ -316,7 +312,7 @@
             <div v-if="correctCount > 0" class="text-center">
               <p
                 class="text-2xl font-mono font-light text-green-600 dark:text-green-400 mb-2"
-                style="font-family: 'Red Hat Mono', monospace;"
+                style="font-family: 'Red Hat Mono', monospace"
               >
                 {{ correctConfidenceAvg }}%
               </p>
@@ -329,7 +325,7 @@
             <div v-if="incorrectCount > 0" class="text-center">
               <p
                 class="text-2xl font-mono font-light text-red-600 dark:text-red-400 mb-2"
-                style="font-family: 'Red Hat Mono', monospace;"
+                style="font-family: 'Red Hat Mono', monospace"
               >
                 {{ incorrectConfidenceAvg }}%
               </p>
@@ -387,7 +383,8 @@
               <div class="flex items-center gap-4">
                 <span
                   class="text-sm font-mono text-zinc-700 dark:text-zinc-300 w-16"
-                >{{ range.label }}</span>
+                  >{{ range.label }}</span
+                >
                 <div
                   class="w-32 h-1 bg-zinc-200 dark:bg-zinc-800 rounded-full overflow-hidden"
                 >
@@ -405,8 +402,12 @@
                 </div>
               </div>
               <div class="text-right">
-                <span class="text-sm font-mono text-zinc-900 dark:text-zinc-100">{{ range.accuracy }}%</span>
-                <span class="text-xs text-zinc-500 dark:text-zinc-500 ml-2">({{ range.correct }}/{{ range.total }})</span>
+                <span class="text-sm font-mono text-zinc-900 dark:text-zinc-100"
+                  >{{ range.accuracy }}%</span
+                >
+                <span class="text-xs text-zinc-500 dark:text-zinc-500 ml-2"
+                  >({{ range.correct }}/{{ range.total }})</span
+                >
               </div>
             </div>
           </div>
@@ -431,7 +432,8 @@
               <div class="flex items-center gap-4">
                 <span
                   class="text-sm font-mono text-zinc-700 dark:text-zinc-300 w-12"
-                >{{ yearData.year }}</span>
+                  >{{ yearData.year }}</span
+                >
                 <div
                   class="w-32 h-1 bg-zinc-200 dark:bg-zinc-800 rounded-full overflow-hidden"
                 >
@@ -449,8 +451,12 @@
                 </div>
               </div>
               <div class="text-right">
-                <span class="text-sm font-mono text-zinc-900 dark:text-zinc-100">{{ yearData.accuracy }}%</span>
-                <span class="text-xs text-zinc-500 dark:text-zinc-500 ml-2">({{ yearData.correct }}/{{ yearData.total }})</span>
+                <span class="text-sm font-mono text-zinc-900 dark:text-zinc-100"
+                  >{{ yearData.accuracy }}%</span
+                >
+                <span class="text-xs text-zinc-500 dark:text-zinc-500 ml-2"
+                  >({{ yearData.correct }}/{{ yearData.total }})</span
+                >
               </div>
             </div>
           </div>
@@ -525,11 +531,12 @@
                 <div class="flex items-center gap-2 shrink-0">
                   <span
                     class="text-xs font-mono text-zinc-400 dark:text-zinc-600"
-                  >{{ prediction.confidence }}%</span>
+                    >{{ prediction.confidence }}%</span
+                  >
                   <div
                     v-if="
                       prediction.status === 'correct' ||
-                        prediction.status === 'incorrect'
+                      prediction.status === 'incorrect'
                     "
                     class="w-2 h-2 rounded-full"
                     :class="
