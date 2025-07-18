@@ -8,56 +8,31 @@ FROM node:${NODE_VERSION}-alpine AS build
 
 WORKDIR /app
 
-# Install dependencies needed for native modules like canvas
-# Use specific versions to ensure consistency across platforms
+# Install basic build dependencies
 RUN apk add --no-cache \
     git \
     python3 \
     make \
-    g++ \
-    pkgconfig \
-    cairo-dev \
-    jpeg-dev \
-    pango-dev \
-    musl-dev \
-    giflib-dev \
-    pixman-dev \
-    pangomm-dev \
-    libjpeg-turbo-dev \
-    freetype-dev \
-    fontconfig-dev
+    g++
 
 # Copy package files first for better caching
 COPY package*.json ./
-COPY yarn.lock ./
 
-# Install dependencies with better error handling
-RUN yarn install --frozen-lockfile --network-timeout 600000
+# Install dependencies with better error handling  
+RUN npm install
 
 # Copy source code
 COPY . .
 
 # Build the application
-RUN yarn build
+RUN npm run build
 
 # Production stage
 FROM node:${NODE_VERSION}-alpine AS production
 
 WORKDIR /app
 
-# Install runtime dependencies for canvas
-RUN apk add --no-cache \
-    cairo \
-    jpeg \
-    pango \
-    musl \
-    giflib \
-    pixman \
-    pangomm \
-    libjpeg-turbo \
-    freetype \
-    fontconfig \
-    ttf-dejavu
+# No additional runtime deps needed
 
 # Copy only the built output
 COPY --from=build --chown=1001:1001 /app/.output ./.output

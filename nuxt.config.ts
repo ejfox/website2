@@ -139,6 +139,8 @@ export default defineNuxtConfig({
       'muzzle-binding-credits-suspense-nevada-defied-remedy-cups',
 
     public: {
+      supabaseUrl: process.env.SUPABASE_URL,
+      supabaseKey: process.env.SUPABASE_KEY,
       baseUrl:
         process.env.NODE_ENV === 'production'
           ? 'https://ejfox.com'

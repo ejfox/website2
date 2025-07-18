@@ -4,7 +4,7 @@ import path from 'path'
 import puppeteer from 'puppeteer-core'
 import matter from 'gray-matter'
 import pLimit from 'p-limit'
-import { createCanvas } from 'canvas'
+// import { createCanvas } from 'canvas' // REMOVED: Canvas dependency
 import * as d3 from 'd3'
 // import date-fns
 import { format } from 'date-fns'
@@ -276,101 +276,10 @@ function countLinks(content) {
 //   return canvas.toDataURL()
 // }
 
-function generateBackgroundArt({
-  wordCount,
-  readTime,
-  imageCount,
-  linkCount,
-  text
-}) {
-  const canvasWidth = 1200
-  const canvasHeight = 630
-  const canvas = createCanvas(canvasWidth, canvasHeight)
-  const ctx = canvas.getContext('2d')
-
-  // Set background
-  ctx.fillStyle = 'rgb(30, 30, 30)'
-  ctx.fillRect(0, 0, canvasWidth, canvasHeight)
-
-  const elements = processText(text)
-  const totalLength = elements.reduce((sum, el) => sum + el.content.length, 0)
-  const baselineY = canvasHeight / 2
-  const maxAmplitude = canvasHeight //* 0.75
-
-  let x = 0
-  ctx.beginPath()
-  ctx.moveTo(0, baselineY)
-  ctx.strokeStyle = 'rgba(255, 255, 255, 0.7)'
-  ctx.lineWidth = 1.5
-
-  const drawSinWave = (startX, width, amplitude, frequency) => {
-    const points = 100
-    for (let i = 0; i <= points; i++) {
-      const x = startX + (i / points) * width
-      const y =
-        baselineY + Math.sin((i / points) * Math.PI * 2 * frequency) * amplitude
-      ctx.lineTo(x, y)
-    }
-  }
-
-  const drawTriWave = (startX, width, amplitude, frequency) => {
-    const points = 100
-    for (let i = 0; i <= points; i++) {
-      const x = startX + (i / points) * width
-      const y =
-        baselineY + Math.sin((i / points) * Math.PI * 2 * frequency) * amplitude
-      ctx.lineTo(x, y)
-    }
-  }
-
-  const drawCodeSquiggle = (startX, width, amplitude) => {
-    const points = 200
-    for (let i = 0; i <= points; i++) {
-      const x = startX + (i / points) * width
-      const y = baselineY + Math.sin((i / points) * Math.PI * 20) * amplitude
-      ctx.lineTo(x, y)
-    }
-  }
-
-  elements.forEach((element) => {
-    const elementWidth = (element.content.length / totalLength) * canvasWidth
-
-    switch (element.type) {
-      case 'header':
-        // drawSinWave(x, elementWidth, maxAmplitude * 0.4, 1)
-        // just draw a straight line for headers
-        ctx.lineTo(x + elementWidth, baselineY)
-        break
-      case 'paragraph':
-        drawSinWave(x, elementWidth, maxAmplitude * 0.15, 2)
-        break
-      case 'code':
-        drawCodeSquiggle(x, elementWidth, maxAmplitude * 0.1)
-        break
-      case 'image':
-        drawTriWave(x, elementWidth, maxAmplitude * 0.01, 0.5)
-        break
-      default:
-        // For images, links, and any other types, just continue the last wave
-        ctx.lineTo(x + elementWidth, ctx.lastPathY || baselineY)
-        break
-    }
-
-    x += elementWidth
-  })
-
-  ctx.stroke()
-
-  // Add start and end markers
-  ctx.fillStyle = 'white'
-  ctx.beginPath()
-  ctx.arc(0, baselineY, 5, 0, Math.PI * 2)
-  ctx.fill()
-  ctx.beginPath()
-  ctx.arc(canvasWidth, baselineY, 5, 0, Math.PI * 2)
-  ctx.fill()
-
-  return canvas.toDataURL()
+// REMOVED: Canvas art generation - moved to separate local build tool
+function generateBackgroundArt(props) {
+  console.log('Canvas art generation disabled - use local build tool instead')
+  return 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==' // 1x1 transparent PNG
 }
 
 function processText(text) {
