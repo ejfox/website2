@@ -25,7 +25,7 @@
 
     <!-- Recent Tracks - Adjust spacing for mobile -->
     <div v-if="stats.recentTracks?.tracks?.length" class="space-y-6">
-      <StatsSectionHeader>RECENT_TRACKS</StatsSectionHeader>
+      <StatsSectionHeader title="RECENT_TRACKS" />
       <div class="space-y-4">
         <div
           v-for="(track, index) in stats.recentTracks.tracks.slice(0, 5)"
@@ -80,7 +80,7 @@
         <div class="space-y-12">
           <!-- Monthly Top Artists -->
           <div v-if="stats.topArtists?.month" class="space-y-6">
-            <StatsSectionHeader>TOP_ARTISTS_30D</StatsSectionHeader>
+            <StatsSectionHeader title="TOP_ARTISTS_30D" />
             <div class="space-y-2">
               <div
                 v-for="(artist, index) in stats.topArtists.month.slice(0, 5)"
@@ -102,7 +102,7 @@
 
           <!-- Monthly Top Tracks -->
           <div v-if="stats.topTracks?.month" class="space-y-6">
-            <StatsSectionHeader>TOP_TRACKS_30D</StatsSectionHeader>
+            <StatsSectionHeader title="TOP_TRACKS_30D" />
             <div class="space-y-2">
               <div
                 v-for="(track, index) in stats.topTracks.month.slice(0, 5)"
@@ -134,7 +134,7 @@
         <div class="space-y-12">
           <!-- Yearly Top Artists -->
           <div v-if="stats.topArtists?.year" class="space-y-6">
-            <StatsSectionHeader>TOP_ARTISTS_365D</StatsSectionHeader>
+            <StatsSectionHeader title="TOP_ARTISTS_365D" />
             <div class="space-y-2">
               <div
                 v-for="(artist, index) in stats.topArtists.year.slice(0, 5)"
@@ -156,7 +156,7 @@
 
           <!-- Yearly Top Tracks -->
           <div v-if="stats.topTracks?.year" class="space-y-6">
-            <StatsSectionHeader>TOP_TRACKS_365D</StatsSectionHeader>
+            <StatsSectionHeader title="TOP_TRACKS_365D" />
             <div class="space-y-2">
               <div
                 v-for="(track, index) in stats.topTracks.year.slice(0, 5)"

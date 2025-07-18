@@ -15,7 +15,7 @@
 
     <!-- Application Distribution Waffle Chart -->
     <div>
-      <StatsSectionHeader>TIME DISTRIBUTION</StatsSectionHeader>
+      <StatsSectionHeader title="TIME DISTRIBUTION" />
       <div class="waffle-container">
         <div
           v-for="(cell, i) in waffleCells" :key="i" class="waffle-cell" :style="{ backgroundColor: cell.color }"
@@ -31,7 +31,7 @@
 
     <!-- Category Legend + Top Categories Combined -->
     <div>
-      <StatsSectionHeader>CATEGORIES</StatsSectionHeader>
+      <StatsSectionHeader title="CATEGORIES" />
       <div class="space-y-1.5">
         <div v-for="category in sortedCategories" :key="category.name" class="flex items-center gap-1.5">
           <div class="w-2 h-2 flex-shrink-0 rounded-sm" :style="{ backgroundColor: category.color }"></div>

@@ -53,7 +53,7 @@
 
     <!-- Problem Stats - Simplified Table -->
     <div v-if="stats.submissionStats" class="mt-8">
-      <StatsSectionHeader>DIFFICULTY BREAKDOWN</StatsSectionHeader>
+      <StatsSectionHeader title="DIFFICULTY BREAKDOWN" />
       <div class="grid grid-cols-3 gap-x-4 gap-y-1">
         <!-- Column Headers -->
         <div class="text-zinc-500 text-2xs tracking-wider">
@@ -81,7 +81,7 @@
 
     <!-- Language Stats - Refined with bars -->
     <div v-if="hasLanguageStats" class="mt-8">
-      <StatsSectionHeader>LANGUAGES</StatsSectionHeader>
+      <StatsSectionHeader title="LANGUAGES" />
       <div class="space-y-2.5">
         <div v-for="(item, index) in languageEntries" :key="index" class="language-item">
           <div class="flex justify-between items-center mb-1">
@@ -104,7 +104,7 @@
 
     <!-- Recent Submissions -->
     <div v-if="recentAcceptedSubmissions.length" class="mt-8">
-      <StatsSectionHeader>RECENT SOLUTIONS</StatsSectionHeader>
+      <StatsSectionHeader title="RECENT SOLUTIONS" />
       <div class="space-y-2">
         <div v-for="submission in recentAcceptedSubmissions" :key="submission.titleSlug" class="submission-row">
           <div class="flex-none">
