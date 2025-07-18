@@ -136,12 +136,18 @@ export default defineEventHandler(async () => {
         accuracy: test.acc
       }))
 
+    // Calculate average WPM from all tests
+    const averageWpm = allTests.length > 0 
+      ? Math.round(allTests.reduce((sum, test) => sum + test.wpm, 0) / allTests.length)
+      : 0
+
     return {
       typingStats: {
         bestWPM,
         testsCompleted: statsData.data.completedTests,
         bestAccuracy: bestTest?.acc || 0,
         bestConsistency: bestTest?.consistency || 0,
+        averageWpm,
         recentTests
       },
       lastUpdated: new Date().toISOString()

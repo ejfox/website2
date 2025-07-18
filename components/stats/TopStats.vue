@@ -49,7 +49,7 @@
     <!-- Typing Speed -->
     <div v-if="stats.monkeyType?.typingStats">
       <IndividualStat
-        :value="Math.round(stats.monkeyType.typingStats.averageWpm || 0)" size="medium" label="AVG WPM"
+        :value="Math.round(stats.monkeyType.typingStats.averageWpm || stats.monkeyType.typingStats.averageWPM || 0)" size="medium" label="AVG WPM"
         :details="`${Math.round(stats.monkeyType.typingStats.averageAccuracy || 0)}% ACC`"
       />
     </div>
