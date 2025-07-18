@@ -50,20 +50,6 @@
       />
     </ClientOnly>
 
-    <!-- Status indicator -->
-    <Transition name="fade">
-      <div
-        v-if="hasStaleData && !isSimpleMode"
-        class="fixed bottom-6 right-6 bg-zinc-900/90 dark:bg-zinc-100/90 backdrop-blur-sm border border-zinc-200 dark:border-zinc-800 rounded-lg p-3"
-      >
-        <div
-          class="flex items-center gap-2 text-xs font-mono uppercase tracking-wider"
-        >
-          <Icon name="i-heroicons-clock" class="w-3 h-3" />
-          <span class="text-zinc-500 dark:text-zinc-400">Cached Data</span>
-        </div>
-      </div>
-    </Transition>
   </div>
 </template>
 
