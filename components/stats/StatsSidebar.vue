@@ -158,11 +158,11 @@
           RECENT
         </div>
         <div 
-          v-for="track in (stats.lastfm.recentTracks || []).slice(0, 3)" 
+          v-for="track in (stats.lastfm.recentTracks?.tracks || []).slice(0, 3)" 
           :key="track.name"
           class="text-[8px] text-zinc-600 dark:text-zinc-400 truncate"
         >
-          {{ track.artist }} - {{ track.name }}
+          {{ track.artist?.name || track.artist }} - {{ track.name }}
         </div>
       </div>
     </section>

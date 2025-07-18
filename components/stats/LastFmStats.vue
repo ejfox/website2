@@ -28,7 +28,7 @@
       <StatsSectionHeader title="RECENT_TRACKS" />
       <div class="space-y-4">
         <div
-          v-for="(track, index) in stats.recentTracks.tracks.slice(0, 5)"
+          v-for="(track, index) in (stats.recentTracks?.tracks || []).slice(0, 5)"
           :key="index"
           class="flex items-start gap-2 @[350px]:gap-3 group"
         >
@@ -83,7 +83,7 @@
             <StatsSectionHeader title="TOP_ARTISTS_30D" />
             <div class="space-y-2">
               <div
-                v-for="(artist, index) in stats.topArtists.month.slice(0, 5)"
+                v-for="(artist, index) in (stats.topArtists?.month || []).slice(0, 5)"
                 :key="artist.name"
                 class="flex items-baseline gap-2 @[350px]:gap-3"
               >
@@ -105,7 +105,7 @@
             <StatsSectionHeader title="TOP_TRACKS_30D" />
             <div class="space-y-2">
               <div
-                v-for="(track, index) in stats.topTracks.month.slice(0, 5)"
+                v-for="(track, index) in (stats.topTracks?.month || []).slice(0, 5)"
                 :key="track.name"
                 class="flex items-baseline gap-2 @[350px]:gap-3"
               >
@@ -137,7 +137,7 @@
             <StatsSectionHeader title="TOP_ARTISTS_365D" />
             <div class="space-y-2">
               <div
-                v-for="(artist, index) in stats.topArtists.year.slice(0, 5)"
+                v-for="(artist, index) in (stats.topArtists?.year || []).slice(0, 5)"
                 :key="artist.name"
                 class="flex items-baseline gap-2 @[350px]:gap-3"
               >
@@ -159,7 +159,7 @@
             <StatsSectionHeader title="TOP_TRACKS_365D" />
             <div class="space-y-2">
               <div
-                v-for="(track, index) in stats.topTracks.year.slice(0, 5)"
+                v-for="(track, index) in (stats.topTracks?.year || []).slice(0, 5)"
                 :key="track.name"
                 class="flex items-baseline gap-2 @[350px]:gap-3"
               >
