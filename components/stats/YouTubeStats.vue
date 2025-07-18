@@ -60,11 +60,11 @@
               <h4 class="text-sm font-medium line-clamp-2">{{ video.title }}</h4>
               <div class="flex items-center gap-4 mt-2 text-xs text-zinc-400">
                 <div class="flex items-center gap-1">
-                  <UIcon name="i-heroicons-eye" class="w-4 h-4" />
+                  <Icon name="heroicons:eye" class="w-4 h-4" />
                   {{ formatNumber(video.views) }}
                 </div>
                 <div class="flex items-center gap-1">
-                  <UIcon name="i-heroicons-heart" class="w-4 h-4" />
+                  <Icon name="heroicons:heart" class="w-4 h-4" />
                   {{ formatNumber(video.likes) }}
                 </div>
                 <div>{{ formatDate(video.publishedAt) }}</div>

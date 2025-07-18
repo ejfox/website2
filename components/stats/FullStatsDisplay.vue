@@ -11,7 +11,9 @@
     <section class="space-y-12 2xl:pr-80 min-w-0 w-full pr-2">
       <!-- Header -->
       <header class="flex items-center justify-between py-6">
-        <h1 class="text-mono-label">FOX_ANNUAL_REPORT :: {{ currentYear }}</h1>
+        <h1 class="text-mono-label">
+          FOX_ANNUAL_REPORT :: {{ currentYear }}
+        </h1>
         <div class="flex items-center gap-6">
           <div class="text-mono-label">
             DAY {{ formatNumber(dayOfYear) }}/{{ formatNumber(daysInYear) }} ·

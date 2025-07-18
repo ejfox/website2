@@ -734,8 +734,7 @@ const processedMetadata = computed(() => {
               formatDate(nextPrevPosts.prev.date)
             }}</span>
             <span class="text-current block">
-              {{ nextPrevPosts.prev?.title }}</span
-            >
+              {{ nextPrevPosts.prev?.title }}</span>
           </NuxtLink>
         </div>
 
@@ -751,9 +750,7 @@ const processedMetadata = computed(() => {
             <span class="block text-sm text-gray-400">{{
               formatDate(nextPrevPosts.next.date)
             }}</span>
-            <span class="text-current block"
-              >{{ nextPrevPosts.next?.title }} →</span
-            >
+            <span class="text-current block">{{ nextPrevPosts.next?.title }} →</span>
           </NuxtLink>
         </div>
       </div>
@@ -779,7 +776,9 @@ const processedMetadata = computed(() => {
       </NuxtLink>
     </div>
     <div v-else class="p-4 text-center">
-      <p class="text-xl text-zinc-600 dark:text-zinc-400">Loading...</p>
+      <p class="text-xl text-zinc-600 dark:text-zinc-400">
+        Loading...
+      </p>
     </div>
 
     <!-- Desktop TOC -->
@@ -787,7 +786,7 @@ const processedMetadata = computed(() => {
       <div
         v-if="
           post?.toc?.[0]?.children?.length ||
-          post?.metadata?.toc?.[0]?.children?.length
+            post?.metadata?.toc?.[0]?.children?.length
         "
         class="toc"
       >
@@ -800,7 +799,7 @@ const processedMetadata = computed(() => {
           <ul class="space-y-1">
             <li
               v-for="child in post?.toc?.[0]?.children ||
-              post?.metadata?.toc?.[0]?.children"
+                post?.metadata?.toc?.[0]?.children"
               :key="child.slug"
               class="group relative"
             >

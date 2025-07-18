@@ -5,7 +5,9 @@
 
     <!-- Not found state -->
     <div v-else class="text-center max-w-md mx-auto">
-      <div class="text-6xl mb-6">⬟</div>
+      <div class="text-6xl mb-6">
+        ⬟
+      </div>
       <h1 class="text-3xl font-bold text-zinc-900 dark:text-zinc-100 mb-4">
         Gear Not Found
       </h1>

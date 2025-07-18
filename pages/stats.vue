@@ -3,7 +3,9 @@
     <!-- Stats TOC -->
     <teleport v-if="tocTarget && !isSimpleMode" to="#nav-toc-container">
       <div class="py-6 px-4">
-        <h3 class="text-mono-label mb-4">Stats Index</h3>
+        <h3 class="text-mono-label mb-4">
+          Stats Index
+        </h3>
         <ul class="space-y-1">
           <li v-for="section in statsSections" :key="section.id">
             <a
@@ -49,7 +51,6 @@
         :health-today="healthToday"
       />
     </ClientOnly>
-
   </div>
 </template>
 

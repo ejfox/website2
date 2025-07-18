@@ -44,8 +44,7 @@
             target="_blank"
             class="text-zinc-800 dark:text-zinc-200 underline decoration-zinc-300 dark:decoration-zinc-700 decoration-1 underline-offset-4 hover:decoration-zinc-500 dark:hover:decoration-zinc-500 transition-all duration-300"
           >
-            Gwern's prediction system </a
-          >, and efforts like PredictIt or PolyMarket. But of course I want to
+            Gwern's prediction system </a>, and efforts like PredictIt or PolyMarket. But of course I want to
           own my own data and presentation. All predictions are
           cryptographically signed and commited to github for version history.
           Showing my failed predictions is an important part of this project.
@@ -146,15 +145,20 @@
           <div class="flex items-center gap-4">
             <span
               class="text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.3em]"
-              >Sort</span
-            >
+            >Sort</span>
             <select
               v-model="sortBy"
               class="px-4 py-2 text-xs bg-transparent text-zinc-700 dark:text-zinc-300 border border-zinc-300 dark:border-zinc-700 focus:outline-none focus:border-zinc-500 dark:focus:border-zinc-400 transition-colors uppercase tracking-[0.2em]"
             >
-              <option value="date">Date Created</option>
-              <option value="confidence">Confidence</option>
-              <option value="statement">Statement (A-Z)</option>
+              <option value="date">
+                Date Created
+              </option>
+              <option value="confidence">
+                Confidence
+              </option>
+              <option value="statement">
+                Statement (A-Z)
+              </option>
             </select>
           </div>
         </div>
@@ -383,8 +387,7 @@
               <div class="flex items-center gap-4">
                 <span
                   class="text-sm font-mono text-zinc-700 dark:text-zinc-300 w-16"
-                  >{{ range.label }}</span
-                >
+                >{{ range.label }}</span>
                 <div
                   class="w-32 h-1 bg-zinc-200 dark:bg-zinc-800 rounded-full overflow-hidden"
                 >
@@ -402,12 +405,8 @@
                 </div>
               </div>
               <div class="text-right">
-                <span class="text-sm font-mono text-zinc-900 dark:text-zinc-100"
-                  >{{ range.accuracy }}%</span
-                >
-                <span class="text-xs text-zinc-500 dark:text-zinc-500 ml-2"
-                  >({{ range.correct }}/{{ range.total }})</span
-                >
+                <span class="text-sm font-mono text-zinc-900 dark:text-zinc-100">{{ range.accuracy }}%</span>
+                <span class="text-xs text-zinc-500 dark:text-zinc-500 ml-2">({{ range.correct }}/{{ range.total }})</span>
               </div>
             </div>
           </div>
@@ -432,8 +431,7 @@
               <div class="flex items-center gap-4">
                 <span
                   class="text-sm font-mono text-zinc-700 dark:text-zinc-300 w-12"
-                  >{{ yearData.year }}</span
-                >
+                >{{ yearData.year }}</span>
                 <div
                   class="w-32 h-1 bg-zinc-200 dark:bg-zinc-800 rounded-full overflow-hidden"
                 >
@@ -451,12 +449,8 @@
                 </div>
               </div>
               <div class="text-right">
-                <span class="text-sm font-mono text-zinc-900 dark:text-zinc-100"
-                  >{{ yearData.accuracy }}%</span
-                >
-                <span class="text-xs text-zinc-500 dark:text-zinc-500 ml-2"
-                  >({{ yearData.correct }}/{{ yearData.total }})</span
-                >
+                <span class="text-sm font-mono text-zinc-900 dark:text-zinc-100">{{ yearData.accuracy }}%</span>
+                <span class="text-xs text-zinc-500 dark:text-zinc-500 ml-2">({{ yearData.correct }}/{{ yearData.total }})</span>
               </div>
             </div>
           </div>
@@ -531,12 +525,11 @@
                 <div class="flex items-center gap-2 shrink-0">
                   <span
                     class="text-xs font-mono text-zinc-400 dark:text-zinc-600"
-                    >{{ prediction.confidence }}%</span
-                  >
+                  >{{ prediction.confidence }}%</span>
                   <div
                     v-if="
                       prediction.status === 'correct' ||
-                      prediction.status === 'incorrect'
+                        prediction.status === 'incorrect'
                     "
                     class="w-2 h-2 rounded-full"
                     :class="

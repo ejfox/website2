@@ -232,7 +232,9 @@ useHead({
   <div class="mt-24 md:mt-0">
     <!-- Header -->
     <header class="my-6">
-      <h1 class="text-display mb-8">Projects</h1>
+      <h1 class="text-display mb-8">
+        Projects
+      </h1>
       <p class="text-body">
         A collection of experiments, tools, and creative explorations.
       </p>
@@ -248,7 +250,9 @@ useHead({
     </div>
 
     <div v-else-if="sortedProjectPosts.length === 0" class="text-center py-16">
-      <p class="text-body">&nbsp;</p>
+      <p class="text-body">
+&nbsp;
+      </p>
     </div>
 
     <!-- Projects list -->
@@ -270,9 +274,9 @@ useHead({
             <div
               v-if="
                 project.metadata?.github ||
-                project.metadata?.demo ||
-                project.metadata?.website ||
-                project.metadata?.url
+                  project.metadata?.demo ||
+                  project.metadata?.website ||
+                  project.metadata?.url
               "
               class="flex flex-wrap gap-6 pt-6"
             >
@@ -303,9 +307,9 @@ useHead({
               <a
                 v-if="
                   project.metadata?.url &&
-                  !project.metadata?.github &&
-                  !project.metadata?.demo &&
-                  !project.metadata?.website
+                    !project.metadata?.github &&
+                    !project.metadata?.demo &&
+                    !project.metadata?.website
                 "
                 :href="project.metadata.url"
                 target="_blank"

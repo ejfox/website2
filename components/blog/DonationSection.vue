@@ -4,7 +4,7 @@ const { crypto, github } = config.public.donations
 
 const amount = ref(5)
 const loading = ref(false)
-const isDark = useDark()
+const _isDark = useDark()
 
 // Add clipboard functionality
 const { copy } = useClipboard()
@@ -120,9 +120,9 @@ const currentDonationMessage = computed(() => {
   <section class="donation-section mt-16 mb-8 font-mono">
     <div class="max-w-3xl mx-auto">
       <div class="text-center mb-12">
-        <UText class="text-2xl font-light tracking-wider mb-3">
+        <h2 class="text-2xl font-light tracking-wider mb-3">
           Support This Work
-        </UText>
+        </h2>
         <div
           class="w-16 h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent mx-auto"
         ></div>
@@ -130,31 +130,30 @@ const currentDonationMessage = computed(() => {
 
       <div class="grid md:grid-cols-2 gap-8">
         <!-- Stripe Payment -->
-        <UCard>
-          <template #header>
-            <h4 class="text-lg font-light">
-              One-time Support
-            </h4>
-          </template>
+        <div class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg p-6">
+          <h4 class="text-lg font-light mb-6">
+            One-time Support
+          </h4>
 
           <div class="space-y-6">
             <div>
               <div class="flex justify-between mb-2">
-                <UText class="text-sm text-gray-500">
+                <span class="text-sm text-gray-500">
                   Amount
-                </UText>
+                </span>
                 <span class="px-3 py-2 text-sm font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded">{{
                   formatAmount
                 }}</span>
               </div>
 
               <div class="mb-2">
-                <URange
+                <input
                   v-model="amount"
+                  type="range"
                   :min="1"
                   :max="100"
                   :step="1"
-                  class="w-full"
+                  class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
                 />
                 <div class="flex justify-between text-xs text-gray-500 mt-1">
                   <span>$1</span>
@@ -162,17 +161,14 @@ const currentDonationMessage = computed(() => {
                 </div>
               </div>
 
-              <UButton
-                :loading="loading"
+              <button
                 :disabled="loading"
-                color="blue"
-                variant="solid"
-                block
-                icon="i-material-symbols-payments-outline"
+                class="w-full flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white rounded-lg transition-colors"
                 @click="handleDonation"
               >
+                <Icon name="material-symbols:payments-outline" class="w-4 h-4" />
                 {{ loading ? 'Processing...' : 'Support via Stripe' }}
-              </UButton>
+              </button>
 
               <div class="mt-4 flex items-center justify-center min-h-[2rem]">
                 <p
@@ -184,15 +180,13 @@ const currentDonationMessage = computed(() => {
               </div>
             </div>
           </div>
-        </UCard>
+        </div>
 
         <!-- Updated Crypto Section -->
-        <UCard>
-          <template #header>
-            <h4 class="text-lg font-light">
-              Cryptocurrency
-            </h4>
-          </template>
+        <div class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg p-6">
+          <h4 class="text-lg font-light mb-6">
+            Cryptocurrency
+          </h4>
 
           <div class="space-y-4">
             <template v-for="(address, currency) in crypto" :key="currency">
@@ -205,48 +199,45 @@ const currentDonationMessage = computed(() => {
                     />
                     <span class="font-medium">{{ currency }}</span>
                   </div>
-                  <UButton
-                    size="xs"
-                    :color="lastCopied === currency ? 'green' : 'gray'"
-                    variant="ghost"
-                    :icon="
-                      lastCopied === currency
-                        ? 'i-heroicons-check'
-                        : 'i-heroicons-clipboard'
-                    "
+                  <button
+                    class="flex items-center gap-1 px-2 py-1 text-xs rounded transition-colors"
+                    :class="lastCopied === currency ? 'text-green-600 bg-green-100 dark:bg-green-900/20' : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100'"
                     @click="copyAddress(address, currency)"
                   >
+                    <Icon
+                      :name="lastCopied === currency ? 'heroicons:check' : 'heroicons:clipboard'"
+                      class="w-3 h-3"
+                    />
                     {{ lastCopied === currency ? 'Copied!' : 'Copy' }}
-                  </UButton>
+                  </button>
                 </div>
                 <div
                   class="p-2 bg-gray-100 dark:bg-gray-800 rounded cursor-pointer group transition-colors"
                   @click="copyAddress(address, currency)"
                 >
-                  <UText class="font-mono text-xs break-all">
+                  <span class="font-mono text-xs break-all">
                     {{
                       address
                     }}
-                  </UText>
+                  </span>
                 </div>
               </div>
             </template>
           </div>
-        </UCard>
+        </div>
       </div>
 
       <!-- GitHub Sponsors -->
       <div class="text-center mt-8">
-        <UButton
-          :to="`https://github.com/sponsors/${github}`"
+        <a
+          :href="`https://github.com/sponsors/${github}`"
           target="_blank"
           rel="noopener"
-          color="pink"
-          variant="ghost"
-          icon="i-mdi-github"
+          class="inline-flex items-center gap-2 px-4 py-2 text-pink-600 hover:text-pink-700 dark:text-pink-400 dark:hover:text-pink-300 transition-colors"
         >
+          <Icon name="mdi:github" class="w-4 h-4" />
           Also available on GitHub Sponsors
-        </UButton>
+        </a>
       </div>
     </div>
   </section>

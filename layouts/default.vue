@@ -9,7 +9,7 @@
       <nav
         v-if="
           isMobile &&
-          !(route.path === '/stats' && route.query.simple !== undefined)
+            !(route.path === '/stats' && route.query.simple !== undefined)
         "
         class="fixed top-0 left-0 w-full z-50 bg-zinc-100/80 dark:bg-zinc-900/80 backdrop-blur-lg"
       >
@@ -106,11 +106,15 @@
               EJ Fox
             </NuxtLink>
             <div class="space-y-1">
-              <NuxtLink :class="linkClasses" to="/"> Home </NuxtLink>
+              <NuxtLink :class="linkClasses" to="/">
+                Home
+              </NuxtLink>
               <NuxtLink :class="linkClasses" to="/projects">
                 Projects
               </NuxtLink>
-              <NuxtLink :class="linkClasses" to="/blog/"> Blog </NuxtLink>
+              <NuxtLink :class="linkClasses" to="/blog/">
+                Blog
+              </NuxtLink>
             </div>
 
             <!-- <NuxtLink :class="linkClasses" to="/scrapbook/">Scrapbook</NuxtLink> -->
@@ -122,14 +126,14 @@
               <NuxtLink :class="linkClasses" to="https://ejfox.photos">
                 <span class="justify-between">
                   <span>Photos</span>
-                  <UIcon name="i-ei-external-link" class="w-3 h-3 opacity-50" />
+                  <Icon name="mdi:external-link" class="w-3 h-3 opacity-50" />
                 </span>
               </NuxtLink>
 
               <NuxtLink :class="linkClasses" to="https://archive.ejfox.com">
                 <span class="justify-between">
                   <span>Archive</span>
-                  <UIcon name="i-ei-external-link" class="w-3 h-3 opacity-50" />
+                  <Icon name="mdi:external-link" class="w-3 h-3 opacity-50" />
                 </span>
               </NuxtLink>
             </div>

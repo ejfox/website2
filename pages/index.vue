@@ -67,7 +67,9 @@ onMounted(async () => {
             v-html="indexContent.html"
           ></div>
         </template>
-        <div v-else class="text-center py-12">Loading...</div>
+        <div v-else class="text-center py-12">
+          Loading...
+        </div>
       </div>
       <div v-else class="text-center text-zinc-500 dark:text-zinc-400">
         No posts found

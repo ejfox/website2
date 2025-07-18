@@ -27,7 +27,7 @@
     >
       <!-- Header -->
       <div class="flex items-center gap-1 text-xs font-mono mb-1">
-        <UIcon :name="sourceData.icon" class="w-3.5 h-3.5" />
+        <Icon :name="sourceData.icon" class="w-3.5 h-3.5" />
         <span>{{ sourceData.label }}</span>
         <span v-if="scrap.type" class="opacity-60">[{{ scrap.type }}]</span>
       </div>
@@ -72,19 +72,19 @@
 
         <!-- Location -->
         <div v-if="scrap.location" class="flex items-center gap-1">
-          <UIcon name="i-heroicons-map-pin-20-solid" class="w-3 h-3" />
+          <Icon name="heroicons:map-pin-20-solid" class="w-3 h-3" />
           {{ scrap.location }}
         </div>
 
         <!-- Links -->
         <div v-if="scrap.relationships?.length" class="flex items-center gap-1">
-          <UIcon name="i-heroicons-link" class="w-3 h-3" />
+          <Icon name="heroicons:link" class="w-3 h-3" />
           {{ scrap.relationships.length }}
         </div>
 
         <!-- Media count -->
         <div v-if="mediaCount > 1" class="flex items-center gap-1">
-          <UIcon name="i-heroicons-photo" class="w-3 h-3" />
+          <Icon name="heroicons:photo" class="w-3 h-3" />
           {{ mediaCount }}
         </div>
       </div>

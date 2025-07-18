@@ -330,7 +330,9 @@ function createPostMetadata(post) {
   <div v-else>
     <!-- Header -->
     <header class="my-20 md:mt-6 pl-4 md:pl-0">
-      <h1 class="text-display mb-8">Blog</h1>
+      <h1 class="text-display mb-8">
+        Blog
+      </h1>
       <p class="text-body">
         Thoughts, projects, and explorations in technology, design, and making.
       </p>
@@ -340,7 +342,9 @@ function createPostMetadata(post) {
       <!-- Main Blog Posts section -->
       <section class="mt-16 md:mt-0">
         <div v-if="!sortedYears.length" class="text-center py-16">
-          <p class="text-zinc-600 dark:text-zinc-400">No blog posts found.</p>
+          <p class="text-zinc-600 dark:text-zinc-400">
+            No blog posts found.
+          </p>
         </div>
 
         <!-- Yearly blog posts with Swiss design -->
