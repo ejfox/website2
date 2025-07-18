@@ -143,11 +143,9 @@ const currentDonationMessage = computed(() => {
                 <UText class="text-sm text-gray-500">
                   Amount
                 </UText>
-                <UBadge :color="isDark ? 'white' : 'gray'" size="lg">
-                  {{
-                    formatAmount
-                  }}
-                </UBadge>
+                <span class="px-3 py-2 text-sm font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded">{{
+                  formatAmount
+                }}</span>
               </div>
 
               <div class="mb-2">

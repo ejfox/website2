@@ -714,7 +714,7 @@ const processedMetadata = computed(() => {
           :key="tag"
           class="inline-block mr-2 mb-2"
         >
-          <UBadge :color="isDark ? 'zinc-700' : 'zinc-300'" :text="tag" />
+          <span class="px-2 py-1 text-xs font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 rounded">{{ tag }}</span>
         </span>
       </div>
 
