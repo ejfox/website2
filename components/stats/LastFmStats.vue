@@ -14,7 +14,7 @@
         </div>
         <div class="stat-block">
           <div class="text-xl @[300px]:text-2xl @[400px]:text-3xl tabular-nums">
-            {{ formatDecimal(stats?.stats?.averagePerDay, 1) }}
+            {{ formatDecimal(1)(stats?.stats?.averagePerDay ?? 0) }}
           </div>
           <div class="text-[10px] text-zinc-500 tracking-[0.2em]">
             DAILY_AVERAGE
