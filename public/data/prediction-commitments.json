@@ -5,5 +5,75 @@
     "gitCommit": "66ce634c4c287cf4736a46b9b5ce6ea2cb43db3e",
     "signed": "2025-05-18T13:25:43.682Z",
     "statement": "At least one major tech company will release an AI model that consistently outperforms GPT-4 on stan..."
+  },
+  {
+    "file": "ai-code-github-30-percent-2026.md",
+    "hash": "7784a464e24f46be79b4524599f7578c66829daffb471bae9206c1afb4d4d80c",
+    "gitCommit": "8ef2f98be927670a9bfb8ea03ac4f8d52f05cfa7",
+    "signed": "2025-07-20T15:16:33.438Z",
+    "statement": "AI-generated code will account for more than 30% of commits in the top 50 GitHub repositories by Dec..."
+  },
+  {
+    "file": "ai-model-ban-g20-2026.md",
+    "hash": "e3592d7072ddaf790d0ffa416aa26b307338754ff2c36f0ac48c4925e365f375",
+    "gitCommit": "8ef2f98be927670a9bfb8ea03ac4f8d52f05cfa7",
+    "signed": "2025-07-20T15:16:33.510Z",
+    "statement": "At least one G20 country will ban the deployment of a specific named AI model by December 31, 2026..."
+  },
+  {
+    "file": "ai-song-billboard-not-2026.md",
+    "hash": "360403d9d755776e639c48510b35789d3209913f579916b1792d0b981029a9de",
+    "gitCommit": "8ef2f98be927670a9bfb8ea03ac4f8d52f05cfa7",
+    "signed": "2025-07-20T15:16:33.576Z",
+    "statement": "No fully AI-generated song will reach #1 on the Billboard Hot 100 chart by December 31, 2026..."
+  },
+  {
+    "file": "anthropic-chatbot-arena-2025.md",
+    "hash": "cab17479e4c25b11583349697b2ddf371ff104cb571980bea9fba78bc785ddf9",
+    "gitCommit": "8ef2f98be927670a9bfb8ea03ac4f8d52f05cfa7",
+    "signed": "2025-07-20T15:16:33.647Z",
+    "statement": "Anthropic will achieve top position on LMSYS Chatbot Arena leaderboard and hold it for 60+ consecuti..."
+  },
+  {
+    "file": "apple-ar-glasses-2027.md",
+    "hash": "87ffc4b3df42ad90dcf5dd3446162dacf701cccafc12bed8ada40b0e7fef6c6e",
+    "gitCommit": "8ef2f98be927670a9bfb8ea03ac4f8d52f05cfa7",
+    "signed": "2025-07-20T15:16:33.715Z",
+    "statement": "Apple will announce consumer AR glasses (not headset) priced under $1,200 by December 31, 2027..."
+  },
+  {
+    "file": "bitcoin-sub-100k-2029.md",
+    "hash": "54ed4675fb31c9b5ca4136965d1e8b0911d26e800a3455bd9248c1c449d31a61",
+    "gitCommit": "8ef2f98be927670a9bfb8ea03ac4f8d52f05cfa7",
+    "signed": "2025-07-20T15:16:33.785Z",
+    "statement": "Bitcoin will trade below $100,000 USD for at least 7 consecutive days between January 1, 2025 and De..."
+  },
+  {
+    "file": "deepfake-crime-10m-2027.md",
+    "hash": "4c9b7778fdfb105981c40f2029c65ad8a9f9d42a3242f6c419ad31e8ece54ea9",
+    "gitCommit": "8ef2f98be927670a9bfb8ea03ac4f8d52f05cfa7",
+    "signed": "2025-07-20T15:16:33.857Z",
+    "statement": "A criminal conviction will explicitly cite deepfake technology as causing damages exceeding $10 mill..."
+  },
+  {
+    "file": "ice-facilities-deaths-2027.md",
+    "hash": "e063ae6965e7d7a6f637448e348bf9d4ced962babd2637910700820c27e9a744",
+    "gitCommit": "8ef2f98be927670a9bfb8ea03ac4f8d52f05cfa7",
+    "signed": "2025-07-20T15:16:33.958Z",
+    "statement": "A federal court will issue findings of fact documenting unlawful deaths at ICE detention facilities ..."
+  },
+  {
+    "file": "trump-completes-second-term-2029.md",
+    "hash": "aab71c967cb1768d6f78f6c84c5f5ec911ee3e9f0a52fa0b2b1dd4dc6edfa333",
+    "gitCommit": "8ef2f98be927670a9bfb8ea03ac4f8d52f05cfa7",
+    "signed": "2025-07-20T15:16:34.025Z",
+    "statement": "Donald Trump will be inaugurated January 20, 2025 and serve until January 20, 2029 without being rem..."
+  },
+  {
+    "file": "zohran-mamdani-nyc-mayor-2025.md",
+    "hash": "2baf6514e3525e890bcd2ae71a5d5ca1579cc2263adf287cae2766dc770e5f9b",
+    "gitCommit": "8ef2f98be927670a9bfb8ea03ac4f8d52f05cfa7",
+    "signed": "2025-07-20T15:16:34.092Z",
+    "statement": "Zohran Mamdani will win the 2025 NYC mayoral election by a margin greater than 5%..."
   }
 ]
