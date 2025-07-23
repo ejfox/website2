@@ -32,8 +32,8 @@ docker-compose down || true
 
 # Build new image (or use existing if just restarting)
 if [ "$SKIP_PULL" = false ]; then
-    echo "🔨 Building Docker image..."
-    docker-compose build
+    echo "🔨 Building Docker image (no cache)..."
+    docker-compose build --no-cache
 else
     echo "♻️  Using existing Docker image..."
 fi
