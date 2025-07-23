@@ -30,6 +30,11 @@ fi
 echo "🛑 Stopping existing container..."
 docker-compose down || true
 
+# Also stop any other containers using our port
+echo "🔍 Checking for containers using port 3006..."
+docker ps -a | grep 3006 | awk '{print $1}' | xargs -r docker stop || true
+docker ps -a | grep 3006 | awk '{print $1}' | xargs -r docker rm || true
+
 # Build new image (or use existing if just restarting)
 if [ "$SKIP_PULL" = false ]; then
     echo "🔨 Building Docker image (no cache)..."
