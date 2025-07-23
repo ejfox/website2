@@ -5,8 +5,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      platforms:
-        - linux/amd64
     image: website2:latest
     platform: linux/amd64
     container_name: website2-prod
