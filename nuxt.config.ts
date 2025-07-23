@@ -56,6 +56,28 @@ export default defineNuxtConfig({
     typeCheck: false // Disable type checking during build for performance
   },
 
+  // Disable oxc-parser for Docker compatibility
+  experimental: {
+    defaults: {
+      nuxt: {
+        compilerOptions: {
+          types: []
+        }
+      }
+    }
+  },
+
+  // Additional build configuration for Docker
+  build: {
+    transpile: ['vue-toastification'],
+    analyze: process.env.ANALYZE === 'true'
+  },
+
+  // Force disable oxc via feature flags
+  features: {
+    oxc: false
+  },
+
   // Google Fonts configuration
   googleFonts: {
     families: {
@@ -73,11 +95,6 @@ export default defineNuxtConfig({
     stylePath: 'css/fonts.css' // Optimize CSS delivery
   },
 
-  // Component loading optimization
-  build: {
-    transpile: ['vue-toastification'],
-    analyze: process.env.ANALYZE === 'true'
-  },
 
   // Vite optimizations
   vite: {
