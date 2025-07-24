@@ -27,25 +27,28 @@ if [ ! -f .env ]; then
     exit 1
 fi
 
-# Nuclear option: Kill everything that might interfere
-echo "💀 Nuking all potential conflicts..."
+# Surgical strike: Only kill OUR stuff
+echo "🎯 Targeting only website2 containers..."
 
-# Stop ALL Docker containers
-echo "🛑 Stopping all Docker containers..."
-docker stop $(docker ps -q) 2>/dev/null || true
+# Stop only OUR containers
+echo "🛑 Stopping website2 containers..."
+docker-compose down --remove-orphans 2>/dev/null || true
+docker stop website2-prod 2>/dev/null || true
+docker rm website2-prod 2>/dev/null || true
 
-# Remove all stopped containers
-echo "🗑️  Removing stopped containers..."
-docker container prune -f 2>/dev/null || true
+# Look for any other website2 containers by name
+echo "🔍 Finding any remaining website2 containers..."
+docker ps -a --filter "name=website2" --format "{{.ID}}" | xargs -r docker stop 2>/dev/null || true
+docker ps -a --filter "name=website2" --format "{{.ID}}" | xargs -r docker rm 2>/dev/null || true
 
 # Kill anything using port 3006
 echo "🔫 Killing processes on port 3006..."
 sudo fuser -k 3006/tcp 2>/dev/null || true
 sudo lsof -ti:3006 | xargs -r sudo kill -9 2>/dev/null || true
 
-# Remove any networks that might conflict
-echo "🌐 Cleaning up Docker networks..."
-docker network prune -f 2>/dev/null || true
+# Only clean up our network
+echo "🌐 Cleaning up website2 network..."
+docker network rm website2_default 2>/dev/null || true
 
 # Give everything a moment to die
 echo "⏰ Waiting for processes to terminate..."
