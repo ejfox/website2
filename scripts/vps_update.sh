@@ -4,6 +4,21 @@
 
 set -e  # Exit on error
 
+# Safety check: Are we in the right directory?
+if [ ! -f "docker-compose.yml" ]; then
+    echo "❌ ERROR: No docker-compose.yml found in current directory!"
+    echo "📍 Current directory: $(pwd)"
+    echo "🤔 Are you in the website2 directory?"
+    exit 1
+fi
+
+# Verify this is actually website2
+if ! grep -q "website2" docker-compose.yml; then
+    echo "❌ ERROR: This doesn't look like the website2 project!"
+    echo "🤔 docker-compose.yml doesn't contain 'website2'"
+    exit 1
+fi
+
 # Check if we should skip git pull (for quick restarts)
 SKIP_PULL=false
 if [ "$1" = "--no-pull" ] || [ "$1" = "-n" ]; then
@@ -36,15 +51,29 @@ docker-compose down --remove-orphans 2>/dev/null || true
 docker stop website2-prod 2>/dev/null || true
 docker rm website2-prod 2>/dev/null || true
 
-# Look for any other website2 containers by name
+# Look for EXACT website2 containers only
 echo "🔍 Finding any remaining website2 containers..."
-docker ps -a --filter "name=website2" --format "{{.ID}}" | xargs -r docker stop 2>/dev/null || true
-docker ps -a --filter "name=website2" --format "{{.ID}}" | xargs -r docker rm 2>/dev/null || true
+# Only match exact names: website2-prod or website2_website2_1 (docker-compose generated)
+docker ps -a --filter "name=^website2-prod$" --format "{{.ID}}" | xargs -r docker stop 2>/dev/null || true
+docker ps -a --filter "name=^website2-prod$" --format "{{.ID}}" | xargs -r docker rm 2>/dev/null || true
+docker ps -a --filter "name=^website2_website2" --format "{{.ID}}" | xargs -r docker stop 2>/dev/null || true
+docker ps -a --filter "name=^website2_website2" --format "{{.ID}}" | xargs -r docker rm 2>/dev/null || true
 
-# Kill anything using port 3006
-echo "🔫 Killing processes on port 3006..."
-sudo fuser -k 3006/tcp 2>/dev/null || true
-sudo lsof -ti:3006 | xargs -r sudo kill -9 2>/dev/null || true
+# Check what's actually using port 3006 before killing
+echo "🔍 Checking port 3006..."
+PORT_USER=$(sudo lsof -i :3006 -t 2>/dev/null)
+if [ ! -z "$PORT_USER" ]; then
+    # Check if it's actually a Docker container
+    if ps -p $PORT_USER -o comm= | grep -q "docker-proxy"; then
+        echo "🔫 Port 3006 is used by Docker, safe to kill..."
+        sudo kill -9 $PORT_USER 2>/dev/null || true
+    else
+        echo "⚠️  WARNING: Port 3006 is used by non-Docker process!"
+        ps -p $PORT_USER -o pid,comm,args
+        echo "❌ Refusing to kill non-Docker process. Fix this manually!"
+        exit 1
+    fi
+fi
 
 # Only clean up our network
 echo "🌐 Cleaning up website2 network..."
