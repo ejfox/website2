@@ -29,13 +29,24 @@ fi
 echo "🛑 Stopping old containers..."
 docker-compose down 2>/dev/null || true
 
-# Kill anything on port 3006
+# Kill anything on port 3006 - be VERY aggressive
 echo "🔥 Freeing port 3006..."
-sudo pkill -f ":3006" 2>/dev/null || true
+# Kill by port directly - most reliable method
+sudo fuser -k 3006/tcp 2>/dev/null || true
+# Kill any lsof results
 sudo lsof -ti:3006 | xargs -r sudo kill -9 2>/dev/null || true
 
-# Wait for port to free
+# Wait for port to free and verify
 sleep 3
+
+# Check if port is still in use
+if sudo lsof -i:3006 2>/dev/null; then
+    echo "❌ Port 3006 still in use! Showing what's using it:"
+    sudo lsof -i:3006
+    echo "💀 Force killing everything on port 3006..."
+    sudo lsof -ti:3006 | xargs -r sudo kill -9
+    sleep 2
+fi
 
 # Build and start
 echo "🔨 Building and starting..."

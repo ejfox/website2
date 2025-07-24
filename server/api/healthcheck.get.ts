@@ -2,12 +2,23 @@ import { setResponseStatus } from 'h3'
 
 export default defineEventHandler(async (event) => {
   try {
+    // Get version info
+    let commit = 'unknown'
+    try {
+      const { execSync } = await import('child_process')
+      commit = execSync('git rev-parse HEAD', { encoding: 'utf8' }).trim().substring(0, 8)
+    } catch (e) {
+      // Git not available
+    }
+
     // Basic health checks
     const health: unknown = {
       status: 'healthy',
       timestamp: new Date().toISOString(),
-      uptime: process.uptime(),
+      uptime: Math.floor(process.uptime()),
       node: process.version,
+      commit,
+      env: process.env.NODE_ENV,
       memory: {
         used: Math.round(process.memoryUsage().heapUsed / 1024 / 1024), // MB
         total: Math.round(process.memoryUsage().heapTotal / 1024 / 1024) // MB
