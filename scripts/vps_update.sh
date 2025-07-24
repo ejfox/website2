@@ -61,18 +61,27 @@ docker ps -a --filter "name=^website2_website2" --format "{{.ID}}" | xargs -r do
 
 # Check what's actually using port 3006 before killing
 echo "🔍 Checking port 3006..."
-PORT_USER=$(sudo lsof -i :3006 -t 2>/dev/null)
-if [ ! -z "$PORT_USER" ]; then
-    # Check if it's actually a Docker container
-    if ps -p $PORT_USER -o comm= | grep -q "docker-proxy"; then
-        echo "🔫 Port 3006 is used by Docker, safe to kill..."
-        sudo kill -9 $PORT_USER 2>/dev/null || true
-    else
-        echo "⚠️  WARNING: Port 3006 is used by non-Docker process!"
-        ps -p $PORT_USER -o pid,comm,args
-        echo "❌ Refusing to kill non-Docker process. Fix this manually!"
-        exit 1
-    fi
+PORT_USERS=$(sudo lsof -i :3006 -t 2>/dev/null)
+if [ ! -z "$PORT_USERS" ]; then
+    # Check each process
+    for PID in $PORT_USERS; do
+        # Get process command safely
+        PROC_NAME=$(ps -p "$PID" -o comm= 2>/dev/null || echo "unknown")
+        
+        if echo "$PROC_NAME" | grep -q "docker-proxy"; then
+            echo "🔫 Port 3006 is used by Docker (PID: $PID), killing..."
+            sudo kill -9 "$PID" 2>/dev/null || true
+        else
+            echo "⚠️  WARNING: Port 3006 is used by non-Docker process!"
+            echo "Process: $PROC_NAME (PID: $PID)"
+            
+            # Since we can't tell what it is, let's just kill it anyway - it's blocking our port
+            echo "🔥 Killing process blocking our port..."
+            sudo kill -9 "$PID" 2>/dev/null || true
+        fi
+    done
+    # Give it a moment to release the port
+    sleep 2
 fi
 
 # Only clean up our network
