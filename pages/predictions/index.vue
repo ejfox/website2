@@ -384,7 +384,7 @@
 </template>
 
 <script setup>
-import PredictionCard from '~/components/prediction/PredictionCard.vue'
+import PredictionCard from '~/components/predictions/PredictionCard.vue'
 
 const { data: predictions } = await useFetch('/api/predictions')
 const filter = ref('all')
