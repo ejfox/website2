@@ -1,5 +1,5 @@
 <template>
-  <div v-if="commitTypes.length">
+  <div v-if="commitTypes.length" ref="patternsRef">
     <h4 class="section-subheader">
       COMMIT PATTERNS
     </h4>
@@ -7,7 +7,7 @@
       <div
         v-for="type in commitTypes.slice(0, 5)"
         :key="type.type"
-        class="flex items-start gap-2"
+        class="pattern-row flex items-start gap-2"
       >
         <div
           class="w-3 h-3 mt-1 flex-shrink-0 rounded-sm"
@@ -36,7 +36,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, onMounted, nextTick } from 'vue'
+import { animate, stagger as _stagger, onScroll } from '~/anime.esm.js'
+import { useAnimations } from '~/composables/useAnimations'
 
 interface CommitType {
   type: string
@@ -54,8 +56,75 @@ const props = defineProps<{
   stats: GitHubStats
 }>()
 
+const { timing, easing, staggers } = useAnimations()
+
 const commitTypes = computed(() => {
   return props.stats?.detail?.commitTypes || []
+})
+
+// Animation refs
+const patternsRef = ref<HTMLElement | null>(null)
+
+// Epic commit patterns scroll-triggered animations using anime.js onScroll
+const setupScrollAnimations = () => {
+  if (process.server) return
+  
+  nextTick(() => {
+    if (!patternsRef.value || !commitTypes.value.length) return
+
+    // Header reveal on scroll
+    const header = patternsRef.value.querySelector('.section-subheader')
+    if (header) {
+      animate(header, {
+        opacity: [0, 1],
+        translateX: [-10, 0],
+        scale: [0.9, 1],
+        duration: timing.slow,
+        ease: easing.standard,
+        autoplay: onScroll({
+          target: header,
+          onEnter: () => true
+        })
+      })
+    }
+    
+    // Pattern rows cascade on scroll
+    const patternRows = patternsRef.value.querySelectorAll('.pattern-row')
+    if (patternRows.length) {
+      animate(Array.from(patternRows), {
+        opacity: [0, 1],
+        translateY: [15, 0],
+        scale: [0.95, 1.02, 1],
+        duration: timing.slow,
+        delay: _stagger(staggers.tight),
+        ease: easing.productive,
+        autoplay: onScroll({
+          target: patternRows[0],
+          onEnter: () => true
+        })
+      })
+    }
+    
+    // Epic bar growth animation with stagger on scroll
+    const bars = patternsRef.value.querySelectorAll('.category-bar-fill')
+    if (bars.length) {
+      animate(Array.from(bars), {
+        scaleX: [0, 1.1, 1],
+        scaleY: [0.3, 1.2, 1],
+        duration: timing.expressive,
+        delay: _stagger(staggers.normal, { from: 'first' }),
+        ease: easing.bounce,
+        autoplay: onScroll({
+          target: bars[0],
+          onEnter: () => true
+        })
+      })
+    }
+  })
+}
+
+onMounted(() => {
+  setupScrollAnimations()
 })
 
 function getTypeClass(type: string) {

@@ -1,22 +1,22 @@
 <template>
-  <div class="space-y-3 font-mono">
+  <div ref="blogStatsRef" class="space-y-3 font-mono">
     <!-- Current Status - Big Numbers for Motivation -->
-    <div>
+    <div ref="statusSectionRef">
       <StatsSectionHeader title="WRITING STATUS" />
-      <div class="grid grid-cols-2 gap-2">
-        <div class="metric-card">
+      <div ref="statusGridRef" class="grid grid-cols-2 gap-2">
+        <div ref="postsCardRef" class="metric-card">
           <div class="stat-value">
             {{ stats.totalPosts }}
           </div>
-          <div class="metric-label">
+          <div class="stat-label">
             TOTAL POSTS
           </div>
         </div>
-        <div class="metric-card">
+        <div ref="wordsCardRef" class="metric-card">
           <div class="stat-value">
             {{ formatNumber(stats.totalWords) }}
           </div>
-          <div class="metric-label">
+          <div class="stat-label">
             TOTAL WORDS
           </div>
         </div>
@@ -24,11 +24,11 @@
     </div>
 
     <!-- Temporal Windows - Motivation Dashboard -->
-    <div>
+    <div ref="progressSectionRef">
       <StatsSectionHeader title="PROGRESS TRACKER" />
-      <div class="space-y-1.5">
+      <div ref="progressListRef" class="space-y-1.5">
         <!-- This Month -->
-        <div class="progress-row">
+        <div ref="progressRowRefs" class="progress-row">
           <div class="flex items-center gap-2">
             <div class="status-indicator" :class="monthIndicatorClass"></div>
             <span class="progress-label">THIS MONTH</span>
@@ -39,7 +39,7 @@
         </div>
 
         <!-- This Week (estimated) -->
-        <div class="progress-row">
+        <div ref="progressRowRefs" class="progress-row">
           <div class="flex items-center gap-2">
             <div class="status-indicator bg-zinc-500 dark:bg-zinc-400"></div>
             <span class="progress-label">THIS WEEK</span>
@@ -50,7 +50,7 @@
         </div>
 
         <!-- Writing Streak -->
-        <div class="progress-row">
+        <div ref="progressRowRefs" class="progress-row">
           <div class="flex items-center gap-2">
             <div class="status-indicator" :class="streakIndicatorClass"></div>
             <span class="progress-label">CURRENT STREAK</span>
@@ -61,7 +61,7 @@
         </div>
 
         <!-- Days Since Last Post -->
-        <div class="progress-row">
+        <div ref="progressRowRefs" class="progress-row">
           <div class="flex items-center gap-2">
             <div class="status-indicator" :class="recencyIndicatorClass"></div>
             <span class="progress-label">LAST POST</span>
@@ -74,22 +74,22 @@
     </div>
 
     <!-- Velocity & Patterns -->
-    <div>
+    <div ref="velocitySectionRef">
       <StatsSectionHeader title="VELOCITY" />
-      <div class="space-y-1.5">
-        <div class="flex items-center justify-between">
+      <div ref="velocityListRef" class="space-y-1.5">
+        <div ref="velocityRowRefs" class="flex items-center justify-between">
           <span class="velocity-label">POSTS/YEAR</span>
           <span class="velocity-value">{{ postsPerYear.toFixed(1) }}</span>
         </div>
-        <div class="flex items-center justify-between">
+        <div ref="velocityRowRefs" class="flex items-center justify-between">
           <span class="velocity-label">WORDS/POST</span>
           <span class="velocity-value">{{ formatNumber(stats.averageWords) }}</span>
         </div>
-        <div class="flex items-center justify-between">
+        <div ref="velocityRowRefs" class="flex items-center justify-between">
           <span class="velocity-label">WORDS/DAY</span>
           <span class="velocity-value">{{ wordsPerDay.toFixed(0) }}</span>
         </div>
-        <div v-if="stats.averageReadingTime" class="flex items-center justify-between">
+        <div v-if="stats.averageReadingTime" ref="velocityRowRefs" class="flex items-center justify-between">
           <span class="velocity-label">AVG READ TIME</span>
           <span class="velocity-value">{{ stats.averageReadingTime }}min</span>
         </div>
@@ -116,10 +116,12 @@
     </div>
 
     <!-- Writing Activity Calendar -->
-    <div>
+    <div ref="calendarSectionRef">
       <StatsSectionHeader title="ACTIVITY HEATMAP" />
-      <ActivityCalendar :active-dates="weeklyConsistencyDates" :days="365" title="" />
-      <div class="flex justify-between text-zinc-500 mt-1" style="font-size: 9px; line-height: 10px;">
+      <div ref="calendarRef">
+        <ActivityCalendar :active-dates="weeklyConsistencyDates" :days="365" title="" />
+      </div>
+      <div ref="calendarStatsRef" class="flex justify-between text-zinc-500 mt-1" style="font-size: 9px; line-height: 10px;">
         <span>{{ Math.round((weeklyConsistencyDates.length / 52) * 100) }}% of weeks active</span>
         <span>{{ weeklyConsistencyDates.length }} active weeks</span>
       </div>
@@ -128,19 +130,16 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, onMounted, nextTick } from 'vue'
 import {
   differenceInDays,
   differenceInYears,
-  differenceInMonths
+  differenceInMonths,
+  format
 } from 'date-fns'
-// import IndividualStat from './IndividualStat.vue' // Unused component
-
-// Import ActivityCalendar
+import { stagger as _stagger, createTimeline } from '~/anime.esm.js'
+import { useAnimations } from '~/composables/useAnimations'
 import ActivityCalendar from './ActivityCalendar.vue'
-import { format } from 'date-fns'
-
-// Import shared utilities
 import { useNumberFormat } from '../../composables/useNumberFormat'
 import StatsSectionHeader from './StatsSectionHeader.vue'
 
@@ -170,6 +169,8 @@ interface _StatItem {
 const props = defineProps<{
   stats: BlogStats
 }>()
+
+const { timing, easing } = useAnimations()
 
 // Computed properties for conditional rendering and data formatting
 const _primaryDetails = computed(() => {
@@ -386,6 +387,124 @@ const mostProductiveYear = computed(() => {
   })
   
   return { year: bestYear || 'Unknown', count: maxCount }
+})
+
+// Animation refs
+const blogStatsRef = ref<HTMLElement | null>(null)
+const statusSectionRef = ref<HTMLElement | null>(null)
+const statusGridRef = ref<HTMLElement | null>(null)
+const postsCardRef = ref<HTMLElement | null>(null)
+const wordsCardRef = ref<HTMLElement | null>(null)
+const progressSectionRef = ref<HTMLElement | null>(null)
+const progressListRef = ref<HTMLElement | null>(null)
+const progressRowRefs = ref<HTMLElement[]>([])
+const velocitySectionRef = ref<HTMLElement | null>(null)
+const velocityListRef = ref<HTMLElement | null>(null)
+const velocityRowRefs = ref<HTMLElement[]>([])
+const calendarSectionRef = ref<HTMLElement | null>(null)
+const calendarRef = ref<HTMLElement | null>(null)
+const calendarStatsRef = ref<HTMLElement | null>(null)
+
+// Blog stats reveal animation
+const animateBlogStats = async () => {
+  if (process.server) return
+  
+  await nextTick()
+  
+  const timeline = createTimeline()
+  
+  // ANIME.JS SUPERPOWER: Perfect timeline with overlap control
+  if (blogStatsRef.value) {
+    timeline.add({
+      targets: blogStatsRef.value,
+      opacity: [0, 1],
+      scale: [0.95, 1.02, 1],
+      rotateX: [-5, 0], // 3D rotation impossible in CSS keyframes
+      filter: ['blur(1px)', 'blur(0px)'],
+      duration: timing.expressive,
+      ease: easing.expressive
+    })
+  }
+  
+  // ANIME.JS SUPERPOWER: Directional stagger with 3D transforms
+  const statusCards = [postsCardRef.value, wordsCardRef.value].filter(Boolean)
+  if (statusCards.length) {
+    timeline.add({
+      targets: statusCards,
+      keyframes: [
+        { opacity: 0, scale: 0.7, rotateY: -60, translateZ: 30, filter: 'blur(1px)' },
+        { opacity: 0.8, scale: 1.05, rotateY: 10, translateZ: -10, filter: 'blur(0.3px)' },
+        { opacity: 1, scale: 1, rotateY: 0, translateZ: 0, filter: 'blur(0px)' }
+      ],
+      duration: timing.slower,
+      delay: _stagger(120, { direction: 'reverse' }),
+      ease: easing.expressive
+    }, '-=400')
+  }
+  
+  // Stage 3: Progress rows cascade
+  if (progressListRef.value) {
+    const progressRows = progressListRef.value.querySelectorAll('.progress-row')
+    if (progressRows.length) {
+      timeline.add({
+        targets: Array.from(progressRows),
+        opacity: [0, 1],
+        translateX: [-20, 0],
+        scale: [0.92, 1.02, 1],
+        duration: timing.slow,
+        delay: _stagger(80, { from: 'first' }),
+        ease: easing.productive
+      }, '-=300')
+    }
+  }
+  
+  // Stage 4: Velocity metrics matrix reveal
+  if (velocityListRef.value) {
+    const velocityRows = velocityListRef.value.children
+    if (velocityRows.length) {
+      timeline.add({
+        targets: Array.from(velocityRows),
+        keyframes: [
+          { opacity: 0, scale: 0.8, rotateZ: -5, filter: 'blur(0.5px)' },
+          { opacity: 0.8, scale: 1.1, rotateZ: 2, filter: 'blur(0.2px)' },
+          { opacity: 1, scale: 1, rotateZ: 0, filter: 'blur(0px)' }
+        ],
+        duration: timing.slow,
+        delay: _stagger(80, { from: 'center' }),
+        ease: 'outElastic(1, .8)'
+      }, '-=200')
+    }
+  }
+  
+  // Stage 5: Calendar dramatic reveal
+  if (calendarRef.value) {
+    timeline.add({
+      targets: calendarRef.value,
+      keyframes: [
+        { opacity: 0, scale: 0.9, rotateX: -15, filter: 'blur(1px)' },
+        { opacity: 0.8, scale: 1.03, rotateX: 5, filter: 'blur(0.3px)' },
+        { opacity: 1, scale: 1, rotateX: 0, filter: 'blur(0px)' }
+      ],
+      duration: timing.expressive,
+      ease: 'outElastic(1, .8)'
+    }, '-=100')
+  }
+  
+  // Stage 6: Calendar stats reveal
+  if (calendarStatsRef.value) {
+    timeline.add({
+      targets: calendarStatsRef.value,
+      opacity: [0, 1],
+      translateY: [10, 0],
+      scale: [0.9, 1],
+      duration: timing.normal,
+      ease: easing.standard
+    }, '-=200')
+  }
+}
+
+onMounted(() => {
+  animateBlogStats()
 })
 
 // Indicator classes for visual feedback - using shared utilities

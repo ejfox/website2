@@ -1,28 +1,36 @@
 <template>
   <div class="rounded-lg">
-    <!-- <pre class="max-h-96 overflow-y-auto">{{ product }}</pre> -->
-    <div v-if="product?.images" class="product-image-container relative shadow-lg overflow-hidden rounded-lg">
-      <!-- get the price SVG and put it on the top right -->
+    <div v-if="product?.images" class="relative shadow-lg overflow-hidden rounded-lg">
+      <!-- Price SVG overlay -->
       <img
-        v-if="!productSold" :src="priceSvgPath"
-        alt="Price" class="w-16 md:w-24 xl:w-30 h-auto absolute top-4 right-4 md:right-8 z-20 invert"
+        v-if="!productSold" 
+        :src="priceSvgPath"
+        alt="Price" 
+        class="w-16 md:w-24 xl:w-30 h-auto absolute top-4 right-4 md:right-8 z-20 invert"
       />
       <img
-        v-else src="/images/handdrawn_ceramics_text/handdrawn_ceramics_text-14.svg"
-        class="w-1/3 h-auto absolute top-4 right-4 md:right-8 z-20 invert" alt="Sold Out"
+        v-else 
+        src="/images/handdrawn_ceramics_text/handdrawn_ceramics_text-14.svg"
+        class="w-1/3 h-auto absolute top-4 right-4 md:right-8 z-20 invert" 
+        alt="Sold Out"
       />
 
-      <!-- grayscale if sold -->
+      <!-- Product image -->
       <img
-        :src="product?.images[0]" alt="product image"
-        :class="['product-image z-10', productSold ? 'grayscale hover:grayscale-0' : '']"
+        :src="product?.images[0]" 
+        alt="product image"
+        class="z-10 transition-all duration-300"
+        :class="productSold ? 'grayscale hover:grayscale-0' : ''"
       />
     </div>
-    <div class="product-actions-container py-4 flex flex-row justify-between">
+    
+    <!-- Actions and price -->
+    <div class="py-4 flex flex-row justify-between items-center">
       <div v-if="!productSold">
         <UButton color="green" @click="buyProduct(product.id)">
           <img
-            :src="`/images/handdrawn_ceramics_text/handdrawn_ceramics_text-11.svg`" alt="Buy"
+            src="/images/handdrawn_ceramics_text/handdrawn_ceramics_text-11.svg" 
+            alt="Buy"
             class="mx-4 my-1 w-16 h-auto"
           />
         </UButton>
@@ -30,37 +38,31 @@
       <div v-else>
         <UButton color="gray" disabled>
           <img
-            :src="`/images/handdrawn_ceramics_text/handdrawn_ceramics_text-14.svg`" alt="Sold Out"
-            class="w-16 h-auto dark:invert invert-0"
+            src="/images/handdrawn_ceramics_text/handdrawn_ceramics_text-14.svg" 
+            alt="Sold Out"
+            class="w-16 h-auto dark:invert"
           />
         </UButton>
       </div>
 
-      <div
-        v-show="!productSold" class="product-price text-lg py-2
-      hidden xl:block
-      "
-      >
+      <div v-show="!productSold" class="text-lg py-2 hidden xl:block">
         {{ unitAmountToUSD(product.price.unit_amount) }} + shipping
       </div>
     </div>
-    <!-- make more like this button -->
-    <!-- <UButton @click="addProductLike" color="green" variant="outline">Make More Like This</UButton> -->
-  </div>
-  <div class="product-info-container py-2">
-    <div class="flex flex-wrap justify-between items-center">
-      <!-- <div class="product-name text-3xl py-2">{{ product.name }}</div> -->
+    
+    <!-- Product info -->
+    <div class="py-2">
+      <div class="flex flex-wrap justify-between items-center gap-4">
+        <div class="prose dark:prose-invert my-1 lg:my-2 flex-1">
+          {{ product.description }}
+        </div>
 
-
-
-      <div class="product-description prose dark:prose-invert my-1 lg:my-2">
-        {{ product.description }}
+        <img
+          src="/images/handdrawn_ceramics_text/handdrawn_ceramics_text-13.svg" 
+          alt="USA Shipping Only"
+          class="h-10 xl:h-12 w-auto my-2 dark:invert"
+        />
       </div>
-
-      <img
-        :src="`/images/handdrawn_ceramics_text/handdrawn_ceramics_text-13.svg`" alt="USA Shipping Only"
-        class="h-10 xl:h-12 w-auto my-2 dark:invert inline-block"
-      />
     </div>
   </div>
 </template>
@@ -68,111 +70,56 @@
 <script setup lang="ts">
 interface Props {
   product: {
-    id: string;
-    name: string;
-    price: number;
-    [key: string]: any;
-  };
+    id: string
+    name: string
+    price: {
+      unit_amount: number
+    }
+    images?: string[]
+    description?: string
+    active?: boolean
+    [key: string]: any
+  }
 }
 
-const { product } = defineProps<Props>();
-const _stripe = useClientStripe();
+const { product } = defineProps<Props>()
 
-
-const buyProduct = async (productId) => {
+const buyProduct = async (productId: string) => {
   const { data } = await useFetch('/api/checkout-session', {
     method: 'POST',
     body: JSON.stringify({
       productId,
       success_url: `https://ejfox.com/pottery/success?productId=${productId}`,
-      // success_url: `http://localhost:3000/pottery/success?productId=${productId}`,
       cancel_url: 'https://ejfox.com/pottery',
     }),
-  });
+  })
 
-  const { id: _sessionId, url } = data.value.body;
-
-  navigateTo(url, { external: true });
-};
-
-// use the product ID and the stripe client API to find out if the product is sold or not
-const productSold = computed(() => {
-  return !product?.active
-});
-
-
-
-// we have hand-drawn SVGs for specific prices
-function priceAmountToSvg(priceAmount) {
-  // console.log(priceAmount);
-  // $80 = handdrawn_ceramics_text-18.svg
-  // $40 = handdrawn_ceramics_text-25.svg
-  // $30 = handdrawn_ceramics_text-22.svg
-  // $15 = handdrawn_ceramics_text-19.svg
-  // now we need to convert the priceAmount to the correct SVG
-
-  if (priceAmount == 8000) {
-    return `/images/handdrawn_ceramics_text/handdrawn_ceramics_text-18.svg`;
-  } else if (priceAmount == 4000) {
-    return `/images/handdrawn_ceramics_text/handdrawn_ceramics_text-25.svg`;
-  } else if (priceAmount == 3000) {
-    return `/images/handdrawn_ceramics_text/handdrawn_ceramics_text-22.svg`;
-  } else if (priceAmount == 1500) {
-    return `/images/handdrawn_ceramics_text/handdrawn_ceramics_text-19.svg`;
-  } else {
-    return '/images/handdrawn_ceramics_text-10.svg'
-  }
-
+  const { url } = data.value.body
+  navigateTo(url, { external: true })
 }
 
-// make a computed for the correct image
-const priceSvgPath = computed(() => {
-  return priceAmountToSvg(product.price.unit_amount);
-});
+const productSold = computed(() => !product?.active)
 
-// unit amounts from stripe look like
-//   "unit_amount": 4000,
-//  but we want to display them as $40.00
-//  so we need to divide by 100 and then format as currency
-function unitAmountToUSD(unitAmount) {
+// Map price amounts to specific hand-drawn SVGs
+const priceAmountToSvg = (priceAmount: number): string => {
+  const priceMap: Record<number, string> = {
+    8000: '/images/handdrawn_ceramics_text/handdrawn_ceramics_text-18.svg', // $80
+    4000: '/images/handdrawn_ceramics_text/handdrawn_ceramics_text-25.svg', // $40
+    3000: '/images/handdrawn_ceramics_text/handdrawn_ceramics_text-22.svg', // $30
+    1500: '/images/handdrawn_ceramics_text/handdrawn_ceramics_text-19.svg', // $15
+  }
+  
+  return priceMap[priceAmount] || '/images/handdrawn_ceramics_text-10.svg'
+}
+
+const priceSvgPath = computed(() => {
+  return priceAmountToSvg(product.price.unit_amount)
+})
+
+const unitAmountToUSD = (unitAmount: number): string => {
   return (unitAmount / 100).toLocaleString('en-US', {
     style: 'currency',
     currency: 'USD',
-  });
+  })
 }
-
-/*
-{
-  "product": {
-    "id": "prod_Q9ZzUdAjw1ih4S",
-    "object": "product",
-    "active": true,
-    "attributes": [],
-    "created": 1716390721,
-    "default_price": "price_1PJGphK8xzrKBF9TpYOrIBf3",
-    "description": null,
-    "images": [
-      "https://files.stripe.com/links/MDB8YWNjdF8xRFhjZmdLOHh6cktCRjlUfGZsX3Rlc3RfOE5SUlF6Tll4V3BMcUlpS29HbElVUUoz00nnyBshD2"
-    ],
-    "livemode": false,
-    "marketing_features": [],
-    "metadata": {
-      "ceramics-type": "cup",
-      "type": "ceramics"
-    },
-    "name": "Test Ceramic 1",
-    "package_dimensions": null,
-    "shippable": null,
-    "statement_descriptor": null,
-    "tax_code": null,
-    "type": "service",
-    "unit_label": null,
-    "updated": 1716390987,
-    "url": null
-  }
-}
-*/
-
 </script>
-
-<style scoped></style>

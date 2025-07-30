@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Component Test Suite</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .test-result {
+            margin: 10px 0;
+            padding: 8px;
+            border-radius: 4px;
+        }
+        .pass { background: #d4edda; color: #155724; }
+        .fail { background: #f8d7da; color: #721c24; }
+        .note { background: #d1ecf1; color: #0c5460; }
+    </style>
+</head>
+<body>
+    <h1>Animation System Component Testing Results</h1>
+    
+    <div class="test-section">
+        <div class="test-title">🔍 Test Environment Setup</div>
+        <div class="test-result note">
+            Testing unified animation system components at: http://localhost:3006/
+        </div>
+        <div class="test-result note">
+            Base URL for component testing: Individual component pages
+        </div>
+    </div>
+
+    <div class="test-section">
+        <div class="test-title">🔢 AnimatedNumber Component Test Plan</div>
+        <div class="test-result note">Test URLs to visit:</div>
+        <ul>
+            <li>Home page stats section (multiple animated numbers)</li>
+            <li>Stats page (/stats) - comprehensive number animations</li>
+            <li>Blog archive pages (post counts)</li>
+        </ul>
+        <div class="test-result note">Formats to test:</div>
+        <ul>
+            <li><strong>default:</strong> Math.round(value).toString()</li>
+            <li><strong>commas:</strong> value.toLocaleString()</li>
+            <li><strong>compact:</strong> new Intl.NumberFormat('en', { notation: 'compact' })</li>
+            <li><strong>percent:</strong> (value * 100).toFixed(decimals)%</li>
+            <li><strong>currency:</strong> new Intl.NumberFormat('en', { style: 'currency', currency: 'USD' })</li>
+            <li><strong>decimal:</strong> value.toFixed(decimals)</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <div class="test-title">🎯 Prediction Card Animation Test Plan</div>
+        <div class="test-result note">Test URLs to visit:</div>
+        <ul>
+            <li>/predictions - List of prediction cards</li>
+            <li>/predictions/[slug] - Individual prediction page</li>
+        </ul>
+        <div class="test-result note">Animations to verify:</div>
+        <ul>
+            <li><strong>Card reveal:</strong> dataProcessing effect on scroll</li>
+            <li><strong>Title highlight:</strong> criticalHighlight animation</li>
+            <li><strong>Metadata stream:</strong> dataStream for confidence/deadline</li>
+            <li><strong>Hover interactions:</strong> Card scaling and filter effects</li>
+            <li><strong>Confidence counter:</strong> Animated number counting</li>
+            <li><strong>Progress bar:</strong> Width animation</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <div class="test-title">🎮 Gear Navigator Test Plan</div>
+        <div class="test-result note">Test URLs to visit:</div>
+        <ul>
+            <li>/gear - Main gear page with navigator</li>
+            <li>/gear/[item-slug] - Individual gear items</li>
+        </ul>
+        <div class="test-result note">Animations to verify:</div>
+        <ul>
+            <li><strong>Initial reveal:</strong> gridDataReveal with center stagger</li>
+            <li><strong>Item selection:</strong> Complex directional animation with keyframes</li>
+            <li><strong>Ripple effect:</strong> Directional stagger on nearby items</li>
+            <li><strong>Container resonance:</strong> Subtle container scaling</li>
+            <li><strong>Hover states:</strong> Individual item scaling and filters</li>
+            <li><strong>Keyboard navigation:</strong> Arrow key interactions</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <div class="test-title">📊 TopStats Component Test Plan</div>
+        <div class="test-result note">Test URLs to visit:</div>
+        <ul>
+            <li>Home page - TopStats in hero section</li>
+            <li>/stats - Dedicated stats page</li>
+        </ul>
+        <div class="test-result note">Animations to verify:</div>
+        <ul>
+            <li><strong>Grid stagger from center:</strong> Using anime.js stagger with grid config</li>
+            <li><strong>AnimatedNumber integration:</strong> Multiple number formats with different delays</li>
+            <li><strong>Continuous glow effect:</strong> CSS custom property animation</li>
+            <li><strong>Priority-based delays:</strong> primary (0ms), secondary (100ms), tertiary (200ms)</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <div class="test-title">⏱️ Timing Configuration Tests</div>
+        <div class="test-result note">Values to verify (from useAnimations):</div>
+        <ul>
+            <li><strong>instant:</strong> 0ms</li>
+            <li><strong>micro:</strong> 150ms - micro-interactions</li>
+            <li><strong>fast:</strong> 200ms - small movements</li>
+            <li><strong>normal:</strong> 300ms - standard transitions</li>
+            <li><strong>slow:</strong> 400ms - larger movements</li>
+            <li><strong>slower:</strong> 500ms - complex transitions</li>
+            <li><strong>expressive:</strong> 600ms - significant moments</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <div class="test-title">📈 Easing Curve Tests</div>
+        <div class="test-result note">Curves to verify:</div>
+        <ul>
+            <li><strong>standard:</strong> cubicBezier(0.4, 0.0, 0.2, 1) - Material Design</li>
+            <li><strong>decelerate:</strong> cubicBezier(0.0, 0.0, 0.2, 1) - Ease-out for entrances</li>
+            <li><strong>accelerate:</strong> cubicBezier(0.4, 0.0, 1, 1) - Ease-in for exits</li>
+            <li><strong>productive:</strong> cubicBezier(0.2, 0, 0.38, 0.9) - IBM productive motion</li>
+            <li><strong>expressive:</strong> cubicBezier(0.4, 0.14, 0.3, 1) - IBM expressive motion</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <div class="test-title">🌊 Stagger Pattern Tests</div>
+        <div class="test-result note">Patterns to verify:</div>
+        <ul>
+            <li><strong>tight:</strong> 50ms - Sequential UI</li>
+            <li><strong>normal:</strong> 80ms - Material Design recommendation</li>
+            <li><strong>loose:</strong> 120ms - Deliberate separation</li>
+            <li><strong>dramatic:</strong> 200ms - Maximum hierarchy emphasis</li>
+            <li><strong>cascade:</strong> 30ms - Rapid cascade effect</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <div class="test-title">🧪 Manual Testing Checklist</div>
+        <div class="test-result note">For each component:</div>
+        <ol>
+            <li>✅ Initial load animation triggers correctly</li>
+            <li>✅ Scroll-based reveals work at proper viewport thresholds</li>
+            <li>✅ Hover interactions are smooth and responsive</li>
+            <li>✅ Timing values match motion token specifications</li>
+            <li>✅ Easing curves feel natural and appropriate</li>
+            <li>✅ Stagger patterns create proper visual hierarchy</li>
+            <li>✅ No animation conflicts or jarring transitions</li>
+            <li>✅ Performance is smooth at 60fps</li>
+            <li>✅ Accessibility: respects prefers-reduced-motion</li>
+            <li>✅ Integration: works with unified animation system</li>
+        </ol>
+    </div>
+
+    <script>
+        // Test runner will populate results here
+        console.log('Animation Component Test Suite Loaded');
+        console.log('Visit the test URLs and observe animations');
+        console.log('Manual verification required for timing, easing, and stagger patterns');
+    </script>
+</body>
+</html>

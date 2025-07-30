@@ -36,7 +36,7 @@ async function signPrediction() {
     try {
       gitCommit = execSync('git rev-parse HEAD', { encoding: 'utf-8' }).trim()
       console.log(`Git commit: ${gitCommit}`)
-    } catch (e) {
+    } catch (_e) {
       console.log('Not in a git repository or git command failed')
     }
 
@@ -92,7 +92,7 @@ async function signPrediction() {
     try {
       const existingLog = await fs.readFile(logPath, 'utf-8')
       commitments = JSON.parse(existingLog)
-    } catch (e) {
+    } catch (_e) {
       // File doesn't exist, start with empty array
     }
 

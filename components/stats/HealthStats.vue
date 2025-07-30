@@ -1,11 +1,18 @@
 <template>
-  <div v-if="stats && hasAnyData" class="space-y-16 font-mono">
+  <div v-if="stats && hasAnyData" ref="healthStatsRef" class="space-y-16 font-mono">
     <!-- Primary Stats -->
     <div class="space-y-12">
-      <IndividualStat
-        v-if="stats.thisYear.steps > 0" :value="stats.thisYear.steps" size="large" label="STEPS THIS YEAR"
-        :details="`${formatNumber(stats.thisYear.averageStepsPerDay)} DAILY AVERAGE`"
-      />
+      <div v-if="stats.thisYear.steps > 0" class="individual-stat-large">
+        <div class="stat-value">
+          <AnimatedNumber :value="stats.thisYear.steps" format="commas" :duration="timing.expressive" priority="primary" />
+        </div>
+        <div class="stat-label">
+          STEPS THIS YEAR
+        </div>
+        <div class="stat-details">
+          <AnimatedNumber :value="stats.thisYear.averageStepsPerDay" format="commas" :duration="timing.slower" priority="secondary" /> DAILY AVERAGE
+        </div>
+      </div>
 
       <div v-if="hasCurrentStats" class="grid grid-cols-2 gap-8">
         <IndividualStat
@@ -24,9 +31,9 @@
     <div v-if="hasWeeklyActivity">
       <StatsSectionHeader title="ACTIVITY MOMENTUM" />
       <div class="momentum-stats grid grid-cols-3 gap-4 mb-6">
-        <div class="momentum-stat">
+        <div ref="momentumRef" class="momentum-stat">
           <div class="momentum-value">
-            {{ currentStreak }}
+            <AnimatedNumber :value="currentStreak" format="default" :duration="timing.slower" priority="secondary" />
           </div>
           <div class="momentum-label">
             CURRENT STREAK
@@ -34,7 +41,7 @@
         </div>
         <div class="momentum-stat">
           <div class="momentum-value">
-            {{ longestStreak }}
+            <AnimatedNumber :value="longestStreak" format="default" :duration="timing.slower" :delay="100" priority="secondary" />
           </div>
           <div class="momentum-label">
             LONGEST STREAK
@@ -42,7 +49,7 @@
         </div>
         <div class="momentum-stat">
           <div class="momentum-value">
-            {{ activeWeeks }}<span class="text-zinc-500">/{{ totalWeeks }}</span>
+            <AnimatedNumber :value="activeWeeks" format="default" :duration="timing.slow" priority="tertiary" /><span class="text-zinc-500">/<AnimatedNumber :value="totalWeeks" format="default" :duration="timing.slow" :delay="200" priority="tertiary" /></span>
           </div>
           <div class="momentum-label">
             ACTIVE WEEKS
@@ -72,7 +79,7 @@
       </div>
 
       <!-- Weekly Steps Chart -->
-      <div v-if="hasWeeklyData" class="space-y-4">
+      <div v-if="hasWeeklyData" ref="weeklyBarsRef" class="space-y-4">
         <div v-for="week in weeklyActivity" :key="week.startDate" class="weekly-activity-row">
           <div class="week-label">
             {{ formatWeekRange(week.startDate, week.endDate) }}
@@ -81,7 +88,7 @@
             <div class="activity-bar" :style="{ width: `${(week.steps / mostActiveWeek.steps) * 100}%` }" />
           </div>
           <div class="step-count">
-            {{ formatNumber(week.steps) }}
+            <AnimatedNumber :value="week.steps" format="commas" :duration="timing.slow" priority="tertiary" />
           </div>
         </div>
       </div>
@@ -129,13 +136,16 @@
 </template>
 
 <script setup lang="ts">
-import { computed, h } from 'vue'
+import { computed, h, ref, onMounted, nextTick } from 'vue'
 import IndividualStat from './IndividualStat.vue'
 import ActivityCalendar from './ActivityCalendar.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'
 import StatsDataState from './StatsDataState.vue'
+import AnimatedNumber from '../AnimatedNumber.vue'
 import type { StatsResponse } from '~/composables/useStats'
 import { formatNumber, formatWeekRange } from '~/composables/useNumberFormat'
+import { animate, stagger as _stagger, onScroll } from '~/anime.esm.js'
+import { useAnimations } from '~/composables/useAnimations'
 
 // Stat summary component for consistent stat display
 const StatSummary = (props: { value: string | number, label: string }, { slots }: { slots: Record<string, () => any> }) => {
@@ -220,6 +230,8 @@ interface MetricItem {
 const props = defineProps<{
   stats?: HealthStats | null
 }>()
+
+const { timing, staggers } = useAnimations()
 
 // Data availability checks
 const hasAnyData = computed(() => {
@@ -421,9 +433,62 @@ const totalWeeks = computed(() => {
   if (!props.stats?.weeklyActivity?.length) return 0
   return props.stats.weeklyActivity.length
 })
+
+// Animation refs
+const healthStatsRef = ref<HTMLElement | null>(null)
+const _primaryStatsRef = ref<HTMLElement | null>(null)
+const momentumRef = ref<HTMLElement | null>(null)
+const weeklyBarsRef = ref<HTMLElement | null>(null)
+
+const setupScrollAnimations = () => {
+  if (process.server) return
+  
+  nextTick(() => {
+    if (!healthStatsRef.value) return
+
+    if (momentumRef.value) {
+      const momentumStats = momentumRef.value.parentElement?.querySelectorAll('.momentum-stat')
+      if (momentumStats?.length) {
+        animate(Array.from(momentumStats), {
+          opacity: [0, 1],
+          translateY: [20, 0],
+          scale: [0.9, 1.05, 1],
+          duration: timing.slow,
+          delay: _stagger(staggers.loose),
+          ease: 'outElastic(1, .8)',
+          autoplay: onScroll({ target: momentumRef.value, onEnter: () => true })
+        })
+      }
+    }
+    
+    if (weeklyBarsRef.value && hasWeeklyData.value) {
+      const activityBars = weeklyBarsRef.value.querySelectorAll('.activity-bar')
+      if (activityBars.length) {
+        animate(Array.from(activityBars), {
+          scaleX: [0, 1.1, 1],
+          scaleY: [0.3, 1.3, 1],
+          duration: timing.slower,
+          delay: _stagger(staggers.normal),
+          ease: 'outElastic(1, .8)',
+          autoplay: onScroll({ target: weeklyBarsRef.value, onEnter: () => true })
+        })
+      }
+    }
+  })
+}
+
+onMounted(() => {
+  setupScrollAnimations()
+})
 </script>
 
 <style scoped>
+/* Individual stat styles for AnimatedNumber replacement */
+.individual-stat-large {
+  @apply text-center;
+}
+
+/* Uses global typography classes */
 
 .stat-summary {
   @apply space-y-2;

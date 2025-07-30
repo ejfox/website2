@@ -1,6 +1,10 @@
 <script setup>
+import { animate, stagger as _stagger, createTimeline } from '~/anime.esm.js'
+import { useAnimations } from '~/composables/useAnimations'
+
 const config = useRuntimeConfig()
 const { crypto, github } = config.public.donations
+const { timing, easing } = useAnimations()
 
 const amount = ref(5)
 const loading = ref(false)
@@ -114,23 +118,125 @@ const currentDonationMessage = computed(() => {
   )
   return level?.label || ''
 })
+
+// Animation refs
+const sectionRef = ref(null)
+const headerRef = ref(null)
+const titleRef = ref(null)
+const dividerRef = ref(null)
+const gridRef = ref(null)
+const stripeCardRef = ref(null)
+const cryptoCardRef = ref(null)
+const sponsorsRef = ref(null)
+
+// Epic donation section reveal with proper timeline
+const animateDonationReveal = async () => {
+  if (process.server) return
+  
+  await nextTick()
+  
+  const timeline = createTimeline()
+  
+  // Stage 1: Section container emergence
+  if (sectionRef.value) {
+    timeline.add({
+      targets: sectionRef.value,
+      opacity: [0, 1],
+      scale: [0.95, 1.02, 1],
+      filter: ['blur(1px)', 'blur(0px)'],
+      duration: timing.slow,
+      ease: easing.bounce
+    })
+  }
+  
+  // Stage 2: Header dramatic entrance
+  if (titleRef.value) {
+    timeline.add({
+      targets: titleRef.value,
+      keyframes: [
+        { opacity: 0, scale: 0.7, rotateZ: -5, filter: 'blur(1px)' },
+        { opacity: 0.8, scale: 1.1, rotateZ: 2, filter: 'blur(0.3px)' },
+        { opacity: 1, scale: 1, rotateZ: 0, filter: 'blur(0px)' }
+      ],
+      duration: timing.expressive,
+      ease: easing.bounce
+    }, '-=600')
+  }
+  
+  // Stage 3: Divider line expansion
+  if (dividerRef.value) {
+    timeline.add({
+      targets: dividerRef.value,
+      scaleX: [0, 1.1, 1],
+      opacity: [0, 1],
+      duration: timing.slow,
+      ease: easing.bounce
+    }, '-=200')
+  }
+  
+  // Stage 4: Cards flip entrance
+  const cards = [stripeCardRef.value, cryptoCardRef.value].filter(Boolean)
+  if (cards.length) {
+    timeline.add({
+      targets: cards,
+      keyframes: [
+        { opacity: 0, scale: 0.8, rotateY: -45, filter: 'blur(1px)' },
+        { opacity: 0.8, scale: 1.05, rotateY: 10, filter: 'blur(0.3px)' },
+        { opacity: 1, scale: 1, rotateY: 0, filter: 'blur(0px)' }
+      ],
+      duration: 700,
+      delay: _stagger(150),
+      ease: 'outBack(1.7)'
+    }, '-=300')
+  }
+  
+  // Stage 5: Sponsors link subtle reveal
+  if (sponsorsRef.value) {
+    timeline.add({
+      targets: sponsorsRef.value,
+      opacity: [0, 1],
+      translateY: [20, 0],
+      scale: [0.9, 1],
+      duration: timing.slow,
+      ease: easing.standard
+    }, '+=200')
+  }
+}
+
+// Watch amount changes for message animation
+watch(amount, () => {
+  const messageEl = document.querySelector('.donation-message')
+  if (messageEl) {
+    animate(messageEl, {
+      scale: [1, 1.05, 1],
+      opacity: [0.7, 1],
+      duration: timing.normal,
+      ease: easing.bounce
+    })
+  }
+})
+
+onMounted(() => {
+  animateDonationReveal()
+})
 </script>
 
 <template>
-  <section class="donation-section mt-16 mb-8 font-mono">
+  <section ref="sectionRef" class="donation-section mt-16 mb-8 font-mono">
     <div class="max-w-3xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="text-2xl font-light tracking-wider mb-3">
+      <div ref="headerRef" class="text-center mb-12">
+        <h2 ref="titleRef" class="text-2xl font-light tracking-wider mb-3">
           Support This Work
         </h2>
         <div
+          ref="dividerRef"
           class="w-16 h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent mx-auto"
         ></div>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-8">
+      <div ref="gridRef" class="grid md:grid-cols-2 gap-8">
         <!-- Stripe Payment -->
-        <div class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg p-6">
+        <div ref="stripeCardRef" class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg p-6">
           <h4 class="text-lg font-light mb-6">
             One-time Support
           </h4>
@@ -173,7 +279,7 @@ const currentDonationMessage = computed(() => {
               <div class="mt-4 flex items-center justify-center min-h-[2rem]">
                 <p
                   :key="currentDonationMessage"
-                  class="text-[0.7rem] text-gray-400 dark:text-gray-500 italic px-4"
+                  class="donation-message text-[0.7rem] text-gray-400 dark:text-gray-500 italic px-4"
                 >
                   {{ currentDonationMessage }}
                 </p>
@@ -183,7 +289,7 @@ const currentDonationMessage = computed(() => {
         </div>
 
         <!-- Updated Crypto Section -->
-        <div class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg p-6">
+        <div ref="cryptoCardRef" class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg p-6">
           <h4 class="text-lg font-light mb-6">
             Cryptocurrency
           </h4>
@@ -228,7 +334,7 @@ const currentDonationMessage = computed(() => {
       </div>
 
       <!-- GitHub Sponsors -->
-      <div class="text-center mt-8">
+      <div ref="sponsorsRef" class="text-center mt-8">
         <a
           :href="`https://github.com/sponsors/${github}`"
           target="_blank"

@@ -1,14 +1,9 @@
 import { defineEventHandler, createError, getQuery } from 'h3'
 import { createClient } from '@supabase/supabase-js'
 import {
-  format,
-  subDays as _subDays,
-  startOfWeek as _startOfWeek,
-  startOfYear,
-  parseISO,
-  isValid
+  format
 } from 'date-fns'
-import { group } from 'd3-array'
+// import { group } from 'd3-array' // Unused
 
 // Define types for health data
 interface HealthDataRecord {
@@ -22,91 +17,7 @@ interface HealthDataRecord {
   [key: string]: any
 }
 
-interface HealthResponse {
-  today: {
-    steps: number
-    standHours: number
-    exerciseMinutes: number
-    distance: number // in km
-    calories: number
-  }
-  thisWeek: {
-    steps: number
-    exerciseMinutes: number
-    distance: number
-    calories: number
-  }
-  thisYear: {
-    steps: number
-    exerciseMinutes: number
-    distance: number
-    calories: number
-    averageStepsPerDay: number
-    averageExercisePerWeek: number
-  }
-  averages: {
-    dailySteps: number
-    dailyStandHours: number
-    dailyExerciseMinutes: number
-    dailyDistance: number
-    restingHeartRate: number
-  }
-  heartRate: {
-    resting: number
-    walking: number
-    current: number
-    variability: number
-  }
-  activity: {
-    monthlyDistance: number
-    monthlyExerciseMinutes: number
-    monthlySteps: number
-    flightsClimbed: number
-  }
-  trends: {
-    daily: {
-      dates: string[]
-      steps: number[]
-      exercise: number[]
-      distance: number[]
-    }
-    weekly: {
-      dates: string[]
-      steps: number[]
-      exercise: number[]
-      distance: number[]
-    }
-    monthly: {
-      dates: string[]
-      steps: number[]
-      exercise: number[]
-      distance: number[]
-    }
-  }
-  aggregatedMetrics: {
-    availableMetricTypes: string[]
-    sleepSummary?: {
-      averageDuration: number
-      averageQuality?: number
-      totalRecords: number
-      lastRecordDate: string
-    }
-    workoutSummary?: {
-      totalWorkouts: number
-      totalDuration: number
-      totalDistance?: number
-      totalCalories?: number
-      lastWorkoutDate: string
-      workoutTypes: string[]
-    }
-    mindfulnessSummary?: {
-      totalSessions: number
-      totalMinutes: number
-      lastSessionDate: string
-    }
-  }
-  lastUpdated: string
-}
+// Unused interface HealthResponse removed
 
 // Create Supabase client
 const supabase = createClient(
@@ -123,7 +34,7 @@ const normalize = {
 }
 
 // Get metrics for a specific date
-const getMetricsForDate = (data: HealthDataRecord[], dateStr: string) => {
+const _getMetricsForDate = (data: HealthDataRecord[], dateStr: string) => {
   const dayData = data.filter((d) => d.date.startsWith(dateStr))
 
   // Handle stand hours by counting distinct hours with value >= 1
@@ -165,7 +76,7 @@ const getMetricsForDate = (data: HealthDataRecord[], dateStr: string) => {
 }
 
 // Get latest value for a metric type
-const getLatestValue = (
+const _getLatestValue = (
   data: HealthDataRecord[],
   metricType: string
 ): number => {
@@ -180,7 +91,7 @@ const getLatestValue = (
 }
 
 // Get average value for a metric type
-const getAverageValue = (
+const _getAverageValue = (
   data: HealthDataRecord[],
   metricType: string
 ): number => {
@@ -192,7 +103,7 @@ const getAverageValue = (
 }
 
 // Process sleep data in a simplified way
-const processSleepData = (data: HealthDataRecord[]) => {
+const _processSleepData = (data: HealthDataRecord[]) => {
   const sleepData = data.filter(
     (d) =>
       d.metric_type === 'sleep_analysis' ||
@@ -246,11 +157,11 @@ const processSleepData = (data: HealthDataRecord[]) => {
   }
 }
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async (_event) => {
   try {
     // Check for format query parameter
-    const query = getQuery(event)
-    const format = query.format as string | undefined
+    const query = getQuery(_event)
+    const queryFormat = query.format as string | undefined
 
     const { data, error } = await supabase
       .from('health_daily_summary')
@@ -259,7 +170,7 @@ export default defineEventHandler(async (event) => {
     if (error) throw error
 
     // If format=raw, return the raw data format
-    if (format === 'raw') {
+    if (queryFormat === 'raw') {
       return { days: data }
     }
 

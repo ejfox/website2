@@ -1,5 +1,5 @@
 // Client-side plugin to highlight active TOC items when scrolling
-export default defineNuxtPlugin((nuxtApp) => {
+export default defineNuxtPlugin((nuxtApp: any) => {
   // Function to update active TOC item based on scroll position
   const updateActiveTocItem = () => {
     // Only run on pages with TOC
@@ -16,7 +16,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 
     // Find the current active heading based on scroll position
     let activeHeading = null
-    const scrollPosition = window.scrollY + 100 // Add offset to trigger earlier
+    const _scrollPosition = window.scrollY + 100 // Add offset to trigger earlier
 
     // Find the last heading that's above the current scroll position
     for (let i = headings.length - 1; i >= 0; i--) {

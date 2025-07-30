@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { promises as fs } from 'fs'
-import { join, dirname } from 'path'
+import { join } from 'path'
 import { execSync } from 'child_process'
 import { createHash } from 'crypto'
 import readline from 'readline'
@@ -97,7 +97,7 @@ const commitToGit = async (filename, statement) => {
       log.warning('Commit created but could not retrieve hash')
       return null
     }
-  } catch (error) {
+  } catch (_error) {
     log.warning('Could not commit to git (this is OK)')
     return null
   }

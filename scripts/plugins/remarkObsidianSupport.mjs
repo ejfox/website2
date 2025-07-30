@@ -20,7 +20,7 @@ export function remarkObsidianSupport() {
       const nodes = []
 
       while ((match = wikilinkRegex.exec(value)) !== null) {
-        const [fullMatch, linkText] = match
+        const [_fullMatch, linkText] = match
         const start = match.index
         const end = wikilinkRegex.lastIndex
 

@@ -48,18 +48,18 @@ const _props = defineProps({
 }
 
 .stat-card {
-  @apply bg-white border border-gray-200 rounded-lg p-4 text-center;
+  @apply bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 text-center;
 }
 
 .stat-card h3 {
-  @apply text-sm text-gray-600 mb-1;
+  @apply text-sm text-zinc-600 dark:text-zinc-400 mb-1;
 }
 
 .stat-value {
-  @apply text-2xl font-bold text-gray-900;
+  @apply text-2xl font-bold text-zinc-900 dark:text-zinc-100;
 }
 
 .stat-meta {
-  @apply text-xs text-gray-500 mt-1;
+  @apply text-xs text-zinc-500 dark:text-zinc-500 mt-1;
 }
 </style>

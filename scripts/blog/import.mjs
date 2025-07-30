@@ -20,7 +20,7 @@ import remarkGfm from 'remark-gfm'
 import rehypeUnwrapImages from 'rehype-unwrap-images'
 import rehypeMermaid from 'rehype-mermaid'
 import rehypePrettyCode from 'rehype-pretty-code'
-import { visit } from 'unist-util-visit'
+import { visit as _visit } from 'unist-util-visit'
 
 import { dirs } from '../config.mjs'
 
@@ -109,7 +109,7 @@ async function processFile(filePath, isDryRun = false) {
   const relativePath = path.relative(SOURCE_DIR, filePath)
   const content = await fs.readFile(filePath, 'utf8')
   const { data: frontmatter, content: markdown } = matter(content)
-  const result = await unified()
+  const _result = await unified()
     .use(remarkParse)
     .use(remarkGfm)
     .use(remarkRehype, { allowDangerousHtml: true })
@@ -134,7 +134,7 @@ async function processFile(filePath, isDryRun = false) {
   }
 
   // Handle share flag - drafts don't need share: true
-  const isInDraftsFolder = relativePath.startsWith('drafts/')
+  const _isInDraftsFolder = relativePath.startsWith('drafts/')
   const isRobotPost = metadata.type === 'robot'
   const needsShareFlag = isRobotPost // Only robots need share flag now
   metadata.share = needsShareFlag ? frontmatter.share === true : true

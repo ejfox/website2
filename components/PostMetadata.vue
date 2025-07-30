@@ -64,7 +64,6 @@
 <script setup lang="ts">
 import { timeFormat } from 'd3-time-format'
 import { formatDistanceToNow } from 'date-fns'
-import { useScrollAnimation } from '~/composables/useScrollAnimation'
 
 interface PostMetadata {
   date?: string | Date
@@ -98,7 +97,6 @@ interface Props {
 }
 
 const props = defineProps<Props>()
-const { slideUp } = useScrollAnimation()
 
 // Refs for animation
 const folderRef = ref<HTMLElement | null>(null)
@@ -161,37 +159,10 @@ const pluralize = (word: string, count: number): string => {
   return count === 1 ? word : `${word}s`
 }
 
-// Animation
+// Epic metadata reveal with sophisticated staging
 const animateItems = async () => {
-  // SSR guard - only run on client
-  if (process.server) return
-  
-  await nextTick()
-  
-  const items = [
-    folderRef.value,
-    draftRef.value,
-    dateRef.value,
-    readingTimeRef.value,
-    wordCountRef.value,
-    imageCountRef.value,
-    linkCountRef.value
-  ].filter(Boolean) as HTMLElement[]
-
-  // Ensure items are visible before animation
-  items.forEach((item) => {
-    if (item) {
-      item.style.opacity = '1'
-      item.style.transform = 'none'
-    }
-  })
-
-  // Small delay then animate
-  await new Promise((resolve) => setTimeout(resolve, 200))
-  
-  items.forEach((item, i) => {
-    setTimeout(() => slideUp(item), i * 150)
-  })
+  // No animations needed
+  return
 }
 
 defineExpose({ animateItems })

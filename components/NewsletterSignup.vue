@@ -1,9 +1,10 @@
 <template>
   <div ref="signupContainer" class="newsletter-signup">
     <!-- Form -->
-    <form class="flex items-center gap-1.5 relative" @submit.prevent="submitForm">
+    <form ref="formRef" class="flex items-center gap-1.5 relative" @submit.prevent="submitForm">
       <div class="flex-1 flex items-center gap-1.5 min-w-0">
         <input 
+          ref="emailInputRef"
           v-model="email" 
           type="email" 
           placeholder="your@email.com" 
@@ -46,6 +47,7 @@
       </div>
       
       <button 
+        ref="buttonRef"
         type="submit" 
         class="shrink-0 py-1 px-2.5 bg-zinc-100 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 rounded
              hover:bg-zinc-200 dark:hover:bg-zinc-800 hover:text-zinc-700 dark:hover:text-zinc-300
@@ -86,13 +88,17 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue'
-import { animate } from '~/anime.esm.js'
+import { ref, reactive, onMounted, nextTick } from 'vue'
+import { animate, stagger as _stagger } from '~/anime.esm.js'
+import { useAnimations } from '~/composables/useAnimations'
 
 const email = ref('')
 const firstName = ref('')
 const lastName = ref('')
 const signupContainer = ref(null)
+const formRef = ref(null)
+const emailInputRef = ref(null)
+const buttonRef = ref(null)
 const nameFieldsContainer = ref(null)
 const showNameFields = ref(false)
 
@@ -103,22 +109,40 @@ const state = reactive({
   message: ''
 })
 
+const { timing, easing, staggers } = useAnimations()
+
 const revealNameFields = () => {
   if (email.value.length > 0 && !showNameFields.value) {
     showNameFields.value = true
     
-    // Animate the name fields sliding in
+    // Epic name fields reveal
     if (nameFieldsContainer.value) {
       const targetWidth = nameFieldsContainer.value.scrollWidth
       animate(nameFieldsContainer.value, {
-        width: [0, targetWidth],
-        opacity: [0, 1],
-        duration: 300,
-        easing: 'easeOutQuad'
+        keyframes: [
+          { width: 0, opacity: 0, scale: 0.8, filter: 'blur(1px)' },
+          { width: targetWidth * 1.1, opacity: 0.8, scale: 1.05, filter: 'blur(0.3px)' },
+          { width: targetWidth, opacity: 1, scale: 1, filter: 'blur(0px)' }
+        ],
+        duration: timing.slow,
+        easing: easing.bounce
       })
+      
+      // Animate individual input fields
+      setTimeout(() => {
+        const inputs = nameFieldsContainer.value?.querySelectorAll('input')
+        if (inputs?.length) {
+          animate(Array.from(inputs), {
+            opacity: [0, 1],
+            scale: [0.9, 1.05, 1],
+            duration: timing.normal,
+            delay: _stagger(staggers.normal),
+            ease: easing.productive
+          })
+        }
+      }, 200)
     }
   } else if (email.value.length === 0 && showNameFields.value) {
-    // Hide name fields when email is cleared
     showNameFields.value = false
   }
 }
@@ -160,25 +184,76 @@ const submitForm = async () => {
     console.error('Newsletter signup error:', error)
   } finally {
     state.loading = false
+    
+    // Animate button state change
+    if (buttonRef.value) {
+      animate(buttonRef.value, {
+        scale: [1.05, 1],
+        duration: timing.fast,
+        ease: easing.standard
+      })
+    }
   }
 }
+
+// Epic newsletter signup reveal
+const animateNewsletterReveal = async () => {
+  if (process.server) return
+  
+  await nextTick()
+  
+  // Stage 1: Container emergence
+  if (signupContainer.value) {
+    animate(signupContainer.value, {
+      opacity: [0, 1],
+      scale: [0.95, 1.02, 1],
+      filter: ['blur(1px)', 'blur(0px)'],
+      duration: timing.slow,
+      ease: easing.bounce
+    })
+  }
+  
+  // Stage 2: Form elements cascade
+  setTimeout(() => {
+    const elements = [emailInputRef.value, buttonRef.value].filter(Boolean)
+    if (elements.length) {
+      animate(elements, {
+        opacity: [0, 1],
+        translateY: [10, 0],
+        scale: [0.95, 1],
+        duration: timing.slow,
+        delay: _stagger(staggers.normal),
+        ease: easing.standard
+      })
+    }
+  }, 200)
+}
+
+// Watch for successful submissions
+watch(() => state.success, (isSuccess) => {
+  if (isSuccess && signupContainer.value) {
+    // Success celebration animation
+    animate(signupContainer.value, {
+      scale: [1, 1.05, 1],
+      filter: ['brightness(1)', 'brightness(1.1)', 'brightness(1)'],
+      duration: timing.expressive,
+      ease: easing.bounce
+    })
+  }
+})
+
+onMounted(() => {
+  animateNewsletterReveal()
+})
 </script>
 
 <style scoped>
 .loading-dots {
-  display: flex;
-  align-items: center;
-  justify-center: center;
-  height: 18px;
+  @apply flex items-center justify-center h-[18px];
 }
 
 .dot {
-  width: 3px;
-  height: 3px;
-  margin: 0 1px;
-  background-color: currentColor;
-  border-radius: 50%;
-  display: inline-block;
+  @apply w-[3px] h-[3px] mx-px bg-current rounded-full inline-block;
   animation: dot-flashing 1s infinite alternate;
 }
 

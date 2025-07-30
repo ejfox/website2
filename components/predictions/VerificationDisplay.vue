@@ -1,12 +1,12 @@
 <template>
-  <div class="prediction-verification border-l-4 border-gray-300 dark:border-gray-700 pl-4 space-y-3">
+  <div class="prediction-verification border-l-4 border-zinc-300 dark:border-zinc-700 pl-4 space-y-3">
     <div v-if="verification.hash" class="flex items-start gap-3">
       <Icon name="material-symbols:shield-check" class="text-green-600 flex-shrink-0 mt-1" />
       <div class="flex-1">
-        <p class="text-sm font-medium text-gray-700 dark:text-gray-300">
+        <p class="text-sm font-medium text-zinc-700 dark:text-zinc-300">
           Content Hash (SHA-256)
         </p>
-        <p class="text-xs font-mono text-gray-600 dark:text-gray-400 break-all">
+        <p class="text-xs font-mono text-zinc-600 dark:text-zinc-400 break-all">
           {{ verification.hash }}
         </p>
       </div>
@@ -15,7 +15,7 @@
     <div v-if="verification.gitCommit" class="flex items-start gap-3">
       <Icon name="material-symbols:commit" class="text-blue-600 flex-shrink-0 mt-1" />
       <div class="flex-1">
-        <p class="text-sm font-medium text-gray-700 dark:text-gray-300">
+        <p class="text-sm font-medium text-zinc-700 dark:text-zinc-300">
           Git Commit
         </p>
         <a 
@@ -25,7 +25,7 @@
         >
           {{ verification.gitCommit.slice(0, 8) }}
         </a>
-        <span v-if="verification.gitDate" class="text-xs text-gray-500 ml-2">
+        <span v-if="verification.gitDate" class="text-xs text-zinc-500 dark:text-zinc-500 ml-2">
           {{ formatDate(verification.gitDate) }}
         </span>
       </div>

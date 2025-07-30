@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { promises as fs } from 'fs'
-import { join, dirname } from 'path'
+import { join } from 'path'
 import { execSync } from 'child_process'
 import { createHash } from 'crypto'
 import readline from 'readline'
@@ -231,7 +231,7 @@ Be constructive and specific in your suggestions. Focus on making the prediction
     const analysis = JSON.parse(jsonMatch[0])
     log.step('✨ AI analysis complete')
     return analysis
-  } catch (error) {
+  } catch (_error) {
     log.warning('AI analysis unavailable - using built-in quality checker')
     log.step('This is completely normal and the wizard works great without AI!')
     return getBuiltInAnalysis(statement, resolutionCriteria)

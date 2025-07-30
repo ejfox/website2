@@ -1,14 +1,21 @@
 <template>
-  <div class="font-mono">
+  <div ref="monkeyStatsRef" class="font-mono">
     <!-- Main Stats -->
-    <div v-if="hasStats">
+    <div v-if="hasStats" ref="mainStatsRef">
       <div class="space-y-4">
-        <IndividualStat
-          :value="stats.typingStats.bestWPM"
-          size="large"
-          label="BEST WPM"
-          :details="statsDetails"
-        />
+        <!-- Primary WPM Stat with AnimatedNumber -->
+        <div class="individual-stat-large">
+          <div class="stat-value">
+            <AnimatedNumber :value="stats.typingStats.bestWPM" format="default" :duration="timing.expressive" priority="primary" epic />
+          </div>
+          <div class="stat-label">
+            BEST WPM
+          </div>
+          <div class="stat-details">
+            <AnimatedNumber :value="stats.typingStats.testsCompleted" format="default" :duration="timing.slower" priority="secondary" /> TESTS · 
+            <AnimatedNumber :value="stats.typingStats.bestAccuracy" format="default" :duration="timing.slow" priority="tertiary" />% ACC
+          </div>
+        </div>
       </div>
     </div>
     <div v-else class="text-center py-6">
@@ -27,7 +34,7 @@
     </div>
 
     <!-- Recent Tests -->
-    <div v-if="hasRecentTests" class="mt-8 space-y-6">
+    <div v-if="hasRecentTests" ref="recentTestsRef" class="mt-8 space-y-6">
       <StatsSectionHeader title="RECENT TESTS" />
 
       <div class="space-y-4">
@@ -42,40 +49,60 @@
             {{ formatTestTypeMinimal(test) }}
           </div>
           <div class="flex items-center gap-2 ml-auto">
-            <span class="wpm-value">{{ test.wpm }}</span>
-            <span class="accuracy-value">{{ test.accuracy.toFixed(1) }}%</span>
+            <span class="wpm-value">
+              <AnimatedNumber :value="test.wpm" format="default" :duration="timing.slow" priority="tertiary" />
+            </span>
+            <span class="accuracy-value">
+              <AnimatedNumber :value="test.accuracy" format="decimal" decimals="1" :duration="timing.normal" priority="tertiary" />%
+            </span>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Performance Metrics -->
-    <div v-if="stats.typingStats" class="mt-8 space-y-6">
+    <div v-if="stats.typingStats" ref="performanceRef" class="mt-8 space-y-6">
       <StatsSectionHeader title="PERFORMANCE" />
 
       <div class="grid grid-cols-2 gap-4">
-        <StatDisplay label="TESTS" :value="stats.typingStats.testsCompleted" />
-        <!-- <StatDisplay label="BEST ACC" :value="`${stats.typingStats.bestAccuracy}%`" /> -->
-        <StatDisplay
-          v-if="stats.typingStats.bestConsistency"
-          label="CONSISTENCY"
-          :value="`${stats.typingStats.bestConsistency}%`"
-        />
-        <StatDisplay
-          v-if="stats.typingStats.averageWpm"
-          label="AVG WPM"
-          :value="Math.round(stats.typingStats.averageWpm)"
-        />
+        <div class="stat-item">
+          <div class="stat-label">
+            TESTS
+          </div>
+          <div class="stat-value">
+            <AnimatedNumber :value="stats.typingStats.testsCompleted" format="default" :duration="timing.slower" priority="secondary" />
+          </div>
+        </div>
+        
+        <div v-if="stats.typingStats.bestConsistency" class="stat-item">
+          <div class="stat-label">
+            CONSISTENCY
+          </div>
+          <div class="stat-value">
+            <AnimatedNumber :value="stats.typingStats.bestConsistency" format="default" :duration="timing.slow" priority="secondary" />%
+          </div>
+        </div>
+        
+        <div v-if="stats.typingStats.averageWpm" class="stat-item">
+          <div class="stat-label">
+            AVG WPM
+          </div>
+          <div class="stat-value">
+            <AnimatedNumber :value="Math.round(stats.typingStats.averageWpm)" format="default" :duration="timing.slow" priority="secondary" />
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, h } from 'vue'
+import { computed, h as _h, ref, onMounted, nextTick } from 'vue'
 import { format } from 'date-fns'
-import IndividualStat from './IndividualStat.vue'
+import AnimatedNumber from '../AnimatedNumber.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'
+import { animate as _animate, stagger as _stagger, onScroll as _onScroll } from '~/anime.esm.js'
+import { useAnimations } from '~/composables/useAnimations'
 
 interface MonkeyTypeTest {
   timestamp: string
@@ -105,6 +132,8 @@ const props = defineProps<{
   stats: MonkeyTypeStats
 }>()
 
+const { timing } = useAnimations()
+
 // Computed properties for conditional rendering and data formatting
 const hasRecentTests = computed(
   () => !!props.stats.typingStats?.recentTests?.length
@@ -121,7 +150,7 @@ const recentTests = computed(() => {
     .slice(0, 5)
 })
 
-const statsDetails = computed(() => {
+const _statsDetails = computed(() => {
   const { testsCompleted, bestAccuracy } = props.stats.typingStats
   return `${testsCompleted} TESTS · ${bestAccuracy}% ACC`
 })
@@ -204,16 +233,95 @@ const hasStats = computed(() => {
   return !!props.stats.typingStats?.bestWPM
 })
 
-// Reusable stat display component
-const StatDisplay = (props: { label: string; value: string | number }) => {
-  return h('div', { class: 'stat-item' }, [
-    h('div', { class: 'stat-label' }, props.label),
-    h('div', { class: 'stat-value' }, props.value)
+// Animation refs
+const monkeyStatsRef = ref<HTMLElement | null>(null)
+const mainStatsRef = ref<HTMLElement | null>(null)
+const recentTestsRef = ref<HTMLElement | null>(null)
+const performanceRef = ref<HTMLElement | null>(null)
+
+// Epic MonkeyType stats scroll-triggered animations
+const setupScrollAnimations = () => {
+  if (process.server) return
+  
+  nextTick(() => {
+    if (!monkeyStatsRef.value) return
+
+    // Main stats dramatic entrance
+    if (mainStatsRef.value) {
+      _animate(mainStatsRef.value, {
+        keyframes: [
+          { opacity: 0, scale: 0.8, rotateX: -20, filter: 'blur(1px)' },
+          { opacity: 0.8, scale: 1.05, rotateX: 5, filter: 'blur(0.3px)' },
+          { opacity: 1, scale: 1, rotateX: 0, filter: 'blur(0px)' }
+        ],
+        duration: 600, // 2025 optimal duration
+        ease: 'out(2.4)', // Advanced physics
+        autoplay: _onScroll({
+          target: mainStatsRef.value,
+          onEnter: () => true
+        })
+      })
+    }
+
+    // Recent tests staggered entrance
+    if (recentTestsRef.value) {
+      const testRows = recentTestsRef.value.querySelectorAll('.test-row')
+      if (testRows.length) {
+        _animate(Array.from(testRows), {
+          opacity: [0, 1],
+          translateX: [-20, 0],
+          scale: [0.96, 1],
+          duration: 380, // 2025 micro-timing
+          delay: _stagger(60),
+          ease: 'out(2.6)', // Refined curve
+          autoplay: _onScroll({
+            target: recentTestsRef.value,
+            onEnter: () => true
+          })
+        })
+      }
+    }
+
+    // Performance metrics grid stagger
+    if (performanceRef.value) {
+      const statItems = performanceRef.value.querySelectorAll('.stat-item')
+      if (statItems.length) {
+        _animate(Array.from(statItems), {
+          opacity: [0, 1],
+          translateY: [15, 0],
+          scale: [0.92, 1.02, 1],
+          duration: 480, // 2025 grid timing
+          delay: _stagger(90),
+          ease: 'out(2.8)', // 2025 physics
+          autoplay: _onScroll({
+            target: performanceRef.value,
+            onEnter: () => true
+          })
+        })
+      }
+    }
+  })
+}
+
+onMounted(() => {
+  setupScrollAnimations()
+})
+
+// Reusable stat display component (deprecated - using AnimatedNumber now)
+const _StatDisplay = (props: { label: string; value: string | number }) => {
+  return _h('div', { class: 'stat-item' }, [
+    _h('div', { class: 'stat-label' }, props.label),
+    _h('div', { class: 'stat-value' }, props.value)
   ])
 }
 </script>
 
 <style scoped>
+/* Individual stat styles - inherits global typography */
+.individual-stat-large {
+  @apply text-center;
+}
+
 .test-row {
   @apply flex items-center text-xs;
 }
@@ -232,5 +340,16 @@ const StatDisplay = (props: { label: string; value: string | number }) => {
   @apply text-zinc-500 tabular-nums w-12 text-right;
 }
 
-/* Using shared styles from global.css for .stat-item, .stat-label, .stat-value */
+/* Stat item styles for performance section */
+.stat-item {
+  @apply space-y-1 text-center;
+}
+
+.stat-item .stat-label {
+  @apply text-xs tracking-wider text-zinc-500;
+}
+
+.stat-item .stat-value {
+  @apply text-lg font-mono tabular-nums text-zinc-800 dark:text-zinc-200;
+}
 </style>

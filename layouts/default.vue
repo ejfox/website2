@@ -5,83 +5,102 @@
   >
     <NuxtLoadingIndicator color="#999999" :height="1" />
     <section class="flex flex-col md:flex-row min-h-screen relative">
-      <!-- Mobile navigation - hide on stats page with simple mode -->
+      <!-- Mobile navigation - 2025 best practices: Tab bar pattern -->
       <nav
         v-if="
           isMobile &&
             !(route.path === '/stats' && route.query.simple !== undefined)
         "
-        class="fixed top-0 left-0 w-full z-50 bg-zinc-100/80 dark:bg-zinc-900/80 backdrop-blur-lg"
+        class="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-200/20 dark:border-zinc-800/20"
       >
-        <div class="px-4 py-3">
-          <div class="flex justify-between items-center">
+        <!-- Top bar with branding -->
+        <div class="flex items-center justify-between px-4 h-14">
+          <NuxtLink
+            to="/"
+            class="text-lg font-medium tracking-tight text-zinc-900 dark:text-zinc-100"
+          >
+            EJ Fox
+          </NuxtLink>
+          <div class="w-6"></div>
+          <!-- Spacer for visual balance -->
+        </div>
+
+        <!-- Visible tab navigation - no hidden menu -->
+        <div class="px-4 pb-3">
+          <div
+            class="flex items-center gap-1 overflow-x-auto scrollbar-hide"
+            role="tablist"
+            aria-label="Main navigation"
+          >
             <NuxtLink
-              class="text-zinc-800 dark:text-zinc-400 text-xl font-bold"
-              to="/"
+              v-for="link in primaryNavLinks"
+              :key="link.to"
+              :to="link.to"
+              role="tab"
+              :aria-selected="
+                route.path === link.to ||
+                  (link.to !== '/' && route.path.startsWith(link.to))
+              "
+              class="flex-shrink-0 px-3 py-1.5 text-sm font-medium rounded-full transition-all duration-200"
+              :class="
+                route.path === link.to ||
+                  (link.to !== '/' && route.path.startsWith(link.to))
+                  ? 'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-black'
+                  : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/50'
+              "
             >
-              EJ Fox
+              {{ link.text }}
             </NuxtLink>
+
+            <!-- More button for additional links -->
             <button
-              class="p-2 -mr-2 text-zinc-800 dark:text-zinc-400 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 rounded-lg transition-colors"
-              aria-label="Toggle menu"
+              v-if="secondaryNavLinks.length > 0"
               :aria-expanded="mobileMenuOpen"
+              aria-controls="secondary-nav-menu"
+              aria-label="Show more navigation options"
+              class="flex-shrink-0 px-3 py-1.5 text-sm font-medium text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 rounded-full transition-all duration-200"
+              :class="
+                mobileMenuOpen
+                  ? 'bg-zinc-100 dark:bg-zinc-800'
+                  : 'hover:bg-zinc-100 dark:hover:bg-zinc-800/50'
+              "
               @click="toggleMobileMenu"
             >
-              <Icon
-                :name="mobileMenuOpen ? 'heroicons:x-mark' : 'heroicons:bars-3'"
-                class="w-6 h-6"
-              />
+              More
             </button>
           </div>
         </div>
 
+        <!-- Expandable secondary menu -->
         <Transition
-          enter-active-class="transition duration-200 ease-out"
-          enter-from-class="opacity-0 -translate-y-2"
-          enter-to-class="opacity-100 translate-y-0"
-          leave-active-class="transition duration-150 ease-in"
-          leave-from-class="opacity-100 translate-y-0"
-          leave-to-class="opacity-0 -translate-y-2"
+          enter-active-class="transition-all duration-200 ease-out"
+          leave-active-class="transition-all duration-150 ease-in"
+          enter-from-class="opacity-0 -translate-y-1 scale-95"
+          enter-to-class="opacity-100 translate-y-0 scale-100"
+          leave-from-class="opacity-100 translate-y-0 scale-100"
+          leave-to-class="opacity-0 -translate-y-1 scale-95"
         >
           <div
-            v-if="mobileMenuOpen"
-            class="border-t border-zinc-200 dark:border-zinc-800"
+            v-if="mobileMenuOpen && secondaryNavLinks.length > 0"
+            id="secondary-nav-menu"
+            class="px-4 pb-3 border-t border-zinc-200/30 dark:border-zinc-800/30"
           >
-            <div class="px-4 py-2 space-y-1">
+            <div class="flex flex-wrap gap-1 pt-3">
               <NuxtLink
-                v-for="(link, index) in navLinks"
+                v-for="link in secondaryNavLinks"
                 :key="link.to"
-                :to="link.to"
-                class="justify-between py-3 px-3 rounded-lg text-base transition-colors"
-                :class="[
-                  'hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50',
-                  route.path === link.to
-                    ? 'text-zinc-900 dark:text-zinc-100 bg-zinc-200/30 dark:bg-zinc-800/30'
-                    : 'text-zinc-600 dark:text-zinc-400'
-                ]"
-                :style="{
-                  animation: `fadeIn 0.2s ease-out forwards ${index * 0.05}s`
-                }"
+                :to="link.external ? link.to : link.to"
+                :target="link.external ? '_blank' : undefined"
+                class="px-3 py-1.5 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 rounded-full transition-all duration-200"
                 @click="closeMobileMenu"
               >
-                <span>{{ link.text }}</span>
+                {{ link.text }}
                 <Icon
                   v-if="link.external"
                   name="heroicons:arrow-top-right-on-square"
-                  class="w-4 h-4 ml-2 opacity-60"
+                  class="w-3 h-3 ml-1 inline opacity-60"
                 />
               </NuxtLink>
-            </div>
-
-            <div
-              class="px-4 py-3 border-t border-zinc-200 dark:border-zinc-800"
-            >
-              <a
-                href="/pgp.txt"
-                class="block px-3 py-3 text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-300 transition-colors rounded-lg hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50"
-              >
-                PGP: E207 8E65 3FE3 89CD
-              </a>
             </div>
           </div>
         </Transition>
@@ -105,14 +124,17 @@
             >
               EJ Fox
             </NuxtLink>
-            <div class="space-y-1">
-              <NuxtLink :class="linkClasses" to="/">
+            <div ref="primaryNavRef" class="space-y-1">
+              <NuxtLink :class="linkClasses + ' nav-link-primary'" to="/">
                 Home
               </NuxtLink>
-              <NuxtLink :class="linkClasses" to="/projects">
+              <NuxtLink
+                :class="linkClasses + ' nav-link-primary'"
+                to="/projects"
+              >
                 Projects
               </NuxtLink>
-              <NuxtLink :class="linkClasses" to="/blog/">
+              <NuxtLink :class="linkClasses + ' nav-link-primary'" to="/blog/">
                 Blog
               </NuxtLink>
             </div>
@@ -122,15 +144,21 @@
 
             <div class="my-6"></div>
 
-            <div class="space-y-1">
-              <NuxtLink :class="linkClasses" to="https://ejfox.photos">
+            <div ref="secondaryNavRef" class="space-y-1">
+              <NuxtLink
+                :class="linkClasses + ' nav-link-secondary'"
+                to="https://ejfox.photos"
+              >
                 <span class="justify-between">
                   <span>Photos</span>
                   <Icon name="mdi:external-link" class="w-3 h-3 opacity-50" />
                 </span>
               </NuxtLink>
 
-              <NuxtLink :class="linkClasses" to="https://archive.ejfox.com">
+              <NuxtLink
+                :class="linkClasses + ' nav-link-secondary'"
+                to="https://archive.ejfox.com"
+              >
                 <span class="justify-between">
                   <span>Archive</span>
                   <Icon name="mdi:external-link" class="w-3 h-3 opacity-50" />
@@ -155,7 +183,11 @@
 
         <!-- Table of Contents Container -->
         <div v-if="isBlogPost || isStatsPage || isProjectsPage" class="mt-8">
-          <div id="nav-toc-container" class="sans-serif"></div>
+          <div
+            id="nav-toc-container"
+            ref="tocContainerRef"
+            class="sans-serif"
+          ></div>
         </div>
 
         <div v-if="isBlogPost" class="px-6 py-4">
@@ -169,7 +201,15 @@
         </div>
       </nav>
 
-      <article :class="['w-full overflow-x-auto']">
+      <article
+        :class="[
+          'w-full overflow-x-auto',
+          isMobile &&
+            !(route.path === '/stats' && route.query.simple !== undefined)
+            ? 'pt-20'
+            : ''
+        ]"
+      >
         <slot />
       </article>
     </section>
@@ -180,21 +220,13 @@
 </template>
 
 <script setup>
-import {
-  ref,
-  computed,
-  defineAsyncComponent,
-  onMounted as _onMounted,
-  watch,
-  nextTick
-} from 'vue'
-import { useWindowSize, useDark } from '@vueuse/core'
+import { ref, computed, defineAsyncComponent, watch, nextTick } from 'vue'
+import { useWindowSize } from '@vueuse/core'
 
 // Lazy load the Footer component
 const Footer = defineAsyncComponent(() => import('@/components/Footer.vue'))
 
 const { width } = useWindowSize()
-const _isDark = useDark()
 const isMobile = computed(() => width.value < 768)
 
 const mobileMenuOpen = ref(false)
@@ -225,37 +257,41 @@ const isProjectsPage = computed(() => {
   return route.path === '/projects'
 })
 
-const navLinks = [
+// Split navigation for mobile: primary (always visible) vs secondary (in "More")
+const primaryNavLinks = computed(() => [
   { to: '/', text: 'Home' },
   { to: '/projects', text: 'Projects' },
-  { to: '/blog/', text: 'Blog' },
+  { to: '/blog/', text: 'Blog' }
+])
+
+const secondaryNavLinks = computed(() => [
   { to: '/scrapbook/', text: 'Scrapbook' },
   { to: '/pottery/', text: 'Pottery' },
   { to: 'https://ejfox.photos', text: 'Photos', external: true },
   { to: 'https://archive.ejfox.com', text: 'Archive', external: true }
-]
+])
 
 const linkClasses =
   'block text-sm transition-colors duration-200 hover:text-zinc-900 dark:hover:text-zinc-100 no-underline'
 
 // Add a watcher to update the TOC container visibility when route changes
+const tocContainerRef = ref(null)
+
 watch(
   () => [route.path, isBlogPost.value, isStatsPage.value, isProjectsPage.value],
   () => {
     nextTick(() => {
-      // Force re-render of TOC container when route changes
+      // Force re-render of TOC container when route changes - using template ref
       if (
         process.client &&
-        (isBlogPost.value || isStatsPage.value || isProjectsPage.value)
+        (isBlogPost.value || isStatsPage.value || isProjectsPage.value) &&
+        tocContainerRef.value
       ) {
-        const tocContainer = document.querySelector('#toc-container')
-        if (tocContainer) {
-          // Trigger a DOM update by toggling a class
-          tocContainer.classList.add('toc-update')
-          setTimeout(() => {
-            tocContainer.classList.remove('toc-update')
-          }, 0)
-        }
+        // Trigger a DOM update by toggling a class
+        tocContainerRef.value.classList.add('toc-update')
+        setTimeout(() => {
+          tocContainerRef.value?.classList.remove('toc-update')
+        }, 0)
       }
     })
   },
@@ -419,5 +455,74 @@ h3,
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Pure anime.js-driven navigation - NO HOVER EFFECTS */
+.nav-link-primary {
+  position: relative;
+  opacity: 0.7; /* Start subtle for animation */
+  will-change: transform, opacity;
+}
+
+.nav-link-primary::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 0;
+  background: currentColor;
+  opacity: 0.2;
+}
+
+.nav-link-secondary {
+  opacity: 0.5; /* Start subtle for animation */
+  will-change: transform, opacity;
+}
+
+/* Data-driven separator for visual hierarchy */
+.my-6 {
+  position: relative;
+}
+
+.my-6::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 8px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.1;
+}
+
+/* REFINED MINIMALIST PAGE TRANSITIONS */
+main,
+article,
+[role='main'] {
+  will-change: opacity, transform, filter;
+  backface-visibility: hidden;
+  /* Ensure smooth transitions without layout shifts */
+  contain: layout style;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  main,
+  article,
+  [role='main'] {
+    will-change: auto !important;
+  }
+}
+
+/* Hide scrollbars while maintaining functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
 </style>

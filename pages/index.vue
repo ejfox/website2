@@ -1,5 +1,4 @@
 <script setup>
-import { animate, stagger } from '~/anime.esm.js'
 const { getPostBySlug, getAllPosts } = useProcessedMarkdown()
 
 const { data: indexContent, pending: indexPending } = await useAsyncData(
@@ -7,46 +6,12 @@ const { data: indexContent, pending: indexPending } = await useAsyncData(
   () => getPostBySlug('index')
 )
 
-const { data: posts, pending: postsPending } = await useAsyncData('posts', () =>
-  getAllPosts()
-)
+// const { data: posts, pending: postsPending } = await useAsyncData('posts', () =>
+//   getAllPosts()
+// )
 
 // Combine the pending states
-const pending = computed(() => indexPending.value || postsPending.value)
-
-const indexContentContainer = ref(null)
-
-onMounted(async () => {
-  // Wait for the next tick to ensure content is rendered
-  await nextTick()
-
-  if (indexContentContainer.value) {
-    // First make content visible
-    const content =
-      indexContentContainer.value.querySelectorAll('.animate-on-scroll')
-    if (content.length > 0) {
-      animate(content, {
-        opacity: [0, 1],
-        translateY: [20, 0],
-        duration: 800,
-        ease: 'outQuad',
-        delay: stagger(100)
-      })
-    }
-
-    // Then animate links
-    const links = indexContentContainer.value.querySelectorAll('a')
-    if (links.length > 0) {
-      animate(links, {
-        opacity: [0.82, 1],
-        borderColor: ['rgba(0,0,0,0)', '#CCC', '#FFF'],
-        ease: 'easeOutQuad',
-        duration: 5500,
-        delay: stagger(1200)
-      })
-    }
-  }
-})
+// const pending = computed(() => indexPending.value || postsPending.value)
 </script>
 
 <template>
@@ -55,24 +20,17 @@ onMounted(async () => {
     <div v-if="pending" class="max-w-3xl space-y-8"></div>
 
     <!-- Content State -->
-    <div v-else>
-      <!-- Existing content here -->
-      <div v-if="posts?.length" class="max-w-3xl space-y-8">
-        <template v-if="indexContent">
-          <h1>{{ indexContent.title }}</h1>
-          <div
-            id="index-content"
-            ref="indexContentContainer"
-            class="prose prose-lg dark:prose-invert"
-            v-html="indexContent.html"
-          ></div>
-        </template>
-        <div v-else class="text-center py-12">
-          Loading...
-        </div>
-      </div>
-      <div v-else class="text-center text-zinc-500 dark:text-zinc-400">
-        No posts found
+    <div v-else class="max-w-3xl space-y-8">
+      <template v-if="indexContent">
+        <h1>{{ indexContent.title }}</h1>
+        <div
+          id="index-content"
+          class="prose prose-lg dark:prose-invert"
+          v-html="indexContent.html"
+        ></div>
+      </template>
+      <div v-else class="text-center py-12">
+        Loading...
       </div>
     </div>
   </main>

@@ -1,6 +1,6 @@
 import { execSync } from 'child_process'
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async (_event) => {
   try {
     // Get git info
     const gitCommit = execSync('git rev-parse HEAD', { encoding: 'utf8' }).trim().substring(0, 8)
@@ -27,7 +27,7 @@ export default defineEventHandler(async (event) => {
       status: 'ok',
       timestamp: new Date().toISOString()
     }
-  } catch (error) {
+  } catch (_error) {
     return {
       version: {
         commit: 'unknown',

@@ -1,14 +1,108 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center p-4">
-    <div class="max-w-2xl text-center space-y-12">
-      <!-- Error Message -->
-      <div class="space-y-2">
-        <h1 class="text-base font-mono text-zinc-600 dark:text-zinc-400">
-          {{ error.statusCode || 404 }}
+  <div class="min-h-screen bg-zinc-50 dark:bg-zinc-900 p-4">
+    <div class="max-w-4xl mx-auto space-y-8">
+      <!-- Error Header -->
+      <div class="text-center space-y-4 py-8">
+        <h1 class="text-6xl font-bold font-mono text-red-600 dark:text-red-400">
+          {{ error.statusCode || 'ERROR' }}
         </h1>
-        <p class="text-base text-zinc-600 dark:text-zinc-400">
-          Page not found
+        <p class="text-xl text-zinc-800 dark:text-zinc-200">
+          {{ getErrorTitle() }}
         </p>
+        <p class="text-sm text-zinc-600 dark:text-zinc-400 font-mono">
+          {{ new Date().toISOString() }}
+        </p>
+      </div>
+
+      <!-- Detailed Error Info -->
+      <div class="bg-white dark:bg-zinc-800 rounded-lg border border-zinc-200 dark:border-zinc-700 p-6 space-y-6">
+        <h2 class="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+          🔍 Error Details
+        </h2>
+        
+        <div class="grid gap-4">
+          <div class="bg-zinc-50 dark:bg-zinc-900 p-4 rounded-lg">
+            <h3 class="font-medium text-zinc-900 dark:text-zinc-100 mb-2">
+              Message
+            </h3>
+            <p class="font-mono text-sm text-red-600 dark:text-red-400">
+              {{ error.statusMessage || error.message || 'Unknown error' }}
+            </p>
+          </div>
+
+          <div class="bg-zinc-50 dark:bg-zinc-900 p-4 rounded-lg">
+            <h3 class="font-medium text-zinc-900 dark:text-zinc-100 mb-2">
+              URL
+            </h3>
+            <p class="font-mono text-sm break-all text-zinc-700 dark:text-zinc-300">
+              {{ fullUrl }}
+            </p>
+          </div>
+
+          <div v-if="error.stack" class="bg-zinc-50 dark:bg-zinc-900 p-4 rounded-lg">
+            <h3 class="font-medium text-zinc-900 dark:text-zinc-100 mb-2">
+              Stack Trace
+            </h3>
+            <pre class="text-xs font-mono text-zinc-700 dark:text-zinc-300 overflow-x-auto whitespace-pre-wrap">{{ error.stack }}</pre>
+          </div>
+
+          <div class="bg-zinc-50 dark:bg-zinc-900 p-4 rounded-lg">
+            <h3 class="font-medium text-zinc-900 dark:text-zinc-100 mb-2">
+              Request Info
+            </h3>
+            <div class="text-sm space-y-1">
+              <p><strong>Method:</strong> <code class="bg-zinc-200 dark:bg-zinc-700 px-1 rounded">{{ $route.meta?.method || 'GET' }}</code></p>
+              <p><strong>Path:</strong> <code class="bg-zinc-200 dark:bg-zinc-700 px-1 rounded">{{ $route.path }}</code></p>
+              <p><strong>Query:</strong> <code class="bg-zinc-200 dark:bg-zinc-700 px-1 rounded">{{ JSON.stringify($route.query) }}</code></p>
+              <p><strong>Params:</strong> <code class="bg-zinc-200 dark:bg-zinc-700 px-1 rounded">{{ JSON.stringify($route.params) }}</code></p>
+              <p><strong>User Agent:</strong> <code class="bg-zinc-200 dark:bg-zinc-700 px-1 rounded text-xs">{{ userAgent }}</code></p>
+            </div>
+          </div>
+
+          <div class="bg-zinc-50 dark:bg-zinc-900 p-4 rounded-lg">
+            <h3 class="font-medium text-zinc-900 dark:text-zinc-100 mb-2">
+              Environment
+            </h3>
+            <div class="text-sm space-y-1">
+              <p><strong>Environment:</strong> <code class="bg-zinc-200 dark:bg-zinc-700 px-1 rounded">{{ isDev ? 'development' : 'production' }}</code></p>
+              <p><strong>Rendered on:</strong> <code class="bg-zinc-200 dark:bg-zinc-700 px-1 rounded">{{ process.client ? 'client' : 'server' }}</code></p>
+              <p><strong>Nuxt Version:</strong> <code class="bg-zinc-200 dark:bg-zinc-700 px-1 rounded">{{ nuxtApp?.versions?.nuxt || 'unknown' }}</code></p>
+            </div>
+          </div>
+
+          <div v-if="error.data" class="bg-zinc-50 dark:bg-zinc-900 p-4 rounded-lg">
+            <h3 class="font-medium text-zinc-900 dark:text-zinc-100 mb-2">
+              Additional Data
+            </h3>
+            <pre class="text-xs font-mono text-zinc-700 dark:text-zinc-300 overflow-x-auto whitespace-pre-wrap">{{ JSON.stringify(error.data, null, 2) }}</pre>
+          </div>
+
+          <div v-if="isDev" class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg border border-red-200 dark:border-red-800">
+            <h3 class="font-medium text-red-900 dark:text-red-100 mb-2">
+              🔧 Full Error Object (Dev Only)
+            </h3>
+            <pre class="text-xs font-mono text-red-800 dark:text-red-200 overflow-x-auto whitespace-pre-wrap max-h-64 overflow-y-auto">{{ JSON.stringify(error, null, 2) }}</pre>
+          </div>
+
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
+            <h3 class="font-medium text-blue-900 dark:text-blue-100 mb-2">
+              💡 Debugging Tips
+            </h3>
+            <ul class="text-sm text-blue-800 dark:text-blue-200 space-y-1 list-disc pl-4">
+              <li v-if="error.statusCode === 404">
+                Check if the file exists in <code class="bg-blue-200 dark:bg-blue-800 px-1 rounded">content/processed/</code>
+              </li>
+              <li v-if="error.statusCode === 500">
+                Check server logs and API endpoints for detailed stack traces
+              </li>
+              <li v-if="error.statusCode === 500">
+                Verify all imports and composables are working correctly
+              </li>
+              <li>Check browser console for additional client-side errors</li>
+              <li>Verify API endpoints are responding: <code class="bg-blue-200 dark:bg-blue-800 px-1 rounded">/api/manifest</code>, <code class="bg-blue-200 dark:bg-blue-800 px-1 rounded">/api/posts/*</code></li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       <!-- Related Posts -->
@@ -31,21 +125,62 @@
         </div>
       </div>
 
-      <!-- Action Buttons -->
-      <div class="space-y-4">
-        <NuxtLink
-          to="/"
-          class="inline-block px-8 py-4 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors text-lg"
-        >
-          Go Home
-        </NuxtLink>
-        <div>
+      <!-- Quick Actions -->
+      <div class="bg-white dark:bg-zinc-800 rounded-lg border border-zinc-200 dark:border-zinc-700 p-6">
+        <h2 class="text-lg font-semibold text-zinc-900 dark:text-zinc-100 mb-4">
+          🚀 Quick Actions
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <NuxtLink
+            to="/"
+            class="flex items-center justify-center px-6 py-3 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors font-medium"
+          >
+            🏠 Go Home
+          </NuxtLink>
+          
           <NuxtLink
             to="/blog"
-            class="text-base text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+            class="flex items-center justify-center px-6 py-3 border border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-zinc-100 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-700 transition-colors font-medium"
           >
-            Browse Blog
+            📝 Browse Blog
           </NuxtLink>
+
+          <button
+            class="flex items-center justify-center px-6 py-3 border border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-zinc-100 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-700 transition-colors font-medium"
+            @click="copyErrorInfo"
+          >
+            📋 {{ copied ? 'Copied!' : 'Copy Error Info' }}
+          </button>
+
+          <button
+            class="flex items-center justify-center px-6 py-3 border border-amber-300 dark:border-amber-600 text-amber-900 dark:text-amber-100 rounded-lg hover:bg-amber-50 dark:hover:bg-amber-900/20 transition-colors font-medium"
+            @click="reloadPage"
+          >
+            🔄 Reload Page
+          </button>
+        </div>
+
+        <div v-if="isDev" class="mt-4 pt-4 border-t border-zinc-200 dark:border-zinc-700">
+          <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-3">
+            Dev Tools:
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <a 
+              :href="`http://localhost:3006/api/manifest`"
+              target="_blank"
+              class="text-xs px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-md hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors"
+            >
+              Check Manifest API
+            </a>
+            <a 
+              :href="`http://localhost:3006${$route.path}`"
+              target="_blank"
+              class="text-xs px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-md hover:bg-green-200 dark:hover:bg-green-800 transition-colors"
+            >
+              Retry Current URL
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -56,6 +191,7 @@
 import { formatDate } from '~/utils/dateFormatters'
 
 const route = useRoute()
+const nuxtApp = useNuxtApp()
 
 // Props passed by Nuxt error handling
 const _props = defineProps({
@@ -66,6 +202,67 @@ const _props = defineProps({
 })
 
 const relatedPosts = ref([])
+
+// Enhanced error info
+const isDev = process.dev
+const fullUrl = computed(() => {
+  if (process.client) {
+    return window.location.href
+  }
+  return `${route.path}${Object.keys(route.query).length ? '?' + new URLSearchParams(route.query).toString() : ''}`
+})
+
+const userAgent = computed(() => {
+  if (process.client) {
+    return navigator.userAgent
+  }
+  return 'Server-side render'
+})
+
+const getErrorTitle = () => {
+  const code = _props.error.statusCode
+  switch (code) {
+    case 404: return 'Page Not Found'
+    case 500: return 'Internal Server Error'
+    case 403: return 'Access Forbidden'
+    case 401: return 'Unauthorized'
+    case 400: return 'Bad Request'
+    default: return _props.error.statusMessage || 'Something went wrong'
+  }
+}
+
+// Copy error info to clipboard
+const copied = ref(false)
+const copyErrorInfo = async () => {
+  const errorInfo = {
+    statusCode: _props.error.statusCode,
+    message: _props.error.statusMessage || _props.error.message,
+    url: fullUrl.value,
+    userAgent: userAgent.value,
+    timestamp: new Date().toISOString(),
+    route: {
+      path: route.path,
+      query: route.query,
+      params: route.params
+    },
+    stack: _props.error.stack,
+    data: _props.error.data
+  }
+
+  try {
+    await navigator.clipboard.writeText(JSON.stringify(errorInfo, null, 2))
+    copied.value = true
+    setTimeout(() => { copied.value = false }, 2000)
+  } catch (err) {
+    console.error('Failed to copy error info:', err)
+  }
+}
+
+const reloadPage = () => {
+  if (process.client) {
+    window.location.reload()
+  }
+}
 
 // Note: formatDate is now imported from utils/dateFormatters
 

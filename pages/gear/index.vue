@@ -93,20 +93,27 @@
 
         <!-- Type legend -->
         <div class="mb-6">
-          <h3 class="text-xs font-mono uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400 mb-3">
+          <h3
+            class="text-xs font-mono uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400 mb-3"
+          >
             Type Legend
           </h3>
           <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3">
             <div
-              v-for="type in typeStats" :key="type.name" 
+              v-for="type in typeStats"
+              :key="type.name"
               class="flex items-center gap-2 text-xs"
             >
-              <span class="text-sm font-medium text-zinc-600 dark:text-zinc-400">{{ type.symbol }}</span>
+              <span
+                class="text-sm font-medium text-zinc-600 dark:text-zinc-400"
+              >{{ type.symbol }}</span>
               <div class="flex-1">
                 <div class="font-medium text-zinc-700 dark:text-zinc-300">
                   {{ type.name }}
                 </div>
-                <div class="text-[10px] text-zinc-500 dark:text-zinc-500 tabular-nums">
+                <div
+                  class="text-[10px] text-zinc-500 dark:text-zinc-500 tabular-nums"
+                >
                   {{ type.count }} items · {{ type.weight }}
                 </div>
               </div>
@@ -138,16 +145,19 @@
           class="group flex flex-col py-3 px-3 hover:bg-zinc-50 dark:hover:bg-zinc-900/50 transition-colors border border-zinc-200/50 dark:border-zinc-700/50 rounded-lg"
         >
           <div class="flex items-center justify-between mb-2">
-            <span class="font-medium text-zinc-900 dark:text-zinc-100 text-sm">{{
-              container
-            }}</span>
+            <span
+              class="font-medium text-zinc-900 dark:text-zinc-100 text-sm"
+            >{{ container }}</span>
             <span
               class="text-xs font-mono tabular-nums text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-700 dark:group-hover:text-zinc-300"
             >{{ items.length }}</span>
           </div>
-          <div class="flex flex-wrap gap-1 text-xs text-zinc-400 dark:text-zinc-500">
+          <div
+            class="flex flex-wrap gap-1 text-xs text-zinc-400 dark:text-zinc-500"
+          >
             <span
-              v-for="item in getSortedItemsByType(items)" :key="item.Name" 
+              v-for="item in getSortedItemsByType(items)"
+              :key="item.Name"
               :title="`${item.Type}: ${item.Name}`"
               class="cursor-help"
             >
@@ -178,7 +188,9 @@
           <div
             class="text-xs font-mono text-zinc-500 dark:text-zinc-400 space-x-4"
           >
-            <span class="tabular-nums">{{ calculateTotalWeightInGrams(items) }}</span>
+            <span class="tabular-nums">{{
+              calculateTotalWeightInGrams(items)
+            }}</span>
             <span class="uppercase tracking-[0.1em]">{{ items.length }} items</span>
           </div>
         </div>
@@ -221,24 +233,28 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue'
 import { useDebounceFn } from '@vueuse/core'
 import * as d3 from 'd3'
 
-const { calculateTotalWeight, calculateAverageWeight, getWeightCategories, formatWeight: _formatWeight } = useWeightCalculations()
+const {
+  calculateTotalWeight,
+  calculateAverageWeight,
+  getWeightCategories,
+  formatWeight: _formatWeight
+} = useWeightCalculations()
 
 const gearItems = ref([])
 const svgRefs = new Map()
 
 // Type symbols mapping (same as in GearItem)
 const typeSymbols = {
-  'Tech': '▲',
-  'Utility': '⬟', 
-  'Comfort': '○',
-  'Sleep': '☽',
-  'Bag': '▣',
-  'Safety': '◆',
-  'Creativity': '✧'
+  Tech: '▲',
+  Utility: '⬟',
+  Comfort: '○',
+  Sleep: '☽',
+  Bag: '▣',
+  Safety: '◆',
+  Creativity: '✧'
 }
 
 // Get unicode symbol for item type
@@ -248,17 +264,25 @@ const getTypeSymbol = (type) => {
 
 // Sort items by type for consistent symbol ordering
 const getSortedItemsByType = (items) => {
-  const typeOrder = ['Tech', 'Utility', 'Comfort', 'Sleep', 'Bag', 'Safety', 'Creativity']
-  
+  const typeOrder = [
+    'Tech',
+    'Utility',
+    'Comfort',
+    'Sleep',
+    'Bag',
+    'Safety',
+    'Creativity'
+  ]
+
   return [...items].sort((a, b) => {
     const aIndex = typeOrder.indexOf(a.Type)
     const bIndex = typeOrder.indexOf(b.Type)
-    
+
     // If type not found, put at end
     if (aIndex === -1 && bIndex === -1) return 0
     if (aIndex === -1) return 1
     if (bIndex === -1) return -1
-    
+
     return aIndex - bIndex
   })
 }
@@ -280,7 +304,7 @@ const getTypeColor = (type) => {
 }
 
 // Helper to set SVG refs
-const setSvgRef = (el, name) => {
+const _setSvgRef = (el, name) => {
   if (el) svgRefs.set(name, el)
 }
 
@@ -424,7 +448,7 @@ onUnmounted(() => {
 })
 
 // Helper function to determine container type
-function getContainerType(items) {
+function _getContainerType(items) {
   // Return the most common type in the container
   const types = items.map((item) => item.Type).filter(Boolean)
   if (!types.length) return null
@@ -438,7 +462,7 @@ function getContainerType(items) {
 }
 
 // Update typeIcons to match GearItem.vue
-const typeIcons = {
+const _typeIcons = {
   Tech: 'i-material-symbols-light-earbuds-battery',
   Utility: 'i-heroicons-wrench',
   Comfort: 'i-heroicons-heart',
@@ -449,7 +473,7 @@ const typeIcons = {
 }
 
 // Add typeClasses for styling
-const typeClasses = {
+const _typeClasses = {
   Tech: 'text-zinc-600 dark:text-zinc-400',
   Utility: 'text-zinc-600 dark:text-zinc-400',
   Comfort: 'text-zinc-600 dark:text-zinc-400',
@@ -460,7 +484,7 @@ const typeClasses = {
 }
 
 // Container-specific icons take precedence over type icons
-const containerIcons = {
+const _containerIcons = {
   Motorcycle: 'i-fa6-solid-motorcycle',
   'WLF Enduro Backpack': 'i-material-symbols-light-backpack-rounded',
   '5.11 Rush 24 Backpack': 'i-material-symbols-light-backpack-rounded'
@@ -468,24 +492,28 @@ const containerIcons = {
 
 // Computed properties
 const totalItems = computed(() => gearItems.value.length)
-const totalWeight = computed(() => calculateTotalWeight(gearItems.value).ounces.toFixed(1))
+const totalWeight = computed(() =>
+  calculateTotalWeight(gearItems.value).ounces.toFixed(1)
+)
 const containerCount = computed(() => groupedGear.value?.size || 0)
 
 // Type statistics for legend
 const typeStats = computed(() => {
-  const stats = Object.keys(typeSymbols).map(typeName => {
-    const items = gearItems.value.filter(item => item.Type === typeName)
-    const totalWeightData = calculateTotalWeight(items)
-    
-    return {
-      name: typeName,
-      symbol: typeSymbols[typeName],
-      count: items.length,
-      weight: totalWeightData.formatted,
-      items: items
-    }
-  }).filter(stat => stat.count > 0) // Only show types that have items
-  
+  const stats = Object.keys(typeSymbols)
+    .map((typeName) => {
+      const items = gearItems.value.filter((item) => item.Type === typeName)
+      const totalWeightData = calculateTotalWeight(items)
+
+      return {
+        name: typeName,
+        symbol: typeSymbols[typeName],
+        count: items.length,
+        weight: totalWeightData.formatted,
+        items: items
+      }
+    })
+    .filter((stat) => stat.count > 0) // Only show types that have items
+
   // Sort by count descending
   return stats.sort((a, b) => b.count - a.count)
 })
@@ -515,13 +543,19 @@ useHead(() => ({
   ]
 }))
 
-const avgWeight = computed(() => calculateAverageWeight(gearItems.value).ounces.toFixed(1))
+const _avgWeight = computed(() =>
+  calculateAverageWeight(gearItems.value).ounces.toFixed(1)
+)
 
 // Total weight in grams
-const totalWeightInGrams = computed(() => calculateTotalWeight(gearItems.value).grams)
+const totalWeightInGrams = computed(
+  () => calculateTotalWeight(gearItems.value).grams
+)
 
 // Average weight in grams
-const avgWeightInGrams = computed(() => calculateAverageWeight(gearItems.value).grams)
+const avgWeightInGrams = computed(
+  () => calculateAverageWeight(gearItems.value).grams
+)
 
 // Helper function for TCWM calculation
 const calculateTCWMScore = (item) => {
@@ -532,14 +566,14 @@ const calculateTCWMScore = (item) => {
   return 2 * T + 2 * C + 1.5 * W + M
 }
 
-const avgTCWMScore = computed(() => {
+const _avgTCWMScore = computed(() => {
   if (!gearItems.value?.length) return '0.0'
   const scores = gearItems.value.map((item) => calculateTCWMScore(item))
   return (scores.reduce((a, b) => a + b, 0) / scores.length).toFixed(1)
 })
 
 // Average TCWM component scores
-const avgScores = computed(() => {
+const _avgScores = computed(() => {
   if (!gearItems.value?.length) return { T: 0, C: 0, W: 0, M: 0 }
 
   const scores = {
@@ -564,12 +598,12 @@ const avgScores = computed(() => {
 })
 
 // Weight conversion helpers
-const ouncesToPounds = computed(() => {
+const _ouncesToPounds = computed(() => {
   const pounds = Number(totalWeight.value) / 16
   return pounds.toFixed(1)
 })
 
-const ouncesToKilos = computed(() => {
+const _ouncesToKilos = computed(() => {
   const kilos = Number(totalWeight.value) * 0.0283495
   return kilos.toFixed(1)
 })
@@ -594,9 +628,9 @@ const currentDate = new Date().toISOString().split('T')[0]
 
 // Weight distribution computed properties
 const weightCategories = computed(() => getWeightCategories(gearItems.value))
-const lightweightCount = computed(() => weightCategories.value.lightweight)
-const mediumweightCount = computed(() => weightCategories.value.mediumweight)
-const heavyweightCount = computed(() => weightCategories.value.heavyweight)
+const _lightweightCount = computed(() => weightCategories.value.lightweight)
+const _mediumweightCount = computed(() => weightCategories.value.mediumweight)
+const _heavyweightCount = computed(() => weightCategories.value.heavyweight)
 </script>
 
 <style>

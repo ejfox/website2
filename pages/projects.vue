@@ -4,6 +4,7 @@
 // -----------------------------------------------
 import { format } from 'date-fns'
 import { ref, computed, onMounted, nextTick, onBeforeUnmount } from 'vue'
+import { useAnimations } from '~/composables/useAnimations'
 
 const processedMarkdown = useProcessedMarkdown()
 const route = useRoute()
@@ -14,7 +15,7 @@ const router = useRouter()
 // -----------------------------------------------
 const activeProject = ref(null)
 const projectsLoaded = ref(false)
-const hoveredProject = ref(null)
+const _hoveredProject = ref(null)
 const timelineWidth = ref(0)
 const tocTarget = ref(null)
 
@@ -46,7 +47,7 @@ const sortedProjectPosts = computed(() => {
 })
 
 // Timeline data for visualization
-const timelineData = computed(() => {
+const _timelineData = computed(() => {
   if (!sortedProjectPosts.value?.length) return []
 
   // Get all dates and find the range
@@ -77,7 +78,7 @@ const timelineData = computed(() => {
 })
 
 // Get unique years for timeline labels
-const timelineYears = computed(() => {
+const _timelineYears = computed(() => {
   if (!sortedProjectPosts.value?.length) return []
 
   // Get all years from projects
@@ -118,7 +119,7 @@ function formatDate(date) {
 }
 
 // Format date as just the year "YYYY"
-function formatYear(date) {
+function _formatYear(date) {
   if (!date) return ''
   return format(new Date(date), 'yyyy')
 }
@@ -143,7 +144,7 @@ function scrollToProject(projectSlug) {
 }
 
 // Toggle active project
-function toggleProject(project) {
+function _toggleProject(project) {
   if (activeProject.value === project.slug) {
     activeProject.value = null
     router.replace({ hash: '' })
@@ -154,7 +155,7 @@ function toggleProject(project) {
 }
 
 // Update timeline width on resize
-function updateTimelineWidth() {
+function _updateTimelineWidth() {
   if (typeof document !== 'undefined') {
     const timeline = document.querySelector('.timeline-svg')
     if (timeline) {
@@ -184,15 +185,16 @@ onMounted(() => {
   // Add scroll listener for active project tracking
   window.addEventListener('scroll', trackActiveProject)
 
-  // Add elegant animations
+  // Add elegant animations with motion tokens
   if (projectElements.value?.length) {
     import('~/anime.esm.js').then(({ animate }) => {
+      const { timing, staggers, easing } = useAnimations()
       animate(projectElements.value, {
         opacity: [0, 1],
         translateY: [10, 0],
-        duration: 600,
-        easing: 'easeOutQuad',
-        delay: (el, i) => i * 50
+        duration: timing.slow, // 400ms - standardized
+        easing: easing.standard,
+        delay: (el, i) => i * staggers.tight // 50ms - standardized
       })
     })
   }

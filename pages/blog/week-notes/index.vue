@@ -2,7 +2,8 @@
 import { format } from 'date-fns'
 import { computed } from 'vue'
 import { startOfWeek } from 'date-fns'
-import { animate, stagger } from '~/anime.esm.js'
+import { animate, stagger as _stagger } from '~/anime.esm.js'
+import { useAnimations } from '~/composables/useAnimations'
 
 
 const processedMarkdown = useProcessedMarkdown()
@@ -10,7 +11,7 @@ const processedMarkdown = useProcessedMarkdown()
 const { data: blogPosts } = await useAsyncData('blog-posts', () => processedMarkdown.getAllPosts())
 const { data: weekNotes } = await useAsyncData('week-notes', () => processedMarkdown.getWeekNotes())
 
-const formatDate = (date) => format(new Date(date), 'yyyy-MM-dd')
+const _formatDate = (date) => format(new Date(date), 'yyyy-MM-dd')
 
 // Sort week notes and convert week slug to actual dates
 const sortedWeekNotes = computed(() => {
@@ -47,25 +48,23 @@ function groupByYear(posts) {
 const blogPostsByYear = computed(() => groupByYear(blogPosts.value))
 
 // Get an array of years sorted in descending order
-const sortedYears = computed(() =>
+const _sortedYears = computed(() =>
   Object.keys(blogPostsByYear.value).sort((a, b) => b - a)
 )
 
 const blogPostElements = ref([])
 const weekNoteElements = ref([])
+const { timing, staggers, easing } = useAnimations()
 
-const animDuration = 900
-const animStagger = 25
 onMounted(() => {
   // console.log(blogPostElements.value)
   // Animate blog posts
   animate(blogPostElements.value, {
     opacity: [0, 1],
     translateY: [20, 0],
-    // scale: [0.98, 1.02, 1],
-    duration: animDuration,
-    ease: 'easeOutQuad',
-    delay: stagger(animStagger)
+    duration: timing.slow,
+    ease: easing.standard,
+    delay: _stagger(staggers.tight)
   })
 
   // animate the metadata sliding in from the left
@@ -73,18 +72,18 @@ onMounted(() => {
   animate(blogPostElements.value.map((el,) => el.querySelector('.post-metadata')), {
     opacity: [0, 1],
     translateX: [-8, 0],
-    duration: animDuration * 2,
-    ease: 'easeOutQuad',
-    delay: animDuration * 0.82
+    duration: timing.expressive,
+    ease: easing.standard,
+    delay: timing.slow
   })
 
   // Animate week notes
   animate(weekNoteElements.value, {
     opacity: [0, 1],
     translateX: [20, 0],
-    duration: animDuration,
-    ease: 'easeInOutQuad',
-    delay: stagger(animStagger, { start: 600 }) // Start after blog posts animation
+    duration: timing.slow,
+    ease: easing.productive,
+    delay: _stagger(staggers.tight, { start: timing.expressive })
   })
 
 

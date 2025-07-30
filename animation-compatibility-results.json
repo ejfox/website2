@@ -1,0 +1,14 @@
+{
+  "Chrome": {
+    "available": false,
+    "error": "page.waitForTimeout is not a function"
+  },
+  "Edge": {
+    "available": false,
+    "error": "Browser not installed"
+  },
+  "Chromium": {
+    "available": false,
+    "error": "Browser not installed"
+  }
+}

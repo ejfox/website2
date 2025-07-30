@@ -1,14 +1,21 @@
 <template>
-  <div class="font-mono">
+  <div ref="leetCodeRef" class="font-mono">
     <!-- Main Stats -->
-    <div v-if="stats.submissionStats">
-      <IndividualStat
-        :value="formatNumber(totalSolved)" size="large" label="PROBLEMS SOLVED"
-        :details="`${formatNumber(stats.submissionStats.easy.count)} EASY · ${formatNumber(stats.submissionStats.medium.count)} MEDIUM · ${formatNumber(stats.submissionStats.hard.count)} HARD`"
-      />
+    <div v-if="stats.submissionStats" ref="primaryStatRef" class="individual-stat-large">
+      <div class="stat-value">
+        <AnimatedNumber :value="totalSolved" format="commas" :duration="timing.slower" priority="primary" />
+      </div>
+      <div class="stat-label">
+        PROBLEMS SOLVED
+      </div>
+      <div class="stat-details">
+        <AnimatedNumber :value="stats.submissionStats.easy.count" format="commas" :duration="timing.slow" priority="secondary" /> EASY · 
+        <AnimatedNumber :value="stats.submissionStats.medium.count" format="commas" :duration="timing.slow" :delay="50" priority="secondary" /> MEDIUM · 
+        <AnimatedNumber :value="stats.submissionStats.hard.count" format="commas" :duration="timing.slow" priority="tertiary" /> HARD
+      </div>
 
       <!-- Difficulty Distribution -->
-      <div class="mt-4">
+      <div ref="difficultyBarRef" class="mt-4">
         <div class="difficulty-bar">
           <div
             class="easy-bar" :style="{
@@ -46,13 +53,13 @@
       </div>
 
       <!-- Activity Calendar (using new reusable component) -->
-      <div v-if="hasActivityData" class="mt-6">
+      <div v-if="hasActivityData" ref="calendarRef" class="mt-6">
         <ActivityCalendar title="ACTIVITY" :active-dates="activityDates" :active-color="'#71717a'" :days="30" />
       </div>
     </div>
 
     <!-- Problem Stats - Simplified Table -->
-    <div v-if="stats.submissionStats" class="mt-8">
+    <div v-if="stats.submissionStats" ref="breakdownRef" class="mt-8">
       <StatsSectionHeader title="DIFFICULTY BREAKDOWN" />
       <div class="grid grid-cols-3 gap-x-4 gap-y-1">
         <!-- Column Headers -->
@@ -68,26 +75,26 @@
 
         <!-- Values -->
         <div class="tabular-nums font-medium">
-          {{ formatNumber(stats.submissionStats.easy.count) }}
+          <AnimatedNumber :value="stats.submissionStats.easy.count" format="commas" priority="secondary" />
         </div>
         <div class="tabular-nums font-medium">
-          {{ formatNumber(stats.submissionStats.medium.count) }}
+          <AnimatedNumber :value="stats.submissionStats.medium.count" format="commas" :delay="100" priority="secondary" />
         </div>
         <div class="tabular-nums font-medium">
-          {{ formatNumber(stats.submissionStats.hard.count) }}
+          <AnimatedNumber :value="stats.submissionStats.hard.count" format="commas" priority="tertiary" />
         </div>
       </div>
     </div>
 
     <!-- Language Stats - Refined with bars -->
-    <div v-if="hasLanguageStats" class="mt-8">
+    <div v-if="hasLanguageStats" ref="languagesRef" class="mt-8">
       <StatsSectionHeader title="LANGUAGES" />
       <div class="space-y-2.5">
         <div v-for="(item, index) in languageEntries" :key="index" class="language-item">
           <div class="flex justify-between items-center mb-1">
             <span class="text-zinc-700 dark:text-zinc-300 text-xs">{{ item.language }}</span>
             <span class="text-zinc-500 text-2xs tabular-nums">
-              {{ formatNumber(item.count) }} <span class="ml-0.5">{{ item.count > 1 ? 'SOLUTIONS' : 'SOLUTION' }}</span>
+              <AnimatedNumber :value="item.count" format="commas" :delay="index * 80" priority="tertiary" /> <span class="ml-0.5">{{ item.count > 1 ? 'SOLUTIONS' : 'SOLUTION' }}</span>
             </span>
           </div>
           <div class="lang-bar-bg">
@@ -103,7 +110,7 @@
     </div>
 
     <!-- Recent Submissions -->
-    <div v-if="recentAcceptedSubmissions.length" class="mt-8">
+    <div v-if="recentAcceptedSubmissions.length" ref="recentRef" class="mt-8">
       <StatsSectionHeader title="RECENT SOLUTIONS" />
       <div class="space-y-2">
         <div v-for="submission in recentAcceptedSubmissions" :key="submission.titleSlug" class="submission-row">
@@ -123,13 +130,15 @@
 </template>
 
 <script setup lang="ts">
-import { computed, h as _h } from 'vue'
-import { format, parse as _parse } from 'date-fns'
-import IndividualStat from './IndividualStat.vue'
+import { computed, ref, onMounted, nextTick } from 'vue'
+import { format } from 'date-fns'
 import ActivityCalendar from './ActivityCalendar.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'
+import AnimatedNumber from '../AnimatedNumber.vue'
 import { formatNumber, formatPercent } from '~/composables/useNumberFormat'
 import type { StatsResponse } from '~/composables/useStats'
+import { stagger as _stagger, createTimeline } from '~/anime.esm.js'
+import { useAnimations } from '~/composables/useAnimations'
 
 // Monochromatic zinc shades for language differentiation
 const zincShades = [
@@ -149,6 +158,8 @@ type LeetCodeStats = NonNullable<StatsResponse['leetcode']>
 const props = defineProps<{
   stats: LeetCodeStats
 }>()
+
+const { timing, easing } = useAnimations()
 
 // Total problems solved
 const totalSolved = computed(() => {
@@ -234,9 +245,133 @@ const activityDates = computed(() => {
       return format(date, 'yyyy-MM-dd')
     })
 })
+
+// Animation refs
+const leetCodeRef = ref<HTMLElement | null>(null)
+const primaryStatRef = ref<HTMLElement | null>(null)
+const difficultyBarRef = ref<HTMLElement | null>(null)
+const calendarRef = ref<HTMLElement | null>(null)
+const breakdownRef = ref<HTMLElement | null>(null)
+const languagesRef = ref<HTMLElement | null>(null)
+const recentRef = ref<HTMLElement | null>(null)
+
+const animateLeetCodeStats = async () => {
+  if (process.server) return
+  
+  await nextTick()
+  
+  if (leetCodeRef.value) {
+    const timeline = createTimeline()
+    
+    if (primaryStatRef.value) {
+      timeline.add({
+        targets: primaryStatRef.value,
+        keyframes: [
+          { opacity: 0, scale: 0.8, rotateX: -20, filter: 'blur(1px)' },
+          { opacity: 0.8, scale: 1.1, rotateX: 5, filter: 'blur(0.3px)' },
+          { opacity: 1, scale: 1, rotateX: 0, filter: 'blur(0px)' }
+        ],
+        duration: timing.expressive,
+        ease: 'outElastic(1, .8)'
+      })
+    }
+    
+    if (difficultyBarRef.value) {
+      const difficultyBars = difficultyBarRef.value.querySelectorAll('.easy-bar, .medium-bar, .hard-bar')
+      if (difficultyBars.length) {
+        timeline.add({
+          targets: Array.from(difficultyBars),
+          scaleX: [0, 1.2, 1],
+          scaleY: [0.3, 1.5, 1],
+          duration: timing.slow,
+          delay: _stagger(150),
+          ease: 'outElastic(1, .8)'
+        }, '-=400')
+      }
+    }
+    
+    if (calendarRef.value && hasActivityData.value) {
+      timeline.add({
+        targets: calendarRef.value,
+        opacity: [0, 1],
+        scale: [0.9, 1.02, 1],
+        translateY: [20, 0],
+        duration: timing.slower,
+        ease: 'outElastic(1, .8)'
+      }, '-=300')
+    }
+    
+    if (breakdownRef.value) {
+      const breakdownItems = breakdownRef.value.children
+      if (breakdownItems.length) {
+        timeline.add({
+          targets: Array.from(breakdownItems),
+          opacity: [0, 1],
+          translateY: [15, 0],
+          scale: [0.9, 1.05, 1],
+          duration: timing.slow,
+          delay: _stagger(80),
+          ease: 'outBack(1.7)'
+        }, '-=200')
+      }
+    }
+    
+    if (languagesRef.value && hasLanguageStats.value) {
+      const languageItems = languagesRef.value.querySelectorAll('.language-item')
+      if (languageItems.length) {
+        timeline.add({
+          targets: Array.from(languageItems),
+          opacity: [0, 1],
+          translateX: [-20, 0],
+          scale: [0.9, 1.02, 1],
+          duration: timing.slow,
+          delay: _stagger(100),
+          ease: 'outBack(1.7)'
+        }, '-=150')
+        
+        const langBars = languagesRef.value.querySelectorAll('.lang-bar-fill')
+        if (langBars.length) {
+          timeline.add({
+            targets: Array.from(langBars),
+            scaleX: [0, 1.1, 1],
+            scaleY: [0.5, 1.3, 1],
+            duration: timing.expressive,
+            delay: _stagger(120),
+            ease: 'outElastic(1, .8)'
+          }, '-=300')
+        }
+      }
+    }
+    
+    if (recentRef.value && recentAcceptedSubmissions.value.length) {
+      const submissionRows = recentRef.value.querySelectorAll('.submission-row')
+      if (submissionRows.length) {
+        timeline.add({
+          targets: Array.from(submissionRows),
+          opacity: [0, 1],
+          translateX: [-25, 0],
+          scale: [0.95, 1],
+          duration: timing.normal,
+          delay: _stagger(60),
+          ease: easing.standard
+        }, '-=100')
+      }
+    }
+  }
+}
+
+onMounted(() => {
+  animateLeetCodeStats()
+})
 </script>
 
 <style scoped>
+/* Individual stat styles for AnimatedNumber replacement */
+.individual-stat-large {
+  @apply text-center;
+}
+
+/* Uses global typography classes */
 
 .difficulty-bar {
   @apply flex h-2 w-full rounded-sm overflow-hidden;

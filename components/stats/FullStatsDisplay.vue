@@ -136,11 +136,44 @@
             <AsyncRescueTimeStats key="rescuetime" :stats="stats" />
           </StatsSection>
 
+          <!-- Films -->
+          <StatsSection
+            v-if="letterboxdData?.stats"
+            id="films"
+            key="films-section"
+            title="FILMS"
+            class="break-inside-avoid"
+          >
+            <AsyncLetterboxdStats key="letterboxd" :data="letterboxdData" />
+          </StatsSection>
+
+          <!-- Gaming -->
+          <StatsSection
+            v-if="steamData?.stats"
+            id="gaming"
+            key="gaming-section"
+            title="GAMING"
+            class="break-inside-avoid"
+          >
+            <AsyncSteamStats key="steam" :data="steamData" />
+          </StatsSection>
+
+          <!-- Reading -->
+          <StatsSection
+            v-if="goodreadsData?.stats"
+            id="reading"
+            key="reading-section"
+            title="READING"
+            class="break-inside-avoid"
+          >
+            <AsyncGoodreadsStats key="goodreads" :data="goodreadsData" />
+          </StatsSection>
+
           <!-- Last.fm -->
           <StatsSection
             v-if="stats.lastfm"
-            id="lastfm"
-            key="lastfm-section"
+            id="music"
+            key="music-section"
             title="MUSIC"
             class="break-inside-avoid"
           >
@@ -209,6 +242,15 @@ const AsyncGearStats = defineAsyncComponent(
 const AsyncLastFmStats = defineAsyncComponent(
   () => import('~/components/stats/LastFmStats.vue')
 )
+const AsyncLetterboxdStats = defineAsyncComponent(
+  () => import('~/components/stats/LetterboxdStats.vue')
+)
+const AsyncSteamStats = defineAsyncComponent(
+  () => import('~/components/stats/SteamStats.vue')
+)
+const AsyncGoodreadsStats = defineAsyncComponent(
+  () => import('~/components/stats/GoodreadsStats.vue')
+)
 const StatsSidebar = defineAsyncComponent(
   () => import('~/components/stats/StatsSidebar.vue')
 )
@@ -233,6 +275,18 @@ const _props = defineProps({
   healthToday: {
     type: Object,
     default: () => ({ steps: 0, exerciseMinutes: 0 })
+  },
+  letterboxdData: {
+    type: Object,
+    default: null
+  }, 
+  steamData: {
+    type: Object,
+    default: null
+  },
+  goodreadsData: {
+    type: Object,
+    default: null
   }
 })
 

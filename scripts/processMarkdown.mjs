@@ -11,7 +11,7 @@ import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import rehypeSlug from 'rehype-slug'
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+// import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import remarkGfm from 'remark-gfm'
 // import remarkUnwrapImages from 'remark-unwrap-images' // Temporarily disabled - deprecated package
 import rehypeMermaid from 'rehype-mermaid'
@@ -24,8 +24,8 @@ import dotenv from 'dotenv'
 import * as shiki from 'shiki'
 import chalk from 'chalk'
 import ora from 'ora'
-import { promisify } from 'util'
-import { stat } from 'fs/promises'
+// import { promisify } from 'util'
+// import { stat } from 'fs/promises'
 import { config } from './config.mjs'
 import util from 'util'
 
@@ -40,24 +40,24 @@ import {
 
 // Import utilities
 import {
-  log,
+  // log,
   getPostType,
-  calculateWordCount,
-  headerStar,
-  generateRobotsMetaContent,
-  getValidDate
+  // calculateWordCount,
+  // headerStar,
+  // generateRobotsMetaContent,
+  // getValidDate
 } from './utils/helpers.mjs'
 
 import {
   processStats,
-  updateRealTimeStats,
-  printRealTimeStats,
-  printProcessingReport
+  // updateRealTimeStats,
+  // printRealTimeStats,
+  // printProcessingReport
 } from './utils/stats.mjs'
 
 import { backupProcessedContent } from './utils/backup.mjs'
 
-const setTimeoutPromise = promisify(setTimeout)
+// const setTimeoutPromise = promisify(setTimeout)
 
 // =============================
 // Load Environment Variables
@@ -97,7 +97,7 @@ const highlighter = await shiki.createHighlighter({
 // =============================
 // Add wrapper function for prose classes
 // =============================
-function wrapWithProseClasses() {
+function _wrapWithProseClasses() {
   return (tree) => {
     if (tree.type === 'root') {
       tree.children = [
@@ -281,7 +281,7 @@ function debugLog(label, data, depth = 3) {
 // =============================
 // Add near the top with other debugging functions
 // =============================
-function debugLinks(tree) {
+function _debugLinks(tree) {
   const links = []
   visit(tree, 'link', (node) => {
     links.push({
@@ -299,7 +299,7 @@ function debugLinks(tree) {
 const DEBUG = process.env.DEBUG === 'true'
 
 // Replace console.log with debug function
-function debug(...args) {
+function _debug(...args) {
   if (DEBUG) {
     console.log(chalk.gray('[DEBUG]'), ...args)
   }

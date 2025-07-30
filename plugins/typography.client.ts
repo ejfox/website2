@@ -1,5 +1,5 @@
 // Client-side plugin to set typography classes based on route
-export default defineNuxtPlugin((nuxtApp) => {
+export default defineNuxtPlugin((nuxtApp: any) => {
   // Function to update root class based on current route
   const updateRootClass = (route: { path: string }) => {
     if (route.path === '/projects' || route.path.includes('/projects/')) {

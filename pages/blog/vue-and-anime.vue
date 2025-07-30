@@ -481,10 +481,10 @@ const handleCardLeave = () => {
 
 <script setup>
 import { ref, onMounted, onUnmounted, computed, nextTick } from 'vue';
-import { animate, createTimeline, onScroll, stagger, createAnimatable } from '~/anime.esm.js';
+import { animate, createTimeline as _createTimeline, onScroll, stagger, createAnimatable } from '~/anime.esm.js';
 import { useWindowSize } from '@vueuse/core';
 import { interpolateTurbo } from 'd3-scale-chromatic';
-import { interpolateHslLong } from 'd3-interpolate';
+import { interpolateHslLong as _interpolateHslLong } from 'd3-interpolate';
 
 // Master list for cleanup
 const animations = [];
@@ -501,7 +501,7 @@ const card3dEl = ref(null); // Ref for the 3D card element
 const activeSection = ref('');
 const tocTarget = ref(null);
 const { width } = useWindowSize();
-const isMobile = computed(() => width.value < 768);
+const _isMobile = computed(() => width.value < 768);
 
 // --- Static Data ---
 const sections = [
@@ -616,14 +616,14 @@ function setupAnimatableGrid() {
   });
 
   // Simple hover handlers
-  const onGridItemHover = (index) => {
+  onGridItemHover = (index) => {
     if (index < 0 || index >= gridItems.length || !gridItems[index]) return;
 
     gridItems[index].scale(1.2);  // Scale up
     gridItems[index].backgroundColor('#60a5fa');  // Bright blue
   };
 
-  const onGridItemReset = (index) => {
+  onGridItemReset = (index) => {
     if (index < 0 || index >= gridItems.length || !gridItems[index]) return;
 
     gridItems[index].scale(1);  // Reset scale
@@ -718,7 +718,7 @@ function setup3DCardInteraction() {
 }
 
 // --- New Scroll-Driven Background Setup ---
-const backgroundKeyframes = [
+const _backgroundKeyframes = [
   { colors: ['hsl(200, 70%, 80%)', 'hsl(220, 70%, 85%)'] }, // Start (light blue)
   { colors: ['hsl(30, 90%, 70%)', 'hsl(340, 90%, 75%)'] },  // Timeline section (orange to pink)
   { colors: ['hsl(100, 80%, 60%)', 'hsl(180, 80%, 70%)'] }, // 3D Card (lime to cyan)
@@ -838,12 +838,12 @@ let handleCardMove = () => { }; // Placeholder, will be assigned in setup3DCardI
 let handleCardLeave = () => { }; // Placeholder, will be assigned in setup3DCardInteraction
 
 // --- Color utility functions, moved up here so they're accessible from setupAnimatableGrid ---
-const getColor = (index) => {
+const _getColor = (index) => {
   const normalizedIndex = index / 99; // Normalize to 0-1 range
   return interpolateTurbo(normalizedIndex); // Using d3 color scale
 };
 
-const getRestColor = () => {
+const _getRestColor = () => {
   // Handle dark/light mode
   const isDark = document.documentElement.classList.contains('dark');
   return isDark ? '#1e293b' : '#e2e8f0';

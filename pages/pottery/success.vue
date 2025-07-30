@@ -29,7 +29,7 @@ const product_id = useRouteQuery('productId');
 const markProductAsSold = async () => {
   if (product_id.value) {
     try {
-      const { data } = await useFetch('/api/mark-product-sold', {
+      const { data: _data } = await useFetch('/api/mark-product-sold', {
         method: 'POST',
         body: JSON.stringify({ productId: product_id.value }),
       });

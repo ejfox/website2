@@ -15,6 +15,7 @@ import { format, formatDistanceToNow } from 'date-fns'
 import { computed, ref, onMounted, watch } from 'vue'
 import { startOfWeek, subMonths } from 'date-fns'
 import { animate, stagger as _stagger } from '~/anime.esm.js'
+import { useAnimations } from '~/composables/useAnimations'
 import PostMetadata from '~/components/PostMetadata.vue'
 
 const processedMarkdown = useProcessedMarkdown()
@@ -227,34 +228,175 @@ const sortedYears = computed(() => {
 
 const blogPostElements = ref([])
 const weekNoteElements = ref([])
-
-const _animDuration = 900
-const _animStagger = 125
+const yearHeaders = ref([])
 
 const isLoading = ref(true)
+const { timing, staggers, easing } = useAnimations()
 
 onMounted(() => {
   isLoading.value = false
 
-  // Simple fade-in for all content
-  if (blogPostElements.value?.length) {
-    animate(blogPostElements.value, {
-      opacity: [0, 1],
-      translateY: [10, 0],
-      duration: 600,
-      easing: 'easeOutQuad',
-      delay: (el, i) => i * 50
-    })
-  }
+  // Epic Swiss design micro-animations with motion tokens
+  nextTick(() => {
+    // Year headers with subtle data-stream effect
+    if (yearHeaders.value?.length) {
+      animate(yearHeaders.value, {
+        opacity: [0, 1],
+        translateY: [8, 0],
+        scale: [0.98, 1],
+        filter: ['blur(0.5px)', 'blur(0px)'],
+        duration: timing.slow,
+        delay: _stagger(staggers.loose, { from: 'first' }),
+        ease: easing.standard
+      })
+    }
 
-  if (weekNoteElements.value?.length) {
-    animate(weekNoteElements.value, {
-      opacity: [0, 1],
-      duration: 600,
-      easing: 'easeOutQuad',
-      delay: (el, i) => 300 + i * 50
-    })
-  }
+    // Blog posts with staggered precision
+    if (blogPostElements.value?.length) {
+      // Post containers
+      animate(blogPostElements.value, {
+        opacity: [0, 1],
+        translateY: [12, 0],
+        scale: [0.99, 1],
+        duration: timing.expressive,
+        delay: _stagger(staggers.tight, { from: 'first' }),
+        ease: easing.standard
+      })
+
+      // Date columns with slight delay for Swiss precision
+      const postDates = document.querySelectorAll('.post-date')
+      if (postDates.length) {
+        animate(Array.from(postDates), {
+          opacity: [0.3, 1],
+          translateX: [-3, 0],
+          duration: timing.slow,
+          delay: _stagger(staggers.normal, {
+            from: 'first',
+            start: timing.fast
+          }),
+          ease: easing.standard
+        })
+      }
+    }
+
+    // Week notes with subtle cascade
+    if (weekNoteElements.value?.length) {
+      animate(weekNoteElements.value, {
+        opacity: [0, 1],
+        translateY: [6, 0],
+        duration: timing.slow,
+        delay: _stagger(staggers.tight, {
+          from: 'first',
+          start: timing.normal
+        }),
+        ease: easing.standard
+      })
+    }
+
+    // EPIC ANIME.JS EFFECTS - NO HOVER NEEDED
+
+    // Stage 1: 2025 Advanced Link Micro-Interactions with Physics - DISABLED (causing looping animations)
+    // setTimeout(() => {
+    //   const simulateReadingActivity = () => {
+    //     const randomPosts = Array.from(document.querySelectorAll('.group h3 a'))
+    //       .sort(() => Math.random() - 0.5)
+    //       .slice(0, Math.floor(Math.random() * 2) + 1)
+
+    //     randomPosts.forEach((link, index) => {
+    //       // 2025 Physics-based link expansion
+    //       animate(link, {
+    //         keyframes: [
+    //           { '--link-width': '6px', scale: 1, filter: 'contrast(1)' },
+    //           { '--link-width': '28px', scale: 1.002, filter: 'contrast(1.1)' },
+    //           {
+    //             '--link-width': '12px',
+    //             scale: 1.001,
+    //             filter: 'contrast(1.05)'
+    //           },
+    //           { '--link-width': '6px', scale: 1, filter: 'contrast(1)' }
+    //         ],
+    //         duration: timing.slowest,
+    //         delay: index * staggers.loose,
+    //         ease: easing.standard
+    //       })
+    //     })
+
+    //     setTimeout(
+    //       simulateReadingActivity,
+    //       Math.random() * (timing.slowest * 7) + timing.slowest * 5
+    //     )
+    //   }
+    //   simulateReadingActivity()
+    // }, timing.expressive)
+
+    // Stage 2: 2025 Micro-Interaction Week Indicators - DISABLED (causing looping animations)
+    // setTimeout(() => {
+    //   const weeklyPulse = () => {
+    //     animate('.week-note-link::before', {
+    //       height: ['35%', '75%', '55%', '35%'],
+    //       opacity: [0.12, 0.28, 0.18, 0.12],
+    //       duration: timing.slowest,
+    //       delay: _stagger(staggers.loose, { from: 'center' }),
+    //       ease: easing.standard,
+    //       complete: () => setTimeout(weeklyPulse, timing.slowest * 2.5)
+    //     })
+    //   }
+    //   weeklyPulse()
+    // }, timing.slowest)
+
+    // Stage 3: Date columns flicker like data streams - DISABLED (causing repetitive flickering)
+    // setTimeout(() => {
+    //   const dateFlicker = () => {
+    //     const dates = document.querySelectorAll('.post-date')
+    //     const randomDates = Array.from(dates)
+    //       .sort(() => Math.random() - 0.5)
+    //       .slice(0, 2)
+
+    //     animate(randomDates, {
+    //       opacity: [0.3, 0.8, 0.5, 0.3],
+    //       scale: [1, 1.01, 1],
+    //       filter: ['blur(0px)', 'blur(0.2px)', 'blur(0px)'],
+    //       duration: timing.slow,
+    //       delay: _stagger(staggers.loose),
+    //       ease: easing.productive
+    //     })
+
+    //     setTimeout(
+    //       dateFlicker,
+    //       Math.random() * (timing.slowest * 5) + timing.slowest * 3
+    //     )
+    //   }
+    //   dateFlicker()
+    // }, timing.slowest + timing.expressive)
+
+    // Stage 4: Year headers occasionally morph to show system activity - DISABLED (causing looping animations)
+    // setTimeout(() => {
+    //   const yearHeaderActivity = () => {
+    //     const headers = document.querySelectorAll('.year-header')
+    //     if (headers.length) {
+    //       const randomHeader =
+    //         headers[Math.floor(Math.random() * headers.length)]
+
+    //       animate(randomHeader, {
+    //         keyframes: [
+    //           { scale: 1, skewX: 0, filter: 'blur(0px)' },
+    //           { scale: 1.02, skewX: 1, filter: 'blur(0.3px)' },
+    //           { scale: 1.01, skewX: -0.5, filter: 'blur(0.1px)' },
+    //           { scale: 1, skewX: 0, filter: 'blur(0px)' }
+    //         ],
+    //         duration: timing.slowest,
+    //         ease: easing.bounce
+    //       })
+    //     }
+
+    //     setTimeout(
+    //       yearHeaderActivity,
+    //       Math.random() * (timing.slowest * 10) + timing.slowest * 8
+    //     )
+    //   }
+    //   yearHeaderActivity()
+    // }, timing.slowest * 2)
+  })
 })
 
 const recentlyUpdatedPosts = computed(() => {
@@ -338,7 +480,7 @@ function createPostMetadata(post) {
       </p>
     </header>
 
-    <div>
+    <div class="max-w-screen-lg">
       <!-- Main Blog Posts section -->
       <section class="mt-16 md:mt-0">
         <div v-if="!sortedYears.length" class="text-center py-16">
@@ -350,7 +492,8 @@ function createPostMetadata(post) {
         <!-- Yearly blog posts with Swiss design -->
         <div v-for="year in sortedYears" :key="`blog-${year}`" class="mb-24">
           <h2
-            class="text-xs font-normal uppercase pl-2 md:pl-0 text-zinc-500 dark:text-zinc-500 mb-8"
+            ref="yearHeaders"
+            class="text-xs font-normal uppercase pl-2 md:pl-0 text-zinc-500 dark:text-zinc-500 mb-8 year-header"
             style="font-family: 'Signika Negative', sans-serif"
           >
             {{ year }}
@@ -365,7 +508,9 @@ function createPostMetadata(post) {
             >
               <!-- Date column -->
               <div class="col-span-1 md:col-span-2 pl-2 md:pl-0">
-                <time class="text-sm text-zinc-500 dark:text-zinc-500">
+                <time
+                  class="text-sm text-zinc-500 dark:text-zinc-500 post-date"
+                >
                   {{
                     format(
                       new Date(post?.date || post?.metadata?.date),
@@ -429,7 +574,10 @@ function createPostMetadata(post) {
                   :key="weekNote.slug"
                   ref="weekNoteElements"
                 >
-                  <NuxtLink :to="`/blog/${weekNote.slug}`" class="block group">
+                  <NuxtLink
+                    :to="`/blog/${weekNote.slug}`"
+                    class="block group week-note-link"
+                  >
                     <div class="mb-1">
                       <span
                         class="text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-400 transition-colors"
@@ -499,5 +647,54 @@ function createPostMetadata(post) {
 /* Swiss minimal styling */
 .post-metadata {
   @apply text-xs text-zinc-500 dark:text-zinc-500;
+}
+
+/* Year headers with subtle tech styling */
+.year-header {
+  will-change: transform, opacity;
+  opacity: 0; /* Start hidden for animation */
+}
+
+/* Post dates with precision timing */
+.post-date {
+  will-change: transform, opacity;
+  opacity: 0.3; /* Start subtle for animation */
+  transition: opacity 0.2s ease;
+}
+
+/* Pure anime.js driven - NO HOVER EFFECTS */
+
+/* Data-driven indicators (static, no hover) */
+.group h3 a {
+  position: relative;
+}
+
+.group h3 a::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: var(--link-width, 8px);
+  height: 1px;
+  background: currentColor;
+  opacity: 0.1;
+  transition: width 0.3s ease;
+}
+
+/* Week note precision indicators (static) */
+.week-note-link {
+  position: relative;
+}
+
+.week-note-link::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 40%;
+  background: currentColor;
+  opacity: 0.15;
 }
 </style>

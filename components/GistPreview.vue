@@ -1,16 +1,13 @@
 <template>
-  <div class="gist-preview">
-    <div class="code-container" :class="{ expanded: expanded }">
-      <div class="code-content" v-html="highlightedCode" />
+  <div ref="gistRef" class="gist-preview">
+    <div ref="containerRef" class="code-container" :class="{ expanded }">
+      <div ref="codeRef" class="code-content" v-html="highlightedCode" />
 
       <!-- Expand/Collapse button at bottom -->
-      <div v-if="lineCount > 10" class="action-overlay">
-        <button class="action-button" @click="$emit('toggle')">
-          <span class="button-icon">{{ expanded ? '▼' : '▶' }}</span>
-          <span>{{ expanded ? 'Collapse' : 'Expand' }} ({{
-            formatNumber(lineCount)
-          }}
-            lines)</span>
+      <div v-if="lineCount > 10" ref="overlayRef" class="action-overlay">
+        <button ref="buttonRef" class="action-button" @click="handleToggle">
+          <span ref="iconRef" class="button-icon">{{ expanded ? '▼' : '▶' }}</span>
+          <span>{{ expanded ? 'Collapse' : 'Expand' }} ({{ formatNumber(lineCount) }} lines)</span>
         </button>
       </div>
     </div>
@@ -45,9 +42,18 @@ interface Props {
 }
 
 const props = defineProps<Props>()
-defineEmits<{
+const emit = defineEmits<{
   toggle: []
 }>()
+
+
+// Animation refs
+const gistRef = ref<HTMLElement | null>(null)
+const containerRef = ref<HTMLElement | null>(null)
+const codeRef = ref<HTMLElement | null>(null)
+const overlayRef = ref<HTMLElement | null>(null)
+const buttonRef = ref<HTMLElement | null>(null)
+const iconRef = ref<HTMLElement | null>(null)
 
 const lineCount = computed(() => {
   return (props.gist.content || '').split('\n').length
@@ -63,6 +69,7 @@ const highlightedCode = ref('')
 // Initialize syntax highlighting
 onMounted(async () => {
   await updateHighlighting()
+  // Component mounted
 })
 
 // Watch for changes in expanded state, content, or theme
@@ -124,64 +131,44 @@ const updateHighlighting = async () => {
     highlightedCode.value = `<pre><code>${codeToShow.value}</code></pre>`
   }
 }
+
+// Handle toggle with animation
+const handleToggle = () => {
+  emit('toggle')
+}
+
+// No animations needed - handled by CSS transitions
 </script>
 
 <style scoped>
 .gist-preview {
-  font-family: 'Red Hat Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+  @apply font-mono;
 }
 
 .code-container {
-  position: relative;
-  border: 1px solid rgb(228 228 231);
-  border-radius: 6px;
-  background: rgb(255 255 255);
-  overflow: hidden;
+  @apply relative border border-zinc-200 dark:border-zinc-800 rounded-md bg-white dark:bg-zinc-900 overflow-hidden transition-all;
   max-height: 280px;
-  transition: max-height 0.3s ease;
-}
-
-/* Dark mode */
-:global(.dark) .code-container {
-  border-color: rgb(39 39 42);
-  background: rgb(9 9 11);
 }
 
 .code-container.expanded {
-  max-height: none;
+  @apply max-h-none;
 }
 
 .code-content {
-  font-size: 11px;
-  line-height: 1.4;
-  overflow: auto;
+  @apply text-xs leading-relaxed overflow-auto overflow-x-hidden;
 }
 
 .code-content :deep(pre) {
-  margin: 0 !important;
-  padding: 12px !important;
-  background: transparent !important;
-  font-family: 'Red Hat Mono', 'Consolas', 'Monaco', 'Courier New', monospace !important;
-  font-size: 11px !important;
-  line-height: 1.4 !important;
+  @apply !m-0 !p-3 !bg-transparent !font-mono !text-xs !leading-relaxed;
 }
 
 .code-content :deep(code) {
-  font-family: 'Red Hat Mono', 'Consolas', 'Monaco', 'Courier New', monospace !important;
-  font-size: 11px !important;
+  @apply !font-mono !text-xs;
 }
 
 .action-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 40px;
+  @apply absolute bottom-0 left-0 right-0 h-10 flex items-end justify-center pb-2;
   background: linear-gradient(transparent, rgba(255, 255, 255, 0.95));
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 8px;
 }
 
 :global(.dark) .action-overlay {
@@ -189,95 +176,37 @@ const updateHighlighting = async () => {
 }
 
 .action-button {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 8px;
-  font-size: 10px;
-  background: rgb(255 255 255);
-  border: 1px solid rgb(228 228 231);
-  border-radius: 4px;
-  color: rgb(82 82 91);
-  transition: all 0.2s ease;
-  font-family: 'Red Hat Mono', monospace;
-  cursor: pointer;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-:global(.dark) .action-button {
-  background: rgb(24 24 27);
-  border-color: rgb(39 39 42);
-  color: rgb(161 161 170);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.action-button:hover {
-  background: rgb(244 244 245);
-  border-color: rgb(212 212 216);
-  color: rgb(63 63 70);
-  transform: translateY(-1px);
-}
-
-:global(.dark) .action-button:hover {
-  background: rgb(39 39 42);
-  border-color: rgb(63 63 70);
-  color: rgb(212 212 216);
-  transform: translateY(-1px);
+  @apply flex items-center gap-1 px-2 py-1 text-[10px] bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded text-zinc-600 dark:text-zinc-400 font-mono cursor-pointer shadow-sm hover:bg-zinc-50 dark:hover:bg-zinc-700 hover:border-zinc-300 dark:hover:border-zinc-600 hover:text-zinc-700 dark:hover:text-zinc-300 hover:-translate-y-px transition-all;
 }
 
 .button-icon {
-  font-size: 8px;
-  color: rgb(113 113 122);
-}
-
-:global(.dark) .button-icon {
-  color: rgb(113 113 122);
+  @apply text-[8px] text-zinc-500 dark:text-zinc-500;
 }
 
 /* Ensure proper scrolling for expanded state */
 .code-container.expanded .code-content {
-  max-height: 60vh;
-  overflow-y: auto;
+  @apply max-h-[60vh] overflow-y-auto;
 }
 
-/* Custom scrollbar - vertical only */
+/* Custom scrollbar */
 .code-content::-webkit-scrollbar {
-  width: 8px;
-  height: 0; /* Hide horizontal scrollbar */
+  @apply w-2;
+  height: 0;
 }
 
 .code-content::-webkit-scrollbar:horizontal {
-  height: 0;
-  display: none;
+  @apply h-0 hidden;
 }
 
 .code-content::-webkit-scrollbar-track {
-  background: rgb(244 244 245);
-}
-
-:global(.dark) .code-content::-webkit-scrollbar-track {
-  background: rgb(24 24 27);
+  @apply bg-zinc-100 dark:bg-zinc-800;
 }
 
 .code-content::-webkit-scrollbar-thumb {
-  background: rgb(212 212 216);
-  border-radius: 4px;
-}
-
-:global(.dark) .code-content::-webkit-scrollbar-thumb {
-  background: rgb(63 63 70);
+  @apply bg-zinc-300 dark:bg-zinc-700 rounded;
 }
 
 .code-content::-webkit-scrollbar-thumb:hover {
-  background: rgb(161 161 170);
-}
-
-:global(.dark) .code-content::-webkit-scrollbar-thumb:hover {
-  background: rgb(82 82 91);
-}
-
-/* Also hide overflow-x to prevent horizontal scrolling entirely */
-.code-content {
-  overflow-x: hidden;
+  @apply bg-zinc-400 dark:bg-zinc-600;
 }
 </style>

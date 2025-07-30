@@ -1,6 +1,6 @@
 import { defineEventHandler, createError } from 'h3'
 
-interface ContestRanking {
+interface _ContestRanking {
   attendedContestsCount: number
   rating: number
   globalRanking: number
@@ -8,13 +8,13 @@ interface ContestRanking {
   topPercentage: number
 }
 
-interface SubmissionStats {
+interface _SubmissionStats {
   difficulty: string
   count: number
   submissions: number
 }
 
-interface RecentSubmission {
+interface _RecentSubmission {
   title: string
   titleSlug: string
   timestamp: string
@@ -22,16 +22,7 @@ interface RecentSubmission {
   lang: string
 }
 
-interface LeetCodeResponse {
-  contestStats: ContestRanking | null
-  recentSubmissions: RecentSubmission[]
-  submissionStats: {
-    easy: SubmissionStats
-    medium: SubmissionStats
-    hard: SubmissionStats
-  }
-  lastUpdated: string
-}
+// Unused interface LeetCodeResponse removed
 
 export default defineEventHandler(async () => {
   const username = 'ejfox'

@@ -2,12 +2,14 @@
 import { format } from 'date-fns'
 import { animate, stagger } from '~/anime.esm.js'
 import { useWindowSize } from '@vueuse/core'
+import { useAnimations } from '~/composables/useAnimations'
 
 const route = useRoute()
 const processedMarkdown = useProcessedMarkdown()
 const { width } = useWindowSize()
 const isMobile = computed(() => width.value < 768)
 const activeSection = ref('')
+const { timing, easing, staggers } = useAnimations()
 
 const { data: note } = await useAsyncData(`robot-${route.params.slug.join('/')}`, () =>
   processedMarkdown.getPostBySlug(`robots/${route.params.slug.join('/')}`)
@@ -89,7 +91,7 @@ const getSectionWordCount = (content, sectionId) => {
 }
 
 // Helper to check if a string looks like a date
-const isDateString = (str) => {
+const _isDateString = (str) => {
   if (typeof str !== 'string') return false
   const date = new Date(str)
   return date instanceof Date && !isNaN(date)
@@ -139,9 +141,9 @@ const animateTitle = () => {
   animate(titleRefs.value, {
     opacity: [0, 1],
     translateY: [20, 0],
-    duration: 800,
-    easing: 'easeOutExpo',
-    delay: stagger(50)
+    duration: timing.value.slow,
+    ease: easing.expressive,
+    delay: stagger(staggers.tight)
   })
 }
 
@@ -163,7 +165,7 @@ onMounted(() => {
   // Set up intersection observers for each section
   const sections = document.querySelectorAll('h2, h3')
   sections.forEach(section => {
-    const { stop } = useIntersectionObserver(
+    const { stop: _stop } = useIntersectionObserver(
       section,
       ([{ isIntersecting }]) => {
         if (isIntersecting) {

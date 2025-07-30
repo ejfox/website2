@@ -1,15 +1,27 @@
 <template>
-  <div v-if="stats" class="space-y-4">
-    <!-- Primary Stats -->
-    <div class="space-y-4">
-      <!-- Chess Rating -->
-      <IndividualStat
-        :value="highestActiveRating" size="large" label="CHESS RATING"
-        :details="`${formatNumber(bestRating)} PEAK · ${winRate}% WIN RATE`"
-      />
+  <div v-if="stats" ref="chessStatsRef" class="space-y-4">
+    <!-- Rating Display -->
+    <div ref="primaryStatsRef" class="space-y-4">
+      <div class="individual-stat-large">
+        <div class="stat-value">
+          <AnimatedNumber 
+            :value="highestActiveRating" 
+            format="commas"
+            :duration="timing.expressive"
+            priority="primary"
+          />
+        </div>
+        <div class="stat-label">
+          CHESS RATING
+        </div>
+        <div class="stat-details">
+          <AnimatedNumber :value="bestRating" format="commas" priority="secondary" /> PEAK · 
+          <AnimatedNumber :value="winRate" format="percent" priority="tertiary" />% WIN RATE
+        </div>
+      </div>
 
       <!-- Rating Histogram -->
-      <div v-if="hasRatingHistory" class="mt-1">
+      <div v-if="hasRatingHistory" ref="histogramRef" class="mt-1">
         <div class="histogram-container">
           <div
             v-for="(game, index) in ratingHistogramData" :key="index" class="histogram-bar" :style="{
@@ -20,42 +32,42 @@
           ></div>
         </div>
         <div class="histogram-labels">
-          <span class="text-zinc-400" style="font-size: 10px; line-height: 12px;">RECENT GAMES</span>
-          <span class="text-zinc-400 tabular-nums" style="font-size: 10px; line-height: 12px;">{{ ratingRange }}</span>
+          <span class="text-zinc-400 text-2xs">RECENT GAMES</span>
+          <span class="text-zinc-400 tabular-nums text-2xs">{{ ratingRange }}</span>
         </div>
       </div>
 
       <!-- Activity Calendar -->
-      <div v-if="hasRatingHistory" class="mt-6">
+      <div v-if="hasRatingHistory" ref="calendarRef" class="mt-6">
         <ActivityCalendar title="CHESS ACTIVITY" :active-dates="chessActivityDates" :active-color="'#71717a'" />
       </div>
 
       <!-- Variant Ratings with Sparklines -->
-      <div class="space-y-2 mt-3">
-        <div v-if="hasRating('bullet')" class="flex items-center justify-between py-1">
+      <div ref="variantsRef" class="space-y-2 mt-3">
+        <div v-if="hasRating('bullet')" class="progress-row py-1">
           <div class="flex items-center gap-2">
             <div class="bullet-sparkline"></div>
-            <span class="text-zinc-500" style="font-size: 10px; line-height: 12px;">BULLET</span>
+            <span class="progress-label">BULLET</span>
           </div>
-          <div class="text-lg tabular-nums font-bold">
+          <div class="progress-value">
             {{ formatNumber(getRating('bullet')) }}
           </div>
         </div>
-        <div v-if="hasRating('blitz')" class="flex items-center justify-between py-1">
+        <div v-if="hasRating('blitz')" class="progress-row py-1">
           <div class="flex items-center gap-2">
             <div class="blitz-sparkline"></div>
-            <span class="text-zinc-500" style="font-size: 10px; line-height: 12px;">BLITZ</span>
+            <span class="progress-label">BLITZ</span>
           </div>
-          <div class="text-lg tabular-nums font-bold">
+          <div class="progress-value">
             {{ formatNumber(getRating('blitz')) }}
           </div>
         </div>
-        <div v-if="hasRating('rapid')" class="flex items-center justify-between py-1">
+        <div v-if="hasRating('rapid')" class="progress-row py-1">
           <div class="flex items-center gap-2">
             <div class="rapid-sparkline"></div>
-            <span class="text-zinc-500" style="font-size: 10px; line-height: 12px;">RAPID</span>
+            <span class="progress-label">RAPID</span>
           </div>
-          <div class="text-lg tabular-nums font-bold">
+          <div class="progress-value">
             {{ formatNumber(getRating('rapid')) }}
           </div>
         </div>
@@ -63,7 +75,7 @@
     </div>
 
     <!-- Game Stats -->
-    <div v-if="hasGameStats">
+    <div v-if="hasGameStats" ref="performanceRef">
       <StatsSectionHeader title="PERFORMANCE" />
       <div class="space-y-2">
         <div class="velocity-row">
@@ -99,7 +111,7 @@
 
       <!-- Recent Games -->
       <StatsSectionHeader title="RECENT MATCHES" class="mt-4" />
-      <div v-if="stats.recentGames?.length" class="space-y-1">
+      <div v-if="stats.recentGames?.length" ref="recentGamesRef" class="space-y-1">
         <div v-for="game in recentGamesSorted" :key="game.id || game.url" class="game-row">
           <div class="flex-none flex items-center gap-1">
             <span class="text-zinc-400 tabular-nums" style="font-size: 10px; line-height: 12px;">{{ formatGameDateMinimal(game.timestamp) }}</span>
@@ -111,12 +123,7 @@
           <div class="result-indicator" :class="getChessResultColor(game.result)"></div>
           <div class="ml-auto flex items-center gap-1">
             <span class="rating-value text-sm tabular-nums font-medium">{{ game.rating }}</span>
-            <span
-              v-if="game.ratingDiff && game.ratingDiff !== 0" class="tabular-nums font-medium" style="font-size: 10px; line-height: 12px;"
-              :class="getRatingDiffClass(game.ratingDiff)"
-            >
-              {{ formatRatingDiff(game.ratingDiff) }}
-            </span>
+            <span v-if="game.ratingDiff && game.ratingDiff !== 0" class="tabular-nums font-medium" style="font-size: 10px; line-height: 12px;" :class="getRatingDiffClass(game.ratingDiff)">{{ formatRatingDiff(game.ratingDiff) }}</span>
           </div>
         </div>
       </div>
@@ -126,12 +133,14 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, onMounted, nextTick } from 'vue'
 import { format } from 'date-fns'
-import IndividualStat from './IndividualStat.vue'
+import { animate, stagger as _stagger, createTimeline as _createTimeline, onScroll } from '~/anime.esm.js'
+import { useAnimations } from '~/composables/useAnimations'
 import ActivityCalendar from './ActivityCalendar.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'
 import StatsDataState from './StatsDataState.vue'
+import AnimatedNumber from '../AnimatedNumber.vue'
 import { 
   formatNumber, 
   formatGameDateMinimal, 
@@ -186,11 +195,17 @@ const props = defineProps<{
   stats?: ChessStats | null
 }>()
 
-// These functions are now imported from useNumberFormat
-// - formatRatingDiff
-// - getRatingDiffClass  
-// - getChessResultColor
-// - getChessBarColor
+const { timing, easing, staggers } = useAnimations()
+
+// Animation refs
+const chessStatsRef = ref<HTMLElement | null>(null)
+const primaryStatsRef = ref<HTMLElement | null>(null)
+const histogramRef = ref<HTMLElement | null>(null)
+const calendarRef = ref<HTMLElement | null>(null)
+const variantsRef = ref<HTMLElement | null>(null)
+const performanceRef = ref<HTMLElement | null>(null)
+const recentGamesRef = ref<HTMLElement | null>(null)
+
 
 // Type conversion helpers
 const isNewFormat = computed(() => {
@@ -214,12 +229,6 @@ const hasRating = (type: keyof NewFormatRatings) => {
   return getRating(type) > 0
 }
 
-const _currentRating = computed(() => {
-  if (!props.stats) return 0
-  return isNewFormat.value
-    ? (props.stats.currentRating as NewFormatRatings).blitz
-    : props.stats.currentRating as number
-})
 
 const bestRating = computed(() => {
   if (!props.stats) return 0
@@ -254,10 +263,6 @@ const hasGameStats = computed(() => {
   return gamesPlayed.value > 0
 })
 
-// These functions are now imported from useNumberFormat
-// - formatGameDateMinimal
-// - formatGameTime
-// - formatGameTypeMinimal
 
 // Rating histogram data
 const hasRatingHistory = computed(() => {
@@ -315,7 +320,6 @@ const getBarOpacity = (index: number) => {
   return minOpacity + (index * opacityStep)
 }
 
-// This function is now imported from useNumberFormat as getChessBarColor
 
 // Option 2: Use highest rating
 const highestActiveRating = computed(() => {
@@ -338,8 +342,6 @@ const chessActivityDates = computed(() => {
   return Array.from(uniqueDates)
 })
 
-// This function is now imported from useNumberFormat
-
 // Sort games by timestamp (most recent first)
 const recentGamesSorted = computed(() => {
   if (!props.stats?.recentGames) return []
@@ -348,10 +350,150 @@ const recentGamesSorted = computed(() => {
     .sort((a, b) => b.timestamp - a.timestamp)
     .slice(0, 5)
 })
+
+// Epic chess stats scroll-triggered animation using anime.js native onScroll
+const setupScrollAnimations = () => {
+  if (process.server) return
+  
+  nextTick(() => {
+    if (!chessStatsRef.value) return
+
+    // Stage 1: Primary stats dramatic entrance on scroll
+    if (primaryStatsRef.value) {
+      animate(primaryStatsRef.value, {
+        keyframes: [
+          { opacity: 0, scale: 0.8, rotateX: -15, filter: 'blur(1px)' },
+          { opacity: 0.8, scale: 1.05, rotateX: 5, filter: 'blur(0.3px)' },
+          { opacity: 1, scale: 1, rotateX: 0, filter: 'blur(0px)' }
+        ],
+        duration: timing.expressive,
+        ease: easing.productive,
+        autoplay: onScroll({
+          target: primaryStatsRef.value,
+          onEnter: () => true
+        })
+      })
+    }
+    
+    // Stage 2: Epic histogram bars cascade on scroll
+    if (histogramRef.value) {
+      const bars = histogramRef.value.querySelectorAll('.histogram-bar')
+      if (bars.length) {
+        animate(Array.from(bars), {
+          scaleY: [0, 1.2, 1],
+          opacity: [0, 1],
+          duration: timing.slow,
+          delay: _stagger(staggers.tight, { from: 'center' }),
+          ease: easing.bounce,
+          autoplay: onScroll({
+            target: histogramRef.value,
+            onEnter: () => true
+          })
+        })
+      }
+    }
+    
+    // Stage 3: Variant ratings matrix reveal on scroll
+    if (variantsRef.value) {
+      const variants = variantsRef.value.children
+      if (variants.length) {
+        animate(Array.from(variants), {
+          opacity: [0, 1],
+          translateX: [-15, 0],
+          scale: [0.9, 1.05, 1],
+          duration: timing.expressive,
+          delay: _stagger(staggers.loose),
+          ease: easing.productive,
+          autoplay: onScroll({
+            target: variantsRef.value,
+            onEnter: () => true
+          })
+        })
+      }
+    }
+    
+    // Stage 4: Activity calendar emergence on scroll
+    if (calendarRef.value) {
+      animate(calendarRef.value, {
+        keyframes: [
+          { opacity: 0, scale: 0.9, rotateY: -10, filter: 'blur(1px)' },
+          { opacity: 0.8, scale: 1.02, rotateY: 3, filter: 'blur(0.3px)' },
+          { opacity: 1, scale: 1, rotateY: 0, filter: 'blur(0px)' }
+        ],
+        duration: timing.expressive,
+        ease: easing.productive,
+        autoplay: onScroll({
+          target: calendarRef.value,
+          onEnter: () => true
+        })
+      })
+    }
+    
+    // Stage 5: Performance metrics reveal on scroll
+    if (performanceRef.value) {
+      const performanceRows = performanceRef.value.querySelectorAll('.velocity-row')
+      if (performanceRows.length) {
+        animate(Array.from(performanceRows), {
+          opacity: [0, 1],
+          translateY: [10, 0],
+          scale: [0.95, 1],
+          duration: timing.slow,
+          delay: _stagger(staggers.tight),
+          ease: easing.standard,
+          autoplay: onScroll({
+            target: performanceRef.value,
+            onEnter: () => true
+          })
+        })
+      }
+    }
+    
+    // Stage 6: Recent games slide in on scroll
+    if (recentGamesRef.value) {
+      const gameRows = recentGamesRef.value.querySelectorAll('.game-row')
+      if (gameRows.length) {
+        animate(Array.from(gameRows), {
+          opacity: [0, 1],
+          translateX: [-20, 0],
+          scale: [0.98, 1],
+          duration: timing.normal,
+          delay: _stagger(staggers.tight),
+          ease: easing.standard,
+          autoplay: onScroll({
+            target: recentGamesRef.value,
+            onEnter: () => true
+          })
+        })
+      }
+    }
+  })
+}
+
+onMounted(() => {
+  setupScrollAnimations()
+})
 </script>
 
 <style scoped>
 /* Section headers and data unavailable states are now handled by shared components */
+
+/* Additional text size utilities */
+.text-2xs {
+  font-size: 0.625rem; /* 10px */
+  line-height: 0.75rem; /* 12px */
+}
+
+.text-3xs {
+  font-size: 0.5625rem; /* 9px */
+  line-height: 0.625rem; /* 10px */
+}
+
+/* Individual stat styles for AnimatedNumber replacement */
+.individual-stat-large {
+  @apply text-center;
+}
+
+/* Uses global typography classes */
 
 .game-row {
   @apply flex items-center text-xs;
@@ -382,7 +524,7 @@ const recentGamesSorted = computed(() => {
   @apply flex justify-between pt-1 text-zinc-400;
 }
 
-/* Sparkline indicators */
+/* Sparkline indicators - simplified with CSS custom properties */
 .bullet-sparkline,
 .blitz-sparkline,
 .rapid-sparkline,
@@ -392,93 +534,56 @@ const recentGamesSorted = computed(() => {
   @apply w-8 h-3 flex items-end gap-px;
 }
 
-.bullet-sparkline::before,
-.bullet-sparkline::after {
+[class$="-sparkline"]::before,
+[class$="-sparkline"]::after {
   content: '';
-  @apply bg-zinc-400 dark:bg-zinc-500;
   width: 2px;
+  height: var(--bar-height);
+  background-color: var(--bar-color);
 }
 
-.bullet-sparkline::before {
-  height: 8px;
+.bullet-sparkline {
+  --bar-color: theme('colors.zinc.400');
 }
+.bullet-sparkline::before { --bar-height: 8px; }
+.bullet-sparkline::after { --bar-height: 12px; }
 
-.bullet-sparkline::after {
-  height: 12px;
+.blitz-sparkline {
+  --bar-color: theme('colors.zinc.500');
 }
+.blitz-sparkline::before { --bar-height: 10px; }
+.blitz-sparkline::after { --bar-height: 6px; }
 
-.blitz-sparkline::before,
-.blitz-sparkline::after {
-  content: '';
-  @apply bg-zinc-500 dark:bg-zinc-400;
-  width: 2px;
+.rapid-sparkline {
+  --bar-color: theme('colors.zinc.600');
 }
+.rapid-sparkline::before { --bar-height: 6px; }
+.rapid-sparkline::after { --bar-height: 10px; }
 
-.blitz-sparkline::before {
-  height: 10px;
+.games-sparkline {
+  --bar-color: theme('colors.zinc.300');
 }
+.games-sparkline::before { --bar-height: 4px; }
+.games-sparkline::after { --bar-height: 12px; }
 
-.blitz-sparkline::after {
-  height: 6px;
+.winrate-sparkline {
+  --bar-color: theme('colors.zinc.400');
 }
+.winrate-sparkline::before { --bar-height: 8px; }
+.winrate-sparkline::after { --bar-height: 10px; }
 
-.rapid-sparkline::before,
-.rapid-sparkline::after {
-  content: '';
-  @apply bg-zinc-600 dark:bg-zinc-300;
-  width: 2px;
+.puzzle-sparkline {
+  --bar-color: theme('colors.zinc.500');
 }
+.puzzle-sparkline::before { --bar-height: 12px; }
+.puzzle-sparkline::after { --bar-height: 8px; }
 
-.rapid-sparkline::before {
-  height: 6px;
-}
-
-.rapid-sparkline::after {
-  height: 10px;
-}
-
-.games-sparkline::before,
-.games-sparkline::after {
-  content: '';
-  @apply bg-zinc-300 dark:bg-zinc-600;
-  width: 2px;
-}
-
-.games-sparkline::before {
-  height: 4px;
-}
-
-.games-sparkline::after {
-  height: 12px;
-}
-
-.winrate-sparkline::before,
-.winrate-sparkline::after {
-  content: '';
-  @apply bg-zinc-400 dark:bg-zinc-500;
-  width: 2px;
-}
-
-.winrate-sparkline::before {
-  height: 8px;
-}
-
-.winrate-sparkline::after {
-  height: 10px;
-}
-
-.puzzle-sparkline::before,
-.puzzle-sparkline::after {
-  content: '';
-  @apply bg-zinc-500 dark:bg-zinc-400;
-  width: 2px;
-}
-
-.puzzle-sparkline::before {
-  height: 12px;
-}
-
-.puzzle-sparkline::after {
-  height: 8px;
+@media (prefers-color-scheme: dark) {
+  .bullet-sparkline { --bar-color: theme('colors.zinc.500'); }
+  .blitz-sparkline { --bar-color: theme('colors.zinc.400'); }
+  .rapid-sparkline { --bar-color: theme('colors.zinc.300'); }
+  .games-sparkline { --bar-color: theme('colors.zinc.600'); }
+  .winrate-sparkline { --bar-color: theme('colors.zinc.500'); }
+  .puzzle-sparkline { --bar-color: theme('colors.zinc.400'); }
 }
 </style>

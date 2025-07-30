@@ -121,7 +121,7 @@
     <!-- Notes - show on hover, full width -->
     <div
       v-if="item.Notes"
-      class="px-2 pb-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-1 group-hover:translate-y-0"
+      class="px-2 pb-3 opacity-0 group-hover:opacity-100 transition-all transform translate-y-1 group-hover:translate-y-0"
     >
       <p
         class="text-[10px] text-zinc-600 dark:text-zinc-400 leading-relaxed font-mono italic bg-zinc-50/50 dark:bg-zinc-900/50 p-2 rounded border-l-2 border-zinc-300 dark:border-zinc-700"
@@ -133,6 +133,9 @@
 </template>
 
 <script setup>
+import { animate, stagger as _stagger } from '~/anime.esm.js'
+import { useAnimations } from '~/composables/useAnimations'
+
 const props = defineProps({
   item: {
     type: Object,
@@ -143,6 +146,10 @@ const props = defineProps({
     default: undefined
   }
 })
+
+// Animation refs
+const itemRef = ref(null)
+const { timing, easing } = useAnimations()
 
 // TCWM Score calculation
 const scores = computed(() => ({
@@ -166,20 +173,8 @@ const tier = computed(() => {
   return 3
 })
 
-// Removed - using monochrome with hover colors instead
 
-// Type icons and classes (unused but kept for reference)
-const _typeIcons = {
-  Tech: 'i-heroicons-cpu-chip',
-  Utility: 'i-heroicons-wrench',
-  Comfort: 'i-heroicons-heart',
-  Sleep: 'i-heroicons-moon',
-  Bag: 'i-material-symbols-light-backpack-rounded',
-  Safety: 'i-heroicons-shield-check',
-  Creativity: 'i-heroicons-sparkles'
-}
 
-// Removed - no longer using badges
 
 const { getItemWeightInOunces, getItemWeightInGrams } = useWeightCalculations()
 
@@ -204,16 +199,43 @@ const itemSlug = computed(() => {
   return props.item.Name.toLowerCase().replace(/[^a-z0-9]+/g, '-')
 })
 
-// Navigation method
+// Enhanced navigation with animation
 const navigateToItem = () => {
+  // Quick press animation
+  if (itemRef.value) {
+    animate(itemRef.value, {
+      scale: [1, 0.98, 1],
+      duration: timing.fast,
+      ease: easing.standard
+    })
+  }
   navigateTo(`/gear/${itemSlug.value}`)
 }
 
+// Epic gear item reveal
+const animateGearItem = async () => {
+  if (process.server) return
+  
+  await nextTick()
+  
+  if (itemRef.value) {
+    animate(itemRef.value, {
+      opacity: [0, 1],
+      translateX: [-8, 0],
+      scale: [0.99, 1],
+      filter: ['blur(0.3px)', 'blur(0px)'],
+      duration: timing.normal,
+      ease: easing.standard
+    })
+  }
+}
+
+onMounted(() => {
+  animateGearItem()
+})
+
 // Update weight calculations
 const baseWeight = computed(() => getItemWeightInOunces(props.item))
-const _loadedWeight = computed(
-  () => parseFloat(props.item['Loaded Weight ()']) || 0
-)
 const weightInGrams = computed(() => getItemWeightInGrams(props.item))
 
 // Amazon affiliate URL

@@ -37,7 +37,7 @@
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-vue": "^10.3.0",
     "gray-matter": "^4.0.3",
-    "nuxt": "^3.15.1",
+    "nuxt": "^3.17.7",
     "playwright": "^1.53.2",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-mermaid": "^3.0.0",
@@ -56,7 +56,7 @@
   "dependencies": {
     "@nuxt/icon": "^1.15.0",
     "@nuxt/image": "^1.10.0",
-    "@nuxt/kit": "^3.15.1",
+    "@nuxt/kit": "^3.17.7",
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/tailwindcss": "^6.0.0",
     "@nuxtjs/web-vitals": "^0.2.7",

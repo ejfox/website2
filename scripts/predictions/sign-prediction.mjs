@@ -3,7 +3,7 @@
 import { createHash } from 'crypto'
 import { readFileSync, writeFileSync } from 'fs'
 import { execSync } from 'child_process'
-import { join, dirname } from 'path'
+import { dirname } from 'path'
 import { fileURLToPath } from 'url'
 import matter from 'gray-matter'
 
@@ -14,7 +14,7 @@ function generateHash(content) {
   return createHash('sha256').update(content).digest('hex')
 }
 
-function getGitInfo(filePath) {
+function getGitInfo(_filePath) {
   try {
     const gitCommit = execSync('git rev-parse HEAD', { encoding: 'utf-8' }).trim()
     const gitDate = execSync('git log -1 --format=%aI', { encoding: 'utf-8' }).trim()

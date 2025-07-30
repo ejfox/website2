@@ -144,7 +144,7 @@ function generateHTMLContent(
   `
 }
 
-function formatDate(date) {
+function _formatDate(date) {
   if (!date) {
     return ''
   }
@@ -277,12 +277,12 @@ function countLinks(content) {
 // }
 
 // REMOVED: Canvas art generation - moved to separate local build tool
-function generateBackgroundArt(props) {
+function generateBackgroundArt(_props) {
   console.log('Canvas art generation disabled - use local build tool instead')
   return 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==' // 1x1 transparent PNG
 }
 
-function processText(text) {
+function _processText(text) {
   const sentences = text.split(/(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?|!)\s/g)
   const codeBlocks = text.match(/```[\s\S]*?```/g) || []
   const imageLinks = text.match(/!\[(?:.*?)\]\((.*?)\)/g) || []

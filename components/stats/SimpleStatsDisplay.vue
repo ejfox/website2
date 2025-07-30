@@ -1,11 +1,14 @@
 <template>
-  <section class="space-y-2 text-xs">
+  <section ref="sectionRef" class="space-y-2 text-xs">
     <!-- Minimal header -->
     <div
+      ref="headerRef"
       class="flex justify-between items-center text-[10px] tracking-[0.2em] text-zinc-500 p-4"
     >
       <div>FOX_STATS</div>
-      <div>{{ dayOfYear }}/{{ daysInYear }}</div>
+      <div ref="progressRef">
+        {{ displayDayOfYear }}/{{ daysInYear }}
+      </div>
     </div>
 
     <!-- Dense stats layout -->
@@ -18,19 +21,19 @@
         <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
           <div class="flex justify-between">
             <span>Posts</span>
-            <span class="tabular-nums">{{ formatNumber(blogStats.totalPosts) }}</span>
+            <span ref="statRefs" class="tabular-nums">{{ formatNumber(blogStats.totalPosts) }}</span>
           </div>
           <div class="flex justify-between">
             <span>Words</span>
-            <span class="tabular-nums">{{ formatNumber(blogStats.totalWords) }}</span>
+            <span ref="statRefs" class="tabular-nums">{{ formatNumber(blogStats.totalWords) }}</span>
           </div>
           <div class="flex justify-between">
             <span>This Month</span>
-            <span class="tabular-nums">{{ formatNumber(blogStats.postsThisMonth) }}</span>
+            <span ref="statRefs" class="tabular-nums">{{ formatNumber(blogStats.postsThisMonth) }}</span>
           </div>
           <div class="flex justify-between">
             <span>Avg Words</span>
-            <span class="tabular-nums">{{ formatNumber(blogStats.averageWords) }}</span>
+            <span ref="statRefs" class="tabular-nums">{{ formatNumber(blogStats.averageWords) }}</span>
           </div>
         </div>
       </div>
@@ -294,11 +297,26 @@
 </template>
 
 <script setup>
-import { computed, defineProps } from 'vue'
+import { computed, defineProps, ref, onMounted, nextTick } from 'vue'
 import { useStats as _useStats } from '~/composables/useStats'
 import { useNumberFormat } from '~/composables/useNumberFormat'
+import { animate, stagger } from '~/anime.esm.js'
+import { useAnimations } from '~/composables/useAnimations'
 
 const { formatNumber, formatDecimal, formatPercentage } = useNumberFormat()
+
+// Animation refs
+const sectionRef = ref(null)
+const headerRef = ref(null)
+const progressRef = ref(null)
+const statRefs = ref([])
+
+// Animation composables
+const { timing, easing } = useAnimations()
+
+// Animation state
+const displayDayOfYear = ref(0)
+const hasAnimated = ref(false)
 
 const props = defineProps({
   stats: {
@@ -343,6 +361,76 @@ const healthToday = computed(() => {
   }
   // fallback to API's today
   return props.stats.health.today || { steps: 0, exerciseMinutes: 0 }
+})
+
+// Animate the day progress counter with anime.js
+const animateDayProgress = () => {
+  if (process.server || !progressRef.value) return
+  
+  animate({ count: 0 }, {
+    count: dayOfYear,
+    duration: timing.slower,
+    ease: easing.standard,
+    update: (anim) => {
+      const currentVal = Math.round(anim.animatables[0].target.count)
+      displayDayOfYear.value = currentVal
+      if (progressRef.value) {
+        progressRef.value.textContent = `${currentVal}/${daysInYear}`
+      }
+    },
+    complete: () => {
+      displayDayOfYear.value = dayOfYear
+    }
+  })
+}
+
+// Modern anime.js reveal for the stats display
+const animateStatsReveal = async () => {
+  if (process.server || hasAnimated.value) return
+  
+  await nextTick()
+  if (!sectionRef.value) return
+  
+  hasAnimated.value = true
+  
+  // Stage 1: Header reveal
+  if (headerRef.value) {
+    animate(headerRef.value, {
+      opacity: [0, 1],
+      translateY: [-10, 0],
+      duration: timing.slow,
+      ease: easing.decelerate
+    })
+  }
+  
+  // Stage 2: Animate day progress counter
+  setTimeout(() => {
+    animateDayProgress()
+  }, 500)
+  
+  // Stage 3: Cascade all stat numbers
+  setTimeout(() => {
+    const allStatElements = document.querySelectorAll('[ref="statRefs"]')
+    if (allStatElements.length > 0) {
+      animate(Array.from(allStatElements), {
+        opacity: [0, 1],
+        scale: [0.9, 1],
+        duration: timing.normal,
+        delay: stagger(30),
+        ease: easing.decelerate
+      })
+    }
+  }, 1000)
+}
+
+onMounted(() => {
+  // Initialize display values
+  displayDayOfYear.value = 0
+  
+  // Start animation sequence
+  nextTick(() => {
+    animateStatsReveal()
+  })
 })
 </script>
 

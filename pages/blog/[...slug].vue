@@ -1,8 +1,12 @@
 <script setup>
 import { format, isValid, parseISO } from 'date-fns'
-import { animate, stagger, engine } from '~/anime.esm.js'
-import { Chance } from 'chance'
-const chance = new Chance()
+import { animate, stagger as _stagger, engine } from '~/anime.esm.js'
+// Disable Chance.js for now since it's causing SSR issues
+// import { Chance } from 'chance'
+// const chance = new Chance()
+const chance = {
+  integer: ({ min, max }) => Math.floor(Math.random() * (max - min + 1)) + min
+}
 import {
   useWindowSize,
   useMutationObserver,
@@ -10,7 +14,7 @@ import {
   useDebounceFn
 } from '@vueuse/core'
 import DonationSection from '~/components/blog/DonationSection.vue'
-import { useScrollAnimation } from '~/composables/useScrollAnimation'
+import { useAnimations } from '~/composables/useAnimations'
 // import { generatePostColor } from '~/utils/postColors'
 
 const config = useRuntimeConfig()
@@ -265,7 +269,7 @@ const renderedTitle = computed(() => {
 // Simpler typing animation
 async function typeText() {
   if (process.server || animationState.isAnimating) return
-
+  
   animationState.isAnimating = true
   animationState.visibleLetters.clear()
   animationState.cursorPosition = 0
@@ -275,11 +279,7 @@ async function typeText() {
 
   for (let i = 0; i < letters.value.length; i++) {
     const letter = letters.value[i]
-    const delay =
-      letter.isSpace || /[.,!?;:]/.test(letter.char)
-        ? chance.integer({ min: PAUSE_DELAY * 0.5, max: PAUSE_DELAY })
-        : chance.integer({ min: LETTER_DELAY * 0.5, max: LETTER_DELAY })
-    // const delay = chance.integer({ min: 40, max: 250 })
+    const delay = letter.isSpace || /[.,!?;:]/.test(letter.char) ? PAUSE_DELAY : LETTER_DELAY
     await new Promise((resolve) => setTimeout(resolve, delay))
     animationState.visibleLetters.add(letter.id)
     animationState.cursorPosition = i
@@ -352,22 +352,19 @@ const updateTocScroll = useDebounceFn(() => {
 watch(activeSection, updateTocScroll)
 
 // Create scroll animation instance
-const {
-  setupAnimation: _setupAnimation,
-  slideUp,
-  slideLeft,
-  fadeIn: _fadeIn,
-  expandLine
-} = useScrollAnimation({
-  debug: false,
-  threshold: 0.1,
-  rootMargin: '-5% 0px -5% 0px'
-})
+// Legacy scroll animation - needs complete rewrite
+/* eslint-disable no-undef */
+const _slideUp = () => {}
+const _slideLeft = () => {}
+const _fadeIn = () => {}
+const _expandLine = () => {}
+
+const { timing, easing, staggers } = useAnimations()
 
 // Set up global animation defaults
 engine.defaults = {
-  duration: 300,
-  ease: 'spring(1, 80, 10, 0)',
+  duration: timing.normal,
+  ease: easing.standard,
   autoplay: true
 }
 
@@ -499,9 +496,9 @@ watch(
           animate(content, {
             opacity: [0, 1],
             translateY: [20, 0],
-            duration: 300,
-            ease: 'spring(1, 80, 10, 0)',
-            delay: stagger(50)
+            duration: timing.normal,
+            ease: easing.standard,
+            delay: _stagger(staggers.tight)
           })
         }
       }
@@ -530,8 +527,9 @@ function setupImageAnimations() {
   const blockquotes = articleContent.value.querySelectorAll('blockquote')
   blockquotes.forEach((quote) => slideLeft(quote))
 
-  const horizontalRules = articleContent.value.querySelectorAll('hr')
-  horizontalRules.forEach((rule) => expandLine(rule))
+  // DISABLED: expandLine animation was creating weird SVG dotted patterns for HR elements
+  // const horizontalRules = articleContent.value.querySelectorAll('hr')
+  // horizontalRules.forEach((rule) => expandLine(rule))
 
   const headingLevels = ['h2', 'h3', 'h4']
   for (const level of headingLevels) {
@@ -695,12 +693,12 @@ const processedMetadata = computed(() => {
       <div ref="articleContent">
         <article
           v-if="post?.html"
-          class="blog-post-content px-2 prose-lg md:prose-xl dark:prose-invert prose-img:my-8 prose-img:rounded-lg prose-img:w-full prose-img:max-w-full prose-pre:overflow-x-auto prose-pre:whitespace-pre-wrap prose-pre:break-words prose-code:break-words prose-code:whitespace-pre-wrap font-normal opacity-100"
+          class="blog-post-content px-2 prose-lg md:prose-xl dark:prose-invert prose-img:my-8 prose-img:rounded-lg prose-pre:overflow-x-auto prose-pre:whitespace-pre-wrap prose-pre:break-words prose-code:break-words prose-code:whitespace-pre-wrap prose-h2:border-none prose-h3:border-none prose-h4:border-none prose-hr:border-t prose-hr:border-zinc-200 dark:prose-hr:border-zinc-800 prose-hr:border-solid prose-hr:my-12 prose-hr:mx-0 prose-hr:w-full font-normal opacity-100"
           v-html="post.html"
         ></article>
         <div
           v-else-if="post?.content"
-          class="blog-post-content px-2 prose-lg md:prose-xl dark:prose-invert prose-img:my-8 prose-img:rounded-lg prose-img:w-full prose-img:max-w-full prose-pre:overflow-x-auto prose-pre:whitespace-pre-wrap prose-pre:break-words prose-code:break-words prose-code:whitespace-pre-wrap font-normal opacity-100"
+          class="blog-post-content px-2 prose-lg md:prose-xl dark:prose-invert prose-img:my-8 prose-img:rounded-lg prose-pre:overflow-x-auto prose-pre:whitespace-pre-wrap prose-pre:break-words prose-code:break-words prose-code:whitespace-pre-wrap prose-h2:border-none prose-h3:border-none prose-h4:border-none prose-hr:border-t prose-hr:border-zinc-200 dark:prose-hr:border-zinc-800 prose-hr:border-solid prose-hr:my-12 prose-hr:mx-0 prose-hr:w-full font-normal opacity-100"
           v-html="post.content"
         ></div>
         <div v-else class="p-4 text-center text-red-500">
@@ -962,11 +960,23 @@ const processedMetadata = computed(() => {
   word-break: break-word;
 }
 
+/* Full-width images while keeping text constrained */
 .blog-post-content {
+  /* Constrain paragraphs and most content to prose width */
+  p, h1, h2, h3, h4, h5, h6, ul, ol, blockquote {
+    max-width: 65ch;
+  }
+  
+  /* Break images out to full width */
   img {
-    @apply w-full max-w-full mx-auto;
+    @apply w-screen max-w-none mx-auto;
+    /* Break out of container padding */
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
     /* Spacing */
     @apply py-2 md:py-4 lg:py-6;
+    /* Add back some side padding on smaller screens */
+    @apply px-2 md:px-0;
   }
 }
 

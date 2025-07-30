@@ -341,10 +341,13 @@ export default defineNuxtConfig({
     }
   },
 
+  // Page transitions with anime.js
+  plugins: ['~/plugins/pageTransitions.client.ts'],
+
   // Performance optimizations
   experimental: {
     payloadExtraction: false, // Reduce hydration payload
-    viewTransition: true // Modern page transitions
+    viewTransition: false // Disable native transitions, use anime.js instead
   },
 
   tailwindcss: {

@@ -1,6 +1,6 @@
 import chalk from 'chalk'
 import path from 'path'
-import { getPostType, formatFileSize } from './helpers.mjs'
+import { /* getPostType, */ formatFileSize } from './helpers.mjs'
 
 export const processStats = {
   filesProcessed: 0,

@@ -1,17 +1,88 @@
 <template>
-  <section :id="id" class="stats-section space-y-6 group">
-    <h2 class="stats-section-title transition-colors duration-200 group-hover:text-zinc-600 dark:group-hover:text-zinc-400">
+  <section :id="id" ref="sectionRef" class="stats-section space-y-6 group">
+    <h2 ref="titleRef" class="stats-section-title transition-colors group-hover:text-zinc-600 dark:group-hover:text-zinc-400">
       {{ title }}
     </h2>
-    <slot></slot>
+    <div ref="contentRef">
+      <slot></slot>
+    </div>
   </section>
 </template>
 
 <script setup lang="ts">
+import { animate, onScroll } from '~/anime.esm.js'
+import { useAnimations } from '~/composables/useAnimations'
+
 defineProps<{
   title: string
   id?: string
 }>()
+
+// Animation refs
+const sectionRef = ref<HTMLElement | null>(null)
+const titleRef = ref<HTMLElement | null>(null)
+const contentRef = ref<HTMLElement | null>(null)
+
+const { timing, easing } = useAnimations()
+
+// Epic stats section scroll-triggered animations
+const setupScrollAnimations = () => {
+  if (process.server) return
+  
+  nextTick(() => {
+    // Section container slide-in on scroll
+    if (sectionRef.value) {
+      animate(sectionRef.value, {
+        opacity: [0, 1],
+        translateY: [30, 0],
+        scale: [0.96, 1.01, 1],
+        filter: ['blur(1px)', 'blur(0px)'],
+        duration: timing.slow,
+        ease: easing.bounce,
+        autoplay: onScroll({
+          target: sectionRef.value,
+          onEnter: () => true
+        })
+      })
+    }
+    
+    // Title dramatic entrance on scroll
+    if (titleRef.value) {
+      animate(titleRef.value, {
+        keyframes: [
+          { opacity: 0, scale: 0.7, skewX: -8, filter: 'blur(1px)' },
+          { opacity: 0.8, scale: 1.1, skewX: 3, filter: 'blur(0.3px)' },
+          { opacity: 1, scale: 1, skewX: 0, filter: 'blur(0px)' }
+        ],
+        duration: timing.expressive,
+        ease: easing.bounce,
+        autoplay: onScroll({
+          target: titleRef.value,
+          onEnter: () => true
+        })
+      })
+    }
+    
+    // Content reveal on scroll with longer delay
+    if (contentRef.value) {
+      animate(contentRef.value, {
+        opacity: [0, 1],
+        translateY: [20, 0],
+        scale: [0.95, 1.02, 1],
+        duration: timing.expressive,
+        ease: easing.productive,
+        autoplay: onScroll({
+          target: contentRef.value,
+          onEnter: () => true
+        })
+      })
+    }
+  })
+}
+
+onMounted(() => {
+  setupScrollAnimations()
+})
 </script>
 
 <style scoped>

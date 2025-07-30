@@ -25,32 +25,33 @@
     </teleport>
 
     <!-- Main Content -->
-    <ClientOnly>
-      <!-- Loading state -->
-      <section
-        v-if="isLoading"
-        class="mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16"
+    <!-- Loading state -->
+    <section
+      v-if="isLoading"
+      class="mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16"
+    >
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
       >
-        <div
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-        >
-          <div v-for="i in 12" :key="i" class="animate-pulse">
-            <div class="h-32 bg-zinc-200 dark:bg-zinc-800 rounded-lg"></div>
-          </div>
+        <div v-for="i in 12" :key="i" class="animate-pulse">
+          <div class="h-32 bg-zinc-200 dark:bg-zinc-800 rounded-lg"></div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Stats display -->
-      <component
-        :is="isSimpleMode ? SimpleStatsDisplay : FullStatsDisplay"
-        v-else
-        :stats="stats"
-        :blog-stats="validBlogStats"
-        :transformed-health-stats="transformedHealthStats"
-        :is-loading="isLoading"
-        :health-today="healthToday"
-      />
-    </ClientOnly>
+    <!-- Stats display -->
+    <component
+      :is="isSimpleMode ? SimpleStatsDisplay : FullStatsDisplay"
+      v-else
+      :stats="stats"
+      :blog-stats="validBlogStats"
+      :transformed-health-stats="transformedHealthStats"
+      :letterboxd-data="letterboxdData"
+      :steam-data="steamData"
+      :goodreads-data="goodreadsData"
+      :is-loading="isLoading"
+      :health-today="healthToday"
+    />
   </div>
 </template>
 
@@ -75,13 +76,18 @@ const FullStatsDisplay = defineAsyncComponent(
   () => import('~/components/stats/FullStatsDisplay.vue')
 )
 
-const { stats: rawStats, isLoading, hasStaleData } = useStats()
+const { stats: rawStats, isLoading, hasStaleData: _hasStaleData } = useStats()
 const stats = computed(() => rawStats.value || {})
 const { getAllPosts } = useProcessedMarkdown()
 
 // Blog stats calculation
 const blogStats = ref(null)
 const cachedPosts = shallowRef(null)
+
+// External service data
+const letterboxdData = ref(null)
+const steamData = ref(null)
+const goodreadsData = ref(null)
 
 onMounted(async () => {
   try {
@@ -193,6 +199,30 @@ onMounted(async () => {
   } catch (error) {
     console.error('Error calculating blog stats:', error)
   }
+
+  // Fetch external service data
+  try {
+    const [letterboxd, steam, goodreads] = await Promise.all([
+      $fetch('/api/letterboxd').catch(err => {
+        console.warn('Letterboxd API failed:', err)
+        return { films: [], stats: {} }
+      }),
+      $fetch('/api/steam').catch(err => {
+        console.warn('Steam API failed:', err)
+        return { stats: {} }
+      }),
+      $fetch('/api/goodreads').catch(err => {
+        console.warn('Goodreads API failed:', err)
+        return { books: {}, stats: {} }
+      })
+    ])
+    
+    letterboxdData.value = letterboxd
+    steamData.value = steam
+    goodreadsData.value = goodreads
+  } catch (error) {
+    console.error('Error fetching external data:', error)
+  }
 })
 
 const validBlogStats = computed(() => blogStats.value || undefined)
@@ -260,7 +290,10 @@ const statsSections = [
   { id: 'productivity', text: 'Productivity' },
   { id: 'gear', text: 'Gear' },
   { id: 'health', text: 'Health' },
-  { id: 'music', text: 'Music' }
+  { id: 'music', text: 'Music' },
+  { id: 'films', text: 'Films' },
+  { id: 'gaming', text: 'Gaming' },
+  { id: 'reading', text: 'Reading' }
 ]
 
 onMounted(() => {

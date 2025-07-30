@@ -1,20 +1,25 @@
 <template>
-  <div v-if="hasData" class="space-y-4 font-mono">
+  <div v-if="hasData" ref="rescueTimeRef" class="space-y-4 font-mono">
     <!-- Primary Stats -->
-    <div>
-      <IndividualStat
-        :value="formatNumber(weeklyHours)" size="large" label="HOURS TRACKED"
-        :details="`${formatPercent(weeklyProductivePercent / 100, 0)} PRODUCTIVE`"
-      />
+    <div ref="primaryStatRef" class="individual-stat-large">
+      <div class="stat-value">
+        <AnimatedNumber :value="weeklyHours" format="commas" :duration="timing.slower" priority="primary" />
+      </div>
+      <div class="stat-label">
+        HOURS TRACKED
+      </div>
+      <div class="stat-details">
+        <AnimatedNumber :value="weeklyProductivePercent" format="percent" :duration="timing.slow" priority="secondary" /> PRODUCTIVE
+      </div>
     </div>
 
     <!-- Activity Calendar -->
-    <div>
+    <div ref="calendarRef">
       <ActivityCalendar title="ACTIVITY" :active-dates="activityDates" :active-color="'#71717a'" />
     </div>
 
     <!-- Application Distribution Waffle Chart -->
-    <div>
+    <div ref="waffleRef">
       <StatsSectionHeader title="TIME DISTRIBUTION" />
       <div class="waffle-container">
         <div
@@ -30,10 +35,10 @@
     </div>
 
     <!-- Category Legend + Top Categories Combined -->
-    <div>
+    <div ref="categoriesRef">
       <StatsSectionHeader title="CATEGORIES" />
       <div class="space-y-1.5">
-        <div v-for="category in sortedCategories" :key="category.name" class="flex items-center gap-1.5">
+        <div v-for="category in sortedCategories" :key="category.name" class="category-row flex items-center gap-1.5">
           <div class="w-2 h-2 flex-shrink-0 rounded-sm" :style="{ backgroundColor: category.color }"></div>
           <div class="flex-1 min-w-0">
             <div class="flex justify-between items-center gap-1">
@@ -58,14 +63,16 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, onMounted, nextTick } from 'vue'
 import type { StatsResponse } from '~/composables/useStats'
-import IndividualStat from './IndividualStat.vue'
 import ActivityCalendar from './ActivityCalendar.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'
 import StatsDataState from './StatsDataState.vue'
+import AnimatedNumber from '../AnimatedNumber.vue'
 import { format } from 'date-fns'
-import { formatNumber, formatPercent } from '~/composables/useNumberFormat'
+import { formatPercent as _formatPercent } from '~/composables/useNumberFormat'
+import { animate, stagger as _stagger, onScroll } from '~/anime.esm.js'
+import { useAnimations } from '~/composables/useAnimations'
 
 interface TimeBreakdown {
   seconds: number
@@ -110,6 +117,8 @@ interface DailyActivity {
 const props = defineProps<{
   stats: StatsResponse
 }>()
+
+const { timing, easing: _easing } = useAnimations()
 
 const rescueTime = computed(() => props.stats.rescueTime)
 const _lastUpdated = computed(() => rescueTime.value?.lastUpdated || new Date().toISOString())
@@ -256,9 +265,102 @@ const waffleCells = computed(() => {
 
   return cells;
 })
+
+// Animation refs
+const rescueTimeRef = ref<HTMLElement | null>(null)
+const primaryStatRef = ref<HTMLElement | null>(null)
+const calendarRef = ref<HTMLElement | null>(null)
+const waffleRef = ref<HTMLElement | null>(null)
+const categoriesRef = ref<HTMLElement | null>(null)
+
+const setupScrollAnimations = () => {
+  if (process.server) return
+  
+  nextTick(() => {
+    if (!rescueTimeRef.value || !hasData.value) return
+
+    if (primaryStatRef.value) {
+      animate(primaryStatRef.value, {
+        keyframes: [
+          { opacity: 0, scale: 0.8, rotateX: -15, filter: 'blur(1px)' },
+          { opacity: 0.8, scale: 1.05, rotateX: 5, filter: 'blur(0.3px)' },
+          { opacity: 1, scale: 1, rotateX: 0, filter: 'blur(0px)' }
+        ],
+        duration: timing.expressive,
+        ease: 'outElastic(1, .8)',
+        autoplay: onScroll({ target: primaryStatRef.value, onEnter: () => true })
+      })
+    }
+    
+    if (calendarRef.value) {
+      animate(calendarRef.value, {
+        opacity: [0, 1],
+        scale: [0.9, 1.02, 1],
+        translateY: [20, 0],
+        duration: timing.slower,
+        ease: 'outElastic(1, .8)',
+        autoplay: onScroll({ target: calendarRef.value, onEnter: () => true })
+      })
+    }
+    
+    if (waffleRef.value) {
+      const waffleCells = waffleRef.value.querySelectorAll('.waffle-cell')
+      if (waffleCells.length) {
+        animate(Array.from(waffleCells), {
+          keyframes: [
+            { opacity: 0, scale: 0, rotateZ: 180 },
+            { opacity: 0.8, scale: 1.2, rotateZ: -10 },
+            { opacity: 1, scale: 1, rotateZ: 0 }
+          ],
+          duration: timing.slower,
+          delay: _stagger(8, { grid: [10, 10], from: 'center' }),
+          ease: 'outElastic(1, .9)',
+          autoplay: onScroll({ target: waffleRef.value, onEnter: () => true })
+        })
+      }
+    }
+    
+    if (categoriesRef.value) {
+      const categoryRows = categoriesRef.value.querySelectorAll('.category-row')
+      if (categoryRows.length) {
+        animate(Array.from(categoryRows), {
+          opacity: [0, 1],
+          translateX: [-20, 0],
+          scale: [0.9, 1.05, 1],
+          duration: timing.slow,
+          delay: _stagger(80),
+          ease: 'outBack(1.7)',
+          autoplay: onScroll({ target: categoriesRef.value, onEnter: () => true })
+        })
+      }
+      
+      const categoryBars = categoriesRef.value.querySelectorAll('.category-bar-fill')
+      if (categoryBars.length) {
+        animate(Array.from(categoryBars), {
+          scaleX: [0, 1.1, 1],
+          scaleY: [0.5, 1.3, 1],
+          duration: timing.expressive,
+          delay: _stagger(100),
+          ease: 'outElastic(1, .8)',
+          autoplay: onScroll({ target: categoryBars[0], onEnter: () => true })
+        })
+      }
+    }
+  })
+}
+
+onMounted(() => {
+  setupScrollAnimations()
+})
 </script>
 
 <style scoped>
+/* Individual stat styles for AnimatedNumber replacement */
+.individual-stat-large {
+  @apply text-center;
+}
+
+/* Uses global typography classes */
 
 .category-bar-bg {
   @apply h-1 rounded-sm overflow-hidden bg-transparent dark:bg-zinc-800/10 border-b border-zinc-200/10 dark:border-zinc-800/30;

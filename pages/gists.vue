@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useFetch } from '#app'
 import { useStats } from '~/composables/useStats'
-import GitHubStats from '~/components/stats/GitHubStats.vue'
 
 interface GistFile {
   filename: string
@@ -22,9 +21,9 @@ interface Gist {
 }
 
 // Fetch GitHub stats for the top section
-const { stats: rawStats, isLoading: statsLoading } = useStats()
+const { stats: rawStats, isLoading: _statsLoading } = useStats()
 const stats = computed(() => rawStats.value || {})
-const hasGithubData = computed(() => !!stats.value?.github?.stats)
+const _hasGithubData = computed(() => !!stats.value?.github?.stats)
 
 const currentPage = ref(1)
 const perPage = 64
@@ -115,7 +114,7 @@ const toggleGist = (gistId: string) => {
 }
 
 // Syntax highlighting
-const highlightCode = async (code: string, language: string) => {
+const _highlightCode = async (code: string, language: string) => {
   if (process.client) {
     try {
       const { createHighlighter } = await import('shiki')
@@ -150,7 +149,7 @@ const highlightCode = async (code: string, language: string) => {
 }
 
 // Get preview lines (first 10 lines)
-const getPreviewLines = (content: string) => {
+const _getPreviewLines = (content: string) => {
   return content.split('\n').slice(0, 10).join('\n')
 }
 </script>

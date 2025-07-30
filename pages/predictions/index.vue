@@ -12,11 +12,15 @@
 
       <div class="border-l-2 border-zinc-200 dark:border-zinc-800 pl-16">
         <div class="mb-12">
-          <h2 class="text-xs font-medium text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.3em] mb-3">About</h2>
-          <h3 class="text-sm font-medium text-zinc-500 dark:text-zinc-500 uppercase tracking-[0.2em]">This System</h3>
+          <h2 class="text-xs font-medium text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.3em] mb-3">
+            About
+          </h2>
+          <h3 class="text-sm font-medium text-zinc-500 dark:text-zinc-500 uppercase tracking-[0.2em]">
+            This System
+          </h3>
         </div>
         <p class="text-base text-zinc-600 dark:text-zinc-400 leading-[1.8] max-w-2xl" style="font-family: 'Signika Negative', sans-serif">
-          Inspired by <a href="https://gwern.net/doc/statistics/prediction/index" target="_blank" class="text-zinc-800 dark:text-zinc-200 underline decoration-zinc-300 dark:decoration-zinc-700 decoration-1 underline-offset-4 hover:decoration-zinc-500 dark:hover:decoration-zinc-500 transition-all duration-300">Gwern's prediction system</a>, and efforts like PredictIt or PolyMarket. But of course I want to own my own data and presentation. All predictions are cryptographically signed and commited to github for version history. Showing my failed predictions is an important part of this project.
+          Inspired by <a href="https://gwern.net/doc/statistics/prediction/index" target="_blank" rel="noopener noreferrer" class="text-zinc-800 dark:text-zinc-200 underline decoration-zinc-300 dark:decoration-zinc-700 decoration-1 underline-offset-4 hover:decoration-zinc-500 dark:hover:decoration-zinc-500 transition-all duration-300">Gwern's prediction system</a>, and efforts like PredictIt or PolyMarket. But of course I want to own my own data and presentation. All predictions are cryptographically signed and commited to github for version history. Showing my failed predictions is an important part of this project.
         </p>
       </div>
     </header>
@@ -26,12 +30,16 @@
       <div class="w-24 h-24 mx-auto mb-12 bg-zinc-100 dark:bg-zinc-900 rounded-full flex items-center justify-center">
         <Icon name="heroicons:crystal-ball" class="w-12 h-12 text-zinc-400 dark:text-zinc-600" />
       </div>
-      <h3 class="text-2xl font-light text-zinc-700 dark:text-zinc-300 mb-8 tracking-wide" style="font-family: 'Fjalla One', sans-serif">No Predictions Yet</h3>
+      <h3 class="text-2xl font-light text-zinc-700 dark:text-zinc-300 mb-8 tracking-wide" style="font-family: 'Fjalla One', sans-serif">
+        No Predictions Yet
+      </h3>
       <p class="text-lg text-zinc-500 dark:text-zinc-500 leading-[1.8] max-w-lg mx-auto mb-16" style="font-family: 'Signika Negative', sans-serif">
         This space will host cryptographically verified predictions and forecasts. Each entry will be immutably timestamped for accountability.
       </p>
       <div class="border-t border-zinc-100 dark:border-zinc-800 pt-16">
-        <p class="text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.3em] mb-8">Methodology</p>
+        <p class="text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.3em] mb-8">
+          Methodology
+        </p>
         <p class="text-base text-zinc-500 dark:text-zinc-500 leading-[1.8] max-w-xl mx-auto" style="font-family: 'Signika Negative', sans-serif">
           Following academic forecasting standards with SHA-256 hashing, PGP signatures, and git-based version control for complete transparency.
         </p>
@@ -42,24 +50,32 @@
     <section v-else>
       <div class="flex items-center justify-between pb-20 border-b border-zinc-200 dark:border-zinc-800 mb-40">
         <div class="flex items-center gap-6">
-          <button v-for="filterType in filters" :key="filterType.key" 
+          <button
+            v-for="filterType in filters" :key="filterType.key" 
             :class="filterButtonClass(filterType.key)" 
-            @click="filter = filterType.key">
+            @click="filter = filterType.key"
+          >
             {{ filterType.label }}
           </button>
         </div>
         <div class="flex items-center gap-6">
           <span class="text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.3em]">Sort</span>
           <select v-model="sortBy" class="px-6 py-3 text-xs bg-transparent text-zinc-700 dark:text-zinc-300 border border-zinc-300 dark:border-zinc-700 focus:outline-none focus:border-zinc-500 dark:focus:border-zinc-400 transition-colors uppercase tracking-[0.2em]">
-            <option value="date">Date Created</option>
-            <option value="confidence">Confidence</option>
-            <option value="statement">Statement (A-Z)</option>
+            <option value="date">
+              Date Created
+            </option>
+            <option value="confidence">
+              Confidence
+            </option>
+            <option value="statement">
+              Statement (A-Z)
+            </option>
           </select>
         </div>
       </div>
 
       <TransitionGroup name="list" tag="div" class="space-y-40 md:space-y-48">
-        <div v-for="prediction in filteredPredictions" :key="prediction.id" :id="`prediction-${prediction.id}`" :data-prediction-id="prediction.id">
+        <div v-for="prediction in filteredPredictions" :id="`prediction-${prediction.id}`" :key="prediction.id" :data-prediction-id="prediction.id">
           <PredictionCard :prediction="prediction" />
         </div>
       </TransitionGroup>
@@ -88,7 +104,9 @@
           <p class="text-6xl font-light mb-8 font-mono" :class="stat.color" style="font-family: 'Red Hat Mono', monospace">
             {{ stat.value }}{{ stat.suffix }}
           </p>
-          <p class="text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.3em]">{{ stat.label }}</p>
+          <p class="text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.3em]">
+            {{ stat.label }}
+          </p>
         </div>
       </div>
 

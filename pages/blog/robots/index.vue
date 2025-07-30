@@ -13,10 +13,10 @@ const formatDate = (date) => format(new Date(date), 'yyyy-MM-dd')
 const robotElements = ref([])
 const activeSection = ref('')
 const { width } = useWindowSize()
-const isMobile = computed(() => width.value < 768)
+const _isMobile = computed(() => width.value < 768)
 
 // Group notes by tag for the TOC
-const notesByTag = computed(() => {
+const _notesByTag = computed(() => {
   if (!robotNotes.value) return {}
 
   const grouped = {}
@@ -60,7 +60,7 @@ onMounted(() => {
     opacity: [0, 1],
     translateY: [20, 0],
     duration: animDuration,
-    ease: 'easeOutQuad',
+    ease: [0.25, 0.46, 0.45, 0.94], // easeOutQuad in anime.js format
     delay: stagger(animStagger)
   })
 
@@ -69,13 +69,13 @@ onMounted(() => {
     opacity: [0, 1],
     translateX: [-8, 0],
     duration: animDuration * 2,
-    ease: 'easeOutQuad',
+    ease: [0.25, 0.46, 0.45, 0.94], // easeOutQuad in anime.js format
     delay: animDuration * 0.82
   })
 
   // Set up intersection observers for each note
   robotElements.value?.forEach(section => {
-    const { stop } = useIntersectionObserver(
+    const { stop: _stop } = useIntersectionObserver(
       section,
       ([{ isIntersecting }]) => {
         if (isIntersecting) {

@@ -16,37 +16,7 @@ interface TimeBreakdown {
   formatted: string
 }
 
-interface ProcessedData {
-  categories: Array<{
-    name: string
-    time: TimeBreakdown
-    percentageOfTotal: number
-    productivity: number
-  }>
-  activities: Array<{
-    name: string
-    time: TimeBreakdown
-    percentageOfTotal: number
-    category: string
-    productivity: number
-  }>
-  summary: {
-    total: TimeBreakdown
-    productive: {
-      time: TimeBreakdown
-      percentage: number
-    }
-    distracting: {
-      time: TimeBreakdown
-      percentage: number
-    }
-    neutral: {
-      time: TimeBreakdown
-      percentage: number
-    }
-  }
-  lastUpdated: string
-}
+// Unused interface ProcessedData removed
 
 interface RescueTimeResponse {
   rows: Array<[string, number, number, string, string, number]>

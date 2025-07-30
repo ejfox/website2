@@ -1,8 +1,6 @@
 <template>
   <div v-if="showVitals && vitals.length" class="fixed bottom-4 left-4 z-50">
-    <div
-      class="bg-black/80 text-white text-xs p-2 rounded-lg font-mono max-w-xs"
-    >
+    <div class="bg-black/80 text-white text-xs p-2 rounded-lg font-mono max-w-xs">
       <div class="font-bold mb-1">
         Web Vitals
       </div>
@@ -25,8 +23,7 @@ const showVitals = ref(false)
 onMounted(() => {
   // Only show in development or when debug is enabled
   const config = useRuntimeConfig()
-  showVitals.value =
-    config.public.debug || process.env.NODE_ENV === 'development'
+  showVitals.value = config.public.debug || process.env.NODE_ENV === 'development'
 
   if (showVitals.value && typeof window !== 'undefined') {
     // Listen for web vitals reports
@@ -46,13 +43,13 @@ onMounted(() => {
   }
 })
 
-function getVitalClass(vital) {
+const getVitalClass = (vital) => {
   if (vital.rating === 'good') return 'text-green-400'
   if (vital.rating === 'needs-improvement') return 'text-yellow-400'
   return 'text-red-400'
 }
 
-function formatValue(vital) {
+const formatValue = (vital) => {
   if (vital.name === 'CLS') {
     return vital.value.toFixed(3)
   }

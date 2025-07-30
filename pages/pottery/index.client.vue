@@ -42,7 +42,7 @@
 
 const products = ref(null);
 
-const { data, error, fetch } = useFetch('/api/stripe-products');
+const { data, error: _error, fetch: _fetch } = useFetch('/api/stripe-products');
 
 watch(data, () => {
   if (!data.value) return;

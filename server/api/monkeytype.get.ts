@@ -25,33 +25,9 @@ interface MonkeyTypePB {
   }
 }
 
-interface SpeedHistogram {
-  message: string
-  data: {
-    [key: string]: number // WPM level (multiple of 10) -> count
-  }
-}
+// Unused interface SpeedHistogram removed
 
-interface MonkeyTypeResponse {
-  typingStats: {
-    testsCompleted: number
-    testsStarted: number
-    bestWPM: number
-    bestAccuracy: number
-    bestConsistency: number
-    timePercentile: number
-    wordsPercentile: number
-  }
-  personalBests: {
-    time: { [key: string]: MonkeyTypeTest[] }
-    words: { [key: string]: MonkeyTypeTest[] }
-  }
-  speedHistogram: {
-    time: { [key: string]: number }
-    words: { [key: string]: number }
-  }
-  lastUpdated: string
-}
+// Unused interface MonkeyTypeResponse removed
 
 export default defineEventHandler(async () => {
   const config = useRuntimeConfig()
