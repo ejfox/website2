@@ -9,7 +9,7 @@
       <nav
         v-if="
           isMobile &&
-            !(route.path === '/stats' && route.query.simple !== undefined)
+            !(route?.path === '/stats' && route?.query?.simple !== undefined)
         "
         class="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-200/20 dark:border-zinc-800/20"
       >
@@ -38,13 +38,13 @@
               :to="link.to"
               role="tab"
               :aria-selected="
-                route.path === link.to ||
-                  (link.to !== '/' && route.path.startsWith(link.to))
+                route?.path === link.to ||
+                  (link.to !== '/' && route?.path?.startsWith(link.to))
               "
               class="flex-shrink-0 px-3 py-1.5 text-sm font-medium rounded-full transition-all duration-200"
               :class="
-                route.path === link.to ||
-                  (link.to !== '/' && route.path.startsWith(link.to))
+                route?.path === link.to ||
+                  (link.to !== '/' && route?.path?.startsWith(link.to))
                   ? 'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-black'
                   : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/50'
               "
@@ -205,7 +205,7 @@
         :class="[
           'w-full overflow-x-auto',
           isMobile &&
-            !(route.path === '/stats' && route.query.simple !== undefined)
+            !(route?.path === '/stats' && route?.query?.simple !== undefined)
             ? 'pt-20'
             : ''
         ]"
@@ -242,19 +242,19 @@ const closeMobileMenu = () => {
 const route = useRoute()
 
 const _isBlog = computed(() => {
-  return route.path.startsWith('/blog')
+  return route?.path?.startsWith('/blog') || false
 })
 
 const isBlogPost = computed(() => {
-  return route.path.startsWith('/blog/') && route.path !== '/blog/'
+  return (route?.path?.startsWith('/blog/') && route?.path !== '/blog/') || false
 })
 
 const isStatsPage = computed(() => {
-  return route.path === '/stats'
+  return route?.path === '/stats' || false
 })
 
 const isProjectsPage = computed(() => {
-  return route.path === '/projects'
+  return route?.path === '/projects' || false
 })
 
 // Split navigation for mobile: primary (always visible) vs secondary (in "More")
@@ -278,7 +278,7 @@ const linkClasses =
 const tocContainerRef = ref(null)
 
 watch(
-  () => [route.path, isBlogPost.value, isStatsPage.value, isProjectsPage.value],
+  () => [route?.path, isBlogPost.value, isStatsPage.value, isProjectsPage.value],
   () => {
     nextTick(() => {
       // Force re-render of TOC container when route changes - using template ref

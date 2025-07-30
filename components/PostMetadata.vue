@@ -1,13 +1,17 @@
 <template>
   <div
-    class="metadata-container"
+    :class="[
+      'w-full text-zinc-600 dark:text-zinc-400 uppercase font-mono text-xs',
+      compact ? 'flex flex-col gap-1 items-start sm:flex-row sm:items-center sm:gap-2 sm:flex-wrap' : 'flex items-center gap-3'
+    ]"
     :style="colorVars"
   >
     <!-- Folder name -->
     <span
       v-if="metadata?.slug && !compact"
       ref="folderRef"
-      class="metadata-item metadata-folder"
+      class="metadata-item py-1 flex-shrink-0 whitespace-nowrap text-zinc-600 dark:text-zinc-400 text-xs pl-0"
+      style="color: var(--post-color)"
     >
       /{{ folderName }}/
     </span>
@@ -16,7 +20,7 @@
     <span
       v-if="metadata.draft"
       ref="draftRef"
-      class="metadata-item metadata-draft"
+      class="metadata-item py-1 flex-shrink-0 whitespace-nowrap text-red-500 dark:text-red-400 font-sans"
     >
       {{ draftText }}
     </span>
@@ -25,7 +29,7 @@
     <span
       v-if="metadata.date"
       ref="dateRef"
-      class="metadata-item"
+      class="metadata-item py-1 flex-shrink-0 whitespace-nowrap text-zinc-600 dark:text-zinc-400"
       :title="relativeDate"
     >
       <time>{{ formattedDate }}</time>
@@ -35,26 +39,38 @@
     <span
       v-if="readingTime"
       ref="readingTimeRef"
-      class="metadata-item"
+      class="metadata-item py-1 flex-shrink-0 whitespace-nowrap text-zinc-600 dark:text-zinc-400"
     >
       {{ readingTime }}
       {{ readingTimeUnit }}
     </span>
 
     <!-- Word Count -->
-    <span v-if="metadata.words" ref="wordCountRef" class="metadata-item">
+    <span 
+      v-if="metadata.words" 
+      ref="wordCountRef" 
+      class="metadata-item py-1 flex-shrink-0 whitespace-nowrap text-zinc-600 dark:text-zinc-400"
+    >
       {{ formatCompactNumber(metadata.words) }}
       words
     </span>
 
     <!-- Image Count -->
-    <span v-if="metadata.images" ref="imageCountRef" class="metadata-item">
+    <span 
+      v-if="metadata.images" 
+      ref="imageCountRef" 
+      class="metadata-item py-1 flex-shrink-0 whitespace-nowrap text-zinc-600 dark:text-zinc-400"
+    >
       {{ metadata.images }}
       {{ pluralize('image', metadata.images) }}
     </span>
 
     <!-- Link Count -->
-    <span v-if="metadata.links" ref="linkCountRef" class="metadata-item">
+    <span 
+      v-if="metadata.links" 
+      ref="linkCountRef" 
+      class="metadata-item py-1 flex-shrink-0 whitespace-nowrap text-zinc-600 dark:text-zinc-400"
+    >
       {{ metadata.links }}
       {{ pluralize('link', metadata.links) }}
     </span>
@@ -169,15 +185,7 @@ defineExpose({ animateItems })
 </script>
 
 <style scoped>
-.metadata-container {
-  @apply w-full flex items-center gap-3;
-  @apply text-zinc-600 dark:text-zinc-400;
-  @apply uppercase font-mono text-xs;
-}
-
 .metadata-item {
-  @apply py-1 flex-shrink-0 whitespace-nowrap;
-  @apply text-zinc-600 dark:text-zinc-400;
   will-change: transform, opacity;
   backface-visibility: hidden;
   /* Ensure visible on SSR */
@@ -201,15 +209,6 @@ defineExpose({ animateItems })
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.metadata-folder {
-  @apply text-xs pl-0;
-  color: var(--post-color);
-}
-
-.metadata-draft {
-  @apply text-red-500 dark:text-red-400 font-sans !important;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -10,7 +10,10 @@ module.exports = {
     './content/**/*.md'
   ],
   darkMode: 'media', // Use system preference for dark mode
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/container-queries')
+  ],
   theme: {
     extend: {
       typography: {

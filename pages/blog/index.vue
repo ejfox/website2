@@ -11,7 +11,7 @@ patterns * - Week Notes section: Only includes posts matching week note patterns
 * - Recently Updated: Includes both types but filters by update date */
 
 <script setup>
-import { format, formatDistanceToNow } from 'date-fns'
+import { formatDistanceToNow } from 'date-fns'
 import { computed, ref, onMounted, watch } from 'vue'
 import { startOfWeek, subMonths } from 'date-fns'
 import { animate, stagger as _stagger } from '~/anime.esm.js'
@@ -506,18 +506,14 @@ function createPostMetadata(post) {
               ref="blogPostElements"
               class="group grid grid-cols-12 gap-4"
             >
-              <!-- Date column -->
+              <!-- Metadata column -->
               <div class="col-span-1 md:col-span-2 pl-2 md:pl-0">
-                <time
-                  class="text-sm text-zinc-500 dark:text-zinc-500 post-date"
-                >
-                  {{
-                    format(
-                      new Date(post?.date || post?.metadata?.date),
-                      'MMM dd'
-                    )
-                  }}
-                </time>
+                <PostMetadata
+                  v-if="post"
+                  :doc="createPostMetadata(post)"
+                  :compact="true"
+                  class="post-metadata text-xs"
+                />
               </div>
 
               <!-- Content column -->
@@ -533,17 +529,10 @@ function createPostMetadata(post) {
 
                 <p
                   v-if="post?.metadata?.dek || post?.dek"
-                  class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed"
+                  class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed pr-4 md:pr-8 xl:pr-16"
                 >
                   {{ post?.metadata?.dek || post?.dek }}
                 </p>
-
-                <PostMetadata
-                  v-if="post"
-                  :doc="createPostMetadata(post)"
-                  :compact="true"
-                  class="post-metadata mt-2"
-                />
               </div>
             </article>
           </div>

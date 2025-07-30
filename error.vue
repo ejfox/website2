@@ -52,8 +52,8 @@
             </h3>
             <div class="text-sm space-y-1">
               <p><strong>Method:</strong> <code class="bg-zinc-200 dark:bg-zinc-700 px-1 rounded">{{ $route.meta?.method || 'GET' }}</code></p>
-              <p><strong>Path:</strong> <code class="bg-zinc-200 dark:bg-zinc-700 px-1 rounded">{{ $route.path }}</code></p>
-              <p><strong>Query:</strong> <code class="bg-zinc-200 dark:bg-zinc-700 px-1 rounded">{{ JSON.stringify($route.query) }}</code></p>
+              <p><strong>Path:</strong> <code class="bg-zinc-200 dark:bg-zinc-700 px-1 rounded">{{ $route?.path }}</code></p>
+              <p><strong>Query:</strong> <code class="bg-zinc-200 dark:bg-zinc-700 px-1 rounded">{{ JSON.stringify($route?.query) }}</code></p>
               <p><strong>Params:</strong> <code class="bg-zinc-200 dark:bg-zinc-700 px-1 rounded">{{ JSON.stringify($route.params) }}</code></p>
               <p><strong>User Agent:</strong> <code class="bg-zinc-200 dark:bg-zinc-700 px-1 rounded text-xs">{{ userAgent }}</code></p>
             </div>
@@ -174,7 +174,7 @@
               Check Manifest API
             </a>
             <a 
-              :href="`http://localhost:3006${$route.path}`"
+              :href="`http://localhost:3006${$route?.path}`"
               target="_blank"
               class="text-xs px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-md hover:bg-green-200 dark:hover:bg-green-800 transition-colors"
             >
@@ -209,7 +209,7 @@ const fullUrl = computed(() => {
   if (process.client) {
     return window.location.href
   }
-  return `${route.path}${Object.keys(route.query).length ? '?' + new URLSearchParams(route.query).toString() : ''}`
+  return `${route?.path}${Object.keys(route?.query).length ? '?' + new URLSearchParams(route?.query).toString() : ''}`
 })
 
 const userAgent = computed(() => {
@@ -241,8 +241,8 @@ const copyErrorInfo = async () => {
     userAgent: userAgent.value,
     timestamp: new Date().toISOString(),
     route: {
-      path: route.path,
-      query: route.query,
+      path: route?.path,
+      query: route?.query,
       params: route.params
     },
     stack: _props.error.stack,
@@ -301,7 +301,7 @@ onMounted(async () => {
     })
 
     // Extract search terms from URL
-    const path = route.path
+    const path = route?.path
     if (path && path !== '/') {
       const pathParts = path.split('/').filter(Boolean)
       const lastPart = pathParts[pathParts.length - 1]

@@ -66,6 +66,7 @@
     "@shikijs/langs": "^3.8.1",
     "@shikijs/themes": "^3.8.1",
     "@supabase/supabase-js": "^2.45.4",
+    "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/typography": "^0.5.16",
     "@types/chroma-js": "^3.1.1",
     "@types/rss": "^0.0.32",
