@@ -27,7 +27,7 @@
 import { computed, ref, onMounted, watch } from 'vue'
 import { useWindowSize } from '@vueuse/core'
 import { format } from 'd3-format'
-import { useAnimations } from '~/composables/useAnimations'
+import { useAnimations as _useAnimations } from '~/composables/useAnimations'
 
 interface Props {
   value: number | string
@@ -55,12 +55,8 @@ const footerRef = ref<HTMLElement | null>(null)
 const labelRef = ref<HTMLElement | null>(null)
 const detailsRef = ref<HTMLElement | null>(null)
 
-// Animation composables
-const { timing, easing } = useAnimations()
-
 // Animation state
 const displayValue = ref(typeof props.value === 'number' ? '0' : props.value)
-const isAnimating = ref(false)
 
 const { width } = useWindowSize()
 const _isMobile = computed(() => width.value < 768)
@@ -120,7 +116,7 @@ const animateValueChange = () => {
 }
 
 // Helper to format numbers during animation
-const formatNumberForDisplay = (val: number): string => {
+const _formatNumberForDisplay = (val: number): string => {
   if (typeof val !== 'number' || Number.isNaN(val)) return '0'
   
   // Use same formatting logic but simplified for animation

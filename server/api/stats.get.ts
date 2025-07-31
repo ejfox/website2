@@ -1,12 +1,16 @@
 import type { StatsResponse } from '~/composables/useStats'
 import githubHandler from './github.get'
 import monkeyTypeHandler from './monkeytype.get'
-import photosHandler from './photos.get'
-import healthHandler from './health.get'
+// import photosHandler from './photos.get' // DISABLED: SSL certificate issues
+// import healthHandler from './health.get' // DISABLED: Network fetch failures
 import leetcodeHandler from './leetcode.get'
 import chessHandler from './chess.get'
 import rescuetimeHandler from './rescuetime.get'
 import lastfmHandler from './lastfm.get'
+import gearStatsHandler from './gear-stats.get'
+import gistStatsHandler from './gist-stats.get'
+import websiteStatsHandler from './website-stats.get'
+import letterboxdStatsHandler from './letterboxd.get'
 
 // Adapter function to convert chess stats to the expected format
 function adaptChessStats(chessStats: any) {
@@ -148,14 +152,18 @@ export default defineEventHandler(async (event): Promise<StatsResponse> => {
     // console.log('🎯 Stats handler called')
 
     const [
-      githubResult, // Re-enable GitHub result
+      githubResult,
       monkeyTypeResult,
-      photosResult,
-      healthResult,
+      // photosResult, // DISABLED: SSL certificate issues
+      // healthResult, // DISABLED: Network fetch failures
       leetcodeResult,
       chessResult,
       rescueTimeResult,
-      lastfmResult
+      lastfmResult,
+      gearStatsResult,
+      gistStatsResult,
+      websiteStatsResult,
+      letterboxdStatsResult
     ] = await Promise.allSettled([
       githubHandler(event).catch((err) => {
         console.error('❌ GitHub API error:', err)
@@ -165,14 +173,14 @@ export default defineEventHandler(async (event): Promise<StatsResponse> => {
         console.error('❌ MonkeyType API error:', err)
         return null
       }),
-      photosHandler(event).catch((err) => {
-        console.error('❌ Photos API error:', err)
-        return null
-      }),
-      healthHandler(event).catch((err) => {
-        console.error('❌ Health API error:', err)
-        return null
-      }),
+      // photosHandler(event).catch((err) => {
+      //   console.error('❌ Photos API error:', err)
+      //   return null
+      // }),
+      // healthHandler(event).catch((err) => {
+      //   console.error('❌ Health API error:', err)
+      //   return null
+      // }),
       leetcodeHandler(event).catch((err) => {
         console.error('❌ LeetCode API error:', err)
         return null
@@ -188,6 +196,22 @@ export default defineEventHandler(async (event): Promise<StatsResponse> => {
       lastfmHandler(event).catch((err) => {
         console.error('❌ Last.fm API error:', err)
         return null
+      }),
+      gearStatsHandler(event).catch((err) => {
+        console.error('❌ Gear stats error:', err)
+        return null
+      }),
+      gistStatsHandler(event).catch((err) => {
+        console.error('❌ Gist stats error:', err)
+        return null
+      }),
+      websiteStatsHandler(event).catch((err) => {
+        console.error('❌ Website stats error:', err)
+        return null
+      }),
+      letterboxdStatsHandler(event).catch((err) => {
+        console.error('❌ Letterboxd stats error:', err)
+        return null
       })
     ])
 
@@ -196,14 +220,18 @@ export default defineEventHandler(async (event): Promise<StatsResponse> => {
         ? adaptGitHubStats(getValue(githubResult))
         : undefined,
       monkeyType: getValue(monkeyTypeResult),
-      photos: getValue(photosResult),
-      health: getValue(healthResult),
+      // photos: getValue(photosResult), // DISABLED: SSL certificate issues
+      // health: getValue(healthResult), // DISABLED: Network fetch failures
       leetcode: getValue(leetcodeResult),
       chess: getValue(chessResult)
         ? adaptChessStats(getValue(chessResult))
         : undefined,
       rescueTime: getValue(rescueTimeResult),
-      lastfm: getValue(lastfmResult)
+      lastfm: getValue(lastfmResult),
+      gear: getValue(gearStatsResult),
+      gists: getValue(gistStatsResult),
+      website: getValue(websiteStatsResult),
+      letterboxd: getValue(letterboxdStatsResult)
     }
 
     return response

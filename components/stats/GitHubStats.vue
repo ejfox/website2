@@ -1,5 +1,8 @@
 <template>
-  <div v-if="stats" class="grid gap-3 sm:gap-4 md:gap-6 auto-fit-columns font-mono overflow-hidden">
+  <div
+    v-if="stats"
+    class="grid gap-1 auto-fit-columns font-mono overflow-hidden"
+  >
     <!-- Primary Stats - Full Width -->
     <div class="col-span-full">
       <GitHubPrimaryStats :stats="stats" />
@@ -11,9 +14,9 @@
     </div>
 
     <!-- Commit Types Analysis - Single Column -->
-    <div class="github-card">
-      <GitHubCommitPatterns :stats="stats" />
-    </div>
+    <!-- <div class="github-card"> -->
+    <!--   <GitHubCommitPatterns :stats="stats" /> -->
+    <!-- </div> -->
 
     <!-- Recent Projects - Single Column -->
     <div class="github-card">
@@ -26,13 +29,11 @@
     </div>
 
     <!-- Mini Contributions - Single Column -->
-    <div class="github-card">
-      <GitHubMiniContributions :stats="stats" />
-    </div>
+    <!-- <div class="github-card"> -->
+    <!--   <GitHubMiniContributions :stats="stats" /> -->
+    <!-- </div> -->
   </div>
-  <div v-else class="data-unavailable">
-    GITHUB_DATA_UNAVAILABLE
-  </div>
+  <div v-else class="data-unavailable">GITHUB_DATA_UNAVAILABLE</div>
 </template>
 
 <script setup lang="ts">
@@ -103,18 +104,7 @@ const showFullCalendar = computed(() => {
   @apply text-sm text-zinc-500 dark:text-zinc-400 font-mono;
 }
 
-.auto-fit-columns {
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-}
-
 .github-card {
   @apply break-inside-avoid overflow-hidden min-w-0;
-}
-
-/* Responsive breakpoints */
-@media (max-width: 640px) {
-  .auto-fit-columns {
-    grid-template-columns: 1fr;
-  }
 }
 </style>

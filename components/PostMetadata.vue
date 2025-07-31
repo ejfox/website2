@@ -171,7 +171,6 @@ const formatCompactNumber = (num: number): string | number => {
 }
 
 const pluralize = (word: string, count: number): string => {
-  if (props.compact) return `${word}s`
   return count === 1 ? word : `${word}s`
 }
 

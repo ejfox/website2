@@ -1,4 +1,4 @@
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async (_event) => {
   try {
     const steamId = '76561198072533815'
     const apiKey = process.env.STEAM_API_KEY

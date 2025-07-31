@@ -3,19 +3,32 @@
     <!-- Primary Stats -->
     <div ref="primaryStatRef" class="individual-stat-large">
       <div class="stat-value">
-        <AnimatedNumber :value="weeklyHours" format="commas" :duration="timing.slower" priority="primary" />
+        <AnimatedNumber
+          :value="monthlyHours"
+          format="commas"
+          :duration="timing.slower"
+          priority="primary"
+        />
       </div>
-      <div class="stat-label">
-        HOURS TRACKED
-      </div>
+      <div class="stat-label">HOURS THIS MONTH</div>
       <div class="stat-details">
-        <AnimatedNumber :value="weeklyProductivePercent" format="percent" :duration="timing.slow" priority="secondary" /> PRODUCTIVE
+        <AnimatedNumber
+          :value="monthlyProductivePercent"
+          format="percent"
+          :duration="timing.slow"
+          priority="secondary"
+        />
+        PRODUCTIVE
       </div>
     </div>
 
     <!-- Activity Calendar -->
     <div ref="calendarRef">
-      <ActivityCalendar title="ACTIVITY" :active-dates="activityDates" :active-color="'#71717a'" />
+      <ActivityCalendar
+        title="ACTIVITY"
+        :active-dates="activityDates"
+        :active-color="'#71717a'"
+      />
     </div>
 
     <!-- Application Distribution Waffle Chart -->
@@ -23,12 +36,17 @@
       <StatsSectionHeader title="TIME DISTRIBUTION" />
       <div class="waffle-container">
         <div
-          v-for="(cell, i) in waffleCells" :key="i" class="waffle-cell" :style="{ backgroundColor: cell.color }"
+          v-for="(cell, i) in waffleCells"
+          :key="i"
+          class="waffle-cell"
+          :style="{ backgroundColor: cell.color }"
           :title="cell.title"
-        >
-        </div>
+        ></div>
       </div>
-      <div class="flex justify-between text-zinc-500 mt-1" style="font-size: 10px; line-height: 12px;">
+      <div
+        class="flex justify-between text-zinc-500 mt-1"
+        style="font-size: 10px; line-height: 12px"
+      >
         <span>EACH COLOR = CATEGORY</span>
         <span>SQUARE = 1% OF TOTAL TIME</span>
       </div>
@@ -38,28 +56,47 @@
     <div ref="categoriesRef">
       <StatsSectionHeader title="CATEGORIES" />
       <div class="space-y-1.5">
-        <div v-for="category in sortedCategories" :key="category.name" class="category-row flex items-center gap-1.5">
-          <div class="w-2 h-2 flex-shrink-0 rounded-sm" :style="{ backgroundColor: category.color }"></div>
+        <div
+          v-for="category in sortedCategories"
+          :key="category.name"
+          class="category-row flex items-center gap-1.5"
+        >
+          <div
+            class="w-2 h-2 flex-shrink-0 rounded-sm"
+            :style="{ backgroundColor: category.color }"
+          ></div>
           <div class="flex-1 min-w-0">
             <div class="flex justify-between items-center gap-1">
-              <span class="text-zinc-700 dark:text-zinc-300 truncate" style="font-size: 10px; line-height: 12px;">{{ category.name }}</span>
-              <span class="text-zinc-500 tabular-nums flex-shrink-0" style="font-size: 10px; line-height: 12px;">{{ formatPercent(category.percentageOfTotal / 100, 0) }}</span>
+              <span
+                class="text-zinc-700 dark:text-zinc-300 truncate"
+                style="font-size: 10px; line-height: 12px"
+                >{{ category.name }}</span
+              >
+              <span
+                class="text-zinc-500 tabular-nums flex-shrink-0"
+                style="font-size: 10px; line-height: 12px"
+                >{{ category.percentageOfTotal }}%</span
+              >
             </div>
             <div class="category-bar-bg mt-0.5">
               <div
-                class="category-bar-fill" :style="{
+                class="category-bar-fill"
+                :style="{
                   width: `${category.percentageOfTotal}%`,
                   backgroundColor: category.color
                 }"
-              >
-              </div>
+              ></div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <StatsDataState v-else state="unavailable" message="RESCUETIME_DATA_UNAVAILABLE" />
+  <StatsDataState
+    v-else
+    state="unavailable"
+    message="RESCUETIME_DATA_UNAVAILABLE"
+  />
 </template>
 
 <script setup lang="ts">
@@ -70,8 +107,8 @@ import StatsSectionHeader from './StatsSectionHeader.vue'
 import StatsDataState from './StatsDataState.vue'
 import AnimatedNumber from '../AnimatedNumber.vue'
 import { format } from 'date-fns'
-import { formatPercent as _formatPercent } from '~/composables/useNumberFormat'
-import { animate, stagger as _stagger, onScroll } from '~/anime.esm.js'
+import { formatPercent } from '~/composables/useNumberFormat'
+import { animate, stagger, onScroll } from '~/anime.esm.js'
 import { useAnimations } from '~/composables/useAnimations'
 
 interface TimeBreakdown {
@@ -83,67 +120,61 @@ interface TimeBreakdown {
 }
 
 interface Activity {
-  name?: string;
+  name?: string
   time?: {
-    seconds?: number;
-    minutes?: number;
-    hours?: number;
-    hoursDecimal?: number;
-  };
+    seconds?: number
+    minutes?: number
+    hours?: number
+    hoursDecimal?: number
+  }
   timeSpent?: {
-    seconds?: number;
-    minutes?: number;
-    hours?: number;
-    hoursDecimal?: number;
-  };
-  percentageOfTotal?: number;
-  productivity?: number;
-  productivityScore?: number;
+    seconds?: number
+    minutes?: number
+    hours?: number
+    hoursDecimal?: number
+  }
+  percentageOfTotal?: number
+  productivity?: number
+  productivityScore?: number
   category?: {
-    name?: string;
-    productivity?: number;
-  };
+    name?: string
+    productivity?: number
+  }
 }
 
 // Add interface for daily activity data
 interface DailyActivity {
-  date: string;
-  time?: TimeBreakdown;
-  activities?: Activity[];
-  steps?: number;
-  activeMinutes?: number;
+  date: string
+  time?: TimeBreakdown
+  activities?: Activity[]
+  steps?: number
+  activeMinutes?: number
 }
 
 const props = defineProps<{
   stats: StatsResponse
 }>()
 
-const { timing, easing: _easing } = useAnimations()
+const { timing } = useAnimations()
 
 const rescueTime = computed(() => props.stats.rescueTime)
-const _lastUpdated = computed(() => rescueTime.value?.lastUpdated || new Date().toISOString())
 
 // Check if we have data
 const hasData = computed(() => {
-  return !!rescueTime.value &&
-    ((rescueTime.value.week?.summary?.total?.hoursDecimal || 0) > 0)
+  return (
+    !!rescueTime.value &&
+    (rescueTime.value.week?.summary?.total?.hoursDecimal || 0) > 0
+  )
 })
 
-// Format date for display
-const _formatUpdateTime = (dateString: string) => {
-  try {
-    const date = new Date(dateString)
-    return format(date, 'MMM d, yyyy')
-  } catch (_e) {
-    return 'Unknown date'
-  }
-}
-
 // Weekly Stats
-const weeklyHours = computed(() => Math.round(rescueTime.value?.week.summary.total.hoursDecimal || 0))
-const weeklyProductivePercent = computed(() => rescueTime.value?.week.summary.productive.percentage || 0)
-const _weeklyDistractingPercent = computed(() => rescueTime.value?.week.summary.distracting.percentage || 0)
-const _weeklyNeutralPercent = computed(() => rescueTime.value?.week.summary.neutral.percentage || 0)
+// Use monthly data for yearly progress view
+const monthlyHours = computed(() =>
+  Math.round(rescueTime.value?.month.summary.total.hoursDecimal || 0)
+)
+const monthlyProductivePercent = computed(
+  () => rescueTime.value?.month.summary.productive.percentage || 0
+)
 
 // Generate activity dates from daily data (if available)
 const activityDates = computed(() => {
@@ -152,13 +183,13 @@ const activityDates = computed(() => {
   const dailyData: DailyActivity[] =
     (rescueTime.value as any)?.dailyActivities || // Try standard path
     (rescueTime.value as any)?.daily || // Try alternate path
-    []; // Fallback to empty array
+    [] // Fallback to empty array
 
   if (dailyData.length > 0 && dailyData[0]?.date) {
     // If we have proper daily activity objects with dates
     return dailyData
-      .filter(day => (day.time?.seconds || 0) > 0) // Only days with activity
-      .map(day => day.date)
+      .filter((day) => (day.time?.seconds || 0) > 0) // Only days with activity
+      .map((day) => day.date)
   }
 
   // Fallback: Mark the last 7 days as active (since we have weekly data)
@@ -173,97 +204,102 @@ const activityDates = computed(() => {
 
 // A vibrant turbo-like color scale (inverted)
 const turboColors = [
-  '#dd2e06', '#f57e00', '#fbb508', '#c8e020', '#7cf357',
-  '#3bdf92', '#1ac7c2', '#24aad8', '#337bc3', '#4444a4', '#30123b'
-];
+  '#dd2e06',
+  '#f57e00',
+  '#fbb508',
+  '#c8e020',
+  '#7cf357',
+  '#3bdf92',
+  '#1ac7c2',
+  '#24aad8',
+  '#337bc3',
+  '#4444a4',
+  '#30123b'
+]
 
 // Generate a color from our palette
 const getColorForValue = (value: number) => {
   // Clamp value between 0 and 1
-  const clampedValue = Math.max(0, Math.min(1, value));
+  const clampedValue = Math.max(0, Math.min(1, value))
   // Scale to the array index range
-  const index = Math.floor(clampedValue * (turboColors.length - 1));
-  return turboColors[index];
-};
+  const index = Math.floor(clampedValue * (turboColors.length - 1))
+  return turboColors[index]
+}
 
-// Create a unified categories data source with colors
+// Create a unified categories data source with colors (privacy-safe)
 const categoriesWithColors = computed(() => {
-  const activities = rescueTime.value?.week?.activities || [];
+  const categories = rescueTime.value?.month?.categories || []
 
-  if (activities.length === 0) return [];
+  if (categories.length === 0) return []
 
-  // Get unique categories 
-  const uniqueNames = [...new Set(activities.map(a => a.name))]
-    .filter(name => name); // Filter out undefined/null
-
-  // Map categories to objects with colors
-  return uniqueNames.map((name, i) => {
-    // Find the matching activity to get percentage
-    const activity = activities.find(a => a.name === name);
-
-    return {
-      name,
-      percentageOfTotal: activity?.percentageOfTotal || 0,
-      color: getColorForValue(i / Math.max(uniqueNames.length - 1, 1))
-    };
-  });
+  // Use categories instead of individual activities for privacy
+  return categories.map((category, i) => ({
+    name: category.name,
+    percentageOfTotal: category.percentageOfTotal || 0,
+    color: getColorForValue(i / Math.max(categories.length - 1, 1))
+  }))
 })
 
 // Sorted categories for display
 const sortedCategories = computed(() => {
   return [...categoriesWithColors.value]
-    .sort((a, b) => b.percentageOfTotal - a.percentageOfTotal);
+    .sort((a, b) => b.percentageOfTotal - a.percentageOfTotal)
+    .filter((a) => a.percentageOfTotal > 0)
 })
 
 // Waffle chart cells
 const waffleCells = computed(() => {
-  const activities = rescueTime.value?.week?.activities || [];
+  const activities = rescueTime.value?.week?.activities || []
   const categoryColorMap = Object.fromEntries(
-    categoriesWithColors.value.map(c => [c.name, c.color])
-  );
+    categoriesWithColors.value.map((c) => [c.name, c.color])
+  )
 
   if (activities.length === 0) {
-    return Array(100).fill(null).map(() => ({
-      color: '#444',
-      title: 'No activity data available'
-    }));
+    return Array(100)
+      .fill(null)
+      .map(() => ({
+        color: '#444',
+        title: 'No activity data available'
+      }))
   }
 
   // Create the cells
-  const cells = Array(100).fill(null).map((_, i) => {
-    // Find which activity corresponds to this position
-    let runningPercentage = 0;
-    let matchingActivity = null;
+  const cells = Array(100)
+    .fill(null)
+    .map((_, i) => {
+      // Find which activity corresponds to this position
+      let runningPercentage = 0
+      let matchingActivity = null
 
-    for (const activity of activities) {
-      runningPercentage += activity.percentageOfTotal;
+      for (const activity of activities) {
+        runningPercentage += activity.percentageOfTotal
 
-      if (i < Math.floor(runningPercentage)) {
-        matchingActivity = activity;
-        break;
+        if (i < Math.floor(runningPercentage)) {
+          matchingActivity = activity
+          break
+        }
       }
-    }
 
-    if (!matchingActivity) {
+      if (!matchingActivity) {
+        return {
+          color: '#444',
+          title: 'Other activities'
+        }
+      }
+
+      // Get color for this category
+      const color = categoryColorMap[matchingActivity.name] || '#777'
+      const hours = matchingActivity.time?.hours || 0
+      const minutes = matchingActivity.time?.minutes || 0
+      const timeStr = hours > 0 ? `${hours}h ${minutes}m` : `${minutes}m`
+
       return {
-        color: '#444',
-        title: 'Other activities'
-      };
-    }
+        color,
+        title: `${matchingActivity.name}: ${matchingActivity.percentageOfTotal}% (${timeStr})`
+      }
+    })
 
-    // Get color for this category
-    const color = categoryColorMap[matchingActivity.name] || '#777';
-    const hours = matchingActivity.time?.hours || 0;
-    const minutes = matchingActivity.time?.minutes || 0;
-    const timeStr = hours > 0 ? `${hours}h ${minutes}m` : `${minutes}m`;
-
-    return {
-      color,
-      title: `${matchingActivity.name}: ${matchingActivity.percentageOfTotal}% (${timeStr})`
-    };
-  });
-
-  return cells;
+  return cells
 })
 
 // Animation refs
@@ -275,7 +311,7 @@ const categoriesRef = ref<HTMLElement | null>(null)
 
 const setupScrollAnimations = () => {
   if (process.server) return
-  
+
   nextTick(() => {
     if (!rescueTimeRef.value || !hasData.value) return
 
@@ -288,10 +324,13 @@ const setupScrollAnimations = () => {
         ],
         duration: timing.expressive,
         ease: 'outElastic(1, .8)',
-        autoplay: onScroll({ target: primaryStatRef.value, onEnter: () => true })
+        autoplay: onScroll({
+          target: primaryStatRef.value,
+          onEnter: () => true
+        })
       })
     }
-    
+
     if (calendarRef.value) {
       animate(calendarRef.value, {
         opacity: [0, 1],
@@ -302,7 +341,7 @@ const setupScrollAnimations = () => {
         autoplay: onScroll({ target: calendarRef.value, onEnter: () => true })
       })
     }
-    
+
     if (waffleRef.value) {
       const waffleCells = waffleRef.value.querySelectorAll('.waffle-cell')
       if (waffleCells.length) {
@@ -313,13 +352,13 @@ const setupScrollAnimations = () => {
             { opacity: 1, scale: 1, rotateZ: 0 }
           ],
           duration: timing.slower,
-          delay: _stagger(8, { grid: [10, 10], from: 'center' }),
+          delay: stagger(8, { grid: [10, 10], from: 'center' }),
           ease: 'outElastic(1, .9)',
           autoplay: onScroll({ target: waffleRef.value, onEnter: () => true })
         })
       }
     }
-    
+
     if (categoriesRef.value) {
       const categoryRows = categoriesRef.value.querySelectorAll('.category-row')
       if (categoryRows.length) {
@@ -328,19 +367,23 @@ const setupScrollAnimations = () => {
           translateX: [-20, 0],
           scale: [0.9, 1.05, 1],
           duration: timing.slow,
-          delay: _stagger(80),
+          delay: stagger(80),
           ease: 'outBack(1.7)',
-          autoplay: onScroll({ target: categoriesRef.value, onEnter: () => true })
+          autoplay: onScroll({
+            target: categoriesRef.value,
+            onEnter: () => true
+          })
         })
       }
-      
-      const categoryBars = categoriesRef.value.querySelectorAll('.category-bar-fill')
+
+      const categoryBars =
+        categoriesRef.value.querySelectorAll('.category-bar-fill')
       if (categoryBars.length) {
         animate(Array.from(categoryBars), {
           scaleX: [0, 1.1, 1],
           scaleY: [0.5, 1.3, 1],
           duration: timing.expressive,
-          delay: _stagger(100),
+          delay: stagger(100),
           ease: 'outElastic(1, .8)',
           autoplay: onScroll({ target: categoryBars[0], onEnter: () => true })
         })

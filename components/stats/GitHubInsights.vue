@@ -1,15 +1,8 @@
 <template>
   <div v-if="hasCommits">
-    <h4 class="section-subheader">
-      GITHUB INSIGHTS
-    </h4>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div
-        class="insight-card p-3 bg-zinc-100/50 dark:bg-zinc-900/30 rounded-md"
-      >
-        <div class="text-xs text-zinc-500 mb-1">
-          LATEST STREAK
-        </div>
+      <div class="insight-card bg-zinc-100/50 dark:bg-zinc-900/30 rounded-md">
+        <div class="text-xs text-zinc-500 mb-1">LATEST STREAK</div>
         <div class="text-zinc-700 dark:text-zinc-300">
           {{ getContributionStreak }} days
         </div>

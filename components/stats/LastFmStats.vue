@@ -1,28 +1,5 @@
 <template>
   <div v-if="hasData" ref="lastfmStatsRef" class="space-y-12 font-mono @container">
-    <!-- Overview Stats -->
-    <div ref="overviewStatsRef" class="space-y-4">
-      <!-- Stats Grid - Responsive with container queries -->
-      <div class="grid grid-cols-1 @[400px]:grid-cols-2 gap-4">
-        <div class="stat-block">
-          <div class="text-xl @[300px]:text-2xl @[400px]:text-3xl tabular-nums">
-            <AnimatedNumber :value="stats?.stats?.totalScrobbles ?? 0" format="commas" :duration="timing.expressive" priority="primary" />
-          </div>
-          <div class="text-[10px] text-zinc-500 tracking-[0.2em]">
-            TOTAL_SCROBBLES
-          </div>
-        </div>
-        <div class="stat-block">
-          <div class="text-xl @[300px]:text-2xl @[400px]:text-3xl tabular-nums">
-            <AnimatedNumber :value="stats?.stats?.averagePerDay ?? 0" format="decimal" decimals="1" :duration="timing.slower" priority="secondary" />
-          </div>
-          <div class="text-[10px] text-zinc-500 tracking-[0.2em]">
-            DAILY_AVERAGE
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Recent Tracks - Adjust spacing for mobile -->
     <div v-if="stats.recentTracks?.tracks?.length" class="space-y-6">
       <StatsSectionHeader title="RECENT_TRACKS" />
@@ -56,19 +33,24 @@
               {{ formatTrackTime(track) }}
             </div>
             <div v-else class="text-xs text-zinc-500">
-              <span class="inline-flex items-center gap-1.5">
-                <span class="relative flex h-1.5 w-1.5">
-                  <span
-                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"
-                  ></span>
-                  <span
-                    class="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"
-                  ></span>
-                </span>
-                <span class="tracking-[0.2em] text-[10px]">NOW</span>
-              </span>
+              <span class="tracking-[0.2em] text-[10px]">CURRENTLY PLAYING</span>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Top Genres -->
+    <div v-if="stats.stats?.topGenres?.length" class="space-y-6 mb-12">
+      <StatsSectionHeader title="TOP_GENRES" />
+      <div class="flex flex-wrap gap-2">
+        <div 
+          v-for="genre in stats.stats.topGenres.slice(0, 6)"
+          :key="genre.name"
+          class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-xs"
+        >
+          {{ genre.name }} (<AnimatedNumber :value="genre.count" format="default" :duration="timing.normal" priority="tertiary" />)
         </div>
       </div>
     </div>
@@ -185,11 +167,6 @@
         </div>
       </div>
     </div>
-
-    <!-- System Info -->
-    <div class="text-[10px] text-zinc-600 tracking-[0.2em] tabular-nums">
-      LAST_UPDATE :: {{ new Date(stats?.lastUpdated).toLocaleString() }}
-    </div>
   </div>
   <StatsDataState v-else state="unavailable" message="LASTFM_DATA_UNAVAILABLE" />
 </template>
@@ -200,7 +177,7 @@ import { formatNumber as _formatNumber, formatDecimal as _formatDecimal } from '
 import StatsSectionHeader from './StatsSectionHeader.vue'
 import StatsDataState from './StatsDataState.vue'
 import AnimatedNumber from '../AnimatedNumber.vue'
-import { animate, stagger as _stagger, onScroll } from '~/anime.esm.js'
+import { animate, stagger, onScroll } from '~/anime.esm.js'
 import { useAnimations } from '~/composables/useAnimations'
 
 interface LastFmImage {
@@ -312,7 +289,6 @@ function formatTrackTime(track: LastFmTrack): string {
 
 // Animation refs
 const lastfmStatsRef = ref<HTMLElement | null>(null)
-const overviewStatsRef = ref<HTMLElement | null>(null)
 const monthlyArtistsRef = ref<HTMLElement | null>(null)
 const monthlyTracksRef = ref<HTMLElement | null>(null)
 const yearlyArtistsRef = ref<HTMLElement | null>(null)
@@ -325,23 +301,6 @@ const setupScrollAnimations = () => {
   nextTick(() => {
     if (!lastfmStatsRef.value) return
 
-    // Overview stats entrance with research-based timing
-    if (overviewStatsRef.value) {
-      const statBlocks = overviewStatsRef.value.querySelectorAll('.stat-block')
-      if (statBlocks.length) {
-        animate(Array.from(statBlocks), {
-          keyframes: [
-            { opacity: 0, scale: 0.8, translateY: 20, filter: 'blur(1px)' },
-            { opacity: 0.8, scale: 1.05, translateY: -3, filter: 'blur(0.3px)' },
-            { opacity: 1, scale: 1, translateY: 0, filter: 'blur(0px)' }
-          ],
-          duration: timing.slower,
-          delay: _stagger(staggers.loose),
-          ease: easing.expressive,
-          autoplay: onScroll({ target: overviewStatsRef.value, onEnter: () => true })
-        })
-      }
-    }
 
     // Monthly artists with wave/spiral stagger patterns
     if (monthlyArtistsRef.value) {
@@ -353,7 +312,7 @@ const setupScrollAnimations = () => {
           rotateZ: [-2, 0], // Subtle rotation impossible in staggered CSS
           scale: [0.96, 1],
           duration: timing.slow,
-          delay: _stagger(staggers.tight, { 
+          delay: stagger(staggers.tight, { 
             direction: 'normal',
             easing: 'out(2)'  // Eased stagger timing - anime.js exclusive!
           }),
@@ -372,7 +331,7 @@ const setupScrollAnimations = () => {
           translateX: [-15, 0],
           scale: [0.96, 1],
           duration: timing.slow,
-          delay: _stagger(staggers.normal),
+          delay: stagger(staggers.normal),
           ease: easing.productive,
           autoplay: onScroll({ target: monthlyTracksRef.value, onEnter: () => true })
         })
@@ -388,7 +347,7 @@ const setupScrollAnimations = () => {
           translateX: [15, 0],
           scale: [0.95, 1],
           duration: timing.expressive,
-          delay: _stagger(staggers.normal),
+          delay: stagger(staggers.normal),
           ease: easing.standard,
           autoplay: onScroll({ target: yearlyArtistsRef.value, onEnter: () => true })
         })
@@ -404,7 +363,7 @@ const setupScrollAnimations = () => {
           translateX: [15, 0],
           scale: [0.95, 1],
           duration: timing.expressive,
-          delay: _stagger(staggers.normal),
+          delay: stagger(staggers.normal),
           ease: easing.standard,
           autoplay: onScroll({ target: yearlyTracksRef.value, onEnter: () => true })
         })
@@ -427,5 +386,17 @@ onMounted(() => {
 .tabular-nums {
   font-feature-settings: 'tnum';
   font-variant-numeric: tabular-nums;
+}
+/* Stat item styles */
+.stat-item {
+  @apply space-y-1 text-center;
+}
+
+.stat-item .stat-label {
+  @apply text-xs tracking-wider text-zinc-500;
+}
+
+.stat-item .stat-value {
+  @apply text-lg font-mono tabular-nums text-zinc-800 dark:text-zinc-200;
 }
 </style>

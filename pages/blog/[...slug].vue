@@ -3,8 +3,8 @@ import { format, isValid, parseISO } from 'date-fns'
 import { animate, stagger as _stagger, engine } from '~/anime.esm.js'
 // Disable Chance.js for now since it's causing SSR issues
 // import { Chance } from 'chance'
-// const chance = new Chance()
-const chance = {
+// const _chance = new Chance()
+const _chance = {
   integer: ({ min, max }) => Math.floor(Math.random() * (max - min + 1)) + min
 }
 import {
@@ -424,11 +424,6 @@ useHead(() => ({
       content: post.value?.metadata?.dek || post.value?.dek
     },
     { name: 'twitter:image', content: shareImageUrl.value }
-    // Add theme-color meta tag for Safari
-    // {
-    //   name: 'theme-color',
-    //   content: postColors.value ? (isDark.value ? postColors.value.dark.primary : postColors.value.light.primary) : (isDark.value ? '#18181b' : '#ffffff')
-    // }
   ],
   link: [{ rel: 'canonical', href: postUrl.value }],
   htmlAttrs: { lang: 'en' }

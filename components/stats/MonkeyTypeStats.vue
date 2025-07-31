@@ -6,14 +6,14 @@
         <!-- Primary WPM Stat with AnimatedNumber -->
         <div class="individual-stat-large">
           <div class="stat-value">
-            <AnimatedNumber :value="stats.typingStats.bestWPM" format="default" :duration="timing.expressive" priority="primary" epic />
+            {{ Math.round(stats.typingStats.bestWPM) }}
           </div>
           <div class="stat-label">
             BEST WPM
           </div>
           <div class="stat-details">
-            <AnimatedNumber :value="stats.typingStats.testsCompleted" format="default" :duration="timing.slower" priority="secondary" /> TESTS · 
-            <AnimatedNumber :value="stats.typingStats.bestAccuracy" format="default" :duration="timing.slow" priority="tertiary" />% ACC
+            {{ stats.typingStats.testsCompleted }} TESTS · 
+            {{ Math.round(stats.typingStats.bestAccuracy) }}% ACC
           </div>
         </div>
       </div>
@@ -97,11 +97,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed, h as _h, ref, onMounted, nextTick } from 'vue'
+import { computed, ref, onMounted, nextTick } from 'vue'
 import { format } from 'date-fns'
 import AnimatedNumber from '../AnimatedNumber.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'
-import { animate as _animate, stagger as _stagger, onScroll as _onScroll } from '~/anime.esm.js'
+import { animate, stagger, onScroll } from '~/anime.esm.js'
 import { useAnimations } from '~/composables/useAnimations'
 
 interface MonkeyTypeTest {
@@ -150,60 +150,6 @@ const recentTests = computed(() => {
     .slice(0, 5)
 })
 
-const _statsDetails = computed(() => {
-  const { testsCompleted, bestAccuracy } = props.stats.typingStats
-  return `${testsCompleted} TESTS · ${bestAccuracy}% ACC`
-})
-
-// Test type distribution data
-const _testTypeDistribution = computed(() => {
-  // If available, use the API's test type distribution
-  if (props.stats.typingStats?.testTypeDistribution) {
-    return props.stats.typingStats.testTypeDistribution
-  }
-
-  // Otherwise, calculate from recent tests as fallback
-  if (!hasRecentTests.value) return {}
-
-  const distribution: Record<string, number> = {}
-  recentTests.value.forEach((test) => {
-    const type = _getTestType(test)
-    distribution[type] = (distribution[type] || 0) + 1
-  })
-
-  return distribution
-})
-
-const _totalTests = computed(() => {
-  return (
-    Object.values(_testTypeDistribution.value).reduce(
-      (sum, count) => sum + count,
-      0
-    ) || 1
-  )
-})
-
-const _hasTestTypes = computed(() => {
-  return Object.keys(_testTypeDistribution.value).length > 0
-})
-
-// Helper to determine the test type from a test object
-const _getTestType = (test: MonkeyTypeTest): string => {
-  if (test.duration) return `time_${test.duration}`
-  if (test.wordCount) return `words_${test.wordCount}`
-  return 'unknown'
-}
-
-// Format test preference display
-const _formatTestPref = (type: string): string => {
-  if (type.startsWith('time_')) {
-    return `${type.split('_')[1]}s TEST`
-  }
-  if (type.startsWith('words_')) {
-    return `${type.split('_')[1]} WORDS`
-  }
-  return type.toUpperCase()
-}
 
 // Format utilities for minimal date display
 const formatDateMinimal = (timestamp: string): string => {
@@ -248,7 +194,7 @@ const setupScrollAnimations = () => {
 
     // Main stats dramatic entrance
     if (mainStatsRef.value) {
-      _animate(mainStatsRef.value, {
+      animate(mainStatsRef.value, {
         keyframes: [
           { opacity: 0, scale: 0.8, rotateX: -20, filter: 'blur(1px)' },
           { opacity: 0.8, scale: 1.05, rotateX: 5, filter: 'blur(0.3px)' },
@@ -256,7 +202,7 @@ const setupScrollAnimations = () => {
         ],
         duration: 600, // 2025 optimal duration
         ease: 'out(2.4)', // Advanced physics
-        autoplay: _onScroll({
+        autoplay: onScroll({
           target: mainStatsRef.value,
           onEnter: () => true
         })
@@ -267,14 +213,14 @@ const setupScrollAnimations = () => {
     if (recentTestsRef.value) {
       const testRows = recentTestsRef.value.querySelectorAll('.test-row')
       if (testRows.length) {
-        _animate(Array.from(testRows), {
+        animate(Array.from(testRows), {
           opacity: [0, 1],
           translateX: [-20, 0],
           scale: [0.96, 1],
           duration: 380, // 2025 micro-timing
-          delay: _stagger(60),
+          delay: stagger(60),
           ease: 'out(2.6)', // Refined curve
-          autoplay: _onScroll({
+          autoplay: onScroll({
             target: recentTestsRef.value,
             onEnter: () => true
           })
@@ -286,14 +232,14 @@ const setupScrollAnimations = () => {
     if (performanceRef.value) {
       const statItems = performanceRef.value.querySelectorAll('.stat-item')
       if (statItems.length) {
-        _animate(Array.from(statItems), {
+        animate(Array.from(statItems), {
           opacity: [0, 1],
           translateY: [15, 0],
           scale: [0.92, 1.02, 1],
           duration: 480, // 2025 grid timing
-          delay: _stagger(90),
+          delay: stagger(90),
           ease: 'out(2.8)', // 2025 physics
-          autoplay: _onScroll({
+          autoplay: onScroll({
             target: performanceRef.value,
             onEnter: () => true
           })
@@ -307,13 +253,6 @@ onMounted(() => {
   setupScrollAnimations()
 })
 
-// Reusable stat display component (deprecated - using AnimatedNumber now)
-const _StatDisplay = (props: { label: string; value: string | number }) => {
-  return _h('div', { class: 'stat-item' }, [
-    _h('div', { class: 'stat-label' }, props.label),
-    _h('div', { class: 'stat-value' }, props.value)
-  ])
-}
 </script>
 
 <style scoped>

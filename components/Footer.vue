@@ -64,8 +64,7 @@
           </ul>
         </nav>
 
-        <!-- <!-- Newsletter signup -->
-        -->
+        <!-- Newsletter signup -->
         <!-- <div ref="newsletterRef" class="w-full max-w-lg opacity-60 hover:opacity-100 transition-opacity"> -->
         <!--   <NewsletterSignup /> -->
         <!-- </div> -->

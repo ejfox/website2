@@ -2,8 +2,7 @@
 import { ref, computed, onMounted } from 'vue'
 import type { Ref as _Ref } from 'vue'
 
-// Cache duration in milliseconds (5 minutes)
-const CACHE_DURATION = 5 * 60 * 1000
+// DELETED: All caching - direct API calls only
 
 interface TimeBreakdown {
   seconds: number
@@ -407,6 +406,71 @@ export interface StatsResponse {
     }>
     lastUpdated: string
   }
+  gear?: {
+    stats: {
+      totalItems: number
+      totalWeight: number
+      containerCount: number
+      avgTCWMScore: number
+    }
+    typeDistribution: Record<string, number>
+    lastUpdated: string
+  }
+  gists?: {
+    stats: {
+      totalGists: number
+      totalFiles: number
+      totalSize: number
+      averageFilesPerGist: number
+      topLanguages: Array<{
+        language: string
+        count: number
+      }>
+      yearStats: Record<string, number>
+    }
+    recentGists: Array<{
+      id: string
+      description: string
+      created_at: string
+      files: number
+      languages: string[]
+      html_url: string
+    }>
+    lastUpdated: string
+  }
+  website?: {
+    stats: {
+      pageviews: { value: number; prev: number }
+      visitors: { value: number; prev: number }
+      visits: { value: number; prev: number }
+      bounces: { value: number; prev: number }
+      totaltime: { value: number; prev: number }
+    }
+    websiteId: string
+    lastUpdated: string
+    shareUrl: string
+  }
+  letterboxd?: {
+    films: Array<{
+      title: string
+      slug: string
+      rating: number | null
+      letterboxdUrl: string
+      watchedDate: string
+    }>
+    stats: {
+      totalFilms: number
+      thisYear: number
+      thisMonth: number
+      averageRating: number
+      rewatches: number
+      topRatedFilms: any[]
+      recentFilms: any[]
+      filmsByMonth: Record<string, number>
+    }
+    lastUpdated: string
+    source: string
+  }
 }
 
 export function useStats() {
@@ -434,77 +498,25 @@ export function useStats() {
   const hasRescueTimeData = computed(() => !!stats.value?.rescueTime)
   const hasLastFmData = computed(() => !!stats.value?.lastfm)
 
-  // Check if we have cached data
-  const getCachedStats = (): StatsResponse | null => {
-    if (process.server) return null
-
-    try {
-      const cachedData = localStorage.getItem('stats_cache')
-      const timestamp = localStorage.getItem('stats_cache_timestamp')
-
-      if (!cachedData || !timestamp) return null
-
-      // Check if cache is still valid
-      const cacheTime = parseInt(timestamp, 10)
-      const now = Date.now()
-
-      if (now - cacheTime > CACHE_DURATION) return null
-
-      // Set hasStaleData to true if we're using cached data
-      hasStaleData.value = true
-
-      return JSON.parse(cachedData)
-    } catch (_e) {
-      return null
-    }
-  }
-
-  // Save data to cache
-  const cacheStats = (data: StatsResponse) => {
-    if (process.server) return
-
-    try {
-      localStorage.setItem('stats_cache', JSON.stringify(data))
-      localStorage.setItem('stats_cache_timestamp', Date.now().toString())
-    } catch (_e) {
-      // Ignore cache errors
-    }
-  }
+  // DELETED: All caching functions
 
   onMounted(async () => {
-    // Try to load from cache first
-    const cachedData = getCachedStats()
-
-    if (cachedData) {
-      stats.value = cachedData
-      isLoading.value = false
-
-      // Refresh in background after using cache
-      fetchFreshData(true)
-    } else {
-      // No cache, fetch fresh data
-      await fetchFreshData(false)
-    }
+    // DELETED: All caching - direct API call only
+    await fetchFreshData()
   })
 
-  const fetchFreshData = async (isBackgroundFetch = false) => {
-    if (!isBackgroundFetch) {
-      isLoading.value = true
-    }
+  const fetchFreshData = async () => {
+    isLoading.value = true
 
     try {
+      // DELETED: All caching and cache-busting - direct API call
       const response = await fetch('/api/stats')
       if (!response.ok) {
         throw new Error(`Failed to fetch stats: ${response.status}`)
       }
       const data = await response.json()
       stats.value = data
-
-      // Reset stale data flag when we get fresh data
       hasStaleData.value = false
-
-      // Cache the fresh data
-      cacheStats(data)
     } catch (error) {
       console.error('Error fetching stats:', error)
       errors.value.fetch = true
@@ -525,7 +537,7 @@ export function useStats() {
     hasLeetCodeData,
     hasChessData,
     hasRescueTimeData,
-    hasLastFmData,
-    refreshStats: () => fetchFreshData(false) // Expose refresh method
+    hasLastFmData
+    // DELETED: refresh method - not needed without caching
   }
 }

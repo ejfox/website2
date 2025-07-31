@@ -1,5 +1,3 @@
-// Note: useStorage is auto-imported in Nitro
-
 export default defineEventHandler(async () => {
   const config = useRuntimeConfig()
   // Use hardcoded API key as fallback if environment variables aren't available
@@ -28,13 +26,7 @@ export default defineEventHandler(async () => {
     const timeout = 10000 // 10 seconds
     let attempt = 0
 
-    // Simple in-memory cache implementation
-    const cacheKey = `lastfm:${method}:${JSON.stringify(params)}`
-    const cachedData = await useStorage().getItem(cacheKey)
-    if (cachedData) {
-      // console.log(`Using cached data for ${method}`)
-      return cachedData as T
-    }
+    // Cache disabled - use direct API calls only
 
     // Rate limiting - ensure at least 250ms between requests
     await new Promise((resolve) => setTimeout(resolve, 250))
@@ -101,10 +93,7 @@ export default defineEventHandler(async () => {
           })
         }
 
-        // Cache successful responses for 5 minutes
-        await useStorage().setItem(cacheKey, data, {
-          ttl: 300 // 5 minutes
-        })
+        // Cache disabled - direct API calls only
 
         return data as T
       } catch (error: any) {

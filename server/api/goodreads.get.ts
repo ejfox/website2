@@ -1,4 +1,4 @@
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async (_event) => {
   try {
     const userId = '9273959'
     
@@ -25,7 +25,7 @@ export default defineEventHandler(async (event) => {
           const titleMatch = itemXml.match(/<title><!\[CDATA\[(.*?)\]\]><\/title>/)
           const linkMatch = itemXml.match(/<link><!\[CDATA\[(.*?)\]\]><\/link>/)
           const pubDateMatch = itemXml.match(/<pubDate><!\[CDATA\[(.*?)\]\]><\/pubDate>/)
-          const guidMatch = itemXml.match(/<guid><!\[CDATA\[(.*?)\]\]><\/guid>/)
+          const _guidMatch = itemXml.match(/<guid><!\[CDATA\[(.*?)\]\]><\/guid>/)
           const authorMatch = itemXml.match(/<author_name>(.*?)<\/author_name>/)
           const ratingMatch = itemXml.match(/<user_rating>(\d+)<\/user_rating>/)
           const coverMatch = itemXml.match(/<book_large_image_url><!\[CDATA\[(.*?)\]\]><\/book_large_image_url>/)

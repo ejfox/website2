@@ -6,7 +6,7 @@
     :style="props.style"
     :aria-live="debug ? 'polite' : 'off'"
   >
-    {{ startValue }}
+    {{ formatter(displayValue) }}
   </span>
 </template>
 
@@ -30,7 +30,7 @@ interface Props {
   debug?: boolean
 }
 
-const { counter } = useAnimations()
+const { animate } = useAnimations()
 
 const props = withDefaults(defineProps<Props>(), {
   startValue: 0,
@@ -63,7 +63,7 @@ const staggeredDelay = computed(() => {
 
 // Component refs
 const numberRef = ref<HTMLElement | null>(null)
-const startValue = ref(props.startValue)
+const displayValue = ref(props.startValue)
 
 /**
  * Number formatter factory - D3-powered for data visualization
@@ -125,10 +125,19 @@ onMounted(() => {
   // Stagger animation based on priority
   setTimeout(() => {
     if (numberRef.value) {
-      counter(numberRef.value, props.value, {
+      // Use custom counter that updates reactive displayValue
+      const animObj = { count: props.startValue }
+      
+      animate(animObj, {
+        count: props.value,
         duration: props.duration,
         ease: props.ease,
-        formatter: formatter.value
+        update: () => {
+          displayValue.value = animObj.count
+        },
+        complete: () => {
+          displayValue.value = props.value
+        }
       })
     }
   }, staggeredDelay.value)

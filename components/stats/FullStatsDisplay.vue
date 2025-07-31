@@ -1,34 +1,10 @@
 <template>
   <div class="relative overflow-hidden">
-    <!-- Stats Sidebar -->
-    <StatsSidebar
-      :stats="stats"
-      :health-today="healthToday || { steps: 0, exerciseMinutes: 0 }"
-      class="hidden 2xl:block"
-    />
-
     <!-- Main Content -->
-    <section class="space-y-12 2xl:pr-80 min-w-0 w-full pr-2">
+    <section class="min-w-0 w-full mx-auto max-w-none">
       <!-- Header -->
       <header class="flex items-center justify-between py-6">
-        <h1 class="text-mono-label">
-          FOX_ANNUAL_REPORT :: {{ currentYear }}
-        </h1>
-        <div class="flex items-center gap-6">
-          <div class="text-mono-label">
-            DAY {{ formatNumber(dayOfYear) }}/{{ formatNumber(daysInYear) }} ·
-            {{ progressPercentage }}
-          </div>
-          <div v-if="dataAge" class="flex items-center gap-2 text-xs font-mono">
-            <div
-              class="w-1.5 h-1.5 rounded-full animate-pulse"
-              :class="dataFreshnessClass"
-            ></div>
-            <span class="text-muted uppercase tracking-wider">{{
-              dataAge
-            }}</span>
-          </div>
-        </div>
+        <h1 class="text-mono-label">FOX_ANNUAL_REPORT :: {{ currentYear }}</h1>
       </header>
 
       <!-- Top Stats -->
@@ -54,34 +30,11 @@
       </Suspense>
 
       <!-- Main Stats Grid -->
-      <section class="grid gap-6 md:gap-16 auto-fit-columns overflow-hidden">
+      <section
+        class="grid md:gap-4 lg:gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 overflow-hidden pr-4 md:pr-8"
+      >
         <TransitionGroup name="fade-up" tag="div" class="contents" appear>
-          <!-- Writing -->
-          <StatsSection
-            v-if="blogStats"
-            id="writing"
-            key="writing-section"
-            title="WRITING"
-            class="break-inside-avoid"
-          >
-            <AsyncBlogStats key="blog" :stats="blogStats" />
-          </StatsSection>
-
-          <!-- Typing -->
-          <StatsSection
-            v-if="stats.monkeyType?.typingStats"
-            id="typing"
-            key="typing-section"
-            title="TYPING"
-            class="break-inside-avoid"
-          >
-            <AsyncMonkeyTypeStats
-              key="monkeytype"
-              :stats="{ typingStats: stats.monkeyType.typingStats }"
-            />
-          </StatsSection>
-
-          <!-- GitHub -->
+          <!-- GitHub - FIRST PRIORITY -->
           <StatsSection
             v-if="stats.github?.stats"
             id="github"
@@ -92,16 +45,58 @@
             <AsyncGitHubStats key="github" :stats="stats.github" />
           </StatsSection>
 
-          <!-- Photography -->
+          <!-- Writing - SECOND PRIORITY -->
           <StatsSection
-            v-if="stats.photos?.stats"
-            id="photography"
-            key="photography-section"
-            title="PHOTOGRAPHY"
+            v-if="blogStats"
+            id="writing"
+            key="writing-section"
+            title="WRITING"
             class="break-inside-avoid"
           >
-            <AsyncPhotoStats key="photos" :stats="stats.photos" />
+            <AsyncBlogStats key="blog" :stats="blogStats" />
           </StatsSection>
+
+          <!-- Reading - THIRD PRIORITY -->
+          <StatsSection
+            v-if="goodreadsData?.stats"
+            id="reading"
+            key="reading-section"
+            title="READING"
+            class="break-inside-avoid"
+          >
+            <AsyncGoodreadsStats key="goodreads" :data="goodreadsData" />
+          </StatsSection>
+
+          <!-- Productivity - FIFTH PRIORITY -->
+          <StatsSection
+            v-if="
+              stats.rescueTime &&
+              (stats.rescueTime.week?.summary?.total?.hoursDecimal || 0) > 0
+            "
+            id="productivity"
+            key="productivity-section"
+            title="PRODUCTIVITY"
+            class="break-inside-avoid"
+          >
+            <AsyncRescueTimeStats key="rescuetime" :stats="stats" />
+          </StatsSection>
+
+          <!-- LeetCode -->
+          <StatsSection
+            v-if="
+              stats.leetcode?.submissionStats &&
+              (stats.leetcode.submissionStats.easy.count > 0 ||
+                stats.leetcode.submissionStats.medium.count > 0 ||
+                stats.leetcode.submissionStats.hard.count > 0)
+            "
+            id="leetcode"
+            key="leetcode-section"
+            title="LEETCODE"
+            class="break-inside-avoid"
+          >
+            <AsyncLeetCodeStats key="leetcode" :stats="stats.leetcode" />
+          </StatsSection>
+          <!-- Typing -->
 
           <!-- Chess -->
           <StatsSection
@@ -114,62 +109,28 @@
             <AsyncChessStats key="chess" :stats="stats.chess" />
           </StatsSection>
 
-          <!-- LeetCode -->
           <StatsSection
-            v-if="stats.leetcode?.submissionStats"
-            id="leetcode"
-            key="leetcode-section"
-            title="LEETCODE"
+            v-if="stats.monkeyType?.typingStats"
+            id="typing"
+            key="typing-section"
+            title="TYPING"
             class="break-inside-avoid"
           >
-            <AsyncLeetCodeStats key="leetcode" :stats="stats.leetcode" />
+            <AsyncMonkeyTypeStats key="monkeytype" :stats="stats.monkeyType" />
           </StatsSection>
 
-          <!-- Productivity -->
+          <!-- Code Snippets -->
           <StatsSection
-            v-if="stats.rescueTime"
-            id="productivity"
-            key="productivity-section"
-            title="PRODUCTIVITY"
+            v-if="stats.gists?.stats"
+            id="gists"
+            key="gists-section"
+            title="CODE"
             class="break-inside-avoid"
           >
-            <AsyncRescueTimeStats key="rescuetime" :stats="stats" />
+            <AsyncGistStats key="gists" :gist-stats="stats.gists" />
           </StatsSection>
 
-          <!-- Films -->
-          <StatsSection
-            v-if="letterboxdData?.stats"
-            id="films"
-            key="films-section"
-            title="FILMS"
-            class="break-inside-avoid"
-          >
-            <AsyncLetterboxdStats key="letterboxd" :data="letterboxdData" />
-          </StatsSection>
-
-          <!-- Gaming -->
-          <StatsSection
-            v-if="steamData?.stats"
-            id="gaming"
-            key="gaming-section"
-            title="GAMING"
-            class="break-inside-avoid"
-          >
-            <AsyncSteamStats key="steam" :data="steamData" />
-          </StatsSection>
-
-          <!-- Reading -->
-          <StatsSection
-            v-if="goodreadsData?.stats"
-            id="reading"
-            key="reading-section"
-            title="READING"
-            class="break-inside-avoid"
-          >
-            <AsyncGoodreadsStats key="goodreads" :data="goodreadsData" />
-          </StatsSection>
-
-          <!-- Last.fm -->
+          <!-- Music - FOURTH PRIORITY -->
           <StatsSection
             v-if="stats.lastfm"
             id="music"
@@ -179,46 +140,74 @@
           >
             <AsyncLastFmStats key="lastfm" :stats="stats.lastfm" />
           </StatsSection>
+
+          <!-- Films -->
+          <StatsSection
+            v-if="stats.letterboxd?.stats"
+            id="films"
+            key="films-section"
+            title="FILMS"
+            class="break-inside-avoid"
+          >
+            <AsyncLetterboxdStats
+              key="letterboxd"
+              :letterboxd-stats="stats.letterboxd"
+            />
+          </StatsSection>
+
+          <!-- Website Analytics -->
+          <StatsSection
+            v-if="stats.website?.stats"
+            id="website"
+            key="website-section"
+            title="ANALYTICS"
+            class="break-inside-avoid"
+          >
+            <AsyncUmamiStats key="umami" :umami-stats="stats.website" />
+          </StatsSection>
         </TransitionGroup>
       </section>
 
       <!-- Full Width Sections -->
-      <section class="col-span-full space-y-12">
+      <section class="col-span-full space-y-2 pt-12">
         <!-- Gear Stats -->
         <Transition name="fade-up" appear>
           <div id="gear" class="relative">
             <StatsSection title="GEAR">
-              <AsyncGearStats />
+              <AsyncGearStats :gear-stats="stats.gear" />
             </StatsSection>
           </div>
         </Transition>
 
-        <!-- Health Stats -->
-        <Transition name="fade-up" appear>
+        <!-- Health Stats - DISABLED: Network fetch failures -->
+        <!-- <Transition name="fade-up" appear>
           <div v-if="stats.health" id="health" class="relative">
             <StatsSection title="HEALTH">
               <AsyncHealthStats :stats="transformedHealthStats" />
             </StatsSection>
           </div>
-        </Transition>
+        </Transition> -->
       </section>
     </section>
   </div>
 </template>
 
 <script setup>
-import { computed, defineProps, defineAsyncComponent } from 'vue'
-import { formatNumber, formatPercent } from '~/composables/useNumberFormat'
+import { computed as _computed, defineProps, defineAsyncComponent } from 'vue'
+import {
+  formatNumber as _formatNumber,
+  formatPercent as _formatPercent
+} from '~/composables/useNumberFormat'
 const AsyncMonkeyTypeStats = defineAsyncComponent(
   () => import('~/components/stats/MonkeyTypeStats.vue')
 )
 const AsyncGitHubStats = defineAsyncComponent(
   () => import('~/components/stats/GitHubStats.vue')
 )
-const AsyncPhotoStats = defineAsyncComponent(
+const _AsyncPhotoStats = defineAsyncComponent(
   () => import('~/components/stats/PhotoStats.vue')
 )
-const AsyncHealthStats = defineAsyncComponent(
+const _AsyncHealthStats = defineAsyncComponent(
   () => import('~/components/stats/HealthStats.vue')
 )
 const AsyncLeetCodeStats = defineAsyncComponent(
@@ -245,14 +234,17 @@ const AsyncLastFmStats = defineAsyncComponent(
 const AsyncLetterboxdStats = defineAsyncComponent(
   () => import('~/components/stats/LetterboxdStats.vue')
 )
-const AsyncSteamStats = defineAsyncComponent(
+const _AsyncSteamStats = defineAsyncComponent(
   () => import('~/components/stats/SteamStats.vue')
 )
 const AsyncGoodreadsStats = defineAsyncComponent(
   () => import('~/components/stats/GoodreadsStats.vue')
 )
-const StatsSidebar = defineAsyncComponent(
-  () => import('~/components/stats/StatsSidebar.vue')
+const AsyncGistStats = defineAsyncComponent(
+  () => import('~/components/stats/GistStats.vue')
+)
+const AsyncUmamiStats = defineAsyncComponent(
+  () => import('~/components/stats/UmamiStats.vue')
 )
 
 const _props = defineProps({
@@ -279,7 +271,7 @@ const _props = defineProps({
   letterboxdData: {
     type: Object,
     default: null
-  }, 
+  },
   steamData: {
     type: Object,
     default: null
@@ -292,40 +284,6 @@ const _props = defineProps({
 
 // Current year for title
 const currentYear = new Date().getFullYear()
-
-// Calculate the day of year and year progress
-const now = new Date()
-const startOfYear = new Date(currentYear, 0, 0)
-const diff = now.getTime() - startOfYear.getTime()
-const dayOfYear = Math.floor(diff / (1000 * 60 * 60 * 24))
-const isLeapYear =
-  (currentYear % 4 === 0 && currentYear % 100 !== 0) || currentYear % 400 === 0
-const daysInYear = isLeapYear ? 366 : 365
-const progressPercentage = formatPercent(dayOfYear / daysInYear, 0)
-
-const dataAge = computed(() => {
-  const lastUpdate = new Date()
-  const minutesAgo = Math.floor(
-    (new Date().getTime() - lastUpdate.getTime()) / 60000
-  )
-
-  if (minutesAgo < 1) return 'LIVE'
-  if (minutesAgo < 60) return `${minutesAgo}M AGO`
-  if (minutesAgo < 1440) return `${Math.floor(minutesAgo / 60)}H AGO`
-  return `${Math.floor(minutesAgo / 1440)}D AGO`
-})
-
-const dataFreshnessClass = computed(() => {
-  const lastUpdate = new Date()
-  const minutesAgo = Math.floor(
-    (new Date().getTime() - lastUpdate.getTime()) / 60000
-  )
-
-  if (minutesAgo < 5) return 'bg-green-500'
-  if (minutesAgo < 60) return 'bg-zinc-500'
-  if (minutesAgo < 1440) return 'bg-yellow-500'
-  return 'bg-red-500'
-})
 </script>
 
 <style scoped>
@@ -349,27 +307,5 @@ const dataFreshnessClass = computed(() => {
 
 .fade-up-enter-active {
   transition-delay: calc(var(--el-transition-index, 0) * 100ms);
-}
-
-.auto-fit-columns {
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 640px) {
-  .auto-fit-columns {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1280px) {
-  .auto-fit-columns {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (min-width: 1536px) {
-  .auto-fit-columns {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }
 </style>

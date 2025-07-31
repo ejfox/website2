@@ -1,19 +1,35 @@
 <template>
   <div ref="gearStatsRef" class="space-y-8">
     <!-- Top-level stats in grid -->
-    <div ref="statsGridRef" class="grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono">
+    <div
+      ref="statsGridRef"
+      class="grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono pr-4"
+    >
       <div class="gear-stat-card space-y-1">
         <div class="text-2xl tabular-nums">
-          <AnimatedNumber :value="totalItems" format="default" :duration="timing.expressive" priority="primary" epic />
+          <AnimatedNumber
+            :value="totalItems"
+            format="default"
+            :duration="timing.quick"
+            priority="primary"
+            epic
+          />
         </div>
         <div class="text-xs text-zinc-500 uppercase tracking-wider">
           Total Items
         </div>
       </div>
-      
+
       <div class="gear-stat-card space-y-1">
         <div class="text-2xl tabular-nums">
-          <AnimatedNumber :value="parseFloat(totalWeight)" format="decimal" decimals="1" :duration="timing.expressive" priority="primary" epic />
+          <AnimatedNumber
+            :value="parseFloat(totalWeight)"
+            format="decimal"
+            decimals="1"
+            :duration="timing.slow"
+            priority="primary"
+            epic
+          />
           <span class="text-sm text-zinc-500">oz</span>
         </div>
         <div class="text-xs text-zinc-500 uppercase tracking-wider">
@@ -23,7 +39,13 @@
 
       <div class="gear-stat-card space-y-1">
         <div class="text-2xl tabular-nums">
-          <AnimatedNumber :value="containerCount" format="default" :duration="timing.slower" priority="secondary" epic />
+          <AnimatedNumber
+            :value="containerCount"
+            format="default"
+            :duration="timing.glacial"
+            priority="secondary"
+            epic
+          />
         </div>
         <div class="text-xs text-zinc-500 uppercase tracking-wider">
           Containers
@@ -32,7 +54,14 @@
 
       <div class="gear-stat-card space-y-1">
         <div class="text-2xl tabular-nums">
-          <AnimatedNumber :value="parseFloat(avgTCWMScore)" format="decimal" decimals="1" :duration="timing.slow" priority="secondary" epic />
+          <AnimatedNumber
+            :value="parseFloat(avgTCWMScore)"
+            format="decimal"
+            decimals="1"
+            :duration="timing.slow"
+            priority="secondary"
+            epic
+          />
         </div>
         <div class="text-xs text-zinc-500 uppercase tracking-wider">
           Avg TCWM
@@ -47,19 +76,24 @@
       </div>
       <div class="space-y-2">
         <div
-          v-for="[type, count] in sortedTypeDistribution" :key="type" 
+          v-for="[type, count] in sortedTypeDistribution"
+          :key="type"
           class="flex items-center gap-2 text-xs type-row"
         >
           <div class="w-24 text-right truncate text-zinc-500">
             {{ type }}
           </div>
           <div
-            class="h-4 bg-zinc-800/50 type-bar" 
+            class="h-4 type-bar"
             :style="{ width: `${(count / maxTypeCount) * 200}px` }"
-          >
-          </div>
+          ></div>
           <span class="text-zinc-400">
-            <AnimatedNumber :value="count" format="default" :duration="timing.normal" priority="tertiary" />
+            <AnimatedNumber
+              :value="count"
+              format="default"
+              :duration="timing.normal"
+              priority="tertiary"
+            />
           </span>
         </div>
       </div>
@@ -68,8 +102,20 @@
     <!-- Weight conversions -->
     <div ref="conversionsRef" class="text-xs text-zinc-500">
       <span class="uppercase tracking-wider">Weight Conversion:</span>
-      <AnimatedNumber :value="parseFloat(ouncesToPounds)" format="decimal" decimals="1" :duration="timing.slow" priority="tertiary" />lb / 
-      <AnimatedNumber :value="parseFloat(ouncesToKilos)" format="decimal" decimals="1" :duration="timing.normal" priority="tertiary" />kg
+      <AnimatedNumber
+        :value="parseFloat(ouncesToPounds)"
+        format="decimal"
+        decimals="1"
+        :duration="timing.slow"
+        priority="tertiary"
+      />lb /
+      <AnimatedNumber
+        :value="parseFloat(ouncesToKilos)"
+        format="decimal"
+        decimals="1"
+        :duration="timing.normal"
+        priority="tertiary"
+      />kg
     </div>
   </div>
 </template>
@@ -91,31 +137,64 @@ interface GearItem {
   'Multi-Use Factor (M)'?: string
 }
 
+const props = defineProps<{
+  gearStats?: {
+    stats: {
+      totalItems: number
+      totalWeight: number
+      containerCount: number
+      avgTCWMScore: number
+    }
+    typeDistribution: Record<string, number>
+  }
+}>()
+
 const gearItems = ref<GearItem[]>([])
 const { timing, easing, staggers } = useAnimations()
 
-// Computed stats
-const totalItems = computed(() => gearItems.value.length)
+// Computed stats - use API data if available, fall back to CSV data
+const totalItems = computed(() => {
+  return props.gearStats?.stats.totalItems ?? gearItems.value.length
+})
 
 const totalWeight = computed(() => {
+  if (props.gearStats?.stats.totalWeight !== undefined) {
+    return props.gearStats.stats.totalWeight.toFixed(1)
+  }
+
   if (!gearItems.value?.length) return '0.0'
-  return gearItems.value
-    .reduce((sum, item) => sum + (parseFloat(item['Base Weight ()'] || '0') || 0), 0)
-    .toFixed(1)
+  const weight = gearItems.value.reduce((sum, item) => {
+    const weightStr = item['Base Weight ()']
+    const weightNum =
+      weightStr && weightStr.trim() !== '' ? parseFloat(weightStr) : 0
+    return sum + (isNaN(weightNum) ? 0 : weightNum)
+  }, 0)
+  return weight.toFixed(1)
 })
 
 const containerCount = computed(() => {
-  return new Set(gearItems.value.map(item => item['Parent Container'])).size
+  if (props.gearStats?.stats.containerCount !== undefined) {
+    return props.gearStats.stats.containerCount
+  }
+
+  const containers = gearItems.value
+    .map((item) => item['Parent Container'])
+    .filter((container) => container && container.trim() !== '')
+  return new Set(containers).size
 })
 
 const avgTCWMScore = computed(() => {
+  if (props.gearStats?.stats.avgTCWMScore !== undefined) {
+    return props.gearStats.stats.avgTCWMScore.toFixed(1)
+  }
+
   if (!gearItems.value?.length) return '0.0'
-  const scores = gearItems.value.map(item => {
+  const scores = gearItems.value.map((item) => {
     const T = Number(item['Time Criticality (T)']) || 0
     const C = Number(item['Consequence Severity (C)']) || 0
     const W = Number(item['Weight/Space Penalty (W)']) || 0
     const M = Number(item['Multi-Use Factor (M)']) || 0
-    return (2 * T) + (2 * C) + (1.5 * W) + M
+    return 2 * T + 2 * C + 1.5 * W + M
   })
   return (scores.reduce((a, b) => a + b, 0) / scores.length).toFixed(1)
 })
@@ -125,6 +204,10 @@ interface TypeDistribution {
 }
 
 const typeDistribution = computed<TypeDistribution>(() => {
+  if (props.gearStats?.typeDistribution) {
+    return props.gearStats.typeDistribution
+  }
+
   return gearItems.value.reduce((acc: TypeDistribution, item) => {
     if (item.Type) {
       acc[item.Type] = (acc[item.Type] || 0) + 1
@@ -134,8 +217,7 @@ const typeDistribution = computed<TypeDistribution>(() => {
 })
 
 const sortedTypeDistribution = computed(() => {
-  return Object.entries(typeDistribution.value)
-    .sort((a, b) => b[1] - a[1])
+  return Object.entries(typeDistribution.value).sort((a, b) => b[1] - a[1])
 })
 
 const maxTypeCount = computed(() => {
@@ -161,7 +243,7 @@ const conversionsRef = ref<HTMLElement | null>(null)
 // Epic gear stats scroll-triggered animations
 const setupScrollAnimations = () => {
   if (process.server) return
-  
+
   nextTick(() => {
     if (!gearStatsRef.value) return
 
@@ -172,7 +254,12 @@ const setupScrollAnimations = () => {
         animate(Array.from(statCards), {
           keyframes: [
             { opacity: 0, scale: 0.7, translateY: 20, filter: 'blur(1px)' },
-            { opacity: 0.8, scale: 1.08, translateY: -3, filter: 'blur(0.3px)' },
+            {
+              opacity: 0.8,
+              scale: 1.08,
+              translateY: -3,
+              filter: 'blur(0.3px)'
+            },
             { opacity: 1, scale: 1, translateY: 0, filter: 'blur(0px)' }
           ],
           duration: timing.expressive,
@@ -190,7 +277,7 @@ const setupScrollAnimations = () => {
     if (distributionRef.value) {
       const typeBars = distributionRef.value.querySelectorAll('.type-bar')
       const typeRows = distributionRef.value.querySelectorAll('.type-row')
-      
+
       if (typeBars.length) {
         animate(Array.from(typeBars), {
           scaleX: [0, 1.1, 1],
@@ -244,23 +331,23 @@ onMounted(async () => {
   } catch (_error) {
     console.error('Error loading gear data:', _error)
   }
-  
+
   setupScrollAnimations()
 })
 </script>
 
 <style scoped>
 .text-2xl {
-  font-feature-settings: "tnum";
+  font-feature-settings: 'tnum';
 }
 
 /* Gear stat card styling */
 .gear-stat-card {
-  @apply p-3 rounded-md border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800/30;
+  @apply p-3 rounded-md border border-zinc-200 dark:border-zinc-700;
 }
 
 /* Type bar animation base */
 .type-bar {
   @apply transition-all duration-300 rounded-sm;
 }
-</style> 
+</style>

@@ -73,14 +73,14 @@ export default defineEventHandler(async () => {
       return date.toISOString().split('T')[0]
     }
 
-    // Fetch both week and month data in parallel
+    // Fetch both week and month data in parallel - use 'interval' perspective to get productivity scores
     const [weekData, monthData] = await Promise.all([
       $fetch<RescueTimeResponse>('https://www.rescuetime.com/anapi/data', {
         params: {
           key: token,
           format: 'json',
-          perspective: 'rank',
-          restrict_kind: 'overview',
+          perspective: 'interval',
+          restrict_kind: 'activity',
           restrict_begin: formatDate(weekStart),
           restrict_end: formatDate(now)
         }
@@ -89,8 +89,8 @@ export default defineEventHandler(async () => {
         params: {
           key: token,
           format: 'json',
-          perspective: 'rank',
-          restrict_kind: 'overview',
+          perspective: 'interval',
+          restrict_kind: 'activity',
           restrict_begin: formatDate(monthStart),
           restrict_end: formatDate(now)
         }

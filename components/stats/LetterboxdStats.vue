@@ -1,125 +1,107 @@
 <template>
-  <div v-if="data?.stats" class="space-y-3 font-mono">
-    <!-- Essential metrics only -->
-    <div>
-      <StatsSectionHeader title="FILM STATUS" />
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
-        <div class="metric-card">
-          <div class="stat-value">
-            {{ data.stats.totalFilms || 0 }}
-          </div>
-          <div class="stat-label">
-            WATCHED
-          </div>
-        </div>
-        <div class="metric-card">
-          <div class="stat-value">
-            {{ formatRating(data.stats.averageRating) }}
-          </div>
-          <div class="stat-label">
-            AVG RATING
-          </div>
-        </div>
-        <div class="metric-card">
-          <div class="stat-value">
-            {{ data.stats.topRatedFilms?.length || 0 }}
-          </div>
-          <div class="stat-label">
-            5-STAR
-          </div>
-        </div>
-        <div class="metric-card">
-          <div class="stat-value">
-            {{ data.stats.thisYear || 0 }}
-          </div>
-          <div class="stat-label">
-            THIS YEAR
-          </div>
-        </div>
+  <div v-if="hasData" class="space-y-8 font-mono">
+    <!-- Primary Metric -->
+    <div class="individual-stat-large">
+      <div class="stat-value">
+        <AnimatedNumber :value="stats.totalFilms" format="default" :duration="timing.slow" priority="primary" />
+      </div>
+      <div class="stat-label">
+        FILMS WATCHED
+      </div>
+      <div class="stat-details">
+        <AnimatedNumber :value="stats.averageRating" format="decimal" decimals="1" :duration="timing.normal" priority="secondary" />★ AVG · 
+        <AnimatedNumber :value="stats.thisYear" format="default" :duration="timing.normal" priority="tertiary" /> THIS YEAR
       </div>
     </div>
 
-    <!-- Minimal poster grid - Tufte-style data visualization -->
-    <div v-if="recentPosters.length">
-      <StatsSectionHeader title="RECENT" />
-      <div class="flex flex-wrap gap-0.5">
+    <!-- Recent Films - Minimal -->
+    <div v-if="recentFilms.length" class="space-y-4">
+      <div class="text-xs tracking-wider text-zinc-500 border-b border-zinc-200 dark:border-zinc-800 pb-1">
+        RECENT
+      </div>
+      <div class="space-y-2">
         <div 
-          v-for="film in recentPosters" 
-          :key="film.letterboxdUrl"
-          class="w-3 h-4 bg-zinc-300 dark:bg-zinc-700 rounded-sm flex-shrink-0 relative group overflow-hidden"
-          :title="`${film.title} (${film.year})${film.rating ? ' ★'.repeat(film.rating) : ''}`"
+          v-for="film in recentFilms.slice(0, 3)"
+          :key="film.slug"
+          class="flex justify-between items-start text-xs gap-4"
         >
-          <!-- Tiny poster thumbnail if available -->
-          <img 
-            v-if="film.poster"
-            :src="film.poster"
-            :alt="film.title"
-            class="w-full h-full object-cover"
-            loading="lazy"
-          >
-          <!-- Rating indicator overlay -->
-          <div 
-            v-if="film.rating >= 4"
-            class="absolute inset-0 border border-yellow-400"
-            :class="film.rating === 5 ? 'border-2' : 'border-1'"
-          ></div>
+          <div class="flex-1 min-w-0">
+            <div class="truncate text-zinc-700 dark:text-zinc-300">
+              {{ film.title }}
+            </div>
+            <div class="text-zinc-500 text-2xs">
+              {{ formatDate(film.watchedDate) }}
+            </div>
+          </div>
+          <div v-if="film.rating" class="text-zinc-600 dark:text-zinc-400 text-xs tabular-nums">
+            {{ film.rating }}★
+          </div>
         </div>
       </div>
     </div>
-
-    <!-- Footer -->
-    <div class="pt-4 border-t border-zinc-200 dark:border-zinc-800">
-      <a 
-        href="https://letterboxd.com/ejfox/" 
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-xs text-muted hover:text-primary transition-colors uppercase tracking-wider"
-      >
-        View on Letterboxd ↗
-      </a>
-    </div>
   </div>
-  
-  <div v-else-if="data?.error" class="text-center py-8">
-    <div class="text-sm text-muted">
-      {{ data.error }}
-    </div>
-    <div class="text-xs text-muted mt-2">
-      RSS feed may be empty or parsing failed
-    </div>
-  </div>
-
-  <div v-else class="text-center py-8 text-muted">
-    <div class="text-sm">
-      Letterboxd data not available
+  <div v-else class="text-center py-6">
+    <div class="text-xl font-mono text-zinc-700 dark:text-zinc-500">
+      NO FILM DATA
     </div>
   </div>
 </template>
 
-<script setup>
-import StatsSectionHeader from './StatsSectionHeader.vue'
+<script setup lang="ts">
+import { computed } from 'vue'
+import { format } from 'date-fns'
+import AnimatedNumber from '../AnimatedNumber.vue'
+import { useAnimations } from '~/composables/useAnimations'
 
-const props = defineProps({
-  data: {
-    type: Object,
-    default: () => ({})
-  }
-})
-
-const formatRating = (rating) => {
-  if (!rating || rating === 0) return '—'
-  return rating.toFixed(1)
+interface LetterboxdFilm {
+  title: string
+  slug: string
+  rating: number | null
+  letterboxdUrl: string
+  watchedDate: string
 }
 
-// Recent films for tiny poster visualization
-const recentPosters = computed(() => {
-  if (!props.data?.films?.length) return []
-  
-  // Take recent films and limit to reasonable amount for visualization
-  return props.data.films.slice(0, 50).map(film => ({
-    ...film,
-    // Ensure we have poster data - could be from letterboxd RSS or fallback
-    poster: film.poster || film.image || null
-  }))
+interface LetterboxdStats {
+  films: LetterboxdFilm[]
+  stats: {
+    totalFilms: number
+    thisYear: number
+    thisMonth: number
+    averageRating: number
+    rewatches: number
+    topRatedFilms: LetterboxdFilm[]
+    recentFilms: LetterboxdFilm[]
+    filmsByMonth: Record<string, number>
+  }
+  lastUpdated: string
+  source: string
+  error?: string
+}
+
+const props = defineProps<{
+  letterboxdStats?: LetterboxdStats | null
+}>()
+
+const { timing } = useAnimations()
+
+const hasData = computed(() => {
+  return !!props.letterboxdStats?.stats && props.letterboxdStats.stats.totalFilms > 0
 })
+
+const stats = computed(() => props.letterboxdStats?.stats || {
+  totalFilms: 0,
+  thisYear: 0,
+  thisMonth: 0,
+  averageRating: 0,
+  rewatches: 0,
+  topRatedFilms: [],
+  recentFilms: [],
+  filmsByMonth: {}
+})
+
+const recentFilms = computed(() => props.letterboxdStats?.films || [])
+
+const formatDate = (dateString: string): string => {
+  return format(new Date(dateString), 'MMM d').toUpperCase()
+}
 </script>

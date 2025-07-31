@@ -1,15 +1,13 @@
 <template>
   <div v-if="hasCommits">
-    <h4 class="section-subheader">
-      RECENT COMMITS
-    </h4>
+    <h4 class="section-subheader">RECENT COMMITS</h4>
     <div class="space-y-3">
       <div
-        v-for="project in recentProjects.slice(0, 2)"
+        v-for="project in recentProjects.slice(0, 8)"
         :key="project.name"
         class="project-item"
       >
-        <div class="flex justify-between items-start gap-2">
+        <div class="flex justify-between items-start gap-1">
           <a
             :href="project.url"
             target="_blank"
@@ -22,22 +20,9 @@
             formatRelativeTime(project.lastCommit)
           }}</span>
         </div>
-        <p class="text-xs text-zinc-600 dark:text-zinc-400 mt-1 line-clamp-1">
-          "{{ project.lastMessage }}"
+        <p class="text-xs text-zinc-600 dark:text-zinc-400 line-clamp-1">
+          {{ project.lastMessage }}
         </p>
-        <div class="flex justify-between items-center text-2xs text-zinc-500 mt-2 gap-2">
-          <span class="flex-shrink-0">{{ project.commitCount }} commits</span>
-          <div class="flex items-center gap-1 overflow-hidden">
-            <span
-              v-for="type in project.topTypes"
-              :key="type"
-              class="px-1.5 py-0.5 rounded-sm text-[10px] uppercase tracking-wider flex-shrink-0"
-              :class="getTypeClass(type)"
-            >
-              {{ type }}
-            </span>
-          </div>
-        </div>
       </div>
     </div>
   </div>

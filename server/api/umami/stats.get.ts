@@ -12,11 +12,22 @@ export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig()
   
   try {
+    // Use the API user credentials from environment
+    const username = config.UMAMI_USERNAME || process.env.UMAMI_USERNAME
+    const password = config.UMAMI_PASSWORD || process.env.UMAMI_PASSWORD
+    
+    if (!username || !password) {
+      throw createError({
+        statusCode: 500,
+        statusMessage: 'UMAMI_USERNAME and UMAMI_PASSWORD environment variables required'
+      })
+    }
+    
     // Debug logging
     console.log('Umami auth attempt:', {
-      username: config.UMAMI_USERNAME,
-      hasPassword: !!config.UMAMI_PASSWORD,
-      passwordLength: config.UMAMI_PASSWORD?.length
+      username: username,
+      hasPassword: !!password,
+      passwordLength: password?.length
     })
     
     // First, authenticate to get token
@@ -26,8 +37,8 @@ export default defineEventHandler(async (event) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        username: config.UMAMI_USERNAME,
-        password: config.UMAMI_PASSWORD,
+        username: username,
+        password: password,
       }),
     })
 

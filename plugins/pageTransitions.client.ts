@@ -2,7 +2,7 @@ import { useAnimations } from '~/composables/useAnimations'
 
 export default defineNuxtPlugin((nuxtApp) => {
   let isTransitioning = false
-  const { transition, reveal } = useAnimations()
+  const { transition: _transition, reveal } = useAnimations()
   
   // Determine transition type based on navigation context
   const _getTransitionType = (fromPath: string, toPath: string) => {

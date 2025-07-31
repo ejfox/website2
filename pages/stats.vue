@@ -2,10 +2,8 @@
   <div class="font-mono overflow-hidden">
     <!-- Stats TOC -->
     <teleport v-if="tocTarget && !isSimpleMode" to="#nav-toc-container">
-      <div class="py-6 px-4">
-        <h3 class="text-mono-label mb-4">
-          Stats Index
-        </h3>
+      <div class="px-4">
+        <h3 class="text-mono-label mb-4">Stats Index</h3>
         <ul class="space-y-1">
           <li v-for="section in statsSections" :key="section.id">
             <a
@@ -203,20 +201,20 @@ onMounted(async () => {
   // Fetch external service data
   try {
     const [letterboxd, steam, goodreads] = await Promise.all([
-      $fetch('/api/letterboxd').catch(err => {
+      $fetch('/api/letterboxd').catch((err) => {
         console.warn('Letterboxd API failed:', err)
         return { films: [], stats: {} }
       }),
-      $fetch('/api/steam').catch(err => {
+      $fetch('/api/steam').catch((err) => {
         console.warn('Steam API failed:', err)
         return { stats: {} }
       }),
-      $fetch('/api/goodreads').catch(err => {
+      $fetch('/api/goodreads').catch((err) => {
         console.warn('Goodreads API failed:', err)
         return { books: {}, stats: {} }
       })
     ])
-    
+
     letterboxdData.value = letterboxd
     steamData.value = steam
     goodreadsData.value = goodreads

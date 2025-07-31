@@ -1,7 +1,7 @@
 <script setup>
-const { getPostBySlug, getAllPosts } = useProcessedMarkdown()
+const { getPostBySlug, getAllPosts: _getAllPosts } = useProcessedMarkdown()
 
-const { data: indexContent, pending: indexPending } = await useAsyncData(
+const { data: indexContent, pending: _indexPending } = await useAsyncData(
   'index-content',
   () => getPostBySlug('index')
 )

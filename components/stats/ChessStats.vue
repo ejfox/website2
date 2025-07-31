@@ -260,7 +260,7 @@ const overallWinRate = computed(() => {
 
 const hasGameStats = computed(() => {
   if (!props.stats) return false
-  return gamesPlayed.value > 0
+  return gamesPlayed.value > 0 && bestRating.value > 0
 })
 
 

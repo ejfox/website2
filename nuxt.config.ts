@@ -314,6 +314,16 @@ export default defineNuxtConfig({
           'http-equiv': 'Content-Security-Policy',
           content:
             "default-src 'self'; img-src 'self' data: https://res.cloudinary.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://umami.tools.ejfox.com; frame-src 'self' https://cal.com; connect-src 'self' https://umami.tools.ejfox.com;"
+        },
+        {
+          name: 'theme-color',
+          content: '#ffffff',
+          media: '(prefers-color-scheme: light)'
+        },
+        {
+          name: 'theme-color', 
+          content: '#0a0a0a',
+          media: '(prefers-color-scheme: dark)'
         }
       ],
       link: [
