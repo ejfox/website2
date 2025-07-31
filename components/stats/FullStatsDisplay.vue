@@ -4,7 +4,7 @@
     <section class="min-w-0 w-full mx-auto max-w-none">
       <!-- Header -->
       <header class="flex items-center justify-between py-6">
-        <h1 class="text-mono-label">FOX_ANNUAL_REPORT :: {{ currentYear }}</h1>
+        <h1 class="text-mono-label">STATS</h1>
       </header>
 
       <!-- Top Stats -->

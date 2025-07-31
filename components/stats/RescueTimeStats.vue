@@ -202,28 +202,11 @@ const activityDates = computed(() => {
   return days
 })
 
-// A vibrant turbo-like color scale (inverted)
-const turboColors = [
-  '#dd2e06',
-  '#f57e00',
-  '#fbb508',
-  '#c8e020',
-  '#7cf357',
-  '#3bdf92',
-  '#1ac7c2',
-  '#24aad8',
-  '#337bc3',
-  '#4444a4',
-  '#30123b'
-]
-
-// Generate a color from our palette
+// Generate a color using d3 turbo scale
 const getColorForValue = (value: number) => {
   // Clamp value between 0 and 1
   const clampedValue = Math.max(0, Math.min(1, value))
-  // Scale to the array index range
-  const index = Math.floor(clampedValue * (turboColors.length - 1))
-  return turboColors[index]
+  return d3.interpolateTurbo(clampedValue)
 }
 
 // Create a unified categories data source with colors (privacy-safe)
@@ -232,19 +215,22 @@ const categoriesWithColors = computed(() => {
 
   if (categories.length === 0) return []
 
+  // Sort first, then assign colors based on percentage for consistent mapping
+  const sortedCategories = [...categories]
+    .sort((a, b) => (b.percentageOfTotal || 0) - (a.percentageOfTotal || 0))
+    .filter(cat => (cat.percentageOfTotal || 0) > 0)
+
   // Use categories instead of individual activities for privacy
-  return categories.map((category, i) => ({
+  return sortedCategories.map((category, i) => ({
     name: category.name,
     percentageOfTotal: category.percentageOfTotal || 0,
-    color: getColorForValue(i / Math.max(categories.length - 1, 1))
+    color: getColorForValue(i / Math.max(sortedCategories.length - 1, 1))
   }))
 })
 
-// Sorted categories for display
+// Sorted categories for display (already sorted in categoriesWithColors)
 const sortedCategories = computed(() => {
-  return [...categoriesWithColors.value]
-    .sort((a, b) => b.percentageOfTotal - a.percentageOfTotal)
-    .filter((a) => a.percentageOfTotal > 0)
+  return categoriesWithColors.value
 })
 
 // Waffle chart cells

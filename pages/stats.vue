@@ -280,18 +280,18 @@ const isSimpleMode = computed(() => route.query.simple !== undefined)
 
 const statsSections = [
   { id: 'overview', text: 'Overview' },
-  { id: 'writing', text: 'Writing' },
-  { id: 'typing', text: 'Typing' },
   { id: 'github', text: 'GitHub' },
-  { id: 'photography', text: 'Photography' },
-  { id: 'chess', text: 'Chess' },
+  { id: 'writing', text: 'Writing' },
+  { id: 'reading', text: 'Reading' },
   { id: 'productivity', text: 'Productivity' },
-  { id: 'gear', text: 'Gear' },
-  { id: 'health', text: 'Health' },
+  { id: 'leetcode', text: 'LeetCode' },
+  { id: 'chess', text: 'Chess' },
+  { id: 'typing', text: 'Typing' },
+  { id: 'gists', text: 'Code' },
   { id: 'music', text: 'Music' },
   { id: 'films', text: 'Films' },
-  { id: 'gaming', text: 'Gaming' },
-  { id: 'reading', text: 'Reading' }
+  { id: 'website', text: 'Analytics' },
+  { id: 'gear', text: 'Gear' }
 ]
 
 onMounted(() => {
@@ -351,12 +351,27 @@ definePageMeta({
 
 // SEO
 useHead({
-  title: 'Annual Report - EJ Fox',
+  title: 'Stats - EJ Fox',
   meta: [
     {
       name: 'description',
-      content:
-        'Comprehensive annual statistics and metrics across writing, coding, health, and productivity.'
+      content: 'Stats'
+    },
+    {
+      property: 'og:title',
+      content: 'Stats'
+    },
+    {
+      property: 'og:description',
+      content: 'Stats'
+    },
+    {
+      name: 'twitter:title',
+      content: 'Stats'
+    },
+    {
+      name: 'twitter:description',
+      content: 'Stats'
     }
   ]
 })

@@ -1,93 +1,77 @@
 <template>
-  <div ref="gearStatsRef" class="space-y-8">
-    <!-- Top-level stats in grid -->
-    <div
-      ref="statsGridRef"
-      class="grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono pr-4"
-    >
-      <div class="gear-stat-card space-y-1">
-        <div class="text-2xl tabular-nums">
-          <AnimatedNumber
-            :value="totalItems"
-            format="default"
-            :duration="timing.quick"
-            priority="primary"
-            epic
-          />
-        </div>
-        <div class="text-xs text-zinc-500 uppercase tracking-wider">
-          Total Items
-        </div>
-      </div>
-
-      <div class="gear-stat-card space-y-1">
-        <div class="text-2xl tabular-nums">
-          <AnimatedNumber
-            :value="parseFloat(totalWeight)"
-            format="decimal"
-            decimals="1"
-            :duration="timing.slow"
-            priority="primary"
-            epic
-          />
-          <span class="text-sm text-zinc-500">oz</span>
-        </div>
-        <div class="text-xs text-zinc-500 uppercase tracking-wider">
-          Total Weight
-        </div>
-      </div>
-
-      <div class="gear-stat-card space-y-1">
-        <div class="text-2xl tabular-nums">
-          <AnimatedNumber
-            :value="containerCount"
-            format="default"
-            :duration="timing.glacial"
-            priority="secondary"
-            epic
-          />
-        </div>
-        <div class="text-xs text-zinc-500 uppercase tracking-wider">
-          Containers
-        </div>
-      </div>
-
-      <div class="gear-stat-card space-y-1">
-        <div class="text-2xl tabular-nums">
-          <AnimatedNumber
-            :value="parseFloat(avgTCWMScore)"
-            format="decimal"
-            decimals="1"
-            :duration="timing.slow"
-            priority="secondary"
-            epic
-          />
-        </div>
-        <div class="text-xs text-zinc-500 uppercase tracking-wider">
-          Avg TCWM
+  <div ref="gearStatsRef" class="space-y-8 pr-4 md:pr-8">
+    <!-- Main Containers - HUD Style -->
+    <div ref="containersRef" class="space-y-2 mb-6 font-mono">
+      <StatsSectionHeader title="CARRYING_SYSTEMS" />
+      <div class="space-y-1 text-xs">
+        <div v-for="container in mainContainers" :key="container.name" 
+             class="container-item flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-1">
+          <div class="flex items-center gap-2">
+            <span class="text-zinc-500 w-8">{{ container.type.substring(0,3).toUpperCase() }}</span>
+            <span class="text-zinc-700 dark:text-zinc-300 min-w-0 flex-1">{{ container.name }}</span>
+          </div>
+          <div class="flex items-center gap-3 text-zinc-500 tabular-nums">
+            <span>{{ container.itemCount }}x</span>
+            <span class="text-right w-12">{{ container.weight }}oz</span>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Type distribution -->
-    <div ref="distributionRef" class="space-y-3">
-      <div class="text-xs text-zinc-500 uppercase tracking-wider">
-        Gear Type Distribution
+    <!-- HUD Stats Inline -->
+    <div ref="statsGridRef" class="font-mono text-xs space-y-1 mb-6">
+      <div class="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-1">
+        <span class="text-zinc-500 uppercase tracking-wider">TOTAL_ITEMS</span>
+        <span class="tabular-nums text-zinc-700 dark:text-zinc-300">
+          <AnimatedNumber :value="totalItems" format="default" :duration="timing.quick" priority="primary" />
+        </span>
       </div>
-      <div class="space-y-2">
+      <div class="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-1">
+        <span class="text-zinc-500 uppercase tracking-wider">TOTAL_WEIGHT</span>
+        <span class="tabular-nums text-zinc-700 dark:text-zinc-300">
+          <AnimatedNumber :value="parseFloat(totalWeight)" format="decimal" decimals="1" :duration="timing.slow" priority="primary" />oz
+        </span>
+      </div>
+      <div class="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-1">
+        <span class="text-zinc-500 uppercase tracking-wider">CONTAINERS</span>
+        <span class="tabular-nums text-zinc-700 dark:text-zinc-300">
+          <AnimatedNumber :value="containerCount" format="default" :duration="timing.glacial" priority="secondary" />
+        </span>
+      </div>
+      <div class="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-1">
+        <span class="text-zinc-500 uppercase tracking-wider">AVG_TCWM</span>
+        <span class="tabular-nums text-zinc-700 dark:text-zinc-300">
+          <AnimatedNumber :value="parseFloat(avgTCWMScore)" format="decimal" decimals="1" :duration="timing.slow" priority="secondary" />
+        </span>
+      </div>
+      <div class="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-1">
+        <span class="text-zinc-500 uppercase tracking-wider">WEIGHT_CONV</span>
+        <span class="tabular-nums text-zinc-700 dark:text-zinc-300">
+          <AnimatedNumber :value="parseFloat(ouncesToPounds)" format="decimal" decimals="1" :duration="timing.slow" priority="tertiary" />lb / 
+          <AnimatedNumber :value="parseFloat(ouncesToKilos)" format="decimal" decimals="1" :duration="timing.normal" priority="tertiary" />kg
+        </span>
+      </div>
+    </div>
+
+    <!-- Type distribution - HUD Style -->
+    <div ref="distributionRef" class="font-mono text-xs">
+      <StatsSectionHeader title="TYPE_DISTRIBUTION" />
+      <div class="space-y-1">
         <div
           v-for="[type, count] in sortedTypeDistribution"
           :key="type"
-          class="flex items-center gap-2 text-xs type-row"
+          class="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-1 type-row"
         >
-          <div class="w-24 text-right truncate text-zinc-500">
-            {{ type }}
+          <div class="flex items-center gap-2">
+            <span class="text-zinc-500 w-16 text-right uppercase">{{ type }}</span>
+            <div class="flex-1 flex items-center">
+              <div
+                class="h-2 type-bar bg-zinc-400 dark:bg-zinc-600"
+                :style="{ width: `${Math.max(8, (count / maxTypeCount) * 60)}px` }"
+              ></div>
+            </div>
           </div>
-          <div
-            class="h-4 type-bar"
-            :style="{ width: `${(count / maxTypeCount) * 200}px` }"
-          ></div>
-          <span class="text-zinc-400">
+          <span class="text-zinc-700 dark:text-zinc-300 tabular-nums w-8 text-right">
             <AnimatedNumber
               :value="count"
               format="default"
@@ -98,25 +82,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Weight conversions -->
-    <div ref="conversionsRef" class="text-xs text-zinc-500">
-      <span class="uppercase tracking-wider">Weight Conversion:</span>
-      <AnimatedNumber
-        :value="parseFloat(ouncesToPounds)"
-        format="decimal"
-        decimals="1"
-        :duration="timing.slow"
-        priority="tertiary"
-      />lb /
-      <AnimatedNumber
-        :value="parseFloat(ouncesToKilos)"
-        format="decimal"
-        decimals="1"
-        :duration="timing.normal"
-        priority="tertiary"
-      />kg
-    </div>
   </div>
 </template>
 
@@ -124,6 +89,7 @@
 import { ref, onMounted, computed, nextTick } from 'vue'
 import * as d3 from 'd3'
 import AnimatedNumber from '../AnimatedNumber.vue'
+import StatsSectionHeader from './StatsSectionHeader.vue'
 import { animate, stagger as _stagger, onScroll } from '~/anime.esm.js'
 import { useAnimations } from '~/composables/useAnimations'
 
@@ -234,8 +200,47 @@ const ouncesToKilos = computed(() => {
   return kilos.toFixed(1)
 })
 
+// Main containers - top-level bags and carrying systems
+const mainContainers = computed(() => {
+  if (!gearItems.value?.length) return []
+  
+  // Find items that are bags/containers
+  const containers = gearItems.value.filter(item => 
+    item.Type === 'Bag' && 
+    (item['Parent Container'] === 'Body' || 
+     item['Parent Container'] === 'Motorcycle' || 
+     !item['Parent Container'] || 
+     item['Parent Container'].trim() === '')
+  )
+  
+  return containers.map(container => {
+    const containerName = container.Name || 'Unknown Container'
+    
+    // Count items that have this container as their parent
+    const childItems = gearItems.value.filter(item => 
+      item['Parent Container'] === containerName
+    )
+    
+    // Calculate total weight (container + contents)
+    const containerWeight = parseFloat(container['Base Weight ()'] || '0') || 0
+    const contentsWeight = childItems.reduce((sum, item) => {
+      const weight = parseFloat(item['Base Weight ()'] || '0') || 0
+      return sum + weight
+    }, 0)
+    
+    return {
+      name: containerName,
+      type: container.Type || 'Container',
+      weight: (containerWeight + contentsWeight).toFixed(1),
+      itemCount: childItems.length,
+      parentContainer: container['Parent Container'] || 'Body'
+    }
+  }).sort((a, b) => parseFloat(b.weight) - parseFloat(a.weight))
+})
+
 // Animation refs
 const gearStatsRef = ref<HTMLElement | null>(null)
+const containersRef = ref<HTMLElement | null>(null)
 const statsGridRef = ref<HTMLElement | null>(null)
 const distributionRef = ref<HTMLElement | null>(null)
 const conversionsRef = ref<HTMLElement | null>(null)
@@ -247,24 +252,34 @@ const setupScrollAnimations = () => {
   nextTick(() => {
     if (!gearStatsRef.value) return
 
-    // Stats grid staggered entrance
-    if (statsGridRef.value) {
-      const statCards = statsGridRef.value.querySelectorAll('.gear-stat-card')
-      if (statCards.length) {
-        animate(Array.from(statCards), {
+    // Container items entrance
+    if (containersRef.value) {
+      const containerItems = containersRef.value.querySelectorAll('.container-item')
+      if (containerItems.length) {
+        animate(Array.from(containerItems), {
           keyframes: [
-            { opacity: 0, scale: 0.7, translateY: 20, filter: 'blur(1px)' },
-            {
-              opacity: 0.8,
-              scale: 1.08,
-              translateY: -3,
-              filter: 'blur(0.3px)'
-            },
-            { opacity: 1, scale: 1, translateY: 0, filter: 'blur(0px)' }
+            { opacity: 0, scale: 0.9, translateX: -30, rotateY: -15 },
+            { opacity: 0.7, scale: 1.03, translateX: 5, rotateY: 5 },
+            { opacity: 1, scale: 1, translateX: 0, rotateY: 0 }
           ],
           duration: timing.expressive,
-          delay: _stagger(staggers.loose, { from: 'first' }),
+          delay: _stagger(staggers.normal, { from: 'first' }),
           ease: easing.bounce,
+          autoplay: onScroll({ target: containersRef.value, onEnter: () => true })
+        })
+      }
+    }
+
+    // Stats rows entrance
+    if (statsGridRef.value) {
+      const statRows = statsGridRef.value.querySelectorAll('div')
+      if (statRows.length) {
+        animate(Array.from(statRows), {
+          opacity: [0, 1],
+          translateX: [-10, 0],
+          duration: timing.normal,
+          delay: _stagger(staggers.tight),
+          ease: easing.standard,
           autoplay: onScroll({
             target: statsGridRef.value,
             onEnter: () => true
@@ -341,9 +356,9 @@ onMounted(async () => {
   font-feature-settings: 'tnum';
 }
 
-/* Gear stat card styling */
-.gear-stat-card {
-  @apply p-3 rounded-md border border-zinc-200 dark:border-zinc-700;
+/* Container items styling */
+.container-item {
+  @apply transition-all duration-300;
 }
 
 /* Type bar animation base */
