@@ -1,25 +1,19 @@
 <script setup>
 import { format } from 'date-fns'
 
-const processedMarkdown = useProcessedMarkdown()
-
-const { data: projectPosts, error } = await useAsyncData('project-posts', async () => {
-  try {
-    const projects = await processedMarkdown.getProjectPosts()
-    return projects || []
-  } catch (err) {
-    console.error('Error loading project posts:', err)
-    return []
-  }
+// Get projects data with consistent server/client behavior
+const { data: projectPosts } = await useAsyncData('project-posts', async () => {
+  const processedMarkdown = useProcessedMarkdown()
+  const projects = await processedMarkdown.getProjectPosts()
+  
+  // Sort on server BEFORE returning to avoid client hydration mismatch
+  return (projects || []).sort((a, b) => {
+    const dateA = new Date(a.metadata?.date || a.date).getTime()
+    const dateB = new Date(b.metadata?.date || b.date).getTime()
+    return dateB - dateA
+  })
 }, {
-  default: () => [],
-  server: true
-})
-
-const sortedProjectPosts = computed(() => {
-  return [...(projectPosts.value || [])].sort(
-    (a, b) => new Date(b.metadata?.date || b.date) - new Date(a.metadata?.date || a.date)
-  )
+  default: () => []
 })
 
 function formatDate(date) {
@@ -28,7 +22,7 @@ function formatDate(date) {
 }
 
 useHead({
-  title: `Projects (${sortedProjectPosts.value?.length || 0})`
+  title: `Projects (${projectPosts.value?.length || 0})`
 })
 </script>
 
@@ -43,21 +37,9 @@ useHead({
       </p>
     </header>
 
-    <div v-if="error" class="text-center py-16">
-      <p class="text-body text-red-600">
-        Error loading projects. Please try refreshing the page.
-      </p>
-    </div>
-
-    <div v-else-if="!projectPosts || sortedProjectPosts.length === 0" class="text-center py-16">
-      <p class="text-body">
-        No projects found.
-      </p>
-    </div>
-
-    <div v-else class="content-grid space-y-24">
+    <div class="content-grid space-y-24">
       <article
-        v-for="project in sortedProjectPosts"
+        v-for="project in projectPosts"
         :key="project.slug"
         class="group"
       >
