@@ -3,9 +3,17 @@ import { format } from 'date-fns'
 
 const processedMarkdown = useProcessedMarkdown()
 
-const { data: projectPosts } = await useAsyncData('project-posts', async () => {
-  const projects = await processedMarkdown.getProjectPosts()
-  return projects || []
+const { data: projectPosts, error } = await useAsyncData('project-posts', async () => {
+  try {
+    const projects = await processedMarkdown.getProjectPosts()
+    return projects || []
+  } catch (err) {
+    console.error('Error loading project posts:', err)
+    return []
+  }
+}, {
+  default: () => [],
+  server: true
 })
 
 const sortedProjectPosts = computed(() => {
@@ -35,7 +43,13 @@ useHead({
       </p>
     </header>
 
-    <div v-if="sortedProjectPosts.length === 0" class="text-center py-16">
+    <div v-if="error" class="text-center py-16">
+      <p class="text-body text-red-600">
+        Error loading projects. Please try refreshing the page.
+      </p>
+    </div>
+
+    <div v-else-if="!projectPosts || sortedProjectPosts.length === 0" class="text-center py-16">
       <p class="text-body">
         No projects found.
       </p>
