@@ -593,8 +593,36 @@ export const useProcessedMarkdown = () => {
   }
 
   /**
-   * Fetches all project posts.
-   * @returns {Promise<Object[]>} A list of project posts.
+   * Fetches project posts without content (lightweight version for listing)
+   * @returns {Promise<Post[]>} A list of project posts from manifest only
+   */
+  const getProjectPostsLite = async (): Promise<Post[]> => {
+    const manifest = await getManifestLite()
+    
+    // Filter for project posts
+    const projectPosts = manifest.filter((post: Post) => {
+      const slug = post.slug || post?.metadata?.slug
+      return slug?.startsWith('projects/')
+    })
+    
+    // Return sorted posts without fetching full content
+    return projectPosts
+      .map((post: Post) => ({
+        ...post,
+        // Ensure we have required fields
+        slug: post.slug,
+        title: post.metadata?.title || post.title || formatTitle(post.slug),
+        date: getValidDate(post.metadata?.date || post.date),
+        // Use metadata html if available (from manifest)
+        html: post.html || post.metadata?.html || ''
+      }))
+      .sort((a: Post, b: Post) => compareDates(b.date, a.date))
+  }
+
+  /**
+   * Fetches all project posts with full content.
+   * WARNING: This fetches content for ALL projects which can be slow
+   * @returns {Promise<Object[]>} A list of project posts with content.
    */
   const getProjectPosts = async (): Promise<Post[]> => {
     // console.log('getProjectPosts called')
@@ -735,6 +763,7 @@ export const useProcessedMarkdown = () => {
     getReadingPosts,
     getNextPrevPosts,
     getProjectPosts,
+    getProjectPostsLite,
     getRobotNotes,
     getRobotNotesWithContent,
     getStudyNotes,
