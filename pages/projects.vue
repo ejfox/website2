@@ -1,9 +1,18 @@
 <script setup>
 import { format } from 'date-fns'
 
-// Use dedicated projects API endpoint that includes HTML content
-// This fixes the hydration issue by loading all content server-side
-const projects = await $fetch('/api/projects').catch(() => [])
+// Use useAsyncData to properly handle SSR/hydration
+// The key ensures data is only fetched once and shared between server/client
+const { data: projects } = await useAsyncData(
+  'projects-page-data',
+  () => $fetch('/api/projects'),
+  {
+    // Transform function to ensure we always have an array
+    transform: (data) => data || [],
+    // Default value to prevent undefined issues
+    default: () => [],
+  }
+)
 
 function formatDate(date) {
   if (!date) return ''
@@ -15,7 +24,7 @@ function formatDate(date) {
 }
 
 useHead({
-  title: `Projects (${projects?.length || 0})`
+  title: `Projects (${projects.value?.length || 0})`
 })
 </script>
 
