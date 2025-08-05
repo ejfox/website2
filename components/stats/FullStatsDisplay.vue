@@ -69,10 +69,7 @@
 
           <!-- Productivity - FIFTH PRIORITY -->
           <StatsSection
-            v-if="
-              stats.rescueTime &&
-              (stats.rescueTime.week?.summary?.total?.hoursDecimal || 0) > 0
-            "
+            v-if="stats.rescueTime"
             id="productivity"
             key="productivity-section"
             title="PRODUCTIVITY"

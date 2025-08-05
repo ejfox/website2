@@ -214,6 +214,12 @@
       </article>
     </section>
 
+    <!-- Global Gear Navigator for gear pages -->
+    <GearNavigator 
+      v-if="isGearPage" 
+      :currentSlug="currentGearSlug"
+    />
+    
     <Footer />
     <WebVitalsReporter />
   </div>
@@ -223,8 +229,9 @@
 import { ref, computed, defineAsyncComponent, watch, nextTick } from 'vue'
 import { useWindowSize } from '@vueuse/core'
 
-// Lazy load the Footer component
+// Lazy load components
 const Footer = defineAsyncComponent(() => import('@/components/Footer.vue'))
+const GearNavigator = defineAsyncComponent(() => import('@/components/gear/Navigator.vue'))
 
 const { width } = useWindowSize()
 const isMobile = computed(() => width.value < 768)
@@ -255,6 +262,16 @@ const isStatsPage = computed(() => {
 
 const isProjectsPage = computed(() => {
   return route?.path === '/projects' || false
+})
+
+const isGearPage = computed(() => {
+  return route?.path?.startsWith('/gear/') || false
+})
+
+const currentGearSlug = computed(() => {
+  if (!isGearPage.value) return ''
+  const pathParts = route?.path?.split('/') || []
+  return pathParts[pathParts.length - 1] || ''
 })
 
 // Split navigation for mobile: primary (always visible) vs secondary (in "More")

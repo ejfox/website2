@@ -38,9 +38,6 @@
       </NuxtLink>
     </div>
   </div>
-
-  <!-- Bottom gear navigator -->
-  <GearNavigator :current-slug="route.params.slug" />
 </template>
 
 <script setup>
