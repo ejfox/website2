@@ -617,3 +617,51 @@ _ESLint Fix Plan created: January 17, 2025_
 ---
 
 _Updated: January 30, 2025 - Delete-driven development session complete!_
+
+## 🎭 Animation System - Critical Information
+
+### The Hidden Content Bug (Projects Page)
+
+**Problem Discovered:** Projects page content was invisible after the first 2 items.
+
+**Root Cause:** The markdown processor (`scripts/plugins/rehypeAddClassToParagraphs.mjs`) adds animation classes to HTML elements during build:
+- `animate-on-scroll` 
+- `slide-from-left`
+- `slide-from-bottom`
+- `will-change-transform`
+
+These classes set initial CSS states (opacity: 0, transforms) expecting JavaScript to animate them in. Without the animation JavaScript, content stays hidden forever.
+
+**Solution:** Any page displaying processed markdown MUST initialize animations:
+
+```javascript
+// Required imports
+import { animate, stagger } from '~/anime.esm.js'
+import { useAnimations } from '~/composables/useAnimations'
+import { useScrollAnimation } from '~/composables/useScrollAnimation'
+
+// In onMounted or after content loads:
+const content = document.querySelectorAll('.animate-on-scroll:not(img)')
+animate(content, {
+  opacity: [0, 1],
+  translateY: [20, 0],
+  duration: timing.normal,
+  ease: easing.standard,
+  delay: stagger(staggers.tight)
+})
+```
+
+**Affected Pages:**
+- ✅ `/blog/[...slug]` - Has animation setup
+- ✅ `/projects` - Fixed by adding animation setup
+- ⚠️  Any new page showing markdown content needs this!
+
+**Files Involved:**
+- `scripts/plugins/rehypeAddClassToParagraphs.mjs` - Adds animation classes
+- `composables/useScrollAnimation.ts` - Provides animation functions
+- `pages/blog/[...slug].vue` - Reference implementation
+- `pages/projects.vue` - Fixed implementation
+
+**Lesson:** When content has animation classes baked in during build, you MUST have client-side JS to trigger those animations or content will be invisible.
+
+_Updated: January 31, 2025 - Animation system documentation added_
