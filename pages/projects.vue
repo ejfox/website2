@@ -23,10 +23,7 @@
 
 <script setup>
 import { format } from 'date-fns'
-import { onMounted, nextTick, ref, watch } from 'vue'
 import { animate, stagger as _stagger } from '~/anime.esm.js'
-import { useAnimations } from '~/composables/useAnimations'
-import { useScrollAnimation } from '~/composables/useScrollAnimation'
 
 // Fetch project data using same pattern as blog
 const { data: projects } = await useAsyncData('projects-page-data', () => 
@@ -92,17 +89,11 @@ async function initializeAnimations() {
   animationsInitialized.value = true
 }
 
-// Watch for projects data and initialize animations
-watch(() => projects.value, async (newProjects) => {
-  if (newProjects && newProjects.length > 0) {
-    await nextTick()
+// Initialize animations once when projects are loaded
+onMounted(async () => {
+  if (projects.value && projects.value.length > 0) {
     await initializeAnimations()
   }
-}, { immediate: true })
-
-// Also initialize on mount as fallback
-onMounted(() => {
-  initializeAnimations()
 })
 
 useHead({
