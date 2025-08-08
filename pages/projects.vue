@@ -1,40 +1,17 @@
-/**
- * Projects Page Component
- * ========================
- * 
- * CRITICAL: Animation Setup Required!
- * -----------------------------------
- * The markdown processor (rehypeAddClassToParagraphs.mjs) adds animation classes
- * like 'animate-on-scroll', 'slide-from-left', etc. to HTML elements during build.
- * These classes set initial states (opacity: 0, transforms) expecting JavaScript
- * to animate them in.
- * 
- * WITHOUT the animation setup below, content will remain invisible (opacity: 0).
- * This was discovered when projects after the first 2 weren't showing - they had
- * the animation classes but no JS to trigger the animations.
- * 
- * This pattern matches the blog post page (blog/[...slug].vue) which has the
- * same requirement. Any page displaying processed markdown content needs this.
- * 
- * @see scripts/plugins/rehypeAddClassToParagraphs.mjs - adds animation classes
- * @see composables/useScrollAnimation.ts - scroll-triggered animations
- * @see pages/blog/[...slug].vue - reference implementation
- */
-
 <script setup>
 import { format } from 'date-fns'
 import { animate, stagger as _stagger } from '~/anime.esm.js'
+import { useStorage } from '@vueuse/core'
 
-// Fetch project data using same pattern as blog
 const { data: projects } = await useAsyncData('projects-page-data', () => 
   $fetch('/api/projects')
 )
 
-// Animation composables - required for processed markdown content
+const isGrid = useStorage('projects-grid', false)
+
 const { timing, staggers, easing } = useAnimations()
 const { slideUp } = useScrollAnimation()
 
-// Track if animations have been set up
 const animationsInitialized = ref(false)
 
 function formatDate(date) {
@@ -46,20 +23,14 @@ function formatDate(date) {
   }
 }
 
-/**
- * Initialize animations for markdown content
- * This MUST run after the content is rendered or elements will stay at opacity: 0
- * Pattern copied from blog/[...slug].vue which handles the same animation classes
- */
+
 async function initializeAnimations() {
   if (animationsInitialized.value) return
   
   await nextTick()
-  await nextTick() // Double nextTick ensures DOM is fully updated
-  await new Promise((resolve) => setTimeout(resolve, 50)) // Small delay for hydration
+  await nextTick()
+  await new Promise(resolve => setTimeout(resolve, 50))
   
-  // Animate all non-image content with animate-on-scroll class
-  // These elements start at opacity: 0 from the markdown processor
   const content = document.querySelectorAll('.animate-on-scroll:not(img)')
   if (content.length > 0) {
     animate(content, {
@@ -71,12 +42,9 @@ async function initializeAnimations() {
     })
   }
   
-  // Set up scroll-triggered animations for images
-  // Images use intersection observer for lazy animation
   const images = document.querySelectorAll('img.animate-on-scroll')
   images.forEach((img) => slideUp(img))
   
-  // Also handle slide-from-* classes if present
   const slideElements = document.querySelectorAll('.slide-from-left, .slide-from-bottom')
   if (slideElements.length > 0) {
     animate(slideElements, {
@@ -89,7 +57,6 @@ async function initializeAnimations() {
   animationsInitialized.value = true
 }
 
-// Initialize animations once when projects are loaded
 onMounted(async () => {
   if (projects.value && projects.value.length > 0) {
     await initializeAnimations()
@@ -103,13 +70,18 @@ useHead({
 
 <template>
   <div>
-    <header class="my-20 md:mt-6 pl-4 md:pl-0">
-      <h1 class="text-display mb-8">
-        Projects
-      </h1>
-      <p class="text-body">
-        A collection of experiments, tools, and creative explorations.
-      </p>
+    <header class="my-20 md:mt-6 pl-4 md:pl-0 flex justify-between items-end">
+      <div>
+        <h1 class="text-display mb-8">
+          Projects
+        </h1>
+        <p class="text-body">
+          A collection of experiments, tools, and creative explorations.
+        </p>
+      </div>
+      <button @click="isGrid = !isGrid" class="px-3 py-1 text-sm border rounded hover:bg-zinc-50 dark:hover:bg-zinc-900">
+        {{ isGrid ? 'List' : 'Grid' }}
+      </button>
     </header>
 
     <div class="max-w-screen-lg">
@@ -120,42 +92,99 @@ useHead({
           </p>
         </div>
 
-        <div v-else class="space-y-24">
-          <article
-            v-for="project in projects"
-            :key="project.slug"
-            class="group grid grid-cols-12 gap-4"
-          >
-            <!-- Date column -->
-            <div class="col-span-2 pl-2 md:pl-0">
-              <time class="text-xs text-zinc-500">
+        <TransitionGroup 
+          name="project" 
+          tag="div"
+          :class="isGrid ? 'grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4' : 'space-y-24'"
+        >
+          <template v-if="!isGrid">
+            <article
+              v-for="project in projects"
+              :key="`list-${project.slug}`"
+              class="group grid grid-cols-12 gap-4"
+            >
+              <div class="col-span-2 pl-2 md:pl-0">
+                <time class="text-xs text-zinc-500">
+                  {{ formatDate(project.metadata?.date || project.date) }}
+                </time>
+                <div v-if="project.metadata?.tech?.length" class="pt-3">
+                  <div class="flex flex-col gap-1">
+                    <span 
+                      v-for="tech in project.metadata.tech" 
+                      :key="tech"
+                      class="text-xs px-2 py-0.5 bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 rounded-md w-fit"
+                    >
+                      {{ tech }}
+                    </span>
+                  </div>
+                </div>
+                <div v-if="project.metadata?.github" class="pt-6">
+                  <a :href="project.metadata.github" target="_blank" class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100">
+                    GitHub ↗
+                  </a>
+                </div>
+              </div>
+              <div class="col-span-10">
+                <h2 class="text-3xl md:text-4xl font-light text-zinc-900 dark:text-zinc-100 mb-4">
+                  {{ project.title || project.metadata?.title }}
+                </h2>
+                <div class="prose prose-zinc dark:prose-invert max-w-none text-zinc-600 dark:text-zinc-400 leading-relaxed" v-html="project.html" />
+              </div>
+            </article>
+          </template>
+
+          <template v-else>
+            <article
+              v-for="project in projects"
+              :key="`grid-${project.slug}`"
+              class="group"
+            >
+              <div class="aspect-square bg-zinc-100 dark:bg-zinc-800 rounded-lg mb-3 flex items-center justify-center text-4xl font-light text-zinc-400">
+                {{ (project.title || project.metadata?.title || '').charAt(0) }}
+              </div>
+              <time class="text-xs text-zinc-500 block mb-1">
                 {{ formatDate(project.metadata?.date || project.date) }}
               </time>
-              <div v-if="project.metadata?.github" class="pt-6">
-                <a
-                  :href="project.metadata.github"
-                  target="_blank"
-                  class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
-                >
-                  GitHub ↗
-                </a>
-              </div>
-            </div>
-
-            <!-- Content column -->
-            <div class="col-span-10">
-              <h2 class="text-3xl md:text-4xl font-light text-zinc-900 dark:text-zinc-100 mb-4">
+              <h3 class="text-sm font-medium leading-tight line-clamp-2 mb-2">
                 {{ project.title || project.metadata?.title }}
-              </h2>
-
-              <div
-                class="prose prose-zinc dark:prose-invert max-w-none text-zinc-600 dark:text-zinc-400 leading-relaxed"
-                v-html="project.html"
-              ></div>
-            </div>
-          </article>
-        </div>
+              </h3>
+              <div v-if="project.metadata?.tech?.length" class="flex flex-wrap gap-1 mb-2">
+                <span 
+                  v-for="tech in project.metadata.tech" 
+                  :key="tech"
+                  class="text-xs px-1.5 py-0.5 bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 rounded"
+                >
+                  {{ tech }}
+                </span>
+              </div>
+              <a v-if="project.metadata?.github" :href="project.metadata.github" target="_blank" class="text-xs text-blue-600 hover:text-blue-800">
+                GitHub ↗
+              </a>
+            </article>
+          </template>
+        </TransitionGroup>
       </section>
     </div>
   </div>
 </template>
+
+<style scoped>
+.project-enter-active,
+.project-leave-active {
+  transition: all 0.4s ease;
+}
+
+.project-move {
+  transition: transform 0.4s ease;
+}
+
+.project-enter-from,
+.project-leave-to {
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+}
+
+.project-leave-active {
+  position: absolute;
+}
+</style>

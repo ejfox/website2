@@ -1,6 +1,4 @@
-// Remove the commented out import statements if they're not needed
-import CryptoJS from 'crypto-js'
-// import { md5 } from 'js-md5'
+import { createHash } from 'crypto'
 import path from 'path'
 import chalk from 'chalk'
 
@@ -92,12 +90,12 @@ const headerStar = `
 
 // Helper Functions
 function generateShortId(data, length = 8) {
-  const hash = CryptoJS.SHA256(data)
-  const base64 = CryptoJS.enc.Base64.stringify(hash)
+  const hash = createHash('sha256').update(data).digest('base64')
+  return hash
     .replace(/\+/g, '-')
     .replace(/\//g, '_')
     .replace(/=+$/, '')
-  return base64.substring(0, length)
+    .substring(0, length)
 }
 
 function scrapToUUID(scrapIdString) {
