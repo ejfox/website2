@@ -1,3 +1,17 @@
+interface SteamGame {
+  name: string
+  appid: number
+  playtime_forever: number
+  playtime_2weeks?: number
+  img_icon_url: string
+}
+
+interface SteamResponse {
+  response?: {
+    games?: SteamGame[]
+  }
+}
+
 export default defineEventHandler(async (_event) => {
   try {
     const steamId = '76561198072533815'
@@ -23,23 +37,23 @@ export default defineEventHandler(async (_event) => {
     const recentGamesUrl = `https://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=${apiKey}&steamid=${steamId}&format=json&count=10`
     
     const [ownedResponse, recentResponse] = await Promise.all([
-      $fetch(ownedGamesUrl),
-      $fetch(recentGamesUrl)
+      $fetch<SteamResponse>(ownedGamesUrl),
+      $fetch<SteamResponse>(recentGamesUrl)
     ])
 
     const ownedGames = ownedResponse.response?.games || []
     const recentGames = recentResponse.response?.games || []
     
     // Calculate stats
-    const totalPlaytime = ownedGames.reduce((sum, game) => sum + (game.playtime_forever || 0), 0)
-    const gamesWithPlaytime = ownedGames.filter(game => game.playtime_forever > 0)
+    const totalPlaytime = ownedGames.reduce((sum: number, game: SteamGame) => sum + (game.playtime_forever || 0), 0)
+    const gamesWithPlaytime = ownedGames.filter((game: SteamGame) => game.playtime_forever > 0)
     
     // Top games by playtime (minimum 30 minutes)
     const topGames = ownedGames
-      .filter(game => game.playtime_forever >= 30)
-      .sort((a, b) => b.playtime_forever - a.playtime_forever)
+      .filter((game: SteamGame) => game.playtime_forever >= 30)
+      .sort((a: SteamGame, b: SteamGame) => b.playtime_forever - a.playtime_forever)
       .slice(0, 10)
-      .map(game => ({
+      .map((game: SteamGame) => ({
         name: game.name,
         appid: game.appid,
         playtime_hours: Math.round(game.playtime_forever / 60 * 10) / 10,
@@ -48,7 +62,7 @@ export default defineEventHandler(async (_event) => {
       }))
     
     // Recently played with better formatting
-    const recentlyPlayed = recentGames.map(game => ({
+    const recentlyPlayed = recentGames.map((game: SteamGame) => ({
       name: game.name,
       appid: game.appid,
       playtime_2weeks: Math.round((game.playtime_2weeks || 0) / 60 * 10) / 10,

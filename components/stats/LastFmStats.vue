@@ -105,7 +105,7 @@
                 <div
                   class="text-xs text-zinc-500 tabular-nums whitespace-nowrap"
                 >
-                  <AnimatedNumber :value="parseInt(track.playcount)" format="default" :duration="timing.slow" priority="tertiary" />x
+                  <AnimatedNumber :value="parseInt(track.playcount || '0')" format="default" :duration="timing.slow" priority="tertiary" />x
                 </div>
               </div>
             </div>
@@ -159,7 +159,7 @@
                 <div
                   class="text-xs text-zinc-500 tabular-nums whitespace-nowrap"
                 >
-                  <AnimatedNumber :value="parseInt(track.playcount)" format="default" :duration="timing.slow" priority="tertiary" />x
+                  <AnimatedNumber :value="parseInt(track.playcount || '0')" format="default" :duration="timing.slow" priority="tertiary" />x
                 </div>
               </div>
             </div>
@@ -213,18 +213,23 @@ interface LastFmStats {
     uniqueArtists: number
     uniqueTracks: number
     averagePerDay: number
+    topGenres?: Array<{ name: string; count: number }>
   }
   recentTracks: {
     tracks: LastFmTrack[]
     total: number
   }
-  topTracks: {
-    tracks: LastFmTrack[]
-    total: number
+  topTracks?: {
+    tracks?: LastFmTrack[]
+    total?: number
+    month?: LastFmTrack[]
+    year?: LastFmTrack[]
   }
-  topArtists: {
-    artists: LastFmArtist[]
-    total: number
+  topArtists?: {
+    artists?: LastFmArtist[]
+    total?: number
+    month?: LastFmArtist[]
+    year?: LastFmArtist[]
   }
   lastUpdated: string
 }
@@ -311,12 +316,11 @@ const setupScrollAnimations = () => {
           translateX: [-15, 0],
           rotateZ: [-2, 0], // Subtle rotation impossible in staggered CSS
           scale: [0.96, 1],
-          duration: timing.slow,
+          duration: timing.value.slow,
           delay: stagger(staggers.tight, { 
-            direction: 'normal',
-            easing: 'out(2)'  // Eased stagger timing - anime.js exclusive!
+            from: 'first'
           }),
-          ease: easing.productive,
+          ease: 'cubicBezier(0.2, 0, 0.38, 0.9)',
           autoplay: onScroll({ target: monthlyArtistsRef.value, onEnter: () => true })
         })
       }
@@ -330,9 +334,9 @@ const setupScrollAnimations = () => {
           opacity: [0, 1],
           translateX: [-15, 0],
           scale: [0.96, 1],
-          duration: timing.slow,
+          duration: timing.value.slow,
           delay: stagger(staggers.normal),
-          ease: easing.productive,
+          ease: 'cubicBezier(0.2, 0, 0.38, 0.9)',
           autoplay: onScroll({ target: monthlyTracksRef.value, onEnter: () => true })
         })
       }
@@ -346,9 +350,9 @@ const setupScrollAnimations = () => {
           opacity: [0, 1],
           translateX: [15, 0],
           scale: [0.95, 1],
-          duration: timing.expressive,
+          duration: timing.value.dramatic,
           delay: stagger(staggers.normal),
-          ease: easing.standard,
+          ease: 'cubicBezier(0.4, 0, 0.2, 1)',
           autoplay: onScroll({ target: yearlyArtistsRef.value, onEnter: () => true })
         })
       }
@@ -362,9 +366,9 @@ const setupScrollAnimations = () => {
           opacity: [0, 1],
           translateX: [15, 0],
           scale: [0.95, 1],
-          duration: timing.expressive,
+          duration: timing.value.dramatic,
           delay: stagger(staggers.normal),
-          ease: easing.standard,
+          ease: 'cubicBezier(0.4, 0, 0.2, 1)',
           autoplay: onScroll({ target: yearlyTracksRef.value, onEnter: () => true })
         })
       }

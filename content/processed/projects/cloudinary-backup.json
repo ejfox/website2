@@ -1,0 +1,25 @@
+{
+  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Desktop app that backs up Cloudinary photos with metadata preservation</p>",
+  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Desktop app that backs up Cloudinary photos with metadata preservation</p>",
+  "title": "cloudinary-backup",
+  "metadata": {
+    "words": 12,
+    "images": 0,
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h1": 1
+    },
+    "toc": [
+      {
+        "text": "cloudinary-backup",
+        "slug": "cloudinary-backup",
+        "level": "h1",
+        "children": []
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/projects/cloudinary-backup.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

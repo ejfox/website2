@@ -4,11 +4,11 @@ kindle-sync:
   title: Anarchy Works (Annotated)
   author: Peter Gelderloos and Vladimir Oleynik
   asin: B018SN4HT0
-  lastAnnotatedDate: '2023-11-08'
+  lastAnnotatedDate: '2024-01-22'
   bookImageUrl: 'https://m.media-amazon.com/images/I/7165cK74S1L._SY160.jpg'
-  highlightsCount: 16
-date: 2022-12-14T20:26:52.000Z
-modified: 2022-12-23T15:56:09.000Z
+  highlightsCount: 20
+date: 2022-12-14T15:26:52-05:00
+modified: 2025-07-30T18:52:29-04:00
 tags:
   - activism
   - anarchism
@@ -18,11 +18,11 @@ tags:
   - inspiration
   - protest
 ---
-# Anarchy Works
+## Anarchy Works
 
-#politics 
+#politics
 
-# Metadata
+## Metadata
 
 * Author: [Peter Gelderloos and Vladimir Oleynik](https://www.amazon.comundefined)
 
@@ -32,7 +32,7 @@ tags:
 
 * [Kindle link](kindle://book?action=open&asin=B018SN4HT0)
 
-# Highlights
+## Highlights
 
 maybe all of us can feel it: our bosses and tormentors are afraid of what they would do without us, and their threat is a promise — the best parts of our lives are anarchy already. — location: [23](kindle://book?action=open&asin=B018SN4HT0&location=23) ^ref-21158
 
@@ -73,6 +73,7 @@ Judith Van Allen “Sitting On a Man”: Colonialism and the Lost Political Inst
 War may be the result of natural human behavior, but so is peace. Violence certainly existed before the state, but the state developed warfare and domination to unprecedented levels. As one of its great proponents pointed out, “war is the health of the state.” — location: [464](kindle://book?action=open&asin=B018SN4HT0&location=464) ^ref-56759
 
 ---
+
 In certain situations some form of leadership is inevitable, as some people have more skills or a more charismatic personality. Consciously egalitarian societies respond to these situations by not institutionalizing the position of leader, by not affording a leader any special privileges, or by fostering a culture that makes it shameful for that person to flaunt his or her leadership or try to gain power over others. — location: [549](kindle://book?action=open&asin=B018SN4HT0&location=549) ^ref-3125
 
 ---
@@ -80,15 +81,35 @@ In certain situations some form of leadership is inevitable, as some people have
 Although the movement kicked off with the most widely attended day of protest in human history on February 15, 2003, the organizers deliberately channeled the energy of the participants into rigidly controlled rituals that did not challenge the war machine. Within two years, the anti-war movement had completely squandered the momentum built up during the anti-globalization era. — location: [639](kindle://book?action=open&asin=B018SN4HT0&location=639) ^ref-27622
 
 ---
+
+But it is eurocentric, to say the least, to assume that a hunter-gatherer who knows the uses of a thousand different plants is less sophisticated than an operator at a nuclear power plant who knows how to push a thousand different buttons but doesn’t know where his food comes from. — location: [704](kindle://book?action=open&asin=B018SN4HT0&location=704) ^ref-8441
+
+---
+
 If humans are naturally selfish and competitive, we cannot expect to live in a cooperative society. When we see how differently other cultures have characterized human nature, we can recognize human nature as a cultural value, an idealized and normative mythology that justifies the way a society is organized. — location: [712](kindle://book?action=open&asin=B018SN4HT0&location=712) ^ref-40340
 
 ---
+
 The Western idea of human nature functions as a part of this social control, discouraging rebellion against authority. We are taught from childhood that without authority human life would descend into chaos. — location: [715](kindle://book?action=open&asin=B018SN4HT0&location=715) ^ref-42650
 
 ---
+
+Seeing our relationships with our friends and nature as fundamental parts of ourselves expands our sense of connection with the world and our responsibility for it. It is not in our self-interest to be dominated by authorities, or to dominate others; in developing a broader sense of self, we can structure our lives and communities accordingly. — location: [730](kindle://book?action=open&asin=B018SN4HT0&location=730) ^ref-24261
+
+---
+
 Many groups also use a “vibes-watcher,” someone who volunteers to pay special attention to emotions and interactions within the group, recognizing that the personal is political and that the tradition of suppressing emotions in political spaces derives from the separation of public and private, a separation on which patriarchy and the state are based. — location: [892](kindle://book?action=open&asin=B018SN4HT0&location=892) ^ref-24990
 
 ---
+
 According to this principle, it is better to respect the differing views of the members of a group than to enforce a decision that leaves some people excluded or silenced. — location: [902](kindle://book?action=open&asin=B018SN4HT0&location=902) ^ref-3803
+
+---
+
+In a horizontal society, people enforce decisions according to how enthusiastic they are about those decisions. If almost everybody strongly supports a decision, it will be upheld vigorously, whereas if a decision leaves most people feeling neutral or unenthusiastic, it will only be partially enforced, — location: [1016](kindle://book?action=open&asin=B018SN4HT0&location=1016) ^ref-7127
+
+---
+
+But this ultimate sanction differs from the coercive tactics used by the state in a key respect: voluntary groups only exist because everyone involved wants to work with everyone else. A person who is excluded is not deprived of the ability to survive or maintain relationships, as there are many other groups she can join. — location: [1040](kindle://book?action=open&asin=B018SN4HT0&location=1040) ^ref-42348
 
 ---

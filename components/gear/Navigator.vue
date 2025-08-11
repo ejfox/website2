@@ -4,23 +4,27 @@
       v-if="gearItems.length > 0"
       class="fixed bottom-0 left-0 right-0 border-t border-zinc-200 dark:border-zinc-800 p-4 z-50"
     >
-    <div ref="scrollContainer" class="flex overflow-x-auto gap-3 scrollbar-hide">
-      <div
-        v-for="(item, index) in gearItems"
-        :key="`gear-${item.slug || item.Name}`"
-        :data-gear-index="index"
-        class="flex-shrink-0 w-20 h-20 border rounded-lg cursor-pointer flex flex-col items-center justify-center text-xs font-mono transition-all duration-200"
-        :class="isCurrentItem(item) ? 'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 border-zinc-900 dark:border-zinc-100 scale-110' : 'border-zinc-300 dark:border-zinc-700 hover:border-zinc-500 dark:hover:border-zinc-500'"
-        :title="item.Name"
-        @click="navigateToItem(item)"
-      >
-        <div class="font-bold text-xs mb-1">{{ item.Type?.slice(0,3) || '?' }}</div>
-        <div class="truncate text-[9px] mb-1 px-1 w-full text-center">{{ item.Name?.slice(0,10) }}</div>
-        <div class="text-[8px] text-zinc-500" :class="isCurrentItem(item) ? 'text-zinc-300 dark:text-zinc-600' : 'text-zinc-500'">
-          {{ item['Base Weight ()'] || '?' }}oz
+      <div ref="scrollContainer" class="flex overflow-x-auto gap-3 scrollbar-hide">
+        <div
+          v-for="(item, index) in gearItems"
+          :key="`gear-${item.slug || item.Name}`"
+          :data-gear-index="index"
+          class="flex-shrink-0 w-20 h-20 border rounded-lg cursor-pointer flex flex-col items-center justify-center text-xs font-mono transition-all duration-200"
+          :class="isCurrentItem(item) ? 'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 border-zinc-900 dark:border-zinc-100 scale-110' : 'border-zinc-300 dark:border-zinc-700 hover:border-zinc-500 dark:hover:border-zinc-500'"
+          :title="item.Name"
+          @click="navigateToItem(item)"
+        >
+          <div class="font-bold text-xs mb-1">
+            {{ item.Type?.slice(0,3) || '?' }}
+          </div>
+          <div class="truncate text-[9px] mb-1 px-1 w-full text-center">
+            {{ item.Name?.slice(0,10) }}
+          </div>
+          <div class="text-[8px] text-zinc-500" :class="isCurrentItem(item) ? 'text-zinc-300 dark:text-zinc-600' : 'text-zinc-500'">
+            {{ item['Base Weight ()'] || '?' }}oz
+          </div>
         </div>
       </div>
-    </div>
     </div>
   </ClientOnly>
 </template>

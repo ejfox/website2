@@ -217,7 +217,7 @@
     <!-- Global Gear Navigator for gear pages -->
     <GearNavigator 
       v-if="isGearPage" 
-      :currentSlug="currentGearSlug"
+      :current-slug="currentGearSlug"
     />
     
     <Footer />

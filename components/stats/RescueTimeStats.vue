@@ -6,11 +6,13 @@
         <AnimatedNumber
           :value="monthlyHours"
           format="commas"
-          :duration="timing.slower"
+          :duration="timing.dramatic"
           priority="primary"
         />
       </div>
-      <div class="stat-label">HOURS THIS MONTH</div>
+      <div class="stat-label">
+        HOURS THIS MONTH
+      </div>
       <div class="stat-details">
         <AnimatedNumber
           :value="monthlyProductivePercent"
@@ -70,13 +72,11 @@
               <span
                 class="text-zinc-700 dark:text-zinc-300 truncate"
                 style="font-size: 10px; line-height: 12px"
-                >{{ category.name }}</span
-              >
+              >{{ category.name }}</span>
               <span
                 class="text-zinc-500 tabular-nums flex-shrink-0"
                 style="font-size: 10px; line-height: 12px"
-                >{{ category.percentageOfTotal }}%</span
-              >
+              >{{ category.percentageOfTotal }}%</span>
             </div>
             <div class="category-bar-bg mt-0.5">
               <div
@@ -206,7 +206,10 @@ const activityDates = computed(() => {
 const getColorForValue = (value: number) => {
   // Clamp value between 0 and 1
   const clampedValue = Math.max(0, Math.min(1, value))
-  return d3.interpolateTurbo(clampedValue)
+  // return d3.interpolateTurbo(clampedValue)
+  // Use a simple color scale instead of d3
+  const hue = clampedValue * 280 // From red (0) to purple (280)
+  return `hsl(${hue}, 70%, 50%)`
 }
 
 // Create a unified categories data source with colors (privacy-safe)
@@ -308,7 +311,7 @@ const setupScrollAnimations = () => {
           { opacity: 0.8, scale: 1.05, rotateX: 5, filter: 'blur(0.3px)' },
           { opacity: 1, scale: 1, rotateX: 0, filter: 'blur(0px)' }
         ],
-        duration: timing.expressive,
+        duration: timing.value.dramatic,
         ease: 'outElastic(1, .8)',
         autoplay: onScroll({
           target: primaryStatRef.value,
@@ -322,7 +325,7 @@ const setupScrollAnimations = () => {
         opacity: [0, 1],
         scale: [0.9, 1.02, 1],
         translateY: [20, 0],
-        duration: timing.slower,
+        duration: timing.value.dramatic,
         ease: 'outElastic(1, .8)',
         autoplay: onScroll({ target: calendarRef.value, onEnter: () => true })
       })
@@ -337,7 +340,7 @@ const setupScrollAnimations = () => {
             { opacity: 0.8, scale: 1.2, rotateZ: -10 },
             { opacity: 1, scale: 1, rotateZ: 0 }
           ],
-          duration: timing.slower,
+          duration: timing.value.dramatic,
           delay: stagger(8, { grid: [10, 10], from: 'center' }),
           ease: 'outElastic(1, .9)',
           autoplay: onScroll({ target: waffleRef.value, onEnter: () => true })
@@ -352,7 +355,7 @@ const setupScrollAnimations = () => {
           opacity: [0, 1],
           translateX: [-20, 0],
           scale: [0.9, 1.05, 1],
-          duration: timing.slow,
+          duration: timing.value.slow,
           delay: stagger(80),
           ease: 'outBack(1.7)',
           autoplay: onScroll({
@@ -368,7 +371,7 @@ const setupScrollAnimations = () => {
         animate(Array.from(categoryBars), {
           scaleX: [0, 1.1, 1],
           scaleY: [0.5, 1.3, 1],
-          duration: timing.expressive,
+          duration: timing.value.dramatic,
           delay: stagger(100),
           ease: 'outElastic(1, .8)',
           autoplay: onScroll({ target: categoryBars[0], onEnter: () => true })

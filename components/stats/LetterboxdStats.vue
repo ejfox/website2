@@ -9,7 +9,7 @@
         FILMS WATCHED
       </div>
       <div class="stat-details">
-        <AnimatedNumber :value="stats.averageRating" format="decimal" decimals="1" :duration="timing.normal" priority="secondary" />★ AVG · 
+        <AnimatedNumber :value="stats.averageRating" format="decimal" :decimals="1" :duration="timing.normal" priority="secondary" />★ AVG · 
         <AnimatedNumber :value="stats.thisYear" format="default" :duration="timing.normal" priority="tertiary" /> THIS YEAR
       </div>
     </div>

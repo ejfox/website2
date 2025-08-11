@@ -8,8 +8,8 @@ export default defineEventHandler(async () => {
     }
     
     // Calculate stats
-    const languages = {}
-    const yearStats = {}
+    const languages: Record<string, number> = {}
+    const yearStats: Record<number, number> = {}
     let totalFiles = 0
     let totalSize = 0
     
@@ -34,7 +34,7 @@ export default defineEventHandler(async () => {
     
     // Sort languages by usage
     const topLanguages = Object.entries(languages)
-      .sort(([,a], [,b]) => b - a)
+      .sort(([,a], [,b]) => (b as number) - (a as number))
       .slice(0, 8)
       .map(([language, count]) => ({ language, count }))
     
@@ -78,7 +78,7 @@ export default defineEventHandler(async () => {
       },
       recentGists: [],
       lastUpdated: new Date().toISOString(),
-      error: error.message || 'Failed to fetch gist stats'
+      error: error instanceof Error ? error.message : 'Failed to fetch gist stats'
     }
   }
 })

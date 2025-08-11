@@ -3,7 +3,7 @@
     <!-- Main Stats -->
     <div v-if="stats.submissionStats" ref="primaryStatRef" class="individual-stat-large">
       <div class="stat-value">
-        <AnimatedNumber :value="totalSolved" format="commas" :duration="timing.slower" priority="primary" />
+        <AnimatedNumber :value="totalSolved" format="commas" :duration="timing.dramatic" priority="primary" />
       </div>
       <div class="stat-label">
         PROBLEMS SOLVED
@@ -23,7 +23,7 @@
               opacity: difficultyPercentages.easy > 5 ? 1 : 0.7,
               backgroundColor: '#a1a1aa' /* Gray-400 */
             }"
-            :title="`Easy: ${formatNumber(stats.submissionStats.easy.count)} problems (${formatPercent(difficultyPercentages.easy / 100, 0)})`"
+            :title="`Easy: ${formatNumber(stats.submissionStats.easy.count)} problems (${formatPercent(difficultyPercentages.easy / 100)})`"
           >
           </div>
           <div
@@ -32,7 +32,7 @@
               opacity: difficultyPercentages.medium > 5 ? 1 : 0.7,
               backgroundColor: '#71717a' /* Gray-500 */
             }"
-            :title="`Medium: ${formatNumber(stats.submissionStats.medium.count)} problems (${formatPercent(difficultyPercentages.medium / 100, 0)})`"
+            :title="`Medium: ${formatNumber(stats.submissionStats.medium.count)} problems (${formatPercent(difficultyPercentages.medium / 100)})`"
           >
           </div>
           <div
@@ -41,7 +41,7 @@
               opacity: difficultyPercentages.hard > 5 ? 1 : 0.7,
               backgroundColor: '#3f3f46' /* Gray-700 */
             }"
-            :title="`Hard: ${formatNumber(stats.submissionStats.hard.count)} problems (${formatPercent(difficultyPercentages.hard / 100, 0)})`"
+            :title="`Hard: ${formatNumber(stats.submissionStats.hard.count)} problems (${formatPercent(difficultyPercentages.hard / 100)})`"
           >
           </div>
         </div>
@@ -264,14 +264,13 @@ const animateLeetCodeStats = async () => {
     const timeline = createTimeline()
     
     if (primaryStatRef.value) {
-      timeline.add({
-        targets: primaryStatRef.value,
+      timeline.add(primaryStatRef.value, {
         keyframes: [
           { opacity: 0, scale: 0.8, rotateX: -20, filter: 'blur(1px)' },
           { opacity: 0.8, scale: 1.1, rotateX: 5, filter: 'blur(0.3px)' },
           { opacity: 1, scale: 1, rotateX: 0, filter: 'blur(0px)' }
         ],
-        duration: timing.expressive,
+        duration: timing.value.dramatic,
         ease: 'outElastic(1, .8)'
       })
     }
@@ -279,11 +278,10 @@ const animateLeetCodeStats = async () => {
     if (difficultyBarRef.value) {
       const difficultyBars = difficultyBarRef.value.querySelectorAll('.easy-bar, .medium-bar, .hard-bar')
       if (difficultyBars.length) {
-        timeline.add({
-          targets: Array.from(difficultyBars),
+        timeline.add(Array.from(difficultyBars), {
           scaleX: [0, 1.2, 1],
           scaleY: [0.3, 1.5, 1],
-          duration: timing.slow,
+          duration: timing.value.slow,
           delay: _stagger(150),
           ease: 'outElastic(1, .8)'
         }, '-=400')
@@ -291,12 +289,11 @@ const animateLeetCodeStats = async () => {
     }
     
     if (calendarRef.value && hasActivityData.value) {
-      timeline.add({
-        targets: calendarRef.value,
+      timeline.add(calendarRef.value, {
         opacity: [0, 1],
         scale: [0.9, 1.02, 1],
         translateY: [20, 0],
-        duration: timing.slower,
+        duration: timing.value.dramatic,
         ease: 'outElastic(1, .8)'
       }, '-=300')
     }
@@ -304,12 +301,11 @@ const animateLeetCodeStats = async () => {
     if (breakdownRef.value) {
       const breakdownItems = breakdownRef.value.children
       if (breakdownItems.length) {
-        timeline.add({
-          targets: Array.from(breakdownItems),
+        timeline.add(Array.from(breakdownItems), {
           opacity: [0, 1],
           translateY: [15, 0],
           scale: [0.9, 1.05, 1],
-          duration: timing.slow,
+          duration: timing.value.slow,
           delay: _stagger(80),
           ease: 'outBack(1.7)'
         }, '-=200')
@@ -319,23 +315,21 @@ const animateLeetCodeStats = async () => {
     if (languagesRef.value && hasLanguageStats.value) {
       const languageItems = languagesRef.value.querySelectorAll('.language-item')
       if (languageItems.length) {
-        timeline.add({
-          targets: Array.from(languageItems),
+        timeline.add(Array.from(languageItems), {
           opacity: [0, 1],
           translateX: [-20, 0],
           scale: [0.9, 1.02, 1],
-          duration: timing.slow,
+          duration: timing.value.slow,
           delay: _stagger(100),
           ease: 'outBack(1.7)'
         }, '-=150')
         
         const langBars = languagesRef.value.querySelectorAll('.lang-bar-fill')
         if (langBars.length) {
-          timeline.add({
-            targets: Array.from(langBars),
+          timeline.add(Array.from(langBars), {
             scaleX: [0, 1.1, 1],
             scaleY: [0.5, 1.3, 1],
-            duration: timing.expressive,
+            duration: timing.value.dramatic,
             delay: _stagger(120),
             ease: 'outElastic(1, .8)'
           }, '-=300')
@@ -346,14 +340,13 @@ const animateLeetCodeStats = async () => {
     if (recentRef.value && recentAcceptedSubmissions.value.length) {
       const submissionRows = recentRef.value.querySelectorAll('.submission-row')
       if (submissionRows.length) {
-        timeline.add({
-          targets: Array.from(submissionRows),
+        timeline.add(Array.from(submissionRows), {
           opacity: [0, 1],
           translateX: [-25, 0],
           scale: [0.95, 1],
-          duration: timing.normal,
+          duration: timing.value.normal,
           delay: _stagger(60),
-          ease: easing.standard
+          ease: 'cubicBezier(0.4, 0, 0.2, 1)'
         }, '-=100')
       }
     }

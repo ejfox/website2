@@ -7,7 +7,7 @@
           <AnimatedNumber 
             :value="highestActiveRating" 
             format="commas"
-            :duration="timing.expressive"
+            :duration="timing.dramatic"
             priority="primary"
           />
         </div>
@@ -366,8 +366,8 @@ const setupScrollAnimations = () => {
           { opacity: 0.8, scale: 1.05, rotateX: 5, filter: 'blur(0.3px)' },
           { opacity: 1, scale: 1, rotateX: 0, filter: 'blur(0px)' }
         ],
-        duration: timing.expressive,
-        ease: easing.productive,
+        duration: timing.value.dramatic,
+        ease: 'cubicBezier(0.2, 0, 0.38, 0.9)',
         autoplay: onScroll({
           target: primaryStatsRef.value,
           onEnter: () => true
@@ -382,9 +382,9 @@ const setupScrollAnimations = () => {
         animate(Array.from(bars), {
           scaleY: [0, 1.2, 1],
           opacity: [0, 1],
-          duration: timing.slow,
+          duration: timing.value.slow,
           delay: _stagger(staggers.tight, { from: 'center' }),
-          ease: easing.bounce,
+          ease: 'outElastic(1, .8)',
           autoplay: onScroll({
             target: histogramRef.value,
             onEnter: () => true
@@ -401,9 +401,9 @@ const setupScrollAnimations = () => {
           opacity: [0, 1],
           translateX: [-15, 0],
           scale: [0.9, 1.05, 1],
-          duration: timing.expressive,
+          duration: timing.value.dramatic,
           delay: _stagger(staggers.loose),
-          ease: easing.productive,
+          ease: 'cubicBezier(0.2, 0, 0.38, 0.9)',
           autoplay: onScroll({
             target: variantsRef.value,
             onEnter: () => true
@@ -420,8 +420,8 @@ const setupScrollAnimations = () => {
           { opacity: 0.8, scale: 1.02, rotateY: 3, filter: 'blur(0.3px)' },
           { opacity: 1, scale: 1, rotateY: 0, filter: 'blur(0px)' }
         ],
-        duration: timing.expressive,
-        ease: easing.productive,
+        duration: timing.value.dramatic,
+        ease: 'cubicBezier(0.2, 0, 0.38, 0.9)',
         autoplay: onScroll({
           target: calendarRef.value,
           onEnter: () => true
@@ -437,9 +437,9 @@ const setupScrollAnimations = () => {
           opacity: [0, 1],
           translateY: [10, 0],
           scale: [0.95, 1],
-          duration: timing.slow,
+          duration: timing.value.slow,
           delay: _stagger(staggers.tight),
-          ease: easing.standard,
+          ease: 'cubicBezier(0.4, 0, 0.2, 1)',
           autoplay: onScroll({
             target: performanceRef.value,
             onEnter: () => true
@@ -456,9 +456,9 @@ const setupScrollAnimations = () => {
           opacity: [0, 1],
           translateX: [-20, 0],
           scale: [0.98, 1],
-          duration: timing.normal,
+          duration: timing.value.normal,
           delay: _stagger(staggers.tight),
-          ease: easing.standard,
+          ease: 'cubicBezier(0.4, 0, 0.2, 1)',
           autoplay: onScroll({
             target: recentGamesRef.value,
             onEnter: () => true

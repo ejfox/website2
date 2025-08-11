@@ -1,6 +1,6 @@
 import { useAnimations } from '~/composables/useAnimations'
 
-export default defineNuxtPlugin((nuxtApp) => {
+export default defineNuxtPlugin((nuxtApp: any) => {
   let isTransitioning = false
   const { transition: _transition, reveal } = useAnimations()
   

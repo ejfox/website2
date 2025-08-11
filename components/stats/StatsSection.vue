@@ -37,8 +37,8 @@ const setupScrollAnimations = () => {
         translateY: [30, 0],
         scale: [0.96, 1.01, 1],
         filter: ['blur(1px)', 'blur(0px)'],
-        duration: timing.slow,
-        ease: easing.bounce,
+        duration: timing.value.slow,
+        ease: 'outElastic(1, .8)',
         autoplay: onScroll({
           target: sectionRef.value,
           onEnter: () => true
@@ -54,8 +54,8 @@ const setupScrollAnimations = () => {
           { opacity: 0.8, scale: 1.1, skewX: 3, filter: 'blur(0.3px)' },
           { opacity: 1, scale: 1, skewX: 0, filter: 'blur(0px)' }
         ],
-        duration: timing.expressive,
-        ease: easing.bounce,
+        duration: timing.value.dramatic,
+        ease: 'outElastic(1, .8)',
         autoplay: onScroll({
           target: titleRef.value,
           onEnter: () => true
@@ -69,8 +69,8 @@ const setupScrollAnimations = () => {
         opacity: [0, 1],
         translateY: [20, 0],
         scale: [0.95, 1.02, 1],
-        duration: timing.expressive,
-        ease: easing.productive,
+        duration: timing.value.dramatic,
+        ease: 'cubicBezier(0.2, 0, 0.38, 0.9)',
         autoplay: onScroll({
           target: contentRef.value,
           onEnter: () => true

@@ -3,13 +3,13 @@
     <!-- Primary GitHub Stats with AnimatedNumber -->
     <div class="individual-stat-large">
       <div class="stat-value">
-        <AnimatedNumber :value="totalCommits" format="commas" :duration="timing.expressive" priority="primary" epic />
+        <AnimatedNumber :value="totalCommits" format="commas" :duration="timing.dramatic" priority="primary" epic />
       </div>
       <div class="stat-label">
         GITHUB COMMITS
       </div>
       <div class="stat-details">
-        <AnimatedNumber :value="stats.stats.totalRepos" format="default" :duration="timing.slower" priority="secondary" /> REPOS · 
+        <AnimatedNumber :value="stats.stats.totalRepos" format="default" :duration="timing.dramatic" priority="secondary" /> REPOS · 
         <AnimatedNumber :value="stats.stats.followers || 0" format="default" :duration="timing.slow" priority="tertiary" /> FOLLOWERS
       </div>
     </div>
@@ -68,8 +68,8 @@ const setupScrollAnimations = () => {
         { opacity: 0.8, scale: 1.08, rotateX: 8, rotateY: -3, filter: 'blur(0.5px)' },
         { opacity: 1, scale: 1, rotateX: 0, rotateY: 0, filter: 'blur(0px)' }
       ],
-      duration: timing.expressive,
-      ease: easing.bounce,
+      duration: timing.value.dramatic,
+      ease: 'outElastic(1, .8)',
       autoplay: onScroll({
         target: containerRef.value,
         onEnter: () => true

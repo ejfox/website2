@@ -1,6 +1,8 @@
 <template>
   <div v-if="hasCommits">
-    <h4 class="section-subheader">RECENT COMMITS</h4>
+    <h4 class="section-subheader">
+      RECENT COMMITS
+    </h4>
     <div class="space-y-3">
       <div
         v-for="project in recentProjects.slice(0, 8)"

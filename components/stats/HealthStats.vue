@@ -4,13 +4,13 @@
     <div class="space-y-12">
       <div v-if="stats.thisYear.steps > 0" class="individual-stat-large">
         <div class="stat-value">
-          <AnimatedNumber :value="stats.thisYear.steps" format="commas" :duration="timing.expressive" priority="primary" />
+          <AnimatedNumber :value="stats.thisYear.steps" format="commas" :duration="timing.dramatic" priority="primary" />
         </div>
         <div class="stat-label">
           STEPS THIS YEAR
         </div>
         <div class="stat-details">
-          <AnimatedNumber :value="stats.thisYear.averageStepsPerDay" format="commas" :duration="timing.slower" priority="secondary" /> DAILY AVERAGE
+          <AnimatedNumber :value="stats.thisYear.averageStepsPerDay" format="commas" :duration="timing.dramatic" priority="secondary" /> DAILY AVERAGE
         </div>
       </div>
 
@@ -33,7 +33,7 @@
       <div class="momentum-stats grid grid-cols-3 gap-4 mb-6">
         <div ref="momentumRef" class="momentum-stat">
           <div class="momentum-value">
-            <AnimatedNumber :value="currentStreak" format="default" :duration="timing.slower" priority="secondary" />
+            <AnimatedNumber :value="currentStreak" format="default" :duration="timing.dramatic" priority="secondary" />
           </div>
           <div class="momentum-label">
             CURRENT STREAK
@@ -41,7 +41,7 @@
         </div>
         <div class="momentum-stat">
           <div class="momentum-value">
-            <AnimatedNumber :value="longestStreak" format="default" :duration="timing.slower" :delay="100" priority="secondary" />
+            <AnimatedNumber :value="longestStreak" format="default" :duration="timing.dramatic" :delay="100" priority="secondary" />
           </div>
           <div class="momentum-label">
             LONGEST STREAK
@@ -453,7 +453,7 @@ const setupScrollAnimations = () => {
           opacity: [0, 1],
           translateY: [20, 0],
           scale: [0.9, 1.05, 1],
-          duration: timing.slow,
+          duration: timing.value.slow,
           delay: _stagger(staggers.loose),
           ease: 'outElastic(1, .8)',
           autoplay: onScroll({ target: momentumRef.value, onEnter: () => true })
@@ -467,7 +467,7 @@ const setupScrollAnimations = () => {
         animate(Array.from(activityBars), {
           scaleX: [0, 1.1, 1],
           scaleY: [0.3, 1.3, 1],
-          duration: timing.slower,
+          duration: timing.value.dramatic,
           delay: _stagger(staggers.normal),
           ease: 'outElastic(1, .8)',
           autoplay: onScroll({ target: weeklyBarsRef.value, onEnter: () => true })

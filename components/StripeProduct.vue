@@ -94,8 +94,8 @@ const buyProduct = async (productId: string) => {
     }),
   })
 
-  const { url } = data.value.body
-  navigateTo(url, { external: true })
+  const { url } = data.value?.body || {}
+  if (url) window.location.href = url
 }
 
 const productSold = computed(() => !product?.active)

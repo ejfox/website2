@@ -9,8 +9,8 @@ kindle-sync:
   lastAnnotatedDate: '2021-06-22'
   bookImageUrl: 'https://m.media-amazon.com/images/I/81s8svAo1pL._SY160.jpg'
   highlightsCount: 4
-date: 2022-12-14T20:25:39.000Z
-modified: 2022-12-23T16:02:41.000Z
+date: 2022-12-14T15:25:39-05:00
+modified: 2025-07-30T21:48:54-04:00
 tags:
   - politics
   - activism
@@ -18,11 +18,11 @@ tags:
   - police
   - america
 ---
-# America on Fire
+## America on Fire
 
-#politics 
+#politics
 
-# Metadata
+## Metadata
 
 * Author: [Elizabeth Hinton](https://www.amazon.com/Elizabeth-Hinton/e/B001JWSWEO/ref=dp_byline_cont_ebooks_1)
 
@@ -34,7 +34,7 @@ tags:
 
 * [Kindle link](kindle://book?action=open&asin=B08L6ZNW43)
 
-# Highlights
+## Highlights
 
 Yet they often concluded that “rioting” was a pathological impulse, rooted in spontaneous, uncontrollable emotion. In this view, the “riots” were ultimately counter-productive: the violence only alienated allies and intensified anti-Black sentiment. — location: [74](kindle://book?action=open&asin=B08L6ZNW43&location=74) ^ref-54936
 

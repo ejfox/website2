@@ -53,7 +53,7 @@
               <AnimatedNumber :value="test.wpm" format="default" :duration="timing.slow" priority="tertiary" />
             </span>
             <span class="accuracy-value">
-              <AnimatedNumber :value="test.accuracy" format="decimal" decimals="1" :duration="timing.normal" priority="tertiary" />%
+              <AnimatedNumber :value="test.accuracy" format="decimal" :decimals="1" :duration="timing.normal" priority="tertiary" />%
             </span>
           </div>
         </div>
@@ -70,7 +70,7 @@
             TESTS
           </div>
           <div class="stat-value">
-            <AnimatedNumber :value="stats.typingStats.testsCompleted" format="default" :duration="timing.slower" priority="secondary" />
+            <AnimatedNumber :value="stats.typingStats.testsCompleted" format="default" :duration="timing.dramatic" priority="secondary" />
           </div>
         </div>
         
@@ -83,12 +83,12 @@
           </div>
         </div>
         
-        <div v-if="stats.typingStats.averageWpm" class="stat-item">
+        <div v-if="stats.typingStats.averageWPM" class="stat-item">
           <div class="stat-label">
             AVG WPM
           </div>
           <div class="stat-value">
-            <AnimatedNumber :value="Math.round(stats.typingStats.averageWpm)" format="default" :duration="timing.slow" priority="secondary" />
+            <AnimatedNumber :value="Math.round(stats.typingStats.averageWPM)" format="default" :duration="timing.slow" priority="secondary" />
           </div>
         </div>
       </div>

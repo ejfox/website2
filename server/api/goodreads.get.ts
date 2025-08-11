@@ -78,7 +78,7 @@ export default defineEventHandler(async (_event) => {
     
     const ratedBooks = read.filter(book => book.rating && book.rating > 0)
     const averageRating = ratedBooks.length > 0 
-      ? ratedBooks.reduce((sum, book) => sum + book.rating, 0) / ratedBooks.length 
+      ? ratedBooks.reduce((sum, book) => sum + (book.rating || 0), 0) / ratedBooks.length 
       : 0
     
     // Top rated books
@@ -93,7 +93,7 @@ export default defineEventHandler(async (_event) => {
       .slice(0, 10)
     
     // Reading by month
-    const readingByMonth = read.reduce((acc, book) => {
+    const readingByMonth = read.reduce<Record<string, number>>((acc, book) => {
       const date = new Date(book.dateAdded)
       const monthKey = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`
       acc[monthKey] = (acc[monthKey] || 0) + 1

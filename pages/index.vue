@@ -11,7 +11,7 @@ const { data: indexContent, pending: _indexPending } = await useAsyncData(
 // )
 
 // Combine the pending states
-// const pending = computed(() => indexPending.value || postsPending.value)
+const pending = computed(() => _indexPending.value)
 </script>
 
 <template>

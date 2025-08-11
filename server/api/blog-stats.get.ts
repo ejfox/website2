@@ -1,7 +1,18 @@
+interface WordsThisMonthResponse {
+  postCount?: number
+  totalWords?: number
+  avgWordsPerPost?: number
+  posts?: any[]
+  month?: string
+  year?: number
+  error?: string
+  details?: string
+}
+
 export default defineEventHandler(async () => {
   try {
     // Redirect to the actual endpoint
-    const wordsData = await $fetch('/api/words-this-month')
+    const wordsData = await $fetch<WordsThisMonthResponse>('/api/words-this-month')
     
     // Return in a more stats-friendly format
     return {

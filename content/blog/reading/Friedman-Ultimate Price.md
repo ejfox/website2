@@ -7,17 +7,17 @@ kindle-sync:
   lastAnnotatedDate: '2021-02-07'
   bookImageUrl: 'https://m.media-amazon.com/images/I/81gWoGF2z6L._SY160.jpg'
   highlightsCount: 6
-date: 2022-12-14T20:25:55.000Z
-modified: 2022-12-23T15:57:59.000Z
+date: 2022-12-14T15:25:55-05:00
+modified: 2025-08-01T20:42:39-04:00
 tags:
   - book
   - data
 ---
-# Ultimate Price
+## Ultimate Price
 
-#data 
+#data
 
-# Metadata
+## Metadata
 
 * Author: [Howard Steven Friedman](https://www.amazon.com/Howard-Steven-Friedman/e/B007AOC8GI/ref=dp_byline_cont_ebooks_1)
 
@@ -27,7 +27,7 @@ tags:
 
 * [Kindle link](kindle://book?action=open&asin=B084WQSDD8)
 
-# Highlights
+## Highlights
 
 The methods used for valuing life depend on the purpose of the costing, what exactly the costs are meant to represent, and the perspective taken for the costing. — location: [58](kindle://book?action=open&asin=B084WQSDD8&location=58) ^ref-42592
 

@@ -5,6 +5,14 @@ export default defineNuxtConfig({
 
   // Add compatibility date
   compatibilityDate: '2024-02-23',
+  
+  // Nuxt 3.15+ optimizations
+  experimental: {
+    payloadExtraction: false, // Reduce payload size
+    treeshakeClientOnly: true, // Remove server-only code from client
+    componentIslands: true, // Enable component islands
+    asyncContext: true // Better async handling
+  },
 
   // Remove View Transitions API
   // experimental: {
@@ -56,16 +64,6 @@ export default defineNuxtConfig({
     typeCheck: false // Disable type checking during build for performance
   },
 
-  // Disable oxc-parser for Docker compatibility
-  experimental: {
-    defaults: {
-      nuxt: {
-        compilerOptions: {
-          types: []
-        }
-      }
-    }
-  },
 
   // Additional build configuration for Docker
   build: {
@@ -73,10 +71,6 @@ export default defineNuxtConfig({
     analyze: process.env.ANALYZE === 'true'
   },
 
-  // Force disable oxc via feature flags
-  features: {
-    oxc: false
-  },
 
   // Google Fonts configuration
   googleFonts: {
@@ -96,25 +90,49 @@ export default defineNuxtConfig({
   },
 
 
-  // Vite optimizations
+  // Vite optimizations - reduce aggressive code splitting
   vite: {
     server: {
       hmr: false // Disable HMR completely for production-like dev
     },
     build: {
+      // Increase chunk size warning limit
+      chunkSizeWarningLimit: 2000,
+      // Disable CSS code splitting for fewer files
+      cssCodeSplit: false,
       rollupOptions: {
         output: {
-          manualChunks: {
-            // Separate vendor chunks for better caching
-            'vue-vendor': ['vue', 'vue-router'],
-            'utils': ['date-fns', 'lodash-es']
-          }
-        }
+          // Reduce the number of chunks significantly
+          manualChunks(id) {
+            // Keep server-only deps out of client bundle
+            if (id.includes('stripe') || id.includes('supabase') || id.includes('chance')) {
+              return null; // Don't bundle server-only deps
+            }
+            // All node_modules in one vendor chunk
+            if (id.includes('node_modules')) {
+              // Separate heavy libs if they're used client-side
+              if (id.includes('date-fns')) return 'date-fns';
+              if (id.includes('@iconify')) return 'icons';
+              if (id.includes('anime')) return 'anime';
+              return 'vendor';
+            }
+            // All app code in one chunk
+            return 'app';
+          },
+          // Use larger chunks
+          chunkFileNames: '[name]-[hash].js',
+          entryFileNames: 'entry-[name]-[hash].js',
+        },
+        // Mark server-only deps as external for client build
+        external: ['stripe', '@supabase/supabase-js', 'chance', 'cheerio']
       }
     },
     optimizeDeps: {
-      include: ['vue', 'vue-router', 'date-fns'],
-      exclude: ['vue-demi']
+      include: ['vue', 'vue-router'],
+      exclude: ['vue-demi', 'stripe', '@supabase/supabase-js', 'chance']
+    },
+    ssr: {
+      noExternal: ['@supabase/supabase-js', 'stripe'] // These are server-only
     }
   },
 
@@ -190,11 +208,12 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: 'node-server',
+    minify: true,
+    sourceMap: false,
     compressPublicAssets: {
       gzip: true,
       brotli: true
     },
-    minify: true,
     experimental: {
       asyncContext: true,
       wasm: true
@@ -354,11 +373,6 @@ export default defineNuxtConfig({
   // Page transitions with anime.js
   plugins: ['~/plugins/pageTransitions.client.ts'],
 
-  // Performance optimizations
-  experimental: {
-    payloadExtraction: false, // Reduce hydration payload
-    viewTransition: false // Disable native transitions, use anime.js instead
-  },
 
   tailwindcss: {
     configPath: './tailwind.config.js',

@@ -4,7 +4,9 @@
     <section class="min-w-0 w-full mx-auto max-w-none">
       <!-- Header -->
       <header class="flex items-center justify-between py-6">
-        <h1 class="text-mono-label">STATS</h1>
+        <h1 class="text-mono-label">
+          STATS
+        </h1>
       </header>
 
       <!-- Top Stats -->
@@ -82,9 +84,9 @@
           <StatsSection
             v-if="
               stats.leetcode?.submissionStats &&
-              (stats.leetcode.submissionStats.easy.count > 0 ||
-                stats.leetcode.submissionStats.medium.count > 0 ||
-                stats.leetcode.submissionStats.hard.count > 0)
+                (stats.leetcode.submissionStats.easy.count > 0 ||
+                  stats.leetcode.submissionStats.medium.count > 0 ||
+                  stats.leetcode.submissionStats.hard.count > 0)
             "
             id="leetcode"
             key="leetcode-section"

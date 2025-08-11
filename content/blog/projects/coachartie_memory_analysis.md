@@ -1,0 +1,2 @@
+# coachartie_memory_analysis
+Analyzes AI consciousness emergence through memory reflection patterns

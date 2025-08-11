@@ -71,7 +71,7 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
           animate(target, {
             y: [12, 0],
             duration: timing.value.slow, // was 800
-            ease: [0.16, 1, 0.3, 1], // Custom ease-out
+            ease: 'cubicBezier(0.16, 1, 0.3, 1)', // Custom ease-out
             ...options
           })
 
@@ -139,7 +139,7 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
             rotate: [-1, 0],
             scale: [0.98, 1],
             duration: timing.value.glacial, // was 1800
-            ease: [0.4, 0, 0.2, 1]
+            ease: 'cubicBezier(0.4, 0, 0.2, 1)'
           })
           stop() // Stop observing after animation starts
         }
@@ -175,7 +175,7 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
             opacity: [0, 1],
             scaleX: [0, 1],
             duration: timing.value.dramatic, // was 1400
-            ease: [0.4, 0.1, 0.3, 1]
+            ease: 'cubicBezier(0.4, 0.1, 0.3, 1)'
           })
           stop()
         }
@@ -251,7 +251,7 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
             scale: [0.99, 1],
             filter: ['blur(0.5px)', 'blur(0px)'],
             duration: timing.value.normal, // was 500
-            ease: [0.25, 0.1, 0.25, 1],
+            ease: 'cubicBezier(0.25, 0.1, 0.25, 1)',
             ...options
           })
           stop()
@@ -314,8 +314,8 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
             opacity: [0, 1],
             scaleY: [0.2, 1.02, 1],
             scaleX: [1, 0.99, 1],
-            duration: timing.slow, // was 650
-            ease: [0.4, 0, 0.2, 1],
+            duration: timing.value.slow, // was 650
+            ease: 'cubicBezier(0.4, 0, 0.2, 1)',
             ...options
           })
           stop()
@@ -358,7 +358,7 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
                 scale: [0.99, 1],
                 filter: ['blur(0.3px)', 'blur(0px)'],
                 duration: timing.value.quick + (i * 30), // was 250 + (i * 30)
-                ease: [0.25, 0.1, 0.25, 1],
+                ease: 'cubicBezier(0.25, 0.1, 0.25, 1)',
                 ...options
               })
             }, i * 50)
@@ -396,8 +396,8 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
               'matrix(1,0,0,1,0,0)'
             ],
             filter: ['contrast(1.1)', 'contrast(1)'],
-            duration: timing.slow, // was 550
-            ease: [0.4, 0, 0.2, 1],
+            duration: timing.value.slow, // was 550
+            ease: 'cubicBezier(0.4, 0, 0.2, 1)',
             ...options
           })
           stop()
@@ -426,7 +426,7 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
               { opacity: 0.6, scale: 1.005, filter: 'blur(0.3px) contrast(1.05)' },
               { opacity: 1, scale: 1, filter: 'blur(0px) contrast(1)' }
             ],
-            duration: timing.slow, // was 750
+            duration: timing.value.slow, // was 750
             ease: 'cubicBezier(0.4, 0, 0.2, 1)',
             ...options
           })

@@ -7,17 +7,17 @@ kindle-sync:
   lastAnnotatedDate: '2020-09-02'
   bookImageUrl: 'https://m.media-amazon.com/images/I/81qLTBovPpL._SY160.jpg'
   highlightsCount: 2
-date: 2022-12-14T20:27:12.000Z
-modified: 2022-12-23T16:07:12.000Z
+date: 2022-12-14T15:27:12-05:00
+modified: 2025-08-01T20:46:47-04:00
 tags:
   - psychedelics
   - research
 ---
-# Hallucinations
+## Hallucinations
 
-#psychedelics 
+#psychedelics
 
-# Metadata
+## Metadata
 
 * Author: [Oliver Sacks](https://www.amazon.com/Oliver-Sacks/e/B000APZZY6/ref=dp_byline_cont_ebooks_1)
 
@@ -27,7 +27,7 @@ tags:
 
 * [Kindle link](kindle://book?action=open&asin=B0082XLY6G)
 
-# Highlights
+## Highlights
 
 Some people hallucinate text or music. But by far the commonest hallucinations are the geometrical ones: squares, checkerboards, rhomboids, quadrangles, hexagons, bricks, walls, tiles, tessellations, honeycombs, mosaics. — location: [338](kindle://book?action=open&asin=B0082XLY6G&location=338) ^ref-13303
 

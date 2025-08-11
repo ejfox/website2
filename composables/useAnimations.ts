@@ -56,16 +56,16 @@ const baseTiming = {
  */
 const easing = {
   // Material Design physics-based curves (anime.js format)
-  standard: [0.4, 0.0, 0.2, 1],    // Default - natural deceleration
-  decelerate: [0.0, 0.0, 0.2, 1],  // Ease-out for entrances
-  accelerate: [0.4, 0.0, 1, 1],    // Ease-in for exits
+  standard: 'cubicBezier(0.4, 0.0, 0.2, 1)',    // Default - natural deceleration
+  decelerate: 'cubicBezier(0.0, 0.0, 0.2, 1)',  // Ease-out for entrances
+  accelerate: 'cubicBezier(0.4, 0.0, 1, 1)',    // Ease-in for exits
   
   // IBM Carbon Design System curves
-  productive: [0.2, 0, 0.38, 0.9],  // Efficient, focused motion
-  expressive: [0.4, 0.14, 0.3, 1],  // Brand personality moments
+  productive: 'cubicBezier(0.2, 0, 0.38, 0.9)',  // Efficient, focused motion
+  expressive: 'cubicBezier(0.4, 0.14, 0.3, 1)',  // Brand personality moments
   
   // Apple's signature curve (reference)
-  apple: [0.25, 0.1, 0.25, 1],      // Smooth, premium feel
+  apple: 'cubicBezier(0.25, 0.1, 0.25, 1)',      // Smooth, premium feel
   
   // Common anime.js easings
   bounce: 'spring(1, 80, 10, 0)'
@@ -130,6 +130,10 @@ export const useAnimations = () => {
       // Target selectors for reveal animation
       const selectors = ['h1', 'h2', 'p', '.stat-value', 'small']
       
+      // TODO: This is sus - document.querySelectorAll in Vue = anti-pattern
+      // Using it for v-html markdown content but should refactor to Vue directives/refs
+      // Might cause animation bugs. - ejfox/Claude
+      
       // Performance: Batch DOM operations
       selectors.forEach(sel => {
         document.querySelectorAll(sel).forEach(el => {
@@ -138,6 +142,7 @@ export const useAnimations = () => {
       })
       
       // Use anime.js optimized scroll handler
+      // @ts-expect-error - begin is a valid ScrollObserverParams property in anime.js
       onScroll({ target: document, begin: this.check })
       this.check() // Initial check for above-fold content
     },
@@ -152,6 +157,7 @@ export const useAnimations = () => {
       
       tiers.forEach(({ sel, delay }, tierIndex) => {
         const newEls = Array.from(document.querySelectorAll(sel))
+          .filter((el): el is HTMLElement => el instanceof HTMLElement)
           .filter(el => !revealed.has(el) && isVisible(el))
         
         if (newEls.length) {

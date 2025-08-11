@@ -7,17 +7,17 @@ kindle-sync:
   lastAnnotatedDate: '2022-08-19'
   bookImageUrl: 'https://m.media-amazon.com/images/I/81XahxBKE9L._SY160.jpg'
   highlightsCount: 15
-date: 2022-12-14T20:23:32.000Z
-modified: 2022-12-23T16:06:17.000Z
+date: 2022-12-14T15:23:32-05:00
+modified: 2025-08-01T20:42:29-04:00
 tags:
   - writing
   - journalism
 ---
-# Reality Hunger
+## Reality Hunger
 
-#journalism #writing 
+#journalism #writing
 
-# Metadata
+## Metadata
 
 * Author: [David Shields](https://www.amazon.com/David-Shields/e/B000APH64S/ref=dp_byline_cont_ebooks_1)
 
@@ -29,7 +29,7 @@ tags:
 
 * [Kindle link](kindle://book?action=open&asin=B0036S49D2)
 
-# Highlights
+## Highlights
 
 In his retirement, walking the streets of Bordeaux, Montaigne wore a pewter medallion inscribed with the words Que sais-je? (“What do I know?”)—thereby forming and backforming a tradition: Lucretius to La Rochefoucauld to Cioran. — location: [221](kindle://book?action=open&asin=B0036S49D2&location=221) ^ref-7050
 

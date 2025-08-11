@@ -2,16 +2,14 @@
 import { format, isValid, parseISO } from 'date-fns'
 import { animate, stagger as _stagger, engine } from '~/anime.esm.js'
 // Disable Chance.js for now since it's causing SSR issues
-// import { Chance } from 'chance'
-// const _chance = new Chance()
-const _chance = {
-  integer: ({ min, max }) => Math.floor(Math.random() * (max - min + 1)) + min
-}
+import Chance from 'chance'
+const _chance = new Chance()
 import {
   useWindowSize,
   useMutationObserver,
   useDark,
-  useDebounceFn
+  useDebounceFn,
+  useIntersectionObserver
 } from '@vueuse/core'
 import DonationSection from '~/components/blog/DonationSection.vue'
 import { useAnimations } from '~/composables/useAnimations'
@@ -92,21 +90,9 @@ const articleContent = ref(null)
 const headings = ref([])
 const activeSection = ref('')
 const titleWidth = ref(0)
-const titleFontSize = ref(24)
 
 const { width } = useWindowSize()
 const isMobile = computed(() => width.value < 768)
-
-// Compute font size based on viewport
-watchEffect(() => {
-  if (width.value >= 1280)
-    titleFontSize.value = 72 // xl
-  else if (width.value >= 1024)
-    titleFontSize.value = 64 // lg
-  else if (width.value >= 768)
-    titleFontSize.value = 48 // md
-  else titleFontSize.value = 24 // mobile
-})
 
 // First, let's fix the lifecycle hooks by moving them inside onMounted
 onMounted(() => {
@@ -123,45 +109,54 @@ onMounted(() => {
     resizeObserver.observe(postTitle.value)
     titleWidth.value = postTitle.value.offsetWidth
   }
-
-  // Heading intersection observer
-  const headingObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          activeSection.value = entry.target.id
-        }
-      })
-    },
-    { rootMargin: '-10% 0px -80% 0px', threshold: 0 }
-  )
-
+  // Use VueUse's intersection observer composable instead
   nextTick(() => {
     if (!articleContent.value) return
     headings.value = Array.from(
       articleContent.value.querySelectorAll('h2, h3, h4')
     )
-    headings.value.forEach((heading) => headingObserver.observe(heading))
+    
+    // Use VueUse's useIntersectionObserver for each heading
+    headings.value.forEach((heading) => {
+      const { stop } = useIntersectionObserver(
+        heading,
+        ([{ isIntersecting }]) => {
+          if (isIntersecting) {
+            activeSection.value = heading.id
+          }
+        },
+        { rootMargin: '-10% 0px -80% 0px', threshold: 0 }
+      )
+      // Store stop function for cleanup
+      heading._stopObserver = stop
+    })
   })
 
   // Clean up
   onUnmounted(() => {
     resizeObserver.disconnect()
-    headingObserver.disconnect()
+    // Clean up heading observers
+    headings.value.forEach((heading) => {
+      if (heading._stopObserver) {
+        heading._stopObserver()
+      }
+    })
   })
 })
 
-// Then update the teleport to be conditional on both the target existing and not being mobile
-const tocTarget = ref(null)
+// Use computed for reactive DOM element reference
+const tocTarget = computed(() => {
+  if (!process.client) return null
+  return document.getElementById('nav-toc-container')
+})
 
+// Fixed: Using proper Vue patterns
 onMounted(() => {
-  if (process.client) {
-    tocTarget.value = document.querySelector('#nav-toc-container')
-  }
-
+  // TOC target will be handled by computed ref
   // Also check if the post has TOC data
 })
 
+// Fixed: Using Vue computed ref for reactive DOM queries
 // Add a watcher for route changes to reinitialize the TOC
 watch(
   () => route.path,
@@ -173,10 +168,7 @@ watch(
     // Add a small delay to ensure DOM is fully updated
     await new Promise((resolve) => setTimeout(resolve, 100))
 
-    // Re-initialize TOC target when route changes
-    if (process.client) {
-      tocTarget.value = document.querySelector('#nav-toc-container')
-    }
+    // TOC target will update automatically via computed ref
 
     // If not found on first try, retry with increasing delays
     if (!tocTarget.value) {
@@ -269,7 +261,7 @@ const renderedTitle = computed(() => {
 // Simpler typing animation
 async function typeText() {
   if (process.server || animationState.isAnimating) return
-  
+
   animationState.isAnimating = true
   animationState.visibleLetters.clear()
   animationState.cursorPosition = 0
@@ -279,7 +271,10 @@ async function typeText() {
 
   for (let i = 0; i < letters.value.length; i++) {
     const letter = letters.value[i]
-    const delay = letter.isSpace || /[.,!?;:]/.test(letter.char) ? PAUSE_DELAY : LETTER_DELAY
+    const delay =
+      letter.isSpace || /[.,!?;:]/.test(letter.char)
+        ? PAUSE_DELAY
+        : LETTER_DELAY
     await new Promise((resolve) => setTimeout(resolve, delay))
     animationState.visibleLetters.add(letter.id)
     animationState.cursorPosition = i
@@ -707,7 +702,9 @@ const processedMetadata = computed(() => {
           :key="tag"
           class="inline-block mr-2 mb-2"
         >
-          <span class="px-2 py-1 text-xs font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 rounded">{{ tag }}</span>
+          <span
+            class="px-2 py-1 text-xs font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 rounded"
+          >{{ tag }}</span>
         </span>
       </div>
 
@@ -958,10 +955,19 @@ const processedMetadata = computed(() => {
 /* Full-width images while keeping text constrained */
 .blog-post-content {
   /* Constrain paragraphs and most content to prose width */
-  p, h1, h2, h3, h4, h5, h6, ul, ol, blockquote {
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  ul,
+  ol,
+  blockquote {
     max-width: 65ch;
   }
-  
+
   /* Break images out to full width */
   img {
     @apply w-screen max-w-none mx-auto;

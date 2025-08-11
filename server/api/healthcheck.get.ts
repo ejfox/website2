@@ -12,8 +12,8 @@ export default defineEventHandler(async (event) => {
     }
 
     // Basic health checks
-    const health: unknown = {
-      status: 'healthy',
+    const health = {
+      status: 'healthy' as 'healthy' | 'degraded' | 'error',
       timestamp: new Date().toISOString(),
       uptime: Math.floor(process.uptime()),
       node: process.version,
@@ -22,7 +22,8 @@ export default defineEventHandler(async (event) => {
       memory: {
         used: Math.round(process.memoryUsage().heapUsed / 1024 / 1024), // MB
         total: Math.round(process.memoryUsage().heapTotal / 1024 / 1024) // MB
-      }
+      },
+      manifest: 'pending' as 'ok' | 'error' | 'pending'
     }
 
     // Test critical API endpoint

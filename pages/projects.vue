@@ -2,6 +2,8 @@
 import { format } from 'date-fns'
 import { animate, stagger as _stagger } from '~/anime.esm.js'
 import { useStorage } from '@vueuse/core'
+import { useAnimations } from '~/composables/useAnimations'
+import { useScrollAnimation } from '~/composables/useScrollAnimation'
 
 const { data: projects } = await useAsyncData('projects-page-data', () => 
   $fetch('/api/projects')
@@ -79,7 +81,7 @@ useHead({
           A collection of experiments, tools, and creative explorations.
         </p>
       </div>
-      <button @click="isGrid = !isGrid" class="px-3 py-1 text-sm border rounded hover:bg-zinc-50 dark:hover:bg-zinc-900">
+      <button class="px-3 py-1 text-sm border rounded hover:bg-zinc-50 dark:hover:bg-zinc-900" @click="isGrid = !isGrid">
         {{ isGrid ? 'List' : 'Grid' }}
       </button>
     </header>

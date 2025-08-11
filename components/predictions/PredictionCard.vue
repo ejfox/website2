@@ -109,6 +109,8 @@ import { useAnimatables } from '~/composables/useAnimatables'
 import { useAnimations } from '~/composables/useAnimations'
 
 interface Prediction {
+  id: string
+  slug?: string
   title: string
   description: string
   confidence: number
@@ -171,13 +173,13 @@ const statusColor = computed(() => {
 })
 
 const statusBadgeColor = computed(() => {
-  const statusColors = {
+  const statusColors: Record<string, string> = {
     correct: 'bg-zinc-100 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-200',
     incorrect: 'bg-zinc-200 text-zinc-900 dark:bg-zinc-700 dark:text-zinc-300',
     ambiguous: 'bg-zinc-100 text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400',
     resolved: 'bg-zinc-100 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-200'
   }
-  return statusColors[props.prediction.status] || 'bg-zinc-100 text-zinc-500 dark:bg-zinc-900 dark:text-zinc-500'
+  return props.prediction.status ? statusColors[props.prediction.status] || 'bg-zinc-100 text-zinc-500 dark:bg-zinc-900 dark:text-zinc-500' : 'bg-zinc-100 text-zinc-500 dark:bg-zinc-900 dark:text-zinc-500'
 })
 
 const formatDate = (dateString: string) => 
@@ -204,7 +206,8 @@ const setupCardInteractions = () => {
   if (process.server || !cardRef.value) return
   
   try {
-    cardAnimatable.value = createDataCard(cardRef.value)
+    // Pass the element, not a string
+    cardAnimatable.value = createDataCard(cardRef.value as any)
     
     // Add hover interactions for the entire card
     cardRef.value.addEventListener('mouseenter', () => {
@@ -236,10 +239,10 @@ const animateConfidenceDisplay = () => {
   if (process.server) return
   
   // Animate confidence number
-  if (confidenceRef.value) {
+  if (confidenceRef.value && dataCounter) {
     dataCounter(confidenceRef.value, props.prediction.confidence, {
-      duration: timing.slower, // 1200ms - standardized
-      ease: easing.standard,
+      duration: timing.value.dramatic, // 1200ms - standardized
+      ease: 'cubicBezier(0.4, 0, 0.2, 1)',
       update: () => {
         const currentVal = parseFloat(confidenceRef.value?.textContent?.replace(/[^0-9.-]/g, '') || '0')
         displayConfidence.value = Math.round(currentVal)
@@ -253,7 +256,7 @@ const animateConfidenceDisplay = () => {
   // Animate progress bar with standardized timing
   setTimeout(() => {
     displayProgress.value = props.prediction.confidence
-  }, timing.normal)
+  }, timing.value.normal)
 }
 
 // Main card reveal animation with data processing effect using motion tokens
@@ -266,51 +269,53 @@ const animateCardReveal = async () => {
   hasAnimated.value = true
   
   // Stage 1: Main card processing reveal
-  dataProcessing(cardRef.value, {
-    duration: timing.slow, // 800ms - standardized
-    ease: easing.standard
-  })
+  if (dataProcessing) {
+    dataProcessing(cardRef.value, {
+      duration: timing.value.slow, // 800ms - standardized
+      ease: 'cubicBezier(0.4, 0, 0.2, 1)'
+    })
+  }
   
   // Stage 2: Title critical highlight
   setTimeout(() => {
-    if (titleRef.value) {
+    if (titleRef.value && criticalHighlight) {
       criticalHighlight(titleRef.value, {
-        duration: timing.slow, // 800ms - standardized
-        easing: easing.standard
+        duration: timing.value.slow, // 800ms - standardized
+        easing: 'cubicBezier(0.4, 0, 0.2, 1)'
       })
     }
-  }, timing.normal) // 400ms - standardized
+  }, timing.value.normal) // 400ms - standardized
   
   // Stage 3: Metadata stream
   setTimeout(() => {
-    if (metadataRef.value) {
+    if (metadataRef.value && dataStream) {
       dataStream(metadataRef.value, {
-        duration: timing.normal, // 400ms - standardized
-        easing: easing.standard
+        duration: timing.value.normal, // 400ms - standardized
+        easing: 'cubicBezier(0.4, 0, 0.2, 1)'
       })
     }
     
     // Badge highlight if present
-    if (badgeRef.value) {
+    if (badgeRef.value && criticalHighlight) {
       criticalHighlight(badgeRef.value, {
-        duration: timing.normal, // 400ms - standardized
-        easing: easing.expressive
+        duration: timing.value.normal, // 400ms - standardized
+        easing: 'cubicBezier(0.4, 0.14, 0.3, 1)'
       })
     }
-  }, timing.slow - 200) // 600ms - standardized
+  }, timing.value.slow - 200) // 600ms - standardized
   
   // Stage 4: Description and confidence animation
   setTimeout(() => {
-    if (descriptionRef.value) {
+    if (descriptionRef.value && dataStream) {
       dataStream(descriptionRef.value, {
-        duration: timing.normal, // 400ms - standardized
-        easing: easing.standard
+        duration: timing.value.normal, // 400ms - standardized
+        easing: 'cubicBezier(0.4, 0, 0.2, 1)'
       })
     }
     
     // Animate confidence display
     animateConfidenceDisplay()
-  }, timing.slow) // 800ms - standardized
+  }, timing.value.slow) // 800ms - standardized
   
   // Stage 5: Secondary sections
   const sections = [
@@ -321,18 +326,20 @@ const animateCardReveal = async () => {
   
   sections.forEach((section, i) => {
     setTimeout(() => {
-      dataStream(section, {
-        duration: timing.slow,
-        easing: easing.standard,
-        delay: i * staggers.normal
-      })
-    }, timing.expressive + (i * staggers.loose))
+      if (dataStream) {
+        dataStream(section, {
+          duration: timing.value.slow,
+          easing: 'cubicBezier(0.4, 0, 0.2, 1)',
+          delay: i * staggers.normal
+        })
+      }
+    }, timing.value.dramatic + (i * staggers.loose))
   })
   
   // Stage 6: Setup interactions after reveal
   setTimeout(() => {
     setupCardInteractions()
-  }, timing.expressive + staggers.dramatic)
+  }, timing.value.dramatic + staggers.dramatic)
 }
 
 onMounted(async () => {

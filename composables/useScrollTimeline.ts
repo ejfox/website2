@@ -241,7 +241,7 @@ export function useScrollTimeline(options: ScrollTimelineOptions = {}) {
               { opacity: 0.8, scale: 1.2, rotateZ: -10 },
               { opacity: 1, scale: 1, rotateZ: 0 }
             ],
-            duration: timing.normal, // was 500
+            duration: timing.value.normal, // was 500
             delay: stagger(8, { 
               grid: [config.gridConfig?.cols || 10, config.gridConfig?.rows || 10], 
               from: 'center' 

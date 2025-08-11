@@ -134,8 +134,8 @@ const animateInitialReveal = async () => {
   // Stage 1: Reveal the container with system scan effect
   if (containerRef.value) {
     // criticalHighlight(containerRef.value, {
-    //   duration: timing.expressive,
-    //   easing: easing.bounce
+    //   duration: timing.value.dramatic,
+    //   easing: 'outElastic(1, .8)'
     // })
   }
   
@@ -150,16 +150,16 @@ const animateInitialReveal = async () => {
   setTimeout(() => {
     if (labelRef.value) {
       // dataStream(labelRef.value, {
-      //   duration: timing.slow,
-      //   easing: easing.standard
+      //   duration: timing.value.slow,
+      //   easing: 'cubicBezier(0.4, 0, 0.2, 1)'
       // })
     }
     
     if (detailsRef.value) {
       setTimeout(() => {
         // dataStream(detailsRef.value, {
-        //   duration: timing.normal,
-        //   easing: easing.standard
+        //   duration: timing.value.normal,
+        //   easing: 'cubicBezier(0.4, 0, 0.2, 1)'
         // })
       }, 150)
     }

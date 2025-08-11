@@ -127,67 +127,62 @@ const animateContributions = async () => {
     // Stage 1: Header slide in
     const header = contributionsRef.value.querySelector('.section-subheader')
     if (header) {
-      timeline.add({
-        targets: header,
+      timeline.add(header, {
         opacity: [0, 1],
         translateX: [-15, 0],
         scale: [0.9, 1],
-        duration: timing.slow,
-        ease: easing.standard
+        duration: timing.value.slow,
+        ease: 'cubicBezier(0.4, 0, 0.2, 1)'
       })
     }
     
     // Stage 2: Calendar container emergence
     const calendar = contributionsRef.value.querySelector('.mini-calendar')
     if (calendar) {
-      timeline.add({
-        targets: calendar,
+      timeline.add(calendar, {
         opacity: [0, 1],
         scale: [0.9, 1.02, 1],
         filter: ['blur(1px)', 'blur(0px)'],
-        duration: timing.slow,
-        ease: easing.bounce
+        duration: timing.value.slow,
+        ease: 'outElastic(1, .8)'
       }, '-=200')
     }
     
     // Stage 3: Epic contribution squares cascade - week by week stagger
     const squares = contributionsRef.value.querySelectorAll('.contribution-square')
     if (squares.length) {
-      timeline.add({
-        targets: Array.from(squares),
+      timeline.add(Array.from(squares), {
         keyframes: [
           { opacity: 0, scale: 0, rotateZ: -45 },
           { opacity: 0.8, scale: 1.3, rotateZ: 15 },
           { opacity: 1, scale: 1, rotateZ: 0 }
         ],
-        duration: timing.slow,
+        duration: timing.value.slow,
         delay: _stagger(staggers.tight, { grid: [8, 7], from: 'center' }),
-        ease: easing.bounce
+        ease: 'outElastic(1, .8)'
       }, '-=300')
     }
     
     // Stage 4: Active squares pulse effect
     const activeSquares = contributionsRef.value.querySelectorAll('.contribution-square.bg-zinc-600, .contribution-square.bg-zinc-500')
     if (activeSquares.length) {
-      timeline.add({
-        targets: Array.from(activeSquares),
+      timeline.add(Array.from(activeSquares), {
         scale: [1, 1.2, 1],
-        duration: timing.normal,
+        duration: timing.value.normal,
         delay: _stagger(staggers.tight),
-        ease: easing.standard
+        ease: 'cubicBezier(0.4, 0, 0.2, 1)'
       }, '-=100')
     }
     
     // Stage 5: Date labels fade in
     const dateLabels = contributionsRef.value.querySelectorAll('.mini-calendar > div:last-child span')
     if (dateLabels.length) {
-      timeline.add({
-        targets: Array.from(dateLabels),
+      timeline.add(Array.from(dateLabels), {
         opacity: [0, 1],
         translateY: [10, 0],
-        duration: timing.normal,
+        duration: timing.value.normal,
         delay: _stagger(staggers.normal),
-        ease: easing.standard
+        ease: 'cubicBezier(0.4, 0, 0.2, 1)'
       }, '-=200')
     }
   }

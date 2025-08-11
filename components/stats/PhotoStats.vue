@@ -143,27 +143,25 @@ const animatePhotoStats = async () => {
     
     // Stage 1: Primary photo stat dramatic entrance
     if (primaryStatRef.value) {
-      timeline.add({
-        targets: primaryStatRef.value,
+      timeline.add(primaryStatRef.value, {
         keyframes: [
           { opacity: 0, scale: 0.8, rotateY: -20, filter: 'blur(1px)' },
           { opacity: 0.8, scale: 1.1, rotateY: 5, filter: 'blur(0.3px)' },
           { opacity: 1, scale: 1, rotateY: 0, filter: 'blur(0px)' }
         ],
-        duration: timing.expressive,
-        ease: easing.bounce
+        duration: timing.value.dramatic,
+        ease: 'outElastic(1, .8)'
       })
     }
     
     // Stage 2: Monthly stats slide in
     if (monthlyStatsRef.value) {
-      timeline.add({
-        targets: monthlyStatsRef.value,
+      timeline.add(monthlyStatsRef.value, {
         opacity: [0, 1],
         translateY: [20, 0],
         scale: [0.95, 1.02, 1],
-        duration: timing.slow,
-        ease: easing.productive
+        duration: timing.value.slow,
+        ease: 'cubicBezier(0.2, 0, 0.38, 0.9)'
       }, '-=400')
     }
     
@@ -171,16 +169,15 @@ const animatePhotoStats = async () => {
     if (cameraStatsRef.value && hasCameraData.value) {
       const equipmentItems = cameraStatsRef.value.querySelectorAll('.stat-item')
       if (equipmentItems.length) {
-        timeline.add({
-          targets: Array.from(equipmentItems),
+        timeline.add(Array.from(equipmentItems), {
           keyframes: [
             { opacity: 0, scale: 0.7, rotateZ: -10, filter: 'blur(1px)' },
             { opacity: 0.8, scale: 1.1, rotateZ: 3, filter: 'blur(0.3px)' },
             { opacity: 1, scale: 1, rotateZ: 0, filter: 'blur(0px)' }
           ],
-          duration: timing.expressive,
+          duration: timing.value.dramatic,
           delay: _stagger(staggers.normal, { grid: [2, 2], from: 'center' }),
-          ease: easing.bounce
+          ease: 'outElastic(1, .8)'
         }, '-=200')
       }
     }

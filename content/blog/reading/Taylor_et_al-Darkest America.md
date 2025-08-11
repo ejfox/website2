@@ -11,14 +11,14 @@ tags:
   - america
   - culture
   - comedy
-date: 2022-12-14T20:29:23.000Z
-modified: 2022-12-23T16:05:43.000Z
+date: 2022-12-14T15:29:23-05:00
+modified: 2025-08-01T20:42:11-04:00
 ---
-# Darkest America
+## Darkest America
 
-#america #politics #culture 
+#america #politics #culture
 
-# Metadata
+## Metadata
 
 * Author: [Yuval Taylor, Jake Austen, and Mel Watkins](https://www.amazon.com/Yuval-Taylor/e/B007K2NWYC/ref=dp_byline_cont_ebooks_1)
 
@@ -30,7 +30,7 @@ modified: 2022-12-23T16:05:43.000Z
 
 * [Kindle link](kindle://book?action=open&asin=B007HXFLOI)
 
-# Highlights
+## Highlights
 
 Similarly, the less educated the master, the less intelligent the slave had to appear, so as to remain the master’s inferior while keeping him amused; and since American slave owners were usually less educated than Europeans, the kind of comedy that arose in American life featured a more dim-witted fool than had ever been seen on stage before. Every idiocy had to be exaggerated for effect, from misuse of language to physical ineptitude. — location: [472](kindle://book?action=open&asin=B007HXFLOI&location=472) ^ref-23001
 

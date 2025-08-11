@@ -79,8 +79,8 @@ const setupScrollAnimations = () => {
         opacity: [0, 1],
         translateX: [-10, 0],
         scale: [0.9, 1],
-        duration: timing.slow,
-        ease: easing.standard,
+        duration: timing.value.slow,
+        ease: 'cubicBezier(0.4, 0, 0.2, 1)',
         autoplay: onScroll({
           target: header,
           onEnter: () => true
@@ -95,9 +95,9 @@ const setupScrollAnimations = () => {
         opacity: [0, 1],
         translateY: [15, 0],
         scale: [0.95, 1.02, 1],
-        duration: timing.slow,
+        duration: timing.value.slow,
         delay: _stagger(staggers.tight),
-        ease: easing.productive,
+        ease: 'cubicBezier(0.2, 0, 0.38, 0.9)',
         autoplay: onScroll({
           target: patternRows[0],
           onEnter: () => true
@@ -111,9 +111,9 @@ const setupScrollAnimations = () => {
       animate(Array.from(bars), {
         scaleX: [0, 1.1, 1],
         scaleY: [0.3, 1.2, 1],
-        duration: timing.expressive,
+        duration: timing.value.dramatic,
         delay: _stagger(staggers.normal, { from: 'first' }),
-        ease: easing.bounce,
+        ease: 'outElastic(1, .8)',
         autoplay: onScroll({
           target: bars[0],
           onEnter: () => true

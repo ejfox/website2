@@ -10,7 +10,7 @@
       </div>
       <div class="stat-details">
         <AnimatedNumber :value="stats.totalFiles" format="default" :duration="timing.normal" priority="secondary" /> FILES · 
-        <AnimatedNumber :value="stats.averageFilesPerGist" format="decimal" decimals="1" :duration="timing.normal" priority="tertiary" /> AVG
+        <AnimatedNumber :value="stats.averageFilesPerGist" format="decimal" :decimals="1" :duration="timing.normal" priority="tertiary" /> AVG
       </div>
     </div>
 

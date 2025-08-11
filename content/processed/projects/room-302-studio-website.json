@@ -1,6 +1,6 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I worked with studio designer Sam Vogt to develop and implement a redesign of our studio site using Nuxt, Three.js, and TailwindCSS.</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I worked with studio designer Sam Vogt to develop and implement a redesign of our studio site using Nuxt, Three.js, and TailwindCSS.</p>",
+  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Worked with studio designer Sam Vogt to develop and implement a complete redesign of our studio site. Built with Nuxt, Three.js for the 3D elements, and TailwindCSS - showcasing our creative technology work.</p>",
+  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Worked with studio designer Sam Vogt to develop and implement a complete redesign of our studio site. Built with Nuxt, Three.js for the 3D elements, and TailwindCSS - showcasing our creative technology work.</p>",
   "title": "Room 302 Studio Website",
   "metadata": {
     "title": "Room 302 Studio Website",
@@ -8,7 +8,12 @@
     "modified": "2024-12-11T19:03:52.000Z",
     "url": "https://room302.studio",
     "image": "https://res.cloudinary.com/ejf/image/upload/v1733943485/Screenshot_2024-12-11_at_1.57.42_PM.png",
-    "words": 23,
+    "tech": [
+      "Nuxt.js",
+      "Three.js",
+      "TailwindCSS"
+    ],
+    "words": 34,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,

@@ -614,6 +614,7 @@ export const useProcessedMarkdown = () => {
         title: post.metadata?.title || post.title || formatTitle(post.slug),
         date: getValidDate(post.metadata?.date || post.date),
         // Use metadata html if available (from manifest)
+        // @ts-expect-error - html may exist on metadata
         html: post.html || post.metadata?.html || ''
       }))
       .sort((a: Post, b: Post) => compareDates(b.date, a.date))

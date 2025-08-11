@@ -415,30 +415,28 @@ const animateBlogStats = async () => {
   
   // ANIME.JS SUPERPOWER: Perfect timeline with overlap control
   if (blogStatsRef.value) {
-    timeline.add({
-      targets: blogStatsRef.value,
+    timeline.add(blogStatsRef.value, {
       opacity: [0, 1],
       scale: [0.95, 1.02, 1],
       rotateX: [-5, 0], // 3D rotation impossible in CSS keyframes
       filter: ['blur(1px)', 'blur(0px)'],
-      duration: timing.expressive,
-      ease: easing.expressive
+      duration: timing.value.dramatic,
+      ease: 'cubicBezier(0.4, 0.14, 0.3, 1)'
     })
   }
   
   // ANIME.JS SUPERPOWER: Directional stagger with 3D transforms
   const statusCards = [postsCardRef.value, wordsCardRef.value].filter(Boolean)
   if (statusCards.length) {
-    timeline.add({
-      targets: statusCards,
+    timeline.add(statusCards, {
       keyframes: [
         { opacity: 0, scale: 0.7, rotateY: -60, translateZ: 30, filter: 'blur(1px)' },
         { opacity: 0.8, scale: 1.05, rotateY: 10, translateZ: -10, filter: 'blur(0.3px)' },
         { opacity: 1, scale: 1, rotateY: 0, translateZ: 0, filter: 'blur(0px)' }
       ],
-      duration: timing.slower,
-      delay: _stagger(120, { direction: 'reverse' }),
-      ease: easing.expressive
+      duration: timing.value.dramatic,
+      delay: _stagger(120, { from: 'last' }),
+      ease: 'cubicBezier(0.4, 0.14, 0.3, 1)'
     }, '-=400')
   }
   
@@ -446,14 +444,13 @@ const animateBlogStats = async () => {
   if (progressListRef.value) {
     const progressRows = progressListRef.value.querySelectorAll('.progress-row')
     if (progressRows.length) {
-      timeline.add({
-        targets: Array.from(progressRows),
+      timeline.add(Array.from(progressRows), {
         opacity: [0, 1],
         translateX: [-20, 0],
         scale: [0.92, 1.02, 1],
-        duration: timing.slow,
+        duration: timing.value.slow,
         delay: _stagger(80, { from: 'first' }),
-        ease: easing.productive
+        ease: 'cubicBezier(0.2, 0, 0.38, 0.9)'
       }, '-=300')
     }
   }
@@ -462,14 +459,13 @@ const animateBlogStats = async () => {
   if (velocityListRef.value) {
     const velocityRows = velocityListRef.value.children
     if (velocityRows.length) {
-      timeline.add({
-        targets: Array.from(velocityRows),
+      timeline.add(Array.from(velocityRows), {
         keyframes: [
           { opacity: 0, scale: 0.8, rotateZ: -5, filter: 'blur(0.5px)' },
           { opacity: 0.8, scale: 1.1, rotateZ: 2, filter: 'blur(0.2px)' },
           { opacity: 1, scale: 1, rotateZ: 0, filter: 'blur(0px)' }
         ],
-        duration: timing.slow,
+        duration: timing.value.slow,
         delay: _stagger(80, { from: 'center' }),
         ease: 'outElastic(1, .8)'
       }, '-=200')
@@ -478,27 +474,25 @@ const animateBlogStats = async () => {
   
   // Stage 5: Calendar dramatic reveal
   if (calendarRef.value) {
-    timeline.add({
-      targets: calendarRef.value,
+    timeline.add(calendarRef.value, {
       keyframes: [
         { opacity: 0, scale: 0.9, rotateX: -15, filter: 'blur(1px)' },
         { opacity: 0.8, scale: 1.03, rotateX: 5, filter: 'blur(0.3px)' },
         { opacity: 1, scale: 1, rotateX: 0, filter: 'blur(0px)' }
       ],
-      duration: timing.expressive,
+      duration: timing.value.dramatic,
       ease: 'outElastic(1, .8)'
     }, '-=100')
   }
   
   // Stage 6: Calendar stats reveal
   if (calendarStatsRef.value) {
-    timeline.add({
-      targets: calendarStatsRef.value,
+    timeline.add(calendarStatsRef.value, {
       opacity: [0, 1],
       translateY: [10, 0],
       scale: [0.9, 1],
-      duration: timing.normal,
-      ease: easing.standard
+      duration: timing.value.normal,
+      ease: 'cubicBezier(0.4, 0, 0.2, 1)'
     }, '-=200')
   }
 }

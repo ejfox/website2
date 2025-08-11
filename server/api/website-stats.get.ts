@@ -74,8 +74,9 @@ export default defineEventHandler(async () => {
     
   } catch (error) {
     console.error('Website stats error:', error)
+    const errorMessage = error instanceof Error ? error.message : 'Failed to fetch website stats'
     return {
-      error: error.message || 'Failed to fetch website stats',
+      error: errorMessage,
       stats: null
     }
   }

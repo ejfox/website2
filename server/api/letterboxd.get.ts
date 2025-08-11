@@ -13,7 +13,7 @@ export default defineEventHandler(async (_event) => {
     const films = []
     
     // Extract film data from the activity timeline
-    const activityMatches = response.match(/<li><p>[\s\S]*?<\/p><\/li>/g) || []
+    const activityMatches = (response as string).match(/<li><p>[\s\S]*?<\/p><\/li>/g) || []
     
     for (const activityHtml of activityMatches) {
       try {
@@ -47,7 +47,7 @@ export default defineEventHandler(async (_event) => {
     }
     
     // Also try to extract from the stats section
-    const statsMatches = response.match(/(\d+) films?/i)
+    const statsMatches = (response as string).match(/(\d+) films?/i)
     const totalFilms = statsMatches ? parseInt(statsMatches[1]) : films.length
     
     // Calculate stats
@@ -57,7 +57,7 @@ export default defineEventHandler(async (_event) => {
     
     const ratedFilms = films.filter(f => f.rating)
     const averageRating = ratedFilms.length > 0 
-      ? ratedFilms.reduce((sum, f) => sum + f.rating, 0) / ratedFilms.length 
+      ? ratedFilms.reduce((sum, f) => sum + (f.rating || 0), 0) / ratedFilms.length 
       : 0
     
     const stats = {
@@ -71,7 +71,7 @@ export default defineEventHandler(async (_event) => {
       }).length,
       averageRating: Math.round(averageRating * 10) / 10,
       rewatches: 0, // Hard to detect from this scraping method
-      topRatedFilms: films.filter(f => f.rating >= 4).slice(0, 10),
+      topRatedFilms: films.filter(f => f.rating && f.rating >= 4).slice(0, 10),
       recentFilms: films.slice(0, 10),
       filmsByMonth: {}
     }
@@ -100,7 +100,7 @@ export default defineEventHandler(async (_event) => {
         filmsByMonth: {}
       },
       lastUpdated: new Date().toISOString(),
-      error: 'HTML scraping failed - ' + (error.message || 'Unknown error'),
+      error: 'HTML scraping failed - ' + (error instanceof Error ? error.message : 'Unknown error'),
       source: 'HTML scraping (RSS was empty)'
     }
   }

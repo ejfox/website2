@@ -1,12 +1,11 @@
 ---
+title: "CLI Tools Collection"
 date: 2024-10-12T19:52:50-04:00
 modified: 2024-12-11T13:49:33-05:00
 image: http://res.cloudinary.com/ejf/image/upload/v1733942968/Screenshot_2024-12-11_at_1.49.13_PM.png
-
+tech: ["Node.js", "CLI", "ASCII Art", "Git", "AI"]
 ---
-## Command Line Tools
-
-Cyberpunk-inspired CLI tools for developers. These apps enhance productivity, creativity, and add futuristic vibes to your terminal. From [Conway's Game of Life](https://github.com/ejfox/cli-conway) to [git management](https://github.com/ejfox/git-status-dash), each tool is designed for both functionality and aesthetics. Perfect for livestreaming or just making your coding sessions feel more cyberpunk.
+Cyberpunk-inspired CLI tools for developers. These enhance productivity, creativity, and add futuristic vibes to your terminal. Each tool designed for both functionality and aesthetics - perfect for livestreaming or just making your coding sessions feel more cyberpunk.
 
 ### Project List
 

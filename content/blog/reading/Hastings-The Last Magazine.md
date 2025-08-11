@@ -7,19 +7,19 @@ kindle-sync:
   lastAnnotatedDate: '2019-04-11'
   bookImageUrl: 'https://m.media-amazon.com/images/I/819oeJKp3wL._SY160.jpg'
   highlightsCount: 6
-date: 2022-12-26T16:48:07.000Z
-modified: 2022-12-27T20:13:52.000Z
+date: 2022-12-26T11:48:07-05:00
+modified: 2025-08-01T20:42:42-04:00
 tags:
   - journalism
   - media
   - politics
   - writing
 ---
-# The Last Magazine
+## The Last Magazine
 
-#fiction #journalism 
+#fiction #journalism
 
-# Metadata
+## Metadata
 
 * Author: [Michael Hastings](https://www.amazon.com/Michael-Hastings/e/B001JRZZ4E/ref=dp_byline_cont_ebooks_1)
 
@@ -31,7 +31,7 @@ tags:
 
 * [Kindle link](kindle://book?action=open&asin=B00G3L7TRM)
 
-# Highlights
+## Highlights
 
 Exterminate all the brutes, he thinks, remembering his Conrad. Exterminate all rational thought, he thinks, remembering his Burroughs. And between those two lines written sixty years apart, you have the entire canon of Western liter . . — location: [1269](kindle://book?action=open&asin=B00G3L7TRM&location=1269) ^ref-14508
 

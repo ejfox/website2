@@ -369,8 +369,8 @@ const animateDayProgress = () => {
   
   animate({ count: 0 }, {
     count: dayOfYear,
-    duration: timing.slower,
-    ease: easing.standard,
+    duration: timing.value.dramatic,
+    ease: 'cubicBezier(0.4, 0, 0.2, 1)',
     update: (anim) => {
       const currentVal = Math.round(anim.animatables[0].target.count)
       displayDayOfYear.value = currentVal
@@ -398,7 +398,7 @@ const animateStatsReveal = async () => {
     animate(headerRef.value, {
       opacity: [0, 1],
       translateY: [-10, 0],
-      duration: timing.slow,
+      duration: timing.value.slow,
       ease: easing.decelerate
     })
   }
@@ -415,7 +415,7 @@ const animateStatsReveal = async () => {
       animate(Array.from(allStatElements), {
         opacity: [0, 1],
         scale: [0.9, 1],
-        duration: timing.normal,
+        duration: timing.value.normal,
         delay: stagger(30),
         ease: easing.decelerate
       })

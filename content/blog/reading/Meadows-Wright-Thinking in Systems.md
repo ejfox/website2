@@ -7,15 +7,15 @@ kindle-sync:
   lastAnnotatedDate: '2021-11-04'
   bookImageUrl: 'https://m.media-amazon.com/images/I/51q+TMvkNFL._SY160.jpg'
   highlightsCount: 5
-date: 2022-12-14T20:24:46.000Z
-modified: 2022-12-23T16:25:27.000Z
+date: 2022-12-14T15:24:46-05:00
+modified: 2025-08-01T20:46:39-04:00
 tags: []
 ---
-# Thinking in Systems
+## Thinking in Systems
 
-#systemsthinking 
+#systemsthinking
 
-# Metadata
+## Metadata
 
 * Author: [Donella H. Meadows and Diana Wright](https://www.amazon.com/Donella-H-Meadows/e/B001JPC6AC/ref=dp_byline_cont_ebooks_1)
 
@@ -25,7 +25,7 @@ tags: []
 
 * [Kindle link](kindle://book?action=open&asin=B005VSRFEA)
 
-# Highlights
+## Highlights
 
 Some interconnections in systems are actual physical flows, such as the water in the tree’s trunk or the students progressing through a university. Many interconnections are flows of information—signals that go to decision points or action points within a system. These kinds of interconnections are often harder to see, but the system reveals them to those who look. — location: [354](kindle://book?action=open&asin=B005VSRFEA&location=354) ^ref-37714
 

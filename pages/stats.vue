@@ -3,7 +3,9 @@
     <!-- Stats TOC -->
     <teleport v-if="tocTarget && !isSimpleMode" to="#nav-toc-container">
       <div class="px-4">
-        <h3 class="text-mono-label mb-4">Stats Index</h3>
+        <h3 class="text-mono-label mb-4">
+          Stats Index
+        </h3>
         <ul class="space-y-1">
           <li v-for="section in statsSections" :key="section.id">
             <a
@@ -79,13 +81,13 @@ const stats = computed(() => rawStats.value || {})
 const { getAllPosts } = useProcessedMarkdown()
 
 // Blog stats calculation
-const blogStats = ref(null)
-const cachedPosts = shallowRef(null)
+const blogStats = ref<any>(null)
+const cachedPosts = shallowRef<any[] | null>(null)
 
 // External service data
-const letterboxdData = ref(null)
-const steamData = ref(null)
-const goodreadsData = ref(null)
+const letterboxdData = ref<any>(null)
+const steamData = ref<any>(null)
+const goodreadsData = ref<any>(null)
 
 onMounted(async () => {
   try {
@@ -137,14 +139,14 @@ onMounted(async () => {
     }
 
     // Calculate blog statistics
-    const allTags = new Set()
-    const tagCounts = {}
-    const postsByMonth = {}
+    const allTags = new Set<string>()
+    const tagCounts: Record<string, number> = {}
+    const postsByMonth: Record<string, number> = {}
     const now = new Date()
     const currentMonth = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`
 
     const { totalWords, wordCount, firstDate, lastDate } = posts.reduce(
-      (acc, post) => {
+      (acc: any, post: any) => {
         const postWordCount = post?.wordCount || post?.metadata?.words || 0
         const postDate = new Date(
           post?.date || post?.metadata?.date || new Date()
@@ -157,7 +159,7 @@ onMounted(async () => {
         postsByMonth[month] = (postsByMonth[month] || 0) + 1
 
         if (post?.metadata?.tags) {
-          post.metadata.tags.forEach((tag) => {
+          post.metadata.tags.forEach((tag: string) => {
             allTags.add(tag)
             tagCounts[tag] = (tagCounts[tag] || 0) + 1
           })
@@ -273,7 +275,7 @@ const transformedHealthStats = computed(() => {
 })
 
 // TOC and navigation
-const tocTarget = ref(null)
+const tocTarget = ref<Element | null>(null)
 const activeSection = ref('overview')
 const route = useRoute()
 const isSimpleMode = computed(() => route.query.simple !== undefined)
