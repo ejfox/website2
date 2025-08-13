@@ -177,8 +177,8 @@ import { formatNumber as _formatNumber, formatDecimal as _formatDecimal } from '
 import StatsSectionHeader from './StatsSectionHeader.vue'
 import StatsDataState from './StatsDataState.vue'
 import AnimatedNumber from '../AnimatedNumber.vue'
-import { animate, stagger, onScroll } from '~/anime.esm.js'
-import { useAnimations } from '~/composables/useAnimations'
+// NUKED BY BLOODHOUND: import { animate, stagger, onScroll } from '~/anime.esm.js'
+// NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
 
 interface LastFmImage {
   '#text': string
@@ -255,7 +255,7 @@ const props = defineProps<{
   stats: LastFmStats
 }>()
 
-const { timing, easing, staggers } = useAnimations()
+// NUKED BY BLOODHOUND: const { timing, easing, staggers } = useAnimations()
 
 // Check if we have meaningful data
 const hasData = computed(() => {
@@ -311,7 +311,7 @@ const setupScrollAnimations = () => {
     if (monthlyArtistsRef.value) {
       const artistRows = monthlyArtistsRef.value.querySelectorAll('.artist-row')
       if (artistRows.length) {
-        animate(Array.from(artistRows), {
+        // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(artistRows), {
           opacity: [0, 1],
           translateX: [-15, 0],
           rotateZ: [-2, 0], // Subtle rotation impossible in staggered CSS
@@ -330,7 +330,7 @@ const setupScrollAnimations = () => {
     if (monthlyTracksRef.value) {
       const trackRows = monthlyTracksRef.value.querySelectorAll('.track-row')
       if (trackRows.length) {
-        animate(Array.from(trackRows), {
+        // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(trackRows), {
           opacity: [0, 1],
           translateX: [-15, 0],
           scale: [0.96, 1],
@@ -346,7 +346,7 @@ const setupScrollAnimations = () => {
     if (yearlyArtistsRef.value) {
       const artistRows = yearlyArtistsRef.value.querySelectorAll('.artist-row')
       if (artistRows.length) {
-        animate(Array.from(artistRows), {
+        // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(artistRows), {
           opacity: [0, 1],
           translateX: [15, 0],
           scale: [0.95, 1],
@@ -362,7 +362,7 @@ const setupScrollAnimations = () => {
     if (yearlyTracksRef.value) {
       const trackRows = yearlyTracksRef.value.querySelectorAll('.track-row')
       if (trackRows.length) {
-        animate(Array.from(trackRows), {
+        // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(trackRows), {
           opacity: [0, 1],
           translateX: [15, 0],
           scale: [0.95, 1],

@@ -10,17 +10,14 @@ const { data: indexContent, pending: _indexPending } = await useAsyncData(
 //   getAllPosts()
 // )
 
-// Combine the pending states
-const pending = computed(() => _indexPending.value)
+// Remove pending state - we're SSR
+// const pending = computed(() => _indexPending.value)
 </script>
 
 <template>
   <main class="p-4 md:p-8">
-    <!-- Loading State -->
-    <div v-if="pending" class="max-w-3xl space-y-8"></div>
-
-    <!-- Content State -->
-    <div v-else class="max-w-3xl space-y-8">
+    <!-- Content -->
+    <div class="max-w-3xl space-y-8">
       <template v-if="indexContent">
         <h1>{{ indexContent.title }}</h1>
         <div
@@ -29,9 +26,6 @@ const pending = computed(() => _indexPending.value)
           v-html="indexContent.html"
         ></div>
       </template>
-      <div v-else class="text-center py-12">
-        Loading...
-      </div>
     </div>
   </main>
 </template>

@@ -1,9 +1,9 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Organizes annual summer gathering with event planning, RSVPs, and memory tracking</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Organizes annual summer gathering with event planning, RSVPs, and memory tracking</p>",
+  "content": "<p class=\"mb-4\">Organizes annual summer gathering with friends listed by personality traits like \"Sara (The Organizer)\" and \"Zack (Beach Master)\" with significant engineering effort invested in the social experience</p>",
+  "html": "<p class=\"mb-4\">Organizes annual summer gathering with friends listed by personality traits like \"Sara (The Organizer)\" and \"Zack (Beach Master)\" with significant engineering effort invested in the social experience</p>",
   "title": "cavapalooza",
   "metadata": {
-    "words": 13,
+    "words": 30,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,

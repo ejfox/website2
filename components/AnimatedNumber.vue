@@ -13,7 +13,8 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue'
 import { format as d3Format } from 'd3-format'
-import { useAnimations } from '~/composables/useAnimations'
+// NUKED: Animation import removed by bloodhound
+// import { useAnimations } from '~/composables/useAnimations'
 
 interface Props {
   value: number
@@ -30,7 +31,9 @@ interface Props {
   debug?: boolean
 }
 
-const { animate } = useAnimations()
+// NUKED: Animation composable usage obliterated
+// const { animate } = useAnimations()
+const displayValue = ref(props.value) // Show final value immediately
 
 const props = withDefaults(defineProps<Props>(), {
   startValue: 0,
@@ -63,7 +66,7 @@ const staggeredDelay = computed(() => {
 
 // Component refs
 const numberRef = ref<HTMLElement | null>(null)
-const displayValue = ref(props.startValue)
+// NUKED: displayValue now shows final value immediately instead of animating
 
 /**
  * Number formatter factory - D3-powered for data visualization
@@ -118,28 +121,13 @@ const formatter = computed(() => {
  * - Defers animation until after component mount
  * - Passes formatter function for efficient updates
  */
+// NUKED BY BLOODHOUND: All animation code obliterated
+// onMounted(() => {
+//   // Animation code completely removed - numbers show immediately
+// })
+
+// Set final value immediately on mount
 onMounted(() => {
-  // Early return if element not available
-  if (!numberRef.value) return
-  
-  // Stagger animation based on priority
-  setTimeout(() => {
-    if (numberRef.value) {
-      // Use custom counter that updates reactive displayValue
-      const animObj = { count: props.startValue }
-      
-      animate(animObj, {
-        count: props.value,
-        duration: props.duration,
-        ease: props.ease,
-        update: () => {
-          displayValue.value = animObj.count
-        },
-        complete: () => {
-          displayValue.value = props.value
-        }
-      })
-    }
-  }, staggeredDelay.value)
+  displayValue.value = props.value
 })
 </script>

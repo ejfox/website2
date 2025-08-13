@@ -25,24 +25,9 @@
     </teleport>
 
     <!-- Main Content -->
-    <!-- Loading state -->
-    <section
-      v-if="isLoading"
-      class="mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16"
-    >
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-      >
-        <div v-for="i in 12" :key="i" class="animate-pulse">
-          <div class="h-32 bg-zinc-200 dark:bg-zinc-800 rounded-lg"></div>
-        </div>
-      </div>
-    </section>
-
     <!-- Stats display -->
     <component
       :is="isSimpleMode ? SimpleStatsDisplay : FullStatsDisplay"
-      v-else
       :stats="stats"
       :blog-stats="validBlogStats"
       :transformed-health-stats="transformedHealthStats"

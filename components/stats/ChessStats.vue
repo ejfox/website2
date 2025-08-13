@@ -135,8 +135,8 @@
 <script setup lang="ts">
 import { computed, ref, onMounted, nextTick } from 'vue'
 import { format } from 'date-fns'
-import { animate, stagger as _stagger, createTimeline as _createTimeline, onScroll } from '~/anime.esm.js'
-import { useAnimations } from '~/composables/useAnimations'
+// NUKED BY BLOODHOUND: import { animate, stagger as _stagger, createTimeline as _createTimeline, onScroll } from '~/anime.esm.js'
+// NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
 import ActivityCalendar from './ActivityCalendar.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'
 import StatsDataState from './StatsDataState.vue'
@@ -195,7 +195,7 @@ const props = defineProps<{
   stats?: ChessStats | null
 }>()
 
-const { timing, easing, staggers } = useAnimations()
+// NUKED BY BLOODHOUND: const { timing, easing, staggers } = useAnimations()
 
 // Animation refs
 const chessStatsRef = ref<HTMLElement | null>(null)
@@ -360,7 +360,7 @@ const setupScrollAnimations = () => {
 
     // Stage 1: Primary stats dramatic entrance on scroll
     if (primaryStatsRef.value) {
-      animate(primaryStatsRef.value, {
+      // NUKED: // NUKED BY BLOODHOUND: // animate(primaryStatsRef.value, {
         keyframes: [
           { opacity: 0, scale: 0.8, rotateX: -15, filter: 'blur(1px)' },
           { opacity: 0.8, scale: 1.05, rotateX: 5, filter: 'blur(0.3px)' },
@@ -379,7 +379,7 @@ const setupScrollAnimations = () => {
     if (histogramRef.value) {
       const bars = histogramRef.value.querySelectorAll('.histogram-bar')
       if (bars.length) {
-        animate(Array.from(bars), {
+        // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(bars), {
           scaleY: [0, 1.2, 1],
           opacity: [0, 1],
           duration: timing.value.slow,
@@ -397,7 +397,7 @@ const setupScrollAnimations = () => {
     if (variantsRef.value) {
       const variants = variantsRef.value.children
       if (variants.length) {
-        animate(Array.from(variants), {
+        // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(variants), {
           opacity: [0, 1],
           translateX: [-15, 0],
           scale: [0.9, 1.05, 1],
@@ -414,7 +414,7 @@ const setupScrollAnimations = () => {
     
     // Stage 4: Activity calendar emergence on scroll
     if (calendarRef.value) {
-      animate(calendarRef.value, {
+      // NUKED: // NUKED BY BLOODHOUND: // animate(calendarRef.value, {
         keyframes: [
           { opacity: 0, scale: 0.9, rotateY: -10, filter: 'blur(1px)' },
           { opacity: 0.8, scale: 1.02, rotateY: 3, filter: 'blur(0.3px)' },
@@ -433,7 +433,7 @@ const setupScrollAnimations = () => {
     if (performanceRef.value) {
       const performanceRows = performanceRef.value.querySelectorAll('.velocity-row')
       if (performanceRows.length) {
-        animate(Array.from(performanceRows), {
+        // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(performanceRows), {
           opacity: [0, 1],
           translateY: [10, 0],
           scale: [0.95, 1],
@@ -452,7 +452,7 @@ const setupScrollAnimations = () => {
     if (recentGamesRef.value) {
       const gameRows = recentGamesRef.value.querySelectorAll('.game-row')
       if (gameRows.length) {
-        animate(Array.from(gameRows), {
+        // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(gameRows), {
           opacity: [0, 1],
           translateX: [-20, 0],
           scale: [0.98, 1],

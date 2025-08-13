@@ -27,7 +27,7 @@
 import { computed, ref, onMounted, watch } from 'vue'
 import { useWindowSize } from '@vueuse/core'
 import { format } from 'd3-format'
-import { useAnimations as _useAnimations } from '~/composables/useAnimations'
+// NUKED BY BLOODHOUND: import { useAnimations as _useAnimations } from '~/composables/useAnimations'
 
 interface Props {
   value: number | string

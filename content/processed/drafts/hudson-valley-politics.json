@@ -1,6 +1,6 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\"><strong class=\"\">Assemblymember Sarahana Shrestha</strong></p>\n<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\"><strong class=\"\">For The Many</strong></p>\n<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\"><strong class=\"\">Novo Foundation</strong></p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\"><strong class=\"\">Assemblymember Sarahana Shrestha</strong></p>\n<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\"><strong class=\"\">For The Many</strong></p>\n<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\"><strong class=\"\">Novo Foundation</strong></p>",
+  "content": "<p class=\"mb-4\"><strong class=\"\">Assemblymember Sarahana Shrestha</strong></p>\n<p class=\"mb-4\"><strong class=\"\">For The Many</strong></p>\n<p class=\"mb-4\"><strong class=\"\">Novo Foundation</strong></p>",
+  "html": "<p class=\"mb-4\"><strong class=\"\">Assemblymember Sarahana Shrestha</strong></p>\n<p class=\"mb-4\"><strong class=\"\">For The Many</strong></p>\n<p class=\"mb-4\"><strong class=\"\">Novo Foundation</strong></p>",
   "title": "Title",
   "metadata": {
     "dek": "In which",

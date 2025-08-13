@@ -300,8 +300,8 @@
 import { computed, defineProps, ref, onMounted, nextTick } from 'vue'
 import { useStats as _useStats } from '~/composables/useStats'
 import { useNumberFormat } from '~/composables/useNumberFormat'
-import { animate, stagger } from '~/anime.esm.js'
-import { useAnimations } from '~/composables/useAnimations'
+// NUKED BY BLOODHOUND: import { animate, stagger } from '~/anime.esm.js'
+// NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
 
 const { formatNumber, formatDecimal, formatPercentage } = useNumberFormat()
 
@@ -312,7 +312,7 @@ const progressRef = ref(null)
 const statRefs = ref([])
 
 // Animation composables
-const { timing, easing } = useAnimations()
+// NUKED BY BLOODHOUND: const { timing, easing } = useAnimations()
 
 // Animation state
 const displayDayOfYear = ref(0)
@@ -367,7 +367,7 @@ const healthToday = computed(() => {
 const animateDayProgress = () => {
   if (process.server || !progressRef.value) return
   
-  animate({ count: 0 }, {
+  // NUKED: // NUKED BY BLOODHOUND: // animate({ count: 0 }, {
     count: dayOfYear,
     duration: timing.value.dramatic,
     ease: 'cubicBezier(0.4, 0, 0.2, 1)',
@@ -395,7 +395,7 @@ const animateStatsReveal = async () => {
   
   // Stage 1: Header reveal
   if (headerRef.value) {
-    animate(headerRef.value, {
+    // NUKED: // NUKED BY BLOODHOUND: // animate(headerRef.value, {
       opacity: [0, 1],
       translateY: [-10, 0],
       duration: timing.value.slow,
@@ -412,7 +412,7 @@ const animateStatsReveal = async () => {
   setTimeout(() => {
     const allStatElements = document.querySelectorAll('[ref="statRefs"]')
     if (allStatElements.length > 0) {
-      animate(Array.from(allStatElements), {
+      // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(allStatElements), {
         opacity: [0, 1],
         scale: [0.9, 1],
         duration: timing.value.normal,

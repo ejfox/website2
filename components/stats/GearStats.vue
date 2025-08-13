@@ -92,8 +92,8 @@ import { ref, onMounted, computed, nextTick } from 'vue'
 import * as d3 from 'd3'
 import AnimatedNumber from '../AnimatedNumber.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'
-import { animate, stagger as _stagger, onScroll } from '~/anime.esm.js'
-import { useAnimations } from '~/composables/useAnimations'
+// NUKED BY BLOODHOUND: import { animate, stagger as _stagger, onScroll } from '~/anime.esm.js'
+// NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
 
 interface GearItem {
   Name?: string
@@ -119,7 +119,7 @@ const props = defineProps<{
 }>()
 
 const gearItems = ref<GearItem[]>([])
-const { timing, easing, staggers } = useAnimations()
+// NUKED BY BLOODHOUND: const { timing, easing, staggers } = useAnimations()
 
 // Computed stats - use API data if available, fall back to CSV data
 const totalItems = computed(() => {
@@ -259,7 +259,7 @@ const setupScrollAnimations = () => {
     if (containersRef.value) {
       const containerItems = containersRef.value.querySelectorAll('.container-item')
       if (containerItems.length) {
-        animate(Array.from(containerItems), {
+        // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(containerItems), {
           keyframes: [
             { opacity: 0, scale: 0.9, translateX: -30, rotateY: -15 },
             { opacity: 0.7, scale: 1.03, translateX: 5, rotateY: 5 },
@@ -277,7 +277,7 @@ const setupScrollAnimations = () => {
     if (statsGridRef.value) {
       const statRows = statsGridRef.value.querySelectorAll('div')
       if (statRows.length) {
-        animate(Array.from(statRows), {
+        // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(statRows), {
           opacity: [0, 1],
           translateX: [-10, 0],
           duration: timing.value.normal,
@@ -297,7 +297,7 @@ const setupScrollAnimations = () => {
       const typeRows = distributionRef.value.querySelectorAll('.type-row')
 
       if (typeBars.length) {
-        animate(Array.from(typeBars), {
+        // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(typeBars), {
           scaleX: [0, 1.1, 1],
           duration: timing.value.slow,
           delay: _stagger(staggers.normal),
@@ -310,7 +310,7 @@ const setupScrollAnimations = () => {
       }
 
       if (typeRows.length) {
-        animate(Array.from(typeRows), {
+        // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(typeRows), {
           opacity: [0, 1],
           translateX: [-10, 0],
           duration: timing.value.dramatic,
@@ -326,7 +326,7 @@ const setupScrollAnimations = () => {
 
     // Weight conversions subtle entrance
     if (conversionsRef.value) {
-      animate(conversionsRef.value, {
+      // NUKED: // NUKED BY BLOODHOUND: // animate(conversionsRef.value, {
         opacity: [0, 1],
         translateY: [10, 0],
         duration: timing.value.slow,

@@ -1,6 +1,6 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">#tech #howto</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">#tech #howto</p>",
+  "content": "<p class=\"mb-4\">#tech #howto</p>",
+  "html": "<p class=\"mb-4\">#tech #howto</p>",
   "title": "Getting started with Mastodon",
   "metadata": {
     "date": "2022-11-29T21:56:17.000Z",

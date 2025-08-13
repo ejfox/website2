@@ -144,8 +144,8 @@ import StatsDataState from './StatsDataState.vue'
 import AnimatedNumber from '../AnimatedNumber.vue'
 import type { StatsResponse } from '~/composables/useStats'
 import { formatNumber, formatWeekRange } from '~/composables/useNumberFormat'
-import { animate, stagger as _stagger, onScroll } from '~/anime.esm.js'
-import { useAnimations } from '~/composables/useAnimations'
+// NUKED BY BLOODHOUND: import { animate, stagger as _stagger, onScroll } from '~/anime.esm.js'
+// NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
 
 // Stat summary component for consistent stat display
 const StatSummary = (props: { value: string | number, label: string }, { slots }: { slots: Record<string, () => any> }) => {
@@ -449,7 +449,7 @@ const setupScrollAnimations = () => {
     if (momentumRef.value) {
       const momentumStats = momentumRef.value.parentElement?.querySelectorAll('.momentum-stat')
       if (momentumStats?.length) {
-        animate(Array.from(momentumStats), {
+        // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(momentumStats), {
           opacity: [0, 1],
           translateY: [20, 0],
           scale: [0.9, 1.05, 1],
@@ -464,7 +464,7 @@ const setupScrollAnimations = () => {
     if (weeklyBarsRef.value && hasWeeklyData.value) {
       const activityBars = weeklyBarsRef.value.querySelectorAll('.activity-bar')
       if (activityBars.length) {
-        animate(Array.from(activityBars), {
+        // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(activityBars), {
           scaleX: [0, 1.1, 1],
           scaleY: [0.3, 1.3, 1],
           duration: timing.value.dramatic,

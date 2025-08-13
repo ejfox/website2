@@ -1,9 +1,9 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Start Nuxt 3 projects with enhanced features</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Start Nuxt 3 projects with enhanced features</p>",
+  "content": "<p class=\"mb-4\">Opinionated starter that pre-solves common problems investing time upfront to save time forever</p>",
+  "html": "<p class=\"mb-4\">Opinionated starter that pre-solves common problems investing time upfront to save time forever</p>",
   "title": "nuxt-template",
   "metadata": {
-    "words": 10,
+    "words": 16,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,

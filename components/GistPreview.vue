@@ -104,31 +104,31 @@ if (process.client) {
 }
 
 const updateHighlighting = async () => {
-  if (process.client && props.gist.content) {
+  // SERVER-SIDE HIGHLIGHTING - Pre-baked like the low side
+  // No client bundlin', Zeus almighty style
+  if (codeToShow.value) {
     try {
-      const { createHighlighter } = await import('shiki')
+      // Hit the server API - pre-calculate, no bundlin'
+      const isDark = process.client 
+        ? document.documentElement.classList.contains('dark')
+        : false
       
-      const highlighter = await createHighlighter({
-        themes: ['github-light', 'github-dark'],
-        langs: ['javascript', 'typescript', 'json', 'html', 'css', 'markdown', 'bash', 'python', 'go', 'rust', 'java', 'cpp', 'vue', 'jsx', 'tsx', 'sql', 'yaml', 'xml', 'shell']
+      const response = await $fetch('/api/highlight', {
+        method: 'POST',
+        body: {
+          code: codeToShow.value,
+          language: props.file.language?.toLowerCase() || 'text',
+          theme: isDark ? 'github-dark' : 'github-light'
+        }
       })
-
-      const language = props.file.language?.toLowerCase() || 'text'
-
-      // Detect current theme
-      const isDark = document.documentElement.classList.contains('dark')
-      const theme = isDark ? 'github-dark' : 'github-light'
-
-      highlightedCode.value = highlighter.codeToHtml(codeToShow.value, {
-        lang: language,
-        theme: theme
-      })
+      
+      highlightedCode.value = response.html
     } catch (error) {
       console.warn('Failed to highlight code:', error)
       highlightedCode.value = `<pre><code>${codeToShow.value}</code></pre>`
     }
   } else {
-    highlightedCode.value = `<pre><code>${codeToShow.value}</code></pre>`
+    highlightedCode.value = `<pre><code>${codeToShow.value || ''}</code></pre>`
   }
 }
 

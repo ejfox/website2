@@ -3,7 +3,7 @@
 /* Base */
 html,
 body {
-  @apply bg-white dark:bg-zinc-950;
+  @apply bg-zinc-100 dark:bg-zinc-900;
 }
 
 
@@ -291,3 +291,4 @@ body {
 .page-transition-overlay {
   z-index: 2147483647; /* Maximum z-index */
 }
+

@@ -94,8 +94,8 @@ import AnimatedNumber from '../AnimatedNumber.vue'
 import StatsDataState from './StatsDataState.vue'
 import type { StatsResponse } from '~/composables/useStats'
 import { useNumberFormat } from '~/composables/useNumberFormat'
-import { animate, stagger as _stagger, onScroll as _onScroll } from '~/anime.esm.js'
-import { useAnimations } from '~/composables/useAnimations'
+// NUKED BY BLOODHOUND: import { animate, stagger as _stagger, onScroll as _onScroll } from '~/anime.esm.js'
+// NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
 
 interface BlogStats {
   totalPosts: number
@@ -112,7 +112,7 @@ const props = defineProps<{
 }>()
 
 const { formatNumber: _formatNumber } = useNumberFormat()
-const { timing, staggers, easing } = useAnimations()
+// NUKED BY BLOODHOUND: const { timing, staggers, easing } = useAnimations()
 
 const totalLeetCodeSolved = computed(() => {
   if (!props.stats.leetcode?.submissionStats) return 0
@@ -155,7 +155,7 @@ onMounted(() => {
     // 1. GRID STAGGER FROM CENTER - using motion tokens
     const statCards = topStatsRef.value.querySelectorAll('.top-stat-card')
     if (statCards.length >= 4) {
-      animate(Array.from(statCards), {
+      // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(statCards), {
         opacity: [0.3, 1],
         rotateY: [-5, 0],
         translateZ: [20, 0],
@@ -170,7 +170,7 @@ onMounted(() => {
 
     // 2. CONTINUOUS CSS CUSTOM PROPERTY ANIMATION - DISABLED (looping setTimeout)
     // const animateCardGlow = () => {
-    //   animate(Array.from(statCards), {
+    //   // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(statCards), {
     //     '--card-glow': ['0%', '2%', '0%'],
     //     duration: timing.value.slowest, // 2400ms - consistent with other ambient effects
     //     delay: _stagger(staggers.dramatic, { from: 'random' }),

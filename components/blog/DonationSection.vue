@@ -1,10 +1,7 @@
 <script setup>
-import { animate, stagger as _stagger, createTimeline } from '~/anime.esm.js'
-import { useAnimations } from '~/composables/useAnimations'
-
 const config = useRuntimeConfig()
 const { crypto, github } = config.public.donations
-const { timing, easing } = useAnimations()
+// NUKED BY BLOODHOUND: const { timing, easing } = useAnimations()
 
 const amount = ref(5)
 const loading = ref(false)
@@ -132,11 +129,11 @@ const sponsorsRef = ref(null)
 // Epic donation section reveal with proper timeline
 const animateDonationReveal = async () => {
   if (process.server) return
-  
+
   await nextTick()
-  
+
   const timeline = createTimeline()
-  
+
   // Stage 1: Section container emergence
   if (sectionRef.value) {
     timeline.add({
@@ -148,77 +145,72 @@ const animateDonationReveal = async () => {
       ease: easing.bounce
     })
   }
-  
+
   // Stage 2: Header dramatic entrance
   if (titleRef.value) {
-    timeline.add({
-      targets: titleRef.value,
-      keyframes: [
-        { opacity: 0, scale: 0.7, rotateZ: -5, filter: 'blur(1px)' },
-        { opacity: 0.8, scale: 1.1, rotateZ: 2, filter: 'blur(0.3px)' },
-        { opacity: 1, scale: 1, rotateZ: 0, filter: 'blur(0px)' }
-      ],
-      duration: timing.expressive,
-      ease: easing.bounce
-    }, '-=600')
+    timeline.add(
+      {
+        targets: titleRef.value,
+        keyframes: [
+          { opacity: 0, scale: 0.7, rotateZ: -5, filter: 'blur(1px)' },
+          { opacity: 0.8, scale: 1.1, rotateZ: 2, filter: 'blur(0.3px)' },
+          { opacity: 1, scale: 1, rotateZ: 0, filter: 'blur(0px)' }
+        ],
+        duration: timing.expressive,
+        ease: easing.bounce
+      },
+      '-=600'
+    )
   }
-  
+
   // Stage 3: Divider line expansion
   if (dividerRef.value) {
-    timeline.add({
-      targets: dividerRef.value,
-      scaleX: [0, 1.1, 1],
-      opacity: [0, 1],
-      duration: timing.slow,
-      ease: easing.bounce
-    }, '-=200')
+    timeline.add(
+      {
+        targets: dividerRef.value,
+        scaleX: [0, 1.1, 1],
+        opacity: [0, 1],
+        duration: timing.slow,
+        ease: easing.bounce
+      },
+      '-=200'
+    )
   }
-  
+
   // Stage 4: Cards flip entrance
   const cards = [stripeCardRef.value, cryptoCardRef.value].filter(Boolean)
   if (cards.length) {
-    timeline.add({
-      targets: cards,
-      keyframes: [
-        { opacity: 0, scale: 0.8, rotateY: -45, filter: 'blur(1px)' },
-        { opacity: 0.8, scale: 1.05, rotateY: 10, filter: 'blur(0.3px)' },
-        { opacity: 1, scale: 1, rotateY: 0, filter: 'blur(0px)' }
-      ],
-      duration: 700,
-      delay: _stagger(150),
-      ease: 'outBack(1.7)'
-    }, '-=300')
+    timeline.add(
+      {
+        targets: cards,
+        keyframes: [
+          { opacity: 0, scale: 0.8, rotateY: -45, filter: 'blur(1px)' },
+          { opacity: 0.8, scale: 1.05, rotateY: 10, filter: 'blur(0.3px)' },
+          { opacity: 1, scale: 1, rotateY: 0, filter: 'blur(0px)' }
+        ],
+        duration: 700,
+        delay: _stagger(150),
+        ease: 'outBack(1.7)'
+      },
+      '-=300'
+    )
   }
-  
+
   // Stage 5: Sponsors link subtle reveal
   if (sponsorsRef.value) {
-    timeline.add({
-      targets: sponsorsRef.value,
-      opacity: [0, 1],
-      translateY: [20, 0],
-      scale: [0.9, 1],
-      duration: timing.slow,
-      ease: easing.standard
-    }, '+=200')
+    timeline.add(
+      {
+        targets: sponsorsRef.value,
+        opacity: [0, 1],
+        translateY: [20, 0],
+        scale: [0.9, 1],
+        duration: timing.slow,
+        ease: easing.standard
+      },
+      '+=200'
+    )
   }
 }
-
-// Watch amount changes for message animation
-watch(amount, () => {
-  const messageEl = document.querySelector('.donation-message')
-  if (messageEl) {
-    animate(messageEl, {
-      scale: [1, 1.05, 1],
-      opacity: [0.7, 1],
-      duration: timing.normal,
-      ease: easing.bounce
-    })
-  }
-})
-
-onMounted(() => {
-  animateDonationReveal()
-})
 </script>
 
 <template>
@@ -236,20 +228,20 @@ onMounted(() => {
 
       <div ref="gridRef" class="grid md:grid-cols-2 gap-8">
         <!-- Stripe Payment -->
-        <div ref="stripeCardRef" class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg p-6">
-          <h4 class="text-lg font-light mb-6">
-            One-time Support
-          </h4>
+        <div
+          ref="stripeCardRef"
+          class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg p-6"
+        >
+          <h4 class="text-lg font-light mb-6">One-time Support</h4>
 
           <div class="space-y-6">
             <div>
               <div class="flex justify-between mb-2">
-                <span class="text-sm text-gray-500">
-                  Amount
-                </span>
-                <span class="px-3 py-2 text-sm font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded">{{
-                  formatAmount
-                }}</span>
+                <span class="text-sm text-gray-500"> Amount </span>
+                <span
+                  class="px-3 py-2 text-sm font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded"
+                  >{{ formatAmount }}</span
+                >
               </div>
 
               <div class="mb-2">
@@ -272,7 +264,10 @@ onMounted(() => {
                 class="w-full flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white rounded-lg transition-colors"
                 @click="handleDonation"
               >
-                <Icon name="material-symbols:payments-outline" class="w-4 h-4" />
+                <Icon
+                  name="material-symbols:payments-outline"
+                  class="w-4 h-4"
+                />
                 {{ loading ? 'Processing...' : 'Support via Stripe' }}
               </button>
 
@@ -289,10 +284,11 @@ onMounted(() => {
         </div>
 
         <!-- Updated Crypto Section -->
-        <div ref="cryptoCardRef" class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg p-6">
-          <h4 class="text-lg font-light mb-6">
-            Cryptocurrency
-          </h4>
+        <div
+          ref="cryptoCardRef"
+          class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg p-6"
+        >
+          <h4 class="text-lg font-light mb-6">Cryptocurrency</h4>
 
           <div class="space-y-4">
             <template v-for="(address, currency) in crypto" :key="currency">
@@ -307,11 +303,19 @@ onMounted(() => {
                   </div>
                   <button
                     class="flex items-center gap-1 px-2 py-1 text-xs rounded transition-colors"
-                    :class="lastCopied === currency ? 'text-green-600 bg-green-100 dark:bg-green-900/20' : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100'"
+                    :class="
+                      lastCopied === currency
+                        ? 'text-green-600 bg-green-100 dark:bg-green-900/20'
+                        : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100'
+                    "
                     @click="copyAddress(address, currency)"
                   >
                     <Icon
-                      :name="lastCopied === currency ? 'heroicons:check' : 'heroicons:clipboard'"
+                      :name="
+                        lastCopied === currency
+                          ? 'heroicons:check'
+                          : 'heroicons:clipboard'
+                      "
                       class="w-3 h-3"
                     />
                     {{ lastCopied === currency ? 'Copied!' : 'Copy' }}
@@ -322,9 +326,7 @@ onMounted(() => {
                   @click="copyAddress(address, currency)"
                 >
                   <span class="font-mono text-xs break-all">
-                    {{
-                      address
-                    }}
+                    {{ address }}
                   </span>
                 </div>
               </div>

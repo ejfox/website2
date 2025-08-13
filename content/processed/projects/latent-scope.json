@@ -1,9 +1,9 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Visualize datasets through latent spaces with embeddings</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Visualize datasets through latent spaces with embeddings</p>",
+  "content": "<p class=\"mb-4\">Democratizes advanced ML visualization with extensive documentation making complex embeddings accessible to non-experts</p>",
+  "html": "<p class=\"mb-4\">Democratizes advanced ML visualization with extensive documentation making complex embeddings accessible to non-experts</p>",
   "title": "latent-scope",
   "metadata": {
-    "words": 10,
+    "words": 16,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,

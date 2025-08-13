@@ -62,13 +62,13 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
           animatedElements.add(target)
 
           // Separate animations for smoother effect
-          animate(target, {
+          // NUKED BY BLOODHOUND: // animate(target, {
             opacity: [0, 1],
             duration: timing.value.normal, // was 400
             ease: 'linear' // Linear fade for smoothness
           })
 
-          animate(target, {
+          // NUKED BY BLOODHOUND: // animate(target, {
             y: [12, 0],
             duration: timing.value.slow, // was 800
             ease: 'cubicBezier(0.16, 1, 0.3, 1)', // Custom ease-out
@@ -104,7 +104,7 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
       ([{ isIntersecting }]) => {
         if (isIntersecting) {
           animatedElements.add(target)
-          animate(target, {
+          // NUKED BY BLOODHOUND: // animate(target, {
             opacity: [0, 1],
             x: [-20, 0],
             scale: [0.98, 1],
@@ -134,7 +134,7 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
       ([{ isIntersecting }]) => {
         if (isIntersecting) {
           animatedElements.add(target)
-          animate(target, {
+          // NUKED BY BLOODHOUND: // animate(target, {
             opacity: [0, 1],
             rotate: [-1, 0],
             scale: [0.98, 1],
@@ -171,7 +171,7 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
       ([{ isIntersecting }]) => {
         if (isIntersecting) {
           animatedElements.add(target)
-          animate(target, {
+          // NUKED BY BLOODHOUND: // animate(target, {
             opacity: [0, 1],
             scaleX: [0, 1],
             duration: timing.value.dramatic, // was 1400
@@ -206,7 +206,7 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
       ([{ isIntersecting }]) => {
         if (isIntersecting) {
           animatedElements.add(element)
-          animate(element, {
+          // NUKED BY BLOODHOUND: // animate(element, {
             opacity: [0, 1],
             y: [30, 0],
             filter: [
@@ -245,7 +245,7 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
           animatedElements.add(target)
           
           // Clean reveal with subtle blur
-          animate(target, {
+          // NUKED BY BLOODHOUND: // animate(target, {
             opacity: [0, 1],
             x: [-2, 0],
             scale: [0.99, 1],
@@ -278,7 +278,7 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
           animatedElements.add(target)
           
           // Subtle emphasis reveal
-          animate(target, {
+          // NUKED BY BLOODHOUND: // animate(target, {
             opacity: [0, 1],
             scale: [0.96, 1.01, 1],
             filter: ['contrast(0.9)', 'contrast(1.05)', 'contrast(1)'],
@@ -310,7 +310,7 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
           animatedElements.add(target)
           
           // Clean vertical expand
-          animate(target, {
+          // NUKED BY BLOODHOUND: // animate(target, {
             opacity: [0, 1],
             scaleY: [0.2, 1.02, 1],
             scaleX: [1, 0.99, 1],
@@ -352,7 +352,7 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
             animatedElements.add(el)
             
             setTimeout(() => {
-              animate(el, {
+              // NUKED BY BLOODHOUND: // animate(el, {
                 opacity: [0, 1],
                 y: [3 + i, 0],
                 scale: [0.99, 1],
@@ -388,7 +388,7 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
           animatedElements.add(target)
           
           // Clean matrix transform
-          animate(target, {
+          // NUKED BY BLOODHOUND: // animate(target, {
             opacity: [0, 1],
             transform: [
               'matrix(1,0,0,0.2,0,0)',
@@ -420,7 +420,7 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
           animatedElements.add(target)
           
           // Clean multi-stage keyframes
-          animate(target, {
+          // NUKED BY BLOODHOUND: // animate(target, {
             keyframes: [
               { opacity: 0, scale: 0.96, filter: 'blur(0.8px) contrast(1.1)' },
               { opacity: 0.6, scale: 1.005, filter: 'blur(0.3px) contrast(1.05)' },
@@ -462,7 +462,7 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
           elements.forEach(el => animatedElements.add(el))
           
           // Clean grid stagger
-          animate(elements, {
+          // NUKED BY BLOODHOUND: // animate(elements, {
             opacity: [0, 1],
             scale: [0.92, 1.01, 1],
             y: [6, 0],
@@ -537,7 +537,7 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
           target.style.opacity = '0'
           target.style.transform = 'scale(0.9)'
           
-          animate(target, {
+          // NUKED BY BLOODHOUND: // animate(target, {
             opacity: [0, 1],
             scale: [0.9, 1.02, 1],
             duration: timing.value.normal, // was 350
@@ -546,7 +546,7 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
           
           // Number animation
           setTimeout(() => {
-            animate(counter, {
+            // NUKED BY BLOODHOUND: // animate(counter, {
               value: finalValue,
               duration: timing.value.slow, // was 1000
               ease: 'spring(1, 80, 10, 0)',

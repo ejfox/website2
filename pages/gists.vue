@@ -113,45 +113,8 @@ const toggleGist = (gistId: string) => {
   }
 }
 
-// Syntax highlighting
-const _highlightCode = async (code: string, language: string) => {
-  if (process.client) {
-    try {
-      const { createHighlighter } = await import('shiki')
-      const highlighter = await createHighlighter({
-        themes: ['github-dark', 'github-light'],
-        langs: [
-          'javascript',
-          'typescript',
-          'json',
-          'html',
-          'css',
-          'markdown',
-          'bash',
-          'python',
-          'go',
-          'rust',
-          'java',
-          'cpp'
-        ]
-      })
-
-      return highlighter.codeToHtml(code, {
-        lang: language.toLowerCase() || 'text',
-        theme: 'github-dark'
-      })
-    } catch (error) {
-      console.warn('Failed to highlight code:', error)
-      return `<pre><code>${code}</code></pre>`
-    }
-  }
-  return `<pre><code>${code}</code></pre>`
-}
-
-// Get preview lines (first 10 lines)
-const _getPreviewLines = (content: string) => {
-  return content.split('\n').slice(0, 10).join('\n')
-}
+// Removed client-side syntax highlighting - now handled server-side
+// Old highlightCode and getPreviewLines functions removed
 </script>
 
 <template>

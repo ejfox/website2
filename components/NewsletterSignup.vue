@@ -89,8 +89,9 @@
 
 <script setup>
 import { ref, reactive, onMounted, nextTick } from 'vue'
-import { animate, stagger as _stagger } from '~/anime.esm.js'
-import { useAnimations } from '~/composables/useAnimations'
+// NUKED BY BLOODHOUND: Animation imports obliterated
+// import { animate, stagger as _stagger } from '~/anime.esm.js'
+// import { useAnimations } from '~/composables/useAnimations'
 
 const email = ref('')
 const firstName = ref('')
@@ -109,7 +110,8 @@ const state = reactive({
   message: ''
 })
 
-const { timing, easing, staggers } = useAnimations()
+// NUKED: Animation composable usage obliterated
+// // NUKED BY BLOODHOUND: const { timing, easing, staggers } = useAnimations()
 
 const revealNameFields = () => {
   if (email.value.length > 0 && !showNameFields.value) {
@@ -118,7 +120,7 @@ const revealNameFields = () => {
     // Epic name fields reveal
     if (nameFieldsContainer.value) {
       const targetWidth = nameFieldsContainer.value.scrollWidth
-      animate(nameFieldsContainer.value, {
+      // NUKED: // NUKED BY BLOODHOUND: // animate(nameFieldsContainer.value, {
         keyframes: [
           { width: 0, opacity: 0, scale: 0.8, filter: 'blur(1px)' },
           { width: targetWidth * 1.1, opacity: 0.8, scale: 1.05, filter: 'blur(0.3px)' },
@@ -132,7 +134,7 @@ const revealNameFields = () => {
       setTimeout(() => {
         const inputs = nameFieldsContainer.value?.querySelectorAll('input')
         if (inputs?.length) {
-          animate(Array.from(inputs), {
+          // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(inputs), {
             opacity: [0, 1],
             scale: [0.9, 1.05, 1],
             duration: timing.normal,
@@ -187,7 +189,7 @@ const submitForm = async () => {
     
     // Animate button state change
     if (buttonRef.value) {
-      animate(buttonRef.value, {
+      // NUKED: // NUKED BY BLOODHOUND: // animate(buttonRef.value, {
         scale: [1.05, 1],
         duration: timing.fast,
         ease: easing.standard
@@ -196,54 +198,11 @@ const submitForm = async () => {
   }
 }
 
-// Epic newsletter signup reveal
-const animateNewsletterReveal = async () => {
-  if (process.server) return
-  
-  await nextTick()
-  
-  // Stage 1: Container emergence
-  if (signupContainer.value) {
-    animate(signupContainer.value, {
-      opacity: [0, 1],
-      scale: [0.95, 1.02, 1],
-      filter: ['blur(1px)', 'blur(0px)'],
-      duration: timing.slow,
-      ease: easing.bounce
-    })
-  }
-  
-  // Stage 2: Form elements cascade
-  setTimeout(() => {
-    const elements = [emailInputRef.value, buttonRef.value].filter(Boolean)
-    if (elements.length) {
-      animate(elements, {
-        opacity: [0, 1],
-        translateY: [10, 0],
-        scale: [0.95, 1],
-        duration: timing.slow,
-        delay: _stagger(staggers.normal),
-        ease: easing.standard
-      })
-    }
-  }, 200)
-}
-
-// Watch for successful submissions
-watch(() => state.success, (isSuccess) => {
-  if (isSuccess && signupContainer.value) {
-    // Success celebration animation
-    animate(signupContainer.value, {
-      scale: [1, 1.05, 1],
-      filter: ['brightness(1)', 'brightness(1.1)', 'brightness(1)'],
-      duration: timing.expressive,
-      ease: easing.bounce
-    })
-  }
-})
+// NUKED BY BLOODHOUND: All animation functions obliterated
+// Newsletter shows immediately without animation
 
 onMounted(() => {
-  animateNewsletterReveal()
+  // No animations - just show content immediately
 })
 </script>
 

@@ -74,100 +74,13 @@
 </template>
 
 <script setup>
-import { animate, stagger as _stagger } from '~/anime.esm.js'
-import { useAnimations } from '~/composables/useAnimations'
-
 // Animation refs
 const footerRef = ref(null)
-const { timing, easing, staggers } = useAnimations()
+// NUKED BY BLOODHOUND: const { timing, easing, staggers } = useAnimations()
 const profileRef = ref(null)
 const avatarRef = ref(null)
 const navRef = ref(null)
 const navListRef = ref(null)
 const navItemRefs = ref([])
 const newsletterRef = ref(null)
-
-// Epic footer reveal animation
-const animateFooterReveal = async () => {
-  if (process.server) return
-
-  await nextTick()
-
-  // Stage 1: Footer section slide up
-  if (footerRef.value) {
-    animate(footerRef.value, {
-      opacity: [0, 1],
-      translateY: [30, 0],
-      filter: ['blur(1px)', 'blur(0px)'],
-      duration: timing.expressive,
-      ease: easing.dramatic
-    })
-  }
-
-  // Stage 2: Avatar dramatic spin entrance
-  setTimeout(() => {
-    if (avatarRef.value) {
-      animate(avatarRef.value, {
-        keyframes: [
-          { opacity: 0, scale: 0.3, rotateZ: -180, filter: 'blur(2px)' },
-          { opacity: 0.8, scale: 1.2, rotateZ: 20, filter: 'blur(0.5px)' },
-          { opacity: 1, scale: 1, rotateZ: 0, filter: 'blur(0px)' }
-        ],
-        duration: timing.slow,
-        ease: easing.bounce
-      })
-    }
-  }, timing.fast)
-
-  // Stage 3: Navigation items cascade
-  setTimeout(() => {
-    if (navListRef.value) {
-      const navItems = navListRef.value.querySelectorAll('li')
-      if (navItems.length) {
-        animate(Array.from(navItems), {
-          opacity: [0, 1],
-          translateY: [15, 0],
-          scale: [0.8, 1.05, 1],
-          filter: ['blur(0.5px)', 'blur(0px)'],
-          duration: timing.slow,
-          delay: _stagger(staggers.tight, { from: 'center' }),
-          ease: easing.productive
-        })
-      }
-    }
-  }, timing.slow)
-
-  // Stage 4: Newsletter section gentle reveal
-  setTimeout(() => {
-    if (newsletterRef.value) {
-      animate(newsletterRef.value, {
-        opacity: [0, 0.6],
-        scale: [0.95, 1],
-        translateY: [10, 0],
-        duration: timing.slow,
-        ease: easing.standard
-      })
-    }
-  }, timing.expressive)
-
-  // Stage 5: Continuous avatar float
-  setTimeout(() => {
-    const floatAnimation = () => {
-      animate(avatarRef.value, {
-        translateY: [0, -3, 0],
-        rotateZ: [0, 1, 0],
-        scale: [1, 1.02, 1],
-        duration: timing.slowest * 2,
-        ease: easing.standard,
-        complete: floatAnimation
-      })
-    }
-    floatAnimation()
-  }, timing.expressive + timing.slow)
-}
-
-onMounted(() => {
-  animateFooterReveal()
-})
 </script>
-

@@ -1,9 +1,9 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Send SMS messages with Nuxt application</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Send SMS messages with Nuxt application</p>",
+  "content": "<p class=\"mb-4\">SMS tool built for a specific friend showing care through custom code</p>",
+  "html": "<p class=\"mb-4\">SMS tool built for a specific friend showing care through custom code</p>",
   "title": "zackgaydos",
   "metadata": {
-    "words": 9,
+    "words": 15,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,

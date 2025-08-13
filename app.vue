@@ -66,3 +66,22 @@
     <NuxtPage />
   </NuxtLayout>
 </template>
+
+<script setup>
+// Prevent dark mode flash - runs before hydration
+useHead({
+  script: [
+    {
+      innerHTML: `
+        (function() {
+          const isDark = localStorage.getItem('vueuse-color-scheme') === 'dark' || 
+            (!localStorage.getItem('vueuse-color-scheme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (isDark) document.documentElement.classList.add('dark');
+        })()
+      `,
+      type: 'text/javascript',
+      tagPosition: 'head'
+    }
+  ]
+})
+</script>

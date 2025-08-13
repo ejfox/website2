@@ -1,26 +1,13 @@
 <script setup>
 import { format, isValid, parseISO } from 'date-fns'
-import { animate, stagger as _stagger, engine } from '~/anime.esm.js'
-// Disable Chance.js for now since it's causing SSR issues
-import Chance from 'chance'
-const _chance = new Chance()
-import {
-  useWindowSize,
-  useMutationObserver,
-  useDark,
-  useDebounceFn,
-  useIntersectionObserver
-} from '@vueuse/core'
 import DonationSection from '~/components/blog/DonationSection.vue'
-import { useAnimations } from '~/composables/useAnimations'
-// import { generatePostColor } from '~/utils/postColors'
+import { useDark, useIntersectionObserver } from '@vueuse/core'
 
 const config = useRuntimeConfig()
 const isDark = useDark()
 const processedMarkdown = useProcessedMarkdown()
 
 const route = useRoute()
-const _router = useRouter()
 
 // Handle redirection and post fetching
 const { data: post, error } = await useAsyncData(
@@ -72,15 +59,6 @@ const { data: nextPrevPosts } = await useAsyncData(
     }
   }
 )
-
-// Generate colors based on post slug
-// const postColors = computed(() => {
-//   if (!post.value) return null
-//   const slug = post.value.slug || post.value.metadata?.slug || route.params.slug.join('/')
-//   return generatePostColor(slug)
-// })
-const _postColors = ref(null)
-
 // New refs for animation targets
 const postTitle = ref(null)
 const postMetadata = ref(null)
@@ -91,32 +69,28 @@ const headings = ref([])
 const activeSection = ref('')
 const titleWidth = ref(0)
 
-const { width } = useWindowSize()
-const isMobile = computed(() => width.value < 768)
+const isMobile = computed(() => {
+  if (process.client) {
+    return window.innerWidth < 768
+  }
+  return false
+})
 
-// First, let's fix the lifecycle hooks by moving them inside onMounted
+// Simple setup for title and TOC
 onMounted(() => {
   if (process.server) return
-
-  // Title resize observer
-  const resizeObserver = new ResizeObserver((entries) => {
-    for (const entry of entries) {
-      titleWidth.value = entry.contentRect.width
-    }
-  })
-
+  
   if (postTitle.value) {
-    resizeObserver.observe(postTitle.value)
     titleWidth.value = postTitle.value.offsetWidth
   }
-  // Use VueUse's intersection observer composable instead
+
+  // Simple TOC intersection observer
   nextTick(() => {
     if (!articleContent.value) return
     headings.value = Array.from(
       articleContent.value.querySelectorAll('h2, h3, h4')
     )
     
-    // Use VueUse's useIntersectionObserver for each heading
     headings.value.forEach((heading) => {
       const { stop } = useIntersectionObserver(
         heading,
@@ -127,15 +101,11 @@ onMounted(() => {
         },
         { rootMargin: '-10% 0px -80% 0px', threshold: 0 }
       )
-      // Store stop function for cleanup
       heading._stopObserver = stop
     })
   })
 
-  // Clean up
   onUnmounted(() => {
-    resizeObserver.disconnect()
-    // Clean up heading observers
     headings.value.forEach((heading) => {
       if (heading._stopObserver) {
         heading._stopObserver()
@@ -144,80 +114,13 @@ onMounted(() => {
   })
 })
 
-// Use computed for reactive DOM element reference
+// TOC target for teleport
 const tocTarget = computed(() => {
   if (!process.client) return null
   return document.getElementById('nav-toc-container')
 })
 
-// Fixed: Using proper Vue patterns
-onMounted(() => {
-  // TOC target will be handled by computed ref
-  // Also check if the post has TOC data
-})
-
-// Fixed: Using Vue computed ref for reactive DOM queries
-// Add a watcher for route changes to reinitialize the TOC
-watch(
-  () => route.path,
-  async () => {
-    // Wait for DOM updates to complete
-    await nextTick()
-    await nextTick()
-
-    // Add a small delay to ensure DOM is fully updated
-    await new Promise((resolve) => setTimeout(resolve, 100))
-
-    // TOC target will update automatically via computed ref
-
-    // If not found on first try, retry with increasing delays
-    if (!tocTarget.value) {
-      const retryFindTocContainer = async (attempts = 1, maxAttempts = 5) => {
-        if (attempts > maxAttempts) return
-
-        // Exponential backoff
-        const delay = 100 * Math.pow(2, attempts - 1)
-        await new Promise((resolve) => setTimeout(resolve, delay))
-
-        if (process.client) {
-          tocTarget.value = document.querySelector('#nav-toc-container')
-        }
-
-        if (!tocTarget.value && attempts < maxAttempts) {
-          await retryFindTocContainer(attempts + 1, maxAttempts)
-        }
-      }
-
-      await retryFindTocContainer()
-    }
-
-    // Re-initialize headings and observers
-    if (articleContent.value) {
-      nextTick(() => {
-        headings.value = Array.from(
-          articleContent.value.querySelectorAll('h2, h3, h4')
-        )
-
-        // Re-observe headings with the intersection observer
-        const headingObserver = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                activeSection.value = entry.target.id
-              }
-            })
-          },
-          { rootMargin: '-10% 0px -80% 0px', threshold: 0 }
-        )
-
-        headings.value.forEach((heading) => headingObserver.observe(heading))
-      })
-    }
-  },
-  { immediate: true }
-)
-
-// Remove the wrappedTitle computed property and replace with this simpler letter-based system
+// Title typing animation
 const letters = computed(() => {
   const title = post.value?.metadata?.title || post.value?.title
   if (!title) return []
@@ -235,11 +138,24 @@ const animationState = reactive({
   currentIndex: 0,
   isAnimating: false,
   visibleLetters: new Set(),
-  cursorPosition: 0 // Track the current cursor position
+  cursorPosition: 0,
+  hasAnimated: false // Track if we've animated this title already
 })
 
 // Update the rendered title to wrap words properly
 const renderedTitle = computed(() => {
+  // If we haven't started animating yet, show all letters
+  if (!animationState.hasAnimated) {
+    const spans = letters.value.map(({ char, isSpace }) => {
+      if (isSpace) {
+        return `</span><span class="word">`
+      }
+      return `<span class="letter visible">${char}</span>`
+    })
+    return `<span class="word">${spans.join('')}</span>`
+  }
+  
+  // During animation
   const spans = letters.value.map(({ char, id, isSpace }, index) => {
     const isVisible = animationState.visibleLetters.has(id)
     const isCursorHere =
@@ -247,27 +163,27 @@ const renderedTitle = computed(() => {
       index === animationState.cursorPosition &&
       animationState.isAnimating
 
-    // Start a new word wrapper if it's a space
     if (isSpace) {
       return `</span><span class="word">`
     }
 
-    return `<span class="letter ${isVisible ? 'visible' : ''}">${char}${isCursorHere ? '<span class="cursor"></span>' : ''}</span>`
+    return `<span class="letter ${isVisible ? 'visible' : 'hidden'}">${char}${isCursorHere ? '<span class="cursor"></span>' : ''}</span>`
   })
-  // Wrap everything in a word span
   return `<span class="word">${spans.join('')}</span>`
 })
 
-// Simpler typing animation
+// Typing animation - only runs on client after mount
 async function typeText() {
-  if (process.server || animationState.isAnimating) return
-
+  if (process.server || animationState.hasAnimated) return
+  
+  // Mark that we're starting animation
+  animationState.hasAnimated = true
   animationState.isAnimating = true
   animationState.visibleLetters.clear()
   animationState.cursorPosition = 0
 
-  const LETTER_DELAY = 125
-  const PAUSE_DELAY = 800
+  const LETTER_DELAY = 50 // Faster typing
+  const PAUSE_DELAY = 200 // Shorter pauses
 
   for (let i = 0; i < letters.value.length; i++) {
     const letter = letters.value[i]
@@ -284,84 +200,14 @@ async function typeText() {
   animationState.isAnimating = false
 }
 
-// Watch for title changes
-watch(
-  letters,
-  async (newLetters) => {
-    if (newLetters?.length) {
-      await nextTick()
-      typeText()
-    }
-  },
-  { immediate: true }
-)
-
-// New computed property to trim TOC items
-const trimmedToc = computed(() => {
-  // Check both possible locations for TOC data
-  const tocData = post.value?.toc || post.value?.metadata?.toc
-  if (!tocData) return []
-
-  return tocData.flatMap(
-    (item) =>
-      item.children?.map((child) => ({
-        ...child,
-        text:
-          child.text.length > 35 ? child.text.slice(0, 32) + '...' : child.text
-      })) || []
-  )
+// Only animate after component is mounted and stable
+onMounted(() => {
+  // Wait a bit for everything to settle
+  setTimeout(() => {
+    typeText()
+  }, 100)
 })
 
-// New ref for scroll position
-const tocScrollPosition = ref(0)
-
-// Update these constants
-const TOC_CONSTANTS = {
-  ITEM_WIDTH: 80,
-  VIEWPORT_WIDTH: 300
-}
-
-// Updated function to center the active TOC item
-const updateTocScroll = useDebounceFn(() => {
-  const activeIndex = trimmedToc.value.findIndex(
-    (item) => item.slug === activeSection.value
-  )
-  if (activeIndex === -1) return
-
-  const totalWidth = trimmedToc.value.length * TOC_CONSTANTS.ITEM_WIDTH
-  const halfViewport = TOC_CONSTANTS.VIEWPORT_WIDTH / 2
-  const newScrollPosition = Math.max(
-    0,
-    Math.min(
-      activeIndex * TOC_CONSTANTS.ITEM_WIDTH -
-        halfViewport +
-        TOC_CONSTANTS.ITEM_WIDTH / 2,
-      totalWidth - TOC_CONSTANTS.VIEWPORT_WIDTH
-    )
-  )
-
-  tocScrollPosition.value = newScrollPosition
-}, 100)
-
-// Watch for changes in activeSection
-watch(activeSection, updateTocScroll)
-
-// Create scroll animation instance
-// Legacy scroll animation - needs complete rewrite
-/* eslint-disable no-undef */
-const _slideUp = () => {}
-const _slideLeft = () => {}
-const _fadeIn = () => {}
-const _expandLine = () => {}
-
-const { timing, easing, staggers } = useAnimations()
-
-// Set up global animation defaults
-engine.defaults = {
-  duration: timing.normal,
-  ease: easing.standard,
-  autoplay: true
-}
 
 function formatDate(date) {
   if (!date) return 'No date'
@@ -468,111 +314,6 @@ onMounted(async () => {
   }
 })
 
-// Watch for content changes
-watch(
-  () => post.value?.content,
-  async () => {
-    if (post.value?.content) {
-      await nextTick()
-      await nextTick()
-      await new Promise((resolve) => setTimeout(resolve, 50))
-
-      // Initial fade-in animation for everything EXCEPT images
-      if (articleContent.value) {
-        const content = articleContent.value.querySelectorAll(
-          '.animate-on-scroll:not(img)'
-        )
-        if (content.length > 0) {
-          animate(content, {
-            opacity: [0, 1],
-            translateY: [20, 0],
-            duration: timing.normal,
-            ease: easing.standard,
-            delay: _stagger(staggers.tight)
-          })
-        }
-      }
-
-      // Set up scroll-triggered animations
-      setupImageAnimations()
-      if (postMetadataComponent.value?.animateItems) {
-        postMetadataComponent.value.animateItems()
-      }
-    }
-  },
-  { immediate: true }
-)
-
-// Set up mutation observer
-let stopMutationObserver = null
-
-function setupImageAnimations() {
-  if (!articleContent.value) return
-
-  // Images slide up from bottom
-  const images = articleContent.value.querySelectorAll('img')
-  images.forEach((img) => slideUp(img))
-
-  // Other animations remain the same
-  const blockquotes = articleContent.value.querySelectorAll('blockquote')
-  blockquotes.forEach((quote) => slideLeft(quote))
-
-  // DISABLED: expandLine animation was creating weird SVG dotted patterns for HR elements
-  // const horizontalRules = articleContent.value.querySelectorAll('hr')
-  // horizontalRules.forEach((rule) => expandLine(rule))
-
-  const headingLevels = ['h2', 'h3', 'h4']
-  for (const level of headingLevels) {
-    const headings = articleContent.value.querySelectorAll(level)
-    if (headings.length > 0) {
-      headings.forEach((heading) => slideLeft(heading))
-    }
-  }
-
-  // Update mutation observer for dynamically added content
-  const { stop } = useMutationObserver(
-    articleContent.value,
-    (mutations) => {
-      mutations.forEach((mutation) => {
-        mutation.addedNodes.forEach((node) => {
-          if (node.nodeName === 'IMG') {
-            slideUp(node)
-          }
-          if (node.nodeName === 'BLOCKQUOTE') {
-            slideLeft(node)
-          }
-          if (['H2', 'H3', 'H4'].includes(node.nodeName)) {
-            const settings = ANIMATION_SETTINGS[node.nodeName.toLowerCase()]
-            slideLeft(node, settings)
-          }
-          // Handle nested elements
-          const nestedImages = node.querySelectorAll?.('img') || []
-          nestedImages.forEach((img) => slideUp(img))
-          const nestedQuotes = node.querySelectorAll?.('blockquote') || []
-          nestedQuotes.forEach((quote) => slideLeft(quote))
-          headingLevels.forEach((level) => {
-            const headings = node.querySelectorAll?.(level) || []
-            if (headings.length > 0) {
-              headings.forEach((heading) => {
-                const settings = ANIMATION_SETTINGS[level]
-                slideLeft(heading, settings)
-              })
-            }
-          })
-        })
-      })
-    },
-    { childList: true, subtree: true }
-  )
-  stopMutationObserver = stop
-}
-
-// Clean up mutation observer
-onUnmounted(() => {
-  if (stopMutationObserver) {
-    stopMutationObserver()
-  }
-})
 
 /**
  * Post Metadata Structure
@@ -647,7 +388,6 @@ const processedMetadata = computed(() => {
     <article
       v-if="post && !post.redirect"
       class="scroll-container pt-4 md:pt-0 pl-2 md:pl-4"
-      :style="{}"
     >
       <div ref="postMetadata" class="w-full">
         <PostMetadata
@@ -1016,12 +756,11 @@ a {
   }
 }
 
-/* Add these new styles */
+/* Title typing animation */
 .typing-container {
   display: flex;
   flex-wrap: wrap;
   gap: 0.3em;
-  /* This replaces our space width */
   line-height: 1.2;
 }
 
@@ -1031,10 +770,15 @@ a {
 
 .letter {
   display: inline-block;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1; /* Default visible */
+  transform: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+}
+
+.letter.hidden {
+  opacity: 0;
+  transform: translateY(5px);
 }
 
 .letter.visible {
@@ -1047,21 +791,15 @@ a {
   right: -3px;
   top: 0;
   bottom: 0;
-  width: 3px;
+  width: 2px;
   background-color: currentColor;
   animation: blink 1s step-end infinite;
   height: 100%;
 }
 
 @keyframes blink {
-  0%,
-  100% {
-    opacity: 0.8;
-  }
-
-  50% {
-    opacity: 0;
-  }
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0; }
 }
 
 /* Remove any conflicting styles */
@@ -1073,21 +811,6 @@ a {
   max-width: 100%;
   hyphens: auto;
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .letter,
-  .space {
-    transition: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-  }
-
-  .cursor {
-    animation: none !important;
-    opacity: 0 !important;
-  }
-}
-
 /* Enhanced image animations */
 .blog-post-content img {
   will-change: transform, opacity;

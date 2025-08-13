@@ -174,46 +174,14 @@ const pluralize = (word: string, count: number): string => {
   return count === 1 ? word : `${word}s`
 }
 
-// Epic metadata reveal with sophisticated staging
-const animateItems = async () => {
-  // No animations needed
-  return
-}
-
-defineExpose({ animateItems })
+// Remove all animation functionality
+// defineExpose({ animateItems }) // Not needed anymore
 </script>
 
 <style scoped>
 .metadata-item {
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-  /* Ensure visible on SSR */
+  /* Simple styling, no animations */
   opacity: 1;
   transform: translateY(0);
-}
-
-/* Only animate on client side */
-@media (prefers-reduced-motion: no-preference) {
-  .metadata-item {
-    animation: fadeInUp 0.6s ease-out forwards;
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .metadata-item {
-    opacity: 1 !important;
-    transform: none !important;
-  }
 }
 </style>

@@ -137,8 +137,8 @@ import {
   differenceInMonths,
   format
 } from 'date-fns'
-import { stagger as _stagger, createTimeline } from '~/anime.esm.js'
-import { useAnimations } from '~/composables/useAnimations'
+// NUKED BY BLOODHOUND: import { stagger as _stagger, createTimeline } from '~/anime.esm.js'
+// NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
 import ActivityCalendar from './ActivityCalendar.vue'
 import { useNumberFormat } from '../../composables/useNumberFormat'
 import StatsSectionHeader from './StatsSectionHeader.vue'
@@ -170,7 +170,7 @@ const props = defineProps<{
   stats: BlogStats
 }>()
 
-const { timing, easing } = useAnimations()
+// NUKED BY BLOODHOUND: const { timing, easing } = useAnimations()
 
 // Computed properties for conditional rendering and data formatting
 const _primaryDetails = computed(() => {

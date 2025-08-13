@@ -10,8 +10,8 @@
 </template>
 
 <script setup lang="ts">
-import { animate, onScroll } from '~/anime.esm.js'
-import { useAnimations } from '~/composables/useAnimations'
+// NUKED BY BLOODHOUND: import { animate, onScroll } from '~/anime.esm.js'
+// NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
 
 defineProps<{
   title: string
@@ -23,7 +23,7 @@ const sectionRef = ref<HTMLElement | null>(null)
 const titleRef = ref<HTMLElement | null>(null)
 const contentRef = ref<HTMLElement | null>(null)
 
-const { timing, easing } = useAnimations()
+// NUKED BY BLOODHOUND: const { timing, easing } = useAnimations()
 
 // Epic stats section scroll-triggered animations
 const setupScrollAnimations = () => {
@@ -32,7 +32,7 @@ const setupScrollAnimations = () => {
   nextTick(() => {
     // Section container slide-in on scroll
     if (sectionRef.value) {
-      animate(sectionRef.value, {
+      // NUKED: // NUKED BY BLOODHOUND: // animate(sectionRef.value, {
         opacity: [0, 1],
         translateY: [30, 0],
         scale: [0.96, 1.01, 1],
@@ -48,7 +48,7 @@ const setupScrollAnimations = () => {
     
     // Title dramatic entrance on scroll
     if (titleRef.value) {
-      animate(titleRef.value, {
+      // NUKED: // NUKED BY BLOODHOUND: // animate(titleRef.value, {
         keyframes: [
           { opacity: 0, scale: 0.7, skewX: -8, filter: 'blur(1px)' },
           { opacity: 0.8, scale: 1.1, skewX: 3, filter: 'blur(0.3px)' },
@@ -65,7 +65,7 @@ const setupScrollAnimations = () => {
     
     // Content reveal on scroll with longer delay
     if (contentRef.value) {
-      animate(contentRef.value, {
+      // NUKED: // NUKED BY BLOODHOUND: // animate(contentRef.value, {
         opacity: [0, 1],
         translateY: [20, 0],
         scale: [0.95, 1.02, 1],

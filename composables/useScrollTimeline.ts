@@ -127,7 +127,7 @@ export function useScrollTimeline(options: ScrollTimelineOptions = {}) {
 
       const bars = containerRef.value.querySelectorAll(barsSelector)
       if (bars.length) {
-        animate(Array.from(bars), {
+        // NUKED BY BLOODHOUND: // animate(Array.from(bars), {
           scaleX: [0, 1.1, 1],
           scaleY: [0.3, 1.2, 1],
           duration: timing.value.slow, // was 600
@@ -149,7 +149,7 @@ export function useScrollTimeline(options: ScrollTimelineOptions = {}) {
 
       const gridItems = containerRef.value.querySelectorAll(gridSelector)
       if (gridItems.length) {
-        animate(Array.from(gridItems), {
+        // NUKED BY BLOODHOUND: // animate(Array.from(gridItems), {
           keyframes: [
             { opacity: 0, scale: 0, rotateZ: -45 },
             { opacity: 0.8, scale: 1.3, rotateZ: 15 },
@@ -173,7 +173,7 @@ export function useScrollTimeline(options: ScrollTimelineOptions = {}) {
 
       const items = containerRef.value.querySelectorAll(itemsSelector)
       if (items.length) {
-        animate(Array.from(items), {
+        // NUKED BY BLOODHOUND: // animate(Array.from(items), {
           opacity: [0, 1],
           translateY: [15, 0],
           scale: [0.95, 1.02, 1],

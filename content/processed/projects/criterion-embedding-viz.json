@@ -1,24 +1,23 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Generated embeddings for every film in the Criterion Collection and visualized them in semantic space. You can see clusters of French New Wave films hanging out together, film noir huddled in its own corner.</p>\n<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Used UMAP dimension reduction to map high-dimensional film descriptions into 2D space where similar films naturally cluster. It's basically a map of cinema history organized by vibes rather than chronology or geography.</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Generated embeddings for every film in the Criterion Collection and visualized them in semantic space. You can see clusters of French New Wave films hanging out together, film noir huddled in its own corner.</p>\n<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Used UMAP dimension reduction to map high-dimensional film descriptions into 2D space where similar films naturally cluster. It's basically a map of cinema history organized by vibes rather than chronology or geography.</p>",
-  "title": "Criterion Collection Embedding Visualization",
+  "content": "<p class=\"mb-4\">Vector embeddings for Criterion films enabling searches like \"films about existentialism\" for cinephiles who want deep thematic connections</p>",
+  "html": "<p class=\"mb-4\">Vector embeddings for Criterion films enabling searches like \"films about existentialism\" for cinephiles who want deep thematic connections</p>",
+  "title": "criterion-embedding-viz",
   "metadata": {
-    "title": "Criterion Collection Embedding Visualization",
-    "date": "2024-12-01T00:00:00.000Z",
-    "github": "https://github.com/ejfox/criterion-embedding-viz",
-    "tech": [
-      "JavaScript",
-      "Embeddings",
-      "UMAP",
-      "Data Visualization",
-      "Criterion API"
-    ],
-    "words": 67,
+    "words": 21,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h1": 1
+    },
+    "toc": [
+      {
+        "text": "criterion-embedding-viz",
+        "slug": "criterion-embedding-viz",
+        "level": "h1",
+        "children": []
+      }
+    ],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/projects/criterion-embedding-viz.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

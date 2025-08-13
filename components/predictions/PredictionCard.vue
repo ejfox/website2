@@ -104,9 +104,8 @@ import remarkParse from 'remark-parse'
 import remarkGfm from 'remark-gfm'
 import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
-import { useScrollAnimation } from '~/composables/useScrollAnimation'
-import { useAnimatables } from '~/composables/useAnimatables'
-import { useAnimations } from '~/composables/useAnimations'
+// DELETED: useScrollAnimation import removed
+// DELETED: All animation imports removed
 
 interface Prediction {
   id: string
@@ -143,16 +142,14 @@ const evidenceRef = ref<HTMLElement | null>(null)
 const verificationRef = ref<HTMLElement | null>(null)
 const resolutionRef = ref<HTMLElement | null>(null)
 
-// Animation composables
-const { dataProcessing, dataStream, criticalHighlight, dataCounter } = useScrollAnimation()
-const { createDataCard } = useAnimatables()
-const { timing, easing, staggers } = useAnimations()
+// COMMENTED OUT: All animation composables to prevent content hiding
+// const { dataProcessing, dataStream, criticalHighlight, dataCounter } = useScrollAnimation()
+// const { createDataCard } = useAnimatables()
+// // NUKED BY BLOODHOUND: const { timing, easing, staggers } = useAnimations()
 
-// Animation state
-const displayConfidence = ref(0)
-const displayProgress = ref(0)
-const cardAnimatable = ref<any>(null)
-const hasAnimated = ref(false)
+// Animation state removed - using direct values now
+const displayConfidence = computed(() => prediction.confidence || 0)
+const displayProgress = computed(() => prediction.progress || 0)
 
 // Computed properties
 const cardClasses = computed(() => [
@@ -212,7 +209,7 @@ const setupCardInteractions = () => {
     // Add hover interactions for the entire card
     cardRef.value.addEventListener('mouseenter', () => {
       if (cardAnimatable.value) {
-        cardAnimatable.value.animate({
+        cardAnimatable.value.// NUKED BY BLOODHOUND: // animate({
           scale: 1.01,
           filter: 'brightness(1.02) contrast(1.02)',
           boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)'
@@ -222,7 +219,7 @@ const setupCardInteractions = () => {
     
     cardRef.value.addEventListener('mouseleave', () => {
       if (cardAnimatable.value) {
-        cardAnimatable.value.animate({
+        cardAnimatable.value.// NUKED BY BLOODHOUND: // animate({
           scale: 1,
           filter: 'brightness(1) contrast(1)',
           boxShadow: '0 0 0 rgba(0, 0, 0, 0)'
@@ -347,13 +344,7 @@ onMounted(async () => {
   if (props.prediction.evidence) evidenceHtml.value = await markdownToHtml(props.prediction.evidence)
   if (props.prediction.resolution) resolutionHtml.value = await markdownToHtml(props.prediction.resolution)
   
-  // Initialize display values
-  displayConfidence.value = 0
-  displayProgress.value = 0
-  
-  // Start animation sequence
-  await nextTick()
-  animateCardReveal()
+  // DELETED: All animation code removed for better performance
 })
 </script>
 

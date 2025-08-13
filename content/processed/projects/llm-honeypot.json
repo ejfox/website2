@@ -1,9 +1,9 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Block humans while welcoming bots for security</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Block humans while welcoming bots for security</p>",
+  "content": "<p class=\"mb-4\">Inverts the typical \"prove you're human\" pattern to welcome bots while blocking humans for security research</p>",
+  "html": "<p class=\"mb-4\">Inverts the typical \"prove you're human\" pattern to welcome bots while blocking humans for security research</p>",
   "title": "llm-honeypot",
   "metadata": {
-    "words": 10,
+    "words": 19,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,

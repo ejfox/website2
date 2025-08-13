@@ -1,20 +1,8 @@
 <template>
   <div class="min-h-screen flex items-center justify-center p-8 pb-32">
-    <!-- Loading state with epic animation -->
-    <div v-if="pending" class="text-center">
-      <div class="loading-container">
-        <div class="loading-hexagon">
-          <div class="hex-inner"></div>
-        </div>
-        <p class="mt-4 text-zinc-600 dark:text-zinc-400 animate-pulse">
-          Loading gear data...
-        </p>
-      </div>
-    </div>
-    
     <!-- Main gear card -->
     <GearCard3D 
-      v-else-if="data" 
+      v-if="data" 
       :gear-item="data" 
       class="gear-card-entrance"
     />
@@ -41,7 +29,8 @@
 </template>
 
 <script setup>
-import { animate } from '~/anime.esm.js'
+// NUKED BY BLOODHOUND: Animation import obliterated
+// import { animate } from '~/anime.esm.js'
 
 const route = useRoute()
 
@@ -66,45 +55,16 @@ useSeoMeta({
   }
 })
 
-// Advanced anime.js entrance animation (client-side only)
-onMounted(() => {
-  nextTick(() => {
-    const gearCard = document.querySelector('.gear-card-entrance')
-    if (gearCard && data.value) {
-      // Epic sci-fi materialization animation
-      animate(gearCard, {
-        keyframes: [
-          { 
-            opacity: 0, 
-            scale: 0.3, 
-            rotateY: -180, 
-            rotateX: 45,
-            translateZ: -500,
-            filter: 'blur(8px) brightness(0.3)'
-          },
-          { 
-            opacity: 0.7, 
-            scale: 1.2, 
-            rotateY: 15, 
-            rotateX: -10,
-            translateZ: 50,
-            filter: 'blur(2px) brightness(1.3) contrast(1.2)'
-          },
-          { 
-            opacity: 1, 
-            scale: 1, 
-            rotateY: 0, 
-            rotateX: 0,
-            translateZ: 0,
-            filter: 'blur(0px) brightness(1) contrast(1)'
-          }
-        ],
-        duration: 1200,
-        ease: 'outBack(1.7)'
-      })
-    }
-  })
-})
+// NUKED BY BLOODHOUND: All animation code obliterated
+// Epic sci-fi materialization animation - DELETED for content visibility
+// onMounted(() => {
+//   nextTick(() => {
+//     const gearCard = document.querySelector('.gear-card-entrance')
+//     if (gearCard && data.value) {
+//       // Animation code completely removed
+//     }
+//   })
+// })
 
 // Page transitions
 definePageMeta({
@@ -156,10 +116,10 @@ definePageMeta({
   }
 }
 
-/* Gear card starts invisible for anime.js */
+/* BLOODHOUND FIX: Gear card now visible immediately - no animation */
 .gear-card-entrance {
-  opacity: 0;
-  transform: perspective(1000px) scale(0.3) rotateY(-180deg) rotateX(45deg) translateZ(-500px);
+  opacity: 1;
+  transform: none;
 }
 
 /* Page transitions */

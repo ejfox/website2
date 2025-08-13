@@ -1,20 +1,22 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Analyze productivity data with visualizations</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Analyze productivity data with visualizations</p>",
-  "title": "rescuetime-scrape",
+  "content": "<p class=\"mb-4\">Quantified self visualization tool for understanding personal productivity patterns</p>",
+  "html": "<p class=\"mb-4\">Quantified self visualization tool for understanding personal productivity patterns</p>",
+  "title": "Rescuetime-scrape",
   "metadata": {
-    "words": 8,
+    "date": "2025-08-10T16:47:45.000Z",
+    "modified": "2025-08-12T15:23:41.000Z",
+    "words": 12,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,
     "headers": {
-      "h1": 1
+      "h2": 1
     },
     "toc": [
       {
-        "text": "rescuetime-scrape",
+        "text": "Rescuetime-scrape",
         "slug": "rescuetime-scrape",
-        "level": "h1",
+        "level": "h2",
         "children": []
       }
     ],

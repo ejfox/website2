@@ -19,8 +19,8 @@
 <script setup lang="ts">
 import { computed, ref, onMounted, nextTick } from 'vue'
 import AnimatedNumber from '../AnimatedNumber.vue'
-import { animate, onScroll } from '~/anime.esm.js'
-import { useAnimations } from '~/composables/useAnimations'
+// NUKED BY BLOODHOUND: import { animate, onScroll } from '~/anime.esm.js'
+// NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
 
 interface GitHubStats {
   stats: {
@@ -41,7 +41,7 @@ const props = defineProps<{
   stats: GitHubStats
 }>()
 
-const { timing, easing } = useAnimations()
+// NUKED BY BLOODHOUND: const { timing, easing } = useAnimations()
 
 const totalCommits = computed(() => {
   return (
@@ -62,7 +62,7 @@ const setupScrollAnimations = () => {
     if (!containerRef.value) return
 
     // Epic container entrance with 3D morphing on scroll
-    animate(containerRef.value, {
+    // NUKED: // NUKED BY BLOODHOUND: // animate(containerRef.value, {
       keyframes: [
         { opacity: 0, scale: 0.6, rotateX: -45, rotateY: 20, filter: 'blur(2px)' },
         { opacity: 0.8, scale: 1.08, rotateX: 8, rotateY: -3, filter: 'blur(0.5px)' },

@@ -1,9 +1,9 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Manage personal data through Electron application</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Manage personal data through Electron application</p>",
+  "content": "<p class=\"mb-4\">Desktop-native personal data manager valuing offline capability over web convenience</p>",
+  "html": "<p class=\"mb-4\">Desktop-native personal data manager valuing offline capability over web convenience</p>",
   "title": "scrapbook-electron",
   "metadata": {
-    "words": 9,
+    "words": 13,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,

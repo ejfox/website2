@@ -1,9 +1,9 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Displays dual-canvas pixel interpolation with dithering effects</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Displays dual-canvas pixel interpolation with dithering effects</p>",
+  "content": "<p class=\"mb-4\">Digital art experiment with pixel interpolation and dithering exploring retro rendering aesthetics</p>",
+  "html": "<p class=\"mb-4\">Digital art experiment with pixel interpolation and dithering exploring retro rendering aesthetics</p>",
   "title": "forestpunks-com",
   "metadata": {
-    "words": 10,
+    "words": 15,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,

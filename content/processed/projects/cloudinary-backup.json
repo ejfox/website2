@@ -1,9 +1,9 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Desktop app that backs up Cloudinary photos with metadata preservation</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Desktop app that backs up Cloudinary photos with metadata preservation</p>",
+  "content": "<p class=\"mb-4\">Desktop app ensuring complete independence from Cloudinary with shoot organization and EXIF preservation features only a working photographer would prioritize</p>",
+  "html": "<p class=\"mb-4\">Desktop app ensuring complete independence from Cloudinary with shoot organization and EXIF preservation features only a working photographer would prioritize</p>",
   "title": "cloudinary-backup",
   "metadata": {
-    "words": 12,
+    "words": 23,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,

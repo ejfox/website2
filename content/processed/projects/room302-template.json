@@ -1,9 +1,9 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Deploy Room302 Nuxt template via npm</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Deploy Room302 Nuxt template via npm</p>",
+  "content": "<p class=\"mb-4\">Nuxt template with personality in the name bringing character even to boilerplate code</p>",
+  "html": "<p class=\"mb-4\">Nuxt template with personality in the name bringing character even to boilerplate code</p>",
   "title": "room302-template",
   "metadata": {
-    "words": 9,
+    "words": 16,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,

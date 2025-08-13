@@ -6,12 +6,38 @@ export default defineNuxtConfig({
   // Add compatibility date
   compatibilityDate: '2024-02-23',
   
-  // Nuxt 3.15+ optimizations
+  // Use optimized head configuration
+  app: {
+    head: {
+      htmlAttrs: { lang: 'en' },
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'format-detection', content: 'telephone=no' },
+        { name: 'description', content: 'EJ Fox - Hacker, Journalist, Data Visualization Specialist' }
+      ],
+      link: [
+        // Preconnect to critical domains
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' },
+        { rel: 'preconnect', href: 'https://res.cloudinary.com' },
+        { rel: 'dns-prefetch', href: 'https://fonts.googleapis.com' },
+        { rel: 'dns-prefetch', href: 'https://fonts.gstatic.com' },
+        { rel: 'dns-prefetch', href: 'https://res.cloudinary.com' }
+      ],
+      // Removed inline styles - let Nuxt handle it with experimental.inlineStyles
+    }
+  },
+  
+  // Nuxt 3.15+ optimizations for FCP
   experimental: {
     payloadExtraction: false, // Reduce payload size
     treeshakeClientOnly: true, // Remove server-only code from client
     componentIslands: true, // Enable component islands
-    asyncContext: true // Better async handling
+    asyncContext: true, // Better async handling
+    inlineStyles: true, // Inline critical CSS for FCP
+    renderJsonPayloads: false, // Don't render JSON payloads inline
+    asyncRenderScript: true // Load render script asynchronously
   },
 
   // Remove View Transitions API
@@ -41,12 +67,20 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     '@nuxt/icon',
     '@nuxt/image',
-    '@nuxtjs/web-vitals'
+    '@nuxtjs/web-vitals',
+    '@nuxt/scripts'
+    // 'nuxt-delay-hydration' // Disabled - causes content flashing
     // Removing nuxt-security as it's causing conflicts
     // 'nuxt-security'
     // Temporarily removing Sentry
     // '@sentry/nuxt/module'
   ],
+  
+  // Delay hydration disabled - causes content flashing
+  // delayHydration: {
+  //   mode: 'init', // Hydrate when page is idle
+  //   debug: process.env.NODE_ENV === 'development'
+  // },
 
   // Auto-imports configuration
   imports: {
@@ -72,64 +106,96 @@ export default defineNuxtConfig({
   },
 
 
-  // Google Fonts configuration
+  // Google Fonts configuration - FIXED FOR FOUC
   googleFonts: {
     families: {
-      'Signika Negative': [300, 400, 500, 600, 700],
-      'Red Hat Mono': [300, 400, 500, 600, 700],
+      'Signika Negative': [400, 600],
+      'Red Hat Mono': [400],
       'Fjalla One': [400]
     },
     display: 'swap',
-    preload: true,
-    prefetch: false, // Reduce prefetch to avoid over-fetching
+    preload: true, // PRELOAD CRITICAL FONTS
+    prefetch: true, // PREFETCH FOR FASTER LOADING
     preconnect: true,
-    download: true, // Enable local font download for better performance
+    download: true,
     base64: false,
-    subsets: ['latin'], // Only load latin subset
-    stylePath: 'css/fonts.css' // Optimize CSS delivery
+    subsets: ['latin'],
+    stylePath: 'css/fonts.css',
+    inject: true,
+    overwriting: false
   },
 
 
-  // Vite optimizations - reduce aggressive code splitting
+  // Vite optimizations - aggressive code splitting for FCP
   vite: {
     server: {
       hmr: false // Disable HMR completely for production-like dev
     },
+    css: {
+      // Extract CSS to separate file for async loading
+      extract: true
+    },
     build: {
       // Increase chunk size warning limit
-      chunkSizeWarningLimit: 2000,
-      // Disable CSS code splitting for fewer files
-      cssCodeSplit: false,
+      chunkSizeWarningLimit: 500, // Lower limit to encourage splitting
+      // Enable CSS code splitting
+      cssCodeSplit: true,
       rollupOptions: {
         output: {
-          // Reduce the number of chunks significantly
+          // Aggressive code splitting for faster FCP
           manualChunks(id) {
             // Keep server-only deps out of client bundle
-            if (id.includes('stripe') || id.includes('supabase') || id.includes('chance')) {
+            if (id.includes('stripe') || id.includes('supabase') || id.includes('cheerio')) {
               return null; // Don't bundle server-only deps
             }
-            // All node_modules in one vendor chunk
+            
+            // CRITICAL: Don't let shiki into ANY initial bundle
+            if (id.includes('shiki') || id.includes('@shikijs')) {
+              return; // Let Vite handle it as dynamic import
+            }
+            
+            // Split node_modules into smaller chunks
             if (id.includes('node_modules')) {
-              // Separate heavy libs if they're used client-side
-              if (id.includes('date-fns')) return 'date-fns';
-              if (id.includes('@iconify')) return 'icons';
-              if (id.includes('anime')) return 'anime';
+              // Heavy libraries - separate chunks
+              if (id.includes('d3')) return 'charts';
+              
+              // Medium-sized libraries
+              if (id.includes('date-fns')) return 'date-utils';
+              if (id.includes('@iconify') || id.includes('heroicons')) return 'icons';
+              if (id.includes('anime')) return 'animations';
+              
+              // Everything else in vendor
               return 'vendor';
             }
-            // All app code in one chunk
+            
+            // Split app code by feature
+            if (id.includes('/components/stats/')) return 'stats-components';
+            if (id.includes('/components/gear/')) return 'gear-components';
+            if (id.includes('/components/blog/')) return 'blog-components';
+            if (id.includes('/composables/')) return 'composables';
+            if (id.includes('/utils/')) return 'utils';
+            
+            // Default app chunk for remaining
             return 'app';
           },
-          // Use larger chunks
-          chunkFileNames: '[name]-[hash].js',
-          entryFileNames: 'entry-[name]-[hash].js',
+          // Use content hash for better caching
+          chunkFileNames: '_nuxt/[name]-[hash].js',
+          entryFileNames: '_nuxt/[name]-[hash].js',
+          assetFileNames: '_nuxt/[name]-[hash][extname]'
         },
         // Mark server-only deps as external for client build
-        external: ['stripe', '@supabase/supabase-js', 'chance', 'cheerio']
+        external: ['stripe', '@supabase/supabase-js', 'chance', 'cheerio', 'canvas', 'jsdom']
       }
     },
     optimizeDeps: {
-      include: ['vue', 'vue-router'],
-      exclude: ['vue-demi', 'stripe', '@supabase/supabase-js', 'chance']
+      include: ['vue', 'vue-router', '@vue/runtime-core', '@vue/runtime-dom', '@vue/shared', 'chance'],
+      exclude: [
+        'vue-demi', 
+        'stripe', 
+        '@supabase/supabase-js', 
+        'canvas', 
+        'jsdom'
+      ]
     },
     ssr: {
       noExternal: ['@supabase/supabase-js', 'stripe'] // These are server-only
@@ -221,7 +287,7 @@ export default defineNuxtConfig({
     prerender: {
       failOnError: false,
       crawlLinks: true,
-      routes: ['/'],
+      routes: ['/', '/blog', '/projects', '/stats', '/gear'], // Prerender main pages
       ignore: ['/api/**']
     },
     storage: {
@@ -232,6 +298,13 @@ export default defineNuxtConfig({
       }
     },
     routeRules: {
+      // Home page - aggressive prerendering and caching
+      '/': {
+        prerender: true,
+        headers: {
+          'cache-control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800'
+        }
+      },
       '/api/**': {
         cors: true,
         headers: {
@@ -239,18 +312,49 @@ export default defineNuxtConfig({
           'Access-Control-Allow-Origin': '*'
         }
       },
-      // Add caching for static assets
+      // Static assets - immutable cache
       '/assets/**': {
         headers: {
           'cache-control': 'public, max-age=31536000, immutable'
         }
       },
-      // Add caching for static pages
+      '/_nuxt/**': {
+        headers: {
+          'cache-control': 'public, max-age=31536000, immutable'
+        }
+      },
+      // Blog pages - prerender with cache
+      '/blog': {
+        prerender: true,
+        headers: {
+          'cache-control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800'
+        }
+      },
       '/blog/**': {
         headers: {
           'cache-control': 'public, max-age=3600, s-maxage=86400'
         },
         prerender: true
+      },
+      // Projects page - prerender
+      '/projects': {
+        prerender: true,
+        headers: {
+          'cache-control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800'
+        }
+      },
+      // Gear page - prerender
+      '/gear': {
+        prerender: true,
+        headers: {
+          'cache-control': 'public, max-age=3600, s-maxage=86400'
+        }
+      },
+      // Stats page - shorter cache due to dynamic data
+      '/stats': {
+        headers: {
+          'cache-control': 'public, max-age=300, s-maxage=600'
+        }
       },
       // Cache API responses
       '/api/stats': {
@@ -268,32 +372,11 @@ export default defineNuxtConfig({
           'cache-control': 'public, max-age=1800, s-maxage=3600'
         }
       },
-      // Add special handling for Cloudinary images
+      // Cloudinary images - immutable cache
       '/_ipx/**': {
         headers: {
           'Access-Control-Allow-Origin': '*',
           'cache-control': 'public, max-age=31536000, immutable'
-        }
-      },
-      '/projects': {
-        headers: {
-          'cache-control': 'public, max-age=3600, s-maxage=86400'
-        }
-      },
-      // Add more aggressive caching for static routes
-      '/': {
-        headers: {
-          'cache-control': 'public, max-age=1800, s-maxage=3600'
-        }
-      },
-      '/stats': {
-        headers: {
-          'cache-control': 'public, max-age=1800, s-maxage=3600'
-        }
-      },
-      '/gear': {
-        headers: {
-          'cache-control': 'public, max-age=3600, s-maxage=86400'
         }
       },
       '/gists': {
@@ -346,18 +429,20 @@ export default defineNuxtConfig({
         }
       ],
       link: [
+        // Critical preconnects first
+        {
+          rel: 'preconnect',
+          href: 'https://fonts.googleapis.com'
+        },
         {
           rel: 'preconnect',
           href: 'https://fonts.gstatic.com',
-          crossorigin: ''
+          crossorigin: 'anonymous'
         },
-        {
-          rel: 'preconnect',
-          href: 'https://res.cloudinary.com'
-        },
+        // Non-critical dns-prefetch
         {
           rel: 'dns-prefetch',
-          href: 'https://fonts.googleapis.com'
+          href: 'https://res.cloudinary.com'
         }
       ],
       htmlAttrs: {

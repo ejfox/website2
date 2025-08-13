@@ -11,18 +11,8 @@ useHead({
 
 <template>
   <main class="py-20 px-8 mx-auto max-w-lg">
-    <!-- Loading State -->
-    <div v-if="pending" class="space-y-4">
-      <div class="h-8 w-24 bg-zinc-200 dark:bg-zinc-800 rounded animate-pulse"></div>
-      <div class="space-y-2">
-        <div class="h-4 w-full bg-zinc-200 dark:bg-zinc-800 rounded animate-pulse"></div>
-        <div class="h-4 w-5/6 bg-zinc-200 dark:bg-zinc-800 rounded animate-pulse"></div>
-        <div class="h-4 w-4/5 bg-zinc-200 dark:bg-zinc-800 rounded animate-pulse"></div>
-      </div>
-    </div>
-
-    <!-- Content State -->
-    <div v-else-if="nowContent">
+    <!-- Content -->
+    <div v-if="nowContent">
       <div 
         class="prose prose-lg dark:prose-invert"
         v-html="nowContent.html"

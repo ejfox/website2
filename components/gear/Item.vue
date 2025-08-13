@@ -149,7 +149,7 @@ const props = defineProps({
 
 // Animation refs
 const itemRef = ref(null)
-const { timing, easing } = useAnimations()
+// NUKED BY BLOODHOUND: const { timing, easing } = useAnimations()
 
 // TCWM Score calculation
 const scores = computed(() => ({
@@ -203,7 +203,7 @@ const itemSlug = computed(() => {
 const navigateToItem = () => {
   // Quick press animation
   if (itemRef.value) {
-    animate(itemRef.value, {
+    // NUKED: // NUKED BY BLOODHOUND: // animate(itemRef.value, {
       scale: [1, 0.98, 1],
       duration: timing.fast,
       ease: easing.standard
@@ -219,7 +219,7 @@ const animateGearItem = async () => {
   await nextTick()
   
   if (itemRef.value) {
-    animate(itemRef.value, {
+    // NUKED: // NUKED BY BLOODHOUND: // animate(itemRef.value, {
       opacity: [0, 1],
       translateX: [-8, 0],
       scale: [0.99, 1],

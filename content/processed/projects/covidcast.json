@@ -1,11 +1,11 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">During the early COVID-19 pandemic, I worked with Carnegie Mellon University's <a href=\"https://delphi.cmu.edu/epidemic-signals/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center prose-sm text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">COVIDcast project</a>, prototyping data visualizations and user interactions to help the public understand hospitalization, transmission, and movement trends across the country.</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">During the early COVID-19 pandemic, I worked with Carnegie Mellon University's <a href=\"https://delphi.cmu.edu/epidemic-signals/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center prose-sm text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">COVIDcast project</a>, prototyping data visualizations and user interactions to help the public understand hospitalization, transmission, and movement trends across the country.</p>",
+  "content": "<p class=\"mb-4\">During the early COVID-19 pandemic, I worked with Carnegie Mellon University's <a href=\"https://delphi.cmu.edu/epidemic-signals/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">COVIDcast project</a>, prototyping data visualizations and user interactions to help the public understand hospitalization, transmission, and movement trends across the country.</p>\n<p class=\"mb-4\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png\" alt=\"\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_400/v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png 400w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png 800w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png 1200w\" sizes=\"(min-width: 768px) 80vw, 100vw\" loading=\"lazy\" decoding=\"async\" class=\"w-full max-w-full mx-auto w-full mx-auto py-4\" crossorigin=\"anonymous\" style=\"display: block; max-width: 100%;\"></p>",
+  "html": "<p class=\"mb-4\">During the early COVID-19 pandemic, I worked with Carnegie Mellon University's <a href=\"https://delphi.cmu.edu/epidemic-signals/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">COVIDcast project</a>, prototyping data visualizations and user interactions to help the public understand hospitalization, transmission, and movement trends across the country.</p>\n<p class=\"mb-4\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png\" alt=\"\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_400/v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png 400w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png 800w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png 1200w\" sizes=\"(min-width: 768px) 80vw, 100vw\" loading=\"lazy\" decoding=\"async\" class=\"w-full max-w-full mx-auto w-full mx-auto py-4\" crossorigin=\"anonymous\" style=\"display: block; max-width: 100%;\"></p>",
   "title": "COVIDcast",
   "metadata": {
     "title": "COVIDcast",
-    "date": "2020-04-24T20:00:51.000Z",
-    "modified": "2024-10-14T23:59:10.000Z",
+    "date": "2020-04-24T04:00:00.000Z",
+    "modified": "2025-08-13T15:42:11.000Z",
     "url": "https://campustechnology.com/articles/2020/04/24/carnegie-mellon-maps-offer-more-data-for-covid-19-forecasting.aspx",
     "tech": [
       "Data Visualization",
@@ -13,9 +13,12 @@
       "COVID-19 Data",
       "Public Health"
     ],
-    "words": 33,
-    "images": 0,
-    "links": 1,
+    "featured": true,
+    "state": "deployed",
+    "aiInvolvement": "human-only",
+    "words": 34,
+    "images": 1,
+    "links": 2,
     "codeBlocks": 0,
     "headers": {},
     "toc": [],

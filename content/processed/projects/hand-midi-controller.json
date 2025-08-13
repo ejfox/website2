@@ -1,9 +1,9 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Transform hand movements into MIDI control signals</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Transform hand movements into MIDI control signals</p>",
+  "content": "<p class=\"mb-4\">Converts hand movements to MIDI with detailed performance timing breakdowns and memory analysis for creative interface exploration</p>",
+  "html": "<p class=\"mb-4\">Converts hand movements to MIDI with detailed performance timing breakdowns and memory analysis for creative interface exploration</p>",
   "title": "hand-midi-controller",
   "metadata": {
-    "words": 10,
+    "words": 20,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,

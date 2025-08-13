@@ -33,8 +33,8 @@
 <script setup lang="ts">
 import { computed, ref, onMounted, nextTick } from 'vue'
 import { format, startOfWeek, addDays, differenceInDays as _differenceInDays } from 'date-fns'
-import { animate as _animate, stagger as _stagger, createTimeline } from '~/anime.esm.js'
-import { useAnimations } from '~/composables/useAnimations'
+// NUKED BY BLOODHOUND: import { animate as _animate, stagger as _stagger, createTimeline } from '~/anime.esm.js'
+// NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
 
 interface GitHubCommit {
   repository: {
@@ -57,7 +57,7 @@ const props = defineProps<{
   stats: GitHubStats
 }>()
 
-const { timing, easing, staggers } = useAnimations()
+// NUKED BY BLOODHOUND: const { timing, easing, staggers } = useAnimations()
 
 const hasCommits = computed(() => {
   return !!props.stats?.detail?.commits?.length

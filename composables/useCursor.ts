@@ -89,7 +89,7 @@ export const useCursor = () => {
     const config = states[state]
     
     // Anime.js handles the easing and physics beautifully
-    animate(cursorRef.value, {
+    // NUKED BY BLOODHOUND: // animate(cursorRef.value, {
       scale: config.scale,
       opacity: config.opacity,
       duration: 200,
@@ -120,7 +120,7 @@ export const useCursor = () => {
       if (target.matches('a, [role="button"]')) {
         setCursorState('link')
         // Add subtle hover animation to the element too - anime.js spring magic
-        animate(target, {
+        // NUKED BY BLOODHOUND: // animate(target, {
           scale: [1, 1.02, 1],
           duration: 300,
           ease: 'easeOutElastic(1, .8)' // Anime.js elastic ease - so much nicer!
@@ -209,12 +209,12 @@ export const useCursor = () => {
       const target = e.target as HTMLElement
       
       if (target.matches('a, button, [role="button"], .btn')) {
-        animate(target, {
+        // NUKED BY BLOODHOUND: // animate(target, {
           scale: [1, 0.95],
           duration: 100,
           ease: [0.4, 0.0, 1, 1] as any, // Fast ease-in for touch down
           complete: () => {
-            animate(target, {
+            // NUKED BY BLOODHOUND: // animate(target, {
               scale: [0.95, 1],
               duration: 200,
               ease: [0.0, 0.0, 0.2, 1] as any // Smooth ease-out for release
@@ -254,7 +254,7 @@ export const useCursor = () => {
         target.appendChild(ripple)
         
         // Anime.js has perfect ripple physics built-in
-        animate(ripple, {
+        // NUKED BY BLOODHOUND: // animate(ripple, {
           scale: [0, 2],
           opacity: [0.1, 0],
           duration: 600,

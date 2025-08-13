@@ -30,7 +30,8 @@
 </template>
 
 <script setup>
-import { animate } from '~/anime.esm.js'
+// NUKED BY BLOODHOUND: Animation import obliterated
+// import { animate } from '~/anime.esm.js'
 
 const props = defineProps({
   currentSlug: {
@@ -96,21 +97,9 @@ const navigateToItem = (item, direction = 'none') => {
   const targetIndex = gearItems.value.findIndex(i => i.Name === item.Name)
   
   // Add directional animation
+  // NUKED BY BLOODHOUND: Animation code obliterated - navigation works without fancy animations
   if (direction !== 'none') {
-    const itemEl = document.querySelector(`[data-gear-index="${targetIndex}"]`)
-    
-    if (itemEl) {
-      const translateX = direction === 'right' ? -20 : 20
-      animate(itemEl, {
-        keyframes: [
-          { scale: 1, translateX: 0 },
-          { scale: 1.2, translateX },
-          { scale: 1.1, translateX: 0 }
-        ],
-        duration: 300,
-        ease: 'outBack(1.7)'
-      })
-    }
+    // Animation removed for better performance
   }
   
   // Auto-scroll to center the selected item

@@ -1,9 +1,9 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Markets EXIF Photo Printer app with minimal design</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Markets EXIF Photo Printer app with minimal design</p>",
+  "content": "<p class=\"mb-4\">Minimal marketing site letting the product speak for itself through clean design</p>",
+  "html": "<p class=\"mb-4\">Minimal marketing site letting the product speak for itself through clean design</p>",
   "title": "exif-printer-website",
   "metadata": {
-    "words": 11,
+    "words": 15,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,

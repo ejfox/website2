@@ -1,9 +1,9 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Monitors git repositories in real-time terminal dashboard</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Monitors git repositories in real-time terminal dashboard</p>",
+  "content": "<p class=\"mb-4\">Terminal dashboard following Unix philosophy - one tool doing one thing well with ASCII art because terminals deserve personality too</p>",
+  "html": "<p class=\"mb-4\">Terminal dashboard following Unix philosophy - one tool doing one thing well with ASCII art because terminals deserve personality too</p>",
   "title": "git-status-dash",
   "metadata": {
-    "words": 10,
+    "words": 23,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,

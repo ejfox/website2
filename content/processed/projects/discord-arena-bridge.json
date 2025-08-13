@@ -1,9 +1,9 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Bridges Discord conversations with Are.na channels bidirectionally</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Bridges Discord conversations with Are.na channels bidirectionally</p>",
+  "content": "<p class=\"mb-4\">Bridges Discord with Are.na channels \"as the ancients intended\" with a license that reads \"Do what thou wilt shall be the whole of the law\"</p>",
+  "html": "<p class=\"mb-4\">Bridges Discord with Are.na channels \"as the ancients intended\" with a license that reads \"Do what thou wilt shall be the whole of the law\"</p>",
   "title": "discord-arena-bridge",
   "metadata": {
-    "words": 10,
+    "words": 28,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,

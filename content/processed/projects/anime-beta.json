@@ -1,9 +1,9 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">JavaScript animation library for CSS properties, SVG, DOM attributes and objects</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">JavaScript animation library for CSS properties, SVG, DOM attributes and objects</p>",
+  "content": "<p class=\"mb-4\">JavaScript animation library kept locally for rapid prototyping and deep experimentation with motion design</p>",
+  "html": "<p class=\"mb-4\">JavaScript animation library kept locally for rapid prototyping and deep experimentation with motion design</p>",
   "title": "anime-beta",
   "metadata": {
-    "words": 13,
+    "words": 17,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,

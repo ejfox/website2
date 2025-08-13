@@ -1,9 +1,9 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Visualizes election data with real-time results and interactive maps</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Visualizes election data with real-time results and interactive maps</p>",
+  "content": "<p class=\"mb-4\">Election data visualization platform with comprehensive testing infrastructure built by an iterative perfectionist who believes in continuous refinement</p>",
+  "html": "<p class=\"mb-4\">Election data visualization platform with comprehensive testing infrastructure built by an iterative perfectionist who believes in continuous refinement</p>",
   "title": "electology",
   "metadata": {
-    "words": 12,
+    "words": 21,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,

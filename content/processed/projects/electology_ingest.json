@@ -1,9 +1,9 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Transforms election data into structured Postgres database</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Transforms election data into structured Postgres database</p>",
+  "content": "<p class=\"mb-4\">Production-grade ETL pipeline transforming complex civic data into queryable structures</p>",
+  "html": "<p class=\"mb-4\">Production-grade ETL pipeline transforming complex civic data into queryable structures</p>",
   "title": "electology_ingest",
   "metadata": {
-    "words": 10,
+    "words": 13,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,

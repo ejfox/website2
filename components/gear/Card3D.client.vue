@@ -123,7 +123,7 @@ const props = defineProps({
 })
 
 const { getItemWeightInGrams } = useWeightCalculations()
-const { timing, easing: _easing } = useAnimations()
+// NUKED BY BLOODHOUND: const { timing, easing: _easing } = useAnimations()
 
 // Animation refs
 const cardRef = ref(null)
@@ -228,7 +228,7 @@ const animateGearCardReveal = async () => {
   await nextTick()
   
   // Stage 1: RAPID SPRINGY ENTRANCE for simultaneous flow
-  animate(cardRef.value, {
+  // NUKED: // NUKED BY BLOODHOUND: // animate(cardRef.value, {
     keyframes: [
       { 
         opacity: 0.3, 
@@ -285,7 +285,7 @@ const animateGearCardReveal = async () => {
   setTimeout(() => {
     const sections = cardRef.value?.querySelectorAll('div[class*="mb-6"], div[class*="mt-8"]')
     if (sections?.length) {
-      animate(Array.from(sections), {
+      // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(sections), {
         keyframes: [
           { 
             opacity: 0, 
@@ -327,7 +327,7 @@ const animateGearCardReveal = async () => {
     const floatAnimation = () => {
       const randomVariation = () => Math.random() * 0.5 - 0.25 // ±0.25 variation
       
-      animate(cardRef.value, {
+      // NUKED: // NUKED BY BLOODHOUND: // animate(cardRef.value, {
         translateY: [0, -15 + randomVariation(), 0],
         translateX: [0, 3 + randomVariation(), 0],
         rotateX: [0, 4 + randomVariation(), 0],
@@ -348,7 +348,7 @@ const animateGearCardReveal = async () => {
   //   const details = cardRef.value?.querySelectorAll('.text-lg, .text-3xl, .text-2xl')
   //   if (details?.length) {
   //     const pulseDetails = () => {
-  //       animate(Array.from(details), {
+  //       // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(details), {
   //         scale: [1, 1.02, 1],
   //         filter: ['contrast(1)', 'contrast(1.05)', 'contrast(1)'],
   //         duration: timing.expressive * 7,
@@ -376,7 +376,7 @@ const animateGearCardExit = async (direction = 'neutral') => {
   const transform = exitTransforms[direction] || exitTransforms.neutral
   
   // Stage 1: Quick prep animation
-  animate(cardRef.value, {
+  // NUKED: // NUKED BY BLOODHOUND: // animate(cardRef.value, {
     scale: [1, 1.05],
     filter: ['brightness(1)', 'brightness(1.2)'],
     duration: timing.micro,
@@ -385,7 +385,7 @@ const animateGearCardExit = async (direction = 'neutral') => {
   
   // Stage 2: Physics-based exit explosion
   setTimeout(() => {
-    animate(cardRef.value, {
+    // NUKED: // NUKED BY BLOODHOUND: // animate(cardRef.value, {
       opacity: [1, 0.3, 0],
       scale: [1.05, 1.3, transform.scale || 0.2],
       rotateX: [0, -20, -90],

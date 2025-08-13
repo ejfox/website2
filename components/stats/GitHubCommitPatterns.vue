@@ -37,8 +37,8 @@
 
 <script setup lang="ts">
 import { computed, ref, onMounted, nextTick } from 'vue'
-import { animate, stagger as _stagger, onScroll } from '~/anime.esm.js'
-import { useAnimations } from '~/composables/useAnimations'
+// NUKED BY BLOODHOUND: import { animate, stagger as _stagger, onScroll } from '~/anime.esm.js'
+// NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
 
 interface CommitType {
   type: string
@@ -56,7 +56,7 @@ const props = defineProps<{
   stats: GitHubStats
 }>()
 
-const { timing, easing, staggers } = useAnimations()
+// NUKED BY BLOODHOUND: const { timing, easing, staggers } = useAnimations()
 
 const commitTypes = computed(() => {
   return props.stats?.detail?.commitTypes || []
@@ -75,7 +75,7 @@ const setupScrollAnimations = () => {
     // Header reveal on scroll
     const header = patternsRef.value.querySelector('.section-subheader')
     if (header) {
-      animate(header, {
+      // NUKED: // NUKED BY BLOODHOUND: // animate(header, {
         opacity: [0, 1],
         translateX: [-10, 0],
         scale: [0.9, 1],
@@ -91,7 +91,7 @@ const setupScrollAnimations = () => {
     // Pattern rows cascade on scroll
     const patternRows = patternsRef.value.querySelectorAll('.pattern-row')
     if (patternRows.length) {
-      animate(Array.from(patternRows), {
+      // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(patternRows), {
         opacity: [0, 1],
         translateY: [15, 0],
         scale: [0.95, 1.02, 1],
@@ -108,7 +108,7 @@ const setupScrollAnimations = () => {
     // Epic bar growth animation with stagger on scroll
     const bars = patternsRef.value.querySelectorAll('.category-bar-fill')
     if (bars.length) {
-      animate(Array.from(bars), {
+      // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(bars), {
         scaleX: [0, 1.1, 1],
         scaleY: [0.3, 1.2, 1],
         duration: timing.value.dramatic,

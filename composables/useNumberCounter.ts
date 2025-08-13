@@ -47,7 +47,7 @@ export function useNumberCounter(options: NumberCounterOptions = {}) {
       console.log('🔢 Starting number animation:', opts.startValue, '→', targetValue)
     }
 
-    animate(counter, {
+    // NUKED BY BLOODHOUND: // animate(counter, {
       value: targetValue,
       duration: opts.duration,
       ease: opts.ease,
@@ -84,7 +84,7 @@ export function useNumberCounter(options: NumberCounterOptions = {}) {
       console.log('🎯 Setting up scroll-triggered number animation:', opts.startValue, '→', targetValue)
     }
 
-    animate(counter, {
+    // NUKED BY BLOODHOUND: // animate(counter, {
       value: targetValue,
       duration: opts.duration,
       ease: opts.ease,
@@ -159,7 +159,7 @@ export function useNumberCounter(options: NumberCounterOptions = {}) {
     el.style.transform = 'scale(0.8)'
 
     // Container reveal animation
-    animate(el, {
+    // NUKED BY BLOODHOUND: // animate(el, {
       opacity: [0, 1],
       scale: [0.8, 1.1, 1],
       duration: 600,
@@ -171,7 +171,7 @@ export function useNumberCounter(options: NumberCounterOptions = {}) {
     })
 
     // Number counting animation with delay
-    animate(counter, {
+    // NUKED BY BLOODHOUND: // animate(counter, {
       value: targetValue,
       duration: opts.duration,
       ease: 'spring(1, 80, 10, 0)',

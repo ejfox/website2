@@ -53,7 +53,7 @@
 import { computed } from 'vue'
 import { format } from 'date-fns'
 import AnimatedNumber from '../AnimatedNumber.vue'
-import { useAnimations } from '~/composables/useAnimations'
+// NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
 
 interface UmamiStats {
   stats: {

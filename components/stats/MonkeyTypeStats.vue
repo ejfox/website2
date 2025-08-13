@@ -101,8 +101,8 @@ import { computed, ref, onMounted, nextTick } from 'vue'
 import { format } from 'date-fns'
 import AnimatedNumber from '../AnimatedNumber.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'
-import { animate, stagger, onScroll } from '~/anime.esm.js'
-import { useAnimations } from '~/composables/useAnimations'
+// NUKED BY BLOODHOUND: import { animate, stagger, onScroll } from '~/anime.esm.js'
+// NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
 
 interface MonkeyTypeTest {
   timestamp: string
@@ -194,7 +194,7 @@ const setupScrollAnimations = () => {
 
     // Main stats dramatic entrance
     if (mainStatsRef.value) {
-      animate(mainStatsRef.value, {
+      // NUKED: // NUKED BY BLOODHOUND: // animate(mainStatsRef.value, {
         keyframes: [
           { opacity: 0, scale: 0.8, rotateX: -20, filter: 'blur(1px)' },
           { opacity: 0.8, scale: 1.05, rotateX: 5, filter: 'blur(0.3px)' },
@@ -213,7 +213,7 @@ const setupScrollAnimations = () => {
     if (recentTestsRef.value) {
       const testRows = recentTestsRef.value.querySelectorAll('.test-row')
       if (testRows.length) {
-        animate(Array.from(testRows), {
+        // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(testRows), {
           opacity: [0, 1],
           translateX: [-20, 0],
           scale: [0.96, 1],
@@ -232,7 +232,7 @@ const setupScrollAnimations = () => {
     if (performanceRef.value) {
       const statItems = performanceRef.value.querySelectorAll('.stat-item')
       if (statItems.length) {
-        animate(Array.from(statItems), {
+        // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(statItems), {
           opacity: [0, 1],
           translateY: [15, 0],
           scale: [0.92, 1.02, 1],

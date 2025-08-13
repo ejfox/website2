@@ -1,9 +1,9 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Gamifies MDN JavaScript documentation with progress tracking and exercises</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Gamifies MDN JavaScript documentation with progress tracking and exercises</p>",
+  "content": "<p class=\"mb-4\">Gamifies MDN documentation learning with GitHub-style contribution charts recognizing that visible progress drives habit formation</p>",
+  "html": "<p class=\"mb-4\">Gamifies MDN documentation learning with GitHub-style contribution charts recognizing that visible progress drives habit formation</p>",
   "title": "docgrind",
   "metadata": {
-    "words": 12,
+    "words": 18,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,

@@ -1,6 +1,6 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I worked with LongLead as an interactive producer and supporting developer to bring this award-winning story to life.</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">I worked with LongLead as an interactive producer and supporting developer to bring this award-winning story to life.</p>",
+  "content": "<p class=\"mb-4\">I worked with LongLead as an interactive producer and supporting developer to bring this award-winning story to life.</p>",
+  "html": "<p class=\"mb-4\">I worked with LongLead as an interactive producer and supporting developer to bring this award-winning story to life.</p>",
   "title": "The Depths She'll Reach",
   "metadata": {
     "title": "The Depths She'll Reach",

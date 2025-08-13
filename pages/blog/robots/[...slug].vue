@@ -11,8 +11,9 @@ const isMobile = computed(() => width.value < 768)
 const activeSection = ref('')
 const { timing, easing, staggers } = useAnimations()
 
-const { data: note } = await useAsyncData(`robot-${route.params.slug.join('/')}`, () =>
-  processedMarkdown.getPostBySlug(`robots/${route.params.slug.join('/')}`)
+const { data: note } = await useAsyncData(
+  `robot-${route.params.slug.join('/')}`,
+  () => processedMarkdown.getPostBySlug(`robots/${route.params.slug.join('/')}`)
 )
 
 // Redirect if note doesn't exist or isn't shared
@@ -28,8 +29,8 @@ const trimmedToc = computed(() => {
   if (!note.value?.metadata?.toc) return []
 
   return note.value.metadata.toc
-    .filter(item => item.depth === 2 || item.depth === 3)
-    .map(item => ({
+    .filter((item) => item.depth === 2 || item.depth === 3)
+    .map((item) => ({
       text: item.text.length > 40 ? item.text.slice(0, 37) + '...' : item.text,
       slug: generateSlug(item.text),
       level: `h${item.depth}`
@@ -51,7 +52,7 @@ const sectionWordCounts = computed(() => {
   const counts = {}
   const sections = note.value.metadata?.toc || []
 
-  sections.forEach(section => {
+  sections.forEach((section) => {
     if (section.depth <= 3) {
       const slug = generateSlug(section.text)
       counts[slug] = getSectionWordCount(note.value.content, slug)
@@ -75,14 +76,15 @@ const getSectionWordCount = (content, sectionId) => {
   let wordCount = 0
   let currentElement = header.nextElementSibling
 
-  while (currentElement &&
+  while (
+    currentElement &&
     (!currentElement.tagName.startsWith('H') ||
-      parseInt(currentElement.tagName[1]) > parseInt(header.tagName[1]))) {
+      parseInt(currentElement.tagName[1]) > parseInt(header.tagName[1]))
+  ) {
     wordCount += currentElement.textContent
       .trim()
       .split(/\s+/)
-      .filter(word => word.length > 0)
-      .length
+      .filter((word) => word.length > 0).length
 
     currentElement = currentElement.nextElementSibling
   }
@@ -136,17 +138,6 @@ const scrollProgress = ref(0)
 const titleChars = computed(() => note.value?.title.split(''))
 const titleRefs = ref([])
 
-// Add the animation function
-const animateTitle = () => {
-  animate(titleRefs.value, {
-    opacity: [0, 1],
-    translateY: [20, 0],
-    duration: timing.value.slow,
-    ease: easing.expressive,
-    delay: stagger(staggers.tight)
-  })
-}
-
 // Add this to process the content and add IDs to headings
 const processedContent = computed(() => {
   if (!note.value?.content) return ''
@@ -164,7 +155,7 @@ const processedContent = computed(() => {
 onMounted(() => {
   // Set up intersection observers for each section
   const sections = document.querySelectorAll('h2, h3')
-  sections.forEach(section => {
+  sections.forEach((section) => {
     const { stop: _stop } = useIntersectionObserver(
       section,
       ([{ isIntersecting }]) => {
@@ -223,47 +214,41 @@ useHead({
 <template>
   <div class="container mx-auto px-4 py-12">
     <!-- Main Content with Adjusted Layout -->
-    <div class="lg:grid lg:grid-cols-[1fr,300px] xl:grid-cols-[1fr,350px] gap-8">
+    <div
+      class="lg:grid lg:grid-cols-[1fr,300px] xl:grid-cols-[1fr,350px] gap-8"
+    >
       <article v-if="note">
         <!-- Metadata Display -->
-        <div class="font-mono text-xs bg-zinc-100 dark:bg-zinc-900 p-4 rounded-lg mb-8">
+        <div
+          class="font-mono text-xs bg-zinc-100 dark:bg-zinc-900 p-4 rounded-lg mb-8"
+        >
           <div class="grid grid-cols-[auto,1fr] gap-x-4 gap-y-2">
             <!-- Type -->
-            <div class="text-zinc-500 dark:text-zinc-400">
-              type:
-            </div>
+            <div class="text-zinc-500 dark:text-zinc-400">type:</div>
             <div class="text-zinc-700 dark:text-zinc-300 capitalize">
               {{ metadataFields.type }}
             </div>
 
             <!-- Date -->
-            <div class="text-zinc-500 dark:text-zinc-400">
-              published:
-            </div>
+            <div class="text-zinc-500 dark:text-zinc-400">published:</div>
             <div class="text-zinc-700 dark:text-zinc-300">
               {{ formatDate(metadataFields.date) }}
             </div>
 
             <!-- Modified -->
-            <div class="text-zinc-500 dark:text-zinc-400">
-              updated:
-            </div>
+            <div class="text-zinc-500 dark:text-zinc-400">updated:</div>
             <div class="text-zinc-700 dark:text-zinc-300">
               {{ formatDate(metadataFields.modified) }}
             </div>
 
             <!-- Word count -->
-            <div class="text-zinc-500 dark:text-zinc-400">
-              words:
-            </div>
+            <div class="text-zinc-500 dark:text-zinc-400">words:</div>
             <div class="text-zinc-700 dark:text-zinc-300">
               {{ formatNumber(metadataFields.words) }}
             </div>
 
             <!-- Stats -->
-            <div class="text-zinc-500 dark:text-zinc-400">
-              stats:
-            </div>
+            <div class="text-zinc-500 dark:text-zinc-400">stats:</div>
             <div class="text-zinc-700 dark:text-zinc-300 grid gap-1">
               <template v-if="metadataFields.stats">
                 <div v-if="metadataFields.stats.images">
@@ -276,7 +261,10 @@ useHead({
                   {{ metadataFields.stats.codeBlocks }} code blocks
                 </div>
                 <div v-if="metadataFields.stats.headers" class="flex gap-2">
-                  <span v-for="(count, level) in metadataFields.stats.headers" :key="level">
+                  <span
+                    v-for="(count, level) in metadataFields.stats.headers"
+                    :key="level"
+                  >
                     {{ count }} {{ level }}
                   </span>
                 </div>
@@ -286,7 +274,10 @@ useHead({
         </div>
 
         <UAlert
-          icon="i-majesticons-robot" color="orange" variant="solid" title="LLM-Generated / Augmented Content"
+          icon="i-majesticons-robot"
+          color="orange"
+          variant="solid"
+          title="LLM-Generated / Augmented Content"
           description="This note was written by or with the assistance of AI. While I've reviewed and edited the content, you might notice some quirks in the writing style or reasoning, and it may not all be factually accurate."
           class="mb-8"
         />
@@ -295,47 +286,55 @@ useHead({
           <!-- Hero title with animation -->
           <h1 class="text-4xl md:text-6xl font-bold mb-4 flex flex-wrap">
             <span
-              v-for="(char, i) in titleChars" :key="i" ref="titleRefs"
-              class="inline-block opacity-0" :class="{ 'mr-[0.2em]': char === ' ' }"
-            >{{ char }}</span>
+              v-for="(char, i) in titleChars"
+              :key="i"
+              ref="titleRefs"
+              class="inline-block opacity-0"
+              :class="{ 'mr-[0.2em]': char === ' ' }"
+              >{{ char }}</span
+            >
           </h1>
-          <p v-if="note.description" class="text-xl text-zinc-600 dark:text-zinc-400">
+          <p
+            v-if="note.description"
+            class="text-xl text-zinc-600 dark:text-zinc-400"
+          >
             {{ note.description }}
           </p>
         </header>
 
         <!-- Content with adjusted max-width -->
         <div
-          class="prose prose-sm font-mono dark:prose-invert 
-             prose-headings:font-bold prose-headings:tracking-tight 
-             prose-h2:text-3xl prose-h3:text-2xl 
-             prose-p:leading-8 prose-p:py-2 
-             prose-a:text-blue-600 hover:prose-a:text-blue-500 
-             dark:prose-a:text-blue-200 dark:hover:prose-a:text-blue-400 
-             prose-a:underline transition-all duration-100 ease-in-out 
-             prose-strong:font-semibold prose-blockquote:border-l-4 
-             prose-blockquote:border-blue-500 prose-blockquote:pl-4 
-             prose-blockquote:italic prose-blockquote:my-8 
-             prose-ul:list-disc prose-ol:list-decimal prose-li:my-2 
-             prose-img:rounded-lg prose-hr:border-gray-300 
-             dark:prose-hr:border-gray-700
-             !max-w-none" v-html="processedContent"
+          class="prose prose-sm font-mono dark:prose-invert prose-headings:font-bold prose-headings:tracking-tight prose-h2:text-3xl prose-h3:text-2xl prose-p:leading-8 prose-p:py-2 prose-a:text-blue-600 hover:prose-a:text-blue-500 dark:prose-a:text-blue-200 dark:hover:prose-a:text-blue-400 prose-a:underline transition-all duration-100 ease-in-out prose-strong:font-semibold prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:my-8 prose-ul:list-disc prose-ol:list-decimal prose-li:my-2 prose-img:rounded-lg prose-hr:border-gray-300 dark:prose-hr:border-gray-700 !max-w-none"
+          v-html="processedContent"
         />
 
-        <footer class="mt-12 pt-8 border-t border-zinc-200 dark:border-zinc-800">
-          <NuxtLink to="/blog/robots" class="text-blue-500 dark:text-blue-400 hover:underline">
+        <footer
+          class="mt-12 pt-8 border-t border-zinc-200 dark:border-zinc-800"
+        >
+          <NuxtLink
+            to="/blog/robots"
+            class="text-blue-500 dark:text-blue-400 hover:underline"
+          >
             ← Back to Robot Notes
           </NuxtLink>
         </footer>
       </article>
 
       <!-- Right Sidebar with TOC -->
-      <aside v-if="!isMobile" class="hidden lg:block h-screen sticky top-0 pt-12">
+      <aside
+        v-if="!isMobile"
+        class="hidden lg:block h-screen sticky top-0 pt-12"
+      >
         <div class="space-y-8 max-h-[calc(100vh-6rem)] flex flex-col">
           <!-- Progress Bar -->
           <div class="dark:bg-zinc-900 p-4 rounded-lg flex-1 overflow-y-auto">
-            <div class="w-full bg-zinc-200 dark:bg-zinc-800 h-1 rounded-full overflow-hidden flex-shrink-0 mb-4">
-              <div class="bg-blue-500 h-full transition-all duration-200" :style="{ width: `${scrollProgress}%` }" />
+            <div
+              class="w-full bg-zinc-200 dark:bg-zinc-800 h-1 rounded-full overflow-hidden flex-shrink-0 mb-4"
+            >
+              <div
+                class="bg-blue-500 h-full transition-all duration-200"
+                :style="{ width: `${scrollProgress}%` }"
+              />
             </div>
 
             <h3
@@ -351,8 +350,12 @@ useHead({
       </aside>
     </div>
     <UAlert
-      icon="i-majesticons-robot" color="orange" variant="solid" title="LLM-Generated / Augmented Content"
-      description="This note was written by or with the assistance of AI." class="mb-8"
+      icon="i-majesticons-robot"
+      color="orange"
+      variant="solid"
+      title="LLM-Generated / Augmented Content"
+      description="This note was written by or with the assistance of AI."
+      class="mb-8"
     />
   </div>
 
@@ -361,7 +364,9 @@ useHead({
     <nav v-if="trimmedToc.length" class="space-y-2">
       <template v-for="section in trimmedToc" :key="section.slug">
         <NuxtLink
-          :to="`#${section.slug}`" class="block py-1.5 transition-colors duration-200 text-sm" :class="[
+          :to="`#${section.slug}`"
+          class="block py-1.5 transition-colors duration-200 text-sm"
+          :class="[
             section.level === 'h3' ? 'pl-4' : '',
             activeSection === section.slug
               ? 'text-blue-500 dark:text-blue-400'
@@ -444,10 +449,14 @@ useHead({
 
 /* Update the font-mono utility class just for robot pages */
 .font-mono {
-  font-family: 'Monaspace Radon', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+  font-family:
+    'Monaspace Radon', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace !important;
 }
 
 .font-monaspace {
-  font-family: 'Monaspace Radon', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+  font-family:
+    'Monaspace Radon', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace !important;
 }
 </style>

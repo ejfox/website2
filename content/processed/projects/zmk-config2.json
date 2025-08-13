@@ -1,9 +1,9 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Configure ZMK keyboard firmware with custom layouts</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Configure ZMK keyboard firmware with custom layouts</p>",
+  "content": "<p class=\"mb-4\">Split keyboard firmware configuration extending optimization philosophy from software to hardware because ergonomics matter everywhere</p>",
+  "html": "<p class=\"mb-4\">Split keyboard firmware configuration extending optimization philosophy from software to hardware because ergonomics matter everywhere</p>",
   "title": "zmk-config2",
   "metadata": {
-    "words": 10,
+    "words": 18,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,

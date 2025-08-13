@@ -108,8 +108,8 @@ import StatsDataState from './StatsDataState.vue'
 import AnimatedNumber from '../AnimatedNumber.vue'
 import { format } from 'date-fns'
 import { formatPercent } from '~/composables/useNumberFormat'
-import { animate, stagger, onScroll } from '~/anime.esm.js'
-import { useAnimations } from '~/composables/useAnimations'
+// NUKED BY BLOODHOUND: import { animate, stagger, onScroll } from '~/anime.esm.js'
+// NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
 
 interface TimeBreakdown {
   seconds: number
@@ -305,7 +305,7 @@ const setupScrollAnimations = () => {
     if (!rescueTimeRef.value || !hasData.value) return
 
     if (primaryStatRef.value) {
-      animate(primaryStatRef.value, {
+      // NUKED: // NUKED BY BLOODHOUND: // animate(primaryStatRef.value, {
         keyframes: [
           { opacity: 0, scale: 0.8, rotateX: -15, filter: 'blur(1px)' },
           { opacity: 0.8, scale: 1.05, rotateX: 5, filter: 'blur(0.3px)' },
@@ -321,7 +321,7 @@ const setupScrollAnimations = () => {
     }
 
     if (calendarRef.value) {
-      animate(calendarRef.value, {
+      // NUKED: // NUKED BY BLOODHOUND: // animate(calendarRef.value, {
         opacity: [0, 1],
         scale: [0.9, 1.02, 1],
         translateY: [20, 0],
@@ -334,7 +334,7 @@ const setupScrollAnimations = () => {
     if (waffleRef.value) {
       const waffleCells = waffleRef.value.querySelectorAll('.waffle-cell')
       if (waffleCells.length) {
-        animate(Array.from(waffleCells), {
+        // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(waffleCells), {
           keyframes: [
             { opacity: 0, scale: 0, rotateZ: 180 },
             { opacity: 0.8, scale: 1.2, rotateZ: -10 },
@@ -351,7 +351,7 @@ const setupScrollAnimations = () => {
     if (categoriesRef.value) {
       const categoryRows = categoriesRef.value.querySelectorAll('.category-row')
       if (categoryRows.length) {
-        animate(Array.from(categoryRows), {
+        // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(categoryRows), {
           opacity: [0, 1],
           translateX: [-20, 0],
           scale: [0.9, 1.05, 1],
@@ -368,7 +368,7 @@ const setupScrollAnimations = () => {
       const categoryBars =
         categoriesRef.value.querySelectorAll('.category-bar-fill')
       if (categoryBars.length) {
-        animate(Array.from(categoryBars), {
+        // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(categoryBars), {
           scaleX: [0, 1.1, 1],
           scaleY: [0.5, 1.3, 1],
           duration: timing.value.dramatic,

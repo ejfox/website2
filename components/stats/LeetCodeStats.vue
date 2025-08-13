@@ -137,8 +137,8 @@ import StatsSectionHeader from './StatsSectionHeader.vue'
 import AnimatedNumber from '../AnimatedNumber.vue'
 import { formatNumber, formatPercent } from '~/composables/useNumberFormat'
 import type { StatsResponse } from '~/composables/useStats'
-import { stagger as _stagger, createTimeline } from '~/anime.esm.js'
-import { useAnimations } from '~/composables/useAnimations'
+// NUKED BY BLOODHOUND: import { stagger as _stagger, createTimeline } from '~/anime.esm.js'
+// NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
 
 // Monochromatic zinc shades for language differentiation
 const zincShades = [
@@ -159,7 +159,7 @@ const props = defineProps<{
   stats: LeetCodeStats
 }>()
 
-const { timing, easing } = useAnimations()
+// NUKED BY BLOODHOUND: const { timing, easing } = useAnimations()
 
 // Total problems solved
 const totalSolved = computed(() => {

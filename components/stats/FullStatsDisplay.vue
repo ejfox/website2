@@ -20,15 +20,7 @@
             </Transition>
           </ClientOnly>
         </template>
-        <template #fallback>
-          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
-            <div
-              v-for="i in 6"
-              :key="i"
-              class="h-24 bg-zinc-200 dark:bg-zinc-800 rounded-lg animate-pulse"
-            ></div>
-          </div>
-        </template>
+        <!-- No loading skeleton - we're SSR -->
       </Suspense>
 
       <!-- Main Stats Grid -->

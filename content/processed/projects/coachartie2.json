@@ -1,9 +1,9 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Deploys production AI system with embedded MCP tools and Docker architecture</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Deploys production AI system with embedded MCP tools and Docker architecture</p>",
+  "content": "<p class=\"mb-4\">Deploys production AI system with embedded MCP tools following DELETE-DRIVEN DEVELOPMENT philosophy - remove code until it works, then have the audacity to run it in production</p>",
+  "html": "<p class=\"mb-4\">Deploys production AI system with embedded MCP tools following DELETE-DRIVEN DEVELOPMENT philosophy - remove code until it works, then have the audacity to run it in production</p>",
   "title": "coachartie2",
   "metadata": {
-    "words": 13,
+    "words": 30,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,

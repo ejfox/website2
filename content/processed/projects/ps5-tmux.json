@@ -1,9 +1,9 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Control tmux sessions with PS5 controller</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Control tmux sessions with PS5 controller</p>",
+  "content": "<p class=\"mb-4\">Control tmux sessions with PS5 controller from the couch because sometimes productivity isn't about speed - it's about finding joy in the weird corners of technology</p>",
+  "html": "<p class=\"mb-4\">Control tmux sessions with PS5 controller from the couch because sometimes productivity isn't about speed - it's about finding joy in the weird corners of technology</p>",
   "title": "ps5-tmux",
   "metadata": {
-    "words": 9,
+    "words": 29,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,

@@ -125,7 +125,7 @@ export function useStorytellingScroll() {
       const htmlElement = element as HTMLElement
       
       // Create scroll-driven animation using anime.js
-      const scrollAnimation = animate(htmlElement, {
+      const scrollAnimation = // NUKED BY BLOODHOUND: // animate(htmlElement, {
         y: [0, -300 * config.speed * config.intensity], // Parallax range
         ease: 'linear',
         autoplay: false, // Controlled by scroll
@@ -212,7 +212,7 @@ export function useStorytellingScroll() {
           } as any)
 
           // Add staggered animations using proper anime.js API
-          animate(Array.from(elements), {
+          // NUKED BY BLOODHOUND: // animate(Array.from(elements), {
             opacity: [0, 1],
             // @ts-expect-error - fade is a valid direction
             ...(config.direction === 'fade' ? {} : {
@@ -310,7 +310,7 @@ export function useStorytellingScroll() {
 
   function typeCharacters(elements: HTMLElement[], config: TypographyOptions) {
     // Use anime.js stagger for smooth character reveals with elastic bounce
-    animate(Array.from(elements), {
+    // NUKED BY BLOODHOUND: // animate(Array.from(elements), {
       opacity: [0, 1],
       y: [10, 0],
       scale: [0.8, 1], // Character pop effect
@@ -381,7 +381,7 @@ export function useStorytellingScroll() {
           ([{ isIntersecting }]) => {
             if (isIntersecting) {
               setTimeout(() => {
-                animate(htmlElement, {
+                // NUKED BY BLOODHOUND: // animate(htmlElement, {
                   opacity: [0, 1],
                   scale: [0.98, 1],
                   translateY: [20, 0],
@@ -441,7 +441,7 @@ export function useStorytellingScroll() {
       const charElements = element.querySelectorAll('.story-char')
       
       // Create scroll-driven reveal for each character
-      const textAnimation = animate(Array.from(charElements), {
+      const textAnimation = // NUKED BY BLOODHOUND: // animate(Array.from(charElements), {
         opacity: [0, 1],
         y: [15, 0],
         scale: [0.9, 1],

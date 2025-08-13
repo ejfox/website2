@@ -7,9 +7,10 @@ module.exports = {
     './plugins/**/*.{js,ts}',
     './app.vue',
     './error.vue',
-    './content/**/*.md'
+    // Don't scan ALL markdown, it's processed separately
+    './content/processed/**/*.html'
   ],
-  darkMode: 'media', // Use system preference for dark mode
+  darkMode: 'media', // Use CSS media queries for system dark mode
   plugins: [
     require('@tailwindcss/typography'),
     require('@tailwindcss/container-queries')

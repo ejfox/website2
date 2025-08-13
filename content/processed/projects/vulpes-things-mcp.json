@@ -1,9 +1,9 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Access Things todo app via MCP protocol</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Access Things todo app via MCP protocol</p>",
+  "content": "<p class=\"mb-4\">MCP integration for Things app valuing seamless workflow over standalone applications</p>",
+  "html": "<p class=\"mb-4\">MCP integration for Things app valuing seamless workflow over standalone applications</p>",
   "title": "vulpes-things-mcp",
   "metadata": {
-    "words": 10,
+    "words": 14,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,

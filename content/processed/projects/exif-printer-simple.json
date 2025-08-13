@@ -1,9 +1,9 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Creates printable photos with EXIF camera data borders</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Creates printable photos with EXIF camera data borders</p>",
+  "content": "<p class=\"mb-4\">Creates printable photos with camera settings displayed in the borders - a photographer's tool that treats metadata as part of the art</p>",
+  "html": "<p class=\"mb-4\">Creates printable photos with camera settings displayed in the borders - a photographer's tool that treats metadata as part of the art</p>",
   "title": "exif-printer-simple",
   "metadata": {
-    "words": 11,
+    "words": 25,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,

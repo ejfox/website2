@@ -1,9 +1,9 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Benchmark LLM code generation for data visualization</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Benchmark LLM code generation for data visualization</p>",
+  "content": "<p class=\"mb-4\">Systematic LLM performance testing on real visualization tasks to understand practical capabilities</p>",
+  "html": "<p class=\"mb-4\">Systematic LLM performance testing on real visualization tasks to understand practical capabilities</p>",
   "title": "vizhub-benchmarks",
   "metadata": {
-    "words": 10,
+    "words": 15,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,

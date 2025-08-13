@@ -1,9 +1,9 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Analyze Obsidian vault with embeddings and UMAP</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Analyze Obsidian vault with embeddings and UMAP</p>",
+  "content": "<p class=\"mb-4\">Analyzes Obsidian vaults using local-first ML processing with exhaustive UMAP parameter exploration for privacy-conscious knowledge workers</p>",
+  "html": "<p class=\"mb-4\">Analyzes Obsidian vaults using local-first ML processing with exhaustive UMAP parameter exploration for privacy-conscious knowledge workers</p>",
   "title": "obsidian-analysis",
   "metadata": {
-    "words": 10,
+    "words": 19,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,

@@ -1,6 +1,6 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Worked with studio designer Sam Vogt to develop and implement a complete redesign of our studio site. Built with Nuxt, Three.js for the 3D elements, and TailwindCSS - showcasing our creative technology work.</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Worked with studio designer Sam Vogt to develop and implement a complete redesign of our studio site. Built with Nuxt, Three.js for the 3D elements, and TailwindCSS - showcasing our creative technology work.</p>",
+  "content": "<p class=\"mb-4\">Worked with studio designer Sam Vogt to develop and implement a complete redesign of our studio site. Built with Nuxt, Three.js for the 3D elements, and TailwindCSS - showcasing our creative technology work.</p>",
+  "html": "<p class=\"mb-4\">Worked with studio designer Sam Vogt to develop and implement a complete redesign of our studio site. Built with Nuxt, Three.js for the 3D elements, and TailwindCSS - showcasing our creative technology work.</p>",
   "title": "Room 302 Studio Website",
   "metadata": {
     "title": "Room 302 Studio Website",

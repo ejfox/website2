@@ -109,7 +109,7 @@
       <!-- Desktop navigation - hide on stats page with simple mode -->
       <nav
         v-else-if="
-          !(route.path === '/stats' && route.query.simple !== undefined)
+          !(route?.path === '/stats' && route?.query?.simple !== undefined)
         "
         class="sticky min-w-[240px] h-auto max-h-screen top-0 left-0 z-50 monospace overflow-auto"
       >
@@ -221,7 +221,9 @@
     />
     
     <Footer />
-    <WebVitalsReporter />
+    <ClientOnly>
+      <WebVitalsReporter />
+    </ClientOnly>
   </div>
 </template>
 
@@ -232,6 +234,7 @@ import { useWindowSize } from '@vueuse/core'
 // Lazy load components
 const Footer = defineAsyncComponent(() => import('@/components/Footer.vue'))
 const GearNavigator = defineAsyncComponent(() => import('@/components/gear/Navigator.vue'))
+const WebVitalsReporter = defineAsyncComponent(() => import('@/components/WebVitalsReporter.vue'))
 
 const { width } = useWindowSize()
 const isMobile = computed(() => width.value < 768)

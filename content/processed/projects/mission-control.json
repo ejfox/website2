@@ -1,9 +1,9 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Dashboard for GitHub activity and project metrics</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Dashboard for GitHub activity and project metrics</p>",
+  "content": "<p class=\"mb-4\">Unifies GitHub and Harvest metrics for those who think in organizational systems and need both code and business visibility</p>",
+  "html": "<p class=\"mb-4\">Unifies GitHub and Harvest metrics for those who think in organizational systems and need both code and business visibility</p>",
   "title": "mission-control",
   "metadata": {
-    "words": 10,
+    "words": 22,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,

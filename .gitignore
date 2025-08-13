@@ -7,6 +7,9 @@ dist
 
 # Node dependencies
 node_modules
+# Prevent accidental node_modules in content directories
+content/**/node_modules
+content/processed/**/node_modules
 
 # Logs
 logs

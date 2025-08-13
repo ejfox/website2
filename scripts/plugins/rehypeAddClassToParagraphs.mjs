@@ -13,33 +13,17 @@ export function rehypeAddClassToParagraphs() {
 
       switch (node.tagName) {
         case 'p':
-          addClasses(node, [
-            'prose-p',
-            'prose-sm',
-            'max-w-prose',
-            'mb-4',
-            'leading-relaxed',
-            'dark:prose-invert',
-            'animate-on-scroll'
-          ])
-          node.properties.style = 'max-width: 60ch;'
+          // Minimal classes for paragraphs
+          addClasses(node, ['mb-4'])
           break
 
         case 'blockquote':
           addClasses(node, [
-            'prose-blockquote',
-            'prose-sm',
-            'max-w-prose',
             'pl-4',
             'border-l-4',
             'border-zinc-300',
             'dark:border-zinc-700',
-            'italic',
-            'my-4',
-            'text-zinc-700',
-            'dark:text-zinc-300',
-            'animate-on-scroll',
-            'slide-from-left'
+            'my-4'
           ])
           break
 
@@ -52,103 +36,61 @@ export function rehypeAddClassToParagraphs() {
         case 'img':
           addClasses(node, [
             'w-full',
-            'max-w-full',
             'mx-auto',
-            'transition-all',
-            'duration-300',
-            'ease-in-out',
-            'pr-2 py-2',
-            'md:pr-6 md:py-4',
-            'lg:pr-12 lg:py-6',
-            'animate-on-scroll',
-            'slide-from-bottom',
-            'will-change-transform'
+            'py-4'
           ])
           break
 
         case 'h1':
           addClasses(node, [
-            'prose-sm',
             'text-4xl',
             'font-bold',
             'mb-6',
-            'mt-8',
-            'max-w-prose',
-            'lg:pr-12',
-            'animate-on-scroll',
-            'slide-from-left'
+            'mt-8'
           ])
           break
 
         case 'h2':
           addClasses(node, [
-            'prose-sm',
             'text-3xl',
             'font-semibold',
             'mb-4',
-            'mt-8',
-            'max-w-prose',
-            'border-b',
-            'border-zinc-200',
-            'dark:border-zinc-800',
-            'pb-2',
-            'md:pr-12',
-            'animate-on-scroll',
-            'slide-from-left'
+            'mt-8'
           ])
           break
 
         case 'h3':
           addClasses(node, [
-            'prose-sm',
             'text-2xl',
             'font-medium',
             'mb-3',
-            'mt-6',
-            'max-w-prose',
-            'md:pr-12',
-            'animate-on-scroll',
-            'slide-from-left'
+            'mt-6'
           ])
           break
 
         case 'ul':
           addClasses(node, [
-            'prose-sm',
             'list-disc',
-            'list-outside',
             'ml-6',
-            'mb-4',
-            'space-y-2',
-            'max-w-prose'
+            'mb-4'
           ])
           break
 
         case 'ol':
           addClasses(node, [
-            'prose-sm',
             'list-decimal',
-            'list-outside',
             'ml-6',
-            'mb-4',
-            'space-y-2',
-            'max-w-prose'
+            'mb-4'
           ])
           break
 
         case 'li':
-          addClasses(node, ['prose-sm', 'max-w-prose'])
+          // No special classes for li
           break
 
         case 'a':
-          addClasses(node, [
-            'prose-sm',
-            'text-blue-600',
-            'dark:text-blue-400',
-            'hover:underline',
-            'transition-colors',
-            'duration-200'
-          ])
+          // Minimal link styling
+          addClasses(node, ['text-blue-600', 'dark:text-blue-400'])
           break
 
         case 'code':
@@ -256,14 +198,9 @@ export function rehypeAddClassToParagraphs() {
         visit(node, 'element', (child) => {
           if (child.tagName === 'p') {
             addClasses(child, [
-              'prose-p',
-              'prose-sm',
-              'max-w-prose',
-              'mb-4',
               'text-zinc-600',
               'dark:text-zinc-400'
             ])
-            child.properties.style = 'max-width: 60ch;'
           }
         })
       }

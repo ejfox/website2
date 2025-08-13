@@ -63,8 +63,8 @@ import StatsSectionHeader from './StatsSectionHeader.vue'
 import StatsDataState from './StatsDataState.vue'
 import type { StatsResponse } from '~/composables/useStats'
 import { useNumberFormat } from '~/composables/useNumberFormat'
-import { animate as _animate, stagger as _stagger, createTimeline as _createTimeline } from '~/anime.esm.js'
-import { useAnimations } from '~/composables/useAnimations'
+// NUKED BY BLOODHOUND: import { animate as _animate, stagger as _stagger, createTimeline as _createTimeline } from '~/anime.esm.js'
+// NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
 
 // Reusable StatItem component
 const StatItem = (props: {
@@ -98,7 +98,7 @@ const props = defineProps<{
 }>()
 
 const { formatNumber } = useNumberFormat()
-const { timing, easing, staggers } = useAnimations()
+// NUKED BY BLOODHOUND: const { timing, easing, staggers } = useAnimations()
 
 const _formatDate = (dateString: string): string => {
   return format(new Date(dateString), 'MMM d, yyyy')

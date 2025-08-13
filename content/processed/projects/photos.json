@@ -1,9 +1,9 @@
 {
-  "content": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Display Cloudinary photo library with metadata</p>",
-  "html": "<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\">Display Cloudinary photo library with metadata</p>",
+  "content": "<p class=\"mb-4\">Custom Cloudinary viewer built for personal photo infrastructure rather than using off-shelf solutions</p>",
+  "html": "<p class=\"mb-4\">Custom Cloudinary viewer built for personal photo infrastructure rather than using off-shelf solutions</p>",
   "title": "photos",
   "metadata": {
-    "words": 9,
+    "words": 16,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,
