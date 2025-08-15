@@ -7,11 +7,8 @@
     <section class="flex flex-col md:flex-row min-h-screen relative">
       <!-- Mobile navigation - 2025 best practices: Tab bar pattern -->
       <nav
-        v-if="
-          isMobile &&
-            !(route?.path === '/stats' && route?.query?.simple !== undefined)
-        "
-        class="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-200/20 dark:border-zinc-800/20"
+        v-if="!isStatsSimple"
+        class="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-200/20 dark:border-zinc-800/20 md:hidden"
       >
         <!-- Top bar with branding -->
         <div class="flex items-center justify-between px-4 h-14">
@@ -32,29 +29,12 @@
             role="tablist"
             aria-label="Main navigation"
           >
-            <NuxtLink
-              v-for="link in primaryNavLinks"
-              :key="link.to"
-              :to="link.to"
-              role="tab"
-              :aria-selected="
-                route?.path === link.to ||
-                  (link.to !== '/' && route?.path?.startsWith(link.to))
-              "
-              class="flex-shrink-0 px-3 py-1.5 text-sm font-medium rounded-full transition-all duration-200"
-              :class="
-                route?.path === link.to ||
-                  (link.to !== '/' && route?.path?.startsWith(link.to))
-                  ? 'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-black'
-                  : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/50'
-              "
-            >
-              {{ link.text }}
-            </NuxtLink>
+            <a href="/" role="tab" class="flex-shrink-0 px-3 py-1.5 text-sm font-medium rounded-full transition-all duration-200 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/50">Home</a>
+            <a href="/projects" role="tab" class="flex-shrink-0 px-3 py-1.5 text-sm font-medium rounded-full transition-all duration-200 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/50">Projects</a>
+            <a href="/blog/" role="tab" class="flex-shrink-0 px-3 py-1.5 text-sm font-medium rounded-full transition-all duration-200 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/50">Blog</a>
 
             <!-- More button for additional links -->
             <button
-              v-if="secondaryNavLinks.length > 0"
               :aria-expanded="mobileMenuOpen"
               aria-controls="secondary-nav-menu"
               aria-label="Show more navigation options"
@@ -81,144 +61,63 @@
           leave-to-class="opacity-0 -translate-y-1 scale-95"
         >
           <div
-            v-if="mobileMenuOpen && secondaryNavLinks.length > 0"
+            v-if="mobileMenuOpen"
             id="secondary-nav-menu"
             class="px-4 pb-3 border-t border-zinc-200/30 dark:border-zinc-800/30"
           >
             <div class="flex flex-wrap gap-1 pt-3">
-              <NuxtLink
-                v-for="link in secondaryNavLinks"
-                :key="link.to"
-                :to="link.external ? link.to : link.to"
-                :target="link.external ? '_blank' : undefined"
-                class="px-3 py-1.5 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 rounded-full transition-all duration-200"
-                @click="closeMobileMenu"
-              >
-                {{ link.text }}
-                <Icon
-                  v-if="link.external"
-                  name="heroicons:arrow-top-right-on-square"
-                  class="w-3 h-3 ml-1 inline opacity-60"
-                />
-              </NuxtLink>
+              <a href="/scrapbook/" class="px-3 py-1.5 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 rounded-full transition-all duration-200" @click="closeMobileMenu">Scrapbook</a>
+              <a href="/pottery/" class="px-3 py-1.5 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 rounded-full transition-all duration-200" @click="closeMobileMenu">Pottery</a>
+              <a href="https://ejfox.photos" target="_blank" class="px-3 py-1.5 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 rounded-full transition-all duration-200" @click="closeMobileMenu">Photos 🔗</a>
+              <a href="https://archive.ejfox.com" target="_blank" class="px-3 py-1.5 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 rounded-full transition-all duration-200" @click="closeMobileMenu">Archive 🔗</a>
             </div>
           </div>
         </Transition>
       </nav>
 
-      <!-- Desktop navigation - hide on stats page with simple mode -->
+      <!-- Desktop navigation - DELETED COMPLEX SSR-BREAKING LINKS -->
       <nav
-        v-else-if="
-          !(route?.path === '/stats' && route?.query?.simple !== undefined)
-        "
-        class="sticky min-w-[240px] h-auto max-h-screen top-0 left-0 z-50 monospace overflow-auto"
+        class="sticky min-w-[240px] h-auto max-h-screen top-0 left-0 z-50 monospace overflow-auto hidden md:block"
       >
-        <div
-          class="container mx-auto md:flex md:flex-col items-start w-full max-h-screen"
-        >
+        <div class="container mx-auto md:flex md:flex-col items-start w-full max-h-screen">
           <div class="px-6 py-6 space-y-1 w-full">
-            <!-- Updated class: items-start -->
-            <NuxtLink
-              class="text-zinc-900 dark:text-zinc-100 text-2xl font-bold block mb-8"
-              to="/"
-            >
+            <div class="text-zinc-900 dark:text-zinc-100 text-2xl font-bold block mb-8">
               EJ Fox
-            </NuxtLink>
-            <div ref="primaryNavRef" class="space-y-1">
-              <NuxtLink :class="linkClasses + ' nav-link-primary'" to="/">
-                Home
-              </NuxtLink>
-              <NuxtLink
-                :class="linkClasses + ' nav-link-primary'"
-                to="/projects"
-              >
-                Projects
-              </NuxtLink>
-              <NuxtLink :class="linkClasses + ' nav-link-primary'" to="/blog/">
-                Blog
-              </NuxtLink>
             </div>
-
-            <!-- <NuxtLink :class="linkClasses" to="/scrapbook/">Scrapbook</NuxtLink> -->
-            <!-- <NuxtLink :class="linkClasses" to="/pottery/">Pottery</NuxtLink> -->
-
+            <div class="space-y-1">
+              <a :class="linkClasses" href="/">Home</a>
+              <a :class="linkClasses" href="/projects">Projects</a>
+              <a :class="linkClasses" href="/blog/">Blog</a>
+            </div>
             <div class="my-6"></div>
-
-            <div ref="secondaryNavRef" class="space-y-1">
-              <NuxtLink
-                :class="linkClasses + ' nav-link-secondary'"
-                to="https://ejfox.photos"
-              >
-                <span class="justify-between">
-                  <span>Photos</span>
-                  <Icon name="mdi:external-link" class="w-3 h-3 opacity-50" />
-                </span>
-              </NuxtLink>
-
-              <NuxtLink
-                :class="linkClasses + ' nav-link-secondary'"
-                to="https://archive.ejfox.com"
-              >
-                <span class="justify-between">
-                  <span>Archive</span>
-                  <Icon name="mdi:external-link" class="w-3 h-3 opacity-50" />
-                </span>
-              </NuxtLink>
+            <div class="space-y-1">
+              <a :class="linkClasses" href="https://ejfox.photos" target="_blank">Photos 🔗</a>
+              <a :class="linkClasses" href="https://archive.ejfox.com" target="_blank">Archive 🔗</a>
             </div>
           </div>
-
-          <div
-            class="px-6 mt-auto pt-8 opacity-60 hover:opacity-100 transition-opacity group hidden md:block"
-          >
-            <div class="text-xs text-zinc-500 dark:text-zinc-400">
-              <a
-                href="/pgp.txt"
-                class="hover:text-zinc-800 dark:hover:text-zinc-300 transition-colors"
-              >
-                PGP: E207 8E65 3FE3 89CD
-              </a>
-            </div>
+          <div class="px-6 mt-auto pt-8 opacity-60 text-xs text-zinc-500 dark:text-zinc-400 hidden md:block">
+            <a href="/pgp.txt">PGP: E207 8E65 3FE3 89CD</a>
           </div>
-        </div>
-
-        <!-- Table of Contents Container -->
-        <div v-if="isBlogPost || isStatsPage || isProjectsPage" class="mt-8">
-          <div
-            id="nav-toc-container"
-            ref="tocContainerRef"
-            class="sans-serif"
-          ></div>
-        </div>
-
-        <div v-if="isBlogPost" class="px-6 py-4">
-          <NuxtLink
-            to="/blog/"
-            class="inline- gap-2 text-xs text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
-          >
-            <Icon name="heroicons:arrow-left" class="w-3 h-3" />
-            <span>Back to Blog</span>
-          </NuxtLink>
         </div>
       </nav>
 
-      <article
-        :class="[
-          'w-full overflow-x-auto',
-          isMobile &&
-            !(route?.path === '/stats' && route?.query?.simple !== undefined)
-            ? 'pt-20'
-            : ''
-        ]"
+      <article 
+        class="w-full overflow-x-auto pt-24 md:pt-0"
+        :class="{
+          'pt-36': mobileMenuOpen
+        }"
       >
         <slot />
       </article>
     </section>
 
-    <!-- Global Gear Navigator for gear pages -->
-    <GearNavigator 
-      v-if="isGearPage" 
-      :current-slug="currentGearSlug"
-    />
+    <!-- Global Gear Navigator for gear pages - DELETED SSR-BREAKING COMPONENT -->
+    <ClientOnly>
+      <GearNavigator 
+        v-if="isGearPage" 
+        :current-slug="currentGearSlug"
+      />
+    </ClientOnly>
     
     <Footer />
     <ClientOnly>
@@ -229,15 +128,13 @@
 
 <script setup>
 import { ref, computed, defineAsyncComponent, watch, nextTick } from 'vue'
-import { useWindowSize } from '@vueuse/core'
-
 // Lazy load components
 const Footer = defineAsyncComponent(() => import('@/components/Footer.vue'))
 const GearNavigator = defineAsyncComponent(() => import('@/components/gear/Navigator.vue'))
 const WebVitalsReporter = defineAsyncComponent(() => import('@/components/WebVitalsReporter.vue'))
 
-const { width } = useWindowSize()
-const isMobile = computed(() => width.value < 768)
+// SSR-friendly mobile detection - render both and hide with CSS
+const isMobile = ref(false)
 
 const mobileMenuOpen = ref(false)
 
@@ -249,47 +146,50 @@ const closeMobileMenu = () => {
   mobileMenuOpen.value = false
 }
 
+// Use Nuxt's built-in composable - should be SSR safe
 const route = useRoute()
 
-const _isBlog = computed(() => {
-  return route?.path?.startsWith('/blog') || false
+// Client-only route access to prevent SSR errors
+const isStatsSimple = ref(false)
+const isBlogPost = ref(false)
+const isStatsPage = ref(false)
+const isProjectsPage = ref(false)
+const isGearPage = ref(false)
+const currentGearSlug = ref('')
+
+onMounted(() => {
+  // Only detect mobile on client-side after hydration
+  const checkMobile = () => {
+    isMobile.value = window.innerWidth < 768
+  }
+  checkMobile()
+  window.addEventListener('resize', checkMobile)
+  
+  onUnmounted(() => {
+    window.removeEventListener('resize', checkMobile)
+  })
+  
+  // Only check routes on client-side after hydration
+  const updateRouteStates = () => {
+    if (!route) return
+    
+    isStatsSimple.value = route.path === '/stats' && route.query?.simple !== undefined
+    isBlogPost.value = route.path?.startsWith('/blog/') && route.path !== '/blog/'
+    isStatsPage.value = route.path === '/stats'
+    isProjectsPage.value = route.path === '/projects'
+    isGearPage.value = route.path?.startsWith('/gear/') || false
+    
+    if (isGearPage.value) {
+      const pathParts = route.path?.split('/') || []
+      currentGearSlug.value = pathParts[pathParts.length - 1] || ''
+    }
+  }
+  
+  updateRouteStates()
+  watch(() => route?.path, updateRouteStates)
 })
 
-const isBlogPost = computed(() => {
-  return (route?.path?.startsWith('/blog/') && route?.path !== '/blog/') || false
-})
-
-const isStatsPage = computed(() => {
-  return route?.path === '/stats' || false
-})
-
-const isProjectsPage = computed(() => {
-  return route?.path === '/projects' || false
-})
-
-const isGearPage = computed(() => {
-  return route?.path?.startsWith('/gear/') || false
-})
-
-const currentGearSlug = computed(() => {
-  if (!isGearPage.value) return ''
-  const pathParts = route?.path?.split('/') || []
-  return pathParts[pathParts.length - 1] || ''
-})
-
-// Split navigation for mobile: primary (always visible) vs secondary (in "More")
-const primaryNavLinks = computed(() => [
-  { to: '/', text: 'Home' },
-  { to: '/projects', text: 'Projects' },
-  { to: '/blog/', text: 'Blog' }
-])
-
-const secondaryNavLinks = computed(() => [
-  { to: '/scrapbook/', text: 'Scrapbook' },
-  { to: '/pottery/', text: 'Pottery' },
-  { to: 'https://ejfox.photos', text: 'Photos', external: true },
-  { to: 'https://archive.ejfox.com', text: 'Archive', external: true }
-])
+// DELETE-DRIVEN: Navigation arrays removed, using plain anchor tags now
 
 const linkClasses =
   'block text-sm transition-colors duration-200 hover:text-zinc-900 dark:hover:text-zinc-100 no-underline'
@@ -297,26 +197,40 @@ const linkClasses =
 // Add a watcher to update the TOC container visibility when route changes
 const tocContainerRef = ref(null)
 
-watch(
-  () => [route?.path, isBlogPost.value, isStatsPage.value, isProjectsPage.value],
-  () => {
+// TOC watcher moved inside onMounted to be client-only
+onMounted(() => {
+  // Only check routes on client-side after hydration
+  const updateRouteStates = () => {
+    if (!route) return
+    
+    isStatsSimple.value = route.path === '/stats' && route.query?.simple !== undefined
+    isBlogPost.value = route.path?.startsWith('/blog/') && route.path !== '/blog/'
+    isStatsPage.value = route.path === '/stats'
+    isProjectsPage.value = route.path === '/projects'
+    isGearPage.value = route.path?.startsWith('/gear/') || false
+    
+    if (isGearPage.value) {
+      const pathParts = route.path?.split('/') || []
+      currentGearSlug.value = pathParts[pathParts.length - 1] || ''
+    }
+    
+    // Handle TOC updates
     nextTick(() => {
-      // Force re-render of TOC container when route changes - using template ref
       if (
-        process.client &&
         (isBlogPost.value || isStatsPage.value || isProjectsPage.value) &&
         tocContainerRef.value
       ) {
-        // Trigger a DOM update by toggling a class
         tocContainerRef.value.classList.add('toc-update')
         setTimeout(() => {
           tocContainerRef.value?.classList.remove('toc-update')
         }, 0)
       }
     })
-  },
-  { immediate: true }
-)
+  }
+  
+  updateRouteStates()
+  watch(() => route?.path, updateRouteStates)
+})
 </script>
 
 <style lang="css">

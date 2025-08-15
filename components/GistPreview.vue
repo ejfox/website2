@@ -122,7 +122,7 @@ const updateHighlighting = async () => {
         }
       })
       
-      highlightedCode.value = response.html
+      highlightedCode.value = (response as any)?.html || `<pre><code>${codeToShow.value}</code></pre>`
     } catch (error) {
       console.warn('Failed to highlight code:', error)
       highlightedCode.value = `<pre><code>${codeToShow.value}</code></pre>`

@@ -1,7 +1,7 @@
 <script setup>
 const config = useRuntimeConfig()
 const { crypto, github } = config.public.donations
-// NUKED BY BLOODHOUND: const { timing, easing } = useAnimations()
+// NUKED BY BLOODHOUND: const { timing, easing } = // DELETED: useAnimations()
 
 const amount = ref(5)
 const loading = ref(false)
@@ -141,7 +141,7 @@ const animateDonationReveal = async () => {
       opacity: [0, 1],
       scale: [0.95, 1.02, 1],
       filter: ['blur(1px)', 'blur(0px)'],
-      duration: timing.slow,
+      duration: 800,
       ease: easing.bounce
     })
   }
@@ -170,7 +170,7 @@ const animateDonationReveal = async () => {
         targets: dividerRef.value,
         scaleX: [0, 1.1, 1],
         opacity: [0, 1],
-        duration: timing.slow,
+        duration: 800,
         ease: easing.bounce
       },
       '-=200'
@@ -204,8 +204,8 @@ const animateDonationReveal = async () => {
         opacity: [0, 1],
         translateY: [20, 0],
         scale: [0.9, 1],
-        duration: timing.slow,
-        ease: easing.standard
+        duration: 800,
+        ease: "cubicBezier(0.4, 0, 0.2, 1)"
       },
       '+=200'
     )
@@ -232,7 +232,9 @@ const animateDonationReveal = async () => {
           ref="stripeCardRef"
           class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg p-6"
         >
-          <h4 class="text-lg font-light mb-6">One-time Support</h4>
+          <h4 class="text-lg font-light mb-6">
+            One-time Support
+          </h4>
 
           <div class="space-y-6">
             <div>
@@ -240,8 +242,7 @@ const animateDonationReveal = async () => {
                 <span class="text-sm text-gray-500"> Amount </span>
                 <span
                   class="px-3 py-2 text-sm font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded"
-                  >{{ formatAmount }}</span
-                >
+                >{{ formatAmount }}</span>
               </div>
 
               <div class="mb-2">
@@ -288,7 +289,9 @@ const animateDonationReveal = async () => {
           ref="cryptoCardRef"
           class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg p-6"
         >
-          <h4 class="text-lg font-light mb-6">Cryptocurrency</h4>
+          <h4 class="text-lg font-light mb-6">
+            Cryptocurrency
+          </h4>
 
           <div class="space-y-4">
             <template v-for="(address, currency) in crypto" :key="currency">
@@ -343,7 +346,7 @@ const animateDonationReveal = async () => {
           rel="noopener"
           class="inline-flex items-center gap-2 px-4 py-2 text-pink-600 hover:text-pink-700 dark:text-pink-400 dark:hover:text-pink-300 transition-colors"
         >
-          <Icon name="mdi:github" class="w-4 h-4" />
+          
           Also available on GitHub Sponsors
         </a>
       </div>

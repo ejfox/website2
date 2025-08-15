@@ -1,12 +1,12 @@
 <template>
-  <div v-if="hasData" ref="rescueTimeRef" class="space-y-4 font-mono">
+  <div v-if="hasData" class="space-y-4 font-mono">
     <!-- Primary Stats -->
-    <div ref="primaryStatRef" class="individual-stat-large">
+    <div class="individual-stat-large">
       <div class="stat-value">
         <AnimatedNumber
           :value="monthlyHours"
           format="commas"
-          :duration="timing.dramatic"
+          :duration="1600"
           priority="primary"
         />
       </div>
@@ -17,7 +17,7 @@
         <AnimatedNumber
           :value="monthlyProductivePercent"
           format="percent"
-          :duration="timing.slow"
+          :duration="800"
           priority="secondary"
         />
         PRODUCTIVE
@@ -25,7 +25,7 @@
     </div>
 
     <!-- Activity Calendar -->
-    <div ref="calendarRef">
+    <div>
       <ActivityCalendar
         title="ACTIVITY"
         :active-dates="activityDates"
@@ -34,7 +34,7 @@
     </div>
 
     <!-- Application Distribution Waffle Chart -->
-    <div ref="waffleRef">
+    <div>
       <StatsSectionHeader title="TIME DISTRIBUTION" />
       <div class="waffle-container">
         <div
@@ -55,7 +55,7 @@
     </div>
 
     <!-- Category Legend + Top Categories Combined -->
-    <div ref="categoriesRef">
+    <div>
       <StatsSectionHeader title="CATEGORIES" />
       <div class="space-y-1.5">
         <div
@@ -100,16 +100,14 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, onMounted, nextTick } from 'vue'
+import { computed } from 'vue'
 import type { StatsResponse } from '~/composables/useStats'
 import ActivityCalendar from './ActivityCalendar.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'
 import StatsDataState from './StatsDataState.vue'
 import AnimatedNumber from '../AnimatedNumber.vue'
-import { format } from 'date-fns'
+import { format } from 'date-fns/format'
 import { formatPercent } from '~/composables/useNumberFormat'
-// NUKED BY BLOODHOUND: import { animate, stagger, onScroll } from '~/anime.esm.js'
-// NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
 
 interface TimeBreakdown {
   seconds: number
@@ -155,7 +153,6 @@ const props = defineProps<{
   stats: StatsResponse
 }>()
 
-const { timing } = useAnimations()
 
 const rescueTime = computed(() => props.stats.rescueTime)
 
@@ -291,99 +288,7 @@ const waffleCells = computed(() => {
   return cells
 })
 
-// Animation refs
-const rescueTimeRef = ref<HTMLElement | null>(null)
-const primaryStatRef = ref<HTMLElement | null>(null)
-const calendarRef = ref<HTMLElement | null>(null)
-const waffleRef = ref<HTMLElement | null>(null)
-const categoriesRef = ref<HTMLElement | null>(null)
 
-const setupScrollAnimations = () => {
-  if (process.server) return
-
-  nextTick(() => {
-    if (!rescueTimeRef.value || !hasData.value) return
-
-    if (primaryStatRef.value) {
-      // NUKED: // NUKED BY BLOODHOUND: // animate(primaryStatRef.value, {
-        keyframes: [
-          { opacity: 0, scale: 0.8, rotateX: -15, filter: 'blur(1px)' },
-          { opacity: 0.8, scale: 1.05, rotateX: 5, filter: 'blur(0.3px)' },
-          { opacity: 1, scale: 1, rotateX: 0, filter: 'blur(0px)' }
-        ],
-        duration: timing.value.dramatic,
-        ease: 'outElastic(1, .8)',
-        autoplay: onScroll({
-          target: primaryStatRef.value,
-          onEnter: () => true
-        })
-      })
-    }
-
-    if (calendarRef.value) {
-      // NUKED: // NUKED BY BLOODHOUND: // animate(calendarRef.value, {
-        opacity: [0, 1],
-        scale: [0.9, 1.02, 1],
-        translateY: [20, 0],
-        duration: timing.value.dramatic,
-        ease: 'outElastic(1, .8)',
-        autoplay: onScroll({ target: calendarRef.value, onEnter: () => true })
-      })
-    }
-
-    if (waffleRef.value) {
-      const waffleCells = waffleRef.value.querySelectorAll('.waffle-cell')
-      if (waffleCells.length) {
-        // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(waffleCells), {
-          keyframes: [
-            { opacity: 0, scale: 0, rotateZ: 180 },
-            { opacity: 0.8, scale: 1.2, rotateZ: -10 },
-            { opacity: 1, scale: 1, rotateZ: 0 }
-          ],
-          duration: timing.value.dramatic,
-          delay: stagger(8, { grid: [10, 10], from: 'center' }),
-          ease: 'outElastic(1, .9)',
-          autoplay: onScroll({ target: waffleRef.value, onEnter: () => true })
-        })
-      }
-    }
-
-    if (categoriesRef.value) {
-      const categoryRows = categoriesRef.value.querySelectorAll('.category-row')
-      if (categoryRows.length) {
-        // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(categoryRows), {
-          opacity: [0, 1],
-          translateX: [-20, 0],
-          scale: [0.9, 1.05, 1],
-          duration: timing.value.slow,
-          delay: stagger(80),
-          ease: 'outBack(1.7)',
-          autoplay: onScroll({
-            target: categoriesRef.value,
-            onEnter: () => true
-          })
-        })
-      }
-
-      const categoryBars =
-        categoriesRef.value.querySelectorAll('.category-bar-fill')
-      if (categoryBars.length) {
-        // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(categoryBars), {
-          scaleX: [0, 1.1, 1],
-          scaleY: [0.5, 1.3, 1],
-          duration: timing.value.dramatic,
-          delay: stagger(100),
-          ease: 'outElastic(1, .8)',
-          autoplay: onScroll({ target: categoryBars[0], onEnter: () => true })
-        })
-      }
-    }
-  })
-}
-
-onMounted(() => {
-  setupScrollAnimations()
-})
 </script>
 
 <style scoped>

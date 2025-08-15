@@ -47,22 +47,11 @@ export function useNumberCounter(options: NumberCounterOptions = {}) {
       console.log('🔢 Starting number animation:', opts.startValue, '→', targetValue)
     }
 
-    // NUKED BY BLOODHOUND: // animate(counter, {
-      value: targetValue,
-      duration: opts.duration,
-      ease: opts.ease,
-      delay: opts.delay,
-      update: () => {
-        element.textContent = opts.format(counter.value)
-      },
-      complete: () => {
-        // Ensure final value is exact
-        element.textContent = opts.format(targetValue)
-        if (opts.debug) {
-          console.log('✅ Number animation completed:', targetValue)
-        }
-      }
-    })
+    // Animation disabled following delete-driven development
+    element.textContent = opts.format(targetValue);
+    if (opts.debug) {
+      console.log('✅ Number animation completed:', targetValue);
+    }
   }
 
   // Animate number when element comes into view
@@ -84,26 +73,11 @@ export function useNumberCounter(options: NumberCounterOptions = {}) {
       console.log('🎯 Setting up scroll-triggered number animation:', opts.startValue, '→', targetValue)
     }
 
-    // NUKED BY BLOODHOUND: // animate(counter, {
-      value: targetValue,
-      duration: opts.duration,
-      ease: opts.ease,
-      delay: opts.delay,
-      update: () => {
-        el!.textContent = opts.format(counter.value)
-      },
-      complete: () => {
-        // Ensure final value is exact
-        el!.textContent = opts.format(targetValue)
-        if (opts.debug) {
-          console.log('✅ Scroll number animation completed:', targetValue)
-        }
-      },
-      autoplay: onScroll({
-        target: el,
-        onEnter: () => true
-      })
-    })
+    // Animation disabled following delete-driven development
+    el!.textContent = opts.format(targetValue);
+    if (opts.debug) {
+      console.log('✅ Scroll number animation completed:', targetValue);
+    }
   }
 
   // Format numbers with commas
@@ -158,35 +132,10 @@ export function useNumberCounter(options: NumberCounterOptions = {}) {
     el.style.opacity = '0'
     el.style.transform = 'scale(0.8)'
 
-    // Container reveal animation
-    // NUKED BY BLOODHOUND: // animate(el, {
-      opacity: [0, 1],
-      scale: [0.8, 1.1, 1],
-      duration: 600,
-      ease: 'outElastic(1, .8)',
-      autoplay: onScroll({
-        target: el,
-        onEnter: () => true
-      })
-    })
-
-    // Number counting animation with delay
-    // NUKED BY BLOODHOUND: // animate(counter, {
-      value: targetValue,
-      duration: opts.duration,
-      ease: 'spring(1, 80, 10, 0)',
-      delay: 200, // Start counting after reveal
-      update: () => {
-        el!.textContent = opts.format(counter.value)
-      },
-      complete: () => {
-        el.textContent = opts.format(targetValue)
-      },
-      autoplay: onScroll({
-        target: el,
-        onEnter: () => true
-      })
-    })
+    // Epic reveal animation disabled following delete-driven development
+    el.style.opacity = '1';
+    el.style.transform = 'scale(1)';
+    el.textContent = opts.format(targetValue);
   }
 
   return {

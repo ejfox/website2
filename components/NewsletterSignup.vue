@@ -111,7 +111,7 @@ const state = reactive({
 })
 
 // NUKED: Animation composable usage obliterated
-// // NUKED BY BLOODHOUND: const { timing, easing, staggers } = useAnimations()
+// // NUKED BY BLOODHOUND: const { timing, easing, staggers } = // DELETED: useAnimations()
 
 const revealNameFields = () => {
   if (email.value.length > 0 && !showNameFields.value) {
@@ -120,29 +120,16 @@ const revealNameFields = () => {
     // Epic name fields reveal
     if (nameFieldsContainer.value) {
       const targetWidth = nameFieldsContainer.value.scrollWidth
-      // NUKED: // NUKED BY BLOODHOUND: // animate(nameFieldsContainer.value, {
-        keyframes: [
-          { width: 0, opacity: 0, scale: 0.8, filter: 'blur(1px)' },
-          { width: targetWidth * 1.1, opacity: 0.8, scale: 1.05, filter: 'blur(0.3px)' },
-          { width: targetWidth, opacity: 1, scale: 1, filter: 'blur(0px)' }
-        ],
-        duration: timing.slow,
-        easing: easing.bounce
-      })
-      
-      // Animate individual input fields
+      // Animation code deleted following delete-driven development
       setTimeout(() => {
-        const inputs = nameFieldsContainer.value?.querySelectorAll('input')
+        const inputs = nameFieldsContainer.value?.querySelectorAll('input');
         if (inputs?.length) {
-          // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(inputs), {
-            opacity: [0, 1],
-            scale: [0.9, 1.05, 1],
-            duration: timing.normal,
-            delay: _stagger(staggers.normal),
-            ease: easing.productive
-          })
+          // Simple opacity transition without anime.js
+          inputs.forEach(input => {
+            input.style.opacity = '1';
+          });
         }
-      }, 200)
+      }, 200);
     }
   } else if (email.value.length === 0 && showNameFields.value) {
     showNameFields.value = false
@@ -189,11 +176,7 @@ const submitForm = async () => {
     
     // Animate button state change
     if (buttonRef.value) {
-      // NUKED: // NUKED BY BLOODHOUND: // animate(buttonRef.value, {
-        scale: [1.05, 1],
-        duration: timing.fast,
-        ease: easing.standard
-      })
+      // DELETED: All broken animation code
     }
   }
 }

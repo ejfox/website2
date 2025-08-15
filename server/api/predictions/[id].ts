@@ -50,12 +50,19 @@ export default defineEventHandler(async (event) => {
   const id = getRouterParam(event, 'id')
   const method = getMethod(event)
   
+  if (!id) {
+    throw createError({
+      statusCode: 400,
+      statusMessage: 'Prediction ID required'
+    })
+  }
+  
   if (method === 'PATCH') {
     // Update a prediction (typically to resolve it)
     const body = await readBody(event)
     
     try {
-      const filePath = await findPredictionFile(id!)
+      const filePath = await findPredictionFile(id)
       if (!filePath) {
         throw new Error('File not found')
       }

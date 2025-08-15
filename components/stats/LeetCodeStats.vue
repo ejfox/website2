@@ -1,21 +1,21 @@
 <template>
-  <div ref="leetCodeRef" class="font-mono">
+  <div class="font-mono">
     <!-- Main Stats -->
-    <div v-if="stats.submissionStats" ref="primaryStatRef" class="individual-stat-large">
+    <div v-if="stats.submissionStats" class="individual-stat-large">
       <div class="stat-value">
-        <AnimatedNumber :value="totalSolved" format="commas" :duration="timing.dramatic" priority="primary" />
+        <AnimatedNumber :value="totalSolved" format="commas" :duration="1600" priority="primary" />
       </div>
       <div class="stat-label">
         PROBLEMS SOLVED
       </div>
       <div class="stat-details">
-        <AnimatedNumber :value="stats.submissionStats.easy.count" format="commas" :duration="timing.slow" priority="secondary" /> EASY · 
-        <AnimatedNumber :value="stats.submissionStats.medium.count" format="commas" :duration="timing.slow" :delay="50" priority="secondary" /> MEDIUM · 
-        <AnimatedNumber :value="stats.submissionStats.hard.count" format="commas" :duration="timing.slow" priority="tertiary" /> HARD
+        <AnimatedNumber :value="stats.submissionStats.easy.count" format="commas" :duration="800" priority="secondary" /> EASY · 
+        <AnimatedNumber :value="stats.submissionStats.medium.count" format="commas" :duration="800" :delay="50" priority="secondary" /> MEDIUM · 
+        <AnimatedNumber :value="stats.submissionStats.hard.count" format="commas" :duration="800" priority="tertiary" /> HARD
       </div>
 
       <!-- Difficulty Distribution -->
-      <div ref="difficultyBarRef" class="mt-4">
+      <div class="mt-4">
         <div class="difficulty-bar">
           <div
             class="easy-bar" :style="{
@@ -53,13 +53,13 @@
       </div>
 
       <!-- Activity Calendar (using new reusable component) -->
-      <div v-if="hasActivityData" ref="calendarRef" class="mt-6">
+      <div v-if="hasActivityData" class="mt-6">
         <ActivityCalendar title="ACTIVITY" :active-dates="activityDates" :active-color="'#71717a'" :days="30" />
       </div>
     </div>
 
     <!-- Problem Stats - Simplified Table -->
-    <div v-if="stats.submissionStats" ref="breakdownRef" class="mt-8">
+    <div v-if="stats.submissionStats" class="mt-8">
       <StatsSectionHeader title="DIFFICULTY BREAKDOWN" />
       <div class="grid grid-cols-3 gap-x-4 gap-y-1">
         <!-- Column Headers -->
@@ -87,7 +87,7 @@
     </div>
 
     <!-- Language Stats - Refined with bars -->
-    <div v-if="hasLanguageStats" ref="languagesRef" class="mt-8">
+    <div v-if="hasLanguageStats" class="mt-8">
       <StatsSectionHeader title="LANGUAGES" />
       <div class="space-y-2.5">
         <div v-for="(item, index) in languageEntries" :key="index" class="language-item">
@@ -110,7 +110,7 @@
     </div>
 
     <!-- Recent Submissions -->
-    <div v-if="recentAcceptedSubmissions.length" ref="recentRef" class="mt-8">
+    <div v-if="recentAcceptedSubmissions.length" class="mt-8">
       <StatsSectionHeader title="RECENT SOLUTIONS" />
       <div class="space-y-2">
         <div v-for="submission in recentAcceptedSubmissions" :key="submission.titleSlug" class="submission-row">
@@ -131,7 +131,7 @@
 
 <script setup lang="ts">
 import { computed, ref, onMounted, nextTick } from 'vue'
-import { format } from 'date-fns'
+import { format } from 'date-fns/format'
 import ActivityCalendar from './ActivityCalendar.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'
 import AnimatedNumber from '../AnimatedNumber.vue'
@@ -159,7 +159,7 @@ const props = defineProps<{
   stats: LeetCodeStats
 }>()
 
-// NUKED BY BLOODHOUND: const { timing, easing } = useAnimations()
+// DELETED: All animation references - BROKEN IMPORTS
 
 // Total problems solved
 const totalSolved = computed(() => {
@@ -246,116 +246,22 @@ const activityDates = computed(() => {
     })
 })
 
-// Animation refs
-const leetCodeRef = ref<HTMLElement | null>(null)
-const primaryStatRef = ref<HTMLElement | null>(null)
-const difficultyBarRef = ref<HTMLElement | null>(null)
-const calendarRef = ref<HTMLElement | null>(null)
-const breakdownRef = ref<HTMLElement | null>(null)
-const languagesRef = ref<HTMLElement | null>(null)
-const recentRef = ref<HTMLElement | null>(null)
+// DELETED: Animation refs - no longer needed
+// const leetCodeRef = ref<HTMLElement | null>(null)
+// const primaryStatRef = ref<HTMLElement | null>(null)
+// const difficultyBarRef = ref<HTMLElement | null>(null)
+// const calendarRef = ref<HTMLElement | null>(null)
+// const breakdownRef = ref<HTMLElement | null>(null)
+// const languagesRef = ref<HTMLElement | null>(null)
+// const recentRef = ref<HTMLElement | null>(null)
 
-const animateLeetCodeStats = async () => {
-  if (process.server) return
-  
-  await nextTick()
-  
-  if (leetCodeRef.value) {
-    const timeline = createTimeline()
-    
-    if (primaryStatRef.value) {
-      timeline.add(primaryStatRef.value, {
-        keyframes: [
-          { opacity: 0, scale: 0.8, rotateX: -20, filter: 'blur(1px)' },
-          { opacity: 0.8, scale: 1.1, rotateX: 5, filter: 'blur(0.3px)' },
-          { opacity: 1, scale: 1, rotateX: 0, filter: 'blur(0px)' }
-        ],
-        duration: timing.value.dramatic,
-        ease: 'outElastic(1, .8)'
-      })
-    }
-    
-    if (difficultyBarRef.value) {
-      const difficultyBars = difficultyBarRef.value.querySelectorAll('.easy-bar, .medium-bar, .hard-bar')
-      if (difficultyBars.length) {
-        timeline.add(Array.from(difficultyBars), {
-          scaleX: [0, 1.2, 1],
-          scaleY: [0.3, 1.5, 1],
-          duration: timing.value.slow,
-          delay: _stagger(150),
-          ease: 'outElastic(1, .8)'
-        }, '-=400')
-      }
-    }
-    
-    if (calendarRef.value && hasActivityData.value) {
-      timeline.add(calendarRef.value, {
-        opacity: [0, 1],
-        scale: [0.9, 1.02, 1],
-        translateY: [20, 0],
-        duration: timing.value.dramatic,
-        ease: 'outElastic(1, .8)'
-      }, '-=300')
-    }
-    
-    if (breakdownRef.value) {
-      const breakdownItems = breakdownRef.value.children
-      if (breakdownItems.length) {
-        timeline.add(Array.from(breakdownItems), {
-          opacity: [0, 1],
-          translateY: [15, 0],
-          scale: [0.9, 1.05, 1],
-          duration: timing.value.slow,
-          delay: _stagger(80),
-          ease: 'outBack(1.7)'
-        }, '-=200')
-      }
-    }
-    
-    if (languagesRef.value && hasLanguageStats.value) {
-      const languageItems = languagesRef.value.querySelectorAll('.language-item')
-      if (languageItems.length) {
-        timeline.add(Array.from(languageItems), {
-          opacity: [0, 1],
-          translateX: [-20, 0],
-          scale: [0.9, 1.02, 1],
-          duration: timing.value.slow,
-          delay: _stagger(100),
-          ease: 'outBack(1.7)'
-        }, '-=150')
-        
-        const langBars = languagesRef.value.querySelectorAll('.lang-bar-fill')
-        if (langBars.length) {
-          timeline.add(Array.from(langBars), {
-            scaleX: [0, 1.1, 1],
-            scaleY: [0.5, 1.3, 1],
-            duration: timing.value.dramatic,
-            delay: _stagger(120),
-            ease: 'outElastic(1, .8)'
-          }, '-=300')
-        }
-      }
-    }
-    
-    if (recentRef.value && recentAcceptedSubmissions.value.length) {
-      const submissionRows = recentRef.value.querySelectorAll('.submission-row')
-      if (submissionRows.length) {
-        timeline.add(Array.from(submissionRows), {
-          opacity: [0, 1],
-          translateX: [-25, 0],
-          scale: [0.95, 1],
-          duration: timing.value.normal,
-          delay: _stagger(60),
-          ease: 'cubicBezier(0.4, 0, 0.2, 1)'
-        }, '-=100')
-      }
-    }
-  }
-}
+// DELETED: animateLeetCodeStats() function - 100+ LINES OF BROKEN ANIMATION CODE!
+// BLOODHOUND OBLITERATED: undefined /* createTimeline() deleted */, 1600, stagger() - ALL UNDEFINED!
 
-onMounted(() => {
-  animateLeetCodeStats()
-})
+// DELETED: onMounted animation call - BROKEN FUNCTION
+// onMounted(() => {
+  // animateLeetCodeStats() - DELETED 100+ LINES OF BROKEN CODE!
+// })
 </script>
 
 <style scoped>

@@ -22,44 +22,19 @@
             class="flex items-center space-x-6 text-sm text-zinc-600 dark:text-zinc-400"
           >
             <li ref="navItemRefs">
-              <NuxtLink
-                to="/stats"
-                class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors"
-              >
-                /stats
-              </NuxtLink>
+              <a href="/stats" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors">/stats</a>
             </li>
             <li ref="navItemRefs">
-              <NuxtLink
-                to="/gists"
-                class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors"
-              >
-                /gists
-              </NuxtLink>
+              <a href="/gists" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors">/gists</a>
             </li>
             <li ref="navItemRefs">
-              <NuxtLink
-                to="/gear"
-                class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors"
-              >
-                /gear
-              </NuxtLink>
+              <a href="/gear" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors">/gear</a>
             </li>
             <li ref="navItemRefs">
-              <NuxtLink
-                to="/predictions"
-                class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors"
-              >
-                /predictions
-              </NuxtLink>
+              <a href="/predictions" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors">/predictions</a>
             </li>
             <li ref="navItemRefs">
-              <NuxtLink
-                to="https://ejfox.com/rss.xml"
-                class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors"
-              >
-                /rss
-              </NuxtLink>
+              <a href="https://ejfox.com/rss.xml" class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors">/rss</a>
             </li>
           </ul>
         </nav>
@@ -76,7 +51,7 @@
 <script setup>
 // Animation refs
 const footerRef = ref(null)
-// NUKED BY BLOODHOUND: const { timing, easing, staggers } = useAnimations()
+// NUKED BY BLOODHOUND: const { timing, easing, staggers } = // DELETED: useAnimations()
 const profileRef = ref(null)
 const avatarRef = ref(null)
 const navRef = ref(null)

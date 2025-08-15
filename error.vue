@@ -65,7 +65,7 @@
             </h3>
             <div class="text-sm space-y-1">
               <p><strong>Environment:</strong> <code class="bg-zinc-200 dark:bg-zinc-700 px-1 rounded">{{ isDev ? 'development' : 'production' }}</code></p>
-              <p><strong>Rendered on:</strong> <code class="bg-zinc-200 dark:bg-zinc-700 px-1 rounded">{{ process.client ? 'client' : 'server' }}</code></p>
+              <p><strong>Rendered on:</strong> <code class="bg-zinc-200 dark:bg-zinc-700 px-1 rounded">{{ process?.client ? 'client' : 'server' }}</code></p>
               <p><strong>Nuxt Version:</strong> <code class="bg-zinc-200 dark:bg-zinc-700 px-1 rounded">{{ nuxtApp?.versions?.nuxt || 'unknown' }}</code></p>
             </div>
           </div>
@@ -204,16 +204,16 @@ const _props = defineProps({
 const relatedPosts = ref([])
 
 // Enhanced error info
-const isDev = process.dev
+const isDev = process?.dev
 const fullUrl = computed(() => {
-  if (process.client) {
+  if (process?.client) {
     return window.location.href
   }
   return `${route?.path}${Object.keys(route?.query).length ? '?' + new URLSearchParams(route?.query).toString() : ''}`
 })
 
 const userAgent = computed(() => {
-  if (process.client) {
+  if (process?.client) {
     return navigator.userAgent
   }
   return 'Server-side render'
@@ -259,7 +259,7 @@ const copyErrorInfo = async () => {
 }
 
 const reloadPage = () => {
-  if (process.client) {
+  if (process?.client) {
     window.location.reload()
   }
 }

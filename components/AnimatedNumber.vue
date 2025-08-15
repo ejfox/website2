@@ -31,10 +31,6 @@ interface Props {
   debug?: boolean
 }
 
-// NUKED: Animation composable usage obliterated
-// const { animate } = useAnimations()
-const displayValue = ref(props.value) // Show final value immediately
-
 const props = withDefaults(defineProps<Props>(), {
   startValue: 0,
   duration: 500,
@@ -48,6 +44,10 @@ const props = withDefaults(defineProps<Props>(), {
   style: '',
   debug: false
 })
+
+// NUKED: Animation composable usage obliterated
+// const { animate } = // DELETED: useAnimations()
+const displayValue = ref(props.value) // Show final value immediately
 
 /**
  * Priority-based stagger delays for visual hierarchy
@@ -66,7 +66,7 @@ const staggeredDelay = computed(() => {
 
 // Component refs
 const numberRef = ref<HTMLElement | null>(null)
-// NUKED: displayValue now shows final value immediately instead of animating
+// DELETED: duplicate displayValue - already defined on line 36
 
 /**
  * Number formatter factory - D3-powered for data visualization
@@ -88,28 +88,33 @@ const numberRef = ref<HTMLElement | null>(null)
 const formatter = computed(() => {
   switch (props.format) {
     case 'commas':
-      // D3 thousands separator - much better than native
-      return d3Format(',')
+      // Native thousands separator - lightweight
+      return (num: number) => num.toLocaleString()
     
     case 'compact':
-      // D3 SI prefix notation (1.2k, 3.4M, 5.6B)
-      return d3Format('.1s')
+      // Native compact notation
+      return (num: number) => {
+        if (num >= 1e9) return (num / 1e9).toFixed(1) + 'B'
+        if (num >= 1e6) return (num / 1e6).toFixed(1) + 'M'
+        if (num >= 1e3) return (num / 1e3).toFixed(1) + 'K'
+        return String(Math.round(num))
+      }
     
     case 'percent':
-      // D3 percentage with custom decimal places
-      return d3Format(`.${props.decimals}%`)
+      // Native percentage
+      return (num: number) => `${(num * 100).toFixed(props.decimals)}%`
     
     case 'currency':
-      // D3 currency formatting
-      return d3Format('$,.0f')
+      // Native currency formatting
+      return (num: number) => `$${num.toLocaleString('en-US', { minimumFractionDigits: 0 })}`
     
     case 'decimal':
-      // D3 fixed decimal places
-      return d3Format(`.${props.decimals}f`)
+      // Native decimal places
+      return (num: number) => num.toFixed(props.decimals)
     
     default:
-      // D3 integer formatting
-      return d3Format('.0f')
+      // Native integer formatting
+      return (num: number) => String(Math.round(num))
   }
 })
 

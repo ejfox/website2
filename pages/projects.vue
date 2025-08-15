@@ -23,9 +23,11 @@ useHead({
 
 <template>
   <div>
-  <header class="my-20 md:mt-6 pl-4 pr-4 md:pl-0">
+    <header class="my-20 md:mt-6 pl-4 pr-4 md:pl-0">
       <div>
-        <h1 class="text-display mb-8">Projects</h1>
+        <h1 class="text-display mb-8">
+          Projects
+        </h1>
         <p class="text-body">
           I build tools that sit at the intersection of engineering and
           design—where technical depth meets human intuition. My projects
@@ -42,7 +44,9 @@ useHead({
     <div class="max-w-screen-lg pr-8">
       <section class="mt-16 md:mt-0">
         <div v-if="!projects || !projects.length" class="text-center py-16">
-          <p class="text-zinc-600 dark:text-zinc-400">No projects found.</p>
+          <p class="text-zinc-600 dark:text-zinc-400">
+            No projects found.
+          </p>
         </div>
 
         <!-- Featured Projects -->

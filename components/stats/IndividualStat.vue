@@ -26,8 +26,8 @@
 <script setup lang="ts">
 import { computed, ref, onMounted, watch } from 'vue'
 import { useWindowSize } from '@vueuse/core'
-import { format } from 'd3-format'
-// NUKED BY BLOODHOUND: import { useAnimations as _useAnimations } from '~/composables/useAnimations'
+// DELETED: Heavy d3-format dependency
+// DELETED: All animation references - BROKEN IMPORTS
 
 interface Props {
   value: number | string
@@ -62,10 +62,16 @@ const { width } = useWindowSize()
 const _isMobile = computed(() => width.value < 768)
 
 // Format functions - more compact by default
-const formatLarge = format(',.0f')
-const formatCompact = format('.1~s')  // More compact: 36k instead of 36.0k
-const formatPercent = format('.0%')    // No decimals for percentages
-const formatCurrency = format('$,.0f')
+// DELETED: D3 formatters - using native alternatives
+const formatLarge = (num: number) => num.toLocaleString('en-US', { maximumFractionDigits: 0 })
+const formatCompact = (num: number) => {
+  if (num >= 1e9) return (num / 1e9).toFixed(1).replace(/\.0$/, '') + 'B'
+  if (num >= 1e6) return (num / 1e6).toFixed(1).replace(/\.0$/, '') + 'M'
+  if (num >= 1e3) return (num / 1e3).toFixed(1).replace(/\.0$/, '') + 'K'
+  return String(num)
+}
+const formatPercent = (num: number) => `${Math.round(num * 100)}%`
+const formatCurrency = (num: number) => `$${num.toLocaleString('en-US', { maximumFractionDigits: 0 })}`
 
 // Refined number formatting with better edge cases
 const formattedValue = computed(() => {
@@ -134,7 +140,7 @@ const animateInitialReveal = async () => {
   // Stage 1: Reveal the container with system scan effect
   if (containerRef.value) {
     // criticalHighlight(containerRef.value, {
-    //   duration: timing.value.dramatic,
+    //   duration: 1600, // DELETED - 1600 undefined
     //   easing: 'outElastic(1, .8)'
     // })
   }
@@ -150,7 +156,7 @@ const animateInitialReveal = async () => {
   setTimeout(() => {
     if (labelRef.value) {
       // dataStream(labelRef.value, {
-      //   duration: timing.value.slow,
+      //   duration: 800, // DELETED - 800 undefined
       //   easing: 'cubicBezier(0.4, 0, 0.2, 1)'
       // })
     }
@@ -158,7 +164,7 @@ const animateInitialReveal = async () => {
     if (detailsRef.value) {
       setTimeout(() => {
         // dataStream(detailsRef.value, {
-        //   duration: timing.value.normal,
+        //   duration: 400, // DELETED - 400 undefined
         //   easing: 'cubicBezier(0.4, 0, 0.2, 1)'
         // })
       }, 150)

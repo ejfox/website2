@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { format } from 'date-fns'
+import { format } from 'date-fns/format'
 
 interface GitHubCommit {
   repository: {
@@ -66,10 +66,14 @@ const getContributionStreak = computed(() => {
 
   // Count consecutive days from most recent
   let streak = 1
-  let currentDate = new Date(sortedDates[0])
+  const firstDate = sortedDates[0]
+  if (!firstDate) return 0
+  let currentDate = new Date(firstDate)
 
   for (let i = 1; i < sortedDates.length; i++) {
-    const nextDate = new Date(sortedDates[i])
+    const dateStr = sortedDates[i]
+    if (!dateStr) continue
+    const nextDate = new Date(dateStr)
     const dayDiff = Math.round(
       (currentDate.getTime() - nextDate.getTime()) / (1000 * 60 * 60 * 24)
     )

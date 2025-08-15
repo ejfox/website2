@@ -88,19 +88,12 @@ export const useCursor = () => {
     currentState.value = state
     const config = states[state]
     
-    // Anime.js handles the easing and physics beautifully
-    // NUKED BY BLOODHOUND: // animate(cursorRef.value, {
-      scale: config.scale,
-      opacity: config.opacity,
-      duration: 200,
-      ease: 'spring(1, 80, 10, 0)', // Anime.js spring physics - much better than Bezier!
-      complete: () => {
-        // Update blend mode after animation completes for smoother transition
-        if (cursorRef.value) {
-          cursorRef.value.style.mixBlendMode = config.mixBlendMode
-        }
-      }
-    })
+    // Animation disabled following delete-driven development
+    if (cursorRef.value) {
+      cursorRef.value.style.transform = `scale(${config.scale})`;
+      cursorRef.value.style.opacity = config.opacity.toString();
+      cursorRef.value.style.mixBlendMode = config.mixBlendMode;
+    }
   }
   
   // Mouse move handler
@@ -119,12 +112,7 @@ export const useCursor = () => {
       
       if (target.matches('a, [role="button"]')) {
         setCursorState('link')
-        // Add subtle hover animation to the element too - anime.js spring magic
-        // NUKED BY BLOODHOUND: // animate(target, {
-          scale: [1, 1.02, 1],
-          duration: 300,
-          ease: 'easeOutElastic(1, .8)' // Anime.js elastic ease - so much nicer!
-        })
+        // Animation disabled following delete-driven development
       } else if (target.matches('button, input[type="submit"], .btn')) {
         setCursorState('button')
       } else if (target.matches('p, span, div:not([class*="cursor"]):not(.container)')) {
@@ -209,18 +197,7 @@ export const useCursor = () => {
       const target = e.target as HTMLElement
       
       if (target.matches('a, button, [role="button"], .btn')) {
-        // NUKED BY BLOODHOUND: // animate(target, {
-          scale: [1, 0.95],
-          duration: 100,
-          ease: [0.4, 0.0, 1, 1] as any, // Fast ease-in for touch down
-          complete: () => {
-            // NUKED BY BLOODHOUND: // animate(target, {
-              scale: [0.95, 1],
-              duration: 200,
-              ease: [0.0, 0.0, 0.2, 1] as any // Smooth ease-out for release
-            })
-          }
-        })
+        // Touch feedback animation disabled following delete-driven development
       }
     })
     
@@ -253,14 +230,8 @@ export const useCursor = () => {
         target.style.overflow = 'hidden'
         target.appendChild(ripple)
         
-        // Anime.js has perfect ripple physics built-in
-        // NUKED BY BLOODHOUND: // animate(ripple, {
-          scale: [0, 2],
-          opacity: [0.1, 0],
-          duration: 600,
-          ease: 'easeOutCirc', // Anime.js circular ease - perfect for ripples
-          complete: () => ripple.remove()
-        })
+        // Ripple animation disabled following delete-driven development
+        setTimeout(() => ripple.remove(), 600);
       }
     })
   }

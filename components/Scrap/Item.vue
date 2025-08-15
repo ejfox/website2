@@ -8,12 +8,10 @@
   >
     <!-- Media Background -->
     <div v-if="hasMedia" class="absolute inset-0">
-      <NuxtImg
+      <img
         :src="mediaUrl" :alt="displayTitle"
         class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
         loading="lazy"
-        format="webp"
-        quality="80"
       />
       <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
     </div>
@@ -27,7 +25,7 @@
     >
       <!-- Header -->
       <div class="flex items-center gap-1 text-xs font-mono mb-1">
-        <Icon :name="sourceData.icon" class="w-3.5 h-3.5" />
+        
         <span>{{ sourceData.label }}</span>
         <span v-if="scrap.type" class="opacity-60">[{{ scrap.type }}]</span>
       </div>
@@ -72,19 +70,19 @@
 
         <!-- Location -->
         <div v-if="scrap.location" class="flex items-center gap-1">
-          <Icon name="heroicons:map-pin-20-solid" class="w-3 h-3" />
+          
           {{ scrap.location }}
         </div>
 
         <!-- Links -->
         <div v-if="scrap.relationships?.length" class="flex items-center gap-1">
-          <Icon name="heroicons:link" class="w-3 h-3" />
+          
           {{ scrap.relationships.length }}
         </div>
 
         <!-- Media count -->
         <div v-if="mediaCount > 1" class="flex items-center gap-1">
-          <Icon name="heroicons:photo" class="w-3 h-3" />
+          
           {{ mediaCount }}
         </div>
       </div>

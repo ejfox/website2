@@ -50,10 +50,10 @@
           </div>
           <div class="flex items-center gap-2 ml-auto">
             <span class="wpm-value">
-              <AnimatedNumber :value="test.wpm" format="default" :duration="timing.slow" priority="tertiary" />
+              <AnimatedNumber :value="test.wpm" format="default" :duration="800" priority="tertiary" />
             </span>
             <span class="accuracy-value">
-              <AnimatedNumber :value="test.accuracy" format="decimal" :decimals="1" :duration="timing.normal" priority="tertiary" />%
+              <AnimatedNumber :value="test.accuracy" format="decimal" :decimals="1" :duration="400" priority="tertiary" />%
             </span>
           </div>
         </div>
@@ -70,7 +70,7 @@
             TESTS
           </div>
           <div class="stat-value">
-            <AnimatedNumber :value="stats.typingStats.testsCompleted" format="default" :duration="timing.dramatic" priority="secondary" />
+            <AnimatedNumber :value="stats.typingStats.testsCompleted" format="default" :duration="1600" priority="secondary" />
           </div>
         </div>
         
@@ -79,7 +79,7 @@
             CONSISTENCY
           </div>
           <div class="stat-value">
-            <AnimatedNumber :value="stats.typingStats.bestConsistency" format="default" :duration="timing.slow" priority="secondary" />%
+            <AnimatedNumber :value="stats.typingStats.bestConsistency" format="default" :duration="800" priority="secondary" />%
           </div>
         </div>
         
@@ -88,7 +88,7 @@
             AVG WPM
           </div>
           <div class="stat-value">
-            <AnimatedNumber :value="Math.round(stats.typingStats.averageWPM)" format="default" :duration="timing.slow" priority="secondary" />
+            <AnimatedNumber :value="Math.round(stats.typingStats.averageWPM)" format="default" :duration="800" priority="secondary" />
           </div>
         </div>
       </div>
@@ -98,7 +98,7 @@
 
 <script setup lang="ts">
 import { computed, ref, onMounted, nextTick } from 'vue'
-import { format } from 'date-fns'
+import { format } from 'date-fns/format'
 import AnimatedNumber from '../AnimatedNumber.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'
 // NUKED BY BLOODHOUND: import { animate, stagger, onScroll } from '~/anime.esm.js'
@@ -132,7 +132,7 @@ const props = defineProps<{
   stats: MonkeyTypeStats
 }>()
 
-const { timing } = useAnimations()
+// DELETED: const { timing } = // DELETED: useAnimations() - BROKEN IMPORT
 
 // Computed properties for conditional rendering and data formatting
 const hasRecentTests = computed(
@@ -186,71 +186,13 @@ const recentTestsRef = ref<HTMLElement | null>(null)
 const performanceRef = ref<HTMLElement | null>(null)
 
 // Epic MonkeyType stats scroll-triggered animations
-const setupScrollAnimations = () => {
-  if (process.server) return
-  
-  nextTick(() => {
-    if (!monkeyStatsRef.value) return
-
-    // Main stats dramatic entrance
-    if (mainStatsRef.value) {
-      // NUKED: // NUKED BY BLOODHOUND: // animate(mainStatsRef.value, {
-        keyframes: [
-          { opacity: 0, scale: 0.8, rotateX: -20, filter: 'blur(1px)' },
-          { opacity: 0.8, scale: 1.05, rotateX: 5, filter: 'blur(0.3px)' },
-          { opacity: 1, scale: 1, rotateX: 0, filter: 'blur(0px)' }
-        ],
-        duration: 600, // 2025 optimal duration
-        ease: 'out(2.4)', // Advanced physics
-        autoplay: onScroll({
-          target: mainStatsRef.value,
-          onEnter: () => true
-        })
-      })
-    }
-
-    // Recent tests staggered entrance
-    if (recentTestsRef.value) {
-      const testRows = recentTestsRef.value.querySelectorAll('.test-row')
-      if (testRows.length) {
-        // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(testRows), {
-          opacity: [0, 1],
-          translateX: [-20, 0],
-          scale: [0.96, 1],
-          duration: 380, // 2025 micro-timing
-          delay: stagger(60),
-          ease: 'out(2.6)', // Refined curve
-          autoplay: onScroll({
-            target: recentTestsRef.value,
-            onEnter: () => true
-          })
-        })
-      }
-    }
-
-    // Performance metrics grid stagger
-    if (performanceRef.value) {
-      const statItems = performanceRef.value.querySelectorAll('.stat-item')
-      if (statItems.length) {
-        // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(statItems), {
-          opacity: [0, 1],
-          translateY: [15, 0],
-          scale: [0.92, 1.02, 1],
-          duration: 480, // 2025 grid timing
-          delay: stagger(90),
-          ease: 'out(2.8)', // 2025 physics
-          autoplay: onScroll({
-            target: performanceRef.value,
-            onEnter: () => true
-          })
-        })
-      }
-    }
-  })
-}
+// DELETED: setupScrollAnimations() - ALL ANIMATION FUNCTIONS REMOVED FOR PERFORMANCE
+// const setupScrollAnimations = () => {
+//   ALL BROKEN ANIMATION CODE DELETED
+// }
 
 onMounted(() => {
-  setupScrollAnimations()
+  // DELETED: setupScrollAnimations() - BROKEN FUNCTION
 })
 
 </script>

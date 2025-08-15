@@ -48,8 +48,9 @@ export function useScrollTimeline(options: ScrollTimelineOptions = {}) {
 
     const { stop } = useIntersectionObserver(
       element,
-      ([{ isIntersecting }]) => {
-        if (isIntersecting) {
+      (entries) => {
+        const [entry] = entries;
+        if (entry?.isIntersecting) {
           animatedElements.add(element)
           
           if (config.debug) {
@@ -89,8 +90,9 @@ export function useScrollTimeline(options: ScrollTimelineOptions = {}) {
 
     const { stop } = useIntersectionObserver(
       element,
-      ([{ isIntersecting }]) => {
-        if (isIntersecting) {
+      (entries) => {
+        const [entry] = entries;
+        if (entry?.isIntersecting) {
           animatedElements.add(element)
           
           if (config.debug) {
@@ -127,13 +129,12 @@ export function useScrollTimeline(options: ScrollTimelineOptions = {}) {
 
       const bars = containerRef.value.querySelectorAll(barsSelector)
       if (bars.length) {
-        // NUKED BY BLOODHOUND: // animate(Array.from(bars), {
-          scaleX: [0, 1.1, 1],
-          scaleY: [0.3, 1.2, 1],
-          duration: timing.value.slow, // was 600
-          delay: stagger(100, { from: 'first' }),
-          ease: 'outElastic(1, .8)'
-        })
+        // Bar animation disabled following delete-driven development
+        bars.forEach((bar, index) => {
+          setTimeout(() => {
+            (bar as HTMLElement).style.transform = 'scaleX(1) scaleY(1)';
+          }, index * 100);
+        });
       }
     })
   }
@@ -149,16 +150,13 @@ export function useScrollTimeline(options: ScrollTimelineOptions = {}) {
 
       const gridItems = containerRef.value.querySelectorAll(gridSelector)
       if (gridItems.length) {
-        // NUKED BY BLOODHOUND: // animate(Array.from(gridItems), {
-          keyframes: [
-            { opacity: 0, scale: 0, rotateZ: -45 },
-            { opacity: 0.8, scale: 1.3, rotateZ: 15 },
-            { opacity: 1, scale: 1, rotateZ: 0 }
-          ],
-          duration: timing.value.normal, // was 400
-          delay: stagger(15, { grid: [gridConfig.cols, gridConfig.rows], from: 'center' }),
-          ease: 'outElastic(1, .9)'
-        })
+        // Grid animation disabled following delete-driven development
+        gridItems.forEach((item, index) => {
+          setTimeout(() => {
+            (item as HTMLElement).style.opacity = '1';
+            (item as HTMLElement).style.transform = 'scale(1) rotate(0deg)';
+          }, index * 15);
+        });
       }
     })
   }
@@ -173,14 +171,13 @@ export function useScrollTimeline(options: ScrollTimelineOptions = {}) {
 
       const items = containerRef.value.querySelectorAll(itemsSelector)
       if (items.length) {
-        // NUKED BY BLOODHOUND: // animate(Array.from(items), {
-          opacity: [0, 1],
-          translateY: [15, 0],
-          scale: [0.95, 1.02, 1],
-          duration: timing.value.normal, // was 450
-          delay: stagger(80),
-          ease: 'outBack(1.7)'
-        })
+        // Cascade animation disabled following delete-driven development
+        items.forEach((item, index) => {
+          setTimeout(() => {
+            (item as HTMLElement).style.opacity = '1';
+            (item as HTMLElement).style.transform = 'translateY(0) scale(1)';
+          }, index * 80);
+        });
       }
     })
   }
@@ -199,71 +196,48 @@ export function useScrollTimeline(options: ScrollTimelineOptions = {}) {
     return observeTimeline(containerRef, () => {
       if (!containerRef.value) return
 
-      const timeline = createTimeline()
+      // Timeline animation disabled following delete-driven development
       
       // Stage 1: Primary stat entrance
       if (config.primaryStat) {
         const primaryEl = containerRef.value.querySelector(config.primaryStat)
         if (primaryEl) {
-          timeline.add(primaryEl, {
-            keyframes: [
-              { opacity: 0, scale: 0.8, rotateX: -15, filter: 'blur(1px)' },
-              { opacity: 0.8, scale: 1.05, rotateX: 5, filter: 'blur(0.3px)' },
-              { opacity: 1, scale: 1, rotateX: 0, filter: 'blur(0px)' }
-            ],
-            duration: timing.value.slow, // was 700
-            ease: 'outElastic(1, .8)'
-          })
+          (primaryEl as HTMLElement).style.opacity = '1';
+          (primaryEl as HTMLElement).style.transform = 'scale(1) rotateX(0deg)';
+          (primaryEl as HTMLElement).style.filter = 'blur(0px)';
         }
       }
       
       // Stage 2: Bars animation
       if (config.bars) {
         const bars = containerRef.value.querySelectorAll(config.bars)
-        if (bars.length) {
-          timeline.add(Array.from(bars), {
-            scaleX: [0, 1.1, 1],
-            scaleY: [0.3, 1.2, 1],
-            duration: timing.value.slow, // was 600
-            delay: stagger(100),
-            ease: 'outElastic(1, .8)'
-          }, '-=400')
-        }
+        bars.forEach((bar, index) => {
+          setTimeout(() => {
+            (bar as HTMLElement).style.transform = 'scaleX(1) scaleY(1)';
+          }, index * 100);
+        });
       }
       
       // Stage 3: Grid animation
       if (config.grid) {
         const gridItems = containerRef.value.querySelectorAll(config.grid)
-        if (gridItems.length) {
-          timeline.add(Array.from(gridItems), {
-            keyframes: [
-              { opacity: 0, scale: 0, rotateZ: 180 },
-              { opacity: 0.8, scale: 1.2, rotateZ: -10 },
-              { opacity: 1, scale: 1, rotateZ: 0 }
-            ],
-            duration: timing.value.normal, // was 500
-            delay: stagger(8, { 
-              grid: [config.gridConfig?.cols || 10, config.gridConfig?.rows || 10], 
-              from: 'center' 
-            }),
-            ease: 'outElastic(1, .9)'
-          }, '-=200')
-        }
+        gridItems.forEach((item, index) => {
+          setTimeout(() => {
+            (item as HTMLElement).style.opacity = '1';
+            (item as HTMLElement).style.transform = 'scale(1) rotate(0deg)';
+          }, index * 8);
+        });
       }
       
       // Stage 4: Cascade animation
       if (config.cascade) {
         const cascadeItems = containerRef.value.querySelectorAll(config.cascade)
-        if (cascadeItems.length) {
-          timeline.add(Array.from(cascadeItems), {
-            opacity: [0, 1],
-            translateY: [15, 0],
-            scale: [0.95, 1.02, 1],
-            duration: timing.value.normal, // was 450
-            delay: stagger(80),
-            ease: 'outBack(1.7)'
-          }, '-=300')
-        }
+        cascadeItems.forEach((item, index) => {
+          setTimeout(() => {
+            (item as HTMLElement).style.opacity = '1';
+            (item as HTMLElement).style.transform = 'translateY(0) scale(1)';
+          }, index * 80);
+        });
       }
     })
   }

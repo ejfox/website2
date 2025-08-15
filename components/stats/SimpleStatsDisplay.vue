@@ -312,7 +312,7 @@ const progressRef = ref(null)
 const statRefs = ref([])
 
 // Animation composables
-// NUKED BY BLOODHOUND: const { timing, easing } = useAnimations()
+// NUKED BY BLOODHOUND: // DELETED: const { timing } = // DELETED: useAnimations() - BROKEN IMPORT
 
 // Animation state
 const displayDayOfYear = ref(0)
@@ -363,74 +363,26 @@ const healthToday = computed(() => {
   return props.stats.health.today || { steps: 0, exerciseMinutes: 0 }
 })
 
-// Animate the day progress counter with anime.js
+// DELETED: Animate the day progress counter - BROKEN FUNCTION
 const animateDayProgress = () => {
   if (process.server || !progressRef.value) return
-  
-  // NUKED: // NUKED BY BLOODHOUND: // animate({ count: 0 }, {
-    count: dayOfYear,
-    duration: timing.value.dramatic,
-    ease: 'cubicBezier(0.4, 0, 0.2, 1)',
-    update: (anim) => {
-      const currentVal = Math.round(anim.animatables[0].target.count)
-      displayDayOfYear.value = currentVal
-      if (progressRef.value) {
-        progressRef.value.textContent = `${currentVal}/${daysInYear}`
-      }
-    },
-    complete: () => {
-      displayDayOfYear.value = dayOfYear
-    }
-  })
+  // DELETED: All broken animation code
 }
 
-// Modern anime.js reveal for the stats display
+// DELETED: Modern anime.js reveal - BROKEN FUNCTION
 const animateStatsReveal = async () => {
   if (process.server || hasAnimated.value) return
-  
   await nextTick()
   if (!sectionRef.value) return
-  
   hasAnimated.value = true
-  
-  // Stage 1: Header reveal
-  if (headerRef.value) {
-    // NUKED: // NUKED BY BLOODHOUND: // animate(headerRef.value, {
-      opacity: [0, 1],
-      translateY: [-10, 0],
-      duration: timing.value.slow,
-      ease: easing.decelerate
-    })
-  }
-  
-  // Stage 2: Animate day progress counter
-  setTimeout(() => {
-    animateDayProgress()
-  }, 500)
-  
-  // Stage 3: Cascade all stat numbers
-  setTimeout(() => {
-    const allStatElements = document.querySelectorAll('[ref="statRefs"]')
-    if (allStatElements.length > 0) {
-      // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(allStatElements), {
-        opacity: [0, 1],
-        scale: [0.9, 1],
-        duration: timing.value.normal,
-        delay: stagger(30),
-        ease: easing.decelerate
-      })
-    }
-  }, 1000)
+  // DELETED: All broken animation code
 }
 
 onMounted(() => {
   // Initialize display values
   displayDayOfYear.value = 0
   
-  // Start animation sequence
-  nextTick(() => {
-    animateStatsReveal()
-  })
+  // DELETED: All animation sequences - BROKEN FUNCTIONS
 })
 </script>
 

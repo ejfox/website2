@@ -1,5 +1,5 @@
 <script setup>
-import { format } from 'date-fns'
+import { format } from 'date-fns/format'
 import { animate, stagger } from '~/anime.esm.js'
 import { useWindowSize } from '@vueuse/core'
 
@@ -58,15 +58,16 @@ const getNoteSummary = (note) => {
     <!-- Main Content -->
     <section class="lg:w-2/3">
       <div class="mb-8">
-        <h1 class="text-3xl font-bold">Robot Notes</h1>
+        <h1 class="text-3xl font-bold">
+          Robot Notes
+        </h1>
         <p class="text-zinc-600 dark:text-zinc-400 mt-2">
           <a
             href="https://www.are.na/ej-fox/conversations-with-robots"
             target="_blank"
             class="text-blue-500 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
           >
-            Conversations with Robots </a
-          >, notes from various AI models, projects, and experiments.
+            Conversations with Robots </a>, notes from various AI models, projects, and experiments.
         </p>
       </div>
 

@@ -1,0 +1,16 @@
+[
+  {
+    "path": "/",
+    "score": 0.83,
+    "performance": 0.53,
+    "accessibility": 0.96,
+    "seo": 1
+  },
+  {
+    "path": "/projects",
+    "score": 0.84,
+    "performance": 0.56,
+    "accessibility": 0.96,
+    "seo": 1
+  }
+]

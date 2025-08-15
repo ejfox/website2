@@ -282,37 +282,7 @@ const showDonations = computed(() => {
   return false
 })
 
-const verificationStatus = ref(null)
-
-// Only verify if there's a signature in the frontmatter
-onMounted(async () => {
-  if (post.value?.signature) {
-    try {
-      const publicKey = await fetch('/pgp.txt').then((r) => r.text())
-      const openpgp = await import('openpgp')
-
-      // Create message from post content
-      const message = [
-        post.value.title,
-        post.value.date,
-        post.value.content
-      ].join('\n')
-
-      const verified = await openpgp.verify({
-        message: await openpgp.createMessage({ text: message }),
-        signature: await openpgp.readSignature({
-          armoredSignature: post.value.signature
-        }),
-        verificationKeys: await openpgp.readKey({ armoredKey: publicKey })
-      })
-
-      verificationStatus.value = verified.signatures[0].valid
-    } catch (err) {
-      console.error('Verification failed:', err)
-      verificationStatus.value = false
-    }
-  }
-})
+// DELETE: Removed 369KB OpenPGP.js signature verification for performance
 
 
 /**
@@ -415,7 +385,7 @@ const processedMetadata = computed(() => {
           to="/blog/"
           class="inline-flex items-center gap-1.5 px-3 py-2 text-sm bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-900 dark:text-zinc-100 rounded-lg transition-colors"
         >
-          <Icon name="heroicons:arrow-left" class="w-4 h-4" />
+          ←
           Back to Blog
         </NuxtLink>
       </div>

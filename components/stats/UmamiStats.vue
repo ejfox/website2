@@ -3,14 +3,14 @@
     <!-- Primary Metric -->
     <div class="individual-stat-large">
       <div class="stat-value">
-        <AnimatedNumber :value="stats.pageviews.value" format="commas" :duration="timing.slow" priority="primary" />
+        <AnimatedNumber :value="stats.pageviews.value" format="commas" :duration="800" priority="primary" />
       </div>
       <div class="stat-label">
         PAGEVIEWS
       </div>
       <div class="stat-details">
-        <AnimatedNumber :value="stats.visitors.value" format="default" :duration="timing.normal" priority="secondary" /> VISITORS · 
-        <AnimatedNumber :value="stats.visits.value" format="default" :duration="timing.normal" priority="tertiary" /> VISITS
+        <AnimatedNumber :value="stats.visitors.value" format="default" :duration="400" priority="secondary" /> VISITORS · 
+        <AnimatedNumber :value="stats.visits.value" format="default" :duration="400" priority="tertiary" /> VISITS
       </div>
     </div>
 
@@ -19,7 +19,7 @@
       <div class="flex justify-between items-baseline">
         <span class="text-zinc-700 dark:text-zinc-400">BOUNCE RATE</span>
         <span class="tabular-nums text-zinc-800 dark:text-zinc-200 font-medium">
-          <AnimatedNumber :value="bounceRate" format="default" :duration="timing.normal" priority="tertiary" />%
+          <AnimatedNumber :value="bounceRate" format="default" :duration="400" priority="tertiary" />%
         </span>
       </div>
       <div class="flex justify-between items-baseline">
@@ -51,7 +51,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { format } from 'date-fns'
+import { format } from 'date-fns/format'
 import AnimatedNumber from '../AnimatedNumber.vue'
 // NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
 
@@ -72,7 +72,7 @@ const props = defineProps<{
   umamiStats?: UmamiStats | null
 }>()
 
-const { timing } = useAnimations()
+// DELETED: // DELETED: const { timing } = // DELETED: useAnimations() - BROKEN IMPORT - BROKEN IMPORT
 
 const hasData = computed(() => {
   return !!props.umamiStats?.stats

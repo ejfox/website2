@@ -6,8 +6,7 @@
           Gear Inventory
         </h1>
         <a href="/gear.csv" download class="gear-csv-link">
-          <Icon name="i-heroicons-arrow-down-tray" class="w-3 h-3" />
-          CSV
+          ↓ CSV
         </a>
       </div>
 
@@ -153,7 +152,7 @@
 </template>
 
 <script setup>
-import * as d3 from 'd3'
+import { csvParse } from 'd3-dsv' // TREE-SHAKEN: Only import what we need (~2KB vs 200KB)
 
 const { calculateTotalWeight, calculateAverageWeight } = useWeightCalculations()
 const gearItems = ref([])
@@ -218,7 +217,7 @@ onMounted(async () => {
   try {
     const response = await fetch('/gear.csv')
     const csvText = await response.text()
-    gearItems.value = d3.csvParse(csvText).map(processGearItem)
+    gearItems.value = csvParse(csvText).map(processGearItem) // Tree-shaken D3!
   } catch (error) {
     console.error('Error loading gear data:', error)
   }

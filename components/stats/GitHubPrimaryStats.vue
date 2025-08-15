@@ -1,26 +1,24 @@
 <template>
-  <div ref="containerRef" class="github-stats-container">
+  <div class="github-stats-container">
     <!-- Primary GitHub Stats with AnimatedNumber -->
     <div class="individual-stat-large">
       <div class="stat-value">
-        <AnimatedNumber :value="totalCommits" format="commas" :duration="timing.dramatic" priority="primary" epic />
+        <AnimatedNumber :value="totalCommits" format="commas" :duration="1600" priority="primary" epic />
       </div>
       <div class="stat-label">
         GITHUB COMMITS
       </div>
       <div class="stat-details">
-        <AnimatedNumber :value="stats.stats.totalRepos" format="default" :duration="timing.dramatic" priority="secondary" /> REPOS · 
-        <AnimatedNumber :value="stats.stats.followers || 0" format="default" :duration="timing.slow" priority="tertiary" /> FOLLOWERS
+        <AnimatedNumber :value="stats.stats.totalRepos" format="default" :duration="1600" priority="secondary" /> REPOS · 
+        <AnimatedNumber :value="stats.stats.followers || 0" format="default" :duration="800" priority="tertiary" /> FOLLOWERS
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, ref, onMounted, nextTick } from 'vue'
+import { computed } from 'vue'
 import AnimatedNumber from '../AnimatedNumber.vue'
-// NUKED BY BLOODHOUND: import { animate, onScroll } from '~/anime.esm.js'
-// NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
 
 interface GitHubStats {
   stats: {
@@ -41,7 +39,6 @@ const props = defineProps<{
   stats: GitHubStats
 }>()
 
-// NUKED BY BLOODHOUND: const { timing, easing } = useAnimations()
 
 const totalCommits = computed(() => {
   return (
@@ -51,36 +48,6 @@ const totalCommits = computed(() => {
   )
 })
 
-// Animation refs
-const containerRef = ref<HTMLElement | null>(null)
-
-// Epic GitHub stats scroll-triggered animations
-const setupScrollAnimations = () => {
-  if (process.server) return
-  
-  nextTick(() => {
-    if (!containerRef.value) return
-
-    // Epic container entrance with 3D morphing on scroll
-    // NUKED: // NUKED BY BLOODHOUND: // animate(containerRef.value, {
-      keyframes: [
-        { opacity: 0, scale: 0.6, rotateX: -45, rotateY: 20, filter: 'blur(2px)' },
-        { opacity: 0.8, scale: 1.08, rotateX: 8, rotateY: -3, filter: 'blur(0.5px)' },
-        { opacity: 1, scale: 1, rotateX: 0, rotateY: 0, filter: 'blur(0px)' }
-      ],
-      duration: timing.value.dramatic,
-      ease: 'outElastic(1, .8)',
-      autoplay: onScroll({
-        target: containerRef.value,
-        onEnter: () => true
-      })
-    })
-  })
-}
-
-onMounted(() => {
-  setupScrollAnimations()
-})
 </script>
 
 <style scoped>

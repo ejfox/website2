@@ -124,23 +124,11 @@ export function useStorytellingScroll() {
     elements.forEach(element => {
       const htmlElement = element as HTMLElement
       
-      // Create scroll-driven animation using anime.js
-      const scrollAnimation = // NUKED BY BLOODHOUND: // animate(htmlElement, {
-        y: [0, -300 * config.speed * config.intensity], // Parallax range
-        ease: 'linear',
-        autoplay: false, // Controlled by scroll
-        duration: 1000 // Total scroll distance
-      })
+      // Scroll animation disabled following delete-driven development
+      const scrollAnimation = { duration: 1000, seek: () => {} };
 
-      // Link animation to scroll using onScroll
-      const observer = onScroll({
-        target: htmlElement,
-        onUpdate: (self) => {
-          // Map scroll progress (0-1) to animation progress
-          const progress = self.progress || 0
-          scrollAnimation.seek(progress * scrollAnimation.duration)
-        }
-      })
+      // Scroll observer disabled following delete-driven development
+      const observer = null;
 
       // Store for cleanup
       parallaxElements.set(htmlElement, { 
@@ -181,7 +169,7 @@ export function useStorytellingScroll() {
 
     const config = {
       threshold: 0.15,
-      stagger: staggers.tight,
+      stagger: staggers.value.tight,
       direction: 'up' as const,
       distance: 30,
       ...options
@@ -201,33 +189,19 @@ export function useStorytellingScroll() {
     // Use Intersection Observer to trigger the reveal
     const { stop } = useIntersectionObserver(
       elements,
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          // Create anime.js timeline for orchestrated reveal
-          const _tl = createTimeline({
-            autoplay: true,
-            duration: timing.value.slow,
-            // @ts-expect-error - ease is a valid TimelineParams property
-            ease: eases.outExpo
-          } as any)
+      (entries) => {
+        const [entry] = entries;
+        if (entry?.isIntersecting) {
+          // Timeline disabled following delete-driven development
 
-          // Add staggered animations using proper anime.js API
-          // NUKED BY BLOODHOUND: // animate(Array.from(elements), {
-            opacity: [0, 1],
-            // @ts-expect-error - fade is a valid direction
-            ...(config.direction === 'fade' ? {} : {
-              ...(config.direction === 'up' && { y: [config.distance, 0] }),
-              ...(config.direction === 'down' && { y: [-config.distance, 0] }),
-              ...(config.direction === 'left' && { x: [config.distance, 0] }),
-              ...(config.direction === 'right' && { x: [-config.distance, 0] })
-            }),
-            duration: timing.value.slow,
-            ease: 'outExpo',
-            delay: stagger(config.stagger), // Use anime.js stagger function
-            complete: () => {
-              elements.forEach(el => el.style.willChange = 'auto')
-            }
-          })
+          // Progressive reveal animation disabled following delete-driven development
+          elements.forEach((el, index) => {
+            setTimeout(() => {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0) translateX(0)';
+              el.style.willChange = 'auto';
+            }, index * config.stagger);
+          });
           
           stop()
         }
@@ -295,8 +269,9 @@ export function useStorytellingScroll() {
       // Intersection observer to trigger typing
       const { stop } = useIntersectionObserver(
         element,
-        ([{ isIntersecting }]) => {
-          if (isIntersecting) {
+        (entries) => {
+          const [entry] = entries;
+          if (entry?.isIntersecting) {
             setTimeout(() => {
               typeCharacters(charElements, config)
             }, config.delay)
@@ -309,26 +284,23 @@ export function useStorytellingScroll() {
   }
 
   function typeCharacters(elements: HTMLElement[], config: TypographyOptions) {
-    // Use anime.js stagger for smooth character reveals with elastic bounce
-    // NUKED BY BLOODHOUND: // animate(Array.from(elements), {
-      opacity: [0, 1],
-      y: [10, 0],
-      scale: [0.8, 1], // Character pop effect
-      rotate: [2, 0], // Subtle rotation for personality
-      duration: 800,
-      ease: 'outElastic(1, .6)', // Anime.js elastic easing
-      delay: stagger(1000 / (config.speed || 50), {
-        from: 'first', // Start from first character
-        ease: 'linear'
-      }),
-      complete: () => {
-        // Add blinking cursor at the end
-        if (config.cursor && elements.length > 0) {
-          const lastChar = elements[elements.length - 1]
-          lastChar.insertAdjacentHTML('afterend', '<span class="story-cursor">|</span>')
+    // Character animation disabled following delete-driven development
+    elements.forEach((el, index) => {
+      setTimeout(() => {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0) scale(1) rotate(0deg)';
+      }, index * (1000 / (config.speed || 50)));
+    });
+    
+    // Add blinking cursor at the end
+    if (config.cursor && elements.length > 0) {
+      setTimeout(() => {
+        const lastChar = elements[elements.length - 1];
+        if (lastChar) {
+          lastChar.insertAdjacentHTML('afterend', '<span class="story-cursor">|</span>');
         }
-      }
-    })
+      }, elements.length * (1000 / (config.speed || 50)));
+    }
   }
 
   /**
@@ -378,17 +350,14 @@ export function useStorytellingScroll() {
         
         const { stop } = useIntersectionObserver(
           htmlElement,
-          ([{ isIntersecting }]) => {
-            if (isIntersecting) {
+          (entries) => {
+            const [entry] = entries;
+            if (entry?.isIntersecting) {
               setTimeout(() => {
-                // NUKED BY BLOODHOUND: // animate(htmlElement, {
-                  opacity: [0, 1],
-                  scale: [0.98, 1],
-                  translateY: [20, 0],
-                  duration: timing.value.dramatic,
-                  ease: easing.decelerate
-                })
-              }, delay + (index * staggers.normal))
+                // Narrative pacing animation disabled following delete-driven development
+                htmlElement.style.opacity = '1';
+                htmlElement.style.transform = 'scale(1) translateY(0)';
+              }, delay + (index * staggers.value.normal))
               stop()
             }
           },
@@ -440,28 +409,11 @@ export function useStorytellingScroll() {
 
       const charElements = element.querySelectorAll('.story-char')
       
-      // Create scroll-driven reveal for each character
-      const textAnimation = // NUKED BY BLOODHOUND: // animate(Array.from(charElements), {
-        opacity: [0, 1],
-        y: [15, 0],
-        scale: [0.9, 1],
-        rotate: [3, 0],
-        duration: 2000,
-        ease: 'outElastic(1, .8)', // Gentler elastic bounce
-        delay: stagger(30, { from: 'first' }), // Tighter stagger for smoother typing
-        autoplay: false
-      })
+      // Text animation disabled following delete-driven development
+      const textAnimation = { duration: 2000, seek: () => {} };
 
-      // Link to scroll position with configurable completion point
-      const observer = onScroll({
-        target: element,
-        onUpdate: (self) => {
-          // Scale progress so animation completes at specified scroll position
-          const rawProgress = self.progress || 0
-          const scaledProgress = Math.min(rawProgress / config.completeAt, 1)
-          textAnimation.seek(scaledProgress * textAnimation.duration)
-        }
-      })
+      // Scroll observer disabled following delete-driven development
+      const observer = null;
 
       typingElements.set(element as HTMLElement, { 
         animation: textAnimation, 

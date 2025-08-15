@@ -34,7 +34,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { format } from 'date-fns'
+import { format } from 'date-fns/format'
 
 interface ActivityDay {
   date: string

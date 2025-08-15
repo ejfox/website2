@@ -3,14 +3,14 @@
     <!-- Primary Metric -->
     <div class="individual-stat-large">
       <div class="stat-value">
-        <AnimatedNumber :value="stats.totalFilms" format="default" :duration="timing.slow" priority="primary" />
+        <AnimatedNumber :value="stats.totalFilms" format="default" :duration="800" priority="primary" />
       </div>
       <div class="stat-label">
         FILMS WATCHED
       </div>
       <div class="stat-details">
-        <AnimatedNumber :value="stats.averageRating" format="decimal" :decimals="1" :duration="timing.normal" priority="secondary" />★ AVG · 
-        <AnimatedNumber :value="stats.thisYear" format="default" :duration="timing.normal" priority="tertiary" /> THIS YEAR
+        <AnimatedNumber :value="stats.averageRating" format="decimal" :decimals="1" :duration="400" priority="secondary" />★ AVG · 
+        <AnimatedNumber :value="stats.thisYear" format="default" :duration="400" priority="tertiary" /> THIS YEAR
       </div>
     </div>
 
@@ -49,7 +49,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { format } from 'date-fns'
+import { format } from 'date-fns/format'
 import AnimatedNumber from '../AnimatedNumber.vue'
 // NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
 
@@ -82,7 +82,7 @@ const props = defineProps<{
   letterboxdStats?: LetterboxdStats | null
 }>()
 
-const { timing } = useAnimations()
+// DELETED: const { timing } = // DELETED: useAnimations() - BROKEN IMPORT
 
 const hasData = computed(() => {
   return !!props.letterboxdStats?.stats && props.letterboxdStats.stats.totalFilms > 0

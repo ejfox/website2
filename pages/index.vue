@@ -6,12 +6,13 @@ const { data: indexContent, pending: _indexPending } = await useAsyncData(
   () => getPostBySlug('index')
 )
 
-// const { data: posts, pending: postsPending } = await useAsyncData('posts', () =>
-//   getAllPosts()
-// )
-
-// Remove pending state - we're SSR
-// const pending = computed(() => _indexPending.value)
+// SEO and performance optimization
+useHead({
+  title: 'EJ Fox - Hacker, Journalist, Data Visualization Specialist',
+  meta: [
+    { name: 'description', content: 'EJ Fox: Using code + art to uncover hidden patterns. Data visualization, journalism, and technology for good.' }
+  ]
+})
 </script>
 
 <template>

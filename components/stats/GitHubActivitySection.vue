@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { format } from 'date-fns'
+import { format } from 'date-fns/format'
 import ActivityCalendar from './ActivityCalendar.vue'
 
 interface GitHubCommit {

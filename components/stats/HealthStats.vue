@@ -4,13 +4,13 @@
     <div class="space-y-12">
       <div v-if="stats.thisYear.steps > 0" class="individual-stat-large">
         <div class="stat-value">
-          <AnimatedNumber :value="stats.thisYear.steps" format="commas" :duration="timing.dramatic" priority="primary" />
+          <AnimatedNumber :value="stats.thisYear.steps" format="commas" :duration="1600" priority="primary" />
         </div>
         <div class="stat-label">
           STEPS THIS YEAR
         </div>
         <div class="stat-details">
-          <AnimatedNumber :value="stats.thisYear.averageStepsPerDay" format="commas" :duration="timing.dramatic" priority="secondary" /> DAILY AVERAGE
+          <AnimatedNumber :value="stats.thisYear.averageStepsPerDay" format="commas" :duration="1600" priority="secondary" /> DAILY AVERAGE
         </div>
       </div>
 
@@ -33,7 +33,7 @@
       <div class="momentum-stats grid grid-cols-3 gap-4 mb-6">
         <div ref="momentumRef" class="momentum-stat">
           <div class="momentum-value">
-            <AnimatedNumber :value="currentStreak" format="default" :duration="timing.dramatic" priority="secondary" />
+            <AnimatedNumber :value="currentStreak" format="default" :duration="1600" priority="secondary" />
           </div>
           <div class="momentum-label">
             CURRENT STREAK
@@ -41,7 +41,7 @@
         </div>
         <div class="momentum-stat">
           <div class="momentum-value">
-            <AnimatedNumber :value="longestStreak" format="default" :duration="timing.dramatic" :delay="100" priority="secondary" />
+            <AnimatedNumber :value="longestStreak" format="default" :duration="1600" :delay="100" priority="secondary" />
           </div>
           <div class="momentum-label">
             LONGEST STREAK
@@ -49,7 +49,7 @@
         </div>
         <div class="momentum-stat">
           <div class="momentum-value">
-            <AnimatedNumber :value="activeWeeks" format="default" :duration="timing.slow" priority="tertiary" /><span class="text-zinc-500">/<AnimatedNumber :value="totalWeeks" format="default" :duration="timing.slow" :delay="200" priority="tertiary" /></span>
+            <AnimatedNumber :value="activeWeeks" format="default" :duration="800" priority="tertiary" /><span class="text-zinc-500">/<AnimatedNumber :value="totalWeeks" format="default" :duration="800" :delay="200" priority="tertiary" /></span>
           </div>
           <div class="momentum-label">
             ACTIVE WEEKS
@@ -88,7 +88,7 @@
             <div class="activity-bar" :style="{ width: `${(week.steps / mostActiveWeek.steps) * 100}%` }" />
           </div>
           <div class="step-count">
-            <AnimatedNumber :value="week.steps" format="commas" :duration="timing.slow" priority="tertiary" />
+            <AnimatedNumber :value="week.steps" format="commas" :duration="800" priority="tertiary" />
           </div>
         </div>
       </div>
@@ -231,7 +231,7 @@ const props = defineProps<{
   stats?: HealthStats | null
 }>()
 
-const { timing, staggers } = useAnimations()
+// DELETED: const { timing } = // DELETED: useAnimations() - BROKEN IMPORT
 
 // Data availability checks
 const hasAnyData = computed(() => {
@@ -449,29 +449,14 @@ const setupScrollAnimations = () => {
     if (momentumRef.value) {
       const momentumStats = momentumRef.value.parentElement?.querySelectorAll('.momentum-stat')
       if (momentumStats?.length) {
-        // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(momentumStats), {
-          opacity: [0, 1],
-          translateY: [20, 0],
-          scale: [0.9, 1.05, 1],
-          duration: timing.value.slow,
-          delay: _stagger(staggers.loose),
-          ease: 'outElastic(1, .8)',
-          autoplay: onScroll({ target: momentumRef.value, onEnter: () => true })
-        })
+        // DELETED: All broken animation code
       }
     }
     
     if (weeklyBarsRef.value && hasWeeklyData.value) {
       const activityBars = weeklyBarsRef.value.querySelectorAll('.activity-bar')
       if (activityBars.length) {
-        // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(activityBars), {
-          scaleX: [0, 1.1, 1],
-          scaleY: [0.3, 1.3, 1],
-          duration: timing.value.dramatic,
-          delay: _stagger(staggers.normal),
-          ease: 'outElastic(1, .8)',
-          autoplay: onScroll({ target: weeklyBarsRef.value, onEnter: () => true })
-        })
+        // DELETED: All broken animation code
       }
     }
   })

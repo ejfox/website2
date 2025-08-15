@@ -149,7 +149,7 @@ const props = defineProps({
 
 // Animation refs
 const itemRef = ref(null)
-// NUKED BY BLOODHOUND: const { timing, easing } = useAnimations()
+// NUKED BY BLOODHOUND: const { timing, easing } = // DELETED: useAnimations()
 
 // TCWM Score calculation
 const scores = computed(() => ({
@@ -203,36 +203,32 @@ const itemSlug = computed(() => {
 const navigateToItem = () => {
   // Quick press animation
   if (itemRef.value) {
-    // NUKED: // NUKED BY BLOODHOUND: // animate(itemRef.value, {
-      scale: [1, 0.98, 1],
-      duration: timing.fast,
-      ease: easing.standard
-    })
+    // DELETED: All broken animation code
+    // scale: [1, 0.98, 1],
+    // duration: 200, // 200
+    // ease: 'standard' // "cubicBezier(0.4, 0, 0.2, 1)"
   }
   navigateTo(`/gear/${itemSlug.value}`)
 }
 
-// Epic gear item reveal
-const animateGearItem = async () => {
-  if (process.server) return
-  
-  await nextTick()
-  
-  if (itemRef.value) {
-    // NUKED: // NUKED BY BLOODHOUND: // animate(itemRef.value, {
-      opacity: [0, 1],
-      translateX: [-8, 0],
-      scale: [0.99, 1],
-      filter: ['blur(0.3px)', 'blur(0px)'],
-      duration: timing.normal,
-      ease: easing.standard
-    })
-  }
-}
+// DELETED: Epic gear item reveal animation - BROKEN FUNCTION
+// const animateGearItem = async () => {
+//   if (process.server) return
+//   await nextTick()
+//   if (itemRef.value) {
+//     // opacity: [0, 1],
+//     // translateX: [-8, 0],
+//     // scale: [0.99, 1],
+//     // filter: ['blur(0.3px)', 'blur(0px)'],
+//     // duration: 400,
+//     // ease: "cubicBezier(0.4, 0, 0.2, 1)"
+//   }
+// }
 
-onMounted(() => {
-  animateGearItem()
-})
+// DELETED: onMounted animation call - BROKEN FUNCTION
+// onMounted(() => {
+//   animateGearItem()
+// })
 
 // Update weight calculations
 const baseWeight = computed(() => getItemWeightInOunces(props.item))

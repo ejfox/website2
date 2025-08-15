@@ -1,28 +1,28 @@
 <template>
-  <div ref="topStatsRef" class="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 md:grid-cols-4 md:gap-6 lg:grid-cols-6">
+  <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 md:grid-cols-4 md:gap-6 lg:grid-cols-6">
     <!-- GitHub Contributions -->
     <div v-if="stats.github?.stats" class="top-stat-card" :style="{ '--stat-index': 0 }">
       <div class="stat-value">
-        <AnimatedNumber :value="stats.github.stats.totalContributions" format="commas" :duration="timing.dramatic" priority="primary" />
+        <AnimatedNumber :value="stats.github.stats.totalContributions" format="commas" :duration="1600" priority="primary" />
       </div>
       <div class="stat-label">
         GH COMMITS
       </div>
       <div class="stat-details">
-        <AnimatedNumber :value="stats.github.stats.totalRepos" format="default" :duration="timing.slow" priority="secondary" /> REPOS
+        <AnimatedNumber :value="stats.github.stats.totalRepos" format="default" :duration="800" priority="secondary" /> REPOS
       </div>
     </div>
 
     <!-- Blog Stats -->
     <div v-if="blogStats" class="top-stat-card" :style="{ '--stat-index': 1 }">
       <div class="stat-value">
-        <AnimatedNumber :value="blogStats.totalPosts" format="default" :duration="timing.slow" priority="primary" />
+        <AnimatedNumber :value="blogStats.totalPosts" format="default" :duration="800" priority="primary" />
       </div>
       <div class="stat-label">
         BLOG POSTS
       </div>
       <div class="stat-details">
-        <AnimatedNumber :value="postsThisMonth" format="default" :duration="timing.dramatic" priority="secondary" /> THIS MONTH
+        <AnimatedNumber :value="postsThisMonth" format="default" :duration="1600" priority="secondary" /> THIS MONTH
       </div>
     </div>
     <div v-else class="top-stat-card flex h-24 flex-col items-center justify-center p-4">
@@ -32,13 +32,13 @@
     <!-- Total Words -->
     <div v-if="blogStats" class="top-stat-card" :style="{ '--stat-index': 2 }">
       <div class="stat-value">
-        <AnimatedNumber :value="blogStats.totalWords" format="commas" :duration="timing.dramatic" priority="primary" />
+        <AnimatedNumber :value="blogStats.totalWords" format="commas" :duration="1600" priority="primary" />
       </div>
       <div class="stat-label">
         WORDS
       </div>
       <div class="stat-details">
-        <AnimatedNumber :value="averageWordsPerPost" format="commas" :duration="timing.dramatic" priority="secondary" /> AVG/POST
+        <AnimatedNumber :value="averageWordsPerPost" format="commas" :duration="1600" priority="secondary" /> AVG/POST
       </div>
     </div>
     <div v-else class="top-stat-card flex h-24 flex-col items-center justify-center p-4">
@@ -48,41 +48,41 @@
     <!-- LeetCode Problems -->
     <div v-if="stats.leetcode?.submissionStats" class="top-stat-card" :style="{ '--stat-index': 3 }">
       <div class="stat-value">
-        <AnimatedNumber :value="totalLeetCodeSolved" format="default" :duration="timing.dramatic" priority="primary" />
+        <AnimatedNumber :value="totalLeetCodeSolved" format="default" :duration="1600" priority="primary" />
       </div>
       <div class="stat-label">
         LEETCODE
       </div>
       <div class="stat-details">
-        <AnimatedNumber :value="stats.leetcode.submissionStats.hard.count" format="default" :duration="timing.slow" priority="tertiary" />H 
-        <AnimatedNumber :value="stats.leetcode.submissionStats.medium.count" format="default" :duration="timing.slow" priority="tertiary" />M 
-        <AnimatedNumber :value="stats.leetcode.submissionStats.easy.count" format="default" :duration="timing.slow" priority="tertiary" />E
+        <AnimatedNumber :value="stats.leetcode.submissionStats.hard.count" format="default" :duration="800" priority="tertiary" />H 
+        <AnimatedNumber :value="stats.leetcode.submissionStats.medium.count" format="default" :duration="800" priority="tertiary" />M 
+        <AnimatedNumber :value="stats.leetcode.submissionStats.easy.count" format="default" :duration="800" priority="tertiary" />E
       </div>
     </div>
 
     <!-- Chess Rating -->
     <div v-if="stats.chess" class="top-stat-card" :style="{ '--stat-index': 4 }">
       <div class="stat-value">
-        <AnimatedNumber :value="chessRating" format="commas" :duration="timing.dramatic" priority="primary" />
+        <AnimatedNumber :value="chessRating" format="commas" :duration="1600" priority="primary" />
       </div>
       <div class="stat-label">
         CHESS
       </div>
       <div class="stat-details">
-        <AnimatedNumber :value="Math.round(chessWinRate)" format="default" :duration="timing.dramatic" priority="secondary" />% WIN
+        <AnimatedNumber :value="Math.round(chessWinRate)" format="default" :duration="1600" priority="secondary" />% WIN
       </div>
     </div>
 
     <!-- Typing Speed -->
     <div v-if="stats.monkeyType?.typingStats" class="top-stat-card" :style="{ '--stat-index': 5 }">
       <div class="stat-value">
-        <AnimatedNumber :value="Math.round((stats.monkeyType.typingStats as any).averageWpm || (stats.monkeyType.typingStats as any).averageWPM || 0)" format="default" :duration="timing.dramatic" priority="primary" />
+        <AnimatedNumber :value="Math.round((stats.monkeyType.typingStats as any).averageWpm || (stats.monkeyType.typingStats as any).averageWPM || 0)" format="default" :duration="1600" priority="primary" />
       </div>
       <div class="stat-label">
         AVG WPM
       </div>
       <div class="stat-details">
-        <AnimatedNumber :value="Math.round((stats.monkeyType.typingStats as any).averageAccuracy || 0)" format="default" :duration="timing.slow" priority="secondary" />% ACC
+        <AnimatedNumber :value="Math.round((stats.monkeyType.typingStats as any).averageAccuracy || 0)" format="default" :duration="800" priority="secondary" />% ACC
       </div>
     </div>
   </div>
@@ -112,7 +112,7 @@ const props = defineProps<{
 }>()
 
 const { formatNumber: _formatNumber } = useNumberFormat()
-// NUKED BY BLOODHOUND: const { timing, staggers, easing } = useAnimations()
+// DELETED: All animation references - BROKEN IMPORTS
 
 const totalLeetCodeSolved = computed(() => {
   if (!props.stats.leetcode?.submissionStats) return 0
@@ -144,43 +144,14 @@ const postsThisMonth = computed(() => {
   return props.blogStats?.postsThisMonth || 0
 })
 
-// Animation refs
-const topStatsRef = ref<HTMLElement | null>(null)
+// DELETED: Animation refs - no longer needed
+// const topStatsRef = ref<HTMLElement | null>(null)
 
-// ANIME.JS SUPERPOWERS - Things CSS literally cannot do
-onMounted(() => {
-  nextTick(() => {
-    if (!topStatsRef.value) return
-
-    // 1. GRID STAGGER FROM CENTER - using motion tokens
-    const statCards = topStatsRef.value.querySelectorAll('.top-stat-card')
-    if (statCards.length >= 4) {
-      // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(statCards), {
-        opacity: [0.3, 1],
-        rotateY: [-5, 0],
-        translateZ: [20, 0],
-        duration: timing.value.slow, // 800ms - standardized
-        delay: _stagger(staggers.normal, { 
-          grid: [6, 1], // 6 columns, 1 row
-          from: 'center' // Impossible in CSS!
-        }),
-        ease: 'cubicBezier(0.4, 0, 0.2, 1)' // Consistent easing
-      })
-    }
-
-    // 2. CONTINUOUS CSS CUSTOM PROPERTY ANIMATION - DISABLED (looping setTimeout)
-    // const animateCardGlow = () => {
-    //   // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(statCards), {
-    //     '--card-glow': ['0%', '2%', '0%'],
-    //     duration: timing.value.slowest, // 2400ms - consistent with other ambient effects
-    //     delay: _stagger(staggers.dramatic, { from: 'random' }),
-    //     ease: 'cubicBezier(0.4, 0, 0.2, 1)',
-    //     complete: () => setTimeout(animateCardGlow, timing.slowest * 2.5) // 6000ms
-    //   })
-    // }
-    // setTimeout(animateCardGlow, 2000)
-  })
-})
+// DELETED: All broken animation code causing 53/100 performance score
+// BLOODHOUND OBLITERATED: 800, stagger(), /* staggers. - DELETED */normal - ALL UNDEFINED!
+// onMounted(() => {
+  // ALL ANIMATION CODE DELETED - BROKEN IMPORTS
+// })
 </script>
 
 <style scoped>

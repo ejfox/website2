@@ -1,5 +1,5 @@
 <template>
-  <div v-if="hasData" ref="lastfmStatsRef" class="space-y-12 font-mono @container">
+  <div v-if="hasData" class="space-y-12 font-mono @container">
     <!-- Recent Tracks - Adjust spacing for mobile -->
     <div v-if="stats.recentTracks?.tracks?.length" class="space-y-6">
       <StatsSectionHeader title="RECENT_TRACKS" />
@@ -50,7 +50,7 @@
           :key="genre.name"
           class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-xs"
         >
-          {{ genre.name }} (<AnimatedNumber :value="genre.count" format="default" :duration="timing.normal" priority="tertiary" />)
+          {{ genre.name }} (<AnimatedNumber :value="genre.count" format="default" :duration="400" priority="tertiary" />)
         </div>
       </div>
     </div>
@@ -61,7 +61,7 @@
         <!-- Monthly Stats Column -->
         <div class="space-y-12">
           <!-- Monthly Top Artists -->
-          <div v-if="stats.topArtists?.month" ref="monthlyArtistsRef" class="space-y-6">
+          <div v-if="stats.topArtists?.month" class="space-y-6">
             <StatsSectionHeader title="TOP_ARTISTS_30D" />
             <div class="space-y-2">
               <div
@@ -76,14 +76,14 @@
                   {{ artist.name }}
                 </div>
                 <div class="text-xs text-zinc-500 tabular-nums">
-                  <AnimatedNumber :value="parseInt(artist.playcount)" format="default" :duration="timing.slow" priority="tertiary" />x
+                  <AnimatedNumber :value="parseInt(artist.playcount)" format="default" :duration="800" priority="tertiary" />x
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Monthly Top Tracks -->
-          <div v-if="stats.topTracks?.month" ref="monthlyTracksRef" class="space-y-6">
+          <div v-if="stats.topTracks?.month" class="space-y-6">
             <StatsSectionHeader title="TOP_TRACKS_30D" />
             <div class="space-y-2">
               <div
@@ -105,7 +105,7 @@
                 <div
                   class="text-xs text-zinc-500 tabular-nums whitespace-nowrap"
                 >
-                  <AnimatedNumber :value="parseInt(track.playcount || '0')" format="default" :duration="timing.slow" priority="tertiary" />x
+                  <AnimatedNumber :value="parseInt(track.playcount || '0')" format="default" :duration="800" priority="tertiary" />x
                 </div>
               </div>
             </div>
@@ -115,7 +115,7 @@
         <!-- Yearly Stats Column -->
         <div class="space-y-12">
           <!-- Yearly Top Artists -->
-          <div v-if="stats.topArtists?.year" ref="yearlyArtistsRef" class="space-y-6">
+          <div v-if="stats.topArtists?.year" class="space-y-6">
             <StatsSectionHeader title="TOP_ARTISTS_365D" />
             <div class="space-y-2">
               <div
@@ -130,14 +130,14 @@
                   {{ artist.name }}
                 </div>
                 <div class="text-xs text-zinc-500 tabular-nums">
-                  <AnimatedNumber :value="parseInt(artist.playcount)" format="default" :duration="timing.slow" priority="tertiary" />x
+                  <AnimatedNumber :value="parseInt(artist.playcount)" format="default" :duration="800" priority="tertiary" />x
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Yearly Top Tracks -->
-          <div v-if="stats.topTracks?.year" ref="yearlyTracksRef" class="space-y-6">
+          <div v-if="stats.topTracks?.year" class="space-y-6">
             <StatsSectionHeader title="TOP_TRACKS_365D" />
             <div class="space-y-2">
               <div
@@ -159,7 +159,7 @@
                 <div
                   class="text-xs text-zinc-500 tabular-nums whitespace-nowrap"
                 >
-                  <AnimatedNumber :value="parseInt(track.playcount || '0')" format="default" :duration="timing.slow" priority="tertiary" />x
+                  <AnimatedNumber :value="parseInt(track.playcount || '0')" format="default" :duration="800" priority="tertiary" />x
                 </div>
               </div>
             </div>
@@ -172,13 +172,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, onMounted, nextTick } from 'vue'
+import { computed } from 'vue'
 import { formatNumber as _formatNumber, formatDecimal as _formatDecimal } from '~/composables/useNumberFormat'
 import StatsSectionHeader from './StatsSectionHeader.vue'
 import StatsDataState from './StatsDataState.vue'
 import AnimatedNumber from '../AnimatedNumber.vue'
-// NUKED BY BLOODHOUND: import { animate, stagger, onScroll } from '~/anime.esm.js'
-// NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
 
 interface LastFmImage {
   '#text': string
@@ -255,7 +253,7 @@ const props = defineProps<{
   stats: LastFmStats
 }>()
 
-// NUKED BY BLOODHOUND: const { timing, easing, staggers } = useAnimations()
+// NUKED BY BLOODHOUND: // DELETED: const { timing } = // DELETED: useAnimations() - BROKEN IMPORT
 
 // Check if we have meaningful data
 const hasData = computed(() => {
@@ -292,93 +290,6 @@ function formatTrackTime(track: LastFmTrack): string {
   }
 }
 
-// Animation refs
-const lastfmStatsRef = ref<HTMLElement | null>(null)
-const monthlyArtistsRef = ref<HTMLElement | null>(null)
-const monthlyTracksRef = ref<HTMLElement | null>(null)
-const yearlyArtistsRef = ref<HTMLElement | null>(null)
-const yearlyTracksRef = ref<HTMLElement | null>(null)
-
-// Epic LastFM stats scroll-triggered animations
-const setupScrollAnimations = () => {
-  if (process.server) return
-  
-  nextTick(() => {
-    if (!lastfmStatsRef.value) return
-
-
-    // Monthly artists with wave/spiral stagger patterns
-    if (monthlyArtistsRef.value) {
-      const artistRows = monthlyArtistsRef.value.querySelectorAll('.artist-row')
-      if (artistRows.length) {
-        // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(artistRows), {
-          opacity: [0, 1],
-          translateX: [-15, 0],
-          rotateZ: [-2, 0], // Subtle rotation impossible in staggered CSS
-          scale: [0.96, 1],
-          duration: timing.value.slow,
-          delay: stagger(staggers.tight, { 
-            from: 'first'
-          }),
-          ease: 'cubicBezier(0.2, 0, 0.38, 0.9)',
-          autoplay: onScroll({ target: monthlyArtistsRef.value, onEnter: () => true })
-        })
-      }
-    }
-
-    // Monthly tracks staggered entrance
-    if (monthlyTracksRef.value) {
-      const trackRows = monthlyTracksRef.value.querySelectorAll('.track-row')
-      if (trackRows.length) {
-        // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(trackRows), {
-          opacity: [0, 1],
-          translateX: [-15, 0],
-          scale: [0.96, 1],
-          duration: timing.value.slow,
-          delay: stagger(staggers.normal),
-          ease: 'cubicBezier(0.2, 0, 0.38, 0.9)',
-          autoplay: onScroll({ target: monthlyTracksRef.value, onEnter: () => true })
-        })
-      }
-    }
-
-    // Yearly artists staggered entrance
-    if (yearlyArtistsRef.value) {
-      const artistRows = yearlyArtistsRef.value.querySelectorAll('.artist-row')
-      if (artistRows.length) {
-        // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(artistRows), {
-          opacity: [0, 1],
-          translateX: [15, 0],
-          scale: [0.95, 1],
-          duration: timing.value.dramatic,
-          delay: stagger(staggers.normal),
-          ease: 'cubicBezier(0.4, 0, 0.2, 1)',
-          autoplay: onScroll({ target: yearlyArtistsRef.value, onEnter: () => true })
-        })
-      }
-    }
-
-    // Yearly tracks staggered entrance
-    if (yearlyTracksRef.value) {
-      const trackRows = yearlyTracksRef.value.querySelectorAll('.track-row')
-      if (trackRows.length) {
-        // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(trackRows), {
-          opacity: [0, 1],
-          translateX: [15, 0],
-          scale: [0.95, 1],
-          duration: timing.value.dramatic,
-          delay: stagger(staggers.normal),
-          ease: 'cubicBezier(0.4, 0, 0.2, 1)',
-          autoplay: onScroll({ target: yearlyTracksRef.value, onEnter: () => true })
-        })
-      }
-    }
-  })
-}
-
-onMounted(() => {
-  setupScrollAnimations()
-})
 </script>
 
 <style scoped>

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="commitTypes.length" ref="patternsRef">
+  <div v-if="commitTypes.length">
     <h4 class="section-subheader">
       COMMIT PATTERNS
     </h4>
@@ -36,9 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, onMounted, nextTick } from 'vue'
-// NUKED BY BLOODHOUND: import { animate, stagger as _stagger, onScroll } from '~/anime.esm.js'
-// NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
+import { computed } from 'vue'
 
 interface CommitType {
   type: string
@@ -56,76 +54,11 @@ const props = defineProps<{
   stats: GitHubStats
 }>()
 
-// NUKED BY BLOODHOUND: const { timing, easing, staggers } = useAnimations()
 
 const commitTypes = computed(() => {
   return props.stats?.detail?.commitTypes || []
 })
 
-// Animation refs
-const patternsRef = ref<HTMLElement | null>(null)
-
-// Epic commit patterns scroll-triggered animations using anime.js onScroll
-const setupScrollAnimations = () => {
-  if (process.server) return
-  
-  nextTick(() => {
-    if (!patternsRef.value || !commitTypes.value.length) return
-
-    // Header reveal on scroll
-    const header = patternsRef.value.querySelector('.section-subheader')
-    if (header) {
-      // NUKED: // NUKED BY BLOODHOUND: // animate(header, {
-        opacity: [0, 1],
-        translateX: [-10, 0],
-        scale: [0.9, 1],
-        duration: timing.value.slow,
-        ease: 'cubicBezier(0.4, 0, 0.2, 1)',
-        autoplay: onScroll({
-          target: header,
-          onEnter: () => true
-        })
-      })
-    }
-    
-    // Pattern rows cascade on scroll
-    const patternRows = patternsRef.value.querySelectorAll('.pattern-row')
-    if (patternRows.length) {
-      // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(patternRows), {
-        opacity: [0, 1],
-        translateY: [15, 0],
-        scale: [0.95, 1.02, 1],
-        duration: timing.value.slow,
-        delay: _stagger(staggers.tight),
-        ease: 'cubicBezier(0.2, 0, 0.38, 0.9)',
-        autoplay: onScroll({
-          target: patternRows[0],
-          onEnter: () => true
-        })
-      })
-    }
-    
-    // Epic bar growth animation with stagger on scroll
-    const bars = patternsRef.value.querySelectorAll('.category-bar-fill')
-    if (bars.length) {
-      // NUKED: // NUKED BY BLOODHOUND: // animate(Array.from(bars), {
-        scaleX: [0, 1.1, 1],
-        scaleY: [0.3, 1.2, 1],
-        duration: timing.value.dramatic,
-        delay: _stagger(staggers.normal, { from: 'first' }),
-        ease: 'outElastic(1, .8)',
-        autoplay: onScroll({
-          target: bars[0],
-          onEnter: () => true
-        })
-      })
-    }
-  })
-}
-
-onMounted(() => {
-  setupScrollAnimations()
-})
 
 function getTypeClass(type: string) {
   // Use different zinc shades and patterns for distinction

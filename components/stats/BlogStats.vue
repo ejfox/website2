@@ -24,11 +24,11 @@
     </div>
 
     <!-- Temporal Windows - Motivation Dashboard -->
-    <div ref="progressSectionRef">
+    <div>
       <StatsSectionHeader title="PROGRESS TRACKER" />
-      <div ref="progressListRef" class="space-y-1.5">
+      <div class="space-y-1.5">
         <!-- This Month -->
-        <div ref="progressRowRefs" class="progress-row">
+        <div class="progress-row">
           <div class="flex items-center gap-2">
             <div class="status-indicator" :class="monthIndicatorClass"></div>
             <span class="progress-label">THIS MONTH</span>
@@ -39,7 +39,7 @@
         </div>
 
         <!-- This Week (estimated) -->
-        <div ref="progressRowRefs" class="progress-row">
+        <div class="progress-row">
           <div class="flex items-center gap-2">
             <div class="status-indicator bg-zinc-500 dark:bg-zinc-400"></div>
             <span class="progress-label">THIS WEEK</span>
@@ -50,7 +50,7 @@
         </div>
 
         <!-- Writing Streak -->
-        <div ref="progressRowRefs" class="progress-row">
+        <div class="progress-row">
           <div class="flex items-center gap-2">
             <div class="status-indicator" :class="streakIndicatorClass"></div>
             <span class="progress-label">CURRENT STREAK</span>
@@ -61,7 +61,7 @@
         </div>
 
         <!-- Days Since Last Post -->
-        <div ref="progressRowRefs" class="progress-row">
+        <div class="progress-row">
           <div class="flex items-center gap-2">
             <div class="status-indicator" :class="recencyIndicatorClass"></div>
             <span class="progress-label">LAST POST</span>
@@ -74,22 +74,22 @@
     </div>
 
     <!-- Velocity & Patterns -->
-    <div ref="velocitySectionRef">
+    <div>
       <StatsSectionHeader title="VELOCITY" />
-      <div ref="velocityListRef" class="space-y-1.5">
-        <div ref="velocityRowRefs" class="flex items-center justify-between">
+      <div class="space-y-1.5">
+        <div class="flex items-center justify-between">
           <span class="velocity-label">POSTS/YEAR</span>
           <span class="velocity-value">{{ postsPerYear.toFixed(1) }}</span>
         </div>
-        <div ref="velocityRowRefs" class="flex items-center justify-between">
+        <div class="flex items-center justify-between">
           <span class="velocity-label">WORDS/POST</span>
           <span class="velocity-value">{{ formatNumber(stats.averageWords) }}</span>
         </div>
-        <div ref="velocityRowRefs" class="flex items-center justify-between">
+        <div class="flex items-center justify-between">
           <span class="velocity-label">WORDS/DAY</span>
           <span class="velocity-value">{{ wordsPerDay.toFixed(0) }}</span>
         </div>
-        <div v-if="stats.averageReadingTime" ref="velocityRowRefs" class="flex items-center justify-between">
+        <div v-if="stats.averageReadingTime" class="flex items-center justify-between">
           <span class="velocity-label">AVG READ TIME</span>
           <span class="velocity-value">{{ stats.averageReadingTime }}min</span>
         </div>
@@ -116,12 +116,12 @@
     </div>
 
     <!-- Writing Activity Calendar -->
-    <div ref="calendarSectionRef">
+    <div>
       <StatsSectionHeader title="ACTIVITY HEATMAP" />
-      <div ref="calendarRef">
+      <div>
         <ActivityCalendar :active-dates="weeklyConsistencyDates" :days="365" title="" />
       </div>
-      <div ref="calendarStatsRef" class="flex justify-between text-zinc-500 mt-1" style="font-size: 9px; line-height: 10px;">
+      <div class="flex justify-between text-zinc-500 mt-1" style="font-size: 9px; line-height: 10px;">
         <span>{{ Math.round((weeklyConsistencyDates.length / 52) * 100) }}% of weeks active</span>
         <span>{{ weeklyConsistencyDates.length }} active weeks</span>
       </div>
@@ -137,8 +137,6 @@ import {
   differenceInMonths,
   format
 } from 'date-fns'
-// NUKED BY BLOODHOUND: import { stagger as _stagger, createTimeline } from '~/anime.esm.js'
-// NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
 import ActivityCalendar from './ActivityCalendar.vue'
 import { useNumberFormat } from '../../composables/useNumberFormat'
 import StatsSectionHeader from './StatsSectionHeader.vue'
@@ -170,7 +168,6 @@ const props = defineProps<{
   stats: BlogStats
 }>()
 
-// NUKED BY BLOODHOUND: const { timing, easing } = useAnimations()
 
 // Computed properties for conditional rendering and data formatting
 const _primaryDetails = computed(() => {
@@ -237,6 +234,9 @@ const _postActivityDates = computed(() => {
   Object.entries(props.stats.postsByMonth).forEach(([month, count]) => {
     // For each post in that month, add a date (spread them throughout the month)
     const [year, monthNum] = month.split('-').map(Number)
+    
+    // DELETE BROKEN CODE: Skip if parsing failed
+    if (!year || !monthNum) return
 
     // For each post in this month, add an active date
     // Spread them evenly through the month for visualization
@@ -265,6 +265,9 @@ const weeklyConsistencyDates = computed(() => {
   // Each month key in postsByMonth is in the format YYYY-MM
   Object.entries(props.stats.postsByMonth).forEach(([month, count]) => {
     const [year, monthNum] = month.split('-').map(Number)
+    
+    // DELETE BROKEN CODE: Skip if parsing failed
+    if (!year || !monthNum) return
 
     // For each post in this month, add an active week
     const daysInMonth = new Date(year, monthNum, 0).getDate()
@@ -361,7 +364,7 @@ const bestMonth = computed(() => {
   
   const [year, month] = bestMonthKey.split('-')
   const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-  const monthName = monthNames[parseInt(month) - 1]
+  const monthName = month ? monthNames[parseInt(month) - 1] : 'Unknown'
   
   return { month: `${monthName} ${year}`, count: maxCount }
 })
@@ -373,7 +376,9 @@ const mostProductiveYear = computed(() => {
   
   Object.entries(props.stats.postsByMonth).forEach(([month, count]) => {
     const year = month.split('-')[0]
-    yearCounts[year] = (yearCounts[year] || 0) + count
+    if (year) {
+      yearCounts[year] = (yearCounts[year] || 0) + count
+    }
   })
   
   let maxCount = 0
@@ -389,122 +394,14 @@ const mostProductiveYear = computed(() => {
   return { year: bestYear || 'Unknown', count: maxCount }
 })
 
-// Animation refs
-const blogStatsRef = ref<HTMLElement | null>(null)
-const statusSectionRef = ref<HTMLElement | null>(null)
-const statusGridRef = ref<HTMLElement | null>(null)
-const postsCardRef = ref<HTMLElement | null>(null)
-const wordsCardRef = ref<HTMLElement | null>(null)
-const progressSectionRef = ref<HTMLElement | null>(null)
-const progressListRef = ref<HTMLElement | null>(null)
-const progressRowRefs = ref<HTMLElement[]>([])
-const velocitySectionRef = ref<HTMLElement | null>(null)
-const velocityListRef = ref<HTMLElement | null>(null)
-const velocityRowRefs = ref<HTMLElement[]>([])
-const calendarSectionRef = ref<HTMLElement | null>(null)
-const calendarRef = ref<HTMLElement | null>(null)
-const calendarStatsRef = ref<HTMLElement | null>(null)
 
-// Blog stats reveal animation
-const animateBlogStats = async () => {
-  if (process.server) return
-  
-  await nextTick()
-  
-  const timeline = createTimeline()
-  
-  // ANIME.JS SUPERPOWER: Perfect timeline with overlap control
-  if (blogStatsRef.value) {
-    timeline.add(blogStatsRef.value, {
-      opacity: [0, 1],
-      scale: [0.95, 1.02, 1],
-      rotateX: [-5, 0], // 3D rotation impossible in CSS keyframes
-      filter: ['blur(1px)', 'blur(0px)'],
-      duration: timing.value.dramatic,
-      ease: 'cubicBezier(0.4, 0.14, 0.3, 1)'
-    })
-  }
-  
-  // ANIME.JS SUPERPOWER: Directional stagger with 3D transforms
-  const statusCards = [postsCardRef.value, wordsCardRef.value].filter(Boolean)
-  if (statusCards.length) {
-    timeline.add(statusCards, {
-      keyframes: [
-        { opacity: 0, scale: 0.7, rotateY: -60, translateZ: 30, filter: 'blur(1px)' },
-        { opacity: 0.8, scale: 1.05, rotateY: 10, translateZ: -10, filter: 'blur(0.3px)' },
-        { opacity: 1, scale: 1, rotateY: 0, translateZ: 0, filter: 'blur(0px)' }
-      ],
-      duration: timing.value.dramatic,
-      delay: _stagger(120, { from: 'last' }),
-      ease: 'cubicBezier(0.4, 0.14, 0.3, 1)'
-    }, '-=400')
-  }
-  
-  // Stage 3: Progress rows cascade
-  if (progressListRef.value) {
-    const progressRows = progressListRef.value.querySelectorAll('.progress-row')
-    if (progressRows.length) {
-      timeline.add(Array.from(progressRows), {
-        opacity: [0, 1],
-        translateX: [-20, 0],
-        scale: [0.92, 1.02, 1],
-        duration: timing.value.slow,
-        delay: _stagger(80, { from: 'first' }),
-        ease: 'cubicBezier(0.2, 0, 0.38, 0.9)'
-      }, '-=300')
-    }
-  }
-  
-  // Stage 4: Velocity metrics matrix reveal
-  if (velocityListRef.value) {
-    const velocityRows = velocityListRef.value.children
-    if (velocityRows.length) {
-      timeline.add(Array.from(velocityRows), {
-        keyframes: [
-          { opacity: 0, scale: 0.8, rotateZ: -5, filter: 'blur(0.5px)' },
-          { opacity: 0.8, scale: 1.1, rotateZ: 2, filter: 'blur(0.2px)' },
-          { opacity: 1, scale: 1, rotateZ: 0, filter: 'blur(0px)' }
-        ],
-        duration: timing.value.slow,
-        delay: _stagger(80, { from: 'center' }),
-        ease: 'outElastic(1, .8)'
-      }, '-=200')
-    }
-  }
-  
-  // Stage 5: Calendar dramatic reveal
-  if (calendarRef.value) {
-    timeline.add(calendarRef.value, {
-      keyframes: [
-        { opacity: 0, scale: 0.9, rotateX: -15, filter: 'blur(1px)' },
-        { opacity: 0.8, scale: 1.03, rotateX: 5, filter: 'blur(0.3px)' },
-        { opacity: 1, scale: 1, rotateX: 0, filter: 'blur(0px)' }
-      ],
-      duration: timing.value.dramatic,
-      ease: 'outElastic(1, .8)'
-    }, '-=100')
-  }
-  
-  // Stage 6: Calendar stats reveal
-  if (calendarStatsRef.value) {
-    timeline.add(calendarStatsRef.value, {
-      opacity: [0, 1],
-      translateY: [10, 0],
-      scale: [0.9, 1],
-      duration: timing.value.normal,
-      ease: 'cubicBezier(0.4, 0, 0.2, 1)'
-    }, '-=200')
-  }
-}
 
-onMounted(() => {
-  animateBlogStats()
-})
 
 // Indicator classes for visual feedback - using shared utilities
 const getIndicatorClass = (value: number, thresholds: number[]) => {
-  if (value >= thresholds[0]) return 'bg-zinc-800 dark:bg-zinc-200'
-  if (value >= thresholds[1]) return 'bg-zinc-600 dark:bg-zinc-400'
+  if (!thresholds?.length) return 'bg-zinc-400 dark:bg-zinc-600'
+  if (value >= (thresholds[0] || 0)) return 'bg-zinc-800 dark:bg-zinc-200'
+  if (value >= (thresholds[1] || 0)) return 'bg-zinc-600 dark:bg-zinc-400'
   return 'bg-zinc-400 dark:bg-zinc-600'
 }
 
@@ -520,10 +417,8 @@ const streakIndicatorClass = computed(() => {
 
 const recencyIndicatorClass = computed(() => {
   const days = daysSinceLastPost.value
-  if (days <= 7) return 'bg-zinc-800 dark:bg-zinc-200'
-  if (days <= 14) return 'bg-zinc-600 dark:bg-zinc-400'
-  if (days <= 30) return 'bg-zinc-400 dark:bg-zinc-600'
-  return 'bg-red-500' // Red for long gaps
+  // Invert logic: fewer days = better (green)
+  return getIndicatorClass(-days, [-3, -7])
 })
 </script>
 

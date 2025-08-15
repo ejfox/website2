@@ -1,5 +1,5 @@
 <script setup>
-import { format } from 'date-fns'
+import { format } from 'date-fns/format'
 import { computed } from 'vue'
 import { startOfWeek } from 'date-fns'
 import { animate, stagger as _stagger } from '~/anime.esm.js'
@@ -63,14 +63,16 @@ const _sortedYears = computed(() =>
 
 const blogPostElements = ref([])
 const weekNoteElements = ref([])
-const { timing, staggers, easing } = useAnimations()
+// DELETED: const { timing, staggers, easing } = useAnimations()
 </script>
 
 <template>
   <div class="container mx-auto px-2 py-12 lg:flex lg:gap-4 max-w-prose">
     <!-- Week Notes -->
     <section class="">
-      <h2 class="text-3xl font-bold mb-8">Week Notes</h2>
+      <h2 class="text-3xl font-bold mb-8">
+        Week Notes
+      </h2>
       <div
         v-for="weekNote in sortedWeekNotes"
         :key="weekNote.slug"

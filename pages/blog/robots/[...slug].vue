@@ -1,5 +1,5 @@
 <script setup>
-import { format } from 'date-fns'
+import { format } from 'date-fns/format'
 import { animate, stagger } from '~/anime.esm.js'
 import { useWindowSize } from '@vueuse/core'
 import { useAnimations } from '~/composables/useAnimations'
@@ -9,7 +9,7 @@ const processedMarkdown = useProcessedMarkdown()
 const { width } = useWindowSize()
 const isMobile = computed(() => width.value < 768)
 const activeSection = ref('')
-const { timing, easing, staggers } = useAnimations()
+// DELETED: const { timing, easing, staggers } = useAnimations()
 
 const { data: note } = await useAsyncData(
   `robot-${route.params.slug.join('/')}`,
@@ -224,31 +224,41 @@ useHead({
         >
           <div class="grid grid-cols-[auto,1fr] gap-x-4 gap-y-2">
             <!-- Type -->
-            <div class="text-zinc-500 dark:text-zinc-400">type:</div>
+            <div class="text-zinc-500 dark:text-zinc-400">
+              type:
+            </div>
             <div class="text-zinc-700 dark:text-zinc-300 capitalize">
               {{ metadataFields.type }}
             </div>
 
             <!-- Date -->
-            <div class="text-zinc-500 dark:text-zinc-400">published:</div>
+            <div class="text-zinc-500 dark:text-zinc-400">
+              published:
+            </div>
             <div class="text-zinc-700 dark:text-zinc-300">
               {{ formatDate(metadataFields.date) }}
             </div>
 
             <!-- Modified -->
-            <div class="text-zinc-500 dark:text-zinc-400">updated:</div>
+            <div class="text-zinc-500 dark:text-zinc-400">
+              updated:
+            </div>
             <div class="text-zinc-700 dark:text-zinc-300">
               {{ formatDate(metadataFields.modified) }}
             </div>
 
             <!-- Word count -->
-            <div class="text-zinc-500 dark:text-zinc-400">words:</div>
+            <div class="text-zinc-500 dark:text-zinc-400">
+              words:
+            </div>
             <div class="text-zinc-700 dark:text-zinc-300">
               {{ formatNumber(metadataFields.words) }}
             </div>
 
             <!-- Stats -->
-            <div class="text-zinc-500 dark:text-zinc-400">stats:</div>
+            <div class="text-zinc-500 dark:text-zinc-400">
+              stats:
+            </div>
             <div class="text-zinc-700 dark:text-zinc-300 grid gap-1">
               <template v-if="metadataFields.stats">
                 <div v-if="metadataFields.stats.images">
@@ -291,8 +301,7 @@ useHead({
               ref="titleRefs"
               class="inline-block opacity-0"
               :class="{ 'mr-[0.2em]': char === ' ' }"
-              >{{ char }}</span
-            >
+            >{{ char }}</span>
           </h1>
           <p
             v-if="note.description"

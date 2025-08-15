@@ -28,7 +28,7 @@
     <!-- Zero State -->
     <section v-if="transformedPredictions.length === 0" class="text-center mb-32">
       <div class="w-24 h-24 mx-auto mb-12 bg-zinc-100 dark:bg-zinc-900 rounded-full flex items-center justify-center">
-        <Icon name="heroicons:crystal-ball" class="w-12 h-12 text-zinc-400 dark:text-zinc-600" />
+        
       </div>
       <h3 class="text-2xl font-light text-zinc-700 dark:text-zinc-300 mb-8 tracking-wide" style="font-family: 'Fjalla One', sans-serif">
         No Predictions Yet
@@ -334,7 +334,7 @@
           target="_blank"
           class="inline-flex items-center gap-3 px-6 py-3 text-sm text-zinc-700 dark:text-zinc-300 border border-zinc-300 dark:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-900 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all duration-300 uppercase tracking-[0.2em]"
         >
-          <Icon name="mdi:github" class="w-4 h-4" />
+          
           View on GitHub
         </a>
       </div>

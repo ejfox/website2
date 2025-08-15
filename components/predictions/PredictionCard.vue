@@ -89,7 +89,7 @@
             <span class="text-sm text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors">
               {{ relatedId }}
             </span>
-            <Icon name="heroicons:arrow-right" class="w-4 h-4 text-zinc-400 dark:text-zinc-600 group-hover:text-zinc-600 dark:group-hover:text-zinc-400 transition-colors" />
+            →
           </div>
         </NuxtLink>
       </div>
@@ -145,11 +145,30 @@ const resolutionRef = ref<HTMLElement | null>(null)
 // COMMENTED OUT: All animation composables to prevent content hiding
 // const { dataProcessing, dataStream, criticalHighlight, dataCounter } = useScrollAnimation()
 // const { createDataCard } = useAnimatables()
-// // NUKED BY BLOODHOUND: const { timing, easing, staggers } = useAnimations()
+// // NUKED BY BLOODHOUND: const { timing, easing, staggers } = // DELETED: useAnimations()
+
+// Mock animation variables to prevent undefined errors following delete-driven development
+const cardAnimatable = ref(null);
+const hasAnimated = ref(false);
+const timing = ref({
+  slow: 800,
+  normal: 400,
+  dramatic: 1200,
+  quick: 150
+});
+const staggers = {
+  loose: 100,
+  dramatic: 200,
+  normal: 50
+};
+const dataProcessing = null;
+const dataStream = null;
+const criticalHighlight = null;
+const dataCounter = null;
 
 // Animation state removed - using direct values now
-const displayConfidence = computed(() => prediction.confidence || 0)
-const displayProgress = computed(() => prediction.progress || 0)
+const displayConfidence = ref(props.prediction.confidence || 0);
+const displayProgress = ref(props.prediction.confidence || 0);
 
 // Computed properties
 const cardClasses = computed(() => [
@@ -203,140 +222,42 @@ const setupCardInteractions = () => {
   if (process.server || !cardRef.value) return
   
   try {
-    // Pass the element, not a string
-    cardAnimatable.value = createDataCard(cardRef.value as any)
+    // Animation disabled following delete-driven development
+    // cardAnimatable.value = createDataCard(cardRef.value as any)
     
     // Add hover interactions for the entire card
     cardRef.value.addEventListener('mouseenter', () => {
-      if (cardAnimatable.value) {
-        cardAnimatable.value.// NUKED BY BLOODHOUND: // animate({
-          scale: 1.01,
-          filter: 'brightness(1.02) contrast(1.02)',
-          boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)'
-        })
-      }
+      // Animation disabled following delete-driven development
     })
     
     cardRef.value.addEventListener('mouseleave', () => {
-      if (cardAnimatable.value) {
-        cardAnimatable.value.// NUKED BY BLOODHOUND: // animate({
-          scale: 1,
-          filter: 'brightness(1) contrast(1)',
-          boxShadow: '0 0 0 rgba(0, 0, 0, 0)'
-        })
-      }
+      // Animation disabled following delete-driven development
     })
   } catch (_e) {
     // Silently handle animatable creation errors
   }
 }
 
-// Animate confidence number and progress bar using motion tokens
+// Animation disabled following delete-driven development
 const animateConfidenceDisplay = () => {
   if (process.server) return
   
-  // Animate confidence number
-  if (confidenceRef.value && dataCounter) {
-    dataCounter(confidenceRef.value, props.prediction.confidence, {
-      duration: timing.value.dramatic, // 1200ms - standardized
-      ease: 'cubicBezier(0.4, 0, 0.2, 1)',
-      update: () => {
-        const currentVal = parseFloat(confidenceRef.value?.textContent?.replace(/[^0-9.-]/g, '') || '0')
-        displayConfidence.value = Math.round(currentVal)
-      },
-      complete: () => {
-        displayConfidence.value = props.prediction.confidence
-      }
-    })
-  }
-  
-  // Animate progress bar with standardized timing
-  setTimeout(() => {
-    displayProgress.value = props.prediction.confidence
-  }, timing.value.normal)
+  // Directly set values without animation
+  displayConfidence.value = props.prediction.confidence;
+  displayProgress.value = props.prediction.confidence;
 }
 
 // Main card reveal animation with data processing effect using motion tokens
+// Animation disabled following delete-driven development
 const animateCardReveal = async () => {
-  if (process.server || hasAnimated.value) return
+  if (process.server) return
   
   await nextTick()
   if (!cardRef.value) return
   
-  hasAnimated.value = true
-  
-  // Stage 1: Main card processing reveal
-  if (dataProcessing) {
-    dataProcessing(cardRef.value, {
-      duration: timing.value.slow, // 800ms - standardized
-      ease: 'cubicBezier(0.4, 0, 0.2, 1)'
-    })
-  }
-  
-  // Stage 2: Title critical highlight
-  setTimeout(() => {
-    if (titleRef.value && criticalHighlight) {
-      criticalHighlight(titleRef.value, {
-        duration: timing.value.slow, // 800ms - standardized
-        easing: 'cubicBezier(0.4, 0, 0.2, 1)'
-      })
-    }
-  }, timing.value.normal) // 400ms - standardized
-  
-  // Stage 3: Metadata stream
-  setTimeout(() => {
-    if (metadataRef.value && dataStream) {
-      dataStream(metadataRef.value, {
-        duration: timing.value.normal, // 400ms - standardized
-        easing: 'cubicBezier(0.4, 0, 0.2, 1)'
-      })
-    }
-    
-    // Badge highlight if present
-    if (badgeRef.value && criticalHighlight) {
-      criticalHighlight(badgeRef.value, {
-        duration: timing.value.normal, // 400ms - standardized
-        easing: 'cubicBezier(0.4, 0.14, 0.3, 1)'
-      })
-    }
-  }, timing.value.slow - 200) // 600ms - standardized
-  
-  // Stage 4: Description and confidence animation
-  setTimeout(() => {
-    if (descriptionRef.value && dataStream) {
-      dataStream(descriptionRef.value, {
-        duration: timing.value.normal, // 400ms - standardized
-        easing: 'cubicBezier(0.4, 0, 0.2, 1)'
-      })
-    }
-    
-    // Animate confidence display
-    animateConfidenceDisplay()
-  }, timing.value.slow) // 800ms - standardized
-  
-  // Stage 5: Secondary sections
-  const sections = [
-    evidenceRef.value,
-    verificationRef.value,
-    resolutionRef.value
-  ].filter(Boolean)
-  
-  sections.forEach((section, i) => {
-    setTimeout(() => {
-      if (dataStream) {
-        dataStream(section, {
-          duration: timing.value.slow,
-          easing: 'cubicBezier(0.4, 0, 0.2, 1)',
-          delay: i * staggers.normal
-        })
-      }
-    }, timing.value.dramatic + (i * staggers.loose))
-  })
-  
-  // Stage 6: Setup interactions after reveal
-  setTimeout(() => {
-    setupCardInteractions()
-  }, timing.value.dramatic + staggers.dramatic)
+  // Simply set confidence values and setup interactions
+  animateConfidenceDisplay();
+  setupCardInteractions();
 }
 
 onMounted(async () => {
@@ -349,20 +270,38 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-/* Shared prose styling for evidence and resolution sections */
+/* Simple prose styling - DELETE bloated @apply prose */
 .prediction-prose {
-  @apply prose prose-zinc dark:prose-invert max-w-none;
-  @apply prose-p:text-zinc-600 dark:prose-p:text-zinc-400 prose-p:leading-relaxed;
-  @apply prose-headings:font-medium prose-headings:tracking-wide;
-  @apply prose-h1:text-lg prose-h1:mb-6 prose-h1:mt-10;
-  @apply prose-h2:text-base prose-h2:mb-4 prose-h2:mt-8;
-  @apply prose-h3:text-sm prose-h3:uppercase prose-h3:tracking-[0.1em] prose-h3:text-zinc-500 dark:prose-h3:text-zinc-500;
-  @apply prose-ul:my-6 prose-li:my-2 prose-li:marker:text-zinc-400 dark:prose-li:marker:text-zinc-600;
-  @apply prose-strong:text-zinc-800 dark:prose-strong:text-zinc-200 prose-strong:font-medium;
-  @apply prose-em:text-zinc-700 dark:prose-em:text-zinc-300 prose-em:italic;
-  @apply prose-a:text-zinc-800 dark:prose-a:text-zinc-200 prose-a:underline prose-a:decoration-zinc-300 dark:prose-a:decoration-zinc-700 prose-a:underline-offset-4 hover:prose-a:decoration-zinc-500;
-  @apply prose-code:text-zinc-700 dark:prose-code:text-zinc-300 prose-code:bg-zinc-100 dark:prose-code:bg-zinc-900 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:font-mono prose-code:before:content-none prose-code:after:content-none;
   font-family: 'Signika Negative', sans-serif;
+  @apply text-zinc-600 dark:text-zinc-400 leading-relaxed;
+}
+
+.prediction-prose p {
+  @apply mb-4 leading-relaxed;
+}
+
+.prediction-prose h1, .prediction-prose h2, .prediction-prose h3 {
+  @apply font-medium tracking-wide text-zinc-800 dark:text-zinc-200;
+}
+
+.prediction-prose ul {
+  @apply my-6 pl-6 list-disc;
+}
+
+.prediction-prose li {
+  @apply my-2;
+}
+
+.prediction-prose strong {
+  @apply text-zinc-800 dark:text-zinc-200 font-medium;
+}
+
+.prediction-prose a {
+  @apply text-zinc-800 dark:text-zinc-200 underline hover:text-zinc-600 dark:hover:text-zinc-400;
+}
+
+.prediction-prose code {
+  @apply bg-zinc-100 dark:bg-zinc-900 px-1.5 py-0.5 rounded text-sm font-mono;
 }
 
 /* Prediction card base styling */

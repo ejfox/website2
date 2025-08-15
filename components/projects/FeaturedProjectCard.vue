@@ -5,7 +5,9 @@
     :style="{ '--stagger-delay': `${index * 100}ms` }"
   >
     <div class="col-span-10">
-      <h2 class="text-3xl md:text-4xl font-light text-zinc-900 dark:text-zinc-100 mb-4">{{ projectTitle }}</h2>
+      <h2 class="text-3xl md:text-4xl font-light text-zinc-900 dark:text-zinc-100 mb-4">
+        {{ projectTitle }}
+      </h2>
       <div
         class="prose prose-zinc dark:prose-invert max-w-none text-zinc-600 dark:text-zinc-400 leading-relaxed"
         v-html="project.html"
@@ -42,7 +44,7 @@
 </template>
 
 <script setup>
-import { format } from 'date-fns'
+import { format } from 'date-fns/format'
 
 const props = defineProps({
   project: {

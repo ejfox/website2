@@ -1,7 +1,7 @@
 <template>
-  <div v-if="stats.stats" ref="photoStatsRef" class="space-y-16 font-mono">
+  <div v-if="stats.stats" class="space-y-16 font-mono">
     <!-- Main Stats -->
-    <div ref="primaryStatRef">
+    <div>
       <IndividualStat
         :value="stats.stats.totalPhotos"
         size="large"
@@ -11,7 +11,7 @@
     </div>
 
     <!-- Monthly Stats -->
-    <div ref="monthlyStatsRef">
+    <div>
       <StatsSectionHeader title="MONTHLY STATS" />
       <div class="space-y-4">
         <div class="stat-row">
@@ -24,7 +24,7 @@
     </div>
 
     <!-- Camera Stats -->
-    <div v-if="hasCameraData" ref="cameraStatsRef">
+    <div v-if="hasCameraData">
       <StatsSectionHeader title="CAMERA EQUIPMENT" />
       <div class="grid grid-cols-2 gap-4 text-xs">
         <StatItem
@@ -57,14 +57,12 @@
 
 <script setup lang="ts">
 import { computed, h, ref, onMounted, nextTick } from 'vue'
-import { format } from 'date-fns'
+import { format } from 'date-fns/format'
 import IndividualStat from './IndividualStat.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'
 import StatsDataState from './StatsDataState.vue'
 import type { StatsResponse } from '~/composables/useStats'
 import { useNumberFormat } from '~/composables/useNumberFormat'
-// NUKED BY BLOODHOUND: import { animate as _animate, stagger as _stagger, createTimeline as _createTimeline } from '~/anime.esm.js'
-// NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
 
 // Reusable StatItem component
 const StatItem = (props: {
@@ -98,7 +96,6 @@ const props = defineProps<{
 }>()
 
 const { formatNumber } = useNumberFormat()
-// NUKED BY BLOODHOUND: const { timing, easing, staggers } = useAnimations()
 
 const _formatDate = (dateString: string): string => {
   return format(new Date(dateString), 'MMM d, yyyy')
@@ -126,67 +123,6 @@ const hasCameraData = computed(() => {
   )
 })
 
-// Animation refs
-const photoStatsRef = ref<HTMLElement | null>(null)
-const primaryStatRef = ref<HTMLElement | null>(null)
-const monthlyStatsRef = ref<HTMLElement | null>(null)
-const cameraStatsRef = ref<HTMLElement | null>(null)
-
-// Epic photo stats reveal animation
-const animatePhotoStats = async () => {
-  if (process.server) return
-  
-  await nextTick()
-  
-  if (photoStatsRef.value) {
-    const timeline = _createTimeline()
-    
-    // Stage 1: Primary photo stat dramatic entrance
-    if (primaryStatRef.value) {
-      timeline.add(primaryStatRef.value, {
-        keyframes: [
-          { opacity: 0, scale: 0.8, rotateY: -20, filter: 'blur(1px)' },
-          { opacity: 0.8, scale: 1.1, rotateY: 5, filter: 'blur(0.3px)' },
-          { opacity: 1, scale: 1, rotateY: 0, filter: 'blur(0px)' }
-        ],
-        duration: timing.value.dramatic,
-        ease: 'outElastic(1, .8)'
-      })
-    }
-    
-    // Stage 2: Monthly stats slide in
-    if (monthlyStatsRef.value) {
-      timeline.add(monthlyStatsRef.value, {
-        opacity: [0, 1],
-        translateY: [20, 0],
-        scale: [0.95, 1.02, 1],
-        duration: timing.value.slow,
-        ease: 'cubicBezier(0.2, 0, 0.38, 0.9)'
-      }, '-=400')
-    }
-    
-    // Stage 3: Camera equipment grid cascade
-    if (cameraStatsRef.value && hasCameraData.value) {
-      const equipmentItems = cameraStatsRef.value.querySelectorAll('.stat-item')
-      if (equipmentItems.length) {
-        timeline.add(Array.from(equipmentItems), {
-          keyframes: [
-            { opacity: 0, scale: 0.7, rotateZ: -10, filter: 'blur(1px)' },
-            { opacity: 0.8, scale: 1.1, rotateZ: 3, filter: 'blur(0.3px)' },
-            { opacity: 1, scale: 1, rotateZ: 0, filter: 'blur(0px)' }
-          ],
-          duration: timing.value.dramatic,
-          delay: _stagger(staggers.normal, { grid: [2, 2], from: 'center' }),
-          ease: 'outElastic(1, .8)'
-        }, '-=200')
-      }
-    }
-  }
-}
-
-onMounted(() => {
-  animatePhotoStats()
-})
 </script>
 
 <style scoped>

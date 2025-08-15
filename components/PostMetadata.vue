@@ -78,8 +78,8 @@
 </template>
 
 <script setup lang="ts">
-import { timeFormat } from 'd3-time-format'
-import { formatDistanceToNow } from 'date-fns'
+import { format } from 'date-fns'
+import { formatDistanceToNow } from 'date-fns/formatDistanceToNow'
 
 interface PostMetadata {
   date?: string | Date
@@ -124,8 +124,8 @@ const imageCountRef = ref<HTMLElement | null>(null)
 const linkCountRef = ref<HTMLElement | null>(null)
 
 // Date formatters
-const formatBlogDate = timeFormat('%b %d %Y')
-const formatCompactDate = timeFormat('%b %d')
+const formatBlogDate = (date: Date) => format(date, 'MMM dd yyyy')
+const formatCompactDate = (date: Date) => format(date, 'MMM dd')
 
 // Simplified metadata getter
 const metadata = computed(() => props.doc?.metadata || {})

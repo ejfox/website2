@@ -3,14 +3,14 @@
     <!-- Primary Metric -->
     <div class="individual-stat-large">
       <div class="stat-value">
-        <AnimatedNumber :value="stats.totalGists" format="default" :duration="timing.slow" priority="primary" />
+        <AnimatedNumber :value="stats.totalGists" format="default" :duration="800" priority="primary" />
       </div>
       <div class="stat-label">
         CODE SNIPPETS
       </div>
       <div class="stat-details">
-        <AnimatedNumber :value="stats.totalFiles" format="default" :duration="timing.normal" priority="secondary" /> FILES · 
-        <AnimatedNumber :value="stats.averageFilesPerGist" format="decimal" :decimals="1" :duration="timing.normal" priority="tertiary" /> AVG
+        <AnimatedNumber :value="stats.totalFiles" format="default" :duration="400" priority="secondary" /> FILES · 
+        <AnimatedNumber :value="stats.averageFilesPerGist" format="decimal" :decimals="1" :duration="400" priority="tertiary" /> AVG
       </div>
     </div>
 
@@ -27,7 +27,7 @@
         >
           <span class="text-zinc-700 dark:text-zinc-400">{{ lang.language }}</span>
           <span class="tabular-nums text-zinc-500 font-medium">
-            <AnimatedNumber :value="lang.count" format="default" :duration="timing.normal" priority="tertiary" />
+            <AnimatedNumber :value="lang.count" format="default" :duration="400" priority="tertiary" />
           </span>
         </div>
       </div>
@@ -65,7 +65,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { format } from 'date-fns'
+import { format } from 'date-fns/format'
 import AnimatedNumber from '../AnimatedNumber.vue'
 // NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
 
@@ -97,7 +97,7 @@ const props = defineProps<{
   gistStats?: GistStats | null
 }>()
 
-const { timing } = useAnimations()
+// DELETED: const { timing } = // DELETED: useAnimations() - BROKEN IMPORT
 
 const hasData = computed(() => {
   return !!props.gistStats?.stats && props.gistStats.stats.totalGists > 0

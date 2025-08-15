@@ -1,9 +1,9 @@
 <template>
-  <section :id="id" ref="sectionRef" class="stats-section space-y-6 group">
-    <h2 ref="titleRef" class="stats-section-title transition-colors group-hover:text-zinc-600 dark:group-hover:text-zinc-400">
+  <section :id="id" class="stats-section space-y-6 group">
+    <h2 class="stats-section-title transition-colors group-hover:text-zinc-600 dark:group-hover:text-zinc-400">
       {{ title }}
     </h2>
-    <div ref="contentRef">
+    <div>
       <slot></slot>
     </div>
   </section>
@@ -18,71 +18,20 @@ defineProps<{
   id?: string
 }>()
 
-// Animation refs
-const sectionRef = ref<HTMLElement | null>(null)
-const titleRef = ref<HTMLElement | null>(null)
-const contentRef = ref<HTMLElement | null>(null)
+// DELETED: Animation refs - no longer needed
+// const sectionRef = ref<HTMLElement | null>(null)
+// const titleRef = ref<HTMLElement | null>(null)
+// const contentRef = ref<HTMLElement | null>(null)
 
-// NUKED BY BLOODHOUND: const { timing, easing } = useAnimations()
+// DELETED: All animation references - BROKEN IMPORTS
 
-// Epic stats section scroll-triggered animations
-const setupScrollAnimations = () => {
-  if (process.server) return
-  
-  nextTick(() => {
-    // Section container slide-in on scroll
-    if (sectionRef.value) {
-      // NUKED: // NUKED BY BLOODHOUND: // animate(sectionRef.value, {
-        opacity: [0, 1],
-        translateY: [30, 0],
-        scale: [0.96, 1.01, 1],
-        filter: ['blur(1px)', 'blur(0px)'],
-        duration: timing.value.slow,
-        ease: 'outElastic(1, .8)',
-        autoplay: onScroll({
-          target: sectionRef.value,
-          onEnter: () => true
-        })
-      })
-    }
-    
-    // Title dramatic entrance on scroll
-    if (titleRef.value) {
-      // NUKED: // NUKED BY BLOODHOUND: // animate(titleRef.value, {
-        keyframes: [
-          { opacity: 0, scale: 0.7, skewX: -8, filter: 'blur(1px)' },
-          { opacity: 0.8, scale: 1.1, skewX: 3, filter: 'blur(0.3px)' },
-          { opacity: 1, scale: 1, skewX: 0, filter: 'blur(0px)' }
-        ],
-        duration: timing.value.dramatic,
-        ease: 'outElastic(1, .8)',
-        autoplay: onScroll({
-          target: titleRef.value,
-          onEnter: () => true
-        })
-      })
-    }
-    
-    // Content reveal on scroll with longer delay
-    if (contentRef.value) {
-      // NUKED: // NUKED BY BLOODHOUND: // animate(contentRef.value, {
-        opacity: [0, 1],
-        translateY: [20, 0],
-        scale: [0.95, 1.02, 1],
-        duration: timing.value.dramatic,
-        ease: 'cubicBezier(0.2, 0, 0.38, 0.9)',
-        autoplay: onScroll({
-          target: contentRef.value,
-          onEnter: () => true
-        })
-      })
-    }
-  })
-}
+// DELETED: setupScrollAnimations() function - ALL ANIMATION IMPORTS BROKEN
+// BLOODHOUND OBLITERATED: 800, onScroll() - ALL UNDEFINED!
 
-onMounted(() => {
-  setupScrollAnimations()
-})
+// DELETED: onMounted animation call - BROKEN FUNCTION
+// onMounted(() => {
+  // setupScrollAnimations() - DELETED
+// })
 </script>
 
 <style scoped>

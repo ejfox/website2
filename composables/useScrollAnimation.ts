@@ -62,18 +62,9 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
           animatedElements.add(target)
 
           // Separate animations for smoother effect
-          // NUKED BY BLOODHOUND: // animate(target, {
-            opacity: [0, 1],
-            duration: timing.value.normal, // was 400
-            ease: 'linear' // Linear fade for smoothness
-          })
-
-          // NUKED BY BLOODHOUND: // animate(target, {
-            y: [12, 0],
-            duration: timing.value.slow, // was 800
-            ease: 'cubicBezier(0.16, 1, 0.3, 1)', // Custom ease-out
-            ...options
-          })
+          // Animation disabled following delete-driven development
+          target.style.opacity = '1';
+          target.style.transform = 'translateY(0)';
 
           stop()
         }
@@ -104,14 +95,6 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
       ([{ isIntersecting }]) => {
         if (isIntersecting) {
           animatedElements.add(target)
-          // NUKED BY BLOODHOUND: // animate(target, {
-            opacity: [0, 1],
-            x: [-20, 0],
-            scale: [0.98, 1],
-            duration: timing.value.dramatic, // was 1400
-            ease: 'outElastic(1, .8)',
-            ...options
-          })
           stop()
         }
       },
@@ -134,13 +117,6 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
       ([{ isIntersecting }]) => {
         if (isIntersecting) {
           animatedElements.add(target)
-          // NUKED BY BLOODHOUND: // animate(target, {
-            opacity: [0, 1],
-            rotate: [-1, 0],
-            scale: [0.98, 1],
-            duration: timing.value.glacial, // was 1800
-            ease: 'cubicBezier(0.4, 0, 0.2, 1)'
-          })
           stop() // Stop observing after animation starts
         }
       },
@@ -171,12 +147,6 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
       ([{ isIntersecting }]) => {
         if (isIntersecting) {
           animatedElements.add(target)
-          // NUKED BY BLOODHOUND: // animate(target, {
-            opacity: [0, 1],
-            scaleX: [0, 1],
-            duration: timing.value.dramatic, // was 1400
-            ease: 'cubicBezier(0.4, 0.1, 0.3, 1)'
-          })
           stop()
         }
       },
@@ -206,17 +176,6 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
       ([{ isIntersecting }]) => {
         if (isIntersecting) {
           animatedElements.add(element)
-          // NUKED BY BLOODHOUND: // animate(element, {
-            opacity: [0, 1],
-            y: [30, 0],
-            filter: [
-              'drop-shadow(0 0 0 rgba(0,0,0,0))',
-              'drop-shadow(0 4px 6px rgba(0,0,0,0.1))'
-            ],
-            duration: timing.value.normal, // was 350
-            ease: 'spring(1, 80, 10, 0)',
-            ...animationOptions
-          })
           stop()
         }
       },
@@ -245,15 +204,6 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
           animatedElements.add(target)
           
           // Clean reveal with subtle blur
-          // NUKED BY BLOODHOUND: // animate(target, {
-            opacity: [0, 1],
-            x: [-2, 0],
-            scale: [0.99, 1],
-            filter: ['blur(0.5px)', 'blur(0px)'],
-            duration: timing.value.normal, // was 500
-            ease: 'cubicBezier(0.25, 0.1, 0.25, 1)',
-            ...options
-          })
           stop()
         }
       },
@@ -278,14 +228,6 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
           animatedElements.add(target)
           
           // Subtle emphasis reveal
-          // NUKED BY BLOODHOUND: // animate(target, {
-            opacity: [0, 1],
-            scale: [0.96, 1.01, 1],
-            filter: ['contrast(0.9)', 'contrast(1.05)', 'contrast(1)'],
-            duration: timing.value.slow, // was 700
-            ease: 'outElastic(1, .8)',
-            ...options
-          })
           stop()
         }
       },
@@ -310,14 +252,6 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
           animatedElements.add(target)
           
           // Clean vertical expand
-          // NUKED BY BLOODHOUND: // animate(target, {
-            opacity: [0, 1],
-            scaleY: [0.2, 1.02, 1],
-            scaleX: [1, 0.99, 1],
-            duration: timing.value.slow, // was 650
-            ease: 'cubicBezier(0.4, 0, 0.2, 1)',
-            ...options
-          })
           stop()
         }
       },
@@ -352,15 +286,9 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
             animatedElements.add(el)
             
             setTimeout(() => {
-              // NUKED BY BLOODHOUND: // animate(el, {
-                opacity: [0, 1],
-                y: [3 + i, 0],
-                scale: [0.99, 1],
-                filter: ['blur(0.3px)', 'blur(0px)'],
-                duration: timing.value.quick + (i * 30), // was 250 + (i * 30)
-                ease: 'cubicBezier(0.25, 0.1, 0.25, 1)',
-                ...options
-              })
+              // Animation disabled following delete-driven development
+              el.style.opacity = '1';
+              el.style.transform = 'scale(1)';
             }, i * 50)
           })
           
@@ -388,18 +316,6 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
           animatedElements.add(target)
           
           // Clean matrix transform
-          // NUKED BY BLOODHOUND: // animate(target, {
-            opacity: [0, 1],
-            transform: [
-              'matrix(1,0,0,0.2,0,0)',
-              'matrix(1,0,0,1.01,0,0)',
-              'matrix(1,0,0,1,0,0)'
-            ],
-            filter: ['contrast(1.1)', 'contrast(1)'],
-            duration: timing.value.slow, // was 550
-            ease: 'cubicBezier(0.4, 0, 0.2, 1)',
-            ...options
-          })
           stop()
         }
       },
@@ -420,16 +336,6 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
           animatedElements.add(target)
           
           // Clean multi-stage keyframes
-          // NUKED BY BLOODHOUND: // animate(target, {
-            keyframes: [
-              { opacity: 0, scale: 0.96, filter: 'blur(0.8px) contrast(1.1)' },
-              { opacity: 0.6, scale: 1.005, filter: 'blur(0.3px) contrast(1.05)' },
-              { opacity: 1, scale: 1, filter: 'blur(0px) contrast(1)' }
-            ],
-            duration: timing.value.slow, // was 750
-            ease: 'cubicBezier(0.4, 0, 0.2, 1)',
-            ...options
-          })
           stop()
         }
       },
@@ -461,20 +367,7 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
           
           elements.forEach(el => animatedElements.add(el))
           
-          // Clean grid stagger
-          // NUKED BY BLOODHOUND: // animate(elements, {
-            opacity: [0, 1],
-            scale: [0.92, 1.01, 1],
-            y: [6, 0],
-            filter: ['blur(0.4px)', 'blur(0px)'],
-            duration: timing.value.normal, // was 500
-            delay: stagger(60, {
-              grid: [gridConfig.cols, gridConfig.rows],
-              from: 'center',
-              ease: 'outQuad'
-            }),
-            ease: 'outElastic(1, .7)'
-          })
+          // Grid animation disabled following delete-driven development
           
           stop()
         }
@@ -537,25 +430,11 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
           target.style.opacity = '0'
           target.style.transform = 'scale(0.9)'
           
-          // NUKED BY BLOODHOUND: // animate(target, {
-            opacity: [0, 1],
-            scale: [0.9, 1.02, 1],
-            duration: timing.value.normal, // was 350
-            ease: 'outElastic(1, .8)'
-          })
           
-          // Number animation
+          // Number animation disabled following delete-driven development
           setTimeout(() => {
-            // NUKED BY BLOODHOUND: // animate(counter, {
-              value: finalValue,
-              duration: timing.value.slow, // was 1000
-              ease: 'spring(1, 80, 10, 0)',
-              update: () => {
-                const formattedValue = Math.round(counter.value).toLocaleString()
-                target.textContent = formattedValue
-              },
-              ...options
-            })
+            target.style.opacity = '1';
+            target.style.transform = 'scale(1)';
           }, timing.value.quick) // was 150
           
           stop()

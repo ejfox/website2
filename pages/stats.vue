@@ -1,7 +1,8 @@
 <template>
   <div class="font-mono overflow-hidden">
-    <!-- Stats TOC -->
-    <teleport v-if="tocTarget && !isSimpleMode" to="#nav-toc-container">
+    <!-- Stats TOC - ClientOnly to fix SSR hydration -->
+    <ClientOnly>
+      <teleport v-if="tocTarget && !isSimpleMode" to="#nav-toc-container">
       <div class="px-4">
         <h3 class="text-mono-label mb-4">
           Stats Index
@@ -22,7 +23,8 @@
           </li>
         </ul>
       </div>
-    </teleport>
+      </teleport>
+    </ClientOnly>
 
     <!-- Main Content -->
     <!-- Stats display -->
@@ -31,9 +33,6 @@
       :stats="stats"
       :blog-stats="validBlogStats"
       :transformed-health-stats="transformedHealthStats"
-      :letterboxd-data="letterboxdData"
-      :steam-data="steamData"
-      :goodreads-data="goodreadsData"
       :is-loading="isLoading"
       :health-today="healthToday"
     />
@@ -69,10 +68,7 @@ const { getAllPosts } = useProcessedMarkdown()
 const blogStats = ref<any>(null)
 const cachedPosts = shallowRef<any[] | null>(null)
 
-// External service data
-const letterboxdData = ref<any>(null)
-const steamData = ref<any>(null)
-const goodreadsData = ref<any>(null)
+// DELETED: Heavy external service data - components load on-demand
 
 onMounted(async () => {
   try {
@@ -185,29 +181,8 @@ onMounted(async () => {
     console.error('Error calculating blog stats:', error)
   }
 
-  // Fetch external service data
-  try {
-    const [letterboxd, steam, goodreads] = await Promise.all([
-      $fetch('/api/letterboxd').catch((err) => {
-        console.warn('Letterboxd API failed:', err)
-        return { films: [], stats: {} }
-      }),
-      $fetch('/api/steam').catch((err) => {
-        console.warn('Steam API failed:', err)
-        return { stats: {} }
-      }),
-      $fetch('/api/goodreads').catch((err) => {
-        console.warn('Goodreads API failed:', err)
-        return { books: {}, stats: {} }
-      })
-    ])
-
-    letterboxdData.value = letterboxd
-    steamData.value = steam
-    goodreadsData.value = goodreads
-  } catch (error) {
-    console.error('Error fetching external data:', error)
-  }
+  // DELETED: Heavy external API calls that block performance
+  // External data will be loaded on-demand by individual components
 })
 
 const validBlogStats = computed(() => blogStats.value || undefined)
