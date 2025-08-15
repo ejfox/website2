@@ -1,10 +1,24 @@
 <script setup>
+import NextAvailableSlot from '~/components/NextAvailableSlot.vue'
+
 const { getPostBySlug, getAllPosts: _getAllPosts } = useProcessedMarkdown()
 
 const { data: indexContent, pending: _indexPending } = await useAsyncData(
   'index-content',
   () => getPostBySlug('index')
 )
+
+// Mount dynamic calendar component into placeholder
+const calendarSlotMounted = ref(false)
+
+onMounted(() => {
+  nextTick(() => {
+    const placeholder = document.querySelector('#next-available-spot')
+    if (placeholder) {
+      calendarSlotMounted.value = true
+    }
+  })
+})
 
 // SEO and performance optimization
 useHead({
@@ -28,6 +42,11 @@ useHead({
         ></div>
       </template>
     </div>
+    
+    <!-- Teleport dynamic calendar slot into markdown placeholder -->
+    <teleport v-if="calendarSlotMounted" to="#next-available-spot">
+      <NextAvailableSlot />
+    </teleport>
   </main>
 </template>
 

@@ -346,10 +346,10 @@
     v-if="tocTarget && predictionToc.length > 0"
     to="#nav-toc-container"
   >
-    <div class="toc">
-      <div class="px-6 py-6">
+    <div class="toc w-48">
+      <div class="py-4">
         <h3
-          class="text-xs font-semibold uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400 mb-6"
+          class="text-xs font-semibold uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400 mb-4"
         >
           Predictions
         </h3>
@@ -361,15 +361,15 @@
           >
             <a
               :href="`#${prediction.slug}`"
-              class="block py-2 pr-3 pl-4 -ml-4 text-[13px] leading-relaxed transition-all duration-200 rounded-lg"
+              class="block text-sm transition-colors duration-200 no-underline"
               :class="[
                 activeSection === prediction.slug
-                  ? 'text-zinc-900 dark:text-zinc-100 bg-zinc-100 dark:bg-zinc-800 font-medium'
-                  : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-50 dark:hover:bg-zinc-800/50'
+                  ? 'text-zinc-900 dark:text-zinc-100'
+                  : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100'
               ]"
             >
               <div class="flex items-center justify-between gap-2">
-                <span class="block truncate">{{ prediction.text }}</span>
+                <span class="block truncate flex-1 min-w-0">{{ prediction.text }}</span>
                 <div class="flex items-center gap-2 shrink-0">
                   <span
                     class="text-xs font-mono text-zinc-400 dark:text-zinc-600"
@@ -592,15 +592,5 @@ useSeoMeta({
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.toc {
-  @apply py-4 px-4;
-}
-
-.toc h3 {
-  @apply text-zinc-800 dark:text-zinc-200 font-medium mb-4;
-}
-
-.toc ul {
-  @apply pl-0 space-y-4;
-}
+/* DELETE sneaky padding - we're Tailwind bois! */
 </style>

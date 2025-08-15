@@ -17570,6 +17570,70 @@
     }
   },
   {
+    "slug": "drafts/how-can-ai-be-used-in-journalism",
+    "title": "LLMs / Generative Language Tools",
+    "date": "2025-08-13T23:03:17.000Z",
+    "type": "post",
+    "modified": "2025-08-14T13:25:08.000Z",
+    "toc": [
+      {
+        "text": "LLMs / Generative Language Tools",
+        "slug": "llms-generative-language-tools",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Embeddings",
+        "slug": "embeddings",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Image Embeddings",
+            "slug": "image-embeddings",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "date": "2025-08-13T23:03:17.000Z",
+      "modified": "2025-08-14T13:25:08.000Z",
+      "words": 218,
+      "images": 0,
+      "links": 3,
+      "codeBlocks": 0,
+      "headers": {
+        "h2": 2
+      },
+      "toc": [
+        {
+          "text": "LLMs / Generative Language Tools",
+          "slug": "llms-generative-language-tools",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Embeddings",
+          "slug": "embeddings",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Image Embeddings",
+              "slug": "image-embeddings",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/how-can-ai-be-used-in-journalism.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/how-can-ai-be-used-in-journalism"
+    }
+  },
+  {
     "slug": "drafts/how-i-get-acquainted-with-a-new-codebase",
     "title": "How I get acquainted with a new codebase",
     "date": "2025-03-05T15:10:06.000Z",
@@ -21923,12 +21987,12 @@
     "title": "Index",
     "date": "2024-09-22T00:33:21.000Z",
     "type": "post",
-    "modified": "2025-08-11T12:28:42.000Z",
+    "modified": "2025-08-15T18:45:03.000Z",
     "toc": [],
     "metadata": {
       "date": "2024-09-22T00:33:21.000Z",
-      "modified": "2025-08-11T12:28:42.000Z",
-      "words": 115,
+      "modified": "2025-08-15T18:45:03.000Z",
+      "words": 116,
       "images": 0,
       "links": 6,
       "codeBlocks": 0,
@@ -22056,7 +22120,7 @@
     "title": "CLI Tools Collection",
     "date": "2024-10-12T04:00:00.000Z",
     "type": "post",
-    "modified": "2025-08-13T15:54:03.000Z",
+    "modified": "2025-08-13T16:35:57.000Z",
     "toc": [
       {
         "text": "Featured Tools",
@@ -22074,7 +22138,7 @@
     "metadata": {
       "title": "CLI Tools Collection",
       "date": "2024-10-12T04:00:00.000Z",
-      "modified": "2025-08-13T15:54:03.000Z",
+      "modified": "2025-08-13T16:35:57.000Z",
       "tech": [
         "Node.js",
         "CLI",
@@ -22144,9 +22208,9 @@
   {
     "slug": "projects/coach-artie",
     "title": "Coach Artie Ecosystem",
-    "date": "2023-03-21T00:00:00.000Z",
+    "date": "2023-03-21T04:00:00.000Z",
     "type": "post",
-    "modified": "2024-08-27T21:26:35.000Z",
+    "modified": "2025-08-13T20:15:23.000Z",
     "toc": [
       {
         "text": "Coach Artie v1: Discord Studio Assistant",
@@ -22176,8 +22240,8 @@
     ],
     "metadata": {
       "title": "Coach Artie Ecosystem",
-      "date": "2023-03-21T00:00:00.000Z",
-      "modified": "2024-08-27T21:26:35.000Z",
+      "date": "2023-03-21T04:00:00.000Z",
+      "modified": "2025-08-13T20:15:23.000Z",
       "url": "https://github.com/room302studio/coachartie",
       "tech": [
         "Node.js",
@@ -22549,7 +22613,7 @@
     "title": "Smallbot MCP",
     "date": "2025-08-02T04:00:00.000Z",
     "type": "post",
-    "modified": "2025-08-13T15:51:23.000Z",
+    "modified": "2025-08-13T17:17:13.000Z",
     "toc": [
       {
         "text": "Smallbot MCP",
@@ -22561,7 +22625,7 @@
     "metadata": {
       "title": "Smallbot MCP",
       "date": "2025-08-02T04:00:00.000Z",
-      "modified": "2025-08-13T15:51:23.000Z",
+      "modified": "2025-08-13T17:17:13.000Z",
       "url": "https://github.com/ejfox/smallbot-mcp",
       "tech": [
         "MCP",
@@ -39210,6 +39274,76 @@
     }
   },
   {
+    "slug": "week-notes/2025-33 2",
+    "title": "2025-33",
+    "type": "post",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
+    "toc": [
+      {
+        "text": "2025-33",
+        "slug": "2025-33",
+        "level": "h1",
+        "children": [
+          {
+            "text": "🌟 Daily Check-In & Reflections",
+            "slug": "daily-check-in-reflections",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "📚 Learning & Media",
+            "slug": "learning-media",
+            "level": "h2",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
+      "words": 23,
+      "images": 0,
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {
+        "h1": 1
+      },
+      "toc": [
+        {
+          "text": "2025-33",
+          "slug": "2025-33",
+          "level": "h1",
+          "children": [
+            {
+              "text": "🌟 Daily Check-In & Reflections",
+              "slug": "daily-check-in-reflections",
+              "level": "h2",
+              "children": []
+            },
+            {
+              "text": "📚 Learning & Media",
+              "slug": "learning-media",
+              "level": "h2",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-33 2.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-33 2"
+    }
+  },
+  {
     "slug": "week-notes/2025-33",
     "title": "2025-33",
     "date": "2025-08-11T12:28:42.000Z",
@@ -39249,9 +39383,9 @@
       ],
       "date": "2025-08-11T12:28:42.000Z",
       "modified": "2025-08-12T15:55:46.000Z",
-      "words": 293,
-      "images": 27,
-      "links": 27,
+      "words": 421,
+      "images": 35,
+      "links": 35,
       "codeBlocks": 0,
       "headers": {
         "h2": 1

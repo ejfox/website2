@@ -1,5 +1,5 @@
 <template>
-  <div class="calendar-wrapper">
+  <div class="calendar-wrapper p-4 md:p-8">
     <iframe
       :src="calendarUrl"
       class="calendar-iframe"
@@ -10,6 +10,8 @@
 </template>
 
 <script setup>
+import { useColorMode } from '@vueuse/core'
+
 // Detect system theme
 const colorMode = useColorMode()
 const calendarUrl = computed(() => {
@@ -32,13 +34,26 @@ useHead({
 
 <style scoped>
 .calendar-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background: rgb(250 250 250);
   transition: background-color 0.2s ease;
+}
+
+.calendar-iframe {
+  width: 100%;
+  height: calc(100vh - 2rem); /* Account for padding */
+  border: none;
+  display: block;
+  background: transparent;
+  transition: opacity 0.2s ease;
+  border-radius: 1rem; /* Big round corners */
+}
+
+@media (min-width: 768px) {
+  .calendar-iframe {
+    height: calc(100vh - 4rem); /* Account for larger padding on desktop */
+  }
 }
 
 /* Dark mode background */
@@ -46,32 +61,21 @@ useHead({
   background: rgb(9 9 11);
 }
 
-.calendar-iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  display: block;
-  background: transparent;
-  transition: opacity 0.2s ease;
-}
-
 /* Loading state */
 .calendar-iframe:not([src]) {
   opacity: 0;
 }
 
-/* Desktop layout - account for sidebar */
+/* Desktop layout - full width within layout */
 @media (min-width: 768px) {
   .calendar-wrapper {
-    left: 200px;
-    width: calc(100vw - 200px);
+    width: 100%;
   }
 }
 
 /* Mobile layout - account for header */
 @media (max-width: 767px) {
   .calendar-wrapper {
-    top: 64px;
     height: calc(100vh - 64px);
   }
 }

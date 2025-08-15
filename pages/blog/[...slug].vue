@@ -490,9 +490,9 @@ const processedMetadata = computed(() => {
         "
         class="toc"
       >
-        <div class="pl-2">
+        <div class="py-4">
           <h3
-            class="text-xs font-semibold uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400 mb-6"
+            class="text-xs font-semibold uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400 mb-4"
           >
             Table of Contents
           </h3>
@@ -505,11 +505,11 @@ const processedMetadata = computed(() => {
             >
               <a
                 :href="`#${child.slug}`"
-                class="block pr-3 pl-4 -ml-4 text-sm leading-relaxed transition-all duration-200 rounded-lg"
+                class="block text-sm transition-colors duration-200 no-underline"
                 :class="[
                   activeSection === child.slug
-                    ? 'text-zinc-900 dark:text-zinc-100 bg-zinc-100 dark:bg-zinc-800 font-medium'
-                    : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-50 dark:hover:bg-zinc-800/50'
+                    ? 'text-zinc-900 dark:text-zinc-100'
+                    : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100'
                 ]"
               >
                 <span class="block truncate">{{ child.text }}</span>
@@ -691,17 +691,7 @@ const processedMetadata = computed(() => {
   }
 }
 
-.toc {
-  @apply py-4 px-4;
-}
-
-.toc h3 {
-  @apply text-zinc-800 dark:text-zinc-200 font-medium mb-4;
-}
-
-.toc ul {
-  @apply pl-0 space-y-4;
-}
+/* DELETE sneaky padding - we're Tailwind bois! */
 .no-scrollbar {
   scrollbar-width: none;
   -ms-overflow-style: none;

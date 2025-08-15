@@ -94,6 +94,13 @@
               <a :class="linkClasses" href="https://ejfox.photos" target="_blank">Photos 🔗</a>
               <a :class="linkClasses" href="https://archive.ejfox.com" target="_blank">Archive 🔗</a>
             </div>
+            <!-- Table of Contents Teleport Target -->
+            <div id="nav-toc-container" class="mt-6 pr-4"></div>
+            
+            <!-- Calendar TOC - show available slots when on calendar page -->
+            <ClientOnly>
+              <CalendarTOC v-if="isCalendarPage" />
+            </ClientOnly>
           </div>
           <div class="px-6 mt-auto pt-8 opacity-60 text-xs text-zinc-500 dark:text-zinc-400 hidden md:block">
             <a href="/pgp.txt">PGP: E207 8E65 3FE3 89CD</a>
@@ -132,6 +139,7 @@ import { ref, computed, defineAsyncComponent, watch, nextTick } from 'vue'
 const Footer = defineAsyncComponent(() => import('@/components/Footer.vue'))
 const GearNavigator = defineAsyncComponent(() => import('@/components/gear/Navigator.vue'))
 const WebVitalsReporter = defineAsyncComponent(() => import('@/components/WebVitalsReporter.vue'))
+const CalendarTOC = defineAsyncComponent(() => import('@/components/CalendarTOC.vue'))
 
 // SSR-friendly mobile detection - render both and hide with CSS
 const isMobile = ref(false)
@@ -156,6 +164,7 @@ const isStatsPage = ref(false)
 const isProjectsPage = ref(false)
 const isGearPage = ref(false)
 const currentGearSlug = ref('')
+const isCalendarPage = ref(false)
 
 onMounted(() => {
   // Only detect mobile on client-side after hydration
@@ -178,6 +187,7 @@ onMounted(() => {
     isStatsPage.value = route.path === '/stats'
     isProjectsPage.value = route.path === '/projects'
     isGearPage.value = route.path?.startsWith('/gear/') || false
+    isCalendarPage.value = route.path === '/calendar'
     
     if (isGearPage.value) {
       const pathParts = route.path?.split('/') || []
@@ -208,6 +218,7 @@ onMounted(() => {
     isStatsPage.value = route.path === '/stats'
     isProjectsPage.value = route.path === '/projects'
     isGearPage.value = route.path?.startsWith('/gear/') || false
+    isCalendarPage.value = route.path === '/calendar'
     
     if (isGearPage.value) {
       const pathParts = route.path?.split('/') || []

@@ -3,8 +3,8 @@
     <!-- Stats TOC - ClientOnly to fix SSR hydration -->
     <ClientOnly>
       <teleport v-if="tocTarget && !isSimpleMode" to="#nav-toc-container">
-      <div class="px-4">
-        <h3 class="text-mono-label mb-4">
+      <div class="py-4">
+        <h3 class="text-xs font-semibold uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400 mb-4">
           Stats Index
         </h3>
         <ul class="space-y-1">

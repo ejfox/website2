@@ -1,0 +1,40 @@
+{
+  "content": "<p class=\"mb-4\">Imagine we had a big whiteboard, and we sat for a while and thought of the actual real applications of what everyone wants to call \"AI\".</p>\n<p class=\"mb-4\">We can split this into two fundamental new mechanisms; Large Language Models, which can read text, generate more of it, summaries, and now use tools to aid in the research and development processes. There are also Embeddings, the idea of taking words, or chunks of words, and projecting them into hyperdimensional space where every dimension measures… something, its never clear exactly what. But we get meaningful groupings, so good that we can use similarity search to group similar things, bits of text, images, very accurately.</p>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"embeddings\">Embeddings</h2>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"image-embeddings\">Image Embeddings</h3>\n<p class=\"mb-4\">Smart and resourceful organizations like <a href=\"https://news.mongabay.com/2024/07/gold-mining-in-the-amazon-has-doubled-in-area-since-2018-ai-tool-shows/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Earth Genome</a> and the Microsoft AI for Good Research Lab are using image embeddings created from satellite imagery to analyze huge amounts of the earth extremely quickly.</p>\n<p class=\"mb-4\">Earth Genome, for example, trained an image model to 'see' what an <a href=\"https://amazonminingwatch.org/en/about\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Amazonian gold mine</a> looks like from a satellite photo, and then used similarity search to find other previously unknown gold mines. This could easily be applied to other hard-to-track but easy-to-see phenomena, like pig farms, flooding, or construction.</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<p class=\"mb-4\"><a href=\"https://www.nature.com/articles/s41467-021-24638-z\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">A generalizable and accessible approach to machine learning with global satellite imagery</a></p>",
+  "html": "<p class=\"mb-4\">Imagine we had a big whiteboard, and we sat for a while and thought of the actual real applications of what everyone wants to call \"AI\".</p>\n<p class=\"mb-4\">We can split this into two fundamental new mechanisms; Large Language Models, which can read text, generate more of it, summaries, and now use tools to aid in the research and development processes. There are also Embeddings, the idea of taking words, or chunks of words, and projecting them into hyperdimensional space where every dimension measures… something, its never clear exactly what. But we get meaningful groupings, so good that we can use similarity search to group similar things, bits of text, images, very accurately.</p>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"embeddings\">Embeddings</h2>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"image-embeddings\">Image Embeddings</h3>\n<p class=\"mb-4\">Smart and resourceful organizations like <a href=\"https://news.mongabay.com/2024/07/gold-mining-in-the-amazon-has-doubled-in-area-since-2018-ai-tool-shows/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Earth Genome</a> and the Microsoft AI for Good Research Lab are using image embeddings created from satellite imagery to analyze huge amounts of the earth extremely quickly.</p>\n<p class=\"mb-4\">Earth Genome, for example, trained an image model to 'see' what an <a href=\"https://amazonminingwatch.org/en/about\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Amazonian gold mine</a> looks like from a satellite photo, and then used similarity search to find other previously unknown gold mines. This could easily be applied to other hard-to-track but easy-to-see phenomena, like pig farms, flooding, or construction.</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<p class=\"mb-4\"><a href=\"https://www.nature.com/articles/s41467-021-24638-z\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">A generalizable and accessible approach to machine learning with global satellite imagery</a></p>",
+  "title": "LLMs / Generative Language Tools",
+  "metadata": {
+    "date": "2025-08-13T23:03:17.000Z",
+    "modified": "2025-08-14T13:25:08.000Z",
+    "words": 218,
+    "images": 0,
+    "links": 3,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 2
+    },
+    "toc": [
+      {
+        "text": "LLMs / Generative Language Tools",
+        "slug": "llms-generative-language-tools",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Embeddings",
+        "slug": "embeddings",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Image Embeddings",
+            "slug": "image-embeddings",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/drafts/how-can-ai-be-used-in-journalism.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

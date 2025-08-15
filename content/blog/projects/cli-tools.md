@@ -1,7 +1,7 @@
 ---
 title: "CLI Tools Collection"
 date: 2024-10-12T00:00:00-04:00
-modified: 2025-08-13T11:54:03-04:00
+modified: 2025-08-13T12:35:57-04:00
 tech: ["Node.js", "CLI", "ASCII Art", "Git", "AI"]
 state: deployed
 aiInvolvement: ai-assisted

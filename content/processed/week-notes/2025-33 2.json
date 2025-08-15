@@ -1,0 +1,43 @@
+{
+  "content": "<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"-daily-check-in--reflections\">🌟 Daily Check-In &#x26; Reflections</h2>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"-learning--media\">📚 Learning &#x26; Media</h2>\n<!-- Books, articles, movies, TV shows, podcasts consumed -->",
+  "html": "<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"-daily-check-in--reflections\">🌟 Daily Check-In &#x26; Reflections</h2>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"-learning--media\">📚 Learning &#x26; Media</h2>\n<!-- Books, articles, movies, TV shows, podcasts consumed -->",
+  "title": "2025-33",
+  "metadata": {
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
+    "words": 23,
+    "images": 0,
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h1": 1
+    },
+    "toc": [
+      {
+        "text": "2025-33",
+        "slug": "2025-33",
+        "level": "h1",
+        "children": [
+          {
+            "text": "🌟 Daily Check-In & Reflections",
+            "slug": "daily-check-in-reflections",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "📚 Learning & Media",
+            "slug": "learning-media",
+            "level": "h2",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-33 2.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}
