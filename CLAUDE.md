@@ -2,7 +2,7 @@
 
 ## What We're Doing
 
-Converting this Nuxt 3 website from Netlify deployment to Docker-based deployment. The main challenge is that this project uses the `canvas` npm package for OG image generation, which requires native system dependencies that are complex to install in Docker containers.
+Converting this Nuxt 3 website from Netlify deployment to Docker-based deployment.
 
 ## Current Status: ✅ DOCKER BUILD SUCCESSFUL!
 
@@ -31,10 +31,9 @@ The Docker image builds successfully and the container runs with health checks w
    - Removed `netlify/` directory
    - Confirmed no Netlify dependencies in package.json
 
-4. **Canvas Dependencies Solved**
-   - Added all required Alpine packages for canvas: `cairo-dev`, `jpeg-dev`, `pango-dev`, etc.
+4. **System Dependencies Configured**
    - Multi-stage build separates build-time deps from runtime deps
-   - Both build and production stages have appropriate canvas libraries
+   - Both build and production stages optimized for Node.js applications
 
 ### ✅ RESOLVED: Build Issues Fixed
 
@@ -49,10 +48,10 @@ The Docker image builds successfully and the container runs with health checks w
 
 ### 🔧 Build Process Details
 
-1. **Dependencies**: ~380MB of Alpine packages install successfully
-2. **Yarn Install**: All npm dependencies install without errors (canvas compiles correctly)
+1. **Dependencies**: System packages install successfully
+2. **Yarn Install**: All npm dependencies install without errors
 3. **Build Success**: Nuxt build completes successfully in ~47 seconds
-4. **Container Size**: Final image includes all runtime dependencies for canvas
+4. **Container Size**: Final image optimized for production
 5. **Health Check**: Container starts successfully with working health endpoint
 
 ## Next Steps (In Order)
@@ -71,7 +70,7 @@ The Docker image builds successfully and the container runs with health checks w
 - Non-root user for security
 - Health checks for monitoring
 - Proper caching layers for fast rebuilds
-- All canvas runtime dependencies in production stage
+- Optimized runtime dependencies for production
 
 ## Key Commands
 
@@ -89,17 +88,17 @@ curl http://localhost:3006/api/healthcheck
 ## Issues Encountered & Solutions
 
 1. **Missing git**: Added to Alpine packages for npm dependencies
-2. **Canvas compilation**: Added full suite of Alpine dev packages
+2. **System dependencies**: Configured Alpine packages for Node.js build environment
 3. **TypeScript in Vue**: Components already had `lang="ts"` - false alarm
 4. **Duplicate variable**: Fixed duplicate `slug` declaration in search.get.ts
 5. **Port configuration**: Successfully mapped 3006 external → 3000 internal
 
-## Why This Was Frustrating
+## Why This Was Challenging
 
-- Canvas package requires extensive native dependencies
 - Alpine Linux package names differ from Debian/Ubuntu
 - Vue TypeScript compilation is strict about interface usage
 - Multiple dependency layers (system → npm → build → runtime)
+- Docker multi-stage builds require careful dependency management
 
 ## Production Deployment Commands
 

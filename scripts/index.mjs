@@ -1,7 +1,6 @@
 // Core processing exports
 export { processMarkdown, processAllFiles } from './processMarkdown.mjs'
 export { importContent } from './import.mjs'
-export { generateShareImages } from './generateShareImages.mjs'
 
 // Plugin exports
 export * from './plugins/index.mjs'

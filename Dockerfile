@@ -1,16 +1,10 @@
 # SIMPLE SINGLE-STAGE BUILD - No complexity, just works
-FROM --platform=linux/amd64 node:22-alpine
+FROM node:22-alpine
 
 WORKDIR /app
 
-# Install runtime dependencies first (for caching)
+# Install minimal runtime dependencies
 RUN apk add --no-cache \
-    cairo \
-    jpeg \
-    pango \
-    giflib \
-    pixman \
-    freetype \
     curl
 
 # Copy pre-built output (we'll build locally)

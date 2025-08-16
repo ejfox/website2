@@ -1,6 +1,6 @@
 # Scripts Directory
 
-This directory contains all the scripts for processing markdown content, generating images, and managing the blog.
+This directory contains all the scripts for processing markdown content and managing the blog.
 
 ## Content Type Detection Rules
 
@@ -53,8 +53,7 @@ scripts/
 ├── config.mjs        # Centralized configuration
 ├── index.mjs         # Main exports
 ├── processMarkdown.mjs # Core markdown processing
-├── import.mjs        # Content import functionality
-└── generateShareImages.mjs # Social share image generation
+└── import.mjs        # Content import functionality
 ```
 
 ## Key Files
@@ -63,7 +62,6 @@ scripts/
 - `index.mjs` - Main entry point, exports all commonly used functionality
 - `processMarkdown.mjs` - Core markdown processing logic
 - `import.mjs` - Handles importing content from various sources
-- `generateShareImages.mjs` - Generates social media share images
 
 ## Plugins
 
@@ -92,8 +90,7 @@ Most functionality can be imported from the main index:
 ```javascript
 import {
   processMarkdown,
-  processAllFiles,
-  generateShareImages
+  processAllFiles
 } from './scripts/index.mjs'
 ```
 

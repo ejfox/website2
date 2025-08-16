@@ -230,9 +230,6 @@ function getBaseUrl() {
 }
 
 const baseURL = getBaseUrl()
-const shareImageUrl = computed(
-  () => new URL(`/images/share/${params.slug.join('/')}.png`, baseURL).href
-)
 const postUrl = computed(
   () => new URL(`/blog/${params.slug.join('/')}`, baseURL).href
 )
@@ -252,7 +249,6 @@ useHead(() => ({
       property: 'og:description',
       content: post.value?.metadata?.dek || post.value?.dek
     },
-    { property: 'og:image', content: shareImageUrl.value },
     { property: 'og:url', content: postUrl.value },
     { property: 'og:type', content: 'article' },
     { name: 'twitter:card', content: 'summary_large_image' },
@@ -264,7 +260,6 @@ useHead(() => ({
       name: 'twitter:description',
       content: post.value?.metadata?.dek || post.value?.dek
     },
-    { name: 'twitter:image', content: shareImageUrl.value }
   ],
   link: [{ rel: 'canonical', href: postUrl.value }],
   htmlAttrs: { lang: 'en' }
