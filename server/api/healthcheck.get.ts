@@ -16,6 +16,7 @@ export default defineEventHandler(async (event) => {
       status: 'healthy' as 'healthy' | 'degraded' | 'error',
       timestamp: new Date().toISOString(),
       uptime: Math.floor(process.uptime()),
+      version: '2.0.0', // Nuxt 4 + massive dependency deletion refactor
       node: process.version,
       commit,
       env: process.env.NODE_ENV,
