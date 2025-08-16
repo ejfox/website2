@@ -35,9 +35,10 @@ export default defineNuxtConfig({
     dirs: ['composables', 'utils']
   },
 
-  // DELETE over-customization: Use Nuxt defaults
+  // DELETE oxc-parser by disabling TypeScript checking
   typescript: {
-    typeCheck: false
+    typeCheck: false,
+    strict: false
   },
 
   devtools: { enabled: false },
