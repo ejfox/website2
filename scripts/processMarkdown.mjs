@@ -8,7 +8,7 @@ import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
-import rehypeMermaid from 'rehype-mermaid'
+// import rehypeMermaid from 'rehype-mermaid' // DELETED - 64MB bloat
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeRaw from 'rehype-raw'
 import matter from 'gray-matter'
@@ -135,7 +135,7 @@ const processor = unified()
     highlighter,
     transformers: [transformerCopyButton({ visibility: 'always', feedbackDuration: 3000 })]
   })
-  .use(rehypeMermaid, { strategy: 'inline-svg' })
+  // .use(rehypeMermaid, { strategy: 'inline-svg' }) // DELETED - 64MB bloat
   .use(rehypeSlug)
   .use(rehypeStringify, { allowDangerousHtml: true })
 
