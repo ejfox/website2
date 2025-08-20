@@ -4,7 +4,7 @@
       <div ref="codeRef" class="code-content" v-html="highlightedCode" />
 
       <!-- Expand/Collapse button at bottom -->
-      <div v-if="lineCount > 10" ref="overlayRef" class="action-overlay">
+      <div v-if="lineCount > 10" ref="overlayRef" class="absolute bottom-0 left-0 right-0 h-10 flex items-end justify-center pb-2 bg-gradient-to-t from-white dark:from-zinc-900 to-transparent">
         <button ref="buttonRef" class="action-button" @click="handleToggle">
           <span ref="iconRef" class="button-icon">{{ expanded ? '▼' : '▶' }}</span>
           <span>{{ expanded ? 'Collapse' : 'Expand' }} ({{ formatNumber(lineCount) }} lines)</span>
@@ -108,17 +108,21 @@ const updateHighlighting = async () => {
   // No client bundlin', Zeus almighty style
   if (codeToShow.value) {
     try {
-      // Hit the server API - pre-calculate, no bundlin'
-      const isDark = process.client 
-        ? document.documentElement.classList.contains('dark')
-        : false
+      // Enhanced theme detection
+      let isDark = false
+      if (process.client) {
+        // Check multiple methods for dark mode detection
+        isDark = document.documentElement.classList.contains('dark') ||
+                 document.documentElement.getAttribute('data-theme') === 'dark' ||
+                 window.matchMedia('(prefers-color-scheme: dark)').matches
+      }
       
       const response = await $fetch('/api/highlight', {
         method: 'POST',
         body: {
           code: codeToShow.value,
           language: props.file.language?.toLowerCase() || 'text',
-          theme: isDark ? 'github-dark' : 'github-light'
+          theme: isDark ? 'one-dark-pro' : 'github-light'
         }
       })
       
@@ -166,14 +170,6 @@ const handleToggle = () => {
   @apply !font-mono !text-xs;
 }
 
-.action-overlay {
-  @apply absolute bottom-0 left-0 right-0 h-10 flex items-end justify-center pb-2;
-  background: linear-gradient(transparent, rgba(255, 255, 255, 0.95));
-}
-
-:global(.dark) .action-overlay {
-  background: linear-gradient(transparent, rgba(9, 9, 11, 0.95));
-}
 
 .action-button {
   @apply flex items-center gap-1 px-2 py-1 text-[10px] bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded text-zinc-600 dark:text-zinc-400 font-mono cursor-pointer shadow-sm hover:bg-zinc-50 dark:hover:bg-zinc-700 hover:border-zinc-300 dark:hover:border-zinc-600 hover:text-zinc-700 dark:hover:text-zinc-300 hover:-translate-y-px transition-all;
