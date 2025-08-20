@@ -11,14 +11,14 @@ interface WordsThisMonthResponse {
 
 export default defineEventHandler(async () => {
   try {
-    // Redirect to the actual endpoint
+    // Get this month's data
     const wordsData = await $fetch<WordsThisMonthResponse>('/api/words-this-month')
     
     // Return in a more stats-friendly format
     return {
       posts: {
         thisMonth: wordsData.postCount || 0,
-        total: 0 // Would need to count all posts
+        total: wordsData.totalPosts || 0 // Get from enhanced API
       },
       words: {
         thisMonth: wordsData.totalWords || 0,

@@ -29,10 +29,19 @@ export default defineEventHandler(async () => {
     const currentMonth = now.getMonth() // 0-11
     const currentYear = now.getFullYear()
 
-    // Filter posts by current month and year and not hidden
-    const postsThisMonth = allPosts.filter((post) => {
+    // Filter out drafts and hidden posts for total count
+    // Only count actual blog posts (yearly folders, not projects/reading/etc)
+    const allPublishedPosts = allPosts.filter((post) => {
       if (!post.date || post.metadata?.hidden === true) return false
+      // Exclude draft posts
+      if (post.slug.startsWith('drafts/')) return false
+      // Only count posts in yearly folders (2018/, 2019/, etc.) as blog posts
+      if (!post.slug.match(/^\d{4}\//)) return false
+      return true
+    })
 
+    // Filter posts by current month and year, excluding drafts and hidden posts
+    const postsThisMonth = allPublishedPosts.filter((post) => {
       const postDate = new Date(post.date)
       return (
         postDate.getMonth() === currentMonth &&
@@ -73,6 +82,7 @@ export default defineEventHandler(async () => {
       year: currentYear,
       totalWords,
       postCount,
+      totalPosts: allPublishedPosts.length, // Total published posts count
       avgWordsPerPost,
       posts: postsThisMonth.map((post) => ({
         title: post.title,

@@ -26,16 +26,177 @@
       </teleport>
     </ClientOnly>
 
-    <!-- Main Content -->
-    <!-- Stats display -->
-    <component
-      :is="isSimpleMode ? SimpleStatsDisplay : FullStatsDisplay"
+    <!-- Simple Mode -->
+    <SimpleStatsDisplay 
+      v-if="isSimpleMode"
       :stats="stats"
       :blog-stats="validBlogStats"
       :transformed-health-stats="transformedHealthStats"
       :is-loading="isLoading"
       :health-today="healthToday"
     />
+    
+    <!-- Full Mode (default) -->
+    <div v-else class="relative overflow-hidden">
+      <!-- Main Content -->
+      <section class="min-w-0 w-full mx-auto max-w-none">
+        <!-- Header -->
+        <header class="flex items-center justify-between py-6">
+          <h1 class="text-mono-label">STATS</h1>
+        </header>
+
+        <!-- Top Stats -->
+        <Suspense>
+          <template #default>
+            <ClientOnly>
+              <Transition name="fade" appear>
+                <div v-if="stats" id="top-stats" class="relative">
+                  <AsyncTopStats :stats="stats" :blog-stats="validBlogStats" />
+                </div>
+              </Transition>
+            </ClientOnly>
+          </template>
+        </Suspense>
+
+        <!-- Main Stats Grid -->
+        <section class="grid md:gap-4 lg:gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 overflow-hidden pr-4 md:pr-8">
+          <TransitionGroup name="fade-up" tag="div" class="contents" appear>
+            <!-- GitHub -->
+            <StatsSection
+              v-if="stats.github?.stats"
+              id="github"
+              key="github-section"
+              title="GITHUB"
+              class="break-inside-avoid"
+            >
+              <AsyncGitHubStats key="github" :stats="stats.github" />
+            </StatsSection>
+
+            <!-- Writing -->
+            <StatsSection
+              v-if="stats.blog"
+              id="writing"
+              key="writing-section"
+              title="WRITING"
+              class="break-inside-avoid"
+            >
+              <AsyncBlogStats key="blog" :stats="stats.blog" />
+            </StatsSection>
+
+            <!-- Reading -->
+            <StatsSection
+              v-if="stats.goodreads?.stats"
+              id="reading"
+              key="reading-section"
+              title="READING"
+              class="break-inside-avoid"
+            >
+              <AsyncGoodreadsStats key="goodreads" :data="stats.goodreads" />
+            </StatsSection>
+
+            <!-- Productivity -->
+            <StatsSection
+              v-if="stats.rescueTime"
+              id="productivity"
+              key="productivity-section"
+              title="PRODUCTIVITY"
+              class="break-inside-avoid"
+            >
+              <AsyncRescueTimeStats key="rescuetime" :stats="stats" />
+            </StatsSection>
+
+            <!-- LeetCode -->
+            <StatsSection
+              v-if="stats.leetcode?.submissionStats && (stats.leetcode.submissionStats.easy.count > 0 || stats.leetcode.submissionStats.medium.count > 0 || stats.leetcode.submissionStats.hard.count > 0)"
+              id="leetcode"
+              key="leetcode-section"
+              title="LEETCODE"
+              class="break-inside-avoid"
+            >
+              <AsyncLeetCodeStats key="leetcode" :stats="stats.leetcode" />
+            </StatsSection>
+
+            <!-- Chess -->
+            <StatsSection
+              v-if="stats.chess"
+              id="chess"
+              key="chess-section"
+              title="CHESS"
+              class="break-inside-avoid"
+            >
+              <AsyncChessStats key="chess" :stats="stats.chess" />
+            </StatsSection>
+
+            <!-- Typing -->
+            <StatsSection
+              v-if="stats.monkeyType?.typingStats"
+              id="typing"
+              key="typing-section"
+              title="TYPING"
+              class="break-inside-avoid"
+            >
+              <AsyncMonkeyTypeStats key="monkeytype" :stats="stats.monkeyType" />
+            </StatsSection>
+
+            <!-- Code Snippets -->
+            <StatsSection
+              v-if="stats.gists?.stats"
+              id="gists"
+              key="gists-section"
+              title="CODE"
+              class="break-inside-avoid"
+            >
+              <AsyncGistStats key="gists" :gist-stats="stats.gists" />
+            </StatsSection>
+
+            <!-- Music -->
+            <StatsSection
+              v-if="stats.lastfm"
+              id="music"
+              key="music-section"
+              title="MUSIC"
+              class="break-inside-avoid"
+            >
+              <AsyncLastFmStats key="lastfm" :stats="stats.lastfm" />
+            </StatsSection>
+
+            <!-- Films -->
+            <StatsSection
+              v-if="stats.letterboxd?.stats"
+              id="films"
+              key="films-section"
+              title="FILMS"
+              class="break-inside-avoid"
+            >
+              <AsyncLetterboxdStats key="letterboxd" :letterboxd-stats="stats.letterboxd" />
+            </StatsSection>
+
+            <!-- Analytics -->
+            <StatsSection
+              v-if="stats.website?.stats"
+              id="website"
+              key="website-section"
+              title="ANALYTICS"
+              class="break-inside-avoid"
+            >
+              <AsyncUmamiStats key="umami" :umami-stats="stats.website" />
+            </StatsSection>
+          </TransitionGroup>
+        </section>
+
+        <!-- Full Width Sections -->
+        <section class="col-span-full space-y-2 pt-12">
+          <!-- Gear Stats -->
+          <Transition name="fade-up" appear>
+            <div id="gear" class="relative">
+              <StatsSection title="GEAR">
+                <AsyncGearStats :gear-stats="stats.gear" />
+              </StatsSection>
+            </div>
+          </Transition>
+        </section>
+      </section>
+    </div>
   </div>
 </template>
 
@@ -56,8 +217,47 @@ import { useProcessedMarkdown } from '~/composables/useProcessedMarkdown'
 const SimpleStatsDisplay = defineAsyncComponent(
   () => import('~/components/stats/SimpleStatsDisplay.vue')
 )
-const FullStatsDisplay = defineAsyncComponent(
-  () => import('~/components/stats/FullStatsDisplay.vue')
+const StatsSection = defineAsyncComponent(
+  () => import('~/components/stats/StatsSection.vue')
+)
+const AsyncTopStats = defineAsyncComponent(
+  () => import('~/components/stats/TopStats.vue')
+)
+const AsyncGitHubStats = defineAsyncComponent(
+  () => import('~/components/stats/GitHubStats.vue')
+)
+const AsyncBlogStats = defineAsyncComponent(
+  () => import('~/components/stats/BlogStats.vue')
+)
+const AsyncGoodreadsStats = defineAsyncComponent(
+  () => import('~/components/stats/GoodreadsStats.vue')
+)
+const AsyncRescueTimeStats = defineAsyncComponent(
+  () => import('~/components/stats/RescueTimeStats.vue')
+)
+const AsyncLeetCodeStats = defineAsyncComponent(
+  () => import('~/components/stats/LeetCodeStats.vue')
+)
+const AsyncChessStats = defineAsyncComponent(
+  () => import('~/components/stats/ChessStats.vue')
+)
+const AsyncMonkeyTypeStats = defineAsyncComponent(
+  () => import('~/components/stats/MonkeyTypeStats.vue')
+)
+const AsyncGistStats = defineAsyncComponent(
+  () => import('~/components/stats/GistStats.vue')
+)
+const AsyncLastFmStats = defineAsyncComponent(
+  () => import('~/components/stats/LastFmStats.vue')
+)
+const AsyncLetterboxdStats = defineAsyncComponent(
+  () => import('~/components/stats/LetterboxdStats.vue')
+)
+const AsyncUmamiStats = defineAsyncComponent(
+  () => import('~/components/stats/UmamiStats.vue')
+)
+const AsyncGearStats = defineAsyncComponent(
+  () => import('~/components/stats/GearStats.vue')
 )
 
 const { stats: rawStats, isLoading, hasStaleData: _hasStaleData } = useStats()

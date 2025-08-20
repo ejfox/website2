@@ -471,6 +471,24 @@ export interface StatsResponse {
     lastUpdated: string
     source: string
   }
+  blog?: {
+    posts: {
+      thisMonth: number
+      total: number
+    }
+    words: {
+      thisMonth: number
+      avgPerPost: number
+    }
+    recentPosts: Array<{
+      title: string
+      slug: string
+      date: string
+      words: number
+    }>
+    month: string
+    year: number
+  }
 }
 
 export function useStats() {

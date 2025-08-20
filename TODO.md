@@ -1,0 +1,1 @@
+- Clean up the russian nesting dolls of our github stats; small components are good, but right now it's all over the fuckin place and impossible to edit

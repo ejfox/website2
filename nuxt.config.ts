@@ -1,23 +1,14 @@
-// DELETE-DRIVEN: Minimal config for maximum performance
 export default defineNuxtConfig({
-  compatibilityDate: '2024-02-23',
-  future: {
-    compatibilityVersion: 4
-  },
-
   // CRITICAL: Enable experimental features for Nuxt 4 performance
   experimental: {
-    payloadExtraction: false,  // Prevents large payload chunks
-    inlineSSRStyles: false,    // Prevents CSS-in-JS bloat
+    payloadExtraction: false, // Prevents large payload chunks
+    inlineSSRStyles: false, // Prevents CSS-in-JS bloat
     treeshakeClientOnly: true // Remove client-only components from SSR
   },
 
   // Essential modules only - DELETE over-customization
-  modules: [
-    // DELETE ALL performance theater modules: nuxt-booster, vitalizer, web-vitals, image, icon
-    '@nuxtjs/tailwindcss'
-  ],
-  
+  modules: ['@nuxtjs/tailwindcss'],
+
   // DELETE over-customization: Use Tailwind defaults
   tailwindcss: {
     viewer: false,
@@ -26,8 +17,7 @@ export default defineNuxtConfig({
 
   // Minimal dev server config
   devServer: {
-    port: 3006,
-    host: '0.0.0.0'
+    port: 3006
   },
 
   // Optimized imports
@@ -45,7 +35,6 @@ export default defineNuxtConfig({
 
   // DELETE @nuxt/image config - using simple img tags now
 
-
   // Runtime config
   runtimeConfig: {
     GITHUB_TOKEN: process.env.GITHUB_TOKEN || '',
@@ -57,9 +46,10 @@ export default defineNuxtConfig({
 
     public: {
       // DELETE: Supabase config removed with dependency
-      baseUrl: process.env.NODE_ENV === 'production' 
-        ? 'https://ejfox.com' 
-        : 'http://localhost:3006',
+      baseUrl:
+        process.env.NODE_ENV === 'production'
+          ? 'https://ejfox.com'
+          : 'http://localhost:3006',
       debug: process.env.DEBUG === 'true'
     }
   },
@@ -67,7 +57,7 @@ export default defineNuxtConfig({
   // CRITICAL: Vite optimizations for Nuxt 4
   vite: {
     build: {
-      cssCodeSplit: true,      // Split CSS to prevent large stylesheets
+      cssCodeSplit: true, // Split CSS to prevent large stylesheets
       rollupOptions: {
         output: {
           manualChunks: {
@@ -77,7 +67,7 @@ export default defineNuxtConfig({
       }
     },
     optimizeDeps: {
-      include: ['vue', '@vue/reactivity']  // Pre-bundle critical deps
+      include: ['vue', '@vue/reactivity'] // Pre-bundle critical deps
     }
   },
 
@@ -87,7 +77,7 @@ export default defineNuxtConfig({
     minify: true,
     // CRITICAL: Enable build-time optimizations
     experimental: {
-      wasm: false  // Disable WASM for faster startup
+      wasm: false // Disable WASM for faster startup
     },
     compressPublicAssets: {
       gzip: true,
@@ -101,17 +91,17 @@ export default defineNuxtConfig({
       '/blog/**': { prerender: true },
       '/projects': { prerender: true },
       '/gear': { prerender: true },
-      '/_nuxt/**': { 
-        headers: { 
+      '/_nuxt/**': {
+        headers: {
           'cache-control': 'max-age=31536000',
           'content-encoding': 'br, gzip'
-        } 
+        }
       },
-      '/api/**': { 
-        headers: { 
+      '/api/**': {
+        headers: {
           'cache-control': 'max-age=300',
           'content-encoding': 'br, gzip'
-        } 
+        }
       }
     }
   },
@@ -122,15 +112,33 @@ export default defineNuxtConfig({
       title: 'EJ Fox',
       htmlAttrs: { lang: 'en' },
       meta: [
-        { name: 'description', content: 'EJ Fox: Hacker, Journalist, & Dataviz Specialist' },
+        {
+          name: 'description',
+          content: 'EJ Fox: Hacker, Journalist, & Dataviz Specialist'
+        },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'theme-color', content: '#ffffff', media: '(prefers-color-scheme: light)' },
-        { name: 'theme-color', content: '#0a0a0a', media: '(prefers-color-scheme: dark)' }
+        {
+          name: 'theme-color',
+          content: '#ffffff',
+          media: '(prefers-color-scheme: light)'
+        },
+        {
+          name: 'theme-color',
+          content: '#0a0a0a',
+          media: '(prefers-color-scheme: dark)'
+        }
       ],
       link: [
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' },
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Fjalla+One&family=Signika+Negative:wght@300;400;500;600;700&family=Red+Hat+Mono:wght@400;500;600&display=swap' }
+        {
+          rel: 'preconnect',
+          href: 'https://fonts.gstatic.com',
+          crossorigin: 'anonymous'
+        },
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Fjalla+One&family=Signika+Negative:wght@300;400;500;600;700&family=Red+Hat+Mono:wght@400;500;600&display=swap'
+        }
       ]
     }
   },

@@ -1,8 +1,8 @@
 <template>
   <div v-if="hasData" class="space-y-4 font-mono">
     <!-- Primary Stats -->
-    <div class="individual-stat-large">
-      <div class="stat-value">
+    <div class="text-center py-4">
+      <div class="text-2xl font-bold">
         <AnimatedNumber
           :value="monthlyHours"
           format="commas"
@@ -10,10 +10,8 @@
           priority="primary"
         />
       </div>
-      <div class="stat-label">
-        HOURS THIS MONTH
-      </div>
-      <div class="stat-details">
+      <div class="text-xs text-zinc-500 uppercase tracking-wider mt-1">HOURS THIS MONTH</div>
+      <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
         <AnimatedNumber
           :value="monthlyProductivePercent"
           format="percent"
@@ -25,68 +23,67 @@
     </div>
 
     <!-- Activity Calendar -->
-    <div>
-      <ActivityCalendar
-        title="ACTIVITY"
-        :active-dates="activityDates"
-        :active-color="'#71717a'"
-      />
-    </div>
+    <ActivityCalendar
+      title="ACTIVITY"
+      :active-dates="activityDates"
+      :active-color="'#71717a'"
+    />
 
-    <!-- Application Distribution Waffle Chart -->
-    <div>
-      <StatsSectionHeader title="TIME DISTRIBUTION" />
-      <div class="waffle-container">
-        <div
-          v-for="(cell, i) in waffleCells"
-          :key="i"
-          class="waffle-cell"
-          :style="{ backgroundColor: cell.color }"
-          :title="cell.title"
-        ></div>
-      </div>
+    <!-- Time Distribution Waffle Chart -->
+    <StatsSectionHeader title="TIME DISTRIBUTION" />
+    <div 
+      class="grid gap-1 md:gap-2 w-full border border-zinc-100/10 dark:border-zinc-800/50 p-2 rounded-sm waffle-chart" 
+      style="grid-template-columns: repeat(20, 1fr); grid-template-rows: repeat(5, 1fr)"
+      @mouseenter="isHovering = true"
+      @mouseleave="isHovering = false"
+    >
       <div
-        class="flex justify-between text-zinc-500 mt-1"
-        style="font-size: 10px; line-height: 12px"
-      >
-        <span>EACH COLOR = CATEGORY</span>
-        <span>SQUARE = 1% OF TOTAL TIME</span>
-      </div>
+        v-for="(cell, i) in waffleCells"
+        :key="i"
+        class="transition-colors duration-300 aspect-square waffle-cell"
+        :style="{ backgroundColor: isHovering ? cell.turboColor : cell.grayscaleColor }"
+        :title="cell.title"
+      ></div>
+    </div>
+    <div
+      class="flex justify-between text-zinc-500 mt-1"
+      style="font-size: 10px; line-height: 12px"
+    >
+      <span>{{ rescueTime?.week?.activities?.length || 0 }} TRACKED ACTIVITIES</span>
+      <span>SQUARE = 1% OF TOTAL TIME</span>
     </div>
 
-    <!-- Category Legend + Top Categories Combined -->
-    <div>
-      <StatsSectionHeader title="CATEGORIES" />
-      <div class="space-y-1.5">
+    <!-- Categories -->
+    <StatsSectionHeader title="CATEGORIES" />
+    <div class="space-y-1.5">
+      <div
+        v-for="category in sortedCategories.slice(0, 10)"
+        :key="category.name"
+        class="flex items-center gap-1.5"
+      >
         <div
-          v-for="category in sortedCategories"
-          :key="category.name"
-          class="category-row flex items-center gap-1.5"
-        >
-          <div
-            class="w-2 h-2 flex-shrink-0 rounded-sm"
-            :style="{ backgroundColor: category.color }"
-          ></div>
-          <div class="flex-1 min-w-0">
-            <div class="flex justify-between items-center gap-1">
-              <span
-                class="text-zinc-700 dark:text-zinc-300 truncate"
-                style="font-size: 10px; line-height: 12px"
-              >{{ category.name }}</span>
-              <span
-                class="text-zinc-500 tabular-nums flex-shrink-0"
-                style="font-size: 10px; line-height: 12px"
-              >{{ category.percentageOfTotal }}%</span>
-            </div>
-            <div class="category-bar-bg mt-0.5">
-              <div
-                class="category-bar-fill"
-                :style="{
-                  width: `${category.percentageOfTotal}%`,
-                  backgroundColor: category.color
-                }"
-              ></div>
-            </div>
+          class="w-2 h-2 flex-shrink-0 rounded-sm"
+          :style="{ backgroundColor: category.color }"
+        ></div>
+        <div class="flex-1 min-w-0">
+          <div class="flex justify-between items-center gap-1">
+            <span
+              class="text-zinc-700 dark:text-zinc-300 truncate"
+              style="font-size: 10px; line-height: 12px"
+            >{{ category.name }}</span>
+            <span
+              class="text-zinc-500 tabular-nums flex-shrink-0"
+              style="font-size: 10px; line-height: 12px"
+            >{{ category.percentageOfTotal }}%</span>
+          </div>
+          <div class="h-1 rounded-sm overflow-hidden bg-transparent dark:bg-zinc-800/10 border-b border-zinc-200/10 dark:border-zinc-800/30 mt-0.5">
+            <div
+              class="h-full rounded-sm"
+              :style="{
+                width: `${category.percentageOfTotal}%`,
+                backgroundColor: category.color
+              }"
+            ></div>
           </div>
         </div>
       </div>
@@ -100,7 +97,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import type { StatsResponse } from '~/composables/useStats'
 import ActivityCalendar from './ActivityCalendar.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'
@@ -108,6 +105,7 @@ import StatsDataState from './StatsDataState.vue'
 import AnimatedNumber from '../AnimatedNumber.vue'
 import { format } from 'date-fns/format'
 import { formatPercent } from '~/composables/useNumberFormat'
+import { interpolateTurbo } from 'd3-scale-chromatic'
 
 interface TimeBreakdown {
   seconds: number
@@ -153,8 +151,8 @@ const props = defineProps<{
   stats: StatsResponse
 }>()
 
-
 const rescueTime = computed(() => props.stats.rescueTime)
+const isHovering = ref(false)
 
 // Check if we have data
 const hasData = computed(() => {
@@ -170,7 +168,7 @@ const monthlyHours = computed(() =>
   Math.round(rescueTime.value?.month.summary.total.hoursDecimal || 0)
 )
 const monthlyProductivePercent = computed(
-  () => rescueTime.value?.month.summary.productive.percentage || 0
+  () => (rescueTime.value?.month.summary.productive.percentage || 0) / 100
 )
 
 // Generate activity dates from daily data (if available)
@@ -199,130 +197,74 @@ const activityDates = computed(() => {
   return days
 })
 
-// Generate a color using d3 turbo scale
-const getColorForValue = (value: number) => {
-  // Clamp value between 0 and 1
-  const clampedValue = Math.max(0, Math.min(1, value))
-  // return d3.interpolateTurbo(clampedValue)
-  // Use a simple color scale instead of d3
-  const hue = clampedValue * 280 // From red (0) to purple (280)
-  return `hsl(${hue}, 70%, 50%)`
+// ONE simple function for both waffle and legend colors
+const getTurboColor = (index: number, total: number) => {
+  // Skip dark colors: map 0.3 to 1.0 instead of 0 to 1
+  const normalizedIndex = index / Math.max(total - 1, 1)
+  const adjustedIndex = 0.3 + (normalizedIndex * 0.7) // 0.3 to 1.0 range
+  return interpolateTurbo(adjustedIndex)
 }
 
-// Create a unified categories data source with colors (privacy-safe)
-const categoriesWithColors = computed(() => {
+// Simple categories for display - USE SAME COLOR FUNCTION
+const sortedCategories = computed(() => {
   const categories = rescueTime.value?.month?.categories || []
-
-  if (categories.length === 0) return []
-
-  // Sort first, then assign colors based on percentage for consistent mapping
-  const sortedCategories = [...categories]
+  const sorted = [...categories]
     .sort((a, b) => (b.percentageOfTotal || 0) - (a.percentageOfTotal || 0))
-    .filter(cat => (cat.percentageOfTotal || 0) > 0)
-
-  // Use categories instead of individual activities for privacy
-  return sortedCategories.map((category, i) => ({
+    .filter((cat) => (cat.percentageOfTotal || 0) > 0)
+    
+  return sorted.map((category, i) => ({
     name: category.name,
     percentageOfTotal: category.percentageOfTotal || 0,
-    color: getColorForValue(i / Math.max(sortedCategories.length - 1, 1))
+    color: getTurboColor(i, sorted.length)
   }))
 })
 
-// Sorted categories for display (already sorted in categoriesWithColors)
-const sortedCategories = computed(() => {
-  return categoriesWithColors.value
-})
-
-// Waffle chart cells
+// Waffle chart cells - USE SAME COLOR FUNCTION
 const waffleCells = computed(() => {
   const activities = rescueTime.value?.week?.activities || []
-  const categoryColorMap = Object.fromEntries(
-    categoriesWithColors.value.map((c) => [c.name, c.color])
-  )
-
+  
   if (activities.length === 0) {
-    return Array(100)
-      .fill(null)
-      .map(() => ({
-        color: '#444',
-        title: 'No activity data available'
-      }))
+    return Array(100).fill(null).map(() => ({
+      turboColor: '#666',
+      grayscaleColor: '#666',
+      title: 'No data'
+    }))
   }
 
-  // Create the cells
-  const cells = Array(100)
-    .fill(null)
-    .map((_, i) => {
-      // Find which activity corresponds to this position
-      let runningPercentage = 0
-      let matchingActivity = null
-
-      for (const activity of activities) {
-        runningPercentage += activity.percentageOfTotal
-
-        if (i < Math.floor(runningPercentage)) {
-          matchingActivity = activity
-          break
-        }
+  const totalPercentage = activities.reduce((sum, activity) => sum + (activity.percentageOfTotal || 0), 0)
+  const scalingFactor = totalPercentage > 0 ? 100 / totalPercentage : 1
+  
+  const cells = Array(100).fill(null)
+  let cellIndex = 0
+  
+  activities.forEach((activity, activityIndex) => {
+    const scaledPercentage = (activity.percentageOfTotal || 0) * scalingFactor
+    const cellsForActivity = Math.round(scaledPercentage)
+    
+    // USE SAME COLOR FUNCTION
+    const turboColor = getTurboColor(activityIndex, activities.length)
+    const grayColor = `#${(128 + activityIndex * 8).toString(16).padStart(2, '0').repeat(3)}`
+    
+    for (let i = 0; i < cellsForActivity && cellIndex < 100; i++) {
+      cells[cellIndex] = {
+        turboColor: turboColor,
+        grayscaleColor: grayColor,
+        title: `${activity.name}: ${activity.percentageOfTotal}%`
       }
-
-      if (!matchingActivity) {
-        return {
-          color: '#444',
-          title: 'Other activities'
-        }
-      }
-
-      // Get color for this category
-      const color = categoryColorMap[matchingActivity.name] || '#777'
-      const hours = matchingActivity.time?.hours || 0
-      const minutes = matchingActivity.time?.minutes || 0
-      const timeStr = hours > 0 ? `${hours}h ${minutes}m` : `${minutes}m`
-
-      return {
-        color,
-        title: `${matchingActivity.name}: ${matchingActivity.percentageOfTotal}% (${timeStr})`
-      }
-    })
+      cellIndex++
+    }
+  })
+  
+  // Fill remaining
+  while (cellIndex < 100) {
+    cells[cellIndex] = {
+      turboColor: '#666',
+      grayscaleColor: '#666', 
+      title: 'Other'
+    }
+    cellIndex++
+  }
 
   return cells
 })
-
-
 </script>
-
-<style scoped>
-/* Individual stat styles for AnimatedNumber replacement */
-.individual-stat-large {
-  @apply text-center;
-}
-
-/* Uses global typography classes */
-
-.category-bar-bg {
-  @apply h-1 rounded-sm overflow-hidden bg-transparent dark:bg-zinc-800/10 border-b border-zinc-200/10 dark:border-zinc-800/30;
-}
-
-.category-bar-fill {
-  @apply h-full rounded-sm;
-  /* We'll set the background color dynamically */
-}
-
-/* Waffle chart styling */
-.waffle-container {
-  @apply grid grid-cols-10 gap-0.5 w-full border border-zinc-100/10 dark:border-zinc-800/50 p-2 rounded-sm;
-  grid-template-rows: repeat(10, 1fr);
-  aspect-ratio: 1 / 1;
-}
-
-.waffle-cell {
-  @apply transition-colors duration-300 rounded-[1px];
-  aspect-ratio: 1 / 1;
-}
-
-@media (max-width: 640px) {
-  .waffle-container {
-    @apply gap-[1px];
-  }
-}
-</style>

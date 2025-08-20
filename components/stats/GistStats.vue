@@ -1,24 +1,22 @@
 <template>
   <div v-if="hasData" class="space-y-8 font-mono">
-    <!-- Primary Metric -->
-    <div class="individual-stat-large">
-      <div class="stat-value">
+    <!-- Primary Stats -->
+    <div class="text-center py-4">
+      <div class="text-2xl font-bold">
         <AnimatedNumber :value="stats.totalGists" format="default" :duration="800" priority="primary" />
       </div>
-      <div class="stat-label">
+      <div class="text-xs text-zinc-500 uppercase tracking-wider mt-1">
         CODE SNIPPETS
       </div>
-      <div class="stat-details">
+      <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
         <AnimatedNumber :value="stats.totalFiles" format="default" :duration="400" priority="secondary" /> FILES · 
         <AnimatedNumber :value="stats.averageFilesPerGist" format="decimal" :decimals="1" :duration="400" priority="tertiary" /> AVG
       </div>
     </div>
 
-    <!-- Language Distribution - Tufte Style -->
+    <!-- Language Distribution -->
     <div class="space-y-4">
-      <div class="text-xs tracking-wider text-zinc-500 border-b border-zinc-200 dark:border-zinc-800 pb-1">
-        LANGUAGES
-      </div>
+      <StatsSectionHeader title="LANGUAGES" />
       <div class="grid grid-cols-2 gap-x-6 gap-y-2 text-xs">
         <div 
           v-for="lang in stats.topLanguages.slice(0, 6)"
@@ -33,41 +31,45 @@
       </div>
     </div>
 
-    <!-- Recent Activity - Minimal -->
+    <!-- Recent Gists -->
     <div v-if="recentGists.length" class="space-y-4">
-      <div class="text-xs tracking-wider text-zinc-500 border-b border-zinc-200 dark:border-zinc-800 pb-1">
-        RECENT
-      </div>
-      <div class="space-y-2">
+      <StatsSectionHeader title="RECENT GISTS" />
+      <div class="space-y-1.5">
         <div 
-          v-for="gist in recentGists.slice(0, 3)"
+          v-for="gist in recentGists.slice(0, 5)"
           :key="gist.id"
-          class="flex justify-between items-start text-xs gap-4"
+          class="flex items-baseline justify-between text-xs"
         >
-          <div class="flex-1 min-w-0">
-            <div class="truncate text-zinc-700 dark:text-zinc-300">
-              {{ gist.description || 'Untitled' }}
-            </div>
-            <div class="text-zinc-500 text-2xs">
-              {{ formatDate(gist.created_at) }} · {{ gist.files }} file{{ gist.files !== 1 ? 's' : '' }}
-            </div>
+          <div class="flex items-baseline gap-2 min-w-0 flex-1">
+            <a
+              :href="gist.html_url"
+              target="_blank"
+              rel="noopener"
+              class="text-zinc-700 dark:text-zinc-300 hover:text-black dark:hover:text-white transition-colors"
+              style="font-size: 10px"
+            >
+              {{ getGistTitle(gist) }}
+            </a>
+            <span v-if="gist.languages?.length" class="text-zinc-500" style="font-size: 10px">
+              {{ gist.languages[0] }}
+            </span>
           </div>
+          <span class="text-zinc-500 flex-shrink-0 ml-2 tabular-nums" style="font-size: 10px">
+            {{ formatDate(gist.created_at) }}
+          </span>
         </div>
       </div>
     </div>
   </div>
-  <div v-else class="text-center py-6">
-    <div class="text-xl font-mono text-zinc-700 dark:text-zinc-500">
-      NO GIST DATA
-    </div>
-  </div>
+  <StatsDataState v-else message="Gist data unavailable" />
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
 import { format } from 'date-fns/format'
 import AnimatedNumber from '../AnimatedNumber.vue'
-// NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
+import StatsSectionHeader from './StatsSectionHeader.vue'
+import StatsDataState from './StatsDataState.vue'
 
 interface GistStats {
   stats: {
@@ -83,9 +85,11 @@ interface GistStats {
   }
   recentGists: Array<{
     id: string
-    description: string
+    description: string | null
     created_at: string
-    files: number
+    files: number | any
+    firstFileName?: string
+    totalLines?: number
     languages: string[]
     html_url: string
   }>
@@ -116,5 +120,20 @@ const recentGists = computed(() => props.gistStats?.recentGists || [])
 
 const formatDate = (dateString: string): string => {
   return format(new Date(dateString), 'MMM yyyy').toUpperCase()
+}
+
+const getGistTitle = (gist: any): string => {
+  // If there's a description (and it's not 'No description'), use it
+  if (gist.description && gist.description.trim() && gist.description !== 'No description') {
+    return gist.description
+  }
+  
+  // Otherwise, use the first filename if available
+  if (gist.firstFileName) {
+    return gist.firstFileName
+  }
+  
+  // Fallback to ID if nothing else works
+  return `gist:${gist.id.slice(0, 8)}`
 }
 </script>

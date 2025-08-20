@@ -1,45 +1,100 @@
 <template>
-  <div v-if="hasData" class="space-y-8 font-mono">
-    <!-- Primary Metric -->
-    <div class="individual-stat-large">
-      <div class="stat-value">
+  <div v-if="hasData" class="space-y-4 font-mono">
+    <!-- Primary Stats -->
+    <div class="text-center py-4">
+      <div class="text-2xl font-bold">
         <AnimatedNumber :value="stats.pageviews.value" format="commas" :duration="800" priority="primary" />
       </div>
-      <div class="stat-label">
+      <div class="text-xs text-zinc-500 uppercase tracking-wider mt-1">
         PAGEVIEWS
       </div>
-      <div class="stat-details">
+      <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
         <AnimatedNumber :value="stats.visitors.value" format="default" :duration="400" priority="secondary" /> VISITORS · 
         <AnimatedNumber :value="stats.visits.value" format="default" :duration="400" priority="tertiary" /> VISITS
       </div>
     </div>
 
-    <!-- Key Metrics Grid - Tufte Style -->
-    <div class="grid grid-cols-2 gap-x-6 gap-y-4 text-xs">
-      <div class="flex justify-between items-baseline">
-        <span class="text-zinc-700 dark:text-zinc-400">BOUNCE RATE</span>
-        <span class="tabular-nums text-zinc-800 dark:text-zinc-200 font-medium">
-          <AnimatedNumber :value="bounceRate" format="default" :duration="400" priority="tertiary" />%
-        </span>
+    <!-- Key Metrics -->
+    <div>
+      <StatsSectionHeader title="ENGAGEMENT" />
+      <div class="space-y-1.5">
+        <div class="flex items-center justify-between text-xs">
+          <span class="text-zinc-500 uppercase tracking-wider" style="font-size: 10px">BOUNCE RATE</span>
+          <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
+            <AnimatedNumber :value="bounceRate" format="default" :duration="400" priority="tertiary" />%
+          </span>
+        </div>
+        <div class="flex items-center justify-between text-xs">
+          <span class="text-zinc-500 uppercase tracking-wider" style="font-size: 10px">AVG SESSION</span>
+          <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
+            {{ avgSessionTime }}
+          </span>
+        </div>
+        <div class="flex items-center justify-between text-xs">
+          <span class="text-zinc-500 uppercase tracking-wider" style="font-size: 10px">PAGES/SESSION</span>
+          <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
+            {{ pagesPerSession }}
+          </span>
+        </div>
       </div>
-      <div class="flex justify-between items-baseline">
-        <span class="text-zinc-700 dark:text-zinc-400">AVG SESSION</span>
-        <span class="tabular-nums text-zinc-800 dark:text-zinc-200 font-medium">
-          {{ avgSessionTime }}
-        </span>
+    </div>
+
+    <!-- Growth Metrics -->
+    <div>
+      <StatsSectionHeader title="GROWTH (VS PREV 30 DAYS)" />
+      <div class="space-y-1.5">
+        <div class="flex items-center justify-between text-xs">
+          <span class="text-zinc-500 uppercase tracking-wider" style="font-size: 10px">PAGEVIEWS</span>
+          <span class="tabular-nums" :class="getGrowthClass(pageviewGrowth)">
+            {{ formatGrowth(pageviewGrowth) }}
+          </span>
+        </div>
+        <div class="flex items-center justify-between text-xs">
+          <span class="text-zinc-500 uppercase tracking-wider" style="font-size: 10px">VISITORS</span>
+          <span class="tabular-nums" :class="getGrowthClass(visitorGrowth)">
+            {{ formatGrowth(visitorGrowth) }}
+          </span>
+        </div>
+        <div class="flex items-center justify-between text-xs">
+          <span class="text-zinc-500 uppercase tracking-wider" style="font-size: 10px">ENGAGEMENT TIME</span>
+          <span class="tabular-nums" :class="getGrowthClass(timeGrowth)">
+            {{ formatGrowth(timeGrowth) }}
+          </span>
+        </div>
       </div>
-      <div class="flex justify-between items-baseline">
-        <span class="text-zinc-700 dark:text-zinc-400">vs PREV PERIOD</span>
-        <span class="tabular-nums font-medium" :class="growthClass">
-          {{ pageviewGrowth }}
-        </span>
+    </div>
+
+    <!-- Traffic Quality -->
+    <div>
+      <h4 class="text-[0.65rem] leading-4 tracking-[0.2em] text-zinc-500 border-b border-zinc-200 dark:border-zinc-800/30 pb-1 mb-3">
+        TRAFFIC QUALITY
+      </h4>
+      <div class="space-y-1.5">
+        <div class="flex items-center justify-between text-xs">
+          <span class="text-zinc-500 uppercase tracking-wider" style="font-size: 10px">RETURN RATE</span>
+          <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
+            {{ returnRate }}%
+          </span>
+        </div>
+        <div class="flex items-center justify-between text-xs">
+          <span class="text-zinc-500 uppercase tracking-wider" style="font-size: 10px">ENGAGEMENT RATE</span>
+          <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
+            {{ engagementRate }}%
+          </span>
+        </div>
+        <div class="flex items-center justify-between text-xs">
+          <span class="text-zinc-500 uppercase tracking-wider" style="font-size: 10px">DAILY AVG</span>
+          <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
+            {{ dailyAverage }} views
+          </span>
+        </div>
       </div>
-      <div class="flex justify-between items-baseline">
-        <span class="text-zinc-700 dark:text-zinc-400">LAST 30 DAYS</span>
-        <span class="tabular-nums text-zinc-500 text-2xs">
-          {{ lastUpdated }}
-        </span>
-      </div>
+    </div>
+
+    <!-- Period Info -->
+    <div class="flex justify-between text-zinc-500" style="font-size: 9px">
+      <span>LAST 30 DAYS</span>
+      <span>UPDATED {{ lastUpdated }}</span>
     </div>
   </div>
   <div v-else class="text-center py-6">
@@ -53,7 +108,7 @@
 import { computed } from 'vue'
 import { format } from 'date-fns/format'
 import AnimatedNumber from '../AnimatedNumber.vue'
-// NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
+import StatsSectionHeader from './StatsSectionHeader.vue'
 
 interface UmamiStats {
   stats: {
@@ -72,8 +127,6 @@ const props = defineProps<{
   umamiStats?: UmamiStats | null
 }>()
 
-// DELETED: // DELETED: const { timing } = // DELETED: useAnimations() - BROKEN IMPORT - BROKEN IMPORT
-
 const hasData = computed(() => {
   return !!props.umamiStats?.stats
 })
@@ -86,6 +139,7 @@ const stats = computed(() => props.umamiStats?.stats || {
   totaltime: { value: 0, prev: 0 }
 })
 
+// Engagement Metrics
 const bounceRate = computed(() => {
   const visits = stats.value.visits.value
   const bounces = stats.value.bounces.value
@@ -107,25 +161,67 @@ const avgSessionTime = computed(() => {
   return `${seconds}s`
 })
 
+const pagesPerSession = computed(() => {
+  const pageviews = stats.value.pageviews.value
+  const visits = stats.value.visits.value
+  if (visits === 0) return '0'
+  return (pageviews / visits).toFixed(1)
+})
+
+// Growth Calculations
 const pageviewGrowth = computed(() => {
   const current = stats.value.pageviews.value
   const prev = stats.value.pageviews.prev
-  if (prev === 0) return '+∞'
-  
-  const growth = ((current - prev) / prev) * 100
-  const sign = growth > 0 ? '+' : ''
-  return `${sign}${Math.round(growth)}%`
+  if (prev === 0) return current > 0 ? 100 : 0
+  return ((current - prev) / prev) * 100
 })
 
-const growthClass = computed(() => {
-  const current = stats.value.pageviews.value
-  const prev = stats.value.pageviews.prev
-  const growth = current - prev
-  
-  if (growth > 0) return 'text-green-600'
-  if (growth < 0) return 'text-red-600'
-  return 'text-zinc-500'
+const visitorGrowth = computed(() => {
+  const current = stats.value.visitors.value
+  const prev = stats.value.visitors.prev
+  if (prev === 0) return current > 0 ? 100 : 0
+  return ((current - prev) / prev) * 100
 })
+
+const timeGrowth = computed(() => {
+  const current = stats.value.totaltime.value
+  const prev = stats.value.totaltime.prev
+  if (prev === 0) return current > 0 ? 100 : 0
+  return ((current - prev) / prev) * 100
+})
+
+// Traffic Quality Metrics
+const returnRate = computed(() => {
+  const visits = stats.value.visits.value
+  const visitors = stats.value.visitors.value
+  if (visitors === 0) return 0
+  // If visits > visitors, we have returning visitors
+  const returningVisits = Math.max(0, visits - visitors)
+  return Math.round((returningVisits / visits) * 100)
+})
+
+const engagementRate = computed(() => {
+  // Inverse of bounce rate
+  return 100 - bounceRate.value
+})
+
+const dailyAverage = computed(() => {
+  // Assuming 30 day period
+  return Math.round(stats.value.pageviews.value / 30)
+})
+
+// Formatting helpers
+const formatGrowth = (growth: number): string => {
+  if (growth === 0) return '0%'
+  const sign = growth > 0 ? '+' : ''
+  return `${sign}${Math.round(growth)}%`
+}
+
+const getGrowthClass = (growth: number): string => {
+  if (growth > 0) return 'text-green-600 dark:text-green-500'
+  if (growth < 0) return 'text-red-600 dark:text-red-500'
+  return 'text-zinc-500'
+}
 
 const lastUpdated = computed(() => {
   if (!props.umamiStats?.lastUpdated) return 'UNKNOWN'

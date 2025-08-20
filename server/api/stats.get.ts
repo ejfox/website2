@@ -11,6 +11,7 @@ import gearStatsHandler from './gear-stats.get'
 import gistStatsHandler from './gist-stats.get'
 import websiteStatsHandler from './website-stats.get'
 import letterboxdStatsHandler from './letterboxd.get'
+import blogStatsHandler from './blog-stats.get'
 
 // Adapter function to convert chess stats to the expected format
 function adaptChessStats(chessStats: any) {
@@ -163,7 +164,8 @@ export default defineEventHandler(async (event): Promise<StatsResponse> => {
       gearStatsResult,
       gistStatsResult,
       websiteStatsResult,
-      letterboxdStatsResult
+      letterboxdStatsResult,
+      blogStatsResult
     ] = await Promise.allSettled([
       githubHandler(event).catch((err) => {
         console.error('❌ GitHub API error:', err)
@@ -212,6 +214,10 @@ export default defineEventHandler(async (event): Promise<StatsResponse> => {
       letterboxdStatsHandler(event).catch((err) => {
         console.error('❌ Letterboxd stats error:', err)
         return null
+      }),
+      blogStatsHandler(event).catch((err) => {
+        console.error('❌ Blog stats error:', err)
+        return null
       })
     ])
 
@@ -231,7 +237,8 @@ export default defineEventHandler(async (event): Promise<StatsResponse> => {
       gear: getValue(gearStatsResult),
       gists: getValue(gistStatsResult),
       website: getValue(websiteStatsResult),
-      letterboxd: getValue(letterboxdStatsResult)
+      letterboxd: getValue(letterboxdStatsResult),
+      blog: getValue(blogStatsResult)
     }
 
     return response

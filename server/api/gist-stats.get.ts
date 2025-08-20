@@ -42,14 +42,22 @@ export default defineEventHandler(async () => {
     const recentGists = gists
       .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
       .slice(0, 5)
-      .map(gist => ({
-        id: gist.id,
-        description: gist.description || 'No description',
-        created_at: gist.created_at,
-        files: Object.keys(gist.files).length,
-        languages: [...new Set(Object.values(gist.files).map(f => f.language).filter(Boolean))],
-        html_url: gist.html_url
-      }))
+      .map(gist => {
+        const fileList = Object.values(gist.files)
+        const firstFileName = Object.keys(gist.files)[0] || null
+        const totalLines = fileList.reduce((sum, file) => sum + (file.content?.split('\n').length || 0), 0)
+        
+        return {
+          id: gist.id,
+          description: gist.description || null,
+          created_at: gist.created_at,
+          files: Object.keys(gist.files).length,
+          firstFileName,
+          totalLines,
+          languages: [...new Set(fileList.map(f => f.language).filter(Boolean))],
+          html_url: gist.html_url
+        }
+      })
     
     return {
       stats: {
