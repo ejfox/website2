@@ -79,10 +79,8 @@ export default defineNuxtConfig({
     experimental: {
       wasm: false // Disable WASM for faster startup
     },
-    compressPublicAssets: {
-      gzip: true,
-      brotli: true
-    },
+    // Disable compression - let reverse proxy handle it
+    compressPublicAssets: false,
     prerender: {
       routes: ['/', '/blog', '/projects', '/gear']
     },
@@ -93,14 +91,12 @@ export default defineNuxtConfig({
       '/gear': { prerender: true },
       '/_nuxt/**': {
         headers: {
-          'cache-control': 'max-age=31536000',
-          'content-encoding': 'br, gzip'
+          'cache-control': 'max-age=31536000'
         }
       },
       '/api/**': {
         headers: {
-          'cache-control': 'max-age=300',
-          'content-encoding': 'br, gzip'
+          'cache-control': 'max-age=300'
         }
       }
     }
