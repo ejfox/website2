@@ -2,7 +2,7 @@ export default defineNuxtConfig({
   // CRITICAL: Enable experimental features for Nuxt 4 performance
   experimental: {
     payloadExtraction: false, // Prevents large payload chunks
-    inlineSSRStyles: false, // Prevents CSS-in-JS bloat
+    inlineSSRStyles: true, // FIXED: Inline CSS to prevent FOUC on VPS
     treeshakeClientOnly: true // Remove client-only components from SSR
   },
 
@@ -75,7 +75,7 @@ export default defineNuxtConfig({
   // Performance-optimized Nitro config
   nitro: {
     preset: 'node-server',
-    minify: true,
+    minify: false, // DISABLED: Debug file corruption issues first
     // CRITICAL: Enable build-time optimizations
     experimental: {
       wasm: false // Disable WASM for faster startup
@@ -85,21 +85,12 @@ export default defineNuxtConfig({
     prerender: {
       routes: ['/', '/blog', '/projects', '/gear']
     },
+    // SIMPLIFIED: Remove complex caching that might interfere with VPS
     routeRules: {
-      '/': { prerender: true, headers: { 'cache-control': 'max-age=3600' } },
+      '/': { prerender: true },
       '/blog/**': { prerender: true },
       '/projects': { prerender: true },
-      '/gear': { prerender: true },
-      '/_nuxt/**': {
-        headers: {
-          'cache-control': 'max-age=31536000'
-        }
-      },
-      '/api/**': {
-        headers: {
-          'cache-control': 'max-age=300'
-        }
-      }
+      '/gear': { prerender: true }
     }
   },
 
