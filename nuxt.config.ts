@@ -46,10 +46,11 @@ export default defineNuxtConfig({
 
     public: {
       // DELETE: Supabase config removed with dependency
-      baseUrl:
+      baseUrl: process.env.NUXT_PUBLIC_BASE_URL || (
         process.env.NODE_ENV === 'production'
           ? 'https://ejfox.com'
-          : 'http://localhost:3006',
+          : 'http://localhost:3006'
+      ),
       debug: process.env.DEBUG === 'true'
     }
   },
