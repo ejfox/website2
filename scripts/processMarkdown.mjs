@@ -402,6 +402,25 @@ async function processAllFiles() {
     await fs.writeFile(manifestPath, JSON.stringify(manifestResults, null, 2))
     spinner.succeed('Manifest written successfully')
 
+    // Extract tags with usage counts from content and write to public/content-tags.json
+    const tagUsage = {}
+    results.forEach(result => {
+      if (result.metadata?.tags && Array.isArray(result.metadata.tags)) {
+        result.metadata.tags.forEach(tag => {
+          if (typeof tag === 'string' && tag.trim()) {
+            const cleanTag = tag.trim()
+            tagUsage[cleanTag] = (tagUsage[cleanTag] || 0) + 1
+          }
+        })
+      }
+    })
+    
+    if (Object.keys(tagUsage).length > 0) {
+      const contentTagsPath = path.join(process.cwd(), 'public/content-tags.json')
+      await fs.writeFile(contentTagsPath, JSON.stringify(tagUsage, null, 2))
+      console.log(`\n🏷️  Extracted ${Object.keys(tagUsage).length} unique content tags with usage counts to public/content-tags.json`)
+    }
+
     return results
   } catch (error) {
     spinner.fail('Processing failed')

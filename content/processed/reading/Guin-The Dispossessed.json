@@ -1,6 +1,6 @@
 {
-  "content": "<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Ursula K. Le Guin</a></li>\n<li class=\"\">ASIN: B000FC11GA</li>\n<li class=\"\">ISBN: 0062421077</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B000FC11GA\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B000FC11GA</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B000FC11GA\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"highlights\">Highlights</h2>\n<p class=\"mb-4\">He patted the thing he wore on his belt, a metal object like a deformed penis, and looked patronizingly at the unarmed woman. — location: <a href=\"kindle://book?action=open&#x26;asin=B000FC11GA&#x26;location=68\" class=\"text-blue-600 dark:text-blue-400\">68</a> ^ref-42548</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
-  "html": "<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Ursula K. Le Guin</a></li>\n<li class=\"\">ASIN: B000FC11GA</li>\n<li class=\"\">ISBN: 0062421077</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B000FC11GA\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B000FC11GA</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B000FC11GA\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"highlights\">Highlights</h2>\n<p class=\"mb-4\">He patted the thing he wore on his belt, a metal object like a deformed penis, and looked patronizingly at the unarmed woman. — location: <a href=\"kindle://book?action=open&#x26;asin=B000FC11GA&#x26;location=68\" class=\"text-blue-600 dark:text-blue-400\">68</a> ^ref-42548</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
+  "content": "<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"metadata\">Metadata</h3>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Ursula K. Le Guin</a></li>\n<li class=\"\">ASIN: B000FC11GA</li>\n<li class=\"\">ISBN: 0062421077</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B000FC11GA\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B000FC11GA</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B000FC11GA\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"highlights\">Highlights</h3>\n<p class=\"mb-4\">He patted the thing he wore on his belt, a metal object like a deformed penis, and looked patronizingly at the unarmed woman. — location: <a href=\"kindle://book?action=open&#x26;asin=B000FC11GA&#x26;location=68\" class=\"text-blue-600 dark:text-blue-400\">68</a> ^ref-42548</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
+  "html": "<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"metadata\">Metadata</h3>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Ursula K. Le Guin</a></li>\n<li class=\"\">ASIN: B000FC11GA</li>\n<li class=\"\">ISBN: 0062421077</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B000FC11GA\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B000FC11GA</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B000FC11GA\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"highlights\">Highlights</h3>\n<p class=\"mb-4\">He patted the thing he wore on his belt, a metal object like a deformed penis, and looked patronizingly at the unarmed woman. — location: <a href=\"kindle://book?action=open&#x26;asin=B000FC11GA&#x26;location=68\" class=\"text-blue-600 dark:text-blue-400\">68</a> ^ref-42548</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
   "title": "The Dispossessed",
   "metadata": {
     "kindle-sync": {
@@ -16,29 +16,31 @@
       "book",
       "reference"
     ],
+    "date": "2023-10-29T18:20:51.000Z",
+    "modified": "2025-08-19T17:40:37.000Z",
     "words": 54,
     "images": 0,
     "links": 3,
     "codeBlocks": 0,
     "headers": {
-      "h1": 1
+      "h2": 1
     },
     "toc": [
       {
         "text": "The Dispossessed",
         "slug": "the-dispossessed",
-        "level": "h1",
+        "level": "h2",
         "children": [
           {
             "text": "Metadata",
             "slug": "metadata",
-            "level": "h2",
+            "level": "h3",
             "children": []
           },
           {
             "text": "Highlights",
             "slug": "highlights",
-            "level": "h2",
+            "level": "h3",
             "children": []
           }
         ]

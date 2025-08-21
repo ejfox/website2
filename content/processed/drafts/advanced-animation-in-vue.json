@@ -7,9 +7,13 @@
     "inprogress": true,
     "date": "2022-12-05T23:34:09.000Z",
     "modified": "2024-07-18T18:44:29.000Z",
-    "tags": null,
     "hidden": true,
     "draft": true,
+    "tags": [
+      "vue",
+      "javascript",
+      "howto"
+    ],
     "words": 437,
     "images": 0,
     "links": 5,

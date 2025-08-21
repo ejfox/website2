@@ -11,9 +11,15 @@ node_modules
 content/**/node_modules
 content/processed/**/node_modules
 
-# Logs
+# Logs & build artifacts
 logs
 *.log
+lighthouse*.json
+lighthouse*.html
+test-*.html
+page.html
+headers.txt
+deps-to-move.txt
 
 # Misc
 .DS_Store

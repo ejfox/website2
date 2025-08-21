@@ -10,16 +10,19 @@ kindle-sync:
 tags:
   - book
   - reference
+date: 2023-10-29T14:20:51-04:00
+modified: 2025-08-19T13:40:37-04:00
 ---
-# The Dispossessed
-## Metadata
+## The Dispossessed
+### Metadata
 * Author: [Ursula K. Le Guin](https://www.amazon.comundefined)
 * ASIN: B000FC11GA
 * ISBN: 0062421077
-* Reference: https://www.amazon.com/dp/B000FC11GA
+* Reference: <https://www.amazon.com/dp/B000FC11GA>
 * [Kindle link](kindle://book?action=open&asin=B000FC11GA)
 
-## Highlights
+### Highlights
+
 He patted the thing he wore on his belt, a metal object like a deformed penis, and looked patronizingly at the unarmed woman. — location: [68](kindle://book?action=open&asin=B000FC11GA&location=68) ^ref-42548
 
 ---

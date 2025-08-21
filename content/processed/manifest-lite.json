@@ -6013,32 +6013,6 @@
     }
   },
   {
-    "slug": "drafts/!index_drafts",
-    "title": "!index_drafts",
-    "date": "2023-01-15T20:08:41.000Z",
-    "type": "post",
-    "hidden": true,
-    "draft": true,
-    "modified": "2024-07-18T18:49:07.000Z",
-    "toc": [],
-    "metadata": {
-      "date": "2023-01-15T20:08:41.000Z",
-      "modified": "2024-07-18T18:49:07.000Z",
-      "hidden": true,
-      "draft": true,
-      "words": 231,
-      "images": 0,
-      "links": 101,
-      "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/drafts/!index_drafts.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "drafts/!index_drafts"
-    }
-  },
-  {
     "slug": "drafts/Cloudinary Backup Tool",
     "title": "Creating A Tauri App To Backup All My Photos",
     "date": "2025-07-18T17:01:59.000Z",
@@ -6137,12 +6111,12 @@
     "title": "Is it even possible to make something that is low Effort and",
     "date": "2025-07-25T12:14:05.000Z",
     "type": "post",
-    "modified": "2025-07-31T02:34:20.000Z",
+    "modified": "2025-08-19T18:33:12.000Z",
     "toc": [],
     "metadata": {
       "date": "2025-07-25T12:14:05.000Z",
-      "modified": "2025-07-31T02:34:20.000Z",
-      "words": 28,
+      "modified": "2025-08-19T18:33:12.000Z",
+      "words": 29,
       "images": 0,
       "links": 0,
       "codeBlocks": 0,
@@ -6152,28 +6126,6 @@
       "sourcePath": "../../../../../code/website2/content/blog/drafts/Is it even possible to make something that is low-effort and.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "drafts/Is it even possible to make something that is low-effort and"
-    }
-  },
-  {
-    "slug": "drafts/Untitled",
-    "title": "Untitled",
-    "date": "2025-07-02T16:20:40.000Z",
-    "type": "post",
-    "modified": "2025-07-02T16:20:47.000Z",
-    "toc": [],
-    "metadata": {
-      "date": "2025-07-02T16:20:40.000Z",
-      "modified": "2025-07-02T16:20:47.000Z",
-      "words": 1,
-      "images": 0,
-      "links": 0,
-      "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/drafts/Untitled.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "drafts/Untitled"
     }
   },
   {
@@ -9769,28 +9721,6 @@
       "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/how-i-use-github.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "drafts/_stale/how-i-use-github"
-    }
-  },
-  {
-    "slug": "drafts/_stale/how-i-use-gpt3",
-    "title": "How I Use Gpt3",
-    "date": "2024-09-23T15:30:41.000Z",
-    "type": "post",
-    "modified": "2024-09-23T15:30:45.000Z",
-    "toc": [],
-    "metadata": {
-      "date": "2024-09-23T15:30:41.000Z",
-      "modified": "2024-09-23T15:30:45.000Z",
-      "words": 1,
-      "images": 0,
-      "links": 0,
-      "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/how-i-use-gpt3.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "drafts/_stale/how-i-use-gpt3"
     }
   },
   {
@@ -14965,7 +14895,11 @@
     "draft": true,
     "dek": "In which",
     "modified": "2024-07-18T18:44:29.000Z",
-    "tags": null,
+    "tags": [
+      "vue",
+      "javascript",
+      "howto"
+    ],
     "toc": [
       {
         "text": "Advanced Animations and Transitions in Vue",
@@ -15041,9 +14975,13 @@
       "inprogress": true,
       "date": "2022-12-05T23:34:09.000Z",
       "modified": "2024-07-18T18:44:29.000Z",
-      "tags": null,
       "hidden": true,
       "draft": true,
+      "tags": [
+        "vue",
+        "javascript",
+        "howto"
+      ],
       "words": 437,
       "images": 0,
       "links": 5,
@@ -15725,6 +15663,11 @@
     "hidden": true,
     "draft": true,
     "modified": "2024-07-18T18:43:59.000Z",
+    "tags": [
+      "dataviz",
+      "games",
+      "analysis"
+    ],
     "toc": [
       {
         "text": "Call of Duty Stats Breakdown",
@@ -15802,6 +15745,11 @@
       "modified": "2024-07-18T18:43:59.000Z",
       "hidden": true,
       "draft": true,
+      "tags": [
+        "dataviz",
+        "games",
+        "analysis"
+      ],
       "words": 938,
       "images": 0,
       "links": 0,
@@ -16286,6 +16234,11 @@
     "hidden": true,
     "draft": true,
     "modified": "2024-07-18T18:43:50.000Z",
+    "tags": [
+      "machinelearning",
+      "product",
+      "process"
+    ],
     "toc": [
       {
         "text": "Coach Artie - One Year Retrospective",
@@ -16387,6 +16340,11 @@
       "modified": "2024-07-18T18:43:50.000Z",
       "hidden": true,
       "draft": true,
+      "tags": [
+        "machinelearning",
+        "product",
+        "process"
+      ],
       "words": 1360,
       "images": 2,
       "links": 2,
@@ -16837,7 +16795,7 @@
     "hidden": true,
     "draft": true,
     "dek": "In which",
-    "modified": "2024-04-29T15:38:40.000Z",
+    "modified": "2025-08-19T17:41:02.000Z",
     "tags": null,
     "toc": [
       {
@@ -16851,7 +16809,7 @@
       "dek": "In which",
       "inprogress": true,
       "date": "2022-12-05T23:34:09.000Z",
-      "modified": "2024-04-29T15:38:40.000Z",
+      "modified": "2025-08-19T17:41:02.000Z",
       "tags": null,
       "hidden": true,
       "draft": true,
@@ -16954,6 +16912,11 @@
     "draft": true,
     "dek": "In which",
     "modified": "2024-07-18T18:43:34.000Z",
+    "tags": [
+      "dataviz",
+      "politics",
+      "elections"
+    ],
     "toc": [
       {
         "text": "Election Results Data Analysis",
@@ -16964,6 +16927,11 @@
     ],
     "metadata": {
       "draft": true,
+      "tags": [
+        "dataviz",
+        "politics",
+        "elections"
+      ],
       "dek": "In which",
       "inprogress": true,
       "date": "2022-11-03T00:00:20.000Z",
@@ -17635,36 +17603,30 @@
   },
   {
     "slug": "drafts/how-i-get-acquainted-with-a-new-codebase",
-    "title": "How I get acquainted with a new codebase",
+    "title": "How I Get Acquainted With A New Codebase",
     "date": "2025-03-05T15:10:06.000Z",
     "type": "post",
     "modified": "2025-06-02T14:00:23.000Z",
-    "toc": [
-      {
-        "text": "How I get acquainted with a new codebase",
-        "slug": "how-i-get-acquainted-with-a-new-codebase",
-        "level": "h2",
-        "children": []
-      }
+    "tags": [
+      "code",
+      "howto",
+      "process"
     ],
+    "toc": [],
     "metadata": {
       "date": "2025-03-05T15:10:06.000Z",
       "modified": "2025-06-02T14:00:23.000Z",
-      "words": 149,
+      "tags": [
+        "code",
+        "howto",
+        "process"
+      ],
+      "words": 141,
       "images": 0,
       "links": 0,
       "codeBlocks": 0,
-      "headers": {
-        "h2": 1
-      },
-      "toc": [
-        {
-          "text": "How I get acquainted with a new codebase",
-          "slug": "how-i-get-acquainted-with-a-new-codebase",
-          "level": "h2",
-          "children": []
-        }
-      ],
+      "headers": {},
+      "toc": [],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/drafts/how-i-get-acquainted-with-a-new-codebase.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -18107,42 +18069,42 @@
     "hidden": true,
     "draft": true,
     "dek": "In which",
-    "modified": "2022-12-23T14:10:44.000Z",
+    "modified": "2025-08-19T21:22:30.000Z",
     "toc": [
       {
         "text": "How to get started with data visualization",
         "slug": "how-to-get-started-with-data-visualization",
-        "level": "h1",
+        "level": "h2",
         "children": []
       },
       {
         "text": "What is data visualization?",
         "slug": "what-is-data-visualization",
-        "level": "h1",
+        "level": "h2",
         "children": []
       },
       {
         "text": "How I got started",
         "slug": "how-i-got-started",
-        "level": "h1",
+        "level": "h2",
         "children": []
       },
       {
         "text": "How someone could get started today",
         "slug": "how-someone-could-get-started-today",
-        "level": "h1",
+        "level": "h2",
         "children": []
       },
       {
         "text": "Resources for learning",
         "slug": "resources-for-learning",
-        "level": "h1",
+        "level": "h2",
         "children": []
       },
       {
         "text": "Ideas for using data visualization",
         "slug": "ideas-for-using-data-visualization",
-        "level": "h1",
+        "level": "h2",
         "children": []
       }
     ],
@@ -18151,50 +18113,50 @@
       "dek": "In which",
       "inprogress": true,
       "date": "2022-11-03T00:03:12.000Z",
-      "modified": "2022-12-23T14:10:44.000Z",
+      "modified": "2025-08-19T21:22:30.000Z",
       "hidden": true,
       "words": 37,
       "images": 0,
       "links": 0,
       "codeBlocks": 0,
       "headers": {
-        "h1": 6
+        "h2": 6
       },
       "toc": [
         {
           "text": "How to get started with data visualization",
           "slug": "how-to-get-started-with-data-visualization",
-          "level": "h1",
+          "level": "h2",
           "children": []
         },
         {
           "text": "What is data visualization?",
           "slug": "what-is-data-visualization",
-          "level": "h1",
+          "level": "h2",
           "children": []
         },
         {
           "text": "How I got started",
           "slug": "how-i-got-started",
-          "level": "h1",
+          "level": "h2",
           "children": []
         },
         {
           "text": "How someone could get started today",
           "slug": "how-someone-could-get-started-today",
-          "level": "h1",
+          "level": "h2",
           "children": []
         },
         {
           "text": "Resources for learning",
           "slug": "resources-for-learning",
-          "level": "h1",
+          "level": "h2",
           "children": []
         },
         {
           "text": "Ideas for using data visualization",
           "slug": "ideas-for-using-data-visualization",
-          "level": "h1",
+          "level": "h2",
           "children": []
         }
       ],
@@ -18502,6 +18464,78 @@
     }
   },
   {
+    "slug": "drafts/idiots-guide-finetuning-llm",
+    "title": "Idiots Guide Finetuning Llm",
+    "date": "2025-08-19T17:38:18.000Z",
+    "type": "post",
+    "modified": "2025-08-19T17:39:00.000Z",
+    "tags": [
+      "machinelearning",
+      "howto",
+      "tech"
+    ],
+    "toc": [
+      {
+        "text": "Why?",
+        "slug": "why",
+        "level": "h3",
+        "children": []
+      },
+      {
+        "text": "How?",
+        "slug": "how",
+        "level": "h3",
+        "children": []
+      },
+      {
+        "text": "What does it cost?",
+        "slug": "what-does-it-cost",
+        "level": "h3",
+        "children": []
+      }
+    ],
+    "metadata": {
+      "date": "2025-08-19T17:38:18.000Z",
+      "modified": "2025-08-19T17:39:00.000Z",
+      "tags": [
+        "machinelearning",
+        "howto",
+        "tech"
+      ],
+      "words": 17,
+      "images": 0,
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {
+        "h3": 3
+      },
+      "toc": [
+        {
+          "text": "Why?",
+          "slug": "why",
+          "level": "h3",
+          "children": []
+        },
+        {
+          "text": "How?",
+          "slug": "how",
+          "level": "h3",
+          "children": []
+        },
+        {
+          "text": "What does it cost?",
+          "slug": "what-does-it-cost",
+          "level": "h3",
+          "children": []
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/idiots-guide-finetuning-llm.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/idiots-guide-finetuning-llm"
+    }
+  },
+  {
     "slug": "drafts/innovation-roi-quantifying-success",
     "title": "The ROI of Innovation: Quantifying Creative Success at Room 302",
     "date": "2022-12-05T23:34:09.000Z",
@@ -18550,94 +18584,41 @@
   },
   {
     "slug": "drafts/intro-to-abstract-syntax-trees",
-    "title": "Introduction To Abstract Syntax Trees",
+    "title": "Intro To Abstract Syntax Trees",
     "date": null,
     "type": "post",
     "hidden": true,
     "draft": true,
     "dek": "In which",
     "modified": null,
-    "tags": "tech",
-    "toc": [
-      {
-        "text": "Introduction To Abstract Syntax Trees",
-        "slug": "introduction-to-abstract-syntax-trees",
-        "level": "h1",
-        "children": []
-      }
+    "tags": [
+      "javascript",
+      "howto",
+      "programming"
     ],
+    "toc": [],
     "metadata": {
       "dek": "In which",
       "inprogress": true,
       "date": null,
       "modified": null,
-      "tags": "tech",
+      "tags": [
+        "javascript",
+        "howto",
+        "programming"
+      ],
       "hidden": true,
       "draft": true,
-      "words": 53,
+      "words": 47,
       "images": 0,
       "links": 0,
       "codeBlocks": 0,
-      "headers": {
-        "h1": 1
-      },
-      "toc": [
-        {
-          "text": "Introduction To Abstract Syntax Trees",
-          "slug": "introduction-to-abstract-syntax-trees",
-          "level": "h1",
-          "children": []
-        }
-      ],
+      "headers": {},
+      "toc": [],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/drafts/intro-to-abstract-syntax-trees.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "drafts/intro-to-abstract-syntax-trees"
-    }
-  },
-  {
-    "slug": "drafts/introducing-connectology",
-    "title": "Network visualizations made easy: introducing connectology",
-    "date": "2023-03-16T18:32:06.000Z",
-    "type": "post",
-    "hidden": true,
-    "draft": true,
-    "dek": "In which",
-    "modified": "2023-03-16T22:59:29.000Z",
-    "toc": [
-      {
-        "text": "Network visualizations made easy: introducing connectology",
-        "slug": "network-visualizations-made-easy-introducing-connectology",
-        "level": "h1",
-        "children": []
-      }
-    ],
-    "metadata": {
-      "draft": true,
-      "dek": "In which",
-      "inprogress": true,
-      "date": "2023-03-16T18:32:06.000Z",
-      "modified": "2023-03-16T22:59:29.000Z",
-      "hidden": true,
-      "words": 55,
-      "images": 0,
-      "links": 0,
-      "codeBlocks": 0,
-      "headers": {
-        "h1": 1
-      },
-      "toc": [
-        {
-          "text": "Network visualizations made easy: introducing connectology",
-          "slug": "network-visualizations-made-easy-introducing-connectology",
-          "level": "h1",
-          "children": []
-        }
-      ],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/drafts/introducing-connectology.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "drafts/introducing-connectology"
     }
   },
   {
@@ -18980,7 +18961,11 @@
     "draft": true,
     "dek": "In which the future has arrived, but is only distributed to 8-year-olds",
     "modified": "2024-07-18T18:42:51.000Z",
-    "tags": null,
+    "tags": [
+      "games",
+      "vr",
+      "culture"
+    ],
     "toc": [
       {
         "text": "Minecraft is the Metaverse: The future we're waiting for is already here",
@@ -19055,7 +19040,11 @@
       "inprogress": true,
       "date": "2023-10-01T18:30:46.000Z",
       "modified": "2024-07-18T18:42:51.000Z",
-      "tags": null,
+      "tags": [
+        "games",
+        "vr",
+        "culture"
+      ],
       "hidden": true,
       "draft": true,
       "words": 329,
@@ -19138,53 +19127,6 @@
       "sourcePath": "../../../../../code/website2/content/blog/drafts/minecraft-is-the-metaverse.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "drafts/minecraft-is-the-metaverse"
-    }
-  },
-  {
-    "slug": "drafts/motorcycle-pico-8-game",
-    "title": "My first Pico-8 game: Motorcycle.p8",
-    "date": "2023-07-02T15:09:23.000Z",
-    "type": "post",
-    "hidden": true,
-    "draft": true,
-    "dek": "In which the author uses a boutique micro gaming system to craft a video game about the experience of motorcycling",
-    "modified": "2024-06-06T19:36:41.000Z",
-    "tags": "pico8 personal motorcycle",
-    "toc": [
-      {
-        "text": "My first Pico-8 game: Motorcycle.p8",
-        "slug": "my-first-pico-8-game-motorcycle-p8",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "metadata": {
-      "dek": "In which the author uses a boutique micro gaming system to craft a video game about the experience of motorcycling",
-      "inprogress": true,
-      "date": "2023-07-02T15:09:23.000Z",
-      "modified": "2024-06-06T19:36:41.000Z",
-      "tags": "pico8 personal motorcycle",
-      "hidden": true,
-      "draft": true,
-      "words": 739,
-      "images": 0,
-      "links": 3,
-      "codeBlocks": 1,
-      "headers": {
-        "h2": 1
-      },
-      "toc": [
-        {
-          "text": "My first Pico-8 game: Motorcycle.p8",
-          "slug": "my-first-pico-8-game-motorcycle-p8",
-          "level": "h2",
-          "children": []
-        }
-      ],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/drafts/motorcycle-pico-8-game.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "drafts/motorcycle-pico-8-game"
     }
   },
   {
@@ -19320,84 +19262,6 @@
     }
   },
   {
-    "slug": "drafts/outdoor-skills",
-    "title": "Search and Rescue / Ropes & Rappelling",
-    "date": "2024-02-14T00:10:50.000Z",
-    "type": "post",
-    "hidden": true,
-    "draft": true,
-    "modified": "2024-07-18T18:39:37.000Z",
-    "toc": [
-      {
-        "text": "Search and Rescue / Ropes & Rappelling",
-        "slug": "search-and-rescue-ropes-rappelling",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Canyoneering / Rappelling",
-        "slug": "canyoneering-rappelling",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Outdoor First Aid",
-        "slug": "outdoor-first-aid",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Kayaking",
-        "slug": "kayaking",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "metadata": {
-      "date": "2024-02-14T00:10:50.000Z",
-      "modified": "2024-07-18T18:39:37.000Z",
-      "hidden": true,
-      "draft": true,
-      "words": 132,
-      "images": 0,
-      "links": 0,
-      "codeBlocks": 1,
-      "headers": {
-        "h2": 4
-      },
-      "toc": [
-        {
-          "text": "Search and Rescue / Ropes & Rappelling",
-          "slug": "search-and-rescue-ropes-rappelling",
-          "level": "h2",
-          "children": []
-        },
-        {
-          "text": "Canyoneering / Rappelling",
-          "slug": "canyoneering-rappelling",
-          "level": "h2",
-          "children": []
-        },
-        {
-          "text": "Outdoor First Aid",
-          "slug": "outdoor-first-aid",
-          "level": "h2",
-          "children": []
-        },
-        {
-          "text": "Kayaking",
-          "slug": "kayaking",
-          "level": "h2",
-          "children": []
-        }
-      ],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/drafts/outdoor-skills.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "drafts/outdoor-skills"
-    }
-  },
-  {
     "slug": "drafts/owning-my-cloudinary-photos",
     "title": "Panic-Driven Development: When Cloudinary Tried to Delete My Life",
     "date": "2025-07-21T00:49:19.000Z",
@@ -19407,7 +19271,9 @@
     "tags": [
       "data",
       "photos",
-      "tauri"
+      "tauri",
+      "photography",
+      "personal"
     ],
     "toc": [
       {
@@ -19448,7 +19314,9 @@
       "tags": [
         "data",
         "photos",
-        "tauri"
+        "tauri",
+        "photography",
+        "personal"
       ],
       "date": "2025-07-21T00:49:19.000Z",
       "modified": "2025-07-28T12:57:34.000Z",
@@ -19605,7 +19473,11 @@
     "draft": true,
     "dek": "In which we use Cloudinary both as a host and CMS to show photos that we took to our friends",
     "modified": "2024-07-18T18:30:19.000Z",
-    "tags": null,
+    "tags": [
+      "photography",
+      "vue",
+      "howto"
+    ],
     "toc": [
       {
         "text": "Creating a photoblog with Cloudinary and Nuxt",
@@ -19664,7 +19536,11 @@
       "inprogress": true,
       "date": "2022-12-05T23:34:09.000Z",
       "modified": "2024-07-18T18:30:19.000Z",
-      "tags": null,
+      "tags": [
+        "photography",
+        "vue",
+        "howto"
+      ],
       "words": 1642,
       "images": 1,
       "links": 4,
@@ -19760,7 +19636,7 @@
     "hidden": true,
     "draft": true,
     "dek": "In which",
-    "modified": "2023-12-18T00:19:56.000Z",
+    "modified": "2025-08-19T17:41:16.000Z",
     "tags": [],
     "toc": [
       {
@@ -19774,7 +19650,7 @@
       "dek": "In which",
       "inprogress": true,
       "date": "2023-09-24T17:57:43.000Z",
-      "modified": "2023-12-18T00:19:56.000Z",
+      "modified": "2025-08-19T17:41:16.000Z",
       "tags": [],
       "hidden": true,
       "draft": true,
@@ -19894,53 +19770,6 @@
       "sourcePath": "../../../../../code/website2/content/blog/drafts/quantified-self.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "drafts/quantified-self"
-    }
-  },
-  {
-    "slug": "drafts/rapid-prototyping-24-hour-product",
-    "title": "See How The Studio Developed a Product in 24 Hours",
-    "date": "2022-12-05T23:34:09.000Z",
-    "type": "post",
-    "hidden": true,
-    "draft": true,
-    "dek": "In which",
-    "modified": "2024-04-29T15:43:05.000Z",
-    "tags": null,
-    "toc": [
-      {
-        "text": "See How The Studio Developed a Product in 24 Hours",
-        "slug": "see-how-the-studio-developed-a-product-in-24-hours",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "metadata": {
-      "dek": "In which",
-      "inprogress": true,
-      "date": "2022-12-05T23:34:09.000Z",
-      "modified": "2024-04-29T15:43:05.000Z",
-      "tags": null,
-      "hidden": true,
-      "draft": true,
-      "words": 12,
-      "images": 0,
-      "links": 0,
-      "codeBlocks": 0,
-      "headers": {
-        "h2": 1
-      },
-      "toc": [
-        {
-          "text": "See How The Studio Developed a Product in 24 Hours",
-          "slug": "see-how-the-studio-developed-a-product-in-24-hours",
-          "level": "h2",
-          "children": []
-        }
-      ],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/drafts/rapid-prototyping-24-hour-product.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "drafts/rapid-prototyping-24-hour-product"
     }
   },
   {
@@ -20568,7 +20397,7 @@
     "type": "post",
     "hidden": true,
     "draft": true,
-    "modified": "2024-07-18T18:31:16.000Z",
+    "modified": "2025-08-19T18:35:04.000Z",
     "toc": [
       {
         "text": "Season 1 Episode 1",
@@ -20579,7 +20408,7 @@
     ],
     "metadata": {
       "date": "2024-03-23T02:56:54.000Z",
-      "modified": "2024-07-18T18:31:16.000Z",
+      "modified": "2025-08-19T18:35:04.000Z",
       "hidden": true,
       "draft": true,
       "words": 48,
@@ -21168,6 +20997,11 @@
     "date": "2025-08-06T16:53:07.000Z",
     "type": "post",
     "modified": "2025-08-13T15:15:55.000Z",
+    "tags": [
+      "dataviz",
+      "quantifiedself",
+      "personal"
+    ],
     "toc": [
       {
         "text": "Ten Years of the Computer",
@@ -21192,6 +21026,11 @@
     "metadata": {
       "date": "2025-08-06T16:53:07.000Z",
       "modified": "2025-08-13T15:15:55.000Z",
+      "tags": [
+        "dataviz",
+        "quantifiedself",
+        "personal"
+      ],
       "words": 976,
       "images": 0,
       "links": 3,
@@ -21228,69 +21067,37 @@
   },
   {
     "slug": "drafts/the-future-of-ai-will-not-be-written-in-python",
-    "title": "The future of AI will not be written in Python",
+    "title": "The Future Of Ai Will Not Be Written In Python",
     "date": "2022-12-05T23:34:09.000Z",
     "type": "post",
     "hidden": true,
     "draft": true,
     "dek": "In which we",
     "modified": "2024-07-18T18:42:19.000Z",
-    "tags": null,
-    "toc": [
-      {
-        "text": "The future of AI will not be written in Python",
-        "slug": "the-future-of-ai-will-not-be-written-in-python",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Why do AI developers love Python?",
-        "slug": "why-do-ai-developers-love-python",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "What are the alternatives?",
-        "slug": "what-are-the-alternatives",
-        "level": "h2",
-        "children": []
-      }
+    "tags": [
+      "machinelearning",
+      "opinion",
+      "tech"
     ],
+    "toc": [],
     "metadata": {
       "dek": "In which we",
       "inprogress": true,
       "date": "2022-12-05T23:34:09.000Z",
       "modified": "2024-07-18T18:42:19.000Z",
-      "tags": null,
+      "tags": [
+        "machinelearning",
+        "opinion",
+        "tech"
+      ],
       "hidden": true,
       "draft": true,
-      "words": 131,
+      "words": 109,
       "images": 0,
       "links": 0,
       "codeBlocks": 0,
-      "headers": {
-        "h2": 3
-      },
-      "toc": [
-        {
-          "text": "The future of AI will not be written in Python",
-          "slug": "the-future-of-ai-will-not-be-written-in-python",
-          "level": "h2",
-          "children": []
-        },
-        {
-          "text": "Why do AI developers love Python?",
-          "slug": "why-do-ai-developers-love-python",
-          "level": "h2",
-          "children": []
-        },
-        {
-          "text": "What are the alternatives?",
-          "slug": "what-are-the-alternatives",
-          "level": "h2",
-          "children": []
-        }
-      ],
+      "headers": {},
+      "toc": [],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/drafts/the-future-of-ai-will-not-be-written-in-python.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -21630,19 +21437,18 @@
   },
   {
     "slug": "drafts/vue-vs-react",
-    "title": "Vue vs React vs Svelte",
+    "title": "Vue lets you write less code",
     "date": "2024-01-29T20:04:25.000Z",
     "type": "post",
     "hidden": true,
     "draft": true,
     "modified": "2024-07-18T18:30:34.000Z",
+    "tags": [
+      "vue",
+      "javascript",
+      "opinion"
+    ],
     "toc": [
-      {
-        "text": "Vue vs React vs Svelte",
-        "slug": "vue-vs-react-vs-svelte",
-        "level": "h2",
-        "children": []
-      },
       {
         "text": "Vue lets you write less code",
         "slug": "vue-lets-you-write-less-code",
@@ -21661,20 +21467,19 @@
       "modified": "2024-07-18T18:30:34.000Z",
       "hidden": true,
       "draft": true,
-      "words": 17,
+      "tags": [
+        "vue",
+        "javascript",
+        "opinion"
+      ],
+      "words": 19,
       "images": 0,
       "links": 0,
       "codeBlocks": 0,
       "headers": {
-        "h2": 3
+        "h2": 2
       },
       "toc": [
-        {
-          "text": "Vue vs React vs Svelte",
-          "slug": "vue-vs-react-vs-svelte",
-          "level": "h2",
-          "children": []
-        },
         {
           "text": "Vue lets you write less code",
           "slug": "vue-lets-you-write-less-code",
@@ -21987,12 +21792,12 @@
     "title": "Index",
     "date": "2024-09-22T00:33:21.000Z",
     "type": "post",
-    "modified": "2025-08-15T18:45:03.000Z",
+    "modified": "2025-08-15T18:52:13.000Z",
     "toc": [],
     "metadata": {
       "date": "2024-09-22T00:33:21.000Z",
-      "modified": "2025-08-15T18:45:03.000Z",
-      "words": 116,
+      "modified": "2025-08-15T18:52:13.000Z",
+      "words": 117,
       "images": 0,
       "links": 6,
       "codeBlocks": 0,
@@ -22053,32 +21858,593 @@
     }
   },
   {
-    "slug": "projects/archived/pottery",
-    "title": "Pottery",
-    "date": "2023-08-01T20:04:09.000Z",
+    "slug": "projects/PROJECT_INDEX",
+    "title": "🦊 EJ's Code Directory",
     "type": "post",
-    "modified": "2025-03-04T04:08:53.000Z",
-    "toc": [],
+    "toc": [
+      {
+        "text": "🦊 EJ's Code Directory",
+        "slug": "ej-s-code-directory",
+        "level": "h1",
+        "children": [
+          {
+            "text": "🚀 Active Projects",
+            "slug": "active-projects",
+            "level": "h2",
+            "children": [
+              {
+                "text": "towntuner",
+                "slug": "towntuner",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "website2",
+                "slug": "website2",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "glassbox",
+                "slug": "glassbox",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "ps5-tmux",
+                "slug": "ps5-tmux",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "coachartie2",
+                "slug": "coachartie2",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "ejfox-news",
+                "slug": "ejfox-news",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "criterion-embedding-viz",
+                "slug": "criterion-embedding-viz",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "rescuetime-scrape",
+                "slug": "rescuetime-scrape",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "discord-arena-bridge",
+                "slug": "discord-arena-bridge",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "spacepunk-logi",
+                "slug": "spacepunk-logi",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "scrap-enlightener",
+                "slug": "scrap-enlightener",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "dockrune",
+                "slug": "dockrune",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "mission-control",
+                "slug": "mission-control",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "electology",
+                "slug": "electology",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "zmk-config2",
+                "slug": "zmk-config2",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "smallbot-mcp",
+                "slug": "smallbot-mcp",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "docgrind",
+                "slug": "docgrind",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "obsidian-analysis",
+                "slug": "obsidian-analysis",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "connectology2",
+                "slug": "connectology2",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "vzcode",
+                "slug": "vzcode",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "glasses-hud",
+                "slug": "glasses-hud",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "gear",
+                "slug": "gear",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "flipper-space-calculators",
+                "slug": "flipper-space-calculators",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "retroscope",
+                "slug": "retroscope",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "photos",
+                "slug": "photos",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "cloudinary-backup",
+                "slug": "cloudinary-backup",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "hand-midi-controller",
+                "slug": "hand-midi-controller",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "code-network-gen",
+                "slug": "code-network-gen",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "electology_ingest",
+                "slug": "electology-ingest",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "exif-printer-simple",
+                "slug": "exif-printer-simple",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "weddings",
+                "slug": "weddings",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "exif-printer-website",
+                "slug": "exif-printer-website",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "anime-beta",
+                "slug": "anime-beta",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "llm-honeypot",
+                "slug": "llm-honeypot",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "flipper-generative-art",
+                "slug": "flipper-generative-art",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "MorningRadio",
+                "slug": "morningradio",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "MorningRadio_BACKUP_20250623_103149",
+                "slug": "morningradio-backup-20250623-103149",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "hexagram_news",
+                "slug": "hexagram-news",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "webhook-desktop-color",
+                "slug": "webhook-desktop-color",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "git-status-dash",
+                "slug": "git-status-dash",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "vulpecula-loom",
+                "slug": "vulpecula-loom",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "vizhub-benchmarks",
+                "slug": "vizhub-benchmarks",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "lilfox-mcp",
+                "slug": "lilfox-mcp",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "election-helpers",
+                "slug": "election-helpers",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "🗄️ Other Projects",
+            "slug": "other-projects",
+            "level": "h2",
+            "children": []
+          }
+        ]
+      }
+    ],
     "metadata": {
-      "title": "Pottery",
-      "date": "2023-08-01T20:04:09.000Z",
-      "modified": "2025-03-04T04:08:53.000Z",
-      "url": "https://ejfox.com/pottery/",
-      "tech": [
-        "Ceramics",
-        "Wheel Throwing",
-        "Craft"
-      ],
-      "words": 37,
-      "images": 1,
-      "links": 2,
+      "words": 1585,
+      "images": 0,
+      "links": 74,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h1": 1
+      },
+      "toc": [
+        {
+          "text": "🦊 EJ's Code Directory",
+          "slug": "ej-s-code-directory",
+          "level": "h1",
+          "children": [
+            {
+              "text": "🚀 Active Projects",
+              "slug": "active-projects",
+              "level": "h2",
+              "children": [
+                {
+                  "text": "towntuner",
+                  "slug": "towntuner",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "website2",
+                  "slug": "website2",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "glassbox",
+                  "slug": "glassbox",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "ps5-tmux",
+                  "slug": "ps5-tmux",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "coachartie2",
+                  "slug": "coachartie2",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "ejfox-news",
+                  "slug": "ejfox-news",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "criterion-embedding-viz",
+                  "slug": "criterion-embedding-viz",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "rescuetime-scrape",
+                  "slug": "rescuetime-scrape",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "discord-arena-bridge",
+                  "slug": "discord-arena-bridge",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "spacepunk-logi",
+                  "slug": "spacepunk-logi",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "scrap-enlightener",
+                  "slug": "scrap-enlightener",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "dockrune",
+                  "slug": "dockrune",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "mission-control",
+                  "slug": "mission-control",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "electology",
+                  "slug": "electology",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "zmk-config2",
+                  "slug": "zmk-config2",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "smallbot-mcp",
+                  "slug": "smallbot-mcp",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "docgrind",
+                  "slug": "docgrind",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "obsidian-analysis",
+                  "slug": "obsidian-analysis",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "connectology2",
+                  "slug": "connectology2",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "vzcode",
+                  "slug": "vzcode",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "glasses-hud",
+                  "slug": "glasses-hud",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "gear",
+                  "slug": "gear",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "flipper-space-calculators",
+                  "slug": "flipper-space-calculators",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "retroscope",
+                  "slug": "retroscope",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "photos",
+                  "slug": "photos",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "cloudinary-backup",
+                  "slug": "cloudinary-backup",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "hand-midi-controller",
+                  "slug": "hand-midi-controller",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "code-network-gen",
+                  "slug": "code-network-gen",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "electology_ingest",
+                  "slug": "electology-ingest",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "exif-printer-simple",
+                  "slug": "exif-printer-simple",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "weddings",
+                  "slug": "weddings",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "exif-printer-website",
+                  "slug": "exif-printer-website",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "anime-beta",
+                  "slug": "anime-beta",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "llm-honeypot",
+                  "slug": "llm-honeypot",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "flipper-generative-art",
+                  "slug": "flipper-generative-art",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "MorningRadio",
+                  "slug": "morningradio",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "MorningRadio_BACKUP_20250623_103149",
+                  "slug": "morningradio-backup-20250623-103149",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "hexagram_news",
+                  "slug": "hexagram-news",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "webhook-desktop-color",
+                  "slug": "webhook-desktop-color",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "git-status-dash",
+                  "slug": "git-status-dash",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "vulpecula-loom",
+                  "slug": "vulpecula-loom",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "vizhub-benchmarks",
+                  "slug": "vizhub-benchmarks",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "lilfox-mcp",
+                  "slug": "lilfox-mcp",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "election-helpers",
+                  "slug": "election-helpers",
+                  "level": "h3",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "text": "🗄️ Other Projects",
+              "slug": "other-projects",
+              "level": "h2",
+              "children": []
+            }
+          ]
+        }
+      ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/projects/archived/pottery.md",
+      "sourcePath": "../../../../../code/website2/content/blog/projects/PROJECT_INDEX.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "projects/archived/pottery"
+      "slug": "projects/PROJECT_INDEX"
     }
   },
   {
@@ -22606,6 +22972,44 @@
       "sourcePath": "../../../../../code/website2/content/blog/projects/photography-tools.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "projects/photography-tools"
+    }
+  },
+  {
+    "slug": "projects/projects",
+    "title": "Projects",
+    "date": "2025-08-19T16:24:53.000Z",
+    "type": "post",
+    "modified": "2025-08-19T16:31:01.000Z",
+    "toc": [
+      {
+        "text": "Projects",
+        "slug": "projects",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "metadata": {
+      "date": "2025-08-19T16:24:53.000Z",
+      "modified": "2025-08-19T16:31:01.000Z",
+      "words": 4,
+      "images": 1,
+      "links": 1,
+      "codeBlocks": 0,
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "Projects",
+          "slug": "projects",
+          "level": "h2",
+          "children": []
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/projects/projects.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "projects/projects"
     }
   },
   {
@@ -25825,7 +26229,9 @@
   {
     "slug": "reading/Guin-The Dispossessed",
     "title": "The Dispossessed",
+    "date": "2023-10-29T18:20:51.000Z",
     "type": "post",
+    "modified": "2025-08-19T17:40:37.000Z",
     "tags": [
       "book",
       "reference"
@@ -25834,18 +26240,18 @@
       {
         "text": "The Dispossessed",
         "slug": "the-dispossessed",
-        "level": "h1",
+        "level": "h2",
         "children": [
           {
             "text": "Metadata",
             "slug": "metadata",
-            "level": "h2",
+            "level": "h3",
             "children": []
           },
           {
             "text": "Highlights",
             "slug": "highlights",
-            "level": "h2",
+            "level": "h3",
             "children": []
           }
         ]
@@ -25865,29 +26271,31 @@
         "book",
         "reference"
       ],
+      "date": "2023-10-29T18:20:51.000Z",
+      "modified": "2025-08-19T17:40:37.000Z",
       "words": 54,
       "images": 0,
       "links": 3,
       "codeBlocks": 0,
       "headers": {
-        "h1": 1
+        "h2": 1
       },
       "toc": [
         {
           "text": "The Dispossessed",
           "slug": "the-dispossessed",
-          "level": "h1",
+          "level": "h2",
           "children": [
             {
               "text": "Metadata",
               "slug": "metadata",
-              "level": "h2",
+              "level": "h3",
               "children": []
             },
             {
               "text": "Highlights",
               "slug": "highlights",
-              "level": "h2",
+              "level": "h3",
               "children": []
             }
           ]
@@ -39383,9 +39791,9 @@
       ],
       "date": "2025-08-11T12:28:42.000Z",
       "modified": "2025-08-12T15:55:46.000Z",
-      "words": 421,
-      "images": 35,
-      "links": 35,
+      "words": 531,
+      "images": 46,
+      "links": 46,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -39415,6 +39823,80 @@
       "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-33.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "week-notes/2025-33"
+    }
+  },
+  {
+    "slug": "week-notes/2025-34",
+    "title": "2025-34",
+    "date": "2025-08-18T22:58:25.000Z",
+    "type": "post",
+    "modified": "2025-08-18T22:58:38.000Z",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
+    "toc": [
+      {
+        "text": "2025-34",
+        "slug": "2025-34",
+        "level": "h2",
+        "children": [
+          {
+            "text": "🌟 Daily Check-In & Reflections",
+            "slug": "daily-check-in-reflections",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "📚 Learning & Media",
+            "slug": "learning-media",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
+      "date": "2025-08-18T22:58:25.000Z",
+      "modified": "2025-08-18T22:58:38.000Z",
+      "words": 53,
+      "images": 3,
+      "links": 3,
+      "codeBlocks": 0,
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "2025-34",
+          "slug": "2025-34",
+          "level": "h2",
+          "children": [
+            {
+              "text": "🌟 Daily Check-In & Reflections",
+              "slug": "daily-check-in-reflections",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "📚 Learning & Media",
+              "slug": "learning-media",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-34.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-34"
     }
   }
 ]

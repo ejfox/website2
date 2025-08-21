@@ -1,8 +1,8 @@
 ---
 dek: "In which"
 inprogress: true
-date: "2023-09-24T17:57:43.000Z"
-modified: "2023-12-18T00:19:56.000Z"
+date: 2023-09-24T13:57:43-04:00
+modified: 2025-08-19T13:41:16-04:00
 tags: []
 hidden: true
 draft: true

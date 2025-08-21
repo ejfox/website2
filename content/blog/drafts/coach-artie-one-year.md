@@ -3,6 +3,10 @@ date: 2024-04-21T18:29:38-04:00
 modified: 2024-07-18T14:43:50-04:00
 hidden: true
 draft: true
+tags:
+  - machinelearning
+  - product
+  - process
 ---
 ## Coach Artie - One Year Retrospective
 

@@ -1,5 +1,9 @@
 ---
 draft: true
+tags:
+  - dataviz
+  - politics
+  - elections
 dek: "In which"
 inprogress: true
 date: 2022-11-02T20:00:20-04:00

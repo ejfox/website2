@@ -8,7 +8,11 @@
     "inprogress": true,
     "date": "2022-12-05T23:34:09.000Z",
     "modified": "2024-07-18T18:30:19.000Z",
-    "tags": null,
+    "tags": [
+      "photography",
+      "vue",
+      "howto"
+    ],
     "words": 1642,
     "images": 1,
     "links": 4,

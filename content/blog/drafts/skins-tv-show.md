@@ -1,6 +1,6 @@
 ---
 date: 2024-03-22T22:56:54-04:00
-modified: 2024-07-18T14:31:16-04:00
+modified: 2025-08-19T14:35:04-04:00
 hidden: true
 draft: true
 ---
@@ -16,6 +16,6 @@ The subprime mortgage crisis was about to begin
 
 Tumblr is launched
 
-<https://web.archive.org/web/20070701232033/http://ejfox.com/>
+<<https://web.archive.org/web/20070701232033/http>:<//ejfox.com/>>
 
 Sid is 16 in the show, about to turn 17!

@@ -1,6 +1,10 @@
 ---
 date: 2025-08-06T12:53:07-04:00
 modified: 2025-08-13T11:15:55-04:00
+tags:
+  - dataviz
+  - quantifiedself
+  - personal
 ---
 ## Ten Years of the Computer
 

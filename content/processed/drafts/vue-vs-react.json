@@ -1,26 +1,25 @@
 {
-  "content": "<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"vue-lets-you-write-less-code\">Vue lets you write less code</h2>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"vue-recommends-patterns\">Vue recommends patterns</h2>",
-  "html": "<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"vue-lets-you-write-less-code\">Vue lets you write less code</h2>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"vue-recommends-patterns\">Vue recommends patterns</h2>",
-  "title": "Vue vs React vs Svelte",
+  "content": "<p class=\"mb-4\">tags:</p>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">vue</li>\n<li class=\"\">javascript</li>\n<li class=\"\">opinion</li>\n</ul>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"vue-recommends-patterns\">Vue recommends patterns</h2>",
+  "html": "<p class=\"mb-4\">tags:</p>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">vue</li>\n<li class=\"\">javascript</li>\n<li class=\"\">opinion</li>\n</ul>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"vue-recommends-patterns\">Vue recommends patterns</h2>",
+  "title": "Vue lets you write less code",
   "metadata": {
     "date": "2024-01-29T20:04:25.000Z",
     "modified": "2024-07-18T18:30:34.000Z",
     "hidden": true,
     "draft": true,
-    "words": 17,
+    "tags": [
+      "vue",
+      "javascript",
+      "opinion"
+    ],
+    "words": 19,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,
     "headers": {
-      "h2": 3
+      "h2": 2
     },
     "toc": [
-      {
-        "text": "Vue vs React vs Svelte",
-        "slug": "vue-vs-react-vs-svelte",
-        "level": "h2",
-        "children": []
-      },
       {
         "text": "Vue lets you write less code",
         "slug": "vue-lets-you-write-less-code",

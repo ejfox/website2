@@ -1,42 +1,25 @@
 {
-  "content": "<p class=\"mb-4\">I think that anyone who translates the latest AI developments out of Python and into Javascript, or any of it's modern offshoots like Deno, Rust, or WebWorkers will be positioned both to scale better and provide a better experience to their developers and users, which will help them move faster and deliver more value.</p>\n<p class=\"mb-4\">The fact of the matter is that there are no scaled user-facing websites on the internet powered by Python. There are likely a lot of different reasons for that.</p>\n<p class=\"mb-4\">But Python has, for better worse, become the lingua franca of AI development.</p>\n<p class=\"mb-4\">It's worth exploring the history of AI and Python to understand why.</p>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"why-do-ai-developers-love-python\">Why do AI developers love Python?</h2>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"what-are-the-alternatives\">What are the alternatives?</h2>",
-  "html": "<p class=\"mb-4\">I think that anyone who translates the latest AI developments out of Python and into Javascript, or any of it's modern offshoots like Deno, Rust, or WebWorkers will be positioned both to scale better and provide a better experience to their developers and users, which will help them move faster and deliver more value.</p>\n<p class=\"mb-4\">The fact of the matter is that there are no scaled user-facing websites on the internet powered by Python. There are likely a lot of different reasons for that.</p>\n<p class=\"mb-4\">But Python has, for better worse, become the lingua franca of AI development.</p>\n<p class=\"mb-4\">It's worth exploring the history of AI and Python to understand why.</p>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"why-do-ai-developers-love-python\">Why do AI developers love Python?</h2>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"what-are-the-alternatives\">What are the alternatives?</h2>",
-  "title": "The future of AI will not be written in Python",
+  "content": "<p class=\"mb-4\">I think that anyone who translates the latest AI developments out of Python and into Javascript, or any of it's modern offshoots like Deno, Rust, or WebWorkers will be positioned both to scale better and provide a better experience to their developers and users, which will help them move faster and deliver more value.\nThe fact of the matter is that there are no scaled user-facing websites on the internet powered by Python. There are likely a lot of different reasons for that.\nBut Python has, for better worse, become the lingua franca of AI development.\nIt's worth exploring the history of AI and Python to understand why.</p>",
+  "html": "<p class=\"mb-4\">I think that anyone who translates the latest AI developments out of Python and into Javascript, or any of it's modern offshoots like Deno, Rust, or WebWorkers will be positioned both to scale better and provide a better experience to their developers and users, which will help them move faster and deliver more value.\nThe fact of the matter is that there are no scaled user-facing websites on the internet powered by Python. There are likely a lot of different reasons for that.\nBut Python has, for better worse, become the lingua franca of AI development.\nIt's worth exploring the history of AI and Python to understand why.</p>",
+  "title": "The Future Of Ai Will Not Be Written In Python",
   "metadata": {
     "dek": "In which we",
     "inprogress": true,
     "date": "2022-12-05T23:34:09.000Z",
     "modified": "2024-07-18T18:42:19.000Z",
-    "tags": null,
+    "tags": [
+      "machinelearning",
+      "opinion",
+      "tech"
+    ],
     "hidden": true,
     "draft": true,
-    "words": 131,
+    "words": 109,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,
-    "headers": {
-      "h2": 3
-    },
-    "toc": [
-      {
-        "text": "The future of AI will not be written in Python",
-        "slug": "the-future-of-ai-will-not-be-written-in-python",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Why do AI developers love Python?",
-        "slug": "why-do-ai-developers-love-python",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "What are the alternatives?",
-        "slug": "what-are-the-alternatives",
-        "level": "h2",
-        "children": []
-      }
-    ],
+    "headers": {},
+    "toc": [],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/drafts/the-future-of-ai-will-not-be-written-in-python.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

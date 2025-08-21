@@ -3,6 +3,10 @@ date: 2022-11-02T19:56:23-04:00
 modified: 2024-07-18T14:43:59-04:00
 hidden: true
 draft: true
+tags:
+  - dataviz
+  - games
+  - analysis
 ---
 ## Call of Duty Stats Breakdown
 

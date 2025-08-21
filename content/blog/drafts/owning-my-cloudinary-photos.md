@@ -5,6 +5,8 @@ tags:
   - data
   - photos
   - tauri
+  - photography
+  - personal
 date: 2025-07-20T20:49:19-04:00
 modified: 2025-07-28T08:57:34-04:00
 ---

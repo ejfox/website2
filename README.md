@@ -2,6 +2,8 @@
 
 A personal website and blog built with **Nuxt 3**, **Vue 3**, and **D3.js**. Content is managed through **Obsidian** and processed through a custom pipeline for seamless publishing. Think of it as a digital garden, but with fewer weeds and more JSON.
 
+**Tech Stack:** Nuxt 3 • Vue 3 Composition API • Tailwind CSS • D3.js • Unified/Rehype • Docker
+
 ---
 
 ## 🌱 **Getting Started**
@@ -110,8 +112,6 @@ graph TD
    - ❌ Double-wrapping content with prose classes
    - ❌ Missing rehype plugins
 
-### Content Organization
-
 ### Directory Structure
 
 ```
@@ -187,20 +187,14 @@ inprogress: true # Show WIP badge
 
 ## 🧑‍💻 **Development Details**
 
-### Tech Stack
-
-- **Frontend**: Nuxt 3, Vue 3 Composition API
-- **Styling**: Tailwind CSS, Prose
-- **Data**: D3.js for visualizations
-- **Content**: Unified/Rehype for Markdown processing
-
 ### Key Features
 
-- Markdown processing with code highlighting
-- Automatic image optimization via Cloudinary
-- Content visibility controls
-- Real-time stats processing
-- Type-safe API endpoints
+- **Content Pipeline**: Obsidian → Markdown → Processed JSON → Vue
+- **Predictions System**: Cryptographically verifiable predictions with PGP signing
+- **Dynamic Tags**: Usage-frequency sorted journalist pyramid structure
+- **Real-time Stats**: Processing with automatic analytics
+- **Image Optimization**: Cloudinary integration with responsive srcsets
+- **Type-safe APIs**: Full TypeScript coverage
 
 ### Environment Variables
 
@@ -276,44 +270,13 @@ That's it! The `/api/stats` endpoint will now include your YouTube stats. 🎥�
 
 ### Logging System
 
-The site uses Grafana Loki for centralized logging through Netlify Edge Functions:
+Centralized logging via Grafana Loki:
 
 ```bash
-# Required for logging
-LOKI_URL=https://loki.tools.ejfox.com/loki/api/v1/push  # Loki endpoint
+LOKI_URL=https://loki.tools.ejfox.com/loki/api/v1/push
 ```
 
-#### Log Types Captured
-
-1. **Build Logs**
-
-   - Build errors and warnings
-   - Plugin issues
-   - Build process messages
-
-2. **Runtime Logs**
-   - Console logs from server-side
-   - API endpoint errors
-   - User interaction errors
-
-#### Log Structure
-
-```javascript
-{
-  stream: {
-    app: 'website2',
-    environment: 'production|preview',
-    level: 'error|info',
-    source: 'build|runtime'
-  },
-  values: [
-    [timestamp, JSON.stringify({
-      message: 'Log message',
-      // Additional context...
-    })]
-  ]
-}
-```
+Captures build logs, runtime errors, and API endpoint issues with structured JSON format.
 
 ## 🐛 **Debugging and Troubleshooting**
 

@@ -3,7 +3,10 @@ dek: "In which the future has arrived, but is only distributed to 8-year-olds"
 inprogress: true
 date: 2023-10-01T14:30:46-04:00
 modified: 2024-07-18T14:42:51-04:00
-tags: null
+tags:
+  - games
+  - vr
+  - culture
 hidden: true
 draft: true
 ---

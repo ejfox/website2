@@ -7,7 +7,11 @@
     "inprogress": true,
     "date": "2023-10-01T18:30:46.000Z",
     "modified": "2024-07-18T18:42:51.000Z",
-    "tags": null,
+    "tags": [
+      "games",
+      "vr",
+      "culture"
+    ],
     "hidden": true,
     "draft": true,
     "words": 329,
