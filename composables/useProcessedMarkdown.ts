@@ -54,7 +54,8 @@ interface ManifestItem extends Post {
 
 // Utility functions
 const _debug = (_msg: string, _data?: any) => {
-  if (process.env.DEBUG_CONTENT === 'true') {
+  const config = useRuntimeConfig()
+  if (config.public.debugContent) {
     // Debug logging disabled
   }
 }

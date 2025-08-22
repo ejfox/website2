@@ -23,7 +23,7 @@ const showVitals = ref(false)
 onMounted(() => {
   // Only show in development or when debug is enabled
   const config = useRuntimeConfig()
-  showVitals.value = config.public.debug || process.env.NODE_ENV === 'development'
+  showVitals.value = config.public.debug || config.public.nodeEnv === 'development'
 
   if (showVitals.value && typeof window !== 'undefined') {
     // Listen for web vitals reports
