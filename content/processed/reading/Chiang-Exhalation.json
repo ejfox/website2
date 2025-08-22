@@ -1,6 +1,6 @@
 {
-  "content": "<p class=\"mb-4\">#tech #fiction</p>\n<h1 class=\"text-4xl font-bold mb-6 mt-8\" id=\"metadata\">Metadata</h1>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">\n<p class=\"mb-4\">Author: <a href=\"https://www.amazon.com/Ted-Chiang/e/B001HCZ6OA/ref=dp_byline_cont_ebooks_1\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Ted Chiang</a></p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">ASIN: B07GD46PQZ</p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">ISBN: 1529014484</p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">Reference: <a href=\"https://www.amazon.com/dp/B07GD46PQZ\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B07GD46PQZ</a></p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\"><a href=\"kindle://book?action=open&#x26;asin=B07GD46PQZ\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></p>\n</li>\n</ul>\n<h1 class=\"text-4xl font-bold mb-6 mt-8\" id=\"highlights\">Highlights</h1>\n<p class=\"mb-4\">Just as we grow to understand the purpose of customs that seemed pointless to us in our youth, Hassan realized that there was merit in withholding information as well as in disclosing it. “No,” he said, “it was good that you did not warn me.” — location: <a href=\"kindle://book?action=open&#x26;asin=B07GD46PQZ&#x26;location=182\" class=\"text-blue-600 dark:text-blue-400\">182</a> ^ref-64519</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
-  "html": "<p class=\"mb-4\">#tech #fiction</p>\n<h1 class=\"text-4xl font-bold mb-6 mt-8\" id=\"metadata\">Metadata</h1>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">\n<p class=\"mb-4\">Author: <a href=\"https://www.amazon.com/Ted-Chiang/e/B001HCZ6OA/ref=dp_byline_cont_ebooks_1\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Ted Chiang</a></p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">ASIN: B07GD46PQZ</p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">ISBN: 1529014484</p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">Reference: <a href=\"https://www.amazon.com/dp/B07GD46PQZ\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B07GD46PQZ</a></p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\"><a href=\"kindle://book?action=open&#x26;asin=B07GD46PQZ\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></p>\n</li>\n</ul>\n<h1 class=\"text-4xl font-bold mb-6 mt-8\" id=\"highlights\">Highlights</h1>\n<p class=\"mb-4\">Just as we grow to understand the purpose of customs that seemed pointless to us in our youth, Hassan realized that there was merit in withholding information as well as in disclosing it. “No,” he said, “it was good that you did not warn me.” — location: <a href=\"kindle://book?action=open&#x26;asin=B07GD46PQZ&#x26;location=182\" class=\"text-blue-600 dark:text-blue-400\">182</a> ^ref-64519</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
+  "content": "<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">ISBN: 1529014484</li>\n</ul>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"highlights\">Highlights</h2>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4\">\n<p class=\"text-zinc-600 dark:text-zinc-400 mb-4\">Just as we grow to understand the purpose of customs that seemed pointless to us in our youth, Hassan realized that there was merit in withholding information as well as in disclosing it. “No,” he said, “it was good that you did not warn me.” ^ref-64519</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Ted Chiang</a></li>\n<li class=\"\">ASIN: B07GD46PQZ</li>\n<li class=\"\">ISBN: 1529014484</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B07GD46PQZ\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B07GD46PQZ</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B07GD46PQZ\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>",
+  "html": "<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">ISBN: 1529014484</li>\n</ul>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"highlights\">Highlights</h2>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4\">\n<p class=\"text-zinc-600 dark:text-zinc-400 mb-4\">Just as we grow to understand the purpose of customs that seemed pointless to us in our youth, Hassan realized that there was merit in withholding information as well as in disclosing it. “No,” he said, “it was good that you did not warn me.” ^ref-64519</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Ted Chiang</a></li>\n<li class=\"\">ASIN: B07GD46PQZ</li>\n<li class=\"\">ISBN: 1529014484</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B07GD46PQZ\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B07GD46PQZ</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B07GD46PQZ\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>",
   "title": "Exhalation",
   "metadata": {
     "kindle-sync": {
@@ -8,41 +8,36 @@
       "title": "Exhalation: Stories",
       "author": "Ted Chiang",
       "asin": "B07GD46PQZ",
-      "lastAnnotatedDate": "2022-10-21",
+      "lastAnnotatedDate": "2024-12-15",
       "bookImageUrl": "https://m.media-amazon.com/images/I/71rxUxpcPgL._SY160.jpg",
       "highlightsCount": 1
     },
-    "date": "2022-12-26T16:46:52.000Z",
-    "modified": "2022-12-27T20:14:05.000Z",
-    "tags": [
-      "tech",
-      "book"
-    ],
-    "words": 75,
+    "words": 74,
     "images": 0,
-    "links": 3,
+    "links": 2,
     "codeBlocks": 0,
     "headers": {
-      "h1": 3
+      "h1": 1
     },
     "toc": [
       {
         "text": "Exhalation",
         "slug": "exhalation",
         "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
+        "children": [
+          {
+            "text": "Highlights",
+            "slug": "highlights",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Metadata",
+            "slug": "metadata",
+            "level": "h2",
+            "children": []
+          }
+        ]
       }
     ],
     "type": "post",

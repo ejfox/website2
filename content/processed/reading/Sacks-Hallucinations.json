@@ -1,6 +1,6 @@
 {
-  "content": "<p class=\"mb-4\">#psychedelics</p>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">\n<p class=\"mb-4\">Author: <a href=\"https://www.amazon.com/Oliver-Sacks/e/B000APZZY6/ref=dp_byline_cont_ebooks_1\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Oliver Sacks</a></p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">ASIN: B0082XLY6G</p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">Reference: <a href=\"https://www.amazon.com/dp/B0082XLY6G\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B0082XLY6G</a></p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\"><a href=\"kindle://book?action=open&#x26;asin=B0082XLY6G\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></p>\n</li>\n</ul>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"highlights\">Highlights</h2>\n<p class=\"mb-4\">Some people hallucinate text or music. But by far the commonest hallucinations are the geometrical ones: squares, checkerboards, rhomboids, quadrangles, hexagons, bricks, walls, tiles, tessellations, honeycombs, mosaics. — location: <a href=\"kindle://book?action=open&#x26;asin=B0082XLY6G&#x26;location=338\" class=\"text-blue-600 dark:text-blue-400\">338</a> ^ref-13303</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<p class=\"mb-4\">In the last decade or two, Dominic ffytche and his colleagues in London have done pioneering research on the neural basis of visual hallucinations. Based on the detailed reports of dozens of subjects, they developed a taxonomy of hallucinations, including categories like figures with hats, children or small people, landscapes, vehicles, grotesque faces, text, and cartoonlike faces. (This taxonomy is described in a 2000 paper by Santhouse et al.) — location: <a href=\"kindle://book?action=open&#x26;asin=B0082XLY6G&#x26;location=342\" class=\"text-blue-600 dark:text-blue-400\">342</a> ^ref-57663</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
-  "html": "<p class=\"mb-4\">#psychedelics</p>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">\n<p class=\"mb-4\">Author: <a href=\"https://www.amazon.com/Oliver-Sacks/e/B000APZZY6/ref=dp_byline_cont_ebooks_1\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Oliver Sacks</a></p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">ASIN: B0082XLY6G</p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">Reference: <a href=\"https://www.amazon.com/dp/B0082XLY6G\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B0082XLY6G</a></p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\"><a href=\"kindle://book?action=open&#x26;asin=B0082XLY6G\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></p>\n</li>\n</ul>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"highlights\">Highlights</h2>\n<p class=\"mb-4\">Some people hallucinate text or music. But by far the commonest hallucinations are the geometrical ones: squares, checkerboards, rhomboids, quadrangles, hexagons, bricks, walls, tiles, tessellations, honeycombs, mosaics. — location: <a href=\"kindle://book?action=open&#x26;asin=B0082XLY6G&#x26;location=338\" class=\"text-blue-600 dark:text-blue-400\">338</a> ^ref-13303</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<p class=\"mb-4\">In the last decade or two, Dominic ffytche and his colleagues in London have done pioneering research on the neural basis of visual hallucinations. Based on the detailed reports of dozens of subjects, they developed a taxonomy of hallucinations, including categories like figures with hats, children or small people, landscapes, vehicles, grotesque faces, text, and cartoonlike faces. (This taxonomy is described in a 2000 paper by Santhouse et al.) — location: <a href=\"kindle://book?action=open&#x26;asin=B0082XLY6G&#x26;location=342\" class=\"text-blue-600 dark:text-blue-400\">342</a> ^ref-57663</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
+  "content": "<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"highlights\">Highlights</h2>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4\">\n<p class=\"text-zinc-600 dark:text-zinc-400 mb-4\">Some people hallucinate text or music. But by far the commonest hallucinations are the geometrical ones: squares, checkerboards, rhomboids, quadrangles, hexagons, bricks, walls, tiles, tessellations, honeycombs, mosaics. ^ref-13303</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4\">\n<p class=\"text-zinc-600 dark:text-zinc-400 mb-4\">In the last decade or two, Dominic ffytche and his colleagues in London have done pioneering research on the neural basis of visual hallucinations. Based on the detailed reports of dozens of subjects, they developed a taxonomy of hallucinations, including categories like figures with hats, children or small people, landscapes, vehicles, grotesque faces, text, and cartoonlike faces. (This taxonomy is described in a 2000 paper by Santhouse et al.) ^ref-57663</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Oliver Sacks</a></li>\n<li class=\"\">ASIN: B0082XLY6G</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B0082XLY6G\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B0082XLY6G</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B0082XLY6G\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>",
+  "html": "<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"highlights\">Highlights</h2>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4\">\n<p class=\"text-zinc-600 dark:text-zinc-400 mb-4\">Some people hallucinate text or music. But by far the commonest hallucinations are the geometrical ones: squares, checkerboards, rhomboids, quadrangles, hexagons, bricks, walls, tiles, tessellations, honeycombs, mosaics. ^ref-13303</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4\">\n<p class=\"text-zinc-600 dark:text-zinc-400 mb-4\">In the last decade or two, Dominic ffytche and his colleagues in London have done pioneering research on the neural basis of visual hallucinations. Based on the detailed reports of dozens of subjects, they developed a taxonomy of hallucinations, including categories like figures with hats, children or small people, landscapes, vehicles, grotesque faces, text, and cartoonlike faces. (This taxonomy is described in a 2000 paper by Santhouse et al.) ^ref-57663</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Oliver Sacks</a></li>\n<li class=\"\">ASIN: B0082XLY6G</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B0082XLY6G\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B0082XLY6G</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B0082XLY6G\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>",
   "title": "Hallucinations",
   "metadata": {
     "kindle-sync": {
@@ -12,37 +12,32 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/81qLTBovPpL._SY160.jpg",
       "highlightsCount": 2
     },
-    "date": "2022-12-14T20:27:12.000Z",
-    "modified": "2025-08-02T00:46:47.000Z",
-    "tags": [
-      "psychedelics",
-      "research"
-    ],
-    "words": 127,
+    "words": 122,
     "images": 0,
-    "links": 4,
+    "links": 2,
     "codeBlocks": 0,
     "headers": {
-      "h2": 3
+      "h1": 1
     },
     "toc": [
       {
         "text": "Hallucinations",
         "slug": "hallucinations",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h2",
-        "children": []
+        "level": "h1",
+        "children": [
+          {
+            "text": "Highlights",
+            "slug": "highlights",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Metadata",
+            "slug": "metadata",
+            "level": "h2",
+            "children": []
+          }
+        ]
       }
     ],
     "type": "post",

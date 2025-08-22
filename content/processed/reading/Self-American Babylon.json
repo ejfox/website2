@@ -1,13 +1,8 @@
 {
-  "content": "<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">\n<p class=\"mb-4\">Author: <a href=\"https://www.amazon.com/Robert-O-Self/e/B001KEA5O6/ref=dp_byline_cont_ebooks_1\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Robert O. Self</a></p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">ASIN: B00GYW96C6</p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">Reference: <a href=\"https://www.amazon.com/dp/B00GYW96C6\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B00GYW96C6</a></p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\"><a href=\"kindle://book?action=open&#x26;asin=B00GYW96C6\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></p>\n</li>\n</ul>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"highlights\">Highlights</h2>\n<p class=\"mb-4\">Dedicated enemies of organized labor, the welfare state, and radical politics of all varieties, the Knowlands helped to set the political tone for many of the city’s other downtown property owners, their patrons and guardians, and those with a vested interest in downtown as a site of capital accumulation. — location: <a href=\"kindle://book?action=open&#x26;asin=B00GYW96C6&#x26;location=452\" class=\"text-blue-600 dark:text-blue-400\">452</a> ^ref-42512</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<p class=\"mb-4\">In this sense, the postwar black struggle in America represented one of the world’s most sustained and militant engagements with the modern state apparatus.13 — location: <a href=\"kindle://book?action=open&#x26;asin=B00GYW96C6&#x26;location=542\" class=\"text-blue-600 dark:text-blue-400\">542</a> ^ref-13476</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
-  "html": "<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">\n<p class=\"mb-4\">Author: <a href=\"https://www.amazon.com/Robert-O-Self/e/B001KEA5O6/ref=dp_byline_cont_ebooks_1\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Robert O. Self</a></p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">ASIN: B00GYW96C6</p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">Reference: <a href=\"https://www.amazon.com/dp/B00GYW96C6\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B00GYW96C6</a></p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\"><a href=\"kindle://book?action=open&#x26;asin=B00GYW96C6\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></p>\n</li>\n</ul>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"highlights\">Highlights</h2>\n<p class=\"mb-4\">Dedicated enemies of organized labor, the welfare state, and radical politics of all varieties, the Knowlands helped to set the political tone for many of the city’s other downtown property owners, their patrons and guardians, and those with a vested interest in downtown as a site of capital accumulation. — location: <a href=\"kindle://book?action=open&#x26;asin=B00GYW96C6&#x26;location=452\" class=\"text-blue-600 dark:text-blue-400\">452</a> ^ref-42512</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<p class=\"mb-4\">In this sense, the postwar black struggle in America represented one of the world’s most sustained and militant engagements with the modern state apparatus.13 — location: <a href=\"kindle://book?action=open&#x26;asin=B00GYW96C6&#x26;location=542\" class=\"text-blue-600 dark:text-blue-400\">542</a> ^ref-13476</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
+  "content": "<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"highlights\">Highlights</h2>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4\">\n<p class=\"text-zinc-600 dark:text-zinc-400 mb-4\">Dedicated enemies of organized labor, the welfare state, and radical politics of all varieties, the Knowlands helped to set the political tone for many of the city’s other downtown property owners, their patrons and guardians, and those with a vested interest in downtown as a site of capital accumulation. ^ref-42512</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4\">\n<p class=\"text-zinc-600 dark:text-zinc-400 mb-4\">In this sense, the postwar black struggle in America represented one of the world’s most sustained and militant engagements with the modern state apparatus.13 ^ref-13476</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Robert O. Self</a></li>\n<li class=\"\">ASIN: B00GYW96C6</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B00GYW96C6\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B00GYW96C6</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B00GYW96C6\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>",
+  "html": "<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"highlights\">Highlights</h2>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4\">\n<p class=\"text-zinc-600 dark:text-zinc-400 mb-4\">Dedicated enemies of organized labor, the welfare state, and radical politics of all varieties, the Knowlands helped to set the political tone for many of the city’s other downtown property owners, their patrons and guardians, and those with a vested interest in downtown as a site of capital accumulation. ^ref-42512</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4\">\n<p class=\"text-zinc-600 dark:text-zinc-400 mb-4\">In this sense, the postwar black struggle in America represented one of the world’s most sustained and militant engagements with the modern state apparatus.13 ^ref-13476</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Robert O. Self</a></li>\n<li class=\"\">ASIN: B00GYW96C6</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B00GYW96C6\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B00GYW96C6</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B00GYW96C6\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>",
   "title": "American Babylon",
   "metadata": {
-    "tags": [
-      "america",
-      "politics",
-      "activism"
-    ],
     "kindle-sync": {
       "bookId": "57443",
       "title": "American Babylon: Race and the Struggle for Postwar Oakland (Politics and Society in Modern America Book 37)",
@@ -17,33 +12,32 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/81R5dWlWxzL._SY160.jpg",
       "highlightsCount": 2
     },
-    "date": "2022-12-14T20:29:47.000Z",
-    "modified": "2024-09-20T04:21:50.000Z",
-    "words": 105,
+    "words": 101,
     "images": 0,
-    "links": 4,
+    "links": 2,
     "codeBlocks": 0,
     "headers": {
-      "h2": 3
+      "h1": 1
     },
     "toc": [
       {
         "text": "American Babylon",
         "slug": "american-babylon",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h2",
-        "children": []
+        "level": "h1",
+        "children": [
+          {
+            "text": "Highlights",
+            "slug": "highlights",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Metadata",
+            "slug": "metadata",
+            "level": "h2",
+            "children": []
+          }
+        ]
       }
     ],
     "type": "post",

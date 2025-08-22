@@ -9,31 +9,19 @@ kindle-sync:
   lastAnnotatedDate: '2019-04-11'
   bookImageUrl: 'https://m.media-amazon.com/images/I/81aNsuBcfjL._SY160.jpg'
   highlightsCount: 1
-date: 2022-12-26T16:47:58.000Z
-modified: 2022-12-27T20:11:37.000Z
-tags:
-  - book
-  - comedy
-  - oakland
 ---
 # Kasher in the Rye
 
-#oakland #comedy 
+* ISBN: 0446584274
 
-# Metadata
-
-* Author: [Moshe Kasher](https://www.amazon.com/Moshe-Kasher/e/B0058XHZXY/ref=dp_byline_cont_ebooks_1)
-
-* ASIN: B004RCNGSA
-
-* ISBN: 0446584266
-
-* Reference: <https://www.amazon.com/dp/B004RCNGSA>
-
-* [Kindle link](kindle://book?action=open&asin=B004RCNGSA)
-
-# Highlights
-
-There was a cobbler in Rockridge named Alonzo, who took all of these oddballs under his wing and had their VA checks diverted to his little storefront. Then he would pay them piecemeal, either in cash after taking a percentage for himself, or in cocaine that he stuffed into a shoe and passed to them, like a Brothers Grimm tale gone grimmer. Alonzo was a crooked cobbler. That’s life in Oakland. — location: [3228](kindle://book?action=open&asin=B004RCNGSA&location=3228) ^ref-27118
+## Highlights
+> There was a cobbler in Rockridge named Alonzo, who took all of these oddballs under his wing and had their VA checks diverted to his little storefront. Then he would pay them piecemeal, either in cash after taking a percentage for himself, or in cocaine that he stuffed into a shoe and passed to them, like a Brothers Grimm tale gone grimmer. Alonzo was a crooked cobbler. That’s life in Oakland. ^ref-27118
 
 ---
+
+## Metadata
+* Author: [Moshe Kasher](https://www.amazon.comundefined)
+* ASIN: B004RCNGSA
+* ISBN: 0446584274
+* Reference: https://www.amazon.com/dp/B004RCNGSA
+* [Kindle link](kindle://book?action=open&asin=B004RCNGSA)

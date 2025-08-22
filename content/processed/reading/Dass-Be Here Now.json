@@ -1,6 +1,6 @@
 {
-  "content": "<p class=\"mb-4\">#meditation</p>\n<h1 class=\"text-4xl font-bold mb-6 mt-8\" id=\"metadata\">Metadata</h1>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">\n<p class=\"mb-4\">Author: <a href=\"https://www.amazon.com/Ram-Dass/e/B001HCS3GS/ref=dp_byline_cont_ebooks_1\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Ram Dass</a></p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">ASIN: B005R9HK8O</p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">ISBN: 0517543052</p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">Reference: <a href=\"https://www.amazon.com/dp/B005R9HK8O\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B005R9HK8O</a></p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\"><a href=\"kindle://book?action=open&#x26;asin=B005R9HK8O\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></p>\n</li>\n</ul>\n<h1 class=\"text-4xl font-bold mb-6 mt-8\" id=\"highlights\">Highlights</h1>\n<p class=\"mb-4\">So I left to go to India, and I took a bottle of LSD with me, with the idea that I’d meet holy men along the way, and I’d give them LSD and they’d tell me what LSD is. Maybe I’d learn the missing clue. — location: <a href=\"kindle://book?action=open&#x26;asin=B005R9HK8O&#x26;location=369\" class=\"text-blue-600 dark:text-blue-400\">369</a> ^ref-57733</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<p class=\"mb-4\">“If you wear shoeleather, the whole earth is covered with leather.” — location: <a href=\"kindle://book?action=open&#x26;asin=B005R9HK8O&#x26;location=773\" class=\"text-blue-600 dark:text-blue-400\">773</a> ^ref-60154</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
-  "html": "<p class=\"mb-4\">#meditation</p>\n<h1 class=\"text-4xl font-bold mb-6 mt-8\" id=\"metadata\">Metadata</h1>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">\n<p class=\"mb-4\">Author: <a href=\"https://www.amazon.com/Ram-Dass/e/B001HCS3GS/ref=dp_byline_cont_ebooks_1\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Ram Dass</a></p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">ASIN: B005R9HK8O</p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">ISBN: 0517543052</p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">Reference: <a href=\"https://www.amazon.com/dp/B005R9HK8O\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B005R9HK8O</a></p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\"><a href=\"kindle://book?action=open&#x26;asin=B005R9HK8O\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></p>\n</li>\n</ul>\n<h1 class=\"text-4xl font-bold mb-6 mt-8\" id=\"highlights\">Highlights</h1>\n<p class=\"mb-4\">So I left to go to India, and I took a bottle of LSD with me, with the idea that I’d meet holy men along the way, and I’d give them LSD and they’d tell me what LSD is. Maybe I’d learn the missing clue. — location: <a href=\"kindle://book?action=open&#x26;asin=B005R9HK8O&#x26;location=369\" class=\"text-blue-600 dark:text-blue-400\">369</a> ^ref-57733</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<p class=\"mb-4\">“If you wear shoeleather, the whole earth is covered with leather.” — location: <a href=\"kindle://book?action=open&#x26;asin=B005R9HK8O&#x26;location=773\" class=\"text-blue-600 dark:text-blue-400\">773</a> ^ref-60154</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
+  "content": "<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">ISBN: 0517543052</li>\n</ul>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"highlights\">Highlights</h2>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4\">\n<p class=\"text-zinc-600 dark:text-zinc-400 mb-4\">So I left to go to India, and I took a bottle of LSD with me, with the idea that I’d meet holy men along the way, and I’d give them LSD and they’d tell me what LSD is. Maybe I’d learn the missing clue. ^ref-57733</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4\">\n<p class=\"text-zinc-600 dark:text-zinc-400 mb-4\">“If you wear shoeleather, the whole earth is covered with leather.” ^ref-60154</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Ram Dass</a></li>\n<li class=\"\">ASIN: B005R9HK8O</li>\n<li class=\"\">ISBN: 0517543052</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B005R9HK8O\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B005R9HK8O</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B005R9HK8O\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>",
+  "html": "<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">ISBN: 0517543052</li>\n</ul>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"highlights\">Highlights</h2>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4\">\n<p class=\"text-zinc-600 dark:text-zinc-400 mb-4\">So I left to go to India, and I took a bottle of LSD with me, with the idea that I’d meet holy men along the way, and I’d give them LSD and they’d tell me what LSD is. Maybe I’d learn the missing clue. ^ref-57733</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4\">\n<p class=\"text-zinc-600 dark:text-zinc-400 mb-4\">“If you wear shoeleather, the whole earth is covered with leather.” ^ref-60154</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Ram Dass</a></li>\n<li class=\"\">ASIN: B005R9HK8O</li>\n<li class=\"\">ISBN: 0517543052</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B005R9HK8O\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B005R9HK8O</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B005R9HK8O\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>",
   "title": "Be Here Now",
   "metadata": {
     "kindle-sync": {
@@ -8,43 +8,36 @@
       "title": "Be Here Now (Enhanced Edition)",
       "author": "Ram Dass",
       "asin": "B005R9HK8O",
-      "lastAnnotatedDate": "2022-07-14",
+      "lastAnnotatedDate": "2025-08-18",
       "bookImageUrl": "https://m.media-amazon.com/images/I/81Dpy5FsblL._SY160.jpg",
       "highlightsCount": 2
     },
-    "date": "2022-12-26T16:46:57.000Z",
-    "modified": "2022-12-27T20:08:28.000Z",
-    "tags": [
-      "book",
-      "meditation",
-      "reference",
-      "psychedelics"
-    ],
-    "words": 92,
+    "words": 90,
     "images": 0,
-    "links": 4,
+    "links": 2,
     "codeBlocks": 0,
     "headers": {
-      "h1": 3
+      "h1": 1
     },
     "toc": [
       {
         "text": "Be Here Now",
         "slug": "be-here-now",
         "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
+        "children": [
+          {
+            "text": "Highlights",
+            "slug": "highlights",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Metadata",
+            "slug": "metadata",
+            "level": "h2",
+            "children": []
+          }
+        ]
       }
     ],
     "type": "post",

@@ -1,6 +1,6 @@
 {
-  "content": "<p class=\"mb-4\">#design #games #videogames</p>\n<h1 class=\"text-4xl font-bold mb-6 mt-8\" id=\"metadata\">Metadata</h1>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">\n<p class=\"mb-4\">Author: <a href=\"https://www.amazon.com/Raph-Koster/e/B002BM7D3M/ref=dp_byline_cont_ebooks_1\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Raph Koster</a></p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">ASIN: B00GK5SRFY</p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">Reference: <a href=\"https://www.amazon.com/dp/B00GK5SRFY\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B00GK5SRFY</a></p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\"><a href=\"kindle://book?action=open&#x26;asin=B00GK5SRFY\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></p>\n</li>\n</ul>\n<h1 class=\"text-4xl font-bold mb-6 mt-8\" id=\"highlights\">Highlights</h1>\n<p class=\"mb-4\">Noise is any pattern we don’t understand. — location: <a href=\"kindle://book?action=open&#x26;asin=B00GK5SRFY&#x26;location=410\" class=\"text-blue-600 dark:text-blue-400\">410</a> ^ref-13571</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<p class=\"mb-4\">They are on the same order as learning to drive a car, play the mandolin, or multiply seven times seven. We learn the underlying patterns, grok them fully, and file them away so that they can be rerun as needed. The only real difference between games and reality is that the stakes are lower with games. — location: <a href=\"kindle://book?action=open&#x26;asin=B00GK5SRFY&#x26;location=484\" class=\"text-blue-600 dark:text-blue-400\">484</a> ^ref-24004</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
-  "html": "<p class=\"mb-4\">#design #games #videogames</p>\n<h1 class=\"text-4xl font-bold mb-6 mt-8\" id=\"metadata\">Metadata</h1>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">\n<p class=\"mb-4\">Author: <a href=\"https://www.amazon.com/Raph-Koster/e/B002BM7D3M/ref=dp_byline_cont_ebooks_1\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Raph Koster</a></p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">ASIN: B00GK5SRFY</p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">Reference: <a href=\"https://www.amazon.com/dp/B00GK5SRFY\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B00GK5SRFY</a></p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\"><a href=\"kindle://book?action=open&#x26;asin=B00GK5SRFY\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></p>\n</li>\n</ul>\n<h1 class=\"text-4xl font-bold mb-6 mt-8\" id=\"highlights\">Highlights</h1>\n<p class=\"mb-4\">Noise is any pattern we don’t understand. — location: <a href=\"kindle://book?action=open&#x26;asin=B00GK5SRFY&#x26;location=410\" class=\"text-blue-600 dark:text-blue-400\">410</a> ^ref-13571</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<p class=\"mb-4\">They are on the same order as learning to drive a car, play the mandolin, or multiply seven times seven. We learn the underlying patterns, grok them fully, and file them away so that they can be rerun as needed. The only real difference between games and reality is that the stakes are lower with games. — location: <a href=\"kindle://book?action=open&#x26;asin=B00GK5SRFY&#x26;location=484\" class=\"text-blue-600 dark:text-blue-400\">484</a> ^ref-24004</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
+  "content": "<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"highlights\">Highlights</h2>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4\">\n<p class=\"text-zinc-600 dark:text-zinc-400 mb-4\">Noise is any pattern we don’t understand. ^ref-13571</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4\">\n<p class=\"text-zinc-600 dark:text-zinc-400 mb-4\">They are on the same order as learning to drive a car, play the mandolin, or multiply seven times seven. We learn the underlying patterns, grok them fully, and file them away so that they can be rerun as needed. The only real difference between games and reality is that the stakes are lower with games. ^ref-24004</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Raph Koster</a></li>\n<li class=\"\">ASIN: B00GK5SRFY</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B00GK5SRFY\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B00GK5SRFY</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B00GK5SRFY\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>",
+  "html": "<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"highlights\">Highlights</h2>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4\">\n<p class=\"text-zinc-600 dark:text-zinc-400 mb-4\">Noise is any pattern we don’t understand. ^ref-13571</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4\">\n<p class=\"text-zinc-600 dark:text-zinc-400 mb-4\">They are on the same order as learning to drive a car, play the mandolin, or multiply seven times seven. We learn the underlying patterns, grok them fully, and file them away so that they can be rerun as needed. The only real difference between games and reality is that the stakes are lower with games. ^ref-24004</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Raph Koster</a></li>\n<li class=\"\">ASIN: B00GK5SRFY</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B00GK5SRFY\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B00GK5SRFY</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B00GK5SRFY\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>",
   "title": "Theory of Fun for Game Design",
   "metadata": {
     "kindle-sync": {
@@ -12,38 +12,32 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/A11vGLbYKcL._SY160.jpg",
       "highlightsCount": 2
     },
-    "date": "2022-12-26T16:48:23.000Z",
-    "modified": "2022-12-27T20:12:25.000Z",
-    "tags": [
-      "design",
-      "games",
-      "videogames"
-    ],
-    "words": 101,
+    "words": 94,
     "images": 0,
-    "links": 4,
+    "links": 2,
     "codeBlocks": 0,
     "headers": {
-      "h1": 3
+      "h1": 1
     },
     "toc": [
       {
         "text": "Theory of Fun for Game Design",
         "slug": "theory-of-fun-for-game-design",
         "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
+        "children": [
+          {
+            "text": "Highlights",
+            "slug": "highlights",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Metadata",
+            "slug": "metadata",
+            "level": "h2",
+            "children": []
+          }
+        ]
       }
     ],
     "type": "post",

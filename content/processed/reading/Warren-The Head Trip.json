@@ -1,6 +1,6 @@
 {
-  "content": "<p class=\"mb-4\">#health</p>\n<h1 class=\"text-4xl font-bold mb-6 mt-8\" id=\"metadata\">Metadata</h1>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">\n<p class=\"mb-4\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Jeff Warren</a></p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">ASIN: B000W917RY</p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">Reference: <a href=\"https://www.amazon.com/dp/B000W917RY\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B000W917RY</a></p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\"><a href=\"kindle://book?action=open&#x26;asin=B000W917RY\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></p>\n</li>\n</ul>\n<h1 class=\"text-4xl font-bold mb-6 mt-8\" id=\"highlights\">Highlights</h1>\n<p class=\"mb-4\">San Francisco–based dream researcher and artist Fariba Bogzaran told me that people who meditate have an easier time of it because they have practiced being both subject and observer at once. She says the important thing is not crashing; instead, go to sleep consciously, and really try to notice the process of falling asleep. The result: a poor man’s psychedelic trip. — location: <a href=\"kindle://book?action=open&#x26;asin=B000W917RY&#x26;location=416\" class=\"text-blue-600 dark:text-blue-400\">416</a> ^ref-42316</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<p class=\"mb-4\">Parasomnias are incredibly important in understanding consciousness because they show that, in the words of one group of researchers, “wake and sleep are not mutually exclusive states, and that sleep is not necessarily a global brain phenomenon.” In a sense, consciousness can be remixed—there is an alchemic quality to the way different physiological mechanisms interact to produce oddball subjective variations. — location: <a href=\"kindle://book?action=open&#x26;asin=B000W917RY&#x26;location=473\" class=\"text-blue-600 dark:text-blue-400\">473</a> ^ref-32516</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
-  "html": "<p class=\"mb-4\">#health</p>\n<h1 class=\"text-4xl font-bold mb-6 mt-8\" id=\"metadata\">Metadata</h1>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">\n<p class=\"mb-4\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Jeff Warren</a></p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">ASIN: B000W917RY</p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">Reference: <a href=\"https://www.amazon.com/dp/B000W917RY\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B000W917RY</a></p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\"><a href=\"kindle://book?action=open&#x26;asin=B000W917RY\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></p>\n</li>\n</ul>\n<h1 class=\"text-4xl font-bold mb-6 mt-8\" id=\"highlights\">Highlights</h1>\n<p class=\"mb-4\">San Francisco–based dream researcher and artist Fariba Bogzaran told me that people who meditate have an easier time of it because they have practiced being both subject and observer at once. She says the important thing is not crashing; instead, go to sleep consciously, and really try to notice the process of falling asleep. The result: a poor man’s psychedelic trip. — location: <a href=\"kindle://book?action=open&#x26;asin=B000W917RY&#x26;location=416\" class=\"text-blue-600 dark:text-blue-400\">416</a> ^ref-42316</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<p class=\"mb-4\">Parasomnias are incredibly important in understanding consciousness because they show that, in the words of one group of researchers, “wake and sleep are not mutually exclusive states, and that sleep is not necessarily a global brain phenomenon.” In a sense, consciousness can be remixed—there is an alchemic quality to the way different physiological mechanisms interact to produce oddball subjective variations. — location: <a href=\"kindle://book?action=open&#x26;asin=B000W917RY&#x26;location=473\" class=\"text-blue-600 dark:text-blue-400\">473</a> ^ref-32516</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
+  "content": "<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"highlights\">Highlights</h2>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4\">\n<p class=\"text-zinc-600 dark:text-zinc-400 mb-4\">San Francisco–based dream researcher and artist Fariba Bogzaran told me that people who meditate have an easier time of it because they have practiced being both subject and observer at once. She says the important thing is not crashing; instead, go to sleep consciously, and really try to notice the process of falling asleep. The result: a poor man’s psychedelic trip. ^ref-42316</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4\">\n<p class=\"text-zinc-600 dark:text-zinc-400 mb-4\">Parasomnias are incredibly important in understanding consciousness because they show that, in the words of one group of researchers, “wake and sleep are not mutually exclusive states, and that sleep is not necessarily a global brain phenomenon.” In a sense, consciousness can be remixed—there is an alchemic quality to the way different physiological mechanisms interact to produce oddball subjective variations. ^ref-32516</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Jeff Warren</a></li>\n<li class=\"\">ASIN: B000W917RY</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B000W917RY\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B000W917RY</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B000W917RY\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>",
+  "html": "<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"highlights\">Highlights</h2>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4\">\n<p class=\"text-zinc-600 dark:text-zinc-400 mb-4\">San Francisco–based dream researcher and artist Fariba Bogzaran told me that people who meditate have an easier time of it because they have practiced being both subject and observer at once. She says the important thing is not crashing; instead, go to sleep consciously, and really try to notice the process of falling asleep. The result: a poor man’s psychedelic trip. ^ref-42316</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4\">\n<p class=\"text-zinc-600 dark:text-zinc-400 mb-4\">Parasomnias are incredibly important in understanding consciousness because they show that, in the words of one group of researchers, “wake and sleep are not mutually exclusive states, and that sleep is not necessarily a global brain phenomenon.” In a sense, consciousness can be remixed—there is an alchemic quality to the way different physiological mechanisms interact to produce oddball subjective variations. ^ref-32516</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Jeff Warren</a></li>\n<li class=\"\">ASIN: B000W917RY</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B000W917RY\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B000W917RY</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B000W917RY\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>",
   "title": "The Head Trip",
   "metadata": {
     "kindle-sync": {
@@ -8,42 +8,36 @@
       "title": "The Head Trip: Adventures on the Wheel of Consciousness",
       "author": "Jeff Warren",
       "asin": "B000W917RY",
-      "lastAnnotatedDate": "2015-02-28",
+      "lastAnnotatedDate": "2023-07-02",
       "bookImageUrl": "https://m.media-amazon.com/images/I/41fYLnP17DL._SY160.jpg",
       "highlightsCount": 2
     },
-    "date": "2022-12-14T20:29:37.000Z",
-    "modified": "2022-12-23T15:56:46.000Z",
-    "tags": [
-      "health",
-      "meditation",
-      "psychedelics"
-    ],
-    "words": 154,
+    "words": 149,
     "images": 0,
-    "links": 4,
+    "links": 2,
     "codeBlocks": 0,
     "headers": {
-      "h1": 3
+      "h1": 1
     },
     "toc": [
       {
         "text": "The Head Trip",
         "slug": "the-head-trip",
         "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
+        "children": [
+          {
+            "text": "Highlights",
+            "slug": "highlights",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Metadata",
+            "slug": "metadata",
+            "level": "h2",
+            "children": []
+          }
+        ]
       }
     ],
     "type": "post",

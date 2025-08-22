@@ -1,6 +1,6 @@
 {
-  "content": "<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"metadata\">Metadata</h3>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">David Shields</a></li>\n<li class=\"\">ASIN: B0DGLSSTL3</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B0DGLSSTL3\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B0DGLSSTL3</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B0DGLSSTL3\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"highlights\">Highlights</h3>\n<p class=\"mb-4\">When the spectacle [of society] stops talking about something for three days, it’s as if it didn’t exist. The spectacle has gone on to talk about something else, and now that is what exists. The practical consequences are enormous.” The disappearance of history is the primary source of the power of the spectacle. — location: <a href=\"kindle://book?action=open&#x26;asin=B0DGLSSTL3&#x26;location=708\" class=\"text-blue-600 dark:text-blue-400\">708</a> ^ref-4551</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<p class=\"mb-4\">(Biden is never not boring.) — location: <a href=\"kindle://book?action=open&#x26;asin=B0DGLSSTL3&#x26;location=1150\" class=\"text-blue-600 dark:text-blue-400\">1150</a> ^ref-14296</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
-  "html": "<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"metadata\">Metadata</h3>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">David Shields</a></li>\n<li class=\"\">ASIN: B0DGLSSTL3</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B0DGLSSTL3\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B0DGLSSTL3</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B0DGLSSTL3\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"highlights\">Highlights</h3>\n<p class=\"mb-4\">When the spectacle [of society] stops talking about something for three days, it’s as if it didn’t exist. The spectacle has gone on to talk about something else, and now that is what exists. The practical consequences are enormous.” The disappearance of history is the primary source of the power of the spectacle. — location: <a href=\"kindle://book?action=open&#x26;asin=B0DGLSSTL3&#x26;location=708\" class=\"text-blue-600 dark:text-blue-400\">708</a> ^ref-4551</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<p class=\"mb-4\">(Biden is never not boring.) — location: <a href=\"kindle://book?action=open&#x26;asin=B0DGLSSTL3&#x26;location=1150\" class=\"text-blue-600 dark:text-blue-400\">1150</a> ^ref-14296</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
+  "content": "<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"highlights\">Highlights</h2>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4\">\n<p class=\"text-zinc-600 dark:text-zinc-400 mb-4\">When the spectacle [of society] stops talking about something for three days, it’s as if it didn’t exist. The spectacle has gone on to talk about something else, and now that is what exists. The practical consequences are enormous.” The disappearance of history is the primary source of the power of the spectacle. ^ref-4551</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4\">\n<p class=\"text-zinc-600 dark:text-zinc-400 mb-4\">(Biden is never not boring.) ^ref-14296</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">David Shields</a></li>\n<li class=\"\">ASIN: B0DGLSSTL3</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B0DGLSSTL3\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B0DGLSSTL3</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B0DGLSSTL3\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>",
+  "html": "<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"highlights\">Highlights</h2>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4\">\n<p class=\"text-zinc-600 dark:text-zinc-400 mb-4\">When the spectacle [of society] stops talking about something for three days, it’s as if it didn’t exist. The spectacle has gone on to talk about something else, and now that is what exists. The practical consequences are enormous.” The disappearance of history is the primary source of the power of the spectacle. ^ref-4551</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4\">\n<p class=\"text-zinc-600 dark:text-zinc-400 mb-4\">(Biden is never not boring.) ^ref-14296</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">David Shields</a></li>\n<li class=\"\">ASIN: B0DGLSSTL3</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B0DGLSSTL3\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B0DGLSSTL3</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B0DGLSSTL3\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>",
   "title": "How We Got Here",
   "metadata": {
     "kindle-sync": {
@@ -12,31 +12,29 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/61RFV9THfoL._SY160.jpg",
       "highlightsCount": 2
     },
-    "date": "2025-07-30T22:38:30.000Z",
-    "modified": "2025-08-02T00:46:51.000Z",
-    "words": 91,
+    "words": 87,
     "images": 0,
-    "links": 4,
+    "links": 2,
     "codeBlocks": 0,
     "headers": {
-      "h2": 1
+      "h1": 1
     },
     "toc": [
       {
         "text": "How We Got Here",
         "slug": "how-we-got-here",
-        "level": "h2",
+        "level": "h1",
         "children": [
-          {
-            "text": "Metadata",
-            "slug": "metadata",
-            "level": "h3",
-            "children": []
-          },
           {
             "text": "Highlights",
             "slug": "highlights",
-            "level": "h3",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Metadata",
+            "slug": "metadata",
+            "level": "h2",
             "children": []
           }
         ]

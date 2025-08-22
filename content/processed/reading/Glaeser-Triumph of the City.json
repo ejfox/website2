@@ -1,6 +1,6 @@
 {
-  "content": "<p class=\"mb-4\">#culture</p>\n<h1 class=\"text-4xl font-bold mb-6 mt-8\" id=\"metadata\">Metadata</h1>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">\n<p class=\"mb-4\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Edward Glaeser</a></p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">ASIN: B0049U4HTW</p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">ISBN: B00D08DNQC</p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">Reference: <a href=\"https://www.amazon.com/dp/B0049U4HTW\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B0049U4HTW</a></p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\"><a href=\"kindle://book?action=open&#x26;asin=B0049U4HTW\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></p>\n</li>\n</ul>\n<h1 class=\"text-4xl font-bold mb-6 mt-8\" id=\"highlights\">Highlights</h1>\n<p class=\"mb-4\">The environmentalists of coastal California may have made their own region more pleasant, but they are harming the environment by pushing new building away from Berkeley suburbs, which have a temperate climate and ready access to public transportation, to suburban Las Vegas, which is all about cars and air-conditioning. — location: <a href=\"kindle://book?action=open&#x26;asin=B0049U4HTW&#x26;location=291\" class=\"text-blue-600 dark:text-blue-400\">291</a> ^ref-41859</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
-  "html": "<p class=\"mb-4\">#culture</p>\n<h1 class=\"text-4xl font-bold mb-6 mt-8\" id=\"metadata\">Metadata</h1>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">\n<p class=\"mb-4\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Edward Glaeser</a></p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">ASIN: B0049U4HTW</p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">ISBN: B00D08DNQC</p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\">Reference: <a href=\"https://www.amazon.com/dp/B0049U4HTW\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B0049U4HTW</a></p>\n</li>\n<li class=\"\">\n<p class=\"mb-4\"><a href=\"kindle://book?action=open&#x26;asin=B0049U4HTW\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></p>\n</li>\n</ul>\n<h1 class=\"text-4xl font-bold mb-6 mt-8\" id=\"highlights\">Highlights</h1>\n<p class=\"mb-4\">The environmentalists of coastal California may have made their own region more pleasant, but they are harming the environment by pushing new building away from Berkeley suburbs, which have a temperate climate and ready access to public transportation, to suburban Las Vegas, which is all about cars and air-conditioning. — location: <a href=\"kindle://book?action=open&#x26;asin=B0049U4HTW&#x26;location=291\" class=\"text-blue-600 dark:text-blue-400\">291</a> ^ref-41859</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
+  "content": "<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">ISBN: B00D08DNQC</li>\n</ul>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"highlights\">Highlights</h2>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4\">\n<p class=\"text-zinc-600 dark:text-zinc-400 mb-4\">The environmentalists of coastal California may have made their own region more pleasant, but they are harming the environment by pushing new building away from Berkeley suburbs, which have a temperate climate and ready access to public transportation, to suburban Las Vegas, which is all about cars and air-conditioning. ^ref-41859</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Edward Glaeser</a></li>\n<li class=\"\">ASIN: B0049U4HTW</li>\n<li class=\"\">ISBN: B00D08DNQC</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B0049U4HTW\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B0049U4HTW</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B0049U4HTW\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>",
+  "html": "<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">ISBN: B00D08DNQC</li>\n</ul>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"highlights\">Highlights</h2>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4\">\n<p class=\"text-zinc-600 dark:text-zinc-400 mb-4\">The environmentalists of coastal California may have made their own region more pleasant, but they are harming the environment by pushing new building away from Berkeley suburbs, which have a temperate climate and ready access to public transportation, to suburban Las Vegas, which is all about cars and air-conditioning. ^ref-41859</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Edward Glaeser</a></li>\n<li class=\"\">ASIN: B0049U4HTW</li>\n<li class=\"\">ISBN: B00D08DNQC</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B0049U4HTW\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B0049U4HTW</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B0049U4HTW\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>",
   "title": "Triumph of the City",
   "metadata": {
     "kindle-sync": {
@@ -12,36 +12,32 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/91o-pwFeUmL._SY160.jpg",
       "highlightsCount": 1
     },
-    "date": "2022-12-26T16:48:03.000Z",
-    "modified": "2022-12-27T20:11:51.000Z",
-    "tags": [
-      "culture"
-    ],
     "words": 81,
     "images": 0,
-    "links": 3,
+    "links": 2,
     "codeBlocks": 0,
     "headers": {
-      "h1": 3
+      "h1": 1
     },
     "toc": [
       {
         "text": "Triumph of the City",
         "slug": "triumph-of-the-city",
         "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Metadata",
-        "slug": "metadata",
-        "level": "h1",
-        "children": []
-      },
-      {
-        "text": "Highlights",
-        "slug": "highlights",
-        "level": "h1",
-        "children": []
+        "children": [
+          {
+            "text": "Highlights",
+            "slug": "highlights",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Metadata",
+            "slug": "metadata",
+            "level": "h2",
+            "children": []
+          }
+        ]
       }
     ],
     "type": "post",

@@ -9,29 +9,19 @@ kindle-sync:
   lastAnnotatedDate: '2019-04-11'
   bookImageUrl: 'https://m.media-amazon.com/images/I/91o-pwFeUmL._SY160.jpg'
   highlightsCount: 1
-date: 2022-12-26T16:48:03.000Z
-modified: 2022-12-27T20:11:51.000Z
-tags:
-  - culture
 ---
 # Triumph of the City
 
-#culture 
-
-# Metadata
-
-* Author: [Edward Glaeser](https://www.amazon.comundefined)
-
-* ASIN: B0049U4HTW
-
 * ISBN: B00D08DNQC
 
-* Reference: <https://www.amazon.com/dp/B0049U4HTW>
-
-* [Kindle link](kindle://book?action=open&asin=B0049U4HTW)
-
-# Highlights
-
-The environmentalists of coastal California may have made their own region more pleasant, but they are harming the environment by pushing new building away from Berkeley suburbs, which have a temperate climate and ready access to public transportation, to suburban Las Vegas, which is all about cars and air-conditioning. — location: [291](kindle://book?action=open&asin=B0049U4HTW&location=291) ^ref-41859
+## Highlights
+> The environmentalists of coastal California may have made their own region more pleasant, but they are harming the environment by pushing new building away from Berkeley suburbs, which have a temperate climate and ready access to public transportation, to suburban Las Vegas, which is all about cars and air-conditioning. ^ref-41859
 
 ---
+
+## Metadata
+* Author: [Edward Glaeser](https://www.amazon.comundefined)
+* ASIN: B0049U4HTW
+* ISBN: B00D08DNQC
+* Reference: https://www.amazon.com/dp/B0049U4HTW
+* [Kindle link](kindle://book?action=open&asin=B0049U4HTW)
