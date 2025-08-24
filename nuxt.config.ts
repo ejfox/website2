@@ -14,7 +14,7 @@ export default defineNuxtConfig({
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' },
         { 
           rel: 'stylesheet', 
-          href: 'https://fonts.googleapis.com/css2?family=Fjalla+One&family=Red+Hat+Mono:wght@300;400;500;600;700&family=Signika+Negative:wght@300;400;500;600;700&display=swap'
+          href: 'https://fonts.googleapis.com/css2?family=Fjalla+One&family=Red+Hat+Mono:wght@300;400&family=Signika+Negative:wght@200;300;400;500;600;700;800&display=swap'
         }
       ]
     }
