@@ -1,104 +1,195 @@
 #!/bin/bash
 
 # VPS Deployment Script for website2
-# This script handles common deployment issues on Debian/Ubuntu VPS
+# This script builds locally and deploys to VPS with a fresh build every time
 
 set -e  # Exit on any error
 
-echo "🚀 Starting VPS deployment for website2..."
+# Color codes for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
 
-# Check if Docker is installed
+echo -e "${BLUE}🚀 Starting FULL FRESH deployment for website2...${NC}"
+echo ""
+
+# Step 1: Git operations
+echo -e "${YELLOW}📥 Step 1: Pulling latest changes from git...${NC}"
+git pull origin main || {
+    echo -e "${RED}❌ Failed to pull from git. Check your connection.${NC}"
+    exit 1
+}
+echo -e "${GREEN}✅ Git updated${NC}"
+echo ""
+
+# Step 1.5: Push any local commits
+echo -e "${YELLOW}📤 Step 1.5: Pushing any local commits...${NC}"
+git push origin main 2>/dev/null || echo -e "${YELLOW}⚠️  Nothing to push or no remote access${NC}"
+echo ""
+
+# Step 2: Install dependencies
+echo -e "${YELLOW}📦 Step 2: Installing dependencies...${NC}"
+yarn install || {
+    echo -e "${RED}❌ Failed to install dependencies${NC}"
+    exit 1
+}
+echo -e "${GREEN}✅ Dependencies installed${NC}"
+echo ""
+
+# Step 3: Clean all build artifacts for FRESH build
+echo -e "${YELLOW}🗑️  Step 3: Wiping build cache for FRESH deployment...${NC}"
+rm -rf .output .nuxt node_modules/.cache dist
+echo -e "${GREEN}✅ Build cache wiped clean${NC}"
+echo ""
+
+# Step 4: Build Nuxt locally FRESH
+echo -e "${YELLOW}🔨 Step 4: Building Nuxt application from scratch...${NC}"
+yarn build || {
+    echo -e "${RED}❌ Build failed. Check for TypeScript or build errors.${NC}"
+    exit 1
+}
+echo -e "${GREEN}✅ Fresh Nuxt build completed${NC}"
+echo ""
+
+# Step 5: Check if Docker is installed
 if ! command -v docker &> /dev/null; then
-    echo "❌ Docker is not installed. Installing..."
+    echo -e "${RED}❌ Docker is not installed. Installing...${NC}"
     curl -fsSL https://get.docker.com -o get-docker.sh
     sudo sh get-docker.sh
     sudo usermod -aG docker $USER
-    echo "✅ Docker installed. Please log out and back in, then re-run this script."
+    echo -e "${GREEN}✅ Docker installed. Please log out and back in, then re-run this script.${NC}"
     exit 1
 fi
 
-# Check if Docker Compose is installed
+# Step 6: Check if Docker Compose is installed
 if ! command -v docker-compose &> /dev/null; then
-    echo "❌ Docker Compose is not installed. Installing..."
+    echo -e "${YELLOW}❌ Docker Compose is not installed. Installing...${NC}"
     sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
-    echo "✅ Docker Compose installed."
+    echo -e "${GREEN}✅ Docker Compose installed.${NC}"
 fi
 
-# Check if .env file exists
+# Step 7: Check if .env file exists
 if [ ! -f .env ]; then
-    echo "❌ .env file not found. Creating from .env.example..."
+    echo -e "${RED}❌ .env file not found. Creating from .env.example...${NC}"
     if [ -f .env.example ]; then
         cp .env.example .env
-        echo "✅ Created .env file from .env.example"
-        echo "⚠️  Please edit .env with your actual values before continuing."
-        echo "   Required variables: SUPABASE_URL, SUPABASE_KEY, and API tokens"
+        echo -e "${GREEN}✅ Created .env file from .env.example${NC}"
+        echo -e "${YELLOW}⚠️  Please edit .env with your actual values before continuing.${NC}"
+        echo "   Required variables: GITHUB_TOKEN, CHESS_USERNAME, RESCUETIME_TOKEN, etc."
         read -p "Press enter when you've configured .env file..."
     else
-        echo "❌ .env.example not found. Please create .env manually."
+        echo -e "${RED}❌ .env.example not found. Please create .env manually.${NC}"
         exit 1
     fi
 fi
 
-# Stop existing container if running
-if docker ps -q -f name=website2-prod; then
-    echo "🛑 Stopping existing container..."
-    docker-compose down
-fi
+# Step 8: Stop existing containers
+echo -e "${YELLOW}🛑 Step 8: Stopping existing containers...${NC}"
+docker-compose down 2>/dev/null || true
+docker rm -f website2-prod 2>/dev/null || true
+echo -e "${GREEN}✅ Old containers stopped${NC}"
+echo ""
 
-# Clean up old images to save space
-echo "🧹 Cleaning up old Docker images..."
+# Step 9: Clean up Docker to ensure fresh build
+echo -e "${YELLOW}🧹 Step 9: Cleaning Docker cache for fresh build...${NC}"
 docker system prune -f
+# Remove the specific image to force rebuild
+docker rmi website2:latest 2>/dev/null || true
+echo -e "${GREEN}✅ Docker cache cleaned${NC}"
+echo ""
 
-# Set buildkit for better builds
+# Step 10: Set buildkit for better builds
 export DOCKER_BUILDKIT=1
 export COMPOSE_DOCKER_CLI_BUILD=1
 
-# Build with platform specification for VPS compatibility
-echo "🔨 Building Docker image for linux/amd64..."
-docker build --platform linux/amd64 -t website2:latest .
+# Step 11: Build Docker image with the fresh .output
+echo -e "${YELLOW}🐳 Step 11: Building Docker image with fresh output...${NC}"
+docker build --no-cache --platform linux/amd64 -t website2:latest . || {
+    echo -e "${RED}❌ Docker build failed${NC}"
+    exit 1
+}
+echo -e "${GREEN}✅ Docker image built${NC}"
+echo ""
 
-# Start the application
-echo "🚀 Starting website2..."
-docker-compose up -d
+# Step 12: Start the application
+echo -e "${YELLOW}🚀 Step 12: Starting website2 container...${NC}"
+docker-compose up -d || {
+    echo -e "${RED}❌ Failed to start container${NC}"
+    docker-compose logs --tail=50
+    exit 1
+}
+echo -e "${GREEN}✅ Container started${NC}"
+echo ""
 
-# Wait for health check with better error handling
-echo "⏳ Waiting for application to start..."
-sleep 15
+# Step 13: Health check with nice progress bar
+echo -e "${YELLOW}⏳ Step 13: Waiting for application to be healthy...${NC}"
+sleep 5  # Initial wait for container to start
 
-# Check health with retry logic
-for i in {1..12}; do
-    if curl -f -s http://localhost:3006/api/healthcheck > /dev/null 2>&1; then
-        echo "✅ Application is running successfully!"
-        echo "🌐 Access your site at: http://your-server-ip:3006"
-        echo "🔍 Health check: http://your-server-ip:3006/api/healthcheck"
+MAX_ATTEMPTS=24  # 2 minutes total
+ATTEMPT=1
+
+while [ $ATTEMPT -le $MAX_ATTEMPTS ]; do
+    # Show progress
+    printf "\r⏳ Health check attempt %d/%d" "$ATTEMPT" "$MAX_ATTEMPTS"
+    
+    if curl -f -s http://localhost:3006/ > /dev/null 2>&1; then
+        echo ""
+        echo -e "${GREEN}✅ Application is running successfully!${NC}"
+        echo ""
         break
     else
-        if [ $i -eq 12 ]; then
-            echo "❌ Application failed to start after 60 seconds. Checking logs..."
-            docker-compose logs --tail=50 website2
+        if [ $ATTEMPT -eq $MAX_ATTEMPTS ]; then
+            echo ""
+            echo -e "${RED}❌ Application failed to start after 2 minutes.${NC}"
+            echo ""
+            echo "📋 Container logs:"
+            docker-compose logs --tail=100 website2
             echo ""
             echo "🔧 Container status:"
             docker-compose ps
             exit 1
         fi
-        echo "⏳ Waiting for health check... ($i/12)"
+        ATTEMPT=$((ATTEMPT + 1))
         sleep 5
     fi
 done
 
-# Show useful commands
+# Step 14: Final status report
+echo -e "${BLUE}═══════════════════════════════════════════════════${NC}"
+echo -e "${GREEN}🎉 DEPLOYMENT SUCCESSFUL!${NC}"
+echo -e "${BLUE}═══════════════════════════════════════════════════${NC}"
 echo ""
-echo "📝 Useful commands:"
-echo "  View logs: docker-compose logs -f website2"
-echo "  Restart: docker-compose restart website2"
-echo "  Stop: docker-compose down"
-echo "  Update: git pull && ./deploy-vps.sh"
-echo "  Clean rebuild: docker-compose down && docker system prune -f && ./deploy-vps.sh"
+echo -e "${GREEN}🌐 Your site is now live at:${NC}"
+echo "   Local: http://localhost:3006"
+echo "   External: http://$(curl -s ifconfig.me 2>/dev/null || echo 'your-server-ip'):3006"
+echo ""
 
-# Final status check
+# Show container status
+echo -e "${BLUE}📊 Container Status:${NC}"
+docker-compose ps
+
+# Show memory usage
 echo ""
-echo "🏁 Deployment Summary:"
-echo "  Container: $(docker-compose ps website2 --format 'table {{.Service}}\t{{.Status}}')"
-echo "  Health: $(curl -s http://localhost:3006/api/healthcheck | jq -r '.status' 2>/dev/null || echo 'unknown')"
-echo "  Memory: $(docker stats website2-prod --no-stream --format 'table {{.MemUsage}}' 2>/dev/null | tail -1 || echo 'unknown')"
+echo -e "${BLUE}💾 Resource Usage:${NC}"
+docker stats website2-prod --no-stream --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}" 2>/dev/null || echo "Unable to get stats"
+
+# Show recent logs
+echo ""
+echo -e "${BLUE}📝 Recent logs (last 10 lines):${NC}"
+docker-compose logs --tail=10 website2
+
+echo ""
+echo -e "${BLUE}═══════════════════════════════════════════════════${NC}"
+echo -e "${YELLOW}📚 Useful Commands:${NC}"
+echo -e "${BLUE}═══════════════════════════════════════════════════${NC}"
+echo "  📋 View logs:        docker-compose logs -f website2"
+echo "  🔄 Restart:          docker-compose restart website2"
+echo "  🛑 Stop:             docker-compose down"
+echo "  📊 Check status:     docker-compose ps"
+echo "  🔍 Check health:     curl http://localhost:3006/api/healthcheck"
+echo "  🚀 Deploy again:     ./deploy-vps.sh"
+echo ""
+echo -e "${GREEN}✨ Deployment complete! Your site has been fully refreshed.${NC}"
