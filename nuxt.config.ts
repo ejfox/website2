@@ -1,27 +1,29 @@
 export default defineNuxtConfig({
-  // CRITICAL: Enable experimental features for Nuxt 4
+  // Enable Nuxt 4 compatibility mode
+  future: {
+    compatibilityVersion: 4
+  },
+  
+  // CRITICAL: Enable experimental features for Nuxt 4 - optimized for sub-1s FCP
   experimental: {
     payloadExtraction: false, // Prevents large payload chunks
-    inlineSSRStyles: true, // Inline CSS to prevent FOUC on VPS
-    treeshakeClientOnly: true // Remove client-only components from SSR
+    inlineSSRStyles: true, // Inline CSS to prevent FOUC
+    treeshakeClientOnly: true, // Remove client-only components from SSR
+    sharedPrerenderData: true, // Share data between prerendered pages
+    typedPages: true, // Enable typed routing
+    renderJsonPayloads: false, // Reduce payload size
+    viewTransition: false // Disable view transitions for faster navigation
   },
 
-  // Load Google Fonts
+  // Removed Google Fonts for faster FCP
   app: {
     head: {
-      link: [
-        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' },
-        { 
-          rel: 'stylesheet', 
-          href: 'https://fonts.googleapis.com/css2?family=Fjalla+One&family=Red+Hat+Mono:wght@300;400&family=Signika+Negative:wght@200;300;400;500;600;700;800&display=swap'
-        }
-      ]
+      link: []
     }
   },
 
   modules: ['@nuxtjs/tailwindcss'],
-  
+  port: 3006,
   devServer: {
     port: 3006
   },
@@ -38,50 +40,72 @@ export default defineNuxtConfig({
 
     // Public client-accessible vars
     public: {
-      baseUrl: process.env.NUXT_PUBLIC_BASE_URL || (
-        process.env.NODE_ENV === 'production'
+      baseUrl:
+        process.env.NUXT_PUBLIC_BASE_URL ||
+        (process.env.NODE_ENV === 'production'
           ? 'https://ejfox.com'
-          : 'http://localhost:3006'
-      ),
+          : 'http://localhost:3006'),
       debug: process.env.DEBUG === 'true',
       debugContent: process.env.DEBUG_CONTENT === 'true',
       nodeEnv: process.env.NODE_ENV || 'development'
     }
   },
 
-  // Performance-optimized Nitro config
+  // Performance-optimized Nitro config for Nuxt 4
   nitro: {
     preset: 'node-server',
     minify: false, // Disabled for debugging bundle corruption
     experimental: {
-      wasm: false // Disable WASM for faster startup
+      wasm: false, // Disable WASM for faster startup
+      asyncContext: true // Enable async context support (Nuxt 4 feature)
     },
     compressPublicAssets: false, // Let reverse proxy handle compression
     prerender: {
-      routes: ['/', '/blog', '/projects', '/gear']
+      routes: ['/', '/blog', '/projects', '/gear'],
+      crawlLinks: true // Automatically discover and prerender linked pages
     },
     routeRules: {
       '/': { prerender: true },
       '/blog/**': { prerender: true },
       '/projects': { prerender: true },
-      '/gear': { prerender: true }
+      '/gear': { prerender: true },
+      '/api/**': { cors: true } // Enable CORS for API routes
     }
   },
 
-  // Optimized Vite config for Nuxt 4
+  // Ultra-optimized Vite config for sub-1s FCP
   vite: {
     build: {
-      cssCodeSplit: true,
+      cssCodeSplit: false, // Inline all CSS
+      cssMinify: 'esbuild',
+      minify: 'esbuild',
+      target: 'esnext', // Use modern JS features
       rollupOptions: {
         output: {
-          manualChunks: {
-            vendor: ['vue', '@vue/reactivity', '@vue/runtime-core']
+          manualChunks: (id) => {
+            // Extract heavy vendor libs to separate chunk
+            if (id.includes('node_modules')) {
+              if (id.includes('vue') || id.includes('@vue')) return 'vue'
+              if (id.includes('d3')) return 'd3'
+              return 'vendor'
+            }
           }
         }
       }
     },
     optimizeDeps: {
-      include: ['vue', '@vue/reactivity']
+      include: ['vue', '@vue/reactivity', '@vueuse/core'],
+      exclude: ['d3', 'd3-dsv', 'd3-format'], // Lazy load heavy libs
+      force: true
+    },
+    esbuild: {
+      drop: process.env.NODE_ENV === 'production' ? ['console', 'debugger'] : [],
+      legalComments: 'none', // Remove comments
+      tsconfigRaw: {
+        compilerOptions: {
+          experimentalDecorators: false
+        }
+      }
     }
   },
 

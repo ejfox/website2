@@ -1,5 +1,7 @@
 import * as d3 from 'd3'
-import { getRouterParam, getRequestURL } from 'h3'
+import { getRouterParam } from 'h3'
+import { readFile } from 'fs/promises'
+import { resolve } from 'path'
 
 export default defineEventHandler(async (event) => {
   const slug = getRouterParam(event, 'slug')
@@ -13,10 +15,8 @@ export default defineEventHandler(async (event) => {
 
   try {
     // Read the CSV file from public directory
-    const csvText = await $fetch('/gear.csv', { 
-      baseURL: getRequestURL(event).origin,
-      responseType: 'text' 
-    })
+    const csvPath = resolve('public/gear.csv')
+    const csvText = await readFile(csvPath, 'utf-8')
     
     const gearItems = d3.csvParse(csvText as string)
     

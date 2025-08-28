@@ -9,7 +9,7 @@
         {{ projectTitle }}
       </h2>
       <div
-        class="prose prose-zinc dark:prose-invert max-w-none text-zinc-600 dark:text-zinc-400 leading-relaxed"
+        class="prose prose-zinc dark:prose-invert max-w-none text-zinc-600 dark:text-zinc-400 leading-relaxed font-serif"
         v-html="project.html"
       />
     </div>

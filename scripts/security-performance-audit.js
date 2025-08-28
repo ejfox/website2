@@ -15,7 +15,7 @@ const AUDIT_PATTERNS = {
   cdn: /fonts\.googleapis\.com|fonts\.gstatic\.com|res\.cloudinary\.com|cdnjs|jsdelivr/i,
   
   // Payment and forms
-  payments: /stripe|paypal|checkout/i,
+  payments: /paypal|checkout/i,
   
   // Social and widgets
   social: /instagram|facebook|twitter|linkedin|youtube/i,

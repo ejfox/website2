@@ -1,17 +1,11 @@
 <template>
   <div class="min-h-screen flex items-center justify-center p-8 pb-32">
     <!-- Main gear card -->
-    <GearCard3D 
-      v-if="data" 
-      :gear-item="data" 
-      class="gear-card-entrance"
-    />
+    <GearCard3D v-if="data" :gear-item="data" class="gear-card-entrance" />
 
     <!-- Not found state -->
     <div v-else class="text-center max-w-md mx-auto">
-      <div class="text-6xl mb-6">
-        ⬟
-      </div>
+      <div class="text-6xl mb-6">⬟</div>
       <h1 class="text-3xl font-bold text-zinc-900 dark:text-zinc-100 mb-4">
         Gear Not Found
       </h1>
@@ -29,13 +23,10 @@
 </template>
 
 <script setup>
-// NUKED BY BLOODHOUND: Animation import obliterated
-// import { animate } from '~/anime.esm.js'
-
 const route = useRoute()
-
-// The Nuxt way - clean and simple
-const { data, pending, error } = await useFetch(`/api/gear/${route.params.slug}`)
+const { data, pending, error } = await useFetch(
+  `/api/gear/${route.params.slug}`
+)
 
 // Handle errors properly
 if (error.value) {
@@ -47,24 +38,16 @@ if (error.value) {
 
 // SEO the Nuxt way - reactive and clean
 useSeoMeta({
-  title: () => data.value ? `${data.value.Name} - Gear` : 'Loading... - Gear',
+  title: () => (data.value ? `${data.value.Name} - Gear` : 'Loading... - Gear'),
   description: () => {
     if (!data.value) return 'Loading gear item...'
-    const weight = data.value['Base Weight ()'] || data.value['Loaded Weight ()'] || 'Unknown weight'
+    const weight =
+      data.value['Base Weight ()'] ||
+      data.value['Loaded Weight ()'] ||
+      'Unknown weight'
     return `${data.value.Name} - ${data.value.Type} gear (${weight}g). ${data.value.Notes || ''}`
   }
 })
-
-// NUKED BY BLOODHOUND: All animation code obliterated
-// Epic sci-fi materialization animation - DELETED for content visibility
-// onMounted(() => {
-//   nextTick(() => {
-//     const gearCard = document.querySelector('.gear-card-entrance')
-//     if (gearCard && data.value) {
-//       // Animation code completely removed
-//     }
-//   })
-// })
 
 // Page transitions
 definePageMeta({
@@ -99,17 +82,21 @@ definePageMeta({
 }
 
 @keyframes hexRotate {
-  0% { transform: rotate(30deg); }
-  100% { transform: rotate(390deg); }
+  0% {
+    transform: rotate(30deg);
+  }
+  100% {
+    transform: rotate(390deg);
+  }
 }
 
 @keyframes hexPulse {
-  0% { 
+  0% {
     opacity: 0.6;
     transform: scale(0.8);
     filter: blur(1px);
   }
-  100% { 
+  100% {
     opacity: 1;
     transform: scale(1.1);
     filter: blur(0px);
@@ -135,25 +122,15 @@ definePageMeta({
 }
 
 .gear-slide-enter-from {
-  transform: 
-    perspective(1500px) 
-    translateX(120%) 
-    rotateY(65deg) 
-    rotateX(-20deg) 
-    scale(0.8) 
-    translateZ(-150px);
+  transform: perspective(1500px) translateX(120%) rotateY(65deg) rotateX(-20deg)
+    scale(0.8) translateZ(-150px);
   opacity: 0.3;
   filter: blur(1.5px) brightness(0.7);
 }
 
 .gear-slide-leave-to {
-  transform: 
-    perspective(1500px) 
-    translateX(-120%) 
-    rotateY(-65deg) 
-    rotateX(20deg) 
-    scale(1.2) 
-    translateZ(150px);
+  transform: perspective(1500px) translateX(-120%) rotateY(-65deg)
+    rotateX(20deg) scale(1.2) translateZ(150px);
   opacity: 0.2;
   filter: blur(1.5px) brightness(1.3);
 }
@@ -168,3 +145,4 @@ definePageMeta({
   z-index: 1;
 }
 </style>
+

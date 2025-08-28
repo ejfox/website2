@@ -111,8 +111,6 @@
 
 <script setup>
 import { useMouse } from '@vueuse/core'
-import { animate, stagger as _stagger } from '~/anime.esm.js'
-import { useAnimations } from '~/composables/useAnimations'
 
 const props = defineProps({
   gearItem: {
@@ -202,9 +200,22 @@ const itemDetails = computed(() => {
 // 3D mouse tracking
 const { x: mouseX, y: mouseY } = useMouse()
 
+// Cache window dimensions to prevent recalc flashes
+const windowDimensions = ref({ width: 0, height: 0 })
+
+const updateDimensions = () => {
+  if (typeof window !== 'undefined') {
+    windowDimensions.value = {
+      width: window.innerWidth,
+      height: window.innerHeight
+    }
+  }
+}
+
 const cardTransform = computed(() => {
-  const centerX = window.innerWidth / 2
-  const centerY = window.innerHeight / 2
+  // Use cached dimensions, fallback gracefully
+  const centerX = (windowDimensions.value.width || 1920) / 2
+  const centerY = (windowDimensions.value.height || 1080) / 2
 
   const rotateX = -((mouseY.value - centerY) / centerY) * 20
   const rotateY = ((mouseX.value - centerX) / centerX) * 20
@@ -215,29 +226,31 @@ const cardTransform = computed(() => {
 
   return {
     transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(${translateZ}px)`,
-    transition: 'transform 0.3s ease-out',
-    filter: 'blur(0px)' // Ensure no blur from animations sticks
+    transition: 'transform 0.15s cubic-bezier(0.4, 0, 0.2, 1)', // Smoother easing
+    transformOrigin: 'center center',
+    willChange: 'transform'
   }
 })
 
-// DELETED: Epic gear card reveal sequence - ALL ANIMATION FUNCTIONS REMOVED
+// Simple card mount effect
 const animateGearCardReveal = async () => {
-  if (process.server || !cardRef.value) return
+  if (process.server || !cardRef.value || !window.anime) return
   await nextTick()
-  // DELETED: All broken animation code for performance
+  // Card naturally animates via CSS transitions
 }
 
-// Expose exit animation for page transitions
-const triggerExit = (direction) => animateGearCardExit(direction)
-
+// Single onMounted combining all setup
 onMounted(() => {
+  updateDimensions()
+  window.addEventListener('resize', updateDimensions)
   animateGearCardReveal()
 })
 
-// Expose the exit function to parent components
-defineExpose({
-  triggerExit
+onUnmounted(() => {
+  window.removeEventListener('resize', updateDimensions)
 })
+
+// Card is self-contained, no exposed methods needed
 </script>
 
 <style scoped>

@@ -53,7 +53,7 @@
           
           <!-- Book Info -->
           <div class="space-y-2">
-            <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
+            <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors line-clamp-2">
               {{ book.metadata?.['kindle-sync']?.title || book.title }}
             </h3>
             <p class="text-sm text-gray-600 dark:text-gray-400">

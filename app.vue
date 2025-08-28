@@ -68,8 +68,24 @@
 </template>
 
 <script setup>
-// Prevent dark mode flash - runs before hydration
+// Inline critical CSS + prevent dark mode flash
 useHead({
+  style: [
+    {
+      innerHTML: `
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:Georgia,serif;line-height:1.6;color:#18181b;background:#fff}
+        @media(prefers-color-scheme:dark){body{color:#fafafa;background:#18181b}}
+        main{padding:1rem;max-width:48rem;margin:0 auto}
+        @media(min-width:768px){main{padding:2rem}}
+        h1{font-size:2rem;font-weight:700;margin-bottom:1rem}
+        p{margin:1rem 0}
+        a{color:inherit;text-decoration:underline}
+        #app{min-height:100vh}
+      `,
+      tagPosition: 'head'
+    }
+  ],
   script: [
     {
       innerHTML: `

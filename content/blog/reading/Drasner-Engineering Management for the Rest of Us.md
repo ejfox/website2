@@ -7,33 +7,41 @@ kindle-sync:
   lastAnnotatedDate: '2024-12-15'
   bookImageUrl: 'https://m.media-amazon.com/images/I/910mP4Y5dSL._SY160.jpg'
   highlightsCount: 6
+date: 2025-08-21T14:44:29-04:00
+modified: 2025-08-24T18:31:22-04:00
 ---
-# Engineering Management for the Rest of Us
+## Engineering Management for the Rest of Us
 
 
 
-## Highlights
-> Hearing each other out: Conflict is not always bad. Sometimes you need to have healthy debates to come up with the best plan and outcome. You can only do this when there’s trust in the group and between team members. ^ref-3692
+### Highlights
 
----
-> You may notice that I say this again and again: you as a leader have to go first. You have to show you can be trusted, and you have to be trusting. This means being okay with being vulnerable with your team. It means explaining to them how and why you care about their well-being, in words and in actions. ^ref-65215
-
----
-> If you’re strong and care about your team as people, it can feel unnatural to teach someone to advocate for themselves instead of moving things out of their way. ^ref-7921
-
----
-> Try to work on aligning people instead to the outcomes you are looking for from them. You don’t have to code it all yourself, you need to articulate why the code is necessary, and what it will need to do in order to accomplish this. Trust in them to figure out the hows and consult when they need guidance. ^ref-63772
-
----
-> It’s tempting to think that over-performers need less guidance, but I’ve found that they tend to need more clarity on tasks, not less, in order to define scope and help point them in a good direction. ^ref-61222
-
----
-> If the very nature of advancement is making sure everyone around you is supported, people start to look out for one another. They can no longer “hero in” to a situation and expect a reward, they have to take everyone along with them. ^ref-33718
+>Hearing each other out: Conflict is not always bad. Sometimes you need to have healthy debates to come up with the best plan and outcome. You can only do this when there’s trust in the group and between team members. ^ref-3692
 
 ---
 
-## Metadata
+>You may notice that I say this again and again: you as a leader have to go first. You have to show you can be trusted, and you have to be trusting. This means being okay with being vulnerable with your team. It means explaining to them how and why you care about their well-being, in words and in actions. ^ref-65215
+
+---
+
+>If you’re strong and care about your team as people, it can feel unnatural to teach someone to advocate for themselves instead of moving things out of their way. ^ref-7921
+
+---
+
+>Try to work on aligning people instead to the outcomes you are looking for from them. You don’t have to code it all yourself, you need to articulate why the code is necessary, and what it will need to do in order to accomplish this. Trust in them to figure out the hows and consult when they need guidance. ^ref-63772
+
+---
+
+>It’s tempting to think that over-performers need less guidance, but I’ve found that they tend to need more clarity on tasks, not less, in order to define scope and help point them in a good direction. ^ref-61222
+
+---
+
+>If the very nature of advancement is making sure everyone around you is supported, people start to look out for one another. They can no longer “hero in” to a situation and expect a reward, they have to take everyone along with them. ^ref-33718
+
+---
+
+### Metadata
 * Author: [Sarah Drasner](https://www.amazon.comundefined)
 * ASIN: B0BGYVDX35
-* Reference: https://www.amazon.com/dp/B0BGYVDX35
+* Reference: <https://www.amazon.com/dp/B0BGYVDX35>
 * [Kindle link](kindle://book?action=open&asin=B0BGYVDX35)

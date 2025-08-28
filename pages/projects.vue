@@ -28,7 +28,7 @@ useHead({
         <h1 class="text-display mb-8">
           Projects
         </h1>
-        <p class="text-body">
+        <p class="text-lg leading-relaxed font-serif">
           I build tools that sit at the intersection of engineering and
           design—where technical depth meets human intuition. My projects
           explore how we can make complex systems more approachable, whether

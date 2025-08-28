@@ -259,20 +259,24 @@ const processGearItem = (item) => {
   return item
 }
 
-onMounted(async () => {
-  try {
-    const response = await fetch('/gear.csv')
-    const csvText = await response.text()
-    gearItems.value = csvParse(csvText)
-      .filter(item => {
-        // Filter out empty rows and comment lines
-        return item.Name && 
-               item.Name.trim() !== '' && 
-               !item.Name.startsWith('#')
-      })
-      .map(processGearItem) // Tree-shaken D3!
-  } catch (error) {
-    console.error('Error loading gear data:', error)
+// Fetch gear data using Nuxt's data fetching
+const { data: csvText } = await useFetch('/api/gear-csv')
+
+// Process CSV data when available
+watchEffect(() => {
+  if (csvText.value) {
+    try {
+      gearItems.value = csvParse(csvText.value)
+        .filter(item => {
+          // Filter out empty rows and comment lines
+          return item.Name && 
+                 item.Name.trim() !== '' && 
+                 !item.Name.startsWith('#')
+        })
+        .map(processGearItem)
+    } catch (error) {
+      console.error('Error parsing gear data:', error)
+    }
   }
 })
 

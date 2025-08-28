@@ -155,6 +155,97 @@
       </section>
     </div>
 
+    <!-- Dynamic Content Section -->
+    <div class="mt-16 space-y-12">
+      <!-- Recent Blog Posts -->
+      <section v-if="recentPosts.length">
+        <div class="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500 mb-4">
+          RECENT_POSTS
+        </div>
+        <div class="grid md:grid-cols-2 gap-3">
+          <NuxtLink
+            v-for="post in recentPosts"
+            :key="post.slug"
+            :to="`/blog/${post.slug}`"
+            class="group block p-3 rounded-lg border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors"
+          >
+            <div class="flex items-start justify-between gap-2">
+              <div class="min-w-0 flex-1">
+                <div class="text-sm font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-700 dark:group-hover:text-zinc-300 truncate">
+                  {{ post.title }}
+                </div>
+                <div class="text-xs text-zinc-500 mt-1">
+                  {{ formatDate(post.date) }}
+                  <span v-if="post.tags?.length" class="ml-2">
+                    · {{ post.tags[0] }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </NuxtLink>
+        </div>
+      </section>
+
+      <!-- Active Predictions -->
+      <section v-if="activePredictions.length">
+        <div class="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500 mb-4">
+          ACTIVE_PREDICTIONS
+        </div>
+        <div class="space-y-3">
+          <NuxtLink
+            v-for="prediction in activePredictions"
+            :key="prediction.id"
+            :to="`/predictions/${prediction.id}`"
+            class="group block p-3 rounded-lg border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors"
+          >
+            <div class="flex items-start justify-between gap-2">
+              <div class="min-w-0 flex-1">
+                <div class="text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-700 dark:group-hover:text-zinc-300">
+                  {{ prediction.statement }}
+                </div>
+                <div class="text-xs text-zinc-500 mt-1">
+                  {{ prediction.confidence }}% confidence · Due {{ formatDate(prediction.deadline) }}
+                </div>
+              </div>
+            </div>
+          </NuxtLink>
+        </div>
+      </section>
+
+      <!-- Stats Summary -->
+      <section>
+        <div class="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500 mb-4">
+          SITE_STATS
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="text-center p-3 border border-zinc-200 dark:border-zinc-800 rounded-lg">
+            <div class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
+              {{ totalPosts }}
+            </div>
+            <div class="text-xs text-zinc-500 mt-1">Blog Posts</div>
+          </div>
+          <div class="text-center p-3 border border-zinc-200 dark:border-zinc-800 rounded-lg">
+            <div class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
+              {{ totalProjects }}
+            </div>
+            <div class="text-xs text-zinc-500 mt-1">Projects</div>
+          </div>
+          <div class="text-center p-3 border border-zinc-200 dark:border-zinc-800 rounded-lg">
+            <div class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
+              {{ totalTags }}
+            </div>
+            <div class="text-xs text-zinc-500 mt-1">Tags</div>
+          </div>
+          <div class="text-center p-3 border border-zinc-200 dark:border-zinc-800 rounded-lg">
+            <div class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
+              {{ yearsActive }}
+            </div>
+            <div class="text-xs text-zinc-500 mt-1">Years Online</div>
+          </div>
+        </div>
+      </section>
+    </div>
+
     <!-- Footer info -->
     <footer class="mt-16 pt-8">
       <div class="text-xs text-zinc-500 space-y-2">
@@ -172,10 +263,72 @@
 </template>
 
 <script setup>
+import { format } from 'date-fns'
+
 useSeoMeta({
   title: 'Site Map | ejfox.com',
   description: 'Complete navigation and overview of ejfox.com pages and sections',
   ogTitle: 'Site Map | ejfox.com',
   ogDescription: 'Complete navigation and overview of ejfox.com'
 })
+
+// Fetch blog posts from manifest
+const { data: manifest } = await useFetch('/api/manifest')
+
+// Fetch predictions
+const { data: predictions } = await useFetch('/api/predictions')
+
+// Fetch tags for counting
+const { data: tags } = await useFetch('/tags.json')
+
+// Process recent posts
+const recentPosts = computed(() => {
+  if (!manifest.value) return []
+  return manifest.value
+    .filter(post => !post.hidden && !post.draft)
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .slice(0, 10)
+})
+
+// Process active predictions
+const activePredictions = computed(() => {
+  if (!predictions.value) return []
+  const now = new Date()
+  return predictions.value
+    .filter(p => new Date(p.deadline) > now && !p.resolved)
+    .sort((a, b) => new Date(a.deadline) - new Date(b.deadline))
+    .slice(0, 5)
+})
+
+// Calculate stats
+const totalPosts = computed(() => {
+  if (!manifest.value) return 0
+  return manifest.value.filter(post => !post.hidden && !post.draft).length
+})
+
+const totalProjects = computed(() => {
+  if (!manifest.value) return 0
+  return manifest.value.filter(post => post.slug?.includes('projects/')).length
+})
+
+const totalTags = computed(() => {
+  if (!tags.value || !Array.isArray(tags.value)) return 0
+  return tags.value.filter(tag => tag && typeof tag === 'string' && !tag.startsWith('!')).length
+})
+
+const yearsActive = computed(() => {
+  const startYear = 2018 // When the blog started
+  const currentYear = new Date().getFullYear()
+  return currentYear - startYear
+})
+
+// Format date helper
+const formatDate = (date) => {
+  if (!date) return ''
+  try {
+    return format(new Date(date), 'MMM d, yyyy')
+  } catch {
+    return date
+  }
+}
 </script>

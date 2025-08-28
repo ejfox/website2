@@ -85,13 +85,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+// Nuxt 4 auto-imports components!
 import { format } from 'date-fns/format'
 import { formatDistance } from 'date-fns'
-import AnimatedNumber from '../AnimatedNumber.vue'
-import ActivityCalendar from './ActivityCalendar.vue'
-import StatsSectionHeader from './StatsSectionHeader.vue'
-import StatsDataState from './StatsDataState.vue'
 
 interface GitHubRepo {
   name: string

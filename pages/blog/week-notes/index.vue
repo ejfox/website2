@@ -2,8 +2,6 @@
 import { format } from 'date-fns/format'
 import { computed } from 'vue'
 import { startOfWeek } from 'date-fns'
-import { animate, stagger as _stagger } from '~/anime.esm.js'
-import { useAnimations } from '~/composables/useAnimations'
 
 const processedMarkdown = useProcessedMarkdown()
 

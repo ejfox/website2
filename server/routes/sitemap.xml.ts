@@ -33,9 +33,52 @@ export default defineEventHandler(async (event) => {
 `
   }
 
-  // TODO: Add dynamic blog posts from content directory
-  // TODO: Add dynamic gear items if they have individual pages
-  // TODO: Add dynamic prediction pages if they exist
+  // Add dynamic blog posts
+  try {
+    // Use the processed manifest for blog posts
+    const fs = await import('node:fs/promises')
+    const path = await import('node:path')
+    const manifestPath = path.join(process.cwd(), 'content/processed/manifest-lite.json')
+    const manifestData = await fs.readFile(manifestPath, 'utf-8')
+    const posts = JSON.parse(manifestData)
+    
+    // Add each blog post to sitemap
+    for (const post of posts) {
+      if (!post.hidden && !post.draft) {
+        const priority = post.type === 'essay' ? '0.8' : '0.7'
+        const changefreq = 'monthly'
+        const lastmod = post.modified || post.date || now
+        
+        sitemap += `  <url>
+    <loc>${baseUrl}/blog/${post.slug}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
+  </url>
+`
+      }
+    }
+  } catch (error) {
+    console.warn('Could not load blog posts for sitemap:', error)
+  }
+  
+  // Add dynamic predictions
+  try {
+    const predictions = await $fetch('/api/predictions')
+    if (Array.isArray(predictions)) {
+      for (const prediction of predictions) {
+        sitemap += `  <url>
+    <loc>${baseUrl}/predictions/${prediction.id}</loc>
+    <lastmod>${prediction.created_at || now}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+`
+      }
+    }
+  } catch (error) {
+    console.warn('Could not load predictions for sitemap:', error)
+  }
 
   sitemap += `</urlset>`
 

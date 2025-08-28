@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { useFetch } from '#app'
-import { useStats } from '~/composables/useStats'
+// Nuxt 4 auto-imports all composables!
 
 interface GistFile {
   filename: string

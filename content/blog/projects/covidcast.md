@@ -1,10 +1,9 @@
 ---
 title: "COVIDcast"
 date: 2020-04-24T00:00:00-04:00
-modified: 2025-08-13T11:42:11-04:00
+modified: 2025-08-26T15:53:05-04:00
 url: https://campustechnology.com/articles/2020/04/24/carnegie-mellon-maps-offer-more-data-for-covid-19-forecasting.aspx
 tech: ["Data Visualization", "JavaScript", "COVID-19 Data", "Public Health"]
-featured: true
 state: deployed
 aiInvolvement: human-only
 ---

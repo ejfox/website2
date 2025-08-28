@@ -11,7 +11,7 @@
         </NuxtLink>
       </h2>
       <div
-        class="prose prose-zinc dark:prose-invert max-w-none text-zinc-500 dark:text-zinc-500 leading-relaxed prose-sm"
+        class="prose prose-zinc dark:prose-invert max-w-none text-zinc-500 dark:text-zinc-500 leading-relaxed prose-sm font-serif"
         v-html="project.html"
       />
     </div>

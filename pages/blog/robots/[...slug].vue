@@ -1,8 +1,8 @@
 <script setup>
 import { format } from 'date-fns/format'
-import { animate, stagger } from '~/anime.esm.js'
+// Animation handled via global anime.js from CDN
 import { useWindowSize } from '@vueuse/core'
-import { useAnimations } from '~/composables/useAnimations'
+// DELETED: import { useAnimations } from '~/composables/useAnimations'
 
 const route = useRoute()
 const processedMarkdown = useProcessedMarkdown()
@@ -177,37 +177,12 @@ onMounted(() => {
   window.addEventListener('scroll', updateProgress)
   onUnmounted(() => window.removeEventListener('scroll', updateProgress))
 
-  // Add title animation
-  nextTick(() => {
-    animateTitle()
-  })
+  // Title animation removed - delete-driven development
 })
 
-// Add useHead for robot-specific styling
+// Add useHead for robot page title
 useHead({
-  title: note.value?.title,
-  link: [
-    {
-      rel: 'preload',
-      href: 'https://cdn.jsdelivr.net/gh/githubnext/monaspace@v1.000/fonts/webfonts/MonaspaceRadon-Regular.woff',
-      as: 'font',
-      type: 'font/woff',
-      crossorigin: 'anonymous'
-    }
-  ],
-  style: [
-    {
-      innerHTML: `
-        @font-face {
-          font-family: 'Monaspace Radon';
-          src: url('https://cdn.jsdelivr.net/gh/githubnext/monaspace@v1.000/fonts/webfonts/MonaspaceRadon-Regular.woff') format('woff');
-          font-weight: normal;
-          font-style: normal;
-          font-display: swap;
-        }
-      `
-    }
-  ]
+  title: note.value?.title
 })
 </script>
 
@@ -285,8 +260,8 @@ useHead({
 
         <UAlert
           icon="i-majesticons-robot"
-          color="orange"
-          variant="solid"
+          color="gray"
+          variant="soft"
           title="LLM-Generated / Augmented Content"
           description="This note was written by or with the assistance of AI. While I've reviewed and edited the content, you might notice some quirks in the writing style or reasoning, and it may not all be factually accurate."
           class="mb-8"
@@ -313,7 +288,7 @@ useHead({
 
         <!-- Content with adjusted max-width -->
         <div
-          class="prose prose-sm font-mono dark:prose-invert prose-headings:font-bold prose-headings:tracking-tight prose-h2:text-3xl prose-h3:text-2xl prose-p:leading-8 prose-p:py-2 prose-a:text-blue-600 hover:prose-a:text-blue-500 dark:prose-a:text-blue-200 dark:hover:prose-a:text-blue-400 prose-a:underline transition-all duration-100 ease-in-out prose-strong:font-semibold prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:my-8 prose-ul:list-disc prose-ol:list-decimal prose-li:my-2 prose-img:rounded-lg prose-hr:border-gray-300 dark:prose-hr:border-gray-700 !max-w-none"
+          class="prose prose-sm font-mono dark:prose-invert prose-headings:font-bold prose-headings:tracking-tight prose-h2:text-3xl prose-h3:text-2xl prose-p:leading-8 prose-p:py-2 prose-a:text-zinc-700 hover:prose-a:text-zinc-900 dark:prose-a:text-zinc-300 dark:hover:prose-a:text-zinc-100 prose-a:underline transition-all duration-100 ease-in-out prose-strong:font-semibold prose-blockquote:border-l-4 prose-blockquote:border-zinc-400 dark:prose-blockquote:border-zinc-600 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:my-8 prose-ul:list-disc prose-ol:list-decimal prose-li:my-2 prose-img:rounded-lg prose-hr:border-gray-300 dark:prose-hr:border-gray-700 !max-w-none"
           v-html="processedContent"
         />
 
@@ -322,7 +297,7 @@ useHead({
         >
           <NuxtLink
             to="/blog/robots"
-            class="text-blue-500 dark:text-blue-400 hover:underline"
+            class="text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 hover:underline"
           >
             ← Back to Robot Notes
           </NuxtLink>
@@ -341,7 +316,7 @@ useHead({
               class="w-full bg-zinc-200 dark:bg-zinc-800 h-1 rounded-full overflow-hidden flex-shrink-0 mb-4"
             >
               <div
-                class="bg-blue-500 h-full transition-all duration-200"
+                class="bg-zinc-600 dark:bg-zinc-400 h-full transition-all duration-200"
                 :style="{ width: `${scrollProgress}%` }"
               />
             </div>
@@ -360,8 +335,8 @@ useHead({
     </div>
     <UAlert
       icon="i-majesticons-robot"
-      color="orange"
-      variant="solid"
+      color="gray"
+      variant="soft"
       title="LLM-Generated / Augmented Content"
       description="This note was written by or with the assistance of AI."
       class="mb-8"
@@ -378,15 +353,15 @@ useHead({
           :class="[
             section.level === 'h3' ? 'pl-4' : '',
             activeSection === section.slug
-              ? 'text-blue-500 dark:text-blue-400'
-              : 'text-zinc-600 dark:text-zinc-400 hover:text-blue-500 dark:hover:text-blue-400'
+              ? 'text-zinc-900 dark:text-zinc-100'
+              : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100'
           ]"
         >
           <div class="flex justify-between items-center group">
             <span>{{ section.text }}</span>
             <span
               v-if="sectionWordCounts[section.slug]"
-              class="text-xs text-zinc-400 dark:text-zinc-500 group-hover:text-blue-500 dark:group-hover:text-blue-400"
+              class="text-xs text-zinc-400 dark:text-zinc-500 group-hover:text-zinc-700 dark:group-hover:text-zinc-300"
             >
               {{ sectionWordCounts[section.slug] }} words
             </span>
@@ -408,10 +383,6 @@ useHead({
   opacity: 1;
 }
 
-/* Add some styling for the metadata display */
-.grid {
-  font-family: 'Courier New', Courier, monospace;
-}
 
 /* Make the metadata section scrollable on mobile */
 .overflow-x-auto {
@@ -456,16 +427,4 @@ useHead({
   break-inside: avoid-column;
 }
 
-/* Update the font-mono utility class just for robot pages */
-.font-mono {
-  font-family:
-    'Monaspace Radon', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    'Liberation Mono', 'Courier New', monospace !important;
-}
-
-.font-monaspace {
-  font-family:
-    'Monaspace Radon', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    'Liberation Mono', 'Courier New', monospace !important;
-}
 </style>

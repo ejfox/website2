@@ -89,7 +89,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, computed, nextTick } from 'vue'
+// Nuxt 4 auto-imports everything!
 import * as d3 from 'd3'
 import StatsSectionHeader from './StatsSectionHeader.vue'
 // NUKED BY BLOODHOUND: import { animate, stagger as _stagger, onScroll } from '~/anime.esm.js'

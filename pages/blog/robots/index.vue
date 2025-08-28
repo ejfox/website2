@@ -1,6 +1,6 @@
 <script setup>
 import { format } from 'date-fns/format'
-import { animate, stagger } from '~/anime.esm.js'
+// Animation handled via global anime.js from CDN
 import { useWindowSize } from '@vueuse/core'
 
 const processedMarkdown = useProcessedMarkdown()
@@ -65,7 +65,7 @@ const getNoteSummary = (note) => {
           <a
             href="https://www.are.na/ej-fox/conversations-with-robots"
             target="_blank"
-            class="text-blue-500 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
+            class="text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
           >
             Conversations with Robots </a>, notes from various AI models, projects, and experiments.
         </p>
@@ -98,7 +98,7 @@ const getNoteSummary = (note) => {
           class="group"
         >
           <h2
-            class="text-xl font-semibold font-mono group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors"
+            class="text-xl font-semibold font-mono group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors"
           >
             {{ note.title }}
           </h2>
@@ -125,7 +125,7 @@ const getNoteSummary = (note) => {
                   v-for="child in section.children"
                   :key="child.slug"
                   :to="`/blog/robots/${note.slug.replace('robots/', '')}#${child.slug}`"
-                  class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors bg-zinc-200 dark:bg-zinc-800 rounded-md px-2 py-1"
+                  class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors bg-zinc-200 dark:bg-zinc-800 rounded-md px-2 py-1"
                 >
                   {{ child.text }}
                 </NuxtLink>

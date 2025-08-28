@@ -10,24 +10,17 @@
     >
       <div class="flex items-start justify-between gap-4">
         <div class="flex-1 min-w-0">
-          <div class="flex items-center gap-2">
-            <h3 class="font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors">
-              {{ title }}
-            </h3>
-            <Icon 
-              v-if="external" 
-              name="heroicons:arrow-top-right-on-square" 
-              class="w-3 h-3 text-zinc-400 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors"
-            />
-          </div>
+          <h3 class="font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors">
+            {{ title }}
+            <span v-if="external" class="text-xs text-zinc-400 ml-1">↗</span>
+          </h3>
           <p class="text-sm text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
             {{ description }}
           </p>
         </div>
-        <Icon 
-          name="heroicons:chevron-right" 
-          class="w-4 h-4 text-zinc-300 dark:text-zinc-700 group-hover:text-zinc-500 dark:group-hover:text-zinc-400 transition-colors flex-shrink-0 mt-0.5"
-        />
+        <span class="text-zinc-300 dark:text-zinc-700 group-hover:text-zinc-500 dark:group-hover:text-zinc-400 transition-colors flex-shrink-0 mt-0.5">
+          →
+        </span>
       </div>
     </component>
   </div>

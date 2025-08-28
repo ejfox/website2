@@ -8717,7 +8717,7 @@
     "type": "post",
     "hidden": true,
     "draft": true,
-    "modified": "2024-06-06T19:57:24.000Z",
+    "modified": "2025-08-21T20:03:14.000Z",
     "tags": [
       "exercise",
       "health",
@@ -8764,7 +8764,7 @@
     ],
     "metadata": {
       "date": "2022-11-02T23:57:34.000Z",
-      "modified": "2024-06-06T19:57:24.000Z",
+      "modified": "2025-08-21T20:03:14.000Z",
       "hidden": true,
       "draft": true,
       "tags": [
@@ -21860,582 +21860,56 @@
   {
     "slug": "projects/PROJECT_INDEX",
     "title": "🦊 EJ's Code Directory",
+    "date": "2025-08-19T21:21:35.000Z",
     "type": "post",
+    "modified": "2025-08-21T20:01:41.000Z",
     "toc": [
       {
         "text": "🦊 EJ's Code Directory",
         "slug": "ej-s-code-directory",
-        "level": "h1",
+        "level": "h2",
         "children": [
           {
             "text": "🚀 Active Projects",
             "slug": "active-projects",
-            "level": "h2",
-            "children": [
-              {
-                "text": "towntuner",
-                "slug": "towntuner",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "website2",
-                "slug": "website2",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "glassbox",
-                "slug": "glassbox",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "ps5-tmux",
-                "slug": "ps5-tmux",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "coachartie2",
-                "slug": "coachartie2",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "ejfox-news",
-                "slug": "ejfox-news",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "criterion-embedding-viz",
-                "slug": "criterion-embedding-viz",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "rescuetime-scrape",
-                "slug": "rescuetime-scrape",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "discord-arena-bridge",
-                "slug": "discord-arena-bridge",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "spacepunk-logi",
-                "slug": "spacepunk-logi",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "scrap-enlightener",
-                "slug": "scrap-enlightener",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "dockrune",
-                "slug": "dockrune",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "mission-control",
-                "slug": "mission-control",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "electology",
-                "slug": "electology",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "zmk-config2",
-                "slug": "zmk-config2",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "smallbot-mcp",
-                "slug": "smallbot-mcp",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "docgrind",
-                "slug": "docgrind",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "obsidian-analysis",
-                "slug": "obsidian-analysis",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "connectology2",
-                "slug": "connectology2",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "vzcode",
-                "slug": "vzcode",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "glasses-hud",
-                "slug": "glasses-hud",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "gear",
-                "slug": "gear",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "flipper-space-calculators",
-                "slug": "flipper-space-calculators",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "retroscope",
-                "slug": "retroscope",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "photos",
-                "slug": "photos",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "cloudinary-backup",
-                "slug": "cloudinary-backup",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "hand-midi-controller",
-                "slug": "hand-midi-controller",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "code-network-gen",
-                "slug": "code-network-gen",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "electology_ingest",
-                "slug": "electology-ingest",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "exif-printer-simple",
-                "slug": "exif-printer-simple",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "weddings",
-                "slug": "weddings",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "exif-printer-website",
-                "slug": "exif-printer-website",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "anime-beta",
-                "slug": "anime-beta",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "llm-honeypot",
-                "slug": "llm-honeypot",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "flipper-generative-art",
-                "slug": "flipper-generative-art",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "MorningRadio",
-                "slug": "morningradio",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "MorningRadio_BACKUP_20250623_103149",
-                "slug": "morningradio-backup-20250623-103149",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "hexagram_news",
-                "slug": "hexagram-news",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "webhook-desktop-color",
-                "slug": "webhook-desktop-color",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "git-status-dash",
-                "slug": "git-status-dash",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "vulpecula-loom",
-                "slug": "vulpecula-loom",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "vizhub-benchmarks",
-                "slug": "vizhub-benchmarks",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "lilfox-mcp",
-                "slug": "lilfox-mcp",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "election-helpers",
-                "slug": "election-helpers",
-                "level": "h3",
-                "children": []
-              }
-            ]
+            "level": "h3",
+            "children": []
           },
           {
             "text": "🗄️ Other Projects",
             "slug": "other-projects",
-            "level": "h2",
+            "level": "h3",
             "children": []
           }
         ]
       }
     ],
     "metadata": {
+      "date": "2025-08-19T21:21:35.000Z",
+      "modified": "2025-08-21T20:01:41.000Z",
       "words": 1585,
       "images": 0,
       "links": 74,
       "codeBlocks": 0,
       "headers": {
-        "h1": 1
+        "h2": 1
       },
       "toc": [
         {
           "text": "🦊 EJ's Code Directory",
           "slug": "ej-s-code-directory",
-          "level": "h1",
+          "level": "h2",
           "children": [
             {
               "text": "🚀 Active Projects",
               "slug": "active-projects",
-              "level": "h2",
-              "children": [
-                {
-                  "text": "towntuner",
-                  "slug": "towntuner",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "website2",
-                  "slug": "website2",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "glassbox",
-                  "slug": "glassbox",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "ps5-tmux",
-                  "slug": "ps5-tmux",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "coachartie2",
-                  "slug": "coachartie2",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "ejfox-news",
-                  "slug": "ejfox-news",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "criterion-embedding-viz",
-                  "slug": "criterion-embedding-viz",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "rescuetime-scrape",
-                  "slug": "rescuetime-scrape",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "discord-arena-bridge",
-                  "slug": "discord-arena-bridge",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "spacepunk-logi",
-                  "slug": "spacepunk-logi",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "scrap-enlightener",
-                  "slug": "scrap-enlightener",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "dockrune",
-                  "slug": "dockrune",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "mission-control",
-                  "slug": "mission-control",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "electology",
-                  "slug": "electology",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "zmk-config2",
-                  "slug": "zmk-config2",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "smallbot-mcp",
-                  "slug": "smallbot-mcp",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "docgrind",
-                  "slug": "docgrind",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "obsidian-analysis",
-                  "slug": "obsidian-analysis",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "connectology2",
-                  "slug": "connectology2",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "vzcode",
-                  "slug": "vzcode",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "glasses-hud",
-                  "slug": "glasses-hud",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "gear",
-                  "slug": "gear",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "flipper-space-calculators",
-                  "slug": "flipper-space-calculators",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "retroscope",
-                  "slug": "retroscope",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "photos",
-                  "slug": "photos",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "cloudinary-backup",
-                  "slug": "cloudinary-backup",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "hand-midi-controller",
-                  "slug": "hand-midi-controller",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "code-network-gen",
-                  "slug": "code-network-gen",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "electology_ingest",
-                  "slug": "electology-ingest",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "exif-printer-simple",
-                  "slug": "exif-printer-simple",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "weddings",
-                  "slug": "weddings",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "exif-printer-website",
-                  "slug": "exif-printer-website",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "anime-beta",
-                  "slug": "anime-beta",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "llm-honeypot",
-                  "slug": "llm-honeypot",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "flipper-generative-art",
-                  "slug": "flipper-generative-art",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "MorningRadio",
-                  "slug": "morningradio",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "MorningRadio_BACKUP_20250623_103149",
-                  "slug": "morningradio-backup-20250623-103149",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "hexagram_news",
-                  "slug": "hexagram-news",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "webhook-desktop-color",
-                  "slug": "webhook-desktop-color",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "git-status-dash",
-                  "slug": "git-status-dash",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "vulpecula-loom",
-                  "slug": "vulpecula-loom",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "vizhub-benchmarks",
-                  "slug": "vizhub-benchmarks",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "lilfox-mcp",
-                  "slug": "lilfox-mcp",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "election-helpers",
-                  "slug": "election-helpers",
-                  "level": "h3",
-                  "children": []
-                }
-              ]
+              "level": "h3",
+              "children": []
             },
             {
               "text": "🗄️ Other Projects",
               "slug": "other-projects",
-              "level": "h2",
+              "level": "h3",
               "children": []
             }
           ]
@@ -22450,14 +21924,14 @@
   {
     "slug": "projects/ccrb-clusters",
     "title": "Clusters of NYPD Misconduct",
-    "date": "2021-06-15T00:00:00.000Z",
+    "date": "2021-06-15T04:00:00.000Z",
     "type": "post",
-    "modified": "2025-04-05T20:10:29.000Z",
+    "modified": "2025-08-26T19:52:56.000Z",
     "toc": [],
     "metadata": {
       "title": "Clusters of NYPD Misconduct",
-      "date": "2021-06-15T00:00:00.000Z",
-      "modified": "2025-04-05T20:10:29.000Z",
+      "date": "2021-06-15T04:00:00.000Z",
+      "modified": "2025-08-26T19:52:56.000Z",
       "url": "https://gothamist.com/news/mapping-clusters-nypd-officers-repeatedly-accused-misconduct",
       "tech": [
         "Neo4j",
@@ -22576,7 +22050,7 @@
     "title": "Coach Artie Ecosystem",
     "date": "2023-03-21T04:00:00.000Z",
     "type": "post",
-    "modified": "2025-08-13T20:15:23.000Z",
+    "modified": "2025-08-26T19:52:50.000Z",
     "toc": [
       {
         "text": "Coach Artie v1: Discord Studio Assistant",
@@ -22607,7 +22081,7 @@
     "metadata": {
       "title": "Coach Artie Ecosystem",
       "date": "2023-03-21T04:00:00.000Z",
-      "modified": "2025-08-13T20:15:23.000Z",
+      "modified": "2025-08-26T19:52:50.000Z",
       "url": "https://github.com/room302studio/coachartie",
       "tech": [
         "Node.js",
@@ -22617,10 +22091,9 @@
         "MCP",
         "AI Consciousness Research"
       ],
-      "featured": true,
       "state": "evolved",
       "aiInvolvement": "ai-enhanced",
-      "words": 155,
+      "words": 124,
       "images": 0,
       "links": 3,
       "codeBlocks": 0,
@@ -22665,12 +22138,12 @@
     "title": "COVIDcast",
     "date": "2020-04-24T04:00:00.000Z",
     "type": "post",
-    "modified": "2025-08-13T15:42:11.000Z",
+    "modified": "2025-08-26T19:53:05.000Z",
     "toc": [],
     "metadata": {
       "title": "COVIDcast",
       "date": "2020-04-24T04:00:00.000Z",
-      "modified": "2025-08-13T15:42:11.000Z",
+      "modified": "2025-08-26T19:53:05.000Z",
       "url": "https://campustechnology.com/articles/2020/04/24/carnegie-mellon-maps-offer-more-data-for-covid-19-forecasting.aspx",
       "tech": [
         "Data Visualization",
@@ -22678,7 +22151,6 @@
         "COVID-19 Data",
         "Public Health"
       ],
-      "featured": true,
       "state": "deployed",
       "aiInvolvement": "human-only",
       "words": 34,
@@ -22808,12 +22280,12 @@
     "title": "Dataproofer",
     "date": "2015-11-03T05:00:00.000Z",
     "type": "post",
-    "modified": "2025-08-13T16:05:48.000Z",
+    "modified": "2025-08-26T19:53:33.000Z",
     "toc": [],
     "metadata": {
       "title": "Dataproofer",
       "date": "2015-11-03T05:00:00.000Z",
-      "modified": "2025-08-13T16:05:48.000Z",
+      "modified": "2025-08-26T19:53:33.000Z",
       "url": "https://github.com/dataproofer/Dataproofer",
       "tech": [
         "JavaScript",
@@ -22821,7 +22293,7 @@
         "Data Quality",
         "CSV"
       ],
-      "featured": true,
+      "featured": false,
       "state": "deployed",
       "aiInvolvement": "human-only",
       "words": 147,
@@ -23946,23 +23418,25 @@
   {
     "slug": "reading/Chayka-Filterworld",
     "title": "Filterworld",
+    "date": "2025-08-21T18:44:39.000Z",
     "type": "post",
+    "modified": "2025-08-24T23:53:43.000Z",
     "toc": [
       {
         "text": "Filterworld",
         "slug": "filterworld",
-        "level": "h1",
+        "level": "h2",
         "children": [
           {
             "text": "Highlights",
             "slug": "highlights",
-            "level": "h2",
+            "level": "h3",
             "children": []
           },
           {
             "text": "Metadata",
             "slug": "metadata",
-            "level": "h2",
+            "level": "h3",
             "children": []
           }
         ]
@@ -23978,29 +23452,31 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/71u+mPdn-HL._SY160.jpg",
         "highlightsCount": 4
       },
-      "words": 172,
+      "date": "2025-08-21T18:44:39.000Z",
+      "modified": "2025-08-24T23:53:43.000Z",
+      "words": 168,
       "images": 0,
       "links": 2,
       "codeBlocks": 0,
       "headers": {
-        "h1": 1
+        "h2": 1
       },
       "toc": [
         {
           "text": "Filterworld",
           "slug": "filterworld",
-          "level": "h1",
+          "level": "h2",
           "children": [
             {
               "text": "Highlights",
               "slug": "highlights",
-              "level": "h2",
+              "level": "h3",
               "children": []
             },
             {
               "text": "Metadata",
               "slug": "metadata",
-              "level": "h2",
+              "level": "h3",
               "children": []
             }
           ]
@@ -24429,23 +23905,25 @@
   {
     "slug": "reading/Doctorow-Walkaway",
     "title": "Walkaway",
+    "date": "2025-08-21T18:46:31.000Z",
     "type": "post",
+    "modified": "2025-08-24T22:31:29.000Z",
     "toc": [
       {
         "text": "Walkaway",
         "slug": "walkaway",
-        "level": "h1",
+        "level": "h2",
         "children": [
           {
             "text": "Highlights",
             "slug": "highlights",
-            "level": "h2",
+            "level": "h3",
             "children": []
           },
           {
             "text": "Metadata",
             "slug": "metadata",
-            "level": "h2",
+            "level": "h3",
             "children": []
           }
         ]
@@ -24461,29 +23939,31 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/71VhE105uhL._SY160.jpg",
         "highlightsCount": 8
       },
-      "words": 594,
+      "date": "2025-08-21T18:46:31.000Z",
+      "modified": "2025-08-24T22:31:29.000Z",
+      "words": 586,
       "images": 0,
       "links": 2,
       "codeBlocks": 0,
       "headers": {
-        "h1": 1
+        "h2": 1
       },
       "toc": [
         {
           "text": "Walkaway",
           "slug": "walkaway",
-          "level": "h1",
+          "level": "h2",
           "children": [
             {
               "text": "Highlights",
               "slug": "highlights",
-              "level": "h2",
+              "level": "h3",
               "children": []
             },
             {
               "text": "Metadata",
               "slug": "metadata",
-              "level": "h2",
+              "level": "h3",
               "children": []
             }
           ]
@@ -24498,23 +23978,25 @@
   {
     "slug": "reading/Drasner-Engineering Management for the Rest of Us",
     "title": "Engineering Management for the Rest of Us",
+    "date": "2025-08-21T18:44:29.000Z",
     "type": "post",
+    "modified": "2025-08-24T22:31:22.000Z",
     "toc": [
       {
         "text": "Engineering Management for the Rest of Us",
         "slug": "engineering-management-for-the-rest-of-us",
-        "level": "h1",
+        "level": "h2",
         "children": [
           {
             "text": "Highlights",
             "slug": "highlights",
-            "level": "h2",
+            "level": "h3",
             "children": []
           },
           {
             "text": "Metadata",
             "slug": "metadata",
-            "level": "h2",
+            "level": "h3",
             "children": []
           }
         ]
@@ -24530,29 +24012,31 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/910mP4Y5dSL._SY160.jpg",
         "highlightsCount": 6
       },
-      "words": 311,
+      "date": "2025-08-21T18:44:29.000Z",
+      "modified": "2025-08-24T22:31:22.000Z",
+      "words": 305,
       "images": 0,
       "links": 2,
       "codeBlocks": 0,
       "headers": {
-        "h1": 1
+        "h2": 1
       },
       "toc": [
         {
           "text": "Engineering Management for the Rest of Us",
           "slug": "engineering-management-for-the-rest-of-us",
-          "level": "h1",
+          "level": "h2",
           "children": [
             {
               "text": "Highlights",
               "slug": "highlights",
-              "level": "h2",
+              "level": "h3",
               "children": []
             },
             {
               "text": "Metadata",
               "slug": "metadata",
-              "level": "h2",
+              "level": "h3",
               "children": []
             }
           ]
@@ -25119,23 +24603,25 @@
   {
     "slug": "reading/Gelderloos-Oleynik-Anarchy Works",
     "title": "Anarchy Works",
+    "date": "2025-08-21T18:44:50.000Z",
     "type": "post",
+    "modified": "2025-08-24T22:30:27.000Z",
     "toc": [
       {
         "text": "Anarchy Works",
         "slug": "anarchy-works",
-        "level": "h1",
+        "level": "h2",
         "children": [
           {
             "text": "Highlights",
             "slug": "highlights",
-            "level": "h2",
+            "level": "h3",
             "children": []
           },
           {
             "text": "Metadata",
             "slug": "metadata",
-            "level": "h2",
+            "level": "h3",
             "children": []
           }
         ]
@@ -25151,29 +24637,31 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/7165cK74S1L._SY160.jpg",
         "highlightsCount": 20
       },
-      "words": 1056,
+      "date": "2025-08-21T18:44:50.000Z",
+      "modified": "2025-08-24T22:30:27.000Z",
+      "words": 1036,
       "images": 0,
       "links": 2,
       "codeBlocks": 0,
       "headers": {
-        "h1": 1
+        "h2": 1
       },
       "toc": [
         {
           "text": "Anarchy Works",
           "slug": "anarchy-works",
-          "level": "h1",
+          "level": "h2",
           "children": [
             {
               "text": "Highlights",
               "slug": "highlights",
-              "level": "h2",
+              "level": "h3",
               "children": []
             },
             {
               "text": "Metadata",
               "slug": "metadata",
-              "level": "h2",
+              "level": "h3",
               "children": []
             }
           ]
@@ -25809,23 +25297,25 @@
   {
     "slug": "reading/Harris-Kids These Days",
     "title": "Kids These Days",
+    "date": "2025-08-21T18:48:47.000Z",
     "type": "post",
+    "modified": "2025-08-24T23:53:55.000Z",
     "toc": [
       {
         "text": "Kids These Days",
         "slug": "kids-these-days",
-        "level": "h1",
+        "level": "h2",
         "children": [
           {
             "text": "Highlights",
             "slug": "highlights",
-            "level": "h2",
+            "level": "h3",
             "children": []
           },
           {
             "text": "Metadata",
             "slug": "metadata",
-            "level": "h2",
+            "level": "h3",
             "children": []
           }
         ]
@@ -25841,29 +25331,31 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/71qu7drpPiL._SY160.jpg",
         "highlightsCount": 38
       },
-      "words": 2954,
+      "date": "2025-08-21T18:48:47.000Z",
+      "modified": "2025-08-24T23:53:55.000Z",
+      "words": 2916,
       "images": 0,
       "links": 2,
       "codeBlocks": 0,
       "headers": {
-        "h1": 1
+        "h2": 1
       },
       "toc": [
         {
           "text": "Kids These Days",
           "slug": "kids-these-days",
-          "level": "h1",
+          "level": "h2",
           "children": [
             {
               "text": "Highlights",
               "slug": "highlights",
-              "level": "h2",
+              "level": "h3",
               "children": []
             },
             {
               "text": "Metadata",
               "slug": "metadata",
-              "level": "h2",
+              "level": "h3",
               "children": []
             }
           ]
@@ -26430,23 +25922,25 @@
   {
     "slug": "reading/Jung_et_al-The I Ching or Book of Changes",
     "title": "The I Ching or Book of Changes",
+    "date": "2025-08-21T18:44:04.000Z",
     "type": "post",
+    "modified": "2025-08-24T22:30:58.000Z",
     "toc": [
       {
         "text": "The I Ching or Book of Changes",
         "slug": "the-i-ching-or-book-of-changes",
-        "level": "h1",
+        "level": "h2",
         "children": [
           {
             "text": "Highlights",
             "slug": "highlights",
-            "level": "h2",
+            "level": "h3",
             "children": []
           },
           {
             "text": "Metadata",
             "slug": "metadata",
-            "level": "h2",
+            "level": "h3",
             "children": []
           }
         ]
@@ -26462,29 +25956,31 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/51fzxLryJTL._SY160.jpg",
         "highlightsCount": 4
       },
-      "words": 623,
+      "date": "2025-08-21T18:44:04.000Z",
+      "modified": "2025-08-24T22:30:58.000Z",
+      "words": 619,
       "images": 0,
       "links": 2,
       "codeBlocks": 0,
       "headers": {
-        "h1": 1
+        "h2": 1
       },
       "toc": [
         {
           "text": "The I Ching or Book of Changes",
           "slug": "the-i-ching-or-book-of-changes",
-          "level": "h1",
+          "level": "h2",
           "children": [
             {
               "text": "Highlights",
               "slug": "highlights",
-              "level": "h2",
+              "level": "h3",
               "children": []
             },
             {
               "text": "Metadata",
               "slug": "metadata",
-              "level": "h2",
+              "level": "h3",
               "children": []
             }
           ]
@@ -27396,23 +26892,25 @@
   {
     "slug": "reading/Markoff-What the Dormouse Said",
     "title": "What the Dormouse Said",
+    "date": "2025-08-21T18:47:22.000Z",
     "type": "post",
+    "modified": "2025-08-24T23:54:42.000Z",
     "toc": [
       {
         "text": "What the Dormouse Said",
         "slug": "what-the-dormouse-said",
-        "level": "h1",
+        "level": "h2",
         "children": [
           {
             "text": "Highlights",
             "slug": "highlights",
-            "level": "h2",
+            "level": "h3",
             "children": []
           },
           {
             "text": "Metadata",
             "slug": "metadata",
-            "level": "h2",
+            "level": "h3",
             "children": []
           }
         ]
@@ -27428,29 +26926,31 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/91GbAowsg4L._SY160.jpg",
         "highlightsCount": 4
       },
-      "words": 221,
+      "date": "2025-08-21T18:47:22.000Z",
+      "modified": "2025-08-24T23:54:42.000Z",
+      "words": 217,
       "images": 0,
       "links": 2,
       "codeBlocks": 0,
       "headers": {
-        "h1": 1
+        "h2": 1
       },
       "toc": [
         {
           "text": "What the Dormouse Said",
           "slug": "what-the-dormouse-said",
-          "level": "h1",
+          "level": "h2",
           "children": [
             {
               "text": "Highlights",
               "slug": "highlights",
-              "level": "h2",
+              "level": "h3",
               "children": []
             },
             {
               "text": "Metadata",
               "slug": "metadata",
-              "level": "h2",
+              "level": "h3",
               "children": []
             }
           ]
@@ -27603,23 +27103,25 @@
   {
     "slug": "reading/Moor-On Trails",
     "title": "On Trails",
+    "date": "2025-08-21T18:44:13.000Z",
     "type": "post",
+    "modified": "2025-08-24T23:58:28.000Z",
     "toc": [
       {
         "text": "On Trails",
         "slug": "on-trails",
-        "level": "h1",
+        "level": "h2",
         "children": [
           {
             "text": "Highlights",
             "slug": "highlights",
-            "level": "h2",
+            "level": "h3",
             "children": []
           },
           {
             "text": "Metadata",
             "slug": "metadata",
-            "level": "h2",
+            "level": "h3",
             "children": []
           }
         ]
@@ -27635,29 +27137,31 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/71QTTsXaDdL._SY160.jpg",
         "highlightsCount": 25
       },
-      "words": 2034,
+      "date": "2025-08-21T18:44:13.000Z",
+      "modified": "2025-08-24T23:58:28.000Z",
+      "words": 2009,
       "images": 0,
       "links": 2,
       "codeBlocks": 0,
       "headers": {
-        "h1": 1
+        "h2": 1
       },
       "toc": [
         {
           "text": "On Trails",
           "slug": "on-trails",
-          "level": "h1",
+          "level": "h2",
           "children": [
             {
               "text": "Highlights",
               "slug": "highlights",
-              "level": "h2",
+              "level": "h3",
               "children": []
             },
             {
               "text": "Metadata",
               "slug": "metadata",
-              "level": "h2",
+              "level": "h3",
               "children": []
             }
           ]
@@ -28707,23 +28211,25 @@
   {
     "slug": "reading/Shields-Reality Hunger",
     "title": "Reality Hunger",
+    "date": "2025-08-21T18:44:34.000Z",
     "type": "post",
+    "modified": "2025-08-24T23:53:05.000Z",
     "toc": [
       {
         "text": "Reality Hunger",
         "slug": "reality-hunger",
-        "level": "h1",
+        "level": "h2",
         "children": [
           {
             "text": "Highlights",
             "slug": "highlights",
-            "level": "h2",
+            "level": "h3",
             "children": []
           },
           {
             "text": "Metadata",
             "slug": "metadata",
-            "level": "h2",
+            "level": "h3",
             "children": []
           }
         ]
@@ -28739,29 +28245,31 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/81XahxBKE9L._SY160.jpg",
         "highlightsCount": 15
       },
-      "words": 624,
+      "date": "2025-08-21T18:44:34.000Z",
+      "modified": "2025-08-24T23:53:05.000Z",
+      "words": 609,
       "images": 0,
       "links": 2,
       "codeBlocks": 0,
       "headers": {
-        "h1": 1
+        "h2": 1
       },
       "toc": [
         {
           "text": "Reality Hunger",
           "slug": "reality-hunger",
-          "level": "h1",
+          "level": "h2",
           "children": [
             {
               "text": "Highlights",
               "slug": "highlights",
-              "level": "h2",
+              "level": "h3",
               "children": []
             },
             {
               "text": "Metadata",
               "slug": "metadata",
-              "level": "h2",
+              "level": "h3",
               "children": []
             }
           ]
@@ -29052,23 +28560,25 @@
   {
     "slug": "reading/Suzuki-Chadwick-Zen Mind, Beginners Mind",
     "title": "Zen Mind, Beginners Mind",
+    "date": "2025-08-21T18:55:24.000Z",
     "type": "post",
+    "modified": "2025-08-24T22:30:46.000Z",
     "toc": [
       {
         "text": "Zen Mind, Beginners Mind",
         "slug": "zen-mind-beginners-mind",
-        "level": "h1",
+        "level": "h2",
         "children": [
           {
             "text": "Highlights",
             "slug": "highlights",
-            "level": "h2",
+            "level": "h3",
             "children": []
           },
           {
             "text": "Metadata",
             "slug": "metadata",
-            "level": "h2",
+            "level": "h3",
             "children": []
           }
         ]
@@ -29084,29 +28594,31 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/71ln75kZ4wL._SY160.jpg",
         "highlightsCount": 24
       },
-      "words": 1041,
+      "date": "2025-08-21T18:55:24.000Z",
+      "modified": "2025-08-24T22:30:46.000Z",
+      "words": 1017,
       "images": 0,
       "links": 2,
       "codeBlocks": 0,
       "headers": {
-        "h1": 1
+        "h2": 1
       },
       "toc": [
         {
           "text": "Zen Mind, Beginners Mind",
           "slug": "zen-mind-beginners-mind",
-          "level": "h1",
+          "level": "h2",
           "children": [
             {
               "text": "Highlights",
               "slug": "highlights",
-              "level": "h2",
+              "level": "h3",
               "children": []
             },
             {
               "text": "Metadata",
               "slug": "metadata",
-              "level": "h2",
+              "level": "h3",
               "children": []
             }
           ]
@@ -38459,9 +37971,9 @@
       ],
       "date": "2025-08-18T22:58:25.000Z",
       "modified": "2025-08-18T22:58:38.000Z",
-      "words": 63,
-      "images": 4,
-      "links": 4,
+      "words": 163,
+      "images": 14,
+      "links": 14,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -38491,6 +38003,24 @@
       "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-34.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "week-notes/2025-34"
+    }
+  },
+  {
+    "slug": "week-notes/2025-35",
+    "title": "2025 35",
+    "type": "post",
+    "toc": [],
+    "metadata": {
+      "words": 82,
+      "images": 8,
+      "links": 8,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-35.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-35"
     }
   }
 ]

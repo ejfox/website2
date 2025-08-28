@@ -1,5 +1,8 @@
 <script setup>
-import NextAvailableSlot from '~/components/NextAvailableSlot.vue'
+// Lazy load calendar component for faster FCP
+const NextAvailableSlot = defineAsyncComponent(() => 
+  import('~/components/NextAvailableSlot.vue')
+)
 
 const { getPostBySlug, getAllPosts: _getAllPosts } = useProcessedMarkdown()
 
@@ -63,14 +66,6 @@ useHead({
   @apply my-4;
 }
 
-/* :deep(#index-content a) { */
-/*   @apply border-b border-zinc-400 dark:border-zinc-600 */
-/*          hover:border-zinc-700 dark:hover:border-zinc-300 */
-/*          transition-colors duration-300 */
-/*          px-0.5 py-0.5 */
-/*          text-zinc-900 dark:text-zinc-100 */
-/*          no-underline; */
-/* } */
 
 :deep(#index-content h2) {
   @apply text-2xl font-bold mt-8 mb-4;

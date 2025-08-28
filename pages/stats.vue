@@ -338,7 +338,7 @@
             <ClientOnly>
               <Transition name="fade" appear>
                 <div v-if="stats" id="top-stats" class="relative">
-                  <AsyncTopStats :stats="stats" :blog-stats="validBlogStats" />
+                  <TopStats :stats="stats" :blog-stats="validBlogStats" />
                 </div>
               </Transition>
             </ClientOnly>
@@ -356,7 +356,7 @@
               title="GITHUB"
               class="break-inside-avoid"
             >
-              <AsyncGitHubStats key="github" :stats="stats.github" />
+              <GitHubStats key="github" :stats="stats.github" />
             </StatsSection>
 
             <!-- Writing -->
@@ -367,7 +367,7 @@
               title="WRITING"
               class="break-inside-avoid"
             >
-              <AsyncBlogStats key="blog" :stats="stats.blog" />
+              <BlogStats key="blog" :stats="stats.blog" />
             </StatsSection>
 
             <!-- Reading -->
@@ -378,7 +378,7 @@
               title="READING"
               class="break-inside-avoid"
             >
-              <AsyncGoodreadsStats key="goodreads" :data="stats.goodreads" />
+              <GoodreadsStats key="goodreads" :data="stats.goodreads" />
             </StatsSection>
 
             <!-- Productivity -->
@@ -389,7 +389,7 @@
               title="PRODUCTIVITY"
               class="break-inside-avoid"
             >
-              <AsyncRescueTimeStats key="rescuetime" :stats="stats" />
+              <RescueTimeStats key="rescuetime" :stats="stats" />
             </StatsSection>
 
             <!-- LeetCode -->
@@ -400,7 +400,7 @@
               title="LEETCODE"
               class="break-inside-avoid"
             >
-              <AsyncLeetCodeStats key="leetcode" :stats="stats.leetcode" />
+              <LeetCodeStats key="leetcode" :stats="stats.leetcode" />
             </StatsSection>
 
             <!-- Chess -->
@@ -411,7 +411,7 @@
               title="CHESS"
               class="break-inside-avoid"
             >
-              <AsyncChessStats key="chess" :stats="stats.chess" />
+              <ChessStats key="chess" :stats="stats.chess" />
             </StatsSection>
 
             <!-- Typing -->
@@ -422,7 +422,7 @@
               title="TYPING"
               class="break-inside-avoid"
             >
-              <AsyncMonkeyTypeStats key="monkeytype" :stats="stats.monkeyType" />
+              <MonkeyTypeStats key="monkeytype" :stats="stats.monkeyType" />
             </StatsSection>
 
             <!-- Code Snippets -->
@@ -433,7 +433,7 @@
               title="CODE"
               class="break-inside-avoid"
             >
-              <AsyncGistStats key="gists" :gist-stats="stats.gists" />
+              <GistStats key="gists" :gist-stats="stats.gists" />
             </StatsSection>
 
             <!-- Music -->
@@ -444,7 +444,7 @@
               title="MUSIC"
               class="break-inside-avoid"
             >
-              <AsyncLastFmStats key="lastfm" :stats="stats.lastfm" />
+              <LastFmStats key="lastfm" :stats="stats.lastfm" />
             </StatsSection>
 
             <!-- Films -->
@@ -455,7 +455,7 @@
               title="FILMS"
               class="break-inside-avoid"
             >
-              <AsyncLetterboxdStats key="letterboxd" :letterboxd-stats="stats.letterboxd" />
+              <LetterboxdStats key="letterboxd" :letterboxd-stats="stats.letterboxd" />
             </StatsSection>
 
             <!-- Analytics -->
@@ -466,7 +466,7 @@
               title="ANALYTICS"
               class="break-inside-avoid"
             >
-              <AsyncUmamiStats key="umami" :umami-stats="stats.website" />
+              <UmamiStats key="umami" :umami-stats="stats.website" />
             </StatsSection>
           </TransitionGroup>
         </section>
@@ -477,7 +477,7 @@
           <Transition name="fade-up" appear>
             <div id="gear" class="relative">
               <StatsSection title="GEAR">
-                <AsyncGearStats :gear-stats="stats.gear" />
+                <GearStats :gear-stats="stats.gear" />
               </StatsSection>
             </div>
           </Transition>
@@ -488,64 +488,10 @@
 </template>
 
 <script setup lang="ts">
-import {
-  computed,
-  ref,
-  shallowRef,
-  onMounted,
-  nextTick,
-  defineAsyncComponent
-} from 'vue'
-import { useRoute } from 'vue-router'
-import { useStats } from '~/composables/useStats'
-import { useProcessedMarkdown } from '~/composables/useProcessedMarkdown'
-import { useNumberFormat } from '~/composables/useNumberFormat'
+// Nuxt 4 auto-imports - DELETE all manual imports!
+const route = useRoute()
 
-// Component imports
-const StatsSection = defineAsyncComponent(
-  () => import('~/components/stats/StatsSection.vue')
-)
-const AsyncTopStats = defineAsyncComponent(
-  () => import('~/components/stats/TopStats.vue')
-)
-const AsyncGitHubStats = defineAsyncComponent(
-  () => import('~/components/stats/GitHubStats.vue')
-)
-const AsyncBlogStats = defineAsyncComponent(
-  () => import('~/components/stats/BlogStats.vue')
-)
-const AsyncGoodreadsStats = defineAsyncComponent(
-  () => import('~/components/stats/GoodreadsStats.vue')
-)
-const AsyncRescueTimeStats = defineAsyncComponent(
-  () => import('~/components/stats/RescueTimeStats.vue')
-)
-const AsyncLeetCodeStats = defineAsyncComponent(
-  () => import('~/components/stats/LeetCodeStats.vue')
-)
-const AsyncChessStats = defineAsyncComponent(
-  () => import('~/components/stats/ChessStats.vue')
-)
-const AsyncMonkeyTypeStats = defineAsyncComponent(
-  () => import('~/components/stats/MonkeyTypeStats.vue')
-)
-const AsyncGistStats = defineAsyncComponent(
-  () => import('~/components/stats/GistStats.vue')
-)
-const AsyncLastFmStats = defineAsyncComponent(
-  () => import('~/components/stats/LastFmStats.vue')
-)
-const AsyncLetterboxdStats = defineAsyncComponent(
-  () => import('~/components/stats/LetterboxdStats.vue')
-)
-const AsyncUmamiStats = defineAsyncComponent(
-  () => import('~/components/stats/UmamiStats.vue')
-)
-const AsyncGearStats = defineAsyncComponent(
-  () => import('~/components/stats/GearStats.vue')
-)
-
-const { stats: rawStats, isLoading, hasStaleData: _hasStaleData } = useStats()
+const { stats: rawStats, isLoading } = useStats()
 const stats = computed(() => rawStats.value || {})
 const { getAllPosts } = useProcessedMarkdown()
 const { formatNumber, formatDecimal, formatPercentage } = useNumberFormat()
@@ -738,7 +684,7 @@ const transformedHealthStats = computed(() => {
 // TOC and navigation
 const tocTarget = ref<Element | null>(null)
 const activeSection = ref('overview')
-const route = useRoute()
+// route already defined above on line 492
 const isSimpleMode = computed(() => route.query.simple !== undefined)
 
 const statsSections = [

@@ -66,7 +66,13 @@ const codeToShow = computed(() => {
 
 const highlightedCode = ref('')
 
-// Initialize syntax highlighting
+// Initialize on server and client
+if (process.server || process.client) {
+  // Initialize immediately for SSR
+  updateHighlighting()
+}
+
+// Re-initialize on mount for client-side hydration
 onMounted(async () => {
   await updateHighlighting()
   // Component mounted

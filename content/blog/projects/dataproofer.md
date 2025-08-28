@@ -1,10 +1,10 @@
 ---
 title: Dataproofer
 date: 2015-11-03T00:00:00-05:00
-modified: 2025-08-13T12:05:48-04:00
+modified: 2025-08-26T15:53:33-04:00
 url: https://github.com/dataproofer/Dataproofer
 tech: ["JavaScript", "Electron", "Data Quality", "CSV"]
-featured: true
+featured: false
 state: deployed
 aiInvolvement: human-only
 ---

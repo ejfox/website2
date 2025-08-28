@@ -1,6 +1,5 @@
 <script setup>
 import { format, isValid, parseISO } from 'date-fns'
-import DonationSection from '~/components/blog/DonationSection.vue'
 import { useDark, useIntersectionObserver } from '@vueuse/core'
 
 const config = useRuntimeConfig()
@@ -368,7 +367,7 @@ const processedMetadata = computed(() => {
         <h1
           v-if="post?.metadata?.title || post?.title"
           ref="postTitle"
-          class="post-title text-3xl lg:text-7xl xl:text-8xl font-bold w-full paddings-y pr-8 pl-4 md:pl-0 tracking-tight leading-tight"
+          class="post-title text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] 2xl:text-[12rem] font-bold w-full py-4 pr-8 pl-4 md:pl-0 tracking-tighter leading-[0.85] font-serif"
         >
           <div class="typing-container" v-html="renderedTitle"></div>
         </h1>
@@ -388,12 +387,12 @@ const processedMetadata = computed(() => {
       <div ref="articleContent">
         <article
           v-if="post?.html"
-          class="blog-post-content px-2 prose-lg md:prose-xl dark:prose-invert prose-img:my-8 prose-img:rounded-lg prose-pre:overflow-x-auto prose-pre:whitespace-pre-wrap prose-pre:break-words prose-code:break-words prose-code:whitespace-pre-wrap prose-h2:border-none prose-h3:border-none prose-h4:border-none prose-hr:border-t prose-hr:border-zinc-200 dark:prose-hr:border-zinc-800 prose-hr:border-solid prose-hr:my-12 prose-hr:mx-0 prose-hr:w-full font-normal opacity-100"
+          class="blog-post-content"
           v-html="post.html"
         ></article>
         <div
           v-else-if="post?.content"
-          class="blog-post-content px-2 prose-lg md:prose-xl dark:prose-invert prose-img:my-8 prose-img:rounded-lg prose-pre:overflow-x-auto prose-pre:whitespace-pre-wrap prose-pre:break-words prose-code:break-words prose-code:whitespace-pre-wrap prose-h2:border-none prose-h3:border-none prose-h4:border-none prose-hr:border-t prose-hr:border-zinc-200 dark:prose-hr:border-zinc-800 prose-hr:border-solid prose-hr:my-12 prose-hr:mx-0 prose-hr:w-full font-normal opacity-100"
+          class="blog-post-content"
           v-html="post.content"
         ></div>
         <div v-else class="p-4 text-center text-red-500">
@@ -450,8 +449,8 @@ const processedMetadata = computed(() => {
         </div>
       </div>
 
-      <!-- Add donation section only if not explicitly disabled -->
-      <DonationSection v-if="showDonations" />
+      <!-- Tip jar - minimal CTA -->
+      <TipJar v-if="!post.metadata?.noTips" />
     </article>
     <div
       v-else-if="error"
@@ -542,6 +541,15 @@ const processedMetadata = computed(() => {
 
 /* Blog post content styling */
 .blog-post-content {
+  font-family: Georgia, serif !important;
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.75;
+  
+  /* Paragraphs */
+  p {
+    margin-bottom: 1.5rem;
+  }
+  
   /* Links */
   a {
     @apply text-zinc-700 dark:text-zinc-300 underline underline-offset-2;
@@ -778,6 +786,18 @@ a {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.blog-post-content {
+  @apply px-2 prose prose-lg dark:prose-invert font-serif font-normal opacity-100 leading-relaxed;
+  @apply prose-p:text-lg prose-p:leading-relaxed prose-p:mb-6;
+  @apply prose-headings:mt-8 prose-headings:mb-4;
+  @apply prose-img:my-8 prose-img:rounded-lg;
+  @apply prose-pre:overflow-x-auto prose-pre:whitespace-pre-wrap prose-pre:break-words;
+  @apply prose-code:break-words prose-code:whitespace-pre-wrap;
+  @apply prose-h2:border-none prose-h3:border-none prose-h4:border-none;
+  @apply prose-hr:border-t prose-hr:border-zinc-200 dark:prose-hr:border-zinc-800;
+  @apply prose-hr:border-solid prose-hr:my-12 prose-hr:mx-0 prose-hr:w-full;
 }
 
 /* Additional styles for images in blog posts */

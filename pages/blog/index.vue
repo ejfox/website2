@@ -4,9 +4,7 @@
   <div>
     <!-- Header -->
     <header class="header">
-      <h1 class="text-display mb-8">
-        Blog
-      </h1>
+      <h1 class="text-display mb-8">Blog</h1>
       <p class="text-body">
         Thoughts, projects, and explorations in technology, design, and making.
       </p>
@@ -16,9 +14,7 @@
       <!-- Main Blog Posts -->
       <section class="mt-16 md:mt-0">
         <div v-if="!sortedYears.length" class="text-center py-16">
-          <p class="text-zinc-600 dark:text-zinc-400">
-            No blog posts found.
-          </p>
+          <p class="text-zinc-600 dark:text-zinc-400">No blog posts found.</p>
         </div>
 
         <!-- Yearly blog posts -->
@@ -60,9 +56,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
           <!-- Week Notes -->
           <section>
-            <h2 class="section-header">
-              Week Notes
-            </h2>
+            <h2 class="section-header">Week Notes</h2>
             <div v-if="!sortedWeekNotes.length" class="text-center py-8">
               <p class="text-sm text-zinc-600 dark:text-zinc-400">
                 No week notes found.
@@ -74,7 +68,10 @@
                   v-for="weekNote in sortedWeekNotes"
                   :key="weekNote.slug"
                 >
-                  <NuxtLink :to="`/blog/${weekNote.slug}`" class="block group week-note-link">
+                  <NuxtLink
+                    :to="`/blog/${weekNote.slug}`"
+                    class="block group week-note-link"
+                  >
                     <div class="mb-1">
                       <span class="week-note-title">
                         Week {{ weekNote.slug.split('/')[1] }}
@@ -96,17 +93,25 @@
 
           <!-- Recently Updated -->
           <section v-if="recentlyUpdatedPosts.length">
-            <h2 class="section-header">
-              Recently Updated
-            </h2>
+            <h2 class="section-header">Recently Updated</h2>
             <div class="space-y-6">
-              <article v-for="post in recentlyUpdatedPosts" :key="`recent-${post.slug}`">
+              <article
+                v-for="post in recentlyUpdatedPosts"
+                :key="`recent-${post.slug}`"
+              >
                 <NuxtLink :to="`/blog/${post.slug}`" class="block group">
                   <h3 class="recent-post-title">
                     {{ post?.metadata?.title || post?.title }}
                   </h3>
                   <div class="recent-post-date">
-                    {{ formatRelativeTime(post?.metadata?.lastUpdated || post?.metadata?.date || post?.lastUpdated || post?.date) }}
+                    {{
+                      formatRelativeTime(
+                        post?.metadata?.lastUpdated ||
+                          post?.metadata?.date ||
+                          post?.lastUpdated ||
+                          post?.date
+                      )
+                    }}
                   </div>
                 </NuxtLink>
               </article>
@@ -132,7 +137,11 @@ const isWeekNote = (post) => {
   const slug = post?.slug || ''
   const type = post?.type || post?.metadata?.type
   const lastPart = slug.split('/').pop()
-  return type === 'weekNote' || slug.startsWith('week-notes/') || /^\d{4}-\d{2}$/.test(lastPart)
+  return (
+    type === 'weekNote' ||
+    slug.startsWith('week-notes/') ||
+    /^\d{4}-\d{2}$/.test(lastPart)
+  )
 }
 
 // Post validation helper
@@ -142,11 +151,14 @@ const isValidPost = (post, includeWeekNotes = false) => {
   const postDate = post?.date || post?.metadata?.date
   const isFuturePost = postDate && new Date(postDate) > now
   const weekNote = isWeekNote(post)
-  
-  if (includeWeekNotes) return weekNote && !isHidden && !isDraft && !isFuturePost
-  
+
+  if (includeWeekNotes)
+    return weekNote && !isHidden && !isDraft && !isFuturePost
+
   const isRegularBlogPost = /^\d{4}\/[^/]+$/.test(post?.slug || '')
-  return !weekNote && isRegularBlogPost && !isHidden && !isDraft && !isFuturePost
+  return (
+    !weekNote && isRegularBlogPost && !isHidden && !isDraft && !isFuturePost
+  )
 }
 
 // Process post with title fallback
@@ -158,7 +170,7 @@ const processPost = (post) => {
 const { data: posts } = useAsyncData('blog-posts', async () => {
   try {
     const result = await processedMarkdown.getAllPosts(false, false)
-    return result.filter(post => isValidPost(post)).map(processPost)
+    return result.filter((post) => isValidPost(post)).map(processPost)
   } catch (err) {
     console.error('Error in blog index:', err)
     return []
@@ -168,21 +180,26 @@ const { data: posts } = useAsyncData('blog-posts', async () => {
 const { data: notes } = useAsyncData('week-notes', async () => {
   try {
     const result = await processedMarkdown.getAllPosts(false, true)
-    return result?.filter(post => isValidPost(post, true)).map(note => ({
-      ...note,
-      metadata: note?.metadata || {},
-      slug: note?.slug || note?.metadata?.slug,
-      dek: note?.dek || note?.metadata?.dek,
-      date: note?.date || note?.metadata?.date,
-      type: note?.type || note?.metadata?.type || 'weekNote'
-    })) || []
+    return (
+      result
+        ?.filter((post) => isValidPost(post, true))
+        .map((note) => ({
+          ...note,
+          metadata: note?.metadata || {},
+          slug: note?.slug || note?.metadata?.slug,
+          dek: note?.dek || note?.metadata?.dek,
+          date: note?.date || note?.metadata?.date,
+          type: note?.type || note?.metadata?.type || 'weekNote'
+        })) || []
+    )
   } catch (err) {
     console.error('Error fetching week notes:', err)
     return []
   }
 })
 
-const formatRelativeTime = (date) => formatDistanceToNow(new Date(date), { addSuffix: true })
+const formatRelativeTime = (date) =>
+  formatDistanceToNow(new Date(date), { addSuffix: true })
 
 useHead({
   title: 'Blog',
@@ -192,32 +209,41 @@ useHead({
 // Sort week notes with date conversion
 const sortedWeekNotes = computed(() => {
   if (!notes.value) return []
-  
+
   return notes.value
-    .map(note => {
+    .map((note) => {
       const processedNote = { ...note }
       const weekMatch = note?.slug?.match(/(\d{4})-(\d{2})/)
-      
+
       if (weekMatch) {
         const [, year, week] = weekMatch
         const date = startOfWeek(new Date(+year, 0, 1), { weekStartsOn: 1 })
-        processedNote.actualDate = new Date(date.setDate(date.getDate() + (+week - 1) * 7))
+        processedNote.actualDate = new Date(
+          date.setDate(date.getDate() + (+week - 1) * 7)
+        )
       } else {
         const noteDate = note?.date || note?.metadata?.date
         if (noteDate) processedNote.actualDate = new Date(noteDate)
       }
       return processedNote
     })
-    .filter(note => note?.actualDate && note?.slug && (note?.dek || note?.metadata?.dek) && !note?.hidden && !note?.metadata?.hidden)
+    .filter(
+      (note) =>
+        note?.actualDate &&
+        note?.slug &&
+        (note?.dek || note?.metadata?.dek) &&
+        !note?.hidden &&
+        !note?.metadata?.hidden
+    )
     .sort((a, b) => b.actualDate - a.actualDate)
     .slice(0, 5)
 })
 
 const blogPostsByYear = computed(() => {
   if (!posts.value?.length) return {}
-  
+
   const grouped = {}
-  posts.value.forEach(post => {
+  posts.value.forEach((post) => {
     const postDate = post?.date || post?.metadata?.date
     if (!postDate) return
     const date = new Date(postDate)
@@ -226,16 +252,22 @@ const blogPostsByYear = computed(() => {
     if (!grouped[year]) grouped[year] = []
     grouped[year].push(post)
   })
-  
+
   // Sort posts within each year (newest first)
-  Object.values(grouped).forEach(yearPosts => {
-    yearPosts.sort((a, b) => new Date(b?.date || b?.metadata?.date) - new Date(a?.date || a?.metadata?.date))
+  Object.values(grouped).forEach((yearPosts) => {
+    yearPosts.sort(
+      (a, b) =>
+        new Date(b?.date || b?.metadata?.date) -
+        new Date(a?.date || a?.metadata?.date)
+    )
   })
-  
+
   return grouped
 })
 
-const sortedYears = computed(() => Object.keys(blogPostsByYear.value).sort((a, b) => b - a))
+const sortedYears = computed(() =>
+  Object.keys(blogPostsByYear.value).sort((a, b) => b - a)
+)
 
 // DELETED: All animation code removed for better performance
 
@@ -243,15 +275,21 @@ const recentlyUpdatedPosts = computed(() => {
   if (!posts.value) return []
   const oneMonthAgo = subMonths(new Date(), 1)
   return [...posts.value]
-    .filter(post => {
+    .filter((post) => {
       const metadata = post?.metadata || post
-      return !metadata?.hidden && !metadata?.draft && 
-             new Date(metadata?.lastUpdated || metadata?.date) > oneMonthAgo
+      return (
+        !metadata?.hidden &&
+        !metadata?.draft &&
+        new Date(metadata?.lastUpdated || metadata?.date) > oneMonthAgo
+      )
     })
     .sort((a, b) => {
       const metaA = a?.metadata || a
       const metaB = b?.metadata || b
-      return new Date(metaB?.lastUpdated || metaB?.date) - new Date(metaA?.lastUpdated || metaA?.date)
+      return (
+        new Date(metaB?.lastUpdated || metaB?.date) -
+        new Date(metaA?.lastUpdated || metaA?.date)
+      )
     })
     .slice(0, 5)
 })
@@ -259,7 +297,10 @@ const recentlyUpdatedPosts = computed(() => {
 // Helper functions
 const formatTitle = (slug) => {
   const baseName = slug.split('/').pop() || slug
-  return baseName.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+  return baseName
+    .split('-')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
 }
 
 const createPostMetadata = (post) => {
@@ -286,7 +327,6 @@ const createPostMetadata = (post) => {
 
 .year-header {
   @apply text-xs font-normal uppercase pl-2 md:pl-0 text-zinc-500 dark:text-zinc-500 mb-8;
-  font-family: 'Signika Negative', sans-serif;
   will-change: transform, opacity;
 }
 

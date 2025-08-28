@@ -1,41 +1,27 @@
 /* Swiss Design System - Minimal, Clear, Functional */
 
-/* Base */
-html,
+/* Base Font Families */
+.sans-serif {
+  font-weight: 300;
+}
+
+.serif {
+  font-family: Georgia, serif !important;
+}
+
 body {
-  @apply bg-zinc-100 dark:bg-zinc-900;
+  font-family: Georgia, serif;
 }
-
-
-/* Typography Scale - Consistent Swiss Design */
-.text-display {
-  @apply text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-zinc-900 dark:text-zinc-100;
-  font-family: 'Fjalla One', sans-serif;
-}
-
-.text-title {
-  @apply text-2xl md:text-3xl font-light text-zinc-900 dark:text-zinc-100;
-  font-family: 'Fjalla One', sans-serif;
-}
-
-.text-heading {
-  @apply text-lg font-normal text-zinc-900 dark:text-zinc-100;
-  font-family: 'Signika Negative', sans-serif;
-}
-
-.text-body {
-  @apply text-base leading-relaxed text-zinc-600 dark:text-zinc-400;
-  font-family: 'Signika Negative', sans-serif;
+.monospace {
+  font-family: ui-monospace, 'SF Mono', Monaco, monospace !important;
 }
 
 .text-small {
   @apply text-sm text-zinc-600 dark:text-zinc-400;
-  font-family: 'Signika Negative', sans-serif;
 }
 
 .text-caption {
   @apply text-xs uppercase tracking-[0.15em] text-zinc-500 dark:text-zinc-500;
-  font-family: 'Signika Negative', sans-serif;
 }
 
 /* Color System */
@@ -130,13 +116,12 @@ body {
 /* Main stat values - consistent across ALL components */
 .stat-value {
   @apply text-2xl font-light tabular-nums tracking-tight text-zinc-800 dark:text-zinc-100 mb-1;
-  font-family: 'Red Hat Mono', monospace;
+  font-family: ui-monospace, 'SF Mono', Monaco, monospace;
 }
 
-/* Primary labels - consistent across ALL components */  
+/* Primary labels - consistent across ALL components */
 .stat-label {
   @apply text-xs tracking-[0.2em] text-zinc-500 dark:text-zinc-400 font-medium uppercase;
-  font-family: 'Signika Negative', sans-serif;
 }
 
 /* Secondary details under main stats */
@@ -192,7 +177,6 @@ body {
 /* Deprecated - use .stat-label instead */
 .metric-label {
   @apply text-xs tracking-[0.2em] text-zinc-500 dark:text-zinc-400 font-medium uppercase;
-  font-family: 'Signika Negative', sans-serif;
 }
 
 .status-indicator {
@@ -267,7 +251,7 @@ body {
       transparent 100%
     );
   }
-  
+
   .grid-cell {
     background: rgba(113, 113, 122, 0.15);
     border: 1px solid rgba(113, 113, 122, 0.08);
@@ -292,3 +276,20 @@ body {
   z-index: 2147483647; /* Maximum z-index */
 }
 
+/* Prose/Article Content Typography */
+.prose {
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  font-family: Georgia, serif !important;
+}
+
+.prose code,
+.prose pre {
+  font-family: ui-monospace, 'SF Mono', Monaco, monospace !important;
+}
