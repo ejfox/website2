@@ -20,7 +20,7 @@
     <span
       v-if="metadata.draft"
       ref="draftRef"
-      class="metadata-item py-1 flex-shrink-0 whitespace-nowrap text-red-500 dark:text-red-400 font-sans"
+      class="metadata-item py-1 flex-shrink-0 whitespace-nowrap text-red-500 dark:text-red-400"
     >
       {{ draftText }}
     </span>
@@ -180,7 +180,7 @@ const pluralize = (word: string, count: number): string => {
 
 <style scoped>
 .metadata-item {
-  /* Simple styling, no animations */
+  @apply font-mono;
   opacity: 1;
   transform: translateY(0);
 }

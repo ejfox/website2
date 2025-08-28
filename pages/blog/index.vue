@@ -155,7 +155,7 @@ const isValidPost = (post, includeWeekNotes = false) => {
   if (includeWeekNotes)
     return weekNote && !isHidden && !isDraft && !isFuturePost
 
-  const isRegularBlogPost = /^\d{4}\/[^/]+$/.test(post?.slug || '')
+  const isRegularBlogPost = /^(blog\/)?\d{4}\/[^/]+$/.test(post?.slug || '')
   return (
     !weekNote && isRegularBlogPost && !isHidden && !isDraft && !isFuturePost
   )

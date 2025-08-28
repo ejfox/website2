@@ -1,7 +1,7 @@
 {
   "content": "<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">launched new studio site</li>\n<li class=\"\">Worked on Electology plans</li>\n<li class=\"\">Went to the gym, got first personal training session</li>\n</ul>",
   "html": "<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">launched new studio site</li>\n<li class=\"\">Worked on Electology plans</li>\n<li class=\"\">Went to the gym, got first personal training session</li>\n</ul>",
-  "title": "🌟 Overview of the Week",
+  "title": "Overview of the Week",
   "metadata": {
     "tags": [
       "weekly-notes",
@@ -11,7 +11,7 @@
     "date": "2022-12-26T16:57:44.000Z",
     "modified": "2024-10-14T23:52:00.000Z",
     "dek": "In which the author unveils a new studio site, delves into Electology plans, and experiences their first personal training session at the gym.",
-    "words": 28,
+    "words": 27,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,
@@ -20,7 +20,7 @@
     },
     "toc": [
       {
-        "text": "🌟 Overview of the Week",
+        "text": "Overview of the Week",
         "slug": "overview-of-the-week",
         "level": "h2",
         "children": []

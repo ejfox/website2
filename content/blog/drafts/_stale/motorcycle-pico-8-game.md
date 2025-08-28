@@ -21,7 +21,7 @@ I fully believe that great art comes from working creatively within limitations,
 
 That is part of the appeal of the beautifully simple, yet powerful, Pico-8 created by Lexaloffle.
 
-[🎮 Introduction to Pico-8 — Are.na](https://www.are.na/ej-fox/introduction-to-pico-8)
+[ Introduction to Pico-8 — Are.na](https://www.are.na/ej-fox/introduction-to-pico-8)
 
 Inspired by my recent [motorcycle journeys](/2023-ny-to-maine) I wanted to try to capture some of the essence and joy of riding a motorcycle into a little video game poem.
 

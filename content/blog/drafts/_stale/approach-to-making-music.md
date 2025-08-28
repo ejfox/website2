@@ -10,4 +10,4 @@ tags:
 ---
 ## My approach to making music
 
-See also [experiments-with-live-looping-performanc](experiments-with-live-looping-performanc)e]]
+See also [blog/2022/experiments-with-live-looping-performanc](blog/2022/experiments-with-live-looping-performanc)e]]

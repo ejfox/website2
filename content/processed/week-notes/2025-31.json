@@ -1,6 +1,6 @@
 {
-  "content": "<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"-daily-check-in--reflections\">🌟 Daily Check-In &#x26; Reflections</h3>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"️-motorcycle-engine-sounds-library\">🏍️ Motorcycle Engine Sounds Library</h3>\n<p class=\"mb-4\">Built a lightweight Nuxt 3 + Supabase app for sharing motorcycle engine sounds with community voting and 112 seeded motorcycle models across 15 major brands. The app features user authentication, audio upload validation, admin approval workflow, and a clean grayscale design optimized for discovering and rating quality engine recordings.</p>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"-learning--media\">📚 Learning &#x26; Media</h3>\n<!-- Books, articles, movies, TV shows, podcasts consumed -->\n<p class=\"mb-4\"><a href=\"https://youtu.be/D8tPkb98Fkk?si=ocF2XoCdaXGoXmzO\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://youtu.be/D8tPkb98Fkk?si=ocF2XoCdaXGoXmzO</a></p>",
-  "html": "<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"-daily-check-in--reflections\">🌟 Daily Check-In &#x26; Reflections</h3>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"️-motorcycle-engine-sounds-library\">🏍️ Motorcycle Engine Sounds Library</h3>\n<p class=\"mb-4\">Built a lightweight Nuxt 3 + Supabase app for sharing motorcycle engine sounds with community voting and 112 seeded motorcycle models across 15 major brands. The app features user authentication, audio upload validation, admin approval workflow, and a clean grayscale design optimized for discovering and rating quality engine recordings.</p>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"-learning--media\">📚 Learning &#x26; Media</h3>\n<!-- Books, articles, movies, TV shows, podcasts consumed -->\n<p class=\"mb-4\"><a href=\"https://youtu.be/D8tPkb98Fkk?si=ocF2XoCdaXGoXmzO\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://youtu.be/D8tPkb98Fkk?si=ocF2XoCdaXGoXmzO</a></p>",
+  "content": "<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"daily-check-in--reflections\">Daily Check-In &#x26; Reflections</h3>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"-motorcycle-engine-sounds-library\">🏍 Motorcycle Engine Sounds Library</h3>\n<p class=\"mb-4\">Built a lightweight Nuxt 3 + Supabase app for sharing motorcycle engine sounds with community voting and 112 seeded motorcycle models across 15 major brands. The app features user authentication, audio upload validation, admin approval workflow, and a clean grayscale design optimized for discovering and rating quality engine recordings.</p>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"-learning--media\">📚 Learning &#x26; Media</h3>\n<!-- Books, articles, movies, TV shows, podcasts consumed -->\n<p class=\"mb-4\"><a href=\"https://youtu.be/D8tPkb98Fkk?si=ocF2XoCdaXGoXmzO\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://youtu.be/D8tPkb98Fkk?si=ocF2XoCdaXGoXmzO</a></p>",
+  "html": "<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"daily-check-in--reflections\">Daily Check-In &#x26; Reflections</h3>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"-motorcycle-engine-sounds-library\">🏍 Motorcycle Engine Sounds Library</h3>\n<p class=\"mb-4\">Built a lightweight Nuxt 3 + Supabase app for sharing motorcycle engine sounds with community voting and 112 seeded motorcycle models across 15 major brands. The app features user authentication, audio upload validation, admin approval workflow, and a clean grayscale design optimized for discovering and rating quality engine recordings.</p>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"-learning--media\">📚 Learning &#x26; Media</h3>\n<!-- Books, articles, movies, TV shows, podcasts consumed -->\n<p class=\"mb-4\"><a href=\"https://youtu.be/D8tPkb98Fkk?si=ocF2XoCdaXGoXmzO\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://youtu.be/D8tPkb98Fkk?si=ocF2XoCdaXGoXmzO</a></p>",
   "title": "2025-31",
   "metadata": {
     "tags": [
@@ -10,7 +10,7 @@
     ],
     "date": "2025-07-28T12:57:34.000Z",
     "modified": "2025-08-12T15:55:36.000Z",
-    "words": 78,
+    "words": 77,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,
@@ -24,13 +24,13 @@
         "level": "h2",
         "children": [
           {
-            "text": "🌟 Daily Check-In & Reflections",
+            "text": "Daily Check-In & Reflections",
             "slug": "daily-check-in-reflections",
             "level": "h3",
             "children": []
           },
           {
-            "text": "🏍️ Motorcycle Engine Sounds Library",
+            "text": "🏍 Motorcycle Engine Sounds Library",
             "slug": "motorcycle-engine-sounds-library",
             "level": "h3",
             "children": []

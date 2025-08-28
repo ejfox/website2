@@ -17,7 +17,7 @@
     </div>
     <div class="col-span-2 pl-2 md:pl-0">
       <div class="flex items-center gap-3 mb-2">
-        <time class="text-xs text-zinc-400">
+        <time class="text-xs text-zinc-400 font-mono">
           {{ formatDate(project.metadata?.date || project.date) }}
         </time>
       </div>
@@ -25,7 +25,7 @@
         <div class="flex flex-col gap-1">
           <span
             v-for="tech in project.metadata.tech" :key="tech"
-            class="text-xs px-2 py-0.5 bg-zinc-50 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-500 rounded-md w-fit"
+            class="text-xs px-2 py-0.5 bg-zinc-50 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-500 rounded-md w-fit font-mono"
           >
             {{ tech }}
           </span>

@@ -363,13 +363,13 @@ const processedMetadata = computed(() => {
         />
       </div>
 
-      <div class="lg:h-[62vh] flex items-center">
+      <div class="min-h-[80vh] flex items-center py-16 md:py-24">
         <h1
           v-if="post?.metadata?.title || post?.title"
           ref="postTitle"
-          class="post-title text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] 2xl:text-[12rem] font-bold w-full py-4 pr-8 pl-4 md:pl-0 tracking-tighter leading-[0.85] font-serif"
+          class="font-bold w-full py-8 pr-8 pl-4 md:pl-0 tracking-tighter leading-[0.7] font-serif text-5xl md:text-6xl lg:text-7xl"
         >
-          <div class="typing-container" v-html="renderedTitle"></div>
+          {{ post?.metadata?.title || post?.title }}
         </h1>
       </div>
 
@@ -384,7 +384,7 @@ const processedMetadata = computed(() => {
         </NuxtLink>
       </div>
 
-      <div ref="articleContent">
+      <div ref="articleContent" class="mt-16 md:mt-24 mb-16 md:mb-24">
         <article
           v-if="post?.html"
           class="blog-post-content"
@@ -522,271 +522,6 @@ const processedMetadata = computed(() => {
 </template>
 
 <style lang="postcss">
-.paddings {
-  @apply p-4 md:p-8 lg:px-16 xl:px-32;
-}
-
-.paddings-y {
-  @apply py-4 md:py-8 lg:py-16 xl:py-32;
-}
-
-.back-to-blog-link {
-  @apply mt-4 mb-4 md:mt-16;
-}
-
-.internal-link {
-  @apply tracking-wide text-zinc-700 dark:text-zinc-300 border-b-2 hover:border-b-4 transition-all duration-200;
-  @apply border-zinc-400 hover:border-zinc-600 dark:border-zinc-500 dark:hover:border-zinc-400;
-}
-
-/* Blog post content styling */
-.blog-post-content {
-  font-family: Georgia, serif !important;
-  font-size: 1.125rem; /* 18px */
-  line-height: 1.75;
-  
-  /* Paragraphs */
-  p {
-    margin-bottom: 1.5rem;
-  }
-  
-  /* Links */
-  a {
-    @apply text-zinc-700 dark:text-zinc-300 underline underline-offset-2;
-    @apply hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors duration-200;
-  }
-
-  /* Blockquotes */
-  blockquote {
-    @apply border-l-zinc-300 dark:border-l-zinc-600;
-    @apply bg-zinc-50 dark:bg-zinc-800/50;
-  }
-
-  /* Code blocks */
-  pre {
-    @apply border border-zinc-200 dark:border-zinc-700;
-  }
-
-  /* Headings subtle accent */
-  h2,
-  h3,
-  h4 {
-    @apply border-b border-zinc-200 dark:border-zinc-700 pb-2;
-  }
-}
-
-.header-star {
-  @apply fill-black dark:fill-white;
-}
-
-.text-balance {
-  text-wrap: balance;
-}
-
-/* Transition styles */
-/* Removed view transition styles */
-
-.fade-enter-active,
-.fade-leave-active {
-  @apply transition-opacity duration-300 ease-in-out;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  @apply opacity-0;
-}
-
-/* Hide scrollbar for mobile TOC */
-.overflow-x-auto {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-
-/* Smooth scrolling for the TOC */
-.flex {
-  scroll-behavior: smooth;
-}
-
-/* Hide scrollbar but keep functionality */
-.no-scrollbar {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-/* Content handling */
-.post-content {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-.post-content blockquote {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-.post-content a {
-  max-width: 100%;
-  overflow-wrap: break-word;
-}
-
-/* Add styles for code blocks to prevent layout breaking */
-.blog-post-content pre,
-.blog-post-content code {
-  max-width: 100%;
-  overflow-x: auto;
-  white-space: pre-wrap;
-  word-break: break-word;
-  word-wrap: break-word;
-  box-sizing: border-box;
-}
-
-/* Ensure code blocks don't push the layout */
-.blog-post-content pre {
-  padding: 1rem;
-  border-radius: 0.375rem;
-  margin: 1.5rem 0;
-  font-size: 0.875rem;
-  line-height: 1.5;
-}
-
-/* Inline code */
-.blog-post-content :not(pre) > code {
-  padding: 0.2em 0.4em;
-  border-radius: 0.25rem;
-  font-size: 0.875em;
-  word-break: break-word;
-}
-
-/* Full-width images while keeping text constrained */
-.blog-post-content {
-  /* Constrain paragraphs and most content to prose width */
-  p,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  ul,
-  ol,
-  blockquote {
-    max-width: 65ch;
-  }
-
-  /* Break images out to full width */
-  img {
-    @apply w-screen max-w-none mx-auto;
-    /* Break out of container padding */
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-    /* Spacing */
-    @apply py-2 md:py-4 lg:py-6;
-    /* Add back some side padding on smaller screens */
-    @apply px-2 md:px-0;
-  }
-}
-
-/* DELETE sneaky padding - we're Tailwind bois! */
-.no-scrollbar {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-a {
-  word-break: break-word;
-}
-
-/* Respect user preferences */
-@media (prefers-reduced-motion: reduce) {
-  .prose img,
-  .prose blockquote {
-    transition: none !important;
-    transform: none !important;
-    opacity: 1 !important;
-    animation: none !important;
-  }
-}
-
-/* Title typing animation */
-.typing-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.3em;
-  line-height: 1.2;
-}
-
-.word {
-  display: flex;
-}
-
-.letter {
-  display: inline-block;
-  opacity: 1; /* Default visible */
-  transform: none;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-}
-
-.letter.hidden {
-  opacity: 0;
-  transform: translateY(5px);
-}
-
-.letter.visible {
-  opacity: 1;
-  transform: none;
-}
-
-.cursor {
-  position: absolute;
-  right: -3px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background-color: currentColor;
-  animation: blink 1s step-end infinite;
-  height: 100%;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 0.8; }
-  50% { opacity: 0; }
-}
-
-/* Remove any conflicting styles */
-.post-title {
-  line-height: 1.1;
-  white-space: normal;
-  word-break: normal;
-  overflow-wrap: break-word;
-  max-width: 100%;
-  hyphens: auto;
-}
-/* Enhanced image animations */
-.blog-post-content img {
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-  perspective: 1000px;
-  width: 100% !important;
-  max-width: 100% !important;
-  height: auto !important;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 .blog-post-content {
   @apply px-2 prose prose-lg dark:prose-invert font-serif font-normal opacity-100 leading-relaxed;
@@ -798,27 +533,17 @@ a {
   @apply prose-h2:border-none prose-h3:border-none prose-h4:border-none;
   @apply prose-hr:border-t prose-hr:border-zinc-200 dark:prose-hr:border-zinc-800;
   @apply prose-hr:border-solid prose-hr:my-12 prose-hr:mx-0 prose-hr:w-full;
+  @apply prose-blockquote:bg-transparent prose-blockquote:my-8 prose-blockquote:px-6 prose-blockquote:py-4;
 }
 
-/* Additional styles for images in blog posts */
-.blog-post-content figure {
-  width: 100% !important;
-  max-width: 100% !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+/* Fix external link icons on line wrapping */
+.blog-post-content .external-link {
+  display: inline;
 }
 
-.blog-post-content figure img {
-  width: 100% !important;
-  max-width: 100% !important;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .blog-post-content img {
-    transition: none !important;
-    transform: none !important;
-    opacity: 1 !important;
-    animation: none !important;
-  }
+.blog-post-content .external-link svg {
+  display: inline-block;
+  vertical-align: baseline;
+  margin-left: 0.125rem;
 }
 </style>

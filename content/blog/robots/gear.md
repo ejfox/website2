@@ -139,7 +139,7 @@ Total Score = (T × 2) + (C × 2) + (W × 1.5) + (M × 1)
 
 ### Tier Definitions
 
-#### 🎯 TIER 1: ON-PERSON KIT
+####  TIER 1: ON-PERSON KIT
 
 "The No-Question Layer"
 

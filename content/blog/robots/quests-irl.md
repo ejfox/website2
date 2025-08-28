@@ -811,4 +811,4 @@ QuestsIRL is a gamified skill development platform that creates personalized lea
 
 ---
 
-*Let's make QuestsIRL a seamless, engaging, and highly performant experience for our users. Remember, YOLO but thoughtful! 🚀*
+*Let's make QuestsIRL a seamless, engaging, and highly performant experience for our users. Remember, YOLO but thoughtful! *

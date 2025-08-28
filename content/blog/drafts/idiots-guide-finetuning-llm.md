@@ -1,18 +1,20 @@
 ---
 date: 2025-08-19T13:38:18-04:00
-modified: 2025-08-19T13:39:00-04:00
+modified: 2025-08-28T15:27:55-04:00
 tags:
   - machinelearning
   - howto
   - tech
 ## An Idiot's Guide to Finetuning an LLM
 ---
+
 tags:
+
   - machinelearning
   - howto
   - tech
-### Why?
+## Why?
 
-### How?
+## How?
 
-### What does it cost?
+## What does it cost?

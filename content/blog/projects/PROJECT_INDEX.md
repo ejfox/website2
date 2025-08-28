@@ -6,7 +6,7 @@ modified: 2025-08-21T16:01:41-04:00
 
 *Auto-generated on 8/18/2025*
 
-### 🚀 Active Projects
+###  Active Projects
 
 #### [towntuner](./towntuner)
 
@@ -34,7 +34,7 @@ or: how i learned to stop worrying and love the gamepad
 
 #### [coachartie2](./coachartie2)
 
-🚀 Production-grade AI system with embedded MCP tools, free model fallbacks, and bulletproof Docker architecture
+ Production-grade AI system with embedded MCP tools, free model fallbacks, and bulletproof Docker architecture
 
 *Last updated: 8/13/2025*
 
@@ -52,13 +52,13 @@ This project is designed to create vector embeddings for Criterion movie titles 
 
 #### [rescuetime-scrape](./rescuetime-scrape)
 
-rescuetime-scrape/ ├── analysis/ # 🔬 All analysis scripts ├── data/ # 📊 Raw RescueTime data ├── web/ # 🌐 Interactive dashboard ├── visualizations/ # 📈 Generated charts & images ├── docs/ # 📚 Docu…
+rescuetime-scrape/ ├── analysis/ # 🔬 All analysis scripts ├── data/ #  Raw RescueTime data ├── web/ # 🌐 Interactive dashboard ├── visualizations/ # 📈 Generated charts & images ├── docs/ # 📚 Docu…
 
 *Last updated: 8/11/2025*
 
 #### [discord-arena-bridge](./discord-arena-bridge)
 
-DISCORD ⟷ ARE.NA BRIDGE (v0.1.0-bidirectional) =============================================== A bidirectional bridge for your digital garden. Est. 2024 | Made with ☕ and 🎷
+DISCORD ⟷ ARE.NA BRIDGE (v0.1.0-bidirectional) =============================================== A bidirectional bridge for your digital garden. Est. 2024 | Made with  and 🎷
 
 *Last updated: 8/10/2025*
 
@@ -272,7 +272,7 @@ election-helpers is a lightweight JavaScript utility library that makes it easie
 
 *Last updated: 6/1/2025*
 
-### 🗄️ Other Projects
+### 🗄 Other Projects
 
 - **[latent-scope](./latent-scope)** - Quickly embed, project, cluster and explore a dataset with open models locally or via API. This project is a new kind of workflow + tool for visualizing and exploring datasets through the lens of late… *(5/16/2025)*
 - **[ui-brand-pattern](./ui-brand-pattern)** - This is a Next.js project bootstrapped with create-next-app. *(4/30/2025)*

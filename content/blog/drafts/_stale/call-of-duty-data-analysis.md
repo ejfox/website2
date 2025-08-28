@@ -37,7 +37,7 @@ I think one of the best ways to enjoy Call of Duty is to play with a friend. I'v
 
 Playing with friends also allows you to communicate and coordinate more effectively, which can be a huge advantage in a fast paced and competitive game like Call of Duty.
 
-### I ❤️ Riot Shield
+### I ❤ Riot Shield
 
 The riot shield is a piece of equipment that can be equipped in certain game modes. It is a large shield that protects the player from bullets and explosives, and can be used to bash (or boop) enemies.
 

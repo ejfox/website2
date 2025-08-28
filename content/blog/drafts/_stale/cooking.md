@@ -11,7 +11,7 @@ hidden: true
 ---
 ## Cooking
 
-[foo](foo)d]]
+[blog/2022/foo](blog/2022/foo)d]]
 
 [espress](espress)o]]
 

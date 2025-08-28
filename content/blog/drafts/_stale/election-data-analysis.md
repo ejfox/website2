@@ -18,7 +18,7 @@ tags:
 
 ## Election Results Data Analysis
 
-[things-ive-learned-about-election](things-ive-learned-about-election)s]]
+[blog/2020/things-ive-learned-about-election](blog/2020/things-ive-learned-about-election)s]]
 
 ---
 

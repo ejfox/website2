@@ -53,7 +53,7 @@ vs
 - Offline-first architecture
 - Background refresh critical
 
-MOBILE MARIA (👩‍🎨): Don't forget the crucial timing context:
+MOBILE MARIA (👩‍): Don't forget the crucial timing context:
 
 >"30 minutes (doomscrolling) is good and fine, but this morning I woke up at 9 and I didn't get out of bed until 11 and that felt… bad"
 
@@ -140,14 +140,14 @@ And remember the core balance:
    - Community pulse
    - Curated RSS/inspiration feeds
 
-3. CREATIVE CONTINUITY 🎨
+3. CREATIVE CONTINUITY 
    - "Oh yeah!" project reminders
    - Progress celebrations
    - Work-in-progress status
    - Publication opportunities
    - Community feedback/growth metrics
 
-4. SYSTEM INTEGRATION 🔄
+4. SYSTEM INTEGRATION 
    - Things (task management)
    - Obsidian (project notes)
    - Day One (morning pages)
@@ -155,7 +155,7 @@ And remember the core balance:
    - Blog/Website
    - Social platforms
 
-### Interaction Patterns 🎛️
+### Interaction Patterns 🎛
 - Morning-brain friendly
 - Swipe mechanics
 - Channel-switching metaphor
@@ -165,7 +165,7 @@ And remember the core balance:
 
 CLARENCE THE JANITOR (🧹): *in smooth DJ voice* Don't forget those transitions, baby… smooth like butter…
 
-MARCUS (🎯): *continues writing*
+MARCUS (): *continues writing*
 
 ### Content "Channels" 📡
 1. MORNING HEADLINES
@@ -193,14 +193,14 @@ MARCUS (🎯): *continues writing*
    - Community feedback
    - Achievement celebrations
 
-### Documentation Flow 📝
+### Documentation Flow 
 - Private by default
 - Intentional sharing
 - Automatic capture
 - Progress tracking
 - Multiple publishing paths
 
-### Success Metrics 📊
+### Success Metrics 
 - Morning doomscroll reduction
 - Creative work completion
 - Documentation consistency
@@ -209,11 +209,11 @@ MARCUS (🎯): *continues writing*
 
 ---
 
-### V0.0.1 (1 week) - "The First Song" 🎵
+### V0.0.1 (1 week) - "The First Song" 
 
 *Focus: Basic working prototype you'll actually use every morning*
 
-#### CORE VIEWS 📱
+#### CORE VIEWS 
 
 1. WELCOME SCREEN / MORNING BRIEF
 - Generated daily at 6am
@@ -244,7 +244,7 @@ MARCUS (🎯): *continues writing*
 - Clear cache button
 - Version number
 
-#### MVP REQUIREMENTS ✅
+#### MVP REQUIREMENTS 
 1. Works offline with cached data
 2. Updates in background at 6am
 3. Loads instantly
@@ -253,7 +253,7 @@ MARCUS (🎯): *continues writing*
 
 *jazz plays a clean ending riff*
 
-### V0.0.5 (3 months) - "Finding the Rhythm" 🎶
+### V0.0.5 (3 months) - "Finding the Rhythm" 
 
 *Focus: Personal data integration & improved experience*
 
@@ -280,7 +280,7 @@ SUCCESS METRICS:
 - Reduced doomscrolling
 - Feature requests emerging
 
-### V0.1.0 (1 year) - "Full Morning Show" 🎸
+### V0.1.0 (1 year) - "Full Morning Show" 
 
 *Focus: Refined experience & possible expansion*
 

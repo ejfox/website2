@@ -1,39 +1,39 @@
 {
-  "content": "<p class=\"mb-4\">tags:</p>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">machinelearning</li>\n<li class=\"\">howto</li>\n<li class=\"\">tech</li>\n</ul>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"why\">Why?</h3>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"how\">How?</h3>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"what-does-it-cost\">What does it cost?</h3>",
-  "html": "<p class=\"mb-4\">tags:</p>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">machinelearning</li>\n<li class=\"\">howto</li>\n<li class=\"\">tech</li>\n</ul>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"why\">Why?</h3>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"how\">How?</h3>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"what-does-it-cost\">What does it cost?</h3>",
-  "title": "Idiots Guide Finetuning Llm",
+  "content": "<p class=\"mb-4\">tags:</p>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">machinelearning</li>\n<li class=\"\">howto</li>\n<li class=\"\">tech</li>\n</ul>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"how\">How?</h2>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"what-does-it-cost\">What does it cost?</h2>",
+  "html": "<p class=\"mb-4\">tags:</p>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">machinelearning</li>\n<li class=\"\">howto</li>\n<li class=\"\">tech</li>\n</ul>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"how\">How?</h2>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8\" id=\"what-does-it-cost\">What does it cost?</h2>",
+  "title": "Why?",
   "metadata": {
     "date": "2025-08-19T17:38:18.000Z",
-    "modified": "2025-08-19T17:39:00.000Z",
+    "modified": "2025-08-28T19:27:55.000Z",
     "tags": [
       "machinelearning",
       "howto",
       "tech"
     ],
-    "words": 17,
+    "words": 18,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,
     "headers": {
-      "h3": 3
+      "h2": 3
     },
     "toc": [
       {
         "text": "Why?",
         "slug": "why",
-        "level": "h3",
+        "level": "h2",
         "children": []
       },
       {
         "text": "How?",
         "slug": "how",
-        "level": "h3",
+        "level": "h2",
         "children": []
       },
       {
         "text": "What does it cost?",
         "slug": "what-does-it-cost",
-        "level": "h3",
+        "level": "h2",
         "children": []
       }
     ],

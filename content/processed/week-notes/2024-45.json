@@ -1,6 +1,6 @@
 {
-  "content": "<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"-daily-check-in--reflections\">🌟 Daily Check-In &#x26; Reflections</h3>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">Monday:</li>\n<li class=\"\">Tuesday:</li>\n<li class=\"\">Wednesday:</li>\n<li class=\"\">Thursday:</li>\n<li class=\"\">Friday:</li>\n<li class=\"\">Saturday:</li>\n<li class=\"\">Sunday:</li>\n</ul>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"-code--creations\">💻 Code &#x26; Creations</h3>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"-ideas--inspirations\">💡 Ideas &#x26; Inspirations</h3>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"️-health--wellness\">🏋️ Health &#x26; Wellness</h3>\n<!-- Note any physical activity, mindfulness practice, or self-care -->\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"-learning--media\">📚 Learning &#x26; Media</h3>\n<!-- Books, articles, movies, TV shows, podcasts consumed -->\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"-connections--insights\">🔗 Connections &#x26; Insights</h3>\n<!-- Note any interesting connections between ideas or new realizations -->\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"-next-weeks-intentions\">🎯 Next Week's Intentions</h3>\n<!-- What do you want to focus on or accomplish next week? -->",
-  "html": "<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"-daily-check-in--reflections\">🌟 Daily Check-In &#x26; Reflections</h3>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">Monday:</li>\n<li class=\"\">Tuesday:</li>\n<li class=\"\">Wednesday:</li>\n<li class=\"\">Thursday:</li>\n<li class=\"\">Friday:</li>\n<li class=\"\">Saturday:</li>\n<li class=\"\">Sunday:</li>\n</ul>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"-code--creations\">💻 Code &#x26; Creations</h3>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"-ideas--inspirations\">💡 Ideas &#x26; Inspirations</h3>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"️-health--wellness\">🏋️ Health &#x26; Wellness</h3>\n<!-- Note any physical activity, mindfulness practice, or self-care -->\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"-learning--media\">📚 Learning &#x26; Media</h3>\n<!-- Books, articles, movies, TV shows, podcasts consumed -->\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"-connections--insights\">🔗 Connections &#x26; Insights</h3>\n<!-- Note any interesting connections between ideas or new realizations -->\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"-next-weeks-intentions\">🎯 Next Week's Intentions</h3>\n<!-- What do you want to focus on or accomplish next week? -->",
+  "content": "<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"daily-check-in--reflections\">Daily Check-In &#x26; Reflections</h3>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">Monday:</li>\n<li class=\"\">Tuesday:</li>\n<li class=\"\">Wednesday:</li>\n<li class=\"\">Thursday:</li>\n<li class=\"\">Friday:</li>\n<li class=\"\">Saturday:</li>\n<li class=\"\">Sunday:</li>\n</ul>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"code--creations\">Code &#x26; Creations</h3>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"ideas--inspirations\">Ideas &#x26; Inspirations</h3>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"-health--wellness\">🏋 Health &#x26; Wellness</h3>\n<!-- Note any physical activity, mindfulness practice, or self-care -->\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"-learning--media\">📚 Learning &#x26; Media</h3>\n<!-- Books, articles, movies, TV shows, podcasts consumed -->\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"-connections--insights\">🔗 Connections &#x26; Insights</h3>\n<!-- Note any interesting connections between ideas or new realizations -->\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"next-weeks-intentions\">Next Week's Intentions</h3>\n<!-- What do you want to focus on or accomplish next week? -->",
+  "html": "<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"daily-check-in--reflections\">Daily Check-In &#x26; Reflections</h3>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">Monday:</li>\n<li class=\"\">Tuesday:</li>\n<li class=\"\">Wednesday:</li>\n<li class=\"\">Thursday:</li>\n<li class=\"\">Friday:</li>\n<li class=\"\">Saturday:</li>\n<li class=\"\">Sunday:</li>\n</ul>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"code--creations\">Code &#x26; Creations</h3>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"ideas--inspirations\">Ideas &#x26; Inspirations</h3>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"-health--wellness\">🏋 Health &#x26; Wellness</h3>\n<!-- Note any physical activity, mindfulness practice, or self-care -->\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"-learning--media\">📚 Learning &#x26; Media</h3>\n<!-- Books, articles, movies, TV shows, podcasts consumed -->\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"-connections--insights\">🔗 Connections &#x26; Insights</h3>\n<!-- Note any interesting connections between ideas or new realizations -->\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"next-weeks-intentions\">Next Week's Intentions</h3>\n<!-- What do you want to focus on or accomplish next week? -->",
   "title": "2024-45",
   "metadata": {
     "tags": [
@@ -10,7 +10,7 @@
     ],
     "modified": "2024-11-05T16:37:55.000Z",
     "date": "Invalid date",
-    "words": 96,
+    "words": 92,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,
@@ -24,25 +24,25 @@
         "level": "h2",
         "children": [
           {
-            "text": "🌟 Daily Check-In & Reflections",
+            "text": "Daily Check-In & Reflections",
             "slug": "daily-check-in-reflections",
             "level": "h3",
             "children": []
           },
           {
-            "text": "💻 Code & Creations",
+            "text": "Code & Creations",
             "slug": "code-creations",
             "level": "h3",
             "children": []
           },
           {
-            "text": "💡 Ideas & Inspirations",
+            "text": "Ideas & Inspirations",
             "slug": "ideas-inspirations",
             "level": "h3",
             "children": []
           },
           {
-            "text": "🏋️ Health & Wellness",
+            "text": "🏋 Health & Wellness",
             "slug": "health-wellness",
             "level": "h3",
             "children": []
@@ -60,7 +60,7 @@
             "children": []
           },
           {
-            "text": "🎯 Next Week's Intentions",
+            "text": "Next Week's Intentions",
             "slug": "next-week-s-intentions",
             "level": "h3",
             "children": []

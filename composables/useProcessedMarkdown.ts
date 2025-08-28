@@ -86,9 +86,19 @@ function formatTitle(filename: string): string {
 // Core filtering functions
 function isSpecialSection(slug: string): boolean {
   const pathParts = slug.split('/')
-  const basePath = pathParts.length > 1 && /^\d{4}$/.test(pathParts[0])
-    ? pathParts.slice(1).join('/')
-    : slug
+  // Handle both old format (YYYY/...) and new format (blog/YYYY/...)
+  let basePath = slug
+  
+  // If starts with 'blog/', strip it
+  if (pathParts[0] === 'blog') {
+    basePath = pathParts.slice(1).join('/')
+  }
+  
+  // If starts with year, get the rest
+  const remainingParts = basePath.split('/')
+  if (remainingParts.length > 1 && /^\d{4}$/.test(remainingParts[0])) {
+    basePath = remainingParts.slice(1).join('/')
+  }
   
   return basePath.startsWith('reading/') ||
          basePath.startsWith('projects/') ||

@@ -11,11 +11,11 @@ COMPLETE WINTER SYSTEM INVENTORY
 BASE LAYERS
 
 ```
-Upper: ✅
+Upper: 
 - Uniqlo HEATTECH Ultra Warm
 - Extra: HEATTECH Short Sleeve
 
-Lower: ✅
+Lower: 
 - Uniqlo HEATTECH Ultra Warm Tights
 ```
 
@@ -41,15 +41,15 @@ Lower Technical:
 EXTREMITIES
 
 ```
-Feet: ✅
+Feet: 
 - Nike ACG Gaiadome GTX
 - Microspikes
 - Need: Warm socks solution
 
-Hands: ✅
+Hands: 
 - Arc'teryx Rho Gloves
 
-Head: ✅
+Head: 
 - REI Balaclava (Existing)
 - Smartwool Beanie (Existing)
 ```
@@ -132,7 +132,7 @@ ACTIVE TEMPERATURE MANAGEMENT
 
 ```
 Base Layer (Next to Skin)
-- Uniqlo HEATTECH Ultra Warm ✅
+- Uniqlo HEATTECH Ultra Warm 
 - Moisture control
 - Core temp regulation
 
@@ -155,7 +155,7 @@ Weather Shell
 LOWER BODY SYSTEM
 
 ```
-Base: HEATTECH Tights ✅
+Base: HEATTECH Tights 
 Technical: Fjallraven Kebs (To Get)
 - 4-season adaptable
 - Waxable protection
@@ -166,13 +166,13 @@ EXTREMITY PROTECTION
 
 ```
 Feet
-- Nike ACG Gaiadome GTX ✅
+- Nike ACG Gaiadome GTX 
 - Winter-capable boot
 - Urban/trail crossover
-- Microspikes ✅ for ice
+- Microspikes  for ice
 
 Hands
-- Arc'teryx Rho Gloves ✅
+- Arc'teryx Rho Gloves 
 - Dexterity focus
 - Tech compatible
 ```

@@ -27,82 +27,50 @@ The data that was most useful to me was a 448.9MB `rescuetime_data.json` file, a
   - 3,827 days of data across 5,115 total days
   - 932 days worth of pure screen time
 
-### Looking for patterns
+### What the Data Revealed
 
-#### YouTube: A Lifetime of Consumption
+#### The YouTube Learning Explosion
 
-I started at just 1 hour in 2012, exploded to 315 hours in 2014 (52 minutes daily), then crashed to 84 hours in 2015.
+My YouTube consumption tells a story about how I learn. I started small in 2012 with just 1 hour, peaked at 315 hours in 2014, then settled into a pattern. But 2021 was different:
 
-  - 2020: 299 hours (pandemic baseline)
-  - 2021: 589 hours (97% increase - nearly doubling)
-  - 2022: 244 hours (59% crash back to earth)
+- 2014: 315 hours
+- 2020: 299 hours
+- 2021: 589 hours (97% increase - nearly doubling)  
+- 2022: 244 hours (crashed back to earth)
 
-  This isn't random volatility. 2021 was peak information arbitrage - maximum learning opportunity combined with minimum
+With nowhere to go and endless time, I accidentally conducted the largest educational experiment of my life. While others binged Netflix, I was deep in programming tutorials, design theory, and maker content.
 
-  opportunity cost. While others doom-scrolled, I accidentally conducted the largest educational experiment of my life.
+#### From Software to Hardware: The Music Story
 
-#### Digital To Analog: Music Production & DJing
+The data captured my transition from digital music production to physical instruments and analog gear:
 
-  2014: The Software Maximalist
+**2014 - Peak Digital Era:**
+- Logic Pro X: 118 hours (building production skills)
+- Traktor: 197 hours (digital DJing obsession)  
+- Total: 393 hours making music on computers
 
-  - Traktor: 197 hours (peak year - you were deep in digital DJing)
-  - Logic Pro X: 118 hours (building up production skills)
-  - Total music software: 393 hours (10+ hours per week making music)
+**2016 - The Turning Point:**
+- Logic Pro X peaked at 169 hours
+- Traktor crashed to 26 hours (the hardware bug was biting)
 
-  2016: The Logic Pro Zenith
+**2017-2020 - The Great Migration:**
+The software hours disappeared as I moved to hardware synthesizers, drum machines, and analog mixers that aren't trackable with RescueTime. What looks like "giving up music" in the data was actually me getting *more* serious about it - just away from the computer.
 
-  - Logic Pro X: 169 hours (absolute peak - 3+ hours per week)
-  - But Traktor had already crashed to 26 hours (the DJ transition begins)
+#### The Social Media Roller Coaster
 
-  The Invisible Revolution (2017-2020)
+If there's one thing the data reveals about my relationship with social platforms, it's that I'm apparently incapable of moderation. I either binge or quit cold turkey.
 
-  What the data shows:
+**The Facebook Years (2013-2016)**
+My early twenties were peak Facebook addiction. In 2014, I spent 169 hours on the platform - that's 28 minutes every single day, including a legendary 17-hour binge on June 1st, 2015. (What was I even doing for 17 hours? The mind boggles.)
 
-  - Logic Pro X: 169h → 72h → 27h → 13h (systematic abandonment)
-  - Traktor: Virtual disappearance after 2018
-  - Total music software: 393h peak → 14h by 2020 (96% decline)
-#### The Ebb and Flow of Social Media
+**The Great Migration (2017-2019)**  
+Then something interesting happened: I just... stopped. Facebook usage collapsed from 116 hours to 15 hours over two years. This wasn't a conscious decision - I simply found myself opening Twitter instead. The data shows a near-perfect inverse relationship: as Facebook died, Twitter grew.
 
-  The Tale of Two Peaks
+**The Pandemic Peak (2020-2021)**
+COVID broke my brain in measurable ways. Twitter usage exploded from 50 hours in 2019 to 327 hours in 2021 - nearly an hour every day. I was mainlining political discourse, pandemic updates, and tech Twitter drama with 0.6-minute average sessions. Pure dopamine farming.
 
-  Facebook: The Early Adopter's Peak (2014)
-
-  - Peak: 169 hours = 28 minutes every single day
-  - Peak single day: June 1, 2015 (17.6 hours - an entire waking day)
-  - 151-day consecutive usage streak on Twitter (ultimate engagement)
-  - Average session: 1.4 minutes (rapid-fire checking)
-
-  Twitter: The Late Bloomer's Peak (2021)
-
-  - Peak: 327 hours = 54 minutes daily (nearly an hour every day)
-  - COVID renaissance: 2019 (50h) → 2021 (327h) = 554% increase
-  - Average session: 0.6 minutes (even more compulsive than Facebook)
-
-  The Four-Phase Evolution
-
-  Phase 1: Early Adoption & Mastery (2013-2016)
-
-  - Facebook dominance: 2014 peak of 169 hours
-  - Twitter steady growth: Building from 92h to 228h
-  - Combined social media: 57 minutes daily at peak
-
-  Phase 2: The Great Facebook Escape (2017-2019)
-
-  - Facebook collapse: 116h → 15h (87% decline in 2 years)
-  - Twitter continues growing (the replacement theory)
-  - This wasn't conscious - you just… stopped opening Facebook
-
-  Phase 3: COVID Renaissance (2020-2021)
-
-  - Twitter explodes: 50h → 327h (peak social year ever)
-  - Facebook brief comeback: 11h → 43h (pandemic loneliness)
-  - Peak combined usage: 370 hours = 61 minutes daily
-
-  Phase 4: The Musk Exodus & Terminal Decline (2022-2025)
-
-  - Twitter: 327h → 0h (complete abandonment)
-  - Facebook: Slow death from 43h → 9h → effectively zero
-  - 2025: 9 total social hours = 1.4 minutes daily
+**The Musk Exodus (2022-2025)**
+Then Elon bought Twitter and I noped out entirely. 327 hours to zero overnight. By 2025, my total social media usage across all platforms: 9 hours for the entire year. I went from social media addict to digital hermit in the span of a few years.
 
 #### Hybrid Design Engineer Evolution
 

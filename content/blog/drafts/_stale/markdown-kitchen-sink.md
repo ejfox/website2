@@ -79,7 +79,7 @@ onChange: updateSalesChart
 
 ---
 
-### 🔄 **2. Scrollytelling Components**
+###  **2. Scrollytelling Components**
 
 #### 2.1 **Scroll-Driven Animations**
 
@@ -114,7 +114,7 @@ steps:
 
 ---
 
-### 🗺️ **3. HD ai2html QGIS Maps**
+### 🗺 **3. HD ai2html QGIS Maps**
 
 #### 3.1 **Embedding ai2html Maps**
 
@@ -145,7 +145,7 @@ clickToZoom: true
 
 ---
 
-### 💻 **5. Embedded Gist/Bl.ock Style Elements**
+###  **5. Embedded Gist/Bl.ock Style Elements**
 
 #### 5.1 **Live GitHub Gist Embeds**
 
@@ -297,7 +297,7 @@ interactive: true
 
 ---
 
-### ⚙️ **9. Troubleshooting & FAQs**
+### ⚙ **9. Troubleshooting & FAQs**
 
 #### Q1: **My embedded map isn't responsive. What should I check?**
 
@@ -325,13 +325,13 @@ interactive: true
 
 ---
 
-### ✨ **Final Thoughts**
+###  **Final Thoughts**
 
 With this **Enhanced Markdown Kitchen Sink**, you're equipped to craft stunning, interactive, and dynamic content that captivates your audience. Embrace these tools to elevate your storytelling, experiment with various configurations, and watch your digital presence transform into a beacon of advanced expression. Stay visionary, stay innovative, and let your site illuminate the cyberpunk landscape!
 
 ---
 
-## 🚀 **Get Started Now**
+##  **Get Started Now**
 
 Ready to revolutionize your content? Begin integrating these components into your next post and experience the future of interactive storytelling today.
 
@@ -343,7 +343,7 @@ Have questions or need assistance? Reach out to our support team or join our com
 
 ---
 
-## 🖥️ **Credits**
+## 🖥 **Credits**
 
 - **Observable Plot**: [ObservableHQ](https://observablehq.com/)
 - **QGIS ai2html Plugin**: [ai2html](https://github.com/Adobe-CEP/ai2html)
