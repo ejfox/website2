@@ -13,8 +13,8 @@ export function rehypeAddClassToParagraphs() {
 
       switch (node.tagName) {
         case 'p':
-          // Minimal classes for paragraphs
-          addClasses(node, ['mb-4'])
+          // Prose width constraint + spacing for paragraphs
+          addClasses(node, ['mb-4', 'max-w-prose', 'mx-auto'])
           break
 
         case 'blockquote':
@@ -23,7 +23,9 @@ export function rehypeAddClassToParagraphs() {
             'border-l-4',
             'border-zinc-300',
             'dark:border-zinc-700',
-            'my-4'
+            'my-4',
+            'max-w-prose',
+            'mx-auto'
           ])
           break
 
@@ -46,7 +48,10 @@ export function rehypeAddClassToParagraphs() {
             'text-4xl',
             'font-bold',
             'mb-6',
-            'mt-8'
+            'mt-8',
+            'max-w-prose',
+            'mx-auto',
+            'font-sans'
           ])
           break
 
@@ -55,7 +60,10 @@ export function rehypeAddClassToParagraphs() {
             'text-3xl',
             'font-semibold',
             'mb-4',
-            'mt-8'
+            'mt-8',
+            'max-w-prose',
+            'mx-auto',
+            'font-sans'
           ])
           break
 
@@ -64,7 +72,10 @@ export function rehypeAddClassToParagraphs() {
             'text-2xl',
             'font-medium',
             'mb-3',
-            'mt-6'
+            'mt-6',
+            'max-w-prose',
+            'mx-auto',
+            'font-sans'
           ])
           break
 
@@ -72,7 +83,9 @@ export function rehypeAddClassToParagraphs() {
           addClasses(node, [
             'list-disc',
             'ml-6',
-            'mb-4'
+            'mb-4',
+            'max-w-prose',
+            'mx-auto'
           ])
           break
 
@@ -80,7 +93,9 @@ export function rehypeAddClassToParagraphs() {
           addClasses(node, [
             'list-decimal',
             'ml-6',
-            'mb-4'
+            'mb-4',
+            'max-w-prose',
+            'mx-auto'
           ])
           break
 
@@ -95,23 +110,21 @@ export function rehypeAddClassToParagraphs() {
 
         case 'code':
           if (node.properties.className?.includes('language-')) {
-            // Code block
+            // Code block - match body text size with proper padding
             addClasses(node, [
-              'prose-sm',
               'block',
+              'text-base',
               'rounded-lg',
               'bg-zinc-100',
               'dark:bg-zinc-800',
-              'p-4',
+              'p-6',
               'my-4',
               'overflow-x-auto',
-              'font-mono',
-              'text-sm'
+              'font-mono'
             ])
           } else {
-            // Inline code
+            // Inline code - keep smaller
             addClasses(node, [
-              'prose-sm',
               'font-mono',
               'text-sm',
               'bg-zinc-100',
@@ -125,11 +138,12 @@ export function rehypeAddClassToParagraphs() {
 
         case 'pre':
           addClasses(node, [
-            'prose-sm',
             'relative',
             'rounded-lg',
             'overflow-hidden',
-            'shadow-sm'
+            'shadow-sm',
+            'max-w-prose',
+            'mx-auto'
           ])
           break
 

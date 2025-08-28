@@ -1,6 +1,6 @@
 {
-  "content": "<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">launched new studio site</li>\n<li class=\"\">Worked on Electology plans</li>\n<li class=\"\">Went to the gym, got first personal training session</li>\n</ul>",
-  "html": "<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">launched new studio site</li>\n<li class=\"\">Worked on Electology plans</li>\n<li class=\"\">Went to the gym, got first personal training session</li>\n</ul>",
+  "content": "<ul class=\"list-disc ml-6 mb-4 max-w-prose mx-auto\">\n<li class=\"\">launched new studio site</li>\n<li class=\"\">Worked on Electology plans</li>\n<li class=\"\">Went to the gym, got first personal training session</li>\n</ul>",
+  "html": "<ul class=\"list-disc ml-6 mb-4 max-w-prose mx-auto\">\n<li class=\"\">launched new studio site</li>\n<li class=\"\">Worked on Electology plans</li>\n<li class=\"\">Went to the gym, got first personal training session</li>\n</ul>",
   "title": "Overview of the Week",
   "metadata": {
     "tags": [

@@ -1,6 +1,6 @@
 {
-  "content": "<p class=\"mb-4\">#3d</p>\n<p class=\"mb-4\"><a href=\"using-polycam-scans-in-three-j\" class=\"text-blue-600 dark:text-blue-400\">using-polycam-scans-in-three-j</a>s]]</p>",
-  "html": "<p class=\"mb-4\">#3d</p>\n<p class=\"mb-4\"><a href=\"using-polycam-scans-in-three-j\" class=\"text-blue-600 dark:text-blue-400\">using-polycam-scans-in-three-j</a>s]]</p>",
+  "content": "<p class=\"mb-4 max-w-prose mx-auto\">#3d</p>\n<p class=\"mb-4 max-w-prose mx-auto\"><a href=\"using-polycam-scans-in-three-j\" class=\"text-blue-600 dark:text-blue-400\">using-polycam-scans-in-three-j</a>s]]</p>",
+  "html": "<p class=\"mb-4 max-w-prose mx-auto\">#3d</p>\n<p class=\"mb-4 max-w-prose mx-auto\"><a href=\"using-polycam-scans-in-three-j\" class=\"text-blue-600 dark:text-blue-400\">using-polycam-scans-in-three-j</a>s]]</p>",
   "title": "Learning Blender: Winter 2022",
   "metadata": {
     "date": "2022-11-20T21:58:44.000Z",

@@ -1,6 +1,6 @@
 {
-  "content": "<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"vueuse-motion\">VueUse Motion</h3>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"usescroll\">useScroll()</h3>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"animejs\">anime.js</h3>",
-  "html": "<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"vueuse-motion\">VueUse Motion</h3>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"usescroll\">useScroll()</h3>\n<h3 class=\"text-2xl font-medium mb-3 mt-6\" id=\"animejs\">anime.js</h3>",
+  "content": "<h3 class=\"text-2xl font-medium mb-3 mt-6 max-w-prose mx-auto font-sans\" id=\"vueuse-motion\">VueUse Motion</h3>\n<h3 class=\"text-2xl font-medium mb-3 mt-6 max-w-prose mx-auto font-sans\" id=\"usescroll\">useScroll()</h3>\n<h3 class=\"text-2xl font-medium mb-3 mt-6 max-w-prose mx-auto font-sans\" id=\"animejs\">anime.js</h3>",
+  "html": "<h3 class=\"text-2xl font-medium mb-3 mt-6 max-w-prose mx-auto font-sans\" id=\"vueuse-motion\">VueUse Motion</h3>\n<h3 class=\"text-2xl font-medium mb-3 mt-6 max-w-prose mx-auto font-sans\" id=\"usescroll\">useScroll()</h3>\n<h3 class=\"text-2xl font-medium mb-3 mt-6 max-w-prose mx-auto font-sans\" id=\"animejs\">anime.js</h3>",
   "title": "Creating Scroll-Powered Animations in Nuxt",
   "metadata": {
     "dek": "In which we make the elements of our page twirl and dance in order to spark joy.",

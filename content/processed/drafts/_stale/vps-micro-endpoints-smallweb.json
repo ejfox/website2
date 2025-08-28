@@ -1,6 +1,6 @@
 {
-  "content": "<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">Smallweb</li>\n<li class=\"\">Caddy</li>\n<li class=\"\">DNS</li>\n<li class=\"\">Cloudflare Tunnel</li>\n<li class=\"\">PM2</li>\n<li class=\"\">SSH Certificates / Termius</li>\n<li class=\"\">Loki</li>\n<li class=\"\">Grafana</li>\n<li class=\"\">Uptime Kuma</li>\n<li class=\"\">n8n</li>\n</ul>",
-  "html": "<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">Smallweb</li>\n<li class=\"\">Caddy</li>\n<li class=\"\">DNS</li>\n<li class=\"\">Cloudflare Tunnel</li>\n<li class=\"\">PM2</li>\n<li class=\"\">SSH Certificates / Termius</li>\n<li class=\"\">Loki</li>\n<li class=\"\">Grafana</li>\n<li class=\"\">Uptime Kuma</li>\n<li class=\"\">n8n</li>\n</ul>",
+  "content": "<ul class=\"list-disc ml-6 mb-4 max-w-prose mx-auto\">\n<li class=\"\">Smallweb</li>\n<li class=\"\">Caddy</li>\n<li class=\"\">DNS</li>\n<li class=\"\">Cloudflare Tunnel</li>\n<li class=\"\">PM2</li>\n<li class=\"\">SSH Certificates / Termius</li>\n<li class=\"\">Loki</li>\n<li class=\"\">Grafana</li>\n<li class=\"\">Uptime Kuma</li>\n<li class=\"\">n8n</li>\n</ul>",
+  "html": "<ul class=\"list-disc ml-6 mb-4 max-w-prose mx-auto\">\n<li class=\"\">Smallweb</li>\n<li class=\"\">Caddy</li>\n<li class=\"\">DNS</li>\n<li class=\"\">Cloudflare Tunnel</li>\n<li class=\"\">PM2</li>\n<li class=\"\">SSH Certificates / Termius</li>\n<li class=\"\">Loki</li>\n<li class=\"\">Grafana</li>\n<li class=\"\">Uptime Kuma</li>\n<li class=\"\">n8n</li>\n</ul>",
   "title": "Building A VPS For Business and Pleasure",
   "metadata": {
     "date": "2025-01-05T17:25:05.000Z",

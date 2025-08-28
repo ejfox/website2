@@ -2,7 +2,7 @@
   <div
     :class="[
       'w-full text-zinc-600 dark:text-zinc-400 uppercase font-mono text-xs',
-      compact ? 'flex flex-col gap-1 items-start sm:flex-row sm:items-center sm:gap-2 sm:flex-wrap' : 'flex items-center gap-3'
+      compact ? 'flex flex-col gap-1 items-start sm:flex-row sm:items-center sm:gap-2 sm:flex-wrap' : 'flex items-center gap-2 md:gap-3'
     ]"
     :style="colorVars"
   >

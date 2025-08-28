@@ -363,11 +363,11 @@ const processedMetadata = computed(() => {
         />
       </div>
 
-      <div class="min-h-[80vh] flex items-center py-16 md:py-24">
+      <div class="min-h-[50vh] md:min-h-[80vh] flex items-center py-8 md:py-16 lg:py-24">
         <h1
           v-if="post?.metadata?.title || post?.title"
           ref="postTitle"
-          class="font-bold w-full py-8 pr-8 pl-4 md:pl-0 tracking-tighter leading-[0.7] font-serif text-5xl md:text-6xl lg:text-7xl"
+          class="font-bold w-full py-4 md:py-8 pr-4 md:pr-8 pl-4 md:pl-0 tracking-tighter leading-[0.7] font-serif text-5xl md:text-6xl lg:text-7xl"
         >
           {{ post?.metadata?.title || post?.title }}
         </h1>
@@ -384,7 +384,7 @@ const processedMetadata = computed(() => {
         </NuxtLink>
       </div>
 
-      <div ref="articleContent" class="mt-16 md:mt-24 mb-16 md:mb-24">
+      <div ref="articleContent" class="mt-8 md:mt-16 lg:mt-24 mb-12 md:mb-16 lg:mb-24">
         <article
           v-if="post?.html"
           class="blog-post-content"
@@ -524,16 +524,42 @@ const processedMetadata = computed(() => {
 <style lang="postcss">
 
 .blog-post-content {
-  @apply px-2 prose prose-lg dark:prose-invert font-serif font-normal opacity-100 leading-relaxed;
-  @apply prose-p:text-lg prose-p:leading-relaxed prose-p:mb-6;
-  @apply prose-headings:mt-8 prose-headings:mb-4;
-  @apply prose-img:my-8 prose-img:rounded-lg;
-  @apply prose-pre:overflow-x-auto prose-pre:whitespace-pre-wrap prose-pre:break-words;
-  @apply prose-code:break-words prose-code:whitespace-pre-wrap;
-  @apply prose-h2:border-none prose-h3:border-none prose-h4:border-none;
-  @apply prose-hr:border-t prose-hr:border-zinc-200 dark:prose-hr:border-zinc-800;
-  @apply prose-hr:border-solid prose-hr:my-12 prose-hr:mx-0 prose-hr:w-full;
-  @apply prose-blockquote:bg-transparent prose-blockquote:my-8 prose-blockquote:px-6 prose-blockquote:py-4;
+  @apply px-3 md:px-2 font-serif font-normal opacity-100 leading-relaxed;
+}
+
+/* Apply prose width constraints only to text content, not images */
+.blog-post-content p,
+.blog-post-content h1,
+.blog-post-content h2, 
+.blog-post-content h3,
+.blog-post-content h4,
+.blog-post-content h5,
+.blog-post-content h6,
+.blog-post-content ul,
+.blog-post-content ol,
+.blog-post-content blockquote {
+  @apply max-w-prose mx-auto text-lg leading-relaxed;
+}
+
+/* Make code blocks match paragraph text size */
+.blog-post-content pre code {
+  @apply text-lg;
+}
+
+/* Images get full width */
+.blog-post-content img {
+  @apply w-full max-w-none my-8 rounded-lg;
+}
+
+
+/* Blockquotes get special styling */
+.blog-post-content blockquote {
+  @apply bg-transparent my-8 px-6 py-4 border-l-4 border-zinc-300 dark:border-zinc-700;
+}
+
+/* Horizontal rules */
+.blog-post-content hr {
+  @apply border-t border-zinc-200 dark:border-zinc-800 border-solid my-12 mx-auto w-full max-w-prose;
 }
 
 /* Fix external link icons on line wrapping */

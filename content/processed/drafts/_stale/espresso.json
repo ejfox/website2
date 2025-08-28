@@ -1,6 +1,6 @@
 {
-  "content": "<p class=\"mb-4\">I am a big fan of espresso as part of a well-rounded diet, including <a href=\"drafts/spliff-and-espress\" class=\"text-blue-600 dark:text-blue-400\">drafts/spliff-and-espress</a>o]]</p>",
-  "html": "<p class=\"mb-4\">I am a big fan of espresso as part of a well-rounded diet, including <a href=\"drafts/spliff-and-espress\" class=\"text-blue-600 dark:text-blue-400\">drafts/spliff-and-espress</a>o]]</p>",
+  "content": "<p class=\"mb-4 max-w-prose mx-auto\">I am a big fan of espresso as part of a well-rounded diet, including <a href=\"drafts/spliff-and-espress\" class=\"text-blue-600 dark:text-blue-400\">drafts/spliff-and-espress</a>o]]</p>",
+  "html": "<p class=\"mb-4 max-w-prose mx-auto\">I am a big fan of espresso as part of a well-rounded diet, including <a href=\"drafts/spliff-and-espress\" class=\"text-blue-600 dark:text-blue-400\">drafts/spliff-and-espress</a>o]]</p>",
   "title": "Making Perfect Espresso",
   "metadata": {
     "draft": true,

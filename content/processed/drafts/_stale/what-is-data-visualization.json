@@ -1,6 +1,6 @@
 {
-  "content": "<p class=\"mb-4\">#dataviz</p>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">The problem</li>\n<li class=\"\">The approach</li>\n<li class=\"\">The tools</li>\n<li class=\"\">The benefits</li>\n</ul>",
-  "html": "<p class=\"mb-4\">#dataviz</p>\n<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">The problem</li>\n<li class=\"\">The approach</li>\n<li class=\"\">The tools</li>\n<li class=\"\">The benefits</li>\n</ul>",
+  "content": "<p class=\"mb-4 max-w-prose mx-auto\">#dataviz</p>\n<ul class=\"list-disc ml-6 mb-4 max-w-prose mx-auto\">\n<li class=\"\">The problem</li>\n<li class=\"\">The approach</li>\n<li class=\"\">The tools</li>\n<li class=\"\">The benefits</li>\n</ul>",
+  "html": "<p class=\"mb-4 max-w-prose mx-auto\">#dataviz</p>\n<ul class=\"list-disc ml-6 mb-4 max-w-prose mx-auto\">\n<li class=\"\">The problem</li>\n<li class=\"\">The approach</li>\n<li class=\"\">The tools</li>\n<li class=\"\">The benefits</li>\n</ul>",
   "title": "What is dataviz to me?",
   "metadata": {
     "draft": true,

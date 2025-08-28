@@ -1,6 +1,6 @@
 {
-  "content": "<p class=\"mb-4\"><strong class=\"\">Assemblymember Sarahana Shrestha</strong></p>\n<p class=\"mb-4\"><strong class=\"\">For The Many</strong></p>\n<p class=\"mb-4\"><strong class=\"\">Novo Foundation</strong></p>",
-  "html": "<p class=\"mb-4\"><strong class=\"\">Assemblymember Sarahana Shrestha</strong></p>\n<p class=\"mb-4\"><strong class=\"\">For The Many</strong></p>\n<p class=\"mb-4\"><strong class=\"\">Novo Foundation</strong></p>",
+  "content": "<p class=\"mb-4 max-w-prose mx-auto\"><strong class=\"\">Assemblymember Sarahana Shrestha</strong></p>\n<p class=\"mb-4 max-w-prose mx-auto\"><strong class=\"\">For The Many</strong></p>\n<p class=\"mb-4 max-w-prose mx-auto\"><strong class=\"\">Novo Foundation</strong></p>",
+  "html": "<p class=\"mb-4 max-w-prose mx-auto\"><strong class=\"\">Assemblymember Sarahana Shrestha</strong></p>\n<p class=\"mb-4 max-w-prose mx-auto\"><strong class=\"\">For The Many</strong></p>\n<p class=\"mb-4 max-w-prose mx-auto\"><strong class=\"\">Novo Foundation</strong></p>",
   "title": "Title",
   "metadata": {
     "dek": "In which",

@@ -1,6 +1,6 @@
 {
-  "content": "<p class=\"mb-4\">#programming #process #livestream</p>",
-  "html": "<p class=\"mb-4\">#programming #process #livestream</p>",
+  "content": "<p class=\"mb-4 max-w-prose mx-auto\">#programming #process #livestream</p>",
+  "html": "<p class=\"mb-4 max-w-prose mx-auto\">#programming #process #livestream</p>",
   "title": "How quickly can you create a website?",
   "metadata": {
     "date": "2022-12-13T21:42:33.000Z",

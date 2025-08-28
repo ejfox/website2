@@ -1,6 +1,6 @@
 {
-  "content": "<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">Publishing Nuxt apps via smallweb (how to build + cp properly)</li>\n<li class=\"\"></li>\n</ul>",
-  "html": "<ul class=\"list-disc ml-6 mb-4\">\n<li class=\"\">Publishing Nuxt apps via smallweb (how to build + cp properly)</li>\n<li class=\"\"></li>\n</ul>",
+  "content": "<ul class=\"list-disc ml-6 mb-4 max-w-prose mx-auto\">\n<li class=\"\">Publishing Nuxt apps via smallweb (how to build + cp properly)</li>\n<li class=\"\"></li>\n</ul>",
+  "html": "<ul class=\"list-disc ml-6 mb-4 max-w-prose mx-auto\">\n<li class=\"\">Publishing Nuxt apps via smallweb (how to build + cp properly)</li>\n<li class=\"\"></li>\n</ul>",
   "title": "Smallweb",
   "metadata": {
     "date": "2025-07-02T01:14:47.000Z",

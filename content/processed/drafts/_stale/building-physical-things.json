@@ -1,6 +1,6 @@
 {
-  "content": "<p class=\"mb-4\">Part of the motivation for <a href=\"woodworking-setu\" class=\"text-blue-600 dark:text-blue-400\">woodworking-setu</a>p]]</p>",
-  "html": "<p class=\"mb-4\">Part of the motivation for <a href=\"woodworking-setu\" class=\"text-blue-600 dark:text-blue-400\">woodworking-setu</a>p]]</p>",
+  "content": "<p class=\"mb-4 max-w-prose mx-auto\">Part of the motivation for <a href=\"woodworking-setu\" class=\"text-blue-600 dark:text-blue-400\">woodworking-setu</a>p]]</p>",
+  "html": "<p class=\"mb-4 max-w-prose mx-auto\">Part of the motivation for <a href=\"woodworking-setu\" class=\"text-blue-600 dark:text-blue-400\">woodworking-setu</a>p]]</p>",
   "title": "Experiments in woodworking + sculpture spring 2022",
   "metadata": {
     "draft": true,

@@ -1,6 +1,6 @@
 {
-  "content": "<p class=\"mb-4\">#tech #howto</p>",
-  "html": "<p class=\"mb-4\">#tech #howto</p>",
+  "content": "<p class=\"mb-4 max-w-prose mx-auto\">#tech #howto</p>",
+  "html": "<p class=\"mb-4 max-w-prose mx-auto\">#tech #howto</p>",
   "title": "Getting started with Mastodon",
   "metadata": {
     "date": "2022-11-29T21:56:17.000Z",

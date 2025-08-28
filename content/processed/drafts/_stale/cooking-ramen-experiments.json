@@ -1,6 +1,6 @@
 {
-  "content": "<p class=\"mb-4\">#cooking</p>\n<p class=\"mb-4\"><a href=\"cookin\" class=\"text-blue-600 dark:text-blue-400\">cookin</a>g]]</p>",
-  "html": "<p class=\"mb-4\">#cooking</p>\n<p class=\"mb-4\"><a href=\"cookin\" class=\"text-blue-600 dark:text-blue-400\">cookin</a>g]]</p>",
+  "content": "<p class=\"mb-4 max-w-prose mx-auto\">#cooking</p>\n<p class=\"mb-4 max-w-prose mx-auto\"><a href=\"cookin\" class=\"text-blue-600 dark:text-blue-400\">cookin</a>g]]</p>",
+  "html": "<p class=\"mb-4 max-w-prose mx-auto\">#cooking</p>\n<p class=\"mb-4 max-w-prose mx-auto\"><a href=\"cookin\" class=\"text-blue-600 dark:text-blue-400\">cookin</a>g]]</p>",
   "title": "Cooking: Ramen",
   "metadata": {
     "draft": true,

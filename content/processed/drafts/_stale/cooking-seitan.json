@@ -1,6 +1,6 @@
 {
-  "content": "<p class=\"mb-4\">#cooking</p>",
-  "html": "<p class=\"mb-4\">#cooking</p>",
+  "content": "<p class=\"mb-4 max-w-prose mx-auto\">#cooking</p>",
+  "html": "<p class=\"mb-4 max-w-prose mx-auto\">#cooking</p>",
   "title": "Cooking Seitan",
   "metadata": {
     "hidden": true,

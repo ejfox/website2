@@ -1,6 +1,6 @@
 {
-  "content": "<p class=\"mb-4\"><a href=\"Wilhelm_et_al-The%20I%20Ching%20or%20Book%20of%20Changes.md\" class=\"text-blue-600 dark:text-blue-400\">Wilhelm_et_al-The I Ching or Book of Changes</a></p>",
-  "html": "<p class=\"mb-4\"><a href=\"Wilhelm_et_al-The%20I%20Ching%20or%20Book%20of%20Changes.md\" class=\"text-blue-600 dark:text-blue-400\">Wilhelm_et_al-The I Ching or Book of Changes</a></p>",
+  "content": "<p class=\"mb-4 max-w-prose mx-auto\"><a href=\"Wilhelm_et_al-The%20I%20Ching%20or%20Book%20of%20Changes.md\" class=\"text-blue-600 dark:text-blue-400\">Wilhelm_et_al-The I Ching or Book of Changes</a></p>",
+  "html": "<p class=\"mb-4 max-w-prose mx-auto\"><a href=\"Wilhelm_et_al-The%20I%20Ching%20or%20Book%20of%20Changes.md\" class=\"text-blue-600 dark:text-blue-400\">Wilhelm_et_al-The I Ching or Book of Changes</a></p>",
   "title": "The Book of Changes",
   "metadata": {
     "dek": "In which",

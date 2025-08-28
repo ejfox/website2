@@ -110,6 +110,11 @@ const formatTitle = (filename) => {
   return baseName.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
 }
 
+const normalizeSlug = (slug) => {
+  // Strip leading 'blog/' prefix if it exists
+  return slug.startsWith('blog/') ? slug.slice(5) : slug
+}
+
 const processor = unified()
   .use(remarkParse)
   .use(remarkExtractToc)
@@ -223,7 +228,7 @@ async function generateExternalLinksCSV(allFiles) {
       if (filePath.includes('content/blog/reading/')) continue
       const content = await fs.readFile(filePath, 'utf8')
       const links = extractExternalLinks(content)
-      const slug = path.relative(paths.contentDir, filePath).replace(/\.md$/, '')
+      const slug = normalizeSlug(path.relative(paths.contentDir, filePath).replace(/\.md$/, ''))
 
       links.forEach((link) => {
         if (!link.includes('amazon.com') && !link.includes('m.media-amazon.com')) {
@@ -358,7 +363,8 @@ async function processAllFiles() {
 
         process.stdout.write(`\r${chalk.gray(`Processing: ${path.basename(filePath).padEnd(40)}`)}${Math.round((processStats.filesProcessed / processStats.totalFiles) * 100)}%`)
 
-        const outputPath = path.join(paths.outputDir, relativePath.replace(/\.md$/, '.json'))
+        const normalizedPath = normalizeSlug(relativePath.replace(/\.md$/, ''))
+        const outputPath = path.join(paths.outputDir, `${normalizedPath}.json`)
         await fs.mkdir(path.dirname(outputPath), { recursive: true })
         await fs.writeFile(outputPath, JSON.stringify(result, null, 2))
 
@@ -380,7 +386,7 @@ async function processAllFiles() {
       delete cleanEntry.content
       delete cleanEntry.processedContent
 
-      const slug = path.relative(paths.contentDir, originalFilePath).replace(/\.md$/, '')
+      const slug = normalizeSlug(path.relative(paths.contentDir, originalFilePath).replace(/\.md$/, ''))
       const type = cleanEntry.metadata?.type || getPostType(slug)
 
       return {

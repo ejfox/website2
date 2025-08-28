@@ -11,7 +11,7 @@
         class="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-200/20 dark:border-zinc-800/20 md:hidden"
       >
         <!-- Top bar with branding -->
-        <div class="flex items-center justify-between px-4 h-14">
+        <div class="flex items-center justify-between px-3 h-12">
           <a
             href="/"
             class="text-lg font-medium tracking-tight text-zinc-900 dark:text-zinc-100"
@@ -23,29 +23,19 @@
         </div>
 
         <!-- Visible tab navigation - no hidden menu -->
-        <div class="px-4 pb-3">
+        <div class="px-3 pb-2">
           <div
             class="flex items-center gap-1 overflow-x-auto scrollbar-hide"
             role="tablist"
             aria-label="Main navigation"
           >
             <a
-              href="/"
+              v-for="item in primaryNav"
+              :key="item.href"
+              :href="item.href"
               role="tab"
               class="flex-shrink-0 px-3 py-1.5 text-sm font-medium rounded-full transition-colors-base text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/50"
-              >Home</a
-            >
-            <a
-              href="/projects"
-              role="tab"
-              class="flex-shrink-0 px-3 py-1.5 text-sm font-medium rounded-full transition-colors-base text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/50"
-              >Projects</a
-            >
-            <a
-              href="/blog/"
-              role="tab"
-              class="flex-shrink-0 px-3 py-1.5 text-sm font-medium rounded-full transition-colors-base text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/50"
-              >Blog</a
+              >{{ item.label }}</a
             >
 
             <!-- More button for additional links -->
@@ -82,30 +72,13 @@
           >
             <div class="flex flex-wrap gap-1 pt-3">
               <a
-                href="/scrapbook/"
+                v-for="item in secondaryNav"
+                :key="item.href"
+                :href="item.href"
+                :target="item.external ? '_blank' : undefined"
                 class="px-3 py-1.5 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 rounded-full transition-all duration-200"
                 @click="closeMobileMenu"
-                >Scrapbook</a
-              >
-              <a
-                href="/pottery/"
-                class="px-3 py-1.5 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 rounded-full transition-all duration-200"
-                @click="closeMobileMenu"
-                >Pottery</a
-              >
-              <a
-                href="https://ejfox.photos"
-                target="_blank"
-                class="px-3 py-1.5 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 rounded-full transition-all duration-200"
-                @click="closeMobileMenu"
-                >Photos 🔗</a
-              >
-              <a
-                href="https://archive.ejfox.com"
-                target="_blank"
-                class="px-3 py-1.5 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 rounded-full transition-all duration-200"
-                @click="closeMobileMenu"
-                >Archive 🔗</a
+                >{{ item.label }}{{ item.icon ? ` ${item.icon}` : '' }}</a
               >
             </div>
           </div>
@@ -126,23 +99,23 @@
               EJ Fox
             </div>
             <div class="space-y-1">
-              <a :class="linkClasses" href="/">Home</a>
-              <a :class="linkClasses" href="/projects">Projects</a>
-              <a :class="linkClasses" href="/blog/">Blog</a>
+              <a 
+                v-for="item in primaryNav"
+                :key="item.href"
+                :class="linkClasses" 
+                :href="item.href"
+                :target="item.external ? '_blank' : undefined"
+              >{{ item.label }}{{ item.icon ? ` ${item.icon}` : '' }}</a>
             </div>
             <div class="my-6"></div>
             <div class="space-y-1">
               <a
+                v-for="item in secondaryNav"
+                :key="item.href"
                 :class="linkClasses"
-                href="https://ejfox.photos"
-                target="_blank"
-                >Photos 🔗</a
-              >
-              <a
-                :class="linkClasses"
-                href="https://archive.ejfox.com"
-                target="_blank"
-                >Archive 🔗</a
+                :href="item.href"
+                :target="item.external ? '_blank' : undefined"
+                >{{ item.label }}{{ item.icon ? ` ${item.icon}` : '' }}</a
               >
             </div>
             <!-- Table of Contents Teleport Target -->
@@ -185,6 +158,7 @@
 
 <script setup>
 // Nuxt 4 auto-imports everything - DELETE manual imports!
+import { getPrimaryNav, getSecondaryNav } from '~/config/navigation'
 
 // SSR-friendly mobile detection - render both and hide with CSS
 const isMobile = ref(false)
@@ -211,7 +185,9 @@ const isGearPage = ref(false)
 const currentGearSlug = ref('')
 const isCalendarPage = ref(false)
 
-// DELETE-DRIVEN: Navigation arrays removed, using plain anchor tags now
+// Navigation config
+const primaryNav = getPrimaryNav()
+const secondaryNav = getSecondaryNav()
 
 const linkClasses =
   'block text-sm font-mono transition-colors-base hover:text-zinc-900 dark:hover:text-zinc-100 no-underline'
