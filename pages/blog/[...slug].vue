@@ -423,8 +423,8 @@ const processedMetadata = computed(() => {
             :to="`/blog/${nextPrevPosts.prev.slug}`"
             class="block text-left no-underline hover:underline"
           >
-            <span class="block text-sm text-gray-500">Previous</span>
-            <span class="block text-sm text-gray-400">{{
+            <span class="block text-sm text-gray-500 font-mono">Previous</span>
+            <span class="block text-sm text-gray-400 font-mono">{{
               formatDate(nextPrevPosts.prev.date)
             }}</span>
             <span class="text-current block">
@@ -440,8 +440,8 @@ const processedMetadata = computed(() => {
             :to="`/blog/${nextPrevPosts.next.slug}`"
             class="block text-right no-underline hover:underline"
           >
-            <span class="block text-sm text-gray-500">Next</span>
-            <span class="block text-sm text-gray-400">{{
+            <span class="block text-sm text-gray-500 font-mono">Next</span>
+            <span class="block text-sm text-gray-400 font-mono">{{
               formatDate(nextPrevPosts.next.date)
             }}</span>
             <span class="text-current block">{{ nextPrevPosts.next?.title }} →</span>
