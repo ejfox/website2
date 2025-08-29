@@ -276,6 +276,56 @@ const showDonations = computed(() => {
   return false
 })
 
+const smartSuggestions = ref([])
+
+const distance = (a, b) => {
+  if (!a || !b) return 999
+  const [len1, len2] = [a.length, b.length]
+  if (len1 === 0) return len2
+  if (len2 === 0) return len1
+  
+  let prev = Array(len2 + 1).fill(0).map((_, i) => i)
+  
+  for (let i = 1; i <= len1; i++) {
+    const curr = [i]
+    for (let j = 1; j <= len2; j++) {
+      curr[j] = a[i-1] === b[j-1] ? prev[j-1] : 
+        Math.min(prev[j-1], prev[j], curr[j-1]) + 1
+    }
+    prev = curr
+  }
+  return prev[len2]
+}
+
+watch(error, async (err) => {
+  if (!err) return
+  
+  try {
+    const posts = await $fetch('/api/manifest')
+    const path = route.path.replace(/^\/blog\//, '').toLowerCase()
+    
+    const matches = posts
+      ?.filter(p => !p.hidden && !p.draft)
+      .map(p => ({
+        title: p.title,
+        path: `/blog/${p.slug}`,
+        score: Math.max(
+          50 - distance(p.slug?.replace(/^\d{4}\//, ''), path),
+          30 - distance(p.title?.toLowerCase().replace(/\s+/g, '-'), path)
+        )
+      }))
+      .filter(p => p.score > 10)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 3) || []
+    
+    smartSuggestions.value = matches.length ? matches : 
+      [{ title: 'Blog Archive', path: '/blog' }]
+      
+  } catch {
+    smartSuggestions.value = [{ title: 'Blog Archive', path: '/blog' }]
+  }
+}, { immediate: true })
+
 // DELETE: Removed 369KB OpenPGP.js signature verification for performance
 
 
@@ -351,7 +401,7 @@ const processedMetadata = computed(() => {
     </Head>
     <article
       v-if="post && !post.redirect"
-      class="scroll-container pt-4 md:pt-0 pl-2 md:pl-4"
+      class="scroll-container pt-4 md:pt-0 pl-2 md:pl-4 h-entry"
     >
       <div ref="postMetadata" class="w-full">
         <PostMetadata
@@ -367,7 +417,7 @@ const processedMetadata = computed(() => {
         <h1
           v-if="post?.metadata?.title || post?.title"
           ref="postTitle"
-          class="font-bold w-full py-4 md:py-8 pr-4 md:pr-8 pl-4 md:pl-0 tracking-tighter leading-[0.7] font-serif text-5xl md:text-6xl lg:text-7xl"
+          class="font-bold w-full py-4 md:py-8 pr-4 md:pr-8 pl-4 md:pl-0 tracking-tighter leading-[0.7] font-serif text-5xl md:text-6xl lg:text-7xl p-name"
         >
           {{ post?.metadata?.title || post?.title }}
         </h1>
@@ -384,15 +434,33 @@ const processedMetadata = computed(() => {
         </NuxtLink>
       </div>
 
+      <!-- Published time for microformats -->
+      <time 
+        v-if="post?.metadata?.date"
+        :datetime="post.metadata.date" 
+        class="dt-published hidden"
+      >
+        {{ formatDate(post.metadata.date) }}
+      </time>
+
+      <!-- Author info for microformats -->
+      <div class="p-author h-card hidden">
+        <span class="p-name">EJ Fox</span>
+        <a class="u-url" href="https://ejfox.com">ejfox.com</a>
+      </div>
+
+      <!-- Permalink for microformats -->
+      <a :href="postUrl" class="u-url hidden">{{ postUrl }}</a>
+
       <div ref="articleContent" class="mt-8 md:mt-16 lg:mt-24 mb-12 md:mb-16 lg:mb-24">
         <article
           v-if="post?.html"
-          class="blog-post-content"
+          class="blog-post-content e-content"
           v-html="post.html"
         ></article>
         <div
           v-else-if="post?.content"
-          class="blog-post-content"
+          class="blog-post-content e-content"
           v-html="post.content"
         ></div>
         <div v-else class="p-4 text-center text-red-500">
@@ -400,15 +468,16 @@ const processedMetadata = computed(() => {
         </div>
       </div>
 
-      <div v-if="post.tags" class="mt-4">
+      <div v-if="post.tags || post.metadata?.tags" class="mt-4">
         <span
-          v-for="tag in post.tags"
+          v-for="tag in post.tags || post.metadata?.tags"
           :key="tag"
           class="inline-block mr-2 mb-2"
         >
-          <span
-            class="px-2 py-1 text-xs font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 rounded"
-          >{{ tag }}</span>
+          <a
+            :href="`/blog/tag/${tag}`"
+            class="px-2 py-1 text-xs font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 rounded hover:bg-zinc-200 dark:hover:bg-zinc-700 no-underline p-category"
+          >{{ tag }}</a>
         </span>
       </div>
 
@@ -452,23 +521,12 @@ const processedMetadata = computed(() => {
       <!-- Tip jar - minimal CTA -->
       <TipJar v-if="!post.metadata?.noTips" />
     </article>
-    <div
+    <ErrorPage 
       v-else-if="error"
-      class="flex flex-col items-center justify-center min-h-[50vh] bg-zinc-100 dark:bg-zinc-800 px-4 rounded-lg shadow-md"
-    >
-      <h2 class="text-4xl font-bold text-zinc-800 dark:text-zinc-200 mb-4">
-        Blog post not found...
-      </h2>
-      <p class="text-xl text-zinc-600 dark:text-zinc-400 mb-6 text-center">
-        Error loading post: {{ error.message }}
-      </p>
-      <NuxtLink
-        to="/blog"
-        class="px-6 py-3 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors duration-300"
-      >
-        Return to Blog
-      </NuxtLink>
-    </div>
+      :path="$route?.path || 'unknown'"
+      :suggestions="smartSuggestions.filter(s => s.title !== 'Blog Archive')"
+      :primary-link="{ href: '/blog', text: 'browse all posts' }"
+    />
     <div v-else class="p-4 text-center">
       <p class="text-xl text-zinc-600 dark:text-zinc-400">
         Loading...
@@ -572,4 +630,5 @@ const processedMetadata = computed(() => {
   vertical-align: baseline;
   margin-left: 0.125rem;
 }
+
 </style>

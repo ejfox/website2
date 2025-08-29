@@ -378,9 +378,13 @@ async function processAllFiles() {
     process.stdout.write('\r' + ' '.repeat(80) + '\r')
     printSummary(results)
 
-    const manifestResults = results.map((entry, index) => {
+    // Filter out draft posts from manifest
+    const nonDraftResults = results.filter(entry => entry.metadata?.draft !== true)
+    const nonDraftFiles = allFiles.filter((_, index) => results[index]?.metadata?.draft !== true)
+
+    const manifestResults = nonDraftResults.map((entry, index) => {
       const cleanEntry = { ...entry }
-      const originalFilePath = allFiles[index]
+      const originalFilePath = nonDraftFiles[index]
 
       delete cleanEntry.html
       delete cleanEntry.content
@@ -410,7 +414,7 @@ async function processAllFiles() {
 
     // Extract tags with usage counts from content and write to public/content-tags.json
     const tagUsage = {}
-    results.forEach(result => {
+    nonDraftResults.forEach(result => {
       if (result.metadata?.tags && Array.isArray(result.metadata.tags)) {
         result.metadata.tags.forEach(tag => {
           if (typeof tag === 'string' && tag.trim()) {

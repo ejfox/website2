@@ -18,7 +18,15 @@ export default defineNuxtConfig({
   // Removed Google Fonts for faster FCP
   app: {
     head: {
-      link: []
+      htmlAttrs: {
+        lang: 'en'
+      },
+      link: [
+        // IndieAuth authorization endpoint
+        { rel: 'authorization_endpoint', href: 'https://indieauth.com/auth' },
+        // IndieAuth token endpoint  
+        { rel: 'token_endpoint', href: 'https://tokens.indieauth.com/token' }
+      ]
     }
   },
 
@@ -65,11 +73,20 @@ export default defineNuxtConfig({
       crawlLinks: true // Automatically discover and prerender linked pages
     },
     routeRules: {
+      // Static pages - long cache
       '/': { prerender: true },
       '/blog/**': { prerender: true },
       '/projects': { prerender: true },
       '/gear': { prerender: true },
-      '/api/**': { cors: true } // Enable CORS for API routes
+      
+      // API routes - short cache for dynamic content
+      '/api/**': { 
+        cors: true,
+        headers: { 
+          'Cache-Control': 'public, max-age=300, s-maxage=3600',
+          'Cloudflare-CDN-Cache-Control': 'max-age=3600, stale-if-error=86400' 
+        }
+      }
     }
   },
 

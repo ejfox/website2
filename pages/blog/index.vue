@@ -10,7 +10,7 @@
       </p>
     </header>
 
-    <div class="max-w-screen-lg">
+    <div class="max-w-screen-lg h-feed">
       <!-- Main Blog Posts -->
       <section class="mt-16 md:mt-0">
         <div v-if="!sortedYears.length" class="text-center py-16">
@@ -26,7 +26,7 @@
             <article
               v-for="post in blogPostsByYear[year]"
               :key="post?.slug"
-              class="group grid grid-cols-12 gap-4"
+              class="group grid grid-cols-12 gap-4 h-entry"
             >
               <div class="col-span-1 md:col-span-2 pl-2 md:pl-0">
                 <PostMetadata
@@ -38,13 +38,21 @@
               </div>
               <div class="col-span-11 md:col-span-10">
                 <h3 class="mb-2">
-                  <NuxtLink :to="`/blog/${post?.slug}`" class="post-link">
+                  <NuxtLink :to="`/blog/${post?.slug}`" class="post-link p-name u-url">
                     {{ post?.title || formatTitle(post?.slug) }}
                   </NuxtLink>
                 </h3>
-                <p v-if="post?.metadata?.dek || post?.dek" class="post-dek">
+                <p v-if="post?.metadata?.dek || post?.dek" class="post-dek p-summary">
                   {{ post?.metadata?.dek || post?.dek }}
                 </p>
+                <!-- Hidden microformat data for each post -->
+                <time 
+                  v-if="post?.metadata?.date || post?.date"
+                  :datetime="post?.metadata?.date || post?.date" 
+                  class="dt-published hidden"
+                >
+                  {{ post?.metadata?.date || post?.date }}
+                </time>
               </div>
             </article>
           </div>

@@ -33,7 +33,7 @@ useHead({
 </script>
 
 <template>
-  <main class="p-4 md:p-8">
+  <main class="p-4 md:p-8 h-card">
     <!-- Content -->
     <div class="max-w-3xl space-y-8">
       <template v-if="indexContent">
