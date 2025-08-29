@@ -4,7 +4,14 @@
   "title": "LLMs / Generative Language Tools",
   "metadata": {
     "date": "2025-08-13T23:03:17.000Z",
-    "modified": "2025-08-14T13:25:08.000Z",
+    "modified": "2025-08-29T02:05:11.000Z",
+    "tags": [
+      "journalism",
+      "ai",
+      "machinelearning",
+      "tech",
+      "media"
+    ],
     "words": 218,
     "images": 0,
     "links": 3,
@@ -15,7 +22,7 @@
     "toc": [
       {
         "text": "LLMs / Generative Language Tools",
-        "slug": "llms-generative-language-tools",
+        "slug": "llms--generative-language-tools",
         "level": "h2",
         "children": []
       },

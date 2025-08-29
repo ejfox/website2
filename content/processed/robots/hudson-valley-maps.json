@@ -16,42 +16,42 @@
     "toc": [
       {
         "text": "Hudson Valley Systems & Trail Mapping Project",
-        "slug": "hudson-valley-systems-trail-mapping-project",
+        "slug": "hudson-valley-systems--trail-mapping-project",
         "level": "h2",
         "children": [
           {
             "text": "1. Scoping & Requirements Gathering",
-            "slug": "1-scoping-requirements-gathering",
+            "slug": "1-scoping--requirements-gathering",
             "level": "h3",
             "children": []
           },
           {
             "text": "2. Data Acquisition & Processing",
-            "slug": "2-data-acquisition-processing",
+            "slug": "2-data-acquisition--processing",
             "level": "h3",
             "children": []
           },
           {
             "text": "3. Cartographic Design & Layout",
-            "slug": "3-cartographic-design-layout",
+            "slug": "3-cartographic-design--layout",
             "level": "h3",
             "children": []
           },
           {
             "text": "4. Review & Refinement",
-            "slug": "4-review-refinement",
+            "slug": "4-review--refinement",
             "level": "h3",
             "children": []
           },
           {
             "text": "5. Production & Distribution",
-            "slug": "5-production-distribution",
+            "slug": "5-production--distribution",
             "level": "h3",
             "children": []
           },
           {
             "text": "Hudson Valley Radio & Trail Mapping Project",
-            "slug": "hudson-valley-radio-trail-mapping-project",
+            "slug": "hudson-valley-radio--trail-mapping-project",
             "level": "h3",
             "children": []
           }

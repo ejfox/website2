@@ -48,7 +48,7 @@
           },
           {
             "text": "Analyzing our data with Datasette / SQLite",
-            "slug": "analyzing-our-data-with-datasette-sqlite",
+            "slug": "analyzing-our-data-with-datasette--sqlite",
             "level": "h3",
             "children": []
           },
@@ -72,7 +72,7 @@
           },
           {
             "text": "Flotsam & Jetsam",
-            "slug": "flotsam-jetsam",
+            "slug": "flotsam--jetsam",
             "level": "h3",
             "children": []
           },
@@ -85,7 +85,7 @@
         ]
       }
     ],
-    "sourcePath": "../../../../../code/website2/content/blog/2021/nypd-ccrb-complaint-clusters.md",
+    "sourcePath": "../../../../../code/website2/content/blog/blog/2021/nypd-ccrb-complaint-clusters.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

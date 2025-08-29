@@ -22,7 +22,7 @@
     "toc": [
       {
         "text": "Adding a Paywall to your Nuxt+Supabase App",
-        "slug": "adding-a-paywall-to-your-nuxt-supabase-app",
+        "slug": "adding-a-paywall-to-your-nuxtsupabase-app",
         "level": "h2",
         "children": [
           {
@@ -40,13 +40,13 @@
         "children": [
           {
             "text": "Stripe Webhooks & Nuxt Server Functions",
-            "slug": "stripe-webhooks-nuxt-server-functions",
+            "slug": "stripe-webhooks--nuxt-server-functions",
             "level": "h3",
             "children": []
           },
           {
             "text": "Stripe + Nuxt + Supabase",
-            "slug": "stripe-nuxt-supabase",
+            "slug": "stripe--nuxt--supabase",
             "level": "h3",
             "children": []
           }

@@ -42,7 +42,7 @@
         "children": [
           {
             "text": "Integrating Anime.js and Vue",
-            "slug": "integrating-anime-js-and-vue",
+            "slug": "integrating-animejs-and-vue",
             "level": "h3",
             "children": []
           }
@@ -62,7 +62,7 @@
       },
       {
         "text": "Vue's Built-In Enter/Leave Transitions",
-        "slug": "vue-s-built-in-enter-leave-transitions",
+        "slug": "vues-built-in-enterleave-transitions",
         "level": "h2",
         "children": [
           {
@@ -87,7 +87,7 @@
       },
       {
         "text": "Page & Element Transitions",
-        "slug": "page-element-transitions",
+        "slug": "page--element-transitions",
         "level": "h2",
         "children": []
       }

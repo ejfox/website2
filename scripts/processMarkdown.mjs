@@ -18,6 +18,7 @@ import dotenv from 'dotenv'
 import * as shiki from 'shiki'
 import chalk from 'chalk'
 import ora from 'ora'
+import GithubSlugger from 'github-slugger'
 import { config } from './config.mjs'
 
 import {
@@ -49,9 +50,8 @@ const highlighter = await shiki.createHighlighter({
   langs: ['javascript', 'typescript', 'json', 'html', 'css', 'markdown']
 })
 
-const generateSlug = (str) => str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
-
 const extractHeadersAndToc = (tree, maxDepth = 3) => {
+  const slugger = new GithubSlugger()
   let firstHeading = null
   let firstHeadingNode = null
   const toc = []
@@ -71,7 +71,7 @@ const extractHeadersAndToc = (tree, maxDepth = 3) => {
 
     const headingItem = {
       text: headingText,
-      slug: generateSlug(headingText),
+      slug: slugger.slug(headingText),
       level: `h${node.depth}`,
       children: []
     }
@@ -201,7 +201,7 @@ async function getFilesRecursively(dir) {
       if (entry.isDirectory()) {
         if (entry.name === 'node_modules' || entry.name === '.git' || entry.name.startsWith('.')) return null
         return getFilesRecursively(fullPath)
-      } else if (entry.isFile() && path.extname(entry.name) === '.md') {
+      } else if (entry.isFile() && entry.name.endsWith('.md') && !entry.name.startsWith('!')) {
         return fullPath
       }
       return null
@@ -381,6 +381,29 @@ async function processAllFiles() {
     // Filter out draft posts from manifest
     const nonDraftResults = results.filter(entry => entry.metadata?.draft !== true)
     const nonDraftFiles = allFiles.filter((_, index) => results[index]?.metadata?.draft !== true)
+
+    // Clean up orphaned processed files (files that exist in output but not in source)
+    const currentSlugs = new Set()
+    allFiles.forEach(filePath => {
+      const slug = normalizeSlug(path.relative(paths.contentDir, filePath).replace(/\.md$/, ''))
+      currentSlugs.add(slug)
+    })
+
+    // Find and remove orphaned processed files
+    const outputFiles = await getFilesRecursively(paths.outputDir, '.json')
+    for (const outputFile of outputFiles) {
+      const relativePath = path.relative(paths.outputDir, outputFile)
+      const outputSlug = relativePath.replace(/\.json$/, '')
+      
+      if (!currentSlugs.has(outputSlug) && !relativePath.includes('manifest-lite.json')) {
+        try {
+          await fs.unlink(outputFile)
+          console.log(`🗑️  Removed orphaned processed file: ${relativePath}`)
+        } catch (error) {
+          console.warn(`⚠️  Could not remove ${relativePath}:`, error.message)
+        }
+      }
+    }
 
     const manifestResults = nonDraftResults.map((entry, index) => {
       const cleanEntry = { ...entry }

@@ -27,7 +27,7 @@
           },
           {
             "text": "USER STORIES & ACCEPTANCE CRITERIA",
-            "slug": "user-stories-acceptance-criteria",
+            "slug": "user-stories--acceptance-criteria",
             "level": "h3",
             "children": []
           },
@@ -39,7 +39,7 @@
           },
           {
             "text": "WON'T DO",
-            "slug": "won-t-do",
+            "slug": "wont-do",
             "level": "h3",
             "children": []
           }
@@ -52,43 +52,43 @@
         "children": [
           {
             "text": "MEDICAL & TRAUMA",
-            "slug": "medical-trauma",
+            "slug": "medical--trauma",
             "level": "h3",
             "children": []
           },
           {
             "text": "POWER & COMMS",
-            "slug": "power-comms",
+            "slug": "power--comms",
             "level": "h3",
             "children": []
           },
           {
             "text": "SHELTER & CLOTHING",
-            "slug": "shelter-clothing",
+            "slug": "shelter--clothing",
             "level": "h3",
             "children": []
           },
           {
             "text": "WATER & HYDRATION",
-            "slug": "water-hydration",
+            "slug": "water--hydration",
             "level": "h3",
             "children": []
           },
           {
             "text": "FOOD & COOKING",
-            "slug": "food-cooking",
+            "slug": "food--cooking",
             "level": "h3",
             "children": []
           },
           {
             "text": "TOOLS & REPAIR",
-            "slug": "tools-repair",
+            "slug": "tools--repair",
             "level": "h3",
             "children": []
           },
           {
             "text": "INFO & NAVIGATION",
-            "slug": "info-navigation",
+            "slug": "info--navigation",
             "level": "h3",
             "children": []
           },

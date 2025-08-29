@@ -38,13 +38,13 @@
         "children": [
           {
             "text": "Remaking the Room302.studio Website",
-            "slug": "remaking-the-room302-studio-website",
+            "slug": "remaking-the-room302studio-website",
             "level": "h3",
             "children": []
           },
           {
             "text": "https://knowhv.com/",
-            "slug": "https-knowhv-com",
+            "slug": "httpsknowhvcom",
             "level": "h3",
             "children": []
           }
@@ -52,7 +52,7 @@
       },
       {
         "text": "📘 Learning & Development",
-        "slug": "learning-development",
+        "slug": "-learning--development",
         "level": "h2",
         "children": [
           {
@@ -63,7 +63,7 @@
           },
           {
             "text": "Experimenting with Anime JS 4.0",
-            "slug": "experimenting-with-anime-js-4-0",
+            "slug": "experimenting-with-anime-js-40",
             "level": "h3",
             "children": []
           }
@@ -71,7 +71,7 @@
       },
       {
         "text": "Personal Growth & Health",
-        "slug": "personal-growth-health",
+        "slug": "personal-growth--health",
         "level": "h2",
         "children": [
           {

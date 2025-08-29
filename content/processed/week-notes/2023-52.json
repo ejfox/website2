@@ -31,12 +31,12 @@
       },
       {
         "text": "Key Projects & Progress",
-        "slug": "key-projects-progress",
+        "slug": "key-projects--progress",
         "level": "h2",
         "children": [
           {
             "text": "LatentScope / Browser T-SNE",
-            "slug": "latentscope-browser-t-sne",
+            "slug": "latentscope--browser-t-sne",
             "level": "h3",
             "children": []
           }

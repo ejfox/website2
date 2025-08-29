@@ -53,7 +53,7 @@
       },
       {
         "text": "Community & Practice",
-        "slug": "community-practice",
+        "slug": "community--practice",
         "level": "h2",
         "children": [
           {
@@ -102,7 +102,7 @@
       },
       {
         "text": "Flipper Zero and HackRF / H4M",
-        "slug": "flipper-zero-and-hackrf-h4m",
+        "slug": "flipper-zero-and-hackrf--h4m",
         "level": "h2",
         "children": []
       }

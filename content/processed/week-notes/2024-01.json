@@ -70,7 +70,7 @@
       },
       {
         "text": "📘 Learning & Development",
-        "slug": "learning-development",
+        "slug": "-learning--development",
         "level": "h2",
         "children": [
           {
@@ -83,13 +83,13 @@
       },
       {
         "text": "Personal Growth & Health",
-        "slug": "personal-growth-health",
+        "slug": "personal-growth--health",
         "level": "h2",
         "children": []
       },
       {
         "text": "🤝 Social & Community Engagement",
-        "slug": "social-community-engagement",
+        "slug": "-social--community-engagement",
         "level": "h2",
         "children": [
           {

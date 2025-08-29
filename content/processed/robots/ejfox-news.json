@@ -16,7 +16,7 @@
     "toc": [
       {
         "text": "ejfox.news Phase 1: Core Development Plan",
-        "slug": "ejfox-news-phase-1-core-development-plan",
+        "slug": "ejfoxnews-phase-1-core-development-plan",
         "level": "h2",
         "children": [
           {
@@ -45,7 +45,7 @@
           },
           {
             "text": "Won't Do (MVP)",
-            "slug": "won-t-do-mvp",
+            "slug": "wont-do-mvp",
             "level": "h3",
             "children": []
           },
@@ -71,12 +71,12 @@
       },
       {
         "text": "ejfox.news Phase 2: Social Layer & Enhanced Reading",
-        "slug": "ejfox-news-phase-2-social-layer-enhanced-reading",
+        "slug": "ejfoxnews-phase-2-social-layer--enhanced-reading",
         "level": "h2",
         "children": [
           {
             "text": "Overview",
-            "slug": "overview",
+            "slug": "overview-1",
             "level": "h3",
             "children": []
           },
@@ -88,19 +88,19 @@
           },
           {
             "text": "Development Phases",
-            "slug": "development-phases",
+            "slug": "development-phases-1",
             "level": "h3",
             "children": []
           },
           {
             "text": "Success Criteria",
-            "slug": "success-criteria",
+            "slug": "success-criteria-1",
             "level": "h3",
             "children": []
           },
           {
             "text": "Won't Do (Phase 2)",
-            "slug": "won-t-do-phase-2",
+            "slug": "wont-do-phase-2",
             "level": "h3",
             "children": []
           },
@@ -132,7 +132,7 @@
       },
       {
         "text": "ejfox.news Launch Burndown List",
-        "slug": "ejfox-news-launch-burndown-list",
+        "slug": "ejfoxnews-launch-burndown-list",
         "level": "h2",
         "children": [
           {
@@ -185,7 +185,7 @@
           },
           {
             "text": "Emergency Contacts",
-            "slug": "emergency-contacts",
+            "slug": "emergency-contacts-1",
             "level": "h3",
             "children": []
           },

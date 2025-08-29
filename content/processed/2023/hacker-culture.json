@@ -37,19 +37,19 @@
           },
           {
             "text": "Stewart Brand & The Whole Earth Catalog",
-            "slug": "stewart-brand-the-whole-earth-catalog",
+            "slug": "stewart-brand--the-whole-earth-catalog",
             "level": "h3",
             "children": []
           },
           {
             "text": "Steve Jobs & The Hippies",
-            "slug": "steve-jobs-the-hippies",
+            "slug": "steve-jobs--the-hippies",
             "level": "h3",
             "children": []
           },
           {
             "text": "Snow Crash & The Matrix",
-            "slug": "snow-crash-the-matrix",
+            "slug": "snow-crash--the-matrix",
             "level": "h3",
             "children": []
           }
@@ -57,7 +57,7 @@
       }
     ],
     "type": "post",
-    "sourcePath": "../../../../../code/website2/content/blog/2023/hacker-culture.md",
+    "sourcePath": "../../../../../code/website2/content/blog/blog/2023/hacker-culture.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

@@ -71,7 +71,7 @@
           },
           {
             "text": "Motorcycle repair kit (home + travel)",
-            "slug": "motorcycle-repair-kit-home-travel",
+            "slug": "motorcycle-repair-kit-home--travel",
             "level": "h3",
             "children": []
           },
@@ -85,7 +85,7 @@
       }
     ],
     "type": "post",
-    "sourcePath": "../../../../../code/website2/content/blog/2022/motorcycle-camping.md",
+    "sourcePath": "../../../../../code/website2/content/blog/blog/2022/motorcycle-camping.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

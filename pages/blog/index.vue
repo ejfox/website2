@@ -329,10 +329,6 @@ const createPostMetadata = (post) => {
 </script>
 
 <style scoped>
-.header {
-  @apply my-20 md:mt-6 pl-4 md:pl-0;
-}
-
 .year-header {
   @apply text-xs font-normal uppercase pl-2 md:pl-0 text-zinc-500 dark:text-zinc-500 mb-8;
   will-change: transform, opacity;
@@ -365,10 +361,6 @@ const createPostMetadata = (post) => {
 
 .sidebar {
   @apply mt-24 pt-12 border-t border-zinc-200 dark:border-zinc-800;
-}
-
-.section-header {
-  @apply text-xs font-normal uppercase tracking-[0.15em] text-zinc-500 dark:text-zinc-500 mb-8;
 }
 
 .week-note-link {

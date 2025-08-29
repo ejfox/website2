@@ -21,13 +21,13 @@
         "children": [
           {
             "text": "‍♂ Health & Fitness",
-            "slug": "health-fitness",
+            "slug": "-health--fitness",
             "level": "h3",
             "children": []
           },
           {
             "text": "Gaming & Skills",
-            "slug": "gaming-skills",
+            "slug": "gaming--skills",
             "level": "h3",
             "children": []
           },
@@ -39,7 +39,7 @@
           },
           {
             "text": "📸 Creative",
-            "slug": "creative",
+            "slug": "-creative",
             "level": "h3",
             "children": []
           },
@@ -51,7 +51,7 @@
           },
           {
             "text": "⏰ Productivity",
-            "slug": "productivity",
+            "slug": "-productivity",
             "level": "h3",
             "children": []
           },
@@ -65,7 +65,7 @@
       }
     ],
     "type": "post",
-    "sourcePath": "../../../../../code/website2/content/blog/2025/personal-apis.md",
+    "sourcePath": "../../../../../code/website2/content/blog/blog/2025/personal-apis.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

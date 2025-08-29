@@ -27,7 +27,7 @@
     "toc": [
       {
         "text": "Work View / Life View",
-        "slug": "work-view-life-view",
+        "slug": "work-view--life-view",
         "level": "h1",
         "children": [
           {
@@ -38,7 +38,7 @@
           },
           {
             "text": "What’s work for?",
-            "slug": "what-s-work-for",
+            "slug": "whats-work-for",
             "level": "h2",
             "children": []
           },
@@ -69,7 +69,7 @@
         ]
       }
     ],
-    "sourcePath": "../../../../../code/website2/content/blog/2018/work-view-life-view.md",
+    "sourcePath": "../../../../../code/website2/content/blog/blog/2018/work-view-life-view.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

@@ -43,7 +43,7 @@
           "children": []
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/2010/photography-2008-2010.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2010/photography-2008-2010.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2010/photography-2008-2010"
     }
@@ -69,7 +69,7 @@
         "children": [
           {
             "text": "A hint of what's to come",
-            "slug": "a-hint-of-what-s-to-come",
+            "slug": "a-hint-of-whats-to-come",
             "level": "h3",
             "children": []
           },
@@ -140,7 +140,7 @@
           "children": [
             {
               "text": "A hint of what's to come",
-              "slug": "a-hint-of-what-s-to-come",
+              "slug": "a-hint-of-whats-to-come",
               "level": "h3",
               "children": []
             },
@@ -183,7 +183,7 @@
           ]
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/2013/the-magazine-experience-on-the-web.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2013/the-magazine-experience-on-the-web.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2013/the-magazine-experience-on-the-web"
     }
@@ -234,7 +234,7 @@
           "children": []
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/2015/2015-in-review.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2015/2015-in-review.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2015/2015-in-review"
     }
@@ -291,7 +291,7 @@
           "children": []
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/2016/2016-in-review.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2016/2016-in-review.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2016/2016-in-review"
     }
@@ -370,7 +370,7 @@
           },
           {
             "text": "I'm In This",
-            "slug": "i-m-in-this",
+            "slug": "im-in-this",
             "level": "h2",
             "children": [
               {
@@ -492,7 +492,7 @@
             },
             {
               "text": "I'm In This",
-              "slug": "i-m-in-this",
+              "slug": "im-in-this",
               "level": "h2",
               "children": [
                 {
@@ -532,7 +532,7 @@
           ]
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/2016/video-mixes.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2016/video-mixes.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2016/video-mixes"
     }
@@ -585,7 +585,7 @@
           "children": []
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/2017/2017-in-review.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2017/2017-in-review.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2017/2017-in-review"
     }
@@ -638,7 +638,7 @@
           "children": []
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/2018/2018-in-review.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2018/2018-in-review.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2018/2018-in-review"
     }
@@ -705,7 +705,7 @@
           ]
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/2018/watercolor-sketching-in-nyc.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2018/watercolor-sketching-in-nyc.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2018/watercolor-sketching-in-nyc"
     }
@@ -728,7 +728,7 @@
     "toc": [
       {
         "text": "Work View / Life View",
-        "slug": "work-view-life-view",
+        "slug": "work-view--life-view",
         "level": "h1",
         "children": [
           {
@@ -739,7 +739,7 @@
           },
           {
             "text": "What’s work for?",
-            "slug": "what-s-work-for",
+            "slug": "whats-work-for",
             "level": "h2",
             "children": []
           },
@@ -795,7 +795,7 @@
       "toc": [
         {
           "text": "Work View / Life View",
-          "slug": "work-view-life-view",
+          "slug": "work-view--life-view",
           "level": "h1",
           "children": [
             {
@@ -806,7 +806,7 @@
             },
             {
               "text": "What’s work for?",
-              "slug": "what-s-work-for",
+              "slug": "whats-work-for",
               "level": "h2",
               "children": []
             },
@@ -837,7 +837,7 @@
           ]
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/2018/work-view-life-view.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2018/work-view-life-view.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2018/work-view-life-view"
     }
@@ -857,7 +857,7 @@
     "toc": [
       {
         "text": "NYC’s Climate March",
-        "slug": "nyc-s-climate-march",
+        "slug": "nycs-climate-march",
         "level": "h1",
         "children": []
       }
@@ -884,12 +884,12 @@
       "toc": [
         {
           "text": "NYC’s Climate March",
-          "slug": "nyc-s-climate-march",
+          "slug": "nycs-climate-march",
           "level": "h1",
           "children": []
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/2019/climate-strike-nyc.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2019/climate-strike-nyc.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2019/climate-strike-nyc"
     }
@@ -987,7 +987,7 @@
           ]
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/2019/generative-music-iteration.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2019/generative-music-iteration.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2019/generative-music-iteration"
     }
@@ -1043,7 +1043,7 @@
           "children": []
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/2019/hong-kong-protest-techniques.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2019/hong-kong-protest-techniques.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2019/hong-kong-protest-techniques"
     }
@@ -1149,7 +1149,7 @@
           ]
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/2019/how-i-prototype-apps-and-dataviz-quickly-in-2019.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2019/how-i-prototype-apps-and-dataviz-quickly-in-2019.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2019/how-i-prototype-apps-and-dataviz-quickly-in-2019"
     }
@@ -1221,7 +1221,7 @@
           ]
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/2019/linocut-printing-guide.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2019/linocut-printing-guide.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2019/linocut-printing-guide"
     }
@@ -1275,7 +1275,7 @@
           "children": []
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/2019/movies-to-watch.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2019/movies-to-watch.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2019/movies-to-watch"
     }
@@ -1327,7 +1327,7 @@
           "children": []
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/2019/step-zero.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2019/step-zero.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2019/step-zero"
     }
@@ -1377,7 +1377,7 @@
           "children": []
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/2019/taking-things-for-granted.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2019/taking-things-for-granted.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2019/taking-things-for-granted"
     }
@@ -1433,7 +1433,7 @@
           "children": []
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/2019/the-internet-was-built-to-be-hacked.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2019/the-internet-was-built-to-be-hacked.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2019/the-internet-was-built-to-be-hacked"
     }
@@ -1487,7 +1487,7 @@
           "children": []
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/2019/two-reasons.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2019/two-reasons.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2019/two-reasons"
     }
@@ -1591,7 +1591,7 @@
           "children": []
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/2019/unsecured-ice-cameras.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2019/unsecured-ice-cameras.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2019/unsecured-ice-cameras"
     }
@@ -1712,7 +1712,7 @@
           ]
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/2020/coding-livestreams.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2020/coding-livestreams.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2020/coding-livestreams"
     }
@@ -1766,7 +1766,7 @@
           "children": []
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/2020/online-brigades-gaming-twitter.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2020/online-brigades-gaming-twitter.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2020/online-brigades-gaming-twitter"
     }
@@ -1790,7 +1790,7 @@
     "toc": [
       {
         "text": "Things I've learned about elections",
-        "slug": "things-i-ve-learned-about-elections",
+        "slug": "things-ive-learned-about-elections",
         "level": "h2",
         "children": [
           {
@@ -1882,7 +1882,7 @@
       "toc": [
         {
           "text": "Things I've learned about elections",
-          "slug": "things-i-ve-learned-about-elections",
+          "slug": "things-ive-learned-about-elections",
           "level": "h2",
           "children": [
             {
@@ -1948,7 +1948,7 @@
           ]
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/2020/things-ive-learned-about-elections.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2020/things-ive-learned-about-elections.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2020/things-ive-learned-about-elections"
     }
@@ -2041,7 +2041,7 @@
           ]
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/2021/creative-coding.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2021/creative-coding.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2021/creative-coding"
     }
@@ -2100,7 +2100,7 @@
           "children": []
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/2021/lack-of-data.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2021/lack-of-data.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2021/lack-of-data"
     }
@@ -2145,7 +2145,7 @@
           },
           {
             "text": "Analyzing our data with Datasette / SQLite",
-            "slug": "analyzing-our-data-with-datasette-sqlite",
+            "slug": "analyzing-our-data-with-datasette--sqlite",
             "level": "h3",
             "children": []
           },
@@ -2169,7 +2169,7 @@
           },
           {
             "text": "Flotsam & Jetsam",
-            "slug": "flotsam-jetsam",
+            "slug": "flotsam--jetsam",
             "level": "h3",
             "children": []
           },
@@ -2228,7 +2228,7 @@
             },
             {
               "text": "Analyzing our data with Datasette / SQLite",
-              "slug": "analyzing-our-data-with-datasette-sqlite",
+              "slug": "analyzing-our-data-with-datasette--sqlite",
               "level": "h3",
               "children": []
             },
@@ -2252,7 +2252,7 @@
             },
             {
               "text": "Flotsam & Jetsam",
-              "slug": "flotsam-jetsam",
+              "slug": "flotsam--jetsam",
               "level": "h3",
               "children": []
             },
@@ -2265,7 +2265,7 @@
           ]
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/2021/nypd-ccrb-complaint-clusters.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2021/nypd-ccrb-complaint-clusters.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2021/nypd-ccrb-complaint-clusters"
     }
@@ -2386,7 +2386,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/2022/art-setup.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2022/art-setup.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2022/art-setup"
     }
@@ -2434,7 +2434,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/2022/election-night-2018.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2022/election-night-2018.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2022/election-night-2018"
     }
@@ -2549,7 +2549,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/2022/experiments-with-live-looping-performance.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2022/experiments-with-live-looping-performance.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2022/experiments-with-live-looping-performance"
     }
@@ -2652,7 +2652,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/2022/food.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2022/food.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2022/food"
     }
@@ -2737,7 +2737,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/2022/joy-driven-development.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2022/joy-driven-development.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2022/joy-driven-development"
     }
@@ -2759,7 +2759,7 @@
     "toc": [
       {
         "text": "The Art of Coding: A Developer's Guide",
-        "slug": "the-art-of-coding-a-developer-s-guide",
+        "slug": "the-art-of-coding-a-developers-guide",
         "level": "h2",
         "children": []
       },
@@ -2806,7 +2806,7 @@
           },
           {
             "text": "Metadata: what’s there? What’s missing?",
-            "slug": "metadata-what-s-there-what-s-missing",
+            "slug": "metadata-whats-there-whats-missing",
             "level": "h3",
             "children": []
           },
@@ -2865,7 +2865,7 @@
       "toc": [
         {
           "text": "The Art of Coding: A Developer's Guide",
-          "slug": "the-art-of-coding-a-developer-s-guide",
+          "slug": "the-art-of-coding-a-developers-guide",
           "level": "h2",
           "children": []
         },
@@ -2912,7 +2912,7 @@
             },
             {
               "text": "Metadata: what’s there? What’s missing?",
-              "slug": "metadata-what-s-there-what-s-missing",
+              "slug": "metadata-whats-there-whats-missing",
               "level": "h3",
               "children": []
             },
@@ -2950,7 +2950,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/2022/the-art-of-coding.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2022/the-art-of-coding.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2022/the-art-of-coding"
     }
@@ -3048,7 +3048,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/2022/the-studio.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2022/the-studio.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2022/the-studio"
     }
@@ -3096,7 +3096,7 @@
           },
           {
             "text": "Black & White Film",
-            "slug": "black-white-film",
+            "slug": "black--white-film",
             "level": "h3",
             "children": []
           },
@@ -3157,7 +3157,7 @@
             },
             {
               "text": "Black & White Film",
-              "slug": "black-white-film",
+              "slug": "black--white-film",
               "level": "h3",
               "children": []
             },
@@ -3171,7 +3171,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/2023/camera-setup.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2023/camera-setup.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2023/camera-setup"
     }
@@ -3277,7 +3277,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/2023/crypto-ai-colonization.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2023/crypto-ai-colonization.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2023/crypto-ai-colonization"
     }
@@ -3347,7 +3347,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/2023/livestreaming.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2023/livestreaming.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2023/livestreaming"
     }
@@ -3365,7 +3365,7 @@
     "toc": [
       {
         "text": "Introducing room302.studio",
-        "slug": "introducing-room302-studio",
+        "slug": "introducing-room302studio",
         "level": "h2",
         "children": [
           {
@@ -3406,7 +3406,7 @@
       "toc": [
         {
           "text": "Introducing room302.studio",
-          "slug": "introducing-room302-studio",
+          "slug": "introducing-room302studio",
           "level": "h2",
           "children": [
             {
@@ -3431,7 +3431,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/2023/starting-a-studio-introducing-room-302.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2023/starting-a-studio-introducing-room-302.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2023/starting-a-studio-introducing-room-302"
     }
@@ -3486,7 +3486,7 @@
           },
           {
             "text": "Great mobile support & iOS app",
-            "slug": "great-mobile-support-ios-app",
+            "slug": "great-mobile-support--ios-app",
             "level": "h3",
             "children": []
           },
@@ -3554,7 +3554,7 @@
             },
             {
               "text": "Great mobile support & iOS app",
-              "slug": "great-mobile-support-ios-app",
+              "slug": "great-mobile-support--ios-app",
               "level": "h3",
               "children": []
             },
@@ -3568,7 +3568,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/2023/why-i-love-obsidian.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2023/why-i-love-obsidian.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2023/why-i-love-obsidian"
     }
@@ -3592,13 +3592,13 @@
     "toc": [
       {
         "text": "🕰 Reflections on the Past Year",
-        "slug": "reflections-on-the-past-year",
+        "slug": "-reflections-on-the-past-year",
         "level": "h2",
         "children": []
       },
       {
         "text": "🔑 Key Themes",
-        "slug": "key-themes",
+        "slug": "-key-themes",
         "level": "h2",
         "children": [
           {
@@ -3664,7 +3664,7 @@
           },
           {
             "text": "Daily Dashboard + Personal AI Assistant",
-            "slug": "daily-dashboard-personal-ai-assistant",
+            "slug": "daily-dashboard--personal-ai-assistant",
             "level": "h3",
             "children": []
           }
@@ -3689,7 +3689,7 @@
           },
           {
             "text": "Hardware Hacking / Physical Installations",
-            "slug": "hardware-hacking-physical-installations",
+            "slug": "hardware-hacking--physical-installations",
             "level": "h3",
             "children": []
           },
@@ -3707,7 +3707,7 @@
           },
           {
             "text": "Personal Documentation + YouTube",
-            "slug": "personal-documentation-youtube",
+            "slug": "personal-documentation--youtube",
             "level": "h3",
             "children": []
           }
@@ -3715,7 +3715,7 @@
       },
       {
         "text": "Wellness & Personal Development",
-        "slug": "wellness-personal-development",
+        "slug": "wellness--personal-development",
         "level": "h2",
         "children": [
           {
@@ -3752,7 +3752,7 @@
       },
       {
         "text": "Goals for Global & Societal Impact",
-        "slug": "goals-for-global-societal-impact",
+        "slug": "goals-for-global--societal-impact",
         "level": "h2",
         "children": []
       },
@@ -3786,13 +3786,13 @@
       "toc": [
         {
           "text": "🕰 Reflections on the Past Year",
-          "slug": "reflections-on-the-past-year",
+          "slug": "-reflections-on-the-past-year",
           "level": "h2",
           "children": []
         },
         {
           "text": "🔑 Key Themes",
-          "slug": "key-themes",
+          "slug": "-key-themes",
           "level": "h2",
           "children": [
             {
@@ -3858,7 +3858,7 @@
             },
             {
               "text": "Daily Dashboard + Personal AI Assistant",
-              "slug": "daily-dashboard-personal-ai-assistant",
+              "slug": "daily-dashboard--personal-ai-assistant",
               "level": "h3",
               "children": []
             }
@@ -3883,7 +3883,7 @@
             },
             {
               "text": "Hardware Hacking / Physical Installations",
-              "slug": "hardware-hacking-physical-installations",
+              "slug": "hardware-hacking--physical-installations",
               "level": "h3",
               "children": []
             },
@@ -3901,7 +3901,7 @@
             },
             {
               "text": "Personal Documentation + YouTube",
-              "slug": "personal-documentation-youtube",
+              "slug": "personal-documentation--youtube",
               "level": "h3",
               "children": []
             }
@@ -3909,7 +3909,7 @@
         },
         {
           "text": "Wellness & Personal Development",
-          "slug": "wellness-personal-development",
+          "slug": "wellness--personal-development",
           "level": "h2",
           "children": [
             {
@@ -3946,7 +3946,7 @@
         },
         {
           "text": "Goals for Global & Societal Impact",
-          "slug": "goals-for-global-societal-impact",
+          "slug": "goals-for-global--societal-impact",
           "level": "h2",
           "children": []
         },
@@ -3958,7 +3958,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/2024/2024.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2024/2024.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2024/2024"
     }
@@ -4110,7 +4110,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/2024/my-modern-scrapbook.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2024/my-modern-scrapbook.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2024/my-modern-scrapbook"
     }
@@ -4253,7 +4253,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/2024/the-mystery-of-peter-todd.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2024/the-mystery-of-peter-todd.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2024/the-mystery-of-peter-todd"
     }
@@ -4360,7 +4360,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/2025/hidden-networks-of-warmth.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2025/hidden-networks-of-warmth.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2025/hidden-networks-of-warmth"
     }
@@ -4411,7 +4411,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/2025/mcp-meta-mapping.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2025/mcp-meta-mapping.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2025/mcp-meta-mapping"
     }
@@ -4516,7 +4516,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/2025/owning-my-cloudinary-photos.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2025/owning-my-cloudinary-photos.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2025/owning-my-cloudinary-photos"
     }
@@ -4644,7 +4644,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/2025/paramilitary-telegram-leaks-001.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2025/paramilitary-telegram-leaks-001.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2025/paramilitary-telegram-leaks-001"
     }
@@ -4664,13 +4664,13 @@
         "children": [
           {
             "text": "‍♂ Health & Fitness",
-            "slug": "health-fitness",
+            "slug": "-health--fitness",
             "level": "h3",
             "children": []
           },
           {
             "text": "Gaming & Skills",
-            "slug": "gaming-skills",
+            "slug": "gaming--skills",
             "level": "h3",
             "children": []
           },
@@ -4682,7 +4682,7 @@
           },
           {
             "text": "📸 Creative",
-            "slug": "creative",
+            "slug": "-creative",
             "level": "h3",
             "children": []
           },
@@ -4694,7 +4694,7 @@
           },
           {
             "text": "⏰ Productivity",
-            "slug": "productivity",
+            "slug": "-productivity",
             "level": "h3",
             "children": []
           },
@@ -4726,13 +4726,13 @@
           "children": [
             {
               "text": "‍♂ Health & Fitness",
-              "slug": "health-fitness",
+              "slug": "-health--fitness",
               "level": "h3",
               "children": []
             },
             {
               "text": "Gaming & Skills",
-              "slug": "gaming-skills",
+              "slug": "gaming--skills",
               "level": "h3",
               "children": []
             },
@@ -4744,7 +4744,7 @@
             },
             {
               "text": "📸 Creative",
-              "slug": "creative",
+              "slug": "-creative",
               "level": "h3",
               "children": []
             },
@@ -4756,7 +4756,7 @@
             },
             {
               "text": "⏰ Productivity",
-              "slug": "productivity",
+              "slug": "-productivity",
               "level": "h3",
               "children": []
             },
@@ -4770,147 +4770,9 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/2025/personal-apis.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2025/personal-apis.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2025/personal-apis"
-    }
-  },
-  {
-    "slug": "drafts/!WRITING-DASHBOARD",
-    "title": "Writing Dashboard",
-    "type": "post",
-    "toc": [
-      {
-        "text": "Writing Dashboard",
-        "slug": "writing-dashboard",
-        "level": "h1",
-        "children": [
-          {
-            "text": "(Top Priorities)",
-            "slug": "top-priorities",
-            "level": "h2",
-            "children": []
-          },
-          {
-            "text": "(Under 30min)",
-            "slug": "under-30min",
-            "level": "h2",
-            "children": []
-          },
-          {
-            "text": "(Expand when inspired)",
-            "slug": "expand-when-inspired",
-            "level": "h2",
-            "children": [
-              {
-                "text": "Templates",
-                "slug": "templates",
-                "level": "h3",
-                "children": []
-              },
-              {
-                "text": "Quick Commands",
-                "slug": "quick-commands",
-                "level": "h3",
-                "children": []
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "metadata": {
-      "words": 339,
-      "images": 0,
-      "links": 17,
-      "codeBlocks": 0,
-      "headers": {
-        "h1": 1
-      },
-      "toc": [
-        {
-          "text": "Writing Dashboard",
-          "slug": "writing-dashboard",
-          "level": "h1",
-          "children": [
-            {
-              "text": "(Top Priorities)",
-              "slug": "top-priorities",
-              "level": "h2",
-              "children": []
-            },
-            {
-              "text": "(Under 30min)",
-              "slug": "under-30min",
-              "level": "h2",
-              "children": []
-            },
-            {
-              "text": "(Expand when inspired)",
-              "slug": "expand-when-inspired",
-              "level": "h2",
-              "children": [
-                {
-                  "text": "Templates",
-                  "slug": "templates",
-                  "level": "h3",
-                  "children": []
-                },
-                {
-                  "text": "Quick Commands",
-                  "slug": "quick-commands",
-                  "level": "h3",
-                  "children": []
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/drafts/!WRITING-DASHBOARD.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "drafts/!WRITING-DASHBOARD"
-    }
-  },
-  {
-    "slug": "drafts/I don’t have anything particular in mind to sit down and write",
-    "title": "I don’t have anything particular in mind to sit down and write",
-    "type": "post",
-    "toc": [],
-    "metadata": {
-      "words": 347,
-      "images": 0,
-      "links": 0,
-      "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/drafts/I don’t have anything particular in mind to sit down and write.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "drafts/I don’t have anything particular in mind to sit down and write"
-    }
-  },
-  {
-    "slug": "drafts/_stale/Is it even possible to make something that is low-effort and",
-    "title": "Is it even possible to make something that is low Effort and",
-    "date": "2025-07-25T12:14:05.000Z",
-    "type": "post",
-    "modified": "2025-08-19T18:33:12.000Z",
-    "toc": [],
-    "metadata": {
-      "date": "2025-07-25T12:14:05.000Z",
-      "modified": "2025-08-19T18:33:12.000Z",
-      "words": 29,
-      "images": 0,
-      "links": 0,
-      "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/Is it even possible to make something that is low-effort and.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "drafts/_stale/Is it even possible to make something that is low-effort and"
     }
   },
   {
@@ -5113,55 +4975,6 @@
     }
   },
   {
-    "slug": "drafts/_stale/dataviz-fingerprints",
-    "title": "Using and creating dataviz \"Fingerprints\"",
-    "date": "2024-06-02T00:00:00.000Z",
-    "type": "post",
-    "dek": "In which",
-    "modified": "2024-10-14T22:57:25.000Z",
-    "tags": [
-      "dataviz",
-      "design"
-    ],
-    "toc": [
-      {
-        "text": "Using and creating dataviz \"Fingerprints\"",
-        "slug": "using-and-creating-dataviz-fingerprints",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "metadata": {
-      "dek": "In which",
-      "inprogress": true,
-      "date": "2024-06-02T00:00:00.000Z",
-      "modified": "2024-10-14T22:57:25.000Z",
-      "tags": [
-        "dataviz",
-        "design"
-      ],
-      "words": 8,
-      "images": 0,
-      "links": 0,
-      "codeBlocks": 0,
-      "headers": {
-        "h2": 1
-      },
-      "toc": [
-        {
-          "text": "Using and creating dataviz \"Fingerprints\"",
-          "slug": "using-and-creating-dataviz-fingerprints",
-          "level": "h2",
-          "children": []
-        }
-      ],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/dataviz-fingerprints.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "drafts/_stale/dataviz-fingerprints"
-    }
-  },
-  {
     "slug": "drafts/_stale/electology-vision",
     "title": "Unveiling Electology: The Election Analysis Tool You Didn’t Know You Needed",
     "date": "2022-12-05T23:34:09.000Z",
@@ -5179,7 +4992,7 @@
     "toc": [
       {
         "text": "Unveiling Electology: The Election Analysis Tool You Didn’t Know You Needed",
-        "slug": "unveiling-electology-the-election-analysis-tool-you-didn-t-know-you-needed",
+        "slug": "unveiling-electology-the-election-analysis-tool-you-didnt-know-you-needed",
         "level": "h2",
         "children": [
           {
@@ -5232,7 +5045,7 @@
       "toc": [
         {
           "text": "Unveiling Electology: The Election Analysis Tool You Didn’t Know You Needed",
-          "slug": "unveiling-electology-the-election-analysis-tool-you-didn-t-know-you-needed",
+          "slug": "unveiling-electology-the-election-analysis-tool-you-didnt-know-you-needed",
           "level": "h2",
           "children": [
             {
@@ -5338,12 +5151,12 @@
     "toc": [
       {
         "text": "Meal Log - {{date:YYYY-MM-DD}}",
-        "slug": "meal-log-date-yyyy-mm-dd",
+        "slug": "meal-log---dateyyyy-mm-dd",
         "level": "h2",
         "children": [
           {
             "text": "Meal: {{time}} (e.g., Breakfast, Lunch, Snack)",
-            "slug": "meal-time-e-g-breakfast-lunch-snack",
+            "slug": "meal-time-eg-breakfast-lunch-snack",
             "level": "h3",
             "children": []
           }
@@ -5367,12 +5180,12 @@
       "toc": [
         {
           "text": "Meal Log - {{date:YYYY-MM-DD}}",
-          "slug": "meal-log-date-yyyy-mm-dd",
+          "slug": "meal-log---dateyyyy-mm-dd",
           "level": "h2",
           "children": [
             {
               "text": "Meal: {{time}} (e.g., Breakfast, Lunch, Snack)",
-              "slug": "meal-time-e-g-breakfast-lunch-snack",
+              "slug": "meal-time-eg-breakfast-lunch-snack",
               "level": "h3",
               "children": []
             }
@@ -5431,7 +5244,7 @@
       },
       {
         "text": "Community & Practice",
-        "slug": "community-practice",
+        "slug": "community--practice",
         "level": "h2",
         "children": [
           {
@@ -5480,7 +5293,7 @@
       },
       {
         "text": "Flipper Zero and HackRF / H4M",
-        "slug": "flipper-zero-and-hackrf-h4m",
+        "slug": "flipper-zero-and-hackrf--h4m",
         "level": "h2",
         "children": []
       }
@@ -5536,7 +5349,7 @@
         },
         {
           "text": "Community & Practice",
-          "slug": "community-practice",
+          "slug": "community--practice",
           "level": "h2",
           "children": [
             {
@@ -5585,7 +5398,7 @@
         },
         {
           "text": "Flipper Zero and HackRF / H4M",
-          "slug": "flipper-zero-and-hackrf-h4m",
+          "slug": "flipper-zero-and-hackrf--h4m",
           "level": "h2",
           "children": []
         }
@@ -5741,7 +5554,7 @@
     "toc": [
       {
         "text": "🌌  🌌",
-        "slug": "",
+        "slug": "--",
         "level": "h2",
         "children": [
           {
@@ -5752,31 +5565,31 @@
           },
           {
             "text": "🗺",
-            "slug": "",
+            "slug": "-1",
             "level": "h3",
             "children": []
           },
           {
             "text": "📸",
-            "slug": "",
+            "slug": "-2",
             "level": "h3",
             "children": []
           },
           {
             "text": "🔗",
-            "slug": "",
+            "slug": "-3",
             "level": "h3",
             "children": []
           },
           {
             "text": "📚",
-            "slug": "",
+            "slug": "-4",
             "level": "h3",
             "children": []
           },
           {
             "text": "⚙",
-            "slug": "",
+            "slug": "-5",
             "level": "h3",
             "children": []
           }
@@ -5784,31 +5597,31 @@
       },
       {
         "text": "📬",
-        "slug": "",
+        "slug": "-6",
         "level": "h2",
         "children": []
       },
       {
         "text": "🖥",
-        "slug": "",
+        "slug": "-7",
         "level": "h2",
         "children": []
       },
       {
         "text": "📅",
-        "slug": "",
+        "slug": "-8",
         "level": "h2",
         "children": []
       },
       {
         "text": "🔒",
-        "slug": "",
+        "slug": "-9",
         "level": "h2",
         "children": []
       },
       {
         "text": "🏁",
-        "slug": "",
+        "slug": "-10",
         "level": "h2",
         "children": []
       }
@@ -5829,7 +5642,7 @@
       "toc": [
         {
           "text": "🌌  🌌",
-          "slug": "",
+          "slug": "--",
           "level": "h2",
           "children": [
             {
@@ -5840,31 +5653,31 @@
             },
             {
               "text": "🗺",
-              "slug": "",
+              "slug": "-1",
               "level": "h3",
               "children": []
             },
             {
               "text": "📸",
-              "slug": "",
+              "slug": "-2",
               "level": "h3",
               "children": []
             },
             {
               "text": "🔗",
-              "slug": "",
+              "slug": "-3",
               "level": "h3",
               "children": []
             },
             {
               "text": "📚",
-              "slug": "",
+              "slug": "-4",
               "level": "h3",
               "children": []
             },
             {
               "text": "⚙",
-              "slug": "",
+              "slug": "-5",
               "level": "h3",
               "children": []
             }
@@ -5872,31 +5685,31 @@
         },
         {
           "text": "📬",
-          "slug": "",
+          "slug": "-6",
           "level": "h2",
           "children": []
         },
         {
           "text": "🖥",
-          "slug": "",
+          "slug": "-7",
           "level": "h2",
           "children": []
         },
         {
           "text": "📅",
-          "slug": "",
+          "slug": "-8",
           "level": "h2",
           "children": []
         },
         {
           "text": "🔒",
-          "slug": "",
+          "slug": "-9",
           "level": "h2",
           "children": []
         },
         {
           "text": "🏁",
-          "slug": "",
+          "slug": "-10",
           "level": "h2",
           "children": []
         }
@@ -6092,28 +5905,6 @@
     }
   },
   {
-    "slug": "drafts/_stale/pico8-exploration",
-    "title": "Pico8 Exploration",
-    "date": "2024-11-26T00:24:01.000Z",
-    "type": "post",
-    "modified": "2024-11-26T00:45:50.000Z",
-    "toc": [],
-    "metadata": {
-      "date": "2024-11-26T00:24:01.000Z",
-      "modified": "2024-11-26T00:45:50.000Z",
-      "words": 1,
-      "images": 0,
-      "links": 0,
-      "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/pico8-exploration.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "drafts/_stale/pico8-exploration"
-    }
-  },
-  {
     "slug": "drafts/_stale/room302-livestream-learning",
     "title": "Livestream Learning: How Room 302 Engages and Educates in Real-Time",
     "date": "2022-12-05T23:34:09.000Z",
@@ -6201,7 +5992,7 @@
     "toc": [
       {
         "text": "Tech’s Anti-Humanist Wave",
-        "slug": "tech-s-anti-humanist-wave",
+        "slug": "techs-anti-humanist-wave",
         "level": "h2",
         "children": []
       }
@@ -6227,7 +6018,7 @@
       "toc": [
         {
           "text": "Tech’s Anti-Humanist Wave",
-          "slug": "tech-s-anti-humanist-wave",
+          "slug": "techs-anti-humanist-wave",
           "level": "h2",
           "children": []
         }
@@ -6378,7 +6169,7 @@
       },
       {
         "text": "Andy’s Twitter Hacked",
-        "slug": "andy-s-twitter-hacked",
+        "slug": "andys-twitter-hacked",
         "level": "h2",
         "children": []
       },
@@ -6472,7 +6263,7 @@
         },
         {
           "text": "Andy’s Twitter Hacked",
-          "slug": "andy-s-twitter-hacked",
+          "slug": "andys-twitter-hacked",
           "level": "h2",
           "children": []
         },
@@ -6659,10 +6450,24 @@
     "date": "2025-08-01T12:52:12.000Z",
     "type": "post",
     "modified": "2025-08-06T17:06:01.000Z",
+    "tags": [
+      "ar",
+      "prototyping",
+      "tech",
+      "ui",
+      "design"
+    ],
     "toc": [],
     "metadata": {
       "date": "2025-08-01T12:52:12.000Z",
       "modified": "2025-08-06T17:06:01.000Z",
+      "tags": [
+        "ar",
+        "prototyping",
+        "tech",
+        "ui",
+        "design"
+      ],
       "words": 2,
       "images": 0,
       "links": 0,
@@ -6685,12 +6490,16 @@
     "tags": [
       "process",
       "cli",
-      "audio"
+      "audio",
+      "automation",
+      "podcast",
+      "workflow",
+      "machinelearning"
     ],
     "toc": [
       {
         "text": "Editing A Podcast With Embeddings & CLI Tools",
-        "slug": "editing-a-podcast-with-embeddings-cli-tools",
+        "slug": "editing-a-podcast-with-embeddings--cli-tools",
         "level": "h2",
         "children": []
       }
@@ -6700,7 +6509,11 @@
       "tags": [
         "process",
         "cli",
-        "audio"
+        "audio",
+        "automation",
+        "podcast",
+        "workflow",
+        "machinelearning"
       ],
       "date": "2025-03-05T04:05:00.000Z",
       "modified": "2025-06-02T14:02:28.000Z",
@@ -6714,7 +6527,7 @@
       "toc": [
         {
           "text": "Editing A Podcast With Embeddings & CLI Tools",
-          "slug": "editing-a-podcast-with-embeddings-cli-tools",
+          "slug": "editing-a-podcast-with-embeddings--cli-tools",
           "level": "h2",
           "children": []
         }
@@ -6726,15 +6539,127 @@
     }
   },
   {
+    "slug": "drafts/dataviz-fingerprints",
+    "title": "Dataviz Fingerprints: When Complex Systems Need Simple Signatures",
+    "date": "2024-06-02T00:00:00.000Z",
+    "type": "post",
+    "dek": "In which we explore the art of making complex systems instantly recognizable without requiring deep understanding of the encoding",
+    "modified": "2025-08-29T02:02:55.000Z",
+    "tags": [
+      "dataviz",
+      "design",
+      "patterns",
+      "visualization",
+      "data"
+    ],
+    "toc": [
+      {
+        "text": "Dataviz Fingerprints: When Complex Systems Need Simple Signatures",
+        "slug": "dataviz-fingerprints-when-complex-systems-need-simple-signatures",
+        "level": "h2",
+        "children": [
+          {
+            "text": "The Radar Chart Problem (And Why We Can Do Small Multiples Better)",
+            "slug": "the-radar-chart-problem-and-why-we-can-do-small-multiples-better",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "What Makes a Good Dataviz Fingerprint?",
+            "slug": "what-makes-a-good-dataviz-fingerprint",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Examples That Actually Work",
+            "slug": "examples-that-actually-work",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Building Your Own Fingerprint System",
+            "slug": "building-your-own-fingerprint-system",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "dek": "In which we explore the art of making complex systems instantly recognizable without requiring deep understanding of the encoding",
+      "inprogress": true,
+      "date": "2024-06-02T00:00:00.000Z",
+      "modified": "2025-08-29T02:02:55.000Z",
+      "tags": [
+        "dataviz",
+        "design",
+        "patterns",
+        "visualization",
+        "data"
+      ],
+      "words": 839,
+      "images": 0,
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "Dataviz Fingerprints: When Complex Systems Need Simple Signatures",
+          "slug": "dataviz-fingerprints-when-complex-systems-need-simple-signatures",
+          "level": "h2",
+          "children": [
+            {
+              "text": "The Radar Chart Problem (And Why We Can Do Small Multiples Better)",
+              "slug": "the-radar-chart-problem-and-why-we-can-do-small-multiples-better",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "What Makes a Good Dataviz Fingerprint?",
+              "slug": "what-makes-a-good-dataviz-fingerprint",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Examples That Actually Work",
+              "slug": "examples-that-actually-work",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Building Your Own Fingerprint System",
+              "slug": "building-your-own-fingerprint-system",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/dataviz-fingerprints.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/dataviz-fingerprints"
+    }
+  },
+  {
     "slug": "drafts/how-can-ai-be-used-in-journalism",
     "title": "LLMs / Generative Language Tools",
     "date": "2025-08-13T23:03:17.000Z",
     "type": "post",
-    "modified": "2025-08-14T13:25:08.000Z",
+    "modified": "2025-08-29T02:05:11.000Z",
+    "tags": [
+      "journalism",
+      "ai",
+      "machinelearning",
+      "tech",
+      "media"
+    ],
     "toc": [
       {
         "text": "LLMs / Generative Language Tools",
-        "slug": "llms-generative-language-tools",
+        "slug": "llms--generative-language-tools",
         "level": "h2",
         "children": []
       },
@@ -6754,7 +6679,14 @@
     ],
     "metadata": {
       "date": "2025-08-13T23:03:17.000Z",
-      "modified": "2025-08-14T13:25:08.000Z",
+      "modified": "2025-08-29T02:05:11.000Z",
+      "tags": [
+        "journalism",
+        "ai",
+        "machinelearning",
+        "tech",
+        "media"
+      ],
       "words": 218,
       "images": 0,
       "links": 3,
@@ -6765,7 +6697,7 @@
       "toc": [
         {
           "text": "LLMs / Generative Language Tools",
-          "slug": "llms-generative-language-tools",
+          "slug": "llms--generative-language-tools",
           "level": "h2",
           "children": []
         },
@@ -6798,7 +6730,10 @@
     "tags": [
       "code",
       "howto",
-      "process"
+      "process",
+      "coding",
+      "programming",
+      "workflow"
     ],
     "toc": [],
     "metadata": {
@@ -6807,7 +6742,10 @@
       "tags": [
         "code",
         "howto",
-        "process"
+        "process",
+        "coding",
+        "programming",
+        "workflow"
       ],
       "words": 142,
       "images": 0,
@@ -6827,10 +6765,24 @@
     "date": "2025-02-17T15:29:04.000Z",
     "type": "post",
     "modified": "2025-06-02T14:00:02.000Z",
+    "tags": [
+      "personal",
+      "routine",
+      "inspiration",
+      "productivity",
+      "morning"
+    ],
     "toc": [],
     "metadata": {
       "date": "2025-02-17T15:29:04.000Z",
       "modified": "2025-06-02T14:00:02.000Z",
+      "tags": [
+        "personal",
+        "routine",
+        "inspiration",
+        "productivity",
+        "morning"
+      ],
       "words": 153,
       "images": 0,
       "links": 0,
@@ -6844,6 +6796,123 @@
     }
   },
   {
+    "slug": "drafts/how-men-use-radios",
+    "title": "How We Use Radios",
+    "date": "2023-09-03T16:33:47.000Z",
+    "type": "post",
+    "dek": "In which we learn to use radios to the best of our ability",
+    "modified": "2025-08-28T20:46:11.000Z",
+    "tags": [
+      "communication",
+      "radio",
+      "tech",
+      "howto",
+      "hardware"
+    ],
+    "toc": [
+      {
+        "text": "How We Use Radios",
+        "slug": "how-we-use-radios",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Good Radio vs Bad Radio: Lessons from Squad",
+            "slug": "good-radio-vs-bad-radio-lessons-from-squad",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Radio Discipline in the Wild: Discord, Newsrooms, and Bear Encounters",
+            "slug": "radio-discipline-in-the-wild-discord-newsrooms-and-bear-encounters",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "The Sub-Skills: Why You Need to Practice Being Calm",
+            "slug": "the-sub-skills-why-you-need-to-practice-being-calm",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "From Simulation to Reality: Why Gaming Skills Transfer",
+            "slug": "from-simulation-to-reality-why-gaming-skills-transfer",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "How to Actually Practice This",
+            "slug": "how-to-actually-practice-this",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "dek": "In which we learn to use radios to the best of our ability",
+      "inprogress": true,
+      "date": "2023-09-03T16:33:47.000Z",
+      "modified": "2025-08-28T20:46:11.000Z",
+      "tags": [
+        "communication",
+        "radio",
+        "tech",
+        "howto",
+        "hardware"
+      ],
+      "words": 1484,
+      "images": 0,
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "How We Use Radios",
+          "slug": "how-we-use-radios",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Good Radio vs Bad Radio: Lessons from Squad",
+              "slug": "good-radio-vs-bad-radio-lessons-from-squad",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Radio Discipline in the Wild: Discord, Newsrooms, and Bear Encounters",
+              "slug": "radio-discipline-in-the-wild-discord-newsrooms-and-bear-encounters",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "The Sub-Skills: Why You Need to Practice Being Calm",
+              "slug": "the-sub-skills-why-you-need-to-practice-being-calm",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "From Simulation to Reality: Why Gaming Skills Transfer",
+              "slug": "from-simulation-to-reality-why-gaming-skills-transfer",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "How to Actually Practice This",
+              "slug": "how-to-actually-practice-this",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/how-men-use-radios.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/how-men-use-radios"
+    }
+  },
+  {
     "slug": "drafts/idiots-guide-finetuning-llm",
     "title": "Why?",
     "date": "2025-08-19T17:38:18.000Z",
@@ -6852,7 +6921,9 @@
     "tags": [
       "machinelearning",
       "howto",
-      "tech"
+      "tech",
+      "coding",
+      "ai"
     ],
     "toc": [
       {
@@ -6880,7 +6951,9 @@
       "tags": [
         "machinelearning",
         "howto",
-        "tech"
+        "tech",
+        "coding",
+        "ai"
       ],
       "words": 18,
       "images": 0,
@@ -6921,11 +6994,13 @@
     "date": "2025-06-02T13:55:03.000Z",
     "type": "post",
     "dek": "In which the author expounds on the joys of working physically both in capturing photographs as well as viewing and editing them",
-    "modified": "2025-06-02T13:59:51.000Z",
+    "modified": "2025-08-28T22:58:04.000Z",
     "tags": [
       "photography",
       "personal",
-      "process"
+      "process",
+      "workflow",
+      "analog"
     ],
     "toc": [
       {
@@ -6941,7 +7016,7 @@
           },
           {
             "text": "EXIF Printer & Editing On A Table",
-            "slug": "exif-printer-editing-on-a-table",
+            "slug": "exif-printer--editing-on-a-table",
             "level": "h3",
             "children": []
           }
@@ -6954,10 +7029,12 @@
       "tags": [
         "photography",
         "personal",
-        "process"
+        "process",
+        "workflow",
+        "analog"
       ],
       "date": "2025-06-02T13:55:03.000Z",
-      "modified": "2025-06-02T13:59:51.000Z",
+      "modified": "2025-08-28T22:58:04.000Z",
       "words": 24,
       "images": 0,
       "links": 0,
@@ -6979,7 +7056,7 @@
             },
             {
               "text": "EXIF Printer & Editing On A Table",
-              "slug": "exif-printer-editing-on-a-table",
+              "slug": "exif-printer--editing-on-a-table",
               "level": "h3",
               "children": []
             }
@@ -6997,18 +7074,34 @@
     "title": "Setting up nvim for Nuxt / Vue development",
     "date": "2025-08-01T12:49:14.000Z",
     "type": "post",
-    "modified": "2025-08-01T12:50:18.000Z",
+    "modified": "2025-08-28T22:32:42.000Z",
+    "tags": [
+      "nvim",
+      "vue",
+      "nuxt",
+      "coding",
+      "tools",
+      "howto"
+    ],
     "toc": [
       {
         "text": "Setting up nvim for Nuxt / Vue development",
-        "slug": "setting-up-nvim-for-nuxt-vue-development",
+        "slug": "setting-up-nvim-for-nuxt--vue-development",
         "level": "h2",
         "children": []
       }
     ],
     "metadata": {
       "date": "2025-08-01T12:49:14.000Z",
-      "modified": "2025-08-01T12:50:18.000Z",
+      "modified": "2025-08-28T22:32:42.000Z",
+      "tags": [
+        "nvim",
+        "vue",
+        "nuxt",
+        "coding",
+        "tools",
+        "howto"
+      ],
       "words": 12,
       "images": 0,
       "links": 0,
@@ -7019,7 +7112,7 @@
       "toc": [
         {
           "text": "Setting up nvim for Nuxt / Vue development",
-          "slug": "setting-up-nvim-for-nuxt-vue-development",
+          "slug": "setting-up-nvim-for-nuxt--vue-development",
           "level": "h2",
           "children": []
         }
@@ -7035,11 +7128,14 @@
     "title": "Ten Years of the Computer",
     "date": "2025-08-06T16:53:07.000Z",
     "type": "post",
-    "modified": "2025-08-13T15:15:55.000Z",
+    "modified": "2025-08-28T20:38:29.000Z",
     "tags": [
       "dataviz",
       "quantifiedself",
-      "personal"
+      "personal",
+      "data",
+      "analytics",
+      "productivity"
     ],
     "toc": [
       {
@@ -7064,11 +7160,14 @@
     ],
     "metadata": {
       "date": "2025-08-06T16:53:07.000Z",
-      "modified": "2025-08-13T15:15:55.000Z",
+      "modified": "2025-08-28T20:38:29.000Z",
       "tags": [
         "dataviz",
         "quantifiedself",
-        "personal"
+        "personal",
+        "data",
+        "analytics",
+        "productivity"
       ],
       "words": 980,
       "images": 0,
@@ -7110,10 +7209,26 @@
     "date": "2025-03-08T21:04:52.000Z",
     "type": "post",
     "modified": "2025-06-02T14:00:13.000Z",
+    "tags": [
+      "community",
+      "personal",
+      "politics",
+      "activism",
+      "resilience",
+      "democracy"
+    ],
     "toc": [],
     "metadata": {
       "date": "2025-03-08T21:04:52.000Z",
       "modified": "2025-06-02T14:00:13.000Z",
+      "tags": [
+        "community",
+        "personal",
+        "politics",
+        "activism",
+        "resilience",
+        "democracy"
+      ],
       "words": 385,
       "images": 0,
       "links": 0,
@@ -7341,7 +7456,7 @@
       },
       {
         "text": "Memory & Consciousness Analysis",
-        "slug": "memory-consciousness-analysis",
+        "slug": "memory--consciousness-analysis",
         "level": "h2",
         "children": [
           {
@@ -7390,7 +7505,7 @@
         },
         {
           "text": "Memory & Consciousness Analysis",
-          "slug": "memory-consciousness-analysis",
+          "slug": "memory--consciousness-analysis",
           "level": "h2",
           "children": [
             {
@@ -7738,9 +7853,9 @@
     "metadata": {
       "date": "2025-08-19T16:24:53.000Z",
       "modified": "2025-08-19T16:31:01.000Z",
-      "words": 4,
-      "images": 1,
-      "links": 1,
+      "words": 3,
+      "images": 0,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -7814,7 +7929,7 @@
     "toc": [
       {
         "text": "Congressional Procedure: A Practical Guide to the Legislative Process in the U.S. Congress",
-        "slug": "congressional-procedure-a-practical-guide-to-the-legislative-process-in-the-u-s-congress",
+        "slug": "congressional-procedure-a-practical-guide-to-the-legislative-process-in-the-us-congress",
         "level": "h1",
         "children": [
           {
@@ -7852,7 +7967,7 @@
       "toc": [
         {
           "text": "Congressional Procedure: A Practical Guide to the Legislative Process in the U.S. Congress",
-          "slug": "congressional-procedure-a-practical-guide-to-the-legislative-process-in-the-u-s-congress",
+          "slug": "congressional-procedure-a-practical-guide-to-the-legislative-process-in-the-us-congress",
           "level": "h1",
           "children": [
             {
@@ -8366,7 +8481,7 @@
     "toc": [
       {
         "text": "The Hero’s Journey",
-        "slug": "the-hero-s-journey",
+        "slug": "the-heros-journey",
         "level": "h1",
         "children": [
           {
@@ -8404,7 +8519,7 @@
       "toc": [
         {
           "text": "The Hero’s Journey",
-          "slug": "the-hero-s-journey",
+          "slug": "the-heros-journey",
           "level": "h1",
           "children": [
             {
@@ -12883,7 +12998,7 @@
     "toc": [
       {
         "text": "Eleanor & Park",
-        "slug": "eleanor-park",
+        "slug": "eleanor--park",
         "level": "h1",
         "children": [
           {
@@ -12921,7 +13036,7 @@
       "toc": [
         {
           "text": "Eleanor & Park",
-          "slug": "eleanor-park",
+          "slug": "eleanor--park",
           "level": "h1",
           "children": [
             {
@@ -13508,7 +13623,7 @@
     "toc": [
       {
         "text": "The Rise and Fall of D.O.D.O.",
-        "slug": "the-rise-and-fall-of-d-o-d-o",
+        "slug": "the-rise-and-fall-of-dodo",
         "level": "h1",
         "children": [
           {
@@ -13546,7 +13661,7 @@
       "toc": [
         {
           "text": "The Rise and Fall of D.O.D.O.",
-          "slug": "the-rise-and-fall-of-d-o-d-o",
+          "slug": "the-rise-and-fall-of-dodo",
           "level": "h1",
           "children": [
             {
@@ -14580,30 +14695,30 @@
       },
       {
         "text": "Week 2: Opening Fundamentals with a Focus on the Réti Opening",
-        "slug": "week-2-opening-fundamentals-with-a-focus-on-the-r-ti-opening",
+        "slug": "week-2-opening-fundamentals-with-a-focus-on-the-réti-opening",
         "level": "h2",
         "children": [
           {
             "text": "Topics Covered",
-            "slug": "topics-covered",
+            "slug": "topics-covered-1",
             "level": "h3",
             "children": []
           },
           {
             "text": "YouTube Lectures",
-            "slug": "youtube-lectures",
+            "slug": "youtube-lectures-1",
             "level": "h3",
             "children": []
           },
           {
             "text": "Recommended Resources",
-            "slug": "recommended-resources",
+            "slug": "recommended-resources-1",
             "level": "h3",
             "children": []
           },
           {
             "text": "Practice Recommendations",
-            "slug": "practice-recommendations",
+            "slug": "practice-recommendations-1",
             "level": "h3",
             "children": []
           }
@@ -14616,25 +14731,25 @@
         "children": [
           {
             "text": "Topics Covered",
-            "slug": "topics-covered",
+            "slug": "topics-covered-2",
             "level": "h3",
             "children": []
           },
           {
             "text": "YouTube Lectures",
-            "slug": "youtube-lectures",
+            "slug": "youtube-lectures-2",
             "level": "h3",
             "children": []
           },
           {
             "text": "Recommended Resources",
-            "slug": "recommended-resources",
+            "slug": "recommended-resources-2",
             "level": "h3",
             "children": []
           },
           {
             "text": "Practice Recommendations",
-            "slug": "practice-recommendations",
+            "slug": "practice-recommendations-2",
             "level": "h3",
             "children": []
           }
@@ -14647,25 +14762,25 @@
         "children": [
           {
             "text": "Topics Covered",
-            "slug": "topics-covered",
+            "slug": "topics-covered-3",
             "level": "h3",
             "children": []
           },
           {
             "text": "YouTube Lectures",
-            "slug": "youtube-lectures",
+            "slug": "youtube-lectures-3",
             "level": "h3",
             "children": []
           },
           {
             "text": "Recommended Resources",
-            "slug": "recommended-resources",
+            "slug": "recommended-resources-3",
             "level": "h3",
             "children": []
           },
           {
             "text": "Practice Recommendations",
-            "slug": "practice-recommendations",
+            "slug": "practice-recommendations-3",
             "level": "h3",
             "children": []
           }
@@ -14678,25 +14793,25 @@
         "children": [
           {
             "text": "Topics Covered",
-            "slug": "topics-covered",
+            "slug": "topics-covered-4",
             "level": "h3",
             "children": []
           },
           {
             "text": "YouTube Lectures",
-            "slug": "youtube-lectures",
+            "slug": "youtube-lectures-4",
             "level": "h3",
             "children": []
           },
           {
             "text": "Recommended Resources",
-            "slug": "recommended-resources",
+            "slug": "recommended-resources-4",
             "level": "h3",
             "children": []
           },
           {
             "text": "Practice Recommendations",
-            "slug": "practice-recommendations",
+            "slug": "practice-recommendations-4",
             "level": "h3",
             "children": []
           }
@@ -14709,25 +14824,25 @@
         "children": [
           {
             "text": "Topics Covered",
-            "slug": "topics-covered",
+            "slug": "topics-covered-5",
             "level": "h3",
             "children": []
           },
           {
             "text": "YouTube Lectures",
-            "slug": "youtube-lectures",
+            "slug": "youtube-lectures-5",
             "level": "h3",
             "children": []
           },
           {
             "text": "Recommended Resources",
-            "slug": "recommended-resources",
+            "slug": "recommended-resources-5",
             "level": "h3",
             "children": []
           },
           {
             "text": "Practice Recommendations",
-            "slug": "practice-recommendations",
+            "slug": "practice-recommendations-5",
             "level": "h3",
             "children": []
           }
@@ -14740,25 +14855,25 @@
         "children": [
           {
             "text": "Topics Covered",
-            "slug": "topics-covered",
+            "slug": "topics-covered-6",
             "level": "h3",
             "children": []
           },
           {
             "text": "YouTube Lectures",
-            "slug": "youtube-lectures",
+            "slug": "youtube-lectures-6",
             "level": "h3",
             "children": []
           },
           {
             "text": "Recommended Resources",
-            "slug": "recommended-resources",
+            "slug": "recommended-resources-6",
             "level": "h3",
             "children": []
           },
           {
             "text": "Practice Recommendations",
-            "slug": "practice-recommendations",
+            "slug": "practice-recommendations-6",
             "level": "h3",
             "children": []
           }
@@ -14810,30 +14925,30 @@
         },
         {
           "text": "Week 2: Opening Fundamentals with a Focus on the Réti Opening",
-          "slug": "week-2-opening-fundamentals-with-a-focus-on-the-r-ti-opening",
+          "slug": "week-2-opening-fundamentals-with-a-focus-on-the-réti-opening",
           "level": "h2",
           "children": [
             {
               "text": "Topics Covered",
-              "slug": "topics-covered",
+              "slug": "topics-covered-1",
               "level": "h3",
               "children": []
             },
             {
               "text": "YouTube Lectures",
-              "slug": "youtube-lectures",
+              "slug": "youtube-lectures-1",
               "level": "h3",
               "children": []
             },
             {
               "text": "Recommended Resources",
-              "slug": "recommended-resources",
+              "slug": "recommended-resources-1",
               "level": "h3",
               "children": []
             },
             {
               "text": "Practice Recommendations",
-              "slug": "practice-recommendations",
+              "slug": "practice-recommendations-1",
               "level": "h3",
               "children": []
             }
@@ -14846,25 +14961,25 @@
           "children": [
             {
               "text": "Topics Covered",
-              "slug": "topics-covered",
+              "slug": "topics-covered-2",
               "level": "h3",
               "children": []
             },
             {
               "text": "YouTube Lectures",
-              "slug": "youtube-lectures",
+              "slug": "youtube-lectures-2",
               "level": "h3",
               "children": []
             },
             {
               "text": "Recommended Resources",
-              "slug": "recommended-resources",
+              "slug": "recommended-resources-2",
               "level": "h3",
               "children": []
             },
             {
               "text": "Practice Recommendations",
-              "slug": "practice-recommendations",
+              "slug": "practice-recommendations-2",
               "level": "h3",
               "children": []
             }
@@ -14877,25 +14992,25 @@
           "children": [
             {
               "text": "Topics Covered",
-              "slug": "topics-covered",
+              "slug": "topics-covered-3",
               "level": "h3",
               "children": []
             },
             {
               "text": "YouTube Lectures",
-              "slug": "youtube-lectures",
+              "slug": "youtube-lectures-3",
               "level": "h3",
               "children": []
             },
             {
               "text": "Recommended Resources",
-              "slug": "recommended-resources",
+              "slug": "recommended-resources-3",
               "level": "h3",
               "children": []
             },
             {
               "text": "Practice Recommendations",
-              "slug": "practice-recommendations",
+              "slug": "practice-recommendations-3",
               "level": "h3",
               "children": []
             }
@@ -14908,25 +15023,25 @@
           "children": [
             {
               "text": "Topics Covered",
-              "slug": "topics-covered",
+              "slug": "topics-covered-4",
               "level": "h3",
               "children": []
             },
             {
               "text": "YouTube Lectures",
-              "slug": "youtube-lectures",
+              "slug": "youtube-lectures-4",
               "level": "h3",
               "children": []
             },
             {
               "text": "Recommended Resources",
-              "slug": "recommended-resources",
+              "slug": "recommended-resources-4",
               "level": "h3",
               "children": []
             },
             {
               "text": "Practice Recommendations",
-              "slug": "practice-recommendations",
+              "slug": "practice-recommendations-4",
               "level": "h3",
               "children": []
             }
@@ -14939,25 +15054,25 @@
           "children": [
             {
               "text": "Topics Covered",
-              "slug": "topics-covered",
+              "slug": "topics-covered-5",
               "level": "h3",
               "children": []
             },
             {
               "text": "YouTube Lectures",
-              "slug": "youtube-lectures",
+              "slug": "youtube-lectures-5",
               "level": "h3",
               "children": []
             },
             {
               "text": "Recommended Resources",
-              "slug": "recommended-resources",
+              "slug": "recommended-resources-5",
               "level": "h3",
               "children": []
             },
             {
               "text": "Practice Recommendations",
-              "slug": "practice-recommendations",
+              "slug": "practice-recommendations-5",
               "level": "h3",
               "children": []
             }
@@ -14970,25 +15085,25 @@
           "children": [
             {
               "text": "Topics Covered",
-              "slug": "topics-covered",
+              "slug": "topics-covered-6",
               "level": "h3",
               "children": []
             },
             {
               "text": "YouTube Lectures",
-              "slug": "youtube-lectures",
+              "slug": "youtube-lectures-6",
               "level": "h3",
               "children": []
             },
             {
               "text": "Recommended Resources",
-              "slug": "recommended-resources",
+              "slug": "recommended-resources-6",
               "level": "h3",
               "children": []
             },
             {
               "text": "Practice Recommendations",
-              "slug": "practice-recommendations",
+              "slug": "practice-recommendations-6",
               "level": "h3",
               "children": []
             }
@@ -15010,7 +15125,7 @@
     "toc": [
       {
         "text": "ejfox.news Phase 1: Core Development Plan",
-        "slug": "ejfox-news-phase-1-core-development-plan",
+        "slug": "ejfoxnews-phase-1-core-development-plan",
         "level": "h2",
         "children": [
           {
@@ -15039,7 +15154,7 @@
           },
           {
             "text": "Won't Do (MVP)",
-            "slug": "won-t-do-mvp",
+            "slug": "wont-do-mvp",
             "level": "h3",
             "children": []
           },
@@ -15065,12 +15180,12 @@
       },
       {
         "text": "ejfox.news Phase 2: Social Layer & Enhanced Reading",
-        "slug": "ejfox-news-phase-2-social-layer-enhanced-reading",
+        "slug": "ejfoxnews-phase-2-social-layer--enhanced-reading",
         "level": "h2",
         "children": [
           {
             "text": "Overview",
-            "slug": "overview",
+            "slug": "overview-1",
             "level": "h3",
             "children": []
           },
@@ -15082,19 +15197,19 @@
           },
           {
             "text": "Development Phases",
-            "slug": "development-phases",
+            "slug": "development-phases-1",
             "level": "h3",
             "children": []
           },
           {
             "text": "Success Criteria",
-            "slug": "success-criteria",
+            "slug": "success-criteria-1",
             "level": "h3",
             "children": []
           },
           {
             "text": "Won't Do (Phase 2)",
-            "slug": "won-t-do-phase-2",
+            "slug": "wont-do-phase-2",
             "level": "h3",
             "children": []
           },
@@ -15126,7 +15241,7 @@
       },
       {
         "text": "ejfox.news Launch Burndown List",
-        "slug": "ejfox-news-launch-burndown-list",
+        "slug": "ejfoxnews-launch-burndown-list",
         "level": "h2",
         "children": [
           {
@@ -15179,7 +15294,7 @@
           },
           {
             "text": "Emergency Contacts",
-            "slug": "emergency-contacts",
+            "slug": "emergency-contacts-1",
             "level": "h3",
             "children": []
           },
@@ -15206,7 +15321,7 @@
       "toc": [
         {
           "text": "ejfox.news Phase 1: Core Development Plan",
-          "slug": "ejfox-news-phase-1-core-development-plan",
+          "slug": "ejfoxnews-phase-1-core-development-plan",
           "level": "h2",
           "children": [
             {
@@ -15235,7 +15350,7 @@
             },
             {
               "text": "Won't Do (MVP)",
-              "slug": "won-t-do-mvp",
+              "slug": "wont-do-mvp",
               "level": "h3",
               "children": []
             },
@@ -15261,12 +15376,12 @@
         },
         {
           "text": "ejfox.news Phase 2: Social Layer & Enhanced Reading",
-          "slug": "ejfox-news-phase-2-social-layer-enhanced-reading",
+          "slug": "ejfoxnews-phase-2-social-layer--enhanced-reading",
           "level": "h2",
           "children": [
             {
               "text": "Overview",
-              "slug": "overview",
+              "slug": "overview-1",
               "level": "h3",
               "children": []
             },
@@ -15278,19 +15393,19 @@
             },
             {
               "text": "Development Phases",
-              "slug": "development-phases",
+              "slug": "development-phases-1",
               "level": "h3",
               "children": []
             },
             {
               "text": "Success Criteria",
-              "slug": "success-criteria",
+              "slug": "success-criteria-1",
               "level": "h3",
               "children": []
             },
             {
               "text": "Won't Do (Phase 2)",
-              "slug": "won-t-do-phase-2",
+              "slug": "wont-do-phase-2",
               "level": "h3",
               "children": []
             },
@@ -15322,7 +15437,7 @@
         },
         {
           "text": "ejfox.news Launch Burndown List",
-          "slug": "ejfox-news-launch-burndown-list",
+          "slug": "ejfoxnews-launch-burndown-list",
           "level": "h2",
           "children": [
             {
@@ -15375,7 +15490,7 @@
             },
             {
               "text": "Emergency Contacts",
-              "slug": "emergency-contacts",
+              "slug": "emergency-contacts-1",
               "level": "h3",
               "children": []
             },
@@ -15681,7 +15796,7 @@
       },
       {
         "text": "Fox's Circle of Accessibility",
-        "slug": "fox-s-circle-of-accessibility",
+        "slug": "foxs-circle-of-accessibility",
         "level": "h2",
         "children": [
           {
@@ -15762,7 +15877,7 @@
         },
         {
           "text": "Fox's Circle of Accessibility",
-          "slug": "fox-s-circle-of-accessibility",
+          "slug": "foxs-circle-of-accessibility",
           "level": "h2",
           "children": [
             {
@@ -15830,7 +15945,7 @@
         "children": [
           {
             "text": "Documentary Series Proposal for Hudsy.tv",
-            "slug": "documentary-series-proposal-for-hudsy-tv",
+            "slug": "documentary-series-proposal-for-hudsytv",
             "level": "h3",
             "children": []
           },
@@ -15862,7 +15977,7 @@
           "children": [
             {
               "text": "Documentary Series Proposal for Hudsy.tv",
-              "slug": "documentary-series-proposal-for-hudsy-tv",
+              "slug": "documentary-series-proposal-for-hudsytv",
               "level": "h3",
               "children": []
             },
@@ -15890,42 +16005,42 @@
     "toc": [
       {
         "text": "Hudson Valley Systems & Trail Mapping Project",
-        "slug": "hudson-valley-systems-trail-mapping-project",
+        "slug": "hudson-valley-systems--trail-mapping-project",
         "level": "h2",
         "children": [
           {
             "text": "1. Scoping & Requirements Gathering",
-            "slug": "1-scoping-requirements-gathering",
+            "slug": "1-scoping--requirements-gathering",
             "level": "h3",
             "children": []
           },
           {
             "text": "2. Data Acquisition & Processing",
-            "slug": "2-data-acquisition-processing",
+            "slug": "2-data-acquisition--processing",
             "level": "h3",
             "children": []
           },
           {
             "text": "3. Cartographic Design & Layout",
-            "slug": "3-cartographic-design-layout",
+            "slug": "3-cartographic-design--layout",
             "level": "h3",
             "children": []
           },
           {
             "text": "4. Review & Refinement",
-            "slug": "4-review-refinement",
+            "slug": "4-review--refinement",
             "level": "h3",
             "children": []
           },
           {
             "text": "5. Production & Distribution",
-            "slug": "5-production-distribution",
+            "slug": "5-production--distribution",
             "level": "h3",
             "children": []
           },
           {
             "text": "Hudson Valley Radio & Trail Mapping Project",
-            "slug": "hudson-valley-radio-trail-mapping-project",
+            "slug": "hudson-valley-radio--trail-mapping-project",
             "level": "h3",
             "children": []
           }
@@ -15946,42 +16061,42 @@
       "toc": [
         {
           "text": "Hudson Valley Systems & Trail Mapping Project",
-          "slug": "hudson-valley-systems-trail-mapping-project",
+          "slug": "hudson-valley-systems--trail-mapping-project",
           "level": "h2",
           "children": [
             {
               "text": "1. Scoping & Requirements Gathering",
-              "slug": "1-scoping-requirements-gathering",
+              "slug": "1-scoping--requirements-gathering",
               "level": "h3",
               "children": []
             },
             {
               "text": "2. Data Acquisition & Processing",
-              "slug": "2-data-acquisition-processing",
+              "slug": "2-data-acquisition--processing",
               "level": "h3",
               "children": []
             },
             {
               "text": "3. Cartographic Design & Layout",
-              "slug": "3-cartographic-design-layout",
+              "slug": "3-cartographic-design--layout",
               "level": "h3",
               "children": []
             },
             {
               "text": "4. Review & Refinement",
-              "slug": "4-review-refinement",
+              "slug": "4-review--refinement",
               "level": "h3",
               "children": []
             },
             {
               "text": "5. Production & Distribution",
-              "slug": "5-production-distribution",
+              "slug": "5-production--distribution",
               "level": "h3",
               "children": []
             },
             {
               "text": "Hudson Valley Radio & Trail Mapping Project",
-              "slug": "hudson-valley-radio-trail-mapping-project",
+              "slug": "hudson-valley-radio--trail-mapping-project",
               "level": "h3",
               "children": []
             }
@@ -16155,7 +16270,7 @@
     "toc": [
       {
         "text": "MORNING RADIO 📻",
-        "slug": "morning-radio",
+        "slug": "morning-radio-",
         "level": "h2",
         "children": [
           {
@@ -16178,7 +16293,7 @@
           },
           {
             "text": "Documentation & Publishing Flow",
-            "slug": "documentation-publishing-flow",
+            "slug": "documentation--publishing-flow",
             "level": "h3",
             "children": []
           },
@@ -16208,19 +16323,19 @@
           },
           {
             "text": "Core Experience 🌅",
-            "slug": "core-experience",
+            "slug": "core-experience-",
             "level": "h3",
             "children": []
           },
           {
             "text": "Interaction Patterns 🎛",
-            "slug": "interaction-patterns",
+            "slug": "interaction-patterns-",
             "level": "h3",
             "children": []
           },
           {
             "text": "Content \"Channels\" 📡",
-            "slug": "content-channels",
+            "slug": "content-channels-",
             "level": "h3",
             "children": []
           },
@@ -16238,19 +16353,19 @@
           },
           {
             "text": "V0.0.1 (1 week) - \"The First Song\"",
-            "slug": "v0-0-1-1-week-the-first-song",
+            "slug": "v001-1-week---the-first-song",
             "level": "h3",
             "children": []
           },
           {
             "text": "V0.0.5 (3 months) - \"Finding the Rhythm\"",
-            "slug": "v0-0-5-3-months-finding-the-rhythm",
+            "slug": "v005-3-months---finding-the-rhythm",
             "level": "h3",
             "children": []
           },
           {
             "text": "V0.1.0 (1 year) - \"Full Morning Show\"",
-            "slug": "v0-1-0-1-year-full-morning-show",
+            "slug": "v010-1-year---full-morning-show",
             "level": "h3",
             "children": []
           }
@@ -16271,7 +16386,7 @@
       "toc": [
         {
           "text": "MORNING RADIO 📻",
-          "slug": "morning-radio",
+          "slug": "morning-radio-",
           "level": "h2",
           "children": [
             {
@@ -16294,7 +16409,7 @@
             },
             {
               "text": "Documentation & Publishing Flow",
-              "slug": "documentation-publishing-flow",
+              "slug": "documentation--publishing-flow",
               "level": "h3",
               "children": []
             },
@@ -16324,19 +16439,19 @@
             },
             {
               "text": "Core Experience 🌅",
-              "slug": "core-experience",
+              "slug": "core-experience-",
               "level": "h3",
               "children": []
             },
             {
               "text": "Interaction Patterns 🎛",
-              "slug": "interaction-patterns",
+              "slug": "interaction-patterns-",
               "level": "h3",
               "children": []
             },
             {
               "text": "Content \"Channels\" 📡",
-              "slug": "content-channels",
+              "slug": "content-channels-",
               "level": "h3",
               "children": []
             },
@@ -16354,19 +16469,19 @@
             },
             {
               "text": "V0.0.1 (1 week) - \"The First Song\"",
-              "slug": "v0-0-1-1-week-the-first-song",
+              "slug": "v001-1-week---the-first-song",
               "level": "h3",
               "children": []
             },
             {
               "text": "V0.0.5 (3 months) - \"Finding the Rhythm\"",
-              "slug": "v0-0-5-3-months-finding-the-rhythm",
+              "slug": "v005-3-months---finding-the-rhythm",
               "level": "h3",
               "children": []
             },
             {
               "text": "V0.1.0 (1 year) - \"Full Morning Show\"",
-              "slug": "v0-1-0-1-year-full-morning-show",
+              "slug": "v010-1-year---full-morning-show",
               "level": "h3",
               "children": []
             }
@@ -16399,7 +16514,7 @@
           },
           {
             "text": "USER STORIES & ACCEPTANCE CRITERIA",
-            "slug": "user-stories-acceptance-criteria",
+            "slug": "user-stories--acceptance-criteria",
             "level": "h3",
             "children": []
           },
@@ -16411,7 +16526,7 @@
           },
           {
             "text": "WON'T DO",
-            "slug": "won-t-do",
+            "slug": "wont-do",
             "level": "h3",
             "children": []
           }
@@ -16424,43 +16539,43 @@
         "children": [
           {
             "text": "MEDICAL & TRAUMA",
-            "slug": "medical-trauma",
+            "slug": "medical--trauma",
             "level": "h3",
             "children": []
           },
           {
             "text": "POWER & COMMS",
-            "slug": "power-comms",
+            "slug": "power--comms",
             "level": "h3",
             "children": []
           },
           {
             "text": "SHELTER & CLOTHING",
-            "slug": "shelter-clothing",
+            "slug": "shelter--clothing",
             "level": "h3",
             "children": []
           },
           {
             "text": "WATER & HYDRATION",
-            "slug": "water-hydration",
+            "slug": "water--hydration",
             "level": "h3",
             "children": []
           },
           {
             "text": "FOOD & COOKING",
-            "slug": "food-cooking",
+            "slug": "food--cooking",
             "level": "h3",
             "children": []
           },
           {
             "text": "TOOLS & REPAIR",
-            "slug": "tools-repair",
+            "slug": "tools--repair",
             "level": "h3",
             "children": []
           },
           {
             "text": "INFO & NAVIGATION",
-            "slug": "info-navigation",
+            "slug": "info--navigation",
             "level": "h3",
             "children": []
           },
@@ -16535,7 +16650,7 @@
             },
             {
               "text": "USER STORIES & ACCEPTANCE CRITERIA",
-              "slug": "user-stories-acceptance-criteria",
+              "slug": "user-stories--acceptance-criteria",
               "level": "h3",
               "children": []
             },
@@ -16547,7 +16662,7 @@
             },
             {
               "text": "WON'T DO",
-              "slug": "won-t-do",
+              "slug": "wont-do",
               "level": "h3",
               "children": []
             }
@@ -16560,43 +16675,43 @@
           "children": [
             {
               "text": "MEDICAL & TRAUMA",
-              "slug": "medical-trauma",
+              "slug": "medical--trauma",
               "level": "h3",
               "children": []
             },
             {
               "text": "POWER & COMMS",
-              "slug": "power-comms",
+              "slug": "power--comms",
               "level": "h3",
               "children": []
             },
             {
               "text": "SHELTER & CLOTHING",
-              "slug": "shelter-clothing",
+              "slug": "shelter--clothing",
               "level": "h3",
               "children": []
             },
             {
               "text": "WATER & HYDRATION",
-              "slug": "water-hydration",
+              "slug": "water--hydration",
               "level": "h3",
               "children": []
             },
             {
               "text": "FOOD & COOKING",
-              "slug": "food-cooking",
+              "slug": "food--cooking",
               "level": "h3",
               "children": []
             },
             {
               "text": "TOOLS & REPAIR",
-              "slug": "tools-repair",
+              "slug": "tools--repair",
               "level": "h3",
               "children": []
             },
             {
               "text": "INFO & NAVIGATION",
-              "slug": "info-navigation",
+              "slug": "info--navigation",
               "level": "h3",
               "children": []
             },
@@ -16704,7 +16819,7 @@
         "children": [
           {
             "text": "Overview",
-            "slug": "overview",
+            "slug": "overview-1",
             "level": "h3",
             "children": []
           },
@@ -16792,7 +16907,7 @@
           "children": [
             {
               "text": "Overview",
-              "slug": "overview",
+              "slug": "overview-1",
               "level": "h3",
               "children": []
             },
@@ -16855,7 +16970,7 @@
           },
           {
             "text": "Key Learnings & Notes",
-            "slug": "key-learnings-notes",
+            "slug": "key-learnings--notes",
             "level": "h3",
             "children": []
           },
@@ -16905,7 +17020,7 @@
             },
             {
               "text": "Key Learnings & Notes",
-              "slug": "key-learnings-notes",
+              "slug": "key-learnings--notes",
               "level": "h3",
               "children": []
             },
@@ -16944,7 +17059,7 @@
         "children": [
           {
             "text": "Personal Information & Documentation Checklist",
-            "slug": "personal-information-documentation-checklist",
+            "slug": "personal-information--documentation-checklist",
             "level": "h3",
             "children": []
           }
@@ -16970,7 +17085,7 @@
           "children": [
             {
               "text": "Personal Information & Documentation Checklist",
-              "slug": "personal-information-documentation-checklist",
+              "slug": "personal-information--documentation-checklist",
               "level": "h3",
               "children": []
             }
@@ -17025,7 +17140,7 @@
     "toc": [
       {
         "text": "Key Projects & Progress",
-        "slug": "key-projects-progress",
+        "slug": "key-projects--progress",
         "level": "h2",
         "children": [
           {
@@ -17097,7 +17212,7 @@
       "toc": [
         {
           "text": "Key Projects & Progress",
-          "slug": "key-projects-progress",
+          "slug": "key-projects--progress",
           "level": "h2",
           "children": [
             {
@@ -17305,12 +17420,12 @@
       },
       {
         "text": "Key Projects & Progress",
-        "slug": "key-projects-progress",
+        "slug": "key-projects--progress",
         "level": "h2",
         "children": [
           {
             "text": "LatentScope / Browser T-SNE",
-            "slug": "latentscope-browser-t-sne",
+            "slug": "latentscope--browser-t-sne",
             "level": "h3",
             "children": []
           }
@@ -17359,12 +17474,12 @@
         },
         {
           "text": "Key Projects & Progress",
-          "slug": "key-projects-progress",
+          "slug": "key-projects--progress",
           "level": "h2",
           "children": [
             {
               "text": "LatentScope / Browser T-SNE",
-              "slug": "latentscope-browser-t-sne",
+              "slug": "latentscope--browser-t-sne",
               "level": "h3",
               "children": []
             }
@@ -17454,7 +17569,7 @@
       },
       {
         "text": "📘 Learning & Development",
-        "slug": "learning-development",
+        "slug": "-learning--development",
         "level": "h2",
         "children": [
           {
@@ -17467,13 +17582,13 @@
       },
       {
         "text": "Personal Growth & Health",
-        "slug": "personal-growth-health",
+        "slug": "personal-growth--health",
         "level": "h2",
         "children": []
       },
       {
         "text": "🤝 Social & Community Engagement",
-        "slug": "social-community-engagement",
+        "slug": "-social--community-engagement",
         "level": "h2",
         "children": [
           {
@@ -17553,7 +17668,7 @@
         },
         {
           "text": "📘 Learning & Development",
-          "slug": "learning-development",
+          "slug": "-learning--development",
           "level": "h2",
           "children": [
             {
@@ -17566,13 +17681,13 @@
         },
         {
           "text": "Personal Growth & Health",
-          "slug": "personal-growth-health",
+          "slug": "personal-growth--health",
           "level": "h2",
           "children": []
         },
         {
           "text": "🤝 Social & Community Engagement",
-          "slug": "social-community-engagement",
+          "slug": "-social--community-engagement",
           "level": "h2",
           "children": [
             {
@@ -17629,7 +17744,7 @@
           },
           {
             "text": "Hudson Valley Guide: knowhv.com",
-            "slug": "hudson-valley-guide-knowhv-com",
+            "slug": "hudson-valley-guide-knowhvcom",
             "level": "h3",
             "children": []
           },
@@ -17661,7 +17776,7 @@
       },
       {
         "text": "📘 Learning & Development",
-        "slug": "learning-development",
+        "slug": "-learning--development",
         "level": "h2",
         "children": []
       }
@@ -17709,7 +17824,7 @@
             },
             {
               "text": "Hudson Valley Guide: knowhv.com",
-              "slug": "hudson-valley-guide-knowhv-com",
+              "slug": "hudson-valley-guide-knowhvcom",
               "level": "h3",
               "children": []
             },
@@ -17741,7 +17856,7 @@
         },
         {
           "text": "📘 Learning & Development",
-          "slug": "learning-development",
+          "slug": "-learning--development",
           "level": "h2",
           "children": []
         }
@@ -17784,13 +17899,13 @@
         "children": [
           {
             "text": "Remaking the Room302.studio Website",
-            "slug": "remaking-the-room302-studio-website",
+            "slug": "remaking-the-room302studio-website",
             "level": "h3",
             "children": []
           },
           {
             "text": "https://knowhv.com/",
-            "slug": "https-knowhv-com",
+            "slug": "httpsknowhvcom",
             "level": "h3",
             "children": []
           }
@@ -17798,7 +17913,7 @@
       },
       {
         "text": "📘 Learning & Development",
-        "slug": "learning-development",
+        "slug": "-learning--development",
         "level": "h2",
         "children": [
           {
@@ -17809,7 +17924,7 @@
           },
           {
             "text": "Experimenting with Anime JS 4.0",
-            "slug": "experimenting-with-anime-js-4-0",
+            "slug": "experimenting-with-anime-js-40",
             "level": "h3",
             "children": []
           }
@@ -17817,7 +17932,7 @@
       },
       {
         "text": "Personal Growth & Health",
-        "slug": "personal-growth-health",
+        "slug": "personal-growth--health",
         "level": "h2",
         "children": [
           {
@@ -17865,13 +17980,13 @@
           "children": [
             {
               "text": "Remaking the Room302.studio Website",
-              "slug": "remaking-the-room302-studio-website",
+              "slug": "remaking-the-room302studio-website",
               "level": "h3",
               "children": []
             },
             {
               "text": "https://knowhv.com/",
-              "slug": "https-knowhv-com",
+              "slug": "httpsknowhvcom",
               "level": "h3",
               "children": []
             }
@@ -17879,7 +17994,7 @@
         },
         {
           "text": "📘 Learning & Development",
-          "slug": "learning-development",
+          "slug": "-learning--development",
           "level": "h2",
           "children": [
             {
@@ -17890,7 +18005,7 @@
             },
             {
               "text": "Experimenting with Anime JS 4.0",
-              "slug": "experimenting-with-anime-js-4-0",
+              "slug": "experimenting-with-anime-js-40",
               "level": "h3",
               "children": []
             }
@@ -17898,7 +18013,7 @@
         },
         {
           "text": "Personal Growth & Health",
-          "slug": "personal-growth-health",
+          "slug": "personal-growth--health",
           "level": "h2",
           "children": [
             {
@@ -18043,7 +18158,7 @@
       },
       {
         "text": "📘 Learning & Development",
-        "slug": "learning-development",
+        "slug": "-learning--development",
         "level": "h2",
         "children": []
       }
@@ -18083,7 +18198,7 @@
         },
         {
           "text": "📘 Learning & Development",
-          "slug": "learning-development",
+          "slug": "-learning--development",
           "level": "h2",
           "children": []
         }
@@ -18395,13 +18510,13 @@
       },
       {
         "text": "Personal Growth & Health",
-        "slug": "personal-growth-health",
+        "slug": "personal-growth--health",
         "level": "h2",
         "children": []
       },
       {
         "text": "Social & Community Engagement",
-        "slug": "social-community-engagement",
+        "slug": "social--community-engagement",
         "level": "h2",
         "children": []
       },
@@ -18465,13 +18580,13 @@
         },
         {
           "text": "Personal Growth & Health",
-          "slug": "personal-growth-health",
+          "slug": "personal-growth--health",
           "level": "h2",
           "children": []
         },
         {
           "text": "Social & Community Engagement",
-          "slug": "social-community-engagement",
+          "slug": "social--community-engagement",
           "level": "h2",
           "children": []
         },
@@ -18519,13 +18634,13 @@
         "children": [
           {
             "text": "knowhv.com",
-            "slug": "knowhv-com",
+            "slug": "knowhvcom",
             "level": "h3",
             "children": []
           },
           {
             "text": "ejfox.photos",
-            "slug": "ejfox-photos",
+            "slug": "ejfoxphotos",
             "level": "h3",
             "children": []
           },
@@ -18537,7 +18652,7 @@
           },
           {
             "text": "Coach Artie & Brain View",
-            "slug": "coach-artie-brain-view",
+            "slug": "coach-artie--brain-view",
             "level": "h3",
             "children": []
           }
@@ -18592,13 +18707,13 @@
           "children": [
             {
               "text": "knowhv.com",
-              "slug": "knowhv-com",
+              "slug": "knowhvcom",
               "level": "h3",
               "children": []
             },
             {
               "text": "ejfox.photos",
-              "slug": "ejfox-photos",
+              "slug": "ejfoxphotos",
               "level": "h3",
               "children": []
             },
@@ -18610,7 +18725,7 @@
             },
             {
               "text": "Coach Artie & Brain View",
-              "slug": "coach-artie-brain-view",
+              "slug": "coach-artie--brain-view",
               "level": "h3",
               "children": []
             }
@@ -18692,7 +18807,7 @@
         "children": [
           {
             "text": "Released v2.0.0 of gpt-browser package",
-            "slug": "released-v2-0-0-of-gpt-browser-package",
+            "slug": "released-v200-of-gpt-browser-package",
             "level": "h3",
             "children": []
           },
@@ -18706,7 +18821,7 @@
       },
       {
         "text": "Transcribing Videos with FFMPEG and Whisper.cpp",
-        "slug": "transcribing-videos-with-ffmpeg-and-whisper-cpp",
+        "slug": "transcribing-videos-with-ffmpeg-and-whispercpp",
         "level": "h2",
         "children": []
       },
@@ -18718,7 +18833,7 @@
       },
       {
         "text": "Personal Growth & Health",
-        "slug": "personal-growth-health",
+        "slug": "personal-growth--health",
         "level": "h2",
         "children": []
       }
@@ -18783,7 +18898,7 @@
           "children": [
             {
               "text": "Released v2.0.0 of gpt-browser package",
-              "slug": "released-v2-0-0-of-gpt-browser-package",
+              "slug": "released-v200-of-gpt-browser-package",
               "level": "h3",
               "children": []
             },
@@ -18797,7 +18912,7 @@
         },
         {
           "text": "Transcribing Videos with FFMPEG and Whisper.cpp",
-          "slug": "transcribing-videos-with-ffmpeg-and-whisper-cpp",
+          "slug": "transcribing-videos-with-ffmpeg-and-whispercpp",
           "level": "h2",
           "children": []
         },
@@ -18809,7 +18924,7 @@
         },
         {
           "text": "Personal Growth & Health",
-          "slug": "personal-growth-health",
+          "slug": "personal-growth--health",
           "level": "h2",
           "children": []
         }
@@ -18887,7 +19002,7 @@
           },
           {
             "text": "Added RSS feeds to ejfox.com and ejfox.photos",
-            "slug": "added-rss-feeds-to-ejfox-com-and-ejfox-photos",
+            "slug": "added-rss-feeds-to-ejfoxcom-and-ejfoxphotos",
             "level": "h3",
             "children": []
           }
@@ -18978,7 +19093,7 @@
             },
             {
               "text": "Added RSS feeds to ejfox.com and ejfox.photos",
-              "slug": "added-rss-feeds-to-ejfox-com-and-ejfox-photos",
+              "slug": "added-rss-feeds-to-ejfoxcom-and-ejfoxphotos",
               "level": "h3",
               "children": []
             }
@@ -19118,13 +19233,13 @@
       },
       {
         "text": "Personal Growth & Health",
-        "slug": "personal-growth-health",
+        "slug": "personal-growth--health",
         "level": "h2",
         "children": []
       },
       {
         "text": "Social & Community Engagement",
-        "slug": "social-community-engagement",
+        "slug": "social--community-engagement",
         "level": "h2",
         "children": []
       },
@@ -19191,13 +19306,13 @@
         },
         {
           "text": "Personal Growth & Health",
-          "slug": "personal-growth-health",
+          "slug": "personal-growth--health",
           "level": "h2",
           "children": []
         },
         {
           "text": "Social & Community Engagement",
-          "slug": "social-community-engagement",
+          "slug": "social--community-engagement",
           "level": "h2",
           "children": []
         },
@@ -19340,13 +19455,13 @@
       },
       {
         "text": "Personal Growth & Health",
-        "slug": "personal-growth-health",
+        "slug": "personal-growth--health",
         "level": "h2",
         "children": []
       },
       {
         "text": "Social & Community Engagement",
-        "slug": "social-community-engagement",
+        "slug": "social--community-engagement",
         "level": "h2",
         "children": []
       },
@@ -19399,13 +19514,13 @@
         },
         {
           "text": "Personal Growth & Health",
-          "slug": "personal-growth-health",
+          "slug": "personal-growth--health",
           "level": "h2",
           "children": []
         },
         {
           "text": "Social & Community Engagement",
-          "slug": "social-community-engagement",
+          "slug": "social--community-engagement",
           "level": "h2",
           "children": []
         },
@@ -19492,13 +19607,13 @@
       },
       {
         "text": "Personal Growth & Health",
-        "slug": "personal-growth-health",
+        "slug": "personal-growth--health",
         "level": "h2",
         "children": []
       },
       {
         "text": "Social & Community Engagement",
-        "slug": "social-community-engagement",
+        "slug": "social--community-engagement",
         "level": "h2",
         "children": []
       },
@@ -19583,13 +19698,13 @@
         },
         {
           "text": "Personal Growth & Health",
-          "slug": "personal-growth-health",
+          "slug": "personal-growth--health",
           "level": "h2",
           "children": []
         },
         {
           "text": "Social & Community Engagement",
-          "slug": "social-community-engagement",
+          "slug": "social--community-engagement",
           "level": "h2",
           "children": []
         },
@@ -19670,7 +19785,7 @@
         "children": [
           {
             "text": "Spliff & Espresso",
-            "slug": "spliff-espresso",
+            "slug": "spliff--espresso",
             "level": "h3",
             "children": []
           }
@@ -19717,7 +19832,7 @@
           "children": [
             {
               "text": "Spliff & Espresso",
-              "slug": "spliff-espresso",
+              "slug": "spliff--espresso",
               "level": "h3",
               "children": []
             }
@@ -20095,13 +20210,13 @@
     "toc": [
       {
         "text": "Daily Check-In & Reflections",
-        "slug": "daily-check-in-reflections",
+        "slug": "daily-check-in--reflections",
         "level": "h2",
         "children": []
       },
       {
         "text": "Code & Creations",
-        "slug": "code-creations",
+        "slug": "code--creations",
         "level": "h2",
         "children": [
           {
@@ -20154,13 +20269,13 @@
       "toc": [
         {
           "text": "Daily Check-In & Reflections",
-          "slug": "daily-check-in-reflections",
+          "slug": "daily-check-in--reflections",
           "level": "h2",
           "children": []
         },
         {
           "text": "Code & Creations",
-          "slug": "code-creations",
+          "slug": "code--creations",
           "level": "h2",
           "children": [
             {
@@ -20215,7 +20330,7 @@
         "children": [
           {
             "text": "Code & Creations",
-            "slug": "code-creations",
+            "slug": "code--creations",
             "level": "h3",
             "children": []
           }
@@ -20245,7 +20360,7 @@
           "children": [
             {
               "text": "Code & Creations",
-              "slug": "code-creations",
+              "slug": "code--creations",
               "level": "h3",
               "children": []
             }
@@ -20277,37 +20392,37 @@
         "children": [
           {
             "text": "Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
+            "slug": "daily-check-in--reflections",
             "level": "h3",
             "children": []
           },
           {
             "text": "Code & Creations",
-            "slug": "code-creations",
+            "slug": "code--creations",
             "level": "h3",
             "children": []
           },
           {
             "text": "Ideas & Inspirations",
-            "slug": "ideas-inspirations",
+            "slug": "ideas--inspirations",
             "level": "h3",
             "children": []
           },
           {
             "text": "🏋 Health & Wellness",
-            "slug": "health-wellness",
+            "slug": "-health--wellness",
             "level": "h3",
             "children": []
           },
           {
             "text": "📚 Learning & Media",
-            "slug": "learning-media",
+            "slug": "-learning--media",
             "level": "h3",
             "children": []
           },
           {
             "text": "🔗 Connections & Insights",
-            "slug": "connections-insights",
+            "slug": "-connections--insights",
             "level": "h3",
             "children": []
           },
@@ -20319,7 +20434,7 @@
           },
           {
             "text": "Next Week's Intentions",
-            "slug": "next-week-s-intentions",
+            "slug": "next-weeks-intentions",
             "level": "h3",
             "children": []
           }
@@ -20349,37 +20464,37 @@
           "children": [
             {
               "text": "Daily Check-In & Reflections",
-              "slug": "daily-check-in-reflections",
+              "slug": "daily-check-in--reflections",
               "level": "h3",
               "children": []
             },
             {
               "text": "Code & Creations",
-              "slug": "code-creations",
+              "slug": "code--creations",
               "level": "h3",
               "children": []
             },
             {
               "text": "Ideas & Inspirations",
-              "slug": "ideas-inspirations",
+              "slug": "ideas--inspirations",
               "level": "h3",
               "children": []
             },
             {
               "text": "🏋 Health & Wellness",
-              "slug": "health-wellness",
+              "slug": "-health--wellness",
               "level": "h3",
               "children": []
             },
             {
               "text": "📚 Learning & Media",
-              "slug": "learning-media",
+              "slug": "-learning--media",
               "level": "h3",
               "children": []
             },
             {
               "text": "🔗 Connections & Insights",
-              "slug": "connections-insights",
+              "slug": "-connections--insights",
               "level": "h3",
               "children": []
             },
@@ -20391,7 +20506,7 @@
             },
             {
               "text": "Next Week's Intentions",
-              "slug": "next-week-s-intentions",
+              "slug": "next-weeks-intentions",
               "level": "h3",
               "children": []
             }
@@ -20423,43 +20538,43 @@
         "children": [
           {
             "text": "Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
+            "slug": "daily-check-in--reflections",
             "level": "h3",
             "children": []
           },
           {
             "text": "Code & Creations",
-            "slug": "code-creations",
+            "slug": "code--creations",
             "level": "h3",
             "children": []
           },
           {
             "text": "Ideas & Inspirations",
-            "slug": "ideas-inspirations",
+            "slug": "ideas--inspirations",
             "level": "h3",
             "children": []
           },
           {
             "text": "🏋 Health & Wellness",
-            "slug": "health-wellness",
+            "slug": "-health--wellness",
             "level": "h3",
             "children": []
           },
           {
             "text": "📚 Learning & Media",
-            "slug": "learning-media",
+            "slug": "-learning--media",
             "level": "h3",
             "children": []
           },
           {
             "text": "🔗 Connections & Insights",
-            "slug": "connections-insights",
+            "slug": "-connections--insights",
             "level": "h3",
             "children": []
           },
           {
             "text": "Next Week's Intentions",
-            "slug": "next-week-s-intentions",
+            "slug": "next-weeks-intentions",
             "level": "h3",
             "children": []
           }
@@ -20489,43 +20604,43 @@
           "children": [
             {
               "text": "Daily Check-In & Reflections",
-              "slug": "daily-check-in-reflections",
+              "slug": "daily-check-in--reflections",
               "level": "h3",
               "children": []
             },
             {
               "text": "Code & Creations",
-              "slug": "code-creations",
+              "slug": "code--creations",
               "level": "h3",
               "children": []
             },
             {
               "text": "Ideas & Inspirations",
-              "slug": "ideas-inspirations",
+              "slug": "ideas--inspirations",
               "level": "h3",
               "children": []
             },
             {
               "text": "🏋 Health & Wellness",
-              "slug": "health-wellness",
+              "slug": "-health--wellness",
               "level": "h3",
               "children": []
             },
             {
               "text": "📚 Learning & Media",
-              "slug": "learning-media",
+              "slug": "-learning--media",
               "level": "h3",
               "children": []
             },
             {
               "text": "🔗 Connections & Insights",
-              "slug": "connections-insights",
+              "slug": "-connections--insights",
               "level": "h3",
               "children": []
             },
             {
               "text": "Next Week's Intentions",
-              "slug": "next-week-s-intentions",
+              "slug": "next-weeks-intentions",
               "level": "h3",
               "children": []
             }
@@ -20557,43 +20672,43 @@
         "children": [
           {
             "text": "Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
+            "slug": "daily-check-in--reflections",
             "level": "h3",
             "children": []
           },
           {
             "text": "Code & Creations",
-            "slug": "code-creations",
+            "slug": "code--creations",
             "level": "h3",
             "children": []
           },
           {
             "text": "Ideas & Inspirations",
-            "slug": "ideas-inspirations",
+            "slug": "ideas--inspirations",
             "level": "h3",
             "children": []
           },
           {
             "text": "🏋 Health & Wellness",
-            "slug": "health-wellness",
+            "slug": "-health--wellness",
             "level": "h3",
             "children": []
           },
           {
             "text": "📚 Learning & Media",
-            "slug": "learning-media",
+            "slug": "-learning--media",
             "level": "h3",
             "children": []
           },
           {
             "text": "🔗 Connections & Insights",
-            "slug": "connections-insights",
+            "slug": "-connections--insights",
             "level": "h3",
             "children": []
           },
           {
             "text": "Next Week's Intentions",
-            "slug": "next-week-s-intentions",
+            "slug": "next-weeks-intentions",
             "level": "h3",
             "children": []
           }
@@ -20623,43 +20738,43 @@
           "children": [
             {
               "text": "Daily Check-In & Reflections",
-              "slug": "daily-check-in-reflections",
+              "slug": "daily-check-in--reflections",
               "level": "h3",
               "children": []
             },
             {
               "text": "Code & Creations",
-              "slug": "code-creations",
+              "slug": "code--creations",
               "level": "h3",
               "children": []
             },
             {
               "text": "Ideas & Inspirations",
-              "slug": "ideas-inspirations",
+              "slug": "ideas--inspirations",
               "level": "h3",
               "children": []
             },
             {
               "text": "🏋 Health & Wellness",
-              "slug": "health-wellness",
+              "slug": "-health--wellness",
               "level": "h3",
               "children": []
             },
             {
               "text": "📚 Learning & Media",
-              "slug": "learning-media",
+              "slug": "-learning--media",
               "level": "h3",
               "children": []
             },
             {
               "text": "🔗 Connections & Insights",
-              "slug": "connections-insights",
+              "slug": "-connections--insights",
               "level": "h3",
               "children": []
             },
             {
               "text": "Next Week's Intentions",
-              "slug": "next-week-s-intentions",
+              "slug": "next-weeks-intentions",
               "level": "h3",
               "children": []
             }
@@ -20691,43 +20806,43 @@
         "children": [
           {
             "text": "Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
+            "slug": "daily-check-in--reflections",
             "level": "h3",
             "children": []
           },
           {
             "text": "Code & Creations",
-            "slug": "code-creations",
+            "slug": "code--creations",
             "level": "h3",
             "children": []
           },
           {
             "text": "Ideas & Inspirations",
-            "slug": "ideas-inspirations",
+            "slug": "ideas--inspirations",
             "level": "h3",
             "children": []
           },
           {
             "text": "🏋 Health & Wellness",
-            "slug": "health-wellness",
+            "slug": "-health--wellness",
             "level": "h3",
             "children": []
           },
           {
             "text": "📚 Learning & Media",
-            "slug": "learning-media",
+            "slug": "-learning--media",
             "level": "h3",
             "children": []
           },
           {
             "text": "🔗 Connections & Insights",
-            "slug": "connections-insights",
+            "slug": "-connections--insights",
             "level": "h3",
             "children": []
           },
           {
             "text": "Next Week's Intentions",
-            "slug": "next-week-s-intentions",
+            "slug": "next-weeks-intentions",
             "level": "h3",
             "children": []
           }
@@ -20757,43 +20872,43 @@
           "children": [
             {
               "text": "Daily Check-In & Reflections",
-              "slug": "daily-check-in-reflections",
+              "slug": "daily-check-in--reflections",
               "level": "h3",
               "children": []
             },
             {
               "text": "Code & Creations",
-              "slug": "code-creations",
+              "slug": "code--creations",
               "level": "h3",
               "children": []
             },
             {
               "text": "Ideas & Inspirations",
-              "slug": "ideas-inspirations",
+              "slug": "ideas--inspirations",
               "level": "h3",
               "children": []
             },
             {
               "text": "🏋 Health & Wellness",
-              "slug": "health-wellness",
+              "slug": "-health--wellness",
               "level": "h3",
               "children": []
             },
             {
               "text": "📚 Learning & Media",
-              "slug": "learning-media",
+              "slug": "-learning--media",
               "level": "h3",
               "children": []
             },
             {
               "text": "🔗 Connections & Insights",
-              "slug": "connections-insights",
+              "slug": "-connections--insights",
               "level": "h3",
               "children": []
             },
             {
               "text": "Next Week's Intentions",
-              "slug": "next-week-s-intentions",
+              "slug": "next-weeks-intentions",
               "level": "h3",
               "children": []
             }
@@ -20825,43 +20940,43 @@
         "children": [
           {
             "text": "Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
+            "slug": "daily-check-in--reflections",
             "level": "h3",
             "children": []
           },
           {
             "text": "Code & Creations",
-            "slug": "code-creations",
+            "slug": "code--creations",
             "level": "h3",
             "children": []
           },
           {
             "text": "Ideas & Inspirations",
-            "slug": "ideas-inspirations",
+            "slug": "ideas--inspirations",
             "level": "h3",
             "children": []
           },
           {
             "text": "🏋 Health & Wellness",
-            "slug": "health-wellness",
+            "slug": "-health--wellness",
             "level": "h3",
             "children": []
           },
           {
             "text": "📚 Learning & Media",
-            "slug": "learning-media",
+            "slug": "-learning--media",
             "level": "h3",
             "children": []
           },
           {
             "text": "🔗 Connections & Insights",
-            "slug": "connections-insights",
+            "slug": "-connections--insights",
             "level": "h3",
             "children": []
           },
           {
             "text": "Next Week's Intentions",
-            "slug": "next-week-s-intentions",
+            "slug": "next-weeks-intentions",
             "level": "h3",
             "children": []
           }
@@ -20891,43 +21006,43 @@
           "children": [
             {
               "text": "Daily Check-In & Reflections",
-              "slug": "daily-check-in-reflections",
+              "slug": "daily-check-in--reflections",
               "level": "h3",
               "children": []
             },
             {
               "text": "Code & Creations",
-              "slug": "code-creations",
+              "slug": "code--creations",
               "level": "h3",
               "children": []
             },
             {
               "text": "Ideas & Inspirations",
-              "slug": "ideas-inspirations",
+              "slug": "ideas--inspirations",
               "level": "h3",
               "children": []
             },
             {
               "text": "🏋 Health & Wellness",
-              "slug": "health-wellness",
+              "slug": "-health--wellness",
               "level": "h3",
               "children": []
             },
             {
               "text": "📚 Learning & Media",
-              "slug": "learning-media",
+              "slug": "-learning--media",
               "level": "h3",
               "children": []
             },
             {
               "text": "🔗 Connections & Insights",
-              "slug": "connections-insights",
+              "slug": "-connections--insights",
               "level": "h3",
               "children": []
             },
             {
               "text": "Next Week's Intentions",
-              "slug": "next-week-s-intentions",
+              "slug": "next-weeks-intentions",
               "level": "h3",
               "children": []
             }
@@ -20959,7 +21074,7 @@
         "children": [
           {
             "text": "Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
+            "slug": "daily-check-in--reflections",
             "level": "h3",
             "children": []
           }
@@ -20967,7 +21082,7 @@
       },
       {
         "text": "📚 Learning & Media",
-        "slug": "learning-media",
+        "slug": "-learning--media",
         "level": "h2",
         "children": []
       }
@@ -20995,7 +21110,7 @@
           "children": [
             {
               "text": "Daily Check-In & Reflections",
-              "slug": "daily-check-in-reflections",
+              "slug": "daily-check-in--reflections",
               "level": "h3",
               "children": []
             }
@@ -21003,7 +21118,7 @@
         },
         {
           "text": "📚 Learning & Media",
-          "slug": "learning-media",
+          "slug": "-learning--media",
           "level": "h2",
           "children": []
         }
@@ -21033,13 +21148,13 @@
         "children": [
           {
             "text": "Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
+            "slug": "daily-check-in--reflections",
             "level": "h3",
             "children": []
           },
           {
             "text": "📚 Learning & Media",
-            "slug": "learning-media",
+            "slug": "-learning--media",
             "level": "h3",
             "children": []
           }
@@ -21069,13 +21184,13 @@
           "children": [
             {
               "text": "Daily Check-In & Reflections",
-              "slug": "daily-check-in-reflections",
+              "slug": "daily-check-in--reflections",
               "level": "h3",
               "children": []
             },
             {
               "text": "📚 Learning & Media",
-              "slug": "learning-media",
+              "slug": "-learning--media",
               "level": "h3",
               "children": []
             }
@@ -21107,13 +21222,13 @@
         "children": [
           {
             "text": "Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
+            "slug": "daily-check-in--reflections",
             "level": "h3",
             "children": []
           },
           {
             "text": "📚 Learning & Media",
-            "slug": "learning-media",
+            "slug": "-learning--media",
             "level": "h3",
             "children": []
           }
@@ -21143,13 +21258,13 @@
           "children": [
             {
               "text": "Daily Check-In & Reflections",
-              "slug": "daily-check-in-reflections",
+              "slug": "daily-check-in--reflections",
               "level": "h3",
               "children": []
             },
             {
               "text": "📚 Learning & Media",
-              "slug": "learning-media",
+              "slug": "-learning--media",
               "level": "h3",
               "children": []
             }
@@ -21203,13 +21318,13 @@
         "children": [
           {
             "text": "Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
+            "slug": "daily-check-in--reflections",
             "level": "h3",
             "children": []
           },
           {
             "text": "📚 Learning & Media",
-            "slug": "learning-media",
+            "slug": "-learning--media",
             "level": "h3",
             "children": []
           }
@@ -21239,13 +21354,13 @@
           "children": [
             {
               "text": "Daily Check-In & Reflections",
-              "slug": "daily-check-in-reflections",
+              "slug": "daily-check-in--reflections",
               "level": "h3",
               "children": []
             },
             {
               "text": "📚 Learning & Media",
-              "slug": "learning-media",
+              "slug": "-learning--media",
               "level": "h3",
               "children": []
             }
@@ -21277,13 +21392,13 @@
         "children": [
           {
             "text": "Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
+            "slug": "daily-check-in--reflections",
             "level": "h3",
             "children": []
           },
           {
             "text": "📚 Learning & Media",
-            "slug": "learning-media",
+            "slug": "-learning--media",
             "level": "h3",
             "children": []
           },
@@ -21319,13 +21434,13 @@
           "children": [
             {
               "text": "Daily Check-In & Reflections",
-              "slug": "daily-check-in-reflections",
+              "slug": "daily-check-in--reflections",
               "level": "h3",
               "children": []
             },
             {
               "text": "📚 Learning & Media",
-              "slug": "learning-media",
+              "slug": "-learning--media",
               "level": "h3",
               "children": []
             },
@@ -21382,13 +21497,13 @@
       },
       {
         "text": "Personal Growth & Health",
-        "slug": "personal-growth-health",
+        "slug": "personal-growth--health",
         "level": "h2",
         "children": []
       },
       {
         "text": "Social & Community Engagement",
-        "slug": "social-community-engagement",
+        "slug": "social--community-engagement",
         "level": "h2",
         "children": []
       },
@@ -21441,13 +21556,13 @@
         },
         {
           "text": "Personal Growth & Health",
-          "slug": "personal-growth-health",
+          "slug": "personal-growth--health",
           "level": "h2",
           "children": []
         },
         {
           "text": "Social & Community Engagement",
-          "slug": "social-community-engagement",
+          "slug": "social--community-engagement",
           "level": "h2",
           "children": []
         },
@@ -21527,13 +21642,13 @@
         "children": [
           {
             "text": "Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
+            "slug": "daily-check-in--reflections",
             "level": "h3",
             "children": []
           },
           {
             "text": "📚 Learning & Media",
-            "slug": "learning-media",
+            "slug": "-learning--media",
             "level": "h3",
             "children": []
           }
@@ -21563,13 +21678,13 @@
           "children": [
             {
               "text": "Daily Check-In & Reflections",
-              "slug": "daily-check-in-reflections",
+              "slug": "daily-check-in--reflections",
               "level": "h3",
               "children": []
             },
             {
               "text": "📚 Learning & Media",
-              "slug": "learning-media",
+              "slug": "-learning--media",
               "level": "h3",
               "children": []
             }
@@ -21625,13 +21740,13 @@
         "children": [
           {
             "text": "Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
+            "slug": "daily-check-in--reflections",
             "level": "h3",
             "children": []
           },
           {
             "text": "📚 Learning & Media",
-            "slug": "learning-media",
+            "slug": "-learning--media",
             "level": "h3",
             "children": []
           }
@@ -21661,13 +21776,13 @@
           "children": [
             {
               "text": "Daily Check-In & Reflections",
-              "slug": "daily-check-in-reflections",
+              "slug": "daily-check-in--reflections",
               "level": "h3",
               "children": []
             },
             {
               "text": "📚 Learning & Media",
-              "slug": "learning-media",
+              "slug": "-learning--media",
               "level": "h3",
               "children": []
             }
@@ -21729,7 +21844,7 @@
       },
       {
         "text": "📚 Learning & Media",
-        "slug": "learning-media",
+        "slug": "-learning--media",
         "level": "h2",
         "children": []
       }
@@ -21765,7 +21880,7 @@
         },
         {
           "text": "📚 Learning & Media",
-          "slug": "learning-media",
+          "slug": "-learning--media",
           "level": "h2",
           "children": []
         }
@@ -21785,7 +21900,7 @@
     "toc": [
       {
         "text": "date: 2025-03-10T15:16:48-04:00\nmodified: 2025-03-17T13:23:12-04:00",
-        "slug": "date-2025-03-10t15-16-48-04-00-modified-2025-03-17t13-23-12-04-00",
+        "slug": "date-2025-03-10t151648-0400modified-2025-03-17t132312-0400",
         "level": "h2",
         "children": []
       }
@@ -21803,7 +21918,7 @@
       "toc": [
         {
           "text": "date: 2025-03-10T15:16:48-04:00\nmodified: 2025-03-17T13:23:12-04:00",
-          "slug": "date-2025-03-10t15-16-48-04-00-modified-2025-03-17t13-23-12-04-00",
+          "slug": "date-2025-03-10t151648-0400modified-2025-03-17t132312-0400",
           "level": "h2",
           "children": []
         }
@@ -21833,13 +21948,13 @@
         "children": [
           {
             "text": "Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
+            "slug": "daily-check-in--reflections",
             "level": "h3",
             "children": []
           },
           {
             "text": "📚 Learning & Media",
-            "slug": "learning-media",
+            "slug": "-learning--media",
             "level": "h3",
             "children": []
           }
@@ -21869,13 +21984,13 @@
           "children": [
             {
               "text": "Daily Check-In & Reflections",
-              "slug": "daily-check-in-reflections",
+              "slug": "daily-check-in--reflections",
               "level": "h3",
               "children": []
             },
             {
               "text": "📚 Learning & Media",
-              "slug": "learning-media",
+              "slug": "-learning--media",
               "level": "h3",
               "children": []
             }
@@ -21907,13 +22022,13 @@
         "children": [
           {
             "text": "Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
+            "slug": "daily-check-in--reflections",
             "level": "h3",
             "children": []
           },
           {
             "text": "📚 Learning & Media",
-            "slug": "learning-media",
+            "slug": "-learning--media",
             "level": "h3",
             "children": []
           }
@@ -21943,13 +22058,13 @@
           "children": [
             {
               "text": "Daily Check-In & Reflections",
-              "slug": "daily-check-in-reflections",
+              "slug": "daily-check-in--reflections",
               "level": "h3",
               "children": []
             },
             {
               "text": "📚 Learning & Media",
-              "slug": "learning-media",
+              "slug": "-learning--media",
               "level": "h3",
               "children": []
             }
@@ -22003,13 +22118,13 @@
         "children": [
           {
             "text": "Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
+            "slug": "daily-check-in--reflections",
             "level": "h3",
             "children": []
           },
           {
             "text": "📚 Learning & Media",
-            "slug": "learning-media",
+            "slug": "-learning--media",
             "level": "h3",
             "children": []
           }
@@ -22039,13 +22154,13 @@
           "children": [
             {
               "text": "Daily Check-In & Reflections",
-              "slug": "daily-check-in-reflections",
+              "slug": "daily-check-in--reflections",
               "level": "h3",
               "children": []
             },
             {
               "text": "📚 Learning & Media",
-              "slug": "learning-media",
+              "slug": "-learning--media",
               "level": "h3",
               "children": []
             }
@@ -22099,13 +22214,13 @@
         "children": [
           {
             "text": "Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
+            "slug": "daily-check-in--reflections",
             "level": "h3",
             "children": []
           },
           {
             "text": "📚 Learning & Media",
-            "slug": "learning-media",
+            "slug": "-learning--media",
             "level": "h3",
             "children": []
           }
@@ -22135,13 +22250,13 @@
           "children": [
             {
               "text": "Daily Check-In & Reflections",
-              "slug": "daily-check-in-reflections",
+              "slug": "daily-check-in--reflections",
               "level": "h3",
               "children": []
             },
             {
               "text": "📚 Learning & Media",
-              "slug": "learning-media",
+              "slug": "-learning--media",
               "level": "h3",
               "children": []
             }
@@ -22195,13 +22310,13 @@
         "children": [
           {
             "text": "Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
+            "slug": "daily-check-in--reflections",
             "level": "h3",
             "children": []
           },
           {
             "text": "📚 Learning & Media",
-            "slug": "learning-media",
+            "slug": "-learning--media",
             "level": "h3",
             "children": []
           }
@@ -22231,13 +22346,13 @@
           "children": [
             {
               "text": "Daily Check-In & Reflections",
-              "slug": "daily-check-in-reflections",
+              "slug": "daily-check-in--reflections",
               "level": "h3",
               "children": []
             },
             {
               "text": "📚 Learning & Media",
-              "slug": "learning-media",
+              "slug": "-learning--media",
               "level": "h3",
               "children": []
             }
@@ -22357,13 +22472,13 @@
         "children": [
           {
             "text": "Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
+            "slug": "daily-check-in--reflections",
             "level": "h3",
             "children": []
           },
           {
             "text": "📚 Learning & Media",
-            "slug": "learning-media",
+            "slug": "-learning--media",
             "level": "h3",
             "children": []
           }
@@ -22393,13 +22508,13 @@
           "children": [
             {
               "text": "Daily Check-In & Reflections",
-              "slug": "daily-check-in-reflections",
+              "slug": "daily-check-in--reflections",
               "level": "h3",
               "children": []
             },
             {
               "text": "📚 Learning & Media",
-              "slug": "learning-media",
+              "slug": "-learning--media",
               "level": "h3",
               "children": []
             }
@@ -22431,13 +22546,13 @@
         "children": [
           {
             "text": "Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
+            "slug": "daily-check-in--reflections",
             "level": "h3",
             "children": []
           },
           {
             "text": "📚 Learning & Media",
-            "slug": "learning-media",
+            "slug": "-learning--media",
             "level": "h3",
             "children": []
           }
@@ -22467,13 +22582,13 @@
           "children": [
             {
               "text": "Daily Check-In & Reflections",
-              "slug": "daily-check-in-reflections",
+              "slug": "daily-check-in--reflections",
               "level": "h3",
               "children": []
             },
             {
               "text": "📚 Learning & Media",
-              "slug": "learning-media",
+              "slug": "-learning--media",
               "level": "h3",
               "children": []
             }
@@ -22505,13 +22620,13 @@
         "children": [
           {
             "text": "Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
+            "slug": "daily-check-in--reflections",
             "level": "h3",
             "children": []
           },
           {
             "text": "📚 Learning & Media",
-            "slug": "learning-media",
+            "slug": "-learning--media",
             "level": "h3",
             "children": []
           }
@@ -22541,13 +22656,13 @@
           "children": [
             {
               "text": "Daily Check-In & Reflections",
-              "slug": "daily-check-in-reflections",
+              "slug": "daily-check-in--reflections",
               "level": "h3",
               "children": []
             },
             {
               "text": "📚 Learning & Media",
-              "slug": "learning-media",
+              "slug": "-learning--media",
               "level": "h3",
               "children": []
             }
@@ -22579,13 +22694,13 @@
         "children": [
           {
             "text": "Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
+            "slug": "daily-check-in--reflections",
             "level": "h3",
             "children": []
           },
           {
             "text": "📚 Learning & Media",
-            "slug": "learning-media",
+            "slug": "-learning--media",
             "level": "h3",
             "children": []
           }
@@ -22615,13 +22730,13 @@
           "children": [
             {
               "text": "Daily Check-In & Reflections",
-              "slug": "daily-check-in-reflections",
+              "slug": "daily-check-in--reflections",
               "level": "h3",
               "children": []
             },
             {
               "text": "📚 Learning & Media",
-              "slug": "learning-media",
+              "slug": "-learning--media",
               "level": "h3",
               "children": []
             }
@@ -22653,13 +22768,13 @@
         "children": [
           {
             "text": "Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
+            "slug": "daily-check-in--reflections",
             "level": "h3",
             "children": []
           },
           {
             "text": "📚 Learning & Media",
-            "slug": "learning-media",
+            "slug": "-learning--media",
             "level": "h3",
             "children": []
           }
@@ -22689,13 +22804,13 @@
           "children": [
             {
               "text": "Daily Check-In & Reflections",
-              "slug": "daily-check-in-reflections",
+              "slug": "daily-check-in--reflections",
               "level": "h3",
               "children": []
             },
             {
               "text": "📚 Learning & Media",
-              "slug": "learning-media",
+              "slug": "-learning--media",
               "level": "h3",
               "children": []
             }
@@ -22727,13 +22842,13 @@
         "children": [
           {
             "text": "Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
+            "slug": "daily-check-in--reflections",
             "level": "h3",
             "children": []
           },
           {
             "text": "📚 Learning & Media",
-            "slug": "learning-media",
+            "slug": "-learning--media",
             "level": "h3",
             "children": []
           }
@@ -22763,13 +22878,13 @@
           "children": [
             {
               "text": "Daily Check-In & Reflections",
-              "slug": "daily-check-in-reflections",
+              "slug": "daily-check-in--reflections",
               "level": "h3",
               "children": []
             },
             {
               "text": "📚 Learning & Media",
-              "slug": "learning-media",
+              "slug": "-learning--media",
               "level": "h3",
               "children": []
             }
@@ -22801,19 +22916,19 @@
         "children": [
           {
             "text": "Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
+            "slug": "daily-check-in--reflections",
             "level": "h3",
             "children": []
           },
           {
             "text": "🏍 Motorcycle Engine Sounds Library",
-            "slug": "motorcycle-engine-sounds-library",
+            "slug": "-motorcycle-engine-sounds-library",
             "level": "h3",
             "children": []
           },
           {
             "text": "📚 Learning & Media",
-            "slug": "learning-media",
+            "slug": "-learning--media",
             "level": "h3",
             "children": []
           }
@@ -22843,19 +22958,19 @@
           "children": [
             {
               "text": "Daily Check-In & Reflections",
-              "slug": "daily-check-in-reflections",
+              "slug": "daily-check-in--reflections",
               "level": "h3",
               "children": []
             },
             {
               "text": "🏍 Motorcycle Engine Sounds Library",
-              "slug": "motorcycle-engine-sounds-library",
+              "slug": "-motorcycle-engine-sounds-library",
               "level": "h3",
               "children": []
             },
             {
               "text": "📚 Learning & Media",
-              "slug": "learning-media",
+              "slug": "-learning--media",
               "level": "h3",
               "children": []
             }
@@ -22887,13 +23002,13 @@
         "children": [
           {
             "text": "Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
+            "slug": "daily-check-in--reflections",
             "level": "h3",
             "children": []
           },
           {
             "text": "📚 Learning & Media",
-            "slug": "learning-media",
+            "slug": "-learning--media",
             "level": "h3",
             "children": []
           }
@@ -22923,13 +23038,13 @@
           "children": [
             {
               "text": "Daily Check-In & Reflections",
-              "slug": "daily-check-in-reflections",
+              "slug": "daily-check-in--reflections",
               "level": "h3",
               "children": []
             },
             {
               "text": "📚 Learning & Media",
-              "slug": "learning-media",
+              "slug": "-learning--media",
               "level": "h3",
               "children": []
             }
@@ -22961,13 +23076,13 @@
         "children": [
           {
             "text": "Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
+            "slug": "daily-check-in--reflections",
             "level": "h3",
             "children": []
           },
           {
             "text": "📚 Learning & Media",
-            "slug": "learning-media",
+            "slug": "-learning--media",
             "level": "h3",
             "children": []
           }
@@ -22997,13 +23112,13 @@
           "children": [
             {
               "text": "Daily Check-In & Reflections",
-              "slug": "daily-check-in-reflections",
+              "slug": "daily-check-in--reflections",
               "level": "h3",
               "children": []
             },
             {
               "text": "📚 Learning & Media",
-              "slug": "learning-media",
+              "slug": "-learning--media",
               "level": "h3",
               "children": []
             }
@@ -23035,13 +23150,13 @@
         "children": [
           {
             "text": "Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
+            "slug": "daily-check-in--reflections",
             "level": "h3",
             "children": []
           },
           {
             "text": "📚 Learning & Media",
-            "slug": "learning-media",
+            "slug": "-learning--media",
             "level": "h3",
             "children": []
           }
@@ -23071,13 +23186,13 @@
           "children": [
             {
               "text": "Daily Check-In & Reflections",
-              "slug": "daily-check-in-reflections",
+              "slug": "daily-check-in--reflections",
               "level": "h3",
               "children": []
             },
             {
               "text": "📚 Learning & Media",
-              "slug": "learning-media",
+              "slug": "-learning--media",
               "level": "h3",
               "children": []
             }
@@ -23095,12 +23210,12 @@
     "title": "2025 35",
     "date": "2025-08-25T13:57:28.000Z",
     "type": "post",
-    "modified": "2025-08-28T19:11:40.000Z",
+    "modified": "2025-08-28T22:09:25.000Z",
     "toc": [],
     "metadata": {
       "date": "2025-08-25T13:57:28.000Z",
-      "modified": "2025-08-28T19:11:40.000Z",
-      "words": 172,
+      "modified": "2025-08-28T22:09:25.000Z",
+      "words": 179,
       "images": 17,
       "links": 17,
       "codeBlocks": 0,

@@ -25,7 +25,7 @@
         "children": [
           {
             "text": "Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
+            "slug": "daily-check-in--reflections",
             "level": "h3",
             "children": []
           }
@@ -33,7 +33,7 @@
       },
       {
         "text": "📚 Learning & Media",
-        "slug": "learning-media",
+        "slug": "-learning--media",
         "level": "h2",
         "children": []
       }

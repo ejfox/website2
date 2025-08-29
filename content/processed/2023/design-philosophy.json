@@ -26,7 +26,7 @@
         "children": [
           {
             "text": "Simplicity & Minimalism",
-            "slug": "simplicity-minimalism",
+            "slug": "simplicity--minimalism",
             "level": "h3",
             "children": []
           },
@@ -44,7 +44,7 @@
           },
           {
             "text": "Paper & Sketching",
-            "slug": "paper-sketching",
+            "slug": "paper--sketching",
             "level": "h3",
             "children": []
           },
@@ -74,7 +74,7 @@
           },
           {
             "text": "Pros/Cons Of Designing in Code",
-            "slug": "pros-cons-of-designing-in-code",
+            "slug": "proscons-of-designing-in-code",
             "level": "h3",
             "children": []
           }
@@ -82,7 +82,7 @@
       }
     ],
     "type": "post",
-    "sourcePath": "../../../../../code/website2/content/blog/2023/design-philosophy.md",
+    "sourcePath": "../../../../../code/website2/content/blog/blog/2023/design-philosophy.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

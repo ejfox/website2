@@ -45,7 +45,7 @@
           },
           {
             "text": "Hudson Valley Guide: knowhv.com",
-            "slug": "hudson-valley-guide-knowhv-com",
+            "slug": "hudson-valley-guide-knowhvcom",
             "level": "h3",
             "children": []
           },
@@ -77,7 +77,7 @@
       },
       {
         "text": "📘 Learning & Development",
-        "slug": "learning-development",
+        "slug": "-learning--development",
         "level": "h2",
         "children": []
       }

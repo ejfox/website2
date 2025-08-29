@@ -25,13 +25,13 @@
     "toc": [
       {
         "text": "🕰 Reflections on the Past Year",
-        "slug": "reflections-on-the-past-year",
+        "slug": "-reflections-on-the-past-year",
         "level": "h2",
         "children": []
       },
       {
         "text": "🔑 Key Themes",
-        "slug": "key-themes",
+        "slug": "-key-themes",
         "level": "h2",
         "children": [
           {
@@ -97,7 +97,7 @@
           },
           {
             "text": "Daily Dashboard + Personal AI Assistant",
-            "slug": "daily-dashboard-personal-ai-assistant",
+            "slug": "daily-dashboard--personal-ai-assistant",
             "level": "h3",
             "children": []
           }
@@ -122,7 +122,7 @@
           },
           {
             "text": "Hardware Hacking / Physical Installations",
-            "slug": "hardware-hacking-physical-installations",
+            "slug": "hardware-hacking--physical-installations",
             "level": "h3",
             "children": []
           },
@@ -140,7 +140,7 @@
           },
           {
             "text": "Personal Documentation + YouTube",
-            "slug": "personal-documentation-youtube",
+            "slug": "personal-documentation--youtube",
             "level": "h3",
             "children": []
           }
@@ -148,7 +148,7 @@
       },
       {
         "text": "Wellness & Personal Development",
-        "slug": "wellness-personal-development",
+        "slug": "wellness--personal-development",
         "level": "h2",
         "children": [
           {
@@ -185,7 +185,7 @@
       },
       {
         "text": "Goals for Global & Societal Impact",
-        "slug": "goals-for-global-societal-impact",
+        "slug": "goals-for-global--societal-impact",
         "level": "h2",
         "children": []
       },
@@ -197,7 +197,7 @@
       }
     ],
     "type": "post",
-    "sourcePath": "../../../../../code/website2/content/blog/2024/2024.md",
+    "sourcePath": "../../../../../code/website2/content/blog/blog/2024/2024.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

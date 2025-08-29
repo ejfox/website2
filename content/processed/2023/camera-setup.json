@@ -50,7 +50,7 @@
           },
           {
             "text": "Black & White Film",
-            "slug": "black-white-film",
+            "slug": "black--white-film",
             "level": "h3",
             "children": []
           },
@@ -64,7 +64,7 @@
       }
     ],
     "type": "post",
-    "sourcePath": "../../../../../code/website2/content/blog/2023/camera-setup.md",
+    "sourcePath": "../../../../../code/website2/content/blog/blog/2023/camera-setup.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

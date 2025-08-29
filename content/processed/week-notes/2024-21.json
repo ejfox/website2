@@ -62,7 +62,7 @@
         "children": [
           {
             "text": "Released v2.0.0 of gpt-browser package",
-            "slug": "released-v2-0-0-of-gpt-browser-package",
+            "slug": "released-v200-of-gpt-browser-package",
             "level": "h3",
             "children": []
           },
@@ -76,7 +76,7 @@
       },
       {
         "text": "Transcribing Videos with FFMPEG and Whisper.cpp",
-        "slug": "transcribing-videos-with-ffmpeg-and-whisper-cpp",
+        "slug": "transcribing-videos-with-ffmpeg-and-whispercpp",
         "level": "h2",
         "children": []
       },
@@ -88,7 +88,7 @@
       },
       {
         "text": "Personal Growth & Health",
-        "slug": "personal-growth-health",
+        "slug": "personal-growth--health",
         "level": "h2",
         "children": []
       }

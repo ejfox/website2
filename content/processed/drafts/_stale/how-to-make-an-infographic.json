@@ -1,24 +1,64 @@
 {
-  "content": "",
-  "html": "",
-  "title": "How To Make An Infographic",
+  "content": "<p class=\"mb-4 max-w-prose mx-auto\">\"We should infographic this!\"</p>\n<p class=\"mb-4 max-w-prose mx-auto\">\"Okay, what data do you have?\"</p>\n<p class=\"mb-4 max-w-prose mx-auto\">\"Oh none… just, uh, some numbers I wrote on this napkin.\"</p>\n<p class=\"mb-4 max-w-prose mx-auto\">Are you kidding me?</p>\n<p class=\"mb-4 max-w-prose mx-auto\">This conversation happens more often than you'd think. Here's how to avoid being that person, and actually make infographics that work.</p>\n<h3 class=\"text-2xl font-medium mb-3 mt-6 max-w-prose mx-auto font-sans\" id=\"step-1-what-data-do-we-actually-have\">Step 1: What Data Do We Actually Have?</h3>\n<p class=\"mb-4 max-w-prose mx-auto\">This sounds simple but a lot of time people are like \"We should infographic this?\" \"okay what data do you have?\" \"Oh none… just, uh, some numbers I wrote on this napkin\" like are you kidding me? So make sure we have some data.</p>\n<p class=\"mb-4 max-w-prose mx-auto\"><strong class=\"\">My minimum thresholds:</strong></p>\n<ul class=\"list-disc ml-6 mb-4 max-w-prose mx-auto\">\n<li class=\"\">100 rows and we're talking</li>\n<li class=\"\">Ideally 1000 rows</li>\n<li class=\"\">Or a million - then we can do some really cool shit</li>\n</ul>\n<p class=\"mb-4 max-w-prose mx-auto\">But raw numbers aren't enough. We wanna get metadata: how many columns do we have? Are they numeric? Categorical? These will inform the types of visualizations that are possible.</p>\n<h3 class=\"text-2xl font-medium mb-3 mt-6 max-w-prose mx-auto font-sans\" id=\"step-2-every-row-is-a-thing\">Step 2: Every Row is a Thing</h3>\n<p class=\"mb-4 max-w-prose mx-auto\">I also always like to think of my data visualizations as 'things' - each row is a 'thing.' What is that 'thing'?</p>\n<ul class=\"list-disc ml-6 mb-4 max-w-prose mx-auto\">\n<li class=\"\">Is it a measurement from a device?</li>\n<li class=\"\">An entry a human filled out in a form?</li>\n<li class=\"\">A transaction that happened?</li>\n</ul>\n<p class=\"mb-4 max-w-prose mx-auto\">These will inform how much you can trust it and how you will represent it to the user. Sensor data tells a different story than survey responses, even if they're measuring the same thing.</p>\n<h3 class=\"text-2xl font-medium mb-3 mt-6 max-w-prose mx-auto font-sans\" id=\"step-3-find-whats-actually-worth-showing\">Step 3: Find What's Actually Worth Showing</h3>\n<p class=\"mb-4 max-w-prose mx-auto\">Most bad infographics try to show everything. Good ones show one insight clearly.</p>\n<p class=\"mb-4 max-w-prose mx-auto\">Before you start designing anything, ask:</p>\n<ul class=\"list-disc ml-6 mb-4 max-w-prose mx-auto\">\n<li class=\"\">What's the most surprising thing in this data?</li>\n<li class=\"\">What would change someone's mind?</li>\n<li class=\"\">What story does this data definitively tell?</li>\n</ul>\n<p class=\"mb-4 max-w-prose mx-auto\">If you can't explain your main point in one sentence, you're not ready to make an infographic yet.</p>\n<h3 class=\"text-2xl font-medium mb-3 mt-6 max-w-prose mx-auto font-sans\" id=\"step-4-pick-the-right-visual-not-the-pretty-one\">Step 4: Pick the Right Visual (Not the Pretty One)</h3>\n<p class=\"mb-4 max-w-prose mx-auto\">This isn't about what looks cool - it's about what actually works for your data:</p>\n<ul class=\"list-disc ml-6 mb-4 max-w-prose mx-auto\">\n<li class=\"\"><strong class=\"\">Relationships:</strong> Scatter plots, network diagrams</li>\n<li class=\"\"><strong class=\"\">Change over time:</strong> Line charts, small multiples</li>\n<li class=\"\"><strong class=\"\">Comparing quantities:</strong> Bar charts, dot plots</li>\n<li class=\"\"><strong class=\"\">Parts of a whole:</strong> Treemaps, stacked bars</li>\n<li class=\"\"><strong class=\"\">Never pie charts</strong> (seriously, just don't)</li>\n</ul>\n<h3 class=\"text-2xl font-medium mb-3 mt-6 max-w-prose mx-auto font-sans\" id=\"the-real-point\">The Real Point</h3>\n<p class=\"mb-4 max-w-prose mx-auto\">Most good infographics are just good journalism. They answer a question people actually have using data people can trust. The visual design matters, but getting the data foundation right matters more.</p>\n<p class=\"mb-4 max-w-prose mx-auto\"><em class=\"\">I've got more examples of this data-first approach in action - email me at <a href=\"mailto:ejfox@ejfox.com\" class=\"text-blue-600 dark:text-blue-400\">ejfox@ejfox.com</a> if you want to see the methodology behind infographics that actually worked.</em></p>",
+  "html": "<p class=\"mb-4 max-w-prose mx-auto\">\"We should infographic this!\"</p>\n<p class=\"mb-4 max-w-prose mx-auto\">\"Okay, what data do you have?\"</p>\n<p class=\"mb-4 max-w-prose mx-auto\">\"Oh none… just, uh, some numbers I wrote on this napkin.\"</p>\n<p class=\"mb-4 max-w-prose mx-auto\">Are you kidding me?</p>\n<p class=\"mb-4 max-w-prose mx-auto\">This conversation happens more often than you'd think. Here's how to avoid being that person, and actually make infographics that work.</p>\n<h3 class=\"text-2xl font-medium mb-3 mt-6 max-w-prose mx-auto font-sans\" id=\"step-1-what-data-do-we-actually-have\">Step 1: What Data Do We Actually Have?</h3>\n<p class=\"mb-4 max-w-prose mx-auto\">This sounds simple but a lot of time people are like \"We should infographic this?\" \"okay what data do you have?\" \"Oh none… just, uh, some numbers I wrote on this napkin\" like are you kidding me? So make sure we have some data.</p>\n<p class=\"mb-4 max-w-prose mx-auto\"><strong class=\"\">My minimum thresholds:</strong></p>\n<ul class=\"list-disc ml-6 mb-4 max-w-prose mx-auto\">\n<li class=\"\">100 rows and we're talking</li>\n<li class=\"\">Ideally 1000 rows</li>\n<li class=\"\">Or a million - then we can do some really cool shit</li>\n</ul>\n<p class=\"mb-4 max-w-prose mx-auto\">But raw numbers aren't enough. We wanna get metadata: how many columns do we have? Are they numeric? Categorical? These will inform the types of visualizations that are possible.</p>\n<h3 class=\"text-2xl font-medium mb-3 mt-6 max-w-prose mx-auto font-sans\" id=\"step-2-every-row-is-a-thing\">Step 2: Every Row is a Thing</h3>\n<p class=\"mb-4 max-w-prose mx-auto\">I also always like to think of my data visualizations as 'things' - each row is a 'thing.' What is that 'thing'?</p>\n<ul class=\"list-disc ml-6 mb-4 max-w-prose mx-auto\">\n<li class=\"\">Is it a measurement from a device?</li>\n<li class=\"\">An entry a human filled out in a form?</li>\n<li class=\"\">A transaction that happened?</li>\n</ul>\n<p class=\"mb-4 max-w-prose mx-auto\">These will inform how much you can trust it and how you will represent it to the user. Sensor data tells a different story than survey responses, even if they're measuring the same thing.</p>\n<h3 class=\"text-2xl font-medium mb-3 mt-6 max-w-prose mx-auto font-sans\" id=\"step-3-find-whats-actually-worth-showing\">Step 3: Find What's Actually Worth Showing</h3>\n<p class=\"mb-4 max-w-prose mx-auto\">Most bad infographics try to show everything. Good ones show one insight clearly.</p>\n<p class=\"mb-4 max-w-prose mx-auto\">Before you start designing anything, ask:</p>\n<ul class=\"list-disc ml-6 mb-4 max-w-prose mx-auto\">\n<li class=\"\">What's the most surprising thing in this data?</li>\n<li class=\"\">What would change someone's mind?</li>\n<li class=\"\">What story does this data definitively tell?</li>\n</ul>\n<p class=\"mb-4 max-w-prose mx-auto\">If you can't explain your main point in one sentence, you're not ready to make an infographic yet.</p>\n<h3 class=\"text-2xl font-medium mb-3 mt-6 max-w-prose mx-auto font-sans\" id=\"step-4-pick-the-right-visual-not-the-pretty-one\">Step 4: Pick the Right Visual (Not the Pretty One)</h3>\n<p class=\"mb-4 max-w-prose mx-auto\">This isn't about what looks cool - it's about what actually works for your data:</p>\n<ul class=\"list-disc ml-6 mb-4 max-w-prose mx-auto\">\n<li class=\"\"><strong class=\"\">Relationships:</strong> Scatter plots, network diagrams</li>\n<li class=\"\"><strong class=\"\">Change over time:</strong> Line charts, small multiples</li>\n<li class=\"\"><strong class=\"\">Comparing quantities:</strong> Bar charts, dot plots</li>\n<li class=\"\"><strong class=\"\">Parts of a whole:</strong> Treemaps, stacked bars</li>\n<li class=\"\"><strong class=\"\">Never pie charts</strong> (seriously, just don't)</li>\n</ul>\n<h3 class=\"text-2xl font-medium mb-3 mt-6 max-w-prose mx-auto font-sans\" id=\"the-real-point\">The Real Point</h3>\n<p class=\"mb-4 max-w-prose mx-auto\">Most good infographics are just good journalism. They answer a question people actually have using data people can trust. The visual design matters, but getting the data foundation right matters more.</p>\n<p class=\"mb-4 max-w-prose mx-auto\"><em class=\"\">I've got more examples of this data-first approach in action - email me at <a href=\"mailto:ejfox@ejfox.com\" class=\"text-blue-600 dark:text-blue-400\">ejfox@ejfox.com</a> if you want to see the methodology behind infographics that actually worked.</em></p>",
+  "title": "How to Actually Make an Infographic (Start with Data, Not Design)",
   "metadata": {
     "date": "2023-01-19T06:18:33.000Z",
-    "modified": "2024-09-20T04:23:32.000Z",
-    "tags": [
-      "art",
-      "design",
-      "inspiration",
-      "visualization"
-    ],
-    "hidden": true,
+    "modified": "2025-08-28T22:16:23.000Z",
     "draft": true,
-    "words": 2,
+    "dek": "In which we discover that most people trying to make infographics have absolutely no idea what they're doing, and here's how to actually do it right",
+    "tags": [
+      "dataviz",
+      "infographics",
+      "design",
+      "methodology"
+    ],
+    "words": 447,
     "images": 0,
     "links": 0,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "How to Actually Make an Infographic (Start with Data, Not Design)",
+        "slug": "how-to-actually-make-an-infographic-start-with-data-not-design",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Step 1: What Data Do We Actually Have?",
+            "slug": "step-1-what-data-do-we-actually-have",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Step 2: Every Row is a Thing",
+            "slug": "step-2-every-row-is-a-thing",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Step 3: Find What's Actually Worth Showing",
+            "slug": "step-3-find-whats-actually-worth-showing",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Step 4: Pick the Right Visual (Not the Pretty One)",
+            "slug": "step-4-pick-the-right-visual-not-the-pretty-one",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "The Real Point",
+            "slug": "the-real-point",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/how-to-make-an-infographic.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

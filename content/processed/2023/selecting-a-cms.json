@@ -36,7 +36,7 @@
           },
           {
             "text": "The argument  a CMS",
-            "slug": "the-argument-a-cms",
+            "slug": "the-argument--a-cms",
             "level": "h3",
             "children": []
           },
@@ -86,7 +86,7 @@
       }
     ],
     "type": "post",
-    "sourcePath": "../../../../../code/website2/content/blog/2023/selecting-a-cms.md",
+    "sourcePath": "../../../../../code/website2/content/blog/blog/2023/selecting-a-cms.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

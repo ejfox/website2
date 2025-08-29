@@ -24,7 +24,7 @@
     "toc": [
       {
         "text": "The Art of Coding: A Developer's Guide",
-        "slug": "the-art-of-coding-a-developer-s-guide",
+        "slug": "the-art-of-coding-a-developers-guide",
         "level": "h2",
         "children": []
       },
@@ -71,7 +71,7 @@
           },
           {
             "text": "Metadata: what’s there? What’s missing?",
-            "slug": "metadata-what-s-there-what-s-missing",
+            "slug": "metadata-whats-there-whats-missing",
             "level": "h3",
             "children": []
           },
@@ -109,7 +109,7 @@
       }
     ],
     "type": "post",
-    "sourcePath": "../../../../../code/website2/content/blog/2022/the-art-of-coding.md",
+    "sourcePath": "../../../../../code/website2/content/blog/blog/2022/the-art-of-coding.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

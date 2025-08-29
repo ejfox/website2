@@ -4,7 +4,15 @@
   "title": "Setting up nvim for Nuxt / Vue development",
   "metadata": {
     "date": "2025-08-01T12:49:14.000Z",
-    "modified": "2025-08-01T12:50:18.000Z",
+    "modified": "2025-08-28T22:32:42.000Z",
+    "tags": [
+      "nvim",
+      "vue",
+      "nuxt",
+      "coding",
+      "tools",
+      "howto"
+    ],
     "words": 12,
     "images": 0,
     "links": 0,
@@ -15,7 +23,7 @@
     "toc": [
       {
         "text": "Setting up nvim for Nuxt / Vue development",
-        "slug": "setting-up-nvim-for-nuxt-vue-development",
+        "slug": "setting-up-nvim-for-nuxt--vue-development",
         "level": "h2",
         "children": []
       }

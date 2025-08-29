@@ -8,10 +8,12 @@
     "tags": [
       "photography",
       "personal",
-      "process"
+      "process",
+      "workflow",
+      "analog"
     ],
     "date": "2025-06-02T13:55:03.000Z",
-    "modified": "2025-06-02T13:59:51.000Z",
+    "modified": "2025-08-28T22:58:04.000Z",
     "words": 24,
     "images": 0,
     "links": 0,
@@ -33,7 +35,7 @@
           },
           {
             "text": "EXIF Printer & Editing On A Table",
-            "slug": "exif-printer-editing-on-a-table",
+            "slug": "exif-printer--editing-on-a-table",
             "level": "h3",
             "children": []
           }

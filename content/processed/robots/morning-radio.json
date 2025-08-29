@@ -16,7 +16,7 @@
     "toc": [
       {
         "text": "MORNING RADIO 📻",
-        "slug": "morning-radio",
+        "slug": "morning-radio-",
         "level": "h2",
         "children": [
           {
@@ -39,7 +39,7 @@
           },
           {
             "text": "Documentation & Publishing Flow",
-            "slug": "documentation-publishing-flow",
+            "slug": "documentation--publishing-flow",
             "level": "h3",
             "children": []
           },
@@ -69,19 +69,19 @@
           },
           {
             "text": "Core Experience 🌅",
-            "slug": "core-experience",
+            "slug": "core-experience-",
             "level": "h3",
             "children": []
           },
           {
             "text": "Interaction Patterns 🎛",
-            "slug": "interaction-patterns",
+            "slug": "interaction-patterns-",
             "level": "h3",
             "children": []
           },
           {
             "text": "Content \"Channels\" 📡",
-            "slug": "content-channels",
+            "slug": "content-channels-",
             "level": "h3",
             "children": []
           },
@@ -99,19 +99,19 @@
           },
           {
             "text": "V0.0.1 (1 week) - \"The First Song\"",
-            "slug": "v0-0-1-1-week-the-first-song",
+            "slug": "v001-1-week---the-first-song",
             "level": "h3",
             "children": []
           },
           {
             "text": "V0.0.5 (3 months) - \"Finding the Rhythm\"",
-            "slug": "v0-0-5-3-months-finding-the-rhythm",
+            "slug": "v005-3-months---finding-the-rhythm",
             "level": "h3",
             "children": []
           },
           {
             "text": "V0.1.0 (1 year) - \"Full Morning Show\"",
-            "slug": "v0-1-0-1-year-full-morning-show",
+            "slug": "v010-1-year---full-morning-show",
             "level": "h3",
             "children": []
           }

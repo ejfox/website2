@@ -18,7 +18,7 @@
     "toc": [
       {
         "text": "🌌  🌌",
-        "slug": "",
+        "slug": "--",
         "level": "h2",
         "children": [
           {
@@ -29,31 +29,31 @@
           },
           {
             "text": "🗺",
-            "slug": "",
+            "slug": "-1",
             "level": "h3",
             "children": []
           },
           {
             "text": "📸",
-            "slug": "",
+            "slug": "-2",
             "level": "h3",
             "children": []
           },
           {
             "text": "🔗",
-            "slug": "",
+            "slug": "-3",
             "level": "h3",
             "children": []
           },
           {
             "text": "📚",
-            "slug": "",
+            "slug": "-4",
             "level": "h3",
             "children": []
           },
           {
             "text": "⚙",
-            "slug": "",
+            "slug": "-5",
             "level": "h3",
             "children": []
           }
@@ -61,31 +61,31 @@
       },
       {
         "text": "📬",
-        "slug": "",
+        "slug": "-6",
         "level": "h2",
         "children": []
       },
       {
         "text": "🖥",
-        "slug": "",
+        "slug": "-7",
         "level": "h2",
         "children": []
       },
       {
         "text": "📅",
-        "slug": "",
+        "slug": "-8",
         "level": "h2",
         "children": []
       },
       {
         "text": "🔒",
-        "slug": "",
+        "slug": "-9",
         "level": "h2",
         "children": []
       },
       {
         "text": "🏁",
-        "slug": "",
+        "slug": "-10",
         "level": "h2",
         "children": []
       }

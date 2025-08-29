@@ -25,37 +25,37 @@
         "children": [
           {
             "text": "Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
+            "slug": "daily-check-in--reflections",
             "level": "h3",
             "children": []
           },
           {
             "text": "Code & Creations",
-            "slug": "code-creations",
+            "slug": "code--creations",
             "level": "h3",
             "children": []
           },
           {
             "text": "Ideas & Inspirations",
-            "slug": "ideas-inspirations",
+            "slug": "ideas--inspirations",
             "level": "h3",
             "children": []
           },
           {
             "text": "🏋 Health & Wellness",
-            "slug": "health-wellness",
+            "slug": "-health--wellness",
             "level": "h3",
             "children": []
           },
           {
             "text": "📚 Learning & Media",
-            "slug": "learning-media",
+            "slug": "-learning--media",
             "level": "h3",
             "children": []
           },
           {
             "text": "🔗 Connections & Insights",
-            "slug": "connections-insights",
+            "slug": "-connections--insights",
             "level": "h3",
             "children": []
           },
@@ -67,7 +67,7 @@
           },
           {
             "text": "Next Week's Intentions",
-            "slug": "next-week-s-intentions",
+            "slug": "next-weeks-intentions",
             "level": "h3",
             "children": []
           }

@@ -37,13 +37,13 @@
         "children": [
           {
             "text": "knowhv.com",
-            "slug": "knowhv-com",
+            "slug": "knowhvcom",
             "level": "h3",
             "children": []
           },
           {
             "text": "ejfox.photos",
-            "slug": "ejfox-photos",
+            "slug": "ejfoxphotos",
             "level": "h3",
             "children": []
           },
@@ -55,7 +55,7 @@
           },
           {
             "text": "Coach Artie & Brain View",
-            "slug": "coach-artie-brain-view",
+            "slug": "coach-artie--brain-view",
             "level": "h3",
             "children": []
           }

@@ -25,19 +25,19 @@
         "children": [
           {
             "text": "Daily Check-In & Reflections",
-            "slug": "daily-check-in-reflections",
+            "slug": "daily-check-in--reflections",
             "level": "h3",
             "children": []
           },
           {
             "text": "🏍 Motorcycle Engine Sounds Library",
-            "slug": "motorcycle-engine-sounds-library",
+            "slug": "-motorcycle-engine-sounds-library",
             "level": "h3",
             "children": []
           },
           {
             "text": "📚 Learning & Media",
-            "slug": "learning-media",
+            "slug": "-learning--media",
             "level": "h3",
             "children": []
           }

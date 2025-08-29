@@ -1,13 +1,13 @@
 {
-  "content": "<p class=\"mb-4 max-w-prose mx-auto\"><img src=\"projects/projects.bas\" alt=\"projects/projects.bas\" class=\"w-full mx-auto py-4\">e]]</p>",
-  "html": "<p class=\"mb-4 max-w-prose mx-auto\"><img src=\"projects/projects.bas\" alt=\"projects/projects.bas\" class=\"w-full mx-auto py-4\">e]]</p>",
+  "content": "",
+  "html": "",
   "title": "Projects",
   "metadata": {
     "date": "2025-08-19T16:24:53.000Z",
     "modified": "2025-08-19T16:31:01.000Z",
-    "words": 4,
-    "images": 1,
-    "links": 1,
+    "words": 3,
+    "images": 0,
+    "links": 0,
     "codeBlocks": 0,
     "headers": {
       "h2": 1

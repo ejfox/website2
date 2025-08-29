@@ -40,7 +40,7 @@
           },
           {
             "text": "Don't stress",
-            "slug": "don-t-stress",
+            "slug": "dont-stress",
             "level": "h3",
             "children": []
           },
@@ -96,7 +96,7 @@
       }
     ],
     "type": "post",
-    "sourcePath": "../../../../../code/website2/content/blog/2022/rules-for-joyful-travel.md",
+    "sourcePath": "../../../../../code/website2/content/blog/blog/2022/rules-for-joyful-travel.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }
