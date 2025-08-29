@@ -1,12 +1,12 @@
 ---
 date: 2025-08-19T17:21:35-04:00
-modified: 2025-08-21T16:01:41-04:00
+modified: 2025-08-29T13:55:03-04:00
 ---
 ## 🦊 EJ's Code Directory
 
 *Auto-generated on 8/18/2025*
 
-###  Active Projects
+### Active Projects
 
 #### [towntuner](./towntuner)
 
@@ -52,13 +52,13 @@ This project is designed to create vector embeddings for Criterion movie titles 
 
 #### [rescuetime-scrape](./rescuetime-scrape)
 
-rescuetime-scrape/ ├── analysis/ # 🔬 All analysis scripts ├── data/ #  Raw RescueTime data ├── web/ # 🌐 Interactive dashboard ├── visualizations/ # 📈 Generated charts & images ├── docs/ # 📚 Docu…
+rescuetime-scrape/ ├── analysis/ # 🔬 All analysis scripts ├── data/ # Raw RescueTime data ├── web/ # 🌐 Interactive dashboard ├── visualizations/ # 📈 Generated charts & images ├── docs/ # 📚 Docu…
 
 *Last updated: 8/11/2025*
 
 #### [discord-arena-bridge](./discord-arena-bridge)
 
-DISCORD ⟷ ARE.NA BRIDGE (v0.1.0-bidirectional) =============================================== A bidirectional bridge for your digital garden. Est. 2024 | Made with  and 🎷
+DISCORD ⟷ ARE.NA BRIDGE (v0.1.0-bidirectional) =============================================== A bidirectional bridge for your digital garden. Est. 2024 | Made with and 🎷
 
 *Last updated: 8/10/2025*
 

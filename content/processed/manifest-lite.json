@@ -5544,183 +5544,6 @@
     }
   },
   {
-    "slug": "drafts/_stale/markdown-kitchen-sink",
-    "title": "🌌  🌌",
-    "date": "2024-06-02T00:00:00.000Z",
-    "type": "post",
-    "hidden": true,
-    "dek": "In which",
-    "modified": "2024-10-16T00:16:02.000Z",
-    "toc": [
-      {
-        "text": "🌌  🌌",
-        "slug": "--",
-        "level": "h2",
-        "children": [
-          {
-            "text": "📈",
-            "slug": "",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "🗺",
-            "slug": "-1",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "📸",
-            "slug": "-2",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "🔗",
-            "slug": "-3",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "📚",
-            "slug": "-4",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "⚙",
-            "slug": "-5",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "📬",
-        "slug": "-6",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "🖥",
-        "slug": "-7",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "📅",
-        "slug": "-8",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "🔒",
-        "slug": "-9",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "🏁",
-        "slug": "-10",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "metadata": {
-      "dek": "In which",
-      "inprogress": true,
-      "date": "2024-06-02T00:00:00.000Z",
-      "modified": "2024-10-16T00:16:02.000Z",
-      "hidden": true,
-      "words": 1268,
-      "images": 0,
-      "links": 6,
-      "codeBlocks": 11,
-      "headers": {
-        "h2": 6
-      },
-      "toc": [
-        {
-          "text": "🌌  🌌",
-          "slug": "--",
-          "level": "h2",
-          "children": [
-            {
-              "text": "📈",
-              "slug": "",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "🗺",
-              "slug": "-1",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "📸",
-              "slug": "-2",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "🔗",
-              "slug": "-3",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "📚",
-              "slug": "-4",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "⚙",
-              "slug": "-5",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        },
-        {
-          "text": "📬",
-          "slug": "-6",
-          "level": "h2",
-          "children": []
-        },
-        {
-          "text": "🖥",
-          "slug": "-7",
-          "level": "h2",
-          "children": []
-        },
-        {
-          "text": "📅",
-          "slug": "-8",
-          "level": "h2",
-          "children": []
-        },
-        {
-          "text": "🔒",
-          "slug": "-9",
-          "level": "h2",
-          "children": []
-        },
-        {
-          "text": "🏁",
-          "slug": "-10",
-          "level": "h2",
-          "children": []
-        }
-      ],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/markdown-kitchen-sink.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "drafts/_stale/markdown-kitchen-sink"
-    }
-  },
-  {
     "slug": "drafts/_stale/og-images-with-genart",
     "title": "Creating Opengraph Images with Generative Art",
     "date": "2024-06-02T04:00:00.000Z",
@@ -5905,6 +5728,239 @@
     }
   },
   {
+    "slug": "drafts/_stale/photoblog-with-cloudinary-nuxt",
+    "title": "Building a Photo Gallery That Feels Like Throwing Pictures on a Table",
+    "date": "2022-12-05T23:34:09.000Z",
+    "type": "post",
+    "draft": false,
+    "dek": "In which we build a photography workflow that turns Finder tags into a web gallery, complete with EXIF analytics and randomized layouts that make your photos look like they were thrown on a table",
+    "modified": "2025-08-29T16:30:00.000Z",
+    "tags": [
+      "automation",
+      "photography",
+      "nuxt",
+      "cloudinary",
+      "workflow"
+    ],
+    "toc": [
+      {
+        "text": "Building a Photo Gallery That Feels Like Throwing Pictures on a Table",
+        "slug": "building-a-photo-gallery-that-feels-like-throwing-pictures-on-a-table",
+        "level": "h1",
+        "children": [
+          {
+            "text": "The Three-Act Structure",
+            "slug": "the-three-act-structure",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Act I: Import & Organize",
+            "slug": "act-i-import--organize",
+            "level": "h2",
+            "children": [
+              {
+                "text": "SD Card Import",
+                "slug": "sd-card-import",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Organizing the Dump",
+                "slug": "organizing-the-dump",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Act II: Curate & Upload",
+            "slug": "act-ii-curate--upload",
+            "level": "h2",
+            "children": [
+              {
+                "text": "The Green Tag Upload Script",
+                "slug": "the-green-tag-upload-script",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Screenshot Auto-Upload",
+                "slug": "screenshot-auto-upload",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Act III: Display & Analytics",
+            "slug": "act-iii-display--analytics",
+            "level": "h2",
+            "children": [
+              {
+                "text": "The Cloudinary API Endpoint",
+                "slug": "the-cloudinary-api-endpoint",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Randomized Photo Layout",
+                "slug": "randomized-photo-layout",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Deep EXIF Analytics",
+                "slug": "deep-exif-analytics",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Keyboard Navigation",
+                "slug": "keyboard-navigation",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "The Philosophy: Augment, Don't Replace",
+            "slug": "the-philosophy-augment-dont-replace",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Why This Approach Works",
+            "slug": "why-this-approach-works",
+            "level": "h2",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "draft": false,
+      "dek": "In which we build a photography workflow that turns Finder tags into a web gallery, complete with EXIF analytics and randomized layouts that make your photos look like they were thrown on a table",
+      "inprogress": false,
+      "date": "2022-12-05T23:34:09.000Z",
+      "modified": "2025-08-29T16:30:00.000Z",
+      "tags": [
+        "automation",
+        "photography",
+        "nuxt",
+        "cloudinary",
+        "workflow"
+      ],
+      "words": 1949,
+      "images": 0,
+      "links": 2,
+      "codeBlocks": 8,
+      "headers": {
+        "h1": 1
+      },
+      "toc": [
+        {
+          "text": "Building a Photo Gallery That Feels Like Throwing Pictures on a Table",
+          "slug": "building-a-photo-gallery-that-feels-like-throwing-pictures-on-a-table",
+          "level": "h1",
+          "children": [
+            {
+              "text": "The Three-Act Structure",
+              "slug": "the-three-act-structure",
+              "level": "h2",
+              "children": []
+            },
+            {
+              "text": "Act I: Import & Organize",
+              "slug": "act-i-import--organize",
+              "level": "h2",
+              "children": [
+                {
+                  "text": "SD Card Import",
+                  "slug": "sd-card-import",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "Organizing the Dump",
+                  "slug": "organizing-the-dump",
+                  "level": "h3",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "text": "Act II: Curate & Upload",
+              "slug": "act-ii-curate--upload",
+              "level": "h2",
+              "children": [
+                {
+                  "text": "The Green Tag Upload Script",
+                  "slug": "the-green-tag-upload-script",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "Screenshot Auto-Upload",
+                  "slug": "screenshot-auto-upload",
+                  "level": "h3",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "text": "Act III: Display & Analytics",
+              "slug": "act-iii-display--analytics",
+              "level": "h2",
+              "children": [
+                {
+                  "text": "The Cloudinary API Endpoint",
+                  "slug": "the-cloudinary-api-endpoint",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "Randomized Photo Layout",
+                  "slug": "randomized-photo-layout",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "Deep EXIF Analytics",
+                  "slug": "deep-exif-analytics",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "Keyboard Navigation",
+                  "slug": "keyboard-navigation",
+                  "level": "h3",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "text": "The Philosophy: Augment, Don't Replace",
+              "slug": "the-philosophy-augment-dont-replace",
+              "level": "h2",
+              "children": []
+            },
+            {
+              "text": "Why This Approach Works",
+              "slug": "why-this-approach-works",
+              "level": "h2",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/photoblog-with-cloudinary-nuxt.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/_stale/photoblog-with-cloudinary-nuxt"
+    }
+  },
+  {
     "slug": "drafts/_stale/room302-livestream-learning",
     "title": "Livestream Learning: How Room 302 Engages and Educates in Real-Time",
     "date": "2022-12-05T23:34:09.000Z",
@@ -5978,47 +6034,126 @@
   },
   {
     "slug": "drafts/_stale/techs-anti-humanist-wave",
-    "title": "Tech’s Anti-Humanist Wave",
+    "title": "Tech's Anti-Humanist Wave",
     "date": "2025-01-27T04:56:02.000Z",
     "type": "post",
-    "dek": "In which",
-    "modified": "2025-01-29T04:06:24.000Z",
+    "dek": "In which we trace how GamerGate weaponized hacker culture, turning technical skills into tools for fascist coordination, and why we can't cede the ground to techno-authoritarians",
+    "modified": "2025-08-29T19:34:31.000Z",
     "tags": [
-      "trend",
-      "journalism",
+      "tech",
       "politics",
-      "tech"
+      "culture",
+      "ai",
+      "gamergate",
+      "fascism",
+      "hacker",
+      "resistance"
     ],
     "toc": [
       {
-        "text": "Tech’s Anti-Humanist Wave",
+        "text": "Tech's Anti-Humanist Wave",
         "slug": "techs-anti-humanist-wave",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "The Inflection Point",
+        "slug": "the-inflection-point",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "The Corruption",
+        "slug": "the-corruption",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Village Idiots With Nuclear Weapons",
+        "slug": "village-idiots-with-nuclear-weapons",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "What Would Our Ancestors Do?",
+        "slug": "what-would-our-ancestors-do",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Don't Cede the Ground",
+        "slug": "dont-cede-the-ground",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Reclaiming the Magic",
+        "slug": "reclaiming-the-magic",
         "level": "h2",
         "children": []
       }
     ],
     "metadata": {
-      "dek": "In which",
-      "inprogress": true,
+      "dek": "In which we trace how GamerGate weaponized hacker culture, turning technical skills into tools for fascist coordination, and why we can't cede the ground to techno-authoritarians",
       "tags": [
-        "trend",
-        "journalism",
+        "tech",
         "politics",
-        "tech"
+        "culture",
+        "ai",
+        "gamergate",
+        "fascism",
+        "hacker",
+        "resistance"
       ],
       "date": "2025-01-27T04:56:02.000Z",
-      "modified": "2025-01-29T04:06:24.000Z",
-      "words": 6,
+      "modified": "2025-08-29T19:34:31.000Z",
+      "words": 808,
       "images": 0,
-      "links": 0,
+      "links": 7,
       "codeBlocks": 0,
       "headers": {
-        "h2": 1
+        "h2": 7
       },
       "toc": [
         {
-          "text": "Tech’s Anti-Humanist Wave",
+          "text": "Tech's Anti-Humanist Wave",
           "slug": "techs-anti-humanist-wave",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "The Inflection Point",
+          "slug": "the-inflection-point",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "The Corruption",
+          "slug": "the-corruption",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Village Idiots With Nuclear Weapons",
+          "slug": "village-idiots-with-nuclear-weapons",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "What Would Our Ancestors Do?",
+          "slug": "what-would-our-ancestors-do",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Don't Cede the Ground",
+          "slug": "dont-cede-the-ground",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Reclaiming the Magic",
+          "slug": "reclaiming-the-magic",
           "level": "h2",
           "children": []
         }
@@ -6645,10 +6780,10 @@
   },
   {
     "slug": "drafts/how-can-ai-be-used-in-journalism",
-    "title": "LLMs / Generative Language Tools",
+    "title": "Embeddings: The Alien Filing System",
     "date": "2025-08-13T23:03:17.000Z",
     "type": "post",
-    "modified": "2025-08-29T02:05:11.000Z",
+    "modified": "2025-08-29T18:35:03.000Z",
     "tags": [
       "journalism",
       "ai",
@@ -6658,28 +6793,45 @@
     ],
     "toc": [
       {
-        "text": "LLMs / Generative Language Tools",
-        "slug": "llms--generative-language-tools",
+        "text": "Embeddings: The Alien Filing System",
+        "slug": "embeddings-the-alien-filing-system",
         "level": "h2",
         "children": []
       },
       {
-        "text": "Embeddings",
-        "slug": "embeddings",
+        "text": "Auto-Tagging",
+        "slug": "auto-tagging",
         "level": "h2",
-        "children": [
-          {
-            "text": "Image Embeddings",
-            "slug": "image-embeddings",
-            "level": "h3",
-            "children": []
-          }
-        ]
+        "children": []
+      },
+      {
+        "text": "Service Journalism Helpbots",
+        "slug": "service-journalism-helpbots",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Document Archaeology at Scale",
+        "slug": "document-archaeology-at-scale",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Image Forensics and Geolocation",
+        "slug": "image-forensics-and-geolocation",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Police Accountability Tools",
+        "slug": "police-accountability-tools",
+        "level": "h2",
+        "children": []
       }
     ],
     "metadata": {
       "date": "2025-08-13T23:03:17.000Z",
-      "modified": "2025-08-29T02:05:11.000Z",
+      "modified": "2025-08-29T18:35:03.000Z",
       "tags": [
         "journalism",
         "ai",
@@ -6687,32 +6839,49 @@
         "tech",
         "media"
       ],
-      "words": 218,
+      "words": 718,
       "images": 0,
-      "links": 3,
+      "links": 11,
       "codeBlocks": 0,
       "headers": {
-        "h2": 2
+        "h2": 6
       },
       "toc": [
         {
-          "text": "LLMs / Generative Language Tools",
-          "slug": "llms--generative-language-tools",
+          "text": "Embeddings: The Alien Filing System",
+          "slug": "embeddings-the-alien-filing-system",
           "level": "h2",
           "children": []
         },
         {
-          "text": "Embeddings",
-          "slug": "embeddings",
+          "text": "Auto-Tagging",
+          "slug": "auto-tagging",
           "level": "h2",
-          "children": [
-            {
-              "text": "Image Embeddings",
-              "slug": "image-embeddings",
-              "level": "h3",
-              "children": []
-            }
-          ]
+          "children": []
+        },
+        {
+          "text": "Service Journalism Helpbots",
+          "slug": "service-journalism-helpbots",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Document Archaeology at Scale",
+          "slug": "document-archaeology-at-scale",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Image Forensics and Geolocation",
+          "slug": "image-forensics-and-geolocation",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Police Accountability Tools",
+          "slug": "police-accountability-tools",
+          "level": "h2",
+          "children": []
         }
       ],
       "type": "post",
@@ -6723,10 +6892,10 @@
   },
   {
     "slug": "drafts/how-i-get-acquainted-with-a-new-codebase",
-    "title": "How I Get Acquainted With A New Codebase",
+    "title": "Step Zero: Get It Running Locally",
     "date": "2025-03-05T15:10:06.000Z",
     "type": "post",
-    "modified": "2025-08-28T19:27:58.000Z",
+    "modified": "2025-08-29T18:10:02.000Z",
     "tags": [
       "code",
       "howto",
@@ -6735,10 +6904,65 @@
       "programming",
       "workflow"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Step Zero: Get It Running Locally",
+        "slug": "step-zero-get-it-running-locally",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Read the README (Even If It Sucks)",
+        "slug": "read-the-readme-even-if-it-sucks",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Front-End Applications: Follow the User Journey",
+        "slug": "front-end-applications-follow-the-user-journey",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Backend Applications: Find the Scaffolding",
+        "slug": "backend-applications-find-the-scaffolding",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Data Applications: Start at the Source",
+        "slug": "data-applications-start-at-the-source",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "The First PR: Proof of Concept",
+        "slug": "the-first-pr-proof-of-concept",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Document What You Learn",
+        "slug": "document-what-you-learn",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "The Secret: Talk to People First",
+        "slug": "the-secret-talk-to-people-first",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Your New Identity: Sherlock Holmes Meets Art Therapist",
+        "slug": "your-new-identity-sherlock-holmes-meets-art-therapist",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "metadata": {
       "date": "2025-03-05T15:10:06.000Z",
-      "modified": "2025-08-28T19:27:58.000Z",
+      "modified": "2025-08-29T18:10:02.000Z",
       "tags": [
         "code",
         "howto",
@@ -6747,12 +6971,69 @@
         "programming",
         "workflow"
       ],
-      "words": 142,
+      "words": 810,
       "images": 0,
       "links": 0,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 9
+      },
+      "toc": [
+        {
+          "text": "Step Zero: Get It Running Locally",
+          "slug": "step-zero-get-it-running-locally",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Read the README (Even If It Sucks)",
+          "slug": "read-the-readme-even-if-it-sucks",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Front-End Applications: Follow the User Journey",
+          "slug": "front-end-applications-follow-the-user-journey",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Backend Applications: Find the Scaffolding",
+          "slug": "backend-applications-find-the-scaffolding",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Data Applications: Start at the Source",
+          "slug": "data-applications-start-at-the-source",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "The First PR: Proof of Concept",
+          "slug": "the-first-pr-proof-of-concept",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Document What You Learn",
+          "slug": "document-what-you-learn",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "The Secret: Talk to People First",
+          "slug": "the-secret-talk-to-people-first",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Your New Identity: Sherlock Holmes Meets Art Therapist",
+          "slug": "your-new-identity-sherlock-holmes-meets-art-therapist",
+          "level": "h2",
+          "children": []
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/drafts/how-i-get-acquainted-with-a-new-codebase.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -7853,9 +8134,9 @@
     "metadata": {
       "date": "2025-08-19T16:24:53.000Z",
       "modified": "2025-08-19T16:31:01.000Z",
-      "words": 3,
-      "images": 0,
-      "links": 0,
+      "words": 4,
+      "images": 1,
+      "links": 1,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -23215,9 +23496,9 @@
     "metadata": {
       "date": "2025-08-25T13:57:28.000Z",
       "modified": "2025-08-28T22:09:25.000Z",
-      "words": 179,
-      "images": 17,
-      "links": 17,
+      "words": 190,
+      "images": 18,
+      "links": 18,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],

@@ -78,7 +78,7 @@ const isMobile = computed(() => {
 // Simple setup for title and TOC
 onMounted(() => {
   if (process.server) return
-  
+
   if (postTitle.value) {
     titleWidth.value = postTitle.value.offsetWidth
   }
@@ -89,7 +89,7 @@ onMounted(() => {
     headings.value = Array.from(
       articleContent.value.querySelectorAll('h2, h3, h4')
     )
-    
+
     headings.value.forEach((heading) => {
       const { stop } = useIntersectionObserver(
         heading,
@@ -153,7 +153,7 @@ const renderedTitle = computed(() => {
     })
     return `<span class="word">${spans.join('')}</span>`
   }
-  
+
   // During animation
   const spans = letters.value.map(({ char, id, isSpace }, index) => {
     const isVisible = animationState.visibleLetters.has(id)
@@ -174,7 +174,7 @@ const renderedTitle = computed(() => {
 // Typing animation - only runs on client after mount
 async function typeText() {
   if (process.server || animationState.hasAnimated) return
-  
+
   // Mark that we're starting animation
   animationState.hasAnimated = true
   animationState.isAnimating = true
@@ -206,7 +206,6 @@ onMounted(() => {
     typeText()
   }, 100)
 })
-
 
 function formatDate(date) {
   if (!date) return 'No date'
@@ -258,7 +257,7 @@ useHead(() => ({
     {
       name: 'twitter:description',
       content: post.value?.metadata?.dek || post.value?.dek
-    },
+    }
   ],
   link: [{ rel: 'canonical', href: postUrl.value }],
   htmlAttrs: { lang: 'en' }
@@ -283,51 +282,59 @@ const distance = (a, b) => {
   const [len1, len2] = [a.length, b.length]
   if (len1 === 0) return len2
   if (len2 === 0) return len1
-  
-  let prev = Array(len2 + 1).fill(0).map((_, i) => i)
-  
+
+  let prev = Array(len2 + 1)
+    .fill(0)
+    .map((_, i) => i)
+
   for (let i = 1; i <= len1; i++) {
     const curr = [i]
     for (let j = 1; j <= len2; j++) {
-      curr[j] = a[i-1] === b[j-1] ? prev[j-1] : 
-        Math.min(prev[j-1], prev[j], curr[j-1]) + 1
+      curr[j] =
+        a[i - 1] === b[j - 1]
+          ? prev[j - 1]
+          : Math.min(prev[j - 1], prev[j], curr[j - 1]) + 1
     }
     prev = curr
   }
   return prev[len2]
 }
 
-watch(error, async (err) => {
-  if (!err) return
-  
-  try {
-    const posts = await $fetch('/api/manifest')
-    const path = route.path.replace(/^\/blog\//, '').toLowerCase()
-    
-    const matches = posts
-      ?.filter(p => !p.hidden && !p.draft)
-      .map(p => ({
-        title: p.title,
-        path: `/blog/${p.slug}`,
-        score: Math.max(
-          50 - distance(p.slug?.replace(/^\d{4}\//, ''), path),
-          30 - distance(p.title?.toLowerCase().replace(/\s+/g, '-'), path)
-        )
-      }))
-      .filter(p => p.score > 10)
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 3) || []
-    
-    smartSuggestions.value = matches.length ? matches : 
-      [{ title: 'Blog Archive', path: '/blog' }]
-      
-  } catch {
-    smartSuggestions.value = [{ title: 'Blog Archive', path: '/blog' }]
-  }
-}, { immediate: true })
+watch(
+  error,
+  async (err) => {
+    if (!err) return
+
+    try {
+      const posts = await $fetch('/api/manifest')
+      const path = route.path.replace(/^\/blog\//, '').toLowerCase()
+
+      const matches =
+        posts
+          ?.filter((p) => !p.hidden && !p.draft)
+          .map((p) => ({
+            title: p.title,
+            path: `/blog/${p.slug}`,
+            score: Math.max(
+              50 - distance(p.slug?.replace(/^\d{4}\//, ''), path),
+              30 - distance(p.title?.toLowerCase().replace(/\s+/g, '-'), path)
+            )
+          }))
+          .filter((p) => p.score > 10)
+          .sort((a, b) => b.score - a.score)
+          .slice(0, 3) || []
+
+      smartSuggestions.value = matches.length
+        ? matches
+        : [{ title: 'Blog Archive', path: '/blog' }]
+    } catch {
+      smartSuggestions.value = [{ title: 'Blog Archive', path: '/blog' }]
+    }
+  },
+  { immediate: true }
+)
 
 // DELETE: Removed 369KB OpenPGP.js signature verification for performance
-
 
 /**
  * Post Metadata Structure
@@ -413,11 +420,13 @@ const processedMetadata = computed(() => {
         />
       </div>
 
-      <div class="min-h-[50vh] md:min-h-[80vh] flex items-center py-8 md:py-16 lg:py-24">
+      <div
+        class="min-h-[50vh] md:min-h-[80vh] flex items-center py-8 md:py-16 lg:py-24"
+      >
         <h1
           v-if="post?.metadata?.title || post?.title"
           ref="postTitle"
-          class="font-bold w-full py-4 md:py-8 pr-4 md:pr-8 pl-4 md:pl-0 tracking-tighter leading-[0.7] font-serif text-5xl md:text-6xl lg:text-7xl p-name"
+          class="font-bold w-full py-4 md:py-8 pr-4 md:pr-8 pl-4 md:pl-0 tracking-tighter md:leading-[0.7] font-serif text-5xl md:text-6xl lg:text-7xl p-name"
         >
           {{ post?.metadata?.title || post?.title }}
         </h1>
@@ -429,15 +438,14 @@ const processedMetadata = computed(() => {
           to="/blog/"
           class="inline-flex items-center gap-1.5 px-3 py-2 text-sm bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-900 dark:text-zinc-100 rounded-lg transition-colors"
         >
-          ←
-          Back to Blog
+          ← Back to Blog
         </NuxtLink>
       </div>
 
       <!-- Published time for microformats -->
-      <time 
+      <time
         v-if="post?.metadata?.date"
-        :datetime="post.metadata.date" 
+        :datetime="post.metadata.date"
         class="dt-published hidden"
       >
         {{ formatDate(post.metadata.date) }}
@@ -452,7 +460,10 @@ const processedMetadata = computed(() => {
       <!-- Permalink for microformats -->
       <a :href="postUrl" class="u-url hidden">{{ postUrl }}</a>
 
-      <div ref="articleContent" class="mt-8 md:mt-16 lg:mt-24 mb-12 md:mb-16 lg:mb-24">
+      <div
+        ref="articleContent"
+        class="mt-8 md:mt-16 lg:mt-24 mb-12 md:mb-16 lg:mb-24"
+      >
         <article
           v-if="post?.html"
           class="blog-post-content e-content"
@@ -477,7 +488,8 @@ const processedMetadata = computed(() => {
           <a
             :href="`/blog/tag/${tag}`"
             class="px-2 py-1 text-xs font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 rounded hover:bg-zinc-200 dark:hover:bg-zinc-700 no-underline p-category"
-          >{{ tag }}</a>
+            >{{ tag }}</a
+          >
         </span>
       </div>
 
@@ -497,7 +509,8 @@ const processedMetadata = computed(() => {
               formatDate(nextPrevPosts.prev.date)
             }}</span>
             <span class="text-current block">
-              {{ nextPrevPosts.prev?.title }}</span>
+              {{ nextPrevPosts.prev?.title }}</span
+            >
           </NuxtLink>
         </div>
 
@@ -513,7 +526,9 @@ const processedMetadata = computed(() => {
             <span class="block text-sm text-gray-400 font-mono">{{
               formatDate(nextPrevPosts.next.date)
             }}</span>
-            <span class="text-current block">{{ nextPrevPosts.next?.title }} →</span>
+            <span class="text-current block"
+              >{{ nextPrevPosts.next?.title }} →</span
+            >
           </NuxtLink>
         </div>
       </div>
@@ -521,16 +536,14 @@ const processedMetadata = computed(() => {
       <!-- Tip jar - minimal CTA -->
       <TipJar v-if="!post.metadata?.noTips" />
     </article>
-    <ErrorPage 
+    <ErrorPage
       v-else-if="error"
       :path="$route?.path || 'unknown'"
-      :suggestions="smartSuggestions.filter(s => s.title !== 'Blog Archive')"
+      :suggestions="smartSuggestions.filter((s) => s.title !== 'Blog Archive')"
       :primary-link="{ href: '/blog', text: 'browse all posts' }"
     />
     <div v-else class="p-4 text-center">
-      <p class="text-xl text-zinc-600 dark:text-zinc-400">
-        Loading...
-      </p>
+      <p class="text-xl text-zinc-600 dark:text-zinc-400">Loading...</p>
     </div>
 
     <!-- Desktop TOC -->
@@ -538,7 +551,7 @@ const processedMetadata = computed(() => {
       <div
         v-if="
           post?.toc?.[0]?.children?.length ||
-            post?.metadata?.toc?.[0]?.children?.length
+          post?.metadata?.toc?.[0]?.children?.length
         "
         class="toc"
       >
@@ -551,7 +564,7 @@ const processedMetadata = computed(() => {
           <ul class="space-y-1">
             <li
               v-for="child in post?.toc?.[0]?.children ||
-                post?.metadata?.toc?.[0]?.children"
+              post?.metadata?.toc?.[0]?.children"
               :key="child.slug"
               class="group relative"
             >
@@ -580,7 +593,6 @@ const processedMetadata = computed(() => {
 </template>
 
 <style lang="postcss">
-
 .blog-post-content {
   @apply px-3 md:px-2 font-serif font-normal opacity-100 leading-relaxed;
 }
@@ -588,7 +600,7 @@ const processedMetadata = computed(() => {
 /* Apply prose width constraints only to text content, not images */
 .blog-post-content p,
 .blog-post-content h1,
-.blog-post-content h2, 
+.blog-post-content h2,
 .blog-post-content h3,
 .blog-post-content h4,
 .blog-post-content h5,
@@ -608,7 +620,6 @@ const processedMetadata = computed(() => {
 .blog-post-content img {
   @apply w-full max-w-none my-8 rounded-lg;
 }
-
 
 /* Blockquotes get special styling */
 .blog-post-content blockquote {
@@ -630,5 +641,4 @@ const processedMetadata = computed(() => {
   vertical-align: baseline;
   margin-left: 0.125rem;
 }
-
 </style>

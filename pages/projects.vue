@@ -32,9 +32,9 @@ const getProjectId = (project) => {
 // Create TOC from all projects
 const projectToc = computed(() => {
   if (!projects.value) return []
-  
+
   const items = []
-  
+
   // Featured projects with their own section
   if (featuredProjects.value.length > 0) {
     items.push({
@@ -42,7 +42,7 @@ const projectToc = computed(() => {
       id: 'featured-work',
       level: 'h2'
     })
-    
+
     featuredProjects.value.forEach((project) => {
       items.push({
         text: project.title || project.metadata?.title,
@@ -51,7 +51,7 @@ const projectToc = computed(() => {
       })
     })
   }
-  
+
   // Regular projects with their own section (only if there are also featured projects)
   if (regularProjects.value.length > 0 && featuredProjects.value.length > 0) {
     items.push({
@@ -60,7 +60,7 @@ const projectToc = computed(() => {
       level: 'h2'
     })
   }
-  
+
   // Add regular projects
   regularProjects.value.forEach((project) => {
     items.push({
@@ -69,7 +69,7 @@ const projectToc = computed(() => {
       level: 'h3'
     })
   })
-  
+
   return items
 })
 
@@ -81,58 +81,35 @@ useHead({
 <template>
   <div>
     <header class="header">
-      <h1 class="text-display mb-8">
-        Projects
-      </h1>
+      <h1 class="text-display mb-8">Projects</h1>
       <p class="text-body">
-        I build tools that sit at the intersection of engineering and
-        design—where technical depth meets human intuition. My projects
-        explore how we can make complex systems more approachable, whether
-        that's turning high-dimensional data into navigable visual spaces,
-        designing interfaces that respond to natural human gestures, or
-        creating developer tools that prioritize delight alongside
-        functionality. Each experiment represents a belief that technology
-        should amplify human creativity, not constrain it.
+
       </p>
     </header>
 
     <div class="max-w-screen-lg pr-8">
       <section class="mt-16 md:mt-0">
         <div v-if="!projects || !projects.length" class="text-center py-16">
-          <p class="text-zinc-600 dark:text-zinc-400">
-            No projects found.
-          </p>
+          <p class="text-zinc-600 dark:text-zinc-400">No projects found.</p>
         </div>
 
         <!-- Featured Projects -->
         <div v-if="featuredProjects.length" class="mb-16">
-          <h2 id="featured-work" class="section-header">
-            Featured Work
-          </h2>
+          <h2 id="featured-work" class="section-header">Featured Work</h2>
           <div class="space-y-32 transition-all duration-500 ease-out">
-            <FeaturedProjectCard
-              v-for="(project, index) in featuredProjects"
-              :key="project.slug"
-              :project="project"
-              :index="index"
-              :id="getProjectId(project)"
-              class="featured-project"
-            />
+            <FeaturedProjectCard v-for="(project, index) in featuredProjects" :key="project.slug" :project="project"
+              :index="index" :id="getProjectId(project)" class="featured-project" />
           </div>
         </div>
 
         <!-- Regular Projects -->
         <div v-if="regularProjects.length">
-          <h2 v-if="featuredProjects.length" id="all-projects" class="sr-only">All Projects</h2>
+          <h2 v-if="featuredProjects.length" id="all-projects" class="sr-only">
+            All Projects
+          </h2>
           <div class="space-y-24 transition-all duration-500 ease-out">
-            <ProjectCard
-              v-for="(project, index) in regularProjects"
-              :key="project.slug"
-              :project="project"
-              :index="index"
-              :id="getProjectId(project)"
-              class="regular-project"
-            />
+            <ProjectCard v-for="(project, index) in regularProjects" :key="project.slug" :project="project"
+              :index="index" :id="getProjectId(project)" class="regular-project" />
           </div>
         </div>
       </section>
@@ -147,10 +124,8 @@ useHead({
           </h3>
           <ul class="space-y-2 text-sm">
             <li v-for="item in projectToc" :key="item.id" :class="item.level === 'h2' ? 'font-medium' : 'ml-3'">
-              <a 
-                :href="`#${item.id}`"
-                class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors block py-1"
-              >
+              <a :href="`#${item.id}`"
+                class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors block py-1">
                 {{ item.text }}
               </a>
             </li>

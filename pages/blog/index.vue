@@ -26,9 +26,9 @@
             <article
               v-for="post in blogPostsByYear[year]"
               :key="post?.slug"
-              class="group grid grid-cols-12 gap-4 h-entry"
+              class="group p-4 md:p-0 md:grid grid-cols-12 gap-4 h-entry"
             >
-              <div class="col-span-1 md:col-span-2 pl-2 md:pl-0">
+              <div class="col-span-1 md:col-span-2 md:pl-0">
                 <PostMetadata
                   v-if="post"
                   :doc="createPostMetadata(post)"
@@ -38,17 +38,23 @@
               </div>
               <div class="col-span-11 md:col-span-10">
                 <h3 class="mb-2">
-                  <NuxtLink :to="`/blog/${post?.slug}`" class="post-link p-name u-url">
+                  <NuxtLink
+                    :to="`/blog/${post?.slug}`"
+                    class="post-link p-name u-url"
+                  >
                     {{ post?.title || formatTitle(post?.slug) }}
                   </NuxtLink>
                 </h3>
-                <p v-if="post?.metadata?.dek || post?.dek" class="post-dek p-summary">
+                <p
+                  v-if="post?.metadata?.dek || post?.dek"
+                  class="post-dek p-summary"
+                >
                   {{ post?.metadata?.dek || post?.dek }}
                 </p>
                 <!-- Hidden microformat data for each post -->
-                <time 
+                <time
                   v-if="post?.metadata?.date || post?.date"
-                  :datetime="post?.metadata?.date || post?.date" 
+                  :datetime="post?.metadata?.date || post?.date"
                   class="dt-published hidden"
                 >
                   {{ post?.metadata?.date || post?.date }}
