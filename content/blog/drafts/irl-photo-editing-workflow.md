@@ -5,8 +5,10 @@ tags:
   - photography
   - personal
   - process
+  - workflow
+  - analog
 date: 2025-06-02T09:55:03-04:00
-modified: 2025-06-02T09:59:51-04:00
+modified: 2025-08-28T18:58:04-04:00
 ---
 
 ## Real-World Processes For Photography

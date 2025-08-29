@@ -3,7 +3,12 @@ dek: "In which we learn to use radios to the best of our ability"
 inprogress: true
 date: 2023-09-03T12:33:47-04:00
 modified: 2025-08-28T15:11:44-04:00
-tags: "howto"
+tags:
+  - howto
+  - radio
+  - communication
+  - tech
+  - hardware
 hidden: true
 draft: true
 ---

@@ -1,6 +1,12 @@
 ---
 date: 2025-08-13T19:03:17-04:00
-modified: 2025-08-14T09:25:08-04:00
+modified: 2025-08-28T22:05:11-04:00
+tags:
+  - journalism
+  - ai
+  - machinelearning
+  - tech
+  - media
 ---
 
 Imagine we had a big whiteboard, and we sat for a while and thought of the actual real applications of what everyone wants to call "AI".

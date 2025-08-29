@@ -8,21 +8,15 @@ tags:
 hidden: true
 draft: true
 ---
-## Minecraft is the Metaverse: The future we're waiting for is already here
+## Minecraft is the Metaverse: The Future Has Already Arrived (It's Just Unevenly Distributed to 8-Year-Olds)
 
-### Introduction
+While Mark Zuckerberg burns through billions trying to convince adults to strap VR headsets to their faces and attend virtual meetings, millions of kids are already living in a fully-realized metaverse that launched over a decade ago. They're building cities, running economies, creating art, and forming communities in persistent virtual worlds that make Meta's sterile conference rooms look like a PowerPoint presentation.
 
-- Briefly introduce the concept of the Metaverse
-- Pose the question: What if the Metaverse is already here?
-- Thesis statement: Minecraft serves as an existing example of a Metaverse
+The metaverse isn't coming. It's here. It's called Minecraft, and the only reason Silicon Valley doesn't recognize it is because it doesn't look like the corporate-sanitized vision they've been trying to sell us.
 
----
+### The $44 Billion Question Nobody's Asking
 
-### The Hype Around the Metaverse
-
-- Discuss the growing interest in the Metaverse
-- Mention notable companies and figures investing in it
-- Explain the features people expect from a Metaverse
+Meta has spent more on metaverse development since 2021 than most countries' GDP. Microsoft paid $2.5 billion for the "future of social connection." Apple is building headsets that cost more than most people's cars. Meanwhile, Minecraft generates over $380 million annually from a game that looks like it was built with digital LEGOs.
 
 ---
 

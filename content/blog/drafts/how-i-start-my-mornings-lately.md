@@ -1,6 +1,12 @@
 ---
 date: 2025-02-17T10:29:04-05:00
 modified: 2025-06-02T10:00:02-04:00
+tags:
+  - personal
+  - routine
+  - inspiration
+  - productivity
+  - morning
 ---
 
 There are a few people who, when I watch their videos, fill me with motivation and inspiration.

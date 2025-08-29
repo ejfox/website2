@@ -5,6 +5,8 @@ tags:
   - machinelearning
   - howto
   - tech
+  - coding
+  - ai
 ## An Idiot's Guide to Finetuning an LLM
 ---
 

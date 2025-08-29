@@ -1,6 +1,13 @@
 ---
 date: 2025-08-01T08:49:14-04:00
-modified: 2025-08-01T08:50:18-04:00
+modified: 2025-08-28T18:32:42-04:00
+tags:
+  - nvim
+  - vue
+  - nuxt
+  - coding
+  - tools
+  - howto
 ---
 ## Setting up nvim for Nuxt / Vue development
 

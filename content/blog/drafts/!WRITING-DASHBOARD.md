@@ -1,10 +1,14 @@
-#  Writing Dashboard
+---
+date: 2025-08-28T16:10:59-04:00
+modified: 2025-08-28T18:01:59-04:00
+---
+## Writing Dashboard
 
 *Your writing mise en place - everything you need to sit down and write*
 
 ---
 
-##  **Ready to Write** (Top Priorities)
+### **Ready To Write** (Top Priorities)
 
 **High-value, nearly done:**
 - [cloudinary-backup-blog-pos](cloudinary-backup-blog-pos)t]] - 1022 words - **ALMOST DONE!**
@@ -18,7 +22,7 @@
 
 ---
 
-##  **Quick Wins** (Under 30min)
+### **Quick Wins** (Under 30min)
 
 **Just need polish/conclusion:**
 - [plate-carrier-ki](plate-carrier-ki)t]] - 244 words - **NEARLY COMPLETE**
@@ -27,11 +31,11 @@
 
 ---
 
-##  **Seed Ideas** (Expand when inspired)
+### **Seed Ideas** (Expand When inspired)
 
 **Short but promising:**
 - [how-i-get-acquainted-with-a-new-codebas](how-i-get-acquainted-with-a-new-codebas)e]] - 163 words
-- [irl-photo-editing-workflo](irl-photo-editing-workflo)w]] - 61 words  
+- [irl-photo-editing-workflo](irl-photo-editing-workflo)w]] - 61 words
 - [idiots-guide-finetuning-ll](idiots-guide-finetuning-ll)m]] - 38 words
 - [nvim-and-nux](nvim-and-nux)t]] - 18 words
 - [ar-lens-prototypin](ar-lens-prototypin)g]] - 7 words
@@ -41,21 +45,21 @@
 
 ---
 
-##  **Writing Tools**
+### **Writing Tools**
 
-### Templates
+#### Templates
 - [templates/blogpos](templates/blogpos)t]] - Standard blog post template
 - [templates/video-scrip](templates/video-scrip)t]] - For video content
 - *Add more as needed*
 
-### Quick Commands
+#### Quick Commands
 - `Cmd+T` → Search drafts quickly
 - Use `#inprogress` tag when actively writing
 - Use `#draft` tag for all drafts
 
 ---
 
-##  **Writing Session Checklist**
+### **Writing Session Checklist**
 
 **Before you start:**
 - [ ] Pick ONE draft from "Ready to Write"
@@ -75,7 +79,7 @@
 
 ---
 
-##  **Recently Completed**
+### **Recently Completed**
 
 *Celebrate your wins here - move completed drafts from above*
 

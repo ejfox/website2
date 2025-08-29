@@ -1,10 +1,13 @@
 ---
 date: 2025-08-06T12:53:07-04:00
-modified: 2025-08-13T11:15:55-04:00
+modified: 2025-08-28T16:38:29-04:00
 tags:
   - dataviz
   - quantifiedself
   - personal
+  - data
+  - analytics
+  - productivity
 ---
 ## Ten Years of the Computer
 
@@ -35,7 +38,7 @@ My YouTube consumption tells a story about how I learn. I started small in 2012 
 
 - 2014: 315 hours
 - 2020: 299 hours
-- 2021: 589 hours (97% increase - nearly doubling)  
+- 2021: 589 hours (97% increase - nearly doubling)
 - 2022: 244 hours (crashed back to earth)
 
 With nowhere to go and endless time, I accidentally conducted the largest educational experiment of my life. While others binged Netflix, I was deep in programming tutorials, design theory, and maker content.
@@ -46,7 +49,7 @@ The data captured my transition from digital music production to physical instru
 
 **2014 - Peak Digital Era:**
 - Logic Pro X: 118 hours (building production skills)
-- Traktor: 197 hours (digital DJing obsession)  
+- Traktor: 197 hours (digital DJing obsession)
 - Total: 393 hours making music on computers
 
 **2016 - The Turning Point:**
@@ -63,8 +66,8 @@ If there's one thing the data reveals about my relationship with social platform
 **The Facebook Years (2013-2016)**
 My early twenties were peak Facebook addiction. In 2014, I spent 169 hours on the platform - that's 28 minutes every single day, including a legendary 17-hour binge on June 1st, 2015. (What was I even doing for 17 hours? The mind boggles.)
 
-**The Great Migration (2017-2019)**  
-Then something interesting happened: I just... stopped. Facebook usage collapsed from 116 hours to 15 hours over two years. This wasn't a conscious decision - I simply found myself opening Twitter instead. The data shows a near-perfect inverse relationship: as Facebook died, Twitter grew.
+**The Great Migration (2017-2019)**
+Then something interesting happened: I just… stopped. Facebook usage collapsed from 116 hours to 15 hours over two years. This wasn't a conscious decision - I simply found myself opening Twitter instead. The data shows a near-perfect inverse relationship: as Facebook died, Twitter grew.
 
 **The Pandemic Peak (2020-2021)**
 COVID broke my brain in measurable ways. Twitter usage exploded from 50 hours in 2019 to 327 hours in 2021 - nearly an hour every day. I was mainlining political discourse, pandemic updates, and tech Twitter drama with 0.6-minute average sessions. Pure dopamine farming.

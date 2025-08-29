@@ -4,6 +4,10 @@ tags:
   - process
   - cli
   - audio
+  - automation
+  - podcast
+  - workflow
+  - machinelearning
 date: 2025-03-04T23:05:00-05:00
 modified: 2025-06-02T10:02:28-04:00
 ---

@@ -5,6 +5,9 @@ tags:
   - code
   - howto
   - process
+  - coding
+  - programming
+  - workflow
 ## How I get acquainted with a new codebase
 ---
 

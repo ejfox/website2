@@ -2,8 +2,8 @@
 draft: true
 dek: In which
 inprogress: true
-date: 2023-03-15T19:07:34.000Z
-modified: 2024-07-18T19:10:59.000Z
+date: 2023-03-15T15:07:34-04:00
+modified: 2025-08-28T18:45:33-04:00
 tags: []
 ---
 ## How I Carefully Schedule Out My Week for Maximum Productivity
