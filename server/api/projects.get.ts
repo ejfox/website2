@@ -18,9 +18,9 @@ export default defineEventHandler(async () => {
     const manifestContent = await readFile(manifestPath, 'utf8')
     const manifest = JSON.parse(manifestContent)
     
-    // Filter for project posts
+    // Filter for project posts, excluding those starting with !
     const projectPosts = manifest.filter((post: any) => {
-      return post.slug?.startsWith('projects/')
+      return post.slug?.startsWith('projects/') && !post.slug.includes('/!')
     })
     
     // Load content for each project
