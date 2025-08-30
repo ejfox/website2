@@ -19,7 +19,27 @@
       </div>
     </div>
 
-    <!-- Rating Histogram -->
+    <!-- Variant Ratings with Deltas -->
+    <div class="space-y-1.5 mb-4">
+      <div 
+        v-for="variant in variantRatingsWithDeltas" 
+        :key="variant.name"
+        class="flex items-center justify-between text-xs"
+      >
+        <span class="text-zinc-500 uppercase tracking-wider" style="font-size: 10px">{{ variant.name }}</span>
+        <div class="flex items-center gap-2">
+          <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">{{ variant.current }}</span>
+          <span v-if="variant.delta !== 0" 
+                :class="variant.delta > 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'"
+                class="tabular-nums" 
+                style="font-size: 9px">
+            {{ variant.delta > 0 ? '+' : '' }}{{ variant.delta }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rating Histogram (This makes no sense but keeping for now) -->
     <div v-if="hasRatingHistory">
       <div class="flex items-end justify-between h-8 w-full gap-px">
         <div
@@ -49,18 +69,6 @@
       />
     </div>
 
-    <!-- Variant Ratings -->
-    <div class="space-y-1.5">
-      <div 
-        v-for="variant in variantRatings" 
-        :key="variant.name"
-        class="flex items-center justify-between text-xs"
-      >
-        <span class="text-zinc-500 uppercase tracking-wider" style="font-size: 10px">{{ variant.name }}</span>
-        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">{{ variant.rating }}</span>
-      </div>
-    </div>
-
     <!-- Performance Stats -->
     <div v-if="hasGameStats">
       <StatsSectionHeader title="PERFORMANCE" />
@@ -76,12 +84,12 @@
       </div>
     </div>
 
-    <!-- Recent Matches -->
-    <div v-if="stats.recentGames?.length">
-      <StatsSectionHeader title="RECENT MATCHES" />
+    <!-- Recent Matches (This Month Only) -->
+    <div v-if="thisMonthGames.length">
+      <StatsSectionHeader title="THIS MONTH'S GAMES" />
       <div class="space-y-1">
         <div 
-          v-for="game in recentGamesSorted.slice(0, 10)" 
+          v-for="game in thisMonthGames.slice(0, 10)" 
           :key="game.id || game.url"
           class="flex items-center justify-between text-xs"
         >
@@ -92,10 +100,12 @@
             <span class="text-zinc-500 uppercase" style="font-size: 9px">
               {{ formatGameTypeMinimal(game.timeControl) }}
             </span>
-            <div 
-              class="w-1.5 h-1.5 rounded-full"
-              :class="getChessResultColor(game.result)"
-            ></div>
+            <span 
+              class="font-bold text-zinc-600 dark:text-zinc-400"
+              style="font-size: 9px"
+            >
+              {{ game.result === 'win' ? 'W' : game.result === 'loss' ? 'L' : 'D' }}
+            </span>
           </div>
           <div class="flex items-center gap-1">
             <span class="tabular-nums font-medium">{{ game.rating }}</span>
@@ -313,7 +323,44 @@ const getBarHeight = (rating: number = 0) => {
   return scale(rating)
 }
 
-// Consolidated arrays
+// This month's games only
+const thisMonthGames = computed(() => {
+  if (!props.stats?.recentGames) return []
+  
+  const now = new Date()
+  const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1)
+  
+  return [...props.stats.recentGames]
+    .filter(game => {
+      const gameDate = new Date(game.timestamp * 1000)
+      return gameDate >= startOfMonth
+    })
+    .sort((a, b) => b.timestamp - a.timestamp)
+})
+
+// Variant ratings with deltas (current vs best)
+const variantRatingsWithDeltas = computed(() => {
+  if (!props.stats) return []
+  
+  const variants = ['bullet', 'blitz', 'rapid'] as const
+  
+  return variants.map(variant => {
+    const current = getRating(variant)
+    const best = isNewFormat.value
+      ? (props.stats!.bestRating as NewFormatRatings)[variant] || 0
+      : props.stats!.bestRating as number
+    
+    const delta = current - best
+    
+    return {
+      name: variant.toUpperCase(),
+      current: formatNumber(current),
+      delta: Math.round(delta)
+    }
+  }).filter(variant => parseInt(variant.current.replace(/,/g, '')) > 0)
+})
+
+// Legacy: Keep for compatibility
 const variantRatings = computed(() => [
   { name: 'BULLET', rating: formatNumber(getRating('bullet')) },
   { name: 'BLITZ', rating: formatNumber(getRating('blitz')) },

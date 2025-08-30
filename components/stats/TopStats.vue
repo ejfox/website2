@@ -1,6 +1,6 @@
 <template>
   <div
-    class="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 md:grid-cols-4 md:gap-6 lg:grid-cols-6"
+    class="flex flex-wrap justify-between gap-3 sm:gap-4 md:gap-6"
   >
     <!-- GitHub Contributions -->
     <div
@@ -261,7 +261,7 @@ const postsThisMonth = computed(() => {
 <style scoped>
 /* Subtle top stats card styling - with anime.js custom properties */
 .top-stat-card {
-  @apply text-center p-4;
+  @apply text-center p-4 flex-1 min-w-0;
   --card-glow: 0%;
   background: radial-gradient(
     circle at center,

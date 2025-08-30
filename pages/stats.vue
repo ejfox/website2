@@ -328,8 +328,11 @@
       <!-- Main Content -->
       <section class="min-w-0 w-full mx-auto max-w-none">
         <!-- Header -->
-        <header class="flex items-center justify-between py-6">
-          <h1 class="text-mono-label">STATS</h1>
+        <header class="py-6">
+          <h1 class="text-mono-label mb-4">STATS</h1>
+          <!-- Data-driven gonzo summary -->
+          <div v-if="summaryData.text" class="text-sm text-zinc-600 dark:text-zinc-400 font-mono border-l-2 border-zinc-300 dark:border-zinc-700 pl-4 max-w-2xl" v-html="summaryData.text">
+          </div>
         </header>
 
         <!-- Top Stats -->
@@ -337,7 +340,7 @@
           <template #default>
             <ClientOnly>
               <Transition name="fade" appear>
-                <div v-if="stats" id="top-stats" class="relative">
+                <div v-if="stats && Object.keys(stats).length > 0" id="top-stats" class="relative">
                   <TopStats :stats="stats" :blog-stats="validBlogStats" />
                 </div>
               </Transition>
@@ -347,7 +350,14 @@
 
         <!-- Main Stats Grid -->
         <section class="grid md:gap-4 lg:gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 overflow-hidden pr-4 md:pr-8">
+          <!-- Loading state -->
+          <div v-if="isLoading" class="col-span-full text-center py-12 font-mono text-zinc-500">
+            Loading system metrics...
+          </div>
+          
           <TransitionGroup name="fade-up" tag="div" class="contents" appear>
+            <!-- Only show sections when stats are actually loaded -->
+            <template v-if="!isLoading && stats && Object.keys(stats).length > 0">
             <!-- GitHub -->
             <StatsSection
               v-if="stats.github?.stats"
@@ -468,6 +478,7 @@
             >
               <UmamiStats key="umami" :umami-stats="stats.website" />
             </StatsSection>
+            </template>
           </TransitionGroup>
         </section>
 
@@ -477,7 +488,7 @@
           <Transition name="fade-up" appear>
             <div id="gear" class="relative">
               <StatsSection title="GEAR">
-                <GearStats :gear-stats="stats.gear" />
+                <GearStats :gear-stats="stats?.gear" />
               </StatsSection>
             </div>
           </Transition>
@@ -488,11 +499,27 @@
 </template>
 
 <script setup lang="ts">
-// Nuxt 4 auto-imports - DELETE all manual imports!
+// Import stats components explicitly (Nuxt 4 auto-import issues)
+import StatsSection from '~/components/stats/StatsSection.vue'
+import TopStats from '~/components/stats/TopStats.vue'
+import GitHubStats from '~/components/stats/GitHubStats.vue'
+import BlogStats from '~/components/stats/BlogStats.vue'
+import GoodreadsStats from '~/components/stats/GoodreadsStats.vue'
+import RescueTimeStats from '~/components/stats/RescueTimeStats.vue'
+import LeetCodeStats from '~/components/stats/LeetCodeStats.vue'
+import ChessStats from '~/components/stats/ChessStats.vue'
+import MonkeyTypeStats from '~/components/stats/MonkeyTypeStats.vue'
+import GistStats from '~/components/stats/GistStats.vue'
+import LastFmStats from '~/components/stats/LastFmStats.vue'
+import LetterboxdStats from '~/components/stats/LetterboxdStats.vue'
+import UmamiStats from '~/components/stats/UmamiStats.vue'
+import GearStats from '~/components/stats/GearStats.vue'
+import ActivityCalendar from '~/components/stats/ActivityCalendar.vue'
+
 const route = useRoute()
 
 const { stats: rawStats, isLoading } = useStats()
-const stats = computed(() => rawStats.value || {})
+const stats = computed(() => rawStats.value)
 const { getAllPosts } = useProcessedMarkdown()
 const { formatNumber, formatDecimal, formatPercentage } = useNumberFormat()
 
@@ -633,6 +660,183 @@ onMounted(async () => {
 })
 
 const validBlogStats = computed(() => blogStats.value || undefined)
+
+// Pluralization helper
+const pluralize = (count: number, singular: string, plural?: string) => {
+  if (count === 1) return `${count} ${singular}`
+  return `${count} ${plural || singular + 's'}`
+}
+
+// Data-driven gonzo summary sentence generator
+const summaryData = computed(() => {
+  if (!stats.value) return { text: '' }
+  
+  const blog = stats.value.blog
+  const github = stats.value.github?.detail?.commits
+  const leetcode = stats.value.leetcode?.recentSubmissions
+  const chess = stats.value.chess?.recentGames
+  const monkeyType = stats.value.monkeyType?.typingStats
+  const gear = stats.value.gear?.stats
+  const gists = stats.value.gists?.recentGists
+  const lastfm = stats.value.lastfm?.recentTracks?.tracks
+  const letterboxd = stats.value.letterboxd?.films
+  const rescueTime = stats.value.rescueTime?.week
+  const website = stats.value.website?.stats
+  
+  let clauses = []
+  
+  // Writing activity - check recent posts (last 7 days)
+  if (blog?.recentPosts?.length) {
+    const recentPosts = blog.recentPosts.filter(post => {
+      const postDate = new Date(post.date)
+      const weekAgo = new Date()
+      weekAgo.setDate(weekAgo.getDate() - 7)
+      return postDate >= weekAgo
+    })
+    if (recentPosts.length > 0) {
+      const totalWords = recentPosts.reduce((sum, post) => sum + (post.words || 0), 0)
+      const postsPlural = pluralize(recentPosts.length, 'post')
+      clauses.push(`<a href="#writing" class="underline hover:no-underline">written</a> ${formatNumber(totalWords)} words across ${postsPlural}`)
+    }
+  }
+  
+  // Recent GitHub commits (last 7 days)
+  if (github?.length) {
+    const recentCommits = github.filter(commit => {
+      const commitDate = new Date(commit.occurredAt)
+      const weekAgo = new Date()
+      weekAgo.setDate(weekAgo.getDate() - 7)
+      return commitDate >= weekAgo
+    })
+    if (recentCommits.length > 0) {
+      clauses.push(`made ${recentCommits.length} <a href="#github" class="underline hover:no-underline">commits</a>`)
+    }
+  }
+  
+  // Recent LeetCode activity
+  if (leetcode?.length) {
+    const recent = leetcode.filter(sub => {
+      // Convert Unix timestamp to milliseconds if needed
+      const timestamp = sub.timestamp.toString().length === 10 ? parseInt(sub.timestamp) * 1000 : parseInt(sub.timestamp)
+      const subDate = new Date(timestamp)
+      const weekAgo = new Date()
+      weekAgo.setDate(weekAgo.getDate() - 7) 
+      // Filter out future dates (bad data) and only get last week's activity
+      return subDate >= weekAgo && subDate <= new Date()
+    })
+    if (recent.length > 0) {
+      clauses.push(`<a href="#leetcode" class="underline hover:no-underline">solved</a> ${recent.length} coding problems`)
+    }
+  }
+  
+  // Recent chess games
+  if (chess?.length) {
+    const recentGames = chess.filter(game => {
+      const gameDate = new Date(game.timestamp * 1000)
+      const weekAgo = new Date()
+      weekAgo.setDate(weekAgo.getDate() - 7)
+      return gameDate >= weekAgo
+    })
+    if (recentGames.length > 0) {
+      const wins = recentGames.filter(g => g.result === 'win').length
+      const winText = wins === 1 ? 'win' : 'wins'
+      clauses.push(`<a href="#chess" class="underline hover:no-underline">played</a> ${recentGames.length} chess games (${wins} ${winText})`)
+    }
+  }
+  
+  // Typing activity - check if we have recent tests
+  if (monkeyType?.recentTests?.length) {
+    const recent = monkeyType.recentTests.filter(test => {
+      const testDate = new Date(test.timestamp)
+      const weekAgo = new Date()
+      weekAgo.setDate(weekAgo.getDate() - 7)
+      return testDate >= weekAgo
+    })
+    if (recent.length > 0) {
+      const bestRecent = Math.max(...recent.map(t => t.wpm))
+      clauses.push(`<a href="#typing" class="underline hover:no-underline">typed</a> at ${bestRecent} WPM`)
+    }
+  }
+  
+  // Recent gists (last 7 days)
+  if (gists?.length) {
+    const recentGists = gists.filter(gist => {
+      const gistDate = new Date(gist.created_at)
+      const weekAgo = new Date()
+      weekAgo.setDate(weekAgo.getDate() - 7)
+      return gistDate >= weekAgo
+    })
+    if (recentGists.length > 0) {
+      clauses.push(`created ${recentGists.length} <a href="#gists" class="underline hover:no-underline">gists</a>`)
+    }
+  }
+  
+  // Recent music listening (last.fm recent tracks)
+  if (lastfm?.length && lastfm[0]?.date) {
+    const recentTracks = lastfm.filter(track => {
+      if (!track.date) return false
+      const trackDate = new Date(parseInt(track.date.uts) * 1000)
+      const weekAgo = new Date()
+      weekAgo.setDate(weekAgo.getDate() - 7)
+      return trackDate >= weekAgo
+    })
+    if (recentTracks.length > 0) {
+      const topArtist = recentTracks[0]?.artist?.name
+      clauses.push(`listened to ${recentTracks.length} <a href="#music" class="underline hover:no-underline">tracks</a>${topArtist ? ` (mostly ${topArtist})` : ''}`)
+    }
+  }
+  
+  // Recent movies (letterboxd films) - only if watched in last week
+  if (letterboxd?.length) {
+    const recentFilms = letterboxd.filter(film => {
+      const filmDate = new Date(film.watchedDate)
+      const weekAgo = new Date()
+      weekAgo.setDate(weekAgo.getDate() - 7)
+      return filmDate >= weekAgo
+    })
+    if (recentFilms.length > 0) {
+      clauses.push(`watched ${recentFilms.length} <a href="#movies" class="underline hover:no-underline">films</a>`)
+    }
+  }
+  
+  // RescueTime productive hours this week
+  if (rescueTime?.summary?.productive?.time?.hours) {
+    const productiveHours = Math.round(rescueTime.summary.productive.time.hours)
+    if (productiveHours > 0) {
+      clauses.push(`logged ${productiveHours} <a href="#productivity" class="underline hover:no-underline">productive hours</a>`)
+    }
+  }
+  
+  // Website stats (if we have comparison data)
+  if (website?.pageviews?.value && website?.pageviews?.prev) {
+    const current = website.pageviews.value
+    const previous = website.pageviews.prev
+    const change = current - previous
+    if (Math.abs(change) > 0) {
+      const direction = change > 0 ? 'gained' : 'lost'
+      clauses.push(`${direction} ${Math.abs(change)} <a href="#website" class="underline hover:no-underline">pageviews</a>`)
+    }
+  }
+  
+  // Gear optimization - only if added items in past month (need lastUpdated field)
+  // Skip for now - no temporal data available to determine recent additions
+  
+  if (clauses.length === 0) {
+    return { text: 'Monitoring systems, collecting data, optimizing workflows.' }
+  }
+  
+  // Join clauses into a flowing sentence
+  let sentence = "This week I've "
+  if (clauses.length === 1) {
+    sentence += clauses[0] + "."
+  } else if (clauses.length === 2) {
+    sentence += clauses[0] + " and " + clauses[1] + "."
+  } else {
+    sentence += clauses.slice(0, -1).join(", ") + ", and " + clauses[clauses.length - 1] + "."
+  }
+  
+  return { text: sentence }
+})
 
 // Health data transformation
 const transformedHealthStats = computed(() => {
