@@ -68,17 +68,7 @@ export default defineNuxtConfig({
       asyncContext: true // Enable async context support (Nuxt 4 feature)
     },
     compressPublicAssets: false, // Let reverse proxy handle compression
-    prerender: {
-      routes: ['/', '/blog', '/projects', '/gear'],
-      crawlLinks: true // Automatically discover and prerender linked pages
-    },
-    routeRules: {
-      // Static pages - long cache
-      '/': { prerender: true },
-      '/blog/**': { prerender: true },
-      '/projects': { prerender: true },
-      '/gear': { prerender: true },
-      
+    routeRules: {      
       // API routes - short cache for dynamic content
       '/api/**': { 
         cors: true,

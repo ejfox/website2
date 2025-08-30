@@ -1,11 +1,50 @@
 #!/bin/bash
-# VPS Update Script - Wrapper for auto-update.sh with force flag
-# Usage: ./vps_update.sh [--no-pull]
+# VPS Update Script - Pull, build, and restart Docker
+# Usage: ./vps_update.sh [--no-pull] [--no-build]
 
+set -e
 cd /data2/website2
 
-if [ "$1" = "--no-pull" ]; then
-    ./auto-update.sh --force --no-pull
+echo "🔄 Starting VPS update..."
+
+NO_PULL=false
+NO_BUILD=false
+
+# Parse command line arguments
+for arg in "$@"; do
+    case $arg in
+        --no-pull)
+            NO_PULL=true
+            ;;
+        --no-build)
+            NO_BUILD=true
+            ;;
+    esac
+done
+
+if [ "$NO_PULL" = true ]; then
+    echo "   Skipping git pull (--no-pull flag)"
 else
-    ./auto-update.sh --force
+    echo "📥 Pulling latest changes..."
+    git pull origin main
 fi
+
+# Process content if markdown changed
+echo "📝 Processing content..."
+yarn blog:process
+
+if [ "$NO_BUILD" = true ]; then
+    echo "   Skipping build (--no-build flag)"
+else
+    echo "🔨 Building project..."
+    # Clean build for production
+    rm -rf .nuxt .output
+    yarn build
+fi
+
+echo "🐳 Restarting Docker containers..."
+docker-compose down
+docker-compose up -d --build
+
+echo "✅ VPS update complete!"
+echo "🌐 Site should be available at http://localhost:3006"
