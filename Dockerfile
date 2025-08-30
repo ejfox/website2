@@ -7,8 +7,9 @@ WORKDIR /app
 RUN apk add --no-cache \
     curl
 
-# Copy pre-built output (we'll build locally)
+# Copy pre-built output and content
 COPY .output ./
+COPY content ./content
 
 # Create non-root user
 RUN addgroup -g 1001 -S nodejs && \
