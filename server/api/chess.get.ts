@@ -37,7 +37,15 @@ interface ChessStats {
     rating: number
     totalSolved: number
     bestRating: number
+    lowestRating: number
+    lastUpdated?: number
   }
+  recentPuzzles?: Array<{
+    // Future enhancement - Chess.com API doesn't provide individual attempts
+    date: string
+    rating: number
+    solved: boolean
+  }>
   recentGames: ChessGameResult[]
   lastUpdated: string
 }
@@ -117,8 +125,10 @@ export default defineEventHandler(async () => {
       },
       puzzleStats: {
         rating: stats.tactics?.highest?.rating || 0,
-        totalSolved: stats.tactics?.highest?.total || 0,
-        bestRating: stats.tactics?.highest?.rating || 0
+        totalSolved: 0, // Chess.com doesn't provide total solved count in public API
+        bestRating: stats.tactics?.highest?.rating || 0,
+        lowestRating: stats.tactics?.lowest?.rating || 0,
+        lastUpdated: stats.tactics?.highest?.date
       },
       recentGames: games.games.slice(0, 10).map((game: any) => ({
         id: game.uuid,

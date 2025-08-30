@@ -39,35 +39,8 @@
       </div>
     </div>
 
-    <!-- Rating Histogram (This makes no sense but keeping for now) -->
-    <div v-if="hasRatingHistory">
-      <div class="flex items-end justify-between h-8 w-full gap-px">
-        <div
-          v-for="(game, index) in ratingHistogramData.slice(-20)"
-          :key="index"
-          class="flex-1 transition-all duration-300"
-          :style="{
-            height: getBarHeight(game.rating) + '%',
-            opacity: 0.3 + (index / ratingHistogramData.slice(-20).length) * 0.7,
-            backgroundColor: getChessBarColor(game.result)
-          }"
-          :title="`${game.rating} - ${game.result.toUpperCase()}`"
-        ></div>
-      </div>
-      <div class="flex justify-between text-zinc-500 mt-1" style="font-size: 9px">
-        <span>RECENT GAMES</span>
-        <span class="tabular-nums">{{ ratingRange }}</span>
-      </div>
-    </div>
 
-    <!-- Activity Calendar -->
-    <div v-if="hasRatingHistory">
-      <ActivityCalendar 
-        title="CHESS ACTIVITY" 
-        :active-dates="chessActivityDates" 
-        :active-color="'#71717a'" 
-      />
-    </div>
+
 
     <!-- Performance Stats -->
     <div v-if="hasGameStats">
@@ -127,9 +100,6 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { format } from 'date-fns/format'
-import { scaleLinear } from 'd3-scale'
-import ActivityCalendar from './ActivityCalendar.vue'
 import StatsDataState from './StatsDataState.vue'
 import AnimatedNumber from '../AnimatedNumber.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'
@@ -139,8 +109,6 @@ import {
   formatGameTime, 
   formatGameTypeMinimal, 
   formatRatingDiff,
-  getChessResultColor,
-  getChessBarColor,
   getRatingDiffClass
 } from '~/composables/useNumberFormat'
 
@@ -178,7 +146,14 @@ interface ChessStats {
     rating: number
     totalSolved: number
     bestRating: number
+    lowestRating: number
+    lastUpdated?: number
   }
+  recentPuzzles?: Array<{
+    date: string
+    rating: number
+    solved: boolean
+  }>
   recentGames: ChessGame[]
   lastUpdated: string
 }
@@ -266,62 +241,7 @@ const hasGameStats = computed(() => {
   return gamesPlayed.value > 0 && bestRating.value > 0
 })
 
-// Rating histogram data
-const hasRatingHistory = computed(() => {
-  return props.stats?.recentGames && props.stats.recentGames.length > 0
-})
 
-const ratingHistogramData = computed(() => {
-  if (!props.stats?.recentGames) return []
-  
-  // Use only games with rating info, oldest to newest
-  return [...props.stats.recentGames]
-    .filter(game => !!game.rating)
-    .reverse()
-})
-
-const ratingStats = computed(() => {
-  if (ratingHistogramData.value.length === 0) return { min: 0, max: 0 }
-  
-  const ratings = ratingHistogramData.value.map(game => game.rating || 0)
-  return {
-    min: Math.min(...ratings),
-    max: Math.max(...ratings)
-  }
-})
-
-const ratingRange = computed(() => {
-  const { min, max } = ratingStats.value
-  return `${min}–${max}`
-})
-
-// Activity dates for calendar
-const chessActivityDates = computed(() => {
-  if (!props.stats?.recentGames) return []
-  
-  return props.stats.recentGames.map(game => {
-    const date = new Date(game.timestamp)
-    return format(date, 'yyyy-MM-dd')
-  })
-})
-
-// Recent games sorted
-const recentGamesSorted = computed(() => {
-  if (!props.stats?.recentGames) return []
-  
-  return [...props.stats.recentGames].sort((a, b) => b.timestamp - a.timestamp)
-})
-
-// Use d3 scale for bar heights
-const getBarHeight = (rating: number = 0) => {
-  const { min, max } = ratingStats.value
-  const scale = scaleLinear()
-    .domain([min, max])
-    .range([20, 100])
-    .clamp(true)
-  
-  return scale(rating)
-}
 
 // This month's games only
 const thisMonthGames = computed(() => {
@@ -359,6 +279,7 @@ const variantRatingsWithDeltas = computed(() => {
     }
   }).filter(variant => parseInt(variant.current.replace(/,/g, '')) > 0)
 })
+
 
 // Legacy: Keep for compatibility
 const variantRatings = computed(() => [
