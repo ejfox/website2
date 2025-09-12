@@ -456,7 +456,7 @@ export interface StatsResponse {
       slug: string
       rating: number | null
       letterboxdUrl: string
-      watchedDate: string
+      watchedDate: string | null
     }>
     stats: {
       totalFilms: number

@@ -82,7 +82,7 @@ export default defineEventHandler(async (_event) => {
         }
 
         // Extract date from contexts
-        let watchedDate = new Date().toISOString()
+        let watchedDate = null
         for (const context of contexts) {
           const datePatterns = [
             /datetime="([^"]*)"/,
@@ -97,7 +97,7 @@ export default defineEventHandler(async (_event) => {
               break
             }
           }
-          if (watchedDate !== new Date().toISOString()) break
+          if (watchedDate) break
         }
 
         films.push({
@@ -119,7 +119,7 @@ export default defineEventHandler(async (_event) => {
 
     // Calculate stats
     const thisYear = films.filter(
-      (f) => new Date(f.watchedDate).getFullYear() === new Date().getFullYear()
+      (f) => f.watchedDate && new Date(f.watchedDate).getFullYear() === new Date().getFullYear()
     ).length
 
     const ratedFilms = films.filter((f) => f.rating)
@@ -133,6 +133,7 @@ export default defineEventHandler(async (_event) => {
       totalFilms: totalFilms,
       thisYear: thisYear,
       thisMonth: films.filter((f) => {
+        if (!f.watchedDate) return false
         const filmDate = new Date(f.watchedDate)
         const now = new Date()
         return (

@@ -169,10 +169,11 @@ async function fetchContributions(
     viewer {
       contributionsCollection(from: $lastMonth, to: $today) {
         totalCommitContributions
-        commitContributionsByRepository {
+        commitContributionsByRepository(maxRepositories: 100) {
           repository {
             name
             url
+            isPrivate
             defaultBranchRef {
               target {
                 ... on Commit {
@@ -298,6 +299,7 @@ export default defineEventHandler(async (): Promise<GitHubStats> => {
 
     const commits =
       contributions.viewer.contributionsCollection.commitContributionsByRepository
+        .filter((repo) => !repo.repository.isPrivate) // Filter out private repos
         .flatMap((repo) => {
           if (!repo.repository.defaultBranchRef?.target?.history?.nodes) {
             return []

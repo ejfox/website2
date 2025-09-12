@@ -789,10 +789,18 @@ const summaryData = computed(() => {
   // Recent movies (letterboxd films) - only if watched in last week
   if (letterboxd?.length) {
     const recentFilms = letterboxd.filter(film => {
+      // Skip films with invalid or default dates
+      if (!film.watchedDate || film.watchedDate === new Date().toISOString().split('T')[0]) {
+        return false
+      }
       const filmDate = new Date(film.watchedDate)
+      // Check if date is valid
+      if (isNaN(filmDate.getTime())) {
+        return false
+      }
       const weekAgo = new Date()
       weekAgo.setDate(weekAgo.getDate() - 7)
-      return filmDate >= weekAgo
+      return filmDate >= weekAgo && filmDate <= new Date() // Also ensure it's not in the future
     })
     if (recentFilms.length > 0) {
       clauses.push(`watched ${recentFilms.length} <a href="#movies" class="underline hover:no-underline">films</a>`)

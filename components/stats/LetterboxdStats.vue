@@ -74,7 +74,7 @@ interface LetterboxdFilm {
   slug: string
   rating: number | null
   letterboxdUrl: string
-  watchedDate: string
+  watchedDate: string | null
 }
 
 interface LetterboxdStats {
@@ -122,7 +122,8 @@ const stats = computed(
 
 const recentFilms = computed(() => props.letterboxdStats?.films || [])
 
-const formatDate = (dateString: string): string => {
+const formatDate = (dateString: string | null): string => {
+  if (!dateString) return 'NO DATE'
   return format(new Date(dateString), 'MMM d').toUpperCase()
 }
 </script>
