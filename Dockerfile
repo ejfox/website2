@@ -10,6 +10,7 @@ RUN apk add --no-cache \
 # Copy pre-built output and content
 COPY .output ./
 COPY content ./content
+COPY public ./public
 
 # Create non-root user
 RUN addgroup -g 1001 -S nodejs && \
