@@ -1,14 +1,25 @@
 <template>
-  <main class="pt-16 px-8 mx-auto max-w-5xl">
-    <header class="mb-48">
-      <div class="mb-40">
+  <main class="px-4 md:px-8" style="max-width: 65ch">
+    <header class="mb-8">
+      <div class="mb-8">
+        <!-- Data overlay -->
+        <div
+          class="font-mono text-xs text-zinc-400 mb-2 mt-8"
+          style="font-variant-numeric: tabular-nums; line-height: 16px"
+        >
+          <span>PREDICTIONS</span>
+          <span class="mx-2">·</span>
+          <span>{{ transformedPredictions?.length || 0 }} ENTRIES</span>
+        </div>
         <h1
-          class="text-5xl md:text-6xl lg:text-7xl font-light text-zinc-900 dark:text-zinc-100 leading-tight tracking-tight mb-20"
+          class="font-serif text-3xl font-normal mb-4"
+          style="letter-spacing: -0.02em; line-height: 40px"
         >
           Predictions & Forecasts
         </h1>
         <p
-          class="text-zinc-600 dark:text-zinc-400 text-xl max-w-3xl leading-relaxed"
+          class="font-serif text-base text-zinc-600 dark:text-zinc-400"
+          style="line-height: 24px"
         >
           I don't know if I am any good at predicting the future, so I wanted to
           formalize the process. This is an effort to track and record a
@@ -17,28 +28,27 @@
         </p>
       </div>
 
-      <div class="border-l-2 border-zinc-200 dark:border-zinc-800 pl-16">
-        <div class="mb-12">
+      <div
+        class="border-l-2 border-zinc-200 dark:border-zinc-800 pl-4 md:pl-6 mt-6"
+      >
+        <div class="mb-4">
           <h2
-            class="text-xs font-medium text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.3em] mb-3"
+            class="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-2"
           >
             About
           </h2>
-          <h3
-            class="text-sm font-medium text-zinc-500 dark:text-zinc-500 uppercase tracking-[0.2em]"
-          >
-            This System
-          </h3>
+          <h3 class="font-mono text-xs text-zinc-400">This System</h3>
         </div>
         <p
-          class="text-base text-zinc-600 dark:text-zinc-400 leading-[1.8] max-w-2xl"
+          class="font-serif text-sm text-zinc-600 dark:text-zinc-400"
+          style="line-height: 20px"
         >
           Inspired by
           <a
             href="https://gwern.net/doc/statistics/prediction/index"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-zinc-800 dark:text-zinc-200 underline decoration-zinc-300 dark:decoration-zinc-700 decoration-1 underline-offset-4 hover:decoration-zinc-500 dark:hover:decoration-zinc-500 transition-all duration-300"
+            class="text-zinc-900 dark:text-zinc-100 border-b border-zinc-300 dark:border-zinc-700 hover:border-zinc-900 dark:hover:border-zinc-100 transition-colors"
             >Gwern's prediction system</a
           >, and efforts like PredictIt or PolyMarket. But of course I want to
           own my own data and presentation. All predictions are
@@ -51,30 +61,37 @@
     <!-- Zero State -->
     <section
       v-if="transformedPredictions.length === 0"
-      class="text-center mb-32"
+      class="text-center mb-4"
     >
       <div
-        class="w-24 h-24 mx-auto mb-12 bg-zinc-100 dark:bg-zinc-900 rounded-full flex items-center justify-center"
-      ></div>
+        class="font-mono text-xs text-zinc-400 mb-4"
+        style="line-height: 16px"
+      >
+        NO_PREDICTIONS_YET
+      </div>
       <h3
-        class="text-2xl font-light text-zinc-700 dark:text-zinc-300 mb-8 tracking-wide"
+        class="font-serif text-xl text-zinc-700 dark:text-zinc-300 mb-4"
+        style="line-height: 32px"
       >
         No Predictions Yet
       </h3>
       <p
-        class="text-lg text-zinc-500 dark:text-zinc-500 leading-[1.8] max-w-lg mx-auto mb-16"
+        class="font-serif text-base text-zinc-500 dark:text-zinc-500 mb-6"
+        style="line-height: 24px"
       >
         This space will host cryptographically verified predictions and
         forecasts. Each entry will be immutably timestamped for accountability.
       </p>
-      <div class="border-t border-zinc-100 dark:border-zinc-800 pt-16">
+      <div class="border-t border-zinc-200 dark:border-zinc-800 pt-6">
         <p
-          class="text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.3em] mb-8"
+          class="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-2"
+          style="line-height: 16px"
         >
           Methodology
         </p>
         <p
-          class="text-base text-zinc-500 dark:text-zinc-500 leading-[1.8] max-w-xl mx-auto"
+          class="font-serif text-sm text-zinc-500 dark:text-zinc-500"
+          style="line-height: 20px"
         >
           Following academic forecasting standards with SHA-256 hashing, PGP
           signatures, and git-based version control for complete transparency.
@@ -85,9 +102,9 @@
     <!-- Predictions List -->
     <section v-else>
       <div
-        class="flex items-center justify-between pb-20 border-b border-zinc-200 dark:border-zinc-800 mb-40"
+        class="flex items-center justify-between pb-4 border-b border-zinc-200 dark:border-zinc-800 mb-8"
       >
-        <div class="flex items-center gap-6">
+        <div class="flex items-center gap-4">
           <button
             v-for="filterType in filters"
             :key="filterType.key"
@@ -97,14 +114,14 @@
             {{ filterType.label }}
           </button>
         </div>
-        <div class="flex items-center gap-6">
+        <div class="flex items-center gap-4">
           <span
-            class="text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.3em]"
+            class="text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-widest"
             >Sort</span
           >
           <select
             v-model="sortBy"
-            class="px-6 py-3 text-xs bg-transparent text-zinc-700 dark:text-zinc-300 border border-zinc-300 dark:border-zinc-700 focus:outline-none focus:border-zinc-500 dark:focus:border-zinc-400 transition-colors uppercase tracking-[0.2em]"
+            class="px-4 py-2 text-xs bg-transparent text-zinc-700 dark:text-zinc-300 border border-zinc-300 dark:border-zinc-700 focus:outline-none focus:border-zinc-500 dark:focus:border-zinc-400 transition-colors uppercase tracking-widest"
           >
             <option value="date">Date Created</option>
             <option value="confidence">Confidence</option>
@@ -113,7 +130,7 @@
         </div>
       </div>
 
-      <TransitionGroup name="list" tag="div" class="space-y-40 md:space-y-48">
+      <TransitionGroup name="list" tag="div" class="space-y-8 md:space-y-10">
         <div
           v-for="prediction in filteredPredictions"
           :id="`prediction-${prediction.id}`"
@@ -128,31 +145,32 @@
     <!-- Scoreboard -->
     <section
       v-if="transformedPredictions.length > 0"
-      class="mt-64 border-t border-zinc-200 dark:border-zinc-800 pt-32"
+      class="mt-16 border-t border-zinc-200 dark:border-zinc-800 pt-8"
     >
-      <div class="mb-24">
+      <div class="mb-6">
         <h2
-          class="text-xs font-medium text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.3em] mb-4"
+          class="text-xs font-medium text-zinc-400 dark:text-zinc-600 uppercase tracking-widest mb-4"
         >
           Analytics
         </h2>
         <h3
-          class="text-lg font-medium text-zinc-500 dark:text-zinc-500 uppercase tracking-[0.2em]"
+          class="text-lg font-medium text-zinc-500 dark:text-zinc-500 uppercase tracking-widest"
         >
           All-Time Scoreboard
         </h3>
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-16 mb-40">
-        <div v-for="stat in stats" :key="stat.label" class="text-center py-16">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+        <div v-for="stat in stats" :key="stat.label" class="text-center py-4">
           <p
-            class="text-6xl font-light mb-8 font-mono"
+            class="text-5xl font-light mb-2 font-mono"
+            style="line-height: 56px"
             :class="stat.color"
           >
             {{ stat.value }}{{ stat.suffix }}
           </p>
           <p
-            class="text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.3em]"
+            class="text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-widest"
           >
             {{ stat.label }}
           </p>
@@ -162,11 +180,11 @@
       <!-- Accuracy visualization if we have resolved predictions -->
       <div
         v-if="correctCount + incorrectCount > 0"
-        class="bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 p-16 mb-24"
+        class="bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 p-4 mb-6"
       >
-        <div class="flex items-center justify-between mb-10">
+        <div class="flex items-center justify-between mb-8">
           <p
-            class="text-sm font-medium text-zinc-700 dark:text-zinc-300 uppercase tracking-[0.15em]"
+            class="text-sm font-medium text-zinc-700 dark:text-zinc-300 uppercase tracking-widest"
           >
             Accuracy Rate
           </p>
@@ -198,25 +216,25 @@
       </div>
 
       <!-- Advanced Statistics -->
-      <div v-if="correctCount + incorrectCount > 1" class="space-y-12 mb-16">
+      <div v-if="correctCount + incorrectCount > 1" class="space-y-4 mb-4">
         <!-- Confidence Analysis -->
         <div
-          class="bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 p-16"
+          class="bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 p-4"
         >
           <h3
-            class="text-sm font-medium text-zinc-700 dark:text-zinc-300 uppercase tracking-[0.15em] mb-6"
+            class="text-sm font-medium text-zinc-700 dark:text-zinc-300 uppercase tracking-widest mb-8"
           >
             Confidence Analysis
           </h3>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div v-if="correctCount > 0" class="text-center">
               <p
                 class="text-2xl font-mono font-light text-green-600 dark:text-green-400 mb-2"
-                  >
+              >
                 {{ correctConfidenceAvg }}%
               </p>
               <p
-                class="text-xs text-zinc-500 dark:text-zinc-500 uppercase tracking-[0.15em]"
+                class="text-xs text-zinc-500 dark:text-zinc-500 uppercase tracking-widest"
               >
                 Avg Confidence (Correct)
               </p>
@@ -224,11 +242,11 @@
             <div v-if="incorrectCount > 0" class="text-center">
               <p
                 class="text-2xl font-mono font-light text-red-600 dark:text-red-400 mb-2"
-                  >
+              >
                 {{ incorrectConfidenceAvg }}%
               </p>
               <p
-                class="text-xs text-zinc-500 dark:text-zinc-500 uppercase tracking-[0.15em]"
+                class="text-xs text-zinc-500 dark:text-zinc-500 uppercase tracking-widest"
               >
                 Avg Confidence (Incorrect)
               </p>
@@ -236,7 +254,7 @@
           </div>
           <div
             v-if="correctCount > 0 && incorrectCount > 0"
-            class="mt-6 pt-6 border-t border-zinc-200 dark:border-zinc-800"
+            class="mt-8 pt-8 border-t border-zinc-200 dark:border-zinc-800"
           >
             <p class="text-xs text-zinc-500 dark:text-zinc-500 text-center">
               <span
@@ -265,10 +283,10 @@
         <!-- Calibration Chart -->
         <div
           v-if="calibrationData.length > 0"
-          class="bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 p-12"
+          class="bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 p-8"
         >
           <h3
-            class="text-sm font-medium text-zinc-700 dark:text-zinc-300 uppercase tracking-[0.15em] mb-6"
+            class="text-sm font-medium text-zinc-700 dark:text-zinc-300 uppercase tracking-widest mb-8"
           >
             Calibration by Confidence Range
           </h3>
@@ -276,7 +294,7 @@
             <div
               v-for="range in calibrationData"
               :key="range.label"
-              class="flex items-center justify-between py-3 border-b border-zinc-100 dark:border-zinc-800 last:border-b-0"
+              class="flex items-center justify-between py-4 border-b border-zinc-100 dark:border-zinc-800 last:border-b-0"
             >
               <div class="flex items-center gap-4">
                 <span
@@ -314,10 +332,10 @@
         <!-- Resolutions by Year -->
         <div
           v-if="resolutionsByYear.length > 0"
-          class="bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 p-12"
+          class="bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 p-8"
         >
           <h3
-            class="text-sm font-medium text-zinc-700 dark:text-zinc-300 uppercase tracking-[0.15em] mb-6"
+            class="text-sm font-medium text-zinc-700 dark:text-zinc-300 uppercase tracking-widest mb-8"
           >
             Resolutions by Year
           </h3>
@@ -325,7 +343,7 @@
             <div
               v-for="yearData in resolutionsByYear"
               :key="yearData.year"
-              class="flex items-center justify-between py-3 border-b border-zinc-100 dark:border-zinc-800 last:border-b-0"
+              class="flex items-center justify-between py-4 border-b border-zinc-100 dark:border-zinc-800 last:border-b-0"
             >
               <div class="flex items-center gap-4">
                 <span
@@ -363,23 +381,23 @@
     </section>
 
     <!-- Commitment Log -->
-    <section class="mt-48 border-t border-zinc-200 dark:border-zinc-800 pt-24">
-      <div class="mb-16">
+    <section class="mt-12 border-t border-zinc-200 dark:border-zinc-800 pt-6">
+      <div class="mb-4">
         <h2
-          class="text-xs font-medium text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.3em] mb-2"
+          class="text-xs font-medium text-zinc-400 dark:text-zinc-600 uppercase tracking-widest mb-2"
         >
           Audit
         </h2>
         <h3
-          class="text-sm font-medium text-zinc-500 dark:text-zinc-500 uppercase tracking-[0.2em]"
+          class="text-sm font-medium text-zinc-500 dark:text-zinc-500 uppercase tracking-widest"
         >
           Commitment Log
         </h3>
       </div>
 
-      <div class="border-l-2 border-zinc-200 dark:border-zinc-800 pl-12">
+      <div class="border-l-2 border-zinc-200 dark:border-zinc-800 pl-4">
         <p
-          class="text-base text-zinc-600 dark:text-zinc-400 leading-[1.8] mb-12 max-w-2xl"
+          class="text-base text-zinc-600 dark:text-zinc-400 leading-[1.8] mb-8 max-w-2xl"
         >
           All predictions are tracked through git commits, creating an immutable
           audit trail.
@@ -388,7 +406,7 @@
         <a
           href="https://github.com/ejfox/website2/commits/main/content/predictions/"
           target="_blank"
-          class="inline-flex items-center gap-3 px-6 py-3 text-sm text-zinc-700 dark:text-zinc-300 border border-zinc-300 dark:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-900 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all duration-300 uppercase tracking-[0.2em]"
+          class="inline-flex items-center gap-4 px-8 py-4 text-sm text-zinc-700 dark:text-zinc-300 border border-zinc-300 dark:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-900 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all duration-300 uppercase tracking-widest"
         >
           View on GitHub
         </a>
@@ -404,7 +422,7 @@
     <div class="toc w-48">
       <div class="py-4">
         <h3
-          class="text-xs font-semibold uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400 mb-4"
+          class="text-xs font-light uppercase tracking-wide text-zinc-500 dark:text-zinc-400 mb-4"
         >
           Predictions
         </h3>
@@ -480,7 +498,7 @@ const filters = [
 ]
 
 const filterButtonClass = (key) => [
-  'px-8 py-4 text-xs font-medium uppercase tracking-[0.2em] transition-all duration-300',
+  'px-8 py-4 text-xs font-medium uppercase tracking-widest transition-all duration-300',
   filter.value === key
     ? 'text-zinc-900 dark:text-zinc-100 border-b-2 border-zinc-900 dark:border-zinc-100'
     : 'text-zinc-500 dark:text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200'

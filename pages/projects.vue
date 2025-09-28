@@ -73,6 +73,19 @@ const projectToc = computed(() => {
   return items
 })
 
+// Calculate project activity data for sparklines
+const projectActivity = computed(() => {
+  if (!projects.value) return []
+  // Create mock activity data based on project count
+  // In a real app, this could be commit counts, update frequency, etc.
+  const activity = []
+  const months = 12
+  for (let i = 0; i < months; i++) {
+    activity.push(Math.floor((Math.random() * projects.value.length) / 3) + 1)
+  }
+  return activity
+})
+
 useHead({
   title: 'Projects'
 })
@@ -80,14 +93,42 @@ useHead({
 
 <template>
   <div>
-    <header class="header">
-      <h1 class="text-display mb-8">Projects</h1>
-      <p class="text-body">
-
-      </p>
+    <header class="mb-8 px-4 md:px-8">
+      <div style="max-width: 65ch">
+        <!-- Data header with better spacing -->
+        <div
+          class="font-mono text-xs text-zinc-500 mb-3 uppercase tracking-[0.15em] tabular-nums flex items-center gap-3"
+        >
+          <span class="flex items-center gap-2">
+            {{ projects?.length || 0 }} PROJECTS
+            <RhythmicSparklines
+              v-if="projects?.length"
+              :data="projectActivity"
+              variant="inline"
+              :baseline="6"
+            />
+          </span>
+          <span class="text-zinc-300 dark:text-zinc-700">·</span>
+          <span>{{ featuredProjects?.length || 0 }} FEATURED</span>
+          <span class="text-zinc-300 dark:text-zinc-700">·</span>
+          <span>{{ regularProjects?.length || 0 }} ARCHIVE</span>
+        </div>
+        <h1
+          class="font-serif text-4xl md:text-5xl font-light mb-3"
+          style="letter-spacing: -0.025em; line-height: 1.1"
+        >
+          Projects
+        </h1>
+        <p
+          class="font-serif text-lg text-zinc-600 dark:text-zinc-400"
+          style="line-height: 1.6"
+        >
+          Code and art experiments, data visualization, and digital tools.
+        </p>
+      </div>
     </header>
 
-    <div class="max-w-screen-lg pr-8">
+    <div class="px-4 md:px-8" style="max-width: 65ch">
       <section class="mt-16 md:mt-0">
         <div v-if="!projects || !projects.length" class="text-center py-16">
           <p class="text-zinc-600 dark:text-zinc-400">No projects found.</p>
@@ -95,10 +136,21 @@ useHead({
 
         <!-- Featured Projects -->
         <div v-if="featuredProjects.length" class="mb-16">
-          <h2 id="featured-work" class="section-header">Featured Work</h2>
+          <h2
+            id="featured-work"
+            class="font-mono text-xs uppercase tracking-[0.15em] text-zinc-500 mb-6"
+          >
+            FEATURED WORK
+          </h2>
           <div class="space-y-32 transition-all duration-500 ease-out">
-            <FeaturedProjectCard v-for="(project, index) in featuredProjects" :key="project.slug" :project="project"
-              :index="index" :id="getProjectId(project)" class="featured-project" />
+            <FeaturedProjectCard
+              v-for="(project, index) in featuredProjects"
+              :key="project.slug"
+              :project="project"
+              :index="index"
+              :id="getProjectId(project)"
+              class="featured-project"
+            />
           </div>
         </div>
 
@@ -108,8 +160,14 @@ useHead({
             All Projects
           </h2>
           <div class="space-y-24 transition-all duration-500 ease-out">
-            <ProjectCard v-for="(project, index) in regularProjects" :key="project.slug" :project="project"
-              :index="index" :id="getProjectId(project)" class="regular-project" />
+            <ProjectCard
+              v-for="(project, index) in regularProjects"
+              :key="project.slug"
+              :project="project"
+              :index="index"
+              :id="getProjectId(project)"
+              class="regular-project"
+            />
           </div>
         </div>
       </section>
@@ -119,13 +177,21 @@ useHead({
     <teleport v-if="tocTarget && projectToc.length" to="#nav-toc-container">
       <div class="toc">
         <div class="py-4">
-          <h3 class="text-xs font-semibold uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400 mb-4">
+          <h3
+            class="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-4"
+          >
             Projects
           </h3>
           <ul class="space-y-2 text-sm">
-            <li v-for="item in projectToc" :key="item.id" :class="item.level === 'h2' ? 'font-medium' : 'ml-3'">
-              <a :href="`#${item.id}`"
-                class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors block py-1">
+            <li
+              v-for="item in projectToc"
+              :key="item.id"
+              :class="item.level === 'h2' ? 'font-medium' : 'ml-4'"
+            >
+              <a
+                :href="`#${item.id}`"
+                class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors block py-1"
+              >
                 {{ item.text }}
               </a>
             </li>

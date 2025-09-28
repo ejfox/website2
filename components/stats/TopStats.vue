@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="flex flex-wrap justify-between gap-3 sm:gap-4 md:gap-6"
-  >
+  <div class="flex flex-wrap justify-between gap-4 sm:gap-4 md:gap-8">
     <!-- GitHub Contributions -->
     <div
       v-if="stats.github?.stats"

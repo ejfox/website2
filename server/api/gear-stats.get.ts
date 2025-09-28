@@ -18,49 +18,54 @@ export default defineEventHandler(async (_event) => {
     // Read the CSV file from public directory
     const csvPath = resolve(process.cwd(), 'public/gear.csv')
     const csvText = await readFile(csvPath, 'utf-8')
-    
+
     // Parse CSV using d3
     const gearItems = d3.csvParse(csvText) as GearItem[]
-    
+
     // Calculate total items
     const totalItems = gearItems.length
-    
+
     // Calculate total weight
     const totalWeight = gearItems.reduce((sum, item) => {
       const weightStr = item['Base Weight ()']
-      const weightNum = weightStr && weightStr.trim() !== '' ? parseFloat(weightStr) : 0
+      const weightNum =
+        weightStr && weightStr.trim() !== '' ? parseFloat(weightStr) : 0
       return sum + (isNaN(weightNum) ? 0 : weightNum)
     }, 0)
-    
+
     // Calculate container count
     const containers = gearItems
-      .map(item => item['Parent Container'])
-      .filter(container => container && container.trim() !== '')
+      .map((item) => item['Parent Container'])
+      .filter((container) => container && container.trim() !== '')
     const containerCount = new Set(containers).size
-    
+
     // Calculate average TCWM score
     const validScores = gearItems
-      .map(item => {
+      .map((item) => {
         const T = Number(item['Time Criticality (T)']) || 0
-        const C = Number(item['Consequence Severity (C)']) || 0  
+        const C = Number(item['Consequence Severity (C)']) || 0
         const W = Number(item['Weight/Space Penalty (W)']) || 0
         const M = Number(item['Multi-Use Factor (M)']) || 0
-        return (2 * T) + (2 * C) + (1.5 * W) + M
+        return 2 * T + 2 * C + 1.5 * W + M
       })
-      .filter(score => score > 0)
-    
-    const avgTCWMScore = validScores.length > 0 
-      ? validScores.reduce((a, b) => a + b, 0) / validScores.length 
-      : 0
-    
+      .filter((score) => score > 0)
+
+    const avgTCWMScore =
+      validScores.length > 0
+        ? validScores.reduce((a, b) => a + b, 0) / validScores.length
+        : 0
+
     // Calculate type distribution
-    const typeDistribution = gearItems.reduce((acc: Record<string, number>, item) => {
-      if (item.Type) {
-        acc[item.Type] = (acc[item.Type] || 0) + 1
-      }
-      return acc
-    }, {})
-    
+    const typeDistribution = gearItems.reduce(
+      (acc: Record<string, number>, item) => {
+        if (item.Type) {
+          acc[item.Type] = (acc[item.Type] || 0) + 1
+        }
+        return acc
+      },
+      {}
+    )
+
     return {
       stats: {
         totalItems,
@@ -71,7 +76,6 @@ export default defineEventHandler(async (_event) => {
       typeDistribution,
       lastUpdated: new Date().toISOString()
     }
-    
   } catch (error) {
     console.error('Error processing gear data:', error)
     throw createError({

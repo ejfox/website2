@@ -5,20 +5,22 @@
     :style="cardTransform"
   >
     <!-- Header -->
-    <div class="text-center mb-6">
+    <div class="text-center mb-8">
       <div class="text-4xl mb-2">
         {{ getTypeSymbol(gearItem.Type) }}
       </div>
-      <h1 class="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-1">
+      <h1 class="text-2xl font-light text-zinc-900 dark:text-zinc-100 mb-1">
         {{ gearItem.Name }}
       </h1>
-      <div class="text-sm text-zinc-600 dark:text-zinc-400 uppercase tracking-wider">
+      <div
+        class="text-sm text-zinc-600 dark:text-zinc-400 uppercase tracking-widest"
+      >
         {{ gearItem.Type }}
       </div>
     </div>
 
     <!-- Photo Section -->
-    <div v-if="gearImagePath" class="mb-6 flex justify-center">
+    <div v-if="gearImagePath" class="mb-8 flex justify-center">
       <div
         class="w-48 h-48 rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700"
       >
@@ -35,30 +37,38 @@
     </div>
 
     <!-- Weight - Hero stat -->
-    <div class="text-center mb-6 p-4 bg-zinc-50 dark:bg-zinc-800/50 rounded-xl">
-      <div class="text-3xl font-bold font-mono text-zinc-900 dark:text-zinc-100 mb-1">
+    <div class="text-center mb-8 p-4 bg-zinc-50 dark:bg-zinc-800/50 rounded-xl">
+      <div
+        class="text-3xl font-bold font-mono text-zinc-900 dark:text-zinc-100 mb-1"
+      >
         {{ displayWeight }}g
       </div>
-      <div class="text-xs text-zinc-600 dark:text-zinc-400 uppercase tracking-wider font-mono">
+      <div
+        class="text-xs text-zinc-600 dark:text-zinc-400 uppercase tracking-widest font-mono"
+      >
         Weight
       </div>
     </div>
 
     <!-- Stats Grid -->
-    <div class="grid grid-cols-2 gap-4 mb-6">
-      <div class="text-center p-3 bg-zinc-50 dark:bg-zinc-800/50 rounded-lg">
-        <div class="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+    <div class="grid grid-cols-2 gap-4 mb-8">
+      <div class="text-center p-4 bg-zinc-50 dark:bg-zinc-800/50 rounded-lg">
+        <div class="text-lg font-normal text-zinc-900 dark:text-zinc-100">
           T{{ itemTier }}
         </div>
-        <div class="text-xs text-zinc-600 dark:text-zinc-400 uppercase tracking-wider font-mono">
+        <div
+          class="text-xs text-zinc-600 dark:text-zinc-400 uppercase tracking-widest font-mono"
+        >
           Tier
         </div>
       </div>
-      <div class="text-center p-3 bg-zinc-50 dark:bg-zinc-800/50 rounded-lg">
-        <div class="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+      <div class="text-center p-4 bg-zinc-50 dark:bg-zinc-800/50 rounded-lg">
+        <div class="text-lg font-normal text-zinc-900 dark:text-zinc-100">
           {{ gearItem.Waterproof || '—' }}
         </div>
-        <div class="text-xs text-zinc-600 dark:text-zinc-400 uppercase tracking-wider font-mono">
+        <div
+          class="text-xs text-zinc-600 dark:text-zinc-400 uppercase tracking-widest font-mono"
+        >
           H₂O
         </div>
       </div>
@@ -66,13 +76,13 @@
 
     <!-- Container -->
     <div class="text-center text-sm text-zinc-600 dark:text-zinc-400">
-      <span class="uppercase tracking-wider">{{
+      <span class="uppercase tracking-widest">{{
         gearItem['Parent Container'] || 'Unassigned'
       }}</span>
     </div>
 
     <!-- Buy link if available -->
-    <div v-if="gearItem.amazon" class="text-center mt-6">
+    <div v-if="gearItem.amazon" class="text-center mt-8">
       <a
         :href="amazonUrl"
         target="_blank"
@@ -84,9 +94,9 @@
     </div>
 
     <!-- Item Details Table -->
-    <div class="mt-8 border-t border-zinc-200 dark:border-zinc-700 pt-6">
+    <div class="mt-8 border-t border-zinc-200 dark:border-zinc-700 pt-8">
       <h3
-        class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-4 uppercase tracking-wider"
+        class="text-sm font-light text-zinc-900 dark:text-zinc-100 mb-4 uppercase tracking-widest"
       >
         Item Details
       </h3>
@@ -96,13 +106,15 @@
           :key="key"
           class="flex justify-between py-1 border-b border-zinc-100 dark:border-zinc-800 last:border-b-0 min-w-0"
         >
-          <span class="text-zinc-600 dark:text-zinc-400 uppercase tracking-wider flex-shrink-0">{{
-            formatFieldName(key)
-          }}</span>
+          <span
+            class="text-zinc-600 dark:text-zinc-400 uppercase tracking-widest flex-shrink-0"
+            >{{ formatFieldName(key) }}</span
+          >
           <span
             class="text-zinc-900 dark:text-zinc-100 font-mono text-right truncate ml-2 min-w-0"
             :title="value"
-          >{{ value || '—' }}</span>
+            >{{ value || '—' }}</span
+          >
         </div>
       </div>
     </div>
@@ -152,11 +164,11 @@ const displayWeight = computed(() => {
   // If both weight fields are empty, show "?" instead of 0
   const baseWeight = props.gearItem['Base Weight ()']
   const loadedWeight = props.gearItem['Loaded Weight ()']
-  
+
   if (!baseWeight && !loadedWeight) {
     return '?'
   }
-  
+
   return getItemWeightInGrams(props.gearItem) || 0
 })
 
@@ -263,19 +275,14 @@ onUnmounted(() => {
   /* Start more subtle for simultaneous transitions */
   opacity: 0.3;
   /* Less dramatic initial state for faster transitions */
-  transform: 
-    perspective(1500px) 
-    rotateX(-90deg) 
-    rotateY(45deg) 
-    rotateZ(-20deg) 
-    scale(0.4) 
-    translateZ(-200px);
+  transform: perspective(1500px) rotateX(-90deg) rotateY(45deg) rotateZ(-20deg)
+    scale(0.4) translateZ(-200px);
   filter: blur(4px) brightness(0.3) contrast(0.8);
 }
 
 /* Ensure no blur remains after animations */
-.gear-card[style*="filter: none"],
-.gear-card:not([style*="filter"]) {
+.gear-card[style*='filter: none'],
+.gear-card:not([style*='filter']) {
   filter: none !important;
 }
 

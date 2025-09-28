@@ -3,13 +3,16 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4
   },
-  
+
+  // Force SSR mode for consistency
+  ssr: true,
+
   // CRITICAL: Enable experimental features for Nuxt 4 - optimized for sub-1s FCP
   experimental: {
     payloadExtraction: false, // Prevents large payload chunks
-    inlineSSRStyles: true, // Inline CSS to prevent FOUC
+    inlineSSRStyles: true, // Inline CSS to prevent FOUC - CRITICAL FOR NO FLICKERING
     treeshakeClientOnly: true, // Remove client-only components from SSR
-    sharedPrerenderData: true, // Share data between prerendered pages
+    sharedPrerenderData: false, // Can cause hydration issues in dev
     typedPages: true, // Enable typed routing
     renderJsonPayloads: false, // Reduce payload size
     viewTransition: false // Disable view transitions for faster navigation
@@ -24,7 +27,7 @@ export default defineNuxtConfig({
       link: [
         // IndieAuth authorization endpoint
         { rel: 'authorization_endpoint', href: 'https://indieauth.com/auth' },
-        // IndieAuth token endpoint  
+        // IndieAuth token endpoint
         { rel: 'token_endpoint', href: 'https://tokens.indieauth.com/token' }
       ]
     }
@@ -68,15 +71,21 @@ export default defineNuxtConfig({
       asyncContext: true // Enable async context support (Nuxt 4 feature)
     },
     compressPublicAssets: false, // Let reverse proxy handle compression
-    routeRules: {      
-      // API routes - short cache for dynamic content
-      '/api/**': { 
-        cors: true,
-        headers: { 
-          'Cache-Control': 'public, max-age=300, s-maxage=3600',
-          'Cloudflare-CDN-Cache-Control': 'max-age=3600, stale-if-error=86400' 
+    routeRules: {
+      // Only disable caching in dev mode
+      ...(process.env.NODE_ENV === 'development' && {
+        '/**': { headers: { 'Cache-Control': 'no-cache' } }
+      }),
+      // API routes - production only caching
+      ...(process.env.NODE_ENV === 'production' && {
+        '/api/**': {
+          cors: true,
+          headers: {
+            'Cache-Control': 'public, max-age=300, s-maxage=3600',
+            'Cloudflare-CDN-Cache-Control': 'max-age=3600, stale-if-error=86400'
+          }
         }
-      }
+      })
     }
   },
 
@@ -102,11 +111,12 @@ export default defineNuxtConfig({
     },
     optimizeDeps: {
       include: ['vue', '@vue/reactivity', '@vueuse/core'],
-      exclude: ['d3', 'd3-dsv', 'd3-format'], // Lazy load heavy libs
-      force: true
+      exclude: ['d3', 'd3-dsv', 'd3-format'] // Lazy load heavy libs
+      // force: true // DISABLED FOR DEV - was forcing aggressive dep caching
     },
     esbuild: {
-      drop: process.env.NODE_ENV === 'production' ? ['console', 'debugger'] : [],
+      drop:
+        process.env.NODE_ENV === 'production' ? ['console', 'debugger'] : [],
       legalComments: 'none', // Remove comments
       tsconfigRaw: {
         compilerOptions: {

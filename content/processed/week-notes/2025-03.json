@@ -1,17 +1,18 @@
 {
-  "content": "<h2 class=\"text-3xl font-semibold mb-4 mt-8 max-w-prose mx-auto font-sans\" id=\"projects-worked-on\">Projects Worked On</h2>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8 max-w-prose mx-auto font-sans\" id=\"creative-endeavors\">Creative Endeavors</h2>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8 max-w-prose mx-auto font-sans\" id=\"books-movies-tv\">Books, Movies, TV</h2>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8 max-w-prose mx-auto font-sans\" id=\"personal-growth--health\">Personal Growth &#x26; Health</h2>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8 max-w-prose mx-auto font-sans\" id=\"social--community-engagement\">Social &#x26; Community Engagement</h2>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8 max-w-prose mx-auto font-sans\" id=\"goals-for-the-future\">Goals for the Future</h2>\n<!-- Set Specific, Measurable, Achievable, Relevant, and Time-bound goals or intentions for the upcoming week. -->\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
-  "html": "<h2 class=\"text-3xl font-semibold mb-4 mt-8 max-w-prose mx-auto font-sans\" id=\"projects-worked-on\">Projects Worked On</h2>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8 max-w-prose mx-auto font-sans\" id=\"creative-endeavors\">Creative Endeavors</h2>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8 max-w-prose mx-auto font-sans\" id=\"books-movies-tv\">Books, Movies, TV</h2>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8 max-w-prose mx-auto font-sans\" id=\"personal-growth--health\">Personal Growth &#x26; Health</h2>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8 max-w-prose mx-auto font-sans\" id=\"social--community-engagement\">Social &#x26; Community Engagement</h2>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8 max-w-prose mx-auto font-sans\" id=\"goals-for-the-future\">Goals for the Future</h2>\n<!-- Set Specific, Measurable, Achievable, Relevant, and Time-bound goals or intentions for the upcoming week. -->\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
+  "content": "<h2 class=\"\" id=\"projects-worked-on\">Projects Worked On</h2>\n<h2 class=\"\" id=\"creative-endeavors\">Creative Endeavors</h2>\n<h2 class=\"\" id=\"books-movies-tv\">Books, Movies, TV</h2>\n<h2 class=\"\" id=\"personal-growth--health\">Personal Growth &#x26; Health</h2>\n<h2 class=\"\" id=\"social--community-engagement\">Social &#x26; Community Engagement</h2>\n<h2 class=\"\" id=\"goals-for-the-future\">Goals for the Future</h2>\n<!-- Set Specific, Measurable, Achievable, Relevant, and Time-bound goals or intentions for the upcoming week. -->\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
+  "html": "<h2 class=\"\" id=\"projects-worked-on\">Projects Worked On</h2>\n<h2 class=\"\" id=\"creative-endeavors\">Creative Endeavors</h2>\n<h2 class=\"\" id=\"books-movies-tv\">Books, Movies, TV</h2>\n<h2 class=\"\" id=\"personal-growth--health\">Personal Growth &#x26; Health</h2>\n<h2 class=\"\" id=\"social--community-engagement\">Social &#x26; Community Engagement</h2>\n<h2 class=\"\" id=\"goals-for-the-future\">Goals for the Future</h2>\n<!-- Set Specific, Measurable, Achievable, Relevant, and Time-bound goals or intentions for the upcoming week. -->\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
   "title": "Overview of the Week",
   "metadata": {
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress"
-    ],
+    "tags": ["weekly-notes", "reflections", "progress"],
     "modified": "2025-06-18T14:40:59.000Z",
     "date": "2025-01-15T20:49:04.000Z",
     "words": 50,
     "images": 0,
+    "imageDetails": {
+      "total": 0,
+      "cloudinary": 0,
+      "withDimensions": 0
+    },
     "links": 0,
     "codeBlocks": 0,
     "headers": {

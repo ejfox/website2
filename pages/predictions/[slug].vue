@@ -5,13 +5,13 @@
       <div class="flex items-center justify-between mb-24">
         <NuxtLink
           to="/predictions"
-          class="text-xs text-zinc-500 dark:text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors uppercase tracking-[0.2em]"
+          class="text-xs text-zinc-500 dark:text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors uppercase tracking-widest"
         >
           ← All Predictions
         </NuxtLink>
 
         <div
-          class="text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.3em] font-mono"
+          class="text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-widest font-mono"
         >
           Report
         </div>
@@ -22,7 +22,7 @@
     <section class="mb-48">
       <div
         :class="[
-          'border-l-2 pl-12',
+          'border-l-2 pl-8',
           prediction.status === 'correct'
             ? 'border-green-500 dark:border-green-600'
             : prediction.status === 'incorrect'
@@ -45,7 +45,7 @@
             {{ prediction.confidence }}%
           </p>
           <p
-            class="text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.2em]"
+            class="text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-widest"
           >
             Confidence
           </p>
@@ -55,7 +55,7 @@
             {{ formatDate(prediction.deadline) }}
           </p>
           <p
-            class="text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.2em]"
+            class="text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-widest"
           >
             Deadline
           </p>
@@ -70,7 +70,7 @@
         >
           <p
             :class="[
-              'text-xl font-light mb-4 uppercase tracking-[0.1em]',
+              'text-xl font-light mb-4 uppercase tracking-wide',
               prediction.status === 'correct'
                 ? 'text-green-600 dark:text-green-400'
                 : 'text-red-600 dark:text-red-400'
@@ -79,7 +79,7 @@
             {{ prediction.status }}
           </p>
           <p
-            class="text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.2em]"
+            class="text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-widest"
           >
             Status
           </p>
@@ -91,19 +91,19 @@
     <section v-if="prediction.evidence" class="mb-48">
       <div class="mb-16">
         <h2
-          class="text-xs font-medium text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.3em] mb-2"
+          class="text-xs font-medium text-zinc-400 dark:text-zinc-600 uppercase tracking-widest mb-2"
         >
           01
         </h2>
         <h3
-          class="text-sm font-medium text-zinc-500 dark:text-zinc-500 uppercase tracking-[0.2em]"
+          class="text-sm font-medium text-zinc-500 dark:text-zinc-500 uppercase tracking-widest"
         >
           Evidence & Reasoning
         </h3>
       </div>
 
       <div
-        class="prose prose-xl dark:prose-invert prose-zinc max-w-none prose-p:text-zinc-600 dark:prose-p:text-zinc-400 prose-p:leading-[1.8] prose-p:mb-8 prose-headings:font-light prose-headings:tracking-tight prose-headings:text-zinc-800 dark:prose-headings:text-zinc-200 prose-h1:text-2xl prose-h1:mb-8 prose-h1:mt-16 prose-h2:text-xl prose-h2:mb-6 prose-h2:mt-12 prose-h2:border-b prose-h2:border-zinc-200 dark:prose-h2:border-zinc-800 prose-h2:pb-3 prose-h3:text-lg prose-h3:mb-4 prose-h3:mt-8 prose-ul:my-8 prose-li:my-3 prose-li:leading-[1.8] prose-li:marker:text-zinc-300 dark:prose-li:marker:text-zinc-700 prose-strong:text-zinc-800 dark:prose-strong:text-zinc-200 prose-strong:font-medium prose-em:text-zinc-700 dark:prose-em:text-zinc-300 prose-em:italic prose-a:text-zinc-800 dark:prose-a:text-zinc-200 prose-a:underline prose-a:decoration-zinc-300 dark:prose-a:decoration-zinc-700 prose-a:underline-offset-4 hover:prose-a:decoration-zinc-500 prose-code:text-zinc-700 dark:prose-code:text-zinc-300 prose-code:bg-zinc-100 dark:prose-code:bg-zinc-900 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-base prose-code:font-mono prose-code:before:content-none prose-code:after:content-none"
+        class="prose prose-xl dark:prose-invert prose-zinc max-w-none prose-p:text-zinc-600 dark:prose-p:text-zinc-400 prose-p:leading-[1.8] prose-p:mb-8 prose-headings:font-light prose-headings:tracking-tight prose-headings:text-zinc-800 dark:prose-headings:text-zinc-200 prose-h1:text-2xl prose-h1:mb-8 prose-h1:mt-16 prose-h2:text-xl prose-h2:mb-8 prose-h2:mt-8 prose-h2:border-b prose-h2:border-zinc-200 dark:prose-h2:border-zinc-800 prose-h2:pb-4 prose-h3:text-lg prose-h3:mb-4 prose-h3:mt-8 prose-ul:my-8 prose-li:my-4 prose-li:leading-[1.8] prose-li:marker:text-zinc-300 dark:prose-li:marker:text-zinc-700 prose-strong:text-zinc-800 dark:prose-strong:text-zinc-200 prose-strong:font-medium prose-em:text-zinc-700 dark:prose-em:text-zinc-300 prose-em:italic prose-a:text-zinc-800 dark:prose-a:text-zinc-200 prose-a:underline prose-a:decoration-zinc-300 dark:prose-a:decoration-zinc-700 prose-a:underline-offset-4 hover:prose-a:decoration-zinc-500 prose-code:text-zinc-700 dark:prose-code:text-zinc-300 prose-code:bg-zinc-100 dark:prose-code:bg-zinc-900 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-base prose-code:font-mono prose-code:before:content-none prose-code:after:content-none"
         v-html="evidenceHtml"
       ></div>
     </section>
@@ -112,12 +112,12 @@
     <section v-if="prediction.resolution" class="mb-48">
       <div class="mb-16">
         <h2
-          class="text-xs font-medium text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.3em] mb-2"
+          class="text-xs font-medium text-zinc-400 dark:text-zinc-600 uppercase tracking-widest mb-2"
         >
           02
         </h2>
         <h3
-          class="text-sm font-medium uppercase tracking-[0.2em]"
+          class="text-sm font-medium uppercase tracking-widest"
           :class="[
             prediction.status === 'correct'
               ? 'text-green-600 dark:text-green-400'
@@ -137,7 +137,7 @@
       </div>
 
       <div
-        class="prose prose-xl dark:prose-invert prose-zinc max-w-none prose-p:text-zinc-600 dark:prose-p:text-zinc-400 prose-p:leading-[1.8] prose-p:mb-8 prose-headings:font-light prose-headings:tracking-tight prose-headings:text-zinc-800 dark:prose-headings:text-zinc-200 prose-h1:text-2xl prose-h1:mb-8 prose-h1:mt-16 prose-h2:text-xl prose-h2:mb-6 prose-h2:mt-12 prose-h2:border-b prose-h2:border-zinc-200 dark:prose-h2:border-zinc-800 prose-h2:pb-3 prose-h3:text-lg prose-h3:mb-4 prose-h3:mt-8 prose-ul:my-8 prose-li:my-3 prose-li:leading-[1.8] prose-li:marker:text-zinc-300 dark:prose-li:marker:text-zinc-700 prose-strong:text-zinc-800 dark:prose-strong:text-zinc-200 prose-strong:font-medium prose-em:text-zinc-700 dark:prose-em:text-zinc-300 prose-em:italic prose-a:text-zinc-800 dark:prose-a:text-zinc-200 prose-a:underline prose-a:decoration-zinc-300 dark:prose-a:decoration-zinc-700 prose-a:underline-offset-4 hover:prose-a:decoration-zinc-500 prose-code:text-zinc-700 dark:prose-code:text-zinc-300 prose-code:bg-zinc-100 dark:prose-code:bg-zinc-900 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-base prose-code:font-mono prose-code:before:content-none prose-code:after:content-none"
+        class="prose prose-xl dark:prose-invert prose-zinc max-w-none prose-p:text-zinc-600 dark:prose-p:text-zinc-400 prose-p:leading-[1.8] prose-p:mb-8 prose-headings:font-light prose-headings:tracking-tight prose-headings:text-zinc-800 dark:prose-headings:text-zinc-200 prose-h1:text-2xl prose-h1:mb-8 prose-h1:mt-16 prose-h2:text-xl prose-h2:mb-8 prose-h2:mt-8 prose-h2:border-b prose-h2:border-zinc-200 dark:prose-h2:border-zinc-800 prose-h2:pb-4 prose-h3:text-lg prose-h3:mb-4 prose-h3:mt-8 prose-ul:my-8 prose-li:my-4 prose-li:leading-[1.8] prose-li:marker:text-zinc-300 dark:prose-li:marker:text-zinc-700 prose-strong:text-zinc-800 dark:prose-strong:text-zinc-200 prose-strong:font-medium prose-em:text-zinc-700 dark:prose-em:text-zinc-300 prose-em:italic prose-a:text-zinc-800 dark:prose-a:text-zinc-200 prose-a:underline prose-a:decoration-zinc-300 dark:prose-a:decoration-zinc-700 prose-a:underline-offset-4 hover:prose-a:decoration-zinc-500 prose-code:text-zinc-700 dark:prose-code:text-zinc-300 prose-code:bg-zinc-100 dark:prose-code:bg-zinc-900 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-base prose-code:font-mono prose-code:before:content-none prose-code:after:content-none"
         v-html="resolutionHtml"
       ></div>
     </section>
@@ -149,22 +149,22 @@
     >
       <div class="mb-16">
         <h2
-          class="text-xs font-medium text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.3em] mb-2"
+          class="text-xs font-medium text-zinc-400 dark:text-zinc-600 uppercase tracking-widest mb-2"
         >
           03
         </h2>
         <h3
-          class="text-sm font-medium text-zinc-500 dark:text-zinc-500 uppercase tracking-[0.2em]"
+          class="text-sm font-medium text-zinc-500 dark:text-zinc-500 uppercase tracking-widest"
         >
           Related Predictions
         </h3>
       </div>
 
-      <div class="space-y-6">
+      <div class="space-y-8">
         <div
           v-for="relatedId in prediction.related"
           :key="relatedId"
-          class="py-6 border-b border-zinc-100 dark:border-zinc-900 last:border-b-0"
+          class="py-8 border-b border-zinc-100 dark:border-zinc-900 last:border-b-0"
         >
           <NuxtLink
             :to="`/predictions/${relatedId}`"
@@ -175,7 +175,7 @@
               >{{ relatedId }}</span
             >
             <span
-              class="text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.2em]"
+              class="text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-widest"
               >→</span
             >
           </NuxtLink>
@@ -188,7 +188,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
         <div>
           <h3
-            class="text-xs font-medium text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.3em] mb-4"
+            class="text-xs font-medium text-zinc-400 dark:text-zinc-600 uppercase tracking-widest mb-4"
           >
             Created
           </h3>
@@ -198,15 +198,15 @@
         </div>
         <div v-if="prediction.categories && prediction.categories.length > 0">
           <h3
-            class="text-xs font-medium text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.3em] mb-4"
+            class="text-xs font-medium text-zinc-400 dark:text-zinc-600 uppercase tracking-widest mb-4"
           >
             Categories
           </h3>
-          <div class="flex flex-wrap gap-3">
+          <div class="flex flex-wrap gap-4">
             <span
               v-for="category in prediction.categories"
               :key="category"
-              class="text-xs text-zinc-500 dark:text-zinc-500 uppercase tracking-[0.2em]"
+              class="text-xs text-zinc-500 dark:text-zinc-500 uppercase tracking-widest"
             >
               {{ category }}
             </span>
@@ -214,7 +214,7 @@
         </div>
         <div>
           <h3
-            class="text-xs font-medium text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.3em] mb-4"
+            class="text-xs font-medium text-zinc-400 dark:text-zinc-600 uppercase tracking-widest mb-4"
           >
             Visibility
           </h3>
@@ -234,12 +234,12 @@
     <h2 class="text-2xl font-medium text-zinc-800 dark:text-zinc-200 mb-4">
       Prediction not found
     </h2>
-    <p class="text-zinc-600 dark:text-zinc-400 mb-6 text-center">
+    <p class="text-zinc-600 dark:text-zinc-400 mb-8 text-center">
       The prediction you're looking for doesn't exist or has been removed.
     </p>
     <NuxtLink
       to="/predictions"
-      class="px-6 py-3 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"
+      class="px-8 py-4 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"
     >
       View All Predictions
     </NuxtLink>

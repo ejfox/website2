@@ -12,8 +12,10 @@ interface WordsThisMonthResponse {
 export default defineEventHandler(async () => {
   try {
     // Get this month's data
-    const wordsData = await $fetch<WordsThisMonthResponse>('/api/words-this-month')
-    
+    const wordsData = await $fetch<WordsThisMonthResponse>(
+      '/api/words-this-month'
+    )
+
     // Return in a more stats-friendly format
     return {
       posts: {

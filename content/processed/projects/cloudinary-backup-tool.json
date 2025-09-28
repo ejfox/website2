@@ -1,20 +1,20 @@
 {
-  "content": "<p class=\"mb-4 max-w-prose mx-auto\">I needed to backup thousands of photos from Cloudinary, and couldn't find an easy standalone tool to do so. So I built a little desktop app with Tauri. It handles batch downloads without eating all your RAM (vs an Electron app) and lets you resume if something goes wrong.</p>\n<p class=\"mb-4 max-w-prose mx-auto\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png\" alt=\"\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_400/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png 400w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png 800w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png 1200w\" sizes=\"(min-width: 768px) 80vw, 100vw\" loading=\"lazy\" decoding=\"async\" class=\"w-full max-w-full mx-auto w-full mx-auto py-4\" crossorigin=\"anonymous\" style=\"display: block; max-width: 100%;\"></p>",
-  "html": "<p class=\"mb-4 max-w-prose mx-auto\">I needed to backup thousands of photos from Cloudinary, and couldn't find an easy standalone tool to do so. So I built a little desktop app with Tauri. It handles batch downloads without eating all your RAM (vs an Electron app) and lets you resume if something goes wrong.</p>\n<p class=\"mb-4 max-w-prose mx-auto\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png\" alt=\"\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_400/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png 400w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png 800w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png 1200w\" sizes=\"(min-width: 768px) 80vw, 100vw\" loading=\"lazy\" decoding=\"async\" class=\"w-full max-w-full mx-auto w-full mx-auto py-4\" crossorigin=\"anonymous\" style=\"display: block; max-width: 100%;\"></p>",
+  "content": "<p class=\"\">I needed to backup thousands of photos from Cloudinary, and couldn't find an easy standalone tool to do so. So I built a little desktop app with Tauri. It handles batch downloads without eating all your RAM (vs an Electron app) and lets you resume if something goes wrong.</p>\n<p class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png\" alt=\"\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_400/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png 400w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png 800w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png 1200w\" sizes=\"(min-width: 768px) 80vw, 100vw\" loading=\"lazy\" decoding=\"async\" data-placeholder=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_1,w_20,e_blur:1000/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png\" data-loading=\"lazy\" class=\"img-full my-8 rounded-sm w-full mx-auto py-4\" crossorigin=\"anonymous\"></p>",
+  "html": "<p class=\"\">I needed to backup thousands of photos from Cloudinary, and couldn't find an easy standalone tool to do so. So I built a little desktop app with Tauri. It handles batch downloads without eating all your RAM (vs an Electron app) and lets you resume if something goes wrong.</p>\n<p class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png\" alt=\"\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_400/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png 400w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png 800w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png 1200w\" sizes=\"(min-width: 768px) 80vw, 100vw\" loading=\"lazy\" decoding=\"async\" data-placeholder=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_1,w_20,e_blur:1000/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png\" data-loading=\"lazy\" class=\"img-full my-8 rounded-sm w-full mx-auto py-4\" crossorigin=\"anonymous\"></p>",
   "title": "Cloudinary Backup Tool",
   "metadata": {
     "title": "Cloudinary Backup Tool",
     "date": "2025-01-15T05:00:00.000Z",
     "github": "https://github.com/ejfox/cloudinary-backup-tool",
-    "tech": [
-      "Tauri",
-      "Rust",
-      "TypeScript",
-      "Vite"
-    ],
+    "tech": ["Tauri", "Rust", "TypeScript", "Vite"],
     "modified": "2025-08-13T15:58:10.000Z",
     "words": 52,
     "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
     "links": 1,
     "codeBlocks": 0,
     "headers": {},

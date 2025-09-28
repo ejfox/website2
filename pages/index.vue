@@ -1,7 +1,7 @@
 <script setup>
 // Lazy load calendar component for faster FCP
-const NextAvailableSlot = defineAsyncComponent(() => 
-  import('~/components/NextAvailableSlot.vue')
+const NextAvailableSlot = defineAsyncComponent(
+  () => import('~/components/NextAvailableSlot.vue')
 )
 
 const { getPostBySlug, getAllPosts: _getAllPosts } = useProcessedMarkdown()
@@ -27,25 +27,46 @@ onMounted(() => {
 useHead({
   title: 'EJ Fox - Hacker, Journalist, Data Visualization Specialist',
   meta: [
-    { name: 'description', content: 'EJ Fox: Using code + art to uncover hidden patterns. Data visualization, journalism, and technology for good.' }
+    {
+      name: 'description',
+      content:
+        'EJ Fox: Using code + art to uncover hidden patterns. Data visualization, journalism, and technology for good.'
+    }
   ]
 })
 </script>
 
 <template>
-  <main class="p-4 md:p-8 h-card">
+  <main class="px-4 md:px-8 h-card">
     <!-- Content -->
-    <div class="max-w-3xl space-y-8">
+    <div style="max-width: 65ch">
       <template v-if="indexContent">
-        <h1>{{ indexContent.title }}</h1>
+        <!-- Data overlay -->
+        <div
+          class="font-mono text-xs text-zinc-400 mb-4 mt-8"
+          style="font-variant-numeric: tabular-nums"
+        >
+          <span>INDEX</span>
+          <span class="mx-2">·</span>
+          <span>{{ new Date().toISOString().split('T')[0] }}</span>
+          <span class="mx-2">·</span>
+          <span>{{
+            indexContent?.html?.length
+              ? (indexContent.html.length / 1024).toFixed(1) + 'KB'
+              : '0KB'
+          }}</span>
+        </div>
+        <h1 class="font-serif text-4xl md:text-6xl font-light mb-8">
+          {{ indexContent.title }}
+        </h1>
         <div
           id="index-content"
-          class="prose prose-lg dark:prose-invert"
+          class="font-serif prose prose-zinc dark:prose-invert max-w-none"
           v-html="indexContent.html"
         ></div>
       </template>
     </div>
-    
+
     <!-- Teleport dynamic calendar slot into markdown placeholder -->
     <teleport v-if="calendarSlotMounted" to="#next-available-spot">
       <NextAvailableSlot />
@@ -63,20 +84,19 @@ useHead({
 }
 
 :deep(#index-content p) {
-  @apply my-4;
+  @apply mb-4;
 }
 
-
 :deep(#index-content h2) {
-  @apply text-2xl font-bold mt-8 mb-4;
+  @apply font-serif text-2xl font-normal mt-8 mb-4;
 }
 
 :deep(#index-content h3) {
-  @apply text-xl font-semibold mt-6 mb-3;
+  @apply font-serif text-xl font-normal mt-8 mb-4;
 }
 
 :deep(#index-content ul) {
-  @apply list-disc pl-6 my-4;
+  @apply list-disc pl-8 my-4;
 }
 
 :deep(#index-content li) {
@@ -84,6 +104,10 @@ useHead({
 }
 
 :deep(#index-content strong) {
-  @apply font-semibold text-zinc-900 dark:text-zinc-100;
+  @apply font-medium text-zinc-900 dark:text-zinc-100;
+}
+
+:deep(#index-content code) {
+  @apply font-mono text-sm;
 }
 </style>

@@ -1,40 +1,129 @@
 /* Swiss Design System - Minimal, Clear, Functional */
 
-/* Base Font Families */
-.sans-serif {
-  font-weight: 300;
+/* Utility Classes - Common Patterns */
+.max-w-content {
+  max-width: 65ch;
 }
 
-.serif {
-  font-family: Georgia, serif !important;
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings:
+    'lnum' 1,
+    'tnum' 1;
 }
 
+.letter-tight {
+  letter-spacing: -0.02em;
+}
+
+.letter-tighter {
+  letter-spacing: -0.035em;
+}
+
+/* Base Typography */
 body {
-  font-family: Georgia, serif;
+  @apply text-base text-zinc-900 dark:text-zinc-100;
+  font-family:
+    'Georgia', 'Times New Roman', 'Droid Serif', 'Times', 'Source Serif Pro',
+    serif;
+  /* Oldstyle figures for body text, kerning, ligatures */
+  font-feature-settings:
+    'kern' 1,
+    'liga' 1,
+    'calt' 1,
+    'onum' 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  /* Hanging punctuation */
+  hanging-punctuation: first last;
 }
 
-/* Typography System */
+/* Dark mode weight compensation */
+@media (prefers-color-scheme: dark) {
+  body {
+    font-weight: 375; /* Slightly lighter in dark mode */
+  }
+}
+
+/* Typography System - Serif for human content, Mono for data */
 .text-display {
-  @apply text-4xl md:text-5xl font-light text-zinc-900 dark:text-zinc-100;
+  @apply font-serif text-4xl md:text-6xl font-light leading-tight text-zinc-900 dark:text-zinc-100;
+  /* Optical sizing: tighter tracking for large text */
+  letter-spacing: -0.03em;
+}
+
+/* Optical sizing adjustments */
+h1,
+.text-8xl,
+.text-7xl,
+.text-6xl {
+  letter-spacing: -0.035em;
+}
+
+h2,
+.text-5xl,
+.text-4xl {
+  letter-spacing: -0.025em;
+}
+
+h3,
+.text-3xl,
+.text-2xl {
+  letter-spacing: -0.015em;
+}
+
+/* Normal tracking for body text */
+p,
+.text-base,
+.text-lg {
+  letter-spacing: 0;
+}
+
+/* Slightly wider for small text */
+.text-sm,
+.text-xs {
+  letter-spacing: 0.01em;
+}
+
+.text-heading {
+  @apply font-serif text-2xl md:text-3xl font-normal tracking-tight leading-snug text-zinc-900 dark:text-zinc-100;
 }
 
 .text-body {
-  @apply text-lg leading-relaxed font-serif text-zinc-600 dark:text-zinc-400;
+  @apply font-serif text-base leading-relaxed text-zinc-700 dark:text-zinc-300;
+}
+
+.text-data {
+  @apply font-mono text-sm text-zinc-600 dark:text-zinc-400;
+  /* Lining figures for data */
+  font-feature-settings:
+    'lnum' 1,
+    'tnum' 1;
+}
+
+.text-mono {
+  @apply font-mono text-sm;
+  /* Tabular lining figures for monospace */
+  font-feature-settings:
+    'lnum' 1,
+    'tnum' 1;
+}
+
+.text-small {
+  @apply font-serif text-sm leading-normal text-zinc-600 dark:text-zinc-400;
+}
+
+.text-caption {
+  @apply font-mono text-xs leading-normal text-zinc-500;
+}
+
+.text-meta {
+  @apply font-mono text-xs uppercase tracking-widest text-zinc-500;
 }
 
 .header {
   @apply my-20 md:mt-6 pl-4 md:pl-0;
-}
-.monospace {
-  font-family: ui-monospace, 'SF Mono', Monaco, monospace !important;
-}
-
-.text-small {
-  @apply text-sm text-zinc-600 dark:text-zinc-400;
-}
-
-.text-caption {
-  @apply text-xs uppercase tracking-[0.15em] text-zinc-500 dark:text-zinc-500;
 }
 
 /* Color System */
@@ -104,27 +193,11 @@ body {
 }
 
 .project-date {
-  @apply text-xs text-zinc-400 font-mono;
-}
-
-.project-tech-container {
-  @apply pt-3;
-}
-
-.project-tech-list {
-  @apply flex flex-col gap-1 items-end;
-}
-
-.project-tech-tag {
-  @apply text-xs px-2 py-0.5 bg-zinc-50 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 rounded-md w-fit font-mono;
-}
-
-.project-github {
-  @apply pt-6;
+  @apply font-mono text-xs uppercase tracking-widest text-zinc-500;
 }
 
 .project-github-link {
-  @apply text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100;
+  @apply font-mono text-xs uppercase tracking-widest text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors;
 }
 
 /* Loading States - Minimal */
@@ -143,6 +216,26 @@ body {
 /* Grid System */
 .container-grid {
   @apply grid grid-cols-12 gap-x-4 px-6 md:px-8;
+}
+
+/* Image grid layouts - 2-4-8 columns */
+.image-grid-2 {
+  @apply grid grid-cols-2 gap-2; /* 2-unit gaps */
+}
+
+.image-grid-4 {
+  @apply grid grid-cols-2 md:grid-cols-4 gap-4; /* 4-unit gaps */
+}
+
+.image-grid-auto {
+  @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4;
+}
+
+.image-grid-2 img,
+.image-grid-4 img,
+.image-grid-auto img {
+  @apply object-cover w-full;
+  aspect-ratio: 1 / 1;
 }
 
 .content-grid {
@@ -183,6 +276,10 @@ body {
 /* Primary stat containers */
 .stat-card {
   @apply space-y-1 font-mono;
+  /* Lining tabular figures for stats */
+  font-feature-settings:
+    'lnum' 1,
+    'tnum' 1;
 }
 
 .metric-card {
@@ -191,8 +288,13 @@ body {
 
 /* Main stat values - consistent across ALL components */
 .stat-value {
-  @apply text-2xl font-light tabular-nums tracking-tight text-zinc-800 dark:text-zinc-100 mb-1;
+  @apply text-2xl font-light tabular-nums text-zinc-800 dark:text-zinc-100 mb-1;
   font-family: ui-monospace, 'SF Mono', Monaco, monospace;
+  /* Optical sizing for larger numbers */
+  letter-spacing: -0.02em;
+  font-feature-settings:
+    'lnum' 1,
+    'tnum' 1;
 }
 
 /* Primary labels - consistent across ALL components */
@@ -259,101 +361,102 @@ body {
   @apply w-2 h-2 rounded-full;
 }
 
-/* EPIC ANIME.JS PAGE TRANSITIONS - CYBERPUNK MORPHING SYSTEM */
+/* Removed anime.js transitions - causing flickering */
 
-.page-transition-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 9999;
-  pointer-events: none;
-  background: transparent;
-  backdrop-filter: blur(0px);
-}
-
-/* Data stream lines for exit animation */
-.transition-line {
-  position: absolute;
-  top: 0;
-  width: 1px;
-  height: 100vh;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(156, 163, 175, 0.3) 20%,
-    rgba(156, 163, 175, 0.6) 50%,
-    rgba(156, 163, 175, 0.3) 80%,
-    transparent 100%
-  );
-  transform-origin: top;
-  transform: scaleY(0);
-  opacity: 0;
-  will-change: transform, opacity;
-}
-
-/* Morphing grid system */
-.transition-grid {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  gap: 0;
-}
-
-.grid-cell {
-  background: rgba(156, 163, 175, 0.1);
-  border: 1px solid rgba(156, 163, 175, 0.05);
-  transform: scale(0);
-  opacity: 0;
-  will-change: transform, opacity;
-  backdrop-filter: blur(0.5px);
-}
-
-/* Dark mode adjustments */
-@media (prefers-color-scheme: dark) {
-  .transition-line {
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgba(113, 113, 122, 0.4) 20%,
-      rgba(113, 113, 122, 0.7) 50%,
-      rgba(113, 113, 122, 0.4) 80%,
-      transparent 100%
-    );
-  }
-
-  .grid-cell {
-    background: rgba(113, 113, 122, 0.15);
-    border: 1px solid rgba(113, 113, 122, 0.08);
-  }
-}
-
-/* Hardware acceleration for smooth animations */
-.page-transition-overlay,
-.transition-line,
-.grid-cell {
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-}
-
-/* Performance optimizations */
-.page-transition-overlay * {
-  will-change: transform, opacity, filter;
-}
-
-/* Ensure overlay is above everything */
-.page-transition-overlay {
-  z-index: 2147483647; /* Maximum z-index */
-}
+/* Typography Scale - Modular & Rhythmic */
+/* Uses a 1.250 ratio (Major Third) for harmonious sizing */
+/* Line heights decrease as font size increases for optimal readability */
 
 /* Prose/Article Content Typography */
 .prose {
+  /* Hanging punctuation for article content */
+  hanging-punctuation: first allow-end last;
+}
+
+/* First line styling */
+.prose p:first-of-type::first-line {
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+/* Smart quotes */
+.prose blockquote {
+  quotes: '\201C' '\201D' '\2018' '\2019';
+  hanging-punctuation: first;
+  @apply italic relative my-8 pl-8 border-l-2 border-zinc-300 dark:border-zinc-700;
+  font-family:
+    'Georgia', 'Times New Roman', 'Droid Serif', 'Times', 'Source Serif Pro',
+    serif !important;
+  position: relative;
+}
+
+/* Floating quotation marks for blockquotes */
+.prose blockquote::before {
+  content: '"';
+  position: absolute;
+  left: -0.5rem;
+  top: -0.25rem;
+  font-size: 3rem;
+  line-height: 1;
+  @apply text-zinc-300 dark:text-zinc-700 font-serif not-italic;
+}
+
+/* List styles with custom markers */
+.prose ul {
+  list-style: none;
+  @apply pl-6 my-4;
+}
+
+.prose ul > li {
+  @apply relative my-2;
+  font-family:
+    'Georgia', 'Times New Roman', 'Droid Serif', 'Times', 'Source Serif Pro',
+    serif !important;
+}
+
+.prose ul > li::before {
+  content: '·';
+  position: absolute;
+  left: -1.25rem;
+  @apply text-zinc-500 dark:text-zinc-500 font-bold text-lg;
+}
+
+.prose ol {
+  @apply pl-6 my-4;
+}
+
+.prose ol > li {
+  @apply my-2;
+  font-family:
+    'Georgia', 'Times New Roman', 'Droid Serif', 'Times', 'Source Serif Pro',
+    serif !important;
+  list-style: decimal;
+}
+
+/* Ensure content aligns to left margin properly */
+.blog-post-content > * {
+  margin-left: 0;
+}
+
+.prose p {
+  @apply leading-relaxed my-4;
+  font-family:
+    'Georgia', 'Times New Roman', 'Droid Serif', 'Times', 'Source Serif Pro',
+    serif !important;
+}
+
+/* Force serif fonts on all blog content */
+.blog-post-content,
+.blog-post-content * {
+  font-family:
+    'Georgia', 'Times New Roman', 'Droid Serif', 'Times', 'Source Serif Pro',
+    serif;
+}
+
+.blog-post-content pre,
+.blog-post-content code,
+.blog-post-content .font-mono {
+  font-family: ui-monospace, 'SF Mono', Monaco, monospace !important;
 }
 
 .prose h1,
@@ -362,10 +465,211 @@ body {
 .prose h4,
 .prose h5,
 .prose h6 {
-  font-family: Georgia, serif !important;
+  @apply font-light;
+  font-family:
+    'Georgia', 'Times New Roman', 'Droid Serif', 'Times', 'Source Serif Pro',
+    serif !important;
+  letter-spacing: -0.02em;
+  margin-left: 0;
+}
+
+.prose h1 {
+  @apply text-4xl md:text-5xl my-8;
+  letter-spacing: -0.035em;
+}
+
+.prose h2 {
+  @apply text-3xl md:text-4xl mt-12 mb-6;
+  letter-spacing: -0.025em;
+}
+
+.prose h3 {
+  @apply text-2xl md:text-3xl mt-8 mb-4;
+  letter-spacing: -0.02em;
+}
+
+.prose h4 {
+  @apply text-xl md:text-2xl mt-6 mb-3;
+  letter-spacing: -0.015em;
 }
 
 .prose code,
 .prose pre {
-  font-family: ui-monospace, 'SF Mono', Monaco, monospace !important;
+  font-family: ui-monospace, 'SF Mono', Monaco, monospace;
+  /* Lining figures for code */
+  font-feature-settings:
+    'lnum' 1,
+    'tnum' 1,
+    'zero' 1;
+}
+
+/* Drop caps for articles */
+.prose-dropcap p:first-of-type::first-letter {
+  @apply float-left text-6xl leading-none mr-2 mt-1 font-light;
+  line-height: 0.8;
+}
+
+/* Data Tables - Consistent Swiss/Tufte style */
+.data-table {
+  @apply w-full font-mono text-sm;
+  font-feature-settings:
+    'lnum' 1,
+    'tnum' 1;
+}
+
+.data-table thead {
+  @apply border-b border-zinc-200 dark:border-zinc-800;
+}
+
+.data-table th {
+  @apply px-2 py-2 text-left font-mono text-xs uppercase tracking-wider text-zinc-500;
+  font-weight: 500;
+}
+
+.data-table tbody tr {
+  @apply border-b border-zinc-100 dark:border-zinc-900;
+}
+
+.data-table tbody tr:hover {
+  @apply bg-zinc-50 dark:bg-zinc-900/50;
+}
+
+.data-table td {
+  @apply px-2 py-2 text-zinc-700 dark:text-zinc-300;
+}
+
+/* Dense table variant */
+.data-table-dense td,
+.data-table-dense th {
+  @apply py-1;
+}
+
+/* Numeric columns */
+.data-table .numeric {
+  @apply text-right tabular-nums;
+}
+
+/* Status/category columns */
+.data-table .category {
+  @apply font-mono text-xs uppercase tracking-wider text-zinc-500;
+}
+
+/* Link styling in tables */
+.data-table a {
+  @apply text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400;
+  border-bottom: none;
+}
+
+/* Table container with scroll */
+.table-container {
+  @apply overflow-x-auto -mx-4 px-4;
+}
+
+/* Minimal list/table hybrid */
+.data-list {
+  @apply space-y-0 font-mono text-sm;
+}
+
+.data-list-item {
+  @apply flex items-baseline justify-between py-2 border-b border-zinc-100 dark:border-zinc-900;
+}
+
+.data-list-item:hover {
+  @apply bg-zinc-50 dark:bg-zinc-900/50;
+}
+
+.data-list-key {
+  @apply text-zinc-600 dark:text-zinc-400;
+}
+
+.data-list-value {
+  @apply text-zinc-900 dark:text-zinc-100 tabular-nums;
+}
+
+/* Image Grid System - 2-4-8 rhythm */
+.prose img,
+.blog-post-content img {
+  @apply my-8 rounded-sm; /* 8-unit spacing */
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Grid-based image sizing */
+.img-small {
+  aspect-ratio: 16 / 9;
+  max-width: 50%;
+  @apply mb-4; /* 4-unit spacing */
+}
+
+.img-medium {
+  aspect-ratio: 16 / 9;
+  max-width: 75%;
+  @apply my-6; /* Between 4 and 8 */
+}
+
+.img-large,
+.img-full {
+  @apply my-8; /* 8-unit spacing */
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
+
+.img-square {
+  @apply my-8;
+  aspect-ratio: 1 / 1;
+}
+
+.img-portrait {
+  @apply my-8;
+  aspect-ratio: 3 / 4;
+  max-width: 66.666667%; /* 2/3 width */
+}
+
+/* Figure with caption - Tufte style */
+figure {
+  @apply my-8; /* 8-unit vertical rhythm */
+}
+
+figure img {
+  @apply mb-2; /* 2-unit gap to caption */
+}
+
+figcaption {
+  @apply font-mono text-xs text-zinc-500 dark:text-zinc-400;
+  letter-spacing: 0.05em;
+  font-feature-settings:
+    'lnum' 1,
+    'tnum' 1;
+}
+
+/* Inline images in text */
+.prose p img {
+  @apply inline-block align-baseline my-0 mx-1;
+  height: 1em;
+  width: auto;
+}
+
+/* Image loading states with data */
+img[data-loading='lazy'] {
+  @apply bg-zinc-100 dark:bg-zinc-900;
+  position: relative;
+}
+
+img[data-loading='lazy']::before {
+  content: attr(data-dimensions);
+  @apply absolute top-2 left-2 font-mono text-xs text-zinc-400;
+  font-feature-settings:
+    'lnum' 1,
+    'tnum' 1;
+}
+
+/* Cloudinary blur-up placeholder */
+img[data-placeholder] {
+  filter: blur(5px);
+  transition: filter 0.3s ease-out;
+}
+
+img[data-placeholder='loaded'] {
+  filter: blur(0);
 }

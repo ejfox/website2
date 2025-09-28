@@ -1,9 +1,9 @@
 <template>
   <div v-if="showVitals && vitals.length" class="fixed bottom-4 left-4 z-50">
-    <div class="bg-black/80 text-white text-xs p-2 rounded-lg font-mono max-w-xs">
-      <div class="font-bold mb-1">
-        Web Vitals
-      </div>
+    <div
+      class="bg-black/80 text-white text-xs p-2 rounded-lg font-mono max-w-xs"
+    >
+      <div class="font-bold mb-1">Web Vitals</div>
       <div
         v-for="vital in vitals"
         :key="vital.name"
@@ -23,7 +23,8 @@ const showVitals = ref(false)
 onMounted(() => {
   // Only show in development or when debug is enabled
   const config = useRuntimeConfig()
-  showVitals.value = config.public.debug || config.public.nodeEnv === 'development'
+  showVitals.value =
+    config.public.debug || config.public.nodeEnv === 'development'
 
   if (showVitals.value && typeof window !== 'undefined') {
     // Listen for web vitals reports

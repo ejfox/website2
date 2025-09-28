@@ -1,22 +1,45 @@
 <template>
-  <article :id="projectSlug" class="group project-grid" :style="{ '--stagger-delay': `${index * 80}ms` }">
+  <article
+    :id="projectSlug"
+    class="group project-grid"
+    :style="{ '--stagger-delay': `${index * 80}ms` }"
+  >
     <div class="project-content">
       <h2 class="project-title project-title-regular">
         <a :href="`#${projectSlug}`" class="project-link">{{ projectTitle }}</a>
       </h2>
-      <div class="project-description project-description-regular" v-html="project.html" />
+      <div
+        class="project-description project-description-regular"
+        v-html="project.html"
+      />
     </div>
     <div class="project-meta">
-      <div class="flex items-center justify-end gap-3 mb-2">
-        <time class="project-date">{{ formatDate(project.metadata?.date || project.date) }}</time>
-      </div>
-      <div v-if="project.metadata?.tech?.length" class="project-tech-container">
-        <div class="project-tech-list">
-          <span v-for="tech in project.metadata.tech" :key="tech" class="project-tech-tag">{{ tech }}</span>
+      <div class="flex flex-col items-end gap-2">
+        <time class="project-date">{{
+          formatDate(project.metadata?.date || project.date)
+        }}</time>
+        <div
+          v-if="project.metadata?.tech?.length"
+          class="font-mono text-xs uppercase tracking-widest text-zinc-500"
+        >
+          <span v-for="(tech, index) in project.metadata.tech" :key="tech">
+            <span v-if="index > 0" class="mx-2 text-zinc-300 dark:text-zinc-700"
+              >·</span
+            >
+            <span
+              class="hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors"
+              >{{ tech }}</span
+            >
+          </span>
         </div>
-      </div>
-      <div v-if="project.metadata?.github" class="project-github">
-        <a :href="project.metadata.github" target="_blank" class="project-github-link">GitHub ↗</a>
+        <div v-if="project.metadata?.github">
+          <a
+            :href="project.metadata.github"
+            target="_blank"
+            class="project-github-link"
+            >GitHub ↗</a
+          >
+        </div>
       </div>
     </div>
   </article>
@@ -38,15 +61,24 @@ const props = defineProps({
 
 const formatDate = (date) => {
   if (!date) return ''
-  try { return format(new Date(date), 'MMM yyyy') } catch { return '' }
+  try {
+    return format(new Date(date), 'yyyy')
+  } catch {
+    return ''
+  }
 }
 
 const projectSlug = computed(() => {
   // Create a clean anchor slug from the project title
   const title = props.project.title || props.project.metadata?.title || ''
-  return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
 })
 
-const projectTitle = computed(() => props.project.title || props.project.metadata?.title || '')
+const projectTitle = computed(
+  () => props.project.title || props.project.metadata?.title || ''
+)
 // list-only: no image/tooltip logic
 </script>

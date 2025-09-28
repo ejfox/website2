@@ -1,167 +1,223 @@
 <template>
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
-    <header class="mb-12 lg:mb-16">
-      <div class="flex items-baseline justify-between pb-6 mb-8 border-b border-zinc-300 dark:border-zinc-700">
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
-          Gear Inventory
-        </h1>
-        <div class="flex items-center gap-4">
+  <main class="px-4 md:px-6 lg:px-8 max-w-full bg-zinc-950 min-h-screen">
+    <header class="mb-4">
+      <div
+        class="flex items-center justify-between py-3 mb-4 border-b border-zinc-800"
+      >
+        <div class="flex items-baseline gap-3">
+          <h1 class="font-mono text-sm text-zinc-100">GEAR</h1>
+          <div
+            class="font-mono text-[10px] text-zinc-500"
+            style="font-variant-numeric: tabular-nums"
+          >
+            {{ totalItems }} items · {{ displayTotalWeight.value }} ·
+            {{ containerCount }} bags
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
           <!-- Weight Unit Selector -->
           <div class="relative">
-            <select 
-              v-model="weightUnit" 
-              class="gear-unit-selector"
+            <select
+              v-model="weightUnit"
+              class="px-3 py-1 pr-6 text-[10px] font-mono uppercase tracking-wider text-zinc-400 hover:text-zinc-200 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 rounded transition-all cursor-pointer appearance-none"
             >
-              <option value="metric">kg/g</option>
-              <option value="imperial">lbs/oz</option>
+              <option value="metric">KG/G</option>
+              <option value="imperial">LB/OZ</option>
             </select>
+            <span
+              class="absolute right-2 top-1/2 -translate-y-1/2 text-[8px] text-zinc-500 pointer-events-none"
+              >▼</span
+            >
           </div>
-          <a href="/gear.csv" download class="gear-csv-link">
-            ↓ CSV
+          <button
+            @click="toggleSort"
+            class="px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-zinc-400 hover:text-zinc-200 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 rounded transition-all flex items-center gap-1"
+            title="Toggle sort"
+          >
+            <span class="text-[8px]">{{
+              sortBy === 'weight' ? '↓' : '↑'
+            }}</span>
+            {{ sortBy === 'weight' ? 'Weight' : 'Name' }}
+          </button>
+          <a
+            href="/gear.csv"
+            download
+            class="px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-zinc-400 hover:text-zinc-200 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 rounded transition-all inline-flex items-center gap-1"
+          >
+            <span>↓</span> CSV
           </a>
         </div>
       </div>
 
-      <div class="mb-8 lg:mb-12">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 mb-6">
-          <div class="gear-stat">
-            <div class="gear-stat-label">
-              Total
-            </div>
-            <div class="gear-stat-value">
-              {{ totalItems }}
-            </div>
-            <div class="gear-stat-unit">
-              items
-            </div>
-          </div>
-          <div class="gear-stat">
-            <div class="gear-stat-label">
-              Weight
-            </div>
-            <div class="gear-stat-value">
-              {{ displayTotalWeight.value }}
-            </div>
-            <div class="gear-stat-unit">
-              {{ displayTotalWeight.unit }}
-            </div>
-          </div>
-          <div class="gear-stat">
-            <div class="gear-stat-label">
-              Avg Wt
-            </div>
-            <div class="gear-stat-value">
-              {{ displayAvgWeight.value }}
-            </div>
-            <div class="gear-stat-unit">
-              {{ displayAvgWeight.unit }}
-            </div>
-          </div>
-          <div class="gear-stat">
-            <div class="gear-stat-label">
-              Containers
-            </div>
-            <div class="gear-stat-value">
-              {{ containerCount }}
-            </div>
-            <div class="gear-stat-unit">
-              total
-            </div>
-          </div>
-        </div>
-
-        <div class="mb-6">
-          <h3 class="gear-section-header mb-3">
-            Type Legend
-          </h3>
-          <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3">
-            <div v-for="type in typeStats" :key="type.name" class="flex items-center gap-2 text-xs">
-              <span class="text-sm font-medium text-zinc-600 dark:text-zinc-400">{{ type.symbol }}</span>
+      <div class="mb-3">
+        <div class="mb-3">
+          <h3 class="gear-section-header mb-2">Type Legend</h3>
+          <div class="grid grid-cols-7 gap-2">
+            <div
+              v-for="type in typeStats"
+              :key="type.name"
+              class="flex items-center gap-1"
+            >
+              <span class="text-xs font-medium text-zinc-500">{{
+                type.symbol
+              }}</span>
               <div class="flex-1">
-                <div class="font-medium text-zinc-700 dark:text-zinc-300">
+                <div class="font-mono text-[10px] text-zinc-400">
                   {{ type.name }}
                 </div>
-                <div class="text-[10px] text-zinc-500 tabular-nums">
-                  {{ type.count }} items · {{ type.weight }}
+                <div class="text-[9px] text-zinc-500 tabular-nums">
+                  {{ type.count }} · {{ type.weight }}
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="flex justify-end text-xs font-mono text-zinc-500 dark:text-zinc-400 pt-4 border-t border-zinc-200/50 dark:border-zinc-700/50">
+        <div
+          class="flex justify-end text-[9px] font-mono text-zinc-600 pt-2 border-t border-zinc-800"
+        >
           <span class="uppercase tracking-[0.1em]">{{ currentDate }}</span>
         </div>
       </div>
     </header>
 
-    <div class="mb-16">
-      <h2 class="gear-section-header mb-6">
-        Containers
-      </h2>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div class="mb-8">
+      <h2 class="gear-section-header mb-4">Containers</h2>
+      <div
+        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2"
+      >
         <a
-          v-for="[container, items] in groupedGear" :key="container" 
+          v-for="[container, items] in groupedGear"
+          :key="container"
           :href="`#${container.toLowerCase().replace(/\s+/g, '-')}`"
           class="gear-container-card group"
         >
-          <div class="flex items-center justify-between mb-2">
-            <span class="font-medium text-zinc-900 dark:text-zinc-100 text-sm">{{ container }}</span>
-            <span class="gear-container-count">{{ items.length }}</span>
-          </div>
-          <div class="flex items-center justify-between mb-2">
-            <div class="flex flex-wrap gap-1 text-xs text-zinc-400 dark:text-zinc-500">
-              <span
-                v-for="item in getSortedItemsByType(items)" :key="item.Name" 
-                :title="`${item.Type}: ${item.Name}`" class="cursor-help"
-              >
-                {{ getTypeSymbol(item.Type) }}
-              </span>
+          <div class="flex items-baseline justify-between">
+            <span class="font-mono text-[10px] text-zinc-200">{{
+              container
+            }}</span>
+            <div class="text-[8px] text-zinc-600 tabular-nums">
+              <span>{{ items.length }}×</span>
+              <span class="text-zinc-500">{{ getAvgItemWeight(items) }}</span>
             </div>
-            <div class="text-xs font-mono text-zinc-500 dark:text-zinc-400 tabular-nums">
-              {{ formatWeight(items) }}
+          </div>
+          <div class="mt-1">
+            <!-- Weight distribution bar -->
+            <div class="flex h-0.5 bg-zinc-900">
+              <div
+                v-for="item in items.slice(0, 20)"
+                :key="item.Name"
+                class="bg-zinc-700 hover:bg-orange-500 transition-colors"
+                :style="{
+                  width: `${getWeightPercentage(item, items)}%`,
+                  opacity:
+                    0.3 + getItemWeightInOunces(item) / getMaxWeight(items)
+                }"
+                :title="`${item.Name}: ${formatItemWeight(item)}`"
+              ></div>
+            </div>
+            <div
+              class="flex justify-between mt-1 text-[7px] text-zinc-600 font-mono"
+            >
+              <span>{{ formatWeight(items) }}</span>
+              <span>{{ getWeightRange(items) }}</span>
             </div>
           </div>
         </a>
       </div>
     </div>
 
-    <div class="space-y-16">
+    <div class="space-y-12">
       <section
-        v-for="[container, items] in groupedGear" :id="container.toLowerCase().replace(/\s+/g, '-')"
-        :key="container" class="scroll-mt-4"
+        v-for="[container, items] in groupedGear"
+        :id="container.toLowerCase().replace(/\s+/g, '-')"
+        :key="container"
+        class="scroll-mt-4"
       >
         <div class="gear-container-header">
-          <h2 class="text-lg font-semibold text-zinc-900 dark:text-zinc-100 tracking-tight">
-            {{ container }}
-          </h2>
-          <div class="text-xs font-mono text-zinc-500 dark:text-zinc-400 space-x-4">
-            <span class="tabular-nums">{{ formatWeight(items) }}</span>
-            <span class="uppercase tracking-[0.1em]">{{ items.length }} items</span>
+          <div class="flex items-baseline gap-3">
+            <h2 class="text-[11px] font-mono text-zinc-200">
+              {{ container }}
+            </h2>
+            <span class="text-[8px] text-zinc-600"
+              >{{ items.length }}×{{ getAvgItemWeight(items) }}</span
+            >
+            <span class="text-[8px] text-zinc-600">{{
+              getWeightRange(items)
+            }}</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-[8px] font-mono text-zinc-500 tabular-nums">{{
+              formatWeight(items)
+            }}</span>
+            <!-- Mini histogram -->
+            <div class="flex items-end gap-px h-3">
+              <div
+                v-for="(bucket, i) in getWeightHistogram(items)"
+                :key="i"
+                class="w-1 bg-zinc-700/50 hover:bg-orange-500/50 transition-colors"
+                :style="{ height: `${bucket.height}%` }"
+                :title="`${bucket.count} items: ${bucket.range}`"
+              ></div>
+            </div>
           </div>
         </div>
 
-        <div class="relative">
-          <div class="gear-table-header">
-            <div class="col-span-6">
-              Item
-            </div>
-            <div class="col-span-2 text-center">
-              Type
-            </div>
-            <div class="col-span-2 text-center">
-              H₂O
-            </div>
-            <div class="col-span-1 text-center">
-              Tier
-            </div>
-            <div class="col-span-1 text-right">
-              Wt
-            </div>
-          </div>
-          <div class="divide-y divide-zinc-800/10">
-            <GearItem v-for="item in sortItemsByScore(items)" :key="item.Name" :item="item" />
-          </div>
+        <div class="relative overflow-x-auto">
+          <table class="w-full text-[9px] font-mono">
+            <thead class="sticky top-0 bg-zinc-950 backdrop-blur-sm">
+              <tr class="border-b border-zinc-800/30">
+                <th
+                  class="text-left px-1 py-1 font-normal text-zinc-500 text-[8px] uppercase"
+                >
+                  Item
+                </th>
+                <th
+                  class="text-center px-1 py-1 font-normal text-zinc-500 text-[8px]"
+                >
+                  Type
+                </th>
+                <th
+                  class="text-center px-1 py-1 font-normal text-zinc-500 text-[8px]"
+                >
+                  Cat
+                </th>
+                <th
+                  class="text-center px-1 py-1 font-normal text-zinc-500 text-[8px]"
+                >
+                  H₂O
+                </th>
+                <th
+                  class="text-center px-1 py-1 font-normal text-zinc-500 text-[8px]"
+                >
+                  Pri
+                </th>
+                <th
+                  class="text-center px-1 py-1 font-normal text-zinc-500 text-[8px]"
+                >
+                  ⚡
+                </th>
+                <th
+                  class="text-center px-1 py-1 font-normal text-zinc-500 text-[8px]"
+                >
+                  Age
+                </th>
+                <th
+                  class="text-right px-1 py-1 font-normal text-zinc-500 text-[8px] pr-2"
+                >
+                  g/oz
+                </th>
+              </tr>
+            </thead>
+            <tbody class="bg-zinc-950">
+              <GearItem
+                v-for="item in sortItems(items)"
+                :key="item.Name"
+                :item="item"
+                :weight-unit="weightUnit"
+              />
+            </tbody>
+          </table>
         </div>
       </section>
     </div>
@@ -171,9 +227,24 @@
 <script setup>
 import { csvParse } from 'd3-dsv' // TREE-SHAKEN: Only import what we need (~2KB vs 200KB)
 
-const { calculateTotalWeight, calculateAverageWeight } = useWeightCalculations()
+// HTML escaping function for attributes
+const escapeHtml = (text) => {
+  if (!text) return ''
+  const map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  }
+  return String(text).replace(/[&<>"']/g, (m) => map[m])
+}
+
+const { calculateTotalWeight, calculateAverageWeight, getItemWeightInOunces } =
+  useWeightCalculations()
 const gearItems = ref([])
 const weightUnit = ref('metric')
+const sortBy = ref('weight')
 
 // Initialize weight unit from localStorage on client side only
 onMounted(() => {
@@ -190,14 +261,27 @@ watch(weightUnit, (newValue) => {
 })
 
 const typeSymbols = {
-  Tech: '▲', Utility: '⬟', Comfort: '○', Sleep: '☽',
-  Bag: '▣', Safety: '◆', Creativity: '✧'
+  Tech: '▲',
+  Utility: '⬟',
+  Comfort: '○',
+  Sleep: '☽',
+  Bag: '▣',
+  Safety: '◆',
+  Creativity: '✧'
 }
 
 const getTypeSymbol = (type) => typeSymbols[type] || '—'
 
 const getSortedItemsByType = (items) => {
-  const typeOrder = ['Tech', 'Utility', 'Comfort', 'Sleep', 'Bag', 'Safety', 'Creativity']
+  const typeOrder = [
+    'Tech',
+    'Utility',
+    'Comfort',
+    'Sleep',
+    'Bag',
+    'Safety',
+    'Creativity'
+  ]
   return [...items].sort((a, b) => {
     const aIndex = typeOrder.indexOf(a.Type)
     const bIndex = typeOrder.indexOf(b.Type)
@@ -208,14 +292,21 @@ const getSortedItemsByType = (items) => {
   })
 }
 
-const PRIORITY_CONTAINERS = ['Body', 'Motorcycle', 'WLF Enduro Backpack', '5.11 Rush 24 Backpack']
+const PRIORITY_CONTAINERS = [
+  'Body',
+  'Motorcycle',
+  'WLF Enduro Backpack',
+  '5.11 Rush 24 Backpack'
+]
 
 const groupedGear = computed(() => {
   const groups = new Map()
-  const containers = new Set(gearItems.value.map(item => item['Parent Container']))
-  containers.forEach(container => groups.set(container || 'Unassigned', []))
-  
-  gearItems.value.forEach(item => {
+  const containers = new Set(
+    gearItems.value.map((item) => item['Parent Container'])
+  )
+  containers.forEach((container) => groups.set(container || 'Unassigned', []))
+
+  gearItems.value.forEach((item) => {
     const container = item['Parent Container'] || 'Unassigned'
     groups.get(container).push(item)
   })
@@ -231,18 +322,19 @@ const groupedGear = computed(() => {
   return new Map(sortedEntries)
 })
 
-const calculateTotalWeightInGrams = (items) => calculateTotalWeight(items).formatted
+const calculateTotalWeightInGrams = (items) =>
+  calculateTotalWeight(items).formatted
 
 // Helper function to format weight for any set of items
 const formatWeight = (items) => {
   const weightData = calculateTotalWeight(items)
   if (weightUnit.value === 'imperial') {
     const pounds = Math.floor(weightData.ounces / 16)
-    const ounces = (weightData.ounces % 16).toFixed(1)
+    const ounces = Math.round(weightData.ounces % 16)
     return pounds > 0 ? `${pounds}lb ${ounces}oz` : `${ounces}oz`
   } else {
     const kg = Math.floor(weightData.grams / 1000)
-    const grams = weightData.grams % 1000
+    const grams = Math.round(weightData.grams % 1000)
     return kg > 0 ? `${kg}kg ${grams}g` : `${grams}g`
   }
 }
@@ -267,11 +359,11 @@ watchEffect(() => {
   if (csvText.value) {
     try {
       gearItems.value = csvParse(csvText.value)
-        .filter(item => {
+        .filter((item) => {
           // Filter out empty rows and comment lines
-          return item.Name && 
-                 item.Name.trim() !== '' && 
-                 !item.Name.startsWith('#')
+          return (
+            item.Name && item.Name.trim() !== '' && !item.Name.startsWith('#')
+          )
         })
         .map(processGearItem)
     } catch (error) {
@@ -280,12 +372,17 @@ watchEffect(() => {
   }
 })
 
-
 const totalItems = computed(() => gearItems.value.length)
-const totalWeight = computed(() => calculateTotalWeight(gearItems.value).ounces.toFixed(1))
+const totalWeight = computed(() =>
+  calculateTotalWeight(gearItems.value).ounces.toFixed(1)
+)
 const containerCount = computed(() => groupedGear.value?.size || 0)
-const totalWeightInGrams = computed(() => calculateTotalWeight(gearItems.value).grams)
-const avgWeightInGrams = computed(() => calculateAverageWeight(gearItems.value).grams)
+const totalWeightInGrams = computed(
+  () => calculateTotalWeight(gearItems.value).grams
+)
+const avgWeightInGrams = computed(
+  () => calculateAverageWeight(gearItems.value).grams
+)
 
 // Weight display computeds based on selected unit
 const displayTotalWeight = computed(() => {
@@ -324,8 +421,8 @@ const displayAvgWeight = computed(() => {
 
 const typeStats = computed(() => {
   const stats = Object.keys(typeSymbols)
-    .map(typeName => {
-      const items = gearItems.value.filter(item => item.Type === typeName)
+    .map((typeName) => {
+      const items = gearItems.value.filter((item) => item.Type === typeName)
       return {
         name: typeName,
         symbol: typeSymbols[typeName],
@@ -333,7 +430,7 @@ const typeStats = computed(() => {
         weight: formatWeight(items)
       }
     })
-    .filter(stat => stat.count > 0)
+    .filter((stat) => stat.count > 0)
   return stats.sort((a, b) => b.count - a.count)
 })
 
@@ -349,80 +446,134 @@ const typeBreakdown = computed(() => {
     .join(', ')
 })
 
-const calculateTCWMScore = (item) => {
-  const T = Number(item['Time Criticality (T)']) || 0
-  const C = Number(item['Consequence Severity (C)']) || 0
-  const W = Number(item['Weight/Space Penalty (W)']) || 0
-  const M = Number(item['Multi-Use Factor (M)']) || 0
-  return 2 * T + 2 * C + 1.5 * W + M
+const sortItemsByName = (items) => {
+  return [...items].sort((a, b) => a.Name.localeCompare(b.Name))
 }
 
-const sortItemsByScore = (items) => {
-  return [...items].sort((a, b) => calculateTCWMScore(b) - calculateTCWMScore(a))
+const sortItemsByWeight = (items) => {
+  return [...items].sort((a, b) => {
+    const aWeight = parseFloat(a.Weight_oz) || 0
+    const bWeight = parseFloat(b.Weight_oz) || 0
+    return bWeight - aWeight // Heaviest first
+  })
+}
+
+const sortItems = (items) => {
+  return sortBy.value === 'weight'
+    ? sortItemsByWeight(items)
+    : sortItemsByName(items)
+}
+
+const toggleSort = () => {
+  sortBy.value = sortBy.value === 'weight' ? 'name' : 'weight'
+}
+
+// Tuftian data helpers
+const getAvgItemWeight = (items) => {
+  const avgWeight = calculateAverageWeight(items)
+  if (weightUnit.value === 'imperial') {
+    return avgWeight.ounces > 16
+      ? `${(avgWeight.ounces / 16).toFixed(1)}lb`
+      : `${avgWeight.ounces.toFixed(0)}oz`
+  }
+  return avgWeight.grams > 1000
+    ? `${(avgWeight.grams / 1000).toFixed(1)}kg`
+    : `${Math.round(avgWeight.grams)}g`
+}
+
+const getWeightPercentage = (item, allItems) => {
+  const itemWeight = getItemWeightInOunces(item)
+  const totalWeight = calculateTotalWeight(allItems).ounces
+  return ((itemWeight / totalWeight) * 100).toFixed(1)
+}
+
+const getMaxWeight = (items) => {
+  return Math.max(...items.map((item) => getItemWeightInOunces(item)))
+}
+
+const formatItemWeight = (item) => {
+  const oz = getItemWeightInOunces(item)
+  if (weightUnit.value === 'imperial') {
+    return oz > 16 ? `${(oz / 16).toFixed(1)}lb` : `${oz.toFixed(1)}oz`
+  }
+  const grams = Math.round(oz * 28.3495)
+  return grams > 1000 ? `${(grams / 1000).toFixed(1)}kg` : `${grams}g`
+}
+
+const getWeightRange = (items) => {
+  const weights = items
+    .map((item) => getItemWeightInOunces(item))
+    .filter((w) => w > 0)
+  if (weights.length === 0) return '—'
+  const min = Math.min(...weights)
+  const max = Math.max(...weights)
+
+  if (weightUnit.value === 'imperial') {
+    return `${min.toFixed(0)}–${max.toFixed(0)}oz`
+  }
+  const minG = Math.round(min * 28.3495)
+  const maxG = Math.round(max * 28.3495)
+  return `${minG}–${maxG}g`
+}
+
+const getWeightHistogram = (items) => {
+  const weights = items
+    .map((item) => getItemWeightInOunces(item))
+    .filter((w) => w > 0)
+  if (weights.length === 0) return []
+
+  const min = Math.min(...weights)
+  const max = Math.max(...weights)
+  const bucketCount = Math.min(10, weights.length)
+  const bucketSize = (max - min) / bucketCount
+
+  const buckets = Array(bucketCount).fill(0)
+  weights.forEach((w) => {
+    const bucketIndex = Math.min(
+      Math.floor((w - min) / bucketSize),
+      bucketCount - 1
+    )
+    buckets[bucketIndex]++
+  })
+
+  const maxCount = Math.max(...buckets)
+  return buckets.map((count, i) => ({
+    count,
+    height: (count / maxCount) * 100,
+    range: `${(min + i * bucketSize).toFixed(0)}-${(min + (i + 1) * bucketSize).toFixed(0)}oz`
+  }))
 }
 
 const currentDate = new Date().toISOString().split('T')[0]
 
 useHead(() => ({
   title: 'Adventure Gear Inventory',
-  meta: [{
-    name: 'description',
-    content: `Comprehensive gear inventory tracking ${totalItems.value} items across ${containerCount.value} containers. Total weight: ${totalWeight.value}oz. Main categories: ${typeBreakdown.value}.`
-  }]
+  meta: [
+    {
+      name: 'description',
+      content: `Comprehensive gear inventory tracking ${totalItems.value} items across ${containerCount.value} containers. Total weight: ${totalWeight.value}oz. Main categories: ${typeBreakdown.value}.`
+    }
+  ]
 }))
 </script>
 
 <style>
-.gear-csv-link {
-  @apply text-xs font-mono uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400;
-  @apply inline-flex items-center gap-1.5 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors;
-}
-
-.gear-unit-selector {
-  @apply text-xs font-mono uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400;
-  @apply bg-transparent border border-zinc-200/50 dark:border-zinc-700/50 rounded px-2 py-1;
-  @apply hover:text-zinc-700 dark:hover:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-600;
-  @apply focus:outline-none focus:ring-1 focus:ring-zinc-400 dark:focus:ring-zinc-500;
-  @apply transition-colors cursor-pointer;
-}
-
-.gear-stat {
-  @apply space-y-1;
-}
-
-.gear-stat-label {
-  @apply text-xs font-mono uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400;
-}
-
-.gear-stat-value {
-  @apply text-lg font-semibold tabular-nums text-zinc-900 dark:text-zinc-100;
-}
-
-.gear-stat-unit {
-  @apply text-xs text-zinc-500 dark:text-zinc-400;
-}
-
 .gear-section-header {
-  @apply text-xs font-mono uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400;
+  @apply text-[10px] font-mono uppercase tracking-[0.05em] text-zinc-500;
 }
 
 .gear-container-card {
-  @apply flex flex-col py-3 px-3 hover:bg-zinc-50 dark:hover:bg-zinc-900/50;
-  @apply transition-colors border border-zinc-200/50 dark:border-zinc-700/50 rounded-lg;
+  @apply flex flex-col py-1 px-1.5 hover:bg-zinc-900/30;
+  @apply border-l-2 border-l-zinc-800/50 bg-transparent;
 }
 
 .gear-container-count {
-  @apply text-xs font-mono tabular-nums text-zinc-500 dark:text-zinc-400;
-  @apply group-hover:text-zinc-700 dark:group-hover:text-zinc-300;
+  @apply text-[10px] font-mono tabular-nums text-zinc-500;
+  @apply group-hover:text-zinc-300;
 }
 
 .gear-container-header {
-  @apply flex items-baseline justify-between pb-4 mb-8;
-  @apply border-b border-zinc-300 dark:border-zinc-700;
-}
-
-.gear-table-header {
-  @apply grid grid-cols-12 gap-3 py-3 px-2 text-xs font-mono uppercase tracking-[0.1em];
-  @apply text-zinc-500 dark:text-zinc-400 border-b border-zinc-200/50 dark:border-zinc-700/50 mb-4;
+  @apply flex items-baseline justify-between pb-2 mb-3;
+  @apply border-b border-zinc-800;
 }
 </style>

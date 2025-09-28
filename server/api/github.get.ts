@@ -327,10 +327,13 @@ export default defineEventHandler(async (): Promise<GitHubStats> => {
         })
         .filter(Boolean)
 
-    const typeCount = commits.reduce((acc, commit) => {
-      acc[commit.type] = (acc[commit.type] || 0) + 1
-      return acc
-    }, {} as Record<string, number>)
+    const typeCount = commits.reduce(
+      (acc, commit) => {
+        acc[commit.type] = (acc[commit.type] || 0) + 1
+        return acc
+      },
+      {} as Record<string, number>
+    )
 
     const total = Object.values(typeCount).reduce(
       (sum, count) => sum + count,

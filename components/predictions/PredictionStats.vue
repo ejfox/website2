@@ -6,26 +6,24 @@
         {{ stats.total }}
       </div>
     </div>
-    
+
     <div class="stat-card">
       <h3>Pending</h3>
       <div class="stat-value">
         {{ stats.pending }}
       </div>
     </div>
-    
+
     <div class="stat-card">
       <h3>Resolved</h3>
       <div class="stat-value">
         {{ stats.resolved }}
       </div>
     </div>
-    
+
     <div class="stat-card">
       <h3>Accuracy</h3>
-      <div class="stat-value">
-        {{ stats.accuracy.toFixed(1) }}%
-      </div>
+      <div class="stat-value">{{ stats.accuracy.toFixed(1) }}%</div>
       <div class="stat-meta">
         {{ stats.correct }}/{{ stats.resolved }} correct
       </div>

@@ -1,7 +1,7 @@
 // ⚡ CENTRALIZED DATE UTILITIES - Bundle Size Optimization! *SWOOSH*
 // Single import point for all date-fns functions to enable tree-shaking!
 
-import { 
+import {
   format as _format,
   formatDistanceToNow as _formatDistanceToNow,
   formatDistance as _formatDistance,
@@ -45,11 +45,16 @@ export const isThisMonth = _isThisMonth
 export const isThisYear = _isThisYear
 
 // ⚡ COMMON FORMATTERS - Pre-configured for performance! *whoosh*
-export const formatShortDate = (date: Date | string) => format(new Date(date), 'MMM d, yyyy')
-export const formatLongDate = (date: Date | string) => format(new Date(date), 'MMMM do, yyyy')
-export const formatTime = (date: Date | string) => format(new Date(date), 'h:mm a')
-export const formatDateTime = (date: Date | string) => format(new Date(date), 'MMM d, yyyy h:mm a')
-export const formatRelative = (date: Date | string) => formatDistanceToNow(new Date(date), { addSuffix: true })
+export const formatShortDate = (date: Date | string) =>
+  format(new Date(date), 'MMM d, yyyy')
+export const formatLongDate = (date: Date | string) =>
+  format(new Date(date), 'MMMM do, yyyy')
+export const formatTime = (date: Date | string) =>
+  format(new Date(date), 'h:mm a')
+export const formatDateTime = (date: Date | string) =>
+  format(new Date(date), 'MMM d, yyyy h:mm a')
+export const formatRelative = (date: Date | string) =>
+  formatDistanceToNow(new Date(date), { addSuffix: true })
 
 // ⚡ VALIDATION HELPERS! *zoom*
 export const isValidDate = (date: any): boolean => {

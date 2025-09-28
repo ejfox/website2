@@ -6,7 +6,7 @@ export default defineEventHandler(async () => {
     // Read the CSV file from public directory
     const csvPath = resolve('public/gear.csv')
     const csvContent = await readFile(csvPath, 'utf-8')
-    
+
     return csvContent
   } catch (error) {
     console.error('Error reading gear.csv:', error)

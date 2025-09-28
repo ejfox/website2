@@ -158,9 +158,30 @@ async function processMarkdown(content, filePath) {
 
     const extractedTitle = frontmatter.title || firstHeading || formatTitle(path.basename(filePath, '.md'))
 
+    // Extract detailed image stats
+    const imageMatches = markdownContent.match(/!\[.*?\]\(.*?\)/g) || []
+    const imageStats = imageMatches.map(img => {
+      const urlMatch = img.match(/\(([^)]+)\)/)
+      if (urlMatch && urlMatch[1].includes('cloudinary')) {
+        const widthMatch = urlMatch[1].match(/w_(\d+)/)
+        const heightMatch = urlMatch[1].match(/h_(\d+)/)
+        return {
+          hasCloudinary: true,
+          width: widthMatch ? parseInt(widthMatch[1]) : null,
+          height: heightMatch ? parseInt(heightMatch[1]) : null
+        }
+      }
+      return { hasCloudinary: false }
+    })
+
     const stats = {
       words: markdownContent.split(/\s+/).length,
-      images: (markdownContent.match(/!\[.*?\]\(.*?\)/g) || []).length,
+      images: imageMatches.length,
+      imageDetails: {
+        total: imageMatches.length,
+        cloudinary: imageStats.filter(i => i.hasCloudinary).length,
+        withDimensions: imageStats.filter(i => i.width && i.height).length
+      },
       links: (markdownContent.match(/\[.*?\]\(.*?\)/g) || []).length,
       codeBlocks: (markdownContent.match(/```[\s\S]*?```/g) || []).length,
       headers: toc.reduce((acc, h) => {
@@ -263,6 +284,8 @@ const printSummary = (files) => {
   const stats = files.reduce((acc, file) => {
     acc.totalWords += file.metadata.words || 0
     acc.totalImages += file.metadata.images || 0
+    acc.cloudinaryImages += file.metadata.imageDetails?.cloudinary || 0
+    acc.imagesWithDimensions += file.metadata.imageDetails?.withDimensions || 0
     acc.totalLinks += file.metadata.links || 0
     acc.totalCodeBlocks += file.metadata.codeBlocks || 0
     acc.h1 += file.metadata.headers?.h1 || 0
@@ -276,7 +299,7 @@ const printSummary = (files) => {
 
     return acc
   }, {
-    totalWords: 0, totalImages: 0, totalLinks: 0, totalCodeBlocks: 0,
+    totalWords: 0, totalImages: 0, cloudinaryImages: 0, imagesWithDimensions: 0, totalLinks: 0, totalCodeBlocks: 0,
     h1: 0, h2: 0, h3: 0, byType: {}, tags: {}
   })
 
@@ -284,7 +307,7 @@ const printSummary = (files) => {
   console.log('=================')
   console.log(`📝 Total Files: ${files.length}`)
   console.log(`📚 Total Words: ${stats.totalWords.toLocaleString()}`)
-  console.log(`🖼️  Total Images: ${stats.totalImages}`)
+  console.log(`🖼️  Total Images: ${stats.totalImages} (${stats.cloudinaryImages} optimized, ${stats.imagesWithDimensions} with dimensions)`)
   console.log(`🔗 Total Links: ${stats.totalLinks}`)
   console.log(`💻 Code Blocks: ${stats.totalCodeBlocks}`)
 
@@ -308,10 +331,20 @@ const enhanceImageUrl = (url) => {
   url = url.replace(/^http:\/\//i, 'https://')
   const base = url.split('/upload/')[0] + '/upload/'
   const path = url.split('/upload/')[1]
+
+  // Extract dimensions from URL if present (e.g., w_1920,h_1080)
+  const widthMatch = url.match(/w_(\d+)/)
+  const heightMatch = url.match(/h_(\d+)/)
+  const width = widthMatch ? parseInt(widthMatch[1]) : null
+  const height = heightMatch ? parseInt(heightMatch[1]) : null
+
   return {
     src: `${base}c_scale,f_auto,q_auto:good,w_800/${path}`,
     srcset: `${base}c_scale,f_auto,q_auto:good,w_400/${path} 400w, ${base}c_scale,f_auto,q_auto:good,w_800/${path} 800w, ${base}c_scale,f_auto,q_auto:good,w_1200/${path} 1200w`.trim(),
-    sizes: '(min-width: 768px) 80vw, 100vw'
+    sizes: '(min-width: 768px) 80vw, 100vw',
+    placeholder: `${base}c_scale,f_auto,q_1,w_20,e_blur:1000/${path}`,
+    width,
+    height
   }
 }
 
@@ -328,9 +361,36 @@ function remarkEnhanceImages() {
           node.url = enhanced.src
           node.data.hProperties.loading = 'lazy'
           node.data.hProperties.decoding = 'async'
-          node.data.hProperties.className = 'w-full max-w-full mx-auto'
+
+          // Grid-based image classes
+          const classes = ['img-full', 'my-8', 'rounded-sm']
+
+          // Detect aspect ratio from dimensions
+          if (enhanced.width && enhanced.height) {
+            const ratio = enhanced.width / enhanced.height
+            node.data.hProperties['data-dimensions'] = `${enhanced.width}×${enhanced.height}`
+
+            if (Math.abs(ratio - 1) < 0.1) {
+              classes.push('aspect-square')
+            } else if (Math.abs(ratio - 16/9) < 0.1) {
+              classes.push('aspect-video')
+            } else if (Math.abs(ratio - 3/4) < 0.1) {
+              classes.push('aspect-[3/4]')
+            }
+          }
+
+          // Add blur placeholder data
+          if (enhanced.placeholder) {
+            node.data.hProperties['data-placeholder'] = enhanced.placeholder
+            node.data.hProperties['data-loading'] = 'lazy'
+          }
+
+          node.data.hProperties.className = classes.join(' ')
           node.data.hProperties.crossorigin = 'anonymous'
-          node.data.hProperties.style = 'display: block; max-width: 100%;'
+
+          // Add dimensions if available
+          if (enhanced.width) node.data.hProperties.width = enhanced.width
+          if (enhanced.height) node.data.hProperties.height = enhanced.height
         }
       }
     })

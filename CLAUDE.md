@@ -37,12 +37,25 @@ Personal website and digital publishing system built with Nuxt 3. Primary purpos
    - Caching layer to avoid rate limits
    - Real-time personal metrics dashboard
 
+4. **Gear Inventory System** (`pages/gear/index.vue`)
+   - CSV-based gear tracking with weight calculations
+   - Dynamic unit conversion (metric/imperial)
+   - Tuftian data visualizations (weight distributions, histograms)
+   - Ultra-dense data tables with 8px baseline grid
+   - Container-based organization with inline statistics
+
 ## Important File Locations
 
 ### Critical Scripts
 - `scripts/processMarkdown.mjs` - Main content processing pipeline
 - `scripts/predict.mjs` - Prediction creation CLI
 - `server/routes/tags.json.ts` - Dynamic tags endpoint
+- `server/api/gear-csv.get.ts` - Gear CSV data endpoint
+
+### Key Components
+- `components/gear/GearItem.vue` - Individual gear row component
+- `components/gear/GearTableRow.client.vue` - Client-side gear display
+- `composables/useWeightCalculations.ts` - Weight conversion utilities
 
 ### Configuration Files
 - `nuxt.config.ts` - Nuxt configuration with Docker preset
@@ -68,6 +81,8 @@ Applied throughout codebase for:
 - Root folder cleanup (removed 15MB+ of lighthouse reports, build logs)
 - Animation system (deleted looping animations causing flickering)
 - Component simplification (projects page: 120+ lines → 25 lines)
+- TCWM scoring system removal from gear page (complex → simple weight sorting)
+- Typography consolidation (custom fonts → system Georgia serif)
 
 ### Content Processing Flow
 1. **Write** in Obsidian with YAML frontmatter + tags
@@ -146,22 +161,36 @@ docker logs website2-container
 docker-compose down --volumes && docker-compose up --build
 ```
 
+### Gear Page Issues
+**Problem**: Weights showing as 0 or NaN
+**Cause**: CSV column name mismatch (`Weight_oz` vs `Base Weight ()`)
+**Solution**: Update `composables/useWeightCalculations.ts` to use correct column name
+
+**Problem**: Vue template errors with inline SVGs
+**Solution**: Use simpler HTML entities or Unicode characters instead of complex SVGs in templates
+
 ## Current System Status
 
 - **Build System**: Clean, zero ESLint errors after DELETE-DRIVEN cleanup
 - **Content Pipeline**: Obsidian → JSON processing working smoothly
 - **Docker**: Production-ready with health checks
-- **Dynamic Tags**: Journalist pyramid ordering operational  
+- **Dynamic Tags**: Journalist pyramid ordering operational
 - **Predictions**: Cryptographic verification system functional
 - **Root Folder**: Professional, no build artifacts or test debris
+- **Gear System**: CSV-based inventory with Weight_oz column, no TCWM scoring
+- **Typography**: Georgia serif, 8px baseline grid, micro-visualizations
+- **Data Tables**: Ultra-dense Tuftian design with inline sparklines
 
 ## Key Design Principles
 
 1. **Delete-Driven Development**: Remove complexity, don't add it
-2. **Static Generation**: Prefer build-time processing over runtime complexity  
+2. **Static Generation**: Prefer build-time processing over runtime complexity
 3. **Journalist Pyramid**: Most important/frequent data first (tags, content)
 4. **Type Safety**: Full TypeScript coverage with strict checking
 5. **Docker First**: Container-based deployment and development
+6. **Tuftian Data Density**: Maximum data-ink ratio, minimal chrome
+7. **8px Baseline Grid**: Consistent vertical rhythm throughout typography
+8. **Dark-First Design**: Primary dark theme with zinc color palette
 
 ---
 

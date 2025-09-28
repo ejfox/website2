@@ -6,7 +6,9 @@ export default defineEventHandler(async (event) => {
     let commit = 'unknown'
     try {
       const { execSync } = await import('child_process')
-      commit = execSync('git rev-parse HEAD', { encoding: 'utf8' }).trim().substring(0, 8)
+      commit = execSync('git rev-parse HEAD', { encoding: 'utf8' })
+        .trim()
+        .substring(0, 8)
     } catch (_e) {
       // Git not available
     }

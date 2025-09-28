@@ -10,12 +10,36 @@ async function getHighlighter() {
     highlighterInstance = await createHighlighter({
       themes: ['github-light', 'github-dark', 'vitesse-dark', 'one-dark-pro'],
       langs: [
-        'javascript', 'typescript', 'json', 'html', 'css', 
-        'markdown', 'bash', 'python', 'go', 'rust', 
-        'java', 'cpp', 'vue', 'jsx', 'tsx', 'sql', 
-        'yaml', 'xml', 'shell', 'text', 'csv', 'ruby', 
-        'cypher', 'r', 'lua', 'powershell', 'dockerfile',
-        'toml', 'ini', 'properties'
+        'javascript',
+        'typescript',
+        'json',
+        'html',
+        'css',
+        'markdown',
+        'bash',
+        'python',
+        'go',
+        'rust',
+        'java',
+        'cpp',
+        'vue',
+        'jsx',
+        'tsx',
+        'sql',
+        'yaml',
+        'xml',
+        'shell',
+        'text',
+        'csv',
+        'ruby',
+        'cypher',
+        'r',
+        'lua',
+        'powershell',
+        'dockerfile',
+        'toml',
+        'ini',
+        'properties'
       ]
     })
   }
@@ -35,11 +59,11 @@ export default defineEventHandler(async (event) => {
 
   try {
     const highlighter = await getHighlighter()
-    
+
     // Check if language is supported, fallback to 'text' if not
     const supportedLanguages = highlighter.getLoadedLanguages()
     const langToUse = supportedLanguages.includes(language) ? language : 'text'
-    
+
     const html = highlighter.codeToHtml(code, {
       lang: langToUse,
       theme: theme

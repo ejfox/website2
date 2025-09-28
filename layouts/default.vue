@@ -11,7 +11,7 @@
         class="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-200/20 dark:border-zinc-800/20 md:hidden"
       >
         <!-- Top bar with branding -->
-        <div class="flex items-center justify-between px-3 h-12">
+        <div class="flex items-center justify-between px-4 h-12">
           <a
             href="/"
             class="text-lg font-medium tracking-tight text-zinc-900 dark:text-zinc-100"
@@ -23,7 +23,7 @@
         </div>
 
         <!-- Visible tab navigation - no hidden menu -->
-        <div class="px-3 pb-2">
+        <div class="px-4 pb-2">
           <div
             class="flex items-center gap-1 overflow-x-auto scrollbar-hide"
             role="tablist"
@@ -34,7 +34,7 @@
               :key="item.href"
               :href="item.href"
               role="tab"
-              class="flex-shrink-0 px-3 py-1.5 text-sm font-medium rounded-full transition-colors-base text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/50"
+              class="flex-shrink-0 px-4 py-1.5 text-sm font-medium rounded-full transition-colors-base text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/50"
               >{{ item.label }}</a
             >
 
@@ -43,7 +43,7 @@
               :aria-expanded="mobileMenuOpen"
               aria-controls="secondary-nav-menu"
               aria-label="Show more navigation options"
-              class="flex-shrink-0 px-3 py-1.5 text-sm font-medium text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 rounded-full transition-all duration-200"
+              class="flex-shrink-0 px-4 py-1.5 text-sm font-medium text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 rounded-full transition-all duration-200"
               :class="
                 mobileMenuOpen
                   ? 'bg-zinc-100 dark:bg-zinc-800'
@@ -68,15 +68,15 @@
           <div
             v-if="mobileMenuOpen"
             id="secondary-nav-menu"
-            class="px-4 pb-3 border-t border-zinc-200/30 dark:border-zinc-800/30"
+            class="px-4 pb-4 border-t border-zinc-200/30 dark:border-zinc-800/30"
           >
-            <div class="flex flex-wrap gap-1 pt-3">
+            <div class="flex flex-wrap gap-1 pt-4">
               <a
                 v-for="item in secondaryNav"
                 :key="item.href"
                 :href="item.href"
                 :target="item.external ? '_blank' : undefined"
-                class="px-3 py-1.5 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 rounded-full transition-all duration-200"
+                class="px-4 py-1.5 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 rounded-full transition-all duration-200"
                 @click="closeMobileMenu"
                 >{{ item.label }}{{ item.icon ? ` ${item.icon}` : '' }}</a
               >
@@ -92,22 +92,23 @@
         <div
           class="container mx-auto md:flex md:flex-col items-start w-full max-h-screen"
         >
-          <div class="px-6 py-6 space-y-1 w-full">
+          <div class="px-8 py-8 space-y-1 w-full">
             <div
               class="text-zinc-900 dark:text-zinc-100 text-2xl font-bold block mb-8"
             >
               EJ Fox
             </div>
             <div class="space-y-1">
-              <a 
+              <a
                 v-for="item in primaryNav"
                 :key="item.href"
-                :class="linkClasses" 
+                :class="linkClasses"
                 :href="item.href"
                 :target="item.external ? '_blank' : undefined"
-              >{{ item.label }}{{ item.icon ? ` ${item.icon}` : '' }}</a>
+                >{{ item.label }}{{ item.icon ? ` ${item.icon}` : '' }}</a
+              >
             </div>
-            <div class="my-6"></div>
+            <div class="my-8"></div>
             <div class="space-y-1">
               <a
                 v-for="item in secondaryNav"
@@ -119,17 +120,16 @@
               >
             </div>
             <!-- Table of Contents Teleport Target -->
-            <div id="nav-toc-container" class="mt-6 pr-4"></div>
+            <div id="nav-toc-container" class="mt-8 pr-4"></div>
 
-            <!-- Calendar TOC - show available slots when on calendar page -->
-            <ClientOnly>
-              <CalendarTOC v-if="isCalendarPage" />
-            </ClientOnly>
+            <!-- Calendar TOC removed - causing hydration mismatch -->
           </div>
           <div
-            class="px-6 mt-auto pt-8 opacity-60 text-xs text-zinc-500 dark:text-zinc-400 hidden md:block"
+            class="px-8 mt-auto pt-8 opacity-60 text-xs text-zinc-500 dark:text-zinc-400 hidden md:block"
           >
-            <a href="/pgp.txt">PGP: E207 8E65 3FE3 89CD</a>
+            <a href="/pgp.txt"
+              >PGP: <span class="font-mono">E207 8E65 3FE3 89CD</span></a
+            >
           </div>
         </div>
       </nav>
@@ -144,15 +144,8 @@
       </article>
     </section>
 
-    <!-- Global Gear Navigator for gear pages - DELETED SSR-BREAKING COMPONENT -->
-    <ClientOnly>
-      <GearNavigator v-if="isGearPage" :current-slug="currentGearSlug" />
-    </ClientOnly>
-
+    <!-- Components removed to prevent hydration flicker -->
     <Footer />
-    <ClientOnly>
-      <WebVitalsReporter />
-    </ClientOnly>
   </div>
 </template>
 
@@ -176,14 +169,8 @@ const closeMobileMenu = () => {
 // Use Nuxt's built-in composable - should be SSR safe
 const route = useRoute()
 
-// Client-only route access to prevent SSR errors
+// Simplified to prevent hydration flickering
 const isStatsSimple = ref(false)
-const isBlogPost = ref(false)
-const isStatsPage = ref(false)
-const isProjectsPage = ref(false)
-const isGearPage = ref(false)
-const currentGearSlug = ref('')
-const isCalendarPage = ref(false)
 
 // Navigation config
 const primaryNav = getPrimaryNav()
@@ -192,56 +179,22 @@ const secondaryNav = getSecondaryNav()
 const linkClasses =
   'block text-sm font-mono transition-colors-base hover:text-zinc-900 dark:hover:text-zinc-100 no-underline'
 
-// Add a watcher to update the TOC container visibility when route changes
-const tocContainerRef = ref(null)
-
-// Single onMounted - DELETE THE DUPLICATE!
+// Simplified onMounted to prevent flickering
 onMounted(() => {
-  // Only detect mobile on client-side after hydration
+  // Only basic mobile detection
   const checkMobile = () => {
     isMobile.value = window.innerWidth < 768
   }
   checkMobile()
   window.addEventListener('resize', checkMobile)
 
+  // Simple stats check
+  isStatsSimple.value =
+    route.path === '/stats' && route.query?.simple !== undefined
+
   onUnmounted(() => {
     window.removeEventListener('resize', checkMobile)
   })
-
-  // Only check routes on client-side after hydration
-  const updateRouteStates = () => {
-    if (!route) return
-
-    isStatsSimple.value =
-      route.path === '/stats' && route.query?.simple !== undefined
-    isBlogPost.value =
-      route.path?.startsWith('/blog/') && route.path !== '/blog/'
-    isStatsPage.value = route.path === '/stats'
-    isProjectsPage.value = route.path === '/projects'
-    isGearPage.value = route.path?.startsWith('/gear/') || false
-    isCalendarPage.value = route.path === '/calendar'
-
-    if (isGearPage.value) {
-      const pathParts = route.path?.split('/') || []
-      currentGearSlug.value = pathParts[pathParts.length - 1] || ''
-    }
-
-    // Handle TOC updates
-    nextTick(() => {
-      if (
-        (isBlogPost.value || isStatsPage.value || isProjectsPage.value) &&
-        tocContainerRef.value
-      ) {
-        tocContainerRef.value.classList.add('toc-update')
-        setTimeout(() => {
-          tocContainerRef.value?.classList.remove('toc-update')
-        }, 0)
-      }
-    })
-  }
-
-  updateRouteStates()
-  watch(() => route?.path, updateRouteStates)
 })
 </script>
 

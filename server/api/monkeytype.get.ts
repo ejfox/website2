@@ -113,9 +113,12 @@ export default defineEventHandler(async () => {
       }))
 
     // Calculate average WPM from all tests
-    const averageWpm = allTests.length > 0 
-      ? Math.round(allTests.reduce((sum, test) => sum + test.wpm, 0) / allTests.length)
-      : 0
+    const averageWpm =
+      allTests.length > 0
+        ? Math.round(
+            allTests.reduce((sum, test) => sum + test.wpm, 0) / allTests.length
+          )
+        : 0
 
     return {
       typingStats: {

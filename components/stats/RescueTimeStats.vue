@@ -10,8 +10,12 @@
           priority="primary"
         />
       </div>
-      <div class="text-xs text-zinc-500 uppercase tracking-wider mt-1">HOURS THIS MONTH</div>
-      <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
+      <div
+        class="font-mono text-xs text-zinc-500 uppercase tracking-widest mt-2"
+      >
+        HOURS THIS MONTH
+      </div>
+      <div class="font-mono text-sm text-zinc-600 dark:text-zinc-400 mt-4">
         <AnimatedNumber
           :value="monthlyProductivePercent"
           format="percent"
@@ -31,9 +35,12 @@
 
     <!-- Time Distribution Waffle Chart -->
     <StatsSectionHeader title="TIME DISTRIBUTION" />
-    <div 
-      class="grid gap-1 md:gap-2 w-full border border-zinc-100/10 dark:border-zinc-800/50 p-2 rounded-sm waffle-chart" 
-      style="grid-template-columns: repeat(20, 1fr); grid-template-rows: repeat(5, 1fr)"
+    <div
+      class="grid gap-1 md:gap-2 w-full border border-zinc-100/10 dark:border-zinc-800/50 p-2 rounded-sm waffle-chart"
+      style="
+        grid-template-columns: repeat(20, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+      "
       @mouseenter="isHovering = true"
       @mouseleave="isHovering = false"
     >
@@ -41,15 +48,17 @@
         v-for="(cell, i) in waffleCells"
         :key="i"
         class="transition-colors duration-300 aspect-square waffle-cell"
-        :style="{ backgroundColor: isHovering ? cell.turboColor : cell.grayscaleColor }"
+        :style="{
+          backgroundColor: isHovering ? cell.turboColor : cell.grayscaleColor
+        }"
         :title="cell.title"
       ></div>
     </div>
-    <div
-      class="flex justify-between text-zinc-500 mt-1"
-      style="font-size: 10px; line-height: 12px"
-    >
-      <span>{{ rescueTime?.week?.activities?.length || 0 }} TRACKED ACTIVITIES</span>
+    <div class="flex justify-between text-zinc-500 mt-1 text-xs leading-[12px]">
+      <span
+        >{{ rescueTime?.week?.activities?.length || 0 }} TRACKED
+        ACTIVITIES</span
+      >
       <span>SQUARE = 1% OF TOTAL TIME</span>
     </div>
 
@@ -68,15 +77,17 @@
         <div class="flex-1 min-w-0">
           <div class="flex justify-between items-center gap-1">
             <span
-              class="text-zinc-700 dark:text-zinc-300 truncate"
-              style="font-size: 10px; line-height: 12px"
-            >{{ category.name }}</span>
+              class="text-zinc-700 dark:text-zinc-300 truncate text-xs leading-[12px]"
+              >{{ category.name }}</span
+            >
             <span
-              class="text-zinc-500 tabular-nums flex-shrink-0"
-              style="font-size: 10px; line-height: 12px"
-            >{{ category.percentageOfTotal }}%</span>
+              class="text-zinc-500 tabular-nums flex-shrink-0 text-xs leading-[12px]"
+              >{{ category.percentageOfTotal }}%</span
+            >
           </div>
-          <div class="h-1 rounded-sm overflow-hidden bg-transparent dark:bg-zinc-800/10 border-b border-zinc-200/10 dark:border-zinc-800/30 mt-0.5">
+          <div
+            class="h-1 rounded-sm overflow-hidden bg-transparent dark:bg-zinc-800/10 border-b border-zinc-200/10 dark:border-zinc-800/30 mt-0.5"
+          >
             <div
               class="h-full rounded-sm"
               :style="{
@@ -201,7 +212,7 @@ const activityDates = computed(() => {
 const getTurboColor = (index: number, total: number) => {
   // Skip dark colors: map 0.3 to 1.0 instead of 0 to 1
   const normalizedIndex = index / Math.max(total - 1, 1)
-  const adjustedIndex = 0.3 + (normalizedIndex * 0.7) // 0.3 to 1.0 range
+  const adjustedIndex = 0.3 + normalizedIndex * 0.7 // 0.3 to 1.0 range
   return interpolateTurbo(adjustedIndex)
 }
 
@@ -211,7 +222,7 @@ const sortedCategories = computed(() => {
   const sorted = [...categories]
     .sort((a, b) => (b.percentageOfTotal || 0) - (a.percentageOfTotal || 0))
     .filter((cat) => (cat.percentageOfTotal || 0) > 0)
-    
+
   return sorted.map((category, i) => ({
     name: category.name,
     percentageOfTotal: category.percentageOfTotal || 0,
@@ -222,29 +233,34 @@ const sortedCategories = computed(() => {
 // Waffle chart cells - USE SAME COLOR FUNCTION
 const waffleCells = computed(() => {
   const activities = rescueTime.value?.week?.activities || []
-  
+
   if (activities.length === 0) {
-    return Array(100).fill(null).map(() => ({
-      turboColor: '#666',
-      grayscaleColor: '#666',
-      title: 'No data'
-    }))
+    return Array(100)
+      .fill(null)
+      .map(() => ({
+        turboColor: '#666',
+        grayscaleColor: '#666',
+        title: 'No data'
+      }))
   }
 
-  const totalPercentage = activities.reduce((sum, activity) => sum + (activity.percentageOfTotal || 0), 0)
+  const totalPercentage = activities.reduce(
+    (sum, activity) => sum + (activity.percentageOfTotal || 0),
+    0
+  )
   const scalingFactor = totalPercentage > 0 ? 100 / totalPercentage : 1
-  
+
   const cells = Array(100).fill(null)
   let cellIndex = 0
-  
+
   activities.forEach((activity, activityIndex) => {
     const scaledPercentage = (activity.percentageOfTotal || 0) * scalingFactor
     const cellsForActivity = Math.round(scaledPercentage)
-    
+
     // USE SAME COLOR FUNCTION
     const turboColor = getTurboColor(activityIndex, activities.length)
     const grayColor = `#${(128 + activityIndex * 8).toString(16).padStart(2, '0').repeat(3)}`
-    
+
     for (let i = 0; i < cellsForActivity && cellIndex < 100; i++) {
       cells[cellIndex] = {
         turboColor: turboColor,
@@ -254,12 +270,12 @@ const waffleCells = computed(() => {
       cellIndex++
     }
   })
-  
+
   // Fill remaining
   while (cellIndex < 100) {
     cells[cellIndex] = {
       turboColor: '#666',
-      grayscaleColor: '#666', 
+      grayscaleColor: '#666',
       title: 'Other'
     }
     cellIndex++

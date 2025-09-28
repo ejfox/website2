@@ -8,17 +8,15 @@
           <div class="stat-value">
             {{ Math.round(stats.typingStats.bestWPM) }}
           </div>
-          <div class="stat-label">
-            BEST WPM
-          </div>
+          <div class="stat-label">BEST WPM</div>
           <div class="stat-details">
-            {{ stats.typingStats.testsCompleted }} TESTS · 
+            {{ stats.typingStats.testsCompleted }} TESTS ·
             {{ Math.round(stats.typingStats.bestAccuracy) }}% ACC
           </div>
         </div>
       </div>
     </div>
-    <div v-else class="text-center py-6">
+    <div v-else class="text-center py-8">
       <div class="text-xl font-mono text-zinc-700 dark:text-zinc-500">
         NO TYPING DATA
       </div>
@@ -28,13 +26,14 @@
           href="https://monkeytype.com"
           target="_blank"
           class="text-zinc-800 dark:text-zinc-300 hover:underline"
-        >MonkeyType.com</a>
+          >MonkeyType.com</a
+        >
         to start tracking
       </div>
     </div>
 
     <!-- Recent Tests -->
-    <div v-if="hasRecentTests" ref="recentTestsRef" class="mt-8 space-y-6">
+    <div v-if="hasRecentTests" ref="recentTestsRef" class="mt-8 space-y-8">
       <StatsSectionHeader title="RECENT TESTS" />
 
       <div class="space-y-4">
@@ -50,10 +49,21 @@
           </div>
           <div class="flex items-center gap-2 ml-auto">
             <span class="wpm-value">
-              <AnimatedNumber :value="test.wpm" format="default" :duration="800" priority="tertiary" />
+              <AnimatedNumber
+                :value="test.wpm"
+                format="default"
+                :duration="800"
+                priority="tertiary"
+              />
             </span>
             <span class="accuracy-value">
-              <AnimatedNumber :value="test.accuracy" format="decimal" :decimals="1" :duration="400" priority="tertiary" />%
+              <AnimatedNumber
+                :value="test.accuracy"
+                format="decimal"
+                :decimals="1"
+                :duration="400"
+                priority="tertiary"
+              />%
             </span>
           </div>
         </div>
@@ -61,34 +71,43 @@
     </div>
 
     <!-- Performance Metrics -->
-    <div v-if="stats.typingStats" ref="performanceRef" class="mt-8 space-y-6">
+    <div v-if="stats.typingStats" ref="performanceRef" class="mt-8 space-y-8">
       <StatsSectionHeader title="PERFORMANCE" />
 
       <div class="grid grid-cols-2 gap-4">
         <div class="stat-item">
-          <div class="stat-label">
-            TESTS
-          </div>
+          <div class="stat-label">TESTS</div>
           <div class="stat-value">
-            <AnimatedNumber :value="stats.typingStats.testsCompleted" format="default" :duration="1600" priority="secondary" />
+            <AnimatedNumber
+              :value="stats.typingStats.testsCompleted"
+              format="default"
+              :duration="1600"
+              priority="secondary"
+            />
           </div>
         </div>
-        
+
         <div v-if="stats.typingStats.bestConsistency" class="stat-item">
-          <div class="stat-label">
-            CONSISTENCY
-          </div>
+          <div class="stat-label">CONSISTENCY</div>
           <div class="stat-value">
-            <AnimatedNumber :value="stats.typingStats.bestConsistency" format="default" :duration="800" priority="secondary" />%
+            <AnimatedNumber
+              :value="stats.typingStats.bestConsistency"
+              format="default"
+              :duration="800"
+              priority="secondary"
+            />%
           </div>
         </div>
-        
+
         <div v-if="stats.typingStats.averageWPM" class="stat-item">
-          <div class="stat-label">
-            AVG WPM
-          </div>
+          <div class="stat-label">AVG WPM</div>
           <div class="stat-value">
-            <AnimatedNumber :value="Math.round(stats.typingStats.averageWPM)" format="default" :duration="800" priority="secondary" />
+            <AnimatedNumber
+              :value="Math.round(stats.typingStats.averageWPM)"
+              format="default"
+              :duration="800"
+              priority="secondary"
+            />
           </div>
         </div>
       </div>
@@ -150,7 +169,6 @@ const recentTests = computed(() => {
     .slice(0, 5)
 })
 
-
 // Format utilities for minimal date display
 const formatDateMinimal = (timestamp: string): string => {
   const date = new Date(timestamp)
@@ -194,7 +212,6 @@ const performanceRef = ref<HTMLElement | null>(null)
 onMounted(() => {
   // DELETED: setupScrollAnimations() - BROKEN FUNCTION
 })
-
 </script>
 
 <style scoped>
@@ -227,7 +244,7 @@ onMounted(() => {
 }
 
 .stat-item .stat-label {
-  @apply text-xs tracking-wider text-zinc-500;
+  @apply text-xs tracking-widest text-zinc-500;
 }
 
 .stat-item .stat-value {

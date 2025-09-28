@@ -3,36 +3,61 @@
     <!-- Main Stats -->
     <div v-if="stats.submissionStats" class="individual-stat-large">
       <div class="stat-value">
-        <AnimatedNumber :value="totalSolved" format="commas" :duration="1600" priority="primary" />
+        <AnimatedNumber
+          :value="totalSolved"
+          format="commas"
+          :duration="1600"
+          priority="primary"
+        />
       </div>
-      <div class="stat-label">
-        PROBLEMS SOLVED
-      </div>
+      <div class="stat-label">PROBLEMS SOLVED</div>
       <div class="stat-details">
-        <AnimatedNumber :value="stats.submissionStats.easy.count" format="commas" :duration="800" priority="secondary" /> EASY · 
-        <AnimatedNumber :value="stats.submissionStats.medium.count" format="commas" :duration="800" :delay="50" priority="secondary" /> MEDIUM · 
-        <AnimatedNumber :value="stats.submissionStats.hard.count" format="commas" :duration="800" priority="tertiary" /> HARD
+        <AnimatedNumber
+          :value="stats.submissionStats.easy.count"
+          format="commas"
+          :duration="800"
+          priority="secondary"
+        />
+        EASY ·
+        <AnimatedNumber
+          :value="stats.submissionStats.medium.count"
+          format="commas"
+          :duration="800"
+          :delay="50"
+          priority="secondary"
+        />
+        MEDIUM ·
+        <AnimatedNumber
+          :value="stats.submissionStats.hard.count"
+          format="commas"
+          :duration="800"
+          priority="tertiary"
+        />
+        HARD
       </div>
 
       <!-- Difficulty Distribution Bar -->
       <div class="mt-4">
         <div class="difficulty-bar">
           <div
-            class="easy-bar" :style="{
+            class="easy-bar"
+            :style="{
               width: `${difficultyPercentages.easy}%`,
               backgroundColor: '#a1a1aa'
             }"
             :title="`Easy: ${formatNumber(stats.submissionStats.easy.count)} problems`"
           ></div>
           <div
-            class="medium-bar" :style="{
+            class="medium-bar"
+            :style="{
               width: `${difficultyPercentages.medium}%`,
               backgroundColor: '#71717a'
             }"
             :title="`Medium: ${formatNumber(stats.submissionStats.medium.count)} problems`"
           ></div>
           <div
-            class="hard-bar" :style="{
+            class="hard-bar"
+            :style="{
               width: `${difficultyPercentages.hard}%`,
               backgroundColor: '#3f3f46'
             }"
@@ -51,10 +76,21 @@
     <div v-if="hasLanguageStats" class="mt-8">
       <StatsSectionHeader title="LANGUAGES" />
       <div class="space-y-2">
-        <div v-for="(item, index) in topLanguages" :key="index" class="flex justify-between items-center text-xs">
-          <span class="text-zinc-700 dark:text-zinc-300">{{ item.language }}</span>
+        <div
+          v-for="(item, index) in topLanguages"
+          :key="index"
+          class="flex justify-between items-center text-xs"
+        >
+          <span class="text-zinc-700 dark:text-zinc-300">{{
+            item.language
+          }}</span>
           <span class="text-zinc-500 tabular-nums">
-            <AnimatedNumber :value="item.count" format="commas" :delay="index * 80" priority="tertiary" />
+            <AnimatedNumber
+              :value="item.count"
+              format="commas"
+              :delay="index * 80"
+              priority="tertiary"
+            />
           </span>
         </div>
       </div>
@@ -64,11 +100,21 @@
     <div v-if="recentAcceptedSubmissions.length" class="mt-8">
       <StatsSectionHeader title="RECENT SOLUTIONS" />
       <div class="space-y-2">
-        <div v-for="submission in recentAcceptedSubmissions" :key="submission.titleSlug" class="submission-row">
+        <div
+          v-for="submission in recentAcceptedSubmissions"
+          :key="submission.titleSlug"
+          class="submission-row"
+        >
           <div class="flex-none">
-            <span class="text-zinc-400 text-2xs tabular-nums">{{ formatDateMinimal(submission.timestamp) }}</span>
+            <span class="text-zinc-400 text-2xs tabular-nums">{{
+              formatDateMinimal(submission.timestamp)
+            }}</span>
           </div>
-          <a :href="`https://leetcode.com/problems/${submission.titleSlug}/`" target="_blank" class="problem-title">
+          <a
+            :href="`https://leetcode.com/problems/${submission.titleSlug}/`"
+            target="_blank"
+            class="problem-title"
+          >
             {{ truncateTitle(submission.title) }}
           </a>
           <div class="submission-lang text-2xs">
@@ -110,7 +156,8 @@ const difficultyPercentages = computed(() => {
 
   return {
     easy: (props.stats.submissionStats.easy.count / totalSolved.value) * 100,
-    medium: (props.stats.submissionStats.medium.count / totalSolved.value) * 100,
+    medium:
+      (props.stats.submissionStats.medium.count / totalSolved.value) * 100,
     hard: (props.stats.submissionStats.hard.count / totalSolved.value) * 100
   }
 })
@@ -120,8 +167,8 @@ const topLanguages = computed(() => {
   const stats: Record<string, number> = {}
 
   props.stats.recentSubmissions
-    .filter(s => s.statusDisplay === 'Accepted')
-    .forEach(submission => {
+    .filter((s) => s.statusDisplay === 'Accepted')
+    .forEach((submission) => {
       const lang = submission.lang
       stats[lang] = (stats[lang] || 0) + 1
     })
@@ -137,7 +184,7 @@ const hasLanguageStats = computed(() => topLanguages.value.length > 0)
 // Recent submissions - top 3 only
 const recentAcceptedSubmissions = computed(() => {
   return props.stats.recentSubmissions
-    .filter(s => s.statusDisplay === 'Accepted')
+    .filter((s) => s.statusDisplay === 'Accepted')
     .slice(0, 3)
 })
 

@@ -5,7 +5,9 @@
 /* Remove ALL default Tailwind styles to reduce size */
 @layer base {
   /* Reset only what we need */
-  *, ::before, ::after {
+  *,
+  ::before,
+  ::after {
     box-sizing: border-box;
   }
 }

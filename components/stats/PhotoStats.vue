@@ -122,7 +122,6 @@ const hasCameraData = computed(() => {
     topAperture.value
   )
 })
-
 </script>
 
 <style scoped>

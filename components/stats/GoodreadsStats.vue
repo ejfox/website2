@@ -1,5 +1,5 @@
 <template>
-  <div v-if="data?.stats" class="space-y-3 font-mono">
+  <div v-if="data?.stats" class="space-y-4 font-mono">
     <!-- Essential metrics only -->
     <div>
       <StatsSectionHeader title="READING STATUS" />
@@ -8,33 +8,25 @@
           <div class="stat-value">
             {{ data.stats.totalRead || 0 }}
           </div>
-          <div class="stat-label">
-            READ
-          </div>
+          <div class="stat-label">READ</div>
         </div>
         <div class="metric-card">
           <div class="stat-value">
             {{ formatRating(data.stats.averageRating) }}
           </div>
-          <div class="stat-label">
-            AVG RATING
-          </div>
+          <div class="stat-label">AVG RATING</div>
         </div>
         <div class="metric-card">
           <div class="stat-value">
             {{ data.stats.topRatedBooks?.length || 0 }}
           </div>
-          <div class="stat-label">
-            5-STAR
-          </div>
+          <div class="stat-label">5-STAR</div>
         </div>
         <div class="metric-card">
           <div class="stat-value">
             {{ data.stats.thisYear || 0 }}
           </div>
-          <div class="stat-label">
-            THIS YEAR
-          </div>
+          <div class="stat-label">THIS YEAR</div>
         </div>
       </div>
     </div>
@@ -43,8 +35,8 @@
     <div v-if="data?.books?.currentlyReading?.length">
       <StatsSectionHeader title="READING NOW" />
       <div class="space-y-1">
-        <div 
-          v-for="book in data.books.currentlyReading" 
+        <div
+          v-for="book in data.books.currentlyReading"
           :key="book.bookId"
           class="text-xs"
         >
@@ -58,8 +50,8 @@
     <div v-if="recentBooks.length">
       <StatsSectionHeader title="RECENT" />
       <div class="text-xs space-y-0.5">
-        <div 
-          v-for="book in recentBooks.slice(0, 12)" 
+        <div
+          v-for="book in recentBooks.slice(0, 12)"
           :key="book.bookId"
           class="flex items-center justify-between"
         >
@@ -67,8 +59,8 @@
             {{ book.title }}
             <span class="text-muted"> — {{ book.author }}</span>
           </span>
-          <span 
-            v-if="book.rating >= 4" 
+          <span
+            v-if="book.rating >= 4"
             class="text-yellow-500 flex-shrink-0 ml-2"
             :class="book.rating === 5 ? 'font-bold' : ''"
           >
@@ -80,17 +72,17 @@
 
     <!-- Footer -->
     <div class="pt-4 border-t border-zinc-200 dark:border-zinc-800">
-      <a 
-        :href="data.stats.profileUrl" 
+      <a
+        :href="data.stats.profileUrl"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-xs text-muted hover:text-primary transition-colors uppercase tracking-wider"
+        class="text-xs text-muted hover:text-primary transition-colors uppercase tracking-widest"
       >
         View on Goodreads ↗
       </a>
     </div>
   </div>
-  
+
   <div v-else-if="data?.error" class="text-center py-8">
     <div class="text-sm text-muted">
       {{ data.error }}
@@ -99,11 +91,9 @@
       RSS feeds may be restricted or parsing failed
     </div>
   </div>
-  
+
   <div v-else class="text-center py-8 text-muted">
-    <div class="text-sm">
-      Goodreads data not available
-    </div>
+    <div class="text-sm">Goodreads data not available</div>
   </div>
 </template>
 
@@ -125,9 +115,9 @@ const formatRating = (rating) => {
 // Recent books for tiny spine visualization - like books on a shelf
 const recentBooks = computed(() => {
   if (!props.data?.books?.read?.length) return []
-  
+
   // Take recent reads and limit to reasonable amount for visualization
-  return props.data.books.read.slice(0, 60).map(book => ({
+  return props.data.books.read.slice(0, 60).map((book) => ({
     ...book,
     // Ensure we have cover data
     cover: book.cover || null

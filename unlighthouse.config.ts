@@ -5,12 +5,12 @@ export default {
     '/',
     '/blog',
     // '/stats', // DISABLED - broken components
-    // '/predictions', // DISABLED - broken components  
+    // '/predictions', // DISABLED - broken components
     '/gear',
     '/projects'
   ],
   lighthouseOptions: {
-    onlyCategories: ['performance', 'accessibility', 'seo'],
+    onlyCategories: ['performance', 'accessibility', 'seo']
   },
   hooks: {
     'report:generate': () => {

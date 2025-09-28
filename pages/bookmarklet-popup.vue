@@ -1,14 +1,14 @@
 <template>
-  <div class="min-h-screen bg-gray-50 dark:bg-gray-900 p-2">
+  <div class="min-h-screen bg-zinc-50 dark:bg-zinc-900 p-2">
     <div class="max-w-lg mx-auto">
       <!-- Header -->
-      <div class="mb-3">
+      <div class="mb-4">
         <div class="flex items-center justify-between mb-2">
-          <h1 class="text-sm font-mono text-gray-900 dark:text-gray-100">
+          <h1 class="text-sm font-mono text-zinc-900 dark:text-zinc-100">
             Enhanced Pinboard Save
           </h1>
           <button
-            class="text-xs font-mono text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 underline"
+            class="text-xs font-mono text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200 underline"
             @click="saveToPinboard(false)"
           >
             skip →
@@ -17,20 +17,20 @@
 
         <!-- URL Display -->
         <div
-          class="text-lg font-mono text-gray-900 dark:text-gray-100 mb-2 break-all leading-tight"
+          class="text-lg font-mono text-zinc-900 dark:text-zinc-100 mb-2 break-all leading-tight"
         >
           {{ pageUrl }}
         </div>
 
         <!-- Page Info -->
-        <div class="text-xs font-mono text-gray-600 dark:text-gray-400 mb-1">
+        <div class="text-xs font-mono text-zinc-600 dark:text-zinc-400 mb-1">
           {{ pageTitle }}
         </div>
 
         <!-- Description -->
         <div
           v-if="selectedText"
-          class="text-xs text-gray-500 dark:text-gray-500 italic"
+          class="text-xs text-zinc-500 dark:text-zinc-500 italic"
         >
           "{{ selectedText.substring(0, 120)
           }}{{ selectedText.length > 120 ? '...' : '' }}"
@@ -39,16 +39,16 @@
 
       <!-- Loading State -->
       <div v-if="loading" class="text-center py-4">
-        <div class="text-xs font-mono text-gray-500 dark:text-gray-400">
+        <div class="text-xs font-mono text-zinc-500 dark:text-zinc-400">
           analyzing...
         </div>
       </div>
 
       <!-- Suggestions -->
-      <div v-else-if="suggestions" class="space-y-3">
+      <div v-else-if="suggestions" class="space-y-4">
         <!-- Suggested Tags -->
         <div v-if="suggestions.suggested_tags?.length">
-          <div class="text-xs font-mono text-gray-900 dark:text-gray-100 mb-2">
+          <div class="text-xs font-mono text-zinc-900 dark:text-zinc-100 mb-2">
             suggested:
           </div>
           <div class="flex flex-wrap gap-1 mb-2">
@@ -60,8 +60,8 @@
                 selectedTags.includes(
                   typeof tagObj === 'string' ? tagObj : tagObj.tag
                 )
-                  ? 'bg-gray-900 border-gray-900 text-gray-100 dark:bg-gray-100 dark:border-gray-100 dark:text-gray-900'
-                  : 'bg-transparent border-gray-300 text-gray-700 hover:border-gray-900 dark:border-gray-600 dark:text-gray-300 dark:hover:border-gray-100'
+                  ? 'bg-zinc-900 border-zinc-900 text-zinc-100 dark:bg-zinc-100 dark:border-zinc-100 dark:text-zinc-900'
+                  : 'bg-transparent border-zinc-300 text-zinc-700 hover:border-zinc-900 dark:border-zinc-600 dark:text-zinc-300 dark:hover:border-zinc-100'
               "
               :title="typeof tagObj === 'object' ? tagObj.details : ''"
               @click="
@@ -72,7 +72,7 @@
                 {{ typeof tagObj === 'string' ? tagObj : tagObj.tag }}
                 <span
                   v-if="typeof tagObj === 'object' && tagObj.frequency > 0"
-                  class="text-[8px] opacity-40 -ml-1"
+                  class="text-xs opacity-40 -ml-1"
                 >
                   <sup>{{ tagObj.frequency }}</sup>
                 </span>
@@ -99,13 +99,13 @@
           </div>
           <div class="flex gap-2">
             <button
-              class="text-xs font-mono text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
+              class="text-xs font-mono text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
               @click="selectAllSuggested"
             >
               all
             </button>
             <button
-              class="text-xs font-mono text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
+              class="text-xs font-mono text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
               @click="clearAllTags"
             >
               clear
@@ -115,19 +115,19 @@
 
         <!-- Custom Tags Input -->
         <div>
-          <div class="text-xs font-mono text-gray-900 dark:text-gray-100 mb-2">
+          <div class="text-xs font-mono text-zinc-900 dark:text-zinc-100 mb-2">
             custom:
           </div>
           <input
             v-model="customTagInput"
             placeholder="space separated tags..."
-            class="w-full px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-mono focus:border-gray-900 dark:focus:border-gray-100 outline-none"
+            class="w-full px-2 py-1 text-xs border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 font-mono focus:border-zinc-900 dark:focus:border-zinc-100 outline-none"
             @keydown.enter="addCustomTag"
             @keydown.space="addCustomTag"
           />
           <div v-if="selectedTags.length" class="mt-2">
             <div
-              class="text-xs font-mono text-gray-600 dark:text-gray-400 mb-1"
+              class="text-xs font-mono text-zinc-600 dark:text-zinc-400 mb-1"
             >
               selected:
             </div>
@@ -135,7 +135,7 @@
               <span
                 v-for="tag in selectedTags"
                 :key="tag"
-                class="px-2 py-1 bg-gray-900 text-gray-100 dark:bg-gray-100 dark:text-gray-900 text-xs flex items-center gap-1 font-mono"
+                class="px-2 py-1 bg-zinc-900 text-zinc-100 dark:bg-zinc-100 dark:text-zinc-900 text-xs flex items-center gap-1 font-mono"
               >
                 {{ tag }}
                 <button
@@ -150,15 +150,15 @@
         </div>
 
         <!-- Action Buttons -->
-        <div class="flex gap-2 mt-3">
+        <div class="flex gap-2 mt-4">
           <button
-            class="flex-1 bg-gray-900 hover:bg-gray-800 dark:bg-gray-100 dark:hover:bg-gray-200 text-gray-100 dark:text-gray-900 font-mono py-2 px-3 text-xs transition-colors"
+            class="flex-1 bg-zinc-900 hover:bg-zinc-800 dark:bg-zinc-100 dark:hover:bg-zinc-200 text-zinc-100 dark:text-zinc-900 font-mono py-2 px-4 text-xs transition-colors"
             @click="saveToPinboard(true)"
           >
             save {{ selectedTags.length ? `(${selectedTags.length})` : '' }}
           </button>
           <button
-            class="px-3 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-gray-900 dark:hover:border-gray-100 transition-colors font-mono text-xs"
+            class="px-4 py-2 border border-zinc-300 dark:border-zinc-600 text-zinc-700 dark:text-zinc-300 hover:border-zinc-900 dark:hover:border-zinc-100 transition-colors font-mono text-xs"
             @click="saveToPinboard(false)"
           >
             basic
@@ -167,15 +167,17 @@
 
         <!-- Similar Items -->
         <div v-if="suggestions.similar_scraps?.length" class="mt-4 opacity-50">
-          <div class="text-xs font-mono text-gray-500 dark:text-gray-400 mb-1">
+          <div class="text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-1">
             similar
-            <span class="opacity-60">({{ suggestions.similar_scraps.length }})</span>:
+            <span class="opacity-60"
+              >({{ suggestions.similar_scraps.length }})</span
+            >:
           </div>
           <div class="space-y-1">
             <div
               v-for="scrap in suggestions.similar_scraps.slice(0, 6)"
               :key="scrap.id"
-              class="text-[10px] font-mono text-gray-400 dark:text-gray-500 cursor-pointer hover:text-gray-600 dark:hover:text-gray-300 transition-colors leading-relaxed"
+              class="text-xs font-mono text-zinc-400 dark:text-zinc-500 cursor-pointer hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors leading-relaxed"
               @click="copyTagsFromScrap(scrap)"
             >
               {{ scrap.title?.substring(0, 240)
@@ -194,7 +196,7 @@
           error: {{ error }}
         </div>
         <button
-          class="bg-gray-900 hover:bg-gray-800 dark:bg-gray-100 dark:hover:bg-gray-200 text-gray-100 dark:text-gray-900 font-mono py-2 px-3 text-xs transition-colors"
+          class="bg-zinc-900 hover:bg-zinc-800 dark:bg-zinc-100 dark:hover:bg-zinc-200 text-zinc-100 dark:text-zinc-900 font-mono py-2 px-4 text-xs transition-colors"
           @click="saveToPinboard(false)"
         >
           continue to pinboard

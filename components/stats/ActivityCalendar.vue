@@ -16,8 +16,7 @@
         <!-- Custom Tooltip -->
         <div
           v-if="activeTooltipIndex === index"
-          class="custom-tooltip absolute z-10 bg-white dark:bg-zinc-800 p-2 rounded shadow-md"
-          style="font-size: 10px;"
+          class="custom-tooltip absolute z-10 bg-white dark:bg-zinc-800 p-2 rounded shadow-md text-xs"
         >
           {{ formatTooltip(day) }}
         </div>
@@ -25,7 +24,10 @@
     </div>
 
     <!-- Caption -->
-    <div class="flex justify-between text-zinc-500 mt-2" style="font-size: 9px; line-height: 10px;">
+    <div
+      class="flex justify-between text-zinc-500 mt-2 text-xs"
+      style="line-height: 10px"
+    >
       <span>PAST {{ days }} DAYS</span>
       <span>{{ activeCount }} ACTIVE DAYS</span>
     </div>
@@ -158,4 +160,3 @@ const activeCount = computed(() => {
   }
 }
 </style>
-

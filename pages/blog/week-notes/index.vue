@@ -65,12 +65,10 @@ const weekNoteElements = ref([])
 </script>
 
 <template>
-  <div class="container mx-auto px-2 py-12 lg:flex lg:gap-4 max-w-prose">
+  <div class="container mx-auto px-2 py-8 lg:flex lg:gap-4 max-w-prose">
     <!-- Week Notes -->
     <section class="">
-      <h2 class="text-3xl font-bold mb-8">
-        Week Notes
-      </h2>
+      <h2 class="text-3xl font-light mb-8">Week Notes</h2>
       <div
         v-for="weekNote in sortedWeekNotes"
         :key="weekNote.slug"
@@ -99,4 +97,3 @@ const weekNoteElements = ref([])
   contain: layout;
 } */
 </style>
-
