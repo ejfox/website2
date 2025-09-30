@@ -22,16 +22,21 @@
 
 /* Base Typography */
 body {
-  @apply text-base text-zinc-900 dark:text-zinc-100;
+  color: #1a1a1a; /* Warm near-black instead of pure black */
   font-family:
     'Georgia', 'Times New Roman', 'Droid Serif', 'Times', 'Source Serif Pro',
     serif;
-  /* Oldstyle figures for body text, kerning, ligatures */
+  /* Enhanced Georgia OpenType features */
   font-feature-settings:
-    'kern' 1,
-    'liga' 1,
-    'calt' 1,
-    'onum' 1;
+    'kern' 1,      /* Kerning */
+    'liga' 1,      /* Standard ligatures (fi, fl, etc.) */
+    'calt' 1,      /* Contextual alternates */
+    'onum' 1,      /* Old-style numerals in body text */
+    'dlig' 1,      /* Discretionary ligatures (ct, st) */
+    'swsh' 1,      /* Swash characters for emphasis */
+    'hist' 1;      /* Historical forms */
+  font-variant-ligatures: common-ligatures contextual discretionary-ligatures;
+  font-variant-numeric: oldstyle-nums;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -39,12 +44,15 @@ body {
   hanging-punctuation: first last;
 }
 
-/* Dark mode weight compensation */
+/* Dark mode gets slightly warmer whites */
 @media (prefers-color-scheme: dark) {
   body {
-    font-weight: 375; /* Slightly lighter in dark mode */
+    color: #f5f5f4; /* Warmer off-white */
+    background-color: #0a0a0a; /* Warm near-black background */
+    font-weight: 375; /* Slightly lighter in dark mode for better readability */
   }
 }
+
 
 /* Typography System - Serif for human content, Mono for data */
 .text-display {
@@ -242,14 +250,15 @@ p,
   @apply col-span-12 md:col-start-2 md:col-span-10 lg:col-start-3 lg:col-span-8;
 }
 
-/* Spacing System */
+/* Spacing System - True 8px Baseline Grid */
 .section-spacing {
-  @apply py-24;
+  @apply py-24; /* 3 * 8px baseline units */
 }
 
 .element-spacing {
-  @apply mb-12;
+  @apply mb-16; /* 2 * 8px baseline units */
 }
+
 
 /* Borders - Minimal */
 .border-default {
@@ -379,26 +388,222 @@ p,
   font-weight: 500;
 }
 
-/* Smart quotes */
-.prose blockquote {
-  quotes: '\201C' '\201D' '\2018' '\2019';
-  hanging-punctuation: first;
-  @apply italic relative my-8 pl-8 border-l-2 border-zinc-300 dark:border-zinc-700;
-  font-family:
-    'Georgia', 'Times New Roman', 'Droid Serif', 'Times', 'Source Serif Pro',
-    serif !important;
-  position: relative;
+/* Magazine-style blockquotes - REFINED EDITORIAL */
+.blog-post-content blockquote,
+.prose blockquote,
+blockquote {
+  position: relative !important;
+  margin: 4rem 0 !important;
+  margin-left: clamp(2rem, 8vw, 4rem) !important; /* Responsive margins */
+  margin-right: clamp(2rem, 8vw, 4rem) !important;
+  padding: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  border: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  font-family: 'Georgia', 'Times New Roman', serif !important;
+  font-style: italic !important;
+  font-size: clamp(1.125rem, 2.5vw, 1.375rem) !important; /* Responsive text */
+  line-height: 1.65 !important; /* Tighter for elegance */
+  color: #1a202c !important; /* Richer black */
+  text-align: left !important;
+  quotes: '\201C' '\201D' '\2018' '\2019' !important;
+  box-shadow: none !important;
+  /* Refined typography */
+  font-weight: 400 !important;
+  letter-spacing: 0.01em !important; /* Slight letter spacing for elegance */
+  text-rendering: optimizeLegibility !important;
+  /* Enhanced font features */
+  font-feature-settings: 'kern' 1, 'liga' 1, 'dlig' 1, 'swsh' 1, 'onum' 1 !important;
 }
 
-/* Floating quotation marks for blockquotes */
-.prose blockquote::before {
-  content: '"';
-  position: absolute;
-  left: -0.5rem;
-  top: -0.25rem;
-  font-size: 3rem;
-  line-height: 1;
-  @apply text-zinc-300 dark:text-zinc-700 font-serif not-italic;
+@media (prefers-color-scheme: dark) {
+  .blog-post-content blockquote,
+  .prose blockquote,
+  blockquote {
+    color: #d1d5db !important; /* Lighter in dark mode */
+  }
+}
+
+/* Elegant opening quotation mark - ultra refined */
+.blog-post-content blockquote::before,
+.prose blockquote::before,
+blockquote::before {
+  content: '"' !important;
+  position: absolute !important;
+  left: clamp(-3rem, -8vw, -2rem) !important; /* Responsive positioning */
+  top: -0.75rem !important;
+  font-size: clamp(3.5rem, 8vw, 6rem) !important; /* Responsive size */
+  line-height: 0.8 !important;
+  color: #f1f5f9 !important; /* Even more subtle */
+  font-style: normal !important;
+  font-weight: 100 !important; /* Ultra-light */
+  font-family: 'Georgia', serif !important;
+  z-index: -1 !important;
+  opacity: 0.6 !important; /* Subtle transparency */
+  user-select: none !important;
+  pointer-events: none !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .blog-post-content blockquote::before,
+  .prose blockquote::before,
+  blockquote::before {
+    color: #374151 !important; /* Darker in dark mode */
+  }
+}
+
+/* Remove default paragraph margins inside blockquotes */
+.blog-post-content blockquote p,
+.prose blockquote p,
+blockquote p {
+  margin: 0 !important;
+  font-family: 'Georgia', 'Times New Roman', serif !important;
+  font-style: italic !important;
+}
+
+/* Multiple paragraphs in blockquotes */
+.blog-post-content blockquote p + p,
+.prose blockquote p + p,
+blockquote p + p {
+  margin-top: 1.5rem !important;
+}
+
+/* First line of blockquotes - slightly emphasized */
+.blog-post-content blockquote p:first-of-type::first-line,
+.prose blockquote p:first-of-type::first-line,
+blockquote p:first-of-type::first-line {
+  font-weight: 500 !important; /* Slightly bolder first line */
+  letter-spacing: 0.025em !important; /* More spacing for emphasis */
+}
+
+/* Citation styling for blockquotes with attribution */
+.blog-post-content blockquote cite,
+.prose blockquote cite,
+blockquote cite {
+  display: block !important;
+  margin-top: 1.5rem !important;
+  font-style: normal !important;
+  font-size: 0.875rem !important;
+  color: #64748b !important;
+  font-family: ui-monospace, 'SF Mono', Monaco, monospace !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  font-weight: 500 !important;
+}
+
+.blog-post-content blockquote cite::before,
+.prose blockquote cite::before,
+blockquote cite::before {
+  content: '— ' !important;
+}
+
+/* Hanging punctuation for blockquotes */
+.blog-post-content blockquote,
+.prose blockquote,
+blockquote {
+  hanging-punctuation: first last !important;
+}
+
+/* Mobile refinements */
+@media (max-width: 768px) {
+  .blog-post-content blockquote,
+  .prose blockquote,
+  blockquote {
+    margin-left: 1.5rem !important;
+    margin-right: 1.5rem !important;
+    margin: 3rem 1.5rem !important;
+    font-size: 1.125rem !important; /* Slightly smaller on mobile */
+  }
+
+  .blog-post-content blockquote::before,
+  .prose blockquote::before,
+  blockquote::before {
+    left: -1.5rem !important;
+    font-size: 3rem !important; /* Smaller quote mark on mobile */
+  }
+}
+
+/* Subtle text shadow for better readability */
+.blog-post-content blockquote,
+.prose blockquote,
+blockquote {
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* CSS Magic: Reduce spacing between consecutive blockquotes */
+.blog-post-content blockquote:has(+ blockquote),
+.prose blockquote:has(+ blockquote),
+blockquote:has(+ blockquote) {
+  margin-bottom: 1rem !important; /* Reduce bottom margin of first quote */
+}
+
+.blog-post-content blockquote + blockquote,
+.prose blockquote + blockquote,
+blockquote + blockquote {
+  margin-top: 1rem !important; /* Reduce top margin of second quote */
+}
+
+/* Fallback for browsers that don't support :has() */
+@supports not (selector(:has(*))) {
+  .blog-post-content blockquote + blockquote,
+  .prose blockquote + blockquote,
+  blockquote + blockquote {
+    margin-top: 0.5rem !important; /* Even tighter fallback */
+  }
+}
+
+/* Even tighter for mobile consecutive blockquotes */
+@media (max-width: 768px) {
+  .blog-post-content blockquote + blockquote,
+  .prose blockquote + blockquote,
+  blockquote + blockquote {
+    margin-top: 1.5rem !important; /* Tighter on mobile */
+  }
+}
+
+/* Fix long links in blockquotes */
+.blog-post-content blockquote a,
+.prose blockquote a,
+blockquote a {
+  word-break: break-all !important; /* Break long URLs */
+  overflow-wrap: break-word !important; /* Better wrapping */
+  hyphens: auto !important; /* Add hyphens where appropriate */
+  max-width: 100% !important; /* Ensure links don't overflow */
+  display: inline-block !important; /* Better control over breaking */
+  color: #6b7280 !important; /* Subtle color for URLs in quotes */
+  text-decoration: underline !important;
+  text-decoration-color: rgba(107, 114, 128, 0.3) !important; /* Subtle underline */
+  line-height: 1.4 !important; /* Better spacing for wrapped URLs */
+}
+
+.blog-post-content blockquote a:hover,
+.prose blockquote a:hover,
+blockquote a:hover {
+  color: #374151 !important; /* Darker on hover */
+  text-decoration-color: rgba(55, 65, 81, 0.6) !important;
+}
+
+/* Dark mode link colors in blockquotes */
+@media (prefers-color-scheme: dark) {
+  .blog-post-content blockquote a,
+  .prose blockquote a,
+  blockquote a {
+    color: #9ca3af !important;
+    text-decoration-color: rgba(156, 163, 175, 0.3) !important;
+  }
+
+  .blog-post-content blockquote a:hover,
+  .prose blockquote a:hover,
+  blockquote a:hover {
+    color: #d1d5db !important;
+    text-decoration-color: rgba(209, 213, 219, 0.6) !important;
+  }
 }
 
 /* List styles with custom markers */
@@ -439,7 +644,9 @@ p,
 }
 
 .prose p {
-  @apply leading-relaxed my-4;
+  @apply leading-relaxed;
+  margin-top: 0;
+  margin-bottom: 1.75rem; /* Matches leading-relaxed (1.625) + buffer for true rhythm */
   font-family:
     'Georgia', 'Times New Roman', 'Droid Serif', 'Times', 'Source Serif Pro',
     serif !important;
@@ -471,6 +678,14 @@ p,
     serif !important;
   letter-spacing: -0.02em;
   margin-left: 0;
+  /* Lining numerals for headings, swash for elegance */
+  font-feature-settings:
+    'kern' 1,
+    'liga' 1,
+    'lnum' 1,      /* Lining numerals in headings */
+    'swsh' 1,      /* Swash characters */
+    'smcp' 1;      /* Small caps for acronyms in headings */
+  font-variant-numeric: lining-nums;
 }
 
 .prose h1 {
@@ -493,14 +708,215 @@ p,
   letter-spacing: -0.015em;
 }
 
-.prose code,
-.prose pre {
+/* Inline code in prose */
+.prose code:not(pre code) {
+  @apply px-1 py-0.5 bg-zinc-100 dark:bg-zinc-800 rounded text-sm;
   font-family: ui-monospace, 'SF Mono', Monaco, monospace;
+  color: #c53030; /* Subtle red for inline code */
   /* Lining figures for code */
   font-feature-settings:
     'lnum' 1,
     'tnum' 1,
     'zero' 1;
+}
+
+.prose pre {
+  font-family: ui-monospace, 'SF Mono', Monaco, monospace;
+  font-feature-settings:
+    'lnum' 1,
+    'tnum' 1,
+    'zero' 1;
+}
+
+/* Content Polish - Typography Details */
+
+/* Better emphasis and strong styling */
+.prose em {
+  font-style: italic;
+  font-variation-settings: 'slnt' -15; /* True italic slant if supported */
+}
+
+.prose strong {
+  font-weight: 600; /* Semi-bold instead of bold for Georgia */
+  letter-spacing: -0.01em; /* Slightly tighter for heavier weight */
+}
+
+/* Smart apostrophes and quotes */
+.prose {
+  quotes: '\201C' '\201D' '\2018' '\2019'; /* Smart quotes */
+}
+
+/* Proper spacing for abbreviations */
+.prose abbr[title] {
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+  cursor: help;
+  font-feature-settings: 'smcp' 1; /* Small caps for abbreviations */
+}
+
+/* Time and date styling */
+.prose time {
+  font-variant-numeric: lining-nums;
+  font-feature-settings: 'lnum' 1;
+}
+
+/* Superscript and subscript - enhanced legibility */
+.prose sup,
+.prose sub {
+  font-size: 0.8em; /* Slightly larger for better readability */
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+  font-feature-settings: 'sups' 1, 'lnum' 1; /* Proper superscript */
+}
+
+.prose sup {
+  top: -0.4em; /* Less aggressive positioning */
+}
+
+.prose sub {
+  bottom: -0.25em;
+}
+
+/* Mobile layout utilities */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}
+
+/* Mobile-specific layout fixes */
+@media (max-width: 640px) {
+  /* Prevent horizontal overflow on small screens */
+  .blog-post-content {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+  }
+
+  /* Ensure all text elements respect container bounds */
+  .blog-post-content h1,
+  .blog-post-content h2,
+  .blog-post-content h3,
+  .blog-post-content h4,
+  .blog-post-content h5,
+  .blog-post-content h6,
+  .blog-post-content p,
+  .blog-post-content li {
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+
+  /* Fix any potential code block overflow */
+  .blog-post-content pre,
+  .blog-post-content code {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
+
+/* Enhanced footnote links - larger and more contrasty */
+.prose sup a,
+.prose a[data-footnote-ref] {
+  font-size: 0.95em !important; /* Much larger footnote numbers */
+  font-weight: 700 !important; /* Much bolder for visibility */
+  color: #2d3748 !important; /* Darker gray for better contrast */
+  text-decoration: none !important;
+  padding: 0.25em 0.35em !important; /* Larger touch targets for mobile */
+  border-radius: 3px !important;
+  background: rgba(45, 55, 72, 0.12) !important; /* More visible background */
+  transition: all 0.2s ease !important;
+  font-family: ui-monospace, 'SF Mono', Monaco, monospace !important; /* Monospace for clarity */
+  min-width: 1.8em !important; /* Ensure consistent minimum size */
+  text-align: center !important; /* Center text in larger tap target */
+  display: inline-block !important; /* Better control over sizing */
+}
+
+/* Mobile-specific footnote optimizations */
+@media (max-width: 768px) {
+  .prose sup a,
+  .prose a[data-footnote-ref] {
+    padding: 0.3em 0.4em !important; /* Even larger touch targets on mobile */
+    min-width: 2em !important; /* Larger minimum size for easier tapping */
+  }
+}
+
+.prose sup a:hover,
+.prose a[data-footnote-ref]:hover {
+  background: rgba(45, 55, 72, 0.2) !important;
+  color: #1a202c !important; /* Even darker on hover for contrast */
+  transform: translateY(-1px) !important; /* Subtle lift on hover */
+}
+
+@media (prefers-color-scheme: dark) {
+  .prose sup a,
+  .prose a[data-footnote-ref] {
+    color: #a0aec0 !important; /* Light gray, closer to dark mode text */
+    background: rgba(160, 174, 192, 0.1) !important;
+  }
+
+  .prose sup a:hover,
+  .prose a[data-footnote-ref]:hover {
+    background: rgba(160, 174, 192, 0.2) !important;
+    color: #e2e8f0 !important; /* Lighter on hover */
+  }
+}
+
+/* Ruby annotations (furigana, pronunciation guides) */
+.prose ruby {
+  display: inline-block;
+  position: relative;
+  vertical-align: baseline;
+  line-height: 1;
+  margin: 0 0.1em;
+}
+
+.prose ruby rb {
+  display: inline-block;
+  font-size: inherit;
+  line-height: 1.4;
+}
+
+.prose ruby rt {
+  display: block;
+  font-size: 0.6em; /* Smaller annotation text */
+  line-height: 1.2;
+  text-align: center;
+  color: #6b7280; /* Muted color for annotations */
+  font-family: ui-monospace, 'SF Mono', Monaco, monospace; /* Monospace for clarity */
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.2em;
+  /* Better typography for small annotation text */
+  font-feature-settings: 'lnum' 1, 'tnum' 1;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.prose ruby rt::before,
+.prose ruby rt::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: transparent;
+}
+
+/* Dek (subtitle) typography - enhance ligatures and features */
+.dek,
+p.font-serif.text-lg,
+p.font-serif.text-xl {
+  font-feature-settings:
+    'kern' 1,
+    'liga' 1,
+    'calt' 1,
+    'dlig' 1,      /* Discretionary ligatures for elegant combinations */
+    'onum' 1,      /* Old-style numerals */
+    'swsh' 1;      /* Swash characters for elegance */
+  font-variant-ligatures: common-ligatures contextual discretionary-ligatures;
+  font-variant-numeric: oldstyle-nums;
 }
 
 /* Drop caps for articles */

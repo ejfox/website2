@@ -2,22 +2,20 @@
 
 ## Sidenotes & Margin Notes
 
-### Method 1: Inline Sidenotes
-```markdown
-This is main text {side: This appears in the margin when rendered on web} and continues here.
-```
+**Use standard markdown footnotes** - they're automatically converted to sidenotes on the web:
 
-### Method 2: Obsidian Comments (Hidden in Obsidian, visible on web)
-```markdown
-This is your main text %%sidenote: This margin note is invisible in Obsidian but shows on the web%% and continues.
-```
-
-### Method 3: Traditional Footnotes (auto-converted to sidenotes)
 ```markdown
 This is text with a footnote[^1].
 
-[^1]: This becomes a sidenote on the web.
+[^1]: This becomes a sidenote in the margin on desktop, inline on mobile.
 ```
+
+### Why Footnotes?
+- ✅ Standard markdown syntax (works everywhere)
+- ✅ Native Obsidian support with preview
+- ✅ GitHub/GitLab compatible
+- ✅ No custom syntax to remember
+- ✅ Graceful fallback on unsupported platforms
 
 ## Expandable Details
 
@@ -80,14 +78,14 @@ Then in your Vue template:
 For nvim users, add these snippets to your config:
 
 ```vim
-" Quick sidenote
-inoremap <leader>sn {side: }<Esc>i
+" Quick footnote
+inoremap <leader>fn [^]<Esc>i
+
+" Jump to footnote definition
+nnoremap <leader>fd /\[\^<CR>
 
 " Quick expandable
 inoremap <leader>ex ??? ""<CR><Esc>kf"a
-
-" Obsidian comment sidenote
-inoremap <leader>mn %%sidenote: %%<Esc>F:a
 ```
 
 ## Testing Your Setup
