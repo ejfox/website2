@@ -518,7 +518,7 @@ const processedMetadata = computed(() => {
       "
     >
       <!-- Column grid -->
-      <div class="max-w-4xl mx-auto h-full" style="position: relative">
+      <div class="max-w-screen-xl mx-auto h-full" style="position: relative">
         <div class="grid grid-cols-12 h-full">
           <div
             v-for="i in 12"
@@ -540,9 +540,9 @@ const processedMetadata = computed(() => {
       ></div>
     </div>
 
-    <article v-if="post && !post.redirect" class="h-entry">
+    <article v-if="post && !post.redirect" class="h-entry max-w-screen-xl mx-auto px-4 md:px-8">
       <!-- Swiss Grid Container -->
-      <div class="max-w-4xl mx-auto">
+      <div class="max-w-4xl">
         <!-- Top metadata bar with microvisualizations -->
         <div
           ref="postMetadata"

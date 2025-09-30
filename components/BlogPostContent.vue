@@ -1,18 +1,14 @@
 <template>
-  <SidenotesContainer v-if="enableSidenotes">
-    <div v-html="content" />
-  </SidenotesContainer>
-
-  <div v-else class="prose" v-html="content" />
+  <article
+    class="prose prose-zinc dark:prose-invert max-w-none"
+    v-html="content"
+  />
 </template>
 
 <script setup lang="ts">
 interface Props {
   content: string
-  enableSidenotes?: boolean
 }
 
-withDefaults(defineProps<Props>(), {
-  enableSidenotes: true
-})
+defineProps<Props>()
 </script>

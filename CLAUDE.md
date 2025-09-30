@@ -180,6 +180,66 @@ docker-compose down --volumes && docker-compose up --build
 - **Gear System**: CSV-based inventory with Weight_oz column, no TCWM scoring
 - **Typography**: Georgia serif, 8px baseline grid, micro-visualizations
 - **Data Tables**: Ultra-dense Tuftian design with inline sparklines
+- **Sidenotes**: Ultra-simple 113-line client plugin, Tufte CSS approach
+- **Layout**: Editorial left-aligned within max-w-screen-xl container
+
+## Sidenotes System (2025-09-29)
+
+### Overview
+Replaced complex 800+ line sidenotes system with ultra-simple 113-line client-side plugin that converts standard Markdown footnotes to margin notes.
+
+### Implementation
+- **Location**: `plugins/footnotes-to-sidenotes.client.ts`
+- **Approach**: Pure client-side transformation of existing footnotes
+- **Dependencies**: None - works with standard Markdown footnote HTML
+- **Size**: 113 lines total
+
+### How It Works
+1. Markdown processor creates standard footnotes (`section[data-footnotes]`)
+2. Plugin runs after page load (200ms delay)
+3. Transforms footnotes into margin notes positioned absolutely
+4. Hides original footnote section
+5. Mobile fallback: Shows standard footnotes below content
+
+### Layout System
+```
+[Browser Window]
+    ↓
+[Site Container: max-w-screen-xl mx-auto] ← 1280px centered
+    ↓
+[Article Container: px-4 md:px-8] ← Responsive padding
+    ↓
+[Content Wrapper: max-w-4xl] ← 896px, LEFT-ALIGNED (no mx-auto!)
+    ↓
+[Text Elements: max-w-prose] ← ~65ch for readability, LEFT-ALIGNED
+```
+
+### Key CSS Rules
+- Sidenotes positioned at `left: calc(100% + 2rem)`
+- Width: 240px
+- Desktop only: Hidden on screens < 1280px
+- Override all margin auto to ensure left alignment
+
+### Known Issues & QA Needed
+1. **Layout shift on load**: 200ms delay causes visible reflow
+2. **Video embeds**: Some .mp4 files showing as blurred images
+3. **Width consistency**: Need to verify all pages use same container widths
+4. **Sidenote overlap**: Long sidenotes may overlap - needs vertical collision detection
+5. **Print styles**: Sidenotes need proper print media handling
+
+### Files Modified
+- `plugins/footnotes-to-sidenotes.client.ts` - New sidenote plugin
+- `components/BlogPostContent.vue` - Simplified to basic wrapper
+- `pages/blog/[...slug].vue` - Updated container widths
+- Deleted 6 complex components and 3 experimental plugins
+
+### Next Steps for QA
+- [ ] Test sidenote behavior with multiple footnotes
+- [ ] Verify mobile/tablet breakpoints
+- [ ] Check print stylesheet behavior
+- [ ] Test with very long sidenotes
+- [ ] Verify no layout shift on slower connections
+- [ ] Cross-browser testing (Safari, Firefox, Chrome)
 
 ## Key Design Principles
 

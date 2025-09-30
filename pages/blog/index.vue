@@ -5,7 +5,7 @@
     <!-- Header with consistent metadata styling -->
     <header class="mb-4 relative">
       <!-- Swiss Grid Container matching blog posts -->
-      <div class="max-w-4xl mx-auto">
+      <div class="max-w-screen-xl mx-auto px-4 md:px-8">
         <!-- Compact metadata bar matching blog posts -->
         <div class="border-b border-zinc-200 dark:border-zinc-800">
           <div
