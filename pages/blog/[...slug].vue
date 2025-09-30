@@ -356,6 +356,13 @@ const showDonations = computed(() => {
 
 const smartSuggestions = ref([])
 
+// Table of Contents computed property
+const tocChildren = computed(() => {
+  return post.value?.toc?.[0]?.children ||
+         post.value?.metadata?.toc?.[0]?.children ||
+         []
+})
+
 const distance = (a, b) => {
   if (!a || !b) return 999
   const [len1, len2] = [a.length, b.length]
@@ -489,14 +496,8 @@ const processedMetadata = computed(() => {
     <!-- Debug Grid Overlay (8px baseline) - Dev only, toggle with Cmd+G -->
     <div
       v-show="showDebugGrid"
-      class="pointer-events-none"
+      class="pointer-events-none fixed inset-0 z-[999]"
       style="
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 999;
         background-image:
           repeating-linear-gradient(
             to bottom,
@@ -517,8 +518,10 @@ const processedMetadata = computed(() => {
           100% 32px;
       "
     >
-      <!-- Column grid -->
-      <div class="max-w-screen-xl mx-auto h-full" style="position: relative">
+      <!-- Sidebar column indicator -->
+      <div class="hidden md:block fixed left-0 top-0 bottom-0 w-[180px] border-r border-green-400 opacity-30"></div>
+      <!-- Main content area indicator -->
+      <div class="max-w-screen-xl mx-auto h-full relative">
         <div class="grid grid-cols-12 h-full">
           <div
             v-for="i in 12"
@@ -529,10 +532,10 @@ const processedMetadata = computed(() => {
       </div>
     </div>
 
-    <!-- Reading progress bar at top of page -->
+    <!-- Reading progress bar - mobile optimized -->
     <div
       v-if="post && !post.redirect"
-      class="fixed top-0 left-0 right-0 h-[1px] bg-zinc-200 dark:bg-zinc-800 z-50"
+      class="fixed top-0 left-0 right-0 h-[2px] sm:h-[1px] bg-zinc-200 dark:bg-zinc-800 z-50"
     >
       <div
         class="h-full bg-zinc-600 dark:bg-zinc-400 transition-all duration-100 ease-out"
@@ -542,153 +545,80 @@ const processedMetadata = computed(() => {
 
     <article v-if="post && !post.redirect" class="h-entry max-w-screen-xl mx-auto px-4 md:px-8">
       <!-- Swiss Grid Container -->
-      <div class="max-w-4xl">
+      <div class="max-w-3xl">
         <!-- Top metadata bar with microvisualizations -->
         <div
           ref="postMetadata"
-          class="border-b border-zinc-200 dark:border-zinc-800"
         >
-          <!-- Ultra-compact single line metadata -->
-          <div
-            class="font-mono text-xs text-zinc-500 px-4 md:px-6 py-1 uppercase tabular-nums flex items-center gap-2 overflow-x-auto tracking-wider"
-          >
-            <span class="flex items-center gap-1 whitespace-nowrap">
-              <span class="text-zinc-400">DATE</span>
-              <span class="text-zinc-600 dark:text-zinc-300">{{
-                formatShortDate(post?.metadata?.date || post?.date)
-              }}</span>
-            </span>
-            <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
-            <span class="flex items-center gap-1 whitespace-nowrap">
-              <span class="text-zinc-400">TIME</span>
-              <span class="text-zinc-600 dark:text-zinc-300"
-                >{{ readingStats.readingTime }}MIN</span
+          <!-- Mobile-optimized metadata with better layout -->
+          <div class="px-4 md:px-6 py-3 sm:py-2">
+            <!-- Mobile: Stack date and main stats -->
+            <div class="block sm:hidden space-y-2">
+              <div class="font-mono text-xs text-zinc-600 dark:text-zinc-400">
+                {{ formatShortDate(post?.metadata?.date || post?.date) }}
+              </div>
+              <div class="flex items-center gap-3 font-mono text-xs text-zinc-500">
+                <span class="text-zinc-600 dark:text-zinc-400">{{ readingStats.readingTime }}min read</span>
+                <span class="text-zinc-600 dark:text-zinc-400">{{ formatCompactNumber(readingStats.words) }} words</span>
+                <span v-if="readingStats.images > 0" class="text-zinc-600 dark:text-zinc-400">{{ readingStats.images }} images</span>
+              </div>
+            </div>
+
+            <!-- Desktop: Single line as before -->
+            <div class="hidden sm:flex items-center gap-1 overflow-x-auto scrollbar-hide font-mono text-[10px] text-zinc-500">
+              <span class="whitespace-nowrap text-zinc-600 dark:text-zinc-400">
+                {{ formatShortDate(post?.metadata?.date || post?.date) }}
+              </span>
+              <span class="text-zinc-300 dark:text-zinc-700">·</span>
+              <span class="whitespace-nowrap text-zinc-600 dark:text-zinc-400">
+                {{ readingStats.readingTime }}min
+              </span>
+              <span class="text-zinc-300 dark:text-zinc-700">·</span>
+              <span class="whitespace-nowrap text-zinc-600 dark:text-zinc-400">
+                {{ formatCompactNumber(readingStats.words) }} words
+              </span>
+              <span
+                v-if="readingStats.images > 0"
+                class="text-zinc-300 dark:text-zinc-700"
+                >·</span
               >
-            </span>
-            <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
-            <span class="flex items-center gap-1 whitespace-nowrap">
-              <span class="text-zinc-400">WORDS</span>
-              <svg
-                :width="Math.min(readingStats.words / 100, 30)"
-                height="8"
-                class="inline-block"
+              <span
+                v-if="readingStats.images > 0"
+                class="whitespace-nowrap text-zinc-600 dark:text-zinc-400"
               >
-                <rect
-                  v-for="i in Math.min(Math.ceil(readingStats.words / 500), 30)"
-                  :key="i"
-                  :x="(i - 1) * 2"
-                  y="3"
-                  width="1"
-                  height="2"
-                  fill="currentColor"
-                  opacity="0.4"
-                />
-              </svg>
-              <span class="text-zinc-600 dark:text-zinc-300">{{
-                formatCompactNumber(readingStats.words)
-              }}</span>
-            </span>
-            <span
-              v-if="readingStats.images > 0"
-              class="text-zinc-300 dark:text-zinc-700"
-              >·</span
-            >
-            <span
-              v-if="readingStats.images > 0"
-              class="flex items-center gap-1.5 whitespace-nowrap"
-            >
-              <span class="text-zinc-400">IMG</span>
-              <svg
-                :width="Math.min(readingStats.images * 2, 20)"
-                height="8"
-                class="inline-block"
+                {{ readingStats.images }} images
+              </span>
+              <span
+                v-if="readingStats.links > 0"
+                class="text-zinc-300 dark:text-zinc-700"
+                >·</span
               >
-                <rect
-                  v-for="i in Math.min(readingStats.images, 10)"
-                  :key="i"
-                  :x="(i - 1) * 2"
-                  y="3"
-                  width="1"
-                  height="2"
-                  fill="currentColor"
-                  opacity="0.6"
-                />
-              </svg>
-              <span class="text-zinc-600 dark:text-zinc-300">{{
-                readingStats.images
-              }}</span>
-            </span>
-            <span
-              v-if="readingStats.links > 0"
-              class="text-zinc-300 dark:text-zinc-700"
-              >·</span
-            >
-            <span
-              v-if="readingStats.links > 0"
-              class="flex items-center gap-1.5 whitespace-nowrap"
-            >
-              <span class="text-zinc-400">LINKS</span>
-              <svg
-                :width="Math.min(readingStats.links, 20)"
-                height="8"
-                class="inline-block"
+              <span
+                v-if="readingStats.links > 0"
+                class="whitespace-nowrap text-zinc-600 dark:text-zinc-400"
               >
-                <rect
-                  v-for="i in Math.min(readingStats.links, 20)"
-                  :key="i"
-                  :x="i - 1"
-                  y="3"
-                  width="1"
-                  height="2"
-                  fill="currentColor"
-                  opacity="0.5"
-                />
-              </svg>
-              <span class="text-zinc-600 dark:text-zinc-300">{{
-                readingStats.links
-              }}</span>
-            </span>
-            <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
-            <span class="flex items-center gap-1 whitespace-nowrap">
-              <span class="text-zinc-400">SIZE</span>
-              <span class="text-zinc-600 dark:text-zinc-300">{{
-                readingStats.fileSize
-              }}</span>
-            </span>
-            <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
-            <span class="flex items-center gap-1 whitespace-nowrap">
-              <span class="text-zinc-400">DENS</span>
-              <span class="text-zinc-600 dark:text-zinc-300"
-                >{{ readingStats.linkDensity }}/100W</span
-              >
-            </span>
-            <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
-            <span class="flex items-center gap-1 whitespace-nowrap">
-              <span class="text-zinc-400">CHARS</span>
-              <span class="text-zinc-600 dark:text-zinc-300">{{
-                formatCompactNumber(readingStats.characters)
-              }}</span>
-            </span>
+                {{ readingStats.links }} links
+              </span>
+            </div>
           </div>
         </div>
 
-        <!-- Title section - properly aligned to 8px grid -->
+        <!-- Title section - mobile optimized -->
         <div
           class="px-4 md:px-6"
-          style="padding-top: 24px; padding-bottom: 16px"
+          style="padding-top: 20px; padding-bottom: 16px"
         >
           <h1
             v-if="post?.metadata?.title || post?.title"
             ref="postTitle"
-            class="font-serif font-light p-name mb-2 text-4xl md:text-5xl lg:text-6xl"
-            style="line-height: 1.15; letter-spacing: -0.025em"
+            class="font-serif font-light p-name mb-3 sm:mb-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
+            style="line-height: 1.2; letter-spacing: -0.025em"
           >
             {{ post?.metadata?.title || post?.title }}
           </h1>
           <p
             v-if="post?.metadata?.dek || post?.dek"
-            class="font-serif text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-3xl mb-4"
-            style="line-height: 1.6"
+            class="font-serif text-base sm:text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-3xl mb-4 leading-relaxed"
           >
             {{ post?.metadata?.dek || post?.dek }}
           </p>
@@ -712,11 +642,11 @@ const processedMetadata = computed(() => {
         <!-- Permalink for microformats -->
         <a :href="postUrl" class="u-url hidden">{{ postUrl }}</a>
 
-        <!-- Article Content aligned to 8px grid -->
+        <!-- Article Content - mobile optimized spacing -->
         <div
           ref="articleContent"
           class="px-4 md:px-6"
-          style="padding-top: 16px; padding-bottom: 32px"
+          style="padding-top: 20px; padding-bottom: 40px"
         >
           <article
             v-if="post?.html"
@@ -733,66 +663,66 @@ const processedMetadata = computed(() => {
           </div>
         </div>
 
-        <!-- Tags Section - Swiss grid aligned -->
+        <!-- Tags Section - mobile optimized touch targets -->
         <div
           v-if="post.tags || post.metadata?.tags"
-          class="px-4 md:px-6 py-3 border-t border-zinc-200 dark:border-zinc-800"
+          class="px-4 md:px-6 py-4 md:py-3 border-t border-zinc-200 dark:border-zinc-800"
         >
-          <div class="flex flex-wrap gap-2">
+          <div class="flex flex-wrap gap-3 sm:gap-2">
             <a
               v-for="tag in post.tags || post.metadata?.tags"
               :key="tag"
               :href="`/blog/tag/${tag}`"
-              class="px-4 py-1 text-xs font-mono uppercase tracking-[0.2em] border border-zinc-300 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors no-underline p-category"
+              class="px-4 sm:px-3 py-2 sm:py-1 text-sm sm:text-xs font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] border border-zinc-300 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors no-underline p-category rounded-sm min-h-[44px] sm:min-h-auto flex items-center"
               >{{ tag }}</a
             >
           </div>
         </div>
 
-        <!-- Navigation Links - Swiss grid with 2-4-8 rhythm -->
+        <!-- Navigation Links - mobile optimized touch targets -->
         <div
           v-if="nextPrevPosts"
           ref="navigationLinks"
-          class="grid grid-cols-2 gap-4 px-4 md:px-6 py-6 border-t border-zinc-200 dark:border-zinc-800"
+          class="grid grid-cols-1 sm:grid-cols-2 gap-4 px-4 md:px-6 py-6 border-t border-zinc-200 dark:border-zinc-800"
         >
-          <div v-if="nextPrevPosts.prev">
+          <div v-if="nextPrevPosts.prev" class="order-2 sm:order-1">
             <NuxtLink
               :to="`/blog/${nextPrevPosts.prev.slug}`"
-              class="block no-underline group"
+              class="block no-underline group p-4 sm:p-0 border sm:border-0 border-zinc-200 dark:border-zinc-800 rounded-lg sm:rounded-none hover:bg-zinc-50 dark:hover:bg-zinc-900 sm:hover:bg-transparent transition-colors min-h-[60px] sm:min-h-auto flex flex-col justify-center"
             >
               <span
-                class="block text-xs font-mono uppercase tracking-[0.1em] text-zinc-500 mb-1"
+                class="block text-sm sm:text-xs font-mono uppercase tracking-[0.1em] text-zinc-500 mb-2 sm:mb-1"
               >
-                PREVIOUS
+                ← Previous
               </span>
               <span
-                class="block text-base font-serif leading-5 text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-400 transition-colors"
+                class="block text-lg sm:text-base font-serif leading-6 sm:leading-5 text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-400 transition-colors"
               >
                 {{ nextPrevPosts.prev?.title }}
               </span>
-              <span class="block text-xs font-mono text-zinc-400 leading-4">
+              <span class="block text-sm sm:text-xs font-mono text-zinc-400 leading-5 sm:leading-4 mt-1">
                 {{ formatDate(nextPrevPosts.prev.date) }}
               </span>
             </NuxtLink>
           </div>
-          <div v-else></div>
+          <div v-else class="order-2 sm:order-1"></div>
 
-          <div v-if="nextPrevPosts.next" class="text-right">
+          <div v-if="nextPrevPosts.next" class="order-1 sm:order-2 sm:text-right">
             <NuxtLink
               :to="`/blog/${nextPrevPosts.next.slug}`"
-              class="block no-underline group"
+              class="block no-underline group p-4 sm:p-0 border sm:border-0 border-zinc-200 dark:border-zinc-800 rounded-lg sm:rounded-none hover:bg-zinc-50 dark:hover:bg-zinc-900 sm:hover:bg-transparent transition-colors min-h-[60px] sm:min-h-auto flex flex-col justify-center"
             >
               <span
-                class="block text-xs font-mono uppercase tracking-[0.1em] text-zinc-500 mb-1"
+                class="block text-sm sm:text-xs font-mono uppercase tracking-[0.1em] text-zinc-500 mb-2 sm:mb-1"
               >
-                NEXT
+                Next →
               </span>
               <span
-                class="block text-base font-serif leading-5 text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-400 transition-colors"
+                class="block text-lg sm:text-base font-serif leading-6 sm:leading-5 text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-400 transition-colors"
               >
                 {{ nextPrevPosts.next?.title }}
               </span>
-              <span class="block text-xs font-mono text-zinc-400 leading-4">
+              <span class="block text-sm sm:text-xs font-mono text-zinc-400 leading-5 sm:leading-4 mt-1">
                 {{ formatDate(nextPrevPosts.next.date) }}
               </span>
             </NuxtLink>
@@ -817,41 +747,43 @@ const processedMetadata = computed(() => {
     <!-- Desktop TOC with scroll progress -->
     <teleport v-if="tocTarget" to="#nav-toc-container">
       <div
-        v-if="
-          post?.toc?.[0]?.children?.length ||
-          post?.metadata?.toc?.[0]?.children?.length
-        "
+        v-if="tocChildren.length > 0"
         class="toc"
       >
-        <div class="py-4">
-          <h3
-            class="text-xs font-mono uppercase tracking-[0.15em] text-zinc-500 dark:text-zinc-400 mb-4"
-          >
-            CONTENTS
-          </h3>
-          <ul class="space-y-1">
+        <div class="py-4 pl-0 relative">
+          <!-- Clean TOC list without header -->
+          <ul class="space-y-0">
             <li
-              v-for="child in post?.toc?.[0]?.children ||
-              post?.metadata?.toc?.[0]?.children"
+              v-for="(child, index) in tocChildren"
               :key="child.slug"
               class="group relative"
             >
               <a
                 :href="`#${child.slug}`"
-                class="block text-sm transition-colors duration-200 no-underline py-1"
+                class="flex items-baseline text-sm transition-all duration-200 no-underline py-2 gap-2"
                 :class="[
                   activeSection === child.slug
-                    ? 'text-zinc-900 dark:text-zinc-100'
-                    : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100'
+                    ? 'text-zinc-900 dark:text-zinc-100 font-medium'
+                    : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:translate-x-1'
                 ]"
               >
-                <span class="block truncate">{{ child.text }}</span>
+                <!-- Section number aligned on same baseline -->
+                <span
+                  class="font-mono text-xs tabular-nums opacity-50 w-4 text-right flex-shrink-0"
+                  :class="activeSection === child.slug ? 'opacity-70' : 'opacity-40'"
+                >
+                  {{ String(index + 1).padStart(2, '0') }}
+                </span>
+
+                <!-- Main text aligned on same baseline -->
+                <span
+                  class="font-serif leading-relaxed"
+                  :class="activeSection === child.slug ? 'font-medium' : 'font-normal'"
+                >
+                  {{ child.text }}
+                </span>
               </a>
-              <!-- Active indicator -->
-              <div
-                v-if="activeSection === child.slug"
-                class="absolute left-0 top-2 bottom-2 w-[2px] bg-zinc-900 dark:bg-zinc-100 rounded-full"
-              ></div>
+
             </li>
           </ul>
         </div>
@@ -865,22 +797,38 @@ const processedMetadata = computed(() => {
   @apply font-serif opacity-100;
 }
 
-/* Body text aligned to 8px grid */
+/* Body text - mobile optimized */
 .blog-post-content p {
-  @apply max-w-prose;
-  font-size: 1.125rem; /* 18px for better readability */
-  line-height: 28px; /* 3.5x8px for comfortable reading */
-  margin-bottom: 16px; /* 2x8px */
+  font-size: 1rem; /* 16px on mobile for easier reading */
+  line-height: 24px; /* 3x8px for comfortable mobile reading */
+  margin-bottom: 20px; /* Extra spacing for mobile */
 }
 
-/* Headings with natural typographic rhythm */
+@media (min-width: 640px) {
+  .blog-post-content p {
+    font-size: 1.125rem; /* 18px for larger screens */
+    line-height: 28px; /* 3.5x8px for comfortable reading */
+    margin-bottom: 16px; /* 2x8px */
+  }
+}
+
+/* Headings with mobile-optimized spacing */
 .blog-post-content h1 {
-  @apply font-serif font-light max-w-prose;
-  font-size: 2rem; /* 32px mobile */
-  line-height: 40px; /* 5x8px */
-  margin-top: 48px; /* 6x8px */
-  margin-bottom: 24px; /* 3x8px */
+  @apply font-serif font-light;
+  font-size: 1.75rem; /* 28px mobile - more reasonable */
+  line-height: 32px; /* 4x8px */
+  margin-top: 32px; /* Reduced for mobile */
+  margin-bottom: 20px; /* More space for mobile */
   letter-spacing: -0.02em;
+}
+
+@media (min-width: 640px) {
+  .blog-post-content h1 {
+    font-size: 2rem; /* 32px tablet */
+    line-height: 40px; /* 5x8px */
+    margin-top: 48px; /* 6x8px */
+    margin-bottom: 24px; /* 3x8px */
+  }
 }
 
 @media (min-width: 768px) {
@@ -892,12 +840,20 @@ const processedMetadata = computed(() => {
 }
 
 .blog-post-content h2 {
-  @apply font-serif font-normal max-w-prose;
-  font-size: 1.75rem; /* 28px mobile */
-  line-height: 32px; /* 4x8px */
-  margin-top: 56px; /* 7x8px */
+  @apply font-serif font-normal;
+  font-size: 1.5rem; /* 24px mobile - more reasonable */
+  line-height: 28px; /* 3.5x8px */
+  margin-top: 40px; /* Reduced for mobile */
   margin-bottom: 16px; /* 2x8px */
   letter-spacing: -0.01em;
+}
+
+@media (min-width: 640px) {
+  .blog-post-content h2 {
+    font-size: 1.75rem; /* 28px tablet */
+    line-height: 32px; /* 4x8px */
+    margin-top: 56px; /* 7x8px */
+  }
 }
 
 @media (min-width: 768px) {
@@ -909,7 +865,7 @@ const processedMetadata = computed(() => {
 }
 
 .blog-post-content h3 {
-  @apply font-serif font-normal max-w-prose;
+  @apply font-serif font-normal;
   font-size: 1.5rem; /* 24px */
   line-height: 32px; /* 4x8px */
   margin-top: 48px; /* 6x8px */
@@ -917,7 +873,7 @@ const processedMetadata = computed(() => {
 }
 
 .blog-post-content h4 {
-  @apply font-serif font-medium max-w-prose;
+  @apply font-serif font-medium;
   font-size: 1.25rem; /* 20px */
   line-height: 24px; /* 3x8px */
   margin-top: 32px; /* 4x8px */
@@ -926,30 +882,44 @@ const processedMetadata = computed(() => {
 
 .blog-post-content h5,
 .blog-post-content h6 {
-  @apply font-serif font-medium max-w-prose;
+  @apply font-serif font-medium;
   font-size: 1.125rem; /* 18px */
   line-height: 24px; /* 3x8px */
   margin-top: 16px; /* 2x8px */
   margin-bottom: 8px; /* 1x8px */
 }
 
-/* Lists aligned to grid */
+/* Lists - mobile optimized */
 .blog-post-content ul,
 .blog-post-content ol {
-  @apply max-w-prose pl-8;
-  font-size: 1.125rem; /* 18px to match body */
-  line-height: 28px; /* 3.5x8px */
-  margin-bottom: 16px; /* 2x8px */
+  padding-left: 1.5rem; /* Reduced for mobile */
+  font-size: 1rem; /* 16px on mobile to match body */
+  line-height: 24px; /* 3x8px for mobile */
+  margin-bottom: 20px; /* Extra spacing for mobile */
 }
 
 .blog-post-content li {
-  line-height: 28px; /* 3.5x8px to match body */
+  line-height: 24px; /* 3x8px for mobile */
   margin-bottom: 8px; /* 1x8px */
+}
+
+@media (min-width: 640px) {
+  .blog-post-content ul,
+  .blog-post-content ol {
+    padding-left: 2rem; /* pl-8 */
+    font-size: 1.125rem; /* 18px to match body */
+    line-height: 28px; /* 3.5x8px */
+    margin-bottom: 16px; /* 2x8px */
+  }
+
+  .blog-post-content li {
+    line-height: 28px; /* 3.5x8px to match body */
+  }
 }
 
 /* Blockquotes aligned */
 .blog-post-content blockquote {
-  @apply max-w-prose italic border-l-4 border-zinc-300 dark:border-zinc-700;
+  @apply italic border-l-4 border-zinc-300 dark:border-zinc-700;
   font-size: 1.125rem; /* 18px to match body */
   line-height: 28px; /* 3.5x8px */
   margin-top: 16px; /* 2x8px */
@@ -988,7 +958,7 @@ const processedMetadata = computed(() => {
 
 /* Horizontal rules */
 .blog-post-content hr {
-  @apply border-t border-zinc-200 dark:border-zinc-800 border-solid w-full max-w-prose;
+  @apply border-t border-zinc-200 dark:border-zinc-800 border-solid w-full;
   margin-top: 32px; /* 4x8px */
   margin-bottom: 32px; /* 4x8px */
 }
