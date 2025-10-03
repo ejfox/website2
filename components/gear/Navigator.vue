@@ -6,7 +6,7 @@
     >
       <div
         ref="scrollContainer"
-        class="flex overflow-x-auto gap-3 scrollbar-hide"
+        class="flex overflow-x-auto gap-4 scrollbar-hide"
       >
         <div
           v-for="(item, index) in gearItems"
@@ -24,11 +24,11 @@
           <div class="font-bold text-xs mb-1">
             {{ item.Type?.slice(0, 3) || '?' }}
           </div>
-          <div class="truncate text-[9px] mb-1 px-1 w-full text-center">
+          <div class="truncate text-xs mb-1 px-1 w-full text-center">
             {{ item.Name?.slice(0, 10) }}
           </div>
           <div
-            class="text-[8px] text-zinc-500"
+            class="text-xs text-zinc-500"
             :class="
               isCurrentItem(item)
                 ? 'text-zinc-300 dark:text-zinc-600'

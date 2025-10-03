@@ -4,7 +4,8 @@
       <div class="flex-1">
         <h3
           ref="titleRef"
-          class="text-2xl md:text-3xl font-light text-zinc-900 dark:text-zinc-100 leading-tight tracking-normal mb-6"
+          class="text-2xl md:text-3xl font-light text-zinc-900 dark:text-zinc-100 tracking-normal mb-2"
+          style="line-height: 40px"
         >
           <NuxtLink
             :to="`/predictions/${prediction.slug || prediction.id}`"
@@ -15,7 +16,8 @@
         </h3>
         <p
           ref="metadataRef"
-          class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed"
+          class="text-sm text-zinc-600 dark:text-zinc-400 mt-2"
+          style="line-height: 20px"
         >
           <span ref="confidenceRef" :class="statusColor" class="font-medium"
             >{{ displayConfidence }}% confidence</span
@@ -32,7 +34,8 @@
         v-if="showStatusBadge"
         ref="badgeRef"
         :class="statusBadgeColor"
-        class="px-4 py-2 text-xs font-medium rounded-full uppercase tracking-[0.1em] ml-6"
+        class="px-3 py-1 text-xs font-medium rounded-full uppercase tracking-[0.1em] ml-4"
+        style="line-height: 16px"
       >
         {{ prediction.status }}
       </span>
@@ -41,7 +44,8 @@
     <p
       v-if="prediction.description"
       ref="descriptionRef"
-      class="text-zinc-600 dark:text-zinc-400 leading-relaxed text-base"
+      class="text-zinc-600 dark:text-zinc-400 text-base mt-4"
+      style="line-height: 24px"
     >
       {{ prediction.description }}
     </p>
@@ -60,7 +64,7 @@
     <div
       v-if="prediction.evidence"
       ref="evidenceRef"
-      class="border-t border-zinc-200 dark:border-zinc-800 pt-12"
+      class="border-t border-zinc-200 dark:border-zinc-800 pt-4"
     >
       <details class="group">
         <summary
@@ -68,14 +72,14 @@
         >
           Evidence & Reasoning
         </summary>
-        <div class="mt-8 prediction-prose" v-html="evidenceHtml"></div>
+        <div class="mt-4 prediction-prose" v-html="evidenceHtml"></div>
       </details>
     </div>
 
     <div
       v-if="prediction.verification"
       ref="verificationRef"
-      class="border-t border-zinc-200 dark:border-zinc-800 pt-12"
+      class="border-t border-zinc-200 dark:border-zinc-800 pt-4"
     >
       <details>
         <summary
@@ -83,7 +87,7 @@
         >
           Verification Details
         </summary>
-        <div class="mt-8">
+        <div class="mt-4">
           <PredictionVerificationDisplay
             :verification="prediction.verification"
           />
@@ -95,7 +99,7 @@
     <div
       v-if="prediction.resolution"
       ref="resolutionRef"
-      class="border-t-2 pt-12"
+      class="border-t-2 pt-4"
       :class="[
         prediction.status === 'correct'
           ? 'border-green-200 dark:border-green-900'
@@ -104,7 +108,7 @@
             : 'border-zinc-200 dark:border-zinc-800'
       ]"
     >
-      <div class="mb-8">
+      <div class="mb-4">
         <h4
           class="text-xs font-medium uppercase tracking-[0.2em] mb-4"
           :class="[
@@ -118,7 +122,7 @@
           Resolution
           <span
             v-if="prediction.resolved_date"
-            class="font-mono normal-case tracking-normal ml-3 text-zinc-400 dark:text-zinc-600"
+            class="font-mono normal-case tracking-normal ml-4 text-zinc-400 dark:text-zinc-600"
           >
             • {{ formatDate(prediction.resolved_date) }}
           </span>
@@ -131,14 +135,14 @@
     <!-- Related predictions section -->
     <div
       v-if="prediction.related && prediction.related.length > 0"
-      class="border-t border-zinc-200 dark:border-zinc-800 pt-8"
+      class="border-t border-zinc-200 dark:border-zinc-800 pt-4"
     >
       <h4
         class="text-xs font-medium text-zinc-500 dark:text-zinc-500 uppercase tracking-[0.2em] mb-4"
       >
         Related Predictions
       </h4>
-      <div class="space-y-3">
+      <div class="space-y-4">
         <NuxtLink
           v-for="relatedId in prediction.related"
           :key="relatedId"
@@ -234,11 +238,11 @@ const displayProgress = ref(props.prediction.confidence || 0)
 
 // Computed properties
 const cardClasses = computed(() => [
-  'prediction-card p-0 space-y-12 transition-all duration-300',
+  'prediction-card p-0 space-y-4 transition-all duration-300',
   props.prediction.status === 'correct'
-    ? 'border-l-4 border-green-500 dark:border-green-600 pl-8'
+    ? 'border-l-4 border-green-500 dark:border-green-600 pl-4'
     : props.prediction.status === 'incorrect'
-      ? 'border-l-4 border-red-500 dark:border-red-600 pl-8'
+      ? 'border-l-4 border-red-500 dark:border-red-600 pl-4'
       : 'pl-0'
 ])
 
@@ -347,27 +351,31 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-/* Simple prose styling - DELETE bloated @apply prose */
+/* Simple prose styling with 8px baseline grid */
 .prediction-prose {
-  @apply text-zinc-600 dark:text-zinc-400 leading-relaxed;
+  @apply text-zinc-600 dark:text-zinc-400;
+  line-height: 24px; /* 3 * 8px */
 }
 
 .prediction-prose p {
-  @apply mb-4 leading-relaxed;
+  @apply mb-3; /* 12px = 1.5 * 8px */
+  line-height: 24px;
 }
 
 .prediction-prose h1,
 .prediction-prose h2,
 .prediction-prose h3 {
-  @apply font-medium tracking-wide text-zinc-800 dark:text-zinc-200;
+  @apply font-medium tracking-wide text-zinc-800 dark:text-zinc-200 mt-4 mb-2;
+  line-height: 32px; /* 4 * 8px */
 }
 
 .prediction-prose ul {
-  @apply my-6 pl-6 list-disc;
+  @apply my-3 pl-4 list-disc; /* 12px vertical spacing */
 }
 
 .prediction-prose li {
-  @apply my-2;
+  @apply my-1; /* 4px = 0.5 * 8px */
+  line-height: 24px;
 }
 
 .prediction-prose strong {

@@ -12,15 +12,15 @@ export default defineEventHandler(async () => {
     const filePath = path.resolve(process.cwd(), 'content/now.md')
     const fileContent = await readFile(filePath, 'utf-8')
     const { content, data } = matter(fileContent)
-    
+
     const processor = unified()
       .use(remarkParse)
       .use(remarkGfm)
       .use(remarkRehype, { allowDangerousHtml: true })
       .use(rehypeStringify, { allowDangerousHtml: true })
-    
+
     const result = await processor.process(content)
-    
+
     return {
       title: data.title || 'Now',
       html: String(result),

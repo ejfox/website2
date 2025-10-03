@@ -10,7 +10,9 @@
           priority="primary"
         />
       </div>
-      <div class="text-xs text-zinc-500 uppercase tracking-wider mt-1">FILMS WATCHED</div>
+      <div class="text-xs text-zinc-500 uppercase tracking-widest mt-1">
+        FILMS WATCHED
+      </div>
       <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
         <AnimatedNumber
           :value="stats.averageRating"
@@ -42,7 +44,7 @@
             <div class="truncate text-zinc-700 dark:text-zinc-300">
               {{ film.title }}
             </div>
-            <div class="text-zinc-500" style="font-size: 10px;">
+            <div class="text-zinc-500 text-xs">
               {{ formatDate(film.watchedDate) }}
             </div>
           </div>
@@ -56,7 +58,7 @@
       </div>
     </div>
   </div>
-  <div v-else class="text-center py-6">
+  <div v-else class="text-center py-8">
     <div class="text-xl font-mono text-zinc-700 dark:text-zinc-500">
       NO FILM DATA
     </div>
@@ -127,4 +129,3 @@ const formatDate = (dateString: string | null): string => {
   return format(new Date(dateString), 'MMM d').toUpperCase()
 }
 </script>
-

@@ -3,29 +3,54 @@
     <!-- Primary Stats -->
     <div class="text-center py-4">
       <div class="text-2xl font-bold">
-        <AnimatedNumber :value="stats.totalGists" format="default" :duration="800" priority="primary" />
+        <AnimatedNumber
+          :value="stats.totalGists"
+          format="default"
+          :duration="800"
+          priority="primary"
+        />
       </div>
-      <div class="text-xs text-zinc-500 uppercase tracking-wider mt-1">
+      <div class="text-xs text-zinc-500 uppercase tracking-widest mt-1">
         CODE SNIPPETS
       </div>
       <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
-        <AnimatedNumber :value="stats.totalFiles" format="default" :duration="400" priority="secondary" /> FILES · 
-        <AnimatedNumber :value="stats.averageFilesPerGist" format="decimal" :decimals="1" :duration="400" priority="tertiary" /> AVG
+        <AnimatedNumber
+          :value="stats.totalFiles"
+          format="default"
+          :duration="400"
+          priority="secondary"
+        />
+        FILES ·
+        <AnimatedNumber
+          :value="stats.averageFilesPerGist"
+          format="decimal"
+          :decimals="1"
+          :duration="400"
+          priority="tertiary"
+        />
+        AVG
       </div>
     </div>
 
     <!-- Language Distribution -->
     <div class="space-y-4">
       <StatsSectionHeader title="LANGUAGES" />
-      <div class="grid grid-cols-2 gap-x-6 gap-y-2 text-xs">
-        <div 
+      <div class="grid grid-cols-2 gap-x-8 gap-y-2 text-xs">
+        <div
           v-for="lang in stats.topLanguages.slice(0, 6)"
           :key="lang.language"
           class="flex justify-between items-baseline"
         >
-          <span class="text-zinc-700 dark:text-zinc-400">{{ lang.language }}</span>
+          <span class="text-zinc-700 dark:text-zinc-400">{{
+            lang.language
+          }}</span>
           <span class="tabular-nums text-zinc-500 font-medium">
-            <AnimatedNumber :value="lang.count" format="default" :duration="400" priority="tertiary" />
+            <AnimatedNumber
+              :value="lang.count"
+              format="default"
+              :duration="400"
+              priority="tertiary"
+            />
           </span>
         </div>
       </div>
@@ -35,7 +60,7 @@
     <div v-if="recentGists.length" class="space-y-4">
       <StatsSectionHeader title="RECENT GISTS" />
       <div class="space-y-1.5">
-        <div 
+        <div
           v-for="gist in recentGists.slice(0, 5)"
           :key="gist.id"
           class="flex items-baseline justify-between text-xs"
@@ -45,16 +70,15 @@
               :href="gist.html_url"
               target="_blank"
               rel="noopener"
-              class="text-zinc-700 dark:text-zinc-300 hover:text-black dark:hover:text-white transition-colors"
-              style="font-size: 10px"
+              class="text-zinc-700 dark:text-zinc-300 hover:text-black dark:hover:text-white transition-colors text-xs"
             >
               {{ getGistTitle(gist) }}
             </a>
-            <span v-if="gist.languages?.length" class="text-zinc-500" style="font-size: 10px">
+            <span v-if="gist.languages?.length" class="text-zinc-500 text-xs">
               {{ gist.languages[0] }}
             </span>
           </div>
-          <span class="text-zinc-500 flex-shrink-0 ml-2 tabular-nums" style="font-size: 10px">
+          <span class="text-zinc-500 flex-shrink-0 ml-2 tabular-nums text-xs">
             {{ formatDate(gist.created_at) }}
           </span>
         </div>
@@ -107,14 +131,17 @@ const hasData = computed(() => {
   return !!props.gistStats?.stats && props.gistStats.stats.totalGists > 0
 })
 
-const stats = computed(() => props.gistStats?.stats || {
-  totalGists: 0,
-  totalFiles: 0,
-  totalSize: 0,
-  averageFilesPerGist: 0,
-  topLanguages: [],
-  yearStats: {}
-})
+const stats = computed(
+  () =>
+    props.gistStats?.stats || {
+      totalGists: 0,
+      totalFiles: 0,
+      totalSize: 0,
+      averageFilesPerGist: 0,
+      topLanguages: [],
+      yearStats: {}
+    }
+)
 
 const recentGists = computed(() => props.gistStats?.recentGists || [])
 
@@ -124,15 +151,19 @@ const formatDate = (dateString: string): string => {
 
 const getGistTitle = (gist: any): string => {
   // If there's a description (and it's not 'No description'), use it
-  if (gist.description && gist.description.trim() && gist.description !== 'No description') {
+  if (
+    gist.description &&
+    gist.description.trim() &&
+    gist.description !== 'No description'
+  ) {
     return gist.description
   }
-  
+
   // Otherwise, use the first filename if available
   if (gist.firstFileName) {
     return gist.firstFileName
   }
-  
+
   // Fallback to ID if nothing else works
   return `gist:${gist.id.slice(0, 8)}`
 }

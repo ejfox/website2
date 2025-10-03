@@ -54,20 +54,19 @@ const getNoteSummary = (note) => {
 </script>
 
 <template>
-  <div class="container mx-auto px-2 py-12 lg:flex lg:gap-8 font-mono">
+  <div class="container mx-auto px-2 py-8 lg:flex lg:gap-8 font-mono">
     <!-- Main Content -->
     <section class="lg:w-2/3">
       <div class="mb-8">
-        <h1 class="text-3xl font-bold">
-          Robot Notes
-        </h1>
+        <h1 class="text-3xl font-light">Robot Notes</h1>
         <p class="text-zinc-600 dark:text-zinc-400 mt-2">
           <a
             href="https://www.are.na/ej-fox/conversations-with-robots"
             target="_blank"
             class="text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
           >
-            Conversations with Robots </a>, notes from various AI models, projects, and experiments.
+            Conversations with Robots </a
+          >, notes from various AI models, projects, and experiments.
         </p>
       </div>
 
@@ -98,7 +97,7 @@ const getNoteSummary = (note) => {
           class="group"
         >
           <h2
-            class="text-xl font-semibold font-mono group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors"
+            class="text-xl font-light font-mono group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors"
           >
             {{ note.title }}
           </h2>
@@ -112,13 +111,13 @@ const getNoteSummary = (note) => {
         </p>
 
         <!-- TOC Preview -->
-        <div v-if="note.toc?.length" class="mt-6 space-y-2">
+        <div v-if="note.toc?.length" class="mt-8 space-y-2">
           <div
             class="text-xs uppercase text-zinc-500 dark:text-zinc-400 font-mono"
           >
             Sections:
           </div>
-          <div class="flex flex-wrap gap-3">
+          <div class="flex flex-wrap gap-4">
             <template v-for="section in note.toc" :key="section.slug">
               <template v-if="section.children?.length">
                 <NuxtLink
@@ -146,7 +145,7 @@ const getNoteSummary = (note) => {
         </div>
       </div>
 
-      <div v-if="!robotNotes?.length" class="text-center py-12 text-zinc-500">
+      <div v-if="!robotNotes?.length" class="text-center py-8 text-zinc-500">
         No shared robot notes yet.
       </div>
     </section>

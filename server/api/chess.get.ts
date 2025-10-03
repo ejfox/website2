@@ -186,14 +186,14 @@ function determineResult(game: any, username: string): 'win' | 'loss' | 'draw' {
     return game.white.result === 'win'
       ? 'win'
       : game.white.result === 'resigned'
-      ? 'loss'
-      : 'draw'
+        ? 'loss'
+        : 'draw'
   } else {
     return game.black.result === 'win'
       ? 'win'
       : game.black.result === 'resigned'
-      ? 'loss'
-      : 'draw'
+        ? 'loss'
+        : 'draw'
   }
 }
 

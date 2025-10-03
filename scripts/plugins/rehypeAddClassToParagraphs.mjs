@@ -13,8 +13,7 @@ export function rehypeAddClassToParagraphs() {
 
       switch (node.tagName) {
         case 'p':
-          // Prose width constraint + spacing for paragraphs
-          addClasses(node, ['mb-4', 'max-w-prose', 'mx-auto'])
+          // Let CSS handle paragraph styles
           break
 
         case 'blockquote':
@@ -44,59 +43,31 @@ export function rehypeAddClassToParagraphs() {
           break
 
         case 'h1':
-          addClasses(node, [
-            'text-4xl',
-            'font-bold',
-            'mb-6',
-            'mt-8',
-            'max-w-prose',
-            'mx-auto',
-            'font-sans'
-          ])
+          // Let CSS handle heading styles
           break
 
         case 'h2':
-          addClasses(node, [
-            'text-3xl',
-            'font-semibold',
-            'mb-4',
-            'mt-8',
-            'max-w-prose',
-            'mx-auto',
-            'font-sans'
-          ])
+          // Let CSS handle heading styles
           break
 
         case 'h3':
-          addClasses(node, [
-            'text-2xl',
-            'font-medium',
-            'mb-3',
-            'mt-6',
-            'max-w-prose',
-            'mx-auto',
-            'font-sans'
-          ])
+          // Let CSS handle heading styles
+          break
+
+        case 'h4':
+        case 'h5':
+        case 'h6':
+          // Let CSS handle heading styles
           break
 
         case 'ul':
-          addClasses(node, [
-            'list-disc',
-            'ml-6',
-            'mb-4',
-            'max-w-prose',
-            'mx-auto'
-          ])
+          // Let CSS handle list styles
+          addClasses(node, ['list-disc'])
           break
 
         case 'ol':
-          addClasses(node, [
-            'list-decimal',
-            'ml-6',
-            'mb-4',
-            'max-w-prose',
-            'mx-auto'
-          ])
+          // Let CSS handle list styles
+          addClasses(node, ['list-decimal'])
           break
 
         case 'li':

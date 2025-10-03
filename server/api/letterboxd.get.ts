@@ -12,7 +12,7 @@ export default defineEventHandler(async (_event) => {
         }
       }),
       $fetch(filmsUrl, {
-        responseType: 'text', 
+        responseType: 'text',
         headers: {
           'User-Agent': 'Mozilla/5.0 (compatible; EJFox Website Bot)'
         }
@@ -20,17 +20,22 @@ export default defineEventHandler(async (_event) => {
     ])
 
     // Combine both HTML sources
-    const combinedHtml = (profileResponse as string) + '\n' + (filmsResponse as string)
+    const combinedHtml =
+      (profileResponse as string) + '\n' + (filmsResponse as string)
 
     const films = []
 
     // Extract all film slugs first, then get details for each
     const html = combinedHtml
-    
+
     // Extract all unique film slugs from href="/film/slug/" patterns
     const filmSlugMatches = html.match(/\/film\/([^/]*)\//g) || []
-    const uniqueSlugs = [...new Set(filmSlugMatches.map(match => match.replace(/\/film\/|\/$/g, '')))]
-    
+    const uniqueSlugs = [
+      ...new Set(
+        filmSlugMatches.map((match) => match.replace(/\/film\/|\/$/g, ''))
+      )
+    ]
+
     console.log('Found film slugs:', uniqueSlugs)
 
     // For each slug, try to find associated data in the HTML
@@ -39,7 +44,7 @@ export default defineEventHandler(async (_event) => {
         // Look for film data around this slug
         const slugPattern = new RegExp(`/film/${slug}/`, 'g')
         const contexts = []
-        
+
         // Find all contexts where this film appears
         let match
         while ((match = slugPattern.exec(html)) !== null) {
@@ -47,19 +52,21 @@ export default defineEventHandler(async (_event) => {
           const end = Math.min(html.length, match.index + 200)
           contexts.push(html.substring(start, end))
         }
-        
+
         // Extract title from any context
-        let title = slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
-        
+        let title = slug
+          .replace(/-/g, ' ')
+          .replace(/\b\w/g, (l) => l.toUpperCase())
+
         // Try to find actual title from various patterns
         for (const context of contexts) {
           const titlePatterns = [
             new RegExp(`data-film-name="([^"]*)"`, 'i'),
-            new RegExp(`title="([^"]*)"`, 'i'), 
+            new RegExp(`title="([^"]*)"`, 'i'),
             new RegExp(`alt="([^"]*)"`, 'i'),
             new RegExp(`>${slug.replace(/-/g, '[\\s-]+')}<`, 'i')
           ]
-          
+
           for (const pattern of titlePatterns) {
             const titleMatch = context.match(pattern)
             if (titleMatch && titleMatch[1] && titleMatch[1].length > 3) {
@@ -67,7 +74,11 @@ export default defineEventHandler(async (_event) => {
               break
             }
           }
-          if (title !== slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())) break
+          if (
+            title !==
+            slug.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase())
+          )
+            break
         }
 
         // Extract rating from contexts
@@ -89,7 +100,7 @@ export default defineEventHandler(async (_event) => {
             /data-date="([^"]*)"/,
             /(\d{4}-\d{2}-\d{2})/
           ]
-          
+
           for (const pattern of datePatterns) {
             const dateMatch = context.match(pattern)
             if (dateMatch) {
@@ -107,7 +118,6 @@ export default defineEventHandler(async (_event) => {
           letterboxdUrl: `https://letterboxd.com/film/${slug}/`,
           watchedDate: watchedDate
         })
-        
       } catch (err) {
         console.warn('Failed to parse film:', slug, err)
       }
@@ -119,7 +129,9 @@ export default defineEventHandler(async (_event) => {
 
     // Calculate stats
     const thisYear = films.filter(
-      (f) => f.watchedDate && new Date(f.watchedDate).getFullYear() === new Date().getFullYear()
+      (f) =>
+        f.watchedDate &&
+        new Date(f.watchedDate).getFullYear() === new Date().getFullYear()
     ).length
 
     const ratedFilms = films.filter((f) => f.rating)

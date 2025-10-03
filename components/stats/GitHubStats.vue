@@ -17,7 +17,11 @@
               :decimals="0"
             />
           </div>
-          <div class="stat-label text-xs text-zinc-500 uppercase tracking-wider mt-1">GITHUB COMMITS</div>
+          <div
+            class="stat-label text-xs text-zinc-500 uppercase tracking-widest mt-1"
+          >
+            GITHUB COMMITS
+          </div>
         </div>
         <div class="text-center">
           <div class="stat-value text-2xl font-bold">
@@ -28,7 +32,11 @@
               priority="secondary"
             />
           </div>
-          <div class="stat-label text-xs text-zinc-500 uppercase tracking-wider mt-1">REPOS</div>
+          <div
+            class="stat-label text-xs text-zinc-500 uppercase tracking-widest mt-1"
+          >
+            REPOS
+          </div>
         </div>
       </div>
     </div>
@@ -36,7 +44,9 @@
     <!-- Activity Calendar -->
     <div v-if="hasCommits" class="col-span-full">
       <StatsSectionHeader title="COMMIT ACTIVITY" />
-      <div class="text-zinc-500 mb-2" style="font-size: 9px; line-height: 10px;">PAST 30 DAYS · {{ commitActivityDates.length }} ACTIVE DAYS</div>
+      <div class="text-zinc-500 mb-2 text-xs leading-[10px]">
+        PAST 30 DAYS · {{ commitActivityDates.length }} ACTIVE DAYS
+      </div>
       <ActivityCalendar
         :active-dates="commitActivityDates"
         :active-color="'#71717a'"
@@ -57,16 +67,17 @@
               :href="project.url"
               target="_blank"
               rel="noopener"
-              class="text-zinc-700 dark:text-zinc-300 hover:text-black dark:hover:text-white transition-colors font-medium truncate"
-              style="font-size: 10px"
+              class="text-zinc-700 dark:text-zinc-300 hover:text-black dark:hover:text-white transition-colors font-medium truncate text-xs"
             >
               {{ project.name }}
             </a>
-            <span class="text-zinc-600 dark:text-zinc-400 truncate flex-1" style="font-size: 10px">
+            <span
+              class="text-zinc-600 dark:text-zinc-400 truncate flex-1 text-xs"
+            >
               {{ project.lastMessage }}
             </span>
           </div>
-          <span class="text-zinc-500 flex-shrink-0 ml-2 tabular-nums" style="font-size: 10px">
+          <span class="text-zinc-500 flex-shrink-0 ml-2 tabular-nums text-xs">
             {{ formatRelativeTime(project.lastCommit) }}
           </span>
         </div>

@@ -3,7 +3,7 @@
   "startDate": "2025-01-01",
   "totalPicks": 1,
   "totalLocks": 2,
-  
+
   "beltProgress": {
     "White": {
       "completed": true,
@@ -45,7 +45,7 @@
       "notes": "Basic pin tumbler, good for learning fundamentals"
     },
     {
-      "id": "lock_002", 
+      "id": "lock_002",
       "name": "American 1100",
       "manufacturer": "American Lock",
       "belt": "Green",
@@ -61,7 +61,7 @@
     {
       "id": "target_001",
       "lock": "Master Lock 140",
-      "manufacturer": "Master Lock", 
+      "manufacturer": "Master Lock",
       "belt": "Yellow",
       "difficulty": "Basic spool pins",
       "priority": "high",
@@ -71,7 +71,7 @@
       "id": "target_002",
       "lock": "ABUS 55/40",
       "manufacturer": "ABUS",
-      "belt": "Yellow", 
+      "belt": "Yellow",
       "difficulty": "Basic security pins",
       "priority": "medium",
       "notes": "Want to try a different manufacturer"
@@ -90,7 +90,7 @@
       "name": "Tension Wrenches",
       "type": "tension",
       "brand": "Various",
-      "acquired": "2025-01-01", 
+      "acquired": "2025-01-01",
       "notes": "Mix of TOK and BOK wrenches"
     }
   ],
@@ -105,7 +105,7 @@
     {
       "description": "Learn to gut and reassemble locks",
       "target": "Green Belt",
-      "deadline": "2025-06-01", 
+      "deadline": "2025-06-01",
       "progress": "0%"
     }
   ],

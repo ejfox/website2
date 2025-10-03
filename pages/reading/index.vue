@@ -1,72 +1,122 @@
 <template>
   <div class="min-h-screen">
-    <div class="max-w-6xl mx-auto px-4 py-12">
-      <!-- Header -->
-      <div class="mb-12">
-        <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Reading Collection</h1>
-        <p class="text-xl text-gray-600 dark:text-gray-400">
+    <div class="px-4 md:px-8" style="max-width: 65ch">
+      <!-- Header with data overlay -->
+      <header class="mb-8">
+        <!-- Data stream indicator -->
+        <div
+          class="font-mono text-xs text-zinc-400 mb-2 mt-8"
+          style="font-variant-numeric: tabular-nums"
+        >
+          <span>READING</span>
+          <span class="mx-2">·</span>
+          <span>{{ books?.length || 0 }} BOOKS</span>
+          <span class="mx-2">·</span>
+          <span>{{ totalHighlights }} HIGHLIGHTS</span>
+        </div>
+        <h1
+          class="font-serif text-3xl font-normal mb-2"
+          style="letter-spacing: -0.02em"
+        >
+          Reading Collection
+        </h1>
+        <p class="font-serif text-base text-zinc-600 dark:text-zinc-400">
           Books, highlights, and notes from my digital library.
         </p>
-        
+
         <!-- Stats -->
-        <div v-if="books" class="mt-6 flex gap-6 text-sm text-gray-500 dark:text-gray-400">
-          <span>{{ books.length }} books</span>
-          <span>{{ totalHighlights }} total highlights</span>
-          <span>Last updated: {{ lastUpdated }}</span>
+        <div
+          v-if="books"
+          class="mt-4 font-mono text-xs text-zinc-500"
+          style="
+            font-feature-settings:
+              'lnum' 1,
+              'tnum' 1;
+          "
+        >
+          <span>UPDATED: {{ lastUpdated }}</span>
         </div>
-      </div>
+      </header>
 
       <!-- Loading State -->
-      <div v-if="pending" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div
+        v-if="pending"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+      >
         <div v-for="i in 6" :key="i" class="animate-pulse">
-          <div class="bg-gray-200 dark:bg-zinc-800 rounded-lg h-48"></div>
+          <div
+            class="bg-zinc-100 dark:bg-zinc-900 rounded-sm aspect-[3/4]"
+          ></div>
         </div>
       </div>
 
       <!-- Error State -->
-      <div v-else-if="error" class="text-center py-12">
-        <h2 class="text-2xl font-bold text-red-600 dark:text-red-400 mb-4">Error Loading Books</h2>
-        <p class="text-gray-600 dark:text-gray-400">{{ error.message }}</p>
+      <div v-else-if="error" class="text-center py-8">
+        <h2 class="font-serif text-xl text-red-600 dark:text-red-400 mb-4">
+          Error Loading Books
+        </h2>
+        <p class="font-serif text-base text-zinc-600 dark:text-zinc-400">
+          {{ error.message }}
+        </p>
       </div>
 
       <!-- Books Grid -->
-      <div v-else-if="books?.length" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <NuxtLink 
-          v-for="book in books" 
+      <div
+        v-else-if="books?.length"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+      >
+        <NuxtLink
+          v-for="book in books"
           :key="book.slug"
           :to="`/reading/${book.slug}`"
           class="group block transition-opacity duration-200 hover:opacity-75"
         >
           <!-- Book Cover -->
           <div class="aspect-[3/4] mb-4 flex items-center justify-center">
-            <img 
+            <img
               v-if="book.metadata?.['kindle-sync']?.bookImageUrl"
-              :src="book.metadata['kindle-sync'].bookImageUrl" 
+              :src="book.metadata['kindle-sync'].bookImageUrl"
               :alt="`Cover of ${book.metadata['kindle-sync']?.title || book.title}`"
               class="max-h-full max-w-full object-contain rounded-sm shadow-sm"
             />
-            <div v-else class="text-gray-400 dark:text-gray-600 text-center p-4">
+            <div
+              v-else
+              class="text-zinc-400 dark:text-zinc-600 text-center p-4"
+            >
               <div class="text-2xl mb-2">📖</div>
               <div class="text-sm">No Cover</div>
             </div>
           </div>
-          
+
           <!-- Book Info -->
           <div class="space-y-2">
-            <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors line-clamp-2">
+            <h3
+              class="font-serif text-base font-normal text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-400 transition-colors line-clamp-2"
+              style="letter-spacing: -0.01em"
+            >
               {{ book.metadata?.['kindle-sync']?.title || book.title }}
             </h3>
-            <p class="text-sm text-gray-600 dark:text-gray-400">
+            <p class="font-serif text-sm text-zinc-600 dark:text-zinc-400">
               {{ book.metadata?.['kindle-sync']?.author }}
             </p>
-            
+
             <!-- Random highlight preview -->
-            <div v-if="book.randomHighlight" class="text-xs text-gray-600 dark:text-gray-400 italic line-clamp-3">
+            <div
+              v-if="book.randomHighlight"
+              class="font-serif text-xs text-zinc-500 dark:text-zinc-500 italic line-clamp-3"
+            >
               "{{ book.randomHighlight }}"
             </div>
-            
+
             <!-- Highlights count -->
-            <div class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
+            <div
+              class="flex items-center justify-between font-mono text-xs text-zinc-500 dark:text-zinc-400"
+              style="
+                font-feature-settings:
+                  'lnum' 1,
+                  'tnum' 1;
+              "
+            >
               <span v-if="book.metadata?.['kindle-sync']?.highlightsCount">
                 {{ book.metadata['kindle-sync'].highlightsCount }} highlights
               </span>
@@ -79,10 +129,14 @@
       </div>
 
       <!-- Empty State -->
-      <div v-else class="text-center py-12">
-        <div class="text-6xl mb-4">📚</div>
-        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">No Books Found</h2>
-        <p class="text-gray-600 dark:text-gray-400">No reading notes have been processed yet.</p>
+      <div v-else class="text-center py-8">
+        <div class="font-mono text-xs text-zinc-400 mb-8">NO_DATA</div>
+        <h2 class="font-serif text-xl text-zinc-900 dark:text-zinc-100 mb-4">
+          No Books Found
+        </h2>
+        <p class="font-serif text-base text-zinc-600 dark:text-zinc-400">
+          No reading notes have been processed yet.
+        </p>
       </div>
     </div>
   </div>
@@ -102,14 +156,17 @@ const totalHighlights = computed(() => {
 
 const lastUpdated = computed(() => {
   if (!books.value?.length) return 'Never'
-  
+
   const dates = books.value
-    .map(book => book.metadata?.['kindle-sync']?.lastAnnotatedDate || book.metadata?.date)
+    .map(
+      (book) =>
+        book.metadata?.['kindle-sync']?.lastAnnotatedDate || book.metadata?.date
+    )
     .filter(Boolean)
     .sort()
-  
+
   if (dates.length === 0) return 'Unknown'
-  
+
   return formatDate(dates[dates.length - 1])
 })
 
@@ -119,7 +176,8 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'A collection of books, highlights, and reading notes from my digital library.'
+      content:
+        'A collection of books, highlights, and reading notes from my digital library.'
     }
   ]
 })

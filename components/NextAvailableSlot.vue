@@ -3,12 +3,15 @@
     <!-- Prevent hydration mismatch by showing fallback initially -->
     <ClientOnly>
       <!-- Loading state -->
-      <span v-if="pending" class="animate-pulse text-blue-600 dark:text-blue-400">
+      <span
+        v-if="pending"
+        class="animate-pulse text-blue-600 dark:text-blue-400"
+      >
         what about...
       </span>
-      
+
       <!-- Available slot - inline magic link -->
-      <a 
+      <a
         v-else-if="nextSlot"
         :href="nextSlot.bookingUrl"
         target="_blank"
@@ -17,9 +20,9 @@
       >
         ({{ nextSlot.naturalTime }})
       </a>
-      
+
       <!-- Fallback to static calendar link -->
-      <a 
+      <a
         v-else
         href="https://cal.com/ejfox/30min"
         target="_blank"
@@ -28,10 +31,10 @@
       >
         find some time on my calendar
       </a>
-      
+
       <!-- Fallback for SSR -->
       <template #fallback>
-        <a 
+        <a
           href="https://cal.com/ejfox/30min"
           target="_blank"
           class="inline text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-200 underline underline-offset-2"
@@ -48,11 +51,13 @@
 import { computed } from 'vue'
 
 // Fetch the first available slot with auto-refresh
-const { data, pending, error, refresh } = await useLazyFetch('/api/cal/available-slots', {
-  refresh: 5 * 60 * 1000, // Refresh every 5 minutes
-  default: () => ({ slots: [] })
-})
-
+const { data, pending, error, refresh } = await useLazyFetch(
+  '/api/cal/available-slots',
+  {
+    refresh: 5 * 60 * 1000, // Refresh every 5 minutes
+    default: () => ({ slots: [] })
+  }
+)
 
 // Get the very next available slot
 const nextSlot = computed(() => {
@@ -70,9 +75,9 @@ onMounted(() => {
       }
     }, 1000)
   }
-  
+
   window.addEventListener('focus', handleFocus)
-  
+
   onUnmounted(() => {
     window.removeEventListener('focus', handleFocus)
   })

@@ -187,7 +187,7 @@ useHead({
 </script>
 
 <template>
-  <div class="container mx-auto px-4 py-12">
+  <div class="container mx-auto px-4 py-8">
     <!-- Main Content with Adjusted Layout -->
     <div
       class="lg:grid lg:grid-cols-[1fr,300px] xl:grid-cols-[1fr,350px] gap-8"
@@ -199,41 +199,31 @@ useHead({
         >
           <div class="grid grid-cols-[auto,1fr] gap-x-4 gap-y-2">
             <!-- Type -->
-            <div class="text-zinc-500 dark:text-zinc-400">
-              type:
-            </div>
+            <div class="text-zinc-500 dark:text-zinc-400">type:</div>
             <div class="text-zinc-700 dark:text-zinc-300 capitalize">
               {{ metadataFields.type }}
             </div>
 
             <!-- Date -->
-            <div class="text-zinc-500 dark:text-zinc-400">
-              published:
-            </div>
+            <div class="text-zinc-500 dark:text-zinc-400">published:</div>
             <div class="text-zinc-700 dark:text-zinc-300">
               {{ formatDate(metadataFields.date) }}
             </div>
 
             <!-- Modified -->
-            <div class="text-zinc-500 dark:text-zinc-400">
-              updated:
-            </div>
+            <div class="text-zinc-500 dark:text-zinc-400">updated:</div>
             <div class="text-zinc-700 dark:text-zinc-300">
               {{ formatDate(metadataFields.modified) }}
             </div>
 
             <!-- Word count -->
-            <div class="text-zinc-500 dark:text-zinc-400">
-              words:
-            </div>
+            <div class="text-zinc-500 dark:text-zinc-400">words:</div>
             <div class="text-zinc-700 dark:text-zinc-300">
               {{ formatNumber(metadataFields.words) }}
             </div>
 
             <!-- Stats -->
-            <div class="text-zinc-500 dark:text-zinc-400">
-              stats:
-            </div>
+            <div class="text-zinc-500 dark:text-zinc-400">stats:</div>
             <div class="text-zinc-700 dark:text-zinc-300 grid gap-1">
               <template v-if="metadataFields.stats">
                 <div v-if="metadataFields.stats.images">
@@ -269,14 +259,15 @@ useHead({
 
         <header class="mb-8">
           <!-- Hero title with animation -->
-          <h1 class="text-4xl md:text-6xl font-bold mb-4 flex flex-wrap">
+          <h1 class="text-4xl md:text-6xl font-light mb-4 flex flex-wrap">
             <span
               v-for="(char, i) in titleChars"
               :key="i"
               ref="titleRefs"
               class="inline-block opacity-0"
               :class="{ 'mr-[0.2em]': char === ' ' }"
-            >{{ char }}</span>
+              >{{ char }}</span
+            >
           </h1>
           <p
             v-if="note.description"
@@ -288,13 +279,11 @@ useHead({
 
         <!-- Content with adjusted max-width -->
         <div
-          class="prose prose-sm font-mono dark:prose-invert prose-headings:font-bold prose-headings:tracking-tight prose-h2:text-3xl prose-h3:text-2xl prose-p:leading-8 prose-p:py-2 prose-a:text-zinc-700 hover:prose-a:text-zinc-900 dark:prose-a:text-zinc-300 dark:hover:prose-a:text-zinc-100 prose-a:underline transition-all duration-100 ease-in-out prose-strong:font-semibold prose-blockquote:border-l-4 prose-blockquote:border-zinc-400 dark:prose-blockquote:border-zinc-600 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:my-8 prose-ul:list-disc prose-ol:list-decimal prose-li:my-2 prose-img:rounded-lg prose-hr:border-gray-300 dark:prose-hr:border-gray-700 !max-w-none"
+          class="prose prose-sm font-mono dark:prose-invert prose-headings:font-bold prose-headings:tracking-tight prose-h2:text-3xl prose-h3:text-2xl prose-p:leading-8 prose-p:py-2 prose-a:text-zinc-700 hover:prose-a:text-zinc-900 dark:prose-a:text-zinc-300 dark:hover:prose-a:text-zinc-100 prose-a:underline transition-all duration-100 ease-in-out prose-strong:font-normal prose-blockquote:border-l-4 prose-blockquote:border-zinc-400 dark:prose-blockquote:border-zinc-600 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:my-8 prose-ul:list-disc prose-ol:list-decimal prose-li:my-2 prose-img:rounded-lg prose-hr:border-zinc-300 dark:prose-hr:border-zinc-700 !max-w-none"
           v-html="processedContent"
         />
 
-        <footer
-          class="mt-12 pt-8 border-t border-zinc-200 dark:border-zinc-800"
-        >
+        <footer class="mt-8 pt-8 border-t border-zinc-200 dark:border-zinc-800">
           <NuxtLink
             to="/blog/robots"
             class="text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 hover:underline"
@@ -307,7 +296,7 @@ useHead({
       <!-- Right Sidebar with TOC -->
       <aside
         v-if="!isMobile"
-        class="hidden lg:block h-screen sticky top-0 pt-12"
+        class="hidden lg:block h-screen sticky top-0 pt-8"
       >
         <div class="space-y-8 max-h-[calc(100vh-6rem)] flex flex-col">
           <!-- Progress Bar -->
@@ -322,7 +311,7 @@ useHead({
             </div>
 
             <h3
-              class="text-lg font-semibold mb-4 sticky top-0 bg-inherit pb-2 border-b border-zinc-200 dark:border-zinc-700"
+              class="text-lg font-light mb-4 sticky top-0 bg-inherit pb-2 border-b border-zinc-200 dark:border-zinc-700"
             >
               Table of Contents
             </h3>
@@ -383,7 +372,6 @@ useHead({
   opacity: 1;
 }
 
-
 /* Make the metadata section scrollable on mobile */
 .overflow-x-auto {
   -webkit-overflow-scrolling: touch;
@@ -426,5 +414,4 @@ useHead({
 .break-inside-avoid-column {
   break-inside: avoid-column;
 }
-
 </style>

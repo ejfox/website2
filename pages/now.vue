@@ -4,21 +4,24 @@ const { data: nowContent, pending } = await useFetch('/api/now')
 useHead({
   title: 'Now',
   meta: [
-    { name: 'description', content: 'What EJ Fox is working on and thinking about right now' }
+    {
+      name: 'description',
+      content: 'What EJ Fox is working on and thinking about right now'
+    }
   ]
 })
 </script>
 
 <template>
-  <main class="py-20 px-8 mx-auto max-w-lg">
+  <main class="px-4 md:px-8 py-8" style="max-width: 65ch">
     <!-- Content -->
     <div v-if="nowContent">
-      <div 
-        class="prose prose-lg dark:prose-invert"
+      <div
+        class="prose prose-zinc dark:prose-invert max-w-none"
         v-html="nowContent.html"
       ></div>
     </div>
-    
+
     <!-- Error State -->
     <div v-else class="text-center text-zinc-500 dark:text-zinc-400">
       Content not found
@@ -32,15 +35,17 @@ useHead({
 }
 
 :deep(.prose p) {
-  @apply text-zinc-600 dark:text-zinc-400 leading-8 mb-6;
+  @apply text-zinc-600 dark:text-zinc-400 leading-8 mb-8;
 }
 
 :deep(.prose h1) {
-  @apply text-xl font-medium mt-0 mb-12 text-zinc-800 dark:text-zinc-200 tracking-wide;
+  @apply font-serif text-3xl font-normal mt-0 mb-8 text-zinc-900 dark:text-zinc-100;
+  letter-spacing: -0.02em;
 }
 
 :deep(.prose h2) {
-  @apply text-base font-medium mt-12 mb-6 text-zinc-700 dark:text-zinc-300;
+  @apply font-serif text-xl font-normal mt-8 mb-4 text-zinc-800 dark:text-zinc-200;
+  letter-spacing: -0.015em;
 }
 
 :deep(.prose strong) {
@@ -48,11 +53,11 @@ useHead({
 }
 
 :deep(.prose a) {
-  @apply text-zinc-800 dark:text-zinc-200 underline decoration-zinc-300 dark:decoration-zinc-700 decoration-1 underline-offset-4 hover:decoration-zinc-500 dark:hover:decoration-zinc-500 transition-all duration-300;
+  @apply text-zinc-900 dark:text-zinc-100 border-b border-zinc-300 dark:border-zinc-700 hover:border-zinc-900 dark:hover:border-zinc-100 transition-colors;
 }
 
 :deep(.prose hr) {
-  @apply border-zinc-100 dark:border-zinc-800 my-12;
+  @apply border-zinc-100 dark:border-zinc-800 my-8;
 }
 
 :deep(.prose em) {

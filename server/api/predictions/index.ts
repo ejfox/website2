@@ -10,22 +10,25 @@ const predictionsDir = join(process.cwd(), 'content/predictions')
 async function loadPredictions(): Promise<Prediction[]> {
   try {
     const predictions: Prediction[] = []
-    
+
     // Read files in root directory
     const rootFiles = await fs.readdir(predictionsDir)
-    
+
     for (const item of rootFiles) {
       const itemPath = join(predictionsDir, item)
       const stat = await fs.stat(itemPath)
-      
+
       if (stat.isDirectory()) {
         // Handle year directories
         const yearFiles = await fs.readdir(itemPath)
         for (const file of yearFiles) {
           if (!file.endsWith('.md')) continue
-          
+
           const filePath = join(itemPath, file)
-          const prediction = await loadPredictionFromFile(filePath, `${item}/${file}`)
+          const prediction = await loadPredictionFromFile(
+            filePath,
+            `${item}/${file}`
+          )
           if (prediction) predictions.push(prediction)
         }
       } else if (item.endsWith('.md') && item !== 'README.md') {
@@ -34,7 +37,7 @@ async function loadPredictions(): Promise<Prediction[]> {
         if (prediction) predictions.push(prediction)
       }
     }
-    
+
     return predictions
   } catch (error) {
     console.error('Error loading predictions:', error)
@@ -42,14 +45,17 @@ async function loadPredictions(): Promise<Prediction[]> {
   }
 }
 
-async function loadPredictionFromFile(filePath: string, fileIdentifier: string): Promise<Prediction | null> {
+async function loadPredictionFromFile(
+  filePath: string,
+  fileIdentifier: string
+): Promise<Prediction | null> {
   try {
     const content = await fs.readFile(filePath, 'utf-8')
     const { data, content: body } = matter(content)
-    
+
     // Generate ID from file identifier
     const id = fileIdentifier.replace('.md', '').replace('/', '-')
-    
+
     return {
       id,
       statement: data.statement,
@@ -57,11 +63,13 @@ async function loadPredictionFromFile(filePath: string, fileIdentifier: string):
       confidence: data.confidence,
       deadline: new Date(data.deadline),
       categories: data.categories || [],
-      outcome: data.outcome ? {
-        resolved: new Date(data.outcome.resolved),
-        correct: data.outcome.correct,
-        notes: data.outcome.notes || ''
-      } : undefined,
+      outcome: data.outcome
+        ? {
+            resolved: new Date(data.outcome.resolved),
+            correct: data.outcome.correct,
+            notes: data.outcome.notes || ''
+          }
+        : undefined,
       visibility: data.visibility || 'public',
       evidence: body.trim(),
       hash: data.hash || null,
@@ -78,11 +86,11 @@ async function loadPredictionFromFile(filePath: string, fileIdentifier: string):
 
 export default defineEventHandler(async (event) => {
   const method = getMethod(event)
-  
+
   if (method === 'GET') {
     return await loadPredictions()
   }
-  
+
   throw createError({
     statusCode: 405,
     statusMessage: 'Method not allowed'

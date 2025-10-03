@@ -25,7 +25,7 @@ export default defineEventHandler(async (event) => {
 
   try {
     const body = await readBody<CreatePredictionInput>(event)
-    
+
     // Validate input
     if (!body.statement || !body.deadline || body.confidence === undefined) {
       throw createError({
@@ -51,13 +51,13 @@ export default defineEventHandler(async (event) => {
     // Read existing predictions
     const fileContent = await readFile(PREDICTIONS_FILE, 'utf-8')
     const data: PredictionsData = JSON.parse(fileContent)
-    
+
     // Add new prediction
     data.predictions.unshift(newPrediction)
-    
+
     // Save to file
     await writeFile(PREDICTIONS_FILE, JSON.stringify(data, null, 2))
-    
+
     return {
       prediction: newPrediction
     }

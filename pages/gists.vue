@@ -120,9 +120,7 @@ const toggleGist = (gistId: string) => {
   <div class="py-8 px-4 font-mono text-sm">
     <!-- Header -->
     <div class="mb-8 pb-4">
-      <h1 class="text-mono-label mb-2">
-        GITHUB_GISTS
-      </h1>
+      <h1 class="text-mono-label mb-2">GITHUB_GISTS</h1>
 
       <!-- Minimal stats -->
       <div class="grid grid-cols-1 gap-1 text-xs text-muted">
@@ -135,8 +133,8 @@ const toggleGist = (gistId: string) => {
     </div>
 
     <!-- Loading state -->
-    <div v-if="pending" class="space-y-3">
-      <div v-for="i in 8" :key="i" class="py-3">
+    <div v-if="pending" class="space-y-4">
+      <div v-for="i in 8" :key="i" class="py-4">
         <div class="flex items-baseline gap-2">
           <div class="skeleton w-6 h-4"></div>
           <div class="skeleton w-64 h-4"></div>
@@ -155,13 +153,11 @@ const toggleGist = (gistId: string) => {
 
     <!-- Gist list -->
     <div v-else-if="gists" class="space-y-0">
-      <div
-        v-for="(gist, index) in gists"
-        :key="gist.id"
-        class="py-3"
-      >
+      <div v-for="(gist, index) in gists" :key="gist.id" class="py-4">
         <div class="flex items-baseline gap-2">
-          <span class="text-muted w-6 text-right">{{ index + 1 + (currentPage - 1) * perPage }}.</span>
+          <span class="text-muted w-6 text-right"
+            >{{ index + 1 + (currentPage - 1) * perPage }}.</span
+          >
           <a
             :href="gist.html_url"
             target="_blank"
@@ -195,7 +191,7 @@ const toggleGist = (gistId: string) => {
         <!-- Single file gist preview -->
         <div
           v-if="gist.content && Object.keys(gist.files).length === 1"
-          class="pl-8 mt-3"
+          class="pl-8 mt-4"
         >
           <GistPreview
             :gist="gist"
@@ -207,7 +203,7 @@ const toggleGist = (gistId: string) => {
       </div>
 
       <!-- Pagination -->
-      <div class="flex justify-between pt-4 mt-6 text-xs">
+      <div class="flex justify-between pt-4 mt-8 text-xs">
         <button
           :disabled="currentPage === 1"
           class="disabled:opacity-30 disabled:cursor-not-allowed"

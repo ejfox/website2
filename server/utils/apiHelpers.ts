@@ -7,7 +7,7 @@ export interface ApiRequestOptions extends RequestInit {
 }
 
 export async function makeApiRequest<T>(
-  url: string, 
+  url: string,
   options: ApiRequestOptions = {}
 ): Promise<T> {
   const {
@@ -23,14 +23,14 @@ export async function makeApiRequest<T>(
     try {
       const controller = new AbortController()
       const timeoutId = setTimeout(() => controller.abort(), timeout)
-      
-      const response = await fetch(url, { 
-        ...fetchOptions, 
-        signal: controller.signal 
+
+      const response = await fetch(url, {
+        ...fetchOptions,
+        signal: controller.signal
       })
-      
+
       clearTimeout(timeoutId)
-      
+
       if (!response.ok) {
         throw createError({
           statusCode: response.status,
@@ -38,16 +38,16 @@ export async function makeApiRequest<T>(
           message: `Failed to fetch from ${url}`
         })
       }
-      
-      return await response.json() as T
+
+      return (await response.json()) as T
     } catch (error: any) {
       attempt++
-      
+
       // Don't retry on authentication errors
       if (error.statusCode === 401 || error.statusCode === 403) {
         throw error
       }
-      
+
       if (attempt === maxRetries) {
         throw createError({
           statusCode: 500,
@@ -55,13 +55,13 @@ export async function makeApiRequest<T>(
           message: `Failed to fetch from ${url} after ${maxRetries} attempts: ${error.message}`
         })
       }
-      
+
       // Exponential backoff with jitter
       const backoffTime = Math.min(
         retryDelay * Math.pow(2, attempt - 1) + Math.random() * 1000,
         10000
       )
-      await new Promise(resolve => setTimeout(resolve, backoffTime))
+      await new Promise((resolve) => setTimeout(resolve, backoffTime))
     }
   }
 
@@ -72,7 +72,10 @@ export async function makeApiRequest<T>(
   })
 }
 
-export function validateToken(token: string | undefined, serviceName: string): string {
+export function validateToken(
+  token: string | undefined,
+  serviceName: string
+): string {
   if (!token) {
     throw createError({
       statusCode: 500,
@@ -84,36 +87,39 @@ export function validateToken(token: string | undefined, serviceName: string): s
 }
 
 export async function rateLimitDelay(ms: number = 250): Promise<void> {
-  await new Promise(resolve => setTimeout(resolve, ms))
+  await new Promise((resolve) => setTimeout(resolve, ms))
 }
 
 export function createRetryWrapper<T>(
-  fn: () => Promise<T>, 
+  fn: () => Promise<T>,
   maxRetries: number = 3
 ): () => Promise<T> {
   return async (): Promise<T> => {
     let attempt = 0
-    
+
     while (attempt < maxRetries) {
       try {
         return await fn()
       } catch (error) {
         attempt++
         if (attempt === maxRetries) throw error
-        
+
         const backoffTime = Math.min(
           1000 * Math.pow(2, attempt) + Math.random() * 1000,
           10000
         )
-        await new Promise(resolve => setTimeout(resolve, backoffTime))
+        await new Promise((resolve) => setTimeout(resolve, backoffTime))
       }
     }
-    
+
     throw new Error('Unexpected error in retry wrapper')
   }
 }
 
-export function createCacheKey(prefix: string, ...parts: (string | number)[]): string {
+export function createCacheKey(
+  prefix: string,
+  ...parts: (string | number)[]
+): string {
   return `${prefix}:${parts.join(':')}`
 }
 

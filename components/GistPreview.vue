@@ -4,10 +4,21 @@
       <div ref="codeRef" class="code-content" v-html="highlightedCode" />
 
       <!-- Expand/Collapse button at bottom -->
-      <div v-if="lineCount > 10" ref="overlayRef" class="absolute bottom-0 left-0 right-0 h-10 flex items-end justify-center pb-2 bg-gradient-to-t from-white dark:from-zinc-900 to-transparent">
+      <div
+        v-if="lineCount > 10"
+        ref="overlayRef"
+        class="absolute bottom-0 left-0 right-0 h-10 flex items-end justify-center pb-2 bg-gradient-to-t from-white dark:from-zinc-900 to-transparent"
+      >
         <button ref="buttonRef" class="action-button" @click="handleToggle">
-          <span ref="iconRef" class="button-icon">{{ expanded ? '▼' : '▶' }}</span>
-          <span>{{ expanded ? 'Collapse' : 'Expand' }} ({{ formatNumber(lineCount) }} lines)</span>
+          <span ref="iconRef" class="button-icon">{{
+            expanded ? '▼' : '▶'
+          }}</span>
+          <span
+            >{{ expanded ? 'Collapse' : 'Expand' }} ({{
+              formatNumber(lineCount)
+            }}
+            lines)</span
+          >
         </button>
       </div>
     </div>
@@ -45,7 +56,6 @@ const props = defineProps<Props>()
 const emit = defineEmits<{
   toggle: []
 }>()
-
 
 // Animation refs
 const gistRef = ref<HTMLElement | null>(null)
@@ -118,11 +128,12 @@ const updateHighlighting = async () => {
       let isDark = false
       if (process.client) {
         // Check multiple methods for dark mode detection
-        isDark = document.documentElement.classList.contains('dark') ||
-                 document.documentElement.getAttribute('data-theme') === 'dark' ||
-                 window.matchMedia('(prefers-color-scheme: dark)').matches
+        isDark =
+          document.documentElement.classList.contains('dark') ||
+          document.documentElement.getAttribute('data-theme') === 'dark' ||
+          window.matchMedia('(prefers-color-scheme: dark)').matches
       }
-      
+
       const response = await $fetch('/api/highlight', {
         method: 'POST',
         body: {
@@ -131,8 +142,9 @@ const updateHighlighting = async () => {
           theme: isDark ? 'one-dark-pro' : 'github-light'
         }
       })
-      
-      highlightedCode.value = (response as any)?.html || `<pre><code>${codeToShow.value}</code></pre>`
+
+      highlightedCode.value =
+        (response as any)?.html || `<pre><code>${codeToShow.value}</code></pre>`
     } catch (error) {
       console.warn('Failed to highlight code:', error)
       highlightedCode.value = `<pre><code>${codeToShow.value}</code></pre>`
@@ -169,20 +181,19 @@ const handleToggle = () => {
 }
 
 .code-content :deep(pre) {
-  @apply !m-0 !p-3 !bg-transparent !font-mono !text-xs !leading-relaxed;
+  @apply !m-0 !p-4 !bg-transparent !font-mono !text-xs !leading-relaxed;
 }
 
 .code-content :deep(code) {
   @apply !font-mono !text-xs;
 }
 
-
 .action-button {
-  @apply flex items-center gap-1 px-2 py-1 text-[10px] bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded text-zinc-600 dark:text-zinc-400 font-mono cursor-pointer shadow-sm hover:bg-zinc-50 dark:hover:bg-zinc-700 hover:border-zinc-300 dark:hover:border-zinc-600 hover:text-zinc-700 dark:hover:text-zinc-300 hover:-translate-y-px transition-all;
+  @apply flex items-center gap-1 px-2 py-1 text-xs bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded text-zinc-600 dark:text-zinc-400 font-mono cursor-pointer shadow-sm hover:bg-zinc-50 dark:hover:bg-zinc-700 hover:border-zinc-300 dark:hover:border-zinc-600 hover:text-zinc-700 dark:hover:text-zinc-300 hover:-translate-y-px transition-all;
 }
 
 .button-icon {
-  @apply text-[8px] text-zinc-500 dark:text-zinc-500;
+  @apply text-xs text-zinc-500 dark:text-zinc-500;
 }
 
 /* Ensure proper scrolling for expanded state */

@@ -35,7 +35,10 @@ export function useHeatmapLayout(options: HeatmapLayoutOptions) {
     const daysToShow = options.showFullYear
       ? DAYS_TO_SHOW
       : Math.min(
-          differenceInDays(parseISO(options.endDate), parseISO(options.startDate)) + 1,
+          differenceInDays(
+            parseISO(options.endDate),
+            parseISO(options.startDate)
+          ) + 1,
           DAYS_TO_SHOW
         )
 
@@ -46,24 +49,29 @@ export function useHeatmapLayout(options: HeatmapLayoutOptions) {
     const cellSize = Math.floor(
       useHorizontalLayout
         ? Math.min(
-            (options.containerWidth.value - MARGIN.left - MARGIN.right) / daysToShow,
+            (options.containerWidth.value - MARGIN.left - MARGIN.right) /
+              daysToShow,
             options.containerHeight.value - MARGIN.top - MARGIN.bottom - 40
           )
         : Math.min(
-            (options.containerHeight.value - MARGIN.top - MARGIN.bottom) / DAYS_IN_WEEK,
-            (options.containerWidth.value - MARGIN.left - MARGIN.right) / Math.ceil(daysToShow / DAYS_IN_WEEK)
+            (options.containerHeight.value - MARGIN.top - MARGIN.bottom) /
+              DAYS_IN_WEEK,
+            (options.containerWidth.value - MARGIN.left - MARGIN.right) /
+              Math.ceil(daysToShow / DAYS_IN_WEEK)
           )
     )
 
     // Calculate dimensions based on layout
     let width: number, height: number
     if (useHorizontalLayout) {
-      width = (cellSize + CELL_PADDING) * daysToShow + MARGIN.left + MARGIN.right
+      width =
+        (cellSize + CELL_PADDING) * daysToShow + MARGIN.left + MARGIN.right
       height = cellSize + MARGIN.top + MARGIN.bottom + 30
     } else {
       const weeks = Math.ceil(daysToShow / DAYS_IN_WEEK)
       width = (cellSize + CELL_PADDING) * weeks + MARGIN.left + MARGIN.right
-      height = (cellSize + CELL_PADDING) * DAYS_IN_WEEK + MARGIN.top + MARGIN.bottom
+      height =
+        (cellSize + CELL_PADDING) * DAYS_IN_WEEK + MARGIN.top + MARGIN.bottom
     }
 
     const weeks = Math.ceil(daysToShow / DAYS_IN_WEEK)

@@ -32,6 +32,14 @@ const fixWikiLinks = (content) => content
 
 async function processFile(filePath, isDryRun = false) {
   const relativePath = path.relative(SOURCE_DIR, filePath)
+
+  // Skip the broken projects.md file
+  if (relativePath === 'projects/projects.md') {
+    console.log(chalk.yellow(`⚠ Skipping broken file: ${relativePath}`))
+    stats.filesSkipped.push(filePath)
+    return null
+  }
+
   const content = await fs.readFile(filePath, 'utf8')
   const { data: frontmatter, content: markdown } = matter(content)
   

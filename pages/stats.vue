@@ -3,26 +3,28 @@
     <!-- Stats TOC - ClientOnly to fix SSR hydration -->
     <ClientOnly>
       <teleport v-if="tocTarget && !isSimpleMode" to="#nav-toc-container">
-      <div class="py-4">
-        <h3 class="text-xs font-semibold uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400 mb-4">
-          Stats Index
-        </h3>
-        <ul class="space-y-1">
-          <li v-for="section in statsSections" :key="section.id">
-            <a
-              :href="`#${section.id}`"
-              class="block py-1 text-sm font-mono uppercase tracking-wider transition-colors"
-              :class="[
-                activeSection === section.id
-                  ? 'text-primary'
-                  : 'text-muted hover-text'
-              ]"
-            >
-              {{ section.text }}
-            </a>
-          </li>
-        </ul>
-      </div>
+        <div class="py-4">
+          <h3
+            class="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-4"
+          >
+            Stats Index
+          </h3>
+          <ul class="space-y-1">
+            <li v-for="section in statsSections" :key="section.id">
+              <a
+                :href="`#${section.id}`"
+                class="block py-1 text-sm font-mono uppercase tracking-widest transition-colors"
+                :class="[
+                  activeSection === section.id
+                    ? 'text-primary'
+                    : 'text-muted hover-text'
+                ]"
+              >
+                {{ section.text }}
+              </a>
+            </li>
+          </ul>
+        </div>
       </teleport>
     </ClientOnly>
 
@@ -31,240 +33,296 @@
       <!-- Minimal header -->
       <div
         ref="headerRef"
-        class="flex justify-between items-center text-[10px] tracking-[0.2em] text-zinc-500 p-4"
+        class="flex justify-between items-center font-mono text-xs text-zinc-500 uppercase tracking-widest tabular-nums px-4 py-4"
       >
         <div>FOX_STATS</div>
-        <div ref="progressRef">
-          {{ displayDayOfYear }}/{{ daysInYear }}
-        </div>
+        <div ref="progressRef">{{ displayDayOfYear }}/{{ daysInYear }}</div>
       </div>
 
       <!-- Dense stats layout -->
       <div class="space-y-4 p-4">
         <!-- Writing Stats -->
         <div v-if="validBlogStats" class="space-y-1">
-          <div class="text-[10px] tracking-[0.2em] text-zinc-500">
-            WRITING
-          </div>
+          <div class="text-xs tracking-widest text-zinc-500">WRITING</div>
           <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
             <div class="flex justify-between">
               <span>Posts</span>
-              <span class="tabular-nums">{{ formatNumber(validBlogStats.totalPosts) }}</span>
+              <span class="tabular-nums">{{
+                formatNumber(validBlogStats.totalPosts)
+              }}</span>
             </div>
             <div class="flex justify-between">
               <span>Words</span>
-              <span class="tabular-nums">{{ formatNumber(validBlogStats.totalWords) }}</span>
+              <span class="tabular-nums">{{
+                formatNumber(validBlogStats.totalWords)
+              }}</span>
             </div>
             <div class="flex justify-between">
               <span>This Month</span>
-              <span class="tabular-nums">{{ formatNumber(validBlogStats.postsThisMonth) }}</span>
+              <span class="tabular-nums">{{
+                formatNumber(validBlogStats.postsThisMonth)
+              }}</span>
             </div>
             <div class="flex justify-between">
               <span>Avg Words</span>
-              <span class="tabular-nums">{{ formatNumber(validBlogStats.averageWords) }}</span>
+              <span class="tabular-nums">{{
+                formatNumber(validBlogStats.averageWords)
+              }}</span>
             </div>
           </div>
         </div>
 
         <!-- Typing Stats -->
         <div v-if="stats.monkeyType?.typingStats" class="space-y-1">
-          <div class="text-[10px] tracking-[0.2em] text-zinc-500">
-            TYPING
-          </div>
+          <div class="text-xs tracking-widest text-zinc-500">TYPING</div>
           <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
             <div class="flex justify-between">
               <span>Best WPM</span>
-              <span class="tabular-nums">{{ formatNumber(stats.monkeyType.typingStats.bestWPM) }}</span>
+              <span class="tabular-nums">{{
+                formatNumber(stats.monkeyType.typingStats.bestWPM)
+              }}</span>
             </div>
             <div class="flex justify-between">
               <span>Tests</span>
-              <span class="tabular-nums">{{ formatNumber(stats.monkeyType.typingStats.testsCompleted) }}</span>
+              <span class="tabular-nums">{{
+                formatNumber(stats.monkeyType.typingStats.testsCompleted)
+              }}</span>
             </div>
             <div class="flex justify-between">
               <span>Accuracy</span>
-              <span class="tabular-nums">{{ formatPercentage(stats.monkeyType.typingStats.bestAccuracy) }}</span>
+              <span class="tabular-nums">{{
+                formatPercentage(stats.monkeyType.typingStats.bestAccuracy)
+              }}</span>
             </div>
             <div class="flex justify-between">
               <span>Consistency</span>
-              <span class="tabular-nums">{{ formatPercentage(stats.monkeyType.typingStats.bestConsistency) }}</span>
+              <span class="tabular-nums">{{
+                formatPercentage(stats.monkeyType.typingStats.bestConsistency)
+              }}</span>
             </div>
           </div>
         </div>
 
         <!-- GitHub Stats -->
         <div v-if="stats.github?.stats" class="space-y-1">
-          <div class="text-[10px] tracking-[0.2em] text-zinc-500">
-            GITHUB
-          </div>
+          <div class="text-xs tracking-widest text-zinc-500">GITHUB</div>
           <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
             <div class="flex justify-between">
               <span>Contributions</span>
-              <span class="tabular-nums">{{ formatNumber(stats.github.stats?.totalContributions || 0) }}</span>
+              <span class="tabular-nums">{{
+                formatNumber(stats.github.stats?.totalContributions || 0)
+              }}</span>
             </div>
             <div class="flex justify-between">
               <span>Repos</span>
-              <span class="tabular-nums">{{ formatNumber(stats.github.stats?.totalRepos || 0) }}</span>
+              <span class="tabular-nums">{{
+                formatNumber(stats.github.stats?.totalRepos || 0)
+              }}</span>
             </div>
             <div class="flex justify-between">
               <span>Followers</span>
-              <span class="tabular-nums">{{ formatNumber(stats.github.stats?.followers || 0) }}</span>
+              <span class="tabular-nums">{{
+                formatNumber(stats.github.stats?.followers || 0)
+              }}</span>
             </div>
             <div class="flex justify-between">
               <span>Following</span>
-              <span class="tabular-nums">{{ formatNumber(stats.github.stats?.following || 0) }}</span>
+              <span class="tabular-nums">{{
+                formatNumber(stats.github.stats?.following || 0)
+              }}</span>
             </div>
           </div>
         </div>
 
         <!-- LeetCode Stats -->
         <div v-if="stats.leetcode?.submissionStats" class="space-y-1">
-          <div class="text-[10px] tracking-[0.2em] text-zinc-500">
-            LEETCODE
-          </div>
+          <div class="text-xs tracking-widest text-zinc-500">LEETCODE</div>
           <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
             <div class="flex justify-between">
               <span>Easy</span>
-              <span class="tabular-nums">{{ formatNumber(stats.leetcode.submissionStats.easy.count) }}</span>
+              <span class="tabular-nums">{{
+                formatNumber(stats.leetcode.submissionStats.easy.count)
+              }}</span>
             </div>
             <div class="flex justify-between">
               <span>Medium</span>
-              <span class="tabular-nums">{{ formatNumber(stats.leetcode.submissionStats.medium.count) }}</span>
+              <span class="tabular-nums">{{
+                formatNumber(stats.leetcode.submissionStats.medium.count)
+              }}</span>
             </div>
             <div class="flex justify-between">
               <span>Hard</span>
-              <span class="tabular-nums">{{ formatNumber(stats.leetcode.submissionStats.hard.count) }}</span>
+              <span class="tabular-nums">{{
+                formatNumber(stats.leetcode.submissionStats.hard.count)
+              }}</span>
             </div>
             <div class="flex justify-between">
               <span>Total</span>
-              <span class="tabular-nums">{{ formatNumber(stats.leetcode.submissionStats.easy.count + stats.leetcode.submissionStats.medium.count + stats.leetcode.submissionStats.hard.count) }}</span>
+              <span class="tabular-nums">{{
+                formatNumber(
+                  stats.leetcode.submissionStats.easy.count +
+                    stats.leetcode.submissionStats.medium.count +
+                    stats.leetcode.submissionStats.hard.count
+                )
+              }}</span>
             </div>
           </div>
         </div>
 
         <!-- Chess Stats -->
         <div v-if="stats.chess" class="space-y-1">
-          <div class="text-[10px] tracking-[0.2em] text-zinc-500">
-            CHESS
-          </div>
+          <div class="text-xs tracking-widest text-zinc-500">CHESS</div>
           <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
             <div class="flex justify-between">
               <span>Blitz</span>
-              <span class="tabular-nums">{{ formatNumber(stats.chess.currentRating.blitz) }}</span>
+              <span class="tabular-nums">{{
+                formatNumber(stats.chess.currentRating.blitz)
+              }}</span>
             </div>
             <div class="flex justify-between">
               <span>Rapid</span>
-              <span class="tabular-nums">{{ formatNumber(stats.chess.currentRating.rapid) }}</span>
+              <span class="tabular-nums">{{
+                formatNumber(stats.chess.currentRating.rapid)
+              }}</span>
             </div>
             <div class="flex justify-between">
               <span>Bullet</span>
-              <span class="tabular-nums">{{ formatNumber(stats.chess.currentRating.bullet) }}</span>
+              <span class="tabular-nums">{{
+                formatNumber(stats.chess.currentRating.bullet)
+              }}</span>
             </div>
             <div class="flex justify-between">
               <span>Puzzles</span>
-              <span class="tabular-nums">{{ formatNumber(stats.chess.puzzleStats.rating) }}</span>
+              <span class="tabular-nums">{{
+                formatNumber(stats.chess.puzzleStats.rating)
+              }}</span>
             </div>
           </div>
         </div>
 
         <!-- Health Stats -->
         <div v-if="stats.health" class="space-y-1">
-          <div class="text-[10px] tracking-[0.2em] text-zinc-500">
-            HEALTH
-          </div>
+          <div class="text-xs tracking-widest text-zinc-500">HEALTH</div>
           <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
             <div class="flex justify-between">
               <span>Steps Today</span>
-              <span class="tabular-nums">{{ formatNumber(healthToday.steps) }}</span>
+              <span class="tabular-nums">{{
+                formatNumber(healthToday.steps)
+              }}</span>
             </div>
             <div class="flex justify-between">
               <span>Exercise</span>
-              <span class="tabular-nums">{{ formatNumber(healthToday.exerciseMinutes) }}m</span>
+              <span class="tabular-nums"
+                >{{ formatNumber(healthToday.exerciseMinutes) }}m</span
+              >
             </div>
             <div class="flex justify-between">
               <span>Avg Steps</span>
-              <span class="tabular-nums">{{ formatNumber(stats.health.averages?.dailySteps || 0) }}</span>
+              <span class="tabular-nums">{{
+                formatNumber(stats.health.averages?.dailySteps || 0)
+              }}</span>
             </div>
             <div class="flex justify-between">
               <span>Heart Rate</span>
-              <span class="tabular-nums">{{ formatNumber(stats.health.heartRate?.resting || 0) }}</span>
+              <span class="tabular-nums">{{
+                formatNumber(stats.health.heartRate?.resting || 0)
+              }}</span>
             </div>
           </div>
         </div>
 
         <!-- Photography Stats -->
         <div v-if="stats.photos?.stats" class="space-y-1">
-          <div class="text-[10px] tracking-[0.2em] text-zinc-500">
-            PHOTOGRAPHY
-          </div>
+          <div class="text-xs tracking-widest text-zinc-500">PHOTOGRAPHY</div>
           <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
             <div class="flex justify-between">
               <span>Total</span>
-              <span class="tabular-nums">{{ formatNumber(stats.photos.stats.totalPhotos) }}</span>
+              <span class="tabular-nums">{{
+                formatNumber(stats.photos.stats.totalPhotos)
+              }}</span>
             </div>
             <div class="flex justify-between">
               <span>This Month</span>
-              <span class="tabular-nums">{{ formatNumber(stats.photos.stats.photosThisMonth) }}</span>
+              <span class="tabular-nums">{{
+                formatNumber(stats.photos.stats.photosThisMonth)
+              }}</span>
             </div>
             <div class="flex justify-between">
               <span>Avg/Month</span>
-              <span class="tabular-nums">{{ formatDecimal(1)(stats.photos.stats.averagePerMonth) }}</span>
+              <span class="tabular-nums">{{
+                formatDecimal(1)(stats.photos.stats.averagePerMonth)
+              }}</span>
             </div>
           </div>
         </div>
 
         <!-- Productivity Stats -->
         <div v-if="stats.rescueTime?.week" class="space-y-1">
-          <div class="text-[10px] tracking-[0.2em] text-zinc-500">
-            PRODUCTIVITY
-          </div>
+          <div class="text-xs tracking-widest text-zinc-500">PRODUCTIVITY</div>
           <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
             <div class="flex justify-between">
               <span>Weekly</span>
-              <span class="tabular-nums">{{ formatNumber(stats.rescueTime.week.summary.total.hours) }}h</span>
+              <span class="tabular-nums"
+                >{{
+                  formatNumber(stats.rescueTime.week.summary.total.hours)
+                }}h</span
+              >
             </div>
             <div class="flex justify-between">
               <span>Productive</span>
-              <span class="tabular-nums">{{ formatPercentage(stats.rescueTime.week.summary.productive.percentage) }}</span>
+              <span class="tabular-nums">{{
+                formatPercentage(
+                  stats.rescueTime.week.summary.productive.percentage
+                )
+              }}</span>
             </div>
             <div class="flex justify-between">
               <span>Distracting</span>
-              <span class="tabular-nums">{{ formatPercentage(stats.rescueTime.week.summary.distracting.percentage) }}</span>
+              <span class="tabular-nums">{{
+                formatPercentage(
+                  stats.rescueTime.week.summary.distracting.percentage
+                )
+              }}</span>
             </div>
           </div>
         </div>
 
         <!-- Last.fm Stats -->
         <div v-if="stats.lastfm" class="space-y-1">
-          <div class="text-[10px] tracking-[0.2em] text-zinc-500">
-            MUSIC
-          </div>
+          <div class="text-xs tracking-widest text-zinc-500">MUSIC</div>
           <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
             <div class="flex justify-between">
               <span>Scrobbles</span>
-              <span class="tabular-nums">{{ formatNumber(stats.lastfm.stats?.totalScrobbles || 0) }}</span>
+              <span class="tabular-nums">{{
+                formatNumber(stats.lastfm.stats?.totalScrobbles || 0)
+              }}</span>
             </div>
             <div class="flex justify-between">
               <span>Artists</span>
-              <span class="tabular-nums">{{ formatNumber(stats.lastfm.stats?.uniqueArtists || 0) }}</span>
+              <span class="tabular-nums">{{
+                formatNumber(stats.lastfm.stats?.uniqueArtists || 0)
+              }}</span>
             </div>
             <div class="flex justify-between">
               <span>Daily Avg</span>
-              <span class="tabular-nums">{{ formatDecimal(1)(stats.lastfm.stats?.averagePerDay || 0) }}</span>
+              <span class="tabular-nums">{{
+                formatDecimal(1)(stats.lastfm.stats?.averagePerDay || 0)
+              }}</span>
             </div>
             <div class="flex justify-between">
               <span>Tracks</span>
-              <span class="tabular-nums">{{ formatNumber(stats.lastfm.stats?.uniqueTracks || 0) }}</span>
+              <span class="tabular-nums">{{
+                formatNumber(stats.lastfm.stats?.uniqueTracks || 0)
+              }}</span>
             </div>
           </div>
           <!-- Now Playing / Recent -->
           <div
             v-if="stats.lastfm.recentTracks?.tracks?.[0]"
-            class="mt-2 text-[10px]"
+            class="mt-2 text-xs"
           >
             <div class="flex items-baseline gap-2">
-              <div class="text-zinc-500">
-                NOW
-              </div>
+              <div class="text-zinc-500">NOW</div>
               <div class="truncate">
                 {{ stats.lastfm.recentTracks.tracks[0].name }} -
                 {{ stats.lastfm.recentTracks.tracks[0].artist?.name }}
@@ -273,22 +331,18 @@
           </div>
 
           <!-- Top Artists -->
-          <div v-if="stats.lastfm.topArtists?.artists" class="mt-3">
-            <div class="text-[10px] text-zinc-500 mb-1">
-              TOP_ARTISTS
-            </div>
+          <div v-if="stats.lastfm.topArtists?.artists" class="mt-4">
+            <div class="text-xs text-zinc-500 mb-1">TOP_ARTISTS</div>
             <div class="space-y-0.5">
               <div
                 v-for="(artist, index) in stats.lastfm.topArtists.artists.slice(
                   0,
                   3
                 )"
-                :key="artist.name"
-                class="flex items-baseline justify-between text-[10px]"
+                :key="`artist-${index}`"
+                class="flex items-baseline justify-between text-xs"
               >
-                <div class="truncate">
-                  {{ index + 1 }}. {{ artist.name }}
-                </div>
+                <div class="truncate">{{ index + 1 }}. {{ artist.name }}</div>
                 <div class="text-zinc-500 tabular-nums">
                   {{ formatNumber(artist.playcount) }}x
                 </div>
@@ -297,22 +351,18 @@
           </div>
 
           <!-- Top Tracks -->
-          <div v-if="stats.lastfm.topTracks?.tracks" class="mt-3">
-            <div class="text-[10px] text-zinc-500 mb-1">
-              TOP_TRACKS
-            </div>
+          <div v-if="stats.lastfm.topTracks?.tracks" class="mt-4">
+            <div class="text-xs text-zinc-500 mb-1">TOP_TRACKS</div>
             <div class="space-y-0.5">
               <div
                 v-for="(track, index) in stats.lastfm.topTracks.tracks.slice(
                   0,
                   3
                 )"
-                :key="track.name"
-                class="flex items-baseline justify-between text-[10px]"
+                :key="`track-${index}`"
+                class="flex items-baseline justify-between text-xs"
               >
-                <div class="truncate">
-                  {{ index + 1 }}. {{ track.name }}
-                </div>
+                <div class="truncate">{{ index + 1 }}. {{ track.name }}</div>
                 <div class="text-zinc-500 tabular-nums">
                   {{ formatNumber(track.playcount) }}x
                 </div>
@@ -322,16 +372,21 @@
         </div>
       </div>
     </section>
-    
+
     <!-- Full Mode (default) -->
     <div v-else class="relative overflow-hidden">
       <!-- Main Content -->
       <section class="min-w-0 w-full mx-auto max-w-none">
         <!-- Header -->
-        <header class="py-6">
-          <h1 class="text-mono-label mb-4">STATS</h1>
-          <!-- Data-driven gonzo summary -->
-          <div v-if="summaryData.text" class="text-sm text-zinc-600 dark:text-zinc-400 font-mono border-l-2 border-zinc-300 dark:border-zinc-700 pl-4 max-w-2xl" v-html="summaryData.text">
+        <header class="py-8 px-4 md:px-8">
+          <div style="max-width: 65ch">
+            <h1 class="font-serif text-3xl font-normal mb-2">Stats</h1>
+            <!-- Data-driven gonzo summary -->
+            <div
+              v-if="summaryData.text"
+              class="font-serif text-base text-zinc-600 dark:text-zinc-400"
+              v-html="summaryData.text"
+            ></div>
           </div>
         </header>
 
@@ -340,7 +395,11 @@
           <template #default>
             <ClientOnly>
               <Transition name="fade" appear>
-                <div v-if="stats && Object.keys(stats).length > 0" id="top-stats" class="relative">
+                <div
+                  v-if="stats && Object.keys(stats).length > 0"
+                  id="top-stats"
+                  class="relative"
+                >
                   <TopStats :stats="stats" :blog-stats="validBlogStats" />
                 </div>
               </Transition>
@@ -349,141 +408,156 @@
         </Suspense>
 
         <!-- Main Stats Grid -->
-        <section class="grid md:gap-4 lg:gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 overflow-hidden pr-4 md:pr-8">
+        <section
+          class="grid md:gap-4 lg:gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 overflow-hidden pr-4 md:pr-8"
+        >
           <!-- Loading state -->
-          <div v-if="isLoading" class="col-span-full text-center py-12 font-mono text-zinc-500">
+          <div
+            v-if="isLoading"
+            class="col-span-full text-center py-8 font-mono text-zinc-500"
+          >
             Loading system metrics...
           </div>
-          
+
           <TransitionGroup name="fade-up" tag="div" class="contents" appear>
             <!-- Only show sections when stats are actually loaded -->
-            <template v-if="!isLoading && stats && Object.keys(stats).length > 0">
-            <!-- GitHub -->
-            <StatsSection
-              v-if="stats.github?.stats"
-              id="github"
-              key="github-section"
-              title="GITHUB"
-              class="break-inside-avoid"
+            <template
+              v-if="!isLoading && stats && Object.keys(stats).length > 0"
             >
-              <GitHubStats key="github" :stats="stats.github" />
-            </StatsSection>
+              <!-- GitHub -->
+              <StatsSection
+                v-if="stats.github?.stats"
+                id="github"
+                key="github-section"
+                title="GITHUB"
+                class="break-inside-avoid"
+              >
+                <GitHubStats key="github" :stats="stats.github" />
+              </StatsSection>
 
-            <!-- Writing -->
-            <StatsSection
-              v-if="stats.blog"
-              id="writing"
-              key="writing-section"
-              title="WRITING"
-              class="break-inside-avoid"
-            >
-              <BlogStats key="blog" :stats="stats.blog" />
-            </StatsSection>
+              <!-- Writing -->
+              <StatsSection
+                v-if="stats.blog"
+                id="writing"
+                key="writing-section"
+                title="WRITING"
+                class="break-inside-avoid"
+              >
+                <BlogStats key="blog" :stats="stats.blog" />
+              </StatsSection>
 
-            <!-- Reading -->
-            <StatsSection
-              v-if="stats.goodreads?.stats"
-              id="reading"
-              key="reading-section"
-              title="READING"
-              class="break-inside-avoid"
-            >
-              <GoodreadsStats key="goodreads" :data="stats.goodreads" />
-            </StatsSection>
+              <!-- Reading -->
+              <StatsSection
+                v-if="stats.goodreads?.stats"
+                id="reading"
+                key="reading-section"
+                title="READING"
+                class="break-inside-avoid"
+              >
+                <GoodreadsStats key="goodreads" :data="stats.goodreads" />
+              </StatsSection>
 
-            <!-- Productivity -->
-            <StatsSection
-              v-if="stats.rescueTime"
-              id="productivity"
-              key="productivity-section"
-              title="PRODUCTIVITY"
-              class="break-inside-avoid"
-            >
-              <RescueTimeStats key="rescuetime" :stats="stats" />
-            </StatsSection>
+              <!-- Productivity -->
+              <StatsSection
+                v-if="stats.rescueTime"
+                id="productivity"
+                key="productivity-section"
+                title="PRODUCTIVITY"
+                class="break-inside-avoid"
+              >
+                <RescueTimeStats key="rescuetime" :stats="stats" />
+              </StatsSection>
 
-            <!-- LeetCode -->
-            <StatsSection
-              v-if="stats.leetcode?.submissionStats && (stats.leetcode.submissionStats.easy.count > 0 || stats.leetcode.submissionStats.medium.count > 0 || stats.leetcode.submissionStats.hard.count > 0)"
-              id="leetcode"
-              key="leetcode-section"
-              title="LEETCODE"
-              class="break-inside-avoid"
-            >
-              <LeetCodeStats key="leetcode" :stats="stats.leetcode" />
-            </StatsSection>
+              <!-- LeetCode -->
+              <StatsSection
+                v-if="
+                  stats.leetcode?.submissionStats &&
+                  (stats.leetcode.submissionStats.easy.count > 0 ||
+                    stats.leetcode.submissionStats.medium.count > 0 ||
+                    stats.leetcode.submissionStats.hard.count > 0)
+                "
+                id="leetcode"
+                key="leetcode-section"
+                title="LEETCODE"
+                class="break-inside-avoid"
+              >
+                <LeetCodeStats key="leetcode" :stats="stats.leetcode" />
+              </StatsSection>
 
-            <!-- Chess -->
-            <StatsSection
-              v-if="stats.chess"
-              id="chess"
-              key="chess-section"
-              title="CHESS"
-              class="break-inside-avoid"
-            >
-              <ChessStats key="chess" :stats="stats.chess" />
-            </StatsSection>
+              <!-- Chess -->
+              <StatsSection
+                v-if="stats.chess"
+                id="chess"
+                key="chess-section"
+                title="CHESS"
+                class="break-inside-avoid"
+              >
+                <ChessStats key="chess" :stats="stats.chess" />
+              </StatsSection>
 
-            <!-- Typing -->
-            <StatsSection
-              v-if="stats.monkeyType?.typingStats"
-              id="typing"
-              key="typing-section"
-              title="TYPING"
-              class="break-inside-avoid"
-            >
-              <MonkeyTypeStats key="monkeytype" :stats="stats.monkeyType" />
-            </StatsSection>
+              <!-- Typing -->
+              <StatsSection
+                v-if="stats.monkeyType?.typingStats"
+                id="typing"
+                key="typing-section"
+                title="TYPING"
+                class="break-inside-avoid"
+              >
+                <MonkeyTypeStats key="monkeytype" :stats="stats.monkeyType" />
+              </StatsSection>
 
-            <!-- Code Snippets -->
-            <StatsSection
-              v-if="stats.gists?.stats"
-              id="gists"
-              key="gists-section"
-              title="CODE"
-              class="break-inside-avoid"
-            >
-              <GistStats key="gists" :gist-stats="stats.gists" />
-            </StatsSection>
+              <!-- Code Snippets -->
+              <StatsSection
+                v-if="stats.gists?.stats"
+                id="gists"
+                key="gists-section"
+                title="CODE"
+                class="break-inside-avoid"
+              >
+                <GistStats key="gists" :gist-stats="stats.gists" />
+              </StatsSection>
 
-            <!-- Music -->
-            <StatsSection
-              v-if="stats.lastfm"
-              id="music"
-              key="music-section"
-              title="MUSIC"
-              class="break-inside-avoid"
-            >
-              <LastFmStats key="lastfm" :stats="stats.lastfm" />
-            </StatsSection>
+              <!-- Music -->
+              <StatsSection
+                v-if="stats.lastfm"
+                id="music"
+                key="music-section"
+                title="MUSIC"
+                class="break-inside-avoid"
+              >
+                <LastFmStats key="lastfm" :stats="stats.lastfm" />
+              </StatsSection>
 
-            <!-- Films -->
-            <StatsSection
-              v-if="stats.letterboxd?.stats"
-              id="films"
-              key="films-section"
-              title="FILMS"
-              class="break-inside-avoid"
-            >
-              <LetterboxdStats key="letterboxd" :letterboxd-stats="stats.letterboxd" />
-            </StatsSection>
+              <!-- Films -->
+              <StatsSection
+                v-if="stats.letterboxd?.stats"
+                id="films"
+                key="films-section"
+                title="FILMS"
+                class="break-inside-avoid"
+              >
+                <LetterboxdStats
+                  key="letterboxd"
+                  :letterboxd-stats="stats.letterboxd"
+                />
+              </StatsSection>
 
-            <!-- Analytics -->
-            <StatsSection
-              v-if="stats.website?.stats"
-              id="website"
-              key="website-section"
-              title="ANALYTICS"
-              class="break-inside-avoid"
-            >
-              <UmamiStats key="umami" :umami-stats="stats.website" />
-            </StatsSection>
+              <!-- Analytics -->
+              <StatsSection
+                v-if="stats.website?.stats"
+                id="website"
+                key="website-section"
+                title="ANALYTICS"
+                class="break-inside-avoid"
+              >
+                <UmamiStats key="umami" :umami-stats="stats.website" />
+              </StatsSection>
             </template>
           </TransitionGroup>
         </section>
 
         <!-- Full Width Sections -->
-        <section class="col-span-full space-y-2 pt-12">
+        <section class="col-span-full space-y-2 pt-8">
           <!-- Gear Stats -->
           <Transition name="fade-up" appear>
             <div id="gear" class="relative">
@@ -535,7 +609,8 @@ const currentYear = now.getFullYear()
 const startOfYear = new Date(currentYear, 0, 0)
 const diff = now.getTime() - startOfYear.getTime()
 const dayOfYear = Math.floor(diff / (1000 * 60 * 60 * 24))
-const isLeapYear = (currentYear % 4 === 0 && currentYear % 100 !== 0) || currentYear % 400 === 0
+const isLeapYear =
+  (currentYear % 4 === 0 && currentYear % 100 !== 0) || currentYear % 400 === 0
 const daysInYear = isLeapYear ? 366 : 365
 
 // Blog stats calculation
@@ -670,7 +745,7 @@ const pluralize = (count: number, singular: string, plural?: string) => {
 // Data-driven gonzo summary sentence generator
 const summaryData = computed(() => {
   if (!stats.value) return { text: '' }
-  
+
   const blog = stats.value.blog
   const github = stats.value.github?.detail?.commits
   const leetcode = stats.value.leetcode?.recentSubmissions
@@ -682,98 +757,116 @@ const summaryData = computed(() => {
   const letterboxd = stats.value.letterboxd?.films
   const rescueTime = stats.value.rescueTime?.week
   const website = stats.value.website?.stats
-  
+
   let clauses = []
-  
+
   // Writing activity - check recent posts (last 7 days)
   if (blog?.recentPosts?.length) {
-    const recentPosts = blog.recentPosts.filter(post => {
+    const recentPosts = blog.recentPosts.filter((post) => {
       const postDate = new Date(post.date)
       const weekAgo = new Date()
       weekAgo.setDate(weekAgo.getDate() - 7)
       return postDate >= weekAgo
     })
     if (recentPosts.length > 0) {
-      const totalWords = recentPosts.reduce((sum, post) => sum + (post.words || 0), 0)
+      const totalWords = recentPosts.reduce(
+        (sum, post) => sum + (post.words || 0),
+        0
+      )
       const postsPlural = pluralize(recentPosts.length, 'post')
-      clauses.push(`<a href="#writing" class="underline hover:no-underline">written</a> ${formatNumber(totalWords)} words across ${postsPlural}`)
+      clauses.push(
+        `<a href="#writing" class="underline hover:no-underline">written</a> ${formatNumber(totalWords)} words across ${postsPlural}`
+      )
     }
   }
-  
+
   // Recent GitHub commits (last 7 days)
   if (github?.length) {
-    const recentCommits = github.filter(commit => {
+    const recentCommits = github.filter((commit) => {
       const commitDate = new Date(commit.occurredAt)
       const weekAgo = new Date()
       weekAgo.setDate(weekAgo.getDate() - 7)
       return commitDate >= weekAgo
     })
     if (recentCommits.length > 0) {
-      clauses.push(`made ${recentCommits.length} <a href="#github" class="underline hover:no-underline">commits</a>`)
+      clauses.push(
+        `made ${recentCommits.length} <a href="#github" class="underline hover:no-underline">commits</a>`
+      )
     }
   }
-  
+
   // Recent LeetCode activity
   if (leetcode?.length) {
-    const recent = leetcode.filter(sub => {
+    const recent = leetcode.filter((sub) => {
       // Convert Unix timestamp to milliseconds if needed
-      const timestamp = sub.timestamp.toString().length === 10 ? parseInt(sub.timestamp) * 1000 : parseInt(sub.timestamp)
+      const timestamp =
+        sub.timestamp.toString().length === 10
+          ? parseInt(sub.timestamp) * 1000
+          : parseInt(sub.timestamp)
       const subDate = new Date(timestamp)
       const weekAgo = new Date()
-      weekAgo.setDate(weekAgo.getDate() - 7) 
+      weekAgo.setDate(weekAgo.getDate() - 7)
       // Filter out future dates (bad data) and only get last week's activity
       return subDate >= weekAgo && subDate <= new Date()
     })
     if (recent.length > 0) {
-      clauses.push(`<a href="#leetcode" class="underline hover:no-underline">solved</a> ${recent.length} coding problems`)
+      clauses.push(
+        `<a href="#leetcode" class="underline hover:no-underline">solved</a> ${recent.length} coding problems`
+      )
     }
   }
-  
+
   // Recent chess games
   if (chess?.length) {
-    const recentGames = chess.filter(game => {
+    const recentGames = chess.filter((game) => {
       const gameDate = new Date(game.timestamp * 1000)
       const weekAgo = new Date()
       weekAgo.setDate(weekAgo.getDate() - 7)
       return gameDate >= weekAgo
     })
     if (recentGames.length > 0) {
-      const wins = recentGames.filter(g => g.result === 'win').length
+      const wins = recentGames.filter((g) => g.result === 'win').length
       const winText = wins === 1 ? 'win' : 'wins'
-      clauses.push(`<a href="#chess" class="underline hover:no-underline">played</a> ${recentGames.length} chess games (${wins} ${winText})`)
+      clauses.push(
+        `<a href="#chess" class="underline hover:no-underline">played</a> ${recentGames.length} chess games (${wins} ${winText})`
+      )
     }
   }
-  
+
   // Typing activity - check if we have recent tests
   if (monkeyType?.recentTests?.length) {
-    const recent = monkeyType.recentTests.filter(test => {
+    const recent = monkeyType.recentTests.filter((test) => {
       const testDate = new Date(test.timestamp)
       const weekAgo = new Date()
       weekAgo.setDate(weekAgo.getDate() - 7)
       return testDate >= weekAgo
     })
     if (recent.length > 0) {
-      const bestRecent = Math.max(...recent.map(t => t.wpm))
-      clauses.push(`<a href="#typing" class="underline hover:no-underline">typed</a> at ${bestRecent} WPM`)
+      const bestRecent = Math.max(...recent.map((t) => t.wpm))
+      clauses.push(
+        `<a href="#typing" class="underline hover:no-underline">typed</a> at ${bestRecent} WPM`
+      )
     }
   }
-  
+
   // Recent gists (last 7 days)
   if (gists?.length) {
-    const recentGists = gists.filter(gist => {
+    const recentGists = gists.filter((gist) => {
       const gistDate = new Date(gist.created_at)
       const weekAgo = new Date()
       weekAgo.setDate(weekAgo.getDate() - 7)
       return gistDate >= weekAgo
     })
     if (recentGists.length > 0) {
-      clauses.push(`created ${recentGists.length} <a href="#gists" class="underline hover:no-underline">gists</a>`)
+      clauses.push(
+        `created ${recentGists.length} <a href="#gists" class="underline hover:no-underline">gists</a>`
+      )
     }
   }
-  
+
   // Recent music listening (last.fm recent tracks)
   if (lastfm?.length && lastfm[0]?.date) {
-    const recentTracks = lastfm.filter(track => {
+    const recentTracks = lastfm.filter((track) => {
       if (!track.date) return false
       const trackDate = new Date(parseInt(track.date.uts) * 1000)
       const weekAgo = new Date()
@@ -782,15 +875,20 @@ const summaryData = computed(() => {
     })
     if (recentTracks.length > 0) {
       const topArtist = recentTracks[0]?.artist?.name
-      clauses.push(`listened to ${recentTracks.length} <a href="#music" class="underline hover:no-underline">tracks</a>${topArtist ? ` (mostly ${topArtist})` : ''}`)
+      clauses.push(
+        `listened to ${recentTracks.length} <a href="#music" class="underline hover:no-underline">tracks</a>${topArtist ? ` (mostly ${topArtist})` : ''}`
+      )
     }
   }
-  
+
   // Recent movies (letterboxd films) - only if watched in last week
   if (letterboxd?.length) {
-    const recentFilms = letterboxd.filter(film => {
+    const recentFilms = letterboxd.filter((film) => {
       // Skip films with invalid or default dates
-      if (!film.watchedDate || film.watchedDate === new Date().toISOString().split('T')[0]) {
+      if (
+        !film.watchedDate ||
+        film.watchedDate === new Date().toISOString().split('T')[0]
+      ) {
         return false
       }
       const filmDate = new Date(film.watchedDate)
@@ -803,18 +901,22 @@ const summaryData = computed(() => {
       return filmDate >= weekAgo && filmDate <= new Date() // Also ensure it's not in the future
     })
     if (recentFilms.length > 0) {
-      clauses.push(`watched ${recentFilms.length} <a href="#movies" class="underline hover:no-underline">films</a>`)
+      clauses.push(
+        `watched ${recentFilms.length} <a href="#movies" class="underline hover:no-underline">films</a>`
+      )
     }
   }
-  
+
   // RescueTime productive hours this week
   if (rescueTime?.summary?.productive?.time?.hours) {
     const productiveHours = Math.round(rescueTime.summary.productive.time.hours)
     if (productiveHours > 0) {
-      clauses.push(`logged ${productiveHours} <a href="#productivity" class="underline hover:no-underline">productive hours</a>`)
+      clauses.push(
+        `logged ${productiveHours} <a href="#productivity" class="underline hover:no-underline">productive hours</a>`
+      )
     }
   }
-  
+
   // Website stats (if we have comparison data)
   if (website?.pageviews?.value && website?.pageviews?.prev) {
     const current = website.pageviews.value
@@ -822,27 +924,35 @@ const summaryData = computed(() => {
     const change = current - previous
     if (Math.abs(change) > 0) {
       const direction = change > 0 ? 'gained' : 'lost'
-      clauses.push(`${direction} ${Math.abs(change)} <a href="#website" class="underline hover:no-underline">pageviews</a>`)
+      clauses.push(
+        `${direction} ${Math.abs(change)} <a href="#website" class="underline hover:no-underline">pageviews</a>`
+      )
     }
   }
-  
+
   // Gear optimization - only if added items in past month (need lastUpdated field)
   // Skip for now - no temporal data available to determine recent additions
-  
+
   if (clauses.length === 0) {
-    return { text: 'Monitoring systems, collecting data, optimizing workflows.' }
+    return {
+      text: 'Monitoring systems, collecting data, optimizing workflows.'
+    }
   }
-  
+
   // Join clauses into a flowing sentence
   let sentence = "This week I've "
   if (clauses.length === 1) {
-    sentence += clauses[0] + "."
+    sentence += clauses[0] + '.'
   } else if (clauses.length === 2) {
-    sentence += clauses[0] + " and " + clauses[1] + "."
+    sentence += clauses[0] + ' and ' + clauses[1] + '.'
   } else {
-    sentence += clauses.slice(0, -1).join(", ") + ", and " + clauses[clauses.length - 1] + "."
+    sentence +=
+      clauses.slice(0, -1).join(', ') +
+      ', and ' +
+      clauses[clauses.length - 1] +
+      '.'
   }
-  
+
   return { text: sentence }
 })
 
@@ -918,7 +1028,7 @@ const statsSections = [
 onMounted(() => {
   // Initialize simple mode day progress
   displayDayOfYear.value = dayOfYear
-  
+
   nextTick(() => {
     tocTarget.value = document.querySelector('#nav-toc-container')
 

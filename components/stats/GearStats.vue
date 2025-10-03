@@ -1,11 +1,12 @@
 <template>
   <div ref="gearStatsRef" class="space-y-8 pr-4 md:pr-8">
     <!-- Main Containers - HUD Style -->
-    <div ref="containersRef" class="space-y-2 mb-6 font-mono">
+    <div ref="containersRef" class="space-y-2 mb-8 font-mono">
       <StatsSectionHeader title="CARRYING_SYSTEMS" />
       <div class="space-y-1 text-xs">
         <div
-          v-for="container in mainContainers" :key="container.name"
+          v-for="container in mainContainers"
+          :key="container.name"
           class="container-item flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-1"
         >
           <div class="flex items-center gap-2">
@@ -16,7 +17,7 @@
               container.name
             }}</span>
           </div>
-          <div class="flex items-center gap-3 text-zinc-500 tabular-nums">
+          <div class="flex items-center gap-4 text-zinc-500 tabular-nums">
             <span>{{ container.itemCount }}x</span>
             <span class="text-right w-12">{{ container.weight }}oz</span>
           </div>
@@ -25,36 +26,47 @@
     </div>
 
     <!-- HUD Stats Inline -->
-    <div ref="statsGridRef" class="font-mono text-xs space-y-1 mb-6">
-      <div class="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-1">
-        <span class="text-zinc-500 uppercase tracking-wider">TOTAL_ITEMS</span>
+    <div ref="statsGridRef" class="font-mono text-xs space-y-1 mb-8">
+      <div
+        class="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-1"
+      >
+        <span class="text-zinc-500 uppercase tracking-widest">TOTAL_ITEMS</span>
         <span class="tabular-nums text-zinc-700 dark:text-zinc-300">
           {{ totalItems }}
         </span>
       </div>
-      <div class="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-1">
-        <span class="text-zinc-500 uppercase tracking-wider">TOTAL_WEIGHT</span>
+      <div
+        class="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-1"
+      >
+        <span class="text-zinc-500 uppercase tracking-widest"
+          >TOTAL_WEIGHT</span
+        >
         <span class="tabular-nums text-zinc-700 dark:text-zinc-300">
           {{ totalWeight.toFixed(1) }}oz
         </span>
       </div>
-      <div class="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-1">
-        <span class="text-zinc-500 uppercase tracking-wider">CONTAINERS</span>
+      <div
+        class="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-1"
+      >
+        <span class="text-zinc-500 uppercase tracking-widest">CONTAINERS</span>
         <span class="tabular-nums text-zinc-700 dark:text-zinc-300">
           {{ containerCount }}
         </span>
       </div>
-      <div class="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-1">
-        <span class="text-zinc-500 uppercase tracking-wider">AVG_TCWM</span>
+      <div
+        class="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-1"
+      >
+        <span class="text-zinc-500 uppercase tracking-widest">AVG_TCWM</span>
         <span class="tabular-nums text-zinc-700 dark:text-zinc-300">
           {{ avgTCWMScore.toFixed(1) }}
         </span>
       </div>
-      <div class="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-1">
-        <span class="text-zinc-500 uppercase tracking-wider">WEIGHT_CONV</span>
+      <div
+        class="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-1"
+      >
+        <span class="text-zinc-500 uppercase tracking-widest">WEIGHT_CONV</span>
         <span class="tabular-nums text-zinc-700 dark:text-zinc-300">
-          {{ ouncesToPounds.toFixed(1) }}lb /
-          {{ ouncesToKilos.toFixed(1) }}kg
+          {{ ouncesToPounds.toFixed(1) }}lb / {{ ouncesToKilos.toFixed(1) }}kg
         </span>
       </div>
     </div>
@@ -64,7 +76,8 @@
       <StatsSectionHeader title="TYPE_DISTRIBUTION" />
       <div class="space-y-1">
         <div
-          v-for="[type, count] in sortedTypeDistribution" :key="type"
+          v-for="[type, count] in sortedTypeDistribution"
+          :key="type"
           class="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-1 type-row"
         >
           <div class="flex items-center gap-2">
@@ -73,13 +86,16 @@
             }}</span>
             <div class="flex-1 flex items-center">
               <div
-                class="h-2 type-bar bg-zinc-400 dark:bg-zinc-600" :style="{
+                class="h-2 type-bar bg-zinc-400 dark:bg-zinc-600"
+                :style="{
                   width: `${Math.max(8, (count / maxTypeCount) * 60)}px`
                 }"
               ></div>
             </div>
           </div>
-          <span class="text-zinc-700 dark:text-zinc-300 tabular-nums w-8 text-right">
+          <span
+            class="text-zinc-700 dark:text-zinc-300 tabular-nums w-8 text-right"
+          >
             {{ count }}
           </span>
         </div>

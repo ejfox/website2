@@ -3,21 +3,27 @@
  * =========================
  *
  * Stage 1: Import (import.mjs) - Reads markdown files from Obsidian vault
- * Stage 2: Process (processMarkdown.mjs) - Converts markdown to HTML  
+ * Stage 2: Process (processMarkdown.mjs) - Converts markdown to HTML
  * Stage 3: Runtime (useProcessedMarkdown.ts) - Final filtering and processing
  *
  * Content Type Detection Rules:
  * - Week Notes: type='weekNote' OR slug starts with 'week-notes/' OR slug matches YYYY-WW
  * - Special Sections: reading/, projects/, robots/, drafts/, study-notes/, prompts/
  * - System Files: slug='index' OR starts with '!' or '_'
- * 
+ *
  * Visibility Rules:
  * - hidden: true -> Post is hidden everywhere
  * - In drafts/robots/ -> hidden by default unless share: true
  * - Week notes -> never auto-hidden, respect hidden: true from frontmatter
  */
 
-import { parseISO as _parseISO, isValid as _isValid, parse as _parse, startOfWeek as _startOfWeek, format as _format } from 'date-fns'
+import {
+  parseISO as _parseISO,
+  isValid as _isValid,
+  parse as _parse,
+  startOfWeek as _startOfWeek,
+  format as _format
+} from 'date-fns'
 
 // Type definitions
 interface PostMetadata {
@@ -69,7 +75,9 @@ function getValidDate(date: string | Date | undefined): string {
     if (!date) return new Date().toISOString()
     if (date instanceof Date) return date.toISOString()
     const parsed = new Date(date)
-    return !isNaN(parsed.getTime()) ? parsed.toISOString() : new Date().toISOString()
+    return !isNaN(parsed.getTime())
+      ? parsed.toISOString()
+      : new Date().toISOString()
   } catch (_error) {
     return new Date().toISOString()
   }
@@ -88,34 +96,42 @@ function isSpecialSection(slug: string): boolean {
   const pathParts = slug.split('/')
   // Handle both old format (YYYY/...) and new format (blog/YYYY/...)
   let basePath = slug
-  
+
   // If starts with 'blog/', strip it
   if (pathParts[0] === 'blog') {
     basePath = pathParts.slice(1).join('/')
   }
-  
+
   // If starts with year, get the rest
   const remainingParts = basePath.split('/')
   if (remainingParts.length > 1 && /^\d{4}$/.test(remainingParts[0])) {
     basePath = remainingParts.slice(1).join('/')
   }
-  
-  return basePath.startsWith('reading/') ||
-         basePath.startsWith('projects/') ||
-         basePath.startsWith('robots/') ||
-         basePath.startsWith('drafts/') ||
-         basePath.startsWith('study-notes/') ||
-         basePath.startsWith('prompts/') ||
-         basePath.startsWith('week-notes/')
+
+  return (
+    basePath.startsWith('reading/') ||
+    basePath.startsWith('projects/') ||
+    basePath.startsWith('robots/') ||
+    basePath.startsWith('drafts/') ||
+    basePath.startsWith('study-notes/') ||
+    basePath.startsWith('prompts/') ||
+    basePath.startsWith('week-notes/')
+  )
 }
 
 function isSystemFile(slug: string): boolean {
-  return !slug || slug === 'index' || slug.startsWith('!') || slug.startsWith('_')
+  return (
+    !slug || slug === 'index' || slug.startsWith('!') || slug.startsWith('_')
+  )
 }
 
 function isHidden(post: Post): boolean {
-  return post?.hidden === true || post?.metadata?.hidden === true ||
-         post?.draft === true || post?.metadata?.draft === true
+  return (
+    post?.hidden === true ||
+    post?.metadata?.hidden === true ||
+    post?.draft === true ||
+    post?.metadata?.draft === true
+  )
 }
 
 function isRegularBlogPost(post: Post): boolean {
@@ -125,8 +141,8 @@ function isRegularBlogPost(post: Post): boolean {
 
 // Enhanced filtering function that accepts custom filters
 function filterAndSortPosts(
-  manifest: Post[], 
-  filters: { 
+  manifest: Post[],
+  filters: {
     slugPrefix?: string
     type?: string
     requireShare?: boolean
@@ -140,29 +156,29 @@ function filterAndSortPosts(
       if (filters.slugPrefix && !post.slug.startsWith(filters.slugPrefix)) {
         return false
       }
-      
+
       // Apply type filter
       if (filters.type) {
         const postType = post.type || post.metadata?.type
         if (postType !== filters.type) return false
       }
-      
+
       // Apply share requirement filter
       if (filters.requireShare) {
         const isShared = post.metadata?.share || post.share
         if (!isShared) return false
       }
-      
-      // Apply hidden filter  
+
+      // Apply hidden filter
       if (filters.excludeHidden && isHidden(post)) {
         return false
       }
-      
+
       // Apply custom filter
       if (filters.customFilter && !filters.customFilter(post)) {
         return false
       }
-      
+
       return true
     })
     .map((post: Post) => ({
@@ -197,7 +213,9 @@ export const useProcessedMarkdown = () => {
       }
 
       const result = await $fetch<Post>(
-        apiSlug === 'index' ? `${apiEndpoint}/index` : `${apiEndpoint}/${apiSlug}`
+        apiSlug === 'index'
+          ? `${apiEndpoint}/index`
+          : `${apiEndpoint}/${apiSlug}`
       )
 
       return {
@@ -216,10 +234,13 @@ export const useProcessedMarkdown = () => {
     }
   }
 
-  const getAllPosts = async (includeDrafts = false, includeWeekNotes = false): Promise<Post[]> => {
+  const getAllPosts = async (
+    includeDrafts = false,
+    includeWeekNotes = false
+  ): Promise<Post[]> => {
     try {
       const manifest = await getManifestLite()
-      
+
       return manifest
         .filter((post: Post) => {
           if (isSystemFile(post.slug)) return false
@@ -243,7 +264,12 @@ export const useProcessedMarkdown = () => {
           return {
             ...post,
             title,
-            metadata: { ...post.metadata, title, slug: post.slug, date: getValidDate(post.metadata?.date || post.date) },
+            metadata: {
+              ...post.metadata,
+              title,
+              slug: post.slug,
+              date: getValidDate(post.metadata?.date || post.date)
+            },
             date: getValidDate(post.metadata?.date || post.date),
             modified: getValidDate(post.metadata?.modified || post.modified),
             type: post.type || post.metadata?.type,
@@ -258,12 +284,21 @@ export const useProcessedMarkdown = () => {
     }
   }
 
-  const getPostsByYear = async (year: number, includeDrafts = false, includeWeekNotes = false): Promise<Post[]> => {
+  const getPostsByYear = async (
+    year: number,
+    includeDrafts = false,
+    includeWeekNotes = false
+  ): Promise<Post[]> => {
     const allPosts = await getAllPosts(includeDrafts, includeWeekNotes)
     return allPosts.filter((post) => new Date(post.date).getFullYear() === year)
   }
 
-  const getPostsWithContent = async (limit = 10, offset = 0, includeDrafts = false, includeWeekNotes = false): Promise<Post[]> => {
+  const getPostsWithContent = async (
+    limit = 10,
+    offset = 0,
+    includeDrafts = false,
+    includeWeekNotes = false
+  ): Promise<Post[]> => {
     try {
       const allPosts = await getAllPosts(includeDrafts, includeWeekNotes)
       const postsToFetch = allPosts.slice(offset, offset + limit)
@@ -290,15 +325,22 @@ export const useProcessedMarkdown = () => {
       return { next: null, prev: null }
     }
 
-    const currentIndex = filteredPosts.findIndex((post) => post.slug === currentSlug)
+    const currentIndex = filteredPosts.findIndex(
+      (post) => post.slug === currentSlug
+    )
     if (currentIndex === -1) {
-      console.warn(`Post with slug "${currentSlug}" not found in regular blog posts`)
+      console.warn(
+        `Post with slug "${currentSlug}" not found in regular blog posts`
+      )
       return { next: null, prev: null }
     }
 
     return {
       next: currentIndex > 0 ? filteredPosts[currentIndex - 1] : null,
-      prev: currentIndex < filteredPosts.length - 1 ? filteredPosts[currentIndex + 1] : null
+      prev:
+        currentIndex < filteredPosts.length - 1
+          ? filteredPosts[currentIndex + 1]
+          : null
     }
   }
 
@@ -310,9 +352,10 @@ export const useProcessedMarkdown = () => {
 
   const getWeekNotes = async (): Promise<Post[]> => {
     const manifest = await getManifestLite()
-    return filterAndSortPosts(manifest, { 
+    return filterAndSortPosts(manifest, {
       excludeHidden: true,
-      customFilter: (post) => post.type === 'weekNote' || post.slug.startsWith('week-notes/')
+      customFilter: (post) =>
+        post.type === 'weekNote' || post.slug.startsWith('week-notes/')
     })
   }
 
@@ -323,11 +366,12 @@ export const useProcessedMarkdown = () => {
 
   const getProjectPostsLite = async (): Promise<Post[]> => {
     const manifest = await getManifestLite()
-    return filterAndSortPosts(manifest, { slugPrefix: 'projects/' })
-      .map((post: Post) => ({
+    return filterAndSortPosts(manifest, { slugPrefix: 'projects/' }).map(
+      (post: Post) => ({
         ...post,
         html: post.html || post.metadata?.html || ''
-      }))
+      })
+    )
   }
 
   const getProjectPosts = async (): Promise<Post[]> => {
@@ -338,7 +382,10 @@ export const useProcessedMarkdown = () => {
           const fullPost = await getPostBySlug(post.slug)
           return { ...post, ...fullPost, slug: post.slug }
         } catch (err) {
-          console.error('Error fetching project content:', { slug: post.slug, error: err })
+          console.error('Error fetching project content:', {
+            slug: post.slug,
+            error: err
+          })
           return post
         }
       })
@@ -351,8 +398,9 @@ export const useProcessedMarkdown = () => {
       const manifest = await getManifestLite()
       return filterAndSortPosts(manifest, {
         requireShare: true,
-        customFilter: (post) => post.slug.startsWith('robots/') || post.type === 'robot'
-      }).map(post => ({ ...post, type: 'robot' }))
+        customFilter: (post) =>
+          post.slug.startsWith('robots/') || post.type === 'robot'
+      }).map((post) => ({ ...post, type: 'robot' }))
     } catch (error) {
       console.error('Error fetching robot notes:', error)
       return []

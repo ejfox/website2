@@ -51,7 +51,7 @@ export const useWeightCalculations = () => {
    * Get weight in grams from gear item
    */
   const getItemWeightInGrams = (item: any): number => {
-    const ounces = parseFloat(item['Base Weight ()']) || 0
+    const ounces = parseFloat(item['Weight_oz']) || 0
     return ouncesToGrams(ounces)
   }
 
@@ -59,7 +59,7 @@ export const useWeightCalculations = () => {
    * Get weight in ounces from gear item
    */
   const getItemWeightInOunces = (item: any): number => {
-    return parseFloat(item['Base Weight ()']) || 0
+    return parseFloat(item['Weight_oz']) || 0
   }
 
   /**

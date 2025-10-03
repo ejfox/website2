@@ -21,7 +21,7 @@ interface Gist {
 export default defineEventHandler(async (event): Promise<Gist[]> => {
   const config = useRuntimeConfig()
   const query = getQuery(event)
-  
+
   const perPage = query.per_page || 64
   const page = query.page || 1
 
@@ -47,16 +47,19 @@ export default defineEventHandler(async (event): Promise<Gist[]> => {
   }
 
   try {
-    const response = await $fetch<Gist[]>(`https://api.github.com/users/ejfox/gists`, {
-      headers: {
-        Authorization: `token ${token}`,
-        'User-Agent': 'EJFox-Website/1.0'
-      },
-      query: {
-        per_page: perPage,
-        page: page
+    const response = await $fetch<Gist[]>(
+      `https://api.github.com/users/ejfox/gists`,
+      {
+        headers: {
+          Authorization: `token ${token}`,
+          'User-Agent': 'EJFox-Website/1.0'
+        },
+        query: {
+          per_page: perPage,
+          page: page
+        }
       }
-    })
+    )
 
     // For single-file gists, fetch the content
     const gistsWithContent = await Promise.all(
@@ -83,7 +86,7 @@ export default defineEventHandler(async (event): Promise<Gist[]> => {
     return gistsWithContent
   } catch (error: any) {
     console.error('Gists API Error:', error)
-    
+
     throw createError({
       statusCode: error.statusCode || 500,
       message: error.message || 'Failed to fetch gists'

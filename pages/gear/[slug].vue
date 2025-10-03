@@ -5,8 +5,8 @@
 
     <!-- Not found state -->
     <div v-else class="text-center max-w-md mx-auto">
-      <div class="text-6xl mb-6">⬟</div>
-      <h1 class="text-3xl font-bold text-zinc-900 dark:text-zinc-100 mb-4">
+      <div class="text-6xl mb-8">⬟</div>
+      <h1 class="text-3xl font-light text-zinc-900 dark:text-zinc-100 mb-4">
         Gear Not Found
       </h1>
       <p class="text-zinc-600 dark:text-zinc-400 mb-8">
@@ -14,7 +14,7 @@
       </p>
       <NuxtLink
         to="/gear"
-        class="inline-flex items-center gap-2 px-6 py-3 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 font-medium rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"
+        class="inline-flex items-center gap-2 px-8 py-4 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 font-medium rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"
       >
         ← Browse All Gear
       </NuxtLink>
@@ -145,4 +145,3 @@ definePageMeta({
   z-index: 1;
 }
 </style>
-

@@ -6,19 +6,19 @@ import { glob } from 'glob'
 export default defineEventHandler(async () => {
   try {
     const predictionsDir = join(process.cwd(), 'content', 'predictions')
-    
+
     // Find all markdown files
     const files = await glob('**/*.md', { cwd: predictionsDir })
-    
+
     const predictions = await Promise.all(
       files.map(async (file) => {
         const filePath = join(predictionsDir, file)
         const content = await fs.readFile(filePath, 'utf-8')
         const { data, content: body } = matter(content)
-        
+
         // Generate ID from filename
         const id = file.replace(/\.md$/, '').replace(/\//g, '-')
-        
+
         return {
           id,
           slug: file.replace(/\.md$/, ''),
@@ -37,7 +37,7 @@ export default defineEventHandler(async () => {
         }
       })
     )
-    
+
     return predictions
   } catch (error) {
     console.error('Error reading predictions:', error)

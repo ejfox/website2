@@ -2,7 +2,9 @@
   <div
     :class="[
       'w-full text-zinc-600 dark:text-zinc-400 uppercase font-mono text-xs',
-      compact ? 'flex flex-col gap-1 items-start sm:flex-row sm:items-center sm:gap-2 sm:flex-wrap' : 'flex items-center gap-2 md:gap-3'
+      compact
+        ? 'flex flex-col gap-1 items-start sm:flex-row sm:items-center sm:gap-2 sm:flex-wrap'
+        : 'flex items-center gap-2 md:gap-4'
     ]"
     :style="colorVars"
   >
@@ -46,9 +48,9 @@
     </span>
 
     <!-- Word Count -->
-    <span 
-      v-if="metadata.words" 
-      ref="wordCountRef" 
+    <span
+      v-if="metadata.words"
+      ref="wordCountRef"
       class="metadata-item py-1 flex-shrink-0 whitespace-nowrap text-zinc-600 dark:text-zinc-400"
     >
       {{ formatCompactNumber(metadata.words) }}
@@ -56,9 +58,9 @@
     </span>
 
     <!-- Image Count -->
-    <span 
-      v-if="metadata.images" 
-      ref="imageCountRef" 
+    <span
+      v-if="metadata.images"
+      ref="imageCountRef"
       class="metadata-item py-1 flex-shrink-0 whitespace-nowrap text-zinc-600 dark:text-zinc-400"
     >
       {{ metadata.images }}
@@ -66,9 +68,9 @@
     </span>
 
     <!-- Link Count -->
-    <span 
-      v-if="metadata.links" 
-      ref="linkCountRef" 
+    <span
+      v-if="metadata.links"
+      ref="linkCountRef"
       class="metadata-item py-1 flex-shrink-0 whitespace-nowrap text-zinc-600 dark:text-zinc-400"
     >
       {{ metadata.links }}
@@ -132,8 +134,12 @@ const metadata = computed(() => props.doc?.metadata || {})
 
 // Computed values
 const folderName = computed(() => metadata.value.slug?.split('/')[0] || '')
-const draftText = computed(() => props.compact ? 'Draft' : 'Draft, please do not publish, changes expected')
-const readingTime = computed(() => metadata.value.words ? Math.ceil(metadata.value.words / 200) : 0)
+const draftText = computed(() =>
+  props.compact ? 'Draft' : 'Draft, please do not publish, changes expected'
+)
+const readingTime = computed(() =>
+  metadata.value.words ? Math.ceil(metadata.value.words / 200) : 0
+)
 const readingTimeUnit = computed(() => {
   if (props.compact) return 'min read'
   return readingTime.value === 1 ? 'min' : 'mins'
@@ -148,7 +154,9 @@ const formattedDate = computed(() => {
 const relativeDate = computed(() => {
   if (!metadata.value.date) return ''
   try {
-    return formatDistanceToNow(new Date(metadata.value.date), { addSuffix: true })
+    return formatDistanceToNow(new Date(metadata.value.date), {
+      addSuffix: true
+    })
   } catch {
     return ''
   }

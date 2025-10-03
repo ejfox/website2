@@ -1,6 +1,6 @@
 export default defineEventHandler(async (event) => {
   const baseUrl = 'https://ejfox.com'
-  
+
   // Static pages with their priorities and update frequencies
   const staticPages = [
     { url: '/', priority: '1.0', changefreq: 'daily' },
@@ -14,9 +14,9 @@ export default defineEventHandler(async (event) => {
     { url: '/now', priority: '0.8', changefreq: 'weekly' },
     { url: '/sitemap', priority: '0.4', changefreq: 'monthly' }
   ]
-  
+
   const now = new Date().toISOString()
-  
+
   // Start building sitemap XML
   let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -38,17 +38,20 @@ export default defineEventHandler(async (event) => {
     // Use the processed manifest for blog posts
     const fs = await import('node:fs/promises')
     const path = await import('node:path')
-    const manifestPath = path.join(process.cwd(), 'content/processed/manifest-lite.json')
+    const manifestPath = path.join(
+      process.cwd(),
+      'content/processed/manifest-lite.json'
+    )
     const manifestData = await fs.readFile(manifestPath, 'utf-8')
     const posts = JSON.parse(manifestData)
-    
+
     // Add each blog post to sitemap
     for (const post of posts) {
       if (!post.hidden && !post.draft) {
         const priority = post.type === 'essay' ? '0.8' : '0.7'
         const changefreq = 'monthly'
         const lastmod = post.modified || post.date || now
-        
+
         sitemap += `  <url>
     <loc>${baseUrl}/blog/${post.slug}</loc>
     <lastmod>${lastmod}</lastmod>
@@ -61,7 +64,7 @@ export default defineEventHandler(async (event) => {
   } catch (error) {
     console.warn('Could not load blog posts for sitemap:', error)
   }
-  
+
   // Add dynamic predictions
   try {
     const predictions = await $fetch('/api/predictions')
@@ -85,6 +88,6 @@ export default defineEventHandler(async (event) => {
   // Set correct headers
   setHeader(event, 'Content-Type', 'application/xml')
   setHeader(event, 'Cache-Control', 'public, max-age=3600, s-maxage=86400')
-  
+
   return sitemap
 })

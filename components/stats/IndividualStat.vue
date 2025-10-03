@@ -1,22 +1,36 @@
 <template>
-  <div ref="containerRef" class="stat-container leading-tight font-mono group relative">
+  <div
+    ref="containerRef"
+    class="stat-container leading-tight font-mono group relative"
+  >
     <div class="flex">
       <p
         ref="valueRef"
-        class="stat-value tabular-nums font-mono flex-1 transition-colors duration-200" :class="[
-          size === 'large' && 'text-[5rem] leading-[0.9]',
+        class="stat-value tabular-nums font-mono flex-1 transition-colors duration-200"
+        :class="[
+          size === 'large' && 'text-7xl leading-[0.9]',
           size === 'medium' && 'text-4xl leading-[0.9]',
-          size === 'small' && 'text-3xl leading-[0.95]',
+          size === 'small' && 'text-3xl leading-[0.95]'
         ]"
       >
         {{ displayValue }}
       </p>
     </div>
-    <div ref="footerRef" class="stat-footer border-b border-dotted border-zinc-300 dark:border-zinc-700 py-1 transition-all duration-200">
-      <h3 ref="labelRef" class="text-sm tracking-wider text-zinc-500 uppercase font-mono transition-colors duration-200">
+    <div
+      ref="footerRef"
+      class="stat-footer border-b border-dotted border-zinc-300 dark:border-zinc-700 py-1 transition-all duration-200"
+    >
+      <h3
+        ref="labelRef"
+        class="text-sm tracking-widest text-zinc-500 uppercase font-mono transition-colors duration-200"
+      >
         {{ label }}
       </h3>
-      <p v-if="details" ref="detailsRef" class="text-xs text-zinc-500 tracking-wide font-mono transition-colors duration-200">
+      <p
+        v-if="details"
+        ref="detailsRef"
+        class="text-xs text-zinc-500 tracking-wide font-mono transition-colors duration-200"
+      >
         {{ details }}
       </p>
     </div>
@@ -63,7 +77,8 @@ const _isMobile = computed(() => width.value < 768)
 
 // Format functions - more compact by default
 // DELETED: D3 formatters - using native alternatives
-const formatLarge = (num: number) => num.toLocaleString('en-US', { maximumFractionDigits: 0 })
+const formatLarge = (num: number) =>
+  num.toLocaleString('en-US', { maximumFractionDigits: 0 })
 const formatCompact = (num: number) => {
   if (num >= 1e9) return (num / 1e9).toFixed(1).replace(/\.0$/, '') + 'B'
   if (num >= 1e6) return (num / 1e6).toFixed(1).replace(/\.0$/, '') + 'M'
@@ -71,7 +86,8 @@ const formatCompact = (num: number) => {
   return String(num)
 }
 const formatPercent = (num: number) => `${Math.round(num * 100)}%`
-const formatCurrency = (num: number) => `$${num.toLocaleString('en-US', { maximumFractionDigits: 0 })}`
+const formatCurrency = (num: number) =>
+  `$${num.toLocaleString('en-US', { maximumFractionDigits: 0 })}`
 
 // Refined number formatting with better edge cases
 const formattedValue = computed(() => {
@@ -124,7 +140,7 @@ const animateValueChange = () => {
 // Helper to format numbers during animation
 const _formatNumberForDisplay = (val: number): string => {
   if (typeof val !== 'number' || Number.isNaN(val)) return '0'
-  
+
   // Use same formatting logic but simplified for animation
   if (val < 1000) return Math.round(val).toString()
   if (val < 1000000) return `${Math.round(val / 1000)}K`
@@ -134,9 +150,9 @@ const _formatNumberForDisplay = (val: number): string => {
 // Initial reveal animation
 const animateInitialReveal = async () => {
   if (process.server) return
-  
+
   await nextTick()
-  
+
   // Stage 1: Reveal the container with system scan effect
   if (containerRef.value) {
     // criticalHighlight(containerRef.value, {
@@ -144,14 +160,14 @@ const animateInitialReveal = async () => {
     //   easing: 'outElastic(1, .8)'
     // })
   }
-  
+
   // Stage 2: Animate the value counter
   if (typeof props.value === 'number' && valueRef.value) {
     setTimeout(() => {
       animateValueChange()
     }, 300)
   }
-  
+
   // Stage 3: Stream in the label and details
   setTimeout(() => {
     if (labelRef.value) {
@@ -160,7 +176,7 @@ const animateInitialReveal = async () => {
       //   easing: 'cubicBezier(0.4, 0, 0.2, 1)'
       // })
     }
-    
+
     if (detailsRef.value) {
       setTimeout(() => {
         // dataStream(detailsRef.value, {
@@ -173,18 +189,22 @@ const animateInitialReveal = async () => {
 }
 
 // Watch for value changes
-watch(() => props.value, () => {
-  if (typeof props.value === 'number') {
-    animateValueChange()
-  } else {
-    displayValue.value = formattedValue.value
+watch(
+  () => props.value,
+  () => {
+    if (typeof props.value === 'number') {
+      animateValueChange()
+    } else {
+      displayValue.value = formattedValue.value
+    }
   }
-})
+)
 
 onMounted(() => {
   // Set initial display value
-  displayValue.value = typeof props.value === 'number' ? '0' : formattedValue.value
-  
+  displayValue.value =
+    typeof props.value === 'number' ? '0' : formattedValue.value
+
   // Setup animations
   setupInteractiveEffects()
   animateInitialReveal()
@@ -194,7 +214,7 @@ onMounted(() => {
 <style scoped>
 /* Monospace typography */
 p {
-  font-feature-settings: "tnum", "zero";
+  font-feature-settings: 'tnum', 'zero';
 }
 
 /* Subtle hover effect */

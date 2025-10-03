@@ -1,6 +1,6 @@
 {
-  "content": "<h3 class=\"text-2xl font-medium mb-3 mt-6 max-w-prose mx-auto font-sans\" id=\"room-302-studio-website-redesign\">Room 302 Studio Website Redesign</h3>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8 max-w-prose mx-auto font-sans\" id=\"-learning--development\">📘 Learning &#x26; Development</h2>\n<p class=\"mb-4 max-w-prose mx-auto\"><a href=\"https://youtu.be/eo4gIihETu8?si=FeSscE6Dyt1cxI_C\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://youtu.be/eo4gIihETu8?si=FeSscE6Dyt1cxI_C</a></p>",
-  "html": "<h3 class=\"text-2xl font-medium mb-3 mt-6 max-w-prose mx-auto font-sans\" id=\"room-302-studio-website-redesign\">Room 302 Studio Website Redesign</h3>\n<h2 class=\"text-3xl font-semibold mb-4 mt-8 max-w-prose mx-auto font-sans\" id=\"-learning--development\">📘 Learning &#x26; Development</h2>\n<p class=\"mb-4 max-w-prose mx-auto\"><a href=\"https://youtu.be/eo4gIihETu8?si=FeSscE6Dyt1cxI_C\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://youtu.be/eo4gIihETu8?si=FeSscE6Dyt1cxI_C</a></p>",
+  "content": "<h3 class=\"\" id=\"room-302-studio-website-redesign\">Room 302 Studio Website Redesign</h3>\n<h2 class=\"\" id=\"-learning--development\">📘 Learning &#x26; Development</h2>\n<p class=\"\"><a href=\"https://youtu.be/eo4gIihETu8?si=FeSscE6Dyt1cxI_C\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://youtu.be/eo4gIihETu8?si=FeSscE6Dyt1cxI_C</a></p>",
+  "html": "<h3 class=\"\" id=\"room-302-studio-website-redesign\">Room 302 Studio Website Redesign</h3>\n<h2 class=\"\" id=\"-learning--development\">📘 Learning &#x26; Development</h2>\n<p class=\"\"><a href=\"https://youtu.be/eo4gIihETu8?si=FeSscE6Dyt1cxI_C\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://youtu.be/eo4gIihETu8?si=FeSscE6Dyt1cxI_C</a></p>",
   "title": "Projects Worked On",
   "metadata": {
     "tags": [
@@ -16,6 +16,11 @@
     "dek": "In which the author partakes in the redesign of the Room 302 Studio website and engages in learning and development through a video lecture.",
     "words": 18,
     "images": 0,
+    "imageDetails": {
+      "total": 0,
+      "cloudinary": 0,
+      "withDimensions": 0
+    },
     "links": 0,
     "codeBlocks": 0,
     "headers": {

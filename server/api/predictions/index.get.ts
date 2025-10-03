@@ -21,16 +21,19 @@ async function ensurePredictionsFile(): Promise<void> {
 
 // Calculate Brier score for predictions
 function calculateBrierScore(predictions: Prediction[]): number {
-  const resolvedPredictions = predictions.filter(p => p.resolvedAt)
+  const resolvedPredictions = predictions.filter((p) => p.resolvedAt)
   if (resolvedPredictions.length === 0) return 0
 
-  const squaredDiffs = resolvedPredictions.map(p => {
+  const squaredDiffs = resolvedPredictions.map((p) => {
     const probability = p.confidence / 100
     const outcome = p.resolution ? 1 : 0
     return Math.pow(probability - outcome, 2)
   })
 
-  return squaredDiffs.reduce((sum, diff) => sum + diff, 0) / resolvedPredictions.length
+  return (
+    squaredDiffs.reduce((sum, diff) => sum + diff, 0) /
+    resolvedPredictions.length
+  )
 }
 
 export default defineEventHandler(async () => {
@@ -39,26 +42,28 @@ export default defineEventHandler(async () => {
   try {
     const fileContent = await readFile(PREDICTIONS_FILE, 'utf-8')
     const data: PredictionsData = JSON.parse(fileContent)
-    
+
     // Calculate stats
-    const resolved = data.predictions.filter(p => p.resolvedAt)
-    const correct = resolved.filter(p => p.resolution === true)
-    const incorrect = resolved.filter(p => p.resolution === false)
-    const pending = data.predictions.filter(p => !p.resolvedAt)
+    const resolved = data.predictions.filter((p) => p.resolvedAt)
+    const correct = resolved.filter((p) => p.resolution === true)
+    const incorrect = resolved.filter((p) => p.resolution === false)
+    const pending = data.predictions.filter((p) => !p.resolvedAt)
 
     // Calculate category counts
     const categoryCounts: Record<string, number> = {}
-    data.predictions.forEach(p => {
-      p.categories.forEach(cat => {
+    data.predictions.forEach((p) => {
+      p.categories.forEach((cat) => {
         categoryCounts[cat] = (categoryCounts[cat] || 0) + 1
       })
     })
 
     // Calculate confidence buckets
     const confidenceBuckets = {
-      low: data.predictions.filter(p => p.confidence <= 33).length,
-      medium: data.predictions.filter(p => p.confidence > 33 && p.confidence <= 66).length,
-      high: data.predictions.filter(p => p.confidence > 66).length
+      low: data.predictions.filter((p) => p.confidence <= 33).length,
+      medium: data.predictions.filter(
+        (p) => p.confidence > 33 && p.confidence <= 66
+      ).length,
+      high: data.predictions.filter((p) => p.confidence > 66).length
     }
 
     const stats: PredictionStats = {
@@ -67,15 +72,17 @@ export default defineEventHandler(async () => {
       correct: correct.length,
       incorrect: incorrect.length,
       pending: pending.length,
-      accuracy: resolved.length > 0 ? (correct.length / resolved.length) : 0,
+      accuracy: resolved.length > 0 ? correct.length / resolved.length : 0,
       brierScore: calculateBrierScore(data.predictions),
       categoryCounts,
       confidenceBuckets
     }
 
     return {
-      predictions: data.predictions.sort((a, b) => 
-        new Date(b.createdAt || b.created).getTime() - new Date(a.createdAt || a.created).getTime()
+      predictions: data.predictions.sort(
+        (a, b) =>
+          new Date(b.createdAt || b.created).getTime() -
+          new Date(a.createdAt || a.created).getTime()
       ),
       stats
     }

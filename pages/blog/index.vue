@@ -1,152 +1,433 @@
-<!-- Blog Index - Swiss minimal design with optimized Vue 3 + anime.js -->
+<!-- Blog Index - Tufte Style -->
 
 <template>
   <div>
-    <!-- Header -->
-    <header class="header">
-      <h1 class="text-display mb-8">Blog</h1>
-      <p class="text-body">
-        Thoughts, projects, and explorations in technology, design, and making.
-      </p>
-    </header>
-
-    <div class="max-w-screen-lg h-feed">
-      <!-- Main Blog Posts -->
-      <section class="mt-16 md:mt-0">
-        <div v-if="!sortedYears.length" class="text-center py-16">
-          <p class="text-zinc-600 dark:text-zinc-400">No blog posts found.</p>
-        </div>
-
-        <!-- Yearly blog posts -->
-        <div v-for="year in sortedYears" :key="`blog-${year}`" class="mb-24">
-          <h2 class="year-header">
-            {{ year }}
-          </h2>
-          <div class="space-y-12">
-            <article
-              v-for="post in blogPostsByYear[year]"
-              :key="post?.slug"
-              class="group p-4 md:p-0 md:grid grid-cols-12 gap-4 h-entry"
-            >
-              <div class="col-span-1 md:col-span-2 md:pl-0">
-                <PostMetadata
-                  v-if="post"
-                  :doc="createPostMetadata(post)"
-                  :compact="true"
-                  class="post-metadata text-xs"
-                />
-              </div>
-              <div class="col-span-11 md:col-span-10">
-                <h3 class="mb-2">
-                  <NuxtLink
-                    :to="`/blog/${post?.slug}`"
-                    class="post-link p-name u-url"
-                  >
-                    {{ post?.title || formatTitle(post?.slug) }}
-                  </NuxtLink>
-                </h3>
-                <p
-                  v-if="post?.metadata?.dek || post?.dek"
-                  class="post-dek p-summary"
-                >
-                  {{ post?.metadata?.dek || post?.dek }}
-                </p>
-                <!-- Hidden microformat data for each post -->
-                <time
-                  v-if="post?.metadata?.date || post?.date"
-                  :datetime="post?.metadata?.date || post?.date"
-                  class="dt-published hidden"
-                >
-                  {{ post?.metadata?.date || post?.date }}
-                </time>
-              </div>
-            </article>
+    <!-- Header with consistent metadata styling -->
+    <header class="mb-4 relative">
+      <!-- Swiss Grid Container matching blog posts -->
+      <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+        <!-- Compact metadata bar matching blog posts -->
+        <div class="border-b border-zinc-200 dark:border-zinc-800">
+          <div
+            class="font-mono text-xs text-zinc-500 px-4 md:px-6 py-1 uppercase tabular-nums flex items-center gap-2 overflow-x-auto tracking-wider"
+          >
+            <span class="flex items-center gap-1 whitespace-nowrap">
+              <span class="text-zinc-400">ENTRIES</span>
+              <span class="text-zinc-600 dark:text-zinc-300">{{
+                posts?.length || 0
+              }}</span>
+            </span>
+            <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
+            <span class="flex items-center gap-1 whitespace-nowrap">
+              <span class="text-zinc-400">WORDS</span>
+              <span class="text-zinc-600 dark:text-zinc-300"
+                >{{
+                  Math.floor(
+                    (posts?.reduce(
+                      (acc, p) => acc + (p?.metadata?.words || p?.words || 0),
+                      0
+                    ) || 0) / 1000
+                  )
+                }}K</span
+              >
+            </span>
+            <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
+            <span class="flex items-center gap-1 whitespace-nowrap">
+              <span class="text-zinc-400">READ</span>
+              <span class="text-zinc-600 dark:text-zinc-300"
+                >{{
+                  Math.floor(
+                    (posts?.reduce(
+                      (acc, p) => acc + (p?.metadata?.words || p?.words || 0),
+                      0
+                    ) || 0) /
+                      200 /
+                      60
+                  )
+                }}hr</span
+              >
+            </span>
+            <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
+            <span class="flex items-center gap-1 whitespace-nowrap">
+              <span class="text-zinc-400">LINKS</span>
+              <span class="text-zinc-600 dark:text-zinc-300">{{
+                posts?.reduce(
+                  (acc, p) => acc + (p?.metadata?.links || p?.links || 0),
+                  0
+                ) || 0
+              }}</span>
+            </span>
+            <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
+            <span class="flex items-center gap-1 whitespace-nowrap">
+              <span class="text-zinc-400">IMAGES</span>
+              <span class="text-zinc-600 dark:text-zinc-300">{{
+                posts?.reduce(
+                  (acc, p) => acc + (p?.metadata?.images || p?.images || 0),
+                  0
+                ) || 0
+              }}</span>
+            </span>
+            <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
+            <span class="flex items-center gap-1 whitespace-nowrap">
+              <span class="text-zinc-400">YEARS</span>
+              <span class="text-zinc-600 dark:text-zinc-300">{{
+                sortedYears?.length || 0
+              }}</span>
+            </span>
           </div>
         </div>
-      </section>
 
-      <!-- Sidebar sections -->
-      <aside class="sidebar">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-          <!-- Week Notes -->
-          <section>
-            <h2 class="section-header">Week Notes</h2>
-            <div v-if="!sortedWeekNotes.length" class="text-center py-8">
-              <p class="text-sm text-zinc-600 dark:text-zinc-400">
-                No week notes found.
+        <!-- Title section matching blog posts -->
+        <div
+          class="px-4 md:px-6"
+          style="padding-top: 24px; padding-bottom: 16px"
+        >
+          <h1
+            class="font-serif font-light text-4xl md:text-5xl lg:text-6xl mb-2"
+            style="line-height: 1.15; letter-spacing: -0.025em"
+          >
+            Blog
+          </h1>
+          <p
+            class="font-serif text-lg md:text-xl text-zinc-600 dark:text-zinc-400 mb-4"
+            style="line-height: 1.6"
+          >
+            Thoughts, projects, and explorations in technology, design, and
+            making.
+          </p>
+        </div>
+
+        <!-- Main content -->
+        <div class="relative px-4 md:px-6 h-feed">
+          <!-- Main column -->
+          <section style="max-width: 65ch">
+            <div v-if="!sortedYears.length" class="text-center py-8">
+              <p class="text-zinc-600 dark:text-zinc-400 text-sm">
+                No blog posts found.
               </p>
             </div>
-            <template v-else>
-              <div class="space-y-6">
-                <article
-                  v-for="weekNote in sortedWeekNotes"
-                  :key="weekNote.slug"
+
+            <!-- Posts with inline years -->
+            <div v-for="year in sortedYears" :key="`blog-${year}`">
+              <template
+                v-for="(post, index) in blogPostsByYear[year]"
+                :key="post?.slug"
+              >
+                <!-- Year marker (inline, only for first post) -->
+                <div
+                  v-if="index === 0"
+                  class="font-mono text-xs uppercase tracking-widest text-zinc-400 dark:text-zinc-600 mt-12 first:mt-0 mb-6"
+                  style="line-height: 16px"
                 >
-                  <NuxtLink
-                    :to="`/blog/${weekNote.slug}`"
-                    class="block group week-note-link"
-                  >
-                    <div class="mb-1">
-                      <span class="week-note-title">
-                        Week {{ weekNote.slug.split('/')[1] }}
+                  {{ year }}
+                </div>
+
+                <article class="group mb-8 h-entry">
+                  <!-- Main content -->
+                  <div>
+                    <h3>
+                      <NuxtLink
+                        :to="`/blog/${post?.slug}`"
+                        class="font-serif text-xl md:text-2xl font-normal text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400 p-name u-url transition-colors duration-200 tracking-tight"
+                        style="line-height: 1.3"
+                      >
+                        {{ post?.title || formatTitle(post?.slug) }}
+                      </NuxtLink>
+                    </h3>
+
+                    <!-- Horizontal metadata line with microvis -->
+                    <div
+                      class="font-mono text-xs text-zinc-400 dark:text-zinc-600 mt-1 uppercase tracking-wider tabular-nums flex items-center gap-1"
+                    >
+                      <span>{{
+                        formatShortDate(post?.metadata?.date || post?.date)
+                      }}</span>
+                      <span class="mx-1 text-zinc-300 dark:text-zinc-700"
+                        >·</span
+                      >
+                      <span
+                        >{{
+                          calculateReadingTime(
+                            post?.metadata?.words || post?.words
+                          )
+                        }}min</span
+                      >
+
+                      <!-- Word count with sparkline -->
+                      <span
+                        v-if="post?.metadata?.words || post?.words"
+                        class="flex items-center gap-1"
+                      >
+                        <span class="mx-1 text-zinc-300 dark:text-zinc-700"
+                          >·</span
+                        >
+                        <BlogSparkline
+                          :value="post?.metadata?.words || post?.words || 0"
+                          metric="words"
+                          type="bars"
+                        />
+                        <span
+                          >{{
+                            formatNumber(
+                              post?.metadata?.words || post?.words || 0
+                            )
+                          }}
+                          words</span
+                        >
+                      </span>
+
+                      <!-- Images sparkline -->
+                      <span
+                        v-if="(post?.metadata?.images || post?.images || 0) > 0"
+                        class="flex items-center gap-1"
+                      >
+                        <span class="mx-1 text-zinc-300 dark:text-zinc-700"
+                          >·</span
+                        >
+                        <BlogSparkline
+                          :value="post?.metadata?.images || post?.images || 0"
+                          metric="images"
+                          type="dots"
+                        />
+                        <span
+                          >{{
+                            post?.metadata?.images || post?.images
+                          }}
+                          images</span
+                        >
+                      </span>
+
+                      <!-- Links sparkline -->
+                      <span
+                        v-if="(post?.metadata?.links || post?.links || 0) > 0"
+                        class="flex items-center gap-1"
+                      >
+                        <span class="mx-1 text-zinc-300 dark:text-zinc-700"
+                          >·</span
+                        >
+                        <BlogSparkline
+                          :value="post?.metadata?.links || post?.links || 0"
+                          metric="links"
+                          type="bars"
+                        />
+                        <span
+                          >{{
+                            post?.metadata?.links || post?.links
+                          }}
+                          links</span
+                        >
                       </span>
                     </div>
-                    <p class="week-note-dek">
-                      {{ weekNote.metadata?.dek || weekNote.dek }}
-                    </p>
-                  </NuxtLink>
-                </article>
-              </div>
-              <div class="mt-8">
-                <NuxtLink to="/blog/week-notes" class="view-all-link">
-                  View all →
-                </NuxtLink>
-              </div>
-            </template>
-          </section>
 
-          <!-- Recently Updated -->
-          <section v-if="recentlyUpdatedPosts.length">
-            <h2 class="section-header">Recently Updated</h2>
-            <div class="space-y-6">
-              <article
-                v-for="post in recentlyUpdatedPosts"
-                :key="`recent-${post.slug}`"
-              >
-                <NuxtLink :to="`/blog/${post.slug}`" class="block group">
-                  <h3 class="recent-post-title">
-                    {{ post?.metadata?.title || post?.title }}
-                  </h3>
-                  <div class="recent-post-date">
-                    {{
-                      formatRelativeTime(
-                        post?.metadata?.lastUpdated ||
-                          post?.metadata?.date ||
-                          post?.lastUpdated ||
-                          post?.date
-                      )
-                    }}
+                    <p
+                      v-if="post?.metadata?.dek || post?.dek"
+                      class="font-serif text-sm text-zinc-600 dark:text-zinc-400 mt-1 p-summary leading-5"
+                    >
+                      {{ post?.metadata?.dek || post?.dek }}
+                    </p>
                   </div>
-                </NuxtLink>
-              </article>
+
+                  <!-- Hidden microformat data -->
+                  <time
+                    v-if="post?.metadata?.date || post?.date"
+                    :datetime="post?.metadata?.date || post?.date"
+                    class="dt-published hidden"
+                  >
+                    {{ post?.metadata?.date || post?.date }}
+                  </time>
+                </article>
+              </template>
             </div>
           </section>
+
+          <!-- Sidebar sections (simplified) -->
+          <aside
+            class="mt-8 pt-4 border-t border-zinc-200 dark:border-zinc-800"
+            style="max-width: 65ch"
+          >
+            <!-- Data stats footer -->
+            <div
+              class="font-mono text-xs text-zinc-400 mb-4 grid grid-cols-2 md:grid-cols-4 gap-3 tabular-nums"
+            >
+              <div>
+                <span class="text-zinc-500">TTL_READ</span>
+                <br />
+                <span
+                  >{{
+                    Math.ceil(
+                      (posts?.reduce(
+                        (acc, p) => acc + (p?.metadata?.words || p?.words || 0),
+                        0
+                      ) || 0) / 200
+                    )
+                  }}min</span
+                >
+              </div>
+              <div>
+                <span class="text-zinc-500">AVG_POST</span>
+                <br />
+                <span
+                  >{{
+                    posts?.length
+                      ? Math.floor(
+                          posts.reduce(
+                            (acc, p) =>
+                              acc + (p?.metadata?.words || p?.words || 0),
+                            0
+                          ) / posts.length
+                        )
+                      : 0
+                  }}w</span
+                >
+              </div>
+              <div>
+                <span class="text-zinc-500">MEDIA</span>
+                <br />
+                <span
+                  >{{
+                    posts?.reduce(
+                      (acc, p) => acc + (p?.metadata?.images || p?.images || 0),
+                      0
+                    ) || 0
+                  }}img</span
+                >
+              </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <!-- Week Notes -->
+              <section v-if="sortedWeekNotes.length">
+                <h2
+                  class="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-2"
+                >
+                  Week Notes
+                  <span
+                    class="font-mono text-xs text-zinc-400 normal-case tracking-normal"
+                    >[{{ sortedWeekNotes.length }}]</span
+                  >
+                </h2>
+                <div class="space-y-2">
+                  <article
+                    v-for="weekNote in sortedWeekNotes"
+                    :key="weekNote.slug"
+                    class="group"
+                  >
+                    <NuxtLink :to="`/blog/${weekNote.slug}`" class="block">
+                      <div
+                        class="font-serif text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-400"
+                      >
+                        Week {{ weekNote.slug.split('/')[1] }}
+                      </div>
+                      <p class="font-serif text-xs text-zinc-500">
+                        {{ weekNote.metadata?.dek || weekNote.dek }}
+                      </p>
+                    </NuxtLink>
+                  </article>
+                </div>
+              </section>
+
+              <!-- Recently Updated -->
+              <section v-if="recentlyUpdatedPosts.length">
+                <h2
+                  class="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-2"
+                >
+                  Recently Updated
+                  <span
+                    class="font-mono text-xs text-zinc-400 normal-case tracking-normal"
+                    >[{{ recentlyUpdatedPosts.length }}]</span
+                  >
+                </h2>
+                <div class="space-y-2">
+                  <article
+                    v-for="post in recentlyUpdatedPosts"
+                    :key="post.slug"
+                    class="group"
+                  >
+                    <NuxtLink :to="`/blog/${post.slug}`" class="block">
+                      <div
+                        class="font-serif text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-400"
+                      >
+                        {{ post.title }}
+                      </div>
+                      <div class="font-mono text-xs text-zinc-500">
+                        {{
+                          formatShortDate(
+                            post?.metadata?.lastUpdated ||
+                              post?.metadata?.date ||
+                              post?.date
+                          )
+                        }}
+                      </div>
+                    </NuxtLink>
+                  </article>
+                </div>
+              </section>
+            </div>
+          </aside>
         </div>
-      </aside>
-    </div>
+      </div>
+    </header>
   </div>
 </template>
 
 <script setup>
-import { formatDistanceToNow, startOfWeek, subMonths } from 'date-fns'
-import { computed, ref, onMounted } from 'vue'
-// DELETED: All animation imports removed
-import PostMetadata from '~/components/PostMetadata.vue'
+import { formatDistanceToNow, subMonths, startOfWeek } from 'date-fns'
 
 const processedMarkdown = useProcessedMarkdown()
 const now = new Date()
 
-// Week note detection helper
+// Helper functions
+const formatTitle = (slug) => {
+  if (!slug) return 'Untitled'
+  const lastPart = slug.split('/').pop()
+  return lastPart
+    .replace(/-/g, ' ')
+    .replace(/\b\w/g, (char) => char.toUpperCase())
+}
+
+// Calculate reading time (assumes 200 words per minute)
+const calculateReadingTime = (words) => {
+  if (!words) return 0
+  return Math.ceil(words / 200)
+}
+
+// Format file size (characters to KB)
+const formatFileSize = (chars) => {
+  if (!chars) return '0KB'
+  const kb = chars / 1024
+  return kb < 1 ? '<1KB' : `${kb.toFixed(1)}KB`
+}
+
+const formatShortDate = (dateString) => {
+  if (!dateString) return ''
+  const date = new Date(dateString)
+  const months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec'
+  ]
+  return `${months[date.getMonth()]} ${date.getDate()}`
+}
+
+const formatNumber = (num) => {
+  if (!num) return '0'
+  return num.toLocaleString()
+}
+
+const getPostYear = (post) => {
+  const postDate = post?.date || post?.metadata?.date
+  if (!postDate) return 'Unknown'
+  return new Date(postDate).getFullYear()
+}
+
 const isWeekNote = (post) => {
   const slug = post?.slug || ''
   const type = post?.type || post?.metadata?.type
@@ -158,7 +439,6 @@ const isWeekNote = (post) => {
   )
 }
 
-// Post validation helper
 const isValidPost = (post, includeWeekNotes = false) => {
   const isHidden = post?.hidden === true || post?.metadata?.hidden === true
   const isDraft = post?.draft === true || post?.metadata?.draft === true
@@ -175,7 +455,6 @@ const isValidPost = (post, includeWeekNotes = false) => {
   )
 }
 
-// Process post with title fallback
 const processPost = (post) => {
   const title = post.title || post?.metadata?.title || formatTitle(post.slug)
   return { ...post, title, metadata: { ...post.metadata, title } }
@@ -212,15 +491,45 @@ const { data: notes } = useAsyncData('week-notes', async () => {
   }
 })
 
-const formatRelativeTime = (date) =>
-  formatDistanceToNow(new Date(date), { addSuffix: true })
-
 useHead({
   title: 'Blog',
   meta: [{ name: 'description', content: 'Blog posts and week notes' }]
 })
 
-// Sort week notes with date conversion
+// Computed data for sparklines
+const postCountByYear = computed(() => {
+  if (!posts.value) return []
+  const years = posts.value.reduce((acc, post) => {
+    const year = getPostYear(post)
+    acc[year] = (acc[year] || 0) + 1
+    return acc
+  }, {})
+  return Object.values(years)
+})
+
+const monthlyActivity = computed(() => {
+  if (!posts.value) return []
+  // Get last 12 months of activity
+  const months = {}
+  const now = new Date()
+
+  for (let i = 0; i < 12; i++) {
+    const month = new Date(now.getFullYear(), now.getMonth() - i, 1)
+    const key = `${month.getFullYear()}-${month.getMonth()}`
+    months[key] = 0
+  }
+
+  posts.value.forEach((post) => {
+    const date = new Date(post?.metadata?.date || post?.date)
+    const key = `${date.getFullYear()}-${date.getMonth()}`
+    if (months[key] !== undefined) {
+      months[key]++
+    }
+  })
+
+  return Object.values(months).reverse()
+})
+
 const sortedWeekNotes = computed(() => {
   if (!notes.value) return []
 
@@ -267,7 +576,6 @@ const blogPostsByYear = computed(() => {
     grouped[year].push(post)
   })
 
-  // Sort posts within each year (newest first)
   Object.values(grouped).forEach((yearPosts) => {
     yearPosts.sort(
       (a, b) =>
@@ -282,8 +590,6 @@ const blogPostsByYear = computed(() => {
 const sortedYears = computed(() =>
   Object.keys(blogPostsByYear.value).sort((a, b) => b - a)
 )
-
-// DELETED: All animation code removed for better performance
 
 const recentlyUpdatedPosts = computed(() => {
   if (!posts.value) return []
@@ -308,26 +614,19 @@ const recentlyUpdatedPosts = computed(() => {
     .slice(0, 5)
 })
 
-// Helper functions
-const formatTitle = (slug) => {
-  const baseName = slug.split('/').pop() || slug
-  return baseName
-    .split('-')
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ')
-}
+const blogPosts = computed(() => posts.value || [])
 
 const createPostMetadata = (post) => {
-  if (!post) return null
   const metadata = post?.metadata || {}
   return {
-    slug: post?.slug || metadata?.slug,
     title: post?.title || metadata?.title,
+    slug: post?.slug || metadata?.slug,
     date: post?.date || metadata?.date,
+    tags: post?.tags || metadata?.tags,
     draft: post?.draft || metadata?.draft,
-    wordCount: post?.wordCount || metadata?.words,
-    imageCount: post?.imageCount || metadata?.images,
-    linkCount: post?.linkCount || metadata?.links,
+    words: post?.words || metadata?.words,
+    images: post?.images || metadata?.images,
+    links: post?.links || metadata?.links,
     dek: post?.dek || metadata?.dek,
     metadata
   }
@@ -335,73 +634,5 @@ const createPostMetadata = (post) => {
 </script>
 
 <style scoped>
-.year-header {
-  @apply text-xs font-normal uppercase pl-2 md:pl-0 text-zinc-500 dark:text-zinc-500 mb-8;
-  will-change: transform, opacity;
-}
-
-.post-metadata {
-  @apply text-xs text-zinc-500 dark:text-zinc-500;
-}
-
-.post-link {
-  @apply text-lg text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors;
-  position: relative;
-}
-
-.post-link::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: var(--link-width, 8px);
-  height: 1px;
-  background: currentColor;
-  opacity: 0.1;
-  transition: width 0.3s ease;
-}
-
-.post-dek {
-  @apply text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed pr-4 md:pr-8 xl:pr-16;
-}
-
-.sidebar {
-  @apply mt-24 pt-12 border-t border-zinc-200 dark:border-zinc-800;
-}
-
-.week-note-link {
-  position: relative;
-}
-
-.week-note-link::before {
-  content: '';
-  position: absolute;
-  left: -6px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1px;
-  height: 40%;
-  background: currentColor;
-  opacity: 0.15;
-}
-
-.week-note-title {
-  @apply text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-400 transition-colors;
-}
-
-.week-note-dek {
-  @apply text-sm text-zinc-500 dark:text-zinc-500 leading-relaxed;
-}
-
-.view-all-link {
-  @apply text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors;
-}
-
-.recent-post-title {
-  @apply text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-400 transition-colors mb-1;
-}
-
-.recent-post-date {
-  @apply text-sm text-zinc-500 dark:text-zinc-500;
-}
+/* Pure Tufte - minimal CSS */
 </style>

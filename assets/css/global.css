@@ -1,40 +1,137 @@
 /* Swiss Design System - Minimal, Clear, Functional */
 
-/* Base Font Families */
-.sans-serif {
-  font-weight: 300;
+/* Utility Classes - Common Patterns */
+.max-w-content {
+  max-width: 65ch;
 }
 
-.serif {
-  font-family: Georgia, serif !important;
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings:
+    'lnum' 1,
+    'tnum' 1;
 }
 
+.letter-tight {
+  letter-spacing: -0.02em;
+}
+
+.letter-tighter {
+  letter-spacing: -0.035em;
+}
+
+/* Base Typography */
 body {
-  font-family: Georgia, serif;
+  color: #1a1a1a; /* Warm near-black instead of pure black */
+  font-family:
+    'Georgia', 'Times New Roman', 'Droid Serif', 'Times', 'Source Serif Pro',
+    serif;
+  /* Enhanced Georgia OpenType features */
+  font-feature-settings:
+    'kern' 1,      /* Kerning */
+    'liga' 1,      /* Standard ligatures (fi, fl, etc.) */
+    'calt' 1,      /* Contextual alternates */
+    'onum' 1,      /* Old-style numerals in body text */
+    'dlig' 1,      /* Discretionary ligatures (ct, st) */
+    'swsh' 1,      /* Swash characters for emphasis */
+    'hist' 1;      /* Historical forms */
+  font-variant-ligatures: common-ligatures contextual discretionary-ligatures;
+  font-variant-numeric: oldstyle-nums;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  /* Hanging punctuation */
+  hanging-punctuation: first last;
 }
 
-/* Typography System */
+/* Dark mode gets slightly warmer whites */
+@media (prefers-color-scheme: dark) {
+  body {
+    color: #f5f5f4; /* Warmer off-white */
+    background-color: #0a0a0a; /* Warm near-black background */
+    font-weight: 375; /* Slightly lighter in dark mode for better readability */
+  }
+}
+
+
+/* Typography System - Serif for human content, Mono for data */
 .text-display {
-  @apply text-4xl md:text-5xl font-light text-zinc-900 dark:text-zinc-100;
+  @apply font-serif text-4xl md:text-6xl font-light leading-tight text-zinc-900 dark:text-zinc-100;
+  /* Optical sizing: tighter tracking for large text */
+  letter-spacing: -0.03em;
+}
+
+/* Optical sizing adjustments */
+h1,
+.text-8xl,
+.text-7xl,
+.text-6xl {
+  letter-spacing: -0.035em;
+}
+
+h2,
+.text-5xl,
+.text-4xl {
+  letter-spacing: -0.025em;
+}
+
+h3,
+.text-3xl,
+.text-2xl {
+  letter-spacing: -0.015em;
+}
+
+/* Normal tracking for body text */
+p,
+.text-base,
+.text-lg {
+  letter-spacing: 0;
+}
+
+/* Slightly wider for small text */
+.text-sm,
+.text-xs {
+  letter-spacing: 0.01em;
+}
+
+.text-heading {
+  @apply font-serif text-2xl md:text-3xl font-normal tracking-tight leading-snug text-zinc-900 dark:text-zinc-100;
 }
 
 .text-body {
-  @apply text-lg leading-relaxed font-serif text-zinc-600 dark:text-zinc-400;
+  @apply font-serif text-base leading-relaxed text-zinc-700 dark:text-zinc-300;
+}
+
+.text-data {
+  @apply font-mono text-sm text-zinc-600 dark:text-zinc-400;
+  /* Lining figures for data */
+  font-feature-settings:
+    'lnum' 1,
+    'tnum' 1;
+}
+
+.text-mono {
+  @apply font-mono text-sm;
+  /* Tabular lining figures for monospace */
+  font-feature-settings:
+    'lnum' 1,
+    'tnum' 1;
+}
+
+.text-small {
+  @apply font-serif text-sm leading-normal text-zinc-600 dark:text-zinc-400;
+}
+
+.text-caption {
+  @apply font-mono text-xs leading-normal text-zinc-500;
+}
+
+.text-meta {
+  @apply font-mono text-xs uppercase tracking-widest text-zinc-500;
 }
 
 .header {
   @apply my-20 md:mt-6 pl-4 md:pl-0;
-}
-.monospace {
-  font-family: ui-monospace, 'SF Mono', Monaco, monospace !important;
-}
-
-.text-small {
-  @apply text-sm text-zinc-600 dark:text-zinc-400;
-}
-
-.text-caption {
-  @apply text-xs uppercase tracking-[0.15em] text-zinc-500 dark:text-zinc-500;
 }
 
 /* Color System */
@@ -104,27 +201,11 @@ body {
 }
 
 .project-date {
-  @apply text-xs text-zinc-400 font-mono;
-}
-
-.project-tech-container {
-  @apply pt-3;
-}
-
-.project-tech-list {
-  @apply flex flex-col gap-1 items-end;
-}
-
-.project-tech-tag {
-  @apply text-xs px-2 py-0.5 bg-zinc-50 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 rounded-md w-fit font-mono;
-}
-
-.project-github {
-  @apply pt-6;
+  @apply font-mono text-xs uppercase tracking-widest text-zinc-500;
 }
 
 .project-github-link {
-  @apply text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100;
+  @apply font-mono text-xs uppercase tracking-widest text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors;
 }
 
 /* Loading States - Minimal */
@@ -145,18 +226,39 @@ body {
   @apply grid grid-cols-12 gap-x-4 px-6 md:px-8;
 }
 
+/* Image grid layouts - 2-4-8 columns */
+.image-grid-2 {
+  @apply grid grid-cols-2 gap-2; /* 2-unit gaps */
+}
+
+.image-grid-4 {
+  @apply grid grid-cols-2 md:grid-cols-4 gap-4; /* 4-unit gaps */
+}
+
+.image-grid-auto {
+  @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4;
+}
+
+.image-grid-2 img,
+.image-grid-4 img,
+.image-grid-auto img {
+  @apply object-cover w-full;
+  aspect-ratio: 1 / 1;
+}
+
 .content-grid {
   @apply col-span-12 md:col-start-2 md:col-span-10 lg:col-start-3 lg:col-span-8;
 }
 
-/* Spacing System */
+/* Spacing System - True 8px Baseline Grid */
 .section-spacing {
-  @apply py-24;
+  @apply py-24; /* 3 * 8px baseline units */
 }
 
 .element-spacing {
-  @apply mb-12;
+  @apply mb-16; /* 2 * 8px baseline units */
 }
+
 
 /* Borders - Minimal */
 .border-default {
@@ -183,6 +285,10 @@ body {
 /* Primary stat containers */
 .stat-card {
   @apply space-y-1 font-mono;
+  /* Lining tabular figures for stats */
+  font-feature-settings:
+    'lnum' 1,
+    'tnum' 1;
 }
 
 .metric-card {
@@ -191,8 +297,13 @@ body {
 
 /* Main stat values - consistent across ALL components */
 .stat-value {
-  @apply text-2xl font-light tabular-nums tracking-tight text-zinc-800 dark:text-zinc-100 mb-1;
+  @apply text-2xl font-light tabular-nums text-zinc-800 dark:text-zinc-100 mb-1;
   font-family: ui-monospace, 'SF Mono', Monaco, monospace;
+  /* Optical sizing for larger numbers */
+  letter-spacing: -0.02em;
+  font-feature-settings:
+    'lnum' 1,
+    'tnum' 1;
 }
 
 /* Primary labels - consistent across ALL components */
@@ -259,101 +370,300 @@ body {
   @apply w-2 h-2 rounded-full;
 }
 
-/* EPIC ANIME.JS PAGE TRANSITIONS - CYBERPUNK MORPHING SYSTEM */
+/* Removed anime.js transitions - causing flickering */
 
-.page-transition-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 9999;
-  pointer-events: none;
-  background: transparent;
-  backdrop-filter: blur(0px);
-}
-
-/* Data stream lines for exit animation */
-.transition-line {
-  position: absolute;
-  top: 0;
-  width: 1px;
-  height: 100vh;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(156, 163, 175, 0.3) 20%,
-    rgba(156, 163, 175, 0.6) 50%,
-    rgba(156, 163, 175, 0.3) 80%,
-    transparent 100%
-  );
-  transform-origin: top;
-  transform: scaleY(0);
-  opacity: 0;
-  will-change: transform, opacity;
-}
-
-/* Morphing grid system */
-.transition-grid {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  gap: 0;
-}
-
-.grid-cell {
-  background: rgba(156, 163, 175, 0.1);
-  border: 1px solid rgba(156, 163, 175, 0.05);
-  transform: scale(0);
-  opacity: 0;
-  will-change: transform, opacity;
-  backdrop-filter: blur(0.5px);
-}
-
-/* Dark mode adjustments */
-@media (prefers-color-scheme: dark) {
-  .transition-line {
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgba(113, 113, 122, 0.4) 20%,
-      rgba(113, 113, 122, 0.7) 50%,
-      rgba(113, 113, 122, 0.4) 80%,
-      transparent 100%
-    );
-  }
-
-  .grid-cell {
-    background: rgba(113, 113, 122, 0.15);
-    border: 1px solid rgba(113, 113, 122, 0.08);
-  }
-}
-
-/* Hardware acceleration for smooth animations */
-.page-transition-overlay,
-.transition-line,
-.grid-cell {
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-}
-
-/* Performance optimizations */
-.page-transition-overlay * {
-  will-change: transform, opacity, filter;
-}
-
-/* Ensure overlay is above everything */
-.page-transition-overlay {
-  z-index: 2147483647; /* Maximum z-index */
-}
+/* Typography Scale - Modular & Rhythmic */
+/* Uses a 1.250 ratio (Major Third) for harmonious sizing */
+/* Line heights decrease as font size increases for optimal readability */
 
 /* Prose/Article Content Typography */
 .prose {
+  /* Hanging punctuation for article content */
+  hanging-punctuation: first allow-end last;
+}
+
+/* First line styling */
+.prose p:first-of-type::first-line {
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+/* Magazine-style blockquotes - REFINED EDITORIAL */
+.blog-post-content blockquote,
+.prose blockquote,
+blockquote {
+  position: relative !important;
+  margin: 4rem 0 !important;
+  margin-left: clamp(2rem, 8vw, 4rem) !important; /* Responsive margins */
+  margin-right: clamp(2rem, 8vw, 4rem) !important;
+  padding: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  border: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  font-family: 'Georgia', 'Times New Roman', serif !important;
+  font-style: italic !important;
+  font-size: clamp(1.125rem, 2.5vw, 1.375rem) !important; /* Responsive text */
+  line-height: 1.65 !important; /* Tighter for elegance */
+  color: #1a202c !important; /* Richer black */
+  text-align: left !important;
+  quotes: '\201C' '\201D' '\2018' '\2019' !important;
+  box-shadow: none !important;
+  /* Refined typography */
+  font-weight: 400 !important;
+  letter-spacing: 0.01em !important; /* Slight letter spacing for elegance */
+  text-rendering: optimizeLegibility !important;
+  /* Enhanced font features */
+  font-feature-settings: 'kern' 1, 'liga' 1, 'dlig' 1, 'swsh' 1, 'onum' 1 !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .blog-post-content blockquote,
+  .prose blockquote,
+  blockquote {
+    color: #d1d5db !important; /* Lighter in dark mode */
+  }
+}
+
+/* Elegant opening quotation mark - ultra refined */
+.blog-post-content blockquote::before,
+.prose blockquote::before,
+blockquote::before {
+  content: '"' !important;
+  position: absolute !important;
+  left: clamp(-3rem, -8vw, -2rem) !important; /* Responsive positioning */
+  top: -0.75rem !important;
+  font-size: clamp(3.5rem, 8vw, 6rem) !important; /* Responsive size */
+  line-height: 0.8 !important;
+  color: #f1f5f9 !important; /* Even more subtle */
+  font-style: normal !important;
+  font-weight: 100 !important; /* Ultra-light */
+  font-family: 'Georgia', serif !important;
+  z-index: -1 !important;
+  opacity: 0.6 !important; /* Subtle transparency */
+  user-select: none !important;
+  pointer-events: none !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .blog-post-content blockquote::before,
+  .prose blockquote::before,
+  blockquote::before {
+    color: #374151 !important; /* Darker in dark mode */
+  }
+}
+
+/* Remove default paragraph margins inside blockquotes */
+.blog-post-content blockquote p,
+.prose blockquote p,
+blockquote p {
+  margin: 0 !important;
+  font-family: 'Georgia', 'Times New Roman', serif !important;
+  font-style: italic !important;
+}
+
+/* Multiple paragraphs in blockquotes */
+.blog-post-content blockquote p + p,
+.prose blockquote p + p,
+blockquote p + p {
+  margin-top: 1.5rem !important;
+}
+
+/* First line of blockquotes - slightly emphasized */
+.blog-post-content blockquote p:first-of-type::first-line,
+.prose blockquote p:first-of-type::first-line,
+blockquote p:first-of-type::first-line {
+  font-weight: 500 !important; /* Slightly bolder first line */
+  letter-spacing: 0.025em !important; /* More spacing for emphasis */
+}
+
+/* Citation styling for blockquotes with attribution */
+.blog-post-content blockquote cite,
+.prose blockquote cite,
+blockquote cite {
+  display: block !important;
+  margin-top: 1.5rem !important;
+  font-style: normal !important;
+  font-size: 0.875rem !important;
+  color: #64748b !important;
+  font-family: ui-monospace, 'SF Mono', Monaco, monospace !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  font-weight: 500 !important;
+}
+
+.blog-post-content blockquote cite::before,
+.prose blockquote cite::before,
+blockquote cite::before {
+  content: '— ' !important;
+}
+
+/* Hanging punctuation for blockquotes */
+.blog-post-content blockquote,
+.prose blockquote,
+blockquote {
+  hanging-punctuation: first last !important;
+}
+
+/* Mobile refinements */
+@media (max-width: 768px) {
+  .blog-post-content blockquote,
+  .prose blockquote,
+  blockquote {
+    margin-left: 1.5rem !important;
+    margin-right: 1.5rem !important;
+    margin: 3rem 1.5rem !important;
+    font-size: 1.125rem !important; /* Slightly smaller on mobile */
+  }
+
+  .blog-post-content blockquote::before,
+  .prose blockquote::before,
+  blockquote::before {
+    left: -1.5rem !important;
+    font-size: 3rem !important; /* Smaller quote mark on mobile */
+  }
+}
+
+/* Subtle text shadow for better readability */
+.blog-post-content blockquote,
+.prose blockquote,
+blockquote {
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* CSS Magic: Reduce spacing between consecutive blockquotes */
+.blog-post-content blockquote:has(+ blockquote),
+.prose blockquote:has(+ blockquote),
+blockquote:has(+ blockquote) {
+  margin-bottom: 1rem !important; /* Reduce bottom margin of first quote */
+}
+
+.blog-post-content blockquote + blockquote,
+.prose blockquote + blockquote,
+blockquote + blockquote {
+  margin-top: 1rem !important; /* Reduce top margin of second quote */
+}
+
+/* Fallback for browsers that don't support :has() */
+@supports not (selector(:has(*))) {
+  .blog-post-content blockquote + blockquote,
+  .prose blockquote + blockquote,
+  blockquote + blockquote {
+    margin-top: 0.5rem !important; /* Even tighter fallback */
+  }
+}
+
+/* Even tighter for mobile consecutive blockquotes */
+@media (max-width: 768px) {
+  .blog-post-content blockquote + blockquote,
+  .prose blockquote + blockquote,
+  blockquote + blockquote {
+    margin-top: 1.5rem !important; /* Tighter on mobile */
+  }
+}
+
+/* Fix long links in blockquotes */
+.blog-post-content blockquote a,
+.prose blockquote a,
+blockquote a {
+  word-break: break-all !important; /* Break long URLs */
+  overflow-wrap: break-word !important; /* Better wrapping */
+  hyphens: auto !important; /* Add hyphens where appropriate */
+  max-width: 100% !important; /* Ensure links don't overflow */
+  display: inline-block !important; /* Better control over breaking */
+  color: #6b7280 !important; /* Subtle color for URLs in quotes */
+  text-decoration: underline !important;
+  text-decoration-color: rgba(107, 114, 128, 0.3) !important; /* Subtle underline */
+  line-height: 1.4 !important; /* Better spacing for wrapped URLs */
+}
+
+.blog-post-content blockquote a:hover,
+.prose blockquote a:hover,
+blockquote a:hover {
+  color: #374151 !important; /* Darker on hover */
+  text-decoration-color: rgba(55, 65, 81, 0.6) !important;
+}
+
+/* Dark mode link colors in blockquotes */
+@media (prefers-color-scheme: dark) {
+  .blog-post-content blockquote a,
+  .prose blockquote a,
+  blockquote a {
+    color: #9ca3af !important;
+    text-decoration-color: rgba(156, 163, 175, 0.3) !important;
+  }
+
+  .blog-post-content blockquote a:hover,
+  .prose blockquote a:hover,
+  blockquote a:hover {
+    color: #d1d5db !important;
+    text-decoration-color: rgba(209, 213, 219, 0.6) !important;
+  }
+}
+
+/* List styles with custom markers */
+.prose ul {
+  list-style: none;
+  @apply pl-6 my-4;
+}
+
+.prose ul > li {
+  @apply relative my-2;
+  font-family:
+    'Georgia', 'Times New Roman', 'Droid Serif', 'Times', 'Source Serif Pro',
+    serif !important;
+}
+
+.prose ul > li::before {
+  content: '·';
+  position: absolute;
+  left: -1.25rem;
+  @apply text-zinc-500 dark:text-zinc-500 font-bold text-lg;
+}
+
+.prose ol {
+  @apply pl-6 my-4;
+}
+
+.prose ol > li {
+  @apply my-2;
+  font-family:
+    'Georgia', 'Times New Roman', 'Droid Serif', 'Times', 'Source Serif Pro',
+    serif !important;
+  list-style: decimal;
+}
+
+/* Ensure content aligns to left margin properly */
+.blog-post-content > * {
+  margin-left: 0;
+}
+
+.prose p {
+  @apply leading-relaxed;
+  margin-top: 0;
+  margin-bottom: 1.75rem; /* Matches leading-relaxed (1.625) + buffer for true rhythm */
+  font-family:
+    'Georgia', 'Times New Roman', 'Droid Serif', 'Times', 'Source Serif Pro',
+    serif !important;
+}
+
+/* Force serif fonts on all blog content */
+.blog-post-content,
+.blog-post-content * {
+  font-family:
+    'Georgia', 'Times New Roman', 'Droid Serif', 'Times', 'Source Serif Pro',
+    serif;
+}
+
+.blog-post-content pre,
+.blog-post-content code,
+.blog-post-content .font-mono {
+  font-family: ui-monospace, 'SF Mono', Monaco, monospace !important;
 }
 
 .prose h1,
@@ -362,10 +672,420 @@ body {
 .prose h4,
 .prose h5,
 .prose h6 {
-  font-family: Georgia, serif !important;
+  @apply font-light;
+  font-family:
+    'Georgia', 'Times New Roman', 'Droid Serif', 'Times', 'Source Serif Pro',
+    serif !important;
+  letter-spacing: -0.02em;
+  margin-left: 0;
+  /* Lining numerals for headings, swash for elegance */
+  font-feature-settings:
+    'kern' 1,
+    'liga' 1,
+    'lnum' 1,      /* Lining numerals in headings */
+    'swsh' 1,      /* Swash characters */
+    'smcp' 1;      /* Small caps for acronyms in headings */
+  font-variant-numeric: lining-nums;
 }
 
-.prose code,
+.prose h1 {
+  @apply text-4xl md:text-5xl my-8;
+  letter-spacing: -0.035em;
+}
+
+.prose h2 {
+  @apply text-3xl md:text-4xl mt-12 mb-6;
+  letter-spacing: -0.025em;
+}
+
+.prose h3 {
+  @apply text-2xl md:text-3xl mt-8 mb-4;
+  letter-spacing: -0.02em;
+}
+
+.prose h4 {
+  @apply text-xl md:text-2xl mt-6 mb-3;
+  letter-spacing: -0.015em;
+}
+
+/* Inline code in prose */
+.prose code:not(pre code) {
+  @apply px-1 py-0.5 bg-zinc-100 dark:bg-zinc-800 rounded text-sm;
+  font-family: ui-monospace, 'SF Mono', Monaco, monospace;
+  color: #c53030; /* Subtle red for inline code */
+  /* Lining figures for code */
+  font-feature-settings:
+    'lnum' 1,
+    'tnum' 1,
+    'zero' 1;
+}
+
 .prose pre {
-  font-family: ui-monospace, 'SF Mono', Monaco, monospace !important;
+  font-family: ui-monospace, 'SF Mono', Monaco, monospace;
+  font-feature-settings:
+    'lnum' 1,
+    'tnum' 1,
+    'zero' 1;
+}
+
+/* Content Polish - Typography Details */
+
+/* Better emphasis and strong styling */
+.prose em {
+  font-style: italic;
+  font-variation-settings: 'slnt' -15; /* True italic slant if supported */
+}
+
+.prose strong {
+  font-weight: 600; /* Semi-bold instead of bold for Georgia */
+  letter-spacing: -0.01em; /* Slightly tighter for heavier weight */
+}
+
+/* Smart apostrophes and quotes */
+.prose {
+  quotes: '\201C' '\201D' '\2018' '\2019'; /* Smart quotes */
+}
+
+/* Proper spacing for abbreviations */
+.prose abbr[title] {
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+  cursor: help;
+  font-feature-settings: 'smcp' 1; /* Small caps for abbreviations */
+}
+
+/* Time and date styling */
+.prose time {
+  font-variant-numeric: lining-nums;
+  font-feature-settings: 'lnum' 1;
+}
+
+/* Superscript and subscript - enhanced legibility */
+.prose sup,
+.prose sub {
+  font-size: 0.8em; /* Slightly larger for better readability */
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+  font-feature-settings: 'sups' 1, 'lnum' 1; /* Proper superscript */
+}
+
+.prose sup {
+  top: -0.4em; /* Less aggressive positioning */
+}
+
+.prose sub {
+  bottom: -0.25em;
+}
+
+/* Mobile layout utilities */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}
+
+/* Mobile-specific layout fixes */
+@media (max-width: 640px) {
+  /* Prevent horizontal overflow on small screens */
+  .blog-post-content {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+  }
+
+  /* Ensure all text elements respect container bounds */
+  .blog-post-content h1,
+  .blog-post-content h2,
+  .blog-post-content h3,
+  .blog-post-content h4,
+  .blog-post-content h5,
+  .blog-post-content h6,
+  .blog-post-content p,
+  .blog-post-content li {
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+
+  /* Fix any potential code block overflow */
+  .blog-post-content pre,
+  .blog-post-content code {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
+
+/* Enhanced footnote links - larger and more contrasty */
+.prose sup a,
+.prose a[data-footnote-ref] {
+  font-size: 0.95em !important; /* Much larger footnote numbers */
+  font-weight: 700 !important; /* Much bolder for visibility */
+  color: #2d3748 !important; /* Darker gray for better contrast */
+  text-decoration: none !important;
+  padding: 0.25em 0.35em !important; /* Larger touch targets for mobile */
+  border-radius: 3px !important;
+  background: rgba(45, 55, 72, 0.12) !important; /* More visible background */
+  transition: all 0.2s ease !important;
+  font-family: ui-monospace, 'SF Mono', Monaco, monospace !important; /* Monospace for clarity */
+  min-width: 1.8em !important; /* Ensure consistent minimum size */
+  text-align: center !important; /* Center text in larger tap target */
+  display: inline-block !important; /* Better control over sizing */
+}
+
+/* Mobile-specific footnote optimizations */
+@media (max-width: 768px) {
+  .prose sup a,
+  .prose a[data-footnote-ref] {
+    padding: 0.3em 0.4em !important; /* Even larger touch targets on mobile */
+    min-width: 2em !important; /* Larger minimum size for easier tapping */
+  }
+}
+
+.prose sup a:hover,
+.prose a[data-footnote-ref]:hover {
+  background: rgba(45, 55, 72, 0.2) !important;
+  color: #1a202c !important; /* Even darker on hover for contrast */
+  transform: translateY(-1px) !important; /* Subtle lift on hover */
+}
+
+@media (prefers-color-scheme: dark) {
+  .prose sup a,
+  .prose a[data-footnote-ref] {
+    color: #a0aec0 !important; /* Light gray, closer to dark mode text */
+    background: rgba(160, 174, 192, 0.1) !important;
+  }
+
+  .prose sup a:hover,
+  .prose a[data-footnote-ref]:hover {
+    background: rgba(160, 174, 192, 0.2) !important;
+    color: #e2e8f0 !important; /* Lighter on hover */
+  }
+}
+
+/* Ruby annotations (furigana, pronunciation guides) */
+.prose ruby {
+  display: inline-block;
+  position: relative;
+  vertical-align: baseline;
+  line-height: 1;
+  margin: 0 0.1em;
+}
+
+.prose ruby rb {
+  display: inline-block;
+  font-size: inherit;
+  line-height: 1.4;
+}
+
+.prose ruby rt {
+  display: block;
+  font-size: 0.6em; /* Smaller annotation text */
+  line-height: 1.2;
+  text-align: center;
+  color: #6b7280; /* Muted color for annotations */
+  font-family: ui-monospace, 'SF Mono', Monaco, monospace; /* Monospace for clarity */
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.2em;
+  /* Better typography for small annotation text */
+  font-feature-settings: 'lnum' 1, 'tnum' 1;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.prose ruby rt::before,
+.prose ruby rt::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: transparent;
+}
+
+/* Dek (subtitle) typography - enhance ligatures and features */
+.dek,
+p.font-serif.text-lg,
+p.font-serif.text-xl {
+  font-feature-settings:
+    'kern' 1,
+    'liga' 1,
+    'calt' 1,
+    'dlig' 1,      /* Discretionary ligatures for elegant combinations */
+    'onum' 1,      /* Old-style numerals */
+    'swsh' 1;      /* Swash characters for elegance */
+  font-variant-ligatures: common-ligatures contextual discretionary-ligatures;
+  font-variant-numeric: oldstyle-nums;
+}
+
+/* Drop caps for articles */
+.prose-dropcap p:first-of-type::first-letter {
+  @apply float-left text-6xl leading-none mr-2 mt-1 font-light;
+  line-height: 0.8;
+}
+
+/* Data Tables - Consistent Swiss/Tufte style */
+.data-table {
+  @apply w-full font-mono text-sm;
+  font-feature-settings:
+    'lnum' 1,
+    'tnum' 1;
+}
+
+.data-table thead {
+  @apply border-b border-zinc-200 dark:border-zinc-800;
+}
+
+.data-table th {
+  @apply px-2 py-2 text-left font-mono text-xs uppercase tracking-wider text-zinc-500;
+  font-weight: 500;
+}
+
+.data-table tbody tr {
+  @apply border-b border-zinc-100 dark:border-zinc-900;
+}
+
+.data-table tbody tr:hover {
+  @apply bg-zinc-50 dark:bg-zinc-900/50;
+}
+
+.data-table td {
+  @apply px-2 py-2 text-zinc-700 dark:text-zinc-300;
+}
+
+/* Dense table variant */
+.data-table-dense td,
+.data-table-dense th {
+  @apply py-1;
+}
+
+/* Numeric columns */
+.data-table .numeric {
+  @apply text-right tabular-nums;
+}
+
+/* Status/category columns */
+.data-table .category {
+  @apply font-mono text-xs uppercase tracking-wider text-zinc-500;
+}
+
+/* Link styling in tables */
+.data-table a {
+  @apply text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400;
+  border-bottom: none;
+}
+
+/* Table container with scroll */
+.table-container {
+  @apply overflow-x-auto -mx-4 px-4;
+}
+
+/* Minimal list/table hybrid */
+.data-list {
+  @apply space-y-0 font-mono text-sm;
+}
+
+.data-list-item {
+  @apply flex items-baseline justify-between py-2 border-b border-zinc-100 dark:border-zinc-900;
+}
+
+.data-list-item:hover {
+  @apply bg-zinc-50 dark:bg-zinc-900/50;
+}
+
+.data-list-key {
+  @apply text-zinc-600 dark:text-zinc-400;
+}
+
+.data-list-value {
+  @apply text-zinc-900 dark:text-zinc-100 tabular-nums;
+}
+
+/* Image Grid System - 2-4-8 rhythm */
+.prose img,
+.blog-post-content img {
+  @apply my-8 rounded-sm; /* 8-unit spacing */
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Grid-based image sizing */
+.img-small {
+  aspect-ratio: 16 / 9;
+  max-width: 50%;
+  @apply mb-4; /* 4-unit spacing */
+}
+
+.img-medium {
+  aspect-ratio: 16 / 9;
+  max-width: 75%;
+  @apply my-6; /* Between 4 and 8 */
+}
+
+.img-large,
+.img-full {
+  @apply my-8; /* 8-unit spacing */
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
+
+.img-square {
+  @apply my-8;
+  aspect-ratio: 1 / 1;
+}
+
+.img-portrait {
+  @apply my-8;
+  aspect-ratio: 3 / 4;
+  max-width: 66.666667%; /* 2/3 width */
+}
+
+/* Figure with caption - Tufte style */
+figure {
+  @apply my-8; /* 8-unit vertical rhythm */
+}
+
+figure img {
+  @apply mb-2; /* 2-unit gap to caption */
+}
+
+figcaption {
+  @apply font-mono text-xs text-zinc-500 dark:text-zinc-400;
+  letter-spacing: 0.05em;
+  font-feature-settings:
+    'lnum' 1,
+    'tnum' 1;
+}
+
+/* Inline images in text */
+.prose p img {
+  @apply inline-block align-baseline my-0 mx-1;
+  height: 1em;
+  width: auto;
+}
+
+/* Image loading states with data */
+img[data-loading='lazy'] {
+  @apply bg-zinc-100 dark:bg-zinc-900;
+  position: relative;
+}
+
+img[data-loading='lazy']::before {
+  content: attr(data-dimensions);
+  @apply absolute top-2 left-2 font-mono text-xs text-zinc-400;
+  font-feature-settings:
+    'lnum' 1,
+    'tnum' 1;
+}
+
+/* Cloudinary blur-up placeholder */
+img[data-placeholder] {
+  filter: blur(5px);
+  transition: filter 0.3s ease-out;
+}
+
+img[data-placeholder='loaded'] {
+  filter: blur(0);
 }

@@ -20,7 +20,7 @@ const computedMessage = computed(() => {
   if (props.message !== 'DATA_UNAVAILABLE') {
     return props.message
   }
-  
+
   switch (props.type) {
     case 'loading':
       return 'LOADING_DATA...'

@@ -3,7 +3,9 @@
     <!-- Header -->
     <header class="space-y-8 mb-16">
       <div>
-        <h1 class="text-2xl font-bold text-zinc-900 dark:text-zinc-100 tracking-tight">
+        <h1
+          class="text-2xl font-light text-zinc-900 dark:text-zinc-100 tracking-tight"
+        >
           Site Map
         </h1>
         <p class="text-zinc-600 dark:text-zinc-400 mt-2">
@@ -13,32 +15,34 @@
     </header>
 
     <!-- Navigation sections -->
-    <div class="grid md:grid-cols-2 gap-12">
+    <div class="grid md:grid-cols-2 gap-8">
       <!-- Main Pages -->
-      <section class="space-y-6">
+      <section class="space-y-8">
         <div>
-          <div class="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500 mb-4">
+          <div
+            class="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-4"
+          >
             MAIN_PAGES
           </div>
-          <div class="space-y-3">
-            <SitemapLink 
-              to="/" 
-              title="Home" 
+          <div class="space-y-4">
+            <SitemapLink
+              to="/"
+              title="Home"
               description="Personal homepage with latest updates and featured content"
             />
-            <SitemapLink 
-              to="/blog" 
-              title="Blog" 
+            <SitemapLink
+              to="/blog"
+              title="Blog"
               description="Technical writing, tutorials, and thoughts on technology"
             />
-            <SitemapLink 
-              to="/projects" 
-              title="Projects" 
+            <SitemapLink
+              to="/projects"
+              title="Projects"
               description="Open source projects, experiments, and creative work"
             />
-            <SitemapLink 
-              to="/now" 
-              title="Now" 
+            <SitemapLink
+              to="/now"
+              title="Now"
               description="What I'm currently working on and thinking about"
             />
           </div>
@@ -46,28 +50,30 @@
 
         <!-- Data & Tools -->
         <div>
-          <div class="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500 mb-4">
+          <div
+            class="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-4"
+          >
             DATA_&_TOOLS
           </div>
-          <div class="space-y-3">
-            <SitemapLink 
-              to="/stats" 
-              title="Stats" 
+          <div class="space-y-4">
+            <SitemapLink
+              to="/stats"
+              title="Stats"
               description="Real-time personal analytics and performance metrics"
             />
-            <SitemapLink 
-              to="/gear" 
-              title="Gear" 
+            <SitemapLink
+              to="/gear"
+              title="Gear"
               description="Complete inventory of adventure and tech equipment"
             />
-            <SitemapLink 
-              to="/predictions" 
-              title="Predictions" 
+            <SitemapLink
+              to="/predictions"
+              title="Predictions"
               description="Cryptographically verified forecasts and predictions"
             />
-            <SitemapLink 
-              to="/gists" 
-              title="Gists" 
+            <SitemapLink
+              to="/gists"
+              title="Gists"
               description="Code snippets and quick experiments"
             />
           </div>
@@ -75,25 +81,27 @@
       </section>
 
       <!-- Collections & Archives -->
-      <section class="space-y-6">
+      <section class="space-y-8">
         <div>
-          <div class="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500 mb-4">
+          <div
+            class="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-4"
+          >
             COLLECTIONS
           </div>
-          <div class="space-y-3">
-            <SitemapLink 
-              to="/scrapbook" 
-              title="Scrapbook" 
+          <div class="space-y-4">
+            <SitemapLink
+              to="/scrapbook"
+              title="Scrapbook"
               description="Visual collection of inspiration and interesting finds"
             />
-            <SitemapLink 
-              to="/blog/week-notes" 
-              title="Week Notes" 
+            <SitemapLink
+              to="/blog/week-notes"
+              title="Week Notes"
               description="Weekly summaries and reflections"
             />
-            <SitemapLink 
-              to="/blog/robots" 
-              title="Robots" 
+            <SitemapLink
+              to="/blog/robots"
+              title="Robots"
               description="AI experiments and automation projects"
             />
           </div>
@@ -101,25 +109,27 @@
 
         <!-- Feeds & APIs -->
         <div>
-          <div class="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500 mb-4">
+          <div
+            class="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-4"
+          >
             FEEDS_&_APIs
           </div>
-          <div class="space-y-3">
-            <SitemapLink 
-              to="/rss.xml" 
-              title="RSS Feed" 
+          <div class="space-y-4">
+            <SitemapLink
+              to="/rss.xml"
+              title="RSS Feed"
               description="Subscribe to blog posts and updates"
               external
             />
-            <SitemapLink 
-              to="/sitemap.xml" 
-              title="Sitemap" 
+            <SitemapLink
+              to="/sitemap.xml"
+              title="Sitemap"
               description="XML sitemap for search engines"
               external
             />
-            <SitemapLink 
-              to="/api/stats" 
-              title="Stats API" 
+            <SitemapLink
+              to="/api/stats"
+              title="Stats API"
               description="JSON endpoint for personal metrics"
               external
             />
@@ -128,25 +138,27 @@
 
         <!-- External Links -->
         <div>
-          <div class="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500 mb-4">
+          <div
+            class="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-4"
+          >
             EXTERNAL_LINKS
           </div>
-          <div class="space-y-3">
-            <SitemapLink 
-              to="https://github.com/ejfox" 
-              title="GitHub" 
+          <div class="space-y-4">
+            <SitemapLink
+              to="https://github.com/ejfox"
+              title="GitHub"
               description="Open source code and contributions"
               external
             />
-            <SitemapLink 
-              to="https://twitter.com/ejfox" 
-              title="Twitter" 
+            <SitemapLink
+              to="https://twitter.com/ejfox"
+              title="Twitter"
               description="Thoughts and updates"
               external
             />
-            <SitemapLink 
-              to="https://linkedin.com/in/ejfox" 
-              title="LinkedIn" 
+            <SitemapLink
+              to="https://linkedin.com/in/ejfox"
+              title="LinkedIn"
               description="Professional network and experience"
               external
             />
@@ -156,22 +168,26 @@
     </div>
 
     <!-- Dynamic Content Section -->
-    <div class="mt-16 space-y-12">
+    <div class="mt-16 space-y-8">
       <!-- Recent Blog Posts -->
       <section v-if="recentPosts.length">
-        <div class="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500 mb-4">
+        <div
+          class="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-4"
+        >
           RECENT_POSTS
         </div>
-        <div class="grid md:grid-cols-2 gap-3">
+        <div class="grid md:grid-cols-2 gap-4">
           <NuxtLink
             v-for="post in recentPosts"
             :key="post.slug"
             :to="`/blog/${post.slug}`"
-            class="group block p-3 rounded-lg border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors"
+            class="group block p-4 rounded-lg border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors"
           >
             <div class="flex items-start justify-between gap-2">
               <div class="min-w-0 flex-1">
-                <div class="text-sm font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-700 dark:group-hover:text-zinc-300 truncate">
+                <div
+                  class="text-sm font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-700 dark:group-hover:text-zinc-300 truncate"
+                >
                   {{ post.title }}
                 </div>
                 <div class="text-xs text-zinc-500 mt-1">
@@ -188,23 +204,28 @@
 
       <!-- Active Predictions -->
       <section v-if="activePredictions.length">
-        <div class="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500 mb-4">
+        <div
+          class="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-4"
+        >
           ACTIVE_PREDICTIONS
         </div>
-        <div class="space-y-3">
+        <div class="space-y-4">
           <NuxtLink
             v-for="prediction in activePredictions"
             :key="prediction.id"
             :to="`/predictions/${prediction.id}`"
-            class="group block p-3 rounded-lg border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors"
+            class="group block p-4 rounded-lg border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors"
           >
             <div class="flex items-start justify-between gap-2">
               <div class="min-w-0 flex-1">
-                <div class="text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-700 dark:group-hover:text-zinc-300">
+                <div
+                  class="text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-700 dark:group-hover:text-zinc-300"
+                >
                   {{ prediction.statement }}
                 </div>
                 <div class="text-xs text-zinc-500 mt-1">
-                  {{ prediction.confidence }}% confidence · Due {{ formatDate(prediction.deadline) }}
+                  {{ prediction.confidence }}% confidence · Due
+                  {{ formatDate(prediction.deadline) }}
                 </div>
               </div>
             </div>
@@ -214,29 +235,39 @@
 
       <!-- Stats Summary -->
       <section>
-        <div class="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500 mb-4">
+        <div
+          class="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-4"
+        >
           SITE_STATS
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div class="text-center p-3 border border-zinc-200 dark:border-zinc-800 rounded-lg">
+          <div
+            class="text-center p-4 border border-zinc-200 dark:border-zinc-800 rounded-lg"
+          >
             <div class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
               {{ totalPosts }}
             </div>
             <div class="text-xs text-zinc-500 mt-1">Blog Posts</div>
           </div>
-          <div class="text-center p-3 border border-zinc-200 dark:border-zinc-800 rounded-lg">
+          <div
+            class="text-center p-4 border border-zinc-200 dark:border-zinc-800 rounded-lg"
+          >
             <div class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
               {{ totalProjects }}
             </div>
             <div class="text-xs text-zinc-500 mt-1">Projects</div>
           </div>
-          <div class="text-center p-3 border border-zinc-200 dark:border-zinc-800 rounded-lg">
+          <div
+            class="text-center p-4 border border-zinc-200 dark:border-zinc-800 rounded-lg"
+          >
             <div class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
               {{ totalTags }}
             </div>
             <div class="text-xs text-zinc-500 mt-1">Tags</div>
           </div>
-          <div class="text-center p-3 border border-zinc-200 dark:border-zinc-800 rounded-lg">
+          <div
+            class="text-center p-4 border border-zinc-200 dark:border-zinc-800 rounded-lg"
+          >
             <div class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
               {{ yearsActive }}
             </div>
@@ -253,9 +284,13 @@
           This sitemap provides human-readable navigation of the entire site.
         </p>
         <p>
-          For search engines, see the <NuxtLink to="/sitemap.xml" class="underline hover:text-zinc-700 dark:hover:text-zinc-300">
-            XML sitemap
-          </NuxtLink>.
+          For search engines, see the
+          <NuxtLink
+            to="/sitemap.xml"
+            class="underline hover:text-zinc-700 dark:hover:text-zinc-300"
+          >
+            XML sitemap </NuxtLink
+          >.
         </p>
       </div>
     </footer>
@@ -267,7 +302,8 @@ import { format } from 'date-fns'
 
 useSeoMeta({
   title: 'Site Map | ejfox.com',
-  description: 'Complete navigation and overview of ejfox.com pages and sections',
+  description:
+    'Complete navigation and overview of ejfox.com pages and sections',
   ogTitle: 'Site Map | ejfox.com',
   ogDescription: 'Complete navigation and overview of ejfox.com'
 })
@@ -285,7 +321,7 @@ const { data: tags } = await useFetch('/tags.json')
 const recentPosts = computed(() => {
   if (!manifest.value) return []
   return manifest.value
-    .filter(post => !post.hidden && !post.draft)
+    .filter((post) => !post.hidden && !post.draft)
     .sort((a, b) => new Date(b.date) - new Date(a.date))
     .slice(0, 10)
 })
@@ -295,7 +331,7 @@ const activePredictions = computed(() => {
   if (!predictions.value) return []
   const now = new Date()
   return predictions.value
-    .filter(p => new Date(p.deadline) > now && !p.resolved)
+    .filter((p) => new Date(p.deadline) > now && !p.resolved)
     .sort((a, b) => new Date(a.deadline) - new Date(b.deadline))
     .slice(0, 5)
 })
@@ -303,17 +339,20 @@ const activePredictions = computed(() => {
 // Calculate stats
 const totalPosts = computed(() => {
   if (!manifest.value) return 0
-  return manifest.value.filter(post => !post.hidden && !post.draft).length
+  return manifest.value.filter((post) => !post.hidden && !post.draft).length
 })
 
 const totalProjects = computed(() => {
   if (!manifest.value) return 0
-  return manifest.value.filter(post => post.slug?.includes('projects/')).length
+  return manifest.value.filter((post) => post.slug?.includes('projects/'))
+    .length
 })
 
 const totalTags = computed(() => {
   if (!tags.value || !Array.isArray(tags.value)) return 0
-  return tags.value.filter(tag => tag && typeof tag === 'string' && !tag.startsWith('!')).length
+  return tags.value.filter(
+    (tag) => tag && typeof tag === 'string' && !tag.startsWith('!')
+  ).length
 })
 
 const yearsActive = computed(() => {

@@ -4,7 +4,7 @@ import path from 'path'
 
 export default defineEventHandler(async (event) => {
   const rawSlug = getRouterParam(event, 'slug')
-  
+
   if (!rawSlug) {
     throw createError({
       statusCode: 400,
@@ -17,9 +17,13 @@ export default defineEventHandler(async (event) => {
 
   try {
     // Try to find the book in processed content
-    const bookPath = path.join(process.cwd(), 'content/processed/reading', `${slug}.json`)
+    const bookPath = path.join(
+      process.cwd(),
+      'content/processed/reading',
+      `${slug}.json`
+    )
     const bookData = JSON.parse(await readFile(bookPath, 'utf-8'))
-    
+
     return bookData
   } catch (error) {
     // If not found in processed, return 404

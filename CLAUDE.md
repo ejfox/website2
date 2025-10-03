@@ -37,12 +37,25 @@ Personal website and digital publishing system built with Nuxt 3. Primary purpos
    - Caching layer to avoid rate limits
    - Real-time personal metrics dashboard
 
+4. **Gear Inventory System** (`pages/gear/index.vue`)
+   - CSV-based gear tracking with weight calculations
+   - Dynamic unit conversion (metric/imperial)
+   - Tuftian data visualizations (weight distributions, histograms)
+   - Ultra-dense data tables with 8px baseline grid
+   - Container-based organization with inline statistics
+
 ## Important File Locations
 
 ### Critical Scripts
 - `scripts/processMarkdown.mjs` - Main content processing pipeline
 - `scripts/predict.mjs` - Prediction creation CLI
 - `server/routes/tags.json.ts` - Dynamic tags endpoint
+- `server/api/gear-csv.get.ts` - Gear CSV data endpoint
+
+### Key Components
+- `components/gear/GearItem.vue` - Individual gear row component
+- `components/gear/GearTableRow.client.vue` - Client-side gear display
+- `composables/useWeightCalculations.ts` - Weight conversion utilities
 
 ### Configuration Files
 - `nuxt.config.ts` - Nuxt configuration with Docker preset
@@ -68,6 +81,8 @@ Applied throughout codebase for:
 - Root folder cleanup (removed 15MB+ of lighthouse reports, build logs)
 - Animation system (deleted looping animations causing flickering)
 - Component simplification (projects page: 120+ lines → 25 lines)
+- TCWM scoring system removal from gear page (complex → simple weight sorting)
+- Typography consolidation (custom fonts → system Georgia serif)
 
 ### Content Processing Flow
 1. **Write** in Obsidian with YAML frontmatter + tags
@@ -146,22 +161,96 @@ docker logs website2-container
 docker-compose down --volumes && docker-compose up --build
 ```
 
+### Gear Page Issues
+**Problem**: Weights showing as 0 or NaN
+**Cause**: CSV column name mismatch (`Weight_oz` vs `Base Weight ()`)
+**Solution**: Update `composables/useWeightCalculations.ts` to use correct column name
+
+**Problem**: Vue template errors with inline SVGs
+**Solution**: Use simpler HTML entities or Unicode characters instead of complex SVGs in templates
+
 ## Current System Status
 
 - **Build System**: Clean, zero ESLint errors after DELETE-DRIVEN cleanup
 - **Content Pipeline**: Obsidian → JSON processing working smoothly
 - **Docker**: Production-ready with health checks
-- **Dynamic Tags**: Journalist pyramid ordering operational  
+- **Dynamic Tags**: Journalist pyramid ordering operational
 - **Predictions**: Cryptographic verification system functional
 - **Root Folder**: Professional, no build artifacts or test debris
+- **Gear System**: CSV-based inventory with Weight_oz column, no TCWM scoring
+- **Typography**: Georgia serif, 8px baseline grid, micro-visualizations
+- **Data Tables**: Ultra-dense Tuftian design with inline sparklines
+- **Sidenotes**: Ultra-simple 113-line client plugin, Tufte CSS approach
+- **Layout**: Editorial left-aligned within max-w-screen-xl container
+
+## Sidenotes System (2025-09-29)
+
+### Overview
+Replaced complex 800+ line sidenotes system with ultra-simple 113-line client-side plugin that converts standard Markdown footnotes to margin notes.
+
+### Implementation
+- **Location**: `plugins/footnotes-to-sidenotes.client.ts`
+- **Approach**: Pure client-side transformation of existing footnotes
+- **Dependencies**: None - works with standard Markdown footnote HTML
+- **Size**: 113 lines total
+
+### How It Works
+1. Markdown processor creates standard footnotes (`section[data-footnotes]`)
+2. Plugin runs after page load (200ms delay)
+3. Transforms footnotes into margin notes positioned absolutely
+4. Hides original footnote section
+5. Mobile fallback: Shows standard footnotes below content
+
+### Layout System
+```
+[Browser Window]
+    ↓
+[Site Container: max-w-screen-xl mx-auto] ← 1280px centered
+    ↓
+[Article Container: px-4 md:px-8] ← Responsive padding
+    ↓
+[Content Wrapper: max-w-4xl] ← 896px, LEFT-ALIGNED (no mx-auto!)
+    ↓
+[Text Elements: max-w-prose] ← ~65ch for readability, LEFT-ALIGNED
+```
+
+### Key CSS Rules
+- Sidenotes positioned at `left: calc(100% + 2rem)`
+- Width: 240px
+- Desktop only: Hidden on screens < 1280px
+- Override all margin auto to ensure left alignment
+
+### Known Issues & QA Needed
+1. **Layout shift on load**: 200ms delay causes visible reflow
+2. **Video embeds**: Some .mp4 files showing as blurred images
+3. **Width consistency**: Need to verify all pages use same container widths
+4. **Sidenote overlap**: Long sidenotes may overlap - needs vertical collision detection
+5. **Print styles**: Sidenotes need proper print media handling
+
+### Files Modified
+- `plugins/footnotes-to-sidenotes.client.ts` - New sidenote plugin
+- `components/BlogPostContent.vue` - Simplified to basic wrapper
+- `pages/blog/[...slug].vue` - Updated container widths
+- Deleted 6 complex components and 3 experimental plugins
+
+### Next Steps for QA
+- [ ] Test sidenote behavior with multiple footnotes
+- [ ] Verify mobile/tablet breakpoints
+- [ ] Check print stylesheet behavior
+- [ ] Test with very long sidenotes
+- [ ] Verify no layout shift on slower connections
+- [ ] Cross-browser testing (Safari, Firefox, Chrome)
 
 ## Key Design Principles
 
 1. **Delete-Driven Development**: Remove complexity, don't add it
-2. **Static Generation**: Prefer build-time processing over runtime complexity  
+2. **Static Generation**: Prefer build-time processing over runtime complexity
 3. **Journalist Pyramid**: Most important/frequent data first (tags, content)
 4. **Type Safety**: Full TypeScript coverage with strict checking
 5. **Docker First**: Container-based deployment and development
+6. **Tuftian Data Density**: Maximum data-ink ratio, minimal chrome
+7. **8px Baseline Grid**: Consistent vertical rhythm throughout typography
+8. **Dark-First Design**: Primary dark theme with zinc color palette
 
 ---
 

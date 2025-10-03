@@ -1,43 +1,43 @@
 <template>
-  <div class="max-w-4xl mx-auto p-6">
-    <h1 class="text-4xl font-bold mb-8">
-      Enhanced Pinboard Bookmarklet
-    </h1>
+  <div class="max-w-4xl mx-auto p-8">
+    <h1 class="text-4xl font-light mb-8">Enhanced Pinboard Bookmarklet</h1>
 
-    <div class="bg-gray-100 dark:bg-gray-800 rounded-lg p-6 mb-8">
-      <h2 class="text-2xl font-semibold mb-4">
-        Installation
-      </h2>
+    <div class="bg-zinc-100 dark:bg-zinc-800 rounded-lg p-8 mb-8">
+      <h2 class="text-2xl font-light mb-4">Installation</h2>
 
-      <div class="mb-6">
-        <label class="block text-sm font-medium mb-2">Your Passphrase (Required)</label>
+      <div class="mb-8">
+        <label class="block text-sm font-medium mb-2"
+          >Your Passphrase (Required)</label
+        >
         <input
           v-model="passphrase"
           type="password"
           placeholder="Enter your secret passphrase"
-          class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100"
+          class="w-full px-4 py-2 rounded-lg border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100"
         />
-        <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">
+        <p class="text-xs text-zinc-600 dark:text-zinc-400 mt-1">
           This will be embedded in your bookmarklet for authentication
         </p>
       </div>
 
-      <p class="mb-4">
-        Drag this button to your bookmarks bar:
-      </p>
+      <p class="mb-4">Drag this button to your bookmarks bar:</p>
 
-      <div class="flex items-center gap-4 mb-6">
+      <div class="flex items-center gap-4 mb-8">
         <a
           :href="bookmarkletCode"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors cursor-move"
+          class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg transition-colors cursor-move"
           :class="{ 'opacity-50 cursor-not-allowed': !passphrase }"
           @click.prevent="!passphrase ? null : (showInstructions = true)"
         >
           📌 Pin to Pinboard+
         </a>
 
-        <span v-if="passphrase" class="text-sm text-gray-600 dark:text-gray-400">← Drag me!</span>
-        <span v-else class="text-sm text-red-600 dark:text-red-400">← Enter passphrase first</span>
+        <span v-if="passphrase" class="text-sm text-zinc-600 dark:text-zinc-400"
+          >← Drag me!</span
+        >
+        <span v-else class="text-sm text-red-600 dark:text-red-400"
+          >← Enter passphrase first</span
+        >
       </div>
 
       <div
@@ -54,9 +54,7 @@
 
     <div class="grid md:grid-cols-2 gap-8 mb-8">
       <div>
-        <h3 class="text-xl font-semibold mb-3">
-          How it works
-        </h3>
+        <h3 class="text-xl font-light mb-4">How it works</h3>
         <ol class="space-y-2 text-sm">
           <li class="flex gap-2">
             <span class="font-bold">1.</span>
@@ -78,9 +76,7 @@
       </div>
 
       <div>
-        <h3 class="text-xl font-semibold mb-3">
-          Features
-        </h3>
+        <h3 class="text-xl font-light mb-4">Features</h3>
         <ul class="space-y-2 text-sm">
           <li class="flex gap-2">
             <span>✓</span>
@@ -102,13 +98,9 @@
       </div>
     </div>
 
-    <div class="bg-gray-100 dark:bg-gray-800 rounded-lg p-6 mb-8">
-      <h3 class="text-xl font-semibold mb-3">
-        Test it out
-      </h3>
-      <p class="mb-4">
-        Try bookmarking these pages to see suggestions:
-      </p>
+    <div class="bg-zinc-100 dark:bg-zinc-800 rounded-lg p-8 mb-8">
+      <h3 class="text-xl font-light mb-4">Test it out</h3>
+      <p class="mb-4">Try bookmarking these pages to see suggestions:</p>
       <div class="grid gap-2">
         <a
           href="https://www.are.na/blog/building-with-care"
@@ -135,20 +127,20 @@
     </div>
 
     <details class="mb-8">
-      <summary class="cursor-pointer font-semibold mb-2">
+      <summary class="cursor-pointer font-normal mb-2">
         Manual Installation (Advanced)
       </summary>
       <div class="mt-4">
         <p class="text-sm mb-2">
           Create a new bookmark with this code as the URL:
         </p>
-        <div class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto">
+        <div class="bg-zinc-900 text-zinc-100 p-4 rounded-lg overflow-x-auto">
           <code class="text-xs font-mono whitespace-pre">{{
             bookmarkletCode
           }}</code>
         </div>
         <button
-          class="mt-2 text-sm bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded"
+          class="mt-2 text-sm bg-zinc-700 hover:bg-zinc-600 text-white px-4 py-1 rounded"
           @click="copyCode"
         >
           {{ copied ? '✓ Copied!' : 'Copy Code' }}
@@ -156,7 +148,7 @@
       </div>
     </details>
 
-    <div class="text-sm text-gray-600 dark:text-gray-400">
+    <div class="text-sm text-zinc-600 dark:text-zinc-400">
       <p>
         Privacy: The bookmarklet only sends data to ejfox.com for analysis. Your
         Pinboard credentials are never touched.
