@@ -7,7 +7,11 @@
     "inprogress": true,
     "date": "2023-04-04T18:48:13.000Z",
     "modified": "2024-09-20T04:20:58.000Z",
-    "tags": ["personal", "process", "markdown"],
+    "tags": [
+      "personal",
+      "process",
+      "markdown"
+    ],
     "words": 553,
     "images": 1,
     "imageDetails": {

@@ -5,7 +5,13 @@
   "metadata": {
     "dek": "In which the author rescues his most precious digital media from a server that he does not own or control",
     "inprogress": true,
-    "tags": ["data", "photos", "tauri", "photography", "personal"],
+    "tags": [
+      "data",
+      "photos",
+      "tauri",
+      "photography",
+      "personal"
+    ],
     "date": "2025-08-28T20:05:43.000Z",
     "modified": "2025-08-28T20:12:25.000Z",
     "words": 610,

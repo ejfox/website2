@@ -7,7 +7,13 @@
     "inprogress": true,
     "date": "2023-09-03T16:33:47.000Z",
     "modified": "2025-08-28T19:11:44.000Z",
-    "tags": ["howto", "radio", "communication", "tech", "hardware"],
+    "tags": [
+      "howto",
+      "radio",
+      "communication",
+      "tech",
+      "hardware"
+    ],
     "hidden": true,
     "draft": true,
     "words": 503,

@@ -8,7 +8,10 @@
     "inprogress": true,
     "date": "2022-11-02T23:59:30.000Z",
     "modified": "2024-09-20T04:25:56.000Z",
-    "tags": ["dj", "music"],
+    "tags": [
+      "dj",
+      "music"
+    ],
     "words": 179,
     "images": 0,
     "imageDetails": {

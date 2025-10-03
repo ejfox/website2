@@ -1,12 +1,9 @@
 import { visit } from 'unist-util-visit'
 
 /**
- * Enhanced Obsidian support with sidenotes and expandable details
+ * Enhanced Obsidian support with expandable details
  *
- * Sidenote syntaxes supported:
- * 1. {side: This appears in the margin}
- * 2. ::margin[Content in margin]::
- * 3. %%sidenote: Hidden in Obsidian, visible on web%%
+ * NOTE: Sidenotes now use standard markdown footnotes[^1] only
  *
  * Expandable details:
  * 1. ??? "Title here" → expandable section
@@ -15,106 +12,8 @@ import { visit } from 'unist-util-visit'
 
 export function remarkObsidianEnhanced() {
   return (tree) => {
-    let sidenoteCounter = 0
-
-    // Process text nodes for our custom syntaxes
-    visit(tree, 'text', (node, index, parent) => {
-      const value = node.value
-      const nodes = []
-      let lastIndex = 0
-
-      // Pattern 1: {side: content} - Works in Obsidian as inline code
-      const sidePattern = /\{side:\s*([^}]+)\}/g
-      let match
-
-      while ((match = sidePattern.exec(value)) !== null) {
-        const [fullMatch, content] = match
-        const start = match.index
-
-        // Add text before the match
-        if (start > lastIndex) {
-          nodes.push({
-            type: 'text',
-            value: value.slice(lastIndex, start)
-          })
-        }
-
-        sidenoteCounter++
-
-        // Create sidenote reference
-        nodes.push({
-          type: 'html',
-          value: `<sup class="sidenote-ref" data-sidenote-id="sn-${sidenoteCounter}"><a href="#sn-${sidenoteCounter}" aria-describedby="sn-${sidenoteCounter}">${sidenoteCounter}</a></sup>`
-        })
-
-        // Create sidenote content (will be positioned by client)
-        nodes.push({
-          type: 'html',
-          value: `<aside id="sn-${sidenoteCounter}" class="sidenote-content" data-sidenote>${content.trim()}</aside>`
-        })
-
-        lastIndex = match.index + fullMatch.length
-      }
-
-      // Add remaining text
-      if (nodes.length > 0) {
-        if (lastIndex < value.length) {
-          nodes.push({
-            type: 'text',
-            value: value.slice(lastIndex)
-          })
-        }
-        parent.children.splice(index, 1, ...nodes)
-        return [visit.SKIP, index + nodes.length]
-      }
-    })
-
-    // Process Obsidian comments as margin notes: %%sidenote: content%%
-    visit(tree, 'text', (node, index, parent) => {
-      const value = node.value
-      const commentPattern = /%%sidenote:\s*([^%]+)%%/g
-      let match
-      const nodes = []
-      let lastIndex = 0
-
-      while ((match = commentPattern.exec(value)) !== null) {
-        const [fullMatch, content] = match
-        const start = match.index
-
-        if (start > lastIndex) {
-          nodes.push({
-            type: 'text',
-            value: value.slice(lastIndex, start)
-          })
-        }
-
-        sidenoteCounter++
-
-        // Similar structure but using Obsidian comment syntax
-        nodes.push({
-          type: 'html',
-          value: `<sup class="sidenote-ref margin-note-ref" data-sidenote-id="mn-${sidenoteCounter}"><a href="#mn-${sidenoteCounter}">${sidenoteCounter}</a></sup>`
-        })
-
-        nodes.push({
-          type: 'html',
-          value: `<aside id="mn-${sidenoteCounter}" class="margin-note" data-margin-note>${content.trim()}</aside>`
-        })
-
-        lastIndex = match.index + fullMatch.length
-      }
-
-      if (nodes.length > 0) {
-        if (lastIndex < value.length) {
-          nodes.push({
-            type: 'text',
-            value: value.slice(lastIndex)
-          })
-        }
-        parent.children.splice(index, 1, ...nodes)
-        return [visit.SKIP, index + nodes.length]
-      }
-    })
+    // Footnotes are now handled by standard markdown processing
+    // This plugin focuses on Obsidian-specific features like expandable details
 
     // Process expandable details using ??? syntax (Obsidian Admonition style)
     visit(tree, 'paragraph', (node, index, parent) => {

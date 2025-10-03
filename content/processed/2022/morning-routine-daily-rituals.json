@@ -8,7 +8,12 @@
     "inprogress": true,
     "date": "2022-11-03T01:31:25.000Z",
     "modified": "2024-09-20T04:22:56.000Z",
-    "tags": ["exercise", "meditation", "writing", "health"],
+    "tags": [
+      "exercise",
+      "meditation",
+      "writing",
+      "health"
+    ],
     "words": 537,
     "images": 0,
     "imageDetails": {

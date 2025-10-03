@@ -7,7 +7,13 @@
     "inprogress": true,
     "date": "2024-06-02T00:00:00.000Z",
     "modified": "2025-08-29T02:02:55.000Z",
-    "tags": ["dataviz", "design", "patterns", "visualization", "data"],
+    "tags": [
+      "dataviz",
+      "design",
+      "patterns",
+      "visualization",
+      "data"
+    ],
     "words": 839,
     "images": 0,
     "imageDetails": {

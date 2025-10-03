@@ -5,7 +5,10 @@
     "date": "2010-01-01T18:44:00-05:00",
     "type": "photos",
     "hidden": false,
-    "tags": ["photography", "inspiration"],
+    "tags": [
+      "photography",
+      "inspiration"
+    ],
     "toc": [
       {
         "text": "Photography 2008-2010",
@@ -21,7 +24,10 @@
       "hidetimestamp": false,
       "bgcolorclass": "bg-white",
       "textcolorclass": "dark-gray",
-      "tags": ["photography", "inspiration"],
+      "tags": [
+        "photography",
+        "inspiration"
+      ],
       "words": 59,
       "images": 0,
       "imageDetails": {
@@ -55,7 +61,11 @@
     "hidden": false,
     "dek": "In which the author muses about 2013-era web design aesthetics",
     "modified": "2024-06-21T14:13:21.000Z",
-    "tags": ["journalism", "webdesign", "photography"],
+    "tags": [
+      "journalism",
+      "webdesign",
+      "photography"
+    ],
     "toc": [
       {
         "text": "The Magazine Experience on the Web",
@@ -115,7 +125,11 @@
       "date": "2013-01-25T10:00:00.000Z",
       "hidetimestamp": false,
       "modified": "2024-06-21T14:13:21.000Z",
-      "tags": ["journalism", "webdesign", "photography"],
+      "tags": [
+        "journalism",
+        "webdesign",
+        "photography"
+      ],
       "words": 1539,
       "images": 0,
       "imageDetails": {
@@ -191,7 +205,10 @@
     "type": "photos",
     "hidden": false,
     "modified": "2024-08-01T14:21:44.000Z",
-    "tags": ["photography", "nature"],
+    "tags": [
+      "photography",
+      "nature"
+    ],
     "toc": [
       {
         "text": "2015 In Review",
@@ -208,7 +225,10 @@
       "bgcolorclass": "",
       "textcolorclass": "",
       "modified": "2024-08-01T14:21:44.000Z",
-      "tags": ["photography", "nature"],
+      "tags": [
+        "photography",
+        "nature"
+      ],
       "words": 88,
       "images": 0,
       "imageDetails": {
@@ -241,7 +261,13 @@
     "type": "photos",
     "hidden": false,
     "modified": "2024-08-01T14:21:50.000Z",
-    "tags": ["photography", "art", "nature", "travel", "design"],
+    "tags": [
+      "photography",
+      "art",
+      "nature",
+      "travel",
+      "design"
+    ],
     "toc": [
       {
         "text": "2016 In Review",
@@ -258,7 +284,13 @@
       "bgcolorclass": "",
       "textcolorclass": "",
       "modified": "2024-08-01T14:21:50.000Z",
-      "tags": ["photography", "art", "nature", "travel", "design"],
+      "tags": [
+        "photography",
+        "art",
+        "nature",
+        "travel",
+        "design"
+      ],
       "words": 52,
       "images": 0,
       "imageDetails": {
@@ -290,7 +322,14 @@
     "date": "2016-12-01T19:55:00-05:00",
     "type": "video",
     "hidden": false,
-    "tags": ["video", "visuals", "dj", "music", "documentary", "art"],
+    "tags": [
+      "video",
+      "visuals",
+      "dj",
+      "music",
+      "documentary",
+      "art"
+    ],
     "toc": [
       {
         "text": "Video Mixes",
@@ -398,7 +437,14 @@
       "hidetimestamp": true,
       "bgcolorclass": "",
       "textcolorclass": "",
-      "tags": ["video", "visuals", "dj", "music", "documentary", "art"],
+      "tags": [
+        "video",
+        "visuals",
+        "dj",
+        "music",
+        "documentary",
+        "art"
+      ],
       "words": 490,
       "images": 0,
       "imageDetails": {
@@ -523,7 +569,12 @@
     "type": "photos",
     "hidden": false,
     "modified": "2024-08-01T14:21:46.000Z",
-    "tags": ["politics", "photography", "photojournalism", "protest"],
+    "tags": [
+      "politics",
+      "photography",
+      "photojournalism",
+      "protest"
+    ],
     "toc": [
       {
         "text": "2017 In Review",
@@ -538,7 +589,12 @@
       "date": "2017-01-01T10:00:21.000Z",
       "hidetimestamp": false,
       "modified": "2024-08-01T14:21:46.000Z",
-      "tags": ["politics", "photography", "photojournalism", "protest"],
+      "tags": [
+        "politics",
+        "photography",
+        "photojournalism",
+        "protest"
+      ],
       "words": 81,
       "images": 0,
       "imageDetails": {
@@ -571,7 +627,12 @@
     "type": "photos",
     "hidden": false,
     "modified": "2024-08-01T14:21:46.000Z",
-    "tags": ["photography", "nature", "travel", "event"],
+    "tags": [
+      "photography",
+      "nature",
+      "travel",
+      "event"
+    ],
     "toc": [
       {
         "text": "2018 In Review",
@@ -586,7 +647,12 @@
       "date": "2018-12-14T10:00:16.000Z",
       "hidetimestamp": false,
       "modified": "2024-08-01T14:21:46.000Z",
-      "tags": ["photography", "nature", "travel", "event"],
+      "tags": [
+        "photography",
+        "nature",
+        "travel",
+        "event"
+      ],
       "words": 144,
       "images": 0,
       "imageDetails": {
@@ -618,7 +684,13 @@
     "date": "2018-06-10T14:58:10-04:00",
     "type": "words",
     "hidden": true,
-    "tags": ["art", "documentary", "photography", "watercolor", "inspiration"],
+    "tags": [
+      "art",
+      "documentary",
+      "photography",
+      "watercolor",
+      "inspiration"
+    ],
     "toc": [
       {
         "text": "Watercolor Sketching in NYC",
@@ -822,7 +894,11 @@
     "type": "photo",
     "hidden": false,
     "dek": "In which the youths march through the street with extremely clever signs since they are too young to riot",
-    "tags": ["activism", "climatechange", "protest"],
+    "tags": [
+      "activism",
+      "climatechange",
+      "protest"
+    ],
     "toc": [
       {
         "text": "NYC’s Climate March",
@@ -838,7 +914,11 @@
       "inprogress": false,
       "date": "2019-09-20T21:19:39-04:00",
       "hidetimestamp": false,
-      "tags": ["activism", "climatechange", "protest"],
+      "tags": [
+        "activism",
+        "climatechange",
+        "protest"
+      ],
       "words": 172,
       "images": 13,
       "imageDetails": {
@@ -975,7 +1055,12 @@
     "hidden": false,
     "dek": "In which the citizens of Hong Kong find new creative ways to improve on public disobedience",
     "modified": "2025-07-01T03:40:19.000Z",
-    "tags": ["protest", "activism", "tactics", "security"],
+    "tags": [
+      "protest",
+      "activism",
+      "tactics",
+      "security"
+    ],
     "toc": [
       {
         "text": "Hong Kong Protest Techniques",
@@ -992,7 +1077,12 @@
       "date": "2019-08-14T08:00:39.000Z",
       "hidetimestamp": false,
       "modified": "2025-07-01T03:40:19.000Z",
-      "tags": ["protest", "activism", "tactics", "security"],
+      "tags": [
+        "protest",
+        "activism",
+        "tactics",
+        "security"
+      ],
       "words": 130,
       "images": 0,
       "imageDetails": {
@@ -1025,7 +1115,13 @@
     "type": "words",
     "hidden": false,
     "modified": "2024-09-23T16:13:36.000Z",
-    "tags": ["vue", "dataviz", "d3", "javascript", "webdesign"],
+    "tags": [
+      "vue",
+      "dataviz",
+      "d3",
+      "javascript",
+      "webdesign"
+    ],
     "toc": [
       {
         "text": "How I prototype apps and dataviz quickly",
@@ -1066,7 +1162,13 @@
       "date": "2019-03-20T01:25:22.000Z",
       "hidetimestamp": false,
       "modified": "2024-09-23T16:13:36.000Z",
-      "tags": ["vue", "dataviz", "d3", "javascript", "webdesign"],
+      "tags": [
+        "vue",
+        "dataviz",
+        "d3",
+        "javascript",
+        "webdesign"
+      ],
       "words": 932,
       "images": 0,
       "imageDetails": {
@@ -1125,7 +1227,13 @@
     "hidden": false,
     "dek": "In which the author explains his reasoning for exploring analog methods of distributing information with ink and linoleum, and provides a guide on how to do so yourself if so inclined",
     "modified": "2024-09-23T16:13:27.000Z",
-    "tags": ["analog", "linocut", "art", "design", "activism"],
+    "tags": [
+      "analog",
+      "linocut",
+      "art",
+      "design",
+      "activism"
+    ],
     "toc": [
       {
         "text": "Linocut printing for a bright future",
@@ -1149,7 +1257,13 @@
       "date": "2019-08-18T08:00:39.000Z",
       "hidetimestamp": false,
       "modified": "2024-09-23T16:13:27.000Z",
-      "tags": ["analog", "linocut", "art", "design", "activism"],
+      "tags": [
+        "analog",
+        "linocut",
+        "art",
+        "design",
+        "activism"
+      ],
       "words": 2175,
       "images": 3,
       "imageDetails": {
@@ -1190,7 +1304,11 @@
     "hidden": false,
     "dek": "In which the author divulges a shameful secret",
     "modified": "2024-06-21T14:12:52.000Z",
-    "tags": ["movies", "drama", "documentary"],
+    "tags": [
+      "movies",
+      "drama",
+      "documentary"
+    ],
     "toc": [
       {
         "text": "Movies to Watch",
@@ -1207,7 +1325,11 @@
       "date": "2019-06-13T08:00:39.000Z",
       "hidetimestamp": true,
       "modified": "2024-06-21T14:12:52.000Z",
-      "tags": ["movies", "drama", "documentary"],
+      "tags": [
+        "movies",
+        "drama",
+        "documentary"
+      ],
       "words": 367,
       "images": 0,
       "imageDetails": {
@@ -1240,7 +1362,11 @@
     "type": "words",
     "hidden": false,
     "dek": "In which the author makes the case for the merits of a certain approach to preparation",
-    "tags": ["advice", "cooking", "process"],
+    "tags": [
+      "advice",
+      "cooking",
+      "process"
+    ],
     "toc": [
       {
         "text": "Step Zero",
@@ -1256,7 +1382,11 @@
       "inprogress": false,
       "date": "2019-06-12T17:40:00-04:00",
       "hidetimestamp": false,
-      "tags": ["advice", "cooking", "process"],
+      "tags": [
+        "advice",
+        "cooking",
+        "process"
+      ],
       "words": 231,
       "images": 0,
       "imageDetails": {
@@ -1289,7 +1419,10 @@
     "type": "words",
     "hidden": false,
     "dek": "In which the author attempts to dissuade you from the belief things will always be the way they are now",
-    "tags": ["advice", "personal"],
+    "tags": [
+      "advice",
+      "personal"
+    ],
     "toc": [
       {
         "text": "Taking things for granted",
@@ -1305,7 +1438,10 @@
       "inprogress": false,
       "date": "2019-06-14T15:27:00-04:00",
       "hidetimestamp": false,
-      "tags": ["advice", "personal"],
+      "tags": [
+        "advice",
+        "personal"
+      ],
       "words": 283,
       "images": 0,
       "imageDetails": {
@@ -1339,7 +1475,12 @@
     "hidden": false,
     "dek": "In which the author is grateful for the hackers who invented the internet",
     "modified": "2024-10-12T23:52:51.000Z",
-    "tags": ["hackers", "internet", "coding", "activism"],
+    "tags": [
+      "hackers",
+      "internet",
+      "coding",
+      "activism"
+    ],
     "toc": [
       {
         "text": "The Internet Was Built To Be Hacked",
@@ -1356,7 +1497,12 @@
       "date": "2019-02-01T10:00:56.000Z",
       "hidetimestamp": false,
       "modified": "2024-10-12T23:52:51.000Z",
-      "tags": ["hackers", "internet", "coding", "activism"],
+      "tags": [
+        "hackers",
+        "internet",
+        "coding",
+        "activism"
+      ],
       "words": 1552,
       "images": 0,
       "imageDetails": {
@@ -1390,7 +1536,11 @@
     "hidden": false,
     "dek": "In which the author discloses a peculiar and  dysfunctional part of his mind.",
     "modified": "2023-12-02T01:04:54.000Z",
-    "tags": ["advice", "inspiration", "personal"],
+    "tags": [
+      "advice",
+      "inspiration",
+      "personal"
+    ],
     "toc": [
       {
         "text": "Always Have Two Reasons for Something",
@@ -1407,7 +1557,11 @@
       "date": "2019-08-05T08:00:00.000Z",
       "hidetimestamp": false,
       "modified": "2023-12-02T01:04:54.000Z",
-      "tags": ["advice", "inspiration", "personal"],
+      "tags": [
+        "advice",
+        "inspiration",
+        "personal"
+      ],
       "words": 449,
       "images": 0,
       "imageDetails": {
@@ -1441,7 +1595,11 @@
     "hidden": false,
     "dek": "In which the author attempts and fails to find interesting unsecured webcams near known ICE facilities",
     "modified": "2024-09-23T16:13:18.000Z",
-    "tags": ["security", "hacking", "osint"],
+    "tags": [
+      "security",
+      "hacking",
+      "osint"
+    ],
     "toc": [
       {
         "text": "Attempting to find unsecured ICE cameras",
@@ -1483,7 +1641,11 @@
       "date": "2019-03-24T08:00:39.000Z",
       "hidetimestamp": false,
       "modified": "2024-09-23T16:13:18.000Z",
-      "tags": ["security", "hacking", "osint"],
+      "tags": [
+        "security",
+        "hacking",
+        "osint"
+      ],
       "words": 660,
       "images": 0,
       "imageDetails": {
@@ -1667,7 +1829,12 @@
     "type": "words",
     "hidden": false,
     "dek": "The newest weapon in the arsenal of internet nazis is mass-brigading Twitter reports, and it’s working",
-    "tags": ["activism", "journalism", "twitter", "security"],
+    "tags": [
+      "activism",
+      "journalism",
+      "twitter",
+      "security"
+    ],
     "toc": [
       {
         "text": "Online Nazis Have Figured Out How To Game Twitter",
@@ -1683,7 +1850,12 @@
       "inprogress": false,
       "date": "2020-02-14T21:19:39-04:00",
       "hidetimestamp": false,
-      "tags": ["activism", "journalism", "twitter", "security"],
+      "tags": [
+        "activism",
+        "journalism",
+        "twitter",
+        "security"
+      ],
       "words": 447,
       "images": 0,
       "imageDetails": {
@@ -1904,7 +2076,12 @@
     "hidden": false,
     "dek": "In which a computer is used as divination tool for random numbers (for the purposes of beauty, art, and poetry)",
     "modified": "2024-09-23T16:13:15.000Z",
-    "tags": ["generative", "art", "javascript", "audio"],
+    "tags": [
+      "generative",
+      "art",
+      "javascript",
+      "audio"
+    ],
     "toc": [
       {
         "text": "Generative Art",
@@ -1939,7 +2116,12 @@
       "inprogress": true,
       "dek": "In which a computer is used as divination tool for random numbers (for the purposes of beauty, art, and poetry)",
       "modified": "2024-09-23T16:13:15.000Z",
-      "tags": ["generative", "art", "javascript", "audio"],
+      "tags": [
+        "generative",
+        "art",
+        "javascript",
+        "audio"
+      ],
       "words": 999,
       "images": 0,
       "imageDetails": {
@@ -2056,7 +2238,12 @@
     "hidden": false,
     "dek": "In which various tools and methods are explored for analyzing data that describes a network of complaints against NYPD officers (or any other PD with similar public data)",
     "modified": "2024-09-23T16:13:24.000Z",
-    "tags": ["data", "nypd", "visualization", "network"],
+    "tags": [
+      "data",
+      "nypd",
+      "visualization",
+      "network"
+    ],
     "toc": [
       {
         "text": "Finding Clusters of NYPD Officers In CCRB Complaint Data",
@@ -2127,7 +2314,12 @@
       "inprogress": false,
       "dek": "In which various tools and methods are explored for analyzing data that describes a network of complaints against NYPD officers (or any other PD with similar public data)",
       "modified": "2024-09-23T16:13:24.000Z",
-      "tags": ["data", "nypd", "visualization", "network"],
+      "tags": [
+        "data",
+        "nypd",
+        "visualization",
+        "network"
+      ],
       "words": 3595,
       "images": 0,
       "imageDetails": {
@@ -2216,7 +2408,14 @@
     "draft": false,
     "dek": "In which the author talks through his DIY art studio setup, and encourages you tou create your own",
     "modified": "2024-09-20T04:18:41.000Z",
-    "tags": ["art", "linocut", "soap", "woodworking", "design", "inspiration"],
+    "tags": [
+      "art",
+      "linocut",
+      "soap",
+      "woodworking",
+      "design",
+      "inspiration"
+    ],
     "toc": [
       {
         "text": "Making Space to Make Dope Shit",
@@ -2333,7 +2532,11 @@
     "date": "2022-11-14T21:15:19.000Z",
     "type": "post",
     "modified": "2024-08-01T14:21:42.000Z",
-    "tags": ["elections", "coding", "media"],
+    "tags": [
+      "elections",
+      "coding",
+      "media"
+    ],
     "toc": [
       {
         "text": "Election Night 2018",
@@ -2345,7 +2548,11 @@
     "metadata": {
       "date": "2022-11-14T21:15:19.000Z",
       "modified": "2024-08-01T14:21:42.000Z",
-      "tags": ["elections", "coding", "media"],
+      "tags": [
+        "elections",
+        "coding",
+        "media"
+      ],
       "words": 1582,
       "images": 5,
       "imageDetails": {
@@ -2379,7 +2586,12 @@
     "type": "post",
     "dek": "In which we delve into the artistry of live looping, illuminating the core concepts and essential gear that enable musicians to create immersive soundscapes on the fly",
     "modified": "2024-09-23T16:13:12.000Z",
-    "tags": ["music", "art", "experiments", "dj"],
+    "tags": [
+      "music",
+      "art",
+      "experiments",
+      "dj"
+    ],
     "toc": [
       {
         "text": "Experiments with Live Looping",
@@ -2424,7 +2636,12 @@
       "inprogress": true,
       "date": "2022-11-02T23:59:14.000Z",
       "modified": "2024-09-23T16:13:12.000Z",
-      "tags": ["music", "art", "experiments", "dj"],
+      "tags": [
+        "music",
+        "art",
+        "experiments",
+        "dj"
+      ],
       "words": 1119,
       "images": 0,
       "imageDetails": {
@@ -2489,7 +2706,12 @@
     "type": "post",
     "dek": "In which the author tries to put good food in his body",
     "modified": "2024-05-15T18:02:51.000Z",
-    "tags": ["food", "cooking", "recipe", "health"],
+    "tags": [
+      "food",
+      "cooking",
+      "recipe",
+      "health"
+    ],
     "toc": [
       {
         "text": "Food",
@@ -2528,7 +2750,12 @@
       "inprogress": true,
       "date": "2022-12-28T18:20:58.000Z",
       "modified": "2024-05-15T18:02:51.000Z",
-      "tags": ["food", "cooking", "recipe", "health"],
+      "tags": [
+        "food",
+        "cooking",
+        "recipe",
+        "health"
+      ],
       "words": 542,
       "images": 0,
       "imageDetails": {
@@ -2587,7 +2814,9 @@
     "type": "post",
     "dek": "In which we use joy and curiosity as fuel to propel us forward",
     "modified": "2024-10-29T18:10:00.000Z",
-    "tags": ["coding"],
+    "tags": [
+      "coding"
+    ],
     "toc": [
       {
         "text": "Embracing Joy-Driven Development: A New Philosophy for Better Work",
@@ -2620,7 +2849,9 @@
       "inprogress": true,
       "date": "2022-11-03T00:06:51.000Z",
       "modified": "2024-10-29T18:10:00.000Z",
-      "tags": ["coding"],
+      "tags": [
+        "coding"
+      ],
       "words": 603,
       "images": 0,
       "imageDetails": {
@@ -2673,7 +2904,13 @@
     "type": "post",
     "dek": "In which we go into detail about how to write code to accomplish a goal",
     "modified": "2024-09-20T04:25:08.000Z",
-    "tags": ["personal", "process", "design", "project", "coding"],
+    "tags": [
+      "personal",
+      "process",
+      "design",
+      "project",
+      "coding"
+    ],
     "toc": [
       {
         "text": "The Art of Coding: A Developer's Guide",
@@ -2766,7 +3003,13 @@
       "modified": "2024-09-20T04:25:08.000Z",
       "dek": "In which we go into detail about how to write code to accomplish a goal",
       "inprogress": true,
-      "tags": ["personal", "process", "design", "project", "coding"],
+      "tags": [
+        "personal",
+        "process",
+        "design",
+        "project",
+        "coding"
+      ],
       "words": 2443,
       "images": 1,
       "imageDetails": {
@@ -2982,7 +3225,10 @@
     "type": "post",
     "dek": "In which the author itemizes the cameras he uses to make photographs",
     "modified": "2024-06-21T14:13:55.000Z",
-    "tags": ["photography", "video"],
+    "tags": [
+      "photography",
+      "video"
+    ],
     "toc": [
       {
         "text": "Camera Setup",
@@ -3033,7 +3279,10 @@
       "date": "2023-01-01T20:06:48.000Z",
       "modified": "2024-06-21T14:13:55.000Z",
       "dek": "In which the author itemizes the cameras he uses to make photographs",
-      "tags": ["photography", "video"],
+      "tags": [
+        "photography",
+        "video"
+      ],
       "words": 87,
       "images": 0,
       "imageDetails": {
@@ -3290,7 +3539,9 @@
     "type": "post",
     "dek": "In which the author proudly presents his new venture: Room 302 Studio, an eclectic gathering of talent devoted to fostering joy-driven development",
     "modified": "2024-09-20T04:21:55.000Z",
-    "tags": ["data"],
+    "tags": [
+      "data"
+    ],
     "toc": [
       {
         "text": "Introducing room302.studio",
@@ -3322,7 +3573,9 @@
       "dek": "In which the author proudly presents his new venture: Room 302 Studio, an eclectic gathering of talent devoted to fostering joy-driven development",
       "date": "2023-04-10T05:00:00.000Z",
       "modified": "2024-09-20T04:21:55.000Z",
-      "tags": ["data"],
+      "tags": [
+        "data"
+      ],
       "words": 588,
       "images": 0,
       "imageDetails": {
@@ -3375,7 +3628,11 @@
     "type": "post",
     "dek": "In which the author's adoration for Obsidian is revealed, celebrating its versatility, customizability, and ingenuity in organizing the written word",
     "modified": "2024-09-20T04:20:58.000Z",
-    "tags": ["personal", "process", "markdown"],
+    "tags": [
+      "personal",
+      "process",
+      "markdown"
+    ],
     "toc": [
       {
         "text": "Why I love Obsidian for organizing my notes and blog posts",
@@ -3432,7 +3689,11 @@
       "inprogress": true,
       "date": "2023-04-04T18:48:13.000Z",
       "modified": "2024-09-20T04:20:58.000Z",
-      "tags": ["personal", "process", "markdown"],
+      "tags": [
+        "personal",
+        "process",
+        "markdown"
+      ],
       "words": 553,
       "images": 1,
       "imageDetails": {
@@ -3904,7 +4165,13 @@
     "type": "post",
     "dek": "In which we attempt to craft some treasure from the debris of a life lived on the internet",
     "modified": "2024-11-05T16:50:13.000Z",
-    "tags": ["inspiration", "dataviz", "design", "howto", "politics"],
+    "tags": [
+      "inspiration",
+      "dataviz",
+      "design",
+      "howto",
+      "politics"
+    ],
     "toc": [
       {
         "text": "Building myself a scrapbook",
@@ -3966,7 +4233,13 @@
       "dek": "In which we attempt to craft some treasure from the debris of a life lived on the internet",
       "date": "2024-09-20T04:22:35.000Z",
       "modified": "2024-11-05T16:50:13.000Z",
-      "tags": ["inspiration", "dataviz", "design", "howto", "politics"],
+      "tags": [
+        "inspiration",
+        "dataviz",
+        "design",
+        "howto",
+        "politics"
+      ],
       "words": 2131,
       "images": 12,
       "imageDetails": {
@@ -4309,7 +4582,11 @@
     "type": "post",
     "dek": "In which we the author gets his bearings by doing one of the things he knows best; making a map",
     "modified": "2025-03-27T20:12:50.000Z",
-    "tags": ["embeddings", "cartography", "dataviz"],
+    "tags": [
+      "embeddings",
+      "cartography",
+      "dataviz"
+    ],
     "toc": [
       {
         "text": "Mapping Novel Territories: Untangling MCP Servers",
@@ -4321,7 +4598,11 @@
     "metadata": {
       "dek": "In which we the author gets his bearings by doing one of the things he knows best; making a map",
       "inprogress": true,
-      "tags": ["embeddings", "cartography", "dataviz"],
+      "tags": [
+        "embeddings",
+        "cartography",
+        "dataviz"
+      ],
       "date": "2025-03-25T04:12:41.000Z",
       "modified": "2025-03-27T20:12:50.000Z",
       "words": 746,
@@ -4357,7 +4638,13 @@
     "type": "post",
     "dek": "In which the author rescues his most precious digital media from a server that he does not own or control",
     "modified": "2025-08-28T20:12:25.000Z",
-    "tags": ["data", "photos", "tauri", "photography", "personal"],
+    "tags": [
+      "data",
+      "photos",
+      "tauri",
+      "photography",
+      "personal"
+    ],
     "toc": [
       {
         "text": "Panic-Driven Development: Building A Tool To Back Up My Photos From Cloudinary",
@@ -4394,7 +4681,13 @@
     "metadata": {
       "dek": "In which the author rescues his most precious digital media from a server that he does not own or control",
       "inprogress": true,
-      "tags": ["data", "photos", "tauri", "photography", "personal"],
+      "tags": [
+        "data",
+        "photos",
+        "tauri",
+        "photography",
+        "personal"
+      ],
       "date": "2025-08-28T20:05:43.000Z",
       "modified": "2025-08-28T20:12:25.000Z",
       "words": 610,
@@ -4455,7 +4748,12 @@
     "type": "post",
     "dek": "In which I describe my workflow for transforming a Telegram database dump into a web-friendly format for analysis and visualization",
     "modified": "2025-03-16T01:25:05.000Z",
-    "tags": ["data", "dataviz", "journalism", "politics"],
+    "tags": [
+      "data",
+      "dataviz",
+      "journalism",
+      "politics"
+    ],
     "toc": [
       {
         "text": "Paramilitary Telegram Leaks: From Dump To Data",
@@ -4507,7 +4805,12 @@
       "title": "Processing Telegram Leaks for Fast Web Visualization",
       "dek": "In which I describe my workflow for transforming a Telegram database dump into a web-friendly format for analysis and visualization",
       "inprogress": true,
-      "tags": ["data", "dataviz", "journalism", "politics"],
+      "tags": [
+        "data",
+        "dataviz",
+        "journalism",
+        "politics"
+      ],
       "words": 725,
       "images": 6,
       "imageDetails": {
@@ -4708,12 +5011,24 @@
     "date": "2025-08-01T12:52:12.000Z",
     "type": "post",
     "modified": "2025-08-06T17:06:01.000Z",
-    "tags": ["ar", "prototyping", "tech", "ui", "design"],
+    "tags": [
+      "ar",
+      "prototyping",
+      "tech",
+      "ui",
+      "design"
+    ],
     "toc": [],
     "metadata": {
       "date": "2025-08-01T12:52:12.000Z",
       "modified": "2025-08-06T17:06:01.000Z",
-      "tags": ["ar", "prototyping", "tech", "ui", "design"],
+      "tags": [
+        "ar",
+        "prototyping",
+        "tech",
+        "ui",
+        "design"
+      ],
       "words": 2,
       "images": 0,
       "imageDetails": {
@@ -4801,7 +5116,13 @@
     "type": "post",
     "dek": "In which we explore the art of making complex systems instantly recognizable without requiring deep understanding of the encoding",
     "modified": "2025-08-29T02:02:55.000Z",
-    "tags": ["dataviz", "design", "patterns", "visualization", "data"],
+    "tags": [
+      "dataviz",
+      "design",
+      "patterns",
+      "visualization",
+      "data"
+    ],
     "toc": [
       {
         "text": "Dataviz Fingerprints: When Complex Systems Need Simple Signatures",
@@ -4840,7 +5161,13 @@
       "inprogress": true,
       "date": "2024-06-02T00:00:00.000Z",
       "modified": "2025-08-29T02:02:55.000Z",
-      "tags": ["dataviz", "design", "patterns", "visualization", "data"],
+      "tags": [
+        "dataviz",
+        "design",
+        "patterns",
+        "visualization",
+        "data"
+      ],
       "words": 839,
       "images": 0,
       "imageDetails": {
@@ -4898,7 +5225,13 @@
     "date": "2025-08-13T23:03:17.000Z",
     "type": "post",
     "modified": "2025-08-29T18:35:03.000Z",
-    "tags": ["journalism", "ai", "machinelearning", "tech", "media"],
+    "tags": [
+      "journalism",
+      "ai",
+      "machinelearning",
+      "tech",
+      "media"
+    ],
     "toc": [
       {
         "text": "Embeddings: The Alien Filing System",
@@ -4940,7 +5273,13 @@
     "metadata": {
       "date": "2025-08-13T23:03:17.000Z",
       "modified": "2025-08-29T18:35:03.000Z",
-      "tags": ["journalism", "ai", "machinelearning", "tech", "media"],
+      "tags": [
+        "journalism",
+        "ai",
+        "machinelearning",
+        "tech",
+        "media"
+      ],
       "words": 718,
       "images": 0,
       "imageDetails": {
@@ -5003,7 +5342,14 @@
     "date": "2025-03-05T15:10:06.000Z",
     "type": "post",
     "modified": "2025-08-29T18:10:02.000Z",
-    "tags": ["code", "howto", "process", "coding", "programming", "workflow"],
+    "tags": [
+      "code",
+      "howto",
+      "process",
+      "coding",
+      "programming",
+      "workflow"
+    ],
     "toc": [
       {
         "text": "Step Zero: Get It Running Locally",
@@ -5063,7 +5409,14 @@
     "metadata": {
       "date": "2025-03-05T15:10:06.000Z",
       "modified": "2025-08-29T18:10:02.000Z",
-      "tags": ["code", "howto", "process", "coding", "programming", "workflow"],
+      "tags": [
+        "code",
+        "howto",
+        "process",
+        "coding",
+        "programming",
+        "workflow"
+      ],
       "words": 810,
       "images": 0,
       "imageDetails": {
@@ -5144,12 +5497,24 @@
     "date": "2025-02-17T15:29:04.000Z",
     "type": "post",
     "modified": "2025-06-02T14:00:02.000Z",
-    "tags": ["personal", "routine", "inspiration", "productivity", "morning"],
+    "tags": [
+      "personal",
+      "routine",
+      "inspiration",
+      "productivity",
+      "morning"
+    ],
     "toc": [],
     "metadata": {
       "date": "2025-02-17T15:29:04.000Z",
       "modified": "2025-06-02T14:00:02.000Z",
-      "tags": ["personal", "routine", "inspiration", "productivity", "morning"],
+      "tags": [
+        "personal",
+        "routine",
+        "inspiration",
+        "productivity",
+        "morning"
+      ],
       "words": 153,
       "images": 0,
       "imageDetails": {
@@ -5174,7 +5539,13 @@
     "type": "post",
     "dek": "In which we learn to use radios to the best of our ability",
     "modified": "2025-08-28T20:46:11.000Z",
-    "tags": ["communication", "radio", "tech", "howto", "hardware"],
+    "tags": [
+      "communication",
+      "radio",
+      "tech",
+      "howto",
+      "hardware"
+    ],
     "toc": [
       {
         "text": "How We Use Radios",
@@ -5219,7 +5590,13 @@
       "inprogress": true,
       "date": "2023-09-03T16:33:47.000Z",
       "modified": "2025-08-28T20:46:11.000Z",
-      "tags": ["communication", "radio", "tech", "howto", "hardware"],
+      "tags": [
+        "communication",
+        "radio",
+        "tech",
+        "howto",
+        "hardware"
+      ],
       "words": 1484,
       "images": 0,
       "imageDetails": {
@@ -5283,7 +5660,13 @@
     "date": "2025-08-19T17:38:18.000Z",
     "type": "post",
     "modified": "2025-08-28T19:27:55.000Z",
-    "tags": ["machinelearning", "howto", "tech", "coding", "ai"],
+    "tags": [
+      "machinelearning",
+      "howto",
+      "tech",
+      "coding",
+      "ai"
+    ],
     "toc": [
       {
         "text": "Why?",
@@ -5307,7 +5690,13 @@
     "metadata": {
       "date": "2025-08-19T17:38:18.000Z",
       "modified": "2025-08-28T19:27:55.000Z",
-      "tags": ["machinelearning", "howto", "tech", "coding", "ai"],
+      "tags": [
+        "machinelearning",
+        "howto",
+        "tech",
+        "coding",
+        "ai"
+      ],
       "words": 18,
       "images": 0,
       "imageDetails": {
@@ -5353,7 +5742,13 @@
     "type": "post",
     "dek": "In which the author expounds on the joys of working physically both in capturing photographs as well as viewing and editing them",
     "modified": "2025-08-28T22:58:04.000Z",
-    "tags": ["photography", "personal", "process", "workflow", "analog"],
+    "tags": [
+      "photography",
+      "personal",
+      "process",
+      "workflow",
+      "analog"
+    ],
     "toc": [
       {
         "text": "Real-World Processes For Photography",
@@ -5378,7 +5773,13 @@
     "metadata": {
       "dek": "In which the author expounds on the joys of working physically both in capturing photographs as well as viewing and editing them",
       "inprogress": true,
-      "tags": ["photography", "personal", "process", "workflow", "analog"],
+      "tags": [
+        "photography",
+        "personal",
+        "process",
+        "workflow",
+        "analog"
+      ],
       "date": "2025-06-02T13:55:03.000Z",
       "modified": "2025-08-28T22:58:04.000Z",
       "words": 24,
@@ -5426,7 +5827,14 @@
     "date": "2025-08-01T12:49:14.000Z",
     "type": "post",
     "modified": "2025-08-28T22:32:42.000Z",
-    "tags": ["nvim", "vue", "nuxt", "coding", "tools", "howto"],
+    "tags": [
+      "nvim",
+      "vue",
+      "nuxt",
+      "coding",
+      "tools",
+      "howto"
+    ],
     "toc": [
       {
         "text": "Setting up nvim for Nuxt / Vue development",
@@ -5438,7 +5846,14 @@
     "metadata": {
       "date": "2025-08-01T12:49:14.000Z",
       "modified": "2025-08-28T22:32:42.000Z",
-      "tags": ["nvim", "vue", "nuxt", "coding", "tools", "howto"],
+      "tags": [
+        "nvim",
+        "vue",
+        "nuxt",
+        "coding",
+        "tools",
+        "howto"
+      ],
       "words": 12,
       "images": 0,
       "imageDetails": {
@@ -5639,7 +6054,12 @@
       "date": "2025-08-10T04:00:00.000Z",
       "modified": "2025-08-13T15:26:19.000Z",
       "url": "https://github.com/ejfox/MorningRadio",
-      "tech": ["Swift", "iOS", "Audio Streaming", "Mobile UX"],
+      "tech": [
+        "Swift",
+        "iOS",
+        "Audio Streaming",
+        "Mobile UX"
+      ],
       "state": "doing",
       "aiInvolvement": "ai-assisted",
       "words": 74,
@@ -5680,7 +6100,13 @@
       "date": "2021-06-15T04:00:00.000Z",
       "modified": "2025-08-26T19:52:56.000Z",
       "url": "https://gothamist.com/news/mapping-clusters-nypd-officers-repeatedly-accused-misconduct",
-      "tech": ["Neo4j", "SQLite", "Gephi", "Network Analysis", "Cypher"],
+      "tech": [
+        "Neo4j",
+        "SQLite",
+        "Gephi",
+        "Network Analysis",
+        "Cypher"
+      ],
       "featured": true,
       "state": "deployed",
       "aiInvolvement": "human-only",
@@ -5725,7 +6151,13 @@
       "title": "CLI Tools Collection",
       "date": "2024-10-12T04:00:00.000Z",
       "modified": "2025-08-13T16:35:57.000Z",
-      "tech": ["Node.js", "CLI", "ASCII Art", "Git", "AI"],
+      "tech": [
+        "Node.js",
+        "CLI",
+        "ASCII Art",
+        "Git",
+        "AI"
+      ],
       "state": "deployed",
       "aiInvolvement": "ai-assisted",
       "words": 182,
@@ -5771,7 +6203,12 @@
       "title": "Cloudinary Backup Tool",
       "date": "2025-01-15T05:00:00.000Z",
       "github": "https://github.com/ejfox/cloudinary-backup-tool",
-      "tech": ["Tauri", "Rust", "TypeScript", "Vite"],
+      "tech": [
+        "Tauri",
+        "Rust",
+        "TypeScript",
+        "Vite"
+      ],
       "modified": "2025-08-13T15:58:10.000Z",
       "words": 52,
       "images": 1,
@@ -6052,7 +6489,12 @@
       "date": "2015-11-03T05:00:00.000Z",
       "modified": "2025-08-26T19:53:33.000Z",
       "url": "https://github.com/dataproofer/Dataproofer",
-      "tech": ["JavaScript", "Electron", "Data Quality", "CSV"],
+      "tech": [
+        "JavaScript",
+        "Electron",
+        "Data Quality",
+        "CSV"
+      ],
       "featured": false,
       "state": "deployed",
       "aiInvolvement": "human-only",
@@ -6139,7 +6581,12 @@
       "title": "NBC News Big Board",
       "date": "2016-11-08T05:00:00.000Z",
       "modified": "2025-08-13T16:24:29.000Z",
-      "tech": ["D3.js", "JavaScript", "Touch Interface", "Election Data"],
+      "tech": [
+        "D3.js",
+        "JavaScript",
+        "Touch Interface",
+        "Election Data"
+      ],
       "featured": true,
       "state": "deployed",
       "aiInvolvement": "human-only",
@@ -6245,7 +6692,12 @@
       "date": "2025-08-02T04:00:00.000Z",
       "modified": "2025-08-13T17:17:13.000Z",
       "url": "https://github.com/ejfox/smallbot-mcp",
-      "tech": ["MCP", "AI", "Web Generation", "Node.js"],
+      "tech": [
+        "MCP",
+        "AI",
+        "Web Generation",
+        "Node.js"
+      ],
       "state": "deployed",
       "aiInvolvement": "ai-enhanced",
       "words": 145,
@@ -17158,7 +17610,11 @@
     "type": "post",
     "dek": "In which the author unveils a new studio site, delves into Electology plans, and experiences their first personal training session at the gym.",
     "modified": "2024-10-14T23:52:00.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "Overview of the Week",
@@ -17168,7 +17624,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "date": "2022-12-26T16:57:44.000Z",
       "modified": "2024-10-14T23:52:00.000Z",
       "dek": "In which the author unveils a new studio site, delves into Electology plans, and experiences their first personal training session at the gym.",
@@ -18095,7 +18555,11 @@
     "type": "post",
     "dek": "In which the author explores technology, political analysis, and personal productivity during a busy week of client work before a summer break.",
     "modified": "2024-10-14T23:50:54.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "Overview of the Week",
@@ -18111,7 +18575,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "modified": "2024-10-14T23:50:54.000Z",
       "date": "2024-06-03T16:56:06.000Z",
       "dek": "In which the author explores technology, political analysis, and personal productivity during a busy week of client work before a summer break.",
@@ -18367,10 +18835,18 @@
     "date": "2024-07-01T06:37:01.000Z",
     "type": "post",
     "modified": "2024-07-08T16:35:06.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "modified": "2024-07-08T16:35:06.000Z",
       "date": "2024-07-01T06:37:01.000Z",
       "words": 46,
@@ -18396,7 +18872,11 @@
     "date": "2024-07-08T16:35:05.000Z",
     "type": "post",
     "modified": "2025-08-28T19:08:25.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "Overview of the Week",
@@ -18442,7 +18922,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "modified": "2025-08-28T19:08:25.000Z",
       "date": "2024-07-08T16:35:05.000Z",
       "words": 78,
@@ -18702,12 +19186,22 @@
     "date": "2024-07-22T15:34:03.000Z",
     "type": "post",
     "modified": "2024-10-14T23:50:07.000Z",
-    "tags": ["art", "design", "visualization", "photography"],
+    "tags": [
+      "art",
+      "design",
+      "visualization",
+      "photography"
+    ],
     "toc": [],
     "metadata": {
       "date": "2024-07-22T15:34:03.000Z",
       "modified": "2024-10-14T23:50:07.000Z",
-      "tags": ["art", "design", "visualization", "photography"],
+      "tags": [
+        "art",
+        "design",
+        "visualization",
+        "photography"
+      ],
       "words": 38,
       "images": 9,
       "imageDetails": {
@@ -19317,7 +19811,11 @@
     "date": "2024-10-07T15:39:59.000Z",
     "type": "post",
     "modified": "2024-10-14T23:45:51.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "2024-41",
@@ -19334,7 +19832,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "modified": "2024-10-14T23:45:51.000Z",
       "date": "2024-10-07T15:39:59.000Z",
       "words": 424,
@@ -19376,7 +19878,11 @@
     "date": "2024-10-14T22:55:47.000Z",
     "type": "post",
     "modified": "2024-10-18T01:35:31.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "2024-42",
@@ -19435,7 +19941,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "modified": "2024-10-18T01:35:31.000Z",
       "date": "2024-10-14T22:55:47.000Z",
       "words": 415,
@@ -19519,7 +20029,11 @@
     "date": "2024-10-28T15:50:44.000Z",
     "type": "post",
     "modified": "2024-10-29T18:22:08.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "2024-44",
@@ -19572,7 +20086,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "modified": "2024-10-29T18:22:08.000Z",
       "date": "2024-10-28T15:50:44.000Z",
       "words": 229,
@@ -19650,7 +20168,11 @@
     "date": "Invalid date",
     "type": "post",
     "modified": "2024-11-05T16:37:55.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "2024-45",
@@ -19703,7 +20225,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "modified": "2024-11-05T16:37:55.000Z",
       "date": "Invalid date",
       "words": 92,
@@ -19781,7 +20307,11 @@
     "date": "Invalid date",
     "type": "post",
     "modified": "2024-11-17T00:04:13.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "2024-46",
@@ -19834,7 +20364,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "modified": "2024-11-17T00:04:13.000Z",
       "date": "Invalid date",
       "words": 106,
@@ -19912,7 +20446,11 @@
     "date": "2024-11-18T16:51:40.000Z",
     "type": "post",
     "modified": "2024-11-27T18:11:32.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "2024-47",
@@ -19965,7 +20503,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "modified": "2024-11-27T18:11:32.000Z",
       "date": "2024-11-18T16:51:40.000Z",
       "words": 217,
@@ -20043,7 +20585,11 @@
     "date": "2024-11-25T13:58:52.000Z",
     "type": "post",
     "modified": "2025-08-28T19:08:25.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "2024-48",
@@ -20066,7 +20612,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "modified": "2025-08-28T19:08:25.000Z",
       "date": "2024-11-25T13:58:52.000Z",
       "words": 261,
@@ -20114,7 +20664,11 @@
     "date": "2024-12-02T15:03:56.000Z",
     "type": "post",
     "modified": "2024-12-09T15:00:45.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "2024-49",
@@ -20137,7 +20691,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "date": "2024-12-02T15:03:56.000Z",
       "modified": "2024-12-09T15:00:45.000Z",
       "words": 418,
@@ -20185,7 +20743,11 @@
     "date": "2024-12-09T15:00:45.000Z",
     "type": "post",
     "modified": "2024-12-23T22:23:28.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "2024-50",
@@ -20208,7 +20770,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "date": "2024-12-09T15:00:45.000Z",
       "modified": "2024-12-23T22:23:28.000Z",
       "words": 314,
@@ -20283,7 +20849,11 @@
     "date": "2025-01-01T15:28:29.000Z",
     "type": "post",
     "modified": "2025-01-05T00:07:17.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "2025-01",
@@ -20306,7 +20876,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "date": "2025-01-01T15:28:29.000Z",
       "modified": "2025-01-05T00:07:17.000Z",
       "words": 63,
@@ -20354,7 +20928,11 @@
     "date": "2025-01-06T15:17:25.000Z",
     "type": "post",
     "modified": "2025-08-28T19:08:25.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "2025-02",
@@ -20385,7 +20963,11 @@
     "metadata": {
       "date": "2025-01-06T15:17:25.000Z",
       "modified": "2025-08-28T19:08:25.000Z",
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "words": 145,
       "images": 11,
       "imageDetails": {
@@ -20437,7 +21019,11 @@
     "date": "2025-01-15T20:49:04.000Z",
     "type": "post",
     "modified": "2025-06-18T14:40:59.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "Overview of the Week",
@@ -20483,7 +21069,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "modified": "2025-06-18T14:40:59.000Z",
       "date": "2025-01-15T20:49:04.000Z",
       "words": 50,
@@ -20608,7 +21198,11 @@
     "date": "2025-02-03T17:34:45.000Z",
     "type": "post",
     "modified": "2025-02-15T15:24:38.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "2025-06",
@@ -20631,7 +21225,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "date": "2025-02-03T17:34:45.000Z",
       "modified": "2025-02-15T15:24:38.000Z",
       "words": 150,
@@ -20708,7 +21306,11 @@
     "date": "2025-02-17T22:29:35.000Z",
     "type": "post",
     "modified": "2025-02-27T14:47:30.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "2025-08",
@@ -20731,7 +21333,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "date": "2025-02-17T22:29:35.000Z",
       "modified": "2025-02-27T14:47:30.000Z",
       "words": 682,
@@ -20806,7 +21412,11 @@
     "date": "2025-03-03T17:35:18.000Z",
     "type": "post",
     "modified": "2025-03-12T01:44:37.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "2025-10",
@@ -20829,7 +21439,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "date": "2025-03-03T17:35:18.000Z",
       "modified": "2025-03-12T01:44:37.000Z",
       "words": 499,
@@ -20920,7 +21534,11 @@
     "date": "2025-03-17T16:57:36.000Z",
     "type": "post",
     "modified": "2025-03-25T15:17:18.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "2025-12",
@@ -20945,7 +21563,11 @@
     "metadata": {
       "date": "2025-03-17T16:57:36.000Z",
       "modified": "2025-03-25T15:17:18.000Z",
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "words": 93,
       "images": 6,
       "imageDetails": {
@@ -20991,7 +21613,11 @@
     "date": "2025-03-24T07:54:19.000Z",
     "type": "post",
     "modified": "2025-04-02T04:12:52.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "2025-13",
@@ -21014,7 +21640,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "date": "2025-03-24T07:54:19.000Z",
       "modified": "2025-04-02T04:12:52.000Z",
       "words": 231,
@@ -21089,7 +21719,11 @@
     "date": "2025-04-07T04:27:52.000Z",
     "type": "post",
     "modified": "2025-08-28T19:08:25.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "2025-15",
@@ -21112,7 +21746,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "date": "2025-04-07T04:27:52.000Z",
       "modified": "2025-08-28T19:08:25.000Z",
       "words": 222,
@@ -21187,7 +21825,11 @@
     "date": "2025-04-21T20:22:04.000Z",
     "type": "post",
     "modified": "2025-05-03T00:41:05.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "2025-17",
@@ -21210,7 +21852,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "date": "2025-04-21T20:22:04.000Z",
       "modified": "2025-05-03T00:41:05.000Z",
       "words": 164,
@@ -21285,7 +21931,11 @@
     "date": "2025-05-05T23:55:46.000Z",
     "type": "post",
     "modified": "2025-06-10T22:34:44.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "2025-19",
@@ -21308,7 +21958,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "date": "2025-05-05T23:55:46.000Z",
       "modified": "2025-06-10T22:34:44.000Z",
       "words": 52,
@@ -21464,7 +22118,11 @@
     "date": "2025-06-09T18:20:48.000Z",
     "type": "post",
     "modified": "2025-06-17T18:01:34.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "2025-24",
@@ -21487,7 +22145,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "date": "2025-06-09T18:20:48.000Z",
       "modified": "2025-06-17T18:01:34.000Z",
       "words": 405,
@@ -21535,7 +22197,11 @@
     "date": "2025-06-17T15:30:58.000Z",
     "type": "post",
     "modified": "2025-06-29T19:00:04.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "2025-25",
@@ -21558,7 +22224,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "date": "2025-06-17T15:30:58.000Z",
       "modified": "2025-06-29T19:00:04.000Z",
       "words": 203,
@@ -21606,7 +22276,11 @@
     "date": "2025-06-23T14:33:22.000Z",
     "type": "post",
     "modified": "2025-07-01T12:48:27.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "2025-26",
@@ -21629,7 +22303,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "date": "2025-06-23T14:33:22.000Z",
       "modified": "2025-07-01T12:48:27.000Z",
       "words": 157,
@@ -21677,7 +22355,11 @@
     "date": "2025-07-01T03:33:33.000Z",
     "type": "post",
     "modified": "2025-07-02T14:38:27.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "2025-27",
@@ -21700,7 +22382,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "date": "2025-07-01T03:33:33.000Z",
       "modified": "2025-07-02T14:38:27.000Z",
       "words": 57,
@@ -21748,7 +22434,11 @@
     "date": "2025-07-08T19:37:09.000Z",
     "type": "post",
     "modified": "2025-07-21T00:48:55.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "2025-28",
@@ -21771,7 +22461,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "date": "2025-07-08T19:37:09.000Z",
       "modified": "2025-07-21T00:48:55.000Z",
       "words": 22,
@@ -21819,7 +22513,11 @@
     "date": "2025-07-17T22:18:28.000Z",
     "type": "post",
     "modified": "2025-07-21T00:49:20.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "2025-29",
@@ -21842,7 +22540,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "date": "2025-07-17T22:18:28.000Z",
       "modified": "2025-07-21T00:49:20.000Z",
       "words": 22,
@@ -21890,7 +22592,11 @@
     "date": "2025-07-28T12:57:34.000Z",
     "type": "post",
     "modified": "2025-08-12T15:55:36.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "2025-31",
@@ -21919,7 +22625,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "date": "2025-07-28T12:57:34.000Z",
       "modified": "2025-08-12T15:55:36.000Z",
       "words": 77,
@@ -21973,7 +22683,11 @@
     "date": "2025-08-05T21:46:56.000Z",
     "type": "post",
     "modified": "2025-08-12T15:05:25.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "2025-32",
@@ -21996,7 +22710,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "date": "2025-08-05T21:46:56.000Z",
       "modified": "2025-08-12T15:05:25.000Z",
       "words": 102,
@@ -22044,7 +22762,11 @@
     "date": "2025-08-11T12:28:42.000Z",
     "type": "post",
     "modified": "2025-08-28T19:08:25.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "2025-33",
@@ -22067,7 +22789,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "date": "2025-08-11T12:28:42.000Z",
       "modified": "2025-08-28T19:08:25.000Z",
       "words": 530,
@@ -22115,7 +22841,11 @@
     "date": "2025-08-18T22:58:25.000Z",
     "type": "post",
     "modified": "2025-08-28T19:08:25.000Z",
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "toc": [
       {
         "text": "2025-34",
@@ -22138,7 +22868,11 @@
       }
     ],
     "metadata": {
-      "tags": ["weekly-notes", "reflections", "progress"],
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
       "date": "2025-08-18T22:58:25.000Z",
       "modified": "2025-08-28T19:08:25.000Z",
       "words": 162,

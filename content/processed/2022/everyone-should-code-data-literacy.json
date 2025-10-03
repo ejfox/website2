@@ -8,7 +8,11 @@
     "inprogress": true,
     "date": "2022-11-03T00:02:01.000Z",
     "modified": "2024-09-20T04:24:42.000Z",
-    "tags": ["code", "automation", "tech"],
+    "tags": [
+      "code",
+      "automation",
+      "tech"
+    ],
     "words": 644,
     "images": 0,
     "imageDetails": {

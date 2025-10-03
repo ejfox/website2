@@ -8,7 +8,11 @@
     "inprogress": true,
     "date": "2022-11-03T00:00:38.000Z",
     "modified": "2024-09-20T04:23:03.000Z",
-    "tags": ["code", "vue", "process"],
+    "tags": [
+      "code",
+      "vue",
+      "process"
+    ],
     "words": 336,
     "images": 0,
     "imageDetails": {

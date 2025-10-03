@@ -10,7 +10,11 @@
     "date": "2013-01-25T10:00:00.000Z",
     "hidetimestamp": false,
     "modified": "2024-06-21T14:13:21.000Z",
-    "tags": ["journalism", "webdesign", "photography"],
+    "tags": [
+      "journalism",
+      "webdesign",
+      "photography"
+    ],
     "words": 1539,
     "images": 0,
     "imageDetails": {

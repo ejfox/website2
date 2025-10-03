@@ -10,7 +10,11 @@
     "date": "2019-06-13T08:00:39.000Z",
     "hidetimestamp": true,
     "modified": "2024-06-21T14:12:52.000Z",
-    "tags": ["movies", "drama", "documentary"],
+    "tags": [
+      "movies",
+      "drama",
+      "documentary"
+    ],
     "words": 367,
     "images": 0,
     "imageDetails": {

@@ -9,7 +9,13 @@
     "date": "2022-11-03T00:45:40.000Z",
     "modified": "2025-08-28T22:52:05.000Z",
     "hidden": true,
-    "tags": ["food", "recipe", "cooking", "personal", "experimentation"],
+    "tags": [
+      "food",
+      "recipe",
+      "cooking",
+      "personal",
+      "experimentation"
+    ],
     "words": 631,
     "images": 0,
     "imageDetails": {

@@ -11,7 +11,12 @@
     "hidetimestamp": false,
     "draft": true,
     "modified": "2024-09-23T16:13:29.000Z",
-    "tags": ["data", "dataviz", "election2020", "visualization"],
+    "tags": [
+      "data",
+      "dataviz",
+      "election2020",
+      "visualization"
+    ],
     "words": 994,
     "images": 0,
     "imageDetails": {

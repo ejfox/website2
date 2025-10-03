@@ -87,7 +87,7 @@
 
       <!-- Desktop navigation - DELETED COMPLEX SSR-BREAKING LINKS -->
       <nav
-        class="sticky min-w-[240px] h-auto max-h-screen top-0 left-0 z-50 monospace overflow-auto hidden md:block"
+        class="sticky min-w-[180px] h-auto max-h-screen top-0 left-0 z-50 monospace overflow-auto hidden md:block"
       >
         <div
           class="container mx-auto md:flex md:flex-col items-start w-full max-h-screen"
@@ -120,7 +120,7 @@
               >
             </div>
             <!-- Table of Contents Teleport Target -->
-            <div id="nav-toc-container" class="mt-8 pr-4"></div>
+            <div id="nav-toc-container" class="mt-8 pr-4 -ml-8 pl-2"></div>
 
             <!-- Calendar TOC removed - causing hydration mismatch -->
           </div>

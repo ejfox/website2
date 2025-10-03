@@ -117,9 +117,9 @@ const normalizeSlug = (slug) => {
 
 const processor = unified()
   .use(remarkParse)
+  .use(remarkGfm) // Process footnotes FIRST before other plugins
   .use(remarkExtractToc)
   .use(remarkObsidianSupport)
-  .use(remarkGfm)
   .use(remarkEnhanceImages)
   .use(remarkEnhanceLinks)
   .use(remarkAi2htmlEmbed)
@@ -342,7 +342,8 @@ const enhanceImageUrl = (url) => {
     src: `${base}c_scale,f_auto,q_auto:good,w_800/${path}`,
     srcset: `${base}c_scale,f_auto,q_auto:good,w_400/${path} 400w, ${base}c_scale,f_auto,q_auto:good,w_800/${path} 800w, ${base}c_scale,f_auto,q_auto:good,w_1200/${path} 1200w`.trim(),
     sizes: '(min-width: 768px) 80vw, 100vw',
-    placeholder: `${base}c_scale,f_auto,q_1,w_20,e_blur:1000/${path}`,
+    // Removed blur placeholder - user doesn't want blurred images
+    // placeholder: `${base}c_scale,f_auto,q_1,w_20,e_blur:1000/${path}`,
     width,
     height
   }
@@ -379,11 +380,11 @@ function remarkEnhanceImages() {
             }
           }
 
-          // Add blur placeholder data
-          if (enhanced.placeholder) {
-            node.data.hProperties['data-placeholder'] = enhanced.placeholder
-            node.data.hProperties['data-loading'] = 'lazy'
-          }
+          // Removed blur placeholder - user doesn't want blurred images
+          // if (enhanced.placeholder) {
+          //   node.data.hProperties['data-placeholder'] = enhanced.placeholder
+          //   node.data.hProperties['data-loading'] = 'lazy'
+          // }
 
           node.data.hProperties.className = classes.join(' ')
           node.data.hProperties.crossorigin = 'anonymous'

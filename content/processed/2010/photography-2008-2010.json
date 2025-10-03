@@ -9,7 +9,10 @@
     "hidetimestamp": false,
     "bgcolorclass": "bg-white",
     "textcolorclass": "dark-gray",
-    "tags": ["photography", "inspiration"],
+    "tags": [
+      "photography",
+      "inspiration"
+    ],
     "words": 59,
     "images": 0,
     "imageDetails": {
