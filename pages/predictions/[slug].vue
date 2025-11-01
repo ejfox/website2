@@ -1,253 +1,155 @@
 <template>
-  <main v-if="prediction" class="py-32 px-8 mx-auto max-w-4xl">
+  <main v-if="prediction" class="py-12 px-4 md:px-8 mx-auto max-w-4xl font-mono">
     <!-- Header with back navigation -->
-    <header class="mb-32">
-      <div class="flex items-center justify-between mb-24">
+    <header class="mb-8 border-b border-zinc-300 dark:border-zinc-700 pb-4">
+      <div class="flex items-center justify-between mb-2 text-xs">
         <NuxtLink
           to="/predictions"
-          class="text-xs text-zinc-500 dark:text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors uppercase tracking-widest"
+          class="text-zinc-600 dark:text-zinc-400"
         >
-          ← All Predictions
+          ← Back to predictions
         </NuxtLink>
 
-        <div
-          class="text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-widest font-mono"
-        >
-          Report
+        <div class="text-zinc-500 dark:text-zinc-500">
+          Prediction
         </div>
       </div>
     </header>
 
     <!-- Main prediction statement -->
-    <section class="mb-48">
-      <div
-        :class="[
-          'border-l-2 pl-8',
-          prediction.status === 'correct'
-            ? 'border-green-500 dark:border-green-600'
-            : prediction.status === 'incorrect'
-              ? 'border-red-500 dark:border-red-600'
-              : 'border-zinc-200 dark:border-zinc-800'
-        ]"
-      >
-        <h1
-          class="text-4xl md:text-5xl lg:text-6xl font-light text-zinc-900 dark:text-zinc-100 leading-[1.1] mb-24 tracking-tight"
-        >
-          {{ prediction.statement }}
-        </h1>
-      </div>
+    <section class="mb-12">
+      <h1 class="text-xl md:text-2xl font-bold text-zinc-900 dark:text-zinc-100 leading-tight mb-6">
+        {{ prediction.statement }}
+      </h1>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mt-24">
-        <div class="text-center">
-          <p
-            class="text-6xl font-light text-zinc-900 dark:text-zinc-100 mb-4 font-mono"
-          >
-            {{ prediction.confidence }}%
-          </p>
-          <p
-            class="text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-widest"
-          >
-            Confidence
-          </p>
-        </div>
-        <div v-if="prediction.deadline" class="text-center">
-          <p class="text-xl font-light text-zinc-700 dark:text-zinc-300 mb-4">
-            {{ formatDate(prediction.deadline) }}
-          </p>
-          <p
-            class="text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-widest"
-          >
-            Deadline
-          </p>
-        </div>
-        <div
-          v-if="
-            prediction.status &&
-            (prediction.status === 'correct' ||
-              prediction.status === 'incorrect')
-          "
-          class="text-center"
-        >
-          <p
-            :class="[
-              'text-xl font-light mb-4 uppercase tracking-wide',
-              prediction.status === 'correct'
-                ? 'text-green-600 dark:text-green-400'
-                : 'text-red-600 dark:text-red-400'
-            ]"
-          >
-            {{ prediction.status }}
-          </p>
-          <p
-            class="text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-widest"
-          >
-            Status
-          </p>
-        </div>
-      </div>
+      <!-- Metadata table -->
+      <table class="w-full text-xs border-collapse mb-8">
+        <tbody class="text-zinc-600 dark:text-zinc-400">
+          <tr class="border-b border-zinc-200 dark:border-zinc-800">
+            <td class="py-2 font-bold text-zinc-900 dark:text-zinc-100">Confidence</td>
+            <td class="text-right font-bold text-zinc-900 dark:text-zinc-100">{{ prediction.confidence }}%</td>
+          </tr>
+          <tr v-if="prediction.deadline" class="border-b border-zinc-200 dark:border-zinc-800">
+            <td class="py-2 font-bold text-zinc-900 dark:text-zinc-100">Deadline</td>
+            <td class="text-right text-zinc-900 dark:text-zinc-100">{{ formatDate(prediction.deadline) }}</td>
+          </tr>
+          <tr class="border-b border-zinc-200 dark:border-zinc-800">
+            <td class="py-2 font-bold text-zinc-900 dark:text-zinc-100">Created</td>
+            <td class="text-right text-zinc-900 dark:text-zinc-100">{{ formatDate(prediction.created) }}</td>
+          </tr>
+          <tr v-if="prediction.status && (prediction.status === 'correct' || prediction.status === 'incorrect')" class="border-b border-zinc-300 dark:border-zinc-700">
+            <td class="py-2 font-bold text-zinc-900 dark:text-zinc-100">Status</td>
+            <td class="text-right font-bold" :class="prediction.status === 'correct' ? 'text-zinc-900 dark:text-zinc-100' : 'text-red-600 dark:text-red-400'">
+              {{ prediction.status.toUpperCase() }}
+            </td>
+          </tr>
+          <tr v-if="prediction.categories && prediction.categories.length > 0">
+            <td class="py-2 font-bold text-zinc-900 dark:text-zinc-100">Categories</td>
+            <td class="text-right text-zinc-600 dark:text-zinc-400">{{ prediction.categories.join(', ') }}</td>
+          </tr>
+          <tr v-if="prediction.hash">
+            <td class="py-2 font-bold text-zinc-900 dark:text-zinc-100">Hash</td>
+            <td class="text-right text-zinc-600 dark:text-zinc-400 font-mono text-[10px]">{{ prediction.hash.substring(0, 16) }}...</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 
     <!-- Evidence Section -->
-    <section v-if="prediction.evidence" class="mb-48">
-      <div class="mb-16">
-        <h2
-          class="text-xs font-medium text-zinc-400 dark:text-zinc-600 uppercase tracking-widest mb-2"
-        >
-          01
-        </h2>
-        <h3
-          class="text-sm font-medium text-zinc-500 dark:text-zinc-500 uppercase tracking-widest"
-        >
-          Evidence & Reasoning
-        </h3>
-      </div>
+    <section v-if="prediction.evidence" class="mb-12 border-t border-zinc-300 dark:border-zinc-700 pt-6">
+      <h2 class="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-4">
+        Evidence
+      </h2>
 
-      <div
-        class="prose prose-xl dark:prose-invert prose-zinc max-w-none prose-p:text-zinc-600 dark:prose-p:text-zinc-400 prose-p:leading-[1.8] prose-p:mb-8 prose-headings:font-light prose-headings:tracking-tight prose-headings:text-zinc-800 dark:prose-headings:text-zinc-200 prose-h1:text-2xl prose-h1:mb-8 prose-h1:mt-16 prose-h2:text-xl prose-h2:mb-8 prose-h2:mt-8 prose-h2:border-b prose-h2:border-zinc-200 dark:prose-h2:border-zinc-800 prose-h2:pb-4 prose-h3:text-lg prose-h3:mb-4 prose-h3:mt-8 prose-ul:my-8 prose-li:my-4 prose-li:leading-[1.8] prose-li:marker:text-zinc-300 dark:prose-li:marker:text-zinc-700 prose-strong:text-zinc-800 dark:prose-strong:text-zinc-200 prose-strong:font-medium prose-em:text-zinc-700 dark:prose-em:text-zinc-300 prose-em:italic prose-a:text-zinc-800 dark:prose-a:text-zinc-200 prose-a:underline prose-a:decoration-zinc-300 dark:prose-a:decoration-zinc-700 prose-a:underline-offset-4 hover:prose-a:decoration-zinc-500 prose-code:text-zinc-700 dark:prose-code:text-zinc-300 prose-code:bg-zinc-100 dark:prose-code:bg-zinc-900 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-base prose-code:font-mono prose-code:before:content-none prose-code:after:content-none"
-        v-html="evidenceHtml"
-      ></div>
+      <div class="prose prose-sm dark:prose-invert prose-zinc max-w-none prose-p:text-zinc-600 dark:prose-p:text-zinc-400 prose-p:leading-relaxed prose-p:mb-4 prose-headings:font-bold prose-headings:text-zinc-900 dark:prose-headings:text-zinc-100 prose-headings:mt-6 prose-headings:mb-3 prose-h1:text-base prose-h2:text-sm prose-h3:text-xs prose-ul:my-4 prose-li:my-1 prose-strong:text-zinc-900 dark:prose-strong:text-zinc-100 prose-strong:font-bold prose-a:text-zinc-900 dark:prose-a:text-zinc-100 prose-a:underline prose-code:text-zinc-900 dark:prose-code:text-zinc-100 prose-code:bg-zinc-100 dark:prose-code:bg-zinc-900 prose-code:px-1 prose-code:py-0.5 prose-code:text-xs prose-code:font-mono prose-code:before:content-none prose-code:after:content-none font-mono" v-html="evidenceHtml"></div>
+    </section>
+
+    <!-- Update History Section -->
+    <section v-if="prediction.updates && prediction.updates.length > 0" class="mb-12 border-t border-zinc-300 dark:border-zinc-700 pt-6">
+      <h2 class="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-4">
+        Update History
+      </h2>
+
+      <div class="space-y-4">
+        <div
+          v-for="(update, index) in sortedUpdates"
+          :key="index"
+          class="border-l-2 border-blue-600 dark:border-blue-400 pl-4 pb-4"
+        >
+          <!-- Update header -->
+          <div class="flex items-center justify-between mb-2">
+            <time class="text-xs font-bold text-zinc-900 dark:text-zinc-100">
+              {{ formatDate(update.timestamp) }}
+            </time>
+            <span
+              v-if="update.confidenceBefore !== undefined && update.confidenceAfter !== undefined"
+              class="text-xs font-bold text-blue-600 dark:text-blue-400"
+            >
+              {{ update.confidenceBefore }}% → {{ update.confidenceAfter }}%
+            </span>
+          </div>
+
+          <!-- Update reasoning -->
+          <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed mb-2">
+            {{ update.reasoning }}
+          </p>
+
+          <!-- Update metadata -->
+          <div class="flex items-center gap-3 text-[10px] text-zinc-500 dark:text-zinc-500">
+            <span v-if="update.hash" class="font-mono">{{ update.hash.substring(0, 8) }}...</span>
+            <span v-if="update.gitCommit" class="font-mono">git:{{ update.gitCommit.substring(0, 8) }}</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Resolution Section (if resolved) -->
-    <section v-if="prediction.resolution" class="mb-48">
-      <div class="mb-16">
-        <h2
-          class="text-xs font-medium text-zinc-400 dark:text-zinc-600 uppercase tracking-widest mb-2"
-        >
-          02
-        </h2>
-        <h3
-          class="text-sm font-medium uppercase tracking-widest"
-          :class="[
-            prediction.status === 'correct'
-              ? 'text-green-600 dark:text-green-400'
-              : prediction.status === 'incorrect'
-                ? 'text-red-600 dark:text-red-400'
-                : 'text-zinc-500 dark:text-zinc-500'
-          ]"
-        >
-          Resolution
-          <span
-            v-if="prediction.resolved_date"
-            class="font-mono normal-case tracking-normal ml-4 text-zinc-400 dark:text-zinc-600 text-xs"
-          >
-            {{ formatDate(prediction.resolved_date) }}
-          </span>
-        </h3>
-      </div>
+    <section v-if="prediction.resolution" class="mb-12 border-t border-zinc-300 dark:border-zinc-700 pt-6">
+      <h2 class="text-sm font-bold mb-1" :class="prediction.status === 'correct' ? 'text-zinc-900 dark:text-zinc-100' : 'text-red-600 dark:text-red-400'">
+        Resolution: {{ prediction.status === 'correct' ? 'Correct' : prediction.status === 'incorrect' ? 'Incorrect' : 'Resolved' }}
+      </h2>
+      <p v-if="prediction.resolved_date" class="text-xs text-zinc-500 dark:text-zinc-500 mb-4">
+        {{ formatDate(prediction.resolved_date) }}
+      </p>
 
-      <div
-        class="prose prose-xl dark:prose-invert prose-zinc max-w-none prose-p:text-zinc-600 dark:prose-p:text-zinc-400 prose-p:leading-[1.8] prose-p:mb-8 prose-headings:font-light prose-headings:tracking-tight prose-headings:text-zinc-800 dark:prose-headings:text-zinc-200 prose-h1:text-2xl prose-h1:mb-8 prose-h1:mt-16 prose-h2:text-xl prose-h2:mb-8 prose-h2:mt-8 prose-h2:border-b prose-h2:border-zinc-200 dark:prose-h2:border-zinc-800 prose-h2:pb-4 prose-h3:text-lg prose-h3:mb-4 prose-h3:mt-8 prose-ul:my-8 prose-li:my-4 prose-li:leading-[1.8] prose-li:marker:text-zinc-300 dark:prose-li:marker:text-zinc-700 prose-strong:text-zinc-800 dark:prose-strong:text-zinc-200 prose-strong:font-medium prose-em:text-zinc-700 dark:prose-em:text-zinc-300 prose-em:italic prose-a:text-zinc-800 dark:prose-a:text-zinc-200 prose-a:underline prose-a:decoration-zinc-300 dark:prose-a:decoration-zinc-700 prose-a:underline-offset-4 hover:prose-a:decoration-zinc-500 prose-code:text-zinc-700 dark:prose-code:text-zinc-300 prose-code:bg-zinc-100 dark:prose-code:bg-zinc-900 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-base prose-code:font-mono prose-code:before:content-none prose-code:after:content-none"
-        v-html="resolutionHtml"
-      ></div>
+      <div class="prose prose-sm dark:prose-invert prose-zinc max-w-none prose-p:text-zinc-600 dark:prose-p:text-zinc-400 prose-p:leading-relaxed prose-p:mb-4 prose-headings:font-bold prose-headings:text-zinc-900 dark:prose-headings:text-zinc-100 prose-headings:mt-6 prose-headings:mb-3 prose-h1:text-base prose-h2:text-sm prose-h3:text-xs prose-ul:my-4 prose-li:my-1 prose-strong:text-zinc-900 dark:prose-strong:text-zinc-100 prose-strong:font-bold prose-a:text-zinc-900 dark:prose-a:text-zinc-100 prose-a:underline prose-code:text-zinc-900 dark:prose-code:text-zinc-100 prose-code:bg-zinc-100 dark:prose-code:bg-zinc-900 prose-code:px-1 prose-code:py-0.5 prose-code:text-xs prose-code:font-mono prose-code:before:content-none prose-code:after:content-none font-mono" v-html="resolutionHtml"></div>
     </section>
 
     <!-- Related Predictions -->
-    <section
-      v-if="prediction.related && prediction.related.length > 0"
-      class="mb-48"
-    >
-      <div class="mb-16">
-        <h2
-          class="text-xs font-medium text-zinc-400 dark:text-zinc-600 uppercase tracking-widest mb-2"
-        >
-          03
-        </h2>
-        <h3
-          class="text-sm font-medium text-zinc-500 dark:text-zinc-500 uppercase tracking-widest"
-        >
-          Related Predictions
-        </h3>
-      </div>
+    <section v-if="prediction.related && prediction.related.length > 0" class="mb-12 border-t border-zinc-300 dark:border-zinc-700 pt-6">
+      <h2 class="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-4">
+        Related
+      </h2>
 
-      <div class="space-y-8">
-        <div
-          v-for="relatedId in prediction.related"
-          :key="relatedId"
-          class="py-8 border-b border-zinc-100 dark:border-zinc-900 last:border-b-0"
-        >
-          <NuxtLink
-            :to="`/predictions/${relatedId}`"
-            class="group flex items-center justify-between hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
-          >
-            <span
-              class="text-base text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-900 dark:group-hover:text-zinc-100"
-              >{{ relatedId }}</span
-            >
-            <span
-              class="text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-widest"
-              >→</span
-            >
+      <ul class="space-y-2 text-xs">
+        <li v-for="relatedId in prediction.related" :key="relatedId" class="border-b border-zinc-200 dark:border-zinc-800 pb-2">
+          <NuxtLink :to="`/predictions/${relatedId}`" class="flex items-center justify-between text-zinc-600 dark:text-zinc-400">
+            <span>{{ relatedId }}</span>
+            <span>→</span>
           </NuxtLink>
-        </div>
-      </div>
+        </li>
+      </ul>
     </section>
-
-    <!-- Metadata Footer -->
-    <footer class="border-t border-zinc-100 dark:border-zinc-900 pt-24">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
-        <div>
-          <h3
-            class="text-xs font-medium text-zinc-400 dark:text-zinc-600 uppercase tracking-widest mb-4"
-          >
-            Created
-          </h3>
-          <p class="text-sm text-zinc-600 dark:text-zinc-400">
-            {{ formatDate(prediction.created) }}
-          </p>
-        </div>
-        <div v-if="prediction.categories && prediction.categories.length > 0">
-          <h3
-            class="text-xs font-medium text-zinc-400 dark:text-zinc-600 uppercase tracking-widest mb-4"
-          >
-            Categories
-          </h3>
-          <div class="flex flex-wrap gap-4">
-            <span
-              v-for="category in prediction.categories"
-              :key="category"
-              class="text-xs text-zinc-500 dark:text-zinc-500 uppercase tracking-widest"
-            >
-              {{ category }}
-            </span>
-          </div>
-        </div>
-        <div>
-          <h3
-            class="text-xs font-medium text-zinc-400 dark:text-zinc-600 uppercase tracking-widest mb-4"
-          >
-            Visibility
-          </h3>
-          <p class="text-sm text-zinc-600 dark:text-zinc-400 capitalize">
-            {{ prediction.visibility || 'public' }}
-          </p>
-        </div>
-      </div>
-    </footer>
   </main>
 
   <!-- Error state -->
-  <div
-    v-else-if="error"
-    class="flex flex-col items-center justify-center min-h-[50vh] px-4"
-  >
-    <h2 class="text-2xl font-medium text-zinc-800 dark:text-zinc-200 mb-4">
-      Prediction not found
-    </h2>
-    <p class="text-zinc-600 dark:text-zinc-400 mb-8 text-center">
-      The prediction you're looking for doesn't exist or has been removed.
-    </p>
-    <NuxtLink
-      to="/predictions"
-      class="px-8 py-4 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"
-    >
-      View All Predictions
-    </NuxtLink>
+  <div v-else-if="error" class="px-4 md:px-8 mx-auto max-w-4xl py-12 font-mono">
+    <div class="border border-red-600 dark:border-red-400 p-6">
+      <h2 class="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-2">
+        Error: Prediction not found
+      </h2>
+      <p class="text-xs text-zinc-600 dark:text-zinc-400 mb-4">
+        The requested prediction does not exist or has been removed.
+      </p>
+      <NuxtLink to="/predictions" class="inline-block border border-zinc-900 dark:border-zinc-100 px-3 py-2 text-xs text-zinc-900 dark:text-zinc-100">
+        Back to predictions
+      </NuxtLink>
+    </div>
   </div>
 
   <!-- Loading state -->
-  <div v-else class="flex items-center justify-center min-h-[50vh]">
-    <p class="text-zinc-600 dark:text-zinc-400">Loading prediction...</p>
+  <div v-else class="px-4 md:px-8 mx-auto max-w-4xl py-12 font-mono">
+    <p class="text-xs text-zinc-500 dark:text-zinc-500">Loading...</p>
   </div>
 </template>
 
@@ -316,6 +218,14 @@ const formatDate = (dateString) => {
     day: 'numeric'
   })
 }
+
+// Sort updates by timestamp (most recent first)
+const sortedUpdates = computed(() => {
+  if (!prediction.value?.updates) return []
+  return [...prediction.value.updates].sort(
+    (a, b) => new Date(b.timestamp) - new Date(a.timestamp)
+  )
+})
 
 // SEO meta
 useSeoMeta({

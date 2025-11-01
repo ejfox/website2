@@ -1,3 +1,12 @@
+export interface PredictionUpdate {
+  timestamp: string // ISO date when update was made
+  confidenceBefore?: number // Previous confidence level (if changed)
+  confidenceAfter?: number // New confidence level (if changed)
+  reasoning: string // Explanation for the update
+  hash: string // SHA-256 hash after this update
+  gitCommit?: string // Git commit hash for this update
+}
+
 export interface Prediction {
   id: string // Unique identifier
   statement: string // The prediction itself
@@ -13,6 +22,9 @@ export interface Prediction {
   }
   visibility: 'public' | 'private' // Allow some private predictions
   evidence?: string // Supporting reasoning/links
+
+  // Update trail
+  updates?: PredictionUpdate[] // History of updates to this prediction
 
   // Resolution fields
   resolution?: boolean // Was the prediction correct?
