@@ -36,6 +36,11 @@
         >
           <span>UPDATED: {{ lastUpdated }}</span>
         </div>
+
+        <!-- Sparklines visualization -->
+        <div v-if="books?.length" class="mt-8">
+          <ReadingSparklines :books="books" />
+        </div>
       </header>
 
       <!-- Loading State -->
