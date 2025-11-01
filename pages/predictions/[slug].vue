@@ -93,6 +93,9 @@
         </li>
       </ul>
     </section>
+
+    <!-- Webmentions -->
+    <Webmentions :url="predictionUrl" />
   </main>
 
   <!-- Error state -->
@@ -185,6 +188,11 @@ const sortedUpdates = computed(() => {
     (a, b) => new Date(b.timestamp) - new Date(a.timestamp)
   )
 })
+
+// Prediction URL for webmentions
+const config = useRuntimeConfig()
+const baseURL = config.public?.baseURL || (typeof window !== 'undefined' ? window.location.origin : 'https://ejfox.com')
+const predictionUrl = computed(() => `${baseURL}/predictions/${slug}`)
 
 // SEO meta
 useSeoMeta({

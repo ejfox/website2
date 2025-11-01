@@ -135,7 +135,7 @@ const props = defineProps({
 })
 
 const { data: webmentions } = await useFetch('/api/webmentions', {
-  query: { url: props.url }
+  query: { target: props.url }
 })
 
 const likes = computed(

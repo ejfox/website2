@@ -28,7 +28,9 @@ export default defineNuxtConfig({
         // IndieAuth authorization endpoint
         { rel: 'authorization_endpoint', href: 'https://indieauth.com/auth' },
         // IndieAuth token endpoint
-        { rel: 'token_endpoint', href: 'https://tokens.indieauth.com/token' }
+        { rel: 'token_endpoint', href: 'https://tokens.indieauth.com/token' },
+        // Webmention endpoint
+        { rel: 'webmention', href: 'https://webmention.io/ejfox.com/webmention' }
       ]
     }
   },

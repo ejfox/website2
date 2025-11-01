@@ -733,6 +733,9 @@ const processedMetadata = computed(() => {
 
       <!-- Tip jar - minimal CTA -->
       <BlogTipJar v-if="!post.metadata?.noTips" />
+
+      <!-- Webmentions -->
+      <Webmentions :url="postUrl" />
     </article>
     <ErrorPage
       v-else-if="error"
