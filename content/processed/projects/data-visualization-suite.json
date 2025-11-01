@@ -25,23 +25,8 @@
     },
     "links": 7,
     "codeBlocks": 0,
-    "headers": {
-      "h3": 2
-    },
-    "toc": [
-      {
-        "text": "Related Content",
-        "slug": "related-content",
-        "level": "h3",
-        "children": []
-      },
-      {
-        "text": "Project List",
-        "slug": "project-list",
-        "level": "h3",
-        "children": []
-      }
-    ],
+    "headers": {},
+    "toc": [],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/projects/data-visualization-suite.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

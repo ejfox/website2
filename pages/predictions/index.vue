@@ -1,13 +1,13 @@
 <template>
-  <main class="px-4 md:px-8 max-w-4xl font-mono text-xs">
-    <header class="mb-6 border-b border-zinc-300 dark:border-zinc-700 pb-3">
-      <h1 class="text-base font-bold mb-2 text-zinc-900 dark:text-zinc-100 uppercase tracking-wide">
+  <main class="px-4 md:px-8 max-w-4xl">
+    <header class="mb-6 pb-6 border-b border-zinc-300 dark:border-zinc-700">
+      <h1 class="font-serif text-2xl text-zinc-900 dark:text-zinc-100 mb-3">
         Predictions
       </h1>
 
-      <div class="text-zinc-600 dark:text-zinc-400 space-y-1 mb-3">
-        <div>total={{ transformedPredictions?.length || 0 }} correct={{ correctCount }} incorrect={{ incorrectCount }} pending={{ pendingCount }}</div>
-        <div>methodology: SHA-256 hash + git timestamps • <a href="https://gwern.net/doc/statistics/prediction/index" target="_blank" class="underline hover:no-underline">gwern</a></div>
+      <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 space-y-1">
+        <div><span class="text-zinc-900 dark:text-zinc-100">{{ transformedPredictions?.length || 0 }}</span> total · <span class="text-zinc-900 dark:text-zinc-100">{{ correctCount }}</span> correct · <span class="text-zinc-900 dark:text-zinc-100">{{ incorrectCount }}</span> incorrect · <span class="text-zinc-900 dark:text-zinc-100">{{ pendingCount }}</span> pending</div>
+        <div>SHA-256 hash + git timestamps · <a href="https://gwern.net/doc/statistics/prediction/index" target="_blank" class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100">gwern</a></div>
       </div>
     </header>
 
@@ -21,8 +21,8 @@
 
     <!-- Predictions List -->
     <section v-else>
-      <div class="flex items-center justify-between pb-2 mb-4 text-zinc-600 dark:text-zinc-400">
-        <div class="flex items-center gap-3">
+      <div class="flex items-center justify-between pb-3 mb-6 border-b border-zinc-300 dark:border-zinc-700 font-mono text-xs">
+        <div class="flex items-center gap-4 text-zinc-500 dark:text-zinc-500">
           <button
             v-for="filterType in filters"
             :key="filterType.key"
@@ -32,15 +32,15 @@
             {{ filterType.label }}
           </button>
         </div>
-        <div class="flex items-center gap-2">
-          <label>sort:</label>
+        <div class="flex items-center gap-2 text-zinc-500 dark:text-zinc-500">
+          <label>Sort</label>
           <select
             v-model="sortBy"
-            class="px-1 py-0.5 bg-transparent text-zinc-900 dark:text-zinc-100 border border-zinc-300 dark:border-zinc-700 focus:outline-none"
+            class="px-2 py-1 bg-transparent text-zinc-900 dark:text-zinc-100 border border-zinc-300 dark:border-zinc-700 focus:outline-none focus:border-zinc-900 dark:focus:border-zinc-100"
           >
-            <option value="date">date</option>
-            <option value="confidence">confidence</option>
-            <option value="statement">statement</option>
+            <option value="date">Date</option>
+            <option value="confidence">Confidence</option>
+            <option value="statement">Statement</option>
           </select>
         </div>
       </div>
@@ -56,83 +56,83 @@
     </section>
 
     <!-- Statistics -->
-    <section v-if="transformedPredictions.length > 0" class="mt-8 border-t border-zinc-300 dark:border-zinc-700 pt-3">
-      <div class="text-zinc-900 dark:text-zinc-100 mb-2 uppercase tracking-wide">Statistics</div>
+    <section v-if="transformedPredictions.length > 0" class="mt-8 pt-6 border-t border-zinc-300 dark:border-zinc-700">
+      <h2 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-4">Statistics</h2>
 
-      <!-- Dense plaintext stats -->
-      <div class="text-zinc-600 dark:text-zinc-400 space-y-1 mb-4">
-        <div>n={{ transformedPredictions.length }} resolved={{ resolvedCount }} correct={{ correctCount }} incorrect={{ incorrectCount }} pending={{ pendingCount }}</div>
-        <div v-if="correctCount + incorrectCount > 0"><span class="text-zinc-900 dark:text-zinc-100">accuracy={{ accuracyRate }}%</span> avg_confidence={{ avgConfidence }}%</div>
+      <!-- Summary stats -->
+      <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mb-6 space-y-1">
+        <div><span class="text-zinc-900 dark:text-zinc-100">{{ transformedPredictions.length }}</span> predictions · <span class="text-zinc-900 dark:text-zinc-100">{{ resolvedCount }}</span> resolved · <span class="text-zinc-900 dark:text-zinc-100">{{ pendingCount }}</span> pending</div>
+        <div v-if="correctCount + incorrectCount > 0">Accuracy <span class="text-zinc-900 dark:text-zinc-100">{{ accuracyRate }}%</span> · Avg confidence <span class="text-zinc-900 dark:text-zinc-100">{{ avgConfidence }}%</span></div>
       </div>
 
       <!-- Calibration Analysis -->
-      <div v-if="correctCount + incorrectCount > 0" class="mb-4">
-        <div class="text-zinc-900 dark:text-zinc-100 mb-2 uppercase tracking-wide">Calibration</div>
+      <div v-if="correctCount + incorrectCount > 0" class="mb-6">
+        <h3 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-3">Calibration</h3>
 
       <!-- Confidence breakdown -->
-      <table v-if="correctCount + incorrectCount > 1" class="w-full border-collapse mb-3">
+      <table v-if="correctCount + incorrectCount > 1" class="w-full border-collapse mb-6 font-mono text-xs">
         <thead>
           <tr class="border-b border-zinc-300 dark:border-zinc-700">
-            <th class="text-left py-1 text-zinc-900 dark:text-zinc-100">analysis</th>
-            <th class="text-right py-1 text-zinc-900 dark:text-zinc-100">avg</th>
-            <th class="text-right py-1 text-zinc-900 dark:text-zinc-100">n</th>
+            <th class="text-left py-2 text-zinc-900 dark:text-zinc-100 font-normal">Analysis</th>
+            <th class="text-right py-2 text-zinc-900 dark:text-zinc-100 font-normal">Avg</th>
+            <th class="text-right py-2 text-zinc-900 dark:text-zinc-100 font-normal">n</th>
           </tr>
         </thead>
-        <tbody class="text-zinc-600 dark:text-zinc-400">
+        <tbody class="text-zinc-500 dark:text-zinc-500">
           <tr v-if="correctCount > 0" class="border-b border-zinc-200 dark:border-zinc-800">
-            <td class="py-1">correct</td>
+            <td class="py-2">Correct</td>
             <td class="text-right text-zinc-900 dark:text-zinc-100">{{ correctConfidenceAvg }}%</td>
-            <td class="text-right text-zinc-500 dark:text-zinc-500">{{ correctCount }}</td>
+            <td class="text-right">{{ correctCount }}</td>
           </tr>
           <tr v-if="incorrectCount > 0" class="border-b border-zinc-200 dark:border-zinc-800">
-            <td class="py-1">incorrect</td>
+            <td class="py-2">Incorrect</td>
             <td class="text-right text-zinc-900 dark:text-zinc-100">{{ incorrectConfidenceAvg }}%</td>
-            <td class="text-right text-zinc-500 dark:text-zinc-500">{{ incorrectCount }}</td>
+            <td class="text-right">{{ incorrectCount }}</td>
           </tr>
           <tr v-if="correctCount > 0 && incorrectCount > 0">
-            <td class="py-1">differential</td>
+            <td class="py-2">Differential</td>
             <td class="text-right" :class="correctConfidenceAvg > incorrectConfidenceAvg ? 'text-zinc-900 dark:text-zinc-100' : 'text-red-600 dark:text-red-400'">
               {{ correctConfidenceAvg > incorrectConfidenceAvg ? '+' : '' }}{{ correctConfidenceAvg - incorrectConfidenceAvg }}%
             </td>
-            <td class="text-right text-zinc-500 dark:text-zinc-500">
-              {{ correctConfidenceAvg > incorrectConfidenceAvg ? 'ok' : 'bad' }}
+            <td class="text-right">
+              {{ correctConfidenceAvg > incorrectConfidenceAvg ? 'good' : 'bad' }}
             </td>
           </tr>
         </tbody>
       </table>
 
       <!-- Calibration by range -->
-      <table v-if="calibrationData.length > 0" class="w-full border-collapse mb-3">
+      <table v-if="calibrationData.length > 0" class="w-full border-collapse mb-6 font-mono text-xs">
         <thead>
           <tr class="border-b border-zinc-300 dark:border-zinc-700">
-            <th class="text-left py-1 text-zinc-900 dark:text-zinc-100">range</th>
-            <th class="text-right py-1 text-zinc-900 dark:text-zinc-100">accuracy</th>
-            <th class="text-right py-1 text-zinc-900 dark:text-zinc-100">n</th>
+            <th class="text-left py-2 text-zinc-900 dark:text-zinc-100 font-normal">Range</th>
+            <th class="text-right py-2 text-zinc-900 dark:text-zinc-100 font-normal">Accuracy</th>
+            <th class="text-right py-2 text-zinc-900 dark:text-zinc-100 font-normal">n</th>
           </tr>
         </thead>
-        <tbody class="text-zinc-600 dark:text-zinc-400">
+        <tbody class="text-zinc-500 dark:text-zinc-500">
           <tr v-for="range in calibrationData" :key="range.label" class="border-b border-zinc-200 dark:border-zinc-800">
-            <td class="py-1">{{ range.label }}</td>
+            <td class="py-2">{{ range.label }}</td>
             <td class="text-right text-zinc-900 dark:text-zinc-100">{{ range.accuracy }}%</td>
-            <td class="text-right text-zinc-500 dark:text-zinc-500">{{ range.total }}</td>
+            <td class="text-right">{{ range.total }}</td>
           </tr>
         </tbody>
       </table>
 
       <!-- Resolutions by year -->
-      <table v-if="resolutionsByYear.length > 0" class="w-full border-collapse mb-3">
+      <table v-if="resolutionsByYear.length > 0" class="w-full border-collapse mb-6 font-mono text-xs">
         <thead>
           <tr class="border-b border-zinc-300 dark:border-zinc-700">
-            <th class="text-left py-1 text-zinc-900 dark:text-zinc-100">year</th>
-            <th class="text-right py-1 text-zinc-900 dark:text-zinc-100">accuracy</th>
-            <th class="text-right py-1 text-zinc-900 dark:text-zinc-100">n</th>
+            <th class="text-left py-2 text-zinc-900 dark:text-zinc-100 font-normal">Year</th>
+            <th class="text-right py-2 text-zinc-900 dark:text-zinc-100 font-normal">Accuracy</th>
+            <th class="text-right py-2 text-zinc-900 dark:text-zinc-100 font-normal">n</th>
           </tr>
         </thead>
-        <tbody class="text-zinc-600 dark:text-zinc-400">
+        <tbody class="text-zinc-500 dark:text-zinc-500">
           <tr v-for="yearData in resolutionsByYear" :key="yearData.year" class="border-b border-zinc-200 dark:border-zinc-800">
-            <td class="py-1">{{ yearData.year }}</td>
+            <td class="py-2">{{ yearData.year }}</td>
             <td class="text-right text-zinc-900 dark:text-zinc-100">{{ yearData.accuracy }}%</td>
-            <td class="text-right text-zinc-500 dark:text-zinc-500">{{ yearData.total }}</td>
+            <td class="text-right">{{ yearData.total }}</td>
           </tr>
         </tbody>
       </table>
@@ -140,18 +140,18 @@
     </section>
 
     <!-- Version Control -->
-    <section class="mt-8 border-t border-zinc-300 dark:border-zinc-700 pt-3">
-      <div class="text-zinc-900 dark:text-zinc-100 mb-2 uppercase tracking-wide">Version Control</div>
-      <div class="text-zinc-600 dark:text-zinc-400 space-y-1 mb-3">
-        <div>markdown + SHA-256 + git timestamps</div>
-        <div>repo: github.com/ejfox/website2/content/predictions/</div>
+    <section class="mt-8 pt-6 border-t border-zinc-300 dark:border-zinc-700">
+      <h2 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-3">Version Control</h2>
+      <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 space-y-1 mb-3">
+        <div>Markdown + SHA-256 + Git timestamps</div>
+        <div>github.com/ejfox/website2/content/predictions/</div>
       </div>
       <a
         href="https://github.com/ejfox/website2/commits/main/content/predictions/"
         target="_blank"
-        class="text-zinc-600 dark:text-zinc-400 underline hover:no-underline"
+        class="font-mono text-xs text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
       >
-        commit history →
+        View commit history →
       </a>
     </section>
   </main>
@@ -217,10 +217,10 @@ const filters = [
 ]
 
 const filterButtonClass = (key) => [
-  'hover:underline',
+  'transition-colors',
   filter.value === key
-    ? 'text-zinc-900 dark:text-zinc-100 underline font-bold'
-    : 'text-zinc-600 dark:text-zinc-400'
+    ? 'text-zinc-900 dark:text-zinc-100'
+    : 'text-zinc-500 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100'
 ]
 
 // Transform and filter predictions

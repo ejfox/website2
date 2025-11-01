@@ -1,7 +1,7 @@
 {
-  "content": "<ul class=\"list-disc\">\n<li class=\"\"></li>\n</ul>\n<h2 class=\"\" id=\"projects-worked-on\">Projects Worked On</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Worked a bunch on my Scrapbook project, particularly finding UUID/hashes I can use for scraps from multiple services</li>\n<li class=\"\">Added 2 new views to the scrapbook part of my website: graph and cards</li>\n<li class=\"\">Added an “art mode” to my daily dashboard project</li>\n</ul>\n<h2 class=\"\" id=\"creative-endeavors\">Creative Endeavors</h2>\n<h3 class=\"\" id=\"cyberpunk-visual-aesthetic\">Cyberpunk Visual Aesthetic</h3>\n<p class=\"\">Looking more into a cyberpunk aesthetic, gathering visual inspiration <a href=\"https://www.are.na/ej-fox/cyberpunk-2zwvyihuauk\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.are.na/ej-fox/cyberpunk-2zwvyihuauk</a></p>\n<p class=\"\">Playing around with different techniques in After Effects, building stacks of glow, motion blur, bulge distortion, mosaic pixelation, and randomizing parameters so it has an unexpected generative feel.</p>\n<h3 class=\"\" id=\"hudson-valley-exploration\">Hudson Valley Exploration</h3>\n<p class=\"\">I downloaded Digital Elevation Model TIFFs of the Hudson Valley, combined them all together in QGIS, and then played around a bit with generating contour maps from it. I have an image of a very stylized, iso-metric sort of view of the Hudson Valley with some towns / cities highlighted, and probably exaggerated height on the mountains</p>",
-  "html": "<ul class=\"list-disc\">\n<li class=\"\"></li>\n</ul>\n<h2 class=\"\" id=\"projects-worked-on\">Projects Worked On</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Worked a bunch on my Scrapbook project, particularly finding UUID/hashes I can use for scraps from multiple services</li>\n<li class=\"\">Added 2 new views to the scrapbook part of my website: graph and cards</li>\n<li class=\"\">Added an “art mode” to my daily dashboard project</li>\n</ul>\n<h2 class=\"\" id=\"creative-endeavors\">Creative Endeavors</h2>\n<h3 class=\"\" id=\"cyberpunk-visual-aesthetic\">Cyberpunk Visual Aesthetic</h3>\n<p class=\"\">Looking more into a cyberpunk aesthetic, gathering visual inspiration <a href=\"https://www.are.na/ej-fox/cyberpunk-2zwvyihuauk\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.are.na/ej-fox/cyberpunk-2zwvyihuauk</a></p>\n<p class=\"\">Playing around with different techniques in After Effects, building stacks of glow, motion blur, bulge distortion, mosaic pixelation, and randomizing parameters so it has an unexpected generative feel.</p>\n<h3 class=\"\" id=\"hudson-valley-exploration\">Hudson Valley Exploration</h3>\n<p class=\"\">I downloaded Digital Elevation Model TIFFs of the Hudson Valley, combined them all together in QGIS, and then played around a bit with generating contour maps from it. I have an image of a very stylized, iso-metric sort of view of the Hudson Valley with some towns / cities highlighted, and probably exaggerated height on the mountains</p>",
-  "title": "Overview of the Week",
+  "content": "<h2 class=\"\" id=\"overview-of-the-week\">Overview of the Week</h2>\n<ul class=\"list-disc\">\n<li class=\"\"></li>\n</ul>\n<h2 class=\"\" id=\"projects-worked-on\">Projects Worked On</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Worked a bunch on my Scrapbook project, particularly finding UUID/hashes I can use for scraps from multiple services</li>\n<li class=\"\">Added 2 new views to the scrapbook part of my website: graph and cards</li>\n<li class=\"\">Added an “art mode” to my daily dashboard project</li>\n</ul>\n<h2 class=\"\" id=\"creative-endeavors\">Creative Endeavors</h2>\n<h3 class=\"\" id=\"cyberpunk-visual-aesthetic\">Cyberpunk Visual Aesthetic</h3>\n<p class=\"\">Looking more into a cyberpunk aesthetic, gathering visual inspiration <a href=\"https://www.are.na/ej-fox/cyberpunk-2zwvyihuauk\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.are.na/ej-fox/cyberpunk-2zwvyihuauk</a></p>\n<p class=\"\">Playing around with different techniques in After Effects, building stacks of glow, motion blur, bulge distortion, mosaic pixelation, and randomizing parameters so it has an unexpected generative feel.</p>\n<h3 class=\"\" id=\"hudson-valley-exploration\">Hudson Valley Exploration</h3>\n<p class=\"\">I downloaded Digital Elevation Model TIFFs of the Hudson Valley, combined them all together in QGIS, and then played around a bit with generating contour maps from it. I have an image of a very stylized, iso-metric sort of view of the Hudson Valley with some towns / cities highlighted, and probably exaggerated height on the mountains</p>",
+  "html": "<h2 class=\"\" id=\"overview-of-the-week\">Overview of the Week</h2>\n<ul class=\"list-disc\">\n<li class=\"\"></li>\n</ul>\n<h2 class=\"\" id=\"projects-worked-on\">Projects Worked On</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Worked a bunch on my Scrapbook project, particularly finding UUID/hashes I can use for scraps from multiple services</li>\n<li class=\"\">Added 2 new views to the scrapbook part of my website: graph and cards</li>\n<li class=\"\">Added an “art mode” to my daily dashboard project</li>\n</ul>\n<h2 class=\"\" id=\"creative-endeavors\">Creative Endeavors</h2>\n<h3 class=\"\" id=\"cyberpunk-visual-aesthetic\">Cyberpunk Visual Aesthetic</h3>\n<p class=\"\">Looking more into a cyberpunk aesthetic, gathering visual inspiration <a href=\"https://www.are.na/ej-fox/cyberpunk-2zwvyihuauk\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.are.na/ej-fox/cyberpunk-2zwvyihuauk</a></p>\n<p class=\"\">Playing around with different techniques in After Effects, building stacks of glow, motion blur, bulge distortion, mosaic pixelation, and randomizing parameters so it has an unexpected generative feel.</p>\n<h3 class=\"\" id=\"hudson-valley-exploration\">Hudson Valley Exploration</h3>\n<p class=\"\">I downloaded Digital Elevation Model TIFFs of the Hudson Valley, combined them all together in QGIS, and then played around a bit with generating contour maps from it. I have an image of a very stylized, iso-metric sort of view of the Hudson Valley with some towns / cities highlighted, and probably exaggerated height on the mountains</p>",
+  "title": "2024 18",
   "metadata": {
     "tags": [
       "weekly-notes",
@@ -24,42 +24,8 @@
     },
     "links": 0,
     "codeBlocks": 0,
-    "headers": {
-      "h2": 3
-    },
-    "toc": [
-      {
-        "text": "Overview of the Week",
-        "slug": "overview-of-the-week",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Projects Worked On",
-        "slug": "projects-worked-on",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Creative Endeavors",
-        "slug": "creative-endeavors",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Cyberpunk Visual Aesthetic",
-            "slug": "cyberpunk-visual-aesthetic",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Hudson Valley Exploration",
-            "slug": "hudson-valley-exploration",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
+    "headers": {},
+    "toc": [],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/week-notes/2024-18.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

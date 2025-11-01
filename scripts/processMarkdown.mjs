@@ -18,7 +18,6 @@ import dotenv from 'dotenv'
 import * as shiki from 'shiki'
 import chalk from 'chalk'
 import ora from 'ora'
-import GithubSlugger from 'github-slugger'
 import { config } from './config.mjs'
 
 import {
@@ -49,61 +48,6 @@ const highlighter = await shiki.createHighlighter({
   themes: ['github-dark'],
   langs: ['javascript', 'typescript', 'json', 'html', 'css', 'markdown']
 })
-
-const extractHeadersAndToc = (tree, maxDepth = 3) => {
-  const slugger = new GithubSlugger()
-  let firstHeading = null
-  let firstHeadingNode = null
-  const toc = []
-  const headingStack = []
-
-  visit(tree, 'heading', (node) => {
-    if (node.depth > maxDepth) return
-
-    const headingText = node.children
-      .map((child) => child.type === 'text' ? child.value : 
-                    child.type === 'image' ? child.alt || '' :
-                    child.type === 'link' ? child.children.map(c => c.value || '').join('') : '')
-      .join('')
-      .trim()
-
-    if (!headingText) return
-
-    const headingItem = {
-      text: headingText,
-      slug: slugger.slug(headingText),
-      level: `h${node.depth}`,
-      children: []
-    }
-
-    if (!firstHeading && (node.depth === 1 || node.depth === 2)) {
-      firstHeading = headingText
-      firstHeadingNode = node
-    }
-
-    while (headingStack.length > 0 && headingStack[headingStack.length - 1].level >= headingItem.level) {
-      headingStack.pop()
-    }
-
-    if (headingStack.length === 0) {
-      toc.push(headingItem)
-    } else {
-      headingStack[headingStack.length - 1].children.push(headingItem)
-    }
-
-    headingStack.push(headingItem)
-  })
-
-  return { firstHeading, toc, firstHeadingNode }
-}
-
-const removeFirstHeading = (tree, firstHeadingNode) => {
-  if (firstHeadingNode) {
-    const index = tree.children.indexOf(firstHeadingNode)
-    if (index !== -1) tree.children.splice(index, 1)
-  }
-  return tree
-}
 
 const formatTitle = (filename) => {
   const baseName = filename.split('/').pop()
@@ -150,10 +94,22 @@ async function processMarkdown(content, filePath) {
     const { data: frontmatter, content: markdownContent } = matter(content)
     let ast = processor.parse(markdownContent)
 
-    const { firstHeading, toc, firstHeadingNode } = extractHeadersAndToc(ast)
-    ast = removeFirstHeading(ast, firstHeadingNode)
-
+    // Process through unified pipeline (TOC extraction happens in remarkExtractToc plugin)
     let result = await processor.run(ast)
+
+    // Get TOC data from plugin
+    const toc = result.data?.toc || []
+    const firstHeading = result.data?.firstHeading
+    const firstHeadingNode = result.data?.firstHeadingNode
+
+    // Remove first heading if it exists
+    if (firstHeadingNode) {
+      const index = result.children.indexOf(firstHeadingNode)
+      if (index !== -1) {
+        result.children.splice(index, 1)
+      }
+    }
+
     let html = processor.stringify(result)
 
     const extractedTitle = frontmatter.title || firstHeading || formatTitle(path.basename(filePath, '.md'))

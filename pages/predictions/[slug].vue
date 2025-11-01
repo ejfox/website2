@@ -1,94 +1,94 @@
 <template>
-  <main v-if="prediction" class="py-8 px-4 md:px-8 mx-auto max-w-4xl font-mono text-xs">
-    <!-- Dense header -->
-    <header class="mb-6 border-b border-zinc-300 dark:border-zinc-700 pb-3">
-      <NuxtLink to="/predictions" class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100">
-        &lt; predictions
+  <main v-if="prediction" class="py-8 px-4 md:px-8 mx-auto max-w-4xl">
+    <!-- Header -->
+    <header class="mb-6 pb-3 border-b border-zinc-300 dark:border-zinc-700">
+      <NuxtLink to="/predictions" class="font-mono text-xs text-zinc-500 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100">
+        ← predictions
       </NuxtLink>
     </header>
 
-    <!-- Statement as plaintext header -->
+    <!-- Statement -->
     <section class="mb-6">
-      <h1 class="text-base font-bold text-zinc-900 dark:text-zinc-100 leading-tight mb-4">
+      <h1 class="font-serif text-xl leading-tight text-zinc-900 dark:text-zinc-100 mb-4">
         {{ prediction.statement }}
       </h1>
 
-      <!-- Dense metadata block -->
-      <div class="text-zinc-600 dark:text-zinc-400 space-y-1 mb-4">
-        <div><span class="text-zinc-900 dark:text-zinc-100">confidence:</span> {{ prediction.confidence }}%</div>
-        <div v-if="prediction.deadline"><span class="text-zinc-900 dark:text-zinc-100">deadline:</span> {{ formatDateISO(prediction.deadline) }}</div>
-        <div><span class="text-zinc-900 dark:text-zinc-100">created:</span> {{ formatDateISO(prediction.created) }}</div>
+      <!-- Metadata -->
+      <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 space-y-1">
+        <div><span class="text-zinc-900 dark:text-zinc-100">Confidence</span> {{ prediction.confidence }}%</div>
+        <div v-if="prediction.deadline"><span class="text-zinc-900 dark:text-zinc-100">Deadline</span> {{ formatDateCompact(prediction.deadline) }}</div>
+        <div><span class="text-zinc-900 dark:text-zinc-100">Created</span> {{ formatDateCompact(prediction.created) }}</div>
         <div v-if="prediction.status && (prediction.status === 'correct' || prediction.status === 'incorrect')">
-          <span class="text-zinc-900 dark:text-zinc-100">status:</span>
+          <span class="text-zinc-900 dark:text-zinc-100">Status</span>
           <span :class="prediction.status === 'correct' ? 'text-zinc-900 dark:text-zinc-100' : 'text-red-600 dark:text-red-400'">
             {{ prediction.status.toUpperCase() }}
           </span>
         </div>
         <div v-if="prediction.categories && prediction.categories.length > 0">
-          <span class="text-zinc-900 dark:text-zinc-100">categories:</span> {{ prediction.categories.join(', ') }}
+          <span class="text-zinc-900 dark:text-zinc-100">Categories</span> {{ prediction.categories.join(', ') }}
         </div>
         <div v-if="prediction.hash">
-          <span class="text-zinc-900 dark:text-zinc-100">hash:</span> {{ prediction.hash.substring(0, 16) }}...
+          <span class="text-zinc-900 dark:text-zinc-100">Hash</span> {{ prediction.hash.substring(0, 16) }}...
         </div>
       </div>
     </section>
 
-    <!-- Evidence Section -->
-    <section v-if="prediction.evidence" class="mb-6 border-t border-zinc-300 dark:border-zinc-700 pt-3">
-      <div class="text-zinc-900 dark:text-zinc-100 mb-2 uppercase tracking-wide">Evidence</div>
-      <div class="text-zinc-600 dark:text-zinc-400 leading-relaxed" v-html="evidenceHtml"></div>
+    <!-- Evidence -->
+    <section v-if="prediction.evidence" class="mb-6 pb-6 border-b border-zinc-300 dark:border-zinc-700">
+      <h2 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-3">Evidence</h2>
+      <div class="font-serif text-sm text-zinc-600 dark:text-zinc-400 leading-normal prose prose-sm dark:prose-invert max-w-none" v-html="evidenceHtml"></div>
     </section>
 
-    <!-- Update History Section -->
-    <section v-if="prediction.updates && prediction.updates.length > 0" class="mb-6 border-t border-zinc-300 dark:border-zinc-700 pt-3">
-      <div class="text-zinc-900 dark:text-zinc-100 mb-2 uppercase tracking-wide">Update History ({{ prediction.updates.length }})</div>
+    <!-- Update History -->
+    <section v-if="prediction.updates && prediction.updates.length > 0" class="mb-6 pb-6 border-b border-zinc-300 dark:border-zinc-700">
+      <h2 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-3">Update History</h2>
 
-      <div class="space-y-3">
+      <div class="space-y-4">
         <div
           v-for="(update, index) in sortedUpdates"
           :key="index"
-          class="border-l border-zinc-400 dark:border-zinc-600 pl-3"
+          class="border-l-2 border-zinc-300 dark:border-zinc-700 pl-4"
         >
-          <!-- Dense update header -->
-          <div class="text-zinc-900 dark:text-zinc-100 mb-1">
-            <span class="font-bold">{{ formatDateISO(update.timestamp) }}</span>
-            <span v-if="update.confidenceBefore !== undefined && update.confidenceAfter !== undefined">
-              : {{ update.confidenceBefore }}% → {{ update.confidenceAfter }}%
+          <!-- Update header -->
+          <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mb-1">
+            <span class="text-zinc-900 dark:text-zinc-100">{{ formatDateCompact(update.timestamp) }}</span>
+            <span v-if="update.confidenceBefore !== undefined && update.confidenceAfter !== undefined" class="text-zinc-600 dark:text-zinc-400">
+              · {{ update.confidenceBefore }}% → {{ update.confidenceAfter }}%
             </span>
           </div>
 
           <!-- Update reasoning -->
-          <div class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-1">
+          <div class="font-serif text-sm text-zinc-600 dark:text-zinc-400 leading-snug mb-1">
             {{ update.reasoning }}
           </div>
 
           <!-- Update metadata -->
-          <div class="text-zinc-500 dark:text-zinc-500 text-[10px]">
-            <span v-if="update.hash">hash={{ update.hash.substring(0, 12) }}</span>
-            <span v-if="update.gitCommit"> git={{ update.gitCommit.substring(0, 8) }}</span>
+          <div class="font-mono text-[10px] text-zinc-500 dark:text-zinc-500">
+            <span v-if="update.hash">{{ update.hash.substring(0, 12) }}</span>
+            <span v-if="update.gitCommit"> · git:{{ update.gitCommit.substring(0, 8) }}</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Resolution Section (if resolved) -->
-    <section v-if="prediction.resolution" class="mb-6 border-t border-zinc-300 dark:border-zinc-700 pt-3">
-      <div class="mb-2 uppercase tracking-wide" :class="prediction.status === 'correct' ? 'text-zinc-900 dark:text-zinc-100' : 'text-red-600 dark:text-red-400'">
-        Resolution: {{ prediction.status === 'correct' ? 'CORRECT' : prediction.status === 'incorrect' ? 'INCORRECT' : 'RESOLVED' }}
+    <!-- Resolution -->
+    <section v-if="prediction.resolution" class="mb-6 pb-6 border-b border-zinc-300 dark:border-zinc-700">
+      <h2 class="font-mono text-xs uppercase tracking-wider mb-1" :class="prediction.status === 'correct' ? 'text-zinc-900 dark:text-zinc-100' : 'text-red-600 dark:text-red-400'">
+        {{ prediction.status === 'correct' ? 'Correct' : prediction.status === 'incorrect' ? 'Incorrect' : 'Resolved' }}
+      </h2>
+      <div v-if="prediction.resolved_date" class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mb-3">
+        {{ formatDateCompact(prediction.resolved_date) }}
       </div>
-      <div v-if="prediction.resolved_date" class="text-zinc-500 dark:text-zinc-500 mb-2">
-        {{ formatDateISO(prediction.resolved_date) }}
-      </div>
-      <div class="text-zinc-600 dark:text-zinc-400 leading-relaxed" v-html="resolutionHtml"></div>
+      <div class="font-serif text-sm text-zinc-600 dark:text-zinc-400 leading-normal prose prose-sm dark:prose-invert max-w-none" v-html="resolutionHtml"></div>
     </section>
 
-    <!-- Related Predictions -->
-    <section v-if="prediction.related && prediction.related.length > 0" class="mb-6 border-t border-zinc-300 dark:border-zinc-700 pt-3">
-      <div class="text-zinc-900 dark:text-zinc-100 mb-2 uppercase tracking-wide">Related</div>
-      <ul class="space-y-1">
+    <!-- Related -->
+    <section v-if="prediction.related && prediction.related.length > 0" class="mb-6">
+      <h2 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-3">Related</h2>
+      <ul class="space-y-1 font-serif text-sm">
         <li v-for="relatedId in prediction.related" :key="relatedId">
-          <NuxtLink :to="`/predictions/${relatedId}`" class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 underline">
-            → {{ relatedId }}
+          <NuxtLink :to="`/predictions/${relatedId}`" class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100">
+            {{ relatedId }}
           </NuxtLink>
         </li>
       </ul>
@@ -171,10 +171,11 @@ onMounted(async () => {
   }
 })
 
-const formatDateISO = (dateString) => {
-  if (!dateString) return 'unknown'
+const formatDateCompact = (dateString) => {
+  if (!dateString) return 'Unknown'
   const d = new Date(dateString)
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+  const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
+  return `${months[d.getMonth()]} ${String(d.getDate()).padStart(2, '0')}, ${d.getFullYear()}`
 }
 
 // Sort updates by timestamp (most recent first)

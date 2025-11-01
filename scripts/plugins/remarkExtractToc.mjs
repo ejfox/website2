@@ -1,6 +1,8 @@
 import { visit } from 'unist-util-visit'
+import GithubSlugger from 'github-slugger'
 
 export function extractHeadersAndToc(tree, maxDepth = 3) {
+  const slugger = new GithubSlugger()
   let firstHeading = null
   let firstHeadingNode = null
   const toc = []
@@ -27,7 +29,7 @@ export function extractHeadersAndToc(tree, maxDepth = 3) {
     // Skip empty headings
     if (!headingText) return
 
-    const headingSlug = generateSlug(headingText)
+    const headingSlug = slugger.slug(headingText)
 
     const headingItem = {
       text: headingText,
@@ -88,6 +90,7 @@ export function remarkExtractToc(options = { maxDepth: 3 }) {
     // Store the results in the vfile data
     file.data.toc = toc
     file.data.firstHeading = firstHeading
+    file.data.firstHeadingNode = firstHeadingNode
 
     // Remove first heading if requested
     if (options.removeFirstHeading) {
