@@ -103,6 +103,19 @@
         <!-- <div ref="newsletterRef" class="w-full max-w-lg opacity-60 hover:opacity-100 transition-opacity"> -->
         <!--   <NewsletterSignup /> -->
         <!-- </div> -->
+
+        <!-- Build info - super subtle -->
+        <div v-if="buildInfo" class="text-center">
+          <a
+            :href="`https://github.com/ejfox/website2/commit/${buildInfo.commitLong}`"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-mono text-[10px] text-zinc-400 dark:text-zinc-600 hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors"
+            :title="`Built from ${buildInfo.branch} on ${new Date(buildInfo.buildDate).toLocaleString()}`"
+          >
+            {{ buildInfo.commit }}
+          </a>
+        </div>
       </div>
     </div>
   </footer>
@@ -118,4 +131,7 @@ const navRef = ref(null)
 const navListRef = ref(null)
 const navItemRefs = ref([])
 const newsletterRef = ref(null)
+
+// Fetch build info
+const { data: buildInfo } = await useFetch('/api/build-info')
 </script>

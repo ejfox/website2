@@ -6,6 +6,7 @@
     "node": ">=20.0.0"
   },
   "scripts": {
+    "prebuild": "node scripts/generate-build-info.mjs",
     "build": "nuxt build",
     "blog:import": "node scripts/blog/import.mjs",
     "blog:process": "DEBUG=true node scripts/processMarkdown.mjs",
