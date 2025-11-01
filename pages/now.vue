@@ -23,8 +23,8 @@ const now = computed(() => {
   }
 
   // Most recent commit
-  if (stats.value?.github?.recentActivity?.[0]) {
-    const commit = stats.value.github.recentActivity[0]
+  if (stats.value?.github?.detail?.commits?.[0]) {
+    const commit = stats.value.github.detail.commits[0]
     result.code = {
       message: commit.message,
       repo: commit.repository?.name,

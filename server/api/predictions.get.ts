@@ -33,7 +33,9 @@ export default defineEventHandler(async () => {
           status: data.status,
           evidence: body.trim(),
           resolution: data.resolution,
-          related: data.related || []
+          related: data.related || [],
+          updates: data.updates || [],
+          updatedAt: data.updatedAt
         }
       })
     )
