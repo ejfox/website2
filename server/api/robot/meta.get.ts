@@ -28,15 +28,6 @@ export default defineEventHandler(async () => {
           format: 'application/json'
         },
         {
-          path: '/api/robot/mind',
-          description: 'Recent thoughts, blog posts, and intellectual output',
-          format: 'application/json',
-          parameters: {
-            limit: { type: 'number', default: 10, description: 'Number of items to return' },
-            type: { type: 'string', enum: ['all', 'posts', 'predictions', 'updates'], default: 'all' }
-          }
-        },
-        {
           path: '/api/robot/timeline',
           description: 'Chronological life events and milestones',
           format: 'application/json',
