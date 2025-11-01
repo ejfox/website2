@@ -71,6 +71,20 @@ export default defineNuxtConfig({
       asyncContext: true // Enable async context support (Nuxt 4 feature)
     },
     compressPublicAssets: false, // Let reverse proxy handle compression
+    // Copy content directory to .output for API routes to access
+    hooks: {
+      'compiled': async (nitro) => {
+        const { promises: fs } = await import('fs')
+        const path = await import('path')
+
+        const source = path.join(nitro.options.rootDir, 'content')
+        const dest = path.join(nitro.options.output.dir, 'content')
+
+        // Recursively copy content directory
+        await fs.cp(source, dest, { recursive: true })
+        console.log(`✓ Copied content directory to ${dest}`)
+      }
+    },
     routeRules: {
       // Only disable caching in dev mode
       ...(process.env.NODE_ENV === 'development' && {
