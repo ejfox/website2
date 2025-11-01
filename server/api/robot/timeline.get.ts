@@ -154,8 +154,10 @@ export default defineEventHandler(async (event) => {
     filteredEvents = filteredEvents.filter(e => new Date(e.timestamp) <= toDate)
   }
 
-  // Get date range
-  const timestamps = filteredEvents.map(e => new Date(e.timestamp).getTime())
+  // Get date range (filter out invalid timestamps)
+  const timestamps = filteredEvents
+    .map(e => new Date(e.timestamp).getTime())
+    .filter(t => !isNaN(t))
   const earliest = timestamps.length > 0 ? new Date(Math.min(...timestamps)).toISOString() : null
   const latest = timestamps.length > 0 ? new Date(Math.max(...timestamps)).toISOString() : null
 
