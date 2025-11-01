@@ -364,7 +364,135 @@ _Created with the Prediction Quality Wizard_
   }
 }
 
+async function updatePrediction(filename) {
+  consola.start('🔄 Prediction Update Wizard')
+
+  const predictionsDir = join(process.cwd(), 'content', 'predictions')
+  const filepath = join(predictionsDir, filename)
+
+  // Read existing prediction
+  let fileContent
+  try {
+    fileContent = await fs.readFile(filepath, 'utf8')
+  } catch (error) {
+    consola.error(`Could not find prediction: ${filename}`)
+    const files = await fs.readdir(predictionsDir)
+    consola.info('Available predictions:')
+    files.forEach(f => consola.log(`   • ${f}`))
+    process.exit(1)
+  }
+
+  const parsed = matter(fileContent)
+  const currentConfidence = parsed.data.confidence
+
+  consola.info(`Statement: ${parsed.data.statement || parsed.data.title}`)
+  consola.info(`Current confidence: ${currentConfidence}%\n`)
+
+  // Get update details
+  const answers = await inquirer.prompt([
+    {
+      type: 'number',
+      name: 'confidence',
+      message: 'New confidence level (5-95%):',
+      default: currentConfidence,
+      validate: (input) => (input >= 5 && input <= 95) || 'Confidence must be between 5-95%'
+    },
+    {
+      type: 'input',
+      name: 'reasoning',
+      message: 'Reasoning for this update:',
+      validate: (input) => input.length >= 10 || 'Reasoning must be at least 10 characters'
+    }
+  ])
+
+  // Create update entry
+  const timestamp = new Date().toISOString()
+  const update = {
+    timestamp,
+    confidenceBefore: currentConfidence,
+    confidenceAfter: answers.confidence,
+    reasoning: answers.reasoning
+  }
+
+  // Update frontmatter
+  const updatedData = {
+    ...parsed.data,
+    confidence: answers.confidence,
+    updatedAt: timestamp,
+    updates: [...(parsed.data.updates || []), update]
+  }
+
+  // Generate new content with updated frontmatter
+  const newContent = matter.stringify(parsed.content, updatedData)
+
+  // Calculate hash
+  const hash = createHash('sha256').update(newContent).digest('hex')
+  update.hash = hash
+
+  // Update hash in the update entry
+  const finalData = {
+    ...updatedData,
+    updates: updatedData.updates.map((u, i) =>
+      i === updatedData.updates.length - 1 ? { ...u, hash } : u
+    )
+  }
+
+  const finalContent = matter.stringify(parsed.content, finalData)
+
+  // Write updated file
+  await fs.writeFile(filepath, finalContent)
+
+  consola.success(`Updated: ${filename}`)
+  consola.info(`Confidence: ${currentConfidence}% → ${answers.confidence}%`)
+  consola.info(`Hash: ${hash.substring(0, 16)}...`)
+
+  // Git commit
+  const { shouldCommit } = await inquirer.prompt([{
+    type: 'confirm',
+    name: 'shouldCommit',
+    message: 'Commit to git?',
+    default: true
+  }])
+
+  if (shouldCommit) {
+    try {
+      execSync(`git add "${filepath}"`)
+      const commitMsg = `predict: update ${(parsed.data.statement || parsed.data.title).substring(0, 40)}... (${currentConfidence}% → ${answers.confidence}%)`
+      execSync(`git commit -m "${commitMsg}"`)
+
+      const commitHash = execSync('git rev-parse HEAD', { encoding: 'utf8' }).trim()
+      consola.success(`Committed: ${commitHash.substring(0, 8)}`)
+
+      // Add git commit hash to the update
+      finalData.updates[finalData.updates.length - 1].gitCommit = commitHash
+      const finalWithGit = matter.stringify(parsed.content, finalData)
+      await fs.writeFile(filepath, finalWithGit)
+    } catch (error) {
+      consola.warn('Git commit failed:', error.message)
+    }
+  }
+
+  consola.box(`
+✅ PREDICTION UPDATED
+
+Statement: ${parsed.data.statement || parsed.data.title}
+Confidence: ${currentConfidence}% → ${answers.confidence}%
+Total Updates: ${finalData.updates.length}
+  `)
+}
+
 // Main execution
 if (import.meta.url === `file://${process.argv[1]}`) {
-  createPrediction().catch(console.error)
+  const args = process.argv.slice(2)
+  const updateIndex = args.indexOf('--update')
+
+  if (updateIndex !== -1 && args[updateIndex + 1]) {
+    updatePrediction(args[updateIndex + 1]).catch(console.error)
+  } else if (updateIndex !== -1) {
+    consola.error('Please provide a prediction filename after --update')
+    consola.info('Usage: yarn predict --update <filename.md>')
+    process.exit(1)
+  } else {
+    createPrediction().catch(console.error)
+  }
 }

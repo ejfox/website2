@@ -7,7 +7,7 @@ resolutionCriteria: >-
   Official NYC Board of Elections certified results showing Zohran Mamdani
   winning the November 2025 general election for Mayor of New York City with a
   victory margin >5.0 percentage points over the second-place candidate
-confidence: 25
+confidence: 80
 deadline: 2025-11-30T00:00:00.000Z
 categories:
   - politics
@@ -15,6 +15,7 @@ categories:
   - elections
   - progressive
 created: 2025-01-20T19:50:00.000Z
+updatedAt: '2025-11-01T16:35:00.000Z'
 visibility: public
 evidence: >-
   Mamdani's strong progressive base in Queens, growing dissatisfaction with
@@ -23,6 +24,12 @@ evidence: >-
 hash: 2baf6514e3525e890bcd2ae71a5d5ca1579cc2263adf287cae2766dc770e5f9b
 gitCommit: 8ef2f98be927670a9bfb8ea03ac4f8d52f05cfa7
 signed: '2025-07-20T15:16:34.092Z'
+updates:
+  - timestamp: '2025-11-01T16:35:00.000Z'
+    confidenceBefore: 25
+    confidenceAfter: 80
+    reasoning: >-
+      Adams' corruption charges and Mamdani's ground game momentum make victory much more likely than initially predicted. Recent campaign developments and progressive voter energy suggest strong performance.
 ---
 
 # Resolution Criteria
