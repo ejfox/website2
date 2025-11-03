@@ -33,12 +33,12 @@ A personal website and blog built with **Nuxt 3**, **Vue 3**, and **D3.js**. Con
 
 ## 🚀 **Deployment**
 
-The VPS automatically updates when you push to `main`:
-- Cron job runs every 5 minutes checking for new commits
+The VPS automatically deploys when you push to `main`:
+- Cron job runs every 5 minutes (at :00, :05, :10, etc.)
 - Automatically pulls changes, installs dependencies, and rebuilds
-- Restarts Docker container with health checks
+- Restarts Docker container with health check verification
 - Full deployment logs: `/data2/website2/auto-update.log` on VPS
-- Typical deployment time: 2-3 minutes
+- Typical deployment time: 2-3 minutes from push
 
 ## 🔮 **Predictions**
 
