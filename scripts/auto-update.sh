@@ -9,6 +9,12 @@ WEBSITE_DIR="/data2/website2"
 LOG_FILE="$WEBSITE_DIR/auto-update.log"
 MAX_LOG_SIZE=10485760  # 10MB
 
+# Load NVM and Node environment for cron
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+# Add yarn and node to PATH
+export PATH="$HOME/.nvm/versions/node/$(nvm current)/bin:$PATH"
+
 # Function to log with timestamp
 log() {
   echo "[$(date +'%Y-%m-%d %H:%M:%S')] $1" | tee -a "$LOG_FILE"
