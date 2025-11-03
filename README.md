@@ -31,6 +31,14 @@ A personal website and blog built with **Nuxt 3**, **Vue 3**, and **D3.js**. Con
    yarn build
    ```
 
+## 🚀 **Deployment**
+
+The VPS automatically updates when you push to `main`:
+- Cron job runs every 5 minutes checking for new commits
+- Pulls changes, installs dependencies, and rebuilds
+- Restarts Docker container with zero-downtime deployment
+- Logs available at `/data2/website2/auto-update.log` on VPS
+
 ## 🔮 **Predictions**
 
 Create cryptographically verifiable predictions with optional deadlines:
