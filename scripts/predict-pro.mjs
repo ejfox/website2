@@ -71,17 +71,19 @@ Evaluate on these dimensions:
 2. Specificity - Does it include specific numbers, dates, thresholds?
 3. Measurability - Can the outcome be objectively determined?
 4. Resolvability - Are the resolution criteria detailed and objective?
+5. Historical Context - Can you think of similar historical events that could inform confidence calibration?
 
 Provide your analysis as a JSON object with this exact structure:
 {
   "clarity": "excellent|good|needs_improvement|poor",
-  "specificity": "excellent|good|needs_improvement|poor", 
+  "specificity": "excellent|good|needs_improvement|poor",
   "measurability": "excellent|good|needs_improvement|poor",
   "resolvability": "excellent|good|needs_improvement|poor",
   "overallScore": 1-10,
   "suggestions": ["specific actionable suggestion 1", "suggestion 2"],
   "strengths": ["what's good about this prediction"],
-  "concerns": ["potential issues or ambiguities"]
+  "concerns": ["potential issues or ambiguities"],
+  "historicalComparisons": ["similar event 1 with relevant outcome", "similar event 2"]
 }`
 
     const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
@@ -172,7 +174,7 @@ function displayAnalysis(analysis) {
 📊 PREDICTION QUALITY ANALYSIS
 
 ${scoreColors[analysis.clarity]} Clarity: ${analysis.clarity}
-${scoreColors[analysis.specificity]} Specificity: ${analysis.specificity} 
+${scoreColors[analysis.specificity]} Specificity: ${analysis.specificity}
 ${scoreColors[analysis.measurability]} Measurability: ${analysis.measurability}
 ${scoreColors[analysis.resolvability]} Resolvability: ${analysis.resolvability}
 
@@ -180,7 +182,8 @@ Overall Score: ${analysis.overallScore}/10
 
 ${analysis.strengths.length ? `✅ Strengths:\n${analysis.strengths.map(s => `   • ${s}`).join('\n')}\n` : ''}
 ${analysis.suggestions.length ? `💡 Suggestions:\n${analysis.suggestions.map(s => `   • ${s}`).join('\n')}\n` : ''}
-${analysis.concerns.length ? `⚠️  Concerns:\n${analysis.concerns.map(c => `   • ${c}`).join('\n')}` : ''}
+${analysis.concerns.length ? `⚠️  Concerns:\n${analysis.concerns.map(c => `   • ${c}`).join('\n')}\n` : ''}
+${analysis.historicalComparisons?.length ? `📜 Similar Historical Events:\n${analysis.historicalComparisons.map(h => `   • ${h}`).join('\n')}` : ''}
   `)
 }
 
@@ -254,6 +257,22 @@ async function createPrediction() {
   // Get quality analysis
   const analysis = await checkPredictionQuality(answers.statement, answers.resolution)
   displayAnalysis(analysis)
+
+  // Optional: Add historical context
+  consola.info('\n💭 Think: What similar events have happened before? What were the outcomes?')
+  consola.info('   (e.g., "2013 NYC Mayor - de Blasio won by 49pts" or "Last 5 AI hype cycles peaked at 18mo")')
+
+  const { historicalNotes } = await inquirer.prompt([{
+    type: 'input',
+    name: 'historicalNotes',
+    message: 'Quick historical context (optional, press Enter to skip):',
+    default: ''
+  }])
+
+  // Add historical notes to evidence if provided
+  if (historicalNotes) {
+    answers.resolution += `\n\n**Historical Context:** ${historicalNotes}`
+  }
 
   // Confirm creation
   const { shouldCreate } = await inquirer.prompt([{
