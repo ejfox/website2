@@ -41,7 +41,7 @@
     <div class="text-zinc-500 dark:text-zinc-500 space-y-0.5">
       <div>${{ (marketData.volume / 1000000).toFixed(1) }}M vol</div>
       <div v-if="marketData.resolved" class="text-zinc-900 dark:text-zinc-100">
-        resolved {{ marketData.outcome }}
+        resolved: {{ marketData.outcome === 'YES' ? '✓' : '✗' }}
       </div>
     </div>
   </div>
