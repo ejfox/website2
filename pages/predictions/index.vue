@@ -8,6 +8,7 @@
       <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 space-y-1">
         <div><span class="text-zinc-900 dark:text-zinc-100">{{ transformedPredictions?.length || 0 }}</span> total · <span class="text-zinc-900 dark:text-zinc-100">{{ correctCount }}</span> correct · <span class="text-zinc-900 dark:text-zinc-100">{{ incorrectCount }}</span> incorrect · <span class="text-zinc-900 dark:text-zinc-100">{{ pendingCount }}</span> pending</div>
         <div>SHA-256 hash + git timestamps · <a href="https://gwern.net/doc/statistics/prediction/index" target="_blank" class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100">gwern</a></div>
+        <div class="italic text-zinc-600 dark:text-zinc-400 mt-2">Intellectual exercises, not rigorous forecasts</div>
       </div>
     </header>
 

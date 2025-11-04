@@ -2,6 +2,8 @@
 
 Create cryptographically verifiable predictions with built-in quality guidance.
 
+> **Note:** These are intellectual exercises, not rigorous forecasts. The cryptographic verification ensures I can't change past predictions, but vague resolution criteria mean some outcomes remain subjective.
+
 ## Quick Start
 
 **Interactive Wizard:**

@@ -24,6 +24,10 @@ evidence: >-
 hash: 2baf6514e3525e890bcd2ae71a5d5ca1579cc2263adf287cae2766dc770e5f9b
 gitCommit: 8ef2f98be927670a9bfb8ea03ac4f8d52f05cfa7
 signed: '2025-07-20T15:16:34.092Z'
+market:
+  provider: polymarket
+  slug: will-zohran-mamdani-win-the-2025-nyc-mayoral-election
+  autoResolve: true
 updates:
   - timestamp: '2025-11-01T16:35:00.000Z'
     confidenceBefore: 25

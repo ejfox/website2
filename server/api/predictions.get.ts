@@ -20,7 +20,7 @@ export default defineEventHandler(async () => {
         const id = file.replace(/\.md$/, '').replace(/\//g, '-')
 
         return {
-          id,
+          id: data.id || id,
           slug: file.replace(/\.md$/, ''),
           statement: data.statement,
           confidence: data.confidence,
@@ -28,14 +28,15 @@ export default defineEventHandler(async () => {
           categories: data.categories || [],
           visibility: data.visibility || 'public',
           created: data.created,
-          resolved: data.resolved,
+          resolved: data.resolved ?? false,
           resolved_date: data.resolved_date,
           status: data.status,
           evidence: body.trim(),
           resolution: data.resolution,
           related: data.related || [],
           updates: data.updates || [],
-          updatedAt: data.updatedAt
+          updatedAt: data.updatedAt,
+          market: data.market
         }
       })
     )

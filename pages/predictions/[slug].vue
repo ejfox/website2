@@ -30,8 +30,12 @@
         <div v-if="prediction.hash">
           <span class="text-zinc-900 dark:text-zinc-100">Hash</span> {{ prediction.hash.substring(0, 16) }}...
         </div>
+        <div class="italic text-zinc-600 dark:text-zinc-400 mt-2">Intellectual exercise, not rigorous forecast</div>
       </div>
     </section>
+
+    <!-- Market Data -->
+    <MarketData :prediction="prediction" />
 
     <!-- Evidence -->
     <section v-if="prediction.evidence" class="mb-6 pb-6 border-b border-zinc-300 dark:border-zinc-700">

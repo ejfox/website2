@@ -380,10 +380,13 @@ async function processAllFiles() {
 
         process.stdout.write(`\r${chalk.gray(`Processing: ${path.basename(filePath).padEnd(40)}`)}${Math.round((processStats.filesProcessed / processStats.totalFiles) * 100)}%`)
 
-        const normalizedPath = normalizeSlug(relativePath.replace(/\.md$/, ''))
-        const outputPath = path.join(paths.outputDir, `${normalizedPath}.json`)
-        await fs.mkdir(path.dirname(outputPath), { recursive: true })
-        await fs.writeFile(outputPath, JSON.stringify(result, null, 2))
+        // Only write JSON files for non-draft content
+        if (result.metadata?.draft !== true) {
+          const normalizedPath = normalizeSlug(relativePath.replace(/\.md$/, ''))
+          const outputPath = path.join(paths.outputDir, `${normalizedPath}.json`)
+          await fs.mkdir(path.dirname(outputPath), { recursive: true })
+          await fs.writeFile(outputPath, JSON.stringify(result, null, 2))
+        }
 
         results.push(result)
         processStats.filesProcessed++
