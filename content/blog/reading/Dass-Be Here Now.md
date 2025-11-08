@@ -1,4 +1,5 @@
 ---
+tags: [book, meditation, psychedelics]
 kindle-sync:
   bookId: '63420'
   title: Be Here Now (Enhanced Edition)

@@ -1,4 +1,5 @@
 ---
+tags: [book, meditation]
 kindle-sync:
   bookId: '56342'
   title: 'Zen Mind, Beginner''s Mind'

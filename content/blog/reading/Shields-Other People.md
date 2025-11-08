@@ -7,6 +7,10 @@ kindle-sync:
   lastAnnotatedDate: '2020-12-23'
   bookImageUrl: 'https://m.media-amazon.com/images/I/91s3oyefvYL._SY160.jpg'
   highlightsCount: 4
+tags:
+  - book
+  - writing
+  - personal
 ---
 # Other People
 

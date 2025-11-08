@@ -1,4 +1,5 @@
 ---
+tags: [book, nature, health]
 kindle-sync:
   bookId: '33471'
   title: 'Forest Bathing: How Trees Can Help You Find Health and Happiness'

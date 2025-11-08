@@ -9,6 +9,10 @@ kindle-sync:
   lastAnnotatedDate: '2022-06-20'
   bookImageUrl: 'https://m.media-amazon.com/images/I/91utc8xVz7L._SY160.jpg'
   highlightsCount: 2
+tags:
+  - book
+  - cannabis
+  - health
 ---
 # The Rebels Apothecary
 

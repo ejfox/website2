@@ -7,6 +7,10 @@ kindle-sync:
   lastAnnotatedDate: '2019-02-13'
   bookImageUrl: 'https://m.media-amazon.com/images/I/81Ap3UYdbEL._SY160.jpg'
   highlightsCount: 12
+tags:
+  - book
+  - culture
+  - research
 ---
 # How to Think Like an Anthropologist
 

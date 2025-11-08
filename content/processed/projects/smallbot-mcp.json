@@ -15,6 +15,10 @@
     ],
     "state": "deployed",
     "aiInvolvement": "ai-enhanced",
+    "tags": [
+      "ai",
+      "web"
+    ],
     "words": 145,
     "images": 0,
     "imageDetails": {

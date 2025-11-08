@@ -6,6 +6,9 @@ url: https://github.com/ejfox/smallbot-mcp
 tech: ["MCP", "AI", "Web Generation", "Node.js"]
 state: deployed
 aiInvolvement: ai-enhanced
+tags:
+  - ai
+  - web
 ---
 
 ## Smallbot MCP

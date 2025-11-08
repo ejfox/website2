@@ -9,6 +9,11 @@ kindle-sync:
   lastAnnotatedDate: '2023-10-18'
   bookImageUrl: 'https://m.media-amazon.com/images/I/819-DBs0KBL._SY160.jpg'
   highlightsCount: 17
+tags:
+  - book
+  - health
+  - personal
+  - meditation
 ---
 # How to Do the Work
 

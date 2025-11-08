@@ -1,0 +1,30 @@
+{
+  "content": "<h2 class=\"\" id=\"i-love-n8n\">I Love n8n</h2>\n<h2 class=\"\" id=\"daily-email-summary\">Daily Email Summary</h2>\n<h2 class=\"\" id=\"daily-news-summary\">Daily News Summary</h2>\n<h2 class=\"\" id=\"news-to-audio-to-phone-call\">News To Audio To Phone Call</h2>\n<h2 class=\"\" id=\"screenshots-to-cloudinary\">Screenshots to Cloudinary</h2>\n<h3 class=\"\" id=\"automatic-screenshot-content-summary\">Automatic Screenshot Content Summary</h3>\n<h2 class=\"\" id=\"bookmark-to-scrapbook-processing\">Bookmark to Scrapbook Processing</h2>",
+  "html": "<h2 class=\"\" id=\"i-love-n8n\">I Love n8n</h2>\n<h2 class=\"\" id=\"daily-email-summary\">Daily Email Summary</h2>\n<h2 class=\"\" id=\"daily-news-summary\">Daily News Summary</h2>\n<h2 class=\"\" id=\"news-to-audio-to-phone-call\">News To Audio To Phone Call</h2>\n<h2 class=\"\" id=\"screenshots-to-cloudinary\">Screenshots to Cloudinary</h2>\n<h3 class=\"\" id=\"automatic-screenshot-content-summary\">Automatic Screenshot Content Summary</h3>\n<h2 class=\"\" id=\"bookmark-to-scrapbook-processing\">Bookmark to Scrapbook Processing</h2>",
+  "title": "Personal Automation Patterns",
+  "metadata": {
+    "dek": "In which",
+    "inprogress": true,
+    "tags": [
+      "example",
+      "design",
+      "inspiration"
+    ],
+    "date": "2025-01-14T15:20:05.000Z",
+    "modified": "2025-01-27T04:56:02.000Z",
+    "words": 35,
+    "images": 0,
+    "imageDetails": {
+      "total": 0,
+      "cloudinary": 0,
+      "withDimensions": 0
+    },
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/personal-automation-patterns.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

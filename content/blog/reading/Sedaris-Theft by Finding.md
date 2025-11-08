@@ -7,6 +7,10 @@ kindle-sync:
   lastAnnotatedDate: '2018-08-13'
   bookImageUrl: 'https://m.media-amazon.com/images/I/81cRysFkH-L._SY160.jpg'
   highlightsCount: 5
+tags:
+  - book
+  - writing
+  - personal
 ---
 # Theft by Finding
 

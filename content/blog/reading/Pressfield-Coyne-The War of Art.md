@@ -7,6 +7,7 @@ kindle-sync:
   lastAnnotatedDate: '2021-01-05'
   bookImageUrl: 'https://m.media-amazon.com/images/I/71jgxi5WW2L._SY160.jpg'
   highlightsCount: 8
+tags: [book, art, advice]
 ---
 # The War of Art
 

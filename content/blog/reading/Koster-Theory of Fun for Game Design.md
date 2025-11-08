@@ -7,6 +7,10 @@ kindle-sync:
   lastAnnotatedDate: '2017-08-04'
   bookImageUrl: 'https://m.media-amazon.com/images/I/A11vGLbYKcL._SY160.jpg'
   highlightsCount: 2
+tags:
+  - book
+  - games
+  - design
 ---
 # Theory of Fun for Game Design
 

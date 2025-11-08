@@ -6,6 +6,11 @@ tech: ["D3.js", "JavaScript", "Touch Interface", "Election Data"]
 featured: true
 state: deployed
 aiInvolvement: human-only
+tags:
+  - d3
+  - dataviz
+  - javascript
+  - elections
 ---
 
 I spearheaded an internal effort to develop [new D3-powered mapping software](https://www.newscaststudio.com/2018/11/05/nbc-big-board-update/) for visualizing election maps and results live - the touchscreen app wielded by Steve Kornacki known as the "Big Board". Built for real-time county-level election analysis.

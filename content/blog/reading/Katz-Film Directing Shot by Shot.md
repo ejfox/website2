@@ -9,6 +9,11 @@ kindle-sync:
   lastAnnotatedDate: '2021-01-16'
   bookImageUrl: 'https://m.media-amazon.com/images/I/91MzBwRDhBL._SY160.jpg'
   highlightsCount: 1
+tags:
+  - book
+  - video
+  - art
+  - technique
 ---
 # Film Directing Shot by Shot
 

@@ -7,6 +7,10 @@ kindle-sync:
   lastAnnotatedDate: '2020-09-02'
   bookImageUrl: 'https://m.media-amazon.com/images/I/81qLTBovPpL._SY160.jpg'
   highlightsCount: 2
+tags:
+  - book
+  - health
+  - research
 ---
 # Hallucinations
 

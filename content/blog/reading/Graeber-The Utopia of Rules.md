@@ -9,6 +9,10 @@ kindle-sync:
   lastAnnotatedDate: '2024-06-10'
   bookImageUrl: 'https://m.media-amazon.com/images/I/8160beMcnzL._SY160.jpg'
   highlightsCount: 3
+tags:
+  - book
+  - politics
+  - anarchism
 ---
 # The Utopia of Rules
 

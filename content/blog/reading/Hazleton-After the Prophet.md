@@ -7,6 +7,10 @@ kindle-sync:
   lastAnnotatedDate: '2019-04-11'
   bookImageUrl: 'https://m.media-amazon.com/images/I/7132c2DnXDL._SY160.jpg'
   highlightsCount: 3
+tags:
+  - book
+  - history
+  - culture
 ---
 # After the Prophet
 

@@ -75,7 +75,7 @@ What should I have for lunch? Just have a salad. Its not that complicated.
 
 ### Dinner
 
-[drafts/cooking-ramen-experiment](drafts/cooking-ramen-experiment)s]]
+[drafts/_stale/cooking-ramen-experiment](drafts/_stale/cooking-ramen-experiment)s]]
 
 ### Desserts
 #### Chocolate chip cookies

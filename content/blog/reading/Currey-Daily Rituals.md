@@ -7,6 +7,11 @@ kindle-sync:
   lastAnnotatedDate: '2022-06-20'
   bookImageUrl: 'https://m.media-amazon.com/images/I/81T0Ky96r+L._SY160.jpg'
   highlightsCount: 2
+tags:
+  - book
+  - art
+  - writing
+  - process
 ---
 # Daily Rituals
 

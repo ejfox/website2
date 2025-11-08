@@ -5,6 +5,9 @@ modified: 2025-01-15T12:00:00-05:00
 tech: ["Data Visualization", "Machine Learning", "JavaScript", "Python", "UMAP", "Embeddings"]
 state: deployed
 aiInvolvement: ai-collaborative
+tags:
+  - visualization
+  - data
 ---
 
 After years of making data visualizations for major newsrooms and clients, I kept running into the same problem: how do you make sense of information that exists in too many dimensions for humans to naturally understand? These tools are my attempt to build bridges between the abstract mathematical spaces where modern AI lives and the visual, spatial thinking that humans excel at.

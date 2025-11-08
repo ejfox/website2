@@ -7,6 +7,10 @@ kindle-sync:
   lastAnnotatedDate: '2023-08-11'
   bookImageUrl: 'https://m.media-amazon.com/images/I/61ClyX8734L._SY160.jpg'
   highlightsCount: 1
+tags:
+  - book
+  - health
+  - personal
 ---
 # Womens Anatomy of Arousal
 

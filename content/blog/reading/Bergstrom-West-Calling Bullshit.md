@@ -7,6 +7,10 @@ kindle-sync:
   lastAnnotatedDate: '2021-12-03'
   bookImageUrl: 'https://m.media-amazon.com/images/I/81Dd92++GgS._SY160.jpg'
   highlightsCount: 1
+tags:
+  - book
+  - data
+  - research
 ---
 # Calling Bullshit
 

@@ -7,6 +7,10 @@ kindle-sync:
   lastAnnotatedDate: '2021-10-11'
   bookImageUrl: 'https://m.media-amazon.com/images/I/91vf8KVztsS._SY160.jpg'
   highlightsCount: 4
+tags:
+  - book
+  - writing
+  - art
 ---
 # Antkind
 

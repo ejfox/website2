@@ -5,6 +5,9 @@ modified: 2025-08-13T11:30:24-04:00
 tech: ["Docker", "Deployment", "GitHub", "DevOps", "Nuxt", "ZMK", "Keyboard Firmware"]
 state: deployed
 aiInvolvement: ai-assisted
+tags:
+  - tools
+  - deployment
 ---
 
 I've deployed way too many projects to way too many different platforms, and somewhere along the way I realized that most deployment tools are optimized for companies with dedicated DevOps teams, not for people who just want to push code and have it run somewhere. Same with development tools—most of them assume you have infinite time to configure them.

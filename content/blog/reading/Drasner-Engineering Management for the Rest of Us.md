@@ -9,6 +9,10 @@ kindle-sync:
   highlightsCount: 6
 date: 2025-08-21T14:44:29-04:00
 modified: 2025-08-24T18:31:22-04:00
+tags:
+  - book
+  - programming
+  - management
 ---
 ## Engineering Management for the Rest of Us
 

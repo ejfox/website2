@@ -7,6 +7,11 @@ kindle-sync:
   lastAnnotatedDate: '2019-04-11'
   bookImageUrl: 'https://m.media-amazon.com/images/I/81LVOVLefKL._SY160.jpg'
   highlightsCount: 1
+tags:
+  - book
+  - activism
+  - protest
+  - politics
 ---
 # Riot. Strike. Riot
 

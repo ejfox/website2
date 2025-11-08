@@ -7,6 +7,10 @@ kindle-sync:
   lastAnnotatedDate: '2023-08-26'
   bookImageUrl: 'https://m.media-amazon.com/images/I/71aQ+TLBi-L._SY160.jpg'
   highlightsCount: 5
+tags:
+  - book
+  - systemsthinking
+  - design
 ---
 # Thinking in Systems
 

@@ -15,6 +15,10 @@
     ],
     "state": "doing",
     "aiInvolvement": "ai-assisted",
+    "tags": [
+      "ios",
+      "health"
+    ],
     "words": 74,
     "images": 2,
     "imageDetails": {

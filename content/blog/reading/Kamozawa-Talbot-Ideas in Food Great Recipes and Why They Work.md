@@ -7,6 +7,10 @@ kindle-sync:
   lastAnnotatedDate: '2014-06-25'
   bookImageUrl: 'https://m.media-amazon.com/images/I/415O5V-pUQL._SY160.jpg'
   highlightsCount: 1
+tags:
+  - book
+  - cooking
+  - technique
 ---
 # Ideas in Food: Great Recipes and Why They Work
 

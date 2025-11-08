@@ -9,6 +9,11 @@ kindle-sync:
   highlightsCount: 25
 date: 2025-08-21T14:44:13-04:00
 modified: 2025-08-24T19:58:28-04:00
+tags:
+  - book
+  - nature
+  - travel
+  - history
 ---
 ## On Trails
 

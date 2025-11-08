@@ -7,6 +7,10 @@ kindle-sync:
   lastAnnotatedDate: '2022-01-13'
   bookImageUrl: 'https://m.media-amazon.com/images/I/81VT7iM7WzL._SY160.jpg'
   highlightsCount: 5
+tags:
+  - book
+  - health
+  - personal
 ---
 # She Comes First
 

@@ -1,4 +1,8 @@
 ---
+tags:
+  - politics
+  - america
+  - book
 kindle-sync:
   bookId: '2923'
   title: 'The Divide: American Injustice in the Age of the Wealth Gap'

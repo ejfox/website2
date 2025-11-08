@@ -1,0 +1,29 @@
+{
+  "content": "<h2 class=\"\" id=\"building-a-vps-for-business-and-pleasure\">Building A VPS For Business and Pleasure</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Smallweb</li>\n<li class=\"\">Caddy</li>\n<li class=\"\">DNS</li>\n<li class=\"\">Cloudflare Tunnel</li>\n<li class=\"\">PM2</li>\n<li class=\"\">SSH Certificates / Termius</li>\n<li class=\"\">Loki</li>\n<li class=\"\">Grafana</li>\n<li class=\"\">Uptime Kuma</li>\n<li class=\"\">n8n</li>\n</ul>",
+  "html": "<h2 class=\"\" id=\"building-a-vps-for-business-and-pleasure\">Building A VPS For Business and Pleasure</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Smallweb</li>\n<li class=\"\">Caddy</li>\n<li class=\"\">DNS</li>\n<li class=\"\">Cloudflare Tunnel</li>\n<li class=\"\">PM2</li>\n<li class=\"\">SSH Certificates / Termius</li>\n<li class=\"\">Loki</li>\n<li class=\"\">Grafana</li>\n<li class=\"\">Uptime Kuma</li>\n<li class=\"\">n8n</li>\n</ul>",
+  "title": "Vps Micro Endpoints Smallweb",
+  "metadata": {
+    "date": "2025-01-05T17:25:05.000Z",
+    "modified": "2025-01-27T04:35:12.000Z",
+    "dek": "In which the author prepares a little computer far away from home to do his bidding",
+    "inprogress": true,
+    "tags": [
+      "cli",
+      "tech"
+    ],
+    "words": 35,
+    "images": 0,
+    "imageDetails": {
+      "total": 0,
+      "cloudinary": 0,
+      "withDimensions": 0
+    },
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/vps-micro-endpoints-smallweb.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

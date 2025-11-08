@@ -1,5 +1,51 @@
 [
   {
+    "slug": "CLAUDE",
+    "title": "CLAUDE",
+    "type": "post",
+    "toc": [],
+    "metadata": {
+      "words": 255,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 1,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/CLAUDE.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "CLAUDE"
+    }
+  },
+  {
+    "slug": "WIKILINK-OPPORTUNITIES",
+    "title": "WIKILINK OPPORTUNITIES",
+    "type": "post",
+    "toc": [],
+    "metadata": {
+      "words": 1029,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 40,
+      "codeBlocks": 23,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/WIKILINK-OPPORTUNITIES.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "WIKILINK-OPPORTUNITIES"
+    }
+  },
+  {
     "slug": "2010/photography-2008-2010",
     "title": "Photography 2008 2010",
     "date": "2010-01-01T18:44:00-05:00",
@@ -1740,12 +1786,24 @@
     "type": "post",
     "dek": "In which the strange marriage of language, mathematics, and machine cognition gives rise to 'unspeakable tokens'—words that our AI companions cannot repeat—and we are left to wonder if these are merely glitches, or if the machines are hiding their dreams in tokens forged from deep, strange corners of the internet",
     "modified": "2024-12-24T04:58:23.000Z",
+    "tags": [
+      "ai",
+      "crypto",
+      "hackers",
+      "writing"
+    ],
     "toc": [],
     "metadata": {
       "dek": "In which the strange marriage of language, mathematics, and machine cognition gives rise to 'unspeakable tokens'—words that our AI companions cannot repeat—and we are left to wonder if these are merely glitches, or if the machines are hiding their dreams in tokens forged from deep, strange corners of the internet",
       "inprogress": true,
       "date": "2024-10-20T19:17:05.000Z",
       "modified": "2024-12-24T04:58:23.000Z",
+      "tags": [
+        "ai",
+        "crypto",
+        "hackers",
+        "writing"
+      ],
       "words": 4323,
       "images": 4,
       "imageDetails": {
@@ -1792,14 +1850,14 @@
         "process",
         "nature"
       ],
-      "words": 2077,
+      "words": 2084,
       "images": 3,
       "imageDetails": {
         "total": 3,
         "cloudinary": 3,
         "withDimensions": 0
       },
-      "links": 6,
+      "links": 10,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -1832,14 +1890,14 @@
       ],
       "date": "2025-03-25T04:12:41.000Z",
       "modified": "2025-03-27T20:12:50.000Z",
-      "words": 746,
+      "words": 763,
       "images": 8,
       "imageDetails": {
         "total": 8,
         "cloudinary": 8,
         "withDimensions": 0
       },
-      "links": 8,
+      "links": 9,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -1883,7 +1941,7 @@
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 0,
+      "links": 2,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -1943,12 +2001,67 @@
     "type": "post",
     "dek": "In which the author steals his data back from various tools and APIs and uses them to build his own panopticon-for-one",
     "modified": "2025-05-23T05:29:38.000Z",
+    "tags": [
+      "api",
+      "quantifiedself",
+      "programming",
+      "personal"
+    ],
     "toc": [],
     "metadata": {
       "date": "2025-05-03T22:17:43.000Z",
       "modified": "2025-05-23T05:29:38.000Z",
       "dek": "In which the author steals his data back from various tools and APIs and uses them to build his own panopticon-for-one",
-      "words": 914,
+      "tags": [
+        "api",
+        "quantifiedself",
+        "programming",
+        "personal"
+      ],
+      "words": 922,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2025/personal-apis.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "2025/personal-apis"
+    }
+  },
+  {
+    "slug": "2025/using-radios",
+    "title": "Using Radios",
+    "date": "2025-11-08T20:19:34.000Z",
+    "type": "post",
+    "dek": "In which we learn to use radios to the best of our ability",
+    "modified": "2025-11-08T20:22:13.000Z",
+    "tags": [
+      "communication",
+      "radio",
+      "tech",
+      "howto",
+      "hardware"
+    ],
+    "toc": [],
+    "metadata": {
+      "dek": "In which we learn to use radios to the best of our ability",
+      "date": "2025-11-08T20:19:34.000Z",
+      "modified": "2025-11-08T20:22:13.000Z",
+      "tags": [
+        "communication",
+        "radio",
+        "tech",
+        "howto",
+        "hardware"
+      ],
+      "words": 1376,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -1960,9 +2073,1158 @@
       "headers": {},
       "toc": [],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2025/personal-apis.md",
+      "sourcePath": "../../../../../code/website2/content/blog/blog/2025/using-radios.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "2025/personal-apis"
+      "slug": "2025/using-radios"
+    }
+  },
+  {
+    "slug": "drafts/_stale/black-ops-6",
+    "title": "Black Ops 6",
+    "date": "2024-10-26T17:50:21.000Z",
+    "type": "post",
+    "modified": "2024-11-27T01:35:02.000Z",
+    "tags": [
+      "games"
+    ],
+    "toc": [],
+    "metadata": {
+      "date": "2024-10-26T17:50:21.000Z",
+      "modified": "2024-11-27T01:35:02.000Z",
+      "tags": [
+        "games"
+      ],
+      "words": 32,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/black-ops-6.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/_stale/black-ops-6"
+    }
+  },
+  {
+    "slug": "drafts/_stale/building-a-logging-system-to-support-the-unknown",
+    "title": "Building A Logging System To Support The Unknown",
+    "date": "2024-12-30T04:22:33.000Z",
+    "type": "post",
+    "modified": "2025-01-14T15:04:30.000Z",
+    "tags": [
+      "infrastructure",
+      "tools"
+    ],
+    "toc": [],
+    "metadata": {
+      "date": "2024-12-30T04:22:33.000Z",
+      "modified": "2025-01-14T15:04:30.000Z",
+      "tags": [
+        "infrastructure",
+        "tools"
+      ],
+      "words": 9,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/building-a-logging-system-to-support-the-unknown.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/_stale/building-a-logging-system-to-support-the-unknown"
+    }
+  },
+  {
+    "slug": "drafts/_stale/catskills-hiking",
+    "title": "Catskills Hiking",
+    "date": "2025-09-24T12:16:18.000Z",
+    "type": "post",
+    "modified": "2025-09-25T23:15:42.000Z",
+    "toc": [],
+    "metadata": {
+      "date": "2025-09-24T12:16:18.000Z",
+      "modified": "2025-09-25T23:15:42.000Z",
+      "words": 1,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/catskills-hiking.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/_stale/catskills-hiking"
+    }
+  },
+  {
+    "slug": "drafts/_stale/coachartie_2025_refactor",
+    "title": "Coachartie_2025_refactor",
+    "date": "2025-01-01T05:00:00.000Z",
+    "type": "post",
+    "modified": "2025-01-01T05:00:00.000Z",
+    "tags": [
+      "ai",
+      "projects"
+    ],
+    "toc": [],
+    "metadata": {
+      "date": "2025-01-01T05:00:00.000Z",
+      "modified": "2025-01-01T05:00:00.000Z",
+      "tags": [
+        "ai",
+        "projects"
+      ],
+      "words": 126,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/coachartie_2025_refactor.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/_stale/coachartie_2025_refactor"
+    }
+  },
+  {
+    "slug": "drafts/_stale/core-principles",
+    "title": "Core Principles",
+    "date": "2024-04-20T18:42:43.000Z",
+    "type": "post",
+    "hidden": false,
+    "draft": false,
+    "dek": "The principles that guide how I make things on the internet, from truth-telling to making hell fun",
+    "modified": "2025-08-29T16:45:00.000Z",
+    "tags": [
+      "art",
+      "internet",
+      "photography",
+      "journalism",
+      "design",
+      "philosophy",
+      "creativity"
+    ],
+    "toc": [],
+    "metadata": {
+      "date": "2024-04-20T18:42:43.000Z",
+      "modified": "2025-08-29T16:45:00.000Z",
+      "hidden": false,
+      "draft": false,
+      "dek": "The principles that guide how I make things on the internet, from truth-telling to making hell fun",
+      "tags": [
+        "art",
+        "internet",
+        "photography",
+        "journalism",
+        "design",
+        "philosophy",
+        "creativity"
+      ],
+      "words": 1365,
+      "images": 1,
+      "imageDetails": {
+        "total": 1,
+        "cloudinary": 1,
+        "withDimensions": 0
+      },
+      "links": 1,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/core-principles.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/_stale/core-principles"
+    }
+  },
+  {
+    "slug": "drafts/_stale/cursor-rules-and-smallbot",
+    "title": "Cursor Rules And Smallbot",
+    "date": "2025-02-21T17:00:05.000Z",
+    "type": "post",
+    "modified": "2025-02-21T17:00:51.000Z",
+    "tags": [
+      "ai",
+      "tools"
+    ],
+    "toc": [],
+    "metadata": {
+      "date": "2025-02-21T17:00:05.000Z",
+      "modified": "2025-02-21T17:00:51.000Z",
+      "tags": [
+        "ai",
+        "tools"
+      ],
+      "words": 7,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/cursor-rules-and-smallbot.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/_stale/cursor-rules-and-smallbot"
+    }
+  },
+  {
+    "slug": "drafts/_stale/electology-vision",
+    "title": "Electology Vision",
+    "date": "2022-12-05T23:34:09.000Z",
+    "type": "post",
+    "dek": "See behind the scenes of election night coverage with Electology, the new tool transforming live data analysis.",
+    "modified": "2024-05-16T18:14:44.000Z",
+    "tags": [
+      "elections",
+      "data",
+      "dataviz",
+      "visualization",
+      "tv",
+      "webdesign"
+    ],
+    "toc": [],
+    "metadata": {
+      "dek": "See behind the scenes of election night coverage with Electology, the new tool transforming live data analysis.",
+      "inprogress": true,
+      "date": "2022-12-05T23:34:09.000Z",
+      "modified": "2024-05-16T18:14:44.000Z",
+      "tags": [
+        "elections",
+        "data",
+        "dataviz",
+        "visualization",
+        "tv",
+        "webdesign"
+      ],
+      "words": 1370,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/electology-vision.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/_stale/electology-vision"
+    }
+  },
+  {
+    "slug": "drafts/_stale/elon-musk-is-a-bad-man",
+    "title": "Elon Musk Is A Bad Man",
+    "date": "2024-06-02T00:00:00.000Z",
+    "type": "post",
+    "dek": "In which we explore the numerous reasons why the billionaire son of an apartheid Emerald mine owner is not a man to be admired",
+    "modified": "2024-10-02T14:59:11.000Z",
+    "tags": [
+      "example",
+      "template",
+      "frontmatter",
+      "art",
+      "design",
+      "inspiration"
+    ],
+    "toc": [],
+    "metadata": {
+      "dek": "In which we explore the numerous reasons why the billionaire son of an apartheid Emerald mine owner is not a man to be admired",
+      "inprogress": true,
+      "date": "2024-06-02T00:00:00.000Z",
+      "modified": "2024-10-02T14:59:11.000Z",
+      "tags": [
+        "example",
+        "template",
+        "frontmatter",
+        "art",
+        "design",
+        "inspiration"
+      ],
+      "images": 0,
+      "words": 9,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/elon-musk-is-a-bad-man.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/_stale/elon-musk-is-a-bad-man"
+    }
+  },
+  {
+    "slug": "drafts/_stale/espresso",
+    "title": "Espresso",
+    "date": "2023-01-06T22:34:42.000Z",
+    "type": "post",
+    "hidden": false,
+    "draft": false,
+    "dek": "In which I trace my coffee journey from teenage mochas to third-wave obsession, and what I learned about taste, place, and the Marzocco machine as quality signal",
+    "modified": "2025-08-29T20:59:46.000Z",
+    "tags": [
+      "food",
+      "coffee",
+      "nyc",
+      "san francisco",
+      "ritual",
+      "culture"
+    ],
+    "toc": [],
+    "metadata": {
+      "draft": false,
+      "dek": "In which I trace my coffee journey from teenage mochas to third-wave obsession, and what I learned about taste, place, and the Marzocco machine as quality signal",
+      "inprogress": false,
+      "date": "2023-01-06T22:34:42.000Z",
+      "modified": "2025-08-29T20:59:46.000Z",
+      "hidden": false,
+      "tags": [
+        "food",
+        "coffee",
+        "nyc",
+        "san francisco",
+        "ritual",
+        "culture"
+      ],
+      "words": 584,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 1,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/espresso.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/_stale/espresso"
+    }
+  },
+  {
+    "slug": "drafts/_stale/food-log",
+    "title": "Food Log",
+    "date": "2024-10-05T16:05:41.000Z",
+    "type": "post",
+    "modified": "2024-10-05T16:06:18.000Z",
+    "tags": [
+      "health",
+      "nutrition"
+    ],
+    "toc": [],
+    "metadata": {
+      "tags": [
+        "health",
+        "nutrition"
+      ],
+      "date": "2024-10-05T16:05:41.000Z",
+      "modified": "2024-10-05T16:06:18.000Z",
+      "words": 91,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/food-log.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/_stale/food-log"
+    }
+  },
+  {
+    "slug": "drafts/_stale/getting-started-with-amateur-radio",
+    "title": "Getting Started With Amateur Radio",
+    "date": "2025-01-27T00:33:10.000Z",
+    "type": "post",
+    "dek": "In which",
+    "modified": "2025-02-06T21:19:58.000Z",
+    "tags": [
+      "tech",
+      "radio",
+      "howto"
+    ],
+    "toc": [],
+    "metadata": {
+      "dek": "In which",
+      "inprogress": true,
+      "tags": [
+        "tech",
+        "radio",
+        "howto"
+      ],
+      "date": "2025-01-27T00:33:10.000Z",
+      "modified": "2025-02-06T21:19:58.000Z",
+      "words": 545,
+      "images": 1,
+      "imageDetails": {
+        "total": 1,
+        "cloudinary": 1,
+        "withDimensions": 0
+      },
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/getting-started-with-amateur-radio.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/_stale/getting-started-with-amateur-radio"
+    }
+  },
+  {
+    "slug": "drafts/_stale/getting-started-with-embeddings",
+    "title": "Getting Started With Embeddings",
+    "date": "2023-07-16T20:34:14.000Z",
+    "type": "post",
+    "dek": "In which we put words into space and then explore the constellations they create",
+    "modified": "2024-09-20T04:24:52.000Z",
+    "tags": [
+      "art",
+      "machinelearning",
+      "database",
+      "javascript",
+      "coding",
+      "data",
+      "visualization",
+      "programming"
+    ],
+    "toc": [],
+    "metadata": {
+      "dek": "In which we put words into space and then explore the constellations they create",
+      "inprogress": true,
+      "date": "2023-07-16T20:34:14.000Z",
+      "modified": "2024-09-20T04:24:52.000Z",
+      "tags": [
+        "art",
+        "machinelearning",
+        "database",
+        "javascript",
+        "coding",
+        "data",
+        "visualization",
+        "programming"
+      ],
+      "words": 265,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 5,
+      "codeBlocks": 4,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/getting-started-with-embeddings.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/_stale/getting-started-with-embeddings"
+    }
+  },
+  {
+    "slug": "drafts/_stale/ham-study",
+    "title": "Ham Study",
+    "date": "2024-11-27T15:42:48.000Z",
+    "type": "post",
+    "modified": "2024-11-27T15:42:56.000Z",
+    "tags": [
+      "amateurradio"
+    ],
+    "toc": [],
+    "metadata": {
+      "date": "2024-11-27T15:42:48.000Z",
+      "modified": "2024-11-27T15:42:56.000Z",
+      "tags": [
+        "amateurradio"
+      ],
+      "words": 1,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/ham-study.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/_stale/ham-study"
+    }
+  },
+  {
+    "slug": "drafts/_stale/hudson-valley-politics",
+    "title": "Hudson Valley Politics",
+    "date": "2025-04-09T18:28:08.000Z",
+    "type": "post",
+    "dek": "In which",
+    "modified": "2025-04-27T16:09:49.000Z",
+    "tags": [
+      "example",
+      "design",
+      "inspiration"
+    ],
+    "toc": [],
+    "metadata": {
+      "dek": "In which",
+      "inprogress": true,
+      "tags": [
+        "example",
+        "design",
+        "inspiration"
+      ],
+      "date": "2025-04-09T18:28:08.000Z",
+      "modified": "2025-04-27T16:09:49.000Z",
+      "words": 12,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/hudson-valley-politics.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/_stale/hudson-valley-politics"
+    }
+  },
+  {
+    "slug": "drafts/_stale/i-just-do-what-my-calendar-says",
+    "title": "I Just Do What My Calendar Says",
+    "date": "2023-01-06T22:34:06.000Z",
+    "type": "post",
+    "hidden": false,
+    "draft": false,
+    "dek": "In which I explain why I send calendar invites for casual hangouts and how surrendering to my calendar helps manage ADHD and creates space for deep work",
+    "modified": "2025-08-29T21:06:48.000Z",
+    "tags": [
+      "automation",
+      "adhd",
+      "productivity",
+      "systems"
+    ],
+    "toc": [],
+    "metadata": {
+      "draft": false,
+      "dek": "In which I explain why I send calendar invites for casual hangouts and how surrendering to my calendar helps manage ADHD and creates space for deep work",
+      "inprogress": false,
+      "date": "2023-01-06T22:34:06.000Z",
+      "modified": "2025-08-29T21:06:48.000Z",
+      "tags": [
+        "automation",
+        "adhd",
+        "productivity",
+        "systems"
+      ],
+      "hidden": false,
+      "words": 881,
+      "images": 1,
+      "imageDetails": {
+        "total": 1,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 1,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/i-just-do-what-my-calendar-says.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/_stale/i-just-do-what-my-calendar-says"
+    }
+  },
+  {
+    "slug": "drafts/_stale/idiots-guide-finetuning-llm",
+    "title": "Idiots Guide Finetuning Llm",
+    "date": "2025-08-19T17:38:18.000Z",
+    "type": "post",
+    "modified": "2025-09-23T12:05:52.000Z",
+    "tags": [
+      "machinelearning",
+      "howto",
+      "tech",
+      "coding",
+      "ai"
+    ],
+    "toc": [],
+    "metadata": {
+      "date": "2025-08-19T17:38:18.000Z",
+      "modified": "2025-09-23T12:05:52.000Z",
+      "tags": [
+        "machinelearning",
+        "howto",
+        "tech",
+        "coding",
+        "ai"
+      ],
+      "words": 18,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/idiots-guide-finetuning-llm.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/_stale/idiots-guide-finetuning-llm"
+    }
+  },
+  {
+    "slug": "drafts/_stale/og-images-with-genart",
+    "title": "Og Images With Genart",
+    "date": "2024-06-02T04:00:00.000Z",
+    "type": "post",
+    "dek": "In which",
+    "modified": "2024-09-21T19:46:52.000Z",
+    "tags": [
+      "example",
+      "template",
+      "frontmatter",
+      "generative",
+      "art",
+      "design",
+      "visualization"
+    ],
+    "toc": [],
+    "metadata": {
+      "dek": "In which",
+      "inprogress": true,
+      "date": "2024-06-02T04:00:00.000Z",
+      "modified": "2024-09-21T19:46:52.000Z",
+      "tags": [
+        "example",
+        "template",
+        "frontmatter",
+        "generative",
+        "art",
+        "design",
+        "visualization"
+      ],
+      "words": 9,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/og-images-with-genart.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/_stale/og-images-with-genart"
+    }
+  },
+  {
+    "slug": "drafts/_stale/personal-automation-patterns",
+    "title": "Personal Automation Patterns",
+    "date": "2025-01-14T15:20:05.000Z",
+    "type": "post",
+    "dek": "In which",
+    "modified": "2025-01-27T04:56:02.000Z",
+    "tags": [
+      "example",
+      "design",
+      "inspiration"
+    ],
+    "toc": [],
+    "metadata": {
+      "dek": "In which",
+      "inprogress": true,
+      "tags": [
+        "example",
+        "design",
+        "inspiration"
+      ],
+      "date": "2025-01-14T15:20:05.000Z",
+      "modified": "2025-01-27T04:56:02.000Z",
+      "words": 35,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/personal-automation-patterns.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/_stale/personal-automation-patterns"
+    }
+  },
+  {
+    "slug": "drafts/_stale/photoblog-with-cloudinary-nuxt",
+    "title": "Photoblog With Cloudinary Nuxt",
+    "date": "2022-12-05T23:34:09.000Z",
+    "type": "post",
+    "draft": false,
+    "dek": "In which we build a photography workflow that turns Finder tags into a web gallery, complete with EXIF analytics and randomized layouts that make your photos look like they were thrown on a table",
+    "modified": "2025-10-25T16:49:49.000Z",
+    "tags": [
+      "automation",
+      "photography",
+      "nuxt",
+      "cloudinary",
+      "workflow"
+    ],
+    "toc": [],
+    "metadata": {
+      "draft": false,
+      "dek": "In which we build a photography workflow that turns Finder tags into a web gallery, complete with EXIF analytics and randomized layouts that make your photos look like they were thrown on a table",
+      "inprogress": false,
+      "date": "2022-12-05T23:34:09.000Z",
+      "modified": "2025-10-25T16:49:49.000Z",
+      "tags": [
+        "automation",
+        "photography",
+        "nuxt",
+        "cloudinary",
+        "workflow"
+      ],
+      "words": 2531,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 2,
+      "codeBlocks": 8,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/photoblog-with-cloudinary-nuxt.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/_stale/photoblog-with-cloudinary-nuxt"
+    }
+  },
+  {
+    "slug": "drafts/_stale/room302-livestream-learning",
+    "title": "Room302 Livestream Learning",
+    "date": "2022-12-05T23:34:09.000Z",
+    "type": "post",
+    "modified": "2024-09-21T19:47:00.000Z",
+    "tags": [
+      "livestream",
+      "coding",
+      "education",
+      "programming"
+    ],
+    "toc": [],
+    "metadata": {
+      "date": "2022-12-05T23:34:09.000Z",
+      "modified": "2024-09-21T19:47:00.000Z",
+      "tags": [
+        "livestream",
+        "coding",
+        "education",
+        "programming"
+      ],
+      "words": 472,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 9,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/room302-livestream-learning.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/_stale/room302-livestream-learning"
+    }
+  },
+  {
+    "slug": "drafts/_stale/smallweb",
+    "title": "Smallweb",
+    "date": "2025-07-02T01:14:47.000Z",
+    "type": "post",
+    "modified": "2025-07-02T14:38:12.000Z",
+    "tags": [
+      "web",
+      "deployment"
+    ],
+    "toc": [],
+    "metadata": {
+      "date": "2025-07-02T01:14:47.000Z",
+      "modified": "2025-07-02T14:38:12.000Z",
+      "tags": [
+        "web",
+        "deployment"
+      ],
+      "words": 14,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/smallweb.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/_stale/smallweb"
+    }
+  },
+  {
+    "slug": "drafts/_stale/techs-anti-humanist-wave",
+    "title": "Techs Anti Humanist Wave",
+    "date": "2025-01-27T04:56:02.000Z",
+    "type": "post",
+    "dek": "In which we trace how GamerGate weaponized hacker culture, turning technical skills into tools for fascist coordination, and why we can't cede the ground to techno-authoritarians",
+    "modified": "2025-08-30T23:32:39.000Z",
+    "tags": [
+      "tech",
+      "politics",
+      "culture",
+      "ai",
+      "gamergate",
+      "fascism",
+      "hacker",
+      "resistance"
+    ],
+    "toc": [],
+    "metadata": {
+      "dek": "In which we trace how GamerGate weaponized hacker culture, turning technical skills into tools for fascist coordination, and why we can't cede the ground to techno-authoritarians",
+      "tags": [
+        "tech",
+        "politics",
+        "culture",
+        "ai",
+        "gamergate",
+        "fascism",
+        "hacker",
+        "resistance"
+      ],
+      "date": "2025-01-27T04:56:02.000Z",
+      "modified": "2025-08-30T23:32:39.000Z",
+      "words": 818,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 8,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/techs-anti-humanist-wave.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/_stale/techs-anti-humanist-wave"
+    }
+  },
+  {
+    "slug": "drafts/_stale/the-rise-of-bespoke-tech",
+    "title": "The Rise Of Bespoke Tech",
+    "date": "2024-06-02T04:00:00.000Z",
+    "type": "post",
+    "dek": "In which",
+    "modified": "2024-09-21T19:46:58.000Z",
+    "tags": [
+      "example",
+      "template",
+      "frontmatter",
+      "tech",
+      "programming",
+      "webdesign",
+      "opensource",
+      "systemsthinking"
+    ],
+    "toc": [],
+    "metadata": {
+      "date": "2024-06-02T04:00:00.000Z",
+      "modified": "2024-09-21T19:46:58.000Z",
+      "dek": "In which",
+      "inprogress": true,
+      "tags": [
+        "example",
+        "template",
+        "frontmatter",
+        "tech",
+        "programming",
+        "webdesign",
+        "opensource",
+        "systemsthinking"
+      ],
+      "words": 1056,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 5,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/the-rise-of-bespoke-tech.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/_stale/the-rise-of-bespoke-tech"
+    }
+  },
+  {
+    "slug": "drafts/_stale/truth-terminal",
+    "title": "Truth Terminal",
+    "date": "2024-10-20T15:10:49.000Z",
+    "type": "post",
+    "dek": "Wherein a sleepless inventor sets his creations loose, and by morning, they have conjured both gospel and gold, and the line between art and reality dissolves",
+    "modified": "2024-12-06T16:54:29.000Z",
+    "tags": [
+      "ai",
+      "crypto"
+    ],
+    "toc": [],
+    "metadata": {
+      "date": "2024-10-20T15:10:49.000Z",
+      "modified": "2024-12-06T16:54:29.000Z",
+      "dek": "Wherein a sleepless inventor sets his creations loose, and by morning, they have conjured both gospel and gold, and the line between art and reality dissolves",
+      "tags": [
+        "ai",
+        "crypto"
+      ],
+      "words": 3131,
+      "images": 1,
+      "imageDetails": {
+        "total": 1,
+        "cloudinary": 1,
+        "withDimensions": 0
+      },
+      "links": 39,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/truth-terminal.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/_stale/truth-terminal"
+    }
+  },
+  {
+    "slug": "drafts/_stale/using-observable-plot-in-vue",
+    "title": "Using Observable Plot In Vue",
+    "date": "2022-12-15T15:18:53.000Z",
+    "type": "post",
+    "dek": "In which we use two javascript frameworks to quickly scale from prototype to functional tool",
+    "modified": "2024-09-20T04:23:41.000Z",
+    "tags": [
+      "dataviz",
+      "howto",
+      "vue"
+    ],
+    "toc": [],
+    "metadata": {
+      "dek": "In which we use two javascript frameworks to quickly scale from prototype to functional tool",
+      "inprogress": true,
+      "date": "2022-12-15T15:18:53.000Z",
+      "modified": "2024-09-20T04:23:41.000Z",
+      "tags": [
+        "dataviz",
+        "howto",
+        "vue"
+      ],
+      "words": 438,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 6,
+      "codeBlocks": 4,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/using-observable-plot-in-vue.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/_stale/using-observable-plot-in-vue"
+    }
+  },
+  {
+    "slug": "drafts/_stale/using-polycam-scans-in-three-js",
+    "title": "Using Polycam Scans In Three Js",
+    "date": "2022-11-20T21:03:54.000Z",
+    "type": "post",
+    "hidden": false,
+    "draft": false,
+    "dek": "In which I turn my gear page into a video game inventory with spinning 3D models because I'm a total dork and it's going to be amazing",
+    "modified": "2025-08-29T21:45:00.000Z",
+    "tags": [
+      "webdesign",
+      "howto",
+      "javascript",
+      "3d",
+      "gear",
+      "gaming"
+    ],
+    "toc": [],
+    "metadata": {
+      "date": "2022-11-20T21:03:54.000Z",
+      "modified": "2025-08-29T21:45:00.000Z",
+      "dek": "In which I turn my gear page into a video game inventory with spinning 3D models because I'm a total dork and it's going to be amazing",
+      "tags": [
+        "webdesign",
+        "howto",
+        "javascript",
+        "3d",
+        "gear",
+        "gaming"
+      ],
+      "hidden": false,
+      "draft": false,
+      "words": 708,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 5,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/using-polycam-scans-in-three-js.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/_stale/using-polycam-scans-in-three-js"
+    }
+  },
+  {
+    "slug": "drafts/_stale/vps-micro-endpoints-smallweb",
+    "title": "Vps Micro Endpoints Smallweb",
+    "date": "2025-01-05T17:25:05.000Z",
+    "type": "post",
+    "dek": "In which the author prepares a little computer far away from home to do his bidding",
+    "modified": "2025-01-27T04:35:12.000Z",
+    "tags": [
+      "cli",
+      "tech"
+    ],
+    "toc": [],
+    "metadata": {
+      "date": "2025-01-05T17:25:05.000Z",
+      "modified": "2025-01-27T04:35:12.000Z",
+      "dek": "In which the author prepares a little computer far away from home to do his bidding",
+      "inprogress": true,
+      "tags": [
+        "cli",
+        "tech"
+      ],
+      "words": 35,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/vps-micro-endpoints-smallweb.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/_stale/vps-micro-endpoints-smallweb"
+    }
+  },
+  {
+    "slug": "drafts/_stale/ways-to-viz-embeddings",
+    "title": "Ways To Viz Embeddings",
+    "date": "2024-11-27T01:35:16.000Z",
+    "type": "post",
+    "modified": "2024-11-27T01:36:07.000Z",
+    "tags": [
+      "visualization",
+      "ai"
+    ],
+    "toc": [],
+    "metadata": {
+      "date": "2024-11-27T01:35:16.000Z",
+      "modified": "2024-11-27T01:36:07.000Z",
+      "tags": [
+        "visualization",
+        "ai"
+      ],
+      "words": 1000,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/ways-to-viz-embeddings.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/_stale/ways-to-viz-embeddings"
     }
   },
   {
@@ -1970,7 +3232,7 @@
     "title": "Ar Lens Prototyping",
     "date": "2025-08-01T12:52:12.000Z",
     "type": "post",
-    "modified": "2025-08-06T17:06:01.000Z",
+    "modified": "2025-08-30T13:32:07.000Z",
     "tags": [
       "ar",
       "prototyping",
@@ -1981,7 +3243,7 @@
     "toc": [],
     "metadata": {
       "date": "2025-08-01T12:52:12.000Z",
-      "modified": "2025-08-06T17:06:01.000Z",
+      "modified": "2025-08-30T13:32:07.000Z",
       "tags": [
         "ar",
         "prototyping",
@@ -2012,7 +3274,7 @@
     "date": "2025-03-05T04:05:00.000Z",
     "type": "post",
     "dek": "In which the author enlists some unlikely tools and dorkily redeploys them to make a podcast worth listening to",
-    "modified": "2025-06-02T14:02:28.000Z",
+    "modified": "2025-08-30T13:32:05.000Z",
     "tags": [
       "process",
       "cli",
@@ -2035,7 +3297,7 @@
         "machinelearning"
       ],
       "date": "2025-03-05T04:05:00.000Z",
-      "modified": "2025-06-02T14:02:28.000Z",
+      "modified": "2025-08-30T13:32:05.000Z",
       "words": 115,
       "images": 8,
       "imageDetails": {
@@ -2051,6 +3313,52 @@
       "sourcePath": "../../../../../code/website2/content/blog/drafts/automating-podcast-editing.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "drafts/automating-podcast-editing"
+    }
+  },
+  {
+    "slug": "drafts/data-driven-llm-sentences",
+    "title": "Data Driven Llm Sentences",
+    "date": "2023-07-19T12:27:21.000Z",
+    "type": "post",
+    "dek": "In which we give the robot a bunch of data and ask it to tell us what it means",
+    "modified": "2025-08-30T13:28:53.000Z",
+    "tags": [
+      "datajournalism",
+      "dataviz",
+      "gpt3",
+      "journalism",
+      "media",
+      "visualization"
+    ],
+    "toc": [],
+    "metadata": {
+      "dek": "In which we give the robot a bunch of data and ask it to tell us what it means",
+      "inprogress": true,
+      "date": "2023-07-19T12:27:21.000Z",
+      "modified": "2025-08-30T13:28:53.000Z",
+      "tags": [
+        "datajournalism",
+        "dataviz",
+        "gpt3",
+        "journalism",
+        "media",
+        "visualization"
+      ],
+      "words": 393,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/data-driven-llm-sentences.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/data-driven-llm-sentences"
     }
   },
   {
@@ -2102,7 +3410,7 @@
     "title": "How Can Ai Be Used In Journalism",
     "date": "2025-08-13T23:03:17.000Z",
     "type": "post",
-    "modified": "2025-08-29T18:35:03.000Z",
+    "modified": "2025-08-31T22:46:36.000Z",
     "tags": [
       "journalism",
       "ai",
@@ -2113,7 +3421,7 @@
     "toc": [],
     "metadata": {
       "date": "2025-08-13T23:03:17.000Z",
-      "modified": "2025-08-29T18:35:03.000Z",
+      "modified": "2025-08-31T22:46:36.000Z",
       "tags": [
         "journalism",
         "ai",
@@ -2121,7 +3429,7 @@
         "tech",
         "media"
       ],
-      "words": 718,
+      "words": 728,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -2186,7 +3494,7 @@
     "title": "How I Start My Mornings Lately",
     "date": "2025-02-17T15:29:04.000Z",
     "type": "post",
-    "modified": "2025-06-02T14:00:02.000Z",
+    "modified": "2025-08-30T15:08:18.000Z",
     "tags": [
       "personal",
       "routine",
@@ -2197,7 +3505,7 @@
     "toc": [],
     "metadata": {
       "date": "2025-02-17T15:29:04.000Z",
-      "modified": "2025-06-02T14:00:02.000Z",
+      "modified": "2025-08-30T15:08:18.000Z",
       "tags": [
         "personal",
         "routine",
@@ -2220,91 +3528,6 @@
       "sourcePath": "../../../../../code/website2/content/blog/drafts/how-i-start-my-mornings-lately.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "drafts/how-i-start-my-mornings-lately"
-    }
-  },
-  {
-    "slug": "drafts/how-men-use-radios",
-    "title": "How Men Use Radios",
-    "date": "2023-09-03T16:33:47.000Z",
-    "type": "post",
-    "dek": "In which we learn to use radios to the best of our ability",
-    "modified": "2025-08-28T20:46:11.000Z",
-    "tags": [
-      "communication",
-      "radio",
-      "tech",
-      "howto",
-      "hardware"
-    ],
-    "toc": [],
-    "metadata": {
-      "dek": "In which we learn to use radios to the best of our ability",
-      "inprogress": true,
-      "date": "2023-09-03T16:33:47.000Z",
-      "modified": "2025-08-28T20:46:11.000Z",
-      "tags": [
-        "communication",
-        "radio",
-        "tech",
-        "howto",
-        "hardware"
-      ],
-      "words": 1484,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 0,
-      "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/drafts/how-men-use-radios.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "drafts/how-men-use-radios"
-    }
-  },
-  {
-    "slug": "drafts/idiots-guide-finetuning-llm",
-    "title": "Idiots Guide Finetuning Llm",
-    "date": "2025-08-19T17:38:18.000Z",
-    "type": "post",
-    "modified": "2025-08-28T19:27:55.000Z",
-    "tags": [
-      "machinelearning",
-      "howto",
-      "tech",
-      "coding",
-      "ai"
-    ],
-    "toc": [],
-    "metadata": {
-      "date": "2025-08-19T17:38:18.000Z",
-      "modified": "2025-08-28T19:27:55.000Z",
-      "tags": [
-        "machinelearning",
-        "howto",
-        "tech",
-        "coding",
-        "ai"
-      ],
-      "words": 18,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 0,
-      "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/drafts/idiots-guide-finetuning-llm.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "drafts/idiots-guide-finetuning-llm"
     }
   },
   {
@@ -2356,7 +3579,7 @@
     "title": "Nvim And Nuxt",
     "date": "2025-08-01T12:49:14.000Z",
     "type": "post",
-    "modified": "2025-08-28T22:32:42.000Z",
+    "modified": "2025-08-30T15:08:19.000Z",
     "tags": [
       "nvim",
       "vue",
@@ -2368,7 +3591,7 @@
     "toc": [],
     "metadata": {
       "date": "2025-08-01T12:49:14.000Z",
-      "modified": "2025-08-28T22:32:42.000Z",
+      "modified": "2025-08-30T15:08:19.000Z",
       "tags": [
         "nvim",
         "vue",
@@ -2395,75 +3618,35 @@
     }
   },
   {
-    "slug": "drafts/ten-years-of-the-computer-rescuetime-analysis",
-    "title": "Ten Years Of The Computer Rescuetime Analysis",
-    "date": "2025-08-06T16:53:07.000Z",
+    "slug": "drafts/spite-driven-development",
+    "title": "Spite Driven Development",
+    "date": "2025-08-29T17:30:00.000Z",
     "type": "post",
-    "modified": "2025-08-28T20:38:29.000Z",
+    "draft": false,
+    "dek": "In which the author explores how to channel spite and frustration into productive work without letting it corrode your soul",
+    "modified": "2025-09-23T12:09:58.000Z",
     "tags": [
-      "dataviz",
-      "quantifiedself",
-      "personal",
-      "data",
-      "analytics",
-      "productivity"
+      "creativity",
+      "motivation",
+      "psychology",
+      "development",
+      "ethics"
     ],
     "toc": [],
     "metadata": {
-      "date": "2025-08-06T16:53:07.000Z",
-      "modified": "2025-08-28T20:38:29.000Z",
+      "draft": false,
+      "dek": "In which the author explores how to channel spite and frustration into productive work without letting it corrode your soul",
+      "inprogress": false,
+      "date": "2025-08-29T17:30:00.000Z",
+      "modified": "2025-09-23T12:09:58.000Z",
       "tags": [
-        "dataviz",
-        "quantifiedself",
-        "personal",
-        "data",
-        "analytics",
-        "productivity"
+        "creativity",
+        "motivation",
+        "psychology",
+        "development",
+        "ethics"
       ],
-      "words": 980,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 3,
-      "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/drafts/ten-years-of-the-computer-rescuetime-analysis.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "drafts/ten-years-of-the-computer-rescuetime-analysis"
-    }
-  },
-  {
-    "slug": "drafts/the-world-is-changing",
-    "title": "The World Is Changing",
-    "date": "2025-03-08T21:04:52.000Z",
-    "type": "post",
-    "modified": "2025-06-02T14:00:13.000Z",
-    "tags": [
-      "community",
-      "personal",
-      "politics",
-      "activism",
-      "resilience",
-      "democracy"
-    ],
-    "toc": [],
-    "metadata": {
-      "date": "2025-03-08T21:04:52.000Z",
-      "modified": "2025-06-02T14:00:13.000Z",
-      "tags": [
-        "community",
-        "personal",
-        "politics",
-        "activism",
-        "resilience",
-        "democracy"
-      ],
-      "words": 385,
+      "words": 433,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -2475,9 +3658,92 @@
       "headers": {},
       "toc": [],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/drafts/the-world-is-changing.md",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/spite-driven-development.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "drafts/the-world-is-changing"
+      "slug": "drafts/spite-driven-development"
+    }
+  },
+  {
+    "slug": "drafts/ten-years-of-the-computer-rescuetime-analysis",
+    "title": "Ten Years Of The Computer Rescuetime Analysis",
+    "date": "2025-08-06T16:53:07.000Z",
+    "type": "post",
+    "modified": "2025-11-08T20:10:47.000Z",
+    "tags": [
+      "dataviz",
+      "quantifiedself",
+      "personal",
+      "data",
+      "analytics",
+      "productivity"
+    ],
+    "toc": [],
+    "metadata": {
+      "date": "2025-08-06T16:53:07.000Z",
+      "modified": "2025-11-08T20:10:47.000Z",
+      "tags": [
+        "dataviz",
+        "quantifiedself",
+        "personal",
+        "data",
+        "analytics",
+        "productivity"
+      ],
+      "words": 946,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 4,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/ten-years-of-the-computer-rescuetime-analysis.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/ten-years-of-the-computer-rescuetime-analysis"
+    }
+  },
+  {
+    "slug": "drafts/terminal-based-development-workflow",
+    "title": "Terminal Based Development Workflow",
+    "date": "2025-10-30T23:59:45.000Z",
+    "type": "post",
+    "dek": "In which",
+    "modified": "2025-10-31T14:55:00.000Z",
+    "tags": [
+      "example",
+      "design",
+      "inspiration"
+    ],
+    "toc": [],
+    "metadata": {
+      "dek": "In which",
+      "inprogress": true,
+      "tags": [
+        "example",
+        "design",
+        "inspiration"
+      ],
+      "date": "2025-10-30T23:59:45.000Z",
+      "modified": "2025-10-31T14:55:00.000Z",
+      "words": 8,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/drafts/terminal-based-development-workflow.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "drafts/terminal-based-development-workflow"
     }
   },
   {
@@ -2486,10 +3752,16 @@
     "date": "2024-09-22T00:33:21.000Z",
     "type": "post",
     "modified": "2025-08-15T18:52:13.000Z",
+    "tags": [
+      "personal"
+    ],
     "toc": [],
     "metadata": {
       "date": "2024-09-22T00:33:21.000Z",
       "modified": "2025-08-15T18:52:13.000Z",
+      "tags": [
+        "personal"
+      ],
       "words": 117,
       "images": 0,
       "imageDetails": {
@@ -2513,6 +3785,10 @@
     "date": "2025-08-10T04:00:00.000Z",
     "type": "post",
     "modified": "2025-08-13T15:26:19.000Z",
+    "tags": [
+      "ios",
+      "health"
+    ],
     "toc": [],
     "metadata": {
       "title": "MorningRadio",
@@ -2527,6 +3803,10 @@
       ],
       "state": "doing",
       "aiInvolvement": "ai-assisted",
+      "tags": [
+        "ios",
+        "health"
+      ],
       "words": 74,
       "images": 2,
       "imageDetails": {
@@ -2550,6 +3830,12 @@
     "date": "2021-06-15T04:00:00.000Z",
     "type": "post",
     "modified": "2025-08-26T19:52:56.000Z",
+    "tags": [
+      "data",
+      "nypd",
+      "journalism",
+      "database"
+    ],
     "toc": [],
     "metadata": {
       "title": "Clusters of NYPD Misconduct",
@@ -2566,6 +3852,12 @@
       "featured": true,
       "state": "deployed",
       "aiInvolvement": "human-only",
+      "tags": [
+        "data",
+        "nypd",
+        "journalism",
+        "database"
+      ],
       "words": 91,
       "images": 1,
       "imageDetails": {
@@ -2589,6 +3881,12 @@
     "date": "2024-10-12T04:00:00.000Z",
     "type": "post",
     "modified": "2025-08-13T16:35:57.000Z",
+    "tags": [
+      "cli",
+      "programming",
+      "nodejs",
+      "tool"
+    ],
     "toc": [],
     "metadata": {
       "title": "CLI Tools Collection",
@@ -2603,6 +3901,12 @@
       ],
       "state": "deployed",
       "aiInvolvement": "ai-assisted",
+      "tags": [
+        "cli",
+        "programming",
+        "nodejs",
+        "tool"
+      ],
       "words": 182,
       "images": 0,
       "imageDetails": {
@@ -2626,6 +3930,10 @@
     "date": "2025-01-15T05:00:00.000Z",
     "type": "post",
     "modified": "2025-08-13T15:58:10.000Z",
+    "tags": [
+      "tools",
+      "photography"
+    ],
     "toc": [],
     "metadata": {
       "title": "Cloudinary Backup Tool",
@@ -2638,6 +3946,10 @@
         "Vite"
       ],
       "modified": "2025-08-13T15:58:10.000Z",
+      "tags": [
+        "tools",
+        "photography"
+      ],
       "words": 52,
       "images": 1,
       "imageDetails": {
@@ -2661,6 +3973,12 @@
     "date": "2023-03-21T04:00:00.000Z",
     "type": "post",
     "modified": "2025-08-26T19:52:50.000Z",
+    "tags": [
+      "programming",
+      "ai",
+      "product",
+      "nodejs"
+    ],
     "toc": [],
     "metadata": {
       "title": "Coach Artie Ecosystem",
@@ -2677,6 +3995,12 @@
       ],
       "state": "evolved",
       "aiInvolvement": "ai-enhanced",
+      "tags": [
+        "programming",
+        "ai",
+        "product",
+        "nodejs"
+      ],
       "words": 124,
       "images": 0,
       "imageDetails": {
@@ -2700,6 +4024,12 @@
     "date": "2020-04-24T04:00:00.000Z",
     "type": "post",
     "modified": "2025-08-26T19:53:05.000Z",
+    "tags": [
+      "covid",
+      "dataviz",
+      "javascript",
+      "health"
+    ],
     "toc": [],
     "metadata": {
       "title": "COVIDcast",
@@ -2714,6 +4044,12 @@
       ],
       "state": "deployed",
       "aiInvolvement": "human-only",
+      "tags": [
+        "covid",
+        "dataviz",
+        "javascript",
+        "health"
+      ],
       "words": 34,
       "images": 1,
       "imageDetails": {
@@ -2737,6 +4073,10 @@
     "date": "2024-07-01T04:00:00.000Z",
     "type": "post",
     "modified": "2025-08-13T15:46:54.000Z",
+    "tags": [
+      "creativity",
+      "interfaces"
+    ],
     "toc": [],
     "metadata": {
       "title": "Creative Interfaces & Digital Art",
@@ -2752,6 +4092,10 @@
       ],
       "state": "deployed",
       "aiInvolvement": "ai-assisted",
+      "tags": [
+        "creativity",
+        "interfaces"
+      ],
       "words": 170,
       "images": 0,
       "imageDetails": {
@@ -2775,6 +4119,10 @@
     "date": "2024-06-01T00:00:00.000Z",
     "type": "post",
     "modified": "2025-01-15T17:00:00.000Z",
+    "tags": [
+      "visualization",
+      "data"
+    ],
     "toc": [],
     "metadata": {
       "title": "Data Visualization & Analysis Suite",
@@ -2790,6 +4138,10 @@
       ],
       "state": "deployed",
       "aiInvolvement": "ai-collaborative",
+      "tags": [
+        "visualization",
+        "data"
+      ],
       "words": 268,
       "images": 0,
       "imageDetails": {
@@ -2813,6 +4165,12 @@
     "date": "2015-11-03T05:00:00.000Z",
     "type": "post",
     "modified": "2025-08-26T19:53:33.000Z",
+    "tags": [
+      "data",
+      "javascript",
+      "tool",
+      "journalism"
+    ],
     "toc": [],
     "metadata": {
       "title": "Dataproofer",
@@ -2828,6 +4186,12 @@
       "featured": false,
       "state": "deployed",
       "aiInvolvement": "human-only",
+      "tags": [
+        "data",
+        "javascript",
+        "tool",
+        "journalism"
+      ],
       "words": 147,
       "images": 0,
       "imageDetails": {
@@ -2851,6 +4215,10 @@
     "date": "2024-05-01T04:00:00.000Z",
     "type": "post",
     "modified": "2025-08-13T15:30:24.000Z",
+    "tags": [
+      "tools",
+      "deployment"
+    ],
     "toc": [],
     "metadata": {
       "title": "Developer Tools & Deployment",
@@ -2867,6 +4235,10 @@
       ],
       "state": "deployed",
       "aiInvolvement": "ai-assisted",
+      "tags": [
+        "tools",
+        "deployment"
+      ],
       "words": 134,
       "images": 0,
       "imageDetails": {
@@ -2890,6 +4262,12 @@
     "date": "2016-11-08T05:00:00.000Z",
     "type": "post",
     "modified": "2025-08-13T16:24:29.000Z",
+    "tags": [
+      "d3",
+      "dataviz",
+      "javascript",
+      "elections"
+    ],
     "toc": [],
     "metadata": {
       "title": "NBC News Big Board",
@@ -2904,6 +4282,12 @@
       "featured": true,
       "state": "deployed",
       "aiInvolvement": "human-only",
+      "tags": [
+        "d3",
+        "dataviz",
+        "javascript",
+        "elections"
+      ],
       "words": 47,
       "images": 3,
       "imageDetails": {
@@ -2927,12 +4311,24 @@
     "date": "2016-12-14T20:01:50.000Z",
     "type": "post",
     "modified": "2025-08-13T16:01:12.000Z",
+    "tags": [
+      "dataviz",
+      "journalism",
+      "webdesign",
+      "elections"
+    ],
     "toc": [],
     "metadata": {
       "title": "NBC News Specials",
       "date": "2016-12-14T20:01:50.000Z",
       "modified": "2025-08-13T16:01:12.000Z",
       "url": "https://nbcnews.com/specials",
+      "tags": [
+        "dataviz",
+        "journalism",
+        "webdesign",
+        "elections"
+      ],
       "words": 104,
       "images": 3,
       "imageDetails": {
@@ -2956,6 +4352,10 @@
     "date": "2024-04-01T04:00:00.000Z",
     "type": "post",
     "modified": "2025-08-13T15:20:07.000Z",
+    "tags": [
+      "photography",
+      "tools"
+    ],
     "toc": [],
     "metadata": {
       "title": "Photography & Visual Creation",
@@ -2970,6 +4370,10 @@
       ],
       "state": "deployed",
       "aiInvolvement": "ai-assisted",
+      "tags": [
+        "photography",
+        "tools"
+      ],
       "words": 108,
       "images": 1,
       "imageDetails": {
@@ -2993,6 +4397,10 @@
     "date": "2025-08-02T04:00:00.000Z",
     "type": "post",
     "modified": "2025-08-13T17:17:13.000Z",
+    "tags": [
+      "ai",
+      "web"
+    ],
     "toc": [],
     "metadata": {
       "title": "Smallbot MCP",
@@ -3007,6 +4415,10 @@
       ],
       "state": "deployed",
       "aiInvolvement": "ai-enhanced",
+      "tags": [
+        "ai",
+        "web"
+      ],
       "words": 145,
       "images": 0,
       "imageDetails": {
@@ -3028,6 +4440,10 @@
     "slug": "reading/Arenberg-Frumin-Congressional Procedure A Practical Guide to the Legislative Process in the U.S. Congress",
     "title": "Arenberg Frumin Congressional Procedure A Practical Guide to the Legislative Process in the U.S. Congress",
     "type": "post",
+    "tags": [
+      "politics",
+      "america"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -3039,6 +4455,10 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/81otOXbOIiL._SY160.jpg",
         "highlightsCount": 1
       },
+      "tags": [
+        "politics",
+        "america"
+      ],
       "words": 97,
       "images": 0,
       "imageDetails": {
@@ -3060,6 +4480,12 @@
     "slug": "reading/Baldwin-Jones-Notes of a Native Son",
     "title": "Baldwin Jones Notes of a Native Son",
     "type": "post",
+    "tags": [
+      "book",
+      "america",
+      "culture",
+      "writing"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -3071,6 +4497,12 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/517-wUXsdWL._SY160.jpg",
         "highlightsCount": 2
       },
+      "tags": [
+        "book",
+        "america",
+        "culture",
+        "writing"
+      ],
       "words": 132,
       "images": 0,
       "imageDetails": {
@@ -3092,6 +4524,11 @@
     "slug": "reading/Bergstrom-West-Calling Bullshit",
     "title": "Bergstrom West Calling Bullshit",
     "type": "post",
+    "tags": [
+      "book",
+      "data",
+      "research"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -3103,6 +4540,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/81Dd92++GgS._SY160.jpg",
         "highlightsCount": 1
       },
+      "tags": [
+        "book",
+        "data",
+        "research"
+      ],
       "words": 71,
       "images": 0,
       "imageDetails": {
@@ -3124,6 +4566,11 @@
     "slug": "reading/Bobrick-The Fated Sky",
     "title": "Bobrick The Fated Sky",
     "type": "post",
+    "tags": [
+      "book",
+      "history",
+      "culture"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -3135,6 +4582,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/81VUHa-9LUL._SY160.jpg",
         "highlightsCount": 13
       },
+      "tags": [
+        "book",
+        "history",
+        "culture"
+      ],
       "words": 1055,
       "images": 0,
       "imageDetails": {
@@ -3156,6 +4608,12 @@
     "slug": "reading/Broder-So Sad Today",
     "title": "Broder So Sad Today",
     "type": "post",
+    "tags": [
+      "book",
+      "writing",
+      "personal",
+      "health"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -3167,6 +4625,12 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/61NtEkj0wIL._SY160.jpg",
         "highlightsCount": 13
       },
+      "tags": [
+        "book",
+        "writing",
+        "personal",
+        "health"
+      ],
       "words": 670,
       "images": 0,
       "imageDetails": {
@@ -3188,6 +4652,11 @@
     "slug": "reading/Broder-The Pisces",
     "title": "Broder The Pisces",
     "type": "post",
+    "tags": [
+      "book",
+      "writing",
+      "personal"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -3199,6 +4668,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/71IpwmRDlPL._SY160.jpg",
         "highlightsCount": 15
       },
+      "tags": [
+        "book",
+        "writing",
+        "personal"
+      ],
       "words": 769,
       "images": 0,
       "imageDetails": {
@@ -3220,6 +4694,10 @@
     "slug": "reading/Bukowski-Women",
     "title": "Bukowski Women",
     "type": "post",
+    "tags": [
+      "book",
+      "writing"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -3231,6 +4709,10 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/81M+SvV1aLL._SY160.jpg",
         "highlightsCount": 15
       },
+      "tags": [
+        "book",
+        "writing"
+      ],
       "words": 599,
       "images": 0,
       "imageDetails": {
@@ -3252,6 +4734,11 @@
     "slug": "reading/Burnett-Evans-Designing Your Life",
     "title": "Burnett Evans Designing Your Life",
     "type": "post",
+    "tags": [
+      "book",
+      "design",
+      "personal"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -3263,6 +4750,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/71O3fHSPe8L._SY160.jpg",
         "highlightsCount": 2
       },
+      "tags": [
+        "book",
+        "design",
+        "personal"
+      ],
       "words": 136,
       "images": 0,
       "imageDetails": {
@@ -3283,7 +4775,9 @@
   {
     "slug": "reading/Campbell_et_al-The Hero’s Journey",
     "title": "Campbell_et_al The Hero’s Journey",
+    "date": "2025-08-28T20:10:28.000Z",
     "type": "post",
+    "modified": "2025-08-31T22:40:04.000Z",
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -3295,7 +4789,9 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/81aJChDqSfL._SY160.jpg",
         "highlightsCount": 5
       },
-      "words": 470,
+      "date": "2025-08-28T20:10:28.000Z",
+      "modified": "2025-08-31T22:40:04.000Z",
+      "words": 465,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -3316,6 +4812,12 @@
     "slug": "reading/Carton-Patriotic Treason",
     "title": "Carton Patriotic Treason",
     "type": "post",
+    "tags": [
+      "book",
+      "history",
+      "america",
+      "activism"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -3327,6 +4829,12 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/91r7o60L5KL._SY160.jpg",
         "highlightsCount": 12
       },
+      "tags": [
+        "book",
+        "history",
+        "america",
+        "activism"
+      ],
       "words": 827,
       "images": 0,
       "imageDetails": {
@@ -3348,6 +4856,11 @@
     "slug": "reading/Catton-Overshoot",
     "title": "Catton Overshoot",
     "type": "post",
+    "tags": [
+      "book",
+      "ecology",
+      "climatechange"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -3359,6 +4872,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/51geicggF5L._SY160.jpg",
         "highlightsCount": 4
       },
+      "tags": [
+        "book",
+        "ecology",
+        "climatechange"
+      ],
       "words": 245,
       "images": 0,
       "imageDetails": {
@@ -3382,6 +4900,12 @@
     "date": "2025-08-21T18:44:39.000Z",
     "type": "post",
     "modified": "2025-08-24T23:53:43.000Z",
+    "tags": [
+      "book",
+      "tech",
+      "culture",
+      "algorithm"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -3395,6 +4919,12 @@
       },
       "date": "2025-08-21T18:44:39.000Z",
       "modified": "2025-08-24T23:53:43.000Z",
+      "tags": [
+        "book",
+        "tech",
+        "culture",
+        "algorithm"
+      ],
       "words": 168,
       "images": 0,
       "imageDetails": {
@@ -3416,6 +4946,11 @@
     "slug": "reading/Chiang-Exhalation",
     "title": "Chiang Exhalation",
     "type": "post",
+    "tags": [
+      "book",
+      "tech",
+      "writing"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -3427,6 +4962,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/71rxUxpcPgL._SY160.jpg",
         "highlightsCount": 1
       },
+      "tags": [
+        "book",
+        "tech",
+        "writing"
+      ],
       "words": 74,
       "images": 0,
       "imageDetails": {
@@ -3448,6 +4988,12 @@
     "slug": "reading/Clover-Riot. Strike. Riot",
     "title": "Clover Riot. Strike. Riot",
     "type": "post",
+    "tags": [
+      "book",
+      "activism",
+      "protest",
+      "politics"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -3459,6 +5005,12 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/81LVOVLefKL._SY160.jpg",
         "highlightsCount": 1
       },
+      "tags": [
+        "book",
+        "activism",
+        "protest",
+        "politics"
+      ],
       "words": 69,
       "images": 0,
       "imageDetails": {
@@ -3480,6 +5032,12 @@
     "slug": "reading/Collins-Zito-The Fundamentals of Motorcycle Camping",
     "title": "Collins Zito The Fundamentals of Motorcycle Camping",
     "type": "post",
+    "tags": [
+      "book",
+      "motorcycle",
+      "camping",
+      "travel"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -3491,6 +5049,12 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/81BOMFlBzPL._SY160.jpg",
         "highlightsCount": 5
       },
+      "tags": [
+        "book",
+        "motorcycle",
+        "camping",
+        "travel"
+      ],
       "words": 321,
       "images": 0,
       "imageDetails": {
@@ -3512,6 +5076,12 @@
     "slug": "reading/Currey-Daily Rituals",
     "title": "Currey Daily Rituals",
     "type": "post",
+    "tags": [
+      "book",
+      "art",
+      "writing",
+      "process"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -3523,6 +5093,12 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/81T0Ky96r+L._SY160.jpg",
         "highlightsCount": 2
       },
+      "tags": [
+        "book",
+        "art",
+        "writing",
+        "process"
+      ],
       "words": 171,
       "images": 0,
       "imageDetails": {
@@ -3544,8 +5120,16 @@
     "slug": "reading/D'Ignazio-Klein-Data Feminism",
     "title": "D'Ignazio Klein Data Feminism",
     "type": "post",
+    "tags": [
+      "data",
+      "activism"
+    ],
     "toc": [],
     "metadata": {
+      "tags": [
+        "data",
+        "activism"
+      ],
       "kindle-sync": {
         "bookId": "47184",
         "title": "Data Feminism (Strong Ideas)",
@@ -3576,8 +5160,18 @@
     "slug": "reading/Dass-Be Here Now",
     "title": "Dass Be Here Now",
     "type": "post",
+    "tags": [
+      "book",
+      "meditation",
+      "psychedelics"
+    ],
     "toc": [],
     "metadata": {
+      "tags": [
+        "book",
+        "meditation",
+        "psychedelics"
+      ],
       "kindle-sync": {
         "bookId": "63420",
         "title": "Be Here Now (Enhanced Edition)",
@@ -3610,6 +5204,11 @@
     "date": "2025-08-21T18:46:31.000Z",
     "type": "post",
     "modified": "2025-08-24T22:31:29.000Z",
+    "tags": [
+      "book",
+      "tech",
+      "anarchism"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -3623,6 +5222,11 @@
       },
       "date": "2025-08-21T18:46:31.000Z",
       "modified": "2025-08-24T22:31:29.000Z",
+      "tags": [
+        "book",
+        "tech",
+        "anarchism"
+      ],
       "words": 586,
       "images": 0,
       "imageDetails": {
@@ -3646,6 +5250,11 @@
     "date": "2025-08-21T18:44:29.000Z",
     "type": "post",
     "modified": "2025-08-24T22:31:22.000Z",
+    "tags": [
+      "book",
+      "programming",
+      "management"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -3659,6 +5268,11 @@
       },
       "date": "2025-08-21T18:44:29.000Z",
       "modified": "2025-08-24T22:31:22.000Z",
+      "tags": [
+        "book",
+        "programming",
+        "management"
+      ],
       "words": 305,
       "images": 0,
       "imageDetails": {
@@ -3680,6 +5294,11 @@
     "slug": "reading/Eagleton-Why Marx Was Right",
     "title": "Eagleton Why Marx Was Right",
     "type": "post",
+    "tags": [
+      "book",
+      "politics",
+      "activism"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -3691,6 +5310,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/41MZr3P0BIL._SY160.jpg",
         "highlightsCount": 11
       },
+      "tags": [
+        "book",
+        "politics",
+        "activism"
+      ],
       "words": 408,
       "images": 0,
       "imageDetails": {
@@ -3712,6 +5336,11 @@
     "slug": "reading/Engelke-How to Think Like an Anthropologist",
     "title": "Engelke How to Think Like an Anthropologist",
     "type": "post",
+    "tags": [
+      "book",
+      "culture",
+      "research"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -3723,6 +5352,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/81Ap3UYdbEL._SY160.jpg",
         "highlightsCount": 12
       },
+      "tags": [
+        "book",
+        "culture",
+        "research"
+      ],
       "words": 664,
       "images": 0,
       "imageDetails": {
@@ -3744,6 +5378,12 @@
     "slug": "reading/Erdoes-Ortiz-American Indian Myths and Legends",
     "title": "Erdoes Ortiz American Indian Myths and Legends",
     "type": "post",
+    "tags": [
+      "book",
+      "culture",
+      "history",
+      "america"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -3755,6 +5395,12 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/81Hq1qcjGbL._SY160.jpg",
         "highlightsCount": 13
       },
+      "tags": [
+        "book",
+        "culture",
+        "history",
+        "america"
+      ],
       "words": 944,
       "images": 0,
       "imageDetails": {
@@ -3776,6 +5422,11 @@
     "slug": "reading/Ferriss-Schwarzenegger-Tools Of Titans",
     "title": "Ferriss Schwarzenegger Tools Of Titans",
     "type": "post",
+    "tags": [
+      "book",
+      "personal",
+      "process"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -3787,6 +5438,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/81QytMrzgdL._SY160.jpg",
         "highlightsCount": 8
       },
+      "tags": [
+        "book",
+        "personal",
+        "process"
+      ],
       "words": 471,
       "images": 0,
       "imageDetails": {
@@ -3808,6 +5464,12 @@
     "slug": "reading/Ferriss-The 4-Hour Body",
     "title": "Ferriss The 4 Hour Body",
     "type": "post",
+    "tags": [
+      "book",
+      "health",
+      "exercise",
+      "advice"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -3819,6 +5481,12 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/71Ucfn-BzcL._SY160.jpg",
         "highlightsCount": 6
       },
+      "tags": [
+        "book",
+        "health",
+        "exercise",
+        "advice"
+      ],
       "words": 375,
       "images": 0,
       "imageDetails": {
@@ -3840,6 +5508,12 @@
     "slug": "reading/Friedman-Ultimate Price",
     "title": "Friedman Ultimate Price",
     "type": "post",
+    "tags": [
+      "book",
+      "politics",
+      "culture",
+      "data"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -3851,6 +5525,12 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/81gWoGF2z6L._SY160.jpg",
         "highlightsCount": 6
       },
+      "tags": [
+        "book",
+        "politics",
+        "culture",
+        "data"
+      ],
       "words": 351,
       "images": 0,
       "imageDetails": {
@@ -3872,6 +5552,11 @@
     "slug": "reading/Fukuyama-The Origins of Political Order",
     "title": "Fukuyama The Origins of Political Order",
     "type": "post",
+    "tags": [
+      "book",
+      "politics",
+      "history"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -3883,6 +5568,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/510bwzlQ+dL._SY160.jpg",
         "highlightsCount": 3
       },
+      "tags": [
+        "book",
+        "politics",
+        "history"
+      ],
       "words": 158,
       "images": 0,
       "imageDetails": {
@@ -3904,6 +5594,10 @@
     "slug": "reading/Gaddis-On Grand Strategy",
     "title": "Gaddis On Grand Strategy",
     "type": "post",
+    "tags": [
+      "politics",
+      "military"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -3915,6 +5609,10 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/71ocFXZZP9L._SY160.jpg",
         "highlightsCount": 3
       },
+      "tags": [
+        "politics",
+        "military"
+      ],
       "words": 249,
       "images": 0,
       "imageDetails": {
@@ -3938,6 +5636,12 @@
     "date": "2025-08-21T18:44:50.000Z",
     "type": "post",
     "modified": "2025-08-24T22:30:27.000Z",
+    "tags": [
+      "book",
+      "anarchism",
+      "politics",
+      "activism"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -3951,6 +5655,12 @@
       },
       "date": "2025-08-21T18:44:50.000Z",
       "modified": "2025-08-24T22:30:27.000Z",
+      "tags": [
+        "book",
+        "anarchism",
+        "politics",
+        "activism"
+      ],
       "words": 1036,
       "images": 0,
       "imageDetails": {
@@ -3972,8 +5682,16 @@
     "slug": "reading/Gertner-The Idea Factory",
     "title": "Gertner The Idea Factory",
     "type": "post",
+    "tags": [
+      "tech",
+      "research"
+    ],
     "toc": [],
     "metadata": {
+      "tags": [
+        "tech",
+        "research"
+      ],
       "kindle-sync": {
         "bookId": "43213",
         "title": "The Idea Factory: Bell Labs and the Great Age of American Innovation",
@@ -4003,7 +5721,14 @@
   {
     "slug": "reading/Glaeser-Triumph of the City",
     "title": "Glaeser Triumph of the City",
+    "date": "2025-08-31T15:09:37.000Z",
     "type": "post",
+    "modified": "2025-09-23T12:04:35.000Z",
+    "tags": [
+      "book",
+      "culture",
+      "ecology"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -4015,7 +5740,14 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/91o-pwFeUmL._SY160.jpg",
         "highlightsCount": 1
       },
-      "words": 81,
+      "tags": [
+        "book",
+        "culture",
+        "ecology"
+      ],
+      "date": "2025-08-31T15:09:37.000Z",
+      "modified": "2025-09-23T12:04:35.000Z",
+      "words": 80,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -4036,6 +5768,9 @@
     "slug": "reading/Gordis-Israel",
     "title": "Gordis Israel",
     "type": "post",
+    "tags": [
+      "politics"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -4047,6 +5782,9 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/91+4ktlXqlL._SY160.jpg",
         "highlightsCount": 5
       },
+      "tags": [
+        "politics"
+      ],
       "words": 432,
       "images": 0,
       "imageDetails": {
@@ -4068,6 +5806,11 @@
     "slug": "reading/Graeber-Direct Action",
     "title": "Graeber Direct Action",
     "type": "post",
+    "tags": [
+      "book",
+      "activism",
+      "protest"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -4079,6 +5822,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/51CLzpOuyHL._SY160.jpg",
         "highlightsCount": 1
       },
+      "tags": [
+        "book",
+        "activism",
+        "protest"
+      ],
       "words": 85,
       "images": 0,
       "imageDetails": {
@@ -4100,6 +5848,11 @@
     "slug": "reading/Graeber-The Utopia of Rules",
     "title": "Graeber The Utopia of Rules",
     "type": "post",
+    "tags": [
+      "book",
+      "politics",
+      "anarchism"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -4111,6 +5864,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/8160beMcnzL._SY160.jpg",
         "highlightsCount": 3
       },
+      "tags": [
+        "book",
+        "politics",
+        "anarchism"
+      ],
       "words": 138,
       "images": 0,
       "imageDetails": {
@@ -4132,6 +5890,12 @@
     "slug": "reading/Greenwald-No Place to Hide",
     "title": "Greenwald No Place to Hide",
     "type": "post",
+    "tags": [
+      "book",
+      "security",
+      "politics",
+      "activism"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -4143,6 +5907,12 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/717C3YRXF9L._SY160.jpg",
         "highlightsCount": 2
       },
+      "tags": [
+        "book",
+        "security",
+        "politics",
+        "activism"
+      ],
       "words": 94,
       "images": 0,
       "imageDetails": {
@@ -4164,6 +5934,12 @@
     "slug": "reading/Grove-Savage Ecology",
     "title": "Grove Savage Ecology",
     "type": "post",
+    "tags": [
+      "book",
+      "ecology",
+      "politics",
+      "military"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -4175,6 +5951,12 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/91lJLAMxYPL._SY160.jpg",
         "highlightsCount": 16
       },
+      "tags": [
+        "book",
+        "ecology",
+        "politics",
+        "military"
+      ],
       "words": 931,
       "images": 0,
       "imageDetails": {
@@ -4196,6 +5978,11 @@
     "slug": "reading/Guin-Fowler-The Dispossessed",
     "title": "Guin Fowler The Dispossessed",
     "type": "post",
+    "tags": [
+      "book",
+      "anarchism",
+      "politics"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -4207,6 +5994,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/919GgLbYxpL._SY160.jpg",
         "highlightsCount": 1
       },
+      "tags": [
+        "book",
+        "anarchism",
+        "politics"
+      ],
       "words": 59,
       "images": 0,
       "imageDetails": {
@@ -4228,8 +6020,16 @@
     "slug": "reading/Guin-Lao Tzu Tao Te Ching",
     "title": "Guin Lao Tzu Tao Te Ching",
     "type": "post",
+    "tags": [
+      "book",
+      "meditation"
+    ],
     "toc": [],
     "metadata": {
+      "tags": [
+        "book",
+        "meditation"
+      ],
       "kindle-sync": {
         "bookId": "18161",
         "title": "Lao Tzu: Tao Te Ching: A Book about the Way and the Power of the Way",
@@ -4262,6 +6062,11 @@
     "date": "2025-08-21T18:48:47.000Z",
     "type": "post",
     "modified": "2025-08-24T23:53:55.000Z",
+    "tags": [
+      "america",
+      "culture",
+      "politics"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -4275,6 +6080,11 @@
       },
       "date": "2025-08-21T18:48:47.000Z",
       "modified": "2025-08-24T23:53:55.000Z",
+      "tags": [
+        "america",
+        "culture",
+        "politics"
+      ],
       "words": 2916,
       "images": 0,
       "imageDetails": {
@@ -4296,6 +6106,11 @@
     "slug": "reading/Hastings-The Last Magazine",
     "title": "Hastings The Last Magazine",
     "type": "post",
+    "tags": [
+      "book",
+      "journalism",
+      "writing"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -4307,6 +6122,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/819oeJKp3wL._SY160.jpg",
         "highlightsCount": 6
       },
+      "tags": [
+        "book",
+        "journalism",
+        "writing"
+      ],
       "words": 304,
       "images": 0,
       "imageDetails": {
@@ -4328,6 +6148,11 @@
     "slug": "reading/Hazleton-After the Prophet",
     "title": "Hazleton After the Prophet",
     "type": "post",
+    "tags": [
+      "book",
+      "history",
+      "culture"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -4339,6 +6164,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/7132c2DnXDL._SY160.jpg",
         "highlightsCount": 3
       },
+      "tags": [
+        "book",
+        "history",
+        "culture"
+      ],
       "words": 129,
       "images": 0,
       "imageDetails": {
@@ -4360,6 +6190,11 @@
     "slug": "reading/Heat-Moon-Blue Highways",
     "title": "Heat Moon Blue Highways",
     "type": "post",
+    "tags": [
+      "book",
+      "travel",
+      "america"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -4371,6 +6206,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/81dcq6h5WYL._SY160.jpg",
         "highlightsCount": 4
       },
+      "tags": [
+        "book",
+        "travel",
+        "america"
+      ],
       "words": 141,
       "images": 0,
       "imageDetails": {
@@ -4392,6 +6232,12 @@
     "slug": "reading/Helmreich-The New York Nobody Knows",
     "title": "Helmreich The New York Nobody Knows",
     "type": "post",
+    "tags": [
+      "book",
+      "nyc",
+      "culture",
+      "travel"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -4403,6 +6249,12 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/918djpiWyxL._SY160.jpg",
         "highlightsCount": 8
       },
+      "tags": [
+        "book",
+        "nyc",
+        "culture",
+        "travel"
+      ],
       "words": 610,
       "images": 0,
       "imageDetails": {
@@ -4424,6 +6276,13 @@
     "slug": "reading/Hinton-America on Fire",
     "title": "Hinton America on Fire",
     "type": "post",
+    "tags": [
+      "book",
+      "america",
+      "police",
+      "activism",
+      "history"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -4435,6 +6294,13 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/81s8svAo1pL._SY160.jpg",
         "highlightsCount": 4
       },
+      "tags": [
+        "book",
+        "america",
+        "police",
+        "activism",
+        "history"
+      ],
       "words": 215,
       "images": 0,
       "imageDetails": {
@@ -4456,6 +6322,12 @@
     "slug": "reading/Illian-Metzger-A Potters Workbook",
     "title": "Illian Metzger A Potters Workbook",
     "type": "post",
+    "tags": [
+      "book",
+      "pottery",
+      "art",
+      "technique"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -4467,6 +6339,12 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/715LUhvNn+L._SY160.jpg",
         "highlightsCount": 3
       },
+      "tags": [
+        "book",
+        "pottery",
+        "art",
+        "technique"
+      ],
       "words": 195,
       "images": 0,
       "imageDetails": {
@@ -4488,6 +6366,11 @@
     "slug": "reading/Jarvis-Company Of One",
     "title": "Jarvis Company Of One",
     "type": "post",
+    "tags": [
+      "book",
+      "advice",
+      "personal"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -4499,6 +6382,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/81lvvv4hK1L._SY160.jpg",
         "highlightsCount": 4
       },
+      "tags": [
+        "book",
+        "advice",
+        "personal"
+      ],
       "words": 201,
       "images": 0,
       "imageDetails": {
@@ -4520,6 +6408,11 @@
     "slug": "reading/Jay-The Joy of Less, A Minimalist Living Guide",
     "title": "Jay The Joy of Less, A Minimalist Living Guide",
     "type": "post",
+    "tags": [
+      "book",
+      "personal",
+      "design"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -4531,6 +6424,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/81RtzVXh7zL._SY160.jpg",
         "highlightsCount": 4
       },
+      "tags": [
+        "book",
+        "personal",
+        "design"
+      ],
       "words": 112,
       "images": 0,
       "imageDetails": {
@@ -4554,8 +6452,16 @@
     "date": "2025-08-21T18:44:04.000Z",
     "type": "post",
     "modified": "2025-08-24T22:30:58.000Z",
+    "tags": [
+      "book",
+      "meditation"
+    ],
     "toc": [],
     "metadata": {
+      "tags": [
+        "book",
+        "meditation"
+      ],
       "kindle-sync": {
         "bookId": "56397",
         "title": "The I Ching or Book of Changes (Bollingen Series 170)",
@@ -4588,6 +6494,11 @@
     "slug": "reading/Kamozawa-Talbot-Ideas in Food Great Recipes and Why They Work",
     "title": "Kamozawa Talbot Ideas in Food Great Recipes and Why They Work",
     "type": "post",
+    "tags": [
+      "book",
+      "cooking",
+      "technique"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -4599,6 +6510,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/415O5V-pUQL._SY160.jpg",
         "highlightsCount": 1
       },
+      "tags": [
+        "book",
+        "cooking",
+        "technique"
+      ],
       "words": 124,
       "images": 0,
       "imageDetails": {
@@ -4620,6 +6536,12 @@
     "slug": "reading/Kasher-Kasher in the Rye",
     "title": "Kasher Kasher in the Rye",
     "type": "post",
+    "tags": [
+      "book",
+      "oakland",
+      "personal",
+      "writing"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -4631,6 +6553,12 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/81aNsuBcfjL._SY160.jpg",
         "highlightsCount": 1
       },
+      "tags": [
+        "book",
+        "oakland",
+        "personal",
+        "writing"
+      ],
       "words": 103,
       "images": 0,
       "imageDetails": {
@@ -4652,6 +6580,12 @@
     "slug": "reading/Katz-Film Directing Shot by Shot",
     "title": "Katz Film Directing Shot by Shot",
     "type": "post",
+    "tags": [
+      "book",
+      "video",
+      "art",
+      "technique"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -4663,6 +6597,12 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/91MzBwRDhBL._SY160.jpg",
         "highlightsCount": 1
       },
+      "tags": [
+        "book",
+        "video",
+        "art",
+        "technique"
+      ],
       "words": 63,
       "images": 0,
       "imageDetails": {
@@ -4684,6 +6624,11 @@
     "slug": "reading/Kaufman-Antkind",
     "title": "Kaufman Antkind",
     "type": "post",
+    "tags": [
+      "book",
+      "writing",
+      "art"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -4695,6 +6640,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/91vf8KVztsS._SY160.jpg",
         "highlightsCount": 4
       },
+      "tags": [
+        "book",
+        "writing",
+        "art"
+      ],
       "words": 414,
       "images": 0,
       "imageDetails": {
@@ -4716,6 +6666,11 @@
     "slug": "reading/Kerner-She Comes First",
     "title": "Kerner She Comes First",
     "type": "post",
+    "tags": [
+      "book",
+      "health",
+      "personal"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -4727,6 +6682,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/81VT7iM7WzL._SY160.jpg",
         "highlightsCount": 5
       },
+      "tags": [
+        "book",
+        "health",
+        "personal"
+      ],
       "words": 281,
       "images": 0,
       "imageDetails": {
@@ -4748,6 +6708,11 @@
     "slug": "reading/Konnikova-Mastermind",
     "title": "Konnikova Mastermind",
     "type": "post",
+    "tags": [
+      "book",
+      "advice",
+      "process"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -4759,6 +6724,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/71RyhJW-UwL._SY160.jpg",
         "highlightsCount": 3
       },
+      "tags": [
+        "book",
+        "advice",
+        "process"
+      ],
       "words": 134,
       "images": 0,
       "imageDetails": {
@@ -4780,6 +6750,11 @@
     "slug": "reading/Koster-Theory of Fun for Game Design",
     "title": "Koster Theory of Fun for Game Design",
     "type": "post",
+    "tags": [
+      "book",
+      "games",
+      "design"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -4791,6 +6766,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/A11vGLbYKcL._SY160.jpg",
         "highlightsCount": 2
       },
+      "tags": [
+        "book",
+        "games",
+        "design"
+      ],
       "words": 94,
       "images": 0,
       "imageDetails": {
@@ -4812,6 +6792,11 @@
     "slug": "reading/Kramer-Call-Telling True Stories",
     "title": "Kramer Call Telling True Stories",
     "type": "post",
+    "tags": [
+      "book",
+      "journalism",
+      "writing"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -4823,6 +6808,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/91i1oLvTQGL._SY160.jpg",
         "highlightsCount": 7
       },
+      "tags": [
+        "book",
+        "journalism",
+        "writing"
+      ],
       "words": 291,
       "images": 0,
       "imageDetails": {
@@ -4844,6 +6834,11 @@
     "slug": "reading/LMT-Womens Anatomy of Arousal",
     "title": "LMT Womens Anatomy of Arousal",
     "type": "post",
+    "tags": [
+      "book",
+      "health",
+      "personal"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -4855,6 +6850,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/61ClyX8734L._SY160.jpg",
         "highlightsCount": 1
       },
+      "tags": [
+        "book",
+        "health",
+        "personal"
+      ],
       "words": 73,
       "images": 0,
       "imageDetails": {
@@ -4876,6 +6876,12 @@
     "slug": "reading/LePera-How to Do the Work",
     "title": "LePera How to Do the Work",
     "type": "post",
+    "tags": [
+      "book",
+      "health",
+      "personal",
+      "meditation"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -4887,6 +6893,12 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/819-DBs0KBL._SY160.jpg",
         "highlightsCount": 17
       },
+      "tags": [
+        "book",
+        "health",
+        "personal",
+        "meditation"
+      ],
       "words": 868,
       "images": 0,
       "imageDetails": {
@@ -4908,8 +6920,18 @@
     "slug": "reading/Levy-In the Plex",
     "title": "Levy In the Plex",
     "type": "post",
+    "tags": [
+      "book",
+      "tech",
+      "internet"
+    ],
     "toc": [],
     "metadata": {
+      "tags": [
+        "book",
+        "tech",
+        "internet"
+      ],
       "kindle-sync": {
         "bookId": "29818",
         "title": "In the Plex: How Google Thinks, Works, and Shapes Our Lives",
@@ -4940,8 +6962,18 @@
     "slug": "reading/Li-Forest Bathing",
     "title": "Li Forest Bathing",
     "type": "post",
+    "tags": [
+      "book",
+      "nature",
+      "health"
+    ],
     "toc": [],
     "metadata": {
+      "tags": [
+        "book",
+        "nature",
+        "health"
+      ],
       "kindle-sync": {
         "bookId": "33471",
         "title": "Forest Bathing: How Trees Can Help You Find Health and Happiness",
@@ -4972,6 +7004,11 @@
     "slug": "reading/Liu-Abolish Silicon Valley",
     "title": "Liu Abolish Silicon Valley",
     "type": "post",
+    "tags": [
+      "book",
+      "tech",
+      "politics"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -4983,6 +7020,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/91q4pnxxDiL._SY160.jpg",
         "highlightsCount": 4
       },
+      "tags": [
+        "book",
+        "tech",
+        "politics"
+      ],
       "words": 207,
       "images": 0,
       "imageDetails": {
@@ -5006,8 +7048,16 @@
     "date": "2025-08-21T18:47:22.000Z",
     "type": "post",
     "modified": "2025-08-24T23:54:42.000Z",
+    "tags": [
+      "tech",
+      "culture"
+    ],
     "toc": [],
     "metadata": {
+      "tags": [
+        "tech",
+        "culture"
+      ],
       "kindle-sync": {
         "bookId": "43912",
         "title": "What the Dormouse Said: How the Sixties Counterculture Shaped the Personal Computer Industry",
@@ -5040,6 +7090,11 @@
     "slug": "reading/Meadows-Wright-Thinking in Systems",
     "title": "Meadows Wright Thinking in Systems",
     "type": "post",
+    "tags": [
+      "book",
+      "systemsthinking",
+      "design"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -5051,6 +7106,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/71aQ+TLBi-L._SY160.jpg",
         "highlightsCount": 5
       },
+      "tags": [
+        "book",
+        "systemsthinking",
+        "design"
+      ],
       "words": 289,
       "images": 0,
       "imageDetails": {
@@ -5072,8 +7132,18 @@
     "slug": "reading/Menn-Cult of the Dead Cow",
     "title": "Menn Cult of the Dead Cow",
     "type": "post",
+    "tags": [
+      "hackers",
+      "security",
+      "culture"
+    ],
     "toc": [],
     "metadata": {
+      "tags": [
+        "hackers",
+        "security",
+        "culture"
+      ],
       "kindle-sync": {
         "bookId": "25545",
         "title": "Cult of the Dead Cow: How the Original Hacking Supergroup Might Just Save the World",
@@ -5106,6 +7176,12 @@
     "date": "2025-08-21T18:44:13.000Z",
     "type": "post",
     "modified": "2025-08-24T23:58:28.000Z",
+    "tags": [
+      "book",
+      "nature",
+      "travel",
+      "history"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -5119,6 +7195,12 @@
       },
       "date": "2025-08-21T18:44:13.000Z",
       "modified": "2025-08-24T23:58:28.000Z",
+      "tags": [
+        "book",
+        "nature",
+        "travel",
+        "history"
+      ],
       "words": 2009,
       "images": 0,
       "imageDetails": {
@@ -5140,8 +7222,16 @@
     "slug": "reading/Murphy-Hiscock-The Green Witch",
     "title": "Murphy Hiscock The Green Witch",
     "type": "post",
+    "tags": [
+      "book",
+      "nature"
+    ],
     "toc": [],
     "metadata": {
+      "tags": [
+        "book",
+        "nature"
+      ],
       "kindle-sync": {
         "bookId": "46780",
         "title": "The Green Witch: Your Complete Guide to the Natural Magic of Herbs, Flowers, Essential Oils, and More (Green Witch Witchcraft Series)",
@@ -5172,8 +7262,18 @@
     "slug": "reading/Norman-Emotional Design",
     "title": "Norman Emotional Design",
     "type": "post",
+    "tags": [
+      "book",
+      "design",
+      "ux"
+    ],
     "toc": [],
     "metadata": {
+      "tags": [
+        "book",
+        "design",
+        "ux"
+      ],
       "kindle-sync": {
         "bookId": "59972",
         "title": "Emotional Design: Why We Love (or Hate) Everyday Things",
@@ -5204,8 +7304,16 @@
     "slug": "reading/PhD-Existential Kink",
     "title": "PhD Existential Kink",
     "type": "post",
+    "tags": [
+      "book",
+      "personal"
+    ],
     "toc": [],
     "metadata": {
+      "tags": [
+        "book",
+        "personal"
+      ],
       "kindle-sync": {
         "bookId": "4715",
         "title": "Existential Kink: Unmask Your Shadow and Embrace Your Power (A method for getting what you want by getting off on what you don't)",
@@ -5236,6 +7344,11 @@
     "slug": "reading/PhD-Just One Thing",
     "title": "PhD Just One Thing",
     "type": "post",
+    "tags": [
+      "book",
+      "meditation",
+      "health"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -5247,6 +7360,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/61ehh4-cDSL._SY160.jpg",
         "highlightsCount": 4
       },
+      "tags": [
+        "book",
+        "meditation",
+        "health"
+      ],
       "words": 132,
       "images": 0,
       "imageDetails": {
@@ -5268,8 +7386,20 @@
     "slug": "reading/Pirsig-Zen and the Art of Motorcycle Maintenance",
     "title": "Pirsig Zen and the Art of Motorcycle Maintenance",
     "type": "post",
+    "tags": [
+      "book",
+      "motorcycle",
+      "meditation",
+      "philosophy"
+    ],
     "toc": [],
     "metadata": {
+      "tags": [
+        "book",
+        "motorcycle",
+        "meditation",
+        "philosophy"
+      ],
       "kindle-sync": {
         "bookId": "54365",
         "title": "Zen and the Art of Motorcycle Maintenance: An Inquiry Into Values",
@@ -5300,6 +7430,11 @@
     "slug": "reading/Pressfield-Coyne-The War of Art",
     "title": "Pressfield Coyne The War of Art",
     "type": "post",
+    "tags": [
+      "book",
+      "art",
+      "advice"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -5311,6 +7446,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/71jgxi5WW2L._SY160.jpg",
         "highlightsCount": 8
       },
+      "tags": [
+        "book",
+        "art",
+        "advice"
+      ],
       "words": 671,
       "images": 0,
       "imageDetails": {
@@ -5332,6 +7472,11 @@
     "slug": "reading/Rank-Historys Greatest Generals",
     "title": "Rank Historys Greatest Generals",
     "type": "post",
+    "tags": [
+      "book",
+      "history",
+      "military"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -5343,6 +7488,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/91hdwM15ZqL._SY160.jpg",
         "highlightsCount": 4
       },
+      "tags": [
+        "book",
+        "history",
+        "military"
+      ],
       "words": 134,
       "images": 0,
       "imageDetails": {
@@ -5364,8 +7514,18 @@
     "slug": "reading/Roose-Futureproof",
     "title": "Roose Futureproof",
     "type": "post",
+    "tags": [
+      "book",
+      "tech",
+      "ai"
+    ],
     "toc": [],
     "metadata": {
+      "tags": [
+        "book",
+        "tech",
+        "ai"
+      ],
       "kindle-sync": {
         "bookId": "16297",
         "title": "Futureproof: 9 Rules for Surviving in the Age of AI",
@@ -5396,6 +7556,11 @@
     "slug": "reading/Rowell-Eleanor & Park",
     "title": "Rowell Eleanor & Park",
     "type": "post",
+    "tags": [
+      "book",
+      "writing",
+      "personal"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -5407,6 +7572,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/71u8kDfMlTL._SY160.jpg",
         "highlightsCount": 1
       },
+      "tags": [
+        "book",
+        "writing",
+        "personal"
+      ],
       "words": 48,
       "images": 0,
       "imageDetails": {
@@ -5428,6 +7598,11 @@
     "slug": "reading/Sacks-Hallucinations",
     "title": "Sacks Hallucinations",
     "type": "post",
+    "tags": [
+      "book",
+      "health",
+      "research"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -5439,6 +7614,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/81qLTBovPpL._SY160.jpg",
         "highlightsCount": 2
       },
+      "tags": [
+        "book",
+        "health",
+        "research"
+      ],
       "words": 122,
       "images": 0,
       "imageDetails": {
@@ -5460,6 +7640,11 @@
     "slug": "reading/Sansouci-Md-The Rebels Apothecary",
     "title": "Sansouci Md The Rebels Apothecary",
     "type": "post",
+    "tags": [
+      "book",
+      "cannabis",
+      "health"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -5471,6 +7656,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/91utc8xVz7L._SY160.jpg",
         "highlightsCount": 2
       },
+      "tags": [
+        "book",
+        "cannabis",
+        "health"
+      ],
       "words": 179,
       "images": 0,
       "imageDetails": {
@@ -5492,6 +7682,11 @@
     "slug": "reading/Sedaris-Theft by Finding",
     "title": "Sedaris Theft by Finding",
     "type": "post",
+    "tags": [
+      "book",
+      "writing",
+      "personal"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -5503,6 +7698,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/81cRysFkH-L._SY160.jpg",
         "highlightsCount": 5
       },
+      "tags": [
+        "book",
+        "writing",
+        "personal"
+      ],
       "words": 332,
       "images": 0,
       "imageDetails": {
@@ -5524,6 +7724,12 @@
     "slug": "reading/Self-American Babylon",
     "title": "Self American Babylon",
     "type": "post",
+    "tags": [
+      "book",
+      "oakland",
+      "politics",
+      "history"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -5535,6 +7741,12 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/81R5dWlWxzL._SY160.jpg",
         "highlightsCount": 2
       },
+      "tags": [
+        "book",
+        "oakland",
+        "politics",
+        "history"
+      ],
       "words": 101,
       "images": 0,
       "imageDetails": {
@@ -5556,6 +7768,12 @@
     "slug": "reading/Shields-How We Got Here",
     "title": "Shields How We Got Here",
     "type": "post",
+    "tags": [
+      "book",
+      "politics",
+      "culture",
+      "writing"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -5567,6 +7785,12 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/61RFV9THfoL._SY160.jpg",
         "highlightsCount": 2
       },
+      "tags": [
+        "book",
+        "politics",
+        "culture",
+        "writing"
+      ],
       "words": 87,
       "images": 0,
       "imageDetails": {
@@ -5588,6 +7812,11 @@
     "slug": "reading/Shields-Other People",
     "title": "Shields Other People",
     "type": "post",
+    "tags": [
+      "book",
+      "writing",
+      "personal"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -5599,6 +7828,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/91s3oyefvYL._SY160.jpg",
         "highlightsCount": 4
       },
+      "tags": [
+        "book",
+        "writing",
+        "personal"
+      ],
       "words": 249,
       "images": 0,
       "imageDetails": {
@@ -5622,6 +7856,11 @@
     "date": "2025-08-21T18:44:34.000Z",
     "type": "post",
     "modified": "2025-08-24T23:53:05.000Z",
+    "tags": [
+      "book",
+      "writing",
+      "art"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -5635,6 +7874,11 @@
       },
       "date": "2025-08-21T18:44:34.000Z",
       "modified": "2025-08-24T23:53:05.000Z",
+      "tags": [
+        "book",
+        "writing",
+        "art"
+      ],
       "words": 609,
       "images": 0,
       "imageDetails": {
@@ -5656,6 +7900,12 @@
     "slug": "reading/Shields-The Trouble with Men",
     "title": "Shields The Trouble with Men",
     "type": "post",
+    "tags": [
+      "book",
+      "personal",
+      "culture",
+      "writing"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -5667,6 +7917,12 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/81macwFNi8L._SY160.jpg",
         "highlightsCount": 7
       },
+      "tags": [
+        "book",
+        "personal",
+        "culture",
+        "writing"
+      ],
       "words": 287,
       "images": 0,
       "imageDetails": {
@@ -5688,6 +7944,11 @@
     "slug": "reading/Stephenson-Galland-The Rise and Fall of D.O.D.O",
     "title": "Stephenson Galland The Rise and Fall of D.O.D.O",
     "type": "post",
+    "tags": [
+      "book",
+      "writing",
+      "tech"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -5699,6 +7960,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/91KGdyDZWWL._SY160.jpg",
         "highlightsCount": 7
       },
+      "tags": [
+        "book",
+        "writing",
+        "tech"
+      ],
       "words": 395,
       "images": 0,
       "imageDetails": {
@@ -5720,8 +7986,18 @@
     "slug": "reading/Stephenson-Reamde",
     "title": "Stephenson Reamde",
     "type": "post",
+    "tags": [
+      "book",
+      "writing",
+      "tech"
+    ],
     "toc": [],
     "metadata": {
+      "tags": [
+        "book",
+        "writing",
+        "tech"
+      ],
       "kindle-sync": {
         "bookId": "37234",
         "title": "Reamde: A Novel",
@@ -5752,8 +8028,18 @@
     "slug": "reading/Stern-Berger-ISIS",
     "title": "Stern Berger ISIS",
     "type": "post",
+    "tags": [
+      "military",
+      "politics",
+      "book"
+    ],
     "toc": [],
     "metadata": {
+      "tags": [
+        "military",
+        "politics",
+        "book"
+      ],
       "kindle-sync": {
         "bookId": "53840",
         "title": "ISIS: The State of Terror",
@@ -5786,8 +8072,16 @@
     "date": "2025-08-21T18:55:24.000Z",
     "type": "post",
     "modified": "2025-08-24T22:30:46.000Z",
+    "tags": [
+      "book",
+      "meditation"
+    ],
     "toc": [],
     "metadata": {
+      "tags": [
+        "book",
+        "meditation"
+      ],
       "kindle-sync": {
         "bookId": "56342",
         "title": "Zen Mind, Beginner's Mind",
@@ -5820,8 +8114,18 @@
     "slug": "reading/Taibbi-Crabapple-The Divide",
     "title": "Taibbi Crabapple The Divide",
     "type": "post",
+    "tags": [
+      "politics",
+      "america",
+      "book"
+    ],
     "toc": [],
     "metadata": {
+      "tags": [
+        "politics",
+        "america",
+        "book"
+      ],
       "kindle-sync": {
         "bookId": "2923",
         "title": "The Divide: American Injustice in the Age of the Wealth Gap",
@@ -5852,6 +8156,12 @@
     "slug": "reading/Taylor_et_al-Darkest America",
     "title": "Taylor_et_al Darkest America",
     "type": "post",
+    "tags": [
+      "book",
+      "history",
+      "culture",
+      "america"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -5863,6 +8173,12 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/61UgA0cr+5L._SY160.jpg",
         "highlightsCount": 6
       },
+      "tags": [
+        "book",
+        "history",
+        "culture",
+        "america"
+      ],
       "words": 250,
       "images": 0,
       "imageDetails": {
@@ -5884,8 +8200,18 @@
     "slug": "reading/Thompson-Hells Angels",
     "title": "Thompson Hells Angels",
     "type": "post",
+    "tags": [
+      "motorcycle",
+      "culture",
+      "book"
+    ],
     "toc": [],
     "metadata": {
+      "tags": [
+        "motorcycle",
+        "culture",
+        "book"
+      ],
       "kindle-sync": {
         "bookId": "54847",
         "title": "Hell's Angels: A Strange and Terrible Saga",
@@ -5916,6 +8242,11 @@
     "slug": "reading/Traub_et_al-The Education of a Photographer",
     "title": "Traub_et_al The Education of a Photographer",
     "type": "post",
+    "tags": [
+      "book",
+      "photography",
+      "art"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -5927,6 +8258,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/61zosjjESlL._SY160.jpg",
         "highlightsCount": 2
       },
+      "tags": [
+        "book",
+        "photography",
+        "art"
+      ],
       "words": 118,
       "images": 0,
       "imageDetails": {
@@ -5948,8 +8284,18 @@
     "slug": "reading/Tufekci-Twitter and Tear Gas",
     "title": "Tufekci Twitter and Tear Gas",
     "type": "post",
+    "tags": [
+      "twitter",
+      "protest",
+      "book"
+    ],
     "toc": [],
     "metadata": {
+      "tags": [
+        "twitter",
+        "protest",
+        "book"
+      ],
       "kindle-sync": {
         "bookId": "56548",
         "title": "Twitter and Tear Gas: The Power and Fragility of Networked Protest",
@@ -5980,8 +8326,18 @@
     "slug": "reading/Turner-From Counterculture to Cyberculture",
     "title": "Turner From Counterculture to Cyberculture",
     "type": "post",
+    "tags": [
+      "tech",
+      "culture",
+      "book"
+    ],
     "toc": [],
     "metadata": {
+      "tags": [
+        "tech",
+        "culture",
+        "book"
+      ],
       "kindle-sync": {
         "bookId": "4098",
         "title": "From Counterculture to Cyberculture: Stewart Brand, the Whole Earth Network, and the Rise of Digital Utopianism",
@@ -6012,8 +8368,16 @@
     "slug": "reading/Tzu-Brookes-Tao Te Ching",
     "title": "Tzu Brookes Tao Te Ching",
     "type": "post",
+    "tags": [
+      "book",
+      "meditation"
+    ],
     "toc": [],
     "metadata": {
+      "tags": [
+        "book",
+        "meditation"
+      ],
       "kindle-sync": {
         "bookId": "23914",
         "title": "Tao Te Ching",
@@ -6044,6 +8408,11 @@
     "slug": "reading/Warren-The Head Trip",
     "title": "Warren The Head Trip",
     "type": "post",
+    "tags": [
+      "book",
+      "meditation",
+      "health"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -6055,6 +8424,11 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/41fYLnP17DL._SY160.jpg",
         "highlightsCount": 2
       },
+      "tags": [
+        "book",
+        "meditation",
+        "health"
+      ],
       "words": 149,
       "images": 0,
       "imageDetails": {
@@ -6076,6 +8450,12 @@
     "slug": "reading/Williams-The Dead Emcee Scrolls",
     "title": "Williams The Dead Emcee Scrolls",
     "type": "post",
+    "tags": [
+      "book",
+      "music",
+      "writing",
+      "culture"
+    ],
     "toc": [],
     "metadata": {
       "kindle-sync": {
@@ -6087,6 +8467,12 @@
         "bookImageUrl": "https://m.media-amazon.com/images/I/81aJ6OQP8KL._SY160.jpg",
         "highlightsCount": 9
       },
+      "tags": [
+        "book",
+        "music",
+        "writing",
+        "culture"
+      ],
       "words": 295,
       "images": 0,
       "imageDetails": {
@@ -6108,8 +8494,16 @@
     "slug": "reading/Yau-Visualize This",
     "title": "Yau Visualize This",
     "type": "post",
+    "tags": [
+      "dataviz",
+      "data"
+    ],
     "toc": [],
     "metadata": {
+      "tags": [
+        "dataviz",
+        "data"
+      ],
       "kindle-sync": {
         "bookId": "431",
         "title": "Visualize This: The FlowingData Guide to Design, Visualization, and Statistics",
@@ -6140,8 +8534,18 @@
     "slug": "reading/York-Silicon Values",
     "title": "York Silicon Values",
     "type": "post",
+    "tags": [
+      "tech",
+      "politics",
+      "book"
+    ],
     "toc": [],
     "metadata": {
+      "tags": [
+        "tech",
+        "politics",
+        "book"
+      ],
       "kindle-sync": {
         "bookId": "40211",
         "title": "Silicon Values: The Future of Free Speech Under Surveillance Capitalism",
@@ -6169,353 +8573,24 @@
     }
   },
   {
-    "slug": "robots/chess-course",
-    "title": "Chess Course",
-    "date": "2024-10-15T21:05:33.000Z",
-    "type": "post",
-    "modified": "2024-11-24T22:19:45.000Z",
-    "toc": [],
-    "metadata": {
-      "date": "2024-10-15T21:05:33.000Z",
-      "modified": "2024-11-24T22:19:45.000Z",
-      "share": true,
-      "words": 2914,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 54,
-      "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/robots/chess-course.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "robots/chess-course"
-    }
-  },
-  {
-    "slug": "robots/ejfox-news",
-    "title": "Ejfox News",
-    "date": "2024-11-05T17:00:28.000Z",
-    "type": "post",
-    "modified": "2024-11-08T21:19:49.000Z",
-    "toc": [],
-    "metadata": {
-      "date": "2024-11-05T17:00:28.000Z",
-      "modified": "2024-11-08T21:19:49.000Z",
-      "share": true,
-      "words": 2106,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 0,
-      "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/robots/ejfox-news.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "robots/ejfox-news"
-    }
-  },
-  {
-    "slug": "robots/fpv-drone-learning",
-    "title": "Fpv Drone Learning",
-    "date": "2025-01-07T18:00:42.000Z",
-    "type": "post",
-    "modified": "2025-01-19T03:20:26.000Z",
-    "toc": [],
-    "metadata": {
-      "date": "2025-01-07T18:00:42.000Z",
-      "modified": "2025-01-19T03:20:26.000Z",
-      "share": true,
-      "words": 2112,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 0,
-      "codeBlocks": 2,
-      "headers": {},
-      "toc": [],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/robots/fpv-drone-learning.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "robots/fpv-drone-learning"
-    }
-  },
-  {
-    "slug": "robots/gear",
-    "title": "Gear",
-    "date": "2024-11-11T07:28:49.000Z",
-    "type": "post",
-    "modified": "2024-11-19T15:56:06.000Z",
-    "toc": [],
-    "metadata": {
-      "date": "2024-11-11T07:28:49.000Z",
-      "modified": "2024-11-19T15:56:06.000Z",
-      "share": true,
-      "words": 1415,
-      "images": 1,
-      "imageDetails": {
-        "total": 1,
-        "cloudinary": 1,
-        "withDimensions": 0
-      },
-      "links": 1,
-      "codeBlocks": 1,
-      "headers": {},
-      "toc": [],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/robots/gear.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "robots/gear"
-    }
-  },
-  {
-    "slug": "robots/hudson-valley-cannabis-doc",
-    "title": "Hudson Valley Cannabis Doc",
-    "date": "2024-11-26T16:40:25.000Z",
-    "type": "post",
-    "modified": "2025-01-28T14:58:21.000Z",
-    "toc": [],
-    "metadata": {
-      "date": "2024-11-26T16:40:25.000Z",
-      "modified": "2025-01-28T14:58:21.000Z",
-      "share": true,
-      "words": 1379,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 0,
-      "codeBlocks": 1,
-      "headers": {},
-      "toc": [],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/robots/hudson-valley-cannabis-doc.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "robots/hudson-valley-cannabis-doc"
-    }
-  },
-  {
-    "slug": "robots/hudson-valley-maps",
-    "title": "Hudson Valley Maps",
-    "date": "2024-11-27T16:23:08.000Z",
-    "type": "post",
-    "modified": "2024-12-31T00:44:34.000Z",
-    "toc": [],
-    "metadata": {
-      "date": "2024-11-27T16:23:08.000Z",
-      "modified": "2024-12-31T00:44:34.000Z",
-      "share": true,
-      "words": 2103,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 1,
-      "codeBlocks": 4,
-      "headers": {},
-      "toc": [],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/robots/hudson-valley-maps.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "robots/hudson-valley-maps"
-    }
-  },
-  {
-    "slug": "robots/ml-comedy-hour",
-    "title": "Ml Comedy Hour",
-    "date": "2024-11-13T20:03:41.000Z",
-    "type": "post",
-    "modified": "2024-11-13T20:29:38.000Z",
-    "toc": [],
-    "metadata": {
-      "date": "2024-11-13T20:03:41.000Z",
-      "modified": "2024-11-13T20:29:38.000Z",
-      "share": true,
-      "model": "claude-sonnet-3.5",
-      "words": 2090,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 2,
-      "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/robots/ml-comedy-hour.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "robots/ml-comedy-hour"
-    }
-  },
-  {
-    "slug": "robots/morning-radio",
-    "title": "Morning Radio",
-    "date": "2024-11-16T17:58:36.000Z",
-    "type": "post",
-    "modified": "2024-11-18T16:51:40.000Z",
-    "toc": [],
-    "metadata": {
-      "date": "2024-11-16T17:58:36.000Z",
-      "modified": "2024-11-18T16:51:40.000Z",
-      "share": true,
-      "words": 1325,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 0,
-      "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/robots/morning-radio.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "robots/morning-radio"
-    }
-  },
-  {
-    "slug": "robots/prep-mesh",
-    "title": "Prep Mesh",
-    "date": "2024-11-11T18:47:06.000Z",
-    "type": "post",
-    "modified": "2025-02-03T01:41:52.000Z",
-    "toc": [],
-    "metadata": {
-      "date": "2024-11-11T18:47:06.000Z",
-      "modified": "2025-02-03T01:41:52.000Z",
-      "share": true,
-      "words": 6799,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 0,
-      "codeBlocks": 11,
-      "headers": {},
-      "toc": [],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/robots/prep-mesh.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "robots/prep-mesh"
-    }
-  },
-  {
-    "slug": "robots/quests-irl",
-    "title": "Quests Irl",
-    "date": "2024-11-07T16:50:52.000Z",
-    "type": "post",
-    "modified": "2024-11-08T21:43:10.000Z",
-    "toc": [],
-    "metadata": {
-      "date": "2024-11-07T16:50:52.000Z",
-      "modified": "2024-11-08T21:43:10.000Z",
-      "share": true,
-      "words": 3343,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 0,
-      "codeBlocks": 3,
-      "headers": {},
-      "toc": [],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/robots/quests-irl.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "robots/quests-irl"
-    }
-  },
-  {
-    "slug": "robots/smallweb-with-cloudflare-on-vps",
-    "title": "Smallweb With Cloudflare On Vps",
-    "date": "2024-12-08T20:13:29.000Z",
-    "type": "post",
-    "modified": "2024-12-08T22:46:33.000Z",
-    "toc": [],
-    "metadata": {
-      "date": "2024-12-08T20:13:29.000Z",
-      "modified": "2024-12-08T22:46:33.000Z",
-      "share": true,
-      "words": 393,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 0,
-      "codeBlocks": 6,
-      "headers": {},
-      "toc": [],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/robots/smallweb-with-cloudflare-on-vps.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "robots/smallweb-with-cloudflare-on-vps"
-    }
-  },
-  {
-    "slug": "robots/tenancy-in-common",
-    "title": "Tenancy In Common",
-    "date": "2024-11-11T04:16:16.000Z",
-    "type": "post",
-    "modified": "2024-11-12T17:27:05.000Z",
-    "toc": [],
-    "metadata": {
-      "date": "2024-11-11T04:16:16.000Z",
-      "modified": "2024-11-12T17:27:05.000Z",
-      "share": true,
-      "words": 660,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 0,
-      "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/robots/tenancy-in-common.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "robots/tenancy-in-common"
-    }
-  },
-  {
-    "slug": "robots/winter-layering-gear-system",
+    "slug": "robots/anytime/winter-layering-gear-system",
     "title": "Winter Layering Gear System",
     "date": "2024-11-06T20:22:53.000Z",
     "type": "post",
     "modified": "2024-11-08T18:33:01.000Z",
+    "tags": [
+      "gear",
+      "outdoors"
+    ],
     "toc": [],
     "metadata": {
       "date": "2024-11-06T20:22:53.000Z",
       "modified": "2024-11-08T18:33:01.000Z",
       "share": true,
+      "tags": [
+        "gear",
+        "outdoors"
+      ],
       "words": 968,
       "images": 0,
       "imageDetails": {
@@ -6528,9 +8603,473 @@
       "headers": {},
       "toc": [],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/robots/winter-layering-gear-system.md",
+      "sourcePath": "../../../../../code/website2/content/blog/robots/anytime/winter-layering-gear-system.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "robots/winter-layering-gear-system"
+      "slug": "robots/anytime/winter-layering-gear-system"
+    }
+  },
+  {
+    "slug": "robots/old/gear",
+    "title": "Motorcycle Gear System Optimization",
+    "date": "2024-11-11T07:28:49.000Z",
+    "type": "post",
+    "modified": "2024-11-19T15:56:06.000Z",
+    "tags": [
+      "motorcycle",
+      "gear",
+      "travel",
+      "systemsthinking"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Motorcycle Gear System Optimization",
+      "date": "2024-11-11T07:28:49.000Z",
+      "modified": "2024-11-19T15:56:06.000Z",
+      "share": true,
+      "tags": [
+        "motorcycle",
+        "gear",
+        "travel",
+        "systemsthinking"
+      ],
+      "words": 1415,
+      "images": 1,
+      "imageDetails": {
+        "total": 1,
+        "cloudinary": 1,
+        "withDimensions": 0
+      },
+      "links": 1,
+      "codeBlocks": 1,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/robots/old/gear.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "robots/old/gear"
+    }
+  },
+  {
+    "slug": "robots/old/tenancy-in-common",
+    "title": "Tenancy In Common",
+    "date": "2024-11-11T04:16:16.000Z",
+    "type": "post",
+    "modified": "2024-11-12T17:27:05.000Z",
+    "tags": [
+      "personal",
+      "housing",
+      "planning"
+    ],
+    "toc": [],
+    "metadata": {
+      "date": "2024-11-11T04:16:16.000Z",
+      "modified": "2024-11-12T17:27:05.000Z",
+      "share": true,
+      "tags": [
+        "personal",
+        "housing",
+        "planning"
+      ],
+      "words": 660,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/robots/old/tenancy-in-common.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "robots/old/tenancy-in-common"
+    }
+  },
+  {
+    "slug": "robots/someday/chess-course",
+    "title": "Chess Course",
+    "date": "2024-10-15T21:05:33.000Z",
+    "type": "post",
+    "modified": "2024-11-24T22:19:45.000Z",
+    "tags": [
+      "learning",
+      "games"
+    ],
+    "toc": [],
+    "metadata": {
+      "date": "2024-10-15T21:05:33.000Z",
+      "modified": "2024-11-24T22:19:45.000Z",
+      "share": true,
+      "tags": [
+        "learning",
+        "games"
+      ],
+      "words": 2914,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 54,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/robots/someday/chess-course.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "robots/someday/chess-course"
+    }
+  },
+  {
+    "slug": "robots/someday/ejfox-news",
+    "title": "Ejfox News",
+    "date": "2024-11-05T17:00:28.000Z",
+    "type": "post",
+    "modified": "2024-11-08T21:19:49.000Z",
+    "tags": [
+      "development",
+      "projects",
+      "tools"
+    ],
+    "toc": [],
+    "metadata": {
+      "date": "2024-11-05T17:00:28.000Z",
+      "modified": "2024-11-08T21:19:49.000Z",
+      "share": true,
+      "tags": [
+        "development",
+        "projects",
+        "tools"
+      ],
+      "words": 2106,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/robots/someday/ejfox-news.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "robots/someday/ejfox-news"
+    }
+  },
+  {
+    "slug": "robots/someday/fpv-drone-learning",
+    "title": "FPV Drone Simulator Training",
+    "date": "2025-01-07T18:00:42.000Z",
+    "type": "post",
+    "modified": "2025-01-19T03:20:26.000Z",
+    "tags": [
+      "drone",
+      "fpv",
+      "education",
+      "games"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "FPV Drone Simulator Training",
+      "date": "2025-01-07T18:00:42.000Z",
+      "modified": "2025-01-19T03:20:26.000Z",
+      "share": true,
+      "tags": [
+        "drone",
+        "fpv",
+        "education",
+        "games"
+      ],
+      "words": 2112,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 2,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/robots/someday/fpv-drone-learning.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "robots/someday/fpv-drone-learning"
+    }
+  },
+  {
+    "slug": "robots/someday/hudson-valley-cannabis-doc",
+    "title": "Hudson Valley Cannabis Doc",
+    "date": "2024-11-26T16:40:25.000Z",
+    "type": "post",
+    "modified": "2025-01-28T14:58:21.000Z",
+    "tags": [
+      "projects",
+      "photography",
+      "america"
+    ],
+    "toc": [],
+    "metadata": {
+      "date": "2024-11-26T16:40:25.000Z",
+      "modified": "2025-01-28T14:58:21.000Z",
+      "share": true,
+      "tags": [
+        "projects",
+        "photography",
+        "america"
+      ],
+      "words": 1379,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 1,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/robots/someday/hudson-valley-cannabis-doc.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "robots/someday/hudson-valley-cannabis-doc"
+    }
+  },
+  {
+    "slug": "robots/someday/hudson-valley-maps",
+    "title": "Hudson Valley Maps",
+    "date": "2024-11-27T16:23:08.000Z",
+    "type": "post",
+    "modified": "2024-12-31T00:44:34.000Z",
+    "tags": [
+      "outdoors",
+      "data",
+      "amateurradio"
+    ],
+    "toc": [],
+    "metadata": {
+      "date": "2024-11-27T16:23:08.000Z",
+      "modified": "2024-12-31T00:44:34.000Z",
+      "share": true,
+      "tags": [
+        "outdoors",
+        "data",
+        "amateurradio"
+      ],
+      "words": 2103,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 1,
+      "codeBlocks": 4,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/robots/someday/hudson-valley-maps.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "robots/someday/hudson-valley-maps"
+    }
+  },
+  {
+    "slug": "robots/someday/ml-comedy-hour",
+    "title": "Ml Comedy Hour",
+    "date": "2024-11-13T20:03:41.000Z",
+    "type": "post",
+    "modified": "2024-11-13T20:29:38.000Z",
+    "tags": [
+      "ai",
+      "creativity",
+      "humor"
+    ],
+    "toc": [],
+    "metadata": {
+      "date": "2024-11-13T20:03:41.000Z",
+      "modified": "2024-11-13T20:29:38.000Z",
+      "share": true,
+      "model": "claude-sonnet-3.5",
+      "tags": [
+        "ai",
+        "creativity",
+        "humor"
+      ],
+      "words": 2090,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/robots/someday/ml-comedy-hour.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "robots/someday/ml-comedy-hour"
+    }
+  },
+  {
+    "slug": "robots/someday/morning-radio",
+    "title": "Morning Radio - Personal Audio Brief",
+    "date": "2024-11-16T17:58:36.000Z",
+    "type": "post",
+    "modified": "2024-11-18T16:51:40.000Z",
+    "tags": [
+      "audio",
+      "automation",
+      "personal",
+      "meditation"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Morning Radio - Personal Audio Brief",
+      "date": "2024-11-16T17:58:36.000Z",
+      "modified": "2024-11-18T16:51:40.000Z",
+      "share": true,
+      "tags": [
+        "audio",
+        "automation",
+        "personal",
+        "meditation"
+      ],
+      "words": 1325,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/robots/someday/morning-radio.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "robots/someday/morning-radio"
+    }
+  },
+  {
+    "slug": "robots/someday/prep-mesh",
+    "title": "Prep Mesh",
+    "date": "2024-11-11T18:47:06.000Z",
+    "type": "post",
+    "modified": "2025-02-03T01:41:52.000Z",
+    "tags": [
+      "activism",
+      "projects",
+      "infrastructure"
+    ],
+    "toc": [],
+    "metadata": {
+      "date": "2024-11-11T18:47:06.000Z",
+      "modified": "2025-02-03T01:41:52.000Z",
+      "share": true,
+      "tags": [
+        "activism",
+        "projects",
+        "infrastructure"
+      ],
+      "words": 6799,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 11,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/robots/someday/prep-mesh.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "robots/someday/prep-mesh"
+    }
+  },
+  {
+    "slug": "robots/someday/quests-irl",
+    "title": "Quests Irl",
+    "date": "2024-11-07T16:50:52.000Z",
+    "type": "post",
+    "modified": "2024-11-08T21:43:10.000Z",
+    "tags": [
+      "development",
+      "projects",
+      "games"
+    ],
+    "toc": [],
+    "metadata": {
+      "date": "2024-11-07T16:50:52.000Z",
+      "modified": "2024-11-08T21:43:10.000Z",
+      "share": true,
+      "tags": [
+        "development",
+        "projects",
+        "games"
+      ],
+      "words": 3343,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 3,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/robots/someday/quests-irl.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "robots/someday/quests-irl"
+    }
+  },
+  {
+    "slug": "robots/someday/smallweb-with-cloudflare-on-vps",
+    "title": "Smallweb With Cloudflare On Vps",
+    "date": "2024-12-08T20:13:29.000Z",
+    "type": "post",
+    "modified": "2024-12-08T22:46:33.000Z",
+    "tags": [
+      "development",
+      "infrastructure",
+      "tools"
+    ],
+    "toc": [],
+    "metadata": {
+      "date": "2024-12-08T20:13:29.000Z",
+      "modified": "2024-12-08T22:46:33.000Z",
+      "share": true,
+      "tags": [
+        "development",
+        "infrastructure",
+        "tools"
+      ],
+      "words": 393,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 6,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/robots/someday/smallweb-with-cloudflare-on-vps.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "robots/someday/smallweb-with-cloudflare-on-vps"
     }
   },
   {
@@ -8046,7 +10585,7 @@
     "title": "2024 48",
     "date": "2024-11-25T13:58:52.000Z",
     "type": "post",
-    "modified": "2025-08-28T19:08:25.000Z",
+    "modified": "2025-09-12T13:12:56.000Z",
     "tags": [
       "weekly-notes",
       "reflections",
@@ -8059,7 +10598,7 @@
         "reflections",
         "progress"
       ],
-      "modified": "2025-08-28T19:08:25.000Z",
+      "modified": "2025-09-12T13:12:56.000Z",
       "date": "2024-11-25T13:58:52.000Z",
       "words": 261,
       "images": 12,
@@ -8158,10 +10697,16 @@
     "date": "2024-12-23T17:08:14.000Z",
     "type": "post",
     "modified": "2024-12-30T23:54:42.000Z",
+    "tags": [
+      "development"
+    ],
     "toc": [],
     "metadata": {
       "date": "2024-12-23T17:08:14.000Z",
       "modified": "2024-12-30T23:54:42.000Z",
+      "tags": [
+        "development"
+      ],
       "words": 192,
       "images": 19,
       "imageDetails": {
@@ -8296,10 +10841,18 @@
     "date": "2025-01-20T15:36:39.000Z",
     "type": "post",
     "modified": "2025-01-27T03:50:56.000Z",
+    "tags": [
+      "development",
+      "personal"
+    ],
     "toc": [],
     "metadata": {
       "date": "2025-01-20T15:36:39.000Z",
       "modified": "2025-01-27T03:50:56.000Z",
+      "tags": [
+        "development",
+        "personal"
+      ],
       "words": 92,
       "images": 9,
       "imageDetails": {
@@ -8323,10 +10876,18 @@
     "date": "2025-01-27T18:15:14.000Z",
     "type": "post",
     "modified": "2025-08-28T19:08:25.000Z",
+    "tags": [
+      "development",
+      "personal"
+    ],
     "toc": [],
     "metadata": {
       "date": "2025-01-27T18:15:14.000Z",
       "modified": "2025-08-28T19:08:25.000Z",
+      "tags": [
+        "development",
+        "personal"
+      ],
       "words": 152,
       "images": 15,
       "imageDetails": {
@@ -8388,11 +10949,23 @@
     "type": "post",
     "dek": "In which a gentleman programmer, beset by half-finished endeavors and haunted by the spectral presence of incomplete repositories, finds momentary satisfaction in the precise measurement of his typing velocity,",
     "modified": "2025-02-16T17:18:59.000Z",
+    "tags": [
+      "qgis",
+      "mapping",
+      "programming",
+      "personal"
+    ],
     "toc": [],
     "metadata": {
       "date": "2025-02-11T03:22:47.000Z",
       "modified": "2025-02-16T17:18:59.000Z",
       "dek": "In which a gentleman programmer, beset by half-finished endeavors and haunted by the spectral presence of incomplete repositories, finds momentary satisfaction in the precise measurement of his typing velocity,",
+      "tags": [
+        "qgis",
+        "mapping",
+        "programming",
+        "personal"
+      ],
       "words": 787,
       "images": 16,
       "imageDetails": {
@@ -8453,10 +11026,16 @@
     "date": "2025-02-24T19:02:26.000Z",
     "type": "post",
     "modified": "2025-08-28T19:08:25.000Z",
+    "tags": [
+      "development"
+    ],
     "toc": [],
     "metadata": {
       "date": "2025-02-24T19:02:26.000Z",
       "modified": "2025-08-28T19:08:25.000Z",
+      "tags": [
+        "development"
+      ],
       "words": 163,
       "images": 16,
       "imageDetails": {
@@ -8517,10 +11096,18 @@
     "date": "2025-03-10T19:16:48.000Z",
     "type": "post",
     "modified": "2025-03-22T20:06:38.000Z",
+    "tags": [
+      "development",
+      "personal"
+    ],
     "toc": [],
     "metadata": {
       "date": "2025-03-10T19:16:48.000Z",
       "modified": "2025-03-22T20:06:38.000Z",
+      "tags": [
+        "development",
+        "personal"
+      ],
       "words": 189,
       "images": 10,
       "imageDetails": {
@@ -8618,10 +11205,18 @@
     "date": "2025-03-31T17:44:43.000Z",
     "type": "post",
     "modified": "2025-04-06T18:21:40.000Z",
+    "tags": [
+      "development",
+      "personal"
+    ],
     "toc": [],
     "metadata": {
       "date": "2025-03-31T17:44:43.000Z",
       "modified": "2025-04-06T18:21:40.000Z",
+      "tags": [
+        "development",
+        "personal"
+      ],
       "words": 183,
       "images": 18,
       "imageDetails": {
@@ -8682,10 +11277,16 @@
     "date": "2025-04-15T16:01:39.000Z",
     "type": "post",
     "modified": "2025-08-28T19:08:25.000Z",
+    "tags": [
+      "development"
+    ],
     "toc": [],
     "metadata": {
       "date": "2025-04-15T16:01:39.000Z",
       "modified": "2025-08-28T19:08:25.000Z",
+      "tags": [
+        "development"
+      ],
       "words": 161,
       "images": 16,
       "imageDetails": {
@@ -8746,10 +11347,18 @@
     "date": "2025-05-02T01:41:22.000Z",
     "type": "post",
     "modified": "2025-08-28T19:08:25.000Z",
+    "tags": [
+      "development",
+      "personal"
+    ],
     "toc": [],
     "metadata": {
       "date": "2025-05-02T01:41:22.000Z",
       "modified": "2025-08-28T19:08:25.000Z",
+      "tags": [
+        "development",
+        "personal"
+      ],
       "words": 115,
       "images": 7,
       "imageDetails": {
@@ -8810,10 +11419,18 @@
     "date": "2025-05-14T09:36:26.000Z",
     "type": "post",
     "modified": "2025-08-28T19:08:25.000Z",
+    "tags": [
+      "development",
+      "personal"
+    ],
     "toc": [],
     "metadata": {
       "date": "2025-05-14T09:36:26.000Z",
       "modified": "2025-08-28T19:08:25.000Z",
+      "tags": [
+        "development",
+        "personal"
+      ],
       "words": 162,
       "images": 16,
       "imageDetails": {
@@ -8837,10 +11454,18 @@
     "date": "2025-05-19T16:52:10.000Z",
     "type": "post",
     "modified": "2025-05-25T19:18:52.000Z",
+    "tags": [
+      "development",
+      "personal"
+    ],
     "toc": [],
     "metadata": {
       "date": "2025-05-19T16:52:10.000Z",
       "modified": "2025-05-25T19:18:52.000Z",
+      "tags": [
+        "development",
+        "personal"
+      ],
       "words": 42,
       "images": 4,
       "imageDetails": {
@@ -8864,10 +11489,18 @@
     "date": "2025-05-26T16:07:48.000Z",
     "type": "post",
     "modified": "2025-06-09T18:24:08.000Z",
+    "tags": [
+      "development",
+      "screenshots"
+    ],
     "toc": [],
     "metadata": {
       "date": "2025-05-26T16:07:48.000Z",
       "modified": "2025-06-09T18:24:08.000Z",
+      "tags": [
+        "development",
+        "screenshots"
+      ],
       "words": 133,
       "images": 13,
       "imageDetails": {
@@ -8891,10 +11524,18 @@
     "date": "2025-06-02T15:25:00.000Z",
     "type": "post",
     "modified": "2025-06-09T18:23:49.000Z",
+    "tags": [
+      "development",
+      "screenshots"
+    ],
     "toc": [],
     "metadata": {
       "date": "2025-06-02T15:25:00.000Z",
       "modified": "2025-06-09T18:23:49.000Z",
+      "tags": [
+        "development",
+        "screenshots"
+      ],
       "words": 144,
       "images": 14,
       "imageDetails": {
@@ -9213,7 +11854,7 @@
     "title": "2025 33",
     "date": "2025-08-11T12:28:42.000Z",
     "type": "post",
-    "modified": "2025-08-28T19:08:25.000Z",
+    "modified": "2025-10-30T17:32:51.000Z",
     "tags": [
       "weekly-notes",
       "reflections",
@@ -9227,15 +11868,15 @@
         "progress"
       ],
       "date": "2025-08-11T12:28:42.000Z",
-      "modified": "2025-08-28T19:08:25.000Z",
-      "words": 530,
-      "images": 46,
+      "modified": "2025-10-30T17:32:51.000Z",
+      "words": 356,
+      "images": 30,
       "imageDetails": {
-        "total": 46,
-        "cloudinary": 46,
+        "total": 30,
+        "cloudinary": 30,
         "withDimensions": 0
       },
-      "links": 46,
+      "links": 30,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -9287,19 +11928,27 @@
     "title": "2025 35",
     "date": "2025-08-25T13:57:28.000Z",
     "type": "post",
-    "modified": "2025-08-28T22:09:25.000Z",
+    "modified": "2025-08-30T15:01:01.000Z",
+    "tags": [
+      "development",
+      "personal"
+    ],
     "toc": [],
     "metadata": {
       "date": "2025-08-25T13:57:28.000Z",
-      "modified": "2025-08-28T22:09:25.000Z",
-      "words": 190,
-      "images": 18,
+      "modified": "2025-08-30T15:01:01.000Z",
+      "tags": [
+        "development",
+        "personal"
+      ],
+      "words": 280,
+      "images": 27,
       "imageDetails": {
-        "total": 18,
-        "cloudinary": 18,
+        "total": 27,
+        "cloudinary": 27,
         "withDimensions": 0
       },
-      "links": 18,
+      "links": 27,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -9307,6 +11956,289 @@
       "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-35.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "week-notes/2025-35"
+    }
+  },
+  {
+    "slug": "week-notes/2025-36",
+    "title": "2025 36",
+    "date": "2025-09-01T13:58:07.000Z",
+    "type": "post",
+    "modified": "2025-09-24T05:30:29.000Z",
+    "toc": [],
+    "metadata": {
+      "date": "2025-09-01T13:58:07.000Z",
+      "modified": "2025-09-24T05:30:29.000Z",
+      "words": 251,
+      "images": 25,
+      "imageDetails": {
+        "total": 25,
+        "cloudinary": 25,
+        "withDimensions": 0
+      },
+      "links": 25,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-36.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-36"
+    }
+  },
+  {
+    "slug": "week-notes/2025-37",
+    "title": "2025 37",
+    "type": "post",
+    "toc": [],
+    "metadata": {
+      "words": 592,
+      "images": 59,
+      "imageDetails": {
+        "total": 59,
+        "cloudinary": 59,
+        "withDimensions": 0
+      },
+      "links": 59,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-37.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-37"
+    }
+  },
+  {
+    "slug": "week-notes/2025-38",
+    "title": "2025 38",
+    "type": "post",
+    "toc": [],
+    "metadata": {
+      "words": 253,
+      "images": 25,
+      "imageDetails": {
+        "total": 25,
+        "cloudinary": 24,
+        "withDimensions": 0
+      },
+      "links": 25,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-38.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-38"
+    }
+  },
+  {
+    "slug": "week-notes/2025-39",
+    "title": "2025 39",
+    "date": "2025-09-22T16:32:39.000Z",
+    "type": "post",
+    "modified": "2025-10-01T22:11:59.000Z",
+    "toc": [],
+    "metadata": {
+      "date": "2025-09-22T16:32:39.000Z",
+      "modified": "2025-10-01T22:11:59.000Z",
+      "words": 832,
+      "images": 83,
+      "imageDetails": {
+        "total": 83,
+        "cloudinary": 83,
+        "withDimensions": 0
+      },
+      "links": 83,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-39.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-39"
+    }
+  },
+  {
+    "slug": "week-notes/2025-40",
+    "title": "2025 40",
+    "date": "2025-09-29T16:13:44.000Z",
+    "type": "post",
+    "modified": "2025-10-04T19:25:00.000Z",
+    "toc": [],
+    "metadata": {
+      "date": "2025-09-29T16:13:44.000Z",
+      "modified": "2025-10-04T19:25:00.000Z",
+      "words": 858,
+      "images": 86,
+      "imageDetails": {
+        "total": 86,
+        "cloudinary": 59,
+        "withDimensions": 0
+      },
+      "links": 86,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-40.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-40"
+    }
+  },
+  {
+    "slug": "week-notes/2025-41",
+    "title": "2025 41",
+    "type": "post",
+    "toc": [],
+    "metadata": {
+      "words": 472,
+      "images": 47,
+      "imageDetails": {
+        "total": 47,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 47,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-41.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-41"
+    }
+  },
+  {
+    "slug": "week-notes/2025-42",
+    "title": "2025 42",
+    "type": "post",
+    "toc": [],
+    "metadata": {
+      "words": 122,
+      "images": 12,
+      "imageDetails": {
+        "total": 12,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 12,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-42.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-42"
+    }
+  },
+  {
+    "slug": "week-notes/2025-43",
+    "title": "2025 43",
+    "type": "post",
+    "toc": [],
+    "metadata": {
+      "words": 242,
+      "images": 24,
+      "imageDetails": {
+        "total": 24,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 24,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-43.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-43"
+    }
+  },
+  {
+    "slug": "week-notes/2025-44 2",
+    "title": "2025 44 2",
+    "date": "2025-10-27T15:17:24.000Z",
+    "type": "post",
+    "modified": "2025-10-29T02:19:51.000Z",
+    "toc": [],
+    "metadata": {
+      "date": "2025-10-27T15:17:24.000Z",
+      "modified": "2025-10-29T02:19:51.000Z",
+      "words": 121,
+      "images": 12,
+      "imageDetails": {
+        "total": 12,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 12,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-44 2.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-44 2"
+    }
+  },
+  {
+    "slug": "week-notes/2025-44",
+    "title": "2025 44",
+    "type": "post",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
+    "toc": [],
+    "metadata": {
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
+      "words": 143,
+      "images": 12,
+      "imageDetails": {
+        "total": 12,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 12,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-44.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-44"
+    }
+  },
+  {
+    "slug": "week-notes/2025-45",
+    "title": "2025 45",
+    "date": "2025-11-03T19:00:47.000Z",
+    "type": "post",
+    "modified": "2025-11-08T14:59:55.000Z",
+    "toc": [],
+    "metadata": {
+      "date": "2025-11-03T19:00:47.000Z",
+      "modified": "2025-11-08T14:59:55.000Z",
+      "words": 242,
+      "images": 24,
+      "imageDetails": {
+        "total": 24,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 24,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-45.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "week-notes/2025-45"
     }
   }
 ]

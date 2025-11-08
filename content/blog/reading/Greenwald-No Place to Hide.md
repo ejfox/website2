@@ -7,6 +7,11 @@ kindle-sync:
   lastAnnotatedDate: '2015-02-28'
   bookImageUrl: 'https://m.media-amazon.com/images/I/717C3YRXF9L._SY160.jpg'
   highlightsCount: 2
+tags:
+  - book
+  - security
+  - politics
+  - activism
 ---
 # No Place to Hide
 

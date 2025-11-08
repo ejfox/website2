@@ -6,6 +6,9 @@ url: https://github.com/ejfox/MorningRadio
 tech: ["Swift", "iOS", "Audio Streaming", "Mobile UX"]
 state: doing
 aiInvolvement: ai-assisted
+tags:
+  - ios
+  - health
 ---
 
 ## MorningRadio

@@ -7,6 +7,11 @@ tech: ["Neo4j", "SQLite", "Gephi", "Network Analysis", "Cypher"]
 featured: true
 state: deployed
 aiInvolvement: human-only
+tags:
+  - data
+  - nypd
+  - journalism
+  - database
 ---
 
 ![](https://res.cloudinary.com/ejf/image/upload/fl_progressive:semi,c_scale,dpr_auto,w_1280/v1624505769/Screen_Shot_2021-06-21_at_8.58.50_PM.jpg)

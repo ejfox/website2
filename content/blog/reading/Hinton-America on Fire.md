@@ -9,6 +9,12 @@ kindle-sync:
   lastAnnotatedDate: '2021-06-22'
   bookImageUrl: 'https://m.media-amazon.com/images/I/81s8svAo1pL._SY160.jpg'
   highlightsCount: 4
+tags:
+  - book
+  - america
+  - police
+  - activism
+  - history
 ---
 # America on Fire
 

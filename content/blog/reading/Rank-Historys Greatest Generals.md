@@ -9,6 +9,10 @@ kindle-sync:
   lastAnnotatedDate: '2015-02-28'
   bookImageUrl: 'https://m.media-amazon.com/images/I/91hdwM15ZqL._SY160.jpg'
   highlightsCount: 4
+tags:
+  - book
+  - history
+  - military
 ---
 # Historys Greatest Generals
 

@@ -9,6 +9,10 @@ kindle-sync:
   lastAnnotatedDate: '2012-10-08'
   bookImageUrl: 'https://m.media-amazon.com/images/I/81RtzVXh7zL._SY160.jpg'
   highlightsCount: 4
+tags:
+  - book
+  - personal
+  - design
 ---
 # The Joy of Less, A Minimalist Living Guide
 

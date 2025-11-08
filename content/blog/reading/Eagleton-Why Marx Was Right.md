@@ -7,6 +7,10 @@ kindle-sync:
   lastAnnotatedDate: '2024-01-12'
   bookImageUrl: 'https://m.media-amazon.com/images/I/41MZr3P0BIL._SY160.jpg'
   highlightsCount: 11
+tags:
+  - book
+  - politics
+  - activism
 ---
 # Why Marx Was Right
 

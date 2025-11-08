@@ -7,6 +7,11 @@ kindle-sync:
   lastAnnotatedDate: '2016-03-08'
   bookImageUrl: 'https://m.media-amazon.com/images/I/61UgA0cr+5L._SY160.jpg'
   highlightsCount: 6
+tags:
+  - book
+  - history
+  - culture
+  - america
 ---
 # Darkest America
 

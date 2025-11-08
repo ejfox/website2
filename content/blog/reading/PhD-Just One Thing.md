@@ -7,6 +7,10 @@ kindle-sync:
   lastAnnotatedDate: '2012-10-25'
   bookImageUrl: 'https://m.media-amazon.com/images/I/61ehh4-cDSL._SY160.jpg'
   highlightsCount: 4
+tags:
+  - book
+  - meditation
+  - health
 ---
 # Just One Thing
 

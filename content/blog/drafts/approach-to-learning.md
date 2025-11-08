@@ -4,7 +4,7 @@ dek: >-
   In which we embark on a journey of introspection and adaptation, learning about ourselves so we can better learn about everything else
 inprogress: true
 date: 2023-01-19T01:31:34-05:00
-modified: 2025-08-28T18:39:49-04:00
+modified: 2025-11-08T15:10:14-05:00
 tags:
   - education
   - howto
@@ -15,34 +15,52 @@ tags:
 
 ## How I Learn New Things
 
-One of the most important things to learn is how to learn. Isn't that kind of zen? Once you have mastered this superpower, you can apply this meta-tool to any field of study that interests and see results almost instantly. Unfortunately this is not something that can be taught easily, but comes through a process of self-learning and reflection.
+Learning how to learn is the ultimate meta-skill. As a child, I quickly became disillusioned with traditional education, so I dropped out of high school and went straight to startup work. Since then I've had to reverse-engineer effective learning without the benefits of a direct teacher. Luckily I grew up in the age of the internet.
 
 >In the beginner's mind there are many possibilities; in the expert's mind there are few.
 >[Suzuki-Chadwick-Zen Mind, Beginners Mind](Suzuki-Chadwick-Zen%20Mind,%20Beginners%20Mind.md)
 
-This evolved from dropping out of high school (I never did get my GED, unfortunately, but I DID get accepted to SUNY Purchase College which I deferred from to go work for a startup in California). When traditional education doesn't work for you, you have to figure out how to learn on your own.
+### Core Framework
 
-Your key insights were: find a subject, find open source documentation, find lectures/video lessons, find open source alternatives to expensive software, try to use the most PROFESSIONAL version of the equipment or software, jump in with projects that can quickly tell you if you're progressing, have a plan, trust the process.
+**Following Joy**: Learn what genuinely interests you. My librarian grandmother taught me to flood myself with primary sources the moment I showed curiosity about anything.
 
-### What's Worth Learning? Anything That Sparks Joy
+**Batch Related Concepts**: Group related topics. [../robots/preparation-as-practice|HAM radi](../robots/preparation-as-practice|ham-radi)o]] → electrical engineering → electromagnetism. Learning Ohm's Law with Ohm's rejection story creates multiple memory pathways.
 
-What is worth learning? Anything that sparks joy - and not doubting that. I was so blessed to have a grandmother who loved me, and double-blessed she was a librarian. When you even THOUGHT of being interested in something she would bombard you with a series of books on the subject, which taught me to dive into something head-on through the primary source materials.
+**Read the Fucking Manuals**: Most people skip documentation. Essential knowledge hides in plain sight - nursery rhymes contain profound wisdom, technical manuals contain competitive advantages.
 
-### Batching Related Concepts
-
-I do try to batch or group topics that are similar - like if I'm studying one thing (HAM radio) that brings up another related thing (electrical engineering, electromagnetism), then it makes sense to learn those together because the concepts will reinforce each other.
-
-Or I learn the history of a person along with the technical discoveries to hammer it into my head - like the fact no one believed Ohm when he first invented Ohm's Law. That's an informative story that makes the technical concept stick better than just memorizing V=IR.
-
-### Reading the Docs (That No One Actually Reads)
-
-After being around for a while I started to realize no one actually READS THE DOCS. Most tools you can just go through and freely read the manual and learn things that no one ever does or knows, even the people who use it every day. I think there is something special about gaining the ability to put on a good show in the background, make a nice cuppa tea and curl up to a LONG piece of documentation so you can learn how the thing works BACK TO FRONT.
-
-I keep coming back to this insight: essential knowledge is often hiding in plain sight. Bear with me now, but take something as simple the nursery rhyme "row row row your boat, life is but a dream" - there's profound wisdom embedded in what we tell toddlers. Think about all the crucial wisdom in your life that has been repeated so often you barely hear it. The same principle applies to technical documentation - the real secrets are right there, practically screaming at you, but most people are too impatient to listen.
+**Ask Smart Questions**: Half the battle is asking intelligent questions, and taking the time to understand what you are asking will sometimes lead to the answer in itself
 
 ### Why This Works
 
+- **Joy = Intrinsic Motivation**: Genuine interest drives persistence through difficulty
+- **Batching = Memory Networks**: Connected concepts create multiple retrieval paths
+- **Documentation = Competitive Edge**: Others use tutorials, you understand foundations
+- **Meta-Learning = Infinite Scale**: Master the learning process once, apply to any array of subjects
 
-### Modern Addition: AI as Learning Partner
+### AI-Amplified Learning
 
-I use AI extensively to help me develop these learning plans now.
+I've generated 100+ AI learning plans covering HAM radio, EMT training, chess, welding, CAD, PICO-8 development. They follow this structure:
+
+**Weekly Progression**: [HAM radio](../robots/ham-study-plan.md) = 4 weeks (basics → procedures → equipment → exam). Foundation before application.
+
+**Multi-Modal Resources**: [Chess course](../robots/chess-course.md) = YouTube (GothamChess) + master games + daily puzzles. Multiple reinforcement channels.
+
+**Real-World Integration**: [EMT prep](../robots/emt-course.md) includes blood exposure therapy. [Welding guide](../robots/learning-welding.md) has equipment acquisition phases ($500→$3000).
+
+**Technical Depth**: [PICO-8 suite](../robots/pico-8-training.md) specifies sprite budgets, memory management, compression systems. Mini-games like BLAZE RUNNER (trail recognition) teach real skills through arcade mechanics.
+
+**Memory Palaces**: HAM course uses "HAM Café" memory palace - restaurant sections represent frequency allocations.
+
+AI amplifies rather than replaces core principles. Same joy-driven exploration, same documentation reading, now with comprehensive frameworks generated in minutes by my robot buddy.
+
+### Continuous Evolution
+
+Meta-learning evolves. Each subject teaches learning itself:
+
+- HAM radio → systematic progression
+- Chess → pattern recognition
+- PICO-8 → constraints foster creativity
+
+Beginner's mind applies to the learning process itself. Core principles stay constant (joy, batching, documentation), but implementation improves. AI provides structure, documentation provides depth, curiosity provides fuel.
+
+The real meta-skill: never stop refining the process. Every learning plan, every manual read, every moment of curiosity - iterations in an endless experiment of human potential.

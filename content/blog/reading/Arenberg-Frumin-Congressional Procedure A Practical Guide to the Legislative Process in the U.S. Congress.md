@@ -9,6 +9,9 @@ kindle-sync:
   lastAnnotatedDate: '2021-02-03'
   bookImageUrl: 'https://m.media-amazon.com/images/I/81otOXbOIiL._SY160.jpg'
   highlightsCount: 1
+tags:
+  - politics
+  - america
 ---
 # Congressional Procedure: A Practical Guide to the Legislative Process in the U.S. Congress
 

@@ -7,6 +7,10 @@ kindle-sync:
   lastAnnotatedDate: '2024-02-23'
   bookImageUrl: 'https://m.media-amazon.com/images/I/919GgLbYxpL._SY160.jpg'
   highlightsCount: 1
+tags:
+  - book
+  - anarchism
+  - politics
 ---
 # The Dispossessed
 

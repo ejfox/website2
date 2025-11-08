@@ -7,6 +7,11 @@ kindle-sync:
   lastAnnotatedDate: '2019-08-25'
   bookImageUrl: 'https://m.media-amazon.com/images/I/918djpiWyxL._SY160.jpg'
   highlightsCount: 8
+tags:
+  - book
+  - nyc
+  - culture
+  - travel
 ---
 # The New York Nobody Knows
 

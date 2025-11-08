@@ -1,4 +1,8 @@
 ---
+tags:
+  - motorcycle
+  - culture
+  - book
 kindle-sync:
   bookId: '54847'
   title: 'Hell''s Angels: A Strange and Terrible Saga'

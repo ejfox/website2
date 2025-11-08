@@ -7,6 +7,9 @@ kindle-sync:
   lastAnnotatedDate: '2020-09-02'
   bookImageUrl: 'https://m.media-amazon.com/images/I/71ocFXZZP9L._SY160.jpg'
   highlightsCount: 3
+tags:
+  - politics
+  - military
 ---
 # On Grand Strategy
 

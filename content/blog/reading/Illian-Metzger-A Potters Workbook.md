@@ -7,6 +7,11 @@ kindle-sync:
   lastAnnotatedDate: '2023-10-12'
   bookImageUrl: 'https://m.media-amazon.com/images/I/715LUhvNn+L._SY160.jpg'
   highlightsCount: 3
+tags:
+  - book
+  - pottery
+  - art
+  - technique
 ---
 # A Potters Workbook
 

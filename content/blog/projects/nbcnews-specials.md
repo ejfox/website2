@@ -3,6 +3,11 @@ title: NBC News Specials
 date: 2016-12-14T15:01:50-05:00
 modified: 2025-08-13T12:01:12-04:00
 url: https://nbcnews.com/specials
+tags:
+  - dataviz
+  - journalism
+  - webdesign
+  - elections
 ---
 
 During my time at NBC News, I worked on the Foundry team, creating bespoke longform articles in collaboration with journalists across the organization. These [specials](https://www.nbcnews.com/specials) focused on unique approaches to video, data visualiation, and storytelling on the web.

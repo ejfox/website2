@@ -1,4 +1,8 @@
 ---
+tags:
+  - book
+  - design
+  - ux
 kindle-sync:
   bookId: '59972'
   title: 'Emotional Design: Why We Love (or Hate) Everyday Things'

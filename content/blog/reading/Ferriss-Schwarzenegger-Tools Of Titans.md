@@ -9,6 +9,10 @@ kindle-sync:
   lastAnnotatedDate: '2020-11-05'
   bookImageUrl: 'https://m.media-amazon.com/images/I/81QytMrzgdL._SY160.jpg'
   highlightsCount: 8
+tags:
+  - book
+  - personal
+  - process
 ---
 # Tools Of Titans
 

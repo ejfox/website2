@@ -1,6 +1,6 @@
 ---
 date: 2025-08-13T19:03:17-04:00
-modified: 2025-08-29T14:35:03-04:00
+modified: 2025-08-31T18:46:36-04:00
 tags:
   - journalism
   - ai
@@ -67,9 +67,9 @@ Organizations like Lucy Parsons Labs created [OpenOversight](https://openoversig
 
 Technologist Kyle McDonald built [FuckLAPD.com](https://www.404media.co/fucklapd-com-lets-anyone-use-facial-recognition-to-instantly-identify-cops/), a facial recognition site that matches uploaded LAPD officer photos against 9,000+ official headshots obtained through public records, displaying names, badge numbers, and salaries. The tool addresses officers concealing identities during protests.
 
-These accountability projects show how AI can flip the surveillance script—using the same technologies to increase transparency and oversight of law enforcement.
+Everything still needs independent confirmation, but AI dramatically narrows your search and flags potential issues, speeding up investigations and increasing the breadth of information covered.
 
-Everything still needs independent confirmation, but AI dramatically narrows your search and flags potential issues.
+These accountability projects show how AI can flip the surveillance script—using the same technologies to increase transparency and oversight of law enforcement.
 
 ---
 

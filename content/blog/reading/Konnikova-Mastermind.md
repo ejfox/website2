@@ -7,6 +7,10 @@ kindle-sync:
   lastAnnotatedDate: '2022-12-06'
   bookImageUrl: 'https://m.media-amazon.com/images/I/71RyhJW-UwL._SY160.jpg'
   highlightsCount: 3
+tags:
+  - book
+  - advice
+  - process
 ---
 # Mastermind
 

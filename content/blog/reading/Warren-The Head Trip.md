@@ -7,6 +7,10 @@ kindle-sync:
   lastAnnotatedDate: '2023-07-02'
   bookImageUrl: 'https://m.media-amazon.com/images/I/41fYLnP17DL._SY160.jpg'
   highlightsCount: 2
+tags:
+  - book
+  - meditation
+  - health
 ---
 # The Head Trip
 

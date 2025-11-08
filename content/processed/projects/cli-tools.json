@@ -15,6 +15,12 @@
     ],
     "state": "deployed",
     "aiInvolvement": "ai-assisted",
+    "tags": [
+      "cli",
+      "programming",
+      "nodejs",
+      "tool"
+    ],
     "words": 182,
     "images": 0,
     "imageDetails": {

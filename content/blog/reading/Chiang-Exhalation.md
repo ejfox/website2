@@ -7,6 +7,10 @@ kindle-sync:
   lastAnnotatedDate: '2024-12-15'
   bookImageUrl: 'https://m.media-amazon.com/images/I/71rxUxpcPgL._SY160.jpg'
   highlightsCount: 1
+tags:
+  - book
+  - tech
+  - writing
 ---
 # Exhalation
 

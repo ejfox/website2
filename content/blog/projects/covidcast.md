@@ -6,6 +6,11 @@ url: https://campustechnology.com/articles/2020/04/24/carnegie-mellon-maps-offer
 tech: ["Data Visualization", "JavaScript", "COVID-19 Data", "Public Health"]
 state: deployed
 aiInvolvement: human-only
+tags:
+  - covid
+  - dataviz
+  - javascript
+  - health
 ---
 
 During the early COVID-19 pandemic, I worked with Carnegie Mellon University's [COVIDcast project](https://delphi.cmu.edu/epidemic-signals/), prototyping data visualizations and user interactions to help the public understand hospitalization, transmission, and movement trends across the country.

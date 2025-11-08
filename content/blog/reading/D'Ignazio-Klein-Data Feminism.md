@@ -1,4 +1,7 @@
 ---
+tags:
+  - data
+  - activism
 kindle-sync:
   bookId: '47184'
   title: Data Feminism (Strong Ideas)

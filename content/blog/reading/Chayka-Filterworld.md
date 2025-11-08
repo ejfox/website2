@@ -9,6 +9,11 @@ kindle-sync:
   highlightsCount: 4
 date: 2025-08-21T14:44:39-04:00
 modified: 2025-08-24T19:53:43-04:00
+tags:
+  - book
+  - tech
+  - culture
+  - algorithm
 ---
 ## Filterworld
 

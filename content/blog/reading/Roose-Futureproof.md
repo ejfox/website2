@@ -1,4 +1,8 @@
 ---
+tags:
+  - book
+  - tech
+  - ai
 kindle-sync:
   bookId: '16297'
   title: 'Futureproof: 9 Rules for Surviving in the Age of AI'

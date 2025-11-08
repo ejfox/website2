@@ -7,6 +7,11 @@ tech: ["JavaScript", "Electron", "Data Quality", "CSV"]
 featured: false
 state: deployed
 aiInvolvement: human-only
+tags:
+  - data
+  - javascript
+  - tool
+  - journalism
 ---
 
 Along with Gerald Rich and the Vocativ data team, I received a [Knight Prototype Fund](https://knightfoundation.org/articles/20-ideas-receive-support-knight-prototype-fund-media-and-information-projects/) grant to create [Dataproofer](https://github.com/dataproofer/Dataproofer) - an open source tool to check data for reliability, missing data, and outliers. Built as an Electron desktop app for journalists.

@@ -7,6 +7,11 @@ kindle-sync:
   lastAnnotatedDate: '2022-06-20'
   bookImageUrl: 'https://m.media-amazon.com/images/I/517-wUXsdWL._SY160.jpg'
   highlightsCount: 2
+tags:
+  - book
+  - america
+  - culture
+  - writing
 ---
 # Notes of a Native Son
 

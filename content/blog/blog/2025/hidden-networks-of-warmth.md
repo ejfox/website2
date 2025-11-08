@@ -20,7 +20,7 @@ There is a pride, an inner warmth you gain when you sit by a fire you've assembl
 
 ### Preparation
 
-For the past year when I wake up in the morning and meditate for a little while on what my heart truly desires the compass often spins back to a central concept of **preparation**. *The process of assembling skills, knowledge, and tools that may or may not be useful later.* This is a dangerous art that can quickly trap a person. You can easily become over-enamored with preparation as an act in itself, something I keep falling prey to.
+For the past year when I wake up in the morning and meditate for a little while on what my heart truly desires the compass often spins back to a central concept of **[robots/preparation-as-practice|preparatio](robots/preparation-as-practice|preparatio)n]]**. *The process of assembling skills, knowledge, and tools that may or may not be useful later.* This is a dangerous art that can quickly trap a person. You can easily become over-enamored with preparation as an act in itself, something I keep falling prey to.
 
 I have been trying to find the commonalities, the patterns in the things I feel drawn to, but even within myself it is sometimes hard to figure out. It is probably easier to catalog the things and let the threads draw themselves.
 
@@ -30,15 +30,15 @@ I have finally admitted and come to love a fundamental part of myself; I love ba
 
 This could be a response to the constraints of my life; I’ve been bouncing around trying to find a semi-permanent place in Beacon, NY while trying to avoid being entangled in the insane post-COVID Hudson Valley housing market.
 
-I love traveling by motorcycle as long as the weather permits, and my setup is built around being loaded onto a bike and driven through rainstorms. This means everything needs to be in dry bags, carefully protected from the elements. The motorcycle makes you really think through the things you want to carry; space is limited, and every object needs to be useful in at least two ways and used every day to justify the space it takes up. I've documented this more on my [gear page](https://ejfox.com/gear)
+I love traveling by motorcycle as long as the weather permits, and my setup is built around being loaded onto a bike and driven through rainstorms. This means everything needs to be in dry bags, carefully protected from the elements. The [robots/minimalism-as-technical-practice|motorcycle makes you really think throug](robots/minimalism-as-technical-practice|motorcycle-makes-you-really-think-throug)h]] the things you want to carry; space is limited, and every object needs to be useful in at least two ways and used every day to justify the space it takes up. I've documented this more on my [gear page](https://ejfox.com/gear)
 
 ![https://res.cloudinary.com/ejf/image/upload/v1731960044/gear-viz.r1.png](https://res.cloudinary.com/ejf/image/upload/v1731960044/gear-viz.r1.png)
 
-I like this way of minimalist thinking about the gear I keep on my person and my bike on two levels; a practical pragmatic level as well as a philosophical and ethical plane.
+I like this way of [robots/minimalism-as-technical-practice|minimalist thinkin](robots/minimalism-as-technical-practice|minimalist-thinkin)g]] about the gear I keep on my person and my bike on two levels; a practical pragmatic level as well as a philosophical and ethical plane.
 
 #### Aesthetically Minimalist
 
-I have been a fan, if not an adherent, of a minimalist design philosophy for my entire adult life. I was raised in a generation of designers who admired Dieter Rams and Edward Tufte; as a data visualization designer I was taught early about the concept of “data-ink ratio”; that is, the ink on the page needs to justify itself with information conveyed. In this view, elements on a page (or a screen) that do not serve a justifiable utilitarian purpose need be removed in order to *grant clarity to the user*. The minimalism is in aid of understanding and truth, and through good design is the result of careful thought and iteration on the part of the designer in order to save the user precious time and frustration.
+I have been a fan, if not an adherent, of a minimalist design philosophy for my entire adult life. I was raised in a generation of designers who admired Dieter Rams and Edward Tufte ([robots/minimalism-as-technical-practice|more on how this applies to cod](robots/minimalism-as-technical-practice|more-on-how-this-applies-to-cod)e]]); as a data visualization designer I was taught early about the concept of "data-ink ratio"; that is, the ink on the page needs to justify itself with information conveyed. In this view, elements on a page (or a screen) that do not serve a justifiable utilitarian purpose need be removed in order to *grant clarity to the user*. The minimalism is in aid of understanding and truth, and through good design is the result of careful thought and iteration on the part of the designer in order to save the user precious time and frustration.
 
 #### Philosophically Minimalist
 

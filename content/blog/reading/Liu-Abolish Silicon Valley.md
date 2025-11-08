@@ -7,6 +7,7 @@ kindle-sync:
   lastAnnotatedDate: '2021-02-04'
   bookImageUrl: 'https://m.media-amazon.com/images/I/91q4pnxxDiL._SY160.jpg'
   highlightsCount: 4
+tags: [book, tech, politics]
 ---
 # Abolish Silicon Valley
 

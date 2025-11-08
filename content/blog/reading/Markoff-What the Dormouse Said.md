@@ -1,4 +1,7 @@
 ---
+tags:
+  - tech
+  - culture
 kindle-sync:
   bookId: '43912'
   title: >-

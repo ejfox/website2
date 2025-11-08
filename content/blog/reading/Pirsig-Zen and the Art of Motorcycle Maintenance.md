@@ -1,4 +1,9 @@
 ---
+tags:
+  - book
+  - motorcycle
+  - meditation
+  - philosophy
 kindle-sync:
   bookId: '54365'
   title: 'Zen and the Art of Motorcycle Maintenance: An Inquiry Into Values'

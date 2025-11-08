@@ -9,6 +9,7 @@ kindle-sync:
   highlightsCount: 8
 date: 2025-08-21T14:46:31-04:00
 modified: 2025-08-24T18:31:29-04:00
+tags: [book, tech, anarchism]
 ---
 ## Walkaway
 

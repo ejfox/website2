@@ -7,6 +7,10 @@ kindle-sync:
   lastAnnotatedDate: '2023-04-29'
   bookImageUrl: 'https://m.media-amazon.com/images/I/71IpwmRDlPL._SY160.jpg'
   highlightsCount: 15
+tags:
+  - book
+  - writing
+  - personal
 ---
 # The Pisces
 

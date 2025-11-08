@@ -9,6 +9,7 @@ kindle-sync:
   highlightsCount: 15
 date: 2025-08-21T14:44:34-04:00
 modified: 2025-08-24T19:53:05-04:00
+tags: [book, writing, art]
 ---
 ## Reality Hunger
 

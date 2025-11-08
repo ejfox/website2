@@ -7,6 +7,11 @@ kindle-sync:
   lastAnnotatedDate: '2023-11-09'
   bookImageUrl: 'https://m.media-amazon.com/images/I/61NtEkj0wIL._SY160.jpg'
   highlightsCount: 13
+tags:
+  - book
+  - writing
+  - personal
+  - health
 ---
 # So Sad Today
 

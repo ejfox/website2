@@ -1,4 +1,8 @@
 ---
+tags:
+  - book
+  - tech
+  - internet
 kindle-sync:
   bookId: '29818'
   title: 'In the Plex: How Google Thinks, Works, and Shapes Our Lives'

@@ -7,6 +7,7 @@ kindle-sync:
   lastAnnotatedDate: '2025-04-07'
   bookImageUrl: 'https://m.media-amazon.com/images/I/51CLzpOuyHL._SY160.jpg'
   highlightsCount: 1
+tags: [book, activism, protest]
 ---
 # Direct Action
 

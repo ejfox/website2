@@ -7,6 +7,7 @@ kindle-sync:
   lastAnnotatedDate: '2017-01-19'
   bookImageUrl: 'https://m.media-amazon.com/images/I/81dcq6h5WYL._SY160.jpg'
   highlightsCount: 4
+tags: [book, travel, america]
 ---
 # Blue Highways
 

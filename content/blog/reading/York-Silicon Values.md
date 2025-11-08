@@ -1,4 +1,8 @@
 ---
+tags:
+  - tech
+  - politics
+  - book
 kindle-sync:
   bookId: '40211'
   title: 'Silicon Values: The Future of Free Speech Under Surveillance Capitalism'

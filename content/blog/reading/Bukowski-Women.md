@@ -7,6 +7,7 @@ kindle-sync:
   lastAnnotatedDate: '2019-04-11'
   bookImageUrl: 'https://m.media-amazon.com/images/I/81M+SvV1aLL._SY160.jpg'
   highlightsCount: 15
+tags: [book, writing]
 ---
 # Women
 

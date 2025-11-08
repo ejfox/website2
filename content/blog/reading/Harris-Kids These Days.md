@@ -9,6 +9,10 @@ kindle-sync:
   highlightsCount: 38
 date: 2025-08-21T14:48:47-04:00
 modified: 2025-08-24T19:53:55-04:00
+tags:
+  - america
+  - culture
+  - politics
 ---
 ## Kids These Days
 

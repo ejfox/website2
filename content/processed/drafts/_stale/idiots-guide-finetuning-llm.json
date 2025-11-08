@@ -1,0 +1,30 @@
+{
+  "content": "<p class=\"\">tags:</p>\n<ul class=\"list-disc\">\n<li class=\"\">machinelearning</li>\n<li class=\"\">howto</li>\n<li class=\"\">tech</li>\n</ul>\n<h2 class=\"\" id=\"why\">Why?</h2>\n<h2 class=\"\" id=\"how\">How?</h2>\n<h2 class=\"\" id=\"what-does-it-cost\">What does it cost?</h2>",
+  "html": "<p class=\"\">tags:</p>\n<ul class=\"list-disc\">\n<li class=\"\">machinelearning</li>\n<li class=\"\">howto</li>\n<li class=\"\">tech</li>\n</ul>\n<h2 class=\"\" id=\"why\">Why?</h2>\n<h2 class=\"\" id=\"how\">How?</h2>\n<h2 class=\"\" id=\"what-does-it-cost\">What does it cost?</h2>",
+  "title": "Idiots Guide Finetuning Llm",
+  "metadata": {
+    "date": "2025-08-19T17:38:18.000Z",
+    "modified": "2025-09-23T12:05:52.000Z",
+    "tags": [
+      "machinelearning",
+      "howto",
+      "tech",
+      "coding",
+      "ai"
+    ],
+    "words": 18,
+    "images": 0,
+    "imageDetails": {
+      "total": 0,
+      "cloudinary": 0,
+      "withDimensions": 0
+    },
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/idiots-guide-finetuning-llm.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

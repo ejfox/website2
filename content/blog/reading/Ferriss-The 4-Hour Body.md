@@ -9,6 +9,11 @@ kindle-sync:
   lastAnnotatedDate: '2023-10-12'
   bookImageUrl: 'https://m.media-amazon.com/images/I/71Ucfn-BzcL._SY160.jpg'
   highlightsCount: 6
+tags:
+  - book
+  - health
+  - exercise
+  - advice
 ---
 # The 4-Hour Body
 

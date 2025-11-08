@@ -5,6 +5,9 @@ modified: 2025-08-13T11:46:54-04:00
 tech: ["Computer Vision", "MIDI", "WebGL", "Hand Tracking", "Generative Art", "Interactive Media"]
 state: deployed
 aiInvolvement: ai-assisted
+tags:
+  - creativity
+  - interfaces
 ---
 
 These are my attempts to make computers that respond to the way humans actually move and gesture—exploring the design space between human intuition and machine capability. Each project pushes beyond traditional HCI constraints to find new interaction models. Some of these work better than others, but they all represent steps toward interfaces that feel more like extensions of thought than barriers to it.

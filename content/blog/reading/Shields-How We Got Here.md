@@ -9,6 +9,11 @@ kindle-sync:
   lastAnnotatedDate: '2025-07-12'
   bookImageUrl: 'https://m.media-amazon.com/images/I/61RFV9THfoL._SY160.jpg'
   highlightsCount: 2
+tags:
+  - book
+  - politics
+  - culture
+  - writing
 ---
 # How We Got Here
 

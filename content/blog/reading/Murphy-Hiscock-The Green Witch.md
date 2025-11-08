@@ -1,4 +1,5 @@
 ---
+tags: [book, nature]
 kindle-sync:
   bookId: '46780'
   title: >-

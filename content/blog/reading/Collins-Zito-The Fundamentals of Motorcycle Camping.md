@@ -7,6 +7,11 @@ kindle-sync:
   lastAnnotatedDate: '2021-10-30'
   bookImageUrl: 'https://m.media-amazon.com/images/I/81BOMFlBzPL._SY160.jpg'
   highlightsCount: 5
+tags:
+  - book
+  - motorcycle
+  - camping
+  - travel
 ---
 # The Fundamentals of Motorcycle Camping
 

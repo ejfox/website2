@@ -1,4 +1,8 @@
 ---
+tags:
+  - military
+  - politics
+  - book
 kindle-sync:
   bookId: '53840'
   title: 'ISIS: The State of Terror'

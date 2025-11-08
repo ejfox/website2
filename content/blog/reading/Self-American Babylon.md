@@ -9,6 +9,11 @@ kindle-sync:
   lastAnnotatedDate: '2014-11-01'
   bookImageUrl: 'https://m.media-amazon.com/images/I/81R5dWlWxzL._SY160.jpg'
   highlightsCount: 2
+tags:
+  - book
+  - oakland
+  - politics
+  - history
 ---
 # American Babylon
 

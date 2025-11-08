@@ -1,6 +1,8 @@
 ---
 date: 2025-08-19T17:21:35-04:00
 modified: 2025-08-29T13:55:03-04:00
+tags:
+  - projects
 ---
 ## 🦊 EJ's Code Directory
 

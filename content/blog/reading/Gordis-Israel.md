@@ -7,6 +7,8 @@ kindle-sync:
   lastAnnotatedDate: '2019-02-15'
   bookImageUrl: 'https://m.media-amazon.com/images/I/91+4ktlXqlL._SY160.jpg'
   highlightsCount: 5
+tags:
+  - politics
 ---
 # Israel
 

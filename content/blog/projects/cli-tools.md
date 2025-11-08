@@ -5,6 +5,11 @@ modified: 2025-08-13T12:35:57-04:00
 tech: ["Node.js", "CLI", "ASCII Art", "Git", "AI"]
 state: deployed
 aiInvolvement: ai-assisted
+tags:
+  - cli
+  - programming
+  - nodejs
+  - tool
 ---
 
 I've always believed that if you're going to spend half your life in a terminal, it might as well feel like a cyberpunk movie. These tools explore how joy-drivem devex design can transform the routine into something that makes even doing your chores fun.

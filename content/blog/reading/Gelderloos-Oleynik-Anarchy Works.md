@@ -9,6 +9,11 @@ kindle-sync:
   highlightsCount: 20
 date: 2025-08-21T14:44:50-04:00
 modified: 2025-08-24T18:30:27-04:00
+tags:
+  - book
+  - anarchism
+  - politics
+  - activism
 ---
 ## Anarchy Works
 

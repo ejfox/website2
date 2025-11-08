@@ -1,4 +1,5 @@
 ---
+tags: [book, personal]
 kindle-sync:
   bookId: '4715'
   title: >-

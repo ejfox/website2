@@ -9,6 +9,11 @@ kindle-sync:
   lastAnnotatedDate: '2023-05-27'
   bookImageUrl: 'https://m.media-amazon.com/images/I/81macwFNi8L._SY160.jpg'
   highlightsCount: 7
+tags:
+  - book
+  - personal
+  - culture
+  - writing
 ---
 # The Trouble with Men
 

@@ -17,6 +17,12 @@
     "featured": true,
     "state": "deployed",
     "aiInvolvement": "human-only",
+    "tags": [
+      "data",
+      "nypd",
+      "journalism",
+      "database"
+    ],
     "words": 91,
     "images": 1,
     "imageDetails": {

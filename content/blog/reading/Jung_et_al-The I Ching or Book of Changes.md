@@ -1,4 +1,5 @@
 ---
+tags: [book, meditation]
 kindle-sync:
   bookId: '56397'
   title: The I Ching or Book of Changes (Bollingen Series 170)

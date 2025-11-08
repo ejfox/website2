@@ -1,4 +1,7 @@
 ---
+tags:
+  - dataviz
+  - data
 kindle-sync:
   bookId: '431'
   title: >-

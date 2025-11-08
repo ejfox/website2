@@ -1,6 +1,6 @@
 ---
 date: 2025-08-06T12:53:07-04:00
-modified: 2025-08-28T16:38:29-04:00
+modified: 2025-11-08T15:10:47-05:00
 tags:
   - dataviz
   - quantifiedself
@@ -11,7 +11,7 @@ tags:
 ---
 ## Ten Years of the Computer
 
-In 2011, when I was 19 years old, I made a prescient decision. I was an aspiring data visualization designer working at my first startup, and when I discovered then 4-year-old app [RescueTime](https://www.ycombinator.com/companies/rescuetime) - a sort of self-development introspective spyware, I immediately installed it on all of my computers.
+In 2011, when I was 19 years old, I made a prescient decision. I was an aspiring data visualization designer working at my first startup, and when I discovered then 4-year-old app [RescueTime](https://www.ycombinator.com/companies/rescuetime) - a sort of self-development introspective spyware, I immediately installed it on all of my computers. (This is [../robots/quantified-self-as-archaeology|tracking as archaeology, not optimizatio](../robots/quantified-self-as-archaeology|tracking-as-archaeology,-not-optimizatio)n]] - capturing data before knowing what questions I'd ask.)
 
 Rescuetime would quietly watch me for the next 14 or so years, tracking most of my personal computer usage, with a small gap in 2020 when I bought a new computer a briefly forgot to reinstall RescueTime.
 
@@ -87,17 +87,6 @@ Then Elon bought Twitter and I noped out entirely. 327 hours to zero overnight. 
   - Illustrator CS6: 21h (classic design work)
 
   2014 wasn't the end of my design career - it was the absolute zenith.
-
-  3. The 2019 Design Apocalypse
-
-  The most extreme ratio in the entire dataset: 33.7:1 engineering to design.
-
-  - Engineering: 178.5 hours
-  - Design: 5.3 hours (6 minutes per month)
-
-  This is where the "designer to engineer" story comes from - one anomalous year where I nearly abandoned creative work
-
-  entirely.
 
   The Terminal Renaissance
 

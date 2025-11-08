@@ -7,6 +7,10 @@ kindle-sync:
   lastAnnotatedDate: '2020-08-06'
   bookImageUrl: 'https://m.media-amazon.com/images/I/91KGdyDZWWL._SY160.jpg'
   highlightsCount: 7
+tags:
+  - book
+  - writing
+  - tech
 ---
 # The Rise and Fall of D.O.D.O.
 

@@ -17,7 +17,7 @@ Right now, all the MCP servers you add are made available to your robot at all t
 
 My first instinct, shared by many, is to load the robot up with *as many tools as possible*. You can stay up late configuring your API keys and imagining the possibilities. I went through this with Obsidian Plugins. But over time, I came to realize the extra plugins didn’t help as much as I thought. Worse, they slowed down every interaction (particularly on mobile.) I anticipate a similar arc with MCP servers.
 
-Given a completely novel territory I did what any hacker-come-cartographer might do, I tried to make a map of it, aided at every step by the robot of course.
+Given a completely novel territory I did what any hacker-come-cartographer might do, I tried to make a map of it, aided at every step by the robot of course. (This is [../robots/quantified-self-as-archaeology|archaeology, not optimizatio](../robots/quantified-self-as-archaeology|archaeology,-not-optimizatio)n]] - exploring data to reveal patterns, not to find the "best" MCP.)
 
 The first step was to take the MCP names and descriptions and turn them into embeddings; getting their location in hyper-dimensional space that we can use to arrange, cluster, and categorize them roughly by what they do (if we configure our parameters correctly)
 

@@ -1,4 +1,5 @@
 ---
+tags: [book, meditation]
 kindle-sync:
   bookId: '23914'
   title: Tao Te Ching

@@ -1,4 +1,8 @@
 ---
+tags:
+  - book
+  - writing
+  - tech
 kindle-sync:
   bookId: '37234'
   title: 'Reamde: A Novel'

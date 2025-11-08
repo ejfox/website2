@@ -1,4 +1,5 @@
 ---
+tags: [book, meditation]
 kindle-sync:
   bookId: '18161'
   title: 'Lao Tzu: Tao Te Ching: A Book about the Way and the Power of the Way'

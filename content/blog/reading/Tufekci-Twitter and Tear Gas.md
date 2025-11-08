@@ -1,4 +1,8 @@
 ---
+tags:
+  - twitter
+  - protest
+  - book
 kindle-sync:
   bookId: '56548'
   title: 'Twitter and Tear Gas: The Power and Fragility of Networked Protest'

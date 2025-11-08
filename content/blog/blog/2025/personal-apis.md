@@ -2,6 +2,11 @@
 date: 2025-05-03T18:17:43-04:00
 modified: 2025-05-23T01:29:38-04:00
 dek: In which the author steals his data back from various tools and APIs and uses them to build his own panopticon-for-one
+tags:
+  - api
+  - quantifiedself
+  - programming
+  - personal
 ---
 
 ## Building Personal APIs
@@ -16,7 +21,7 @@ My choices for what data to gobble up are based on my natural intuition and the 
 
 It's also kinda based on what's simply __available__ and what services offer data egress. Though I do always choose services that offer APIs and the ability to export my data wherever possible (fuck Facebook for slowly enshittifying all their APIs over the past 10 years).
 
-This project was deeply inspired by quantified self and the Feltron annual report and tim ferris and that sort of self-tracking and improvement movement, oh and Gwern! From them, I learned a few specific lessons:
+This project was deeply inspired by [robots/quantified-self-as-archaeology|quantified sel](robots/quantified-self-as-archaeology|quantified-sel)f]] and the Feltron annual report and tim ferris and that sort of self-tracking and improvement movement, oh and Gwern! From them, I learned a few specific lessons:
 
 - Feltron taught me to focus on simple narrative metrics, where less is more
 - Ferriss taught me anything is learnable with a system and persistence
@@ -38,7 +43,7 @@ I pull data from Apple Health to track my daily steps, exercise minutes, stand h
 
 **MonkeyType** - Because typing speed actually matters when you code all day. This API tracks my WPM and accuracy, though I'm still not as fast as some of those YouTube programmers who seem to type at the speed of thought.
 
-**Chess** - I suck at chess but I want to get better. The API shows me my win rates and puzzle solving stats. I still suck but at least it's quantified now, and I am hoping that with some concentrated effort and studying I can steadily increase my numbers.
+**Chess** - I suck at chess but I want to get better. The API shows me my win rates and puzzle solving stats. I still suck but at least it's quantified now, and I am hoping that with some concentrated effort and studying I can steadily increase my numbers. (More on [robots/quantified-self-as-archaeology|why I track instead of optimiz](robots/quantified-self-as-archaeology|why-i-track-instead-of-optimiz)e]])
 
 ###  Development
 

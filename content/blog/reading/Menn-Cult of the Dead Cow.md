@@ -1,4 +1,8 @@
 ---
+tags:
+  - hackers
+  - security
+  - culture
 kindle-sync:
   bookId: '25545'
   title: >-

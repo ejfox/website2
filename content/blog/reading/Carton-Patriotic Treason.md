@@ -7,6 +7,11 @@ kindle-sync:
   lastAnnotatedDate: '2025-08-10'
   bookImageUrl: 'https://m.media-amazon.com/images/I/91r7o60L5KL._SY160.jpg'
   highlightsCount: 12
+tags:
+  - book
+  - history
+  - america
+  - activism
 ---
 # Patriotic Treason
 

@@ -7,6 +7,11 @@ kindle-sync:
   lastAnnotatedDate: '2025-01-09'
   bookImageUrl: 'https://m.media-amazon.com/images/I/91lJLAMxYPL._SY160.jpg'
   highlightsCount: 16
+tags:
+  - book
+  - ecology
+  - politics
+  - military
 ---
 # Savage Ecology
 

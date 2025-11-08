@@ -16,6 +16,12 @@
     "featured": false,
     "state": "deployed",
     "aiInvolvement": "human-only",
+    "tags": [
+      "data",
+      "javascript",
+      "tool",
+      "journalism"
+    ],
     "words": 147,
     "images": 0,
     "imageDetails": {

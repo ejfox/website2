@@ -9,6 +9,11 @@ kindle-sync:
   lastAnnotatedDate: '2021-10-11'
   bookImageUrl: 'https://m.media-amazon.com/images/I/81Hq1qcjGbL._SY160.jpg'
   highlightsCount: 13
+tags:
+  - book
+  - culture
+  - history
+  - america
 ---
 # American Indian Myths and Legends
 

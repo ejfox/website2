@@ -3,6 +3,11 @@ dek: In which the strange marriage of language, mathematics, and machine cogniti
 inprogress: true
 date: 2024-10-20T15:17:05-04:00
 modified: 2024-12-23T23:58:23-05:00
+tags:
+  - ai
+  - crypto
+  - hackers
+  - writing
 ---
 
 ## Meet The AI Hackers Wielding Glitch Tokens

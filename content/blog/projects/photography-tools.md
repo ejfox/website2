@@ -5,6 +5,9 @@ modified: 2025-08-13T11:20:07-04:00
 tech: ["Photography", "EXIF", "Print Design", "Web Design", "Camera Metadata"]
 state: deployed
 aiInvolvement: ai-assisted
+tags:
+  - photography
+  - tools
 ---
 
 I love being able to reference the technical details when editing photography—aperture, shutter speed, ISO, all the little choices that go into making a photograph. But most photo prints completely ignore this data, treating it like metadata to be hidden away in EXIF tags that nobody ever sees. So I made a little app to add the EXIF data to the margins of prints you might get from CVS, Walgreens, or Wal-Mart (don't use them for photo prints, I learned the hard way.)
