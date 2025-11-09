@@ -491,10 +491,53 @@ const { data: notes } = useAsyncData('week-notes', async () => {
   }
 })
 
-useHead({
-  title: 'Blog',
-  meta: [{ name: 'description', content: 'Blog posts and week notes' }]
+const blogDescription = computed(() => {
+  const postCount = posts.value?.length || 0
+
+  if (postCount === 0) return 'Thoughts, projects, and explorations in technology, design, and making.'
+
+  // Get 3 most recent posts with dates and word counts
+  const recentPosts = [...(posts.value || [])]
+    .sort((a, b) => new Date(b?.date || b?.metadata?.date) - new Date(a?.date || a?.metadata?.date))
+    .slice(0, 3)
+    .map(p => {
+      const title = p?.title || p?.metadata?.title || formatTitle(p?.slug)
+      const date = formatShortDate(p?.date || p?.metadata?.date)
+      const words = p?.metadata?.words || p?.words || 0
+      const wordCount = words > 0 ? `${(words / 1000).toFixed(1)}K words` : ''
+      return wordCount ? `${title} (${date}, ${wordCount})` : `${title} (${date})`
+    })
+    .join(' • ')
+
+  return recentPosts ? `Latest: ${recentPosts}` : `${postCount} posts on tech, design, and making`
 })
+
+useHead(() => ({
+  title: 'Blog - EJ Fox',
+  meta: [
+    {
+      name: 'description',
+      content: blogDescription.value
+    },
+    { property: 'og:title', content: 'Blog - EJ Fox' },
+    {
+      property: 'og:description',
+      content: blogDescription.value
+    },
+    { property: 'og:url', content: 'https://ejfox.com/blog' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:image', content: 'https://ejfox.com/og-image.png' },
+    { property: 'og:image:width', content: '1200' },
+    { property: 'og:image:height', content: '630' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'Blog - EJ Fox' },
+    {
+      name: 'twitter:description',
+      content: blogDescription.value
+    },
+    { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' }
+  ]
+}))
 
 // Computed data for sparklines
 const postCountByYear = computed(() => {

@@ -1,6 +1,7 @@
 <script setup>
 import { format, isValid, parseISO } from 'date-fns'
 import { useDark, useIntersectionObserver } from '@vueuse/core'
+import sanitizeHtml from 'sanitize-html'
 
 const config = useRuntimeConfig()
 const isDark = useDark()
@@ -311,12 +312,28 @@ const postUrl = computed(
   () => new URL(`/blog/${params.slug.join('/')}`, baseURL).href
 )
 
+// Extract description from content if no dek provided
+const postDescription = computed(() => {
+  const dek = post.value?.metadata?.dek || post.value?.dek
+  if (dek) return dek
+
+  // Fallback: extract first paragraph from HTML
+  const html = post.value?.html || post.value?.content || ''
+  const text = sanitizeHtml(html, {
+    allowedTags: [],
+    allowedAttributes: {}
+  }).replace(/\s+/g, ' ').trim()
+
+  // Take first 160 characters
+  return text.length > 160 ? text.substring(0, 157) + '...' : text
+})
+
 useHead(() => ({
   title: post.value?.metadata?.title || post.value?.title,
   meta: [
     {
       name: 'description',
-      content: post.value?.metadata?.dek || post.value?.dek
+      content: postDescription.value
     },
     {
       property: 'og:title',
@@ -324,10 +341,13 @@ useHead(() => ({
     },
     {
       property: 'og:description',
-      content: post.value?.metadata?.dek || post.value?.dek
+      content: postDescription.value
     },
     { property: 'og:url', content: postUrl.value },
     { property: 'og:type', content: 'article' },
+    { property: 'og:image', content: new URL('/og-image.png', baseURL).href },
+    { property: 'og:image:width', content: '1200' },
+    { property: 'og:image:height', content: '630' },
     { name: 'twitter:card', content: 'summary_large_image' },
     {
       name: 'twitter:title',
@@ -335,8 +355,9 @@ useHead(() => ({
     },
     {
       name: 'twitter:description',
-      content: post.value?.metadata?.dek || post.value?.dek
-    }
+      content: postDescription.value
+    },
+    { name: 'twitter:image', content: new URL('/og-image.png', baseURL).href }
   ],
   link: [{ rel: 'canonical', href: postUrl.value }],
   htmlAttrs: { lang: 'en' }

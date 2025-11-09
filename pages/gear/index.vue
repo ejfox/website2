@@ -243,13 +243,13 @@ const escapeHtml = (text) => {
 const { calculateTotalWeight, calculateAverageWeight, getItemWeightInOunces } =
   useWeightCalculations()
 const gearItems = ref([])
-const weightUnit = ref('metric')
+const weightUnit = ref('imperial')
 const sortBy = ref('weight')
 
 // Initialize weight unit from localStorage on client side only
 onMounted(() => {
   if (process.client) {
-    weightUnit.value = localStorage.getItem('gear-weight-unit') || 'metric'
+    weightUnit.value = localStorage.getItem('gear-weight-unit') || 'imperial'
   }
 })
 
@@ -372,31 +372,44 @@ watchEffect(() => {
   }
 })
 
-const totalItems = computed(() => gearItems.value.length)
-const totalWeight = computed(() =>
-  calculateTotalWeight(gearItems.value).ounces.toFixed(1)
-)
+const totalItems = computed(() => gearItems.value?.length || 0)
+const totalWeight = computed(() => {
+  const total = calculateTotalWeight(gearItems.value || [])
+  const ounces = total.ounces
+  return typeof ounces === 'number' && !isNaN(ounces) ? ounces.toFixed(1) : '0.0'
+})
 const containerCount = computed(() => groupedGear.value?.size || 0)
-const totalWeightInGrams = computed(
-  () => calculateTotalWeight(gearItems.value).grams
-)
-const avgWeightInGrams = computed(
-  () => calculateAverageWeight(gearItems.value).grams
-)
+const totalWeightInGrams = computed(() => {
+  const total = calculateTotalWeight(gearItems.value || [])
+  return total.grams || 0
+})
+const avgWeightInGrams = computed(() => {
+  const avg = calculateAverageWeight(gearItems.value || [])
+  return avg.grams || 0
+})
 
 // Weight display computeds based on selected unit
 const displayTotalWeight = computed(() => {
-  const totalWeightData = calculateTotalWeight(gearItems.value)
+  const totalWeightData = calculateTotalWeight(gearItems.value || [])
   if (weightUnit.value === 'imperial') {
-    const pounds = Math.floor(totalWeightData.ounces / 16)
-    const ounces = (totalWeightData.ounces % 16).toFixed(1)
+    const totalOz = totalWeightData.ounces
+    if (typeof totalOz !== 'number' || isNaN(totalOz)) {
+      return { value: '0oz', unit: '' }
+    }
+    const pounds = Math.floor(totalOz / 16)
+    const ounces = totalOz % 16
+    const ouncesStr = typeof ounces === 'number' && !isNaN(ounces) ? ounces.toFixed(1) : '0.0'
     return {
-      value: pounds > 0 ? `${pounds}lb ${ounces}oz` : `${ounces}oz`,
+      value: pounds > 0 ? `${pounds}lb ${ouncesStr}oz` : `${ouncesStr}oz`,
       unit: pounds > 0 ? '' : ''
     }
   } else {
-    const kg = Math.floor(totalWeightData.grams / 1000)
-    const grams = totalWeightData.grams % 1000
+    const totalG = totalWeightData.grams
+    if (typeof totalG !== 'number' || isNaN(totalG)) {
+      return { value: '0g', unit: '' }
+    }
+    const kg = Math.floor(totalG / 1000)
+    const grams = Math.round(totalG % 1000)
     return {
       value: kg > 0 ? `${kg}kg ${grams}g` : `${grams}g`,
       unit: ''
@@ -405,15 +418,18 @@ const displayTotalWeight = computed(() => {
 })
 
 const displayAvgWeight = computed(() => {
-  const avgWeightData = calculateAverageWeight(gearItems.value)
+  const avgWeightData = calculateAverageWeight(gearItems.value || [])
   if (weightUnit.value === 'imperial') {
+    const oz = avgWeightData.ounces
+    const value = typeof oz === 'number' && !isNaN(oz) ? oz.toFixed(1) : '0.0'
     return {
-      value: avgWeightData.ounces.toFixed(1),
+      value,
       unit: 'oz'
     }
   } else {
+    const g = avgWeightData.grams
     return {
-      value: avgWeightData.grams,
+      value: typeof g === 'number' && !isNaN(g) ? g : 0,
       unit: 'g'
     }
   }
@@ -446,6 +462,49 @@ const typeBreakdown = computed(() => {
     .join(', ')
 })
 
+const gearDescription = computed(() => {
+  try {
+    const items = totalItems.value || 0
+    const weight = displayTotalWeight.value?.value || '0'
+    const containers = containerCount.value || 0
+
+    if (items === 0 || !weight || weight === '0') {
+      return 'Complete gear inventory with weights, specs, and container organization.'
+    }
+
+    return `${items} items • ${weight} total • ${containers} containers • Ultralight backpacking setup`
+  } catch (e) {
+    return 'Complete gear inventory with weights, specs, and container organization.'
+  }
+})
+
+useHead(() => ({
+  title: 'Gear - EJ Fox',
+  meta: [
+    {
+      name: 'description',
+      content: gearDescription.value
+    },
+    { property: 'og:title', content: 'Gear - EJ Fox' },
+    {
+      property: 'og:description',
+      content: gearDescription.value
+    },
+    { property: 'og:url', content: 'https://ejfox.com/gear' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:image', content: 'https://ejfox.com/og-image.png' },
+    { property: 'og:image:width', content: '1200' },
+    { property: 'og:image:height', content: '630' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'Gear - EJ Fox' },
+    {
+      name: 'twitter:description',
+      content: gearDescription.value
+    },
+    { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' }
+  ]
+}))
+
 const sortItemsByName = (items) => {
   return [...items].sort((a, b) => a.Name.localeCompare(b.Name))
 }
@@ -472,19 +531,25 @@ const toggleSort = () => {
 const getAvgItemWeight = (items) => {
   const avgWeight = calculateAverageWeight(items)
   if (weightUnit.value === 'imperial') {
-    return avgWeight.ounces > 16
-      ? `${(avgWeight.ounces / 16).toFixed(1)}lb`
-      : `${avgWeight.ounces.toFixed(0)}oz`
+    const oz = avgWeight.ounces
+    if (typeof oz !== 'number' || isNaN(oz)) return '0oz'
+    return oz > 16
+      ? `${(oz / 16).toFixed(1)}lb`
+      : `${oz.toFixed(0)}oz`
   }
-  return avgWeight.grams > 1000
-    ? `${(avgWeight.grams / 1000).toFixed(1)}kg`
-    : `${Math.round(avgWeight.grams)}g`
+  const g = avgWeight.grams
+  if (typeof g !== 'number' || isNaN(g)) return '0g'
+  return g > 1000
+    ? `${(g / 1000).toFixed(1)}kg`
+    : `${Math.round(g)}g`
 }
 
 const getWeightPercentage = (item, allItems) => {
   const itemWeight = getItemWeightInOunces(item)
   const totalWeight = calculateTotalWeight(allItems).ounces
-  return ((itemWeight / totalWeight) * 100).toFixed(1)
+  if (!totalWeight || totalWeight === 0) return '0.0'
+  const percentage = (itemWeight / totalWeight) * 100
+  return typeof percentage === 'number' && !isNaN(percentage) ? percentage.toFixed(1) : '0.0'
 }
 
 const getMaxWeight = (items) => {
@@ -493,6 +558,9 @@ const getMaxWeight = (items) => {
 
 const formatItemWeight = (item) => {
   const oz = getItemWeightInOunces(item)
+  if (typeof oz !== 'number' || isNaN(oz)) {
+    return weightUnit.value === 'imperial' ? '0oz' : '0g'
+  }
   if (weightUnit.value === 'imperial') {
     return oz > 16 ? `${(oz / 16).toFixed(1)}lb` : `${oz.toFixed(1)}oz`
   }
@@ -503,10 +571,14 @@ const formatItemWeight = (item) => {
 const getWeightRange = (items) => {
   const weights = items
     .map((item) => getItemWeightInOunces(item))
-    .filter((w) => w > 0)
+    .filter((w) => typeof w === 'number' && !isNaN(w) && w > 0)
   if (weights.length === 0) return '—'
   const min = Math.min(...weights)
   const max = Math.max(...weights)
+
+  if (typeof min !== 'number' || isNaN(min) || typeof max !== 'number' || isNaN(max)) {
+    return '—'
+  }
 
   if (weightUnit.value === 'imperial') {
     return `${min.toFixed(0)}–${max.toFixed(0)}oz`
@@ -519,13 +591,18 @@ const getWeightRange = (items) => {
 const getWeightHistogram = (items) => {
   const weights = items
     .map((item) => getItemWeightInOunces(item))
-    .filter((w) => w > 0)
+    .filter((w) => typeof w === 'number' && !isNaN(w) && w > 0)
   if (weights.length === 0) return []
 
   const min = Math.min(...weights)
   const max = Math.max(...weights)
+
+  if (typeof min !== 'number' || isNaN(min) || typeof max !== 'number' || isNaN(max)) {
+    return []
+  }
+
   const bucketCount = Math.min(10, weights.length)
-  const bucketSize = (max - min) / bucketCount
+  const bucketSize = (max - min) / bucketCount || 1
 
   const buckets = Array(bucketCount).fill(0)
   weights.forEach((w) => {
@@ -537,11 +614,15 @@ const getWeightHistogram = (items) => {
   })
 
   const maxCount = Math.max(...buckets)
-  return buckets.map((count, i) => ({
-    count,
-    height: (count / maxCount) * 100,
-    range: `${(min + i * bucketSize).toFixed(0)}-${(min + (i + 1) * bucketSize).toFixed(0)}oz`
-  }))
+  return buckets.map((count, i) => {
+    const rangeStart = min + i * bucketSize
+    const rangeEnd = min + (i + 1) * bucketSize
+    return {
+      count,
+      height: (count / maxCount) * 100,
+      range: `${rangeStart.toFixed(0)}-${rangeEnd.toFixed(0)}oz`
+    }
+  })
 }
 
 const currentDate = new Date().toISOString().split('T')[0]

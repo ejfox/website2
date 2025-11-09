@@ -25,13 +25,29 @@ onMounted(() => {
 
 // SEO and performance optimization
 useHead({
-  title: 'EJ Fox - Hacker, Journalist, Data Visualization Specialist',
+  title: 'EJ Fox - Data Visualization Specialist & Journalist',
   meta: [
     {
       name: 'description',
-      content:
-        'EJ Fox: Using code + art to uncover hidden patterns. Data visualization, journalism, and technology for good.'
-    }
+      content: 'Data visualization specialist and journalist working at the intersection of technology and storytelling. Helping organizations transform complex datasets into clear, compelling narratives.'
+    },
+    {
+      property: 'og:title',
+      content: 'EJ Fox - Data Visualization Specialist & Journalist'
+    },
+    {
+      property: 'og:description',
+      content: 'Data visualization specialist and journalist working at the intersection of technology and storytelling. Helping organizations transform complex datasets into clear, compelling narratives.'
+    },
+    { property: 'og:url', content: 'https://ejfox.com' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:image', content: 'https://ejfox.com/og-image.png' },
+    { property: 'og:image:width', content: '1200' },
+    { property: 'og:image:height', content: '630' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'EJ Fox - Data Visualization Specialist & Journalist' },
+    { name: 'twitter:description', content: 'Data visualization specialist and journalist working at the intersection of technology and storytelling. Helping organizations transform complex datasets into clear, compelling narratives.' },
+    { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' }
   ]
 })
 </script>

@@ -590,6 +590,47 @@ import UmamiStats from '~/components/stats/UmamiStats.vue'
 import GearStats from '~/components/stats/GearStats.vue'
 import ActivityCalendar from '~/components/stats/ActivityCalendar.vue'
 
+const statsDescription = computed(() => {
+  const s = stats.value
+  if (!s) return 'Real-time personal metrics dashboard: GitHub contributions, chess ratings, typing speed, music listening, coding problems solved, books read, and more.'
+
+  const parts = []
+  if (s.github?.totalCommits) parts.push(`${s.github.totalCommits} commits`)
+  if (s.chess?.blitzRating) parts.push(`${s.chess.blitzRating} chess`)
+  if (s.monkeytype?.avgWpm) parts.push(`${Math.round(s.monkeytype.avgWpm)}wpm typing`)
+  if (s.leetcode?.solved) parts.push(`${s.leetcode.solved} problems`)
+  if (s.blog?.totalPosts) parts.push(`${s.blog.totalPosts} posts`)
+
+  return parts.length > 0 ? parts.join(' • ') : 'Real-time personal metrics dashboard'
+})
+
+useHead(() => ({
+  title: 'Stats - EJ Fox',
+  meta: [
+    {
+      name: 'description',
+      content: statsDescription.value
+    },
+    { property: 'og:title', content: 'Stats - EJ Fox' },
+    {
+      property: 'og:description',
+      content: statsDescription.value
+    },
+    { property: 'og:url', content: 'https://ejfox.com/stats' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:image', content: 'https://ejfox.com/og-image.png' },
+    { property: 'og:image:width', content: '1200' },
+    { property: 'og:image:height', content: '630' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'Stats - EJ Fox' },
+    {
+      name: 'twitter:description',
+      content: statsDescription.value
+    },
+    { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' }
+  ]
+}))
+
 const route = useRoute()
 
 const { stats: rawStats, isLoading } = useStats()

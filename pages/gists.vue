@@ -101,6 +101,49 @@ const languageCountsFormatted = computed(() => {
     .join(', ')
 })
 
+// OpenGraph description with overview stats
+const gistsDescription = computed(() => {
+  const gistCount = totalGists.value || 0
+  const fileCount = totalFiles.value || 0
+  const sizeKB = Math.round(totalSize.value / 1024)
+
+  if (gistCount === 0) return 'Code snippets, scripts, and experiments from GitHub Gists'
+
+  const topLangs = languageCounts.value
+    .slice(0, 4)
+    .map(([lang, count]) => `${lang} (${count})`)
+    .join(' • ')
+
+  return `${gistCount} gists • ${fileCount} files • ${sizeKB}KB • ${topLangs}`
+})
+
+useHead(() => ({
+  title: 'Gists - EJ Fox',
+  meta: [
+    {
+      name: 'description',
+      content: gistsDescription.value
+    },
+    { property: 'og:title', content: 'Gists - EJ Fox' },
+    {
+      property: 'og:description',
+      content: gistsDescription.value
+    },
+    { property: 'og:url', content: 'https://ejfox.com/gists' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:image', content: 'https://ejfox.com/og-image.png' },
+    { property: 'og:image:width', content: '1200' },
+    { property: 'og:image:height', content: '630' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'Gists - EJ Fox' },
+    {
+      name: 'twitter:description',
+      content: gistsDescription.value
+    },
+    { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' }
+  ]
+}))
+
 // Expand/collapse state for gists
 const expandedGists = ref<Set<string>>(new Set())
 

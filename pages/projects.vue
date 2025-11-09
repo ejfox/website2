@@ -3,6 +3,51 @@
 import FeaturedProjectCard from '~/components/projects/FeaturedProjectCard.vue'
 import ProjectCard from '~/components/projects/ProjectCard.vue'
 
+const projectsDescription = computed(() => {
+  const total = projects.value?.length || 0
+  const featured = featuredProjects.value?.length || 0
+
+  if (total === 0) return 'Interactive data visualization work and journalism projects.'
+
+  // Get up to 3 recent project names
+  const recentProjects = projects.value
+    ?.slice(0, 3)
+    .map(p => p.title || p.metadata?.title)
+    .filter(Boolean)
+    .join(', ') || ''
+
+  const stats = `${total} projects${featured > 0 ? ` • ${featured} featured` : ''}`
+
+  return recentProjects ? `${stats} • Latest: ${recentProjects}` : stats
+})
+
+useHead(() => ({
+  title: 'Projects - EJ Fox',
+  meta: [
+    {
+      name: 'description',
+      content: projectsDescription.value
+    },
+    { property: 'og:title', content: 'Projects - EJ Fox' },
+    {
+      property: 'og:description',
+      content: projectsDescription.value
+    },
+    { property: 'og:url', content: 'https://ejfox.com/projects' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:image', content: 'https://ejfox.com/og-image.png' },
+    { property: 'og:image:width', content: '1200' },
+    { property: 'og:image:height', content: '630' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'Projects - EJ Fox' },
+    {
+      name: 'twitter:description',
+      content: projectsDescription.value
+    },
+    { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' }
+  ]
+}))
+
 const { data: projects } = await useAsyncData('projects-page-data', () =>
   $fetch('/api/projects')
 )

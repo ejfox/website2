@@ -72,21 +72,23 @@ const typeSymbols = {
 const getTypeSymbol = (type) => typeSymbols[type] || '—'
 
 const formatWeight = (weightOz) => {
-  if (!weightOz) return '—'
+  const oz = parseFloat(weightOz)
+  if (typeof oz !== 'number' || isNaN(oz) || oz <= 0) return '—'
 
   if (props.weightUnit === 'imperial') {
     // Convert to imperial
-    if (weightOz >= 16) {
-      const pounds = (weightOz / 16).toFixed(1)
-      return `${pounds}lb`
+    if (oz >= 16) {
+      const pounds = oz / 16
+      return typeof pounds === 'number' && !isNaN(pounds) ? `${pounds.toFixed(1)}lb` : '—'
     }
-    return `${weightOz.toFixed(1)}oz`
+    return `${oz.toFixed(1)}oz`
   } else {
     // Convert to metric
-    const grams = Math.round(weightOz * 28.3495)
+    const grams = Math.round(oz * 28.3495)
+    if (typeof grams !== 'number' || isNaN(grams)) return '—'
     if (grams >= 1000) {
-      const kg = (grams / 1000).toFixed(1)
-      return `${kg}kg`
+      const kg = grams / 1000
+      return typeof kg === 'number' && !isNaN(kg) ? `${kg.toFixed(1)}kg` : `${grams}g`
     }
     return `${grams}g`
   }

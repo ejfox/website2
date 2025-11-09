@@ -13,6 +13,7 @@ export const useWeightCalculations = () => {
    * Convert ounces to grams (rounded)
    */
   const ouncesToGrams = (ounces: number): number => {
+    if (typeof ounces !== 'number' || isNaN(ounces)) return 0
     return Math.round(ounces * OZ_TO_GRAMS)
   }
 
@@ -20,6 +21,7 @@ export const useWeightCalculations = () => {
    * Convert ounces to pounds
    */
   const ouncesToPounds = (ounces: number): number => {
+    if (typeof ounces !== 'number' || isNaN(ounces)) return 0
     return ounces / OZ_TO_POUNDS
   }
 
@@ -27,7 +29,7 @@ export const useWeightCalculations = () => {
    * Format weight display - grams for light items, pounds for heavy items
    */
   const formatWeight = (ounces: number, forceUnit?: 'g' | 'lbs'): string => {
-    if (ounces <= 0) return '0'
+    if (typeof ounces !== 'number' || isNaN(ounces) || ounces <= 0) return '0'
 
     const grams = ouncesToGrams(ounces)
 
@@ -36,12 +38,14 @@ export const useWeightCalculations = () => {
     }
 
     if (forceUnit === 'lbs') {
-      return `${ouncesToPounds(ounces).toFixed(1)}lbs`
+      const pounds = ouncesToPounds(ounces)
+      return typeof pounds === 'number' && !isNaN(pounds) ? `${pounds.toFixed(1)}lbs` : '0lbs'
     }
 
     // Auto-format: use pounds if over threshold, otherwise grams
     if (grams > GRAMS_TO_POUNDS_THRESHOLD) {
-      return `${ouncesToPounds(ounces).toFixed(1)}lbs`
+      const pounds = ouncesToPounds(ounces)
+      return typeof pounds === 'number' && !isNaN(pounds) ? `${pounds.toFixed(1)}lbs` : `${grams}g`
     }
 
     return `${grams}g`

@@ -200,6 +200,45 @@
 <script setup>
 import PredictionCard from '~/components/predictions/PredictionCard.vue'
 
+const predictionsDescription = computed(() => {
+  const total = transformedPredictions.value?.length || 0
+  const correct = correctCount.value || 0
+  const incorrect = incorrectCount.value || 0
+  const resolved = correct + incorrect
+  const accuracy = resolved > 0 ? Math.round((correct / resolved) * 100) : 0
+
+  if (total === 0) return 'Cryptographically verified predictions with SHA-256 hashing and git-based version control.'
+
+  return `${total} predictions • ${resolved} resolved • ${accuracy}% accuracy • SHA-256 + Git timestamps`
+})
+
+useHead(() => ({
+  title: 'Predictions - EJ Fox',
+  meta: [
+    {
+      name: 'description',
+      content: predictionsDescription.value
+    },
+    { property: 'og:title', content: 'Predictions - EJ Fox' },
+    {
+      property: 'og:description',
+      content: predictionsDescription.value
+    },
+    { property: 'og:url', content: 'https://ejfox.com/predictions' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:image', content: 'https://ejfox.com/og-image.png' },
+    { property: 'og:image:width', content: '1200' },
+    { property: 'og:image:height', content: '630' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'Predictions - EJ Fox' },
+    {
+      name: 'twitter:description',
+      content: predictionsDescription.value
+    },
+    { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' }
+  ]
+}))
+
 const { data: predictions } = await useFetch('/api/predictions')
 const filter = ref('all')
 const sortBy = ref('date')
