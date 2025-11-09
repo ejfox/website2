@@ -62,16 +62,37 @@
     <!-- Micro-divider -->
     <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
 
-    <!-- Type Distribution - Compressed -->
+    <!-- Weight Per Type - Ultra Dense -->
     <div class="space-y-0.5">
-      <div class="text-zinc-500 text-[9px] uppercase tracking-wider mb-1">TYPES</div>
+      <div class="text-zinc-500 text-[9px] uppercase tracking-wider mb-1">WEIGHT BY TYPE</div>
       <div class="grid grid-cols-2 gap-x-3 gap-y-0.5">
         <div
-          v-for="[type, count] in sortedTypeDistribution"
+          v-for="item in weightPerType.slice(0, 10)"
+          :key="item.type"
+          class="flex items-baseline justify-between gap-1"
+        >
+          <span class="text-zinc-500 text-[8px] uppercase truncate">{{ item.type }}</span>
+          <div class="flex items-baseline gap-1">
+            <span class="text-zinc-700 dark:text-zinc-300 tabular-nums text-[9px]">{{ item.weight.toFixed(1) }}</span>
+            <span class="text-zinc-500 text-[8px]">oz</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Micro-divider -->
+    <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
+
+    <!-- Type Distribution - Compressed -->
+    <div class="space-y-0.5">
+      <div class="text-zinc-500 text-[9px] uppercase tracking-wider mb-1">TYPE COUNTS</div>
+      <div class="grid grid-cols-2 gap-x-3 gap-y-0.5">
+        <div
+          v-for="[type, count] in sortedTypeDistribution.slice(0, 10)"
           :key="type"
           class="flex items-center justify-between gap-1"
         >
-          <span class="text-zinc-500 text-[9px] uppercase truncate">{{ type }}</span>
+          <span class="text-zinc-500 text-[8px] uppercase truncate">{{ type }}</span>
           <div class="flex items-center gap-1">
             <div
               class="h-1 bg-zinc-400 dark:bg-zinc-600 rounded-[1px]"
@@ -85,17 +106,51 @@
       </div>
     </div>
 
-    <!-- Heaviest Items -->
-    <div class="space-y-0.5" v-if="heaviestItems.length > 0">
+    <!-- Heaviest & Lightest Items - Side by Side -->
+    <div class="grid grid-cols-2 gap-x-4" v-if="heaviestItems.length > 0">
+      <div class="space-y-0.5">
+        <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
+        <div class="text-zinc-500 text-[9px] uppercase tracking-wider mb-1">HEAVIEST</div>
+        <div
+          v-for="item in heaviestItems.slice(0, 5)"
+          :key="item.Name"
+          class="flex justify-between gap-2 text-[9px]"
+        >
+          <span class="text-zinc-700 dark:text-zinc-300 truncate">{{ item.Name }}</span>
+          <span class="text-zinc-500 tabular-nums flex-shrink-0">{{ parseFloat(item.Weight_oz || '0').toFixed(1) }}</span>
+        </div>
+      </div>
+
+      <div class="space-y-0.5" v-if="lightestItems.length > 0">
+        <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
+        <div class="text-zinc-500 text-[9px] uppercase tracking-wider mb-1">LIGHTEST</div>
+        <div
+          v-for="item in lightestItems.slice(0, 5)"
+          :key="item.Name"
+          class="flex justify-between gap-2 text-[9px]"
+        >
+          <span class="text-zinc-700 dark:text-zinc-300 truncate">{{ item.Name }}</span>
+          <span class="text-zinc-500 tabular-nums flex-shrink-0">{{ parseFloat(item.Weight_oz || '0').toFixed(1) }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Average Weight Per Type -->
+    <div class="space-y-0.5" v-if="weightPerType.length > 0">
       <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
-      <div class="text-zinc-500 text-[9px] uppercase tracking-wider mb-1">HEAVIEST</div>
-      <div
-        v-for="item in heaviestItems.slice(0, 5)"
-        :key="item.Name"
-        class="flex justify-between gap-2 text-[9px]"
-      >
-        <span class="text-zinc-700 dark:text-zinc-300 truncate">{{ item.Name }}</span>
-        <span class="text-zinc-500 tabular-nums flex-shrink-0">{{ parseFloat(item.Weight_oz || '0').toFixed(1) }}oz</span>
+      <div class="text-zinc-500 text-[9px] uppercase tracking-wider mb-1">AVG WT/TYPE</div>
+      <div class="grid grid-cols-2 gap-x-3 gap-y-0.5">
+        <div
+          v-for="item in weightPerType.slice(0, 8)"
+          :key="item.type + '-avg'"
+          class="flex items-baseline justify-between gap-1"
+        >
+          <span class="text-zinc-500 text-[8px] uppercase truncate">{{ item.type }}</span>
+          <div class="flex items-baseline gap-1">
+            <span class="text-zinc-700 dark:text-zinc-300 tabular-nums text-[9px]">{{ item.avgWeight.toFixed(1) }}</span>
+            <span class="text-zinc-500 text-[8px]">oz</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -194,11 +249,40 @@ const gramsPerItem = computed(() => {
   return (totalWeight.value * 28.35) / totalItems.value
 })
 
+// Weight per type/category
+const weightPerType = computed(() => {
+  if (!gearItems.value?.length) return []
+
+  const typeWeights = gearItems.value.reduce((acc: Record<string, number>, item) => {
+    if (item.Type && item.Weight_oz) {
+      const weight = parseFloat(item.Weight_oz) || 0
+      acc[item.Type] = (acc[item.Type] || 0) + weight
+    }
+    return acc
+  }, {})
+
+  return Object.entries(typeWeights)
+    .map(([type, weight]) => ({
+      type,
+      weight: weight,
+      count: typeDistribution.value[type] || 0,
+      avgWeight: weight / (typeDistribution.value[type] || 1)
+    }))
+    .sort((a, b) => b.weight - a.weight)
+})
+
 // Heaviest items
 const heaviestItems = computed(() => {
   return [...gearItems.value]
     .filter(item => item.Weight_oz && parseFloat(item.Weight_oz) > 0)
     .sort((a, b) => parseFloat(b.Weight_oz || '0') - parseFloat(a.Weight_oz || '0'))
+})
+
+// Lightest items (for comparison)
+const lightestItems = computed(() => {
+  return [...gearItems.value]
+    .filter(item => item.Weight_oz && parseFloat(item.Weight_oz) > 0)
+    .sort((a, b) => parseFloat(a.Weight_oz || '0') - parseFloat(b.Weight_oz || '0'))
 })
 
 // Main containers - top-level bags and carrying systems
