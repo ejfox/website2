@@ -48,6 +48,7 @@ export default defineNuxtConfig({
     CHESS_USERNAME: process.env.CHESS_USERNAME || '',
     RESCUETIME_TOKEN: process.env.RESCUETIME_TOKEN || '',
     LASTFM_API_KEY: process.env.LASTFM_API_KEY || '',
+    MONKEYTYPE_TOKEN: process.env.MONKEYTYPE_TOKEN || '',
     UMAMI_USERNAME: process.env.UMAMI_USERNAME || 'admin',
     UMAMI_PASSWORD: process.env.UMAMI_PASSWORD || '',
 
