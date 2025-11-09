@@ -21,8 +21,8 @@
         />
         PEAK ·
         <AnimatedNumber
-          :value="winRate"
-          format="percent"
+          :value="Math.round(winRate)"
+          format="commas"
           priority="tertiary"
         />% WIN RATE
       </div>
