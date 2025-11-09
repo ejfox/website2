@@ -1,5 +1,5 @@
 <template>
-  <div ref="gearStatsRef" class="space-y-4 pr-4 md:pr-8 font-mono text-[10px] leading-tight">
+  <div ref="gearStatsRef" class="space-y-4 pr-4 md:pr-8 font-mono text-2xs leading-tight">
     <!-- Ultra-Dense Stats Grid -->
     <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
       <div class="flex justify-between">
@@ -41,17 +41,17 @@
 
     <!-- Containers - Ultra Dense -->
     <div class="space-y-0.5">
-      <div class="text-zinc-500 text-[9px] uppercase tracking-wider mb-1">BAGS</div>
+      <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-1">BAGS</div>
       <div
         v-for="container in mainContainers"
         :key="container.name"
         class="flex items-baseline justify-between gap-2 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 -mx-1 px-1"
       >
         <div class="flex items-baseline gap-1.5 min-w-0 flex-1">
-          <span class="text-zinc-500 text-[8px]">{{ container.type.substring(0, 3) }}</span>
-          <span class="text-zinc-700 dark:text-zinc-300 truncate text-[10px]">{{ container.name }}</span>
+          <span class="text-zinc-500 text-4xs">{{ container.type.substring(0, 3) }}</span>
+          <span class="text-zinc-700 dark:text-zinc-300 truncate text-2xs">{{ container.name }}</span>
         </div>
-        <div class="flex items-baseline gap-2 text-zinc-500 tabular-nums text-[9px] flex-shrink-0">
+        <div class="flex items-baseline gap-2 text-zinc-500 tabular-nums text-3xs flex-shrink-0">
           <span>{{ container.itemCount }}</span>
           <span class="text-zinc-700 dark:text-zinc-300">{{ formatWeight(parseFloat(container.weight)) }}</span>
         </div>
@@ -63,15 +63,15 @@
 
     <!-- Weight Per Type - Ultra Dense -->
     <div class="space-y-0.5">
-      <div class="text-zinc-500 text-[9px] uppercase tracking-wider mb-1">WEIGHT BY TYPE</div>
+      <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-1">WEIGHT BY TYPE</div>
       <div class="grid grid-cols-2 gap-x-3 gap-y-0.5">
         <div
           v-for="item in weightPerType.slice(0, 10)"
           :key="item.type"
           class="flex items-baseline justify-between gap-1"
         >
-          <span class="text-zinc-500 text-[8px] uppercase truncate">{{ item.type }}</span>
-          <span class="text-zinc-700 dark:text-zinc-300 tabular-nums text-[9px]">{{ formatWeight(item.weight) }}</span>
+          <span class="text-zinc-500 text-4xs uppercase truncate">{{ item.type }}</span>
+          <span class="text-zinc-700 dark:text-zinc-300 tabular-nums text-3xs">{{ formatWeight(item.weight) }}</span>
         </div>
       </div>
     </div>
@@ -81,14 +81,14 @@
 
     <!-- Type Distribution - Compressed -->
     <div class="space-y-0.5">
-      <div class="text-zinc-500 text-[9px] uppercase tracking-wider mb-1">TYPE COUNTS</div>
+      <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-1">TYPE COUNTS</div>
       <div class="grid grid-cols-2 gap-x-3 gap-y-0.5">
         <div
           v-for="[type, count] in sortedTypeDistribution.slice(0, 10)"
           :key="type"
           class="flex items-center justify-between gap-1"
         >
-          <span class="text-zinc-500 text-[8px] uppercase truncate">{{ type }}</span>
+          <span class="text-zinc-500 text-4xs uppercase truncate">{{ type }}</span>
           <div class="flex items-center gap-1">
             <div
               class="h-1 bg-zinc-400 dark:bg-zinc-600 rounded-[1px]"
@@ -96,7 +96,7 @@
                 width: `${Math.max(4, (count / maxTypeCount) * 20)}px`
               }"
             ></div>
-            <span class="text-zinc-700 dark:text-zinc-300 tabular-nums text-[9px] w-4 text-right">{{ count }}</span>
+            <span class="text-zinc-700 dark:text-zinc-300 tabular-nums text-3xs w-4 text-right">{{ count }}</span>
           </div>
         </div>
       </div>
@@ -105,11 +105,11 @@
     <!-- Favorites - Pinned to Top -->
     <div class="space-y-0.5" v-if="favoriteItems.length > 0">
       <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
-      <div class="text-zinc-500 text-[9px] uppercase tracking-wider mb-1">⭐ ESSENTIALS</div>
+      <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-1">⭐ ESSENTIALS</div>
       <div
         v-for="item in favoriteItems.slice(0, 8)"
         :key="item.Name"
-        class="flex justify-between gap-2 text-[9px]"
+        class="flex justify-between gap-2 text-3xs"
       >
         <span class="text-zinc-700 dark:text-zinc-300 truncate">{{ item.Name }}</span>
         <span class="text-zinc-500 tabular-nums flex-shrink-0">{{ formatWeight(parseFloat(item.Weight_oz || '0')) }}</span>
@@ -119,15 +119,15 @@
     <!-- Recently Used -->
     <div class="space-y-0.5" v-if="recentlyUsed.length > 0">
       <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
-      <div class="text-zinc-500 text-[9px] uppercase tracking-wider mb-1">RECENTLY USED</div>
+      <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-1">RECENTLY USED</div>
       <div
         v-for="item in recentlyUsed.slice(0, 8)"
         :key="item.Name"
-        class="flex justify-between gap-2 text-[9px]"
+        class="flex justify-between gap-2 text-3xs"
       >
         <span class="text-zinc-700 dark:text-zinc-300 truncate">{{ item.Name }}</span>
         <div class="flex items-baseline gap-1.5">
-          <span class="text-zinc-500 text-[8px]">{{ item.Last_Used }}</span>
+          <span class="text-zinc-500 text-4xs">{{ item.Last_Used }}</span>
           <span class="text-zinc-500 tabular-nums flex-shrink-0">{{ formatWeight(parseFloat(item.Weight_oz || '0')) }}</span>
         </div>
       </div>
@@ -136,15 +136,15 @@
     <!-- Average Weight Per Type -->
     <div class="space-y-0.5" v-if="weightPerType.length > 0">
       <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
-      <div class="text-zinc-500 text-[9px] uppercase tracking-wider mb-1">AVG WT/TYPE</div>
+      <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-1">AVG WT/TYPE</div>
       <div class="grid grid-cols-2 gap-x-3 gap-y-0.5">
         <div
           v-for="item in weightPerType.slice(0, 8)"
           :key="item.type + '-avg'"
           class="flex items-baseline justify-between gap-1"
         >
-          <span class="text-zinc-500 text-[8px] uppercase truncate">{{ item.type }}</span>
-          <span class="text-zinc-700 dark:text-zinc-300 tabular-nums text-[9px]">{{ formatWeight(item.avgWeight) }}</span>
+          <span class="text-zinc-500 text-4xs uppercase truncate">{{ item.type }}</span>
+          <span class="text-zinc-700 dark:text-zinc-300 tabular-nums text-3xs">{{ formatWeight(item.avgWeight) }}</span>
         </div>
       </div>
     </div>

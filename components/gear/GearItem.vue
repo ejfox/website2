@@ -7,8 +7,8 @@
       :title="item.Name + (item.Notes ? '\n\n' + item.Notes : '')"
     >
       <div class="flex items-center gap-1.5">
-        <span class="truncate flex-1 text-[9px]">{{ item.Name }}</span>
-        <span v-if="item.Notes" class="text-zinc-700 text-[7px]">•</span>
+        <span class="truncate flex-1 text-3xs">{{ item.Name }}</span>
+        <span v-if="item.Notes" class="text-zinc-700 text-5xs">•</span>
       </div>
     </td>
     <td class="px-1 py-0.5 text-center">
@@ -17,34 +17,34 @@
         :href="addAffiliateCode(item.Amazon_URL)"
         target="_blank"
         rel="nofollow noopener"
-        class="text-[8px] font-mono uppercase tracking-wider text-orange-600/70 hover:text-orange-500 hover:bg-orange-500/10 px-1.5 py-0.5 rounded transition-all inline-block"
+        class="text-4xs font-mono uppercase tracking-wider text-orange-600/70 hover:text-orange-500 hover:bg-orange-500/10 px-1.5 py-0.5 rounded transition-all inline-block"
         @click.stop
         title="Buy on Amazon"
       >
         BUY
       </a>
-      <span v-else class="text-zinc-800 text-[8px]">—</span>
+      <span v-else class="text-zinc-800 text-4xs">—</span>
     </td>
-    <td class="px-1 py-0.5 text-center text-zinc-500 text-[10px]">
+    <td class="px-1 py-0.5 text-center text-zinc-500 text-2xs">
       {{ getTypeSymbol(item.Type) }}
     </td>
-    <td class="px-1 py-0.5 text-center text-zinc-600 text-[8px]">
+    <td class="px-1 py-0.5 text-center text-zinc-600 text-4xs">
       {{ getCategoryAbbr(item.Category) }}
     </td>
-    <td class="px-1 py-0.5 text-center text-zinc-600 text-[8px]">
+    <td class="px-1 py-0.5 text-center text-zinc-600 text-4xs">
       {{ getWaterproofSymbol(item.Waterproof) }}
     </td>
-    <td class="px-1 py-0.5 text-center text-zinc-600 text-[8px]">
+    <td class="px-1 py-0.5 text-center text-zinc-600 text-4xs">
       {{ getPrioritySymbol(item.Priority) }}
     </td>
-    <td class="px-1 py-0.5 text-center text-zinc-600 text-[8px]">
+    <td class="px-1 py-0.5 text-center text-zinc-600 text-4xs">
       {{ getConditionSymbol(item.Condition) }}
     </td>
-    <td class="px-1 py-0.5 text-center text-zinc-600 tabular-nums text-[8px]">
+    <td class="px-1 py-0.5 text-center text-zinc-600 tabular-nums text-4xs">
       {{ getDaysSinceUsed(item.Last_Used) }}
     </td>
     <td class="px-1 py-0.5 text-right text-zinc-300 tabular-nums pr-2">
-      <span class="text-[9px] font-medium">{{
+      <span class="text-3xs font-medium">{{
         formatWeight(item.Weight_oz)
       }}</span>
     </td>
