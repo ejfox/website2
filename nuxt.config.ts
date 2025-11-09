@@ -48,7 +48,11 @@ export default defineNuxtConfig({
     CHESS_USERNAME: process.env.CHESS_USERNAME || '',
     RESCUETIME_TOKEN: process.env.RESCUETIME_TOKEN || '',
     LASTFM_API_KEY: process.env.LASTFM_API_KEY || '',
+    LASTFM_SHARED_SECRET: process.env.LASTFM_SHARED_SECRET || '',
     MONKEYTYPE_TOKEN: process.env.MONKEYTYPE_TOKEN || '',
+    OPENAI_API_KEY: process.env.OPENAI_API_KEY || '',
+    YOUTUBE_API_KEY: process.env.YOUTUBE_API_KEY || '',
+    YOUTUBE_CHANNEL_ID: process.env.YOUTUBE_CHANNEL_ID || '',
     UMAMI_USERNAME: process.env.UMAMI_USERNAME || 'admin',
     UMAMI_PASSWORD: process.env.UMAMI_PASSWORD || '',
 

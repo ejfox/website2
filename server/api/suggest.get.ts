@@ -230,7 +230,7 @@ async function generateAISuggestions(
   similarPosts: BlogPost[]
 ): Promise<{ tags: string[]; summary: string; threads: string[] }> {
   const config = useRuntimeConfig()
-  const openaiKey = config.openaiApiKey || process.env.OPENAI_API_KEY
+  const openaiKey = config.OPENAI_API_KEY || process.env.OPENAI_API_KEY
 
   if (!openaiKey) {
     // Fallback to simple keyword matching *swoosh*
