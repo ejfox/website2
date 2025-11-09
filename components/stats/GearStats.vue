@@ -53,8 +53,7 @@
         </div>
         <div class="flex items-baseline gap-2 text-zinc-500 tabular-nums text-[9px] flex-shrink-0">
           <span>{{ container.itemCount }}</span>
-          <span class="text-zinc-700 dark:text-zinc-300">{{ container.weight }}oz</span>
-          <span class="text-zinc-500">({{ (parseFloat(container.weight) * 28.35).toFixed(0) }}g)</span>
+          <span class="text-zinc-700 dark:text-zinc-300">{{ formatWeight(parseFloat(container.weight)) }}</span>
         </div>
       </div>
     </div>
@@ -72,10 +71,7 @@
           class="flex items-baseline justify-between gap-1"
         >
           <span class="text-zinc-500 text-[8px] uppercase truncate">{{ item.type }}</span>
-          <div class="flex items-baseline gap-1">
-            <span class="text-zinc-700 dark:text-zinc-300 tabular-nums text-[9px]">{{ item.weight.toFixed(1) }}</span>
-            <span class="text-zinc-500 text-[8px]">oz</span>
-          </div>
+          <span class="text-zinc-700 dark:text-zinc-300 tabular-nums text-[9px]">{{ formatWeight(item.weight) }}</span>
         </div>
       </div>
     </div>
@@ -106,31 +102,33 @@
       </div>
     </div>
 
-    <!-- Heaviest & Lightest Items - Side by Side -->
-    <div class="grid grid-cols-2 gap-x-4" v-if="heaviestItems.length > 0">
-      <div class="space-y-0.5">
-        <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
-        <div class="text-zinc-500 text-[9px] uppercase tracking-wider mb-1">HEAVIEST</div>
-        <div
-          v-for="item in heaviestItems.slice(0, 5)"
-          :key="item.Name"
-          class="flex justify-between gap-2 text-[9px]"
-        >
-          <span class="text-zinc-700 dark:text-zinc-300 truncate">{{ item.Name }}</span>
-          <span class="text-zinc-500 tabular-nums flex-shrink-0">{{ parseFloat(item.Weight_oz || '0').toFixed(1) }}</span>
-        </div>
+    <!-- Favorites - Pinned to Top -->
+    <div class="space-y-0.5" v-if="favoriteItems.length > 0">
+      <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
+      <div class="text-zinc-500 text-[9px] uppercase tracking-wider mb-1">⭐ ESSENTIALS</div>
+      <div
+        v-for="item in favoriteItems.slice(0, 8)"
+        :key="item.Name"
+        class="flex justify-between gap-2 text-[9px]"
+      >
+        <span class="text-zinc-700 dark:text-zinc-300 truncate">{{ item.Name }}</span>
+        <span class="text-zinc-500 tabular-nums flex-shrink-0">{{ formatWeight(parseFloat(item.Weight_oz || '0')) }}</span>
       </div>
+    </div>
 
-      <div class="space-y-0.5" v-if="lightestItems.length > 0">
-        <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
-        <div class="text-zinc-500 text-[9px] uppercase tracking-wider mb-1">LIGHTEST</div>
-        <div
-          v-for="item in lightestItems.slice(0, 5)"
-          :key="item.Name"
-          class="flex justify-between gap-2 text-[9px]"
-        >
-          <span class="text-zinc-700 dark:text-zinc-300 truncate">{{ item.Name }}</span>
-          <span class="text-zinc-500 tabular-nums flex-shrink-0">{{ parseFloat(item.Weight_oz || '0').toFixed(1) }}</span>
+    <!-- Recently Used -->
+    <div class="space-y-0.5" v-if="recentlyUsed.length > 0">
+      <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
+      <div class="text-zinc-500 text-[9px] uppercase tracking-wider mb-1">RECENTLY USED</div>
+      <div
+        v-for="item in recentlyUsed.slice(0, 8)"
+        :key="item.Name"
+        class="flex justify-between gap-2 text-[9px]"
+      >
+        <span class="text-zinc-700 dark:text-zinc-300 truncate">{{ item.Name }}</span>
+        <div class="flex items-baseline gap-1.5">
+          <span class="text-zinc-500 text-[8px]">{{ item.Last_Used }}</span>
+          <span class="text-zinc-500 tabular-nums flex-shrink-0">{{ formatWeight(parseFloat(item.Weight_oz || '0')) }}</span>
         </div>
       </div>
     </div>
@@ -146,10 +144,7 @@
           class="flex items-baseline justify-between gap-1"
         >
           <span class="text-zinc-500 text-[8px] uppercase truncate">{{ item.type }}</span>
-          <div class="flex items-baseline gap-1">
-            <span class="text-zinc-700 dark:text-zinc-300 tabular-nums text-[9px]">{{ item.avgWeight.toFixed(1) }}</span>
-            <span class="text-zinc-500 text-[8px]">oz</span>
-          </div>
+          <span class="text-zinc-700 dark:text-zinc-300 tabular-nums text-[9px]">{{ formatWeight(item.avgWeight) }}</span>
         </div>
       </div>
     </div>
@@ -168,6 +163,9 @@ interface GearItem {
   Type?: string
   Weight_oz?: string
   'Parent Container'?: string
+  Tags?: string
+  Last_Used?: string
+  Purchase_Date?: string
 }
 
 const props = defineProps<{
@@ -249,6 +247,20 @@ const gramsPerItem = computed(() => {
   return (totalWeight.value * 28.35) / totalItems.value
 })
 
+// Smart weight formatter: grams for <300g (10.5oz), pounds for heavy, oz otherwise
+const formatWeight = (oz: number) => {
+  const grams = oz * 28.35
+  if (grams < 300) {
+    return `${grams.toFixed(0)}g`
+  } else if (oz >= 16) {
+    const lbs = oz / 16
+    const remainingOz = oz % 16
+    return remainingOz > 0 ? `${lbs.toFixed(0)}lb ${remainingOz.toFixed(1)}oz` : `${lbs.toFixed(0)}lb`
+  } else {
+    return `${oz.toFixed(1)}oz`
+  }
+}
+
 // Weight per type/category
 const weightPerType = computed(() => {
   if (!gearItems.value?.length) return []
@@ -271,18 +283,28 @@ const weightPerType = computed(() => {
     .sort((a, b) => b.weight - a.weight)
 })
 
-// Heaviest items
-const heaviestItems = computed(() => {
+// Favorite/essential items (pinned to top)
+const favoriteItems = computed(() => {
   return [...gearItems.value]
-    .filter(item => item.Weight_oz && parseFloat(item.Weight_oz) > 0)
+    .filter(item => {
+      const tags = item.Tags?.toLowerCase() || ''
+      return tags.includes('essential') || tags.includes('edc') || tags.includes('favorite')
+    })
     .sort((a, b) => parseFloat(b.Weight_oz || '0') - parseFloat(a.Weight_oz || '0'))
 })
 
-// Lightest items (for comparison)
-const lightestItems = computed(() => {
+// Recently used items
+const recentlyUsed = computed(() => {
   return [...gearItems.value]
-    .filter(item => item.Weight_oz && parseFloat(item.Weight_oz) > 0)
-    .sort((a, b) => parseFloat(a.Weight_oz || '0') - parseFloat(b.Weight_oz || '0'))
+    .filter(item => {
+      const lastUsed = item.Last_Used
+      return lastUsed && lastUsed.match(/^\d{4}-\d{2}-\d{2}$/) // Valid date format
+    })
+    .sort((a, b) => {
+      const dateA = new Date(a.Last_Used || '')
+      const dateB = new Date(b.Last_Used || '')
+      return dateB.getTime() - dateA.getTime() // Most recent first
+    })
 })
 
 // Main containers - top-level bags and carrying systems
