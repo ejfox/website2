@@ -1,7 +1,7 @@
 <template>
   <div v-if="hasData" class="space-y-4 font-mono">
     <!-- Primary Stats -->
-    <div class="text-center py-4">
+    <div class="py-4">
       <div class="text-2xl font-bold">
         <AnimatedNumber
           :value="monthlyHours"
