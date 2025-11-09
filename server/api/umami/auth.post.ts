@@ -2,7 +2,7 @@ export default defineEventHandler(async () => {
   const config = useRuntimeConfig()
 
   try {
-    const response = await fetch(
+    const response = await fetchWithTimeout(
       'https://umami.tools.ejfox.com/api/auth/login',
       {
         method: 'POST',
@@ -13,7 +13,8 @@ export default defineEventHandler(async () => {
           username: config.UMAMI_USERNAME,
           password: config.UMAMI_PASSWORD
         })
-      }
+      },
+      5000 // 5 second timeout
     )
 
     if (!response.ok) {

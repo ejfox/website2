@@ -15,7 +15,7 @@ export default defineEventHandler(async () => {
     }
 
     // First, authenticate to get token
-    const authResponse = await fetch(
+    const authResponse = await fetchWithTimeout(
       'https://umami.tools.ejfox.com/api/auth/login',
       {
         method: 'POST',
@@ -26,7 +26,8 @@ export default defineEventHandler(async () => {
           username: username,
           password: password
         })
-      }
+      },
+      5000 // 5 second timeout
     )
 
     if (!authResponse.ok) {
@@ -48,14 +49,15 @@ export default defineEventHandler(async () => {
     const endAt = Date.now()
     const startAt = endAt - 30 * 24 * 60 * 60 * 1000 // Last 30 days
 
-    const statsResponse = await fetch(
+    const statsResponse = await fetchWithTimeout(
       `https://umami.tools.ejfox.com/api/websites/${websiteId}/stats?startAt=${startAt}&endAt=${endAt}&unit=day&timezone=America/New_York`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         }
-      }
+      },
+      5000 // 5 second timeout
     )
 
     if (!statsResponse.ok) {
