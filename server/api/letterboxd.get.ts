@@ -1,162 +1,98 @@
 export default defineEventHandler(async (_event) => {
   try {
-    // Scrape both profile and films pages to get all movies
-    const profileUrl = 'https://letterboxd.com/ejfox/'
-    const filmsUrl = 'https://letterboxd.com/ejfox/films/'
+    // Fetch RSS feed (much more reliable than HTML scraping!)
+    const rssUrl = 'https://letterboxd.com/ejfox/rss/'
 
-    const [profileResponse, filmsResponse] = await Promise.all([
-      $fetch(profileUrl, {
-        responseType: 'text',
-        headers: {
-          'User-Agent': 'Mozilla/5.0 (compatible; EJFox Website Bot)'
-        }
-      }),
-      $fetch(filmsUrl, {
-        responseType: 'text',
-        headers: {
-          'User-Agent': 'Mozilla/5.0 (compatible; EJFox Website Bot)'
-        }
-      })
-    ])
+    const rssResponse = await $fetch(rssUrl, {
+      responseType: 'text',
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; EJFox Website Bot)'
+      }
+    })
 
-    // Combine both HTML sources
-    const combinedHtml =
-      (profileResponse as string) + '\n' + (filmsResponse as string)
-
+    const xml = rssResponse as string
     const films = []
 
-    // Extract all film slugs first, then get details for each
-    const html = combinedHtml
+    // Parse RSS XML for film entries
+    // Each item has: <letterboxd:filmTitle>, <letterboxd:filmYear>, <letterboxd:watchedDate>, <letterboxd:memberRating>, <letterboxd:rewatch>
+    const itemPattern = /<item>([\s\S]*?)<\/item>/g
+    let itemMatch
 
-    // Extract all unique film slugs from href="/film/slug/" patterns
-    const filmSlugMatches = html.match(/\/film\/([^/]*)\//g) || []
-    const uniqueSlugs = [
-      ...new Set(
-        filmSlugMatches.map((match) => match.replace(/\/film\/|\/$/g, ''))
-      )
-    ]
+    while ((itemMatch = itemPattern.exec(xml)) !== null) {
+      const itemXml = itemMatch[1]
 
-    console.log('Found film slugs:', uniqueSlugs)
-
-    // For each slug, try to find associated data in the HTML
-    for (const slug of uniqueSlugs) {
       try {
-        // Look for film data around this slug
-        const slugPattern = new RegExp(`/film/${slug}/`, 'g')
-        const contexts = []
+        // Extract film data from RSS item
+        const titleMatch = itemXml.match(/<letterboxd:filmTitle>(.*?)<\/letterboxd:filmTitle>/)
+        const yearMatch = itemXml.match(/<letterboxd:filmYear>(.*?)<\/letterboxd:filmYear>/)
+        const watchedDateMatch = itemXml.match(/<letterboxd:watchedDate>(.*?)<\/letterboxd:watchedDate>/)
+        const ratingMatch = itemXml.match(/<letterboxd:memberRating>(.*?)<\/letterboxd:memberRating>/)
+        const rewatchMatch = itemXml.match(/<letterboxd:rewatch>(.*?)<\/letterboxd:rewatch>/)
+        const linkMatch = itemXml.match(/<link>(.*?)<\/link>/)
 
-        // Find all contexts where this film appears
-        let match
-        while ((match = slugPattern.exec(html)) !== null) {
-          const start = Math.max(0, match.index - 200)
-          const end = Math.min(html.length, match.index + 200)
-          contexts.push(html.substring(start, end))
-        }
+        const title = titleMatch ? titleMatch[1] : ''
+        const year = yearMatch ? yearMatch[1] : ''
+        const watchedDate = watchedDateMatch ? watchedDateMatch[1] : null
+        const rating = ratingMatch ? parseFloat(ratingMatch[1]) : null
+        const isRewatch = rewatchMatch ? rewatchMatch[1] === 'Yes' : false
 
-        // Extract title from any context
-        let title = slug
-          .replace(/-/g, ' ')
-          .replace(/\b\w/g, (l) => l.toUpperCase())
-
-        // Try to find actual title from various patterns
-        for (const context of contexts) {
-          const titlePatterns = [
-            new RegExp(`data-film-name="([^"]*)"`, 'i'),
-            new RegExp(`title="([^"]*)"`, 'i'),
-            new RegExp(`alt="([^"]*)"`, 'i'),
-            new RegExp(`>${slug.replace(/-/g, '[\\s-]+')}<`, 'i')
-          ]
-
-          for (const pattern of titlePatterns) {
-            const titleMatch = context.match(pattern)
-            if (titleMatch && titleMatch[1] && titleMatch[1].length > 3) {
-              title = titleMatch[1].trim()
-              break
-            }
+        // Extract slug from link (e.g., https://letterboxd.com/ejfox/film/friendship-2024/)
+        let slug = ''
+        if (linkMatch) {
+          const slugMatch = linkMatch[1].match(/\/film\/([^\/]+)\//)
+          if (slugMatch) {
+            slug = slugMatch[1]
           }
-          if (
-            title !==
-            slug.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase())
-          )
-            break
-        }
-
-        // Extract rating from contexts
-        let rating = null
-        for (const context of contexts) {
-          const starsMatch = context.match(/★+/)
-          const halfStarMatch = context.match(/½/)
-          if (starsMatch) {
-            rating = starsMatch[0].length + (halfStarMatch ? 0.5 : 0)
-            break
-          }
-        }
-
-        // Extract date from contexts
-        let watchedDate = null
-        for (const context of contexts) {
-          const datePatterns = [
-            /datetime="([^"]*)"/,
-            /data-date="([^"]*)"/,
-            /(\d{4}-\d{2}-\d{2})/
-          ]
-
-          for (const pattern of datePatterns) {
-            const dateMatch = context.match(pattern)
-            if (dateMatch) {
-              watchedDate = dateMatch[1]
-              break
-            }
-          }
-          if (watchedDate) break
         }
 
         films.push({
-          title: title,
+          title: year ? `${title} (${year})` : title,
           slug: slug,
           rating: rating,
-          letterboxdUrl: `https://letterboxd.com/film/${slug}/`,
-          watchedDate: watchedDate
+          letterboxdUrl: linkMatch ? linkMatch[1] : `https://letterboxd.com/film/${slug}/`,
+          watchedDate: watchedDate,
+          isRewatch: isRewatch
         })
       } catch (err) {
-        console.warn('Failed to parse film:', slug, err)
+        console.warn('Failed to parse RSS item:', err)
       }
     }
 
-    // Also try to extract from the stats section
-    const statsMatches = html.match(/(\d+) films?/i)
-    const totalFilms = statsMatches ? parseInt(statsMatches[1]) : films.length
+    console.log(`Parsed ${films.length} films from RSS feed`)
 
     // Calculate stats
+    const now = new Date()
     const thisYear = films.filter(
       (f) =>
         f.watchedDate &&
-        new Date(f.watchedDate).getFullYear() === new Date().getFullYear()
+        new Date(f.watchedDate).getFullYear() === now.getFullYear()
     ).length
 
-    const ratedFilms = films.filter((f) => f.rating)
+    const thisMonth = films.filter((f) => {
+      if (!f.watchedDate) return false
+      const filmDate = new Date(f.watchedDate)
+      return (
+        filmDate.getFullYear() === now.getFullYear() &&
+        filmDate.getMonth() === now.getMonth()
+      )
+    }).length
+
+    const ratedFilms = films.filter((f) => f.rating !== null)
     const averageRating =
       ratedFilms.length > 0
-        ? ratedFilms.reduce((sum, f) => sum + (f.rating || 0), 0) /
-          ratedFilms.length
+        ? ratedFilms.reduce((sum, f) => sum + (f.rating || 0), 0) / ratedFilms.length
         : 0
 
+    const rewatches = films.filter((f) => f.isRewatch).length
+
     const stats = {
-      totalFilms: totalFilms,
+      totalFilms: films.length,
       thisYear: thisYear,
-      thisMonth: films.filter((f) => {
-        if (!f.watchedDate) return false
-        const filmDate = new Date(f.watchedDate)
-        const now = new Date()
-        return (
-          filmDate.getFullYear() === now.getFullYear() &&
-          filmDate.getMonth() === now.getMonth()
-        )
-      }).length,
+      thisMonth: thisMonth,
       averageRating: Math.round(averageRating * 10) / 10,
-      rewatches: 0, // Hard to detect from this scraping method
+      rewatches: rewatches,
       topRatedFilms: films.filter((f) => f.rating && f.rating >= 4),
-      recentFilms: films,
+      recentFilms: films.slice(0, 10), // Most recent 10 films
       filmsByMonth: {}
     }
 
@@ -164,10 +100,10 @@ export default defineEventHandler(async (_event) => {
       films,
       stats,
       lastUpdated: new Date().toISOString(),
-      source: 'HTML scraping (RSS was empty)'
+      source: 'RSS feed'
     }
   } catch (error) {
-    console.error('Letterboxd scraping error:', error)
+    console.error('Letterboxd RSS parsing error:', error)
 
     // Return empty stats with error info
     return {
@@ -184,9 +120,9 @@ export default defineEventHandler(async (_event) => {
       },
       lastUpdated: new Date().toISOString(),
       error:
-        'HTML scraping failed - ' +
+        'RSS parsing failed - ' +
         (error instanceof Error ? error.message : 'Unknown error'),
-      source: 'HTML scraping (RSS was empty)'
+      source: 'RSS feed'
     }
   }
 })

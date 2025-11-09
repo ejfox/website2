@@ -36,10 +36,11 @@
     <!-- Time Distribution Waffle Chart -->
     <StatsSectionHeader title="TIME DISTRIBUTION" />
     <div
-      class="grid gap-1 md:gap-2 w-full border border-zinc-100/10 dark:border-zinc-800/50 p-2 rounded-sm waffle-chart"
+      class="grid w-full border border-zinc-200/20 dark:border-zinc-800/50 p-2 rounded-sm waffle-chart"
       style="
         grid-template-columns: repeat(20, 1fr);
-        grid-template-rows: repeat(5, 1fr);
+        grid-auto-rows: 1fr;
+        aspect-ratio: 4 / 1;
       "
       @mouseenter="isHovering = true"
       @mouseleave="isHovering = false"
@@ -47,16 +48,19 @@
       <div
         v-for="(cell, i) in waffleCells"
         :key="i"
-        class="transition-colors duration-300 aspect-square waffle-cell"
+        class="transition-all duration-300 w-full h-full"
         :style="{
-          backgroundColor: isHovering ? cell.turboColor : cell.grayscaleColor
+          backgroundColor: cell.turboColor,
+          opacity: isHovering ? 1 : 0.7,
+          borderRight: shouldShowBorder(i, 'right') ? '1px solid rgba(0,0,0,0.15)' : 'none',
+          borderBottom: shouldShowBorder(i, 'bottom') ? '1px solid rgba(0,0,0,0.15)' : 'none'
         }"
         :title="cell.title"
       ></div>
     </div>
     <div class="flex justify-between text-zinc-500 mt-1 text-xs leading-[12px]">
       <span
-        >{{ rescueTime?.week?.activities?.length || 0 }} TRACKED
+        >{{ uniqueActivitiesCount }} TRACKED
         ACTIVITIES</span
       >
       <span>SQUARE = 1% OF TOTAL TIME</span>
@@ -216,6 +220,37 @@ const getTurboColor = (index: number, total: number) => {
   return interpolateTurbo(adjustedIndex)
 }
 
+// Count unique activities after consolidation
+const uniqueActivitiesCount = computed(() => {
+  const activities = rescueTime.value?.week?.activities || []
+  const uniqueNames = new Set(activities.map(a => a.name))
+  return uniqueNames.size
+})
+
+// Check if we should show a border between cells
+const shouldShowBorder = (index: number, direction: 'right' | 'bottom') => {
+  const cells = waffleCells.value
+  if (!cells || index >= cells.length) return false
+
+  const currentCell = cells[index]
+  let nextCell
+
+  if (direction === 'right') {
+    // Don't show border on last column
+    if ((index + 1) % 20 === 0) return true
+    nextCell = cells[index + 1]
+  } else { // bottom
+    // Don't show border on last row
+    if (index >= 80) return true
+    nextCell = cells[index + 20]
+  }
+
+  if (!nextCell) return true
+
+  // Show border if different colors (different activities)
+  return currentCell.turboColor !== nextCell.turboColor
+}
+
 // Simple categories for display - USE SAME COLOR FUNCTION
 const sortedCategories = computed(() => {
   const categories = rescueTime.value?.month?.categories || []
@@ -244,8 +279,21 @@ const waffleCells = computed(() => {
       }))
   }
 
-  const totalPercentage = activities.reduce(
-    (sum, activity) => sum + (activity.percentageOfTotal || 0),
+  // Consolidate activities with same name
+  const consolidatedMap = new Map<string, number>()
+  activities.forEach((activity) => {
+    const name = activity.name || 'Unknown'
+    const existing = consolidatedMap.get(name) || 0
+    consolidatedMap.set(name, existing + (activity.percentageOfTotal || 0))
+  })
+
+  // Convert to array and sort by percentage (largest first)
+  const consolidatedActivities = Array.from(consolidatedMap.entries())
+    .map(([name, percentage]) => ({ name, percentageOfTotal: percentage }))
+    .sort((a, b) => b.percentageOfTotal - a.percentageOfTotal)
+
+  const totalPercentage = consolidatedActivities.reduce(
+    (sum, activity) => sum + activity.percentageOfTotal,
     0
   )
   const scalingFactor = totalPercentage > 0 ? 100 / totalPercentage : 1
@@ -253,19 +301,19 @@ const waffleCells = computed(() => {
   const cells = Array(100).fill(null)
   let cellIndex = 0
 
-  activities.forEach((activity, activityIndex) => {
-    const scaledPercentage = (activity.percentageOfTotal || 0) * scalingFactor
+  consolidatedActivities.forEach((activity, activityIndex) => {
+    const scaledPercentage = activity.percentageOfTotal * scalingFactor
     const cellsForActivity = Math.round(scaledPercentage)
 
     // USE SAME COLOR FUNCTION
-    const turboColor = getTurboColor(activityIndex, activities.length)
+    const turboColor = getTurboColor(activityIndex, consolidatedActivities.length)
     const grayColor = `#${(128 + activityIndex * 8).toString(16).padStart(2, '0').repeat(3)}`
 
     for (let i = 0; i < cellsForActivity && cellIndex < 100; i++) {
       cells[cellIndex] = {
         turboColor: turboColor,
         grayscaleColor: grayColor,
-        title: `${activity.name}: ${activity.percentageOfTotal}%`
+        title: `${activity.name}: ${Math.round(activity.percentageOfTotal)}%`
       }
       cellIndex++
     }
