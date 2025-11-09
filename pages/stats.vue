@@ -373,7 +373,7 @@
       <!-- Main Content -->
       <section class="min-w-0 w-full mx-auto max-w-none">
         <!-- Header -->
-        <header class="py-8 px-4 md:px-8">
+        <header class="py-8">
           <div style="max-width: 65ch">
             <h1 class="font-serif text-3xl font-normal mb-2">Stats</h1>
             <!-- Data-driven gonzo summary -->
