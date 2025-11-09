@@ -17,6 +17,17 @@ categories:
 created: 2025-01-20T19:50:00.000Z
 updatedAt: '2025-11-01T16:35:00.000Z'
 visibility: public
+resolved: true
+resolved_date: '2025-11-09T00:00:00.000Z'
+status: correct
+resolution: >-
+  Zohran Mamdani won the NYC mayoral election on November 4, 2025 with 50.4% of
+  the vote vs Andrew Cuomo's 41.6% (Curtis Sliwa 7.1%), a margin of 8.8
+  percentage points - exceeding the required 5% margin. Decision Desk HQ called
+  the race Tuesday night with nearly 90% of votes counted. Mamdani became NYC's
+  first Muslim mayor and youngest in over a century at age 34. Turnout exceeded
+  2 million voters, the highest for a mayoral race since 1969. Source: Decision
+  Desk HQ via PIX11, NewsNation, The Hill.
 evidence: >-
   Mamdani's strong progressive base in Queens, growing dissatisfaction with
   moderate Democrats, NYC's history of competitive mayoral races, and potential
