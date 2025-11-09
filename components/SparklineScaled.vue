@@ -99,12 +99,12 @@ const scales = computed(() => {
   return {
     x: d3
       .scaleLinear()
-      .domain([0, props.columns - 1])
+      .domain([0, props.type === 'line' ? props.values.length - 1 : props.columns - 1])
       .range([0, props.width - 4]),
 
     y: d3
       .scaleLinear()
-      .domain([0, Math.ceil(props.values.length / props.columns)])
+      .domain(props.type === 'line' ? d3.extent(props.values).reverse() : [0, Math.ceil(props.values.length / props.columns)])
       .range([0, props.height]),
 
     size: d3

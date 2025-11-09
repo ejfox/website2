@@ -1,36 +1,23 @@
 <template>
-  <article class="border-b border-zinc-300 dark:border-zinc-700 py-4">
-    <!-- Metadata line with academic density -->
-    <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mb-2">
-      <span class="text-zinc-900 dark:text-zinc-100 font-bold">{{ displayConfidence }}%</span>
-      <span v-if="prediction.deadline"> · {{ formatDateCompact(prediction.deadline) }}</span>
-      <span v-if="showStatusBadge" :class="prediction.status === 'correct' ? 'text-zinc-900 dark:text-zinc-100' : 'text-red-600 dark:text-red-400'"> · {{ prediction.status }}</span>
-      <span v-if="prediction.updates && prediction.updates.length > 0" class="text-zinc-600 dark:text-zinc-400"> · {{ prediction.updates.length }} {{ prediction.updates.length === 1 ? 'update' : 'updates' }}</span>
-    </div>
-
-    <!-- Statement in serif -->
+  <article class="py-4">
+    <!-- Statement with confidence badge - PRIORITIZED -->
     <div class="mb-2">
-      <NuxtLink :to="`/predictions/${prediction.slug || prediction.id}`" class="font-serif text-sm leading-snug text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400">
-        {{ prediction.statement || prediction.title }}
-      </NuxtLink>
-    </div>
-
-    <!-- Categories and created date -->
-    <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500">
-      <span v-if="prediction.categories && prediction.categories.length > 0">{{ prediction.categories.join(', ') }}</span>
-      <span v-if="prediction.created && prediction.categories && prediction.categories.length > 0"> · </span>
-      <span v-if="prediction.created">{{ formatDateCompact(prediction.created) }}</span>
-    </div>
-
-    <!-- Resolution note if resolved -->
-    <div v-if="prediction.resolution" class="mt-3 pt-3 border-t border-zinc-300 dark:border-zinc-700">
-      <div class="font-mono text-xs mb-1" :class="prediction.status === 'correct' ? 'text-zinc-900 dark:text-zinc-100' : 'text-red-600 dark:text-red-400'">
-        {{ prediction.status === 'correct' ? 'CORRECT' : 'INCORRECT' }} · {{ prediction.resolved_date ? formatDateCompact(prediction.resolved_date) : '' }}
-      </div>
-      <div class="font-serif text-sm text-zinc-600 dark:text-zinc-400 leading-snug">
-        {{ prediction.resolution.substring(0, 200) }}{{ prediction.resolution.length > 200 ? '...' : '' }}
+      <div class="flex items-start gap-3 mb-1">
+        <span class="font-mono text-lg text-zinc-900 dark:text-zinc-100 font-bold shrink-0 tabular-nums">{{ displayConfidence }}%</span>
+        <NuxtLink :to="`/predictions/${prediction.slug || prediction.id}`" class="font-serif text-base leading-snug text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400 flex-1">
+          {{ prediction.statement || prediction.title }}
+        </NuxtLink>
       </div>
     </div>
+
+    <!-- Metadata line - MINIMAL -->
+    <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 flex items-center gap-2 mb-2">
+      <span v-if="showStatusBadge" :class="prediction.status === 'correct' ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">{{ prediction.status }}</span>
+      <span v-if="prediction.updates && prediction.updates.length > 0">· {{ prediction.updates.length }} {{ prediction.updates.length === 1 ? 'update' : 'updates' }}</span>
+    </div>
+
+    <!-- Resolution excerpt if resolved -->
+    <div v-if="prediction.resolution" class="font-serif text-sm text-zinc-600 dark:text-zinc-400 leading-normal prose prose-sm dark:prose-invert max-w-none" v-html="resolutionHtml"></div>
   </article>
 </template>
 
@@ -72,9 +59,9 @@ const showStatusBadge = computed(
 
 const statusBadgeColor = computed(() => {
   if (props.prediction.status === 'correct') {
-    return 'text-zinc-900 dark:text-zinc-100 bg-transparent'
+    return 'text-green-600 dark:text-green-500 bg-transparent'
   }
-  return 'text-red-600 dark:text-red-400 bg-transparent'
+  return 'text-red-600 dark:text-red-500 bg-transparent'
 })
 
 const formatDateCompact = (dateString: string) => {
@@ -83,5 +70,38 @@ const formatDateCompact = (dateString: string) => {
   const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
   return `${months[d.getMonth()]} ${String(d.getDate()).padStart(2, '0')}, ${d.getFullYear()}`
 }
+
+// Process markdown for resolution text
+const { markdownToHtml } = useMarkdown()
+const resolutionHtml = ref('')
+
+// Smart truncation - get first paragraph or first 2 sentences
+const truncateResolution = (text: string): string => {
+  if (!text) return ''
+
+  // Try to get just the first paragraph
+  const paragraphs = text.split(/\n\n+/)
+  if (paragraphs[0] && paragraphs[0].length < 400) {
+    return paragraphs[0]
+  }
+
+  // Otherwise get first 2 sentences
+  const sentences = text.match(/[^.!?]+[.!?]+/g) || []
+  if (sentences.length >= 2) {
+    return sentences.slice(0, 2).join(' ')
+  }
+
+  // Fallback to character limit at word boundary
+  if (text.length <= 350) return text
+  const truncated = text.substring(0, 350)
+  return truncated.substring(0, truncated.lastIndexOf(' ')) + '...'
+}
+
+onMounted(async () => {
+  if (props.prediction.resolution) {
+    const excerpt = truncateResolution(props.prediction.resolution)
+    resolutionHtml.value = await markdownToHtml(excerpt)
+  }
+})
 </script>
 

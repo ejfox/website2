@@ -28,6 +28,7 @@ async function findPredictionFile(id: string): Promise<string | null> {
   if (id.includes('-')) {
     const parts = id.split('-')
     const year = parts[0]
+    if (!year) return null
     const filename = parts.slice(1).join('-') + '.md'
 
     // Try year/filename

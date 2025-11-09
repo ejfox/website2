@@ -628,7 +628,8 @@ useHead(() => ({
       content: statsDescription.value
     },
     { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' }
-  ]
+  ],
+  link: [{ rel: 'canonical', href: 'https://ejfox.com/stats' }]
 }))
 
 const route = useRoute()

@@ -45,7 +45,8 @@ useHead(() => ({
       content: projectsDescription.value
     },
     { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' }
-  ]
+  ],
+  link: [{ rel: 'canonical', href: 'https://ejfox.com/projects' }]
 }))
 
 const { data: projects } = await useAsyncData('projects-page-data', () =>

@@ -10,17 +10,6 @@
       <!-- Inline links, very subtle -->
       <div class="flex items-center justify-center gap-4">
         <a
-          href="https://ko-fi.com/ejfox"
-          target="_blank"
-          rel="noopener"
-          class="hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors underline underline-offset-2"
-        >
-          ko-fi
-        </a>
-
-        <span class="text-zinc-300 dark:text-zinc-700">·</span>
-
-        <a
           href="https://github.com/sponsors/ejfox"
           target="_blank"
           rel="noopener"
@@ -40,21 +29,21 @@
       </div>
 
       <!-- Crypto addresses - only show when clicked -->
-      <div v-if="showCrypto" class="mt-4 max-w-sm mx-auto text-left">
+      <div v-if="showCrypto" class="mt-4 max-w-md mx-auto text-left">
         <div
           v-for="(address, coin) in cryptoAddresses"
           :key="coin"
-          class="group flex items-center justify-between py-1 font-mono"
+          class="group flex items-center justify-between py-1 font-mono gap-2"
         >
           <span class="text-zinc-400 dark:text-zinc-600"
             >{{ coin.toLowerCase() }}:</span
           >
           <button
             @click="copyAddress(address, coin)"
-            class="text-zinc-500 dark:text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors truncate max-w-[200px] ml-2"
+            class="text-zinc-500 dark:text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors break-all text-right"
             :title="address"
           >
-            {{ copied === coin ? '✓ copied' : address.slice(0, 8) + '...' }}
+            {{ copied === coin ? '✓ copied' : address }}
           </button>
         </div>
       </div>

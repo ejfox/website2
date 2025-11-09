@@ -8,6 +8,8 @@
   "scripts": {
     "prebuild": "node scripts/generate-build-info.mjs",
     "build": "nuxt build",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "blog:import": "node scripts/blog/import.mjs",
     "blog:process": "DEBUG=true node scripts/processMarkdown.mjs",
     "blog": "npm run blog:import && npm run blog:process",
@@ -27,12 +29,16 @@
     "clean": "rm -rf .nuxt dist .output content/processed/*"
   },
   "devDependencies": {
+    "@nuxt/eslint": "^1.10.0",
     "@rehype-pretty/transformers": "^0.13.2",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^24.0.10",
     "@types/sanitize-html": "^2.13.0",
+    "@vue/eslint-config-typescript": "^14.6.0",
     "consola": "^3.4.2",
+    "eslint": "^9.39.1",
+    "eslint-plugin-vue": "^10.5.1",
     "gray-matter": "^4.0.3",
     "nuxt": "^4.0.3",
     "rehype-pretty-code": "^0.14.0",
@@ -44,6 +50,7 @@
     "typescript": "^5.x.x",
     "unified": "^11.0.5",
     "vitest": "^3.2.4",
+    "vue-eslint-parser": "^10.2.0",
     "zod": "^4.0.17"
   },
   "dependencies": {

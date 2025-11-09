@@ -10,4 +10,15 @@
   ::after {
     box-sizing: border-box;
   }
+
+  /* Widow/orphan control for better typography */
+  p, h1, h2, h3, h4, h5, h6, li {
+    orphans: 2;
+    widows: 2;
+  }
+
+  /* Smart quotes via CSS (works in modern browsers) */
+  :lang(en) {
+    quotes: '"' '"' ''' ''';
+  }
 }

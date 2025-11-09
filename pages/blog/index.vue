@@ -536,7 +536,8 @@ useHead(() => ({
       content: blogDescription.value
     },
     { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' }
-  ]
+  ],
+  link: [{ rel: 'canonical', href: 'https://ejfox.com/blog' }]
 }))
 
 // Computed data for sparklines

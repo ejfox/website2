@@ -500,12 +500,120 @@ Total Updates: ${finalData.updates.length}
   `)
 }
 
+async function resolvePrediction(filename) {
+  consola.start('🎯 Prediction Resolution Wizard')
+
+  const predictionsDir = join(process.cwd(), 'content', 'predictions')
+  const filepath = join(predictionsDir, filename)
+
+  // Read existing prediction
+  let fileContent
+  try {
+    fileContent = await fs.readFile(filepath, 'utf8')
+  } catch (error) {
+    consola.error(`Could not find prediction: ${filename}`)
+    const files = await fs.readdir(predictionsDir)
+    consola.info('Available predictions:')
+    files.forEach(f => consola.log(`   • ${f}`))
+    process.exit(1)
+  }
+
+  const parsed = matter(fileContent)
+
+  consola.info(`Statement: ${parsed.data.statement}`)
+  consola.info(`Confidence: ${parsed.data.confidence}%`)
+  consola.info(`Deadline: ${parsed.data.deadline}\n`)
+
+  // Get resolution details
+  const answers = await inquirer.prompt([
+    {
+      type: 'list',
+      name: 'status',
+      message: 'How did this prediction resolve?',
+      choices: [
+        { name: '✅ Correct - Prediction came true', value: 'correct' },
+        { name: '❌ Incorrect - Prediction did not come true', value: 'incorrect' },
+        { name: '⚠️  Ambiguous - Unclear or partially true', value: 'ambiguous' }
+      ]
+    },
+    {
+      type: 'input',
+      name: 'resolution',
+      message: 'Resolution notes (what happened, sources, evidence):',
+      validate: (input) => input.length >= 20 || 'Resolution notes must be at least 20 characters'
+    }
+  ])
+
+  const timestamp = new Date().toISOString()
+
+  // Update frontmatter
+  const updatedData = {
+    ...parsed.data,
+    resolved: true,
+    resolved_date: timestamp,
+    status: answers.status,
+    resolution: answers.resolution
+  }
+
+  // Generate new content
+  const newContent = matter.stringify(parsed.content, updatedData)
+
+  // Calculate hash
+  const hash = createHash('sha256').update(newContent).digest('hex')
+
+  // Write updated file
+  await fs.writeFile(filepath, newContent)
+
+  consola.success(`Resolved: ${filename}`)
+  consola.info(`Status: ${answers.status}`)
+  consola.info(`Hash: ${hash.substring(0, 16)}...`)
+
+  // Git commit
+  const { shouldCommit } = await inquirer.prompt([{
+    type: 'confirm',
+    name: 'shouldCommit',
+    message: 'Commit to git?',
+    default: true
+  }])
+
+  if (shouldCommit) {
+    try {
+      execSync(`git add "${filepath}"`)
+      const emoji = answers.status === 'correct' ? '✅' : answers.status === 'incorrect' ? '❌' : '⚠️'
+      const commitMsg = `predict: ${emoji} resolve "${parsed.data.statement.substring(0, 40)}..." as ${answers.status}`
+      execSync(`git commit -m "${commitMsg}"`)
+
+      const commitHash = execSync('git rev-parse HEAD', { encoding: 'utf8' }).trim()
+      consola.success(`Committed: ${commitHash.substring(0, 8)}`)
+    } catch (error) {
+      consola.warn('Git commit failed:', error.message)
+    }
+  }
+
+  const icon = answers.status === 'correct' ? '🎯' : answers.status === 'incorrect' ? '💭' : '🤔'
+  consola.box(`
+${icon} PREDICTION RESOLVED
+
+Statement: ${parsed.data.statement}
+Status: ${answers.status}
+Confidence was: ${parsed.data.confidence}%
+Resolved: ${new Date(timestamp).toLocaleDateString()}
+  `)
+}
+
 // Main execution
 if (import.meta.url === `file://${process.argv[1]}`) {
   const args = process.argv.slice(2)
   const updateIndex = args.indexOf('--update')
+  const resolveIndex = args.indexOf('--resolve')
 
-  if (updateIndex !== -1 && args[updateIndex + 1]) {
+  if (resolveIndex !== -1 && args[resolveIndex + 1]) {
+    resolvePrediction(args[resolveIndex + 1]).catch(console.error)
+  } else if (resolveIndex !== -1) {
+    consola.error('Please provide a prediction filename after --resolve')
+    consola.info('Usage: yarn predict --resolve <filename.md>')
+    process.exit(1)
+  } else if (updateIndex !== -1 && args[updateIndex + 1]) {
     updatePrediction(args[updateIndex + 1]).catch(console.error)
   } else if (updateIndex !== -1) {
     consola.error('Please provide a prediction filename after --update')

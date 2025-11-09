@@ -59,6 +59,46 @@ const { data: nextPrevPosts } = await useAsyncData(
     }
   }
 )
+
+// Related posts by tag
+const { data: allPosts } = await useAsyncData('all-posts-for-related', async () => {
+  try {
+    return await processedMarkdown.getAllPosts(false, false)
+  } catch (error) {
+    console.error('Error fetching all posts for related:', error)
+    return []
+  }
+})
+
+const relatedPosts = computed(() => {
+  if (!allPosts.value || !post.value) return []
+
+  const currentTags = post.value.metadata?.tags || post.value.tags || []
+  const currentSlug = route.params.slug.join('/')
+
+  if (currentTags.length === 0) return []
+
+  // Find posts with overlapping tags
+  const postsWithScores = allPosts.value
+    .filter(p => {
+      const slug = p.slug || p.metadata?.slug
+      return slug !== currentSlug && !p.draft && !p.metadata?.draft
+    })
+    .map(p => {
+      const tags = p.metadata?.tags || p.tags || []
+      const overlappingTags = tags.filter(t => currentTags.includes(t))
+      return {
+        post: p,
+        score: overlappingTags.length,
+        overlappingTags
+      }
+    })
+    .filter(item => item.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 3)
+
+  return postsWithScores
+})
 // New refs for animation targets
 const postTitle = ref(null)
 const postMetadata = ref(null)
@@ -360,6 +400,35 @@ useHead(() => ({
     { name: 'twitter:image', content: new URL('/og-image.png', baseURL).href }
   ],
   link: [{ rel: 'canonical', href: postUrl.value }],
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: post.value?.metadata?.title || post.value?.title,
+        description: postDescription.value,
+        author: {
+          '@type': 'Person',
+          name: 'EJ Fox',
+          url: 'https://ejfox.com',
+          jobTitle: 'Data Visualization Specialist & Journalist',
+          knowsAbout: ['Data Visualization', 'Interactive Journalism', 'D3.js', 'Generative AI', 'Motorcycle Adventure']
+        },
+        datePublished: post.value?.metadata?.date || post.value?.date,
+        dateModified: post.value?.metadata?.lastUpdated || post.value?.metadata?.date || post.value?.date,
+        wordCount: readingStats.value.words,
+        keywords: (post.value?.metadata?.tags || post.value?.tags || []).join(', '),
+        url: postUrl.value,
+        image: new URL('/og-image.png', baseURL).href,
+        publisher: {
+          '@type': 'Person',
+          name: 'EJ Fox',
+          url: 'https://ejfox.com'
+        }
+      })
+    }
+  ],
   htmlAttrs: { lang: 'en' }
 }))
 
@@ -747,6 +816,36 @@ const processedMetadata = computed(() => {
                 {{ formatDate(nextPrevPosts.next.date) }}
               </span>
             </NuxtLink>
+          </div>
+        </div>
+
+        <!-- Related Posts by Tag -->
+        <div
+          v-if="relatedPosts.length > 0"
+          class="px-4 md:px-6 py-8 border-t border-zinc-200 dark:border-zinc-800"
+        >
+          <h3 class="font-mono text-xs uppercase tracking-[0.15em] text-zinc-500 mb-4">
+            Related Posts
+          </h3>
+          <div class="space-y-4">
+            <div
+              v-for="{ post: relatedPost, overlappingTags } in relatedPosts"
+              :key="relatedPost.slug"
+            >
+              <NuxtLink
+                :to="`/blog/${relatedPost.slug}`"
+                class="block no-underline"
+              >
+                <div class="font-serif text-base text-zinc-900 dark:text-zinc-100 mb-1">
+                  {{ relatedPost.title || relatedPost.metadata?.title }}
+                </div>
+                <div class="flex items-center gap-2 text-xs font-mono text-zinc-500">
+                  <span>{{ formatDate(relatedPost.date || relatedPost.metadata?.date) }}</span>
+                  <span>·</span>
+                  <span class="text-zinc-400">{{ overlappingTags.join(', ') }}</span>
+                </div>
+              </NuxtLink>
+            </div>
           </div>
         </div>
       </div>

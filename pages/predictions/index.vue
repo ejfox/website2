@@ -1,19 +1,17 @@
 <template>
   <main class="px-4 md:px-8 max-w-4xl">
-    <header class="mb-6 pb-6 border-b border-zinc-300 dark:border-zinc-700">
+    <header class="mb-8">
       <h1 class="font-serif text-2xl text-zinc-900 dark:text-zinc-100 mb-3">
         Predictions
       </h1>
 
-      <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 space-y-1">
-        <div><span class="text-zinc-900 dark:text-zinc-100">{{ transformedPredictions?.length || 0 }}</span> total · <span class="text-zinc-900 dark:text-zinc-100">{{ correctCount }}</span> correct · <span class="text-zinc-900 dark:text-zinc-100">{{ incorrectCount }}</span> incorrect · <span class="text-zinc-900 dark:text-zinc-100">{{ pendingCount }}</span> pending</div>
-        <div>SHA-256 hash + git timestamps · <a href="https://gwern.net/doc/statistics/prediction/index" target="_blank" class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100">gwern</a></div>
-        <div class="italic text-zinc-600 dark:text-zinc-400 mt-2">Intellectual exercises, not rigorous forecasts</div>
+      <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500">
+        <div><span class="text-zinc-900 dark:text-zinc-100 font-bold text-lg tabular-nums">{{ transformedPredictions?.length || 0 }}</span> total · <span class="text-green-600 dark:text-green-500 font-bold text-lg tabular-nums">{{ correctCount }}</span> correct · <span class="text-red-600 dark:text-red-500 font-bold text-lg tabular-nums">{{ incorrectCount }}</span> incorrect · <span class="text-zinc-900 dark:text-zinc-100 font-bold text-lg tabular-nums">{{ pendingCount }}</span> pending</div>
       </div>
     </header>
 
     <!-- Zero State -->
-    <section v-if="transformedPredictions.length === 0" class="border border-zinc-300 dark:border-zinc-700 p-4">
+    <section v-if="transformedPredictions.length === 0" class="py-4">
       <div class="text-zinc-900 dark:text-zinc-100 mb-2 uppercase">No predictions yet</div>
       <p class="text-zinc-600 dark:text-zinc-400">
         Cryptographically verified predictions with SHA-256 hashing, PGP signatures, and git-based version control.
@@ -22,48 +20,41 @@
 
     <!-- Predictions List -->
     <section v-else>
-      <div class="flex items-center justify-between pb-3 mb-6 border-b border-zinc-300 dark:border-zinc-700 font-mono text-xs">
-        <div class="flex items-center gap-4 text-zinc-500 dark:text-zinc-500">
-          <button
-            v-for="filterType in filters"
-            :key="filterType.key"
-            :class="filterButtonClass(filterType.key)"
-            @click="filter = filterType.key"
-          >
-            {{ filterType.label }}
-          </button>
-        </div>
-        <div class="flex items-center gap-2 text-zinc-500 dark:text-zinc-500">
-          <label>Sort</label>
-          <select
-            v-model="sortBy"
-            class="px-2 py-1 bg-transparent text-zinc-900 dark:text-zinc-100 border border-zinc-300 dark:border-zinc-700 focus:outline-none focus:border-zinc-900 dark:focus:border-zinc-100"
-          >
-            <option value="date">Date</option>
-            <option value="confidence">Confidence</option>
-            <option value="statement">Statement</option>
-          </select>
+      <!-- ACTIVE Predictions -->
+      <div v-if="activePredictions.length > 0" class="mb-12">
+        <h2 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-4">Active</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">
+          <PredictionCard
+            v-for="prediction in activePredictions"
+            :id="`prediction-${prediction.id}`"
+            :key="prediction.id"
+            :prediction="prediction"
+          />
         </div>
       </div>
 
-      <div class="border-t border-zinc-300 dark:border-zinc-700">
-        <PredictionCard
-          v-for="prediction in filteredPredictions"
-          :id="`prediction-${prediction.id}`"
-          :key="prediction.id"
-          :prediction="prediction"
-        />
+      <!-- RESOLVED Predictions -->
+      <div v-if="resolvedPredictions.length > 0">
+        <h2 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-4">Resolved</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">
+          <PredictionCard
+            v-for="prediction in resolvedPredictions"
+            :id="`prediction-${prediction.id}`"
+            :key="prediction.id"
+            :prediction="prediction"
+          />
+        </div>
       </div>
     </section>
 
     <!-- Statistics -->
-    <section v-if="transformedPredictions.length > 0" class="mt-8 pt-6 border-t border-zinc-300 dark:border-zinc-700">
+    <section v-if="transformedPredictions.length > 0" class="mt-12">
       <h2 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-4">Statistics</h2>
 
       <!-- Summary stats -->
       <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mb-6 space-y-1">
-        <div><span class="text-zinc-900 dark:text-zinc-100">{{ transformedPredictions.length }}</span> predictions · <span class="text-zinc-900 dark:text-zinc-100">{{ resolvedCount }}</span> resolved · <span class="text-zinc-900 dark:text-zinc-100">{{ pendingCount }}</span> pending</div>
-        <div v-if="correctCount + incorrectCount > 0">Accuracy <span class="text-zinc-900 dark:text-zinc-100">{{ accuracyRate }}%</span> · Avg confidence <span class="text-zinc-900 dark:text-zinc-100">{{ avgConfidence }}%</span></div>
+        <div><span class="text-zinc-900 dark:text-zinc-100 font-bold text-lg tabular-nums">{{ transformedPredictions.length }}</span> predictions · <span class="text-zinc-900 dark:text-zinc-100 font-bold text-lg tabular-nums">{{ resolvedCount }}</span> resolved · <span class="text-zinc-900 dark:text-zinc-100 font-bold text-lg tabular-nums">{{ pendingCount }}</span> pending</div>
+        <div v-if="correctCount + incorrectCount > 0">Accuracy <span class="text-zinc-900 dark:text-zinc-100 font-bold text-xl tabular-nums">{{ accuracyRate }}%</span> · Avg confidence <span class="text-zinc-900 dark:text-zinc-100 font-bold text-xl tabular-nums">{{ avgConfidence }}%</span></div>
       </div>
 
       <!-- Calibration Analysis -->
@@ -73,26 +64,26 @@
       <!-- Confidence breakdown -->
       <table v-if="correctCount + incorrectCount > 1" class="w-full border-collapse mb-6 font-mono text-xs">
         <thead>
-          <tr class="border-b border-zinc-300 dark:border-zinc-700">
-            <th class="text-left py-2 text-zinc-900 dark:text-zinc-100 font-normal">Analysis</th>
-            <th class="text-right py-2 text-zinc-900 dark:text-zinc-100 font-normal">Avg</th>
-            <th class="text-right py-2 text-zinc-900 dark:text-zinc-100 font-normal">n</th>
+          <tr>
+            <th class="text-left pb-2 text-zinc-900 dark:text-zinc-100 font-normal">Analysis</th>
+            <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal">Avg</th>
+            <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal">n</th>
           </tr>
         </thead>
         <tbody class="text-zinc-500 dark:text-zinc-500">
-          <tr v-if="correctCount > 0" class="border-b border-zinc-200 dark:border-zinc-800">
-            <td class="py-2">Correct</td>
-            <td class="text-right text-zinc-900 dark:text-zinc-100">{{ correctConfidenceAvg }}%</td>
+          <tr v-if="correctCount > 0">
+            <td class="py-1">Correct</td>
+            <td class="text-right text-green-600 dark:text-green-500 font-bold text-2xl tabular-nums">{{ correctConfidenceAvg }}%</td>
             <td class="text-right">{{ correctCount }}</td>
           </tr>
-          <tr v-if="incorrectCount > 0" class="border-b border-zinc-200 dark:border-zinc-800">
-            <td class="py-2">Incorrect</td>
-            <td class="text-right text-zinc-900 dark:text-zinc-100">{{ incorrectConfidenceAvg }}%</td>
+          <tr v-if="incorrectCount > 0">
+            <td class="py-1">Incorrect</td>
+            <td class="text-right text-red-600 dark:text-red-500 font-bold text-2xl tabular-nums">{{ incorrectConfidenceAvg }}%</td>
             <td class="text-right">{{ incorrectCount }}</td>
           </tr>
           <tr v-if="correctCount > 0 && incorrectCount > 0">
-            <td class="py-2">Differential</td>
-            <td class="text-right" :class="correctConfidenceAvg > incorrectConfidenceAvg ? 'text-zinc-900 dark:text-zinc-100' : 'text-red-600 dark:text-red-400'">
+            <td class="py-1">Differential</td>
+            <td class="text-right font-bold text-2xl tabular-nums" :class="correctConfidenceAvg > incorrectConfidenceAvg ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">
               {{ correctConfidenceAvg > incorrectConfidenceAvg ? '+' : '' }}{{ correctConfidenceAvg - incorrectConfidenceAvg }}%
             </td>
             <td class="text-right">
@@ -105,16 +96,16 @@
       <!-- Calibration by range -->
       <table v-if="calibrationData.length > 0" class="w-full border-collapse mb-6 font-mono text-xs">
         <thead>
-          <tr class="border-b border-zinc-300 dark:border-zinc-700">
-            <th class="text-left py-2 text-zinc-900 dark:text-zinc-100 font-normal">Range</th>
-            <th class="text-right py-2 text-zinc-900 dark:text-zinc-100 font-normal">Accuracy</th>
-            <th class="text-right py-2 text-zinc-900 dark:text-zinc-100 font-normal">n</th>
+          <tr>
+            <th class="text-left pb-2 text-zinc-900 dark:text-zinc-100 font-normal">Range</th>
+            <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal">Accuracy</th>
+            <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal">n</th>
           </tr>
         </thead>
         <tbody class="text-zinc-500 dark:text-zinc-500">
-          <tr v-for="range in calibrationData" :key="range.label" class="border-b border-zinc-200 dark:border-zinc-800">
-            <td class="py-2">{{ range.label }}</td>
-            <td class="text-right text-zinc-900 dark:text-zinc-100">{{ range.accuracy }}%</td>
+          <tr v-for="range in calibrationData" :key="range.label">
+            <td class="py-1">{{ range.label }}</td>
+            <td class="text-right text-zinc-900 dark:text-zinc-100 font-bold text-2xl tabular-nums">{{ range.accuracy }}%</td>
             <td class="text-right">{{ range.total }}</td>
           </tr>
         </tbody>
@@ -123,16 +114,16 @@
       <!-- Resolutions by year -->
       <table v-if="resolutionsByYear.length > 0" class="w-full border-collapse mb-6 font-mono text-xs">
         <thead>
-          <tr class="border-b border-zinc-300 dark:border-zinc-700">
-            <th class="text-left py-2 text-zinc-900 dark:text-zinc-100 font-normal">Year</th>
-            <th class="text-right py-2 text-zinc-900 dark:text-zinc-100 font-normal">Accuracy</th>
-            <th class="text-right py-2 text-zinc-900 dark:text-zinc-100 font-normal">n</th>
+          <tr>
+            <th class="text-left pb-2 text-zinc-900 dark:text-zinc-100 font-normal">Year</th>
+            <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal">Accuracy</th>
+            <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal">n</th>
           </tr>
         </thead>
         <tbody class="text-zinc-500 dark:text-zinc-500">
-          <tr v-for="yearData in resolutionsByYear" :key="yearData.year" class="border-b border-zinc-200 dark:border-zinc-800">
-            <td class="py-2">{{ yearData.year }}</td>
-            <td class="text-right text-zinc-900 dark:text-zinc-100">{{ yearData.accuracy }}%</td>
+          <tr v-for="yearData in resolutionsByYear" :key="yearData.year">
+            <td class="py-1">{{ yearData.year }}</td>
+            <td class="text-right text-zinc-900 dark:text-zinc-100 font-bold text-2xl tabular-nums">{{ yearData.accuracy }}%</td>
             <td class="text-right">{{ yearData.total }}</td>
           </tr>
         </tbody>
@@ -141,7 +132,7 @@
     </section>
 
     <!-- Version Control -->
-    <section class="mt-8 pt-6 border-t border-zinc-300 dark:border-zinc-700">
+    <section class="mt-12">
       <h2 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-3">Version Control</h2>
       <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 space-y-1 mb-3">
         <div>Markdown + SHA-256 + Git timestamps</div>
@@ -164,9 +155,6 @@
   >
     <div class="toc w-48 font-mono">
       <div class="py-4">
-        <h3 class="text-xs font-bold text-zinc-900 dark:text-zinc-100 mb-4">
-          On this page
-        </h3>
         <ul class="space-y-2 text-xs">
           <li
             v-for="prediction in predictionToc"
@@ -181,11 +169,12 @@
                   ? 'text-zinc-900 dark:text-zinc-100 font-bold'
                   : 'text-zinc-600 dark:text-zinc-400'
               ]"
+              :style="{ opacity: 0.7 + (prediction.confidence / 100) * 0.3 }"
             >
               <div class="flex items-start gap-2">
                 <span class="text-zinc-500 dark:text-zinc-500 shrink-0">{{ prediction.confidence }}%</span>
-                <span class="block truncate flex-1 min-w-0">{{ prediction.text }}</span>
-                <span v-if="prediction.status === 'correct' || prediction.status === 'incorrect'" class="shrink-0" :class="prediction.status === 'correct' ? 'text-zinc-900 dark:text-zinc-100' : 'text-red-600 dark:text-red-400'">
+                <span class="block line-clamp-2 flex-1 min-w-0">{{ prediction.text }}</span>
+                <span v-if="prediction.status === 'correct' || prediction.status === 'incorrect'" class="shrink-0" :class="prediction.status === 'correct' ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">
                   {{ prediction.status === 'correct' ? '✓' : '✗' }}
                 </span>
               </div>
@@ -200,44 +189,21 @@
 <script setup>
 import PredictionCard from '~/components/predictions/PredictionCard.vue'
 
-const predictionsDescription = computed(() => {
-  const total = transformedPredictions.value?.length || 0
-  const correct = correctCount.value || 0
-  const incorrect = incorrectCount.value || 0
-  const resolved = correct + incorrect
-  const accuracy = resolved > 0 ? Math.round((correct / resolved) * 100) : 0
-
-  if (total === 0) return 'Cryptographically verified predictions with SHA-256 hashing and git-based version control.'
-
-  return `${total} predictions • ${resolved} resolved • ${accuracy}% accuracy • SHA-256 + Git timestamps`
-})
-
-useHead(() => ({
+useSeoMeta({
   title: 'Predictions - EJ Fox',
-  meta: [
-    {
-      name: 'description',
-      content: predictionsDescription.value
-    },
-    { property: 'og:title', content: 'Predictions - EJ Fox' },
-    {
-      property: 'og:description',
-      content: predictionsDescription.value
-    },
-    { property: 'og:url', content: 'https://ejfox.com/predictions' },
-    { property: 'og:type', content: 'website' },
-    { property: 'og:image', content: 'https://ejfox.com/og-image.png' },
-    { property: 'og:image:width', content: '1200' },
-    { property: 'og:image:height', content: '630' },
-    { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: 'Predictions - EJ Fox' },
-    {
-      name: 'twitter:description',
-      content: predictionsDescription.value
-    },
-    { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' }
-  ]
-}))
+  description: 'Cryptographically verified predictions with SHA-256 hashing and git-based version control',
+  ogTitle: 'Predictions - EJ Fox',
+  ogDescription: 'Cryptographically verified predictions and forecasts',
+  ogUrl: 'https://ejfox.com/predictions',
+  ogType: 'website',
+  ogImage: 'https://ejfox.com/og-image.png',
+  ogImageWidth: '1200',
+  ogImageHeight: '630',
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'Predictions - EJ Fox',
+  twitterDescription: 'Cryptographically verified predictions and forecasts',
+  twitterImage: 'https://ejfox.com/og-image.png'
+})
 
 const { data: predictions } = await useFetch('/api/predictions')
 const filter = ref('all')
@@ -274,6 +240,19 @@ const transformedPredictions = computed(
         status: p.status || (p.resolved ? 'resolved' : 'pending')
       })) || []
 )
+
+// Separate active and resolved predictions
+const activePredictions = computed(() => {
+  return transformedPredictions.value
+    .filter((p) => !p.resolved)
+    .sort((a, b) => new Date(b.created || 0) - new Date(a.created || 0))
+})
+
+const resolvedPredictions = computed(() => {
+  return transformedPredictions.value
+    .filter((p) => p.resolved)
+    .sort((a, b) => new Date(b.resolved_date || b.created || 0) - new Date(a.resolved_date || a.created || 0))
+})
 
 const filteredPredictions = computed(() => {
   let filtered = transformedPredictions.value
@@ -322,39 +301,6 @@ const accuracyRate = computed(() => {
   return resolved ? Math.round((correctCount.value / resolved) * 100) : 0
 })
 
-const stats = computed(() => [
-  {
-    label: 'Total',
-    value: transformedPredictions.value.length,
-    suffix: '',
-    color: 'text-zinc-900 dark:text-zinc-100'
-  },
-  {
-    label: 'Avg Confidence',
-    value: avgConfidence.value,
-    suffix: '%',
-    color: 'text-zinc-900 dark:text-zinc-100'
-  },
-  {
-    label: 'Correct',
-    value: correctCount.value,
-    suffix: '',
-    color:
-      correctCount.value > 0
-        ? 'text-green-600 dark:text-green-400'
-        : 'text-zinc-400 dark:text-zinc-600'
-  },
-  {
-    label: 'Incorrect',
-    value: incorrectCount.value,
-    suffix: '',
-    color:
-      incorrectCount.value > 0
-        ? 'text-red-600 dark:text-red-400'
-        : 'text-zinc-400 dark:text-zinc-600'
-  }
-])
-
 // Advanced statistics
 const correctConfidenceAvg = computed(() => {
   const correct = transformedPredictions.value.filter(
@@ -391,7 +337,7 @@ const resolutionsByYear = computed(() => {
 
   return Object.entries(yearStats)
     .map(([year, stats]) => ({
-      year: parseInt(year),
+      year: Number.parseInt(year),
       ...stats,
       accuracy: stats.total
         ? Math.round((stats.correct / stats.total) * 100)
@@ -436,18 +382,28 @@ const calibrationData = computed(() => {
 const activeSection = ref('')
 const tocTarget = ref(null)
 
-const predictionToc = computed(() =>
-  filteredPredictions.value.map((p) => ({
+const predictionToc = computed(() => {
+  const active = activePredictions.value.map((p) => ({
     slug: `prediction-${p.id}`,
-    text:
-      p.statement.length > 50 ? p.statement.slice(0, 47) + '...' : p.statement,
+    text: p.statement.length > 50 ? p.statement.slice(0, 47) + '...' : p.statement,
     status: p.status,
-    confidence: p.confidence
+    confidence: p.confidence,
+    resolved: false
   }))
-)
+
+  const resolved = resolvedPredictions.value.map((p) => ({
+    slug: `prediction-${p.id}`,
+    text: p.statement.length > 50 ? p.statement.slice(0, 47) + '...' : p.statement,
+    status: p.status,
+    confidence: p.confidence,
+    resolved: true
+  }))
+
+  return [...active, ...resolved]
+})
 
 onMounted(() => {
-  if (process.client) {
+  if (import.meta.client) {
     tocTarget.value = document.querySelector('#nav-toc-container')
 
     const observer = new IntersectionObserver(
@@ -468,20 +424,10 @@ onMounted(() => {
   }
 })
 
-watch([filter, filteredPredictions], async () => {
+watch([activePredictions, resolvedPredictions], async () => {
   await nextTick()
-  if (process.client) {
+  if (import.meta.client) {
     tocTarget.value = document.querySelector('#nav-toc-container')
   }
-})
-
-useSeoMeta({
-  title: 'Predictions & Forecasts',
-  description:
-    'Public predictions with cryptographic verification and accountability',
-  ogTitle: 'Predictions & Forecasts | ejfox.com',
-  ogDescription: 'Cryptographically verified predictions and forecasts',
-  ogImage: '/og-image.png',
-  twitterCard: 'summary_large_image'
 })
 </script>

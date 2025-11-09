@@ -502,7 +502,8 @@ useHead(() => ({
       content: gearDescription.value
     },
     { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' }
-  ]
+  ],
+  link: [{ rel: 'canonical', href: 'https://ejfox.com/gear' }]
 }))
 
 const sortItemsByName = (items) => {

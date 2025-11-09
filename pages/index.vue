@@ -48,7 +48,8 @@ useHead({
     { name: 'twitter:title', content: 'EJ Fox - Data Visualization Specialist & Journalist' },
     { name: 'twitter:description', content: 'Data visualization specialist and journalist working at the intersection of technology and storytelling. Helping organizations transform complex datasets into clear, compelling narratives.' },
     { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' }
-  ]
+  ],
+  link: [{ rel: 'canonical', href: 'https://ejfox.com' }]
 })
 </script>
 

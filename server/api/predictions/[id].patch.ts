@@ -37,7 +37,7 @@ export default defineEventHandler(async (event) => {
     }
 
     // Update the prediction
-    const prediction = data.predictions[predictionIndex]
+    const prediction = data.predictions[predictionIndex]!
 
     if (body.resolution !== undefined) {
       prediction.resolution = body.resolution
