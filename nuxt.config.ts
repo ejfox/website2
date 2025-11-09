@@ -70,7 +70,8 @@ export default defineNuxtConfig({
     minify: false, // Disabled for debugging bundle corruption
     experimental: {
       wasm: false, // Disable WASM for faster startup
-      asyncContext: true // Enable async context support (Nuxt 4 feature)
+      asyncContext: true, // Enable async context support (Nuxt 4 feature)
+      buildCache: true // CACHE LORD: Keep build artifacts between deploys
     },
     compressPublicAssets: false, // Let reverse proxy handle compression
     // Copy content directory to .output for API routes to access
