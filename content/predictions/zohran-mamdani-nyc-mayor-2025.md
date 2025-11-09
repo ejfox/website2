@@ -25,25 +25,26 @@ resolution: >-
 
 
   **Final Results** (90% counted): Mamdani 50.4%, Cuomo 41.6%, Sliwa 7.1% -
-  margin of 8.8pp exceeds required 5pp threshold. Over 2 million ballots cast,
-  highest mayoral turnout since 1969 per NYC Board of Elections.
+  margin of 8.8pp exceeds required 5pp threshold. Associated Press called race
+  at 9:34 PM ET, less than 40 minutes after polls closed. Over 2 million ballots
+  cast, highest mayoral turnout since 1969 per NYC Board of Elections.
 
 
   **Historical Significance**: Mamdani becomes NYC's 111th mayor, first Muslim
   and first South Asian descent mayor, and at 34 the youngest in past 100 years.
+  Received 1,036,000+ votes.
 
 
   **Sources**:
 
-  1. NY1: "Zohran Mamdani wins 2025 NYC mayoral election"
-  (https://ny1.com/nyc/all-boroughs/news/2025/11/05/nyc-mayoral-race-november-general-election)
+  1. Associated Press via NPR: "Zohran Mamdani wins NYC mayoral race"
+  (https://www.npr.org/2025/11/04/nx-s1-5597788/election-results-zohran-mamdani-new-york-city-mayor)
 
-  2. Bloomberg: "Mamdani Makes History With Decisive Win in NYC Mayor's Race"
-  (https://www.bloomberg.com/news/articles/2025-11-05/mamdani-wins-race-to-become-next-mayor-of-nyc-ap-says)
+  2. THE CITY: "How Mamdani Won, By the Numbers"
+  (https://www.thecity.nyc/2025/11/06/how-mamdani-won-map/)
 
-  3. Newsweek: "New York Election Results Map: How Mamdani Got 1 Million Votes
-  Across City"
-  (https://www.newsweek.com/new-york-election-results-map-how-mamdani-got-1-million-votes-across-city-10994529)
+  3. NPR: "Zohran Mamdani will be the next mayor of New York City"
+  (https://www.npr.org/2025/11/04/nx-s1-5598399/zohran-mamdani-will-be-the-next-mayor-of-new-york-city)
 evidence: >-
   Mamdani's strong progressive base in Queens, growing dissatisfaction with
   moderate Democrats, NYC's history of competitive mayoral races, and potential
