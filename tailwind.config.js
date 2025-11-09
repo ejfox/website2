@@ -16,11 +16,11 @@ module.exports = {
     extend: {
       fontSize: {
         // Swiss grid: 8px baseline unit
-        // Ultra-small Tuftian sizes
-        '5xs': ['0.4375rem', '0.5rem'], // 7px/8px - inline symbols
-        '4xs': ['0.5rem', '0.5rem'], // 8px/8px - ultra-dense labels
-        '3xs': ['0.5625rem', '0.75rem'], // 9px/12px - dense stats
-        '2xs': ['0.625rem', '0.75rem'], // 10px/12px - compact data
+        // Ultra-small Tuftian sizes with increased tracking for legibility
+        '5xs': ['0.4375rem', { lineHeight: '0.5rem', letterSpacing: '0.03em' }], // 7px/8px - inline symbols
+        '4xs': ['0.5rem', { lineHeight: '0.5rem', letterSpacing: '0.025em' }], // 8px/8px - ultra-dense labels
+        '3xs': ['0.5625rem', { lineHeight: '0.75rem', letterSpacing: '0.02em' }], // 9px/12px - dense stats
+        '2xs': ['0.625rem', { lineHeight: '0.75rem', letterSpacing: '0.015em' }], // 10px/12px - compact data
         // Standard sizes
         xs: ['0.75rem', '1rem'], // 12px/16px (2 units)
         sm: ['0.875rem', '1.5rem'], // 14px/24px (3 units)
