@@ -2,7 +2,6 @@
   <div v-if="data?.stats" class="space-y-4 font-mono">
     <!-- Essential metrics only -->
     <div>
-      <StatsSectionHeader title="READING STATUS" />
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
         <div class="metric-card">
           <div class="stat-value">

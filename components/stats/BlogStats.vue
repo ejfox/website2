@@ -1,7 +1,6 @@
 <template>
   <div v-if="stats" class="space-y-4 font-mono">
     <!-- Writing Status -->
-    <StatsSectionHeader title="WRITING STATUS" />
     <div class="flex justify-around items-start gap-8 py-4">
       <div class="text-center">
         <div class="text-2xl font-bold">{{ stats.posts.total || 'N/A' }}</div>

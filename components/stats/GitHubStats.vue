@@ -5,7 +5,6 @@
   >
     <!-- Primary Stats -->
     <div class="col-span-full">
-      <StatsSectionHeader title="GITHUB STATUS" />
       <div class="flex justify-around items-start gap-8 py-4">
         <div class="text-center">
           <div class="stat-value text-2xl font-bold">
