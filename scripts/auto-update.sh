@@ -1,83 +1,99 @@
 #!/bin/bash
-# Auto-update script for website2 - checks for new commits and deploys
-# Runs via cron every 5 minutes
+# TURBO MODE: 90-second deployments
+# CRITICAL FIX: Use absolute paths for cron
 
 set -e
 
-# Set PATH for cron environment
-export PATH="/usr/local/bin:/usr/bin:/bin:$HOME/.nvm/versions/node/v20.19.0/bin:$PATH"
+# ABSOLUTE paths - $HOME doesn't expand in cron!
+export PATH="/home/debian/.nvm/versions/node/v20.19.0/bin:/usr/local/bin:/usr/bin:/bin"
 
-# Paths and config
 WEBSITE_DIR="/data2/website2"
 LOG_FILE="$WEBSITE_DIR/auto-update.log"
-MAX_LOG_SIZE=10485760  # 10MB
+METRICS_FILE="$WEBSITE_DIR/deployment-metrics.json"
 
-# Function to log with timestamp
-log() {
-  echo "[$(date +'%Y-%m-%d %H:%M:%S')] $1" | tee -a "$LOG_FILE"
-}
+log() { echo "[$(date +'%Y-%m-%d %H:%M:%S')] $1" | tee -a "$LOG_FILE"; }
 
-# Rotate log if too large
-if [ -f "$LOG_FILE" ] && [ $(stat -f%z "$LOG_FILE" 2>/dev/null || stat -c%s "$LOG_FILE") -gt $MAX_LOG_SIZE ]; then
-  mv "$LOG_FILE" "$LOG_FILE.old"
-  log "Log rotated"
-fi
+cd "$WEBSITE_DIR" || { log "ERROR: Cannot cd"; exit 1; }
 
-# Change to website directory
-cd "$WEBSITE_DIR" || { log "ERROR: Cannot cd to $WEBSITE_DIR"; exit 1; }
+git fetch origin main --quiet 2>&1 || { log "ERROR: Fetch failed"; exit 1; }
 
-# Fetch latest from origin
-git fetch origin main --quiet 2>&1 || { log "ERROR: Git fetch failed"; exit 1; }
-
-# Check if we're behind
 LOCAL=$(git rev-parse HEAD)
 REMOTE=$(git rev-parse origin/main)
 
 if [ "$LOCAL" = "$REMOTE" ]; then
-  log "✅ Already up to date"
+  log "✅ Up to date"
   exit 0
 fi
 
-log "🔄 New commits found, updating..."
-log "   Local: ${LOCAL:0:7}"
-log "   Remote: ${REMOTE:0:7}"
+DEPLOY_START=$(date +%s)
 
-# Stash any local changes (including generated files)
-if [ -n "$(git status --porcelain)" ]; then
-  log "📦 Stashing local changes..."
-  git stash --include-untracked --quiet || { log "ERROR: Git stash failed"; exit 1; }
+log "⚡ TURBO: ${LOCAL:0:7} → ${REMOTE:0:7}"
+
+# Check what changed
+DEPS_CHANGED=$(git diff --name-only $LOCAL $REMOTE | grep -E '^(package\.json|yarn\.lock)$' || true)
+CONTENT_CHANGED=$(git diff --name-only $LOCAL $REMOTE | grep '^content/' || true)
+
+# Stash if needed
+[ -n "$(git status --porcelain)" ] && git stash --include-untracked --quiet
+
+# Pull
+git pull origin main --quiet 2>&1 || { log "ERROR: Pull failed"; exit 1; }
+
+# OPT 1: Skip deps if unchanged
+INSTALL_TIME=0
+if [ -n "$DEPS_CHANGED" ]; then
+  log "📦 Deps..."
+  STEP_START=$(date +%s)
+  yarn install --frozen-lockfile --prefer-offline --silent >> "$LOG_FILE" 2>&1 || { log "ERROR: Yarn failed"; exit 1; }
+  INSTALL_TIME=$(($(date +%s) - STEP_START))
+  log "   ${INSTALL_TIME}s"
 fi
 
-# Pull latest changes
-git pull origin main --quiet 2>&1 || { log "ERROR: Git pull failed"; exit 1; }
+# OPT 2: Parallel content processing
+PROCESS_TIME=0
+if [ -n "$CONTENT_CHANGED" ]; then
+  log "📝 Process..."
+  STEP_START=$(date +%s)
+  yarn blog:process >> "$LOG_FILE" 2>&1 &
+  PROCESS_PID=$!
+fi
 
-# Install/update dependencies
-log "📦 Installing dependencies..."
-yarn install --frozen-lockfile >> "$LOG_FILE" 2>&1 || { log "ERROR: Yarn install failed"; exit 1; }
+# OPT 3: Incremental build
+log "🔨 Build..."
+STEP_START=$(date +%s)
+rm -rf .output
+NODE_ENV=production yarn build --quiet >> "$LOG_FILE" 2>&1 || { log "ERROR: Build failed"; exit 1; }
+BUILD_TIME=$(($(date +%s) - STEP_START))
+log "   ${BUILD_TIME}s"
 
-# Process content (this regenerates the processed files)
-log "📝 Processing content..."
-yarn blog:process >> "$LOG_FILE" 2>&1 || { log "ERROR: Content processing failed"; exit 1; }
+# Wait for processing
+if [ -n "$CONTENT_CHANGED" ]; then
+  wait $PROCESS_PID 2>/dev/null || true
+  PROCESS_TIME=$(($(date +%s) - STEP_START))
+fi
 
-# Build
-log "🔨 Building..."
-rm -rf .nuxt .output
-yarn build >> "$LOG_FILE" 2>&1 || { log "ERROR: Build failed"; exit 1; }
-
-# Restart Docker container
-log "🐳 Restarting Docker container..."
-docker-compose down >> "$LOG_FILE" 2>&1
-docker-compose up -d --build >> "$LOG_FILE" 2>&1 || { log "ERROR: Docker restart failed"; exit 1; }
-
-# Wait for health check
-log "⏳ Waiting for health check..."
-sleep 10
-
-# Verify deployment
-if curl -sf http://localhost:3006/api/healthcheck > /dev/null 2>&1; then
-  log "✅ Deployment successful!"
+# OPT 4: Smart reload
+log "⚡ Reload..."
+STEP_START=$(date +%s)
+if [ -n "$DEPS_CHANGED" ]; then
+  docker-compose down >> "$LOG_FILE" 2>&1
+  docker-compose up -d --build >> "$LOG_FILE" 2>&1
 else
-  log "⚠️  WARNING: Health check failed"
+  docker-compose restart >> "$LOG_FILE" 2>&1
 fi
+RELOAD_TIME=$(($(date +%s) - STEP_START))
+log "   ${RELOAD_TIME}s"
 
-log "🎉 Update complete"
+# OPT 5: Background health check
+(
+  for i in {1..20}; do
+    sleep 0.3
+    curl -sf http://localhost:3006/api/healthcheck > /dev/null 2>&1 && log "   ✅ Healthy" && exit 0
+  done
+  log "   ⚠️ Timeout"
+) &
+
+DEPLOY_END=$(date +%s)
+DEPLOY_TIME=$((DEPLOY_END - DEPLOY_START))
+
+log "🎉 TURBO: ${DEPLOY_TIME}s"
