@@ -28,16 +28,21 @@
       </div>
     </div>
 
-    <!-- Variant Ratings with Deltas -->
+    <!-- Variant Ratings with Stats -->
     <div class="space-y-1.5 mb-4">
       <div
-        v-for="variant in variantRatingsWithDeltas"
+        v-for="variant in variantStats"
         :key="variant.name"
         class="flex items-center justify-between text-xs"
       >
-        <span class="text-zinc-500 uppercase tracking-widest text-xs">{{
-          variant.name
-        }}</span>
+        <div class="flex items-center gap-2">
+          <span class="text-zinc-500 uppercase tracking-widest text-xs">{{
+            variant.name
+          }}</span>
+          <span class="text-zinc-600 dark:text-zinc-400 text-xs">{{
+            variant.winRate
+          }}</span>
+        </div>
         <div class="flex items-center gap-2">
           <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">{{
             variant.current
@@ -78,7 +83,7 @@
 
     <!-- Recent Matches (This Month Only) -->
     <div v-if="thisMonthGames.length">
-      <StatsSectionHeader title="THIS MONTH'S GAMES" />
+      <StatsSectionHeader title="RECENT GAMES" />
       <div class="space-y-1">
         <div
           v-for="game in thisMonthGames.slice(0, 10)"
@@ -86,17 +91,16 @@
           class="flex items-center justify-between text-xs"
         >
           <div class="flex items-center gap-2">
-            <span class="text-zinc-500 text-xs">
-              {{ formatGameDateMinimal(game.timestamp) }}
-              {{ formatGameTime(game.timestamp) }}
-            </span>
-            <span class="text-zinc-500 uppercase text-xs">
+            <span class="text-zinc-500 uppercase text-xs font-medium">
               {{ formatGameTypeMinimal(game.timeControl) }}
             </span>
             <span class="font-bold text-zinc-600 dark:text-zinc-400 text-xs">
               {{
                 game.result === 'win' ? 'W' : game.result === 'loss' ? 'L' : 'D'
               }}
+            </span>
+            <span class="text-zinc-500 text-xs">
+              {{ formatTimeAgo(game.timestamp) }}
             </span>
           </div>
           <div class="flex items-center gap-1">
@@ -266,7 +270,54 @@ const thisMonthGames = computed(() => {
     .sort((a, b) => b.timestamp - a.timestamp)
 })
 
-// Variant ratings with deltas (current vs best)
+// Format time ago for games
+const formatTimeAgo = (timestamp: number) => {
+  const now = Date.now()
+  const gameDate = timestamp * 1000
+  const diffMs = now - gameDate
+  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24))
+  const diffHours = Math.floor(diffMs / (1000 * 60 * 60))
+  const diffMinutes = Math.floor(diffMs / (1000 * 60))
+
+  if (diffMinutes < 60) return `${diffMinutes}m ago`
+  if (diffHours < 24) return `${diffHours}h ago`
+  if (diffDays === 0) return 'today'
+  if (diffDays === 1) return '1d ago'
+  if (diffDays < 30) return `${diffDays}d ago`
+  return `${Math.floor(diffDays / 30)}mo ago`
+}
+
+// Variant ratings with stats (win rate, games, delta)
+const variantStats = computed(() => {
+  if (!props.stats) return []
+
+  const variants = ['bullet', 'blitz', 'rapid'] as const
+
+  return variants
+    .map((variant) => {
+      const current = getRating(variant)
+      const best = isNewFormat.value
+        ? (props.stats!.bestRating as NewFormatRatings)[variant] || 0
+        : (props.stats!.bestRating as number)
+
+      const delta = current - best
+
+      // Get win rate for this variant
+      const variantWinRate = isNewFormat.value && props.stats!.winRate
+        ? (props.stats!.winRate as NewFormatWinRate)[variant] || 0
+        : 0
+
+      return {
+        name: variant.toUpperCase(),
+        current: formatNumber(current),
+        delta: Math.round(delta),
+        winRate: variantWinRate > 0 ? `${Math.round(variantWinRate)}%` : ''
+      }
+    })
+    .filter((variant) => parseInt(variant.current.replace(/,/g, '')) > 0)
+})
+
+// Legacy: Variant ratings with deltas (kept for compatibility)
 const variantRatingsWithDeltas = computed(() => {
   if (!props.stats) return []
 
