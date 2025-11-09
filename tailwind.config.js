@@ -16,17 +16,17 @@ module.exports = {
     extend: {
       fontSize: {
         // Swiss grid: 8px baseline unit
-        // Ultra-small Tuftian sizes with increased tracking for legibility
-        '5xs': ['0.4375rem', { lineHeight: '0.5rem', letterSpacing: '0.03em' }], // 7px/8px - inline symbols
-        '4xs': ['0.5rem', { lineHeight: '0.5rem', letterSpacing: '0.025em' }], // 8px/8px - ultra-dense labels
-        '3xs': ['0.5625rem', { lineHeight: '0.75rem', letterSpacing: '0.02em' }], // 9px/12px - dense stats
-        '2xs': ['0.625rem', { lineHeight: '0.75rem', letterSpacing: '0.015em' }], // 10px/12px - compact data
-        // Standard sizes
-        xs: ['0.75rem', '1rem'], // 12px/16px (2 units)
-        sm: ['0.875rem', '1.5rem'], // 14px/24px (3 units)
-        base: ['1rem', '1.5rem'], // 16px/24px (3 units)
-        lg: ['1.25rem', '2rem'], // 20px/32px (4 units)
-        xl: ['1.5rem', '2rem'], // 24px/32px (4 units)
+        // Minimum 10px for Tuftian data density with increased contrast
+        '5xs': ['0.625rem', { lineHeight: '0.75rem', letterSpacing: '0.025em' }], // 10px/12px - inline symbols
+        '4xs': ['0.625rem', { lineHeight: '0.75rem', letterSpacing: '0.025em' }], // 10px/12px - ultra-dense labels
+        '3xs': ['0.625rem', { lineHeight: '0.75rem', letterSpacing: '0.02em' }], // 10px/12px - dense stats
+        '2xs': ['0.6875rem', { lineHeight: '1rem', letterSpacing: '0.015em' }], // 11px/16px - compact data
+        // Larger standard sizes create more contrast with dense data
+        xs: ['0.875rem', '1.25rem'], // 14px/20px - up from 12px
+        sm: ['1rem', '1.5rem'], // 16px/24px - up from 14px
+        base: ['1.125rem', '1.75rem'], // 18px/28px - up from 16px
+        lg: ['1.375rem', '2rem'], // 22px/32px - up from 20px
+        xl: ['1.75rem', '2.25rem'], // 28px/36px - up from 24px
         '2xl': ['2rem', '2.5rem'], // 32px/40px (5 units)
         '3xl': ['2.5rem', '3rem'], // 40px/48px (6 units)
         '4xl': ['3rem', '3.5rem'], // 48px/56px (7 units)
