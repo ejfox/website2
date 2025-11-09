@@ -3,21 +3,16 @@
     <!-- Stats TOC - ClientOnly to fix SSR hydration -->
     <ClientOnly>
       <teleport v-if="tocTarget && !isSimpleMode" to="#nav-toc-container">
-        <div class="py-4">
-          <h3
-            class="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-4"
-          >
-            Stats Index
-          </h3>
-          <ul class="space-y-1">
+        <div class="py-4 w-48">
+          <ul class="space-y-1 font-mono text-xs list-none pl-0 ml-6">
             <li v-for="section in statsSections" :key="section.id">
               <a
                 :href="`#${section.id}`"
-                class="block py-1 text-sm font-mono uppercase tracking-widest transition-colors"
+                class="block uppercase tracking-wider transition-colors"
                 :class="[
                   activeSection === section.id
-                    ? 'text-primary'
-                    : 'text-muted hover-text'
+                    ? 'text-zinc-900 dark:text-zinc-100'
+                    : 'text-zinc-500 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100'
                 ]"
               >
                 {{ section.text }}
