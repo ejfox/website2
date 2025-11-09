@@ -175,6 +175,11 @@
                 <th
                   class="text-center px-1 py-1 font-normal text-zinc-500 text-[8px]"
                 >
+
+                </th>
+                <th
+                  class="text-center px-1 py-1 font-normal text-zinc-500 text-[8px]"
+                >
                   Type
                 </th>
                 <th

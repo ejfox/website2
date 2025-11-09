@@ -6,20 +6,24 @@
       class="px-1 py-0.5 text-zinc-100 truncate max-w-[300px]"
       :title="item.Name + (item.Notes ? '\n\n' + item.Notes : '')"
     >
-      <div class="flex items-center gap-1">
+      <div class="flex items-center gap-1.5">
         <span class="truncate flex-1 text-[9px]">{{ item.Name }}</span>
         <span v-if="item.Notes" class="text-zinc-700 text-[7px]">•</span>
-        <a
-          v-if="item.Amazon_URL"
-          :href="addAffiliateCode(item.Amazon_URL)"
-          target="_blank"
-          rel="nofollow noopener"
-          class="text-orange-600/80 hover:text-orange-500 text-[8px]"
-          @click.stop
-        >
-          ↗
-        </a>
       </div>
+    </td>
+    <td class="px-1 py-0.5 text-center">
+      <a
+        v-if="item.Amazon_URL"
+        :href="addAffiliateCode(item.Amazon_URL)"
+        target="_blank"
+        rel="nofollow noopener"
+        class="text-[8px] font-mono uppercase tracking-wider text-orange-600/70 hover:text-orange-500 hover:bg-orange-500/10 px-1.5 py-0.5 rounded transition-all inline-block"
+        @click.stop
+        title="Buy on Amazon"
+      >
+        BUY
+      </a>
+      <span v-else class="text-zinc-800 text-[8px]">—</span>
     </td>
     <td class="px-1 py-0.5 text-center text-zinc-500 text-[10px]">
       {{ getTypeSymbol(item.Type) }}
