@@ -104,8 +104,9 @@
           :id="`kalshi-${position.ticker}`"
           class="py-4"
         >
-          <div class="mb-2">
-            <div class="flex items-start gap-3 mb-1">
+          <!-- Title + Side -->
+          <div class="mb-1">
+            <div class="flex items-start gap-3">
               <span
                 class="font-mono text-lg font-bold shrink-0 tabular-nums tracking-tight dark:tracking-normal transition-colors duration-300"
                 :class="position.position > 0 ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'"
@@ -118,17 +119,39 @@
             </div>
           </div>
 
-          <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 tracking-normal dark:tracking-wide flex items-center gap-2 mb-2 transition-colors duration-300">
-            <span>{{ Math.abs(position.position) }} @ {{ (position.total_cost / Math.abs(position.position) / 100).toFixed(0) }}¢</span>
-            <span v-if="getCommentary(position.ticker)?.tags?.length">·</span>
-            <span
-              v-for="tag in getCommentary(position.ticker)?.tags"
-              :key="tag"
-            >
-              #{{ tag }}
-            </span>
-          </div>
+          <!-- Dense data table -->
+          <table class="w-full font-mono text-xs text-zinc-500 dark:text-zinc-500 mb-2 transition-colors duration-300">
+            <tr>
+              <td class="py-0.5">Position</td>
+              <td class="text-right font-bold tabular-nums">{{ Math.abs(position.position) }} × ${{ (position.market_exposure_dollars / Math.abs(position.position)).toFixed(2) }}</td>
+            </tr>
+            <tr>
+              <td class="py-0.5">Exposure</td>
+              <td class="text-right font-bold tabular-nums text-zinc-900 dark:text-zinc-100">${{ position.market_exposure_dollars }}</td>
+            </tr>
+            <tr v-if="position.fees_paid_dollars > 0">
+              <td class="py-0.5">Fees</td>
+              <td class="text-right tabular-nums">-${{ position.fees_paid_dollars }}</td>
+            </tr>
+            <tr v-if="position.realized_pnl_dollars != 0">
+              <td class="py-0.5">Realized P&L</td>
+              <td class="text-right font-bold tabular-nums" :class="position.realized_pnl_dollars >= 0 ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">
+                {{ position.realized_pnl_dollars >= 0 ? '+' : '' }}${{ position.realized_pnl_dollars }}
+              </td>
+            </tr>
+            <tr>
+              <td class="py-0.5">Total Traded</td>
+              <td class="text-right tabular-nums">${{ position.total_traded_dollars }}</td>
+            </tr>
+            <tr v-if="getCommentary(position.ticker)?.tags?.length">
+              <td class="py-0.5">Tags</td>
+              <td class="text-right">
+                <span v-for="tag in getCommentary(position.ticker)?.tags" :key="tag" class="mr-1">#{{ tag }}</span>
+              </td>
+            </tr>
+          </table>
 
+          <!-- Commentary -->
           <div v-if="getCommentary(position.ticker)" class="font-serif text-sm text-zinc-600 dark:text-zinc-400 leading-normal tracking-normal dark:tracking-wide transition-colors duration-300">
             {{ getCommentary(position.ticker).commentary }}
           </div>
