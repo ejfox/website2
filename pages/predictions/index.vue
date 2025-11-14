@@ -50,8 +50,51 @@
     <!-- MARKET POSITIONS -->
     <div v-if="kalshiData?.positions && kalshiData.positions.length > 0" class="mb-12">
       <h2 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider dark:tracking-widest mb-4 transition-colors duration-300">Market Positions</h2>
-      <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 tracking-normal dark:tracking-wide mb-6 transition-colors duration-300">
-        <div><span class="text-zinc-900 dark:text-zinc-100 font-bold text-lg tabular-nums">{{ kalshiData.positions.length }}</span> active positions · <span class="text-zinc-900 dark:text-zinc-100 font-bold text-lg tabular-nums">${{ ((kalshiData.balance?.portfolio_value || 0) / 100).toFixed(2) }}</span> portfolio value</div>
+
+      <!-- Portfolio Performance Stats -->
+      <div v-if="kalshiData?.portfolioStats" class="mb-6 grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div>
+          <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300">Open P&L</div>
+          <div class="font-mono text-2xl font-bold tabular-nums tracking-tight dark:tracking-normal transition-colors duration-300"
+               :class="kalshiData.portfolioStats.totalUnrealizedPnL >= 0 ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">
+            {{ kalshiData.portfolioStats.totalUnrealizedPnL >= 0 ? '+' : '' }}${{ (kalshiData.portfolioStats.totalUnrealizedPnL).toFixed(2) }}
+          </div>
+          <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 transition-colors duration-300">
+            {{ ((kalshiData.portfolioStats.totalUnrealizedPnL / kalshiData.portfolioStats.totalInvested) * 100).toFixed(1) }}%
+          </div>
+        </div>
+
+        <div>
+          <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300">Closed P&L</div>
+          <div class="font-mono text-2xl font-bold tabular-nums tracking-tight dark:tracking-normal transition-colors duration-300"
+               :class="kalshiData.portfolioStats.totalRealizedPnL >= 0 ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">
+            {{ kalshiData.portfolioStats.totalRealizedPnL >= 0 ? '+' : '' }}${{ (kalshiData.portfolioStats.totalRealizedPnL).toFixed(2) }}
+          </div>
+          <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 transition-colors duration-300">
+            {{ kalshiData.portfolioStats.closedPositions.length }} positions
+          </div>
+        </div>
+
+        <div>
+          <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300">Total P&L</div>
+          <div class="font-mono text-2xl font-bold tabular-nums tracking-tight dark:tracking-normal transition-colors duration-300"
+               :class="(kalshiData.portfolioStats.totalUnrealizedPnL + kalshiData.portfolioStats.totalRealizedPnL) >= 0 ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">
+            {{ (kalshiData.portfolioStats.totalUnrealizedPnL + kalshiData.portfolioStats.totalRealizedPnL) >= 0 ? '+' : '' }}${{ (kalshiData.portfolioStats.totalUnrealizedPnL + kalshiData.portfolioStats.totalRealizedPnL).toFixed(2) }}
+          </div>
+          <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 transition-colors duration-300">
+            all time
+          </div>
+        </div>
+
+        <div>
+          <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300">Portfolio Value</div>
+          <div class="font-mono text-2xl font-bold tabular-nums tracking-tight dark:tracking-normal text-zinc-900 dark:text-zinc-100 transition-colors duration-300">
+            ${{ (kalshiData.portfolioStats.totalValue).toFixed(2) }}
+          </div>
+          <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 transition-colors duration-300">
+            {{ kalshiData.positions.length }} open
+          </div>
+        </div>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">

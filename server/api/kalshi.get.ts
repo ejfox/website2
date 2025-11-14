@@ -11,6 +11,134 @@ let cache: {
 
 const CACHE_DURATION = 5 * 60 * 1000 // 5 minutes
 
+// Calculate P&L for positions
+function calculatePortfolioPnL(positions: any[], fills: any[], marketDetails: any) {
+  const portfolioStats = {
+    totalUnrealizedPnL: 0,
+    totalRealizedPnL: 0,
+    totalInvested: 0,
+    totalValue: 0,
+    openPositions: [] as any[],
+    closedPositions: [] as any[]
+  }
+
+  // Group fills by ticker
+  const fillsByTicker = fills.reduce((acc: any, fill: any) => {
+    if (!acc[fill.ticker]) acc[fill.ticker] = []
+    acc[fill.ticker].push(fill)
+    return acc
+  }, {})
+
+  // Process open positions
+  positions.forEach((pos: any) => {
+    const posFills = fillsByTicker[pos.ticker] || []
+    const market = marketDetails[pos.ticker]
+
+    // Calculate average entry price from fills
+    let totalCost = 0
+    let totalQuantity = 0
+
+    posFills.forEach((fill: any) => {
+      const qty = fill.count
+      const price = fill.price
+      totalCost += qty * price
+      totalQuantity += qty
+    })
+
+    const avgEntryPrice = totalQuantity > 0 ? totalCost / totalQuantity : 0
+    const currentQuantity = Math.abs(pos.position)
+    const isYesPosition = pos.position > 0
+
+    // Get current market price - try last_price, then yes_bid, then no_bid
+    let currentPrice = market?.last_price
+    if (!currentPrice) {
+      currentPrice = isYesPosition ? market?.yes_bid : market?.no_bid
+    }
+    if (!currentPrice) {
+      currentPrice = avgEntryPrice // Fallback to entry price if no market data
+    }
+
+    // Calculate P&L differently for YES vs NO positions
+    // YES position: bought contracts, profit if price goes up
+    // NO position: sold contracts, profit if price goes down
+    let unrealizedPnL, currentValue, costBasis
+
+    if (isYesPosition) {
+      // YES position: paid avgEntryPrice, current value is currentPrice
+      costBasis = currentQuantity * avgEntryPrice
+      currentValue = currentQuantity * currentPrice
+      unrealizedPnL = currentValue - costBasis
+    } else {
+      // NO position: received avgEntryPrice when sold, would pay currentPrice to close
+      costBasis = currentQuantity * avgEntryPrice
+      currentValue = currentQuantity * currentPrice
+      unrealizedPnL = costBasis - currentValue // Profit if current < entry (cheaper to buy back)
+    }
+
+    const unrealizedPnLPercent = costBasis > 0 ? (unrealizedPnL / costBasis) * 100 : 0
+
+    portfolioStats.totalInvested += costBasis
+    portfolioStats.totalValue += isYesPosition ? currentValue : costBasis - unrealizedPnL
+    portfolioStats.totalUnrealizedPnL += unrealizedPnL
+
+    portfolioStats.openPositions.push({
+      ticker: pos.ticker,
+      position: pos.position,
+      side: isYesPosition ? 'YES' : 'NO',
+      avgEntryPrice,
+      currentPrice,
+      currentValue: isYesPosition ? currentValue : costBasis - unrealizedPnL,
+      costBasis,
+      unrealizedPnL,
+      unrealizedPnLPercent,
+      fillCount: posFills.length
+    })
+  })
+
+  // Process closed positions (fills with no current position)
+  Object.keys(fillsByTicker).forEach(ticker => {
+    const hasOpenPosition = positions.find((p: any) => p.ticker === ticker)
+    if (!hasOpenPosition) {
+      const tickerFills = fillsByTicker[ticker]
+
+      // Calculate realized P&L from fills
+      let buyValue = 0
+      let sellValue = 0
+      let buyQty = 0
+      let sellQty = 0
+
+      tickerFills.forEach((fill: any) => {
+        const value = fill.count * fill.price
+        if (fill.side === 'yes') {
+          buyValue += value
+          buyQty += fill.count
+        } else {
+          sellValue += value
+          sellQty += fill.count
+        }
+      })
+
+      const realizedPnL = sellValue - buyValue
+      const totalQty = Math.max(buyQty, sellQty)
+
+      if (totalQty > 0) {
+        portfolioStats.totalRealizedPnL += realizedPnL
+        portfolioStats.closedPositions.push({
+          ticker,
+          totalQuantity: totalQty,
+          buyValue,
+          sellValue,
+          realizedPnL,
+          realizedPnLPercent: buyValue > 0 ? (realizedPnL / buyValue) * 100 : 0,
+          fillCount: tickerFills.length
+        })
+      }
+    }
+  })
+
+  return portfolioStats
+}
+
 // Load commentary from markdown files
 async function loadCommentaries() {
   try {
@@ -72,13 +200,16 @@ export default defineEventHandler(async (event) => {
     ])
 
     const balance = balanceRes.data
-    const positions = positionsRes.data
+    const positionsData = positionsRes.data
     const fills = fillsRes.data
     const orders = ordersRes.data
 
+    // Extract market positions from response
+    const positions = positionsData.market_positions || []
+
     // Get market details for positions and recent fills
     const tickers = new Set([
-      ...positions.positions?.map((p: any) => p.ticker) || [],
+      ...positions.map((p: any) => p.ticker) || [],
       ...fills.fills?.slice(0, 20).map((f: any) => f.ticker) || []
     ])
 
@@ -95,13 +226,21 @@ export default defineEventHandler(async (event) => {
     // Load commentary from markdown files
     const commentaries = await loadCommentaries()
 
+    // Calculate portfolio P&L
+    const portfolioStats = calculatePortfolioPnL(
+      positions,
+      fills.fills || [],
+      marketDetails
+    )
+
     const data = {
       balance,
-      positions: positions.positions || [],
+      positions,
       fills: fills.fills || [],
       orders: orders.orders || [],
       marketDetails,
       commentaries,
+      portfolioStats,
       lastUpdated: new Date().toISOString()
     }
 
