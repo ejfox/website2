@@ -55,6 +55,8 @@ export default defineNuxtConfig({
     YOUTUBE_CHANNEL_ID: process.env.YOUTUBE_CHANNEL_ID || '',
     UMAMI_USERNAME: process.env.UMAMI_USERNAME || 'admin',
     UMAMI_PASSWORD: process.env.UMAMI_PASSWORD || '',
+    KALSHI_KEY_ID: process.env.KALSHI_KEY_ID || '',
+    KALSHI_PRIVATE_KEY: process.env.KALSHI_PRIVATE_KEY || '',
 
     // Public client-accessible vars
     public: {

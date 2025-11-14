@@ -47,6 +47,149 @@
       </div>
     </section>
 
+    <!-- MARKET POSITIONS -->
+    <div v-if="kalshiData?.positions && kalshiData.positions.length > 0" class="mb-12">
+      <h2 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider dark:tracking-widest mb-4 transition-colors duration-300">Market Positions</h2>
+
+      <!-- Portfolio Performance Stats -->
+      <div v-if="kalshiData?.portfolioStats" class="mb-6 grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4">
+        <div>
+          <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300">Open P&L</div>
+          <div class="font-mono text-2xl font-bold tabular-nums tracking-tight dark:tracking-normal transition-colors duration-300"
+               :class="kalshiData.portfolioStats.totalUnrealizedPnL >= 0 ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">
+            {{ kalshiData.portfolioStats.totalUnrealizedPnL >= 0 ? '+' : '' }}${{ (kalshiData.portfolioStats.totalUnrealizedPnL).toFixed(2) }}
+          </div>
+          <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 transition-colors duration-300">
+            {{ ((kalshiData.portfolioStats.totalUnrealizedPnL / kalshiData.portfolioStats.totalInvested) * 100).toFixed(1) }}%
+          </div>
+        </div>
+
+        <div>
+          <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300">Closed P&L</div>
+          <div class="font-mono text-2xl font-bold tabular-nums tracking-tight dark:tracking-normal transition-colors duration-300"
+               :class="kalshiData.portfolioStats.totalRealizedPnL >= 0 ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">
+            {{ kalshiData.portfolioStats.totalRealizedPnL >= 0 ? '+' : '' }}${{ (kalshiData.portfolioStats.totalRealizedPnL).toFixed(2) }}
+          </div>
+          <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 transition-colors duration-300">
+            {{ kalshiData.portfolioStats.closedPositions.length }} positions
+          </div>
+        </div>
+
+        <div>
+          <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300">Total P&L</div>
+          <div class="font-mono text-2xl font-bold tabular-nums tracking-tight dark:tracking-normal transition-colors duration-300"
+               :class="(kalshiData.portfolioStats.totalUnrealizedPnL + kalshiData.portfolioStats.totalRealizedPnL) >= 0 ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">
+            {{ (kalshiData.portfolioStats.totalUnrealizedPnL + kalshiData.portfolioStats.totalRealizedPnL) >= 0 ? '+' : '' }}${{ (kalshiData.portfolioStats.totalUnrealizedPnL + kalshiData.portfolioStats.totalRealizedPnL).toFixed(2) }}
+          </div>
+          <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 transition-colors duration-300">
+            all time
+          </div>
+        </div>
+
+        <div>
+          <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300">Portfolio Value</div>
+          <div class="font-mono text-2xl font-bold tabular-nums tracking-tight dark:tracking-normal text-zinc-900 dark:text-zinc-100 transition-colors duration-300">
+            ${{ (kalshiData.portfolioStats.totalValue).toFixed(2) }}
+          </div>
+          <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 transition-colors duration-300">
+            {{ kalshiData.positions.length }} open
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">
+        <article
+          v-for="position in kalshiData.positions"
+          :key="position.ticker"
+          :id="`kalshi-${position.ticker}`"
+          class="py-4"
+        >
+          <!-- Title + Side -->
+          <div class="mb-1">
+            <div class="flex items-start gap-3">
+              <span
+                class="font-mono text-lg font-bold shrink-0 tabular-nums tracking-tight dark:tracking-normal transition-colors duration-300"
+                :class="position.position > 0 ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'"
+              >
+                {{ position.position > 0 ? 'YES' : 'NO' }}
+              </span>
+              <div class="font-serif text-base leading-snug text-zinc-900 dark:text-zinc-100 flex-1 transition-colors duration-300">
+                {{ getMarketTitle(position.ticker) }}
+              </div>
+            </div>
+          </div>
+
+          <!-- Dense data table -->
+          <table class="w-full font-mono text-xs text-zinc-500 dark:text-zinc-500 mb-2 transition-colors duration-300">
+            <tbody>
+              <tr>
+                <td class="py-0.5">Position</td>
+                <td class="text-right font-bold tabular-nums">{{ Math.abs(position.position) }} × ${{ (position.market_exposure_dollars / Math.abs(position.position)).toFixed(2) }}</td>
+              </tr>
+              <tr>
+                <td class="py-0.5">Exposure</td>
+                <td class="text-right font-bold tabular-nums text-zinc-900 dark:text-zinc-100">${{ position.market_exposure_dollars }}</td>
+              </tr>
+              <tr v-if="position.fees_paid_dollars > 0">
+                <td class="py-0.5">Fees</td>
+                <td class="text-right tabular-nums">-${{ position.fees_paid_dollars }}</td>
+              </tr>
+              <tr v-if="position.realized_pnl_dollars != 0">
+                <td class="py-0.5">Realized P&L</td>
+                <td class="text-right font-bold tabular-nums" :class="position.realized_pnl_dollars >= 0 ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">
+                  {{ position.realized_pnl_dollars >= 0 ? '+' : '' }}${{ position.realized_pnl_dollars }}
+                </td>
+              </tr>
+              <tr>
+                <td class="py-0.5">Total Traded</td>
+                <td class="text-right tabular-nums">${{ position.total_traded_dollars }}</td>
+              </tr>
+              <tr v-if="getCommentary(position.ticker)?.tags?.length">
+                <td class="py-0.5">Tags</td>
+                <td class="text-right">
+                  <span v-for="tag in getCommentary(position.ticker)?.tags" :key="tag" class="mr-1">#{{ tag }}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Commentary -->
+          <div v-if="getCommentary(position.ticker)" class="font-serif text-sm text-zinc-600 dark:text-zinc-400 leading-normal tracking-normal dark:tracking-wide transition-colors duration-300">
+            {{ getCommentary(position.ticker).commentary }}
+          </div>
+        </article>
+      </div>
+
+      <!-- Fills Table -->
+      <div v-if="kalshiData?.fills && kalshiData.fills.length > 0" class="mt-8">
+        <h3 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider dark:tracking-widest mb-3 transition-colors duration-300">Recent Fills</h3>
+        <div class="overflow-x-auto -mx-4 px-4">
+          <div class="min-w-[450px]">
+            <table class="w-full border-collapse font-mono text-xs tracking-normal dark:tracking-wide">
+              <thead>
+                <tr>
+                  <th class="text-left pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Time</th>
+                  <th class="text-left pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Market</th>
+                  <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Side</th>
+                  <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Qty</th>
+                  <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Price</th>
+                </tr>
+              </thead>
+              <tbody class="text-zinc-500 dark:text-zinc-500 transition-colors duration-300">
+                <tr v-for="fill in kalshiData.fills.slice(0, 10)" :key="fill.fill_id" class="transition-colors duration-300">
+                  <td class="py-1 tabular-nums">{{ formatTime(fill.created_time) }}</td>
+                  <td class="py-1">{{ fill.ticker }}</td>
+                  <td class="py-1 text-right font-bold tracking-tight dark:tracking-normal transition-colors duration-300" :class="fill.side === 'yes' ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">{{ fill.side.toUpperCase() }}</td>
+                  <td class="py-1 text-right tabular-nums">{{ fill.count }}</td>
+                  <td class="py-1 text-right tabular-nums">{{ (fill.price * 100).toFixed(0) }}¢</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Statistics -->
     <section v-if="transformedPredictions.length > 0" class="mt-12">
       <h2 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-4">Statistics</h2>
@@ -131,6 +274,153 @@
       </div>
     </section>
 
+    <!-- Meta-Analysis (Gwern Mode) -->
+    <section v-if="calibration && calibration.summary.resolved > 0" class="mt-12">
+      <h2 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider dark:tracking-widest mb-4 transition-colors duration-300">Meta-Analysis</h2>
+
+      <!-- Brier Score -->
+      <div v-if="calibration.brier_score !== null" class="mb-6">
+        <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mb-2 transition-colors duration-300">Brier Score</div>
+        <div class="flex items-baseline gap-2">
+          <span class="font-mono text-4xl font-bold tabular-nums tracking-tight dark:tracking-normal transition-colors duration-300"
+                :class="calibration.brier_score < 0.20 ? 'text-green-600 dark:text-green-500' : calibration.brier_score < 0.25 ? 'text-zinc-900 dark:text-zinc-100' : 'text-red-600 dark:text-red-500'">
+            {{ calibration.brier_score.toFixed(3) }}
+          </span>
+          <span class="font-mono text-xs text-zinc-500 dark:text-zinc-500 transition-colors duration-300">
+            {{ calibration.brier_score < 0.20 ? '(excellent)' : calibration.brier_score < 0.25 ? '(good)' : '(needs work)' }}
+          </span>
+        </div>
+        <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mt-1 transition-colors duration-300">
+          0 = perfect · 1 = worst · &lt;0.25 = good
+        </div>
+      </div>
+
+      <!-- Calibration Buckets -->
+      <div v-if="calibration.calibration && calibration.calibration.length > 0" class="mb-6">
+        <h3 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider dark:tracking-widest mb-3 transition-colors duration-300">Calibration Curve</h3>
+        <table class="w-full border-collapse font-mono text-xs tracking-normal dark:tracking-wide">
+          <thead>
+            <tr>
+              <th class="text-left pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Confidence</th>
+              <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Expected</th>
+              <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Actual</th>
+              <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Δ</th>
+              <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">n</th>
+            </tr>
+          </thead>
+          <tbody class="text-zinc-500 dark:text-zinc-500 transition-colors duration-300">
+            <tr v-for="bucket in calibration.calibration" :key="bucket.label" class="transition-colors duration-300">
+              <td class="py-1">{{ bucket.label }}</td>
+              <td class="py-1 text-right tabular-nums">{{ bucket.expected }}%</td>
+              <td class="py-1 text-right font-bold text-lg tabular-nums tracking-tight dark:tracking-normal transition-colors duration-300"
+                  :class="Math.abs(bucket.delta) <= 5 ? 'text-green-600 dark:text-green-500' : Math.abs(bucket.delta) <= 10 ? 'text-zinc-900 dark:text-zinc-100' : 'text-red-600 dark:text-red-500'">
+                {{ bucket.accuracy }}%
+              </td>
+              <td class="py-1 text-right tabular-nums font-bold transition-colors duration-300"
+                  :class="bucket.delta >= 0 ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">
+                {{ bucket.delta >= 0 ? '+' : '' }}{{ bucket.delta }}pp
+              </td>
+              <td class="py-1 text-right tabular-nums">{{ bucket.count }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mt-2 transition-colors duration-300">
+          Well-calibrated means actual ≈ expected (Δ near 0)
+        </div>
+      </div>
+
+      <!-- Category Performance -->
+      <div v-if="calibration.by_category && calibration.by_category.length > 0" class="mb-6">
+        <h3 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider dark:tracking-widest mb-3 transition-colors duration-300">By Category</h3>
+        <table class="w-full border-collapse font-mono text-xs tracking-normal dark:tracking-wide">
+          <thead>
+            <tr>
+              <th class="text-left pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Category</th>
+              <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Accuracy</th>
+              <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Correct</th>
+              <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Total</th>
+            </tr>
+          </thead>
+          <tbody class="text-zinc-500 dark:text-zinc-500 transition-colors duration-300">
+            <tr v-for="cat in calibration.by_category" :key="cat.category" class="transition-colors duration-300">
+              <td class="py-1">{{ cat.category }}</td>
+              <td class="py-1 text-right font-bold text-lg tabular-nums tracking-tight dark:tracking-normal transition-colors duration-300"
+                  :class="cat.accuracy >= 70 ? 'text-green-600 dark:text-green-500' : cat.accuracy >= 50 ? 'text-zinc-900 dark:text-zinc-100' : 'text-red-600 dark:text-red-500'">
+                {{ cat.accuracy }}%
+              </td>
+              <td class="py-1 text-right tabular-nums">{{ cat.correct }}</td>
+              <td class="py-1 text-right tabular-nums">{{ cat.total }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Update Analysis -->
+      <div v-if="calibration.update_analysis" class="mb-6">
+        <h3 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider dark:tracking-widest mb-3 transition-colors duration-300">Update Patterns</h3>
+        <div class="grid grid-cols-2 gap-4 font-mono text-xs">
+          <div>
+            <div class="text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300">Predictions Updated</div>
+            <div class="text-zinc-900 dark:text-zinc-100 font-bold text-2xl tabular-nums transition-colors duration-300">
+              {{ calibration.update_analysis.predictionsWithUpdates }}
+            </div>
+          </div>
+          <div>
+            <div class="text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300">Total Updates</div>
+            <div class="text-zinc-900 dark:text-zinc-100 font-bold text-2xl tabular-nums transition-colors duration-300">
+              {{ calibration.update_analysis.totalUpdates }}
+            </div>
+          </div>
+          <div>
+            <div class="text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300">Avg Updates/Prediction</div>
+            <div class="text-zinc-900 dark:text-zinc-100 font-bold text-2xl tabular-nums transition-colors duration-300">
+              {{ calibration.update_analysis.avgUpdatesPerPrediction }}
+            </div>
+          </div>
+          <div>
+            <div class="text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300">Avg Confidence Δ</div>
+            <div class="font-bold text-2xl tabular-nums transition-colors duration-300"
+                 :class="calibration.update_analysis.avgConfidenceChange >= 0 ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">
+              {{ calibration.update_analysis.avgConfidenceChange >= 0 ? '+' : '' }}{{ calibration.update_analysis.avgConfidenceChange }}%
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Market Comparison -->
+      <div v-if="calibration.market_comparison" class="mb-6">
+        <h3 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider dark:tracking-widest mb-3 transition-colors duration-300">vs Market Baseline</h3>
+        <div class="grid grid-cols-2 gap-4 font-mono text-xs">
+          <div>
+            <div class="text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300">Disagreements (&gt;10% diff)</div>
+            <div class="text-zinc-900 dark:text-zinc-100 font-bold text-2xl tabular-nums transition-colors duration-300">
+              {{ calibration.market_comparison.disagreements }} / {{ calibration.market_comparison.total }}
+            </div>
+          </div>
+          <div>
+            <div class="text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300">Accuracy When Disagreed</div>
+            <div class="font-bold text-2xl tabular-nums transition-colors duration-300"
+                 :class="calibration.market_comparison.accuracyWhenDisagreed >= 50 ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">
+              {{ calibration.market_comparison.accuracyWhenDisagreed }}%
+            </div>
+          </div>
+        </div>
+        <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mt-2 transition-colors duration-300">
+          {{ calibration.market_comparison.accuracyWhenDisagreed >= 50 ? 'Beating the market when you disagree' : 'Market outperforming when you disagree' }}
+        </div>
+      </div>
+
+      <!-- Summary Stats -->
+      <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 transition-colors duration-300">
+        <div class="mb-1">
+          Analysis based on <span class="text-zinc-900 dark:text-zinc-100 font-bold">{{ calibration.summary.resolved }}</span> resolved predictions
+        </div>
+        <div v-if="calibration.generated_at" class="text-zinc-400 dark:text-zinc-600 transition-colors duration-300">
+          Generated {{ new Date(calibration.generated_at).toLocaleString() }}
+        </div>
+      </div>
+    </section>
+
     <!-- Version Control -->
     <section class="mt-12">
       <h2 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-3">Version Control</h2>
@@ -154,33 +444,70 @@
     to="#nav-toc-container"
   >
     <div class="toc w-48 font-mono">
-      <div class="py-4">
-        <ul class="space-y-2 text-xs">
-          <li
-            v-for="prediction in predictionToc"
-            :key="prediction.slug"
-            class="group relative"
-          >
-            <a
-              :href="`#${prediction.slug}`"
-              class="block no-underline"
-              :class="[
-                activeSection === prediction.slug
-                  ? 'text-zinc-900 dark:text-zinc-100 font-bold'
-                  : 'text-zinc-600 dark:text-zinc-400'
-              ]"
-              :style="{ opacity: 0.7 + (prediction.confidence / 100) * 0.3 }"
+      <div class="py-4 space-y-6">
+        <!-- Section for each type -->
+        <div v-for="section in predictionToc" :key="section.type">
+          <!-- Section header -->
+          <div class="text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-500 mb-2">
+            <span v-if="section.type === 'kalshi'">Markets ({{ section.items.length }})</span>
+            <span v-else-if="section.type === 'active'">Active ({{ section.items.length }})</span>
+            <span v-else-if="section.type === 'resolved'">Resolved ({{ section.items.length }})</span>
+          </div>
+
+          <ul class="space-y-2 text-xs">
+            <!-- Kalshi items -->
+            <li
+              v-if="section.type === 'kalshi'"
+              v-for="item in section.items"
+              :key="item.slug"
+              class="group relative"
             >
-              <div class="flex items-start gap-2">
-                <span class="text-zinc-500 dark:text-zinc-500 shrink-0">{{ prediction.confidence }}%</span>
-                <span class="block line-clamp-2 flex-1 min-w-0">{{ prediction.text }}</span>
-                <span v-if="prediction.status === 'correct' || prediction.status === 'incorrect'" class="shrink-0" :class="prediction.status === 'correct' ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">
-                  {{ prediction.status === 'correct' ? '✓' : '✗' }}
-                </span>
-              </div>
-            </a>
-          </li>
-        </ul>
+              <a
+                :href="`#${item.slug}`"
+                class="block no-underline"
+                :class="[
+                  activeSection === item.slug
+                    ? 'text-zinc-900 dark:text-zinc-100 font-bold'
+                    : 'text-zinc-600 dark:text-zinc-400'
+                ]"
+              >
+                <div class="flex items-start gap-2">
+                  <span class="shrink-0 font-bold" :class="item.side === 'YES' ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">
+                    {{ item.side }}
+                  </span>
+                  <span class="block line-clamp-2 flex-1 min-w-0">{{ item.text }}</span>
+                </div>
+              </a>
+            </li>
+
+            <!-- Prediction items -->
+            <li
+              v-else
+              v-for="item in section.items"
+              :key="item.slug"
+              class="group relative"
+            >
+              <a
+                :href="`#${item.slug}`"
+                class="block no-underline"
+                :class="[
+                  activeSection === item.slug
+                    ? 'text-zinc-900 dark:text-zinc-100 font-bold'
+                    : 'text-zinc-600 dark:text-zinc-400'
+                ]"
+                :style="{ opacity: 0.7 + (item.confidence / 100) * 0.3 }"
+              >
+                <div class="flex items-start gap-2">
+                  <span class="text-zinc-500 dark:text-zinc-500 shrink-0">{{ item.confidence }}%</span>
+                  <span class="block line-clamp-2 flex-1 min-w-0">{{ item.text }}</span>
+                  <span v-if="item.status === 'correct' || item.status === 'incorrect'" class="shrink-0" :class="item.status === 'correct' ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">
+                    {{ item.status === 'correct' ? '✓' : '✗' }}
+                  </span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </teleport>
@@ -206,6 +533,8 @@ useSeoMeta({
 })
 
 const { data: predictions } = await useFetch('/api/predictions')
+const { data: kalshiData } = useKalshi()
+const { data: calibration } = useCalibration()
 const filter = ref('all')
 const sortBy = ref('date')
 
@@ -383,23 +712,47 @@ const activeSection = ref('')
 const tocTarget = ref(null)
 
 const predictionToc = computed(() => {
-  const active = activePredictions.value.map((p) => ({
-    slug: `prediction-${p.id}`,
-    text: p.statement.length > 50 ? p.statement.slice(0, 47) + '...' : p.statement,
-    status: p.status,
-    confidence: p.confidence,
-    resolved: false
-  }))
+  const sections = []
 
-  const resolved = resolvedPredictions.value.map((p) => ({
-    slug: `prediction-${p.id}`,
-    text: p.statement.length > 50 ? p.statement.slice(0, 47) + '...' : p.statement,
-    status: p.status,
-    confidence: p.confidence,
-    resolved: true
-  }))
+  // Kalshi positions section
+  if (kalshiData.value?.positions && kalshiData.value.positions.length > 0) {
+    const kalshiItems = kalshiData.value.positions.map((pos) => ({
+      slug: `kalshi-${pos.ticker}`,
+      text: getMarketTitle(pos.ticker),
+      type: 'kalshi',
+      side: pos.position > 0 ? 'YES' : 'NO',
+      ticker: pos.ticker
+    }))
+    sections.push({ type: 'kalshi', items: kalshiItems })
+  }
 
-  return [...active, ...resolved]
+  // Active predictions section
+  if (activePredictions.value.length > 0) {
+    const active = activePredictions.value.map((p) => ({
+      slug: `prediction-${p.id}`,
+      text: p.statement.length > 50 ? p.statement.slice(0, 47) + '...' : p.statement,
+      status: p.status,
+      confidence: p.confidence,
+      type: 'prediction',
+      resolved: false
+    }))
+    sections.push({ type: 'active', items: active })
+  }
+
+  // Resolved predictions section
+  if (resolvedPredictions.value.length > 0) {
+    const resolved = resolvedPredictions.value.map((p) => ({
+      slug: `prediction-${p.id}`,
+      text: p.statement.length > 50 ? p.statement.slice(0, 47) + '...' : p.statement,
+      status: p.status,
+      confidence: p.confidence,
+      type: 'prediction',
+      resolved: true
+    }))
+    sections.push({ type: 'resolved', items: resolved })
+  }
+
+  return sections
 })
 
 onMounted(() => {
@@ -430,4 +783,47 @@ watch([activePredictions, resolvedPredictions], async () => {
     tocTarget.value = document.querySelector('#nav-toc-container')
   }
 })
+
+// Kalshi helpers
+const getMarketTitle = (ticker) => {
+  // Try commentary title first (user-provided, most accurate)
+  if (kalshiData.value?.commentaries?.[ticker]?.marketTitle) {
+    return kalshiData.value.commentaries[ticker].marketTitle
+  }
+
+  // Try API market details (official Kalshi title)
+  if (kalshiData.value?.marketDetails?.[ticker]?.title) {
+    return kalshiData.value.marketDetails[ticker].title
+  }
+
+  // Fall back to ticker if no data available (resolved/closed markets)
+  return ticker
+}
+
+const getMarketPrice = (ticker) => {
+  if (!kalshiData.value?.marketDetails?.[ticker]) {
+    return '—'
+  }
+  const market = kalshiData.value.marketDetails[ticker]
+  const price = market.last_price || market.yes_bid || 0
+  return `${(price * 100).toFixed(0)}¢`
+}
+
+const getCommentary = (ticker) => {
+  return kalshiData.value?.commentaries?.[ticker]
+}
+
+const formatTime = (isoString) => {
+  const date = new Date(isoString)
+  const now = new Date()
+  const diffMs = now.getTime() - date.getTime()
+  const diffMins = Math.floor(diffMs / 60000)
+  const diffHours = Math.floor(diffMs / 3600000)
+  const diffDays = Math.floor(diffMs / 86400000)
+
+  if (diffMins < 60) return `${diffMins}m`
+  if (diffHours < 24) return `${diffHours}h`
+  if (diffDays < 7) return `${diffDays}d`
+  return date.toLocaleDateString()
+}
 </script>

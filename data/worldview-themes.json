@@ -1,0 +1,28 @@
+{
+  "themes": {
+    "tech-realism": {
+      "name": "Tech Realism",
+      "description": "AI progress is real but hype is overblown. Intelligence requires embodiment, not just scale.",
+      "color": "#3b82f6",
+      "icon": "🤖"
+    },
+    "institutional-decay": {
+      "name": "Institutional Decay",
+      "description": "American political institutions are under structural stress. Constitutional mechanisms becoming routine partisan tools.",
+      "color": "#ef4444",
+      "icon": "🏛️"
+    },
+    "narrative-power": {
+      "name": "Narrative Power",
+      "description": "Cultural narratives and media framing shape technology adoption as much as technical capabilities.",
+      "color": "#8b5cf6",
+      "icon": "📰"
+    },
+    "cultural-futures": {
+      "name": "Cultural Futures",
+      "description": "Long-term bets on civilizational trajectory, human progress, and existential questions.",
+      "color": "#10b981",
+      "icon": "🌍"
+    }
+  }
+}
