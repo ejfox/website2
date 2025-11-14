@@ -52,7 +52,7 @@
       <h2 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider dark:tracking-widest mb-4 transition-colors duration-300">Market Positions</h2>
 
       <!-- Portfolio Performance Stats -->
-      <div v-if="kalshiData?.portfolioStats" class="mb-6 grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div v-if="kalshiData?.portfolioStats" class="mb-6 grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4">
         <div>
           <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300">Open P&L</div>
           <div class="font-mono text-2xl font-bold tabular-nums tracking-tight dark:tracking-normal transition-colors duration-300"
@@ -137,26 +137,30 @@
       <!-- Fills Table -->
       <div v-if="kalshiData?.fills && kalshiData.fills.length > 0" class="mt-8">
         <h3 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider dark:tracking-widest mb-3 transition-colors duration-300">Recent Fills</h3>
-        <table class="w-full border-collapse font-mono text-xs tracking-normal dark:tracking-wide">
-          <thead>
-            <tr>
-              <th class="text-left pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Time</th>
-              <th class="text-left pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Market</th>
-              <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Side</th>
-              <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Qty</th>
-              <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Price</th>
-            </tr>
-          </thead>
-          <tbody class="text-zinc-500 dark:text-zinc-500 transition-colors duration-300">
-            <tr v-for="fill in kalshiData.fills.slice(0, 10)" :key="fill.fill_id" class="transition-colors duration-300">
-              <td class="py-1 tabular-nums">{{ formatTime(fill.created_time) }}</td>
-              <td class="py-1">{{ fill.ticker }}</td>
-              <td class="py-1 text-right font-bold tracking-tight dark:tracking-normal transition-colors duration-300" :class="fill.side === 'yes' ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">{{ fill.side.toUpperCase() }}</td>
-              <td class="py-1 text-right tabular-nums">{{ fill.count }}</td>
-              <td class="py-1 text-right tabular-nums">{{ (fill.price * 100).toFixed(0) }}¢</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="overflow-x-auto -mx-4 px-4">
+          <div class="min-w-[450px]">
+            <table class="w-full border-collapse font-mono text-xs tracking-normal dark:tracking-wide">
+              <thead>
+                <tr>
+                  <th class="text-left pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Time</th>
+                  <th class="text-left pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Market</th>
+                  <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Side</th>
+                  <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Qty</th>
+                  <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Price</th>
+                </tr>
+              </thead>
+              <tbody class="text-zinc-500 dark:text-zinc-500 transition-colors duration-300">
+                <tr v-for="fill in kalshiData.fills.slice(0, 10)" :key="fill.fill_id" class="transition-colors duration-300">
+                  <td class="py-1 tabular-nums">{{ formatTime(fill.created_time) }}</td>
+                  <td class="py-1">{{ fill.ticker }}</td>
+                  <td class="py-1 text-right font-bold tracking-tight dark:tracking-normal transition-colors duration-300" :class="fill.side === 'yes' ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">{{ fill.side.toUpperCase() }}</td>
+                  <td class="py-1 text-right tabular-nums">{{ fill.count }}</td>
+                  <td class="py-1 text-right tabular-nums">{{ (fill.price * 100).toFixed(0) }}¢</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
 
