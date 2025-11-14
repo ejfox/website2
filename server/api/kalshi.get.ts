@@ -1,4 +1,4 @@
-import { Configuration, PortfolioApi, MarketsApi } from 'kalshi-typescript'
+import { Configuration, PortfolioApi, MarketsApi, EventsApi } from 'kalshi-typescript'
 import { readFile, readdir } from 'fs/promises'
 import { join } from 'path'
 import matter from 'gray-matter'
@@ -190,6 +190,7 @@ export default defineEventHandler(async (event) => {
 
     const portfolioApi = new PortfolioApi(kalshiConfig)
     const marketsApi = new MarketsApi(kalshiConfig)
+    const eventsApi = new EventsApi(kalshiConfig)
 
     // Fetch all portfolio data
     const [balanceRes, positionsRes, fillsRes, ordersRes] = await Promise.all([
@@ -216,6 +217,7 @@ export default defineEventHandler(async (event) => {
     const marketDetails: any = {}
     for (const ticker of tickers) {
       try {
+        // Try fetching market data first (for active markets)
         const marketRes = await marketsApi.getMarket({ ticker: ticker as string })
         marketDetails[ticker as string] = {
           title: marketRes.data.title,
@@ -225,9 +227,28 @@ export default defineEventHandler(async (event) => {
           yes_bid: marketRes.data.yes_bid,
           no_bid: marketRes.data.no_bid
         }
-      } catch (e) {
-        // Market might be resolved/closed - silently skip
-        // We can still show the position without current market data
+      } catch (marketError) {
+        // Market fetch failed (likely resolved/closed)
+        // Try fetching parent event instead
+        try {
+          // Derive event ticker from market ticker
+          // Example: "KXOTEEPSTEIN-26-MLAW" → "KXOTEEPSTEIN-26"
+          const parts = (ticker as string).split('-')
+          const eventTicker = parts.length >= 2 ? parts.slice(0, 2).join('-') : ticker
+
+          const eventRes = await eventsApi.getEvent({ event_ticker: eventTicker })
+          marketDetails[ticker as string] = {
+            title: eventRes.data.title,
+            subtitle: eventRes.data.sub_title || '',
+            event_ticker: eventTicker,
+            last_price: null,
+            yes_bid: null,
+            no_bid: null
+          }
+        } catch (eventError) {
+          // Both market and event fetch failed - silently skip
+          // Commentary or ticker will be used as fallback
+        }
       }
     }
 
