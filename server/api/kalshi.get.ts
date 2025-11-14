@@ -23,6 +23,7 @@ interface CacheLayer<T> {
 let portfolioCache: CacheLayer<{
   balance: KalshiBalance
   positions: KalshiPosition[]
+  eventPositions: any[] // Event-level position aggregation from API
   fills: KalshiFill[]
   orders: KalshiOrder[]
 }> | null = null
@@ -248,14 +249,26 @@ async function fetchEvents(
   )
 
   // Process results and update cache
+  let resolved404Count = 0
   for (const fetchResult of eventResults) {
     if (fetchResult.status === 'fulfilled') {
       const { eventTicker, data } = fetchResult.value
       eventsCache.set(eventTicker, { data, timestamp: now })
       result.set(eventTicker, data)
     } else {
-      console.error(`[Kalshi] Failed to fetch event:`, fetchResult.reason)
+      const error = fetchResult.reason
+      // 404s are EXPECTED for resolved markets - Kalshi removes historical data
+      if (error?.response?.status === 404) {
+        resolved404Count++
+      } else {
+        console.error(`[Kalshi] Event fetch error:`, error?.message || error)
+      }
     }
+  }
+
+  if (resolved404Count > 0) {
+    console.log(`[Kalshi] ${resolved404Count}/${needsFetch.length} events returned 404 (resolved/removed from API)`)
+    console.log(`[Kalshi] Falling back to commentary files for titles. Run: node scripts/generate-commentary-templates.mjs`)
   }
 
   return result
@@ -263,6 +276,10 @@ async function fetchEvents(
 
 /**
  * Enrich market data with event metadata and commentary
+ *
+ * REALITY CHECK: Most user positions are in RESOLVED markets.
+ * Kalshi API returns 404 for resolved markets/events (data is removed).
+ * We MUST rely on user commentary files for titles.
  */
 function enrichMarketData(
   ticker: string,
@@ -270,18 +287,18 @@ function enrichMarketData(
   event: KalshiEvent | undefined,
   commentary: KalshiCommentary | undefined
 ): EnrichedMarketData {
-  // Title priority: commentary > event
+  // Title priority: commentary (ONLY reliable source for resolved markets) > event > ticker
   const title = commentary?.marketTitle || event?.title || ticker
-  const subtitle = event?.sub_title || ''
+  const subtitle = event?.sub_title || commentary?.thesis || ''
 
   return {
     ticker,
     event_ticker: eventTicker,
     title,
     subtitle,
-    category: event?.category || 'Unknown',
+    category: event?.category || commentary?.theme || 'Unknown',
     series_ticker: event?.series_ticker || '',
-    status: 'settled', // All resolved markets
+    status: event ? (event?.mutually_exclusive ? 'active' : 'settled') : 'settled',
     market_type: 'binary',
     last_price: null,
     yes_bid: null,
@@ -302,22 +319,40 @@ export default defineEventHandler(async (event): Promise<KalshiApiResponse> => {
 
     // Still need to recalculate derived data with fresh commentary
     const commentaries = await loadCommentaries()
-    const { balance, positions, fills, orders } = portfolioCache.data
+    const { balance, positions, eventPositions, fills, orders } = portfolioCache.data
 
-    // Derive event tickers
-    const tickers = new Set([
-      ...positions.map(p => p.ticker),
-      ...fills.slice(0, 20).map(f => f.ticker)
-    ])
-
+    // Build market_ticker → event_ticker map from cached event positions
     const tickerToEvent = new Map<string, string>()
-    const uniqueEvents = new Set<string>()
 
-    for (const ticker of tickers) {
-      const eventTicker = deriveEventTicker(ticker)
-      tickerToEvent.set(ticker, eventTicker)
-      uniqueEvents.add(eventTicker)
+    for (const marketPos of positions) {
+      const eventPos = eventPositions.find((ep: any) =>
+        marketPos.ticker.startsWith(ep.event_ticker)
+      )
+      if (eventPos) {
+        tickerToEvent.set(marketPos.ticker, eventPos.event_ticker)
+      } else {
+        tickerToEvent.set(marketPos.ticker, deriveEventTicker(marketPos.ticker))
+      }
     }
+
+    // Handle fills
+    for (const fill of fills.slice(0, 20)) {
+      if (!tickerToEvent.has(fill.ticker)) {
+        let found = false
+        for (const [_, eventTicker] of tickerToEvent.entries()) {
+          if (fill.ticker.startsWith(eventTicker)) {
+            tickerToEvent.set(fill.ticker, eventTicker)
+            found = true
+            break
+          }
+        }
+        if (!found) {
+          tickerToEvent.set(fill.ticker, deriveEventTicker(fill.ticker))
+        }
+      }
+    }
+
+    const uniqueEvents = new Set(tickerToEvent.values())
 
     const config = useRuntimeConfig()
     const kalshiConfig = new Configuration({
@@ -381,29 +416,57 @@ export default defineEventHandler(async (event): Promise<KalshiApiResponse> => {
 
     const balance = balanceRes.data as KalshiBalance
     const positions = (positionsRes.data.market_positions || []) as KalshiPosition[]
+    const eventPositions = positionsRes.data.event_positions || []
     const fills = (fillsRes.data.fills || []) as KalshiFill[]
     const orders = (ordersRes.data.orders || []) as KalshiOrder[]
 
     // Update portfolio cache
     portfolioCache = {
-      data: { balance, positions, fills, orders },
+      data: { balance, positions, eventPositions, fills, orders },
       timestamp: now
     }
 
-    // Derive event tickers
-    const tickers = new Set([
-      ...positions.map(p => p.ticker),
-      ...fills.slice(0, 20).map(f => f.ticker)
-    ])
-
+    // Build market_ticker → event_ticker map from API data (NOT derivation!)
+    // The positions API gives us event_positions with actual event_ticker values
     const tickerToEvent = new Map<string, string>()
-    const uniqueEvents = new Set<string>()
 
-    for (const ticker of tickers) {
-      const eventTicker = deriveEventTicker(ticker)
-      tickerToEvent.set(ticker, eventTicker)
-      uniqueEvents.add(eventTicker)
+    // Match market positions to event positions
+    for (const marketPos of positions) {
+      // Find corresponding event position
+      // Event positions are aggregated, so we need to match by ticker pattern
+      const eventPos = eventPositions.find((ep: any) =>
+        marketPos.ticker.startsWith(ep.event_ticker)
+      )
+
+      if (eventPos) {
+        tickerToEvent.set(marketPos.ticker, eventPos.event_ticker)
+      } else {
+        // Fallback to derivation for fills (which don't have event_positions)
+        const eventTicker = deriveEventTicker(marketPos.ticker)
+        tickerToEvent.set(marketPos.ticker, eventTicker)
+      }
     }
+
+    // Handle fills (use event mapping if exists, otherwise derive)
+    for (const fill of fills.slice(0, 20)) {
+      if (!tickerToEvent.has(fill.ticker)) {
+        // Try to find event from existing mappings
+        let found = false
+        for (const [marketTicker, eventTicker] of tickerToEvent.entries()) {
+          if (fill.ticker.startsWith(eventTicker)) {
+            tickerToEvent.set(fill.ticker, eventTicker)
+            found = true
+            break
+          }
+        }
+        if (!found) {
+          const eventTicker = deriveEventTicker(fill.ticker)
+          tickerToEvent.set(fill.ticker, eventTicker)
+        }
+      }
+    }
+
+    const uniqueEvents = new Set(tickerToEvent.values())
 
     // Fetch events with smart caching
     const eventDataMap = await fetchEvents(Array.from(uniqueEvents), eventsApi)

@@ -2,6 +2,24 @@
 
 Add your thinking to Kalshi positions. Just markdown files → auto-displays on /predictions.
 
+## ⚠️ CRITICAL: Resolved Markets = No API Data
+
+**Kalshi API removes historical data** once markets resolve:
+
+- ✅ **Active markets**: API provides titles, prices automatically
+- ❌ **Resolved markets**: API returns 404 (data deleted)
+- 📝 **YOU provide titles** via commentary files
+
+**All your current positions are resolved** → You MUST add `market_title` in commentary files.
+
+### Auto-Generate Templates
+
+```bash
+node scripts/generate-commentary-templates.mjs
+```
+
+Creates starter files with position data. Edit the `market_title` field!
+
 ## Quick Add
 
 **New position:**
