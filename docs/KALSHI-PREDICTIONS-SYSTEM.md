@@ -175,11 +175,26 @@ useKalshi() composable
 
 ### Keep API Keys Fresh
 ```bash
-# If Kalshi credentials expire
+# Update local .env file
 vim .env
-# Update KALSHI_KEY_ID and KALSHI_PRIVATE_KEY
-docker-compose restart  # If using Docker
+# Add or update KALSHI_KEY_ID and KALSHI_PRIVATE_KEY
+
+# Auto-syncs to VPS via mutagen (see below)
+# Or manually sync to VPS:
+ssh vps "cd /data2/website2 && docker-compose restart"
 ```
+
+**Mutagen Auto-Sync** (configured):
+The `.env` file automatically syncs from local → VPS via mutagen.
+```bash
+# Check sync status
+mutagen sync list website2-env
+
+# Created with:
+# mutagen sync create --name=website2-env --sync-mode=one-way-replica \
+#   /Users/ejfox/code/website2/.env debian@vps:/data2/website2/.env
+```
+Changes to local `.env` propagate to VPS within seconds. Container restart still required for new vars.
 
 ### Add Commentary for Positions
 ```bash
