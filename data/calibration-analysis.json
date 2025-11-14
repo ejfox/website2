@@ -1,0 +1,16 @@
+{
+  "generated_at": "2025-11-14T19:02:37.066Z",
+  "summary": {
+    "total_predictions": 0,
+    "resolved": 0,
+    "pending": 0,
+    "correct": 0,
+    "incorrect": 0,
+    "accuracy": null
+  },
+  "brier_score": null,
+  "calibration": [],
+  "by_category": [],
+  "update_analysis": null,
+  "market_comparison": null
+}

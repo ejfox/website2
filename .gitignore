@@ -45,3 +45,6 @@ content/backup/drafts/_stale/*
 .cursor/*
 .claude/settings.local.json
 .build-info.json
+
+# Kalshi test output files
+kalshi-*.json
