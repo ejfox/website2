@@ -101,6 +101,7 @@
         <article
           v-for="position in kalshiData.positions"
           :key="position.ticker"
+          :id="`kalshi-${position.ticker}`"
           class="py-4"
         >
           <div class="mb-2">
@@ -418,33 +419,70 @@
     to="#nav-toc-container"
   >
     <div class="toc w-48 font-mono">
-      <div class="py-4">
-        <ul class="space-y-2 text-xs">
-          <li
-            v-for="prediction in predictionToc"
-            :key="prediction.slug"
-            class="group relative"
-          >
-            <a
-              :href="`#${prediction.slug}`"
-              class="block no-underline"
-              :class="[
-                activeSection === prediction.slug
-                  ? 'text-zinc-900 dark:text-zinc-100 font-bold'
-                  : 'text-zinc-600 dark:text-zinc-400'
-              ]"
-              :style="{ opacity: 0.7 + (prediction.confidence / 100) * 0.3 }"
+      <div class="py-4 space-y-6">
+        <!-- Section for each type -->
+        <div v-for="section in predictionToc" :key="section.type">
+          <!-- Section header -->
+          <div class="text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-500 mb-2">
+            <span v-if="section.type === 'kalshi'">Markets ({{ section.items.length }})</span>
+            <span v-else-if="section.type === 'active'">Active ({{ section.items.length }})</span>
+            <span v-else-if="section.type === 'resolved'">Resolved ({{ section.items.length }})</span>
+          </div>
+
+          <ul class="space-y-2 text-xs">
+            <!-- Kalshi items -->
+            <li
+              v-if="section.type === 'kalshi'"
+              v-for="item in section.items"
+              :key="item.slug"
+              class="group relative"
             >
-              <div class="flex items-start gap-2">
-                <span class="text-zinc-500 dark:text-zinc-500 shrink-0">{{ prediction.confidence }}%</span>
-                <span class="block line-clamp-2 flex-1 min-w-0">{{ prediction.text }}</span>
-                <span v-if="prediction.status === 'correct' || prediction.status === 'incorrect'" class="shrink-0" :class="prediction.status === 'correct' ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">
-                  {{ prediction.status === 'correct' ? '✓' : '✗' }}
-                </span>
-              </div>
-            </a>
-          </li>
-        </ul>
+              <a
+                :href="`#${item.slug}`"
+                class="block no-underline"
+                :class="[
+                  activeSection === item.slug
+                    ? 'text-zinc-900 dark:text-zinc-100 font-bold'
+                    : 'text-zinc-600 dark:text-zinc-400'
+                ]"
+              >
+                <div class="flex items-start gap-2">
+                  <span class="shrink-0 font-bold" :class="item.side === 'YES' ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">
+                    {{ item.side }}
+                  </span>
+                  <span class="block line-clamp-2 flex-1 min-w-0">{{ item.text }}</span>
+                </div>
+              </a>
+            </li>
+
+            <!-- Prediction items -->
+            <li
+              v-else
+              v-for="item in section.items"
+              :key="item.slug"
+              class="group relative"
+            >
+              <a
+                :href="`#${item.slug}`"
+                class="block no-underline"
+                :class="[
+                  activeSection === item.slug
+                    ? 'text-zinc-900 dark:text-zinc-100 font-bold'
+                    : 'text-zinc-600 dark:text-zinc-400'
+                ]"
+                :style="{ opacity: 0.7 + (item.confidence / 100) * 0.3 }"
+              >
+                <div class="flex items-start gap-2">
+                  <span class="text-zinc-500 dark:text-zinc-500 shrink-0">{{ item.confidence }}%</span>
+                  <span class="block line-clamp-2 flex-1 min-w-0">{{ item.text }}</span>
+                  <span v-if="item.status === 'correct' || item.status === 'incorrect'" class="shrink-0" :class="item.status === 'correct' ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">
+                    {{ item.status === 'correct' ? '✓' : '✗' }}
+                  </span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </teleport>
@@ -649,23 +687,47 @@ const activeSection = ref('')
 const tocTarget = ref(null)
 
 const predictionToc = computed(() => {
-  const active = activePredictions.value.map((p) => ({
-    slug: `prediction-${p.id}`,
-    text: p.statement.length > 50 ? p.statement.slice(0, 47) + '...' : p.statement,
-    status: p.status,
-    confidence: p.confidence,
-    resolved: false
-  }))
+  const sections = []
 
-  const resolved = resolvedPredictions.value.map((p) => ({
-    slug: `prediction-${p.id}`,
-    text: p.statement.length > 50 ? p.statement.slice(0, 47) + '...' : p.statement,
-    status: p.status,
-    confidence: p.confidence,
-    resolved: true
-  }))
+  // Kalshi positions section
+  if (kalshiData.value?.positions && kalshiData.value.positions.length > 0) {
+    const kalshiItems = kalshiData.value.positions.map((pos) => ({
+      slug: `kalshi-${pos.ticker}`,
+      text: getMarketTitle(pos.ticker),
+      type: 'kalshi',
+      side: pos.position > 0 ? 'YES' : 'NO',
+      ticker: pos.ticker
+    }))
+    sections.push({ type: 'kalshi', items: kalshiItems })
+  }
 
-  return [...active, ...resolved]
+  // Active predictions section
+  if (activePredictions.value.length > 0) {
+    const active = activePredictions.value.map((p) => ({
+      slug: `prediction-${p.id}`,
+      text: p.statement.length > 50 ? p.statement.slice(0, 47) + '...' : p.statement,
+      status: p.status,
+      confidence: p.confidence,
+      type: 'prediction',
+      resolved: false
+    }))
+    sections.push({ type: 'active', items: active })
+  }
+
+  // Resolved predictions section
+  if (resolvedPredictions.value.length > 0) {
+    const resolved = resolvedPredictions.value.map((p) => ({
+      slug: `prediction-${p.id}`,
+      text: p.statement.length > 50 ? p.statement.slice(0, 47) + '...' : p.statement,
+      status: p.status,
+      confidence: p.confidence,
+      type: 'prediction',
+      resolved: true
+    }))
+    sections.push({ type: 'resolved', items: resolved })
+  }
+
+  return sections
 })
 
 onMounted(() => {
@@ -699,10 +761,35 @@ watch([activePredictions, resolvedPredictions], async () => {
 
 // Kalshi helpers
 const getMarketTitle = (ticker) => {
-  if (!kalshiData.value?.marketDetails?.[ticker]) {
-    return ticker
+  // Try API market details first
+  if (kalshiData.value?.marketDetails?.[ticker]?.title) {
+    return kalshiData.value.marketDetails[ticker].title
   }
-  return kalshiData.value.marketDetails[ticker].title || ticker
+
+  // Fall back to commentary title
+  if (kalshiData.value?.commentaries?.[ticker]?.marketTitle) {
+    return kalshiData.value.commentaries[ticker].marketTitle
+  }
+
+  // Fall back to cleaned-up ticker
+  return ticker
+    .replace(/^(KXOT|KXCALL|KX)/, '') // Remove KX prefixes
+    .replace(/-\d+[A-Z]{3}\d*/gi, '') // Remove date patterns like -27JAN01, -26JAN
+    .replace(/-\d+(-[A-Z]+)?$/i, '') // Remove trailing year/month like -26, -25-DEC31
+    .replace(/EEPSTEIN/i, 'Epstein') // Fix common misspellings
+    .replace(/IMPEACHRCONGRESS/i, 'Impeach Congress')
+    .replace(/IMPEACH/i, 'Impeachment')
+    .replace(/AILEGISLATION/i, 'AI Legislation')
+    .replace(/CODINGMODEL/i, 'Coding Model')
+    .replace(/AIAUTHOR/i, 'AI Author')
+    .replace(/NYTOAI/i, 'NYT on AI')
+    .replace(/JOINSTEPHENCOLBERT/i, 'Join Stephen Colbert')
+    .replace(/OAIAGI/i, 'OpenAI AGI')
+    .replace(/ANTH$/i, '(Anthropic)')
+    .replace(/APP$/i, '(Appearance)')
+    .replace(/MLAW$/i, '(Martial Law)')
+    .replace(/-+/g, ' ')
+    .trim() || ticker
 }
 
 const getMarketPrice = (ticker) => {
