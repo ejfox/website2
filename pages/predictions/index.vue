@@ -761,35 +761,18 @@ watch([activePredictions, resolvedPredictions], async () => {
 
 // Kalshi helpers
 const getMarketTitle = (ticker) => {
-  // Try API market details first
-  if (kalshiData.value?.marketDetails?.[ticker]?.title) {
-    return kalshiData.value.marketDetails[ticker].title
-  }
-
-  // Fall back to commentary title
+  // Try commentary title first (user-provided, most accurate)
   if (kalshiData.value?.commentaries?.[ticker]?.marketTitle) {
     return kalshiData.value.commentaries[ticker].marketTitle
   }
 
-  // Fall back to cleaned-up ticker
+  // Try API market details (official Kalshi title)
+  if (kalshiData.value?.marketDetails?.[ticker]?.title) {
+    return kalshiData.value.marketDetails[ticker].title
+  }
+
+  // Fall back to ticker if no data available (resolved/closed markets)
   return ticker
-    .replace(/^(KXOT|KXCALL|KX)/, '') // Remove KX prefixes
-    .replace(/-\d+[A-Z]{3}\d*/gi, '') // Remove date patterns like -27JAN01, -26JAN
-    .replace(/-\d+(-[A-Z]+)?$/i, '') // Remove trailing year/month like -26, -25-DEC31
-    .replace(/EEPSTEIN/i, 'Epstein') // Fix common misspellings
-    .replace(/IMPEACHRCONGRESS/i, 'Impeach Congress')
-    .replace(/IMPEACH/i, 'Impeachment')
-    .replace(/AILEGISLATION/i, 'AI Legislation')
-    .replace(/CODINGMODEL/i, 'Coding Model')
-    .replace(/AIAUTHOR/i, 'AI Author')
-    .replace(/NYTOAI/i, 'NYT on AI')
-    .replace(/JOINSTEPHENCOLBERT/i, 'Join Stephen Colbert')
-    .replace(/OAIAGI/i, 'OpenAI AGI')
-    .replace(/ANTH$/i, '(Anthropic)')
-    .replace(/APP$/i, '(Appearance)')
-    .replace(/MLAW$/i, '(Martial Law)')
-    .replace(/-+/g, ' ')
-    .trim() || ticker
 }
 
 const getMarketPrice = (ticker) => {

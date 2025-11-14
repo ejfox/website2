@@ -217,9 +217,17 @@ export default defineEventHandler(async (event) => {
     for (const ticker of tickers) {
       try {
         const marketRes = await marketsApi.getMarket({ ticker: ticker as string })
-        marketDetails[ticker as string] = marketRes.data
+        marketDetails[ticker as string] = {
+          title: marketRes.data.title,
+          subtitle: marketRes.data.subtitle,
+          event_ticker: marketRes.data.event_ticker,
+          last_price: marketRes.data.last_price,
+          yes_bid: marketRes.data.yes_bid,
+          no_bid: marketRes.data.no_bid
+        }
       } catch (e) {
-        console.error(`Failed to fetch market ${ticker}:`, e)
+        // Market might be resolved/closed - silently skip
+        // We can still show the position without current market data
       }
     }
 
