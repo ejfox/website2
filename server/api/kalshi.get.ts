@@ -208,46 +208,54 @@ export default defineEventHandler(async (event) => {
     // Extract market positions from response
     const positions = positionsData.market_positions || []
 
-    // Get market details for positions and recent fills
+    // Derive event tickers from market tickers
+    // Example: "KXOTEEPSTEIN-26-MLAW" → "KXOTEEPSTEIN-26"
     const tickers = new Set([
       ...positions.map((p: any) => p.ticker) || [],
       ...fills.fills?.slice(0, 20).map((f: any) => f.ticker) || []
     ])
 
+    // Build map of ticker → event_ticker
+    const tickerToEvent = new Map<string, string>()
+    const uniqueEvents = new Set<string>()
+
+    for (const ticker of tickers) {
+      const parts = (ticker as string).split('-')
+      const eventTicker = parts.length >= 2 ? parts.slice(0, 2).join('-') : ticker as string
+      tickerToEvent.set(ticker as string, eventTicker)
+      uniqueEvents.add(eventTicker)
+    }
+
+    // Fetch all events in parallel
+    const eventResults = await Promise.allSettled(
+      Array.from(uniqueEvents).map(async (eventTicker) => {
+        const eventRes = await eventsApi.getEvent({ event_ticker: eventTicker })
+        return { eventTicker, data: eventRes.data }
+      })
+    )
+
+    // Build event data map
+    const eventData = new Map<string, any>()
+    for (const result of eventResults) {
+      if (result.status === 'fulfilled') {
+        eventData.set(result.value.eventTicker, result.value.data)
+      }
+    }
+
+    // Build marketDetails from event data
     const marketDetails: any = {}
     for (const ticker of tickers) {
-      try {
-        // Try fetching market data first (for active markets)
-        const marketRes = await marketsApi.getMarket({ ticker: ticker as string })
-        marketDetails[ticker as string] = {
-          title: marketRes.data.title,
-          subtitle: marketRes.data.subtitle,
-          event_ticker: marketRes.data.event_ticker,
-          last_price: marketRes.data.last_price,
-          yes_bid: marketRes.data.yes_bid,
-          no_bid: marketRes.data.no_bid
-        }
-      } catch (marketError) {
-        // Market fetch failed (likely resolved/closed)
-        // Try fetching parent event instead
-        try {
-          // Derive event ticker from market ticker
-          // Example: "KXOTEEPSTEIN-26-MLAW" → "KXOTEEPSTEIN-26"
-          const parts = (ticker as string).split('-')
-          const eventTicker = parts.length >= 2 ? parts.slice(0, 2).join('-') : ticker
+      const eventTicker = tickerToEvent.get(ticker as string)
+      const event = eventTicker ? eventData.get(eventTicker) : null
 
-          const eventRes = await eventsApi.getEvent({ event_ticker: eventTicker })
-          marketDetails[ticker as string] = {
-            title: eventRes.data.title,
-            subtitle: eventRes.data.sub_title || '',
-            event_ticker: eventTicker,
-            last_price: null,
-            yes_bid: null,
-            no_bid: null
-          }
-        } catch (eventError) {
-          // Both market and event fetch failed - silently skip
-          // Commentary or ticker will be used as fallback
+      if (event) {
+        marketDetails[ticker as string] = {
+          title: event.title,
+          subtitle: event.sub_title || '',
+          event_ticker: eventTicker,
+          last_price: null,
+          yes_bid: null,
+          no_bid: null
         }
       }
     }
