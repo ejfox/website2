@@ -168,14 +168,10 @@ p,
   animation-delay: var(--stagger-delay);
 }
 
-/* Mobile touch-friendly active state */
+/* Mobile touch-friendly layout */
 @media (max-width: 767px) {
   .project-grid {
     @apply -mx-4 px-4 py-4 rounded-lg;
-  }
-
-  .project-grid:active {
-    @apply bg-zinc-50 dark:bg-zinc-900/50;
   }
 }
 
@@ -227,10 +223,10 @@ p,
   @apply font-mono text-xs uppercase tracking-widest text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors;
 }
 
-/* Mobile touch-friendly GitHub links */
+/* Mobile touch-friendly GitHub links - 48px minimum for Android */
 @media (max-width: 767px) {
   .project-github-link {
-    @apply min-h-[44px] inline-flex items-center px-3 py-2;
+    @apply min-h-[48px] inline-flex items-center px-4 py-3;
   }
 }
 

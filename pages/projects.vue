@@ -106,6 +106,19 @@ const projectActivity = computed(() => {
   }
   return activity
 })
+
+// Extract first image from project HTML for asymmetric grid
+const extractFirstImage = (html) => {
+  if (!html) return null
+  const imgMatch = html.match(/<img[^>]+src="([^">]+)"/)
+  return imgMatch ? imgMatch[1] : null
+}
+
+// Determine layout mode for each featured project
+const getLayoutMode = (index) => {
+  if (index === 0) return 'hero'
+  return index % 2 === 1 ? 'left' : 'right'
+}
 </script>
 
 <template>
@@ -151,7 +164,7 @@ const projectActivity = computed(() => {
           <p class="text-secondary">No projects found.</p>
         </div>
 
-        <!-- Featured Projects -->
+        <!-- Featured Projects - Asymmetric Grid -->
         <div v-if="featuredProjects.length" class="mb-16">
           <h2
             id="featured-work"
@@ -167,6 +180,8 @@ const projectActivity = computed(() => {
               :key="project.slug"
               :project="project"
               :index="index"
+              :layout-mode="getLayoutMode(index)"
+              :featured-image="extractFirstImage(project.html)"
               class="featured-project"
             />
           </div>
