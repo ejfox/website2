@@ -216,7 +216,14 @@ p,
 }
 
 .project-github-link {
-  @apply min-h-[44px] inline-flex items-center px-3 py-2 font-mono text-xs uppercase tracking-widest text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors;
+  @apply font-mono text-xs uppercase tracking-widest text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors;
+}
+
+/* Mobile touch-friendly GitHub links */
+@media (max-width: 767px) {
+  .project-github-link {
+    @apply min-h-[44px] inline-flex items-center px-3 py-2;
+  }
 }
 
 /* Loading States - Minimal */
