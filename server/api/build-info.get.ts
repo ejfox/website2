@@ -20,7 +20,7 @@ export default defineEventHandler(() => {
         timestamp: new Date().toISOString()
       }
     }
-  } catch (error) {
+  } catch {
     // If file doesn't exist (dev mode), return current git info
     return {
       commit: 'dev',

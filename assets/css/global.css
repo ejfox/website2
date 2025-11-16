@@ -227,8 +227,8 @@ p,
 }
 
 /* Constrain inline GitHub/YouTube SVG icons to prevent them from growing */
-.prose svg.inline-block,
-.project-description svg.inline-block {
+.prose a svg,
+.project-description a svg {
   width: 1rem !important;
   height: 1rem !important;
   max-width: 1rem;

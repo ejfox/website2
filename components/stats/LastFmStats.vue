@@ -122,7 +122,6 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { formatDistanceToNow } from 'date-fns'
 import AnimatedNumber from '../AnimatedNumber.vue'
 import StatsDataState from './StatsDataState.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'

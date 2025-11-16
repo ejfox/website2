@@ -11,7 +11,7 @@ const { data: robotNotes } = await useAsyncData('robot-notes', () =>
 const formatDate = (date) => format(new Date(date), 'yyyy-MM-dd')
 
 const robotElements = ref([])
-const activeSection = ref('')
+const _activeSection = ref('')
 const { width } = useWindowSize()
 const _isMobile = computed(() => width.value < 768)
 

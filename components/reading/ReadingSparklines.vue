@@ -121,7 +121,7 @@
 </template>
 
 <script setup>
-const props = defineProps({
+const _props = defineProps({
   books: {
     type: Array,
     required: true
@@ -138,7 +138,7 @@ const currentYear = new Date().getFullYear()
 const yearlyData = computed(() => {
   const yearCounts = {}
 
-  props.books.forEach((book) => {
+  _props.books.forEach((book) => {
     const date = book.metadata?.['kindle-sync']?.lastAnnotatedDate
     if (date) {
       const year = Number.parseInt(date.split('-')[0])
@@ -171,7 +171,7 @@ const totalBooks = computed(() => {
 })
 
 const barWidth = computed(() => {
-  return props.width / yearlyData.value.length
+  return _props.width / yearlyData.value.length
 })
 
 const barGap = computed(() => {
@@ -180,7 +180,7 @@ const barGap = computed(() => {
 
 // Highlights distribution
 const sortedHighlights = computed(() => {
-  return props.books
+  return _props.books
     .map((b) => b.metadata?.['kindle-sync']?.highlightsCount || 0)
     .sort((a, b) => a - b)
 })
@@ -207,7 +207,7 @@ const highlightSparklinePoints = computed(() => {
 
   const max = highlightStats.value.max
   const points = counts.map((count, idx) => {
-    const x = (idx / counts.length) * props.width
+    const x = (idx / counts.length) * _props.width
     const y = 30 - (count / max) * 25
     return `${x},${y}`
   })
@@ -221,13 +221,13 @@ const highlightSparklineArea = computed(() => {
 
   const max = highlightStats.value.max
   const points = counts.map((count, idx) => {
-    const x = (idx / counts.length) * props.width
+    const x = (idx / counts.length) * _props.width
     const y = 30 - (count / max) * 25
     return `${x},${y}`
   })
 
   // Add bottom corners to close the polygon
-  return `${points.join(' ')} ${props.width},30 0,30`
+  return `${points.join(' ')} ${_props.width},30 0,30`
 })
 
 // Last 12 months activity
@@ -247,7 +247,7 @@ const last12Months = computed(() => {
     })
 
     // Count books annotated in this month
-    const count = props.books.filter((book) => {
+    const count = _props.books.filter((book) => {
       const annotatedDate = book.metadata?.['kindle-sync']?.lastAnnotatedDate
       return annotatedDate && annotatedDate.startsWith(monthKey)
     }).length

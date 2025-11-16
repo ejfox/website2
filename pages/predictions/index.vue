@@ -847,28 +847,6 @@ useSeoMeta({
 const { data: predictions } = await useFetch('/api/predictions')
 const { data: kalshiData } = useKalshi()
 const { data: calibration } = useCalibration()
-const filter = ref('all')
-const sortBy = ref('date')
-
-// Helper data
-const filters = [
-  {
-    key: 'all',
-    label: computed(() => `All (${transformedPredictions.value.length})`)
-  },
-  { key: 'pending', label: computed(() => `Pending (${pendingCount.value})`) },
-  {
-    key: 'resolved',
-    label: computed(() => `Resolved (${resolvedCount.value})`)
-  }
-]
-
-const filterButtonClass = (key) => [
-  'transition-colors',
-  filter.value === key
-    ? 'text-primary'
-    : 'text-zinc-500 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100'
-]
 
 // Transform and filter predictions
 const transformedPredictions = computed(
@@ -897,23 +875,6 @@ const resolvedPredictions = computed(() => {
         new Date(b.resolved_date || b.created || 0) -
         new Date(a.resolved_date || a.created || 0)
     )
-})
-
-const filteredPredictions = computed(() => {
-  let filtered = transformedPredictions.value
-  if (filter.value === 'pending') filtered = filtered.filter((p) => !p.resolved)
-  if (filter.value === 'resolved') filtered = filtered.filter((p) => p.resolved)
-
-  return filtered.sort((a, b) => {
-    switch (sortBy.value) {
-      case 'confidence':
-        return b.confidence - a.confidence
-      case 'statement':
-        return a.statement.localeCompare(b.statement)
-      default:
-        return new Date(b.created || 0) - new Date(a.created || 0)
-    }
-  })
 })
 
 // Computed stats
@@ -970,19 +931,19 @@ const incorrectConfidenceAvg = computed(() => {
 })
 
 // Status class helpers
-const unrealizedPnLClass = computed(() =>
+const _unrealizedPnLClass = computed(() =>
   kalshiData.value?.portfolioStats?.totalUnrealizedPnL >= 0
     ? 'text-success'
     : 'text-error'
 )
 
-const realizedPnLClass = computed(() =>
+const _realizedPnLClass = computed(() =>
   kalshiData.value?.portfolioStats?.totalRealizedPnL >= 0
     ? 'text-success'
     : 'text-error'
 )
 
-const totalPnLClass = computed(() => {
+const _totalPnLClass = computed(() => {
   if (!kalshiData.value?.portfolioStats) return ''
   const total =
     kalshiData.value.portfolioStats.totalUnrealizedPnL +
@@ -991,7 +952,7 @@ const totalPnLClass = computed(() => {
 })
 
 // Calibration class helpers
-const brierScoreClass = (score) => {
+const _brierScoreClass = (score) => {
   if (score < 0.2) return 'text-success'
   if (score < 0.25) return 'text-primary'
   return 'text-error'
@@ -1157,7 +1118,7 @@ const getMarketTitle = (ticker) => {
   return ticker
 }
 
-const getMarketPrice = (ticker) => {
+const _getMarketPrice = (ticker) => {
   if (!kalshiData.value?.marketDetails?.[ticker]) {
     return '—'
   }

@@ -56,7 +56,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, h, ref, onMounted, nextTick } from 'vue'
+import { computed, h } from 'vue'
 import { format } from 'date-fns/format'
 import IndividualStat from './IndividualStat.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'

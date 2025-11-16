@@ -14,7 +14,7 @@ const stripHtml = (html) => {
 }
 
 const config = useRuntimeConfig()
-const isDark = useDark()
+const _isDark = useDark()
 const processedMarkdown = useProcessedMarkdown()
 
 const route = useRoute()
@@ -115,7 +115,7 @@ const relatedPosts = computed(() => {
 // New refs for animation targets
 const postTitle = ref(null)
 const postMetadata = ref(null)
-const postMetadataComponent = ref(null)
+const _postMetadataComponent = ref(null)
 const navigationLinks = ref(null)
 const articleContent = ref(null)
 const headings = ref([])
@@ -159,7 +159,7 @@ const readingStats = computed(() => {
   }
 })
 
-const isMobile = computed(() => {
+const _isMobile = computed(() => {
   if (typeof window !== 'undefined') {
     return window.innerWidth < 768
   }
@@ -252,7 +252,7 @@ const animationState = reactive({
 })
 
 // Update the rendered title to wrap words properly
-const renderedTitle = computed(() => {
+const _renderedTitle = computed(() => {
   // If we haven't started animating yet, show all letters
   if (!animationState.hasAnimated) {
     const spans = letters.value.map(({ char, isSpace }) => {
@@ -451,11 +451,11 @@ useHead(() => ({
 }))
 
 // Add this new computed property
-const isBlogPost = computed(() => {
+const _isBlogPost = computed(() => {
   return route.path.startsWith('/blog/') && route.path !== '/blog/'
 })
 // Add computed property to check if donations should be shown
-const showDonations = computed(() => {
+const _showDonations = computed(() => {
   // Show donations by default unless explicitly disabled in frontmatter
   // return post.value?.donation !== false
   // actually lets hide by default
@@ -562,7 +562,7 @@ watch(
  */
 
 // Prepare metadata for PostMetadata component
-const processedMetadata = computed(() => {
+const _processedMetadata = computed(() => {
   if (!post.value) return null
 
   const metadata = post.value.metadata

@@ -191,7 +191,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, onMounted, nextTick } from 'vue'
+import { computed } from 'vue'
 import AnimatedNumber from '../AnimatedNumber.vue'
 import StatsDataState from './StatsDataState.vue'
 import type { StatsResponse } from '~/composables/useStats'

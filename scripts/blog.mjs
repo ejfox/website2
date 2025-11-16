@@ -10,7 +10,8 @@ import rehypeStringify from 'rehype-stringify'
 import { rehypeDefaultClasses } from './plugins/rehypeDefaultClasses.mjs'
 
 // ... in the processor setup
-const _processor = unified()
+// Note: processor is created but only used via importers in other modules
+unified()
   .use(remarkParse)
   .use(remarkFrontmatter)
   .use(remarkExtractFrontmatter, { yaml: yaml })

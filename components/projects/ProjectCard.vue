@@ -71,7 +71,7 @@ const projectSlug = computed(() => {
     .replace(/^-+|-+$/g, '')
 })
 
-const projectTitle = computed(
+const _projectTitle = computed(
   () => props.project.title || props.project.metadata?.title || ''
 )
 // list-only: no image/tooltip logic

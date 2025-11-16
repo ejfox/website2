@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
       commit = execSync('git rev-parse HEAD', { encoding: 'utf8' })
         .trim()
         .substring(0, 8)
-    } catch (_e) {
+    } catch {
       // Git not available
     }
 
@@ -33,7 +33,7 @@ export default defineEventHandler(async (event) => {
     try {
       await $fetch('/api/manifest')
       health.manifest = 'ok'
-    } catch (_error) {
+    } catch {
       health.manifest = 'error'
       health.status = 'degraded'
     }
@@ -44,7 +44,7 @@ export default defineEventHandler(async (event) => {
     }
 
     return health
-  } catch (_error) {
+  } catch {
     setResponseStatus(event, 500)
     return {
       status: 'error',

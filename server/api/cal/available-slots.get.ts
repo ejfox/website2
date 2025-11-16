@@ -1,5 +1,5 @@
-export default defineEventHandler(async (event) => {
-  const config = useRuntimeConfig()
+export default defineEventHandler(async (_event) => {
+  const _config = useRuntimeConfig()
 
   try {
     // Get next 7 days to find available slots

@@ -8,7 +8,7 @@
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async (_event) => {
   try {
     const dataPath = join(process.cwd(), 'data', 'calibration-analysis.json')
     const rawData = await readFile(dataPath, 'utf-8')

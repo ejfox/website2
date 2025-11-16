@@ -1,7 +1,6 @@
 import {
   Configuration,
   PortfolioApi,
-  MarketsApi,
   EventsApi
 } from 'kalshi-typescript'
 import { readFile, readdir } from 'node:fs/promises'
@@ -331,7 +330,7 @@ function enrichMarketData(
   }
 }
 
-export default defineEventHandler(async (event): Promise<KalshiApiResponse> => {
+export default defineEventHandler(async (_event): Promise<KalshiApiResponse> => {
   const now = Date.now()
 
   // Check portfolio cache
@@ -492,7 +491,7 @@ export default defineEventHandler(async (event): Promise<KalshiApiResponse> => {
       if (!tickerToEvent.has(fill.ticker)) {
         // Try to find event from existing mappings
         let found = false
-        for (const [marketTicker, eventTicker] of tickerToEvent.entries()) {
+        for (const [_marketTicker, eventTicker] of tickerToEvent.entries()) {
           if (fill.ticker.startsWith(eventTicker)) {
             tickerToEvent.set(fill.ticker, eventTicker)
             found = true

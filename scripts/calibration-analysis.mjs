@@ -217,7 +217,7 @@ async function main() {
       const data = await readFile(predictionsPath, 'utf-8')
       predictions = JSON.parse(data)
       console.log(`✓ Loaded ${predictions.length} predictions`)
-    } catch (error) {
+    } catch {
       console.error('⚠️  Could not load predictions.json, using empty set')
     }
 
@@ -229,7 +229,7 @@ async function main() {
       console.log(
         `✓ Loaded Kalshi data (${kalshiData.positions?.length || 0} positions)`
       )
-    } catch (error) {
+    } catch {
       console.log('⚠️  Could not fetch Kalshi data (server may not be running)')
     }
 

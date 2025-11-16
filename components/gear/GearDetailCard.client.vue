@@ -220,7 +220,7 @@ const cardTransform = computed(() => {
 })
 
 // Epic gear card reveal sequence (disabled)
-const animateGearCardReveal = async () => {
+const _animateGearCardReveal = async () => {
   if (import.meta.server || !cardRef.value) return
   await nextTick()
   // No animations

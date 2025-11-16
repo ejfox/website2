@@ -25,7 +25,7 @@ export default defineEventHandler(async (event) => {
     const bookData = JSON.parse(await readFile(bookPath, 'utf-8'))
 
     return bookData
-  } catch (error) {
+  } catch {
     // If not found in processed, return 404
     throw createError({
       statusCode: 404,

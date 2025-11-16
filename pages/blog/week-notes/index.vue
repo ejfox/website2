@@ -59,7 +59,7 @@ const _sortedYears = computed(() =>
   Object.keys(blogPostsByYear.value).sort((a, b) => b - a)
 )
 
-const blogPostElements = ref([])
+const _blogPostElements = ref([])
 const weekNoteElements = ref([])
 // DELETED: const { timing, staggers, easing } = useAnimations()
 </script>

@@ -98,7 +98,7 @@ interface BlogStats {
   year: number
 }
 
-const props = defineProps<{
+defineProps<{
   stats: BlogStats
 }>()
 </script>

@@ -13,7 +13,7 @@ export async function backupProcessedContent(outputDir, backupDir) {
       await fs.cp(outputDir, backupDir, { recursive: true })
       console.log(chalk.blue('✓ Backed up current processed content'))
     }
-  } catch (_error) {
+  } catch {
     console.error(chalk.yellow('No existing content to backup'))
   }
 }

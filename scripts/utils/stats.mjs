@@ -148,7 +148,7 @@ export function printProcessingReport() {
   ]
 
   Object.entries(processStats.byType)
-    .filter(([_, count]) => count > 0)
+    .filter((entry) => entry[1] > 0)
     .forEach(([type, count]) => {
       lines.push(`${type}: ${count} files`)
     })

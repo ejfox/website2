@@ -130,7 +130,7 @@ export function remarkEnhanceLinks() {
             break
           }
         }
-      } catch (_err) {
+      } catch {
         // Ignore URL parsing errors
       }
     })

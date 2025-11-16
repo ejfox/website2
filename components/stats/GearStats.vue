@@ -216,7 +216,7 @@
 <script setup lang="ts">
 // Nuxt 4 auto-imports everything!
 import * as d3 from 'd3'
-import StatsSectionHeader from './StatsSectionHeader.vue'
+import _StatsSectionHeader from './StatsSectionHeader.vue'
 // NUKED BY BLOODHOUND: import { animate, stagger as _stagger, onScroll } from '~/anime.esm.js'
 // NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
 
@@ -425,10 +425,10 @@ const mainContainers = computed(() => {
 
 // Animation refs
 const gearStatsRef = ref<HTMLElement | null>(null)
-const containersRef = ref<HTMLElement | null>(null)
-const statsGridRef = ref<HTMLElement | null>(null)
-const distributionRef = ref<HTMLElement | null>(null)
-const conversionsRef = ref<HTMLElement | null>(null)
+const _containersRef = ref<HTMLElement | null>(null)
+const _statsGridRef = ref<HTMLElement | null>(null)
+const _distributionRef = ref<HTMLElement | null>(null)
+const _conversionsRef = ref<HTMLElement | null>(null)
 
 // Load gear data and setup animations
 onMounted(async () => {

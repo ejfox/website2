@@ -33,7 +33,7 @@ function extractRandomHighlight(htmlContent) {
     : randomHighlight
 }
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async (_event) => {
   try {
     const readingDir = path.join(process.cwd(), 'content/processed/reading')
 

@@ -210,7 +210,7 @@
 import { csvParse } from 'd3-dsv' // TREE-SHAKEN: Only import what we need (~2KB vs 200KB)
 
 // HTML escaping function for attributes
-const escapeHtml = (text) => {
+const _escapeHtml = (text) => {
   if (!text) return ''
   const map = {
     '&': '&amp;',
@@ -252,9 +252,9 @@ const typeSymbols = {
   Creativity: '✧'
 }
 
-const getTypeSymbol = (type) => typeSymbols[type] || '—'
+const _getTypeSymbol = (type) => typeSymbols[type] || '—'
 
-const getSortedItemsByType = (items) => {
+const _getSortedItemsByType = (items) => {
   const typeOrder = [
     'Tech',
     'Utility',
@@ -304,7 +304,7 @@ const groupedGear = computed(() => {
   return new Map(sortedEntries)
 })
 
-const calculateTotalWeightInGrams = (items) =>
+const _calculateTotalWeightInGrams = (items) =>
   calculateTotalWeight(items).formatted
 
 // Helper function to format weight for any set of items
@@ -363,11 +363,11 @@ const totalWeight = computed(() => {
     : '0.0'
 })
 const containerCount = computed(() => groupedGear.value?.size || 0)
-const totalWeightInGrams = computed(() => {
+const _totalWeightInGrams = computed(() => {
   const total = calculateTotalWeight(gearItems.value || [])
   return total.grams || 0
 })
-const avgWeightInGrams = computed(() => {
+const _avgWeightInGrams = computed(() => {
   const avg = calculateAverageWeight(gearItems.value || [])
   return avg.grams || 0
 })
@@ -404,7 +404,7 @@ const displayTotalWeight = computed(() => {
   }
 })
 
-const displayAvgWeight = computed(() => {
+const _displayAvgWeight = computed(() => {
   const avgWeightData = calculateAverageWeight(gearItems.value || [])
   if (weightUnit.value === 'imperial') {
     const oz = avgWeightData.ounces
@@ -461,7 +461,7 @@ const gearDescription = computed(() => {
     }
 
     return `${items} items • ${weight} total • ${containers} containers • Ultralight backpacking setup`
-  } catch (e) {
+  } catch {
     return 'Complete gear inventory with weights, specs, and container organization.'
   }
 })

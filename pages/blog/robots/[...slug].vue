@@ -8,7 +8,7 @@ const route = useRoute()
 const processedMarkdown = useProcessedMarkdown()
 const { width } = useWindowSize()
 const isMobile = computed(() => width.value < 768)
-const activeSection = ref('')
+const _activeSection = ref('')
 // DELETED: const { timing, easing, staggers } = useAnimations()
 
 const { data: note } = await useAsyncData(
@@ -161,7 +161,7 @@ onMounted(() => {
       section,
       ([{ isIntersecting }]) => {
         if (isIntersecting) {
-          activeSection.value = section.id
+          _activeSection.value = section.id
         }
       },
       { threshold: 0.5 }
@@ -333,7 +333,7 @@ useHead({
           class="block py-1.5 transition-colors duration-200 text-sm"
           :class="[
             section.level === 'h3' ? 'pl-4' : '',
-            activeSection === section.slug
+            _activeSection === section.slug
               ? 'text-zinc-900 dark:text-zinc-100'
               : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100'
           ]"

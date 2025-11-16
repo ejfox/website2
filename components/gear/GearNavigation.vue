@@ -84,7 +84,7 @@ const scrollToCenter = (targetIndex) => {
   if (itemEl) {
     const containerWidth = container.clientWidth
     const itemRect = itemEl.getBoundingClientRect()
-    const containerRect = container.getBoundingClientRect()
+    const _containerRect = container.getBoundingClientRect()
 
     // Calculate item position relative to container
     const itemLeft = itemEl.offsetLeft

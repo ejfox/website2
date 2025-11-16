@@ -72,13 +72,6 @@ export function removeFirstHeading(tree, firstHeadingNode) {
   return tree
 }
 
-function generateSlug(str) {
-  return str
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-}
-
 // Export the remark plugin
 export function remarkExtractToc(options = { maxDepth: 3 }) {
   return (tree, file) => {

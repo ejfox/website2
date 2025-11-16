@@ -354,7 +354,7 @@
 </template>
 
 <script setup>
-import { formatDistanceToNow, subMonths, startOfWeek } from '~/utils/dateUtils'
+import { subMonths, startOfWeek } from '~/utils/dateUtils'
 
 const processedMarkdown = useProcessedMarkdown()
 const now = new Date()
@@ -375,7 +375,7 @@ const calculateReadingTime = (words) => {
 }
 
 // Format file size (characters to KB)
-const formatFileSize = (chars) => {
+const _formatFileSize = (chars) => {
   if (!chars) return '0KB'
   const kb = chars / 1024
   return kb < 1 ? '<1KB' : `${kb.toFixed(1)}KB`
@@ -433,7 +433,7 @@ const isValidPost = (post, includeWeekNotes = false) => {
   if (includeWeekNotes)
     return weekNote && !isHidden && !isDraft && !isFuturePost
 
-  const isRegularBlogPost = /^(blog\/)?\d{4}\/[^/]+$/.test(post?.slug || '')
+  const isRegularBlogPost = /^(?:blog\/)?\d{4}\/[^/]+$/.test(post?.slug || '')
   return (
     !weekNote && isRegularBlogPost && !isHidden && !isDraft && !isFuturePost
   )
@@ -500,7 +500,7 @@ useSeoMeta({
 })
 
 // Computed data for sparklines
-const postCountByYear = computed(() => {
+const _postCountByYear = computed(() => {
   if (!posts.value) return []
   const years = posts.value.reduce((acc, post) => {
     const year = getPostYear(post)
@@ -510,7 +510,7 @@ const postCountByYear = computed(() => {
   return Object.values(years)
 })
 
-const monthlyActivity = computed(() => {
+const _monthlyActivity = computed(() => {
   if (!posts.value) return []
   // Get last 12 months of activity
   const months = {}
@@ -619,9 +619,9 @@ const recentlyUpdatedPosts = computed(() => {
     .slice(0, 5)
 })
 
-const blogPosts = computed(() => posts.value || [])
+const _blogPosts = computed(() => posts.value || [])
 
-const createPostMetadata = (post) => {
+const _createPostMetadata = (post) => {
   const metadata = post?.metadata || {}
   return {
     title: post?.title || metadata?.title,

@@ -1,7 +1,6 @@
 // Markdown → HTML Processing Pipeline
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
@@ -34,7 +33,6 @@ import { backupProcessedContent } from './utils/backup.mjs'
 
 dotenv.config()
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const SOURCE_DIR =
   process.env.OBSIDIAN_VAULT_PATH ||
   '/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/'

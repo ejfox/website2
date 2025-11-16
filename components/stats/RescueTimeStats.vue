@@ -116,7 +116,6 @@ import StatsSectionHeader from './StatsSectionHeader.vue'
 import StatsDataState from './StatsDataState.vue'
 import AnimatedNumber from '../AnimatedNumber.vue'
 import { format } from 'date-fns/format'
-import { formatPercent } from '~/composables/useNumberFormat'
 import { interpolateTurbo } from 'd3-scale-chromatic'
 
 interface TimeBreakdown {

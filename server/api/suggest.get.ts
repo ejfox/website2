@@ -213,12 +213,12 @@ async function searchDirectory(dir: string, posts: BlogPost[], basePath = '') {
             slug,
             metadata: data.metadata
           })
-        } catch (error) {
+        } catch {
           // Skip malformed files *whoosh*
         }
       }
     }
-  } catch (error) {
+  } catch {
     // Directory might not exist, that's ok! *zoom*
   }
 }

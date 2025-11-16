@@ -1,5 +1,4 @@
 import { Configuration, EventsApi, MarketsApi } from 'kalshi-typescript'
-import { readFileSync, writeFileSync } from 'node:fs'
 import { config } from 'dotenv'
 
 config()

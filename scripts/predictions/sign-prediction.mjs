@@ -3,18 +3,13 @@
 import { createHash } from 'node:crypto'
 import { readFileSync, writeFileSync } from 'node:fs'
 import { execSync } from 'node:child_process'
-import { dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
 import matter from 'gray-matter'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
 
 function generateHash(content) {
   return createHash('sha256').update(content).digest('hex')
 }
 
-function getGitInfo(_filePath) {
+function getGitInfo() {
   try {
     const gitCommit = execSync('git rev-parse HEAD', {
       encoding: 'utf-8'

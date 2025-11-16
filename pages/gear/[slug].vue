@@ -19,7 +19,7 @@
 
 <script setup>
 const route = useRoute()
-const { data, pending, error } = await useFetch(
+const { data, _pending, error } = await useFetch(
   `/api/gear/${route.params.slug}`
 )
 

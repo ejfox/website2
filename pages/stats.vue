@@ -449,7 +449,6 @@ import LastFmStats from '~/components/stats/LastFmStats.vue'
 import LetterboxdStats from '~/components/stats/LetterboxdStats.vue'
 import UmamiStats from '~/components/stats/UmamiStats.vue'
 import GearStats from '~/components/stats/GearStats.vue'
-import ActivityCalendar from '~/components/stats/ActivityCalendar.vue'
 
 const statsDescription = computed(() => {
   const s = stats.value
@@ -502,7 +501,7 @@ const route = useRoute()
 const { stats: rawStats, isLoading } = useStats()
 const stats = computed(() => rawStats.value)
 const { getAllPosts } = useProcessedMarkdown()
-const { formatNumber, formatDecimal, formatPercentage } = useNumberFormat()
+const { formatNumber } = useNumberFormat()
 
 // Simple mode refs
 const sectionRef = ref(null)
@@ -658,7 +657,6 @@ const summaryData = computed(() => {
   const leetcode = stats.value.leetcode?.recentSubmissions
   const chess = stats.value.chess?.recentGames
   const monkeyType = stats.value.monkeyType?.typingStats
-  const gear = stats.value.gear?.stats
   const gists = stats.value.gists?.recentGists
   const lastfm = stats.value.lastfm?.recentTracks?.tracks
   const letterboxd = stats.value.letterboxd?.films
@@ -864,7 +862,7 @@ const summaryData = computed(() => {
 })
 
 // Health data transformation
-const transformedHealthStats = computed(() => {
+const _transformedHealthStats = computed(() => {
   if (!stats.value?.health) return null
   const healthData = JSON.parse(JSON.stringify(stats.value.health))
 

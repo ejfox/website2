@@ -130,7 +130,7 @@ Provide your analysis as a JSON object with this exact structure:
 
     consola.success('AI analysis complete')
     return JSON.parse(jsonMatch[0])
-  } catch (error) {
+  } catch {
     consola.warn('AI analysis unavailable - using built-in quality checker')
     consola.info(
       'This is completely normal and the wizard works great without AI!'
@@ -435,7 +435,7 @@ async function updatePrediction(filename) {
   let fileContent
   try {
     fileContent = await fs.readFile(filepath, 'utf8')
-  } catch (error) {
+  } catch {
     consola.error(`Could not find prediction: ${filename}`)
     const files = await fs.readdir(predictionsDir)
     consola.info('Available predictions:')
@@ -558,7 +558,7 @@ async function resolvePrediction(filename) {
   let fileContent
   try {
     fileContent = await fs.readFile(filepath, 'utf8')
-  } catch (error) {
+  } catch {
     consola.error(`Could not find prediction: ${filename}`)
     const files = await fs.readdir(predictionsDir)
     consola.info('Available predictions:')

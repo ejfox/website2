@@ -1,5 +1,4 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
-import { join } from 'node:path'
 
 // Read position data
 const positions = JSON.parse(
@@ -33,13 +32,10 @@ for (const pos of positions.market_positions) {
     OAIAGI: 'OpenAI AGI announcement'
   }
 
-  const suggestion =
-    Object.keys(suggestions).find((key) => eventBase.includes(key)) ||
-    'Unknown market'
-  const suggestedTitle =
-    suggestions[
-      Object.keys(suggestions).find((key) => eventBase.includes(key))
-    ] || 'EDIT THIS TITLE'
+  const suggestionKey = Object.keys(suggestions).find((key) =>
+    eventBase.includes(key)
+  )
+  const suggestedTitle = suggestions[suggestionKey] || 'EDIT THIS TITLE'
 
   const template = `---
 ticker: ${ticker}

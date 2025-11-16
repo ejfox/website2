@@ -78,7 +78,7 @@ function getValidDate(date: string | Date | undefined): string {
     return !Number.isNaN(parsed.getTime())
       ? parsed.toISOString()
       : new Date().toISOString()
-  } catch (_error) {
+  } catch {
     return new Date().toISOString()
   }
 }

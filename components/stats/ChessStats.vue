@@ -127,8 +127,6 @@ import AnimatedNumber from '../AnimatedNumber.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'
 import {
   formatNumber,
-  formatGameDateMinimal,
-  formatGameTime,
   formatGameTypeMinimal,
   formatRatingDiff,
   getRatingDiffClass
@@ -199,11 +197,6 @@ const getRating = (type: keyof NewFormatRatings) => {
 
   // For old format, return the same value for all types
   return props.stats.currentRating as number
-}
-
-// Check if a specific rating type exists
-const hasRating = (type: keyof NewFormatRatings) => {
-  return getRating(type) > 0
 }
 
 // Get highest active rating
@@ -317,39 +310,6 @@ const variantStats = computed(() => {
     })
     .filter((variant) => Number.parseInt(variant.current.replace(/,/g, '')) > 0)
 })
-
-// Legacy: Variant ratings with deltas (kept for compatibility)
-const variantRatingsWithDeltas = computed(() => {
-  if (!props.stats) return []
-
-  const variants = ['bullet', 'blitz', 'rapid'] as const
-
-  return variants
-    .map((variant) => {
-      const current = getRating(variant)
-      const best = isNewFormat.value
-        ? (props.stats!.bestRating as NewFormatRatings)[variant] || 0
-        : (props.stats!.bestRating as number)
-
-      const delta = current - best
-
-      return {
-        name: variant.toUpperCase(),
-        current: formatNumber(current),
-        delta: Math.round(delta)
-      }
-    })
-    .filter((variant) => Number.parseInt(variant.current.replace(/,/g, '')) > 0)
-})
-
-// Legacy: Keep for compatibility
-const variantRatings = computed(() =>
-  [
-    { name: 'BULLET', rating: formatNumber(getRating('bullet')) },
-    { name: 'BLITZ', rating: formatNumber(getRating('blitz')) },
-    { name: 'RAPID', rating: formatNumber(getRating('rapid')) }
-  ].filter((variant) => Number.parseInt(variant.rating.replace(/,/g, '')) > 0)
-)
 
 const performanceMetrics = computed(() => [
   { label: 'GAMES PLAYED', value: formatNumber(gamesPlayed.value) },

@@ -112,7 +112,7 @@ if (props.prediction.market) {
 // Computed values
 const skinInGame = computed(() => props.prediction.skinInGame)
 
-const currentPnL = computed(() => {
+const _currentPnL = computed(() => {
   if (!skinInGame.value || !marketData.value) return null
 
   const { amount, position, entryPrice } = skinInGame.value
@@ -151,7 +151,7 @@ const sparklinePoints = computed(() => {
     .join(' ')
 })
 
-const firstPoint = computed(() => {
+const _firstPoint = computed(() => {
   if (!marketData.value?.priceHistory?.length) return null
   const first = marketData.value.priceHistory[0]
   return { x: 0, y: priceToY(first.p) }

@@ -82,14 +82,14 @@ const showStatusBadge = computed(
       props.prediction.status === 'incorrect')
 )
 
-const statusBadgeColor = computed(() => {
+const _statusBadgeColor = computed(() => {
   if (props.prediction.status === 'correct') {
     return 'text-green-600 dark:text-green-500 bg-transparent'
   }
   return 'text-red-600 dark:text-red-500 bg-transparent'
 })
 
-const formatDateCompact = (dateString: string) => {
+const _formatDateCompact = (dateString: string) => {
   if (!dateString) return ''
   const d = new Date(dateString)
   const months = [

@@ -48,7 +48,7 @@ function findThirdPartyReferences(dir, results = []) {
       findThirdPartyReferences(fullPath, results)
     } else if (file.isFile()) {
       // Only check relevant file types
-      if (!/\.(js|ts|vue|html|css|json)$/.test(file.name)) {
+      if (!/\.(?:js|ts|vue|html|css|json)$/.test(file.name)) {
         continue
       }
 
@@ -107,7 +107,7 @@ function findThirdPartyReferences(dir, results = []) {
             }
           })
         })
-      } catch (error) {
+      } catch {
         console.warn(`Could not read file: ${fullPath}`)
       }
     }

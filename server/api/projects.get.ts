@@ -3,14 +3,6 @@ import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { existsSync } from 'node:fs'
 
-interface ProjectPost {
-  slug: string
-  title?: string
-  date?: string
-  html?: string
-  metadata?: any
-}
-
 export default defineEventHandler(async () => {
   try {
     // Read the manifest first

@@ -107,7 +107,7 @@ export default defineEventHandler(async (event) => {
         visibility: data.visibility || 'public',
         evidence: markdownBody.trim()
       }
-    } catch (_error) {
+    } catch {
       throw createError({
         statusCode: 404,
         statusMessage: 'Prediction not found'

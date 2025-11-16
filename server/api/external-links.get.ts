@@ -81,7 +81,7 @@ export default defineEventHandler(async () => {
             count: sources.length || 1
           })
         }
-      } catch (err) {
+      } catch {
         // Skip invalid URLs or malformed lines
         console.warn('Invalid line or URL:', line)
       }

@@ -12,7 +12,7 @@ interface PredictionsData {
 async function ensurePredictionsFile(): Promise<void> {
   try {
     await readFile(PREDICTIONS_FILE)
-  } catch (_error) {
+  } catch {
     // File doesn't exist, create it with empty data
     const emptyData: PredictionsData = { predictions: [] }
     await writeFile(PREDICTIONS_FILE, JSON.stringify(emptyData, null, 2))

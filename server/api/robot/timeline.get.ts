@@ -43,7 +43,7 @@ export default defineEventHandler(async (event) => {
           }
         })
       })
-  } catch (error) {
+  } catch {
     // Silent fail
   }
 
@@ -106,7 +106,7 @@ export default defineEventHandler(async (event) => {
         }
       })
     )
-  } catch (error) {
+  } catch {
     // Silent fail
   }
 
@@ -140,7 +140,7 @@ export default defineEventHandler(async (event) => {
           }
         })
     )
-  } catch (error) {
+  } catch {
     // Silent fail
   }
 
