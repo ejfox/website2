@@ -124,17 +124,14 @@ declare global {
     // Scroll methods
     scrollTo(options: ScrollToOptions): void
     addEventListener(
-      type: 'scroll',
+      type: 'scroll' | 'resize',
       listener: EventListener,
       options?: AddEventListenerOptions
     ): void
-    removeEventListener(type: 'scroll', listener: EventListener): void
-    addEventListener(
-      type: 'resize',
-      listener: EventListener,
-      options?: AddEventListenerOptions
+    removeEventListener(
+      type: 'scroll' | 'resize',
+      listener: EventListener
     ): void
-    removeEventListener(type: 'resize', listener: EventListener): void
 
     // Navigation
     open(url: string, target?: string): Window | null

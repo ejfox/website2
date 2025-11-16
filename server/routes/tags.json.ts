@@ -1,6 +1,6 @@
 import { defineEventHandler, setHeader } from 'h3'
-import { readFile } from 'fs/promises'
-import path from 'path'
+import { readFile } from 'node:fs/promises'
+import path from 'node:path'
 
 export default defineEventHandler(async (event) => {
   setHeader(event, 'content-type', 'application/json')
@@ -18,7 +18,9 @@ export default defineEventHandler(async (event) => {
         'public/content-tags.json'
       )
       contentTagUsage = JSON.parse(await readFile(contentTagsPath, 'utf-8'))
-    } catch {}
+    } catch {
+      // content-tags.json is optional, use empty object if not found
+    }
 
     // Journalist pyramid: !tags first, then content tags by usage, then unused base tags
     console.log('Content tags found:', Object.keys(contentTagUsage).length)

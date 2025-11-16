@@ -1,11 +1,7 @@
 <template>
   <div class="table-container">
     <!-- Data overlay -->
-    <div
-      v-if="showStats"
-      class="font-mono text-xs text-zinc-400 mb-2"
-      style="font-variant-numeric: tabular-nums"
-    >
+    <div v-if="showStats" class="mono-xs text-zinc-400 mb-2 tabular">
       <span>{{ rows.length }} ROWS</span>
       <span class="mx-2">·</span>
       <span>{{ columns.length }} COLS</span>
@@ -19,7 +15,7 @@
       <thead>
         <tr>
           <th
-            v-for="(column, index) in columns"
+            v-for="(column, _index) in columns"
             :key="column.key"
             :class="[
               column.align === 'right' ? 'text-right' : 'text-left',
@@ -112,10 +108,7 @@
     </table>
 
     <!-- Empty state -->
-    <div
-      v-if="!rows.length"
-      class="py-8 text-center font-mono text-xs text-zinc-400"
-    >
+    <div v-if="!rows.length" class="py-8 text-center mono-xs text-zinc-400">
       NO_DATA
     </div>
   </div>
@@ -188,8 +181,8 @@ const sortedRows = computed(() => {
 
     // Type-specific sorting
     if (column.type === 'numeric') {
-      aVal = parseFloat(aVal) || 0
-      bVal = parseFloat(bVal) || 0
+      aVal = Number.parseFloat(aVal) || 0
+      bVal = Number.parseFloat(bVal) || 0
     } else if (column.type === 'date') {
       aVal = new Date(aVal).getTime()
       bVal = new Date(bVal).getTime()
@@ -209,14 +202,14 @@ const sortedRows = computed(() => {
 const formatDate = (dateString) => {
   if (!dateString) return '—'
   const date = new Date(dateString)
-  if (isNaN(date.getTime())) return dateString
+  if (Number.isNaN(date.getTime())) return dateString
   return date.toISOString().split('T')[0]
 }
 
 const formatNumber = (value, format) => {
   if (value == null) return '—'
-  const num = parseFloat(value)
-  if (isNaN(num)) return value
+  const num = Number.parseFloat(value)
+  if (Number.isNaN(num)) return value
 
   if (format === 'percentage') {
     return `${(num * 100).toFixed(1)}%`

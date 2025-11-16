@@ -1,7 +1,17 @@
 <script setup>
 import { format, isValid, parseISO } from 'date-fns'
 import { useDark, useIntersectionObserver } from '@vueuse/core'
-import sanitizeHtml from 'sanitize-html'
+import DOMPurify from 'dompurify'
+
+// Browser-compatible HTML stripper using DOMPurify
+const stripHtml = (html) => {
+  return DOMPurify.sanitize(html, {
+    ALLOWED_TAGS: [],
+    KEEP_CONTENT: true
+  })
+    .replace(/\s+/g, ' ')
+    .trim()
+}
 
 const config = useRuntimeConfig()
 const isDark = useDark()
@@ -61,14 +71,17 @@ const { data: nextPrevPosts } = await useAsyncData(
 )
 
 // Related posts by tag
-const { data: allPosts } = await useAsyncData('all-posts-for-related', async () => {
-  try {
-    return await processedMarkdown.getAllPosts(false, false)
-  } catch (error) {
-    console.error('Error fetching all posts for related:', error)
-    return []
+const { data: allPosts } = await useAsyncData(
+  'all-posts-for-related',
+  async () => {
+    try {
+      return await processedMarkdown.getAllPosts(false, false)
+    } catch (error) {
+      console.error('Error fetching all posts for related:', error)
+      return []
+    }
   }
-})
+)
 
 const relatedPosts = computed(() => {
   if (!allPosts.value || !post.value) return []
@@ -80,20 +93,20 @@ const relatedPosts = computed(() => {
 
   // Find posts with overlapping tags
   const postsWithScores = allPosts.value
-    .filter(p => {
+    .filter((p) => {
       const slug = p.slug || p.metadata?.slug
       return slug !== currentSlug && !p.draft && !p.metadata?.draft
     })
-    .map(p => {
+    .map((p) => {
       const tags = p.metadata?.tags || p.tags || []
-      const overlappingTags = tags.filter(t => currentTags.includes(t))
+      const overlappingTags = tags.filter((t) => currentTags.includes(t))
       return {
         post: p,
         score: overlappingTags.length,
         overlappingTags
       }
     })
-    .filter(item => item.score > 0)
+    .filter((item) => item.score > 0)
     .sort((a, b) => b.score - a.score)
     .slice(0, 3)
 
@@ -214,10 +227,7 @@ onMounted(() => {
 })
 
 // TOC target for teleport
-const tocTarget = computed(() => {
-  if (typeof document === 'undefined') return null
-  return document.getElementById('nav-toc-container')
-})
+const { tocTarget } = useTOC()
 
 // Title typing animation
 const letters = computed(() => {
@@ -309,7 +319,7 @@ onMounted(() => {
 
 function formatDate(date) {
   if (!date) return 'No date'
-  let parsedDate =
+  const parsedDate =
     typeof date === 'string'
       ? parseISO(date)
       : date instanceof Date
@@ -322,7 +332,7 @@ function formatDate(date) {
 
 function formatShortDate(date) {
   if (!date) return 'N/A'
-  let parsedDate =
+  const parsedDate =
     typeof date === 'string'
       ? parseISO(date)
       : date instanceof Date
@@ -359,10 +369,7 @@ const postDescription = computed(() => {
 
   // Fallback: extract first paragraph from HTML
   const html = post.value?.html || post.value?.content || ''
-  const text = sanitizeHtml(html, {
-    allowedTags: [],
-    allowedAttributes: {}
-  }).replace(/\s+/g, ' ').trim()
+  const text = stripHtml(html)
 
   // Take first 160 characters
   return text.length > 160 ? text.substring(0, 157) + '...' : text
@@ -413,12 +420,23 @@ useHead(() => ({
           name: 'EJ Fox',
           url: 'https://ejfox.com',
           jobTitle: 'Data Visualization Specialist & Journalist',
-          knowsAbout: ['Data Visualization', 'Interactive Journalism', 'D3.js', 'Generative AI', 'Motorcycle Adventure']
+          knowsAbout: [
+            'Data Visualization',
+            'Interactive Journalism',
+            'D3.js',
+            'Generative AI',
+            'Motorcycle Adventure'
+          ]
         },
         datePublished: post.value?.metadata?.date || post.value?.date,
-        dateModified: post.value?.metadata?.lastUpdated || post.value?.metadata?.date || post.value?.date,
+        dateModified:
+          post.value?.metadata?.lastUpdated ||
+          post.value?.metadata?.date ||
+          post.value?.date,
         wordCount: readingStats.value.words,
-        keywords: (post.value?.metadata?.tags || post.value?.tags || []).join(', '),
+        keywords: (post.value?.metadata?.tags || post.value?.tags || []).join(
+          ', '
+        ),
         url: postUrl.value,
         image: new URL('/og-image.png', baseURL).href,
         publisher: {
@@ -448,9 +466,11 @@ const smartSuggestions = ref([])
 
 // Table of Contents computed property
 const tocChildren = computed(() => {
-  return post.value?.toc?.[0]?.children ||
-         post.value?.metadata?.toc?.[0]?.children ||
-         []
+  return (
+    post.value?.toc?.[0]?.children ||
+    post.value?.metadata?.toc?.[0]?.children ||
+    []
+  )
 })
 
 const distance = (a, b) => {
@@ -609,7 +629,7 @@ const processedMetadata = computed(() => {
       "
     >
       <!-- Sidebar column indicator -->
-      <div class="hidden md:block fixed left-0 top-0 bottom-0 w-[180px] border-r border-green-400 opacity-30"></div>
+      <div class="debug-grid-sidebar"></div>
       <!-- Main content area indicator -->
       <div class="max-w-screen-xl mx-auto h-full relative">
         <div class="grid grid-cols-12 h-full">
@@ -633,59 +653,58 @@ const processedMetadata = computed(() => {
       ></div>
     </div>
 
-    <article v-if="post && !post.redirect" class="h-entry max-w-screen-xl mx-auto px-4 md:px-8">
+    <article
+      v-if="post && !post.redirect"
+      class="h-entry max-w-screen-xl mx-auto px-4 md:px-8"
+    >
       <!-- Swiss Grid Container -->
       <div class="max-w-3xl">
         <!-- Top metadata bar with microvisualizations -->
-        <div
-          ref="postMetadata"
-        >
+        <div ref="postMetadata">
           <!-- Mobile-optimized metadata with better layout -->
           <div class="px-4 md:px-6 py-3 sm:py-2">
             <!-- Mobile: Stack date and main stats -->
-            <div class="block sm:hidden space-y-2">
-              <div class="font-mono text-xs text-zinc-600 dark:text-zinc-400">
+            <div class="block sm:hidden stack-2">
+              <div class="mono-xs text-secondary">
                 {{ formatShortDate(post?.metadata?.date || post?.date) }}
               </div>
-              <div class="flex items-center gap-3 font-mono text-xs text-zinc-500">
-                <span class="text-zinc-600 dark:text-zinc-400">{{ readingStats.readingTime }}min read</span>
-                <span class="text-zinc-600 dark:text-zinc-400">{{ formatCompactNumber(readingStats.words) }} words</span>
-                <span v-if="readingStats.images > 0" class="text-zinc-600 dark:text-zinc-400">{{ readingStats.images }} images</span>
+              <div class="flex-gap-3 mono-xs text-muted">
+                <span class="text-secondary"
+                  >{{ readingStats.readingTime }}min read</span
+                >
+                <span class="text-secondary"
+                  >{{ formatCompactNumber(readingStats.words) }} words</span
+                >
+                <span v-if="readingStats.images > 0" class="text-secondary"
+                  >{{ readingStats.images }} images</span
+                >
               </div>
             </div>
 
             <!-- Desktop: Single line as before -->
-            <div class="hidden sm:flex items-center gap-1 overflow-x-auto scrollbar-hide font-mono text-[10px] text-zinc-500">
-              <span class="whitespace-nowrap text-zinc-600 dark:text-zinc-400">
+            <div class="metadata-bar-scrollable">
+              <span class="whitespace-nowrap text-secondary">
                 {{ formatShortDate(post?.metadata?.date || post?.date) }}
               </span>
-              <span class="text-zinc-300 dark:text-zinc-700">·</span>
-              <span class="whitespace-nowrap text-zinc-600 dark:text-zinc-400">
+              <span class="text-divider">·</span>
+              <span class="whitespace-nowrap text-secondary">
                 {{ readingStats.readingTime }}min
               </span>
-              <span class="text-zinc-300 dark:text-zinc-700">·</span>
-              <span class="whitespace-nowrap text-zinc-600 dark:text-zinc-400">
+              <span class="text-divider">·</span>
+              <span class="whitespace-nowrap text-secondary">
                 {{ formatCompactNumber(readingStats.words) }} words
               </span>
+              <span v-if="readingStats.images > 0" class="text-divider">·</span>
               <span
                 v-if="readingStats.images > 0"
-                class="text-zinc-300 dark:text-zinc-700"
-                >·</span
-              >
-              <span
-                v-if="readingStats.images > 0"
-                class="whitespace-nowrap text-zinc-600 dark:text-zinc-400"
+                class="whitespace-nowrap text-secondary"
               >
                 {{ readingStats.images }} images
               </span>
+              <span v-if="readingStats.links > 0" class="text-divider">·</span>
               <span
                 v-if="readingStats.links > 0"
-                class="text-zinc-300 dark:text-zinc-700"
-                >·</span
-              >
-              <span
-                v-if="readingStats.links > 0"
-                class="whitespace-nowrap text-zinc-600 dark:text-zinc-400"
+                class="whitespace-nowrap text-secondary"
               >
                 {{ readingStats.links }} links
               </span>
@@ -701,15 +720,12 @@ const processedMetadata = computed(() => {
           <h1
             v-if="post?.metadata?.title || post?.title"
             ref="postTitle"
-            class="font-serif font-light p-name mb-3 sm:mb-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
+            class="post-title-hero"
             style="line-height: 1.2; letter-spacing: -0.025em"
           >
             {{ post?.metadata?.title || post?.title }}
           </h1>
-          <p
-            v-if="post?.metadata?.dek || post?.dek"
-            class="font-serif text-base sm:text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-3xl mb-4 leading-relaxed"
-          >
+          <p v-if="post?.metadata?.dek || post?.dek" class="post-dek">
             {{ post?.metadata?.dek || post?.dek }}
           </p>
         </div>
@@ -763,56 +779,47 @@ const processedMetadata = computed(() => {
               v-for="tag in post.tags || post.metadata?.tags"
               :key="tag"
               :href="`/blog/tag/${tag}`"
-              class="px-4 sm:px-3 py-2 sm:py-1 text-sm sm:text-xs font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] border border-zinc-300 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors no-underline p-category rounded-sm min-h-[44px] sm:min-h-auto flex items-center"
+              class="post-tag"
               >{{ tag }}</a
             >
           </div>
         </div>
 
         <!-- Navigation Links - mobile optimized touch targets -->
-        <div
-          v-if="nextPrevPosts"
-          ref="navigationLinks"
-          class="grid grid-cols-1 sm:grid-cols-2 gap-4 px-4 md:px-6 py-6 border-t border-zinc-200 dark:border-zinc-800"
-        >
+        <div v-if="nextPrevPosts" ref="navigationLinks" class="grid-post-nav">
           <div v-if="nextPrevPosts.prev" class="order-2 sm:order-1">
             <NuxtLink
               :to="`/blog/${nextPrevPosts.prev.slug}`"
-              class="block no-underline group p-4 sm:p-0 border sm:border-0 border-zinc-200 dark:border-zinc-800 rounded-lg sm:rounded-none hover:bg-zinc-50 dark:hover:bg-zinc-900 sm:hover:bg-transparent transition-colors min-h-[60px] sm:min-h-auto flex flex-col justify-center"
+              class="post-nav-link"
             >
-              <span
-                class="block text-sm sm:text-xs font-mono uppercase tracking-[0.1em] text-zinc-500 mb-2 sm:mb-1"
-              >
-                ← Previous
-              </span>
-              <span
-                class="block text-lg sm:text-base font-serif leading-6 sm:leading-5 text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-400 transition-colors"
-              >
+              <span class="post-nav-label"> ← Previous </span>
+              <span class="post-nav-title">
                 {{ nextPrevPosts.prev?.title }}
               </span>
-              <span class="block text-sm sm:text-xs font-mono text-zinc-400 leading-5 sm:leading-4 mt-1">
+              <span
+                class="block text-sm sm:text-xs font-mono text-zinc-400 leading-5 sm:leading-4 mt-1"
+              >
                 {{ formatDate(nextPrevPosts.prev.date) }}
               </span>
             </NuxtLink>
           </div>
           <div v-else class="order-2 sm:order-1"></div>
 
-          <div v-if="nextPrevPosts.next" class="order-1 sm:order-2 sm:text-right">
+          <div
+            v-if="nextPrevPosts.next"
+            class="order-1 sm:order-2 sm:text-right"
+          >
             <NuxtLink
               :to="`/blog/${nextPrevPosts.next.slug}`"
-              class="block no-underline group p-4 sm:p-0 border sm:border-0 border-zinc-200 dark:border-zinc-800 rounded-lg sm:rounded-none hover:bg-zinc-50 dark:hover:bg-zinc-900 sm:hover:bg-transparent transition-colors min-h-[60px] sm:min-h-auto flex flex-col justify-center"
+              class="post-nav-link"
             >
-              <span
-                class="block text-sm sm:text-xs font-mono uppercase tracking-[0.1em] text-zinc-500 mb-2 sm:mb-1"
-              >
-                Next →
-              </span>
-              <span
-                class="block text-lg sm:text-base font-serif leading-6 sm:leading-5 text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-400 transition-colors"
-              >
+              <span class="post-nav-label"> Next → </span>
+              <span class="post-nav-title">
                 {{ nextPrevPosts.next?.title }}
               </span>
-              <span class="block text-sm sm:text-xs font-mono text-zinc-400 leading-5 sm:leading-4 mt-1">
+              <span
+                class="block text-sm sm:text-xs font-mono text-zinc-400 leading-5 sm:leading-4 mt-1"
+              >
                 {{ formatDate(nextPrevPosts.next.date) }}
               </span>
             </NuxtLink>
@@ -824,10 +831,12 @@ const processedMetadata = computed(() => {
           v-if="relatedPosts.length > 0"
           class="px-4 md:px-6 py-8 border-t border-zinc-200 dark:border-zinc-800"
         >
-          <h3 class="font-mono text-xs uppercase tracking-[0.15em] text-zinc-500 mb-4">
+          <h3
+            class="font-mono text-xs uppercase tracking-[0.15em] text-zinc-500 mb-4"
+          >
             Related Posts
           </h3>
-          <div class="space-y-4">
+          <div class="stack-4">
             <div
               v-for="{ post: relatedPost, overlappingTags } in relatedPosts"
               :key="relatedPost.slug"
@@ -836,13 +845,21 @@ const processedMetadata = computed(() => {
                 :to="`/blog/${relatedPost.slug}`"
                 class="block no-underline"
               >
-                <div class="font-serif text-base text-zinc-900 dark:text-zinc-100 mb-1">
+                <div
+                  class="font-serif text-base text-zinc-900 dark:text-zinc-100 mb-1"
+                >
                   {{ relatedPost.title || relatedPost.metadata?.title }}
                 </div>
-                <div class="flex items-center gap-2 text-xs font-mono text-zinc-500">
-                  <span>{{ formatDate(relatedPost.date || relatedPost.metadata?.date) }}</span>
+                <div
+                  class="flex items-center gap-2 text-xs font-mono text-zinc-500"
+                >
+                  <span>{{
+                    formatDate(relatedPost.date || relatedPost.metadata?.date)
+                  }}</span>
                   <span>·</span>
-                  <span class="text-zinc-400">{{ overlappingTags.join(', ') }}</span>
+                  <span class="text-zinc-400">{{
+                    overlappingTags.join(', ')
+                  }}</span>
                 </div>
               </NuxtLink>
             </div>
@@ -868,50 +885,54 @@ const processedMetadata = computed(() => {
     </div>
 
     <!-- Desktop TOC with scroll progress -->
-    <teleport v-if="tocTarget" to="#nav-toc-container">
-      <div
-        v-if="tocChildren.length > 0"
-        class="toc"
-      >
-        <div class="py-4 pl-0 relative">
-          <!-- Clean TOC list without header -->
-          <ul class="space-y-0">
-            <li
-              v-for="(child, index) in tocChildren"
-              :key="child.slug"
-              class="group relative"
-            >
-              <a
-                :href="`#${child.slug}`"
-                class="flex items-baseline text-sm transition-all duration-200 no-underline py-2 gap-2"
-                :class="[
-                  activeSection === child.slug
-                    ? 'text-zinc-900 dark:text-zinc-100 font-medium'
-                    : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:translate-x-1'
-                ]"
+    <ClientOnly>
+      <teleport v-if="tocTarget" to="#nav-toc-container">
+        <div v-if="tocChildren.length > 0" class="toc">
+          <div class="py-4 pl-0 relative">
+            <!-- Clean TOC list without header -->
+            <ul class="space-y-0">
+              <li
+                v-for="(child, index) in tocChildren"
+                :key="child.slug"
+                class="group relative"
               >
-                <!-- Section number aligned on same baseline -->
-                <span
-                  class="font-mono text-xs tabular-nums opacity-50 w-4 text-right flex-shrink-0"
-                  :class="activeSection === child.slug ? 'opacity-70' : 'opacity-40'"
+                <a
+                  :href="`#${child.slug}`"
+                  class="flex items-baseline text-sm transition-all duration-200 no-underline py-2 gap-2"
+                  :class="[
+                    activeSection === child.slug
+                      ? 'text-zinc-900 dark:text-zinc-100 font-medium'
+                      : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:translate-x-1'
+                  ]"
                 >
-                  {{ String(index + 1).padStart(2, '0') }}
-                </span>
+                  <!-- Section number aligned on same baseline -->
+                  <span
+                    class="font-mono text-xs tabular-nums opacity-50 w-4 text-right flex-shrink-0"
+                    :class="
+                      activeSection === child.slug ? 'opacity-70' : 'opacity-40'
+                    "
+                  >
+                    {{ String(index + 1).padStart(2, '0') }}
+                  </span>
 
-                <!-- Main text aligned on same baseline -->
-                <span
-                  class="font-serif leading-relaxed"
-                  :class="activeSection === child.slug ? 'font-medium' : 'font-normal'"
-                >
-                  {{ child.text }}
-                </span>
-              </a>
-
-            </li>
-          </ul>
+                  <!-- Main text aligned on same baseline -->
+                  <span
+                    class="font-serif leading-relaxed"
+                    :class="
+                      activeSection === child.slug
+                        ? 'font-medium'
+                        : 'font-normal'
+                    "
+                  >
+                    {{ child.text }}
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </teleport>
+      </teleport>
+    </ClientOnly>
   </div>
 </template>
 

@@ -1,29 +1,39 @@
 <template>
-  <main class="px-4 md:px-8 max-w-4xl">
-    <header class="mb-8">
-      <h1 class="font-serif text-2xl text-zinc-900 dark:text-zinc-100 mb-3">
-        Predictions
-      </h1>
+  <main class="container-main">
+    <header class="section-spacing-lg">
+      <h1 class="heading-1 mb-3">Predictions</h1>
 
-      <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500">
-        <div><span class="text-zinc-900 dark:text-zinc-100 font-bold text-lg tabular-nums">{{ transformedPredictions?.length || 0 }}</span> total · <span class="text-green-600 dark:text-green-500 font-bold text-lg tabular-nums">{{ correctCount }}</span> correct · <span class="text-red-600 dark:text-red-500 font-bold text-lg tabular-nums">{{ incorrectCount }}</span> incorrect · <span class="text-zinc-900 dark:text-zinc-100 font-bold text-lg tabular-nums">{{ pendingCount }}</span> pending</div>
+      <div class="label-xs">
+        <div>
+          <span class="text-primary mono-lg tabular">{{
+            transformedPredictions?.length || 0
+          }}</span>
+          total ·
+          <span class="text-success mono-lg tabular">{{ correctCount }}</span>
+          correct ·
+          <span class="text-error mono-lg tabular">{{ incorrectCount }}</span>
+          incorrect ·
+          <span class="text-primary mono-lg tabular">{{ pendingCount }}</span>
+          pending
+        </div>
       </div>
     </header>
 
     <!-- Zero State -->
-    <section v-if="transformedPredictions.length === 0" class="py-4">
-      <div class="text-zinc-900 dark:text-zinc-100 mb-2 uppercase">No predictions yet</div>
-      <p class="text-zinc-600 dark:text-zinc-400">
-        Cryptographically verified predictions with SHA-256 hashing, PGP signatures, and git-based version control.
+    <section v-if="transformedPredictions.length === 0" class="card-padding">
+      <div class="text-primary mb-2 uppercase">No predictions yet</div>
+      <p class="text-secondary">
+        Cryptographically verified predictions with SHA-256 hashing, PGP
+        signatures, and git-based version control.
       </p>
     </section>
 
     <!-- Predictions List -->
     <section v-else>
       <!-- ACTIVE Predictions -->
-      <div v-if="activePredictions.length > 0" class="mb-12">
-        <h2 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-4">Active</h2>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">
+      <div v-if="activePredictions.length > 0" class="section-spacing">
+        <h2 class="heading-2 mb-4">Active</h2>
+        <div class="grid-predictions">
           <PredictionCard
             v-for="prediction in activePredictions"
             :id="`prediction-${prediction.id}`"
@@ -35,8 +45,8 @@
 
       <!-- RESOLVED Predictions -->
       <div v-if="resolvedPredictions.length > 0">
-        <h2 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-4">Resolved</h2>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">
+        <h2 class="heading-2 mb-4">Resolved</h2>
+        <div class="grid-predictions">
           <PredictionCard
             v-for="prediction in resolvedPredictions"
             :id="`prediction-${prediction.id}`"
@@ -48,113 +58,184 @@
     </section>
 
     <!-- MARKET POSITIONS -->
-    <div v-if="kalshiData?.positions && kalshiData.positions.length > 0" class="mb-12">
-      <h2 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider dark:tracking-widest mb-4 transition-colors duration-300">Market Positions</h2>
+    <div
+      v-if="kalshiData?.positions && kalshiData.positions.length > 0"
+      class="section-spacing"
+    >
+      <h2 class="heading-3 mb-4 transition-base">Market Positions</h2>
 
       <!-- Portfolio Performance Stats -->
-      <div v-if="kalshiData?.portfolioStats" class="mb-6 grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4">
+      <div
+        v-if="kalshiData?.portfolioStats"
+        class="section-spacing-sm grid-2col-lg"
+      >
         <div>
-          <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300">Open P&L</div>
-          <div class="font-mono text-2xl font-bold tabular-nums tracking-tight dark:tracking-normal transition-colors duration-300"
-               :class="kalshiData.portfolioStats.totalUnrealizedPnL >= 0 ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">
-            {{ kalshiData.portfolioStats.totalUnrealizedPnL >= 0 ? '+' : '' }}${{ (kalshiData.portfolioStats.totalUnrealizedPnL).toFixed(2) }}
+          <div class="stat-label transition-base">Open P&L</div>
+          <div
+            v-if="kalshiData.portfolioStats.totalUnrealizedPnL >= 0"
+            class="mono-2xl transition-base text-success"
+          >
+            +${{ kalshiData.portfolioStats.totalUnrealizedPnL.toFixed(2) }}
           </div>
-          <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 transition-colors duration-300">
-            {{ ((kalshiData.portfolioStats.totalUnrealizedPnL / kalshiData.portfolioStats.totalInvested) * 100).toFixed(1) }}%
+          <div v-else class="mono-2xl transition-base text-error">
+            ${{ kalshiData.portfolioStats.totalUnrealizedPnL.toFixed(2) }}
+          </div>
+          <div class="stat-details transition-base">
+            {{
+              (
+                (kalshiData.portfolioStats.totalUnrealizedPnL /
+                  kalshiData.portfolioStats.totalInvested) *
+                100
+              ).toFixed(1)
+            }}%
           </div>
         </div>
 
         <div>
-          <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300">Closed P&L</div>
-          <div class="font-mono text-2xl font-bold tabular-nums tracking-tight dark:tracking-normal transition-colors duration-300"
-               :class="kalshiData.portfolioStats.totalRealizedPnL >= 0 ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">
-            {{ kalshiData.portfolioStats.totalRealizedPnL >= 0 ? '+' : '' }}${{ (kalshiData.portfolioStats.totalRealizedPnL).toFixed(2) }}
+          <div class="stat-label transition-base">Closed P&L</div>
+          <div
+            v-if="kalshiData.portfolioStats.totalRealizedPnL >= 0"
+            class="mono-2xl transition-base text-success"
+          >
+            +${{ kalshiData.portfolioStats.totalRealizedPnL.toFixed(2) }}
           </div>
-          <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 transition-colors duration-300">
+          <div v-else class="mono-2xl transition-base text-error">
+            ${{ kalshiData.portfolioStats.totalRealizedPnL.toFixed(2) }}
+          </div>
+          <div class="stat-details transition-base">
             {{ kalshiData.portfolioStats.closedPositions.length }} positions
           </div>
         </div>
 
         <div>
-          <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300">Total P&L</div>
-          <div class="font-mono text-2xl font-bold tabular-nums tracking-tight dark:tracking-normal transition-colors duration-300"
-               :class="(kalshiData.portfolioStats.totalUnrealizedPnL + kalshiData.portfolioStats.totalRealizedPnL) >= 0 ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">
-            {{ (kalshiData.portfolioStats.totalUnrealizedPnL + kalshiData.portfolioStats.totalRealizedPnL) >= 0 ? '+' : '' }}${{ (kalshiData.portfolioStats.totalUnrealizedPnL + kalshiData.portfolioStats.totalRealizedPnL).toFixed(2) }}
+          <div class="stat-label transition-base">Total P&L</div>
+          <div
+            v-if="
+              kalshiData.portfolioStats.totalUnrealizedPnL +
+                kalshiData.portfolioStats.totalRealizedPnL >=
+              0
+            "
+            class="mono-2xl transition-base text-success"
+          >
+            +${{
+              (
+                kalshiData.portfolioStats.totalUnrealizedPnL +
+                kalshiData.portfolioStats.totalRealizedPnL
+              ).toFixed(2)
+            }}
           </div>
-          <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 transition-colors duration-300">
-            all time
+          <div v-else class="mono-2xl transition-base text-error">
+            ${{
+              (
+                kalshiData.portfolioStats.totalUnrealizedPnL +
+                kalshiData.portfolioStats.totalRealizedPnL
+              ).toFixed(2)
+            }}
           </div>
+          <div class="stat-details transition-base">all time</div>
         </div>
 
         <div>
-          <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300">Portfolio Value</div>
-          <div class="font-mono text-2xl font-bold tabular-nums tracking-tight dark:tracking-normal text-zinc-900 dark:text-zinc-100 transition-colors duration-300">
-            ${{ (kalshiData.portfolioStats.totalValue).toFixed(2) }}
+          <div class="stat-label transition-base">Portfolio Value</div>
+          <div class="mono-2xl text-primary transition-base">
+            ${{ kalshiData.portfolioStats.totalValue.toFixed(2) }}
           </div>
-          <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 transition-colors duration-300">
+          <div class="stat-details transition-base">
             {{ kalshiData.positions.length }} open
           </div>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">
+      <div class="grid-predictions">
         <article
           v-for="position in kalshiData.positions"
-          :key="position.ticker"
           :id="`kalshi-${position.ticker}`"
-          class="py-4"
+          :key="position.ticker"
+          class="card-padding"
         >
           <!-- Title + Side -->
           <div class="mb-1">
-            <div class="flex items-start gap-3">
+            <div class="flex-gap-3">
               <span
-                class="font-mono text-lg font-bold shrink-0 tabular-nums tracking-tight dark:tracking-normal transition-colors duration-300"
-                :class="position.position > 0 ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'"
+                class="transition-base"
+                :class="
+                  position.position > 0 ? 'badge-side-yes' : 'badge-side-no'
+                "
               >
                 {{ position.position > 0 ? 'YES' : 'NO' }}
               </span>
-              <div class="font-serif text-base leading-snug text-zinc-900 dark:text-zinc-100 flex-1 transition-colors duration-300">
+              <div class="text-body-lg text-balance transition-base">
                 {{ getMarketTitle(position.ticker) }}
               </div>
             </div>
           </div>
 
           <!-- Dense data table -->
-          <table class="w-full font-mono text-xs text-zinc-500 dark:text-zinc-500 mb-2 transition-colors duration-300">
+          <table class="table-dense mb-2 transition-base">
             <tbody>
               <tr>
                 <td class="py-0.5">Position</td>
-                <td class="text-right font-bold tabular-nums">{{ Math.abs(position.position) }} × ${{ (position.market_exposure_dollars / Math.abs(position.position)).toFixed(2) }}</td>
+                <td class="table-cell-value">
+                  {{ Math.abs(position.position) }} × ${{
+                    (
+                      position.market_exposure_dollars /
+                      Math.abs(position.position)
+                    ).toFixed(2)
+                  }}
+                </td>
               </tr>
               <tr>
                 <td class="py-0.5">Exposure</td>
-                <td class="text-right font-bold tabular-nums text-zinc-900 dark:text-zinc-100">${{ position.market_exposure_dollars }}</td>
+                <td class="table-cell-primary">
+                  ${{ position.market_exposure_dollars }}
+                </td>
               </tr>
               <tr v-if="position.fees_paid_dollars > 0">
                 <td class="py-0.5">Fees</td>
-                <td class="text-right tabular-nums">-${{ position.fees_paid_dollars }}</td>
+                <td class="text-right tabular">
+                  -${{ position.fees_paid_dollars }}
+                </td>
               </tr>
               <tr v-if="position.realized_pnl_dollars != 0">
                 <td class="py-0.5">Realized P&L</td>
-                <td class="text-right font-bold tabular-nums" :class="position.realized_pnl_dollars >= 0 ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">
-                  {{ position.realized_pnl_dollars >= 0 ? '+' : '' }}${{ position.realized_pnl_dollars }}
+                <td
+                  class="table-cell-value"
+                  :class="
+                    position.realized_pnl_dollars >= 0
+                      ? 'text-success'
+                      : 'text-error'
+                  "
+                >
+                  {{ position.realized_pnl_dollars >= 0 ? '+' : '' }}${{
+                    position.realized_pnl_dollars
+                  }}
                 </td>
               </tr>
               <tr>
                 <td class="py-0.5">Total Traded</td>
-                <td class="text-right tabular-nums">${{ position.total_traded_dollars }}</td>
+                <td class="text-right tabular">
+                  ${{ position.total_traded_dollars }}
+                </td>
               </tr>
               <tr v-if="getCommentary(position.ticker)?.tags?.length">
                 <td class="py-0.5">Tags</td>
                 <td class="text-right">
-                  <span v-for="tag in getCommentary(position.ticker)?.tags" :key="tag" class="mr-1">#{{ tag }}</span>
+                  <span
+                    v-for="tag in getCommentary(position.ticker)?.tags"
+                    :key="tag"
+                    class="mr-1"
+                    >#{{ tag }}</span
+                  >
                 </td>
               </tr>
             </tbody>
           </table>
 
           <!-- Commentary -->
-          <div v-if="getCommentary(position.ticker)" class="font-serif text-sm text-zinc-600 dark:text-zinc-400 leading-normal tracking-normal dark:tracking-wide transition-colors duration-300">
+          <div
+            v-if="getCommentary(position.ticker)"
+            class="text-body transition-base"
+          >
             {{ getCommentary(position.ticker).commentary }}
           </div>
         </article>
@@ -162,26 +243,41 @@
 
       <!-- Fills Table -->
       <div v-if="kalshiData?.fills && kalshiData.fills.length > 0" class="mt-8">
-        <h3 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider dark:tracking-widest mb-3 transition-colors duration-300">Recent Fills</h3>
+        <h3 class="heading-3 mb-3 transition-base">Recent Fills</h3>
         <div class="overflow-x-auto -mx-4 px-4">
           <div class="min-w-[450px]">
-            <table class="w-full border-collapse font-mono text-xs tracking-normal dark:tracking-wide">
+            <table class="table-header">
               <thead>
                 <tr>
-                  <th class="text-left pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Time</th>
-                  <th class="text-left pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Market</th>
-                  <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Side</th>
-                  <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Qty</th>
-                  <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Price</th>
+                  <th class="table-th transition-base">Time</th>
+                  <th class="table-th transition-base">Market</th>
+                  <th class="table-th-right transition-base">Side</th>
+                  <th class="table-th-right transition-base">Qty</th>
+                  <th class="table-th-right transition-base">Price</th>
                 </tr>
               </thead>
-              <tbody class="text-zinc-500 dark:text-zinc-500 transition-colors duration-300">
-                <tr v-for="fill in kalshiData.fills.slice(0, 10)" :key="fill.fill_id" class="transition-colors duration-300">
-                  <td class="py-1 tabular-nums">{{ formatTime(fill.created_time) }}</td>
-                  <td class="py-1">{{ fill.ticker }}</td>
-                  <td class="py-1 text-right font-bold tracking-tight dark:tracking-normal transition-colors duration-300" :class="fill.side === 'yes' ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">{{ fill.side.toUpperCase() }}</td>
-                  <td class="py-1 text-right tabular-nums">{{ fill.count }}</td>
-                  <td class="py-1 text-right tabular-nums">{{ (fill.price * 100).toFixed(0) }}¢</td>
+              <tbody class="text-muted transition-base">
+                <tr
+                  v-for="fill in kalshiData.fills.slice(0, 10)"
+                  :key="fill.fill_id"
+                  class="transition-base"
+                >
+                  <td class="table-cell tabular">
+                    {{ formatTime(fill.created_time) }}
+                  </td>
+                  <td class="table-cell">{{ fill.ticker }}</td>
+                  <td
+                    class="table-cell-value mono-lg transition-base"
+                    :class="fill.side === 'yes' ? 'text-success' : 'text-error'"
+                  >
+                    {{ fill.side.toUpperCase() }}
+                  </td>
+                  <td class="table-cell text-right tabular">
+                    {{ fill.count }}
+                  </td>
+                  <td class="table-cell text-right tabular">
+                    {{ (fill.price * 100).toFixed(0) }}¢
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -192,160 +288,292 @@
 
     <!-- Statistics -->
     <section v-if="transformedPredictions.length > 0" class="mt-12">
-      <h2 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-4">Statistics</h2>
+      <h2 class="heading-2 mb-4">Statistics</h2>
 
       <!-- Summary stats -->
-      <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mb-6 space-y-1">
-        <div><span class="text-zinc-900 dark:text-zinc-100 font-bold text-lg tabular-nums">{{ transformedPredictions.length }}</span> predictions · <span class="text-zinc-900 dark:text-zinc-100 font-bold text-lg tabular-nums">{{ resolvedCount }}</span> resolved · <span class="text-zinc-900 dark:text-zinc-100 font-bold text-lg tabular-nums">{{ pendingCount }}</span> pending</div>
-        <div v-if="correctCount + incorrectCount > 0">Accuracy <span class="text-zinc-900 dark:text-zinc-100 font-bold text-xl tabular-nums">{{ accuracyRate }}%</span> · Avg confidence <span class="text-zinc-900 dark:text-zinc-100 font-bold text-xl tabular-nums">{{ avgConfidence }}%</span></div>
+      <div class="label-xs section-spacing-sm stack-1">
+        <div>
+          <span class="text-primary mono-lg tabular">{{
+            transformedPredictions.length
+          }}</span>
+          predictions ·
+          <span class="text-primary mono-lg tabular">{{ resolvedCount }}</span>
+          resolved ·
+          <span class="text-primary mono-lg tabular">{{ pendingCount }}</span>
+          pending
+        </div>
+        <div v-if="correctCount + incorrectCount > 0">
+          Accuracy
+          <span class="text-primary font-mono text-xl font-bold tabular"
+            >{{ accuracyRate }}%</span
+          >
+          · Avg confidence
+          <span class="text-primary font-mono text-xl font-bold tabular"
+            >{{ avgConfidence }}%</span
+          >
+        </div>
       </div>
 
       <!-- Calibration Analysis -->
       <div v-if="correctCount + incorrectCount > 0" class="mb-6">
-        <h3 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-3">Calibration</h3>
+        <h3 class="calibration-header">Calibration</h3>
 
-      <!-- Confidence breakdown -->
-      <table v-if="correctCount + incorrectCount > 1" class="w-full border-collapse mb-6 font-mono text-xs">
-        <thead>
-          <tr>
-            <th class="text-left pb-2 text-zinc-900 dark:text-zinc-100 font-normal">Analysis</th>
-            <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal">Avg</th>
-            <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal">n</th>
-          </tr>
-        </thead>
-        <tbody class="text-zinc-500 dark:text-zinc-500">
-          <tr v-if="correctCount > 0">
-            <td class="py-1">Correct</td>
-            <td class="text-right text-green-600 dark:text-green-500 font-bold text-2xl tabular-nums">{{ correctConfidenceAvg }}%</td>
-            <td class="text-right">{{ correctCount }}</td>
-          </tr>
-          <tr v-if="incorrectCount > 0">
-            <td class="py-1">Incorrect</td>
-            <td class="text-right text-red-600 dark:text-red-500 font-bold text-2xl tabular-nums">{{ incorrectConfidenceAvg }}%</td>
-            <td class="text-right">{{ incorrectCount }}</td>
-          </tr>
-          <tr v-if="correctCount > 0 && incorrectCount > 0">
-            <td class="py-1">Differential</td>
-            <td class="text-right font-bold text-2xl tabular-nums" :class="correctConfidenceAvg > incorrectConfidenceAvg ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">
-              {{ correctConfidenceAvg > incorrectConfidenceAvg ? '+' : '' }}{{ correctConfidenceAvg - incorrectConfidenceAvg }}%
-            </td>
-            <td class="text-right">
-              {{ correctConfidenceAvg > incorrectConfidenceAvg ? 'good' : 'bad' }}
-            </td>
-          </tr>
-        </tbody>
-      </table>
+        <!-- Confidence breakdown -->
+        <table
+          v-if="correctCount + incorrectCount > 1"
+          class="w-full border-collapse mb-6 font-mono text-xs"
+        >
+          <thead>
+            <tr>
+              <th class="table-th">Analysis</th>
+              <th class="table-th-right">Avg</th>
+              <th class="table-th-right">n</th>
+            </tr>
+          </thead>
+          <tbody class="text-muted">
+            <tr v-if="correctCount > 0">
+              <td class="py-1">Correct</td>
+              <td
+                class="text-right text-green-600 dark:text-green-500 font-bold text-2xl tabular-nums"
+              >
+                {{ correctConfidenceAvg }}%
+              </td>
+              <td class="text-right">{{ correctCount }}</td>
+            </tr>
+            <tr v-if="incorrectCount > 0">
+              <td class="py-1">Incorrect</td>
+              <td
+                class="text-right text-red-600 dark:text-red-500 font-bold text-2xl tabular-nums"
+              >
+                {{ incorrectConfidenceAvg }}%
+              </td>
+              <td class="text-right">{{ incorrectCount }}</td>
+            </tr>
+            <tr v-if="correctCount > 0 && incorrectCount > 0">
+              <td class="py-1">Differential</td>
+              <td
+                class="text-right font-bold text-2xl tabular-nums"
+                :class="
+                  correctConfidenceAvg > incorrectConfidenceAvg
+                    ? 'text-success'
+                    : 'text-error'
+                "
+              >
+                {{ correctConfidenceAvg > incorrectConfidenceAvg ? '+' : ''
+                }}{{ correctConfidenceAvg - incorrectConfidenceAvg }}%
+              </td>
+              <td class="text-right">
+                {{
+                  correctConfidenceAvg > incorrectConfidenceAvg ? 'good' : 'bad'
+                }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-      <!-- Calibration by range -->
-      <table v-if="calibrationData.length > 0" class="w-full border-collapse mb-6 font-mono text-xs">
-        <thead>
-          <tr>
-            <th class="text-left pb-2 text-zinc-900 dark:text-zinc-100 font-normal">Range</th>
-            <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal">Accuracy</th>
-            <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal">n</th>
-          </tr>
-        </thead>
-        <tbody class="text-zinc-500 dark:text-zinc-500">
-          <tr v-for="range in calibrationData" :key="range.label">
-            <td class="py-1">{{ range.label }}</td>
-            <td class="text-right text-zinc-900 dark:text-zinc-100 font-bold text-2xl tabular-nums">{{ range.accuracy }}%</td>
-            <td class="text-right">{{ range.total }}</td>
-          </tr>
-        </tbody>
-      </table>
+        <!-- Calibration by range -->
+        <table
+          v-if="calibrationData.length > 0"
+          class="w-full border-collapse mb-6 font-mono text-xs"
+        >
+          <thead>
+            <tr>
+              <th
+                class="text-left pb-2 text-zinc-900 dark:text-zinc-100 font-normal"
+              >
+                Range
+              </th>
+              <th
+                class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal"
+              >
+                Accuracy
+              </th>
+              <th
+                class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal"
+              >
+                n
+              </th>
+            </tr>
+          </thead>
+          <tbody class="text-muted">
+            <tr v-for="range in calibrationData" :key="range.label">
+              <td class="py-1">{{ range.label }}</td>
+              <td
+                class="text-right text-zinc-900 dark:text-zinc-100 font-bold text-2xl tabular-nums"
+              >
+                {{ range.accuracy }}%
+              </td>
+              <td class="text-right">{{ range.total }}</td>
+            </tr>
+          </tbody>
+        </table>
 
-      <!-- Resolutions by year -->
-      <table v-if="resolutionsByYear.length > 0" class="w-full border-collapse mb-6 font-mono text-xs">
-        <thead>
-          <tr>
-            <th class="text-left pb-2 text-zinc-900 dark:text-zinc-100 font-normal">Year</th>
-            <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal">Accuracy</th>
-            <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal">n</th>
-          </tr>
-        </thead>
-        <tbody class="text-zinc-500 dark:text-zinc-500">
-          <tr v-for="yearData in resolutionsByYear" :key="yearData.year">
-            <td class="py-1">{{ yearData.year }}</td>
-            <td class="text-right text-zinc-900 dark:text-zinc-100 font-bold text-2xl tabular-nums">{{ yearData.accuracy }}%</td>
-            <td class="text-right">{{ yearData.total }}</td>
-          </tr>
-        </tbody>
-      </table>
+        <!-- Resolutions by year -->
+        <table
+          v-if="resolutionsByYear.length > 0"
+          class="w-full border-collapse mb-6 font-mono text-xs"
+        >
+          <thead>
+            <tr>
+              <th
+                class="text-left pb-2 text-zinc-900 dark:text-zinc-100 font-normal"
+              >
+                Year
+              </th>
+              <th
+                class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal"
+              >
+                Accuracy
+              </th>
+              <th
+                class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal"
+              >
+                n
+              </th>
+            </tr>
+          </thead>
+          <tbody class="text-muted">
+            <tr v-for="yearData in resolutionsByYear" :key="yearData.year">
+              <td class="py-1">{{ yearData.year }}</td>
+              <td
+                class="text-right text-zinc-900 dark:text-zinc-100 font-bold text-2xl tabular-nums"
+              >
+                {{ yearData.accuracy }}%
+              </td>
+              <td class="text-right">{{ yearData.total }}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
     <!-- Meta-Analysis (Gwern Mode) -->
-    <section v-if="calibration && calibration.summary.resolved > 0" class="mt-12">
-      <h2 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider dark:tracking-widest mb-4 transition-colors duration-300">Meta-Analysis</h2>
+    <section
+      v-if="calibration && calibration.summary.resolved > 0"
+      class="mt-12"
+    >
+      <h2 class="heading-2 mb-4 transition-colors duration-300">
+        Meta-Analysis
+      </h2>
 
       <!-- Brier Score -->
       <div v-if="calibration.brier_score !== null" class="mb-6">
-        <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mb-2 transition-colors duration-300">Brier Score</div>
+        <div class="calibration-label mb-2">Brier Score</div>
         <div class="flex items-baseline gap-2">
-          <span class="font-mono text-4xl font-bold tabular-nums tracking-tight dark:tracking-normal transition-colors duration-300"
-                :class="calibration.brier_score < 0.20 ? 'text-green-600 dark:text-green-500' : calibration.brier_score < 0.25 ? 'text-zinc-900 dark:text-zinc-100' : 'text-red-600 dark:text-red-500'">
+          <span
+            v-if="calibration.brier_score < 0.2"
+            class="mono-4xl transition-colors duration-300 text-success"
+          >
             {{ calibration.brier_score.toFixed(3) }}
           </span>
-          <span class="font-mono text-xs text-zinc-500 dark:text-zinc-500 transition-colors duration-300">
-            {{ calibration.brier_score < 0.20 ? '(excellent)' : calibration.brier_score < 0.25 ? '(good)' : '(needs work)' }}
+          <span
+            v-else-if="calibration.brier_score < 0.25"
+            class="mono-4xl transition-colors duration-300 text-primary"
+          >
+            {{ calibration.brier_score.toFixed(3) }}
+          </span>
+          <span
+            v-else
+            class="mono-4xl transition-colors duration-300 text-error"
+          >
+            {{ calibration.brier_score.toFixed(3) }}
+          </span>
+          <span class="calibration-label">
+            {{
+              calibration.brier_score < 0.2
+                ? '(excellent)'
+                : calibration.brier_score < 0.25
+                  ? '(good)'
+                  : '(needs work)'
+            }}
           </span>
         </div>
-        <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mt-1 transition-colors duration-300">
+        <div class="calibration-label mt-1">
           0 = perfect · 1 = worst · &lt;0.25 = good
         </div>
       </div>
 
       <!-- Calibration Buckets -->
-      <div v-if="calibration.calibration && calibration.calibration.length > 0" class="mb-6">
-        <h3 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider dark:tracking-widest mb-3 transition-colors duration-300">Calibration Curve</h3>
-        <table class="w-full border-collapse font-mono text-xs tracking-normal dark:tracking-wide">
+      <div
+        v-if="calibration.calibration && calibration.calibration.length > 0"
+        class="mb-6"
+      >
+        <h3 class="calibration-header">Calibration Curve</h3>
+        <table
+          class="w-full border-collapse font-mono text-xs tracking-normal dark:tracking-wide"
+        >
           <thead>
             <tr>
-              <th class="text-left pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Confidence</th>
-              <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Expected</th>
-              <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Actual</th>
-              <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Δ</th>
-              <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">n</th>
+              <th class="table-th">Confidence</th>
+              <th class="table-th-right">Expected</th>
+              <th class="table-th-right">Actual</th>
+              <th class="table-th-right">Δ</th>
+              <th class="table-th-right">n</th>
             </tr>
           </thead>
-          <tbody class="text-zinc-500 dark:text-zinc-500 transition-colors duration-300">
-            <tr v-for="bucket in calibration.calibration" :key="bucket.label" class="transition-colors duration-300">
+          <tbody
+            class="text-zinc-500 dark:text-zinc-500 transition-colors duration-300"
+          >
+            <tr
+              v-for="bucket in calibration.calibration"
+              :key="bucket.label"
+              class="transition-base"
+            >
               <td class="py-1">{{ bucket.label }}</td>
-              <td class="py-1 text-right tabular-nums">{{ bucket.expected }}%</td>
-              <td class="py-1 text-right font-bold text-lg tabular-nums tracking-tight dark:tracking-normal transition-colors duration-300"
-                  :class="Math.abs(bucket.delta) <= 5 ? 'text-green-600 dark:text-green-500' : Math.abs(bucket.delta) <= 10 ? 'text-zinc-900 dark:text-zinc-100' : 'text-red-600 dark:text-red-500'">
+              <td class="py-1 text-right tabular-nums">
+                {{ bucket.expected }}%
+              </td>
+              <td
+                class="calibration-table-value"
+                :class="deltaClass(bucket.delta)"
+              >
                 {{ bucket.accuracy }}%
               </td>
-              <td class="py-1 text-right tabular-nums font-bold transition-colors duration-300"
-                  :class="bucket.delta >= 0 ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">
+              <td
+                class="py-1 text-right tabular-nums font-bold transition-colors duration-300"
+                :class="bucket.delta >= 0 ? 'text-success' : 'text-error'"
+              >
                 {{ bucket.delta >= 0 ? '+' : '' }}{{ bucket.delta }}pp
               </td>
               <td class="py-1 text-right tabular-nums">{{ bucket.count }}</td>
             </tr>
           </tbody>
         </table>
-        <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mt-2 transition-colors duration-300">
+        <div class="calibration-label mt-2">
           Well-calibrated means actual ≈ expected (Δ near 0)
         </div>
       </div>
 
       <!-- Category Performance -->
-      <div v-if="calibration.by_category && calibration.by_category.length > 0" class="mb-6">
-        <h3 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider dark:tracking-widest mb-3 transition-colors duration-300">By Category</h3>
-        <table class="w-full border-collapse font-mono text-xs tracking-normal dark:tracking-wide">
+      <div
+        v-if="calibration.by_category && calibration.by_category.length > 0"
+        class="mb-6"
+      >
+        <h3 class="calibration-header">By Category</h3>
+        <table
+          class="w-full border-collapse font-mono text-xs tracking-normal dark:tracking-wide"
+        >
           <thead>
             <tr>
-              <th class="text-left pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Category</th>
-              <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Accuracy</th>
-              <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Correct</th>
-              <th class="text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal transition-colors duration-300">Total</th>
+              <th class="table-th">Category</th>
+              <th class="table-th-right">Accuracy</th>
+              <th class="table-th-right">Correct</th>
+              <th class="table-th-right">Total</th>
             </tr>
           </thead>
-          <tbody class="text-zinc-500 dark:text-zinc-500 transition-colors duration-300">
-            <tr v-for="cat in calibration.by_category" :key="cat.category" class="transition-colors duration-300">
+          <tbody
+            class="text-zinc-500 dark:text-zinc-500 transition-colors duration-300"
+          >
+            <tr
+              v-for="cat in calibration.by_category"
+              :key="cat.category"
+              class="transition-base"
+            >
               <td class="py-1">{{ cat.category }}</td>
-              <td class="py-1 text-right font-bold text-lg tabular-nums tracking-tight dark:tracking-normal transition-colors duration-300"
-                  :class="cat.accuracy >= 70 ? 'text-green-600 dark:text-green-500' : cat.accuracy >= 50 ? 'text-zinc-900 dark:text-zinc-100' : 'text-red-600 dark:text-red-500'">
+              <td
+                class="calibration-table-value"
+                :class="accuracyClass(cat.accuracy)"
+              >
                 {{ cat.accuracy }}%
               </td>
               <td class="py-1 text-right tabular-nums">{{ cat.correct }}</td>
@@ -357,31 +585,55 @@
 
       <!-- Update Analysis -->
       <div v-if="calibration.update_analysis" class="mb-6">
-        <h3 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider dark:tracking-widest mb-3 transition-colors duration-300">Update Patterns</h3>
+        <h3 class="calibration-header">Update Patterns</h3>
         <div class="grid grid-cols-2 gap-4 font-mono text-xs">
           <div>
-            <div class="text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300">Predictions Updated</div>
-            <div class="text-zinc-900 dark:text-zinc-100 font-bold text-2xl tabular-nums transition-colors duration-300">
+            <div
+              class="text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300"
+            >
+              Predictions Updated
+            </div>
+            <div class="calibration-value">
               {{ calibration.update_analysis.predictionsWithUpdates }}
             </div>
           </div>
           <div>
-            <div class="text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300">Total Updates</div>
-            <div class="text-zinc-900 dark:text-zinc-100 font-bold text-2xl tabular-nums transition-colors duration-300">
+            <div
+              class="text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300"
+            >
+              Total Updates
+            </div>
+            <div class="calibration-value">
               {{ calibration.update_analysis.totalUpdates }}
             </div>
           </div>
           <div>
-            <div class="text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300">Avg Updates/Prediction</div>
-            <div class="text-zinc-900 dark:text-zinc-100 font-bold text-2xl tabular-nums transition-colors duration-300">
+            <div
+              class="text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300"
+            >
+              Avg Updates/Prediction
+            </div>
+            <div class="calibration-value">
               {{ calibration.update_analysis.avgUpdatesPerPrediction }}
             </div>
           </div>
           <div>
-            <div class="text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300">Avg Confidence Δ</div>
-            <div class="font-bold text-2xl tabular-nums transition-colors duration-300"
-                 :class="calibration.update_analysis.avgConfidenceChange >= 0 ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">
-              {{ calibration.update_analysis.avgConfidenceChange >= 0 ? '+' : '' }}{{ calibration.update_analysis.avgConfidenceChange }}%
+            <div
+              class="text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300"
+            >
+              Avg Confidence Δ
+            </div>
+            <div
+              class="font-bold text-2xl tabular-nums transition-colors duration-300"
+              :class="
+                positiveNegativeClass(
+                  calibration.update_analysis.avgConfidenceChange
+                )
+              "
+            >
+              {{
+                calibration.update_analysis.avgConfidenceChange >= 0 ? '+' : ''
+              }}{{ calibration.update_analysis.avgConfidenceChange }}%
             </div>
           </div>
         </div>
@@ -389,33 +641,59 @@
 
       <!-- Market Comparison -->
       <div v-if="calibration.market_comparison" class="mb-6">
-        <h3 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider dark:tracking-widest mb-3 transition-colors duration-300">vs Market Baseline</h3>
+        <h3 class="calibration-header">vs Market Baseline</h3>
         <div class="grid grid-cols-2 gap-4 font-mono text-xs">
           <div>
-            <div class="text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300">Disagreements (&gt;10% diff)</div>
-            <div class="text-zinc-900 dark:text-zinc-100 font-bold text-2xl tabular-nums transition-colors duration-300">
-              {{ calibration.market_comparison.disagreements }} / {{ calibration.market_comparison.total }}
+            <div
+              class="text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300"
+            >
+              Disagreements (&gt;10% diff)
+            </div>
+            <div class="calibration-value">
+              {{ calibration.market_comparison.disagreements }} /
+              {{ calibration.market_comparison.total }}
             </div>
           </div>
           <div>
-            <div class="text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300">Accuracy When Disagreed</div>
-            <div class="font-bold text-2xl tabular-nums transition-colors duration-300"
-                 :class="calibration.market_comparison.accuracyWhenDisagreed >= 50 ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">
+            <div
+              class="text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300"
+            >
+              Accuracy When Disagreed
+            </div>
+            <div
+              class="font-bold text-2xl tabular-nums transition-colors duration-300"
+              :class="
+                accuracyClass(
+                  calibration.market_comparison.accuracyWhenDisagreed
+                )
+              "
+            >
               {{ calibration.market_comparison.accuracyWhenDisagreed }}%
             </div>
           </div>
         </div>
-        <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mt-2 transition-colors duration-300">
-          {{ calibration.market_comparison.accuracyWhenDisagreed >= 50 ? 'Beating the market when you disagree' : 'Market outperforming when you disagree' }}
+        <div class="calibration-label mt-2">
+          {{
+            calibration.market_comparison.accuracyWhenDisagreed >= 50
+              ? 'Beating the market when you disagree'
+              : 'Market outperforming when you disagree'
+          }}
         </div>
       </div>
 
       <!-- Summary Stats -->
-      <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 transition-colors duration-300">
+      <div class="calibration-label">
         <div class="mb-1">
-          Analysis based on <span class="text-zinc-900 dark:text-zinc-100 font-bold">{{ calibration.summary.resolved }}</span> resolved predictions
+          Analysis based on
+          <span class="text-zinc-900 dark:text-zinc-100 font-bold">{{
+            calibration.summary.resolved
+          }}</span>
+          resolved predictions
         </div>
-        <div v-if="calibration.generated_at" class="text-zinc-400 dark:text-zinc-600 transition-colors duration-300">
+        <div
+          v-if="calibration.generated_at"
+          class="text-zinc-400 dark:text-zinc-600 transition-colors duration-300"
+        >
           Generated {{ new Date(calibration.generated_at).toLocaleString() }}
         </div>
       </div>
@@ -423,15 +701,17 @@
 
     <!-- Version Control -->
     <section class="mt-12">
-      <h2 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-3">Version Control</h2>
-      <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 space-y-1 mb-3">
+      <h2 class="heading-2 mb-3">Version Control</h2>
+      <div
+        class="font-mono text-xs text-zinc-500 dark:text-zinc-500 space-y-1 mb-3"
+      >
         <div>Markdown + SHA-256 + Git timestamps</div>
         <div>github.com/ejfox/website2/content/predictions/</div>
       </div>
       <a
         href="https://github.com/ejfox/website2/commits/main/content/predictions/"
         target="_blank"
-        class="font-mono text-xs text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
+        class="link-subtle"
       >
         View commit history →
       </a>
@@ -439,78 +719,109 @@
   </main>
 
   <!-- Desktop TOC -->
-  <teleport
-    v-if="tocTarget && predictionToc.length > 0"
-    to="#nav-toc-container"
-  >
-    <div class="toc w-48 font-mono">
-      <div class="py-4 space-y-6">
-        <!-- Section for each type -->
-        <div v-for="section in predictionToc" :key="section.type">
-          <!-- Section header -->
-          <div class="text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-500 mb-2">
-            <span v-if="section.type === 'kalshi'">Markets ({{ section.items.length }})</span>
-            <span v-else-if="section.type === 'active'">Active ({{ section.items.length }})</span>
-            <span v-else-if="section.type === 'resolved'">Resolved ({{ section.items.length }})</span>
+  <ClientOnly>
+    <teleport
+      v-if="tocTarget && predictionToc.length > 0"
+      to="#nav-toc-container"
+    >
+      <div class="toc w-48 font-mono">
+        <div class="py-4 space-y-6">
+          <!-- Section for each type -->
+          <div v-for="section in predictionToc" :key="section.type">
+            <!-- Section header -->
+            <div
+              class="text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-500 mb-2"
+            >
+              <span v-if="section.type === 'kalshi'"
+                >Markets ({{ section.items.length }})</span
+              >
+              <span v-else-if="section.type === 'active'"
+                >Active ({{ section.items.length }})</span
+              >
+              <span v-else-if="section.type === 'resolved'"
+                >Resolved ({{ section.items.length }})</span
+              >
+            </div>
+
+            <ul class="space-y-2 text-xs">
+              <!-- Kalshi items -->
+              <li
+                v-for="item in section.items"
+                v-if="section.type === 'kalshi'"
+                :key="item.slug"
+                class="group relative"
+              >
+                <a
+                  :href="`#${item.slug}`"
+                  class="block no-underline"
+                  :class="[
+                    activeSection === item.slug
+                      ? 'text-zinc-900 dark:text-zinc-100 font-bold'
+                      : 'text-zinc-600 dark:text-zinc-400'
+                  ]"
+                >
+                  <div class="flex items-start gap-2">
+                    <span
+                      class="shrink-0 font-bold"
+                      :class="
+                        item.side === 'YES' ? 'text-success' : 'text-error'
+                      "
+                    >
+                      {{ item.side }}
+                    </span>
+                    <span class="block line-clamp-2 flex-1 min-w-0">{{
+                      item.text
+                    }}</span>
+                  </div>
+                </a>
+              </li>
+
+              <!-- Prediction items -->
+              <li
+                v-for="item in section.items"
+                v-else
+                :key="item.slug"
+                class="group relative"
+              >
+                <a
+                  :href="`#${item.slug}`"
+                  class="block no-underline"
+                  :class="[
+                    activeSection === item.slug
+                      ? 'text-zinc-900 dark:text-zinc-100 font-bold'
+                      : 'text-zinc-600 dark:text-zinc-400'
+                  ]"
+                  :style="{ opacity: 0.7 + (item.confidence / 100) * 0.3 }"
+                >
+                  <div class="flex items-start gap-2">
+                    <span class="text-zinc-500 dark:text-zinc-500 shrink-0"
+                      >{{ item.confidence }}%</span
+                    >
+                    <span class="block line-clamp-2 flex-1 min-w-0">{{
+                      item.text
+                    }}</span>
+                    <span
+                      v-if="
+                        item.status === 'correct' || item.status === 'incorrect'
+                      "
+                      class="shrink-0"
+                      :class="
+                        item.status === 'correct'
+                          ? 'text-success'
+                          : 'text-error'
+                      "
+                    >
+                      {{ item.status === 'correct' ? '✓' : '✗' }}
+                    </span>
+                  </div>
+                </a>
+              </li>
+            </ul>
           </div>
-
-          <ul class="space-y-2 text-xs">
-            <!-- Kalshi items -->
-            <li
-              v-if="section.type === 'kalshi'"
-              v-for="item in section.items"
-              :key="item.slug"
-              class="group relative"
-            >
-              <a
-                :href="`#${item.slug}`"
-                class="block no-underline"
-                :class="[
-                  activeSection === item.slug
-                    ? 'text-zinc-900 dark:text-zinc-100 font-bold'
-                    : 'text-zinc-600 dark:text-zinc-400'
-                ]"
-              >
-                <div class="flex items-start gap-2">
-                  <span class="shrink-0 font-bold" :class="item.side === 'YES' ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">
-                    {{ item.side }}
-                  </span>
-                  <span class="block line-clamp-2 flex-1 min-w-0">{{ item.text }}</span>
-                </div>
-              </a>
-            </li>
-
-            <!-- Prediction items -->
-            <li
-              v-else
-              v-for="item in section.items"
-              :key="item.slug"
-              class="group relative"
-            >
-              <a
-                :href="`#${item.slug}`"
-                class="block no-underline"
-                :class="[
-                  activeSection === item.slug
-                    ? 'text-zinc-900 dark:text-zinc-100 font-bold'
-                    : 'text-zinc-600 dark:text-zinc-400'
-                ]"
-                :style="{ opacity: 0.7 + (item.confidence / 100) * 0.3 }"
-              >
-                <div class="flex items-start gap-2">
-                  <span class="text-zinc-500 dark:text-zinc-500 shrink-0">{{ item.confidence }}%</span>
-                  <span class="block line-clamp-2 flex-1 min-w-0">{{ item.text }}</span>
-                  <span v-if="item.status === 'correct' || item.status === 'incorrect'" class="shrink-0" :class="item.status === 'correct' ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">
-                    {{ item.status === 'correct' ? '✓' : '✗' }}
-                  </span>
-                </div>
-              </a>
-            </li>
-          </ul>
         </div>
       </div>
-    </div>
-  </teleport>
+    </teleport>
+  </ClientOnly>
 </template>
 
 <script setup>
@@ -518,7 +829,8 @@ import PredictionCard from '~/components/predictions/PredictionCard.vue'
 
 useSeoMeta({
   title: 'Predictions - EJ Fox',
-  description: 'Cryptographically verified predictions with SHA-256 hashing and git-based version control',
+  description:
+    'Cryptographically verified predictions with SHA-256 hashing and git-based version control',
   ogTitle: 'Predictions - EJ Fox',
   ogDescription: 'Cryptographically verified predictions and forecasts',
   ogUrl: 'https://ejfox.com/predictions',
@@ -554,7 +866,7 @@ const filters = [
 const filterButtonClass = (key) => [
   'transition-colors',
   filter.value === key
-    ? 'text-zinc-900 dark:text-zinc-100'
+    ? 'text-primary'
     : 'text-zinc-500 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100'
 ]
 
@@ -580,7 +892,11 @@ const activePredictions = computed(() => {
 const resolvedPredictions = computed(() => {
   return transformedPredictions.value
     .filter((p) => p.resolved)
-    .sort((a, b) => new Date(b.resolved_date || b.created || 0) - new Date(a.resolved_date || a.created || 0))
+    .sort(
+      (a, b) =>
+        new Date(b.resolved_date || b.created || 0) -
+        new Date(a.resolved_date || a.created || 0)
+    )
 })
 
 const filteredPredictions = computed(() => {
@@ -653,6 +969,50 @@ const incorrectConfidenceAvg = computed(() => {
     : 0
 })
 
+// Status class helpers
+const unrealizedPnLClass = computed(() =>
+  kalshiData.value?.portfolioStats?.totalUnrealizedPnL >= 0
+    ? 'text-success'
+    : 'text-error'
+)
+
+const realizedPnLClass = computed(() =>
+  kalshiData.value?.portfolioStats?.totalRealizedPnL >= 0
+    ? 'text-success'
+    : 'text-error'
+)
+
+const totalPnLClass = computed(() => {
+  if (!kalshiData.value?.portfolioStats) return ''
+  const total =
+    kalshiData.value.portfolioStats.totalUnrealizedPnL +
+    kalshiData.value.portfolioStats.totalRealizedPnL
+  return total >= 0 ? 'text-success' : 'text-error'
+})
+
+// Calibration class helpers
+const brierScoreClass = (score) => {
+  if (score < 0.2) return 'text-success'
+  if (score < 0.25) return 'text-primary'
+  return 'text-error'
+}
+
+const deltaClass = (delta) => {
+  const abs = Math.abs(delta)
+  if (abs <= 5) return 'text-success'
+  if (abs <= 10) return 'text-primary'
+  return 'text-error'
+}
+
+const accuracyClass = (accuracy) => {
+  if (accuracy >= 70) return 'text-success'
+  if (accuracy >= 50) return 'text-primary'
+  return 'text-error'
+}
+
+const positiveNegativeClass = (value) =>
+  value >= 0 ? 'text-success' : 'text-error'
+
 const resolutionsByYear = computed(() => {
   const yearStats = {}
   transformedPredictions.value
@@ -709,7 +1069,7 @@ const calibrationData = computed(() => {
 
 // TOC functionality
 const activeSection = ref('')
-const tocTarget = ref(null)
+const { tocTarget } = useTOC()
 
 const predictionToc = computed(() => {
   const sections = []
@@ -730,7 +1090,10 @@ const predictionToc = computed(() => {
   if (activePredictions.value.length > 0) {
     const active = activePredictions.value.map((p) => ({
       slug: `prediction-${p.id}`,
-      text: p.statement.length > 50 ? p.statement.slice(0, 47) + '...' : p.statement,
+      text:
+        p.statement.length > 50
+          ? p.statement.slice(0, 47) + '...'
+          : p.statement,
       status: p.status,
       confidence: p.confidence,
       type: 'prediction',
@@ -743,7 +1106,10 @@ const predictionToc = computed(() => {
   if (resolvedPredictions.value.length > 0) {
     const resolved = resolvedPredictions.value.map((p) => ({
       slug: `prediction-${p.id}`,
-      text: p.statement.length > 50 ? p.statement.slice(0, 47) + '...' : p.statement,
+      text:
+        p.statement.length > 50
+          ? p.statement.slice(0, 47) + '...'
+          : p.statement,
       status: p.status,
       confidence: p.confidence,
       type: 'prediction',
@@ -757,8 +1123,6 @@ const predictionToc = computed(() => {
 
 onMounted(() => {
   if (import.meta.client) {
-    tocTarget.value = document.querySelector('#nav-toc-container')
-
     const observer = new IntersectionObserver(
       (entries) =>
         entries.forEach((entry) => {
@@ -774,13 +1138,6 @@ onMounted(() => {
     })
 
     onUnmounted(() => observer.disconnect())
-  }
-})
-
-watch([activePredictions, resolvedPredictions], async () => {
-  await nextTick()
-  if (import.meta.client) {
-    tocTarget.value = document.querySelector('#nav-toc-container')
   }
 })
 
