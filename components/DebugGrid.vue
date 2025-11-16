@@ -68,7 +68,7 @@
 import { ref, computed } from 'vue'
 import * as d3 from 'd3'
 
-const props = defineProps({
+defineProps({
   baseline: {
     type: Number,
     default: 8

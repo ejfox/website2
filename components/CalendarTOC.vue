@@ -93,8 +93,6 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-
 // Fetch available slots with auto-refresh every 5 minutes
 const { data, pending, refresh } = await useLazyFetch(
   '/api/cal/available-slots',

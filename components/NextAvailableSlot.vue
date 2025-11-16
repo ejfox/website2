@@ -51,7 +51,7 @@
 import { computed } from 'vue'
 
 // Fetch the first available slot with auto-refresh
-const { data, pending, error, refresh } = await useLazyFetch(
+const { data, pending, refresh } = await useLazyFetch(
   '/api/cal/available-slots',
   {
     refresh: 5 * 60 * 1000, // Refresh every 5 minutes

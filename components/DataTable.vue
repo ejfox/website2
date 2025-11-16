@@ -15,7 +15,7 @@
       <thead>
         <tr>
           <th
-            v-for="(column, _index) in columns"
+            v-for="column in columns"
             :key="column.key"
             :class="[
               column.align === 'right' ? 'text-right' : 'text-left',

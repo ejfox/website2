@@ -173,8 +173,11 @@ const linePath = computed(() => {
 
   const line = d3
     .line()
-    .x((d, i) => i * (60 / props.data.length))
-    .y((d) => props.baseline * 2 - normalizedData.value[i] * props.baseline * 2)
+    .x((_d, i) => i * (60 / props.data.length))
+    .y(
+      (_d, i) =>
+        props.baseline * 2 - normalizedData.value[i] * props.baseline * 2
+    )
     .curve(d3.curveMonotoneX)
 
   return line(normalizedData.value)

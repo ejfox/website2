@@ -83,7 +83,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted, nextTick } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
 // NUKED BY BLOODHOUND: Animation imports obliterated
 // import { animate, stagger as _stagger } from '~/anime.esm.js'
 // import { useAnimations } from '~/composables/useAnimations'
@@ -114,7 +114,6 @@ const revealNameFields = () => {
 
     // Epic name fields reveal
     if (nameFieldsContainer.value) {
-      const targetWidth = nameFieldsContainer.value.scrollWidth
       // Animation code deleted following delete-driven development
       setTimeout(() => {
         const inputs = nameFieldsContainer.value?.querySelectorAll('input')

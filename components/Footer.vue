@@ -130,7 +130,6 @@ const avatarRef = ref(null)
 const navRef = ref(null)
 const navListRef = ref(null)
 const navItemRefs = ref([])
-const newsletterRef = ref(null)
 
 // Fetch build info
 const { data: buildInfo } = await useFetch('/api/build-info')
