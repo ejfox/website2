@@ -124,6 +124,7 @@ const projectActivity = computed(() => {
                 :data="projectActivity"
                 variant="inline"
                 :baseline="6"
+                class="hidden sm:inline-block"
               />
             </ClientOnly>
           </span>
@@ -159,7 +160,7 @@ const projectActivity = computed(() => {
           >
             FEATURED WORK
           </h2>
-          <div class="space-y-32 transition-all duration-500 ease-out">
+          <div class="space-y-8 md:space-y-32 transition-all duration-500 ease-out">
             <FeaturedProjectCard
               v-for="(project, index) in featuredProjects"
               :id="getProjectId(project)"
@@ -176,7 +177,7 @@ const projectActivity = computed(() => {
           <h2 v-if="featuredProjects.length" id="all-projects" class="sr-only">
             All Projects
           </h2>
-          <div class="space-y-24 transition-all duration-500 ease-out">
+          <div class="space-y-6 md:space-y-24 transition-all duration-500 ease-out">
             <ProjectCard
               v-for="(project, index) in regularProjects"
               :id="getProjectId(project)"
