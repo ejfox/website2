@@ -169,7 +169,7 @@ p,
 }
 
 .project-content {
-  @apply col-span-1 md:col-span-8 pl-0;
+  @apply col-span-1 md:col-span-8 pl-0 pr-4 md:pr-8;
 }
 
 .project-meta {
