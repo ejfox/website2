@@ -1,9 +1,10 @@
 <template>
-  <article
+  <NuxtLink
     :id="projectSlug"
-    class="group featured-project featured-card-hover"
+    :to="`/projects/${projectSlug}`"
+    class="group featured-project block"
     :class="layoutClass"
-    :style="{ '--stagger-delay': `${index * 100}ms` }"
+    :style="staggerStyle"
   >
     <!-- Hero Layout: Full width with large image -->
     <template v-if="layoutMode === 'hero'">
@@ -11,101 +12,27 @@
         <img :src="featuredImage" :alt="projectTitle" class="w-full h-auto" />
       </div>
       <div class="featured-hero-content">
-        <div class="project-description" v-html="project.html" />
-      </div>
-      <div class="featured-hero-meta">
-        <div class="flex items-center gap-3">
-          <time class="project-date">{{
-            formatDate(project.metadata?.date || project.date)
-          }}</time>
-          <ClientOnly>
-            <RhythmicSparklines
-              v-if="projectActivity.length > 0"
-              :data="projectActivity"
-              variant="margin"
-              :baseline="5"
-              class="opacity-60 group-hover:opacity-100 transition-opacity duration-300"
-            />
-          </ClientOnly>
-        </div>
-        <div v-if="project.metadata?.tech?.length" class="tech-tags text-xs">
-          <span v-for="(tech, techIndex) in project.metadata.tech" :key="tech">
-            <span
-              v-if="techIndex > 0"
-              class="mx-1 text-zinc-300 dark:text-zinc-700"
-              >·</span
-            >
-            <span>{{ tech }}</span>
-          </span>
-        </div>
-        <div v-if="project.metadata?.github">
-          <a
-            :href="project.metadata.github"
-            target="_blank"
-            class="project-github-link text-xs"
-            >GitHub ↗</a
-          >
-        </div>
+        <div class="project-description" v-html="projectContent" />
       </div>
     </template>
 
     <!-- Asymmetric Grid Layout: 5/7 or 7/5 columns -->
     <template v-else>
       <div class="featured-grid-content">
-        <div class="project-description" v-html="project.html" />
+        <div class="project-description" v-html="projectContent" />
       </div>
-      <div class="featured-grid-visual">
+      <div v-if="featuredImage" class="featured-grid-visual">
         <img
-          v-if="featuredImage"
           :src="featuredImage"
           :alt="projectTitle"
           class="w-full h-auto"
         />
-        <div class="featured-grid-meta">
-          <div class="flex items-center gap-3">
-            <time class="project-date">{{
-              formatDate(project.metadata?.date || project.date)
-            }}</time>
-            <ClientOnly>
-              <RhythmicSparklines
-                v-if="projectActivity.length > 0"
-                :data="projectActivity"
-                variant="margin"
-                :baseline="5"
-                class="opacity-60 group-hover:opacity-100 transition-opacity duration-300"
-              />
-            </ClientOnly>
-          </div>
-          <div v-if="project.metadata?.tech?.length" class="tech-tags text-xs">
-            <span
-              v-for="(tech, techIndex) in project.metadata.tech"
-              :key="tech"
-            >
-              <span
-                v-if="techIndex > 0"
-                class="mx-1 text-zinc-300 dark:text-zinc-700"
-                >·</span
-              >
-              <span>{{ tech }}</span>
-            </span>
-          </div>
-          <div v-if="project.metadata?.github">
-            <a
-              :href="project.metadata.github"
-              target="_blank"
-              class="project-github-link text-xs"
-              >GitHub ↗</a
-            >
-          </div>
-        </div>
       </div>
     </template>
-  </article>
+  </NuxtLink>
 </template>
 
 <script setup>
-import { format } from 'date-fns/format'
-
 const props = defineProps({
   project: {
     type: Object,
@@ -117,14 +44,8 @@ const props = defineProps({
   }
 })
 
-const formatDate = (date) => {
-  if (!date) return ''
-  try {
-    return format(new Date(date), 'yyyy')
-  } catch {
-    return ''
-  }
-}
+// Use centralized date formatting
+const { formatYearOnly } = useDateFormat()
 
 const projectSlug = computed(() => {
   // Create a clean anchor slug from the project title
@@ -135,9 +56,51 @@ const projectSlug = computed(() => {
     .replace(/^-+|-+$/g, '')
 })
 
-const _projectTitle = computed(
+const projectTitle = computed(
   () => props.project.title || props.project.metadata?.title || ''
 )
+
+// Extract first image from HTML content for hero display
+const featuredImage = computed(() => {
+  if (!props.project.html) return null
+
+  // Extract first img src from HTML
+  const imgMatch = props.project.html.match(/<img[^>]+src="([^"]+)"/)
+  return imgMatch ? imgMatch[1] : null
+})
+
+// Layout mode: first featured = hero, rest = asymmetric
+const layoutMode = computed(() => {
+  return props.index === 0 ? 'hero' : 'asymmetric'
+})
+
+// Layout classes for asymmetric grid (alternating 5/7 and 7/5)
+const layoutClass = computed(() => {
+  if (layoutMode.value === 'hero') {
+    return 'featured-hero-layout'
+  }
+
+  // Alternate between left and right image placement
+  const isEven = props.index % 2 === 0
+  return isEven ? 'featured-asymmetric-left' : 'featured-asymmetric-right'
+})
+
+// Stagger animation delay - capped at 800ms for performance
+const staggerStyle = computed(() => ({
+  '--stagger-delay': `${Math.min(props.index * 100, 800)}ms`
+}))
+
+// Strip first image from HTML when we're displaying it separately
+const projectContent = computed(() => {
+  if (!props.project.html) return ''
+
+  // If we have a featured image, remove the first img tag from HTML
+  if (featuredImage.value) {
+    return props.project.html.replace(/<img[^>]*>/, '')
+  }
+
+  return props.project.html
+})
 
 // Generate more substantial activity data for featured projects
 const projectActivity = computed(() => {
@@ -156,41 +119,10 @@ const projectActivity = computed(() => {
 </script>
 
 <style scoped>
-/* More pronounced hover effects for featured projects - *ZOOM* */
-.featured-card-hover {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+/* Clickable card - clean and minimal */
+.featured-project {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
-
-/* Desktop hover effects - slightly more dramatic */
-@media (min-width: 768px) {
-  .featured-card-hover:hover {
-    transform: translateX(8px);
-  }
-
-  .featured-card-hover:hover .project-description {
-    opacity: 0.95;
-  }
-
-  /* Subtle glow effect on hover for featured projects */
-  .featured-card-hover::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    border-radius: 0.5rem;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    background: radial-gradient(
-      circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      rgba(255, 255, 255, 0.05),
-      transparent 50%
-    );
-  }
-
-  .featured-card-hover:hover::after {
-    opacity: 1;
-  }
-}
-
-/* Mobile active state (already defined in global.css) */
 </style>
