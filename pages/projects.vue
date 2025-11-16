@@ -200,7 +200,7 @@ const projectActivity = computed(() => {
             <li
               v-for="item in projectToc"
               :key="item.id"
-              :class="item.level === 'h2' ? 'font-medium mt-2' : 'ml-3'"
+              :class="item.level === 'h2' ? 'font-medium mt-2' : ''"
             >
               <a
                 :href="`#${item.id}`"
