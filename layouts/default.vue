@@ -112,7 +112,7 @@
               >
             </div>
             <!-- Table of Contents Teleport Target -->
-            <div id="nav-toc-container" class="mt-8 pr-4 -ml-8 pl-2"></div>
+            <div id="nav-toc-container" class="mt-8"></div>
 
             <!-- Calendar TOC removed - causing hydration mismatch -->
           </div>

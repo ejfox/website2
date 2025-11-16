@@ -194,23 +194,21 @@ const projectActivity = computed(() => {
     <ClientOnly>
       <teleport v-if="tocTarget && projectToc.length" to="#nav-toc-container">
         <div class="toc">
-          <div class="py-4">
-            <h3 class="label-uppercase-mono mb-4">Projects</h3>
-            <ul class="stack-2 text-sm">
-              <li
-                v-for="item in projectToc"
-                :key="item.id"
-                :class="item.level === 'h2' ? 'font-medium' : 'ml-4'"
+          <h3 class="label-uppercase-mono mb-3 text-xs">Projects</h3>
+          <ul class="space-y-1 text-sm">
+            <li
+              v-for="item in projectToc"
+              :key="item.id"
+              :class="item.level === 'h2' ? 'font-medium mt-2' : 'ml-3'"
+            >
+              <a
+                :href="`#${item.id}`"
+                class="text-secondary link-hover block py-0.5"
               >
-                <a
-                  :href="`#${item.id}`"
-                  class="text-secondary link-hover block py-1"
-                >
-                  {{ item.text }}
-                </a>
-              </li>
-            </ul>
-          </div>
+                {{ item.text }}
+              </a>
+            </li>
+          </ul>
         </div>
       </teleport>
     </ClientOnly>
