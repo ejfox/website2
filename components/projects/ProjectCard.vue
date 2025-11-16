@@ -5,9 +5,6 @@
     :style="{ '--stagger-delay': `${index * 80}ms` }"
   >
     <div class="project-content">
-      <h2 class="project-title project-title-regular">
-        <a :href="`#${projectSlug}`" class="project-link">{{ projectTitle }}</a>
-      </h2>
       <div
         class="project-description project-description-regular"
         v-html="project.html"
