@@ -1,11 +1,14 @@
 {
-  "content": "<h2 class=\"\" id=\"developing-entirely-in-the-terminal\">Developing Entirely in The Terminal</h2>",
   "html": "<h2 class=\"\" id=\"developing-entirely-in-the-terminal\">Developing Entirely in The Terminal</h2>",
   "title": "Terminal Based Development Workflow",
   "metadata": {
     "dek": "In which",
     "inprogress": true,
-    "tags": ["example", "design", "inspiration"],
+    "tags": [
+      "example",
+      "design",
+      "inspiration"
+    ],
     "date": "2025-10-30T23:59:45.000Z",
     "modified": "2025-10-31T14:55:00.000Z",
     "words": 8,

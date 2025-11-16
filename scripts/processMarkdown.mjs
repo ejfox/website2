@@ -165,13 +165,12 @@ async function processMarkdown(content, filePath) {
     const sourceInfo = SOURCE_DIR ? { sourcePath, sourceDir: SOURCE_DIR } : {}
 
     return {
-      content: html,
       html,
       title: extractedTitle,
       metadata: {
         ...frontmatter,
         ...stats,
-        toc: toc,
+        toc,
         type: frontmatter.type || getPostType(filePath),
         ...sourceInfo
       }

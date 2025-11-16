@@ -1,5 +1,4 @@
 {
-  "content": "<h2 class=\"\" id=\"hong-kong-protest-techniques\">Hong Kong Protest Techniques</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Traffic cones - to help contain tear gas cannisters</li>\n<li class=\"\">Suitcases (as defenses)</li>\n<li class=\"\">Water bottles</li>\n<li class=\"\">Laser pointers</li>\n<li class=\"\">Breaking bricks</li>\n<li class=\"\">Using slingshots</li>\n<li class=\"\">Transporting divider fencing</li>\n<li class=\"\">Extinguishing tear gas with traffic cones and metal bowls</li>\n<li class=\"\">Makeshift armor: saran wrap, garbage can lids, luggage = shields</li>\n<li class=\"\">Organization - human supply chain lines</li>\n<li class=\"\">Hand signals for when supplies are needed</li>\n<li class=\"\">Parting crowds for ambulances</li>\n<li class=\"\">Anonymous, leaderless</li>\n<li class=\"\">Airdrop and signal/telegram chats for organization</li>\n<li class=\"\">“Be like water” move quickly instead of occupying a single location</li>\n<li class=\"\">Using trains and public transit to move quickly</li>\n<li class=\"\">Hiding identity through laser pointers and spray paint aimed at security cameras</li>\n<li class=\"\">Single-use transit tickets for untracked public transit</li>\n</ul>",
   "html": "<h2 class=\"\" id=\"hong-kong-protest-techniques\">Hong Kong Protest Techniques</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Traffic cones - to help contain tear gas cannisters</li>\n<li class=\"\">Suitcases (as defenses)</li>\n<li class=\"\">Water bottles</li>\n<li class=\"\">Laser pointers</li>\n<li class=\"\">Breaking bricks</li>\n<li class=\"\">Using slingshots</li>\n<li class=\"\">Transporting divider fencing</li>\n<li class=\"\">Extinguishing tear gas with traffic cones and metal bowls</li>\n<li class=\"\">Makeshift armor: saran wrap, garbage can lids, luggage = shields</li>\n<li class=\"\">Organization - human supply chain lines</li>\n<li class=\"\">Hand signals for when supplies are needed</li>\n<li class=\"\">Parting crowds for ambulances</li>\n<li class=\"\">Anonymous, leaderless</li>\n<li class=\"\">Airdrop and signal/telegram chats for organization</li>\n<li class=\"\">“Be like water” move quickly instead of occupying a single location</li>\n<li class=\"\">Using trains and public transit to move quickly</li>\n<li class=\"\">Hiding identity through laser pointers and spray paint aimed at security cameras</li>\n<li class=\"\">Single-use transit tickets for untracked public transit</li>\n</ul>",
   "title": "Hong Kong Protest Techniques",
   "metadata": {
@@ -10,7 +9,12 @@
     "date": "2019-08-14T08:00:39.000Z",
     "hidetimestamp": false,
     "modified": "2025-07-01T03:40:19.000Z",
-    "tags": ["protest", "activism", "tactics", "security"],
+    "tags": [
+      "protest",
+      "activism",
+      "tactics",
+      "security"
+    ],
     "words": 130,
     "images": 0,
     "imageDetails": {

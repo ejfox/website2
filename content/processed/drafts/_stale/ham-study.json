@@ -1,11 +1,12 @@
 {
-  "content": "",
   "html": "",
   "title": "Ham Study",
   "metadata": {
     "date": "2024-11-27T15:42:48.000Z",
     "modified": "2024-11-27T15:42:56.000Z",
-    "tags": ["amateurradio"],
+    "tags": [
+      "amateurradio"
+    ],
     "words": 1,
     "images": 0,
     "imageDetails": {

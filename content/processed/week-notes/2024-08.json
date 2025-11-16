@@ -1,9 +1,12 @@
 {
-  "content": "<h2 class=\"\" id=\"overview-of-the-week\">Overview of the Week</h2>\n<ul class=\"list-disc\">\n<li class=\"\">launched new studio site</li>\n<li class=\"\">Worked on Electology plans</li>\n<li class=\"\">Went to the gym, got first personal training session</li>\n</ul>",
   "html": "<h2 class=\"\" id=\"overview-of-the-week\">Overview of the Week</h2>\n<ul class=\"list-disc\">\n<li class=\"\">launched new studio site</li>\n<li class=\"\">Worked on Electology plans</li>\n<li class=\"\">Went to the gym, got first personal training session</li>\n</ul>",
   "title": "2024 08",
   "metadata": {
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "date": "2022-12-26T16:57:44.000Z",
     "modified": "2024-10-14T23:52:00.000Z",
     "dek": "In which the author unveils a new studio site, delves into Electology plans, and experiences their first personal training session at the gym.",

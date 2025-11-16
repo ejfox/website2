@@ -39,31 +39,30 @@ export default defineEventHandler(async () => {
           if (!existsSync(contentPath)) {
             // Return post without content if file doesn't exist
             return {
-              ...post,
+              slug: post.slug,
+              title: post.title || post.slug,
               html: '',
-              title: post.metadata?.title || post.title || post.slug
+              metadata: post.metadata || {}
             }
           }
 
           const content = await readFile(contentPath, 'utf8')
           const fullPost = JSON.parse(content)
 
+          // Clean structure: metadata from processed file, html content, title
           return {
-            ...post,
-            ...fullPost,
             slug: post.slug,
-            title:
-              fullPost.metadata?.title ||
-              fullPost.title ||
-              post.metadata?.title ||
-              post.title
+            title: fullPost.title || post.title,
+            html: fullPost.html,
+            metadata: fullPost.metadata
           }
         } catch (err) {
           console.error(`Error loading project ${post.slug}:`, err)
           return {
-            ...post,
+            slug: post.slug,
+            title: post.title || post.slug,
             html: '',
-            title: post.metadata?.title || post.title || post.slug
+            metadata: post.metadata || {}
           }
         }
       })

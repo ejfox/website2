@@ -1,12 +1,14 @@
 {
-  "content": "<h2 class=\"\" id=\"building-a-vps-to-support-the-unknown\">Building a VPS to support the unknown</h2>",
   "html": "<h2 class=\"\" id=\"building-a-vps-to-support-the-unknown\">Building a VPS to support the unknown</h2>",
   "title": "Building A Logging System To Support The Unknown",
   "metadata": {
     "date": "2024-12-30T04:22:33.000Z",
     "modified": "2025-01-14T15:04:30.000Z",
-    "tags": ["infrastructure", "tools"],
-    "words": 9,
+    "tags": [
+      "infrastructure",
+      "tools"
+    ],
+    "words": 10,
     "images": 0,
     "imageDetails": {
       "total": 0,

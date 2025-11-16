@@ -1,5 +1,4 @@
 {
-  "content": "<h2 class=\"\" id=\"building-a-vps-for-business-and-pleasure\">Building A VPS For Business and Pleasure</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Smallweb</li>\n<li class=\"\">Caddy</li>\n<li class=\"\">DNS</li>\n<li class=\"\">Cloudflare Tunnel</li>\n<li class=\"\">PM2</li>\n<li class=\"\">SSH Certificates / Termius</li>\n<li class=\"\">Loki</li>\n<li class=\"\">Grafana</li>\n<li class=\"\">Uptime Kuma</li>\n<li class=\"\">n8n</li>\n</ul>",
   "html": "<h2 class=\"\" id=\"building-a-vps-for-business-and-pleasure\">Building A VPS For Business and Pleasure</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Smallweb</li>\n<li class=\"\">Caddy</li>\n<li class=\"\">DNS</li>\n<li class=\"\">Cloudflare Tunnel</li>\n<li class=\"\">PM2</li>\n<li class=\"\">SSH Certificates / Termius</li>\n<li class=\"\">Loki</li>\n<li class=\"\">Grafana</li>\n<li class=\"\">Uptime Kuma</li>\n<li class=\"\">n8n</li>\n</ul>",
   "title": "Vps Micro Endpoints Smallweb",
   "metadata": {
@@ -7,7 +6,10 @@
     "modified": "2025-01-27T04:35:12.000Z",
     "dek": "In which the author prepares a little computer far away from home to do his bidding",
     "inprogress": true,
-    "tags": ["cli", "tech"],
+    "tags": [
+      "cli",
+      "tech"
+    ],
     "words": 35,
     "images": 0,
     "imageDetails": {

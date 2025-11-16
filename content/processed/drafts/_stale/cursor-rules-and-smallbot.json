@@ -1,12 +1,14 @@
 {
-  "content": "<h2 class=\"\" id=\"exploring-cursor-rules-and-smallbot\">Exploring Cursor Rules and Smallbot</h2>",
   "html": "<h2 class=\"\" id=\"exploring-cursor-rules-and-smallbot\">Exploring Cursor Rules and Smallbot</h2>",
   "title": "Cursor Rules And Smallbot",
   "metadata": {
     "date": "2025-02-21T17:00:05.000Z",
     "modified": "2025-02-21T17:00:51.000Z",
-    "tags": ["ai", "tools"],
-    "words": 7,
+    "tags": [
+      "ai",
+      "tools"
+    ],
+    "words": 8,
     "images": 0,
     "imageDetails": {
       "total": 0,

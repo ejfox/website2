@@ -1,5 +1,4 @@
 {
-  "content": "<h1 class=\"\" id=\"riot-strike-riot\">Riot. Strike. Riot</h1>\n<ul class=\"list-disc\">\n<li class=\"\">ISBN: 1784780596</li>\n</ul>\n<h2 class=\"\" id=\"highlights\">Highlights</h2>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">The moment when the partisans of riot exceed the police capacity for management, when the cops make their first retreat, is the moment when the riot becomes fully itself, slides loose from the grim continuity of daily life. ^ref-37445</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h2 class=\"\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Joshua Clover</a></li>\n<li class=\"\">ASIN: B013NI8WB4</li>\n<li class=\"\">ISBN: 1784780596</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B013NI8WB4\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B013NI8WB4</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B013NI8WB4\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>",
   "html": "<h1 class=\"\" id=\"riot-strike-riot\">Riot. Strike. Riot</h1>\n<ul class=\"list-disc\">\n<li class=\"\">ISBN: 1784780596</li>\n</ul>\n<h2 class=\"\" id=\"highlights\">Highlights</h2>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">The moment when the partisans of riot exceed the police capacity for management, when the cops make their first retreat, is the moment when the riot becomes fully itself, slides loose from the grim continuity of daily life. ^ref-37445</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h2 class=\"\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Joshua Clover</a></li>\n<li class=\"\">ASIN: B013NI8WB4</li>\n<li class=\"\">ISBN: 1784780596</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B013NI8WB4\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B013NI8WB4</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B013NI8WB4\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>",
   "title": "Clover Riot. Strike. Riot",
   "metadata": {
@@ -12,8 +11,13 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/81LVOVLefKL._SY160.jpg",
       "highlightsCount": 1
     },
-    "tags": ["book", "activism", "protest", "politics"],
-    "words": 69,
+    "tags": [
+      "book",
+      "activism",
+      "protest",
+      "politics"
+    ],
+    "words": 70,
     "images": 0,
     "imageDetails": {
       "total": 0,
