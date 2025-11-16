@@ -226,6 +226,15 @@ p,
   }
 }
 
+/* Constrain inline GitHub/YouTube SVG icons to prevent them from growing */
+.prose svg.inline-block,
+.project-description svg.inline-block {
+  width: 1rem !important;
+  height: 1rem !important;
+  max-width: 1rem;
+  max-height: 1rem;
+}
+
 /* Loading States - Minimal */
 .skeleton {
   @apply bg-zinc-100 dark:bg-zinc-900;
