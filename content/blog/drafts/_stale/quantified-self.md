@@ -22,22 +22,26 @@ tags:
 I built a personal API system at `ejfox.com/api/` to aggregate data from various services for AI context and self-quantification.
 
 ### Health & Fitness
+
 - Apple Health metrics (steps, exercise minutes, HRV)
 - 10+ years of movement patterns
 - Sleep and recovery data
 
 ### Productivity & Development
+
 - GitHub contribution patterns and commit history
 - RescueTime productivity analytics
 - Coding time across different projects
 
 ### Games & Skills
+
 - Chess.com rating progression and puzzle stats
 - LeetCode problem-solving metrics
 - MonkeyType typing speed improvements
 - Call of Duty performance analytics
 
 ### Creative Output
+
 - Photo platform statistics
 - Last.fm listening history (10+ years of scrobbling)
 - Monthly writing output tracking

@@ -15,43 +15,44 @@ draft: true
 
 ## Motorcycle.p8: A Video Game Poem in 128x128 Pixels
 
-*Great art comes from working creatively within limitations. This is the story of translating the zen of motorcycling into a tiny digital experience—and discovering someone actually felt the rush.*
+_Great art comes from working creatively within limitations. This is the story of translating the zen of motorcycling into a tiny digital experience—and discovering someone actually felt the rush._
 
 ## Making Hell Fun: Creative Constraints as Liberation
 
-*[Expand on Pico-8's limitations as creative catalyst - 128x128 screen, 16 colors, 4 audio channels, 8kb cart size. This is "make hell fun" philosophy in action - taking severe restrictions and finding joy within them. The constraints aren't punishment, they're creative liberation from infinite possibility paralysis.]*
+_[Expand on Pico-8's limitations as creative catalyst - 128x128 screen, 16 colors, 4 audio channels, 8kb cart size. This is "make hell fun" philosophy in action - taking severe restrictions and finding joy within them. The constraints aren't punishment, they're creative liberation from infinite possibility paralysis.]_
 
 ## The World is Editable: Translating Reality into Code
 
-*[Write about the challenge of capturing motorcycle riding sensation - speed, momentum, the narrowing road, music that builds with velocity. This embodies "the world is editable" - taking a physical experience and remaking it in digital space. You can't ride a motorcycle right now, but you can code one. Reality becomes raw material for creative remix.]*
+_[Write about the challenge of capturing motorcycle riding sensation - speed, momentum, the narrowing road, music that builds with velocity. This embodies "the world is editable" - taking a physical experience and remaking it in digital space. You can't ride a motorcycle right now, but you can code one. Reality becomes raw material for creative remix.]_
 
 ## Family Game Development
 
-*[Explore the collaborative process - brother on sprites/music, Coach Artie on coding, your vision direction. The joy of making something together.]*
+_[Explore the collaborative process - brother on sprites/music, Coach Artie on coding, your vision direction. The joy of making something together.]_
 
 ## When Strangers Experience Your Art
 
 **From the [Lexaloffle forum](https://www.lexaloffle.com/bbs/?tid=145758):**
-> thePixelXb_ • 2024-11-26 14:08  
+
+> thePixelXb\_ • 2024-11-26 14:08  
 > 101-120 mph is kinda crazy:
 
-*[Reflect on this moment - someone played your game, pushed it to the edge, felt the intensity you were trying to create. What it means for interactive art to find its audience.]*
+_[Reflect on this moment - someone played your game, pushed it to the edge, felt the intensity you were trying to create. What it means for interactive art to find its audience.]_
 
 ## The People in Charge Don't Know Anything: DIY Game Development
 
-*[Consider what makes tiny games special - intimate scale, focused experience, pure distillation of an idea. How Pico-8 community values creativity over technical complexity. This is "the people in charge don't know anything" in action - you don't need a game studio, publisher approval, or marketing budget. You just need an idea and the willingness to make it real. The gatekeepers are irrelevant when the tools are democratized.]*
+_[Consider what makes tiny games special - intimate scale, focused experience, pure distillation of an idea. How Pico-8 community values creativity over technical complexity. This is "the people in charge don't know anything" in action - you don't need a game studio, publisher approval, or marketing budget. You just need an idea and the willingness to make it real. The gatekeepers are irrelevant when the tools are democratized.]_
 
-*[Reference: Connect to [pico8-exploration piece](/drafts/_stale/pico8-exploration) about discovering the platform and community]*
+_[Reference: Connect to [pico8-exploration piece](/drafts/_stale/pico8-exploration) about discovering the platform and community]_
 
 ## Wind Therapy, Digitized
 
-*[Connect back to the original inspiration - motorcycle rides as meditation, freedom, flow state. How the game became its own form of digital wind therapy.]*
+_[Connect back to the original inspiration - motorcycle rides as meditation, freedom, flow state. How the game became its own form of digital wind therapy.]_
 
 ---
 
 ## The Complete Game Code
 
-*[Keep the full code below as documentation of the creative process]*
+_[Keep the full code below as documentation of the creative process]_
 
 ```
 pico-8 cartridge // http://www.pico-8.com
@@ -92,13 +93,13 @@ function _update()
     momentum = momentum * friction
 
     local lastMoveAmt = moveAmt
-    if btn(0) then 
-        moveAmt = max(lastMoveAmt - 0.25*spd, -4) 
-    elseif btn(1) then 
-        moveAmt = min(lastMoveAmt + 0.25*spd, 4) 
+    if btn(0) then
+        moveAmt = max(lastMoveAmt - 0.25*spd, -4)
+    elseif btn(1) then
+        moveAmt = min(lastMoveAmt + 0.25*spd, 4)
     end
 
-    x = max(0, min(128, x +moveAmt+momentum*spd)) 
+    x = max(0, min(128, x +moveAmt+momentum*spd))
 
     -- if mph is 0, then remove all momentum
     if mph == 0 then
@@ -107,7 +108,7 @@ function _update()
     end
 
     -- Apply momentum if no button is pressed.
-    if btn(2) then 
+    if btn(2) then
         spd = min(spd + 0.01, 10)
         moveAmt = min(moveAmt + 0.01, 4)
         if mph > 100 then
@@ -118,7 +119,7 @@ function _update()
         momentum = moveAmt
     end
 
-    if btn(3) then 
+    if btn(3) then
         spd = max(spd - 0.025, 0)
         moveAmt = max(moveAmt - 0.05, 0.25)
         amplitude = min(amplitude + 1, 40)
@@ -155,8 +156,8 @@ function _update()
         music_pattern = -1
         music(music_pattern)
     end
-    
-    
+
+
 end
 
 function _draw()
@@ -164,7 +165,7 @@ function _draw()
 
     -- fill the whole screen with color 3
     rectfill(0, 0, 128, 128, 3)
-    
+
     for i=1,#lines do
         local lnIdx=(i+flr(offsetY))%#lines+1
         local ln=lines[lnIdx]
@@ -175,9 +176,9 @@ function _draw()
         local left=max(0,64-ln.width/2+sway)
         local right=min(128,64+ln.width/2+sway)
 
-        local y = (i - 1) * 8 - (offsetY % 1) * 8 
+        local y = (i - 1) * 8 - (offsetY % 1) * 8
         local col = i + 1
-        
+
         rectfill( left, y, right, y + 8, 5)
 
         -- crash detection
@@ -197,7 +198,7 @@ function _draw()
             end
         end
     end
-    
+
     spr(motorcycle, x, y, 2, 2)
     print(mph .. " mph", 92, 5, 7)
 end

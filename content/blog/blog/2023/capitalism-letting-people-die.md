@@ -17,8 +17,8 @@ Within the luminous halls of affluence, a disconcerting melody resonates, the le
 
 This is not a dystopian novel, but rather our harsh and unforgiving reality. Whether it's brave first responders gasping for breath in the aftermath of 9/11, NFL players trading their long-term health for short-lived glory, or ordinary folks grappling with a pandemic while politicians debate the death count. If you peel back the veneer of progress and wealth, and you find a chilling pattern: when dollars are on one side of the scale and human lives are on the other, capitalism chooses money every time.
 
->There’s a cold underlying rationality which corrupts the motives of even the most well-meaning, and in the absence of strong accountability mechanisms, individual ethics can only go so far. Ultimately the problem is structural, and the solutions will need to be structural, too.
->[Liu-Abolish Silicon Valley](Liu-Abolish%20Silicon%20Valley.md)
+> There’s a cold underlying rationality which corrupts the motives of even the most well-meaning, and in the absence of strong accountability mechanisms, individual ethics can only go so far. Ultimately the problem is structural, and the solutions will need to be structural, too.
+> [Liu-Abolish Silicon Valley](Liu-Abolish%20Silicon%20Valley.md)
 
 ### Radium Girls
 
@@ -44,8 +44,8 @@ In this sense, NFL players are no different from factory workers or miners whose
 
 In a startlingly brazen display of neglect, our country's systems dragged their feet on implementing lockdown measures. The result? An ungodly toll of human lives lost, an indelible stain on our collective conscience. And this burden did not fall equally—it disproportionately crushed communities of color who were already bearing the brunt of economic inequality.
 
->We have a profound hatred of the weak and the poor, and a corresponding groveling terror before the rich and successful, and we’re building a bureaucracy to match those feelings.
->[Taibbi-Crabapple-The Divide](Taibbi-Crabapple-The%20Divide.md)
+> We have a profound hatred of the weak and the poor, and a corresponding groveling terror before the rich and successful, and we’re building a bureaucracy to match those feelings.
+> [Taibbi-Crabapple-The Divide](Taibbi-Crabapple-The%20Divide.md)
 
 The delay in providing necessary medical care—especially to underserved communities—exposed a harsh truth: capitalism is intrinsically ill-equipped to cater to public welfare when it's at odds with profit-making. Its response to crises is marred by an underlying disdain for those who cannot contribute to its wealth-making machine—the weak and poor—and a reverence for those who can—the rich and successful.
 
@@ -59,8 +59,8 @@ It's a poignant reminder that under capitalism, your worth is tied inexorably to
 
 Given this history, what lessons can be learned as we approach a period of intense growth in Artificial Intelligence? [blog/2023/crypto-ai-colonizatio](blog/2023/crypto-ai-colonizatio)n]]
 
->Today mankind is locked into stealing ravenously from the future.
->William R. Catton **Overshoot: The Ecological Basis of Revolutionary Change**
+> Today mankind is locked into stealing ravenously from the future.
+> William R. Catton **Overshoot: The Ecological Basis of Revolutionary Change**
 
 We must recognize the warnings of history and take steps to protect vulnerable communities from being taken advantage of by those in power. Capitalism's disregard for human life is a cautionary tale for all industries, including AI. We must be vigilant in ensuring that progress does not come at the expense of human lives or dignity.
 

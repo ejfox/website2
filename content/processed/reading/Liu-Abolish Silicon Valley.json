@@ -12,11 +12,7 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/91q4pnxxDiL._SY160.jpg",
       "highlightsCount": 4
     },
-    "tags": [
-      "book",
-      "tech",
-      "politics"
-    ],
+    "tags": ["book", "tech", "politics"],
     "words": 207,
     "images": 0,
     "imageDetails": {

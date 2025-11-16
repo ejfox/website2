@@ -12,9 +12,9 @@
  * Output: data/calibration-analysis.json
  */
 
-import { readFile, writeFile } from 'fs/promises'
-import { fileURLToPath } from 'url'
-import { dirname, join } from 'path'
+import { readFile, writeFile } from 'node:fs/promises'
+import { fileURLToPath } from 'node:url'
+import { dirname, join } from 'node:path'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -26,15 +26,16 @@ const __dirname = dirname(__filename)
  * < 0.25 = good, < 0.20 = excellent
  */
 function calculateBrierScore(predictions) {
-  const resolved = predictions.filter(p =>
-    p.resolved &&
-    (p.status === 'correct' || p.status === 'incorrect') &&
-    typeof p.confidence === 'number'
+  const resolved = predictions.filter(
+    (p) =>
+      p.resolved &&
+      (p.status === 'correct' || p.status === 'incorrect') &&
+      typeof p.confidence === 'number'
   )
 
   if (resolved.length === 0) return null
 
-  const scores = resolved.map(p => {
+  const scores = resolved.map((p) => {
     const predicted = p.confidence / 100 // Convert to 0-1
     const outcome = p.status === 'correct' ? 1 : 0
     return Math.pow(predicted - outcome, 2)
@@ -48,10 +49,11 @@ function calculateBrierScore(predictions) {
  * e.g., "Did my 70-79% predictions actually happen 70-79% of the time?"
  */
 function calculateCalibration(predictions) {
-  const resolved = predictions.filter(p =>
-    p.resolved &&
-    (p.status === 'correct' || p.status === 'incorrect') &&
-    typeof p.confidence === 'number'
+  const resolved = predictions.filter(
+    (p) =>
+      p.resolved &&
+      (p.status === 'correct' || p.status === 'incorrect') &&
+      typeof p.confidence === 'number'
   )
 
   if (resolved.length === 0) return []
@@ -64,44 +66,45 @@ function calculateCalibration(predictions) {
     { min: 90, max: 100, label: '90-100%' }
   ]
 
-  return buckets.map(bucket => {
-    const inBucket = resolved.filter(p =>
-      p.confidence >= bucket.min && p.confidence <= bucket.max
-    )
+  return buckets
+    .map((bucket) => {
+      const inBucket = resolved.filter(
+        (p) => p.confidence >= bucket.min && p.confidence <= bucket.max
+      )
 
-    if (inBucket.length === 0) return null
+      if (inBucket.length === 0) return null
 
-    const correct = inBucket.filter(p => p.status === 'correct').length
-    const accuracy = correct / inBucket.length
-    const expectedMidpoint = (bucket.min + bucket.max) / 2 / 100
+      const correct = inBucket.filter((p) => p.status === 'correct').length
+      const accuracy = correct / inBucket.length
+      const expectedMidpoint = (bucket.min + bucket.max) / 2 / 100
 
-    return {
-      ...bucket,
-      count: inBucket.length,
-      correct,
-      accuracy: Math.round(accuracy * 100),
-      expected: Math.round(expectedMidpoint * 100),
-      delta: Math.round((accuracy - expectedMidpoint) * 100)
-    }
-  }).filter(Boolean)
+      return {
+        ...bucket,
+        count: inBucket.length,
+        correct,
+        accuracy: Math.round(accuracy * 100),
+        expected: Math.round(expectedMidpoint * 100),
+        delta: Math.round((accuracy - expectedMidpoint) * 100)
+      }
+    })
+    .filter(Boolean)
 }
 
 /**
  * Analyze performance by category
  */
 function analyzeByCategory(predictions) {
-  const resolved = predictions.filter(p =>
-    p.resolved &&
-    (p.status === 'correct' || p.status === 'incorrect')
+  const resolved = predictions.filter(
+    (p) => p.resolved && (p.status === 'correct' || p.status === 'incorrect')
   )
 
   if (resolved.length === 0) return []
 
   // Group by category
   const byCategory = {}
-  resolved.forEach(p => {
+  resolved.forEach((p) => {
     const cats = p.categories || ['uncategorized']
-    cats.forEach(cat => {
+    cats.forEach((cat) => {
       if (!byCategory[cat]) {
         byCategory[cat] = { total: 0, correct: 0 }
       }
@@ -124,29 +127,31 @@ function analyzeByCategory(predictions) {
  * Analyze prediction updates
  */
 function analyzeUpdates(predictions) {
-  const withUpdates = predictions.filter(p =>
-    p.updates && p.updates.length > 0
+  const withUpdates = predictions.filter(
+    (p) => p.updates && p.updates.length > 0
   )
 
   if (withUpdates.length === 0) return null
 
-  const updateCounts = withUpdates.map(p => p.updates.length)
+  const updateCounts = withUpdates.map((p) => p.updates.length)
   const totalUpdates = updateCounts.reduce((sum, c) => sum + c, 0)
   const avgUpdates = totalUpdates / withUpdates.length
 
   // Analyze confidence changes
   const confidenceDeltas = []
-  withUpdates.forEach(p => {
-    p.updates.forEach(update => {
+  withUpdates.forEach((p) => {
+    p.updates.forEach((update) => {
       if (update.confidenceBefore && update.confidenceAfter) {
         confidenceDeltas.push(update.confidenceAfter - update.confidenceBefore)
       }
     })
   })
 
-  const avgDelta = confidenceDeltas.length > 0
-    ? confidenceDeltas.reduce((sum, d) => sum + d, 0) / confidenceDeltas.length
-    : 0
+  const avgDelta =
+    confidenceDeltas.length > 0
+      ? confidenceDeltas.reduce((sum, d) => sum + d, 0) /
+        confidenceDeltas.length
+      : 0
 
   return {
     predictionsWithUpdates: withUpdates.length,
@@ -161,31 +166,37 @@ function analyzeUpdates(predictions) {
  */
 function compareToMarket(predictions, kalshiData) {
   // Find predictions that have corresponding Kalshi positions
-  const withMarket = predictions.filter(p =>
-    p.resolved &&
-    (p.status === 'correct' || p.status === 'incorrect') &&
-    p.market?.ticker &&
-    kalshiData?.commentaries?.[p.market.ticker]
+  const withMarket = predictions.filter(
+    (p) =>
+      p.resolved &&
+      (p.status === 'correct' || p.status === 'incorrect') &&
+      p.market?.ticker &&
+      kalshiData?.commentaries?.[p.market.ticker]
   )
 
   if (withMarket.length === 0) return null
 
   // Calculate accuracy for predictions where you disagreed with market
-  const disagreements = withMarket.filter(p => {
-    const marketProb = kalshiData.commentaries[p.market.ticker]?.market_comparison?.kalshi_price
+  const disagreements = withMarket.filter((p) => {
+    const marketProb =
+      kalshiData.commentaries[p.market.ticker]?.market_comparison?.kalshi_price
     const yourProb = p.confidence / 100
     return marketProb && Math.abs(yourProb - marketProb) > 0.1 // >10% diff
   })
 
   if (disagreements.length === 0) return null
 
-  const correctDisagreements = disagreements.filter(p => p.status === 'correct').length
+  const correctDisagreements = disagreements.filter(
+    (p) => p.status === 'correct'
+  ).length
 
   return {
     total: withMarket.length,
     disagreements: disagreements.length,
     correctWhenDisagreed: correctDisagreements,
-    accuracyWhenDisagreed: Math.round((correctDisagreements / disagreements.length) * 100)
+    accuracyWhenDisagreed: Math.round(
+      (correctDisagreements / disagreements.length) * 100
+    )
   }
 }
 
@@ -194,7 +205,13 @@ async function main() {
     console.log('📊 Running calibration analysis...\n')
 
     // Load predictions
-    const predictionsPath = join(__dirname, '..', 'public', 'data', 'predictions.json')
+    const predictionsPath = join(
+      __dirname,
+      '..',
+      'public',
+      'data',
+      'predictions.json'
+    )
     let predictions = []
     try {
       const data = await readFile(predictionsPath, 'utf-8')
@@ -209,13 +226,15 @@ async function main() {
     try {
       const response = await fetch('http://localhost:3006/api/kalshi')
       kalshiData = await response.json()
-      console.log(`✓ Loaded Kalshi data (${kalshiData.positions?.length || 0} positions)`)
+      console.log(
+        `✓ Loaded Kalshi data (${kalshiData.positions?.length || 0} positions)`
+      )
     } catch (error) {
       console.log('⚠️  Could not fetch Kalshi data (server may not be running)')
     }
 
     // Calculate metrics
-    const resolved = predictions.filter(p => p.resolved)
+    const resolved = predictions.filter((p) => p.resolved)
     const brierScore = calculateBrierScore(predictions)
     const calibration = calculateCalibration(predictions)
     const byCategory = analyzeByCategory(predictions)
@@ -228,11 +247,16 @@ async function main() {
         total_predictions: predictions.length,
         resolved: resolved.length,
         pending: predictions.length - resolved.length,
-        correct: predictions.filter(p => p.status === 'correct').length,
-        incorrect: predictions.filter(p => p.status === 'incorrect').length,
-        accuracy: resolved.length > 0
-          ? Math.round((predictions.filter(p => p.status === 'correct').length / resolved.length) * 100)
-          : null
+        correct: predictions.filter((p) => p.status === 'correct').length,
+        incorrect: predictions.filter((p) => p.status === 'incorrect').length,
+        accuracy:
+          resolved.length > 0
+            ? Math.round(
+                (predictions.filter((p) => p.status === 'correct').length /
+                  resolved.length) *
+                  100
+              )
+            : null
       },
       brier_score: brierScore ? Math.round(brierScore * 1000) / 1000 : null,
       calibration: calibration,
@@ -242,7 +266,12 @@ async function main() {
     }
 
     // Save results
-    const outputPath = join(__dirname, '..', 'data', 'calibration-analysis.json')
+    const outputPath = join(
+      __dirname,
+      '..',
+      'data',
+      'calibration-analysis.json'
+    )
     await writeFile(outputPath, JSON.stringify(analysis, null, 2))
 
     // Print summary
@@ -253,19 +282,22 @@ async function main() {
       console.log(`Accuracy: ${analysis.summary.accuracy}%`)
     }
     if (brierScore !== null) {
-      console.log(`Brier Score: ${brierScore.toFixed(3)} ${brierScore < 0.20 ? '(excellent)' : brierScore < 0.25 ? '(good)' : '(needs work)'}`)
+      console.log(
+        `Brier Score: ${brierScore.toFixed(3)} ${brierScore < 0.2 ? '(excellent)' : brierScore < 0.25 ? '(good)' : '(needs work)'}`
+      )
     }
 
     if (calibration.length > 0) {
       console.log('\nCalibration:')
-      calibration.forEach(bucket => {
+      calibration.forEach((bucket) => {
         const delta = bucket.delta >= 0 ? `+${bucket.delta}` : bucket.delta
-        console.log(`  ${bucket.label}: ${bucket.accuracy}% actual (expected ${bucket.expected}%, ${delta}pp) [n=${bucket.count}]`)
+        console.log(
+          `  ${bucket.label}: ${bucket.accuracy}% actual (expected ${bucket.expected}%, ${delta}pp) [n=${bucket.count}]`
+        )
       })
     }
 
     console.log(`\n✓ Saved to data/calibration-analysis.json`)
-
   } catch (error) {
     console.error('Error:', error)
     process.exit(1)

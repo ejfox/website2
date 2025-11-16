@@ -51,15 +51,15 @@ Making an espresso is important part of my morning routine because it provides m
 
 ### 5 Minute morning journal
 
-	I am grateful for...
-	1. 
-	2. 
-	3. 
-	What would make today great?
-	1. 
-	2. 
-	3. 
-	Today I am practicing...
+    I am grateful for...
+    1.
+    2.
+    3.
+    What would make today great?
+    1.
+    2.
+    3.
+    Today I am practicing...
 
 ### Analog / paper time and being outside
 

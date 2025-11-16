@@ -13,7 +13,7 @@ export const useWeightCalculations = () => {
    * Convert ounces to grams (rounded)
    */
   const ouncesToGrams = (ounces: number): number => {
-    if (typeof ounces !== 'number' || isNaN(ounces)) return 0
+    if (typeof ounces !== 'number' || Number.isNaN(ounces)) return 0
     return Math.round(ounces * OZ_TO_GRAMS)
   }
 
@@ -21,7 +21,7 @@ export const useWeightCalculations = () => {
    * Convert ounces to pounds
    */
   const ouncesToPounds = (ounces: number): number => {
-    if (typeof ounces !== 'number' || isNaN(ounces)) return 0
+    if (typeof ounces !== 'number' || Number.isNaN(ounces)) return 0
     return ounces / OZ_TO_POUNDS
   }
 
@@ -29,7 +29,8 @@ export const useWeightCalculations = () => {
    * Format weight display - grams for light items, pounds for heavy items
    */
   const formatWeight = (ounces: number, forceUnit?: 'g' | 'lbs'): string => {
-    if (typeof ounces !== 'number' || isNaN(ounces) || ounces <= 0) return '0'
+    if (typeof ounces !== 'number' || Number.isNaN(ounces) || ounces <= 0)
+      return '0'
 
     const grams = ouncesToGrams(ounces)
 
@@ -39,13 +40,17 @@ export const useWeightCalculations = () => {
 
     if (forceUnit === 'lbs') {
       const pounds = ouncesToPounds(ounces)
-      return typeof pounds === 'number' && !isNaN(pounds) ? `${pounds.toFixed(1)}lbs` : '0lbs'
+      return typeof pounds === 'number' && !Number.isNaN(pounds)
+        ? `${pounds.toFixed(1)}lbs`
+        : '0lbs'
     }
 
     // Auto-format: use pounds if over threshold, otherwise grams
     if (grams > GRAMS_TO_POUNDS_THRESHOLD) {
       const pounds = ouncesToPounds(ounces)
-      return typeof pounds === 'number' && !isNaN(pounds) ? `${pounds.toFixed(1)}lbs` : `${grams}g`
+      return typeof pounds === 'number' && !Number.isNaN(pounds)
+        ? `${pounds.toFixed(1)}lbs`
+        : `${grams}g`
     }
 
     return `${grams}g`
@@ -55,7 +60,7 @@ export const useWeightCalculations = () => {
    * Get weight in grams from gear item
    */
   const getItemWeightInGrams = (item: any): number => {
-    const ounces = parseFloat(item['Weight_oz']) || 0
+    const ounces = Number.parseFloat(item['Weight_oz']) || 0
     return ouncesToGrams(ounces)
   }
 
@@ -63,7 +68,7 @@ export const useWeightCalculations = () => {
    * Get weight in ounces from gear item
    */
   const getItemWeightInOunces = (item: any): number => {
-    return parseFloat(item['Weight_oz']) || 0
+    return Number.parseFloat(item['Weight_oz']) || 0
   }
 
   /**

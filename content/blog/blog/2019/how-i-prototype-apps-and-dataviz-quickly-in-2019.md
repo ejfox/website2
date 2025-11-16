@@ -44,19 +44,19 @@ Vue makes it so that we no longer need our old, trusty friend `d3.select().enter
 Before Vue, I would have an SVG already on the page and do something like
 
 ```js
-const svg = d3.select("svg");
+const svg = d3.select('svg')
 const circles = d3
-  .selectAll("circle")
+  .selectAll('circle')
   .data(myData)
   .enter()
-  .append("circle")
+  .append('circle')
   .attr((d) => {
     return {
       r: d.radius,
       cx: d.x,
-      cy: d.y,
-    };
-  });
+      cy: d.y
+    }
+  })
 ```
 
 But now with Vue, I just use the HTML declarations in the template like - because of the built-in reactivity, when the data changes the DOM elements are updated. No need for the old D3 select, enter, append pattern.

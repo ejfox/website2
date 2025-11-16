@@ -46,7 +46,7 @@ export default defineNuxtPlugin((nuxtApp: any) => {
   }
 
   // Set up scroll event listener when component is mounted
-  if (process.client) {
+  if (import.meta.client) {
     // Wait for the DOM to be ready
     nuxtApp.hook('app:mounted', () => {
       window.addEventListener('scroll', updateActiveTocItem, { passive: true })

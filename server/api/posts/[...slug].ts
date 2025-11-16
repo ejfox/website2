@@ -1,7 +1,7 @@
 import { defineEventHandler, createError } from 'h3'
-import { readFile } from 'fs/promises'
-import path from 'path'
-import { existsSync } from 'fs'
+import { readFile } from 'node:fs/promises'
+import path from 'node:path'
+import { existsSync } from 'node:fs'
 
 interface PostData {
   html?: string

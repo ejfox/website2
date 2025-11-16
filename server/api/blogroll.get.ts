@@ -5,9 +5,9 @@
  * Your reading list, machine-readable.
  */
 
-import { promises as fs } from 'fs'
-import { homedir } from 'os'
-import { join } from 'path'
+import { promises as fs } from 'node:fs'
+import { homedir } from 'node:os'
+import { join } from 'node:path'
 
 export default defineEventHandler(async () => {
   try {
@@ -15,7 +15,9 @@ export default defineEventHandler(async () => {
     const content = await fs.readFile(newsboatPath, 'utf-8')
 
     const feeds: any[] = []
-    const lines = content.split('\n').filter(line => line.trim() && !line.startsWith('#'))
+    const lines = content
+      .split('\n')
+      .filter((line) => line.trim() && !line.startsWith('#'))
 
     for (const line of lines) {
       // Format: URL "Feed Name" "Category"
@@ -45,10 +47,13 @@ export default defineEventHandler(async () => {
     const stats = {
       total: feeds.length,
       categories: Object.keys(byCategory).length,
-      byCategoryCount: Object.entries(byCategory).reduce((acc: any, [cat, feeds]: [string, any]) => {
-        acc[cat] = feeds.length
-        return acc
-      }, {})
+      byCategoryCount: Object.entries(byCategory).reduce(
+        (acc: any, [cat, feeds]: [string, any]) => {
+          acc[cat] = feeds.length
+          return acc
+        },
+        {}
+      )
     }
 
     return {

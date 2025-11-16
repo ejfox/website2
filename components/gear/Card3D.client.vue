@@ -1,9 +1,5 @@
 <template>
-  <div
-    ref="cardRef"
-    class="gear-card p-8 max-w-md w-full shadow-lg mb-8 overflow-hidden bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl"
-    :style="cardTransform"
-  >
+  <div ref="cardRef" class="gear-card-container" :style="cardTransform">
     <!-- Header -->
     <div class="text-center mb-8">
       <div class="text-4xl mb-2">
@@ -21,9 +17,7 @@
 
     <!-- Photo Section -->
     <div v-if="gearImagePath" class="mb-8 flex justify-center">
-      <div
-        class="w-48 h-48 rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700"
-      >
+      <div class="gear-img-square">
         <img
           :src="gearImagePath"
           :alt="`Photo of ${gearItem.Name}`"
@@ -87,7 +81,7 @@
         :href="amazonUrl"
         target="_blank"
         rel="nofollow noopener"
-        class="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-sm font-medium rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"
+        class="btn-inline-flex"
       >
         Buy
       </a>
@@ -95,16 +89,12 @@
 
     <!-- Item Details Table -->
     <div class="mt-8 border-t border-zinc-200 dark:border-zinc-700 pt-8">
-      <h3
-        class="text-sm font-light text-zinc-900 dark:text-zinc-100 mb-4 uppercase tracking-widest"
-      >
-        Item Details
-      </h3>
+      <h3 class="label-tracked-md">Item Details</h3>
       <div class="grid grid-cols-1 gap-2 text-xs">
         <div
           v-for="(value, key) in itemDetails"
           :key="key"
-          class="flex justify-between py-1 border-b border-zinc-100 dark:border-zinc-800 last:border-b-0 min-w-0"
+          class="row-bordered"
         >
           <span
             class="text-zinc-600 dark:text-zinc-400 uppercase tracking-widest flex-shrink-0"
@@ -246,7 +236,7 @@ const cardTransform = computed(() => {
 
 // Simple card mount effect
 const animateGearCardReveal = async () => {
-  if (process.server || !cardRef.value || !window.anime) return
+  if (import.meta.server || !cardRef.value || !window.anime) return
   await nextTick()
   // Card naturally animates via CSS transitions
 }

@@ -8,6 +8,7 @@ tags:
   - books
   - making
 ---
+
 ## Bookbinding Attempts
 
 I've been trying to bind my own books. Mostly because I want notebooks that are exactly the right size and paper type, and store-bought ones are never quite right.

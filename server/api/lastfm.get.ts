@@ -192,7 +192,7 @@ export default defineEventHandler(async () => {
           date: track.date,
           image: track.image || []
         })) || [],
-      total: parseInt(recentTracks.recenttracks?.['@attr']?.total || '0')
+      total: Number.parseInt(recentTracks.recenttracks?.['@attr']?.total || '0')
     }
 
     // Process top artists
@@ -204,7 +204,7 @@ export default defineEventHandler(async () => {
           url: artist.url,
           image: artist.image || []
         })) || [],
-      total: parseInt(topArtists.topartists?.['@attr']?.total || '0')
+      total: Number.parseInt(topArtists.topartists?.['@attr']?.total || '0')
     }
 
     // Process top albums
@@ -220,7 +220,7 @@ export default defineEventHandler(async () => {
           url: album.url,
           image: album.image || []
         })) || [],
-      total: parseInt(topAlbums.topalbums?.['@attr']?.total || '0')
+      total: Number.parseInt(topAlbums.topalbums?.['@attr']?.total || '0')
     }
 
     // Process top tracks
@@ -236,12 +236,12 @@ export default defineEventHandler(async () => {
           playcount: track.playcount,
           image: track.image || []
         })) || [],
-      total: parseInt(topTracks.toptracks?.['@attr']?.total || '0')
+      total: Number.parseInt(topTracks.toptracks?.['@attr']?.total || '0')
     }
 
     // Process user info
     const processedUserInfo = {
-      playcount: parseInt(userInfo.user?.playcount || '0'),
+      playcount: Number.parseInt(userInfo.user?.playcount || '0'),
       registered: userInfo.user?.registered || { unixtime: '0', '#text': '' },
       url: userInfo.user?.url || '',
       image: userInfo.user?.image?.[1]?.['#text'] || ''
@@ -254,7 +254,7 @@ export default defineEventHandler(async () => {
 
     // Calculate average scrobbles per day
     const registeredDate = new Date(
-      parseInt(processedUserInfo.registered.unixtime) * 1000
+      Number.parseInt(processedUserInfo.registered.unixtime) * 1000
     )
     const now = new Date()
     const daysSinceRegistered = Math.floor(

@@ -47,7 +47,7 @@ const generateSlug = (str) => {
 
 // Update the word count logic to work with our structure
 const sectionWordCounts = computed(() => {
-  if (process.server || !note.value?.content) return {}
+  if (import.meta.server || !note.value?.content) return {}
 
   const counts = {}
   const sections = note.value.metadata?.toc || []
@@ -65,7 +65,7 @@ const sectionWordCounts = computed(() => {
 // Helper function to count words in a section
 const getSectionWordCount = (content, sectionId) => {
   // Only run in client
-  if (process.server) return 0
+  if (import.meta.server) return 0
 
   const parser = new DOMParser()
   const doc = parser.parseFromString(content, 'text/html')
@@ -79,7 +79,8 @@ const getSectionWordCount = (content, sectionId) => {
   while (
     currentElement &&
     (!currentElement.tagName.startsWith('H') ||
-      parseInt(currentElement.tagName[1]) > parseInt(header.tagName[1]))
+      Number.parseInt(currentElement.tagName[1]) >
+        Number.parseInt(header.tagName[1]))
   ) {
     wordCount += currentElement.textContent
       .trim()
@@ -96,7 +97,7 @@ const getSectionWordCount = (content, sectionId) => {
 const _isDateString = (str) => {
   if (typeof str !== 'string') return false
   const date = new Date(str)
-  return date instanceof Date && !isNaN(date)
+  return date instanceof Date && !Number.isNaN(date)
 }
 
 // Computed property to get all metadata fields
@@ -284,10 +285,7 @@ useHead({
         />
 
         <footer class="mt-8 pt-8 border-t border-zinc-200 dark:border-zinc-800">
-          <NuxtLink
-            to="/blog/robots"
-            class="text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 hover:underline"
-          >
+          <NuxtLink to="/blog/robots" class="link-underline-hover">
             ← Back to Robot Notes
           </NuxtLink>
         </footer>
@@ -301,20 +299,14 @@ useHead({
         <div class="space-y-8 max-h-[calc(100vh-6rem)] flex flex-col">
           <!-- Progress Bar -->
           <div class="dark:bg-zinc-900 p-4 rounded-lg flex-1 overflow-y-auto">
-            <div
-              class="w-full bg-zinc-200 dark:bg-zinc-800 h-1 rounded-full overflow-hidden flex-shrink-0 mb-4"
-            >
+            <div class="progress-bar">
               <div
                 class="bg-zinc-600 dark:bg-zinc-400 h-full transition-all duration-200"
                 :style="{ width: `${scrollProgress}%` }"
               />
             </div>
 
-            <h3
-              class="text-lg font-light mb-4 sticky top-0 bg-inherit pb-2 border-b border-zinc-200 dark:border-zinc-700"
-            >
-              Table of Contents
-            </h3>
+            <h3 class="sticky-section-header">Table of Contents</h3>
 
             <!-- Add a target div for the TOC -->
             <div id="toc-target"></div>
@@ -334,7 +326,7 @@ useHead({
 
   <!-- Teleport the TOC into the sidebar -->
   <Teleport to="#toc-target">
-    <nav v-if="trimmedToc.length" class="space-y-2">
+    <nav v-if="trimmedToc.length" class="stack-2">
       <template v-for="section in trimmedToc" :key="section.slug">
         <NuxtLink
           :to="`#${section.slug}`"
@@ -348,10 +340,7 @@ useHead({
         >
           <div class="flex justify-between items-center group">
             <span>{{ section.text }}</span>
-            <span
-              v-if="sectionWordCounts[section.slug]"
-              class="text-xs text-zinc-400 dark:text-zinc-500 group-hover:text-zinc-700 dark:group-hover:text-zinc-300"
-            >
+            <span v-if="sectionWordCounts[section.slug]" class="link-metadata">
               {{ sectionWordCounts[section.slug] }} words
             </span>
           </div>

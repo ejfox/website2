@@ -1,6 +1,6 @@
 import type { Prediction, PredictionStats } from '~/types/prediction'
-import { readFile, writeFile } from 'fs/promises'
-import { join } from 'path'
+import { readFile, writeFile } from 'node:fs/promises'
+import { join } from 'node:path'
 
 const PREDICTIONS_FILE = join(process.cwd(), 'data/predictions.json')
 

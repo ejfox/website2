@@ -14,21 +14,25 @@ tags:
   - cannabis
   - health
 ---
+
 # The Rebels Apothecary
 
-* ISBN: 1974809986
+- ISBN: 1974809986
 
 ## Highlights
+
 > The research on most of these cannabinoids is still in its infancy. Even though these minor cannabinoids are typically present in much lower amounts in most cannabis varieties, they each play a role in the overall entourage effect. Just as background actors are important to the overall effect of a movie scene, the tiniest amount of a minor cannabinoid can boost the strength and power of the others. ^ref-20503
 
 ---
+
 > Some say the scent you’re most attracted to is the one your body needs the most at that time. While I can’t prove this, I really like that idea. It’s like when you gravitate to or crave different vegetables or nutrients at different times, they might be something your body needs, nutritionally. With this in mind, it can be interesting to notice which scents you’re most attracted to when you visit a dispensary. ^ref-16748
 
 ---
 
 ## Metadata
-* Author: [Jenny Sansouci and Frank Lipman Md](https://www.amazon.comundefined)
-* ASIN: B082H2P7KL
-* ISBN: 1974809986
-* Reference: https://www.amazon.com/dp/B082H2P7KL
-* [Kindle link](kindle://book?action=open&asin=B082H2P7KL)
+
+- Author: [Jenny Sansouci and Frank Lipman Md](https://www.amazon.comundefined)
+- ASIN: B082H2P7KL
+- ISBN: 1974809986
+- Reference: https://www.amazon.com/dp/B082H2P7KL
+- [Kindle link](kindle://book?action=open&asin=B082H2P7KL)

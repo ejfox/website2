@@ -1,6 +1,6 @@
 import { defineEventHandler, createError, getMethod } from 'h3'
-import { promises as fs } from 'fs'
-import { join } from 'path'
+import { promises as fs } from 'node:fs'
+import { join } from 'node:path'
 import matter from 'gray-matter'
 import type { Prediction } from '~/types/prediction'
 

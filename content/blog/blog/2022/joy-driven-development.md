@@ -19,7 +19,7 @@ In this post, I'll discuss the principles of Joy-Driven Development and how it c
 
 Joy-Driven Development is an approach to software development that emphasizes the importance of enjoying the process of creating and building software. We should focus on creating a positive and fulfilling collaborative environment, where developers are motivated by their passion for coding, learning, and collaboration.
 
-Instead of avoiding hard work or hard problems, we should make hard work *fun*.
+Instead of avoiding hard work or hard problems, we should make hard work _fun_.
 
 This approach encourages teams to prioritize their happiness and well-being, which in turn leads to increased productivity, creativity, and overall better work. It is a counterpoint to more traditional development methodologies that may prioritize strict deadlines, rigid processes, and high-pressure environments.
 
@@ -33,12 +33,12 @@ You have to set an intention to lean into what you are naturally drawn to. Harne
 
 Embracing Joy-Driven Development is akin to navigating your creative odyssey with a compass forged from joy. As you face countless decisions, let each step be guided by the direction that invites the most joy for the people embarking on this voyage with you.
 
->There's a kind of excited curiosity that's both the engine and the rudder of great work. It will not only drive you, but if you let it have its way, will also show you what to work on.
-><https://paulgraham.com/greatwork.html>
+> There's a kind of excited curiosity that's both the engine and the rudder of great work. It will not only drive you, but if you let it have its way, will also show you what to work on.
+> <https://paulgraham.com/greatwork.html>
 
 ### Addressing the Skeptics
 
-There may be misconceptions about centering joy in the work process, and it may come across as frivolous or lazy. However, Joy-Driven Development prioritizes both the experience of those working on the project and the quality of the final product. We focus on enjoying our work so *we can create better work*.
+There may be misconceptions about centering joy in the work process, and it may come across as frivolous or lazy. However, Joy-Driven Development prioritizes both the experience of those working on the project and the quality of the final product. We focus on enjoying our work so _we can create better work_.
 
 There are times when you need to do your chores, and that is not always fun. But having all of your chores done is joyful. Making a client happy is joyful. Creating work that makes the world better is joyful. If you can remember that as you hand-clean a dataset or debug a complicated SQL query, you can find the joy in those tasks too. Joy-driven development doesn't mean that we only do work that brings us joy, it means that joy is the gas that powers the engine.
 

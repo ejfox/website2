@@ -35,11 +35,7 @@ export function rehypeAddClassToParagraphs() {
           break
 
         case 'img':
-          addClasses(node, [
-            'w-full',
-            'mx-auto',
-            'py-4'
-          ])
+          addClasses(node, ['w-full', 'mx-auto', 'py-4'])
           break
 
         case 'h1':
@@ -182,10 +178,7 @@ export function rehypeAddClassToParagraphs() {
       if (node.tagName === 'blockquote') {
         visit(node, 'element', (child) => {
           if (child.tagName === 'p') {
-            addClasses(child, [
-              'text-zinc-600',
-              'dark:text-zinc-400'
-            ])
+            addClasses(child, ['text-zinc-600', 'dark:text-zinc-400'])
           }
         })
       }

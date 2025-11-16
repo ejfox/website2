@@ -27,6 +27,7 @@ This conversation happens more often than you'd think. Here's how to avoid being
 This sounds simple but a lot of time people are like "We should infographic this?" "okay what data do you have?" "Oh none… just, uh, some numbers I wrote on this napkin" like are you kidding me? So make sure we have some data.
 
 **My minimum thresholds:**
+
 - 100 rows and we're talking
 - Ideally 1000 rows
 - Or a million - then we can do some really cool shit
@@ -69,5 +70,4 @@ This isn't about what looks cool - it's about what actually works for your data:
 
 Most good infographics are just good journalism. They answer a question people actually have using data people can trust. The visual design matters, but getting the data foundation right matters more.
 
-*I've got more examples of this data-first approach in action - email me at ejfox@ejfox.com if you want to see the methodology behind infographics that actually worked.*
-
+_I've got more examples of this data-first approach in action - email me at ejfox@ejfox.com if you want to see the methodology behind infographics that actually worked._

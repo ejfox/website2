@@ -1,6 +1,6 @@
 import { defineEventHandler } from 'h3'
-import { readFile } from 'fs/promises'
-import path from 'path'
+import { readFile } from 'node:fs/promises'
+import path from 'node:path'
 
 interface BlogPost {
   slug: string

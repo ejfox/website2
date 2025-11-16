@@ -303,9 +303,10 @@ const variantStats = computed(() => {
       const delta = current - best
 
       // Get win rate for this variant
-      const variantWinRate = isNewFormat.value && props.stats!.winRate
-        ? (props.stats!.winRate as NewFormatWinRate)[variant] || 0
-        : 0
+      const variantWinRate =
+        isNewFormat.value && props.stats!.winRate
+          ? (props.stats!.winRate as NewFormatWinRate)[variant] || 0
+          : 0
 
       return {
         name: variant.toUpperCase(),
@@ -314,7 +315,7 @@ const variantStats = computed(() => {
         winRate: variantWinRate > 0 ? `${Math.round(variantWinRate)}%` : ''
       }
     })
-    .filter((variant) => parseInt(variant.current.replace(/,/g, '')) > 0)
+    .filter((variant) => Number.parseInt(variant.current.replace(/,/g, '')) > 0)
 })
 
 // Legacy: Variant ratings with deltas (kept for compatibility)
@@ -338,7 +339,7 @@ const variantRatingsWithDeltas = computed(() => {
         delta: Math.round(delta)
       }
     })
-    .filter((variant) => parseInt(variant.current.replace(/,/g, '')) > 0)
+    .filter((variant) => Number.parseInt(variant.current.replace(/,/g, '')) > 0)
 })
 
 // Legacy: Keep for compatibility
@@ -347,7 +348,7 @@ const variantRatings = computed(() =>
     { name: 'BULLET', rating: formatNumber(getRating('bullet')) },
     { name: 'BLITZ', rating: formatNumber(getRating('blitz')) },
     { name: 'RAPID', rating: formatNumber(getRating('rapid')) }
-  ].filter((variant) => parseInt(variant.rating.replace(/,/g, '')) > 0)
+  ].filter((variant) => Number.parseInt(variant.rating.replace(/,/g, '')) > 0)
 )
 
 const performanceMetrics = computed(() => [

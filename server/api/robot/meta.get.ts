@@ -32,8 +32,16 @@ export default defineEventHandler(async () => {
           description: 'Chronological life events and milestones',
           format: 'application/json',
           parameters: {
-            from: { type: 'string', format: 'YYYY-MM-DD', description: 'Start date' },
-            to: { type: 'string', format: 'YYYY-MM-DD', description: 'End date' },
+            from: {
+              type: 'string',
+              format: 'YYYY-MM-DD',
+              description: 'Start date'
+            },
+            to: {
+              type: 'string',
+              format: 'YYYY-MM-DD',
+              description: 'End date'
+            },
             limit: { type: 'number', default: 100 }
           }
         },
@@ -58,10 +66,19 @@ export default defineEventHandler(async () => {
         thought: {
           description: 'A piece of intellectual output',
           properties: {
-            type: { type: 'string', enum: ['post', 'prediction', 'prediction_update', 'note'] },
+            type: {
+              type: 'string',
+              enum: ['post', 'prediction', 'prediction_update', 'note']
+            },
             timestamp: { type: 'string', format: 'ISO 8601' },
-            content: { type: 'string', description: 'Main content or statement' },
-            metadata: { type: 'object', description: 'Type-specific additional data' }
+            content: {
+              type: 'string',
+              description: 'Main content or statement'
+            },
+            metadata: {
+              type: 'object',
+              description: 'Type-specific additional data'
+            }
           }
         },
 
@@ -69,10 +86,22 @@ export default defineEventHandler(async () => {
           description: 'A life event or milestone',
           properties: {
             timestamp: { type: 'string', format: 'ISO 8601' },
-            type: { type: 'string', enum: ['post', 'prediction', 'project', 'achievement', 'milestone'] },
+            type: {
+              type: 'string',
+              enum: [
+                'post',
+                'prediction',
+                'project',
+                'achievement',
+                'milestone'
+              ]
+            },
             title: { type: 'string' },
             description: { type: 'string' },
-            url: { type: 'string', description: 'Link to full content if available' }
+            url: {
+              type: 'string',
+              description: 'Link to full content if available'
+            }
           }
         }
       }
@@ -89,7 +118,8 @@ export default defineEventHandler(async () => {
         count: 'dynamic',
         earliest: '2025',
         latest: 'current',
-        description: 'Calibrated predictions with confidence scores and update trails'
+        description:
+          'Calibrated predictions with confidence scores and update trails'
       },
       reading: {
         count: 'dynamic',
@@ -114,12 +144,15 @@ export default defineEventHandler(async () => {
       authentication: 'None required for public endpoints',
       cors: 'Enabled for all origins',
       caching: 'CDN cached, 5min for /api/*, 1hr for /api/robot/*',
-      safety: 'Only publicly-published content. No real-time location, contact info, or private data.'
+      safety:
+        'Only publicly-published content. No real-time location, contact info, or private data.'
     },
 
     philosophy: {
-      purpose: 'Personal API for future AI agents to query my life, beliefs, and work',
-      inspiration: 'Cyberpunk self-panopticon, quantified self, digital permanence',
+      purpose:
+        'Personal API for future AI agents to query my life, beliefs, and work',
+      inspiration:
+        'Cyberpunk self-panopticon, quantified self, digital permanence',
       principles: [
         'Machine-readable first, human-readable second',
         'Chronological integrity - no editing history',

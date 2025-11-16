@@ -60,11 +60,7 @@
 
     <!-- Top Genres if available -->
     <div v-if="topGenres?.length">
-      <h4
-        class="text-xs leading-4 tracking-[0.2em] text-zinc-500 border-b border-zinc-200 dark:border-zinc-800/30 pb-1 mb-4"
-      >
-        TOP GENRES
-      </h4>
+      <h4 class="section-label-tracked">TOP GENRES</h4>
       <div class="space-y-1.5">
         <div
           v-for="(genre, index) in topGenres.slice(0, 3)"
@@ -89,11 +85,7 @@
 
     <!-- Top Tracks -->
     <div v-if="topTracks?.length">
-      <h4
-        class="text-xs leading-4 tracking-[0.2em] text-zinc-500 border-b border-zinc-200 dark:border-zinc-800/30 pb-1 mb-4"
-      >
-        TOP SONGS
-      </h4>
+      <h4 class="section-label-tracked">TOP SONGS</h4>
       <div class="space-y-1.5">
         <div
           v-for="(track, index) in topTracks.slice(0, 3)"
@@ -206,7 +198,7 @@ const topGenres = computed(() => {
 const formatTrackTime = (track: Track): string => {
   if (!track.date?.uts) return 'NOW'
 
-  const date = new Date(parseInt(track.date.uts) * 1000)
+  const date = new Date(Number.parseInt(track.date.uts) * 1000)
   const now = new Date()
   const diffMinutes = Math.floor((now.getTime() - date.getTime()) / (1000 * 60))
 

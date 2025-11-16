@@ -9,10 +9,13 @@ tags:
 hidden: true
 draft: true
 ---
+
 ## So you wanna have a school?
 
 ### Tools
+
 #### Discord
+
 #### Google Workspace
 
 ### Artificial Intelligence

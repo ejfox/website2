@@ -6,17 +6,9 @@
     "title": "Cloudinary Backup Tool",
     "date": "2025-01-15T05:00:00.000Z",
     "github": "https://github.com/ejfox/cloudinary-backup-tool",
-    "tech": [
-      "Tauri",
-      "Rust",
-      "TypeScript",
-      "Vite"
-    ],
+    "tech": ["Tauri", "Rust", "TypeScript", "Vite"],
     "modified": "2025-08-13T15:58:10.000Z",
-    "tags": [
-      "tools",
-      "photography"
-    ],
+    "tags": ["tools", "photography"],
     "words": 52,
     "images": 1,
     "imageDetails": {

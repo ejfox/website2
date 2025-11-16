@@ -6,37 +6,25 @@
 
     <div class="my-8"></div>
 
-    <a
-      :href="primaryLink.href"
-      class="block text-sm font-mono transition-colors-base hover:text-zinc-900 dark:hover:text-zinc-100 no-underline"
-    >
+    <a :href="primaryLink.href" class="link-mono-hover-block">
       {{ primaryLink.text }}
     </a>
 
     <div class="my-8"></div>
 
-    <a
-      href="/"
-      class="block text-sm font-mono transition-colors-base hover:text-zinc-900 dark:hover:text-zinc-100 no-underline opacity-60"
-    >
-      ← back to homepage
-    </a>
+    <a href="/" class="link-mono-muted"> ← back to homepage </a>
   </div>
 
   <!-- Teleport suggestions to sidebar -->
   <teleport v-if="suggestions.length" to="#nav-toc-container">
     <div class="py-4">
-      <h3
-        class="text-xs font-light uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400 mb-4"
-      >
-        Maybe you meant
-      </h3>
+      <h3 class="label-tracked-sm">Maybe you meant</h3>
       <div class="space-y-1">
         <a
           v-for="s in suggestions"
           :key="s.path"
           :href="s.path"
-          class="block text-sm font-mono transition-colors-base hover:text-zinc-900 dark:hover:text-zinc-100 no-underline"
+          class="link-mono-hover-block"
         >
           {{ s.title }}
         </a>

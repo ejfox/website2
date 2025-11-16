@@ -15,7 +15,7 @@ draft: true
 
 ## Rapid Prototyping as Multiplayer Game
 
-*How we turned development into performance art, where creation becomes entertainment and 4 people can outpace entire enterprise teams.*
+_How we turned development into performance art, where creation becomes entertainment and 4 people can outpace entire enterprise teams._
 
 ## The Live Coding Session Ritual
 
@@ -23,7 +23,7 @@ Picture this: It's 2pm on a Tuesday. Four of us jump on Discord with a loose ide
 
 The energy is infectious. When someone gets stuck, three other brains immediately jump in with solutions. When someone has a breakthrough, everyone can see it happen live. We deploy to R2 or Netlify within the first hour—not because it's done, but because seeing it live adds rocket fuel to the creative process.
 
-Then comes the sketching phase. Still on the call, we're all drawing wireframes, sharing screens, iterating in real-time. "What if we moved this here?" "Oh, that color is perfect." "Wait, I just had an idea..." 
+Then comes the sketching phase. Still on the call, we're all drawing wireframes, sharing screens, iterating in real-time. "What if we moved this here?" "Oh, that color is perfect." "Wait, I just had an idea..."
 
 It's like playing a cooperative video game where the objective is to build something beautiful.
 
@@ -53,18 +53,18 @@ Maybe it helps that we're all a bit ADHD and get bored easily. The traditional c
 
 ## The Performance Aspect
 
-*[Write about how livestreaming the process adds energy - creation as entertainment, the audience effect even if it's just each other watching, how accountability and showmanship improve the work.]*
+_[Write about how livestreaming the process adds energy - creation as entertainment, the audience effect even if it's just each other watching, how accountability and showmanship improve the work.]_
 
 ## Tools That Enable Magic
 
-*[Detail the technical stack: Discord for communication, collaborative coding environments, instant deployment to R2, real-time sketching tools. How the friction-free toolchain enables flow state.]*
+_[Detail the technical stack: Discord for communication, collaborative coding environments, instant deployment to R2, real-time sketching tools. How the friction-free toolchain enables flow state.]_
 
 ## What Enterprise Teams Miss
 
-*[Contrast with traditional development processes - endless meetings, approval chains, "alignment" sessions that kill momentum. Why small autonomous teams can innovate faster.]*
+_[Contrast with traditional development processes - endless meetings, approval chains, "alignment" sessions that kill momentum. Why small autonomous teams can innovate faster.]_
 
 ## The Social Chemistry
 
-*[Reflect on what makes these sessions work - the right mix of people, complementary skills, shared aesthetic sense, trust to experiment and fail fast together.]*
+_[Reflect on what makes these sessions work - the right mix of people, complementary skills, shared aesthetic sense, trust to experiment and fail fast together.]_
 
 ---

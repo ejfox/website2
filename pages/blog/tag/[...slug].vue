@@ -8,19 +8,20 @@
       <div class="max-w-4xl mx-auto">
         <!-- Tag title -->
         <div class="px-4 md:px-6 mb-4">
-          <h1 class="font-serif text-3xl font-normal text-zinc-900 dark:text-zinc-100 mb-2">
+          <h1
+            class="font-serif text-3xl font-normal text-zinc-900 dark:text-zinc-100 mb-2"
+          >
             Posts tagged "{{ tag }}"
           </h1>
           <p class="text-zinc-600 dark:text-zinc-400 text-sm">
-            {{ filteredPosts.length }} {{ filteredPosts.length === 1 ? 'post' : 'posts' }} found
+            {{ filteredPosts.length }}
+            {{ filteredPosts.length === 1 ? 'post' : 'posts' }} found
           </p>
         </div>
 
         <!-- Compact metadata bar matching blog posts -->
         <div class="border-b border-zinc-200 dark:border-zinc-800">
-          <div
-            class="font-mono text-xs text-zinc-500 px-4 md:px-6 py-1 uppercase tabular-nums flex items-center gap-2 overflow-x-auto tracking-wider"
-          >
+          <div class="metadata-bar">
             <span class="flex items-center gap-1 whitespace-nowrap">
               <span class="text-zinc-400">ENTRIES</span>
               <span class="text-zinc-600 dark:text-zinc-300">{{
@@ -60,7 +61,9 @@
             <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
             <span class="flex items-center gap-1 whitespace-nowrap">
               <span class="text-zinc-400">TAG</span>
-              <span class="text-zinc-600 dark:text-zinc-300 lowercase">{{ tag }}</span>
+              <span class="text-zinc-600 dark:text-zinc-300 lowercase">{{
+                tag
+              }}</span>
             </span>
           </div>
         </div>
@@ -74,7 +77,7 @@
         <template v-for="(post, index) in filteredPosts" :key="post.slug">
           <div
             v-if="shouldShowYearHeader(post, index)"
-            class="font-mono text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-wider font-semibold mt-8 mb-4 first:mt-0"
+            class="section-header-mono"
             style="line-height: 16px"
           >
             {{ getPostYear(post) }}
@@ -86,7 +89,7 @@
               <h3>
                 <NuxtLink
                   :to="`/blog/${post?.slug}`"
-                  class="font-serif text-xl md:text-2xl font-normal text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400 p-name u-url transition-colors duration-200 tracking-tight"
+                  class="title-link"
                   style="line-height: 1.3"
                 >
                   {{ post?.title || formatTitle(post?.slug) }}
@@ -94,18 +97,14 @@
               </h3>
 
               <!-- Horizontal metadata line -->
-              <div
-                class="font-mono text-xs text-zinc-400 dark:text-zinc-600 mt-1 uppercase tracking-wider tabular-nums flex items-center gap-1"
-              >
+              <div class="post-metadata">
                 <span>{{
                   formatShortDate(post?.metadata?.date || post?.date)
                 }}</span>
                 <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
                 <span
                   >{{
-                    calculateReadingTime(
-                      post?.metadata?.words || post?.words
-                    )
+                    calculateReadingTime(post?.metadata?.words || post?.words)
                   }}min</span
                 >
 
@@ -116,7 +115,14 @@
                 >
                   <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
                   <span
-                    >{{ (post?.metadata?.words || post?.words || 0).toLocaleString() }} words</span
+                    >{{
+                      (
+                        post?.metadata?.words ||
+                        post?.words ||
+                        0
+                      ).toLocaleString()
+                    }}
+                    words</span
                   >
                 </span>
               </div>
@@ -138,7 +144,7 @@
                   v-for="postTag in post?.tags || post?.metadata?.tags"
                   :key="postTag"
                   :href="`/blog/tag/${postTag}`"
-                  class="px-2 py-1 text-xs font-mono uppercase tracking-[0.2em] border border-zinc-300 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors no-underline"
+                  class="tag-small"
                   :class="postTag === tag ? 'bg-zinc-100 dark:bg-zinc-800' : ''"
                   >{{ postTag }}</a
                 >
@@ -153,12 +159,7 @@
         <p class="text-zinc-600 dark:text-zinc-400 mb-4">
           No posts found with the tag "{{ tag }}"
         </p>
-        <NuxtLink
-          to="/blog"
-          class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors"
-        >
-          ← Back to all posts
-        </NuxtLink>
+        <NuxtLink to="/blog" class="link-blue"> ← Back to all posts </NuxtLink>
       </div>
     </main>
   </div>
@@ -180,9 +181,9 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: computed(() => `All blog posts tagged with "${tag.value}"`),
-    },
-  ],
+      content: computed(() => `All blog posts tagged with "${tag.value}"`)
+    }
+  ]
 })
 
 // Helper functions (copied from blog index)
@@ -218,15 +219,17 @@ const { data: allPosts } = useAsyncData('all-posts-for-tag', async () => {
 const filteredPosts = computed(() => {
   if (!allPosts.value || !tag.value) return []
 
-  return allPosts.value.filter((post) => {
-    const postTags = post?.tags || post?.metadata?.tags || []
-    return postTags.includes(tag.value)
-  }).sort((a, b) => {
-    // Sort by date, newest first
-    const dateA = new Date(a?.metadata?.date || a?.date || 0)
-    const dateB = new Date(b?.metadata?.date || b?.date || 0)
-    return dateB - dateA
-  })
+  return allPosts.value
+    .filter((post) => {
+      const postTags = post?.tags || post?.metadata?.tags || []
+      return postTags.includes(tag.value)
+    })
+    .sort((a, b) => {
+      // Sort by date, newest first
+      const dateA = new Date(a?.metadata?.date || a?.date || 0)
+      const dateB = new Date(b?.metadata?.date || b?.date || 0)
+      return dateB - dateA
+    })
 })
 
 // Helper functions for date formatting and display

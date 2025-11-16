@@ -12,7 +12,7 @@
         <h1 class="text-2xl font-light text-red-600 dark:text-red-400 mb-4">
           Book Not Found
         </h1>
-        <p class="text-zinc-600 dark:text-zinc-400">
+        <p class="text-secondary">
           The book "{{ route.params.slug }}" doesn't exist in the reading
           collection.
         </p>

@@ -1,6 +1,6 @@
 import { defineEventHandler } from 'h3'
-import { readFile } from 'fs/promises'
-import { resolve } from 'path'
+import { readFile } from 'node:fs/promises'
+import { resolve } from 'node:path'
 
 const siteURL = 'https://ejfox.com'
 const siteName = 'EJ Fox - Robot Posts'

@@ -21,4 +21,3 @@ tags:
 ## Avoid air travel
 
 ## Avoid red meat
-

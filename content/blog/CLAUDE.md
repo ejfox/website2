@@ -2,7 +2,7 @@
 
 ## Video Script Format
 
-Videos are "just ideas and a list" - from this we developed a consistent format for video-scripts/*.md files.
+Videos are "just ideas and a list" - from this we developed a consistent format for video-scripts/\*.md files.
 
 ### Structure
 
@@ -10,9 +10,11 @@ Add at the top of every video script (ADDITIVE - don't remove existing content):
 
 ```markdown
 ## THE IDEA
+
 [One-line core concept - punchy, clear, with em dash for emphasis]
 
 ## THE BEATS
+
 - [Opening curiosity gap - question to raise interest]
 - [Another curiosity gap - creates retention]
 - [Core concept/phrase to riff on]
@@ -47,12 +49,14 @@ Add at the top of every video script (ADDITIVE - don't remove existing content):
 ### Examples
 
 Good beats:
+
 - Why do smart people fail at complex problems?
 - What if the problem isn't the parts, but how they connect?
 - Competence = beauty and artistry
 - Jack-of-all-trades vs master of one
 
 Bad beats:
+
 - TikTok montage showcasing skills
 - Screen recordings and code snippets
 - Use engaging visuals

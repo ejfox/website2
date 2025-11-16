@@ -161,17 +161,14 @@ No additional setup needed!
 ### Writing Good Predictions
 
 1. **Be Specific**
-
    - Include exact numbers, dates, thresholds
    - Avoid vague terms like "a lot" or "soon"
 
 2. **Make It Measurable**
-
    - Choose objective, verifiable criteria
    - Specify data sources you'll use
 
 3. **Avoid Compound Predictions**
-
    - Break "A and B will happen" into separate predictions
    - Each prediction should have one clear outcome
 

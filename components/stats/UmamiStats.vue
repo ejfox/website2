@@ -100,11 +100,7 @@
 
     <!-- Traffic Quality -->
     <div>
-      <h4
-        class="text-xs leading-4 tracking-[0.2em] text-zinc-500 border-b border-zinc-200 dark:border-zinc-800/30 pb-1 mb-4"
-      >
-        TRAFFIC QUALITY
-      </h4>
+      <h4 class="section-label-tracked">TRAFFIC QUALITY</h4>
       <div class="space-y-1.5">
         <div class="flex items-center justify-between text-xs">
           <span class="text-zinc-500 uppercase tracking-widest text-xs"
@@ -263,8 +259,8 @@ const formatGrowth = (growth: number): string => {
 }
 
 const getGrowthClass = (growth: number): string => {
-  if (growth > 0) return 'text-green-600 dark:text-green-500'
-  if (growth < 0) return 'text-red-600 dark:text-red-500'
+  if (growth > 0) return 'text-success'
+  if (growth < 0) return 'text-error'
   return 'text-zinc-500'
 }
 

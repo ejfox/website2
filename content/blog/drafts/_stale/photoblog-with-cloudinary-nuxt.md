@@ -50,7 +50,7 @@ handle_folder() {
             echo "Copying file $aFile"
             newFilePath=$HOME/dump/$(basename "$aFile")
             cp "$aFile" "$newFilePath"
-                
+
             totalFiles=$((totalFiles + 1))
             totalSize=$((totalSize + $(du -k "$aFile" | cut -f1)))
         fi
@@ -94,7 +94,7 @@ for file in ~/dump/**/*.*; do
         file_date=$(getDate "$file")
         mime_type=$(file --mime-type -b "$file" | awk -F'/' '{print $1}')
         dir_name=~/media/"$file_date"/"$mime_type"
-        
+
         mkdir -p "$dir_name"
         mv "$file" "$dir_name"/
         echo "$file : moved to $dir_name" >> ~/dump/_logs.txt
@@ -123,15 +123,15 @@ for folder in "$@"; do
   # Find all green tagged files
   green_files=$(mdfind -onlyin "$folder" 'kMDItemUserTags == Green')
   num_green_files=$(echo "$green_files" | wc -l)
-  
+
   osascript -e "display notification \"$num_green_files green files found.\" with title \"Upload Green Media\""
-  
+
   successful_uploads=0
-  
+
   echo "$green_files" | while read -r file; do
     if [-n "$file"](-n-"$file") ]]; then
       upload_output=$(/opt/homebrew/bin/cld uploader upload "$file" 2>&1)
-      
+
       if [ $? -eq 0 ]; then
         successful_uploads=$((successful_uploads + 1))
         osascript -e "display notification \"Uploaded $successful_uploads of $num_green_files files to Cloudinary.\" with title \"Upload Green Media\""
@@ -159,7 +159,7 @@ export CLOUDINARY_URL=cloudinary://YOUR_SECRET_HERE
 for file in "$@"; do
   if [ -f "$file" ]; then
     upload_output=$(/opt/homebrew/bin/cld uploader upload "$file" use_filename=true unique_filename=false 2>&1)
-    
+
     if [ $? -eq 0 ]; then
       url=$(echo "$upload_output" | /opt/homebrew/bin/jq -r '.url' 2>/dev/null)
       if [ -n "$url" ]; then
@@ -183,50 +183,54 @@ The heart of the system is a flexible Nuxt server API that can filter and fetch 
 
 ```ts
 // server/api/cloudinary.ts
-import { defineEventHandler, readBody } from "h3";
-import { v2 as cloudinary } from "cloudinary";
+import { defineEventHandler, readBody } from 'h3'
+import { v2 as cloudinary } from 'cloudinary'
 
 export default defineEventHandler(async (event) => {
-  const body = await readBody(event);
-  const numPhotos = Math.min(Number(body.numPhotos) || 100, 500);
-  const onlyPhotoblog = body.onlyPhotoblog ?? false;
-  const filterOutScreenshots = body.filterOutScreenshots ?? true;
+  const body = await readBody(event)
+  const numPhotos = Math.min(Number(body.numPhotos) || 100, 500)
+  const onlyPhotoblog = body.onlyPhotoblog ?? false
+  const filterOutScreenshots = body.filterOutScreenshots ?? true
 
-  // Build search expression  
-  let expression = "resource_type:image";
-  if (onlyPhotoblog) expression += " AND tags=photo-blog";
-  
+  // Build search expression
+  let expression = 'resource_type:image'
+  if (onlyPhotoblog) expression += ' AND tags=photo-blog'
+
   const result = await cloudinary.search
     .expression(expression)
-    .sort_by("created_at", "desc")
+    .sort_by('created_at', 'desc')
     .max_results(numPhotos)
-    .with_field("tags,context")
-    .execute();
+    .with_field('tags,context')
+    .execute()
 
   // Client-side screenshot filtering for complex patterns
   const isScreenshot = (resource) => {
-    const tags = resource.tags || [];
-    const publicId = resource.public_id.toLowerCase();
-    
-    return tags.includes("screenshot") || 
-           publicId.includes("screenshot") || 
-           publicId.startsWith("screenshots/");
-  };
+    const tags = resource.tags || []
+    const publicId = resource.public_id.toLowerCase()
 
-  let filteredResources = result.resources;
-  if (filterOutScreenshots) {
-    filteredResources = result.resources.filter(resource => !isScreenshot(resource));
+    return (
+      tags.includes('screenshot') ||
+      publicId.includes('screenshot') ||
+      publicId.startsWith('screenshots/')
+    )
   }
 
-  return filteredResources.map(resource => ({
+  let filteredResources = result.resources
+  if (filterOutScreenshots) {
+    filteredResources = result.resources.filter(
+      (resource) => !isScreenshot(resource)
+    )
+  }
+
+  return filteredResources.map((resource) => ({
     public_id: resource.public_id,
     secure_url: resource.secure_url,
     created_at: resource.created_at,
     tags: resource.tags,
     width: resource.width,
     height: resource.height
-  }));
-});
+  }))
+})
 ```
 
 #### Randomized Photo Layout
@@ -235,23 +239,23 @@ The gallery's signature feature is making photos look like they were casually th
 
 ```js
 function randomizedPhotoStyle(photo) {
-  const chance = new Chance();
-  
-  const maxOffsetY = 6;
-  const maxOffsetX = 2; 
-  const maxAngle = 1.5;
-  
-  const randomAngle = chance.integer({ min: -maxAngle, max: maxAngle });
-  const randomX = chance.floating({ min: -maxOffsetX, max: maxOffsetX });
-  const randomY = chance.floating({ min: -maxOffsetY, max: maxOffsetY });
-  const scale = chance.floating({ min: 0.89, max: 1 });
-  
+  const chance = new Chance()
+
+  const maxOffsetY = 6
+  const maxOffsetX = 2
+  const maxAngle = 1.5
+
+  const randomAngle = chance.integer({ min: -maxAngle, max: maxAngle })
+  const randomX = chance.floating({ min: -maxOffsetX, max: maxOffsetX })
+  const randomY = chance.floating({ min: -maxOffsetY, max: maxOffsetY })
+  const scale = chance.floating({ min: 0.89, max: 1 })
+
   // 33% of the time, keep it normal
-  if (chance.bool({ likelihood: 0.333 })) return {};
-  
+  if (chance.bool({ likelihood: 0.333 })) return {}
+
   return {
     transform: `translate(${randomX}px, ${randomY}px) rotate(${randomAngle}deg) scale(${scale})`
-  };
+  }
 }
 ```
 
@@ -264,10 +268,10 @@ The `/api/stats` endpoint does something special: it fetches EXIF data for every
 export default defineEventHandler(async (event) => {
   // Fetch all photo-blog photos
   const photos = await $fetch("/api/cloudinary", {
-    method: "POST", 
+    method: "POST",
     body: { numPhotos: 1000, onlyPhotoblog: true }
   });
-  
+
   // Get EXIF data for each photo
   const exifPromises = photos.map(photo =>
     $fetch("/api/cloudinary-exif", {
@@ -275,45 +279,45 @@ export default defineEventHandler(async (event) => {
       body: { publicId: photo.public_id }
     }).catch(() => null)
   );
-  
+
   const exifResults = await Promise.all(exifPromises);
-  
+
   // Filter to only real photos (have camera Make/Model in EXIF)
   const photosWithExif = photos.filter((photo, index) => {
     const exif = exifResults[index]?.exifData;
     return exif?.Make && exif?.Model;
   });
-  
+
   // Build gear stats
   const cameras = new Map();
-  const lenses = new Map();  
+  const lenses = new Map();
   const apertures = new Map();
   const shutterSpeeds = new Map();
   const isoValues = new Map();
-  
+
   exifResults.forEach(result => {
     if (!result?.exifData) return;
-    
+
     const exif = result.exifData;
     const hr = result.humanReadableExifData;
-    
+
     // Track camera usage
     if (exif.Make && exif.Model) {
       const camera = `${exif.Make} ${exif.Model}`;
       cameras.set(camera, (cameras.get(camera) || 0) + 1);
     }
-    
+
     // Track lens usage
     if (exif.LensModel) {
       lenses.set(exif.LensModel, (lenses.get(exif.LensModel) || 0) + 1);
     }
-    
+
     // Track camera settings
     if (hr?.aperture) apertures.set(hr.aperture, (apertures.get(hr.aperture) || 0) + 1);
     if (hr?.exposure) shutterSpeeds.set(hr.exposure, (shutterSpeeds.get(hr.exposure) || 0) + 1);
     if (exif?.PhotographicSensitivity) isoValues.set(exif.PhotographicSensitivity, (isoValues.get(exif.PhotographicSensitivity) || 0) + 1);
   });
-  
+
   return {
     stats: {
       totalPhotos: photosWithExif.length,
@@ -341,23 +345,23 @@ The gallery supports arrow key navigation to flip through photos like a slidesho
 
 ```js
 function handleKeyDown(e) {
-  if (e.key === "ArrowRight" && currentIndex.value < photos.length - 1) {
-    currentIndex.value++;
-    scrollToCurrentPhoto();
-  } else if (e.key === "ArrowLeft" && currentIndex.value > 0) {
-    currentIndex.value--;  
-    scrollToCurrentPhoto();
+  if (e.key === 'ArrowRight' && currentIndex.value < photos.length - 1) {
+    currentIndex.value++
+    scrollToCurrentPhoto()
+  } else if (e.key === 'ArrowLeft' && currentIndex.value > 0) {
+    currentIndex.value--
+    scrollToCurrentPhoto()
   }
 }
 
 function scrollToCurrentPhoto() {
-  const el = photoRef.value[currentIndex.value];
+  const el = photoRef.value[currentIndex.value]
   if (el) {
-    const currentPhoto = photos.value[currentIndex.value];
+    const currentPhoto = photos.value[currentIndex.value]
     if (currentPhoto?.public_id) {
-      window.history.replaceState(null, "", `#photo-${currentPhoto.public_id}`);
+      window.history.replaceState(null, '', `#photo-${currentPhoto.public_id}`)
     }
-    el.scrollIntoView({ behavior: "smooth" });
+    el.scrollIntoView({ behavior: 'smooth' })
   }
 }
 ```

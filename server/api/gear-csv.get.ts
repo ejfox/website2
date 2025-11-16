@@ -1,10 +1,10 @@
-import { readFile } from 'fs/promises'
-import { resolve } from 'path'
+import { readFile } from 'node:fs/promises'
+import { resolve } from 'node:path'
 
 export default defineEventHandler(async () => {
   try {
-    // Read the CSV file from public directory
-    const csvPath = resolve('public/gear.csv')
+    // Read the CSV file from data directory
+    const csvPath = resolve('data/gear.csv')
     const csvContent = await readFile(csvPath, 'utf-8')
 
     return csvContent

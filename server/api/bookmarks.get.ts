@@ -26,7 +26,7 @@ interface ProcessedBookmark {
 export default defineEventHandler(async (event) => {
   try {
     const query = getQuery(event)
-    const count = Math.min(parseInt(query.count as string) || 300, 1000) // Max 1000, default 300
+    const count = Math.min(Number.parseInt(query.count as string) || 300, 1000) // Max 1000, default 300
     const tag = query.tag as string // Optional tag filter
 
     const pinboardToken =

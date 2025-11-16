@@ -1,5 +1,8 @@
 <template>
-  <div v-if="marketData" class="border-l border-zinc-300 dark:border-zinc-700 pl-3 my-4 font-mono text-xs">
+  <div
+    v-if="marketData"
+    class="border-l border-zinc-300 dark:border-zinc-700 pl-3 my-4 font-mono text-xs"
+  >
     <!-- Header -->
     <div class="flex items-baseline justify-between mb-2">
       <span class="text-zinc-500 dark:text-zinc-500">market</span>
@@ -14,7 +17,9 @@
 
     <!-- Current Probability -->
     <div class="mb-2">
-      <span class="text-zinc-900 dark:text-zinc-100">{{ Math.round(marketData.currentProb) }}%</span>
+      <span class="text-zinc-900 dark:text-zinc-100"
+        >{{ Math.round(marketData.currentProb) }}%</span
+      >
       <span class="text-zinc-500 dark:text-zinc-500 ml-2">current</span>
     </div>
 
@@ -47,12 +52,18 @@
   </div>
 
   <!-- Loading State -->
-  <div v-else-if="loading" class="border-l border-zinc-300 dark:border-zinc-700 pl-3 my-4 font-mono text-xs text-zinc-500 dark:text-zinc-500">
+  <div
+    v-else-if="loading"
+    class="border-l border-zinc-300 dark:border-zinc-700 pl-3 my-4 label-xs"
+  >
     loading market...
   </div>
 
   <!-- Error State -->
-  <div v-else-if="error" class="border-l border-zinc-300 dark:border-zinc-700 pl-3 my-4 font-mono text-xs text-zinc-500 dark:text-zinc-500">
+  <div
+    v-else-if="error"
+    class="border-l border-zinc-300 dark:border-zinc-700 pl-3 my-4 label-xs"
+  >
     market unavailable
   </div>
 </template>
@@ -108,9 +119,9 @@ const currentPnL = computed(() => {
   const currentPrice = marketData.value.currentProb / 100
 
   if (position === 'YES') {
-    return amount * (currentPrice - entryPrice) / entryPrice
+    return (amount * (currentPrice - entryPrice)) / entryPrice
   } else {
-    return amount * (entryPrice - currentPrice) / entryPrice
+    return (amount * (entryPrice - currentPrice)) / entryPrice
   }
 })
 
@@ -148,7 +159,8 @@ const firstPoint = computed(() => {
 
 const lastPoint = computed(() => {
   if (!marketData.value?.priceHistory?.length) return null
-  const last = marketData.value.priceHistory[marketData.value.priceHistory.length - 1]
+  const last =
+    marketData.value.priceHistory[marketData.value.priceHistory.length - 1]
   const xStep = width / (marketData.value.priceHistory.length - 1)
   return {
     x: (marketData.value.priceHistory.length - 1) * xStep,

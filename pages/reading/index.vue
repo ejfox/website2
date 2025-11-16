@@ -2,16 +2,13 @@
   <div class="min-h-screen">
     <div class="px-4 md:px-8" style="max-width: 65ch">
       <!-- Header with data overlay -->
-      <header class="mb-8">
+      <header class="section-spacing-lg">
         <!-- Data stream indicator -->
-        <div
-          class="font-mono text-xs text-zinc-400 mb-2 mt-8"
-          style="font-variant-numeric: tabular-nums"
-        >
+        <div class="mono-xs text-secondary mb-2 mt-8 tabular">
           <span>READING</span>
-          <span class="mx-2">·</span>
+          <span class="mx-2 text-divider">·</span>
           <span>{{ books?.length || 0 }} BOOKS</span>
-          <span class="mx-2">·</span>
+          <span class="mx-2 text-divider">·</span>
           <span>{{ totalHighlights }} HIGHLIGHTS</span>
         </div>
         <h1
@@ -20,20 +17,12 @@
         >
           Reading Collection
         </h1>
-        <p class="font-serif text-base text-zinc-600 dark:text-zinc-400">
+        <p class="font-serif text-base text-secondary">
           Books, highlights, and notes from my digital library.
         </p>
 
         <!-- Stats -->
-        <div
-          v-if="books"
-          class="mt-4 font-mono text-xs text-zinc-500"
-          style="
-            font-feature-settings:
-              'lnum' 1,
-              'tnum' 1;
-          "
-        >
+        <div v-if="books" class="mt-4 mono-xs text-muted tabular">
           <span>UPDATED: {{ lastUpdated }}</span>
         </div>
 
@@ -94,34 +83,24 @@
           </div>
 
           <!-- Book Info -->
-          <div class="space-y-2">
-            <h3
-              class="font-serif text-base font-normal text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-400 transition-colors line-clamp-2"
-              style="letter-spacing: -0.01em"
-            >
+          <div class="stack-2">
+            <h3 class="card-title-group-hover" style="letter-spacing: -0.01em">
               {{ book.metadata?.['kindle-sync']?.title || book.title }}
             </h3>
-            <p class="font-serif text-sm text-zinc-600 dark:text-zinc-400">
+            <p class="font-serif text-sm text-secondary">
               {{ book.metadata?.['kindle-sync']?.author }}
             </p>
 
             <!-- Random highlight preview -->
             <div
               v-if="book.randomHighlight"
-              class="font-serif text-xs text-zinc-500 dark:text-zinc-500 italic line-clamp-3"
+              class="font-serif text-xs text-muted italic line-clamp-3"
             >
               "{{ book.randomHighlight }}"
             </div>
 
             <!-- Highlights count -->
-            <div
-              class="flex items-center justify-between font-mono text-xs text-zinc-500 dark:text-zinc-400"
-              style="
-                font-feature-settings:
-                  'lnum' 1,
-                  'tnum' 1;
-              "
-            >
+            <div class="flex-between mono-xs text-secondary tabular">
               <span v-if="book.metadata?.['kindle-sync']?.highlightsCount">
                 {{ book.metadata['kindle-sync'].highlightsCount }} highlights
               </span>
@@ -134,12 +113,12 @@
       </div>
 
       <!-- Empty State -->
-      <div v-else class="text-center py-8">
-        <div class="font-mono text-xs text-zinc-400 mb-8">NO_DATA</div>
-        <h2 class="font-serif text-xl text-zinc-900 dark:text-zinc-100 mb-4">
+      <div v-else class="center-empty">
+        <div class="mono-xs text-secondary section-spacing-lg">NO_DATA</div>
+        <h2 class="font-serif text-xl text-primary section-spacing-sm">
           No Books Found
         </h2>
-        <p class="font-serif text-base text-zinc-600 dark:text-zinc-400">
+        <p class="font-serif text-base text-secondary">
           No reading notes have been processed yet.
         </p>
       </div>

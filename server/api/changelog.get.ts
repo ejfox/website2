@@ -5,14 +5,14 @@
  * Shows how the site evolves over time.
  */
 
-import { exec } from 'child_process'
-import { promisify } from 'util'
+import { exec } from 'node:child_process'
+import { promisify } from 'node:util'
 
 const execAsync = promisify(exec)
 
 export default defineEventHandler(async (event) => {
   const query = getQuery(event)
-  const limit = parseInt(query.limit as string) || 50
+  const limit = Number.parseInt(query.limit as string) || 50
   const since = query.since as string // e.g., "2024-01-01"
 
   try {
@@ -29,14 +29,14 @@ export default defineEventHandler(async (event) => {
 
     const commits = stdout
       .split('\n')
-      .filter(line => line.trim())
-      .map(line => {
+      .filter((line) => line.trim())
+      .map((line) => {
         const [hash, author, email, timestamp, message] = line.split('|')
         return {
           hash: hash.substring(0, 7), // Short hash
           author,
           email,
-          date: new Date(parseInt(timestamp) * 1000).toISOString(),
+          date: new Date(Number.parseInt(timestamp) * 1000).toISOString(),
           message,
           // Parse conventional commit types
           type: parseCommitType(message)
@@ -81,10 +81,13 @@ export default defineEventHandler(async (event) => {
           earliest: commits[commits.length - 1]?.date,
           latest: commits[0]?.date
         },
-        byType: Object.entries(byType).reduce((acc: any, [type, commits]: [string, any]) => {
-          acc[type] = commits.length
-          return acc
-        }, {})
+        byType: Object.entries(byType).reduce(
+          (acc: any, [type, commits]: [string, any]) => {
+            acc[type] = commits.length
+            return acc
+          },
+          {}
+        )
       }
     }
   } catch (error: any) {

@@ -8,5 +8,5 @@ tags:
 hidden: true
 draft: true
 ---
-## See How The Studio Developed a Product in 24 Hours
 
+## See How The Studio Developed a Product in 24 Hours

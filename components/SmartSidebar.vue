@@ -3,8 +3,8 @@
     <!-- Toggle button -->
     <button
       class="sidebar-toggle"
-      @click="collapsed = !collapsed"
       :aria-label="collapsed ? 'Expand sidebar' : 'Collapse sidebar'"
+      @click="collapsed = !collapsed"
     >
       {{ collapsed ? '→' : '←' }}
     </button>
@@ -30,8 +30,8 @@
           >
             <a
               :href="`#${project.slug}`"
-              @click="scrollToProject(project.slug)"
               class="project-link"
+              @click="scrollToProject(project.slug)"
             >
               <span class="project-indicator">
                 <svg width="16" height="8" class="project-spark">
@@ -65,8 +65,8 @@
           >
             <a
               :href="`#${item.slug}`"
-              @click="scrollToHeading(item.slug)"
               class="toc-link"
+              @click="scrollToHeading(item.slug)"
             >
               <span
                 class="toc-progress"

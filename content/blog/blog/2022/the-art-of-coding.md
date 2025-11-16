@@ -10,6 +10,7 @@ tags:
   - project
   - coding
 ---
+
 ## The Art of Coding: A Developer's Guide
 
 #programming #personal #process
@@ -57,8 +58,8 @@ User stories are essential to writing software that will be used by people. I ta
 
 #### tl;dr
 
->User stories are a way of describing the functionality of a system from the perspective of the user. User stories are written in the following format:
->"As a *type of user, I want *goal* so that *reason*."
+> User stories are a way of describing the functionality of a system from the perspective of the user. User stories are written in the following format:
+> "As a *type of user, I want *goal* so that *reason\*."
 
 ### Acceptance criteria
 
@@ -79,6 +80,7 @@ Deadlines, while sometimes stressful, actually serve an important role in managi
 [blog/2022/joy-driven-developmen](blog/2022/joy-driven-developmen)t]]
 
 ### Gather context
+
 #### Stakeholder Needs
 
 Knowing who the stakeholders are and what they expect from the project is crucial. Needs could range from project timeline, budget, technical specifics, to the business impact.

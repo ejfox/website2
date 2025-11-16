@@ -21,8 +21,8 @@ const sortedWeekNotes = computed(() => {
       .map((note) => {
         const weekMatch = note.slug.match(/(\d{4})-(\d{2})/)
         if (weekMatch) {
-          const year = parseInt(weekMatch[1], 10)
-          const week = parseInt(weekMatch[2], 10)
+          const year = Number.parseInt(weekMatch[1], 10)
+          const week = Number.parseInt(weekMatch[2], 10)
           const date = startOfWeek(new Date(year, 0, 1), { weekStartsOn: 1 })
           const actualDate = new Date(
             date.setDate(date.getDate() + (week - 1) * 7)
@@ -75,10 +75,7 @@ const weekNoteElements = ref([])
         ref="weekNoteElements"
         class="border-b border-zinc-200 dark:border-zinc-700 py-4 my-8 xl:my-16"
       >
-        <NuxtLink
-          :to="`/blog/${weekNote.slug}`"
-          class="hover:underline text-sm bg-zinc-50 dark:bg-transparent font-mono block px-2 py-1 rounded"
-        >
+        <NuxtLink :to="`/blog/${weekNote.slug}`" class="link-code-block">
           {{ weekNote.slug.split('/')[1] }}
         </NuxtLink>
         <p

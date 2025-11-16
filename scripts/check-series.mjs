@@ -13,15 +13,15 @@ const seriesApi = new SeriesApi(kalshiConfig)
 
 // Try fetching series for user's positions
 const seriesTickers = [
-  "KXOTEEPSTEIN",
-  "KXCALLIMPEACHRCONGRESS",
-  "KXIMPEACH",
-  "AILEGISLATION",
-  "KXCODINGMODEL",
-  "KXAIAUTHOR",
-  "NYTOAI",
-  "KXJOINSTEPHENCOLBERT",
-  "OAIAGI"
+  'KXOTEEPSTEIN',
+  'KXCALLIMPEACHRCONGRESS',
+  'KXIMPEACH',
+  'AILEGISLATION',
+  'KXCODINGMODEL',
+  'KXAIAUTHOR',
+  'NYTOAI',
+  'KXJOINSTEPHENCOLBERT',
+  'OAIAGI'
 ]
 
 console.log('Fetching series data...\n')

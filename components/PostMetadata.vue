@@ -12,18 +12,14 @@
     <span
       v-if="metadata?.slug && !compact"
       ref="folderRef"
-      class="metadata-item py-1 flex-shrink-0 whitespace-nowrap text-zinc-600 dark:text-zinc-400 text-xs pl-0"
+      class="metadata-item-base text-xs pl-0"
       style="color: var(--post-color)"
     >
       /{{ folderName }}/
     </span>
 
     <!-- Draft status -->
-    <span
-      v-if="metadata.draft"
-      ref="draftRef"
-      class="metadata-item py-1 flex-shrink-0 whitespace-nowrap text-red-500 dark:text-red-400"
-    >
+    <span v-if="metadata.draft" ref="draftRef" class="metadata-item-error">
       {{ draftText }}
     </span>
 
@@ -31,48 +27,32 @@
     <span
       v-if="metadata.date"
       ref="dateRef"
-      class="metadata-item py-1 flex-shrink-0 whitespace-nowrap text-zinc-600 dark:text-zinc-400"
+      class="metadata-item-base"
       :title="relativeDate"
     >
       <time>{{ formattedDate }}</time>
     </span>
 
     <!-- Reading Time -->
-    <span
-      v-if="readingTime"
-      ref="readingTimeRef"
-      class="metadata-item py-1 flex-shrink-0 whitespace-nowrap text-zinc-600 dark:text-zinc-400"
-    >
+    <span v-if="readingTime" ref="readingTimeRef" class="metadata-item-base">
       {{ readingTime }}
       {{ readingTimeUnit }}
     </span>
 
     <!-- Word Count -->
-    <span
-      v-if="metadata.words"
-      ref="wordCountRef"
-      class="metadata-item py-1 flex-shrink-0 whitespace-nowrap text-zinc-600 dark:text-zinc-400"
-    >
+    <span v-if="metadata.words" ref="wordCountRef" class="metadata-item-base">
       {{ formatCompactNumber(metadata.words) }}
       words
     </span>
 
     <!-- Image Count -->
-    <span
-      v-if="metadata.images"
-      ref="imageCountRef"
-      class="metadata-item py-1 flex-shrink-0 whitespace-nowrap text-zinc-600 dark:text-zinc-400"
-    >
+    <span v-if="metadata.images" ref="imageCountRef" class="metadata-item-base">
       {{ metadata.images }}
       {{ pluralize('image', metadata.images) }}
     </span>
 
     <!-- Link Count -->
-    <span
-      v-if="metadata.links"
-      ref="linkCountRef"
-      class="metadata-item py-1 flex-shrink-0 whitespace-nowrap text-zinc-600 dark:text-zinc-400"
-    >
+    <span v-if="metadata.links" ref="linkCountRef" class="metadata-item-base">
       {{ metadata.links }}
       {{ pluralize('link', metadata.links) }}
     </span>

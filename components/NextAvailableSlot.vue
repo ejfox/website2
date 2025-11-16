@@ -15,7 +15,7 @@
         v-else-if="nextSlot"
         :href="nextSlot.bookingUrl"
         target="_blank"
-        class="inline text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-200 underline underline-offset-2"
+        class="link-blue-underline"
         :title="`Book ${nextSlot.naturalTime} - 30min chat`"
       >
         ({{ nextSlot.naturalTime }})
@@ -26,7 +26,7 @@
         v-else
         href="https://cal.com/ejfox/30min"
         target="_blank"
-        class="inline text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-200 underline underline-offset-2"
+        class="link-blue-underline"
         title="Book a 30min chat"
       >
         find some time on my calendar
@@ -37,7 +37,7 @@
         <a
           href="https://cal.com/ejfox/30min"
           target="_blank"
-          class="inline text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-200 underline underline-offset-2"
+          class="link-blue-underline"
           title="Book a 30min chat"
         >
           find some time on my calendar

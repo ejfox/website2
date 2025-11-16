@@ -22,3 +22,821 @@
     quotes: '"' '"' ''' ''';
   }
 }
+
+@layer components {
+  /* ========================================
+     TYPOGRAPHY
+     ======================================== */
+
+  /* Headings */
+  .heading-1 {
+    @apply font-serif text-2xl text-zinc-900 dark:text-zinc-100;
+  }
+
+  .heading-2 {
+    @apply font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider;
+  }
+
+  .heading-3 {
+    @apply font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider dark:tracking-widest;
+  }
+
+  /* Body text */
+  .text-body {
+    @apply font-serif text-sm text-zinc-600 dark:text-zinc-400 leading-normal tracking-normal dark:tracking-wide;
+  }
+
+  .text-body-lg {
+    @apply font-serif text-base leading-snug text-zinc-900 dark:text-zinc-100;
+  }
+
+  /* Labels & metadata */
+  .label-xs {
+    @apply font-mono text-xs text-zinc-500 dark:text-zinc-500;
+  }
+
+  .label-uppercase {
+    @apply text-zinc-500 uppercase tracking-widest text-xs;
+  }
+
+  .label-uppercase-mono {
+    @apply text-xs font-mono uppercase tracking-widest text-zinc-500;
+  }
+
+  /* Mono text */
+  .mono-xs {
+    @apply font-mono text-xs;
+  }
+
+  .mono-sm {
+    @apply font-mono text-sm;
+  }
+
+  .mono-lg {
+    @apply font-mono text-lg font-bold tabular-nums tracking-tight dark:tracking-normal;
+  }
+
+  .mono-2xl {
+    @apply font-mono text-2xl font-bold tabular-nums tracking-tight dark:tracking-normal;
+  }
+
+  .mono-4xl {
+    @apply font-mono text-4xl font-bold tabular-nums tracking-tight dark:tracking-normal;
+  }
+
+  /* ========================================
+     COLORS
+     ======================================== */
+
+  .text-muted {
+    @apply text-zinc-500 dark:text-zinc-500;
+  }
+
+  .text-secondary {
+    @apply text-zinc-600 dark:text-zinc-400;
+  }
+
+  .text-primary {
+    @apply text-zinc-900 dark:text-zinc-100;
+  }
+
+  .text-success {
+    @apply text-green-600 dark:text-green-500;
+  }
+
+  .text-error {
+    @apply text-red-600 dark:text-red-500;
+  }
+
+  .text-divider {
+    @apply text-zinc-300 dark:text-zinc-700;
+  }
+
+  /* ========================================
+     STATS & DATA DISPLAYS
+     ======================================== */
+
+  .stat-label {
+    @apply font-mono text-xs text-zinc-500 dark:text-zinc-500 mb-1;
+  }
+
+  .stat-value {
+    @apply font-mono text-2xl font-bold tabular-nums text-zinc-900 dark:text-zinc-100;
+  }
+
+  .stat-value-lg {
+    @apply font-mono text-4xl font-bold tabular-nums text-zinc-900 dark:text-zinc-100;
+  }
+
+  .stat-item {
+    @apply flex items-baseline justify-between text-xs;
+  }
+
+  .stat-details {
+    @apply font-mono text-xs text-zinc-500 dark:text-zinc-500;
+  }
+
+  .stat-card {
+    @apply space-y-1;
+  }
+
+  .top-stat-card {
+    @apply break-inside-avoid;
+  }
+
+  /* ========================================
+     LAYOUT
+     ======================================== */
+
+  .flex-between {
+    @apply flex justify-between;
+  }
+
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .flex-start {
+    @apply flex items-start;
+  }
+
+  .flex-gap-1 {
+    @apply flex items-center gap-1;
+  }
+
+  .flex-gap-2 {
+    @apply flex items-center gap-2;
+  }
+
+  .flex-gap-3 {
+    @apply flex items-center gap-3;
+  }
+
+  .flex-gap-4 {
+    @apply flex items-start gap-4;
+  }
+
+  .grid-2col {
+    @apply grid grid-cols-2 gap-x-4 gap-y-0.5;
+  }
+
+  .grid-2col-lg {
+    @apply grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4;
+  }
+
+  .grid-predictions {
+    @apply grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4;
+  }
+
+  /* ========================================
+     SPACING
+     ======================================== */
+
+  .section-spacing {
+    @apply mb-12;
+  }
+
+  .section-spacing-sm {
+    @apply mb-6;
+  }
+
+  .section-spacing-lg {
+    @apply mb-8;
+  }
+
+  .stack-1 {
+    @apply space-y-1;
+  }
+
+  .stack-1-5 {
+    @apply space-y-1.5;
+  }
+
+  .stack-2 {
+    @apply space-y-2;
+  }
+
+  .stack-4 {
+    @apply space-y-4;
+  }
+
+  .stack-0-5 {
+    @apply space-y-0.5;
+  }
+
+  /* ========================================
+     CARDS & CONTAINERS
+     ======================================== */
+
+  .card-padding {
+    @apply py-4;
+  }
+
+  .card-hover {
+    @apply -mx-4 px-4 py-2 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors duration-150;
+  }
+
+  .container-main {
+    @apply px-4 md:px-8 max-w-4xl;
+  }
+
+  /* ========================================
+     TABLES
+     ======================================== */
+
+  .table-dense {
+    @apply w-full font-mono text-xs text-zinc-500 dark:text-zinc-500;
+  }
+
+  .table-header {
+    @apply w-full border-collapse font-mono text-xs tracking-normal dark:tracking-wide;
+  }
+
+  .table-th {
+    @apply text-left pb-2 text-zinc-900 dark:text-zinc-100 font-normal;
+  }
+
+  .table-th-right {
+    @apply text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal;
+  }
+
+  .table-cell {
+    @apply py-1;
+  }
+
+  .table-cell-value {
+    @apply text-right font-bold tabular-nums;
+  }
+
+  .table-cell-primary {
+    @apply text-right font-bold tabular-nums text-zinc-900 dark:text-zinc-100;
+  }
+
+  /* ========================================
+     TRANSITIONS
+     ======================================== */
+
+  .transition-base {
+    @apply transition-colors duration-300;
+  }
+
+  .transition-colors-base {
+    @apply transition-colors;
+  }
+
+  /* ========================================
+     LINKS
+     ======================================== */
+
+  .link-underline {
+    @apply underline hover:no-underline;
+  }
+
+  .link-hover {
+    @apply hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors;
+  }
+
+  .link-nav {
+    @apply block text-sm font-mono transition-colors-base hover:text-zinc-900 dark:hover:text-zinc-100 no-underline;
+  }
+
+  .link-subtle {
+    @apply font-mono text-xs text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100;
+  }
+
+  /* ========================================
+     BADGES & INDICATORS
+     ======================================== */
+
+  .badge-confidence {
+    @apply font-mono text-lg text-zinc-900 dark:text-zinc-100 font-bold shrink-0 tabular-nums;
+  }
+
+  .badge-side-yes {
+    @apply font-mono text-lg font-bold shrink-0 tabular-nums tracking-tight dark:tracking-normal text-green-600 dark:text-green-500;
+  }
+
+  .badge-side-no {
+    @apply font-mono text-lg font-bold shrink-0 tabular-nums tracking-tight dark:tracking-normal text-red-600 dark:text-red-500;
+  }
+
+  /* ========================================
+     UTILITY
+     ======================================== */
+
+  .tabular {
+    @apply tabular-nums;
+  }
+
+  .no-break {
+    @apply break-inside-avoid;
+  }
+
+  .text-balance {
+    @apply flex-1 min-w-0;
+  }
+
+  .truncate-2 {
+    @apply line-clamp-2;
+  }
+
+  .center-empty {
+    @apply text-center py-8;
+  }
+
+  /* ========================================
+     COMPLETE PATTERNS
+     Full semantic classes for common patterns
+     ======================================== */
+
+  /* Metadata displays */
+  .metadata-line {
+    @apply font-mono text-xs text-zinc-500 dark:text-zinc-500 flex items-center gap-2 mb-2;
+  }
+
+  .post-metadata {
+    @apply font-mono text-xs text-zinc-400 dark:text-zinc-600 mt-1 uppercase tracking-wider tabular-nums flex items-center gap-1;
+  }
+
+  .metadata-bar {
+    @apply font-mono text-xs text-zinc-500 px-4 md:px-6 py-1 uppercase tabular-nums flex items-center gap-2 overflow-x-auto tracking-wider;
+  }
+
+  /* Section headers */
+  .section-header-xs {
+    @apply font-mono text-xs uppercase tracking-widest text-zinc-500 mb-2;
+  }
+
+  .year-marker {
+    @apply font-mono text-xs uppercase tracking-widest text-zinc-400 dark:text-zinc-600 mt-12 first:mt-0 mb-6;
+  }
+
+  /* Data displays */
+  .stat-display {
+    @apply border-l border-zinc-300 dark:border-zinc-700 pl-3 my-4 font-mono text-xs text-zinc-500 dark:text-zinc-500;
+  }
+
+  .data-footer {
+    @apply font-mono text-xs text-zinc-400 mb-4 grid grid-cols-2 md:grid-cols-4 gap-3 tabular-nums;
+  }
+
+  .tech-tags {
+    @apply font-mono text-xs uppercase tracking-widest text-zinc-500;
+  }
+
+  /* Calibration/Stats specific patterns */
+  .calibration-header {
+    @apply font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider dark:tracking-widest mb-3 transition-colors duration-300;
+  }
+
+  .calibration-label {
+    @apply font-mono text-xs text-zinc-500 dark:text-zinc-500 transition-colors duration-300;
+  }
+
+  .calibration-value {
+    @apply text-zinc-900 dark:text-zinc-100 font-bold text-2xl tabular-nums transition-colors duration-300;
+  }
+
+  .calibration-table-value {
+    @apply py-1 text-right font-bold text-lg tabular-nums tracking-tight dark:tracking-normal transition-colors duration-300;
+  }
+
+  /* Blog post navigation patterns */
+  .post-nav-label {
+    @apply block text-sm sm:text-xs font-mono uppercase tracking-[0.1em] text-zinc-500 mb-2 sm:mb-1;
+  }
+
+  .post-nav-title {
+    @apply block text-lg sm:text-base font-serif leading-6 sm:leading-5 text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-400 transition-colors;
+  }
+
+  .post-nav-link {
+    @apply block no-underline p-4 sm:p-0 border sm:border-0 border-zinc-200 dark:border-zinc-800 rounded-lg sm:rounded-none hover:bg-zinc-50 dark:hover:bg-zinc-900 sm:hover:bg-transparent transition-colors min-h-[60px] flex flex-col justify-center;
+  }
+
+  .post-tag {
+    @apply px-4 sm:px-3 py-2 sm:py-1 text-sm sm:text-xs font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] border border-zinc-300 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors no-underline rounded-sm min-h-[44px] flex items-center;
+  }
+
+  .post-title-hero {
+    @apply font-serif font-light mb-3 sm:mb-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  .post-dek {
+    @apply font-serif text-base sm:text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-3xl mb-4 leading-relaxed;
+  }
+
+  /* Now page / Activity feed patterns */
+  .activity-section-label {
+    @apply font-mono text-[10px] text-zinc-500 dark:text-zinc-500 uppercase tracking-wider mb-3;
+  }
+
+  .activity-title-lg {
+    @apply font-serif text-lg text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-400 transition-colors;
+  }
+
+  .activity-title-base {
+    @apply font-serif text-base text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-400 transition-colors;
+  }
+
+  .link-inline {
+    @apply text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors;
+  }
+
+  .link-mono-xs {
+    @apply text-xs font-mono text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100;
+  }
+
+  .tooltip-label {
+    @apply absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 px-2 py-1 bg-black text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 font-mono;
+  }
+
+  /* Form & Input patterns */
+  .input-base {
+    @apply px-4 py-2 border border-zinc-300 dark:border-zinc-600 rounded bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-8 py-4 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 font-medium rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors;
+  }
+
+  .gear-btn {
+    @apply px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-zinc-400 hover:text-zinc-200 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 rounded transition-all;
+  }
+
+  .gear-select {
+    @apply px-3 py-1 pr-6 text-[10px] font-mono uppercase tracking-wider text-zinc-400 hover:text-zinc-200 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 rounded transition-all cursor-pointer appearance-none;
+  }
+
+  .btn-action {
+    @apply flex-1 bg-zinc-900 hover:bg-zinc-800 dark:bg-zinc-100 dark:hover:bg-zinc-200 text-zinc-100 dark:text-zinc-900 font-mono py-2 px-4 text-xs transition-colors;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 border border-zinc-300 dark:border-zinc-600 text-zinc-700 dark:text-zinc-300 hover:border-zinc-900 dark:hover:border-zinc-100 transition-colors font-mono text-xs;
+  }
+
+  .link-text-hover {
+    @apply text-xs font-mono text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200 underline;
+  }
+
+  .tag-btn {
+    @apply px-2 py-1 bg-zinc-900 text-zinc-100 dark:bg-zinc-100 dark:text-zinc-900 text-xs flex items-center gap-1 font-mono;
+  }
+
+  .scrap-link {
+    @apply text-xs font-mono text-zinc-400 dark:text-zinc-500 cursor-pointer hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors leading-relaxed;
+  }
+
+  .progress-bar {
+    @apply w-full bg-zinc-200 dark:bg-zinc-800 h-1 rounded-full overflow-hidden flex-shrink-0 mb-4;
+  }
+
+  .sticky-section-header {
+    @apply text-lg font-light mb-4 sticky top-0 bg-inherit pb-2 border-b border-zinc-200 dark:border-zinc-700;
+  }
+
+  .link-metadata {
+    @apply text-xs text-zinc-400 dark:text-zinc-500 group-hover:text-zinc-700 dark:group-hover:text-zinc-300;
+  }
+
+  .text-hover {
+    @apply text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors;
+  }
+
+  .title-hover-subtle {
+    @apply text-xl font-light font-mono group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors;
+  }
+
+  .badge-link {
+    @apply text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors bg-zinc-200 dark:bg-zinc-800 rounded-md px-2 py-1;
+  }
+
+  .metadata-item-base {
+    @apply py-1 flex-shrink-0 whitespace-nowrap text-zinc-600 dark:text-zinc-400;
+  }
+
+  .gear-row {
+    @apply hover:bg-zinc-50 dark:hover:bg-zinc-900/50 transition-all duration-200 cursor-pointer;
+  }
+
+  .gear-link {
+    @apply text-zinc-500 dark:text-zinc-400 hover:text-orange-600 dark:hover:text-orange-400 text-xs font-normal transition-colors underline decoration-dotted underline-offset-2;
+  }
+
+  .gear-type-cell {
+    @apply col-span-2 text-center text-zinc-500 dark:text-zinc-500 text-sm font-medium cursor-help;
+  }
+
+  .section-label-tiny {
+    @apply font-mono text-[10px] text-zinc-500 dark:text-zinc-500 uppercase tracking-wider mb-2;
+  }
+
+  .section-label-tracked {
+    @apply text-xs leading-4 tracking-[0.2em] text-zinc-500 border-b border-zinc-200 dark:border-zinc-800/30 pb-1 mb-4;
+  }
+
+  .verification-box {
+    @apply border-l-4 border-zinc-300 dark:border-zinc-700 pl-4 space-y-4;
+  }
+
+  .gear-card-container {
+    @apply p-8 max-w-md w-full shadow-lg mb-8 overflow-hidden bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl;
+  }
+
+  .link-blue-underline {
+    @apply inline text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-200 underline underline-offset-2;
+  }
+
+  .link-blue-simple {
+    @apply text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 break-all;
+  }
+
+  .link-secondary-block {
+    @apply text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 block;
+  }
+
+  .sticky-label-header {
+    @apply font-mono text-xs text-zinc-500 dark:text-zinc-500 uppercase tracking-wider mb-2 sticky top-0 bg-white dark:bg-zinc-950 py-1;
+  }
+
+  .link-mono-hover {
+    @apply font-mono text-xs text-zinc-500 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors;
+  }
+
+  .input-text {
+    @apply w-full px-4 py-2 rounded-lg border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100;
+  }
+
+  .btn-drag {
+    @apply inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg transition-colors cursor-move;
+  }
+
+  .debug-grid-sidebar {
+    @apply hidden md:block fixed left-0 top-0 bottom-0 w-[180px] border-r border-green-400 opacity-30;
+  }
+
+  .metadata-bar-scrollable {
+    @apply hidden sm:flex sm:items-center sm:gap-1 overflow-x-auto font-mono text-[10px] text-muted;
+  }
+
+  .grid-post-nav {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-4 px-4 md:px-6 py-6 border-t border-zinc-200 dark:border-zinc-800;
+  }
+
+  .grid-gear-responsive {
+    @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2;
+  }
+
+  .simple-mode-header {
+    @apply flex justify-between items-center font-mono text-xs text-zinc-500 uppercase tracking-widest tabular-nums px-4 py-4;
+  }
+
+  .gear-footer-date {
+    @apply flex justify-end text-[9px] font-mono text-zinc-600 pt-2 border-t border-zinc-800;
+  }
+
+  .link-code-block {
+    @apply hover:underline text-sm bg-zinc-50 dark:bg-transparent font-mono block px-2 py-1 rounded;
+  }
+
+  .stats-grid-responsive {
+    @apply grid md:gap-4 lg:gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 overflow-hidden pr-4 md:pr-8;
+  }
+
+  .section-header-mono {
+    @apply font-mono text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-wider font-semibold mt-8 mb-4 first:mt-0;
+  }
+
+  .select-dropdown-arrow {
+    @apply absolute right-2 top-1/2 -translate-y-1/2 text-[8px] text-muted pointer-events-none;
+  }
+
+  .card-title-group-hover {
+    @apply font-serif text-base font-normal text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-400 transition-colors line-clamp-2;
+  }
+
+  .link-arrow-hover {
+    @apply mono-xs text-zinc-400 dark:text-zinc-600 opacity-0 group-hover:opacity-100 transition-opacity;
+  }
+
+  .nav-link-sm {
+    @apply text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-700 dark:group-hover:text-zinc-300;
+  }
+
+  .gear-img-square {
+    @apply w-48 h-48 rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700;
+  }
+
+  .label-tracked-sm {
+    @apply text-xs font-light uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400 mb-4;
+  }
+
+  .label-tracked-md {
+    @apply text-sm font-light text-zinc-900 dark:text-zinc-100 mb-4 uppercase tracking-widest;
+  }
+
+  .btn-inline-flex {
+    @apply inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-sm font-medium rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors;
+  }
+
+  .link-underline-hover {
+    @apply hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors underline underline-offset-2;
+  }
+
+  .row-bordered {
+    @apply flex justify-between py-1 border-b border-zinc-100 dark:border-zinc-800 last:border-b-0 min-w-0;
+  }
+
+  .input-numeric {
+    @apply w-[4.5rem] py-1 px-2 bg-transparent border border-zinc-200 dark:border-zinc-800 rounded text-sm focus:outline-none focus:ring-1 focus:ring-zinc-400 dark:focus:ring-zinc-600 text-zinc-600 dark:text-zinc-400 placeholder-zinc-400 dark:placeholder-zinc-600 transition-all duration-200;
+  }
+
+  .card-hover-group {
+    @apply hover:bg-zinc-50 dark:hover:bg-zinc-900/50 transition-colors rounded-lg p-4 -m-4;
+  }
+
+  .waffle-grid {
+    @apply grid w-full border border-zinc-200/20 dark:border-zinc-800/50 p-2 rounded-sm;
+  }
+
+  .footer-fixed {
+    @apply fixed bottom-0 left-0 right-0 border-t border-zinc-200 dark:border-zinc-800 p-4 z-50;
+  }
+
+  .link-mono-hover-block {
+    @apply block text-sm font-mono transition-colors-base hover:text-zinc-900 dark:hover:text-zinc-100 no-underline;
+  }
+
+  /* LAYOUT */
+  .layout-base {
+    @apply w-full min-h-screen bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100;
+  }
+
+  .header-mobile-sticky {
+    @apply fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-200/20 dark:border-zinc-800/20 md:hidden;
+  }
+
+  .sidebar-sticky {
+    @apply sticky min-w-[180px] h-auto max-h-screen top-0 left-0 z-50 font-mono overflow-auto hidden md:block;
+  }
+
+  .footer-sidebar {
+    @apply px-8 mt-auto pt-8 opacity-60 text-xs text-zinc-500 dark:text-zinc-400 hidden md:block;
+  }
+
+  /* NAV LINKS */
+  .nav-pill {
+    @apply flex-shrink-0 px-4 py-1.5 text-sm font-medium rounded-full transition-colors-base text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/50;
+  }
+
+  .nav-pill-simple {
+    @apply flex-shrink-0 px-4 py-1.5 text-sm font-medium text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 rounded-full transition-all duration-200;
+  }
+
+  .nav-pill-hover {
+    @apply px-4 py-1.5 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 rounded-full transition-all duration-200;
+  }
+
+  /* STATS & COMPONENTS */
+  .stats-section-title-hover {
+    @apply transition-colors group-hover:text-zinc-600 dark:group-hover:text-zinc-400;
+  }
+
+  .stat-footer-dotted {
+    @apply border-b border-dotted border-zinc-300 dark:border-zinc-700 py-1 transition-all duration-200;
+  }
+
+  .tooltip-slide-up {
+    @apply px-2 pb-4 opacity-0 group-hover:opacity-100 transition-all transform translate-y-1 group-hover:translate-y-0;
+  }
+
+  .metadata-item-error {
+    @apply py-1 flex-shrink-0 whitespace-nowrap text-red-500 dark:text-red-400;
+  }
+
+  .link-mono-muted {
+    @apply block text-sm font-mono transition-colors-base hover:text-zinc-900 dark:hover:text-zinc-100 no-underline opacity-60;
+  }
+
+  .nav-item-hover {
+    @apply block -mx-4 px-4 py-2 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors duration-150 min-h-[48px];
+  }
+
+  .footer-fixed-blur {
+    @apply backdrop-blur-sm fixed bottom-0 left-0 right-0 border-t border-zinc-200 dark:border-zinc-800 p-4 z-50;
+  }
+
+  .img-cover-hover {
+    @apply w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity;
+  }
+
+  .note-box {
+    @apply text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed font-mono italic bg-zinc-50/50 dark:bg-zinc-900/50 p-2 rounded;
+  }
+
+  .link-uppercase-tiny {
+    @apply text-xs text-muted hover:text-primary transition-colors uppercase tracking-widest;
+  }
+
+  .label-mono-sm {
+    @apply text-sm tracking-widest text-zinc-500 uppercase font-mono transition-colors duration-200;
+  }
+
+  .badge-orange-hover {
+    @apply text-[10px] font-mono uppercase tracking-wider text-orange-600/70 hover:text-orange-500 hover:bg-orange-500/10 px-1.5 py-0.5 rounded transition-all inline-block;
+  }
+
+  .btn-filter {
+    @apply shrink-0 py-1 px-2.5 bg-zinc-100 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 rounded hover:bg-zinc-200 dark:hover:bg-zinc-800 hover:text-zinc-700 dark:hover:text-zinc-300 focus:outline-none focus:ring-1 focus:ring-zinc-400 text-sm transition-all duration-200 flex items-center justify-center whitespace-nowrap;
+  }
+
+  .row-hover-gap {
+    @apply flex items-baseline justify-between gap-2 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 -mx-1 px-1;
+  }
+
+  .gradient-fade-bottom {
+    @apply absolute bottom-0 left-0 right-0 h-10 flex items-end justify-center pb-2 bg-gradient-to-t from-white dark:from-zinc-900 to-transparent;
+  }
+
+  .input-full {
+    @apply w-full min-w-0 py-1 px-2 bg-transparent border border-zinc-200 dark:border-zinc-800 rounded text-sm focus:outline-none focus:ring-1 focus:ring-zinc-400 dark:focus:ring-zinc-600 text-zinc-600 dark:text-zinc-400 placeholder-zinc-400 dark:placeholder-zinc-600 transition-all duration-200;
+  }
+
+  .icon-muted-hover {
+    @apply text-zinc-300 dark:text-zinc-700 group-hover:text-zinc-500 dark:group-hover:text-zinc-400 transition-colors flex-shrink-0 mt-0.5;
+  }
+
+  .card-bordered-hover {
+    @apply block p-4 rounded-lg border border-zinc-200 dark:border-zinc-700 hover:border-zinc-300 dark:hover:border-zinc-600 transition-all duration-200 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 no-underline;
+  }
+
+  .color-swatch-lg {
+    @apply flex-shrink-0 w-20 h-20 border rounded-lg cursor-pointer flex flex-col items-center justify-center text-xs font-mono transition-all duration-200;
+  }
+
+  .color-swatch-lg-blur {
+    @apply backdrop-blur-xl flex-shrink-0 w-20 h-20 border rounded-lg cursor-pointer flex flex-col items-center justify-center text-xs font-mono transition-all duration-200;
+  }
+
+  .row-hover-xs {
+    @apply flex justify-between items-start text-xs gap-4 hover:bg-zinc-100 dark:hover:bg-zinc-800 -mx-2 px-2 py-1 rounded transition-colors;
+  }
+
+  .row-hover-xs-centered {
+    @apply flex justify-between items-center text-xs gap-3 hover:bg-zinc-100 dark:hover:bg-zinc-800 -mx-2 px-2 py-1 rounded transition-colors;
+  }
+
+  .tooltip-custom {
+    @apply absolute z-10 bg-white dark:bg-zinc-800 p-2 rounded shadow-md text-xs;
+  }
+
+  /* Card patterns */
+  .card-link {
+    @apply block p-4 rounded-lg border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors;
+  }
+
+  .card-title {
+    @apply font-serif text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-400;
+  }
+
+  /* Table headers */
+  .table-header-sm {
+    @apply px-4 py-4 text-left text-xs font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-widest;
+  }
+
+  /* Link variants */
+  .link-blue {
+    @apply text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors;
+  }
+
+  /* Duplicate definitions removed - see lines 643-645 (.link-underline-hover), 475-477 (.btn-secondary), 750-752 (.btn-filter) */
+
+  /* Tag styles */
+  .tag-small {
+    @apply px-2 py-1 text-xs font-mono uppercase tracking-[0.2em] border border-zinc-300 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors no-underline;
+  }
+
+  .tag-badge {
+    @apply text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors bg-zinc-200 dark:bg-zinc-800 rounded-md px-2 py-1;
+  }
+
+  /* Input variants */
+  .input-sm {
+    @apply w-full px-2 py-1 text-xs border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 font-mono focus:border-zinc-900 dark:focus:border-zinc-100 outline-none;
+  }
+
+  /* Section headers */
+  .section-label-sticky {
+    @apply font-mono text-xs text-zinc-500 dark:text-zinc-500 uppercase tracking-wider mb-2 sticky top-0 bg-white dark:bg-zinc-950 py-1;
+  }
+
+  /* Title variants */
+  .title-link {
+    @apply font-serif text-xl md:text-2xl font-normal text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors duration-200 tracking-tight;
+  }
+
+  .title-card {
+    @apply text-sm font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-700 dark:group-hover:text-zinc-300 truncate;
+  }
+}

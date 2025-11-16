@@ -11,7 +11,7 @@
       <img
         :src="mediaUrl"
         :alt="displayTitle"
-        class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+        class="img-cover-hover"
         loading="lazy"
       />
       <div

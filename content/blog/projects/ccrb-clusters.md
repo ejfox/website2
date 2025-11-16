@@ -1,9 +1,9 @@
 ---
-title: "Clusters of NYPD Misconduct"
+title: 'Clusters of NYPD Misconduct'
 date: 2021-06-15T00:00:00-04:00
 modified: 2025-08-26T15:52:56-04:00
 url: https://gothamist.com/news/mapping-clusters-nypd-officers-repeatedly-accused-misconduct
-tech: ["Neo4j", "SQLite", "Gephi", "Network Analysis", "Cypher"]
+tech: ['Neo4j', 'SQLite', 'Gephi', 'Network Analysis', 'Cypher']
 featured: true
 state: deployed
 aiInvolvement: human-only

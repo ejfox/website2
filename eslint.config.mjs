@@ -1,5 +1,6 @@
 // @ts-check
 import { createConfigForNuxt } from '@nuxt/eslint-config/flat'
+import eslintPluginPrettier from 'eslint-plugin-prettier/recommended'
 
 export default createConfigForNuxt({
   features: {
@@ -7,13 +8,50 @@ export default createConfigForNuxt({
     stylistic: false
   }
 }).append(
+  eslintPluginPrettier,
   // Your custom configs here
   {
     rules: {
+      // Prettier integration
+      'prettier/prettier': [
+        'error',
+        {
+          printWidth: 80,
+          singleQuote: true,
+          semi: false,
+          trailingComma: 'none'
+        }
+      ],
+
+      // Line length enforcement
+      'max-len': [
+        'warn',
+        {
+          code: 80,
+          tabWidth: 2,
+          ignoreUrls: true,
+          ignoreStrings: true,
+          ignoreTemplateLiterals: true,
+          ignoreRegExpLiterals: true,
+          ignoreComments: false
+        }
+      ],
+
       // Vue-specific rules
       'vue/multi-word-component-names': 'off',
       'vue/no-v-html': 'warn',
       'vue/no-multiple-template-root': 'off', // Vue 3 supports multiple roots
+      'vue/max-len': [
+        'warn',
+        {
+          code: 80,
+          template: 80,
+          tabWidth: 2,
+          ignoreComments: false,
+          ignoreUrls: true,
+          ignoreStrings: true
+        }
+      ],
 
       // Lifecycle rules
       'vue/no-lifecycle-after-await': 'error',
@@ -21,10 +59,13 @@ export default createConfigForNuxt({
 
       // TypeScript
       '@typescript-eslint/no-explicit-any': 'warn',
-      '@typescript-eslint/no-unused-vars': ['warn', {
-        argsIgnorePattern: '^_',
-        varsIgnorePattern: '^_'
-      }]
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_'
+        }
+      ]
     }
   }
 )

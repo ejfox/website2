@@ -5,8 +5,8 @@
  * Run `node scripts/calibration-analysis.mjs` to regenerate the analysis
  */
 
-import { readFile } from 'fs/promises'
-import { join } from 'path'
+import { readFile } from 'node:fs/promises'
+import { join } from 'node:path'
 
 export default defineEventHandler(async (event) => {
   try {

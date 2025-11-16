@@ -163,17 +163,17 @@ p,
 
 /* Project Components */
 .project-grid {
-  @apply grid grid-cols-12 gap-4 transition-all duration-300 ease-out scroll-mt-8;
+  @apply grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 transition-all duration-300 ease-out scroll-mt-8;
   --stagger-delay: 0ms;
   animation-delay: var(--stagger-delay);
 }
 
 .project-content {
-  @apply col-span-10 pl-0;
+  @apply col-span-1 md:col-span-8 pl-0;
 }
 
 .project-meta {
-  @apply col-span-2 pl-0 text-right;
+  @apply col-span-1 md:col-span-4 pl-0 text-left md:text-right flex flex-col items-start md:items-end;
 }
 
 .project-title {

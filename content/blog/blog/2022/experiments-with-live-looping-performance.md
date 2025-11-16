@@ -12,14 +12,15 @@ tags:
   - experiments
   - dj
 ---
+
 ## Experiments with Live Looping
 
 Performing electronic music with loops is a technique known as live looping. It has been used for many years by a variety of different artists and it has been used on stage and in recording studios.
 
 This article aims to introduce the reader to the techniques used in live looping and to describe what a live looping performer needs to know in order to do perform effectively.
 
->To program a drumbeat is to align an external rhythmic device to an individual’s biorhythm.
->Saul Williams [Williams-The Dead Emcee Scrolls](Williams-The%20Dead%20Emcee%20Scrolls.md)
+> To program a drumbeat is to align an external rhythmic device to an individual’s biorhythm.
+> Saul Williams [Williams-The Dead Emcee Scrolls](Williams-The%20Dead%20Emcee%20Scrolls.md)
 
 See also [blog/2019/generative-music-iteratio](blog/2019/generative-music-iteratio)n]]
 
@@ -40,6 +41,7 @@ Keep building, and then remove some elements, build some tension, and then sudde
 <iframe width="560" height="315" src="https://www.youtube.com/embed/w6lgz35LJTk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Artists who live loop
+
 - Animal Collective
 - Marc Rebillet
 - Reggie Watts
@@ -49,6 +51,7 @@ Keep building, and then remove some elements, build some tension, and then sudde
 - Andrew Bird
 
 ### Core principles
+
 #### Tempo sync
 
 To get a satisfying flow while performing live loops, the loops in the rig have to be at the same tempo. This is a complex task, because it involves connecting some gear using MIDI, while other gear doesn't even have a MIDI in.
@@ -74,11 +77,12 @@ When performing with a number of different devices, there will be some degree of
 <iframe width="560" height="315" src="https://www.youtube.com/embed/n0VJ9kbxn5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Live Looping Pitfalls
+
 #### Too Repetitive
 
 If you play the same loop over and over again, the performance will become boring.
 
-The solution is to add new loops to the mix, and to remove old loops. There should almost always be *something* changing at any point in time.
+The solution is to add new loops to the mix, and to remove old loops. There should almost always be _something_ changing at any point in time.
 
 #### Losing sync
 
@@ -97,6 +101,7 @@ If there are not enough loops in the mix, the performance will sound empty.
 If there are not enough sounds, it gets boring quickly. Having a library of diverse instruments available keeps things sounding fresh.
 
 ### Equipment
+
 #### Roland TR-8 (Drums)
 
 The TR-8 is a drum machine and sequencing interface that emulates the sound and feel of the classic TR-808 and TR-909. It can be used for triggered live samples or as a percussion instrument in a live setting.

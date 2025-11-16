@@ -1,7 +1,7 @@
 // Markdown → HTML Processing Pipeline
-import { promises as fs } from 'fs'
-import path from 'path'
-import { fileURLToPath } from 'url'
+import { promises as fs } from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
@@ -35,7 +35,9 @@ import { backupProcessedContent } from './utils/backup.mjs'
 dotenv.config()
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const SOURCE_DIR = process.env.OBSIDIAN_VAULT_PATH || '/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/'
+const SOURCE_DIR =
+  process.env.OBSIDIAN_VAULT_PATH ||
+  '/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/'
 
 const paths = {
   contentDir: config.dirs.content,
@@ -51,7 +53,10 @@ const highlighter = await shiki.createHighlighter({
 
 const formatTitle = (filename) => {
   const baseName = filename.split('/').pop()
-  return baseName.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+  return baseName
+    .split('-')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
 }
 
 const normalizeSlug = (slug) => {
@@ -73,7 +78,8 @@ const processor = unified()
   .use(rehypePrettyCode, {
     theme: JSON.parse(await fs.readFile('./themes/ayu-mirage.json', 'utf-8')),
     onVisitLine(node) {
-      if (node.children.length === 0) node.children = [{ type: 'text', value: ' ' }]
+      if (node.children.length === 0)
+        node.children = [{ type: 'text', value: ' ' }]
     },
     onVisitHighlightedLine(node) {
       node.properties.className.push('highlighted')
@@ -82,7 +88,9 @@ const processor = unified()
       node.properties.className = ['word']
     },
     highlighter,
-    transformers: [transformerCopyButton({ visibility: 'always', feedbackDuration: 3000 })]
+    transformers: [
+      transformerCopyButton({ visibility: 'always', feedbackDuration: 3000 })
+    ]
   })
   // .use(rehypeMermaid, { strategy: 'inline-svg' }) // DELETED - 64MB bloat
   .use(rehypeSlug)
@@ -112,19 +120,22 @@ async function processMarkdown(content, filePath) {
 
     let html = processor.stringify(result)
 
-    const extractedTitle = frontmatter.title || firstHeading || formatTitle(path.basename(filePath, '.md'))
+    const extractedTitle =
+      frontmatter.title ||
+      firstHeading ||
+      formatTitle(path.basename(filePath, '.md'))
 
     // Extract detailed image stats
     const imageMatches = markdownContent.match(/!\[.*?\]\(.*?\)/g) || []
-    const imageStats = imageMatches.map(img => {
+    const imageStats = imageMatches.map((img) => {
       const urlMatch = img.match(/\(([^)]+)\)/)
       if (urlMatch && urlMatch[1].includes('cloudinary')) {
         const widthMatch = urlMatch[1].match(/w_(\d+)/)
         const heightMatch = urlMatch[1].match(/h_(\d+)/)
         return {
           hasCloudinary: true,
-          width: widthMatch ? parseInt(widthMatch[1]) : null,
-          height: heightMatch ? parseInt(heightMatch[1]) : null
+          width: widthMatch ? Number.parseInt(widthMatch[1]) : null,
+          height: heightMatch ? Number.parseInt(heightMatch[1]) : null
         }
       }
       return { hasCloudinary: false }
@@ -135,8 +146,8 @@ async function processMarkdown(content, filePath) {
       images: imageMatches.length,
       imageDetails: {
         total: imageMatches.length,
-        cloudinary: imageStats.filter(i => i.hasCloudinary).length,
-        withDimensions: imageStats.filter(i => i.width && i.height).length
+        cloudinary: imageStats.filter((i) => i.hasCloudinary).length,
+        withDimensions: imageStats.filter((i) => i.width && i.height).length
       },
       links: (markdownContent.match(/\[.*?\]\(.*?\)/g) || []).length,
       codeBlocks: (markdownContent.match(/```[\s\S]*?```/g) || []).length,
@@ -146,7 +157,9 @@ async function processMarkdown(content, filePath) {
       }, {})
     }
 
-    process.stdout.write(`\r${chalk.gray(`Processing: ${filename.padEnd(50)}`)}${Math.round((processStats.filesProcessed / processStats.totalFiles) * 100)}%`)
+    process.stdout.write(
+      `\r${chalk.gray(`Processing: ${filename.padEnd(50)}`)}${Math.round((processStats.filesProcessed / processStats.totalFiles) * 100)}%`
+    )
 
     const sourcePath = SOURCE_DIR ? path.relative(SOURCE_DIR, filePath) : null
     const sourceInfo = SOURCE_DIR ? { sourcePath, sourceDir: SOURCE_DIR } : {}
@@ -176,9 +189,18 @@ async function getFilesRecursively(dir) {
     entries.map(async (entry) => {
       const fullPath = path.join(dir, entry.name)
       if (entry.isDirectory()) {
-        if (entry.name === 'node_modules' || entry.name === '.git' || entry.name.startsWith('.')) return null
+        if (
+          entry.name === 'node_modules' ||
+          entry.name === '.git' ||
+          entry.name.startsWith('.')
+        )
+          return null
         return getFilesRecursively(fullPath)
-      } else if (entry.isFile() && entry.name.endsWith('.md') && !entry.name.startsWith('!')) {
+      } else if (
+        entry.isFile() &&
+        entry.name.endsWith('.md') &&
+        !entry.name.startsWith('!')
+      ) {
         return fullPath
       }
       return null
@@ -190,8 +212,10 @@ async function getFilesRecursively(dir) {
 const extractExternalLinks = (content) => {
   const urlRegex = /https?:\/\/[^\s)\]"<>`]+/g
   const urls = content.match(urlRegex) || []
-  const cleanedUrls = urls.map(url => url.replace(/[.,:;!?`>]+$/, ''))
-  const externalUrls = cleanedUrls.filter(url => !url.includes('res.cloudinary.com') && !url.includes('ejfox.com'))
+  const cleanedUrls = urls.map((url) => url.replace(/[.,:;!?`>]+$/, ''))
+  const externalUrls = cleanedUrls.filter(
+    (url) => !url.includes('res.cloudinary.com') && !url.includes('ejfox.com')
+  )
   return [...new Set(externalUrls)]
 }
 
@@ -205,10 +229,15 @@ async function generateExternalLinksCSV(allFiles) {
       if (filePath.includes('content/blog/reading/')) continue
       const content = await fs.readFile(filePath, 'utf8')
       const links = extractExternalLinks(content)
-      const slug = normalizeSlug(path.relative(paths.contentDir, filePath).replace(/\.md$/, ''))
+      const slug = normalizeSlug(
+        path.relative(paths.contentDir, filePath).replace(/\.md$/, '')
+      )
 
       links.forEach((link) => {
-        if (!link.includes('amazon.com') && !link.includes('m.media-amazon.com')) {
+        if (
+          !link.includes('amazon.com') &&
+          !link.includes('m.media-amazon.com')
+        ) {
           if (!linkToSources.has(link)) linkToSources.set(link, new Set())
           linkToSources.get(link).add(slug)
         }
@@ -224,10 +253,12 @@ async function generateExternalLinksCSV(allFiles) {
         csvRows.push(`${escapedUrl},"${sourcesString}"`)
       })
 
-    const csvPath = path.join(process.cwd(), 'external_links_final.csv')
+    const csvPath = path.join(process.cwd(), 'data/external_links_final.csv')
     await fs.writeFile(csvPath, csvRows.join('\n'))
 
-    spinner.succeed(`Extracted ${linkToSources.size} external links to external_links_final.csv`)
+    spinner.succeed(
+      `Extracted ${linkToSources.size} external links to data/external_links_final.csv`
+    )
     return Array.from(linkToSources.keys())
   } catch (error) {
     spinner.fail('Failed to extract external links')
@@ -237,33 +268,50 @@ async function generateExternalLinksCSV(allFiles) {
 }
 
 const printSummary = (files) => {
-  const stats = files.reduce((acc, file) => {
-    acc.totalWords += file.metadata.words || 0
-    acc.totalImages += file.metadata.images || 0
-    acc.cloudinaryImages += file.metadata.imageDetails?.cloudinary || 0
-    acc.imagesWithDimensions += file.metadata.imageDetails?.withDimensions || 0
-    acc.totalLinks += file.metadata.links || 0
-    acc.totalCodeBlocks += file.metadata.codeBlocks || 0
-    acc.h1 += file.metadata.headers?.h1 || 0
-    acc.h2 += file.metadata.headers?.h2 || 0
-    acc.h3 += file.metadata.headers?.h3 || 0
-    acc.byType[file.metadata.type] = (acc.byType[file.metadata.type] || 0) + 1
+  const stats = files.reduce(
+    (acc, file) => {
+      acc.totalWords += file.metadata.words || 0
+      acc.totalImages += file.metadata.images || 0
+      acc.cloudinaryImages += file.metadata.imageDetails?.cloudinary || 0
+      acc.imagesWithDimensions +=
+        file.metadata.imageDetails?.withDimensions || 0
+      acc.totalLinks += file.metadata.links || 0
+      acc.totalCodeBlocks += file.metadata.codeBlocks || 0
+      acc.h1 += file.metadata.headers?.h1 || 0
+      acc.h2 += file.metadata.headers?.h2 || 0
+      acc.h3 += file.metadata.headers?.h3 || 0
+      acc.byType[file.metadata.type] = (acc.byType[file.metadata.type] || 0) + 1
 
-    if (file.metadata?.tags && Array.isArray(file.metadata.tags)) {
-      file.metadata.tags.forEach(tag => acc.tags[tag] = (acc.tags[tag] || 0) + 1)
+      if (file.metadata?.tags && Array.isArray(file.metadata.tags)) {
+        file.metadata.tags.forEach(
+          (tag) => (acc.tags[tag] = (acc.tags[tag] || 0) + 1)
+        )
+      }
+
+      return acc
+    },
+    {
+      totalWords: 0,
+      totalImages: 0,
+      cloudinaryImages: 0,
+      imagesWithDimensions: 0,
+      totalLinks: 0,
+      totalCodeBlocks: 0,
+      h1: 0,
+      h2: 0,
+      h3: 0,
+      byType: {},
+      tags: {}
     }
-
-    return acc
-  }, {
-    totalWords: 0, totalImages: 0, cloudinaryImages: 0, imagesWithDimensions: 0, totalLinks: 0, totalCodeBlocks: 0,
-    h1: 0, h2: 0, h3: 0, byType: {}, tags: {}
-  })
+  )
 
   console.log('\n📊 Content Analysis')
   console.log('=================')
   console.log(`📝 Total Files: ${files.length}`)
   console.log(`📚 Total Words: ${stats.totalWords.toLocaleString()}`)
-  console.log(`🖼️  Total Images: ${stats.totalImages} (${stats.cloudinaryImages} optimized, ${stats.imagesWithDimensions} with dimensions)`)
+  console.log(
+    `🖼️  Total Images: ${stats.totalImages} (${stats.cloudinaryImages} optimized, ${stats.imagesWithDimensions} with dimensions)`
+  )
   console.log(`🔗 Total Links: ${stats.totalLinks}`)
   console.log(`💻 Code Blocks: ${stats.totalCodeBlocks}`)
 
@@ -291,12 +339,13 @@ const enhanceImageUrl = (url) => {
   // Extract dimensions from URL if present (e.g., w_1920,h_1080)
   const widthMatch = url.match(/w_(\d+)/)
   const heightMatch = url.match(/h_(\d+)/)
-  const width = widthMatch ? parseInt(widthMatch[1]) : null
-  const height = heightMatch ? parseInt(heightMatch[1]) : null
+  const width = widthMatch ? Number.parseInt(widthMatch[1]) : null
+  const height = heightMatch ? Number.parseInt(heightMatch[1]) : null
 
   return {
     src: `${base}c_scale,f_auto,q_auto:good,w_800/${path}`,
-    srcset: `${base}c_scale,f_auto,q_auto:good,w_400/${path} 400w, ${base}c_scale,f_auto,q_auto:good,w_800/${path} 800w, ${base}c_scale,f_auto,q_auto:good,w_1200/${path} 1200w`.trim(),
+    srcset:
+      `${base}c_scale,f_auto,q_auto:good,w_400/${path} 400w, ${base}c_scale,f_auto,q_auto:good,w_800/${path} 800w, ${base}c_scale,f_auto,q_auto:good,w_1200/${path} 1200w`.trim(),
     sizes: '(min-width: 768px) 80vw, 100vw',
     // Removed blur placeholder - user doesn't want blurred images
     // placeholder: `${base}c_scale,f_auto,q_1,w_20,e_blur:1000/${path}`,
@@ -325,13 +374,14 @@ function remarkEnhanceImages() {
           // Detect aspect ratio from dimensions
           if (enhanced.width && enhanced.height) {
             const ratio = enhanced.width / enhanced.height
-            node.data.hProperties['data-dimensions'] = `${enhanced.width}×${enhanced.height}`
+            node.data.hProperties['data-dimensions'] =
+              `${enhanced.width}×${enhanced.height}`
 
             if (Math.abs(ratio - 1) < 0.1) {
               classes.push('aspect-square')
-            } else if (Math.abs(ratio - 16/9) < 0.1) {
+            } else if (Math.abs(ratio - 16 / 9) < 0.1) {
               classes.push('aspect-video')
-            } else if (Math.abs(ratio - 3/4) < 0.1) {
+            } else if (Math.abs(ratio - 3 / 4) < 0.1) {
               classes.push('aspect-[3/4]')
             }
           }
@@ -375,15 +425,25 @@ async function processAllFiles() {
     const results = []
     for (const filePath of allFiles) {
       try {
-        const result = await processMarkdown(await fs.readFile(filePath, 'utf8'), filePath)
+        const result = await processMarkdown(
+          await fs.readFile(filePath, 'utf8'),
+          filePath
+        )
         const relativePath = path.relative(paths.contentDir, filePath)
 
-        process.stdout.write(`\r${chalk.gray(`Processing: ${path.basename(filePath).padEnd(40)}`)}${Math.round((processStats.filesProcessed / processStats.totalFiles) * 100)}%`)
+        process.stdout.write(
+          `\r${chalk.gray(`Processing: ${path.basename(filePath).padEnd(40)}`)}${Math.round((processStats.filesProcessed / processStats.totalFiles) * 100)}%`
+        )
 
         // Only write JSON files for non-draft content
         if (result.metadata?.draft !== true) {
-          const normalizedPath = normalizeSlug(relativePath.replace(/\.md$/, ''))
-          const outputPath = path.join(paths.outputDir, `${normalizedPath}.json`)
+          const normalizedPath = normalizeSlug(
+            relativePath.replace(/\.md$/, '')
+          )
+          const outputPath = path.join(
+            paths.outputDir,
+            `${normalizedPath}.json`
+          )
           await fs.mkdir(path.dirname(outputPath), { recursive: true })
           await fs.writeFile(outputPath, JSON.stringify(result, null, 2))
         }
@@ -399,13 +459,19 @@ async function processAllFiles() {
     printSummary(results)
 
     // Filter out draft posts from manifest
-    const nonDraftResults = results.filter(entry => entry.metadata?.draft !== true)
-    const nonDraftFiles = allFiles.filter((_, index) => results[index]?.metadata?.draft !== true)
+    const nonDraftResults = results.filter(
+      (entry) => entry.metadata?.draft !== true
+    )
+    const nonDraftFiles = allFiles.filter(
+      (_, index) => results[index]?.metadata?.draft !== true
+    )
 
     // Clean up orphaned processed files (files that exist in output but not in source)
     const currentSlugs = new Set()
-    allFiles.forEach(filePath => {
-      const slug = normalizeSlug(path.relative(paths.contentDir, filePath).replace(/\.md$/, ''))
+    allFiles.forEach((filePath) => {
+      const slug = normalizeSlug(
+        path.relative(paths.contentDir, filePath).replace(/\.md$/, '')
+      )
       currentSlugs.add(slug)
     })
 
@@ -414,8 +480,11 @@ async function processAllFiles() {
     for (const outputFile of outputFiles) {
       const relativePath = path.relative(paths.outputDir, outputFile)
       const outputSlug = relativePath.replace(/\.json$/, '')
-      
-      if (!currentSlugs.has(outputSlug) && !relativePath.includes('manifest-lite.json')) {
+
+      if (
+        !currentSlugs.has(outputSlug) &&
+        !relativePath.includes('manifest-lite.json')
+      ) {
         try {
           await fs.unlink(outputFile)
           console.log(`🗑️  Removed orphaned processed file: ${relativePath}`)
@@ -433,7 +502,9 @@ async function processAllFiles() {
       delete cleanEntry.content
       delete cleanEntry.processedContent
 
-      const slug = normalizeSlug(path.relative(paths.contentDir, originalFilePath).replace(/\.md$/, ''))
+      const slug = normalizeSlug(
+        path.relative(paths.contentDir, originalFilePath).replace(/\.md$/, '')
+      )
       const type = cleanEntry.metadata?.type || getPostType(slug)
 
       return {
@@ -457,9 +528,9 @@ async function processAllFiles() {
 
     // Extract tags with usage counts from content and write to public/content-tags.json
     const tagUsage = {}
-    nonDraftResults.forEach(result => {
+    nonDraftResults.forEach((result) => {
       if (result.metadata?.tags && Array.isArray(result.metadata.tags)) {
-        result.metadata.tags.forEach(tag => {
+        result.metadata.tags.forEach((tag) => {
           if (typeof tag === 'string' && tag.trim()) {
             const cleanTag = tag.trim()
             tagUsage[cleanTag] = (tagUsage[cleanTag] || 0) + 1
@@ -467,11 +538,16 @@ async function processAllFiles() {
         })
       }
     })
-    
+
     if (Object.keys(tagUsage).length > 0) {
-      const contentTagsPath = path.join(process.cwd(), 'public/content-tags.json')
+      const contentTagsPath = path.join(
+        process.cwd(),
+        'public/content-tags.json'
+      )
       await fs.writeFile(contentTagsPath, JSON.stringify(tagUsage, null, 2))
-      console.log(`\n🏷️  Extracted ${Object.keys(tagUsage).length} unique content tags with usage counts to public/content-tags.json`)
+      console.log(
+        `\n🏷️  Extracted ${Object.keys(tagUsage).length} unique content tags with usage counts to public/content-tags.json`
+      )
     }
 
     return results

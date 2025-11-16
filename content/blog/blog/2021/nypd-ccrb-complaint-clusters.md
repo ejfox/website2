@@ -27,15 +27,15 @@ In the deaths of George Floyd and Eric Garner their killers had a documented his
 
 #### George Floyd
 
->Chauvin, who was fired, has said through his attorney that his handling of Floyd’s arrest was a reasonable use of authorized force. But he was the subject of at least **22 complaints or internal investigations during his more than 19 years at the department, only one of which resulted in discipline**. These new interviews show not only that he may have used excessive force in the past, but that he had used startlingly similar techniques.
->['That could have been me': The people Derek Chauvin choked before George Floyd](https://www.mprnews.org/story/2021/02/05/that-could-have-been-me-the-people-derek-chauvin-choked-before-george-floyd)
+> Chauvin, who was fired, has said through his attorney that his handling of Floyd’s arrest was a reasonable use of authorized force. But he was the subject of at least **22 complaints or internal investigations during his more than 19 years at the department, only one of which resulted in discipline**. These new interviews show not only that he may have used excessive force in the past, but that he had used startlingly similar techniques.
+> ['That could have been me': The people Derek Chauvin choked before George Floyd](https://www.mprnews.org/story/2021/02/05/that-could-have-been-me-the-people-derek-chauvin-choked-before-george-floyd)
 
 The officer convicted of murdering George Floyd had at least 22 complaints against him. The officer who put Eric Garner in a chokehold and killed him had [7 complaints](https://www.scribd.com/document/342591738/D-Pantaleo-Alleged-CCRB-File) [filed against him](https://gothamist.com/news/newly-leaked-documents-suggests-cop-who-killed-eric-garner-had-history-of-misconduct).
 
 #### Eric Garner
 
->Before he put Garner in the chokehold, the records show, he had _seven disciplinary complaints and 14 individual allegations_ lodged against him. Four of those allegations were substantiated by an independent review board.
->[The disturbing secret history of the NYPD officer who killed Eric Garner](https://archive.thinkprogress.org/daniel-pantaleo-records-75833e6168f3/)
+> Before he put Garner in the chokehold, the records show, he had _seven disciplinary complaints and 14 individual allegations_ lodged against him. Four of those allegations were substantiated by an independent review board.
+> [The disturbing secret history of the NYPD officer who killed Eric Garner](https://archive.thinkprogress.org/daniel-pantaleo-records-75833e6168f3/)
 
 Of the 14 individual allegations against Garner's killer, 5 are for force: "hit against inanimate object", "physical force", and a single complaint in 2014 that would foreshadow the behavior that would eventually end the Officer's career: "Force - Chokehold".
 
@@ -445,8 +445,8 @@ In the reporting that George Joseph did for Gothamist/WNYC, he found that a numb
 
 He looked at another large node in the network, Adnan Radoncic:
 
->Atunbi asserted that Radoncic was a catalyst for a group assault on the street that day.
->“As soon as he grabbed me, all the officers was hands on,” he said. “It’s like they just followed his lead.”
+> Atunbi asserted that Radoncic was a catalyst for a group assault on the street that day.
+> “As soon as he grabbed me, all the officers was hands on,” he said. “It’s like they just followed his lead.”
 
 ### Potential Next Steps
 
@@ -479,9 +479,8 @@ There are a few different directions for further analysis that I didn't have tim
 I do freelance data exploration and visualization for clients who aren't evil. If you'd like to hire me to take a look at a dataset for you, just get in touch at <ejfox@ejfox.com>
 
 [^1]: The notes say, basically: these are complaints received in or after the year 2000. Cases that are mediated or were attempted to be mediated are excluded.
-[^2]:
 
-    OfficerAllegationHistory columns: <pre>
+[^2]: OfficerAllegationHistory columns: <pre>
 
     1: As Of Date
 
@@ -618,7 +617,7 @@ I do freelance data exploration and visualization for clients who aren't evil. I
     18: Close Date
 
     </pre>
-[^3]:
+    [^3]:
 
     I ran this in the CLI SQLite client to chop up the date string and re-write it in the way SQLite wants it:
 

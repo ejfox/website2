@@ -5,5 +5,5 @@ tags:
   - ai
   - tools
 ---
-## Exploring Cursor Rules and Smallbot
 
+## Exploring Cursor Rules and Smallbot

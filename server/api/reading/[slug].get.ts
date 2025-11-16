@@ -1,6 +1,6 @@
 import { defineEventHandler, getRouterParam, createError } from 'h3'
-import { readFile } from 'fs/promises'
-import path from 'path'
+import { readFile } from 'node:fs/promises'
+import path from 'node:path'
 
 export default defineEventHandler(async (event) => {
   const rawSlug = getRouterParam(event, 'slug')

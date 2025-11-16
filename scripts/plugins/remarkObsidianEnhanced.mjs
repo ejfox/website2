@@ -17,7 +17,10 @@ export function remarkObsidianEnhanced() {
 
     // Process expandable details using ??? syntax (Obsidian Admonition style)
     visit(tree, 'paragraph', (node, index, parent) => {
-      if (node.children[0]?.type === 'text' && node.children[0].value.startsWith('??? ')) {
+      if (
+        node.children[0]?.type === 'text' &&
+        node.children[0].value.startsWith('??? ')
+      ) {
         const firstLine = node.children[0].value
         const titleMatch = firstLine.match(/\?\?\? "([^"]+)"/)
 
@@ -80,7 +83,13 @@ export function remarkObsidianEnhanced() {
 
           // Replace original node(s) with details
           const nodesToReplace = nextIndex - index
-          parent.children.splice(index, nodesToReplace, detailsNode, contentWrapper, closeDetails)
+          parent.children.splice(
+            index,
+            nodesToReplace,
+            detailsNode,
+            contentWrapper,
+            closeDetails
+          )
 
           return [visit.SKIP, index + 3]
         }

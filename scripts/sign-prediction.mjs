@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-import { promises as fs } from 'fs'
-import { createHash } from 'crypto'
-import { execSync } from 'child_process'
+import { promises as fs } from 'node:fs'
+import { createHash } from 'node:crypto'
+import { execSync } from 'node:child_process'
 import matter from 'gray-matter'
-import path from 'path'
+import path from 'node:path'
 
 const filePath = process.argv[2]
 

@@ -28,9 +28,11 @@ export async function fetchWithTimeout(
     // Handle connection errors
     if (error instanceof Error) {
       // Convert ECONNRESET and similar errors to friendly messages
-      if (error.message.includes('ECONNRESET') ||
-          error.message.includes('ECONNREFUSED') ||
-          error.message.includes('ETIMEDOUT')) {
+      if (
+        error.message.includes('ECONNRESET') ||
+        error.message.includes('ECONNREFUSED') ||
+        error.message.includes('ETIMEDOUT')
+      ) {
         throw new Error(`Network error connecting to ${url}: ${error.message}`)
       }
     }
@@ -57,7 +59,10 @@ export async function fetchJSON<T = any>(
 
     return await response.json()
   } catch (error) {
-    console.error(`Failed to fetch ${url}:`, error instanceof Error ? error.message : error)
+    console.error(
+      `Failed to fetch ${url}:`,
+      error instanceof Error ? error.message : error
+    )
     return null
   }
 }

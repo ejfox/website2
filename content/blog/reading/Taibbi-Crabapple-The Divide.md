@@ -12,48 +12,61 @@ kindle-sync:
   bookImageUrl: 'https://m.media-amazon.com/images/I/913cJQHSz+L._SY160.jpg'
   highlightsCount: 11
 ---
+
 # The Divide
 
-* ISBN: 0812983637
+- ISBN: 0812983637
 
 ## Highlights
+
 > Bizarrely, for instance, we’ve become numb to the idea that rights aren’t absolute but are enjoyed on a kind of sliding scale. ^ref-47647
 
 ---
+
 > We have a profound hatred of the weak and the poor, and a corresponding groveling terror before the rich and successful, and we’re building a bureaucracy to match those feelings. ^ref-62191
 
 ---
+
 > Which defendant gets put in jail, and which one gets away with a fine? Which offender ends up with a criminal record, and which one gets to settle with the state without admitting wrongdoing? Which thief will pay restitution out of his own pocket, and which one will be allowed to have the company he works for pay the tab? Which neighborhoods have thousands of police roaming the streets, and which ones don’t have any at all? ^ref-55943
 
 ---
+
 > But no police anywhere were officially asked to weigh the collateral consequences of arrests for prostitution, stealing cars, assault, selling weed, jumping turnstiles, even the simple offense of being homeless. There’s no memo in the Justice Department that wonders aloud what happens to the families of those sorts of arrestees. Instead, the new trend in policing is and has been to aggressively no longer care about any of it. ^ref-16273
 
 ---
+
 > The architects of Collateral Consequences seemingly didn’t realize they were starting a revolution. They were accelerating a government-sponsored sorting of the entire population into arrestable and nonarrestable classes. ^ref-49206
 
 ---
+
 > The aide nicknamed Breuer “Jon Lovitz” because of his voice and “the overall impression that the guy was a pussy,” as he put it. When Breuer was appointed in Obama’s first term to head the Department of Justice’s Criminal Division, staffers on the Hill were shocked. “This is a corporate flack who was such a zero, you had twenty-five-year-olds in Congress who wouldn’t return his phone calls,” ^ref-1584
 
 ---
+
 > This meant the very lowest kind of offender in the illegal drug business, the retail consumer at the very bottom of the drug food chain, had received a far stiffer sentence than officials at HSBC who were hundreds of millions of dollars deep into the illegal drug business, not for any excusable reason but just to seek profits to pile on top of profits. ^ref-45026
 
 ---
+
 > Why couldn’t he be tougher? “Our goal here,” he said finally, “is not to destroy a major financial ^ref-20972
 
 ---
+
 > me to ^ref-29142
 
 ---
+
 > In high finance, a few arenas are subject to some light and transparency—regulated stock exchanges like the NYSE and the NASDAQ, for example, places fit for day traders and suburban retirees and other such PG-rated softies. But for the most part, high finance is a night game where anything goes. This is the legacy of a generation of brilliant lawyers who’ve turned Wall Street into a perfect black box, the industry surrounded by the legal equivalent of tinted windows. ^ref-37947
 
 ---
+
 > And then it headed into the late 2000s led by one of the most unlikable characters in American business, a man whose very name sounds like a thesaurus entry for “grasping, narcissistic creep”: Dick Fuld. Nicknamed “the Gorilla,” Fuld is a tall, cavern-eyed, hollow-cheeked bully who was famous for his quick-twitch meanness, his screaming intransigence, and his apparently congenital inability to blame himself for any problem. Fuld is the kind of person who would fall drunk down a spiral staircase and then sue the architect for building blurry steps. ^ref-9932
 
 ---
 
 ## Metadata
-* Author: [Matt Taibbi and Molly Crabapple](https://www.amazon.comundefined)
-* ASIN: B00EBRUB02
-* ISBN: 0812983637
-* Reference: https://www.amazon.com/dp/B00EBRUB02
-* [Kindle link](kindle://book?action=open&asin=B00EBRUB02)
+
+- Author: [Matt Taibbi and Molly Crabapple](https://www.amazon.comundefined)
+- ASIN: B00EBRUB02
+- ISBN: 0812983637
+- Reference: https://www.amazon.com/dp/B00EBRUB02
+- [Kindle link](kindle://book?action=open&asin=B00EBRUB02)

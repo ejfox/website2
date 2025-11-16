@@ -1,5 +1,5 @@
-import { createHash } from 'crypto'
-import path from 'path'
+import { createHash } from 'node:crypto'
+import path from 'node:path'
 import chalk from 'chalk'
 
 // Constants
@@ -375,7 +375,7 @@ function getValidDate(date, filePath = '') {
   }
 
   const parsedDate = new Date(date)
-  if (isNaN(parsedDate.getTime())) {
+  if (Number.isNaN(parsedDate.getTime())) {
     console.warn(`Invalid date in ${filePath}: ${date}`)
     return new Date()
   }

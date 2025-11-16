@@ -30,7 +30,10 @@ export default defineNuxtConfig({
         // IndieAuth token endpoint
         { rel: 'token_endpoint', href: 'https://tokens.indieauth.com/token' },
         // Webmention endpoint
-        { rel: 'webmention', href: 'https://webmention.io/ejfox.com/webmention' }
+        {
+          rel: 'webmention',
+          href: 'https://webmention.io/ejfox.com/webmention'
+        }
       ]
     }
   },
@@ -83,9 +86,9 @@ export default defineNuxtConfig({
     compressPublicAssets: false, // Let reverse proxy handle compression
     // Copy content directory to .output for API routes to access
     hooks: {
-      'compiled': async (nitro) => {
-        const { promises: fs } = await import('fs')
-        const path = await import('path')
+      compiled: async (nitro) => {
+        const { promises: fs } = await import('node:fs')
+        const path = await import('node:path')
 
         const source = path.join(nitro.options.rootDir, 'content')
         const dest = path.join(nitro.options.output.dir, 'content')

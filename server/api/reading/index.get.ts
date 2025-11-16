@@ -1,13 +1,13 @@
 import { defineEventHandler } from 'h3'
-import { readdir, readFile } from 'fs/promises'
-import path from 'path'
+import { readdir, readFile } from 'node:fs/promises'
+import path from 'node:path'
 
 // Helper function to extract random highlight from book content
 function extractRandomHighlight(htmlContent) {
   if (!htmlContent) return null
 
   // Find all paragraphs that contain highlights (have location links)
-  const highlightRegex = /<p class="mb-4">([^<]+)(?:.*?)— location:/g
+  const highlightRegex = /<p class="mb-4">([^<]+).*?— location:/g
   const highlights = []
   let match
 

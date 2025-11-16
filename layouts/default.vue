@@ -1,15 +1,9 @@
 <template>
-  <div
-    id="app-container"
-    class="w-full min-h-screen bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100"
-  >
+  <div id="app-container" class="layout-base">
     <NuxtLoadingIndicator color="#999999" :height="1" />
     <section class="flex flex-col md:flex-row min-h-screen relative">
       <!-- Mobile navigation - 2025 best practices: Tab bar pattern -->
-      <nav
-        v-if="!isStatsSimple"
-        class="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-200/20 dark:border-zinc-800/20 md:hidden"
-      >
+      <nav v-if="!isStatsSimple" class="header-mobile-sticky">
         <!-- Top bar with branding -->
         <div class="flex items-center justify-between px-4 h-12">
           <a
@@ -34,7 +28,7 @@
               :key="item.href"
               :href="item.href"
               role="tab"
-              class="flex-shrink-0 px-4 py-1.5 text-sm font-medium rounded-full transition-colors-base text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/50"
+              class="nav-pill"
               >{{ item.label }}</a
             >
 
@@ -43,7 +37,7 @@
               :aria-expanded="mobileMenuOpen"
               aria-controls="secondary-nav-menu"
               aria-label="Show more navigation options"
-              class="flex-shrink-0 px-4 py-1.5 text-sm font-medium text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 rounded-full transition-all duration-200"
+              class="nav-pill-simple"
               :class="
                 mobileMenuOpen
                   ? 'bg-zinc-100 dark:bg-zinc-800'
@@ -76,7 +70,7 @@
                 :key="item.href"
                 :href="item.href"
                 :target="item.external ? '_blank' : undefined"
-                class="px-4 py-1.5 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 rounded-full transition-all duration-200"
+                class="nav-pill-hover"
                 @click="closeMobileMenu"
                 >{{ item.label }}{{ item.icon ? ` ${item.icon}` : '' }}</a
               >
@@ -86,9 +80,7 @@
       </nav>
 
       <!-- Desktop navigation - DELETED COMPLEX SSR-BREAKING LINKS -->
-      <nav
-        class="sticky min-w-[180px] h-auto max-h-screen top-0 left-0 z-50 monospace overflow-auto hidden md:block"
-      >
+      <nav class="sidebar-sticky">
         <div
           class="container mx-auto md:flex md:flex-col items-start w-full max-h-screen"
         >
@@ -124,9 +116,7 @@
 
             <!-- Calendar TOC removed - causing hydration mismatch -->
           </div>
-          <div
-            class="px-8 mt-auto pt-8 opacity-60 text-xs text-zinc-500 dark:text-zinc-400 hidden md:block"
-          >
+          <div class="footer-sidebar">
             <a href="/pgp.txt"
               >PGP: <span class="font-mono">E207 8E65 3FE3 89CD</span></a
             >

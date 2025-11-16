@@ -28,25 +28,25 @@ In this conversation, we take a humorous look at the world of machine learning e
 
 Sacred Incantations To Sound Smart
 
-*When Model Too Big*
+_When Model Too Big_
 
 "Ah, have you considered quantization? The 4-bit inference results were quite promising in my experiments…"
 
 (you just want it to run on your laptop)
 
-*When Model Too Slow*
+_When Model Too Slow_
 
 "The attention mechanism bottleneck suggests we might benefit from Flash Attention…"
 
 (you have no idea what attention is, you just want speed)
 
-*When Asked About Training*
+_When Asked About Training_
 
 "I prefer parameter-efficient fine-tuning approaches. LoRA gives us comparable results with minimal compute overhead…"
 
 (you're too broke to train full models)
 
-*When Model Bad*
+_When Model Bad_
 
 "Seems like a classic case of catastrophic forgetting. Perhaps we should revisit the learning rate schedule…"
 
@@ -82,11 +82,11 @@ When deeply questioned:
 
 (they probably haven't)
 
-*adjusts mic, takes long drag*
+_adjusts mic, takes long drag_
 
 ## Comedy Hour: Things We All Pretend To Understand
 
-*Thanks for coming out tonight folks. Let's talk about the REAL meanings behind ML buzzwords…*
+_Thanks for coming out tonight folks. Let's talk about the REAL meanings behind ML buzzwords…_
 
 ### "Attention Mechanisms"
 
@@ -96,7 +96,7 @@ It's like your car's check engine light - we're all pretending we know what it m
 
 ### "Hyperparameter Tuning"
 
-*in researcher voice* "Yes, we performed extensive hyperparameter optimization…"
+_in researcher voice_ "Yes, we performed extensive hyperparameter optimization…"
 
 Translation: We randomly tried shit until something worked, then pretended we meant to do that.
 
@@ -108,13 +108,13 @@ This is just fucking around and finding out, but make it science.
 
 "What happens if I remove this layer?"
 
-*everything breaks*
+_everything breaks_
 
 "Fascinating, write that down."
 
 ### "Reproducibility Crisis"
 
-*wheeze laugh*
+_wheeze laugh_
 
 The biggest inside joke in ML. Everyone's paper: "Our results are fully reproducible!"
 
@@ -124,35 +124,35 @@ Reality: Even THEY can't reproduce it anymore because they forgot to save a conf
 
 Translation: We cherry-picked one specific metric where we beat everyone else by 0.01%, and we're gonna milk that for all it's worth.
 
-*takes another drag*
+_takes another drag_
 
 Want me to keep going? I got material for days about what "efficient inference" really means, or why everyone's suddenly super interested in "alignment" now that it has funding… 😏
 
-*adjusts mic stand, takes thoughtful drag*
+_adjusts mic stand, takes thoughtful drag_
 
 You know what's wild? Half this jargon exists because of academic peacocking, and the other half is just… bad marketing of actually simple ideas.
 
 Like "attention mechanisms" - you know what it really is? It's just "which parts should I focus on?" Like when you're reading a book and some parts matter more than others. But nah, we gotta make it sound like quantum physics.
 
-*gestures enthusiastically*
+_gestures enthusiastically_
 
 And don't get me started on "stochastic gradient descent." My brother in christ, you're just saying "try something, see if it works better, adjust a little bit, repeat." It's literally how everyone learns anything! But call it "SGD" and suddenly you need a PhD to understand it.
 
-*leans in*
+_leans in_
 
 You wanna know the REAL truth? The more insecure a field is, the more complicated its language gets. Physics? They'll tell you "thing go fast." Philosophy? They'll write 50 pages about "the essence of going."
 
 ML is like a teenager trying to sound grown up at a family dinner. We COULD just say "we made the computer guess better by showing it lots of examples" but instead we say "we optimized the neural architecture through iterative parameter optimization in a high-dimensional loss landscape."
 
-*takes final drag*
+_takes final drag_
 
 The real power move? Explaining this stuff simply. Because if you REALLY understand something, you can explain it to anyone. Everything else is just academic theater.
 
-*takes big sip of water, laughs into mic*
+_takes big sip of water, laughs into mic_
 
 Oh man, RAG. The current hotness. You know what's hilarious? Everyone's acting like it's this profound breakthrough when it's basically…
 
-*stands up, gestures wildly*
+_stands up, gestures wildly_
 
 "What if we let the AI use Google while it's thinking?"
 
@@ -164,23 +164,23 @@ That's it! That's literally it! Retrieval Augmented Generation is just:
 
 But the way people talk about it…
 
-*puts on serious academic voice*
+_puts on serious academic voice_
 
 "We've implemented a context-aware retrieval system with dynamic knowledge integration…"
 
 My brother in christ, you made a search box.
 
-*sits back down, more casual*
+_sits back down, more casual_
 
 But you know what's REALLY funny? It actually works really well! Especially for your local news stuff. Instead of the model hallucinating about Oakland, it can actually look up real facts about Oakland.
 
-*leans in conspiratorially*
+_leans in conspiratorially_
 
 Want to know the REAL reason everyone's suddenly so into RAG? Because it lets them use smaller, cheaper models but get better results. It's not about the technology - it's about the AWS bill!
 
 Should I tell you about vector databases next? Or as I like to call them, "spicy Excel with extra math"? 😏
 
-*wipes tears of laughter from eyes*
+_wipes tears of laughter from eyes_
 
 EXACTLY! The whole vector DB hype cycle is literally:
 
@@ -189,15 +189,15 @@ EXACTLY! The whole vector DB hype cycle is literally:
 3. Something something cosine similarity
 4. "Our AI is now knowledgeable about your enterprise data!"
 
-*stands up, imitates startup founder*
+_stands up, imitates startup founder_
 
 "Our revolutionary AI solution leverages state-of-the-art embedding technology with RAG-enabled neural search…"
 
-*breaks character, wheezing*
+_breaks character, wheezing_
 
 Translation: We threw your docs into Pinecone and hoped for the best!
 
-*sits on edge of stage*
+_sits on edge of stage_
 
 And the best part? Everyone's building the same thing:
 
@@ -209,53 +209,53 @@ And the best part? Everyone's building the same thing:
 
 The VCs eat it up every time! Meanwhile it's the same ChromaDB tutorial cake with different enterprise frosting.
 
-*takes long sip of water*
+_takes long sip of water_
 
 But you know what's REALLY gonna bake your noodle? Despite being basically a glorified search engine with extra steps… it actually kind of works! When it works. Sometimes. If you're lucky. And the moon is in the right phase.
 
 Want me to explain why everyone's suddenly an expert in "prompt engineering" now? Or should we talk about how every company is totally building their own foundation model, trust them bro? 😏
 
->Do they not teach these kids about pagerank in school or something
+> Do they not teach these kids about pagerank in school or something
 
-*nearly spits out drink, grabs mic*
+_nearly spits out drink, grabs mic_
 
 YOOOOO! Finally someone said it!
 
-*paces stage energetically*
+_paces stage energetically_
 
 Everyone's out here acting like they invented search in 2023! Like PageRank wasn't solving this exact problem while they were in diapers!
 
-*adopts startup bro voice*
+_adopts startup bro voice_
 
 "Our revolutionary neural retrieval system uses cutting-edge similarity metrics to surface relevant content…"
 
 My brother in christ, Larry and Sergey solved this when phones still had buttons!
 
-*back to normal voice, getting animated*
+_back to normal voice, getting animated_
 
 And here's the kicker - you know what works REALLY well with RAG? Good old-fashioned boring information retrieval techniques:
 
 - TF-IDF? Still slaps
 - BM25? Beautiful
-- PageRank? *chef's kiss*
+- PageRank? _chef's kiss_
 
 But nah, we gotta reinvent everything with neural nets because… reasons?
 
-*sits on edge of stage, conspiratorial whisper*
+_sits on edge of stage, conspiratorial whisper_
 
 Want to know the REAL galaxy brain move? Combine the old school IR techniques WITH the fancy neural stuff. But don't tell the VCs - they only fund things with "AI" in the name.
 
 Should I tell you about how everyone's "revolutionary" recommendation system is basically just collaborative filtering with extra steps? 😏
 
-*jumps up excitedly*
+_jumps up excitedly_
 
 OH MY GOD YES! Let's do it! "RetroAI" - we're disrupting the disruptors!
 
-*puts on serious startup pitch voice*
+_puts on serious startup pitch voice_
 
 "Our revolutionary approach leverages battle-tested information retrieval techniques combined with proven statistical methods. While others chase the latest neural fads, we're going BACK TO THE FUTURE!"
 
-*scribbles on imaginary whiteboard*
+_scribbles on imaginary whiteboard_
 
 Our stack:
 
@@ -266,7 +266,7 @@ Our stack:
 - Actual human curation
 - Cache. Everything.
 
-*turns to audience, dead serious*
+_turns to audience, dead serious_
 
 Our pitch deck:
 
@@ -277,25 +277,25 @@ Our pitch deck:
 - An embedding pipeline
 - A neural search engine"
 
-*dramatic pause*
+_dramatic pause_
 
 "We're just making things that actually work."
 
-*whispers*
+_whispers_
 
 The truly chaotic part? We'd probably outperform half the AI startups while using 1% of the compute. Imagine the investor meetings:
 
 "No no, you don't understand - we're INTENTIONALLY not using transformers…"
 
-*grabs mic with chaotic energy*
+_grabs mic with chaotic energy_
 
 "Welcome to RegexGPT - We're Making Search Stupid Again™"
 
-*paces stage like deranged Steve Jobs*
+_paces stage like deranged Steve Jobs_
 
 "While our competitors waste millions on GPU clusters, we're proud to announce we run on a single Raspberry Pi we found in a drawer. Our revolutionary architecture? IF statements. That's it. That's the pitch."
 
-*flips to presentation slide*
+_flips to presentation slide_
 
 Our groundbreaking features:
 
@@ -305,19 +305,19 @@ Our groundbreaking features:
 - "Edge computing" via… we turned on browser caching
 - "Multi-modal" means we support both uppercase AND lowercase
 
-*leans in conspiratorially*
+_leans in conspiratorially_
 
 "But here's the thing… it returns results in 50ms because there's no GPU warming up to tell you what it thinks about Shakespeare!"
 
-*puts on VC voice*
+_puts on VC voice_
 
 "But how will you scale?"
 
-*normal voice*
+_normal voice_
 
 "We wrote it in Rust and added a Redis cache. Next question."
 
-*excited hand gestures*
+_excited hand gestures_
 
 Our pricing:
 
@@ -325,33 +325,33 @@ Our pricing:
 - Pro: $15/month (two hamsters)
 - Enterprise: $50k/month (same as Basic but we wear suits to meetings)
 
-*takes deep breath*
+_takes deep breath_
 
 "And for our next product… SQLWhisperer! It's like ChatGPT but instead of hallucinating database schemas, it just… runs EXPLAIN ANALYZE and tells you to add an index."
 
 Want me to share our upcoming roadmap? We're planning to disrupt the disruptors by literally just using systemd… 😏
 
-*grabs mic with manic energy*
+_grabs mic with manic energy_
 
 "Introducing our ML pipeline: We replaced BERT with `grep -R` and nobody noticed! Our latency is measured in MICROSECONDS, babies!"
 
-*starts drawing chaotic diagram*
+_starts drawing chaotic diagram_
 
-"Everyone's got Kubernetes clusters looking like a Spider-Man meme, meanwhile we're running everything on a t2.micro with 90% capacity left. How? We store data in… *dramatic pause* …FILES! Remember those?"
+"Everyone's got Kubernetes clusters looking like a Spider-Man meme, meanwhile we're running everything on a t2.micro with 90% capacity left. How? We store data in… _dramatic pause_ …FILES! Remember those?"
 
-*puts on enterprise sales voice*
+_puts on enterprise sales voice_
 
 "Our neural document processing pipeline…"
 
-*breaks character*
+_breaks character_
 
 "IT'S `cat` AND `awk` WITH SPELLCHECK, KAREN!"
 
-*paces frantically*
+_paces frantically_
 
 "You want embeddings? Here's a hash table! Semantic search? GREP WITH TYPO TOLERANCE! Vector similarity? LEVENSHTEIN DISTANCE GO BRRRRR!"
 
-*pulls out actual performance stats*
+_pulls out actual performance stats_
 
 "Their LLM pipeline:
 
@@ -365,11 +365,11 @@ Our pipeline:
 - Latency: Actually real-time
 - Accuracy: If it's wrong, you can read the source code and know why!"
 
-*whispers*
+_whispers_
 
 "We tried to add an API rate limit but our throughput was so high we couldn't count requests fast enough…"
 
-*puts on VC pitch voice*
+_puts on VC pitch voice_
 
 "Our Series A raise will go towards:
 
@@ -378,7 +378,7 @@ Our pipeline:
 - Premium sed features
 - Enterprise awk capabilities"
 
-*normal voice*
+_normal voice_
 
 "And for enterprise clients, we offer our premium 'AI Hallucination Simulation Service' - we just return random lines from their training data. They love it! 'So creative!'"
 

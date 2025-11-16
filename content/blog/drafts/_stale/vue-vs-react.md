@@ -10,6 +10,7 @@ tags:
   - javascript
   - frameworks
 ---
+
 ## Frontend Framework Philosophy Wars
 
 Each framework represents different opinions about how web development should work. Same problems, different solutions.
@@ -17,6 +18,7 @@ Each framework represents different opinions about how web development should wo
 ### Templates vs JSX
 
 **Vue's approach**: Separate template, script, and style sections. Templates look like HTML with directives.
+
 ```vue
 <template>
   <div v-if="show">{{ message }}</div>
@@ -24,6 +26,7 @@ Each framework represents different opinions about how web development should wo
 ```
 
 **React's approach**: Everything is JavaScript. HTML-like syntax (JSX) lives inside JS functions.
+
 ```jsx
 return show && <div>{message}</div>
 ```
@@ -57,18 +60,14 @@ const [user, setUser] = useState(null)
 
 // Redux approach (still common)
 const dispatch = useDispatch()
-const count = useSelector(state => state.count)
+const count = useSelector((state) => state.count)
 ```
 
 **Vue**: Always had reactive data built-in. Vuex for complex apps, now Pinia is preferred. State feels more "magical" but less explicit.
 
 ```vue
-// Vue Composition API
-const count = ref(0)
-const user = ref(null)
-
-// Pinia store
-const userStore = useUserStore()
+// Vue Composition API const count = ref(0) const user = ref(null) // Pinia
+store const userStore = useUserStore()
 ```
 
 **The tradeoff**: React's explicit state updates are easier to debug and reason about. Vue's reactivity requires less boilerplate but can feel mysterious when things break.
@@ -78,7 +77,7 @@ const userStore = useUserStore()
 **Next.js (React)**: Vercel-backed, incredibly polished, huge ecosystem. But Vercel is basically building a moat around React development.
 
 - File-based routing
-- Built-in API routes  
+- Built-in API routes
 - Edge runtime optimization
 - Tight Vercel deployment integration
 - Corporate backing means fast development but potential vendor lock-in
@@ -94,11 +93,13 @@ const userStore = useUserStore()
 
 ### Ecosystem Maturity
 
-**React ecosystem**: 
+**React ecosystem**:
+
 - **Strengths**: Massive component libraries (Material-UI, Ant Design, Chakra), extensive testing tools, more third-party integrations
 - **Weaknesses**: Decision fatigue (which router? which state manager?), breaking changes across major versions, Facebook's priorities may not align with yours
 
 **Vue ecosystem**:
+
 - **Strengths**: Cohesive official packages, smoother migration paths, not controlled by one big tech company
 - **Weaknesses**: Smaller component ecosystem, fewer advanced patterns documented, less corporate investment
 
@@ -163,6 +164,6 @@ Vue's ecosystem reflects a more conservative, stability-focused approach. Fewer 
 
 ### The Real Differences
 
-Framework choice reflects team values more than technical requirements. Do you prefer explicit control or helpful magic? Stability or innovation? Corporate backing or community control? 
+Framework choice reflects team values more than technical requirements. Do you prefer explicit control or helpful magic? Stability or innovation? Corporate backing or community control?
 
 Every framework builds the same apps. The difference is which trade-offs feel natural to your team.

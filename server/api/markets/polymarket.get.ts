@@ -55,16 +55,16 @@ export default defineEventHandler(async (event) => {
       marketId: slug,
       conditionId: market.condition_id,
       question: market.question || event.title,
-      currentProb: parseFloat(market.outcomePrices?.[0] || 0) * 100,
-      volume: parseFloat(event.volume || 0),
-      liquidity: parseFloat(market.liquidity || 0),
+      currentProb: Number.parseFloat(market.outcomePrices?.[0] || 0) * 100,
+      volume: Number.parseFloat(event.volume || 0),
+      liquidity: Number.parseFloat(market.liquidity || 0),
       resolved: event.closed || market.closed || false,
       outcome: market.outcome,
       endDate: event.end_date || market.end_date,
       url: `https://polymarket.com/event/${slug}`,
       priceHistory: priceHistory.map((p: any) => ({
         t: p.t * 1000, // Convert to milliseconds
-        p: parseFloat(p.p) * 100 // Convert to percentage
+        p: Number.parseFloat(p.p) * 100 // Convert to percentage
       })),
       lastUpdated: new Date().toISOString()
     }

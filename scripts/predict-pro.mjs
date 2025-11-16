@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-import { promises as fs } from 'fs'
-import { join } from 'path'
-import { execSync } from 'child_process'
-import { createHash } from 'crypto'
+import { promises as fs } from 'node:fs'
+import { join } from 'node:path'
+import { execSync } from 'node:child_process'
+import { createHash } from 'node:crypto'
 import matter from 'gray-matter'
 import { consola } from 'consola'
 import inquirer from 'inquirer'
@@ -11,19 +11,24 @@ import { z } from 'zod'
 
 // Zod schemas for validation (replacing 50+ lines of custom validation)
 const PredictionSchema = z.object({
-  statement: z.string()
+  statement: z
+    .string()
     .min(20, 'Statement too short - be more specific (min 20 chars)')
-    .max(300, 'Statement too long - break into multiple predictions (max 300 chars)'),
-  deadline: z.string()
-    .refine((date) => {
-      const d = new Date(date)
-      const oneWeek = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
-      return !isNaN(d.getTime()) && d > oneWeek && d.getFullYear() <= 2050
-    }, 'Deadline must be valid and at least one week in the future (max 2050)'),
-  confidence: z.number()
+    .max(
+      300,
+      'Statement too long - break into multiple predictions (max 300 chars)'
+    ),
+  deadline: z.string().refine((date) => {
+    const d = new Date(date)
+    const oneWeek = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
+    return !Number.isNaN(d.getTime()) && d > oneWeek && d.getFullYear() <= 2050
+  }, 'Deadline must be valid and at least one week in the future (max 2050)'),
+  confidence: z
+    .number()
     .min(5, 'Confidence should be between 5-95% (avoid overconfidence)')
     .max(95, 'Confidence should be between 5-95% (avoid overconfidence)'),
-  resolution: z.string()
+  resolution: z
+    .string()
     .min(10, 'Resolution criteria too short - be more specific')
 })
 
@@ -54,7 +59,9 @@ async function checkPredictionQuality(statement, resolutionCriteria) {
   const openRouterKey = process.env.OPENROUTER_API_KEY
 
   if (!openRouterKey) {
-    consola.info('Using built-in quality analysis (AI analysis available with OPENROUTER_API_KEY)')
+    consola.info(
+      'Using built-in quality analysis (AI analysis available with OPENROUTER_API_KEY)'
+    )
     return getBuiltInAnalysis(statement, resolutionCriteria)
   }
 
@@ -86,21 +93,24 @@ Provide your analysis as a JSON object with this exact structure:
   "historicalComparisons": ["similar event 1 with relevant outcome", "similar event 2"]
 }`
 
-    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${openRouterKey}`,
-        'HTTP-Referer': 'https://ejfox.com',
-        'X-Title': 'EJ Fox Prediction Quality Checker'
-      },
-      body: JSON.stringify({
-        model: 'anthropic/claude-3.5-sonnet',
-        messages: [{ role: 'user', content: prompt }],
-        temperature: 0.1,
-        max_tokens: 1000
-      })
-    })
+    const response = await fetch(
+      'https://openrouter.ai/api/v1/chat/completions',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${openRouterKey}`,
+          'HTTP-Referer': 'https://ejfox.com',
+          'X-Title': 'EJ Fox Prediction Quality Checker'
+        },
+        body: JSON.stringify({
+          model: 'anthropic/claude-3.5-sonnet',
+          messages: [{ role: 'user', content: prompt }],
+          temperature: 0.1,
+          max_tokens: 1000
+        })
+      }
+    )
 
     if (!response.ok) {
       throw new Error(`API request failed: ${response.status}`)
@@ -122,7 +132,9 @@ Provide your analysis as a JSON object with this exact structure:
     return JSON.parse(jsonMatch[0])
   } catch (error) {
     consola.warn('AI analysis unavailable - using built-in quality checker')
-    consola.info('This is completely normal and the wizard works great without AI!')
+    consola.info(
+      'This is completely normal and the wizard works great without AI!'
+    )
     return getBuiltInAnalysis(statement, resolutionCriteria)
   }
 }
@@ -130,7 +142,7 @@ Provide your analysis as a JSON object with this exact structure:
 function getBuiltInAnalysis(statement, resolutionCriteria) {
   const analysis = {
     clarity: 'good',
-    specificity: 'good', 
+    specificity: 'good',
     measurability: 'good',
     resolvability: 'good',
     overallScore: 7,
@@ -144,9 +156,11 @@ function getBuiltInAnalysis(statement, resolutionCriteria) {
     analysis.suggestions.push('Consider adding specific numbers or dates')
     analysis.specificity = 'needs_improvement'
   }
-  
+
   if (/maybe|might|could|possibly/i.test(statement)) {
-    analysis.suggestions.push('Avoid uncertainty words - state what will happen')
+    analysis.suggestions.push(
+      'Avoid uncertainty words - state what will happen'
+    )
     analysis.clarity = 'needs_improvement'
   }
 
@@ -165,7 +179,7 @@ function getBuiltInAnalysis(statement, resolutionCriteria) {
 function displayAnalysis(analysis) {
   const scoreColors = {
     excellent: '🟢',
-    good: '🔵', 
+    good: '🔵',
     needs_improvement: '🟡',
     poor: '🔴'
   }
@@ -180,10 +194,10 @@ ${scoreColors[analysis.resolvability]} Resolvability: ${analysis.resolvability}
 
 Overall Score: ${analysis.overallScore}/10
 
-${analysis.strengths.length ? `✅ Strengths:\n${analysis.strengths.map(s => `   • ${s}`).join('\n')}\n` : ''}
-${analysis.suggestions.length ? `💡 Suggestions:\n${analysis.suggestions.map(s => `   • ${s}`).join('\n')}\n` : ''}
-${analysis.concerns.length ? `⚠️  Concerns:\n${analysis.concerns.map(c => `   • ${c}`).join('\n')}\n` : ''}
-${analysis.historicalComparisons?.length ? `📜 Similar Historical Events:\n${analysis.historicalComparisons.map(h => `   • ${h}`).join('\n')}` : ''}
+${analysis.strengths.length ? `✅ Strengths:\n${analysis.strengths.map((s) => `   • ${s}`).join('\n')}\n` : ''}
+${analysis.suggestions.length ? `💡 Suggestions:\n${analysis.suggestions.map((s) => `   • ${s}`).join('\n')}\n` : ''}
+${analysis.concerns.length ? `⚠️  Concerns:\n${analysis.concerns.map((c) => `   • ${c}`).join('\n')}\n` : ''}
+${analysis.historicalComparisons?.length ? `📜 Similar Historical Events:\n${analysis.historicalComparisons.map((h) => `   • ${h}`).join('\n')}` : ''}
   `)
 }
 
@@ -192,23 +206,23 @@ function showGuidelines(section) {
   if (!guide) return
 
   consola.info(`${guide.title}:`)
-  guide.rules.forEach(rule => consola.log(`   • ${rule}`))
+  guide.rules.forEach((rule) => consola.log(`   • ${rule}`))
 }
 
 async function getInputWithValidation(questions) {
   const answers = await inquirer.prompt(questions)
-  
+
   try {
     PredictionSchema.parse({
       statement: answers.statement,
       deadline: answers.deadline,
-      confidence: parseInt(answers.confidence),
+      confidence: Number.parseInt(answers.confidence),
       resolution: answers.resolution
     })
     return answers
   } catch (error) {
     consola.error('Validation failed:')
-    error.errors.forEach(err => consola.error(`  • ${err.message}`))
+    error.errors.forEach((err) => consola.error(`  • ${err.message}`))
     consola.info('Please try again...\n')
     return getInputWithValidation(questions)
   }
@@ -216,58 +230,71 @@ async function getInputWithValidation(questions) {
 
 async function createPrediction() {
   consola.start('🔮 Prediction Creation Wizard')
-  
+
   const questions = [
     {
       type: 'input',
       name: 'statement',
       message: 'Enter your prediction statement:',
-      validate: (input) => input.length >= 20 || 'Statement must be at least 20 characters'
+      validate: (input) =>
+        input.length >= 20 || 'Statement must be at least 20 characters'
     },
     {
-      type: 'input', 
+      type: 'input',
       name: 'deadline',
       message: 'Enter resolution deadline (YYYY-MM-DD):',
       validate: (input) => {
         const date = new Date(input)
-        return !isNaN(date.getTime()) || 'Please enter a valid date'
+        return !Number.isNaN(date.getTime()) || 'Please enter a valid date'
       }
     },
     {
       type: 'number',
       name: 'confidence',
       message: 'Enter confidence level (5-95%):',
-      validate: (input) => (input >= 5 && input <= 95) || 'Confidence must be between 5-95%'
+      validate: (input) =>
+        (input >= 5 && input <= 95) || 'Confidence must be between 5-95%'
     },
     {
       type: 'input',
       name: 'resolution',
       message: 'Enter resolution criteria:',
-      validate: (input) => input.length >= 10 || 'Resolution criteria must be at least 10 characters'
+      validate: (input) =>
+        input.length >= 10 ||
+        'Resolution criteria must be at least 10 characters'
     }
   ]
 
   const answers = await getInputWithValidation(questions)
-  
+
   // Show guidelines
   consola.info('\n📋 Quality Guidelines:')
   showGuidelines('statement')
   showGuidelines('resolution')
 
   // Get quality analysis
-  const analysis = await checkPredictionQuality(answers.statement, answers.resolution)
+  const analysis = await checkPredictionQuality(
+    answers.statement,
+    answers.resolution
+  )
   displayAnalysis(analysis)
 
   // Optional: Add historical context
-  consola.info('\n💭 Think: What similar events have happened before? What were the outcomes?')
-  consola.info('   (e.g., "2013 NYC Mayor - de Blasio won by 49pts" or "Last 5 AI hype cycles peaked at 18mo")')
+  consola.info(
+    '\n💭 Think: What similar events have happened before? What were the outcomes?'
+  )
+  consola.info(
+    '   (e.g., "2013 NYC Mayor - de Blasio won by 49pts" or "Last 5 AI hype cycles peaked at 18mo")'
+  )
 
-  const { historicalNotes } = await inquirer.prompt([{
-    type: 'input',
-    name: 'historicalNotes',
-    message: 'Quick historical context (optional, press Enter to skip):',
-    default: ''
-  }])
+  const { historicalNotes } = await inquirer.prompt([
+    {
+      type: 'input',
+      name: 'historicalNotes',
+      message: 'Quick historical context (optional, press Enter to skip):',
+      default: ''
+    }
+  ])
 
   // Add historical notes to evidence if provided
   if (historicalNotes) {
@@ -275,12 +302,14 @@ async function createPrediction() {
   }
 
   // Confirm creation
-  const { shouldCreate } = await inquirer.prompt([{
-    type: 'confirm',
-    name: 'shouldCreate',
-    message: 'Create this prediction?',
-    default: true
-  }])
+  const { shouldCreate } = await inquirer.prompt([
+    {
+      type: 'confirm',
+      name: 'shouldCreate',
+      message: 'Create this prediction?',
+      default: true
+    }
+  ])
 
   if (!shouldCreate) {
     consola.info('Prediction creation cancelled')
@@ -300,7 +329,10 @@ async function createPrediction() {
     confidence: answers.confidence,
     resolution: answers.resolution,
     created: new Date().toISOString(),
-    id: createHash('sha256').update(answers.statement).digest('hex').substring(0, 8),
+    id: createHash('sha256')
+      .update(answers.statement)
+      .digest('hex')
+      .substring(0, 8),
     analysis
   }
 
@@ -315,7 +347,12 @@ async function createPrediction() {
   }
 
   const content = `---
-${Object.entries(frontmatter).map(([key, value]) => `${key}: ${typeof value === 'string' ? `"${value}"` : value}`).join('\n')}
+${Object.entries(frontmatter)
+  .map(
+    ([key, value]) =>
+      `${key}: ${typeof value === 'string' ? `"${value}"` : value}`
+  )
+  .join('\n')}
 ---
 
 # ${answers.statement}
@@ -341,9 +378,9 @@ ${answers.resolution}
 - **Measurability:** ${analysis.measurability}
 - **Resolvability:** ${analysis.resolvability}
 
-${analysis.suggestions.length ? `### Suggestions\n${analysis.suggestions.map(s => `- ${s}`).join('\n')}\n` : ''}
-${analysis.strengths.length ? `### Strengths\n${analysis.strengths.map(s => `- ${s}`).join('\n')}\n` : ''}
-${analysis.concerns.length ? `### Concerns\n${analysis.concerns.map(c => `- ${c}`).join('\n')}\n` : ''}
+${analysis.suggestions.length ? `### Suggestions\n${analysis.suggestions.map((s) => `- ${s}`).join('\n')}\n` : ''}
+${analysis.strengths.length ? `### Strengths\n${analysis.strengths.map((s) => `- ${s}`).join('\n')}\n` : ''}
+${analysis.concerns.length ? `### Concerns\n${analysis.concerns.map((c) => `- ${c}`).join('\n')}\n` : ''}
 
 ## Notes
 
@@ -354,30 +391,35 @@ _Created with the Prediction Quality Wizard_
   const filepath = join(process.cwd(), 'content', 'predictions', filename)
 
   try {
-    await fs.mkdir(join(process.cwd(), 'content', 'predictions'), { recursive: true })
+    await fs.mkdir(join(process.cwd(), 'content', 'predictions'), {
+      recursive: true
+    })
     await fs.writeFile(filepath, content)
-    
+
     consola.success(`Prediction saved: ${filepath}`)
     consola.info(`Prediction ID: ${predictionData.id}`)
-    
+
     // Optionally commit to git
-    const { shouldCommit } = await inquirer.prompt([{
-      type: 'confirm', 
-      name: 'shouldCommit',
-      message: 'Commit to git?',
-      default: false
-    }])
+    const { shouldCommit } = await inquirer.prompt([
+      {
+        type: 'confirm',
+        name: 'shouldCommit',
+        message: 'Commit to git?',
+        default: false
+      }
+    ])
 
     if (shouldCommit) {
       try {
         execSync(`git add "${filepath}"`)
-        execSync(`git commit -m "Add prediction: ${answers.statement.substring(0, 50)}..."`)
+        execSync(
+          `git commit -m "Add prediction: ${answers.statement.substring(0, 50)}..."`
+        )
         consola.success('Committed to git')
       } catch (error) {
         consola.warn('Git commit failed:', error.message)
       }
     }
-
   } catch (error) {
     consola.error('Failed to save prediction:', error.message)
   }
@@ -397,7 +439,7 @@ async function updatePrediction(filename) {
     consola.error(`Could not find prediction: ${filename}`)
     const files = await fs.readdir(predictionsDir)
     consola.info('Available predictions:')
-    files.forEach(f => consola.log(`   • ${f}`))
+    files.forEach((f) => consola.log(`   • ${f}`))
     process.exit(1)
   }
 
@@ -414,13 +456,15 @@ async function updatePrediction(filename) {
       name: 'confidence',
       message: 'New confidence level (5-95%):',
       default: currentConfidence,
-      validate: (input) => (input >= 5 && input <= 95) || 'Confidence must be between 5-95%'
+      validate: (input) =>
+        (input >= 5 && input <= 95) || 'Confidence must be between 5-95%'
     },
     {
       type: 'input',
       name: 'reasoning',
       message: 'Reasoning for this update:',
-      validate: (input) => input.length >= 10 || 'Reasoning must be at least 10 characters'
+      validate: (input) =>
+        input.length >= 10 || 'Reasoning must be at least 10 characters'
     }
   ])
 
@@ -466,12 +510,14 @@ async function updatePrediction(filename) {
   consola.info(`Hash: ${hash.substring(0, 16)}...`)
 
   // Git commit
-  const { shouldCommit } = await inquirer.prompt([{
-    type: 'confirm',
-    name: 'shouldCommit',
-    message: 'Commit to git?',
-    default: true
-  }])
+  const { shouldCommit } = await inquirer.prompt([
+    {
+      type: 'confirm',
+      name: 'shouldCommit',
+      message: 'Commit to git?',
+      default: true
+    }
+  ])
 
   if (shouldCommit) {
     try {
@@ -479,7 +525,9 @@ async function updatePrediction(filename) {
       const commitMsg = `predict: update ${(parsed.data.statement || parsed.data.title).substring(0, 40)}... (${currentConfidence}% → ${answers.confidence}%)`
       execSync(`git commit -m "${commitMsg}"`)
 
-      const commitHash = execSync('git rev-parse HEAD', { encoding: 'utf8' }).trim()
+      const commitHash = execSync('git rev-parse HEAD', {
+        encoding: 'utf8'
+      }).trim()
       consola.success(`Committed: ${commitHash.substring(0, 8)}`)
 
       // Add git commit hash to the update
@@ -514,7 +562,7 @@ async function resolvePrediction(filename) {
     consola.error(`Could not find prediction: ${filename}`)
     const files = await fs.readdir(predictionsDir)
     consola.info('Available predictions:')
-    files.forEach(f => consola.log(`   • ${f}`))
+    files.forEach((f) => consola.log(`   • ${f}`))
     process.exit(1)
   }
 
@@ -532,15 +580,22 @@ async function resolvePrediction(filename) {
       message: 'How did this prediction resolve?',
       choices: [
         { name: '✅ Correct - Prediction came true', value: 'correct' },
-        { name: '❌ Incorrect - Prediction did not come true', value: 'incorrect' },
-        { name: '⚠️  Ambiguous - Unclear or partially true', value: 'ambiguous' }
+        {
+          name: '❌ Incorrect - Prediction did not come true',
+          value: 'incorrect'
+        },
+        {
+          name: '⚠️  Ambiguous - Unclear or partially true',
+          value: 'ambiguous'
+        }
       ]
     },
     {
       type: 'input',
       name: 'resolution',
       message: 'Resolution notes (what happened, sources, evidence):',
-      validate: (input) => input.length >= 20 || 'Resolution notes must be at least 20 characters'
+      validate: (input) =>
+        input.length >= 20 || 'Resolution notes must be at least 20 characters'
     }
   ])
 
@@ -569,28 +624,42 @@ async function resolvePrediction(filename) {
   consola.info(`Hash: ${hash.substring(0, 16)}...`)
 
   // Git commit
-  const { shouldCommit } = await inquirer.prompt([{
-    type: 'confirm',
-    name: 'shouldCommit',
-    message: 'Commit to git?',
-    default: true
-  }])
+  const { shouldCommit } = await inquirer.prompt([
+    {
+      type: 'confirm',
+      name: 'shouldCommit',
+      message: 'Commit to git?',
+      default: true
+    }
+  ])
 
   if (shouldCommit) {
     try {
       execSync(`git add "${filepath}"`)
-      const emoji = answers.status === 'correct' ? '✅' : answers.status === 'incorrect' ? '❌' : '⚠️'
+      const emoji =
+        answers.status === 'correct'
+          ? '✅'
+          : answers.status === 'incorrect'
+            ? '❌'
+            : '⚠️'
       const commitMsg = `predict: ${emoji} resolve "${parsed.data.statement.substring(0, 40)}..." as ${answers.status}`
       execSync(`git commit -m "${commitMsg}"`)
 
-      const commitHash = execSync('git rev-parse HEAD', { encoding: 'utf8' }).trim()
+      const commitHash = execSync('git rev-parse HEAD', {
+        encoding: 'utf8'
+      }).trim()
       consola.success(`Committed: ${commitHash.substring(0, 8)}`)
     } catch (error) {
       consola.warn('Git commit failed:', error.message)
     }
   }
 
-  const icon = answers.status === 'correct' ? '🎯' : answers.status === 'incorrect' ? '💭' : '🤔'
+  const icon =
+    answers.status === 'correct'
+      ? '🎯'
+      : answers.status === 'incorrect'
+        ? '💭'
+        : '🤔'
   consola.box(`
 ${icon} PREDICTION RESOLVED
 

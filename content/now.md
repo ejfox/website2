@@ -18,4 +18,4 @@ date: 2025-01-08
 
 ---
 
-*This page is inspired by [Derek Sivers' /now movement](https://nownownow.com/about). Last updated: January 2025*
+_This page is inspired by [Derek Sivers' /now movement](https://nownownow.com/about). Last updated: January 2025_

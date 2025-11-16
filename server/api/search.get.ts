@@ -1,6 +1,6 @@
 import { defineEventHandler, getQuery } from 'h3'
-import { readFile, readdir } from 'fs/promises'
-import path from 'path'
+import { readFile, readdir } from 'node:fs/promises'
+import path from 'node:path'
 
 // Simple text extraction from HTML
 function stripHtml(html: string): string {
@@ -228,7 +228,7 @@ export default defineEventHandler(async (event) => {
     results.sort((a, b) => b.score - a.score)
 
     // Limit results
-    const limit = Math.min(parseInt(query.limit as string) || 20, 50)
+    const limit = Math.min(Number.parseInt(query.limit as string) || 20, 50)
     const limitedResults = results.slice(0, limit)
 
     return {

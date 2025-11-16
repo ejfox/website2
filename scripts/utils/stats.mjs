@@ -1,5 +1,5 @@
 import chalk from 'chalk'
-import path from 'path'
+import path from 'node:path'
 import { /* getPostType, */ formatFileSize } from './helpers.mjs'
 
 export const processStats = {
@@ -107,13 +107,13 @@ export function printRealTimeStats() {
   const memoryUsage = process.memoryUsage()
 
   // Move cursor up 3 lines and clear each line
-  process.stdout.write('\x1b[3A')
-  process.stdout.write('\x1b[2K') // Clear first line
-  process.stdout.write('\x1b[1B') // Move down
-  process.stdout.write('\x1b[2K') // Clear second line
-  process.stdout.write('\x1b[1B') // Move down
-  process.stdout.write('\x1b[2K') // Clear third line
-  process.stdout.write('\x1b[2A') // Move back up
+  process.stdout.write('\x1B[3A')
+  process.stdout.write('\x1B[2K') // Clear first line
+  process.stdout.write('\x1B[1B') // Move down
+  process.stdout.write('\x1B[2K') // Clear second line
+  process.stdout.write('\x1B[1B') // Move down
+  process.stdout.write('\x1B[2K') // Clear third line
+  process.stdout.write('\x1B[2A') // Move back up
 
   console.log(
     chalk.blue(`Processing: ${filePath}`) +

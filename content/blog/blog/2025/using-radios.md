@@ -9,13 +9,14 @@ tags:
   - howto
   - hardware
 ---
+
 ## How To Use Radios
 
 I first fell down the rabbit hole of effective comms through playing war games like Call of Duty, then again when hiking with friends, and even on birding adventures where I'd need to quickly tell someone "hey I'm over here" or "look over there at that specific tree" without scaring away the wildlife or taking five minutes. The need to communicate effectively in any circumstances is just another part of spending time in the woods, having adventures, and being human.
 
 Communicating over radio is its own unique thing, with its own patterns and memes and culture.
 
-There's something more *real* about radios compared to digital phones. Not to get too woo-woo, but they feel more grounded in physical reality, more immediate. A technology that lets you talk over vibrations. When you key up a radio, you're broadcasting magical electromagnetic waves through the air.
+There's something more _real_ about radios compared to digital phones. Not to get too woo-woo, but they feel more grounded in physical reality, more immediate. A technology that lets you talk over vibrations. When you key up a radio, you're broadcasting magical electromagnetic waves through the air.
 
 But here's what really got me inspired: watching how the best-performing teams communicate. Whether it's in Squad, emergency services, or sports, there's a universal discipline in triaging information. Distilling complex thoughts into an economy of words that can be transmitted and understood under pressure.
 
@@ -44,7 +45,7 @@ Compare these two scenarios:
 "To the left? How far?"
 "I don't know, 10 feet?"
 "What direction was it moving?"
-*(This is unbearable.)*
+_(This is unbearable.)_
 
 **Good communication:** "Black bear, 10-20 feet northeast of camp, by that spruce tree, moving away from us right to left toward the creek."
 

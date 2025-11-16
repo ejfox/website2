@@ -1,11 +1,7 @@
 <template>
   <div class="calendar-toc">
     <div class="py-4">
-      <h3
-        class="text-xs font-light uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400 mb-4"
-      >
-        Next Available
-      </h3>
+      <h3 class="label-tracked-sm">Next Available</h3>
 
       <!-- Loading state -->
       <div v-if="pending" class="space-y-2">
@@ -22,7 +18,7 @@
           :key="slot.datetime"
           :href="slot.bookingUrl"
           target="_blank"
-          class="group block p-4 rounded-lg border border-zinc-200 dark:border-zinc-700 hover:border-zinc-300 dark:hover:border-zinc-600 transition-all duration-200 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 no-underline"
+          class="card-bordered-hover"
         >
           <div class="flex items-center justify-between">
             <div class="flex-1 min-w-0">

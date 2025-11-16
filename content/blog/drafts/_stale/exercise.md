@@ -8,6 +8,7 @@ tags:
   - health
   - quantifiedself
 ---
+
 ## Exercise
 
 #personal #health #quantifiedself

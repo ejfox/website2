@@ -7,6 +7,7 @@ tags:
   - culture
   - politics
 ---
+
 ## The Staunch Defenders of the Status Quo
 
 #culture

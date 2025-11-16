@@ -18,10 +18,7 @@
         <time class="project-date">{{
           formatDate(project.metadata?.date || project.date)
         }}</time>
-        <div
-          v-if="project.metadata?.tech?.length"
-          class="font-mono text-xs uppercase tracking-widest text-zinc-500"
-        >
+        <div v-if="project.metadata?.tech?.length" class="tech-tags">
           <span v-for="(tech, index) in project.metadata.tech" :key="tech">
             <span v-if="index > 0" class="mx-2 text-zinc-300 dark:text-zinc-700"
               >·</span

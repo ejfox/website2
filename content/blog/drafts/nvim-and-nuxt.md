@@ -9,6 +9,7 @@ tags:
   - tools
   - howto
 ---
+
 ## Setting up nvim for Nuxt / Vue development
 
 <https://www.reddit.com/r/neovim/comments/1ee5946/how_to_get_vue_to_work_with_neovim/>

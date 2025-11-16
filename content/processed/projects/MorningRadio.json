@@ -7,18 +7,10 @@
     "date": "2025-08-10T04:00:00.000Z",
     "modified": "2025-08-13T15:26:19.000Z",
     "url": "https://github.com/ejfox/MorningRadio",
-    "tech": [
-      "Swift",
-      "iOS",
-      "Audio Streaming",
-      "Mobile UX"
-    ],
+    "tech": ["Swift", "iOS", "Audio Streaming", "Mobile UX"],
     "state": "doing",
     "aiInvolvement": "ai-assisted",
-    "tags": [
-      "ios",
-      "health"
-    ],
+    "tags": ["ios", "health"],
     "words": 74,
     "images": 2,
     "imageDetails": {

@@ -11,11 +11,11 @@ modified: 2025-03-27T16:12:50-04:00
 
 ## Mapping Novel Territories: Untangling MCP Servers
 
-There are now *so many* MCP servers which is both overwhelming and exciting for me.
+There are now _so many_ MCP servers which is both overwhelming and exciting for me.
 
 Right now, all the MCP servers you add are made available to your robot at all times. That means that each tool and its description are taking up some of your context window, whether they are relevant or not. Which means you need to think through your toolkit carefully.
 
-My first instinct, shared by many, is to load the robot up with *as many tools as possible*. You can stay up late configuring your API keys and imagining the possibilities. I went through this with Obsidian Plugins. But over time, I came to realize the extra plugins didn’t help as much as I thought. Worse, they slowed down every interaction (particularly on mobile.) I anticipate a similar arc with MCP servers.
+My first instinct, shared by many, is to load the robot up with _as many tools as possible_. You can stay up late configuring your API keys and imagining the possibilities. I went through this with Obsidian Plugins. But over time, I came to realize the extra plugins didn’t help as much as I thought. Worse, they slowed down every interaction (particularly on mobile.) I anticipate a similar arc with MCP servers.
 
 Given a completely novel territory I did what any hacker-come-cartographer might do, I tried to make a map of it, aided at every step by the robot of course. (This is [../robots/quantified-self-as-archaeology|archaeology, not optimizatio](../robots/quantified-self-as-archaeology|archaeology,-not-optimizatio)n]] - exploring data to reveal patterns, not to find the "best" MCP.)
 
@@ -49,7 +49,7 @@ Once we have picked groupings, we can begin to make some shape of them. We don�
 
 ![](http://res.cloudinary.com/ejf/video/upload/v1742920786/Screen_Recording_2025-03-25_at_12.38.58_PM.gif)
 
-Some traditional categories emerge; both from our manual spot-checking as well as our automated labeling techniques. We are beginning to find the true names of this unknown territory. The fog of war begins to lift, and we start to see not only the peaks but also the valleys and the space between concepts. These might be places for people who want to make *new things* to concentrate their energies.
+Some traditional categories emerge; both from our manual spot-checking as well as our automated labeling techniques. We are beginning to find the true names of this unknown territory. The fog of war begins to lift, and we start to see not only the peaks but also the valleys and the space between concepts. These might be places for people who want to make _new things_ to concentrate their energies.
 
 ![](http://res.cloudinary.com/ejf/image/upload/v1742920843/Screenshot_2025-03-25_at_12.40.31_PM.png)
 

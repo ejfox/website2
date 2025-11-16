@@ -11,22 +11,22 @@ tags:
   - politics
 hidden: true
 ---
-## How I keep up with the news
 
+## How I keep up with the news
 
 ---
 
 I. Introduction
 
-   A. The importance of staying informed in today's fast-paced world
+A. The importance of staying informed in today's fast-paced world
 
-   B. The challenges of information overload and finding reliable sources
+B. The challenges of information overload and finding reliable sources
 
-   C. Introducing my personal strategies for keeping up with the news
+C. Introducing my personal strategies for keeping up with the news
 
 II. Curating a Diverse Range of News Sources
 
-   A. The value of consuming news from various perspectives and outlets
+A. The value of consuming news from various perspectives and outlets
 
       1. Traditional print newspapers and magazines
 
@@ -34,27 +34,27 @@ II. Curating a Diverse Range of News Sources
 
       3. Podcasts, radio, and television news programs
 
-   B. Avoiding echo chambers and seeking out opposing viewpoints
+B. Avoiding echo chambers and seeking out opposing viewpoints
 
 III. Leveraging Technology to Stay Informed
 
-   A. Utilizing news aggregator apps and websites for a customized news feed
+A. Utilizing news aggregator apps and websites for a customized news feed
 
-   B. Subscribing to newsletters or email digests for a curated selection of articles
+B. Subscribing to newsletters or email digests for a curated selection of articles
 
-   C. Following journalists, experts, and organizations on social media platforms
+C. Following journalists, experts, and organizations on social media platforms
 
 IV. Prioritizing Quality over Quantity
 
-   A. Focusing on in-depth analysis, investigative journalism, and long-form articles
+A. Focusing on in-depth analysis, investigative journalism, and long-form articles
 
-   B. Identifying reliable sources and fact-checking information
+B. Identifying reliable sources and fact-checking information
 
-   C. Recognizing the limitations of sensationalist headlines and clickbait content
+C. Recognizing the limitations of sensationalist headlines and clickbait content
 
 V. Establishing a Daily News Routine
 
-   A. Setting aside dedicated time for consuming news each day
+A. Setting aside dedicated time for consuming news each day
 
       1. Morning routines: reading newspapers or browsing online articles over breakfast
 
@@ -62,7 +62,7 @@ V. Establishing a Daily News Routine
 
       3. Evening routines: watching nightly news broadcasts or catching up on social media updates
 
-   B. Balancing the intake of local, national, and international news stories
+B. Balancing the intake of local, national, and international news stories
 
 VI. Practicing Mindful News Consumption
 

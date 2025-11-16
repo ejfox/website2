@@ -52,6 +52,7 @@ Obsidian's graph view feature offers a unique way to visualize the connections b
 ### Great mobile support & iOS app
 
 ### Community plugins
+
 #### Syncing reading
 
 With the [Obsidian Kindle Plugin](https://github.com/hadynz/obsidian-kindle-plugin), I can effortlessly sync my Kindle highlights and integrate them into my notes, making it easy to reference and incorporate quotes from my favorite books. This centralized repository of knowledge has become an invaluable resource for my writing and personal growth.

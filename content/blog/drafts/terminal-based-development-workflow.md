@@ -10,5 +10,3 @@ modified: 2025-10-31T10:55:00-04:00
 ---
 
 ## Developing Entirely in The Terminal
-
-

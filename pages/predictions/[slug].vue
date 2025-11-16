@@ -1,28 +1,45 @@
 <template>
-  <main v-if="prediction" class="py-8 px-4 md:px-8 mx-auto max-w-4xl">
+  <main v-if="prediction" class="py-8 container-main">
     <!-- Header -->
-    <header class="mb-8">
-      <NuxtLink to="/predictions" class="font-mono text-xs text-zinc-500 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100">
+    <header class="section-spacing-lg">
+      <NuxtLink to="/predictions" class="mono-xs text-muted link-hover">
         ← predictions
       </NuxtLink>
     </header>
 
     <!-- Statement with confidence -->
-    <section class="mb-8">
-      <div class="flex items-start gap-4 mb-4">
-        <span class="font-mono text-3xl text-zinc-900 dark:text-zinc-100 font-bold shrink-0 tabular-nums">{{ prediction.confidence }}%</span>
-        <h1 class="font-serif text-2xl leading-tight text-zinc-900 dark:text-zinc-100 flex-1">
+    <section class="section-spacing-lg">
+      <div class="flex-gap-4 section-spacing-sm">
+        <span class="font-mono text-3xl text-primary font-bold shrink-0 tabular"
+          >{{ prediction.confidence }}%</span
+        >
+        <h1 class="font-serif text-2xl leading-tight text-primary flex-1">
           {{ prediction.statement }}
         </h1>
       </div>
 
       <!-- Metadata - MINIMAL -->
-      <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 flex items-center gap-2">
-        <span v-if="prediction.status && (prediction.status === 'correct' || prediction.status === 'incorrect')" :class="prediction.status === 'correct' ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'" class="font-bold text-base">
+      <div class="mono-xs text-muted flex-gap-2">
+        <span
+          v-if="
+            prediction.status &&
+            (prediction.status === 'correct' ||
+              prediction.status === 'incorrect')
+          "
+          :class="
+            prediction.status === 'correct' ? 'text-success' : 'text-error'
+          "
+          class="font-bold text-base"
+        >
           {{ prediction.status }}
         </span>
-        <span v-if="prediction.updates && prediction.updates.length > 0">· {{ prediction.updates.length }} {{ prediction.updates.length === 1 ? 'update' : 'updates' }}</span>
-        <span v-if="prediction.deadline">· {{ formatDateCompact(prediction.deadline) }}</span>
+        <span v-if="prediction.updates && prediction.updates.length > 0"
+          >· {{ prediction.updates.length }}
+          {{ prediction.updates.length === 1 ? 'update' : 'updates' }}</span
+        >
+        <span v-if="prediction.deadline"
+          >· {{ formatDateCompact(prediction.deadline) }}</span
+        >
       </div>
     </section>
 
@@ -30,39 +47,63 @@
     <MarketData :prediction="prediction" />
 
     <!-- Resolution -->
-    <section v-if="prediction.resolution" class="mb-12">
-      <h2 class="font-mono text-xs uppercase tracking-wider mb-3" :class="prediction.status === 'correct' ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'">
-        {{ prediction.status === 'correct' ? 'Correct' : prediction.status === 'incorrect' ? 'Incorrect' : 'Resolved' }}
+    <section v-if="prediction.resolution" class="section-spacing">
+      <h2
+        class="heading-2 mb-3"
+        :class="prediction.status === 'correct' ? 'text-success' : 'text-error'"
+      >
+        {{
+          prediction.status === 'correct'
+            ? 'Correct'
+            : prediction.status === 'incorrect'
+              ? 'Incorrect'
+              : 'Resolved'
+        }}
       </h2>
-      <div class="prose prose-sm dark:prose-invert max-w-none" v-html="resolutionHtml"></div>
+      <div
+        class="prose prose-sm dark:prose-invert max-w-none"
+        v-html="resolutionHtml"
+      ></div>
     </section>
 
     <!-- Evidence -->
-    <section v-if="prediction.evidence" class="mb-12">
-      <h2 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-3">Evidence</h2>
-      <div class="prose prose-sm dark:prose-invert max-w-none" v-html="evidenceHtml"></div>
+    <section v-if="prediction.evidence" class="section-spacing">
+      <h2 class="heading-2 mb-3">Evidence</h2>
+      <div
+        class="prose prose-sm dark:prose-invert max-w-none"
+        v-html="evidenceHtml"
+      ></div>
     </section>
 
     <!-- Update History -->
-    <section v-if="prediction.updates && prediction.updates.length > 0" class="mb-12">
-      <h2 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-4">Update History</h2>
+    <section
+      v-if="prediction.updates && prediction.updates.length > 0"
+      class="section-spacing"
+    >
+      <h2 class="heading-2 section-spacing-sm">Update History</h2>
 
       <div class="space-y-6">
-        <div
-          v-for="(update, index) in sortedUpdates"
-          :key="index"
-          class="pl-4"
-        >
+        <div v-for="(update, index) in sortedUpdates" :key="index" class="pl-4">
           <!-- Update header -->
-          <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mb-2">
-            <span class="text-zinc-900 dark:text-zinc-100">{{ formatDateCompact(update.timestamp) }}</span>
-            <span v-if="update.confidenceBefore !== undefined && update.confidenceAfter !== undefined" class="font-bold text-base tabular-nums">
-              · <span class="text-zinc-600 dark:text-zinc-400">{{ update.confidenceBefore }}%</span> → <span class="text-zinc-900 dark:text-zinc-100">{{ update.confidenceAfter }}%</span>
+          <div class="mono-xs text-muted mb-2">
+            <span class="text-primary">{{
+              formatDateCompact(update.timestamp)
+            }}</span>
+            <span
+              v-if="
+                update.confidenceBefore !== undefined &&
+                update.confidenceAfter !== undefined
+              "
+              class="font-bold text-base tabular"
+            >
+              ·
+              <span class="text-secondary">{{ update.confidenceBefore }}%</span>
+              → <span class="text-primary">{{ update.confidenceAfter }}%</span>
             </span>
           </div>
 
           <!-- Update reasoning -->
-          <div class="font-serif text-sm text-zinc-600 dark:text-zinc-400 leading-normal">
+          <div class="text-body">
             {{ update.reasoning }}
           </div>
         </div>
@@ -70,11 +111,17 @@
     </section>
 
     <!-- Related -->
-    <section v-if="prediction.related && prediction.related.length > 0" class="mb-12">
-      <h2 class="font-mono text-xs text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-3">Related</h2>
-      <ul class="space-y-1 font-serif text-sm">
+    <section
+      v-if="prediction.related && prediction.related.length > 0"
+      class="section-spacing"
+    >
+      <h2 class="heading-2 mb-3">Related</h2>
+      <ul class="stack-1 font-serif text-sm">
         <li v-for="relatedId in prediction.related" :key="relatedId">
-          <NuxtLink :to="`/predictions/${relatedId}`" class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100">
+          <NuxtLink
+            :to="`/predictions/${relatedId}`"
+            class="text-secondary link-hover"
+          >
             {{ relatedId }}
           </NuxtLink>
         </li>
@@ -86,13 +133,15 @@
   </main>
 
   <!-- Error state -->
-  <div v-else-if="error" class="px-4 md:px-8 mx-auto max-w-4xl py-8 font-mono text-xs">
+  <div v-else-if="error" class="container-main py-8 mono-xs">
     <div class="p-4">
-      <div class="text-red-600 dark:text-red-500 mb-2 uppercase font-bold">Error: Prediction not found</div>
-      <p class="text-zinc-600 dark:text-zinc-400 mb-3">
+      <div class="text-error mb-2 uppercase font-bold">
+        Error: Prediction not found
+      </div>
+      <p class="text-secondary mb-3">
         The requested prediction does not exist or has been removed.
       </p>
-      <NuxtLink to="/predictions" class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100">
+      <NuxtLink to="/predictions" class="text-secondary link-hover">
         ← back to predictions
       </NuxtLink>
     </div>
@@ -100,7 +149,7 @@
 
   <!-- Loading state -->
   <div v-else class="px-4 md:px-8 mx-auto max-w-4xl py-8 font-mono text-xs">
-    <p class="text-zinc-500 dark:text-zinc-500">loading...</p>
+    <p class="text-muted">loading...</p>
   </div>
 </template>
 
@@ -141,7 +190,20 @@ onMounted(async () => {
 const formatDateCompact = (dateString) => {
   if (!dateString) return 'Unknown'
   const d = new Date(dateString)
-  const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
+  const months = [
+    'JAN',
+    'FEB',
+    'MAR',
+    'APR',
+    'MAY',
+    'JUN',
+    'JUL',
+    'AUG',
+    'SEP',
+    'OCT',
+    'NOV',
+    'DEC'
+  ]
   return `${months[d.getMonth()]} ${String(d.getDate()).padStart(2, '0')}, ${d.getFullYear()}`
 }
 
@@ -155,7 +217,9 @@ const sortedUpdates = computed(() => {
 
 // Prediction URL for webmentions
 const config = useRuntimeConfig()
-const baseURL = config.public?.baseURL || (typeof window !== 'undefined' ? window.location.origin : 'https://ejfox.com')
+const baseURL =
+  config.public?.baseURL ||
+  (typeof window !== 'undefined' ? window.location.origin : 'https://ejfox.com')
 const predictionUrl = computed(() => `${baseURL}/predictions/${slug}`)
 
 // SEO meta

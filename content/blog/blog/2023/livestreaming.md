@@ -16,7 +16,9 @@ tags:
 [Outlier 2021 Talk on Livestreaming with Ian Johnson](https://www.youtube.com/watch?v=wWqmqiG3HRs)
 
 ### Past Livestreams
+
 #### 2022
+
 ##### Feb 8, 2022: Observable to vue
 
 [Live Coding: (Part 2) Porting Data Visualization From Observable to Vue (+ GitHub Co-Pilot!)](https://www.youtube.com/watch?v=_VEQ6Rc0U30)
@@ -58,6 +60,7 @@ tags:
 [Live Coding/Dataviz: 🌍 Understanding Climate Change Through Asset-Level Emission Data](https://www.youtube.com/watch?v=xoGEpaHCDM8)
 
 #### 2021
+
 ##### Oct 26, 2021: Livecoding election maps
 
 [ 🔨 Livecoding Election Maps - Session 1](https://www.youtube.com/watch?v=6uBM9HAtIoQ&t=12965s)

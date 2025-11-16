@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-import { promises as fs } from 'fs'
-import { join } from 'path'
-import readline from 'readline'
+import { promises as fs } from 'node:fs'
+import { join } from 'node:path'
+import readline from 'node:readline'
 import matter from 'gray-matter'
 
 const rl = readline.createInterface({
@@ -17,7 +17,7 @@ async function createPrediction() {
   console.log('🔮 Create a new prediction\n')
 
   const statement = await question('Statement: ')
-  const confidence = parseInt(await question('Confidence (0-100): '))
+  const confidence = Number.parseInt(await question('Confidence (0-100): '))
   const deadline = await question('Deadline (YYYY-MM-DD): ')
   const categoriesInput = await question('Categories (comma-separated): ')
   const categories = categoriesInput.split(',').map((c) => c.trim())

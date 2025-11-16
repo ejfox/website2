@@ -89,4 +89,3 @@ This prediction resolves **TRUE** if AI-generated code accounts for >30% of comm
 - 2-year window allows for significant tool improvement and adoption
 - Enough time for organizational policies and workflows to adapt
 - Sufficient for next generation of AI coding tools to emerge and be adopted
-

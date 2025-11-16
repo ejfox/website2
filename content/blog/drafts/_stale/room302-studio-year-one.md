@@ -15,6 +15,7 @@ tags:
 hidden: true
 draft: true
 ---
+
 ## Room 302 Studio: Year One
 
 This was one of the most difficult and exciting years of my life, and it has passed incredibly quickly. For the benefit of both myself and the reader, I wanted to catalogue some of the adventures and lessons of the past year, and what that means for the year ahead.
@@ -32,7 +33,6 @@ Some of that is just creating old-fashioned templates and runbooks in Google Doc
 I have been trying to be more disciplined about putting on weekly livestreams where
 
 ### Struggles and Successes with Discord
-
 
 ## Plans For The Year Ahead
 

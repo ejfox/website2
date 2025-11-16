@@ -7,7 +7,6 @@ tags:
   - games
 ---
 
-
 ## Week 1: Chess Fundamentals and Effective Study Techniques
 
 Objective: Build a solid foundation by learning how to read chess notation and adopt effective study habits, setting the stage for more advanced topics in the following weeks.

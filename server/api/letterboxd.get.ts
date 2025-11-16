@@ -23,23 +23,33 @@ export default defineEventHandler(async (_event) => {
 
       try {
         // Extract film data from RSS item
-        const titleMatch = itemXml.match(/<letterboxd:filmTitle>(.*?)<\/letterboxd:filmTitle>/)
-        const yearMatch = itemXml.match(/<letterboxd:filmYear>(.*?)<\/letterboxd:filmYear>/)
-        const watchedDateMatch = itemXml.match(/<letterboxd:watchedDate>(.*?)<\/letterboxd:watchedDate>/)
-        const ratingMatch = itemXml.match(/<letterboxd:memberRating>(.*?)<\/letterboxd:memberRating>/)
-        const rewatchMatch = itemXml.match(/<letterboxd:rewatch>(.*?)<\/letterboxd:rewatch>/)
+        const titleMatch = itemXml.match(
+          /<letterboxd:filmTitle>(.*?)<\/letterboxd:filmTitle>/
+        )
+        const yearMatch = itemXml.match(
+          /<letterboxd:filmYear>(.*?)<\/letterboxd:filmYear>/
+        )
+        const watchedDateMatch = itemXml.match(
+          /<letterboxd:watchedDate>(.*?)<\/letterboxd:watchedDate>/
+        )
+        const ratingMatch = itemXml.match(
+          /<letterboxd:memberRating>(.*?)<\/letterboxd:memberRating>/
+        )
+        const rewatchMatch = itemXml.match(
+          /<letterboxd:rewatch>(.*?)<\/letterboxd:rewatch>/
+        )
         const linkMatch = itemXml.match(/<link>(.*?)<\/link>/)
 
         const title = titleMatch ? titleMatch[1] : ''
         const year = yearMatch ? yearMatch[1] : ''
         const watchedDate = watchedDateMatch ? watchedDateMatch[1] : null
-        const rating = ratingMatch ? parseFloat(ratingMatch[1]) : null
+        const rating = ratingMatch ? Number.parseFloat(ratingMatch[1]) : null
         const isRewatch = rewatchMatch ? rewatchMatch[1] === 'Yes' : false
 
         // Extract slug from link (e.g., https://letterboxd.com/ejfox/film/friendship-2024/)
         let slug = ''
         if (linkMatch) {
-          const slugMatch = linkMatch[1].match(/\/film\/([^\/]+)\//)
+          const slugMatch = linkMatch[1].match(/\/film\/([^/]+)\//)
           if (slugMatch) {
             slug = slugMatch[1]
           }
@@ -49,7 +59,9 @@ export default defineEventHandler(async (_event) => {
           title: year ? `${title} (${year})` : title,
           slug: slug,
           rating: rating,
-          letterboxdUrl: linkMatch ? linkMatch[1] : `https://letterboxd.com/film/${slug}/`,
+          letterboxdUrl: linkMatch
+            ? linkMatch[1]
+            : `https://letterboxd.com/film/${slug}/`,
           watchedDate: watchedDate,
           isRewatch: isRewatch
         })
@@ -80,7 +92,8 @@ export default defineEventHandler(async (_event) => {
     const ratedFilms = films.filter((f) => f.rating !== null)
     const averageRating =
       ratedFilms.length > 0
-        ? ratedFilms.reduce((sum, f) => sum + (f.rating || 0), 0) / ratedFilms.length
+        ? ratedFilms.reduce((sum, f) => sum + (f.rating || 0), 0) /
+          ratedFilms.length
         : 0
 
     const rewatches = films.filter((f) => f.isRewatch).length

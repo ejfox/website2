@@ -12,11 +12,7 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/81VT7iM7WzL._SY160.jpg",
       "highlightsCount": 5
     },
-    "tags": [
-      "book",
-      "health",
-      "personal"
-    ],
+    "tags": ["book", "health", "personal"],
     "words": 281,
     "images": 0,
     "imageDetails": {

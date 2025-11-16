@@ -1,6 +1,11 @@
-import { Configuration, PortfolioApi, MarketsApi, EventsApi } from 'kalshi-typescript'
-import { readFile, readdir } from 'fs/promises'
-import { join } from 'path'
+import {
+  Configuration,
+  PortfolioApi,
+  MarketsApi,
+  EventsApi
+} from 'kalshi-typescript'
+import { readFile, readdir } from 'node:fs/promises'
+import { join } from 'node:path'
 import matter from 'gray-matter'
 import type {
   KalshiBalance,
@@ -28,8 +33,9 @@ let portfolioCache: CacheLayer<{
   orders: KalshiOrder[]
 }> | null = null
 
-let eventsCache: Map<string, CacheLayer<KalshiEvent>> = new Map()
-let commentariesCache: CacheLayer<Record<string, KalshiCommentary>> | null = null
+const eventsCache: Map<string, CacheLayer<KalshiEvent>> = new Map()
+let commentariesCache: CacheLayer<Record<string, KalshiCommentary>> | null =
+  null
 
 // Cache durations (in milliseconds)
 const PORTFOLIO_CACHE_DURATION = 2 * 60 * 1000 // 2 minutes - positions change frequently
@@ -63,11 +69,14 @@ function calculatePortfolioPnL(
   }
 
   // Group fills by ticker for analysis
-  const fillsByTicker = fills.reduce<Record<string, KalshiFill[]>>((acc, fill) => {
-    if (!acc[fill.ticker]) acc[fill.ticker] = []
-    acc[fill.ticker].push(fill)
-    return acc
-  }, {})
+  const fillsByTicker = fills.reduce<Record<string, KalshiFill[]>>(
+    (acc, fill) => {
+      if (!acc[fill.ticker]) acc[fill.ticker] = []
+      acc[fill.ticker].push(fill)
+      return acc
+    },
+    {}
+  )
 
   // Process open positions
   for (const pos of positions) {
@@ -103,7 +112,8 @@ function calculatePortfolioPnL(
       ? currentValue - costBasis // YES: profit if price rises
       : costBasis - currentValue // NO: profit if price falls
 
-    const unrealizedPnLPercent = costBasis > 0 ? (unrealizedPnL / costBasis) * 100 : 0
+    const unrealizedPnLPercent =
+      costBasis > 0 ? (unrealizedPnL / costBasis) * 100 : 0
 
     stats.totalInvested += costBasis
     stats.totalValue += isYesPosition ? currentValue : costBasis - unrealizedPnL
@@ -125,7 +135,7 @@ function calculatePortfolioPnL(
 
   // Process closed positions
   for (const [ticker, tickerFills] of Object.entries(fillsByTicker)) {
-    const hasOpenPosition = positions.some(p => p.ticker === ticker)
+    const hasOpenPosition = positions.some((p) => p.ticker === ticker)
     if (hasOpenPosition) continue
 
     let buyValue = 0
@@ -169,14 +179,17 @@ function calculatePortfolioPnL(
  */
 async function loadCommentaries(): Promise<Record<string, KalshiCommentary>> {
   // Check commentary cache
-  if (commentariesCache && Date.now() - commentariesCache.timestamp < COMMENTARIES_CACHE_DURATION) {
+  if (
+    commentariesCache &&
+    Date.now() - commentariesCache.timestamp < COMMENTARIES_CACHE_DURATION
+  ) {
     return commentariesCache.data
   }
 
   try {
     const contentDir = join(process.cwd(), 'content/kalshi')
     const files = await readdir(contentDir).catch(() => [])
-    const mdFiles = files.filter(f => f.endsWith('.md'))
+    const mdFiles = files.filter((f) => f.endsWith('.md'))
 
     const commentaries = await Promise.all(
       mdFiles.map(async (file) => {
@@ -197,7 +210,7 @@ async function loadCommentaries(): Promise<Record<string, KalshiCommentary>> {
       })
     )
 
-    const result = Object.fromEntries(commentaries.map(c => [c.ticker, c]))
+    const result = Object.fromEntries(commentaries.map((c) => [c.ticker, c]))
 
     // Update cache
     commentariesCache = {
@@ -238,7 +251,9 @@ async function fetchEvents(
     return result
   }
 
-  console.log(`[Kalshi] Fetching ${needsFetch.length}/${eventTickers.length} events from API`)
+  console.log(
+    `[Kalshi] Fetching ${needsFetch.length}/${eventTickers.length} events from API`
+  )
 
   // Fetch missing events in parallel
   const eventResults = await Promise.allSettled(
@@ -267,8 +282,12 @@ async function fetchEvents(
   }
 
   if (resolved404Count > 0) {
-    console.log(`[Kalshi] ${resolved404Count}/${needsFetch.length} events returned 404 (resolved/removed from API)`)
-    console.log(`[Kalshi] Falling back to commentary files for titles. Run: node scripts/generate-commentary-templates.mjs`)
+    console.log(
+      `[Kalshi] ${resolved404Count}/${needsFetch.length} events returned 404 (resolved/removed from API)`
+    )
+    console.log(
+      `[Kalshi] Falling back to commentary files for titles. Run: node scripts/generate-commentary-templates.mjs`
+    )
   }
 
   return result
@@ -298,7 +317,11 @@ function enrichMarketData(
     subtitle,
     category: event?.category || commentary?.theme || 'Unknown',
     series_ticker: event?.series_ticker || '',
-    status: event ? (event?.mutually_exclusive ? 'active' : 'settled') : 'settled',
+    status: event
+      ? event?.mutually_exclusive
+        ? 'active'
+        : 'settled'
+      : 'settled',
     market_type: 'binary',
     last_price: null,
     yes_bid: null,
@@ -312,14 +335,16 @@ export default defineEventHandler(async (event): Promise<KalshiApiResponse> => {
   const now = Date.now()
 
   // Check portfolio cache
-  const portfolioCacheValid = portfolioCache && now - portfolioCache.timestamp < PORTFOLIO_CACHE_DURATION
+  const portfolioCacheValid =
+    portfolioCache && now - portfolioCache.timestamp < PORTFOLIO_CACHE_DURATION
 
   if (portfolioCacheValid) {
     console.log('[Kalshi] Serving from cache')
 
     // Still need to recalculate derived data with fresh commentary
     const commentaries = await loadCommentaries()
-    const { balance, positions, eventPositions, fills, orders } = portfolioCache.data
+    const { balance, positions, eventPositions, fills, orders } =
+      portfolioCache.data
 
     // Build market_ticker → event_ticker map from cached event positions
     const tickerToEvent = new Map<string, string>()
@@ -366,14 +391,24 @@ export default defineEventHandler(async (event): Promise<KalshiApiResponse> => {
 
     // Enrich market data
     const marketDetails: Record<string, EnrichedMarketData> = {}
+    const tickers = Array.from(tickerToEvent.keys())
     for (const ticker of tickers) {
       const eventTicker = tickerToEvent.get(ticker)!
       const event = eventDataMap.get(eventTicker)
       const commentary = commentaries[ticker]
-      marketDetails[ticker] = enrichMarketData(ticker, eventTicker, event, commentary)
+      marketDetails[ticker] = enrichMarketData(
+        ticker,
+        eventTicker,
+        event,
+        commentary
+      )
     }
 
-    const portfolioStats = calculatePortfolioPnL(positions, fills, marketDetails)
+    const portfolioStats = calculatePortfolioPnL(
+      positions,
+      fills,
+      marketDetails
+    )
 
     return {
       balance,
@@ -386,8 +421,12 @@ export default defineEventHandler(async (event): Promise<KalshiApiResponse> => {
       lastUpdated: new Date(portfolioCache.timestamp).toISOString(),
       cacheMetadata: {
         positionsCacheAge: now - portfolioCache.timestamp,
-        eventsCacheAge: Math.min(...Array.from(eventsCache.values()).map(c => now - c.timestamp)),
-        nextRefresh: new Date(portfolioCache.timestamp + PORTFOLIO_CACHE_DURATION).toISOString()
+        eventsCacheAge: Math.min(
+          ...Array.from(eventsCache.values()).map((c) => now - c.timestamp)
+        ),
+        nextRefresh: new Date(
+          portfolioCache.timestamp + PORTFOLIO_CACHE_DURATION
+        ).toISOString()
       }
     }
   }
@@ -415,7 +454,8 @@ export default defineEventHandler(async (event): Promise<KalshiApiResponse> => {
     ])
 
     const balance = balanceRes.data as KalshiBalance
-    const positions = (positionsRes.data.market_positions || []) as KalshiPosition[]
+    const positions = (positionsRes.data.market_positions ||
+      []) as KalshiPosition[]
     const eventPositions = positionsRes.data.event_positions || []
     const fills = (fillsRes.data.fills || []) as KalshiFill[]
     const orders = (ordersRes.data.orders || []) as KalshiOrder[]
@@ -476,15 +516,25 @@ export default defineEventHandler(async (event): Promise<KalshiApiResponse> => {
 
     // Enrich market data
     const marketDetails: Record<string, EnrichedMarketData> = {}
+    const tickers = Array.from(tickerToEvent.keys())
     for (const ticker of tickers) {
       const eventTicker = tickerToEvent.get(ticker)!
       const event = eventDataMap.get(eventTicker)
       const commentary = commentaries[ticker]
-      marketDetails[ticker] = enrichMarketData(ticker, eventTicker, event, commentary)
+      marketDetails[ticker] = enrichMarketData(
+        ticker,
+        eventTicker,
+        event,
+        commentary
+      )
     }
 
     // Calculate portfolio stats
-    const portfolioStats = calculatePortfolioPnL(positions, fills, marketDetails)
+    const portfolioStats = calculatePortfolioPnL(
+      positions,
+      fills,
+      marketDetails
+    )
 
     return {
       balance,
@@ -497,9 +547,14 @@ export default defineEventHandler(async (event): Promise<KalshiApiResponse> => {
       lastUpdated: new Date().toISOString(),
       cacheMetadata: {
         positionsCacheAge: 0,
-        eventsCacheAge: eventsCache.size > 0
-          ? Math.min(...Array.from(eventsCache.values()).map(c => now - c.timestamp))
-          : 0,
+        eventsCacheAge:
+          eventsCache.size > 0
+            ? Math.min(
+                ...Array.from(eventsCache.values()).map(
+                  (c) => now - c.timestamp
+                )
+              )
+            : 0,
         nextRefresh: new Date(now + PORTFOLIO_CACHE_DURATION).toISOString()
       }
     }

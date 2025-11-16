@@ -28,7 +28,7 @@ Before embarking on any journey, make sure to grab a coffee before you hit the r
 
 ### Accept and Embrace Mistakes
 
-Travel is more fun if you just accept the fact that you will make mistakes and wrong turns and unforeseen circumstances will delay or divert you. Those things are the joy of travel; not sources of frustration. A slight divergence in how you see the same situation will radically alter your enjoyment of it. While not always possible on minimal sleep, food, or patience- you can often switch your brain to the right spot by reminding yourself this is an *adventure*.
+Travel is more fun if you just accept the fact that you will make mistakes and wrong turns and unforeseen circumstances will delay or divert you. Those things are the joy of travel; not sources of frustration. A slight divergence in how you see the same situation will radically alter your enjoyment of it. While not always possible on minimal sleep, food, or patience- you can often switch your brain to the right spot by reminding yourself this is an _adventure_.
 
 ### Don't stress
 
@@ -38,7 +38,7 @@ Instead of stressing over what might go wrong, try to focus on what's going righ
 
 ### Leave Room for Synchronicities
 
-In order to do this without stress, you need to strategically plan your travel in a way that *leaves space for synchronicities to happen*. A tight schedule makes everything stressful and should be avoided when traveling for pleasure.
+In order to do this without stress, you need to strategically plan your travel in a way that _leaves space for synchronicities to happen_. A tight schedule makes everything stressful and should be avoided when traveling for pleasure.
 
 Sometimes, when you're traveling, you can come across amazing opportunities and experiences that you didn't even know were possible. Make sure to leave some room in your schedule and your heart to be open to these unexpected moments - you never know what you'll find if you just go with the flow.
 
@@ -98,7 +98,7 @@ Embracing potential rainy days with open arms involves changing our perspective 
 
 ### Scarcity mentality
 
->My proclivity for overpacking, Ms. Beckford told me, comes from a place of pessimism and a “scarcity mentality,” whereby I’m constantly imagining everything that could go wrong on a trip and trying to pack accordingly. That negativity can color a trip from the start.
+> My proclivity for overpacking, Ms. Beckford told me, comes from a place of pessimism and a “scarcity mentality,” whereby I’m constantly imagining everything that could go wrong on a trip and trying to pack accordingly. That negativity can color a trip from the start.
 
->Sure, plan ahead, research the climate at your destination and pick a few fun outfits you want to wear in your Instagram upload, she advised, but don’t stress too much. It’s a vacation, after all.
-[](https://www.nytimes.com/2023/07/08/opinion/carry-on-packing-airlines-lost-luggage.html?smid=nytcore-ios-share&referringSource=articleShare)
+> Sure, plan ahead, research the climate at your destination and pick a few fun outfits you want to wear in your Instagram upload, she advised, but don’t stress too much. It’s a vacation, after all.
+> [](https://www.nytimes.com/2023/07/08/opinion/carry-on-packing-airlines-lost-luggage.html?smid=nytcore-ios-share&referringSource=articleShare)

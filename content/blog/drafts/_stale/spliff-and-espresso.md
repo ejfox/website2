@@ -9,13 +9,14 @@ tags:
   - cannabis
   - personal
 ---
+
 ## Spliff and Espresso
 
 #cannabis #personal
 
 A strong dose of :ruby{rt="a stimulant found in coffee and tea"}caffeine{/ruby} coupled with :ruby{rt="the psychoactive properties of marijuana"}cannabis{/ruby}'s uplifting effects is a powerful combination. Coffee is known to improve clarity, focus, and mood while reducing fatigue; while cannabis is known to reduce tension, anxiety, and stress, providing a euphoric feeling. Together, the combination can be a powerful boost to creativity and productivity.
 
-  Since ancient times, <ruby>marijuana<rp>(</rp><rt>another term for cannabis</rt><rp>)</rp></ruby> and coffee have been consumed in combination in many parts of the world. This practice has been documented in various traditional cultures, particularly in <ruby>East and Southeast Asia<rp>(</rp><rt>regions in Asia known for their diverse cultures</rt><rp>)</rp></ruby>, and appears to have been used as part of spiritual or ritualistic practices. In more recent times, the combination of marijuana and coffee has become increasingly popular in a variety of contexts.
+Since ancient times, <ruby>marijuana<rp>(</rp><rt>another term for cannabis</rt><rp>)</rp></ruby> and coffee have been consumed in combination in many parts of the world. This practice has been documented in various traditional cultures, particularly in <ruby>East and Southeast Asia<rp>(</rp><rt>regions in Asia known for their diverse cultures</rt><rp>)</rp></ruby>, and appears to have been used as part of spiritual or ritualistic practices. In more recent times, the combination of marijuana and coffee has become increasingly popular in a variety of contexts.
 
 The combination of marijuana and coffee has been found to offer a number of potential benefits. Studies have suggested that the two substances can interact in a synergistic manner, providing enhanced effects relative to the individual components.
 
@@ -26,6 +27,7 @@ This combination has become increasingly popular among creatives and other indiv
 Many have found that the combination of a spliff and a double espresso can provide a significant boost to creativity and focus, allowing them to work more efficiently and effectively. Moreover, the enhanced relaxation and euphoria that can be experienced from the combination can help to reduce stress and improve overall well-being.
 
 ### Goals For Spliff & Espresso Brand
+
 1. To be the go-to source for products to enhance the cannabis and coffee consumption experience.
 2. To provide a consistent and enjoyable experience for our customers.
 3. To create a platform for cannabis-related education and advocacy.
@@ -41,6 +43,7 @@ Our visual identity will be modern and minimalistic, focusing on clear and simpl
 Our brand messaging will focus on the quality, consistency, and experience of our products, as well as our commitment to sustainability and education. We will emphasize the potential benefits of combining cannabis and coffee, highlighting the potential for increased focus, creativity, and relaxation. We will use an authentic and conversational tone to create a strong connection with our customers.
 
 ### Products
+
 - T-Shirts
 - Ash tray
 - Espresso cups
@@ -51,6 +54,7 @@ Our brand messaging will focus on the quality, consistency, and experience of ou
 - Coloring books
 
 ### Concepts
+
 - Cannabis & Coffee Workshop: This would be a workshop where participants can learn about the science, history, and culture of cannabis and coffee. The workshop would include lectures, tastings, and hands-on activities.
 
 - Cannabis & Coffee Pairing Kit: This kit would include a selection of coffees and cannabis-infused edibles designed to be paired together. The kit would include tasting notes and instructions on how to get the most out of each combination.

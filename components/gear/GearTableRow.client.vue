@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="group hover:bg-zinc-50 dark:hover:bg-zinc-900/50 transition-all duration-200 cursor-pointer"
-    @click="navigateToItem"
-  >
+  <div class="gear-row" @click="navigateToItem">
     <!-- Tabular layout like a spreadsheet row -->
     <div
       class="grid grid-cols-12 gap-4 py-2.5 px-2 text-xs font-mono items-center"
@@ -21,7 +18,7 @@
             :href="amazonAffiliateUrl"
             target="_blank"
             rel="nofollow noopener"
-            class="text-zinc-500 dark:text-zinc-400 hover:text-orange-600 dark:hover:text-orange-400 text-xs font-normal transition-colors underline decoration-dotted underline-offset-2"
+            class="gear-link"
           >
             buy
           </a>
@@ -66,10 +63,7 @@
       </div>
 
       <!-- Type - Secondary info -->
-      <div
-        class="col-span-2 text-center text-zinc-500 dark:text-zinc-500 text-sm font-medium group/type cursor-help"
-        :title="item.Type"
-      >
+      <div class="gear-type-cell" :title="item.Type">
         <span class="group-hover/type:hidden">{{
           getTypeSymbol(item.Type)
         }}</span>
@@ -107,13 +101,8 @@
     </div>
 
     <!-- Notes - show on hover, full width -->
-    <div
-      v-if="item.Notes"
-      class="px-2 pb-4 opacity-0 group-hover:opacity-100 transition-all transform translate-y-1 group-hover:translate-y-0"
-    >
-      <p
-        class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed font-mono italic bg-zinc-50/50 dark:bg-zinc-900/50 p-2 rounded"
-      >
+    <div v-if="item.Notes" class="tooltip-slide-up">
+      <p class="note-box">
         {{ item.Notes }}
       </p>
     </div>
@@ -170,7 +159,7 @@ const navigateToItem = () => {
 
 // Epic gear item reveal
 const animateGearItem = async () => {
-  if (process.server) return
+  if (import.meta.server) return
 
   await nextTick()
 

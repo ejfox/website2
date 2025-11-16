@@ -25,7 +25,7 @@ I want to dissect this corruption. How did people who use the same technologies 
 
 ## The Inflection Point
 
-GamerGate was the moment hacker culture got weaponized. [The 2014 harassment campaign](https://en.wikipedia.org/wiki/Gamergate_(harassment_campaign)) used doxxing, coordinated raids through 4chan and 8chan, and technical tactics to drive women like Zoe Quinn and Brianna Wu (ultimately a piece of shit in her own right) from their homes with death threats. [Experts later called it](https://edition.cnn.com/2025/03/23/us/gamergate-harassment-reddit-twitter-cec) "largely considered one of the biggest influences for today's spread of misinformation" and the template for QAnon and January 6th.
+GamerGate was the moment hacker culture got weaponized. [The 2014 harassment campaign](<https://en.wikipedia.org/wiki/Gamergate_(harassment_campaign)>) used doxxing, coordinated raids through 4chan and 8chan, and technical tactics to drive women like Zoe Quinn and Brianna Wu (ultimately a piece of shit in her own right) from their homes with death threats. [Experts later called it](https://edition.cnn.com/2025/03/23/us/gamergate-harassment-reddit-twitter-cec) "largely considered one of the biggest influences for today's spread of misinformation" and the template for QAnon and January 6th.
 
 Andrew Tate selling dropshipping courses to incels. Joe Rogan platforming conspiracy theorists between discussions of kettle bells and DMT.
 

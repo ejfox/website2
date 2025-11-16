@@ -1,5 +1,5 @@
-import { readFile } from 'fs/promises'
-import { resolve } from 'path'
+import { readFile } from 'node:fs/promises'
+import { resolve } from 'node:path'
 import * as d3 from 'd3'
 
 interface GearItem {
@@ -20,8 +20,8 @@ function createSlug(name: string): string {
 
 export default defineEventHandler(async (_event) => {
   try {
-    // Read the CSV file from public directory
-    const csvPath = resolve(process.cwd(), 'public/gear.csv')
+    // Read the CSV file from data directory
+    const csvPath = resolve(process.cwd(), 'data/gear.csv')
     const csvText = await readFile(csvPath, 'utf-8')
 
     // Parse CSV using d3

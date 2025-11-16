@@ -65,16 +65,19 @@
           :href="film.letterboxdUrl"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex justify-between items-start text-xs gap-4 hover:bg-zinc-100 dark:hover:bg-zinc-800 -mx-2 px-2 py-1 rounded transition-colors group"
+          class="row-hover-xs"
         >
           <div class="flex-1 min-w-0">
-            <div class="truncate text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-900 dark:group-hover:text-zinc-100">
+            <div
+              class="truncate text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-900 dark:group-hover:text-zinc-100"
+            >
               {{ film.title }}
               <span
                 v-if="film.isRewatch"
                 class="text-zinc-400 dark:text-zinc-600 ml-1"
                 title="Rewatch"
-              >↻</span>
+                >↻</span
+              >
             </div>
             <div class="text-zinc-500 text-[10px]">
               {{ formatDate(film.watchedDate) }}
@@ -89,7 +92,8 @@
                 v-for="star in renderStars(film.rating)"
                 :key="star.id"
                 :class="star.class"
-              >{{ star.char }}</span>
+                >{{ star.char }}</span
+              >
             </span>
           </div>
         </a>
@@ -106,18 +110,23 @@
           :href="film.letterboxdUrl"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex justify-between items-center text-xs gap-3 hover:bg-zinc-100 dark:hover:bg-zinc-800 -mx-2 px-2 py-1 rounded transition-colors group"
+          class="row-hover-xs-centered"
         >
-          <div class="truncate text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-900 dark:group-hover:text-zinc-100">
+          <div
+            class="truncate text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-900 dark:group-hover:text-zinc-100"
+          >
             {{ film.title }}
           </div>
-          <div class="text-zinc-600 dark:text-zinc-400 tabular-nums flex-shrink-0">
+          <div
+            class="text-zinc-600 dark:text-zinc-400 tabular-nums flex-shrink-0"
+          >
             <span class="inline-flex gap-[1px]">
               <span
                 v-for="star in renderStars(film.rating)"
                 :key="star.id"
                 :class="star.class"
-              >{{ star.char }}</span>
+                >{{ star.char }}</span
+              >
             </span>
           </div>
         </a>

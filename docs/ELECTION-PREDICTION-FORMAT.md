@@ -65,8 +65,8 @@ content/predictions/elections/
   "model_version": "v1.2.3",
 
   "candidates": [
-    {"name": "Greg Abbott", "party": "R"},
-    {"name": "Beto O'Rourke", "party": "D"}
+    { "name": "Greg Abbott", "party": "R" },
+    { "name": "Beto O'Rourke", "party": "D" }
   ],
 
   "prediction": {
@@ -272,10 +272,11 @@ This is **v1.0.0** of the schema.
 Breaking changes will increment major version. Website will support multiple versions.
 
 Future additions:
+
 - `v1.1.0`: Add county-level data
 - `v1.2.0`: Add time-series prediction history
 - `v2.0.0`: Complete restructure (if needed)
 
 ---
 
-*Keep it simple. Start with statewide races. Add complexity only when needed.*
+_Keep it simple. Start with statewide races. Add complexity only when needed._

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import { execSync } from 'child_process'
-import { writeFileSync } from 'fs'
+import { execSync } from 'node:child_process'
+import { writeFileSync } from 'node:fs'
 
 const commit = execSync('git rev-parse --short HEAD').toString().trim()
 const commitLong = execSync('git rev-parse HEAD').toString().trim()

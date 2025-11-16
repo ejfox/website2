@@ -107,7 +107,8 @@ const gistsDescription = computed(() => {
   const fileCount = totalFiles.value || 0
   const sizeKB = Math.round(totalSize.value / 1024)
 
-  if (gistCount === 0) return 'Code snippets, scripts, and experiments from GitHub Gists'
+  if (gistCount === 0)
+    return 'Code snippets, scripts, and experiments from GitHub Gists'
 
   const topLangs = languageCounts.value
     .slice(0, 4)
@@ -177,7 +178,7 @@ const toggleGist = (gistId: string) => {
     </div>
 
     <!-- Loading state -->
-    <div v-if="pending" class="space-y-4">
+    <div v-if="pending" class="stack-4">
       <div v-for="i in 8" :key="i" class="py-4">
         <div class="flex items-baseline gap-2">
           <div class="skeleton w-6 h-4"></div>

@@ -14,13 +14,13 @@ tags:
 
 ## Preparing For Nothing In Particular
 
-The snow is beginning to fall in upstate New York and I am gathering some fresh wood from the pile by the driveway to put next to the wood stove. All winter long, warmth has been hard to find. Lately, despite how cold it is, I have been resisting the urge to light the fire until the sunset lights up the trees. As I feel the temperature drop, I _finally_ let myself light the fire. I apply the lighter to the carefully designed structure of kindling, which is eager to burn, so I only have to hold the flame to it for a few seconds. Then I can sit back and watch the fire grow.
+The snow is beginning to fall in upstate New York and I am gathering some fresh wood from the pile by the driveway to put next to the wood stove. All winter long, warmth has been hard to find. Lately, despite how cold it is, I have been resisting the urge to light the fire until the sunset lights up the trees. As I feel the temperature drop, I *finally* let myself light the fire. I apply the lighter to the carefully designed structure of kindling, which is eager to burn, so I only have to hold the flame to it for a few seconds. Then I can sit back and watch the fire grow.
 
 There is a pride, an inner warmth you gain when you sit by a fire you've assembled yourself. Within that pride is gratitude to the tree that is itself burning, the nameless stewards of that tree throughout its lifetime, the person who cut it down, chopped it, and dumped it in your driveway, and gratitude to your parents for making that order in mid-July in preparation for the cold winter.
 
 ### Preparation
 
-For the past year when I wake up in the morning and meditate for a little while on what my heart truly desires the compass often spins back to a central concept of **[robots/preparation-as-practice|preparatio](robots/preparation-as-practice|preparatio)n]]**. *The process of assembling skills, knowledge, and tools that may or may not be useful later.* This is a dangerous art that can quickly trap a person. You can easily become over-enamored with preparation as an act in itself, something I keep falling prey to.
+For the past year when I wake up in the morning and meditate for a little while on what my heart truly desires the compass often spins back to a central concept of **[robots/preparation-as-practice|preparatio](robots/preparation-as-practice|preparatio)n]]**. _The process of assembling skills, knowledge, and tools that may or may not be useful later._ This is a dangerous art that can quickly trap a person. You can easily become over-enamored with preparation as an act in itself, something I keep falling prey to.
 
 I have been trying to find the commonalities, the patterns in the things I feel drawn to, but even within myself it is sometimes hard to figure out. It is probably easier to catalog the things and let the threads draw themselves.
 
@@ -38,7 +38,7 @@ I like this way of [robots/minimalism-as-technical-practice|minimalist thinkin](
 
 #### Aesthetically Minimalist
 
-I have been a fan, if not an adherent, of a minimalist design philosophy for my entire adult life. I was raised in a generation of designers who admired Dieter Rams and Edward Tufte ([robots/minimalism-as-technical-practice|more on how this applies to cod](robots/minimalism-as-technical-practice|more-on-how-this-applies-to-cod)e]]); as a data visualization designer I was taught early about the concept of "data-ink ratio"; that is, the ink on the page needs to justify itself with information conveyed. In this view, elements on a page (or a screen) that do not serve a justifiable utilitarian purpose need be removed in order to *grant clarity to the user*. The minimalism is in aid of understanding and truth, and through good design is the result of careful thought and iteration on the part of the designer in order to save the user precious time and frustration.
+I have been a fan, if not an adherent, of a minimalist design philosophy for my entire adult life. I was raised in a generation of designers who admired Dieter Rams and Edward Tufte ([robots/minimalism-as-technical-practice|more on how this applies to cod](robots/minimalism-as-technical-practice|more-on-how-this-applies-to-cod)e]]); as a data visualization designer I was taught early about the concept of "data-ink ratio"; that is, the ink on the page needs to justify itself with information conveyed. In this view, elements on a page (or a screen) that do not serve a justifiable utilitarian purpose need be removed in order to _grant clarity to the user_. The minimalism is in aid of understanding and truth, and through good design is the result of careful thought and iteration on the part of the designer in order to save the user precious time and frustration.
 
 #### Philosophically Minimalist
 

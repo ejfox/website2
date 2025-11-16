@@ -190,7 +190,7 @@ const recentAcceptedSubmissions = computed(() => {
 
 // Format utilities
 const formatDateMinimal = (timestamp: string): string => {
-  const date = new Date(parseInt(timestamp) * 1000)
+  const date = new Date(Number.parseInt(timestamp) * 1000)
   return format(date, 'MM.dd')
 }
 

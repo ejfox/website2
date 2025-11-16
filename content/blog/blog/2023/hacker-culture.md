@@ -14,6 +14,7 @@ tags:
   - activism
   - inspiration
 ---
+
 ## Hacker Culture: Unraveling the Threads of a Digital Revolution
 
 #hackers #personal
@@ -30,13 +31,13 @@ There was one surreal late-night interaction at the conference that felt like a 
 
 Many of the core threads of modern life and technology trace back to hackers. The rebellious spirit of the 1960s counterculture didn’t just give us tie-dye shirts and The Grateful Dead – it birthed an entire generation of tech-savvy revolutionaries who challenge authority at every turn.
 
->To a generation that grows up in a world beset by massive armies and by the threat of nuclear holocaust, the cybernetic notion of the globe as a single, interlinked pattern of information is deeply comforting: in the invisible play of information, many think they can see the possibility of global harmony.
->Fred Turner **From Counterculture to Cyberculture** (2008)
+> To a generation that grows up in a world beset by massive armies and by the threat of nuclear holocaust, the cybernetic notion of the globe as a single, interlinked pattern of information is deeply comforting: in the invisible play of information, many think they can see the possibility of global harmony.
+> Fred Turner **From Counterculture to Cyberculture** (2008)
 
 At the core of hacker culture sits a disregard for traditional authority and a belief in the power of collective problem solving. Stewart Brand encapsulates this in his 1995 essay "We Owe It All To The Hippies", arguing that the counterculture's disregard for authority provides the philosophical grounds not only for the internet but also the entire PC revolution.
 
->The computer technologies that we take for granted today owe their shape to this unruly period, which is defined by protest, experimentation with drugs, countercultural community, and a general sense of anarchic idealism.
->John Markoff **What the Dormouse Said** (2005)
+> The computer technologies that we take for granted today owe their shape to this unruly period, which is defined by protest, experimentation with drugs, countercultural community, and a general sense of anarchic idealism.
+> John Markoff **What the Dormouse Said** (2005)
 
 This primordial countercultural soup gives rise to a new breed - hackers - who take it upon themselves to challenge traditional authority and reshape society through collective problem-solving. They are like the trickster Coyote stealing fire from the gods, using technology to empower individuals rather than bow down to faceless institutions.
 
@@ -76,8 +77,8 @@ It is awe-inspiring and life-changing; one of my IRC mentors [anarchist](https:/
 
 The open-source model foundational to hacker culture is further crystallized by GitHub (founded in 2008), a company that serves as the backbone of most technological advancement in both the open source world as well as private industry.
 
->At GitHub, people work on an [open allocation](http://www.forbes.com/sites/quora/2012/11/26/what-is-open-allocation/) basis. Unlike traditional companies where projects are assigned top-down, GitHubbers tackle whatever projects they want, without any formal requests or managerial interference.
->[Inside GitHub’s Super-Lean Management Strategy–And How It Drives Innovation](https://web.archive.org/web/20220925185104/https://www.fastcompany.com/3020181/inside-githubs-super-lean-management-strategy-and-how-it-drives-innovation)
+> At GitHub, people work on an [open allocation](http://www.forbes.com/sites/quora/2012/11/26/what-is-open-allocation/) basis. Unlike traditional companies where projects are assigned top-down, GitHubbers tackle whatever projects they want, without any formal requests or managerial interference.
+> [Inside GitHub’s Super-Lean Management Strategy–And How It Drives Innovation](https://web.archive.org/web/20220925185104/https://www.fastcompany.com/3020181/inside-githubs-super-lean-management-strategy-and-how-it-drives-innovation)
 
 Sometime in the mid 2000s hacker culture also begins to mutate into more devilish strains. Some hackers fully embrace the trickster archetype, becoming famous for theft, ransomware, and stealing people's identities.
 
@@ -89,13 +90,13 @@ These nee startups, built on technologies created by hacker culture, create prof
 
 As Wendy Liu argues in her book "Abolish Silicon Valley: How to Liberate Technology from Capitalism" (2020), the choice of being pro-tech industry or anti-tech is a false dichotomy. She rejects traditional corporate models and instead proposes that tech be liberated from capitalism and transformed into an open-source model of development, one that could be accessible to all, not just the privileged.
 
->But the choice of being pro-tech industry or anti-tech is a false dilemma. The tech industry in its current form — with billion-dollar corporations, venture capitalists, and a few boy geniuses running the show — is not the only way of developing technology.
->Wendy Liu **Abolish Silicon Valley: How to Liberate Technology from Capitalism** (2020)
+> But the choice of being pro-tech industry or anti-tech is a false dilemma. The tech industry in its current form — with billion-dollar corporations, venture capitalists, and a few boy geniuses running the show — is not the only way of developing technology.
+> Wendy Liu **Abolish Silicon Valley: How to Liberate Technology from Capitalism** (2020)
 
 Throughout its evolution, hacker culture consistently focuses on challenging the status quo, questioning authority, and seeking out new ways of understanding and using technology. Therefore, understanding and honoring the roots of hacker culture can help us move forward and shape a more equitable and humane future.
 
->Examining power means naming and explaining the forces of oppression that are so baked into our daily lives—and into our datasets, our databases, and our algorithms—that we often don’t even see them.
->Catherine D'Ignazio and Lauren F. Klein **Data Feminism (Strong Ideas)**
+> Examining power means naming and explaining the forces of oppression that are so baked into our daily lives—and into our datasets, our databases, and our algorithms—that we often don’t even see them.
+> Catherine D'Ignazio and Lauren F. Klein **Data Feminism (Strong Ideas)**
 
 These ideas have always been core to being a hacker for me. On the final night of HOPE Number Six I sneak up to the roof of the now-demolished [Hotel Pennsylvania](https://en.wikipedia.org/wiki/Hotel_Pennsylvania#Closure_and_demolition) with a group of hackers. Looking across Manhattan, we make plans and riff on ideas for projects or adventures. The world feels alive.
 

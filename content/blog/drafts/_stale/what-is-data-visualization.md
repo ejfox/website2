@@ -10,9 +10,10 @@ tags:
   - data
   - visualization
 ---
+
 # What is dataviz to me?
 
-#dataviz 
+#dataviz
 
 - The problem
 - The approach

@@ -1,49 +1,36 @@
 <template>
   <main class="px-4 md:px-6 lg:px-8 max-w-full bg-zinc-950 min-h-screen">
-    <header class="mb-4">
+    <header class="section-spacing-sm">
       <div
-        class="flex items-center justify-between py-3 mb-4 border-b border-zinc-800"
+        class="flex-between py-3 section-spacing-sm border-b border-zinc-800"
       >
         <div class="flex items-baseline gap-3">
           <h1 class="font-mono text-sm text-zinc-100">GEAR</h1>
-          <div
-            class="font-mono text-[10px] text-zinc-500"
-            style="font-variant-numeric: tabular-nums"
-          >
+          <div class="font-mono text-[10px] text-muted tabular">
             {{ totalItems }} items · {{ displayTotalWeight.value }} ·
             {{ containerCount }} bags
           </div>
         </div>
-        <div class="flex items-center gap-3">
+        <div class="flex-gap-3">
           <!-- Weight Unit Selector -->
           <div class="relative">
-            <select
-              v-model="weightUnit"
-              class="px-3 py-1 pr-6 text-[10px] font-mono uppercase tracking-wider text-zinc-400 hover:text-zinc-200 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 rounded transition-all cursor-pointer appearance-none"
-            >
+            <select v-model="weightUnit" class="gear-select">
               <option value="metric">KG/G</option>
               <option value="imperial">LB/OZ</option>
             </select>
-            <span
-              class="absolute right-2 top-1/2 -translate-y-1/2 text-[8px] text-zinc-500 pointer-events-none"
-              >▼</span
-            >
+            <span class="select-dropdown-arrow">▼</span>
           </div>
           <button
-            @click="toggleSort"
-            class="px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-zinc-400 hover:text-zinc-200 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 rounded transition-all flex items-center gap-1"
             title="Toggle sort"
+            class="gear-btn flex-gap-1"
+            @click="toggleSort"
           >
             <span class="text-[8px]">{{
               sortBy === 'weight' ? '↓' : '↑'
             }}</span>
             {{ sortBy === 'weight' ? 'Weight' : 'Name' }}
           </button>
-          <a
-            href="/gear.csv"
-            download
-            class="px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-zinc-400 hover:text-zinc-200 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 rounded transition-all inline-flex items-center gap-1"
-          >
+          <a href="/gear.csv" download class="gear-btn inline-flex-gap-1">
             <span>↓</span> CSV
           </a>
         </div>
@@ -53,19 +40,15 @@
         <div class="mb-3">
           <h3 class="gear-section-header mb-2">Type Legend</h3>
           <div class="grid grid-cols-7 gap-2">
-            <div
-              v-for="type in typeStats"
-              :key="type.name"
-              class="flex items-center gap-1"
-            >
-              <span class="text-xs font-medium text-zinc-500">{{
+            <div v-for="type in typeStats" :key="type.name" class="flex-gap-1">
+              <span class="text-xs font-medium text-muted">{{
                 type.symbol
               }}</span>
               <div class="flex-1">
                 <div class="font-mono text-[10px] text-zinc-400">
                   {{ type.name }}
                 </div>
-                <div class="text-[9px] text-zinc-500 tabular-nums">
+                <div class="text-[9px] text-muted tabular">
                   {{ type.count }} · {{ type.weight }}
                 </div>
               </div>
@@ -73,9 +56,7 @@
           </div>
         </div>
 
-        <div
-          class="flex justify-end text-[9px] font-mono text-zinc-600 pt-2 border-t border-zinc-800"
-        >
+        <div class="gear-footer-date">
           <span class="uppercase tracking-[0.1em]">{{ currentDate }}</span>
         </div>
       </div>
@@ -83,9 +64,7 @@
 
     <div class="mb-8">
       <h2 class="gear-section-header mb-4">Containers</h2>
-      <div
-        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2"
-      >
+      <div class="grid-gear-responsive">
         <a
           v-for="[container, items] in groupedGear"
           :key="container"
@@ -174,9 +153,7 @@
                 </th>
                 <th
                   class="text-center px-1 py-1 font-normal text-zinc-500 text-[8px]"
-                >
-
-                </th>
+                ></th>
                 <th
                   class="text-center px-1 py-1 font-normal text-zinc-500 text-[8px]"
                 >
@@ -253,14 +230,14 @@ const sortBy = ref('weight')
 
 // Initialize weight unit from localStorage on client side only
 onMounted(() => {
-  if (process.client) {
+  if (import.meta.client) {
     weightUnit.value = localStorage.getItem('gear-weight-unit') || 'imperial'
   }
 })
 
 // Watch for changes and persist to localStorage
 watch(weightUnit, (newValue) => {
-  if (process.client) {
+  if (import.meta.client) {
     localStorage.setItem('gear-weight-unit', newValue)
   }
 })
@@ -381,7 +358,9 @@ const totalItems = computed(() => gearItems.value?.length || 0)
 const totalWeight = computed(() => {
   const total = calculateTotalWeight(gearItems.value || [])
   const ounces = total.ounces
-  return typeof ounces === 'number' && !isNaN(ounces) ? ounces.toFixed(1) : '0.0'
+  return typeof ounces === 'number' && !Number.isNaN(ounces)
+    ? ounces.toFixed(1)
+    : '0.0'
 })
 const containerCount = computed(() => groupedGear.value?.size || 0)
 const totalWeightInGrams = computed(() => {
@@ -398,19 +377,22 @@ const displayTotalWeight = computed(() => {
   const totalWeightData = calculateTotalWeight(gearItems.value || [])
   if (weightUnit.value === 'imperial') {
     const totalOz = totalWeightData.ounces
-    if (typeof totalOz !== 'number' || isNaN(totalOz)) {
+    if (typeof totalOz !== 'number' || Number.isNaN(totalOz)) {
       return { value: '0oz', unit: '' }
     }
     const pounds = Math.floor(totalOz / 16)
     const ounces = totalOz % 16
-    const ouncesStr = typeof ounces === 'number' && !isNaN(ounces) ? ounces.toFixed(1) : '0.0'
+    const ouncesStr =
+      typeof ounces === 'number' && !Number.isNaN(ounces)
+        ? ounces.toFixed(1)
+        : '0.0'
     return {
       value: pounds > 0 ? `${pounds}lb ${ouncesStr}oz` : `${ouncesStr}oz`,
       unit: pounds > 0 ? '' : ''
     }
   } else {
     const totalG = totalWeightData.grams
-    if (typeof totalG !== 'number' || isNaN(totalG)) {
+    if (typeof totalG !== 'number' || Number.isNaN(totalG)) {
       return { value: '0g', unit: '' }
     }
     const kg = Math.floor(totalG / 1000)
@@ -426,7 +408,8 @@ const displayAvgWeight = computed(() => {
   const avgWeightData = calculateAverageWeight(gearItems.value || [])
   if (weightUnit.value === 'imperial') {
     const oz = avgWeightData.ounces
-    const value = typeof oz === 'number' && !isNaN(oz) ? oz.toFixed(1) : '0.0'
+    const value =
+      typeof oz === 'number' && !Number.isNaN(oz) ? oz.toFixed(1) : '0.0'
     return {
       value,
       unit: 'oz'
@@ -434,7 +417,7 @@ const displayAvgWeight = computed(() => {
   } else {
     const g = avgWeightData.grams
     return {
-      value: typeof g === 'number' && !isNaN(g) ? g : 0,
+      value: typeof g === 'number' && !Number.isNaN(g) ? g : 0,
       unit: 'g'
     }
   }
@@ -517,8 +500,8 @@ const sortItemsByName = (items) => {
 
 const sortItemsByWeight = (items) => {
   return [...items].sort((a, b) => {
-    const aWeight = parseFloat(a.Weight_oz) || 0
-    const bWeight = parseFloat(b.Weight_oz) || 0
+    const aWeight = Number.parseFloat(a.Weight_oz) || 0
+    const bWeight = Number.parseFloat(b.Weight_oz) || 0
     return bWeight - aWeight // Heaviest first
   })
 }
@@ -538,16 +521,12 @@ const getAvgItemWeight = (items) => {
   const avgWeight = calculateAverageWeight(items)
   if (weightUnit.value === 'imperial') {
     const oz = avgWeight.ounces
-    if (typeof oz !== 'number' || isNaN(oz)) return '0oz'
-    return oz > 16
-      ? `${(oz / 16).toFixed(1)}lb`
-      : `${oz.toFixed(0)}oz`
+    if (typeof oz !== 'number' || Number.isNaN(oz)) return '0oz'
+    return oz > 16 ? `${(oz / 16).toFixed(1)}lb` : `${oz.toFixed(0)}oz`
   }
   const g = avgWeight.grams
-  if (typeof g !== 'number' || isNaN(g)) return '0g'
-  return g > 1000
-    ? `${(g / 1000).toFixed(1)}kg`
-    : `${Math.round(g)}g`
+  if (typeof g !== 'number' || Number.isNaN(g)) return '0g'
+  return g > 1000 ? `${(g / 1000).toFixed(1)}kg` : `${Math.round(g)}g`
 }
 
 const getWeightPercentage = (item, allItems) => {
@@ -555,7 +534,9 @@ const getWeightPercentage = (item, allItems) => {
   const totalWeight = calculateTotalWeight(allItems).ounces
   if (!totalWeight || totalWeight === 0) return '0.0'
   const percentage = (itemWeight / totalWeight) * 100
-  return typeof percentage === 'number' && !isNaN(percentage) ? percentage.toFixed(1) : '0.0'
+  return typeof percentage === 'number' && !Number.isNaN(percentage)
+    ? percentage.toFixed(1)
+    : '0.0'
 }
 
 const getMaxWeight = (items) => {
@@ -564,7 +545,7 @@ const getMaxWeight = (items) => {
 
 const formatItemWeight = (item) => {
   const oz = getItemWeightInOunces(item)
-  if (typeof oz !== 'number' || isNaN(oz)) {
+  if (typeof oz !== 'number' || Number.isNaN(oz)) {
     return weightUnit.value === 'imperial' ? '0oz' : '0g'
   }
   if (weightUnit.value === 'imperial') {
@@ -577,12 +558,17 @@ const formatItemWeight = (item) => {
 const getWeightRange = (items) => {
   const weights = items
     .map((item) => getItemWeightInOunces(item))
-    .filter((w) => typeof w === 'number' && !isNaN(w) && w > 0)
+    .filter((w) => typeof w === 'number' && !Number.isNaN(w) && w > 0)
   if (weights.length === 0) return '—'
   const min = Math.min(...weights)
   const max = Math.max(...weights)
 
-  if (typeof min !== 'number' || isNaN(min) || typeof max !== 'number' || isNaN(max)) {
+  if (
+    typeof min !== 'number' ||
+    Number.isNaN(min) ||
+    typeof max !== 'number' ||
+    Number.isNaN(max)
+  ) {
     return '—'
   }
 
@@ -597,13 +583,18 @@ const getWeightRange = (items) => {
 const getWeightHistogram = (items) => {
   const weights = items
     .map((item) => getItemWeightInOunces(item))
-    .filter((w) => typeof w === 'number' && !isNaN(w) && w > 0)
+    .filter((w) => typeof w === 'number' && !Number.isNaN(w) && w > 0)
   if (weights.length === 0) return []
 
   const min = Math.min(...weights)
   const max = Math.max(...weights)
 
-  if (typeof min !== 'number' || isNaN(min) || typeof max !== 'number' || isNaN(max)) {
+  if (
+    typeof min !== 'number' ||
+    Number.isNaN(min) ||
+    typeof max !== 'number' ||
+    Number.isNaN(max)
+  ) {
     return []
   }
 

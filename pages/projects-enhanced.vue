@@ -7,8 +7,8 @@
     <main class="projects-content">
       <article
         v-for="project in projects"
-        :key="project.slug"
         :id="project.slug"
+        :key="project.slug"
         class="project-section"
       >
         <!-- Inline rhythm sparklines -->
@@ -40,7 +40,7 @@
     </main>
 
     <!-- Teleport sidebar content -->
-    <Teleport to="#sidebar-portal" v-if="mounted">
+    <Teleport v-if="mounted" to="#sidebar-portal">
       <SmartSidebar type="projects" :items="projectsWithMeta" />
     </Teleport>
   </div>

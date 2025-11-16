@@ -19,7 +19,7 @@ export default defineEventHandler(async (event) => {
 
   try {
     const url = `https://webmention.io/api/mentions.jf2?token=${token}&target=${encodeURIComponent(target)}&per-page=100`
-    const response = await $fetch(url) as any
+    const response = (await $fetch(url)) as any
 
     // Return just the children array (the actual webmentions)
     return response.children || []

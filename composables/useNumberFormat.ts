@@ -80,7 +80,7 @@ export const formatDateMinimal = (timestamp: string | number): string => {
     // Handle epoch timestamps (both string and number)
     if (typeof timestamp === 'string' && /^\d+$/.test(timestamp)) {
       // String of digits - treat as epoch seconds
-      date = new Date(parseInt(timestamp) * 1000)
+      date = new Date(Number.parseInt(timestamp) * 1000)
     } else if (typeof timestamp === 'number') {
       // Number - treat as epoch seconds
       date = new Date(timestamp * 1000)
@@ -101,7 +101,7 @@ export const formatGameDateMinimal = (timestamp: string | number): string => {
     let date: Date
 
     if (typeof timestamp === 'string' && /^\d+$/.test(timestamp)) {
-      date = new Date(parseInt(timestamp) * 1000)
+      date = new Date(Number.parseInt(timestamp) * 1000)
     } else if (typeof timestamp === 'number') {
       date = new Date(timestamp * 1000)
     } else {
@@ -120,7 +120,7 @@ export const formatGameTime = (timestamp: string | number): string => {
     let date: Date
 
     if (typeof timestamp === 'string' && /^\d+$/.test(timestamp)) {
-      date = new Date(parseInt(timestamp) * 1000)
+      date = new Date(Number.parseInt(timestamp) * 1000)
     } else if (typeof timestamp === 'number') {
       date = new Date(timestamp * 1000)
     } else {
@@ -141,7 +141,7 @@ export const formatGameTypeMinimal = (timeControl: string): string => {
   const match = timeControl.match(/^(\d+)/)
   if (!match) return timeControl.toUpperCase()
 
-  const seconds = parseInt(match[1])
+  const seconds = Number.parseInt(match[1])
   const minutes = Math.floor(seconds / 60)
 
   if (minutes < 3) return 'BULLET'
@@ -155,7 +155,7 @@ export const formatTimeAgo = (date: Date | string): string => {
   const now = new Date()
   const targetDate = typeof date === 'string' ? new Date(date) : date
 
-  if (isNaN(targetDate.getTime())) return '—'
+  if (Number.isNaN(targetDate.getTime())) return '—'
 
   const days = differenceInDays(now, targetDate)
   const hours = differenceInHours(now, targetDate)
@@ -172,7 +172,7 @@ export const formatPercentage = (
   value: number,
   precision: number = 0
 ): string => {
-  if (isNaN(value) || !isFinite(value)) return '—'
+  if (Number.isNaN(value) || !Number.isFinite(value)) return '—'
   return `${value.toFixed(precision)}%`
 }
 

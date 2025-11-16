@@ -54,7 +54,7 @@ It's essential to acknowledge that no single solution can cater to everyone's ne
 
 Furthermore, the expenses associated with hosting, licensing, and maintaining a CMS might be a deterrent, especially for individuals and smaller organizations with limited budgets. On the other hand, the expenses associated with having creatives and developers create custom-built solutions without existing templates/and frameworks may outweigh the benefits of creative freedom if not managed correctly.
 
-### The argument *for* a CMS
+### The argument _for_ a CMS
 
 Proponents of CMS platforms often emphasize the efficient workflows and user-friendly interfaces a well-chosen system can provide. By offering a unified structure and set of tools, modern CMS platforms simplify content management, enabling even those with minimal technical expertise to contribute effectively and move quickly.
 
@@ -77,6 +77,7 @@ I use Nuxt Content to [power my website](http://github.com/ejfox/website)
 Nuxt Content also provides a lot of powerful features like automatic syntax highlighting for code blocks, support for YAML front matter, and a plethora of modules that make it easy to generate opengraph images, include Google Fonts, and a bunch of other useful things.
 
 #### Markdown editing tools
+
 - IA Writer [Site Unreachable](https://ia.net/writer)
 - [Obsidian](http://obsidian.md) [blog/2023/why-i-love-obsidia](blog/2023/why-i-love-obsidia)n]]
 
@@ -91,6 +92,7 @@ By understanding the full spectrum of choices, we can confidently navigate the w
 If you ever find yourself creating a new hand-built CMS- you probably shouldn't. But if you do, it should follow these principles at minimum.
 
 ### What a CMS should do
+
 #### Be easy to use
 
 A CMS should make it easy to make content.
@@ -136,6 +138,7 @@ Amazon S3 is a cloud-based storage service that allows you to store and deliver 
 Supabase Storage, an extension to the popular Supabase platform, which gives users an effortless way to handle large media files directly within their CMS interface. It integrates smoothly with other parts of Supabase, so if you are already storing your data in Supabase, it's an easy choice.
 
 ### Where do you host it?
+
 #### Netlify
 
 Netlify is a cloud-based hosting service that allows you to deploy and host your website.
@@ -151,5 +154,6 @@ Amazon AWS is a cloud-based hosting service that allows you to deploy and host y
 Self-hosting your website is an option if you have the technical expertise and resources to maintain and secure your server. It can give you complete control over your website, but it also requires a lot of work and can be costly in terms of time and money. It is not recommended for most individuals or small businesses without dedicated technical support.
 
 ### CMS Recommendations
+
 - Wordpress: sometimes the best CMS is the one your client is already using, and often, that is Wordpress.
 - Storyblok: A really next-level CMS built to be used headlessly in webapps, great extensibility, API, and documentation

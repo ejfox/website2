@@ -10,4 +10,5 @@ tags:
 hidden: true
 draft: true
 ---
+
 ## A Day in the Life at Room 302 Studio

@@ -4,7 +4,9 @@ modified: 2024-11-12T12:27:05-05:00
 share: true
 tags: [personal, housing, planning]
 ---
+
 ## Co-Buyer Pre-Meeting Checklist
+
 ### Personal Information & Documentation Checklist
 
 #### 1. Financial Snapshot
@@ -21,7 +23,7 @@ tags: [personal, housing, planning]
 - Year-to-date income summary
 - Past two years' W-2s or 1099s
 - Last two years' tax returns (all schedules)
-WHY: Lenders use a 2-year average to determine stable income; helps group understand total purchasing power
+  WHY: Lenders use a 2-year average to determine stable income; helps group understand total purchasing power
 
 ✦ **Bank Account Statements**
 
@@ -29,7 +31,7 @@ WHY: Lenders use a 2-year average to determine stable income; helps group unders
 - Last 3 months of all savings accounts
 - Investment account statements
 - Retirement account statements
-WHY: Shows cash reserves and down payment capability; lenders verify source of funds
+  WHY: Shows cash reserves and down payment capability; lenders verify source of funds
 
 #### 2. Debt & Obligations
 
@@ -40,14 +42,14 @@ WHY: Shows cash reserves and down payment capability; lenders verify source of f
 - Credit card minimum payments
 - Personal loan payments
 - Alimony/child support (if applicable)
-WHY: Needed to calculate debt-to-income ratio; affects maximum mortgage amount
+  WHY: Needed to calculate debt-to-income ratio; affects maximum mortgage amount
 
 ✦ **Future Financial Commitments**
 
 - Upcoming major purchases
 - Expected life changes (job changes, etc.)
 - Planned major expenses
-WHY: Helps group assess long-term financial stability and commitment ability
+  WHY: Helps group assess long-term financial stability and commitment ability
 
 #### 3. Down Payment Information
 
@@ -57,14 +59,14 @@ WHY: Helps group assess long-term financial stability and commitment ability
 - Pending contributions or windfalls
 - Gift funds documentation (if applicable)
 - Investment liquidation plans (if using)
-WHY: Determines feasible purchase price range; affects mortgage terms
+  WHY: Determines feasible purchase price range; affects mortgage terms
 
 ✦ **Source Documentation**
 
 - 3-month history of source accounts
 - Documentation of recent large deposits
 - Gift letters (if applicable)
-WHY: Lenders require "seasoned" funds; helps prevent delays in mortgage process
+  WHY: Lenders require "seasoned" funds; helps prevent delays in mortgage process
 
 #### 4. Employment & Income
 
@@ -74,7 +76,7 @@ WHY: Lenders require "seasoned" funds; helps prevent delays in mortgage process
 - Length of time at current job
 - Previous employer info (if less than 2 years at current job)
 - Job title and role
-WHY: Stable employment history crucial for mortgage approval
+  WHY: Stable employment history crucial for mortgage approval
 
 ✦ **Additional Income Sources**
 
@@ -82,7 +84,7 @@ WHY: Stable employment history crucial for mortgage approval
 - Investment income
 - Rental income
 - Bonuses/commission structure
-WHY: Can increase purchasing power if properly documented
+  WHY: Can increase purchasing power if properly documented
 
 #### 5. Personal Goals & Preferences
 
@@ -93,7 +95,7 @@ WHY: Can increase purchasing power if properly documented
 - Private bathroom needs
 - Storage requirements
 - Parking needs
-WHY: Helps match property search with everyone's needs
+  WHY: Helps match property search with everyone's needs
 
 ✦ **Financial Commitment Level**
 
@@ -101,7 +103,7 @@ WHY: Helps match property search with everyone's needs
 - Emergency fund status
 - Risk tolerance
 - Length of intended stay
-WHY: Ensures aligned expectations and sustainable commitment
+  WHY: Ensures aligned expectations and sustainable commitment
 
 #### 6. Lifestyle Factors
 
@@ -112,7 +114,7 @@ WHY: Ensures aligned expectations and sustainable commitment
 - Quiet hours preferences
 - Guest policy preferences
 - Common space usage expectations
-WHY: Prevents future conflicts; helps establish house rules
+  WHY: Prevents future conflicts; helps establish house rules
 
 ✦ **Property Requirements**
 
@@ -120,7 +122,7 @@ WHY: Prevents future conflicts; helps establish house rules
 - Commute constraints
 - Must-have amenities
 - Deal-breaker features
-WHY: Narrows property search; ensures satisfaction for all parties
+  WHY: Narrows property search; ensures satisfaction for all parties
 
 #### 7. Long-Term Planning
 
@@ -130,7 +132,7 @@ WHY: Narrows property search; ensures satisfaction for all parties
 - Relationship status/changes
 - Family planning
 - Education plans
-WHY: Helps structure buy-out terms and exit strategies
+  WHY: Helps structure buy-out terms and exit strategies
 
 ✦ **Investment Goals**
 
@@ -138,7 +140,7 @@ WHY: Helps structure buy-out terms and exit strategies
 - Property improvement interests
 - Rental income potential needs
 - Future ownership goals
-WHY: Ensures aligned investment objectives
+  WHY: Ensures aligned investment objectives
 
 #### 8. Risk Factors
 
@@ -148,14 +150,14 @@ WHY: Ensures aligned investment objectives
 - Insurance coverage
 - Family support availability
 - Secondary income sources
-WHY: Helps group assess overall stability and risk
+  WHY: Helps group assess overall stability and risk
 
 ✦ **Health Considerations**
 
 - Any chronic health issues
 - Health insurance status
 - Disability insurance coverage
-WHY: Important for long-term planning and risk assessment
+  WHY: Important for long-term planning and risk assessment
 
 #### 9. Legal Preparation
 
@@ -165,14 +167,14 @@ WHY: Important for long-term planning and risk assessment
 - Legal name documentation
 - Power of attorney (if needed)
 - Trust documentation (if applicable)
-WHY: Prevents legal complications during purchase
+  WHY: Prevents legal complications during purchase
 
 ✦ **Professional Contacts**
 
 - Personal attorney info (if any)
 - Financial advisor contact
 - Tax professional contact
-WHY: Facilitates professional review of agreements
+  WHY: Facilitates professional review of agreements
 
 #### 10. Discussion Topics to Consider
 

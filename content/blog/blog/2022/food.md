@@ -51,33 +51,42 @@ Lunch is an important meal of the day and should include a balance of protein, c
 What should I have for lunch? Just have a salad. Its not that complicated.
 
 #### Salad
+
 ##### Lettuce
+
 - Baby Spinach
 - Romaine
 - Spring greens
+
 ##### Protein
+
 - Chickpeas
 - Black beans
 - Pre-cooked chicken
 - Pre-cooked fish
 - Tofu
 - Hardboiled eggs
+
 ##### Toppings
+
 - Sliced cucumber
 - Tomatoes
 - Sliced purple cabbage
 - Sprouts (sunflower, alfalfa, arugula)
 - Sliced citrus (oranges, mandarins, apples)
+
 ##### Dressings
+
 - Ceasar
 - Oil & Vinegar
 - Greek Yogurt
 
 ### Dinner
 
-[drafts/_stale/cooking-ramen-experiment](drafts/_stale/cooking-ramen-experiment)s]]
+[drafts/\_stale/cooking-ramen-experiment](drafts/_stale/cooking-ramen-experiment)s]]
 
 ### Desserts
+
 #### Chocolate chip cookies
 
 [chocolate-chip-cookie](chocolate-chip-cookie)s]]

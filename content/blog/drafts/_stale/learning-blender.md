@@ -8,8 +8,9 @@ tags:
   - 3d
   - visualization
 ---
+
 # Learning Blender: Winter 2022
 
-#3d 
+#3d
 
 [using-polycam-scans-in-three-j](using-polycam-scans-in-three-j)s]]

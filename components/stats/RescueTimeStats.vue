@@ -10,11 +10,7 @@
           priority="primary"
         />
       </div>
-      <div
-        class="font-mono text-xs text-zinc-500 uppercase tracking-widest mt-2"
-      >
-        HOURS THIS MONTH
-      </div>
+      <div class="section-header-xs mt-2">HOURS THIS MONTH</div>
       <div class="font-mono text-sm text-zinc-600 dark:text-zinc-400 mt-4">
         <AnimatedNumber
           :value="monthlyProductivePercent"
@@ -36,7 +32,7 @@
     <!-- Time Distribution Waffle Chart -->
     <StatsSectionHeader title="TIME DISTRIBUTION" />
     <div
-      class="grid w-full border border-zinc-200/20 dark:border-zinc-800/50 p-2 rounded-sm waffle-chart"
+      class="waffle-grid"
       style="
         grid-template-columns: repeat(20, 1fr);
         grid-auto-rows: 1fr;
@@ -52,17 +48,18 @@
         :style="{
           backgroundColor: cell.turboColor,
           opacity: isHovering ? 1 : 0.7,
-          borderRight: shouldShowBorder(i, 'right') ? '1px solid rgba(0,0,0,0.15)' : 'none',
-          borderBottom: shouldShowBorder(i, 'bottom') ? '1px solid rgba(0,0,0,0.15)' : 'none'
+          borderRight: shouldShowBorder(i, 'right')
+            ? '1px solid rgba(0,0,0,0.15)'
+            : 'none',
+          borderBottom: shouldShowBorder(i, 'bottom')
+            ? '1px solid rgba(0,0,0,0.15)'
+            : 'none'
         }"
         :title="cell.title"
       ></div>
     </div>
     <div class="flex justify-between text-zinc-500 mt-1 text-xs leading-[12px]">
-      <span
-        >{{ uniqueActivitiesCount }} TRACKED
-        ACTIVITIES</span
-      >
+      <span>{{ uniqueActivitiesCount }} TRACKED ACTIVITIES</span>
       <span>SQUARE = 1% OF TOTAL TIME</span>
     </div>
 
@@ -223,7 +220,7 @@ const getTurboColor = (index: number, total: number) => {
 // Count unique activities after consolidation
 const uniqueActivitiesCount = computed(() => {
   const activities = rescueTime.value?.week?.activities || []
-  const uniqueNames = new Set(activities.map(a => a.name))
+  const uniqueNames = new Set(activities.map((a) => a.name))
   return uniqueNames.size
 })
 
@@ -239,7 +236,8 @@ const shouldShowBorder = (index: number, direction: 'right' | 'bottom') => {
     // Don't show border on last column
     if ((index + 1) % 20 === 0) return true
     nextCell = cells[index + 1]
-  } else { // bottom
+  } else {
+    // bottom
     // Don't show border on last row
     if (index >= 80) return true
     nextCell = cells[index + 20]
@@ -306,7 +304,10 @@ const waffleCells = computed(() => {
     const cellsForActivity = Math.round(scaledPercentage)
 
     // USE SAME COLOR FUNCTION
-    const turboColor = getTurboColor(activityIndex, consolidatedActivities.length)
+    const turboColor = getTurboColor(
+      activityIndex,
+      consolidatedActivities.length
+    )
     const grayColor = `#${(128 + activityIndex * 8).toString(16).padStart(2, '0').repeat(3)}`
 
     for (let i = 0; i < cellsForActivity && cellIndex < 100; i++) {

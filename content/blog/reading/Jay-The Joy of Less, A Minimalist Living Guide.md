@@ -14,27 +14,33 @@ tags:
   - personal
   - design
 ---
+
 # The Joy of Less, A Minimalist Living Guide
 
-* ISBN: 1452155186
+- ISBN: 1452155186
 
 ## Highlights
+
 > Generally speaking, our stuff can be divided into three categories: useful stuff, beautiful stuff, and emotional stuff. ^ref-45373
 
 ---
+
 > Cultivating an attitude of gratitude is far more conducive to a minimalist lifestyle. If we recognize the abundance in our lives, and appreciate what we have, we will not want for more. We simply need to focus on what we have, rather than what we don’t have. ^ref-35452
 
 ---
+
 > house ^ref-29734
 
 ---
+
 > commit to ^ref-8847
 
 ---
 
 ## Metadata
-* Author: [Francine Jay](https://www.amazon.comundefined)
-* ASIN: B003UNJX4S
-* ISBN: 1452155186
-* Reference: https://www.amazon.com/dp/B003UNJX4S
-* [Kindle link](kindle://book?action=open&asin=B003UNJX4S)
+
+- Author: [Francine Jay](https://www.amazon.comundefined)
+- ASIN: B003UNJX4S
+- ISBN: 1452155186
+- Reference: https://www.amazon.com/dp/B003UNJX4S
+- [Kindle link](kindle://book?action=open&asin=B003UNJX4S)

@@ -164,8 +164,8 @@ async function fetchChannelVideos(
       },
       url: `https://www.youtube.com/watch?v=${item.contentDetails.videoId}`,
       stats: {
-        views: parseInt(stats.viewCount || '0', 10),
-        likes: parseInt(stats.likeCount || '0', 10),
+        views: Number.parseInt(stats.viewCount || '0', 10),
+        likes: Number.parseInt(stats.likeCount || '0', 10),
         comments: commentCounts[index] || 0
       }
     }
@@ -213,10 +213,13 @@ export default defineEventHandler(async (): Promise<YouTubeStats> => {
 
     const response: YouTubeStats = {
       stats: {
-        totalVideos: parseInt(channelStats.videoCount || '0', 10),
+        totalVideos: Number.parseInt(channelStats.videoCount || '0', 10),
         videosThisMonth: videoData.videosThisMonth,
-        totalViews: parseInt(channelStats.viewCount || '0', 10),
-        subscriberCount: parseInt(channelStats.subscriberCount || '0', 10),
+        totalViews: Number.parseInt(channelStats.viewCount || '0', 10),
+        subscriberCount: Number.parseInt(
+          channelStats.subscriberCount || '0',
+          10
+        ),
         monthlyStats: videoData.monthlyStats
       },
       latestVideos: videoData.videos,

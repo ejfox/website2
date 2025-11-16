@@ -3,11 +3,7 @@
   "html": "<h2 class=\"\" id=\"2025-31\">2025-31</h2>\n<h3 class=\"\" id=\"daily-check-in--reflections\">Daily Check-In &#x26; Reflections</h3>\n<h3 class=\"\" id=\"-motorcycle-engine-sounds-library\">🏍 Motorcycle Engine Sounds Library</h3>\n<p class=\"\">Built a lightweight Nuxt 3 + Supabase app for sharing motorcycle engine sounds with community voting and 112 seeded motorcycle models across 15 major brands. The app features user authentication, audio upload validation, admin approval workflow, and a clean grayscale design optimized for discovering and rating quality engine recordings.</p>\n<h3 class=\"\" id=\"-learning--media\">📚 Learning &#x26; Media</h3>\n<!-- Books, articles, movies, TV shows, podcasts consumed -->\n<p class=\"\"><a href=\"https://youtu.be/D8tPkb98Fkk?si=ocF2XoCdaXGoXmzO\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://youtu.be/D8tPkb98Fkk?si=ocF2XoCdaXGoXmzO</a></p>",
   "title": "2025 31",
   "metadata": {
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress"
-    ],
+    "tags": ["weekly-notes", "reflections", "progress"],
     "date": "2025-07-28T12:57:34.000Z",
     "modified": "2025-08-12T15:55:36.000Z",
     "words": 77,

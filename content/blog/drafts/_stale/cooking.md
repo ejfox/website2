@@ -9,6 +9,7 @@ tags:
   - cooking
 hidden: true
 ---
+
 ## Cooking
 
 [blog/2022/foo](blog/2022/foo)d]]
@@ -17,6 +18,6 @@ hidden: true
 
 Kolaches: [cooking-kolache](cooking-kolache)s]]
 
-Ramen: [drafts/_stale/cooking-ramen-experiment](drafts/_stale/cooking-ramen-experiment)s]]
+Ramen: [drafts/\_stale/cooking-ramen-experiment](drafts/_stale/cooking-ramen-experiment)s]]
 
 Seitan: [cooking-seita](cooking-seita)n]]

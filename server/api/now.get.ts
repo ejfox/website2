@@ -1,11 +1,11 @@
-import { readFile } from 'fs/promises'
+import { readFile } from 'node:fs/promises'
 import matter from 'gray-matter'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import remarkGfm from 'remark-gfm'
-import path from 'path'
+import path from 'node:path'
 
 export default defineEventHandler(async () => {
   try {

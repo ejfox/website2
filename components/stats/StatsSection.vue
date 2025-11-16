@@ -1,8 +1,6 @@
 <template>
   <section :id="id" class="stats-section space-y-8 group">
-    <h2
-      class="stats-section-title transition-colors group-hover:text-zinc-600 dark:group-hover:text-zinc-400"
-    >
+    <h2 class="stats-section-title-hover">
       {{ title }}
     </h2>
     <div>

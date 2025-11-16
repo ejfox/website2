@@ -145,21 +145,21 @@ But we have a rat’s nests of problems to untangle from [horse race](https://en
 
 Jack Shafer wrote in Politico about why [horse race election coverage might be good](https://www.politico.com/magazine/story/2019/01/09/why-horse-race-political-journalism-awesome-223867).
 
->By giving voters a window on the closed world of insider politics, horse-race stories help focus reader attention on the races. Without the work of election handicappers, coverage would come to resemble an endless series of policy white papers that nobody reads. The presidential campaign has another 22 months to run, leaving plenty of time and space to explore the contest from multiple perspectives.
+> By giving voters a window on the closed world of insider politics, horse-race stories help focus reader attention on the races. Without the work of election handicappers, coverage would come to resemble an endless series of policy white papers that nobody reads. The presidential campaign has another 22 months to run, leaving plenty of time and space to explore the contest from multiple perspectives.
 
 #### Election night 2000
 
 At NBC the old heads would whisper to never fuck up as bad as they did back in 2000. A CNN internal report called their own election night coverage in 2000 [“a disaster”](https://www.nytimes.com/2001/02/03/us/report-calls-networks-election-night-coverage-a-disaster.html).
 
->Following the election night coverage – in which CNN, ABC, CBS, NBC, Fox and MSNBC all made wrong calls on the Florida vote – several networks ordered investigations of their coverage.
+> Following the election night coverage – in which CNN, ABC, CBS, NBC, Fox and MSNBC all made wrong calls on the Florida vote – several networks ordered investigations of their coverage.
 
->Based largely on exit polling, the networks first declared Mr. Gore the winner in Florida, only to give the state to Mr. Bush later. Ultimately the networks backed off again, declaring the race undecided.
+> Based largely on exit polling, the networks first declared Mr. Gore the winner in Florida, only to give the state to Mr. Bush later. Ultimately the networks backed off again, declaring the race undecided.
 
 The coverage of 2000’s presidential election lead to executives from CBS, CNN, Fox, NBC, and the AP being [called to testify in front of congress](https://www.rcfp.org/networks-answer-congress-election-night-coverage/) by committee chair “Billy” Tauzin (R-La.).
 
->Much of the testimony focused on the networks’ reliance on exit polls and the flaws in the VNS system of conducting the polls.
+> Much of the testimony focused on the networks’ reliance on exit polls and the flaws in the VNS system of conducting the polls.
 
->Tauzin introduced legislation to create a uniform poll closing time across the country and asked the networks to voluntarily resist projecting winners until 9 p.m. EST. In a concession, all the networks said they will refrain from calling a state until all the polls in the particular state have closed.
+> Tauzin introduced legislation to create a uniform poll closing time across the country and asked the networks to voluntarily resist projecting winners until 9 p.m. EST. In a concession, all the networks said they will refrain from calling a state until all the polls in the particular state have closed.
 
 ### Why do we have elections on Tuesdays?
 
@@ -167,7 +167,7 @@ It could be argued that it would make more sense for elections to be held [on th
 
 [Erin McCarthy wrote for Mentalfloss:](https://mentalfloss.com/article/12901/why-are-elections-held-tuesdays)
 
->Monday was out, because it would require people to travel to the polls by buggy on the Sunday Sabbath. Wednesday was also not an option, because it was market day, and farmers wouldn’t be able to make it to the polls. So it was decided that Tuesday would be the day that Americans would vote in elections, and in 1845, Congress passed a law.
+> Monday was out, because it would require people to travel to the polls by buggy on the Sunday Sabbath. Wednesday was also not an option, because it was market day, and farmers wouldn’t be able to make it to the polls. So it was decided that Tuesday would be the day that Americans would vote in elections, and in 1845, Congress passed a law.
 
 ### Resources
 

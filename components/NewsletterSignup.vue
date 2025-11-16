@@ -13,7 +13,7 @@
           type="email"
           placeholder="your@email.com"
           required
-          class="w-full min-w-0 py-1 px-2 bg-transparent border border-zinc-200 dark:border-zinc-800 rounded text-sm focus:outline-none focus:ring-1 focus:ring-zinc-400 dark:focus:ring-zinc-600 text-zinc-600 dark:text-zinc-400 placeholder-zinc-400 dark:placeholder-zinc-600 transition-all duration-200"
+          class="input-full"
           :disabled="state.loading"
           @input="revealNameFields"
         />
@@ -31,14 +31,14 @@
             v-model="firstName"
             type="text"
             placeholder="First"
-            class="w-[4.5rem] py-1 px-2 bg-transparent border border-zinc-200 dark:border-zinc-800 rounded text-sm focus:outline-none focus:ring-1 focus:ring-zinc-400 dark:focus:ring-zinc-600 text-zinc-600 dark:text-zinc-400 placeholder-zinc-400 dark:placeholder-zinc-600 transition-all duration-200"
+            class="input-numeric"
             :disabled="state.loading"
           />
           <input
             v-model="lastName"
             type="text"
             placeholder="Last"
-            class="w-[4.5rem] py-1 px-2 bg-transparent border border-zinc-200 dark:border-zinc-800 rounded text-sm focus:outline-none focus:ring-1 focus:ring-zinc-400 dark:focus:ring-zinc-600 text-zinc-600 dark:text-zinc-400 placeholder-zinc-400 dark:placeholder-zinc-600 transition-all duration-200"
+            class="input-numeric"
             :disabled="state.loading"
           />
         </div>
@@ -47,7 +47,7 @@
       <button
         ref="buttonRef"
         type="submit"
-        class="shrink-0 py-1 px-2.5 bg-zinc-100 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 rounded hover:bg-zinc-200 dark:hover:bg-zinc-800 hover:text-zinc-700 dark:hover:text-zinc-300 focus:outline-none focus:ring-1 focus:ring-zinc-400 text-sm transition-all duration-200 flex items-center justify-center whitespace-nowrap"
+        class="btn-filter"
         :disabled="state.loading"
       >
         <span v-if="!state.loading">Subscribe →</span>

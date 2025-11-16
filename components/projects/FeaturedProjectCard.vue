@@ -10,33 +10,28 @@
       </h2>
       <div class="project-description" v-html="project.html" />
     </div>
-    <div class="project-meta">
-      <div class="flex flex-col items-end gap-2">
-        <time class="project-date">{{
-          formatDate(project.metadata?.date || project.date)
-        }}</time>
-        <div
-          v-if="project.metadata?.tech?.length"
-          class="font-mono text-xs uppercase tracking-widest text-zinc-500"
-        >
-          <span v-for="(tech, index) in project.metadata.tech" :key="tech">
-            <span v-if="index > 0" class="mx-2 text-zinc-300 dark:text-zinc-700"
-              >·</span
-            >
-            <span
-              class="hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors"
-              >{{ tech }}</span
-            >
-          </span>
-        </div>
-        <div v-if="project.metadata?.github">
-          <a
-            :href="project.metadata.github"
-            target="_blank"
-            class="project-github-link"
-            >GitHub ↗</a
+    <div class="project-meta gap-2">
+      <time class="project-date">{{
+        formatDate(project.metadata?.date || project.date)
+      }}</time>
+      <div v-if="project.metadata?.tech?.length" class="tech-tags text-xs">
+        <span v-for="(tech, index) in project.metadata.tech" :key="tech">
+          <span v-if="index > 0" class="mx-1 text-zinc-300 dark:text-zinc-700"
+            >·</span
           >
-        </div>
+          <span
+            class="hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors"
+            >{{ tech }}</span
+          >
+        </span>
+      </div>
+      <div v-if="project.metadata?.github">
+        <a
+          :href="project.metadata.github"
+          target="_blank"
+          class="project-github-link text-xs"
+          >GitHub ↗</a
+        >
       </div>
     </div>
   </article>

@@ -12,6 +12,7 @@ tags:
   - technique
 hidden: true
 ---
+
 ## How I Use Diagrams to Think
 
 I diagram everything - not for other people, but to externalize the complexity bouncing around in my head. Drawing the problem is often faster than thinking through the problem.
@@ -39,7 +40,7 @@ Use the messiest tool that still helps you think. Clean diagrams are for communi
 Once you've diagrammed a system, you can extract structured data from it:
 
 - Network maps → CSV of relationships and communication patterns
-- Dependency flowcharts → Task lists with proper sequencing  
+- Dependency flowcharts → Task lists with proper sequencing
 - Architecture sketches → Database schemas and API specs
 
 Diagrams bridge messy human thinking and structured machine-readable data. Visual thinking understands the problem space, formal representations feed software systems.

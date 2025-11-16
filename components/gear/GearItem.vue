@@ -17,9 +17,9 @@
         :href="addAffiliateCode(item.Amazon_URL)"
         target="_blank"
         rel="nofollow noopener"
-        class="text-4xs font-mono uppercase tracking-wider text-orange-600/70 hover:text-orange-500 hover:bg-orange-500/10 px-1.5 py-0.5 rounded transition-all inline-block"
-        @click.stop
+        class="badge-orange-hover"
         title="Buy on Amazon"
+        @click.stop
       >
         BUY
       </a>
@@ -76,23 +76,27 @@ const typeSymbols = {
 const getTypeSymbol = (type) => typeSymbols[type] || '—'
 
 const formatWeight = (weightOz) => {
-  const oz = parseFloat(weightOz)
-  if (typeof oz !== 'number' || isNaN(oz) || oz <= 0) return '—'
+  const oz = Number.parseFloat(weightOz)
+  if (typeof oz !== 'number' || Number.isNaN(oz) || oz <= 0) return '—'
 
   if (props.weightUnit === 'imperial') {
     // Convert to imperial
     if (oz >= 16) {
       const pounds = oz / 16
-      return typeof pounds === 'number' && !isNaN(pounds) ? `${pounds.toFixed(1)}lb` : '—'
+      return typeof pounds === 'number' && !Number.isNaN(pounds)
+        ? `${pounds.toFixed(1)}lb`
+        : '—'
     }
     return `${oz.toFixed(1)}oz`
   } else {
     // Convert to metric
     const grams = Math.round(oz * 28.3495)
-    if (typeof grams !== 'number' || isNaN(grams)) return '—'
+    if (typeof grams !== 'number' || Number.isNaN(grams)) return '—'
     if (grams >= 1000) {
       const kg = grams / 1000
-      return typeof kg === 'number' && !isNaN(kg) ? `${kg.toFixed(1)}kg` : `${grams}g`
+      return typeof kg === 'number' && !Number.isNaN(kg)
+        ? `${kg.toFixed(1)}kg`
+        : `${grams}g`
     }
     return `${grams}g`
   }

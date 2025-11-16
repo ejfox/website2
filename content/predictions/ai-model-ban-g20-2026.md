@@ -50,4 +50,3 @@ This prediction resolves **TRUE** if a G20 member country officially bans a spec
 - Industry-specific restrictions without model names
 - Content moderation requirements that don't ban the model itself
 - Bans on model training/development only (must affect deployment)
-

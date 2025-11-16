@@ -2,7 +2,7 @@
  * Ultra-simple sidenotes - Tufte CSS approach
  */
 export default defineNuxtPlugin(() => {
-  if (process.server) return
+  if (import.meta.server) return
 
   const initializeSidenotes = () => {
     // Only run once per page

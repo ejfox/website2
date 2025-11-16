@@ -69,20 +69,20 @@ _Graphic showing breakdown of reasons for voter removal: ideally sankey, could a
 
 Let’s look at some specific examples. Maricopa County in Arizona, which includes the city of Phoenix had the largest number of voters removed (223,369) by a single county in the EAVS data. Maricopa County was [recently called out in an article by The Hill](https://thehill.com/homenews/state-watch/459832-the-10-counties-that-will-decide-the-2020-election) as one of 10 counties that will decide the 2020 election.
 
->As partisan politics increasingly break down along urban and rural lines, Arizona Republicans are becoming more nervous. Arizona is the most urbanized state in the Republican column, and its most urban county, Maricopa, shows signs of inching left.
->In 2016, Trump beat Clinton in Maricopa County by just 3 percentage points, a slightly lower margin than his statewide edge. Only one Republican in recent history has won a statewide election without winning Maricopa County.
+> As partisan politics increasingly break down along urban and rural lines, Arizona Republicans are becoming more nervous. Arizona is the most urbanized state in the Republican column, and its most urban county, Maricopa, shows signs of inching left.
+> In 2016, Trump beat Clinton in Maricopa County by just 3 percentage points, a slightly lower margin than his statewide edge. Only one Republican in recent history has won a statewide election without winning Maricopa County.
 
 [ Maricopa-county specific sankey of reasons for voter removal ]
 
 [Purges: A Growing Threat to the Right to Vote](https://www.brennancenter.org/sites/default/files/publications/Purges_Growing_Threat_2018.1.pdf)
 
->This data and analysis can provide voters, elected officials, and the media a deeper understanding of how elections are run as well as identify trends and emerging challenges. For election officials, it can provide information not only about their own jurisdiction, but about neighboring jurisdictions and insight into best practices they or other jurisdictions may be using. [^1]
+> This data and analysis can provide voters, elected officials, and the media a deeper understanding of how elections are run as well as identify trends and emerging challenges. For election officials, it can provide information not only about their own jurisdiction, but about neighboring jurisdictions and insight into best practices they or other jurisdictions may be using. [^1]
 
->The EAVS gathers data from states at the jurisdictional level. In most states this is at the county level, and some is at the city or township level. States are responsible for collecting this data for all their jurisdictions.[^1]
+> The EAVS gathers data from states at the jurisdictional level. In most states this is at the county level, and some is at the city or township level. States are responsible for collecting this data for all their jurisdictions.[^1]
 
 #### When can a voter be removed?
 
->The federal law governing purges12 allows a voter’s name to be purged from the voter rolls on the following grounds: (1) disenfranchising criminal conviction; (2) mental incapacity; (3) death; and (4) change in residence. In addition to these criteria, individuals who were never eligible in the first place, such as someone under 18 or a noncitizen, may be removed. Voters may be removed at their own request (even if they remain eligible).[^2]
+> The federal law governing purges12 allows a voter’s name to be purged from the voter rolls on the following grounds: (1) disenfranchising criminal conviction; (2) mental incapacity; (3) death; and (4) change in residence. In addition to these criteria, individuals who were never eligible in the first place, such as someone under 18 or a noncitizen, may be removed. Voters may be removed at their own request (even if they remain eligible).[^2]
 
 - Disenfranchising criminal conviction
 - Mental incapacity
@@ -91,10 +91,10 @@ Let’s look at some specific examples. Maricopa County in Arizona, which includ
 - Never eligible: under 18 or noncitizen
 - Voter self-requests removal
 
->Out of the 23.5 million votes cast in these jurisdictions, election officials referred only 30 instances of suspected noncitizen voting, or .0001 percent of the total.[^2]
+> Out of the 23.5 million votes cast in these jurisdictions, election officials referred only 30 instances of suspected noncitizen voting, or .0001 percent of the total.[^2]
 
->In nine cases brought by private parties since 2012, election officials agreed to undertake more aggressive list maintenance. One of the defendants in these cases was Noxubee County, a poor, rural, majority-Black county in eastern Mississippi that was sued by the American Civil Rights Union (ACRU, not to be confused with the American Civil Liberties Union).
->“They went after minority counties who didn’t have the financial resources to push back,” said Willie M. Miller, the Election Commissioner for Noxubee County’s fourth district.116 As of this writing, the ACRU is suing Starr County and the State of Texas for failing to purge aggressively enough, and the like-minded Judicial Watch has brought litigation in California.
+> In nine cases brought by private parties since 2012, election officials agreed to undertake more aggressive list maintenance. One of the defendants in these cases was Noxubee County, a poor, rural, majority-Black county in eastern Mississippi that was sued by the American Civil Rights Union (ACRU, not to be confused with the American Civil Liberties Union).
+> “They went after minority counties who didn’t have the financial resources to push back,” said Willie M. Miller, the Election Commissioner for Noxubee County’s fourth district.116 As of this writing, the ACRU is suing Starr County and the State of Texas for failing to purge aggressively enough, and the like-minded Judicial Watch has brought litigation in California.
 
 ### Using Datasette
 

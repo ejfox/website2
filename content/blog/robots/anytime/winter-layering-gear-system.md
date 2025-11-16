@@ -14,18 +14,18 @@ COMPLETE WINTER SYSTEM INVENTORY
 BASE LAYERS
 
 ```
-Upper: 
+Upper:
 - Uniqlo HEATTECH Ultra Warm
 - Extra: HEATTECH Short Sleeve
 
-Lower: 
+Lower:
 - Uniqlo HEATTECH Ultra Warm Tights
 ```
 
 MID LAYERS
 
 ```
-Active/Insulation: 
+Active/Insulation:
 - Storage Fleece (Existing)
 - North Face Puffy (Existing)
 ```
@@ -44,15 +44,15 @@ Lower Technical:
 EXTREMITIES
 
 ```
-Feet: 
+Feet:
 - Nike ACG Gaiadome GTX
 - Microspikes
 - Need: Warm socks solution
 
-Hands: 
+Hands:
 - Arc'teryx Rho Gloves
 
-Head: 
+Head:
 - REI Balaclava (Existing)
 - Smartwool Beanie (Existing)
 ```
@@ -135,7 +135,7 @@ ACTIVE TEMPERATURE MANAGEMENT
 
 ```
 Base Layer (Next to Skin)
-- Uniqlo HEATTECH Ultra Warm 
+- Uniqlo HEATTECH Ultra Warm
 - Moisture control
 - Core temp regulation
 
@@ -158,7 +158,7 @@ Weather Shell
 LOWER BODY SYSTEM
 
 ```
-Base: HEATTECH Tights 
+Base: HEATTECH Tights
 Technical: Fjallraven Kebs (To Get)
 - 4-season adaptable
 - Waxable protection
@@ -169,13 +169,13 @@ EXTREMITY PROTECTION
 
 ```
 Feet
-- Nike ACG Gaiadome GTX 
+- Nike ACG Gaiadome GTX
 - Winter-capable boot
 - Urban/trail crossover
 - Microspikes  for ice
 
 Hands
-- Arc'teryx Rho Gloves 
+- Arc'teryx Rho Gloves
 - Dexterity focus
 - Tech compatible
 ```
@@ -193,7 +193,7 @@ Enhancement
 - Minimal weight
 
 Ground
-- Nemo Quasar 3D 
+- Nemo Quasar 3D
 - Z-Lite SOL
 - Combined R-value ~5.3
 ```
@@ -218,14 +218,17 @@ Activities:
 REMAINING PRIORITIES:
 
 1. Core Pieces
+
 - Storm10 Shell
 - Keb Pants
 
 2. Sleep Enhancement
+
 - Reactor Plus
 - Z-Lite SOL
 
 3. Safety/Support
+
 - Navigation tools
 - Emergency kit
 - Basic first aid
@@ -236,6 +239,7 @@ The system emphasizes:
 - Multiple configurations
 - Weather adaptation
 - Urban to wilderness capability
+
 ---
 
 EMERGENCY PROTOCOLS & SYSTEM GUIDANCE
@@ -251,6 +255,7 @@ CORE PRINCIPLES:
 EMERGENCY SCENARIOS:
 
 1. WET GEAR
+
 ```
 Priority Actions:
 - Immediately deploy Storm10 shell
@@ -265,6 +270,7 @@ Recovery:
 ```
 
 2. STRANDED/STATIC
+
 ```
 Immediate Actions:
 - Deploy all layers
@@ -280,6 +286,7 @@ Conservation Mode:
 ```
 
 3. POWER LOSS
+
 ```
 Sequence:
 1. Switch to pure layering
@@ -289,6 +296,7 @@ Sequence:
 ```
 
 4. CAUGHT IN STORM
+
 ```
 Actions:
 1. Shell layer deployment
@@ -309,6 +317,7 @@ CRITICAL WARNINGS:
 LAYER DEPLOYMENT RULES:
 
 1. ACTIVE
+
 ```
 Cold Start Protocol:
 - Start cold, warm up moving
@@ -317,6 +326,7 @@ Cold Start Protocol:
 ```
 
 2. STATIC
+
 ```
 Layer Addition Order:
 1. Base (HEATTECH)
@@ -325,6 +335,7 @@ Layer Addition Order:
 ```
 
 3. SLEEP
+
 ```
 Setup Sequence:
 1. Z-Lite down first
@@ -336,18 +347,21 @@ Setup Sequence:
 PREVENTIVE MEASURES:
 
 1. ALWAYS CARRY
+
 - Storm10 shell
 - Extra base layer
 - Power bank
 - Emergency snack
 
 2. ALWAYS KNOW
+
 - Nearest shelter
 - Backup routes
 - Layer status
 - Power levels
 
 3. ALWAYS CHECK
+
 - Weather forecast
 - Gear condition
 - Layer dryness

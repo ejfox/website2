@@ -47,7 +47,7 @@ Every artist has different rituals, though many involve coffee. Creating the spa
 
 In programming there is [Rubber Duck Debugging](https://en.wikipedia.org/wiki/Rubber_duck_debugging) where speaking your problem aloud allows you to understand it better. Explaining your plan and thinking in the studio can have the same results and allow for more intention and better collaboration.
 
-This sits in tension with the fact that motivations, often when rooted in intution, are hard to verbalize. "I feel deeply that I *need* to do *this*" is often explanation enough- but getting to the point where you understand where motivation is coming from and putting it into words for your collaborators is its own art.
+This sits in tension with the fact that motivations, often when rooted in intution, are hard to verbalize. "I feel deeply that I _need_ to do _this_" is often explanation enough- but getting to the point where you understand where motivation is coming from and putting it into words for your collaborators is its own art.
 
 Verbalizing a plan is as much for you to understand what you are doing as the people as you are speaking to.
 

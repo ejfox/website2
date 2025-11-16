@@ -17,8 +17,8 @@ tags:
 
 Learning how to learn is the ultimate meta-skill. As a child, I quickly became disillusioned with traditional education, so I dropped out of high school and went straight to startup work. Since then I've had to reverse-engineer effective learning without the benefits of a direct teacher. Luckily I grew up in the age of the internet.
 
->In the beginner's mind there are many possibilities; in the expert's mind there are few.
->[Suzuki-Chadwick-Zen Mind, Beginners Mind](Suzuki-Chadwick-Zen%20Mind,%20Beginners%20Mind.md)
+> In the beginner's mind there are many possibilities; in the expert's mind there are few.
+> [Suzuki-Chadwick-Zen Mind, Beginners Mind](Suzuki-Chadwick-Zen%20Mind,%20Beginners%20Mind.md)
 
 ### Core Framework
 

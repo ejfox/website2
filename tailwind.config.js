@@ -17,8 +17,14 @@ module.exports = {
       fontSize: {
         // Swiss grid: 8px baseline unit
         // Minimum 10px for Tuftian data density with increased contrast
-        '5xs': ['0.625rem', { lineHeight: '0.75rem', letterSpacing: '0.025em' }], // 10px/12px - inline symbols
-        '4xs': ['0.625rem', { lineHeight: '0.75rem', letterSpacing: '0.025em' }], // 10px/12px - ultra-dense labels
+        '5xs': [
+          '0.625rem',
+          { lineHeight: '0.75rem', letterSpacing: '0.025em' }
+        ], // 10px/12px - inline symbols
+        '4xs': [
+          '0.625rem',
+          { lineHeight: '0.75rem', letterSpacing: '0.025em' }
+        ], // 10px/12px - ultra-dense labels
         '3xs': ['0.625rem', { lineHeight: '0.75rem', letterSpacing: '0.02em' }], // 10px/12px - dense stats
         '2xs': ['0.6875rem', { lineHeight: '1rem', letterSpacing: '0.015em' }], // 11px/16px - compact data
         // Larger standard sizes create more contrast with dense data

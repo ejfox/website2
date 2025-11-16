@@ -1,5 +1,5 @@
 import { Configuration, EventsApi, MarketsApi } from 'kalshi-typescript'
-import { readFileSync, writeFileSync } from 'fs'
+import { readFileSync, writeFileSync } from 'node:fs'
 import { config } from 'dotenv'
 
 config()
@@ -15,15 +15,15 @@ const marketsApi = new MarketsApi(kalshiConfig)
 
 // User's actual positions
 const positions = [
-  "KXOTEEPSTEIN-26-MLAW",
-  "KXCALLIMPEACHRCONGRESS-26",
-  "KXIMPEACH-27-JAN01",
-  "AILEGISLATION-25-DEC31",
-  "KXCODINGMODEL-26JAN-ANTH",
-  "KXAIAUTHOR-25",
-  "NYTOAI-27DEC31",
-  "KXJOINSTEPHENCOLBERT-26JAN-APP",
-  "OAIAGI-29"
+  'KXOTEEPSTEIN-26-MLAW',
+  'KXCALLIMPEACHRCONGRESS-26',
+  'KXIMPEACH-27-JAN01',
+  'AILEGISLATION-25-DEC31',
+  'KXCODINGMODEL-26JAN-ANTH',
+  'KXAIAUTHOR-25',
+  'NYTOAI-27DEC31',
+  'KXJOINSTEPHENCOLBERT-26JAN-APP',
+  'OAIAGI-29'
 ]
 
 console.log('Fetching market and event data for user positions...\n')

@@ -28,7 +28,7 @@ Started using massive amounts of black powder dye with slow ice melting. The hea
 **Aluminum Foil Ice Dyeing**
 Game changer. Wrap sections in foil before adding ice and dye. Creates these sharp geometric patterns - very cyberpunk, almost digital looking. The foil blocks create clean edges while the ice creates organic spreads in the open areas.
 
-**Thrift Store Print Overdyeing** 
+**Thrift Store Print Overdyeing**
 Friends discovered this - take printed shirts from thrift stores and dye over them. The original print shows through in weird ways. Turns corporate logos into abstract art. Works especially well with light prints under dark dyes.
 
 ### What Actually Works

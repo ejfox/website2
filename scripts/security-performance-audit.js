@@ -3,8 +3,8 @@
 // Ghost Chen's Security-Performance Audit Script
 // "Operational monitoring" that happens to catch security issues
 
-const fs = require('fs')
-const path = require('path')
+const fs = require('node:fs')
+const path = require('node:path')
 
 // Third-party domains that should be audited
 const AUDIT_PATTERNS = {

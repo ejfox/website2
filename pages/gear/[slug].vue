@@ -12,12 +12,7 @@
       <p class="text-zinc-600 dark:text-zinc-400 mb-8">
         This gear item doesn't exist in our inventory.
       </p>
-      <NuxtLink
-        to="/gear"
-        class="inline-flex items-center gap-2 px-8 py-4 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 font-medium rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"
-      >
-        ← Browse All Gear
-      </NuxtLink>
+      <NuxtLink to="/gear" class="btn-primary"> ← Browse All Gear </NuxtLink>
     </div>
   </div>
 </template>

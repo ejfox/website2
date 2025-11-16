@@ -1,9 +1,9 @@
 ---
-title: "MorningRadio"
+title: 'MorningRadio'
 date: 2025-08-10T00:00:00-04:00
 modified: 2025-08-13T11:26:19-04:00
 url: https://github.com/ejfox/MorningRadio
-tech: ["Swift", "iOS", "Audio Streaming", "Mobile UX"]
+tech: ['Swift', 'iOS', 'Audio Streaming', 'Mobile UX']
 state: doing
 aiInvolvement: ai-assisted
 tags:

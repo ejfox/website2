@@ -18,7 +18,7 @@ draft: true
 
 In 2008, I made an infographic about religious teachings on sexuality. It was practice—maybe my first or second attempt at data visualization. I posted it on Flickr, went to bed, and woke up to a different life.
 
-[The infographic](https://www.flickr.com/photos/pseudoplacebo/2330148551) got 362,395 views. People were sharing it, discussing it, critiquing the data sources (correctly). I had to add an update admitting "this source sucks" and asking for better citations. 
+[The infographic](https://www.flickr.com/photos/pseudoplacebo/2330148551) got 362,395 views. People were sharing it, discussing it, critiquing the data sources (correctly). I had to add an update admitting "this source sucks" and asking for better citations.
 
 But the damage was done. That one Illustrator file, created as a learning exercise, opened doors I didn't know existed. Freelance opportunities. Job interviews. A whole career path I'd never considered.
 
@@ -41,4 +41,3 @@ Adobe's corporate bullshit aside, Illustrator remains one of the best tools for 
 That 2008 religious sexuality chart was crude by today's standards. The data was questionable. The design was basic. But it taught me something crucial: sometimes a simple visualization of complex information can spark conversations that matter.
 
 Sixteen years later, I'm still using the same tool, still trying to make information more accessible, still occasionally admitting when my sources suck.
-

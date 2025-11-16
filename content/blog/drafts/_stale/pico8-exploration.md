@@ -12,9 +12,9 @@ tags:
 
 ## The Strange Magic of Making Real Tiny Video Games
 
-There's something deeply satisfying about coding up a little game in PICO-8 and loading it onto my Miyoo Mini that I can't get from any other kind of programming. It feels like *printing* something. Like making a physical object that exists in the world, not just another ephemeral website that lives in browsers and dies when servers go down.
+There's something deeply satisfying about coding up a little game in PICO-8 and loading it onto my Miyoo Mini that I can't get from any other kind of programming. It feels like _printing_ something. Like making a physical object that exists in the world, not just another ephemeral website that lives in browsers and dies when servers go down.
 
-When I boot up that little handheld and see my game sitting there next to all the classics I played when I was eight years old—the same pixel art style, the same constrained color palette, the same immediate "press button, thing happens" feedback loop—it feels *real* in a way that deploying to Netlify never will.
+When I boot up that little handheld and see my game sitting there next to all the classics I played when I was eight years old—the same pixel art style, the same constrained color palette, the same immediate "press button, thing happens" feedback loop—it feels _real_ in a way that deploying to Netlify never will.
 
 I'm documenting this exploration for a few reasons:
 
@@ -26,7 +26,7 @@ I'm documenting this exploration for a few reasons:
 
 Most programming today is about managing infinite complexity. Infinite screen sizes, infinite device types, infinite frameworks, infinite deployment targets. You never know when you're done because there's always another edge case, another optimization, another platform to support.
 
-PICO-8 is the opposite of that. It's a *fantasy console* with completely artificial limitations:
+PICO-8 is the opposite of that. It's a _fantasy console_ with completely artificial limitations:
 
 - 128x128 pixel screen
 - 16 colors total
@@ -34,7 +34,7 @@ PICO-8 is the opposite of that. It's a *fantasy console* with completely artific
 - 32k code limit
 - Built-in sprite editor, map editor, sound editor
 
-These aren't technical limitations from 1985—they're *chosen* constraints from 2015. And somehow that makes all the difference. When you hit the code limit, you're done. When you've used all 16 colors, you're done. When the screen is 128x128, you don't have to worry about responsive design.
+These aren't technical limitations from 1985—they're _chosen_ constraints from 2015. And somehow that makes all the difference. When you hit the code limit, you're done. When you've used all 16 colors, you're done. When the screen is 128x128, you don't have to worry about responsive design.
 
 The limitations tell you when you're finished, which is exactly what a scattered brain like mine needs.
 
@@ -55,33 +55,37 @@ No app stores, no certificates, no deployment pipelines. Just: make thing, play 
 
 ### Working Within PICO-8's Embrace
 
-Even though you can use the VS Code extension to get modern editor features, there's something important about working *within* PICO-8's constraints rather than trying to escape them.
+Even though you can use the VS Code extension to get modern editor features, there's something important about working _within_ PICO-8's constraints rather than trying to escape them.
 
 ### The PICO-8 Development Kit I Actually Use
 
 After trying various workflows, here's what actually works for me:
 
 **Core tools:**
+
 - PICO-8 itself ($15, worth every penny)
 - VS Code with PICO-8 extension (syntax highlighting, better editing)
 - Aseprite for more complex sprite work (though the built-in editor is often enough)
 
 **My actual workflow:**
+
 1. Start ideas directly in PICO-8's editors to stay constrained
 2. Switch to VS Code when the code gets longer than 50 lines
 3. Use PICO-8's built-in tools for all art, sound, music
 4. Test constantly on the actual device—iterations are seconds, not minutes
 
 **Miyoo Mini setup:**
+
 - 64GB SD card with clean CFW installation
 - PICO-8 games go in `/Roms/PICO` folder
 - They show up automatically in the menu
 
 ### Games I've Actually Finished (And Why That Matters)
 
-This is the crucial part: I've actually *finished* more games in PICO-8 than in any other environment. Not prototypes, not demos—complete, playable games that I'm proud to show people.
+This is the crucial part: I've actually _finished_ more games in PICO-8 than in any other environment. Not prototypes, not demos—complete, playable games that I'm proud to show people.
 
 **Why finishing matters:**
+
 - You learn what "done" feels like, whether you like it or not
 - You get to partake in the full creative cycle
 - You build confidence for bigger projects
@@ -89,6 +93,7 @@ This is the crucial part: I've actually *finished* more games in PICO-8 than in 
 - You create something that exists independent of you
 
 **What "finished" looks like in PICO-8:**
+
 - Win condition and lose condition implemented
 - Sound effects for all major actions
 - At least 5-10 minutes of meaningful play
@@ -99,4 +104,4 @@ The constraints make finishing achievable. You can't get lost in feature creep w
 
 The goal isn't to become a game developer or make a blockbuster. The goal is to experience the joy of making something complete, constrained, and real. In a world of infinite scroll and endless updates, there's something profound about creating finite, finished things.
 
-*If you end up making something in PICO-8, send it to me at ejfox@ejfox.com. I love seeing what people create when they embrace constraints instead of fighting them.*
+_If you end up making something in PICO-8, send it to me at ejfox@ejfox.com. I love seeing what people create when they embrace constraints instead of fighting them._

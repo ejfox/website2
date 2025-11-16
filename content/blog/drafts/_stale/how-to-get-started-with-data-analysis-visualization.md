@@ -11,6 +11,7 @@ tags:
   - visualization
   - guide
 ---
+
 ## How to Get Started with Data Visualization (Without Getting Lost in the Tools)
 
 Data visualization sounds intimidating, like something you need a statistics degree and expensive software to attempt. But at its core, it's just drawing pictures to help you understand things better. The same impulse that makes you sketch a diagram to explain an idea to a friend, or draw a map when giving directions—that's data visualization.
@@ -53,16 +54,19 @@ The biggest mistake beginners make is starting with the tools instead of startin
 ### Resources That Actually Matter
 
 **For getting started immediately:**
+
 - Observable Plot: Web-based, no installation, surprisingly powerful
 - Google Sheets: Better than you think for quick exploration
 - Flourish: Templates for common chart types, good for beginners
 
 **For when you're ready to get serious:**
+
 - D3.js: The ultimate tool, but has a learning curve steeper than Everest
 - Python with matplotlib/seaborn: Great for analysis and visualization together
 - R with ggplot2: Beloved by statisticians for good reason
 
 **For inspiration:**
+
 - Information is Beautiful: Shows what's possible with creative thinking
 - Observable: A community of people sharing data visualization techniques
 - r/dataisbeautiful: Hit or miss, but occasionally brilliant

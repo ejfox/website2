@@ -24,11 +24,7 @@
             {{ description }}
           </p>
         </div>
-        <span
-          class="text-zinc-300 dark:text-zinc-700 group-hover:text-zinc-500 dark:group-hover:text-zinc-400 transition-colors flex-shrink-0 mt-0.5"
-        >
-          →
-        </span>
+        <span class="icon-muted-hover"> → </span>
       </div>
     </component>
   </div>

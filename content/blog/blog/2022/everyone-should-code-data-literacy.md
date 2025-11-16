@@ -15,7 +15,6 @@ tags:
 
 ## Why I think everyone should learn to code
 
-
 ### Defining computer literacy
 
 The ability to understand the ways that computers operate; if/else statements, networks, looping, and the ease of scale.

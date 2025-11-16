@@ -1,6 +1,6 @@
 import { defineEventHandler, getQuery, createError } from 'h3'
-import { readFile, readdir } from 'fs/promises'
-import path from 'path'
+import { readFile, readdir } from 'node:fs/promises'
+import path from 'node:path'
 import NodeCache from 'node-cache'
 import OpenAI from 'openai'
 

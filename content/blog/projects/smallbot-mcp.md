@@ -1,9 +1,9 @@
 ---
-title: "Smallbot MCP"
+title: 'Smallbot MCP'
 date: 2025-08-02T00:00:00-04:00
 modified: 2025-08-13T13:17:13-04:00
 url: https://github.com/ejfox/smallbot-mcp
-tech: ["MCP", "AI", "Web Generation", "Node.js"]
+tech: ['MCP', 'AI', 'Web Generation', 'Node.js']
 state: deployed
 aiInvolvement: ai-enhanced
 tags:

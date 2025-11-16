@@ -10,14 +10,15 @@ tags:
   - travel
   - hudsonvalley
 ---
+
 ## Into the Wild: Motorcycle Camping Gearlist
 
 ![](D8231DDA-80DE-4E33-B72F-200E0B78E999.jpeg)
 
 I've spent countless hours researching, testing out different methods, and developing a reliable motorcycle camping setup that I want to share so that anyone can make their dreams a reality.
 
->It just makes sense that motorcycles and camping go hand in hand. The same sensory connection to the world we get from motorcycling—the same elements we love, of being in the wind and leaning through the curves—can take place around camp. This both adds to your motorcycle adventures and contributes an entirely new passion to the mix.
->Tim Collins and Amanda Zito [Collins-Zito-The Fundamentals of Motorcycle Camping](Collins-Zito-The%20Fundamentals%20of%20Motorcycle%20Camping.md)
+> It just makes sense that motorcycles and camping go hand in hand. The same sensory connection to the world we get from motorcycling—the same elements we love, of being in the wind and leaning through the curves—can take place around camp. This both adds to your motorcycle adventures and contributes an entirely new passion to the mix.
+> Tim Collins and Amanda Zito [Collins-Zito-The Fundamentals of Motorcycle Camping](Collins-Zito-The%20Fundamentals%20of%20Motorcycle%20Camping.md)
 
 ### Modular Design
 
@@ -35,8 +36,8 @@ Consider using dry bags clipped together or attached to your bags with carabiner
 
 ![My bags for Island camping at Lake George](F5B356FA-79CC-4139-8F70-162F31D045F9_1_105_c.jpeg)
 
->You see things vacationing on a motorcycle in a way that is completely different from any other. In a car you’re always in a compartment, and because you’re used to it you don’t realize that through that car window everything you see is just more TV. You’re a passive observer and it is all moving by you boringly in a frame.
->[Pirsig-Zen and the Art of Motorcycle Maintenance](Pirsig-Zen%20and%20the%20Art%20of%20Motorcycle%20Maintenance.md)
+> You see things vacationing on a motorcycle in a way that is completely different from any other. In a car you’re always in a compartment, and because you’re used to it you don’t realize that through that car window everything you see is just more TV. You’re a passive observer and it is all moving by you boringly in a frame.
+> [Pirsig-Zen and the Art of Motorcycle Maintenance](Pirsig-Zen%20and%20the%20Art%20of%20Motorcycle%20Maintenance.md)
 
 ### Motorcycle: Kawasaki Versys-X 300
 
@@ -53,6 +54,7 @@ The Kawasaki Versys X 300 fits all my requirements.
 ![](ADD924AF-D7C4-4F8B-ABD9-4D7EB4EBF026.jpeg)
 
 #### What I looked for in a bike
+
 - Weight: I need to be able to pick it up and take it on single track
 - Tires: It needs to be able to go off road
 - Luggage: It needs to be able to carry all my camping gear
@@ -84,15 +86,16 @@ I also carry an art kit and a Jetboil with fuel for coffee in the morning.
 ![This is definitely Too Much Stuff, but she handled it like a champ](EBF62C4D-364E-44F2-9486-691705B62C8A_1_105_c.jpeg)
 
 ### Bags
+
 - Main bag: 5.11 Rush 24
-	- Dry bag for clothes
-	- First aid kit
-	- Art kit
+  - Dry bag for clothes
+  - First aid kit
+  - Art kit
 - 25L side bag 1: tent, hammock
 - 25L side bag 2: sleeping bag, liner, pillow, pad
 - 4l aux bag 1: jetboil + fuel
 
-*exploded bags diagram*
+_exploded bags diagram_
 
 [Mosko Moto Reckless 80L Motorcycle Luggage System](https://moskomoto.com/products/reckless-80l)
 
@@ -123,6 +126,7 @@ You should also consider a campsite layout to help keep your gear safe and organ
 Because no matter how much research and preparation goes into a journey there are still moments when things will go wrong; having an emergency repair kit can help ensure that a small issue doesn't derail your trip entirely! Better to have it and not use it, than to need it and not have it!
 
 #### Home repair kit
+
 - Socket set 4mm-19mm
 - Combination wrenches 8mm-19mm
 - Pliers
@@ -131,7 +135,9 @@ Because no matter how much research and preparation goes into a journey there ar
 - Allen wrench set
 - Torx wrenches
 - Spark plugs, 10mm thread, 0.75in
+
 #### Travel repair kit
+
 - Tubeless tire repair kit
 - Mini tire inflator
 - Jump battery

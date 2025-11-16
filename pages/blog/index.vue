@@ -8,17 +8,15 @@
       <div class="max-w-screen-xl mx-auto px-4 md:px-8">
         <!-- Compact metadata bar matching blog posts -->
         <div class="border-b border-zinc-200 dark:border-zinc-800">
-          <div
-            class="font-mono text-xs text-zinc-500 px-4 md:px-6 py-1 uppercase tabular-nums flex items-center gap-2 overflow-x-auto tracking-wider"
-          >
-            <span class="flex items-center gap-1 whitespace-nowrap">
+          <div class="metadata-bar">
+            <span class="flex-gap-1 whitespace-nowrap">
               <span class="text-zinc-400">ENTRIES</span>
               <span class="text-zinc-600 dark:text-zinc-300">{{
                 posts?.length || 0
               }}</span>
             </span>
-            <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
-            <span class="flex items-center gap-1 whitespace-nowrap">
+            <span class="mx-1 text-divider">·</span>
+            <span class="flex-gap-1 whitespace-nowrap">
               <span class="text-zinc-400">WORDS</span>
               <span class="text-zinc-600 dark:text-zinc-300"
                 >{{
@@ -31,8 +29,8 @@
                 }}K</span
               >
             </span>
-            <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
-            <span class="flex items-center gap-1 whitespace-nowrap">
+            <span class="mx-1 text-divider">·</span>
+            <span class="flex-gap-1 whitespace-nowrap">
               <span class="text-zinc-400">READ</span>
               <span class="text-zinc-600 dark:text-zinc-300"
                 >{{
@@ -47,8 +45,8 @@
                 }}hr</span
               >
             </span>
-            <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
-            <span class="flex items-center gap-1 whitespace-nowrap">
+            <span class="mx-1 text-divider">·</span>
+            <span class="flex-gap-1 whitespace-nowrap">
               <span class="text-zinc-400">LINKS</span>
               <span class="text-zinc-600 dark:text-zinc-300">{{
                 posts?.reduce(
@@ -57,8 +55,8 @@
                 ) || 0
               }}</span>
             </span>
-            <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
-            <span class="flex items-center gap-1 whitespace-nowrap">
+            <span class="mx-1 text-divider">·</span>
+            <span class="flex-gap-1 whitespace-nowrap">
               <span class="text-zinc-400">IMAGES</span>
               <span class="text-zinc-600 dark:text-zinc-300">{{
                 posts?.reduce(
@@ -67,8 +65,8 @@
                 ) || 0
               }}</span>
             </span>
-            <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
-            <span class="flex items-center gap-1 whitespace-nowrap">
+            <span class="mx-1 text-divider">·</span>
+            <span class="flex-gap-1 whitespace-nowrap">
               <span class="text-zinc-400">YEARS</span>
               <span class="text-zinc-600 dark:text-zinc-300">{{
                 sortedYears?.length || 0
@@ -116,7 +114,7 @@
                 <!-- Year marker (inline, only for first post) -->
                 <div
                   v-if="index === 0"
-                  class="font-mono text-xs uppercase tracking-widest text-zinc-400 dark:text-zinc-600 mt-12 first:mt-0 mb-6"
+                  class="year-marker"
                   style="line-height: 16px"
                 >
                   {{ year }}
@@ -128,7 +126,7 @@
                     <h3>
                       <NuxtLink
                         :to="`/blog/${post?.slug}`"
-                        class="font-serif text-xl md:text-2xl font-normal text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400 p-name u-url transition-colors duration-200 tracking-tight"
+                        class="title-link"
                         style="line-height: 1.3"
                       >
                         {{ post?.title || formatTitle(post?.slug) }}
@@ -136,15 +134,11 @@
                     </h3>
 
                     <!-- Horizontal metadata line with microvis -->
-                    <div
-                      class="font-mono text-xs text-zinc-400 dark:text-zinc-600 mt-1 uppercase tracking-wider tabular-nums flex items-center gap-1"
-                    >
+                    <div class="post-metadata">
                       <span>{{
                         formatShortDate(post?.metadata?.date || post?.date)
                       }}</span>
-                      <span class="mx-1 text-zinc-300 dark:text-zinc-700"
-                        >·</span
-                      >
+                      <span class="mx-1 text-divider">·</span>
                       <span
                         >{{
                           calculateReadingTime(
@@ -156,16 +150,16 @@
                       <!-- Word count with sparkline -->
                       <span
                         v-if="post?.metadata?.words || post?.words"
-                        class="flex items-center gap-1"
+                        class="flex-gap-1"
                       >
-                        <span class="mx-1 text-zinc-300 dark:text-zinc-700"
-                          >·</span
-                        >
-                        <BlogSparkline
-                          :value="post?.metadata?.words || post?.words || 0"
-                          metric="words"
-                          type="bars"
-                        />
+                        <span class="mx-1 text-divider">·</span>
+                        <ClientOnly>
+                          <BlogSparkline
+                            :value="post?.metadata?.words || post?.words || 0"
+                            metric="words"
+                            type="bars"
+                          />
+                        </ClientOnly>
                         <span
                           >{{
                             formatNumber(
@@ -179,16 +173,16 @@
                       <!-- Images sparkline -->
                       <span
                         v-if="(post?.metadata?.images || post?.images || 0) > 0"
-                        class="flex items-center gap-1"
+                        class="flex-gap-1"
                       >
-                        <span class="mx-1 text-zinc-300 dark:text-zinc-700"
-                          >·</span
-                        >
-                        <BlogSparkline
-                          :value="post?.metadata?.images || post?.images || 0"
-                          metric="images"
-                          type="dots"
-                        />
+                        <span class="mx-1 text-divider">·</span>
+                        <ClientOnly>
+                          <BlogSparkline
+                            :value="post?.metadata?.images || post?.images || 0"
+                            metric="images"
+                            type="dots"
+                          />
+                        </ClientOnly>
                         <span
                           >{{
                             post?.metadata?.images || post?.images
@@ -200,16 +194,16 @@
                       <!-- Links sparkline -->
                       <span
                         v-if="(post?.metadata?.links || post?.links || 0) > 0"
-                        class="flex items-center gap-1"
+                        class="flex-gap-1"
                       >
-                        <span class="mx-1 text-zinc-300 dark:text-zinc-700"
-                          >·</span
-                        >
-                        <BlogSparkline
-                          :value="post?.metadata?.links || post?.links || 0"
-                          metric="links"
-                          type="bars"
-                        />
+                        <span class="mx-1 text-divider">·</span>
+                        <ClientOnly>
+                          <BlogSparkline
+                            :value="post?.metadata?.links || post?.links || 0"
+                            metric="links"
+                            type="bars"
+                          />
+                        </ClientOnly>
                         <span
                           >{{
                             post?.metadata?.links || post?.links
@@ -246,9 +240,7 @@
             style="max-width: 65ch"
           >
             <!-- Data stats footer -->
-            <div
-              class="font-mono text-xs text-zinc-400 mb-4 grid grid-cols-2 md:grid-cols-4 gap-3 tabular-nums"
-            >
+            <div class="data-footer">
               <div>
                 <span class="text-zinc-500">TTL_READ</span>
                 <br />
@@ -296,25 +288,21 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
               <!-- Week Notes -->
               <section v-if="sortedWeekNotes.length">
-                <h2
-                  class="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-2"
-                >
+                <h2 class="section-header-xs">
                   Week Notes
                   <span
-                    class="font-mono text-xs text-zinc-400 normal-case tracking-normal"
+                    class="mono-xs text-zinc-400 normal-case tracking-normal"
                     >[{{ sortedWeekNotes.length }}]</span
                   >
                 </h2>
-                <div class="space-y-2">
+                <div class="stack-2">
                   <article
                     v-for="weekNote in sortedWeekNotes"
                     :key="weekNote.slug"
                     class="group"
                   >
                     <NuxtLink :to="`/blog/${weekNote.slug}`" class="block">
-                      <div
-                        class="font-serif text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-400"
-                      >
+                      <div class="card-title">
                         Week {{ weekNote.slug.split('/')[1] }}
                       </div>
                       <p class="font-serif text-xs text-zinc-500">
@@ -327,28 +315,24 @@
 
               <!-- Recently Updated -->
               <section v-if="recentlyUpdatedPosts.length">
-                <h2
-                  class="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-2"
-                >
+                <h2 class="section-header-xs">
                   Recently Updated
                   <span
-                    class="font-mono text-xs text-zinc-400 normal-case tracking-normal"
+                    class="mono-xs text-zinc-400 normal-case tracking-normal"
                     >[{{ recentlyUpdatedPosts.length }}]</span
                   >
                 </h2>
-                <div class="space-y-2">
+                <div class="stack-2">
                   <article
                     v-for="post in recentlyUpdatedPosts"
                     :key="post.slug"
                     class="group"
                   >
                     <NuxtLink :to="`/blog/${post.slug}`" class="block">
-                      <div
-                        class="font-serif text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-400"
-                      >
+                      <div class="card-title">
                         {{ post.title }}
                       </div>
-                      <div class="font-mono text-xs text-zinc-500">
+                      <div class="mono-xs text-zinc-500">
                         {{
                           formatShortDate(
                             post?.metadata?.lastUpdated ||
@@ -370,7 +354,7 @@
 </template>
 
 <script setup>
-import { formatDistanceToNow, subMonths, startOfWeek } from 'date-fns'
+import { formatDistanceToNow, subMonths, startOfWeek } from '~/utils/dateUtils'
 
 const processedMarkdown = useProcessedMarkdown()
 const now = new Date()
@@ -491,54 +475,29 @@ const { data: notes } = useAsyncData('week-notes', async () => {
   }
 })
 
-const blogDescription = computed(() => {
-  const postCount = posts.value?.length || 0
+// Static description for SSR-safety
+const defaultDescription =
+  'Thoughts, projects, and explorations in technology, design, and making.'
 
-  if (postCount === 0) return 'Thoughts, projects, and explorations in technology, design, and making.'
-
-  // Get 3 most recent posts with dates and word counts
-  const recentPosts = [...(posts.value || [])]
-    .sort((a, b) => new Date(b?.date || b?.metadata?.date) - new Date(a?.date || a?.metadata?.date))
-    .slice(0, 3)
-    .map(p => {
-      const title = p?.title || p?.metadata?.title || formatTitle(p?.slug)
-      const date = formatShortDate(p?.date || p?.metadata?.date)
-      const words = p?.metadata?.words || p?.words || 0
-      const wordCount = words > 0 ? `${(words / 1000).toFixed(1)}K words` : ''
-      return wordCount ? `${title} (${date}, ${wordCount})` : `${title} (${date})`
-    })
-    .join(' • ')
-
-  return recentPosts ? `Latest: ${recentPosts}` : `${postCount} posts on tech, design, and making`
+useHead({
+  title: 'Blog - EJ Fox',
+  link: [{ rel: 'canonical', href: 'https://ejfox.com/blog' }]
 })
 
-useHead(() => ({
-  title: 'Blog - EJ Fox',
-  meta: [
-    {
-      name: 'description',
-      content: blogDescription.value
-    },
-    { property: 'og:title', content: 'Blog - EJ Fox' },
-    {
-      property: 'og:description',
-      content: blogDescription.value
-    },
-    { property: 'og:url', content: 'https://ejfox.com/blog' },
-    { property: 'og:type', content: 'website' },
-    { property: 'og:image', content: 'https://ejfox.com/og-image.png' },
-    { property: 'og:image:width', content: '1200' },
-    { property: 'og:image:height', content: '630' },
-    { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: 'Blog - EJ Fox' },
-    {
-      name: 'twitter:description',
-      content: blogDescription.value
-    },
-    { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' }
-  ],
-  link: [{ rel: 'canonical', href: 'https://ejfox.com/blog' }]
-}))
+useSeoMeta({
+  description: defaultDescription,
+  ogTitle: 'Blog - EJ Fox',
+  ogDescription: defaultDescription,
+  ogUrl: 'https://ejfox.com/blog',
+  ogType: 'website',
+  ogImage: 'https://ejfox.com/og-image.png',
+  ogImageWidth: '1200',
+  ogImageHeight: '630',
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'Blog - EJ Fox',
+  twitterDescription: defaultDescription,
+  twitterImage: 'https://ejfox.com/og-image.png'
+})
 
 // Computed data for sparklines
 const postCountByYear = computed(() => {
@@ -614,7 +573,7 @@ const blogPostsByYear = computed(() => {
     const postDate = post?.date || post?.metadata?.date
     if (!postDate) return
     const date = new Date(postDate)
-    if (isNaN(date.getTime())) return
+    if (Number.isNaN(date.getTime())) return
     const year = date.getFullYear()
     if (!grouped[year]) grouped[year] = []
     grouped[year].push(post)
@@ -631,9 +590,11 @@ const blogPostsByYear = computed(() => {
   return grouped
 })
 
-const sortedYears = computed(() =>
-  Object.keys(blogPostsByYear.value).sort((a, b) => b - a)
-)
+const sortedYears = computed(() => {
+  const years = blogPostsByYear.value
+  if (!years || typeof years !== 'object') return []
+  return Object.keys(years).sort((a, b) => b - a)
+})
 
 const recentlyUpdatedPosts = computed(() => {
   if (!posts.value) return []

@@ -13,7 +13,7 @@ modified: 2025-08-28T16:12:25-04:00
 
 ## Panic-Driven Development: Building A Tool To Back Up My Photos From Cloudinary
 
-“Your cloudinary account is due for cancellation” the email said. “That’s bad,” I thought, sipping my morning espresso, about to head off for vacation. I’ve spent the past year orchestrating a series of systems to store my photographs, screenshots, and media through Cloudinary. But what I hadn’t done, I suddenly realized, was build a way to back up my photos from Cloudinary onto an external hard drive. I always knew I could, that it was *technically* possible, but I hadn’t actually, you know, done it.
+“Your cloudinary account is due for cancellation” the email said. “That’s bad,” I thought, sipping my morning espresso, about to head off for vacation. I’ve spent the past year orchestrating a series of systems to store my photographs, screenshots, and media through Cloudinary. But what I hadn’t done, I suddenly realized, was build a way to back up my photos from Cloudinary onto an external hard drive. I always knew I could, that it was _technically_ possible, but I hadn’t actually, you know, done it.
 
 The paranoia hit immediately. A year of digital memories, screenshots of brilliant tweets, photos of questionable life choices—all sitting in someone else’s data center, about to vanish like the brilliant insights of last night’s trip.
 
@@ -40,7 +40,7 @@ Our main problem: resumability. When my download crashes at photo 2,847, I don�
 
 What happens when AWS decides your use case isn’t profitable? When Google kills another service? When some startup gets acqui-hired and your data becomes “legacy”? When you can't afford to pay $100 this month to host your photos?
 
-The backup tool worked—my anxiety laid to rest, digital life preserved. But it was a wake-up call. I am glad how easy it was to conjure my backups into existence. But it was *almost* too late.
+The backup tool worked—my anxiety laid to rest, digital life preserved. But it was a wake-up call. I am glad how easy it was to conjure my backups into existence. But it was _almost_ too late.
 
 ### The Aftermath: A Digital Hymn
 

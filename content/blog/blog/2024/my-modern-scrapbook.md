@@ -36,9 +36,9 @@ All of these things; mastodon posts, pinboard bookmarks, github activity, are.na
 
 ## The groundwork for customized interfaces
 
-A key missing element in making this workflow is to build tools and interfaces for exploration and organization of all of these "scraps". I feel pretty confident about my mechanisms of *capture* - I already spin off a number of scraps every day without even thinking about it. What I'm less good at is going back and reviewing them, tagging them, drawing connections between them, and most importantly; boiling those journeys down into blog posts and videos.
+A key missing element in making this workflow is to build tools and interfaces for exploration and organization of all of these "scraps". I feel pretty confident about my mechanisms of _capture_ - I already spin off a number of scraps every day without even thinking about it. What I'm less good at is going back and reviewing them, tagging them, drawing connections between them, and most importantly; boiling those journeys down into blog posts and videos.
 
-I struggle seeing the over-arching themes and connections between projects on longer timelines. A lot of my attention is spent on what I am curious about *today*. Some research, projects and threads of exploration have lasted for years. When I was collecting the material, it felt like smaller, disconnected explorations. But when put together in retrospect overarching themes become obvious.
+I struggle seeing the over-arching themes and connections between projects on longer timelines. A lot of my attention is spent on what I am curious about _today_. Some research, projects and threads of exploration have lasted for years. When I was collecting the material, it felt like smaller, disconnected explorations. But when put together in retrospect overarching themes become obvious.
 
 I love tools like [Scapple](https://www.literatureandlatte.com/scapple/overview) and [Mermaid](https://mermaid.live/edit) that make it easily make mindmaps and spatially arrange and connect concepts- I find this is a way to intuitively "fiddle" with architectures, concepts, and linked ideas, like a conceptual [knolling](https://makezine.com/article/workshop/zen-and-the-art-of-knolling/) (Always Be Knolling).
 
@@ -68,7 +68,7 @@ on:
   schedule:
     # - cron: '0 0 * * *'  # Runs every day at midnight
     # - cron: '0 */2 * * *'  # Runs every 2 hours
-    - cron: '0 */8 * * *'  # Runs every 8 hours
+    - cron: '0 */8 * * *' # Runs every 8 hours
 ```
 
 I used to have this scrape the latest changes, add them to a JSON file, and commit and push the changes. This would in turn trigger a new Netlify deploy with the latest JSON, updating my website.
@@ -83,7 +83,7 @@ The scraper takes the contents of the webpage and break it into chunks based on 
 
 I figured while I was at it, I might as well ask the robot to try and determine a primary geographic location for the article, which I reverse geocode. Maybe later I can map or geographically query my scraps. But I have the data.
 
-I also ask the robot to generate a list of relationships contained within the article. I've re-used the [Cypher query language](https://en.wikipedia.org/wiki/Cypher_(query_language)) - which looks like `[Person:Stewart Brand] -[:CreatedBy]-> [Publication:Whole Earth Catalog]` - and the robot is capable of writing them pretty accurately, and I can easily turn these into nodes/edges with some lightweight regex parsing.
+I also ask the robot to generate a list of relationships contained within the article. I've re-used the [Cypher query language](<https://en.wikipedia.org/wiki/Cypher_(query_language)>) - which looks like `[Person:Stewart Brand] -[:CreatedBy]-> [Publication:Whole Earth Catalog]` - and the robot is capable of writing them pretty accurately, and I can easily turn these into nodes/edges with some lightweight regex parsing.
 
 ![An example with the list of facts at the top, and the auto-generated relationship diagram at the bottom](http://res.cloudinary.com/ejf/image/upload/v1722614112/Screenshot_2024-08-02_at_11.55.00_AM.png)
 
@@ -93,11 +93,11 @@ With all this data carefully collected and analyzed, it's time to start explorin
 
 ## Exploring my data
 
-The robot and I created a [command-line tool to explore my scraps](https://github.com/ejfox/scrapbook-cli) – partially for the practicality of having a fast, responsive interface I can keep open on my screen, and also for potential *aesthetic*[^2] usage in future videos and livestreams. I ended up making a little [helper library of useful CLI patterns](https://github.com/ejfox/cybermaint-toolkit) I found myself reusing while making it, like a typing-style animation, playing sounds, and a glitch effect.
+The robot and I created a [command-line tool to explore my scraps](https://github.com/ejfox/scrapbook-cli) – partially for the practicality of having a fast, responsive interface I can keep open on my screen, and also for potential _aesthetic_[^2] usage in future videos and livestreams. I ended up making a little [helper library of useful CLI patterns](https://github.com/ejfox/cybermaint-toolkit) I found myself reusing while making it, like a typing-style animation, playing sounds, and a glitch effect.
 
 ![](https://res.cloudinary.com/ejf/video/upload/q_auto/w_768/e_loop/v1722610907/Screen_Recording_2024-08-02_at_11.00.13_AM.gif)
 
-I've also been itching to replace my doomscrolling with something productive, and I wish that in the moments I caught myself aimlessly wading through brainrot videos, I was instead doing something creative. Going back through my research isn't exactly the same as *making something*, but it's definitely better than other ways I spend my time. So I decided to create an [infinite-scrolling interface for my scraps called scrapscroller](https://github.com/ejfox/scrapscroller).
+I've also been itching to replace my doomscrolling with something productive, and I wish that in the moments I caught myself aimlessly wading through brainrot videos, I was instead doing something creative. Going back through my research isn't exactly the same as _making something_, but it's definitely better than other ways I spend my time. So I decided to create an [infinite-scrolling interface for my scraps called scrapscroller](https://github.com/ejfox/scrapscroller).
 
 ![](http://res.cloudinary.com/ejf/video/upload/q_auto/w_768/e_loop/v1722611463/Screen_Recording_2024-08-02_at_11.10.26_AM.gif)
 
@@ -127,7 +127,8 @@ This public record of work that influences me is also particularly useful as I t
 
 I created a [30 minute YouTube video](https://www.youtube.com/watch?v=Ly3BXZbWOak) where I code a custom interface to are.na. The goal was to make the idea of creating custom interfaces for our own data accessible. When our data is held by ethical, logical institutions, we can take it out and play with it if we want. Instead of using technology purely as a method of consuming algorithmic feeds, that we have no control over, tuned to maximize engagement instead of our own happiness and creativity. We can (and should) remake these systems in ways that benefit us and the people around us, in ways that align with our own moral compass and worldview.
 
-The ability to own, possess, remix, and re-explore my own data is crucial for me to make sense of the world. It's how I access my own thoughts, understand *how* I think about things, and to find creative paths forward and decide what is worth focusing on. If I gave up those responsibilities to a faceless algorithm whose goals are quite different from my own, I would be giving up quite a lot. You are what you eat.
+The ability to own, possess, remix, and re-explore my own data is crucial for me to make sense of the world. It's how I access my own thoughts, understand _how_ I think about things, and to find creative paths forward and decide what is worth focusing on. If I gave up those responsibilities to a faceless algorithm whose goals are quite different from my own, I would be giving up quite a lot. You are what you eat.
 
-[^1]: Having a publicly-available JSON file with all my tags has proven helpful when creating a bunch of interlinked tools without having to copy this list between them all, or having to update multiple codebases if I want to change it. This file, at the base directory of my website, will forever be the source of truth for my current top-level tags across *all services*, and will hopefully reduce the creation of redundant tags, as the whole point is to find patterns and connections.
+[^1]: Having a publicly-available JSON file with all my tags has proven helpful when creating a bunch of interlinked tools without having to copy this list between them all, or having to update multiple codebases if I want to change it. This file, at the base directory of my website, will forever be the source of truth for my current top-level tags across _all services_, and will hopefully reduce the creation of redundant tags, as the whole point is to find patterns and connections.
+
 [^2]: Did you know that the `blessed` library lets you draw little [ascii art maps](https://github.com/yaronn/blessed-contrib?tab=readme-ov-file#map) from lat/lngs? It's super fun.

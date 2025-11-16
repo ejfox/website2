@@ -16,4 +16,3 @@ images:
 ---
 
 ## Elon Musk is a Bad Man
-

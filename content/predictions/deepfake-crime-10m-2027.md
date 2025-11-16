@@ -96,4 +96,3 @@ This prediction resolves **TRUE** if a criminal conviction occurs meeting ALL cr
 - Plea deals might not require detailed damage documentation
 - International cases may be harder to verify
 - Some victims may prefer private settlements to avoid publicity
-

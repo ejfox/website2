@@ -10,6 +10,7 @@ tags:
 hidden: true
 draft: true
 ---
+
 ## Adding a Paywall to your Nuxt+Supabase App
 
 ### Goals
@@ -48,11 +49,13 @@ Stripe offers a number of tools that help users of different technical abilities
 ### Basic Implementation
 
 **1. Install Dependencies**
+
 ```bash
 npm install stripe @stripe/stripe-js @supabase/supabase-js
 ```
 
 **2. Environment Variables**
+
 ```bash
 STRIPE_SECRET_KEY=sk_test_...
 STRIPE_PUBLISHABLE_KEY=pk_test_...
@@ -62,6 +65,7 @@ SUPABASE_ANON_KEY=eyJ...
 ```
 
 **3. Stripe API Route** (`/server/api/create-checkout.post.ts`)
+
 ```typescript
 import Stripe from 'stripe'
 
@@ -71,25 +75,28 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)
-  
+
   const session = await stripe.checkout.sessions.create({
     mode: 'payment',
-    line_items: [{
-      price: body.priceId,
-      quantity: 1
-    }],
+    line_items: [
+      {
+        price: body.priceId,
+        quantity: 1
+      }
+    ],
     success_url: `${body.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${body.origin}/cancel`,
     metadata: {
       userId: body.userId
     }
   })
-  
+
   return { sessionId: session.id }
 })
 ```
 
-**4. Frontend Checkout** 
+**4. Frontend Checkout**
+
 ```vue
 <script setup>
 import { loadStripe } from '@stripe/stripe-js'
@@ -105,30 +112,33 @@ async function checkout() {
       userId: user.value?.id
     }
   })
-  
+
   await stripe.redirectToCheckout({ sessionId: data.sessionId })
 }
 </script>
 ```
 
 **5. Webhook Handler** (`/server/api/webhook.post.ts`)
+
 ```typescript
 import Stripe from 'stripe'
 
 export default defineEventHandler(async (event) => {
   const sig = getHeader(event, 'stripe-signature')
   const body = await readRawBody(event)
-  
+
   const stripeEvent = stripe.webhooks.constructEvent(
-    body, sig, process.env.STRIPE_WEBHOOK_SECRET
+    body,
+    sig,
+    process.env.STRIPE_WEBHOOK_SECRET
   )
-  
+
   if (stripeEvent.type === 'checkout.session.completed') {
     const session = stripeEvent.data.object
     // Update user permissions in Supabase
     await grantAccess(session.metadata.userId, session.id)
   }
-  
+
   return { received: true }
 })
 ```

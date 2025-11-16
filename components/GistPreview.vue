@@ -4,11 +4,7 @@
       <div ref="codeRef" class="code-content" v-html="highlightedCode" />
 
       <!-- Expand/Collapse button at bottom -->
-      <div
-        v-if="lineCount > 10"
-        ref="overlayRef"
-        class="absolute bottom-0 left-0 right-0 h-10 flex items-end justify-center pb-2 bg-gradient-to-t from-white dark:from-zinc-900 to-transparent"
-      >
+      <div v-if="lineCount > 10" ref="overlayRef" class="gradient-fade-bottom">
         <button ref="buttonRef" class="action-button" @click="handleToggle">
           <span ref="iconRef" class="button-icon">{{
             expanded ? '▼' : '▶'
@@ -77,7 +73,7 @@ const codeToShow = computed(() => {
 const highlightedCode = ref('')
 
 // Initialize on server and client
-if (process.server || process.client) {
+if (import.meta.server || import.meta.client) {
   // Initialize immediately for SSR
   updateHighlighting()
 }
@@ -94,7 +90,7 @@ watch([() => props.expanded, () => props.gist.content], async () => {
 })
 
 // Watch for theme changes
-if (process.client) {
+if (import.meta.client) {
   const observer = new MutationObserver(async (mutations) => {
     for (const mutation of mutations) {
       if (
@@ -126,7 +122,7 @@ const updateHighlighting = async () => {
     try {
       // Enhanced theme detection
       let isDark = false
-      if (process.client) {
+      if (import.meta.client) {
         // Check multiple methods for dark mode detection
         isDark =
           document.documentElement.classList.contains('dark') ||

@@ -8,6 +8,7 @@ tags:
   - macOS
   - workflow
 ---
+
 ## Current Computer Setup
 
 ### Hardware

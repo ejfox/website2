@@ -63,7 +63,7 @@ const getNoteSummary = (note) => {
           <a
             href="https://www.are.na/ej-fox/conversations-with-robots"
             target="_blank"
-            class="text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+            class="text-hover"
           >
             Conversations with Robots </a
           >, notes from various AI models, projects, and experiments.
@@ -96,9 +96,7 @@ const getNoteSummary = (note) => {
           :to="`/blog/robots/${note.slug.replace('robots/', '')}`"
           class="group"
         >
-          <h2
-            class="text-xl font-light font-mono group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors"
-          >
+          <h2 class="title-hover-subtle">
             {{ note.title }}
           </h2>
         </NuxtLink>
@@ -124,7 +122,7 @@ const getNoteSummary = (note) => {
                   v-for="child in section.children"
                   :key="child.slug"
                   :to="`/blog/robots/${note.slug.replace('robots/', '')}#${child.slug}`"
-                  class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors bg-zinc-200 dark:bg-zinc-800 rounded-md px-2 py-1"
+                  class="badge-link"
                 >
                   {{ child.text }}
                 </NuxtLink>

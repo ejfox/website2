@@ -13,17 +13,14 @@
           href="https://github.com/sponsors/ejfox"
           target="_blank"
           rel="noopener"
-          class="hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors underline underline-offset-2"
+          class="link-underline-hover"
         >
           github
         </a>
 
         <span class="text-zinc-300 dark:text-zinc-700">·</span>
 
-        <button
-          @click="showCrypto = !showCrypto"
-          class="hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors underline underline-offset-2"
-        >
+        <button class="link-underline-hover" @click="showCrypto = !showCrypto">
           crypto
         </button>
       </div>
@@ -39,9 +36,9 @@
             >{{ coin.toLowerCase() }}:</span
           >
           <button
-            @click="copyAddress(address, coin)"
             class="text-zinc-500 dark:text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors break-all text-right"
             :title="address"
+            @click="copyAddress(address, coin)"
           >
             {{ copied === coin ? '✓ copied' : address }}
           </button>

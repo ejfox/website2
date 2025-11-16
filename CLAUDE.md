@@ -7,7 +7,7 @@ Personal website and digital publishing system built with Nuxt 3. Primary purpos
 ## Current Status: ✅ Production Ready
 
 - Docker containerized, health checks working
-- Dynamic tags system with journalist pyramid ordering  
+- Dynamic tags system with journalist pyramid ordering
 - Cryptographic predictions system with PGP signing
 - Multi-source API aggregation for personal stats
 - Clean root directory (delete-driven cleanup completed)
@@ -15,6 +15,7 @@ Personal website and digital publishing system built with Nuxt 3. Primary purpos
 ## Key Architectural Components
 
 ### Content Pipeline
+
 - **Input**: Markdown files in `content/blog/` with YAML frontmatter
 - **Processing**: `scripts/processMarkdown.mjs` converts MD → structured JSON
 - **Output**: Individual JSON files + `manifest-lite.json` for listings
@@ -58,26 +59,30 @@ Personal website and digital publishing system built with Nuxt 3. Primary purpos
 ## Important File Locations
 
 ### Critical Scripts
+
 - `scripts/processMarkdown.mjs` - Main content processing pipeline
 - `scripts/predict.mjs` - Prediction creation CLI
 - `server/routes/tags.json.ts` - Dynamic tags endpoint
 - `server/api/gear-csv.get.ts` - Gear CSV data endpoint
 
 ### Key Components
+
 - `components/gear/GearItem.vue` - Individual gear row component
 - `components/gear/GearTableRow.client.vue` - Client-side gear display
 - `composables/useWeightCalculations.ts` - Weight conversion utilities
 
 ### Configuration Files
+
 - `nuxt.config.ts` - Nuxt configuration with Docker preset
 - `.env` - Environment variables (create from examples in README)
 - `Dockerfile` + `docker-compose.yml` - Container deployment
 
 ### Content Structure
+
 ```
 content/
 ├── blog/YYYY/           # Published posts
-├── blog/drafts/         # Work in progress  
+├── blog/drafts/         # Work in progress
 ├── blog/projects/       # Project documentation
 ├── predictions/         # Cryptographic predictions
 └── processed/           # Generated JSON output
@@ -86,9 +91,11 @@ content/
 ## Development Patterns
 
 ### Delete-Driven Development Philosophy
+
 > "When system hangs, delete code until it works. No clever fixes, no complex solutions. Find the bloat, delete it. Simple beats complex. Working beats perfect."
 
 Applied throughout codebase for:
+
 - Root folder cleanup (removed 15MB+ of lighthouse reports, build logs)
 - Animation system (deleted looping animations causing flickering)
 - Component simplification (projects page: 120+ lines → 25 lines)
@@ -96,6 +103,7 @@ Applied throughout codebase for:
 - Typography consolidation (custom fonts → system Georgia serif)
 
 ### Content Processing Flow
+
 1. **Write** in Obsidian with YAML frontmatter + tags
 2. **Process** via `yarn blog:process` → generates JSON + usage counts
 3. **Serve** via dynamic routes consuming processed JSON
@@ -104,11 +112,12 @@ Applied throughout codebase for:
 ## Common Operations
 
 ### Content Management
+
 ```bash
 # Process new blog posts
 yarn blog:process
 
-# Create cryptographic prediction  
+# Create cryptographic prediction
 yarn predict --statement "AI will..." --confidence 80 --deadline 2025-12-31
 
 # Check processed content
@@ -117,6 +126,7 @@ cat content/processed/manifest-lite.json | jq '.[] | select(.draft != true)'
 ```
 
 ### Development
+
 ```bash
 # Dev server (port 3006)
 yarn dev
@@ -129,6 +139,7 @@ docker-compose up --build
 ```
 
 ### Deployment
+
 ```bash
 # Restart after .env changes
 docker-compose restart
@@ -140,15 +151,18 @@ docker-compose down && docker-compose up -d --build
 ## Troubleshooting
 
 ### Nuxt Build Cache Corruption
+
 **Error**: `"#internal/nuxt/paths" is not defined`
 
 **Solution** (delete-driven development):
+
 ```bash
 # Delete corrupted build artifacts
 rm -rf .nuxt .output node_modules/.cache && yarn install && yarn build
 ```
 
 ### Content Processing Issues
+
 ```bash
 # Debug content processing
 DEBUG=true yarn blog:process
@@ -161,6 +175,7 @@ cat content/processed/manifest-lite.json | jq 'length'
 ```
 
 ### Docker Issues
+
 ```bash
 # Health check
 curl http://localhost:3006/api/healthcheck
@@ -173,6 +188,7 @@ docker-compose down --volumes && docker-compose up --build
 ```
 
 ### Gear Page Issues
+
 **Problem**: Weights showing as 0 or NaN
 **Cause**: CSV column name mismatch (`Weight_oz` vs `Base Weight ()`)
 **Solution**: Update `composables/useWeightCalculations.ts` to use correct column name
@@ -197,15 +213,18 @@ docker-compose down --volumes && docker-compose up --build
 ## Sidenotes System (2025-09-29)
 
 ### Overview
+
 Replaced complex 800+ line sidenotes system with ultra-simple 113-line client-side plugin that converts standard Markdown footnotes to margin notes.
 
 ### Implementation
+
 - **Location**: `plugins/footnotes-to-sidenotes.client.ts`
 - **Approach**: Pure client-side transformation of existing footnotes
 - **Dependencies**: None - works with standard Markdown footnote HTML
 - **Size**: 113 lines total
 
 ### How It Works
+
 1. Markdown processor creates standard footnotes (`section[data-footnotes]`)
 2. Plugin runs after page load (200ms delay)
 3. Transforms footnotes into margin notes positioned absolutely
@@ -213,6 +232,7 @@ Replaced complex 800+ line sidenotes system with ultra-simple 113-line client-si
 5. Mobile fallback: Shows standard footnotes below content
 
 ### Layout System
+
 ```
 [Browser Window]
     ↓
@@ -226,12 +246,14 @@ Replaced complex 800+ line sidenotes system with ultra-simple 113-line client-si
 ```
 
 ### Key CSS Rules
+
 - Sidenotes positioned at `left: calc(100% + 2rem)`
 - Width: 240px
 - Desktop only: Hidden on screens < 1280px
 - Override all margin auto to ensure left alignment
 
 ### Known Issues & QA Needed
+
 1. **Layout shift on load**: 200ms delay causes visible reflow
 2. **Video embeds**: Some .mp4 files showing as blurred images
 3. **Width consistency**: Need to verify all pages use same container widths
@@ -239,12 +261,14 @@ Replaced complex 800+ line sidenotes system with ultra-simple 113-line client-si
 5. **Print styles**: Sidenotes need proper print media handling
 
 ### Files Modified
+
 - `plugins/footnotes-to-sidenotes.client.ts` - New sidenote plugin
 - `components/BlogPostContent.vue` - Simplified to basic wrapper
 - `pages/blog/[...slug].vue` - Updated container widths
 - Deleted 6 complex components and 3 experimental plugins
 
 ### Next Steps for QA
+
 - [ ] Test sidenote behavior with multiple footnotes
 - [ ] Verify mobile/tablet breakpoints
 - [ ] Check print stylesheet behavior
@@ -265,5 +289,4 @@ Replaced complex 800+ line sidenotes system with ultra-simple 113-line client-si
 
 ---
 
-*This file provides AI assistants with architectural context for the EJ Fox website project. For human-readable documentation, see README.md*
-
+_This file provides AI assistants with architectural context for the EJ Fox website project. For human-readable documentation, see README.md_

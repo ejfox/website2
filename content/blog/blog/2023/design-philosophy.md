@@ -72,9 +72,9 @@ The iterative process is essential for a few reasons:
 
 Alternatives to iterative design could include the Waterfall Model or Big Design Up Front (BDUF).
 
-The *Waterfall Model* is a linear approach where one phase must be completed before moving on to the next. It can be appropriate when requirements are well-understood in advance, changes are unlikely, and the project is relatively simple.
+The _Waterfall Model_ is a linear approach where one phase must be completed before moving on to the next. It can be appropriate when requirements are well-understood in advance, changes are unlikely, and the project is relatively simple.
 
-*Big Design Up Front* involves spending considerable time on designing the entire system in detail before implementation begins. It's appropriate when there is a clear and unchanging understanding of requirements, though this is rare in practice.
+_Big Design Up Front_ involves spending considerable time on designing the entire system in detail before implementation begins. It's appropriate when there is a clear and unchanging understanding of requirements, though this is rare in practice.
 
 However, both alternatives have their limitations. They often fail to account for changing user needs or unexpected issues arising during development. Hence, they may not yield designs as user-friendly or effective as an iterative approach would.
 

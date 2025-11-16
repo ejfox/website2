@@ -5,14 +5,14 @@
  * Every meaningful thing I've published, predicted, or created.
  */
 
-import { promises as fs } from 'fs'
-import { join } from 'path'
+import { promises as fs } from 'node:fs'
+import { join } from 'node:path'
 import matter from 'gray-matter'
 import { glob } from 'glob'
 
 export default defineEventHandler(async (event) => {
   const query = getQuery(event)
-  const limit = parseInt(query.limit as string) || 100
+  const limit = Number.parseInt(query.limit as string) || 100
   const from = query.from as string
   const to = query.to as string
 
@@ -20,7 +20,10 @@ export default defineEventHandler(async (event) => {
 
   // Get all blog posts
   try {
-    const manifestPath = join(process.cwd(), 'content/processed/manifest-lite.json')
+    const manifestPath = join(
+      process.cwd(),
+      'content/processed/manifest-lite.json'
+    )
     const manifestContent = await fs.readFile(manifestPath, 'utf-8')
     const posts = JSON.parse(manifestContent)
 
@@ -114,13 +117,14 @@ export default defineEventHandler(async (event) => {
 
     await Promise.all(
       files
-        .filter(f => f.endsWith('.json'))
+        .filter((f) => f.endsWith('.json'))
         .map(async (file) => {
           const filePath = join(readingDir, file)
           const content = await fs.readFile(filePath, 'utf-8')
           const book = JSON.parse(content)
 
-          const lastAnnotated = book.metadata?.['kindle-sync']?.lastAnnotatedDate
+          const lastAnnotated =
+            book.metadata?.['kindle-sync']?.lastAnnotatedDate
           if (lastAnnotated) {
             events.push({
               timestamp: lastAnnotated,
@@ -141,25 +145,37 @@ export default defineEventHandler(async (event) => {
   }
 
   // Sort chronologically
-  events.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
+  events.sort(
+    (a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+  )
 
   // Apply date filters
   let filteredEvents = events
   if (from) {
     const fromDate = new Date(from)
-    filteredEvents = filteredEvents.filter(e => new Date(e.timestamp) >= fromDate)
+    filteredEvents = filteredEvents.filter(
+      (e) => new Date(e.timestamp) >= fromDate
+    )
   }
   if (to) {
     const toDate = new Date(to)
-    filteredEvents = filteredEvents.filter(e => new Date(e.timestamp) <= toDate)
+    filteredEvents = filteredEvents.filter(
+      (e) => new Date(e.timestamp) <= toDate
+    )
   }
 
   // Get date range (filter out invalid timestamps)
   const timestamps = filteredEvents
-    .map(e => new Date(e.timestamp).getTime())
-    .filter(t => !isNaN(t))
-  const earliest = timestamps.length > 0 ? new Date(Math.min(...timestamps)).toISOString() : null
-  const latest = timestamps.length > 0 ? new Date(Math.max(...timestamps)).toISOString() : null
+    .map((e) => new Date(e.timestamp).getTime())
+    .filter((t) => !Number.isNaN(t))
+  const earliest =
+    timestamps.length > 0
+      ? new Date(Math.min(...timestamps)).toISOString()
+      : null
+  const latest =
+    timestamps.length > 0
+      ? new Date(Math.max(...timestamps)).toISOString()
+      : null
 
   return {
     meta: {
@@ -176,11 +192,14 @@ export default defineEventHandler(async (event) => {
     events: filteredEvents.slice(0, limit),
     stats: {
       byType: {
-        posts: events.filter(e => e.type === 'post').length,
-        predictions: events.filter(e => e.type === 'prediction').length,
-        predictionUpdates: events.filter(e => e.type === 'prediction_update').length,
-        predictionResolutions: events.filter(e => e.type === 'prediction_resolution').length,
-        reading: events.filter(e => e.type === 'reading').length
+        posts: events.filter((e) => e.type === 'post').length,
+        predictions: events.filter((e) => e.type === 'prediction').length,
+        predictionUpdates: events.filter((e) => e.type === 'prediction_update')
+          .length,
+        predictionResolutions: events.filter(
+          (e) => e.type === 'prediction_resolution'
+        ).length,
+        reading: events.filter((e) => e.type === 'reading').length
       },
       byYear: events.reduce((acc: any, e) => {
         const year = new Date(e.timestamp).getFullYear()

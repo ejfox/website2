@@ -80,7 +80,7 @@ function _processCommits(commits: any[]): {
   // Process commits to extract types and other metadata
   const processedCommits = commits.map((commit: any) => {
     // Extract commit type from message (e.g., "feat: add new feature")
-    const typeMatch = commit.message.match(/^(\w+)(\([\w-]+\))?:/i)
+    const typeMatch = commit.message.match(/^(\w+)(\([\w-]+\))?:/)
     const type = typeMatch ? typeMatch[1].toLowerCase() : 'other'
 
     return {

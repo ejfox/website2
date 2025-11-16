@@ -38,7 +38,7 @@ At tech camp we were told to pick a project for the duration of the session; and
 
 —
 
-In 2011, at 19 years old, I moved across the country to Oakland and began working at my first start-up, who had found me through a viral Flickr infographic I had done and was impressed with my ability to manipulate SVG with javascript, which is what they had in mind for the product they had raised $2M to build. I had been accepted to art school, but decided to defer for a year, thinking that moving to a state where weed was legal and getting *paid* instead of *paying* might be slightly more fun.
+In 2011, at 19 years old, I moved across the country to Oakland and began working at my first start-up, who had found me through a viral Flickr infographic I had done and was impressed with my ability to manipulate SVG with javascript, which is what they had in mind for the product they had raised $2M to build. I had been accepted to art school, but decided to defer for a year, thinking that moving to a state where weed was legal and getting _paid_ instead of _paying_ might be slightly more fun.
 
 I found myself at meetups and hackathons in the offices of companies whose products I had used every day but had only ever seen as virtual logos on my computer. The vibe was almost exactly the same as those cafeterias and computer labs back at ID Tech, and it was easy for me to feel at home surrounded by smart people who primarily wanted to build things and were willing to teach me.
 
@@ -48,7 +48,7 @@ Almost everyone innately saw the benefits of interoperability. We built tools th
 
 —
 
-Somewhere, in the intervening years, the vibe has shifted dramatically. The coolest artists I know post most of their content to Instagram, an app run by a company worth over a trillion dollars. Instagram does not make it easy to get your data, photos, or followers *out* of Instagram, which makes sense, because they have every incentive to get you to stay and spend a few more precious seconds on their app.
+Somewhere, in the intervening years, the vibe has shifted dramatically. The coolest artists I know post most of their content to Instagram, an app run by a company worth over a trillion dollars. Instagram does not make it easy to get your data, photos, or followers _out_ of Instagram, which makes sense, because they have every incentive to get you to stay and spend a few more precious seconds on their app.
 
 Those seconds will be converted to money, as they covertly fill your feed with ads hyper-tailored to the interests they have gleaned from the photos you scroll more slowly over. These seconds can also be utilized as political capital by various product managers angling for a new house in Tahoe whose OKRs often directly correlate to how addicted their users are.
 

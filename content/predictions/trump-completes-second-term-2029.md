@@ -90,4 +90,3 @@ This prediction resolves **TRUE** if Donald Trump serves his complete second pre
 - Potential major scandal or crisis that shifts public/political opinion dramatically
 - Criminal convictions potentially creating constitutional crisis
 - Unprecedented situations that test constitutional removal mechanisms
-

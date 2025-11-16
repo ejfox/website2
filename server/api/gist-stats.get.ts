@@ -4,7 +4,7 @@ export default defineEventHandler(async () => {
     const gists = await $fetch('/api/gists')
 
     if (!Array.isArray(gists)) {
-      throw new Error('Failed to fetch gists')
+      throw new TypeError('Failed to fetch gists')
     }
 
     // Calculate stats

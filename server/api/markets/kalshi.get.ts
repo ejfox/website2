@@ -30,7 +30,9 @@ export default defineEventHandler(async (event) => {
       `https://api.elections.kalshi.com/trade-api/v2/markets/${marketId}/history`
     )
 
-    const historyData = historyRes.ok ? await historyRes.json() : { history: [] }
+    const historyData = historyRes.ok
+      ? await historyRes.json()
+      : { history: [] }
 
     return {
       provider: 'kalshi',
@@ -43,10 +45,11 @@ export default defineEventHandler(async (event) => {
       outcome: market.result,
       endDate: market.close_time,
       url: `https://kalshi.com/markets/${marketId}`,
-      priceHistory: historyData.history?.map((p: any) => ({
-        t: p.ts,
-        p: p.yes_price * 100
-      })) || [],
+      priceHistory:
+        historyData.history?.map((p: any) => ({
+          t: p.ts,
+          p: p.yes_price * 100
+        })) || [],
       lastUpdated: new Date().toISOString()
     }
   } catch (error: any) {

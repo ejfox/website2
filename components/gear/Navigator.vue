@@ -1,9 +1,6 @@
 <template>
   <ClientOnly>
-    <div
-      v-if="gearItems.length > 0"
-      class="backdrop-blur-sm fixed bottom-0 left-0 right-0 border-t border-zinc-200 dark:border-zinc-800 p-4 z-50"
-    >
+    <div v-if="gearItems.length > 0" class="footer-fixed-blur">
       <div
         ref="scrollContainer"
         class="flex overflow-x-auto gap-4 scrollbar-hide"
@@ -12,7 +9,7 @@
           v-for="(item, index) in gearItems"
           :key="`gear-${item.slug || item.Name}`"
           :data-gear-index="index"
-          class="backdrop-blur-xl flex-shrink-0 w-20 h-20 border rounded-lg cursor-pointer flex flex-col items-center justify-center text-xs font-mono transition-all duration-200"
+          class="color-swatch-lg-blur"
           :class="
             isCurrentItem(item)
               ? 'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 border-zinc-900 dark:border-zinc-100 scale-110'

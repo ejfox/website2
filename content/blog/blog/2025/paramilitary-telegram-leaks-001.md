@@ -25,7 +25,6 @@ I hadn't heard of such a dump before, and immediately sent Micah an email offeri
 
 ## From SQLite to Parquet: Processing Telegram Leaks for Fast Web Visualization
 
-
 ### The Challenge
 
 1. Extract the relevant data
@@ -102,9 +101,9 @@ Now that we've chopped and screwed our data between sqlite, parquet, and .csv â€
 For example, to find the top senders of media you could run:
 
 ```sql
-select id, timestamp, sender, text, media_note, media_filename, filename, group_chat_id 
-from messages 
-where "media_filename" is not null 
+select id, timestamp, sender, text, media_note, media_filename, filename, group_chat_id
+from messages
+where "media_filename" is not null
 order by media_filename desc
 limit 101
 ```

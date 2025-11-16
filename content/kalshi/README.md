@@ -23,6 +23,7 @@ Creates starter files with position data. Edit the `market_title` field!
 ## Quick Add
 
 **New position:**
+
 ```bash
 # 1. Check your positions
 node scripts/kalshi-test.mjs
@@ -41,20 +42,19 @@ git commit -m "Add: TICKER-NAME commentary"
 
 ```yaml
 ---
-ticker: OAIAGI-29                    # Match Kalshi ticker exactly
-market_title: "Market question"       # Human-readable title
-position: -32                         # Contract count (+ for YES, - for NO)
-side: NO                              # YES or NO
-theme: tech-realism                   # See worldview-themes.json
-tags:                                 # For cross-referencing
+ticker: OAIAGI-29 # Match Kalshi ticker exactly
+market_title: 'Market question' # Human-readable title
+position: -32 # Contract count (+ for YES, - for NO)
+side: NO # YES or NO
+theme: tech-realism # See worldview-themes.json
+tags: # For cross-referencing
   - ai
   - agi
   - skepticism
-related_posts: []                     # Link to blog posts (future)
-opened: 2025-11-13                    # When you entered
-thesis: "One-line worldview statement"
+related_posts: [] # Link to blog posts (future)
+opened: 2025-11-13 # When you entered
+thesis: 'One-line worldview statement'
 ---
-
 Your actual thinking here. This is the commentary that appears on /predictions.
 
 Can be multiple paragraphs. Write freely. This is your intellectual journal.
@@ -84,6 +84,7 @@ When predictions resolve or thinking evolves, just edit the markdown.
 ## Future Us
 
 When Claude says "let's update predictions again":
+
 1. Check which new tickers you have: `node scripts/kalshi-test.mjs`
 2. Create markdown files for new positions
 3. Update existing files if thinking changed

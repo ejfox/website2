@@ -1,8 +1,8 @@
 import { createRouter, defineEventHandler, useBase, createError } from 'h3'
 import { useProcessedMarkdown } from '~/composables/useProcessedMarkdown'
-import { readFile } from 'fs/promises'
-import { existsSync } from 'fs'
-import path from 'path'
+import { readFile } from 'node:fs/promises'
+import { existsSync } from 'node:fs'
+import path from 'node:path'
 
 const router = createRouter()
 

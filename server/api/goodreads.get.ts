@@ -52,7 +52,7 @@ export default defineEventHandler(async (_event) => {
 
             const title = titleMatch ? titleMatch[1].trim() : ''
             const author = authorMatch ? authorMatch[1].trim() : ''
-            const rating = ratingMatch ? parseInt(ratingMatch[1]) : null
+            const rating = ratingMatch ? Number.parseInt(ratingMatch[1]) : null
             const link = linkMatch ? linkMatch[1] : ''
             const cover = coverMatch ? coverMatch[1] : null
             const bookId = bookIdMatch ? bookIdMatch[1] : ''

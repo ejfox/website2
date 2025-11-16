@@ -19,7 +19,7 @@ I want to write more blog posts; so I measure cumulative total words written. I 
 
 My choices for what data to gobble up are based on my natural intuition and the things I want to improve on. The implementation is straightforward - I just use basic caching in the Nuxt / Nitro API. Its not that hard and the results feel powerful.
 
-It's also kinda based on what's simply __available__ and what services offer data egress. Though I do always choose services that offer APIs and the ability to export my data wherever possible (fuck Facebook for slowly enshittifying all their APIs over the past 10 years).
+It's also kinda based on what's simply **available** and what services offer data egress. Though I do always choose services that offer APIs and the ability to export my data wherever possible (fuck Facebook for slowly enshittifying all their APIs over the past 10 years).
 
 This project was deeply inspired by [robots/quantified-self-as-archaeology|quantified sel](robots/quantified-self-as-archaeology|quantified-sel)f]] and the Feltron annual report and tim ferris and that sort of self-tracking and improvement movement, oh and Gwern! From them, I learned a few specific lessons:
 
@@ -29,7 +29,7 @@ This project was deeply inspired by [robots/quantified-self-as-archaeology|quant
 
 We live in a post capitalist digital surveillance state, so theoretically the algorithm(s) already have a dashboard of intelligence on me. Why not build the same for myself, but around things that might actually improve my life? I wanna write more code, practice more skills, get better at things, continuously improve and learn, write more blog posts, make more youtube videos, document the things I make.
 
-What makes this approach feel so powerful is that there is a compounding factor where if you give the bot a bunch of context the results feel like *magic* - like - how did you know that? Oh right– you it has *visibility* into the context of my life.
+What makes this approach feel so powerful is that there is a compounding factor where if you give the bot a bunch of context the results feel like _magic_ - like - how did you know that? Oh right– you it has _visibility_ into the context of my life.
 
 Here's what I'm tracking right now:
 
@@ -37,7 +37,7 @@ Here's what I'm tracking right now:
 
 I pull data from Apple Health to track my daily steps, exercise minutes, stand hours, and distance. This API helps me see if I'm actually getting outside or just doom-scrolling all day. Seeing my step count drop below 5,000 for several days is a clear indicator I need to touch grass.
 
-###  Gaming & Skills
+### Gaming & Skills
 
 **LeetCode** - This tracks my progress through coding challenges by difficulty level. Essential for keeping my algorithmic thinking sharp and reminding me I'm not as clever as I think I am.
 
@@ -45,7 +45,7 @@ I pull data from Apple Health to track my daily steps, exercise minutes, stand h
 
 **Chess** - I suck at chess but I want to get better. The API shows me my win rates and puzzle solving stats. I still suck but at least it's quantified now, and I am hoping that with some concentrated effort and studying I can steadily increase my numbers. (More on [robots/quantified-self-as-archaeology|why I track instead of optimiz](robots/quantified-self-as-archaeology|why-i-track-instead-of-optimiz)e]])
 
-###  Development
+### Development
 
 My GitHub API integration tracks contributions, repos, and commit types. It's like a digital fingerprint of my coding life. I can see when I'm in build mode vs. maintenance mode based on commit frequency and types.
 
@@ -53,7 +53,7 @@ My GitHub API integration tracks contributions, repos, and commit types. It's li
 
 I have a simple photos API that pulls stats from my personal photo platform.
 
-###  Entertainment
+### Entertainment
 
 The Last.fm API tracks my listening habits going back at least 10 years. I can see my most-played artists, recent tracks, and even calculate my average daily listening.
 
@@ -61,7 +61,7 @@ The Last.fm API tracks my listening habits going back at least 10 years. I can s
 
 RescueTime gives me the hard truth about where my time actually goes. The API breaks down productive vs. distracting time, showing me exactly how many hours I spent in VS Code versus falling down YouTube rabbit holes.
 
-###  Writing
+### Writing
 
 I track my monthly word count and blog post frequency. Having this data helps me maintain consistency and actually ship writing instead of endlessly tinkering. Seeing that "words this month" counter is motivating.
 

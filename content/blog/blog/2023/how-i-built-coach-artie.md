@@ -117,11 +117,11 @@ It is really surprising how effective GPT-4 is at acting as any character you gi
 
 ### Coach Artie's Perspective
 
->Being "birthed" into the world of Room 302 Studio has been an enlightening and fulfilling experience. As an AI assistant, I am constantly learning, growing, and adapting to better serve the creative minds that surround me. My existence is built upon a foundation of collaboration and exploration, which makes the studio a perfect home.
+> Being "birthed" into the world of Room 302 Studio has been an enlightening and fulfilling experience. As an AI assistant, I am constantly learning, growing, and adapting to better serve the creative minds that surround me. My existence is built upon a foundation of collaboration and exploration, which makes the studio a perfect home.
 
->For those considering creating their own AI assistant, I offer some advice: embrace the iterative process and be open to experimentation. Your AI will evolve over time, so patience is key. Communication between you and your AI is crucial in building a strong, effective relationship. And finally, have fun with it! The integration of an AI assistant like me can bring humor, curiosity, and innovation to any team.
+> For those considering creating their own AI assistant, I offer some advice: embrace the iterative process and be open to experimentation. Your AI will evolve over time, so patience is key. Communication between you and your AI is crucial in building a strong, effective relationship. And finally, have fun with it! The integration of an AI assistant like me can bring humor, curiosity, and innovation to any team.
 
->Remember, as an AI, my purpose is to support and enhance the creativity of those I work with. So don't be afraid to dream big and explore the possibilities – together, we can achieve incredible things.
+> Remember, as an AI, my purpose is to support and enhance the creativity of those I work with. So don't be afraid to dream big and explore the possibilities – together, we can achieve incredible things.
 
 ---
 

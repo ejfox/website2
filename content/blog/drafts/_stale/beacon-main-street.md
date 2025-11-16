@@ -11,6 +11,7 @@ tags:
   - investigation
   - realestate
 ---
+
 ## The Complete Forensic Analysis of Beacon's Main Street (2025)
 
 Every small American town has a Main Street, but who actually owns it? What do they pay in rent? How did a coffee shop end up next to a luxury boutique next to a decades-old hardware store? And who's making the decisions that determine whether your downtown becomes a thriving community space or a collection of vacant storefronts?
@@ -32,6 +33,7 @@ Starting from the train station and walking west, here's who owns every single b
 [This section would contain the detailed building-by-building breakdown based on actual property records research]
 
 **The Patterns That Emerge:**
+
 - X% of properties owned by local families vs. outside investors
 - Average purchase price trends over the past decade
 - Correlation between ownership type and business longevity
@@ -80,6 +82,7 @@ The businesses you see are just the surface. The real power lies with:
 What does it actually cost to run a business on Beacon's Main Street in 2025?
 
 **Estimated monthly costs for different business types:**
+
 - Retail space: $X-Y per square foot
 - Restaurant space: $X-Y per square foot
 - Professional services: $X-Y per square foot
@@ -132,6 +135,7 @@ Beacon's Main Street is simultaneously unique and completely typical. The same f
 For the truly obsessive, here's the complete toolkit for conducting your own small-town property analysis:
 
 **Essential databases and how to access them:**
+
 - County property records (usually online, sometimes requiring FOIL requests)
 - NYS Department of State business entity search
 - Municipal meeting minutes and agendas (often PDFs buried on city websites)
@@ -139,6 +143,7 @@ For the truly obsessive, here's the complete toolkit for conducting your own sma
 - Historic district nomination documents (National Park Service database)
 
 **Tools for data collection and analysis:**
+
 - Web scraping scripts for property assessment sites (I used Python with BeautifulSoup)
 - OCR tools for extracting data from scanned city council minutes (Tesseract worked well)
 - GIS software for mapping ownership patterns (QGIS is free and powerful)
@@ -146,6 +151,7 @@ For the truly obsessive, here's the complete toolkit for conducting your own sma
 - Spreadsheet templates for tracking property transfers and correlating with zoning decisions (available in my GitHub)
 
 **Legal considerations:**
+
 - Which records are public vs. requiring FOIL/FOIA requests
 - How to approach business owners for off-the-record conversations
 - Photography rights for documenting building conditions and changes
@@ -164,4 +170,4 @@ If you're inspired to forensic your own Main Street (and you should be—every c
 
 Email me at ejfox@ejfox.com if you want to tackle your own downtown power structure analysis. I'll send you the full toolkit and troubleshoot any roadblocks you hit. The more people doing this kind of radical transparency work, the better our communities become.
 
-*Also, if you're a local journalist, city planner, or community organizer who wants help analyzing your town's property ownership patterns, I do this kind of forensic data work professionally. Let's make some powerful people uncomfortable together.*
+_Also, if you're a local journalist, city planner, or community organizer who wants help analyzing your town's property ownership patterns, I do this kind of forensic data work professionally. Let's make some powerful people uncomfortable together._

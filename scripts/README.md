@@ -88,10 +88,7 @@ The `utils/` directory contains shared utility functions:
 Most functionality can be imported from the main index:
 
 ```javascript
-import {
-  processMarkdown,
-  processAllFiles
-} from './scripts/index.mjs'
+import { processMarkdown, processAllFiles } from './scripts/index.mjs'
 ```
 
 Configuration can be accessed via:

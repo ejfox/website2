@@ -75,7 +75,7 @@
         :href="data.stats.profileUrl"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-xs text-muted hover:text-primary transition-colors uppercase tracking-widest"
+        class="link-uppercase-tiny"
       >
         View on Goodreads ↗
       </a>

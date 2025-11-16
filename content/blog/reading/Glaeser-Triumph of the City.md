@@ -16,19 +16,21 @@ tags:
 date: 2025-08-31T11:09:37-04:00
 modified: 2025-09-23T08:04:35-04:00
 ---
+
 ## Triumph of the City
 
-* ISBN: B00D08DNQC
+- ISBN: B00D08DNQC
 
 ### Highlights
 
->The environmentalists of coastal California may have made their own region more pleasant, but they are harming the environment by pushing new building away from Berkeley suburbs, which have a temperate climate and ready access to public transportation, to suburban Las Vegas, which is all about cars and air-conditioning. ^ref-41859
+> The environmentalists of coastal California may have made their own region more pleasant, but they are harming the environment by pushing new building away from Berkeley suburbs, which have a temperate climate and ready access to public transportation, to suburban Las Vegas, which is all about cars and air-conditioning. ^ref-41859
 
 ---
 
 ### Metadata
-* Author: [Edward Glaeser](https://www.amazon.comundefined)
-* ASIN: B0049U4HTW
-* ISBN: B00D08DNQC
-* Reference: <https://www.amazon.com/dp/B0049U4HTW>
-* [Kindle link](kindle://book?action=open&asin=B0049U4HTW)
+
+- Author: [Edward Glaeser](https://www.amazon.comundefined)
+- ASIN: B0049U4HTW
+- ISBN: B00D08DNQC
+- Reference: <https://www.amazon.com/dp/B0049U4HTW>
+- [Kindle link](kindle://book?action=open&asin=B0049U4HTW)

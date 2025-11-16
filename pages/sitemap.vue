@@ -24,7 +24,7 @@
           >
             MAIN_PAGES
           </div>
-          <div class="space-y-4">
+          <div class="stack-4">
             <SitemapLink
               to="/"
               title="Home"
@@ -55,7 +55,7 @@
           >
             DATA_&_TOOLS
           </div>
-          <div class="space-y-4">
+          <div class="stack-4">
             <SitemapLink
               to="/stats"
               title="Stats"
@@ -88,7 +88,7 @@
           >
             COLLECTIONS
           </div>
-          <div class="space-y-4">
+          <div class="stack-4">
             <SitemapLink
               to="/scrapbook"
               title="Scrapbook"
@@ -114,7 +114,7 @@
           >
             FEEDS_&_APIs
           </div>
-          <div class="space-y-4">
+          <div class="stack-4">
             <SitemapLink
               to="/rss.xml"
               title="RSS Feed"
@@ -143,7 +143,7 @@
           >
             EXTERNAL_LINKS
           </div>
-          <div class="space-y-4">
+          <div class="stack-4">
             <SitemapLink
               to="https://github.com/ejfox"
               title="GitHub"
@@ -181,13 +181,11 @@
             v-for="post in recentPosts"
             :key="post.slug"
             :to="`/blog/${post.slug}`"
-            class="group block p-4 rounded-lg border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors"
+            class="card-link"
           >
             <div class="flex items-start justify-between gap-2">
               <div class="min-w-0 flex-1">
-                <div
-                  class="text-sm font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-700 dark:group-hover:text-zinc-300 truncate"
-                >
+                <div class="title-card">
                   {{ post.title }}
                 </div>
                 <div class="text-xs text-zinc-500 mt-1">
@@ -209,18 +207,16 @@
         >
           ACTIVE_PREDICTIONS
         </div>
-        <div class="space-y-4">
+        <div class="stack-4">
           <NuxtLink
             v-for="prediction in activePredictions"
             :key="prediction.id"
             :to="`/predictions/${prediction.id}`"
-            class="group block p-4 rounded-lg border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors"
+            class="card-link"
           >
             <div class="flex items-start justify-between gap-2">
               <div class="min-w-0 flex-1">
-                <div
-                  class="text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-700 dark:group-hover:text-zinc-300"
-                >
+                <div class="nav-link-sm">
                   {{ prediction.statement }}
                 </div>
                 <div class="text-xs text-zinc-500 mt-1">

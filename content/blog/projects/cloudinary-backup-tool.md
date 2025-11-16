@@ -1,8 +1,8 @@
 ---
-title: "Cloudinary Backup Tool"
+title: 'Cloudinary Backup Tool'
 date: 2025-01-15T00:00:00-05:00
 github: https://github.com/ejfox/cloudinary-backup-tool
-tech: ["Tauri", "Rust", "TypeScript", "Vite"]
+tech: ['Tauri', 'Rust', 'TypeScript', 'Vite']
 modified: 2025-08-13T11:58:10-04:00
 tags:
   - tools

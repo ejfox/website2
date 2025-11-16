@@ -12,27 +12,33 @@ tags:
   - writing
   - art
 ---
+
 # Antkind
 
-* ISBN: 0593229150
+- ISBN: 0593229150
 
 ## Highlights
+
 > My side hurts. A stitch? Kidney disease? Appendicitis? Cancer? It’s been hurting for some time now. On and off. When it stops hurting, I forget about it, focus on some other pain. Then it comes back and I think, Why is it coming back? I should go to a doctor but I don’t want to know if something is wrong. It would only hasten my demise. I would feel hopeless, give up. I know this. I wouldn’t be able to work. I need to work. It is the thing that keeps me alive, this hope that the next thing will be the one to get me noticed. It is always the next one. ^ref-39186
 
 ---
+
 > EVELYN, WHOM I loved once upon a time, who is gone, with whom there was a chance of something human, if such a thing was ever possible in my existence—Evelyn, who is long gone, who, even now, I think perhaps today will call, but she doesn’t, she won’t, she can’t, she doesn’t want to, she’s no longer interested, she’s dead, she’s laughing right now with somebody else, she’s old and unattractive, she’s still amazingly youthful, she doesn’t think of me at all, she went back to school and now she’s a psychologist, a lawyer, the head of acquisitions for an art museum. There’s no way to know. ^ref-57487
 
 ---
+
 > I sigh and treat myself to a smallish break to check email. To check Facebook. To check Twitter. To check the various Internet sites I frequent: Clipboard, Chapstick, Nimrod, William’s Anomalies, Punching Bag, The Clerk Report, Peptide, Hollywood Blabb, Pimbleton’s, Work-a-Doodle, Chim-Chim-Cheree, Poli-Techs, Boop Archives, and Ladies Only. ^ref-29574
 
 ---
+
 > IN MY APARTMENT, I check Poems and Curios. No comments. Then, for the purpose of convincing him, I try to google biblical passages about a black man letting a white man see a miniature city. There’s not that much. I do find a thing in Luke saying you should give to anyone who asks, but it’s not specific enough (not to mention it’s from Luke, the most namby-pamby of the gospels). Ideally, the passage would say something like, Show thy crafts to those in need of seeing them, so sayeth the Lord. But there is nothing even close. So much for finding all the answers in the Bible. ^ref-42124
 
 ---
 
 ## Metadata
-* Author: [Charlie Kaufman](https://www.amazon.comundefined)
-* ASIN: B07Y7J61HZ
-* ISBN: 0593229150
-* Reference: https://www.amazon.com/dp/B07Y7J61HZ
-* [Kindle link](kindle://book?action=open&asin=B07Y7J61HZ)
+
+- Author: [Charlie Kaufman](https://www.amazon.comundefined)
+- ASIN: B07Y7J61HZ
+- ISBN: 0593229150
+- Reference: https://www.amazon.com/dp/B07Y7J61HZ
+- [Kindle link](kindle://book?action=open&asin=B07Y7J61HZ)

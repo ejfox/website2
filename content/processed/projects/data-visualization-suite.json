@@ -16,10 +16,7 @@
     ],
     "state": "deployed",
     "aiInvolvement": "ai-collaborative",
-    "tags": [
-      "visualization",
-      "data"
-    ],
+    "tags": ["visualization", "data"],
     "words": 268,
     "images": 0,
     "imageDetails": {

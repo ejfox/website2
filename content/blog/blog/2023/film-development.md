@@ -18,6 +18,7 @@ Developing film is an essential part of the analog photography workflow. Whether
 For more on cameras see [blog/2023/camera-setu](blog/2023/camera-setu)p]]
 
 ### Film I shoot
+
 - Tri-X 400
 - Ilford HP5 400
 - JCH Streetpan 400
@@ -58,12 +59,16 @@ It's important to double-check the film and developer you are using - make sure 
 11. Gently squeegee the rolls to pull drops of water off
 12. Clip film to hang and dry
 13. Try to find a cool picture on the roll while it dries even though you can't see anything
+
 #### Cutting roll into contact sheet
+
 1. Once the roll is completely dry, put on some dust or rubber gloves to prevent smudging your negatives
 2. Trim off any excess film, then cut into strips of five photos each
 3. Slip the strips into archival plastic - I recommend rounding the corners of the strips if you want to avoid them getting caught
-This is where you can start getting excited - anticipation for processing your photos is always the best.
+   This is where you can start getting excited - anticipation for processing your photos is always the best.
+
 #### Printing contact sheets
+
 1. Pick archival sheet of photos
 2. Put in contact sheet holder
 3. Add paper at least 8.5 x 11

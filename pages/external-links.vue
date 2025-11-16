@@ -79,13 +79,10 @@ useHead({
           v-model="search"
           type="text"
           placeholder="Search URLs or domains..."
-          class="px-4 py-2 border border-zinc-300 dark:border-zinc-600 rounded bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100"
+          class="input-base"
         />
 
-        <select
-          v-model="selectedTld"
-          class="px-4 py-2 border border-zinc-300 dark:border-zinc-600 rounded bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100"
-        >
+        <select v-model="selectedTld" class="input-base">
           <option value="all">All TLDs ({{ links?.length || 0 }})</option>
           <option v-for="{ tld, count } in tlds" :key="tld" :value="tld">
             .{{ tld }} ({{ count }})
@@ -127,9 +124,7 @@ useHead({
 
       <!-- Links table by TLD -->
       <div v-if="filteredLinks.length === 0" class="text-center py-16">
-        <p class="text-zinc-600 dark:text-zinc-400">
-          No links found matching your filters.
-        </p>
+        <p class="text-secondary">No links found matching your filters.</p>
       </div>
 
       <div v-else class="space-y-8">
@@ -147,16 +142,8 @@ useHead({
             <table class="w-full border border-zinc-200 dark:border-zinc-700">
               <thead class="bg-zinc-50 dark:bg-zinc-800">
                 <tr>
-                  <th
-                    class="px-4 py-4 text-left text-xs font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-widest"
-                  >
-                    URL
-                  </th>
-                  <th
-                    class="px-4 py-4 text-left text-xs font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-widest"
-                  >
-                    Source Pages
-                  </th>
+                  <th class="table-header-sm">URL</th>
+                  <th class="table-header-sm">Source Pages</th>
                 </tr>
               </thead>
               <tbody
@@ -171,7 +158,7 @@ useHead({
                     <a
                       :href="link.url"
                       target="_blank"
-                      class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 break-all"
+                      class="link-blue-simple"
                     >
                       {{ link.url }}
                       <span class="ml-1">↗</span>
@@ -180,7 +167,7 @@ useHead({
                   <td class="px-4 py-4 text-sm">
                     <div
                       v-if="link.sources && link.sources.length > 0"
-                      class="space-y-1"
+                      class="stack-1"
                     >
                       <div
                         v-for="source in link.sources.slice(0, 5)"
@@ -189,7 +176,7 @@ useHead({
                       >
                         <NuxtLink
                           :to="`/blog/${source}`"
-                          class="text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 block"
+                          class="link-secondary-block"
                         >
                           {{ source.split('/').pop() || source }}
                         </NuxtLink>

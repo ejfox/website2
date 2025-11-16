@@ -1,6 +1,6 @@
 // Auto-enhance markdown tables with DataTable component
 export default defineNuxtPlugin(() => {
-  if (!process.client) return
+  if (!import.meta.client) return
 
   // Watch for markdown content and enhance tables
   onMounted(() => {
@@ -120,8 +120,8 @@ export default defineNuxtPlugin(() => {
 
       // Parse as numbers if numeric column
       if (isNumericColumn) {
-        aVal = parseFloat(aVal.replace(/[,$%]/g, '')) || 0
-        bVal = parseFloat(bVal.replace(/[,$%]/g, '')) || 0
+        aVal = Number.parseFloat(aVal.replace(/[,$%]/g, '')) || 0
+        bVal = Number.parseFloat(bVal.replace(/[,$%]/g, '')) || 0
       }
 
       if (aVal < bVal) return newDirection === 'asc' ? -1 : 1

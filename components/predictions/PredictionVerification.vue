@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="prediction-verification border-l-4 border-zinc-300 dark:border-zinc-700 pl-4 space-y-4"
-  >
+  <div class="verification-box">
     <div v-if="verification.hash" class="flex items-start gap-4">
       <div class="flex-1">
         <p class="text-sm font-medium text-zinc-700 dark:text-zinc-300">

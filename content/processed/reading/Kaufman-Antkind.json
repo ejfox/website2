@@ -12,11 +12,7 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/91vf8KVztsS._SY160.jpg",
       "highlightsCount": 4
     },
-    "tags": [
-      "book",
-      "writing",
-      "art"
-    ],
+    "tags": ["book", "writing", "art"],
     "words": 414,
     "images": 0,
     "imageDetails": {

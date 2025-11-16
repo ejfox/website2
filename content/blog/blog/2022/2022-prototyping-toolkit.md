@@ -20,6 +20,7 @@ tags:
 See also [blog/2022/my-vscode-setu](blog/2022/my-vscode-setu)p]]
 
 ### Tools
+
 #### CSV and JSON
 
 CSV (Comma Separated Values) and JSON (JavaScript Object Notation) are the ideal file formats for storing and exchanging data. They are both lightweight, human-readable, and easily parsed by programming languages, making them ideal choices for handling data in your prototypes.

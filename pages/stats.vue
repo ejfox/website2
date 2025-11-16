@@ -26,10 +26,7 @@
     <!-- Simple Mode -->
     <section v-if="isSimpleMode" ref="sectionRef" class="space-y-2 text-xs">
       <!-- Minimal header -->
-      <div
-        ref="headerRef"
-        class="flex justify-between items-center font-mono text-xs text-zinc-500 uppercase tracking-widest tabular-nums px-4 py-4"
-      >
+      <div ref="headerRef" class="simple-mode-header">
         <div>FOX_STATS</div>
         <div ref="progressRef">{{ displayDayOfYear }}/{{ daysInYear }}</div>
       </div>
@@ -37,280 +34,151 @@
       <!-- Dense stats layout -->
       <div class="space-y-4 p-4">
         <!-- Writing Stats -->
-        <div v-if="validBlogStats" class="space-y-1">
-          <div class="text-xs tracking-widest text-zinc-500">WRITING</div>
-          <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
-            <div class="flex justify-between">
-              <span>Posts</span>
-              <span class="tabular-nums">{{
-                formatNumber(validBlogStats.totalPosts)
-              }}</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Words</span>
-              <span class="tabular-nums">{{
-                formatNumber(validBlogStats.totalWords)
-              }}</span>
-            </div>
-            <div class="flex justify-between">
-              <span>This Month</span>
-              <span class="tabular-nums">{{
-                formatNumber(validBlogStats.postsThisMonth)
-              }}</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Avg Words</span>
-              <span class="tabular-nums">{{
-                formatNumber(validBlogStats.averageWords)
-              }}</span>
-            </div>
-          </div>
-        </div>
+        <StatSection title="WRITING" :show="validBlogStats">
+          <StatRow label="Posts" :value="validBlogStats.totalPosts" />
+          <StatRow label="Words" :value="validBlogStats.totalWords" />
+          <StatRow label="This Month" :value="validBlogStats.postsThisMonth" />
+          <StatRow label="Avg Words" :value="validBlogStats.averageWords" />
+        </StatSection>
 
         <!-- Typing Stats -->
-        <div v-if="stats.monkeyType?.typingStats" class="space-y-1">
-          <div class="text-xs tracking-widest text-zinc-500">TYPING</div>
-          <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
-            <div class="flex justify-between">
-              <span>Best WPM</span>
-              <span class="tabular-nums">{{
-                formatNumber(stats.monkeyType.typingStats.bestWPM)
-              }}</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Tests</span>
-              <span class="tabular-nums">{{
-                formatNumber(stats.monkeyType.typingStats.testsCompleted)
-              }}</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Accuracy</span>
-              <span class="tabular-nums">{{
-                formatPercentage(stats.monkeyType.typingStats.bestAccuracy)
-              }}</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Consistency</span>
-              <span class="tabular-nums">{{
-                formatPercentage(stats.monkeyType.typingStats.bestConsistency)
-              }}</span>
-            </div>
-          </div>
-        </div>
+        <StatSection title="TYPING" :show="stats.monkeyType?.typingStats">
+          <StatRow
+            label="Best WPM"
+            :value="stats.monkeyType.typingStats.bestWPM"
+          />
+          <StatRow
+            label="Tests"
+            :value="stats.monkeyType.typingStats.testsCompleted"
+          />
+          <StatRow
+            label="Accuracy"
+            :value="stats.monkeyType.typingStats.bestAccuracy"
+            format="percentage"
+          />
+          <StatRow
+            label="Consistency"
+            :value="stats.monkeyType.typingStats.bestConsistency"
+            format="percentage"
+          />
+        </StatSection>
 
         <!-- GitHub Stats -->
-        <div v-if="stats.github?.stats" class="space-y-1">
-          <div class="text-xs tracking-widest text-zinc-500">GITHUB</div>
-          <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
-            <div class="flex justify-between">
-              <span>Contributions</span>
-              <span class="tabular-nums">{{
-                formatNumber(stats.github.stats?.totalContributions || 0)
-              }}</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Repos</span>
-              <span class="tabular-nums">{{
-                formatNumber(stats.github.stats?.totalRepos || 0)
-              }}</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Followers</span>
-              <span class="tabular-nums">{{
-                formatNumber(stats.github.stats?.followers || 0)
-              }}</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Following</span>
-              <span class="tabular-nums">{{
-                formatNumber(stats.github.stats?.following || 0)
-              }}</span>
-            </div>
-          </div>
-        </div>
+        <StatSection title="GITHUB" :show="stats.github?.stats">
+          <StatRow
+            label="Contributions"
+            :value="stats.github.stats?.totalContributions || 0"
+          />
+          <StatRow label="Repos" :value="stats.github.stats?.totalRepos || 0" />
+          <StatRow
+            label="Followers"
+            :value="stats.github.stats?.followers || 0"
+          />
+          <StatRow
+            label="Following"
+            :value="stats.github.stats?.following || 0"
+          />
+        </StatSection>
 
         <!-- LeetCode Stats -->
-        <div v-if="stats.leetcode?.submissionStats" class="space-y-1">
-          <div class="text-xs tracking-widest text-zinc-500">LEETCODE</div>
-          <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
-            <div class="flex justify-between">
-              <span>Easy</span>
-              <span class="tabular-nums">{{
-                formatNumber(stats.leetcode.submissionStats.easy.count)
-              }}</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Medium</span>
-              <span class="tabular-nums">{{
-                formatNumber(stats.leetcode.submissionStats.medium.count)
-              }}</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Hard</span>
-              <span class="tabular-nums">{{
-                formatNumber(stats.leetcode.submissionStats.hard.count)
-              }}</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Total</span>
-              <span class="tabular-nums">{{
-                formatNumber(
-                  stats.leetcode.submissionStats.easy.count +
-                    stats.leetcode.submissionStats.medium.count +
-                    stats.leetcode.submissionStats.hard.count
-                )
-              }}</span>
-            </div>
-          </div>
-        </div>
-
+        <StatSection title="LEETCODE" :show="stats.leetcode?.submissionStats">
+          <StatRow
+            label="Easy"
+            :value="stats.leetcode.submissionStats.easy.count"
+          />
+          <StatRow
+            label="Medium"
+            :value="stats.leetcode.submissionStats.medium.count"
+          />
+          <StatRow
+            label="Hard"
+            :value="stats.leetcode.submissionStats.hard.count"
+          />
+          <StatRow
+            label="Total"
+            :value="
+              stats.leetcode.submissionStats.easy.count +
+              stats.leetcode.submissionStats.medium.count +
+              stats.leetcode.submissionStats.hard.count
+            "
+          />
+        </StatSection>
         <!-- Chess Stats -->
-        <div v-if="stats.chess" class="space-y-1">
-          <div class="text-xs tracking-widest text-zinc-500">CHESS</div>
-          <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
-            <div class="flex justify-between">
-              <span>Blitz</span>
-              <span class="tabular-nums">{{
-                formatNumber(stats.chess.currentRating.blitz)
-              }}</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Rapid</span>
-              <span class="tabular-nums">{{
-                formatNumber(stats.chess.currentRating.rapid)
-              }}</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Bullet</span>
-              <span class="tabular-nums">{{
-                formatNumber(stats.chess.currentRating.bullet)
-              }}</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Puzzles</span>
-              <span class="tabular-nums">{{
-                formatNumber(stats.chess.puzzleStats.rating)
-              }}</span>
-            </div>
-          </div>
-        </div>
+        <StatSection title="CHESS" :show="stats.chess">
+          <StatRow label="Blitz" :value="stats.chess.currentRating.blitz" />
+          <StatRow label="Rapid" :value="stats.chess.currentRating.rapid" />
+          <StatRow label="Bullet" :value="stats.chess.currentRating.bullet" />
+          <StatRow label="Puzzles" :value="stats.chess.puzzleStats.rating" />
+        </StatSection>
 
         <!-- Health Stats -->
-        <div v-if="stats.health" class="space-y-1">
-          <div class="text-xs tracking-widest text-zinc-500">HEALTH</div>
-          <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
-            <div class="flex justify-between">
-              <span>Steps Today</span>
-              <span class="tabular-nums">{{
-                formatNumber(healthToday.steps)
-              }}</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Exercise</span>
-              <span class="tabular-nums"
-                >{{ formatNumber(healthToday.exerciseMinutes) }}m</span
-              >
-            </div>
-            <div class="flex justify-between">
-              <span>Avg Steps</span>
-              <span class="tabular-nums">{{
-                formatNumber(stats.health.averages?.dailySteps || 0)
-              }}</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Heart Rate</span>
-              <span class="tabular-nums">{{
-                formatNumber(stats.health.heartRate?.resting || 0)
-              }}</span>
-            </div>
-          </div>
-        </div>
+        <StatSection title="HEALTH" :show="stats.health">
+          <StatRow label="Steps Today" :value="healthToday.steps" />
+          <StatRow label="Exercise">{{ healthToday.exerciseMinutes }}m</StatRow>
+          <StatRow
+            label="Avg Steps"
+            :value="stats.health.averages?.dailySteps || 0"
+          />
+          <StatRow
+            label="Heart Rate"
+            :value="stats.health.heartRate?.resting || 0"
+          />
+        </StatSection>
 
         <!-- Photography Stats -->
-        <div v-if="stats.photos?.stats" class="space-y-1">
-          <div class="text-xs tracking-widest text-zinc-500">PHOTOGRAPHY</div>
-          <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
-            <div class="flex justify-between">
-              <span>Total</span>
-              <span class="tabular-nums">{{
-                formatNumber(stats.photos.stats.totalPhotos)
-              }}</span>
-            </div>
-            <div class="flex justify-between">
-              <span>This Month</span>
-              <span class="tabular-nums">{{
-                formatNumber(stats.photos.stats.photosThisMonth)
-              }}</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Avg/Month</span>
-              <span class="tabular-nums">{{
-                formatDecimal(1)(stats.photos.stats.averagePerMonth)
-              }}</span>
-            </div>
-          </div>
-        </div>
+        <StatSection title="PHOTOGRAPHY" :show="stats.photos?.stats">
+          <StatRow label="Total" :value="stats.photos.stats.totalPhotos" />
+          <StatRow
+            label="This Month"
+            :value="stats.photos.stats.photosThisMonth"
+          />
+          <StatRow
+            label="Avg/Month"
+            :value="stats.photos.stats.averagePerMonth"
+            format="decimal"
+            :decimals="1"
+          />
+        </StatSection>
 
         <!-- Productivity Stats -->
-        <div v-if="stats.rescueTime?.week" class="space-y-1">
-          <div class="text-xs tracking-widest text-zinc-500">PRODUCTIVITY</div>
-          <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
-            <div class="flex justify-between">
-              <span>Weekly</span>
-              <span class="tabular-nums"
-                >{{
-                  formatNumber(stats.rescueTime.week.summary.total.hours)
-                }}h</span
-              >
-            </div>
-            <div class="flex justify-between">
-              <span>Productive</span>
-              <span class="tabular-nums">{{
-                formatPercentage(
-                  stats.rescueTime.week.summary.productive.percentage
-                )
-              }}</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Distracting</span>
-              <span class="tabular-nums">{{
-                formatPercentage(
-                  stats.rescueTime.week.summary.distracting.percentage
-                )
-              }}</span>
-            </div>
-          </div>
-        </div>
+        <StatSection title="PRODUCTIVITY" :show="stats.rescueTime?.week">
+          <StatRow label="Weekly"
+            >{{ stats.rescueTime.week.summary.total.hours }}h</StatRow
+          >
+          <StatRow
+            label="Productive"
+            :value="stats.rescueTime.week.summary.productive.percentage"
+            format="percentage"
+          />
+          <StatRow
+            label="Distracting"
+            :value="stats.rescueTime.week.summary.distracting.percentage"
+            format="percentage"
+          />
+        </StatSection>
 
         <!-- Last.fm Stats -->
-        <div v-if="stats.lastfm" class="space-y-1">
-          <div class="text-xs tracking-widest text-zinc-500">MUSIC</div>
-          <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
-            <div class="flex justify-between">
-              <span>Scrobbles</span>
-              <span class="tabular-nums">{{
-                formatNumber(stats.lastfm.stats?.totalScrobbles || 0)
-              }}</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Artists</span>
-              <span class="tabular-nums">{{
-                formatNumber(stats.lastfm.stats?.uniqueArtists || 0)
-              }}</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Daily Avg</span>
-              <span class="tabular-nums">{{
-                formatDecimal(1)(stats.lastfm.stats?.averagePerDay || 0)
-              }}</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Tracks</span>
-              <span class="tabular-nums">{{
-                formatNumber(stats.lastfm.stats?.uniqueTracks || 0)
-              }}</span>
-            </div>
-          </div>
+        <div v-if="stats.lastfm" class="stack-1">
+          <StatSection title="MUSIC" :show="true">
+            <StatRow
+              label="Scrobbles"
+              :value="stats.lastfm.stats?.totalScrobbles || 0"
+            />
+            <StatRow
+              label="Artists"
+              :value="stats.lastfm.stats?.uniqueArtists || 0"
+            />
+            <StatRow
+              label="Daily Avg"
+              :value="stats.lastfm.stats?.averagePerDay || 0"
+              format="decimal"
+              :decimals="1"
+            />
+            <StatRow
+              label="Tracks"
+              :value="stats.lastfm.stats?.uniqueTracks || 0"
+            />
+          </StatSection>
           <!-- Now Playing / Recent -->
           <div
             v-if="stats.lastfm.recentTracks?.tracks?.[0]"
@@ -403,9 +271,7 @@
         </Suspense>
 
         <!-- Main Stats Grid -->
-        <section
-          class="grid md:gap-4 lg:gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 overflow-hidden pr-4 md:pr-8"
-        >
+        <section class="stats-grid-responsive">
           <!-- Loading state -->
           <div
             v-if="isLoading"
@@ -587,16 +453,20 @@ import ActivityCalendar from '~/components/stats/ActivityCalendar.vue'
 
 const statsDescription = computed(() => {
   const s = stats.value
-  if (!s) return 'Real-time personal metrics dashboard: GitHub contributions, chess ratings, typing speed, music listening, coding problems solved, books read, and more.'
+  if (!s)
+    return 'Real-time personal metrics dashboard: GitHub contributions, chess ratings, typing speed, music listening, coding problems solved, books read, and more.'
 
   const parts = []
   if (s.github?.totalCommits) parts.push(`${s.github.totalCommits} commits`)
   if (s.chess?.blitzRating) parts.push(`${s.chess.blitzRating} chess`)
-  if (s.monkeytype?.avgWpm) parts.push(`${Math.round(s.monkeytype.avgWpm)}wpm typing`)
+  if (s.monkeytype?.avgWpm)
+    parts.push(`${Math.round(s.monkeytype.avgWpm)}wpm typing`)
   if (s.leetcode?.solved) parts.push(`${s.leetcode.solved} problems`)
   if (s.blog?.totalPosts) parts.push(`${s.blog.totalPosts} posts`)
 
-  return parts.length > 0 ? parts.join(' • ') : 'Real-time personal metrics dashboard'
+  return parts.length > 0
+    ? parts.join(' • ')
+    : 'Real-time personal metrics dashboard'
 })
 
 useHead(() => ({
@@ -795,7 +665,7 @@ const summaryData = computed(() => {
   const rescueTime = stats.value.rescueTime?.week
   const website = stats.value.website?.stats
 
-  let clauses = []
+  const clauses = []
 
   // Writing activity - check recent posts (last 7 days)
   if (blog?.recentPosts?.length) {
@@ -838,8 +708,8 @@ const summaryData = computed(() => {
       // Convert Unix timestamp to milliseconds if needed
       const timestamp =
         sub.timestamp.toString().length === 10
-          ? parseInt(sub.timestamp) * 1000
-          : parseInt(sub.timestamp)
+          ? Number.parseInt(sub.timestamp) * 1000
+          : Number.parseInt(sub.timestamp)
       const subDate = new Date(timestamp)
       const weekAgo = new Date()
       weekAgo.setDate(weekAgo.getDate() - 7)
@@ -905,7 +775,7 @@ const summaryData = computed(() => {
   if (lastfm?.length && lastfm[0]?.date) {
     const recentTracks = lastfm.filter((track) => {
       if (!track.date) return false
-      const trackDate = new Date(parseInt(track.date.uts) * 1000)
+      const trackDate = new Date(Number.parseInt(track.date.uts) * 1000)
       const weekAgo = new Date()
       weekAgo.setDate(weekAgo.getDate() - 7)
       return trackDate >= weekAgo
@@ -930,7 +800,7 @@ const summaryData = computed(() => {
       }
       const filmDate = new Date(film.watchedDate)
       // Check if date is valid
-      if (isNaN(filmDate.getTime())) {
+      if (Number.isNaN(filmDate.getTime())) {
         return false
       }
       const weekAgo = new Date()

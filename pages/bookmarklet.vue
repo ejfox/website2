@@ -13,7 +13,7 @@
           v-model="passphrase"
           type="password"
           placeholder="Enter your secret passphrase"
-          class="w-full px-4 py-2 rounded-lg border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100"
+          class="input-text"
         />
         <p class="text-xs text-zinc-600 dark:text-zinc-400 mt-1">
           This will be embedded in your bookmarklet for authentication
@@ -25,7 +25,7 @@
       <div class="flex items-center gap-4 mb-8">
         <a
           :href="bookmarkletCode"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg transition-colors cursor-move"
+          class="btn-drag"
           :class="{ 'opacity-50 cursor-not-allowed': !passphrase }"
           @click.prevent="!passphrase ? null : (showInstructions = true)"
         >

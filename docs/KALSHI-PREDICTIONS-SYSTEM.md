@@ -16,6 +16,7 @@ All cryptographically verifiable, timestamped, git-tracked.
 ## What You Have Now
 
 ### 1. PGP-Signed Predictions
+
 **Location**: `content/predictions/*.md`
 
 **What they are**: Your manually created, cryptographically signed predictions
@@ -25,6 +26,7 @@ All cryptographically verifiable, timestamped, git-tracked.
 **How to add more**: Use your existing `yarn predict` script
 
 ### 2. Kalshi Market Positions
+
 **API**: `/api/kalshi` pulls live data every 5 minutes
 
 **Commentary**: `content/kalshi/TICKER.md`
@@ -32,6 +34,7 @@ All cryptographically verifiable, timestamped, git-tracked.
 **Display**: Shows on `/predictions` below your PGP predictions
 
 **What it shows**:
+
 - Live positions with YES/NO, quantity, price
 - Your commentary/thesis from markdown files
 - Recent fills table
@@ -40,21 +43,23 @@ All cryptographically verifiable, timestamped, git-tracked.
 ### 3. Deep-Linking (Implemented)
 
 In your Kalshi commentary markdown:
+
 ```yaml
 ---
 ticker: OAIAGI-29
-related_posts: [/blog/2025/agi-timeline]  # Links to blog posts
-tags: [ai, agi, skepticism]               # Cross-reference tags
+related_posts: [/blog/2025/agi-timeline] # Links to blog posts
+tags: [ai, agi, skepticism] # Cross-reference tags
 ---
 ```
 
 In your PGP predictions:
+
 ```yaml
 ---
 id: my-prediction
 market:
   provider: kalshi
-  ticker: OAIAGI-29  # Auto-links to Kalshi position
+  ticker: OAIAGI-29 # Auto-links to Kalshi position
 ---
 ```
 
@@ -155,18 +160,21 @@ useKalshi() composable
 ## Verification & Posterity
 
 ### PGP Predictions
+
 - **Hash**: SHA-256 in frontmatter
 - **Signature**: PGP signed
 - **Git**: Commit timestamp
 - **Cannot alter** without detection
 
 ### Kalshi Positions
+
 - **Timestamp**: Kalshi API provides `created_time` for every fill
 - **Immutable**: Kalshi's database = blockchain-level proof
 - **Your commentary**: Git tracked, timestamped
 - **Cannot backdate** bets or change prices
 
 ### Election Model (Future)
+
 - **Hash**: SHA-256 in JSON
 - **Git**: Commit timestamp
 - **Optional**: PGP signature on outputs
@@ -174,6 +182,7 @@ useKalshi() composable
 ## Maintenance
 
 ### Keep API Keys Fresh
+
 ```bash
 # Update local .env file
 vim .env
@@ -186,6 +195,7 @@ ssh vps "cd /data2/website2 && docker-compose restart"
 
 **Mutagen Auto-Sync** (configured):
 The `.env` file automatically syncs from local → VPS via mutagen.
+
 ```bash
 # Check sync status
 mutagen sync list website2-env
@@ -194,9 +204,11 @@ mutagen sync list website2-env
 # mutagen sync create --name=website2-env --sync-mode=one-way-replica \
 #   /Users/ejfox/code/website2/.env debian@vps:/data2/website2/.env
 ```
+
 Changes to local `.env` propagate to VPS within seconds. Container restart still required for new vars.
 
 ### Add Commentary for Positions
+
 ```bash
 # Find positions without commentary
 node scripts/kalshi-test.mjs
@@ -206,12 +218,14 @@ touch content/kalshi/NEW-TICKER.md
 ```
 
 ### Clean Up Old Positions
+
 Resolved Kalshi positions disappear from API automatically.
 Commentary files stay in git for posterity.
 
 ## Styling Philosophy
 
 **Brutalist academia**:
+
 - `font-mono` for data
 - `font-serif` for prose
 - `text-xs` for density
@@ -222,6 +236,7 @@ Commentary files stay in git for posterity.
 - 300ms transitions on theme change
 
 **Consistency with PredictionCard**:
+
 - Same grid layout
 - Same spacing (py-4, gap-x-8, gap-y-4)
 - Same header pattern (badge + serif title)
@@ -231,19 +246,23 @@ Commentary files stay in git for posterity.
 ## Future Additions
 
 ### Election Model Integration
+
 When you build the model:
+
 1. Model outputs JSON → `content/predictions/elections/2026/`
 2. Site auto-detects and displays
 3. Links to related Kalshi positions
 4. Post-election: auto-compares model vs result
 
 ### Advanced Linking
+
 - Tag-based clustering (all AI predictions together)
 - Cross-reference network graph
 - Time-series view of confidence updates
 - Calibration curves over time
 
 ### Performance Tracking
+
 - Brier scores across all predictions
 - You vs market accuracy
 - Win rate by category
@@ -252,6 +271,7 @@ When you build the model:
 ## The Promise
 
 This system is built to last **decades**:
+
 - Markdown files (human-readable forever)
 - Git history (timestamp proof)
 - Cryptographic signatures (tamper-proof)
@@ -260,6 +280,7 @@ This system is built to last **decades**:
 - No build step (for predictions)
 
 In 2035, you can look back and see:
+
 - Exactly what you predicted in 2025
 - Exactly when you placed Kalshi bets
 - Exactly what your thinking was
@@ -269,4 +290,4 @@ In 2035, you can look back and see:
 
 ---
 
-*"The best accountability system is one you can't escape from."*
+_"The best accountability system is one you can't escape from."_

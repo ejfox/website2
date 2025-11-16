@@ -1,7 +1,7 @@
 import { defineEventHandler } from 'h3'
-import { readFile } from 'fs/promises'
-import { resolve } from 'path'
-import { existsSync } from 'fs'
+import { readFile } from 'node:fs/promises'
+import { resolve } from 'node:path'
+import { existsSync } from 'node:fs'
 
 interface ExternalLink {
   url: string
@@ -41,7 +41,7 @@ function parseCSVLine(line: string): [string, string] {
 
 export default defineEventHandler(async () => {
   try {
-    const csvPath = resolve(process.cwd(), 'external_links_final.csv')
+    const csvPath = resolve(process.cwd(), 'data/external_links_final.csv')
 
     if (!existsSync(csvPath)) {
       return []

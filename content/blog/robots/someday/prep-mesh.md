@@ -356,6 +356,7 @@ Acceptance:
 ### FEATURES
 
 #### Core Platform
+
 - Multi-group support
 - Privacy controls
 - Score tracking
@@ -366,6 +367,7 @@ Acceptance:
 - Backup/restore
 
 #### Security
+
 - End-to-end encryption
 - Minimal data collection
 - Regular purging
@@ -375,6 +377,7 @@ Acceptance:
 - Access logs
 
 #### UI/UX
+
 - Responsive design
 - Dark/light modes
 - Offline capable
@@ -384,6 +387,7 @@ Acceptance:
 - Touch friendly
 
 #### Data Management
+
 - SQLite for ESP32
 - Postgres for cloud
 - Regular backups
@@ -395,6 +399,7 @@ Acceptance:
 ### WON'T DO
 
 #### Inventory Management
+
 - No detailed counts
 - No location tracking
 - No value tracking
@@ -405,6 +410,7 @@ Acceptance:
 - No lending system
 
 #### Communication
+
 - No messaging
 - No chat system
 - No forums
@@ -415,6 +421,7 @@ Acceptance:
 - No notifications
 
 #### Features
+
 - No mobile app (yet)
 - No complex permissions
 - No public profiles
@@ -425,6 +432,7 @@ Acceptance:
 - No task management
 
 #### Data
+
 - No personal info beyond login
 - No location data
 - No usage analytics
@@ -439,7 +447,9 @@ Acceptance:
 ## PREP-MESH EVALUATION SYSTEMS
 
 ### MEDICAL & TRAUMA
+
 #### Tier 1 (24-72hr)
+
 - CAT Tourniquet
 - Pressure Dressing
 - QuikClot/Celox
@@ -447,6 +457,7 @@ Acceptance:
 - Critical 24hr Meds
 
 #### Tier 2 (2 weeks)
+
 - Full IFAK
 - Wound Care
 - 2-week Rx Meds
@@ -454,6 +465,7 @@ Acceptance:
 - First Aid Manual
 
 #### Tier 3 (30+ days)
+
 - Bulk Supplies
 - Extended Meds
 - Recovery Gear
@@ -461,7 +473,9 @@ Acceptance:
 - Dental Basics
 
 ### POWER & COMMS
+
 #### Tier 1
+
 - Battery Bank
 - Phone Charger
 - Headlamp
@@ -469,6 +483,7 @@ Acceptance:
 - Spare Batteries
 
 #### Tier 2
+
 - Solar Charger
 - Area Lighting
 - Comms Radio
@@ -476,6 +491,7 @@ Acceptance:
 - Signal Plan
 
 #### Tier 3
+
 - Power Generation
 - Backup Systems
 - Comm Center
@@ -483,7 +499,9 @@ Acceptance:
 - Repair Parts
 
 ### SHELTER & CLOTHING
+
 #### Tier 1
+
 - Shell Layer
 - Insulation Layer
 - Good Boots
@@ -491,6 +509,7 @@ Acceptance:
 - Head Cover
 
 #### Tier 2
+
 - Sleep System
 - Shelter/Tarp
 - Extended Clothing
@@ -498,6 +517,7 @@ Acceptance:
 - Weather Gear
 
 #### Tier 3
+
 - Long-term Shelter
 - Clothing Cache
 - Climate Control
@@ -505,7 +525,9 @@ Acceptance:
 - Seasonal Prep
 
 ### WATER & HYDRATION
+
 #### Tier 1
+
 - Water Bottle
 - Filter Straw
 - Purification Tabs
@@ -513,6 +535,7 @@ Acceptance:
 - Collection Method
 
 #### Tier 2
+
 - Filter System
 - Storage (15gal)
 - Testing Basic
@@ -520,6 +543,7 @@ Acceptance:
 - Treatment Plan
 
 #### Tier 3
+
 - Large Storage
 - Filtration Array
 - Source Access
@@ -527,7 +551,9 @@ Acceptance:
 - Treatment Stock
 
 ### FOOD & COOKING
+
 #### Tier 1
+
 - 72hr High-Density
 - Energy Bars
 - Electrolytes
@@ -535,6 +561,7 @@ Acceptance:
 - Water
 
 #### Tier 2
+
 - 2-Week Supply
 - Cooking System
 - Basic Utensils
@@ -542,6 +569,7 @@ Acceptance:
 - Water Storage
 
 #### Tier 3
+
 - Month+ Supply
 - Cooking Station
 - Storage System
@@ -549,7 +577,9 @@ Acceptance:
 - Bulk Water
 
 ### TOOLS & REPAIR
+
 #### Tier 1
+
 - Multi-tool
 - Light Source
 - Fire Starting
@@ -557,6 +587,7 @@ Acceptance:
 - Basic Repair
 
 #### Tier 2
+
 - Tool Kit
 - Repair Materials
 - Work Gloves
@@ -564,6 +595,7 @@ Acceptance:
 - Light Power Tools
 
 #### Tier 3
+
 - Full Tool Set
 - Shop Setup
 - Power Tools
@@ -571,7 +603,9 @@ Acceptance:
 - Project Gear
 
 ### INFO & NAVIGATION
+
 #### Tier 1
+
 - ID/Cards
 - Cash
 - Contact List
@@ -579,6 +613,7 @@ Acceptance:
 - Essential Docs
 
 #### Tier 2
+
 - Area Maps
 - Document Copies
 - Reference Guides
@@ -586,6 +621,7 @@ Acceptance:
 - Communication Plan
 
 #### Tier 3
+
 - Document Cache
 - Map Library
 - Resource Library
@@ -593,7 +629,9 @@ Acceptance:
 - Reference Collection
 
 ### LOAD CARRYING
+
 #### Tier 1
+
 - EDC Bag/Pockets
 - Phone Pouch
 - Basic Organization
@@ -601,6 +639,7 @@ Acceptance:
 - Weather Protection
 
 #### Tier 2
+
 - Day Pack
 - Admin Pouch
 - Gear Organization
@@ -608,6 +647,7 @@ Acceptance:
 - Protection System
 
 #### Tier 3
+
 - Pack System
 - Vehicle Setup
 - Storage Solution
@@ -658,11 +698,11 @@ To bring SurvivalHub to life, we will proceed through several development phases
 **Objective:** Establish the foundational infrastructure and security protocols.
 
 - **Project Initialization**
-  - *User Story:* *As a developer, I want to set up the project repository with Node.js, Nuxt, and SQLite, so that the development environment aligns with the chosen tech stack.*
+  - _User Story:_ _As a developer, I want to set up the project repository with Node.js, Nuxt, and SQLite, so that the development environment aligns with the chosen tech stack._
 
 - **User Authentication and Security**
-  - *User Story:* *As a group member, I want to securely join a group by exchanging trusted PGP keys in person, so that all interactions within the group are encrypted and secure.*
-  - *User Story:* *As a user, I want to authenticate my actions using PGP signatures, ensuring that all data exchanges are verified and trustworthy.*
+  - _User Story:_ _As a group member, I want to securely join a group by exchanging trusted PGP keys in person, so that all interactions within the group are encrypted and secure._
+  - _User Story:_ _As a user, I want to authenticate my actions using PGP signatures, ensuring that all data exchanges are verified and trustworthy._
 
 **Outcome:** A secure, scalable foundation ready for feature development.
 
@@ -673,13 +713,13 @@ To bring SurvivalHub to life, we will proceed through several development phases
 **Objective:** Develop the core Supply Hub and implement skill-based categorization.
 
 - **Tool and Supply Catalog**
-  - *User Story:* *As a user, I want to browse a curated catalog of essential survival tools and supplies, so that I can understand what items are available for my group.*
+  - _User Story:_ _As a user, I want to browse a curated catalog of essential survival tools and supplies, so that I can understand what items are available for my group._
 
 - **Skill-Based Kit Categorization**
-  - *User Story:* *As a group leader, I want to categorize tools and supplies based on skill sets (e.g., First Aid, Navigation, Fire Starting), so that members can easily find items relevant to their roles.*
+  - _User Story:_ _As a group leader, I want to categorize tools and supplies based on skill sets (e.g., First Aid, Navigation, Fire Starting), so that members can easily find items relevant to their roles._
 
 - **Skill Evaluation Quiz**
-  - *User Story:* *As a new member, I want to take a short quiz that evaluates my skills and existing equipment, so that the system can suggest two potential roles that best fit my capabilities.*
+  - _User Story:_ _As a new member, I want to take a short quiz that evaluates my skills and existing equipment, so that the system can suggest two potential roles that best fit my capabilities._
 
 **Outcome:** An organized Supply Hub that aligns tools with user skills, enhancing group efficiency.
 
@@ -690,13 +730,13 @@ To bring SurvivalHub to life, we will proceed through several development phases
 **Objective:** Enable the creation and management of secure, localized groups.
 
 - **Private Group Creation**
-  - *User Story:* *As a user, I want to create a private, locked-down group that can be hosted locally (e.g., on a Raspberry Pi), ensuring that only trusted members can join.*
+  - _User Story:_ _As a user, I want to create a private, locked-down group that can be hosted locally (e.g., on a Raspberry Pi), ensuring that only trusted members can join._
 
 - **Role Assignment and Management**
-  - *User Story:* *As a group leader, I want to assign roles to members based on their quiz results, so that each role is filled with appropriately skilled individuals.*
+  - _User Story:_ _As a group leader, I want to assign roles to members based on their quiz results, so that each role is filled with appropriately skilled individuals._
 
 - **End-to-End Encryption Implementation**
-  - *User Story:* *As a user, I want all group communications and data exchanges to be encrypted using PGP, maintaining the confidentiality and integrity of our preparedness information.*
+  - _User Story:_ _As a user, I want all group communications and data exchanges to be encrypted using PGP, maintaining the confidentiality and integrity of our preparedness information._
 
 **Outcome:** Secure, well-organized groups with clearly defined roles and responsibilities.
 
@@ -707,13 +747,13 @@ To bring SurvivalHub to life, we will proceed through several development phases
 **Objective:** Create comprehensive dashboards to monitor group preparedness.
 
 - **Role-Centric Progress Tracking**
-  - *User Story:* *As a group member, I want to see the readiness status of individual roles within the group, so that I can identify and address any gaps in our preparedness.*
+  - _User Story:_ _As a group member, I want to see the readiness status of individual roles within the group, so that I can identify and address any gaps in our preparedness._
 
 - **Overall Preparedness Level**
-  - *User Story:* *As a group leader, I want to view an overall preparedness score for the group, combining skill sets, tools, and coordination, to gauge our collective readiness.*
+  - _User Story:_ _As a group leader, I want to view an overall preparedness score for the group, combining skill sets, tools, and coordination, to gauge our collective readiness._
 
 - **Situation Calculator Integration**
-  - *User Story:* *As a user, I want to use a "situation calculator" that assesses our preparedness for various scenarios (e.g., natural disasters, supply chain breakdowns), helping us prioritize our efforts.*
+  - _User Story:_ _As a user, I want to use a "situation calculator" that assesses our preparedness for various scenarios (e.g., natural disasters, supply chain breakdowns), helping us prioritize our efforts._
 
 **Outcome:** Clear visualization of group strengths and areas needing improvement, guiding strategic preparedness efforts.
 
@@ -724,10 +764,10 @@ To bring SurvivalHub to life, we will proceed through several development phases
 **Objective:** Develop an engaging, intuitive user interface inspired by video game aesthetics.
 
 - **Inventory-Centric Interface Development**
-  - *User Story:* *As a user, I want an inventory-centric interface with a "squad status" feel, allowing me to manage items, track roles, and view shared group progress in an engaging, video game-like environment.*
+  - _User Story:_ _As a user, I want an inventory-centric interface with a "squad status" feel, allowing me to manage items, track roles, and view shared group progress in an engaging, video game-like environment._
 
 - **Interactive Dashboard Design**
-  - *User Story:* *As a group member, I want an interactive dashboard that visually represents our progress and preparedness levels, making it easy to understand our current status and next steps.*
+  - _User Story:_ _As a group member, I want an interactive dashboard that visually represents our progress and preparedness levels, making it easy to understand our current status and next steps._
 
 **Outcome:** An engaging, user-friendly interface that motivates and guides users through their preparedness journey.
 
@@ -738,13 +778,13 @@ To bring SurvivalHub to life, we will proceed through several development phases
 **Objective:** Ensure seamless data synchronization and offline accessibility.
 
 - **Local Hub and Spoke Sync Model**
-  - *User Story:* *As a user, I want my SurvivalHub instance to sync data with a central hub (e.g., Raspberry Pi server) when online, ensuring that our group's information is up-to-date across all devices.*
+  - _User Story:_ _As a user, I want my SurvivalHub instance to sync data with a central hub (e.g., Raspberry Pi server) when online, ensuring that our group's information is up-to-date across all devices._
 
 - **Manual Data Exchange Support**
-  - *User Story:* *As a member in an offline or emergency situation, I want the ability to manually export and import group data (e.g., via USB or QR codes), maintaining our preparedness information without relying on internet connectivity.*
+  - _User Story:_ _As a member in an offline or emergency situation, I want the ability to manually export and import group data (e.g., via USB or QR codes), maintaining our preparedness information without relying on internet connectivity._
 
 - **Local-First Operation Mode**
-  - *User Story:* *As a user, I want SurvivalHub to operate primarily offline, storing all data locally and syncing only when connectivity is available, ensuring continuous access to our preparedness resources.*
+  - _User Story:_ _As a user, I want SurvivalHub to operate primarily offline, storing all data locally and syncing only when connectivity is available, ensuring continuous access to our preparedness resources._
 
 **Outcome:** Reliable access to group data regardless of internet availability, enhancing resilience.
 
@@ -755,10 +795,10 @@ To bring SurvivalHub to life, we will proceed through several development phases
 **Objective:** Maintain high standards of data privacy and user control within groups.
 
 - **No In-Group Anonymity**
-  - *User Story:* *As a group member, I want all actions and data to be tied to my verified identity, ensuring transparency and accountability within the group.*
+  - _User Story:_ _As a group member, I want all actions and data to be tied to my verified identity, ensuring transparency and accountability within the group._
 
 - **PGP Signature Enforcement**
-  - *User Story:* *As a user, I want all interactions and data exchanges within the group to require PGP signatures, enhancing the security and trustworthiness of our communications.*
+  - _User Story:_ _As a user, I want all interactions and data exchanges within the group to require PGP signatures, enhancing the security and trustworthiness of our communications._
 
 **Outcome:** A transparent and secure environment where trust and accountability are paramount.
 
@@ -769,13 +809,13 @@ To bring SurvivalHub to life, we will proceed through several development phases
 **Objective:** Validate functionality and deploy SurvivalHub for real-world use.
 
 - **Local Hosting Deployment**
-  - *User Story:* *As a group leader, I want to deploy SurvivalHub on a local server (e.g., Raspberry Pi), ensuring that our group's data remains within our controlled environment.*
+  - _User Story:_ _As a group leader, I want to deploy SurvivalHub on a local server (e.g., Raspberry Pi), ensuring that our group's data remains within our controlled environment._
 
 - **Amateur Radio Interaction Setup**
-  - *User Story:* *As a user, I want to interact with SurvivalHub through amateur radio, enabling data exchange in scenarios where traditional internet connectivity is unavailable.*
+  - _User Story:_ _As a user, I want to interact with SurvivalHub through amateur radio, enabling data exchange in scenarios where traditional internet connectivity is unavailable._
 
 - **Comprehensive User Testing**
-  - *User Story:* *As a developer, I want to conduct thorough testing with real users to ensure that all features work seamlessly and meet the group's preparedness needs.*
+  - _User Story:_ _As a developer, I want to conduct thorough testing with real users to ensure that all features work seamlessly and meet the group's preparedness needs._
 
 **Outcome:** A fully tested, secure, and deployable platform ready to support preparedness groups.
 
@@ -870,10 +910,10 @@ To effectively implement these components, we will follow a structured developme
 **Objective:** Establish a secure and educational process for PGP key generation and onboarding.
 
 - **Scenario-Based Onboarding Quest**
-  - *User Story:* *As a new user, I want to be guided through a mini-story scenario that teaches me how to set up my PGP key, add supplies, and complete my first cycle, so that I can become a proficient member of my preparedness group.*
+  - _User Story:_ _As a new user, I want to be guided through a mini-story scenario that teaches me how to set up my PGP key, add supplies, and complete my first cycle, so that I can become a proficient member of my preparedness group._
 
 - **External PGP Guide Integration**
-  - *User Story:* *As a user, I want access to an extremely user-friendly introduction to PGP on a separate site, so that I can learn how to generate and manage my keys without feeling overwhelmed.*
+  - _User Story:_ _As a user, I want access to an extremely user-friendly introduction to PGP on a separate site, so that I can learn how to generate and manage my keys without feeling overwhelmed._
 
 **Outcome:** Users are seamlessly introduced to PGP key management through an engaging narrative, reducing barriers to entry and promoting essential security practices.
 
@@ -884,10 +924,10 @@ To effectively implement these components, we will follow a structured developme
 **Objective:** Implement secure, client-side storage and handling of PGP keys.
 
 - **Client-Side Key Generation**
-  - *User Story:* *As a user, I want to generate my PGP keys directly on my device using the SurvivalHub interface, ensuring my private keys never leave my control.*
+  - _User Story:_ _As a user, I want to generate my PGP keys directly on my device using the SurvivalHub interface, ensuring my private keys never leave my control._
 
 - **Public Key Storage**
-  - *User Story:* *As a group member, I want my public key to be stored on the server so that other trusted members can securely communicate with me.*
+  - _User Story:_ _As a group member, I want my public key to be stored on the server so that other trusted members can securely communicate with me._
 
 **Outcome:** Enhanced security by ensuring private keys remain solely on user devices, with public keys accessible for group communication.
 
@@ -898,10 +938,10 @@ To effectively implement these components, we will follow a structured developme
 **Objective:** Establish a reliable system for verifying and trusting PGP keys within groups.
 
 - **In-App Verification Process with Notifications**
-  - *User Story:* *As a user, I want to receive notifications when a new public key is added to my group, so that I can manually verify the key's fingerprint within the app.*
+  - _User Story:_ _As a user, I want to receive notifications when a new public key is added to my group, so that I can manually verify the key's fingerprint within the app._
 
 - **Web of Trust Integration**
-  - *User Story:* *As a group member, I want to sign other members' public keys to build a collective trust network, ensuring secure and authenticated communications within the group.*
+  - _User Story:_ _As a group member, I want to sign other members' public keys to build a collective trust network, ensuring secure and authenticated communications within the group._
 
 **Outcome:** A trusted communication environment where users can verify and endorse each other's keys, strengthening group security.
 
@@ -912,7 +952,7 @@ To effectively implement these components, we will follow a structured developme
 **Objective:** Facilitate secure group-wide communications through a shared PGP key.
 
 - **Shared Group Key for Secure Broadcasts**
-  - *User Story:* *As a group leader, I want to manage a single shared PGP public key for broadcasting secure messages to all members, ensuring consistent and secure group communications.*
+  - _User Story:_ _As a group leader, I want to manage a single shared PGP public key for broadcasting secure messages to all members, ensuring consistent and secure group communications._
 
 **Outcome:** Streamlined and secure dissemination of group-wide messages, enhancing collective preparedness.
 
@@ -923,10 +963,10 @@ To effectively implement these components, we will follow a structured developme
 **Objective:** Develop a gamified system for regular cycling of essential supplies alongside key management.
 
 - **Unified "Cycle Checklist" Interface**
-  - *User Story:* *As a user, I want a single dashboard where I can view and manage all items needing renewal, including PGP keys and essential supplies, so that I can stay organized and prepared.*
+  - _User Story:_ _As a user, I want a single dashboard where I can view and manage all items needing renewal, including PGP keys and essential supplies, so that I can stay organized and prepared._
 
 - **Gamified "Preparedness Cycle" Flow**
-  - *User Story:* *As a group member, I want the cycling process to be part of an engaging preparedness game, with visual progress meters and rewards that make maintaining readiness fun and motivating.*
+  - _User Story:_ _As a group member, I want the cycling process to be part of an engaging preparedness game, with visual progress meters and rewards that make maintaining readiness fun and motivating._
 
 **Outcome:** An integrated system that encourages regular updates of both security keys and essential supplies through engaging, game-like mechanics.
 
@@ -937,10 +977,10 @@ To effectively implement these components, we will follow a structured developme
 **Objective:** Enhance user engagement by tying cycling activities to narrative-driven scenarios.
 
 - **Story-Driven Prompts and Scenario-Based Rewards**
-  - *User Story:* *As a user, I want cycling my keys and supplies to be part of mini-story events that provide context and rewards, making the process immersive and meaningful.*
+  - _User Story:_ _As a user, I want cycling my keys and supplies to be part of mini-story events that provide context and rewards, making the process immersive and meaningful._
 
 - **Time-Based Challenges with Group Goals**
-  - *User Story:* *As a group, we want to participate in time-based challenges that require us to cycle keys and supplies within set periods, earning collective rewards and achieving higher preparedness levels together.*
+  - _User Story:_ _As a group, we want to participate in time-based challenges that require us to cycle keys and supplies within set periods, earning collective rewards and achieving higher preparedness levels together._
 
 **Outcome:** Increased user engagement and motivation through immersive storytelling and collaborative challenges, reinforcing the importance of regular preparedness activities.
 
@@ -951,7 +991,7 @@ To effectively implement these components, we will follow a structured developme
 **Objective:** Implement an effective notification system to keep users on track with their cycles.
 
 - **Email-Based Gentle Nudges and Event-Triggered Alerts**
-  - *User Story:* *As a user, I want to receive personalized email reminders about upcoming key and supply cycles, as well as alerts based on relevant news, weather, or regional events, to stay informed and prepared.*
+  - _User Story:_ _As a user, I want to receive personalized email reminders about upcoming key and supply cycles, as well as alerts based on relevant news, weather, or regional events, to stay informed and prepared._
 
 **Outcome:** Consistent user engagement and timely updates, ensuring that key and supply cycles are maintained without overwhelming users.
 
@@ -962,10 +1002,10 @@ To effectively implement these components, we will follow a structured developme
 **Objective:** Foster teamwork by tracking collective progress and celebrating group achievements.
 
 - **Collective Progress Meter with Contribution Highlights**
-  - *User Story:* *As a group member, I want to see a progress meter that tracks our overall preparedness and highlights individual contributions, so that I can feel part of a cohesive and effective team.*
+  - _User Story:_ _As a group member, I want to see a progress meter that tracks our overall preparedness and highlights individual contributions, so that I can feel part of a cohesive and effective team._
 
 - **Tiered Preparedness Levels with Unlockable Perks**
-  - *User Story:* *As a group, we want to achieve different preparedness tiers (e.g., Bronze, Silver, Gold) based on our cycling consistency, unlocking new features and rewards as we level up.*
+  - _User Story:_ _As a group, we want to achieve different preparedness tiers (e.g., Bronze, Silver, Gold) based on our cycling consistency, unlocking new features and rewards as we level up._
 
 **Outcome:** Strengthened group cohesion and motivation through visible progress indicators and tier-based rewards, encouraging sustained participation.
 
@@ -1020,6 +1060,7 @@ The development of **PGP Key Management** and **Supply Cycles** within **Surviva
 Create a single-page interactive scrollytelling site to introduce non-technical Americans to PGP encryption, guiding them through generating and using their own key, with a focus on disaster preparedness and mutual aid through affinity groups.
 
 ### Technology Stack
+
 - Frontend Framework: Vue.js with Nuxt.js
 - Styling: Tailwind CSS
 - Scrollytelling: Custom implementation with Intersection Observer
@@ -1128,11 +1169,11 @@ Create a single-page interactive scrollytelling site to introduce non-technical 
 Total estimated timeline: 10-15 weeks
 
 ### Next Steps
+
 1. Set up the development environment with the chosen tech stack
 2. Create a detailed content outline for each section of the scrollytelling experience
 3. Begin implementing the basic structure and first educational components
 4. Regular check-ins to assess progress and adjust the plan as needed
-
 
 ---
 
@@ -1145,7 +1186,8 @@ Absolutely! Let's design a compelling and informative landing page for **Surviva
 ### **1. Header**
 
 #### **Logo And Navigation**
-- **Logo:** [SurvivalHub Logo] *(Placeholder for your logo)*
+
+- **Logo:** [SurvivalHub Logo] _(Placeholder for your logo)_
 - **Navigation Links:**
   - Home
   - Features
@@ -1166,10 +1208,12 @@ Absolutely! Let's design a compelling and informative landing page for **Surviva
 **"Prepare for Natural Disasters and Enhance Your Camping Adventures Together"**
 
 #### **Call To Action (CTA):**
+
 - **Button:** [Get Started Now]
 - **Secondary CTA:** [Watch Demo]
 
 #### **Visual:**
+
 - **Image/Illustration:** A group of friends preparing for camping or a natural disaster, interacting with the SurvivalHub interface on their devices.
 
 ---
@@ -1185,6 +1229,7 @@ Absolutely! Let's design a compelling and informative landing page for **Surviva
 SurvivalHub is a secure, localized platform designed to help groups of friends prepare for natural disasters and enhance their camping experiences. By managing essential supplies, assigning complementary roles, and tracking group readiness, SurvivalHub ensures that your team is always prepared, organized, and efficient.
 
 #### **Key Points:**
+
 - **Centralized Supply Hub:** Easily manage and organize your gear to avoid duplication and ensure nothing is forgotten.
 - **Role-Based Preparation:** Assign and track roles based on individual skills to cover all necessary areas of preparedness.
 - **Gamified Progression:** Engage with interactive features that motivate consistent participation and skill development.
@@ -1202,6 +1247,7 @@ SurvivalHub is a secure, localized platform designed to help groups of friends p
 Whether you're gearing up for a camping trip or preparing for unexpected natural disasters, SurvivalHub offers the tools and structure your group needs to stay safe and organized.
 
 #### **Benefits:**
+
 - **Avoid Gear Duplication:** Keep track of who has what gear to prevent unnecessary duplicates and ensure all essential items are covered.
 - **Comprehensive Checklist:** Maintain a shared list of required supplies and skills, so everyone knows what’s needed next.
 - **Skill Complementation:** Identify and develop skills that complement each other, enhancing your group's overall preparedness and effectiveness.
@@ -1281,19 +1327,19 @@ Whether you're gearing up for a camping trip or preparing for unexpected natural
 
 #### **Testimonial 1:**
 
-*"SurvivalHub has transformed how our group prepares for camping trips. We never miss a gear item, and the role assignments ensure everyone contributes effectively."*
+_"SurvivalHub has transformed how our group prepares for camping trips. We never miss a gear item, and the role assignments ensure everyone contributes effectively."_
 
 — **Alex M.**
 
 #### **Testimonial 2:**
 
-*"In the face of unexpected weather changes, SurvivalHub kept us organized and ready. The secure communication and progress tracking were invaluable."*
+_"In the face of unexpected weather changes, SurvivalHub kept us organized and ready. The secure communication and progress tracking were invaluable."_
 
 — **Jordan K.**
 
 #### **Testimonial 3:**
 
-*"The gamified elements make preparedness fun and engaging. We love earning badges and seeing our group progress!"*
+_"The gamified elements make preparedness fun and engaging. We love earning badges and seeing our group progress!"_
 
 — **Taylor S.**
 
@@ -1310,10 +1356,12 @@ Whether you're gearing up for a camping trip or preparing for unexpected natural
 Ready to enhance your group's preparedness and ensure you're always ready for any adventure or emergency? Sign up now and take the first step towards a safer, more organized future.
 
 #### **CTA Buttons:**
+
 - **Primary Button:** [Get Started Now]
 - **Secondary Button:** [Learn More]
 
 #### **Visual:**
+
 - **Image/Illustration:** A cohesive group enjoying a well-organized camping trip, with SurvivalHub visible on their devices.
 
 ---
@@ -1321,6 +1369,7 @@ Ready to enhance your group's preparedness and ensure you're always ready for an
 ### **9. Footer**
 
 #### **Content:**
+
 - **Links:**
   - Privacy Policy
   - Terms of Service

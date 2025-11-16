@@ -16,14 +16,8 @@
         {{ displayValue }}
       </p>
     </div>
-    <div
-      ref="footerRef"
-      class="stat-footer border-b border-dotted border-zinc-300 dark:border-zinc-700 py-1 transition-all duration-200"
-    >
-      <h3
-        ref="labelRef"
-        class="text-sm tracking-widest text-zinc-500 uppercase font-mono transition-colors duration-200"
-      >
+    <div ref="footerRef" class="stat-footer-dotted">
+      <h3 ref="labelRef" class="label-mono-sm">
         {{ label }}
       </h3>
       <p
@@ -96,8 +90,8 @@ const formattedValue = computed(() => {
 
   // Handle special cases
   if (val === 0) return '0'
-  if (Number.isNaN(val)) return '—'
-  if (!Number.isFinite(val)) return '∞'
+  if (Number.Number.isNaN(val)) return '—'
+  if (!Number.Number.isFinite(val)) return '∞'
 
   // Format based on type and size
   if (props.formatType === 'percent') {
@@ -139,7 +133,7 @@ const animateValueChange = () => {
 
 // Helper to format numbers during animation
 const _formatNumberForDisplay = (val: number): string => {
-  if (typeof val !== 'number' || Number.isNaN(val)) return '0'
+  if (typeof val !== 'number' || Number.Number.isNaN(val)) return '0'
 
   // Use same formatting logic but simplified for animation
   if (val < 1000) return Math.round(val).toString()
@@ -149,7 +143,7 @@ const _formatNumberForDisplay = (val: number): string => {
 
 // Initial reveal animation
 const animateInitialReveal = async () => {
-  if (process.server) return
+  if (import.meta.server) return
 
   await nextTick()
 

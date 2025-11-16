@@ -32,9 +32,9 @@ At Room 302 Studio, we offer a range of services that cater to different needs a
 
 Room 302 Studio will be regularly hosting events in the coming year that promote learning, collaboration, and growth:
 
-1. *Livestreams*: Collaborate on projects in public, stream live tutorials, give presentations or host Q&A sessions through livestreaming platforms like Twitch or YouTube. This will build on the incredible experience Ian and I had with [Coding with Fire](https://www.youtube.com/playlist?list=PLI_sHchSmdCD0RximFqzqCOSqCgVWJpdA)
-2. *Hackathons*: We are hoping to host fast-paced development sprints aimed at solving specific challenges within a limited timeframe.
-3. *Knowledge Sharing*: Engage with leaders from various industries as they share their insights on emerging trends and technologies.
+1. _Livestreams_: Collaborate on projects in public, stream live tutorials, give presentations or host Q&A sessions through livestreaming platforms like Twitch or YouTube. This will build on the incredible experience Ian and I had with [Coding with Fire](https://www.youtube.com/playlist?list=PLI_sHchSmdCD0RximFqzqCOSqCgVWJpdA)
+2. _Hackathons_: We are hoping to host fast-paced development sprints aimed at solving specific challenges within a limited timeframe.
+3. _Knowledge Sharing_: Engage with leaders from various industries as they share their insights on emerging trends and technologies.
 
 ### Membership Options
 

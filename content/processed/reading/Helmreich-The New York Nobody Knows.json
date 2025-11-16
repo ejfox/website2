@@ -12,12 +12,7 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/918djpiWyxL._SY160.jpg",
       "highlightsCount": 8
     },
-    "tags": [
-      "book",
-      "nyc",
-      "culture",
-      "travel"
-    ],
+    "tags": ["book", "nyc", "culture", "travel"],
     "words": 610,
     "images": 0,
     "imageDetails": {

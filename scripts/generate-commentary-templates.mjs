@@ -1,8 +1,10 @@
-import { readFileSync, writeFileSync, mkdirSync } from 'fs'
-import { join } from 'path'
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
+import { join } from 'node:path'
 
 // Read position data
-const positions = JSON.parse(readFileSync('kalshi-positions.json', 'utf-8'))
+const positions = JSON.parse(
+  readFileSync('data/kalshi-positions.json', 'utf-8')
+)
 
 console.log('Generating commentary templates for resolved positions...\n')
 
@@ -20,19 +22,24 @@ for (const pos of positions.market_positions) {
 
   // Generate human-readable suggestions based on ticker patterns
   const suggestions = {
-    'KXOTEEPSTEIN': 'Epstein-related market',
-    'KXCALLIMPEACHRCONGRESS': 'Congressional impeachment call',
-    'KXIMPEACH': 'Impeachment market',
-    'AILEGISLATION': 'AI legislation',
-    'KXCODINGMODEL': 'Top coding AI model',
-    'KXAIAUTHOR': 'AI author/NYT bestseller',
-    'NYTOAI': 'NYT reference to AI',
-    'KXJOINSTEPHENCOLBERT': 'Stephen Colbert appearance',
-    'OAIAGI': 'OpenAI AGI announcement'
+    KXOTEEPSTEIN: 'Epstein-related market',
+    KXCALLIMPEACHRCONGRESS: 'Congressional impeachment call',
+    KXIMPEACH: 'Impeachment market',
+    AILEGISLATION: 'AI legislation',
+    KXCODINGMODEL: 'Top coding AI model',
+    KXAIAUTHOR: 'AI author/NYT bestseller',
+    NYTOAI: 'NYT reference to AI',
+    KXJOINSTEPHENCOLBERT: 'Stephen Colbert appearance',
+    OAIAGI: 'OpenAI AGI announcement'
   }
 
-  const suggestion = Object.keys(suggestions).find(key => eventBase.includes(key)) || 'Unknown market'
-  const suggestedTitle = suggestions[Object.keys(suggestions).find(key => eventBase.includes(key))] || 'EDIT THIS TITLE'
+  const suggestion =
+    Object.keys(suggestions).find((key) => eventBase.includes(key)) ||
+    'Unknown market'
+  const suggestedTitle =
+    suggestions[
+      Object.keys(suggestions).find((key) => eventBase.includes(key))
+    ] || 'EDIT THIS TITLE'
 
   const template = `---
 ticker: ${ticker}
@@ -70,7 +77,9 @@ EDIT: Add your commentary about this market here.
   }
 }
 
-console.log(`\n✅ Generated ${positions.market_positions.length} commentary templates`)
+console.log(
+  `\n✅ Generated ${positions.market_positions.length} commentary templates`
+)
 console.log('\n📝 Next steps:')
 console.log('1. Edit each file in content/kalshi/')
 console.log('2. Replace "EDIT THIS TITLE" with proper market titles')

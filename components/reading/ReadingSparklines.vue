@@ -2,9 +2,7 @@
   <div class="space-y-4">
     <!-- Books per year sparkline -->
     <div class="border-b border-zinc-200 dark:border-zinc-800 pb-4">
-      <div class="font-mono text-[10px] text-zinc-500 dark:text-zinc-500 uppercase tracking-wider mb-2">
-        Reading Activity by Year
-      </div>
+      <div class="section-label-tiny">Reading Activity by Year</div>
       <svg :width="width" :height="40" class="overflow-visible">
         <!-- Y-axis reference lines (very subtle) -->
         <line
@@ -26,7 +24,11 @@
             :y="40 - (item.count / maxBooksPerYear) * 35"
             :width="barWidth - barGap * 2"
             :height="(item.count / maxBooksPerYear) * 35"
-            :class="item.year === currentYear ? 'fill-zinc-900 dark:fill-zinc-100' : 'fill-zinc-400 dark:fill-zinc-600'"
+            :class="
+              item.year === currentYear
+                ? 'fill-zinc-900 dark:fill-zinc-100'
+                : 'fill-zinc-400 dark:fill-zinc-600'
+            "
             class="transition-colors hover:fill-zinc-600 dark:hover:fill-zinc-400"
           />
           <!-- Year labels (every other year to avoid crowding) -->
@@ -51,7 +53,9 @@
           </text>
         </g>
       </svg>
-      <div class="font-mono text-[9px] text-zinc-400 dark:text-zinc-600 mt-1 flex justify-between">
+      <div
+        class="font-mono text-[9px] text-zinc-400 dark:text-zinc-600 mt-1 flex justify-between"
+      >
         <span>{{ yearlyData[0]?.year || '' }}</span>
         <span>{{ totalBooks }} books total</span>
         <span>{{ yearlyData[yearlyData.length - 1]?.year || '' }}</span>
@@ -60,9 +64,7 @@
 
     <!-- Highlights distribution sparkline -->
     <div class="border-b border-zinc-200 dark:border-zinc-800 pb-4">
-      <div class="font-mono text-[10px] text-zinc-500 dark:text-zinc-500 uppercase tracking-wider mb-2">
-        Highlights Per Book Distribution
-      </div>
+      <div class="section-label-tiny">Highlights Per Book Distribution</div>
       <svg :width="width" :height="30" class="overflow-visible">
         <!-- Sparkline path -->
         <polyline
@@ -86,7 +88,9 @@
           class="fill-zinc-900 dark:fill-zinc-100"
         />
       </svg>
-      <div class="font-mono text-[9px] text-zinc-400 dark:text-zinc-600 mt-1 flex justify-between">
+      <div
+        class="font-mono text-[9px] text-zinc-400 dark:text-zinc-600 mt-1 flex justify-between"
+      >
         <span>min: {{ highlightStats.min }}</span>
         <span>avg: {{ highlightStats.avg }}</span>
         <span>max: {{ highlightStats.max }}</span>
@@ -95,9 +99,7 @@
 
     <!-- Reading streak calendar (tiny heatmap) -->
     <div>
-      <div class="font-mono text-[10px] text-zinc-500 dark:text-zinc-500 uppercase tracking-wider mb-2">
-        Recent Activity (Last 12 Months)
-      </div>
+      <div class="section-label-tiny">Recent Activity (Last 12 Months)</div>
       <div class="grid grid-cols-12 gap-0.5">
         <div
           v-for="month in last12Months"
@@ -107,7 +109,9 @@
           :title="`${month.label}: ${month.count} books`"
         ></div>
       </div>
-      <div class="font-mono text-[9px] text-zinc-400 dark:text-zinc-600 mt-2 flex justify-between">
+      <div
+        class="font-mono text-[9px] text-zinc-400 dark:text-zinc-600 mt-2 flex justify-between"
+      >
         <span>{{ last12Months[0]?.label || '' }}</span>
         <span>{{ last12MonthsTotal }} books in last year</span>
         <span>{{ last12Months[11]?.label || '' }}</span>
@@ -134,10 +138,10 @@ const currentYear = new Date().getFullYear()
 const yearlyData = computed(() => {
   const yearCounts = {}
 
-  props.books.forEach(book => {
+  props.books.forEach((book) => {
     const date = book.metadata?.['kindle-sync']?.lastAnnotatedDate
     if (date) {
-      const year = parseInt(date.split('-')[0])
+      const year = Number.parseInt(date.split('-')[0])
       yearCounts[year] = (yearCounts[year] || 0) + 1
     }
   })
@@ -159,7 +163,7 @@ const yearlyData = computed(() => {
 })
 
 const maxBooksPerYear = computed(() => {
-  return Math.max(...yearlyData.value.map(d => d.count))
+  return Math.max(...yearlyData.value.map((d) => d.count))
 })
 
 const totalBooks = computed(() => {
@@ -177,7 +181,7 @@ const barGap = computed(() => {
 // Highlights distribution
 const sortedHighlights = computed(() => {
   return props.books
-    .map(b => b.metadata?.['kindle-sync']?.highlightsCount || 0)
+    .map((b) => b.metadata?.['kindle-sync']?.highlightsCount || 0)
     .sort((a, b) => a - b)
 })
 
@@ -237,10 +241,13 @@ const last12Months = computed(() => {
     const month = date.getMonth()
 
     const monthKey = `${year}-${String(month + 1).padStart(2, '0')}`
-    const label = date.toLocaleDateString('en-US', { month: 'short', year: '2-digit' })
+    const label = date.toLocaleDateString('en-US', {
+      month: 'short',
+      year: '2-digit'
+    })
 
     // Count books annotated in this month
-    const count = props.books.filter(book => {
+    const count = props.books.filter((book) => {
       const annotatedDate = book.metadata?.['kindle-sync']?.lastAnnotatedDate
       return annotatedDate && annotatedDate.startsWith(monthKey)
     }).length

@@ -14,10 +14,7 @@
         @mouseleave="hideTooltip()"
       >
         <!-- Custom Tooltip -->
-        <div
-          v-if="activeTooltipIndex === index"
-          class="custom-tooltip absolute z-10 bg-white dark:bg-zinc-800 p-2 rounded shadow-md text-xs"
-        >
+        <div v-if="activeTooltipIndex === index" class="tooltip-custom">
           {{ formatTooltip(day) }}
         </div>
       </div>

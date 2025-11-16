@@ -10,6 +10,7 @@ tags:
   - data
   - design
 ---
+
 ## Coach Artie - One Year Retrospective
 
 ![Artie's "Brain" - a dashboard used to see his recent memories and messages](https://res.cloudinary.com/ejf/image/upload/v1710108694/Screenshot_2024-03-10_at_6.11.18_PM.png)
@@ -20,8 +21,8 @@ tags:
 
 Coach Artie was initially created as an Art Coach to help me focus on my watercolor practice. It was first created as a Discord bot integration to allow the studio to play with the OpenAI API together, and it has been amazing to watch it evolve into something much bigger and more interesting over time.
 
->If you're making something for people, make sure it's something they actually want. The best way to do this is to make something you yourself want. Write the story you want to read; build the tool you want to use. Since your friends probably have similar interests, this will also get you your initial audience.
-><https://paulgraham.com/greatwork.html>
+> If you're making something for people, make sure it's something they actually want. The best way to do this is to make something you yourself want. Write the story you want to read; build the tool you want to use. Since your friends probably have similar interests, this will also get you your initial audience.
+> <https://paulgraham.com/greatwork.html>
 
 #### "Multiplayer" Interactions
 
@@ -51,7 +52,7 @@ Every interaction (a message received, and a response sent back to the user) is 
 graph TD
     A[User Message] -->|Username| B(Reflection Stage)
     C[AI Response] -->|Response| B
-    
+
     B --> D[Assemble Preamble]
     D --> E[Add Relevant Memories]
     E --> F[Add Recent Memories]
@@ -59,18 +60,18 @@ graph TD
     G --> H[Add Capability Manifest]
     H --> I[Add System Prompts]
     I --> J[Collection of Messages]
-    
+
     J -->|Context Window| K[Generate Final AI Response]
-    
+
     K --> L{Memory Generation}
     L -->|Prompt, Response, History| M[Analyze for Todos/Tasks]
     M -->|Task Commands| N[Execute Todo Commands]
     N -->|Todo Updates| O[Store Todo Changes]
-    
+
     L -->|Prompt, Response, History| P[Generate Memory Completion]
     P --> Q[Filter Memory Completion]
     Q -->|Memory Text| R[Store User Memory]
-    
+
     O --> S[Final Output]
     R --> S
 ```
@@ -113,29 +114,30 @@ graph TD
     A[Reflection Stage] --> B[Add Relevant Memories]
     B --> C[Randomly Select<br>Memory Count]
     C --> D[Retrieve Relevant Memories]
-    
+
     A --> E[Add Recent Memories]
     E --> F[Randomly Select<br>Memory Count]
     F --> G[Retrieve Recent Memories]
-    
+
     A --> H[Add General Memories]
     H --> I[Randomly Select<br>Memory Count]
     I --> J[Retrieve General Memories]
-    
+
     K[Memory Generation] --> L[Randomly Select<br>User Memory Count]
     L --> M[Retrieve User Memories]
-    
+
     K --> N[Randomly Select<br>General Memory Count]
     N --> O[Retrieve General Memories]
-    
+
     P[Generate AI Completion] --> Q[Generate Random<br>Temperature]
     Q --> R[Generate Random<br>Presence Penalty]
     R --> S[Generate Random<br>Frequency Penalty]
-    
+
     T[Trim Message Chain] --> U[Randomly Select<br>Message to Trim]
 ```
 
 ### Where we use randomness
+
 - Randomly deciding whether to add a hexagram prompt to messages
 - Generating random values for temperature, presence penalty, and frequency penalty in AI completion parameters
 - Selecting a random message to trim when trimming the message chain
@@ -156,13 +158,17 @@ The `supabaseraw` capability complements `pgcron` by giving Coach Artie direct a
 By leveraging these two capabilities, Coach Artie can now monitor his own systems, identify areas for improvement, and implement solutions independently. This represents a significant step forward in our goal of creating an AI assistant that can learn, adapt, and evolve without constant human guidance. As we continue to refine and expand Coach Artie's capabilities, we're excited to see how he'll use his newfound autonomy to tackle even more complex challenges.
 
 ## Constant testing and iteration
+
 ### Failures around teaching Capabilities
 
 ### Failures around scheduled proactivity
+
 ### Pilot program in The Birch School
+
 ### Internal usage within Room 302 Studio
 
 ## Future Plans: 1 year, 5 year outlook
+
 ### 1 Year Roadmap
 
 ### 5 Year Roadmap

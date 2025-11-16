@@ -1,8 +1,13 @@
 #!/usr/bin/env node
-import { writeFileSync, readFileSync } from 'fs'
-import { fileURLToPath } from 'url'
-import { dirname, join } from 'path'
-import { Configuration, PortfolioApi, EventsApi, MarketsApi } from 'kalshi-typescript'
+import { writeFileSync, readFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
+import { dirname, join } from 'node:path'
+import {
+  Configuration,
+  PortfolioApi,
+  EventsApi,
+  MarketsApi
+} from 'kalshi-typescript'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -10,7 +15,7 @@ const __dirname = dirname(__filename)
 // Load .env file
 const envFile = join(__dirname, '..', '.env')
 const envContent = readFileSync(envFile, 'utf-8')
-envContent.split('\n').forEach(line => {
+envContent.split('\n').forEach((line) => {
   const match = line.match(/^([^=]+)=(.*)$/)
   if (match) {
     const key = match[1].trim()
@@ -45,36 +50,45 @@ async function main() {
     console.log('1. Fetching portfolio balance...')
     const balanceResponse = await portfolioApi.getBalance()
     const balance = balanceResponse.data
-    writeFileSync('kalshi-balance.json', JSON.stringify(balance, null, 2))
-    console.log('✓ Saved to kalshi-balance.json\n')
+    writeFileSync('data/kalshi-balance.json', JSON.stringify(balance, null, 2))
+    console.log('✓ Saved to data/kalshi-balance.json\n')
 
     // Get portfolio positions
     console.log('2. Fetching portfolio positions...')
     const positionsResponse = await portfolioApi.getPositions()
     const positions = positionsResponse.data
-    writeFileSync('kalshi-positions.json', JSON.stringify(positions, null, 2))
-    console.log('✓ Saved to kalshi-positions.json\n')
+    writeFileSync(
+      'data/kalshi-positions.json',
+      JSON.stringify(positions, null, 2)
+    )
+    console.log('✓ Saved to data/kalshi-positions.json\n')
 
     // Get events
     console.log('3. Fetching events...')
-    const eventsResponse = await eventsApi.getEvents({ limit: 20, status: 'open' })
+    const eventsResponse = await eventsApi.getEvents({
+      limit: 20,
+      status: 'open'
+    })
     const events = eventsResponse.data
-    writeFileSync('kalshi-events.json', JSON.stringify(events, null, 2))
-    console.log('✓ Saved to kalshi-events.json\n')
+    writeFileSync('data/kalshi-events.json', JSON.stringify(events, null, 2))
+    console.log('✓ Saved to data/kalshi-events.json\n')
 
     // Get markets
     console.log('4. Fetching markets...')
-    const marketsResponse = await marketsApi.getMarkets({ limit: 20, status: 'open' })
+    const marketsResponse = await marketsApi.getMarkets({
+      limit: 20,
+      status: 'open'
+    })
     const markets = marketsResponse.data
-    writeFileSync('kalshi-markets.json', JSON.stringify(markets, null, 2))
-    console.log('✓ Saved to kalshi-markets.json\n')
+    writeFileSync('data/kalshi-markets.json', JSON.stringify(markets, null, 2))
+    console.log('✓ Saved to data/kalshi-markets.json\n')
 
     // Get fills (trade history)
     console.log('5. Fetching fills (trade history)...')
     const fillsResponse = await portfolioApi.getFills()
     const fills = fillsResponse.data
-    writeFileSync('kalshi-fills.json', JSON.stringify(fills, null, 2))
-    console.log('✓ Saved to kalshi-fills.json\n')
+    writeFileSync('data/kalshi-fills.json', JSON.stringify(fills, null, 2))
+    console.log('✓ Saved to data/kalshi-fills.json\n')
 
     console.log('✅ All data fetched successfully!')
     console.log('\nQuick stats:')
@@ -83,7 +97,6 @@ async function main() {
     console.log(`- Open events: ${events.events?.length || 0}`)
     console.log(`- Open markets: ${markets.markets?.length || 0}`)
     console.log(`- Recent fills: ${fills.fills?.length || 0}`)
-
   } catch (error) {
     console.error('Error:', error.message)
     console.error('Stack:', error.stack)

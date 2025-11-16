@@ -29,7 +29,7 @@ Ham frequencies vary by license level, as you gain higher Ham licensing levels y
 
 Most folks opt for the cheap and readily-available chinese-manufactured Baofeng radios which are loved by Americans for their low cost and tactical look and hated by amateur radio transmissions because of their poorly-tuned electronics and spurious emissions.
 
-Many of the objections to these radios are based on how they transmit; they are poorly made and can easily bleed into other frequencies and generally have poor radio etiquette. However, in my opinion, they are *fine* to use for receiving, and they are low-cost and common enough to be programmed and handed out to non-technical friends and neighbors for emergency use. A bad radio is better than no radio, and I think most folks will be using it as a receiver much more often than they talk.
+Many of the objections to these radios are based on how they transmit; they are poorly made and can easily bleed into other frequencies and generally have poor radio etiquette. However, in my opinion, they are _fine_ to use for receiving, and they are low-cost and common enough to be programmed and handed out to non-technical friends and neighbors for emergency use. A bad radio is better than no radio, and I think most folks will be using it as a receiver much more often than they talk.
 
 I usually program radios meant to hand out to GMRS and local repeater frequencies and indicate in the name with a ! that the channel should not be transmitted on.
 
@@ -46,8 +46,11 @@ The HamStudy app is top-tier, and you could probably get your license just by sp
 [](http://websdr.ewi.utwente.nl:8901)
 
 ## Community & Practice
+
 ### Finding Frequencies and Repeaters
+
 ### Hudson Valley Frequencies
+
 ### Local Nets
 
 ## Your Second Radio: TD-H3
@@ -59,4 +62,3 @@ The HamStudy app is top-tier, and you could probably get your license just by sp
 ## Meshtastic
 
 ## Flipper Zero and HackRF / H4M
-

@@ -1,6 +1,6 @@
 import { defineEventHandler, createError } from 'h3'
-import { readFile } from 'fs/promises'
-import { resolve } from 'path'
+import { readFile } from 'node:fs/promises'
+import { resolve } from 'node:path'
 
 interface Post {
   slug?: string

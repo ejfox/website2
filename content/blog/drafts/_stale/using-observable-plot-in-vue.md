@@ -17,7 +17,7 @@ tags:
 
 [Observable Plot](https://observablehq.com/@observablehq/plot) is an awesome tool for quickly sketching and exploring data. It is wonderful when paired with Vue, which can handle user interactions, routing, and state management that can be a bridge between a [blog/2022/2022-prototyping-toolkit|prototyp](blog/2022/2022-prototyping-toolkit|prototyp)e]] and a functional tool.
 
->[Observable Plot](https://github.com/observablehq/plot) is a free, open-source JavaScript library to help you quickly visualize tabular data. It has a concise and (hopefully) memorable API to foster fluency — and plenty of examples to learn from and copy-paste.
+> [Observable Plot](https://github.com/observablehq/plot) is a free, open-source JavaScript library to help you quickly visualize tabular data. It has a concise and (hopefully) memorable API to foster fluency — and plenty of examples to learn from and copy-paste.
 
 [From the Observable Plot page](https://observablehq.com/@observablehq/plot)
 
@@ -41,16 +41,16 @@ Vue and Observable Plot live in slightly different worlds that we need to bridge
 
 ```js
 function makePlotLineGraph(city, targetContainerId) {
-const chartPlot = Plot.plot({
-	width: 500,
-	height: 500,
-	style: {
-		background: "black",
-		color: "white"
-	}
-})
-  
-return chartPlot
+  const chartPlot = Plot.plot({
+    width: 500,
+    height: 500,
+    style: {
+      background: 'black',
+      color: 'white'
+    }
+  })
+
+  return chartPlot
 }
 ```
 
@@ -62,14 +62,14 @@ First we load the data using fetch:
 
 ```js
 fetch('/cities.csv')
-.then((response) => response.text())
-.then((data) => {
-// Set all of the city data
-cities.value = csvParse(data);
+  .then((response) => response.text())
+  .then((data) => {
+    // Set all of the city data
+    cities.value = csvParse(data)
 
-// Set the city data for the active city based on the prop
-city.value = cities.value.find((city) => city.name === props.cityName);
-});
+    // Set the city data for the active city based on the prop
+    city.value = cities.value.find((city) => city.name === props.cityName)
+  })
 ```
 
 We need a computed property that holds the HTML of the rendered Plot based on the data we just updated.
@@ -78,13 +78,13 @@ We need a computed property that holds the HTML of the rendered Plot based on th
 // make a computed that gets the HTML for the chart
 
 const chartHTML = computed(() => {
-if (city.value) {
-// If we have a city, make a chart
-return makePlotLineGraph(city.value, 'chart').outerHTML
-} else {
-// Otherwise, return an empty div
-return '<div></div>'
-}
+  if (city.value) {
+    // If we have a city, make a chart
+    return makePlotLineGraph(city.value, 'chart').outerHTML
+  } else {
+    // Otherwise, return an empty div
+    return '<div></div>'
+  }
 })
 ```
 
