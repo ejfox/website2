@@ -1,7 +1,7 @@
 <script setup>
-// Simplified: list-only view, remove grid/toggle/tooltip logic
+// Magazine-style featured + Bento grid archive
 import FeaturedProjectCard from '~/components/projects/FeaturedProjectCard.vue'
-import ProjectCard from '~/components/projects/ProjectCard.vue'
+import BentoProjectCard from '~/components/projects/BentoProjectCard.vue'
 
 // Static description for SSR-safety
 const defaultDescription =
@@ -107,18 +107,7 @@ const projectActivity = computed(() => {
   return activity
 })
 
-// Extract first image from project HTML for asymmetric grid
-const extractFirstImage = (html) => {
-  if (!html) return null
-  const imgMatch = html.match(/<img[^>]+src="([^">]+)"/)
-  return imgMatch ? imgMatch[1] : null
-}
-
-// Determine layout mode for each featured project
-const getLayoutMode = (index) => {
-  if (index === 0) return 'hero'
-  return index % 2 === 1 ? 'left' : 'right'
-}
+// FeaturedProjectCard handles layout and image extraction internally
 </script>
 
 <template>
@@ -158,7 +147,7 @@ const getLayoutMode = (index) => {
       </div>
     </header>
 
-    <div class="container-main" style="max-width: 65ch">
+    <div class="container-main" style="max-width: 100ch">
       <section class="mt-16 md:mt-0">
         <div v-if="!projects || !projects.length" class="center-empty">
           <p class="text-secondary">No projects found.</p>
@@ -180,20 +169,18 @@ const getLayoutMode = (index) => {
               :key="project.slug"
               :project="project"
               :index="index"
-              :layout-mode="getLayoutMode(index)"
-              :featured-image="extractFirstImage(project.html)"
               class="featured-project"
             />
           </div>
         </div>
 
-        <!-- Regular Projects -->
+        <!-- Regular Projects - Bento Grid -->
         <div v-if="regularProjects.length">
           <h2 v-if="featuredProjects.length" id="all-projects" class="sr-only">
             All Projects
           </h2>
-          <div class="space-y-6 md:space-y-24 transition-all duration-500 ease-out">
-            <ProjectCard
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+            <BentoProjectCard
               v-for="(project, index) in regularProjects"
               :id="getProjectId(project)"
               :key="project.slug"
@@ -232,13 +219,6 @@ const getLayoutMode = (index) => {
 </template>
 
 <style scoped>
-/* CSS Custom Properties for Stagger Animations */
-.featured-project,
-.regular-project {
-  --stagger-delay: 0ms;
-  animation-delay: var(--stagger-delay);
-  opacity: 1 !important;
-  transform: none !important;
-  transition: transform 0.2s ease;
-}
+/* Orchestrated motion handled by global.css */
+/* Animations use CSS custom properties set in component :style bindings */
 </style>

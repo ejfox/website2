@@ -55,7 +55,7 @@
 </template>
 
 <script setup>
-import { format } from 'date-fns/format'
+const { formatYearOnly } = useDateFormat()
 
 const props = defineProps({
   project: {
@@ -68,14 +68,7 @@ const props = defineProps({
   }
 })
 
-const formatDate = (date) => {
-  if (!date) return ''
-  try {
-    return format(new Date(date), 'yyyy')
-  } catch {
-    return ''
-  }
-}
+const formatDate = formatYearOnly
 
 const projectSlug = computed(() => {
   // Create a clean anchor slug from the project title
