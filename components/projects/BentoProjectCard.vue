@@ -15,14 +15,23 @@
       {{ excerpt }}
     </p>
 
-    <div class="mt-auto space-y-2 text-xs text-zinc-500">
-      <time class="block tabular-nums">
-        {{ formatYearOnly(project.metadata?.date || project.date) }}
-      </time>
+    <div class="mt-auto space-y-2">
+      <!-- Dense metadata display - maximalist approach -->
+      <div class="flex flex-wrap gap-x-3 gap-y-1 text-xs font-mono text-zinc-500">
+        <time class="tabular-nums text-zinc-900 dark:text-zinc-100">
+          {{ formatYearOnly(project.metadata?.date || project.date) }}
+        </time>
+        <span v-if="wordCount">{{ wordCount }}w</span>
+        <span v-if="charCount">{{ charCount }}c</span>
+        <span v-if="readingMinutes">{{ readingMinutes }}min</span>
+        <span v-if="imageCount">{{ imageCount }}img</span>
+        <span v-if="linkCount">{{ linkCount }}links</span>
+        <span v-if="techCount">{{ techCount }}tech</span>
+      </div>
 
       <div
         v-if="project.metadata?.tech?.length"
-        class="flex flex-wrap gap-2 font-mono uppercase"
+        class="flex flex-wrap gap-2 text-xs font-mono uppercase text-zinc-400"
       >
         <span v-for="tech in project.metadata.tech.slice(0, 3)" :key="tech">{{
           tech
@@ -36,7 +45,7 @@
         v-if="project.metadata?.github"
         :href="project.metadata.github"
         target="_blank"
-        class="inline-block hover:text-zinc-900 dark:hover:text-zinc-100"
+        class="inline-block text-xs text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
         @click.stop
       >
         GitHub ↗
@@ -79,4 +88,33 @@ const seededRotation = computed(() => {
 const cardTransform = computed(
   () => `rotate(${seededRotation.value}deg)`
 )
+
+// Dense metadata extraction - maximalist data display
+const wordCount = computed(() => {
+  if (!props.project.html) return 0
+  const text = props.project.html.replace(/<[^>]*>/g, '').trim()
+  return text.split(/\s+/).filter((w) => w.length > 0).length
+})
+
+const charCount = computed(() => {
+  if (!props.project.html) return 0
+  return props.project.html.replace(/<[^>]*>/g, '').replace(/\s+/g, '').length
+})
+
+const imageCount = computed(() => {
+  if (!props.project.html) return 0
+  return (props.project.html.match(/<img/g) || []).length
+})
+
+const linkCount = computed(() => {
+  if (!props.project.html) return 0
+  return (props.project.html.match(/<a /g) || []).length
+})
+
+const readingMinutes = computed(() => {
+  if (!wordCount.value) return 0
+  return Math.max(1, Math.ceil(wordCount.value / 200))
+})
+
+const techCount = computed(() => props.project.metadata?.tech?.length || 0)
 </script>
