@@ -8,12 +8,8 @@
             <li v-for="section in statsSections" :key="section.id">
               <a
                 :href="`#${section.id}`"
-                class="block uppercase tracking-wider transition-colors"
-                :class="[
-                  activeSection === section.id
-                    ? 'text-zinc-900 dark:text-zinc-100'
-                    : 'text-zinc-500 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100'
-                ]"
+                class="block uppercase tracking-wider "
+                :class="getTocClass(activeSection === section.id)"
               >
                 {{ section.text }}
               </a>
@@ -452,8 +448,7 @@ import GearStats from '~/components/stats/GearStats.vue'
 
 const statsDescription = computed(() => {
   const s = stats.value
-  if (!s)
-    return 'Real-time personal metrics dashboard: GitHub contributions, chess ratings, typing speed, music listening, coding problems solved, books read, and more.'
+  if (!s) return 'Personal metrics: coding stats, games, music'
 
   const parts = []
   if (s.github?.totalCommits) parts.push(`${s.github.totalCommits} commits`)
@@ -525,6 +520,15 @@ const cachedPosts = shallowRef<any[] | null>(null)
 
 // DELETED: Heavy external service data - components load on-demand
 
+// Helper function to format date to YYYY-MM
+const formatDateToMonth = (date: Date) => {
+  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`
+}
+
+// Helper to create summary links
+const link = (href: string, text: string) =>
+  `<a href="#${href}" class="underline ">${text}</a>`
+
 onMounted(async () => {
   try {
     if (!cachedPosts.value) {
@@ -579,7 +583,7 @@ onMounted(async () => {
     const tagCounts: Record<string, number> = {}
     const postsByMonth: Record<string, number> = {}
     const now = new Date()
-    const currentMonth = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`
+    const currentMonth = formatDateToMonth(now)
 
     const { totalWords, wordCount, firstDate, lastDate } = posts.reduce(
       (acc: any, post: any) => {
@@ -587,7 +591,7 @@ onMounted(async () => {
         const postDate = new Date(
           post?.date || post?.metadata?.date || new Date()
         )
-        const month = `${postDate.getFullYear()}-${String(postDate.getMonth() + 1).padStart(2, '0')}`
+        const month = formatDateToMonth(postDate)
 
         if (!acc.firstDate || postDate < acc.firstDate) acc.firstDate = postDate
         if (!acc.lastDate || postDate > acc.lastDate) acc.lastDate = postDate
@@ -679,9 +683,9 @@ const summaryData = computed(() => {
         0
       )
       const postsPlural = pluralize(recentPosts.length, 'post')
-      clauses.push(
-        `<a href="#writing" class="underline hover:no-underline">written</a> ${formatNumber(totalWords)} words across ${postsPlural}`
-      )
+      const formattedWords = formatNumber(totalWords)
+      const writingText = `${formattedWords} words across ${postsPlural}`
+      clauses.push(`${link('writing', 'written')} ${writingText}`)
     }
   }
 
@@ -694,9 +698,7 @@ const summaryData = computed(() => {
       return commitDate >= weekAgo
     })
     if (recentCommits.length > 0) {
-      clauses.push(
-        `made ${recentCommits.length} <a href="#github" class="underline hover:no-underline">commits</a>`
-      )
+      clauses.push(`made ${recentCommits.length} ${link('github', 'commits')}`)
     }
   }
 
@@ -716,7 +718,7 @@ const summaryData = computed(() => {
     })
     if (recent.length > 0) {
       clauses.push(
-        `<a href="#leetcode" class="underline hover:no-underline">solved</a> ${recent.length} coding problems`
+        `${link('leetcode', 'solved')} ${recent.length} coding problems`
       )
     }
   }
@@ -732,8 +734,9 @@ const summaryData = computed(() => {
     if (recentGames.length > 0) {
       const wins = recentGames.filter((g) => g.result === 'win').length
       const winText = wins === 1 ? 'win' : 'wins'
+      const gameText = `chess games (${wins} ${winText})`
       clauses.push(
-        `<a href="#chess" class="underline hover:no-underline">played</a> ${recentGames.length} chess games (${wins} ${winText})`
+        `${link('chess', 'played')} ${recentGames.length} ${gameText}`
       )
     }
   }
@@ -748,9 +751,7 @@ const summaryData = computed(() => {
     })
     if (recent.length > 0) {
       const bestRecent = Math.max(...recent.map((t) => t.wpm))
-      clauses.push(
-        `<a href="#typing" class="underline hover:no-underline">typed</a> at ${bestRecent} WPM`
-      )
+      clauses.push(`${link('typing', 'typed')} at ${bestRecent} WPM`)
     }
   }
 
@@ -763,9 +764,7 @@ const summaryData = computed(() => {
       return gistDate >= weekAgo
     })
     if (recentGists.length > 0) {
-      clauses.push(
-        `created ${recentGists.length} <a href="#gists" class="underline hover:no-underline">gists</a>`
-      )
+      clauses.push(`created ${recentGists.length} ${link('gists', 'gists')}`)
     }
   }
 
@@ -780,9 +779,9 @@ const summaryData = computed(() => {
     })
     if (recentTracks.length > 0) {
       const topArtist = recentTracks[0]?.artist?.name
-      clauses.push(
-        `listened to ${recentTracks.length} <a href="#music" class="underline hover:no-underline">tracks</a>${topArtist ? ` (mostly ${topArtist})` : ''}`
-      )
+      const artistNote = topArtist ? ` (mostly ${topArtist})` : ''
+      const musicText = `listened to ${recentTracks.length}`
+      clauses.push(`${musicText} ${link('music', 'tracks')}${artistNote}`)
     }
   }
 
@@ -803,12 +802,11 @@ const summaryData = computed(() => {
       }
       const weekAgo = new Date()
       weekAgo.setDate(weekAgo.getDate() - 7)
-      return filmDate >= weekAgo && filmDate <= new Date() // Also ensure it's not in the future
+      const isInFuture = filmDate > new Date()
+      return filmDate >= weekAgo && !isInFuture
     })
     if (recentFilms.length > 0) {
-      clauses.push(
-        `watched ${recentFilms.length} <a href="#movies" class="underline hover:no-underline">films</a>`
-      )
+      clauses.push(`watched ${recentFilms.length} ${link('movies', 'films')}`)
     }
   }
 
@@ -817,7 +815,7 @@ const summaryData = computed(() => {
     const productiveHours = Math.round(rescueTime.summary.productive.time.hours)
     if (productiveHours > 0) {
       clauses.push(
-        `logged ${productiveHours} <a href="#productivity" class="underline hover:no-underline">productive hours</a>`
+        `logged ${productiveHours} ${link('productivity', 'productive hours')}`
       )
     }
   }
@@ -830,12 +828,12 @@ const summaryData = computed(() => {
     if (Math.abs(change) > 0) {
       const direction = change > 0 ? 'gained' : 'lost'
       clauses.push(
-        `${direction} ${Math.abs(change)} <a href="#website" class="underline hover:no-underline">pageviews</a>`
+        `${direction} ${Math.abs(change)} ${link('website', 'pageviews')}`
       )
     }
   }
 
-  // Gear optimization - only if added items in past month (need lastUpdated field)
+  // Gear optimization - only if added items in past month
   // Skip for now - no temporal data available to determine recent additions
 
   if (clauses.length === 0) {
@@ -930,6 +928,15 @@ const statsSections = [
   { id: 'gear', text: 'Gear' }
 ]
 
+// Helper function for TOC link classes
+const getTocClass = (isActive) => {
+  if (isActive) return 'text-zinc-900 dark:text-zinc-100'
+  return [
+    'text-zinc-500 dark:text-zinc-500',
+    ''
+  ].join(' ')
+}
+
 onMounted(() => {
   // Initialize simple mode day progress
   displayDayOfYear.value = dayOfYear
@@ -1019,7 +1026,6 @@ useHead({
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .fade-enter-from,
