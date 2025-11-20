@@ -29,15 +29,94 @@ const tocHeadingClass =
 const tocLinkClass =
   'block py-0.5 text-zinc-600 dark:text-zinc-400 ' +
   'hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors'
+
+// Aggregate metadata for brutalist header display
+const totalWords = computed(() => {
+  if (!projects.value) return 0
+  return projects.value.reduce((sum, p) => {
+    if (!p.html) return sum
+    const text = p.html.replace(/<[^>]*>/g, '').trim()
+    const words = text.split(/\s+/).filter((w) => w.length > 0).length
+    return sum + words
+  }, 0)
+})
+
+const totalImages = computed(() => {
+  if (!projects.value) return 0
+  return projects.value.reduce((sum, p) => {
+    if (!p.html) return sum
+    return sum + (p.html.match(/<img/g) || []).length
+  }, 0)
+})
+
+const totalLinks = computed(() => {
+  if (!projects.value) return 0
+  return projects.value.reduce((sum, p) => {
+    if (!p.html) return sum
+    return sum + (p.html.match(/<a /g) || []).length
+  }, 0)
+})
+
+const totalTech = computed(() => {
+  if (!projects.value) return 0
+  const techSet = new Set()
+  projects.value.forEach((p) => {
+    if (p.metadata?.tech) {
+      p.metadata.tech.forEach((t) => techSet.add(t))
+    }
+  })
+  return techSet.size
+})
+
+const earliestYear = computed(() => {
+  if (!projects.value?.length) return new Date().getFullYear()
+  const years = projects.value
+    .map((p) => {
+      const date = p.metadata?.date || p.date
+      return date ? new Date(date).getFullYear() : new Date().getFullYear()
+    })
+    .filter((y) => !isNaN(y))
+  return Math.min(...years)
+})
+
+const latestYear = computed(() => {
+  if (!projects.value?.length) return new Date().getFullYear()
+  const years = projects.value
+    .map((p) => {
+      const date = p.metadata?.date || p.date
+      return date ? new Date(date).getFullYear() : new Date().getFullYear()
+    })
+    .filter((y) => !isNaN(y))
+  return Math.max(...years)
+})
 </script>
 
 <template>
   <div class="px-4 md:px-8 max-w-4xl">
-    <header class="mb-12">
-      <h1 class="text-4xl md:text-5xl font-serif font-light mb-3">Projects</h1>
-      <p class="text-lg text-zinc-600 dark:text-zinc-400">
-        {{ projects?.length || 0 }} projects
-      </p>
+    <header class="mb-12 border-b-2 border-zinc-900 dark:border-zinc-100 pb-4">
+      <div class="font-mono text-xs text-zinc-500 mb-3 uppercase tracking-wider">
+        INDEX / PROJECTS / {{ earliestYear }}–{{ latestYear }}
+      </div>
+
+      <h1
+        class="text-5xl md:text-6xl font-serif font-light tracking-tighter leading-none mb-4"
+      >
+        Selected Work
+      </h1>
+
+      <div
+        class="flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs text-zinc-500 tabular-nums"
+      >
+        <span class="text-zinc-900 dark:text-zinc-100"
+          >{{ projects?.length || 0 }} projects</span
+        >
+        <span>{{ featuredProjects.length }} featured</span>
+        <span>{{ totalWords.toLocaleString() }} words</span>
+        <span>{{ totalImages }} images</span>
+        <span>{{ totalLinks }} links</span>
+        <span>{{ totalTech }} technologies</span>
+        <span>{{ Math.ceil(totalWords / 200) }}min read</span>
+      </div>
     </header>
 
     <div v-if="!projects?.length" class="text-center py-8">
