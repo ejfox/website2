@@ -174,7 +174,7 @@ onMounted(() => {
     rgba(255, 255, 255, 0.1),
     transparent
   );
-  transition: left 0.5s ease;
+  transition: left 0.3s ease;
 }
 
 .calendar-toc a:hover::before {

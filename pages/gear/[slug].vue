@@ -65,7 +65,7 @@ definePageMeta({
   height: 60px;
   position: relative;
   transform: rotate(30deg);
-  animation: hexRotate 2s linear infinite;
+  animation: hexRotate 0.8s linear infinite;
 }
 
 .hex-inner {
@@ -73,7 +73,7 @@ definePageMeta({
   height: 100%;
   background: linear-gradient(45deg, #3b82f6, #06b6d4, #8b5cf6);
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  animation: hexPulse 1.5s ease-in-out infinite alternate;
+  animation: hexPulse 0.6s ease-in-out infinite alternate;
 }
 
 @keyframes hexRotate {

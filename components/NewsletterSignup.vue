@@ -190,7 +190,7 @@ onMounted(() => {
 
 .dot {
   @apply w-[3px] h-[3px] mx-px bg-current rounded-full inline-block;
-  animation: dot-flashing 1s infinite alternate;
+  animation: dot-flashing 0.6s infinite alternate;
 }
 
 .dot:nth-child(2) {

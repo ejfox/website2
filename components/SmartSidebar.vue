@@ -310,7 +310,7 @@ onUnmounted(() => {
   cursor: pointer;
   font-family: monospace;
   opacity: 0.15;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 0 2px 2px 0;
 }
 
@@ -361,7 +361,7 @@ onUnmounted(() => {
   padding: 4px 0;
   color: #71717a;
   text-decoration: none;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 2px;
 }
 
@@ -427,7 +427,7 @@ onUnmounted(() => {
   text-decoration: none;
   font-size: 12px;
   line-height: calc(var(--baseline, 8px) * 2);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 2px;
 }
 
@@ -505,7 +505,7 @@ onUnmounted(() => {
   font-size: 11px;
   line-height: calc(var(--baseline, 8px) * 2);
   color: #71717a;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 2px;
 }
 
@@ -524,7 +524,7 @@ onUnmounted(() => {
   color: #71717a;
   margin-right: 4px;
   font-weight: 500;
-  transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .sidenote-preview:hover sup {
