@@ -44,8 +44,9 @@ export default defineEventHandler(async (_event) => {
               /<user_rating>(\d+)<\/user_rating>/
             )
             const coverPattern =
-              '<book_large_image_url><![CDATA[' +
+              '<book_large_image_url><!\\[CDATA\\[' +
               '(.*?)\\]\\]><\\/book_large_image_url>'
+            // eslint-disable-next-line regexp/no-invalid-regexp
             const coverMatch = itemXml.match(new RegExp(coverPattern))
             const bookIdMatch = itemXml.match(/<book_id>(\d+)<\/book_id>/)
             const dateAddedMatch = itemXml.match(

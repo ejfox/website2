@@ -7,6 +7,7 @@ function extractRandomHighlight(htmlContent) {
   if (!htmlContent) return null
 
   // Find all paragraphs that contain highlights (have location links)
+  // eslint-disable-next-line regexp/no-super-linear-backtracking
   const highlightRegex = /<p class="mb-4">([^<]+).*?— location:/g
   const highlights = []
   let match

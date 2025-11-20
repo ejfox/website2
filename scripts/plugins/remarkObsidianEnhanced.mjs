@@ -99,6 +99,7 @@ export function remarkObsidianEnhanced() {
     // Add inline expandables: {expand: Title | Content}
     visit(tree, 'text', (node, index, parent) => {
       const value = node.value
+      // eslint-disable-next-line regexp/no-super-linear-backtracking
       const expandPattern = /\{expand:\s*([^|]+)\|\s*([^}]+)\}/g
       let match
       const nodes = []
