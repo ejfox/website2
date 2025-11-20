@@ -2,7 +2,7 @@
   <NuxtLink
     :to="`/projects/${projectSlug}`"
     :style="{ transform: cardTransform }"
-    class="block p-5 rounded border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all duration-300 ease-out hover:rotate-0 no-underline min-h-[180px] flex flex-col"
+    class="block p-5 transition-all duration-300 ease-out hover:rotate-0 no-underline min-h-[180px] flex flex-col"
   >
     <h3 class="text-lg font-serif text-zinc-900 dark:text-zinc-100 mb-2">
       {{ projectTitle }}
@@ -45,7 +45,7 @@
         v-if="project.metadata?.github"
         :href="project.metadata.github"
         target="_blank"
-        class="inline-block text-xs text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+        class="inline-block text-xs text-zinc-500"
         @click.stop
       >
         GitHub ↗

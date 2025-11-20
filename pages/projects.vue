@@ -26,9 +26,7 @@ const getProjectId = (project) => getSlug(project)
 
 const tocHeadingClass =
   'text-xs font-mono uppercase tracking-wider text-zinc-500 mb-3'
-const tocLinkClass =
-  'block py-0.5 text-zinc-600 dark:text-zinc-400 ' +
-  'hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors'
+const tocLinkClass = 'block py-0.5 text-zinc-600 dark:text-zinc-400'
 
 // Aggregate metadata for brutalist header display
 const totalWords = computed(() => {
@@ -93,7 +91,7 @@ const latestYear = computed(() => {
 
 <template>
   <div class="px-4 md:px-8 max-w-4xl">
-    <header class="mb-12 border-b-2 border-zinc-900 dark:border-zinc-100 pb-4">
+    <header class="mb-12 pb-4">
       <div class="font-mono text-xs text-zinc-500 mb-3 uppercase tracking-wider">
         INDEX / PROJECTS / {{ earliestYear }}–{{ latestYear }}
       </div>
