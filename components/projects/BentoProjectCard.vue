@@ -1,7 +1,8 @@
 <template>
   <NuxtLink
     :to="`/projects/${projectSlug}`"
-    class="block p-5 rounded border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors no-underline min-h-[180px] flex flex-col"
+    :style="{ transform: cardTransform }"
+    class="block p-5 rounded border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all duration-300 ease-out hover:rotate-0 no-underline min-h-[180px] flex flex-col"
   >
     <h3 class="text-lg font-serif text-zinc-900 dark:text-zinc-100 mb-2">
       {{ projectTitle }}
@@ -66,4 +67,16 @@ const excerpt = computed(() => {
     .trim()
   return text.length > 120 ? text.substring(0, 120) + '…' : text
 })
+
+// Seed-based consistent rotation for organic feel
+const seededRotation = computed(() => {
+  const seed = projectTitle.value
+    .split('')
+    .reduce((a, b) => a + b.charCodeAt(0), 0)
+  return ((seed % 7) - 3) * 0.4 // -1.2deg to +1.2deg
+})
+
+const cardTransform = computed(
+  () => `rotate(${seededRotation.value}deg)`
+)
 </script>
