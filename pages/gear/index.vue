@@ -2,7 +2,7 @@
   <main class="px-4 md:px-6 lg:px-8 max-w-full bg-zinc-950 min-h-screen">
     <header class="section-spacing-sm">
       <div
-        class="flex-between py-3 section-spacing-sm border-b border-zinc-800"
+        class="flex-between py-3 section-spacing-sm "
       >
         <div class="flex items-baseline gap-3">
           <h1 class="font-mono text-sm text-zinc-100">GEAR</h1>
@@ -86,7 +86,7 @@
               <div
                 v-for="item in items.slice(0, 20)"
                 :key="item.Name"
-                class="bg-zinc-700 hover:bg-orange-500 transition-colors"
+                class="bg-zinc-700 bg-orange-500 "
                 :style="{
                   width: `${getWeightPercentage(item, items)}%`,
                   opacity:
@@ -95,9 +95,7 @@
                 :title="`${item.Name}: ${formatItemWeight(item)}`"
               ></div>
             </div>
-            <div
-              class="flex justify-between mt-1 text-[7px] text-zinc-600 font-mono"
-            >
+            <div class="gear-weight-range">
               <span>{{ formatWeight(items) }}</span>
               <span>{{ getWeightRange(items) }}</span>
             </div>
@@ -134,7 +132,7 @@
               <div
                 v-for="(bucket, i) in getWeightHistogram(items)"
                 :key="i"
-                class="w-1 bg-zinc-700/50 hover:bg-orange-500/50 transition-colors"
+                class="gear-histogram"
                 :style="{ height: `${bucket.height}%` }"
                 :title="`${bucket.count} items: ${bucket.range}`"
               ></div>
@@ -145,50 +143,16 @@
         <div class="relative overflow-x-auto">
           <table class="w-full text-[9px] font-mono">
             <thead class="sticky top-0 bg-zinc-950 backdrop-blur-sm">
-              <tr class="border-b border-zinc-800/30">
-                <th
-                  class="text-left px-1 py-1 font-normal text-zinc-500 text-[8px] uppercase"
-                >
-                  Item
-                </th>
-                <th
-                  class="text-center px-1 py-1 font-normal text-zinc-500 text-[8px]"
-                ></th>
-                <th
-                  class="text-center px-1 py-1 font-normal text-zinc-500 text-[8px]"
-                >
-                  Type
-                </th>
-                <th
-                  class="text-center px-1 py-1 font-normal text-zinc-500 text-[8px]"
-                >
-                  Cat
-                </th>
-                <th
-                  class="text-center px-1 py-1 font-normal text-zinc-500 text-[8px]"
-                >
-                  H₂O
-                </th>
-                <th
-                  class="text-center px-1 py-1 font-normal text-zinc-500 text-[8px]"
-                >
-                  Pri
-                </th>
-                <th
-                  class="text-center px-1 py-1 font-normal text-zinc-500 text-[8px]"
-                >
-                  ⚡
-                </th>
-                <th
-                  class="text-center px-1 py-1 font-normal text-zinc-500 text-[8px]"
-                >
-                  Age
-                </th>
-                <th
-                  class="text-right px-1 py-1 font-normal text-zinc-500 text-[8px] pr-2"
-                >
-                  g/oz
-                </th>
+              <tr class="/30">
+                <th class="gear-th-left">Item</th>
+                <th class="gear-th"></th>
+                <th class="gear-th">Type</th>
+                <th class="gear-th">Cat</th>
+                <th class="gear-th">H₂O</th>
+                <th class="gear-th">Pri</th>
+                <th class="gear-th">⚡</th>
+                <th class="gear-th">Age</th>
+                <th class="gear-th-right">g/oz</th>
               </tr>
             </thead>
             <tbody class="bg-zinc-950">
@@ -207,7 +171,7 @@
 </template>
 
 <script setup>
-import { csvParse } from 'd3-dsv' // TREE-SHAKEN: Only import what we need (~2KB vs 200KB)
+import { csvParse } from 'd3-dsv' // Only used CSV parser (~2KB)
 
 // HTML escaping function for attributes
 const _escapeHtml = (text) => {
@@ -457,12 +421,14 @@ const gearDescription = computed(() => {
     const containers = containerCount.value || 0
 
     if (items === 0 || !weight || weight === '0') {
-      return 'Complete gear inventory with weights, specs, and container organization.'
+      return 'Gear inventory with weights and specs'
     }
 
-    return `${items} items • ${weight} total • ${containers} containers • Ultralight backpacking setup`
+    const setup = 'ultralight backpacking'
+    const itemsText = `${items} items • ${weight} total`
+    return `${itemsText} • ${containers} bags • ${setup}`
   } catch {
-    return 'Complete gear inventory with weights, specs, and container organization.'
+    return 'Gear inventory with weights and specs'
   }
 })
 
@@ -629,29 +595,54 @@ useHead(() => ({
   meta: [
     {
       name: 'description',
-      content: `Comprehensive gear inventory tracking ${totalItems.value} items across ${containerCount.value} containers. Total weight: ${totalWeight.value}oz. Main categories: ${typeBreakdown.value}.`
+      content: [
+        `${totalItems.value} items`,
+        `${containerCount.value} containers`,
+        `${totalWeight.value}oz`,
+        typeBreakdown.value
+      ].join(' • ')
     }
   ]
 }))
 </script>
 
 <style>
+.gear-th {
+  @apply text-center px-1 py-1 font-normal text-zinc-500 text-[8px];
+}
+
+.gear-th-left {
+  @apply text-left px-1 py-1 font-normal text-zinc-500 text-[8px] uppercase;
+}
+
+.gear-th-right {
+  @apply text-right px-1 py-1 font-normal text-zinc-500 text-[8px] pr-2;
+}
+
+.gear-weight-range {
+  @apply flex justify-between mt-1 text-[7px] text-zinc-600 font-mono;
+}
+
+.gear-histogram {
+  @apply w-1 bg-zinc-700/50 bg-orange-500/50 ;
+}
+
 .gear-section-header {
   @apply text-[10px] font-mono uppercase tracking-[0.05em] text-zinc-500;
 }
 
 .gear-container-card {
-  @apply flex flex-col py-1 px-1.5 hover:bg-zinc-900/30;
-  @apply border-l-2 border-l-zinc-800/50 bg-transparent;
+  @apply flex flex-col py-1 px-1.5 ;
+  @apply  bg-transparent;
 }
 
 .gear-container-count {
   @apply text-[10px] font-mono tabular-nums text-zinc-500;
-  @apply group-hover:text-zinc-300;
+  @apply ;
 }
 
 .gear-container-header {
   @apply flex items-baseline justify-between pb-2 mb-3;
-  @apply border-b border-zinc-800;
+  @apply ;
 }
 </style>
