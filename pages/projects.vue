@@ -27,7 +27,7 @@ const getProjectId = (project) => getSlug(project)
 const tocHeadingClass =
   'text-xs font-mono uppercase tracking-wider text-zinc-500 mb-3'
 const tocLinkClass =
-  'interactive-link block py-0.5 text-zinc-600 dark:text-zinc-400'
+  'interactive-link block py-1 text-zinc-600 dark:text-zinc-400'
 
 // Aggregate metadata for brutalist header display
 const totalWords = computed(() => {
@@ -154,7 +154,7 @@ const latestYear = computed(() => {
       <teleport v-if="tocTarget" to="#nav-toc-container">
         <nav class="-mx-8">
           <h3 :class="tocHeadingClass">Projects</h3>
-          <ul class="space-y-1 text-sm">
+          <ul class="text-sm">
             <li v-for="project in projects" :key="project.slug">
               <a :href="`#${getProjectId(project)}`" :class="tocLinkClass">
                 {{ project.title || project.metadata?.title }}
