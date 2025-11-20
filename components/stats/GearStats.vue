@@ -77,7 +77,8 @@
           }}</span>
         </div>
         <div
-          class="flex items-baseline gap-2 text-zinc-500 tabular-nums text-3xs flex-shrink-0"
+          class="flex items-baseline gap-2 tabular-nums text-3xs flex-shrink-0"
+          :class="['text-zinc-500']"
         >
           <span>{{ container.itemCount }}</span>
           <span class="text-zinc-700 dark:text-zinc-300">{{
@@ -137,7 +138,8 @@
               }"
             ></div>
             <span
-              class="text-zinc-700 dark:text-zinc-300 tabular-nums text-3xs w-4 text-right"
+              class="tabular-nums text-3xs w-4 text-right"
+              :class="['text-zinc-700 dark:text-zinc-300']"
               >{{ count }}</span
             >
           </div>
@@ -217,8 +219,10 @@
 // Nuxt 4 auto-imports everything!
 import * as d3 from 'd3'
 import _StatsSectionHeader from './StatsSectionHeader.vue'
-// NUKED BY BLOODHOUND: import { animate, stagger as _stagger, onScroll } from '~/anime.esm.js'
-// NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
+// NUKED BY BLOODHOUND: import { animate, stagger as _stagger, onScroll }
+// from '~/anime.esm.js'
+// NUKED BY BLOODHOUND: import { useAnimations }
+// from '~/composables/useAnimations'
 
 interface GearItem {
   Name?: string
@@ -309,7 +313,8 @@ const gramsPerItem = computed(() => {
   return (totalWeight.value * 28.35) / totalItems.value
 })
 
-// Smart weight formatter: grams for <300g (10.5oz), pounds for heavy, oz otherwise
+// Smart weight formatter: grams for <300g (10.5oz), pounds for heavy,
+// oz otherwise
 const formatWeight = (oz: number) => {
   const grams = oz * 28.35
   if (grams < 300) {
@@ -373,7 +378,8 @@ const recentlyUsed = computed(() => {
   return [...gearItems.value]
     .filter((item) => {
       const lastUsed = item.Last_Used
-      return lastUsed && lastUsed.match(/^\d{4}-\d{2}-\d{2}$/) // Valid date format
+      // Valid date format check
+      return lastUsed && lastUsed.match(/^\d{4}-\d{2}-\d{2}$/)
     })
     .sort((a, b) => {
       const dateA = new Date(a.Last_Used || '')

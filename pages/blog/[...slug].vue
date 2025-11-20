@@ -13,6 +13,35 @@ const stripHtml = (html) => {
     .trim()
 }
 
+// CSS Classes
+const progressBarClass =
+  'fixed top-0 left-0 right-0 h-[2px] sm:h-[1px] bg-zinc-200 ' +
+  'dark:bg-zinc-800 z-50'
+const progressInnerClass =
+  'h-full bg-zinc-600 dark:bg-zinc-400 transition-all duration-100 ' +
+  'ease-out'
+const tagsContainerClass =
+  'px-4 md:px-6 py-4 md:py-3 border-t border-zinc-200 ' + 'dark:border-zinc-800'
+const navDateClass =
+  'block text-sm sm:text-xs font-mono text-zinc-400 ' +
+  'leading-5 sm:leading-4 mt-1'
+const relatedPostsContainerClass =
+  'px-4 md:px-6 py-8 border-t border-zinc-200 dark:border-zinc-800'
+const relatedPostsTitleClass =
+  'font-mono text-xs uppercase tracking-[0.15em] text-zinc-500 mb-4'
+const relatedPostItemClass =
+  'font-serif text-base text-zinc-900 dark:text-zinc-100 mb-1'
+const relatedPostMetaClass =
+  'flex items-center gap-2 text-xs font-mono text-zinc-500'
+const tocLinkClass =
+  'flex items-baseline text-sm transition-all duration-200 ' +
+  'no-underline py-2 gap-2'
+const tocNumberClass =
+  'font-mono text-xs tabular-nums opacity-50 w-4 text-right ' + 'flex-shrink-0'
+const tocInactiveClass =
+  'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 ' +
+  'dark:hover:text-zinc-100 hover:translate-x-1'
+
 const config = useRuntimeConfig()
 const _isDark = useDark()
 const processedMarkdown = useProcessedMarkdown()
@@ -276,7 +305,9 @@ const _renderedTitle = computed(() => {
       return `</span><span class="word">`
     }
 
-    return `<span class="letter ${isVisible ? 'visible' : 'hidden'}">${char}${isCursorHere ? '<span class="cursor"></span>' : ''}</span>`
+    const visibility = isVisible ? 'visible' : 'hidden'
+    const cursor = isCursorHere ? '<span class="cursor"></span>' : ''
+    return `<span class="letter ${visibility}">${char}${cursor}</span>`
   })
   return `<span class="word">${spans.join('')}</span>`
 })
@@ -643,12 +674,9 @@ const _processedMetadata = computed(() => {
     </div>
 
     <!-- Reading progress bar - mobile optimized -->
-    <div
-      v-if="post && !post.redirect"
-      class="fixed top-0 left-0 right-0 h-[2px] sm:h-[1px] bg-zinc-200 dark:bg-zinc-800 z-50"
-    >
+    <div v-if="post && !post.redirect" :class="progressBarClass">
       <div
-        class="h-full bg-zinc-600 dark:bg-zinc-400 transition-all duration-100 ease-out"
+        :class="progressInnerClass"
         :style="`width: ${scrollProgress}%`"
       ></div>
     </div>
@@ -694,7 +722,9 @@ const _processedMetadata = computed(() => {
               <span class="whitespace-nowrap text-secondary">
                 {{ formatCompactNumber(readingStats.words) }} words
               </span>
-              <span v-if="readingStats.images > 0" class="text-divider">·</span>
+              <span v-if="readingStats.images > 0" class="text-divider">
+                ·
+              </span>
               <span
                 v-if="readingStats.images > 0"
                 class="whitespace-nowrap text-secondary"
@@ -772,7 +802,7 @@ const _processedMetadata = computed(() => {
         <!-- Tags Section - mobile optimized touch targets -->
         <div
           v-if="post.tags || post.metadata?.tags"
-          class="px-4 md:px-6 py-4 md:py-3 border-t border-zinc-200 dark:border-zinc-800"
+          :class="tagsContainerClass"
         >
           <div class="flex flex-wrap gap-3 sm:gap-2">
             <a
@@ -796,9 +826,7 @@ const _processedMetadata = computed(() => {
               <span class="post-nav-title">
                 {{ nextPrevPosts.prev?.title }}
               </span>
-              <span
-                class="block text-sm sm:text-xs font-mono text-zinc-400 leading-5 sm:leading-4 mt-1"
-              >
+              <span :class="navDateClass">
                 {{ formatDate(nextPrevPosts.prev.date) }}
               </span>
             </NuxtLink>
@@ -817,9 +845,7 @@ const _processedMetadata = computed(() => {
               <span class="post-nav-title">
                 {{ nextPrevPosts.next?.title }}
               </span>
-              <span
-                class="block text-sm sm:text-xs font-mono text-zinc-400 leading-5 sm:leading-4 mt-1"
-              >
+              <span :class="navDateClass">
                 {{ formatDate(nextPrevPosts.next.date) }}
               </span>
             </NuxtLink>
@@ -827,15 +853,8 @@ const _processedMetadata = computed(() => {
         </div>
 
         <!-- Related Posts by Tag -->
-        <div
-          v-if="relatedPosts.length > 0"
-          class="px-4 md:px-6 py-8 border-t border-zinc-200 dark:border-zinc-800"
-        >
-          <h3
-            class="font-mono text-xs uppercase tracking-[0.15em] text-zinc-500 mb-4"
-          >
-            Related Posts
-          </h3>
+        <div v-if="relatedPosts.length > 0" :class="relatedPostsContainerClass">
+          <h3 :class="relatedPostsTitleClass">Related Posts</h3>
           <div class="stack-4">
             <div
               v-for="{ post: relatedPost, overlappingTags } in relatedPosts"
@@ -845,14 +864,10 @@ const _processedMetadata = computed(() => {
                 :to="`/blog/${relatedPost.slug}`"
                 class="block no-underline"
               >
-                <div
-                  class="font-serif text-base text-zinc-900 dark:text-zinc-100 mb-1"
-                >
+                <div :class="relatedPostItemClass">
                   {{ relatedPost.title || relatedPost.metadata?.title }}
                 </div>
-                <div
-                  class="flex items-center gap-2 text-xs font-mono text-zinc-500"
-                >
+                <div :class="relatedPostMetaClass">
                   <span>{{
                     formatDate(relatedPost.date || relatedPost.metadata?.date)
                   }}</span>
@@ -898,19 +913,19 @@ const _processedMetadata = computed(() => {
               >
                 <a
                   :href="`#${child.slug}`"
-                  class="flex items-baseline text-sm transition-all duration-200 no-underline py-2 gap-2"
                   :class="[
+                    tocLinkClass,
                     activeSection === child.slug
                       ? 'text-zinc-900 dark:text-zinc-100 font-medium'
-                      : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:translate-x-1'
+                      : tocInactiveClass
                   ]"
                 >
                   <!-- Section number aligned on same baseline -->
                   <span
-                    class="font-mono text-xs tabular-nums opacity-50 w-4 text-right flex-shrink-0"
-                    :class="
+                    :class="[
+                      tocNumberClass,
                       activeSection === child.slug ? 'opacity-70' : 'opacity-40'
-                    "
+                    ]"
                   >
                     {{ String(index + 1).padStart(2, '0') }}
                   </span>

@@ -11,12 +11,7 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/91MzBwRDhBL._SY160.jpg",
       "highlightsCount": 1
     },
-    "tags": [
-      "book",
-      "video",
-      "art",
-      "technique"
-    ],
+    "tags": ["book", "video", "art", "technique"],
     "words": 64,
     "images": 0,
     "imageDetails": {

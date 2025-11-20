@@ -6,12 +6,7 @@
       <nav v-if="!isStatsSimple" class="header-mobile-sticky">
         <!-- Top bar with branding -->
         <div class="flex items-center justify-between px-4 h-12">
-          <a
-            href="/"
-            class="text-lg font-medium tracking-tight text-zinc-900 dark:text-zinc-100"
-          >
-            EJ Fox
-          </a>
+          <a href="/" :class="brandingClasses"> EJ Fox </a>
           <div class="w-6"></div>
           <!-- Spacer for visual balance -->
         </div>
@@ -62,7 +57,7 @@
           <div
             v-if="mobileMenuOpen"
             id="secondary-nav-menu"
-            class="px-4 pb-4 border-t border-zinc-200/30 dark:border-zinc-800/30"
+            :class="secondaryNavMenuClasses"
           >
             <div class="flex flex-wrap gap-1 pt-4">
               <a
@@ -81,15 +76,9 @@
 
       <!-- Desktop navigation - DELETED COMPLEX SSR-BREAKING LINKS -->
       <nav class="sidebar-sticky">
-        <div
-          class="container mx-auto md:flex md:flex-col items-start w-full max-h-screen"
-        >
+        <div :class="desktopNavContainerClasses">
           <div class="px-8 py-8 space-y-1 w-full">
-            <div
-              class="text-zinc-900 dark:text-zinc-100 text-2xl font-bold block mb-8"
-            >
-              EJ Fox
-            </div>
+            <div :class="headingClasses">EJ Fox</div>
             <div class="space-y-1">
               <a
                 v-for="item in primaryNav"
@@ -113,13 +102,6 @@
             </div>
             <!-- Table of Contents Teleport Target -->
             <div id="nav-toc-container" class="mt-8"></div>
-
-            <!-- Calendar TOC removed - causing hydration mismatch -->
-          </div>
-          <div class="footer-sidebar">
-            <a href="/pgp.txt"
-              >PGP: <span class="font-mono">E207 8E65 3FE3 89CD</span></a
-            >
           </div>
         </div>
       </nav>
@@ -166,8 +148,47 @@ const isStatsSimple = ref(false)
 const primaryNav = getPrimaryNav()
 const secondaryNav = getSecondaryNav()
 
-const linkClasses =
-  'block text-sm font-mono transition-colors-base hover:text-zinc-900 dark:hover:text-zinc-100 no-underline'
+const linkClasses = `
+  block text-sm font-mono transition-colors-base
+  hover:text-zinc-900 dark:hover:text-zinc-100
+  no-underline
+`
+  .trim()
+  .split(/\s+/)
+  .join(' ')
+
+// Class strings that exceed 80 chars - extracted to constants
+const brandingClasses = `
+  text-lg font-medium tracking-tight
+  text-zinc-900 dark:text-zinc-100
+`
+  .trim()
+  .split(/\s+/)
+  .join(' ')
+
+const secondaryNavMenuClasses = `
+  px-4 pb-4 border-t
+  border-zinc-200/30 dark:border-zinc-800/30
+`
+  .trim()
+  .split(/\s+/)
+  .join(' ')
+
+const desktopNavContainerClasses = `
+  container mx-auto md:flex md:flex-col
+  items-start w-full max-h-screen
+`
+  .trim()
+  .split(/\s+/)
+  .join(' ')
+
+const headingClasses = `
+  text-zinc-900 dark:text-zinc-100 text-2xl
+  font-bold block mb-8
+`
+  .trim()
+  .split(/\s+/)
+  .join(' ')
 
 // Simplified onMounted to prevent flickering
 onMounted(() => {

@@ -11,11 +11,7 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/A11vGLbYKcL._SY160.jpg",
       "highlightsCount": 2
     },
-    "tags": [
-      "book",
-      "games",
-      "design"
-    ],
+    "tags": ["book", "games", "design"],
     "words": 95,
     "images": 0,
     "imageDetails": {

@@ -13,9 +13,7 @@
         </div>
 
         <!-- URL Display -->
-        <div
-          class="text-lg font-mono text-zinc-900 dark:text-zinc-100 mb-2 break-all leading-tight"
-        >
+        <div :class="urlDisplayClass">
           {{ pageUrl }}
         </div>
 
@@ -52,14 +50,11 @@
             <button
               v-for="tagObj in suggestions.suggested_tags.slice(0, 8)"
               :key="typeof tagObj === 'string' ? tagObj : tagObj.tag"
-              class="px-2 py-1 text-xs border transition-colors relative group font-mono"
-              :class="
-                selectedTags.includes(
-                  typeof tagObj === 'string' ? tagObj : tagObj.tag
-                )
-                  ? 'bg-zinc-900 border-zinc-900 text-zinc-100 dark:bg-zinc-100 dark:border-zinc-100 dark:text-zinc-900'
-                  : 'bg-transparent border-zinc-300 text-zinc-700 hover:border-zinc-900 dark:border-zinc-600 dark:text-zinc-300 dark:hover:border-zinc-100'
-              "
+              :class="[
+                'px-2 py-1 text-xs border transition-colors relative ' +
+                  'group font-mono',
+                getTagButtonClass(tagObj)
+              ]"
               :title="typeof tagObj === 'object' ? tagObj.details : ''"
               @click="
                 toggleTag(typeof tagObj === 'string' ? tagObj : tagObj.tag)
@@ -195,9 +190,26 @@ const pageText = route.query.text || ''
 const selectedText = route.query.description || ''
 const auth = route.query.auth || ''
 
+// URL display styling
+const urlDisplayClass =
+  'text-lg font-mono text-zinc-900 dark:text-zinc-100 mb-2 ' +
+  'break-all leading-tight'
+
 // Helper function to check if tag is in official list
 const isOfficialTag = (tag) => {
   return officialTags.value.includes(tag)
+}
+
+// Get dynamic class for tag button
+const getTagButtonClass = (tagObj) => {
+  const tag = typeof tagObj === 'string' ? tagObj : tagObj.tag
+  const isSelected = selectedTags.value.includes(tag)
+  return isSelected
+    ? 'bg-zinc-900 border-zinc-900 text-zinc-100 dark:bg-zinc-100 ' +
+        'dark:border-zinc-100 dark:text-zinc-900'
+    : 'bg-transparent border-zinc-300 text-zinc-700 ' +
+        'hover:border-zinc-900 dark:border-zinc-600 dark:text-zinc-300 ' +
+        'dark:hover:border-zinc-100'
 }
 
 // Fetch suggestions on mount
@@ -286,7 +298,7 @@ const clearAllTags = () => {
 }
 
 const copyTagsFromScrap = (scrap) => {
-  // Use allTags if available (contains all original tags), fallback to tags (shared tags only)
+  // Use allTags if available, fallback to tags (shared only)
   const tagsToAdd = scrap.allTags || scrap.tags
   if (tagsToAdd && Array.isArray(tagsToAdd)) {
     tagsToAdd.forEach((tag) => {

@@ -139,10 +139,7 @@
             bookmarkletCode
           }}</code>
         </div>
-        <button
-          class="mt-2 text-sm bg-zinc-700 hover:bg-zinc-600 text-white px-4 py-1 rounded"
-          @click="copyCode"
-        >
+        <button :class="copyButtonClass" @click="copyCode">
           {{ copied ? '✓ Copied!' : 'Copy Code' }}
         </button>
       </div>
@@ -165,32 +162,40 @@ const passphrase = ref('')
 const bookmarkletCode = computed(() => {
   if (!passphrase.value) return '#'
 
+  const windowOpts =
+    'toolbar=no,location=no,directories=no,status=no,menubar=no,' +
+    'scrollbars=yes,resizable=yes,width=800,height=700'
+
   return `javascript:(function(){
   var d=document,w=window,e=w.getSelection,k=d.getSelection,x=d.selection,
   s=(e?e():(k)?k():(x?x.createRange().text:'')),
   l=d.location.href,
   bodyText=d.body.innerText||d.body.textContent||'',
   truncatedText=bodyText.substring(0,5000);
-  
+
   if(l.indexOf('http')!==0){
     alert('This bookmarklet only works on web pages!');
     return;
   }
-  
+
   var popupUrl='http://localhost:3006/bookmarklet-popup?'+
     'url='+encodeURIComponent(l)+
     '&title='+encodeURIComponent(d.title)+
     '&text='+encodeURIComponent(truncatedText)+
     '&auth='+encodeURIComponent('${passphrase.value}');
-  
+
   if(s)popupUrl+='&description='+encodeURIComponent(s);
-  
-  var popup=w.open(popupUrl,'pinboard_enhanced','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=800,height=700');
-  
+
+  var popup=w.open(popupUrl,'pinboard_enhanced','${windowOpts}');
+
   if(popup)popup.focus();
   else alert('Popup blocked! Please allow popups for this site.');
 })();`.replace(/\n\s*/g, '')
 })
+
+// Copy button styling
+const copyButtonClass =
+  'mt-2 text-sm bg-zinc-700 hover:bg-zinc-600 text-white px-4 py-1 rounded'
 
 const copyCode = async () => {
   try {
@@ -204,9 +209,12 @@ const copyCode = async () => {
   }
 }
 
+const pageDescription =
+  'A smarter Pinboard bookmarklet that suggests tags based on your ' +
+  'existing bookmarks'
+
 useSeoMeta({
   title: 'Enhanced Pinboard Bookmarklet',
-  description:
-    'A smarter Pinboard bookmarklet that suggests tags based on your existing bookmarks'
+  description: pageDescription
 })
 </script>

@@ -7,8 +7,10 @@
  * Stage 3: Runtime (useProcessedMarkdown.ts) - Final filtering and processing
  *
  * Content Type Detection Rules:
- * - Week Notes: type='weekNote' OR slug starts with 'week-notes/' OR slug matches YYYY-WW
- * - Special Sections: reading/, projects/, robots/, drafts/, study-notes/, prompts/
+ * - Week Notes: type='weekNote' OR slug starts with 'week-notes/'
+ *   OR slug matches YYYY-WW
+ * - Special Sections: reading/, projects/, robots/, drafts/,
+ *   study-notes/, prompts/
  * - System Files: slug='index' OR starts with '!' or '_'
  *
  * Visibility Rules:

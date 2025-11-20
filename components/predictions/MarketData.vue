@@ -1,7 +1,10 @@
 <template>
   <div
     v-if="marketData"
-    class="border-l border-zinc-300 dark:border-zinc-700 pl-3 my-4 font-mono text-xs"
+    :class="[
+      'border-l border-zinc-300 dark:border-zinc-700 pl-3 my-4',
+      'font-mono text-xs'
+    ]"
   >
     <!-- Header -->
     <div class="flex items-baseline justify-between mb-2">
@@ -9,7 +12,10 @@
       <a
         :href="marketData.url"
         target="_blank"
-        class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
+        :class="[
+          'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900',
+          'dark:hover:text-zinc-100'
+        ]"
       >
         {{ marketData.provider }}
       </a>
@@ -98,7 +104,9 @@ if (props.prediction.market) {
   loading.value = true
   try {
     const { data } = await useFetch(
-      `/api/markets/${props.prediction.market.provider}?slug=${props.prediction.market.slug}`
+      `/api/markets/${props.prediction.market.provider}?slug=${
+        props.prediction.market.slug
+      }`
     )
     marketData.value = data.value
   } catch (e) {

@@ -192,9 +192,7 @@ useHead({
             <div class="activity-title-lg truncate">
               {{ now.music.track }}
             </div>
-            <div
-              class="font-serif text-sm text-zinc-600 dark:text-zinc-400 truncate"
-            >
+            <div class="artist-text truncate">
               {{ now.music.artist }}
             </div>
           </div>
@@ -271,9 +269,7 @@ useHead({
           >
         </div>
         <NuxtLink :to="`/predictions/${now.thinking.slug}`" class="block group">
-          <div
-            class="font-mono text-xs text-zinc-900 dark:text-zinc-100 font-bold mb-1"
-          >
+          <div class="confidence-badge">
             {{ now.thinking.confidence }}% confidence
           </div>
           <div class="activity-title-base mb-2">
@@ -291,9 +287,7 @@ useHead({
       <section v-if="now.chess" class="pb-6">
         <div class="activity-section-label">Chess Rating</div>
         <div class="flex items-baseline gap-2">
-          <span
-            class="font-mono text-2xl text-zinc-900 dark:text-zinc-100 tabular-nums"
-          >
+          <span class="chess-rating">
             {{ now.chess.blitz }}
           </span>
           <span class="font-mono text-xs text-zinc-500 dark:text-zinc-500">
@@ -324,13 +318,15 @@ useHead({
 }
 
 :deep(.prose h1) {
-  @apply font-serif text-3xl font-normal mt-0 mb-8 text-zinc-900 dark:text-zinc-100;
+  @apply font-serif text-3xl font-normal mt-0 mb-8;
+  @apply text-zinc-900 dark:text-zinc-100;
   letter-spacing: -0.02em;
 }
 
 :deep(.prose h2) {
-  @apply font-serif text-xl font-normal mt-8 mb-4 text-zinc-800 dark:text-zinc-200;
-  letter-spacing: -0.015em;
+  @apply font-serif text-xl font-normal mt-8 mb-4;
+  @apply text-zinc-800 dark:text-zinc-200;
+  letter-spacing: -0.01em;
 }
 
 :deep(.prose strong) {
@@ -338,7 +334,9 @@ useHead({
 }
 
 :deep(.prose a) {
-  @apply text-zinc-900 dark:text-zinc-100 border-b border-zinc-300 dark:border-zinc-700 hover:border-zinc-900 dark:hover:border-zinc-100 transition-colors;
+  @apply text-zinc-900 dark:text-zinc-100 border-b border-zinc-300;
+  @apply dark:border-zinc-700 hover:border-zinc-900;
+  @apply dark:hover:border-zinc-100 transition-colors;
 }
 
 :deep(.prose hr) {
@@ -347,5 +345,17 @@ useHead({
 
 :deep(.prose em) {
   @apply text-zinc-500 dark:text-zinc-500 text-sm leading-7;
+}
+
+.artist-text {
+  @apply font-serif text-sm text-zinc-600 dark:text-zinc-400;
+}
+
+.confidence-badge {
+  @apply font-mono text-xs text-zinc-900 dark:text-zinc-100 font-bold mb-1;
+}
+
+.chess-rating {
+  @apply font-mono text-2xl text-zinc-900 dark:text-zinc-100 tabular-nums;
 }
 </style>

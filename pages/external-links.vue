@@ -60,6 +60,10 @@ const sortedDomains = computed(() => {
     .map(([domain]) => domain)
 })
 
+// Table body styling
+const tableBodyClass =
+  'bg-white dark:bg-zinc-900 divide-y divide-zinc-200 ' + 'dark:divide-zinc-700'
+
 useHead({
   title: 'External Links'
 })
@@ -146,9 +150,7 @@ useHead({
                   <th class="table-header-sm">Source Pages</th>
                 </tr>
               </thead>
-              <tbody
-                class="bg-white dark:bg-zinc-900 divide-y divide-zinc-200 dark:divide-zinc-700"
-              >
+              <tbody :class="tableBodyClass">
                 <tr
                   v-for="link in groupedByDomain[domain]"
                   :key="link.url"

@@ -22,9 +22,11 @@ export default defineEventHandler(async (event) => {
       // content-tags.json is optional, use empty object if not found
     }
 
-    // Journalist pyramid: !tags first, then content tags by usage, then unused base tags
-    console.log('Content tags found:', Object.keys(contentTagUsage).length)
-    const allTags = new Set([...baseTags, ...Object.keys(contentTagUsage)])
+    // Journalist pyramid: !tags first, then content tags by usage,
+    // then unused base tags
+    const contentTagKeys = Object.keys(contentTagUsage)
+    console.log('Content tags found:', contentTagKeys.length)
+    const allTags = new Set([...baseTags, ...contentTagKeys])
     const specialTags = Array.from(allTags)
       .filter((t) => t.startsWith('!'))
       .sort()

@@ -8,7 +8,8 @@ export default defineEventHandler(async (_event) => {
 
     for (const shelf of shelves) {
       try {
-        const rssUrl = `https://www.goodreads.com/review/list_rss/${userId}?shelf=${shelf}`
+        const baseUrl = 'https://www.goodreads.com/review/list_rss'
+        const rssUrl = `${baseUrl}/${userId}?shelf=${shelf}`
 
         const response = await $fetch(rssUrl, {
           responseType: 'text',
@@ -42,9 +43,10 @@ export default defineEventHandler(async (_event) => {
             const ratingMatch = itemXml.match(
               /<user_rating>(\d+)<\/user_rating>/
             )
-            const coverMatch = itemXml.match(
-              /<book_large_image_url><!\[CDATA\[(.*?)\]\]><\/book_large_image_url>/
-            )
+            const coverPattern =
+              '<book_large_image_url><![CDATA[' +
+              '(.*?)\\]\\]><\\/book_large_image_url>'
+            const coverMatch = itemXml.match(new RegExp(coverPattern))
             const bookIdMatch = itemXml.match(/<book_id>(\d+)<\/book_id>/)
             const dateAddedMatch = itemXml.match(
               /<user_date_added><!\[CDATA\[(.*?)\]\]><\/user_date_added>/
@@ -62,7 +64,8 @@ export default defineEventHandler(async (_event) => {
             return {
               title,
               author,
-              rating: rating && rating > 0 ? rating : null, // Only include actual ratings
+              // Only include actual ratings
+              rating: rating && rating > 0 ? rating : null,
               shelf,
               link,
               cover,
@@ -126,7 +129,8 @@ export default defineEventHandler(async (_event) => {
     // Reading by month
     const readingByMonth = read.reduce<Record<string, number>>((acc, book) => {
       const date = new Date(book.dateAdded)
-      const monthKey = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`
+      const month = String(date.getMonth() + 1).padStart(2, '0')
+      const monthKey = `${date.getFullYear()}-${month}`
       acc[monthKey] = (acc[monthKey] || 0) + 1
       return acc
     }, {})
@@ -147,7 +151,8 @@ export default defineEventHandler(async (_event) => {
     return {
       books: {
         currentlyReading,
-        read: recentReads, // Only return recent reads to keep response size manageable
+        // Only return recent reads to keep response size manageable
+        read: recentReads,
         toRead: toRead.slice(0, 20) // Limit to-read list
       },
       stats,

@@ -2,11 +2,7 @@
   "html": "<h1 class=\"\" id=\"isis\">ISIS</h1>\n<ul class=\"list-disc\">\n<li class=\"\">ISBN: 0062395548</li>\n</ul>\n<h2 class=\"\" id=\"highlights\">Highlights</h2>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">On April 9, 2013, Baghdadi announced a merger of ISI and al Nusra, calling the new group the Islamic State of Iraq and the Levant (ISIS). In effect Baghdadi was unilaterally establishing himself as the leader of both organizations (ISI and al Nusra), now merged into one. The announcement surprised both Zawahiri and Jawlani. Neither of them had signed off on the decision, and neither was enthusiastic about it. ^ref-3656</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h2 class=\"\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Jessica Stern and J. M. Berger</a></li>\n<li class=\"\">ASIN: B00NVLS3CM</li>\n<li class=\"\">ISBN: 0062395548</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B00NVLS3CM\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B00NVLS3CM</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B00NVLS3CM\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>",
   "title": "Stern Berger ISIS",
   "metadata": {
-    "tags": [
-      "military",
-      "politics",
-      "book"
-    ],
+    "tags": ["military", "politics", "book"],
     "kindle-sync": {
       "bookId": "53840",
       "title": "ISIS: The State of Terror",

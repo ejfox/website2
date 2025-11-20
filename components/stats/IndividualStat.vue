@@ -6,8 +6,9 @@
     <div class="flex">
       <p
         ref="valueRef"
-        class="stat-value tabular-nums font-mono flex-1 transition-colors duration-200"
+        class="stat-value tabular-nums font-mono flex-1"
         :class="[
+          'transition-colors duration-200',
           size === 'large' && 'text-7xl leading-[0.9]',
           size === 'medium' && 'text-4xl leading-[0.9]',
           size === 'small' && 'text-3xl leading-[0.95]'
@@ -23,7 +24,8 @@
       <p
         v-if="details"
         ref="detailsRef"
-        class="text-xs text-zinc-500 tracking-wide font-mono transition-colors duration-200"
+        class="text-xs text-zinc-500 tracking-wide font-mono"
+        :class="['transition-colors duration-200']"
       >
         {{ details }}
       </p>

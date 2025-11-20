@@ -8,13 +8,8 @@
       <!-- Statement with confidence badge - PRIORITIZED -->
       <div class="mb-2">
         <div class="flex items-start gap-3 mb-1">
-          <span
-            class="font-mono text-lg text-zinc-900 dark:text-zinc-100 font-bold shrink-0 tabular-nums"
-            >{{ displayConfidence }}%</span
-          >
-          <span
-            class="font-serif text-base leading-snug text-zinc-900 dark:text-zinc-100 flex-1"
-          >
+          <span :class="confidenceClasses">{{ displayConfidence }}%</span>
+          <span :class="statementClasses">
             {{ prediction.statement || prediction.title }}
           </span>
         </div>
@@ -38,7 +33,7 @@
       <!-- Resolution excerpt if resolved -->
       <div
         v-if="prediction.resolution"
-        class="font-serif text-sm text-zinc-600 dark:text-zinc-400 leading-normal prose prose-sm dark:prose-invert max-w-none"
+        :class="resolutionClasses"
         v-html="resolutionHtml"
       ></div>
     </NuxtLink>
@@ -75,6 +70,21 @@ const props = defineProps<{ prediction: Prediction }>()
 
 const displayConfidence = props.prediction.confidence || 0
 
+const confidenceClasses = [
+  'font-mono text-lg text-zinc-900 dark:text-zinc-100',
+  'font-bold shrink-0 tabular-nums'
+].join(' ')
+
+const statementClasses = [
+  'font-serif text-base leading-snug text-zinc-900',
+  'dark:text-zinc-100 flex-1'
+].join(' ')
+
+const resolutionClasses = [
+  'font-serif text-sm text-zinc-600 dark:text-zinc-400',
+  'leading-normal prose prose-sm dark:prose-invert max-w-none'
+].join(' ')
+
 const showStatusBadge = computed(
   () =>
     props.prediction.status &&
@@ -106,7 +116,10 @@ const _formatDateCompact = (dateString: string) => {
     'NOV',
     'DEC'
   ]
-  return `${months[d.getMonth()]} ${String(d.getDate()).padStart(2, '0')}, ${d.getFullYear()}`
+  const month = months[d.getMonth()]
+  const day = String(d.getDate()).padStart(2, '0')
+  const year = d.getFullYear()
+  return `${month} ${day}, ${year}`
 }
 
 // Process markdown for resolution text

@@ -1,7 +1,7 @@
 <template>
-  <div class="tip-jar mt-16 pt-8 border-t border-zinc-100 dark:border-zinc-900">
+  <div :class="containerClasses">
     <!-- Super understated, almost like a footnote -->
-    <div class="text-center text-xs text-zinc-400 dark:text-zinc-600">
+    <div :class="contentClasses">
       <p class="mb-4">
         <!-- Just a simple, humble message -->
         If you found value in this, consider supporting my work
@@ -36,7 +36,7 @@
             >{{ coin.toLowerCase() }}:</span
           >
           <button
-            class="text-zinc-500 dark:text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors break-all text-right"
+            :class="addressButtonClasses"
             :title="address"
             @click="copyAddress(address, coin)"
           >
@@ -49,7 +49,25 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+
+// Computed class strings
+const containerClasses = computed(() => [
+  'tip-jar',
+  'mt-16 pt-8 border-t',
+  'border-zinc-100 dark:border-zinc-900'
+])
+
+const contentClasses = computed(() => [
+  'text-center text-xs',
+  'text-zinc-400 dark:text-zinc-600'
+])
+
+const addressButtonClasses = computed(() => [
+  'text-zinc-500 dark:text-zinc-500',
+  'hover:text-zinc-700 dark:hover:text-zinc-300',
+  'transition-colors break-all text-right'
+])
 
 // Load crypto addresses from public file
 const cryptoAddresses = ref({})

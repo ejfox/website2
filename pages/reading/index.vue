@@ -33,10 +33,7 @@
       </header>
 
       <!-- Loading State -->
-      <div
-        v-if="pending"
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
-      >
+      <div v-if="pending" :class="booksGridClass">
         <div v-for="i in 6" :key="i" class="animate-pulse">
           <div
             class="bg-zinc-100 dark:bg-zinc-900 rounded-sm aspect-[3/4]"
@@ -55,23 +52,22 @@
       </div>
 
       <!-- Books Grid -->
-      <div
-        v-else-if="books?.length"
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
-      >
+      <div v-else-if="books?.length" :class="booksGridClass">
         <NuxtLink
           v-for="book in books"
           :key="book.slug"
           :to="`/reading/${book.slug}`"
-          class="group block transition-opacity duration-200 hover:opacity-75"
+          :class="bookCardClass"
         >
           <!-- Book Cover -->
           <div class="aspect-[3/4] mb-4 flex items-center justify-center">
             <img
               v-if="book.metadata?.['kindle-sync']?.bookImageUrl"
               :src="book.metadata['kindle-sync'].bookImageUrl"
-              :alt="`Cover of ${book.metadata['kindle-sync']?.title || book.title}`"
-              class="max-h-full max-w-full object-contain rounded-sm shadow-sm"
+              :alt="`Cover of ${
+                book.metadata['kindle-sync']?.title || book.title
+              }`"
+              :class="bookCoverClass"
             />
             <div
               v-else
@@ -84,7 +80,7 @@
 
           <!-- Book Info -->
           <div class="stack-2">
-            <h3 class="card-title-group-hover" style="letter-spacing: -0.01em">
+            <h3 :class="bookTitleClass" style="letter-spacing: -0.01em">
               {{ book.metadata?.['kindle-sync']?.title || book.title }}
             </h3>
             <p class="font-serif text-sm text-secondary">
@@ -102,7 +98,8 @@
             <!-- Highlights count -->
             <div class="flex-between mono-xs text-secondary tabular">
               <span v-if="book.metadata?.['kindle-sync']?.highlightsCount">
-                {{ book.metadata['kindle-sync'].highlightsCount }} highlights
+                {{ book.metadata['kindle-sync'].highlightsCount }}
+                highlights
               </span>
               <span v-if="book.metadata?.['kindle-sync']?.lastAnnotatedDate">
                 {{ formatDate(book.metadata['kindle-sync'].lastAnnotatedDate) }}
@@ -129,6 +126,14 @@
 <script setup>
 // Fetch reading list
 const { data: books, pending, error } = await useFetch('/api/reading')
+
+// CSS Classes
+const booksGridClass = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'
+const bookCardClass =
+  'group block transition-opacity duration-200 hover:opacity-75'
+const bookCoverClass =
+  'max-h-full max-w-full object-contain rounded-sm shadow-sm'
+const bookTitleClass = 'card-title-group-hover'
 
 // Computed properties for stats
 const totalHighlights = computed(() => {
@@ -161,7 +166,8 @@ useHead({
     {
       name: 'description',
       content:
-        'A collection of books, highlights, and reading notes from my digital library.'
+        'A collection of books, highlights, and reading notes ' +
+        'from my digital library.'
     }
   ]
 })

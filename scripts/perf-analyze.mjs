@@ -16,7 +16,8 @@ async function analyzePerformance(url = 'http://localhost:3002') {
   try {
     // Run full Lighthouse audit with detailed diagnostics
     const { stdout } = await execAsync(
-      `npx lighthouse ${url} --output=json --quiet --chrome-flags="--headless --no-sandbox"`,
+      `npx lighthouse ${url} --output=json --quiet ` +
+        `--chrome-flags="--headless --no-sandbox"`,
       { maxBuffer: 1024 * 1024 * 10 } // 10MB buffer
     )
 
@@ -30,7 +31,8 @@ async function analyzePerformance(url = 'http://localhost:3002') {
     if (renderBlocking && renderBlocking.score < 0.9) {
       console.log(chalk.red('❌ Render-blocking resources detected:'))
       renderBlocking.details?.items?.forEach((item) => {
-        console.log(chalk.red(`   • ${item.url} (${item.wastedMs}ms blocked)`))
+        const wastedMs = item.wastedMs
+        console.log(chalk.red(`   • ${item.url} (${wastedMs}ms blocked)`))
       })
     }
 
@@ -41,11 +43,8 @@ async function analyzePerformance(url = 'http://localhost:3002') {
         chalk.red(`❌ Unused JavaScript: ${unusedJS.displayValue} wasted`)
       )
       unusedJS.details.items?.slice(0, 5).forEach((item) => {
-        console.log(
-          chalk.red(
-            `   • ${item.url} (${Math.round(item.wastedBytes / 1024)}KB unused)`
-          )
-        )
+        const wastedKb = Math.round(item.wastedBytes / 1024)
+        console.log(chalk.red(`   • ${item.url} (${wastedKb}KB unused)`))
       })
     }
 
@@ -130,7 +129,8 @@ async function analyzePerformance(url = 'http://localhost:3002') {
 
     console.log('\n' + '='.repeat(80) + '\n')
   } catch (error) {
-    console.log(chalk.red('⚠️  Performance analysis failed:'), error.message)
+    const msg = chalk.red('⚠️  Performance analysis failed:')
+    console.log(msg, error.message)
   }
 }
 

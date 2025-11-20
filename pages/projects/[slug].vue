@@ -35,7 +35,9 @@ if (error.value) {
 }
 
 // SEO metadata
-const title = computed(() => project.value?.title || project.value?.metadata?.title || 'Project')
+const title = computed(
+  () => project.value?.title || project.value?.metadata?.title || 'Project'
+)
 const description = computed(() => {
   const html = project.value?.html || ''
   return html.replace(/<[^>]*>/g, '').slice(0, 160)
@@ -47,7 +49,7 @@ useHead({
     { name: 'description', content: description.value },
     { property: 'og:title', content: `${title.value} - EJ Fox` },
     { property: 'og:description', content: description.value },
-    { property: 'og:type', content: 'article' },
+    { property: 'og:type', content: 'article' }
   ]
 })
 
@@ -66,9 +68,20 @@ const tocChildren = computed(() => {
 // Track active section for scroll highlighting
 const activeSection = ref('')
 
-// Scroll tracking for TOC
+// Helper function for TOC link classes
+const getTocLinkClass = (isActive) => {
+  if (isActive) {
+    return 'text-zinc-900 dark:text-zinc-100 font-medium'
+  }
+  return [
+    'text-zinc-600 dark:text-zinc-400',
+    'hover:text-zinc-900 dark:hover:text-zinc-100',
+    'hover:translate-x-1'
+  ].join(' ')
+}
+
 onMounted(() => {
-  if (process.client && tocChildren.value.length > 0) {
+  if (import.meta.client && tocChildren.value.length > 0) {
     const headings = Array.from(document.querySelectorAll('h2[id], h3[id]'))
 
     useIntersectionObserver(
@@ -96,10 +109,7 @@ onMounted(() => {
 
       <!-- Back link -->
       <div class="mt-16 pt-8 border-t border-zinc-200 dark:border-zinc-800">
-        <NuxtLink
-          to="/projects"
-          class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
-        >
+        <NuxtLink to="/projects" class="back-link">
           ← Back to Projects
         </NuxtLink>
       </div>
@@ -110,12 +120,14 @@ onMounted(() => {
       <teleport v-if="tocTarget" to="#nav-toc-container">
         <div class="space-y-6">
           <!-- Project Metadata -->
-          <div class="space-y-3 pb-6 border-b border-zinc-200 dark:border-zinc-800">
+          <div
+            class="space-y-3 pb-6 border-b border-zinc-200 dark:border-zinc-800"
+          >
             <h3 class="label-uppercase-mono text-xs mb-3">Project Info</h3>
 
             <!-- Date -->
             <div v-if="project.metadata?.date" class="text-sm">
-              <div class="text-zinc-500 dark:text-zinc-500 text-xs uppercase tracking-wider mb-1">Date</div>
+              <div class="metadata-label">Date</div>
               <time class="tabular-nums text-zinc-900 dark:text-zinc-100">
                 {{ formatLongDate(project.metadata.date) }}
               </time>
@@ -123,12 +135,12 @@ onMounted(() => {
 
             <!-- Tech Stack -->
             <div v-if="project.metadata?.tech?.length" class="text-sm">
-              <div class="text-zinc-500 dark:text-zinc-500 text-xs uppercase tracking-wider mb-1">Tech</div>
+              <div class="metadata-label">Tech</div>
               <div class="flex flex-wrap gap-1">
                 <span
                   v-for="tech in project.metadata.tech"
                   :key="tech"
-                  class="font-mono text-xs px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300"
+                  class="tech-badge"
                 >
                   {{ tech }}
                 </span>
@@ -137,11 +149,11 @@ onMounted(() => {
 
             <!-- GitHub Link -->
             <div v-if="project.metadata?.github" class="text-sm">
-              <div class="text-zinc-500 dark:text-zinc-500 text-xs uppercase tracking-wider mb-1">Source</div>
+              <div class="metadata-label">Source</div>
               <a
                 :href="project.metadata.github"
                 target="_blank"
-                class="text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors"
+                class="github-link"
               >
                 GitHub ↗
               </a>
@@ -160,17 +172,17 @@ onMounted(() => {
                 >
                   <a
                     :href="`#${child.slug}`"
-                    class="flex items-baseline text-sm transition-all duration-200 no-underline py-2 gap-2"
-                    :class="[
-                      activeSection === child.slug
-                        ? 'text-zinc-900 dark:text-zinc-100 font-medium'
-                        : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:translate-x-1'
-                    ]"
+                    class="toc-link"
+                    :class="getTocLinkClass(activeSection === child.slug)"
                   >
                     <!-- Section number -->
                     <span
-                      class="font-mono text-xs tabular-nums opacity-50 w-4 text-right flex-shrink-0"
-                      :class="activeSection === child.slug ? 'opacity-70' : 'opacity-40'"
+                      class="toc-number"
+                      :class="
+                        activeSection === child.slug
+                          ? 'opacity-70'
+                          : 'opacity-40'
+                      "
                     >
                       {{ String(index + 1).padStart(2, '0') }}
                     </span>
@@ -178,7 +190,11 @@ onMounted(() => {
                     <!-- Section title -->
                     <span
                       class="font-serif leading-relaxed"
-                      :class="activeSection === child.slug ? 'font-medium' : 'font-normal'"
+                      :class="
+                        activeSection === child.slug
+                          ? 'font-medium'
+                          : 'font-normal'
+                      "
                     >
                       {{ child.title }}
                     </span>
@@ -192,3 +208,33 @@ onMounted(() => {
     </ClientOnly>
   </div>
 </template>
+
+<style scoped>
+.back-link {
+  @apply text-sm text-zinc-600 dark:text-zinc-400;
+  @apply hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors;
+}
+
+.metadata-label {
+  @apply text-zinc-500 dark:text-zinc-500 text-xs uppercase tracking-wider mb-1;
+}
+
+.tech-badge {
+  @apply font-mono text-xs px-2 py-1 rounded;
+  @apply bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300;
+}
+
+.github-link {
+  @apply text-zinc-900 dark:text-zinc-100;
+  @apply hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors;
+}
+
+.toc-link {
+  @apply flex items-baseline text-sm transition-all duration-200;
+  @apply no-underline py-2 gap-2;
+}
+
+.toc-number {
+  @apply font-mono text-xs tabular-nums w-4 text-right flex-shrink-0;
+}
+</style>

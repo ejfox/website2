@@ -21,11 +21,11 @@
         <!-- Name fields that slide out -->
         <div
           ref="nameFieldsContainer"
-          class="flex gap-1.5 overflow-hidden transition-all duration-300 ease-out shrink-0"
-          :class="{
-            'w-0 opacity-0': !showNameFields,
-            'w-auto opacity-100': showNameFields
-          }"
+          :class="[
+            'flex gap-1.5 overflow-hidden transition-all duration-300',
+            'ease-out shrink-0',
+            showNameFields ? 'w-auto opacity-100' : 'w-0 opacity-0'
+          ]"
         >
           <input
             v-model="firstName"
@@ -106,7 +106,7 @@ const state = reactive({
 })
 
 // NUKED: Animation composable usage obliterated
-// // NUKED BY BLOODHOUND: const { timing, easing, staggers } = // DELETED: useAnimations()
+// const { timing, easing, staggers } = useAnimations()
 
 const revealNameFields = () => {
   if (email.value.length > 0 && !showNameFields.value) {

@@ -1,9 +1,7 @@
 <template>
   <div class="gear-row" @click="navigateToItem">
     <!-- Tabular layout like a spreadsheet row -->
-    <div
-      class="grid grid-cols-12 gap-4 py-2.5 px-2 text-xs font-mono items-center"
-    >
+    <div :class="rowGridClasses">
       <!-- Item Name - Primary content, highest contrast -->
       <div class="col-span-7 truncate" :title="item.Name">
         <div class="flex items-center gap-2">
@@ -24,10 +22,7 @@
           </a>
 
           <!-- Age indicator - patina system -->
-          <div
-            v-if="item['Purchase Date']"
-            class="ml-auto mr-2 opacity-0 group-hover:opacity-60 transition-opacity"
-          >
+          <div v-if="item['Purchase Date']" :class="ageIndicatorClasses">
             <span
               v-if="itemAge < 365"
               class="text-xs text-zinc-400 dark:text-zinc-600"
@@ -67,16 +62,11 @@
         <span class="group-hover/type:hidden">{{
           getTypeSymbol(item.Type)
         }}</span>
-        <span
-          class="hidden group-hover/type:inline text-xs uppercase tracking-widest font-medium"
-          >{{ item.Type || '—' }}</span
-        >
+        <span :class="typeHoverClasses">{{ item.Type || '—' }}</span>
       </div>
 
       <!-- Waterproof - Secondary data -->
-      <div
-        class="col-span-2 text-center text-xs text-zinc-500 dark:text-zinc-500 font-medium"
-      >
+      <div :class="waterproofClasses">
         {{ item.Waterproof || '—' }}
       </div>
 
@@ -85,16 +75,13 @@
         <div v-if="baseWeight > 0" class="flex items-center justify-end gap-1">
           <!-- Mini weight indicator -->
           <div
-            class="w-1 bg-zinc-300 dark:bg-zinc-700 rounded-full group-hover:bg-zinc-500 dark:group-hover:bg-zinc-400 transition-colors"
+            :class="weightIndicatorClasses"
             :style="{
               height: `${Math.max(2, Math.min(12, weightInGrams / 100))}px`
             }"
             :title="`${weightInGrams}g`"
           ></div>
-          <span
-            class="tabular-nums text-zinc-900 dark:text-zinc-100 font-normal tracking-tight"
-            >{{ weightInGrams }}g</span
-          >
+          <span :class="weightTextClasses">{{ weightInGrams }}g</span>
         </div>
         <span v-else class="text-zinc-300 dark:text-zinc-700">—</span>
       </div>
@@ -126,6 +113,62 @@ const itemRef = ref(null)
 // Animations removed; keeping structure simple
 
 const { getItemWeightInOunces, getItemWeightInGrams } = useWeightCalculations()
+
+// Class objects for long class strings
+const rowGridClasses = {
+  grid: true,
+  'grid-cols-12': true,
+  'gap-4': true,
+  'py-2.5': true,
+  'px-2': true,
+  'text-xs': true,
+  'font-mono': true,
+  'items-center': true
+}
+
+const ageIndicatorClasses = {
+  'ml-auto': true,
+  'mr-2': true,
+  'opacity-0': true,
+  'group-hover:opacity-60': true,
+  'transition-opacity': true
+}
+
+const typeHoverClasses = {
+  hidden: true,
+  'group-hover/type:inline': true,
+  'text-xs': true,
+  uppercase: true,
+  'tracking-widest': true,
+  'font-medium': true
+}
+
+const waterproofClasses = {
+  'col-span-2': true,
+  'text-center': true,
+  'text-xs': true,
+  'text-zinc-500': true,
+  'dark:text-zinc-500': true,
+  'font-medium': true
+}
+
+const weightIndicatorClasses = {
+  'w-1': true,
+  'bg-zinc-300': true,
+  'dark:bg-zinc-700': true,
+  'rounded-full': true,
+  'group-hover:bg-zinc-500': true,
+  'dark:group-hover:bg-zinc-400': true,
+  'transition-colors': true
+}
+
+const weightTextClasses = {
+  'tabular-nums': true,
+  'text-zinc-900': true,
+  'dark:text-zinc-100': true,
+  'font-normal': true,
+  'tracking-tight': true
+}
 
 // Type symbols mapping
 const typeSymbols = {

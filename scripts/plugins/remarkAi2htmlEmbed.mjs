@@ -8,9 +8,11 @@ export function remarkAi2htmlEmbed() {
         if (match) {
           const projectName = match[1]
           node.type = 'html'
-          node.value = `
+          node.value =
+            `
 <div class="ai2html-responsive-embed" data-project="${projectName}">
-  <iframe src="/ai2html/${projectName}/index.html" width="100%" style="border: none;" scrolling="no"></iframe>
+  <iframe src="/ai2html/${projectName}/index.html" width="100%" ` +
+            `style="border: none;" scrolling="no"></iframe>
 </div>`
         }
       }

@@ -27,8 +27,11 @@ export default defineEventHandler(async (event) => {
       )
       .slice(0, 20)
 
+    const rssNamespaces =
+      'xmlns:atom="http://www.w3.org/2005/Atom" ' +
+      'xmlns:content="http://purl.org/rss/1.0/modules/content/"'
     const rss = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" ${rssNamespaces}>
 <channel>
   <title>${siteName}</title>
   <description>${siteDescription}</description>
@@ -76,7 +79,15 @@ export default defineEventHandler(async (event) => {
   } catch (error) {
     console.error(`Error generating robots RSS feed:`, error)
     event.node.res.statusCode = 500
-    return '<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>Error</title><description>Error generating RSS feed</description></channel></rss>'
+    const errorXml =
+      '<?xml version="1.0" encoding="UTF-8"?>' +
+      '<rss version="2.0">' +
+      '<channel>' +
+      '<title>Error</title>' +
+      '<description>Error generating RSS feed</description>' +
+      '</channel>' +
+      '</rss>'
+    return errorXml
   }
 })
 

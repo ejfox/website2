@@ -11,12 +11,7 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/71Ucfn-BzcL._SY160.jpg",
       "highlightsCount": 6
     },
-    "tags": [
-      "book",
-      "health",
-      "exercise",
-      "advice"
-    ],
+    "tags": ["book", "health", "exercise", "advice"],
     "words": 376,
     "images": 0,
     "imageDetails": {

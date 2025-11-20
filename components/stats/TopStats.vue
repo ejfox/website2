@@ -196,8 +196,10 @@ import AnimatedNumber from '../AnimatedNumber.vue'
 import StatsDataState from './StatsDataState.vue'
 import type { StatsResponse } from '~/composables/useStats'
 import { useNumberFormat } from '~/composables/useNumberFormat'
-// NUKED BY BLOODHOUND: import { animate, stagger as _stagger, onScroll as _onScroll } from '~/anime.esm.js'
-// NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
+// NUKED BY BLOODHOUND: import { animate, stagger as _stagger,
+// onScroll as _onScroll } from '~/anime.esm.js'
+// NUKED BY BLOODHOUND: import { useAnimations }
+// from '~/composables/useAnimations'
 
 interface BlogStats {
   totalPosts: number
@@ -250,7 +252,8 @@ const postsThisMonth = computed(() => {
 // const topStatsRef = ref<HTMLElement | null>(null)
 
 // DELETED: All broken animation code causing 53/100 performance score
-// BLOODHOUND OBLITERATED: 800, stagger(), /* staggers. - DELETED */normal - ALL UNDEFINED!
+// BLOODHOUND OBLITERATED: 800, stagger(), /* staggers. - DELETED */
+// normal - ALL UNDEFINED!
 // onMounted(() => {
 // ALL ANIMATION CODE DELETED - BROKEN IMPORTS
 // })

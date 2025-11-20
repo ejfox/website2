@@ -10,6 +10,16 @@ const { data: robotNotes } = await useAsyncData('robot-notes', () =>
 
 const formatDate = (date) => format(new Date(date), 'yyyy-MM-dd')
 
+// Helper to build robot link URLs
+const robotsLinkUrl = (note, child) => {
+  const slug = note.slug.replace('robots/', '')
+  return `/blog/robots/${slug}#${child.slug}`
+}
+
+// Metadata styling
+const metadataClass =
+  'post-metadata text-sm text-zinc-500 dark:text-zinc-400 font-mono'
+
 const robotElements = ref([])
 const _activeSection = ref('')
 const { width } = useWindowSize()
@@ -79,9 +89,7 @@ const getNoteSummary = (note) => {
       >
         <!-- Metadata row -->
         <div class="flex items-center justify-between mb-2">
-          <div
-            class="post-metadata text-sm text-zinc-500 dark:text-zinc-400 font-mono"
-          >
+          <div :class="metadataClass">
             {{ formatDate(note.date) }}
           </div>
           <div
@@ -121,7 +129,7 @@ const getNoteSummary = (note) => {
                 <NuxtLink
                   v-for="child in section.children"
                   :key="child.slug"
-                  :to="`/blog/robots/${note.slug.replace('robots/', '')}#${child.slug}`"
+                  :to="robotsLinkUrl(note, child)"
                   class="badge-link"
                 >
                   {{ child.text }}

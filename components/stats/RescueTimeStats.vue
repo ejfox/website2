@@ -77,18 +77,24 @@
         ></div>
         <div class="flex-1 min-w-0">
           <div class="flex justify-between items-center gap-1">
+            <!-- eslint-disable max-len,vue/max-len -->
             <span
               class="text-zinc-700 dark:text-zinc-300 truncate text-xs leading-[12px]"
               >{{ category.name }}</span
             >
+            <!-- eslint-enable max-len,vue/max-len -->
+            <!-- eslint-disable max-len,vue/max-len -->
             <span
               class="text-zinc-500 tabular-nums flex-shrink-0 text-xs leading-[12px]"
               >{{ category.percentageOfTotal }}%</span
             >
+            <!-- eslint-enable max-len,vue/max-len -->
           </div>
+          <!-- eslint-disable max-len,vue/max-len -->
           <div
             class="h-1 rounded-sm overflow-hidden bg-transparent dark:bg-zinc-800/10 border-b border-zinc-200/10 dark:border-zinc-800/30 mt-0.5"
           >
+            <!-- eslint-enable max-len,vue/max-len -->
             <div
               class="h-full rounded-sm"
               :style="{
@@ -307,7 +313,10 @@ const waffleCells = computed(() => {
       activityIndex,
       consolidatedActivities.length
     )
-    const grayColor = `#${(128 + activityIndex * 8).toString(16).padStart(2, '0').repeat(3)}`
+    const grayColor = `#${(128 + activityIndex * 8)
+      .toString(16)
+      .padStart(2, '0')
+      .repeat(3)}`
 
     for (let i = 0; i < cellsForActivity && cellIndex < 100; i++) {
       cells[cellIndex] = {

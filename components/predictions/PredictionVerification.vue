@@ -17,7 +17,7 @@
           Git Commit
         </p>
         <a
-          :href="`https://github.com/ejfox/website2/commit/${verification.gitCommit}`"
+          :href="gitCommitUrl"
           target="_blank"
           class="text-xs font-mono text-blue-600 hover:underline"
         >
@@ -41,10 +41,7 @@
           <summary class="cursor-pointer text-blue-600 hover:underline">
             View signature
           </summary>
-          <pre
-            class="mt-2 p-2 bg-zinc-100 dark:bg-zinc-800 rounded overflow-x-auto font-mono text-xs"
-            >{{ verification.signature }}</pre
-          >
+          <pre :class="signatureClasses">{{ verification.signature }}</pre>
         </details>
       </div>
     </div>
@@ -78,9 +75,7 @@
       </div>
     </div>
 
-    <div
-      class="flex items-center gap-2 pt-2 border-t border-zinc-200 dark:border-zinc-700"
-    >
+    <div :class="verificationStatusClasses">
       <Icon
         name="material-symbols:verified"
         :class="isVerified ? 'text-green-600' : 'text-zinc-400'"
@@ -116,6 +111,21 @@ interface Verification {
 const props = defineProps<{
   verification: Verification
 }>()
+
+const gitCommitUrl = computed(
+  () =>
+    `https://github.com/ejfox/website2/commit/${props.verification.gitCommit}`
+)
+
+const signatureClasses = [
+  'mt-2 p-2 bg-zinc-100 dark:bg-zinc-800 rounded',
+  'overflow-x-auto font-mono text-xs'
+].join(' ')
+
+const verificationStatusClasses = [
+  'flex items-center gap-2 pt-2 border-t',
+  'border-zinc-200 dark:border-zinc-700'
+].join(' ')
 
 const isVerified = computed(() => {
   return Boolean(props.verification.hash && props.verification.gitCommit)

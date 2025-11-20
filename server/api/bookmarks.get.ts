@@ -26,14 +26,17 @@ interface ProcessedBookmark {
 export default defineEventHandler(async (event) => {
   try {
     const query = getQuery(event)
-    const count = Math.min(Number.parseInt(query.count as string) || 300, 1000) // Max 1000, default 300
+    const parsedCount = Number.parseInt(query.count as string) || 300
+    const count = Math.min(parsedCount, 1000) // Max 1000, default 300
     const tag = query.tag as string // Optional tag filter
 
     const pinboardToken =
       process.env.PINBOARD_TOKEN || 'ejfox:6BCADA7AD389C5F5D7CE'
 
     // Build Pinboard API URL
-    let apiUrl = `https://api.pinboard.in/v1/posts/all?auth_token=${pinboardToken}&format=json&results=${count}`
+    const baseUrl = 'https://api.pinboard.in/v1/posts/all'
+    let apiUrl =
+      `${baseUrl}?auth_token=${pinboardToken}` + `&format=json&results=${count}`
     if (tag) {
       apiUrl += `&tag=${encodeURIComponent(tag)}`
     }

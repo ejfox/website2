@@ -16,7 +16,8 @@ const PredictionSchema = z.object({
     .min(20, 'Statement too short - be more specific (min 20 chars)')
     .max(
       300,
-      'Statement too long - break into multiple predictions (max 300 chars)'
+      'Statement too long - break into multiple predictions ' +
+        '(max 300 chars)'
     ),
   deadline: z.string().refine((date) => {
     const d = new Date(date)
@@ -60,7 +61,8 @@ async function checkPredictionQuality(statement, resolutionCriteria) {
 
   if (!openRouterKey) {
     consola.info(
-      'Using built-in quality analysis (AI analysis available with OPENROUTER_API_KEY)'
+      'Using built-in quality analysis ' +
+        '(AI analysis available with OPENROUTER_API_KEY)'
     )
     return getBuiltInAnalysis(statement, resolutionCriteria)
   }
@@ -68,30 +70,36 @@ async function checkPredictionQuality(statement, resolutionCriteria) {
   try {
     consola.start('Analyzing prediction quality with AI...')
 
-    const prompt = `You are an expert prediction scientist. Analyze this prediction for quality and provide specific suggestions for improvement.
-
-PREDICTION STATEMENT: "${statement}"
-RESOLUTION CRITERIA: "${resolutionCriteria}"
-
-Evaluate on these dimensions:
-1. Clarity - Is the prediction statement clear and unambiguous?
-2. Specificity - Does it include specific numbers, dates, thresholds?
-3. Measurability - Can the outcome be objectively determined?
-4. Resolvability - Are the resolution criteria detailed and objective?
-5. Historical Context - Can you think of similar historical events that could inform confidence calibration?
-
-Provide your analysis as a JSON object with this exact structure:
-{
-  "clarity": "excellent|good|needs_improvement|poor",
-  "specificity": "excellent|good|needs_improvement|poor",
-  "measurability": "excellent|good|needs_improvement|poor",
-  "resolvability": "excellent|good|needs_improvement|poor",
-  "overallScore": 1-10,
-  "suggestions": ["specific actionable suggestion 1", "suggestion 2"],
-  "strengths": ["what's good about this prediction"],
-  "concerns": ["potential issues or ambiguities"],
-  "historicalComparisons": ["similar event 1 with relevant outcome", "similar event 2"]
-}`
+    const prompt = [
+      'You are an expert prediction scientist. ' +
+        'Analyze this prediction for quality and provide ' +
+        'specific suggestions for improvement.',
+      '',
+      `PREDICTION STATEMENT: "${statement}"`,
+      `RESOLUTION CRITERIA: "${resolutionCriteria}"`,
+      '',
+      'Evaluate on these dimensions:',
+      '1. Clarity - Is the prediction statement clear and unambiguous?',
+      '2. Specificity - Does it include specific numbers, dates, thresholds?',
+      '3. Measurability - Can the outcome be objectively determined?',
+      '4. Resolvability - Are the resolution criteria detailed and objective?',
+      '5. Historical Context - Can you think of similar historical events ' +
+        'that could inform confidence calibration?',
+      '',
+      'Provide your analysis as a JSON object with this exact structure:',
+      '{',
+      '  "clarity": "excellent|good|needs_improvement|poor",',
+      '  "specificity": "excellent|good|needs_improvement|poor",',
+      '  "measurability": "excellent|good|needs_improvement|poor",',
+      '  "resolvability": "excellent|good|needs_improvement|poor",',
+      '  "overallScore": 1-10,',
+      '  "suggestions": ["specific actionable suggestion 1", "suggestion 2"],',
+      '  "strengths": ["what\'s good about this prediction"],',
+      '  "concerns": ["potential issues or ambiguities"],',
+      '  "historicalComparisons": [' +
+        '"similar event 1 with relevant outcome", "similar event 2"]',
+      '}'
+    ].join('\n')
 
     const response = await fetch(
       'https://openrouter.ai/api/v1/chat/completions',
@@ -152,12 +160,14 @@ function getBuiltInAnalysis(statement, resolutionCriteria) {
   }
 
   // Basic checks
-  if (!/\d/.test(statement)) {
+  const hasNumbers = /\d/.test(statement)
+  if (!hasNumbers) {
     analysis.suggestions.push('Consider adding specific numbers or dates')
     analysis.specificity = 'needs_improvement'
   }
 
-  if (/maybe|might|could|possibly/i.test(statement)) {
+  const uncertaintyPattern = /maybe|might|could|possibly/i
+  if (uncertaintyPattern.test(statement)) {
     analysis.suggestions.push(
       'Avoid uncertainty words - state what will happen'
     )
@@ -184,7 +194,30 @@ function displayAnalysis(analysis) {
     poor: '🔴'
   }
 
-  consola.box(`
+  const strengthsSection = analysis.strengths.length
+    ? `✅ Strengths:\n${analysis.strengths
+        .map((s) => `   • ${s}`)
+        .join('\n')}\n`
+    : ''
+
+  const suggestionsSection = analysis.suggestions.length
+    ? `💡 Suggestions:\n${analysis.suggestions
+        .map((s) => `   • ${s}`)
+        .join('\n')}\n`
+    : ''
+
+  const concernsItems = analysis.concerns.map((c) => `   • ${c}`).join('\n')
+  const concernsSection = analysis.concerns.length
+    ? `⚠️  Concerns:\n${concernsItems}\n`
+    : ''
+
+  const historicalSection = analysis.historicalComparisons?.length
+    ? `📜 Similar Historical Events:\n${analysis.historicalComparisons
+        .map((h) => `   • ${h}`)
+        .join('\n')}`
+    : ''
+
+  const box = `
 📊 PREDICTION QUALITY ANALYSIS
 
 ${scoreColors[analysis.clarity]} Clarity: ${analysis.clarity}
@@ -194,11 +227,10 @@ ${scoreColors[analysis.resolvability]} Resolvability: ${analysis.resolvability}
 
 Overall Score: ${analysis.overallScore}/10
 
-${analysis.strengths.length ? `✅ Strengths:\n${analysis.strengths.map((s) => `   • ${s}`).join('\n')}\n` : ''}
-${analysis.suggestions.length ? `💡 Suggestions:\n${analysis.suggestions.map((s) => `   • ${s}`).join('\n')}\n` : ''}
-${analysis.concerns.length ? `⚠️  Concerns:\n${analysis.concerns.map((c) => `   • ${c}`).join('\n')}\n` : ''}
-${analysis.historicalComparisons?.length ? `📜 Similar Historical Events:\n${analysis.historicalComparisons.map((h) => `   • ${h}`).join('\n')}` : ''}
-  `)
+${strengthsSection}${suggestionsSection}${concernsSection}${historicalSection}
+  `
+
+  consola.box(box)
 }
 
 function showGuidelines(section) {
@@ -281,10 +313,12 @@ async function createPrediction() {
 
   // Optional: Add historical context
   consola.info(
-    '\n💭 Think: What similar events have happened before? What were the outcomes?'
+    '\n💭 Think: What similar events have happened before? ' +
+      'What were the outcomes?'
   )
   consola.info(
-    '   (e.g., "2013 NYC Mayor - de Blasio won by 49pts" or "Last 5 AI hype cycles peaked at 18mo")'
+    '   (e.g., "2013 NYC Mayor - de Blasio won by 49pts" or ' +
+      '"Last 5 AI hype cycles peaked at 18mo")'
   )
 
   const { historicalNotes } = await inquirer.prompt([
@@ -298,7 +332,7 @@ async function createPrediction() {
 
   // Add historical notes to evidence if provided
   if (historicalNotes) {
-    answers.resolution += `\n\n**Historical Context:** ${historicalNotes}`
+    answers.resolution += `\n\n**Historical Context:** ${historicalNotes}\n`
   }
 
   // Confirm creation
@@ -378,9 +412,21 @@ ${answers.resolution}
 - **Measurability:** ${analysis.measurability}
 - **Resolvability:** ${analysis.resolvability}
 
-${analysis.suggestions.length ? `### Suggestions\n${analysis.suggestions.map((s) => `- ${s}`).join('\n')}\n` : ''}
-${analysis.strengths.length ? `### Strengths\n${analysis.strengths.map((s) => `- ${s}`).join('\n')}\n` : ''}
-${analysis.concerns.length ? `### Concerns\n${analysis.concerns.map((c) => `- ${c}`).join('\n')}\n` : ''}
+${
+  analysis.suggestions.length
+    ? `### Suggestions\n${analysis.suggestions
+        .map((s) => `- ${s}`)
+        .join('\n')}\n`
+    : ''
+}${
+    analysis.strengths.length
+      ? `### Strengths\n${analysis.strengths.map((s) => `- ${s}`).join('\n')}\n`
+      : ''
+  }${
+    analysis.concerns.length
+      ? `### Concerns\n${analysis.concerns.map((c) => `- ${c}`).join('\n')}\n`
+      : ''
+  }
 
 ## Notes
 
@@ -412,9 +458,8 @@ _Created with the Prediction Quality Wizard_
     if (shouldCommit) {
       try {
         execSync(`git add "${filepath}"`)
-        execSync(
-          `git commit -m "Add prediction: ${answers.statement.substring(0, 50)}..."`
-        )
+        const msg = `Add prediction: ${answers.statement.substring(0, 50)}...`
+        execSync(`git commit -m "${msg}"`)
         consola.success('Committed to git')
       } catch (error) {
         consola.warn('Git commit failed:', error.message)
@@ -522,7 +567,11 @@ async function updatePrediction(filename) {
   if (shouldCommit) {
     try {
       execSync(`git add "${filepath}"`)
-      const commitMsg = `predict: update ${(parsed.data.statement || parsed.data.title).substring(0, 40)}... (${currentConfidence}% → ${answers.confidence}%)`
+      const stmt =
+        (parsed.data.statement || parsed.data.title).substring(0, 40) + '...'
+      const commitMsg =
+        `predict: update ${stmt} ` +
+        `(${currentConfidence}% → ${answers.confidence}%)`
       execSync(`git commit -m "${commitMsg}"`)
 
       const commitHash = execSync('git rev-parse HEAD', {
@@ -531,7 +580,8 @@ async function updatePrediction(filename) {
       consola.success(`Committed: ${commitHash.substring(0, 8)}`)
 
       // Add git commit hash to the update
-      finalData.updates[finalData.updates.length - 1].gitCommit = commitHash
+      const lastUpdateIndex = finalData.updates.length - 1
+      finalData.updates[lastUpdateIndex].gitCommit = commitHash
       const finalWithGit = matter.stringify(parsed.content, finalData)
       await fs.writeFile(filepath, finalWithGit)
     } catch (error) {
@@ -642,7 +692,9 @@ async function resolvePrediction(filename) {
           : answers.status === 'incorrect'
             ? '❌'
             : '⚠️'
-      const commitMsg = `predict: ${emoji} resolve "${parsed.data.statement.substring(0, 40)}..." as ${answers.status}`
+      const stmt = parsed.data.statement.substring(0, 40) + '...'
+      const commitMsg =
+        `predict: ${emoji} resolve "${stmt}" ` + `as ${answers.status}`
       execSync(`git commit -m "${commitMsg}"`)
 
       const commitHash = execSync('git rev-parse HEAD', {

@@ -119,7 +119,8 @@ export function printRealTimeStats() {
     chalk.blue(`Processing: ${filePath}`) +
       '\n' +
       chalk.green(
-        `Progress: ${processStats.filesProcessed}/${processStats.totalFiles} (${percent}%)`
+        `Progress: ${processStats.filesProcessed}/` +
+          `${processStats.totalFiles} (${percent}%)`
       ) +
       '\n' +
       chalk.yellow(`Memory: ${formatFileSize(memoryUsage.heapUsed)}`)
@@ -139,9 +140,14 @@ export function printProcessingReport() {
     '',
     'Document Analysis',
     '-----------------',
-    `Headers: H1: ${processStats.contentAnalysis.h1}, H2: ${processStats.contentAnalysis.h2}, H3: ${processStats.contentAnalysis.h3}`,
-    `Code Blocks: JS: ${processStats.contentAnalysis.codeBlocks.js}, Python: ${processStats.contentAnalysis.codeBlocks.py}, Other: ${processStats.contentAnalysis.codeBlocks.other}`,
-    `Tables: ${processStats.contentAnalysis.tables}, Footnotes: ${processStats.contentAnalysis.footnotes}`,
+    `Headers: H1: ${processStats.contentAnalysis.h1}, ` +
+      `H2: ${processStats.contentAnalysis.h2}, ` +
+      `H3: ${processStats.contentAnalysis.h3}`,
+    `Code Blocks: JS: ${processStats.contentAnalysis.codeBlocks.js}, ` +
+      `Python: ${processStats.contentAnalysis.codeBlocks.py}, ` +
+      `Other: ${processStats.contentAnalysis.codeBlocks.other}`,
+    `Tables: ${processStats.contentAnalysis.tables}, ` +
+      `Footnotes: ${processStats.contentAnalysis.footnotes}`,
     '',
     'Content Types',
     '------------'

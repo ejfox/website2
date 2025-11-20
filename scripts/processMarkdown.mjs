@@ -35,7 +35,8 @@ dotenv.config()
 
 const SOURCE_DIR =
   process.env.OBSIDIAN_VAULT_PATH ||
-  '/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/'
+  '/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/' +
+    'ejfox/'
 
 const paths = {
   contentDir: config.dirs.content,
@@ -100,7 +101,8 @@ async function processMarkdown(content, filePath) {
     const { data: frontmatter, content: markdownContent } = matter(content)
     let ast = processor.parse(markdownContent)
 
-    // Process through unified pipeline (TOC extraction happens in remarkExtractToc plugin)
+    // Process through unified pipeline
+    // (TOC extraction happens in remarkExtractToc plugin)
     let result = await processor.run(ast)
 
     // Get TOC data from plugin
@@ -155,8 +157,11 @@ async function processMarkdown(content, filePath) {
       }, {})
     }
 
+    const pct = Math.round(
+      (processStats.filesProcessed / processStats.totalFiles) * 100
+    )
     process.stdout.write(
-      `\r${chalk.gray(`Processing: ${filename.padEnd(50)}`)}${Math.round((processStats.filesProcessed / processStats.totalFiles) * 100)}%`
+      `\r${chalk.gray(`Processing: ${filename.padEnd(50)}`)}${pct}%`
     )
 
     const sourcePath = SOURCE_DIR ? path.relative(SOURCE_DIR, filePath) : null
@@ -254,7 +259,8 @@ async function generateExternalLinksCSV(allFiles) {
     await fs.writeFile(csvPath, csvRows.join('\n'))
 
     spinner.succeed(
-      `Extracted ${linkToSources.size} external links to data/external_links_final.csv`
+      `Extracted ${linkToSources.size} external links to ` +
+        'data/external_links_final.csv'
     )
     return Array.from(linkToSources.keys())
   } catch (error) {
@@ -307,7 +313,9 @@ const printSummary = (files) => {
   console.log(`📝 Total Files: ${files.length}`)
   console.log(`📚 Total Words: ${stats.totalWords.toLocaleString()}`)
   console.log(
-    `🖼️  Total Images: ${stats.totalImages} (${stats.cloudinaryImages} optimized, ${stats.imagesWithDimensions} with dimensions)`
+    `🖼️  Total Images: ${stats.totalImages} ` +
+      `(${stats.cloudinaryImages} optimized, ` +
+      `${stats.imagesWithDimensions} with dimensions)`
   )
   console.log(`🔗 Total Links: ${stats.totalLinks}`)
   console.log(`💻 Code Blocks: ${stats.totalCodeBlocks}`)
@@ -339,10 +347,15 @@ const enhanceImageUrl = (url) => {
   const width = widthMatch ? Number.parseInt(widthMatch[1]) : null
   const height = heightMatch ? Number.parseInt(heightMatch[1]) : null
 
+  const srcset = [
+    `${base}c_scale,f_auto,q_auto:good,w_400/${path} 400w`,
+    `${base}c_scale,f_auto,q_auto:good,w_800/${path} 800w`,
+    `${base}c_scale,f_auto,q_auto:good,w_1200/${path} 1200w`
+  ].join(', ')
+
   return {
     src: `${base}c_scale,f_auto,q_auto:good,w_800/${path}`,
-    srcset:
-      `${base}c_scale,f_auto,q_auto:good,w_400/${path} 400w, ${base}c_scale,f_auto,q_auto:good,w_800/${path} 800w, ${base}c_scale,f_auto,q_auto:good,w_1200/${path} 1200w`.trim(),
+    srcset,
     sizes: '(min-width: 768px) 80vw, 100vw',
     // Removed blur placeholder - user doesn't want blurred images
     // placeholder: `${base}c_scale,f_auto,q_1,w_20,e_blur:1000/${path}`,
@@ -428,8 +441,12 @@ async function processAllFiles() {
         )
         const relativePath = path.relative(paths.contentDir, filePath)
 
+        const baseName = path.basename(filePath).padEnd(40)
+        const pct2 = Math.round(
+          (processStats.filesProcessed / processStats.totalFiles) * 100
+        )
         process.stdout.write(
-          `\r${chalk.gray(`Processing: ${path.basename(filePath).padEnd(40)}`)}${Math.round((processStats.filesProcessed / processStats.totalFiles) * 100)}%`
+          `\r${chalk.gray(`Processing: ${baseName}`)}${pct2}%`
         )
 
         // Only write JSON files for non-draft content
@@ -463,7 +480,8 @@ async function processAllFiles() {
       (_, index) => results[index]?.metadata?.draft !== true
     )
 
-    // Clean up orphaned processed files (files that exist in output but not in source)
+    // Clean up orphaned processed files
+    // (files that exist in output but not in source)
     const currentSlugs = new Set()
     allFiles.forEach((filePath) => {
       const slug = normalizeSlug(
@@ -484,9 +502,10 @@ async function processAllFiles() {
       ) {
         try {
           await fs.unlink(outputFile)
-          console.log(`🗑️  Removed orphaned processed file: ${relativePath}`)
+          console.log(`🗑️  Removed orphaned: ${relativePath}`)
         } catch (error) {
-          console.warn(`⚠️  Could not remove ${relativePath}:`, error.message)
+          const warnMsg = `⚠️  Could not remove ${relativePath}:`
+          console.warn(warnMsg, error.message)
         }
       }
     }
@@ -523,7 +542,8 @@ async function processAllFiles() {
     await fs.writeFile(manifestPath, JSON.stringify(manifestResults, null, 2))
     spinner.succeed('Manifest written successfully')
 
-    // Extract tags with usage counts from content and write to public/content-tags.json
+    // Extract tags with usage counts from content
+    // and write to public/content-tags.json
     const tagUsage = {}
     nonDraftResults.forEach((result) => {
       if (result.metadata?.tags && Array.isArray(result.metadata.tags)) {
@@ -542,8 +562,10 @@ async function processAllFiles() {
         'public/content-tags.json'
       )
       await fs.writeFile(contentTagsPath, JSON.stringify(tagUsage, null, 2))
+      const tagCount = Object.keys(tagUsage).length
       console.log(
-        `\n🏷️  Extracted ${Object.keys(tagUsage).length} unique content tags with usage counts to public/content-tags.json`
+        `\n🏷️  Extracted ${tagCount} unique content tags ` +
+          'with usage counts to public/content-tags.json'
       )
     }
 

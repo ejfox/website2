@@ -9,11 +9,18 @@ const path = require('node:path')
 // Third-party domains that should be audited
 const AUDIT_PATTERNS = {
   // Analytics and tracking
-  analytics:
-    /google-analytics|gtag|ga-|googletagmanager|facebook\.com|twitter\.com|doubleclick/i,
+  analytics: new RegExp(
+    'google-analytics|gtag|ga-|googletagmanager|facebook\\.com|' +
+      'twitter\\.com|doubleclick',
+    'i'
+  ),
 
   // CDNs and external resources
-  cdn: /fonts\.googleapis\.com|fonts\.gstatic\.com|res\.cloudinary\.com|cdnjs|jsdelivr/i,
+  cdn: new RegExp(
+    'fonts\\.googleapis\\.com|fonts\\.gstatic\\.com|res\\.cloudinary\\.com|' +
+      'cdnjs|jsdelivr',
+    'i'
+  ),
 
   // Payment and forms
   payments: /paypal|checkout/i,
@@ -152,21 +159,24 @@ function generateSecurityReport(results) {
 
   if (report.summary.uniqueDomains > 5) {
     report.recommendations.push(
-      '📊 PERFORMANCE: Consider reducing third-party domains for better performance'
+      '📊 PERFORMANCE: Consider reducing third-party domains ' +
+        'for better performance'
     )
   }
 
   const adReferences = results.filter((r) => r.category === 'ads')
   if (adReferences.length > 0) {
     report.recommendations.push(
-      '🛡️ PRIVACY: Ad networks detected - ensure compliance with privacy policies'
+      '🛡️ PRIVACY: Ad networks detected - ' +
+        'ensure compliance with privacy policies'
     )
   }
 
   const analyticsReferences = results.filter((r) => r.category === 'analytics')
   if (analyticsReferences.length > 2) {
     report.recommendations.push(
-      '🎯 OPTIMIZATION: Multiple analytics tools detected - consolidate for better performance'
+      '🎯 OPTIMIZATION: Multiple analytics tools detected - ' +
+        'consolidate for better performance'
     )
   }
 

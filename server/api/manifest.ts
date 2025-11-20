@@ -26,8 +26,9 @@ export default defineEventHandler(async () => {
     // console.log('Manifest endpoint check:', {
     //   total: manifest.length,
     //   projectSlugs,
-    //   // Log a sample project if we have one
-    //   sampleProject: manifest.find((p: Post) => p.slug?.startsWith('projects/'))
+    //   sampleProject: manifest.find(
+    //     (p: Post) => p.slug?.startsWith('projects/')
+    //   )
     // })
 
     return manifest

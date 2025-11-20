@@ -45,7 +45,9 @@
               width: `${difficultyPercentages.easy}%`,
               backgroundColor: '#a1a1aa'
             }"
-            :title="`Easy: ${formatNumber(stats.submissionStats.easy.count)} problems`"
+            :title="`Easy: ${formatNumber(
+              stats.submissionStats.easy.count
+            )} problems`"
           ></div>
           <div
             class="medium-bar"
@@ -53,7 +55,9 @@
               width: `${difficultyPercentages.medium}%`,
               backgroundColor: '#71717a'
             }"
-            :title="`Medium: ${formatNumber(stats.submissionStats.medium.count)} problems`"
+            :title="`Medium: ${formatNumber(
+              stats.submissionStats.medium.count
+            )} problems`"
           ></div>
           <div
             class="hard-bar"
@@ -61,7 +65,9 @@
               width: `${difficultyPercentages.hard}%`,
               backgroundColor: '#3f3f46'
             }"
-            :title="`Hard: ${formatNumber(stats.submissionStats.hard.count)} problems`"
+            :title="`Hard: ${formatNumber(
+              stats.submissionStats.hard.count
+            )} problems`"
           ></div>
         </div>
         <div class="flex justify-between text-2xs text-zinc-500 mt-1">
@@ -213,7 +219,8 @@ const truncateTitle = (title: string): string => {
 }
 
 .problem-title {
-  @apply ml-2 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 hover:underline truncate max-w-[16rem];
+  @apply ml-2 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900
+    dark:hover:text-zinc-100 hover:underline truncate max-w-[16rem];
 }
 
 .submission-lang {

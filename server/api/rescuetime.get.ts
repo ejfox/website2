@@ -73,7 +73,7 @@ export default defineEventHandler(async () => {
       return date.toISOString().split('T')[0]
     }
 
-    // Fetch both week and month data in parallel - use 'interval' perspective to get productivity scores
+    // Fetch week and month data in parallel using 'interval' perspective
     const [weekData, monthData] = await Promise.all([
       $fetch<RescueTimeResponse>('https://www.rescuetime.com/anapi/data', {
         params: {
@@ -201,9 +201,10 @@ export default defineEventHandler(async () => {
     }
   } catch (error: any) {
     console.error('RescueTime API error:', error)
+    const errorMsg = `Failed to fetch RescueTime data: ${error.message}`
     throw createError({
       statusCode: 500,
-      message: `Failed to fetch RescueTime data: ${error.message}`
+      message: errorMsg
     })
   }
 })

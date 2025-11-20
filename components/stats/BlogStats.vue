@@ -55,7 +55,8 @@
       >
         <div class="flex-1 min-w-0">
           <div
-            class="text-zinc-700 dark:text-zinc-300 truncate text-xs leading-[12px]"
+            class="truncate text-xs leading-[12px]"
+            :class="['text-zinc-700 dark:text-zinc-300']"
           >
             {{ post.title }}
           </div>

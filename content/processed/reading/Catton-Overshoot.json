@@ -11,11 +11,7 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/51geicggF5L._SY160.jpg",
       "highlightsCount": 4
     },
-    "tags": [
-      "book",
-      "ecology",
-      "climatechange"
-    ],
+    "tags": ["book", "ecology", "climatechange"],
     "words": 246,
     "images": 0,
     "imageDetails": {

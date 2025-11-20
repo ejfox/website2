@@ -10,11 +10,7 @@
           :key="`gear-${item.slug || item.Name}`"
           :data-gear-index="index"
           class="color-swatch-lg"
-          :class="
-            isCurrentItem(item)
-              ? 'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 border-zinc-900 dark:border-zinc-100 scale-110'
-              : 'border-zinc-300 dark:border-zinc-700 hover:border-zinc-500 dark:hover:border-zinc-500'
-          "
+          :class="getSwatchClasses(item)"
           :title="item.Name"
           @click="navigateToItem(item)"
         >
@@ -26,11 +22,7 @@
           </div>
           <div
             class="text-xs text-zinc-500"
-            :class="
-              isCurrentItem(item)
-                ? 'text-zinc-300 dark:text-zinc-600'
-                : 'text-zinc-500'
-            "
+            :class="getWeightTextClasses(item)"
           >
             {{ item['Base Weight ()'] || '?' }}oz
           </div>
@@ -66,10 +58,33 @@ const gearItems = computed(() => {
   return items.filter((item) => item?.Name && item.Name.trim() !== '')
 })
 
+const getItemSlug = (item) => {
+  return item.slug || item.Name.toLowerCase().replace(/[^a-z0-9]+/g, '-')
+}
+
+const getSwatchClasses = (item) => {
+  if (isCurrentItem(item)) {
+    return (
+      'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 ' +
+      'border-zinc-900 dark:border-zinc-100 scale-110'
+    )
+  }
+  return (
+    'border-zinc-300 dark:border-zinc-700 hover:border-zinc-500 ' +
+    'dark:hover:border-zinc-500'
+  )
+}
+
+const getWeightTextClasses = (item) => {
+  if (isCurrentItem(item)) {
+    return 'text-zinc-300 dark:text-zinc-600'
+  }
+  return 'text-zinc-500'
+}
+
 const isCurrentItem = (item) => {
   if (!item?.Name) return false
-  // Use API slug if available, otherwise generate it
-  const slug = item.slug || item.Name.toLowerCase().replace(/[^a-z0-9]+/g, '-')
+  const slug = getItemSlug(item)
   return slug === props.currentSlug
 }
 
@@ -102,20 +117,15 @@ const scrollToCenter = (targetIndex) => {
 
 const navigateToItem = (item, direction = 'none') => {
   if (!item?.Name) return
-  // Use API slug if available, otherwise generate it
-  const slug = item.slug || item.Name.toLowerCase().replace(/[^a-z0-9]+/g, '-')
-
+  const slug = getItemSlug(item)
   const targetIndex = gearItems.value.findIndex((i) => i.Name === item.Name)
 
-  // Add directional animation
-  // NUKED BY BLOODHOUND: Animation code obliterated - navigation works without fancy animations
+  // Animation code removed for better performance
   if (direction !== 'none') {
-    // Animation removed for better performance
+    // Direction param used in previous animation system
   }
 
-  // Auto-scroll to center the selected item
   nextTick(() => scrollToCenter(targetIndex))
-
   navigateTo(`/gear/${slug}`)
 }
 

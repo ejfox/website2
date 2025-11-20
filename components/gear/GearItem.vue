@@ -1,7 +1,5 @@
 <template>
-  <tr
-    class="group hover:bg-zinc-900/40 cursor-pointer even:bg-zinc-900/20 relative"
-  >
+  <tr :class="rowClasses">
     <td
       class="px-1 py-0.5 text-zinc-100 truncate max-w-[300px]"
       :title="item.Name + (item.Notes ? '\n\n' + item.Notes : '')"
@@ -71,6 +69,14 @@ const typeSymbols = {
   Bag: '▣',
   Safety: '◆',
   Creativity: '✧'
+}
+
+const rowClasses = {
+  group: true,
+  'hover:bg-zinc-900/40': true,
+  'cursor-pointer': true,
+  'even:bg-zinc-900/20': true,
+  relative: true
 }
 
 const getTypeSymbol = (type) => typeSymbols[type] || '—'

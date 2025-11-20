@@ -416,7 +416,7 @@
       v-if="calibration && calibration.summary.resolved > 0"
       class="mt-12"
     >
-      <h2 class="heading-2 mb-4 transition-colors duration-300">
+      <h2 class="heading-2 mb-4">
         Meta-Analysis
       </h2>
 
@@ -426,19 +426,19 @@
         <div class="flex items-baseline gap-2">
           <span
             v-if="calibration.brier_score < 0.2"
-            class="mono-4xl transition-colors duration-300 text-success"
+            class="mono-4xl text-success"
           >
             {{ calibration.brier_score.toFixed(3) }}
           </span>
           <span
             v-else-if="calibration.brier_score < 0.25"
-            class="mono-4xl transition-colors duration-300 text-primary"
+            class="mono-4xl text-primary"
           >
             {{ calibration.brier_score.toFixed(3) }}
           </span>
           <span
             v-else
-            class="mono-4xl transition-colors duration-300 text-error"
+            class="mono-4xl text-error"
           >
             {{ calibration.brier_score.toFixed(3) }}
           </span>
@@ -1090,7 +1090,7 @@ const formatTime = (isoString) => {
 }
 
 .delta-cell {
-  @apply py-1 text-right tabular-nums font-bold transition-colors duration-300;
+  @apply py-1 text-right tabular-nums font-bold;
 }
 
 .table-th-left {
@@ -1102,15 +1102,15 @@ const formatTime = (isoString) => {
 }
 
 .table-muted-body {
-  @apply text-zinc-500 dark:text-zinc-500 transition-colors duration-300;
+  @apply text-zinc-500 dark:text-zinc-500;
 }
 
 .section-label-transition {
-  @apply text-zinc-500 dark:text-zinc-500 mb-1 transition-colors duration-300;
+  @apply text-zinc-500 dark:text-zinc-500 mb-1;
 }
 
 .value-transition {
-  @apply font-bold text-2xl tabular-nums transition-colors duration-300;
+  @apply font-bold text-2xl tabular-nums;
 }
 
 .calibration-table {
@@ -1119,7 +1119,7 @@ const formatTime = (isoString) => {
 }
 
 .generated-at {
-  @apply text-zinc-400 dark:text-zinc-600 transition-colors duration-300;
+  @apply text-zinc-400 dark:text-zinc-600;
 }
 
 .version-info {

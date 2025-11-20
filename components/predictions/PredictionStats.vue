@@ -46,7 +46,8 @@ const _props = defineProps({
 }
 
 .stat-card {
-  @apply bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 text-center;
+  @apply bg-white dark:bg-zinc-900 border border-zinc-200
+    dark:border-zinc-800 rounded-lg p-4 text-center;
 }
 
 .stat-card h3 {

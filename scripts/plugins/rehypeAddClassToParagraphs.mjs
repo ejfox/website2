@@ -1,8 +1,10 @@
 import { visit } from 'unist-util-visit'
 
 // Define SVG for horizontal rule - using the simpler line style
-const hrSvg = `<svg class="mx-auto my-8 w-full max-w-prose" height="1">
-  <line x1="0" y1="0" x2="100%" y2="0" stroke="currentColor" stroke-width="1" stroke-dasharray="2,4" />
+const hrSvg =
+  `<svg class="mx-auto my-8 w-full max-w-prose" height="1">
+  <line x1="0" y1="0" x2="100%" y2="0" stroke="currentColor" ` +
+  `stroke-width="1" stroke-dasharray="2,4" />
 </svg>`
 
 export function rehypeAddClassToParagraphs() {

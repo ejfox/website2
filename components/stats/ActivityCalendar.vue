@@ -130,7 +130,8 @@ const activeCount = computed(() => {
 }
 
 .activity-cell {
-  @apply w-full h-full rounded-[1px] transition-colors duration-300 cursor-pointer;
+  @apply w-full h-full rounded-[1px] transition-colors duration-300;
+  @apply cursor-pointer;
 }
 
 .active {

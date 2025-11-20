@@ -226,11 +226,12 @@ async function main() {
     try {
       const response = await fetch('http://localhost:3006/api/kalshi')
       kalshiData = await response.json()
-      console.log(
-        `✓ Loaded Kalshi data (${kalshiData.positions?.length || 0} positions)`
-      )
+      const posCount = kalshiData.positions?.length || 0
+      console.log(`✓ Loaded Kalshi data (${posCount} positions)`)
     } catch {
-      console.log('⚠️  Could not fetch Kalshi data (server may not be running)')
+      console.log(
+        '⚠️  Could not fetch Kalshi data ' + '(server may not be running)'
+      )
     }
 
     // Calculate metrics
@@ -282,18 +283,23 @@ async function main() {
       console.log(`Accuracy: ${analysis.summary.accuracy}%`)
     }
     if (brierScore !== null) {
-      console.log(
-        `Brier Score: ${brierScore.toFixed(3)} ${brierScore < 0.2 ? '(excellent)' : brierScore < 0.25 ? '(good)' : '(needs work)'}`
-      )
+      const scoreQuality =
+        brierScore < 0.2
+          ? '(excellent)'
+          : brierScore < 0.25
+            ? '(good)'
+            : '(needs work)'
+      console.log(`Brier Score: ${brierScore.toFixed(3)} ${scoreQuality}`)
     }
 
     if (calibration.length > 0) {
       console.log('\nCalibration:')
       calibration.forEach((bucket) => {
         const delta = bucket.delta >= 0 ? `+${bucket.delta}` : bucket.delta
-        console.log(
-          `  ${bucket.label}: ${bucket.accuracy}% actual (expected ${bucket.expected}%, ${delta}pp) [n=${bucket.count}]`
-        )
+        const msg =
+          `  ${bucket.label}: ${bucket.accuracy}% actual ` +
+          `(expected ${bucket.expected}%, ${delta}pp) [n=${bucket.count}]`
+        console.log(msg)
       })
     }
 

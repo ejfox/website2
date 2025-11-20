@@ -1,6 +1,6 @@
 /**
  * Fetch with timeout and better error handling
- * Prevents ECONNRESET and other network errors from becoming uncaught exceptions
+ * Prevents network errors from becoming uncaught exceptions
  */
 export async function fetchWithTimeout(
   url: string,
@@ -33,7 +33,8 @@ export async function fetchWithTimeout(
         error.message.includes('ECONNREFUSED') ||
         error.message.includes('ETIMEDOUT')
       ) {
-        throw new Error(`Network error connecting to ${url}: ${error.message}`)
+        const msg = `Network error connecting to ${url}: ${error.message}`
+        throw new Error(msg)
       }
     }
 

@@ -70,7 +70,11 @@
               :href="gist.html_url"
               target="_blank"
               rel="noopener"
-              class="text-zinc-700 dark:text-zinc-300 hover:text-black dark:hover:text-white transition-colors text-xs"
+              class="text-xs transition-colors"
+              :class="[
+                'text-zinc-700 dark:text-zinc-300',
+                'hover:text-black dark:hover:text-white'
+              ]"
             >
               {{ getGistTitle(gist) }}
             </a>

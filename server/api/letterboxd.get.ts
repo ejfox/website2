@@ -14,7 +14,9 @@ export default defineEventHandler(async (_event) => {
     const films = []
 
     // Parse RSS XML for film entries
-    // Each item has: <letterboxd:filmTitle>, <letterboxd:filmYear>, <letterboxd:watchedDate>, <letterboxd:memberRating>, <letterboxd:rewatch>
+    // Each item has: <letterboxd:filmTitle>, <letterboxd:filmYear>,
+    // <letterboxd:watchedDate>, <letterboxd:memberRating>,
+    // <letterboxd:rewatch>
     const itemPattern = /<item>([\s\S]*?)<\/item>/g
     let itemMatch
 
@@ -46,7 +48,8 @@ export default defineEventHandler(async (_event) => {
         const rating = ratingMatch ? Number.parseFloat(ratingMatch[1]) : null
         const isRewatch = rewatchMatch ? rewatchMatch[1] === 'Yes' : false
 
-        // Extract slug from link (e.g., https://letterboxd.com/ejfox/film/friendship-2024/)
+        // Extract slug from link
+        // e.g., https://letterboxd.com/ejfox/film/friendship-2024/
         let slug = ''
         if (linkMatch) {
           const slugMatch = linkMatch[1].match(/\/film\/([^/]+)\//)

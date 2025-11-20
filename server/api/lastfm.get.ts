@@ -83,12 +83,14 @@ export default defineEventHandler(async () => {
 
         // Check for Last.fm API errors in the response
         if (data.error) {
+          const errorMsg = data.message || 'Unknown error'
           console.error(
-            `Last.fm API returned error code ${data.error} with message: ${data.message}`
+            `Last.fm API returned error code ${data.error} with ` +
+              `message: ${errorMsg}`
           )
           throw createError({
             statusCode: 500,
-            message: `Last.fm API error: ${data.message || 'Unknown error'}`,
+            message: `Last.fm API error: ${errorMsg}`,
             data: { errorCode: data.error }
           })
         }

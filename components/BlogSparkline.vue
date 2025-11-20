@@ -129,15 +129,20 @@ const gridCount = computed(() => {
   // Different scaling per metric
   switch (props.metric) {
     case 'words':
-      return Math.min(Math.ceil(props.value / 250), 10) // 1 unit per 250 words, max 10
+      // 1 unit per 250 words, max 10
+      return Math.min(Math.ceil(props.value / 250), 10)
     case 'images':
-      return Math.min(props.value, 8) // 1 unit per image, max 8
+      // 1 unit per image, max 8
+      return Math.min(props.value, 8)
     case 'links':
-      return Math.min(props.value, 8) // 1 unit per link, max 8
+      // 1 unit per link, max 8
+      return Math.min(props.value, 8)
     case 'size':
-      return Math.min(Math.ceil(props.value / 1024), 10) // 1 unit per KB, max 10
+      // 1 unit per KB, max 10
+      return Math.min(Math.ceil(props.value / 1024), 10)
     case 'time':
-      return Math.min(Math.ceil(props.value / 60), 6) // 1 unit per minute, max 6
+      // 1 unit per minute, max 6
+      return Math.min(Math.ceil(props.value / 60), 6)
     default:
       return Math.min(props.value, 10)
   }
@@ -272,9 +277,10 @@ const label = computed(() => {
 
 // Tooltip text
 const tooltip = computed(() => {
+  const readMinutes = Math.ceil(props.value / 250)
   switch (props.metric) {
     case 'words':
-      return `${props.value} words (~${Math.ceil(props.value / 250)} min read)`
+      return `${props.value} words (~${readMinutes} min read)`
     case 'images':
       return `${props.value} images in post`
     case 'links':

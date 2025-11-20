@@ -7,10 +7,13 @@ export default defineNuxtConfig({
   // Force SSR mode for consistency
   ssr: true,
 
-  // CRITICAL: Enable experimental features for Nuxt 4 - optimized for sub-1s FCP
+  // CRITICAL: Enable experimental features for Nuxt 4
+  // Optimized for sub-1s FCP (First Contentful Paint)
   experimental: {
     payloadExtraction: false, // Prevents large payload chunks
-    inlineSSRStyles: true, // Inline CSS to prevent FOUC - CRITICAL FOR NO FLICKERING
+    // Inline CSS to prevent FOUC
+    // CRITICAL FOR NO FLICKERING
+    inlineSSRStyles: true,
     treeshakeClientOnly: true, // Remove client-only components from SSR
     sharedPrerenderData: false, // Can cause hydration issues in dev
     typedPages: true, // Enable typed routing

@@ -181,6 +181,38 @@ onMounted(() => {
   // Title animation removed - delete-driven development
 })
 
+// Alert description
+const robotAlertDescription =
+  "This note was written by or with the assistance of AI. While I've " +
+  'reviewed and edited the content, you might notice some quirks in the ' +
+  'writing style or reasoning, and it may not all be factually accurate.'
+
+// Metadata box styling
+const metadataBoxClass =
+  'font-mono text-xs bg-zinc-100 dark:bg-zinc-900 p-4 ' + 'rounded-lg mb-8'
+
+// Progress bar styling
+const progressBarClass =
+  'bg-zinc-600 dark:bg-zinc-400 h-full ' + 'transition-all duration-200'
+
+// Prose styling classes
+const proseClasses =
+  'prose prose-sm font-mono dark:prose-invert ' +
+  'prose-headings:font-bold prose-headings:tracking-tight ' +
+  'prose-h2:text-3xl prose-h3:text-2xl ' +
+  'prose-p:leading-8 prose-p:py-2 ' +
+  'prose-a:text-zinc-700 hover:prose-a:text-zinc-900 ' +
+  'dark:prose-a:text-zinc-300 dark:hover:prose-a:text-zinc-100 ' +
+  'prose-a:underline transition-all duration-100 ease-in-out ' +
+  'prose-strong:font-normal ' +
+  'prose-blockquote:border-l-4 prose-blockquote:border-zinc-400 ' +
+  'dark:prose-blockquote:border-zinc-600 prose-blockquote:pl-4 ' +
+  'prose-blockquote:italic prose-blockquote:my-8 ' +
+  'prose-ul:list-disc prose-ol:list-decimal prose-li:my-2 ' +
+  'prose-img:rounded-lg ' +
+  'prose-hr:border-zinc-300 dark:prose-hr:border-zinc-700 ' +
+  '!max-w-none'
+
 // Add useHead for robot page title
 useHead({
   title: note.value?.title
@@ -195,9 +227,7 @@ useHead({
     >
       <article v-if="note">
         <!-- Metadata Display -->
-        <div
-          class="font-mono text-xs bg-zinc-100 dark:bg-zinc-900 p-4 rounded-lg mb-8"
-        >
+        <div :class="metadataBoxClass">
           <div class="grid grid-cols-[auto,1fr] gap-x-4 gap-y-2">
             <!-- Type -->
             <div class="text-zinc-500 dark:text-zinc-400">type:</div>
@@ -254,7 +284,7 @@ useHead({
           color="gray"
           variant="soft"
           title="LLM-Generated / Augmented Content"
-          description="This note was written by or with the assistance of AI. While I've reviewed and edited the content, you might notice some quirks in the writing style or reasoning, and it may not all be factually accurate."
+          :description="robotAlertDescription"
           class="mb-8"
         />
 
@@ -279,10 +309,7 @@ useHead({
         </header>
 
         <!-- Content with adjusted max-width -->
-        <div
-          class="prose prose-sm font-mono dark:prose-invert prose-headings:font-bold prose-headings:tracking-tight prose-h2:text-3xl prose-h3:text-2xl prose-p:leading-8 prose-p:py-2 prose-a:text-zinc-700 hover:prose-a:text-zinc-900 dark:prose-a:text-zinc-300 dark:hover:prose-a:text-zinc-100 prose-a:underline transition-all duration-100 ease-in-out prose-strong:font-normal prose-blockquote:border-l-4 prose-blockquote:border-zinc-400 dark:prose-blockquote:border-zinc-600 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:my-8 prose-ul:list-disc prose-ol:list-decimal prose-li:my-2 prose-img:rounded-lg prose-hr:border-zinc-300 dark:prose-hr:border-zinc-700 !max-w-none"
-          v-html="processedContent"
-        />
+        <div :class="proseClasses" v-html="processedContent" />
 
         <footer class="mt-8 pt-8 border-t border-zinc-200 dark:border-zinc-800">
           <NuxtLink to="/blog/robots" class="link-underline-hover">
@@ -301,7 +328,7 @@ useHead({
           <div class="dark:bg-zinc-900 p-4 rounded-lg flex-1 overflow-y-auto">
             <div class="progress-bar">
               <div
-                class="bg-zinc-600 dark:bg-zinc-400 h-full transition-all duration-200"
+                :class="progressBarClass"
                 :style="{ width: `${scrollProgress}%` }"
               />
             </div>
@@ -335,7 +362,8 @@ useHead({
             section.level === 'h3' ? 'pl-4' : '',
             _activeSection === section.slug
               ? 'text-zinc-900 dark:text-zinc-100'
-              : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100'
+              : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 ' +
+                'dark:hover:text-zinc-100'
           ]"
         >
           <div class="flex justify-between items-center group">

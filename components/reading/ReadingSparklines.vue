@@ -24,12 +24,13 @@
             :y="40 - (item.count / maxBooksPerYear) * 35"
             :width="barWidth - barGap * 2"
             :height="(item.count / maxBooksPerYear) * 35"
-            :class="
+            :class="[
+              'transition-colors hover:fill-zinc-600',
+              'dark:hover:fill-zinc-400',
               item.year === currentYear
                 ? 'fill-zinc-900 dark:fill-zinc-100'
                 : 'fill-zinc-400 dark:fill-zinc-600'
-            "
-            class="transition-colors hover:fill-zinc-600 dark:hover:fill-zinc-400"
+            ]"
           />
           <!-- Year labels (every other year to avoid crowding) -->
           <text
@@ -47,14 +48,20 @@
             :x="idx * barWidth + barWidth / 2"
             :y="40 - (item.count / maxBooksPerYear) * 35 - 3"
             text-anchor="middle"
-            class="font-mono text-[9px] font-bold fill-zinc-900 dark:fill-zinc-100"
+            :class="[
+              'font-mono text-[9px] font-bold fill-zinc-900',
+              'dark:fill-zinc-100'
+            ]"
           >
             {{ item.count }}
           </text>
         </g>
       </svg>
       <div
-        class="font-mono text-[9px] text-zinc-400 dark:text-zinc-600 mt-1 flex justify-between"
+        :class="[
+          'font-mono text-[9px] text-zinc-400 dark:text-zinc-600',
+          'mt-1 flex justify-between'
+        ]"
       >
         <span>{{ yearlyData[0]?.year || '' }}</span>
         <span>{{ totalBooks }} books total</span>
@@ -89,7 +96,10 @@
         />
       </svg>
       <div
-        class="font-mono text-[9px] text-zinc-400 dark:text-zinc-600 mt-1 flex justify-between"
+        :class="[
+          'font-mono text-[9px] text-zinc-400 dark:text-zinc-600',
+          'mt-1 flex justify-between'
+        ]"
       >
         <span>min: {{ highlightStats.min }}</span>
         <span>avg: {{ highlightStats.avg }}</span>
@@ -110,7 +120,10 @@
         ></div>
       </div>
       <div
-        class="font-mono text-[9px] text-zinc-400 dark:text-zinc-600 mt-2 flex justify-between"
+        :class="[
+          'font-mono text-[9px] text-zinc-400 dark:text-zinc-600',
+          'mt-2 flex justify-between'
+        ]"
       >
         <span>{{ last12Months[0]?.label || '' }}</span>
         <span>{{ last12MonthsTotal }} books in last year</span>

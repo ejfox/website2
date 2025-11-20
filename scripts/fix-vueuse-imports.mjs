@@ -27,22 +27,33 @@ for (const file of files) {
     let updatedContent = content
 
     // Pattern 1: Simple imports like { useWindowSize } from '@vueuse/core'
+    const vueUseImportPattern =
+      /import\s*\{([^}]+)\}\s*from\s*['"]@vueuse\/core['"]/g
     updatedContent = updatedContent.replace(
-      /import\s*\{([^}]+)\}\s*from\s*['"]@vueuse\/core['"]/g,
+      vueUseImportPattern,
       (match, imports) => {
         const cleanImports = imports.trim()
         console.log(chalk.dim(`  Replacing: ${cleanImports}`))
-        return `import { ${cleanImports} } from '~/composables/useOptimizedVueUse'`
+        return (
+          `import { ${cleanImports} } from ` +
+          `'~/composables/useOptimizedVueUse'`
+        )
       }
     )
 
-    // Pattern 2: Type imports like import type { MaybeElementRef } from '@vueuse/core'
+    // Pattern 2: Type imports
+    // like import type { MaybeElementRef } from '@vueuse/core'
+    const vueUseTypePattern =
+      /import\s+type\s*\{([^}]+)\}\s*from\s*['"]@vueuse\/core['"]/g
     updatedContent = updatedContent.replace(
-      /import\s+type\s*\{([^}]+)\}\s*from\s*['"]@vueuse\/core['"]/g,
+      vueUseTypePattern,
       (match, imports) => {
         const cleanImports = imports.trim()
         console.log(chalk.dim(`  Replacing type import: ${cleanImports}`))
-        return `import type { ${cleanImports} } from '~/composables/useOptimizedVueUse'`
+        return (
+          `import type { ${cleanImports} } from ` +
+          `'~/composables/useOptimizedVueUse'`
+        )
       }
     )
 
@@ -60,7 +71,8 @@ for (const file of files) {
 console.log(chalk.blue.bold(`\n🎉 Fixed ${fixedFiles} files!`))
 console.log(
   chalk.dim(
-    'All @vueuse/core imports now use centralized composable for better tree-shaking'
+    'All @vueuse/core imports now use centralized ' +
+      'composable for better tree-shaking'
   )
 )
 console.log(

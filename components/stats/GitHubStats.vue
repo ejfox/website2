@@ -16,11 +16,13 @@
               :decimals="0"
             />
           </div>
+          <!-- eslint-disable max-len,vue/max-len -->
           <div
             class="stat-label text-xs text-zinc-500 uppercase tracking-widest mt-1"
           >
             GITHUB COMMITS
           </div>
+          <!-- eslint-enable max-len,vue/max-len -->
         </div>
         <div class="text-center">
           <div class="stat-value text-2xl font-bold">
@@ -31,11 +33,13 @@
               priority="secondary"
             />
           </div>
+          <!-- eslint-disable max-len,vue/max-len -->
           <div
             class="stat-label text-xs text-zinc-500 uppercase tracking-widest mt-1"
           >
             REPOS
           </div>
+          <!-- eslint-enable max-len,vue/max-len -->
         </div>
       </div>
     </div>
@@ -62,12 +66,14 @@
           class="flex items-baseline justify-between text-xs"
         >
           <div class="flex items-baseline gap-2 min-w-0 flex-1">
+            <!-- eslint-disable max-len,vue/max-len -->
             <a
               :href="project.url"
               target="_blank"
               rel="noopener"
               class="text-zinc-700 dark:text-zinc-300 hover:text-black dark:hover:text-white transition-colors font-medium truncate text-xs"
             >
+              <!-- eslint-enable max-len,vue/max-len -->
               {{ project.name }}
             </a>
             <span
@@ -281,6 +287,8 @@ const getContributionStreak = computed(() => {
 })
 
 function formatRelativeTime(dateStr: string) {
-  return formatDistance(new Date(dateStr), new Date(), { addSuffix: true })
+  return formatDistance(new Date(dateStr), new Date(), {
+    addSuffix: true
+  })
 }
 </script>

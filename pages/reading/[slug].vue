@@ -16,10 +16,7 @@
           The book "{{ route.params.slug }}" doesn't exist in the reading
           collection.
         </p>
-        <NuxtLink
-          to="/reading"
-          class="inline-block mt-4 text-blue-600 dark:text-blue-400 hover:underline"
-        >
+        <NuxtLink to="/reading" :class="backLinkClass">
           ← Back to Reading List
         </NuxtLink>
       </div>
@@ -53,9 +50,7 @@
               </p>
 
               <!-- Metadata -->
-              <div
-                class="flex flex-wrap gap-4 text-sm text-zinc-500 dark:text-zinc-400"
-              >
+              <div :class="metadataContainerClass">
                 <span v-if="book.metadata?.['kindle-sync']?.highlightsCount">
                   {{ book.metadata['kindle-sync'].highlightsCount }} highlights
                 </span>
@@ -74,16 +69,20 @@
               <div class="flex gap-4 mt-4">
                 <a
                   v-if="book.metadata?.['kindle-sync']?.asin"
-                  :href="`kindle://book?action=open&asin=${book.metadata['kindle-sync'].asin}`"
-                  class="text-blue-600 dark:text-blue-400 hover:underline text-sm"
+                  :href="`kindle://book?action=open&asin=${
+                    book.metadata['kindle-sync'].asin
+                  }`"
+                  :class="linkClass"
                 >
                   Open in Kindle
                 </a>
                 <a
                   v-if="book.metadata?.['kindle-sync']?.asin"
-                  :href="`https://www.amazon.com/dp/${book.metadata['kindle-sync'].asin}`"
+                  :href="`https://www.amazon.com/dp/${
+                    book.metadata['kindle-sync'].asin
+                  }`"
                   target="_blank"
-                  class="text-blue-600 dark:text-blue-400 hover:underline text-sm"
+                  :class="linkClass"
                 >
                   View on Amazon
                 </a>
@@ -115,10 +114,7 @@
 
         <!-- Navigation -->
         <div class="mt-8">
-          <NuxtLink
-            to="/reading"
-            class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline"
-          >
+          <NuxtLink to="/reading" :class="navLinkClass">
             ← Back to Reading List
           </NuxtLink>
         </div>
@@ -130,6 +126,16 @@
 <script setup>
 const route = useRoute()
 
+// CSS Classes
+const backLinkClass =
+  'inline-block mt-4 text-blue-600 dark:text-blue-400 hover:underline'
+const metadataContainerClass =
+  'flex flex-wrap gap-4 text-sm text-zinc-500 dark:text-zinc-400'
+const linkClass = 'text-blue-600 dark:text-blue-400 hover:underline text-sm'
+const navLinkClass =
+  'inline-flex items-center text-blue-600 dark:text-blue-400 ' +
+  'hover:underline'
+
 // Fetch book data
 const {
   data: book,
@@ -140,13 +146,17 @@ const {
 // SEO
 useHead({
   title: book.value
-    ? `${book.value.metadata?.['kindle-sync']?.title || book.value.title} - Reading Notes`
+    ? `${
+        book.value.metadata?.['kindle-sync']?.title || book.value.title
+      } - Reading Notes`
     : 'Book Not Found',
   meta: [
     {
       name: 'description',
       content: book.value
-        ? `Highlights and notes from ${book.value.metadata?.['kindle-sync']?.title} by ${book.value.metadata?.['kindle-sync']?.author}`
+        ? `Highlights and notes from ${
+            book.value.metadata?.['kindle-sync']?.title
+          } by ${book.value.metadata?.['kindle-sync']?.author}`
         : 'Book not found'
     }
   ]

@@ -69,7 +69,11 @@
         >
           <div class="flex-1 min-w-0">
             <div
-              class="truncate text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-900 dark:group-hover:text-zinc-100"
+              class="truncate"
+              :class="[
+                'text-zinc-700 dark:text-zinc-300',
+                'group-hover:text-zinc-900 dark:group-hover:text-zinc-100'
+              ]"
             >
               {{ film.title }}
               <span
@@ -85,7 +89,8 @@
           </div>
           <div
             v-if="film.rating"
-            class="text-zinc-600 dark:text-zinc-400 text-xs tabular-nums flex-shrink-0"
+            class="text-xs tabular-nums flex-shrink-0"
+            :class="['text-zinc-600 dark:text-zinc-400']"
           >
             <span class="inline-flex gap-[1px]">
               <span
@@ -113,7 +118,11 @@
           class="row-hover-xs-centered"
         >
           <div
-            class="truncate text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-900 dark:group-hover:text-zinc-100"
+            class="truncate"
+            :class="[
+              'text-zinc-700 dark:text-zinc-300',
+              'group-hover:text-zinc-900 dark:group-hover:text-zinc-100'
+            ]"
           >
             {{ film.title }}
           </div>

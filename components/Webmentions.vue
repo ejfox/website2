@@ -28,7 +28,10 @@
               :src="like.author?.photo || '/default-avatar.png'"
               :alt="like.author?.name || 'Unknown'"
               :title="like.author?.name || 'Unknown'"
-              class="w-6 h-6 rounded-full border-2 border-white dark:border-zinc-900"
+              :class="[
+                'w-6 h-6 rounded-full border-2 border-white',
+                'dark:border-zinc-900'
+              ]"
             />
           </div>
         </div>
@@ -45,7 +48,10 @@
               :src="repost.author?.photo || '/default-avatar.png'"
               :alt="repost.author?.name || 'Unknown'"
               :title="repost.author?.name || 'Unknown'"
-              class="w-6 h-6 rounded-full border-2 border-white dark:border-zinc-900"
+              :class="[
+                'w-6 h-6 rounded-full border-2 border-white',
+                'dark:border-zinc-900'
+              ]"
             />
           </div>
         </div>
@@ -72,7 +78,10 @@
                 :href="reply.author?.url"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="font-medium text-sm text-zinc-900 dark:text-zinc-100 hover:underline"
+                :class="[
+                  'font-medium text-sm text-zinc-900 dark:text-zinc-100',
+                  'hover:underline'
+                ]"
               >
                 {{ reply.author?.name || 'Someone' }}
               </a>
@@ -91,7 +100,11 @@
               :href="reply.url"
               target="_blank"
               rel="noopener noreferrer"
-              class="text-xs text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200 mt-1 inline-block"
+              :class="[
+                'text-xs text-zinc-500 hover:text-zinc-700',
+                'dark:text-zinc-400 dark:hover:text-zinc-200',
+                'mt-1 inline-block'
+              ]"
             >
               View on {{ getDomain(reply.url) }} →
             </a>

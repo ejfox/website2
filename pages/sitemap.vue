@@ -3,11 +3,7 @@
     <!-- Header -->
     <header class="space-y-8 mb-16">
       <div>
-        <h1
-          class="text-2xl font-light text-zinc-900 dark:text-zinc-100 tracking-tight"
-        >
-          Site Map
-        </h1>
+        <h1 class="sitemap-title">Site Map</h1>
         <p class="text-zinc-600 dark:text-zinc-400 mt-2">
           Complete navigation of ejfox.com — find everything here
         </p>
@@ -19,21 +15,17 @@
       <!-- Main Pages -->
       <section class="space-y-8">
         <div>
-          <div
-            class="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-4"
-          >
-            MAIN_PAGES
-          </div>
+          <div class="sitemap-section-header">MAIN_PAGES</div>
           <div class="stack-4">
             <SitemapLink
               to="/"
               title="Home"
-              description="Personal homepage with latest updates and featured content"
+              description="Homepage with latest updates"
             />
             <SitemapLink
               to="/blog"
               title="Blog"
-              description="Technical writing, tutorials, and thoughts on technology"
+              description="Technical writing and essays"
             />
             <SitemapLink
               to="/projects"
@@ -50,11 +42,7 @@
 
         <!-- Data & Tools -->
         <div>
-          <div
-            class="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-4"
-          >
-            DATA_&_TOOLS
-          </div>
+          <div class="sitemap-section-header">DATA_&_TOOLS</div>
           <div class="stack-4">
             <SitemapLink
               to="/stats"
@@ -83,16 +71,12 @@
       <!-- Collections & Archives -->
       <section class="space-y-8">
         <div>
-          <div
-            class="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-4"
-          >
-            COLLECTIONS
-          </div>
+          <div class="sitemap-section-header">COLLECTIONS</div>
           <div class="stack-4">
             <SitemapLink
               to="/scrapbook"
               title="Scrapbook"
-              description="Visual collection of inspiration and interesting finds"
+              description="Visual inspiration collection"
             />
             <SitemapLink
               to="/blog/week-notes"
@@ -109,11 +93,7 @@
 
         <!-- Feeds & APIs -->
         <div>
-          <div
-            class="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-4"
-          >
-            FEEDS_&_APIs
-          </div>
+          <div class="sitemap-section-header">FEEDS_&_APIs</div>
           <div class="stack-4">
             <SitemapLink
               to="/rss.xml"
@@ -138,11 +118,7 @@
 
         <!-- External Links -->
         <div>
-          <div
-            class="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-4"
-          >
-            EXTERNAL_LINKS
-          </div>
+          <div class="sitemap-section-header">EXTERNAL_LINKS</div>
           <div class="stack-4">
             <SitemapLink
               to="https://github.com/ejfox"
@@ -171,11 +147,7 @@
     <div class="mt-16 space-y-8">
       <!-- Recent Blog Posts -->
       <section v-if="recentPosts.length">
-        <div
-          class="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-4"
-        >
-          RECENT_POSTS
-        </div>
+        <div class="sitemap-section-header">RECENT_POSTS</div>
         <div class="grid md:grid-cols-2 gap-4">
           <NuxtLink
             v-for="post in recentPosts"
@@ -202,11 +174,7 @@
 
       <!-- Active Predictions -->
       <section v-if="activePredictions.length">
-        <div
-          class="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-4"
-        >
-          ACTIVE_PREDICTIONS
-        </div>
+        <div class="sitemap-section-header">ACTIVE_PREDICTIONS</div>
         <div class="stack-4">
           <NuxtLink
             v-for="prediction in activePredictions"
@@ -231,43 +199,31 @@
 
       <!-- Stats Summary -->
       <section>
-        <div
-          class="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-4"
-        >
-          SITE_STATS
-        </div>
+        <div class="sitemap-section-header">SITE_STATS</div>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div
-            class="text-center p-4 border border-zinc-200 dark:border-zinc-800 rounded-lg"
-          >
-            <div class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
+          <div class="stat-card">
+            <div class="stat-value">
               {{ totalPosts }}
             </div>
-            <div class="text-xs text-zinc-500 mt-1">Blog Posts</div>
+            <div class="stat-label">Blog Posts</div>
           </div>
-          <div
-            class="text-center p-4 border border-zinc-200 dark:border-zinc-800 rounded-lg"
-          >
-            <div class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
+          <div class="stat-card">
+            <div class="stat-value">
               {{ totalProjects }}
             </div>
-            <div class="text-xs text-zinc-500 mt-1">Projects</div>
+            <div class="stat-label">Projects</div>
           </div>
-          <div
-            class="text-center p-4 border border-zinc-200 dark:border-zinc-800 rounded-lg"
-          >
-            <div class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
+          <div class="stat-card">
+            <div class="stat-value">
               {{ totalTags }}
             </div>
-            <div class="text-xs text-zinc-500 mt-1">Tags</div>
+            <div class="stat-label">Tags</div>
           </div>
-          <div
-            class="text-center p-4 border border-zinc-200 dark:border-zinc-800 rounded-lg"
-          >
-            <div class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
+          <div class="stat-card">
+            <div class="stat-value">
               {{ yearsActive }}
             </div>
-            <div class="text-xs text-zinc-500 mt-1">Years Online</div>
+            <div class="stat-label">Years Online</div>
           </div>
         </div>
       </section>
@@ -367,3 +323,25 @@ const formatDate = (date) => {
   }
 }
 </script>
+
+<style scoped>
+.sitemap-title {
+  @apply text-2xl font-light text-zinc-900 dark:text-zinc-100 tracking-tight;
+}
+
+.sitemap-section-header {
+  @apply text-xs font-mono uppercase tracking-widest text-zinc-500 mb-4;
+}
+
+.stat-card {
+  @apply text-center p-4 border border-zinc-200 dark:border-zinc-800 rounded-lg;
+}
+
+.stat-value {
+  @apply text-2xl font-bold text-zinc-900 dark:text-zinc-100;
+}
+
+.stat-label {
+  @apply text-xs text-zinc-500 mt-1;
+}
+</style>

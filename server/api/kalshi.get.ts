@@ -1,8 +1,4 @@
-import {
-  Configuration,
-  PortfolioApi,
-  EventsApi
-} from 'kalshi-typescript'
+import { Configuration, PortfolioApi, EventsApi } from 'kalshi-typescript'
 import { readFile, readdir } from 'node:fs/promises'
 import { join } from 'node:path'
 import matter from 'gray-matter'
@@ -330,238 +326,252 @@ function enrichMarketData(
   }
 }
 
-export default defineEventHandler(async (_event): Promise<KalshiApiResponse> => {
-  const now = Date.now()
+export default defineEventHandler(
+  async (_event): Promise<KalshiApiResponse> => {
+    const now = Date.now()
 
-  // Check portfolio cache
-  const portfolioCacheValid =
-    portfolioCache && now - portfolioCache.timestamp < PORTFOLIO_CACHE_DURATION
+    // Check portfolio cache
+    const portfolioCacheValid =
+      portfolioCache &&
+      now - portfolioCache.timestamp < PORTFOLIO_CACHE_DURATION
 
-  if (portfolioCacheValid) {
-    console.log('[Kalshi] Serving from cache')
+    if (portfolioCacheValid) {
+      console.log('[Kalshi] Serving from cache')
 
-    // Still need to recalculate derived data with fresh commentary
-    const commentaries = await loadCommentaries()
-    const { balance, positions, eventPositions, fills, orders } =
-      portfolioCache.data
+      // Still need to recalculate derived data with fresh commentary
+      const commentaries = await loadCommentaries()
+      const { balance, positions, eventPositions, fills, orders } =
+        portfolioCache.data
 
-    // Build market_ticker → event_ticker map from cached event positions
-    const tickerToEvent = new Map<string, string>()
+      // Build market_ticker → event_ticker map from cached event positions
+      const tickerToEvent = new Map<string, string>()
 
-    for (const marketPos of positions) {
-      const eventPos = eventPositions.find((ep: any) =>
-        marketPos.ticker.startsWith(ep.event_ticker)
-      )
-      if (eventPos) {
-        tickerToEvent.set(marketPos.ticker, eventPos.event_ticker)
-      } else {
-        tickerToEvent.set(marketPos.ticker, deriveEventTicker(marketPos.ticker))
+      for (const marketPos of positions) {
+        const eventPos = eventPositions.find((ep: any) =>
+          marketPos.ticker.startsWith(ep.event_ticker)
+        )
+        if (eventPos) {
+          tickerToEvent.set(marketPos.ticker, eventPos.event_ticker)
+        } else {
+          tickerToEvent.set(
+            marketPos.ticker,
+            deriveEventTicker(marketPos.ticker)
+          )
+        }
       }
-    }
 
-    // Handle fills
-    for (const fill of fills.slice(0, 20)) {
-      if (!tickerToEvent.has(fill.ticker)) {
-        let found = false
-        for (const [_, eventTicker] of tickerToEvent.entries()) {
-          if (fill.ticker.startsWith(eventTicker)) {
-            tickerToEvent.set(fill.ticker, eventTicker)
-            found = true
-            break
+      // Handle fills
+      for (const fill of fills.slice(0, 20)) {
+        if (!tickerToEvent.has(fill.ticker)) {
+          let found = false
+          for (const [_, eventTicker] of tickerToEvent.entries()) {
+            if (fill.ticker.startsWith(eventTicker)) {
+              tickerToEvent.set(fill.ticker, eventTicker)
+              found = true
+              break
+            }
+          }
+          if (!found) {
+            tickerToEvent.set(fill.ticker, deriveEventTicker(fill.ticker))
           }
         }
-        if (!found) {
-          tickerToEvent.set(fill.ticker, deriveEventTicker(fill.ticker))
+      }
+
+      const uniqueEvents = new Set(tickerToEvent.values())
+
+      const config = useRuntimeConfig()
+      const kalshiConfig = new Configuration({
+        apiKey: config.KALSHI_KEY_ID,
+        privateKeyPem: config.KALSHI_PRIVATE_KEY.replace(/\\n/g, '\n'),
+        basePath: 'https://api.elections.kalshi.com/trade-api/v2'
+      })
+      const eventsApi = new EventsApi(kalshiConfig)
+
+      const eventDataMap = await fetchEvents(
+        Array.from(uniqueEvents),
+        eventsApi
+      )
+
+      // Enrich market data
+      const marketDetails: Record<string, EnrichedMarketData> = {}
+      const tickers = Array.from(tickerToEvent.keys())
+      for (const ticker of tickers) {
+        const eventTicker = tickerToEvent.get(ticker)!
+        const event = eventDataMap.get(eventTicker)
+        const commentary = commentaries[ticker]
+        marketDetails[ticker] = enrichMarketData(
+          ticker,
+          eventTicker,
+          event,
+          commentary
+        )
+      }
+
+      const portfolioStats = calculatePortfolioPnL(
+        positions,
+        fills,
+        marketDetails
+      )
+
+      return {
+        balance,
+        positions,
+        fills,
+        orders,
+        marketDetails,
+        commentaries,
+        portfolioStats,
+        lastUpdated: new Date(portfolioCache.timestamp).toISOString(),
+        cacheMetadata: {
+          positionsCacheAge: now - portfolioCache.timestamp,
+          eventsCacheAge: Math.min(
+            ...Array.from(eventsCache.values()).map((c) => now - c.timestamp)
+          ),
+          nextRefresh: new Date(
+            portfolioCache.timestamp + PORTFOLIO_CACHE_DURATION
+          ).toISOString()
         }
       }
     }
 
-    const uniqueEvents = new Set(tickerToEvent.values())
-
+    // Fetch fresh portfolio data
+    console.log('[Kalshi] Fetching fresh portfolio data from API')
     const config = useRuntimeConfig()
-    const kalshiConfig = new Configuration({
-      apiKey: config.KALSHI_KEY_ID,
-      privateKeyPem: config.KALSHI_PRIVATE_KEY.replace(/\\n/g, '\n'),
-      basePath: 'https://api.elections.kalshi.com/trade-api/v2'
-    })
-    const eventsApi = new EventsApi(kalshiConfig)
 
-    const eventDataMap = await fetchEvents(Array.from(uniqueEvents), eventsApi)
+    try {
+      const kalshiConfig = new Configuration({
+        apiKey: config.KALSHI_KEY_ID,
+        privateKeyPem: config.KALSHI_PRIVATE_KEY.replace(/\\n/g, '\n'),
+        basePath: 'https://api.elections.kalshi.com/trade-api/v2'
+      })
 
-    // Enrich market data
-    const marketDetails: Record<string, EnrichedMarketData> = {}
-    const tickers = Array.from(tickerToEvent.keys())
-    for (const ticker of tickers) {
-      const eventTicker = tickerToEvent.get(ticker)!
-      const event = eventDataMap.get(eventTicker)
-      const commentary = commentaries[ticker]
-      marketDetails[ticker] = enrichMarketData(
-        ticker,
-        eventTicker,
-        event,
-        commentary
-      )
-    }
+      const portfolioApi = new PortfolioApi(kalshiConfig)
+      const eventsApi = new EventsApi(kalshiConfig)
 
-    const portfolioStats = calculatePortfolioPnL(
-      positions,
-      fills,
-      marketDetails
-    )
-
-    return {
-      balance,
-      positions,
-      fills,
-      orders,
-      marketDetails,
-      commentaries,
-      portfolioStats,
-      lastUpdated: new Date(portfolioCache.timestamp).toISOString(),
-      cacheMetadata: {
-        positionsCacheAge: now - portfolioCache.timestamp,
-        eventsCacheAge: Math.min(
-          ...Array.from(eventsCache.values()).map((c) => now - c.timestamp)
-        ),
-        nextRefresh: new Date(
-          portfolioCache.timestamp + PORTFOLIO_CACHE_DURATION
-        ).toISOString()
-      }
-    }
-  }
-
-  // Fetch fresh portfolio data
-  console.log('[Kalshi] Fetching fresh portfolio data from API')
-  const config = useRuntimeConfig()
-
-  try {
-    const kalshiConfig = new Configuration({
-      apiKey: config.KALSHI_KEY_ID,
-      privateKeyPem: config.KALSHI_PRIVATE_KEY.replace(/\\n/g, '\n'),
-      basePath: 'https://api.elections.kalshi.com/trade-api/v2'
-    })
-
-    const portfolioApi = new PortfolioApi(kalshiConfig)
-    const eventsApi = new EventsApi(kalshiConfig)
-
-    // Fetch portfolio data in parallel
-    const [balanceRes, positionsRes, fillsRes, ordersRes] = await Promise.all([
-      portfolioApi.getBalance(),
-      portfolioApi.getPositions({ limit: 100 }),
-      portfolioApi.getFills({ limit: 100 }),
-      portfolioApi.getOrders({ limit: 100 })
-    ])
-
-    const balance = balanceRes.data as KalshiBalance
-    const positions = (positionsRes.data.market_positions ||
-      []) as KalshiPosition[]
-    const eventPositions = positionsRes.data.event_positions || []
-    const fills = (fillsRes.data.fills || []) as KalshiFill[]
-    const orders = (ordersRes.data.orders || []) as KalshiOrder[]
-
-    // Update portfolio cache
-    portfolioCache = {
-      data: { balance, positions, eventPositions, fills, orders },
-      timestamp: now
-    }
-
-    // Build market_ticker → event_ticker map from API data (NOT derivation!)
-    // The positions API gives us event_positions with actual event_ticker values
-    const tickerToEvent = new Map<string, string>()
-
-    // Match market positions to event positions
-    for (const marketPos of positions) {
-      // Find corresponding event position
-      // Event positions are aggregated, so we need to match by ticker pattern
-      const eventPos = eventPositions.find((ep: any) =>
-        marketPos.ticker.startsWith(ep.event_ticker)
+      // Fetch portfolio data in parallel
+      const [balanceRes, positionsRes, fillsRes, ordersRes] = await Promise.all(
+        [
+          portfolioApi.getBalance(),
+          portfolioApi.getPositions({ limit: 100 }),
+          portfolioApi.getFills({ limit: 100 }),
+          portfolioApi.getOrders({ limit: 100 })
+        ]
       )
 
-      if (eventPos) {
-        tickerToEvent.set(marketPos.ticker, eventPos.event_ticker)
-      } else {
-        // Fallback to derivation for fills (which don't have event_positions)
-        const eventTicker = deriveEventTicker(marketPos.ticker)
-        tickerToEvent.set(marketPos.ticker, eventTicker)
-      }
-    }
+      const balance = balanceRes.data as KalshiBalance
+      const positions = (positionsRes.data.market_positions ||
+        []) as KalshiPosition[]
+      const eventPositions = positionsRes.data.event_positions || []
+      const fills = (fillsRes.data.fills || []) as KalshiFill[]
+      const orders = (ordersRes.data.orders || []) as KalshiOrder[]
 
-    // Handle fills (use event mapping if exists, otherwise derive)
-    for (const fill of fills.slice(0, 20)) {
-      if (!tickerToEvent.has(fill.ticker)) {
-        // Try to find event from existing mappings
-        let found = false
-        for (const [_marketTicker, eventTicker] of tickerToEvent.entries()) {
-          if (fill.ticker.startsWith(eventTicker)) {
+      // Update portfolio cache
+      portfolioCache = {
+        data: { balance, positions, eventPositions, fills, orders },
+        timestamp: now
+      }
+
+      // Build market_ticker → event_ticker map from API data (NOT derivation!)
+      // The positions API gives us event_positions with actual event_ticker values
+      const tickerToEvent = new Map<string, string>()
+
+      // Match market positions to event positions
+      for (const marketPos of positions) {
+        // Find corresponding event position
+        // Event positions are aggregated, so we need to match by ticker pattern
+        const eventPos = eventPositions.find((ep: any) =>
+          marketPos.ticker.startsWith(ep.event_ticker)
+        )
+
+        if (eventPos) {
+          tickerToEvent.set(marketPos.ticker, eventPos.event_ticker)
+        } else {
+          // Fallback to derivation for fills (which don't have event_positions)
+          const eventTicker = deriveEventTicker(marketPos.ticker)
+          tickerToEvent.set(marketPos.ticker, eventTicker)
+        }
+      }
+
+      // Handle fills (use event mapping if exists, otherwise derive)
+      for (const fill of fills.slice(0, 20)) {
+        if (!tickerToEvent.has(fill.ticker)) {
+          // Try to find event from existing mappings
+          let found = false
+          for (const [_marketTicker, eventTicker] of tickerToEvent.entries()) {
+            if (fill.ticker.startsWith(eventTicker)) {
+              tickerToEvent.set(fill.ticker, eventTicker)
+              found = true
+              break
+            }
+          }
+          if (!found) {
+            const eventTicker = deriveEventTicker(fill.ticker)
             tickerToEvent.set(fill.ticker, eventTicker)
-            found = true
-            break
           }
         }
-        if (!found) {
-          const eventTicker = deriveEventTicker(fill.ticker)
-          tickerToEvent.set(fill.ticker, eventTicker)
+      }
+
+      const uniqueEvents = new Set(tickerToEvent.values())
+
+      // Fetch events with smart caching
+      const eventDataMap = await fetchEvents(
+        Array.from(uniqueEvents),
+        eventsApi
+      )
+
+      // Load commentaries
+      const commentaries = await loadCommentaries()
+
+      // Enrich market data
+      const marketDetails: Record<string, EnrichedMarketData> = {}
+      const tickers = Array.from(tickerToEvent.keys())
+      for (const ticker of tickers) {
+        const eventTicker = tickerToEvent.get(ticker)!
+        const event = eventDataMap.get(eventTicker)
+        const commentary = commentaries[ticker]
+        marketDetails[ticker] = enrichMarketData(
+          ticker,
+          eventTicker,
+          event,
+          commentary
+        )
+      }
+
+      // Calculate portfolio stats
+      const portfolioStats = calculatePortfolioPnL(
+        positions,
+        fills,
+        marketDetails
+      )
+
+      return {
+        balance,
+        positions,
+        fills,
+        orders,
+        marketDetails,
+        commentaries,
+        portfolioStats,
+        lastUpdated: new Date().toISOString(),
+        cacheMetadata: {
+          positionsCacheAge: 0,
+          eventsCacheAge:
+            eventsCache.size > 0
+              ? Math.min(
+                  ...Array.from(eventsCache.values()).map(
+                    (c) => now - c.timestamp
+                  )
+                )
+              : 0,
+          nextRefresh: new Date(now + PORTFOLIO_CACHE_DURATION).toISOString()
         }
       }
+    } catch (error: any) {
+      console.error('[Kalshi] API error:', error.message, error.response?.data)
+      throw createError({
+        statusCode: error.response?.status || 500,
+        message: `Kalshi API error: ${error.message}`
+      })
     }
-
-    const uniqueEvents = new Set(tickerToEvent.values())
-
-    // Fetch events with smart caching
-    const eventDataMap = await fetchEvents(Array.from(uniqueEvents), eventsApi)
-
-    // Load commentaries
-    const commentaries = await loadCommentaries()
-
-    // Enrich market data
-    const marketDetails: Record<string, EnrichedMarketData> = {}
-    const tickers = Array.from(tickerToEvent.keys())
-    for (const ticker of tickers) {
-      const eventTicker = tickerToEvent.get(ticker)!
-      const event = eventDataMap.get(eventTicker)
-      const commentary = commentaries[ticker]
-      marketDetails[ticker] = enrichMarketData(
-        ticker,
-        eventTicker,
-        event,
-        commentary
-      )
-    }
-
-    // Calculate portfolio stats
-    const portfolioStats = calculatePortfolioPnL(
-      positions,
-      fills,
-      marketDetails
-    )
-
-    return {
-      balance,
-      positions,
-      fills,
-      orders,
-      marketDetails,
-      commentaries,
-      portfolioStats,
-      lastUpdated: new Date().toISOString(),
-      cacheMetadata: {
-        positionsCacheAge: 0,
-        eventsCacheAge:
-          eventsCache.size > 0
-            ? Math.min(
-                ...Array.from(eventsCache.values()).map(
-                  (c) => now - c.timestamp
-                )
-              )
-            : 0,
-        nextRefresh: new Date(now + PORTFOLIO_CACHE_DURATION).toISOString()
-      }
-    }
-  } catch (error: any) {
-    console.error('[Kalshi] API error:', error.message, error.response?.data)
-    throw createError({
-      statusCode: error.response?.status || 500,
-      message: `Kalshi API error: ${error.message}`
-    })
   }
-})
+)

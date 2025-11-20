@@ -50,7 +50,8 @@ export default defineNuxtPlugin(() => {
       }
     })
 
-    // Hide original footnote section only on desktop (where sidenotes are shown)
+    // Hide original footnote section only on desktop
+    // (where sidenotes are shown)
     if (footnoteSection && window.innerWidth >= 1280) {
       footnoteSection.style.display = 'none'
     }
@@ -73,7 +74,8 @@ export default defineNuxtPlugin(() => {
             width: 200px;
             font-size: 0.7rem;
             line-height: 1.3;
-            font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+            font-family: 'SF Mono', Monaco, 'Cascadia Code',
+              'Roboto Mono', Consolas, 'Courier New', monospace;
             color: #71717a;
             text-align: justify;
             word-break: break-word;

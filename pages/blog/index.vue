@@ -86,10 +86,7 @@
           >
             Blog
           </h1>
-          <p
-            class="font-serif text-lg md:text-xl text-zinc-600 dark:text-zinc-400 mb-4"
-            style="line-height: 1.6"
-          >
+          <p :class="blogDescriptionClass" style="line-height: 1.6">
             Thoughts, projects, and explorations in technology, design, and
             making.
           </p>
@@ -215,7 +212,7 @@
 
                     <p
                       v-if="post?.metadata?.dek || post?.dek"
-                      class="font-serif text-sm text-zinc-600 dark:text-zinc-400 mt-1 p-summary leading-5"
+                      :class="postDekClass"
                     >
                       {{ post?.metadata?.dek || post?.dek }}
                     </p>
@@ -636,6 +633,15 @@ const _createPostMetadata = (post) => {
     metadata
   }
 }
+
+// Blog description paragraph styling
+const blogDescriptionClass =
+  'font-serif text-lg md:text-xl text-zinc-600 ' + 'dark:text-zinc-400 mb-4'
+
+// Post dek paragraph styling
+const postDekClass =
+  'font-serif text-sm text-zinc-600 dark:text-zinc-400 ' +
+  'mt-1 p-summary leading-5'
 </script>
 
 <style scoped>

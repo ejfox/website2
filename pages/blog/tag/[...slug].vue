@@ -8,11 +8,7 @@
       <div class="max-w-4xl mx-auto">
         <!-- Tag title -->
         <div class="px-4 md:px-6 mb-4">
-          <h1
-            class="font-serif text-3xl font-normal text-zinc-900 dark:text-zinc-100 mb-2"
-          >
-            Posts tagged "{{ tag }}"
-          </h1>
+          <h1 :class="tagPageTitleClass">Posts tagged "{{ tag }}"</h1>
           <p class="text-zinc-600 dark:text-zinc-400 text-sm">
             {{ filteredPosts.length }}
             {{ filteredPosts.length === 1 ? 'post' : 'posts' }} found
@@ -130,7 +126,7 @@
               <!-- Summary if available -->
               <div
                 v-if="post?.metadata?.summary || post?.summary"
-                class="mt-2 text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed"
+                :class="postSummaryClass"
               >
                 {{ post?.metadata?.summary || post?.summary }}
               </div>
@@ -176,12 +172,17 @@ const tag = computed(() => {
 })
 
 // Set page title
+const pageTitle = computed(() => `Posts tagged "${tag.value}" | EJ Fox`)
+const pageDescription = computed(
+  () => `All blog posts tagged with "${tag.value}"`
+)
+
 useHead({
-  title: computed(() => `Posts tagged "${tag.value}" | EJ Fox`),
+  title: pageTitle,
   meta: [
     {
       name: 'description',
-      content: computed(() => `All blog posts tagged with "${tag.value}"`)
+      content: pageDescription
     }
   ]
 })
@@ -259,4 +260,12 @@ const shouldShowYearHeader = (post, index) => {
   const previousYear = getPostYear(filteredPosts.value[index - 1])
   return currentYear !== previousYear
 }
+
+// Tag page title styling
+const tagPageTitleClass =
+  'font-serif text-3xl font-normal text-zinc-900 dark:text-zinc-100 mb-2'
+
+// Post summary styling
+const postSummaryClass =
+  'mt-2 text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed'
 </script>

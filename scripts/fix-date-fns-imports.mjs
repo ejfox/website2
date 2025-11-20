@@ -27,8 +27,10 @@ for (const file of files) {
     let updatedContent = content
 
     // Pattern 1: Simple imports like { format } from 'date-fns'
+    const dateFnsImportPattern =
+      /import\s*\{([^}]+)\}\s*from\s*['"]date-fns['"]/g
     updatedContent = updatedContent.replace(
-      /import\s*\{([^}]+)\}\s*from\s*['"]date-fns['"]/g,
+      dateFnsImportPattern,
       (match, imports) => {
         const cleanImports = imports.trim()
         console.log(chalk.dim(`  Replacing: ${cleanImports}`))
@@ -36,9 +38,12 @@ for (const file of files) {
       }
     )
 
-    // Pattern 2: Import with aliases like { format as formatDate } from 'date-fns'
+    // Pattern 2: Import with aliases
+    // like { format as formatDate } from 'date-fns'
+    const dateFnsAliasPattern =
+      /import\s*\{([^}]*as[^}]*)\}\s*from\s*['"]date-fns['"]/g
     updatedContent = updatedContent.replace(
-      /import\s*\{([^}]*as[^}]*)\}\s*from\s*['"]date-fns['"]/g,
+      dateFnsAliasPattern,
       (match, imports) => {
         const cleanImports = imports.trim()
         console.log(chalk.dim(`  Replacing aliased: ${cleanImports}`))
@@ -60,7 +65,8 @@ for (const file of files) {
 console.log(chalk.blue.bold(`\n🎉 Fixed ${fixedFiles} files!`))
 console.log(
   chalk.dim(
-    'All date-fns imports now use centralized utils for better tree-shaking'
+    'All date-fns imports now use centralized utils ' +
+      'for better tree-shaking'
   )
 )
 console.log(

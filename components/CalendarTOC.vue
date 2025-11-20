@@ -22,18 +22,14 @@
         >
           <div class="flex items-center justify-between">
             <div class="flex-1 min-w-0">
-              <div
-                class="text-sm font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
-              >
+              <div :class="slotTimeClasses">
                 {{ slot.time }}
               </div>
               <div class="text-xs text-zinc-500 dark:text-zinc-400 truncate">
                 {{ slot.date }}
               </div>
             </div>
-            <div
-              class="flex items-center text-zinc-400 dark:text-zinc-500 group-hover:text-blue-500 transition-colors"
-            >
+            <div :class="slotArrowClasses">
               <svg
                 class="w-3 h-3 ml-2"
                 fill="none"
@@ -44,24 +40,14 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  :d="externalLinkSvgPath"
                 ></path>
               </svg>
             </div>
           </div>
 
           <!-- Subtle slot number indicator -->
-          <div
-            class="absolute -left-2 top-1/2 transform -translate-y-1/2 w-1 h-6 rounded-full transition-all duration-200"
-            :class="[
-              index === 0
-                ? 'bg-green-500'
-                : index === 1
-                  ? 'bg-yellow-500'
-                  : 'bg-blue-500',
-              'opacity-0 group-hover:opacity-100'
-            ]"
-          ></div>
+          <div :class="slotIndicatorClasses(index)"></div>
         </a>
       </div>
 
@@ -93,6 +79,40 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
+
+// SVG constants
+const externalLinkSvgPath =
+  'M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'
+
+// Computed class strings
+const slotTimeClasses = computed(() => [
+  'text-sm font-medium',
+  'text-zinc-900 dark:text-zinc-100',
+  'group-hover:text-blue-600 dark:group-hover:text-blue-400',
+  'transition-colors'
+])
+
+const slotArrowClasses = computed(() => [
+  'flex items-center',
+  'text-zinc-400 dark:text-zinc-500',
+  'group-hover:text-blue-500',
+  'transition-colors'
+])
+
+// Slot indicator classes based on position
+const slotIndicatorClasses = (index) =>
+  computed(() => [
+    'absolute -left-2 top-1/2 transform -translate-y-1/2',
+    'w-1 h-6 rounded-full transition-all duration-200',
+    index === 0
+      ? 'bg-green-500'
+      : index === 1
+        ? 'bg-yellow-500'
+        : 'bg-blue-500',
+    'opacity-0 group-hover:opacity-100'
+  ])
+
 // Fetch available slots with auto-refresh every 5 minutes
 const { data, pending, refresh } = await useLazyFetch(
   '/api/cal/available-slots',

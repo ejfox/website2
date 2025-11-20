@@ -120,8 +120,10 @@ import { computed } from 'vue'
 import { format } from 'date-fns/format'
 import AnimatedNumber from '../AnimatedNumber.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'
-// NUKED BY BLOODHOUND: import { animate, stagger, onScroll } from '~/anime.esm.js'
-// NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
+// NUKED BY BLOODHOUND: import { animate, stagger, onScroll }
+// from '~/anime.esm.js'
+// NUKED BY BLOODHOUND: import { useAnimations }
+// from '~/composables/useAnimations'
 
 interface MonkeyTypeTest {
   timestamp: string
@@ -204,7 +206,8 @@ const recentTestsRef = ref<HTMLElement | null>(null)
 const performanceRef = ref<HTMLElement | null>(null)
 
 // Epic MonkeyType stats scroll-triggered animations
-// DELETED: setupScrollAnimations() - ALL ANIMATION FUNCTIONS REMOVED FOR PERFORMANCE
+// DELETED: setupScrollAnimations() - ALL ANIMATION FUNCTIONS REMOVED FOR
+// PERFORMANCE
 // const setupScrollAnimations = () => {
 //   ALL BROKEN ANIMATION CODE DELETED
 // }

@@ -260,24 +260,28 @@ async function generateAISuggestions(
   // Build context from similar posts
   const contextPosts = similarPosts
     .slice(0, 3)
-    .map(
-      (post) =>
-        `"${post.title}" (tags: ${post.metadata?.tags?.join(', ') || 'none'})`
-    )
+    .map((post) => {
+      const tags = post.metadata?.tags?.join(', ') || 'none'
+      return `"${post.title}" (tags: ${tags})`
+    })
     .join('\n')
 
-  const prompt = `You are EJ Fox's AI assistant helping to categorize content for his digital scrapbook. 
+  const tagsStr = availableTags.slice(0, 50).join(', ')
+  const contentTitle = content.split('\n')[0] || 'No title'
+  const contentText = content.substring(0, 1000)
+
+  const prompt = `You are EJ Fox's AI assistant helping to categorize content for his digital scrapbook.
 
 EJ writes about: data visualization, journalism, technology, coding (especially Vue.js/JavaScript), AI/ML, politics, activism, creative tools, photography, music production, automation, and digital culture.
 
-Available tags (choose 3-4 from this exact list): ${availableTags.slice(0, 50).join(', ')}
+Available tags (choose 3-4 from this exact list): ${tagsStr}
 
 Similar existing content:
 ${contextPosts}
 
 Content to analyze:
-Title: ${content.split('\n')[0] || 'No title'}
-Text: ${content.substring(0, 1000)}
+Title: ${contentTitle}
+Text: ${contentText}
 
 Please respond in this exact JSON format:
 {

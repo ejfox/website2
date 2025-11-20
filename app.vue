@@ -11,8 +11,13 @@ useHead({
     {
       innerHTML: `
         *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:Georgia,serif;line-height:1.6;color:#18181b;background:#fff}
-        @media(prefers-color-scheme:dark){body{color:#fafafa;background:#18181b}}
+        body{
+          font-family:Georgia,serif;line-height:1.6;
+          color:#18181b;background:#fff
+        }
+        @media(prefers-color-scheme:dark){
+          body{color:#fafafa;background:#18181b}
+        }
         main{padding:1rem;max-width:48rem;margin:0 auto}
         @media(min-width:768px){main{padding:2rem}}
         h1{font-size:2rem;font-weight:700;margin-bottom:1rem}

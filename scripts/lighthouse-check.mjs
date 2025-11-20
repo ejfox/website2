@@ -13,7 +13,8 @@ async function quickLighthouseCheck(url = 'http://localhost:3002') {
 
   try {
     const { stdout, stderr } = await execAsync(
-      `npx lighthouse ${url} --only-categories=performance --output=json --quiet --chrome-flags="--headless --no-sandbox"`,
+      `npx lighthouse ${url} --only-categories=performance ` +
+        `--output=json --quiet --chrome-flags="--headless --no-sandbox"`,
       { maxBuffer: 1024 * 1024 * 10 } // 10MB buffer
     )
 
@@ -43,19 +44,24 @@ async function quickLighthouseCheck(url = 'http://localhost:3002') {
       `📊 ${chalk.bold('Performance Score:')} ${getScoreDisplay(score)}`
     )
     console.log(
-      `⚡ ${chalk.bold('First Contentful Paint:')} ${getMetricDisplay(fcp.displayValue, fcp.score)}`
+      `⚡ ${chalk.bold('First Contentful Paint:')} ` +
+        `${getMetricDisplay(fcp.displayValue, fcp.score)}`
     )
     console.log(
-      `🎯 ${chalk.bold('Largest Contentful Paint:')} ${getMetricDisplay(lcp.displayValue, lcp.score)}`
+      `🎯 ${chalk.bold('Largest Contentful Paint:')} ` +
+        `${getMetricDisplay(lcp.displayValue, lcp.score)}`
     )
     console.log(
-      `📐 ${chalk.bold('Cumulative Layout Shift:')} ${getMetricDisplay(cls.displayValue, cls.score)}`
+      `📐 ${chalk.bold('Cumulative Layout Shift:')} ` +
+        `${getMetricDisplay(cls.displayValue, cls.score)}`
     )
     console.log(
-      `⏱️  ${chalk.bold('Total Blocking Time:')} ${getMetricDisplay(tbt.displayValue, tbt.score)}`
+      `⏱️  ${chalk.bold('Total Blocking Time:')} ` +
+        `${getMetricDisplay(tbt.displayValue, tbt.score)}`
     )
     console.log(
-      `🏃 ${chalk.bold('Speed Index:')} ${getMetricDisplay(si.displayValue, si.score)}`
+      `🏃 ${chalk.bold('Speed Index:')} ` +
+        `${getMetricDisplay(si.displayValue, si.score)}`
     )
 
     console.log(

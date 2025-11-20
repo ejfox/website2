@@ -10,11 +10,7 @@
           :key="`gear-${item.slug || item.Name}`"
           :data-gear-index="index"
           class="color-swatch-lg-blur"
-          :class="
-            isCurrentItem(item)
-              ? 'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 border-zinc-900 dark:border-zinc-100 scale-110'
-              : 'border-zinc-300 dark:border-zinc-700 hover:border-zinc-500 dark:hover:border-zinc-500'
-          "
+          :class="getItemClasses(item)"
           :title="item.Name"
           @click="navigateToItem(item)"
         >
@@ -73,6 +69,19 @@ const isCurrentItem = (item) => {
   return slug === props.currentSlug
 }
 
+const getItemClasses = (item) => {
+  if (isCurrentItem(item)) {
+    return (
+      'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 ' +
+      'border-zinc-900 dark:border-zinc-100 scale-110'
+    )
+  }
+  return (
+    'border-zinc-300 dark:border-zinc-700 ' +
+    'hover:border-zinc-500 dark:hover:border-zinc-500'
+  )
+}
+
 const scrollContainer = ref(null)
 
 const scrollToCenter = (targetIndex) => {
@@ -108,7 +117,8 @@ const navigateToItem = (item, direction = 'none') => {
   const targetIndex = gearItems.value.findIndex((i) => i.Name === item.Name)
 
   // Add directional animation
-  // NUKED BY BLOODHOUND: Animation code obliterated - navigation works without fancy animations
+  // NUKED BY BLOODHOUND: Animation code obliterated
+  // Navigation works without fancy animations
   if (direction !== 'none') {
     // Animation removed for better performance
   }

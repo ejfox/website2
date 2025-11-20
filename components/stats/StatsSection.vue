@@ -11,7 +11,8 @@
 
 <script setup lang="ts">
 // NUKED BY BLOODHOUND: import { animate, onScroll } from '~/anime.esm.js'
-// NUKED BY BLOODHOUND: import { useAnimations } from '~/composables/useAnimations'
+// NUKED BY BLOODHOUND: import { useAnimations }
+// from '~/composables/useAnimations'
 
 defineProps<{
   title: string

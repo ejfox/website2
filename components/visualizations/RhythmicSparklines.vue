@@ -22,12 +22,7 @@
     />
 
     <!-- Area fill under the line -->
-    <path
-      v-if="areaPath"
-      :d="areaPath"
-      :fill="areaFill"
-      opacity="0.15"
-    />
+    <path v-if="areaPath" :d="areaPath" :fill="areaFill" opacity="0.15" />
 
     <!-- Main sparkline path -->
     <polyline
@@ -56,7 +51,8 @@ const props = defineProps({
   data: {
     type: Array,
     required: true,
-    validator: (arr) => arr.length > 0 && arr.every((n) => typeof n === 'number')
+    validator: (arr) =>
+      arr.length > 0 && arr.every((n) => typeof n === 'number')
   },
   variant: {
     type: String,
@@ -129,12 +125,15 @@ const points = computed(() => {
 const areaPath = computed(() => {
   if (props.data.length === 0) return null
 
-  const baseline = props.baseline !== null ? scaleY(props.baseline) : height - padding
+  const baseline =
+    props.baseline !== null ? scaleY(props.baseline) : height - padding
   const linePath = props.data
     .map((value, index) => `${scaleX(index)},${scaleY(value)}`)
     .join(' L ')
 
-  return `M ${scaleX(0)},${baseline} L ${linePath} L ${scaleX(props.data.length - 1)},${baseline} Z`
+  return `M ${scaleX(0)},${baseline} L ${linePath} L ${scaleX(
+    props.data.length - 1
+  )},${baseline} Z`
 })
 
 // Find peak point

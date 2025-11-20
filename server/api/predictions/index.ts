@@ -6,7 +6,7 @@ import type { Prediction } from '~/types/prediction'
 
 const predictionsDir = join(process.cwd(), 'content/predictions')
 
-// Load predictions from markdown files (handles both flat and year-based structure)
+// Load predictions from markdown files (handles flat and year-based structure)
 async function loadPredictions(): Promise<Prediction[]> {
   try {
     const predictions: Prediction[] = []
@@ -79,7 +79,8 @@ async function loadPredictionFromFile(
       blockchainAnchor: data.blockchainAnchor || null
     }
   } catch (error) {
-    console.error(`Error loading prediction from ${filePath}:`, error)
+    const msg = `Error loading prediction from ${filePath}:`
+    console.error(msg, error)
     return null
   }
 }

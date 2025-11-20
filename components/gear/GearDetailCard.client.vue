@@ -8,9 +8,7 @@
       <h1 class="text-2xl font-light text-zinc-900 dark:text-zinc-100 mb-1">
         {{ gearItem.Name }}
       </h1>
-      <div
-        class="text-sm text-zinc-600 dark:text-zinc-400 uppercase tracking-widest"
-      >
+      <div :class="headerLabelClass">
         {{ gearItem.Type }}
       </div>
     </div>
@@ -31,16 +29,8 @@
 
     <!-- Weight - Hero stat -->
     <div class="text-center mb-8 p-4 bg-zinc-50 dark:bg-zinc-800/50 rounded-xl">
-      <div
-        class="text-3xl font-bold font-mono text-zinc-900 dark:text-zinc-100 mb-1"
-      >
-        {{ displayWeight }}g
-      </div>
-      <div
-        class="text-xs text-zinc-600 dark:text-zinc-400 uppercase tracking-widest font-mono"
-      >
-        Weight
-      </div>
+      <div :class="weightDisplayClass">{{ displayWeight }}g</div>
+      <div :class="weightLabelClass">Weight</div>
     </div>
 
     <!-- Stats Grid -->
@@ -49,21 +39,13 @@
         <div class="text-lg font-normal text-zinc-900 dark:text-zinc-100">
           T{{ itemTier }}
         </div>
-        <div
-          class="text-xs text-zinc-600 dark:text-zinc-400 uppercase tracking-widest font-mono"
-        >
-          Tier
-        </div>
+        <div :class="tierLabelClass">Tier</div>
       </div>
       <div class="text-center p-4 bg-zinc-50 dark:bg-zinc-800/50 rounded-lg">
         <div class="text-lg font-normal text-zinc-900 dark:text-zinc-100">
           {{ gearItem.Waterproof || '—' }}
         </div>
-        <div
-          class="text-xs text-zinc-600 dark:text-zinc-400 uppercase tracking-widest font-mono"
-        >
-          H₂O
-        </div>
+        <div :class="tierLabelClass">H₂O</div>
       </div>
     </div>
 
@@ -95,15 +77,10 @@
           :key="key"
           class="row-bordered"
         >
-          <span
-            class="text-zinc-600 dark:text-zinc-400 uppercase tracking-widest flex-shrink-0"
-            >{{ formatFieldName(key) }}</span
-          >
-          <span
-            class="text-zinc-900 dark:text-zinc-100 font-mono text-right truncate ml-2 min-w-0"
-            :title="value"
-            >{{ value || '—' }}</span
-          >
+          <span :class="fieldLabelClass">{{ formatFieldName(key) }}</span>
+          <span :class="fieldValueClass" :title="value">{{
+            value || '—'
+          }}</span>
         </div>
       </div>
     </div>
@@ -147,6 +124,20 @@ const formatFieldName = (fieldName) => {
     .replace(/^\w/, (c) => c.toUpperCase())
     .trim()
 }
+
+// Class strings
+const headerLabelClass =
+  'text-sm uppercase tracking-widest text-zinc-600 dark:text-zinc-400'
+const weightDisplayClass =
+  'text-3xl font-bold font-mono mb-1 text-zinc-900 dark:text-zinc-100'
+const weightLabelClass =
+  'text-xs font-mono uppercase tracking-widest text-zinc-600 dark:text-zinc-400'
+const tierLabelClass =
+  'text-xs font-mono uppercase tracking-widest text-zinc-600 dark:text-zinc-400'
+const fieldLabelClass =
+  'flex-shrink-0 uppercase tracking-widest text-zinc-600 dark:text-zinc-400'
+const fieldValueClass =
+  'font-mono text-right truncate ml-2 min-w-0 text-zinc-900 dark:text-zinc-100'
 
 // Computed properties
 const displayWeight = computed(() => {
@@ -213,9 +204,10 @@ const cardTransform = computed(() => {
     15
 
   return {
-    transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(${translateZ}px)`,
+    transform: `perspective(1000px) rotateX(${rotateX}deg)
+      rotateY(${rotateY}deg) translateZ(${translateZ}px)`,
     transition: 'transform 0.3s ease-out',
-    filter: 'blur(0px)' // Ensure no blur from animations sticks
+    filter: 'blur(0px)'
   }
 })
 
@@ -228,7 +220,9 @@ const _animateGearCardReveal = async () => {
 
 // Stage 4: Ambient detail pulse - DISABLED (causing looping animations)
 // setTimeout(() => {
-//   const details = cardRef.value?.querySelectorAll('.text-lg, .text-3xl, .text-2xl')
+//   const details = cardRef.value?.querySelectorAll(
+//     '.text-lg, .text-3xl, .text-2xl'
+//   )
 //   if (details?.length) {
 //     const pulseDetails = () => {
 // DELETED: All broken animation code

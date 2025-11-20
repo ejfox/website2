@@ -1,13 +1,5 @@
 <template>
-  <div
-    :class="[
-      'w-full text-zinc-600 dark:text-zinc-400 uppercase font-mono text-xs',
-      compact
-        ? 'flex flex-col gap-1 items-start sm:flex-row sm:items-center sm:gap-2 sm:flex-wrap'
-        : 'flex items-center gap-2 md:gap-4'
-    ]"
-    :style="colorVars"
-  >
+  <div :class="containerClasses" :style="colorVars">
     <!-- Folder name -->
     <span
       v-if="metadata?.slug && !compact"
@@ -96,6 +88,18 @@ interface Props {
 
 const props = defineProps<Props>()
 
+// Computed class strings
+const containerClasses = computed(() => {
+  const baseClasses =
+    'w-full text-zinc-600 dark:text-zinc-400 uppercase font-mono text-xs'
+  const compactBase = 'flex flex-col gap-1 items-start'
+  const compactSm = 'sm:flex-row sm:items-center sm:gap-2 sm:flex-wrap'
+  const compactLayout = [compactBase, compactSm].join(' ')
+  const normalLayout = 'flex items-center gap-2 md:gap-4'
+  const layoutClasses = props.compact ? compactLayout : normalLayout
+  return [baseClasses, layoutClasses]
+})
+
 // Refs for animation
 const folderRef = ref<HTMLElement | null>(null)
 const draftRef = ref<HTMLElement | null>(null)
@@ -114,9 +118,10 @@ const metadata = computed(() => props.doc?.metadata || {})
 
 // Computed values
 const folderName = computed(() => metadata.value.slug?.split('/')[0] || '')
-const draftText = computed(() =>
-  props.compact ? 'Draft' : 'Draft, please do not publish, changes expected'
-)
+const draftText = computed(() => {
+  const fullText = 'Draft, please do not publish, changes expected'
+  return props.compact ? 'Draft' : fullText
+})
 const readingTime = computed(() =>
   metadata.value.words ? Math.ceil(metadata.value.words / 200) : 0
 )
