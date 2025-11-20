@@ -72,7 +72,7 @@ const tocLinkClass =
     <!-- TOC -->
     <ClientOnly>
       <teleport v-if="tocTarget" to="#nav-toc-container">
-        <div class="-mx-8">
+        <nav class="-mx-8">
           <h3 :class="tocHeadingClass">Projects</h3>
           <ul class="space-y-1 text-sm">
             <li v-for="project in projects" :key="project.slug">
@@ -81,7 +81,7 @@ const tocLinkClass =
               </a>
             </li>
           </ul>
-        </div>
+        </nav>
       </teleport>
     </ClientOnly>
   </div>
