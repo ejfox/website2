@@ -45,28 +45,27 @@ const tocLinkClass =
     </div>
 
     <!-- Featured Projects -->
-    <div v-if="featuredProjects.length" class="mb-16">
-      <div class="space-y-16">
-        <FeaturedProjectCard
-          v-for="(project, index) in featuredProjects"
-          :id="getProjectId(project)"
-          :key="project.slug"
-          :project="project"
-          :index="index"
-        />
-      </div>
+    <div v-if="featuredProjects.length" class="mb-16 space-y-16">
+      <FeaturedProjectCard
+        v-for="(project, index) in featuredProjects"
+        :id="getProjectId(project)"
+        :key="project.slug"
+        :project="project"
+        :index="index"
+      />
     </div>
 
     <!-- Regular Projects - Simple Grid -->
-    <div v-if="regularProjects.length">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <BentoProjectCard
-          v-for="project in regularProjects"
-          :id="getProjectId(project)"
-          :key="project.slug"
-          :project="project"
-        />
-      </div>
+    <div
+      v-if="regularProjects.length"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+    >
+      <BentoProjectCard
+        v-for="project in regularProjects"
+        :id="getProjectId(project)"
+        :key="project.slug"
+        :project="project"
+      />
     </div>
 
     <!-- TOC -->
