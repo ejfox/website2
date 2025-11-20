@@ -58,7 +58,8 @@ const tocLinkClass =
     <!-- Regular Projects - Simple Grid -->
     <div
       v-if="regularProjects.length"
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      class="grid gap-6"
+      style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr))"
     >
       <BentoProjectCard
         v-for="project in regularProjects"
