@@ -1,5 +1,21 @@
 /* Swiss Design System - Minimal, Clear, Functional */
 
+/* Centralized Touch-Friendly Interactions */
+.interactive-link {
+  transition: transform 0.6s cubic-bezier(0.45, 0, 0.55, 1);
+  @apply active:scale-[0.98];
+}
+
+.interactive-card {
+  transition: transform 0.6s cubic-bezier(0.45, 0, 0.55, 1);
+  @apply active:scale-[0.99];
+}
+
+.interactive-subtle {
+  transition: transform 0.6s cubic-bezier(0.45, 0, 0.55, 1);
+  @apply active:scale-[0.995];
+}
+
 /* Utility Classes - Common Patterns */
 .max-w-content {
   max-width: 65ch;
@@ -163,7 +179,7 @@ p,
 
 /* Project Components */
 .project-grid {
-  @apply grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 transition-all duration-300 ease-out scroll-mt-8;
+  @apply grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 scroll-mt-8;
   --stagger-delay: 0ms;
   animation-delay: var(--stagger-delay);
 }
@@ -196,7 +212,7 @@ p,
 }
 
 .project-link {
-  @apply hover:opacity-70 transition-opacity no-underline;
+  @apply no-underline;
 }
 
 .project-description {
@@ -220,7 +236,7 @@ p,
 }
 
 .project-github-link {
-  @apply font-mono text-xs uppercase tracking-widest text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors;
+  @apply font-mono text-xs uppercase tracking-widest text-zinc-500;
 }
 
 /* Mobile touch-friendly GitHub links - 48px minimum for Android */
@@ -303,7 +319,7 @@ p,
 
 /* Buttons - Text Only */
 .btn-text {
-  @apply text-zinc-900 dark:text-zinc-100 border-b-2 border-zinc-900 dark:border-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400 hover:border-zinc-600 dark:hover:border-zinc-400 transition-colors duration-200;
+  @apply text-zinc-900 dark:text-zinc-100 border-b-2 border-zinc-900 dark:border-zinc-100;
 }
 
 /* Focus States - Accessible */
@@ -613,13 +629,6 @@ blockquote a {
   line-height: 1.4 !important; /* Better spacing for wrapped URLs */
 }
 
-.blog-post-content blockquote a:hover,
-.prose blockquote a:hover,
-blockquote a:hover {
-  color: #374151 !important; /* Darker on hover */
-  text-decoration-color: rgba(55, 65, 81, 0.6) !important;
-}
-
 /* Dark mode link colors in blockquotes */
 @media (prefers-color-scheme: dark) {
   .blog-post-content blockquote a,
@@ -627,13 +636,6 @@ blockquote a:hover {
   blockquote a {
     color: #9ca3af !important;
     text-decoration-color: rgba(156, 163, 175, 0.3) !important;
-  }
-
-  .blog-post-content blockquote a:hover,
-  .prose blockquote a:hover,
-  blockquote a:hover {
-    color: #d1d5db !important;
-    text-decoration-color: rgba(209, 213, 219, 0.6) !important;
   }
 }
 
@@ -859,7 +861,6 @@ blockquote a:hover {
   padding: 0.25em 0.35em !important; /* Larger touch targets for mobile */
   border-radius: 3px !important;
   background: rgba(45, 55, 72, 0.12) !important; /* More visible background */
-  transition: all 0.2s ease !important;
   font-family: ui-monospace, 'SF Mono', Monaco, monospace !important; /* Monospace for clarity */
   min-width: 1.8em !important; /* Ensure consistent minimum size */
   text-align: center !important; /* Center text in larger tap target */
@@ -875,24 +876,11 @@ blockquote a:hover {
   }
 }
 
-.prose sup a:hover,
-.prose a[data-footnote-ref]:hover {
-  background: rgba(45, 55, 72, 0.2) !important;
-  color: #1a202c !important; /* Even darker on hover for contrast */
-  transform: translateY(-1px) !important; /* Subtle lift on hover */
-}
-
 @media (prefers-color-scheme: dark) {
   .prose sup a,
   .prose a[data-footnote-ref] {
     color: #a0aec0 !important; /* Light gray, closer to dark mode text */
     background: rgba(160, 174, 192, 0.1) !important;
-  }
-
-  .prose sup a:hover,
-  .prose a[data-footnote-ref]:hover {
-    background: rgba(160, 174, 192, 0.2) !important;
-    color: #e2e8f0 !important; /* Lighter on hover */
   }
 }
 
@@ -977,10 +965,6 @@ p.font-serif.text-xl {
   @apply border-b border-zinc-100 dark:border-zinc-900;
 }
 
-.data-table tbody tr:hover {
-  @apply bg-zinc-50 dark:bg-zinc-900/50;
-}
-
 .data-table td {
   @apply px-2 py-2 text-zinc-700 dark:text-zinc-300;
 }
@@ -1003,7 +987,7 @@ p.font-serif.text-xl {
 
 /* Link styling in tables */
 .data-table a {
-  @apply text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400;
+  @apply text-zinc-900 dark:text-zinc-100;
   border-bottom: none;
 }
 
@@ -1019,10 +1003,6 @@ p.font-serif.text-xl {
 
 .data-list-item {
   @apply flex items-baseline justify-between py-2 border-b border-zinc-100 dark:border-zinc-900;
-}
-
-.data-list-item:hover {
-  @apply bg-zinc-50 dark:bg-zinc-900/50;
 }
 
 .data-list-key {
@@ -1123,7 +1103,6 @@ img[data-loading='lazy']::before {
 /* Cloudinary blur-up placeholder */
 img[data-placeholder] {
   filter: blur(5px);
-  transition: filter 0.3s ease-out;
 }
 
 img[data-placeholder='loaded'] {
