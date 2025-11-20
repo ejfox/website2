@@ -2,7 +2,7 @@
   <NuxtLink
     :to="`/projects/${projectSlug}`"
     :style="{ transform: cardTransform }"
-    class="block p-5 transition-all duration-300 ease-out hover:rotate-0 no-underline min-h-[180px] flex flex-col"
+    class="interactive-card block p-5 no-underline min-h-[180px] flex flex-col"
   >
     <h3 class="text-lg font-serif text-zinc-900 dark:text-zinc-100 mb-2">
       {{ projectTitle }}
