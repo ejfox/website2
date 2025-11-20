@@ -17,7 +17,9 @@
 
     <div class="mt-auto space-y-2">
       <!-- Dense metadata display - maximalist approach -->
-      <div class="flex flex-wrap gap-x-3 gap-y-1 text-xs font-mono text-zinc-500">
+      <div
+        class="flex flex-wrap gap-x-3 gap-y-1 text-xs font-mono text-zinc-500"
+      >
         <time class="tabular-nums text-zinc-900 dark:text-zinc-100">
           {{ formatYearOnly(project.metadata?.date || project.date) }}
         </time>
@@ -85,9 +87,7 @@ const seededRotation = computed(() => {
   return ((seed % 7) - 3) * 0.4 // -1.2deg to +1.2deg
 })
 
-const cardTransform = computed(
-  () => `rotate(${seededRotation.value}deg)`
-)
+const cardTransform = computed(() => `rotate(${seededRotation.value}deg)`)
 
 // Dense metadata extraction - maximalist data display
 const wordCount = computed(() => {

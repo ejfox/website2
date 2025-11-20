@@ -207,7 +207,7 @@ const toggleGist = (gistId: string) => {
             :href="gist.html_url"
             target="_blank"
             rel="noopener"
-            class="  truncate"
+            class="truncate"
           >
             {{ Object.values(gist.files)[0]?.filename || 'Untitled' }}
           </a>

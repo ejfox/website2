@@ -1,9 +1,7 @@
 <template>
   <main class="px-4 md:px-6 lg:px-8 max-w-full bg-zinc-950 min-h-screen">
     <header class="section-spacing-sm">
-      <div
-        class="flex-between py-3 section-spacing-sm "
-      >
+      <div class="flex-between py-3 section-spacing-sm">
         <div class="flex items-baseline gap-3">
           <h1 class="font-mono text-sm text-zinc-100">GEAR</h1>
           <div class="font-mono text-[10px] text-muted tabular">
@@ -86,7 +84,7 @@
               <div
                 v-for="item in items.slice(0, 20)"
                 :key="item.Name"
-                class="bg-zinc-700 bg-orange-500 "
+                class="bg-zinc-700 bg-orange-500"
                 :style="{
                   width: `${getWeightPercentage(item, items)}%`,
                   opacity:
@@ -624,7 +622,7 @@ useHead(() => ({
 }
 
 .gear-histogram {
-  @apply w-1 bg-zinc-700/50 bg-orange-500/50 ;
+  @apply w-1 bg-zinc-700/50 bg-orange-500/50;
 }
 
 .gear-section-header {
@@ -632,7 +630,7 @@ useHead(() => ({
 }
 
 .gear-container-card {
-  @apply flex flex-col py-1 px-1.5 ;
+  @apply flex flex-col py-1 px-1.5;
 }
 
 .gear-container-count {

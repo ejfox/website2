@@ -26,7 +26,8 @@ const getProjectId = (project) => getSlug(project)
 
 const tocHeadingClass =
   'text-xs font-mono uppercase tracking-wider text-zinc-500 mb-3'
-const tocLinkClass = 'interactive-link block py-0.5 text-zinc-600 dark:text-zinc-400'
+const tocLinkClass =
+  'interactive-link block py-0.5 text-zinc-600 dark:text-zinc-400'
 
 // Aggregate metadata for brutalist header display
 const totalWords = computed(() => {
@@ -73,7 +74,7 @@ const earliestYear = computed(() => {
       const date = p.metadata?.date || p.date
       return date ? new Date(date).getFullYear() : new Date().getFullYear()
     })
-    .filter((y) => !isNaN(y))
+    .filter((y) => !Number.isNaN(y))
   return Math.min(...years)
 })
 
@@ -84,7 +85,7 @@ const latestYear = computed(() => {
       const date = p.metadata?.date || p.date
       return date ? new Date(date).getFullYear() : new Date().getFullYear()
     })
-    .filter((y) => !isNaN(y))
+    .filter((y) => !Number.isNaN(y))
   return Math.max(...years)
 })
 </script>
@@ -92,7 +93,9 @@ const latestYear = computed(() => {
 <template>
   <div class="px-4 md:px-8 max-w-4xl">
     <header class="mb-12 pb-4">
-      <div class="font-mono text-xs text-zinc-500 mb-3 uppercase tracking-wider">
+      <div
+        class="font-mono text-xs text-zinc-500 mb-3 uppercase tracking-wider"
+      >
         INDEX / PROJECTS / {{ earliestYear }}–{{ latestYear }}
       </div>
 

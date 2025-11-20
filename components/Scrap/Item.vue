@@ -1,9 +1,7 @@
 <template>
   <div
     :class="[
-      'bg-zinc-50/50 dark:bg-zinc-900/50 border border-zinc-200
-        dark:border-zinc-800 rounded-sm hover:border-zinc-400
-        dark:hover:border-zinc-700 transition-all duration-200',
+      'bg-zinc-50/50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-sm hover:border-zinc-400 dark:hover:border-zinc-700 transition-all duration-200',
       hasMedia ? 'aspect-[4/3]' : 'aspect-auto min-h-[6rem]',
       'group relative overflow-hidden'
     ]"

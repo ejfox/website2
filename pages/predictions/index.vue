@@ -62,7 +62,7 @@
       v-if="kalshiData?.positions && kalshiData.positions.length > 0"
       class="section-spacing"
     >
-      <h2 class="heading-3 mb-4 ">Market Positions</h2>
+      <h2 class="heading-3 mb-4">Market Positions</h2>
 
       <!-- Portfolio Performance Stats -->
       <div
@@ -70,17 +70,17 @@
         class="section-spacing-sm grid-2col-lg"
       >
         <div>
-          <div class="stat-label ">Open P&L</div>
+          <div class="stat-label">Open P&L</div>
           <div
             v-if="kalshiData.portfolioStats.totalUnrealizedPnL >= 0"
-            class="mono-2xl  text-success"
+            class="mono-2xl text-success"
           >
             +${{ kalshiData.portfolioStats.totalUnrealizedPnL.toFixed(2) }}
           </div>
-          <div v-else class="mono-2xl  text-error">
+          <div v-else class="mono-2xl text-error">
             ${{ kalshiData.portfolioStats.totalUnrealizedPnL.toFixed(2) }}
           </div>
-          <div class="stat-details ">
+          <div class="stat-details">
             {{
               (
                 (kalshiData.portfolioStats.totalUnrealizedPnL /
@@ -92,30 +92,30 @@
         </div>
 
         <div>
-          <div class="stat-label ">Closed P&L</div>
+          <div class="stat-label">Closed P&L</div>
           <div
             v-if="kalshiData.portfolioStats.totalRealizedPnL >= 0"
-            class="mono-2xl  text-success"
+            class="mono-2xl text-success"
           >
             +${{ kalshiData.portfolioStats.totalRealizedPnL.toFixed(2) }}
           </div>
-          <div v-else class="mono-2xl  text-error">
+          <div v-else class="mono-2xl text-error">
             ${{ kalshiData.portfolioStats.totalRealizedPnL.toFixed(2) }}
           </div>
-          <div class="stat-details ">
+          <div class="stat-details">
             {{ kalshiData.portfolioStats.closedPositions.length }} positions
           </div>
         </div>
 
         <div>
-          <div class="stat-label ">Total P&L</div>
+          <div class="stat-label">Total P&L</div>
           <div
             v-if="
               kalshiData.portfolioStats.totalUnrealizedPnL +
                 kalshiData.portfolioStats.totalRealizedPnL >=
               0
             "
-            class="mono-2xl  text-success"
+            class="mono-2xl text-success"
           >
             +${{
               (
@@ -124,7 +124,7 @@
               ).toFixed(2)
             }}
           </div>
-          <div v-else class="mono-2xl  text-error">
+          <div v-else class="mono-2xl text-error">
             ${{
               (
                 kalshiData.portfolioStats.totalUnrealizedPnL +
@@ -132,17 +132,15 @@
               ).toFixed(2)
             }}
           </div>
-          <div class="stat-details ">all time</div>
+          <div class="stat-details">all time</div>
         </div>
 
         <div>
-          <div class="stat-label ">Portfolio Value</div>
-          <div class="mono-2xl text-primary ">
+          <div class="stat-label">Portfolio Value</div>
+          <div class="mono-2xl text-primary">
             ${{ kalshiData.portfolioStats.totalValue.toFixed(2) }}
           </div>
-          <div class="stat-details ">
-            {{ kalshiData.positions.length }} open
-          </div>
+          <div class="stat-details">{{ kalshiData.positions.length }} open</div>
         </div>
       </div>
 
@@ -164,14 +162,14 @@
               >
                 {{ position.position > 0 ? 'YES' : 'NO' }}
               </span>
-              <div class="text-body-lg text-balance ">
+              <div class="text-body-lg text-balance">
                 {{ getMarketTitle(position.ticker) }}
               </div>
             </div>
           </div>
 
           <!-- Dense data table -->
-          <table class="table-dense mb-2 ">
+          <table class="table-dense mb-2">
             <tbody>
               <tr>
                 <td class="py-0.5">Position</td>
@@ -232,10 +230,7 @@
           </table>
 
           <!-- Commentary -->
-          <div
-            v-if="getCommentary(position.ticker)"
-            class="text-body "
-          >
+          <div v-if="getCommentary(position.ticker)" class="text-body">
             {{ getCommentary(position.ticker).commentary }}
           </div>
         </article>
@@ -243,20 +238,20 @@
 
       <!-- Fills Table -->
       <div v-if="kalshiData?.fills && kalshiData.fills.length > 0" class="mt-8">
-        <h3 class="heading-3 mb-3 ">Recent Fills</h3>
+        <h3 class="heading-3 mb-3">Recent Fills</h3>
         <div class="overflow-x-auto -mx-4 px-4">
           <div class="min-w-[450px]">
             <table class="table-header">
               <thead>
                 <tr>
-                  <th class="table-th ">Time</th>
-                  <th class="table-th ">Market</th>
-                  <th class="table-th-right ">Side</th>
-                  <th class="table-th-right ">Qty</th>
-                  <th class="table-th-right ">Price</th>
+                  <th class="table-th">Time</th>
+                  <th class="table-th">Market</th>
+                  <th class="table-th-right">Side</th>
+                  <th class="table-th-right">Qty</th>
+                  <th class="table-th-right">Price</th>
                 </tr>
               </thead>
-              <tbody class="text-muted ">
+              <tbody class="text-muted">
                 <tr
                   v-for="fill in kalshiData.fills.slice(0, 10)"
                   :key="fill.fill_id"
@@ -267,7 +262,7 @@
                   </td>
                   <td class="table-cell">{{ fill.ticker }}</td>
                   <td
-                    class="table-cell-value mono-lg "
+                    class="table-cell-value mono-lg"
                     :class="fill.side === 'yes' ? 'text-success' : 'text-error'"
                   >
                     {{ fill.side.toUpperCase() }}
@@ -416,9 +411,7 @@
       v-if="calibration && calibration.summary.resolved > 0"
       class="mt-12"
     >
-      <h2 class="heading-2 mb-4">
-        Meta-Analysis
-      </h2>
+      <h2 class="heading-2 mb-4">Meta-Analysis</h2>
 
       <!-- Brier Score -->
       <div v-if="calibration.brier_score !== null" class="mb-6">
@@ -436,10 +429,7 @@
           >
             {{ calibration.brier_score.toFixed(3) }}
           </span>
-          <span
-            v-else
-            class="mono-4xl text-error"
-          >
+          <span v-else class="mono-4xl text-error">
             {{ calibration.brier_score.toFixed(3) }}
           </span>
           <span class="calibration-label">
@@ -668,77 +658,80 @@
 
             <ul class="space-y-2 text-xs">
               <!-- Kalshi items -->
-              <li
-                v-for="item in section.items"
-                v-if="section.type === 'kalshi'"
-                :key="item.slug"
-                class="group relative"
-              >
-                <a
-                  :href="`#${item.slug}`"
-                  class="block no-underline"
-                  :class="[
-                    activeSection === item.slug
-                      ? 'text-zinc-900 dark:text-zinc-100 font-bold'
-                      : 'text-zinc-600 dark:text-zinc-400'
-                  ]"
+              <template v-if="section.type === 'kalshi'">
+                <li
+                  v-for="item in section.items"
+                  :key="item.slug"
+                  class="group relative"
                 >
-                  <div class="flex items-start gap-2">
-                    <span
-                      class="shrink-0 font-bold"
-                      :class="
-                        item.side === 'YES' ? 'text-success' : 'text-error'
-                      "
-                    >
-                      {{ item.side }}
-                    </span>
-                    <span class="block line-clamp-2 flex-1 min-w-0">{{
-                      item.text
-                    }}</span>
-                  </div>
-                </a>
-              </li>
+                  <a
+                    :href="`#${item.slug}`"
+                    class="block no-underline"
+                    :class="[
+                      activeSection === item.slug
+                        ? 'text-zinc-900 dark:text-zinc-100 font-bold'
+                        : 'text-zinc-600 dark:text-zinc-400'
+                    ]"
+                  >
+                    <div class="flex items-start gap-2">
+                      <span
+                        class="shrink-0 font-bold"
+                        :class="
+                          item.side === 'YES' ? 'text-success' : 'text-error'
+                        "
+                      >
+                        {{ item.side }}
+                      </span>
+                      <span class="block line-clamp-2 flex-1 min-w-0">{{
+                        item.text
+                      }}</span>
+                    </div>
+                  </a>
+                </li>
+              </template>
 
               <!-- Prediction items -->
-              <li
-                v-for="item in section.items"
-                v-else
-                :key="item.slug"
-                class="group relative"
-              >
-                <a
-                  :href="`#${item.slug}`"
-                  class="block no-underline"
-                  :class="[
-                    activeSection === item.slug
-                      ? 'text-zinc-900 dark:text-zinc-100 font-bold'
-                      : 'text-zinc-600 dark:text-zinc-400'
-                  ]"
-                  :style="{ opacity: 0.7 + (item.confidence / 100) * 0.3 }"
+              <template v-else>
+                <li
+                  v-for="item in section.items"
+                  :key="item.slug"
+                  class="group relative"
                 >
-                  <div class="flex items-start gap-2">
-                    <span class="text-zinc-500 dark:text-zinc-500 shrink-0"
-                      >{{ item.confidence }}%</span
-                    >
-                    <span class="block line-clamp-2 flex-1 min-w-0">{{
-                      item.text
-                    }}</span>
-                    <span
-                      v-if="
-                        item.status === 'correct' || item.status === 'incorrect'
-                      "
-                      class="shrink-0"
-                      :class="
-                        item.status === 'correct'
-                          ? 'text-success'
-                          : 'text-error'
-                      "
-                    >
-                      {{ item.status === 'correct' ? '✓' : '✗' }}
-                    </span>
-                  </div>
-                </a>
-              </li>
+                  <a
+                    :href="`#${item.slug}`"
+                    class="block no-underline"
+                    :class="[
+                      activeSection === item.slug
+                        ? 'text-zinc-900 dark:text-zinc-100 font-bold'
+                        : 'text-zinc-600 dark:text-zinc-400'
+                    ]"
+                    :style="{ opacity: 0.7 + (item.confidence / 100) * 0.3 }"
+                  >
+                    <div class="flex items-start gap-2">
+                      <span class="text-zinc-500 dark:text-zinc-500 shrink-0"
+                        >{{ item.confidence }}%</span
+                      >
+                      <span class="block line-clamp-2 flex-1 min-w-0">{{
+                        item.text
+                      }}</span>
+                      <span
+                        v-if="
+                          item.status === 'correct' ||
+                          item.status === 'incorrect'
+                        "
+                        class="shrink-0"
+                        :class="
+                          item.status === 'correct'
+                            ? 'text-success'
+                            : 'text-error'
+                        "
+                      >
+                        {{ item.status === 'correct' ? '✓' : '✗' }}
+                      </span>
+                    </div>
+                  </a>
+                </li>
+              </template>
             </ul>
           </div>
         </div>

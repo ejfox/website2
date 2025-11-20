@@ -8,7 +8,7 @@
             <li v-for="section in statsSections" :key="section.id">
               <a
                 :href="`#${section.id}`"
-                class="block uppercase tracking-wider "
+                class="block uppercase tracking-wider"
                 :class="getTocClass(activeSection === section.id)"
               >
                 {{ section.text }}
@@ -931,10 +931,7 @@ const statsSections = [
 // Helper function for TOC link classes
 const getTocClass = (isActive) => {
   if (isActive) return 'text-zinc-900 dark:text-zinc-100'
-  return [
-    'text-zinc-500 dark:text-zinc-500',
-    ''
-  ].join(' ')
+  return ['text-zinc-500 dark:text-zinc-500', ''].join(' ')
 }
 
 onMounted(() => {
