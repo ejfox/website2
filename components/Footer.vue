@@ -29,13 +29,13 @@
           href="https://github.com/ejfox"
           rel="me authn"
           :class="navLinkClasses"
-          >GitHub</a
+          >github</a
         >
         <a href="https://twitter.com/mrejfox" rel="me" :class="navLinkClasses"
-          >Twitter</a
+          >twitter</a
         >
         <a href="mailto:ejfox@ejfox.com" rel="me authn" :class="navLinkClasses"
-          >Email</a
+          >email</a
         >
       </nav>
 
