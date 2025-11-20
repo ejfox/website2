@@ -851,6 +851,18 @@ blockquote a {
   }
 }
 
+/* Prevent nested scrollbars in project cards */
+.prose pre,
+.prose code {
+  overflow-x: visible !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.prose pre code {
+  white-space: pre-wrap;
+}
+
 /* Enhanced footnote links - larger and more contrasty */
 .prose sup a,
 .prose a[data-footnote-ref] {
