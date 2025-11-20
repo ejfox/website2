@@ -71,12 +71,12 @@ const navClasses =
   'flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm ' +
   'text-zinc-600 dark:text-zinc-400'
 
-const navLinkClasses = ''
+const navLinkClasses = 'interactive-link'
 
-const pgpLinkClasses = 'font-mono text-xs'
+const pgpLinkClasses = 'interactive-link font-mono text-xs'
 
 const buildLinkClasses =
-  'font-mono text-[10px] text-zinc-400 dark:text-zinc-600'
+  'interactive-link font-mono text-[10px] text-zinc-400 dark:text-zinc-600'
 
 const buildUrl = computed(
   () =>
