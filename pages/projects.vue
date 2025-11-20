@@ -152,7 +152,7 @@ const latestYear = computed(() => {
     <!-- TOC -->
     <ClientOnly>
       <teleport v-if="tocTarget" to="#nav-toc-container">
-        <nav class="-mx-8">
+        <nav>
           <h3 :class="tocHeadingClass">Projects</h3>
           <ul class="text-sm">
             <li v-for="project in projects" :key="project.slug">
