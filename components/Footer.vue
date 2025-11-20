@@ -1,136 +1,91 @@
 <template>
-  <footer
-    ref="footerRef"
-    class="py-8 mt-8 border-t border-zinc-200 dark:border-zinc-800"
-  >
-    <div class="container mx-auto max-w-4xl px-4">
-      <div class="flex flex-col items-center space-y-8">
-        <!-- Profile image section with h-card -->
-        <div ref="profileRef" class="flex justify-center h-card">
-          <img
-            ref="avatarRef"
-            src="https://res.cloudinary.com/ejf/image/upload/w_128,f_webp/v1733606048/me_full.png"
-            alt="EJ Fox"
-            class="w-12 h-12 rounded-full u-photo"
-          />
-          <span class="p-name hidden">EJ Fox</span>
-          <a class="u-url u-uid hidden" href="https://ejfox.com" rel="me"
-            >ejfox.com</a
-          >
-          <span class="p-note hidden"
-            >Data visualization engineer, photographer, and digital
-            craftsperson</span
-          >
-        </div>
+  <footer class="py-8 mt-8">
+    <div class="max-w-4xl mx-auto px-4 space-y-6 text-center">
+      <!-- Avatar with h-card microformat -->
+      <div class="h-card">
+        <img
+          :src="avatarUrl"
+          alt="EJ Fox"
+          class="w-12 h-12 rounded-full mx-auto u-photo"
+        />
+        <span class="p-name hidden">EJ Fox</span>
+        <a class="u-url u-uid hidden" href="https://ejfox.com" rel="me"
+          >ejfox.com</a
+        >
+        <span class="p-note hidden"
+          >Data visualization engineer, photographer, and digital
+          craftsperson</span
+        >
+      </div>
 
-        <!-- Navigation links -->
-        <nav ref="navRef" class="flex justify-center">
-          <ul
-            ref="navListRef"
-            class="flex items-center space-x-8 text-sm text-zinc-600 dark:text-zinc-400"
-          >
-            <li ref="navItemRefs">
-              <a
-                href="/stats"
-                class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors"
-                >/stats</a
-              >
-            </li>
-            <li ref="navItemRefs">
-              <a
-                href="/gists"
-                class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors"
-                >/gists</a
-              >
-            </li>
-            <li ref="navItemRefs">
-              <a
-                href="/gear"
-                class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors"
-                >/gear</a
-              >
-            </li>
-            <li ref="navItemRefs">
-              <a
-                href="/predictions"
-                class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors"
-                >/predictions</a
-              >
-            </li>
-            <li ref="navItemRefs">
-              <a
-                href="https://ejfox.com/rss.xml"
-                class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors"
-                >/rss</a
-              >
-            </li>
-          </ul>
-        </nav>
+      <!-- Combined navigation -->
+      <nav :class="navClasses">
+        <a href="/stats" :class="navLinkClasses">/stats</a>
+        <a href="/gists" :class="navLinkClasses">/gists</a>
+        <a href="/gear" :class="navLinkClasses">/gear</a>
+        <a href="/predictions" :class="navLinkClasses">/predictions</a>
+        <a href="https://ejfox.com/rss.xml" :class="navLinkClasses">/rss</a>
+        <span class="text-zinc-300 dark:text-zinc-700">·</span>
+        <a
+          href="https://github.com/ejfox"
+          rel="me authn"
+          :class="navLinkClasses"
+          >GitHub</a
+        >
+        <a href="https://twitter.com/mrejfox" rel="me" :class="navLinkClasses"
+          >Twitter</a
+        >
+        <a href="mailto:ejfox@ejfox.com" rel="me authn" :class="navLinkClasses"
+          >Email</a
+        >
+        <span class="text-zinc-300 dark:text-zinc-700">·</span>
+        <a href="/pgp.txt" :class="pgpLinkClasses">PGP: E207 8E65 3FE3 89CD</a>
+      </nav>
 
-        <!-- Social links with rel=me for IndieAuth -->
-        <nav class="flex justify-center">
-          <ul
-            class="flex items-center space-x-4 text-sm text-zinc-600 dark:text-zinc-400"
-          >
-            <li>
-              <a
-                href="https://github.com/ejfox"
-                rel="me authn"
-                class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors"
-                >GitHub</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://twitter.com/mrejfox"
-                rel="me"
-                class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors"
-                >Twitter</a
-              >
-            </li>
-            <li>
-              <a
-                href="mailto:ejfox@ejfox.com"
-                rel="me authn"
-                class="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors"
-                >Email</a
-              >
-            </li>
-          </ul>
-        </nav>
-
-        <!-- Newsletter signup -->
-        <!-- <div ref="newsletterRef" class="w-full max-w-lg opacity-60 hover:opacity-100 transition-opacity"> -->
-        <!--   <NewsletterSignup /> -->
-        <!-- </div> -->
-
-        <!-- Build info - super subtle -->
-        <div v-if="buildInfo" class="text-center">
-          <a
-            :href="`https://github.com/ejfox/website2/commit/${buildInfo.commitLong}`"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="font-mono text-[10px] text-zinc-400 dark:text-zinc-600 hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors"
-            :title="`Built from ${buildInfo.branch} on ${new Date(buildInfo.buildDate).toLocaleString()}`"
-          >
-            {{ buildInfo.commit }}
-          </a>
-        </div>
+      <!-- Build info -->
+      <div v-if="buildInfo">
+        <a
+          :href="buildUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          :class="buildLinkClasses"
+          :title="buildTitle"
+        >
+          {{ buildInfo.commit }}
+        </a>
       </div>
     </div>
   </footer>
 </template>
 
-<script setup>
-// Animation refs
-const footerRef = ref(null)
-// NUKED BY BLOODHOUND: const { timing, easing, staggers } = // DELETED: useAnimations()
-const profileRef = ref(null)
-const avatarRef = ref(null)
-const navRef = ref(null)
-const navListRef = ref(null)
-const navItemRefs = ref([])
+<script setup lang="ts">
+import { computed } from 'vue'
 
-// Fetch build info
+const avatarUrl =
+  'https://res.cloudinary.com/ejf/image/upload/' +
+  'w_128,f_webp/v1733606048/me_full.png'
+
 const { data: buildInfo } = await useFetch('/api/build-info')
+
+const navClasses =
+  'flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm ' +
+  'text-zinc-600 dark:text-zinc-400'
+
+const navLinkClasses = ''
+
+const pgpLinkClasses = 'font-mono text-xs'
+
+const buildLinkClasses =
+  'font-mono text-[10px] text-zinc-400 dark:text-zinc-600'
+
+const buildUrl = computed(
+  () =>
+    `https://github.com/ejfox/website2/commit/${buildInfo.value?.commitLong}`
+)
+
+const buildTitle = computed(() => {
+  if (!buildInfo.value) return ''
+  const date = new Date(buildInfo.value.buildDate).toLocaleString()
+  return `Built from ${buildInfo.value.branch} on ${date}`
+})
 </script>
