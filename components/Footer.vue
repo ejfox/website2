@@ -1,12 +1,12 @@
 <template>
   <footer class="py-8 mt-8">
-    <div class="max-w-4xl mx-auto px-4 space-y-6 text-center">
+    <div class="max-w-4xl mx-auto px-4 space-y-8 text-center">
       <!-- Avatar with h-card microformat -->
       <div class="h-card">
         <img
           :src="avatarUrl"
           alt="EJ Fox"
-          class="w-12 h-12 rounded-full mx-auto u-photo"
+          class="w-10 h-10 rounded-full mx-auto u-photo"
         />
         <span class="p-name hidden">EJ Fox</span>
         <a class="u-url u-uid hidden" href="https://ejfox.com" rel="me"
@@ -25,7 +25,6 @@
         <a href="/gear" :class="navLinkClasses">/gear</a>
         <a href="/predictions" :class="navLinkClasses">/predictions</a>
         <a href="https://ejfox.com/rss.xml" :class="navLinkClasses">/rss</a>
-        <span class="text-zinc-300 dark:text-zinc-700">·</span>
         <a
           href="https://github.com/ejfox"
           rel="me authn"
@@ -38,21 +37,24 @@
         <a href="mailto:ejfox@ejfox.com" rel="me authn" :class="navLinkClasses"
           >Email</a
         >
-        <span class="text-zinc-300 dark:text-zinc-700">·</span>
-        <a href="/pgp.txt" :class="pgpLinkClasses">PGP: E207 8E65 3FE3 89CD</a>
       </nav>
 
-      <!-- Build info -->
-      <div v-if="buildInfo">
-        <a
-          :href="buildUrl"
-          target="_blank"
-          rel="noopener noreferrer"
-          :class="buildLinkClasses"
-          :title="buildTitle"
-        >
-          {{ buildInfo.commit }}
-        </a>
+      <!-- PGP + Build info -->
+      <div class="space-y-2">
+        <div>
+          <a href="/pgp.txt" :class="pgpLinkClasses">PGP: E207 8E65 3FE3 89CD</a>
+        </div>
+        <div v-if="buildInfo">
+          <a
+            :href="buildUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            :class="buildLinkClasses"
+            :title="buildTitle"
+          >
+            {{ buildInfo.commit }}
+          </a>
+        </div>
       </div>
     </div>
   </footer>
@@ -68,15 +70,15 @@ const avatarUrl =
 const { data: buildInfo } = await useFetch('/api/build-info')
 
 const navClasses =
-  'flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm ' +
+  'flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm ' +
   'text-zinc-600 dark:text-zinc-400'
 
 const navLinkClasses = 'interactive-link'
 
-const pgpLinkClasses = 'interactive-link font-mono text-xs'
+const pgpLinkClasses = 'interactive-link font-mono text-xs text-zinc-500 dark:text-zinc-500'
 
 const buildLinkClasses =
-  'interactive-link font-mono text-[10px] text-zinc-400 dark:text-zinc-600'
+  'interactive-link font-mono text-xs text-zinc-400 dark:text-zinc-600'
 
 const buildUrl = computed(
   () =>
