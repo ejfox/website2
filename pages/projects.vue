@@ -1,36 +1,15 @@
 <script setup>
-// Magazine-style featured + Bento grid archive
 import FeaturedProjectCard from '~/components/projects/FeaturedProjectCard.vue'
 import BentoProjectCard from '~/components/projects/BentoProjectCard.vue'
-
-// Static description for SSR-safety
-const defaultDescription =
-  'Code and art experiments, data visualization, and digital tools.'
 
 useHead({
   title: 'Projects - EJ Fox',
   link: [{ rel: 'canonical', href: 'https://ejfox.com/projects' }]
 })
 
-useSeoMeta({
-  description: defaultDescription,
-  ogTitle: 'Projects - EJ Fox',
-  ogDescription: defaultDescription,
-  ogUrl: 'https://ejfox.com/projects',
-  ogType: 'website',
-  ogImage: 'https://ejfox.com/og-image.png',
-  ogImageWidth: '1200',
-  ogImageHeight: '630',
-  twitterCard: 'summary_large_image',
-  twitterTitle: 'Projects - EJ Fox',
-  twitterDescription: defaultDescription,
-  twitterImage: 'https://ejfox.com/og-image.png'
-})
-
 const { data: projects } = await useAsyncData('projects-page-data', () =>
   $fetch('/api/projects')
 )
-// No grid mode, no tooltip, no image extraction
 
 const featuredProjects = computed(
   () => projects.value?.filter((p) => p.metadata?.featured) || []
@@ -40,175 +19,65 @@ const regularProjects = computed(
   () => projects.value?.filter((p) => !p.metadata?.featured) || []
 )
 
-// TOC for sidebar
 const { tocTarget } = useTOC()
+const { getSlug } = useProjectSlug()
 
-// Helper to generate clean IDs from project slugs
-const getProjectId = (project) => {
-  const slug = project.slug || ''
-  const parts = slug.split('/')
-  return parts[parts.length - 1] || 'unknown-project'
-}
+const getProjectId = (project) => getSlug(project)
 
-// Create TOC from all projects
-const projectToc = computed(() => {
-  if (!projects.value) return []
-
-  const items = []
-
-  // Featured projects with their own section
-  if (featuredProjects.value.length > 0) {
-    items.push({
-      text: 'Featured Work',
-      id: 'featured-work',
-      level: 'h2'
-    })
-
-    featuredProjects.value.forEach((project) => {
-      items.push({
-        text: project.title || project.metadata?.title,
-        id: getProjectId(project),
-        level: 'h3'
-      })
-    })
-  }
-
-  // Regular projects with their own section (only if there are also featured projects)
-  if (regularProjects.value.length > 0 && featuredProjects.value.length > 0) {
-    items.push({
-      text: 'All Projects',
-      id: 'all-projects',
-      level: 'h2'
-    })
-  }
-
-  // Add regular projects
-  regularProjects.value.forEach((project) => {
-    items.push({
-      text: project.title || project.metadata?.title,
-      id: getProjectId(project),
-      level: 'h3'
-    })
-  })
-
-  return items
-})
-
-// Calculate project activity data for sparklines
-const projectActivity = computed(() => {
-  if (!projects.value) return []
-  // Create mock activity data based on project count
-  // In a real app, this could be commit counts, update frequency, etc.
-  const activity = []
-  const months = 12
-  for (let i = 0; i < months; i++) {
-    activity.push(Math.floor((Math.random() * projects.value.length) / 3) + 1)
-  }
-  return activity
-})
-
-// FeaturedProjectCard handles layout and image extraction internally
+const tocHeadingClass =
+  'text-xs font-mono uppercase tracking-wider text-zinc-500 mb-3'
+const tocLinkClass =
+  'block py-0.5 text-zinc-600 dark:text-zinc-400 ' +
+  'hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors'
 </script>
 
 <template>
-  <div>
-    <header class="section-spacing-lg container-main">
-      <div style="max-width: 65ch">
-        <!-- Data header with better spacing -->
-        <div
-          class="mono-xs text-muted mb-3 uppercase tracking-[0.15em] tabular flex-gap-3"
-        >
-          <span class="flex-gap-2">
-            {{ projects?.length || 0 }} PROJECTS
-            <ClientOnly>
-              <RhythmicSparklines
-                v-if="projects?.length"
-                :data="projectActivity"
-                variant="inline"
-                :baseline="6"
-                class="hidden sm:inline-block"
-              />
-            </ClientOnly>
-          </span>
-          <span class="text-divider">·</span>
-          <span>{{ featuredProjects?.length || 0 }} FEATURED</span>
-          <span class="text-divider">·</span>
-          <span>{{ regularProjects?.length || 0 }} ARCHIVE</span>
-        </div>
-        <h1
-          class="font-serif text-4xl md:text-5xl font-light mb-3"
-          style="letter-spacing: -0.025em; line-height: 1.1"
-        >
-          Projects
-        </h1>
-        <p class="font-serif text-lg text-secondary" style="line-height: 1.6">
-          Code and art experiments, data visualization, and digital tools.
-        </p>
-      </div>
+  <div class="px-4 md:px-8 max-w-4xl">
+    <header class="mb-12">
+      <h1 class="text-4xl md:text-5xl font-serif font-light mb-3">Projects</h1>
+      <p class="text-lg text-zinc-600 dark:text-zinc-400">
+        {{ projects?.length || 0 }} projects
+      </p>
     </header>
 
-    <div class="container-main" style="max-width: 100ch">
-      <section class="mt-16 md:mt-0">
-        <div v-if="!projects || !projects.length" class="center-empty">
-          <p class="text-secondary">No projects found.</p>
-        </div>
-
-        <!-- Featured Projects - Asymmetric Grid -->
-        <div v-if="featuredProjects.length" class="mb-16">
-          <h2
-            id="featured-work"
-            class="label-uppercase-mono mb-6"
-            style="letter-spacing: 0.15em"
-          >
-            FEATURED WORK
-          </h2>
-          <div class="space-y-8 md:space-y-32 transition-all duration-500 ease-out">
-            <FeaturedProjectCard
-              v-for="(project, index) in featuredProjects"
-              :id="getProjectId(project)"
-              :key="project.slug"
-              :project="project"
-              :index="index"
-              class="featured-project"
-            />
-          </div>
-        </div>
-
-        <!-- Regular Projects - Bento Grid -->
-        <div v-if="regularProjects.length">
-          <h2 v-if="featuredProjects.length" id="all-projects" class="sr-only">
-            All Projects
-          </h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
-            <BentoProjectCard
-              v-for="(project, index) in regularProjects"
-              :id="getProjectId(project)"
-              :key="project.slug"
-              :project="project"
-              :index="index"
-              class="regular-project"
-            />
-          </div>
-        </div>
-      </section>
+    <div v-if="!projects?.length" class="text-center py-8">
+      <p class="text-zinc-500">No projects found.</p>
     </div>
 
-    <!-- Projects TOC for sidebar -->
+    <!-- Featured Projects -->
+    <div v-if="featuredProjects.length" class="mb-16">
+      <div class="space-y-16">
+        <FeaturedProjectCard
+          v-for="(project, index) in featuredProjects"
+          :id="getProjectId(project)"
+          :key="project.slug"
+          :project="project"
+          :index="index"
+        />
+      </div>
+    </div>
+
+    <!-- Regular Projects - Simple Grid -->
+    <div v-if="regularProjects.length">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <BentoProjectCard
+          v-for="project in regularProjects"
+          :id="getProjectId(project)"
+          :key="project.slug"
+          :project="project"
+        />
+      </div>
+    </div>
+
+    <!-- TOC -->
     <ClientOnly>
-      <teleport v-if="tocTarget && projectToc.length" to="#nav-toc-container">
-        <div class="toc">
-          <h3 class="label-uppercase-mono mb-3 text-xs">Projects</h3>
+      <teleport v-if="tocTarget" to="#nav-toc-container">
+        <div class="-mx-8">
+          <h3 :class="tocHeadingClass">Projects</h3>
           <ul class="space-y-1 text-sm">
-            <li
-              v-for="item in projectToc"
-              :key="item.id"
-              :class="item.level === 'h2' ? 'font-medium mt-2' : ''"
-            >
-              <a
-                :href="`#${item.id}`"
-                class="text-secondary link-hover block py-0.5"
-              >
-                {{ item.text }}
+            <li v-for="project in projects" :key="project.slug">
+              <a :href="`#${getProjectId(project)}`" :class="tocLinkClass">
+                {{ project.title || project.metadata?.title }}
               </a>
             </li>
           </ul>
@@ -217,8 +86,3 @@ const projectActivity = computed(() => {
     </ClientOnly>
   </div>
 </template>
-
-<style scoped>
-/* Orchestrated motion handled by global.css */
-/* Animations use CSS custom properties set in component :style bindings */
-</style>

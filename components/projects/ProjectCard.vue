@@ -56,6 +56,7 @@
 
 <script setup>
 const { formatYearOnly } = useDateFormat()
+const { getSlug } = useProjectSlug()
 
 const props = defineProps({
   project: {
@@ -70,14 +71,7 @@ const props = defineProps({
 
 const formatDate = formatYearOnly
 
-const projectSlug = computed(() => {
-  // Create a clean anchor slug from the project title
-  const title = props.project.title || props.project.metadata?.title || ''
-  return title
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-})
+const projectSlug = computed(() => getSlug(props.project))
 
 const _projectTitle = computed(
   () => props.project.title || props.project.metadata?.title || ''
