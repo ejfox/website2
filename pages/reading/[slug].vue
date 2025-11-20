@@ -128,13 +128,12 @@ const route = useRoute()
 
 // CSS Classes
 const backLinkClass =
-  'inline-block mt-4 text-blue-600 dark:text-blue-400 hover:underline'
+  'interactive-link inline-block mt-4 text-blue-600 dark:text-blue-400'
 const metadataContainerClass =
   'flex flex-wrap gap-4 text-sm text-zinc-500 dark:text-zinc-400'
-const linkClass = 'text-blue-600 dark:text-blue-400 hover:underline text-sm'
+const linkClass = 'interactive-link text-blue-600 dark:text-blue-400 text-sm'
 const navLinkClass =
-  'inline-flex items-center text-blue-600 dark:text-blue-400 ' +
-  'hover:underline'
+  'interactive-link inline-flex items-center text-blue-600 dark:text-blue-400'
 
 // Fetch book data
 const {

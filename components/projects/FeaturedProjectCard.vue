@@ -1,7 +1,7 @@
 <template>
   <NuxtLink
     :to="`/projects/${projectSlug}`"
-    class="block no-underline text-zinc-900 dark:text-zinc-100 group"
+    class="interactive-card block no-underline text-zinc-900 dark:text-zinc-100 group"
   >
     <div v-if="featuredImage" class="mb-4">
       <img

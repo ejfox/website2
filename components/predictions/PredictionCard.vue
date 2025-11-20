@@ -3,7 +3,7 @@
     <!-- Make entire card tappable on mobile -->
     <NuxtLink
       :to="`/predictions/${prediction.slug || prediction.id}`"
-      class="nav-item-hover"
+      class="interactive-card"
     >
       <!-- Statement with confidence badge - PRIORITIZED -->
       <div class="mb-2">

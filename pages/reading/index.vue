@@ -130,7 +130,7 @@ const { data: books, pending, error } = await useFetch('/api/reading')
 // CSS Classes
 const booksGridClass = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'
 const bookCardClass =
-  'group block transition-opacity duration-200 hover:opacity-75'
+  'interactive-card group block'
 const bookCoverClass =
   'max-h-full max-w-full object-contain rounded-sm shadow-sm'
 const bookTitleClass = 'card-title-group-hover'

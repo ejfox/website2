@@ -2,17 +2,17 @@
 
 /* Centralized Touch-Friendly Interactions */
 .interactive-link {
-  transition: transform 0.6s cubic-bezier(0.45, 0, 0.55, 1);
+  transition: transform 0.3s cubic-bezier(0.45, 0, 0.55, 1);
   @apply active:scale-[0.98];
 }
 
 .interactive-card {
-  transition: transform 0.6s cubic-bezier(0.45, 0, 0.55, 1);
+  transition: transform 0.3s cubic-bezier(0.45, 0, 0.55, 1);
   @apply active:scale-[0.99];
 }
 
 .interactive-subtle {
-  transition: transform 0.6s cubic-bezier(0.45, 0, 0.55, 1);
+  transition: transform 0.3s cubic-bezier(0.45, 0, 0.55, 1);
   @apply active:scale-[0.995];
 }
 

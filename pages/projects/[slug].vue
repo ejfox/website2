@@ -109,7 +109,7 @@ onMounted(() => {
 
       <!-- Back link -->
       <div class="mt-16 pt-8 border-t border-zinc-200 dark:border-zinc-800">
-        <NuxtLink to="/projects" class="back-link">
+        <NuxtLink to="/projects" class="interactive-link back-link">
           ← Back to Projects
         </NuxtLink>
       </div>
@@ -212,7 +212,6 @@ onMounted(() => {
 <style scoped>
 .back-link {
   @apply text-sm text-zinc-600 dark:text-zinc-400;
-  @apply hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors;
 }
 
 .metadata-label {

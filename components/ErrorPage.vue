@@ -6,13 +6,13 @@
 
     <div class="my-8"></div>
 
-    <a :href="primaryLink.href" class="link-mono-hover-block">
+    <a :href="primaryLink.href" class="interactive-link">
       {{ primaryLink.text }}
     </a>
 
     <div class="my-8"></div>
 
-    <a href="/" class="link-mono-muted"> ← back to homepage </a>
+    <a href="/" class="interactive-link"> ← back to homepage </a>
   </div>
 
   <!-- Teleport suggestions to sidebar -->
@@ -24,7 +24,7 @@
           v-for="s in suggestions"
           :key="s.path"
           :href="s.path"
-          class="link-mono-hover-block"
+          class="interactive-link"
         >
           {{ s.title }}
         </a>

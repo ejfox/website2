@@ -43,7 +43,7 @@
                 :href="feed.url"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="font-serif link-hover"
+                class="interactive-link font-serif"
               >
                 {{ feed.name }}
               </a>
@@ -59,7 +59,7 @@
       <footer class="mt-12 pt-4 border-t border-zinc-200 dark:border-zinc-800">
         <p class="label-xs">
           Source: <code>~/.newsboat/urls</code> ·
-          <a href="/api/blogroll" class="link-hover">JSON</a>
+          <a href="/api/blogroll" class="interactive-link">JSON</a>
         </p>
       </footer>
     </div>
