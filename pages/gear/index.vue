@@ -633,16 +633,13 @@ useHead(() => ({
 
 .gear-container-card {
   @apply flex flex-col py-1 px-1.5 ;
-  @apply  bg-transparent;
 }
 
 .gear-container-count {
   @apply text-[10px] font-mono tabular-nums text-zinc-500;
-  @apply ;
 }
 
 .gear-container-header {
   @apply flex items-baseline justify-between pb-2 mb-3;
-  @apply ;
 }
 </style>
