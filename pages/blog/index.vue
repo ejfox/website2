@@ -89,9 +89,13 @@
         </div>
 
         <!-- Main content -->
-        <div class="relative px-4 md:px-6 h-feed lg:grid lg:grid-cols-12 lg:gap-16 xl:gap-20">
+        <div
+          class="relative px-4 md:px-6 h-feed lg:grid lg:grid-cols-12 lg:gap-16 xl:gap-20"
+        >
           <!-- Main column -->
-          <section class="max-w-3xl lg:max-w-none lg:col-span-8 lg:pr-14 xl:pr-20 lg:min-w-0 lg:pt-2">
+          <section
+            class="max-w-3xl lg:max-w-none lg:col-span-8 lg:pr-14 xl:pr-20 lg:min-w-0 lg:pt-2"
+          >
             <div v-if="!sortedYears.length" class="text-center py-8">
               <p class="text-zinc-600 dark:text-zinc-400 text-sm">
                 No blog posts found.
@@ -581,7 +585,8 @@ const _createPostMetadata = (post) => {
 
 // Blog description paragraph styling
 const blogDescriptionClass =
-  'font-serif text-base md:text-lg text-zinc-600 ' + 'dark:text-zinc-400 mb-3 leading-[1.5]'
+  'font-serif text-base md:text-lg text-zinc-600 ' +
+  'dark:text-zinc-400 mb-3 leading-[1.5]'
 
 // Post dek paragraph styling
 const postDekClass =

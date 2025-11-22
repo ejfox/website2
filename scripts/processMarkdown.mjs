@@ -336,9 +336,7 @@ async function checkLinkHealth(url, timeout = 10000) {
 }
 
 async function checkAllLinks(links, linkToSources, maxConcurrent = 5) {
-  const spinner = ora(
-    `Checking health of ${links.length} links...`
-  ).start()
+  const spinner = ora(`Checking health of ${links.length} links...`).start()
 
   try {
     const results = []
@@ -437,7 +435,9 @@ async function checkAllLinks(links, linkToSources, maxConcurrent = 5) {
         console.log(chalk.red(`  ${link.status} - ${link.url}`))
         if (link.archived) {
           console.log(
-            chalk.cyan(`    📦 Archived: ${link.archived.url.substring(0, 60)}...`)
+            chalk.cyan(
+              `    📦 Archived: ${link.archived.url.substring(0, 60)}...`
+            )
           )
         }
         const sources = Array.from(
@@ -528,14 +528,18 @@ async function autoFixBrokenLinks(brokenLinks) {
       }
     }
 
-    spinner.succeed(`Auto-fixed ${totalFixed} broken links across ${Object.keys(fixedByFile).length} files`)
+    spinner.succeed(
+      `Auto-fixed ${totalFixed} broken links across ${Object.keys(fixedByFile).length} files`
+    )
 
     if (Object.keys(fixedByFile).length > 0) {
       console.log(chalk.cyan('\n📦 Files updated with archived links:'))
       Object.entries(fixedByFile)
         .slice(0, 10)
         .forEach(([file, count]) => {
-          console.log(chalk.gray(`  ${file} (${count} link${count > 1 ? 's' : ''})`))
+          console.log(
+            chalk.gray(`  ${file} (${count} link${count > 1 ? 's' : ''})`)
+          )
         })
       if (Object.keys(fixedByFile).length > 10) {
         console.log(
