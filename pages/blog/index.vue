@@ -78,7 +78,10 @@
         <!-- Title section matching blog posts -->
         <div class="px-4 md:px-6 pt-4 pb-3">
           <h1
-            class="font-serif font-light mb-1.5 leading-[1.1] tracking-tight text-3xl md:text-4xl lg:text-5xl"
+            :class="[
+              'font-serif font-light mb-1.5 leading-[1.1] tracking-tight',
+              'text-3xl md:text-4xl lg:text-5xl'
+            ]"
           >
             Blog
           </h1>
@@ -228,7 +231,11 @@
 
           <!-- Sidebar sections (simplified) -->
           <aside
-            class="mt-8 pt-4 border-t border-zinc-200 dark:border-zinc-800 lg:mt-0 lg:pt-2 lg:border-t-0 lg:col-span-4 lg:sticky lg:top-24 lg:min-w-[260px] lg:pl-12 xl:pl-16"
+            :class="[
+              'mt-8 pt-4 border-t border-zinc-200 dark:border-zinc-800',
+              'lg:mt-0 lg:pt-2 lg:border-t-0 lg:col-span-4',
+              'lg:sticky lg:top-24 lg:min-w-[260px] lg:pl-12 xl:pl-16'
+            ]"
           >
             <!-- Data stats footer -->
             <div class="data-footer">
