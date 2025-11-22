@@ -271,11 +271,13 @@ Text: ${contentText}
 Please respond in this exact JSON format:
 {
   "tags": ["tag1", "tag2", "tag3"],
-  "summary": "A concise 2-sentence description of what this content is about and why it's interesting.",
+  "summary": "A concise 2-sentence description of what this
+  content is about and why it's interesting.",
   "threads": ["theme1", "theme2"]
 }
 
-Focus on tags that match EJ's interests and writing style. The summary should be engaging and match his voice.`
+Focus on tags that match EJ's interests and writing style.
+The summary should be engaging and match his voice.`
 
   try {
     const response = await openai.chat.completions.create({

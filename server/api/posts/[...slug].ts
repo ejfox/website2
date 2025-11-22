@@ -15,8 +15,9 @@ interface PostData {
 }
 
 /**
- * Endpoint handler to fetch and return the content of a post based on the provided slug.
- * The post content is read from a pre-processed JSON file stored in the 'content/processed' directory.
+ * Endpoint handler to fetch and return post content by slug.
+ * Post content is read from pre-processed JSON files
+ * in the 'content/processed' directory.
  */
 export default defineEventHandler(async (event) => {
   // console.log('API: Request received:', event.context.params)

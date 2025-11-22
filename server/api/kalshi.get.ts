@@ -271,17 +271,17 @@ async function fetchEvents(
       if (error?.response?.status === 404) {
         resolved404Count++
       } else {
-        console.error(`[Kalshi] Event fetch error:`, error?.message || error)
+        console.error(`[Kalshi] Event fetch error:`, error?.message)
       }
     }
   }
 
   if (resolved404Count > 0) {
+    const msg = `${resolved404Count}/${needsFetch.length} events`
+    console.log(`[Kalshi] ${msg} returned 404 (resolved/removed)`)
     console.log(
-      `[Kalshi] ${resolved404Count}/${needsFetch.length} events returned 404 (resolved/removed from API)`
-    )
-    console.log(
-      `[Kalshi] Falling back to commentary files for titles. Run: node scripts/generate-commentary-templates.mjs`
+      `[Kalshi] Falling back to commentary files for titles.`,
+      `Run: node scripts/generate-commentary-templates.mjs`
     )
   }
 

@@ -27,7 +27,7 @@ export default createConfigForNuxt({
       'max-len': [
         'warn',
         {
-          code: 120,
+          code: 100,
           tabWidth: 2,
           ignoreUrls: true,
           ignoreStrings: true,
@@ -45,8 +45,8 @@ export default createConfigForNuxt({
       'vue/max-len': [
         'warn',
         {
-          code: 120,
-          template: 120,
+          code: 100,
+          template: 100,
           tabWidth: 2,
           ignoreComments: false,
           ignoreUrls: true,

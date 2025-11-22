@@ -309,8 +309,11 @@ export default defineEventHandler(async (): Promise<GitHubStats> => {
             .filter((commit) => commit)
             .map((commit) => {
               const message = commit.message || ''
+              const types =
+                'feat|fix|docs|style|refactor|test|chore|' +
+                'build|ci|perf|revert|blog|scaffold'
               const match = message.match(
-                /^(feat|fix|docs|style|refactor|test|chore|build|ci|perf|revert|blog|scaffold)(\(.+?\))?:/
+                new RegExp(`^(${types})(\\(.+?\\))?:`)
               )
 
               return {
