@@ -1,5 +1,6 @@
 <script setup lang="ts">
 // Nuxt 4 auto-imports all composables!
+const { formatCompactDate: formatDate } = useDateFormat()
 
 interface GistFile {
   filename: string
@@ -35,11 +36,6 @@ const {
 } = await useFetch<Gist[]>(
   () => `/api/gists?per_page=${perPage}&page=${currentPage.value}`
 )
-
-const formatDate = (dateString: string) => {
-  const date = new Date(dateString)
-  return date.toISOString().split('T')[0]
-}
 
 const nextPage = () => {
   if (gists.value?.length === perPage) {

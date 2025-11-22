@@ -1,14 +1,12 @@
 <script setup>
-import { format } from 'date-fns/format'
 // Animation handled via global anime.js from CDN
 import { useWindowSize } from '@vueuse/core'
 
+const { formatCompactDate: formatDate } = useDateFormat()
 const processedMarkdown = useProcessedMarkdown()
 const { data: robotNotes } = await useAsyncData('robot-notes', () =>
   processedMarkdown.getRobotNotesWithContent()
 )
-
-const formatDate = (date) => format(new Date(date), 'yyyy-MM-dd')
 
 // Helper to build robot link URLs
 const robotsLinkUrl = (note, child) => {

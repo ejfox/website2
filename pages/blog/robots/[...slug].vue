@@ -1,9 +1,10 @@
 <script setup>
-import { format } from 'date-fns/format'
 // Animation handled via global anime.js from CDN
 import { useWindowSize } from '@vueuse/core'
+import { formatNumber } from '~/composables/useNumberFormat'
 // DELETED: import { useAnimations } from '~/composables/useAnimations'
 
+const { formatTimestamp: formatDate } = useDateFormat()
 const route = useRoute()
 const processedMarkdown = useProcessedMarkdown()
 const { width } = useWindowSize()
@@ -120,17 +121,6 @@ const metadataFields = computed(() => {
 
   return fields
 })
-
-// Format numbers with commas
-const formatNumber = (num) => {
-  return new Intl.NumberFormat().format(num)
-}
-
-// Update the formatDate function to be more concise
-const formatDate = (date) => {
-  if (!date) return ''
-  return format(new Date(date), "MMM d, yyyy 'at' h:mma")
-}
 
 // Add scroll progress tracking
 const scrollProgress = ref(0)

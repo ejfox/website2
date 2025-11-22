@@ -162,6 +162,7 @@
 </template>
 
 <script setup>
+const { formatShortDate } = useDateFormat()
 const route = useRoute()
 const processedMarkdown = useProcessedMarkdown()
 
@@ -233,17 +234,7 @@ const filteredPosts = computed(() => {
     })
 })
 
-// Helper functions for date formatting and display
-const formatShortDate = (dateStr) => {
-  if (!dateStr) return ''
-  const date = new Date(dateStr)
-  return date.toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric'
-  })
-}
-
+// Helper functions for display
 const calculateReadingTime = (words) => {
   if (!words) return 0
   return Math.max(1, Math.round(words / 200))

@@ -250,7 +250,7 @@
 </template>
 
 <script setup>
-import { format } from 'date-fns'
+const { formatShortDate: formatDate } = useDateFormat()
 
 useSeoMeta({
   title: 'Site Map | ejfox.com',
@@ -312,16 +312,6 @@ const yearsActive = computed(() => {
   const currentYear = new Date().getFullYear()
   return currentYear - startYear
 })
-
-// Format date helper
-const formatDate = (date) => {
-  if (!date) return ''
-  try {
-    return format(new Date(date), 'MMM d, yyyy')
-  } catch {
-    return date
-  }
-}
 </script>
 
 <style scoped>

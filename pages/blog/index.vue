@@ -342,7 +342,9 @@
 
 <script setup>
 import { subMonths, startOfWeek } from '~/utils/dateUtils'
+import { formatNumber } from '~/composables/useNumberFormat'
 
+const { formatShortDate } = useDateFormat()
 const processedMarkdown = useProcessedMarkdown()
 const now = new Date()
 
@@ -366,31 +368,6 @@ const _formatFileSize = (chars) => {
   if (!chars) return '0KB'
   const kb = chars / 1024
   return kb < 1 ? '<1KB' : `${kb.toFixed(1)}KB`
-}
-
-const formatShortDate = (dateString) => {
-  if (!dateString) return ''
-  const date = new Date(dateString)
-  const months = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec'
-  ]
-  return `${months[date.getMonth()]} ${date.getDate()}`
-}
-
-const formatNumber = (num) => {
-  if (!num) return '0'
-  return num.toLocaleString()
 }
 
 const getPostYear = (post) => {
