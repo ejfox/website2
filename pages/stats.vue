@@ -445,6 +445,7 @@ import LastFmStats from '~/components/stats/LastFmStats.vue'
 import LetterboxdStats from '~/components/stats/LetterboxdStats.vue'
 import UmamiStats from '~/components/stats/UmamiStats.vue'
 import GearStats from '~/components/stats/GearStats.vue'
+import { usePostFilters } from '~/composables/blog/usePostFilters'
 
 const statsDescription = computed(() => {
   const s = stats.value
