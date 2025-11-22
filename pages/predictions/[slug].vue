@@ -44,7 +44,7 @@
     </section>
 
     <!-- Market Data -->
-    <MarketData :prediction="prediction" />
+    <PredictionsMarketData :prediction="prediction" />
 
     <!-- Resolution -->
     <section v-if="prediction.resolution" class="section-spacing">

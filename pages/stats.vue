@@ -30,67 +30,67 @@
       <!-- Dense stats layout -->
       <div class="space-y-4 p-4">
         <!-- Writing Stats -->
-        <StatSection title="WRITING" :show="validBlogStats">
-          <StatRow label="Posts" :value="validBlogStats.totalPosts" />
-          <StatRow label="Words" :value="validBlogStats.totalWords" />
-          <StatRow label="This Month" :value="validBlogStats.postsThisMonth" />
-          <StatRow label="Avg Words" :value="validBlogStats.averageWords" />
-        </StatSection>
+        <StatsStatSection title="WRITING" :show="validBlogStats">
+          <StatsStatRow label="Posts" :value="validBlogStats.totalPosts" />
+          <StatsStatRow label="Words" :value="validBlogStats.totalWords" />
+          <StatsStatRow label="This Month" :value="validBlogStats.postsThisMonth" />
+          <StatsStatRow label="Avg Words" :value="validBlogStats.averageWords" />
+        </StatsStatSection>
 
         <!-- Typing Stats -->
-        <StatSection title="TYPING" :show="stats.monkeyType?.typingStats">
-          <StatRow
+        <StatsStatSection title="TYPING" :show="stats.monkeyType?.typingStats">
+          <StatsStatRow
             label="Best WPM"
             :value="stats.monkeyType.typingStats.bestWPM"
           />
-          <StatRow
+          <StatsStatRow
             label="Tests"
             :value="stats.monkeyType.typingStats.testsCompleted"
           />
-          <StatRow
+          <StatsStatRow
             label="Accuracy"
             :value="stats.monkeyType.typingStats.bestAccuracy"
             format="percentage"
           />
-          <StatRow
+          <StatsStatRow
             label="Consistency"
             :value="stats.monkeyType.typingStats.bestConsistency"
             format="percentage"
           />
-        </StatSection>
+        </StatsStatSection>
 
         <!-- GitHub Stats -->
-        <StatSection title="GITHUB" :show="stats.github?.stats">
-          <StatRow
+        <StatsStatSection title="GITHUB" :show="stats.github?.stats">
+          <StatsStatRow
             label="Contributions"
             :value="stats.github.stats?.totalContributions || 0"
           />
-          <StatRow label="Repos" :value="stats.github.stats?.totalRepos || 0" />
-          <StatRow
+          <StatsStatRow label="Repos" :value="stats.github.stats?.totalRepos || 0" />
+          <StatsStatRow
             label="Followers"
             :value="stats.github.stats?.followers || 0"
           />
-          <StatRow
+          <StatsStatRow
             label="Following"
             :value="stats.github.stats?.following || 0"
           />
-        </StatSection>
+        </StatsStatSection>
 
         <!-- LeetCode Stats -->
-        <StatSection title="LEETCODE" :show="stats.leetcode?.submissionStats">
-          <StatRow
+        <StatsStatSection title="LEETCODE" :show="stats.leetcode?.submissionStats">
+          <StatsStatRow
             label="Easy"
             :value="stats.leetcode.submissionStats.easy.count"
           />
-          <StatRow
+          <StatsStatRow
             label="Medium"
             :value="stats.leetcode.submissionStats.medium.count"
           />
-          <StatRow
+          <StatsStatRow
             label="Hard"
             :value="stats.leetcode.submissionStats.hard.count"
           />
-          <StatRow
+          <StatsStatRow
             label="Total"
             :value="
               stats.leetcode.submissionStats.easy.count +
@@ -98,83 +98,83 @@
               stats.leetcode.submissionStats.hard.count
             "
           />
-        </StatSection>
+        </StatsStatSection>
         <!-- Chess Stats -->
-        <StatSection title="CHESS" :show="stats.chess">
-          <StatRow label="Blitz" :value="stats.chess.currentRating.blitz" />
-          <StatRow label="Rapid" :value="stats.chess.currentRating.rapid" />
-          <StatRow label="Bullet" :value="stats.chess.currentRating.bullet" />
-          <StatRow label="Puzzles" :value="stats.chess.puzzleStats.rating" />
-        </StatSection>
+        <StatsStatSection title="CHESS" :show="stats.chess">
+          <StatsStatRow label="Blitz" :value="stats.chess.currentRating.blitz" />
+          <StatsStatRow label="Rapid" :value="stats.chess.currentRating.rapid" />
+          <StatsStatRow label="Bullet" :value="stats.chess.currentRating.bullet" />
+          <StatsStatRow label="Puzzles" :value="stats.chess.puzzleStats.rating" />
+        </StatsStatSection>
 
         <!-- Health Stats -->
-        <StatSection title="HEALTH" :show="stats.health">
-          <StatRow label="Steps Today" :value="healthToday.steps" />
-          <StatRow label="Exercise">{{ healthToday.exerciseMinutes }}m</StatRow>
-          <StatRow
+        <StatsStatSection title="HEALTH" :show="stats.health">
+          <StatsStatRow label="Steps Today" :value="healthToday.steps" />
+          <StatsStatRow label="Exercise">{{ healthToday.exerciseMinutes }}m</StatsStatRow>
+          <StatsStatRow
             label="Avg Steps"
             :value="stats.health.averages?.dailySteps || 0"
           />
-          <StatRow
+          <StatsStatRow
             label="Heart Rate"
             :value="stats.health.heartRate?.resting || 0"
           />
-        </StatSection>
+        </StatsStatSection>
 
         <!-- Photography Stats -->
-        <StatSection title="PHOTOGRAPHY" :show="stats.photos?.stats">
-          <StatRow label="Total" :value="stats.photos.stats.totalPhotos" />
-          <StatRow
+        <StatsStatSection title="PHOTOGRAPHY" :show="stats.photos?.stats">
+          <StatsStatRow label="Total" :value="stats.photos.stats.totalPhotos" />
+          <StatsStatRow
             label="This Month"
             :value="stats.photos.stats.photosThisMonth"
           />
-          <StatRow
+          <StatsStatRow
             label="Avg/Month"
             :value="stats.photos.stats.averagePerMonth"
             format="decimal"
             :decimals="1"
           />
-        </StatSection>
+        </StatsStatSection>
 
         <!-- Productivity Stats -->
-        <StatSection title="PRODUCTIVITY" :show="stats.rescueTime?.week">
-          <StatRow label="Weekly"
-            >{{ stats.rescueTime.week.summary.total.hours }}h</StatRow
+        <StatsStatSection title="PRODUCTIVITY" :show="stats.rescueTime?.week">
+          <StatsStatRow label="Weekly"
+            >{{ stats.rescueTime.week.summary.total.hours }}h</StatsStatRow
           >
-          <StatRow
+          <StatsStatRow
             label="Productive"
             :value="stats.rescueTime.week.summary.productive.percentage"
             format="percentage"
           />
-          <StatRow
+          <StatsStatRow
             label="Distracting"
             :value="stats.rescueTime.week.summary.distracting.percentage"
             format="percentage"
           />
-        </StatSection>
+        </StatsStatSection>
 
         <!-- Last.fm Stats -->
         <div v-if="stats.lastfm" class="stack-1">
-          <StatSection title="MUSIC" :show="true">
-            <StatRow
+          <StatsStatSection title="MUSIC" :show="true">
+            <StatsStatRow
               label="Scrobbles"
               :value="stats.lastfm.stats?.totalScrobbles || 0"
             />
-            <StatRow
+            <StatsStatRow
               label="Artists"
               :value="stats.lastfm.stats?.uniqueArtists || 0"
             />
-            <StatRow
+            <StatsStatRow
               label="Daily Avg"
               :value="stats.lastfm.stats?.averagePerDay || 0"
               format="decimal"
               :decimals="1"
             />
-            <StatRow
+            <StatsStatRow
               label="Tracks"
               :value="stats.lastfm.stats?.uniqueTracks || 0"
             />
-          </StatSection>
+          </StatsStatSection>
           <!-- Now Playing / Recent -->
           <div
             v-if="stats.lastfm.recentTracks?.tracks?.[0]"
