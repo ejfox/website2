@@ -24,8 +24,6 @@ const { getSlug } = useProjectSlug()
 
 const getProjectId = (project) => getSlug(project)
 
-const tocHeadingClass =
-  'text-xs font-mono uppercase tracking-wider text-zinc-500 mb-3'
 const tocLinkClass =
   'interactive-link block py-1 text-zinc-600 dark:text-zinc-400'
 

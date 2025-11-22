@@ -347,11 +347,10 @@
 <script setup>
 import { subMonths, startOfWeek } from '~/utils/dateUtils'
 import { formatNumber } from '~/composables/useNumberFormat'
-import { isWeekNote, isValidPost } from '~/composables/blog/usePostFilters'
+import { isValidPost } from '~/composables/blog/usePostFilters'
 
 const { formatShortDate } = useDateFormat()
 const processedMarkdown = useProcessedMarkdown()
-const now = new Date()
 
 // Helper functions
 const formatTitle = (slug) => {

@@ -296,7 +296,7 @@ async function findArchivedVersion(url) {
     }
 
     return null
-  } catch (error) {
+  } catch {
     return null
   }
 }
@@ -521,7 +521,7 @@ async function autoFixBrokenLinks(brokenLinks) {
             totalFixed++
             fixedByFile[source] = (fixedByFile[source] || 0) + 1
           }
-        } catch (error) {
+        } catch {
           // Skip files we can't fix
           continue
         }
