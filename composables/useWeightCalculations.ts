@@ -3,6 +3,11 @@
  * Handles conversions between ounces, grams, and pounds with smart formatting
  */
 
+export interface GearItem {
+  Weight_oz: string | number
+  [key: string]: string | number | boolean | undefined
+}
+
 export const useWeightCalculations = () => {
   // Conversion constants
   const OZ_TO_GRAMS = 28.3495
@@ -59,23 +64,23 @@ export const useWeightCalculations = () => {
   /**
    * Get weight in grams from gear item
    */
-  const getItemWeightInGrams = (item: any): number => {
-    const ounces = Number.parseFloat(item['Weight_oz']) || 0
+  const getItemWeightInGrams = (item: GearItem): number => {
+    const ounces = Number.parseFloat(String(item.Weight_oz)) || 0
     return ouncesToGrams(ounces)
   }
 
   /**
    * Get weight in ounces from gear item
    */
-  const getItemWeightInOunces = (item: any): number => {
-    return Number.parseFloat(item['Weight_oz']) || 0
+  const getItemWeightInOunces = (item: GearItem): number => {
+    return Number.parseFloat(String(item.Weight_oz)) || 0
   }
 
   /**
    * Calculate total weight for a collection of items
    */
   const calculateTotalWeight = (
-    items: any[]
+    items: GearItem[]
   ): {
     ounces: number
     grams: number
@@ -110,7 +115,7 @@ export const useWeightCalculations = () => {
    * Calculate average weight for a collection of items
    */
   const calculateAverageWeight = (
-    items: any[]
+    items: GearItem[]
   ): {
     ounces: number
     grams: number
@@ -154,7 +159,7 @@ export const useWeightCalculations = () => {
   /**
    * Get weight categories for items
    */
-  const getWeightCategories = (items: any[]) => {
+  const getWeightCategories = (items: GearItem[]) => {
     const categories = {
       lightweight: 0, // < 5oz (< 142g)
       mediumweight: 0, // 5-15oz (142-425g)

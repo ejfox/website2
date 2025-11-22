@@ -23,7 +23,7 @@ interface Props {
   epic?: boolean
   priority?: 'primary' | 'secondary' | 'tertiary'
   class?: string
-  style?: string | Record<string, any>
+  style?: string | Record<string, string | number>
   debug?: boolean
 }
 

@@ -30,11 +30,11 @@ interface _HealthDataRecord {
     quality?: number
     deepSleep?: number
     notes?: string
-    [key: string]: any
+    [key: string]: string | number | undefined
   }
   source?: string
   created_at?: string
-  [key: string]: any
+  [key: string]: string | number | Record<string, unknown> | undefined
 }
 
 export interface StatsResponse {
@@ -464,8 +464,8 @@ export interface StatsResponse {
       thisMonth: number
       averageRating: number
       rewatches: number
-      topRatedFilms: any[]
-      recentFilms: any[]
+      topRatedFilms: Record<string, unknown>[]
+      recentFilms: Record<string, unknown>[]
       filmsByMonth: Record<string, number>
     }
     lastUpdated: string
