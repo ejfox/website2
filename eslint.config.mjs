@@ -33,7 +33,8 @@ export default createConfigForNuxt({
           ignoreStrings: true,
           ignoreTemplateLiterals: true,
           ignoreRegExpLiterals: true,
-          ignoreComments: false
+          ignoreComments: false,
+          ignorePattern: '^\\s*d="|^\\s*<path'
         }
       ],
 
@@ -49,7 +50,8 @@ export default createConfigForNuxt({
           tabWidth: 2,
           ignoreComments: false,
           ignoreUrls: true,
-          ignoreStrings: true
+          ignoreStrings: true,
+          ignorePattern: '^\\s*d="|^\\s*<path'
         }
       ],
 
