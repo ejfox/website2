@@ -86,7 +86,8 @@ const projectActivity = computed(() => {
   const months = 6
   const activity = []
   for (let i = 0; i < months; i++) {
-    // Simulate activity with some randomness but weighted toward recent activity
+    // Simulate activity with randomness,
+    // weighted toward recent activity
     const recentBoost = i < 2 ? 2 : 1
     activity.push(Math.floor(Math.random() * 8 * recentBoost) + 1)
   }

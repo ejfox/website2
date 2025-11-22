@@ -41,7 +41,10 @@ import { computed } from 'vue'
 import * as d3 from 'd3'
 
 const props = defineProps({
-  values: Array,
+  values: {
+    type: Array,
+    default: () => []
+  },
   type: {
     type: String,
     default: 'squares' // squares | line | bars
@@ -62,7 +65,10 @@ const props = defineProps({
     type: String,
     default: '#3b82f6'
   },
-  metric: String // words | size | time | images
+  metric: {
+    type: String,
+    default: undefined // words | size | time | images
+  }
 })
 
 // Scale definitions based on metric type

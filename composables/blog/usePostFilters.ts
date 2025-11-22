@@ -62,7 +62,8 @@ export function isValidPost(
 
 /**
  * Composable for post filtering
- * @param currentDate - Optional current date override (default: reactive new Date())
+ * @param currentDate - Optional current date override
+ * (default: reactive new Date())
  */
 export function usePostFilters(currentDate?: Date) {
   const now = currentDate || new Date()
