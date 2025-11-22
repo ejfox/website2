@@ -33,8 +33,14 @@
         <StatsStatSection title="WRITING" :show="validBlogStats">
           <StatsStatRow label="Posts" :value="validBlogStats.totalPosts" />
           <StatsStatRow label="Words" :value="validBlogStats.totalWords" />
-          <StatsStatRow label="This Month" :value="validBlogStats.postsThisMonth" />
-          <StatsStatRow label="Avg Words" :value="validBlogStats.averageWords" />
+          <StatsStatRow
+            label="This Month"
+            :value="validBlogStats.postsThisMonth"
+          />
+          <StatsStatRow
+            label="Avg Words"
+            :value="validBlogStats.averageWords"
+          />
         </StatsStatSection>
 
         <!-- Typing Stats -->
@@ -65,7 +71,10 @@
             label="Contributions"
             :value="stats.github.stats?.totalContributions || 0"
           />
-          <StatsStatRow label="Repos" :value="stats.github.stats?.totalRepos || 0" />
+          <StatsStatRow
+            label="Repos"
+            :value="stats.github.stats?.totalRepos || 0"
+          />
           <StatsStatRow
             label="Followers"
             :value="stats.github.stats?.followers || 0"
@@ -77,7 +86,10 @@
         </StatsStatSection>
 
         <!-- LeetCode Stats -->
-        <StatsStatSection title="LEETCODE" :show="stats.leetcode?.submissionStats">
+        <StatsStatSection
+          title="LEETCODE"
+          :show="stats.leetcode?.submissionStats"
+        >
           <StatsStatRow
             label="Easy"
             :value="stats.leetcode.submissionStats.easy.count"
@@ -101,16 +113,30 @@
         </StatsStatSection>
         <!-- Chess Stats -->
         <StatsStatSection title="CHESS" :show="stats.chess">
-          <StatsStatRow label="Blitz" :value="stats.chess.currentRating.blitz" />
-          <StatsStatRow label="Rapid" :value="stats.chess.currentRating.rapid" />
-          <StatsStatRow label="Bullet" :value="stats.chess.currentRating.bullet" />
-          <StatsStatRow label="Puzzles" :value="stats.chess.puzzleStats.rating" />
+          <StatsStatRow
+            label="Blitz"
+            :value="stats.chess.currentRating.blitz"
+          />
+          <StatsStatRow
+            label="Rapid"
+            :value="stats.chess.currentRating.rapid"
+          />
+          <StatsStatRow
+            label="Bullet"
+            :value="stats.chess.currentRating.bullet"
+          />
+          <StatsStatRow
+            label="Puzzles"
+            :value="stats.chess.puzzleStats.rating"
+          />
         </StatsStatSection>
 
         <!-- Health Stats -->
         <StatsStatSection title="HEALTH" :show="stats.health">
           <StatsStatRow label="Steps Today" :value="healthToday.steps" />
-          <StatsStatRow label="Exercise">{{ healthToday.exerciseMinutes }}m</StatsStatRow>
+          <StatsStatRow label="Exercise"
+            >{{ healthToday.exerciseMinutes }}m</StatsStatRow
+          >
           <StatsStatRow
             label="Avg Steps"
             :value="stats.health.averages?.dailySteps || 0"

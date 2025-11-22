@@ -36,7 +36,8 @@ export default defineEventHandler(async (event) => {
   <title>${siteName}</title>
   <description>${siteDescription}</description>
   <link>${siteURL}/robots</link>
-  <atom:link href="${siteURL}/robots-rss.xml" rel="self" type="application/rss+xml" />
+  <atom:link href="${siteURL}/robots-rss.xml" rel="self"
+             type="application/rss+xml" />
   <pubDate>${new Date().toUTCString()}</pubDate>
   ${await Promise.all(
     filteredPosts.map(

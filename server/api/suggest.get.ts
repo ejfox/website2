@@ -252,9 +252,12 @@ async function generateAISuggestions(
   const contentTitle = content.split('\n')[0] || 'No title'
   const contentText = content.substring(0, 1000)
 
-  const prompt = `You are EJ Fox's AI assistant helping to categorize content for his digital scrapbook.
+  const prompt = `You are EJ Fox's AI assistant helping to categorize
+content for his digital scrapbook.
 
-EJ writes about: data visualization, journalism, technology, coding (especially Vue.js/JavaScript), AI/ML, politics, activism, creative tools, photography, music production, automation, and digital culture.
+EJ writes about: data visualization, journalism, technology, coding
+(especially Vue.js/JavaScript), AI/ML, politics, activism, creative
+tools, photography, music production, automation, and digital culture.
 
 Available tags (choose 3-4 from this exact list): ${tagsStr}
 

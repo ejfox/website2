@@ -40,7 +40,7 @@ export default createConfigForNuxt({
 
       // Vue-specific rules
       'vue/multi-word-component-names': 'off',
-      'vue/no-v-html': 'warn',
+      'vue/no-v-html': 'off', // We use v-html intentionally for markdown content
       'vue/no-multiple-template-root': 'off', // Vue 3 supports multiple roots
       'vue/max-len': [
         'warn',

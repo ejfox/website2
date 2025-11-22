@@ -382,9 +382,8 @@ async function checkAllLinks(links, linkToSources, maxConcurrent = 5) {
         await new Promise((resolve) => setTimeout(resolve, 500))
       }
 
-      archiveSpinner.succeed(
-        `Found ${brokenWithArchives.filter((b) => b.archived).length} archived versions`
-      )
+      const archivedCount = brokenWithArchives.filter((b) => b.archived).length
+      archiveSpinner.succeed(`Found ${archivedCount} archived versions`)
     }
 
     // Generate report
@@ -485,7 +484,10 @@ async function autoFixBrokenLinks(brokenLinks) {
       const archivedDate = link.archived.timestamp.substring(0, 8) // YYYYMMDD
 
       // Format date as YYYY-MM-DD
-      const formattedDate = `${archivedDate.substring(0, 4)}-${archivedDate.substring(4, 6)}-${archivedDate.substring(6, 8)}`
+      const year = archivedDate.substring(0, 4)
+      const month = archivedDate.substring(4, 6)
+      const day = archivedDate.substring(6, 8)
+      const formattedDate = `${year}-${month}-${day}`
 
       for (const source of link.sources) {
         const filePath = path.join(paths.contentDir, `${source}.md`)
