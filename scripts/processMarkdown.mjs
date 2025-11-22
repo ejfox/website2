@@ -17,6 +17,7 @@ import dotenv from 'dotenv'
 import * as shiki from 'shiki'
 import chalk from 'chalk'
 import ora from 'ora'
+import fetch from 'node-fetch'
 import { config } from './config.mjs'
 
 import {
@@ -262,9 +263,295 @@ async function generateExternalLinksCSV(allFiles) {
       `Extracted ${linkToSources.size} external links to ` +
         'data/external_links_final.csv'
     )
-    return Array.from(linkToSources.keys())
+    return { links: Array.from(linkToSources.keys()), linkToSources }
   } catch (error) {
     spinner.fail('Failed to extract external links')
+    console.error(error)
+    throw error
+  }
+}
+
+// Check Wayback Machine for archived version
+async function findArchivedVersion(url) {
+  try {
+    const apiUrl = `https://archive.org/wayback/available?url=${encodeURIComponent(url)}`
+    const response = await fetch(apiUrl, {
+      headers: {
+        'User-Agent':
+          'Mozilla/5.0 (compatible; LinkChecker/1.0; +https://ejfox.com)'
+      }
+    })
+
+    if (!response.ok) return null
+
+    const data = await response.json()
+    const archived = data?.archived_snapshots?.closest
+
+    if (archived?.available && archived?.url) {
+      return {
+        url: archived.url,
+        timestamp: archived.timestamp,
+        status: archived.status
+      }
+    }
+
+    return null
+  } catch (error) {
+    return null
+  }
+}
+
+// Link health checking (behind CHECK_LINKS flag)
+async function checkLinkHealth(url, timeout = 10000) {
+  try {
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), timeout)
+
+    const response = await fetch(url, {
+      method: 'HEAD',
+      signal: controller.signal,
+      redirect: 'follow',
+      headers: {
+        'User-Agent':
+          'Mozilla/5.0 (compatible; LinkChecker/1.0; +https://ejfox.com)'
+      }
+    })
+
+    clearTimeout(timeoutId)
+
+    return {
+      url,
+      status: response.status,
+      ok: response.ok,
+      finalUrl: response.url
+    }
+  } catch (error) {
+    return {
+      url,
+      status: 0,
+      ok: false,
+      error: error.name === 'AbortError' ? 'Timeout' : error.message
+    }
+  }
+}
+
+async function checkAllLinks(links, linkToSources, maxConcurrent = 5) {
+  const spinner = ora(
+    `Checking health of ${links.length} links...`
+  ).start()
+
+  try {
+    const results = []
+
+    // Check links in batches to avoid overwhelming servers
+    for (let i = 0; i < links.length; i += maxConcurrent) {
+      const batch = links.slice(i, i + maxConcurrent)
+      const batchResults = await Promise.all(
+        batch.map((link) => checkLinkHealth(link))
+      )
+      results.push(...batchResults)
+
+      // Update progress
+      spinner.text = `Checking links... ${i + batch.length}/${links.length}`
+    }
+
+    // Categorize results
+    const working = results.filter((r) => r.ok)
+    const broken = results.filter((r) => !r.ok && !r.error)
+    const errors = results.filter((r) => r.error)
+
+    spinner.succeed(`Checked ${results.length} links`)
+
+    // Check archive.org for broken links if AUTO_FIX flag is set
+    const brokenWithArchives = []
+    if (process.env.AUTO_FIX_LINKS === 'true' && broken.length > 0) {
+      const archiveSpinner = ora(
+        `Searching archive.org for ${broken.length} broken links...`
+      ).start()
+
+      for (let i = 0; i < broken.length; i++) {
+        const brokenLink = broken[i]
+        archiveSpinner.text = `Searching archives... ${i + 1}/${broken.length}`
+
+        const archived = await findArchivedVersion(brokenLink.url)
+        brokenWithArchives.push({
+          ...brokenLink,
+          archived,
+          sources: Array.from(linkToSources.get(brokenLink.url) || [])
+        })
+
+        // Be polite to archive.org API
+        await new Promise((resolve) => setTimeout(resolve, 500))
+      }
+
+      archiveSpinner.succeed(
+        `Found ${brokenWithArchives.filter((b) => b.archived).length} archived versions`
+      )
+    }
+
+    // Generate report
+    const report = {
+      timestamp: new Date().toISOString(),
+      summary: {
+        total: results.length,
+        working: working.length,
+        broken: broken.length,
+        errors: errors.length,
+        archived: brokenWithArchives.filter((b) => b.archived).length
+      },
+      broken:
+        brokenWithArchives.length > 0
+          ? brokenWithArchives
+          : broken.map((r) => ({
+              url: r.url,
+              status: r.status,
+              sources: Array.from(linkToSources.get(r.url) || [])
+            })),
+      errors: errors.map((r) => ({
+        url: r.url,
+        error: r.error,
+        sources: Array.from(linkToSources.get(r.url) || [])
+      }))
+    }
+
+    // Save report
+    const reportPath = path.join(process.cwd(), 'data/linkrot-report.json')
+    await fs.writeFile(reportPath, JSON.stringify(report, null, 2))
+
+    // Print summary
+    console.log(chalk.bold('\n📊 Link Health Summary'))
+    console.log(`  ${chalk.green('✓')} Working:   ${working.length}`)
+    console.log(`  ${chalk.red('✗')} Broken:    ${broken.length}`)
+    console.log(`  ${chalk.gray('⏱')} Errors:    ${errors.length}`)
+    if (brokenWithArchives.length > 0) {
+      console.log(
+        `  ${chalk.cyan('📦')} Archived:  ${brokenWithArchives.filter((b) => b.archived).length}`
+      )
+    }
+
+    if (broken.length > 0) {
+      console.log(chalk.red.bold(`\n🚨 ${broken.length} Broken Links Found`))
+      const displayLinks =
+        brokenWithArchives.length > 0 ? brokenWithArchives : broken
+      displayLinks.slice(0, 5).forEach((link) => {
+        console.log(chalk.red(`  ${link.status} - ${link.url}`))
+        if (link.archived) {
+          console.log(
+            chalk.cyan(`    📦 Archived: ${link.archived.url.substring(0, 60)}...`)
+          )
+        }
+        const sources = Array.from(
+          linkToSources.get(link.url) || link.sources || []
+        )
+        sources.slice(0, 2).forEach((source) => {
+          console.log(chalk.gray(`    → ${source}`))
+        })
+      })
+      if (broken.length > 5) {
+        console.log(chalk.gray(`  ... and ${broken.length - 5} more`))
+      }
+    }
+
+    console.log(chalk.gray(`\n  Full report: data/linkrot-report.json\n`))
+
+    // Auto-fix broken links if flag is set
+    if (
+      process.env.AUTO_FIX_LINKS === 'true' &&
+      brokenWithArchives.some((b) => b.archived)
+    ) {
+      await autoFixBrokenLinks(brokenWithArchives.filter((b) => b.archived))
+    }
+
+    return report
+  } catch (error) {
+    spinner.fail('Failed to check link health')
+    console.error(error)
+    throw error
+  }
+}
+
+// Auto-fix broken links by replacing with archive.org versions
+async function autoFixBrokenLinks(brokenLinks) {
+  const spinner = ora('Auto-fixing broken links...').start()
+
+  try {
+    let totalFixed = 0
+    const fixedByFile = {}
+
+    for (const link of brokenLinks) {
+      if (!link.archived) continue
+
+      const archivedUrl = link.archived.url
+      const archivedDate = link.archived.timestamp.substring(0, 8) // YYYYMMDD
+
+      // Format date as YYYY-MM-DD
+      const formattedDate = `${archivedDate.substring(0, 4)}-${archivedDate.substring(4, 6)}-${archivedDate.substring(6, 8)}`
+
+      for (const source of link.sources) {
+        const filePath = path.join(paths.contentDir, `${source}.md`)
+
+        try {
+          let content = await fs.readFile(filePath, 'utf-8')
+          const originalContent = content
+
+          // Replace the broken link with archived version + indicator
+          // Match both markdown links [text](url) and bare URLs
+          const escapedUrl = link.url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+
+          // Replace in markdown links [text](broken-url)
+          const mdLinkRegex = new RegExp(
+            `(\\[[^\\]]+\\])\\(${escapedUrl}\\)`,
+            'g'
+          )
+          content = content.replace(
+            mdLinkRegex,
+            `$1(${archivedUrl}) *[archived ${formattedDate}]*`
+          )
+
+          // Replace bare URLs
+          const bareUrlRegex = new RegExp(`(?<!\\()${escapedUrl}(?!\\))`, 'g')
+          content = content.replace(
+            bareUrlRegex,
+            `${archivedUrl} *[archived ${formattedDate}]*`
+          )
+
+          // Only write if content changed
+          if (content !== originalContent) {
+            await fs.writeFile(filePath, content, 'utf-8')
+            totalFixed++
+            fixedByFile[source] = (fixedByFile[source] || 0) + 1
+          }
+        } catch (error) {
+          // Skip files we can't fix
+          continue
+        }
+      }
+    }
+
+    spinner.succeed(`Auto-fixed ${totalFixed} broken links across ${Object.keys(fixedByFile).length} files`)
+
+    if (Object.keys(fixedByFile).length > 0) {
+      console.log(chalk.cyan('\n📦 Files updated with archived links:'))
+      Object.entries(fixedByFile)
+        .slice(0, 10)
+        .forEach(([file, count]) => {
+          console.log(chalk.gray(`  ${file} (${count} link${count > 1 ? 's' : ''})`))
+        })
+      if (Object.keys(fixedByFile).length > 10) {
+        console.log(
+          chalk.gray(`  ... and ${Object.keys(fixedByFile).length - 10} more`)
+        )
+      }
+      console.log(
+        chalk.yellow(
+          '\n  ⚠️  Review changes before committing - check git diff\n'
+        )
+      )
+    }
+
+    return fixedByFile
+  } catch (error) {
+    spinner.fail('Failed to auto-fix links')
     console.error(error)
     throw error
   }
@@ -429,7 +716,13 @@ async function processAllFiles() {
     processStats.totalFiles = allFiles.length
     spinner.succeed(`Found ${allFiles.length} markdown files`)
 
-    await generateExternalLinksCSV(allFiles)
+    const { links, linkToSources } = await generateExternalLinksCSV(allFiles)
+
+    // Check link health if CHECK_LINKS flag is set
+    if (process.env.CHECK_LINKS === 'true') {
+      await checkAllLinks(links, linkToSources)
+    }
+
     console.log('\nProcessing files...\n')
 
     const results = []

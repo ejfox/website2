@@ -5,7 +5,14 @@
     "date": "2022-11-20T21:03:54.000Z",
     "modified": "2025-08-29T21:45:00.000Z",
     "dek": "In which I turn my gear page into a video game inventory with spinning 3D models because I'm a total dork and it's going to be amazing",
-    "tags": ["webdesign", "howto", "javascript", "3d", "gear", "gaming"],
+    "tags": [
+      "webdesign",
+      "howto",
+      "javascript",
+      "3d",
+      "gear",
+      "gaming"
+    ],
     "hidden": false,
     "draft": false,
     "words": 708,

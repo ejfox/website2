@@ -11,7 +11,11 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/91KGdyDZWWL._SY160.jpg",
       "highlightsCount": 7
     },
-    "tags": ["book", "writing", "tech"],
+    "tags": [
+      "book",
+      "writing",
+      "tech"
+    ],
     "words": 396,
     "images": 0,
     "imageDetails": {

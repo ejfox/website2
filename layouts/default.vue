@@ -107,7 +107,7 @@
       </nav>
 
       <article
-        class="w-full overflow-x-auto pt-24 md:pt-0"
+        class="w-full pt-24 md:pt-0"
         :class="{
           'pt-36': mobileMenuOpen
         }"

@@ -6,7 +6,12 @@
     "date": "2025-01-07T18:00:42.000Z",
     "modified": "2025-01-19T03:20:26.000Z",
     "share": true,
-    "tags": ["drone", "fpv", "education", "games"],
+    "tags": [
+      "drone",
+      "fpv",
+      "education",
+      "games"
+    ],
     "words": 2116,
     "images": 0,
     "imageDetails": {

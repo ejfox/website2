@@ -14,6 +14,8 @@
     "format:check": "prettier --check \"**/*.{js,mjs,ts,vue,json,md}\"",
     "blog:import": "node scripts/blog/import.mjs",
     "blog:process": "DEBUG=true node scripts/processMarkdown.mjs",
+    "blog:check-links": "CHECK_LINKS=true DEBUG=true node scripts/processMarkdown.mjs",
+    "blog:fix-links": "CHECK_LINKS=true AUTO_FIX_LINKS=true DEBUG=true node scripts/processMarkdown.mjs",
     "blog": "npm run blog:import && npm run blog:process",
     "blog:preview": "DRY_RUN=true node scripts/blog/import.mjs",
     "blog:watch": "bash scripts/blog/watch.sh",

@@ -7,7 +7,12 @@
     "title": "Processing Telegram Leaks for Fast Web Visualization",
     "dek": "In which I describe my workflow for transforming a Telegram database dump into a web-friendly format for analysis and visualization",
     "inprogress": true,
-    "tags": ["data", "dataviz", "journalism", "politics"],
+    "tags": [
+      "data",
+      "dataviz",
+      "journalism",
+      "politics"
+    ],
     "words": 726,
     "images": 6,
     "imageDetails": {

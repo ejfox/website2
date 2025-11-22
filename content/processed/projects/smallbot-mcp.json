@@ -6,10 +6,18 @@
     "date": "2025-08-02T04:00:00.000Z",
     "modified": "2025-08-13T17:17:13.000Z",
     "url": "https://github.com/ejfox/smallbot-mcp",
-    "tech": ["MCP", "AI", "Web Generation", "Node.js"],
+    "tech": [
+      "MCP",
+      "AI",
+      "Web Generation",
+      "Node.js"
+    ],
     "state": "deployed",
     "aiInvolvement": "ai-enhanced",
-    "tags": ["ai", "web"],
+    "tags": [
+      "ai",
+      "web"
+    ],
     "words": 146,
     "images": 0,
     "imageDetails": {

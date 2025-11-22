@@ -11,7 +11,12 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/81aNsuBcfjL._SY160.jpg",
       "highlightsCount": 1
     },
-    "tags": ["book", "oakland", "personal", "writing"],
+    "tags": [
+      "book",
+      "oakland",
+      "personal",
+      "writing"
+    ],
     "words": 104,
     "images": 0,
     "imageDetails": {

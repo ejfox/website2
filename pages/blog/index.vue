@@ -3,12 +3,12 @@
 <template>
   <div>
     <!-- Header with consistent metadata styling -->
-    <header class="mb-4 relative">
+    <header class="mb-6 relative">
       <!-- Swiss Grid Container matching blog posts -->
       <div class="max-w-screen-xl mx-auto px-4 md:px-8">
         <!-- Compact metadata bar matching blog posts -->
-        <div class="border-b border-zinc-200 dark:border-zinc-800">
-          <div class="metadata-bar">
+        <div>
+          <div class="metadata-bar mb-3">
             <span class="flex-gap-1 whitespace-nowrap">
               <span class="text-zinc-400">ENTRIES</span>
               <span class="text-zinc-600 dark:text-zinc-300">{{
@@ -76,26 +76,22 @@
         </div>
 
         <!-- Title section matching blog posts -->
-        <div
-          class="px-4 md:px-6"
-          style="padding-top: 24px; padding-bottom: 16px"
-        >
+        <div class="px-4 md:px-6 pt-4 pb-3">
           <h1
-            class="font-serif font-light text-4xl md:text-5xl lg:text-6xl mb-2"
-            style="line-height: 1.15; letter-spacing: -0.025em"
+            class="font-serif font-light text-3xl md:text-4xl lg:text-5xl mb-1.5 leading-[1.1] tracking-tight"
           >
             Blog
           </h1>
-          <p :class="blogDescriptionClass" style="line-height: 1.6">
+          <p :class="blogDescriptionClass">
             Thoughts, projects, and explorations in technology, design, and
             making.
           </p>
         </div>
 
         <!-- Main content -->
-        <div class="relative px-4 md:px-6 h-feed">
+        <div class="relative px-4 md:px-6 h-feed lg:grid lg:grid-cols-12 lg:gap-16 xl:gap-20">
           <!-- Main column -->
-          <section style="max-width: 65ch">
+          <section class="max-w-3xl lg:max-w-none lg:col-span-8 lg:pr-14 xl:pr-20 lg:min-w-0 lg:pt-2">
             <div v-if="!sortedYears.length" class="text-center py-8">
               <p class="text-zinc-600 dark:text-zinc-400 text-sm">
                 No blog posts found.
@@ -109,22 +105,17 @@
                 :key="post?.slug"
               >
                 <!-- Year marker (inline, only for first post) -->
-                <div
-                  v-if="index === 0"
-                  class="year-marker"
-                  style="line-height: 16px"
-                >
+                <div v-if="index === 0" class="year-marker leading-[12px]">
                   {{ year }}
                 </div>
 
-                <article class="group mb-8 h-entry">
+                <article class="group mb-6 h-entry">
                   <!-- Main content -->
                   <div>
                     <h3>
                       <NuxtLink
                         :to="`/blog/${post?.slug}`"
-                        class="title-link"
-                        style="line-height: 1.3"
+                        class="title-link leading-[1.2]"
                       >
                         {{ post?.title || formatTitle(post?.slug) }}
                       </NuxtLink>
@@ -233,23 +224,22 @@
 
           <!-- Sidebar sections (simplified) -->
           <aside
-            class="mt-8 pt-4 border-t border-zinc-200 dark:border-zinc-800"
-            style="max-width: 65ch"
+            class="mt-8 pt-4 border-t border-zinc-200 dark:border-zinc-800 lg:mt-0 lg:pt-2 lg:border-t-0 lg:pl-12 xl:pl-16 lg:col-span-4 lg:min-w-[260px] lg:sticky lg:top-24"
           >
             <!-- Data stats footer -->
             <div class="data-footer">
               <div>
-                <span class="text-zinc-500">TTL_READ</span>
+                <span class="text-zinc-500">TTL_WORDS</span>
                 <br />
                 <span
                   >{{
-                    Math.ceil(
+                    Math.floor(
                       (posts?.reduce(
                         (acc, p) => acc + (p?.metadata?.words || p?.words || 0),
                         0
-                      ) || 0) / 200
+                      ) || 0) / 1000
                     )
-                  }}min</span
+                  }}k</span
                 >
               </div>
               <div>
@@ -282,7 +272,7 @@
                 >
               </div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="mt-8 space-y-8">
               <!-- Week Notes -->
               <section v-if="sortedWeekNotes.length">
                 <h2 class="section-header-xs">
@@ -533,6 +523,9 @@ const _monthlyActivity = computed(() => {
 const sortedWeekNotes = computed(() => {
   if (!notes.value) return []
 
+  const eightWeeksAgo = new Date()
+  eightWeeksAgo.setDate(eightWeeksAgo.getDate() - 56) // 8 weeks
+
   return notes.value
     .map((note) => {
       const processedNote = { ...note }
@@ -553,13 +546,14 @@ const sortedWeekNotes = computed(() => {
     .filter(
       (note) =>
         note?.actualDate &&
+        note?.actualDate > eightWeeksAgo &&
         note?.slug &&
         (note?.dek || note?.metadata?.dek) &&
         !note?.hidden &&
         !note?.metadata?.hidden
     )
     .sort((a, b) => b.actualDate - a.actualDate)
-    .slice(0, 5)
+    .slice(0, 4)
 })
 
 const blogPostsByYear = computed(() => {
@@ -636,12 +630,12 @@ const _createPostMetadata = (post) => {
 
 // Blog description paragraph styling
 const blogDescriptionClass =
-  'font-serif text-lg md:text-xl text-zinc-600 ' + 'dark:text-zinc-400 mb-4'
+  'font-serif text-base md:text-lg text-zinc-600 ' + 'dark:text-zinc-400 mb-3 leading-[1.5]'
 
 // Post dek paragraph styling
 const postDekClass =
   'font-serif text-sm text-zinc-600 dark:text-zinc-400 ' +
-  'mt-1 p-summary leading-5'
+  'mt-0.5 p-summary leading-[1.4]'
 </script>
 
 <style scoped>

@@ -11,7 +11,10 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/71ocFXZZP9L._SY160.jpg",
       "highlightsCount": 3
     },
-    "tags": ["politics", "military"],
+    "tags": [
+      "politics",
+      "military"
+    ],
     "words": 250,
     "images": 0,
     "imageDetails": {

@@ -91,7 +91,7 @@ const latestYear = computed(() => {
 </script>
 
 <template>
-  <div class="px-4 md:px-8 max-w-4xl">
+  <div class="px-4 md:px-8 max-w-4xl pt-0.5">
     <header class="mb-12 pb-4">
       <div
         class="font-mono text-xs text-zinc-500 mb-3 uppercase tracking-wider"

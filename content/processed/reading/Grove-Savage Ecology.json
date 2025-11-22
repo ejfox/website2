@@ -11,7 +11,12 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/91lJLAMxYPL._SY160.jpg",
       "highlightsCount": 16
     },
-    "tags": ["book", "ecology", "politics", "military"],
+    "tags": [
+      "book",
+      "ecology",
+      "politics",
+      "military"
+    ],
     "words": 932,
     "images": 0,
     "imageDetails": {

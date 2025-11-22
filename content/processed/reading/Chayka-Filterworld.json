@@ -13,7 +13,12 @@
     },
     "date": "2025-08-21T18:44:39.000Z",
     "modified": "2025-08-24T23:53:43.000Z",
-    "tags": ["book", "tech", "culture", "algorithm"],
+    "tags": [
+      "book",
+      "tech",
+      "culture",
+      "algorithm"
+    ],
     "words": 173,
     "images": 0,
     "imageDetails": {

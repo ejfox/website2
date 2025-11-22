@@ -7,7 +7,13 @@
     "inprogress": false,
     "date": "2022-12-05T23:34:09.000Z",
     "modified": "2025-10-25T16:49:49.000Z",
-    "tags": ["automation", "photography", "nuxt", "cloudinary", "workflow"],
+    "tags": [
+      "automation",
+      "photography",
+      "nuxt",
+      "cloudinary",
+      "workflow"
+    ],
     "words": 2535,
     "images": 0,
     "imageDetails": {

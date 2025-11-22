@@ -14,7 +14,12 @@
     ],
     "state": "deployed",
     "aiInvolvement": "human-only",
-    "tags": ["covid", "dataviz", "javascript", "health"],
+    "tags": [
+      "covid",
+      "dataviz",
+      "javascript",
+      "health"
+    ],
     "words": 35,
     "images": 1,
     "imageDetails": {

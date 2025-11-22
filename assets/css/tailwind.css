@@ -355,29 +355,29 @@
   }
 
   .post-metadata {
-    @apply font-mono text-xs text-zinc-400 dark:text-zinc-600 mt-1 uppercase tracking-wider tabular-nums flex items-center gap-1;
+    @apply font-mono text-[10px] text-zinc-400 dark:text-zinc-600 mt-0.5 uppercase tracking-wider tabular-nums flex items-center gap-0.5;
   }
 
   .metadata-bar {
-    @apply font-mono text-xs text-zinc-500 px-4 md:px-6 py-1 uppercase tabular-nums flex items-center gap-2 overflow-x-auto tracking-wider;
+    @apply font-mono text-[10px] text-zinc-500 px-4 md:px-6 py-0.5 uppercase tabular-nums flex items-center gap-1.5 overflow-x-auto tracking-wider;
   }
 
   /* Section headers */
   .section-header-xs {
-    @apply font-mono text-xs uppercase tracking-widest text-zinc-500 mb-2;
+    @apply font-mono text-[10px] uppercase tracking-widest text-zinc-500 mb-1.5;
   }
 
   .year-marker {
-    @apply font-mono text-xs uppercase tracking-widest text-zinc-400 dark:text-zinc-600 mt-12 first:mt-0 mb-6;
+    @apply font-mono text-[10px] uppercase tracking-widest text-zinc-400 dark:text-zinc-600 mt-10 first:mt-0 mb-4;
   }
 
   /* Data displays */
   .stat-display {
-    @apply border-l border-zinc-300 dark:border-zinc-700 pl-3 my-4 font-mono text-xs text-zinc-500 dark:text-zinc-500;
+    @apply border-l border-zinc-300 dark:border-zinc-700 pl-3 my-3 font-mono text-[10px] text-zinc-500 dark:text-zinc-500;
   }
 
   .data-footer {
-    @apply font-mono text-xs text-zinc-400 mb-4 grid grid-cols-2 md:grid-cols-4 gap-3 tabular-nums;
+    @apply font-mono text-[10px] text-zinc-400 mb-6 flex flex-col gap-3 tabular-nums leading-tight;
   }
 
   .tech-tags {
@@ -678,7 +678,7 @@
   }
 
   .sidebar-sticky {
-    @apply sticky min-w-[180px] h-auto max-h-screen top-0 left-0 z-50 font-mono overflow-auto hidden md:block;
+    @apply sticky min-w-[180px] h-auto max-h-screen top-0 left-0 z-50 font-mono hidden md:block;
   }
 
   .footer-sidebar {
@@ -833,7 +833,7 @@
 
   /* Title variants */
   .title-link {
-    @apply font-serif text-xl md:text-2xl font-normal text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors duration-200 tracking-tight;
+    @apply font-serif text-lg md:text-xl font-normal text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors duration-200 tracking-tight;
   }
 
   .title-card {

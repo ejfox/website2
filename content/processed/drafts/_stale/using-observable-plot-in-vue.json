@@ -6,7 +6,11 @@
     "inprogress": true,
     "date": "2022-12-15T15:18:53.000Z",
     "modified": "2024-09-20T04:23:41.000Z",
-    "tags": ["dataviz", "howto", "vue"],
+    "tags": [
+      "dataviz",
+      "howto",
+      "vue"
+    ],
     "words": 439,
     "images": 0,
     "imageDetails": {

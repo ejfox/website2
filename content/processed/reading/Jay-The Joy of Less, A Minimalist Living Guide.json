@@ -11,7 +11,11 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/81RtzVXh7zL._SY160.jpg",
       "highlightsCount": 4
     },
-    "tags": ["book", "personal", "design"],
+    "tags": [
+      "book",
+      "personal",
+      "design"
+    ],
     "words": 113,
     "images": 0,
     "imageDetails": {

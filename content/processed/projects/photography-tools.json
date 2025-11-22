@@ -14,7 +14,10 @@
     ],
     "state": "deployed",
     "aiInvolvement": "ai-assisted",
-    "tags": ["photography", "tools"],
+    "tags": [
+      "photography",
+      "tools"
+    ],
     "words": 109,
     "images": 1,
     "imageDetails": {

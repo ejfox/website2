@@ -11,7 +11,9 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/91+4ktlXqlL._SY160.jpg",
       "highlightsCount": 5
     },
-    "tags": ["politics"],
+    "tags": [
+      "politics"
+    ],
     "words": 433,
     "images": 0,
     "imageDetails": {

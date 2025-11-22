@@ -4,7 +4,10 @@
   "metadata": {
     "date": "2025-07-02T01:14:47.000Z",
     "modified": "2025-07-02T14:38:12.000Z",
-    "tags": ["web", "deployment"],
+    "tags": [
+      "web",
+      "deployment"
+    ],
     "words": 15,
     "images": 0,
     "imageDetails": {

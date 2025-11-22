@@ -5,7 +5,12 @@
     "date": "2025-05-03T22:17:43.000Z",
     "modified": "2025-05-23T05:29:38.000Z",
     "dek": "In which the author steals his data back from various tools and APIs and uses them to build his own panopticon-for-one",
-    "tags": ["api", "quantifiedself", "programming", "personal"],
+    "tags": [
+      "api",
+      "quantifiedself",
+      "programming",
+      "personal"
+    ],
     "words": 923,
     "images": 0,
     "imageDetails": {

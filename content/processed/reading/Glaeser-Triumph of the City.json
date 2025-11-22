@@ -11,7 +11,11 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/91o-pwFeUmL._SY160.jpg",
       "highlightsCount": 1
     },
-    "tags": ["book", "culture", "ecology"],
+    "tags": [
+      "book",
+      "culture",
+      "ecology"
+    ],
     "date": "2025-08-31T15:09:37.000Z",
     "modified": "2025-09-23T12:04:35.000Z",
     "words": 82,
