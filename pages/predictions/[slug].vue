@@ -38,7 +38,7 @@
           {{ prediction.updates.length === 1 ? 'update' : 'updates' }}</span
         >
         <span v-if="prediction.deadline"
-          >· {{ formatDateCompact(prediction.deadline) }}</span
+          >· {{ formatShortDate(prediction.deadline) }}</span
         >
       </div>
     </section>
@@ -87,7 +87,7 @@
           <!-- Update header -->
           <div class="mono-xs text-muted mb-2">
             <span class="text-primary">{{
-              formatDateCompact(update.timestamp)
+              formatShortDate(update.timestamp)
             }}</span>
             <span
               v-if="
@@ -156,6 +156,7 @@
 <script setup>
 const route = useRoute()
 const slug = route.params.slug
+const { formatShortDate } = useDateFormat()
 
 // Fetch prediction data
 const { data: prediction, error } = await useAsyncData(
@@ -186,26 +187,6 @@ onMounted(async () => {
     }
   }
 })
-
-const formatDateCompact = (dateString) => {
-  if (!dateString) return 'Unknown'
-  const d = new Date(dateString)
-  const months = [
-    'JAN',
-    'FEB',
-    'MAR',
-    'APR',
-    'MAY',
-    'JUN',
-    'JUL',
-    'AUG',
-    'SEP',
-    'OCT',
-    'NOV',
-    'DEC'
-  ]
-  return `${months[d.getMonth()]} ${String(d.getDate()).padStart(2, '0')}, ${d.getFullYear()}`
-}
 
 // Sort updates by timestamp (most recent first)
 const sortedUpdates = computed(() => {

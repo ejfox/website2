@@ -258,7 +258,7 @@
                   class=""
                 >
                   <td class="table-cell tabular">
-                    {{ formatTime(fill.created_time) }}
+                    {{ formatRelativeTime(fill.created_time) }}
                   </td>
                   <td class="table-cell">{{ fill.ticker }}</td>
                   <td
@@ -746,6 +746,8 @@ import PredictionCard from '~/components/predictions/PredictionCard.vue'
 const commitHistoryUrl =
   'https://github.com/ejfox/website2/commits/main/content/predictions/'
 
+const { formatRelativeTime } = useDateFormat()
+
 useSeoMeta({
   title: 'Predictions - EJ Fox',
   description: 'Cryptographically verified predictions with SHA-256 hashing',
@@ -1047,20 +1049,6 @@ const _getMarketPrice = (ticker) => {
 
 const getCommentary = (ticker) => {
   return kalshiData.value?.commentaries?.[ticker]
-}
-
-const formatTime = (isoString) => {
-  const date = new Date(isoString)
-  const now = new Date()
-  const diffMs = now.getTime() - date.getTime()
-  const diffMins = Math.floor(diffMs / 60000)
-  const diffHours = Math.floor(diffMs / 3600000)
-  const diffDays = Math.floor(diffMs / 86400000)
-
-  if (diffMins < 60) return `${diffMins}m`
-  if (diffHours < 24) return `${diffHours}h`
-  if (diffDays < 7) return `${diffDays}d`
-  return date.toLocaleDateString()
 }
 </script>
 
