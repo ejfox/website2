@@ -3,6 +3,7 @@ import { readFile, readdir } from 'node:fs/promises'
 import path from 'node:path'
 import NodeCache from 'node-cache'
 import OpenAI from 'openai'
+import { stripHtml, tokenize } from '~/server/utils/text-processing'
 
 // ⚡ BLAZINGLY FAST cache for EJ's enlightener! *WHOOSH*
 const cache = new NodeCache({
@@ -35,25 +36,6 @@ interface BlogPost {
     type?: string
     words?: number
   }
-}
-
-// Strip HTML and extract clean text *swoosh*
-function stripHtml(html: string): string {
-  if (!html) return ''
-  return html
-    .replace(/<[^>]*>/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim()
-}
-
-// Tokenize for similarity scoring *zoom*
-function tokenize(text: string): string[] {
-  if (!text) return []
-  return text
-    .toLowerCase()
-    .replace(/[^\w\s]/g, ' ')
-    .split(/\s+/)
-    .filter((word) => word.length > 2)
 }
 
 // Calculate content similarity - THIS IS WHERE THE MAGIC HAPPENS! ⚡

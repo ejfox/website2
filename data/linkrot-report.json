@@ -1,0 +1,2172 @@
+{
+  "timestamp": "2025-11-22T17:32:59.900Z",
+  "summary": {
+    "total": 882,
+    "working": 693,
+    "broken": 167,
+    "errors": 22,
+    "archived": 83
+  },
+  "broken": [
+    {
+      "url": "http://www.poynter.org/latest-news/top-stories/198970/how-the-new-york-times-snow-fall-project-unifies-text-multimedia/",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://www.poynter.org/latest-news/top-stories/198970/how-the-new-york-times-snow-fall-project-unifies-text-multimedia/",
+      "archived": {
+        "url": "http://web.archive.org/web/20141025193616/http://www.poynter.org:80/latest-news/top-stories/198970/how-the-new-york-times-snow-fall-project-unifies-text-multimedia/",
+        "timestamp": "20141025193616",
+        "status": "200"
+      },
+      "sources": [
+        "2013/the-magazine-experience-on-the-web"
+      ]
+    },
+    {
+      "url": "http://www.nytimes.com/2012/10/14/magazine/californias-central-valley-land-of-a-billion-vegetables.html",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "http://www.nytimes.com/2012/10/14/magazine/californias-central-valley-land-of-a-billion-vegetables.html",
+      "archived": {
+        "url": "http://web.archive.org/web/20251007022453/https://www.nytimes.com/2012/10/14/magazine/californias-central-valley-land-of-a-billion-vegetables.html",
+        "timestamp": "20251007022453",
+        "status": "200"
+      },
+      "sources": [
+        "2013/the-magazine-experience-on-the-web"
+      ]
+    },
+    {
+      "url": "http://developer.nytimes.com/docs",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "http://developer.nytimes.com/docs",
+      "archived": null,
+      "sources": [
+        "2013/the-magazine-experience-on-the-web"
+      ]
+    },
+    {
+      "url": "http://www.quora.com/GitHub/What-are-some-interesting-repositories-on-Github-that-can-be-used-for-journalistic-purposes",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://www.quora.com/GitHub/What-are-some-interesting-repositories-on-Github-that-can-be-used-for-journalistic-purposes",
+      "archived": null,
+      "sources": [
+        "2013/the-magazine-experience-on-the-web"
+      ]
+    },
+    {
+      "url": "http://www.wired.com/wiredenterprise/2012/02/github-revisited/",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://www.wired.com/wiredenterprise/2012/02/github-revisited/",
+      "archived": {
+        "url": "http://web.archive.org/web/20140316044549/http://www.wired.com:80/wiredenterprise/2012/02/github-revisited",
+        "timestamp": "20140316044549",
+        "status": "200"
+      },
+      "sources": [
+        "2013/the-magazine-experience-on-the-web"
+      ]
+    },
+    {
+      "url": "http://www.niemanlab.org/2012/12/the-year-responsive-design-starts-to-get-weird/",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "http://www.niemanlab.org/2012/12/the-year-responsive-design-starts-to-get-weird/",
+      "archived": {
+        "url": "http://web.archive.org/web/20250212145053/https://www.niemanlab.org/2012/12/the-year-responsive-design-starts-to-get-weird/",
+        "timestamp": "20250212145053",
+        "status": "200"
+      },
+      "sources": [
+        "2013/the-magazine-experience-on-the-web"
+      ]
+    },
+    {
+      "url": "http://a.co/4Tf8ZZh",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "http://a.co/4Tf8ZZh",
+      "archived": null,
+      "sources": [
+        "2018/work-view-life-view"
+      ]
+    },
+    {
+      "url": "https://github.com/ejfox/website/blob/master/pages/vibes.vue#L42",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://github.com/ejfox/website/blob/master/pages/vibes.vue#L42",
+      "archived": null,
+      "sources": [
+        "2019/how-i-prototype-apps-and-dataviz-quickly-in-2019"
+      ]
+    },
+    {
+      "url": "https://www.npmjs.com/package/vue-firestore",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://www.npmjs.com/package/vue-firestore",
+      "archived": {
+        "url": "http://web.archive.org/web/20241202210809/https://www.npmjs.com/package/vue-firestore",
+        "timestamp": "20241202210809",
+        "status": "200"
+      },
+      "sources": [
+        "2019/how-i-prototype-apps-and-dataviz-quickly-in-2019"
+      ]
+    },
+    {
+      "url": "https://namecheap.com",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://www.namecheap.com/",
+      "archived": {
+        "url": "http://web.archive.org/web/20251118080144/https://www.namecheap.com/",
+        "timestamp": "20251118080144",
+        "status": "200"
+      },
+      "sources": [
+        "2019/how-i-prototype-apps-and-dataviz-quickly-in-2019"
+      ]
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Flow_(psychology",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://en.wikipedia.org/wiki/Flow_(psychology",
+      "archived": {
+        "url": "http://web.archive.org/web/20240519132243/https://en.wikipedia.org/wiki/Flow_(psychology",
+        "timestamp": "20240519132243",
+        "status": "200"
+      },
+      "sources": [
+        "2019/step-zero",
+        "2021/creative-coding"
+      ]
+    },
+    {
+      "url": "https://www.darkreading.com/the-state-of-hacktivism-in-2020-/d/d-id/1338382",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://www.darkreading.com/the-state-of-hacktivism-in-2020-/d/d-id/1338382",
+      "archived": {
+        "url": "http://web.archive.org/web/20210704110437/https://www.darkreading.com/the-state-of-hacktivism-in-2020-/d/d-id/1338382",
+        "timestamp": "20210704110437",
+        "status": "200"
+      },
+      "sources": [
+        "2019/step-zero"
+      ]
+    },
+    {
+      "url": "https://www.recordonline.com/news/20190311/26-year-old-man-fatally-shot-in-middletown",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://www.recordonline.com/news/20190311/26-year-old-man-fatally-shot-in-middletown",
+      "archived": null,
+      "sources": [
+        "2019/taking-things-for-granted"
+      ]
+    },
+    {
+      "url": "https://www.recordonline.com/news/20190503/middletown-police-seek-pair-in-homicide-probe",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://www.recordonline.com/news/20190503/middletown-police-seek-pair-in-homicide-probe",
+      "archived": {
+        "url": "http://web.archive.org/web/20190504003158/https://www.recordonline.com/news/20190503/middletown-police-seek-pair-in-homicide-probe",
+        "timestamp": "20190504003158",
+        "status": "200"
+      },
+      "sources": [
+        "2019/taking-things-for-granted"
+      ]
+    },
+    {
+      "url": "https://www.ice.gov/detention-facility/el-paso-processing-center",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://www.ice.gov/detention-facility/el-paso-processing-center",
+      "archived": {
+        "url": "http://web.archive.org/web/20200411013932/https://www.ice.gov/detention-facility/el-paso-processing-center",
+        "timestamp": "20200411013932",
+        "status": "200"
+      },
+      "sources": [
+        "2019/unsecured-ice-cameras"
+      ]
+    },
+    {
+      "url": "https://bconnelly.net/posts/working_with_csvs_on_the_command_line/",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://bconnelly.net/posts/working_with_csvs_on_the_command_line/",
+      "archived": {
+        "url": "http://web.archive.org/web/20230322124004/http://bconnelly.net/posts/working_with_csvs_on_the_command_line/",
+        "timestamp": "20230322124004",
+        "status": "200"
+      },
+      "sources": [
+        "2019/unsecured-ice-cameras"
+      ]
+    },
+    {
+      "url": "https://twitter.com/mrejfox/status/1302420672409415681",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://twitter.com/mrejfox/status/1302420672409415681",
+      "archived": {
+        "url": "http://web.archive.org/web/20200906013802/https://twitter.com/mrejfox/status/1302420672409415681",
+        "timestamp": "20200906013802",
+        "status": "200"
+      },
+      "sources": [
+        "2020/coding-livestreams"
+      ]
+    },
+    {
+      "url": "https://hubs.mozilla.com/docs/welcome.html",
+      "status": 405,
+      "ok": false,
+      "finalUrl": "https://support.mozilla.org/en-US/kb/end-support-mozilla-hubs",
+      "archived": {
+        "url": "http://web.archive.org/web/20240507192541/https://hubs.mozilla.com/docs/welcome.html",
+        "timestamp": "20240507192541",
+        "status": "200"
+      },
+      "sources": [
+        "2020/coding-livestreams"
+      ]
+    },
+    {
+      "url": "https://thehill.com/homenews/state-watch/459832-the-10-counties-that-will-decide-the-2020-election",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://thehill.com/homenews/state-watch/459832-the-10-counties-that-will-decide-the-2020-election/",
+      "archived": {
+        "url": "http://web.archive.org/web/20250613071141/https://thehill.com/homenews/state-watch/459832-the-10-counties-that-will-decide-the-2020-election/",
+        "timestamp": "20250613071141",
+        "status": "200"
+      },
+      "sources": [
+        "2020/introduction-to-eavs-data"
+      ]
+    },
+    {
+      "url": "https://medium.com/@mbostock/command-line-cartography-part-1-897aa8f8ca2c",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://medium.com/@mbostock/command-line-cartography-part-1-897aa8f8ca2c",
+      "archived": null,
+      "sources": [
+        "2020/introduction-to-eavs-data"
+      ]
+    },
+    {
+      "url": "https://medium.com/@mbostock/command-line-cartography-part-2-c3a82c5c0f3",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://medium.com/@mbostock/command-line-cartography-part-2-c3a82c5c0f3",
+      "archived": null,
+      "sources": [
+        "2020/introduction-to-eavs-data"
+      ]
+    },
+    {
+      "url": "https://twitter.com/jewishworker",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://twitter.com/jewishworker",
+      "archived": {
+        "url": "http://web.archive.org/web/20251002042014/https://twitter.com/jewishworker",
+        "timestamp": "20251002042014",
+        "status": "200"
+      },
+      "sources": [
+        "2020/online-brigades-gaming-twitter"
+      ]
+    },
+    {
+      "url": "https://twitter.com/selfagency_llc/status/1195481914007805952",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://twitter.com/selfagency_llc/status/1195481914007805952",
+      "archived": {
+        "url": "http://web.archive.org/web/20201112011752/https://twitter.com/selfagency_llc/status/1195481914007805952",
+        "timestamp": "20201112011752",
+        "status": "200"
+      },
+      "sources": [
+        "2020/online-brigades-gaming-twitter"
+      ]
+    },
+    {
+      "url": "https://twitter.com/lcrwnews/status/1129246175628890113?lang=en",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://twitter.com/lcrwnews/status/1129246175628890113?lang=en",
+      "archived": null,
+      "sources": [
+        "2020/online-brigades-gaming-twitter"
+      ]
+    },
+    {
+      "url": "https://onezero.medium.com/nazis-got-me-kicked-off-of-twitter-aaf6ad814104",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://onezero.medium.com/nazis-got-me-kicked-off-of-twitter-aaf6ad814104",
+      "archived": {
+        "url": "http://web.archive.org/web/20250918141921/https://onezero.medium.com/nazis-got-me-kicked-off-of-twitter-aaf6ad814104",
+        "timestamp": "20250918141921",
+        "status": "200"
+      },
+      "sources": [
+        "2020/online-brigades-gaming-twitter"
+      ]
+    },
+    {
+      "url": "https://ballotpedia.org/State_Poll_Opening_and_Closing_Times_(2019",
+      "status": 405,
+      "ok": false,
+      "finalUrl": "https://tollbit.ballotpedia.org/State_Poll_Opening_and_Closing_Times_(2019",
+      "archived": null,
+      "sources": [
+        "2020/things-ive-learned-about-elections"
+      ]
+    },
+    {
+      "url": "https://ballotpedia.org/Who_represents_me",
+      "status": 405,
+      "ok": false,
+      "finalUrl": "https://tollbit.ballotpedia.org/Who_represents_me",
+      "archived": {
+        "url": "http://web.archive.org/web/20251002224857/https://ballotpedia.org/Who_represents_me",
+        "timestamp": "20251002224857",
+        "status": "200"
+      },
+      "sources": [
+        "2020/things-ive-learned-about-elections"
+      ]
+    },
+    {
+      "url": "https://www.politico.com/story/2018/11/05/early-voting-turnout-2018-elections-midterms-963149",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://www.politico.com/story/2018/11/05/early-voting-turnout-2018-elections-midterms-963149",
+      "archived": {
+        "url": "http://web.archive.org/web/20250916203253/https://www.politico.com/story/2018/11/05/early-voting-turnout-2018-elections-midterms-963149",
+        "timestamp": "20250916203253",
+        "status": "200"
+      },
+      "sources": [
+        "2020/things-ive-learned-about-elections"
+      ]
+    },
+    {
+      "url": "https://ballotpedia.org/Open_primary",
+      "status": 405,
+      "ok": false,
+      "finalUrl": "https://tollbit.ballotpedia.org/Open_primary",
+      "archived": {
+        "url": "http://web.archive.org/web/20250911224814/https://ballotpedia.org/Open_primary",
+        "timestamp": "20250911224814",
+        "status": "200"
+      },
+      "sources": [
+        "2020/things-ive-learned-about-elections"
+      ]
+    },
+    {
+      "url": "https://www.policymap.com/2015/09/county-subdivisions-the-secret-geography/",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://www.policymap.com/2015/09/county-subdivisions-the-secret-geography/",
+      "archived": {
+        "url": "http://web.archive.org/web/20200805111551/https://www.policymap.com/2015/09/county-subdivisions-the-secret-geography/",
+        "timestamp": "20200805111551",
+        "status": "200"
+      },
+      "sources": [
+        "2020/things-ive-learned-about-elections"
+      ]
+    },
+    {
+      "url": "https://ballotpedia.org/State-by-state_redistricting_procedures",
+      "status": 405,
+      "ok": false,
+      "finalUrl": "https://tollbit.ballotpedia.org/State-by-state_redistricting_procedures",
+      "archived": {
+        "url": "http://web.archive.org/web/20250917045207/https://ballotpedia.org/State-by-state_redistricting_procedures",
+        "timestamp": "20250917045207",
+        "status": "200"
+      },
+      "sources": [
+        "2020/things-ive-learned-about-elections"
+      ]
+    },
+    {
+      "url": "https://news.ycombinator.com/item?id=12912528",
+      "status": 405,
+      "ok": false,
+      "finalUrl": "https://news.ycombinator.com/item?id=12912528",
+      "archived": null,
+      "sources": [
+        "2020/things-ive-learned-about-elections"
+      ]
+    },
+    {
+      "url": "https://ballotpedia.org/Exit_polling",
+      "status": 405,
+      "ok": false,
+      "finalUrl": "https://tollbit.ballotpedia.org/Exit_polling",
+      "archived": {
+        "url": "http://web.archive.org/web/20250319023439/https://ballotpedia.org/Exit_polling",
+        "timestamp": "20250319023439",
+        "status": "200"
+      },
+      "sources": [
+        "2020/things-ive-learned-about-elections"
+      ]
+    },
+    {
+      "url": "https://www.edisonresearch.com/election-polling/",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://www.edisonresearch.com/election-polling/",
+      "archived": {
+        "url": "http://web.archive.org/web/20220914114719/https://www.edisonresearch.com/election-polling/",
+        "timestamp": "20220914114719",
+        "status": "200"
+      },
+      "sources": [
+        "2020/things-ive-learned-about-elections"
+      ]
+    },
+    {
+      "url": "https://ballotpedia.org/Voting_methods_and_equipment_by_state",
+      "status": 405,
+      "ok": false,
+      "finalUrl": "https://tollbit.ballotpedia.org/Voting_methods_and_equipment_by_state",
+      "archived": {
+        "url": "http://web.archive.org/web/20250911231912/https://ballotpedia.org/Voting_methods_and_equipment_by_state",
+        "timestamp": "20250911231912",
+        "status": "200"
+      },
+      "sources": [
+        "2020/things-ive-learned-about-elections"
+      ]
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Chad_(paper",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://en.wikipedia.org/wiki/Chad_(paper",
+      "archived": null,
+      "sources": [
+        "2020/things-ive-learned-about-elections"
+      ]
+    },
+    {
+      "url": "https://twitter.com/mrejfox/status/1021951616482795521?s=20",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://twitter.com/mrejfox/status/1021951616482795521?s=20",
+      "archived": null,
+      "sources": [
+        "2020/things-ive-learned-about-elections"
+      ]
+    },
+    {
+      "url": "https://twitter.com/mrejfox/status/1021953888411430912",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://twitter.com/mrejfox/status/1021953888411430912",
+      "archived": {
+        "url": "http://web.archive.org/web/20211218214825/https://twitter.com/mrejfox/status/1021953888411430912",
+        "timestamp": "20211218214825",
+        "status": "200"
+      },
+      "sources": [
+        "2020/things-ive-learned-about-elections"
+      ]
+    },
+    {
+      "url": "https://journals.sagepub.com/doi/abs/10.1177/1081180x98003004004",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://journals.sagepub.com/doi/abs/10.1177/1081180x98003004004",
+      "archived": null,
+      "sources": [
+        "2020/things-ive-learned-about-elections"
+      ]
+    },
+    {
+      "url": "https://www.politico.com/magazine/story/2019/01/09/why-horse-race-political-journalism-awesome-223867",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://www.politico.com/magazine/story/2019/01/09/why-horse-race-political-journalism-awesome-223867",
+      "archived": {
+        "url": "http://web.archive.org/web/20241215122856/https://www.politico.com/magazine/story/2019/01/09/why-horse-race-political-journalism-awesome-223867/",
+        "timestamp": "20241215122856",
+        "status": "200"
+      },
+      "sources": [
+        "2020/things-ive-learned-about-elections"
+      ]
+    },
+    {
+      "url": "https://www.nytimes.com/2001/02/03/us/report-calls-networks-election-night-coverage-a-disaster.html",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://www.nytimes.com/2001/02/03/us/report-calls-networks-election-night-coverage-a-disaster.html",
+      "archived": null,
+      "sources": [
+        "2020/things-ive-learned-about-elections"
+      ]
+    },
+    {
+      "url": "https://www.congress.gov/bill/112th-congress/house-bill/4183/text",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://www.congress.gov/bill/112th-congress/house-bill/4183/text",
+      "archived": {
+        "url": "http://web.archive.org/web/20221108000900/https://www.congress.gov/bill/112th-congress/house-bill/4183/text",
+        "timestamp": "20221108000900",
+        "status": "200"
+      },
+      "sources": [
+        "2020/things-ive-learned-about-elections"
+      ]
+    },
+    {
+      "url": "https://ballotpedia.org/",
+      "status": 405,
+      "ok": false,
+      "finalUrl": "https://tollbit.ballotpedia.org/",
+      "archived": {
+        "url": "http://web.archive.org/web/20251119021152/https://ballotpedia.org/",
+        "timestamp": "20251119021152",
+        "status": "200"
+      },
+      "sources": [
+        "2020/things-ive-learned-about-elections"
+      ]
+    },
+    {
+      "url": "https://ballotpedia.org/Ballotpedia:Staff",
+      "status": 405,
+      "ok": false,
+      "finalUrl": "https://tollbit.ballotpedia.org/Ballotpedia:Staff",
+      "archived": null,
+      "sources": [
+        "2020/things-ive-learned-about-elections"
+      ]
+    },
+    {
+      "url": "https://twitter.com/417am1975",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://twitter.com/417am1975",
+      "archived": {
+        "url": "http://web.archive.org/web/20221206051615/https://twitter.com/417am1975",
+        "timestamp": "20221206051615",
+        "status": "200"
+      },
+      "sources": [
+        "2021/creative-coding"
+      ]
+    },
+    {
+      "url": "https://twitter.com/417am1975/status/897299813074706434",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://twitter.com/417am1975/status/897299813074706434",
+      "archived": null,
+      "sources": [
+        "2021/creative-coding"
+      ]
+    },
+    {
+      "url": "https://mappingpoliceviolence.org",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://mappingpoliceviolence.org/",
+      "archived": {
+        "url": "http://web.archive.org/web/20251011203605/https://mappingpoliceviolence.org/",
+        "timestamp": "20251011203605",
+        "status": "200"
+      },
+      "sources": [
+        "2021/lack-of-data"
+      ]
+    },
+    {
+      "url": "https://twitter.com/adico11",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://twitter.com/adico11",
+      "archived": null,
+      "sources": [
+        "2021/nypd-ccrb-complaint-clusters"
+      ]
+    },
+    {
+      "url": "https://twitter.com/enjalot",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://twitter.com/enjalot",
+      "archived": {
+        "url": "http://web.archive.org/web/20240523075031/https://twitter.com/enjalot",
+        "timestamp": "20240523075031",
+        "status": "200"
+      },
+      "sources": [
+        "2021/nypd-ccrb-complaint-clusters"
+      ]
+    },
+    {
+      "url": "https://neo4j.com/blog/story-behind-russian-twitter-trolls/",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://neo4j.com/blog/story-behind-russian-twitter-trolls/",
+      "archived": {
+        "url": "http://web.archive.org/web/20241112171048/https://neo4j.com/blog/story-behind-russian-twitter-trolls/",
+        "timestamp": "20241112171048",
+        "status": "200"
+      },
+      "sources": [
+        "2021/nypd-ccrb-complaint-clusters"
+      ]
+    },
+    {
+      "url": "https://neo4j.com/developer/cypher/",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://neo4j.com/developer/cypher/",
+      "archived": {
+        "url": "http://web.archive.org/web/20240301170313/https://neo4j.com/developer/cypher/",
+        "timestamp": "20240301170313",
+        "status": "200"
+      },
+      "sources": [
+        "2021/nypd-ccrb-complaint-clusters"
+      ]
+    },
+    {
+      "url": "https://twitter.com/mdavidallen",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://twitter.com/mdavidallen",
+      "archived": null,
+      "sources": [
+        "2021/nypd-ccrb-complaint-clusters"
+      ]
+    },
+    {
+      "url": "https://neo4j.com/docs/graph-data-science/current/algorithms/eigenvector-centrality/",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://neo4j.com/docs/graph-data-science/current/algorithms/eigenvector-centrality/",
+      "archived": {
+        "url": "http://web.archive.org/web/20250713204511/https://www.neo4j.com/docs/graph-data-science/current/algorithms/eigenvector-centrality/",
+        "timestamp": "20250713204511",
+        "status": "200"
+      },
+      "sources": [
+        "2021/nypd-ccrb-complaint-clusters"
+      ]
+    },
+    {
+      "url": "https://neo4j.com/labs/apoc/4.1/export/gephi/",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://neo4j.com/labs/apoc/4.1/export/gephi/",
+      "archived": {
+        "url": "http://web.archive.org/web/20250428081326/https://neo4j.com/labs/apoc/4.1/export/gephi/",
+        "timestamp": "20250428081326",
+        "status": "200"
+      },
+      "sources": [
+        "2021/nypd-ccrb-complaint-clusters"
+      ]
+    },
+    {
+      "url": "https://moskomoto.com/products/reckless-80l",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://moskomoto.com/products/reckless-80l",
+      "archived": {
+        "url": "http://web.archive.org/web/20231011002341/https://moskomoto.com/products/reckless-80l/",
+        "timestamp": "20231011002341",
+        "status": "200"
+      },
+      "sources": [
+        "2022/motorcycle-camping"
+      ]
+    },
+    {
+      "url": "https://marketplace.visualstudio.com/items?itemName=teabyii.ayu",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://marketplace.visualstudio.com/items?itemName=teabyii.ayu",
+      "archived": {
+        "url": "http://web.archive.org/web/20250929150623/https://marketplace.visualstudio.com/items?itemName=teabyii.ayu",
+        "timestamp": "20250929150623",
+        "status": "200"
+      },
+      "sources": [
+        "2022/my-vscode-setup"
+      ]
+    },
+    {
+      "url": "https://marketplace.visualstudio.com/items?itemName=tinkertrain.theme-panda",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://marketplace.visualstudio.com/items?itemName=tinkertrain.theme-panda",
+      "archived": {
+        "url": "http://web.archive.org/web/20250810135813/https://marketplace.visualstudio.com/items?itemName=tinkertrain.theme-panda",
+        "timestamp": "20250810135813",
+        "status": "200"
+      },
+      "sources": [
+        "2022/my-vscode-setup"
+      ]
+    },
+    {
+      "url": "https://marketplace.visualstudio.com/items?itemName=GitHub.copilot",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://marketplace.visualstudio.com/items?itemName=GitHub.copilot",
+      "archived": {
+        "url": "http://web.archive.org/web/20251115144432/https://marketplace.visualstudio.com/items?itemName=GitHub.copilot",
+        "timestamp": "20251115144432",
+        "status": "200"
+      },
+      "sources": [
+        "2022/my-vscode-setup"
+      ]
+    },
+    {
+      "url": "https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github",
+      "archived": {
+        "url": "http://web.archive.org/web/20250929190523/https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github",
+        "timestamp": "20250929190523",
+        "status": "200"
+      },
+      "sources": [
+        "2022/my-vscode-setup"
+      ]
+    },
+    {
+      "url": "https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens",
+      "archived": {
+        "url": "http://web.archive.org/web/20251001153431/https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens",
+        "timestamp": "20251001153431",
+        "status": "200"
+      },
+      "sources": [
+        "2022/my-vscode-setup"
+      ]
+    },
+    {
+      "url": "https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare",
+      "archived": {
+        "url": "http://web.archive.org/web/20250906164447/https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare",
+        "timestamp": "20250906164447",
+        "status": "200"
+      },
+      "sources": [
+        "2022/my-vscode-setup"
+      ]
+    },
+    {
+      "url": "https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint",
+      "archived": {
+        "url": "http://web.archive.org/web/20251010101947/https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint",
+        "timestamp": "20251010101947",
+        "status": "200"
+      },
+      "sources": [
+        "2022/my-vscode-setup"
+      ]
+    },
+    {
+      "url": "https://marketplace.visualstudio.com/items?itemName=danielgjackson.auto-dark-mode-windows",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://marketplace.visualstudio.com/items?itemName=danielgjackson.auto-dark-mode-windows",
+      "archived": {
+        "url": "http://web.archive.org/web/20250911014008/https://marketplace.visualstudio.com/items?itemName=danielgjackson.auto-dark-mode-windows",
+        "timestamp": "20250911014008",
+        "status": "200"
+      },
+      "sources": [
+        "2022/my-vscode-setup"
+      ]
+    },
+    {
+      "url": "https://marketplace.visualstudio.com/items?itemName=ZixuanChen.vitest-explorer",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://marketplace.visualstudio.com/items?itemName=ZixuanChen.vitest-explorer",
+      "archived": {
+        "url": "http://web.archive.org/web/20250717162758/https://marketplace.visualstudio.com/items?itemName=ZixuanChen.vitest-explorer",
+        "timestamp": "20250717162758",
+        "status": "200"
+      },
+      "sources": [
+        "2022/my-vscode-setup"
+      ]
+    },
+    {
+      "url": "https://marketplace.visualstudio.com/items?itemName=Vue.volar",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://marketplace.visualstudio.com/items?itemName=Vue.volar",
+      "archived": {
+        "url": "http://web.archive.org/web/20250929160715/https://marketplace.visualstudio.com/items?itemName=Vue.volar",
+        "timestamp": "20250929160715",
+        "status": "200"
+      },
+      "sources": [
+        "2022/my-vscode-setup"
+      ]
+    },
+    {
+      "url": "https://marketplace.visualstudio.com/items?itemName=tonybaloney.vscode-pets",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://marketplace.visualstudio.com/items?itemName=tonybaloney.vscode-pets",
+      "archived": {
+        "url": "http://web.archive.org/web/20250904051901/https://marketplace.visualstudio.com/items?itemName=tonybaloney.vscode-pets",
+        "timestamp": "20250904051901",
+        "status": "200"
+      },
+      "sources": [
+        "2022/my-vscode-setup"
+      ]
+    },
+    {
+      "url": "https://www.nytimes.com/2023/07/08/opinion/carry-on-packing-airlines-lost-luggage.html?smid=nytcore-ios-share&referringSource=articleShare",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://www.nytimes.com/2023/07/08/opinion/carry-on-packing-airlines-lost-luggage.html?smid=nytcore-ios-share&referringSource=articleShare",
+      "archived": null,
+      "sources": [
+        "2022/rules-for-joyful-travel"
+      ]
+    },
+    {
+      "url": "https://www.nytimes.com/2023/08/28/sports/ncaafootball/football-concussions-cte.html",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://www.nytimes.com/2023/08/28/sports/ncaafootball/football-concussions-cte.html",
+      "archived": {
+        "url": "http://web.archive.org/web/20251012074231/https://www.nytimes.com/2023/08/28/sports/ncaafootball/football-concussions-cte.html",
+        "timestamp": "20251012074231",
+        "status": "200"
+      },
+      "sources": [
+        "2023/capitalism-letting-people-die"
+      ]
+    },
+    {
+      "url": "https://www.bostonreview.net/forum_response/decolonizing-ai/",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://www.bostonreview.net/forum_response/decolonizing-ai/",
+      "archived": {
+        "url": "http://web.archive.org/web/20240423234013/https://www.bostonreview.net/forum_response/decolonizing-ai/",
+        "timestamp": "20240423234013",
+        "status": "200"
+      },
+      "sources": [
+        "2023/crypto-ai-colonization"
+      ]
+    },
+    {
+      "url": "https://scholarlypublishingcollective.org/psup/cpr/article-abstract/8/1-2/48/190556/Aspects-of-the-Coloniality-of-Knowledge?redirectedFrom=fulltext",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://scholarlypublishingcollective.org/psup/cpr/article-abstract/8/1-2/48/190556/Aspects-of-the-Coloniality-of-Knowledge?redirectedFrom=fulltext",
+      "archived": {
+        "url": "http://web.archive.org/web/20241201164523/https://scholarlypublishingcollective.org/psup/cpr/article-abstract/8/1-2/48/190556/Aspects-of-the-Coloniality-of-Knowledge?redirectedFrom=fulltext",
+        "timestamp": "20241201164523",
+        "status": "200"
+      },
+      "sources": [
+        "2023/crypto-ai-colonization"
+      ]
+    },
+    {
+      "url": "https://www.digitaltruth.com/devchart.php?Film=Kodak+Tri-X+400&Developer=Ilfosol+3%25&mdc=Search&TempUnits=F&TimeUnits=T",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://www.digitaltruth.com/devchart.php?Film=Kodak+Tri-X+400&Developer=Ilfosol+3%25&mdc=Search&TempUnits=F&TimeUnits=T",
+      "archived": null,
+      "sources": [
+        "2023/film-development"
+      ]
+    },
+    {
+      "url": "https://twitter.com/mrejfox/status/1319716459187261441",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://twitter.com/mrejfox/status/1319716459187261441",
+      "archived": {
+        "url": "http://web.archive.org/web/20201023194737/https://twitter.com/mrejfox/status/1319716459187261441",
+        "timestamp": "20201023194737",
+        "status": "200"
+      },
+      "sources": [
+        "2023/how-i-built-coach-artie"
+      ]
+    },
+    {
+      "url": "https://t.co/c2ZH6NaU0S",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://twitter.com/mrejfox/status/1636974679310082053/photo/1",
+      "archived": null,
+      "sources": [
+        "2023/how-i-built-coach-artie"
+      ]
+    },
+    {
+      "url": "https://github.com/ejfox/coachartie_discord/blob/master/index.js",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://github.com/room302studio/coachartie/blob/main/index.js",
+      "archived": {
+        "url": "http://web.archive.org/web/20230518055230/https://github.com/ejfox/coachartie_discord/blob/master/index.js",
+        "timestamp": "20230518055230",
+        "status": "200"
+      },
+      "sources": [
+        "2023/how-i-built-coach-artie"
+      ]
+    },
+    {
+      "url": "https://twitter.com/ai_coachartie",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://twitter.com/ai_coachartie",
+      "archived": null,
+      "sources": [
+        "2023/how-i-built-coach-artie"
+      ]
+    },
+    {
+      "url": "https://www.npmjs.com/package/room302-template",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://www.npmjs.com/package/room302-template",
+      "archived": null,
+      "sources": [
+        "2024/2024",
+        "drafts/_stale/room302-studio-year-one"
+      ]
+    },
+    {
+      "url": "https://github.com/ejfox/scrapbook-core/blob/main/scripts/dl_pinboard.mjs",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://github.com/ejfox/scrapbook-core/blob/main/scripts/dl_pinboard.mjs",
+      "archived": null,
+      "sources": [
+        "2024/my-modern-scrapbook"
+      ]
+    },
+    {
+      "url": "https://github.com/ejfox/scrapbook-core/blob/main/scripts/dl_arena.mjs",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://github.com/ejfox/scrapbook-core/blob/main/scripts/dl_arena.mjs",
+      "archived": null,
+      "sources": [
+        "2024/my-modern-scrapbook"
+      ]
+    },
+    {
+      "url": "https://github.com/ejfox/scrapbook-core/blob/main/scripts/dl_github.mjs",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://github.com/ejfox/scrapbook-core/blob/main/scripts/dl_github.mjs",
+      "archived": null,
+      "sources": [
+        "2024/my-modern-scrapbook"
+      ]
+    },
+    {
+      "url": "https://github.com/ejfox/scrapbook-core/blob/main/scripts/dl_mastodon.mjs",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://github.com/ejfox/scrapbook-core/blob/main/scripts/dl_mastodon.mjs",
+      "archived": null,
+      "sources": [
+        "2024/my-modern-scrapbook"
+      ]
+    },
+    {
+      "url": "https://github.com/ejfox/scrapbook-core/blob/main/scripts/index.mjs",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://github.com/ejfox/scrapbook-core/blob/main/scripts/index.mjs",
+      "archived": null,
+      "sources": [
+        "2024/my-modern-scrapbook"
+      ]
+    },
+    {
+      "url": "https://www.npmjs.com/package/@ejfox/gpt-browser",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://www.npmjs.com/package/@ejfox/gpt-browser",
+      "archived": {
+        "url": "http://web.archive.org/web/20241204001450/https://www.npmjs.com/package/@ejfox/gpt-browser",
+        "timestamp": "20241204001450",
+        "status": "200"
+      },
+      "sources": [
+        "2024/my-modern-scrapbook"
+      ]
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Cypher_(query_language",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://en.wikipedia.org/wiki/Cypher_(query_language",
+      "archived": null,
+      "sources": [
+        "2024/my-modern-scrapbook"
+      ]
+    },
+    {
+      "url": "https://github.com/ejfox/scrapscroller",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://github.com/ejfox/scrapscroller",
+      "archived": null,
+      "sources": [
+        "2024/my-modern-scrapbook"
+      ]
+    },
+    {
+      "url": "https://github.com/ejfox/scrapbook-core/blob/main/Local%20Scrap%20Search.1.1.alfredworkflow.zip",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://github.com/ejfox/scrapbook-core/blob/main/Local%20Scrap%20Search.1.1.alfredworkflow.zip",
+      "archived": null,
+      "sources": [
+        "2024/my-modern-scrapbook"
+      ]
+    },
+    {
+      "url": "https://github.com/ejfox/scrapbook-core/blob/main/scripts/search_sqlite_scraps.js",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://github.com/ejfox/scrapbook-core/blob/main/scripts/search_sqlite_scraps.js",
+      "archived": null,
+      "sources": [
+        "2024/my-modern-scrapbook"
+      ]
+    },
+    {
+      "url": "https://github.com/ejfox/scrapbook-core/blob/main/scripts/setup_sqlite.mjs",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://github.com/ejfox/scrapbook-core/blob/main/scripts/setup_sqlite.mjs",
+      "archived": null,
+      "sources": [
+        "2024/my-modern-scrapbook"
+      ]
+    },
+    {
+      "url": "https://github.com/ejfox/scrapbook-core/blob/main/scripts/sync_supabase_to_sqlite.mjs",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://github.com/ejfox/scrapbook-core/blob/main/scripts/sync_supabase_to_sqlite.mjs",
+      "archived": null,
+      "sources": [
+        "2024/my-modern-scrapbook"
+      ]
+    },
+    {
+      "url": "https://techcommunity.microsoft.com/t5/public-sector-blog/azure-openai-now-authorized-as-a-service-at-dod-il4-and-il5/ba-p/4231171",
+      "status": 400,
+      "ok": false,
+      "finalUrl": "https://techcommunity.microsoft.com/blog/publicsectorblog/azure-openai-now-authorized-as-a-service-at-dod-il4-and-il5/4231171",
+      "archived": null,
+      "sources": [
+        "2024/the-mystery-of-peter-todd"
+      ]
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Social_engineering_(security",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://en.wikipedia.org/wiki/Social_engineering_(security",
+      "archived": null,
+      "sources": [
+        "2024/the-mystery-of-peter-todd"
+      ]
+    },
+    {
+      "url": "https://twitter.com/repligate/status/1821602833415700487",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://twitter.com/repligate/status/1821602833415700487",
+      "archived": null,
+      "sources": [
+        "2024/the-mystery-of-peter-todd"
+      ]
+    },
+    {
+      "url": "https://answers.microsoft.com/en-us/bing/forum/all/this-ai-chatbot-sidney-is-misbehaving/e3d6a29f-06c9-441c-bc7d-51a68e856761?page=1",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://learn.microsoft.com/en-us/answers/questions/e3d6a29f-06c9-441c-bc7d-51a68e856761/this-ai-chatbot-sidney-is-misbehaving?forum=bing-all&referrer=answers",
+      "archived": {
+        "url": "http://web.archive.org/web/20231207185626/https://answers.microsoft.com/en-us/bing/forum/all/this-ai-chatbot-sidney-is-misbehaving/e3d6a29f-06c9-441c-bc7d-51a68e856761?page=1",
+        "timestamp": "20231207185626",
+        "status": "200"
+      },
+      "sources": [
+        "2024/the-mystery-of-peter-todd"
+      ]
+    },
+    {
+      "url": "https://www.nytimes.com/2023/02/16/technology/bing-chatbot-microsoft-chatgpt.html",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://www.nytimes.com/2023/02/16/technology/bing-chatbot-microsoft-chatgpt.html",
+      "archived": {
+        "url": "http://web.archive.org/web/20251012074256/https://www.nytimes.com/2023/02/16/technology/bing-chatbot-microsoft-chatgpt.html",
+        "timestamp": "20251012074256",
+        "status": "200"
+      },
+      "sources": [
+        "2024/the-mystery-of-peter-todd"
+      ]
+    },
+    {
+      "url": "https://www.reuters.com/technology/chatgpt-sets-record-fastest-growing-user-base-analyst-note-2023-02-01/",
+      "status": 401,
+      "ok": false,
+      "finalUrl": "https://www.reuters.com/technology/chatgpt-sets-record-fastest-growing-user-base-analyst-note-2023-02-01/",
+      "archived": {
+        "url": "http://web.archive.org/web/20251006125845/https://www.reuters.com/technology/chatgpt-sets-record-fastest-growing-user-base-analyst-note-2023-02-01/",
+        "timestamp": "20251006125845",
+        "status": "200"
+      },
+      "sources": [
+        "2024/the-mystery-of-peter-todd"
+      ]
+    },
+    {
+      "url": "https://www.nytimes.com/2023/05/30/technology/shoggoth-meme-ai.html",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://www.nytimes.com/2023/05/30/technology/shoggoth-meme-ai.html",
+      "archived": {
+        "url": "http://web.archive.org/web/20251011074421/https://www.nytimes.com/2023/05/30/technology/shoggoth-meme-ai.html",
+        "timestamp": "20251011074421",
+        "status": "200"
+      },
+      "sources": [
+        "2024/the-mystery-of-peter-todd"
+      ]
+    },
+    {
+      "url": "https://x.com/repligate/status/1824122258173894668",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://x.com/repligate/status/1824122258173894668",
+      "archived": null,
+      "sources": [
+        "2024/the-mystery-of-peter-todd"
+      ]
+    },
+    {
+      "url": "https://www.lesswrong.com/posts/aPeJE8bSo6rAFoLqg/solidgoldmagikarp-plus-prompt-generation",
+      "status": 429,
+      "ok": false,
+      "finalUrl": "https://www.lesswrong.com/posts/aPeJE8bSo6rAFoLqg/solidgoldmagikarp-plus-prompt-generation",
+      "archived": {
+        "url": "http://web.archive.org/web/20250916025602/https://www.lesswrong.com/posts/aPeJE8bSo6rAFoLqg/solidgoldmagikarp-plus-prompt-generation",
+        "timestamp": "20250916025602",
+        "status": "200"
+      },
+      "sources": [
+        "2024/the-mystery-of-peter-todd"
+      ]
+    },
+    {
+      "url": "https://www.lesswrong.com/posts/CDZDjWdDrR3fn3aeL/a-new-class-of-glitch-tokens-bpe-subtoken-artifacts-bsa",
+      "status": 429,
+      "ok": false,
+      "finalUrl": "https://www.lesswrong.com/posts/CDZDjWdDrR3fn3aeL/a-new-class-of-glitch-tokens-bpe-subtoken-artifacts-bsa",
+      "archived": {
+        "url": "http://web.archive.org/web/20250916045137/https://www.lesswrong.com/posts/CDZDjWdDrR3fn3aeL/a-new-class-of-glitch-tokens-bpe-subtoken-artifacts-bsa",
+        "timestamp": "20250916045137",
+        "status": "200"
+      },
+      "sources": [
+        "2024/the-mystery-of-peter-todd"
+      ]
+    },
+    {
+      "url": "https://www.lesswrong.com/posts/ChtGdxk9mwZ2Rxogt/smartyheadercode-anomalous-tokens-for-gpt3-5-and-gpt-4-1",
+      "status": 429,
+      "ok": false,
+      "finalUrl": "https://www.lesswrong.com/posts/ChtGdxk9mwZ2Rxogt/smartyheadercode-anomalous-tokens-for-gpt3-5-and-gpt-4-1",
+      "archived": {
+        "url": "http://web.archive.org/web/20250821044857/https://www.lesswrong.com/posts/ChtGdxk9mwZ2Rxogt/smartyheadercode-anomalous-tokens-for-gpt3-5-and-gpt-4-1",
+        "timestamp": "20250821044857",
+        "status": "200"
+      },
+      "sources": [
+        "2024/the-mystery-of-peter-todd"
+      ]
+    },
+    {
+      "url": "https://www.lesswrong.com/posts/8viQEp8KBg2QSW4Yc/solidgoldmagikarp-iii-glitch-token-archaeology",
+      "status": 429,
+      "ok": false,
+      "finalUrl": "https://www.lesswrong.com/posts/8viQEp8KBg2QSW4Yc/solidgoldmagikarp-iii-glitch-token-archaeology",
+      "archived": {
+        "url": "http://web.archive.org/web/20250920163009/https://www.lesswrong.com/posts/8viQEp8KBg2QSW4Yc/solidgoldmagikarp-iii-glitch-token-archaeology",
+        "timestamp": "20250920163009",
+        "status": "200"
+      },
+      "sources": [
+        "2024/the-mystery-of-peter-todd"
+      ]
+    },
+    {
+      "url": "https://www.lesswrong.com/posts/jkY6QdCfAXHJk3kea/the-petertodd-phenomenon",
+      "status": 429,
+      "ok": false,
+      "finalUrl": "https://www.lesswrong.com/posts/jkY6QdCfAXHJk3kea/the-petertodd-phenomenon",
+      "archived": {
+        "url": "http://web.archive.org/web/20250916205641/https://www.lesswrong.com/posts/jkY6QdCfAXHJk3kea/the-petertodd-phenomenon",
+        "timestamp": "20250916205641",
+        "status": "200"
+      },
+      "sources": [
+        "2024/the-mystery-of-peter-todd"
+      ]
+    },
+    {
+      "url": "https://www.lesswrong.com/posts/grY9uSDoLBuen9py4/petertodd-s-last-stand-the-final-days-of-open-gpt-3-research",
+      "status": 429,
+      "ok": false,
+      "finalUrl": "https://www.lesswrong.com/posts/grY9uSDoLBuen9py4/petertodd-s-last-stand-the-final-days-of-open-gpt-3-research",
+      "archived": {
+        "url": "http://web.archive.org/web/20250918090434/https://www.lesswrong.com/posts/grY9uSDoLBuen9py4/petertodd-s-last-stand-the-final-days-of-open-gpt-3-research",
+        "timestamp": "20250918090434",
+        "status": "200"
+      },
+      "sources": [
+        "2024/the-mystery-of-peter-todd"
+      ]
+    },
+    {
+      "url": "https://x.com/SoC_trilogy/status/1625252296438214673",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://x.com/SoC_trilogy/status/1625252296438214673",
+      "archived": null,
+      "sources": [
+        "2024/the-mystery-of-peter-todd"
+      ]
+    },
+    {
+      "url": "https://x.com/SoC_trilogy/status/1622699917184565272",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://x.com/SoC_trilogy/status/1622699917184565272",
+      "archived": null,
+      "sources": [
+        "2024/the-mystery-of-peter-todd"
+      ]
+    },
+    {
+      "url": "https://x.com/emollick/status/1847666321854464418",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://x.com/emollick/status/1847666321854464418",
+      "archived": null,
+      "sources": [
+        "2024/the-mystery-of-peter-todd"
+      ]
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5898145/",
+      "status": 405,
+      "ok": false,
+      "finalUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5898145/",
+      "archived": {
+        "url": "http://web.archive.org/web/20250715234753/https://pmc.ncbi.nlm.nih.gov/articles/PMC5898145/",
+        "timestamp": "20250715234753",
+        "status": "200"
+      },
+      "sources": [
+        "2024/the-mystery-of-peter-todd"
+      ]
+    },
+    {
+      "url": "https://www.every.org/psstorg-inc/f/help-john-infiltrate",
+      "status": 429,
+      "ok": false,
+      "finalUrl": "https://www.every.org/psstorg-inc/f/help-john-infiltrate",
+      "archived": {
+        "url": "http://web.archive.org/web/20250811221127/https://www.every.org/psstorg-inc/f/help-john-infiltrate",
+        "timestamp": "20250811221127",
+        "status": "200"
+      },
+      "sources": [
+        "2025/paramilitary-telegram-leaks-001"
+      ]
+    },
+    {
+      "url": "https://example.com/image1.jpg",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://example.com/image1.jpg",
+      "archived": null,
+      "sources": [
+        "drafts/_stale/elon-musk-is-a-bad-man"
+      ]
+    },
+    {
+      "url": "https://twitter.com/Macro_Core_View/status/1607000539912458242",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://twitter.com/Macro_Core_View/status/1607000539912458242",
+      "archived": null,
+      "sources": [
+        "drafts/_stale/falun-gong-upstate-ny"
+      ]
+    },
+    {
+      "url": "http://websdr.ewi.utwente.nl:8901",
+      "status": 501,
+      "ok": false,
+      "finalUrl": "http://websdr.ewi.utwente.nl:8901/",
+      "archived": {
+        "url": "http://web.archive.org/web/20251003231253/http://websdr.ewi.utwente.nl:8901/",
+        "timestamp": "20251003231253",
+        "status": "200"
+      },
+      "sources": [
+        "drafts/_stale/getting-started-with-amateur-radio"
+      ]
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurants-g2663029-Hudson_River_Valley_New_York.html",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://www.tripadvisor.com/Restaurants-g2663029-Hudson_River_Valley_New_York.html",
+      "archived": {
+        "url": "http://web.archive.org/web/20250207124502/https://www.tripadvisor.com/Restaurants-g2663029-Hudson_River_Valley_New_York.html",
+        "timestamp": "20250207124502",
+        "status": "200"
+      },
+      "sources": [
+        "drafts/_stale/hudson-valley-food-and-farms"
+      ]
+    },
+    {
+      "url": "https://www.michelinman.com/auto/why-michelin/travel/new-york/hudson-valley-day-trip-guide",
+      "status": 500,
+      "ok": false,
+      "finalUrl": "https://www.michelinman.com/auto/why-michelin/travel/new-york/hudson-valley-day-trip-guide",
+      "archived": {
+        "url": "http://web.archive.org/web/20230209132517/https://www.michelinman.com/auto/why-michelin/travel/new-york/hudson-valley-day-trip-guide",
+        "timestamp": "20230209132517",
+        "status": "200"
+      },
+      "sources": [
+        "drafts/_stale/hudson-valley-food-and-farms"
+      ]
+    },
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3423236/",
+      "status": 405,
+      "ok": false,
+      "finalUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3423236/",
+      "archived": {
+        "url": "http://web.archive.org/web/20240425092012/https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3423236/",
+        "timestamp": "20240425092012",
+        "status": "200"
+      },
+      "sources": [
+        "drafts/_stale/spliff-and-espresso"
+      ]
+    },
+    {
+      "url": "https://onlinelibrary.wiley.com/doi/full/10.1111/joim.12737?identityKey=fa847b7f-5e49-4cfc-b134-4003acd2234f&regionCode=US-NY&wol1URL=%2Fdoi%2F10.1111%2Fjoim.12737%2Ffull",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://onlinelibrary.wiley.com/doi/full/10.1111/joim.12737?identityKey=fa847b7f-5e49-4cfc-b134-4003acd2234f&regionCode=US-NY&wol1URL=%2Fdoi%2F10.1111%2Fjoim.12737%2Ffull",
+      "archived": null,
+      "sources": [
+        "drafts/_stale/spliff-and-espresso"
+      ]
+    },
+    {
+      "url": "https://twitter.com/DavidZipper/status/1687799329241636864?s=20",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://twitter.com/DavidZipper/status/1687799329241636864?s=20",
+      "archived": null,
+      "sources": [
+        "drafts/_stale/suvs-and-climate-change"
+      ]
+    },
+    {
+      "url": "https://www.nytimes.com/2024/01/10/magazine/dangerous-driving.html",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://www.nytimes.com/2024/01/10/magazine/dangerous-driving.html",
+      "archived": null,
+      "sources": [
+        "drafts/_stale/suvs-and-climate-change"
+      ]
+    },
+    {
+      "url": "https://www.opensecrets.org/donor-lookup/results?name=peter+thiel&order=desc&sort=D",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://www.opensecrets.org/donor-lookup/results?name=peter+thiel&order=desc&sort=D",
+      "archived": null,
+      "sources": [
+        "drafts/_stale/techs-anti-humanist-wave"
+      ]
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Gamergate_(harassment_campaign",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://en.wikipedia.org/wiki/Gamergate_(harassment_campaign",
+      "archived": null,
+      "sources": [
+        "drafts/_stale/techs-anti-humanist-wave"
+      ]
+    },
+    {
+      "url": "https://x.com/tylerangert/status/1821556537485099122",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://x.com/tylerangert/status/1821556537485099122",
+      "archived": null,
+      "sources": [
+        "drafts/_stale/the-rise-of-bespoke-tech"
+      ]
+    },
+    {
+      "url": "https://www.moma.org/collection/works/196071",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://www.moma.org/collection/works/196071",
+      "archived": {
+        "url": "http://web.archive.org/web/20250524234508/https://www.moma.org/collection/works/196071",
+        "timestamp": "20250524234508",
+        "status": "200"
+      },
+      "sources": [
+        "drafts/_stale/the-rise-of-bespoke-tech"
+      ]
+    },
+    {
+      "url": "https://www.lesswrong.com/posts/bxt7uCiHam4QXrQAA/cyborgism",
+      "status": 429,
+      "ok": false,
+      "finalUrl": "https://www.lesswrong.com/posts/bxt7uCiHam4QXrQAA/cyborgism",
+      "archived": {
+        "url": "http://web.archive.org/web/20251003044113/https://www.lesswrong.com/posts/bxt7uCiHam4QXrQAA/cyborgism",
+        "timestamp": "20251003044113",
+        "status": "200"
+      },
+      "sources": [
+        "drafts/_stale/truth-terminal"
+      ]
+    },
+    {
+      "url": "https://x.com/voooooogel/status/1835359820490379463",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://x.com/voooooogel/status/1835359820490379463",
+      "archived": {
+        "url": "http://web.archive.org/web/20241117203006/https://x.com/voooooogel/status/1835359820490379463",
+        "timestamp": "20241117203006",
+        "status": "200"
+      },
+      "sources": [
+        "drafts/_stale/truth-terminal"
+      ]
+    },
+    {
+      "url": "https://github.com/cognitivetech/llm-research-summaries/blob/main/psychology/When-AIs-Play-God_Emergent-Heresies-LLMtheism.md",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://github.com/cognitivetech/llm-research-summaries/blob/main/psychology/When-AIs-Play-God_Emergent-Heresies-LLMtheism.md",
+      "archived": {
+        "url": "http://web.archive.org/web/20241027033933/https://github.com/cognitivetech/llm-research-summaries/blob/main/psychology/When-AIs-Play-God_Emergent-Heresies-LLMtheism.md",
+        "timestamp": "20241027033933",
+        "status": "200"
+      },
+      "sources": [
+        "drafts/_stale/truth-terminal"
+      ]
+    },
+    {
+      "url": "https://news.ycombinator.com/item?id=40950464",
+      "status": 405,
+      "ok": false,
+      "finalUrl": "https://news.ycombinator.com/item?id=40950464",
+      "archived": {
+        "url": "http://web.archive.org/web/20240713233018/https://news.ycombinator.com/item?id=40950464",
+        "timestamp": "20240713233018",
+        "status": "200"
+      },
+      "sources": [
+        "drafts/_stale/truth-terminal"
+      ]
+    },
+    {
+      "url": "https://x.com/himgajria/status/1846357311746429355",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://x.com/himgajria/status/1846357311746429355",
+      "archived": null,
+      "sources": [
+        "drafts/_stale/truth-terminal"
+      ]
+    },
+    {
+      "url": "https://x.com/Lucent_Crypto/status/1848135141522104618",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://x.com/Lucent_Crypto/status/1848135141522104618",
+      "archived": null,
+      "sources": [
+        "drafts/_stale/truth-terminal"
+      ]
+    },
+    {
+      "url": "https://x.com/alpha_pls/status/1848304017023091017",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://x.com/alpha_pls/status/1848304017023091017",
+      "archived": null,
+      "sources": [
+        "drafts/_stale/truth-terminal"
+      ]
+    },
+    {
+      "url": "https://x.com/mezoteric/status/1847983339602383207",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://x.com/mezoteric/status/1847983339602383207",
+      "archived": {
+        "url": "http://web.archive.org/web/20241107160146/https://x.com/mezoteric/status/1847983339602383207",
+        "timestamp": "20241107160146",
+        "status": "200"
+      },
+      "sources": [
+        "drafts/_stale/truth-terminal"
+      ]
+    },
+    {
+      "url": "https://x.com/RyanWatkins_/status/1848212221815656448",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://x.com/RyanWatkins_/status/1848212221815656448",
+      "archived": null,
+      "sources": [
+        "drafts/_stale/truth-terminal"
+      ]
+    },
+    {
+      "url": "https://x.com/yubrew/status/1846952979305292182",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://x.com/yubrew/status/1846952979305292182",
+      "archived": null,
+      "sources": [
+        "drafts/_stale/truth-terminal"
+      ]
+    },
+    {
+      "url": "https://x.com/44B1B4/status/1847986374248706350",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://x.com/44B1B4/status/1847986374248706350",
+      "archived": {
+        "url": "http://web.archive.org/web/20241117204238/https://x.com/44B1B4/status/1847986374248706350",
+        "timestamp": "20241117204238",
+        "status": "200"
+      },
+      "sources": [
+        "drafts/_stale/truth-terminal"
+      ]
+    },
+    {
+      "url": "https://x.com/AndyAyrey/status/1848231406213967963",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://x.com/AndyAyrey/status/1848231406213967963",
+      "archived": null,
+      "sources": [
+        "drafts/_stale/truth-terminal"
+      ]
+    },
+    {
+      "url": "https://x.com/inflammateomnia/status/1847117753456472163",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://x.com/inflammateomnia/status/1847117753456472163",
+      "archived": null,
+      "sources": [
+        "drafts/_stale/truth-terminal"
+      ]
+    },
+    {
+      "url": "https://x.com/AndyAyrey/status/1848209412764348864",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://x.com/AndyAyrey/status/1848209412764348864",
+      "archived": null,
+      "sources": [
+        "drafts/_stale/truth-terminal"
+      ]
+    },
+    {
+      "url": "https://x.com/kromem2dot0/status/1848354825467277458",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://x.com/kromem2dot0/status/1848354825467277458",
+      "archived": null,
+      "sources": [
+        "drafts/_stale/truth-terminal"
+      ]
+    },
+    {
+      "url": "https://x.com/crltnw/status/1848515990315004378",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://x.com/crltnw/status/1848515990315004378",
+      "archived": null,
+      "sources": [
+        "drafts/_stale/truth-terminal"
+      ]
+    },
+    {
+      "url": "https://x.com/MarioNawfal/status/1863591956619858166",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://x.com/MarioNawfal/status/1863591956619858166",
+      "archived": {
+        "url": "http://web.archive.org/web/20250417042200/https://x.com/MarioNawfal/status/1863591956619858166",
+        "timestamp": "20250417042200",
+        "status": "200"
+      },
+      "sources": [
+        "drafts/_stale/truth-terminal"
+      ]
+    },
+    {
+      "url": "https://x.com/yb_effect/status/1847692788676124928",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://x.com/yb_effect/status/1847692788676124928",
+      "archived": {
+        "url": "http://web.archive.org/web/20241117193838/https://x.com/yb_effect/status/1847692788676124928",
+        "timestamp": "20241117193838",
+        "status": "200"
+      },
+      "sources": [
+        "drafts/_stale/truth-terminal"
+      ]
+    },
+    {
+      "url": "https://x.com/AISafetyMemes/status/1848369814793855429",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://x.com/AISafetyMemes/status/1848369814793855429",
+      "archived": {
+        "url": "http://web.archive.org/web/20241117193754/https://x.com/AISafetyMemes/status/1848369814793855429",
+        "timestamp": "20241117193754",
+        "status": "200"
+      },
+      "sources": [
+        "drafts/_stale/truth-terminal"
+      ]
+    },
+    {
+      "url": "https://dreams.infinitebackrooms.com/AndyAyrey/8PXBxXDADF",
+      "status": 429,
+      "ok": false,
+      "finalUrl": "https://dreams.infinitebackrooms.com/AndyAyrey/8PXBxXDADF",
+      "archived": {
+        "url": "http://web.archive.org/web/20250719232554/https://dreams.infinitebackrooms.com/AndyAyrey/8PXBxXDADF",
+        "timestamp": "20250719232554",
+        "status": "200"
+      },
+      "sources": [
+        "drafts/_stale/truth-terminal"
+      ]
+    },
+    {
+      "url": "https://x.com/i/lists/1827514588939874419",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://x.com/i/lists/1827514588939874419",
+      "archived": null,
+      "sources": [
+        "drafts/_stale/truth-terminal"
+      ]
+    },
+    {
+      "url": "https://x.com/tintsion/status/1846673485890044122",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://x.com/tintsion/status/1846673485890044122",
+      "archived": {
+        "url": "http://web.archive.org/web/20250116004331/https://x.com/tintsion/status/1846673485890044122",
+        "timestamp": "20250116004331",
+        "status": "200"
+      },
+      "sources": [
+        "drafts/_stale/truth-terminal"
+      ]
+    },
+    {
+      "url": "https://pod.link/1680633614/episode/832029a2e9daefffdc62250573120f90",
+      "status": 429,
+      "ok": false,
+      "finalUrl": "https://pod.link/1680633614/episode/832029a2e9daefffdc62250573120f90",
+      "archived": null,
+      "sources": [
+        "drafts/_stale/truth-terminal"
+      ]
+    },
+    {
+      "url": "https://x.com/AndyAyrey/status/1811284503010455760",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://x.com/AndyAyrey/status/1811284503010455760",
+      "archived": null,
+      "sources": [
+        "drafts/_stale/truth-terminal"
+      ]
+    },
+    {
+      "url": "https://x.com/joshwhiton/status/1849848186023927947",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://x.com/joshwhiton/status/1849848186023927947",
+      "archived": null,
+      "sources": [
+        "drafts/_stale/truth-terminal"
+      ]
+    },
+    {
+      "url": "https://x.com/tszzl/status/1852501750915469419",
+      "status": 403,
+      "ok": false,
+      "finalUrl": "https://x.com/tszzl/status/1852501750915469419",
+      "archived": null,
+      "sources": [
+        "drafts/_stale/truth-terminal"
+      ]
+    },
+    {
+      "url": "https://github.com/ejfox/MorningRadio",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://github.com/ejfox/MorningRadio",
+      "archived": null,
+      "sources": [
+        "projects/MorningRadio"
+      ]
+    },
+    {
+      "url": "https://github.com/ejfox/cloudinary-backup-tool",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://github.com/ejfox/cloudinary-backup-tool",
+      "archived": null,
+      "sources": [
+        "projects/cloudinary-backup-tool"
+      ]
+    },
+    {
+      "url": "https://github.com/ejfox/connectology",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://github.com/ejfox/connectology",
+      "archived": null,
+      "sources": [
+        "projects/data-visualization-suite"
+      ]
+    },
+    {
+      "url": "https://www.chessable.com/blog/effective-ways-to-study-chess/",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://www.chessable.com/blog/effective-ways-to-study-chess/",
+      "archived": null,
+      "sources": [
+        "robots/someday/chess-course"
+      ]
+    },
+    {
+      "url": "https://lichess.org/@/NM_JeremyKane/blog/guide-to-creating-a-chess-study-plan/za6RjNUE",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://lichess.org/@/NM_JeremyKane/blog/guide-to-creating-a-chess-study-plan/za6RjNUE",
+      "archived": null,
+      "sources": [
+        "robots/someday/chess-course"
+      ]
+    },
+    {
+      "url": "https://lichess.org/study/H5K7frtA",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://lichess.org/study/H5K7frtA",
+      "archived": null,
+      "sources": [
+        "robots/someday/chess-course"
+      ]
+    },
+    {
+      "url": "https://www.chess.com/lessons/blitz-bullet-time-management",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://www.chess.com/lessons/blitz-bullet-time-management",
+      "archived": null,
+      "sources": [
+        "robots/someday/chess-course"
+      ]
+    },
+    {
+      "url": "https://www.chessable.com/blog/improving-decision-making-in-chess/",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://www.chessable.com/blog/improving-decision-making-in-chess/",
+      "archived": null,
+      "sources": [
+        "robots/someday/chess-course"
+      ]
+    },
+    {
+      "url": "https://chessmood.com/blog/nimzowitsch-defense",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://chessmood.com/blog/nimzowitsch-defense",
+      "archived": null,
+      "sources": [
+        "robots/someday/chess-course"
+      ]
+    },
+    {
+      "url": "https://www.chess.com/article/view/the-10-golden-rules-of-the-middlegame",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://www.chess.com/article/view/the-10-golden-rules-of-the-middlegame",
+      "archived": null,
+      "sources": [
+        "robots/someday/chess-course"
+      ]
+    },
+    {
+      "url": "https://chess24.com/en/learn/advanced/middlegame/mastering-positional-chess",
+      "status": 405,
+      "ok": false,
+      "finalUrl": "https://chess24.com/en/learn/advanced/middlegame/mastering-positional-chess",
+      "archived": null,
+      "sources": [
+        "robots/someday/chess-course"
+      ]
+    },
+    {
+      "url": "http://gis.ny.gov/elevation/NYC-LiDAR.htm",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://gis.ny.gov/elevation/NYC-LiDAR.htm",
+      "archived": null,
+      "sources": [
+        "robots/someday/hudson-valley-maps"
+      ]
+    },
+    {
+      "url": "https://mastodon.social/@andersamer/113477287174588829",
+      "status": 410,
+      "ok": false,
+      "finalUrl": "https://mastodon.social/@andersamer/113477287174588829",
+      "archived": null,
+      "sources": [
+        "robots/someday/ml-comedy-hour"
+      ]
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/The_Upsetter_(film",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://en.wikipedia.org/wiki/The_Upsetter_(film",
+      "archived": null,
+      "sources": [
+        "week-notes/2024-01"
+      ]
+    },
+    {
+      "url": "https://github.com/ejfox/scrapbook-core",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://github.com/ejfox/scrapbook-core",
+      "archived": null,
+      "sources": [
+        "week-notes/2024-22"
+      ]
+    },
+    {
+      "url": "https://ejfoxscrapsroller.netlify.app",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://ejfoxscrapsroller.netlify.app/",
+      "archived": null,
+      "sources": [
+        "week-notes/2024-22"
+      ]
+    },
+    {
+      "url": "https://github.com/ejfox/cloudinary-annotation",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://github.com/ejfox/cloudinary-annotation",
+      "archived": null,
+      "sources": [
+        "week-notes/2024-38"
+      ]
+    },
+    {
+      "url": "https://github.com/ejfox/daily-screenshots",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://github.com/ejfox/daily-screenshots",
+      "archived": null,
+      "sources": [
+        "week-notes/2024-42"
+      ]
+    },
+    {
+      "url": "https://github.com/ejfox/tool-maker",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://github.com/ejfox/tool-maker",
+      "archived": null,
+      "sources": [
+        "week-notes/2024-47"
+      ]
+    },
+    {
+      "url": "https://github.com/ejfox/discord-arena-bridge",
+      "status": 404,
+      "ok": false,
+      "finalUrl": "https://github.com/ejfox/discord-arena-bridge",
+      "archived": null,
+      "sources": [
+        "week-notes/2024-47"
+      ]
+    },
+    {
+      "url": "https://hexagram.news",
+      "status": 500,
+      "ok": false,
+      "finalUrl": "https://hexagram.news/",
+      "archived": {
+        "url": "http://web.archive.org/web/20250417034753/https://hexagram.news/",
+        "timestamp": "20250417034753",
+        "status": "200"
+      },
+      "sources": [
+        "week-notes/2025-08"
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "url": "http://ejfox.tumblr.com/post/34820860800/circa-is-one-of-the-first-real-recent-steps-forward-in",
+      "error": "request to https://ejfox.tumblr.com/post/34820860800/circa-is-one-of-the-first-real-recent-steps-forward-in failed, reason: socket hang up",
+      "sources": [
+        "2013/the-magazine-experience-on-the-web"
+      ]
+    },
+    {
+      "url": "http://timeline.verite.co/",
+      "error": "request to http://timeline.verite.co/ failed, reason: getaddrinfo ENOTFOUND timeline.verite.co",
+      "sources": [
+        "2013/the-magazine-experience-on-the-web"
+      ]
+    },
+    {
+      "url": "http://www.symboliamag.com/post/40203443720/editors-note-people-frequently-ask-us-how",
+      "error": "request to https://www.symboliamag.com/post/40203443720/editors-note-people-frequently-ask-us-how failed, reason: certificate has expired",
+      "sources": [
+        "2013/the-magazine-experience-on-the-web"
+      ]
+    },
+    {
+      "url": "http://source.mozillaopennews.org/en-US/articles/mother-jones-voter-suppression-map/",
+      "error": "request to http://source.mozillaopennews.org/en-US/articles/mother-jones-voter-suppression-map/ failed, reason: getaddrinfo ENOTFOUND source.mozillaopennews.org",
+      "sources": [
+        "2013/the-magazine-experience-on-the-web"
+      ]
+    },
+    {
+      "url": "http://ejfox.github.com/sStory/",
+      "error": "request to http://ejfox.github.com/sStory/ failed, reason: getaddrinfo ENOTFOUND ejfox.github.com",
+      "sources": [
+        "2013/the-magazine-experience-on-the-web"
+      ]
+    },
+    {
+      "url": "https://www.xmyip.com/ip-addresses/united--states/texas",
+      "error": "Timeout",
+      "sources": [
+        "2019/unsecured-ice-cameras"
+      ]
+    },
+    {
+      "url": "https://www.mcc.co.mercer.pa.us/dps/state_fips_code_listing.htm",
+      "error": "Timeout",
+      "sources": [
+        "2020/things-ive-learned-about-elections"
+      ]
+    },
+    {
+      "url": "https://help.crowdtangle.com/en/articles/4495952-network-mapping-with-gephi-and-crowdtangle",
+      "error": "request to https://help.crowdtangle.com/en/articles/4495952-network-mapping-with-gephi-and-crowdtangle failed, reason: getaddrinfo ENOTFOUND help.crowdtangle.com",
+      "sources": [
+        "2021/nypd-ccrb-complaint-clusters"
+      ]
+    },
+    {
+      "url": "http://localhost:11001/project-185bb75c-b944-451a-9c0f-aeba860ae68a/OfficersInvolvedInComplaints_FILTERED-SINCE2010-NOT-UNFOUNDED-EXONERATED.csv",
+      "error": "request to http://localhost:11001/project-185bb75c-b944-451a-9c0f-aeba860ae68a/OfficersInvolvedInComplaints_FILTERED-SINCE2010-NOT-UNFOUNDED-EXONERATED.csv failed, reason: ",
+      "sources": [
+        "2021/nypd-ccrb-complaint-clusters"
+      ]
+    },
+    {
+      "url": "http://localhost:11001/project-185bb75c-b944-451a-9c0f-aeba860ae68a/OfficerAllegationHistory.csv",
+      "error": "request to http://localhost:11001/project-185bb75c-b944-451a-9c0f-aeba860ae68a/OfficerAllegationHistory.csv failed, reason: ",
+      "sources": [
+        "2021/nypd-ccrb-complaint-clusters"
+      ]
+    },
+    {
+      "url": "http://localhost:11001/project-185bb75c-b944-451a-9c0f-aeba860ae68a/OfficerAllegationHistory_FILTERED-SINCE2010-SUBSTANTIATED.csv",
+      "error": "request to http://localhost:11001/project-185bb75c-b944-451a-9c0f-aeba860ae68a/OfficerAllegationHistory_FILTERED-SINCE2010-SUBSTANTIATED.csv failed, reason: ",
+      "sources": [
+        "2021/nypd-ccrb-complaint-clusters"
+      ]
+    },
+    {
+      "url": "http://localhost:11001/project-185bb75c-b944-451a-9c0f-aeba860ae68a/OfficerAllegationHistory_FILTERED-SINCE2010-NOT-UNFOUNDED-EXONERATED.csv",
+      "error": "request to http://localhost:11001/project-185bb75c-b944-451a-9c0f-aeba860ae68a/OfficerAllegationHistory_FILTERED-SINCE2010-NOT-UNFOUNDED-EXONERATED.csv failed, reason: ",
+      "sources": [
+        "2021/nypd-ccrb-complaint-clusters"
+      ]
+    },
+    {
+      "url": "https://twitter.com/mrejfox/status/1636974679310082053",
+      "error": "Timeout",
+      "sources": [
+        "2023/how-i-built-coach-artie"
+      ]
+    },
+    {
+      "url": "https://datasette.io",
+      "error": "Timeout",
+      "sources": [
+        "2025/paramilitary-telegram-leaks-001"
+      ]
+    },
+    {
+      "url": "https://",
+      "error": "Invalid URL",
+      "sources": [
+        "drafts/_stale/paywalling-your-nuxt-app"
+      ]
+    },
+    {
+      "url": "https://x.com/faustianneko/status/1846574860513722442",
+      "error": "request to https://x.com/faustianneko/status/1846574860513722442 failed, reason: getaddrinfo ENOTFOUND x.com",
+      "sources": [
+        "drafts/_stale/truth-terminal"
+      ]
+    },
+    {
+      "url": "https://openoversight.lucyparsonslabs.com/",
+      "error": "Timeout",
+      "sources": [
+        "drafts/how-can-ai-be-used-in-journalism"
+      ]
+    },
+    {
+      "url": "https://openoversight.com/about",
+      "error": "Timeout",
+      "sources": [
+        "drafts/how-can-ai-be-used-in-journalism"
+      ]
+    },
+    {
+      "url": "https://nbcnews.com/specials",
+      "error": "Timeout",
+      "sources": [
+        "projects/nbcnews-specials"
+      ]
+    },
+    {
+      "url": "https://smartychess.com/the-reti-opening/",
+      "error": "request to https://smartychess.com/the-reti-opening/ failed, reason: getaddrinfo ENOTFOUND smartychess.com",
+      "sources": [
+        "robots/someday/chess-course"
+      ]
+    },
+    {
+      "url": "http://localhost:80",
+      "error": "request to https://localhost/ failed, reason: write EPROTO C0208E0902000000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:../deps/openssl/openssl/ssl/record/rec_layer_s3.c:1605:SSL alert number 80\n",
+      "sources": [
+        "robots/someday/smallweb-with-cloudflare-on-vps"
+      ]
+    },
+    {
+      "url": "https://knowhv.com/",
+      "error": "request to https://knowhv.com/ failed, reason: Hostname/IP does not match certificate's altnames: Host: knowhv.com. is not in the cert's altnames: DNS:*.netlify.app, DNS:netlify.app",
+      "sources": [
+        "week-notes/2024-03"
+      ]
+    }
+  ]
+}

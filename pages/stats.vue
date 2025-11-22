@@ -497,6 +497,7 @@ const { stats: rawStats, isLoading } = useStats()
 const stats = computed(() => rawStats.value)
 const { getAllPosts } = useProcessedMarkdown()
 const { formatNumber } = useNumberFormat()
+const { isValidPost } = usePostFilters()
 
 // Simple mode refs
 const sectionRef = ref(null)
@@ -533,31 +534,7 @@ onMounted(async () => {
   try {
     if (!cachedPosts.value) {
       const allPosts = await getAllPosts(false, false)
-      cachedPosts.value = allPosts.filter((post) => {
-        const slug = post?.slug || ''
-        const type = post?.type || post?.metadata?.type
-        const slugParts = slug.split('/')
-        const lastPart = slugParts[slugParts.length - 1]
-
-        const isWeekNote =
-          type === 'weekNote' ||
-          slug.startsWith('week-notes/') ||
-          /^\d{4}-\d{2}$/.test(lastPart)
-        const isRegularBlogPost = /^\d{4}\/[^/]+$/.test(slug)
-        const isHidden =
-          post?.hidden === true || post?.metadata?.hidden === true
-        const isDraft = post?.draft === true || post?.metadata?.draft === true
-        const postDate = post?.date || post?.metadata?.date
-        const isFuturePost = postDate && new Date(postDate) > new Date()
-
-        return (
-          isRegularBlogPost &&
-          !isWeekNote &&
-          !isHidden &&
-          !isDraft &&
-          !isFuturePost
-        )
-      })
+      cachedPosts.value = allPosts.filter((post) => isValidPost(post, false))
     }
 
     const posts = cachedPosts.value

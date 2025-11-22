@@ -1,25 +1,7 @@
 import { defineEventHandler, getQuery } from 'h3'
 import { readFile, readdir } from 'node:fs/promises'
 import path from 'node:path'
-
-// Simple text extraction from HTML
-function stripHtml(html: string): string {
-  if (!html) return ''
-  return html
-    .replace(/<[^>]*>/g, ' ') // Remove HTML tags
-    .replace(/\s+/g, ' ') // Collapse whitespace
-    .trim()
-}
-
-// Tokenize text for search
-function tokenize(text: string): string[] {
-  if (!text) return []
-  return text
-    .toLowerCase()
-    .replace(/[^\w\s]/g, ' ') // Replace punctuation with spaces
-    .split(/\s+/)
-    .filter((word) => word.length > 2) // Filter out short words
-}
+import { stripHtml, tokenize } from '~/server/utils/text-processing'
 
 // Calculate TF-IDF-like scoring
 function calculateRelevanceScore(

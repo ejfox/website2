@@ -343,6 +343,7 @@
 <script setup>
 import { subMonths, startOfWeek } from '~/utils/dateUtils'
 import { formatNumber } from '~/composables/useNumberFormat'
+import { isWeekNote, isValidPost } from '~/composables/blog/usePostFilters'
 
 const { formatShortDate } = useDateFormat()
 const processedMarkdown = useProcessedMarkdown()
@@ -374,33 +375,6 @@ const getPostYear = (post) => {
   const postDate = post?.date || post?.metadata?.date
   if (!postDate) return 'Unknown'
   return new Date(postDate).getFullYear()
-}
-
-const isWeekNote = (post) => {
-  const slug = post?.slug || ''
-  const type = post?.type || post?.metadata?.type
-  const lastPart = slug.split('/').pop()
-  return (
-    type === 'weekNote' ||
-    slug.startsWith('week-notes/') ||
-    /^\d{4}-\d{2}$/.test(lastPart)
-  )
-}
-
-const isValidPost = (post, includeWeekNotes = false) => {
-  const isHidden = post?.hidden === true || post?.metadata?.hidden === true
-  const isDraft = post?.draft === true || post?.metadata?.draft === true
-  const postDate = post?.date || post?.metadata?.date
-  const isFuturePost = postDate && new Date(postDate) > now
-  const weekNote = isWeekNote(post)
-
-  if (includeWeekNotes)
-    return weekNote && !isHidden && !isDraft && !isFuturePost
-
-  const isRegularBlogPost = /^(?:blog\/)?\d{4}\/[^/]+$/.test(post?.slug || '')
-  return (
-    !weekNote && isRegularBlogPost && !isHidden && !isDraft && !isFuturePost
-  )
 }
 
 const processPost = (post) => {
