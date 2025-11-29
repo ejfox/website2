@@ -13,8 +13,8 @@ export default defineEventHandler(async () => {
   try {
     console.log('[Muckrock] Starting API call with token:', token.substring(0, 10) + '...')
 
-    // Fetch requests - just first page for now
-    const url = 'https://www.muckrock.com/api_v2/requests/?limit=100'
+    // Fetch requests - filtered to user 15824 (ejfox)
+    const url = 'https://www.muckrock.com/api_v2/requests/?user=15824&limit=100'
     const headers = {
       'Authorization': `Token ${token}`
     }
