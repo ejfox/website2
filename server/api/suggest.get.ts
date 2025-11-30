@@ -370,10 +370,13 @@ export default defineEventHandler(async (event): Promise<SuggestResponse> => {
     }
 
     // Load data in parallel for MAXIMUM SPEED! *zoom* *swoosh*
-    const [availableTags, blogPosts] = await Promise.all([
+    const results = await Promise.allSettled([
       loadTagsVocabulary(),
       loadBlogPosts()
     ])
+
+    const availableTags = results[0].status === 'fulfilled' ? results[0].value : []
+    const blogPosts = results[1].status === 'fulfilled' ? results[1].value : []
 
     // Find similar content
     const similarities = blogPosts

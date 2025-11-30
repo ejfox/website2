@@ -39,25 +39,26 @@ export default defineEventHandler(async (event) => {
   <atom:link href="${siteURL}/robots-rss.xml" rel="self"
              type="application/rss+xml" />
   <pubDate>${new Date().toUTCString()}</pubDate>
-  ${await Promise.all(
-    filteredPosts.map(
-      async (post: {
-        slug: string
-        title: string
-        description?: string
-        date: string
-      }) => {
-        try {
-          const postPath = resolve(
-            process.cwd(),
-            'content',
-            'processed',
-            `${post.slug}.json`
-          )
-          const { content: htmlContent } = JSON.parse(
-            await readFile(postPath, 'utf-8')
-          )
-          return `<item>
+  ${(
+    await Promise.allSettled(
+      filteredPosts.map(
+        async (post: {
+          slug: string
+          title: string
+          description?: string
+          date: string
+        }) => {
+          try {
+            const postPath = resolve(
+              process.cwd(),
+              'content',
+              'processed',
+              `${post.slug}.json`
+            )
+            const { content: htmlContent } = JSON.parse(
+              await readFile(postPath, 'utf-8')
+            )
+            return `<item>
         <title>${escapeXml(post.title)}</title>
         <link>${siteURL}/blog/${post.slug}</link>
         <guid isPermaLink="true">${siteURL}/blog/${post.slug}</guid>
@@ -65,13 +66,17 @@ export default defineEventHandler(async (event) => {
         <pubDate>${new Date(post.date).toUTCString()}</pubDate>
         <content:encoded><![CDATA[${htmlContent}]]></content:encoded>
       </item>`
-        } catch (error) {
-          console.error(`Error processing post ${post.slug}:`, error)
-          return ''
+          } catch (error) {
+            console.error(`Error processing post ${post.slug}:`, error)
+            return ''
+          }
         }
-      }
+      )
     )
-  )}
+  )
+    .filter((r) => r.status === 'fulfilled')
+    .map((r) => r.value)
+    .join('')}
 </channel>
 </rss>`
 

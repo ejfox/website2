@@ -52,7 +52,7 @@ export default defineEventHandler(async (event) => {
     const predictionsDir = join(process.cwd(), 'content/predictions')
     const files = await glob('**/*.md', { cwd: predictionsDir })
 
-    await Promise.all(
+    await Promise.allSettled(
       files.map(async (file) => {
         const filePath = join(predictionsDir, file)
         const content = await fs.readFile(filePath, 'utf-8')
@@ -115,7 +115,7 @@ export default defineEventHandler(async (event) => {
     const readingDir = join(process.cwd(), 'content/processed/reading')
     const files = await fs.readdir(readingDir)
 
-    await Promise.all(
+    await Promise.allSettled(
       files
         .filter((f) => f.endsWith('.json'))
         .map(async (file) => {
