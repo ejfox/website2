@@ -71,6 +71,11 @@
         </button>
       </footer>
 
+      <!-- Error State -->
+      <div v-if="error" class="text-center py-8 text-red-600 dark:text-red-400">
+        Failed to load changelog
+      </div>
+
       <!-- API Link -->
       <footer class="mt-12 pt-4 border-t border-zinc-200 dark:border-zinc-800">
         <p class="font-mono text-xs text-zinc-500 dark:text-zinc-500">
@@ -88,7 +93,7 @@
 
 <script setup lang="ts">
 const limit = ref(50)
-const { data, refresh } = await useFetch('/api/changelog', {
+const { data, refresh, error } = await useFetch('/api/changelog', {
   query: { limit }
 })
 
