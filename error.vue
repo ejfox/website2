@@ -83,9 +83,9 @@ onMounted(async () => {
       .map((item: any) => ({
         title: item.title,
         path: `/blog/${item.slug}`,
-        score: -levenshtein(item.slug?.replace(/^\d{4}\//, '').toLowerCase(), search)
+        score: -levenshtein(item.slug?.toLowerCase() || '', search)
       }))
-      .filter((m: any) => m.score > -15)
+      .filter((m: any) => m.score > -20)
       .sort((a: any, b: any) => b.score - a.score)
       .slice(0, 3)
 
