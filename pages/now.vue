@@ -1,8 +1,13 @@
 <script setup>
 // Fetch live "now" data from all APIs
-const { data: stats, pending: statsPending, error: statsError } = await useFetch('/api/stats')
+const {
+  data: stats,
+  pending: statsPending,
+  error: statsError
+} = await useFetch('/api/stats')
 const { data: reading, error: readingError } = await useFetch('/api/reading')
-const { data: predictions, error: predictionsError } = await useFetch('/api/predictions')
+const { data: predictions, error: predictionsError } =
+  await useFetch('/api/predictions')
 
 // Process data for "now" view
 const now = computed(() => {
@@ -41,8 +46,12 @@ const now = computed(() => {
     const currentlyReading = reading.value
       .filter((b) => b.metadata?.['kindle-sync']?.lastAnnotatedDate)
       .sort((a, b) => {
-        const dateA = new Date(a.metadata?.['kindle-sync']?.lastAnnotatedDate || 0)
-        const dateB = new Date(b.metadata?.['kindle-sync']?.lastAnnotatedDate || 0)
+        const dateA = new Date(
+          a.metadata?.['kindle-sync']?.lastAnnotatedDate || 0
+        )
+        const dateB = new Date(
+          b.metadata?.['kindle-sync']?.lastAnnotatedDate || 0
+        )
         return dateB - dateA
       })[0]
 
@@ -162,7 +171,10 @@ useHead({
     </div>
 
     <!-- Error State -->
-    <div v-else-if="statsError || readingError || predictionsError" class="text-center py-8 text-red-600 dark:text-red-400">
+    <div
+      v-else-if="statsError || readingError || predictionsError"
+      class="text-center py-8 text-red-600 dark:text-red-400"
+    >
       Failed to load data
     </div>
 

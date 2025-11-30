@@ -310,7 +310,10 @@ export const useProcessedMarkdown = () => {
             const fullPost = await getPostBySlug(post.slug)
             return { ...post, ...fullPost }
           } catch (error) {
-            console.error(`Error fetching content for post ${post.slug}:`, error)
+            console.error(
+              `Error fetching content for post ${post.slug}:`,
+              error
+            )
             return post
           }
         })
