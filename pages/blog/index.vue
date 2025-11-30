@@ -99,7 +99,26 @@
           <section
             class="max-w-3xl lg:max-w-none lg:col-span-8 lg:min-w-0 lg:pt-2 lg:pr-14 xl:pr-20"
           >
-            <div v-if="!sortedYears.length" class="text-center py-8">
+            <!-- Error state -->
+            <div
+              v-if="postsError"
+              class="rounded-lg border border-red-300 bg-red-50 dark:bg-red-950 dark:border-red-800 p-4 text-red-800 dark:text-red-200"
+            >
+              <h2 class="font-bold">Failed to Load Blog Posts</h2>
+              <p class="text-sm">
+                {{
+                  postsError.message ||
+                  'An error occurred while loading blog posts.'
+                }}
+              </p>
+              <a
+                href="/"
+                class="mt-2 inline-block text-red-600 dark:text-red-400 underline"
+                >Return Home</a
+              >
+            </div>
+
+            <div v-else-if="!sortedYears.length" class="text-center py-8">
               <p class="text-zinc-600 dark:text-zinc-400 text-sm">
                 No blog posts found.
               </p>
@@ -392,36 +411,42 @@ const processPost = (post) => {
   return { ...post, title, metadata: { ...post.metadata, title } }
 }
 
-const { data: posts } = useAsyncData('blog-posts', async () => {
-  try {
-    const result = await processedMarkdown.getAllPosts(false, false)
-    return result.filter((post) => isValidPost(post)).map(processPost)
-  } catch (err) {
-    console.error('Error in blog index:', err)
-    return []
+const { data: posts, error: postsError } = useAsyncData(
+  'blog-posts',
+  async () => {
+    try {
+      const result = await processedMarkdown.getAllPosts(false, false)
+      return result.filter((post) => isValidPost(post)).map(processPost)
+    } catch (err) {
+      console.error('Error in blog index:', err)
+      return []
+    }
   }
-})
+)
 
-const { data: notes } = useAsyncData('week-notes', async () => {
-  try {
-    const result = await processedMarkdown.getAllPosts(false, true)
-    return (
-      result
-        ?.filter((post) => isValidPost(post, true))
-        .map((note) => ({
-          ...note,
-          metadata: note?.metadata || {},
-          slug: note?.slug || note?.metadata?.slug,
-          dek: note?.dek || note?.metadata?.dek,
-          date: note?.date || note?.metadata?.date,
-          type: note?.type || note?.metadata?.type || 'weekNote'
-        })) || []
-    )
-  } catch (err) {
-    console.error('Error fetching week notes:', err)
-    return []
+const { data: notes, error: _notesError } = useAsyncData(
+  'week-notes',
+  async () => {
+    try {
+      const result = await processedMarkdown.getAllPosts(false, true)
+      return (
+        result
+          ?.filter((post) => isValidPost(post, true))
+          .map((note) => ({
+            ...note,
+            metadata: note?.metadata || {},
+            slug: note?.slug || note?.metadata?.slug,
+            dek: note?.dek || note?.metadata?.dek,
+            date: note?.date || note?.metadata?.date,
+            type: note?.type || note?.metadata?.type || 'weekNote'
+          })) || []
+      )
+    } catch (err) {
+      console.error('Error fetching week notes:', err)
+      return []
+    }
   }
-})
+)
 
 // Static description for SSR-safety
 const defaultDescription =

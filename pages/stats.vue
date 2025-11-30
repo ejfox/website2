@@ -27,8 +27,22 @@
         <div ref="progressRef">{{ displayDayOfYear }}/{{ daysInYear }}</div>
       </div>
 
+      <!-- Error state for simple mode -->
+      <div
+        v-if="errors.fetch"
+        class="rounded-lg border border-red-300 bg-red-50 dark:bg-red-950 dark:border-red-800 p-4 text-red-800 dark:text-red-200 m-4"
+      >
+        <h2 class="font-bold">Failed to Load Stats</h2>
+        <p class="text-sm">Unable to fetch stats data.</p>
+        <a
+          href="/"
+          class="mt-2 inline-block text-red-600 dark:text-red-400 underline"
+          >Return Home</a
+        >
+      </div>
+
       <!-- Dense stats layout -->
-      <div class="space-y-4 p-4">
+      <div v-else class="space-y-4 p-4">
         <!-- Writing Stats -->
         <StatsStatSection title="WRITING" :show="validBlogStats">
           <StatsStatRow label="Posts" :value="validBlogStats.totalPosts" />
@@ -294,9 +308,26 @@
 
         <!-- Main Stats Grid -->
         <section class="stats-grid-responsive">
+          <!-- Error state -->
+          <div
+            v-if="errors.fetch"
+            class="col-span-full rounded-lg border border-red-300 bg-red-50 dark:bg-red-950 dark:border-red-800 p-6 text-red-800 dark:text-red-200"
+          >
+            <h2 class="font-bold text-lg mb-2">Failed to Load Stats</h2>
+            <p class="text-sm mb-4">
+              Unable to fetch stats data. Some services may be temporarily
+              unavailable.
+            </p>
+            <a
+              href="/"
+              class="inline-block text-red-600 dark:text-red-400 underline"
+              >Return Home</a
+            >
+          </div>
+
           <!-- Loading state -->
           <div
-            v-if="isLoading"
+            v-else-if="isLoading"
             class="col-span-full text-center py-8 font-mono text-zinc-500"
           >
             Loading system metrics...
@@ -305,7 +336,12 @@
           <TransitionGroup name="fade-up" tag="div" class="contents" appear>
             <!-- Only show sections when stats are actually loaded -->
             <template
-              v-if="!isLoading && stats && Object.keys(stats).length > 0"
+              v-if="
+                !isLoading &&
+                !errors.fetch &&
+                stats &&
+                Object.keys(stats).length > 0
+              "
             >
               <!-- GitHub -->
               <StatsSection
@@ -520,7 +556,7 @@ useHead(() => ({
 
 const route = useRoute()
 
-const { stats: rawStats, isLoading } = useStats()
+const { stats: rawStats, isLoading, errors } = useStats()
 const stats = computed(() => rawStats.value)
 const { getAllPosts } = useProcessedMarkdown()
 const { formatNumber } = useNumberFormat()
