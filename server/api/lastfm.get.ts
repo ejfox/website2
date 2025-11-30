@@ -162,24 +162,29 @@ export default defineEventHandler(async () => {
       // Don't throw here, continue with other requests
     }
 
-    // Fetch all data in parallel
-    const [recentTracks, topArtists, topAlbums, topTracks, userInfo] =
-      await Promise.all([
-        makeRequest<any>('user.getrecenttracks', { limit: '10' }),
-        makeRequest<any>('user.gettopartists', {
-          period: '1month',
-          limit: '10'
-        }),
-        makeRequest<any>('user.gettopalbums', {
-          period: '1month',
-          limit: '10'
-        }),
-        makeRequest<any>('user.gettoptracks', {
-          period: '1month',
-          limit: '10'
-        }),
-        makeRequest<any>('user.getinfo')
-      ])
+    // Fetch all data in parallel with error recovery
+    const results = await Promise.allSettled([
+      makeRequest<any>('user.getrecenttracks', { limit: '10' }),
+      makeRequest<any>('user.gettopartists', {
+        period: '1month',
+        limit: '10'
+      }),
+      makeRequest<any>('user.gettopalbums', {
+        period: '1month',
+        limit: '10'
+      }),
+      makeRequest<any>('user.gettoptracks', {
+        period: '1month',
+        limit: '10'
+      }),
+      makeRequest<any>('user.getinfo')
+    ])
+
+    const recentTracks = results[0].status === 'fulfilled' ? results[0].value : { recenttracks: { track: [] } }
+    const topArtists = results[1].status === 'fulfilled' ? results[1].value : { topartists: { artist: [] } }
+    const topAlbums = results[2].status === 'fulfilled' ? results[2].value : { topalbums: { album: [] } }
+    const topTracks = results[3].status === 'fulfilled' ? results[3].value : { toptracks: { track: [] } }
+    const userInfo = results[4].status === 'fulfilled' ? results[4].value : { user: {} }
 
     // Process recent tracks
     const processedRecentTracks = {

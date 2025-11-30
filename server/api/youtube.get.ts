@@ -145,7 +145,8 @@ async function fetchChannelVideos(
   const commentPromises = videosResponse.items.map((item: any) =>
     fetchVideoComments(token, item.contentDetails.videoId)
   )
-  const commentCounts = await Promise.all(commentPromises)
+  const results = await Promise.allSettled(commentPromises)
+  const commentCounts = results.map((r) => (r.status === 'fulfilled' ? r.value : 0))
 
   // Combine video details with their stats
   const videos = videosResponse.items.map((item: any, index: number) => {
@@ -206,10 +207,13 @@ export default defineEventHandler(async (): Promise<YouTubeStats> => {
   }
 
   try {
-    const [channelStats, videoData] = await Promise.all([
+    const results = await Promise.allSettled([
       fetchChannelStats(token, channelId),
       fetchChannelVideos(token, channelId)
     ])
+
+    const channelStats = results[0].status === 'fulfilled' ? results[0].value : { subscribers: 0, views: 0, videoCount: 0 }
+    const videoData = results[1].status === 'fulfilled' ? results[1].value : { videos: [], videosThisMonth: 0, monthlyStats: { views: 0, comments: 0, likes: 0 } }
 
     const response: YouTubeStats = {
       stats: {

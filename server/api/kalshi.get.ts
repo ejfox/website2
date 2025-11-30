@@ -186,7 +186,7 @@ async function loadCommentaries(): Promise<Record<string, KalshiCommentary>> {
     const files = await readdir(contentDir).catch(() => [])
     const mdFiles = files.filter((f) => f.endsWith('.md'))
 
-    const commentaries = await Promise.all(
+    const results = await Promise.allSettled(
       mdFiles.map(async (file) => {
         const content = await readFile(join(contentDir, file), 'utf-8')
         const { data, content: body } = matter(content)
@@ -204,6 +204,11 @@ async function loadCommentaries(): Promise<Record<string, KalshiCommentary>> {
         } as KalshiCommentary
       })
     )
+
+    // Filter to fulfilled commentaries only
+    const commentaries = results
+      .filter((r) => r.status === 'fulfilled')
+      .map((r) => r.value)
 
     const result = Object.fromEntries(commentaries.map((c) => [c.ticker, c]))
 

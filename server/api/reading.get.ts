@@ -42,8 +42,8 @@ export default defineEventHandler(async (_event) => {
     const files = await readdir(readingDir)
     const jsonFiles = files.filter((file) => file.endsWith('.json'))
 
-    // Load all books
-    const books = await Promise.all(
+    // Load all books with error handling
+    const results = await Promise.allSettled(
       jsonFiles.map(async (file) => {
         const filePath = path.join(readingDir, file)
         const content = await readFile(filePath, 'utf-8')
@@ -58,6 +58,11 @@ export default defineEventHandler(async (_event) => {
         return book
       })
     )
+
+    // Filter to fulfilled results only
+    const books = results
+      .filter((r) => r.status === 'fulfilled')
+      .map((r) => r.value)
 
     // Sort by last annotated date (most recent first), then by date added
     books.sort((a, b) => {

@@ -73,8 +73,8 @@ export default defineEventHandler(async () => {
       return date.toISOString().split('T')[0]
     }
 
-    // Fetch week and month data in parallel using 'interval' perspective
-    const [weekData, monthData] = await Promise.all([
+    // Fetch week and month data in parallel using 'interval' perspective with error recovery
+    const results = await Promise.allSettled([
       $fetch<RescueTimeResponse>('https://www.rescuetime.com/anapi/data', {
         params: {
           key: token,
@@ -96,6 +96,9 @@ export default defineEventHandler(async () => {
         }
       })
     ])
+
+    const weekData = results[0].status === 'fulfilled' ? results[0].value : { rows: [] }
+    const monthData = results[1].status === 'fulfilled' ? results[1].value : { rows: [] }
 
     // Process week data
     const processData = (response: RescueTimeResponse) => {

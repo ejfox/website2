@@ -76,15 +76,16 @@ export default defineEventHandler(async () => {
   }
 
   try {
-    // Fetch all data in parallel
-    const [statsData, timeTests, wordTests] = await Promise.all([
+    // Fetch all data in parallel with error recovery
+    const results = await Promise.allSettled([
       makeRequest<MonkeyTypeStats>('/users/stats'),
       makeRequest<MonkeyTypePB>('/users/personalBests', { mode: 'time' }),
       makeRequest<MonkeyTypePB>('/users/personalBests', { mode: 'words' })
-    ]).catch((error) => {
-      console.error('Error fetching MonkeyType data:', error)
-      throw error
-    })
+    ])
+
+    const statsData = results[0].status === 'fulfilled' ? results[0].value : null
+    const timeTests = results[1].status === 'fulfilled' ? results[1].value : null
+    const wordTests = results[2].status === 'fulfilled' ? results[2].value : null
 
     // Find best WPM across all test types
     const allTimeTests = Object.values(timeTests?.data || {}).flat()

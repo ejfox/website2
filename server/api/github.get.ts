@@ -280,10 +280,13 @@ export default defineEventHandler(async (): Promise<GitHubStats> => {
     const lastMonth = new Date(today)
     lastMonth.setDate(lastMonth.getDate() - 30)
 
-    const [userStats, contributions] = await Promise.all([
+    const results = await Promise.allSettled([
       fetchUserStats(token),
       fetchContributions(token, lastMonth.toISOString(), today.toISOString())
     ])
+
+    const userStats = results[0].status === 'fulfilled' ? results[0].value : null
+    const contributions = results[1].status === 'fulfilled' ? results[1].value : null
 
     // console.log('📊 GitHub API responses:', {
     //   userStats: !!userStats,

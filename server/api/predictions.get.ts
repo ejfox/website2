@@ -10,7 +10,7 @@ export default defineEventHandler(async () => {
     // Find all markdown files
     const files = await glob('**/*.md', { cwd: predictionsDir })
 
-    const predictions = await Promise.all(
+    const results = await Promise.allSettled(
       files.map(async (file) => {
         const filePath = join(predictionsDir, file)
         const content = await fs.readFile(filePath, 'utf-8')
@@ -40,6 +40,11 @@ export default defineEventHandler(async () => {
         }
       })
     )
+
+    // Filter to fulfilled results only
+    const predictions = results
+      .filter((r) => r.status === 'fulfilled')
+      .map((r) => r.value)
 
     return predictions
   } catch (error) {

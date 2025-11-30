@@ -76,8 +76,8 @@ export default defineEventHandler(async () => {
   }
 
   try {
-    // Fetch all data in parallel
-    const [stats, games] = await Promise.all([
+    // Fetch all data in parallel with error recovery
+    const results = await Promise.allSettled([
       makeRequest<any>(`player/${username}/stats`),
       makeRequest<any>(`player/${username}/games/archives`).then(
         async (archives) => {
@@ -89,6 +89,9 @@ export default defineEventHandler(async () => {
         }
       )
     ])
+
+    const stats = results[0].status === 'fulfilled' ? results[0].value : {}
+    const games = results[1].status === 'fulfilled' ? results[1].value : { games: [] }
 
     // Process the stats
     const response: ChessStats = {
