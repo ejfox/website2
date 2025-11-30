@@ -1,86 +1,94 @@
 <template>
-  <div ref="cardRef" class="gear-card-container" :style="cardTransform">
+  <div class="w-full max-w-2xl mx-auto space-y-8">
     <!-- Header -->
-    <div class="text-center mb-8">
-      <div class="text-4xl mb-2">
-        {{ getTypeSymbol(gearItem.Type) }}
-      </div>
-      <h1 class="text-2xl font-light text-zinc-900 dark:text-zinc-100 mb-1">
+    <div class="text-center space-y-3">
+      <div class="text-5xl">{{ getTypeSymbol(gearItem.Type) }}</div>
+      <h1 class="text-3xl font-light text-zinc-900 dark:text-zinc-100">
         {{ gearItem.Name }}
       </h1>
-      <div :class="headerLabelClass">
+      <div class="text-sm uppercase tracking-wider text-zinc-600 dark:text-zinc-400">
         {{ gearItem.Type }}
       </div>
     </div>
 
     <!-- Photo Section -->
-    <div v-if="gearImagePath" class="mb-8 flex justify-center">
-      <div class="gear-img-square">
-        <img
-          :src="gearImagePath"
-          :alt="`Photo of ${gearItem.Name}`"
-          class="w-full h-full object-cover"
-          loading="lazy"
-          width="480"
-          height="480"
-        />
-      </div>
+    <div v-if="gearImagePath" class="flex justify-center">
+      <img
+        :src="gearImagePath"
+        :alt="`Photo of ${gearItem.Name}`"
+        class="w-full max-w-md rounded-lg"
+        loading="lazy"
+        width="480"
+        height="480"
+      />
     </div>
 
     <!-- Weight - Hero stat -->
-    <div class="text-center mb-8 p-4 bg-zinc-50 dark:bg-zinc-800/50 rounded-xl">
-      <div :class="weightDisplayClass">{{ displayWeight }}g</div>
-      <div :class="weightLabelClass">Weight</div>
+    <div class="text-center p-6 border border-zinc-200 dark:border-zinc-800">
+      <div class="text-4xl font-mono font-bold mb-2 text-zinc-900 dark:text-zinc-100">
+        {{ displayWeight }}g
+      </div>
+      <div class="text-xs font-mono uppercase tracking-wider text-zinc-600 dark:text-zinc-400">
+        Weight
+      </div>
     </div>
 
     <!-- Stats Grid -->
-    <div class="grid grid-cols-2 gap-4 mb-8">
-      <div class="text-center p-4 bg-zinc-50 dark:bg-zinc-800/50 rounded-lg">
-        <div class="text-lg font-normal text-zinc-900 dark:text-zinc-100">
+    <div class="grid grid-cols-2 gap-4">
+      <div class="text-center p-4 border border-zinc-200 dark:border-zinc-800">
+        <div class="text-xl font-mono text-zinc-900 dark:text-zinc-100 mb-1">
           T{{ itemTier }}
         </div>
-        <div :class="tierLabelClass">Tier</div>
+        <div class="text-xs font-mono uppercase tracking-wider text-zinc-600 dark:text-zinc-400">
+          Tier
+        </div>
       </div>
-      <div class="text-center p-4 bg-zinc-50 dark:bg-zinc-800/50 rounded-lg">
-        <div class="text-lg font-normal text-zinc-900 dark:text-zinc-100">
+      <div class="text-center p-4 border border-zinc-200 dark:border-zinc-800">
+        <div class="text-xl font-mono text-zinc-900 dark:text-zinc-100 mb-1">
           {{ gearItem.Waterproof || '—' }}
         </div>
-        <div :class="tierLabelClass">H₂O</div>
+        <div class="text-xs font-mono uppercase tracking-wider text-zinc-600 dark:text-zinc-400">
+          H₂O
+        </div>
       </div>
     </div>
 
     <!-- Container -->
     <div class="text-center text-sm text-zinc-600 dark:text-zinc-400">
-      <span class="uppercase tracking-widest">{{
+      <span class="uppercase tracking-wider">{{
         gearItem['Parent Container'] || 'Unassigned'
       }}</span>
     </div>
 
     <!-- Buy link if available -->
-    <div v-if="gearItem.amazon" class="text-center mt-8">
+    <div v-if="gearItem.Amazon_URL" class="text-center">
       <a
         :href="amazonUrl"
         target="_blank"
         rel="nofollow noopener"
-        class="btn-inline-flex"
+        class="inline-block px-4 py-2 border border-zinc-900 dark:border-zinc-100 text-zinc-900 dark:text-zinc-100 hover:bg-zinc-900 dark:hover:bg-zinc-100 hover:text-white dark:hover:text-zinc-900 transition-colors"
       >
-        Buy
+        Buy on Amazon
       </a>
     </div>
 
     <!-- Item Details Table -->
-    <div class="mt-8 border-t border-zinc-200 dark:border-zinc-700 pt-8">
-      <h3 class="label-tracked-md">Item Details</h3>
-      <div class="grid grid-cols-1 gap-2 text-xs">
+    <div class="border-t border-zinc-200 dark:border-zinc-800 pt-8 space-y-2">
+      <h3 class="text-xs font-mono uppercase tracking-wider text-zinc-600 dark:text-zinc-400 mb-4">
+        Details
+      </h3>
+      <div class="space-y-1 text-xs">
         <div
           v-for="(value, key) in itemDetails"
           :key="key"
-          class="row-bordered"
+          class="flex justify-between items-start py-2 border-b border-zinc-100 dark:border-zinc-900"
         >
-          <span :class="fieldLabelClass">{{ formatFieldName(key) }}</span>
-          <span :class="fieldValueClass" :title="value">{{
-            value || '—'
-          }}</span>
+          <span class="uppercase tracking-wider text-zinc-600 dark:text-zinc-400 flex-shrink-0">
+            {{ formatFieldName(key) }}
+          </span>
+          <span class="font-mono text-right text-zinc-900 dark:text-zinc-100 truncate ml-4">
+            {{ value || '—' }}
+          </span>
         </div>
       </div>
     </div>
@@ -88,8 +96,6 @@
 </template>
 
 <script setup>
-import { useMouse } from '~/composables/useOptimizedVueUse'
-
 const props = defineProps({
   gearItem: {
     type: Object,
@@ -98,10 +104,6 @@ const props = defineProps({
 })
 
 const { getItemWeightInGrams } = useWeightCalculations()
-// Animations disabled; keeping minimal interactions only
-
-// Animation refs
-const cardRef = ref(null)
 
 // Type symbols
 const typeSymbols = {
@@ -114,7 +116,6 @@ const typeSymbols = {
   Creativity: '✧'
 }
 
-// Helper functions
 const getTypeSymbol = (type) => typeSymbols[type] || '—'
 
 const formatFieldName = (fieldName) => {
@@ -125,23 +126,8 @@ const formatFieldName = (fieldName) => {
     .trim()
 }
 
-// Class strings
-const headerLabelClass =
-  'text-sm uppercase tracking-widest text-zinc-600 dark:text-zinc-400'
-const weightDisplayClass =
-  'text-3xl font-bold font-mono mb-1 text-zinc-900 dark:text-zinc-100'
-const weightLabelClass =
-  'text-xs font-mono uppercase tracking-widest text-zinc-600 dark:text-zinc-400'
-const tierLabelClass =
-  'text-xs font-mono uppercase tracking-widest text-zinc-600 dark:text-zinc-400'
-const fieldLabelClass =
-  'flex-shrink-0 uppercase tracking-widest text-zinc-600 dark:text-zinc-400'
-const fieldValueClass =
-  'font-mono text-right truncate ml-2 min-w-0 text-zinc-900 dark:text-zinc-100'
-
 // Computed properties
 const displayWeight = computed(() => {
-  // If both weight fields are empty, show "?" instead of 0
   const baseWeight = props.gearItem['Base Weight ()']
   const loadedWeight = props.gearItem['Loaded Weight ()']
 
@@ -188,80 +174,5 @@ const itemDetails = computed(() => {
   })
   return details
 })
-
-// 3D mouse tracking
-const { x: mouseX, y: mouseY } = useMouse()
-
-const cardTransform = computed(() => {
-  const centerX = window.innerWidth / 2
-  const centerY = window.innerHeight / 2
-
-  const rotateX = -((mouseY.value - centerY) / centerY) * 20
-  const rotateY = ((mouseX.value - centerX) / centerX) * 20
-  const translateZ =
-    (Math.abs(mouseX.value - centerX) / centerX +
-      Math.abs(mouseY.value - centerY) / centerY) *
-    15
-
-  return {
-    transform: `perspective(1000px) rotateX(${rotateX}deg)
-      rotateY(${rotateY}deg) translateZ(${translateZ}px)`,
-    transition: 'transform 0.3s ease-out',
-    filter: 'blur(0px)'
-  }
-})
-
-// Epic gear card reveal sequence (disabled)
-const _animateGearCardReveal = async () => {
-  if (import.meta.server || !cardRef.value) return
-  await nextTick()
-  // No animations
-}
-
-// Stage 4: Ambient detail pulse - DISABLED (causing looping animations)
-// setTimeout(() => {
-//   const details = cardRef.value?.querySelectorAll(
-//     '.text-lg, .text-3xl, .text-2xl'
-//   )
-//   if (details?.length) {
-//     const pulseDetails = () => {
-// DELETED: All broken animation code
-// Expose the exit function to parent components
-defineExpose({
-  triggerExit
-})
 </script>
 
-<style scoped>
-.gear-card {
-  transform-style: preserve-3d;
-  will-change: transform, opacity, filter, scale;
-  backface-visibility: hidden;
-  perspective: 1500px;
-  transform-origin: center center;
-  /* Start more subtle for simultaneous transitions */
-  opacity: 0.3;
-  /* Less dramatic initial state for faster transitions */
-  transform: perspective(1500px) rotateX(-90deg) rotateY(45deg) rotateZ(-20deg)
-    scale(0.4) translateZ(-200px);
-  filter: blur(4px) brightness(0.3) contrast(0.8);
-}
-
-/* Ensure no blur remains after animations */
-.gear-card[style*='filter: none'],
-.gear-card:not([style*='filter']) {
-  filter: none !important;
-}
-
-/* Enhanced 3D container */
-.min-h-screen {
-  perspective: 2000px;
-  transform-style: preserve-3d;
-}
-
-/* 3D context for child elements */
-.gear-card > * {
-  transform-style: preserve-3d;
-  will-change: transform, opacity, filter;
-}
-</style>
