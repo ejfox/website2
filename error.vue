@@ -1,91 +1,97 @@
 <template>
   <NuxtLayout>
-    <ErrorPage
-      :path="route?.path || 'unknown'"
-      :suggestions="smartSuggestions"
-      :primary-link="{ href: '/blog', text: 'browse all posts' }"
-    />
+    <div class="space-y-8">
+      <div class="space-y-2">
+        <h1 class="text-xl font-mono tracking-wide">404</h1>
+        <p class="text-sm text-zinc-600 dark:text-zinc-400">
+          "{{ cleanPath }}" not found
+        </p>
+      </div>
+
+      <!-- Suggestions -->
+      <div v-if="suggestions.length" class="space-y-3">
+        <p class="text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-500">
+          Maybe you meant
+        </p>
+        <div class="space-y-1">
+          <a
+            v-for="s in suggestions"
+            :key="s.path"
+            :href="s.path"
+            class="block text-sm hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+          >
+            {{ s.title }}
+          </a>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="pt-4 border-t border-zinc-200 dark:border-zinc-800 space-y-1">
+        <a href="/" class="block text-sm hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+          ← home
+        </a>
+        <a href="/blog" class="block text-sm hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+          ← all posts
+        </a>
+      </div>
+    </div>
   </NuxtLayout>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const route = useRoute()
 
-// Props passed by Nuxt error handling
-const props = defineProps({
-  error: {
-    type: Object,
-    default: () => ({})
-  }
+defineProps<{
+  error?: { statusCode: number }
+}>()
+
+const suggestions = ref<Array<{ title: string; path: string }>>([])
+
+const cleanPath = computed(() => {
+  return route.path?.replace(/^\//, '').replace(/\/$/, '') || 'unknown'
 })
 
-const smartSuggestions = ref([])
-
-// Distance function for fuzzy matching
-const distance = (a, b) => {
-  if (!a || !b) return 999
-  const [len1, len2] = [a.length, b.length]
-  if (len1 === 0) return len2
-  if (len2 === 0) return len1
-
-  let prev = Array(len2 + 1)
-    .fill(0)
-    .map((_, i) => i)
-
-  for (let i = 1; i <= len1; i++) {
-    const curr = [i]
-    for (let j = 1; j <= len2; j++) {
-      curr[j] =
-        a[i - 1] === b[j - 1]
-          ? prev[j - 1]
-          : Math.min(prev[j - 1], prev[j], curr[j - 1]) + 1
+// Simple Levenshtein distance for fuzzy matching
+const levenshtein = (a: string, b: string): number => {
+  const matrix: number[][] = []
+  for (let i = 0; i <= b.length; i++) matrix[i] = [i]
+  for (let j = 0; j <= a.length; j++) matrix[0][j] = j
+  for (let i = 1; i <= b.length; i++) {
+    for (let j = 1; j <= a.length; j++) {
+      matrix[i][j] =
+        b.charAt(i - 1) === a.charAt(j - 1)
+          ? matrix[i - 1][j - 1]
+          : Math.min(
+              matrix[i - 1][j - 1],
+              matrix[i][j - 1],
+              matrix[i - 1][j]
+            ) + 1
     }
-    prev = curr
   }
-  return prev[len2]
+  return matrix[b.length][a.length]
 }
 
-// Load suggestions when page loads
 onMounted(async () => {
-  const path = route?.path || ''
-
   try {
-    const data = await $fetch('/api/manifest')
-    const allContent = (data || []).filter(
-      (item) => !item.hidden && !item.draft
-    )
+    const manifest = await $fetch('/api/manifest')
+    const items = manifest?.filter((item: any) => !item.hidden && !item.draft) || []
 
-    if (path && path !== '/' && props.error.statusCode === 404) {
-      const cleanPath = path.replace(/^\//, '').toLowerCase()
+    const search = cleanPath.value.toLowerCase()
+    if (!search || search.length > 80) return
 
-      if (cleanPath.length > 0 && cleanPath.length < 100) {
-        const matches = allContent
-          .map((item) => ({
-            title: item.title,
-            path: item.slug.startsWith('20')
-              ? `/blog/${item.slug}`
-              : `/blog/${item.slug}`,
-            score: Math.max(
-              50 - distance(item.slug?.replace(/^\d{4}\//, ''), cleanPath),
-              30 -
-                distance(
-                  item.title?.toLowerCase().replace(/\s+/g, '-'),
-                  cleanPath
-                )
-            )
-          }))
-          .filter((p) => p.score > 10)
-          .sort((a, b) => b.score - a.score)
-          .slice(0, 3)
+    const matches = items
+      .map((item: any) => ({
+        title: item.title,
+        path: `/blog/${item.slug}`,
+        score: -levenshtein(item.slug?.replace(/^\d{4}\//, '').toLowerCase(), search)
+      }))
+      .filter((m: any) => m.score > -15)
+      .sort((a: any, b: any) => b.score - a.score)
+      .slice(0, 3)
 
-        smartSuggestions.value = matches
-      }
-    }
-
-    // DELETE: No fallback suggestions if nothing matches
-  } catch (error) {
-    console.error('Error loading suggestions:', error)
-    // DELETE: No fallback suggestions on error either
+    suggestions.value = matches
+  } catch (e) {
+    // Silently fail
   }
 })
 </script>
