@@ -46,18 +46,22 @@
                 {{ book.metadata?.['kindle-sync']?.title || book.title }}
               </h1>
               <p class="text-xl text-zinc-600 dark:text-zinc-400 mb-4">
-                by {{ book.metadata?.['kindle-sync']?.author ?? 'Unknown Author' }}
+                by
+                {{ book.metadata?.['kindle-sync']?.author ?? 'Unknown Author' }}
               </p>
 
               <!-- Metadata -->
               <div :class="metadataContainerClass">
                 <span v-if="book.metadata?.['kindle-sync']?.highlightsCount">
-                  {{ book.metadata?.['kindle-sync']?.highlightsCount ?? 0 }} highlights
+                  {{ book.metadata?.['kindle-sync']?.highlightsCount ?? 0 }}
+                  highlights
                 </span>
                 <span v-if="book.metadata?.['kindle-sync']?.lastAnnotatedDate">
                   Last annotated:
                   {{
-                    formatDate(book.metadata?.['kindle-sync']?.lastAnnotatedDate)
+                    formatDate(
+                      book.metadata?.['kindle-sync']?.lastAnnotatedDate
+                    )
                   }}
                 </span>
                 <span v-if="book.metadata?.date">

@@ -72,6 +72,41 @@ const codeToShow = computed(() => {
 
 const highlightedCode = ref('')
 
+const updateHighlighting = async () => {
+  // SERVER-SIDE HIGHLIGHTING - Pre-baked like the low side
+  // No client bundlin', Zeus almighty style
+  if (codeToShow.value) {
+    try {
+      // Enhanced theme detection
+      let isDark = false
+      if (import.meta.client) {
+        // Check multiple methods for dark mode detection
+        isDark =
+          document.documentElement.classList.contains('dark') ||
+          document.documentElement.getAttribute('data-theme') === 'dark' ||
+          window.matchMedia('(prefers-color-scheme: dark)').matches
+      }
+
+      const response = await $fetch('/api/highlight', {
+        method: 'POST',
+        body: {
+          code: codeToShow.value,
+          language: props.file.language?.toLowerCase() || 'text',
+          theme: isDark ? 'one-dark-pro' : 'github-light'
+        }
+      })
+
+      highlightedCode.value =
+        (response as any)?.html || `<pre><code>${codeToShow.value}</code></pre>`
+    } catch (error) {
+      console.warn('Failed to highlight code:', error)
+      highlightedCode.value = `<pre><code>${codeToShow.value}</code></pre>`
+    }
+  } else {
+    highlightedCode.value = `<pre><code>${codeToShow.value || ''}</code></pre>`
+  }
+}
+
 // Initialize on server and client
 if (import.meta.server || import.meta.client) {
   // Initialize immediately for SSR
@@ -113,41 +148,6 @@ if (import.meta.client) {
   onUnmounted(() => {
     observer.disconnect()
   })
-}
-
-const updateHighlighting = async () => {
-  // SERVER-SIDE HIGHLIGHTING - Pre-baked like the low side
-  // No client bundlin', Zeus almighty style
-  if (codeToShow.value) {
-    try {
-      // Enhanced theme detection
-      let isDark = false
-      if (import.meta.client) {
-        // Check multiple methods for dark mode detection
-        isDark =
-          document.documentElement.classList.contains('dark') ||
-          document.documentElement.getAttribute('data-theme') === 'dark' ||
-          window.matchMedia('(prefers-color-scheme: dark)').matches
-      }
-
-      const response = await $fetch('/api/highlight', {
-        method: 'POST',
-        body: {
-          code: codeToShow.value,
-          language: props.file.language?.toLowerCase() || 'text',
-          theme: isDark ? 'one-dark-pro' : 'github-light'
-        }
-      })
-
-      highlightedCode.value =
-        (response as any)?.html || `<pre><code>${codeToShow.value}</code></pre>`
-    } catch (error) {
-      console.warn('Failed to highlight code:', error)
-      highlightedCode.value = `<pre><code>${codeToShow.value}</code></pre>`
-    }
-  } else {
-    highlightedCode.value = `<pre><code>${codeToShow.value || ''}</code></pre>`
-  }
 }
 
 // Handle toggle with animation

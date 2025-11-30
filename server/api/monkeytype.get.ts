@@ -83,9 +83,12 @@ export default defineEventHandler(async () => {
       makeRequest<MonkeyTypePB>('/users/personalBests', { mode: 'words' })
     ])
 
-    const statsData = results[0].status === 'fulfilled' ? results[0].value : null
-    const timeTests = results[1].status === 'fulfilled' ? results[1].value : null
-    const wordTests = results[2].status === 'fulfilled' ? results[2].value : null
+    const statsData =
+      results[0].status === 'fulfilled' ? results[0].value : null
+    const timeTests =
+      results[1].status === 'fulfilled' ? results[1].value : null
+    const wordTests =
+      results[2].status === 'fulfilled' ? results[2].value : null
 
     // Find best WPM across all test types
     const allTimeTests = Object.values(timeTests?.data || {}).flat()

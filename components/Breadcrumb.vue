@@ -1,7 +1,8 @@
 <template>
   <nav
     v-if="breadcrumbs.length > 1"
-    class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mb-6 flex items-center gap-2 overflow-x-auto"
+    class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mb-6 flex items-center gap-2"
+    :class="'overflow-x-auto'"
     aria-label="Breadcrumb"
   >
     <a

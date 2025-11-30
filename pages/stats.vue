@@ -30,7 +30,8 @@
       <!-- Error state for simple mode -->
       <div
         v-if="errors.fetch"
-        class="rounded-lg border border-red-300 bg-red-50 dark:bg-red-950 dark:border-red-800 p-4 text-red-800 dark:text-red-200 m-4"
+        class="rounded-lg border border-red-300 bg-red-50 p-4 text-red-800 m-4"
+        :class="'dark:bg-red-950 dark:border-red-800 dark:text-red-200'"
       >
         <h2 class="font-bold">Failed to Load Stats</h2>
         <p class="text-sm">Unable to fetch stats data.</p>
@@ -311,7 +312,8 @@
           <!-- Error state -->
           <div
             v-if="errors.fetch"
-            class="col-span-full rounded-lg border border-red-300 bg-red-50 dark:bg-red-950 dark:border-red-800 p-6 text-red-800 dark:text-red-200"
+            class="col-span-full rounded-lg border border-red-300 bg-red-50 p-6 text-red-800"
+            :class="'dark:bg-red-950 dark:border-red-800 dark:text-red-200'"
           >
             <h2 class="font-bold text-lg mb-2">Failed to Load Stats</h2>
             <p class="text-sm mb-4">

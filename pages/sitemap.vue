@@ -144,7 +144,10 @@
     </div>
 
     <!-- Error State -->
-    <div v-if="manifestError || predictionsError || tagsError" class="text-center py-8 text-red-600 dark:text-red-400">
+    <div
+      v-if="manifestError || predictionsError || tagsError"
+      class="text-center py-8 text-red-600 dark:text-red-400"
+    >
       Failed to load data
     </div>
 
@@ -269,7 +272,8 @@ useSeoMeta({
 const { data: manifest, error: manifestError } = await useFetch('/api/manifest')
 
 // Fetch predictions
-const { data: predictions, error: predictionsError } = await useFetch('/api/predictions')
+const { data: predictions, error: predictionsError } =
+  await useFetch('/api/predictions')
 
 // Fetch tags for counting
 const { data: tags, error: tagsError } = await useFetch('/tags.json')

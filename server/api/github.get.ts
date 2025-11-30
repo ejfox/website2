@@ -285,8 +285,10 @@ export default defineEventHandler(async (): Promise<GitHubStats> => {
       fetchContributions(token, lastMonth.toISOString(), today.toISOString())
     ])
 
-    const userStats = results[0].status === 'fulfilled' ? results[0].value : null
-    const contributions = results[1].status === 'fulfilled' ? results[1].value : null
+    const userStats =
+      results[0].status === 'fulfilled' ? results[0].value : null
+    const contributions =
+      results[1].status === 'fulfilled' ? results[1].value : null
 
     // console.log('📊 GitHub API responses:', {
     //   userStats: !!userStats,

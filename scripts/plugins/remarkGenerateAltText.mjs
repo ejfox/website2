@@ -52,7 +52,7 @@ async function imageUrlToBase64(url) {
     if (url.includes('.webp')) mimeType = 'image/webp'
 
     return { base64, mimeType, type: 'base64' }
-  } catch (error) {
+  } catch {
     console.warn(`  ⚠️  Failed to fetch image: ${url}`)
     return null
   }
@@ -74,7 +74,8 @@ async function generateAltTextWithGemini(imageData) {
           role: 'user',
           parts: [
             {
-              text: `You are writing accessibility descriptions for a personal blog focused on design, data visualization, reflections, and technical insights.
+              text: `You are writing accessibility descriptions for a personal blog focused on
+design, data visualization, reflections, and technical insights.
 
 Generate a single concise sentence (max 160 characters) for this image that:
 - Describes what's actually shown (not generic like "screenshot" or "image")
@@ -106,7 +107,7 @@ Return ONLY the alt text sentence, nothing else.`
     })
 
     if (!response.ok) {
-      const error = await response.text()
+      await response.text()
       console.warn(`  ⚠️  Gemini API error: ${response.status}`)
       return null
     }

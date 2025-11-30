@@ -1,7 +1,10 @@
 <template>
   <main class="container-main">
     <!-- Error State -->
-    <div v-if="predictionsError" class="text-center py-8 text-red-600 dark:text-red-400">
+    <div
+      v-if="predictionsError"
+      class="text-center py-8 text-red-600 dark:text-red-400"
+    >
       Failed to load data
     </div>
 
@@ -769,7 +772,8 @@ useSeoMeta({
   twitterImage: 'https://ejfox.com/og-image.png'
 })
 
-const { data: predictions, error: predictionsError } = await useFetch('/api/predictions')
+const { data: predictions, error: predictionsError } =
+  await useFetch('/api/predictions')
 const { data: kalshiData } = useKalshi()
 const { data: calibration } = useCalibration()
 

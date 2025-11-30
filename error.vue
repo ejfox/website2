@@ -10,7 +10,9 @@
 
       <!-- Suggestions -->
       <div v-if="suggestions.length" class="space-y-3">
-        <p class="text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-500">
+        <p
+          class="text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-500"
+        >
           Maybe you meant
         </p>
         <div class="space-y-1">
@@ -27,10 +29,16 @@
 
       <!-- Navigation -->
       <div class="pt-4 border-t border-zinc-200 dark:border-zinc-800 space-y-1">
-        <a href="/" class="block text-sm hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+        <a
+          href="/"
+          class="block text-sm hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+        >
           ← home
         </a>
-        <a href="/blog" class="block text-sm hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+        <a
+          href="/blog"
+          class="block text-sm hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+        >
           ← all posts
         </a>
       </div>
@@ -61,11 +69,8 @@ const levenshtein = (a: string, b: string): number => {
       matrix[i][j] =
         b.charAt(i - 1) === a.charAt(j - 1)
           ? matrix[i - 1][j - 1]
-          : Math.min(
-              matrix[i - 1][j - 1],
-              matrix[i][j - 1],
-              matrix[i - 1][j]
-            ) + 1
+          : Math.min(matrix[i - 1][j - 1], matrix[i][j - 1], matrix[i - 1][j]) +
+            1
     }
   }
   return matrix[b.length][a.length]
@@ -74,7 +79,8 @@ const levenshtein = (a: string, b: string): number => {
 onMounted(async () => {
   try {
     const manifest = await $fetch('/api/manifest')
-    const items = manifest?.filter((item: any) => !item.hidden && !item.draft) || []
+    const items =
+      manifest?.filter((item: any) => !item.hidden && !item.draft) || []
 
     const search = cleanPath.value.toLowerCase()
     if (!search || search.length > 80) return
@@ -90,7 +96,7 @@ onMounted(async () => {
       .slice(0, 3)
 
     suggestions.value = matches
-  } catch (e) {
+  } catch {
     // Silently fail
   }
 })

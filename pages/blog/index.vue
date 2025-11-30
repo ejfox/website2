@@ -102,7 +102,8 @@
             <!-- Error state -->
             <div
               v-if="postsError"
-              class="rounded-lg border border-red-300 bg-red-50 dark:bg-red-950 dark:border-red-800 p-4 text-red-800 dark:text-red-200"
+              class="rounded-lg border border-red-300 bg-red-50 p-4 text-red-800"
+              :class="'dark:bg-red-950 dark:border-red-800 dark:text-red-200'"
             >
               <h2 class="font-bold">Failed to Load Blog Posts</h2>
               <p class="text-sm">

@@ -180,11 +180,24 @@ export default defineEventHandler(async () => {
       makeRequest<any>('user.getinfo')
     ])
 
-    const recentTracks = results[0].status === 'fulfilled' ? results[0].value : { recenttracks: { track: [] } }
-    const topArtists = results[1].status === 'fulfilled' ? results[1].value : { topartists: { artist: [] } }
-    const topAlbums = results[2].status === 'fulfilled' ? results[2].value : { topalbums: { album: [] } }
-    const topTracks = results[3].status === 'fulfilled' ? results[3].value : { toptracks: { track: [] } }
-    const userInfo = results[4].status === 'fulfilled' ? results[4].value : { user: {} }
+    const recentTracks =
+      results[0].status === 'fulfilled'
+        ? results[0].value
+        : { recenttracks: { track: [] } }
+    const topArtists =
+      results[1].status === 'fulfilled'
+        ? results[1].value
+        : { topartists: { artist: [] } }
+    const topAlbums =
+      results[2].status === 'fulfilled'
+        ? results[2].value
+        : { topalbums: { album: [] } }
+    const topTracks =
+      results[3].status === 'fulfilled'
+        ? results[3].value
+        : { toptracks: { track: [] } }
+    const userInfo =
+      results[4].status === 'fulfilled' ? results[4].value : { user: {} }
 
     // Process recent tracks
     const processedRecentTracks = {

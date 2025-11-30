@@ -146,14 +146,17 @@ async function fetchChannelVideos(
     fetchVideoComments(token, item.contentDetails.videoId)
   )
   const results = await Promise.allSettled(commentPromises)
-  const commentCounts = results.map((r) => (r.status === 'fulfilled' ? r.value : 0))
+  const commentCounts = results.map((r) =>
+    r.status === 'fulfilled' ? r.value : 0
+  )
 
   // Combine video details with their stats
   const videos = videosResponse.items.map((item: any, index: number) => {
     // Check if stats exist for this index
-    const stats = (index < videoStatsResponse.items.length)
-      ? videoStatsResponse.items[index]?.statistics || {}
-      : {}
+    const stats =
+      index < videoStatsResponse.items.length
+        ? videoStatsResponse.items[index]?.statistics || {}
+        : {}
     const snippet = item.snippet
 
     return {
@@ -215,8 +218,18 @@ export default defineEventHandler(async (): Promise<YouTubeStats> => {
       fetchChannelVideos(token, channelId)
     ])
 
-    const channelStats = results[0].status === 'fulfilled' ? results[0].value : { subscribers: 0, views: 0, videoCount: 0 }
-    const videoData = results[1].status === 'fulfilled' ? results[1].value : { videos: [], videosThisMonth: 0, monthlyStats: { views: 0, comments: 0, likes: 0 } }
+    const channelStats =
+      results[0].status === 'fulfilled'
+        ? results[0].value
+        : { subscribers: 0, views: 0, videoCount: 0 }
+    const videoData =
+      results[1].status === 'fulfilled'
+        ? results[1].value
+        : {
+            videos: [],
+            videosThisMonth: 0,
+            monthlyStats: { views: 0, comments: 0, likes: 0 }
+          }
 
     const response: YouTubeStats = {
       stats: {

@@ -1,11 +1,11 @@
 <template>
   <div v-if="hasData" class="space-y-4 font-mono">
     <!-- Last 5 Songs -->
-    <div v-if="stats.recentTracks?.tracks?.length">
+    <div v-if="stats?.recentTracks?.tracks?.length">
       <StatsSectionHeader title="LAST 5 SONGS" />
       <div class="space-y-1.5">
         <div
-          v-for="track in (stats.recentTracks?.tracks || []).slice(0, 5)"
+          v-for="track in (stats?.recentTracks?.tracks || []).slice(0, 5)"
           :key="track.name + track.date"
           class="flex items-baseline justify-between text-xs"
         >

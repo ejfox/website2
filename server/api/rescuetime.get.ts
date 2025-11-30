@@ -97,8 +97,10 @@ export default defineEventHandler(async () => {
       })
     ])
 
-    const weekData = results[0].status === 'fulfilled' ? results[0].value : { rows: [] }
-    const monthData = results[1].status === 'fulfilled' ? results[1].value : { rows: [] }
+    const weekData =
+      results[0].status === 'fulfilled' ? results[0].value : { rows: [] }
+    const monthData =
+      results[1].status === 'fulfilled' ? results[1].value : { rows: [] }
 
     // Process week data
     const processData = (response: RescueTimeResponse) => {

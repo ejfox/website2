@@ -375,7 +375,8 @@ export default defineEventHandler(async (event): Promise<SuggestResponse> => {
       loadBlogPosts()
     ])
 
-    const availableTags = results[0].status === 'fulfilled' ? results[0].value : []
+    const availableTags =
+      results[0].status === 'fulfilled' ? results[0].value : []
     const blogPosts = results[1].status === 'fulfilled' ? results[1].value : []
 
     // Find similar content

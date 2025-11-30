@@ -1,7 +1,10 @@
 <template>
   <main class="px-4 md:px-6 lg:px-8 max-w-full bg-zinc-950 min-h-screen">
     <!-- Error State -->
-    <div v-if="csvError" class="text-center py-8 text-red-600 dark:text-red-400">
+    <div
+      v-if="csvError"
+      class="text-center py-8 text-red-600 dark:text-red-400"
+    >
       Failed to load data
     </div>
 

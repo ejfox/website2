@@ -57,10 +57,10 @@ export const useStatusFormatting = () => {
 
   /**
    * Get badge styling for FOIA status (no decorative colors, data only)
-   * @param status - FOIA status
+   * @param _status - FOIA status
    * @returns CSS class string for styling
    */
-  const getFoiaStatusClass = (status: string): string => {
+  const getFoiaStatusClass = (_status: string): string => {
     // All FOIA statuses use same neutral styling - no color decoration
     return 'font-mono text-xs text-zinc-600 dark:text-zinc-400'
   }

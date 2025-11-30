@@ -92,8 +92,8 @@ const formattedValue = computed(() => {
 
   // Handle special cases
   if (val === 0) return '0'
-  if (Number.Number.isNaN(val)) return '—'
-  if (!Number.Number.isFinite(val)) return '∞'
+  if (Number.isNaN(val)) return '—'
+  if (!Number.isFinite(val)) return '∞'
 
   // Format based on type and size
   if (props.formatType === 'percent') {
@@ -135,7 +135,7 @@ const animateValueChange = () => {
 
 // Helper to format numbers during animation
 const _formatNumberForDisplay = (val: number): string => {
-  if (typeof val !== 'number' || Number.Number.isNaN(val)) return '0'
+  if (typeof val !== 'number' || Number.isNaN(val)) return '0'
 
   // Use same formatting logic but simplified for animation
   if (val < 1000) return Math.round(val).toString()

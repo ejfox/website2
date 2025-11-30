@@ -91,7 +91,8 @@ export default defineEventHandler(async () => {
     ])
 
     const stats = results[0].status === 'fulfilled' ? results[0].value : {}
-    const games = results[1].status === 'fulfilled' ? results[1].value : { games: [] }
+    const games =
+      results[1].status === 'fulfilled' ? results[1].value : { games: [] }
 
     // Process the stats
     const response: ChessStats = {
