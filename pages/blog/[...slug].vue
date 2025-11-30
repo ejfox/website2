@@ -543,7 +543,7 @@ watch(
             title: p.title,
             path: `/blog/${p.slug}`,
             score: Math.max(
-              50 - distance(p.slug?.replace(/^\d{4}\//, ''), path),
+              50 - distance(p.slug || '', path),
               30 - distance(p.title?.toLowerCase().replace(/\s+/g, '-'), path)
             )
           }))
