@@ -122,12 +122,18 @@ const formatFieldName = (fieldName) => {
 }
 
 // Class strings
-const headerLabelClass = 'text-sm uppercase tracking-widest text-zinc-600 dark:text-zinc-400'
-const weightDisplayClass = 'text-3xl font-bold font-mono mb-1 text-zinc-900 dark:text-zinc-100'
-const weightLabelClass = 'text-xs font-mono uppercase tracking-widest text-zinc-600 dark:text-zinc-400'
-const tierLabelClass = 'text-xs font-mono uppercase tracking-widest text-zinc-600 dark:text-zinc-400'
-const fieldLabelClass = 'flex-shrink-0 uppercase tracking-widest text-zinc-600 dark:text-zinc-400'
-const fieldValueClass = 'font-mono text-right truncate ml-2 min-w-0 text-zinc-900 dark:text-zinc-100'
+const headerLabelClass =
+  'text-sm uppercase tracking-widest text-zinc-600 dark:text-zinc-400'
+const weightDisplayClass =
+  'text-3xl font-bold font-mono mb-1 text-zinc-900 dark:text-zinc-100'
+const weightLabelClass =
+  'text-xs font-mono uppercase tracking-widest text-zinc-600 dark:text-zinc-400'
+const tierLabelClass =
+  'text-xs font-mono uppercase tracking-widest text-zinc-600 dark:text-zinc-400'
+const fieldLabelClass =
+  'flex-shrink-0 uppercase tracking-widest text-zinc-600 dark:text-zinc-400'
+const fieldValueClass =
+  'font-mono text-right truncate ml-2 min-w-0 text-zinc-900 dark:text-zinc-100'
 
 // Computed properties
 const displayWeight = computed(() => {
@@ -200,7 +206,6 @@ const cardTransform = computed(() => {
     filter: 'blur(0px)'
   }
 })
-
 </script>
 
 <style scoped>
