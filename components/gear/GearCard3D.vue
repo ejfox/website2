@@ -98,10 +98,6 @@ const props = defineProps({
 })
 
 const { getItemWeightInGrams } = useWeightCalculations()
-// Animations disabled; keeping minimal interactions only
-
-// Animation refs
-const cardRef = ref(null)
 
 // Type symbols
 const typeSymbols = {
@@ -126,18 +122,12 @@ const formatFieldName = (fieldName) => {
 }
 
 // Class strings
-const headerLabelClass =
-  'text-sm uppercase tracking-widest text-zinc-600 dark:text-zinc-400'
-const weightDisplayClass =
-  'text-3xl font-bold font-mono mb-1 text-zinc-900 dark:text-zinc-100'
-const weightLabelClass =
-  'text-xs font-mono uppercase tracking-widest text-zinc-600 dark:text-zinc-400'
-const tierLabelClass =
-  'text-xs font-mono uppercase tracking-widest text-zinc-600 dark:text-zinc-400'
-const fieldLabelClass =
-  'flex-shrink-0 uppercase tracking-widest text-zinc-600 dark:text-zinc-400'
-const fieldValueClass =
-  'font-mono text-right truncate ml-2 min-w-0 text-zinc-900 dark:text-zinc-100'
+const headerLabelClass = 'text-sm uppercase tracking-widest text-zinc-600 dark:text-zinc-400'
+const weightDisplayClass = 'text-3xl font-bold font-mono mb-1 text-zinc-900 dark:text-zinc-100'
+const weightLabelClass = 'text-xs font-mono uppercase tracking-widest text-zinc-600 dark:text-zinc-400'
+const tierLabelClass = 'text-xs font-mono uppercase tracking-widest text-zinc-600 dark:text-zinc-400'
+const fieldLabelClass = 'flex-shrink-0 uppercase tracking-widest text-zinc-600 dark:text-zinc-400'
+const fieldValueClass = 'font-mono text-right truncate ml-2 min-w-0 text-zinc-900 dark:text-zinc-100'
 
 // Computed properties
 const displayWeight = computed(() => {
@@ -211,57 +201,12 @@ const cardTransform = computed(() => {
   }
 })
 
-// Epic gear card reveal sequence (disabled)
-const _animateGearCardReveal = async () => {
-  if (import.meta.server || !cardRef.value) return
-  await nextTick()
-  // No animations
-}
-
-// Stage 4: Ambient detail pulse - DISABLED (causing looping animations)
-// setTimeout(() => {
-//   const details = cardRef.value?.querySelectorAll(
-//     '.text-lg, .text-3xl, .text-2xl'
-//   )
-//   if (details?.length) {
-//     const pulseDetails = () => {
-// DELETED: All broken animation code
-// Expose the exit function to parent components
-defineExpose({
-  triggerExit
-})
 </script>
 
 <style scoped>
-.gear-card {
+.gear-card-container {
   transform-style: preserve-3d;
-  will-change: transform, opacity, filter, scale;
-  backface-visibility: hidden;
-  perspective: 1500px;
-  transform-origin: center center;
-  /* Start more subtle for simultaneous transitions */
-  opacity: 0.3;
-  /* Less dramatic initial state for faster transitions */
-  transform: perspective(1500px) rotateX(-90deg) rotateY(45deg) rotateZ(-20deg)
-    scale(0.4) translateZ(-200px);
-  filter: blur(4px) brightness(0.3) contrast(0.8);
-}
-
-/* Ensure no blur remains after animations */
-.gear-card[style*='filter: none'],
-.gear-card:not([style*='filter']) {
-  filter: none !important;
-}
-
-/* Enhanced 3D container */
-.min-h-screen {
-  perspective: 2000px;
-  transform-style: preserve-3d;
-}
-
-/* 3D context for child elements */
-.gear-card > * {
-  transform-style: preserve-3d;
-  will-change: transform, opacity, filter;
+  will-change: transform;
+  transition: transform 0.3s ease-out;
 }
 </style>
