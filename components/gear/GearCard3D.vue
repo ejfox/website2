@@ -88,7 +88,7 @@
 </template>
 
 <script setup>
-import { useMouse } from '~/composables/useOptimizedVueUse'
+import { useMouse } from '@vueuse/core'
 
 const props = defineProps({
   gearItem: {
@@ -98,6 +98,9 @@ const props = defineProps({
 })
 
 const { getItemWeightInGrams } = useWeightCalculations()
+
+// Component refs
+const cardRef = ref(null)
 
 // Type symbols
 const typeSymbols = {
