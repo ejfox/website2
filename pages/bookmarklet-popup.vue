@@ -214,29 +214,31 @@ const getTagButtonClass = (tagObj) => {
 
 // Fetch suggestions on mount
 onMounted(async () => {
-  // Load official tags
-  try {
-    const tags = await $fetch('/tags.json')
-    officialTags.value = tags || []
-  } catch (err) {
-    console.warn('Failed to load official tags:', err)
-  }
+  // Validate required parameters before starting any fetches
   if (!pageUrl || !auth) {
     error.value = 'Missing required parameters'
     loading.value = false
     return
   }
 
+  // Load tags and suggestions in parallel, update loading state once both complete
   try {
-    const response = await $fetch('/api/suggest', {
-      query: {
-        url: pageUrl,
-        title: pageTitle,
-        text: pageText,
-        auth: auth
-      }
-    })
+    const [tags, response] = await Promise.all([
+      $fetch('/tags.json').catch((err) => {
+        console.warn('Failed to load official tags:', err)
+        return []
+      }),
+      $fetch('/api/suggest', {
+        query: {
+          url: pageUrl,
+          title: pageTitle,
+          text: pageText,
+          auth: auth
+        }
+      })
+    ])
 
+    officialTags.value = tags || []
     suggestions.value = response
 
     // Pre-select top 3 suggested tags

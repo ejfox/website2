@@ -6,6 +6,9 @@ const { data: predictions, error: predictionsError } = await useFetch('/api/pred
 
 // Process data for "now" view
 const now = computed(() => {
+  // Guard against accessing data while still loading
+  if (!stats.value) return null
+
   const result = {
     timestamp: new Date().toISOString()
   }
@@ -38,12 +41,12 @@ const now = computed(() => {
     const currentlyReading = reading.value
       .filter((b) => b.metadata?.['kindle-sync']?.lastAnnotatedDate)
       .sort((a, b) => {
-        const dateA = new Date(a.metadata['kindle-sync'].lastAnnotatedDate)
-        const dateB = new Date(b.metadata['kindle-sync'].lastAnnotatedDate)
+        const dateA = new Date(a.metadata?.['kindle-sync']?.lastAnnotatedDate || 0)
+        const dateB = new Date(b.metadata?.['kindle-sync']?.lastAnnotatedDate || 0)
         return dateB - dateA
       })[0]
 
-    if (currentlyReading) {
+    if (currentlyReading?.metadata?.['kindle-sync']) {
       result.reading = {
         title: currentlyReading.metadata['kindle-sync'].title,
         author: currentlyReading.metadata['kindle-sync'].author,
@@ -164,7 +167,7 @@ useHead({
     </div>
 
     <!-- Now Data -->
-    <div v-else class="space-y-6">
+    <div v-else-if="now" class="space-y-6">
       <!-- Listening -->
       <section
         v-if="now.music"

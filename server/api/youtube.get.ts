@@ -150,7 +150,10 @@ async function fetchChannelVideos(
 
   // Combine video details with their stats
   const videos = videosResponse.items.map((item: any, index: number) => {
-    const stats = videoStatsResponse.items[index]?.statistics || {}
+    // Check if stats exist for this index
+    const stats = (index < videoStatsResponse.items.length)
+      ? videoStatsResponse.items[index]?.statistics || {}
+      : {}
     const snippet = item.snippet
 
     return {

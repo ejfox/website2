@@ -1,0 +1,229 @@
+{
+  "name": "Vulpes Reddish",
+  "type": "dark",
+  "colors": {
+    "editor.background": "#0f0a0a",
+    "editor.foreground": "#f5e6eb",
+    "editorCursor.foreground": "#ff268c",
+    "editor.lineHighlightBackground": "#1a1515",
+    "editor.selectionBackground": "#ff268c33",
+    "editorLineNumber.foreground": "#8a005055",
+    "editorLineNumber.activeForeground": "#ff268c"
+  },
+  "tokenColors": [
+    {
+      "name": "Comment",
+      "scope": "comment",
+      "settings": {
+        "foreground": "#d68a8a",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "String",
+      "scope": "string",
+      "settings": {
+        "foreground": "#ff9b8a"
+      }
+    },
+    {
+      "name": "Number",
+      "scope": "constant.numeric",
+      "settings": {
+        "foreground": "#ff8ab5"
+      }
+    },
+    {
+      "name": "Built-in constant",
+      "scope": "constant.language",
+      "settings": {
+        "foreground": "#ff8ab5"
+      }
+    },
+    {
+      "name": "User-defined constant",
+      "scope": "constant.character, constant.other",
+      "settings": {
+        "foreground": "#ff8ab5"
+      }
+    },
+    {
+      "name": "Variable",
+      "scope": "variable",
+      "settings": {
+        "fontStyle": ""
+      }
+    },
+    {
+      "name": "Keyword",
+      "scope": "keyword",
+      "settings": {
+        "foreground": "#ff268c",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Storage",
+      "scope": "storage",
+      "settings": {
+        "foreground": "#ff268c",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Storage type",
+      "scope": "storage.type",
+      "settings": {
+        "foreground": "#ffb3d1",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Class name",
+      "scope": "entity.name.class",
+      "settings": {
+        "foreground": "#ff5fa0",
+        "fontStyle": "underline"
+      }
+    },
+    {
+      "name": "Inherited class",
+      "scope": "entity.other.inherited-class",
+      "settings": {
+        "foreground": "#ff5fa0"
+      }
+    },
+    {
+      "name": "Function name",
+      "scope": "entity.name.function",
+      "settings": {
+        "foreground": "#ff5fa0"
+      }
+    },
+    {
+      "name": "Function argument",
+      "scope": "variable.parameter",
+      "settings": {
+        "foreground": "#f5c6d6",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Tag name",
+      "scope": "entity.name.tag",
+      "settings": {
+        "foreground": "#ff268c"
+      }
+    },
+    {
+      "name": "Tag attribute",
+      "scope": "entity.other.attribute-name",
+      "settings": {
+        "foreground": "#ffb3d1"
+      }
+    },
+    {
+      "name": "Library function",
+      "scope": "support.function",
+      "settings": {
+        "foreground": "#ff5fa0"
+      }
+    },
+    {
+      "name": "Library constant",
+      "scope": "support.constant",
+      "settings": {
+        "foreground": "#ff8ab5"
+      }
+    },
+    {
+      "name": "Library class/type",
+      "scope": "support.type, support.class",
+      "settings": {
+        "foreground": "#ffb3d1"
+      }
+    },
+    {
+      "name": "Library variable",
+      "scope": "support.other.variable",
+      "settings": {
+        "fontStyle": ""
+      }
+    },
+    {
+      "name": "Invalid",
+      "scope": "invalid",
+      "settings": {
+        "foreground": "#ff268c",
+        "background": "#1a1515"
+      }
+    },
+    {
+      "name": "Invalid deprecated",
+      "scope": "invalid.deprecated",
+      "settings": {
+        "foreground": "#ff268c",
+        "background": "#8a005055"
+      }
+    },
+    {
+      "name": "Operator",
+      "scope": "keyword.operator",
+      "settings": {
+        "foreground": "#9fd89f"
+      }
+    },
+    {
+      "name": "Escape character",
+      "scope": "constant.character.escape",
+      "settings": {
+        "foreground": "#9fd89f"
+      }
+    },
+    {
+      "name": "Diff addition",
+      "scope": "markup.inserted, meta.diff.header.diff",
+      "settings": {
+        "foreground": "#9fd89f"
+      }
+    },
+    {
+      "name": "Diff deletion",
+      "scope": "markup.deleted",
+      "settings": {
+        "foreground": "#ff268c"
+      }
+    },
+    {
+      "name": "Diff header",
+      "scope": "meta.diff.header",
+      "settings": {
+        "foreground": "#ff268c"
+      }
+    },
+    {
+      "name": "Module name",
+      "scope": "entity.name.module",
+      "settings": {
+        "foreground": "#9fd89f"
+      }
+    },
+    {
+      "name": "Control keyword",
+      "scope": "keyword.control",
+      "settings": {
+        "foreground": "#ff268c",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "This keyword",
+      "scope": "variable.language.this",
+      "settings": {
+        "foreground": "#ffb3d1",
+        "fontStyle": "italic"
+      }
+    }
+  ],
+  "semanticHighlighting": true
+}

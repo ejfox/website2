@@ -426,10 +426,23 @@ export const useProcessedMarkdown = () => {
 
   const getRobotNotesWithContent = async (): Promise<Post[]> => {
     const robotPosts = await getRobotNotes()
+    if (!robotPosts || robotPosts.length === 0) {
+      return []
+    }
+    // Use individual try/catch to handle partial failures gracefully
     return Promise.all(
       robotPosts.map(async (post: Post) => {
-        const fullPost = await getPostBySlug(post.slug)
-        return { ...post, ...fullPost }
+        try {
+          const fullPost = await getPostBySlug(post.slug)
+          return { ...post, ...fullPost }
+        } catch (err) {
+          console.error('Error fetching robot note content:', {
+            slug: post.slug,
+            error: err
+          })
+          // Return post without full content on error
+          return post
+        }
       })
     )
   }

@@ -401,7 +401,7 @@ export default defineEventHandler(
       const marketDetails: Record<string, EnrichedMarketData> = {}
       const tickers = Array.from(tickerToEvent.keys())
       for (const ticker of tickers) {
-        const eventTicker = tickerToEvent.get(ticker)!
+        const eventTicker = tickerToEvent.get(ticker) ?? deriveEventTicker(ticker)
         const event = eventDataMap.get(eventTicker)
         const commentary = commentaries[ticker]
         marketDetails[ticker] = enrichMarketData(
@@ -531,7 +531,7 @@ export default defineEventHandler(
       const marketDetails: Record<string, EnrichedMarketData> = {}
       const tickers = Array.from(tickerToEvent.keys())
       for (const ticker of tickers) {
-        const eventTicker = tickerToEvent.get(ticker)!
+        const eventTicker = tickerToEvent.get(ticker) ?? deriveEventTicker(ticker)
         const event = eventDataMap.get(eventTicker)
         const commentary = commentaries[ticker]
         marketDetails[ticker] = enrichMarketData(
