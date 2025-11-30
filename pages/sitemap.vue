@@ -143,8 +143,13 @@
       </section>
     </div>
 
+    <!-- Error State -->
+    <div v-if="manifestError || predictionsError || tagsError" class="text-center py-8 text-red-600 dark:text-red-400">
+      Failed to load data
+    </div>
+
     <!-- Dynamic Content Section -->
-    <div class="mt-16 space-y-8">
+    <div v-else class="mt-16 space-y-8">
       <!-- Recent Blog Posts -->
       <section v-if="recentPosts.length">
         <div class="sitemap-section-header">RECENT_POSTS</div>
@@ -261,13 +266,13 @@ useSeoMeta({
 })
 
 // Fetch blog posts from manifest
-const { data: manifest } = await useFetch('/api/manifest')
+const { data: manifest, error: manifestError } = await useFetch('/api/manifest')
 
 // Fetch predictions
-const { data: predictions } = await useFetch('/api/predictions')
+const { data: predictions, error: predictionsError } = await useFetch('/api/predictions')
 
 // Fetch tags for counting
-const { data: tags } = await useFetch('/tags.json')
+const { data: tags, error: tagsError } = await useFetch('/tags.json')
 
 // Process recent posts
 const recentPosts = computed(() => {

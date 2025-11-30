@@ -7,9 +7,14 @@ useHead({
   link: [{ rel: 'canonical', href: 'https://ejfox.com/projects' }]
 })
 
-const { data: projects } = await useAsyncData('projects-page-data', () =>
-  $fetch('/api/projects')
-)
+const { data: projects } = await useAsyncData('projects-page-data', async () => {
+  try {
+    return await $fetch('/api/projects')
+  } catch (error) {
+    console.error('Failed to fetch projects:', error)
+    return []
+  }
+})
 
 const featuredProjects = computed(
   () => projects.value?.filter((p) => p.metadata?.featured) || []

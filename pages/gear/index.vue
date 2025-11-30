@@ -1,6 +1,11 @@
 <template>
   <main class="px-4 md:px-6 lg:px-8 max-w-full bg-zinc-950 min-h-screen">
-    <header class="section-spacing-sm">
+    <!-- Error State -->
+    <div v-if="csvError" class="text-center py-8 text-red-600 dark:text-red-400">
+      Failed to load data
+    </div>
+
+    <header v-else class="section-spacing-sm">
       <div class="flex-between py-3 section-spacing-sm">
         <div class="flex items-baseline gap-3">
           <h1 class="font-mono text-sm text-zinc-100">GEAR</h1>
@@ -296,7 +301,7 @@ const processGearItem = (item) => {
 }
 
 // Fetch gear data using Nuxt's data fetching
-const { data: csvText } = await useFetch('/api/gear-csv')
+const { data: csvText, error: csvError } = await useFetch('/api/gear-csv')
 
 // Process CSV data when available
 watchEffect(() => {

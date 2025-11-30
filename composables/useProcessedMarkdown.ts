@@ -200,7 +200,7 @@ export const useProcessedMarkdown = () => {
       return await $fetch('/api/manifest')
     } catch (error) {
       console.error('Error loading manifest:', error)
-      throw error
+      return []
     }
   }
 
@@ -306,13 +306,18 @@ export const useProcessedMarkdown = () => {
       const postsToFetch = allPosts.slice(offset, offset + limit)
       return await Promise.all(
         postsToFetch.map(async (post) => {
-          const fullPost = await getPostBySlug(post.slug)
-          return { ...post, ...fullPost }
+          try {
+            const fullPost = await getPostBySlug(post.slug)
+            return { ...post, ...fullPost }
+          } catch (error) {
+            console.error(`Error fetching content for post ${post.slug}:`, error)
+            return post
+          }
         })
       )
     } catch (error) {
       console.error('Error fetching posts with content:', error)
-      throw error
+      return []
     }
   }
 

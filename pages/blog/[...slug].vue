@@ -66,13 +66,14 @@ const { data: post, error } = await useAsyncData(
       }
 
       if (response.error) {
-        throw new Error(response.error)
+        console.error('Post returned error:', response.error)
+        return null
       }
 
       return response
     } catch (error) {
       console.error('Error fetching post:', error)
-      throw error
+      return null
     }
   }
 )

@@ -1,7 +1,12 @@
 <script setup>
-const { data: links } = await useAsyncData('external-links', () =>
-  $fetch('/api/external-links')
-)
+const { data: links } = await useAsyncData('external-links', async () => {
+  try {
+    return await $fetch('/api/external-links')
+  } catch (error) {
+    console.error('Failed to fetch external links:', error)
+    return []
+  }
+})
 
 const search = ref('')
 const selectedTld = ref('all')

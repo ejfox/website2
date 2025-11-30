@@ -167,7 +167,7 @@ const { data: prediction, error } = await useAsyncData(
       return predictions.find((p) => p.slug === slug || p.id === slug)
     } catch (error) {
       console.error('Error fetching prediction:', error)
-      throw error
+      return null
     }
   }
 )

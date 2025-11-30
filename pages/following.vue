@@ -10,8 +10,13 @@
         </p>
       </header>
 
+      <!-- Error State -->
+      <div v-if="error" class="text-center py-8 text-red-600 dark:text-red-400">
+        Failed to load data
+      </div>
+
       <!-- Stats -->
-      <section v-if="data" class="section-spacing-lg mono-xs">
+      <section v-else-if="data" class="section-spacing-lg mono-xs">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div
             v-for="(count, category) in sortedCategories"
@@ -67,7 +72,7 @@
 </template>
 
 <script setup lang="ts">
-const { data } = await useFetch('/api/blogroll')
+const { data, error } = await useFetch('/api/blogroll')
 
 const sortedCategories = computed(() => {
   if (!data.value?.meta.stats.byCategoryCount) return {}

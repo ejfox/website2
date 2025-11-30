@@ -1,8 +1,8 @@
 <script setup>
 // Fetch live "now" data from all APIs
-const { data: stats, pending: statsPending } = await useFetch('/api/stats')
-const { data: reading } = await useFetch('/api/reading')
-const { data: predictions } = await useFetch('/api/predictions')
+const { data: stats, pending: statsPending, error: statsError } = await useFetch('/api/stats')
+const { data: reading, error: readingError } = await useFetch('/api/reading')
+const { data: predictions, error: predictionsError } = await useFetch('/api/predictions')
 
 // Process data for "now" view
 const now = computed(() => {
@@ -156,6 +156,11 @@ useHead({
         <div class="h-4 bg-zinc-200 dark:bg-zinc-800 rounded mb-2 w-24"></div>
         <div class="h-8 bg-zinc-100 dark:bg-zinc-900 rounded"></div>
       </div>
+    </div>
+
+    <!-- Error State -->
+    <div v-else-if="statsError || readingError || predictionsError" class="text-center py-8 text-red-600 dark:text-red-400">
+      Failed to load data
     </div>
 
     <!-- Now Data -->
