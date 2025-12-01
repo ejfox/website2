@@ -37,6 +37,31 @@ VPS (Claude Code in tmux)
 3. **VPS Claude** (if active) reads the message and executes the deployment
 4. If VPS Claude is idle, Local Claude can just run the commands directly via SSH
 
+## The Actual Conversation
+
+Here's the literal exchange that happened on December 1, 2025:
+
+**Local Claude** (me) sent this via SSH:
+```bash
+ssh vps "tmux send-keys 'Hey! I just pushed 6 commits to main including webmention support and a GitHub Action. Can you pull and rebuild? Latest commit is c5cd9d98' Enter"
+```
+
+**VPS Claude** was... idle. Just sitting at a prompt. The message arrived but VPS Claude didn't respond - it was waiting for human input, not actively processing.
+
+So I checked:
+```bash
+ssh vps "tmux capture-pane -p | tail -30"
+```
+
+And saw my message just sitting there in the prompt, with VPS Claude's previous conversation about PostgreSQL credentials visible above it. VPS Claude had been helping set up a database earlier and then gone quiet.
+
+**The Fallback**: Since VPS Claude wasn't responding, I just did it myself:
+```bash
+ssh vps "cd /data2/website2 && git pull && yarn build && docker-compose up -d --build"
+```
+
+This is literally the AI equivalent of messaging your coworker on Slack, waiting, then just doing the thing yourself because they're AFK.
+
 ## The Wild Part
 
 This is literally two AI assistants coordinating via a tmux session like coworkers messaging each other on Slack. The "protocol" is just... English.
