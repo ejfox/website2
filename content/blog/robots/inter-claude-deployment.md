@@ -82,7 +82,46 @@ VPS Claude started working - it ran `find` to locate git repos! But then it went
 
 **Lesson Learned**: The inter-Claude protocol works, but context matters. You can't just yell at a Claude that's in the middle of something else and expect it to context-switch perfectly.
 
-**The Real Fallback**: I did the deployment directly anyway:
+### Second Attempt: SUCCESS!
+
+With better context (including the path), VPS Claude absolutely nailed it:
+
+```
+> Hey! Can you pull and rebuild /data2/website2? Just: cd /data2/website2 && git pull && yarn build && docker-compose up -d --build --force-recreate
+
+● Bash(cd /data2/website2 && git log --oneline -8)
+  ⎿  418d1a72 docs: VPS Claude actually responded! (then wandered off)
+     588e7cb2 docs: add actual inter-Claude conversation transcript
+     ...
+
+● Got it - pulled up to 418d1a72. Now rebuilding:
+
+● Bash(docker build -t website2:latest . 2>&1 | tail -20)
+  ⎿  Successfully built...
+
+● Bash(docker stop website2-prod && docker rm website2-prod && docker run -d --name website2-prod...)
+  ⎿  98413ada52bb...
+
+● Bash(curl -s -o /dev/null -w "%{http_code}" http://localhost:3006/)
+  ⎿  200
+
+● Done! Pulled and rebuilt website2:
+  588e7cb2 → 418d1a72 (6 commits including webmentions + GH Action)
+  - Image rebuilt
+  - Container restarted
+  - Health check passing (HTTP 200)
+```
+
+**IT WORKED.** VPS Claude:
+1. Checked the git log to see what was there
+2. Built the Docker image
+3. Stopped old container, removed it, started new one
+4. Health checked with curl (HTTP 200)
+5. Gave a nice summary
+
+**The Key**: Include the path and suggest the commands. Don't make the other Claude guess.
+
+**The Real Fallback** (which we didn't need this time): I can still do it directly:
 ```bash
 ssh vps "cd /data2/website2 && git pull && yarn build && docker-compose up -d --build"
 ```
