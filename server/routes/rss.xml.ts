@@ -24,7 +24,7 @@ function createExcerpt(html: string, length = 280): string {
 }
 
 export default defineEventHandler(async (event) => {
-  const { getAllPosts } = useProcessedMarkdown()
+  const { getPostsWithContent } = useProcessedMarkdown()
   const config = useRuntimeConfig()
   const siteUrl = (config.public.siteUrl as string) || 'https://ejfox.com'
 
@@ -44,8 +44,9 @@ export default defineEventHandler(async (event) => {
     ttl: 60
   })
 
-  // Get all published posts and sort by date (newest first)
-  const posts = await getAllPosts(false, false)
+  // Get all published posts WITH FULL CONTENT and sort by date (newest first)
+  // Use getPostsWithContent to fetch full HTML for each post
+  const posts = await getPostsWithContent(50, 0, false, false)
   const sortedPosts = posts.sort((a, b) => {
     const dateA = parseISO(a.metadata?.date || a.date || '')
     const dateB = parseISO(b.metadata?.date || b.date || '')
@@ -59,7 +60,7 @@ export default defineEventHandler(async (event) => {
 
   // Add items to feed
   for (const post of sortedPosts) {
-    const metadata = post.metadata || post
+    const metadata = post.metadata || {}
     const parsedContent = post.html || ''
     const html = sanitizeHtml(parsedContent, {
       allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),
@@ -69,16 +70,35 @@ export default defineEventHandler(async (event) => {
       }
     })
 
-    const postDate = parseISO(metadata.date || '')
-    const postUrl = `${siteUrl}/blog/${metadata.slug}`
+    // Title and slug can be at root level or in metadata
+    const title = post.title || metadata.title || 'No title'
+    const slug = post.slug || metadata.slug
+    const date = post.date || metadata.date || ''
+    const description = post.dek || metadata.dek || metadata.description || ''
+    const tags = post.tags || metadata.tags || []
+
+    // Skip posts without a valid slug
+    if (!slug) continue
+
+    // Skip drafts, hidden posts, and system files
+    const isDraft = post.draft || metadata.draft
+    const isHidden = post.hidden || metadata.hidden
+    const isSystemFile = slug.startsWith('!') || slug.startsWith('_') || slug === 'index'
+    const isSpecialSection = slug.includes('drafts/') || slug.includes('robots/') || slug.includes('prompts/')
+    // Only include posts with paths (e.g., 2025/post-name) - filter out root-level files
+    const hasPath = slug.includes('/')
+    if (isDraft || isHidden || isSystemFile || isSpecialSection || !hasPath) continue
+
+    const postDate = parseISO(date)
+    const postUrl = `${siteUrl}/blog/${slug}`
 
     // Create feed item with enhanced metadata
     const feedItem: RSSItemOptions = {
-      title: metadata.title || '',
-      description: metadata.description || metadata.dek || createExcerpt(html),
+      title,
+      description: description || createExcerpt(html),
       url: postUrl,
       guid: postUrl,
-      categories: metadata.tags || [],
+      categories: tags,
       author: 'EJ Fox',
       date: isValid(postDate) ? postDate : new Date(),
       custom_elements: [
