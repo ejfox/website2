@@ -91,10 +91,17 @@
           </p>
         </div>
 
-        <!-- Main content -->
+        <!-- Main content - h-feed microformat for IndieWeb -->
         <div
           class="relative px-4 md:px-6 h-feed lg:grid lg:grid-cols-12 lg:gap-16 xl:gap-20"
         >
+          <!-- Hidden h-feed metadata for parsers -->
+          <a class="u-url hidden" href="https://ejfox.com/blog">Blog</a>
+          <span class="p-name hidden">EJ Fox's Blog</span>
+          <span class="p-author h-card hidden">
+            <span class="p-name">EJ Fox</span>
+            <a class="u-url" href="https://ejfox.com">ejfox.com</a>
+          </span>
           <!-- Main column -->
           <section
             class="max-w-3xl lg:max-w-none lg:col-span-8 lg:min-w-0 lg:pt-2 lg:pr-14 xl:pr-20"
@@ -139,10 +146,10 @@
                 <article class="group mb-6 h-entry">
                   <!-- Main content -->
                   <div>
-                    <h3>
+                    <h3 class="p-name">
                       <NuxtLink
                         :to="`/blog/${post?.slug}`"
-                        class="title-link leading-[1.2]"
+                        class="u-url title-link leading-[1.2]"
                       >
                         {{ post?.title || formatTitle(post?.slug) }}
                       </NuxtLink>
@@ -150,9 +157,12 @@
 
                     <!-- Horizontal metadata line with microvis -->
                     <div class="post-metadata">
-                      <span>{{
+                      <time
+                        class="dt-published"
+                        :datetime="post?.metadata?.date || post?.date"
+                      >{{
                         formatShortDate(post?.metadata?.date || post?.date)
-                      }}</span>
+                      }}</time>
                       <span class="mx-1 text-divider">·</span>
                       <span
                         >{{

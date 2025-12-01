@@ -30,10 +30,11 @@ export default defineNuxtConfig({
         // IndieAuth token endpoint
         { rel: 'token_endpoint', href: 'https://tokens.indieauth.com/token' },
         // Webmention endpoint
-        {
-          rel: 'webmention',
-          href: 'https://webmention.io/ejfox.com/webmention'
-        }
+        { rel: 'webmention', href: 'https://webmention.io/ejfox.com/webmention' },
+        // Pingback endpoint (legacy, but still used)
+        { rel: 'pingback', href: 'https://webmention.io/ejfox.com/xmlrpc' },
+        // WebSub hub for real-time feed notifications
+        { rel: 'hub', href: 'https://pubsubhubbub.superfeedr.com' }
       ]
     }
   },
