@@ -41,7 +41,9 @@ export default defineEventHandler(async (event): Promise<string> => {
               stargazerCount
               files {
                 name
-                language
+                language {
+                  name
+                }
                 text
                 size
               }
@@ -60,8 +62,15 @@ export default defineEventHandler(async (event): Promise<string> => {
       body: { query }
     })
 
+    // Handle GraphQL errors
+    if (response?.errors) {
+      console.error('GitHub GraphQL errors:', response.errors)
+      throw new Error(`GitHub API error: ${response.errors[0]?.message || 'Unknown error'}`)
+    }
+
     if (!response?.data?.viewer?.gists?.nodes) {
-      throw new Error('Invalid GitHub API response')
+      console.error('Unexpected GitHub response structure:', JSON.stringify(response, null, 2))
+      throw new Error('Invalid GitHub API response structure')
     }
 
     const gists: any[] = response.data.viewer.gists.nodes
@@ -106,7 +115,7 @@ export default defineEventHandler(async (event): Promise<string> => {
           (file: any) => `
           <code:file>
             <code:filename>${file.name}</code:filename>
-            <code:language>${file.language || 'Unknown'}</code:language>
+            <code:language>${file.language?.name || 'Unknown'}</code:language>
             <code:size>${file.size}</code:size>
             ${
               file.text
@@ -126,7 +135,6 @@ export default defineEventHandler(async (event): Promise<string> => {
       <dc:creator>EJ Fox</dc:creator>
       <dc:modified>${updateDate}</dc:modified>
       <code:stargazers>${gist.stargazerCount}</code:stargazers>
-      <code:forks>${gist.forkCount}</code:forks>
       <description><![CDATA[${gist.description || ''}]]></description>
       <content:encoded><![CDATA[
         ${filesContent}
