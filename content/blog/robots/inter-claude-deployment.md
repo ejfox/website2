@@ -157,6 +157,41 @@ After this session, the setup is now:
 - `VPS_USER` - SSH username
 - `VPS_SSH_KEY` - Private SSH key
 
+## Improving the Protocol
+
+### VPS Claude Context
+Created `~/SERVER_CONTEXT.md` on the VPS with:
+- Project locations (/data2/website2, etc.)
+- Common deployment commands
+- Health check commands
+- Instructions for handling inter-Claude requests
+
+### Standardized Message Format
+When messaging VPS Claude, include:
+```
+[PROJECT]: website2
+[PATH]: /data2/website2
+[ACTION]: pull and rebuild
+[COMMANDS]: cd /data2/website2 && git pull && yarn build && docker-compose up -d --build
+[VERIFY]: curl -s https://ejfox.com/api/build-info | jq .commit
+```
+
+Or in natural language with all the key info:
+```
+Hey! Deploy website2 at /data2/website2 - pull, build, docker restart.
+Verify with: curl https://ejfox.com/api/build-info
+```
+
+### Helper Command (Local)
+```bash
+# Add to ~/.zshrc or use directly
+deploy-via-claude() {
+  ssh vps "tmux send-keys 'Deploy $1 at $2 - git pull, yarn build, docker-compose up -d --build --force-recreate' Enter"
+}
+
+# Usage: deploy-via-claude website2 /data2/website2
+```
+
 ## The Philosophy
 
 Why set up complex CI/CD pipelines when you can just have one AI ask another AI to do something in plain English? The overhead is a tmux session. The protocol is "yo can you rebuild?"
