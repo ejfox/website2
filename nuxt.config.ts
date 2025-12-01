@@ -25,6 +25,7 @@ export default defineNuxtConfig({
         lang: 'en'
       },
       link: [
+        // Monaspace font loaded via @font-face in tailwind.css
         // IndieAuth authorization endpoint
         { rel: 'authorization_endpoint', href: 'https://indieauth.com/auth' },
         // IndieAuth token endpoint
@@ -41,8 +42,12 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss'],
   port: 3006,
   devServer: {
+    host: '127.0.0.1',
     port: 3006
   },
+
+  // Disable devtools in dev to prevent 404 issues (known Nuxt bug)
+  devtools: { enabled: false },
 
   // Runtime config - CRITICAL for preventing process.env in client bundle
   runtimeConfig: {
@@ -60,6 +65,7 @@ export default defineNuxtConfig({
     UMAMI_PASSWORD: process.env.UMAMI_PASSWORD || '',
     KALSHI_KEY_ID: process.env.KALSHI_KEY_ID || '',
     KALSHI_PRIVATE_KEY: process.env.KALSHI_PRIVATE_KEY || '',
+    muckrockToken: process.env.MUCKROCK_TOKEN || '',
 
     // Public client-accessible vars
     public: {
@@ -117,6 +123,17 @@ export default defineNuxtConfig({
 
   // Ultra-optimized Vite config for sub-1s FCP
   vite: {
+    // Explicit HMR config to prevent 404 on refresh (forum fix)
+    server: {
+      host: '127.0.0.1',
+      strictPort: true,
+      hmr: {
+        protocol: 'ws',
+        host: '127.0.0.1',
+        port: 3006,
+        clientPort: 3006
+      }
+    },
     build: {
       cssCodeSplit: false, // Inline all CSS
       cssMinify: 'esbuild',
