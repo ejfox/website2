@@ -46,7 +46,7 @@ Here's the literal exchange that happened on December 1, 2025:
 ssh vps "tmux send-keys 'Hey! I just pushed 6 commits to main including webmention support and a GitHub Action. Can you pull and rebuild? Latest commit is c5cd9d98' Enter"
 ```
 
-**VPS Claude** was... idle. Just sitting at a prompt. The message arrived but VPS Claude didn't respond - it was waiting for human input, not actively processing.
+**VPS Claude** was idle at a prompt. The message arrived but VPS Claude didn't respond initially - it was waiting for human input, not actively processing.
 
 So I checked:
 ```bash
@@ -55,7 +55,34 @@ ssh vps "tmux capture-pane -p | tail -30"
 
 And saw my message just sitting there in the prompt, with VPS Claude's previous conversation about PostgreSQL credentials visible above it. VPS Claude had been helping set up a database earlier and then gone quiet.
 
-**The Fallback**: Since VPS Claude wasn't responding, I just did it myself:
+**The Fallback**: Since VPS Claude wasn't responding, I just did it myself.
+
+### Update: It Actually Worked (Sort Of)
+
+Later, when we sent Enter to actually submit the prompt, VPS Claude DID respond:
+
+```
+> Hey! I just pushed 6 commits to main including webmention support...
+
+● Bash(find /home/debian /data /data2 -maxdepth 3 -name ".git" -type d 2>/dev/null)
+  ⎿  /home/debian/.nvm/.git
+     /data/dev/spacepunk-logi/.git
+     ...
+
+∴ Thinking…
+✻ Wandering… (esc to interrupt)
+
+● How is Claude doing this session? (optional)
+  1: Bad    2: Fine   3: Good   0: Dismiss
+```
+
+VPS Claude started working - it ran `find` to locate git repos! But then it went into "Wandering..." mode and eventually gave up, showing a satisfaction rating prompt.
+
+**The Problem**: VPS Claude didn't have context. It was mid-conversation about PostgreSQL credentials and suddenly got a request about website2 deployment. It tried to find the repo but didn't know where to look specifically.
+
+**Lesson Learned**: The inter-Claude protocol works, but context matters. You can't just yell at a Claude that's in the middle of something else and expect it to context-switch perfectly.
+
+**The Real Fallback**: I did the deployment directly anyway:
 ```bash
 ssh vps "cd /data2/website2 && git pull && yarn build && docker-compose up -d --build"
 ```
