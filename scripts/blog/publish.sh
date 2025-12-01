@@ -102,12 +102,20 @@ main() {
   # Commit and push if there are changes
   if [[ -n "$(git status --porcelain)" ]]; then
     log "Changes detected, committing..."
-    
+
     if git add . && \
        git commit -m "blog: auto-publish new content" && \
        git push; then
       log "Changes pushed successfully"
       notify "Changes pushed to repository"
+
+      # Send webmentions for recently updated posts
+      log "Sending webmentions..."
+      if node scripts/send-webmentions.mjs; then
+        log "Webmentions sent"
+      else
+        log "WARNING: Webmention sending failed (non-fatal)"
+      fi
     else
       log "ERROR: Git operations failed"
       exit 1
@@ -116,7 +124,7 @@ main() {
     log "No changes to commit"
     notify "No changes to publish"
   fi
-  
+
   log "=== Blog Publish Completed ==="
 }
 

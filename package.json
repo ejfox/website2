@@ -20,6 +20,7 @@
     "blog:preview": "DRY_RUN=true node scripts/blog/import.mjs",
     "blog:watch": "bash scripts/blog/watch.sh",
     "blog:publish": "bash scripts/blog/publish.sh",
+    "publish": "bash scripts/blog/publish.sh",
     "blog:revert": "rm -rf content/processed/* && cp -r content/processed.backup/* content/processed/",
     "create-prediction": "node scripts/blog/create-prediction.mjs",
     "predict": "node scripts/predict-pro.mjs",
