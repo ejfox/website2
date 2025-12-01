@@ -11,6 +11,7 @@ RUN apk add --no-cache \
 COPY .output ./
 COPY content ./content
 COPY public ./public
+COPY .build-info.json ./
 
 # Create non-root user
 RUN addgroup -g 1001 -S nodejs && \
