@@ -8609,6 +8609,46 @@
     }
   },
   {
+    "slug": "robots/inter-claude-deployment",
+    "title": "Inter-Claude Deployment Architecture",
+    "date": "2025-12-01T00:00:00.000Z",
+    "type": "post",
+    "hidden": true,
+    "tags": [
+      "claude",
+      "automation",
+      "deployment",
+      "indieweb"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Inter-Claude Deployment Architecture",
+      "date": "2025-12-01T00:00:00.000Z",
+      "tags": [
+        "claude",
+        "automation",
+        "deployment",
+        "indieweb"
+      ],
+      "hidden": true,
+      "words": 1026,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 11,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/robots/inter-claude-deployment.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "robots/inter-claude-deployment"
+    }
+  },
+  {
     "slug": "robots/old/gear",
     "title": "Motorcycle Gear System Optimization",
     "date": "2024-11-11T07:28:49.000Z",

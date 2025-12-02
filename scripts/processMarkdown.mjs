@@ -733,6 +733,203 @@ function remarkEnhanceImages() {
   }
 }
 
+// Build on-this-day index from tweets + blog posts + scrobbles + commits
+// Outputs 366 individual JSON files for fast loading
+async function buildOnThisDayIndex(blogResults, blogFiles) {
+  const spinner = ora('Building on-this-day index...').start()
+
+  try {
+    const index = {} // Key: "MM-DD", Value: { tweets: [], posts: [], scrobbles: [], commits: [] }
+
+    // Load tweets
+    const tweetsPath = path.join(process.cwd(), 'data/tweets.json')
+    let tweets = []
+    try {
+      const tweetsData = await fs.readFile(tweetsPath, 'utf-8')
+      tweets = JSON.parse(tweetsData)
+    } catch {
+      // No tweets file
+    }
+
+    // Index tweets by month-day
+    let tweetCount = 0
+    for (const tweet of tweets) {
+      if (!tweet.created_month || !tweet.created_day) continue
+
+      const key = `${String(tweet.created_month).padStart(2, '0')}-${String(tweet.created_day).padStart(2, '0')}`
+      if (!index[key]) index[key] = { tweets: [], posts: [], scrobbles: [], commits: [] }
+
+      // Only keep essential fields to reduce file size
+      index[key].tweets.push({
+        id: tweet.id,
+        text: tweet.full_text,
+        year: tweet.created_year,
+        date: tweet.created_date,
+        favorites: tweet.favorite_count || 0,
+        retweets: tweet.retweet_count || 0,
+        replyTo: tweet.in_reply_to_screen_name || null
+      })
+      tweetCount++
+    }
+
+    // Load and index Last.fm scrobbles
+    const scrobblesPath = path.join(process.cwd(), 'data/lastfm-scrobbles.csv')
+    let scrobbleCount = 0
+    try {
+      const scrobblesData = await fs.readFile(scrobblesPath, 'utf-8')
+      const lines = scrobblesData.split('\n').slice(1) // Skip header
+
+      // Group scrobbles by day to avoid duplicates and reduce size
+      const scrobblesByDay = {} // { "YYYY-MM-DD": { tracks: Set, artists: Set, count: number } }
+
+      for (const line of lines) {
+        if (!line.trim()) continue
+
+        // Parse semicolon-separated CSV (with quoted fields)
+        const parts = line.match(/(?:[^;"]+|"[^"]*")+/g)
+        if (!parts || parts.length < 5) continue
+
+        const artist = parts[0]?.replace(/^"|"$/g, '') || ''
+        const track = parts[3]?.replace(/^"|"$/g, '') || ''
+        const timestamp = parseInt(parts[4]?.replace(/^"|"$/g, '') || '0', 10)
+
+        if (!timestamp) continue
+
+        const date = new Date(timestamp)
+        const year = date.getFullYear()
+        const month = String(date.getMonth() + 1).padStart(2, '0')
+        const day = String(date.getDate()).padStart(2, '0')
+        const dateKey = `${year}-${month}-${day}`
+        const indexKey = `${month}-${day}`
+
+        if (!scrobblesByDay[dateKey]) {
+          scrobblesByDay[dateKey] = {
+            tracks: new Set(),
+            artists: new Set(),
+            count: 0,
+            year,
+            indexKey
+          }
+        }
+
+        scrobblesByDay[dateKey].tracks.add(`${artist} - ${track}`)
+        scrobblesByDay[dateKey].artists.add(artist)
+        scrobblesByDay[dateKey].count++
+        scrobbleCount++
+      }
+
+      // Add summarized scrobbles to index (top 5 unique tracks per day)
+      for (const [dateKey, dayData] of Object.entries(scrobblesByDay)) {
+        const key = dayData.indexKey
+        if (!index[key]) index[key] = { tweets: [], posts: [], scrobbles: [], commits: [] }
+
+        const topTracks = Array.from(dayData.tracks).slice(0, 5)
+        const topArtists = Array.from(dayData.artists).slice(0, 3)
+
+        index[key].scrobbles.push({
+          date: dateKey,
+          year: dayData.year,
+          count: dayData.count,
+          topTracks,
+          topArtists
+        })
+      }
+    } catch {
+      // No scrobbles file
+    }
+
+    // Index blog posts by month-day
+    let postCount = 0
+    blogResults.forEach((result, idx) => {
+      const dateStr = result.metadata?.date
+      if (!dateStr) return
+
+      try {
+        const date = new Date(dateStr)
+        const month = String(date.getMonth() + 1).padStart(2, '0')
+        const day = String(date.getDate()).padStart(2, '0')
+        const key = `${month}-${day}`
+
+        if (!index[key]) index[key] = { tweets: [], posts: [], scrobbles: [], commits: [] }
+
+        const filePath = blogFiles[idx]
+        const slug = normalizeSlug(
+          path.relative(paths.contentDir, filePath).replace(/\.md$/, '')
+        )
+
+        index[key].posts.push({
+          slug,
+          title: result.metadata?.title || result.title,
+          year: date.getFullYear(),
+          date: dateStr,
+          dek: result.metadata?.dek || null,
+          type: result.metadata?.type || 'post',
+          tags: result.metadata?.tags || []
+        })
+        postCount++
+      } catch {
+        // Skip invalid dates
+      }
+    })
+
+    // Load and index GitHub commits
+    const commitsPath = path.join(process.cwd(), 'data/github-commits.json')
+    let commitCount = 0
+    try {
+      const commitsData = await fs.readFile(commitsPath, 'utf-8')
+      const commits = JSON.parse(commitsData)
+
+      for (const commit of commits) {
+        if (!commit.month || !commit.day) continue
+
+        const key = `${String(commit.month).padStart(2, '0')}-${String(commit.day).padStart(2, '0')}`
+        if (!index[key]) index[key] = { tweets: [], posts: [], scrobbles: [], commits: [] }
+
+        index[key].commits.push({
+          sha: commit.sha,
+          message: commit.message,
+          year: commit.year,
+          date: commit.date,
+          repo: commit.repo
+        })
+        commitCount++
+      }
+    } catch {
+      // No commits file
+    }
+
+    // Sort items within each day by year (newest first)
+    for (const key of Object.keys(index)) {
+      index[key].tweets.sort((a, b) => b.year - a.year)
+      index[key].posts.sort((a, b) => b.year - a.year)
+      index[key].scrobbles.sort((a, b) => b.year - a.year)
+      index[key].commits.sort((a, b) => b.year - a.year)
+    }
+
+    // Write 366 individual JSON files for fast loading
+    const onThisDayDir = path.join(process.cwd(), 'data/on-this-day')
+    await fs.mkdir(onThisDayDir, { recursive: true })
+
+    for (const [key, dayData] of Object.entries(index)) {
+      const filePath = path.join(onThisDayDir, `${key}.json`)
+      await fs.writeFile(filePath, JSON.stringify(dayData))
+    }
+
+    // Also write the full index for backwards compatibility
+    const indexPath = path.join(process.cwd(), 'data/on-this-day-index.json')
+    await fs.writeFile(indexPath, JSON.stringify(index, null, 2))
+
+    const daysWithContent = Object.keys(index).length
+    const scrobbleDays = Object.values(index).reduce((sum, day) => sum + day.scrobbles.length, 0)
+    spinner.succeed(
+      `On-this-day: ${tweetCount} tweets, ${postCount} posts, ${scrobbleCount} scrobbles, ${commitCount} commits across ${daysWithContent} days`
+    )
+  } catch (error) {
+    spinner.fail('Failed to build on-this-day index')
+    console.error(error)
+  }
+}
+
 async function processAllFiles() {
   const spinner = ora('Processing markdown files...').start()
 
@@ -893,6 +1090,9 @@ async function processAllFiles() {
           'with usage counts to public/content-tags.json'
       )
     }
+
+    // Build on-this-day index from tweets + blog posts
+    await buildOnThisDayIndex(nonDraftResults, nonDraftFiles)
 
     return results
   } catch (error) {
