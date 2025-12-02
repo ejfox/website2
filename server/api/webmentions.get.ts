@@ -26,7 +26,7 @@ function loadModeration(): ModerationConfig {
       blockedUrls: [],
       blockedAuthors: [],
       spamKeywords: [],
-      trustedDomains: []
+      trustedDomains: [],
     }
   }
 }
@@ -50,7 +50,10 @@ function isBlocked(mention: any, config: ModerationConfig): boolean {
   }
 
   // Check blocked authors
-  if (config.blockedAuthors?.includes(authorName) || config.blockedAuthors?.includes(authorUrl)) {
+  if (
+    config.blockedAuthors?.includes(authorName) ||
+    config.blockedAuthors?.includes(authorUrl)
+  ) {
     return true
   }
 
@@ -73,7 +76,7 @@ export default defineEventHandler(async (event) => {
   if (!target) {
     throw createError({
       statusCode: 400,
-      statusMessage: 'Missing target URL parameter'
+      statusMessage: 'Missing target URL parameter',
     })
   }
 
@@ -91,7 +94,7 @@ export default defineEventHandler(async (event) => {
     throw createError({
       statusCode: 500,
       statusMessage: 'Failed to fetch webmentions',
-      message: error.message
+      message: error.message,
     })
   }
 })

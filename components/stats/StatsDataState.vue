@@ -12,7 +12,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   message: 'DATA_UNAVAILABLE',
-  type: 'unavailable'
+  type: 'unavailable',
 })
 
 // Generate appropriate message based on type

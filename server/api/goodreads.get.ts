@@ -14,8 +14,8 @@ export default defineEventHandler(async (_event) => {
         const response = await $fetch(rssUrl, {
           responseType: 'text',
           headers: {
-            'User-Agent': 'Mozilla/5.0 (compatible; EJFox Website Bot)'
-          }
+            'User-Agent': 'Mozilla/5.0 (compatible; EJFox Website Bot)',
+          },
         })
 
         // Parse RSS XML manually
@@ -71,7 +71,7 @@ export default defineEventHandler(async (_event) => {
               link,
               cover,
               dateAdded: new Date(dateAdded).toISOString(),
-              bookId
+              bookId,
             }
           })
           .filter((book: any) => book.title)
@@ -146,7 +146,7 @@ export default defineEventHandler(async (_event) => {
       topRatedBooks,
       recentReads,
       readingByMonth,
-      profileUrl: `https://www.goodreads.com/user/show/${userId}`
+      profileUrl: `https://www.goodreads.com/user/show/${userId}`,
     }
 
     return {
@@ -154,10 +154,10 @@ export default defineEventHandler(async (_event) => {
         currentlyReading,
         // Only return recent reads to keep response size manageable
         read: recentReads,
-        toRead: toRead.slice(0, 20) // Limit to-read list
+        toRead: toRead.slice(0, 20), // Limit to-read list
       },
       stats,
-      lastUpdated: new Date().toISOString()
+      lastUpdated: new Date().toISOString(),
     }
   } catch (error) {
     console.error('Goodreads API error:', error)
@@ -166,7 +166,7 @@ export default defineEventHandler(async (_event) => {
       books: {
         currentlyReading: [],
         read: [],
-        toRead: []
+        toRead: [],
       },
       stats: {
         totalRead: 0,
@@ -178,10 +178,10 @@ export default defineEventHandler(async (_event) => {
         topRatedBooks: [],
         recentReads: [],
         readingByMonth: {},
-        profileUrl: `https://www.goodreads.com/user/show/9273959`
+        profileUrl: `https://www.goodreads.com/user/show/9273959`,
       },
       lastUpdated: new Date().toISOString(),
-      error: 'Goodreads RSS parsing failed - may need alternative data source'
+      error: 'Goodreads RSS parsing failed - may need alternative data source',
     }
   }
 })

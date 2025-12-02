@@ -18,14 +18,14 @@ async function test() {
 
     const highlighter = await createHighlighter({
       themes: [vulpesTheme],
-      langs: ['javascript', 'typescript']
+      langs: ['javascript', 'typescript'],
     })
     console.log('✓ Highlighter created')
 
     const testCode = 'const vulpes = "reddish"'
     const html = highlighter.codeToHtml(testCode, {
       lang: 'javascript',
-      theme: 'Vulpes Reddish'
+      theme: 'Vulpes Reddish',
     })
 
     console.log('✓ Code highlighted successfully')

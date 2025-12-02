@@ -11,29 +11,29 @@
           <div class="metadata-bar mb-3">
             <span class="flex-gap-1 whitespace-nowrap">
               <span class="text-zinc-400">ENTRIES</span>
-              <span class="text-zinc-600 dark:text-zinc-300">{{
-                posts?.length || 0
-              }}</span>
+              <span class="text-zinc-600 dark:text-zinc-300">
+                {{ posts?.length || 0 }}
+              </span>
             </span>
             <span class="mx-1 text-divider">·</span>
             <span class="flex-gap-1 whitespace-nowrap">
               <span class="text-zinc-400">WORDS</span>
-              <span class="text-zinc-600 dark:text-zinc-300"
-                >{{
+              <span class="text-zinc-600 dark:text-zinc-300">
+                {{
                   Math.floor(
                     (posts?.reduce(
                       (acc, p) => acc + (p?.metadata?.words || p?.words || 0),
                       0
                     ) || 0) / 1000
                   )
-                }}K</span
-              >
+                }}K
+              </span>
             </span>
             <span class="mx-1 text-divider">·</span>
             <span class="flex-gap-1 whitespace-nowrap">
               <span class="text-zinc-400">READ</span>
-              <span class="text-zinc-600 dark:text-zinc-300"
-                >{{
+              <span class="text-zinc-600 dark:text-zinc-300">
+                {{
                   Math.floor(
                     (posts?.reduce(
                       (acc, p) => acc + (p?.metadata?.words || p?.words || 0),
@@ -42,35 +42,39 @@
                       200 /
                       60
                   )
-                }}hr</span
-              >
+                }}hr
+              </span>
             </span>
             <span class="mx-1 text-divider">·</span>
             <span class="flex-gap-1 whitespace-nowrap">
               <span class="text-zinc-400">LINKS</span>
-              <span class="text-zinc-600 dark:text-zinc-300">{{
-                posts?.reduce(
-                  (acc, p) => acc + (p?.metadata?.links || p?.links || 0),
-                  0
-                ) || 0
-              }}</span>
+              <span class="text-zinc-600 dark:text-zinc-300">
+                {{
+                  posts?.reduce(
+                    (acc, p) => acc + (p?.metadata?.links || p?.links || 0),
+                    0
+                  ) || 0
+                }}
+              </span>
             </span>
             <span class="mx-1 text-divider">·</span>
             <span class="flex-gap-1 whitespace-nowrap">
               <span class="text-zinc-400">IMAGES</span>
-              <span class="text-zinc-600 dark:text-zinc-300">{{
-                posts?.reduce(
-                  (acc, p) => acc + (p?.metadata?.images || p?.images || 0),
-                  0
-                ) || 0
-              }}</span>
+              <span class="text-zinc-600 dark:text-zinc-300">
+                {{
+                  posts?.reduce(
+                    (acc, p) => acc + (p?.metadata?.images || p?.images || 0),
+                    0
+                  ) || 0
+                }}
+              </span>
             </span>
             <span class="mx-1 text-divider">·</span>
             <span class="flex-gap-1 whitespace-nowrap">
               <span class="text-zinc-400">YEARS</span>
-              <span class="text-zinc-600 dark:text-zinc-300">{{
-                sortedYears?.length || 0
-              }}</span>
+              <span class="text-zinc-600 dark:text-zinc-300">
+                {{ sortedYears?.length || 0 }}
+              </span>
             </span>
           </div>
         </div>
@@ -80,7 +84,7 @@
           <h1
             :class="[
               'font-serif font-light mb-1.5 leading-[1.1] tracking-tight',
-              'text-3xl md:text-4xl lg:text-5xl'
+              'text-3xl md:text-4xl lg:text-5xl',
             ]"
           >
             Blog
@@ -122,8 +126,9 @@
               <a
                 href="/"
                 class="mt-2 inline-block text-red-600 dark:text-red-400 underline"
-                >Return Home</a
               >
+                Return Home
+              </a>
             </div>
 
             <div v-else-if="!sortedYears.length" class="text-center py-8">
@@ -160,17 +165,19 @@
                       <time
                         class="dt-published"
                         :datetime="post?.metadata?.date || post?.date"
-                      >{{
-                        formatShortDate(post?.metadata?.date || post?.date)
-                      }}</time>
+                      >
+                        {{
+                          formatShortDate(post?.metadata?.date || post?.date)
+                        }}
+                      </time>
                       <span class="mx-1 text-divider">·</span>
-                      <span
-                        >{{
+                      <span>
+                        {{
                           calculateReadingTime(
                             post?.metadata?.words || post?.words
                           )
-                        }}min</span
-                      >
+                        }}min
+                      </span>
 
                       <!-- Word count with sparkline -->
                       <span
@@ -185,14 +192,14 @@
                             type="bars"
                           />
                         </ClientOnly>
-                        <span
-                          >{{
+                        <span>
+                          {{
                             formatNumber(
                               post?.metadata?.words || post?.words || 0
                             )
                           }}
-                          words</span
-                        >
+                          words
+                        </span>
                       </span>
 
                       <!-- Images sparkline -->
@@ -208,12 +215,9 @@
                             type="dots"
                           />
                         </ClientOnly>
-                        <span
-                          >{{
-                            post?.metadata?.images || post?.images
-                          }}
-                          images</span
-                        >
+                        <span>
+                          {{ post?.metadata?.images || post?.images }} images
+                        </span>
                       </span>
 
                       <!-- Links sparkline -->
@@ -229,12 +233,9 @@
                             type="bars"
                           />
                         </ClientOnly>
-                        <span
-                          >{{
-                            post?.metadata?.links || post?.links
-                          }}
-                          links</span
-                        >
+                        <span>
+                          {{ post?.metadata?.links || post?.links }} links
+                        </span>
                       </span>
                     </div>
 
@@ -264,7 +265,7 @@
             :class="[
               'mt-8 pt-4 border-t border-zinc-200 dark:border-zinc-800',
               'lg:mt-0 lg:pt-2 lg:border-t-0 lg:col-span-4',
-              'lg:sticky lg:top-24 lg:min-w-[260px] lg:pl-12 xl:pl-16'
+              'lg:sticky lg:top-24 lg:min-w-[260px] lg:pl-12 xl:pl-16',
             ]"
           >
             <!-- Data stats footer -->
@@ -272,22 +273,22 @@
               <div>
                 <span class="text-zinc-500">TTL_WORDS</span>
                 <br />
-                <span
-                  >{{
+                <span>
+                  {{
                     Math.floor(
                       (posts?.reduce(
                         (acc, p) => acc + (p?.metadata?.words || p?.words || 0),
                         0
                       ) || 0) / 1000
                     )
-                  }}k</span
-                >
+                  }}k
+                </span>
               </div>
               <div>
                 <span class="text-zinc-500">AVG_POST</span>
                 <br />
-                <span
-                  >{{
+                <span>
+                  {{
                     posts?.length
                       ? Math.floor(
                           posts.reduce(
@@ -297,20 +298,20 @@
                           ) / posts.length
                         )
                       : 0
-                  }}w</span
-                >
+                  }}w
+                </span>
               </div>
               <div>
                 <span class="text-zinc-500">MEDIA</span>
                 <br />
-                <span
-                  >{{
+                <span>
+                  {{
                     posts?.reduce(
                       (acc, p) => acc + (p?.metadata?.images || p?.images || 0),
                       0
                     ) || 0
-                  }}img</span
-                >
+                  }}img
+                </span>
               </div>
             </div>
             <div class="mt-8 space-y-8">
@@ -320,8 +321,9 @@
                   Week Notes
                   <span
                     class="mono-xs text-zinc-400 normal-case tracking-normal"
-                    >[{{ sortedWeekNotes.length }}]</span
                   >
+                    [{{ sortedWeekNotes.length }}]
+                  </span>
                 </h2>
                 <div class="stack-2">
                   <article
@@ -347,8 +349,9 @@
                   Recently Updated
                   <span
                     class="mono-xs text-zinc-400 normal-case tracking-normal"
-                    >[{{ recentlyUpdatedPosts.length }}]</span
                   >
+                    [{{ recentlyUpdatedPosts.length }}]
+                  </span>
                 </h2>
                 <div class="stack-2">
                   <article
@@ -449,7 +452,7 @@ const { data: notes, error: _notesError } = useAsyncData(
             slug: note?.slug || note?.metadata?.slug,
             dek: note?.dek || note?.metadata?.dek,
             date: note?.date || note?.metadata?.date,
-            type: note?.type || note?.metadata?.type || 'weekNote'
+            type: note?.type || note?.metadata?.type || 'weekNote',
           })) || []
       )
     } catch (err) {
@@ -465,7 +468,7 @@ const defaultDescription =
 
 useHead({
   title: 'Blog - EJ Fox',
-  link: [{ rel: 'canonical', href: 'https://ejfox.com/blog' }]
+  link: [{ rel: 'canonical', href: 'https://ejfox.com/blog' }],
 })
 
 useSeoMeta({
@@ -480,7 +483,7 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
   twitterTitle: 'Blog - EJ Fox',
   twitterDescription: defaultDescription,
-  twitterImage: 'https://ejfox.com/og-image.png'
+  twitterImage: 'https://ejfox.com/og-image.png',
 })
 
 // Computed data for sparklines
@@ -621,7 +624,7 @@ const _createPostMetadata = (post) => {
     images: post?.images || metadata?.images,
     links: post?.links || metadata?.links,
     dek: post?.dek || metadata?.dek,
-    metadata
+    metadata,
   }
 }
 

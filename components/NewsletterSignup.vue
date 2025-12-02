@@ -24,7 +24,7 @@
           :class="[
             'flex gap-1.5 overflow-hidden transition-all duration-300',
             'ease-out shrink-0',
-            showNameFields ? 'w-auto opacity-100' : 'w-0 opacity-0'
+            showNameFields ? 'w-auto opacity-100' : 'w-0 opacity-0',
           ]"
         >
           <input
@@ -73,7 +73,7 @@
         class="absolute left-0 right-0 mt-1.5 text-xs"
         :class="{
           'text-green-600 dark:text-green-400': state.success,
-          'text-red-600 dark:text-red-400': state.error
+          'text-red-600 dark:text-red-400': state.error,
         }"
       >
         {{ state.message }}
@@ -102,7 +102,7 @@ const state = reactive({
   loading: false,
   success: false,
   error: false,
-  message: ''
+  message: '',
 })
 
 // NUKED: Animation composable usage obliterated
@@ -139,13 +139,13 @@ const submitForm = async () => {
     const response = await fetch('/api/newsletter-signup', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         email: email.value,
         firstName: firstName.value,
-        lastName: lastName.value
-      })
+        lastName: lastName.value,
+      }),
     })
 
     const result = await response.json()

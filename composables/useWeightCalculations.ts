@@ -92,7 +92,7 @@ export const useWeightCalculations = () => {
         ounces: 0,
         grams: 0,
         pounds: 0,
-        formatted: '0'
+        formatted: '0',
       }
     }
 
@@ -107,7 +107,7 @@ export const useWeightCalculations = () => {
       ounces: totalOunces,
       grams: totalGrams,
       pounds: totalPounds,
-      formatted: formatWeight(totalOunces)
+      formatted: formatWeight(totalOunces),
     }
   }
 
@@ -127,7 +127,7 @@ export const useWeightCalculations = () => {
         ounces: 0,
         grams: 0,
         pounds: 0,
-        formatted: '0'
+        formatted: '0',
       }
     }
 
@@ -140,7 +140,7 @@ export const useWeightCalculations = () => {
         ounces: 0,
         grams: 0,
         pounds: 0,
-        formatted: '0'
+        formatted: '0',
       }
     }
 
@@ -152,7 +152,7 @@ export const useWeightCalculations = () => {
       ounces: avgOunces,
       grams: avgGrams,
       pounds: avgPounds,
-      formatted: formatWeight(avgOunces, 'g') // Always show average in grams
+      formatted: formatWeight(avgOunces, 'g'), // Always show average in grams
     }
   }
 
@@ -163,7 +163,7 @@ export const useWeightCalculations = () => {
     const categories = {
       lightweight: 0, // < 5oz (< 142g)
       mediumweight: 0, // 5-15oz (142-425g)
-      heavyweight: 0 // > 15oz (> 425g)
+      heavyweight: 0, // > 15oz (> 425g)
     }
 
     items.forEach((item) => {
@@ -201,6 +201,6 @@ export const useWeightCalculations = () => {
     // Constants
     OZ_TO_GRAMS,
     OZ_TO_POUNDS,
-    GRAMS_TO_POUNDS_THRESHOLD
+    GRAMS_TO_POUNDS_THRESHOLD,
   }
 }

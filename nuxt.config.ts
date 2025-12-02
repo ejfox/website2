@@ -1,7 +1,7 @@
 export default defineNuxtConfig({
   // Enable Nuxt 4 compatibility mode
   future: {
-    compatibilityVersion: 4
+    compatibilityVersion: 4,
   },
 
   // Force SSR mode for consistency
@@ -15,14 +15,14 @@ export default defineNuxtConfig({
     sharedPrerenderData: false, // Can cause hydration issues in dev
     typedPages: true, // Enable typed routing
     renderJsonPayloads: false, // Reduce payload size
-    viewTransition: false // Disable view transitions for faster navigation
+    viewTransition: false, // Disable view transitions for faster navigation
   },
 
   // Removed Google Fonts for faster FCP
   app: {
     head: {
       htmlAttrs: {
-        lang: 'en'
+        lang: 'en',
       },
       link: [
         // IndieAuth authorization endpoint
@@ -30,19 +30,22 @@ export default defineNuxtConfig({
         // IndieAuth token endpoint
         { rel: 'token_endpoint', href: 'https://tokens.indieauth.com/token' },
         // Webmention endpoint
-        { rel: 'webmention', href: 'https://webmention.io/ejfox.com/webmention' },
+        {
+          rel: 'webmention',
+          href: 'https://webmention.io/ejfox.com/webmention',
+        },
         // Pingback endpoint (legacy, but still used)
         { rel: 'pingback', href: 'https://webmention.io/ejfox.com/xmlrpc' },
         // WebSub hub for real-time feed notifications
-        { rel: 'hub', href: 'https://pubsubhubbub.superfeedr.com' }
-      ]
-    }
+        { rel: 'hub', href: 'https://pubsubhubbub.superfeedr.com' },
+      ],
+    },
   },
 
   modules: ['@nuxtjs/tailwindcss'],
   port: 3006,
   devServer: {
-    port: 3006
+    port: 3006,
   },
 
   // Runtime config - CRITICAL for preventing process.env in client bundle
@@ -71,8 +74,8 @@ export default defineNuxtConfig({
           : 'http://localhost:3006'),
       debug: process.env.DEBUG === 'true',
       debugContent: process.env.DEBUG_CONTENT === 'true',
-      nodeEnv: process.env.NODE_ENV || 'development'
-    }
+      nodeEnv: process.env.NODE_ENV || 'development',
+    },
   },
 
   // Performance-optimized Nitro config for Nuxt 4
@@ -81,7 +84,7 @@ export default defineNuxtConfig({
     minify: false, // Disabled for debugging bundle corruption
     experimental: {
       wasm: false, // Disable WASM for faster startup
-      asyncContext: true // Enable async context support (Nuxt 4 feature)
+      asyncContext: true, // Enable async context support (Nuxt 4 feature)
     },
     compressPublicAssets: false, // Let reverse proxy handle compression
     // Copy content directory to .output for API routes to access
@@ -96,12 +99,12 @@ export default defineNuxtConfig({
         // Recursively copy content directory
         await fs.cp(source, dest, { recursive: true })
         console.log(`✓ Copied content directory to ${dest}`)
-      }
+      },
     },
     routeRules: {
       // Only disable caching in dev mode
       ...(process.env.NODE_ENV === 'development' && {
-        '/**': { headers: { 'Cache-Control': 'no-cache' } }
+        '/**': { headers: { 'Cache-Control': 'no-cache' } },
       }),
       // API routes - production only caching
       ...(process.env.NODE_ENV === 'production' && {
@@ -109,11 +112,12 @@ export default defineNuxtConfig({
           cors: true,
           headers: {
             'Cache-Control': 'public, max-age=300, s-maxage=3600',
-            'Cloudflare-CDN-Cache-Control': 'max-age=3600, stale-if-error=86400'
-          }
-        }
-      })
-    }
+            'Cloudflare-CDN-Cache-Control':
+              'max-age=3600, stale-if-error=86400',
+          },
+        },
+      }),
+    },
   },
 
   // Ultra-optimized Vite config for sub-1s FCP
@@ -132,13 +136,13 @@ export default defineNuxtConfig({
               if (id.includes('d3')) return 'd3'
               return 'vendor'
             }
-          }
-        }
-      }
+          },
+        },
+      },
     },
     optimizeDeps: {
       include: ['vue', '@vue/reactivity', '@vueuse/core'],
-      exclude: ['d3', 'd3-dsv', 'd3-format'] // Lazy load heavy libs
+      exclude: ['d3', 'd3-dsv', 'd3-format'], // Lazy load heavy libs
       // force: true // DISABLED FOR DEV - was forcing aggressive dep caching
     },
     esbuild: {
@@ -147,11 +151,11 @@ export default defineNuxtConfig({
       legalComments: 'none', // Remove comments
       tsconfigRaw: {
         compilerOptions: {
-          experimentalDecorators: false
-        }
-      }
-    }
+          experimentalDecorators: false,
+        },
+      },
+    },
   },
 
-  css: ['~/assets/css/global.css']
+  css: ['~/assets/css/global.css'],
 })

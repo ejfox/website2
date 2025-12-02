@@ -34,7 +34,7 @@ export default defineEventHandler(async () => {
               slug: post.slug,
               title: post.title || post.slug,
               html: '',
-              metadata: post.metadata || {}
+              metadata: post.metadata || {},
             }
           }
 
@@ -46,7 +46,7 @@ export default defineEventHandler(async () => {
             slug: post.slug,
             title: fullPost.title || post.title,
             html: fullPost.html,
-            metadata: fullPost.metadata
+            metadata: fullPost.metadata,
           }
         } catch (err) {
           console.error(`Error loading project ${post.slug}:`, err)
@@ -54,7 +54,7 @@ export default defineEventHandler(async () => {
             slug: post.slug,
             title: post.title || post.slug,
             html: '',
-            metadata: post.metadata || {}
+            metadata: post.metadata || {},
           }
         }
       })

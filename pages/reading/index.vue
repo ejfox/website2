@@ -166,9 +166,9 @@ useHead({
       name: 'description',
       content:
         'A collection of books, highlights, and reading notes ' +
-        'from my digital library.'
-    }
-  ]
+        'from my digital library.',
+    },
+  ],
 })
 
 // Helper function
@@ -176,7 +176,7 @@ function formatDate(dateString) {
   return new Date(dateString).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'short',
-    day: 'numeric'
+    day: 'numeric',
   })
 }
 </script>

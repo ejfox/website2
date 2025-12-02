@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
   if (!rawSlug) {
     throw createError({
       statusCode: 400,
-      statusMessage: 'Book slug is required'
+      statusMessage: 'Book slug is required',
     })
   }
 
@@ -29,7 +29,7 @@ export default defineEventHandler(async (event) => {
     // If not found in processed, return 404
     throw createError({
       statusCode: 404,
-      statusMessage: `Book "${slug}" not found`
+      statusMessage: `Book "${slug}" not found`,
     })
   }
 })

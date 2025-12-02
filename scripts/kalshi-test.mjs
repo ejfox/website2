@@ -6,7 +6,7 @@ import {
   Configuration,
   PortfolioApi,
   EventsApi,
-  MarketsApi
+  MarketsApi,
 } from 'kalshi-typescript'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -35,7 +35,7 @@ const PRIVATE_KEY = process.env.KALSHI_PRIVATE_KEY.replace(/\\n/g, '\n')
 const config = new Configuration({
   apiKey: KEY_ID,
   privateKeyPem: PRIVATE_KEY,
-  basePath: 'https://api.elections.kalshi.com/trade-api/v2'
+  basePath: 'https://api.elections.kalshi.com/trade-api/v2',
 })
 
 const portfolioApi = new PortfolioApi(config)
@@ -67,7 +67,7 @@ async function main() {
     console.log('3. Fetching events...')
     const eventsResponse = await eventsApi.getEvents({
       limit: 20,
-      status: 'open'
+      status: 'open',
     })
     const events = eventsResponse.data
     writeFileSync('data/kalshi-events.json', JSON.stringify(events, null, 2))
@@ -77,7 +77,7 @@ async function main() {
     console.log('4. Fetching markets...')
     const marketsResponse = await marketsApi.getMarkets({
       limit: 20,
-      status: 'open'
+      status: 'open',
     })
     const markets = marketsResponse.data
     writeFileSync('data/kalshi-markets.json', JSON.stringify(markets, null, 2))

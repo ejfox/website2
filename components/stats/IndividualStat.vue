@@ -11,7 +11,7 @@
           'transition-colors duration-200',
           size === 'large' && 'text-7xl leading-[0.9]',
           size === 'medium' && 'text-4xl leading-[0.9]',
-          size === 'small' && 'text-3xl leading-[0.95]'
+          size === 'small' && 'text-3xl leading-[0.95]',
         ]"
       >
         {{ displayValue }}
@@ -55,7 +55,7 @@ const props = withDefaults(defineProps<Props>(), {
   size: 'large',
   abbreviateOnMobile: true,
   precision: 1,
-  formatType: 'smart'
+  formatType: 'smart',
 })
 
 // Animation refs

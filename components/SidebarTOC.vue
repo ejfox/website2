@@ -16,7 +16,7 @@
               >
                 <span
                   :class="{
-                    'toc-number-active': activeSection === item.slug
+                    'toc-number-active': activeSection === item.slug,
                   }"
                   class="toc-number"
                 >
@@ -38,16 +38,16 @@ import { useIntersectionObserver } from '@vueuse/core'
 const props = defineProps({
   items: {
     type: Array,
-    default: () => []
+    default: () => [],
   },
   contentRef: {
     type: Object,
-    default: null
+    default: null,
   },
   headingSelector: {
     type: String,
-    default: 'h2, h3, h4'
-  }
+    default: 'h2, h3, h4',
+  },
 })
 
 const { tocTarget } = useTOC()

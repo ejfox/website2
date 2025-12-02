@@ -16,9 +16,9 @@
       <div class="space-y-4">
         <div class="stat-row">
           <span class="text-zinc-400">Photos This Month</span>
-          <span class="text-zinc-500 tabular-nums">{{
-            formatNumber(stats.stats.photosThisMonth)
-          }}</span>
+          <span class="text-zinc-500 tabular-nums">
+            {{ formatNumber(stats.stats.photosThisMonth) }}
+          </span>
         </div>
       </div>
     </div>
@@ -76,7 +76,7 @@ const StatItem = (props: {
       'div',
       { class: props.valueClass || 'text-xl text-zinc-300 tabular-nums' },
       props.value
-    )
+    ),
   ])
 }
 

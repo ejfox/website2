@@ -24,7 +24,7 @@ import {
   isValid as _isValid,
   parse as _parse,
   startOfWeek as _startOfWeek,
-  format as _format
+  format as _format,
 } from 'date-fns'
 
 // Type definitions
@@ -187,7 +187,7 @@ function filterAndSortPosts(
       ...post,
       date: getValidDate(post.metadata?.date || post.date),
       modified: getValidDate(post.metadata?.modified || post.modified),
-      title: post.metadata?.title || post.title || formatTitle(post.slug)
+      title: post.metadata?.title || post.title || formatTitle(post.slug),
     }))
     .sort((a: Post, b: Post) => compareDates(a.date, b.date))
 }
@@ -228,7 +228,7 @@ export const useProcessedMarkdown = () => {
         html: result.html,
         metadata: result.metadata,
         share: result.share,
-        type: result.type || result.metadata?.type
+        type: result.type || result.metadata?.type,
       }
     } catch (error) {
       console.error(`Error fetching post "${slug}":`, error)
@@ -270,13 +270,13 @@ export const useProcessedMarkdown = () => {
               ...post.metadata,
               title,
               slug: post.slug,
-              date: getValidDate(post.metadata?.date || post.date)
+              date: getValidDate(post.metadata?.date || post.date),
             },
             date: getValidDate(post.metadata?.date || post.date),
             modified: getValidDate(post.metadata?.modified || post.modified),
             type: post.type || post.metadata?.type,
             dek: post.dek || post.metadata?.dek,
-            tags: post.tags || post.metadata?.tags
+            tags: post.tags || post.metadata?.tags,
           } as Post
         })
         .sort((a, b) => compareDates(a.date, b.date))
@@ -350,7 +350,7 @@ export const useProcessedMarkdown = () => {
       prev:
         currentIndex < filteredPosts.length - 1
           ? filteredPosts[currentIndex + 1]
-          : null
+          : null,
     }
   }
 
@@ -365,7 +365,7 @@ export const useProcessedMarkdown = () => {
     return filterAndSortPosts(manifest, {
       excludeHidden: true,
       customFilter: (post) =>
-        post.type === 'weekNote' || post.slug.startsWith('week-notes/')
+        post.type === 'weekNote' || post.slug.startsWith('week-notes/'),
     })
   }
 
@@ -379,7 +379,7 @@ export const useProcessedMarkdown = () => {
     return filterAndSortPosts(manifest, { slugPrefix: 'projects/' }).map(
       (post: Post) => ({
         ...post,
-        html: post.html || post.metadata?.html || ''
+        html: post.html || post.metadata?.html || '',
       })
     )
   }
@@ -394,7 +394,7 @@ export const useProcessedMarkdown = () => {
         } catch (err) {
           console.error('Error fetching project content:', {
             slug: post.slug,
-            error: err
+            error: err,
           })
           return post
         }
@@ -409,7 +409,7 @@ export const useProcessedMarkdown = () => {
       return filterAndSortPosts(manifest, {
         requireShare: true,
         customFilter: (post) =>
-          post.slug.startsWith('robots/') || post.type === 'robot'
+          post.slug.startsWith('robots/') || post.type === 'robot',
       }).map((post) => ({ ...post, type: 'robot' }))
     } catch (error) {
       console.error('Error fetching robot notes:', error)
@@ -441,7 +441,7 @@ export const useProcessedMarkdown = () => {
         } catch (err) {
           console.error('Error fetching robot note content:', {
             slug: post.slug,
-            error: err
+            error: err,
           })
           // Return post without full content on error
           return post
@@ -464,6 +464,6 @@ export const useProcessedMarkdown = () => {
     getRobotNotes,
     getRobotNotesWithContent,
     getStudyNotes,
-    getPrompts
+    getPrompts,
   }
 }

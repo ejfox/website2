@@ -20,29 +20,29 @@
           <div class="metadata-bar">
             <span class="flex items-center gap-1 whitespace-nowrap">
               <span class="text-zinc-400">ENTRIES</span>
-              <span class="text-zinc-600 dark:text-zinc-300">{{
-                filteredPosts?.length || 0
-              }}</span>
+              <span class="text-zinc-600 dark:text-zinc-300">
+                {{ filteredPosts?.length || 0 }}
+              </span>
             </span>
             <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
             <span class="flex items-center gap-1 whitespace-nowrap">
               <span class="text-zinc-400">WORDS</span>
-              <span class="text-zinc-600 dark:text-zinc-300"
-                >{{
+              <span class="text-zinc-600 dark:text-zinc-300">
+                {{
                   Math.floor(
                     (filteredPosts?.reduce(
                       (acc, p) => acc + (p?.metadata?.words || p?.words || 0),
                       0
                     ) || 0) / 1000
                   )
-                }}K</span
-              >
+                }}K
+              </span>
             </span>
             <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
             <span class="flex items-center gap-1 whitespace-nowrap">
               <span class="text-zinc-400">READ</span>
-              <span class="text-zinc-600 dark:text-zinc-300"
-                >{{
+              <span class="text-zinc-600 dark:text-zinc-300">
+                {{
                   Math.floor(
                     (filteredPosts?.reduce(
                       (acc, p) => acc + (p?.metadata?.words || p?.words || 0),
@@ -51,15 +51,15 @@
                       200 /
                       60
                   )
-                }}hr</span
-              >
+                }}hr
+              </span>
             </span>
             <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
             <span class="flex items-center gap-1 whitespace-nowrap">
               <span class="text-zinc-400">TAG</span>
-              <span class="text-zinc-600 dark:text-zinc-300 lowercase">{{
-                tag
-              }}</span>
+              <span class="text-zinc-600 dark:text-zinc-300 lowercase">
+                {{ tag }}
+              </span>
             </span>
           </div>
         </div>
@@ -94,15 +94,15 @@
 
               <!-- Horizontal metadata line -->
               <div class="post-metadata">
-                <span>{{
-                  formatShortDate(post?.metadata?.date || post?.date)
-                }}</span>
+                <span>
+                  {{ formatShortDate(post?.metadata?.date || post?.date) }}
+                </span>
                 <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
-                <span
-                  >{{
+                <span>
+                  {{
                     calculateReadingTime(post?.metadata?.words || post?.words)
-                  }}min</span
-                >
+                  }}min
+                </span>
 
                 <!-- Word count -->
                 <span
@@ -110,16 +110,16 @@
                   class="flex items-center gap-1"
                 >
                   <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
-                  <span
-                    >{{
+                  <span>
+                    {{
                       (
                         post?.metadata?.words ||
                         post?.words ||
                         0
                       ).toLocaleString()
                     }}
-                    words</span
-                  >
+                    words
+                  </span>
                 </span>
               </div>
 
@@ -142,8 +142,9 @@
                   :href="`/blog/tag/${postTag}`"
                   class="tag-small"
                   :class="postTag === tag ? 'bg-zinc-100 dark:bg-zinc-800' : ''"
-                  >{{ postTag }}</a
                 >
+                  {{ postTag }}
+                </a>
               </div>
             </div>
           </article>
@@ -155,7 +156,7 @@
         <p class="text-zinc-600 dark:text-zinc-400 mb-4">
           No posts found with the tag "{{ tag }}"
         </p>
-        <NuxtLink to="/blog" class="link-blue"> ← Back to all posts </NuxtLink>
+        <NuxtLink to="/blog" class="link-blue">← Back to all posts</NuxtLink>
       </div>
     </main>
   </div>
@@ -183,9 +184,9 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: pageDescription
-    }
-  ]
+      content: pageDescription,
+    },
+  ],
 })
 
 // Helper functions (copied from blog index)

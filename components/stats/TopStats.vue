@@ -110,19 +110,22 @@
           format="default"
           :duration="800"
           priority="tertiary"
-        />H
+        />
+        H
         <AnimatedNumber
           :value="stats.leetcode.submissionStats.medium.count"
           format="default"
           :duration="800"
           priority="tertiary"
-        />M
+        />
+        M
         <AnimatedNumber
           :value="stats.leetcode.submissionStats.easy.count"
           format="default"
           :duration="800"
           priority="tertiary"
-        />E
+        />
+        E
       </div>
     </div>
 
@@ -149,7 +152,8 @@
           :duration="1600"
           priority="secondary"
           :decimals="0"
-        />% WIN
+        />
+        % WIN
       </div>
     </div>
 
@@ -184,7 +188,8 @@
           format="default"
           :duration="800"
           priority="secondary"
-        />% ACC
+        />
+        % ACC
       </div>
     </div>
   </div>

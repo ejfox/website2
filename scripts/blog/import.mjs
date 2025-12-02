@@ -24,7 +24,7 @@ const WHITELISTED_FOLDERS = [
   '2021',
   '2020',
   '2019',
-  '2018'
+  '2018',
 ]
 
 const stats = {
@@ -33,7 +33,7 @@ const stats = {
   filesSkipped: [],
   errors: [],
   filesByType: {},
-  startTime: Date.now()
+  startTime: Date.now(),
 }
 const debug = (...args) =>
   process.env.DEBUG === 'true' && console.log(chalk.gray('[DEBUG]'), ...args)
@@ -45,7 +45,7 @@ const getPostType = (path) => {
     'week-notes/': 'weekNote',
     'reading/': 'reading',
     'projects/': 'project',
-    'prompts/': 'prompt'
+    'prompts/': 'prompt',
   }
   return (
     Object.entries(typeMap).find(([prefix]) => path.startsWith(prefix))?.[1] ||
@@ -94,7 +94,7 @@ async function processFile(filePath, isDryRun = false) {
     readingTime: Math.ceil(words / 250),
     imageCount: (markdown.match(/!\[.*?\]\(.*?\)/g) || []).length,
     linkCount: (markdown.match(/\[.*?\]\(.*?\)/g) || []).length,
-    share: postType === 'robot' ? frontmatter.share === true : true
+    share: postType === 'robot' ? frontmatter.share === true : true,
   }
 
   if (!metadata.share) {

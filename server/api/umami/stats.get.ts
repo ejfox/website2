@@ -5,7 +5,7 @@ export default defineEventHandler(async (event) => {
   if (!url) {
     throw createError({
       statusCode: 400,
-      statusMessage: 'URL parameter is required'
+      statusMessage: 'URL parameter is required',
     })
   }
 
@@ -20,7 +20,7 @@ export default defineEventHandler(async (event) => {
       throw createError({
         statusCode: 500,
         statusMessage:
-          'UMAMI_USERNAME and UMAMI_PASSWORD environment variables required'
+          'UMAMI_USERNAME and UMAMI_PASSWORD environment variables required',
       })
     }
 
@@ -28,7 +28,7 @@ export default defineEventHandler(async (event) => {
     console.log('Umami auth attempt:', {
       username: username,
       hasPassword: !!password,
-      passwordLength: password?.length
+      passwordLength: password?.length,
     })
 
     // First, authenticate to get token
@@ -37,12 +37,12 @@ export default defineEventHandler(async (event) => {
       {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           username: username,
-          password: password
-        })
+          password: password,
+        }),
       }
     )
 
@@ -66,8 +66,8 @@ export default defineEventHandler(async (event) => {
       {
         headers: {
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        }
+          'Content-Type': 'application/json',
+        },
       }
     )
 
@@ -87,8 +87,8 @@ export default defineEventHandler(async (event) => {
       {
         headers: {
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        }
+          'Content-Type': 'application/json',
+        },
       }
     )
 
@@ -101,13 +101,13 @@ export default defineEventHandler(async (event) => {
       url,
       pageViews: statsData,
       overallStats,
-      lastUpdated: new Date().toISOString()
+      lastUpdated: new Date().toISOString(),
     }
   } catch (error) {
     console.error('Umami stats error:', error)
     throw createError({
       statusCode: 500,
-      statusMessage: 'Failed to fetch Umami stats'
+      statusMessage: 'Failed to fetch Umami stats',
     })
   }
 })

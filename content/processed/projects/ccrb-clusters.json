@@ -6,22 +6,11 @@
     "date": "2021-06-15T04:00:00.000Z",
     "modified": "2025-08-26T19:52:56.000Z",
     "url": "https://gothamist.com/news/mapping-clusters-nypd-officers-repeatedly-accused-misconduct",
-    "tech": [
-      "Neo4j",
-      "SQLite",
-      "Gephi",
-      "Network Analysis",
-      "Cypher"
-    ],
+    "tech": ["Neo4j", "SQLite", "Gephi", "Network Analysis", "Cypher"],
     "featured": true,
     "state": "deployed",
     "aiInvolvement": "human-only",
-    "tags": [
-      "data",
-      "nypd",
-      "journalism",
-      "database"
-    ],
+    "tags": ["data", "nypd", "journalism", "database"],
     "words": 92,
     "images": 1,
     "imageDetails": {

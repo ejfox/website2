@@ -38,7 +38,7 @@ const props = withDefaults(defineProps<Props>(), {
   priority: 'secondary',
   class: '',
   style: '',
-  debug: false
+  debug: false,
 })
 
 const displayValue = ref(props.value) // Show final value immediately

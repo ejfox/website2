@@ -14,7 +14,7 @@ export default defineEventHandler(async () => {
     console.error('Error proxying stats endpoint:', error)
     throw createError({
       statusCode: 500,
-      message: 'Failed to fetch photo stats'
+      message: 'Failed to fetch photo stats',
     })
   }
 })

@@ -32,20 +32,20 @@ export default defineEventHandler(async (_event) => {
       .filter((item) => item.Name && item.Name.trim() !== '')
       .map((item) => ({
         ...item,
-        slug: createSlug(item.Name!)
+        slug: createSlug(item.Name!),
       }))
       .sort((a, b) => (a.Name || '').localeCompare(b.Name || ''))
 
     return {
       items: itemsWithSlugs,
       count: itemsWithSlugs.length,
-      lastUpdated: new Date().toISOString()
+      lastUpdated: new Date().toISOString(),
     }
   } catch (error) {
     console.error('Error loading gear data:', error)
     throw createError({
       statusCode: 500,
-      statusMessage: 'Failed to load gear data'
+      statusMessage: 'Failed to load gear data',
     })
   }
 })

@@ -57,19 +57,24 @@ export default defineEventHandler(async (event): Promise<string> => {
       method: 'POST',
       headers: {
         Authorization: `bearer ${token}`,
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
-      body: { query }
+      body: { query },
     })
 
     // Handle GraphQL errors
     if (response?.errors) {
       console.error('GitHub GraphQL errors:', response.errors)
-      throw new Error(`GitHub API error: ${response.errors[0]?.message || 'Unknown error'}`)
+      throw new Error(
+        `GitHub API error: ${response.errors[0]?.message || 'Unknown error'}`
+      )
     }
 
     if (!response?.data?.viewer?.gists?.nodes) {
-      console.error('Unexpected GitHub response structure:', JSON.stringify(response, null, 2))
+      console.error(
+        'Unexpected GitHub response structure:',
+        JSON.stringify(response, null, 2)
+      )
       throw new Error('Invalid GitHub API response structure')
     }
 

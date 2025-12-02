@@ -22,12 +22,13 @@
           :class="
             prediction.status === 'correct' ? 'text-success' : 'text-error'
           "
-          >{{ prediction.status }}</span
         >
-        <span v-if="prediction.updates && prediction.updates.length > 0"
-          >· {{ prediction.updates.length }}
-          {{ prediction.updates.length === 1 ? 'update' : 'updates' }}</span
-        >
+          {{ prediction.status }}
+        </span>
+        <span v-if="prediction.updates && prediction.updates.length > 0">
+          · {{ prediction.updates.length }}
+          {{ prediction.updates.length === 1 ? 'update' : 'updates' }}
+        </span>
       </div>
 
       <!-- Resolution excerpt if resolved -->
@@ -72,17 +73,17 @@ const displayConfidence = props.prediction.confidence || 0
 
 const confidenceClasses = [
   'font-mono text-lg text-zinc-900 dark:text-zinc-100',
-  'font-bold shrink-0 tabular-nums'
+  'font-bold shrink-0 tabular-nums',
 ].join(' ')
 
 const statementClasses = [
   'font-serif text-base leading-snug text-zinc-900',
-  'dark:text-zinc-100 flex-1'
+  'dark:text-zinc-100 flex-1',
 ].join(' ')
 
 const resolutionClasses = [
   'font-serif text-sm text-zinc-600 dark:text-zinc-400',
-  'leading-normal prose prose-sm dark:prose-invert max-w-none'
+  'leading-normal prose prose-sm dark:prose-invert max-w-none',
 ].join(' ')
 
 const showStatusBadge = computed(
@@ -114,7 +115,7 @@ const _formatDateCompact = (dateString: string) => {
     'SEP',
     'OCT',
     'NOV',
-    'DEC'
+    'DEC',
   ]
   const month = months[d.getMonth()]
   const day = String(d.getDate()).padStart(2, '0')

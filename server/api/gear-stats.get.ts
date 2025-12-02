@@ -50,16 +50,16 @@ export default defineEventHandler(async (_event) => {
       stats: {
         totalItems,
         totalWeight: Number.parseFloat(totalWeight.toFixed(1)),
-        containerCount
+        containerCount,
       },
       typeDistribution,
-      lastUpdated: new Date().toISOString()
+      lastUpdated: new Date().toISOString(),
     }
   } catch (error) {
     console.error('Error processing gear data:', error)
     throw createError({
       statusCode: 500,
-      statusMessage: 'Failed to process gear data'
+      statusMessage: 'Failed to process gear data',
     })
   }
 })

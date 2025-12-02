@@ -36,30 +36,31 @@
       <StatsSectionHeader title="ENGAGEMENT" />
       <div class="space-y-1.5">
         <div class="flex items-center justify-between text-xs">
-          <span class="text-zinc-500 uppercase tracking-widest text-xs"
-            >BOUNCE RATE</span
-          >
+          <span class="text-zinc-500 uppercase tracking-widest text-xs">
+            BOUNCE RATE
+          </span>
           <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
             <AnimatedNumber
               :value="bounceRate"
               format="default"
               :duration="400"
               priority="tertiary"
-            />%
+            />
+            %
           </span>
         </div>
         <div class="flex items-center justify-between text-xs">
-          <span class="text-zinc-500 uppercase tracking-widest text-xs"
-            >AVG SESSION</span
-          >
+          <span class="text-zinc-500 uppercase tracking-widest text-xs">
+            AVG SESSION
+          </span>
           <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
             {{ avgSessionTime }}
           </span>
         </div>
         <div class="flex items-center justify-between text-xs">
-          <span class="text-zinc-500 uppercase tracking-widest text-xs"
-            >PAGES/SESSION</span
-          >
+          <span class="text-zinc-500 uppercase tracking-widest text-xs">
+            PAGES/SESSION
+          </span>
           <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
             {{ pagesPerSession }}
           </span>
@@ -72,25 +73,25 @@
       <StatsSectionHeader title="GROWTH (VS PREV 30 DAYS)" />
       <div class="space-y-1.5">
         <div class="flex items-center justify-between text-xs">
-          <span class="text-zinc-500 uppercase tracking-widest text-xs"
-            >PAGEVIEWS</span
-          >
+          <span class="text-zinc-500 uppercase tracking-widest text-xs">
+            PAGEVIEWS
+          </span>
           <span class="tabular-nums" :class="getGrowthClass(pageviewGrowth)">
             {{ formatGrowth(pageviewGrowth) }}
           </span>
         </div>
         <div class="flex items-center justify-between text-xs">
-          <span class="text-zinc-500 uppercase tracking-widest text-xs"
-            >VISITORS</span
-          >
+          <span class="text-zinc-500 uppercase tracking-widest text-xs">
+            VISITORS
+          </span>
           <span class="tabular-nums" :class="getGrowthClass(visitorGrowth)">
             {{ formatGrowth(visitorGrowth) }}
           </span>
         </div>
         <div class="flex items-center justify-between text-xs">
-          <span class="text-zinc-500 uppercase tracking-widest text-xs"
-            >ENGAGEMENT TIME</span
-          >
+          <span class="text-zinc-500 uppercase tracking-widest text-xs">
+            ENGAGEMENT TIME
+          </span>
           <span class="tabular-nums" :class="getGrowthClass(timeGrowth)">
             {{ formatGrowth(timeGrowth) }}
           </span>
@@ -103,25 +104,25 @@
       <h4 class="section-label-tracked">TRAFFIC QUALITY</h4>
       <div class="space-y-1.5">
         <div class="flex items-center justify-between text-xs">
-          <span class="text-zinc-500 uppercase tracking-widest text-xs"
-            >RETURN RATE</span
-          >
+          <span class="text-zinc-500 uppercase tracking-widest text-xs">
+            RETURN RATE
+          </span>
           <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
             {{ returnRate }}%
           </span>
         </div>
         <div class="flex items-center justify-between text-xs">
-          <span class="text-zinc-500 uppercase tracking-widest text-xs"
-            >ENGAGEMENT RATE</span
-          >
+          <span class="text-zinc-500 uppercase tracking-widest text-xs">
+            ENGAGEMENT RATE
+          </span>
           <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
             {{ engagementRate }}%
           </span>
         </div>
         <div class="flex items-center justify-between text-xs">
-          <span class="text-zinc-500 uppercase tracking-widest text-xs"
-            >DAILY AVG</span
-          >
+          <span class="text-zinc-500 uppercase tracking-widest text-xs">
+            DAILY AVG
+          </span>
           <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
             {{ dailyAverage }} views
           </span>
@@ -176,7 +177,7 @@ const stats = computed(
       visitors: { value: 0, prev: 0 },
       visits: { value: 0, prev: 0 },
       bounces: { value: 0, prev: 0 },
-      totaltime: { value: 0, prev: 0 }
+      totaltime: { value: 0, prev: 0 },
     }
 )
 

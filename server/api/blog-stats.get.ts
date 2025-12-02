@@ -20,15 +20,15 @@ export default defineEventHandler(async () => {
     return {
       posts: {
         thisMonth: wordsData.postCount || 0,
-        total: wordsData.totalPosts || 0 // Get from enhanced API
+        total: wordsData.totalPosts || 0, // Get from enhanced API
       },
       words: {
         thisMonth: wordsData.totalWords || 0,
-        avgPerPost: wordsData.avgWordsPerPost || 0
+        avgPerPost: wordsData.avgWordsPerPost || 0,
       },
       recentPosts: wordsData.posts || [],
       month: wordsData.month,
-      year: wordsData.year
+      year: wordsData.year,
     }
   } catch (error) {
     console.error('Error fetching blog stats:', error)
@@ -37,7 +37,7 @@ export default defineEventHandler(async () => {
       words: { thisMonth: 0, avgPerPost: 0 },
       recentPosts: [],
       month: new Date().toLocaleDateString('en-US', { month: 'long' }),
-      year: new Date().getFullYear()
+      year: new Date().getFullYear(),
     }
   }
 })

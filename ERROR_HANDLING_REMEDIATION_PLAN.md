@@ -1,13 +1,16 @@
 # Error Handling Remediation Plan - Parallel Agent Tasks
 
 ## Overview
+
 Systematic approach to fixing all 45+ error handling issues across the codebase using parallel subagents with unlimited token windows.
 
 ## Task Breakdown for Parallel Execution
 
 ### TASK 1: useFetch Error Handling in Pages (6 pages)
+
 **Agent Type:** general-purpose
 **Scope:**
+
 - `pages/now.vue` - 3 useFetch calls without error handling
 - `pages/sitemap.vue` - 3 useFetch calls without error handling
 - `pages/following.vue` - 1 useFetch call without error handling
@@ -16,6 +19,7 @@ Systematic approach to fixing all 45+ error handling issues across the codebase 
 - `pages/predictions/index.vue` - 1 useFetch call without error handling
 
 **Work Required:**
+
 1. Add `error` to destructuring from useFetch
 2. Add error state checks in template (v-if="error")
 3. Add user-facing error message display
@@ -26,8 +30,10 @@ Systematic approach to fixing all 45+ error handling issues across the codebase 
 ---
 
 ### TASK 2: $fetch Without Try/Catch (9 locations)
+
 **Agent Type:** general-purpose
 **Scope:**
+
 - `pages/external-links.vue:3` - useAsyncData with $fetch
 - `pages/predictions/[slug].vue:166` - $fetch without explicit handling
 - `pages/bookmarklet-popup.vue:219` - $fetch for tags
@@ -39,6 +45,7 @@ Systematic approach to fixing all 45+ error handling issues across the codebase 
 - `composables/useProcessedMarkdown.ts:307-316` - Promise.all without recovery
 
 **Work Required:**
+
 1. Wrap $fetch calls in try/catch or within error handlers
 2. Add fallback values for failed fetches
 3. Return empty/default data instead of throwing
@@ -49,8 +56,10 @@ Systematic approach to fixing all 45+ error handling issues across the codebase 
 ---
 
 ### TASK 3: Null Safety & Type Checks (5 locations)
+
 **Agent Type:** ada-quality-engineer
 **Scope:**
+
 - `pages/now.vue:14-50` - Deep property access without null checks
 - `server/api/youtube.get.ts:151-152` - Array index without bounds check
 - `server/api/kalshi.get.ts:399` - Non-null assertion without safety
@@ -58,6 +67,7 @@ Systematic approach to fixing all 45+ error handling issues across the codebase 
 - `pages/reading/[slug].vue:38-50` - Nested property access without checks
 
 **Work Required:**
+
 1. Add optional chaining (?.) at each level
 2. Add nullish coalescing (??) with sensible defaults
 3. Add guard clauses before deep property access
@@ -68,13 +78,16 @@ Systematic approach to fixing all 45+ error handling issues across the codebase 
 ---
 
 ### TASK 4: Race Conditions in Async Data (3 locations)
+
 **Agent Type:** ada-quality-engineer
 **Scope:**
+
 - `pages/bookmarklet-popup.vue:216-250` - Parallel loads with shared state
 - `pages/now.vue:3-5` - Data fetched at top level, computed accesses during loading
 - `composables/useProcessedMarkdown.ts:307-316` - Partial success handling
 
 **Work Required:**
+
 1. Add loading state guards before accessing data in computed
 2. Implement proper state machine for async operations
 3. Handle partial success/failure scenarios
@@ -85,12 +98,15 @@ Systematic approach to fixing all 45+ error handling issues across the codebase 
 ---
 
 ### TASK 5: Error Boundaries & Fallbacks (2 pages)
+
 **Agent Type:** general-purpose
 **Scope:**
+
 - `pages/blog/index.vue` - No error state for posts fetch
 - `pages/stats.vue` - Stats endpoint error handling
 
 **Work Required:**
+
 1. Add error boundary checks in templates
 2. Display fallback/empty states
 3. Show user-friendly error messages
@@ -101,14 +117,17 @@ Systematic approach to fixing all 45+ error handling issues across the codebase 
 ---
 
 ### TASK 6: composables/useProcessedMarkdown.ts Audit (Complete Refactor)
+
 **Agent Type:** ada-quality-engineer
 **Scope:** Entire file - critical data loading utility
+
 - Line 200: $fetch without fallback
 - Line 307: Promise.all without error recovery
 - Line 381: Promise.all with partial error handling
 - Line 424: Promise.all without null check
 
 **Work Required:**
+
 1. Convert all Promise.all to Promise.allSettled
 2. Add comprehensive error logging
 3. Implement fallback data structures
@@ -122,6 +141,7 @@ Systematic approach to fixing all 45+ error handling issues across the codebase 
 ## Execution Order
 
 **Parallel Wave 1 (Can run simultaneously):**
+
 - Task 1: useFetch pages
 - Task 2: $fetch issues
 - Task 3: Null safety checks
@@ -129,9 +149,11 @@ Systematic approach to fixing all 45+ error handling issues across the codebase 
 - Task 5: Error boundaries
 
 **Sequential (Depends on above):**
+
 - Task 6: useProcessedMarkdown refactor (after Tasks 2-4 complete)
 
 **Final:**
+
 - Commit all changes
 - Run ESLint check
 - Build test
@@ -150,6 +172,7 @@ Systematic approach to fixing all 45+ error handling issues across the codebase 
 ## Files to Modify
 
 **Pages (7 files):**
+
 - pages/now.vue
 - pages/sitemap.vue
 - pages/following.vue
@@ -159,6 +182,7 @@ Systematic approach to fixing all 45+ error handling issues across the codebase 
 - pages/stats.vue
 
 **Server (Already done, but verify - 12 files):**
+
 - server/api/predictions.get.ts ✅
 - server/api/reading.get.ts ✅
 - server/api/kalshi.get.ts ✅
@@ -173,9 +197,11 @@ Systematic approach to fixing all 45+ error handling issues across the codebase 
 - server/routes/robots-rss.xml.ts ✅
 
 **Composables (2 files):**
+
 - composables/useProcessedMarkdown.ts
 - composables/other files (audit for $fetch issues)
 
 **Pages with Bookmarklet:**
+
 - pages/bookmarklet-popup.vue
 - pages/bookmarklet.vue (audit needed)

@@ -28,7 +28,7 @@ export default defineEventHandler(async (event) => {
   if (!url) {
     throw createError({
       statusCode: 400,
-      statusMessage: 'Missing url parameter'
+      statusMessage: 'Missing url parameter',
     })
   }
 
@@ -39,7 +39,7 @@ export default defineEventHandler(async (event) => {
   } catch {
     throw createError({
       statusCode: 400,
-      statusMessage: 'Invalid URL'
+      statusMessage: 'Invalid URL',
     })
   }
 
@@ -53,10 +53,11 @@ export default defineEventHandler(async (event) => {
     // Fetch the page
     const response = await fetch(url, {
       headers: {
-        'User-Agent': 'Mozilla/5.0 (compatible; IndieWeb/1.0; +https://ejfox.com)',
-        'Accept': 'text/html,application/xhtml+xml'
+        'User-Agent':
+          'Mozilla/5.0 (compatible; IndieWeb/1.0; +https://ejfox.com)',
+        Accept: 'text/html,application/xhtml+xml',
       },
-      signal: AbortSignal.timeout(10000)
+      signal: AbortSignal.timeout(10000),
     })
 
     if (!response.ok) {
@@ -68,48 +69,69 @@ export default defineEventHandler(async (event) => {
     // Parse OG data from HTML
     const ogData: OGData = {
       url,
-      favicon: `https://www.google.com/s2/favicons?domain=${parsedUrl.hostname}&sz=64`
+      favicon: `https://www.google.com/s2/favicons?domain=${parsedUrl.hostname}&sz=64`,
     }
 
     // Extract meta tags
     const metaPatterns = [
-      { key: 'title', patterns: [
-        /property="og:title"\s+content="([^"]+)"/i,
-        /name="og:title"\s+content="([^"]+)"/i,
-        /content="([^"]+)"\s+property="og:title"/i,
-        /<title[^>]*>([^<]+)<\/title>/i
-      ]},
-      { key: 'description', patterns: [
-        /property="og:description"\s+content="([^"]+)"/i,
-        /name="description"\s+content="([^"]+)"/i,
-        /content="([^"]+)"\s+property="og:description"/i,
-        /content="([^"]+)"\s+name="description"/i
-      ]},
-      { key: 'image', patterns: [
-        /property="og:image"\s+content="([^"]+)"/i,
-        /content="([^"]+)"\s+property="og:image"/i,
-        /name="twitter:image"\s+content="([^"]+)"/i
-      ]},
-      { key: 'siteName', patterns: [
-        /property="og:site_name"\s+content="([^"]+)"/i,
-        /content="([^"]+)"\s+property="og:site_name"/i
-      ]},
-      { key: 'author', patterns: [
-        /name="author"\s+content="([^"]+)"/i,
-        /content="([^"]+)"\s+name="author"/i,
-        /class="p-author[^"]*"[^>]*>([^<]+)</i,
-        /rel="author"[^>]*>([^<]+)</i
-      ]},
-      { key: 'published', patterns: [
-        /property="article:published_time"\s+content="([^"]+)"/i,
-        /content="([^"]+)"\s+property="article:published_time"/i,
-        /class="dt-published"[^>]*datetime="([^"]+)"/i,
-        /datetime="([^"]+)"[^>]*class="dt-published"/i
-      ]},
-      { key: 'type', patterns: [
-        /property="og:type"\s+content="([^"]+)"/i,
-        /content="([^"]+)"\s+property="og:type"/i
-      ]}
+      {
+        key: 'title',
+        patterns: [
+          /property="og:title"\s+content="([^"]+)"/i,
+          /name="og:title"\s+content="([^"]+)"/i,
+          /content="([^"]+)"\s+property="og:title"/i,
+          /<title[^>]*>([^<]+)<\/title>/i,
+        ],
+      },
+      {
+        key: 'description',
+        patterns: [
+          /property="og:description"\s+content="([^"]+)"/i,
+          /name="description"\s+content="([^"]+)"/i,
+          /content="([^"]+)"\s+property="og:description"/i,
+          /content="([^"]+)"\s+name="description"/i,
+        ],
+      },
+      {
+        key: 'image',
+        patterns: [
+          /property="og:image"\s+content="([^"]+)"/i,
+          /content="([^"]+)"\s+property="og:image"/i,
+          /name="twitter:image"\s+content="([^"]+)"/i,
+        ],
+      },
+      {
+        key: 'siteName',
+        patterns: [
+          /property="og:site_name"\s+content="([^"]+)"/i,
+          /content="([^"]+)"\s+property="og:site_name"/i,
+        ],
+      },
+      {
+        key: 'author',
+        patterns: [
+          /name="author"\s+content="([^"]+)"/i,
+          /content="([^"]+)"\s+name="author"/i,
+          /class="p-author[^"]*"[^>]*>([^<]+)</i,
+          /rel="author"[^>]*>([^<]+)</i,
+        ],
+      },
+      {
+        key: 'published',
+        patterns: [
+          /property="article:published_time"\s+content="([^"]+)"/i,
+          /content="([^"]+)"\s+property="article:published_time"/i,
+          /class="dt-published"[^>]*datetime="([^"]+)"/i,
+          /datetime="([^"]+)"[^>]*class="dt-published"/i,
+        ],
+      },
+      {
+        key: 'type',
+        patterns: [
+          /property="og:type"\s+content="([^"]+)"/i,
+          /content="([^"]+)"\s+property="og:type"/i,
+        ],
+      },
     ]
 
     for (const { key, patterns } of metaPatterns) {
@@ -133,7 +155,7 @@ export default defineEventHandler(async (event) => {
       /rel="icon"[^>]*href="([^"]+)"/i,
       /rel="shortcut icon"[^>]*href="([^"]+)"/i,
       /href="([^"]+)"[^>]*rel="icon"/i,
-      /rel="apple-touch-icon"[^>]*href="([^"]+)"/i
+      /rel="apple-touch-icon"[^>]*href="([^"]+)"/i,
     ]
 
     for (const pattern of faviconPatterns) {
@@ -159,7 +181,7 @@ export default defineEventHandler(async (event) => {
     // Cache the result
     cache.set(url, {
       data: ogData,
-      expires: Date.now() + CACHE_TTL
+      expires: Date.now() + CACHE_TTL,
     })
 
     return ogData
@@ -168,13 +190,13 @@ export default defineEventHandler(async (event) => {
     const fallback: OGData = {
       url,
       siteName: parsedUrl.hostname.replace('www.', ''),
-      favicon: `https://www.google.com/s2/favicons?domain=${parsedUrl.hostname}&sz=64`
+      favicon: `https://www.google.com/s2/favicons?domain=${parsedUrl.hostname}&sz=64`,
     }
 
     // Cache even failures briefly (1 minute)
     cache.set(url, {
       data: fallback,
-      expires: Date.now() + 60000
+      expires: Date.now() + 60000,
     })
 
     return fallback

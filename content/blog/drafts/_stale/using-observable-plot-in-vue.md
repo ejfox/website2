@@ -46,8 +46,8 @@ function makePlotLineGraph(city, targetContainerId) {
     height: 500,
     style: {
       background: 'black',
-      color: 'white'
-    }
+      color: 'white',
+    },
   })
 
   return chartPlot

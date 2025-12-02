@@ -2,7 +2,7 @@
   <div
     :class="[
       'group hover:bg-zinc-50 dark:hover:bg-zinc-900/50',
-      'transition-colors rounded-lg p-4 -m-4'
+      'transition-colors rounded-lg p-4 -m-4',
     ]"
   >
     <component
@@ -19,7 +19,7 @@
             :class="[
               'font-medium text-zinc-900 dark:text-zinc-100',
               'group-hover:text-zinc-700 dark:group-hover:text-zinc-300',
-              'transition-colors'
+              'transition-colors',
             ]"
           >
             {{ title }}
@@ -28,13 +28,13 @@
           <p
             :class="[
               'text-sm text-zinc-600 dark:text-zinc-400 mt-1',
-              'leading-relaxed'
+              'leading-relaxed',
             ]"
           >
             {{ description }}
           </p>
         </div>
-        <span class="icon-muted-hover"> → </span>
+        <span class="icon-muted-hover">→</span>
       </div>
     </component>
   </div>
@@ -44,19 +44,19 @@
 defineProps({
   to: {
     type: String,
-    required: true
+    required: true,
   },
   title: {
     type: String,
-    required: true
+    required: true,
   },
   description: {
     type: String,
-    required: true
+    required: true,
   },
   external: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 })
 </script>

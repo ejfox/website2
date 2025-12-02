@@ -49,15 +49,15 @@ async function fetchChannelStats(token: string, channelId: string) {
       params: {
         part: 'statistics',
         id: channelId,
-        key: token
-      }
+        key: token,
+      },
     }
   )
 
   if (!response.items?.length) {
     throw createError({
       statusCode: 404,
-      message: 'YouTube channel not found'
+      message: 'YouTube channel not found',
     })
   }
 
@@ -72,8 +72,8 @@ async function fetchVideoComments(token: string, videoId: string) {
         part: 'snippet',
         videoId: videoId,
         key: token,
-        maxResults: 1 // We only need the total
-      }
+        maxResults: 1, // We only need the total
+      },
     }
   )
 
@@ -99,8 +99,8 @@ async function fetchChannelVideos(
       params: {
         part: 'contentDetails',
         id: channelId,
-        key: token
-      }
+        key: token,
+      },
     }
   )
 
@@ -109,7 +109,7 @@ async function fetchChannelVideos(
   if (!uploadsPlaylistId) {
     throw createError({
       statusCode: 404,
-      message: 'YouTube uploads playlist not found'
+      message: 'YouTube uploads playlist not found',
     })
   }
 
@@ -121,8 +121,8 @@ async function fetchChannelVideos(
         part: 'snippet,contentDetails',
         playlistId: uploadsPlaylistId,
         maxResults,
-        key: token
-      }
+        key: token,
+      },
     }
   )
 
@@ -136,8 +136,8 @@ async function fetchChannelVideos(
       params: {
         part: 'statistics',
         id: videoIds,
-        key: token
-      }
+        key: token,
+      },
     }
   )
 
@@ -167,14 +167,14 @@ async function fetchChannelVideos(
       thumbnails: {
         default: snippet.thumbnails.default?.url,
         medium: snippet.thumbnails.medium?.url,
-        high: snippet.thumbnails.high?.url
+        high: snippet.thumbnails.high?.url,
       },
       url: `https://www.youtube.com/watch?v=${item.contentDetails.videoId}`,
       stats: {
         views: Number.parseInt(stats.viewCount || '0', 10),
         likes: Number.parseInt(stats.likeCount || '0', 10),
-        comments: commentCounts[index] || 0
-      }
+        comments: commentCounts[index] || 0,
+      },
     }
   })
 
@@ -187,7 +187,7 @@ async function fetchChannelVideos(
     (acc: any, video: any) => ({
       views: acc.views + video.stats.views,
       comments: acc.comments + video.stats.comments,
-      likes: acc.likes + video.stats.likes
+      likes: acc.likes + video.stats.likes,
     }),
     { views: 0, comments: 0, likes: 0 }
   )
@@ -195,7 +195,7 @@ async function fetchChannelVideos(
   return {
     videos,
     videosThisMonth: monthlyVideos.length,
-    monthlyStats
+    monthlyStats,
   }
 }
 
@@ -208,14 +208,14 @@ export default defineEventHandler(async (): Promise<YouTubeStats> => {
   if (!token || !channelId) {
     throw createError({
       statusCode: 500,
-      message: 'YouTube API key or channel ID not configured'
+      message: 'YouTube API key or channel ID not configured',
     })
   }
 
   try {
     const results = await Promise.allSettled([
       fetchChannelStats(token, channelId),
-      fetchChannelVideos(token, channelId)
+      fetchChannelVideos(token, channelId),
     ])
 
     const channelStats =
@@ -228,7 +228,7 @@ export default defineEventHandler(async (): Promise<YouTubeStats> => {
         : {
             videos: [],
             videosThisMonth: 0,
-            monthlyStats: { views: 0, comments: 0, likes: 0 }
+            monthlyStats: { views: 0, comments: 0, likes: 0 },
           }
 
     const response: YouTubeStats = {
@@ -240,10 +240,10 @@ export default defineEventHandler(async (): Promise<YouTubeStats> => {
           channelStats.subscriberCount || '0',
           10
         ),
-        monthlyStats: videoData.monthlyStats
+        monthlyStats: videoData.monthlyStats,
       },
       latestVideos: videoData.videos,
-      lastUpdated: new Date().toISOString()
+      lastUpdated: new Date().toISOString(),
     }
 
     return response
@@ -274,7 +274,7 @@ export default defineEventHandler(async (): Promise<YouTubeStats> => {
       message:
         youtubeError.response?.error?.message ||
         youtubeError.message ||
-        'Failed to fetch YouTube data'
+        'Failed to fetch YouTube data',
     })
   }
 })

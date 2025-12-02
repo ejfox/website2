@@ -215,7 +215,7 @@ const recentProjects = computed(() => {
         commitCount: 0,
         lastCommit: commit.occurredAt,
         lastMessage: commit.message,
-        topTypes: []
+        topTypes: [],
       })
     }
 
@@ -288,7 +288,7 @@ const getContributionStreak = computed(() => {
 
 function formatRelativeTime(dateStr: string) {
   return formatDistance(new Date(dateStr), new Date(), {
-    addSuffix: true
+    addSuffix: true,
   })
 }
 </script>

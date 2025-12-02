@@ -10,9 +10,11 @@
     <!-- Statement with confidence -->
     <section class="section-spacing-lg">
       <div class="flex-gap-4 section-spacing-sm">
-        <span class="font-mono text-3xl text-primary font-bold shrink-0 tabular"
-          >{{ prediction.confidence }}%</span
+        <span
+          class="font-mono text-3xl text-primary font-bold shrink-0 tabular"
         >
+          {{ prediction.confidence }}%
+        </span>
         <h1 class="font-serif text-2xl leading-tight text-primary flex-1">
           {{ prediction.statement }}
         </h1>
@@ -33,13 +35,13 @@
         >
           {{ prediction.status }}
         </span>
-        <span v-if="prediction.updates && prediction.updates.length > 0"
-          >· {{ prediction.updates.length }}
-          {{ prediction.updates.length === 1 ? 'update' : 'updates' }}</span
-        >
-        <span v-if="prediction.deadline"
-          >· {{ formatShortDate(prediction.deadline) }}</span
-        >
+        <span v-if="prediction.updates && prediction.updates.length > 0">
+          · {{ prediction.updates.length }}
+          {{ prediction.updates.length === 1 ? 'update' : 'updates' }}
+        </span>
+        <span v-if="prediction.deadline">
+          · {{ formatShortDate(prediction.deadline) }}
+        </span>
       </div>
     </section>
 
@@ -86,9 +88,9 @@
         <div v-for="(update, index) in sortedUpdates" :key="index" class="pl-4">
           <!-- Update header -->
           <div class="mono-xs text-muted mb-2">
-            <span class="text-primary">{{
-              formatShortDate(update.timestamp)
-            }}</span>
+            <span class="text-primary">
+              {{ formatShortDate(update.timestamp) }}
+            </span>
             <span
               v-if="
                 update.confidenceBefore !== undefined &&
@@ -98,7 +100,8 @@
             >
               ·
               <span class="text-secondary">{{ update.confidenceBefore }}%</span>
-              → <span class="text-primary">{{ update.confidenceAfter }}%</span>
+              →
+              <span class="text-primary">{{ update.confidenceAfter }}%</span>
             </span>
           </div>
 
@@ -214,6 +217,6 @@ useSeoMeta({
     prediction.value?.evidence?.slice(0, 160) ||
     'Cryptographically verified prediction',
   ogImage: '/og-image.png',
-  twitterCard: 'summary_large_image'
+  twitterCard: 'summary_large_image',
 })
 </script>

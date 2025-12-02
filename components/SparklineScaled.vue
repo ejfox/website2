@@ -43,32 +43,32 @@ import * as d3 from 'd3'
 const props = defineProps({
   values: {
     type: Array,
-    default: () => []
+    default: () => [],
   },
   type: {
     type: String,
-    default: 'squares' // squares | line | bars
+    default: 'squares', // squares | line | bars
   },
   width: {
     type: Number,
-    default: 100
+    default: 100,
   },
   height: {
     type: Number,
-    default: 20
+    default: 20,
   },
   columns: {
     type: Number,
-    default: 10
+    default: 10,
   },
   color: {
     type: String,
-    default: '#3b82f6'
+    default: '#3b82f6',
   },
   metric: {
     type: String,
-    default: undefined // words | size | time | images
-  }
+    default: undefined, // words | size | time | images
+  },
 })
 
 // Scale definitions based on metric type
@@ -77,29 +77,29 @@ const scales = computed(() => {
     words: {
       domain: [0, 5000],
       colors: ['#dbeafe', '#3b82f6', '#1e40af'],
-      size: [2, 4]
+      size: [2, 4],
     },
     size: {
       domain: [0, 100000], // bytes
       colors: ['#fef3c7', '#f59e0b', '#d97706'],
-      size: [1, 3]
+      size: [1, 3],
     },
     time: {
       domain: [0, 60], // minutes
       colors: ['#ede9fe', '#8b5cf6', '#5b21b6'],
-      size: [2, 3]
+      size: [2, 3],
     },
     images: {
       domain: [0, 20],
       colors: ['#d1fae5', '#10b981', '#047857'],
-      size: [3, 5]
-    }
+      size: [3, 5],
+    },
   }
 
   const config = metricScales[props.metric] || {
     domain: d3.extent(props.values),
     colors: [props.color],
-    size: [2, 4]
+    size: [2, 4],
   }
 
   return {
@@ -107,7 +107,7 @@ const scales = computed(() => {
       .scaleLinear()
       .domain([
         0,
-        props.type === 'line' ? props.values.length - 1 : props.columns - 1
+        props.type === 'line' ? props.values.length - 1 : props.columns - 1,
       ])
       .range([0, props.width - 4]),
 
@@ -130,7 +130,7 @@ const scales = computed(() => {
 
     opacity: d3.scaleLinear().domain(config.domain).range([0.3, 1]),
 
-    stroke: d3.scaleLinear().domain(config.domain).range([0.5, 2])
+    stroke: d3.scaleLinear().domain(config.domain).range([0.5, 2]),
   }
 })
 

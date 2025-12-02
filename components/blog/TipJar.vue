@@ -32,9 +32,9 @@
           :key="coin"
           class="group flex items-center justify-between py-1 font-mono gap-2"
         >
-          <span class="text-zinc-400 dark:text-zinc-600"
-            >{{ coin.toLowerCase() }}:</span
-          >
+          <span class="text-zinc-400 dark:text-zinc-600">
+            {{ coin.toLowerCase() }}:
+          </span>
           <button
             :class="addressButtonClasses"
             :title="address"
@@ -55,18 +55,18 @@ import { ref, computed } from 'vue'
 const containerClasses = computed(() => [
   'tip-jar',
   'mt-16 pt-8 border-t',
-  'border-zinc-100 dark:border-zinc-900'
+  'border-zinc-100 dark:border-zinc-900',
 ])
 
 const contentClasses = computed(() => [
   'text-center text-xs',
-  'text-zinc-400 dark:text-zinc-600'
+  'text-zinc-400 dark:text-zinc-600',
 ])
 
 const addressButtonClasses = computed(() => [
   'text-zinc-500 dark:text-zinc-500',
   'hover:text-zinc-700 dark:hover:text-zinc-300',
-  'transition-colors break-all text-right'
+  'transition-colors break-all text-right',
 ])
 
 // Load crypto addresses from public file

@@ -138,20 +138,20 @@ const props = defineProps({
     type: String,
     default: 'toc',
     validator: (v) =>
-      ['projects', 'toc', 'stats', 'sidenotes', 'custom'].includes(v)
+      ['projects', 'toc', 'stats', 'sidenotes', 'custom'].includes(v),
   },
   items: {
     type: Array,
-    default: () => []
+    default: () => [],
   },
   stats: {
     type: Object,
-    default: () => ({})
+    default: () => ({}),
   },
   floating: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 })
 
 const collapsed = ref(false)
@@ -163,7 +163,7 @@ const projects = computed(() => {
   if (props.type !== 'projects') return []
   return props.items.map((p) => ({
     ...p,
-    wordCount: p.wordCount || Math.random() * 3000
+    wordCount: p.wordCount || Math.random() * 3000,
   }))
 })
 
@@ -174,7 +174,7 @@ const toc = computed(() => {
   if (props.type !== 'toc') return []
   return props.items.map((item) => ({
     ...item,
-    progress: scrollProgress.value[item.slug] || 0
+    progress: scrollProgress.value[item.slug] || 0,
   }))
 })
 
@@ -190,7 +190,7 @@ const sidenotes = computed(() => {
   if (props.type !== 'sidenotes') return []
   return props.items.map((note) => ({
     ...note,
-    preview: note.content.slice(0, 50) + '...'
+    preview: note.content.slice(0, 50) + '...',
   }))
 })
 
@@ -201,7 +201,7 @@ const scrollToElement = (id) => {
 
   el.scrollIntoView({
     behavior: 'smooth',
-    block: 'start'
+    block: 'start',
   })
 
   activeId.value = id
@@ -245,7 +245,7 @@ onMounted(() => {
         })
       },
       {
-        rootMargin: '-20% 0px -70% 0px'
+        rootMargin: '-20% 0px -70% 0px',
       }
     )
 

@@ -66,7 +66,7 @@ const socialPlatforms = {
   'gcp.google.com': 'simple-icons:googlecloud',
   'firebase.google.com': 'simple-icons:firebase',
   'microsoft.com': 'simple-icons:microsoft',
-  'arxiv.org': 'cib:arxiv'
+  'arxiv.org': 'cib:arxiv',
 }
 
 const fetchIcon = async (name) => {
@@ -120,7 +120,7 @@ export function remarkEnhanceLinks() {
                 // Create a span wrapper to hold the icon
                 const iconSpan = {
                   type: 'html',
-                  value: svg
+                  value: svg,
                 }
 
                 // Make sure this node has children, and add the

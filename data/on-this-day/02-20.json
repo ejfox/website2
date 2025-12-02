@@ -1,1 +1,856 @@
-{"tweets":[{"id":"1627744763515441183","text":"@SoC_trilogy imo these bizarre examples with temp=0 are more compelling than the others with higher temps, this is profoundly weird","year":2023,"date":"2023-02-20","favorites":3,"retweets":0,"replyTo":"SoC_trilogy"},{"id":"1627715288677351448","text":"right now my SvgMap.vue component is.... 1000 lines... that is.... too many","year":2023,"date":"2023-02-20","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1627715075292135430","text":"me, with a machete, looking around my codebase with a sick gleam in my eye","year":2023,"date":"2023-02-20","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1627702673733562374","text":"ah, look, a day off, let me just do a profoundly ill-advised fundamental refactoring of my personal project app data flow away from props to composables","year":2023,"date":"2023-02-20","favorites":4,"retweets":0,"replyTo":null},{"id":"1627484348457930754","text":"@spencerc99 I wanna try!","year":2023,"date":"2023-02-20","favorites":1,"retweets":0,"replyTo":"spencerc99"},{"id":"1627469837751533571","text":"there we go- again, this is labeled and colored by how the win margin, I am thinking I will keep colors for win margin and power the arrows with the swing from the last election https://t.co/NXfsWBk8Tf","year":2023,"date":"2023-02-20","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1495508095266656256","text":"I really can't express how much I am enjoying using GitHub copilot... I just sort of gesture at what I want and the robot figures it out pretty well. Great collaborator, pair programming vibes, feels very futuristic.","year":2022,"date":"2022-02-20","favorites":2,"retweets":0,"replyTo":"mrejfox"},{"id":"1495503058188521478","text":"@nytimes hey guys its me again, wondering where in the saturday or sunday papers, which I pay you money for, I can read the article you are advertising here which I would very much like to read, thanks","year":2022,"date":"2022-02-20","favorites":2,"retweets":0,"replyTo":"mrejfox"},{"id":"1495380444740730882","text":"The streamer (1) watches a video where the other streamer (4) gets him (2) to watch a video on himself (3) – this is art https://t.co/kzHMzFULyX","year":2022,"date":"2022-02-20","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1495379136508051456","text":"In this video you can watch a streamer watch a video by another streamer wherein he makes a video under a new name and watches his buddy’s stream, so we watch the streamer watch the other streamer watch him watch the video, its all very good https://t.co/y9evCMH5BK","year":2022,"date":"2022-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"1363259606496141313","text":"@andest01 distortion mixtape plz","year":2021,"date":"2021-02-20","favorites":2,"retweets":0,"replyTo":"andest01"},{"id":"1363223425255358471","text":"RT @widged: @mrejfox All the flatten the curve ones https://t.co/6EuYguFIlF by @SiouxsieW, in NZ, had a critical impact on govt decisions.…","year":2021,"date":"2021-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"1363201224477147142","text":"RT @pstuffa: @mrejfox @Jasonforrestftw I studied skepticism in school so I find it easy to argue that most things you can’t measure a direc…","year":2021,"date":"2021-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"1363199913895620615","text":"@pstuffa @Jasonforrestftw I hear you on that, but do you really think there is no measurable impact of data visualization during this epidemic? It's simply unknowable?","year":2021,"date":"2021-02-20","favorites":1,"retweets":0,"replyTo":"pbbuffa"},{"id":"1363198012365934598","text":"@Jasonforrestftw Unfortunately the change in movement doesn't help me identify WHY people's movements changed, and it could easily have a lot more to do with local and state government measures and traditional public health messaging than it has to do with dataviz - I want to show provable impact","year":2021,"date":"2021-02-20","favorites":0,"retweets":0,"replyTo":"Jasonforrestftw"},{"id":"1363190396453613568","text":"@Jasonforrestftw What I am looking for: a reported out story of a policymaker’s decision rooted in a great dataviz. Or studies about the behavior of people who have/havent seen viz. But it is frustrating when there is this industry “given” benefit that has not been proved out.","year":2021,"date":"2021-02-20","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1363189010445852679","text":"@Jasonforrestftw I personally worked on multiple efforts to track and visualize and map hospitalizations, death rates, hotspots, etc. I am not sure anyone who mattered was looking, or that it changed anyone’s behavior, despite the mass of available visualizations","year":2021,"date":"2021-02-20","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1363188468474662919","text":"@Jasonforrestftw There’s an overabundance of speculation, I disagree with the evidence part. I am not asking this to be difficult, I really want to find one provable case that isn’t an abstract “more info means better decisions” – which is absolutely not a given","year":2021,"date":"2021-02-20","favorites":0,"retweets":0,"replyTo":"Jasonforrestftw"},{"id":"1363183183370534920","text":"RT @rharang: But instead, rather than actually grapple with the findings that a core Google technology (LLMs) may be causing unexpected har…","year":2021,"date":"2021-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"1363178617094737920","text":"RT @mrejfox: prove to me that a COVID data visualization has saved a single life","year":2021,"date":"2021-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"1230611958807908356","text":"@CapobiaNB @mslima Of course, your work is amazing!","year":2020,"date":"2020-02-20","favorites":1,"retweets":0,"replyTo":"CapobiaNB"},{"id":"1230610847002656768","text":"@mslima https://t.co/JMAq372Ven","year":2020,"date":"2020-02-20","favorites":1,"retweets":0,"replyTo":"mslima"},{"id":"1230603741809827857","text":"RT @NathanIHarris: @joshrayman @mrejfox Sports General Management in general","year":2020,"date":"2020-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"1230598807295057933","text":"I guess another might be being a teacher, hoping that your student has absorbed your lessons as they continue on in their life, but the delay and number of complicating factors makes this a messy metaphor","year":2020,"date":"2020-02-20","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1230598674088157199","text":"the most obvious and self-aggrandizing is NASA, making a ship or robot and hoping you did everything right and then launching it into space","year":2020,"date":"2020-02-20","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1230598500976648200","text":"trying to think of good metaphors of shipping software to production\n\nthere is something special and unique about doing a lot of work and then sort of lobbing it into an unknown environment and hoping for the best\n\nwhat other jobs have this same paradigm?","year":2020,"date":"2020-02-20","favorites":1,"retweets":0,"replyTo":null},{"id":"1230597034824151040","text":"can someone tell the youtube recommendation brain engine thing that I don't want to watch any videos from 6 years ago","year":2020,"date":"2020-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"1230571948150685697","text":"@katieraffa yes","year":2020,"date":"2020-02-20","favorites":0,"retweets":0,"replyTo":"katieraffa"},{"id":"1230546147837710336","text":"@AndrewDLuecke @ZACFTP @FTP soooooooooooooo good","year":2020,"date":"2020-02-20","favorites":1,"retweets":0,"replyTo":"andrewluecke"},{"id":"1230337413836427266","text":"@databyler dude i would kill for a round of \"never have i ever\"","year":2020,"date":"2020-02-20","favorites":1,"retweets":0,"replyTo":"databyler"},{"id":"1230318459692732416","text":"let each of them choose champions to fight in an octagon THAT WOULD BE SO GOOD","year":2020,"date":"2020-02-20","favorites":2,"retweets":0,"replyTo":null},{"id":"1230316855136604166","text":"less debate MORE BLOOD","year":2020,"date":"2020-02-20","favorites":3,"retweets":0,"replyTo":null},{"id":"1098363619601989632","text":"RT @wesbos: \"Project Website\" connects volunteer developers with nonprofits. If you need some real experience and want to help a nonprofit,…","year":2019,"date":"2019-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"1098358502962151424","text":"RT @MuckRock: #ICE detainees at a jail in Newark, #NewJersey have been fed spoiled food and subjected to deteriorating conditions, accordin…","year":2019,"date":"2019-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"1098213680892858369","text":"@FreeJeremyNet Two books from Jeremy's wishlist are showing as delivered today. Hope he gets them soon.","year":2019,"date":"2019-02-20","favorites":0,"retweets":0,"replyTo":"FreeJeremyNet"},{"id":"1098018703797616641","text":"RT @bencasselman: Democrats want to tax the rich. Voters -- including a significant number of Republicans -- are largely cheering them on.…","year":2019,"date":"2019-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"1098012951125151744","text":"Someone teach that AI thing to talk like the shadow brokers","year":2019,"date":"2019-02-20","favorites":1,"retweets":0,"replyTo":null},{"id":"1098009448218386433","text":"At some point you get used to people being unimpressed with your work and then being really impressed when other people do it approximately 2 years later","year":2019,"date":"2019-02-20","favorites":1,"retweets":0,"replyTo":null},{"id":"966056686216777730","text":"Gonna put \"can really accurately anticipate the ways trolls will attempt to tear down or discredit a piece of content\" on my resume","year":2018,"date":"2018-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"966042888646819844","text":"I would never attack a child for any political reason no matter how much I disagree with them. I would never attack anyone who had their friends killed no matter how much I disagree with them. This isn't political correctness, it's basic decency.","year":2018,"date":"2018-02-20","favorites":1,"retweets":0,"replyTo":null},{"id":"966035787971203073","text":"RT @BuzzFeedNews: Here’s what it’s like at the headquarters of the teens working to stop mass shootings https://t.co/kEluutw8oH","year":2018,"date":"2018-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"965762133358252033","text":"RT @417am1975: 10-4-3-1519089632589 https://t.co/xgOTUD1eb0","year":2018,"date":"2018-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"965758180822315008","text":"Let every single detail of this story sink in. https://t.co/f3k0eF88Eh","year":2018,"date":"2018-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"833496281578233856","text":"Explored the bay yesterday https://t.co/CKnJtLndWR","year":2017,"date":"2017-02-20","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"701188372979695617","text":"I just wanna do somethin","year":2016,"date":"2016-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"701178062407389184","text":"RT @SGgrc: Too perfect.. Courtesy of cartoonist Stuart Carlson @ https://t.co/bLK7f4tj2K https://t.co/Ypqfdunm2h","year":2016,"date":"2016-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"700900928619204608","text":"RT @bach4life: This should be used to explain how to visualize object-oriented software in action. https://t.co/88NHW8RWeO","year":2016,"date":"2016-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"700879183862505472","text":"RT @MxPf: https://t.co/fKm95iohjU","year":2016,"date":"2016-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"568895412947406848","text":"RT @oliverdarcy: Here's the transcript of O'Reilly's talking points memo tonight addressing @motherjones story: http://t.co/JlUYmKpfWZ http…","year":2015,"date":"2015-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"568811886399135745","text":"@jglovier Fight the good fight, man","year":2015,"date":"2015-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"568802345909395457","text":"RT @sideshow: #Colbeard RT @nerdwich: Goodness me. The Colbeard is resplendent. http://t.co/dPZRjd7sgB","year":2015,"date":"2015-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"568801729984270336","text":"RT @genetics_blog: In defense of Fahrenheit http://t.co/qwDcBm0XVr","year":2015,"date":"2015-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"436357563991748609","text":"RT @heislerphoto: This sounds exciting. I'll be really excited when these startups begin hiring visual journalists. http://t.co/nt4GAReDdb","year":2014,"date":"2014-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"436356863941443584","text":"Gave my resumé a refresh: http://t.co/5DpozNqjzj (let me know if you have any feedback!)","year":2014,"date":"2014-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"436312767617056768","text":"(Re-)Learning how to solder with a build-your-own FM radio kit http://t.co/eiHZQCQsHO","year":2014,"date":"2014-02-20","favorites":1,"retweets":0,"replyTo":null},{"id":"304302825268211713","text":"Photo: explore-blog: The wake times of famous graphic designers, from a series of then-and-now reflections. http://t.co/Ej2iX1hN","year":2013,"date":"2013-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"304146441696329728","text":"My new sounds: Socalled http://t.co/5qJonU1x on #SoundCloud","year":2013,"date":"2013-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"171719412620083201","text":"RT @socialistlib510: Massive non-violent action at San Quentin. Where is @jaspergregory? He talked so much smack. Guess this was somethi ...","year":2012,"date":"2012-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"171702890761695232","text":"I am in love with this Dribbble search, for some reason: http://t.co/AIj5tpre","year":2012,"date":"2012-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"171628129973059584","text":"@SFBART Yo, BART, much love and stuff but fuck you.","year":2012,"date":"2012-02-20","favorites":0,"retweets":1,"replyTo":"SFBART"},{"id":"171628044648333312","text":"RT @SFBART: BART running a Saturday schedule today (President's Day) and there's no overnight service tonight (Bay Bridge is open)","year":2012,"date":"2012-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"171442068378484736","text":"omg bitcasa, finally, amazing. Can't wait to try this out.","year":2012,"date":"2012-02-20","favorites":0,"retweets":1,"replyTo":null},{"id":"39145232679305216","text":"@rtkrum I'd be honored if you'd take a look at one of my latest graphics on Palin's political reach: http://ejfox.com/sarahpalin","year":2011,"date":"2011-02-20","favorites":0,"retweets":0,"replyTo":"rtkrum"},{"id":"9388043810","text":"This is what memories are made of! Haha.","year":2010,"date":"2010-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"9382426588","text":"@mibi I'm just beginning so I use the BCD3000 USB controller with Traktor Pro. I've fallen in love with Traktor Pro, though. You mix?","year":2010,"date":"2010-02-20","favorites":0,"retweets":0,"replyTo":"mibi"},{"id":"9381946484","text":"WHY YOU DUM","year":2010,"date":"2010-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"9381141081","text":"DJ'ing is like cooking in really interesting ways.","year":2010,"date":"2010-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"9370299126","text":"@garrettmurray My dream bedroom would have a wall painted entirely with that chalkboard paint. I dunno if your idea is better or worse.","year":2010,"date":"2010-02-20","favorites":0,"retweets":0,"replyTo":"garrettmurray"},{"id":"1232115980","text":"Ben goes \"who's your dentist?\".","year":2009,"date":"2009-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"1231530238","text":"Little brother goes \"EJ, can you log me onto YouTube.com?\" \"Why do you need to be logged on?\" \"I... need to write a comment...\"","year":2009,"date":"2009-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"1231463361","text":"This cut on my left hand's pinkie knuckle (looks like a badass punching injury!) is I think a little infected. Eh.","year":2009,"date":"2009-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"1231342850","text":"The Mars Volta is probably not the music I should be playing in iTunes behind these Flash instruction videos... not exactly 'ambient'.","year":2009,"date":"2009-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"1231299897","text":"When I start making interactive infographics I need to remember not to be stupid and hide essential data away- I guess this is a #notetoself","year":2009,"date":"2009-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"1231292104","text":"Lil Wayne makes truly incredible music. Like... I feel like he is completely underappreciated by the non-hip-hop world.","year":2009,"date":"2009-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"1231174457","text":"I wish I had a little polaroid camera.","year":2009,"date":"2009-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"1231115688","text":"Apparently I now have 16 days of music in iTunes. Statistics like that are sort of a challenge to me...","year":2009,"date":"2009-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"1231026814","text":"Illustrator CS4's workspace is really nice. I have it all set up now. Wonderful, beautiful. Can't wait to use it.","year":2009,"date":"2009-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"1230821477","text":"@lotd \"Oh take it, oh take me, oh take it so easy. Oh make it, oh make me, oh kneel down and please me.\" So Everyone - Bonnie Prince Billy","year":2009,"date":"2009-02-20","favorites":0,"retweets":0,"replyTo":"lotd"},{"id":"1230803675","text":"Installing Adobe Creative Suite 4 Master Collection. #notetoself to clean my laptop's hard drive when this is done. Too full!","year":2009,"date":"2009-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"1229858558","text":"From my local paper: \"The man who torched three American flags... for no particular reason last summer will spend 5 years on probation.\"","year":2009,"date":"2009-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"1228824341","text":"Blasting Joanna Newsom and sitting down to read Feltron's 2008 annual report.","year":2009,"date":"2009-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"1228722616","text":"My space heater is old and leaks electricity. It frequently shocks me hard. It charges my blanket with static. It keeps me warm though.","year":2009,"date":"2009-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"1228719343","text":"Wishing I knew how to play the guitar so I could write freak folk songs and play them to people who wouldn't understand. Where's the guitar?","year":2009,"date":"2009-02-20","favorites":0,"retweets":0,"replyTo":null},{"id":"736412292","text":"Working on an HTS design. Haven't twittered in a while!","year":2008,"date":"2008-02-20","favorites":0,"retweets":0,"replyTo":null}],"posts":[],"scrobbles":[{"date":"2023-02-20","year":2023,"count":14,"topTracks":["Hiatus Kaiyote - Red Room","The Alchemist - Ocean Prime (feat. Boldy James)","Flowervillain - 50 dumplings","DJ Harrison - Have You Ever Been (to Electric Ladyland)","Knxwledge - itkanbe[sonice]"],"topArtists":["Hiatus Kaiyote","The Alchemist","Flowervillain"]},{"date":"2022-02-20","year":2022,"count":48,"topTracks":["Little Simz - Woman","Blundetto - White Birds - Instrumental Version","Mike Jones - Back Then","Oliver Sain St. Louis Breakdown - On the Hill","Ernest Ranglin - In The Rain"],"topArtists":["Little Simz","Blundetto","Mike Jones"]},{"date":"2020-02-20","year":2020,"count":4,"topTracks":["Ravyn Lenae - Spice (feat. Smino) - Remix","Dreamville - Sacrifices (with EARTHGANG & J. Cole feat. Smino & Saba)","Smino - blkjuptr","Smino - Sleigh (with Monte Booker & Masego)"],"topArtists":["Ravyn Lenae","Dreamville","Smino"]},{"date":"2016-02-20","year":2016,"count":1,"topTracks":["Etta Bond - Supposed To Say Goodbye"],"topArtists":["Etta Bond"]},{"date":"2011-02-20","year":2011,"count":16,"topTracks":["OSC & Vinja featuring The Spit Brothers - Originate","Joker - Tron","Marko Kahn - Nosebleed (Original Mix)","Borgore - Cry Me A River - Ft Yael","Borgore - Birthday And The Black November"],"topArtists":["OSC & Vinja featuring The Spit Brothers","Joker","Marko Kahn"]},{"date":"2009-02-20","year":2009,"count":69,"topTracks":["Brightblack Morning Light - Introduction","Bonnie 'Prince' Billy - Lie Down in the Light","Grizzly Bear - Lullabye","Grizzly Bear - Colorado","James Blackshaw - Gate of Horn"],"topArtists":["Brightblack Morning Light","Bonnie 'Prince' Billy","Grizzly Bear"]},{"date":"2006-02-20","year":2006,"count":40,"topTracks":["Linton Kwesi Johnson - Funny Dub","Augustus Pablo - Fiat 125","Burning Spear - Jah A Go Raid","Gregory Isaacs - Embarassment","Max Romeo - Don't Be Prejudice"],"topArtists":["Linton Kwesi Johnson","Augustus Pablo","Burning Spear"]}],"commits":[]}
+{
+  "tweets": [
+    {
+      "id": "1627744763515441183",
+      "text": "@SoC_trilogy imo these bizarre examples with temp=0 are more compelling than the others with higher temps, this is profoundly weird",
+      "year": 2023,
+      "date": "2023-02-20",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": "SoC_trilogy"
+    },
+    {
+      "id": "1627715288677351448",
+      "text": "right now my SvgMap.vue component is.... 1000 lines... that is.... too many",
+      "year": 2023,
+      "date": "2023-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1627715075292135430",
+      "text": "me, with a machete, looking around my codebase with a sick gleam in my eye",
+      "year": 2023,
+      "date": "2023-02-20",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1627702673733562374",
+      "text": "ah, look, a day off, let me just do a profoundly ill-advised fundamental refactoring of my personal project app data flow away from props to composables",
+      "year": 2023,
+      "date": "2023-02-20",
+      "favorites": 4,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1627484348457930754",
+      "text": "@spencerc99 I wanna try!",
+      "year": 2023,
+      "date": "2023-02-20",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "spencerc99"
+    },
+    {
+      "id": "1627469837751533571",
+      "text": "there we go- again, this is labeled and colored by how the win margin, I am thinking I will keep colors for win margin and power the arrows with the swing from the last election https://t.co/NXfsWBk8Tf",
+      "year": 2023,
+      "date": "2023-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1495508095266656256",
+      "text": "I really can't express how much I am enjoying using GitHub copilot... I just sort of gesture at what I want and the robot figures it out pretty well. Great collaborator, pair programming vibes, feels very futuristic.",
+      "year": 2022,
+      "date": "2022-02-20",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1495503058188521478",
+      "text": "@nytimes hey guys its me again, wondering where in the saturday or sunday papers, which I pay you money for, I can read the article you are advertising here which I would very much like to read, thanks",
+      "year": 2022,
+      "date": "2022-02-20",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1495380444740730882",
+      "text": "The streamer (1) watches a video where the other streamer (4) gets him (2) to watch a video on himself (3) – this is art https://t.co/kzHMzFULyX",
+      "year": 2022,
+      "date": "2022-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1495379136508051456",
+      "text": "In this video you can watch a streamer watch a video by another streamer wherein he makes a video under a new name and watches his buddy’s stream, so we watch the streamer watch the other streamer watch him watch the video, its all very good https://t.co/y9evCMH5BK",
+      "year": 2022,
+      "date": "2022-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1363259606496141313",
+      "text": "@andest01 distortion mixtape plz",
+      "year": 2021,
+      "date": "2021-02-20",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "andest01"
+    },
+    {
+      "id": "1363223425255358471",
+      "text": "RT @widged: @mrejfox All the flatten the curve ones https://t.co/6EuYguFIlF by @SiouxsieW, in NZ, had a critical impact on govt decisions.…",
+      "year": 2021,
+      "date": "2021-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1363201224477147142",
+      "text": "RT @pstuffa: @mrejfox @Jasonforrestftw I studied skepticism in school so I find it easy to argue that most things you can’t measure a direc…",
+      "year": 2021,
+      "date": "2021-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1363199913895620615",
+      "text": "@pstuffa @Jasonforrestftw I hear you on that, but do you really think there is no measurable impact of data visualization during this epidemic? It's simply unknowable?",
+      "year": 2021,
+      "date": "2021-02-20",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "pbbuffa"
+    },
+    {
+      "id": "1363198012365934598",
+      "text": "@Jasonforrestftw Unfortunately the change in movement doesn't help me identify WHY people's movements changed, and it could easily have a lot more to do with local and state government measures and traditional public health messaging than it has to do with dataviz - I want to show provable impact",
+      "year": 2021,
+      "date": "2021-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "Jasonforrestftw"
+    },
+    {
+      "id": "1363190396453613568",
+      "text": "@Jasonforrestftw What I am looking for: a reported out story of a policymaker’s decision rooted in a great dataviz. Or studies about the behavior of people who have/havent seen viz. But it is frustrating when there is this industry “given” benefit that has not been proved out.",
+      "year": 2021,
+      "date": "2021-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1363189010445852679",
+      "text": "@Jasonforrestftw I personally worked on multiple efforts to track and visualize and map hospitalizations, death rates, hotspots, etc. I am not sure anyone who mattered was looking, or that it changed anyone’s behavior, despite the mass of available visualizations",
+      "year": 2021,
+      "date": "2021-02-20",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1363188468474662919",
+      "text": "@Jasonforrestftw There’s an overabundance of speculation, I disagree with the evidence part. I am not asking this to be difficult, I really want to find one provable case that isn’t an abstract “more info means better decisions” – which is absolutely not a given",
+      "year": 2021,
+      "date": "2021-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "Jasonforrestftw"
+    },
+    {
+      "id": "1363183183370534920",
+      "text": "RT @rharang: But instead, rather than actually grapple with the findings that a core Google technology (LLMs) may be causing unexpected har…",
+      "year": 2021,
+      "date": "2021-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1363178617094737920",
+      "text": "RT @mrejfox: prove to me that a COVID data visualization has saved a single life",
+      "year": 2021,
+      "date": "2021-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1230611958807908356",
+      "text": "@CapobiaNB @mslima Of course, your work is amazing!",
+      "year": 2020,
+      "date": "2020-02-20",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "CapobiaNB"
+    },
+    {
+      "id": "1230610847002656768",
+      "text": "@mslima https://t.co/JMAq372Ven",
+      "year": 2020,
+      "date": "2020-02-20",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mslima"
+    },
+    {
+      "id": "1230603741809827857",
+      "text": "RT @NathanIHarris: @joshrayman @mrejfox Sports General Management in general",
+      "year": 2020,
+      "date": "2020-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1230598807295057933",
+      "text": "I guess another might be being a teacher, hoping that your student has absorbed your lessons as they continue on in their life, but the delay and number of complicating factors makes this a messy metaphor",
+      "year": 2020,
+      "date": "2020-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1230598674088157199",
+      "text": "the most obvious and self-aggrandizing is NASA, making a ship or robot and hoping you did everything right and then launching it into space",
+      "year": 2020,
+      "date": "2020-02-20",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1230598500976648200",
+      "text": "trying to think of good metaphors of shipping software to production\n\nthere is something special and unique about doing a lot of work and then sort of lobbing it into an unknown environment and hoping for the best\n\nwhat other jobs have this same paradigm?",
+      "year": 2020,
+      "date": "2020-02-20",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1230597034824151040",
+      "text": "can someone tell the youtube recommendation brain engine thing that I don't want to watch any videos from 6 years ago",
+      "year": 2020,
+      "date": "2020-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1230571948150685697",
+      "text": "@katieraffa yes",
+      "year": 2020,
+      "date": "2020-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "katieraffa"
+    },
+    {
+      "id": "1230546147837710336",
+      "text": "@AndrewDLuecke @ZACFTP @FTP soooooooooooooo good",
+      "year": 2020,
+      "date": "2020-02-20",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "andrewluecke"
+    },
+    {
+      "id": "1230337413836427266",
+      "text": "@databyler dude i would kill for a round of \"never have i ever\"",
+      "year": 2020,
+      "date": "2020-02-20",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "databyler"
+    },
+    {
+      "id": "1230318459692732416",
+      "text": "let each of them choose champions to fight in an octagon THAT WOULD BE SO GOOD",
+      "year": 2020,
+      "date": "2020-02-20",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1230316855136604166",
+      "text": "less debate MORE BLOOD",
+      "year": 2020,
+      "date": "2020-02-20",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1098363619601989632",
+      "text": "RT @wesbos: \"Project Website\" connects volunteer developers with nonprofits. If you need some real experience and want to help a nonprofit,…",
+      "year": 2019,
+      "date": "2019-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1098358502962151424",
+      "text": "RT @MuckRock: #ICE detainees at a jail in Newark, #NewJersey have been fed spoiled food and subjected to deteriorating conditions, accordin…",
+      "year": 2019,
+      "date": "2019-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1098213680892858369",
+      "text": "@FreeJeremyNet Two books from Jeremy's wishlist are showing as delivered today. Hope he gets them soon.",
+      "year": 2019,
+      "date": "2019-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "FreeJeremyNet"
+    },
+    {
+      "id": "1098018703797616641",
+      "text": "RT @bencasselman: Democrats want to tax the rich. Voters -- including a significant number of Republicans -- are largely cheering them on.…",
+      "year": 2019,
+      "date": "2019-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1098012951125151744",
+      "text": "Someone teach that AI thing to talk like the shadow brokers",
+      "year": 2019,
+      "date": "2019-02-20",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1098009448218386433",
+      "text": "At some point you get used to people being unimpressed with your work and then being really impressed when other people do it approximately 2 years later",
+      "year": 2019,
+      "date": "2019-02-20",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "966056686216777730",
+      "text": "Gonna put \"can really accurately anticipate the ways trolls will attempt to tear down or discredit a piece of content\" on my resume",
+      "year": 2018,
+      "date": "2018-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "966042888646819844",
+      "text": "I would never attack a child for any political reason no matter how much I disagree with them. I would never attack anyone who had their friends killed no matter how much I disagree with them. This isn't political correctness, it's basic decency.",
+      "year": 2018,
+      "date": "2018-02-20",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "966035787971203073",
+      "text": "RT @BuzzFeedNews: Here’s what it’s like at the headquarters of the teens working to stop mass shootings https://t.co/kEluutw8oH",
+      "year": 2018,
+      "date": "2018-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "965762133358252033",
+      "text": "RT @417am1975: 10-4-3-1519089632589 https://t.co/xgOTUD1eb0",
+      "year": 2018,
+      "date": "2018-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "965758180822315008",
+      "text": "Let every single detail of this story sink in. https://t.co/f3k0eF88Eh",
+      "year": 2018,
+      "date": "2018-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "833496281578233856",
+      "text": "Explored the bay yesterday https://t.co/CKnJtLndWR",
+      "year": 2017,
+      "date": "2017-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "701188372979695617",
+      "text": "I just wanna do somethin",
+      "year": 2016,
+      "date": "2016-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "701178062407389184",
+      "text": "RT @SGgrc: Too perfect.. Courtesy of cartoonist Stuart Carlson @ https://t.co/bLK7f4tj2K https://t.co/Ypqfdunm2h",
+      "year": 2016,
+      "date": "2016-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "700900928619204608",
+      "text": "RT @bach4life: This should be used to explain how to visualize object-oriented software in action. https://t.co/88NHW8RWeO",
+      "year": 2016,
+      "date": "2016-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "700879183862505472",
+      "text": "RT @MxPf: https://t.co/fKm95iohjU",
+      "year": 2016,
+      "date": "2016-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "568895412947406848",
+      "text": "RT @oliverdarcy: Here's the transcript of O'Reilly's talking points memo tonight addressing @motherjones story: http://t.co/JlUYmKpfWZ http…",
+      "year": 2015,
+      "date": "2015-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "568811886399135745",
+      "text": "@jglovier Fight the good fight, man",
+      "year": 2015,
+      "date": "2015-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "568802345909395457",
+      "text": "RT @sideshow: #Colbeard RT @nerdwich: Goodness me. The Colbeard is resplendent. http://t.co/dPZRjd7sgB",
+      "year": 2015,
+      "date": "2015-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "568801729984270336",
+      "text": "RT @genetics_blog: In defense of Fahrenheit http://t.co/qwDcBm0XVr",
+      "year": 2015,
+      "date": "2015-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "436357563991748609",
+      "text": "RT @heislerphoto: This sounds exciting. I'll be really excited when these startups begin hiring visual journalists. http://t.co/nt4GAReDdb",
+      "year": 2014,
+      "date": "2014-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "436356863941443584",
+      "text": "Gave my resumé a refresh: http://t.co/5DpozNqjzj (let me know if you have any feedback!)",
+      "year": 2014,
+      "date": "2014-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "436312767617056768",
+      "text": "(Re-)Learning how to solder with a build-your-own FM radio kit http://t.co/eiHZQCQsHO",
+      "year": 2014,
+      "date": "2014-02-20",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "304302825268211713",
+      "text": "Photo: explore-blog: The wake times of famous graphic designers, from a series of then-and-now reflections. http://t.co/Ej2iX1hN",
+      "year": 2013,
+      "date": "2013-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "304146441696329728",
+      "text": "My new sounds: Socalled http://t.co/5qJonU1x on #SoundCloud",
+      "year": 2013,
+      "date": "2013-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "171719412620083201",
+      "text": "RT @socialistlib510: Massive non-violent action at San Quentin. Where is @jaspergregory? He talked so much smack. Guess this was somethi ...",
+      "year": 2012,
+      "date": "2012-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "171702890761695232",
+      "text": "I am in love with this Dribbble search, for some reason: http://t.co/AIj5tpre",
+      "year": 2012,
+      "date": "2012-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "171628129973059584",
+      "text": "@SFBART Yo, BART, much love and stuff but fuck you.",
+      "year": 2012,
+      "date": "2012-02-20",
+      "favorites": 0,
+      "retweets": 1,
+      "replyTo": "SFBART"
+    },
+    {
+      "id": "171628044648333312",
+      "text": "RT @SFBART: BART running a Saturday schedule today (President's Day) and there's no overnight service tonight (Bay Bridge is open)",
+      "year": 2012,
+      "date": "2012-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "171442068378484736",
+      "text": "omg bitcasa, finally, amazing. Can't wait to try this out.",
+      "year": 2012,
+      "date": "2012-02-20",
+      "favorites": 0,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "39145232679305216",
+      "text": "@rtkrum I'd be honored if you'd take a look at one of my latest graphics on Palin's political reach: http://ejfox.com/sarahpalin",
+      "year": 2011,
+      "date": "2011-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "rtkrum"
+    },
+    {
+      "id": "9388043810",
+      "text": "This is what memories are made of! Haha.",
+      "year": 2010,
+      "date": "2010-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "9382426588",
+      "text": "@mibi I'm just beginning so I use the BCD3000 USB controller with Traktor Pro. I've fallen in love with Traktor Pro, though. You mix?",
+      "year": 2010,
+      "date": "2010-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mibi"
+    },
+    {
+      "id": "9381946484",
+      "text": "WHY YOU DUM",
+      "year": 2010,
+      "date": "2010-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "9381141081",
+      "text": "DJ'ing is like cooking in really interesting ways.",
+      "year": 2010,
+      "date": "2010-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "9370299126",
+      "text": "@garrettmurray My dream bedroom would have a wall painted entirely with that chalkboard paint. I dunno if your idea is better or worse.",
+      "year": 2010,
+      "date": "2010-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "garrettmurray"
+    },
+    {
+      "id": "1232115980",
+      "text": "Ben goes \"who's your dentist?\".",
+      "year": 2009,
+      "date": "2009-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1231530238",
+      "text": "Little brother goes \"EJ, can you log me onto YouTube.com?\" \"Why do you need to be logged on?\" \"I... need to write a comment...\"",
+      "year": 2009,
+      "date": "2009-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1231463361",
+      "text": "This cut on my left hand's pinkie knuckle (looks like a badass punching injury!) is I think a little infected. Eh.",
+      "year": 2009,
+      "date": "2009-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1231342850",
+      "text": "The Mars Volta is probably not the music I should be playing in iTunes behind these Flash instruction videos... not exactly 'ambient'.",
+      "year": 2009,
+      "date": "2009-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1231299897",
+      "text": "When I start making interactive infographics I need to remember not to be stupid and hide essential data away- I guess this is a #notetoself",
+      "year": 2009,
+      "date": "2009-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1231292104",
+      "text": "Lil Wayne makes truly incredible music. Like... I feel like he is completely underappreciated by the non-hip-hop world.",
+      "year": 2009,
+      "date": "2009-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1231174457",
+      "text": "I wish I had a little polaroid camera.",
+      "year": 2009,
+      "date": "2009-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1231115688",
+      "text": "Apparently I now have 16 days of music in iTunes. Statistics like that are sort of a challenge to me...",
+      "year": 2009,
+      "date": "2009-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1231026814",
+      "text": "Illustrator CS4's workspace is really nice. I have it all set up now. Wonderful, beautiful. Can't wait to use it.",
+      "year": 2009,
+      "date": "2009-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1230821477",
+      "text": "@lotd \"Oh take it, oh take me, oh take it so easy. Oh make it, oh make me, oh kneel down and please me.\" So Everyone - Bonnie Prince Billy",
+      "year": 2009,
+      "date": "2009-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "lotd"
+    },
+    {
+      "id": "1230803675",
+      "text": "Installing Adobe Creative Suite 4 Master Collection. #notetoself to clean my laptop's hard drive when this is done. Too full!",
+      "year": 2009,
+      "date": "2009-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1229858558",
+      "text": "From my local paper: \"The man who torched three American flags... for no particular reason last summer will spend 5 years on probation.\"",
+      "year": 2009,
+      "date": "2009-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1228824341",
+      "text": "Blasting Joanna Newsom and sitting down to read Feltron's 2008 annual report.",
+      "year": 2009,
+      "date": "2009-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1228722616",
+      "text": "My space heater is old and leaks electricity. It frequently shocks me hard. It charges my blanket with static. It keeps me warm though.",
+      "year": 2009,
+      "date": "2009-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1228719343",
+      "text": "Wishing I knew how to play the guitar so I could write freak folk songs and play them to people who wouldn't understand. Where's the guitar?",
+      "year": 2009,
+      "date": "2009-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "736412292",
+      "text": "Working on an HTS design. Haven't twittered in a while!",
+      "year": 2008,
+      "date": "2008-02-20",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    }
+  ],
+  "posts": [],
+  "scrobbles": [
+    {
+      "date": "2023-02-20",
+      "year": 2023,
+      "count": 14,
+      "topTracks": [
+        "Hiatus Kaiyote - Red Room",
+        "The Alchemist - Ocean Prime (feat. Boldy James)",
+        "Flowervillain - 50 dumplings",
+        "DJ Harrison - Have You Ever Been (to Electric Ladyland)",
+        "Knxwledge - itkanbe[sonice]"
+      ],
+      "topArtists": ["Hiatus Kaiyote", "The Alchemist", "Flowervillain"]
+    },
+    {
+      "date": "2022-02-20",
+      "year": 2022,
+      "count": 48,
+      "topTracks": [
+        "Little Simz - Woman",
+        "Blundetto - White Birds - Instrumental Version",
+        "Mike Jones - Back Then",
+        "Oliver Sain St. Louis Breakdown - On the Hill",
+        "Ernest Ranglin - In The Rain"
+      ],
+      "topArtists": ["Little Simz", "Blundetto", "Mike Jones"]
+    },
+    {
+      "date": "2020-02-20",
+      "year": 2020,
+      "count": 4,
+      "topTracks": [
+        "Ravyn Lenae - Spice (feat. Smino) - Remix",
+        "Dreamville - Sacrifices (with EARTHGANG & J. Cole feat. Smino & Saba)",
+        "Smino - blkjuptr",
+        "Smino - Sleigh (with Monte Booker & Masego)"
+      ],
+      "topArtists": ["Ravyn Lenae", "Dreamville", "Smino"]
+    },
+    {
+      "date": "2016-02-20",
+      "year": 2016,
+      "count": 1,
+      "topTracks": ["Etta Bond - Supposed To Say Goodbye"],
+      "topArtists": ["Etta Bond"]
+    },
+    {
+      "date": "2011-02-20",
+      "year": 2011,
+      "count": 16,
+      "topTracks": [
+        "OSC & Vinja featuring The Spit Brothers - Originate",
+        "Joker - Tron",
+        "Marko Kahn - Nosebleed (Original Mix)",
+        "Borgore - Cry Me A River - Ft Yael",
+        "Borgore - Birthday And The Black November"
+      ],
+      "topArtists": [
+        "OSC & Vinja featuring The Spit Brothers",
+        "Joker",
+        "Marko Kahn"
+      ]
+    },
+    {
+      "date": "2009-02-20",
+      "year": 2009,
+      "count": 69,
+      "topTracks": [
+        "Brightblack Morning Light - Introduction",
+        "Bonnie 'Prince' Billy - Lie Down in the Light",
+        "Grizzly Bear - Lullabye",
+        "Grizzly Bear - Colorado",
+        "James Blackshaw - Gate of Horn"
+      ],
+      "topArtists": [
+        "Brightblack Morning Light",
+        "Bonnie 'Prince' Billy",
+        "Grizzly Bear"
+      ]
+    },
+    {
+      "date": "2006-02-20",
+      "year": 2006,
+      "count": 40,
+      "topTracks": [
+        "Linton Kwesi Johnson - Funny Dub",
+        "Augustus Pablo - Fiat 125",
+        "Burning Spear - Jah A Go Raid",
+        "Gregory Isaacs - Embarassment",
+        "Max Romeo - Don't Be Prejudice"
+      ],
+      "topArtists": ["Linton Kwesi Johnson", "Augustus Pablo", "Burning Spear"]
+    }
+  ],
+  "commits": []
+}

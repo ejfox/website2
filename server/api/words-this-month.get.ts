@@ -74,7 +74,7 @@ export default defineEventHandler(async () => {
       'September',
       'October',
       'November',
-      'December'
+      'December',
     ]
 
     return {
@@ -88,14 +88,14 @@ export default defineEventHandler(async () => {
         title: post.title,
         slug: post.slug,
         date: post.date,
-        words: post.metadata?.words || 0
-      }))
+        words: post.metadata?.words || 0,
+      })),
     }
   } catch (error) {
     console.error('Error calculating words this month:', error)
     return {
       error: 'Failed to calculate words this month',
-      details: error instanceof Error ? error.message : String(error)
+      details: error instanceof Error ? error.message : String(error),
     }
   }
 })

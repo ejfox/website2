@@ -25,7 +25,7 @@ import {
   remarkObsidianSupport,
   rehypeAddClassToParagraphs,
   remarkEnhanceLinks,
-  remarkExtractToc
+  remarkExtractToc,
 } from './plugins/index.mjs'
 
 import { getPostType } from './utils/helpers.mjs'
@@ -43,12 +43,12 @@ const paths = {
   contentDir: config.dirs.content,
   draftsDir: path.join(config.dirs.content, '../drafts'),
   outputDir: config.dirs.output,
-  backupDir: config.dirs.backup
+  backupDir: config.dirs.backup,
 }
 
 const highlighter = await shiki.createHighlighter({
   themes: ['github-dark'],
-  langs: ['javascript', 'typescript', 'json', 'html', 'css', 'markdown']
+  langs: ['javascript', 'typescript', 'json', 'html', 'css', 'markdown'],
 })
 
 const formatTitle = (filename) => {
@@ -89,8 +89,8 @@ const processor = unified()
     },
     highlighter,
     transformers: [
-      transformerCopyButton({ visibility: 'always', feedbackDuration: 3000 })
-    ]
+      transformerCopyButton({ visibility: 'always', feedbackDuration: 3000 }),
+    ],
   })
   // .use(rehypeMermaid, { strategy: 'inline-svg' }) // DELETED - 64MB bloat
   .use(rehypeSlug)
@@ -136,7 +136,7 @@ async function processMarkdown(content, filePath) {
         return {
           hasCloudinary: true,
           width: widthMatch ? Number.parseInt(widthMatch[1]) : null,
-          height: heightMatch ? Number.parseInt(heightMatch[1]) : null
+          height: heightMatch ? Number.parseInt(heightMatch[1]) : null,
         }
       }
       return { hasCloudinary: false }
@@ -148,14 +148,14 @@ async function processMarkdown(content, filePath) {
       imageDetails: {
         total: imageMatches.length,
         cloudinary: imageStats.filter((i) => i.hasCloudinary).length,
-        withDimensions: imageStats.filter((i) => i.width && i.height).length
+        withDimensions: imageStats.filter((i) => i.width && i.height).length,
       },
       links: (markdownContent.match(/\[.*?\]\(.*?\)/g) || []).length,
       codeBlocks: (markdownContent.match(/```[\s\S]*?```/g) || []).length,
       headers: toc.reduce((acc, h) => {
         acc[h.level] = (acc[h.level] || 0) + 1
         return acc
-      }, {})
+      }, {}),
     }
 
     const pct = Math.round(
@@ -165,17 +165,24 @@ async function processMarkdown(content, filePath) {
     // IndieWeb indicators (supports single URL or array)
     const replyToRaw = frontmatter.replyTo || frontmatter['in-reply-to']
     const replyToUrls = replyToRaw
-      ? (Array.isArray(replyToRaw) ? replyToRaw : [replyToRaw])
+      ? Array.isArray(replyToRaw)
+        ? replyToRaw
+        : [replyToRaw]
       : []
     const indiewebBadges = []
     if (replyToUrls.length > 0) {
-      const domains = replyToUrls.map(url => {
-        try { return new URL(url).hostname.replace('www.', '') } catch { return 'reply' }
+      const domains = replyToUrls.map((url) => {
+        try {
+          return new URL(url).hostname.replace('www.', '')
+        } catch {
+          return 'reply'
+        }
       })
       indiewebBadges.push(chalk.cyan(`↩ ${domains.join(', ')}`))
     }
 
-    const badges = indiewebBadges.length > 0 ? ` ${indiewebBadges.join(' ')}` : ''
+    const badges =
+      indiewebBadges.length > 0 ? ` ${indiewebBadges.join(' ')}` : ''
     process.stdout.write(
       `\r${chalk.gray(`Processing: ${filename.padEnd(40)}`)}${badges}${' '.repeat(Math.max(0, 20 - badges.length))}${pct}%`
     )
@@ -191,8 +198,8 @@ async function processMarkdown(content, filePath) {
         ...stats,
         toc,
         type: frontmatter.type || getPostType(filePath),
-        ...sourceInfo
-      }
+        ...sourceInfo,
+      },
     }
   } catch (error) {
     console.error(chalk.red(`\n[ERROR] Failed processing ${filename}:`))
@@ -293,8 +300,8 @@ async function findArchivedVersion(url) {
     const response = await fetch(apiUrl, {
       headers: {
         'User-Agent':
-          'Mozilla/5.0 (compatible; LinkChecker/1.0; +https://ejfox.com)'
-      }
+          'Mozilla/5.0 (compatible; LinkChecker/1.0; +https://ejfox.com)',
+      },
     })
 
     if (!response.ok) return null
@@ -306,7 +313,7 @@ async function findArchivedVersion(url) {
       return {
         url: archived.url,
         timestamp: archived.timestamp,
-        status: archived.status
+        status: archived.status,
       }
     }
 
@@ -328,8 +335,8 @@ async function checkLinkHealth(url, timeout = 10000) {
       redirect: 'follow',
       headers: {
         'User-Agent':
-          'Mozilla/5.0 (compatible; LinkChecker/1.0; +https://ejfox.com)'
-      }
+          'Mozilla/5.0 (compatible; LinkChecker/1.0; +https://ejfox.com)',
+      },
     })
 
     clearTimeout(timeoutId)
@@ -338,14 +345,14 @@ async function checkLinkHealth(url, timeout = 10000) {
       url,
       status: response.status,
       ok: response.ok,
-      finalUrl: response.url
+      finalUrl: response.url,
     }
   } catch (error) {
     return {
       url,
       status: 0,
       ok: false,
-      error: error.name === 'AbortError' ? 'Timeout' : error.message
+      error: error.name === 'AbortError' ? 'Timeout' : error.message,
     }
   }
 }
@@ -390,7 +397,7 @@ async function checkAllLinks(links, linkToSources, maxConcurrent = 5) {
         brokenWithArchives.push({
           ...brokenLink,
           archived,
-          sources: Array.from(linkToSources.get(brokenLink.url) || [])
+          sources: Array.from(linkToSources.get(brokenLink.url) || []),
         })
 
         // Be polite to archive.org API
@@ -409,7 +416,7 @@ async function checkAllLinks(links, linkToSources, maxConcurrent = 5) {
         working: working.length,
         broken: broken.length,
         errors: errors.length,
-        archived: brokenWithArchives.filter((b) => b.archived).length
+        archived: brokenWithArchives.filter((b) => b.archived).length,
       },
       broken:
         brokenWithArchives.length > 0
@@ -417,13 +424,13 @@ async function checkAllLinks(links, linkToSources, maxConcurrent = 5) {
           : broken.map((r) => ({
               url: r.url,
               status: r.status,
-              sources: Array.from(linkToSources.get(r.url) || [])
+              sources: Array.from(linkToSources.get(r.url) || []),
             })),
       errors: errors.map((r) => ({
         url: r.url,
         error: r.error,
-        sources: Array.from(linkToSources.get(r.url) || [])
-      }))
+        sources: Array.from(linkToSources.get(r.url) || []),
+      })),
     }
 
     // Save report
@@ -618,7 +625,7 @@ const printSummary = (files) => {
       h3: 0,
       byType: {},
       tags: {},
-      replyPosts: 0
+      replyPosts: 0,
     }
   )
 
@@ -669,7 +676,7 @@ const enhanceImageUrl = (url) => {
   const srcset = [
     `${base}c_scale,f_auto,q_auto:good,w_400/${path} 400w`,
     `${base}c_scale,f_auto,q_auto:good,w_800/${path} 800w`,
-    `${base}c_scale,f_auto,q_auto:good,w_1200/${path} 1200w`
+    `${base}c_scale,f_auto,q_auto:good,w_1200/${path} 1200w`,
   ].join(', ')
 
   return {
@@ -679,7 +686,7 @@ const enhanceImageUrl = (url) => {
     // Removed blur placeholder - user doesn't want blurred images
     // placeholder: `${base}c_scale,f_auto,q_1,w_20,e_blur:1000/${path}`,
     width,
-    height
+    height,
   }
 }
 
@@ -757,7 +764,8 @@ async function buildOnThisDayIndex(blogResults, blogFiles) {
       if (!tweet.created_month || !tweet.created_day) continue
 
       const key = `${String(tweet.created_month).padStart(2, '0')}-${String(tweet.created_day).padStart(2, '0')}`
-      if (!index[key]) index[key] = { tweets: [], posts: [], scrobbles: [], commits: [] }
+      if (!index[key])
+        index[key] = { tweets: [], posts: [], scrobbles: [], commits: [] }
 
       // Only keep essential fields to reduce file size
       index[key].tweets.push({
@@ -767,7 +775,7 @@ async function buildOnThisDayIndex(blogResults, blogFiles) {
         date: tweet.created_date,
         favorites: tweet.favorite_count || 0,
         retweets: tweet.retweet_count || 0,
-        replyTo: tweet.in_reply_to_screen_name || null
+        replyTo: tweet.in_reply_to_screen_name || null,
       })
       tweetCount++
     }
@@ -786,12 +794,15 @@ async function buildOnThisDayIndex(blogResults, blogFiles) {
         if (!line.trim()) continue
 
         // Parse semicolon-separated CSV (with quoted fields)
-        const parts = line.match(/(?:[^;"]+|"[^"]*")+/g)
+        const parts = line.match(/(?:[^;"]|"[^"]*")+/g)
         if (!parts || parts.length < 5) continue
 
         const artist = parts[0]?.replace(/^"|"$/g, '') || ''
         const track = parts[3]?.replace(/^"|"$/g, '') || ''
-        const timestamp = parseInt(parts[4]?.replace(/^"|"$/g, '') || '0', 10)
+        const timestamp = Number.parseInt(
+          parts[4]?.replace(/^"|"$/g, '') || '0',
+          10
+        )
 
         if (!timestamp) continue
 
@@ -808,7 +819,7 @@ async function buildOnThisDayIndex(blogResults, blogFiles) {
             artists: new Set(),
             count: 0,
             year,
-            indexKey
+            indexKey,
           }
         }
 
@@ -821,7 +832,8 @@ async function buildOnThisDayIndex(blogResults, blogFiles) {
       // Add summarized scrobbles to index (top 5 unique tracks per day)
       for (const [dateKey, dayData] of Object.entries(scrobblesByDay)) {
         const key = dayData.indexKey
-        if (!index[key]) index[key] = { tweets: [], posts: [], scrobbles: [], commits: [] }
+        if (!index[key])
+          index[key] = { tweets: [], posts: [], scrobbles: [], commits: [] }
 
         const topTracks = Array.from(dayData.tracks).slice(0, 5)
         const topArtists = Array.from(dayData.artists).slice(0, 3)
@@ -831,7 +843,7 @@ async function buildOnThisDayIndex(blogResults, blogFiles) {
           year: dayData.year,
           count: dayData.count,
           topTracks,
-          topArtists
+          topArtists,
         })
       }
     } catch {
@@ -850,7 +862,8 @@ async function buildOnThisDayIndex(blogResults, blogFiles) {
         const day = String(date.getDate()).padStart(2, '0')
         const key = `${month}-${day}`
 
-        if (!index[key]) index[key] = { tweets: [], posts: [], scrobbles: [], commits: [] }
+        if (!index[key])
+          index[key] = { tweets: [], posts: [], scrobbles: [], commits: [] }
 
         const filePath = blogFiles[idx]
         const slug = normalizeSlug(
@@ -864,7 +877,7 @@ async function buildOnThisDayIndex(blogResults, blogFiles) {
           date: dateStr,
           dek: result.metadata?.dek || null,
           type: result.metadata?.type || 'post',
-          tags: result.metadata?.tags || []
+          tags: result.metadata?.tags || [],
         })
         postCount++
       } catch {
@@ -883,14 +896,15 @@ async function buildOnThisDayIndex(blogResults, blogFiles) {
         if (!commit.month || !commit.day) continue
 
         const key = `${String(commit.month).padStart(2, '0')}-${String(commit.day).padStart(2, '0')}`
-        if (!index[key]) index[key] = { tweets: [], posts: [], scrobbles: [], commits: [] }
+        if (!index[key])
+          index[key] = { tweets: [], posts: [], scrobbles: [], commits: [] }
 
         index[key].commits.push({
           sha: commit.sha,
           message: commit.message,
           year: commit.year,
           date: commit.date,
-          repo: commit.repo
+          repo: commit.repo,
         })
         commitCount++
       }
@@ -920,7 +934,10 @@ async function buildOnThisDayIndex(blogResults, blogFiles) {
     await fs.writeFile(indexPath, JSON.stringify(index, null, 2))
 
     const daysWithContent = Object.keys(index).length
-    const scrobbleDays = Object.values(index).reduce((sum, day) => sum + day.scrobbles.length, 0)
+    const scrobbleDays = Object.values(index).reduce(
+      (sum, day) => sum + day.scrobbles.length,
+      0
+    )
     spinner.succeed(
       `On-this-day: ${tweetCount} tweets, ${postCount} posts, ${scrobbleCount} scrobbles, ${commitCount} commits across ${daysWithContent} days`
     )
@@ -940,7 +957,7 @@ async function processAllFiles() {
 
     const allFiles = [
       ...(await getFilesRecursively(paths.contentDir)),
-      ...(await getFilesRecursively(paths.draftsDir))
+      ...(await getFilesRecursively(paths.draftsDir)),
     ]
     processStats.totalFiles = allFiles.length
     spinner.succeed(`Found ${allFiles.length} markdown files`)
@@ -1056,7 +1073,7 @@ async function processAllFiles() {
         modified: cleanEntry.metadata?.modified,
         tags: cleanEntry.metadata?.tags,
         toc: cleanEntry.metadata?.toc,
-        metadata: { ...cleanEntry.metadata, slug, type }
+        metadata: { ...cleanEntry.metadata, slug, type },
       }
     })
 

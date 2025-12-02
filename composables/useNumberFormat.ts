@@ -3,7 +3,7 @@ import {
   format as formatDate,
   differenceInDays,
   differenceInHours,
-  differenceInMinutes
+  differenceInMinutes,
 } from 'date-fns'
 
 // Basic number formatting with thousands separators
@@ -479,7 +479,7 @@ export const turboColors = [
   '#ff0900',
   '#ff0600',
   '#ff0300',
-  '#ff0000'
+  '#ff0000',
 ]
 
 // Monochromatic zinc shades for consistent UI elements
@@ -489,7 +489,7 @@ export const zincShades = [
   'rgb(82, 82, 91)', // zinc-600
   'rgb(63, 63, 70)', // zinc-700
   'rgb(39, 39, 42)', // zinc-800
-  'rgb(24, 24, 27)' // zinc-900
+  'rgb(24, 24, 27)', // zinc-900
 ]
 
 // Get color for a normalized value (0-1)
@@ -543,6 +543,6 @@ export function useNumberFormat() {
     getColorForIndex,
     getChessResultColor,
     getChessBarColor,
-    getRatingDiffClass
+    getRatingDiffClass,
   }
 }

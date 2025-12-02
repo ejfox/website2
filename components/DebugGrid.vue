@@ -50,7 +50,7 @@ const gridStyle = {
       rgba(59, 130, 246, 0.2) 32px
     )
   `,
-  backgroundSize: '100% 8px, 100% 32px'
+  backgroundSize: '100% 8px, 100% 32px',
 }
 </script>
 

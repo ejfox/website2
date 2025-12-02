@@ -9,13 +9,12 @@
           class="w-10 h-10 rounded-full mx-auto u-photo"
         />
         <span class="p-name hidden">EJ Fox</span>
-        <a class="u-url u-uid hidden" href="https://ejfox.com" rel="me"
-          >ejfox.com</a
-        >
-        <span class="p-note hidden"
-          >Data visualization engineer, photographer, and digital
-          craftsperson</span
-        >
+        <a class="u-url u-uid hidden" href="https://ejfox.com" rel="me">
+          ejfox.com
+        </a>
+        <span class="p-note hidden">
+          Data visualization engineer, photographer, and digital craftsperson
+        </span>
       </div>
 
       <!-- Combined navigation -->
@@ -82,9 +81,9 @@
       <!-- PGP + Build info -->
       <div class="space-y-2">
         <div>
-          <a href="/pgp.txt" :class="pgpLinkClasses"
-            >PGP: E207 8E65 3FE3 89CD</a
-          >
+          <a href="/pgp.txt" :class="pgpLinkClasses">
+            PGP: E207 8E65 3FE3 89CD
+          </a>
         </div>
         <div v-if="buildInfo">
           <a

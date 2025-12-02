@@ -21,7 +21,8 @@
             :decimals="1"
             :duration="400"
             priority="secondary"
-          />★ AVG
+          />
+          ★ AVG
         </div>
         <div class="text-xs space-x-3">
           <span>
@@ -72,7 +73,7 @@
               class="truncate"
               :class="[
                 'text-zinc-700 dark:text-zinc-300',
-                'group-hover:text-zinc-900 dark:group-hover:text-zinc-100'
+                'group-hover:text-zinc-900 dark:group-hover:text-zinc-100',
               ]"
             >
               {{ film.title }}
@@ -80,8 +81,9 @@
                 v-if="film.isRewatch"
                 class="text-zinc-400 dark:text-zinc-600 ml-1"
                 title="Rewatch"
-                >↻</span
               >
+                ↻
+              </span>
             </div>
             <div class="text-zinc-500 text-[10px]">
               {{ formatDate(film.watchedDate) }}
@@ -97,8 +99,9 @@
                 v-for="star in renderStars(film.rating)"
                 :key="star.id"
                 :class="star.class"
-                >{{ star.char }}</span
               >
+                {{ star.char }}
+              </span>
             </span>
           </div>
         </a>
@@ -121,7 +124,7 @@
             class="truncate"
             :class="[
               'text-zinc-700 dark:text-zinc-300',
-              'group-hover:text-zinc-900 dark:group-hover:text-zinc-100'
+              'group-hover:text-zinc-900 dark:group-hover:text-zinc-100',
             ]"
           >
             {{ film.title }}
@@ -134,8 +137,9 @@
                 v-for="star in renderStars(film.rating)"
                 :key="star.id"
                 :class="star.class"
-                >{{ star.char }}</span
               >
+                {{ star.char }}
+              </span>
             </span>
           </div>
         </a>
@@ -203,7 +207,7 @@ const stats = computed(
       rewatches: 0,
       topRatedFilms: [],
       recentFilms: [],
-      filmsByMonth: {}
+      filmsByMonth: {},
     }
 )
 
@@ -229,7 +233,7 @@ const renderStars = (rating: number | null) => {
     stars.push({
       id: id++,
       char: '★',
-      class: 'text-zinc-700 dark:text-zinc-300'
+      class: 'text-zinc-700 dark:text-zinc-300',
     })
   }
 
@@ -238,7 +242,7 @@ const renderStars = (rating: number | null) => {
     stars.push({
       id: id++,
       char: '½',
-      class: 'text-zinc-700 dark:text-zinc-300 text-[9px] -ml-[1px]'
+      class: 'text-zinc-700 dark:text-zinc-300 text-[9px] -ml-[1px]',
     })
   }
 
@@ -247,7 +251,7 @@ const renderStars = (rating: number | null) => {
     stars.push({
       id: id++,
       char: '☆',
-      class: 'text-zinc-400 dark:text-zinc-600'
+      class: 'text-zinc-400 dark:text-zinc-600',
     })
   }
 

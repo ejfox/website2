@@ -79,7 +79,7 @@ export const useD3Typography = () => {
       fontSize: `${size}px`,
       lineHeight: lineHeight(size),
       letterSpacing: `${letterSpacing(size)}em`,
-      maxWidth: `${measure(size)}ch`
+      maxWidth: `${measure(size)}ch`,
     }
   }
 
@@ -138,7 +138,7 @@ export const useD3Typography = () => {
     // Raw scales for custom use
     scales: {
       modularScale,
-      responsiveScale
-    }
+      responsiveScale,
+    },
   }
 }

@@ -38,8 +38,9 @@
         <a
           href="/"
           class="mt-2 inline-block text-red-600 dark:text-red-400 underline"
-          >Return Home</a
         >
+          Return Home
+        </a>
       </div>
 
       <!-- Dense stats layout -->
@@ -149,9 +150,9 @@
         <!-- Health Stats -->
         <StatsStatSection title="HEALTH" :show="stats.health">
           <StatsStatRow label="Steps Today" :value="healthToday.steps" />
-          <StatsStatRow label="Exercise"
-            >{{ healthToday.exerciseMinutes }}m</StatsStatRow
-          >
+          <StatsStatRow label="Exercise">
+            {{ healthToday.exerciseMinutes }}m
+          </StatsStatRow>
           <StatsStatRow
             label="Avg Steps"
             :value="stats.health.averages?.dailySteps || 0"
@@ -179,9 +180,9 @@
 
         <!-- Productivity Stats -->
         <StatsStatSection title="PRODUCTIVITY" :show="stats.rescueTime?.week">
-          <StatsStatRow label="Weekly"
-            >{{ stats.rescueTime.week.summary.total.hours }}h</StatsStatRow
-          >
+          <StatsStatRow label="Weekly">
+            {{ stats.rescueTime.week.summary.total.hours }}h
+          </StatsStatRow>
           <StatsStatRow
             label="Productive"
             :value="stats.rescueTime.week.summary.productive.percentage"
@@ -323,8 +324,9 @@
             <a
               href="/"
               class="inline-block text-red-600 dark:text-red-400 underline"
-              >Return Home</a
             >
+              Return Home
+            </a>
           </div>
 
           <!-- Loading state -->
@@ -533,12 +535,12 @@ useHead(() => ({
   meta: [
     {
       name: 'description',
-      content: statsDescription.value
+      content: statsDescription.value,
     },
     { property: 'og:title', content: 'Stats - EJ Fox' },
     {
       property: 'og:description',
-      content: statsDescription.value
+      content: statsDescription.value,
     },
     { property: 'og:url', content: 'https://ejfox.com/stats' },
     { property: 'og:type', content: 'website' },
@@ -549,11 +551,11 @@ useHead(() => ({
     { name: 'twitter:title', content: 'Stats - EJ Fox' },
     {
       name: 'twitter:description',
-      content: statsDescription.value
+      content: statsDescription.value,
     },
-    { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' }
+    { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' },
   ],
-  link: [{ rel: 'canonical', href: 'https://ejfox.com/stats' }]
+  link: [{ rel: 'canonical', href: 'https://ejfox.com/stats' }],
 }))
 
 const route = useRoute()
@@ -615,7 +617,7 @@ onMounted(async () => {
         topTags: [],
         uniqueTags: 0,
         averageReadingTime: 0,
-        postsByMonth: {}
+        postsByMonth: {},
       }
       return
     }
@@ -651,7 +653,7 @@ onMounted(async () => {
           totalWords: acc.totalWords + postWordCount,
           wordCount: acc.wordCount + (postWordCount > 0 ? 1 : 0),
           firstDate: acc.firstDate,
-          lastDate: acc.lastDate
+          lastDate: acc.lastDate,
         }
       },
       { totalWords: 0, wordCount: 0, firstDate: null, lastDate: null }
@@ -676,7 +678,7 @@ onMounted(async () => {
         wordCount > 0
           ? Math.round((totalWords / wordCount / 200) * 10) / 10
           : 0,
-      postsByMonth
+      postsByMonth,
     }
   } catch (error) {
     console.error('Error calculating blog stats:', error)
@@ -880,7 +882,7 @@ const summaryData = computed(() => {
 
   if (clauses.length === 0) {
     return {
-      text: 'Monitoring systems, collecting data, optimizing workflows.'
+      text: 'Monitoring systems, collecting data, optimizing workflows.',
     }
   }
 
@@ -927,7 +929,7 @@ const _transformedHealthStats = computed(() => {
             .split('T')[0],
           steps: 0,
           activeMinutes: 0,
-          days: 0
+          days: 0,
         })
       }
 
@@ -967,7 +969,7 @@ const statsSections = [
   { id: 'music', text: 'Music' },
   { id: 'films', text: 'Films' },
   { id: 'website', text: 'Analytics' },
-  { id: 'gear', text: 'Gear' }
+  { id: 'gear', text: 'Gear' },
 ]
 
 // Helper function for TOC link classes
@@ -1010,7 +1012,7 @@ onMounted(() => {
 // Health today calculation
 const getEasternDateString = () => {
   return new Date().toLocaleDateString('en-CA', {
-    timeZone: 'America/New_York'
+    timeZone: 'America/New_York',
   })
 }
 const todayLocal = getEasternDateString()
@@ -1022,7 +1024,7 @@ const healthToday = computed(() => {
     if (idx !== -1) {
       return {
         steps: stats.value.health.trends.daily.steps[idx] || 0,
-        exerciseMinutes: stats.value.health.trends.daily.exercise[idx] || 0
+        exerciseMinutes: stats.value.health.trends.daily.exercise[idx] || 0,
       }
     }
   }
@@ -1031,7 +1033,7 @@ const healthToday = computed(() => {
 
 // Page meta
 definePageMeta({
-  layout: 'default'
+  layout: 'default',
 })
 
 // SEO
@@ -1040,25 +1042,25 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'Stats'
+      content: 'Stats',
     },
     {
       property: 'og:title',
-      content: 'Stats'
+      content: 'Stats',
     },
     {
       property: 'og:description',
-      content: 'Stats'
+      content: 'Stats',
     },
     {
       name: 'twitter:title',
-      content: 'Stats'
+      content: 'Stats',
     },
     {
       name: 'twitter:description',
-      content: 'Stats'
-    }
-  ]
+      content: 'Stats',
+    },
+  ],
 })
 </script>
 

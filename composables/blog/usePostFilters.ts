@@ -71,6 +71,6 @@ export function usePostFilters(currentDate?: Date) {
   return {
     isWeekNote,
     isValidPost: (post: Post, includeWeekNotes = false) =>
-      isValidPost(post, includeWeekNotes, now)
+      isValidPost(post, includeWeekNotes, now),
   }
 }

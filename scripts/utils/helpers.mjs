@@ -12,7 +12,7 @@ const scrapTypeSymbols = {
   // 'github-pr': '◆', // U+25C6
   // slight difference in shape
   'github-pr': '◇', // U+25C7
-  twitter: '○' // U+25CB
+  twitter: '○', // U+25CB
 }
 
 const socialPlatforms = {
@@ -75,7 +75,7 @@ const socialPlatforms = {
   'gcp.google.com': 'simple-icons:googlecloud',
   'firebase.google.com': 'simple-icons:firebase',
   'microsoft.com': 'simple-icons:microsoft',
-  'arxiv.org': 'cib:arxiv'
+  'arxiv.org': 'cib:arxiv',
 }
 
 const hrSvg =
@@ -326,7 +326,7 @@ function formatCloudinaryUrl(url, options = {}) {
     format: 'auto',
     fetchFormat: 'auto',
     width: 'auto',
-    dpr: 2
+    dpr: 2,
   }
 
   const settings = { ...defaults, ...options }
@@ -338,7 +338,7 @@ function formatCloudinaryUrl(url, options = {}) {
     `f_${settings.format}`,
     `fl_progressive`,
     `w_${settings.width}`,
-    `dpr_${settings.dpr}`
+    `dpr_${settings.dpr}`,
   ]
 
   return (
@@ -384,7 +384,7 @@ function generateRobotsMetaContent(frontmatter, filePath) {
     'projects/',
     'robots/',
     'study-notes/',
-    'prompts/'
+    'prompts/',
   ]
   if (specialSections.some((section) => filePath.startsWith(section))) {
     directives.push('noindex')
@@ -458,5 +458,5 @@ export {
   calculateWordCount,
   generateRobotsMetaContent,
   getValidDate,
-  log
+  log,
 }

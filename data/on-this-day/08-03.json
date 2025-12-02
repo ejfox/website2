@@ -1,1 +1,933 @@
-{"tweets":[{"id":"1686915825750401024","text":"@SoC_trilogy @repligate @deepfates @AcroYogi wow this is great","year":2023,"date":"2023-08-03","favorites":0,"retweets":0,"replyTo":"SoC_trilogy"},{"id":"1554849235312558081","text":"the other day I thought I was procrastinating by adding sick ascii art to the comments of my app, but it actually makes it way easier to navigate the HTML once it's rendered and is making things faster, joke's on me https://t.co/U28tlxbDi9","year":2022,"date":"2022-08-03","favorites":2,"retweets":0,"replyTo":null},{"id":"1422551986260660230","text":"Also is there a cheaper more soul-jarring experience than standing in Grand Central Station, then taking a train, and a few hours later being in the woods with no human for miles?","year":2021,"date":"2021-08-03","favorites":2,"retweets":0,"replyTo":"mrejfox"},{"id":"1422551621997891594","text":"I want to write a book about the history of the intertwining between Upstate New York and The City- and how for generations some have figured out there is a magical personal ratio of urbanity to woodlands. Can anyone recommend any books that touch on this?","year":2021,"date":"2021-08-03","favorites":1,"retweets":0,"replyTo":null},{"id":"1422384160648441868","text":"RT @enjalot: reporting live from the Matrix, seeing a lot of latency in us-east Tom, with cascading failures expected through the region. R…","year":2021,"date":"2021-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"1422384060467490817","text":"I think that spatialized dataviz probably looks a lot like a workbench with lots of objects like this, big and small, that are not only live and reactive but can be picked up and inspected and turned on their side. https://t.co/UOgwDTOdDv","year":2021,"date":"2021-08-03","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1422379503884640261","text":"https://t.co/GuCmKXInoV","year":2021,"date":"2021-08-03","favorites":1,"retweets":0,"replyTo":null},{"id":"1422351988654755840","text":"Really proud of the work I have been doing with my personal YouTube algorithm, it is now fully 45% motorcycle videos, 45% watercolor how-tos, and 10% stand up comedy. Just like the inside of my brain.","year":2021,"date":"2021-08-03","favorites":5,"retweets":0,"replyTo":null},{"id":"1290428827957633024","text":"We were repeatedly told that content was too complex because a certain decisionmaker “watches with the sound off” and wouldn’t hear when the talent explained a more difficult concept. Repeatedly.","year":2020,"date":"2020-08-03","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1290428377871134720","text":"There were high-level people in the MSNBC / NBC News orgs who were convinced their viewers could barely understand a red and blue map, and would never understand anything more than a bar chart, and never considered, let alone strived, to use modern dataviz to convey complexities","year":2020,"date":"2020-08-03","favorites":2,"retweets":0,"replyTo":"mrejfox"},{"id":"1290427805851951104","text":"https://t.co/7NJujroCWl https://t.co/NBTQzm0OH2","year":2020,"date":"2020-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"1290135373880758272","text":"The magical moment that the node position through firebase started working - super fun stream. Will probably do one again Monday night, https://t.co/Vm2vFlG7FC","year":2020,"date":"2020-08-03","favorites":4,"retweets":1,"replyTo":"mrejfox"},{"id":"1290131169590140928","text":"okay, anyone should be able to edit our force layout in real time by dragging a node around https://t.co/n6ZKAbms5A // https://t.co/UjuUaU7gvI","year":2020,"date":"2020-08-03","favorites":3,"retweets":1,"replyTo":"mrejfox"},{"id":"1290127569254154240","text":"I love it when the bugs are weird https://t.co/NaLO1hnAqD","year":2020,"date":"2020-08-03","favorites":2,"retweets":0,"replyTo":"mrejfox"},{"id":"1290115735231049733","text":"@RonautDreams @enjalot Thank you for watching!","year":2020,"date":"2020-08-03","favorites":1,"retweets":0,"replyTo":"HelloRonaut"},{"id":"1290115603651391489","text":"Working on building some integration with firebase so that anyone can collaboratively modify the node positions (for better or for worse...) https://t.co/UjuUaU7gvI https://t.co/1czs9iQTcP","year":2020,"date":"2020-08-03","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1290102689251065856","text":"Now it's a force layout, because a lot of these things are inter-connected and the tree-shaped mindmapping program I was using couldn't capture it. https://t.co/MP1nhx5jQU","year":2020,"date":"2020-08-03","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1290099444944314368","text":"This quickly evolved (or devolved) into converting that mind map into an OPML and then getting that into visualizations in observable https://t.co/KywS9U2abR","year":2020,"date":"2020-08-03","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1290093562097364992","text":"Currently making a mind map of the things we have explored before so we can decide what to do next! https://t.co/l7n1aPMmT0","year":2020,"date":"2020-08-03","favorites":2,"retweets":0,"replyTo":"mrejfox"},{"id":"1290090362854182914","text":"Hey guys, doing another livestream with @enjalot - we are gonna make some stuff with firebase and observable, come hang out https://t.co/UjuUaU7gvI","year":2020,"date":"2020-08-03","favorites":3,"retweets":0,"replyTo":null},{"id":"1290080475168440322","text":"every time I say \"please\" to the google home now, it plays a sound effect to reward me, which I assume means I am accruing points by which favor will be rewarded during the AI takeover","year":2020,"date":"2020-08-03","favorites":7,"retweets":0,"replyTo":null},{"id":"1157787999788306432","text":"Me, explaining human culture to my cat: “… so to us, it is the height of disrespect to take something someone has given you as a gift and gently knock it to the ground and stare them in the eyes”","year":2019,"date":"2019-08-03","favorites":7,"retweets":0,"replyTo":null},{"id":"1157656583876354049","text":"@quinnnorton I can totally understand why you wouldnt want to repeat that! There is no right way. Maybe try to sandwich between activities you know you enjoy. No professional would suggest it, but I would meditate before my morning cigarette and reward myself with it afterwards.","year":2019,"date":"2019-08-03","favorites":0,"retweets":0,"replyTo":"quinnnorton"},{"id":"1157653067074015232","text":"@quinnnorton I also think its totally okay to sit for a minute or two and be done! You did it! Thats success, not failure. The sitting is the doing.","year":2019,"date":"2019-08-03","favorites":1,"retweets":0,"replyTo":"quinnnorton"},{"id":"1157652860089319424","text":"@quinnnorton Thats why I suggest a visualization technique, you arent leaving room for nothingness, focusing on imagery instead of “thinking”. Filling with warm light is good. I also like to imagine my head is filled with water crashing back and forth, and I focus on making the water flat.","year":2019,"date":"2019-08-03","favorites":2,"retweets":0,"replyTo":"quinnnorton"},{"id":"1157648228529168390","text":"@quinnnorton Finally, it is hard for me to see meditation as “useful”- I have to reframe it as “I am doing this exercise for the people around me” - I know I treat others around me better when I have taken the time to assess and calm my mind. To me its like putting on deoderant.","year":2019,"date":"2019-08-03","favorites":2,"retweets":0,"replyTo":"mrejfox"},{"id":"1157647664147836929","text":"@quinnnorton I also had a lot of trouble in the beginning with “see a thought, breathe, move on” and gravitated more towards visualization techniques like imagining golden liquid slowly filling your body with good, calm energy as you scan from toes to crown of head- something to focus on.","year":2019,"date":"2019-08-03","favorites":3,"retweets":0,"replyTo":"mrejfox"},{"id":"1157647372434006018","text":"@quinnnorton Two things:\n\n- Sitting is meditation, meditation is sitting, if you sat and tried to meditate you did it. Separate from your experience of it or expectations of what it should be. \n\n- try changing time of day, location, headphones/no headphones, design a “ritual” that works","year":2019,"date":"2019-08-03","favorites":3,"retweets":0,"replyTo":"quinnnorton"},{"id":"1157442700314103808","text":"@pinzler ooooooh","year":2019,"date":"2019-08-03","favorites":1,"retweets":0,"replyTo":"pinzler"},{"id":"1157441883922141188","text":"forward march of progress, or whatever https://t.co/nh4ZqmdmyD","year":2019,"date":"2019-08-03","favorites":2,"retweets":0,"replyTo":"mrejfox"},{"id":"1025471659715768320","text":"RT @EmilyPasser: Loads of open roles with @NBCNews Digital! Come join an amazing crew of reporters, creators, storytellers and all-around n…","year":2018,"date":"2018-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"1025448865552429056","text":"RT @round: Designing for accessibility? Here's a great free tool to test for color contrast and to optimize your work for colorblind users.…","year":2018,"date":"2018-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"1025448788880748550","text":"RT @jpiacenza: One chart goes up and one chart goes down...\nhttps://t.co/FYilqdvkAc https://t.co/zawSDl8EEj","year":2018,"date":"2018-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"1025381496285261825","text":"@shanedkavanaugh Shane!","year":2018,"date":"2018-08-03","favorites":0,"retweets":0,"replyTo":"shanedkavanaugh"},{"id":"893221147751403522","text":"RT @417am1975: 201-1501774938694 https://t.co/g4hMC5iI0S","year":2017,"date":"2017-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"893206985230909440","text":"@claytoncubitt now I want to paint my bathroom red","year":2017,"date":"2017-08-03","favorites":0,"retweets":0,"replyTo":"claytoncubitt"},{"id":"893163901977858049","text":"Is it the people who press the non working close door button on the elevator?","year":2017,"date":"2017-08-03","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"893162968552275969","text":"RT @417am1975: 703-1501730845207 https://t.co/iTmN2MVUPY","year":2017,"date":"2017-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"893141121626517506","text":"RT @RespectfulMemes: https://t.co/oyC50KXXSi","year":2017,"date":"2017-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"893131995378790401","text":"Are there worse people in the world than subway pole-leaners?","year":2017,"date":"2017-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"893128390479425536","text":"RT @ccanipe: Where does coal come from? Who moves the most iron ore? This was a fun dataset to map. How goods move between states https://t…","year":2017,"date":"2017-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"893111892104945664","text":"RT @BeauWillimon: Stephen Miller - Lazarus' poem was added 1903: same yr your ancestors Wolf &amp; Bessie Glotzer came thru Ellis Island. Bet i…","year":2017,"date":"2017-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"892952622180728832","text":"RT @kylegriffin1: Yahoo: Reporter says ‘Russian propaganda outlet’ pushed him to cover conspiracy theory at the center of a WH lawsuit http…","year":2017,"date":"2017-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"760962681310437377","text":"These voices are not new, Donald Trump didn't make them, and they will be here whether he wins or loses https://t.co/KDL1NxBoLA","year":2016,"date":"2016-08-03","favorites":1,"retweets":0,"replyTo":null},{"id":"760960313118318592","text":"@josephfcox That's why you're the best =]","year":2016,"date":"2016-08-03","favorites":0,"retweets":0,"replyTo":"josephfcox"},{"id":"760929643591569409","text":"Made a live map of my intended US roadtrip route, will build on it to share photos/stories https://t.co/7O9wHSsh7O https://t.co/XskK6Hdplg","year":2016,"date":"2016-08-03","favorites":2,"retweets":0,"replyTo":"mrejfox"},{"id":"760913454245052416","text":"I've been getting really into GNU screen lately, so that's pretty cool","year":2016,"date":"2016-08-03","favorites":1,"retweets":0,"replyTo":null},{"id":"760810995711373312","text":"RT @Sophiemcneill: What's left to say? To report? Has there ever been a conflict where we have known so much but done so little? #Syria htt…","year":2016,"date":"2016-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"760658945782452224","text":"RT @SeanUnfiltered: How can anyone not like what the Raiders are building.  With Carr, Cooper and Mack we are looking at 3 long term stars.…","year":2016,"date":"2016-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"628293942400929792","text":"RT @Gawker: New Yorker profiles Darren Wilson, the cop who killed Michael Brown. He's racist, as it turns out. http://t.co/U8lhN3iW21","year":2015,"date":"2015-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"628231828185460736","text":"@Elijah_Meeks Good article!\n\nIn your footer: \n\n“information wants to be free, but also elegent”\n\nthink you mean “elegant”","year":2015,"date":"2015-08-03","favorites":0,"retweets":0,"replyTo":"Elijah_Meeks"},{"id":"628229460991586304","text":"RT @Elijah_Meeks: I'm sick of seeing these colors everywhere. You should be, too.\nhttp://t.co/jSJtl3eeS9 http://t.co/LocynXnfl7","year":2015,"date":"2015-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"628208550419021824","text":"Love this Donald Trump hack... HackThisSite Realistic Mission 2 style...\n\nVery polite deface.\n\nhttp://t.co/zZzj3s7blm http://t.co/Dqd048tB2w","year":2015,"date":"2015-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"628208237842669568","text":"RT @TheRegister: Canadian hacktivists broke into Donald Trump's website to congratulate Jon Stewart http://t.co/BZl2mjAHTD http://t.co/oIun…","year":2015,"date":"2015-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"628193319525449728","text":"RT @bizweekgraphics: Seize the now","year":2015,"date":"2015-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"363810574527774720","text":"RT @ejfoxverbose: Github: ejfox starred enjalot/bart http://t.co/ZxPrmsW8Tm","year":2013,"date":"2013-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"363521766544928768","text":"Photo:  http://t.co/RcexH1sMX0","year":2013,"date":"2013-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"231500737245483008","text":"RT @mudcube: The future of embedding graphics? https://t.co/CoUZawDt via @simurai","year":2012,"date":"2012-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"231434955618672641","text":"It's weird that wikipedia pages have signatures","year":2012,"date":"2012-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"231429216854487040","text":"RT @MotherJones: Charts: \"94 percent of all individual donations to super-PACs in the 2012 cycle came from just 1,082 people.\" http://t. ...","year":2012,"date":"2012-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"231393072947281920","text":"RT @dancow: Background to the Valve-has-no-bosses post: their employee manual, which apparently is real and not from unicorn land http:/ ...","year":2012,"date":"2012-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"231391973272076289","text":"RT @EdibleHudson: Shop Hudson Valley farmers' markets this weekend - &amp; all week long! Support our farmers. Here's 2012 market guide: ...","year":2012,"date":"2012-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"98855979759833088","text":"@oheard Thanks man!","year":2011,"date":"2011-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"98852607644270592","text":"@oheard Hey thanks for the heads up… looks like it was a rogue tweet. Very strange… I wonder where from?! Time to investigate =[","year":2011,"date":"2011-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"98824441227771905","text":"RT @moritz_stefaner: B. Claiming there is only 1 right way to visualize a given data set is like being a cook who thinks there is only 1 ...","year":2011,"date":"2011-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"98819590288707584","text":"Zoe http://instagr.am/p/JQAo2/","year":2011,"date":"2011-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"98775435520905217","text":"I don't think I've mentioned it yet, but I'm tumblin' cool dataviz/infographics/visual explanation stuff at http://t.co/wO3ov98","year":2011,"date":"2011-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"3097840798","text":"Hot chocolate before bed, like a good boy.","year":2009,"date":"2009-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"3097671310","text":"I've heard no complaints about the truthfulness of the facts on this petabyte graphic. But who says \"Good job on not making bullshit\"?","year":2009,"date":"2009-08-03","favorites":1,"retweets":0,"replyTo":null},{"id":"3097461563","text":"New photoblog post: Old Camp Photos http://tr.im/vdHV","year":2009,"date":"2009-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"876604125","text":"My iPhone is lounging around naked and caseless.","year":2008,"date":"2008-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"876602095","text":"I am... bored.","year":2008,"date":"2008-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"876560581","text":"@surfsearcher Not only the amazing acting, but also how all-around good the film is. It's the kind of movie I'm proud to show friends.","year":2008,"date":"2008-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"876558819","text":"www.blippr.com/t/10327 Hard Candy: An incredible, beautiful looking film. Incredible acting and story make it, but the smart directing p ...","year":2008,"date":"2008-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"876556544","text":"I'm in the mood to watch Hard Candy again.","year":2008,"date":"2008-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"876540205","text":"\"Fight Apathy or Don't\"","year":2008,"date":"2008-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"876508431","text":"Whenever I'm not out of the house (partying or otherwise) I'm flipping through LastNightsParty Drive-By's. I dunno what that says about me.","year":2008,"date":"2008-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"876460590","text":"Because Terry Gross asks Seth deep questions. Like about the first time he got high. Or rolling a cross joint. On NPR. Thanks.","year":2008,"date":"2008-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"876459849","text":"Enjoying Seth Rogen's interview on Fresh Air.","year":2008,"date":"2008-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"876396766","text":"Just put the crank ringtone on my iPhone. Lovin' it.","year":2008,"date":"2008-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"876351143","text":"Note to Self: Get the board game Apples to Apples. You love it.","year":2008,"date":"2008-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"876160284","text":"www.blippr.com/t/6823 Snow Crash (Bantam Spectra Book): Snow Crash is one of few books that seriously impacted how I lived my life for y ...","year":2008,"date":"2008-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"876158521","text":"www.blippr.com/t/6802 The Darjeeling Limited: A great 'art film', but not really worth watching more than a few times.","year":2008,"date":"2008-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"876157993","text":"www.blippr.com/t/22169 Kala: M.I.A. has banging beats and thinks about music completely differently than anyone else.","year":2008,"date":"2008-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"876156471","text":"www.blippr.com/t/76 Call of Duty 4 Modern Warfare: I play CoD4 on xbox live daily, and I never ever get bored. What a well thought-throu ...","year":2008,"date":"2008-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"876155548","text":"www.blippr.com/t/13319 The Dark Knight: The Dark Knight is almost an anti-action movie. The main character uses no guns, and the story r ...","year":2008,"date":"2008-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"876154854","text":"www.blippr.com/t/605 The Princess Bride: One of my favourite movies of all time, it's got everything a movie needs.","year":2008,"date":"2008-08-03","favorites":0,"retweets":0,"replyTo":null},{"id":"184330382","text":"Just woke up, its still freakin hot. Packing and what not right now, the weather zaps all motivation out of you though.","year":2007,"date":"2007-08-03","favorites":0,"retweets":0,"replyTo":null}],"posts":[],"scrobbles":[{"date":"2025-08-03","year":2025,"count":52,"topTracks":["King Krule - The Ooz - Live","King Krule - Cellular - Live","King Krule - Stoned Again - Live","King Krule - Slush Puppy - Live","King Krule - Rock Bottom - Live"],"topArtists":["King Krule","Horsey","Weak Moves"]},{"date":"2023-08-03","year":2023,"count":1,"topTracks":["Hamdi - Skanka"],"topArtists":["Hamdi"]},{"date":"2020-08-03","year":2020,"count":2,"topTracks":["African Brothers International Band - Me Nyame Wo Pɛ Nyɛ Hɔ (Remastered)","African Brothers International Band - Ɔyɔnko Brɛbo (Remastered)"],"topArtists":["African Brothers International Band"]},{"date":"2019-08-03","year":2019,"count":15,"topTracks":["Smino - KLINK","Smino - L.M.F.","Smino - KOVERT","Smino - SKEDOS","Smino - Anita"],"topArtists":["Smino"]},{"date":"2016-08-03","year":2016,"count":10,"topTracks":["ORBS - Dreamland II","ORBS - Jaws on Repeat (Life on Hold)","ORBS - Peculiar, Isn't It?","ORBS - Exploded Birds","ORBS - Giving Tree Hanging Me"],"topArtists":["ORBS","Tut"]},{"date":"2013-08-03","year":2013,"count":50,"topTracks":["Daft Punk - Doin' It Right","Born Ruffians - First Date Kid","Vampire Weekend - Obvious Bicycle","Vampire Weekend - Unbelievers","Vampire Weekend - Step"],"topArtists":["Daft Punk","Born Ruffians","Vampire Weekend"]},{"date":"2012-08-03","year":2012,"count":4,"topTracks":["Kid Loco - A Grand Love Theme","Atlas Sound - Walkabout [w/ Noah Lennox]","The Wombats - Let's Dance to Joy Division","Death Cab for Cutie - Blacking Out the Friction"],"topArtists":["Kid Loco","Atlas Sound","The Wombats"]},{"date":"2009-08-03","year":2009,"count":214,"topTracks":["Animal Collective - The Purple Bottle","Saul Williams - Scared Money","Gnarls Barkley - Neighbours","Death Cab for Cutie - Grapevine Fires","Marley Bros - Marley Bros -Kinky Reggae"],"topArtists":["Animal Collective","Saul Williams","Gnarls Barkley"]},{"date":"2008-08-03","year":2008,"count":112,"topTracks":["M.I.A. - Pull Up the People","M.I.A. - World Town","M.I.A. - One for the Head (skit)","M.I.A. - M.I.A.","M.I.A. - Bamboo Banga"],"topArtists":["M.I.A.","Chicago Public Radio","Revision3"]},{"date":"2007-08-03","year":2007,"count":8,"topTracks":["Sigur Rós - Ny Batteri","The White Stripes - A Martyr for My Love for You","The Chemical Brothers - The Salmon Dance feat. Fatlip","Gwen Stefani - Yummy","Gwen Stefani - Wind It Up"],"topArtists":["Sigur Rós","The White Stripes","The Chemical Brothers"]},{"date":"2006-08-03","year":2006,"count":56,"topTracks":["Lewis Black - Nothing's Sacred (Unabridged)","Black Eyed Peas - Third Eye","Fall Out Boy - Sugar, We're Goin Down","Bloodhound Gang - Pennsylvania","Faithless - Bluegrass"],"topArtists":["Lewis Black","Black Eyed Peas","Fall Out Boy"]}],"commits":[]}
+{
+  "tweets": [
+    {
+      "id": "1686915825750401024",
+      "text": "@SoC_trilogy @repligate @deepfates @AcroYogi wow this is great",
+      "year": 2023,
+      "date": "2023-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "SoC_trilogy"
+    },
+    {
+      "id": "1554849235312558081",
+      "text": "the other day I thought I was procrastinating by adding sick ascii art to the comments of my app, but it actually makes it way easier to navigate the HTML once it's rendered and is making things faster, joke's on me https://t.co/U28tlxbDi9",
+      "year": 2022,
+      "date": "2022-08-03",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1422551986260660230",
+      "text": "Also is there a cheaper more soul-jarring experience than standing in Grand Central Station, then taking a train, and a few hours later being in the woods with no human for miles?",
+      "year": 2021,
+      "date": "2021-08-03",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1422551621997891594",
+      "text": "I want to write a book about the history of the intertwining between Upstate New York and The City- and how for generations some have figured out there is a magical personal ratio of urbanity to woodlands. Can anyone recommend any books that touch on this?",
+      "year": 2021,
+      "date": "2021-08-03",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1422384160648441868",
+      "text": "RT @enjalot: reporting live from the Matrix, seeing a lot of latency in us-east Tom, with cascading failures expected through the region. R…",
+      "year": 2021,
+      "date": "2021-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1422384060467490817",
+      "text": "I think that spatialized dataviz probably looks a lot like a workbench with lots of objects like this, big and small, that are not only live and reactive but can be picked up and inspected and turned on their side. https://t.co/UOgwDTOdDv",
+      "year": 2021,
+      "date": "2021-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1422379503884640261",
+      "text": "https://t.co/GuCmKXInoV",
+      "year": 2021,
+      "date": "2021-08-03",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1422351988654755840",
+      "text": "Really proud of the work I have been doing with my personal YouTube algorithm, it is now fully 45% motorcycle videos, 45% watercolor how-tos, and 10% stand up comedy. Just like the inside of my brain.",
+      "year": 2021,
+      "date": "2021-08-03",
+      "favorites": 5,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1290428827957633024",
+      "text": "We were repeatedly told that content was too complex because a certain decisionmaker “watches with the sound off” and wouldn’t hear when the talent explained a more difficult concept. Repeatedly.",
+      "year": 2020,
+      "date": "2020-08-03",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1290428377871134720",
+      "text": "There were high-level people in the MSNBC / NBC News orgs who were convinced their viewers could barely understand a red and blue map, and would never understand anything more than a bar chart, and never considered, let alone strived, to use modern dataviz to convey complexities",
+      "year": 2020,
+      "date": "2020-08-03",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1290427805851951104",
+      "text": "https://t.co/7NJujroCWl https://t.co/NBTQzm0OH2",
+      "year": 2020,
+      "date": "2020-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1290135373880758272",
+      "text": "The magical moment that the node position through firebase started working - super fun stream. Will probably do one again Monday night, https://t.co/Vm2vFlG7FC",
+      "year": 2020,
+      "date": "2020-08-03",
+      "favorites": 4,
+      "retweets": 1,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1290131169590140928",
+      "text": "okay, anyone should be able to edit our force layout in real time by dragging a node around https://t.co/n6ZKAbms5A // https://t.co/UjuUaU7gvI",
+      "year": 2020,
+      "date": "2020-08-03",
+      "favorites": 3,
+      "retweets": 1,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1290127569254154240",
+      "text": "I love it when the bugs are weird https://t.co/NaLO1hnAqD",
+      "year": 2020,
+      "date": "2020-08-03",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1290115735231049733",
+      "text": "@RonautDreams @enjalot Thank you for watching!",
+      "year": 2020,
+      "date": "2020-08-03",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "HelloRonaut"
+    },
+    {
+      "id": "1290115603651391489",
+      "text": "Working on building some integration with firebase so that anyone can collaboratively modify the node positions (for better or for worse...) https://t.co/UjuUaU7gvI https://t.co/1czs9iQTcP",
+      "year": 2020,
+      "date": "2020-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1290102689251065856",
+      "text": "Now it's a force layout, because a lot of these things are inter-connected and the tree-shaped mindmapping program I was using couldn't capture it. https://t.co/MP1nhx5jQU",
+      "year": 2020,
+      "date": "2020-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1290099444944314368",
+      "text": "This quickly evolved (or devolved) into converting that mind map into an OPML and then getting that into visualizations in observable https://t.co/KywS9U2abR",
+      "year": 2020,
+      "date": "2020-08-03",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1290093562097364992",
+      "text": "Currently making a mind map of the things we have explored before so we can decide what to do next! https://t.co/l7n1aPMmT0",
+      "year": 2020,
+      "date": "2020-08-03",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1290090362854182914",
+      "text": "Hey guys, doing another livestream with @enjalot - we are gonna make some stuff with firebase and observable, come hang out https://t.co/UjuUaU7gvI",
+      "year": 2020,
+      "date": "2020-08-03",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1290080475168440322",
+      "text": "every time I say \"please\" to the google home now, it plays a sound effect to reward me, which I assume means I am accruing points by which favor will be rewarded during the AI takeover",
+      "year": 2020,
+      "date": "2020-08-03",
+      "favorites": 7,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1157787999788306432",
+      "text": "Me, explaining human culture to my cat: “… so to us, it is the height of disrespect to take something someone has given you as a gift and gently knock it to the ground and stare them in the eyes”",
+      "year": 2019,
+      "date": "2019-08-03",
+      "favorites": 7,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1157656583876354049",
+      "text": "@quinnnorton I can totally understand why you wouldnt want to repeat that! There is no right way. Maybe try to sandwich between activities you know you enjoy. No professional would suggest it, but I would meditate before my morning cigarette and reward myself with it afterwards.",
+      "year": 2019,
+      "date": "2019-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "quinnnorton"
+    },
+    {
+      "id": "1157653067074015232",
+      "text": "@quinnnorton I also think its totally okay to sit for a minute or two and be done! You did it! Thats success, not failure. The sitting is the doing.",
+      "year": 2019,
+      "date": "2019-08-03",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "quinnnorton"
+    },
+    {
+      "id": "1157652860089319424",
+      "text": "@quinnnorton Thats why I suggest a visualization technique, you arent leaving room for nothingness, focusing on imagery instead of “thinking”. Filling with warm light is good. I also like to imagine my head is filled with water crashing back and forth, and I focus on making the water flat.",
+      "year": 2019,
+      "date": "2019-08-03",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "quinnnorton"
+    },
+    {
+      "id": "1157648228529168390",
+      "text": "@quinnnorton Finally, it is hard for me to see meditation as “useful”- I have to reframe it as “I am doing this exercise for the people around me” - I know I treat others around me better when I have taken the time to assess and calm my mind. To me its like putting on deoderant.",
+      "year": 2019,
+      "date": "2019-08-03",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1157647664147836929",
+      "text": "@quinnnorton I also had a lot of trouble in the beginning with “see a thought, breathe, move on” and gravitated more towards visualization techniques like imagining golden liquid slowly filling your body with good, calm energy as you scan from toes to crown of head- something to focus on.",
+      "year": 2019,
+      "date": "2019-08-03",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1157647372434006018",
+      "text": "@quinnnorton Two things:\n\n- Sitting is meditation, meditation is sitting, if you sat and tried to meditate you did it. Separate from your experience of it or expectations of what it should be. \n\n- try changing time of day, location, headphones/no headphones, design a “ritual” that works",
+      "year": 2019,
+      "date": "2019-08-03",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": "quinnnorton"
+    },
+    {
+      "id": "1157442700314103808",
+      "text": "@pinzler ooooooh",
+      "year": 2019,
+      "date": "2019-08-03",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "pinzler"
+    },
+    {
+      "id": "1157441883922141188",
+      "text": "forward march of progress, or whatever https://t.co/nh4ZqmdmyD",
+      "year": 2019,
+      "date": "2019-08-03",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1025471659715768320",
+      "text": "RT @EmilyPasser: Loads of open roles with @NBCNews Digital! Come join an amazing crew of reporters, creators, storytellers and all-around n…",
+      "year": 2018,
+      "date": "2018-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1025448865552429056",
+      "text": "RT @round: Designing for accessibility? Here's a great free tool to test for color contrast and to optimize your work for colorblind users.…",
+      "year": 2018,
+      "date": "2018-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1025448788880748550",
+      "text": "RT @jpiacenza: One chart goes up and one chart goes down...\nhttps://t.co/FYilqdvkAc https://t.co/zawSDl8EEj",
+      "year": 2018,
+      "date": "2018-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1025381496285261825",
+      "text": "@shanedkavanaugh Shane!",
+      "year": 2018,
+      "date": "2018-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "shanedkavanaugh"
+    },
+    {
+      "id": "893221147751403522",
+      "text": "RT @417am1975: 201-1501774938694 https://t.co/g4hMC5iI0S",
+      "year": 2017,
+      "date": "2017-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "893206985230909440",
+      "text": "@claytoncubitt now I want to paint my bathroom red",
+      "year": 2017,
+      "date": "2017-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "claytoncubitt"
+    },
+    {
+      "id": "893163901977858049",
+      "text": "Is it the people who press the non working close door button on the elevator?",
+      "year": 2017,
+      "date": "2017-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "893162968552275969",
+      "text": "RT @417am1975: 703-1501730845207 https://t.co/iTmN2MVUPY",
+      "year": 2017,
+      "date": "2017-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "893141121626517506",
+      "text": "RT @RespectfulMemes: https://t.co/oyC50KXXSi",
+      "year": 2017,
+      "date": "2017-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "893131995378790401",
+      "text": "Are there worse people in the world than subway pole-leaners?",
+      "year": 2017,
+      "date": "2017-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "893128390479425536",
+      "text": "RT @ccanipe: Where does coal come from? Who moves the most iron ore? This was a fun dataset to map. How goods move between states https://t…",
+      "year": 2017,
+      "date": "2017-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "893111892104945664",
+      "text": "RT @BeauWillimon: Stephen Miller - Lazarus' poem was added 1903: same yr your ancestors Wolf &amp; Bessie Glotzer came thru Ellis Island. Bet i…",
+      "year": 2017,
+      "date": "2017-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "892952622180728832",
+      "text": "RT @kylegriffin1: Yahoo: Reporter says ‘Russian propaganda outlet’ pushed him to cover conspiracy theory at the center of a WH lawsuit http…",
+      "year": 2017,
+      "date": "2017-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "760962681310437377",
+      "text": "These voices are not new, Donald Trump didn't make them, and they will be here whether he wins or loses https://t.co/KDL1NxBoLA",
+      "year": 2016,
+      "date": "2016-08-03",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "760960313118318592",
+      "text": "@josephfcox That's why you're the best =]",
+      "year": 2016,
+      "date": "2016-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "josephfcox"
+    },
+    {
+      "id": "760929643591569409",
+      "text": "Made a live map of my intended US roadtrip route, will build on it to share photos/stories https://t.co/7O9wHSsh7O https://t.co/XskK6Hdplg",
+      "year": 2016,
+      "date": "2016-08-03",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "760913454245052416",
+      "text": "I've been getting really into GNU screen lately, so that's pretty cool",
+      "year": 2016,
+      "date": "2016-08-03",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "760810995711373312",
+      "text": "RT @Sophiemcneill: What's left to say? To report? Has there ever been a conflict where we have known so much but done so little? #Syria htt…",
+      "year": 2016,
+      "date": "2016-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "760658945782452224",
+      "text": "RT @SeanUnfiltered: How can anyone not like what the Raiders are building.  With Carr, Cooper and Mack we are looking at 3 long term stars.…",
+      "year": 2016,
+      "date": "2016-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "628293942400929792",
+      "text": "RT @Gawker: New Yorker profiles Darren Wilson, the cop who killed Michael Brown. He's racist, as it turns out. http://t.co/U8lhN3iW21",
+      "year": 2015,
+      "date": "2015-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "628231828185460736",
+      "text": "@Elijah_Meeks Good article!\n\nIn your footer: \n\n“information wants to be free, but also elegent”\n\nthink you mean “elegant”",
+      "year": 2015,
+      "date": "2015-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "Elijah_Meeks"
+    },
+    {
+      "id": "628229460991586304",
+      "text": "RT @Elijah_Meeks: I'm sick of seeing these colors everywhere. You should be, too.\nhttp://t.co/jSJtl3eeS9 http://t.co/LocynXnfl7",
+      "year": 2015,
+      "date": "2015-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "628208550419021824",
+      "text": "Love this Donald Trump hack... HackThisSite Realistic Mission 2 style...\n\nVery polite deface.\n\nhttp://t.co/zZzj3s7blm http://t.co/Dqd048tB2w",
+      "year": 2015,
+      "date": "2015-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "628208237842669568",
+      "text": "RT @TheRegister: Canadian hacktivists broke into Donald Trump's website to congratulate Jon Stewart http://t.co/BZl2mjAHTD http://t.co/oIun…",
+      "year": 2015,
+      "date": "2015-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "628193319525449728",
+      "text": "RT @bizweekgraphics: Seize the now",
+      "year": 2015,
+      "date": "2015-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "363810574527774720",
+      "text": "RT @ejfoxverbose: Github: ejfox starred enjalot/bart http://t.co/ZxPrmsW8Tm",
+      "year": 2013,
+      "date": "2013-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "363521766544928768",
+      "text": "Photo:  http://t.co/RcexH1sMX0",
+      "year": 2013,
+      "date": "2013-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "231500737245483008",
+      "text": "RT @mudcube: The future of embedding graphics? https://t.co/CoUZawDt via @simurai",
+      "year": 2012,
+      "date": "2012-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "231434955618672641",
+      "text": "It's weird that wikipedia pages have signatures",
+      "year": 2012,
+      "date": "2012-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "231429216854487040",
+      "text": "RT @MotherJones: Charts: \"94 percent of all individual donations to super-PACs in the 2012 cycle came from just 1,082 people.\" http://t. ...",
+      "year": 2012,
+      "date": "2012-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "231393072947281920",
+      "text": "RT @dancow: Background to the Valve-has-no-bosses post: their employee manual, which apparently is real and not from unicorn land http:/ ...",
+      "year": 2012,
+      "date": "2012-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "231391973272076289",
+      "text": "RT @EdibleHudson: Shop Hudson Valley farmers' markets this weekend - &amp; all week long! Support our farmers. Here's 2012 market guide: ...",
+      "year": 2012,
+      "date": "2012-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "98855979759833088",
+      "text": "@oheard Thanks man!",
+      "year": 2011,
+      "date": "2011-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "98852607644270592",
+      "text": "@oheard Hey thanks for the heads up… looks like it was a rogue tweet. Very strange… I wonder where from?! Time to investigate =[",
+      "year": 2011,
+      "date": "2011-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "98824441227771905",
+      "text": "RT @moritz_stefaner: B. Claiming there is only 1 right way to visualize a given data set is like being a cook who thinks there is only 1 ...",
+      "year": 2011,
+      "date": "2011-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "98819590288707584",
+      "text": "Zoe http://instagr.am/p/JQAo2/",
+      "year": 2011,
+      "date": "2011-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "98775435520905217",
+      "text": "I don't think I've mentioned it yet, but I'm tumblin' cool dataviz/infographics/visual explanation stuff at http://t.co/wO3ov98",
+      "year": 2011,
+      "date": "2011-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "3097840798",
+      "text": "Hot chocolate before bed, like a good boy.",
+      "year": 2009,
+      "date": "2009-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "3097671310",
+      "text": "I've heard no complaints about the truthfulness of the facts on this petabyte graphic. But who says \"Good job on not making bullshit\"?",
+      "year": 2009,
+      "date": "2009-08-03",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "3097461563",
+      "text": "New photoblog post: Old Camp Photos http://tr.im/vdHV",
+      "year": 2009,
+      "date": "2009-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "876604125",
+      "text": "My iPhone is lounging around naked and caseless.",
+      "year": 2008,
+      "date": "2008-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "876602095",
+      "text": "I am... bored.",
+      "year": 2008,
+      "date": "2008-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "876560581",
+      "text": "@surfsearcher Not only the amazing acting, but also how all-around good the film is. It's the kind of movie I'm proud to show friends.",
+      "year": 2008,
+      "date": "2008-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "876558819",
+      "text": "www.blippr.com/t/10327 Hard Candy: An incredible, beautiful looking film. Incredible acting and story make it, but the smart directing p ...",
+      "year": 2008,
+      "date": "2008-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "876556544",
+      "text": "I'm in the mood to watch Hard Candy again.",
+      "year": 2008,
+      "date": "2008-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "876540205",
+      "text": "\"Fight Apathy or Don't\"",
+      "year": 2008,
+      "date": "2008-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "876508431",
+      "text": "Whenever I'm not out of the house (partying or otherwise) I'm flipping through LastNightsParty Drive-By's. I dunno what that says about me.",
+      "year": 2008,
+      "date": "2008-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "876460590",
+      "text": "Because Terry Gross asks Seth deep questions. Like about the first time he got high. Or rolling a cross joint. On NPR. Thanks.",
+      "year": 2008,
+      "date": "2008-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "876459849",
+      "text": "Enjoying Seth Rogen's interview on Fresh Air.",
+      "year": 2008,
+      "date": "2008-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "876396766",
+      "text": "Just put the crank ringtone on my iPhone. Lovin' it.",
+      "year": 2008,
+      "date": "2008-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "876351143",
+      "text": "Note to Self: Get the board game Apples to Apples. You love it.",
+      "year": 2008,
+      "date": "2008-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "876160284",
+      "text": "www.blippr.com/t/6823 Snow Crash (Bantam Spectra Book): Snow Crash is one of few books that seriously impacted how I lived my life for y ...",
+      "year": 2008,
+      "date": "2008-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "876158521",
+      "text": "www.blippr.com/t/6802 The Darjeeling Limited: A great 'art film', but not really worth watching more than a few times.",
+      "year": 2008,
+      "date": "2008-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "876157993",
+      "text": "www.blippr.com/t/22169 Kala: M.I.A. has banging beats and thinks about music completely differently than anyone else.",
+      "year": 2008,
+      "date": "2008-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "876156471",
+      "text": "www.blippr.com/t/76 Call of Duty 4 Modern Warfare: I play CoD4 on xbox live daily, and I never ever get bored. What a well thought-throu ...",
+      "year": 2008,
+      "date": "2008-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "876155548",
+      "text": "www.blippr.com/t/13319 The Dark Knight: The Dark Knight is almost an anti-action movie. The main character uses no guns, and the story r ...",
+      "year": 2008,
+      "date": "2008-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "876154854",
+      "text": "www.blippr.com/t/605 The Princess Bride: One of my favourite movies of all time, it's got everything a movie needs.",
+      "year": 2008,
+      "date": "2008-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "184330382",
+      "text": "Just woke up, its still freakin hot. Packing and what not right now, the weather zaps all motivation out of you though.",
+      "year": 2007,
+      "date": "2007-08-03",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    }
+  ],
+  "posts": [],
+  "scrobbles": [
+    {
+      "date": "2025-08-03",
+      "year": 2025,
+      "count": 52,
+      "topTracks": [
+        "King Krule - The Ooz - Live",
+        "King Krule - Cellular - Live",
+        "King Krule - Stoned Again - Live",
+        "King Krule - Slush Puppy - Live",
+        "King Krule - Rock Bottom - Live"
+      ],
+      "topArtists": ["King Krule", "Horsey", "Weak Moves"]
+    },
+    {
+      "date": "2023-08-03",
+      "year": 2023,
+      "count": 1,
+      "topTracks": ["Hamdi - Skanka"],
+      "topArtists": ["Hamdi"]
+    },
+    {
+      "date": "2020-08-03",
+      "year": 2020,
+      "count": 2,
+      "topTracks": [
+        "African Brothers International Band - Me Nyame Wo Pɛ Nyɛ Hɔ (Remastered)",
+        "African Brothers International Band - Ɔyɔnko Brɛbo (Remastered)"
+      ],
+      "topArtists": ["African Brothers International Band"]
+    },
+    {
+      "date": "2019-08-03",
+      "year": 2019,
+      "count": 15,
+      "topTracks": [
+        "Smino - KLINK",
+        "Smino - L.M.F.",
+        "Smino - KOVERT",
+        "Smino - SKEDOS",
+        "Smino - Anita"
+      ],
+      "topArtists": ["Smino"]
+    },
+    {
+      "date": "2016-08-03",
+      "year": 2016,
+      "count": 10,
+      "topTracks": [
+        "ORBS - Dreamland II",
+        "ORBS - Jaws on Repeat (Life on Hold)",
+        "ORBS - Peculiar, Isn't It?",
+        "ORBS - Exploded Birds",
+        "ORBS - Giving Tree Hanging Me"
+      ],
+      "topArtists": ["ORBS", "Tut"]
+    },
+    {
+      "date": "2013-08-03",
+      "year": 2013,
+      "count": 50,
+      "topTracks": [
+        "Daft Punk - Doin' It Right",
+        "Born Ruffians - First Date Kid",
+        "Vampire Weekend - Obvious Bicycle",
+        "Vampire Weekend - Unbelievers",
+        "Vampire Weekend - Step"
+      ],
+      "topArtists": ["Daft Punk", "Born Ruffians", "Vampire Weekend"]
+    },
+    {
+      "date": "2012-08-03",
+      "year": 2012,
+      "count": 4,
+      "topTracks": [
+        "Kid Loco - A Grand Love Theme",
+        "Atlas Sound - Walkabout [w/ Noah Lennox]",
+        "The Wombats - Let's Dance to Joy Division",
+        "Death Cab for Cutie - Blacking Out the Friction"
+      ],
+      "topArtists": ["Kid Loco", "Atlas Sound", "The Wombats"]
+    },
+    {
+      "date": "2009-08-03",
+      "year": 2009,
+      "count": 214,
+      "topTracks": [
+        "Animal Collective - The Purple Bottle",
+        "Saul Williams - Scared Money",
+        "Gnarls Barkley - Neighbours",
+        "Death Cab for Cutie - Grapevine Fires",
+        "Marley Bros - Marley Bros -Kinky Reggae"
+      ],
+      "topArtists": ["Animal Collective", "Saul Williams", "Gnarls Barkley"]
+    },
+    {
+      "date": "2008-08-03",
+      "year": 2008,
+      "count": 112,
+      "topTracks": [
+        "M.I.A. - Pull Up the People",
+        "M.I.A. - World Town",
+        "M.I.A. - One for the Head (skit)",
+        "M.I.A. - M.I.A.",
+        "M.I.A. - Bamboo Banga"
+      ],
+      "topArtists": ["M.I.A.", "Chicago Public Radio", "Revision3"]
+    },
+    {
+      "date": "2007-08-03",
+      "year": 2007,
+      "count": 8,
+      "topTracks": [
+        "Sigur Rós - Ny Batteri",
+        "The White Stripes - A Martyr for My Love for You",
+        "The Chemical Brothers - The Salmon Dance feat. Fatlip",
+        "Gwen Stefani - Yummy",
+        "Gwen Stefani - Wind It Up"
+      ],
+      "topArtists": ["Sigur Rós", "The White Stripes", "The Chemical Brothers"]
+    },
+    {
+      "date": "2006-08-03",
+      "year": 2006,
+      "count": 56,
+      "topTracks": [
+        "Lewis Black - Nothing's Sacred (Unabridged)",
+        "Black Eyed Peas - Third Eye",
+        "Fall Out Boy - Sugar, We're Goin Down",
+        "Bloodhound Gang - Pennsylvania",
+        "Faithless - Bluegrass"
+      ],
+      "topArtists": ["Lewis Black", "Black Eyed Peas", "Fall Out Boy"]
+    }
+  ],
+  "commits": []
+}

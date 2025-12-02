@@ -52,9 +52,9 @@
 
     <!-- Container -->
     <div class="text-center text-sm text-zinc-600 dark:text-zinc-400">
-      <span class="uppercase tracking-widest">{{
-        gearItem['Parent Container'] || 'Unassigned'
-      }}</span>
+      <span class="uppercase tracking-widest">
+        {{ gearItem['Parent Container'] || 'Unassigned' }}
+      </span>
     </div>
 
     <!-- Buy link if available -->
@@ -79,9 +79,9 @@
           class="row-bordered"
         >
           <span :class="fieldLabelClass">{{ formatFieldName(key) }}</span>
-          <span :class="fieldValueClass" :title="value">{{
-            value || '—'
-          }}</span>
+          <span :class="fieldValueClass" :title="value">
+            {{ value || '—' }}
+          </span>
         </div>
       </div>
     </div>
@@ -94,8 +94,8 @@ import { useMouse } from '@vueuse/core'
 const props = defineProps({
   gearItem: {
     type: Object,
-    default: () => ({})
-  }
+    default: () => ({}),
+  },
 })
 
 const { getItemWeightInGrams } = useWeightCalculations()
@@ -112,7 +112,7 @@ const typeSymbols = {
   Sleep: '☽',
   Bag: '▣',
   Safety: '◆',
-  Creativity: '✧'
+  Creativity: '✧',
 }
 
 // Helper functions
@@ -200,7 +200,7 @@ const updateDimensions = () => {
   if (typeof window !== 'undefined') {
     windowDimensions.value = {
       width: window.innerWidth,
-      height: window.innerHeight
+      height: window.innerHeight,
     }
   }
 }
@@ -222,7 +222,7 @@ const cardTransform = computed(() => {
       rotateY(${rotateY}deg) translateZ(${translateZ}px)`,
     transition: 'transform 0.15s cubic-bezier(0.4, 0, 0.2, 1)',
     transformOrigin: 'center center',
-    willChange: 'transform'
+    willChange: 'transform',
   }
 })
 

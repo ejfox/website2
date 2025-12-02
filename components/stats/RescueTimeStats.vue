@@ -53,7 +53,7 @@
             : 'none',
           borderBottom: shouldShowBorder(i, 'bottom')
             ? '1px solid rgba(0,0,0,0.15)'
-            : 'none'
+            : 'none',
         }"
         :title="cell.title"
       ></div>
@@ -80,14 +80,16 @@
             <!-- eslint-disable max-len,vue/max-len -->
             <span
               class="text-zinc-700 dark:text-zinc-300 truncate text-xs leading-[12px]"
-              >{{ category.name }}</span
             >
+              {{ category.name }}
+            </span>
             <!-- eslint-enable max-len,vue/max-len -->
             <!-- eslint-disable max-len,vue/max-len -->
             <span
               class="text-zinc-500 tabular-nums flex-shrink-0 text-xs leading-[12px]"
-              >{{ category.percentageOfTotal }}%</span
             >
+              {{ category.percentageOfTotal }}%
+            </span>
             <!-- eslint-enable max-len,vue/max-len -->
           </div>
           <!-- eslint-disable max-len,vue/max-len -->
@@ -99,7 +101,7 @@
               class="h-full rounded-sm"
               :style="{
                 width: `${category.percentageOfTotal}%`,
-                backgroundColor: category.color
+                backgroundColor: category.color,
               }"
             ></div>
           </div>
@@ -264,7 +266,7 @@ const sortedCategories = computed(() => {
   return sorted.map((category, i) => ({
     name: category.name,
     percentageOfTotal: category.percentageOfTotal || 0,
-    color: getTurboColor(i, sorted.length)
+    color: getTurboColor(i, sorted.length),
   }))
 })
 
@@ -278,7 +280,7 @@ const waffleCells = computed(() => {
       .map(() => ({
         turboColor: '#666',
         grayscaleColor: '#666',
-        title: 'No data'
+        title: 'No data',
       }))
   }
 
@@ -322,7 +324,7 @@ const waffleCells = computed(() => {
       cells[cellIndex] = {
         turboColor: turboColor,
         grayscaleColor: grayColor,
-        title: `${activity.name}: ${Math.round(activity.percentageOfTotal)}%`
+        title: `${activity.name}: ${Math.round(activity.percentageOfTotal)}%`,
       }
       cellIndex++
     }
@@ -333,7 +335,7 @@ const waffleCells = computed(() => {
     cells[cellIndex] = {
       turboColor: '#666',
       grayscaleColor: '#666',
-      title: 'Other'
+      title: 'Other',
     }
     cellIndex++
   }

@@ -26,6 +26,6 @@ export const useReadingTime = () => {
   return {
     calculateMinutes,
     formatReadingTime,
-    formatCompact
+    formatCompact,
   }
 }

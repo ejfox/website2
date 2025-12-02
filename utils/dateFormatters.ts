@@ -60,7 +60,7 @@ export function formatTooltipDate(date: Date): string {
       weekday: 'long',
       year: 'numeric',
       month: 'long',
-      day: 'numeric'
+      day: 'numeric',
     })
   } catch {
     return 'Invalid date'

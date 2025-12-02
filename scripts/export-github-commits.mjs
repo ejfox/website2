@@ -6,10 +6,10 @@
  * Usage: node scripts/export-github-commits.mjs
  */
 
-import { execSync } from 'child_process'
-import { writeFileSync } from 'fs'
-import { join, dirname } from 'path'
-import { fileURLToPath } from 'url'
+import { execSync } from 'node:child_process'
+import { writeFileSync } from 'node:fs'
+import { join, dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const OUTPUT_FILE = join(__dirname, '../data/github-commits.json')
@@ -48,11 +48,13 @@ async function fetchCommits() {
           month: date.getMonth() + 1,
           day: date.getDate(),
           repo: item.repository.name,
-          repoUrl: item.repository.html_url
+          repoUrl: item.repository.html_url,
         })
       }
 
-      console.log(`  Page ${page}: ${commits.length} commits (total: ${allCommits.length})`)
+      console.log(
+        `  Page ${page}: ${commits.length} commits (total: ${allCommits.length})`
+      )
 
       // GitHub Search API has 1000 result limit
       if (allCommits.length >= 1000 || commits.length < PER_PAGE) {
@@ -62,7 +64,7 @@ async function fetchCommits() {
       page++
 
       // Rate limit: 30 requests per minute for search API
-      await new Promise(r => setTimeout(r, 2500))
+      await new Promise((r) => setTimeout(r, 2500))
     } catch (error) {
       console.error(`Error on page ${page}:`, error.message)
       hasMore = false
@@ -85,8 +87,8 @@ async function main() {
   writeFileSync(OUTPUT_FILE, JSON.stringify(commits, null, 2))
 
   // Stats
-  const years = [...new Set(commits.map(c => c.year))].sort((a, b) => b - a)
-  const repos = [...new Set(commits.map(c => c.repo))]
+  const years = [...new Set(commits.map((c) => c.year))].sort((a, b) => b - a)
+  const repos = [...new Set(commits.map((c) => c.repo))]
 
   console.log(`\nExported ${commits.length} commits`)
   console.log(`Years: ${years.join(', ')}`)

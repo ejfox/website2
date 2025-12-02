@@ -79,7 +79,7 @@ const animateOnScroll = () => {
     opacity: [0, 1],
     delay: anime.stagger(100),
     duration: 800,
-    easing: 'easeOutExpo'
+    easing: 'easeOutExpo',
   })
 }
 ```

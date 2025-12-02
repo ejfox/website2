@@ -6,9 +6,9 @@
       <h2 class="text-2xl font-light mb-4">Installation</h2>
 
       <div class="mb-8">
-        <label class="block text-sm font-medium mb-2"
-          >Your Passphrase (Required)</label
-        >
+        <label class="block text-sm font-medium mb-2">
+          Your Passphrase (Required)
+        </label>
         <input
           v-model="passphrase"
           type="password"
@@ -32,12 +32,15 @@
           📌 Pin to Pinboard+
         </a>
 
-        <span v-if="passphrase" class="text-sm text-zinc-600 dark:text-zinc-400"
-          >← Drag me!</span
+        <span
+          v-if="passphrase"
+          class="text-sm text-zinc-600 dark:text-zinc-400"
         >
-        <span v-else class="text-sm text-red-600 dark:text-red-400"
-          >← Enter passphrase first</span
-        >
+          ← Drag me!
+        </span>
+        <span v-else class="text-sm text-red-600 dark:text-red-400">
+          ← Enter passphrase first
+        </span>
       </div>
 
       <div
@@ -45,9 +48,9 @@
         class="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg mb-4"
       >
         <p class="text-sm">
-          <strong>Can't drag?</strong> Right-click the button and select
-          "Bookmark This Link" or manually create a bookmark with the code
-          below.
+          <strong>Can't drag?</strong>
+          Right-click the button and select "Bookmark This Link" or manually
+          create a bookmark with the code below.
         </p>
       </div>
     </div>
@@ -135,9 +138,9 @@
           Create a new bookmark with this code as the URL:
         </p>
         <div class="bg-zinc-900 text-zinc-100 p-4 rounded-lg overflow-x-auto">
-          <code class="text-xs font-mono whitespace-pre">{{
-            bookmarkletCode
-          }}</code>
+          <code class="text-xs font-mono whitespace-pre">
+            {{ bookmarkletCode }}
+          </code>
         </div>
         <button :class="copyButtonClass" @click="copyCode">
           {{ copied ? '✓ Copied!' : 'Copy Code' }}
@@ -215,6 +218,6 @@ const pageDescription =
 
 useSeoMeta({
   title: 'Enhanced Pinboard Bookmarklet',
-  description: pageDescription
+  description: pageDescription,
 })
 </script>

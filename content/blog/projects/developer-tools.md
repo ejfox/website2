@@ -10,7 +10,7 @@ tech:
     'DevOps',
     'Nuxt',
     'ZMK',
-    'Keyboard Firmware'
+    'Keyboard Firmware',
   ]
 state: deployed
 aiInvolvement: ai-assisted

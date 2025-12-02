@@ -14,6 +14,6 @@ export const useProjectSlug = () => {
     getSlug: (project: Project) => {
       const title = project.title || project.metadata?.title || ''
       return slugger.slug(title)
-    }
+    },
   }
 }

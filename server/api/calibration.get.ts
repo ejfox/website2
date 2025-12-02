@@ -27,13 +27,13 @@ export default defineEventHandler(async (_event) => {
         pending: 0,
         correct: 0,
         incorrect: 0,
-        accuracy: null
+        accuracy: null,
       },
       brier_score: null,
       calibration: [],
       by_category: [],
       update_analysis: null,
-      market_comparison: null
+      market_comparison: null,
     }
   }
 })

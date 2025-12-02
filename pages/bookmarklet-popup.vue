@@ -53,7 +53,7 @@
               :class="[
                 'px-2 py-1 text-xs border transition-colors relative ' +
                   'group font-mono',
-                getTagButtonClass(tagObj)
+                getTagButtonClass(tagObj),
               ]"
               :title="typeof tagObj === 'object' ? tagObj.details : ''"
               @click="
@@ -140,9 +140,10 @@
         <div v-if="suggestions.similar_scraps?.length" class="mt-4 opacity-50">
           <div class="text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-1">
             similar
-            <span class="opacity-60"
-              >({{ suggestions.similar_scraps.length }})</span
-            >:
+            <span class="opacity-60">
+              ({{ suggestions.similar_scraps.length }})
+            </span>
+            :
           </div>
           <div class="stack-1">
             <div
@@ -233,9 +234,9 @@ onMounted(async () => {
           url: pageUrl,
           title: pageTitle,
           text: pageText,
-          auth: auth
-        }
-      })
+          auth: auth,
+        },
+      }),
     ])
 
     officialTags.value = tags || []
@@ -315,7 +316,7 @@ const saveToPinboard = (useEnhancedTags = false) => {
   const url = 'https://pinboard.in/add'
   const params = new URLSearchParams({
     url: pageUrl,
-    title: pageTitle
+    title: pageTitle,
   })
 
   if (selectedText) {
@@ -332,12 +333,12 @@ const saveToPinboard = (useEnhancedTags = false) => {
 
 // Use simple layout without sidebar
 definePageMeta({
-  layout: 'simple'
+  layout: 'simple',
 })
 
 useSeoMeta({
   title: 'Pinboard Enhancement',
-  robots: 'noindex, nofollow'
+  robots: 'noindex, nofollow',
 })
 </script>
 

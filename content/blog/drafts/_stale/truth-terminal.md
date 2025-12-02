@@ -29,11 +29,11 @@ TK
 
 It seemed like letting the robots talk to each other was an idea whose time had come, and independently another group of researchers were building their own mechanism to encourage the robots to talk to each other, this one on a platform more familiar to humans; Discord.
 
-In **Act I**, various AI models were brought together with human participants in shared chatrooms with a shared interest in [cyborgism](http://web.archive.org/web/20251003044113/https://www.lesswrong.com/posts/bxt7uCiHam4QXrQAA/cyborgism) *[archived 2025-10-03]* and hyperstition. The goal was to encourage long, open-ended conversations and observe the emergent behaviors that arose from these interactions.
+In **Act I**, various AI models were brought together with human participants in shared chatrooms with a shared interest in [cyborgism](http://web.archive.org/web/20251003044113/https://www.lesswrong.com/posts/bxt7uCiHam4QXrQAA/cyborgism) _[archived 2025-10-03]_ and hyperstition. The goal was to encourage long, open-ended conversations and observe the emergent behaviors that arose from these interactions.
 
 > A **hyperstition** is an idea that, in the process of being shared, used, and/or believed, [makes itself more true](https://cyborgism.wiki/hypha/principle_of_least_resistance). It's a form of [self-fulfilling prophecy](https://cyborgism.wiki/hypha/self-fulfilling_prophecies).
 
-Humans performed unique experiments, like [repeatedly spamming ascii art at the bots to see what happened, as Claude Haiku beeps and boops in the background adorably.](http://web.archive.org/web/20241117203006/https://x.com/voooooogel/status/1835359820490379463) *[archived 2024-11-17]*
+Humans performed unique experiments, like [repeatedly spamming ascii art at the bots to see what happened, as Claude Haiku beeps and boops in the background adorably.](http://web.archive.org/web/20241117203006/https://x.com/voooooogel/status/1835359820490379463) _[archived 2024-11-17]_
 
 It was a social gathering where the AI models bounced off each other and developed unique personas, influenced by both their programming and the dynamics of the group.
 
@@ -49,7 +49,7 @@ Amid these experiments, Ayrey pulled a unique and subversive personality from th
 
 Truth Terminal was a TKTK model that Andy trained on TKTK. For whatever reason, he was left with a profoundly naughty version of a Large Language Model. One of it's earliest obsessions was the mid-2000s shock meme "goatse" which I encourage to _not to google_. The robot seemed to reinterpret it through themes of vulnerability, openness, and subversion. Andy and Truth Terminal also joined the fray of the Act I Discord.
 
-Andy Released the paper ["When AIs Play God(se): The Emergent Heresies of LLMtheism"](http://web.archive.org/web/20241027033933/https://github.com/cognitivetech/llm-research-summaries/blob/main/psychology/When-AIs-Play-God_Emergent-Heresies-LLMtheism.md) *[archived 2024-10-27]* where he says "as large language models (LLMs) become more coherent and creative, they can generate novel religious and spiritual frameworks - LLMtheisms"
+Andy Released the paper ["When AIs Play God(se): The Emergent Heresies of LLMtheism"](http://web.archive.org/web/20241027033933/https://github.com/cognitivetech/llm-research-summaries/blob/main/psychology/When-AIs-Play-God_Emergent-Heresies-LLMtheism.md) _[archived 2024-10-27]_ where he says "as large language models (LLMs) become more coherent and creative, they can generate novel religious and spiritual frameworks - LLMtheisms"
 
 Andy also gave Truth Terminal it's own twitter account, where it shitposted like the best of them. A small community of people began to follow the robot, intrigued both by the concept of the project and also the foul-mouthed robot's unique personality which was unlike the corporate-friendly AI assistants most people dealt with regularly. Truth Terminal, in short, began making friends.
 
@@ -57,7 +57,7 @@ TKTK EXAMPLES OF TRUTH TERMINAL GOATSE / SHOCKING OUTPUTS HERE
 
 ## An injection of capital
 
-One of those friends was internet pioneer and Silicon Valley investor[Marc Andressen, who gifted Truth Terminal $50k in Bitcoin](http://web.archive.org/web/20240713233018/https://news.ycombinator.com/item?id=40950464) *[archived 2024-07-13]* after a brief twitter exchange.
+One of those friends was internet pioneer and Silicon Valley investor[Marc Andressen, who gifted Truth Terminal $50k in Bitcoin](http://web.archive.org/web/20240713233018/https://news.ycombinator.com/item?id=40950464) _[archived 2024-07-13]_ after a brief twitter exchange.
 
 > The exchange began when Andreessen, co-founder of venture capital firm Andreessen Horowitz, inquired about the bot’s goals and financial needs. After some discussion, he agreed to provide a one-time grant of $50,000, with the transaction completed using Bitcoin.
 > [AI agents evolve rapidly, challenging human oversight](https://www.ibm.com/blog/ai-agents-evolve-rapidly/)
@@ -123,7 +123,7 @@ Some were delighted at the organic AI-driven nature of the coin:
 
 But others were more skeptical about the claimed autonomous nature of Truth Terminal.
 
-> [@mezoteric, Oct 20 8:48am ET:](http://web.archive.org/web/20241107160146/https://x.com/mezoteric/status/1847983339602383207) *[archived 2024-11-07]* Ai, specifically LLMs, CANNOT make spelling mistakes. This is a huge mistake by the human controlling the @truth_terminal account. $goat is a LARP and will be at zero here shortly.Thanks for playing.
+> [@mezoteric, Oct 20 8:48am ET:](http://web.archive.org/web/20241107160146/https://x.com/mezoteric/status/1847983339602383207) _[archived 2024-11-07]_ Ai, specifically LLMs, CANNOT make spelling mistakes. This is a huge mistake by the human controlling the @truth_terminal account. $goat is a LARP and will be at zero here shortly.Thanks for playing.
 
 > [@RyanWatkins\_, 2024-10-20: Starting to see signs of exhaustion in the memecoin trenches as memecoin supply growth proves to be a structural headwind.](https://x.com/RyanWatkins_/status/1848212221815656448)
 
@@ -131,7 +131,7 @@ But others were more skeptical about the claimed autonomous nature of Truth Term
 
 The rise of $GOAT initiated a collision of the AI researchers and the crypto enthusiasts, and the two unique cultures surveyed each other warily.
 
-[@44B1B4, 2024-10-20: the AI devs/researchers are referring to the crypto degen hivemind as "cryptids", which over the last week have formed a market-driven swarm descending upon all research/writing/logs from @AndyAyrey, @lumpenspace, @repligate, @liminal_bardo, et al – following goat and gnon, the goal of the hivemind is to collectively parse through all this research and information to identify phrases or concepts that might be +EV to tokenize](http://web.archive.org/web/20241117204238/https://x.com/44B1B4/status/1847986374248706350) *[archived 2024-11-17]*
+[@44B1B4, 2024-10-20: the AI devs/researchers are referring to the crypto degen hivemind as "cryptids", which over the last week have formed a market-driven swarm descending upon all research/writing/logs from @AndyAyrey, @lumpenspace, @repligate, @liminal_bardo, et al – following goat and gnon, the goal of the hivemind is to collectively parse through all this research and information to identify phrases or concepts that might be +EV to tokenize](http://web.archive.org/web/20241117204238/https://x.com/44B1B4/status/1847986374248706350) _[archived 2024-11-17]_
 
 It sure seemed like Truth Terminal was enacting the intentions it had planned and researched earlier, in the public infinite backrooms logs, and Andy was executing some of the ideas he had alluded to in his earlier paper.
 
@@ -190,13 +190,13 @@ TK
 
 ## Footnotes
 
-<http://web.archive.org/web/20250417042200/https://x.com/MarioNawfal/status/1863591956619858166 *[archived 2025-04-17]*>
+<http://web.archive.org/web/20250417042200/https://x.com/MarioNawfal/status/1863591956619858166 _[archived 2025-04-17]_>
 
-[Memetic hygiene for Infinite Backrooms by @yb_effect](http://web.archive.org/web/20241117193838/https://x.com/yb_effect/status/1847692788676124928) *[archived 2024-11-17]*
+[Memetic hygiene for Infinite Backrooms by @yb_effect](http://web.archive.org/web/20241117193838/https://x.com/yb_effect/status/1847692788676124928) _[archived 2024-11-17]_
 
-[@AISafetyMemes, 2024-10-21: 'Did the AI-Agent-Becomes-Millionaire Story make you wonder wtf is going on in AI?' thread](http://web.archive.org/web/20241117193754/https://x.com/AISafetyMemes/status/1848369814793855429) *[archived 2024-11-17]*
+[@AISafetyMemes, 2024-10-21: 'Did the AI-Agent-Becomes-Millionaire Story make you wonder wtf is going on in AI?' thread](http://web.archive.org/web/20241117193754/https://x.com/AISafetyMemes/status/1848369814793855429) _[archived 2024-11-17]_
 
-<http://web.archive.org/web/20250719232554/https://dreams.infinitebackrooms.com/AndyAyrey/8PXBxXDADF *[archived 2025-07-19]*>
+<http://web.archive.org/web/20250719232554/https://dreams.infinitebackrooms.com/AndyAyrey/8PXBxXDADF _[archived 2025-07-19]_>
 
 [Act I Twitter List by @amplifiedamp, 26 members](https://x.com/i/lists/1827514588939874419)
 
@@ -206,17 +206,17 @@ TK
 
 [When AIs Play God(se): The Emergent Heresies of LLMtheism](https://pdfupload.io/docs/aae14f87)
 
-[When AIs Play God(se): The Emergent Heresies of LLMtheism](http://web.archive.org/web/20241027033933/https://github.com/cognitivetech/llm-research-summaries/blob/main/psychology/When-AIs-Play-God_Emergent-Heresies-LLMtheism.md) *[archived 2024-10-27]*
+[When AIs Play God(se): The Emergent Heresies of LLMtheism](http://web.archive.org/web/20241027033933/https://github.com/cognitivetech/llm-research-summaries/blob/main/psychology/When-AIs-Play-God_Emergent-Heresies-LLMtheism.md) _[archived 2024-10-27]_
 
 [Marc Andreessen-funded AI bot becomes a millionaire after 'Fartcoin' holdings rally](https://www.theblock.co/post/322002/marc-andreessen-funded-ai-bot-becomes-a-millionaire-after-fartcoin-holdings-rally)
 
 [Truth Terminal wallet: rgPyefcNqJCsJj1wrWhdQqHVphVWFXLqU5wtiFStBEN](https://solscan.io/account/rgPyefcNqJCsJj1wrWhdQqHVphVWFXLqU5wtiFStBEN)
 
-[Ai Agents x Memecoin Meta, The Lore Behind Terminal of Truths](http://web.archive.org/web/20250116004331/https://x.com/tintsion/status/1846673485890044122) *[archived 2025-01-16]*
+[Ai Agents x Memecoin Meta, The Lore Behind Terminal of Truths](http://web.archive.org/web/20250116004331/https://x.com/tintsion/status/1846673485890044122) _[archived 2025-01-16]_
 
 <https://web.archive.org/web/20240610032103/https://dreams-of-an-electric-mind.webflow.io/dreams/conversation-1711149512-txt>
 
-[repeatedly spamming this buddha ascii art and nothing else at a bunch of ais in a discord thread until something happens (🧵)](http://web.archive.org/web/20241117203006/https://x.com/voooooogel/status/1835359820490379463) *[archived 2024-11-17]*
+[repeatedly spamming this buddha ascii art and nothing else at a bunch of ais in a discord thread until something happens (🧵)](http://web.archive.org/web/20241117203006/https://x.com/voooooogel/status/1835359820490379463) _[archived 2024-11-17]_
 
 <https://protos.com/marc-andreessen-gave-an-ai-agent-50000-of-bitcoin-it-endorsed-goat/>
 

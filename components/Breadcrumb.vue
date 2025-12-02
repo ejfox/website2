@@ -23,7 +23,7 @@
         :class="{
           'hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors':
             crumb.href,
-          'text-zinc-900 dark:text-zinc-100': !crumb.href
+          'text-zinc-900 dark:text-zinc-100': !crumb.href,
         }"
       >
         {{ crumb.label }}

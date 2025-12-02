@@ -29,7 +29,7 @@ export default defineEventHandler(async () => {
           name,
           category: category || 'Uncategorized',
           // Try to extract domain for display
-          domain: new URL(url).hostname.replace('www.', '')
+          domain: new URL(url).hostname.replace('www.', ''),
         })
       }
     }
@@ -53,7 +53,7 @@ export default defineEventHandler(async () => {
           return acc
         },
         {}
-      )
+      ),
     }
 
     return {
@@ -61,16 +61,16 @@ export default defineEventHandler(async () => {
         endpoint: '/api/blogroll',
         timestamp: new Date().toISOString(),
         source: 'newsboat',
-        stats
+        stats,
       },
       feeds,
-      byCategory
+      byCategory,
     }
   } catch (error: any) {
     throw createError({
       statusCode: 500,
       statusMessage: 'Failed to read newsboat feeds',
-      message: error.message
+      message: error.message,
     })
   }
 })

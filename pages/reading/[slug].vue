@@ -143,7 +143,7 @@ const navLinkClass =
 const {
   data: book,
   pending,
-  error
+  error,
 } = await useFetch(`/api/reading/${route.params.slug}`)
 
 // SEO
@@ -160,9 +160,9 @@ useHead({
         ? `Highlights and notes from ${
             book.value.metadata?.['kindle-sync']?.title
           } by ${book.value.metadata?.['kindle-sync']?.author}`
-        : 'Book not found'
-    }
-  ]
+        : 'Book not found',
+    },
+  ],
 })
 
 // Helper function
@@ -170,7 +170,7 @@ function formatDate(dateString) {
   return new Date(dateString).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
-    day: 'numeric'
+    day: 'numeric',
   })
 }
 </script>

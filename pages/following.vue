@@ -63,7 +63,9 @@
       <!-- OPML Export -->
       <footer class="mt-12 pt-4 border-t border-zinc-200 dark:border-zinc-800">
         <p class="label-xs">
-          Source: <code>~/.newsboat/urls</code> ·
+          Source:
+          <code>~/.newsboat/urls</code>
+          ·
           <a href="/api/blogroll" class="interactive-link">JSON</a>
         </p>
       </footer>
@@ -89,8 +91,9 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'RSS feeds I follow. Blogs, infographics, photography, and more.'
-    }
-  ]
+      content:
+        'RSS feeds I follow. Blogs, infographics, photography, and more.',
+    },
+  ],
 })
 </script>

@@ -228,7 +228,7 @@ export default defineEventHandler(async (event) => {
     created_at: resource.created_at,
     tags: resource.tags,
     width: resource.width,
-    height: resource.height
+    height: resource.height,
   }))
 })
 ```
@@ -254,7 +254,7 @@ function randomizedPhotoStyle(photo) {
   if (chance.bool({ likelihood: 0.333 })) return {}
 
   return {
-    transform: `translate(${randomX}px, ${randomY}px) rotate(${randomAngle}deg) scale(${scale})`
+    transform: `translate(${randomX}px, ${randomY}px) rotate(${randomAngle}deg) scale(${scale})`,
   }
 }
 ```

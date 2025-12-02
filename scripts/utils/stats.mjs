@@ -18,7 +18,7 @@ export const processStats = {
     robot: 0,
     draft: 0,
     prompt: 0,
-    studyNote: 0
+    studyNote: 0,
   },
   errors: [],
   warnings: [],
@@ -30,28 +30,28 @@ export const processStats = {
     h3: 0,
     codeBlocks: { js: 0, py: 0, other: 0 },
     tables: 0,
-    footnotes: 0
+    footnotes: 0,
   },
   fileSizes: {
     total: 0,
     average: 0,
-    largest: { size: 0, file: '' }
+    largest: { size: 0, file: '' },
   },
   resourceUsage: {
     initialMemory: process.memoryUsage().heapUsed,
-    peakMemory: 0
+    peakMemory: 0,
   },
   queue: {
     active: new Set(),
     completed: new Set(),
-    failed: new Set()
+    failed: new Set(),
   },
   keywords: new Map(),
   readingTimes: [],
   linkAnalysis: {
     internal: 0,
-    external: 0
-  }
+    external: 0,
+  },
 }
 
 export function updateRealTimeStats(result) {
@@ -150,7 +150,7 @@ export function printProcessingReport() {
       `Footnotes: ${processStats.contentAnalysis.footnotes}`,
     '',
     'Content Types',
-    '------------'
+    '------------',
   ]
 
   Object.entries(processStats.byType)

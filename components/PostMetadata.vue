@@ -140,7 +140,7 @@ const relativeDate = computed(() => {
   if (!metadata.value.date) return ''
   try {
     return formatDistanceToNow(new Date(metadata.value.date), {
-      addSuffix: true
+      addSuffix: true,
     })
   } catch {
     return ''
@@ -153,7 +153,7 @@ const colorVars = computed(() => {
   return {
     '--post-color': scheme.primary,
     '--post-color-rgb': scheme.primaryRgb,
-    '--post-color-subtle': scheme.subtle
+    '--post-color-subtle': scheme.subtle,
   }
 })
 

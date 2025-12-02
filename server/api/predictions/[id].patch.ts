@@ -15,7 +15,7 @@ export default defineEventHandler(async (event) => {
   if (!id) {
     throw createError({
       statusCode: 400,
-      statusMessage: 'Prediction ID required'
+      statusMessage: 'Prediction ID required',
     })
   }
 
@@ -32,7 +32,7 @@ export default defineEventHandler(async (event) => {
     if (predictionIndex === -1) {
       throw createError({
         statusCode: 404,
-        statusMessage: 'Prediction not found'
+        statusMessage: 'Prediction not found',
       })
     }
 
@@ -54,13 +54,13 @@ export default defineEventHandler(async (event) => {
     await writeFile(PREDICTIONS_FILE, JSON.stringify(data, null, 2))
 
     return {
-      prediction
+      prediction,
     }
   } catch (error) {
     console.error('Error updating prediction:', error)
     throw createError({
       statusCode: 500,
-      statusMessage: 'Failed to update prediction'
+      statusMessage: 'Failed to update prediction',
     })
   }
 })

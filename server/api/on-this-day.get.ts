@@ -1,5 +1,5 @@
-import { readFileSync, existsSync } from 'fs'
-import { join } from 'path'
+import { readFileSync, existsSync } from 'node:fs'
+import { join } from 'node:path'
 
 interface DayItem {
   year: number
@@ -11,7 +11,7 @@ interface DayData {
 }
 
 // Cache for individual day files
-const dayCache: Map<string, { data: DayData, time: number }> = new Map()
+const dayCache: Map<string, { data: DayData; time: number }> = new Map()
 const CACHE_TTL = 60 * 60 * 1000 // 1 hour
 
 function loadDay(key: string): DayData {
@@ -67,7 +67,7 @@ export default defineEventHandler((event) => {
   const sortedYears = Object.keys(years)
     .map(Number)
     .sort((a, b) => b - a)
-    .map(year => ({ year, ...years[year] }))
+    .map((year) => ({ year, ...years[year] }))
 
   // Auto-generate totals for each source type
   const totals: { [key: string]: number } = {}
@@ -82,6 +82,6 @@ export default defineEventHandler((event) => {
     day,
     key,
     ...totals,
-    years: sortedYears
+    years: sortedYears,
   }
 })

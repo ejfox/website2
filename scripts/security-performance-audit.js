@@ -29,14 +29,14 @@ const AUDIT_PATTERNS = {
   social: /instagram|facebook|twitter|linkedin|youtube/i,
 
   // Ads and monetization
-  ads: /adsense|googlesyndication|amazon-adsystem/i
+  ads: /adsense|googlesyndication|amazon-adsystem/i,
 }
 
 // Security risk levels
 const RISK_LEVELS = {
   HIGH: ['googlesyndication', 'doubleclick', 'facebook.com', 'amazon-adsystem'],
   MEDIUM: ['google-analytics', 'googletagmanager', 'twitter.com'],
-  LOW: ['fonts.googleapis.com', 'fonts.gstatic.com', 'res.cloudinary.com']
+  LOW: ['fonts.googleapis.com', 'fonts.gstatic.com', 'res.cloudinary.com'],
 }
 
 function findThirdPartyReferences(dir, results = []) {
@@ -106,7 +106,7 @@ function findThirdPartyReferences(dir, results = []) {
                 url,
                 category,
                 riskLevel,
-                context: line.trim()
+                context: line.trim(),
               })
             } catch {
               // Skip invalid URLs
@@ -130,10 +130,10 @@ function generateSecurityReport(results) {
       totalReferences: results.length,
       uniqueDomains: new Set(results.map((r) => new URL(r.url).hostname)).size,
       byRiskLevel: {},
-      byCategory: {}
+      byCategory: {},
     },
     findings: results,
-    recommendations: []
+    recommendations: [],
   }
 
   // Calculate risk distribution
@@ -232,7 +232,7 @@ function printReport(report) {
 
   // Show unique domains summary
   const domains = [
-    ...new Set(report.findings.map((f) => new URL(f.url).hostname))
+    ...new Set(report.findings.map((f) => new URL(f.url).hostname)),
   ]
   if (domains.length > 0) {
     console.log('\n🌐 THIRD-PARTY DOMAINS:')

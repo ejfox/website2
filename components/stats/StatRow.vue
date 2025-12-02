@@ -11,22 +11,22 @@
 const props = defineProps({
   label: {
     type: String,
-    required: true
+    required: true,
   },
   value: {
     type: [String, Number],
-    default: null
+    default: null,
   },
   format: {
     type: String,
     default: 'number',
     validator: (value) =>
-      ['number', 'percentage', 'decimal', 'raw'].includes(value)
+      ['number', 'percentage', 'decimal', 'raw'].includes(value),
   },
   decimals: {
     type: Number,
-    default: 0
-  }
+    default: 0,
+  },
 })
 
 const { formatNumber, formatDecimal, formatPercentage } = useNumberFormat()

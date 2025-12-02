@@ -58,7 +58,7 @@ export default defineEventHandler(async (event) => {
       statusCode: 404,
       message: `Post not found: ${
         error instanceof Error ? error.message : 'Unknown error'
-      }`
+      }`,
     })
   }
 })

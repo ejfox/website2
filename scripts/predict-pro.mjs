@@ -30,7 +30,7 @@ const PredictionSchema = z.object({
     .max(95, 'Confidence should be between 5-95% (avoid overconfidence)'),
   resolution: z
     .string()
-    .min(10, 'Resolution criteria too short - be more specific')
+    .min(10, 'Resolution criteria too short - be more specific'),
 })
 
 const QUALITY_GUIDELINES = {
@@ -41,8 +41,8 @@ const QUALITY_GUIDELINES = {
       'Include clear timeframes and thresholds',
       'Use objective, verifiable criteria',
       'Avoid compound predictions (break into separate predictions)',
-      'State what will happen, not what might happen'
-    ]
+      'State what will happen, not what might happen',
+    ],
   },
   resolution: {
     title: 'Defining Resolution Criteria',
@@ -51,9 +51,9 @@ const QUALITY_GUIDELINES = {
       'Define edge cases and how to handle them',
       'Choose objective, third-party sources when possible',
       "Be clear about what counts as 'success'",
-      'Consider time zones and measurement periods'
-    ]
-  }
+      'Consider time zones and measurement periods',
+    ],
+  },
 }
 
 async function checkPredictionQuality(statement, resolutionCriteria) {
@@ -98,7 +98,7 @@ async function checkPredictionQuality(statement, resolutionCriteria) {
       '  "concerns": ["potential issues or ambiguities"],',
       '  "historicalComparisons": [' +
         '"similar event 1 with relevant outcome", "similar event 2"]',
-      '}'
+      '}',
     ].join('\n')
 
     const response = await fetch(
@@ -109,14 +109,14 @@ async function checkPredictionQuality(statement, resolutionCriteria) {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${openRouterKey}`,
           'HTTP-Referer': 'https://ejfox.com',
-          'X-Title': 'EJ Fox Prediction Quality Checker'
+          'X-Title': 'EJ Fox Prediction Quality Checker',
         },
         body: JSON.stringify({
           model: 'anthropic/claude-3.5-sonnet',
           messages: [{ role: 'user', content: prompt }],
           temperature: 0.1,
-          max_tokens: 1000
-        })
+          max_tokens: 1000,
+        }),
       }
     )
 
@@ -156,7 +156,7 @@ function getBuiltInAnalysis(statement, resolutionCriteria) {
     overallScore: 7,
     suggestions: [],
     strengths: [],
-    concerns: []
+    concerns: [],
   }
 
   // Basic checks
@@ -191,7 +191,7 @@ function displayAnalysis(analysis) {
     excellent: '🟢',
     good: '🔵',
     needs_improvement: '🟡',
-    poor: '🔴'
+    poor: '🔴',
   }
 
   const strengthsSection = analysis.strengths.length
@@ -249,7 +249,7 @@ async function getInputWithValidation(questions) {
       statement: answers.statement,
       deadline: answers.deadline,
       confidence: Number.parseInt(answers.confidence),
-      resolution: answers.resolution
+      resolution: answers.resolution,
     })
     return answers
   } catch (error) {
@@ -269,7 +269,7 @@ async function createPrediction() {
       name: 'statement',
       message: 'Enter your prediction statement:',
       validate: (input) =>
-        input.length >= 20 || 'Statement must be at least 20 characters'
+        input.length >= 20 || 'Statement must be at least 20 characters',
     },
     {
       type: 'input',
@@ -278,14 +278,14 @@ async function createPrediction() {
       validate: (input) => {
         const date = new Date(input)
         return !Number.isNaN(date.getTime()) || 'Please enter a valid date'
-      }
+      },
     },
     {
       type: 'number',
       name: 'confidence',
       message: 'Enter confidence level (5-95%):',
       validate: (input) =>
-        (input >= 5 && input <= 95) || 'Confidence must be between 5-95%'
+        (input >= 5 && input <= 95) || 'Confidence must be between 5-95%',
     },
     {
       type: 'input',
@@ -293,8 +293,8 @@ async function createPrediction() {
       message: 'Enter resolution criteria:',
       validate: (input) =>
         input.length >= 10 ||
-        'Resolution criteria must be at least 10 characters'
-    }
+        'Resolution criteria must be at least 10 characters',
+    },
   ]
 
   const answers = await getInputWithValidation(questions)
@@ -326,8 +326,8 @@ async function createPrediction() {
       type: 'input',
       name: 'historicalNotes',
       message: 'Quick historical context (optional, press Enter to skip):',
-      default: ''
-    }
+      default: '',
+    },
   ])
 
   // Add historical notes to evidence if provided
@@ -341,8 +341,8 @@ async function createPrediction() {
       type: 'confirm',
       name: 'shouldCreate',
       message: 'Create this prediction?',
-      default: true
-    }
+      default: true,
+    },
   ])
 
   if (!shouldCreate) {
@@ -367,7 +367,7 @@ async function createPrediction() {
       .update(answers.statement)
       .digest('hex')
       .substring(0, 8),
-    analysis
+    analysis,
   }
 
   const frontmatter = {
@@ -377,7 +377,7 @@ async function createPrediction() {
     confidence: answers.confidence,
     status: 'active',
     tags: ['prediction'],
-    analysis: analysis.overallScore
+    analysis: analysis.overallScore,
   }
 
   const content = `---
@@ -438,7 +438,7 @@ _Created with the Prediction Quality Wizard_
 
   try {
     await fs.mkdir(join(process.cwd(), 'content', 'predictions'), {
-      recursive: true
+      recursive: true,
     })
     await fs.writeFile(filepath, content)
 
@@ -451,8 +451,8 @@ _Created with the Prediction Quality Wizard_
         type: 'confirm',
         name: 'shouldCommit',
         message: 'Commit to git?',
-        default: false
-      }
+        default: false,
+      },
     ])
 
     if (shouldCommit) {
@@ -502,15 +502,15 @@ async function updatePrediction(filename) {
       message: 'New confidence level (5-95%):',
       default: currentConfidence,
       validate: (input) =>
-        (input >= 5 && input <= 95) || 'Confidence must be between 5-95%'
+        (input >= 5 && input <= 95) || 'Confidence must be between 5-95%',
     },
     {
       type: 'input',
       name: 'reasoning',
       message: 'Reasoning for this update:',
       validate: (input) =>
-        input.length >= 10 || 'Reasoning must be at least 10 characters'
-    }
+        input.length >= 10 || 'Reasoning must be at least 10 characters',
+    },
   ])
 
   // Create update entry
@@ -519,7 +519,7 @@ async function updatePrediction(filename) {
     timestamp,
     confidenceBefore: currentConfidence,
     confidenceAfter: answers.confidence,
-    reasoning: answers.reasoning
+    reasoning: answers.reasoning,
   }
 
   // Update frontmatter
@@ -527,7 +527,7 @@ async function updatePrediction(filename) {
     ...parsed.data,
     confidence: answers.confidence,
     updatedAt: timestamp,
-    updates: [...(parsed.data.updates || []), update]
+    updates: [...(parsed.data.updates || []), update],
   }
 
   // Generate new content with updated frontmatter
@@ -542,7 +542,7 @@ async function updatePrediction(filename) {
     ...updatedData,
     updates: updatedData.updates.map((u, i) =>
       i === updatedData.updates.length - 1 ? { ...u, hash } : u
-    )
+    ),
   }
 
   const finalContent = matter.stringify(parsed.content, finalData)
@@ -560,8 +560,8 @@ async function updatePrediction(filename) {
       type: 'confirm',
       name: 'shouldCommit',
       message: 'Commit to git?',
-      default: true
-    }
+      default: true,
+    },
   ])
 
   if (shouldCommit) {
@@ -575,7 +575,7 @@ async function updatePrediction(filename) {
       execSync(`git commit -m "${commitMsg}"`)
 
       const commitHash = execSync('git rev-parse HEAD', {
-        encoding: 'utf8'
+        encoding: 'utf8',
       }).trim()
       consola.success(`Committed: ${commitHash.substring(0, 8)}`)
 
@@ -632,21 +632,21 @@ async function resolvePrediction(filename) {
         { name: '✅ Correct - Prediction came true', value: 'correct' },
         {
           name: '❌ Incorrect - Prediction did not come true',
-          value: 'incorrect'
+          value: 'incorrect',
         },
         {
           name: '⚠️  Ambiguous - Unclear or partially true',
-          value: 'ambiguous'
-        }
-      ]
+          value: 'ambiguous',
+        },
+      ],
     },
     {
       type: 'input',
       name: 'resolution',
       message: 'Resolution notes (what happened, sources, evidence):',
       validate: (input) =>
-        input.length >= 20 || 'Resolution notes must be at least 20 characters'
-    }
+        input.length >= 20 || 'Resolution notes must be at least 20 characters',
+    },
   ])
 
   const timestamp = new Date().toISOString()
@@ -657,7 +657,7 @@ async function resolvePrediction(filename) {
     resolved: true,
     resolved_date: timestamp,
     status: answers.status,
-    resolution: answers.resolution
+    resolution: answers.resolution,
   }
 
   // Generate new content
@@ -679,8 +679,8 @@ async function resolvePrediction(filename) {
       type: 'confirm',
       name: 'shouldCommit',
       message: 'Commit to git?',
-      default: true
-    }
+      default: true,
+    },
   ])
 
   if (shouldCommit) {
@@ -698,7 +698,7 @@ async function resolvePrediction(filename) {
       execSync(`git commit -m "${commitMsg}"`)
 
       const commitHash = execSync('git rev-parse HEAD', {
-        encoding: 'utf8'
+        encoding: 'utf8',
       }).trim()
       consola.success(`Committed: ${commitHash.substring(0, 8)}`)
     } catch (error) {

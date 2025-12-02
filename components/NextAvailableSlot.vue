@@ -55,7 +55,7 @@ const { data, pending, refresh } = await useLazyFetch(
   '/api/cal/available-slots',
   {
     refresh: 5 * 60 * 1000, // Refresh every 5 minutes
-    default: () => ({ slots: [] })
+    default: () => ({ slots: [] }),
   }
 )
 

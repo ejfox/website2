@@ -555,7 +555,7 @@ export function useStats() {
     hasLeetCodeData,
     hasChessData,
     hasRescueTimeData,
-    hasLastFmData
+    hasLastFmData,
     // DELETED: refresh method - not needed without caching
   }
 }

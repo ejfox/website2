@@ -43,7 +43,7 @@
             class="easy-bar"
             :style="{
               width: `${difficultyPercentages.easy}%`,
-              backgroundColor: '#a1a1aa'
+              backgroundColor: '#a1a1aa',
             }"
             :title="`Easy: ${formatNumber(
               stats.submissionStats.easy.count
@@ -53,7 +53,7 @@
             class="medium-bar"
             :style="{
               width: `${difficultyPercentages.medium}%`,
-              backgroundColor: '#71717a'
+              backgroundColor: '#71717a',
             }"
             :title="`Medium: ${formatNumber(
               stats.submissionStats.medium.count
@@ -63,7 +63,7 @@
             class="hard-bar"
             :style="{
               width: `${difficultyPercentages.hard}%`,
-              backgroundColor: '#3f3f46'
+              backgroundColor: '#3f3f46',
             }"
             :title="`Hard: ${formatNumber(
               stats.submissionStats.hard.count
@@ -87,9 +87,9 @@
           :key="index"
           class="flex justify-between items-center text-xs"
         >
-          <span class="text-zinc-700 dark:text-zinc-300">{{
-            item.language
-          }}</span>
+          <span class="text-zinc-700 dark:text-zinc-300">
+            {{ item.language }}
+          </span>
           <span class="text-zinc-500 tabular-nums">
             <AnimatedNumber
               :value="item.count"
@@ -112,9 +112,9 @@
           class="submission-row"
         >
           <div class="flex-none">
-            <span class="text-zinc-400 text-2xs tabular-nums">{{
-              formatDateMinimal(submission.timestamp)
-            }}</span>
+            <span class="text-zinc-400 text-2xs tabular-nums">
+              {{ formatDateMinimal(submission.timestamp) }}
+            </span>
           </div>
           <a
             :href="`https://leetcode.com/problems/${submission.titleSlug}/`"
@@ -164,7 +164,7 @@ const difficultyPercentages = computed(() => {
     easy: (props.stats.submissionStats.easy.count / totalSolved.value) * 100,
     medium:
       (props.stats.submissionStats.medium.count / totalSolved.value) * 100,
-    hard: (props.stats.submissionStats.hard.count / totalSolved.value) * 100
+    hard: (props.stats.submissionStats.hard.count / totalSolved.value) * 100,
   }
 })
 

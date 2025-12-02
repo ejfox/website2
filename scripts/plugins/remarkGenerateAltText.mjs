@@ -84,26 +84,26 @@ Generate a single concise sentence (max 160 characters) for this image that:
 - Matches a thoughtful, design-aware tone
 - Is useful for someone who cannot see the image
 
-Return ONLY the alt text sentence, nothing else.`
+Return ONLY the alt text sentence, nothing else.`,
             },
             imageData.type === 'cloudinary'
               ? { text: `Image URL: ${imageData.url}` }
               : {
                   inlineData: {
                     mimeType: imageData.mimeType,
-                    data: imageData.base64
-                  }
-                }
-          ]
-        }
-      ]
+                    data: imageData.base64,
+                  },
+                },
+          ],
+        },
+      ],
     }
 
     const response = await fetch(`${GEMINI_ENDPOINT}?key=${GEMINI_API_KEY}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
-      timeout: 30000
+      timeout: 30000,
     })
 
     if (!response.ok) {
@@ -174,6 +174,6 @@ export default function remarkGenerateAltText() {
 export function getAltTextStats() {
   return {
     cached: Object.keys(altTextCache).length,
-    entries: altTextCache
+    entries: altTextCache,
   }
 }

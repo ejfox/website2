@@ -3,13 +3,13 @@ export const useKalshi = () => {
     // Cache for 5 minutes client-side
     key: 'kalshi-data',
     // Dedupe requests
-    dedupe: 'defer'
+    dedupe: 'defer',
   })
 
   return {
     data,
     pending,
     error,
-    refresh
+    refresh,
   }
 }

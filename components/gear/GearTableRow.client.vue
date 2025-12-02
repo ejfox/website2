@@ -7,8 +7,9 @@
         <div class="flex items-center gap-2">
           <span
             class="text-zinc-950 dark:text-zinc-50 font-medium tracking-tight"
-            >{{ item.Name }}</span
           >
+            {{ item.Name }}
+          </span>
 
           <!-- Inline buy link -->
           <a
@@ -27,41 +28,46 @@
               v-if="itemAge < 365"
               class="text-xs text-zinc-400 dark:text-zinc-600"
               title="New — less than 1 year old"
-              >✦</span
             >
+              ✦
+            </span>
             <span
               v-else-if="itemAge < 730"
               class="text-xs text-zinc-500 dark:text-zinc-500"
               title="Broken in — 1-2 years old"
-              >✧</span
             >
+              ✧
+            </span>
             <span
               v-else-if="itemAge < 1095"
               class="text-xs text-zinc-600 dark:text-zinc-400"
               title="Seasoned — 2-3 years old"
-              >◈</span
             >
+              ◈
+            </span>
             <span
               v-else-if="itemAge < 1825"
               class="text-xs text-zinc-700 dark:text-zinc-300"
               title="Weathered — 3-5 years old"
-              >◇</span
             >
+              ◇
+            </span>
             <span
               v-else
               class="text-xs text-zinc-800 dark:text-zinc-200"
               title="Veteran — 5+ years of service"
-              >◆</span
             >
+              ◆
+            </span>
           </div>
         </div>
       </div>
 
       <!-- Type - Secondary info -->
       <div class="gear-type-cell" :title="item.Type">
-        <span class="group-hover/type:hidden">{{
-          getTypeSymbol(item.Type)
-        }}</span>
+        <span class="group-hover/type:hidden">
+          {{ getTypeSymbol(item.Type) }}
+        </span>
         <span :class="typeHoverClasses">{{ item.Type || '—' }}</span>
       </div>
 
@@ -77,7 +83,7 @@
           <div
             :class="weightIndicatorClasses"
             :style="{
-              height: `${Math.max(2, Math.min(12, weightInGrams / 100))}px`
+              height: `${Math.max(2, Math.min(12, weightInGrams / 100))}px`,
             }"
             :title="`${weightInGrams}g`"
           ></div>
@@ -100,12 +106,12 @@
 const props = defineProps({
   item: {
     type: Object,
-    required: true
+    required: true,
   },
   createViz: {
     type: Function,
-    default: undefined
-  }
+    default: undefined,
+  },
 })
 
 // Animation refs
@@ -123,7 +129,7 @@ const rowGridClasses = {
   'px-2': true,
   'text-xs': true,
   'font-mono': true,
-  'items-center': true
+  'items-center': true,
 }
 
 const ageIndicatorClasses = {
@@ -131,7 +137,7 @@ const ageIndicatorClasses = {
   'mr-2': true,
   'opacity-0': true,
   'group-hover:opacity-60': true,
-  'transition-opacity': true
+  'transition-opacity': true,
 }
 
 const typeHoverClasses = {
@@ -140,7 +146,7 @@ const typeHoverClasses = {
   'text-xs': true,
   uppercase: true,
   'tracking-widest': true,
-  'font-medium': true
+  'font-medium': true,
 }
 
 const waterproofClasses = {
@@ -149,7 +155,7 @@ const waterproofClasses = {
   'text-xs': true,
   'text-zinc-500': true,
   'dark:text-zinc-500': true,
-  'font-medium': true
+  'font-medium': true,
 }
 
 const weightIndicatorClasses = {
@@ -159,7 +165,7 @@ const weightIndicatorClasses = {
   'rounded-full': true,
   'group-hover:bg-zinc-500': true,
   'dark:group-hover:bg-zinc-400': true,
-  'transition-colors': true
+  'transition-colors': true,
 }
 
 const weightTextClasses = {
@@ -167,7 +173,7 @@ const weightTextClasses = {
   'text-zinc-900': true,
   'dark:text-zinc-100': true,
   'font-normal': true,
-  'tracking-tight': true
+  'tracking-tight': true,
 }
 
 // Type symbols mapping
@@ -178,7 +184,7 @@ const typeSymbols = {
   Sleep: '☽',
   Bag: '▣',
   Safety: '◆',
-  Creativity: '✧'
+  Creativity: '✧',
 }
 
 // Get unicode symbol for item type

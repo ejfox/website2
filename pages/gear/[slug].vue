@@ -12,7 +12,7 @@
       <p class="text-zinc-600 dark:text-zinc-400 mb-8">
         This gear item doesn't exist in our inventory.
       </p>
-      <NuxtLink to="/gear" class="btn-primary"> ← Browse All Gear </NuxtLink>
+      <NuxtLink to="/gear" class="btn-primary">← Browse All Gear</NuxtLink>
     </div>
   </div>
 </template>
@@ -27,7 +27,7 @@ const { data, _pending, error } = await useFetch(
 if (error.value) {
   throw createError({
     statusCode: error.value.statusCode || 500,
-    statusMessage: error.value.statusMessage || 'Failed to load gear'
+    statusMessage: error.value.statusMessage || 'Failed to load gear',
   })
 }
 
@@ -41,7 +41,7 @@ useSeoMeta({
       data.value['Loaded Weight ()'] ||
       'Unknown weight'
     return `${data.value.Name} - ${data.value.Type} gear (${weight}g). ${data.value.Notes || ''}`
-  }
+  },
 })
 
 // Page transitions
@@ -49,8 +49,8 @@ definePageMeta({
   pageTransition: {
     name: 'gear-slide',
     mode: 'default',
-    duration: 600
-  }
+    duration: 600,
+  },
 })
 </script>
 

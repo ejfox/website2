@@ -6,8 +6,8 @@ export default defineEventHandler(async (_event) => {
     const rssResponse = await $fetch(rssUrl, {
       responseType: 'text',
       headers: {
-        'User-Agent': 'Mozilla/5.0 (compatible; EJFox Website Bot)'
-      }
+        'User-Agent': 'Mozilla/5.0 (compatible; EJFox Website Bot)',
+      },
     })
 
     const xml = rssResponse as string
@@ -66,7 +66,7 @@ export default defineEventHandler(async (_event) => {
             ? linkMatch[1]
             : `https://letterboxd.com/film/${slug}/`,
           watchedDate: watchedDate,
-          isRewatch: isRewatch
+          isRewatch: isRewatch,
         })
       } catch (err) {
         console.warn('Failed to parse RSS item:', err)
@@ -109,14 +109,14 @@ export default defineEventHandler(async (_event) => {
       rewatches: rewatches,
       topRatedFilms: films.filter((f) => f.rating && f.rating >= 4),
       recentFilms: films.slice(0, 10), // Most recent 10 films
-      filmsByMonth: {}
+      filmsByMonth: {},
     }
 
     return {
       films,
       stats,
       lastUpdated: new Date().toISOString(),
-      source: 'RSS feed'
+      source: 'RSS feed',
     }
   } catch (error) {
     console.error('Letterboxd RSS parsing error:', error)
@@ -132,13 +132,13 @@ export default defineEventHandler(async (_event) => {
         rewatches: 0,
         topRatedFilms: [],
         recentFilms: [],
-        filmsByMonth: {}
+        filmsByMonth: {},
       },
       lastUpdated: new Date().toISOString(),
       error:
         'RSS parsing failed - ' +
         (error instanceof Error ? error.message : 'Unknown error'),
-      source: 'RSS feed'
+      source: 'RSS feed',
     }
   }
 })

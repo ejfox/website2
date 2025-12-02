@@ -6,11 +6,11 @@ module.exports = {
     './pages/**/*.vue',
     './plugins/**/*.{js,ts}',
     './app.vue',
-    './error.vue'
+    './error.vue',
   ],
   plugins: [
     require('@tailwindcss/typography'),
-    require('@tailwindcss/aspect-ratio')
+    require('@tailwindcss/aspect-ratio'),
   ],
   theme: {
     extend: {
@@ -19,11 +19,11 @@ module.exports = {
         // Minimum 10px for Tuftian data density with increased contrast
         '5xs': [
           '0.625rem',
-          { lineHeight: '0.75rem', letterSpacing: '0.025em' }
+          { lineHeight: '0.75rem', letterSpacing: '0.025em' },
         ], // 10px/12px - inline symbols
         '4xs': [
           '0.625rem',
-          { lineHeight: '0.75rem', letterSpacing: '0.025em' }
+          { lineHeight: '0.75rem', letterSpacing: '0.025em' },
         ], // 10px/12px - ultra-dense labels
         '3xs': ['0.625rem', { lineHeight: '0.75rem', letterSpacing: '0.02em' }], // 10px/12px - dense stats
         '2xs': ['0.6875rem', { lineHeight: '1rem', letterSpacing: '0.015em' }], // 11px/16px - compact data
@@ -39,7 +39,7 @@ module.exports = {
         '5xl': ['3.5rem', '4rem'], // 56px/64px (8 units)
         '6xl': ['4.5rem', '5rem'], // 72px/80px (10 units)
         '7xl': ['5.5rem', '6rem'], // 88px/96px (12 units)
-        '8xl': ['7rem', '7rem'] // 112px/112px (14 units)
+        '8xl': ['7rem', '7rem'], // 112px/112px (14 units)
       },
       spacing: {
         // 2, 4, 8 rhythm (based on 8px unit)
@@ -56,7 +56,7 @@ module.exports = {
         12: '6rem', // 96px (12x8)
         16: '8rem', // 128px (16x8)
         24: '12rem', // 192px (24x8)
-        32: '16rem' // 256px (32x8)
+        32: '16rem', // 256px (32x8)
       },
       fontFamily: {
         sans: [
@@ -66,7 +66,7 @@ module.exports = {
           'Roboto',
           'Helvetica Neue',
           'Arial',
-          'sans-serif'
+          'sans-serif',
         ],
         serif: [
           'Georgia',
@@ -74,7 +74,7 @@ module.exports = {
           'Droid Serif',
           'Times',
           'Source Serif Pro',
-          'serif'
+          'serif',
         ],
         mono: [
           'SFMono-Regular',
@@ -83,8 +83,8 @@ module.exports = {
           'Consolas',
           'Liberation Mono',
           'Courier New',
-          'monospace'
-        ]
+          'monospace',
+        ],
       },
       letterSpacing: {
         tighter: '-0.03em',
@@ -92,7 +92,7 @@ module.exports = {
         normal: '0',
         wide: '0.02em',
         wider: '0.04em',
-        widest: '0.08em'
+        widest: '0.08em',
       },
       lineHeight: {
         none: '1',
@@ -100,8 +100,8 @@ module.exports = {
         snug: '1.375',
         normal: '1.5',
         relaxed: '1.625',
-        loose: '1.75'
-      }
-    }
-  }
+        loose: '1.75',
+      },
+    },
+  },
 }

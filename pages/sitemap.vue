@@ -249,8 +249,9 @@
             to="/sitemap.xml"
             class="underline hover:text-zinc-700 dark:hover:text-zinc-300"
           >
-            XML sitemap </NuxtLink
-          >.
+            XML sitemap
+          </NuxtLink>
+          .
         </p>
       </div>
     </footer>
@@ -265,7 +266,7 @@ useSeoMeta({
   description:
     'Complete navigation and overview of ejfox.com pages and sections',
   ogTitle: 'Site Map | ejfox.com',
-  ogDescription: 'Complete navigation and overview of ejfox.com'
+  ogDescription: 'Complete navigation and overview of ejfox.com',
 })
 
 // Fetch blog posts from manifest

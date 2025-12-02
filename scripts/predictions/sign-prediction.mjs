@@ -12,15 +12,15 @@ function generateHash(content) {
 function getGitInfo() {
   try {
     const gitCommit = execSync('git rev-parse HEAD', {
-      encoding: 'utf-8'
+      encoding: 'utf-8',
     }).trim()
     const gitDate = execSync('git log -1 --format=%aI', {
-      encoding: 'utf-8'
+      encoding: 'utf-8',
     }).trim()
 
     return {
       commit: gitCommit,
-      date: gitDate
+      date: gitDate,
     }
   } catch (error) {
     console.warn('Could not get git info:', error.message)
@@ -36,7 +36,7 @@ function signWithPGP(content) {
     // Sign the content
     const signature = execSync('gpg --armor --detach-sign', {
       input: content,
-      encoding: 'utf-8'
+      encoding: 'utf-8',
     })
 
     return signature
@@ -61,7 +61,7 @@ async function signPrediction(filePath) {
     // Create verification object
     const verification = {
       hash: contentHash,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     }
 
     if (gitInfo) {

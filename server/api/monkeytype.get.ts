@@ -37,7 +37,7 @@ export default defineEventHandler(async () => {
     console.warn('MonkeyType token not configured')
     return {
       typingStats: null,
-      lastUpdated: new Date().toISOString()
+      lastUpdated: new Date().toISOString(),
     }
   }
 
@@ -53,8 +53,8 @@ export default defineEventHandler(async () => {
       {
         headers: {
           Authorization: `ApeKey ${token.trim()}`,
-          Accept: 'application/json'
-        }
+          Accept: 'application/json',
+        },
       }
     )
 
@@ -67,7 +67,8 @@ export default defineEventHandler(async () => {
         .catch(() => ({ message: 'Unknown error' }))
       throw createError({
         statusCode: response.status,
-        message: error.message || `MonkeyType API error: ${response.statusText}`
+        message:
+          error.message || `MonkeyType API error: ${response.statusText}`,
       })
     }
 
@@ -80,7 +81,7 @@ export default defineEventHandler(async () => {
     const results = await Promise.allSettled([
       makeRequest<MonkeyTypeStats>('/users/stats'),
       makeRequest<MonkeyTypePB>('/users/personalBests', { mode: 'time' }),
-      makeRequest<MonkeyTypePB>('/users/personalBests', { mode: 'words' })
+      makeRequest<MonkeyTypePB>('/users/personalBests', { mode: 'words' }),
     ])
 
     const statsData =
@@ -99,7 +100,7 @@ export default defineEventHandler(async () => {
       console.warn('No MonkeyType test data found')
       return {
         typingStats: null,
-        lastUpdated: new Date().toISOString()
+        lastUpdated: new Date().toISOString(),
       }
     }
 
@@ -113,7 +114,7 @@ export default defineEventHandler(async () => {
       .map((test) => ({
         timestamp: new Date(test.timestamp).toISOString(),
         wpm: test.wpm,
-        accuracy: test.acc
+        accuracy: test.acc,
       }))
 
     // Calculate average WPM from all tests
@@ -131,16 +132,16 @@ export default defineEventHandler(async () => {
         bestAccuracy: bestTest?.acc || 0,
         bestConsistency: bestTest?.consistency || 0,
         averageWpm,
-        recentTests
+        recentTests,
       },
-      lastUpdated: new Date().toISOString()
+      lastUpdated: new Date().toISOString(),
     }
   } catch (error: any) {
     console.error('MonkeyType API error details:', error)
     // Only return null if we actually failed to fetch data
     return {
       typingStats: null,
-      lastUpdated: new Date().toISOString()
+      lastUpdated: new Date().toISOString(),
     }
   }
 })

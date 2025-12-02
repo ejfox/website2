@@ -11,7 +11,7 @@ console.log(
 // Start the dev server
 const devServer = spawn('npm', ['run', 'dev'], {
   stdio: 'inherit',
-  shell: true
+  shell: true,
 })
 
 // Wait for server to start, then run initial performance check

@@ -42,9 +42,9 @@
       {{ getDaysSinceUsed(item.Last_Used) }}
     </td>
     <td class="px-1 py-0.5 text-right text-zinc-300 tabular-nums pr-2">
-      <span class="text-3xs font-medium">{{
-        formatWeight(item.Weight_oz)
-      }}</span>
+      <span class="text-3xs font-medium">
+        {{ formatWeight(item.Weight_oz) }}
+      </span>
     </td>
   </tr>
 </template>
@@ -53,12 +53,12 @@
 const props = defineProps({
   item: {
     type: Object,
-    required: true
+    required: true,
   },
   weightUnit: {
     type: String,
-    default: 'metric'
-  }
+    default: 'metric',
+  },
 })
 
 const typeSymbols = {
@@ -68,7 +68,7 @@ const typeSymbols = {
   Sleep: '☽',
   Bag: '▣',
   Safety: '◆',
-  Creativity: '✧'
+  Creativity: '✧',
 }
 
 const rowClasses = {
@@ -76,7 +76,7 @@ const rowClasses = {
   'hover:bg-zinc-900/40': true,
   'cursor-pointer': true,
   'even:bg-zinc-900/20': true,
-  relative: true
+  relative: true,
 }
 
 const getTypeSymbol = (type) => typeSymbols[type] || '—'
@@ -116,7 +116,7 @@ const getCategoryAbbr = (category) => {
     Photo: 'PHT',
     Motorcycle: 'MTO',
     Home: 'HOM',
-    Clothing: 'CLT'
+    Clothing: 'CLT',
   }
   return abbrs[category] || category.substring(0, 3).toUpperCase()
 }
@@ -126,7 +126,7 @@ const getWaterproofSymbol = (waterproof) => {
   const symbols = {
     Yes: '●',
     No: '○',
-    Partial: '◐'
+    Partial: '◐',
   }
   return symbols[waterproof] || '—'
 }
@@ -136,7 +136,7 @@ const getPrioritySymbol = (priority) => {
   const symbols = {
     High: '↑',
     Medium: '→',
-    Low: '↓'
+    Low: '↓',
   }
   return symbols[priority] || '—'
 }
@@ -147,7 +147,7 @@ const getConditionSymbol = (condition) => {
     New: '◆',
     Good: '●',
     Fair: '◐',
-    Poor: '○'
+    Poor: '○',
   }
   return symbols[condition] || '—'
 }

@@ -90,14 +90,14 @@ const slotTimeClasses = computed(() => [
   'text-sm font-medium',
   'text-zinc-900 dark:text-zinc-100',
   'group-hover:text-blue-600 dark:group-hover:text-blue-400',
-  'transition-colors'
+  'transition-colors',
 ])
 
 const slotArrowClasses = computed(() => [
   'flex items-center',
   'text-zinc-400 dark:text-zinc-500',
   'group-hover:text-blue-500',
-  'transition-colors'
+  'transition-colors',
 ])
 
 // Slot indicator classes based on position
@@ -110,7 +110,7 @@ const slotIndicatorClasses = (index) =>
       : index === 1
         ? 'bg-yellow-500'
         : 'bg-blue-500',
-    'opacity-0 group-hover:opacity-100'
+    'opacity-0 group-hover:opacity-100',
   ])
 
 // Fetch available slots with auto-refresh every 5 minutes
@@ -118,7 +118,7 @@ const { data, pending, refresh } = await useLazyFetch(
   '/api/cal/available-slots',
   {
     refresh: 5 * 60 * 1000, // 5 minutes
-    default: () => ({ slots: [] })
+    default: () => ({ slots: [] }),
   }
 )
 

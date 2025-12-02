@@ -52,21 +52,21 @@ const props = defineProps({
     type: Array,
     required: true,
     validator: (arr) =>
-      arr.length > 0 && arr.every((n) => typeof n === 'number')
+      arr.length > 0 && arr.every((n) => typeof n === 'number'),
   },
   variant: {
     type: String,
     default: 'inline',
-    validator: (v) => ['inline', 'header', 'margin', 'paragraph'].includes(v)
+    validator: (v) => ['inline', 'header', 'margin', 'paragraph'].includes(v),
   },
   baseline: {
     type: Number,
-    default: null
+    default: null,
   },
   showPeak: {
     type: Boolean,
-    default: true
-  }
+    default: true,
+  },
 })
 
 // Variant-specific dimensions
@@ -74,7 +74,7 @@ const variantConfig = {
   inline: { width: 48, height: 12, strokeWidth: 1, dotRadius: 1.5 },
   header: { width: 120, height: 24, strokeWidth: 1.5, dotRadius: 2 },
   margin: { width: 80, height: 20, strokeWidth: 1.5, dotRadius: 2 },
-  paragraph: { width: 60, height: 16, strokeWidth: 1, dotRadius: 1.5 }
+  paragraph: { width: 60, height: 16, strokeWidth: 1, dotRadius: 1.5 },
 }
 
 const config = variantConfig[props.variant]
@@ -89,7 +89,7 @@ const variantClass = computed(() => {
     inline: 'inline-block align-middle',
     header: 'inline-block',
     margin: 'block',
-    paragraph: 'inline-block align-text-top'
+    paragraph: 'inline-block align-text-top',
   }
   return classes[props.variant]
 })
@@ -145,7 +145,7 @@ const peakPoint = computed(() => {
 
   return {
     x: scaleX(maxIndex),
-    y: scaleY(maxValue)
+    y: scaleY(maxValue),
   }
 })
 </script>

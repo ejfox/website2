@@ -31,7 +31,7 @@ function calculateTimeBreakdown(seconds: number): TimeBreakdown {
     hoursDecimal: Math.round((seconds / 3600) * 100) / 100,
     formatted: `${Math.floor(seconds / 3600)}h ${Math.floor(
       (seconds % 3600) / 60
-    )}m`
+    )}m`,
   }
 }
 
@@ -47,7 +47,7 @@ export default defineEventHandler(async () => {
   if (!token) {
     throw createError({
       statusCode: 500,
-      message: 'RescueTime token not configured'
+      message: 'RescueTime token not configured',
     })
   }
 
@@ -82,8 +82,8 @@ export default defineEventHandler(async () => {
           perspective: 'interval',
           restrict_kind: 'activity',
           restrict_begin: formatDate(weekStart),
-          restrict_end: formatDate(now)
-        }
+          restrict_end: formatDate(now),
+        },
       }),
       $fetch<RescueTimeResponse>('https://www.rescuetime.com/anapi/data', {
         params: {
@@ -92,9 +92,9 @@ export default defineEventHandler(async () => {
           perspective: 'interval',
           restrict_kind: 'activity',
           restrict_begin: formatDate(monthStart),
-          restrict_end: formatDate(now)
-        }
-      })
+          restrict_end: formatDate(now),
+        },
+      }),
     ])
 
     const weekData =
@@ -109,7 +109,7 @@ export default defineEventHandler(async () => {
         seconds: row[1],
         activity: row[3],
         category: row[4],
-        productivity: row[5]
+        productivity: row[5],
       }))
 
       const totalSeconds = rows.reduce((sum, row) => sum + row.seconds, 0)
@@ -121,7 +121,7 @@ export default defineEventHandler(async () => {
           categoryMap.set(row.category, {
             name: row.category,
             seconds: 0,
-            productivity: row.productivity
+            productivity: row.productivity,
           })
         }
         const cat = categoryMap.get(row.category)
@@ -136,7 +136,7 @@ export default defineEventHandler(async () => {
             name: row.activity,
             seconds: 0,
             category: row.category,
-            productivity: row.productivity
+            productivity: row.productivity,
           })
         }
         const act = activityMap.get(row.activity)
@@ -152,7 +152,7 @@ export default defineEventHandler(async () => {
           time: calculateTimeBreakdown(act.seconds),
           percentageOfTotal: Math.round((act.seconds / totalSeconds) * 100),
           category: act.category,
-          productivity: act.productivity
+          productivity: act.productivity,
         }))
 
       // Process categories
@@ -162,7 +162,7 @@ export default defineEventHandler(async () => {
           name: cat.name,
           time: calculateTimeBreakdown(cat.seconds),
           percentageOfTotal: Math.round((cat.seconds / totalSeconds) * 100),
-          productivity: cat.productivity
+          productivity: cat.productivity,
         }))
 
       // Calculate summary
@@ -185,31 +185,31 @@ export default defineEventHandler(async () => {
           total: calculateTimeBreakdown(totalSeconds),
           productive: {
             time: calculateTimeBreakdown(productiveSeconds),
-            percentage: Math.round((productiveSeconds / totalSeconds) * 100)
+            percentage: Math.round((productiveSeconds / totalSeconds) * 100),
           },
           distracting: {
             time: calculateTimeBreakdown(distractingSeconds),
-            percentage: Math.round((distractingSeconds / totalSeconds) * 100)
+            percentage: Math.round((distractingSeconds / totalSeconds) * 100),
           },
           neutral: {
             time: calculateTimeBreakdown(neutralSeconds),
-            percentage: Math.round((neutralSeconds / totalSeconds) * 100)
-          }
-        }
+            percentage: Math.round((neutralSeconds / totalSeconds) * 100),
+          },
+        },
       }
     }
 
     return {
       week: processData(weekData),
       month: processData(monthData),
-      lastUpdated: new Date().toISOString()
+      lastUpdated: new Date().toISOString(),
     }
   } catch (error: any) {
     console.error('RescueTime API error:', error)
     const errorMsg = `Failed to fetch RescueTime data: ${error.message}`
     throw createError({
       statusCode: 500,
-      message: errorMsg
+      message: errorMsg,
     })
   }
 })

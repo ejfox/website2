@@ -47,7 +47,7 @@ const getNoteSummary = (note) => {
       (item) =>
         item.children?.map((child) => ({
           text: child.text,
-          slug: child.slug
+          slug: child.slug,
         })) || []
     ) || []
 
@@ -73,8 +73,9 @@ const getNoteSummary = (note) => {
             target="_blank"
             class="text-hover"
           >
-            Conversations with Robots </a
-          >, notes from various AI models, projects, and experiments.
+            Conversations with Robots
+          </a>
+          , notes from various AI models, projects, and experiments.
         </p>
       </div>
 

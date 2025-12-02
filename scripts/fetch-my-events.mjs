@@ -6,7 +6,7 @@ config()
 const kalshiConfig = new Configuration({
   apiKey: process.env.KALSHI_KEY_ID,
   privateKeyPem: process.env.KALSHI_PRIVATE_KEY.replace(/\\n/g, '\n'),
-  basePath: 'https://api.elections.kalshi.com/trade-api/v2'
+  basePath: 'https://api.elections.kalshi.com/trade-api/v2',
 })
 
 const eventsApi = new EventsApi(kalshiConfig)
@@ -22,7 +22,7 @@ const positions = [
   'KXAIAUTHOR-25',
   'NYTOAI-27DEC31',
   'KXJOINSTEPHENCOLBERT-26JAN-APP',
-  'OAIAGI-29'
+  'OAIAGI-29',
 ]
 
 console.log('Fetching market and event data for user positions...\n')

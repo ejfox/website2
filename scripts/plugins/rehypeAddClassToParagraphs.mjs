@@ -26,7 +26,7 @@ export function rehypeAddClassToParagraphs() {
             'dark:border-zinc-700',
             'my-4',
             'max-w-prose',
-            'mx-auto'
+            'mx-auto',
           ])
           break
 
@@ -89,7 +89,7 @@ export function rehypeAddClassToParagraphs() {
               'p-6',
               'my-4',
               'overflow-x-auto',
-              'font-mono'
+              'font-mono',
             ])
           } else {
             // Inline code - keep smaller
@@ -100,7 +100,7 @@ export function rehypeAddClassToParagraphs() {
               'dark:bg-zinc-800',
               'rounded',
               'px-1.5',
-              'py-0.5'
+              'py-0.5',
             ])
           }
           break
@@ -112,7 +112,7 @@ export function rehypeAddClassToParagraphs() {
             'overflow-hidden',
             'shadow-sm',
             'max-w-prose',
-            'mx-auto'
+            'mx-auto',
           ])
           break
 
@@ -123,7 +123,7 @@ export function rehypeAddClassToParagraphs() {
             'border-collapse',
             'table-auto',
             'my-4',
-            'text-sm'
+            'text-sm',
           ])
           break
 
@@ -137,7 +137,7 @@ export function rehypeAddClassToParagraphs() {
             'px-4',
             'py-2',
             'text-left',
-            'font-medium'
+            'font-medium',
           ])
           break
 
@@ -147,7 +147,7 @@ export function rehypeAddClassToParagraphs() {
             'border-zinc-200',
             'dark:border-zinc-700',
             'px-4',
-            'py-2'
+            'py-2',
           ])
           break
 
@@ -158,7 +158,7 @@ export function rehypeAddClassToParagraphs() {
               'font-medium',
               'text-blue-600',
               'dark:text-blue-400',
-              'ml-0.5'
+              'ml-0.5',
             ])
           }
           break
@@ -170,7 +170,7 @@ export function rehypeAddClassToParagraphs() {
               'pt-8',
               'border-t',
               'border-zinc-200',
-              'dark:border-zinc-800'
+              'dark:border-zinc-800',
             ])
           }
           break

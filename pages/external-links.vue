@@ -70,7 +70,7 @@ const tableBodyClass =
   'bg-white dark:bg-zinc-900 divide-y divide-zinc-200 ' + 'dark:divide-zinc-700'
 
 useHead({
-  title: 'External Links'
+  title: 'External Links',
 })
 </script>
 

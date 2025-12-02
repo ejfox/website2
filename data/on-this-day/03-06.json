@@ -1,1 +1,1250 @@
-{"tweets":[{"id":"1632793786316206081","text":"https://t.co/9xzMRhncol","year":2023,"date":"2023-03-06","favorites":2,"retweets":0,"replyTo":null},{"id":"1632774984559894529","text":"RT @lukeoneil47: The use of domestic terrorism charges against these protesters is a very bad sign of things to come. https://t.co/Zt222JIp…","year":2023,"date":"2023-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"1632744725852692481","text":"@SoC_trilogy Perfect, yes would love to help visualize. 🌞","year":2023,"date":"2023-03-06","favorites":0,"retweets":0,"replyTo":"SoC_trilogy"},{"id":"1632606854818811904","text":"RT @magpiekilljoy: This fight will happen on multiple fronts and using multiple tactics. There will be people who focus on legislative acti…","year":2023,"date":"2023-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"1632550706900025345","text":"in case anyone wants to understand the specific way in which my brain is broken https://t.co/nZE3cw27CV","year":2023,"date":"2023-03-06","favorites":4,"retweets":0,"replyTo":null},{"id":"1632549228923744257","text":"gwern for president","year":2023,"date":"2023-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"1632549100217303041","text":"@izzyz the rich man also prevents the creation of bar graphs if it doesn't portray him creating value, which in itself cannot be underestimated","year":2023,"date":"2023-03-06","favorites":1,"retweets":0,"replyTo":"izzyz"},{"id":"1632538155244040192","text":"insane scene in Atlanta right now https://t.co/UOViGszyBE","year":2023,"date":"2023-03-06","favorites":1,"retweets":1,"replyTo":null},{"id":"1500603444771622919","text":"I have successfully made a candle that smells like drinking espresso in the woods, you’re welcome world (I only made 5 and I’m keeping 2) - reference this tweet next time you see me to claim one of the remaining 3","year":2022,"date":"2022-03-06","favorites":4,"retweets":0,"replyTo":null},{"id":"1368270079410995206","text":"hello my name is ej and I just want you to put bylines on your data visualizations https://t.co/vjJTfqzAxa","year":2021,"date":"2021-03-06","favorites":26,"retweets":2,"replyTo":null},{"id":"1368269172250193924","text":"@jacobinmag In your print edition, the byline says “By the center for working-class politics” - most shared bylines I have seen list the names of the individuals who contributed to the data analysis and visualization - who at @ysucwcs contributed to this piece? https://t.co/tFv0YvY3Jw","year":2021,"date":"2021-03-06","favorites":6,"retweets":0,"replyTo":"mrejfox"},{"id":"1368267480800628736","text":"@jacobinmag Why do you not have a byline on your data visualizations? Who created them?","year":2021,"date":"2021-03-06","favorites":3,"retweets":0,"replyTo":"jacobin"},{"id":"1368234282272047108","text":"@laneharrison 🙏 appreciate that. Would love to hear any thoughts / additions you are interested in","year":2021,"date":"2021-03-06","favorites":0,"retweets":0,"replyTo":"laneharrison"},{"id":"1368227269857181698","text":"@Jon_Christian Traktor does, they call the pitch control \"key\" though","year":2021,"date":"2021-03-06","favorites":1,"retweets":0,"replyTo":"Jon_Christian"},{"id":"1368226060907773955","text":"let's add state, local, and national parks to help decide where to go https://t.co/aBHAz918Pc","year":2021,"date":"2021-03-06","favorites":2,"retweets":0,"replyTo":"mrejfox"},{"id":"1368217702188322820","text":"updated the filter to less than 3 lanes, and a speed limit less than 51MPH https://t.co/iZ1dD7aTOk","year":2021,"date":"2021-03-06","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1368216227450134528","text":"added some circles and forced labels to be horizontal https://t.co/czpkXmzvb3","year":2021,"date":"2021-03-06","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1368215078261166082","text":"greyscaled out wikimedia unlabeled basemap for a little more context https://t.co/KHah4xYocO","year":2021,"date":"2021-03-06","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1368211671966179343","text":"should probably try and get some labels for these roads so I know what I am looking at https://t.co/tjQFu5Aym4","year":2021,"date":"2021-03-06","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1368205735478300675","text":"In Zen and The Art of Motorcycle Maintenance, there's a good passage about how to spot good motorcycle routes on a map - I want to try to capture some of this, maybe make it a bit easier https://t.co/pi6rn3iTeI","year":2021,"date":"2021-03-06","favorites":3,"retweets":0,"replyTo":"mrejfox"},{"id":"1368205384507359236","text":"okay I got distracted, what I really want to do is start working on a layer I can use to make maps of good motorcycle routes - to start I'm gonna eliminate big highways which I do not enjoy driving my tiny motorcycle on https://t.co/TcWwRYmNJv","year":2021,"date":"2021-03-06","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1368203395199303681","text":"I  don't like  the way the thicker (bigger, more-laned) roads block out the smaller roads, but it's pretty easy to fix the render order in qgis - just have to set it to render the roads with the least amount of lanes last, which I think makes it much easier to read dense areas https://t.co/5aZcFWTnzZ","year":2021,"date":"2021-03-06","favorites":2,"retweets":1,"replyTo":"mrejfox"},{"id":"1368202883372564481","text":"playing around with the color scale for speed limits... I like the orange one best, I think https://t.co/8vxm7NHpVV","year":2021,"date":"2021-03-06","favorites":0,"retweets":1,"replyTo":"mrejfox"},{"id":"1368201301851537413","text":"you can also make each road's thickness reflect how many lanes it  has (ie, more lanes makes a thicker road!) and things start to look more \"right\" almost immediately https://t.co/Ou1UTp1f9z","year":2021,"date":"2021-03-06","favorites":2,"retweets":1,"replyTo":"mrejfox"},{"id":"1368200888297328642","text":"okay I am starting over, just color by speed limit to get things rolling https://t.co/dDvh4ATrMd","year":2021,"date":"2021-03-06","favorites":2,"retweets":1,"replyTo":"mrejfox"},{"id":"1368199329773727747","text":"make @dril a tweet billionaire 2021, perfect cyberpunk ambiance https://t.co/ECEnufwZpH","year":2021,"date":"2021-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"1368186578242334721","text":"north american roads sized and colored by speed limit gone wrong https://t.co/uftJmbeaYP","year":2021,"date":"2021-03-06","favorites":32,"retweets":2,"replyTo":null},{"id":"1235991856426737666","text":"Its part of the reason I really love these Sankeys, they are 4 dimensional and capture the (theoretical) linkages between decisions that is more valuable than most other political dataviz I see https://t.co/6o2gnNcI3F","year":2020,"date":"2020-03-06","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1235991183668715520","text":"I am still trying to find the words for what I am intuiting, but I think its the difference between analyzing the nodes vs the links. Almost all modeling is done on the nodes, and very little is done on the (uncaptured, therefore invisible) linkages between them https://t.co/ZO38Ad8kVU","year":2020,"date":"2020-03-06","favorites":1,"retweets":0,"replyTo":null},{"id":"1235990846077636610","text":"RT @mdavidallen: @mrejfox @amyhodler Thinking about politics, seems we probably already have good methods for *small pieces* of the problem…","year":2020,"date":"2020-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"1235990832077049856","text":"RT @mdavidallen: @mrejfox Suppose you had a better macro analysis.  My guess is that it would quickly fail again, because the underlying cu…","year":2020,"date":"2020-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"1235961088694538240","text":"@katieraffa I would like to subscribe to your newsletter","year":2020,"date":"2020-03-06","favorites":1,"retweets":0,"replyTo":"katieraffa"},{"id":"1235943186884853760","text":"💭 https://t.co/3S2vQIJVrB","year":2020,"date":"2020-03-06","favorites":10,"retweets":1,"replyTo":null},{"id":"1103434238559510528","text":"RT @ratherbright: who cancels the cancellers","year":2019,"date":"2019-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"1103415019067396097","text":"RT @palewire: Just in time for #NICAR19, I got back my FOIA for @uscensusbureau design rules. \n\nEvery style guide from Census 2000 to 2020…","year":2019,"date":"2019-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"1103408779859771398","text":"Of course @newsroomdev has been here https://t.co/iVxOwds9wD","year":2019,"date":"2019-03-06","favorites":1,"retweets":0,"replyTo":null},{"id":"1103401139884773376","text":"Tired of the whackness","year":2019,"date":"2019-03-06","favorites":2,"retweets":0,"replyTo":null},{"id":"971152699449335813","text":"RT @TheOnion: New Desktop Folder Created For Sad Little Creative Project https://t.co/QoCda4D0Ma https://t.co/9wobRwXsUx","year":2018,"date":"2018-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"971151349684555777","text":"I would bet a lot of money Dorothy Bruns has a relative on the force.","year":2018,"date":"2018-03-06","favorites":13,"retweets":0,"replyTo":null},{"id":"971148694597881856","text":"I know a good visualization when I barely understand the topic but still spend 20 minutes exploring and playing around, and before I know it, I actually kind of know something https://t.co/SAX7FEwOdo","year":2018,"date":"2018-03-06","favorites":4,"retweets":2,"replyTo":null},{"id":"971141826030854148","text":"RT @imteddybless: stop telling depressed people “tomorrow is a brand new day!” YOU ARE JUST ALARMING US FURTHER","year":2018,"date":"2018-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"971105639756980224","text":"RT @kennethfield: Fair bit of data wrangling but finally...a 1 dot = 1 vote dasymetric dot density 2016 Presidential election map from @Arc…","year":2018,"date":"2018-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"971103236139700224","text":"RT @YousefMunayyer: No @SenSchumer, non-violent activism for Palestinian human rights is NOT anti-Semitism. It is a moral imperative.\n\nUsin…","year":2018,"date":"2018-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"971100724561051649","text":"RT @ismonkeyuser: Focus (https://t.co/iTAKTXeIdu) https://t.co/pYsIiayNIz","year":2018,"date":"2018-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"971099854926729216","text":"RT @letsgomathias: This is an incredible @Steffikeith photo from yesterday. https://t.co/rJzhX8cLe1","year":2018,"date":"2018-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"971043984880660487","text":"RT @axios: Social media platform use by race https://t.co/K2TiPPmPvF https://t.co/Eoa46bVj7i","year":2018,"date":"2018-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"971042740611026944","text":"RT @Nate_Cohn: The primaries begin today. They probably do mean something for the general election   https://t.co/1qqw9kSmnO https://t.co/A…","year":2018,"date":"2018-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"971031953771237381","text":"@cfarivar @arstechnica Super smart for sure! The way of the future.","year":2018,"date":"2018-03-06","favorites":0,"retweets":0,"replyTo":"cfarivar"},{"id":"971021830793383936","text":"@BradStone cannot believe I just had 2 complete Decrypted episodes on Sabu arrive in my inbox. You should be ashamed of yourself for giving this self-promoting know-nothing any attention or airtime, let alone two episodes. I won’t be listening to Decrypted anymore. Bad judgement.","year":2018,"date":"2018-03-06","favorites":0,"retweets":0,"replyTo":"BradStone"},{"id":"971014127073284096","text":"@jbenton It’s like saying “lol” out loud. Those are anti fascists.","year":2018,"date":"2018-03-06","favorites":0,"retweets":0,"replyTo":"jbenton"},{"id":"970830689989021697","text":"news cycle stupid\n\nesc\nesc\nesc\nesc\nesc","year":2018,"date":"2018-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"970830579691343872","text":"@joemfox I want to learn!","year":2018,"date":"2018-03-06","favorites":0,"retweets":0,"replyTo":"joemfox"},{"id":"838840939779133440","text":"Finally home! https://t.co/oFAnOroxYV","year":2017,"date":"2017-03-06","favorites":2,"retweets":0,"replyTo":"mrejfox"},{"id":"706541530505482240","text":"My New York https://t.co/WPrWhqnHvw","year":2016,"date":"2016-03-06","favorites":5,"retweets":0,"replyTo":null},{"id":"706539649246883840","text":"@TravelingAnna this is amazing","year":2016,"date":"2016-03-06","favorites":0,"retweets":0,"replyTo":"TravelingAnna"},{"id":"706482300964442112","text":"RT @juliamacfarlane: Quite a graph from @TheEconomist showing just how much coverage Trump gets from the main evening newscasts: 📺🇺🇸 https:…","year":2016,"date":"2016-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"706482248003035136","text":"Well, I finished House of Cards between Friday and Saturday night. That is a good show to zone out to.","year":2016,"date":"2016-03-06","favorites":5,"retweets":0,"replyTo":null},{"id":"573978790864502784","text":"@awinston Congrats! Looking forward to seeing more incredible work from you.","year":2015,"date":"2015-03-06","favorites":1,"retweets":0,"replyTo":"awinston"},{"id":"573977181757403136","text":"@tylrfishr Your updates are hitting my demographic perfectly","year":2015,"date":"2015-03-06","favorites":1,"retweets":0,"replyTo":"tylrfishr"},{"id":"573976999720566784","text":"RT @tylrfishr: .@ashlynstill: Don't force visuals solely for the sake of visuals.\n\nRelated: we say no a lot at @nprviz.\n\n#NICAR15","year":2015,"date":"2015-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"573973669606748160","text":"@tylrfishr I liked it.\n\nNot, like, technically faved it.\n\nI just have that song stuck in my head now.","year":2015,"date":"2015-03-06","favorites":1,"retweets":0,"replyTo":"tylrfishr"},{"id":"573973461435088899","text":"RT @GurmanBhatia: bad data -&gt; bad stories -&gt; bad policies -&gt; bad outcomes -&gt; post-apocalyptic wasteland.. Know thy data. @dataeditor at #NI…","year":2015,"date":"2015-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"573962237431398400","text":"RT @archietse: We're open sourcing ai2html, our utility for converting Adobe Illustrator docs into html. http://t.co/outOcBcMic http://t.co…","year":2015,"date":"2015-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"573849604782997506","text":"RT @martinstabe: .@maureenlinke: \"Journalists and developers live in a very different world of time\" #nicar15","year":2015,"date":"2015-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"441712749010505728","text":"@poezn I had been using Parallels but I installed windows with bootcamp so I could get full power for gaming","year":2014,"date":"2014-03-06","favorites":0,"retweets":0,"replyTo":"poezn"},{"id":"441665271389241344","text":"IE 10 seriously requires you to restart your computer when you install it","year":2014,"date":"2014-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"441663450998394881","text":"Somehow this day has brought me to booting my MacBook into windows 7 and installing IE9","year":2014,"date":"2014-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"441419143284535296","text":"RT @ejfoxverbose: \"Can Greenwald's digital magazine Intercept help to reinvent journalism?\" http://t.co/3iMKunhOWU (via @pocket)","year":2014,"date":"2014-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"309169702586949632","text":"RT @marg1nal: Today, March 5, marks the 365th day in a row that Jeremy Hammond has been imprisoned. One full year without bail or trial. ...","year":2013,"date":"2013-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"177169611723247617","text":"RT @hyphy_republic: Can we talk about real shit now? Like our folks in jail? Instead of bs and fantasy made up by psychos trying to cove ...","year":2012,"date":"2012-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"177169430390906881","text":"RT @marymad: We now have 10 donors and $405.00 for the #IceCream3! Donate to the bail/legal fund: https://t.co/sw4CWNUE #OO #OccupyOakland","year":2012,"date":"2012-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"177159391949230080","text":"RT @socialistlib510: The Gang of Four and followers are now attacking facilitators of OO GA. So, they are attacking POC, women, queer fa ...","year":2012,"date":"2012-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"177158502110863361","text":"RT @gonzoville: @BellaEiko Their view seems completely insular. Not a good thing for a media organization,much less one tied to a politi ...","year":2012,"date":"2012-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"177157902241497088","text":"RT @susie_c: Heading to @Somarts shortly to hang 60+ #OO paintings. http://t.co/tGR6bZc5 Show opens Thursday, 6pm. #OWS  http://t.co/91N ...","year":2012,"date":"2012-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"177059383463776257","text":"RT @BarrettBrownLOL: My apartment was raided this morning by the FBI. Feds also came to another residence where I actually was. Sabu is  ...","year":2012,"date":"2012-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"177057405564231681","text":"@marymad nature / the world is so incredible / crazy sometimes... Stranger than fiction","year":2012,"date":"2012-03-06","favorites":0,"retweets":0,"replyTo":"treekisser"},{"id":"177050540176445441","text":"RT @cameronmoll: Conceptually, this is ace. iPhone boom mic: http://t.co/R4QKnRkw","year":2012,"date":"2012-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"177048807169720320","text":"The boy with the lightning tattoo http://t.co/kZ3GGFXn","year":2012,"date":"2012-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"176899388852023296","text":"@socialistlib510 First time I saw @punkboyinsf was at like 5AM filming protesters being arrested- no other media around for miles. Amazing.","year":2012,"date":"2012-03-06","favorites":2,"retweets":5,"replyTo":"socialistlib510"},{"id":"176899136321372160","text":"RT @rougek62: @socialistlib510 @punkboyinsf  http://t.co/comaCZ0m  I just donated, encourage others also to help. He works so hard for u ...","year":2012,"date":"2012-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"176899126720598016","text":"RT @socialistlib510: .@punkboyinsf spent all day in Sac. He held it down in Cap Bldg for hours and filmed arrests. Great job.","year":2012,"date":"2012-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"176875860220063744","text":"Okay, I have a plan for occupying inside spaces. Just spitballin' here so bear with me.","year":2012,"date":"2012-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"176869379647086592","text":"@oaklandcami @nzmrmn @geekeasy @benzotweet I just want to stress that the way to go about this will be to make it as open/public as possible","year":2012,"date":"2012-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"176864267591618560","text":"@oaklandcami @geekeasy @benzotweet @nzmrmn All I see (externally) is Us vs. Them attitude from both sides. Has exacerbated issues, imho.","year":2012,"date":"2012-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"176863531122163713","text":"@oaklandcami @geekeasy @benzotweet @nzmrmn It would mean a lot if OOMedia would post something acknowledging problem + looking 4 discussion","year":2012,"date":"2012-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"176863208630525952","text":"@oaklandcami @geekeasy @benzotweet @nzmrmn Would love that. Why not come down to Wednesdays GA? (Any involved have stay-aways?)","year":2012,"date":"2012-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"176862140521652226","text":"@oaklandcami @geekeasy @benzotweet @nzmrmn We can disagree and still be in solidarity. We can argue without 'walking away'. Love to all.","year":2012,"date":"2012-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"176861451699499008","text":"@oaklandcami @geekeasy @benzotweet @nzmrmn As someone completely disconnected from this struggle, I would love calm heads & discussion.","year":2012,"date":"2012-03-06","favorites":1,"retweets":0,"replyTo":null},{"id":"176861167283732480","text":"@oaklandcami @geekeasy @benzotweet @nzmrmn Seemed2me most recent GA had a lot of people unaware of online debate/wanted to hear other side.","year":2012,"date":"2012-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"176858880570179584","text":"@oaklandcami @geekeasy @benzotweet @nzmrmn I believe some people want to destroy #oo no matter what- fight that with transparency/discussion","year":2012,"date":"2012-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"176858717759868929","text":"@oaklandcami @geekeasy @benzotweet @nzmrmn A lot of the people in my discussion group- and the crowd as a whole- wanted to hear OOMedia side","year":2012,"date":"2012-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"176853374770233344","text":"If I don't fucking get this shit done in the next hour, I'll have spent 24 hours trying to fix some RIDICULOUSLY SIMPLE shit unsuccessfully.","year":2012,"date":"2012-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"176850076419891200","text":"RT @marymad: Not only have riot police covered their names/badge numbers. They have also covered their departments. #M5 (live at http:// ...","year":2012,"date":"2012-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"176849609790980096","text":"@geekeasy Would have been great if you, @oaklandcami, @benzotweet, @nzmrmn, or others were at Sunday's GA to give your side. It was missed.","year":2012,"date":"2012-03-06","favorites":0,"retweets":0,"replyTo":"geekeasy"},{"id":"176849369562234880","text":"\"Freedom is not worth having unless it includes the freedom to make mistakes\" - Timely Ghandi quote on my mind.","year":2012,"date":"2012-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"176832640194854913","text":"@geekeasy @waynesmom imho if individuals were targeted they'd be complaining about that This situation sucks for sure What are alternatives?","year":2012,"date":"2012-03-06","favorites":0,"retweets":0,"replyTo":"geekeasy"},{"id":"176830553771872256","text":"Again: This whole argument, between oomedia/omar, now between larger #OO, I fear is exactly what SOMEONE wanted, and we are obeying script.","year":2012,"date":"2012-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"44450221320708096","text":"Why does Lupe Fiasco have the whitest-sounding-dude in history singing his chorus in I Don't Wanna Care Right Now. Ruins the song imho.","year":2011,"date":"2011-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"44230147624284160","text":"New remix of a song I found on Reddit:  http://snd.sc/ezSKSE","year":2011,"date":"2011-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"10077900600","text":"RT @DRUNKHULK DRUNK HULK WONDER IF SITUATION KNOW WOLF BLITZER HANG OUT IN HIS ROOM!","year":2010,"date":"2010-03-06","favorites":1,"retweets":0,"replyTo":null},{"id":"10072759165","text":"playing a little Call of Duty: Modern Warfare 2. http://raptr.com/pseudoplacebo","year":2010,"date":"2010-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"1290472172","text":"Somebody left a dead goat outside a NYS assemblyman's house. From my local paper: http://is.gd/mbQb","year":2009,"date":"2009-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"1290460814","text":"Finally got my free printer from when I bought my MacBook. Now I can bring things from the tubes into the real world! Amazing!","year":2009,"date":"2009-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"1290268421","text":"Freshly showered. Feel great. My short hair makes me feel really badass.","year":2009,"date":"2009-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"1289912309","text":"Me and @Ykstort are figuring out how to call an American number from a british landline phone. Fancy shit.","year":2009,"date":"2009-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"1289896697","text":"Having @ykstort check my voicemail for me because I have a phobia.","year":2009,"date":"2009-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"1289883049","text":"PEOPLE WHO HAVE NUMBERS I DON'T RECOGNIZE KEEP CALLING ME. I keep sending them to voicemail, but I don't ever check my voicemail... so...","year":2009,"date":"2009-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"1289527352","text":"I wouldn't mind paying for the last year's tweets to be printed into a book so I could archive it, put it in my safety deposit box or smthin","year":2009,"date":"2009-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"1289473573","text":"Seriously enjoying a library-wide shuffle this morning. Ben Gibbard acoustic into Billie Holiday into Mitch Hedberg into Death Cab.","year":2009,"date":"2009-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"1287557888","text":"Andrew Bird and then wondrous sleep.","year":2009,"date":"2009-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"1287265887","text":"I feel like shit.","year":2009,"date":"2009-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"1287104620","text":"I don't think any fucking athletes drink energy drinks. That's stupid.","year":2009,"date":"2009-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"1287042672","text":"Vintage.","year":2009,"date":"2009-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"1286985233","text":"@robertashley Hey- I love A Life Well Wasted, well edited. The recordings sound great, what portable equipment do you use?","year":2009,"date":"2009-03-06","favorites":0,"retweets":0,"replyTo":"robertashley"},{"id":"1286970542","text":"That was a truly heartwarming episode of Skins.","year":2009,"date":"2009-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"1286189684","text":"Checking out Episode 2 of Lie To Me, 3:26 in and I think it's brilliant.","year":2009,"date":"2009-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"1286182678","text":"I wish Hulu would allow me to hide episode summaries. Too often do they ruin large parts of the show.","year":2009,"date":"2009-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"1285971586","text":"Two mice just ran hella fast out from under my bookshelf. My reaction was not \"ew, oh my god\" but \"Guys, what the fuck?\"","year":2009,"date":"2009-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"1285963138","text":"Just added a Roland SP-555 to my wishlist. http://is.gd/m0ju","year":2009,"date":"2009-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"767769673","text":"I'd love to see Mary-Louise Parker in Dead Man's Cell Phone. But I can't find out how much tickets cost. If I have to ask they're too much?","year":2008,"date":"2008-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"767692149","text":"\"I've always heard that the good die young, there's little time left to prove them wrong.\" - Maniac by Four Year Strong","year":2008,"date":"2008-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"767654664","text":"Making some custom vans that I think I may purchase. I like companies that allow you to choose your own colours etc, Timbuk2, Vans, others?","year":2008,"date":"2008-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"767391025","text":"Tumblr: szymon:\n\noriginal link http://tinyurl.com/2wognm","year":2008,"date":"2008-03-06","favorites":0,"retweets":0,"replyTo":null},{"id":"767316595","text":"Watching Dan In Real Life. Excellent midway through.","year":2008,"date":"2008-03-06","favorites":0,"retweets":0,"replyTo":null}],"posts":[],"scrobbles":[{"date":"2024-03-06","year":2024,"count":2,"topTracks":["Mac Quayle - 409.4 Fsociety Resurfaces","Paul Haslinger - First Day on the Job"],"topArtists":["Mac Quayle","Paul Haslinger"]},{"date":"2022-03-06","year":2022,"count":111,"topTracks":["Anderson Paak - JEWELZ","Omah Lay - Attention","Juls - Wicked","Jidenna - The Other Half (feat. St. Beauty & Mereba)","Fireboy DML - Peru"],"topArtists":["Anderson Paak","Omah Lay","Juls"]},{"date":"2019-03-06","year":2019,"count":42,"topTracks":["21 Savage - a lot","21 Savage - break da law","21 Savage - a&t","21 Savage - out for the night","21 Savage - gun smoke"],"topArtists":["21 Savage","Lil Baby","YNW Melly"]},{"date":"2016-03-06","year":2016,"count":32,"topTracks":["SG Lewis - Warm","Nao - Fool to Love","Kiiara - Feels","Joni Payne - Hold Ya","Johnny Rain - 143"],"topArtists":["SG Lewis","Nao","Kiiara"]},{"date":"2011-03-06","year":2011,"count":49,"topTracks":["Marko Kahn - Nosebleed (Original Mix)","OSC & Vinja featuring The Spit Brothers - Originate","Joker - Tron","Casio CoPilot - Dead Island","Atmosphere - That Night"],"topArtists":["Marko Kahn","OSC & Vinja featuring The Spit Brothers","Joker"]},{"date":"2009-03-06","year":2009,"count":55,"topTracks":["Kevin Smith and Scott Mosier - SModcast 76: The Great One","J.K. Rowling - Harry Potter 7: The Deathly Hallows (2)","Thievery Corporation - All That We Perceive","¡All-Time Quarterback! - empire state","John Coltrane - I'm Old Fashioned"],"topArtists":["Kevin Smith and Scott Mosier","J.K. Rowling","Thievery Corporation"]},{"date":"2008-03-06","year":2008,"count":42,"topTracks":["NPR - NPR: 03-05-2008 Fresh Air","Death Cab for Cutie - Summer Skin","Death Cab for Cutie - Crooked Teeth","Death Cab for Cutie - We Looked Like Giants","Death Cab for Cutie - A Lack of Color"],"topArtists":["NPR","Death Cab for Cutie","The Kinks"]},{"date":"2007-03-06","year":2007,"count":83,"topTracks":["Ze Frank - zefrank :: 03-05-07 :: true dat","NPR - NPR: Fresh Air for Monday, Mar 05 2007","Bishop Allen - Click Click Click Click","Pretty Girls Make Graves - Sad Girls","Pretty Girls Make Graves - Chemical, Chemical"],"topArtists":["Ze Frank","NPR","Bishop Allen"]},{"date":"2006-03-06","year":2006,"count":78,"topTracks":["Dance Hall Crashers - Queen For A Day","NOFX - San Francisco Fat","Pekka Himanen, Linus Torvalds, and Manul Castells - The Hacker Ethic and the Spirit of the New Economy","Voodoo Glow Skulls - Left For Dead","Capdown - What Doesnt Kill You-Fnt"],"topArtists":["Dance Hall Crashers","NOFX","Pekka Himanen, Linus Torvalds, and Manul Castells"]}],"commits":[]}
+{
+  "tweets": [
+    {
+      "id": "1632793786316206081",
+      "text": "https://t.co/9xzMRhncol",
+      "year": 2023,
+      "date": "2023-03-06",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1632774984559894529",
+      "text": "RT @lukeoneil47: The use of domestic terrorism charges against these protesters is a very bad sign of things to come. https://t.co/Zt222JIp…",
+      "year": 2023,
+      "date": "2023-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1632744725852692481",
+      "text": "@SoC_trilogy Perfect, yes would love to help visualize. 🌞",
+      "year": 2023,
+      "date": "2023-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "SoC_trilogy"
+    },
+    {
+      "id": "1632606854818811904",
+      "text": "RT @magpiekilljoy: This fight will happen on multiple fronts and using multiple tactics. There will be people who focus on legislative acti…",
+      "year": 2023,
+      "date": "2023-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1632550706900025345",
+      "text": "in case anyone wants to understand the specific way in which my brain is broken https://t.co/nZE3cw27CV",
+      "year": 2023,
+      "date": "2023-03-06",
+      "favorites": 4,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1632549228923744257",
+      "text": "gwern for president",
+      "year": 2023,
+      "date": "2023-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1632549100217303041",
+      "text": "@izzyz the rich man also prevents the creation of bar graphs if it doesn't portray him creating value, which in itself cannot be underestimated",
+      "year": 2023,
+      "date": "2023-03-06",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "izzyz"
+    },
+    {
+      "id": "1632538155244040192",
+      "text": "insane scene in Atlanta right now https://t.co/UOViGszyBE",
+      "year": 2023,
+      "date": "2023-03-06",
+      "favorites": 1,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "1500603444771622919",
+      "text": "I have successfully made a candle that smells like drinking espresso in the woods, you’re welcome world (I only made 5 and I’m keeping 2) - reference this tweet next time you see me to claim one of the remaining 3",
+      "year": 2022,
+      "date": "2022-03-06",
+      "favorites": 4,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1368270079410995206",
+      "text": "hello my name is ej and I just want you to put bylines on your data visualizations https://t.co/vjJTfqzAxa",
+      "year": 2021,
+      "date": "2021-03-06",
+      "favorites": 26,
+      "retweets": 2,
+      "replyTo": null
+    },
+    {
+      "id": "1368269172250193924",
+      "text": "@jacobinmag In your print edition, the byline says “By the center for working-class politics” - most shared bylines I have seen list the names of the individuals who contributed to the data analysis and visualization - who at @ysucwcs contributed to this piece? https://t.co/tFv0YvY3Jw",
+      "year": 2021,
+      "date": "2021-03-06",
+      "favorites": 6,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1368267480800628736",
+      "text": "@jacobinmag Why do you not have a byline on your data visualizations? Who created them?",
+      "year": 2021,
+      "date": "2021-03-06",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": "jacobin"
+    },
+    {
+      "id": "1368234282272047108",
+      "text": "@laneharrison 🙏 appreciate that. Would love to hear any thoughts / additions you are interested in",
+      "year": 2021,
+      "date": "2021-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "laneharrison"
+    },
+    {
+      "id": "1368227269857181698",
+      "text": "@Jon_Christian Traktor does, they call the pitch control \"key\" though",
+      "year": 2021,
+      "date": "2021-03-06",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "Jon_Christian"
+    },
+    {
+      "id": "1368226060907773955",
+      "text": "let's add state, local, and national parks to help decide where to go https://t.co/aBHAz918Pc",
+      "year": 2021,
+      "date": "2021-03-06",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1368217702188322820",
+      "text": "updated the filter to less than 3 lanes, and a speed limit less than 51MPH https://t.co/iZ1dD7aTOk",
+      "year": 2021,
+      "date": "2021-03-06",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1368216227450134528",
+      "text": "added some circles and forced labels to be horizontal https://t.co/czpkXmzvb3",
+      "year": 2021,
+      "date": "2021-03-06",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1368215078261166082",
+      "text": "greyscaled out wikimedia unlabeled basemap for a little more context https://t.co/KHah4xYocO",
+      "year": 2021,
+      "date": "2021-03-06",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1368211671966179343",
+      "text": "should probably try and get some labels for these roads so I know what I am looking at https://t.co/tjQFu5Aym4",
+      "year": 2021,
+      "date": "2021-03-06",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1368205735478300675",
+      "text": "In Zen and The Art of Motorcycle Maintenance, there's a good passage about how to spot good motorcycle routes on a map - I want to try to capture some of this, maybe make it a bit easier https://t.co/pi6rn3iTeI",
+      "year": 2021,
+      "date": "2021-03-06",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1368205384507359236",
+      "text": "okay I got distracted, what I really want to do is start working on a layer I can use to make maps of good motorcycle routes - to start I'm gonna eliminate big highways which I do not enjoy driving my tiny motorcycle on https://t.co/TcWwRYmNJv",
+      "year": 2021,
+      "date": "2021-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1368203395199303681",
+      "text": "I  don't like  the way the thicker (bigger, more-laned) roads block out the smaller roads, but it's pretty easy to fix the render order in qgis - just have to set it to render the roads with the least amount of lanes last, which I think makes it much easier to read dense areas https://t.co/5aZcFWTnzZ",
+      "year": 2021,
+      "date": "2021-03-06",
+      "favorites": 2,
+      "retweets": 1,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1368202883372564481",
+      "text": "playing around with the color scale for speed limits... I like the orange one best, I think https://t.co/8vxm7NHpVV",
+      "year": 2021,
+      "date": "2021-03-06",
+      "favorites": 0,
+      "retweets": 1,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1368201301851537413",
+      "text": "you can also make each road's thickness reflect how many lanes it  has (ie, more lanes makes a thicker road!) and things start to look more \"right\" almost immediately https://t.co/Ou1UTp1f9z",
+      "year": 2021,
+      "date": "2021-03-06",
+      "favorites": 2,
+      "retweets": 1,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1368200888297328642",
+      "text": "okay I am starting over, just color by speed limit to get things rolling https://t.co/dDvh4ATrMd",
+      "year": 2021,
+      "date": "2021-03-06",
+      "favorites": 2,
+      "retweets": 1,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1368199329773727747",
+      "text": "make @dril a tweet billionaire 2021, perfect cyberpunk ambiance https://t.co/ECEnufwZpH",
+      "year": 2021,
+      "date": "2021-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1368186578242334721",
+      "text": "north american roads sized and colored by speed limit gone wrong https://t.co/uftJmbeaYP",
+      "year": 2021,
+      "date": "2021-03-06",
+      "favorites": 32,
+      "retweets": 2,
+      "replyTo": null
+    },
+    {
+      "id": "1235991856426737666",
+      "text": "Its part of the reason I really love these Sankeys, they are 4 dimensional and capture the (theoretical) linkages between decisions that is more valuable than most other political dataviz I see https://t.co/6o2gnNcI3F",
+      "year": 2020,
+      "date": "2020-03-06",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1235991183668715520",
+      "text": "I am still trying to find the words for what I am intuiting, but I think its the difference between analyzing the nodes vs the links. Almost all modeling is done on the nodes, and very little is done on the (uncaptured, therefore invisible) linkages between them https://t.co/ZO38Ad8kVU",
+      "year": 2020,
+      "date": "2020-03-06",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1235990846077636610",
+      "text": "RT @mdavidallen: @mrejfox @amyhodler Thinking about politics, seems we probably already have good methods for *small pieces* of the problem…",
+      "year": 2020,
+      "date": "2020-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1235990832077049856",
+      "text": "RT @mdavidallen: @mrejfox Suppose you had a better macro analysis.  My guess is that it would quickly fail again, because the underlying cu…",
+      "year": 2020,
+      "date": "2020-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1235961088694538240",
+      "text": "@katieraffa I would like to subscribe to your newsletter",
+      "year": 2020,
+      "date": "2020-03-06",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "katieraffa"
+    },
+    {
+      "id": "1235943186884853760",
+      "text": "💭 https://t.co/3S2vQIJVrB",
+      "year": 2020,
+      "date": "2020-03-06",
+      "favorites": 10,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "1103434238559510528",
+      "text": "RT @ratherbright: who cancels the cancellers",
+      "year": 2019,
+      "date": "2019-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1103415019067396097",
+      "text": "RT @palewire: Just in time for #NICAR19, I got back my FOIA for @uscensusbureau design rules. \n\nEvery style guide from Census 2000 to 2020…",
+      "year": 2019,
+      "date": "2019-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1103408779859771398",
+      "text": "Of course @newsroomdev has been here https://t.co/iVxOwds9wD",
+      "year": 2019,
+      "date": "2019-03-06",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1103401139884773376",
+      "text": "Tired of the whackness",
+      "year": 2019,
+      "date": "2019-03-06",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "971152699449335813",
+      "text": "RT @TheOnion: New Desktop Folder Created For Sad Little Creative Project https://t.co/QoCda4D0Ma https://t.co/9wobRwXsUx",
+      "year": 2018,
+      "date": "2018-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "971151349684555777",
+      "text": "I would bet a lot of money Dorothy Bruns has a relative on the force.",
+      "year": 2018,
+      "date": "2018-03-06",
+      "favorites": 13,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "971148694597881856",
+      "text": "I know a good visualization when I barely understand the topic but still spend 20 minutes exploring and playing around, and before I know it, I actually kind of know something https://t.co/SAX7FEwOdo",
+      "year": 2018,
+      "date": "2018-03-06",
+      "favorites": 4,
+      "retweets": 2,
+      "replyTo": null
+    },
+    {
+      "id": "971141826030854148",
+      "text": "RT @imteddybless: stop telling depressed people “tomorrow is a brand new day!” YOU ARE JUST ALARMING US FURTHER",
+      "year": 2018,
+      "date": "2018-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "971105639756980224",
+      "text": "RT @kennethfield: Fair bit of data wrangling but finally...a 1 dot = 1 vote dasymetric dot density 2016 Presidential election map from @Arc…",
+      "year": 2018,
+      "date": "2018-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "971103236139700224",
+      "text": "RT @YousefMunayyer: No @SenSchumer, non-violent activism for Palestinian human rights is NOT anti-Semitism. It is a moral imperative.\n\nUsin…",
+      "year": 2018,
+      "date": "2018-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "971100724561051649",
+      "text": "RT @ismonkeyuser: Focus (https://t.co/iTAKTXeIdu) https://t.co/pYsIiayNIz",
+      "year": 2018,
+      "date": "2018-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "971099854926729216",
+      "text": "RT @letsgomathias: This is an incredible @Steffikeith photo from yesterday. https://t.co/rJzhX8cLe1",
+      "year": 2018,
+      "date": "2018-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "971043984880660487",
+      "text": "RT @axios: Social media platform use by race https://t.co/K2TiPPmPvF https://t.co/Eoa46bVj7i",
+      "year": 2018,
+      "date": "2018-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "971042740611026944",
+      "text": "RT @Nate_Cohn: The primaries begin today. They probably do mean something for the general election   https://t.co/1qqw9kSmnO https://t.co/A…",
+      "year": 2018,
+      "date": "2018-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "971031953771237381",
+      "text": "@cfarivar @arstechnica Super smart for sure! The way of the future.",
+      "year": 2018,
+      "date": "2018-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "cfarivar"
+    },
+    {
+      "id": "971021830793383936",
+      "text": "@BradStone cannot believe I just had 2 complete Decrypted episodes on Sabu arrive in my inbox. You should be ashamed of yourself for giving this self-promoting know-nothing any attention or airtime, let alone two episodes. I won’t be listening to Decrypted anymore. Bad judgement.",
+      "year": 2018,
+      "date": "2018-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "BradStone"
+    },
+    {
+      "id": "971014127073284096",
+      "text": "@jbenton It’s like saying “lol” out loud. Those are anti fascists.",
+      "year": 2018,
+      "date": "2018-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "jbenton"
+    },
+    {
+      "id": "970830689989021697",
+      "text": "news cycle stupid\n\nesc\nesc\nesc\nesc\nesc",
+      "year": 2018,
+      "date": "2018-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "970830579691343872",
+      "text": "@joemfox I want to learn!",
+      "year": 2018,
+      "date": "2018-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "joemfox"
+    },
+    {
+      "id": "838840939779133440",
+      "text": "Finally home! https://t.co/oFAnOroxYV",
+      "year": 2017,
+      "date": "2017-03-06",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "706541530505482240",
+      "text": "My New York https://t.co/WPrWhqnHvw",
+      "year": 2016,
+      "date": "2016-03-06",
+      "favorites": 5,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "706539649246883840",
+      "text": "@TravelingAnna this is amazing",
+      "year": 2016,
+      "date": "2016-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "TravelingAnna"
+    },
+    {
+      "id": "706482300964442112",
+      "text": "RT @juliamacfarlane: Quite a graph from @TheEconomist showing just how much coverage Trump gets from the main evening newscasts: 📺🇺🇸 https:…",
+      "year": 2016,
+      "date": "2016-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "706482248003035136",
+      "text": "Well, I finished House of Cards between Friday and Saturday night. That is a good show to zone out to.",
+      "year": 2016,
+      "date": "2016-03-06",
+      "favorites": 5,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "573978790864502784",
+      "text": "@awinston Congrats! Looking forward to seeing more incredible work from you.",
+      "year": 2015,
+      "date": "2015-03-06",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "awinston"
+    },
+    {
+      "id": "573977181757403136",
+      "text": "@tylrfishr Your updates are hitting my demographic perfectly",
+      "year": 2015,
+      "date": "2015-03-06",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "tylrfishr"
+    },
+    {
+      "id": "573976999720566784",
+      "text": "RT @tylrfishr: .@ashlynstill: Don't force visuals solely for the sake of visuals.\n\nRelated: we say no a lot at @nprviz.\n\n#NICAR15",
+      "year": 2015,
+      "date": "2015-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "573973669606748160",
+      "text": "@tylrfishr I liked it.\n\nNot, like, technically faved it.\n\nI just have that song stuck in my head now.",
+      "year": 2015,
+      "date": "2015-03-06",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "tylrfishr"
+    },
+    {
+      "id": "573973461435088899",
+      "text": "RT @GurmanBhatia: bad data -&gt; bad stories -&gt; bad policies -&gt; bad outcomes -&gt; post-apocalyptic wasteland.. Know thy data. @dataeditor at #NI…",
+      "year": 2015,
+      "date": "2015-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "573962237431398400",
+      "text": "RT @archietse: We're open sourcing ai2html, our utility for converting Adobe Illustrator docs into html. http://t.co/outOcBcMic http://t.co…",
+      "year": 2015,
+      "date": "2015-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "573849604782997506",
+      "text": "RT @martinstabe: .@maureenlinke: \"Journalists and developers live in a very different world of time\" #nicar15",
+      "year": 2015,
+      "date": "2015-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "441712749010505728",
+      "text": "@poezn I had been using Parallels but I installed windows with bootcamp so I could get full power for gaming",
+      "year": 2014,
+      "date": "2014-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "poezn"
+    },
+    {
+      "id": "441665271389241344",
+      "text": "IE 10 seriously requires you to restart your computer when you install it",
+      "year": 2014,
+      "date": "2014-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "441663450998394881",
+      "text": "Somehow this day has brought me to booting my MacBook into windows 7 and installing IE9",
+      "year": 2014,
+      "date": "2014-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "441419143284535296",
+      "text": "RT @ejfoxverbose: \"Can Greenwald's digital magazine Intercept help to reinvent journalism?\" http://t.co/3iMKunhOWU (via @pocket)",
+      "year": 2014,
+      "date": "2014-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "309169702586949632",
+      "text": "RT @marg1nal: Today, March 5, marks the 365th day in a row that Jeremy Hammond has been imprisoned. One full year without bail or trial. ...",
+      "year": 2013,
+      "date": "2013-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "177169611723247617",
+      "text": "RT @hyphy_republic: Can we talk about real shit now? Like our folks in jail? Instead of bs and fantasy made up by psychos trying to cove ...",
+      "year": 2012,
+      "date": "2012-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "177169430390906881",
+      "text": "RT @marymad: We now have 10 donors and $405.00 for the #IceCream3! Donate to the bail/legal fund: https://t.co/sw4CWNUE #OO #OccupyOakland",
+      "year": 2012,
+      "date": "2012-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "177159391949230080",
+      "text": "RT @socialistlib510: The Gang of Four and followers are now attacking facilitators of OO GA. So, they are attacking POC, women, queer fa ...",
+      "year": 2012,
+      "date": "2012-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "177158502110863361",
+      "text": "RT @gonzoville: @BellaEiko Their view seems completely insular. Not a good thing for a media organization,much less one tied to a politi ...",
+      "year": 2012,
+      "date": "2012-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "177157902241497088",
+      "text": "RT @susie_c: Heading to @Somarts shortly to hang 60+ #OO paintings. http://t.co/tGR6bZc5 Show opens Thursday, 6pm. #OWS  http://t.co/91N ...",
+      "year": 2012,
+      "date": "2012-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "177059383463776257",
+      "text": "RT @BarrettBrownLOL: My apartment was raided this morning by the FBI. Feds also came to another residence where I actually was. Sabu is  ...",
+      "year": 2012,
+      "date": "2012-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "177057405564231681",
+      "text": "@marymad nature / the world is so incredible / crazy sometimes... Stranger than fiction",
+      "year": 2012,
+      "date": "2012-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "treekisser"
+    },
+    {
+      "id": "177050540176445441",
+      "text": "RT @cameronmoll: Conceptually, this is ace. iPhone boom mic: http://t.co/R4QKnRkw",
+      "year": 2012,
+      "date": "2012-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "177048807169720320",
+      "text": "The boy with the lightning tattoo http://t.co/kZ3GGFXn",
+      "year": 2012,
+      "date": "2012-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "176899388852023296",
+      "text": "@socialistlib510 First time I saw @punkboyinsf was at like 5AM filming protesters being arrested- no other media around for miles. Amazing.",
+      "year": 2012,
+      "date": "2012-03-06",
+      "favorites": 2,
+      "retweets": 5,
+      "replyTo": "socialistlib510"
+    },
+    {
+      "id": "176899136321372160",
+      "text": "RT @rougek62: @socialistlib510 @punkboyinsf  http://t.co/comaCZ0m  I just donated, encourage others also to help. He works so hard for u ...",
+      "year": 2012,
+      "date": "2012-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "176899126720598016",
+      "text": "RT @socialistlib510: .@punkboyinsf spent all day in Sac. He held it down in Cap Bldg for hours and filmed arrests. Great job.",
+      "year": 2012,
+      "date": "2012-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "176875860220063744",
+      "text": "Okay, I have a plan for occupying inside spaces. Just spitballin' here so bear with me.",
+      "year": 2012,
+      "date": "2012-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "176869379647086592",
+      "text": "@oaklandcami @nzmrmn @geekeasy @benzotweet I just want to stress that the way to go about this will be to make it as open/public as possible",
+      "year": 2012,
+      "date": "2012-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "176864267591618560",
+      "text": "@oaklandcami @geekeasy @benzotweet @nzmrmn All I see (externally) is Us vs. Them attitude from both sides. Has exacerbated issues, imho.",
+      "year": 2012,
+      "date": "2012-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "176863531122163713",
+      "text": "@oaklandcami @geekeasy @benzotweet @nzmrmn It would mean a lot if OOMedia would post something acknowledging problem + looking 4 discussion",
+      "year": 2012,
+      "date": "2012-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "176863208630525952",
+      "text": "@oaklandcami @geekeasy @benzotweet @nzmrmn Would love that. Why not come down to Wednesdays GA? (Any involved have stay-aways?)",
+      "year": 2012,
+      "date": "2012-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "176862140521652226",
+      "text": "@oaklandcami @geekeasy @benzotweet @nzmrmn We can disagree and still be in solidarity. We can argue without 'walking away'. Love to all.",
+      "year": 2012,
+      "date": "2012-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "176861451699499008",
+      "text": "@oaklandcami @geekeasy @benzotweet @nzmrmn As someone completely disconnected from this struggle, I would love calm heads & discussion.",
+      "year": 2012,
+      "date": "2012-03-06",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "176861167283732480",
+      "text": "@oaklandcami @geekeasy @benzotweet @nzmrmn Seemed2me most recent GA had a lot of people unaware of online debate/wanted to hear other side.",
+      "year": 2012,
+      "date": "2012-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "176858880570179584",
+      "text": "@oaklandcami @geekeasy @benzotweet @nzmrmn I believe some people want to destroy #oo no matter what- fight that with transparency/discussion",
+      "year": 2012,
+      "date": "2012-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "176858717759868929",
+      "text": "@oaklandcami @geekeasy @benzotweet @nzmrmn A lot of the people in my discussion group- and the crowd as a whole- wanted to hear OOMedia side",
+      "year": 2012,
+      "date": "2012-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "176853374770233344",
+      "text": "If I don't fucking get this shit done in the next hour, I'll have spent 24 hours trying to fix some RIDICULOUSLY SIMPLE shit unsuccessfully.",
+      "year": 2012,
+      "date": "2012-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "176850076419891200",
+      "text": "RT @marymad: Not only have riot police covered their names/badge numbers. They have also covered their departments. #M5 (live at http:// ...",
+      "year": 2012,
+      "date": "2012-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "176849609790980096",
+      "text": "@geekeasy Would have been great if you, @oaklandcami, @benzotweet, @nzmrmn, or others were at Sunday's GA to give your side. It was missed.",
+      "year": 2012,
+      "date": "2012-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "geekeasy"
+    },
+    {
+      "id": "176849369562234880",
+      "text": "\"Freedom is not worth having unless it includes the freedom to make mistakes\" - Timely Ghandi quote on my mind.",
+      "year": 2012,
+      "date": "2012-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "176832640194854913",
+      "text": "@geekeasy @waynesmom imho if individuals were targeted they'd be complaining about that This situation sucks for sure What are alternatives?",
+      "year": 2012,
+      "date": "2012-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "geekeasy"
+    },
+    {
+      "id": "176830553771872256",
+      "text": "Again: This whole argument, between oomedia/omar, now between larger #OO, I fear is exactly what SOMEONE wanted, and we are obeying script.",
+      "year": 2012,
+      "date": "2012-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "44450221320708096",
+      "text": "Why does Lupe Fiasco have the whitest-sounding-dude in history singing his chorus in I Don't Wanna Care Right Now. Ruins the song imho.",
+      "year": 2011,
+      "date": "2011-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "44230147624284160",
+      "text": "New remix of a song I found on Reddit:  http://snd.sc/ezSKSE",
+      "year": 2011,
+      "date": "2011-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "10077900600",
+      "text": "RT @DRUNKHULK DRUNK HULK WONDER IF SITUATION KNOW WOLF BLITZER HANG OUT IN HIS ROOM!",
+      "year": 2010,
+      "date": "2010-03-06",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "10072759165",
+      "text": "playing a little Call of Duty: Modern Warfare 2. http://raptr.com/pseudoplacebo",
+      "year": 2010,
+      "date": "2010-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1290472172",
+      "text": "Somebody left a dead goat outside a NYS assemblyman's house. From my local paper: http://is.gd/mbQb",
+      "year": 2009,
+      "date": "2009-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1290460814",
+      "text": "Finally got my free printer from when I bought my MacBook. Now I can bring things from the tubes into the real world! Amazing!",
+      "year": 2009,
+      "date": "2009-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1290268421",
+      "text": "Freshly showered. Feel great. My short hair makes me feel really badass.",
+      "year": 2009,
+      "date": "2009-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1289912309",
+      "text": "Me and @Ykstort are figuring out how to call an American number from a british landline phone. Fancy shit.",
+      "year": 2009,
+      "date": "2009-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1289896697",
+      "text": "Having @ykstort check my voicemail for me because I have a phobia.",
+      "year": 2009,
+      "date": "2009-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1289883049",
+      "text": "PEOPLE WHO HAVE NUMBERS I DON'T RECOGNIZE KEEP CALLING ME. I keep sending them to voicemail, but I don't ever check my voicemail... so...",
+      "year": 2009,
+      "date": "2009-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1289527352",
+      "text": "I wouldn't mind paying for the last year's tweets to be printed into a book so I could archive it, put it in my safety deposit box or smthin",
+      "year": 2009,
+      "date": "2009-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1289473573",
+      "text": "Seriously enjoying a library-wide shuffle this morning. Ben Gibbard acoustic into Billie Holiday into Mitch Hedberg into Death Cab.",
+      "year": 2009,
+      "date": "2009-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1287557888",
+      "text": "Andrew Bird and then wondrous sleep.",
+      "year": 2009,
+      "date": "2009-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1287265887",
+      "text": "I feel like shit.",
+      "year": 2009,
+      "date": "2009-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1287104620",
+      "text": "I don't think any fucking athletes drink energy drinks. That's stupid.",
+      "year": 2009,
+      "date": "2009-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1287042672",
+      "text": "Vintage.",
+      "year": 2009,
+      "date": "2009-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1286985233",
+      "text": "@robertashley Hey- I love A Life Well Wasted, well edited. The recordings sound great, what portable equipment do you use?",
+      "year": 2009,
+      "date": "2009-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "robertashley"
+    },
+    {
+      "id": "1286970542",
+      "text": "That was a truly heartwarming episode of Skins.",
+      "year": 2009,
+      "date": "2009-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1286189684",
+      "text": "Checking out Episode 2 of Lie To Me, 3:26 in and I think it's brilliant.",
+      "year": 2009,
+      "date": "2009-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1286182678",
+      "text": "I wish Hulu would allow me to hide episode summaries. Too often do they ruin large parts of the show.",
+      "year": 2009,
+      "date": "2009-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1285971586",
+      "text": "Two mice just ran hella fast out from under my bookshelf. My reaction was not \"ew, oh my god\" but \"Guys, what the fuck?\"",
+      "year": 2009,
+      "date": "2009-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1285963138",
+      "text": "Just added a Roland SP-555 to my wishlist. http://is.gd/m0ju",
+      "year": 2009,
+      "date": "2009-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "767769673",
+      "text": "I'd love to see Mary-Louise Parker in Dead Man's Cell Phone. But I can't find out how much tickets cost. If I have to ask they're too much?",
+      "year": 2008,
+      "date": "2008-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "767692149",
+      "text": "\"I've always heard that the good die young, there's little time left to prove them wrong.\" - Maniac by Four Year Strong",
+      "year": 2008,
+      "date": "2008-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "767654664",
+      "text": "Making some custom vans that I think I may purchase. I like companies that allow you to choose your own colours etc, Timbuk2, Vans, others?",
+      "year": 2008,
+      "date": "2008-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "767391025",
+      "text": "Tumblr: szymon:\n\noriginal link http://tinyurl.com/2wognm",
+      "year": 2008,
+      "date": "2008-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "767316595",
+      "text": "Watching Dan In Real Life. Excellent midway through.",
+      "year": 2008,
+      "date": "2008-03-06",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    }
+  ],
+  "posts": [],
+  "scrobbles": [
+    {
+      "date": "2024-03-06",
+      "year": 2024,
+      "count": 2,
+      "topTracks": [
+        "Mac Quayle - 409.4 Fsociety Resurfaces",
+        "Paul Haslinger - First Day on the Job"
+      ],
+      "topArtists": ["Mac Quayle", "Paul Haslinger"]
+    },
+    {
+      "date": "2022-03-06",
+      "year": 2022,
+      "count": 111,
+      "topTracks": [
+        "Anderson Paak - JEWELZ",
+        "Omah Lay - Attention",
+        "Juls - Wicked",
+        "Jidenna - The Other Half (feat. St. Beauty & Mereba)",
+        "Fireboy DML - Peru"
+      ],
+      "topArtists": ["Anderson Paak", "Omah Lay", "Juls"]
+    },
+    {
+      "date": "2019-03-06",
+      "year": 2019,
+      "count": 42,
+      "topTracks": [
+        "21 Savage - a lot",
+        "21 Savage - break da law",
+        "21 Savage - a&t",
+        "21 Savage - out for the night",
+        "21 Savage - gun smoke"
+      ],
+      "topArtists": ["21 Savage", "Lil Baby", "YNW Melly"]
+    },
+    {
+      "date": "2016-03-06",
+      "year": 2016,
+      "count": 32,
+      "topTracks": [
+        "SG Lewis - Warm",
+        "Nao - Fool to Love",
+        "Kiiara - Feels",
+        "Joni Payne - Hold Ya",
+        "Johnny Rain - 143"
+      ],
+      "topArtists": ["SG Lewis", "Nao", "Kiiara"]
+    },
+    {
+      "date": "2011-03-06",
+      "year": 2011,
+      "count": 49,
+      "topTracks": [
+        "Marko Kahn - Nosebleed (Original Mix)",
+        "OSC & Vinja featuring The Spit Brothers - Originate",
+        "Joker - Tron",
+        "Casio CoPilot - Dead Island",
+        "Atmosphere - That Night"
+      ],
+      "topArtists": [
+        "Marko Kahn",
+        "OSC & Vinja featuring The Spit Brothers",
+        "Joker"
+      ]
+    },
+    {
+      "date": "2009-03-06",
+      "year": 2009,
+      "count": 55,
+      "topTracks": [
+        "Kevin Smith and Scott Mosier - SModcast 76: The Great One",
+        "J.K. Rowling - Harry Potter 7: The Deathly Hallows (2)",
+        "Thievery Corporation - All That We Perceive",
+        "¡All-Time Quarterback! - empire state",
+        "John Coltrane - I'm Old Fashioned"
+      ],
+      "topArtists": [
+        "Kevin Smith and Scott Mosier",
+        "J.K. Rowling",
+        "Thievery Corporation"
+      ]
+    },
+    {
+      "date": "2008-03-06",
+      "year": 2008,
+      "count": 42,
+      "topTracks": [
+        "NPR - NPR: 03-05-2008 Fresh Air",
+        "Death Cab for Cutie - Summer Skin",
+        "Death Cab for Cutie - Crooked Teeth",
+        "Death Cab for Cutie - We Looked Like Giants",
+        "Death Cab for Cutie - A Lack of Color"
+      ],
+      "topArtists": ["NPR", "Death Cab for Cutie", "The Kinks"]
+    },
+    {
+      "date": "2007-03-06",
+      "year": 2007,
+      "count": 83,
+      "topTracks": [
+        "Ze Frank - zefrank :: 03-05-07 :: true dat",
+        "NPR - NPR: Fresh Air for Monday, Mar 05 2007",
+        "Bishop Allen - Click Click Click Click",
+        "Pretty Girls Make Graves - Sad Girls",
+        "Pretty Girls Make Graves - Chemical, Chemical"
+      ],
+      "topArtists": ["Ze Frank", "NPR", "Bishop Allen"]
+    },
+    {
+      "date": "2006-03-06",
+      "year": 2006,
+      "count": 78,
+      "topTracks": [
+        "Dance Hall Crashers - Queen For A Day",
+        "NOFX - San Francisco Fat",
+        "Pekka Himanen, Linus Torvalds, and Manul Castells - The Hacker Ethic and the Spirit of the New Economy",
+        "Voodoo Glow Skulls - Left For Dead",
+        "Capdown - What Doesnt Kill You-Fnt"
+      ],
+      "topArtists": [
+        "Dance Hall Crashers",
+        "NOFX",
+        "Pekka Himanen, Linus Torvalds, and Manul Castells"
+      ]
+    }
+  ],
+  "commits": []
+}

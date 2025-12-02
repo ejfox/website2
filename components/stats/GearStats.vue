@@ -7,51 +7,51 @@
     <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
       <div class="flex justify-between">
         <span class="text-zinc-500">ITEMS</span>
-        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">{{
-          totalItems
-        }}</span>
+        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
+          {{ totalItems }}
+        </span>
       </div>
       <div class="flex justify-between">
         <span class="text-zinc-500">CONTAINERS</span>
-        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">{{
-          containerCount
-        }}</span>
+        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
+          {{ containerCount }}
+        </span>
       </div>
       <div class="flex justify-between">
         <span class="text-zinc-500">WEIGHT</span>
-        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums"
-          >{{ totalWeight.toFixed(1) }}oz</span
-        >
+        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
+          {{ totalWeight.toFixed(1) }}oz
+        </span>
       </div>
       <div class="flex justify-between">
         <span class="text-zinc-500">TYPES</span>
-        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">{{
-          Object.keys(typeDistribution).length
-        }}</span>
+        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
+          {{ Object.keys(typeDistribution).length }}
+        </span>
       </div>
       <div class="flex justify-between">
         <span class="text-zinc-500">LBS</span>
-        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">{{
-          ouncesToPounds.toFixed(2)
-        }}</span>
+        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
+          {{ ouncesToPounds.toFixed(2) }}
+        </span>
       </div>
       <div class="flex justify-between">
         <span class="text-zinc-500">G/ITEM</span>
-        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums"
-          >{{ gramsPerItem.toFixed(0) }}g</span
-        >
+        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
+          {{ gramsPerItem.toFixed(0) }}g
+        </span>
       </div>
       <div class="flex justify-between">
         <span class="text-zinc-500">OZ/ITEM</span>
-        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">{{
-          (totalWeight / totalItems).toFixed(1)
-        }}</span>
+        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
+          {{ (totalWeight / totalItems).toFixed(1) }}
+        </span>
       </div>
       <div class="flex justify-between">
         <span class="text-zinc-500">AVG WT</span>
-        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums"
-          >{{ (totalWeight / containerCount).toFixed(1) }}oz</span
-        >
+        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
+          {{ (totalWeight / containerCount).toFixed(1) }}oz
+        </span>
       </div>
     </div>
 
@@ -69,21 +69,21 @@
         class="row-hover-gap"
       >
         <div class="flex items-baseline gap-1.5 min-w-0 flex-1">
-          <span class="text-zinc-500 text-4xs">{{
-            container.type.substring(0, 3)
-          }}</span>
-          <span class="text-zinc-700 dark:text-zinc-300 truncate text-2xs">{{
-            container.name
-          }}</span>
+          <span class="text-zinc-500 text-4xs">
+            {{ container.type.substring(0, 3) }}
+          </span>
+          <span class="text-zinc-700 dark:text-zinc-300 truncate text-2xs">
+            {{ container.name }}
+          </span>
         </div>
         <div
           class="flex items-baseline gap-2 tabular-nums text-3xs flex-shrink-0"
           :class="['text-zinc-500']"
         >
           <span>{{ container.itemCount }}</span>
-          <span class="text-zinc-700 dark:text-zinc-300">{{
-            formatWeight(parseFloat(container.weight))
-          }}</span>
+          <span class="text-zinc-700 dark:text-zinc-300">
+            {{ formatWeight(parseFloat(container.weight)) }}
+          </span>
         </div>
       </div>
     </div>
@@ -102,13 +102,12 @@
           :key="item.type"
           class="flex items-baseline justify-between gap-1"
         >
-          <span class="text-zinc-500 text-4xs uppercase truncate">{{
-            item.type
-          }}</span>
-          <span
-            class="text-zinc-700 dark:text-zinc-300 tabular-nums text-3xs"
-            >{{ formatWeight(item.weight) }}</span
-          >
+          <span class="text-zinc-500 text-4xs uppercase truncate">
+            {{ item.type }}
+          </span>
+          <span class="text-zinc-700 dark:text-zinc-300 tabular-nums text-3xs">
+            {{ formatWeight(item.weight) }}
+          </span>
         </div>
       </div>
     </div>
@@ -127,21 +126,22 @@
           :key="type"
           class="flex items-center justify-between gap-1"
         >
-          <span class="text-zinc-500 text-4xs uppercase truncate">{{
-            type
-          }}</span>
+          <span class="text-zinc-500 text-4xs uppercase truncate">
+            {{ type }}
+          </span>
           <div class="flex items-center gap-1">
             <div
               class="h-1 bg-zinc-400 dark:bg-zinc-600 rounded-[1px]"
               :style="{
-                width: `${Math.max(4, (count / maxTypeCount) * 20)}px`
+                width: `${Math.max(4, (count / maxTypeCount) * 20)}px`,
               }"
             ></div>
             <span
               class="tabular-nums text-3xs w-4 text-right"
               :class="['text-zinc-700 dark:text-zinc-300']"
-              >{{ count }}</span
             >
+              {{ count }}
+            </span>
           </div>
         </div>
       </div>
@@ -158,12 +158,12 @@
         :key="item.Name"
         class="flex justify-between gap-2 text-3xs"
       >
-        <span class="text-zinc-700 dark:text-zinc-300 truncate">{{
-          item.Name
-        }}</span>
-        <span class="text-zinc-500 tabular-nums flex-shrink-0">{{
-          formatWeight(parseFloat(item.Weight_oz || '0'))
-        }}</span>
+        <span class="text-zinc-700 dark:text-zinc-300 truncate">
+          {{ item.Name }}
+        </span>
+        <span class="text-zinc-500 tabular-nums flex-shrink-0">
+          {{ formatWeight(parseFloat(item.Weight_oz || '0')) }}
+        </span>
       </div>
     </div>
 
@@ -178,14 +178,14 @@
         :key="item.Name"
         class="flex justify-between gap-2 text-3xs"
       >
-        <span class="text-zinc-700 dark:text-zinc-300 truncate">{{
-          item.Name
-        }}</span>
+        <span class="text-zinc-700 dark:text-zinc-300 truncate">
+          {{ item.Name }}
+        </span>
         <div class="flex items-baseline gap-1.5">
           <span class="text-zinc-500 text-4xs">{{ item.Last_Used }}</span>
-          <span class="text-zinc-500 tabular-nums flex-shrink-0">{{
-            formatWeight(parseFloat(item.Weight_oz || '0'))
-          }}</span>
+          <span class="text-zinc-500 tabular-nums flex-shrink-0">
+            {{ formatWeight(parseFloat(item.Weight_oz || '0')) }}
+          </span>
         </div>
       </div>
     </div>
@@ -202,13 +202,12 @@
           :key="item.type + '-avg'"
           class="flex items-baseline justify-between gap-1"
         >
-          <span class="text-zinc-500 text-4xs uppercase truncate">{{
-            item.type
-          }}</span>
-          <span
-            class="text-zinc-700 dark:text-zinc-300 tabular-nums text-3xs"
-            >{{ formatWeight(item.avgWeight) }}</span
-          >
+          <span class="text-zinc-500 text-4xs uppercase truncate">
+            {{ item.type }}
+          </span>
+          <span class="text-zinc-700 dark:text-zinc-300 tabular-nums text-3xs">
+            {{ formatWeight(item.avgWeight) }}
+          </span>
         </div>
       </div>
     </div>
@@ -350,7 +349,7 @@ const weightPerType = computed(() => {
       type,
       weight: weight,
       count: typeDistribution.value[type] || 0,
-      avgWeight: weight / (typeDistribution.value[type] || 1)
+      avgWeight: weight / (typeDistribution.value[type] || 1),
     }))
     .sort((a, b) => b.weight - a.weight)
 })
@@ -423,7 +422,7 @@ const mainContainers = computed(() => {
         type: container.Type || 'Container',
         weight: (containerWeight + contentsWeight).toFixed(1),
         itemCount: childItems.length,
-        parentContainer: container['Parent Container'] || 'Body'
+        parentContainer: container['Parent Container'] || 'Body',
       }
     })
     .sort((a, b) => Number.parseFloat(b.weight) - Number.parseFloat(a.weight))

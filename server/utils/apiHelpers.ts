@@ -26,7 +26,7 @@ export async function makeApiRequest<T>(
 
       const response = await fetch(url, {
         ...fetchOptions,
-        signal: controller.signal
+        signal: controller.signal,
       })
 
       clearTimeout(timeoutId)
@@ -35,7 +35,7 @@ export async function makeApiRequest<T>(
         throw createError({
           statusCode: response.status,
           statusMessage: `API error: ${response.statusText}`,
-          message: `Failed to fetch from ${url}`
+          message: `Failed to fetch from ${url}`,
         })
       }
 
@@ -52,7 +52,7 @@ export async function makeApiRequest<T>(
         throw createError({
           statusCode: 500,
           statusMessage: 'API Request Failed',
-          message: `Failed to fetch from ${url} after ${maxRetries} attempts: ${error.message}`
+          message: `Failed to fetch from ${url} after ${maxRetries} attempts: ${error.message}`,
         })
       }
 
@@ -68,7 +68,7 @@ export async function makeApiRequest<T>(
   throw createError({
     statusCode: 500,
     statusMessage: 'Unexpected Error',
-    message: 'Unexpected error in API request'
+    message: 'Unexpected error in API request',
   })
 }
 
@@ -80,7 +80,7 @@ export function validateToken(
     throw createError({
       statusCode: 500,
       statusMessage: 'Configuration Error',
-      message: `${serviceName} API token not configured`
+      message: `${serviceName} API token not configured`,
     })
   }
   return token

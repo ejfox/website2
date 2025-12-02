@@ -1,1 +1,1133 @@
-{"tweets":[{"id":"1583961513286864899","text":"is this anything lol https://t.co/Ck6BsVZJGg","year":2022,"date":"2022-10-22","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1583951736586149889","text":"I've also got OpenGraph images sort-of working, cloudinary is generating the text overlay - if I have a cloudinary photo in the post, it uses that, otherwise it uses the title and a template https://t.co/nK9DpA2Fga","year":2022,"date":"2022-10-22","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1583950499782352897","text":"I am especially proud of the metadata that estimates reading time and counts the words, photos, and links - also experimenting with pulling out anything I bolded in the text with a &lt;strong&gt; https://t.co/ZtSKu0fd8Q","year":2022,"date":"2022-10-22","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1583950091714367489","text":"@izzyz I know what you mean, I don't know how to make it less flash-y :(","year":2022,"date":"2022-10-22","favorites":1,"retweets":0,"replyTo":"izzyz"},{"id":"1583942530907144192","text":"Alright, I have a draft of a new version of my website up at https://t.co/3BfE4ajY4T - would love your feedback, I am wondering if my page transition is too much... I thought the pulsing dot was cool late last night... and the red accents https://t.co/1JrZ678xW4","year":2022,"date":"2022-10-22","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1583845799611416578","text":"opengraph image for my personal site:\nA\nB\nor\nC? https://t.co/tE9DMKJ6Ly","year":2022,"date":"2022-10-22","favorites":2,"retweets":0,"replyTo":null},{"id":"1451686373090643979","text":"@MENA_Conflict What server?","year":2021,"date":"2021-10-22","favorites":0,"retweets":0,"replyTo":"MENA_Conflict"},{"id":"1451558576003194881","text":"Now that I know how easy it is to scam dumb tech reporters, gonna decide I founded something and put it in my bio and then thrash around wildly and pursue media coverage until I can point at my bullshit in print as proof it isn’t bullshit, truly embarrassed for journalism","year":2021,"date":"2021-10-22","favorites":2,"retweets":0,"replyTo":null},{"id":"1319371437413601281","text":"@KalebJohnstonNZ No we don’t like it! We don’t like it!!","year":2020,"date":"2020-10-22","favorites":6,"retweets":0,"replyTo":"KalebsCode"},{"id":"1319353750818095107","text":"RT @tatejamesdotcom: it's brandy, brandy is the king","year":2020,"date":"2020-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"1319351621940350976","text":"RT @oneunderscore__: I stand with @BrandyZadrozny.","year":2020,"date":"2020-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"1319320598045200384","text":"@No_Little_Plans @cam_joseph Sent you an email, thank you!","year":2020,"date":"2020-10-22","favorites":1,"retweets":0,"replyTo":"No_Little_Plans"},{"id":"1319318664655654913","text":"@cam_joseph @No_Little_Plans Thank you for this amazing project, I am in awe of the amount of work that this must have taken. Any plans to publish the raw data so open source researchers and visualizers can build on this?","year":2020,"date":"2020-10-22","favorites":4,"retweets":0,"replyTo":"cam_joseph"},{"id":"1319299903449931779","text":"@Headspace what if I wanna set up like 10 of my friends into like a family headspace plan, how do I do that (ie non-corporate group accounts?)","year":2020,"date":"2020-10-22","favorites":0,"retweets":0,"replyTo":"Headspace"},{"id":"1319293357382901760","text":"Just because I want to schedule a time to talk about a thing doesn’t mean I want to do an audio/video call about it, but those two things seem very tightly bound","year":2020,"date":"2020-10-22","favorites":2,"retweets":0,"replyTo":"mrejfox"},{"id":"1319293171994554368","text":"Normalize scheduling text-chat meetings","year":2020,"date":"2020-10-22","favorites":2,"retweets":0,"replyTo":null},{"id":"1319287857995943940","text":"I really really really miss sharing a smoke with someone","year":2020,"date":"2020-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"1319274370095742987","text":"@hellonearthis Vice just acquired it, unclear how and if they are publishing https://t.co/Um71K3bNkW","year":2020,"date":"2020-10-22","favorites":1,"retweets":0,"replyTo":"hellonearthis"},{"id":"1319097386568994816","text":"RT @swodinsky: this is a woman who cares deeply not only about the ppl at the heart of her stories, but the ppl she reports alongside (even…","year":2020,"date":"2020-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"1319091442699112449","text":"RT @DohaMadani: Lesser journalists might have picked a different beat because of the absolute horrors that get sent their way when they tak…","year":2020,"date":"2020-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"1319085834369441792","text":"RT @NoahShachtman: .@BrandyZadrozny is as careful, dogged, sensitive, and nuanced a reporter as they come. These white supremacists and the…","year":2020,"date":"2020-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"1319085221086699520","text":"RT @Katie_M_Baker: .@BrandyZadrozny is such a good journalist that she has even Tucker Carlson and his goons running scared. She's the best…","year":2020,"date":"2020-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"1319081659552157698","text":"RT @KalhanR: Just a reminder that Brandy Zadrozny is a titan of journalism and has produced some of the best work anywhere. We’re lucky to…","year":2020,"date":"2020-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"1319080699991871489","text":"RT @oneunderscore__: Tucker Carlson is devoting an entire segment to attacking my colleague, Brandy Zadrozny, for doing actual reporting, l…","year":2020,"date":"2020-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"1186749763850518528","text":"@mdavidallen Agree- I owe This American Life a lot, got my freelance start by augmenting old episodes https://t.co/muY9b90Fgo","year":2019,"date":"2019-10-22","favorites":0,"retweets":1,"replyTo":"mdavidallen"},{"id":"1186748515587895296","text":"the latest This American Life on Hong Kong is some of the best radio ever made","year":2019,"date":"2019-10-22","favorites":7,"retweets":0,"replyTo":null},{"id":"1186744392905871372","text":"drizzling chili honey on my pimento grilled cheese","year":2019,"date":"2019-10-22","favorites":1,"retweets":0,"replyTo":null},{"id":"1186688469919322113","text":"My data is all *moves hands vertically* and I need it all *gestures widely to either side*","year":2019,"date":"2019-10-22","favorites":2,"retweets":0,"replyTo":null},{"id":"1186688156961251328","text":"Me, every single day of my professional career: Ah man, and now I am gonna need to rearrange this data","year":2019,"date":"2019-10-22","favorites":3,"retweets":0,"replyTo":null},{"id":"1054426734047739904","text":"44 get the money","year":2018,"date":"2018-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"1054417686787223552","text":"Incorporating emergy into my every day speech already","year":2018,"date":"2018-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"1054379005623840768","text":"Whyyyyyyy","year":2018,"date":"2018-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"1054185135644598272","text":"who switched my life to \"expert\" mode https://t.co/ht1tFlqTrr","year":2018,"date":"2018-10-22","favorites":1,"retweets":0,"replyTo":null},{"id":"1054173305203294210","text":"dance your way out of your constrictions","year":2018,"date":"2018-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"922140650102980608","text":"RT @417am1975: 10-14-6 https://t.co/R1QQZxxxcq","year":2017,"date":"2017-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"922140637767589888","text":"RT @417am1975: 10-14-5 https://t.co/3fttfKfbUF","year":2017,"date":"2017-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"922140623527870464","text":"RT @417am1975: 10-14-4 https://t.co/XWubMkiRIC","year":2017,"date":"2017-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"922140594696327168","text":"RT @417am1975: 10-14-3 https://t.co/Ej63pSSyL3","year":2017,"date":"2017-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"922140551822168064","text":"RT @417am1975: 10-14-2 https://t.co/SqZBl9cYgy","year":2017,"date":"2017-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"922113284362432512","text":"Who keeps stealing my paper","year":2017,"date":"2017-10-22","favorites":1,"retweets":0,"replyTo":null},{"id":"922107505748127744","text":"I grow weary","year":2017,"date":"2017-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"657314202672046080","text":"RT @judithdubin: Why South African Students Are Shutting Universities #feesmustfall https://t.co/ymm584FUmS @judithdubin @vocativ https://t…","year":2015,"date":"2015-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"657289025938657280","text":"I don’t know why I put off trying @DensityDesign RAW sooner- really great software. \n\nThanks to @Jishai for showing me the way!","year":2015,"date":"2015-10-22","favorites":2,"retweets":0,"replyTo":null},{"id":"657282031852888064","text":"@grantmeaccess ah, genius!","year":2015,"date":"2015-10-22","favorites":0,"retweets":0,"replyTo":"grantmeaccess"},{"id":"657280920114851840","text":"has anyone in history right-clicked a webpage to go back?","year":2015,"date":"2015-10-22","favorites":1,"retweets":0,"replyTo":null},{"id":"657274498413105153","text":"RT @MarshallProj: “We don’t really do a good job right now collecting data on a national level.” – @POTUS, calling for better collection of…","year":2015,"date":"2015-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"657269275057590276","text":"@glichfield Been around for 5+ years now, saw a photog explain the concept to a model IRL recently, def growing. https://t.co/e8TafHqNCB","year":2015,"date":"2015-10-22","favorites":0,"retweets":0,"replyTo":"glichfield"},{"id":"657265087124807680","text":"today @tjenningsbrown is my hero because he makes ugly data pretty data and he’s just so damn agreeable about it","year":2015,"date":"2015-10-22","favorites":2,"retweets":0,"replyTo":null},{"id":"657242825445265408","text":"stupid benghazi hearings mean I can’t play music in open-office newsroom makes me hate political theater more than ever","year":2015,"date":"2015-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"525069008979386368","text":"@OaklandElle can you DM me? Having trouble DM’ing you","year":2014,"date":"2014-10-22","favorites":0,"retweets":0,"replyTo":"ElleArmageddon"},{"id":"525065335654080513","text":"RT @sokane1: Judging from tonight's commute home I think it's time we start imposing a tax on people who wield oversized umbrellas","year":2014,"date":"2014-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"525065286236778496","text":"RT @FreeJeremyNet: He currently has no property, but IS receiving mail, so WRITE! (Though please know he may be unable to write back.) http…","year":2014,"date":"2014-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"525049714031734784","text":"RT @dancow: Gawker takes GamerGate seriously after realizing it could \"potentially lose thousands, if not millions\" in ad money http://t.co…","year":2014,"date":"2014-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"525017699853033472","text":"RT @Lukewearechange: Protestors broke police lines and are taking the streets now for #o22 where the police said they could not go http://t…","year":2014,"date":"2014-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"525014496935686144","text":"@AJVicens Maybe I've exposed too much that I'm all-clicky no-ready.","year":2014,"date":"2014-10-22","favorites":0,"retweets":0,"replyTo":"AJVicens"},{"id":"525014043288170497","text":"@AJVicens D'oh! That embed is smooooth as hell!","year":2014,"date":"2014-10-22","favorites":0,"retweets":0,"replyTo":"AJVicens"},{"id":"525013142968238081","text":"@AJVicens Ah- just noticed the 'Tweet this view' - sweet. =]","year":2014,"date":"2014-10-22","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"525012686846058496","text":"@AJVicens Wow! Beautiful and great work, I'm part of 1.2% of Raiders fans in Orange County, NY - wish I could tweet out maps directly","year":2014,"date":"2014-10-22","favorites":0,"retweets":0,"replyTo":"AJVicens"},{"id":"525010526024507392","text":"Dear people organizing protests: 3pm on a weekday probably not gonna get the biggest draw possible","year":2014,"date":"2014-10-22","favorites":1,"retweets":1,"replyTo":null},{"id":"524993616658567169","text":"RT @JamesFTInternet: March Against Police Brutality has taken the streets in #NYC #o22 http://t.co/2twkAVMzib","year":2014,"date":"2014-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"524901369099337728","text":"RT @poncho_ny: Are we in a horror movie what is this weather rn","year":2014,"date":"2014-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"524901331983949825","text":"RT @jonnysun: me: goodnight moon :)\nmoon: night&lt;3\nme: goodnight stars :)\nmoon: wtf\nme: sry wrongnumber\nmoon: whos stars\nmoon: who is stars\n…","year":2014,"date":"2014-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"392761759293259776","text":"Mavericks: full-screen textmate on the laptop, full-screen chrome on the monitor. Finally.","year":2013,"date":"2013-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"260516677417054208","text":"RT @hyphy_republic: People can judge your charges by the work we've continued to do. I'm happy to stand so accused under that metric @ge ...","year":2012,"date":"2012-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"260501974452166656","text":"RT @marymad: @geekeasy @mrejfox all i hear is wahh wahh wahh at this point.","year":2012,"date":"2012-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"260495340967432192","text":"RT @marymad: @mrejfox @geekeasy the problem is that they are not sorry.","year":2012,"date":"2012-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"260495289092288512","text":"@marymad Doesn't filing FOIA reqs feel good? There's something about the potential truthiness that just makes my day.","year":2012,"date":"2012-10-22","favorites":1,"retweets":0,"replyTo":"treekisser"},{"id":"260494932324806656","text":"@geekeasy Defending the reasoning behind it makes you seem pretty complicit from here. My bad if you called for it to be down.","year":2012,"date":"2012-10-22","favorites":0,"retweets":0,"replyTo":"geekeasy"},{"id":"260494552744460289","text":"@geekeasy Releasing that article put @hyphy_republic in danger, and put #OccupyOakland in danger, over personal shit. Thus the backlash.","year":2012,"date":"2012-10-22","favorites":0,"retweets":0,"replyTo":"geekeasy"},{"id":"260494205556781057","text":"@geekeasy http://t.co/MInqyeGk I don't know how many times I have to say it. YOUR ACTIONS WERE SO MUCH WORSE THAN ANY POSSIBLE VERBAL ABUSE.","year":2012,"date":"2012-10-22","favorites":0,"retweets":0,"replyTo":"geekeasy"},{"id":"260493915164114945","text":"@geekeasy The first speaker in this clip put it pretty fucking well: http://t.co/MInqyeGk - People will experience it, judge themselves.","year":2012,"date":"2012-10-22","favorites":0,"retweets":0,"replyTo":"geekeasy"},{"id":"260493782208876544","text":"@geekeasy http://t.co/MInqyeGk “Movements are not about individuals. There is no one person who can bring down this movement.”","year":2012,"date":"2012-10-22","favorites":0,"retweets":0,"replyTo":"geekeasy"},{"id":"260493262807244800","text":"@geekeasy The people who beat the shit out of him cry sour milk for getting admonished for months while the guy admirably gets back to work?","year":2012,"date":"2012-10-22","favorites":0,"retweets":0,"replyTo":"geekeasy"},{"id":"260491302020460544","text":"@mrejfox HINT: IT'S THE GROUP OF PEOPLE WHO TOOK THINGS PUBLICLY WAY WAY OUT OF PROPORTION IN THEIR RESPONSE, that's how it looks from here.","year":2012,"date":"2012-10-22","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"260490742433206272","text":"@geekeasy I am trying to get you to understand what should be really obvious: that article was such a scale above any personal verbal abuse.","year":2012,"date":"2012-10-22","favorites":0,"retweets":0,"replyTo":"geekeasy"},{"id":"260490609352114177","text":"@geekeasy Your metaphor is ridiculous, but I'll bite. If someone pokes at people, and then a group of people beat him w/ bats? Who then?","year":2012,"date":"2012-10-22","favorites":0,"retweets":0,"replyTo":"geekeasy"},{"id":"260489086169665536","text":"@geekeasy Step back. Get real. The side who ACTING AS A GROUP DID A RIDICULOUSLY WORSE PUBLICLY TERRIBLE THING to a comrade isn't 1st? WTF?","year":2012,"date":"2012-10-22","favorites":0,"retweets":0,"replyTo":"geekeasy"},{"id":"260488266464260097","text":"@geekeasy Dude, like, how is this hard to understand... writing articles like that is never the way to solve things. It is scales worse.","year":2012,"date":"2012-10-22","favorites":0,"retweets":0,"replyTo":"geekeasy"},{"id":"260487129006735362","text":"@geekeasy No, no, no. Your POTENTIALLY LIFE-ALTERING SNITCHJACKETING not fucking @hyphy_republic up is a testament to him not to you.","year":2012,"date":"2012-10-22","favorites":1,"retweets":0,"replyTo":"geekeasy"},{"id":"260486083136086016","text":"@geekeasy I’d suggest you get your scale-of-fucked-upness checked.","year":2012,"date":"2012-10-22","favorites":0,"retweets":0,"replyTo":"geekeasy"},{"id":"260486012772438016","text":"RT @geekeasy: @mrejfox No, but @hyphy_republic was very verbally abusive before and after article was written.  Article just turned abus ...","year":2012,"date":"2012-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"260485828143353857","text":"@geekeasy Compared to potentially life-altering snitchjacketing, anything else is kinda spilled milk, I'd think? @oomedia","year":2012,"date":"2012-10-22","favorites":0,"retweets":0,"replyTo":"geekeasy"},{"id":"260485546789462016","text":"@geekeasy Nope, I don't think so. I don't remember him calling out your names as terrorists on his blog. @davidcolburn @hyphy_republic","year":2012,"date":"2012-10-22","favorites":0,"retweets":0,"replyTo":"geekeasy"},{"id":"260484405129256961","text":"RT @davidcolburn: @hyphy_republic OOMC promised an \"apology campaign\" in press release. If you aren't 1st to get an apology, then it's n ...","year":2012,"date":"2012-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"260472062957731840","text":"It's really as if Spotify needed… a product designer! http://t.co/rhzacfv7","year":2012,"date":"2012-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"260471768920248321","text":"I've come to the conclusion that Spotify has the features and infrastructure for me, but it looks SO FUCKING UGLY I want to use Rdio.","year":2012,"date":"2012-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"260471065799688192","text":"Trying to wrap my brain around this Rdio vs. Spotify business. Rdio is sexy &amp; clean, but Spotify has all my friends on it… agh.","year":2012,"date":"2012-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"260294777227075584","text":"&lt;/sarcasm&gt; I understand the desire for radical transparency, but at some point it’s kind of ridiculous, no? https://t.co/f0ElaoXg","year":2012,"date":"2012-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"260294614735532033","text":"All I can really say is, well, thank you #OccupyOakland Finance Committee for noting down your… $0.66, $.85, $.77 donations in past months..","year":2012,"date":"2012-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"260281140164833280","text":"My new sounds: Evernorth http://t.co/Q7xGDV39 on #SoundCloud","year":2012,"date":"2012-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"260272615011258369","text":"#FTP http://t.co/shB3D5pf","year":2012,"date":"2012-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"260269820426190848","text":"RT @ejfoxverbose: Github: ejfox updated gist: 3929896 http://t.co/LbGpX9en","year":2012,"date":"2012-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"260254974498467840","text":"RT @Jayron26: Regional protestor mutual aid for Oakland #O25 has been requested. Car pools and buses. #OO #OSF #OLA #OCAL #OPDX #Seattle ...","year":2012,"date":"2012-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"127779516432138240","text":"RT @nbcbayarea: #OccupyOakland protesters ignored orders to leave last night. Is a showdown with police brewing? http://t.co/PwTNUf7l","year":2011,"date":"2011-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"5082104275","text":"playing a little Call of Duty 4: Modern Warfare. http://raptr.com/pseudoplacebo","year":2009,"date":"2009-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"5079614419","text":"This is if I spend a lot more time working and a lot less time doing my finances and then tweeting about it.","year":2009,"date":"2009-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"5079608227","text":"It appears to my finances that I am fast on track to having a Nikon D90.","year":2009,"date":"2009-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"5077837008","text":"Who knew that I'd be regularly dealing with \"documents\" regularly in my life.","year":2009,"date":"2009-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"5077768462","text":"I really dunno why I put a link to my Twitter at the end of all of my emails. It's probably not the best idea.","year":2009,"date":"2009-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"5074361730","text":"I like my little Graphic Design bookshelf: Tufte (BE), Tufte (VE), Tufte (VDQI), Tufte(EI), Infographics, Design Elements, etc.","year":2009,"date":"2009-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"5061316142","text":"I want to be psychoanalyzed; talk to me about me.","year":2009,"date":"2009-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"5060328040","text":"GOD DAMN IT ICHAT I HATE YOU.","year":2009,"date":"2009-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"971054657","text":"Back from the acupuncturist. Feeling pretty good but a bit sore.","year":2008,"date":"2008-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"970813778","text":"Waking up... Ugh. I don't wanna be awake.","year":2008,"date":"2008-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"970076955","text":"I want Fable 2. =[","year":2008,"date":"2008-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"969956997","text":"Tumblr: \"Of course, the mistake she made was in keeping the ball(s). My preferred method is .. http://tinyurl.com/6djszp","year":2008,"date":"2008-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"355047112","text":"Kobe: \"Hey captain, what day is it?\". Success.","year":2007,"date":"2007-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"355028622","text":"In study hall. Traded iPods with Tom temporarily. I feel jipped though- I got 300 songs for my 3000.","year":2007,"date":"2007-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"354421512","text":"Ej: \"From now on... I want you guys to call me captain\" \"Ej wtf?\"","year":2007,"date":"2007-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"354262102","text":"Making some bagles for right now and right later.","year":2007,"date":"2007-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"353736432","text":"Just got out of the shower- I feel great. Like a heroin junkie who just recovered. Really.","year":2007,"date":"2007-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"353611182","text":"Playing around with watercolours. I oughta be asleep.","year":2007,"date":"2007-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"353526392","text":"Watching an excellent music video: http://www.spintoband.co.uk/videos/mandy.mpg","year":2007,"date":"2007-10-22","favorites":0,"retweets":0,"replyTo":null},{"id":"353305622","text":"Watching some ridiculous shit-&gt; http://tinyurl.com/2fa8lp","year":2007,"date":"2007-10-22","favorites":0,"retweets":0,"replyTo":null}],"posts":[],"scrobbles":[{"date":"2022-10-22","year":2022,"count":2,"topTracks":["Khruangbin - Shades of Man","Khruangbin - White Gloves"],"topArtists":["Khruangbin"]},{"date":"2021-10-22","year":2021,"count":12,"topTracks":["Earl Sweatshirt - Shattered Dreams","Earl Sweatshirt - Red Water","Earl Sweatshirt - Cold Summers","Earl Sweatshirt - Nowhere2go","Earl Sweatshirt - December 24"],"topArtists":["Earl Sweatshirt","Sango","Diego Raposo"]},{"date":"2020-10-22","year":2020,"count":11,"topTracks":["Boards of Canada - Olson","Burna Boy - Omo","Burna Boy - Secret (feat. Jeremih & Serani)","Burna Boy - Gum Body (feat. Jorja Smith)","Burna Boy - Collateral Damage"],"topArtists":["Boards of Canada","Burna Boy"]},{"date":"2018-10-22","year":2018,"count":22,"topTracks":["Mac Miller - What's the Use?","Mac Miller - Perfecto","Mac Miller - Self Care","Mac Miller - Wings","Mac Miller - Ladders"],"topArtists":["Mac Miller","Danny Brown"]},{"date":"2016-10-22","year":2016,"count":61,"topTracks":["Frank Ocean - Ivy","Frank Ocean - Pink + White","Frank Ocean - Be Yourself","Frank Ocean - Solo","Frank Ocean - Skyline To"],"topArtists":["Frank Ocean","Nao","A$AP Rocky"]},{"date":"2008-10-22","year":2008,"count":105,"topTracks":["Tegan and Sara - I Bet It Stung","Dntel - Tybalt 60","Eminem - Puke (Produced By Eminem)","Bob Marley - Soon Come","Steve Reich - Come Out"],"topArtists":["Tegan and Sara","Dntel","Eminem"]},{"date":"2007-10-22","year":2007,"count":9,"topTracks":["Death Cab for Cutie - Fake Frowns","Animal Collective - Cuckoo Cuckoo","Regina Spektor - Fidelity","Tegan and Sara - Relief Next To Me","Boards of Canada - Aquarius"],"topArtists":["Death Cab for Cutie","Animal Collective","Regina Spektor"]},{"date":"2006-10-22","year":2006,"count":2,"topTracks":["Venetian Snares - Szamár Madár","Venetian Snares - Hiszékeny"],"topArtists":["Venetian Snares"]}],"commits":[]}
+{
+  "tweets": [
+    {
+      "id": "1583961513286864899",
+      "text": "is this anything lol https://t.co/Ck6BsVZJGg",
+      "year": 2022,
+      "date": "2022-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1583951736586149889",
+      "text": "I've also got OpenGraph images sort-of working, cloudinary is generating the text overlay - if I have a cloudinary photo in the post, it uses that, otherwise it uses the title and a template https://t.co/nK9DpA2Fga",
+      "year": 2022,
+      "date": "2022-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1583950499782352897",
+      "text": "I am especially proud of the metadata that estimates reading time and counts the words, photos, and links - also experimenting with pulling out anything I bolded in the text with a &lt;strong&gt; https://t.co/ZtSKu0fd8Q",
+      "year": 2022,
+      "date": "2022-10-22",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1583950091714367489",
+      "text": "@izzyz I know what you mean, I don't know how to make it less flash-y :(",
+      "year": 2022,
+      "date": "2022-10-22",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "izzyz"
+    },
+    {
+      "id": "1583942530907144192",
+      "text": "Alright, I have a draft of a new version of my website up at https://t.co/3BfE4ajY4T - would love your feedback, I am wondering if my page transition is too much... I thought the pulsing dot was cool late last night... and the red accents https://t.co/1JrZ678xW4",
+      "year": 2022,
+      "date": "2022-10-22",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1583845799611416578",
+      "text": "opengraph image for my personal site:\nA\nB\nor\nC? https://t.co/tE9DMKJ6Ly",
+      "year": 2022,
+      "date": "2022-10-22",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1451686373090643979",
+      "text": "@MENA_Conflict What server?",
+      "year": 2021,
+      "date": "2021-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "MENA_Conflict"
+    },
+    {
+      "id": "1451558576003194881",
+      "text": "Now that I know how easy it is to scam dumb tech reporters, gonna decide I founded something and put it in my bio and then thrash around wildly and pursue media coverage until I can point at my bullshit in print as proof it isn’t bullshit, truly embarrassed for journalism",
+      "year": 2021,
+      "date": "2021-10-22",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1319371437413601281",
+      "text": "@KalebJohnstonNZ No we don’t like it! We don’t like it!!",
+      "year": 2020,
+      "date": "2020-10-22",
+      "favorites": 6,
+      "retweets": 0,
+      "replyTo": "KalebsCode"
+    },
+    {
+      "id": "1319353750818095107",
+      "text": "RT @tatejamesdotcom: it's brandy, brandy is the king",
+      "year": 2020,
+      "date": "2020-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1319351621940350976",
+      "text": "RT @oneunderscore__: I stand with @BrandyZadrozny.",
+      "year": 2020,
+      "date": "2020-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1319320598045200384",
+      "text": "@No_Little_Plans @cam_joseph Sent you an email, thank you!",
+      "year": 2020,
+      "date": "2020-10-22",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "No_Little_Plans"
+    },
+    {
+      "id": "1319318664655654913",
+      "text": "@cam_joseph @No_Little_Plans Thank you for this amazing project, I am in awe of the amount of work that this must have taken. Any plans to publish the raw data so open source researchers and visualizers can build on this?",
+      "year": 2020,
+      "date": "2020-10-22",
+      "favorites": 4,
+      "retweets": 0,
+      "replyTo": "cam_joseph"
+    },
+    {
+      "id": "1319299903449931779",
+      "text": "@Headspace what if I wanna set up like 10 of my friends into like a family headspace plan, how do I do that (ie non-corporate group accounts?)",
+      "year": 2020,
+      "date": "2020-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "Headspace"
+    },
+    {
+      "id": "1319293357382901760",
+      "text": "Just because I want to schedule a time to talk about a thing doesn’t mean I want to do an audio/video call about it, but those two things seem very tightly bound",
+      "year": 2020,
+      "date": "2020-10-22",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1319293171994554368",
+      "text": "Normalize scheduling text-chat meetings",
+      "year": 2020,
+      "date": "2020-10-22",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1319287857995943940",
+      "text": "I really really really miss sharing a smoke with someone",
+      "year": 2020,
+      "date": "2020-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1319274370095742987",
+      "text": "@hellonearthis Vice just acquired it, unclear how and if they are publishing https://t.co/Um71K3bNkW",
+      "year": 2020,
+      "date": "2020-10-22",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "hellonearthis"
+    },
+    {
+      "id": "1319097386568994816",
+      "text": "RT @swodinsky: this is a woman who cares deeply not only about the ppl at the heart of her stories, but the ppl she reports alongside (even…",
+      "year": 2020,
+      "date": "2020-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1319091442699112449",
+      "text": "RT @DohaMadani: Lesser journalists might have picked a different beat because of the absolute horrors that get sent their way when they tak…",
+      "year": 2020,
+      "date": "2020-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1319085834369441792",
+      "text": "RT @NoahShachtman: .@BrandyZadrozny is as careful, dogged, sensitive, and nuanced a reporter as they come. These white supremacists and the…",
+      "year": 2020,
+      "date": "2020-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1319085221086699520",
+      "text": "RT @Katie_M_Baker: .@BrandyZadrozny is such a good journalist that she has even Tucker Carlson and his goons running scared. She's the best…",
+      "year": 2020,
+      "date": "2020-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1319081659552157698",
+      "text": "RT @KalhanR: Just a reminder that Brandy Zadrozny is a titan of journalism and has produced some of the best work anywhere. We’re lucky to…",
+      "year": 2020,
+      "date": "2020-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1319080699991871489",
+      "text": "RT @oneunderscore__: Tucker Carlson is devoting an entire segment to attacking my colleague, Brandy Zadrozny, for doing actual reporting, l…",
+      "year": 2020,
+      "date": "2020-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1186749763850518528",
+      "text": "@mdavidallen Agree- I owe This American Life a lot, got my freelance start by augmenting old episodes https://t.co/muY9b90Fgo",
+      "year": 2019,
+      "date": "2019-10-22",
+      "favorites": 0,
+      "retweets": 1,
+      "replyTo": "mdavidallen"
+    },
+    {
+      "id": "1186748515587895296",
+      "text": "the latest This American Life on Hong Kong is some of the best radio ever made",
+      "year": 2019,
+      "date": "2019-10-22",
+      "favorites": 7,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1186744392905871372",
+      "text": "drizzling chili honey on my pimento grilled cheese",
+      "year": 2019,
+      "date": "2019-10-22",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1186688469919322113",
+      "text": "My data is all *moves hands vertically* and I need it all *gestures widely to either side*",
+      "year": 2019,
+      "date": "2019-10-22",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1186688156961251328",
+      "text": "Me, every single day of my professional career: Ah man, and now I am gonna need to rearrange this data",
+      "year": 2019,
+      "date": "2019-10-22",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1054426734047739904",
+      "text": "44 get the money",
+      "year": 2018,
+      "date": "2018-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1054417686787223552",
+      "text": "Incorporating emergy into my every day speech already",
+      "year": 2018,
+      "date": "2018-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1054379005623840768",
+      "text": "Whyyyyyyy",
+      "year": 2018,
+      "date": "2018-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1054185135644598272",
+      "text": "who switched my life to \"expert\" mode https://t.co/ht1tFlqTrr",
+      "year": 2018,
+      "date": "2018-10-22",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1054173305203294210",
+      "text": "dance your way out of your constrictions",
+      "year": 2018,
+      "date": "2018-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "922140650102980608",
+      "text": "RT @417am1975: 10-14-6 https://t.co/R1QQZxxxcq",
+      "year": 2017,
+      "date": "2017-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "922140637767589888",
+      "text": "RT @417am1975: 10-14-5 https://t.co/3fttfKfbUF",
+      "year": 2017,
+      "date": "2017-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "922140623527870464",
+      "text": "RT @417am1975: 10-14-4 https://t.co/XWubMkiRIC",
+      "year": 2017,
+      "date": "2017-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "922140594696327168",
+      "text": "RT @417am1975: 10-14-3 https://t.co/Ej63pSSyL3",
+      "year": 2017,
+      "date": "2017-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "922140551822168064",
+      "text": "RT @417am1975: 10-14-2 https://t.co/SqZBl9cYgy",
+      "year": 2017,
+      "date": "2017-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "922113284362432512",
+      "text": "Who keeps stealing my paper",
+      "year": 2017,
+      "date": "2017-10-22",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "922107505748127744",
+      "text": "I grow weary",
+      "year": 2017,
+      "date": "2017-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "657314202672046080",
+      "text": "RT @judithdubin: Why South African Students Are Shutting Universities #feesmustfall https://t.co/ymm584FUmS @judithdubin @vocativ https://t…",
+      "year": 2015,
+      "date": "2015-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "657289025938657280",
+      "text": "I don’t know why I put off trying @DensityDesign RAW sooner- really great software. \n\nThanks to @Jishai for showing me the way!",
+      "year": 2015,
+      "date": "2015-10-22",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "657282031852888064",
+      "text": "@grantmeaccess ah, genius!",
+      "year": 2015,
+      "date": "2015-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "grantmeaccess"
+    },
+    {
+      "id": "657280920114851840",
+      "text": "has anyone in history right-clicked a webpage to go back?",
+      "year": 2015,
+      "date": "2015-10-22",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "657274498413105153",
+      "text": "RT @MarshallProj: “We don’t really do a good job right now collecting data on a national level.” – @POTUS, calling for better collection of…",
+      "year": 2015,
+      "date": "2015-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "657269275057590276",
+      "text": "@glichfield Been around for 5+ years now, saw a photog explain the concept to a model IRL recently, def growing. https://t.co/e8TafHqNCB",
+      "year": 2015,
+      "date": "2015-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "glichfield"
+    },
+    {
+      "id": "657265087124807680",
+      "text": "today @tjenningsbrown is my hero because he makes ugly data pretty data and he’s just so damn agreeable about it",
+      "year": 2015,
+      "date": "2015-10-22",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "657242825445265408",
+      "text": "stupid benghazi hearings mean I can’t play music in open-office newsroom makes me hate political theater more than ever",
+      "year": 2015,
+      "date": "2015-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "525069008979386368",
+      "text": "@OaklandElle can you DM me? Having trouble DM’ing you",
+      "year": 2014,
+      "date": "2014-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "ElleArmageddon"
+    },
+    {
+      "id": "525065335654080513",
+      "text": "RT @sokane1: Judging from tonight's commute home I think it's time we start imposing a tax on people who wield oversized umbrellas",
+      "year": 2014,
+      "date": "2014-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "525065286236778496",
+      "text": "RT @FreeJeremyNet: He currently has no property, but IS receiving mail, so WRITE! (Though please know he may be unable to write back.) http…",
+      "year": 2014,
+      "date": "2014-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "525049714031734784",
+      "text": "RT @dancow: Gawker takes GamerGate seriously after realizing it could \"potentially lose thousands, if not millions\" in ad money http://t.co…",
+      "year": 2014,
+      "date": "2014-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "525017699853033472",
+      "text": "RT @Lukewearechange: Protestors broke police lines and are taking the streets now for #o22 where the police said they could not go http://t…",
+      "year": 2014,
+      "date": "2014-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "525014496935686144",
+      "text": "@AJVicens Maybe I've exposed too much that I'm all-clicky no-ready.",
+      "year": 2014,
+      "date": "2014-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "AJVicens"
+    },
+    {
+      "id": "525014043288170497",
+      "text": "@AJVicens D'oh! That embed is smooooth as hell!",
+      "year": 2014,
+      "date": "2014-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "AJVicens"
+    },
+    {
+      "id": "525013142968238081",
+      "text": "@AJVicens Ah- just noticed the 'Tweet this view' - sweet. =]",
+      "year": 2014,
+      "date": "2014-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "525012686846058496",
+      "text": "@AJVicens Wow! Beautiful and great work, I'm part of 1.2% of Raiders fans in Orange County, NY - wish I could tweet out maps directly",
+      "year": 2014,
+      "date": "2014-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "AJVicens"
+    },
+    {
+      "id": "525010526024507392",
+      "text": "Dear people organizing protests: 3pm on a weekday probably not gonna get the biggest draw possible",
+      "year": 2014,
+      "date": "2014-10-22",
+      "favorites": 1,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "524993616658567169",
+      "text": "RT @JamesFTInternet: March Against Police Brutality has taken the streets in #NYC #o22 http://t.co/2twkAVMzib",
+      "year": 2014,
+      "date": "2014-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "524901369099337728",
+      "text": "RT @poncho_ny: Are we in a horror movie what is this weather rn",
+      "year": 2014,
+      "date": "2014-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "524901331983949825",
+      "text": "RT @jonnysun: me: goodnight moon :)\nmoon: night&lt;3\nme: goodnight stars :)\nmoon: wtf\nme: sry wrongnumber\nmoon: whos stars\nmoon: who is stars\n…",
+      "year": 2014,
+      "date": "2014-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "392761759293259776",
+      "text": "Mavericks: full-screen textmate on the laptop, full-screen chrome on the monitor. Finally.",
+      "year": 2013,
+      "date": "2013-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "260516677417054208",
+      "text": "RT @hyphy_republic: People can judge your charges by the work we've continued to do. I'm happy to stand so accused under that metric @ge ...",
+      "year": 2012,
+      "date": "2012-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "260501974452166656",
+      "text": "RT @marymad: @geekeasy @mrejfox all i hear is wahh wahh wahh at this point.",
+      "year": 2012,
+      "date": "2012-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "260495340967432192",
+      "text": "RT @marymad: @mrejfox @geekeasy the problem is that they are not sorry.",
+      "year": 2012,
+      "date": "2012-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "260495289092288512",
+      "text": "@marymad Doesn't filing FOIA reqs feel good? There's something about the potential truthiness that just makes my day.",
+      "year": 2012,
+      "date": "2012-10-22",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "treekisser"
+    },
+    {
+      "id": "260494932324806656",
+      "text": "@geekeasy Defending the reasoning behind it makes you seem pretty complicit from here. My bad if you called for it to be down.",
+      "year": 2012,
+      "date": "2012-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "geekeasy"
+    },
+    {
+      "id": "260494552744460289",
+      "text": "@geekeasy Releasing that article put @hyphy_republic in danger, and put #OccupyOakland in danger, over personal shit. Thus the backlash.",
+      "year": 2012,
+      "date": "2012-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "geekeasy"
+    },
+    {
+      "id": "260494205556781057",
+      "text": "@geekeasy http://t.co/MInqyeGk I don't know how many times I have to say it. YOUR ACTIONS WERE SO MUCH WORSE THAN ANY POSSIBLE VERBAL ABUSE.",
+      "year": 2012,
+      "date": "2012-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "geekeasy"
+    },
+    {
+      "id": "260493915164114945",
+      "text": "@geekeasy The first speaker in this clip put it pretty fucking well: http://t.co/MInqyeGk - People will experience it, judge themselves.",
+      "year": 2012,
+      "date": "2012-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "geekeasy"
+    },
+    {
+      "id": "260493782208876544",
+      "text": "@geekeasy http://t.co/MInqyeGk “Movements are not about individuals. There is no one person who can bring down this movement.”",
+      "year": 2012,
+      "date": "2012-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "geekeasy"
+    },
+    {
+      "id": "260493262807244800",
+      "text": "@geekeasy The people who beat the shit out of him cry sour milk for getting admonished for months while the guy admirably gets back to work?",
+      "year": 2012,
+      "date": "2012-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "geekeasy"
+    },
+    {
+      "id": "260491302020460544",
+      "text": "@mrejfox HINT: IT'S THE GROUP OF PEOPLE WHO TOOK THINGS PUBLICLY WAY WAY OUT OF PROPORTION IN THEIR RESPONSE, that's how it looks from here.",
+      "year": 2012,
+      "date": "2012-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "260490742433206272",
+      "text": "@geekeasy I am trying to get you to understand what should be really obvious: that article was such a scale above any personal verbal abuse.",
+      "year": 2012,
+      "date": "2012-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "geekeasy"
+    },
+    {
+      "id": "260490609352114177",
+      "text": "@geekeasy Your metaphor is ridiculous, but I'll bite. If someone pokes at people, and then a group of people beat him w/ bats? Who then?",
+      "year": 2012,
+      "date": "2012-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "geekeasy"
+    },
+    {
+      "id": "260489086169665536",
+      "text": "@geekeasy Step back. Get real. The side who ACTING AS A GROUP DID A RIDICULOUSLY WORSE PUBLICLY TERRIBLE THING to a comrade isn't 1st? WTF?",
+      "year": 2012,
+      "date": "2012-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "geekeasy"
+    },
+    {
+      "id": "260488266464260097",
+      "text": "@geekeasy Dude, like, how is this hard to understand... writing articles like that is never the way to solve things. It is scales worse.",
+      "year": 2012,
+      "date": "2012-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "geekeasy"
+    },
+    {
+      "id": "260487129006735362",
+      "text": "@geekeasy No, no, no. Your POTENTIALLY LIFE-ALTERING SNITCHJACKETING not fucking @hyphy_republic up is a testament to him not to you.",
+      "year": 2012,
+      "date": "2012-10-22",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "geekeasy"
+    },
+    {
+      "id": "260486083136086016",
+      "text": "@geekeasy I’d suggest you get your scale-of-fucked-upness checked.",
+      "year": 2012,
+      "date": "2012-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "geekeasy"
+    },
+    {
+      "id": "260486012772438016",
+      "text": "RT @geekeasy: @mrejfox No, but @hyphy_republic was very verbally abusive before and after article was written.  Article just turned abus ...",
+      "year": 2012,
+      "date": "2012-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "260485828143353857",
+      "text": "@geekeasy Compared to potentially life-altering snitchjacketing, anything else is kinda spilled milk, I'd think? @oomedia",
+      "year": 2012,
+      "date": "2012-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "geekeasy"
+    },
+    {
+      "id": "260485546789462016",
+      "text": "@geekeasy Nope, I don't think so. I don't remember him calling out your names as terrorists on his blog. @davidcolburn @hyphy_republic",
+      "year": 2012,
+      "date": "2012-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "geekeasy"
+    },
+    {
+      "id": "260484405129256961",
+      "text": "RT @davidcolburn: @hyphy_republic OOMC promised an \"apology campaign\" in press release. If you aren't 1st to get an apology, then it's n ...",
+      "year": 2012,
+      "date": "2012-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "260472062957731840",
+      "text": "It's really as if Spotify needed… a product designer! http://t.co/rhzacfv7",
+      "year": 2012,
+      "date": "2012-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "260471768920248321",
+      "text": "I've come to the conclusion that Spotify has the features and infrastructure for me, but it looks SO FUCKING UGLY I want to use Rdio.",
+      "year": 2012,
+      "date": "2012-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "260471065799688192",
+      "text": "Trying to wrap my brain around this Rdio vs. Spotify business. Rdio is sexy &amp; clean, but Spotify has all my friends on it… agh.",
+      "year": 2012,
+      "date": "2012-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "260294777227075584",
+      "text": "&lt;/sarcasm&gt; I understand the desire for radical transparency, but at some point it’s kind of ridiculous, no? https://t.co/f0ElaoXg",
+      "year": 2012,
+      "date": "2012-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "260294614735532033",
+      "text": "All I can really say is, well, thank you #OccupyOakland Finance Committee for noting down your… $0.66, $.85, $.77 donations in past months..",
+      "year": 2012,
+      "date": "2012-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "260281140164833280",
+      "text": "My new sounds: Evernorth http://t.co/Q7xGDV39 on #SoundCloud",
+      "year": 2012,
+      "date": "2012-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "260272615011258369",
+      "text": "#FTP http://t.co/shB3D5pf",
+      "year": 2012,
+      "date": "2012-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "260269820426190848",
+      "text": "RT @ejfoxverbose: Github: ejfox updated gist: 3929896 http://t.co/LbGpX9en",
+      "year": 2012,
+      "date": "2012-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "260254974498467840",
+      "text": "RT @Jayron26: Regional protestor mutual aid for Oakland #O25 has been requested. Car pools and buses. #OO #OSF #OLA #OCAL #OPDX #Seattle ...",
+      "year": 2012,
+      "date": "2012-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "127779516432138240",
+      "text": "RT @nbcbayarea: #OccupyOakland protesters ignored orders to leave last night. Is a showdown with police brewing? http://t.co/PwTNUf7l",
+      "year": 2011,
+      "date": "2011-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "5082104275",
+      "text": "playing a little Call of Duty 4: Modern Warfare. http://raptr.com/pseudoplacebo",
+      "year": 2009,
+      "date": "2009-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "5079614419",
+      "text": "This is if I spend a lot more time working and a lot less time doing my finances and then tweeting about it.",
+      "year": 2009,
+      "date": "2009-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "5079608227",
+      "text": "It appears to my finances that I am fast on track to having a Nikon D90.",
+      "year": 2009,
+      "date": "2009-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "5077837008",
+      "text": "Who knew that I'd be regularly dealing with \"documents\" regularly in my life.",
+      "year": 2009,
+      "date": "2009-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "5077768462",
+      "text": "I really dunno why I put a link to my Twitter at the end of all of my emails. It's probably not the best idea.",
+      "year": 2009,
+      "date": "2009-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "5074361730",
+      "text": "I like my little Graphic Design bookshelf: Tufte (BE), Tufte (VE), Tufte (VDQI), Tufte(EI), Infographics, Design Elements, etc.",
+      "year": 2009,
+      "date": "2009-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "5061316142",
+      "text": "I want to be psychoanalyzed; talk to me about me.",
+      "year": 2009,
+      "date": "2009-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "5060328040",
+      "text": "GOD DAMN IT ICHAT I HATE YOU.",
+      "year": 2009,
+      "date": "2009-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "971054657",
+      "text": "Back from the acupuncturist. Feeling pretty good but a bit sore.",
+      "year": 2008,
+      "date": "2008-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "970813778",
+      "text": "Waking up... Ugh. I don't wanna be awake.",
+      "year": 2008,
+      "date": "2008-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "970076955",
+      "text": "I want Fable 2. =[",
+      "year": 2008,
+      "date": "2008-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "969956997",
+      "text": "Tumblr: \"Of course, the mistake she made was in keeping the ball(s). My preferred method is .. http://tinyurl.com/6djszp",
+      "year": 2008,
+      "date": "2008-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "355047112",
+      "text": "Kobe: \"Hey captain, what day is it?\". Success.",
+      "year": 2007,
+      "date": "2007-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "355028622",
+      "text": "In study hall. Traded iPods with Tom temporarily. I feel jipped though- I got 300 songs for my 3000.",
+      "year": 2007,
+      "date": "2007-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "354421512",
+      "text": "Ej: \"From now on... I want you guys to call me captain\" \"Ej wtf?\"",
+      "year": 2007,
+      "date": "2007-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "354262102",
+      "text": "Making some bagles for right now and right later.",
+      "year": 2007,
+      "date": "2007-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "353736432",
+      "text": "Just got out of the shower- I feel great. Like a heroin junkie who just recovered. Really.",
+      "year": 2007,
+      "date": "2007-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "353611182",
+      "text": "Playing around with watercolours. I oughta be asleep.",
+      "year": 2007,
+      "date": "2007-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "353526392",
+      "text": "Watching an excellent music video: http://www.spintoband.co.uk/videos/mandy.mpg",
+      "year": 2007,
+      "date": "2007-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "353305622",
+      "text": "Watching some ridiculous shit-&gt; http://tinyurl.com/2fa8lp",
+      "year": 2007,
+      "date": "2007-10-22",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    }
+  ],
+  "posts": [],
+  "scrobbles": [
+    {
+      "date": "2022-10-22",
+      "year": 2022,
+      "count": 2,
+      "topTracks": ["Khruangbin - Shades of Man", "Khruangbin - White Gloves"],
+      "topArtists": ["Khruangbin"]
+    },
+    {
+      "date": "2021-10-22",
+      "year": 2021,
+      "count": 12,
+      "topTracks": [
+        "Earl Sweatshirt - Shattered Dreams",
+        "Earl Sweatshirt - Red Water",
+        "Earl Sweatshirt - Cold Summers",
+        "Earl Sweatshirt - Nowhere2go",
+        "Earl Sweatshirt - December 24"
+      ],
+      "topArtists": ["Earl Sweatshirt", "Sango", "Diego Raposo"]
+    },
+    {
+      "date": "2020-10-22",
+      "year": 2020,
+      "count": 11,
+      "topTracks": [
+        "Boards of Canada - Olson",
+        "Burna Boy - Omo",
+        "Burna Boy - Secret (feat. Jeremih & Serani)",
+        "Burna Boy - Gum Body (feat. Jorja Smith)",
+        "Burna Boy - Collateral Damage"
+      ],
+      "topArtists": ["Boards of Canada", "Burna Boy"]
+    },
+    {
+      "date": "2018-10-22",
+      "year": 2018,
+      "count": 22,
+      "topTracks": [
+        "Mac Miller - What's the Use?",
+        "Mac Miller - Perfecto",
+        "Mac Miller - Self Care",
+        "Mac Miller - Wings",
+        "Mac Miller - Ladders"
+      ],
+      "topArtists": ["Mac Miller", "Danny Brown"]
+    },
+    {
+      "date": "2016-10-22",
+      "year": 2016,
+      "count": 61,
+      "topTracks": [
+        "Frank Ocean - Ivy",
+        "Frank Ocean - Pink + White",
+        "Frank Ocean - Be Yourself",
+        "Frank Ocean - Solo",
+        "Frank Ocean - Skyline To"
+      ],
+      "topArtists": ["Frank Ocean", "Nao", "A$AP Rocky"]
+    },
+    {
+      "date": "2008-10-22",
+      "year": 2008,
+      "count": 105,
+      "topTracks": [
+        "Tegan and Sara - I Bet It Stung",
+        "Dntel - Tybalt 60",
+        "Eminem - Puke (Produced By Eminem)",
+        "Bob Marley - Soon Come",
+        "Steve Reich - Come Out"
+      ],
+      "topArtists": ["Tegan and Sara", "Dntel", "Eminem"]
+    },
+    {
+      "date": "2007-10-22",
+      "year": 2007,
+      "count": 9,
+      "topTracks": [
+        "Death Cab for Cutie - Fake Frowns",
+        "Animal Collective - Cuckoo Cuckoo",
+        "Regina Spektor - Fidelity",
+        "Tegan and Sara - Relief Next To Me",
+        "Boards of Canada - Aquarius"
+      ],
+      "topArtists": [
+        "Death Cab for Cutie",
+        "Animal Collective",
+        "Regina Spektor"
+      ]
+    },
+    {
+      "date": "2006-10-22",
+      "year": 2006,
+      "count": 2,
+      "topTracks": [
+        "Venetian Snares - Szamár Madár",
+        "Venetian Snares - Hiszékeny"
+      ],
+      "topArtists": ["Venetian Snares"]
+    }
+  ],
+  "commits": []
+}

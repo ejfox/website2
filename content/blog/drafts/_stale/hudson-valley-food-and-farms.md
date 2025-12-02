@@ -29,7 +29,7 @@ Turbo Overpass Query
 
 <https://www.theinfatuation.com/hudson-valley/guides/hudson-valley-restaurants>
 
-<http://web.archive.org/web/20250207124502/https://www.tripadvisor.com/Restaurants-g2663029-Hudson_River_Valley_New_York.html *[archived 2025-02-07]*>
+<http://web.archive.org/web/20250207124502/https://www.tripadvisor.com/Restaurants-g2663029-Hudson_River_Valley_New_York.html _[archived 2025-02-07]_>
 
 <https://hvfarmhub.org/resources/>
 
@@ -37,7 +37,7 @@ Turbo Overpass Query
 
 <https://inhabit.corcoran.com/the-recs-12-tasteful-hudson-valley-farm-stands/>
 
-<http://web.archive.org/web/20230209132517/https://www.michelinman.com/auto/why-michelin/travel/new-york/hudson-valley-day-trip-guide *[archived 2023-02-09]*>
+<http://web.archive.org/web/20230209132517/https://www.michelinman.com/auto/why-michelin/travel/new-york/hudson-valley-day-trip-guide _[archived 2023-02-09]_>
 
 <https://hvmag.com/food/hudson-valley-chefs-james-beard-awards/>
 

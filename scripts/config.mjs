@@ -6,7 +6,7 @@ export const config = {
     content: path.resolve(process.cwd(), 'content', 'blog'),
     output: path.resolve(process.cwd(), 'content', 'processed'),
     backup: path.resolve(process.cwd(), 'content', 'backup'),
-    ai2html: path.resolve(process.cwd(), 'public', 'ai2html')
+    ai2html: path.resolve(process.cwd(), 'public', 'ai2html'),
   },
 
   // Processing options
@@ -14,13 +14,13 @@ export const config = {
     batchSize: 10,
     concurrency: 4,
     retryAttempts: 3,
-    debugMode: process.env.DEBUG_PROCESS === 'true'
+    debugMode: process.env.DEBUG_PROCESS === 'true',
   },
 
   // Cloudinary configuration
   cloudinary: {
     baseUrl: `https://res.cloudinary.com/${process.env.CLOUDINARY_CLOUD_NAME}/image/upload/`,
-    defaultTransforms: 'f_auto,q_auto'
+    defaultTransforms: 'f_auto,q_auto',
   },
 
   // Default frontmatter
@@ -28,15 +28,15 @@ export const config = {
     hidden: false,
     draft: false,
     share: false,
-    robots: 'index, follow'
+    robots: 'index, follow',
   },
 
   // File patterns
   patterns: {
     markdown: '**/*.md',
     images: '**/*.{png,jpg,jpeg,gif,webp}',
-    exclude: ['**/node_modules/**', '**/./**']
-  }
+    exclude: ['**/node_modules/**', '**/./**'],
+  },
 }
 
 // Helper function to get config value

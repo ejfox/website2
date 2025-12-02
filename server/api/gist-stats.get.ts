@@ -61,9 +61,9 @@ export default defineEventHandler(async () => {
           firstFileName,
           totalLines,
           languages: [
-            ...new Set(fileList.map((f) => f.language).filter(Boolean))
+            ...new Set(fileList.map((f) => f.language).filter(Boolean)),
           ],
-          html_url: gist.html_url
+          html_url: gist.html_url,
         }
       })
 
@@ -74,10 +74,10 @@ export default defineEventHandler(async () => {
         totalSize,
         averageFilesPerGist: Math.round((totalFiles / gists.length) * 10) / 10,
         topLanguages,
-        yearStats
+        yearStats,
       },
       recentGists,
-      lastUpdated: new Date().toISOString()
+      lastUpdated: new Date().toISOString(),
     }
   } catch (error) {
     console.error('Gist stats error:', error)
@@ -89,12 +89,12 @@ export default defineEventHandler(async () => {
         totalSize: 0,
         averageFilesPerGist: 0,
         topLanguages: [],
-        yearStats: {}
+        yearStats: {},
       },
       recentGists: [],
       lastUpdated: new Date().toISOString(),
       error:
-        error instanceof Error ? error.message : 'Failed to fetch gist stats'
+        error instanceof Error ? error.message : 'Failed to fetch gist stats',
     }
   }
 })

@@ -39,8 +39,8 @@ async function getHighlighter() {
         'dockerfile',
         'toml',
         'ini',
-        'properties'
-      ]
+        'properties',
+      ],
     })
   }
   return highlighterInstance
@@ -53,7 +53,7 @@ export default defineEventHandler(async (event) => {
   if (!code) {
     return {
       error: 'No code provided',
-      html: '<pre><code></code></pre>'
+      html: '<pre><code></code></pre>',
     }
   }
 
@@ -66,14 +66,14 @@ export default defineEventHandler(async (event) => {
 
     const html = highlighter.codeToHtml(code, {
       lang: langToUse,
-      theme: theme
+      theme: theme,
     })
 
     return {
       html,
       language: langToUse,
       theme,
-      originalLanguage: language
+      originalLanguage: language,
     }
   } catch (error) {
     console.error('Highlighting error:', error)
@@ -81,7 +81,7 @@ export default defineEventHandler(async (event) => {
     return {
       html: `<pre><code>${code.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code></pre>`,
       error: 'Failed to highlight',
-      language: 'text'
+      language: 'text',
     }
   }
 })

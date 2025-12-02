@@ -3,7 +3,7 @@ import {
   readBody,
   getRouterParam,
   createError,
-  getMethod
+  getMethod,
 } from 'h3'
 import { promises as fs } from 'node:fs'
 import { join } from 'node:path'
@@ -60,7 +60,7 @@ export default defineEventHandler(async (event) => {
   if (!id) {
     throw createError({
       statusCode: 400,
-      statusMessage: 'Prediction ID required'
+      statusMessage: 'Prediction ID required',
     })
   }
 
@@ -82,7 +82,7 @@ export default defineEventHandler(async (event) => {
         data.outcome = {
           resolved: body.outcome.resolved,
           correct: body.outcome.correct,
-          notes: body.outcome.notes
+          notes: body.outcome.notes,
         }
       }
 
@@ -101,22 +101,22 @@ export default defineEventHandler(async (event) => {
           ? {
               resolved: new Date(data.outcome.resolved),
               correct: data.outcome.correct,
-              notes: data.outcome.notes || ''
+              notes: data.outcome.notes || '',
             }
           : undefined,
         visibility: data.visibility || 'public',
-        evidence: markdownBody.trim()
+        evidence: markdownBody.trim(),
       }
     } catch {
       throw createError({
         statusCode: 404,
-        statusMessage: 'Prediction not found'
+        statusMessage: 'Prediction not found',
       })
     }
   }
 
   throw createError({
     statusCode: 405,
-    statusMessage: 'Method not allowed'
+    statusMessage: 'Method not allowed',
   })
 })

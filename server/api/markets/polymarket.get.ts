@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
   if (!slug) {
     throw createError({
       statusCode: 400,
-      message: 'Market slug required (e.g. "new-york-city-mayoral-election")'
+      message: 'Market slug required (e.g. "new-york-city-mayoral-election")',
     })
   }
 
@@ -64,15 +64,15 @@ export default defineEventHandler(async (event) => {
       url: `https://polymarket.com/event/${slug}`,
       priceHistory: priceHistory.map((p: any) => ({
         t: p.t * 1000, // Convert to milliseconds
-        p: Number.parseFloat(p.p) * 100 // Convert to percentage
+        p: Number.parseFloat(p.p) * 100, // Convert to percentage
       })),
-      lastUpdated: new Date().toISOString()
+      lastUpdated: new Date().toISOString(),
     }
   } catch (error: any) {
     console.error('Polymarket API error:', error)
     throw createError({
       statusCode: 500,
-      message: `Failed to fetch Polymarket data: ${error.message}`
+      message: `Failed to fetch Polymarket data: ${error.message}`,
     })
   }
 })

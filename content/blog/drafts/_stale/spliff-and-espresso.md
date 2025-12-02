@@ -65,7 +65,7 @@ Our brand messaging will focus on the quality, consistency, and experience of ou
 
 ---
 
-[Combined effects of THC and caffeine on working memory in rats - PMC](http://web.archive.org/web/20240425092012/https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3423236/) *[archived 2024-04-25]*
+[Combined effects of THC and caffeine on working memory in rats - PMC](http://web.archive.org/web/20240425092012/https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3423236/) _[archived 2024-04-25]_
 
 [Metabolomic response to coffee consumption: application to a three‐stage clinical trial - Cornelis - 2018 - Journal of Internal Medicine - Wiley Online Library](https://onlinelibrary.wiley.com/doi/full/10.1111/joim.12737?identityKey=fa847b7f-5e49-4cfc-b134-4003acd2234f&regionCode=US-NY&wol1URL=%2Fdoi%2F10.1111%2Fjoim.12737%2Ffull)
 

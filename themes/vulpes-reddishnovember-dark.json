@@ -38,7 +38,14 @@
     },
     {
       "name": "Keyword",
-      "scope": ["keyword", "keyword.control", "keyword.operator.new", "keyword.operator.expression", "storage.type", "storage.modifier"],
+      "scope": [
+        "keyword",
+        "keyword.control",
+        "keyword.operator.new",
+        "keyword.operator.expression",
+        "storage.type",
+        "storage.modifier"
+      ],
       "settings": { "foreground": "#ff1aca" }
     },
     {
@@ -48,7 +55,11 @@
     },
     {
       "name": "Function",
-      "scope": ["entity.name.function", "meta.function-call", "support.function"],
+      "scope": [
+        "entity.name.function",
+        "meta.function-call",
+        "support.function"
+      ],
       "settings": { "foreground": "#ff0022" }
     },
     {
@@ -73,12 +84,21 @@
     },
     {
       "name": "Property",
-      "scope": ["variable.other.property", "variable.other.object.property", "meta.object-literal.key"],
+      "scope": [
+        "variable.other.property",
+        "variable.other.object.property",
+        "meta.object-literal.key"
+      ],
       "settings": { "foreground": "#ff0a91" }
     },
     {
       "name": "Type",
-      "scope": ["entity.name.type", "entity.name.class", "support.type", "support.class"],
+      "scope": [
+        "entity.name.type",
+        "entity.name.class",
+        "support.type",
+        "support.class"
+      ],
       "settings": { "foreground": "#ff24ab" }
     },
     {
@@ -178,7 +198,11 @@
     },
     {
       "name": "CSS Selector",
-      "scope": ["entity.name.tag.css", "entity.other.attribute-name.class.css", "entity.other.attribute-name.id.css"],
+      "scope": [
+        "entity.name.tag.css",
+        "entity.other.attribute-name.class.css",
+        "entity.other.attribute-name.id.css"
+      ],
       "settings": { "foreground": "#ff1a62" }
     }
   ]

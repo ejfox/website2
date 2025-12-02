@@ -7,12 +7,12 @@ export default defineEventHandler(async () => {
       {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           username: config.UMAMI_USERNAME,
-          password: config.UMAMI_PASSWORD
-        })
+          password: config.UMAMI_PASSWORD,
+        }),
       },
       5000 // 5 second timeout
     )
@@ -25,13 +25,13 @@ export default defineEventHandler(async () => {
 
     return {
       success: true,
-      token: data.token
+      token: data.token,
     }
   } catch (error) {
     console.error('Umami auth error:', error)
     throw createError({
       statusCode: 500,
-      statusMessage: 'Failed to authenticate with Umami'
+      statusMessage: 'Failed to authenticate with Umami',
     })
   }
 })

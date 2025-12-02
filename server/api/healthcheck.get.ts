@@ -24,9 +24,9 @@ export default defineEventHandler(async (event) => {
       env: process.env.NODE_ENV,
       memory: {
         used: Math.round(process.memoryUsage().heapUsed / 1024 / 1024), // MB
-        total: Math.round(process.memoryUsage().heapTotal / 1024 / 1024) // MB
+        total: Math.round(process.memoryUsage().heapTotal / 1024 / 1024), // MB
       },
-      manifest: 'pending' as 'ok' | 'error' | 'pending'
+      manifest: 'pending' as 'ok' | 'error' | 'pending',
     }
 
     // Test critical API endpoint
@@ -49,7 +49,7 @@ export default defineEventHandler(async (event) => {
     return {
       status: 'error',
       timestamp: new Date().toISOString(),
-      error: 'Health check failed'
+      error: 'Health check failed',
     }
   }
 })

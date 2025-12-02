@@ -31,13 +31,14 @@
             class="gear-btn flex-gap-1"
             @click="toggleSort"
           >
-            <span class="text-[8px]">{{
-              sortBy === 'weight' ? '↓' : '↑'
-            }}</span>
+            <span class="text-[8px]">
+              {{ sortBy === 'weight' ? '↓' : '↑' }}
+            </span>
             {{ sortBy === 'weight' ? 'Weight' : 'Name' }}
           </button>
           <a href="/gear.csv" download class="gear-btn inline-flex-gap-1">
-            <span>↓</span> CSV
+            <span>↓</span>
+            CSV
           </a>
         </div>
       </div>
@@ -47,9 +48,9 @@
           <h3 class="gear-section-header mb-2">Type Legend</h3>
           <div class="grid grid-cols-7 gap-2">
             <div v-for="type in typeStats" :key="type.name" class="flex-gap-1">
-              <span class="text-xs font-medium text-muted">{{
-                type.symbol
-              }}</span>
+              <span class="text-xs font-medium text-muted">
+                {{ type.symbol }}
+              </span>
               <div class="flex-1">
                 <div class="font-mono text-[10px] text-zinc-400">
                   {{ type.name }}
@@ -78,9 +79,9 @@
           class="gear-container-card group"
         >
           <div class="flex items-baseline justify-between">
-            <span class="font-mono text-[10px] text-zinc-200">{{
-              container
-            }}</span>
+            <span class="font-mono text-[10px] text-zinc-200">
+              {{ container }}
+            </span>
             <div class="text-[8px] text-zinc-600 tabular-nums">
               <span>{{ items.length }}×</span>
               <span class="text-zinc-500">{{ getAvgItemWeight(items) }}</span>
@@ -96,7 +97,7 @@
                 :style="{
                   width: `${getWeightPercentage(item, items)}%`,
                   opacity:
-                    0.3 + getItemWeightInOunces(item) / getMaxWeight(items)
+                    0.3 + getItemWeightInOunces(item) / getMaxWeight(items),
                 }"
                 :title="`${item.Name}: ${formatItemWeight(item)}`"
               ></div>
@@ -122,17 +123,17 @@
             <h2 class="text-[11px] font-mono text-zinc-200">
               {{ container }}
             </h2>
-            <span class="text-[8px] text-zinc-600"
-              >{{ items.length }}×{{ getAvgItemWeight(items) }}</span
-            >
-            <span class="text-[8px] text-zinc-600">{{
-              getWeightRange(items)
-            }}</span>
+            <span class="text-[8px] text-zinc-600">
+              {{ items.length }}×{{ getAvgItemWeight(items) }}
+            </span>
+            <span class="text-[8px] text-zinc-600">
+              {{ getWeightRange(items) }}
+            </span>
           </div>
           <div class="flex items-center gap-2">
-            <span class="text-[8px] font-mono text-zinc-500 tabular-nums">{{
-              formatWeight(items)
-            }}</span>
+            <span class="text-[8px] font-mono text-zinc-500 tabular-nums">
+              {{ formatWeight(items) }}
+            </span>
             <!-- Mini histogram -->
             <div class="flex items-end gap-px h-3">
               <div
@@ -187,7 +188,7 @@ const _escapeHtml = (text) => {
     '<': '&lt;',
     '>': '&gt;',
     '"': '&quot;',
-    "'": '&#039;'
+    "'": '&#039;',
   }
   return String(text).replace(/[&<>"']/g, (m) => map[m])
 }
@@ -219,7 +220,7 @@ const typeSymbols = {
   Sleep: '☽',
   Bag: '▣',
   Safety: '◆',
-  Creativity: '✧'
+  Creativity: '✧',
 }
 
 const _getTypeSymbol = (type) => typeSymbols[type] || '—'
@@ -232,7 +233,7 @@ const _getSortedItemsByType = (items) => {
     'Sleep',
     'Bag',
     'Safety',
-    'Creativity'
+    'Creativity',
   ]
   return [...items].sort((a, b) => {
     const aIndex = typeOrder.indexOf(a.Type)
@@ -248,7 +249,7 @@ const PRIORITY_CONTAINERS = [
   'Body',
   'Motorcycle',
   'WLF Enduro Backpack',
-  '5.11 Rush 24 Backpack'
+  '5.11 Rush 24 Backpack',
 ]
 
 const groupedGear = computed(() => {
@@ -358,7 +359,7 @@ const displayTotalWeight = computed(() => {
         : '0.0'
     return {
       value: pounds > 0 ? `${pounds}lb ${ouncesStr}oz` : `${ouncesStr}oz`,
-      unit: pounds > 0 ? '' : ''
+      unit: pounds > 0 ? '' : '',
     }
   } else {
     const totalG = totalWeightData.grams
@@ -369,7 +370,7 @@ const displayTotalWeight = computed(() => {
     const grams = Math.round(totalG % 1000)
     return {
       value: kg > 0 ? `${kg}kg ${grams}g` : `${grams}g`,
-      unit: ''
+      unit: '',
     }
   }
 })
@@ -382,13 +383,13 @@ const _displayAvgWeight = computed(() => {
       typeof oz === 'number' && !Number.isNaN(oz) ? oz.toFixed(1) : '0.0'
     return {
       value,
-      unit: 'oz'
+      unit: 'oz',
     }
   } else {
     const g = avgWeightData.grams
     return {
       value: typeof g === 'number' && !Number.isNaN(g) ? g : 0,
-      unit: 'g'
+      unit: 'g',
     }
   }
 })
@@ -401,7 +402,7 @@ const typeStats = computed(() => {
         name: typeName,
         symbol: typeSymbols[typeName],
         count: items.length,
-        weight: formatWeight(items)
+        weight: formatWeight(items),
       }
     })
     .filter((stat) => stat.count > 0)
@@ -443,12 +444,12 @@ useHead(() => ({
   meta: [
     {
       name: 'description',
-      content: gearDescription.value
+      content: gearDescription.value,
     },
     { property: 'og:title', content: 'Gear - EJ Fox' },
     {
       property: 'og:description',
-      content: gearDescription.value
+      content: gearDescription.value,
     },
     { property: 'og:url', content: 'https://ejfox.com/gear' },
     { property: 'og:type', content: 'website' },
@@ -459,11 +460,11 @@ useHead(() => ({
     { name: 'twitter:title', content: 'Gear - EJ Fox' },
     {
       name: 'twitter:description',
-      content: gearDescription.value
+      content: gearDescription.value,
     },
-    { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' }
+    { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' },
   ],
-  link: [{ rel: 'canonical', href: 'https://ejfox.com/gear' }]
+  link: [{ rel: 'canonical', href: 'https://ejfox.com/gear' }],
 }))
 
 const sortItemsByName = (items) => {
@@ -589,7 +590,7 @@ const getWeightHistogram = (items) => {
     return {
       count,
       height: (count / maxCount) * 100,
-      range: `${rangeStart.toFixed(0)}-${rangeEnd.toFixed(0)}oz`
+      range: `${rangeStart.toFixed(0)}-${rangeEnd.toFixed(0)}oz`,
     }
   })
 }
@@ -605,10 +606,10 @@ useHead(() => ({
         `${totalItems.value} items`,
         `${containerCount.value} containers`,
         `${totalWeight.value}oz`,
-        typeBreakdown.value
-      ].join(' • ')
-    }
-  ]
+        typeBreakdown.value,
+      ].join(' • '),
+    },
+  ],
 }))
 </script>
 

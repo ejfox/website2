@@ -15,7 +15,7 @@ export const foiaStatusMap: Record<string, string> = {
   fix: 'NEEDS_FIX',
   submitted: 'SUBMITTED',
   appealing: 'APPEALING',
-  done: 'DONE'
+  done: 'DONE',
 }
 
 /**
@@ -24,7 +24,7 @@ export const foiaStatusMap: Record<string, string> = {
 export const predictionStatusColors = {
   correct: 'text-green-600 dark:text-green-500',
   incorrect: 'text-red-600 dark:text-red-500',
-  pending: 'text-zinc-600 dark:text-zinc-400'
+  pending: 'text-zinc-600 dark:text-zinc-400',
 }
 
 /**
@@ -77,7 +77,7 @@ export const useStatusFormatting = () => {
       correct: '✓ Correct',
       incorrect: '✗ Incorrect',
       pending: '○ Pending',
-      resolved: 'Resolved'
+      resolved: 'Resolved',
     }
     return statusMap[status] || status
   }
@@ -121,6 +121,6 @@ export const useStatusFormatting = () => {
     getPredictionStatusClass,
     formatStatus,
     foiaStatusMap,
-    predictionStatusColors
+    predictionStatusColors,
   }
 }

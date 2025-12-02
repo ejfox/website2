@@ -9,7 +9,7 @@ tech:
     'JavaScript',
     'Python',
     'UMAP',
-    'Embeddings'
+    'Embeddings',
   ]
 state: deployed
 aiInvolvement: ai-collaborative

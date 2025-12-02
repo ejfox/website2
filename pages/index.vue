@@ -30,16 +30,16 @@ useHead({
     {
       name: 'description',
       content:
-        'Data visualization specialist and journalist working at the intersection of technology and storytelling. Helping organizations transform complex datasets into clear, compelling narratives.'
+        'Data visualization specialist and journalist working at the intersection of technology and storytelling. Helping organizations transform complex datasets into clear, compelling narratives.',
     },
     {
       property: 'og:title',
-      content: 'EJ Fox - Data Visualization Specialist & Journalist'
+      content: 'EJ Fox - Data Visualization Specialist & Journalist',
     },
     {
       property: 'og:description',
       content:
-        'Data visualization specialist and journalist working at the intersection of technology and storytelling. Helping organizations transform complex datasets into clear, compelling narratives.'
+        'Data visualization specialist and journalist working at the intersection of technology and storytelling. Helping organizations transform complex datasets into clear, compelling narratives.',
     },
     { property: 'og:url', content: 'https://ejfox.com' },
     { property: 'og:type', content: 'website' },
@@ -49,16 +49,16 @@ useHead({
     { name: 'twitter:card', content: 'summary_large_image' },
     {
       name: 'twitter:title',
-      content: 'EJ Fox - Data Visualization Specialist & Journalist'
+      content: 'EJ Fox - Data Visualization Specialist & Journalist',
     },
     {
       name: 'twitter:description',
       content:
-        'Data visualization specialist and journalist working at the intersection of technology and storytelling. Helping organizations transform complex datasets into clear, compelling narratives.'
+        'Data visualization specialist and journalist working at the intersection of technology and storytelling. Helping organizations transform complex datasets into clear, compelling narratives.',
     },
-    { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' }
+    { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' },
   ],
-  link: [{ rel: 'canonical', href: 'https://ejfox.com' }]
+  link: [{ rel: 'canonical', href: 'https://ejfox.com' }],
 })
 </script>
 
@@ -73,11 +73,13 @@ useHead({
           <span class="mx-2 text-divider">·</span>
           <span>{{ new Date().toISOString().split('T')[0] }}</span>
           <span class="mx-2 text-divider">·</span>
-          <span>{{
-            indexContent?.html?.length
-              ? (indexContent.html.length / 1024).toFixed(1) + 'KB'
-              : '0KB'
-          }}</span>
+          <span>
+            {{
+              indexContent?.html?.length
+                ? (indexContent.html.length / 1024).toFixed(1) + 'KB'
+                : '0KB'
+            }}
+          </span>
         </div>
         <h1
           class="font-serif text-4xl md:text-6xl font-light section-spacing-lg"

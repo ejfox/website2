@@ -36,7 +36,7 @@ export default defineEventHandler(async () => {
           related: data.related || [],
           updates: data.updates || [],
           updatedAt: data.updatedAt,
-          market: data.market
+          market: data.market,
         }
       })
     )
@@ -51,7 +51,7 @@ export default defineEventHandler(async () => {
     console.error('Error reading predictions:', error)
     throw createError({
       statusCode: 500,
-      statusMessage: 'Failed to load predictions'
+      statusMessage: 'Failed to load predictions',
     })
   }
 })

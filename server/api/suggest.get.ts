@@ -8,7 +8,7 @@ import { stripHtml, tokenize } from '~/server/utils/text-processing'
 // ⚡ BLAZINGLY FAST cache for EJ's enlightener! *WHOOSH*
 const cache = new NodeCache({
   stdTTL: 3600, // 1 hour cache - gotta be LIGHTNING fast! *zoom*
-  checkperiod: 120 // Check every 2 minutes
+  checkperiod: 120, // Check every 2 minutes
 })
 
 interface SuggestResponse {
@@ -124,7 +124,7 @@ async function loadTagsVocabulary(): Promise<string[]> {
         'startup',
         'tech',
         'innovation',
-        'future'
+        'future',
       ]
     }
   }
@@ -193,7 +193,7 @@ async function searchDirectory(dir: string, posts: BlogPost[], basePath = '') {
             title: data.title || 'Untitled',
             content: stripHtml(data.content),
             slug,
-            metadata: data.metadata
+            metadata: data.metadata,
           })
         } catch {
           // Skip malformed files *whoosh*
@@ -229,14 +229,14 @@ async function generateAISuggestions(
     return {
       tags: matchedTags,
       summary: content.substring(0, 200) + '...',
-      threads: []
+      threads: [],
     }
   }
 
   // Initialize OpenAI client - LIGHTNING FAST! ⚡
   const openai = new OpenAI({
     apiKey: openaiKey,
-    timeout: 10000 // 10 second timeout for SPEED! *zoom*
+    timeout: 10000, // 10 second timeout for SPEED! *zoom*
   })
 
   // Build context from similar posts
@@ -285,12 +285,12 @@ The summary should be engaging and match his voice.`
       messages: [
         {
           role: 'system',
-          content: 'You are a helpful assistant that returns valid JSON.'
+          content: 'You are a helpful assistant that returns valid JSON.',
         },
-        { role: 'user', content: prompt }
+        { role: 'user', content: prompt },
       ],
       temperature: 0.7,
-      max_tokens: 300
+      max_tokens: 300,
     })
 
     const aiResponse = response.choices[0]?.message?.content
@@ -299,7 +299,7 @@ The summary should be engaging and match his voice.`
       return {
         tags: parsed.tags?.slice(0, 4) || [],
         summary: parsed.summary || 'Interesting content worth exploring.',
-        threads: parsed.threads || []
+        threads: parsed.threads || [],
       }
     }
   } catch (error) {
@@ -320,7 +320,7 @@ The summary should be engaging and match his voice.`
   return {
     tags: matchedTags,
     summary: 'Content added to your digital scrapbook.',
-    threads: []
+    threads: [],
   }
 }
 
@@ -340,7 +340,7 @@ export default defineEventHandler(async (event): Promise<SuggestResponse> => {
       throw createError({
         statusCode: 401,
         statusMessage: 'Unauthorized',
-        message: 'Invalid authentication token'
+        message: 'Invalid authentication token',
       })
     }
 
@@ -348,7 +348,7 @@ export default defineEventHandler(async (event): Promise<SuggestResponse> => {
       throw createError({
         statusCode: 400,
         statusMessage: 'Bad Request',
-        message: 'At least one of url, title, or text is required'
+        message: 'At least one of url, title, or text is required',
       })
     }
 
@@ -372,7 +372,7 @@ export default defineEventHandler(async (event): Promise<SuggestResponse> => {
     // Load data in parallel for MAXIMUM SPEED! *zoom* *swoosh*
     const results = await Promise.allSettled([
       loadTagsVocabulary(),
-      loadBlogPosts()
+      loadBlogPosts(),
     ])
 
     const availableTags =
@@ -383,7 +383,7 @@ export default defineEventHandler(async (event): Promise<SuggestResponse> => {
     const similarities = blogPosts
       .map((post) => ({
         ...post,
-        similarity: calculateSimilarity(combinedContent, post)
+        similarity: calculateSimilarity(combinedContent, post),
       }))
       .filter((post) => post.similarity > 0.1) // Only meaningful similarities
       .sort((a, b) => b.similarity - a.similarity)
@@ -407,11 +407,11 @@ export default defineEventHandler(async (event): Promise<SuggestResponse> => {
         relevance_score: Math.round(post.similarity * 100) / 100,
         tags: Array.isArray(post.metadata?.tags)
           ? post.metadata.tags.slice(0, 3)
-          : []
+          : [],
       })),
       active_threads: aiSuggestions.threads,
       processing_time_ms: Date.now() - startTime,
-      cache_hit: false
+      cache_hit: false,
     }
 
     // Cache the result for future SPEED! *pew pew*
@@ -429,7 +429,7 @@ export default defineEventHandler(async (event): Promise<SuggestResponse> => {
       similar_scraps: [],
       active_threads: [],
       processing_time_ms: Date.now() - startTime,
-      cache_hit: false
+      cache_hit: false,
     }
   }
 })

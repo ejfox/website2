@@ -12,7 +12,7 @@ export default defineEventHandler(async (event) => {
     { url: '/gists', priority: '0.6', changefreq: 'weekly' },
     { url: '/scrapbook', priority: '0.5', changefreq: 'weekly' },
     { url: '/now', priority: '0.8', changefreq: 'weekly' },
-    { url: '/sitemap', priority: '0.4', changefreq: 'monthly' }
+    { url: '/sitemap', priority: '0.4', changefreq: 'monthly' },
   ]
 
   const now = new Date().toISOString()

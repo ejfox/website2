@@ -32,7 +32,7 @@ const {
   data: gists,
   pending,
   error,
-  refresh
+  refresh,
 } = await useFetch<Gist[]>(
   () => `/api/gists?per_page=${perPage}&page=${currentPage.value}`
 )
@@ -119,12 +119,12 @@ useHead(() => ({
   meta: [
     {
       name: 'description',
-      content: gistsDescription.value
+      content: gistsDescription.value,
     },
     { property: 'og:title', content: 'Gists - EJ Fox' },
     {
       property: 'og:description',
-      content: gistsDescription.value
+      content: gistsDescription.value,
     },
     { property: 'og:url', content: 'https://ejfox.com/gists' },
     { property: 'og:type', content: 'website' },
@@ -135,11 +135,11 @@ useHead(() => ({
     { name: 'twitter:title', content: 'Gists - EJ Fox' },
     {
       name: 'twitter:description',
-      content: gistsDescription.value
+      content: gistsDescription.value,
     },
-    { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' }
+    { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' },
   ],
-  link: [{ rel: 'canonical', href: 'https://ejfox.com/gists' }]
+  link: [{ rel: 'canonical', href: 'https://ejfox.com/gists' }],
 }))
 
 // Expand/collapse state for gists
@@ -196,9 +196,9 @@ const toggleGist = (gistId: string) => {
     <div v-else-if="gists" class="space-y-0">
       <div v-for="(gist, index) in gists" :key="gist.id" class="py-4">
         <div class="flex items-baseline gap-2">
-          <span class="text-muted w-6 text-right"
-            >{{ index + 1 + (currentPage - 1) * perPage }}.</span
-          >
+          <span class="text-muted w-6 text-right">
+            {{ index + 1 + (currentPage - 1) * perPage }}.
+          </span>
           <a
             :href="gist.html_url"
             target="_blank"
@@ -207,9 +207,9 @@ const toggleGist = (gistId: string) => {
           >
             {{ Object.values(gist.files)[0]?.filename || 'Untitled' }}
           </a>
-          <span class="text-muted ml-auto">{{
-            formatDate(gist.created_at)
-          }}</span>
+          <span class="text-muted ml-auto">
+            {{ formatDate(gist.created_at) }}
+          </span>
         </div>
 
         <div v-if="gist.description" class="pl-8 text-secondary text-xs mt-1">

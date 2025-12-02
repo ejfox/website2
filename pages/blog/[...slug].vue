@@ -7,7 +7,7 @@ import DOMPurify from 'dompurify'
 const stripHtml = (html) => {
   return DOMPurify.sanitize(html, {
     ALLOWED_TAGS: [],
-    KEEP_CONTENT: true
+    KEEP_CONTENT: true,
   })
     .replace(/\s+/g, ' ')
     .trim()
@@ -133,7 +133,7 @@ const relatedPosts = computed(() => {
       return {
         post: p,
         score: overlappingTags.length,
-        overlappingTags
+        overlappingTags,
       }
     })
     .filter((item) => item.score > 0)
@@ -185,7 +185,7 @@ const readingStats = computed(() => {
     headings,
     fileSize: (characters / 1024).toFixed(1) + 'KB',
     compression: (((characters - words) / characters) * 100).toFixed(0) + '%',
-    avgWordLength: words > 0 ? (characters / words).toFixed(1) : '0'
+    avgWordLength: words > 0 ? (characters / words).toFixed(1) : '0',
   }
 })
 
@@ -268,7 +268,7 @@ const letters = computed(() => {
   return title.split('').map((char, index) => ({
     char,
     id: index,
-    isSpace: char === ' '
+    isSpace: char === ' ',
   }))
 })
 
@@ -278,7 +278,7 @@ const animationState = reactive({
   isAnimating: false,
   visibleLetters: new Set(),
   cursorPosition: 0,
-  hasAnimated: false // Track if we've animated this title already
+  hasAnimated: false, // Track if we've animated this title already
 })
 
 // Update the rendered title to wrap words properly
@@ -412,15 +412,15 @@ useHead(() => ({
   meta: [
     {
       name: 'description',
-      content: postDescription.value
+      content: postDescription.value,
     },
     {
       property: 'og:title',
-      content: post.value?.metadata?.title || post.value?.title
+      content: post.value?.metadata?.title || post.value?.title,
     },
     {
       property: 'og:description',
-      content: postDescription.value
+      content: postDescription.value,
     },
     { property: 'og:url', content: postUrl.value },
     { property: 'og:type', content: 'article' },
@@ -430,13 +430,13 @@ useHead(() => ({
     { name: 'twitter:card', content: 'summary_large_image' },
     {
       name: 'twitter:title',
-      content: post.value?.metadata?.title || post.value?.title
+      content: post.value?.metadata?.title || post.value?.title,
     },
     {
       name: 'twitter:description',
-      content: postDescription.value
+      content: postDescription.value,
     },
-    { name: 'twitter:image', content: new URL('/og-image.png', baseURL).href }
+    { name: 'twitter:image', content: new URL('/og-image.png', baseURL).href },
   ],
   link: [{ rel: 'canonical', href: postUrl.value }],
   script: [
@@ -457,8 +457,8 @@ useHead(() => ({
             'Interactive Journalism',
             'D3.js',
             'Generative AI',
-            'Motorcycle Adventure'
-          ]
+            'Motorcycle Adventure',
+          ],
         },
         datePublished: post.value?.metadata?.date || post.value?.date,
         dateModified:
@@ -474,12 +474,12 @@ useHead(() => ({
         publisher: {
           '@type': 'Person',
           name: 'EJ Fox',
-          url: 'https://ejfox.com'
-        }
-      })
-    }
+          url: 'https://ejfox.com',
+        },
+      }),
+    },
   ],
-  htmlAttrs: { lang: 'en' }
+  htmlAttrs: { lang: 'en' },
 }))
 
 // Add this new computed property
@@ -546,7 +546,7 @@ watch(
             score: Math.max(
               50 - distance(p.slug || '', path),
               30 - distance(p.title?.toLowerCase().replace(/\s+/g, '-'), path)
-            )
+            ),
           }))
           .filter((p) => p.score > 10)
           .sort((a, b) => b.score - a.score)
@@ -619,7 +619,7 @@ const _processedMetadata = computed(() => {
     // Additional metadata
     type: metadata.type,
     dek: metadata.dek,
-    metadata // Pass through full metadata object
+    metadata, // Pass through full metadata object
   }
 })
 </script>
@@ -698,15 +698,15 @@ const _processedMetadata = computed(() => {
                 {{ formatShortDate(post?.metadata?.date || post?.date) }}
               </div>
               <div class="flex-gap-3 mono-xs text-muted">
-                <span class="text-secondary"
-                  >{{ readingStats.readingTime }}min read</span
-                >
-                <span class="text-secondary"
-                  >{{ formatCompactNumber(readingStats.words) }} words</span
-                >
-                <span v-if="readingStats.images > 0" class="text-secondary"
-                  >{{ readingStats.images }} images</span
-                >
+                <span class="text-secondary">
+                  {{ readingStats.readingTime }}min read
+                </span>
+                <span class="text-secondary">
+                  {{ formatCompactNumber(readingStats.words) }} words
+                </span>
+                <span v-if="readingStats.images > 0" class="text-secondary">
+                  {{ readingStats.images }} images
+                </span>
               </div>
             </div>
 
@@ -723,9 +723,7 @@ const _processedMetadata = computed(() => {
               <span class="whitespace-nowrap text-secondary">
                 {{ formatCompactNumber(readingStats.words) }} words
               </span>
-              <span v-if="readingStats.images > 0" class="text-divider">
-                ·
-              </span>
+              <span v-if="readingStats.images > 0" class="text-divider">·</span>
               <span
                 v-if="readingStats.images > 0"
                 class="whitespace-nowrap text-secondary"
@@ -784,7 +782,11 @@ const _processedMetadata = computed(() => {
           v-if="post?.metadata?.replyTo || post?.metadata?.['in-reply-to']"
           class="px-4 md:px-6"
         >
-          <ReplyContext :reply-to="post?.metadata?.replyTo || post?.metadata?.['in-reply-to']" />
+          <ReplyContext
+            :reply-to="
+              post?.metadata?.replyTo || post?.metadata?.['in-reply-to']
+            "
+          />
         </div>
 
         <!-- Article Content - mobile optimized spacing -->
@@ -819,8 +821,9 @@ const _processedMetadata = computed(() => {
               :key="tag"
               :href="`/blog/tag/${tag}`"
               class="post-tag"
-              >{{ tag }}</a
             >
+              {{ tag }}
+            </a>
           </div>
         </div>
 
@@ -831,7 +834,7 @@ const _processedMetadata = computed(() => {
               :to="`/blog/${nextPrevPosts.prev.slug}`"
               class="post-nav-link"
             >
-              <span class="post-nav-label"> ← Previous </span>
+              <span class="post-nav-label">← Previous</span>
               <span class="post-nav-title">
                 {{ nextPrevPosts.prev?.title }}
               </span>
@@ -850,7 +853,7 @@ const _processedMetadata = computed(() => {
               :to="`/blog/${nextPrevPosts.next.slug}`"
               class="post-nav-link"
             >
-              <span class="post-nav-label"> Next → </span>
+              <span class="post-nav-label">Next →</span>
               <span class="post-nav-title">
                 {{ nextPrevPosts.next?.title }}
               </span>
@@ -877,13 +880,15 @@ const _processedMetadata = computed(() => {
                   {{ relatedPost.title || relatedPost.metadata?.title }}
                 </div>
                 <div :class="relatedPostMetaClass">
-                  <span>{{
-                    formatDate(relatedPost.date || relatedPost.metadata?.date)
-                  }}</span>
+                  <span>
+                    {{
+                      formatDate(relatedPost.date || relatedPost.metadata?.date)
+                    }}
+                  </span>
                   <span>·</span>
-                  <span class="text-zinc-400">{{
-                    overlappingTags.join(', ')
-                  }}</span>
+                  <span class="text-zinc-400">
+                    {{ overlappingTags.join(', ') }}
+                  </span>
                 </div>
               </NuxtLink>
             </div>
@@ -926,14 +931,16 @@ const _processedMetadata = computed(() => {
                     tocLinkClass,
                     activeSection === child.slug
                       ? 'text-zinc-900 dark:text-zinc-100 font-medium'
-                      : tocInactiveClass
+                      : tocInactiveClass,
                   ]"
                 >
                   <!-- Section number aligned on same baseline -->
                   <span
                     :class="[
                       tocNumberClass,
-                      activeSection === child.slug ? 'opacity-70' : 'opacity-40'
+                      activeSection === child.slug
+                        ? 'opacity-70'
+                        : 'opacity-40',
                     ]"
                   >
                     {{ String(index + 1).padStart(2, '0') }}

@@ -12,7 +12,7 @@ const buildInfo = {
   commitLong,
   branch,
   buildDate: date,
-  buildTimestamp: Date.now()
+  buildTimestamp: Date.now(),
 }
 
 writeFileSync('.build-info.json', JSON.stringify(buildInfo, null, 2))

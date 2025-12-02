@@ -6,9 +6,9 @@
       <span class="mx-2">·</span>
       <span>{{ columns.length }} COLS</span>
       <span v-if="sortColumn" class="mx-2">·</span>
-      <span v-if="sortColumn"
-        >SORTED BY {{ columns[sortColumn]?.label || sortColumn }}</span
-      >
+      <span v-if="sortColumn">
+        SORTED BY {{ columns[sortColumn]?.label || sortColumn }}
+      </span>
     </div>
 
     <table class="data-table" :class="{ 'data-table-dense': dense }">
@@ -21,7 +21,7 @@
               column.align === 'right' ? 'text-right' : 'text-left',
               column.sortable !== false
                 ? 'cursor-pointer hover:text-zinc-700 dark:hover:text-zinc-300'
-                : ''
+                : '',
             ]"
             @click="column.sortable !== false && sort(column.key)"
           >
@@ -54,7 +54,7 @@
                 ? 'numeric'
                 : '',
               column.type === 'category' ? 'category' : '',
-              column.className || ''
+              column.className || '',
             ]"
           >
             <!-- Custom slot for cell content -->
@@ -92,8 +92,9 @@
                 <span
                   v-if="row[column.key]"
                   class="text-green-600 dark:text-green-400"
-                  >✓</span
                 >
+                  ✓
+                </span>
                 <span v-else class="text-zinc-300 dark:text-zinc-700">—</span>
               </template>
 
@@ -120,7 +121,7 @@ import { ref, computed } from 'vue'
 const props = defineProps({
   columns: {
     type: Array,
-    required: true
+    required: true,
     // Expected format:
     // [
     //   { key: 'name', label: 'Name', type: 'text', sortable: true },
@@ -131,25 +132,25 @@ const props = defineProps({
   },
   rows: {
     type: Array,
-    required: true
+    required: true,
   },
   dense: {
     type: Boolean,
-    default: false
+    default: false,
   },
   showStats: {
     type: Boolean,
-    default: true
+    default: true,
   },
   initialSort: {
     type: String,
-    default: null
+    default: null,
   },
   initialSortDirection: {
     type: String,
     default: 'asc',
-    validator: (value) => ['asc', 'desc'].includes(value)
-  }
+    validator: (value) => ['asc', 'desc'].includes(value),
+  },
 })
 
 const sortColumn = ref(props.initialSort)

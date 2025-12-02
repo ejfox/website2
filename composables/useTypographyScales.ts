@@ -75,6 +75,6 @@ export const useTypographyScales = () => {
     emphasisColor,
     depthOpacity,
     readingTime,
-    gridSnap
+    gridSnap,
   }
 }

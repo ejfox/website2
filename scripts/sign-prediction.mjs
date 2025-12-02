@@ -25,7 +25,7 @@ async function signPrediction() {
       data.confidence,
       data.deadline,
       (data.categories || []).join(','),
-      data.created
+      data.created,
     ].join('|')
 
     const hash = createHash('sha256').update(hashContent).digest('hex')
@@ -79,7 +79,7 @@ async function signPrediction() {
       hash,
       gitCommit,
       signed: data.signed,
-      statement: data.statement.substring(0, 100) + '...'
+      statement: data.statement.substring(0, 100) + '...',
     }
 
     // Append to commitment log

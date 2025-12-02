@@ -7,13 +7,13 @@
 export const useCalibration = () => {
   const { data, pending, error, refresh } = useFetch('/api/calibration', {
     key: 'calibration-analysis',
-    dedupe: 'defer'
+    dedupe: 'defer',
   })
 
   return {
     data,
     pending,
     error,
-    refresh
+    refresh,
   }
 }

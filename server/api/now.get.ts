@@ -26,13 +26,13 @@ export default defineEventHandler(async () => {
       html: String(result),
       description: data.description,
       date: data.date,
-      ...data
+      ...data,
     }
   } catch (error) {
     console.error('Error loading now page:', error)
     throw createError({
       statusCode: 500,
-      statusMessage: 'Failed to load now page'
+      statusMessage: 'Failed to load now page',
     })
   }
 })

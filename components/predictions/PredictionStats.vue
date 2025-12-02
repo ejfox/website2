@@ -35,8 +35,8 @@
 const _props = defineProps({
   stats: {
     type: Object,
-    required: true
-  }
+    required: true,
+  },
 })
 </script>
 

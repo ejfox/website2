@@ -19,29 +19,29 @@ function adaptChessStats(chessStats: any) {
     currentRating: {
       bullet: chessStats.currentRating.bullet || 0,
       blitz: chessStats.currentRating.blitz || 0,
-      rapid: chessStats.currentRating.rapid || 0
+      rapid: chessStats.currentRating.rapid || 0,
     },
     bestRating: {
       bullet: chessStats.bestRating.bullet || 0,
       blitz: chessStats.bestRating.blitz || 0,
-      rapid: chessStats.bestRating.rapid || 0
+      rapid: chessStats.bestRating.rapid || 0,
     },
     gamesPlayed: {
       bullet: chessStats.gamesPlayed.bullet || 0,
       blitz: chessStats.gamesPlayed.blitz || 0,
       rapid: chessStats.gamesPlayed.rapid || 0,
-      total: chessStats.gamesPlayed.total || 0
+      total: chessStats.gamesPlayed.total || 0,
     },
     winRate: {
       bullet: chessStats.winRate.bullet || 0,
       blitz: chessStats.winRate.blitz || 0,
       rapid: chessStats.winRate.rapid || 0,
-      overall: chessStats.winRate.overall || 0
+      overall: chessStats.winRate.overall || 0,
     },
     puzzleStats: {
       rating: chessStats.puzzleStats.rating || 0,
       totalSolved: chessStats.puzzleStats.totalSolved || 0,
-      bestRating: chessStats.puzzleStats.bestRating || 0
+      bestRating: chessStats.puzzleStats.bestRating || 0,
     },
     recentGames: (chessStats.recentGames || []).map((game: any) => ({
       id: game.id,
@@ -50,9 +50,9 @@ function adaptChessStats(chessStats: any) {
       result: game.result,
       timestamp: game.timestamp,
       rating: game.rating,
-      ratingDiff: game.ratingDiff
+      ratingDiff: game.ratingDiff,
     })),
-    lastUpdated: chessStats.lastUpdated
+    lastUpdated: chessStats.lastUpdated,
   }
 }
 
@@ -85,7 +85,7 @@ function _processCommits(commits: any[]): {
 
     return {
       ...commit,
-      type
+      type,
     }
   })
 
@@ -110,7 +110,7 @@ function _processCommits(commits: any[]): {
     .map(([type, count]: [string, number]) => ({
       type,
       count,
-      percentage: (count / total) * 100
+      percentage: (count / total) * 100,
     }))
     .sort((a, b) => b.count - a.count)
 
@@ -131,15 +131,15 @@ function adaptGitHubStats(githubData: any) {
       totalContributions: githubData.stats.totalContributions || 0,
       totalRepos: githubData.stats.totalRepos || 0,
       followers: githubData.stats.followers || 0,
-      following: githubData.stats.following || 0
+      following: githubData.stats.following || 0,
     },
     // Include these required properties
     contributions: githubData.contributions || [],
     dates: githubData.dates || [],
     detail: {
       commits: githubData.detail?.commits || [],
-      commitTypes: githubData.detail?.commitTypes || []
-    }
+      commitTypes: githubData.detail?.commitTypes || [],
+    },
   }
 }
 
@@ -165,7 +165,7 @@ export default defineEventHandler(async (event): Promise<StatsResponse> => {
       gistStatsResult,
       websiteStatsResult,
       letterboxdStatsResult,
-      blogStatsResult
+      blogStatsResult,
     ] = await Promise.allSettled([
       githubHandler(event).catch((err) => {
         console.error('❌ GitHub API error:', err)
@@ -218,7 +218,7 @@ export default defineEventHandler(async (event): Promise<StatsResponse> => {
       blogStatsHandler(event).catch((err) => {
         console.error('❌ Blog stats error:', err)
         return null
-      })
+      }),
     ])
 
     const response: StatsResponse = {
@@ -238,7 +238,7 @@ export default defineEventHandler(async (event): Promise<StatsResponse> => {
       gists: getValue(gistStatsResult),
       website: getValue(websiteStatsResult),
       letterboxd: getValue(letterboxdStatsResult),
-      blog: getValue(blogStatsResult)
+      blog: getValue(blogStatsResult),
     }
 
     return response

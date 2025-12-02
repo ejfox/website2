@@ -51,9 +51,9 @@
 
     <!-- Container -->
     <div class="text-center text-sm text-zinc-600 dark:text-zinc-400">
-      <span class="uppercase tracking-widest">{{
-        gearItem['Parent Container'] || 'Unassigned'
-      }}</span>
+      <span class="uppercase tracking-widest">
+        {{ gearItem['Parent Container'] || 'Unassigned' }}
+      </span>
     </div>
 
     <!-- Buy link if available -->
@@ -78,9 +78,9 @@
           class="row-bordered"
         >
           <span :class="fieldLabelClass">{{ formatFieldName(key) }}</span>
-          <span :class="fieldValueClass" :title="value">{{
-            value || '—'
-          }}</span>
+          <span :class="fieldValueClass" :title="value">
+            {{ value || '—' }}
+          </span>
         </div>
       </div>
     </div>
@@ -93,8 +93,8 @@ import { useMouse } from '~/composables/useOptimizedVueUse'
 const props = defineProps({
   gearItem: {
     type: Object,
-    default: () => ({})
-  }
+    default: () => ({}),
+  },
 })
 
 const { getItemWeightInGrams } = useWeightCalculations()
@@ -111,7 +111,7 @@ const typeSymbols = {
   Sleep: '☽',
   Bag: '▣',
   Safety: '◆',
-  Creativity: '✧'
+  Creativity: '✧',
 }
 
 // Helper functions
@@ -207,7 +207,7 @@ const cardTransform = computed(() => {
     transform: `perspective(1000px) rotateX(${rotateX}deg)
       rotateY(${rotateY}deg) translateZ(${translateZ}px)`,
     transition: 'transform 0.3s ease-out',
-    filter: 'blur(0px)'
+    filter: 'blur(0px)',
   }
 })
 
@@ -228,7 +228,7 @@ const _animateGearCardReveal = async () => {
 // DELETED: All broken animation code
 // Expose the exit function to parent components
 defineExpose({
-  triggerExit
+  triggerExit,
 })
 </script>
 

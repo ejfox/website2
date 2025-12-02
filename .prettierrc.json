@@ -3,7 +3,11 @@
   "semi": false,
   "singleQuote": true,
   "tabWidth": 2,
+  "useTabs": false,
   "trailingComma": "es5",
-  "vueIndentScriptAndStyle": true,
+  "bracketSpacing": true,
+  "arrowParens": "always",
+  "endOfLine": "lf",
+  "vueIndentScriptAndStyle": false,
   "htmlWhitespaceSensitivity": "ignore"
 }

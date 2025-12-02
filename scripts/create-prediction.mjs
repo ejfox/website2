@@ -7,7 +7,7 @@ import matter from 'gray-matter'
 
 const rl = readline.createInterface({
   input: process.stdin,
-  output: process.stdout
+  output: process.stdout,
 })
 
 const question = (prompt) =>
@@ -53,7 +53,7 @@ async function createPrediction() {
     deadline,
     categories,
     visibility,
-    created
+    created,
   }
 
   const content = matter.stringify(evidence.trim(), frontmatter)

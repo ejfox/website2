@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
   if (!slug) {
     throw createError({
       statusCode: 400,
-      statusMessage: 'Slug is required'
+      statusMessage: 'Slug is required',
     })
   }
 
@@ -29,7 +29,7 @@ export default defineEventHandler(async (event) => {
     if (!foundItem) {
       throw createError({
         statusCode: 404,
-        statusMessage: 'Gear item not found'
+        statusMessage: 'Gear item not found',
       })
     }
 
@@ -41,7 +41,7 @@ export default defineEventHandler(async (event) => {
 
     throw createError({
       statusCode: 500,
-      statusMessage: 'Failed to fetch gear data'
+      statusMessage: 'Failed to fetch gear data',
     })
   }
 })

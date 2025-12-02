@@ -6,7 +6,7 @@
       <nav v-if="!isStatsSimple" class="header-mobile-sticky">
         <!-- Top bar with branding -->
         <div class="flex items-center justify-between px-4 h-12">
-          <a href="/" :class="brandingClasses"> EJ Fox </a>
+          <a href="/" :class="brandingClasses">EJ Fox</a>
           <div class="w-6"></div>
           <!-- Spacer for visual balance -->
         </div>
@@ -24,8 +24,9 @@
               :href="item.href"
               role="tab"
               class="nav-pill"
-              >{{ item.label }}</a
             >
+              {{ item.label }}
+            </a>
 
             <!-- More button for additional links -->
             <button
@@ -67,8 +68,9 @@
                 :target="item.external ? '_blank' : undefined"
                 class="nav-pill-hover"
                 @click="closeMobileMenu"
-                >{{ item.label }}{{ item.icon ? ` ${item.icon}` : '' }}</a
               >
+                {{ item.label }}{{ item.icon ? ` ${item.icon}` : '' }}
+              </a>
             </div>
           </div>
         </Transition>
@@ -86,8 +88,9 @@
                 :class="linkClasses"
                 :href="item.href"
                 :target="item.external ? '_blank' : undefined"
-                >{{ item.label }}{{ item.icon ? ` ${item.icon}` : '' }}</a
               >
+                {{ item.label }}{{ item.icon ? ` ${item.icon}` : '' }}
+              </a>
             </div>
             <div class="my-8"></div>
             <div class="space-y-1">
@@ -97,8 +100,9 @@
                 :class="linkClasses"
                 :href="item.href"
                 :target="item.external ? '_blank' : undefined"
-                >{{ item.label }}{{ item.icon ? ` ${item.icon}` : '' }}</a
               >
+                {{ item.label }}{{ item.icon ? ` ${item.icon}` : '' }}
+              </a>
             </div>
             <!-- Table of Contents Teleport Target -->
             <div id="nav-toc-container" class="mt-8"></div>
@@ -109,7 +113,7 @@
       <article
         class="w-full pt-24 md:pt-0"
         :class="{
-          'pt-36': mobileMenuOpen
+          'pt-36': mobileMenuOpen,
         }"
       >
         <slot />

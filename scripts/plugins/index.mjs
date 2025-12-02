@@ -15,5 +15,5 @@ export const DEFAULT_PLUGINS = [
   'remarkObsidianEnhanced', // Added enhanced support
   'remarkExtractToc',
   'remarkAi2htmlEmbed',
-  'rehypeAddClassToParagraphs'
+  'rehypeAddClassToParagraphs',
 ]

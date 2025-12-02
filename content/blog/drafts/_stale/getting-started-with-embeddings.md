@@ -26,7 +26,7 @@ tags:
 async function memoryToEmbedding(memory) {
   const embedding = openai.createEmbedding({
     model: 'text-embedding-ada-002',
-    input: memory
+    input: memory,
   })
   return embedding
 }
@@ -39,7 +39,7 @@ const body = 'Hello world!'
 // Generate a vector using OpenAI
 const embeddingResponse = await openai.createEmbedding({
   model: 'text-embedding-ada-002',
-  input: body
+  input: body,
 })
 
 const [{ embedding }] = embeddingResponse.data.data
@@ -48,7 +48,7 @@ const [{ embedding }] = embeddingResponse.data.data
 const { data, error } = await supabase.from('posts').insert({
   title,
   body,
-  embedding
+  embedding,
 })
 ```
 
@@ -91,7 +91,7 @@ async function getRelevantMemories(queryString, limit = 5) {
   // turn the queryString into an embedding
   const embeddingResponse = await openai.createEmbedding({
     model: 'text-embedding-ada-002',
-    input: queryString.toString()
+    input: queryString.toString(),
   })
 
   const [{ embedding }] = embeddingResponse.data.data
@@ -100,7 +100,7 @@ async function getRelevantMemories(queryString, limit = 5) {
   const { data, error } = await supabase.rpc('match_documents', {
     query_embedding: embedding,
     match_threshold: 0.78,
-    match_count: limit
+    match_count: limit,
   })
 
   if (error) {

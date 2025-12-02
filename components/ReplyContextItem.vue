@@ -30,10 +30,7 @@
         <span class="text-xs text-zinc-600 dark:text-zinc-300">
           {{ ogData?.author || ogData?.siteName || domain }}
         </span>
-        <span
-          v-if="ogData?.published"
-          class="text-xs text-zinc-400"
-        >
+        <span v-if="ogData?.published" class="text-xs text-zinc-400">
           · {{ formatDate(ogData.published) }}
         </span>
       </div>
@@ -115,7 +112,7 @@ const domain = computed(() => {
 const { data: ogData } = await useFetch<OGData>('/api/og', {
   query: { url: props.url },
   immediate: !!props.url,
-  default: () => null
+  default: () => null,
 })
 
 const handleFaviconError = (e: Event) => {

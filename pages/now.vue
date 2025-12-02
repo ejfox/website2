@@ -3,7 +3,7 @@
 const {
   data: stats,
   pending: statsPending,
-  error: statsError
+  error: statsError,
 } = await useFetch('/api/stats')
 const { data: reading, error: readingError } = await useFetch('/api/reading')
 const { data: predictions, error: predictionsError } =
@@ -15,7 +15,7 @@ const now = computed(() => {
   if (!stats.value) return null
 
   const result = {
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
   }
 
   // Most recent track
@@ -26,7 +26,7 @@ const now = computed(() => {
       artist: track.artist?.['#text'] || track.artist,
       playedAt: track['@attr']?.nowplaying === 'true' ? 'now' : track.date?.uts,
       url: track.url,
-      image: track.image?.find((i) => i.size === 'large')?.['#text']
+      image: track.image?.find((i) => i.size === 'large')?.['#text'],
     }
   }
 
@@ -37,7 +37,7 @@ const now = computed(() => {
       message: commit.message,
       repo: commit.repository?.name,
       timestamp: commit.occurredAt,
-      url: commit.url
+      url: commit.url,
     }
   }
 
@@ -62,7 +62,7 @@ const now = computed(() => {
         lastAnnotated:
           currentlyReading.metadata['kindle-sync'].lastAnnotatedDate,
         cover: currentlyReading.metadata['kindle-sync'].bookImageUrl,
-        slug: currentlyReading.slug
+        slug: currentlyReading.slug,
       }
     }
   }
@@ -75,7 +75,7 @@ const now = computed(() => {
         statement: p.statement,
         confidence: p.confidence,
         lastUpdate: p.updates[p.updates.length - 1],
-        slug: p.slug
+        slug: p.slug,
       }))
       .sort((a, b) => {
         const dateA = new Date(a.lastUpdate.timestamp)
@@ -89,7 +89,7 @@ const now = computed(() => {
         confidence: recent.confidence,
         reasoning: recent.lastUpdate.reasoning,
         timestamp: recent.lastUpdate.timestamp,
-        slug: recent.slug
+        slug: recent.slug,
       }
     }
   }
@@ -97,7 +97,7 @@ const now = computed(() => {
   // Chess rating
   if (stats.value?.chess?.currentRating) {
     result.chess = {
-      blitz: stats.value.chess.currentRating.blitz
+      blitz: stats.value.chess.currentRating.blitz,
     }
   }
 
@@ -126,9 +126,9 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'What EJ Fox is doing right now'
-    }
-  ]
+      content: 'What EJ Fox is doing right now',
+    },
+  ],
 })
 </script>
 
@@ -146,7 +146,7 @@ useHead({
             day: 'numeric',
             year: 'numeric',
             hour: 'numeric',
-            minute: '2-digit'
+            minute: '2-digit',
           })
         }}
       </div>
@@ -193,8 +193,8 @@ useHead({
               now.music.playedAt === 'now'
                 ? 'now'
                 : formatTime(now.music.playedAt)
-            }}</span
-          >
+            }}
+          </span>
         </div>
         <a
           v-if="now.music.url"
@@ -227,8 +227,8 @@ useHead({
         <div class="activity-section-label">
           Last Commit
           <span class="text-zinc-400 dark:text-zinc-600">
-            · {{ formatTime(now.code.timestamp) }}</span
-          >
+            · {{ formatTime(now.code.timestamp) }}
+          </span>
         </div>
         <a
           v-if="now.code.url"
@@ -253,8 +253,8 @@ useHead({
         <div class="activity-section-label">
           Currently Reading
           <span class="text-zinc-400 dark:text-zinc-600">
-            · annotated {{ formatTime(now.reading.lastAnnotated) }}</span
-          >
+            · annotated {{ formatTime(now.reading.lastAnnotated) }}
+          </span>
         </div>
         <NuxtLink
           :to="`/reading/${now.reading.slug}`"
@@ -285,8 +285,8 @@ useHead({
         <div class="activity-section-label">
           Latest Prediction Update
           <span class="text-zinc-400 dark:text-zinc-600">
-            · {{ formatTime(now.thinking.timestamp) }}</span
-          >
+            · {{ formatTime(now.thinking.timestamp) }}
+          </span>
         </div>
         <NuxtLink :to="`/predictions/${now.thinking.slug}`" class="block group">
           <div class="confidence-badge">
@@ -322,7 +322,8 @@ useHead({
       <p class="font-serif text-sm text-zinc-500 dark:text-zinc-500 italic">
         This page shows my current activity across various platforms. For
         comprehensive stats and historical data, see
-        <NuxtLink to="/stats" class="link-inline">/stats</NuxtLink>.
+        <NuxtLink to="/stats" class="link-inline">/stats</NuxtLink>
+        .
       </p>
     </footer>
   </main>

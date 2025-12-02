@@ -59,7 +59,7 @@ const projects = ref([
     content: '<p>AI coaching system...</p>',
     commits: [12, 45, 23, 67, 34, 89, 45],
     files: [10, 20, 15, 25, 30],
-    metrics: [100, 200, 150, 300, 250, 400]
+    metrics: [100, 200, 150, 300, 250, 400],
   },
   {
     slug: 'morning-radio',
@@ -69,14 +69,14 @@ const projects = ref([
     content: '<p>Automated radio show...</p>',
     commits: [5, 10, 8, 12, 15, 20],
     files: [5, 8, 10, 12],
-    metrics: [50, 75, 100, 125, 150]
-  }
+    metrics: [50, 75, 100, 125, 150],
+  },
 ])
 
 const projectsWithMeta = computed(() =>
   projects.value.map((p) => ({
     ...p,
-    sparkData: p.commits || []
+    sparkData: p.commits || [],
   }))
 )
 

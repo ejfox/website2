@@ -36,7 +36,7 @@ export default defineEventHandler(async () => {
     console.error('Error in manifest endpoint:', error)
     throw createError({
       statusCode: 500,
-      message: `Failed to read manifest: ${error.message}`
+      message: `Failed to read manifest: ${error.message}`,
     })
   }
 })

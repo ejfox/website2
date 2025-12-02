@@ -116,7 +116,9 @@
           </div>
           <p
             class="text-zinc-700 dark:text-zinc-300 mt-0.5 break-words"
-            v-html="truncateHtml(reply.content?.html || reply.content?.text || '')"
+            v-html="
+              truncateHtml(reply.content?.html || reply.content?.text || '')
+            "
           ></p>
         </div>
       </div>
@@ -128,16 +130,21 @@
       class="text-xs text-zinc-500 dark:text-zinc-400"
     >
       Also mentioned by
-      <span v-for="(mention, i) in mentions.slice(0, 3)" :key="mention['wm-id']">
+      <span
+        v-for="(mention, i) in mentions.slice(0, 3)"
+        :key="mention['wm-id']"
+      >
         <a
           :href="mention.url"
           target="_blank"
           rel="noopener"
           class="hover:underline"
-        >{{ mention.author?.name || getDomain(mention.url) }}</a>
-        <span v-if="i < Math.min(mentions.length, 3) - 1">, </span>
+        >
+          {{ mention.author?.name || getDomain(mention.url) }}
+        </a>
+        <span v-if="i < Math.min(mentions.length, 3) - 1">,</span>
       </span>
-      <span v-if="mentions.length > 3"> + {{ mentions.length - 3 }} more</span>
+      <span v-if="mentions.length > 3">+ {{ mentions.length - 3 }} more</span>
     </div>
   </div>
 </template>
@@ -154,7 +161,7 @@ const showReposts = ref(false)
 
 const { data: webmentions } = await useFetch('/api/webmentions', {
   query: { target: props.url },
-  default: () => []
+  default: () => [],
 })
 
 const likes = computed(() =>

@@ -23,7 +23,7 @@ router.get(
     if (!fullPath) {
       throw createError({
         statusCode: 400,
-        message: 'Missing slug parameter'
+        message: 'Missing slug parameter',
       })
     }
 
@@ -54,7 +54,7 @@ router.get(
       if (!data || !data.metadata?.share) {
         throw createError({
           statusCode: 404,
-          message: 'Robot note not found'
+          message: 'Robot note not found',
         })
       }
 
@@ -62,7 +62,7 @@ router.get(
     } catch {
       throw createError({
         statusCode: 404,
-        message: 'Robot note not found'
+        message: 'Robot note not found',
       })
     }
   })

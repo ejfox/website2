@@ -10,20 +10,20 @@
       <!-- Date navigation -->
       <div class="flex gap-2 mt-4">
         <button
-          @click="changeDay(-1)"
           class="px-3 py-1 text-sm bg-zinc-100 dark:bg-zinc-800 rounded hover:bg-zinc-200 dark:hover:bg-zinc-700"
+          @click="changeDay(-1)"
         >
           Previous
         </button>
         <button
-          @click="goToToday"
           class="px-3 py-1 text-sm bg-zinc-100 dark:bg-zinc-800 rounded hover:bg-zinc-200 dark:hover:bg-zinc-700"
+          @click="goToToday"
         >
           Today
         </button>
         <button
-          @click="changeDay(1)"
           class="px-3 py-1 text-sm bg-zinc-100 dark:bg-zinc-800 rounded hover:bg-zinc-200 dark:hover:bg-zinc-700"
+          @click="changeDay(1)"
         >
           Next
         </button>
@@ -69,7 +69,10 @@
                 <span class="text-zinc-400">{{ sourceIcons.posts }}</span>
                 <div>
                   <h3 class="font-serif text-lg">{{ post.title }}</h3>
-                  <p v-if="post.dek" class="text-sm text-zinc-600 dark:text-zinc-400 mt-1">
+                  <p
+                    v-if="post.dek"
+                    class="text-sm text-zinc-600 dark:text-zinc-400 mt-1"
+                  >
                     {{ post.dek }}
                   </p>
                 </div>
@@ -93,8 +96,8 @@
           <template v-if="yearData.tweets?.length">
             <TweetCard
               v-for="tweet in yearData.tweets"
-              :key="tweet.id"
               :id="tweet.id"
+              :key="tweet.id"
               :text="tweet.text"
               :date="tweet.date"
               :reply-to="tweet.replyTo"
@@ -113,7 +116,9 @@
               <div class="flex items-start gap-3">
                 <span class="text-red-500">{{ sourceIcons.scrobbles }}</span>
                 <div class="flex-grow min-w-0">
-                  <p class="text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
+                  <p
+                    class="text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2"
+                  >
                     {{ scrobble.count }} scrobbles
                   </p>
                   <div class="space-y-1">
@@ -152,7 +157,7 @@ const sourceIcons: Record<string, string> = {
   posts: 'P',
   tweets: 'X',
   scrobbles: 'M',
-  commits: 'G'
+  commits: 'G',
 }
 
 // Source type labels for summary
@@ -160,7 +165,7 @@ const sourceLabels: Record<string, [string, string]> = {
   total_posts: ['post', 'posts'],
   total_tweets: ['tweet', 'tweets'],
   total_scrobbles: ['year of music', 'years of music'],
-  total_commits: ['commit', 'commits']
+  total_commits: ['commit', 'commits'],
 }
 
 // Get month/day from query or use today
@@ -176,15 +181,25 @@ const currentDay = ref(
 const { data, pending } = await useFetch('/api/on-this-day', {
   query: computed(() => ({
     month: currentMonth.value,
-    day: currentDay.value
-  }))
+    day: currentDay.value,
+  })),
 })
 
 // Formatted date display
 const formattedDate = computed(() => {
   const months = [
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
   ]
   return `${months[currentMonth.value - 1]} ${currentDay.value}`
 })
@@ -232,6 +247,6 @@ const goToToday = () => {
 
 // SEO
 useHead({
-  title: `On This Day - ${formattedDate.value}`
+  title: `On This Day - ${formattedDate.value}`,
 })
 </script>

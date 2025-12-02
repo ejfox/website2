@@ -58,8 +58,8 @@ export default defineEventHandler(async () => {
           headers: {
             Accept: 'application/json',
             'User-Agent':
-              'EJFox-Website/2.0 (https://ejfox.com; ejfox@ejfox.com)'
-          }
+              'EJFox-Website/2.0 (https://ejfox.com; ejfox@ejfox.com)',
+          },
         })
 
         clearTimeout(timeoutId)
@@ -75,7 +75,7 @@ export default defineEventHandler(async () => {
           throw createError({
             statusCode: response.status,
             message: `Last.fm API error: ${response.statusText}`,
-            data: { errorText }
+            data: { errorText },
           })
         }
 
@@ -91,7 +91,7 @@ export default defineEventHandler(async () => {
           throw createError({
             statusCode: 500,
             message: `Last.fm API error: ${errorMsg}`,
-            data: { errorCode: data.error }
+            data: { errorCode: data.error },
           })
         }
 
@@ -167,17 +167,17 @@ export default defineEventHandler(async () => {
       makeRequest<any>('user.getrecenttracks', { limit: '10' }),
       makeRequest<any>('user.gettopartists', {
         period: '1month',
-        limit: '10'
+        limit: '10',
       }),
       makeRequest<any>('user.gettopalbums', {
         period: '1month',
-        limit: '10'
+        limit: '10',
       }),
       makeRequest<any>('user.gettoptracks', {
         period: '1month',
-        limit: '10'
+        limit: '10',
       }),
-      makeRequest<any>('user.getinfo')
+      makeRequest<any>('user.getinfo'),
     ])
 
     const recentTracks =
@@ -206,13 +206,15 @@ export default defineEventHandler(async () => {
           name: track.name,
           artist: {
             name: track.artist['#text'],
-            url: track.artist.url || ''
+            url: track.artist.url || '',
           },
           url: track.url,
           date: track.date,
-          image: track.image || []
+          image: track.image || [],
         })) || [],
-      total: Number.parseInt(recentTracks.recenttracks?.['@attr']?.total || '0')
+      total: Number.parseInt(
+        recentTracks.recenttracks?.['@attr']?.total || '0'
+      ),
     }
 
     // Process top artists
@@ -222,9 +224,9 @@ export default defineEventHandler(async () => {
           name: artist.name,
           playcount: artist.playcount,
           url: artist.url,
-          image: artist.image || []
+          image: artist.image || [],
         })) || [],
-      total: Number.parseInt(topArtists.topartists?.['@attr']?.total || '0')
+      total: Number.parseInt(topArtists.topartists?.['@attr']?.total || '0'),
     }
 
     // Process top albums
@@ -235,12 +237,12 @@ export default defineEventHandler(async () => {
           playcount: album.playcount,
           artist: {
             name: album.artist.name,
-            url: album.artist.url
+            url: album.artist.url,
           },
           url: album.url,
-          image: album.image || []
+          image: album.image || [],
         })) || [],
-      total: Number.parseInt(topAlbums.topalbums?.['@attr']?.total || '0')
+      total: Number.parseInt(topAlbums.topalbums?.['@attr']?.total || '0'),
     }
 
     // Process top tracks
@@ -250,13 +252,13 @@ export default defineEventHandler(async () => {
           name: track.name,
           artist: {
             name: track.artist.name,
-            url: track.artist.url
+            url: track.artist.url,
           },
           url: track.url,
           playcount: track.playcount,
-          image: track.image || []
+          image: track.image || [],
         })) || [],
-      total: Number.parseInt(topTracks.toptracks?.['@attr']?.total || '0')
+      total: Number.parseInt(topTracks.toptracks?.['@attr']?.total || '0'),
     }
 
     // Process user info
@@ -264,7 +266,7 @@ export default defineEventHandler(async () => {
       playcount: Number.parseInt(userInfo.user?.playcount || '0'),
       registered: userInfo.user?.registered || { unixtime: '0', '#text': '' },
       url: userInfo.user?.url || '',
-      image: userInfo.user?.image?.[1]?.['#text'] || ''
+      image: userInfo.user?.image?.[1]?.['#text'] || '',
     }
 
     // Calculate some additional stats
@@ -294,9 +296,9 @@ export default defineEventHandler(async () => {
         uniqueArtists,
         uniqueTracks,
         averagePerDay,
-        topGenres: [] // Last.fm API doesn't provide genre info directly
+        topGenres: [], // Last.fm API doesn't provide genre info directly
       },
-      lastUpdated: new Date().toISOString()
+      lastUpdated: new Date().toISOString(),
     }
 
     // Log a summary of the data we're returning
@@ -319,38 +321,38 @@ export default defineEventHandler(async () => {
     return {
       recentTracks: {
         tracks: [],
-        total: 0
+        total: 0,
       },
       topArtists: {
         artists: [],
-        total: 0
+        total: 0,
       },
       topAlbums: {
         albums: [],
-        total: 0
+        total: 0,
       },
       topTracks: {
         tracks: [],
-        total: 0
+        total: 0,
       },
       userInfo: {
         playcount: 0,
         registered: { unixtime: '0', '#text': '' },
         url: `https://www.last.fm/user/${username}`,
-        image: ''
+        image: '',
       },
       stats: {
         totalScrobbles: 0,
         uniqueArtists: 0,
         uniqueTracks: 0,
         averagePerDay: 0,
-        topGenres: []
+        topGenres: [],
       },
       lastUpdated: new Date().toISOString(),
       error: {
         message: error.message || 'Failed to fetch Last.fm data',
-        statusCode: error.statusCode || 500
-      }
+        statusCode: error.statusCode || 500,
+      },
     }
   }
 })

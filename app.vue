@@ -25,8 +25,8 @@ useHead({
         a{color:inherit;text-decoration:underline}
         #app{min-height:100vh}
       `,
-      tagPosition: 'head'
-    }
-  ]
+      tagPosition: 'head',
+    },
+  ],
 })
 </script>

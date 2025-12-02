@@ -78,7 +78,7 @@ export default defineEventHandler(async () => {
             domain,
             tld,
             sources,
-            count: sources.length || 1
+            count: sources.length || 1,
           })
         }
       } catch {

@@ -63,7 +63,7 @@ function calculateCalibration(predictions) {
     { min: 60, max: 69, label: '60-69%' },
     { min: 70, max: 79, label: '70-79%' },
     { min: 80, max: 89, label: '80-89%' },
-    { min: 90, max: 100, label: '90-100%' }
+    { min: 90, max: 100, label: '90-100%' },
   ]
 
   return buckets
@@ -84,7 +84,7 @@ function calculateCalibration(predictions) {
         correct,
         accuracy: Math.round(accuracy * 100),
         expected: Math.round(expectedMidpoint * 100),
-        delta: Math.round((accuracy - expectedMidpoint) * 100)
+        delta: Math.round((accuracy - expectedMidpoint) * 100),
       }
     })
     .filter(Boolean)
@@ -118,7 +118,7 @@ function analyzeByCategory(predictions) {
       category,
       total: stats.total,
       correct: stats.correct,
-      accuracy: Math.round((stats.correct / stats.total) * 100)
+      accuracy: Math.round((stats.correct / stats.total) * 100),
     }))
     .sort((a, b) => b.total - a.total)
 }
@@ -157,7 +157,7 @@ function analyzeUpdates(predictions) {
     predictionsWithUpdates: withUpdates.length,
     totalUpdates,
     avgUpdatesPerPrediction: Math.round(avgUpdates * 10) / 10,
-    avgConfidenceChange: Math.round(avgDelta * 10) / 10
+    avgConfidenceChange: Math.round(avgDelta * 10) / 10,
   }
 }
 
@@ -196,7 +196,7 @@ function compareToMarket(predictions, kalshiData) {
     correctWhenDisagreed: correctDisagreements,
     accuracyWhenDisagreed: Math.round(
       (correctDisagreements / disagreements.length) * 100
-    )
+    ),
   }
 }
 
@@ -257,13 +257,13 @@ async function main() {
                   resolved.length) *
                   100
               )
-            : null
+            : null,
       },
       brier_score: brierScore ? Math.round(brierScore * 1000) / 1000 : null,
       calibration: calibration,
       by_category: byCategory,
       update_analysis: updateAnalysis,
-      market_comparison: marketComparison
+      market_comparison: marketComparison,
     }
 
     // Save results

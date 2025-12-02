@@ -6,15 +6,15 @@
       <!-- Expand/Collapse button at bottom -->
       <div v-if="lineCount > 10" ref="overlayRef" class="gradient-fade-bottom">
         <button ref="buttonRef" class="action-button" @click="handleToggle">
-          <span ref="iconRef" class="button-icon">{{
-            expanded ? '▼' : '▶'
-          }}</span>
-          <span
-            >{{ expanded ? 'Collapse' : 'Expand' }} ({{
+          <span ref="iconRef" class="button-icon">
+            {{ expanded ? '▼' : '▶' }}
+          </span>
+          <span>
+            {{ expanded ? 'Collapse' : 'Expand' }} ({{
               formatNumber(lineCount)
             }}
-            lines)</span
-          >
+            lines)
+          </span>
         </button>
       </div>
     </div>
@@ -92,8 +92,8 @@ const updateHighlighting = async () => {
         body: {
           code: codeToShow.value,
           language: props.file.language?.toLowerCase() || 'text',
-          theme: isDark ? 'one-dark-pro' : 'github-light'
-        }
+          theme: isDark ? 'one-dark-pro' : 'github-light',
+        },
       })
 
       highlightedCode.value =
@@ -141,7 +141,7 @@ if (import.meta.client) {
   onMounted(() => {
     observer.observe(document.documentElement, {
       attributes: true,
-      attributeFilter: ['class']
+      attributeFilter: ['class'],
     })
   })
 

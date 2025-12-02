@@ -11,11 +11,11 @@
 defineProps({
   title: {
     type: String,
-    required: true
+    required: true,
   },
   show: {
     type: Boolean,
-    default: true
-  }
+    default: true,
+  },
 })
 </script>

@@ -10,6 +10,6 @@ export function useTOC() {
   })
 
   return {
-    tocTarget
+    tocTarget,
   }
 }

@@ -75,18 +75,18 @@ const props = defineProps({
   // Data props
   value: {
     type: Number,
-    required: true
+    required: true,
   },
   max: {
     type: Number,
-    default: null
+    default: null,
   },
 
   // Visualization type
   type: {
     type: String,
     default: 'bars', // bars | bar | dots | grid
-    validator: (value) => ['bars', 'bar', 'dots', 'grid'].includes(value)
+    validator: (value) => ['bars', 'bar', 'dots', 'grid'].includes(value),
   },
 
   // Display props
@@ -94,32 +94,32 @@ const props = defineProps({
     type: String,
     default: 'words', // words | images | links | size | time
     validator: (value) =>
-      ['words', 'images', 'links', 'size', 'time'].includes(value)
+      ['words', 'images', 'links', 'size', 'time'].includes(value),
   },
 
   // Size configuration - rhythm-based (always use whole pixels)
   squareSize: {
     type: Number,
-    default: 1 // Always 1px for consistency
+    default: 1, // Always 1px for consistency
   },
   gap: {
     type: Number,
-    default: 1 // Always 1px gap for consistency
+    default: 1, // Always 1px gap for consistency
   },
   columns: {
     type: Number,
-    default: 4 // More compact for inline use
+    default: 4, // More compact for inline use
   },
 
   // Display options
   showLabel: {
     type: Boolean,
-    default: false
+    default: false,
   },
   color: {
     type: String,
-    default: null // Will use metric-based defaults
-  }
+    default: null, // Will use metric-based defaults
+  },
 })
 
 // Compute dimensions
@@ -195,7 +195,7 @@ const gridData = computed(() => {
       x: col * totalSize.value,
       y: row * totalSize.value,
       fill: fillColor.value,
-      opacity: props.max ? props.value / props.max : 1
+      opacity: props.max ? props.value / props.max : 1,
     })
   }
   return data
@@ -214,8 +214,8 @@ const barData = computed(() => {
       y: 0,
       width: barWidth,
       height: height.value,
-      fill: fillColor.value
-    }
+      fill: fillColor.value,
+    },
   ]
 })
 
@@ -231,7 +231,7 @@ const dotData = computed(() => {
       x: i * dotSpacing,
       y: 1.5, // Center in 4px height
       fill: fillColor.value,
-      opacity: 0.8
+      opacity: 0.8,
     })
   }
   return data
@@ -251,7 +251,7 @@ const inlineBarData = computed(() => {
       width: 1, // Always 1px wide
       height: barHeight,
       fill: fillColor.value,
-      opacity: 0.8 + i * 0.02 // Subtle gradient effect
+      opacity: 0.8 + i * 0.02, // Subtle gradient effect
     })
   }
   return data

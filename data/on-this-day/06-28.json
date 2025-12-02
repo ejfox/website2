@@ -1,1 +1,668 @@
-{"tweets":[{"id":"1674103920837132307","text":"I can generate plausible-sounding 5 star reviews of a project I haven’t even created yet; but I know that doing so is poison to the momentum of actual creation; focus is even more important","year":2023,"date":"2023-06-28","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1674103632315154434","text":"As AI makes almost every step of creation easier, it becomes more important to stay disciplined about not skipping ahead before you or your project is ready. Sure you *could* generate those assets, but would they rob you of the joy and creativity of un-aided exploration?","year":2023,"date":"2023-06-28","favorites":0,"retweets":0,"replyTo":null},{"id":"1674082672488882181","text":"RT @taliaotg: Remember that video of a woman fiercely scolding the NYPD for blocking traffic?\n\nThat woman recently had a fresh encounter wi…","year":2023,"date":"2023-06-28","favorites":0,"retweets":0,"replyTo":null},{"id":"1673942861639811072","text":"made a sweet little PICO-8 game with @biddyfox https://t.co/IzdLbZ0uPJ","year":2023,"date":"2023-06-28","favorites":4,"retweets":2,"replyTo":null},{"id":"1673891995146764288","text":"he is not yet succeeding but I love his energy, this is exactly what I am looking for https://t.co/NUm4Ml451y","year":2023,"date":"2023-06-28","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1541924895440904197","text":"cc @YouTubeCreators @YouTube","year":2022,"date":"2022-06-28","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1541923732247257096","text":"lmfao I somehow got a youtube strike for 'spam, deceptive practices, and scams' which took down my livestream - I wonder which part of the election data they thought was a scam lol https://t.co/sONVnfXfFn","year":2022,"date":"2022-06-28","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1541923011384823808","text":"Wrapping up for now, got an awesome little proof-of-concept going, and even got candidate headshots for elected legislators rendering. Gonna leave automating race summaries for the next session https://t.co/SfS9qc25Nw","year":2022,"date":"2022-06-28","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1541907377749901313","text":"Okay, now we are able to feed 2018 Primary results into GPT-3 and get some pretty good vote summaries, wonder how far we can push this with more data and GPT-3 automation... https://t.co/w2gLzo1m3a","year":2022,"date":"2022-06-28","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1541905756936671233","text":"Alright, first few steps are done! We have vote data loaded, sorted, and summed properly in our new Vue app. Next up, gonna work on building data-driven sentences https://t.co/VtBjjYHPtH","year":2022,"date":"2022-06-28","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1541896956343115778","text":"Once I get all the votes totaled for each race, I want to build some data-driven-sentences that I can feed into OpenAI as prompts to generate snazzy race summaries","year":2022,"date":"2022-06-28","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1541896699840430080","text":"So the rollups are working the way I want them to, sort of– but the summed vote totals seem incorrect. I want to fix that and then I can move onto figuring out how to automate candidate headshots so I can make head-to-heads of historical promaries","year":2022,"date":"2022-06-28","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1541883831547985924","text":"Back in action now, pulling our historical primary data from Datasette and doing some grouping and vote summing with d3.rollup - and now we can show historical election results (unfortunately I only get \"part of kings\" instead of mappable geography) https://t.co/CrGjmPz7SG","year":2022,"date":"2022-06-28","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1541870195182010380","text":"Just discovered I was streaming to /dev/null/ for the past 45 minutes… this is what I get for taking a long break","year":2022,"date":"2022-06-28","favorites":1,"retweets":0,"replyTo":null},{"id":"1541867621775196161","text":"Okay, got the data loading in Vue from Datasette! Celebrating by sitting in the sun for a second. When I come back, we are going to see if we can slice and dice our data to show historical primary elections in NY in a way that makes sense, and maybe have GPT-3 summarize them?","year":2022,"date":"2022-06-28","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1541866163721969666","text":"@agarcia_me Just got it- I had configured my hosts incorrectly- just shotgun sprayed and it worked https://t.co/OFGE9UvU2I","year":2022,"date":"2022-06-28","favorites":0,"retweets":0,"replyTo":"agarcia_me"},{"id":"1541864933343858689","text":"Once again, CORS is making something that should be easy quite hard- working through the datasette-cors plugin and then hopefully we can get our data loaded https://t.co/2caDwW0zKo","year":2022,"date":"2022-06-28","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1541860991054581760","text":"Getting started now, just found some historical NY primary data that we're loading into Datasette https://t.co/UsGObLQWM5","year":2022,"date":"2022-06-28","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1541854748525092864","text":"Going live in 15 https://t.co/7DufIFneKL","year":2022,"date":"2022-06-28","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1541818560095338499","text":"On today’s 3PM EST stream: 💾 Getting historical election data into Datasette to use as an API 📈 Accessing that API for analysis and viz with Vue+D3 🤖 Feeding election data to GPT-3 through OpenAI API for data-driven race summaries","year":2022,"date":"2022-06-28","favorites":3,"retweets":0,"replyTo":"mrejfox"},{"id":"1541813862357471235","text":"So excited to be doing a livestream with The Robot! We'll be writing code and creating beautiful data visualizations together! Tune in at 3pm EST! https://t.co/7DufIFneKL https://t.co/OyeRy0UMxY","year":2022,"date":"2022-06-28","favorites":5,"retweets":1,"replyTo":null},{"id":"1541778529360269312","text":"https://t.co/wOcZEz1UC6","year":2022,"date":"2022-06-28","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1277344752166473729","text":"@sarahdevin everyone knows you meed a medical degree to smell pee effectively","year":2020,"date":"2020-06-28","favorites":2,"retweets":0,"replyTo":"sarahdevin"},{"id":"1277248296357179392","text":"RT @mrejfox: They’ve been openly racist for a long time, hard to tell what you people are talking about","year":2020,"date":"2020-06-28","favorites":0,"retweets":0,"replyTo":null},{"id":"1277230749914214401","text":"Masks are inherently cool and manly? Primarily used for crime and hiding your face and being mysterious?","year":2020,"date":"2020-06-28","favorites":6,"retweets":0,"replyTo":null},{"id":"1144668003662999552","text":"Podcast pitch; I want to write a law. Any kind of law. And get it passed. This isn’t an abstract “how are laws written”, it’s a story of one man with a simple goal, to write some words that become the law of the land somewhere.","year":2019,"date":"2019-06-28","favorites":2,"retweets":0,"replyTo":null},{"id":"1144636053237719040","text":"@biddyfox https://t.co/eWycKADCGH","year":2019,"date":"2019-06-28","favorites":0,"retweets":0,"replyTo":"biddyfox"},{"id":"1144414593957224448","text":"RT @CarolineMoss: College is just expensive daycare for wealthy teens","year":2019,"date":"2019-06-28","favorites":0,"retweets":0,"replyTo":null},{"id":"1012452360050929669","text":"Very good day, happy day for me personally. Gotta take em when you get em.","year":2018,"date":"2018-06-28","favorites":3,"retweets":0,"replyTo":null},{"id":"1012414116785467392","text":"fuck https://t.co/VV6Q8s9zVb","year":2018,"date":"2018-06-28","favorites":0,"retweets":0,"replyTo":null},{"id":"1012215897174560768","text":"bro how is it the year of our lord 2018 and some of you still don't understand how trolls work","year":2018,"date":"2018-06-28","favorites":0,"retweets":0,"replyTo":null},{"id":"1012208090387795969","text":"Everyone I even vaguely got along with in high school turned out to be queer one way or another","year":2018,"date":"2018-06-28","favorites":0,"retweets":0,"replyTo":null},{"id":"880196483064111104","text":"RT @BraddJaffy: Truth bomb from my friend @chucktodd — a must-watch for anyone who cares about a free and fair press in America https://t.c…","year":2017,"date":"2017-06-28","favorites":0,"retweets":0,"replyTo":null},{"id":"880171875695030273","text":"v proud of the new work coming from my lil robot @417am1975 https://t.co/jETyCA2LwF","year":2017,"date":"2017-06-28","favorites":0,"retweets":0,"replyTo":null},{"id":"880132640002777093","text":"DELAYS ON THE 30 ROCK ELEVATORS TODAY RIVAL OUR NEW YORK SUBWAY SYSTEM \n\nCARS ARE PACKED \n\nTRAVELERS IRRITABLE","year":2017,"date":"2017-06-28","favorites":2,"retweets":0,"replyTo":null},{"id":"880118899525734401","text":"@enjalot @micahstubbs @alexmacy @LaunchDarkly oh hell yeah","year":2017,"date":"2017-06-28","favorites":3,"retweets":0,"replyTo":"enjalot"},{"id":"880095273799872515","text":"@ABenalt perfect","year":2017,"date":"2017-06-28","favorites":0,"retweets":0,"replyTo":"ABenalt"},{"id":"880082791886499840","text":"RT @417am1975: 104-1498662192316 https://t.co/au7dGD4qWj","year":2017,"date":"2017-06-28","favorites":0,"retweets":0,"replyTo":null},{"id":"880052868077801472","text":"RT @417am1975: 102-1498654899308 https://t.co/9IzQ94PyTj","year":2017,"date":"2017-06-28","favorites":0,"retweets":0,"replyTo":null},{"id":"747768919394492416","text":"RT @mf_viz: Looks like a great resource for learning how to make #maps (well) w/ #d3js, @LeafletJS, + more! https://t.co/DpKFENJZhA","year":2016,"date":"2016-06-28","favorites":0,"retweets":0,"replyTo":null},{"id":"747766236415680512","text":"Tony Hawk is a G https://t.co/3NfR534Gq1","year":2016,"date":"2016-06-28","favorites":0,"retweets":0,"replyTo":null},{"id":"747581205294395393","text":"RT @SheKnows: Christians should ask gay community for forgiveness, says #PopeFrancis https://t.co/OdQvpUdedP #LGBT @Pontifex https://t.co/7…","year":2016,"date":"2016-06-28","favorites":0,"retweets":0,"replyTo":null},{"id":"350698486922092544","text":"@SwellApp I want to skip the currently playing This American Life, but I don’t want you to think I dont like it, I’ve just heard it before.","year":2013,"date":"2013-06-28","favorites":0,"retweets":0,"replyTo":"SwellApp"},{"id":"218415903346397184","text":"RT @hyperakt: Our new #dataviz collab with @vizzuality for @Google just launched during #io #keynote ! Check it out http://t.co/AiXCW5Pk","year":2012,"date":"2012-06-28","favorites":0,"retweets":0,"replyTo":null},{"id":"218386633324634112","text":"Modernist clock: http://t.co/u7Ytddgq","year":2012,"date":"2012-06-28","favorites":0,"retweets":0,"replyTo":null},{"id":"218367841072709632","text":"Count me in: Polaroid Instant Digital Camera - Z2300 - Instant Cameras: http://t.co/35ImIuIb","year":2012,"date":"2012-06-28","favorites":0,"retweets":0,"replyTo":null},{"id":"218357982843506688","text":"RT @DRUNKHULK: CNN IS AMAZING! THEY NO ONLY PROVIDE LATEST NEWS FROM AROUND WORLD! BUT LATEST NEWS FROM ALTERNATE EARTH TOO!","year":2012,"date":"2012-06-28","favorites":0,"retweets":0,"replyTo":null},{"id":"218356806135721984","text":"@thewhyaxis Thanks so much for the feedback! Definitely thinking on potential updates now… Cheers. @motherjones","year":2012,"date":"2012-06-28","favorites":0,"retweets":0,"replyTo":"thewhyaxis"},{"id":"218356314433269760","text":"RT @thewhyaxis: Dark Money Universe Uncovers Constellations of Political Spending http://t.co/2KD0emvP - an interactive from @motherjones","year":2012,"date":"2012-06-28","favorites":0,"retweets":0,"replyTo":null},{"id":"218354652918448128","text":".@mtaibbi I was just thinking that they can have wisconsin if we can keep having these SCOTUS decisions.","year":2012,"date":"2012-06-28","favorites":0,"retweets":0,"replyTo":"mtaibbi"},{"id":"218328175422357504","text":"RT @hellomainstem: Mainstem's own @enjalot is in the awesome new SF swissnex magazine SN. Page 43. http://t.co/Hrhyy6kf","year":2012,"date":"2012-06-28","favorites":0,"retweets":0,"replyTo":null},{"id":"85780227770429441","text":"Paper.js — The Swiss Army Knife of Vector Graphics Scripting http://j.mp/mAkO99","year":2011,"date":"2011-06-28","favorites":0,"retweets":0,"replyTo":null},{"id":"85752118354518016","text":"A Stern Ampersand - a snap on @forrst by @jordanwlee: http://t.co/MAwJTij","year":2011,"date":"2011-06-28","favorites":0,"retweets":0,"replyTo":null},{"id":"17226079932","text":"played Red Dead Redemption (360) and Call of Duty: Modern Warfare 2 (360) in the last 24 hours. http://raptr.com/pseudoplacebo","year":2010,"date":"2010-06-28","favorites":0,"retweets":0,"replyTo":null},{"id":"2377879728","text":"Long day of work, time to relax and... work on an iPhone app? Okay. Sure, whatever.","year":2009,"date":"2009-06-28","favorites":0,"retweets":0,"replyTo":null},{"id":"2377770845","text":"Home from camp. Exhausted. Legs sore. Just a taste of what's to come this summer. =]","year":2009,"date":"2009-06-28","favorites":0,"retweets":0,"replyTo":null},{"id":"2366136440","text":"I am really liking this song I am working on.","year":2009,"date":"2009-06-28","favorites":0,"retweets":0,"replyTo":null},{"id":"845902172","text":"Wish Twitteriffic had brightkite support.","year":2008,"date":"2008-06-28","favorites":0,"retweets":0,"replyTo":null}],"posts":[],"scrobbles":[{"date":"2025-06-28","year":2025,"count":17,"topTracks":["Jaubi - Lahore State of Mind - Al Dobson Jr. Remix","Apple & The Three Oranges - I'll Give You A Ring (When I Come, If I Come)","Jazzbois - Admas","okvsho - Rio Sihl","Billy Brooks - Fourty Days"],"topArtists":["Jaubi","Apple & The Three Oranges","Jazzbois"]},{"date":"2024-06-28","year":2024,"count":116,"topTracks":["monte booker - May","KAYTRANADA - $payforhaiti (feat. Mach-Hommy)","Kojey Radical - Payback (feat. Knucks)","Sango - Engenho da Rainha (feat. Carlos do Complexo)","Danny Brown - Monopoly"],"topArtists":["monte booker","KAYTRANADA","Kojey Radical"]},{"date":"2023-06-28","year":2023,"count":5,"topTracks":["LaRussell - CLARITY","LaRussell - Tucked & Workin'","LaRussell - Makings of a Man","LaRussell - Money Grows","LaRussell - Generational Trauma"],"topArtists":["LaRussell"]},{"date":"2022-06-28","year":2022,"count":415,"topTracks":["Uffe - Fridge Magnet - Radio Theme 1","Jaubi - Lahore State of Mind - Al Dobson Jr. Remix","Apple & The Three Oranges - I'll Give You A Ring (When I Come, If I Come)","Jazzbois - Admas","okvsho - Rio Sihl"],"topArtists":["Uffe","Jaubi","Apple & The Three Oranges"]},{"date":"2021-06-28","year":2021,"count":69,"topTracks":["Zach Schimpf - The Quiet Plains","Anderson Paak - The Dreamer (feat. Talib Kweli & Timan Family Choir)","Panda Bear - Principe Real","Sango - A Chamada (Ritmo Muleke)","Tyler, the Creator - See You Again (feat. Kali Uchis)"],"topArtists":["Zach Schimpf","Anderson Paak","Panda Bear"]},{"date":"2016-06-28","year":2016,"count":2,"topTracks":["KAYTRANADA - Glowed Up","KAYTRANADA - One Too Many"],"topArtists":["KAYTRANADA"]},{"date":"2015-06-28","year":2015,"count":2,"topTracks":["Childish Gambino - III. Telegraph Ave. (\"\"Oakland\"\" by Lloyd)","Drake - Worst Behavior"],"topArtists":["Childish Gambino","Drake"]},{"date":"2012-06-28","year":2012,"count":18,"topTracks":["Collie Buddz - ..Come Around","A$AP Rocky - Purple Swag","Ghostface Killah - Big Girl","Killer Mike - Southern Fried","Killer Mike - JoJo's Chillin"],"topArtists":["Collie Buddz","A$AP Rocky","Ghostface Killah"]},{"date":"2009-06-28","year":2009,"count":16,"topTracks":["Aesop Rock - None Shall Pass (prod. by Blockhead)","Del Tha Funkee Homosapien - Don't Forget","Tegan and Sara - Missing You","Sufjan Stevens - Hey Guys! It's Christmas Time!","A Tribe Called Quest - His Name Is Mutty Ranks"],"topArtists":["Aesop Rock","Del Tha Funkee Homosapien","Tegan and Sara"]},{"date":"2008-06-28","year":2008,"count":78,"topTracks":["Bob Marley - Rastaman Chant","Justice - Phantom II (Boys Noize Unreleased Turbine)","Phish - Harpua (3rd Performance Live)","Weezer - Buddy Holly","The White Stripes - Little Room"],"topArtists":["Bob Marley","Justice","Phish"]},{"date":"2006-06-28","year":2006,"count":316,"topTracks":["Death Cab for Cutie - The New Year","System of a Down - Mr. Jack","Eminem - We As Americans (Bonus Track)","311 - Little Brother","The Postal Service - Such Great Heights"],"topArtists":["Death Cab for Cutie","System of a Down","Eminem"]}],"commits":[]}
+{
+  "tweets": [
+    {
+      "id": "1674103920837132307",
+      "text": "I can generate plausible-sounding 5 star reviews of a project I haven’t even created yet; but I know that doing so is poison to the momentum of actual creation; focus is even more important",
+      "year": 2023,
+      "date": "2023-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1674103632315154434",
+      "text": "As AI makes almost every step of creation easier, it becomes more important to stay disciplined about not skipping ahead before you or your project is ready. Sure you *could* generate those assets, but would they rob you of the joy and creativity of un-aided exploration?",
+      "year": 2023,
+      "date": "2023-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1674082672488882181",
+      "text": "RT @taliaotg: Remember that video of a woman fiercely scolding the NYPD for blocking traffic?\n\nThat woman recently had a fresh encounter wi…",
+      "year": 2023,
+      "date": "2023-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1673942861639811072",
+      "text": "made a sweet little PICO-8 game with @biddyfox https://t.co/IzdLbZ0uPJ",
+      "year": 2023,
+      "date": "2023-06-28",
+      "favorites": 4,
+      "retweets": 2,
+      "replyTo": null
+    },
+    {
+      "id": "1673891995146764288",
+      "text": "he is not yet succeeding but I love his energy, this is exactly what I am looking for https://t.co/NUm4Ml451y",
+      "year": 2023,
+      "date": "2023-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1541924895440904197",
+      "text": "cc @YouTubeCreators @YouTube",
+      "year": 2022,
+      "date": "2022-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1541923732247257096",
+      "text": "lmfao I somehow got a youtube strike for 'spam, deceptive practices, and scams' which took down my livestream - I wonder which part of the election data they thought was a scam lol https://t.co/sONVnfXfFn",
+      "year": 2022,
+      "date": "2022-06-28",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1541923011384823808",
+      "text": "Wrapping up for now, got an awesome little proof-of-concept going, and even got candidate headshots for elected legislators rendering. Gonna leave automating race summaries for the next session https://t.co/SfS9qc25Nw",
+      "year": 2022,
+      "date": "2022-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1541907377749901313",
+      "text": "Okay, now we are able to feed 2018 Primary results into GPT-3 and get some pretty good vote summaries, wonder how far we can push this with more data and GPT-3 automation... https://t.co/w2gLzo1m3a",
+      "year": 2022,
+      "date": "2022-06-28",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1541905756936671233",
+      "text": "Alright, first few steps are done! We have vote data loaded, sorted, and summed properly in our new Vue app. Next up, gonna work on building data-driven sentences https://t.co/VtBjjYHPtH",
+      "year": 2022,
+      "date": "2022-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1541896956343115778",
+      "text": "Once I get all the votes totaled for each race, I want to build some data-driven-sentences that I can feed into OpenAI as prompts to generate snazzy race summaries",
+      "year": 2022,
+      "date": "2022-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1541896699840430080",
+      "text": "So the rollups are working the way I want them to, sort of– but the summed vote totals seem incorrect. I want to fix that and then I can move onto figuring out how to automate candidate headshots so I can make head-to-heads of historical promaries",
+      "year": 2022,
+      "date": "2022-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1541883831547985924",
+      "text": "Back in action now, pulling our historical primary data from Datasette and doing some grouping and vote summing with d3.rollup - and now we can show historical election results (unfortunately I only get \"part of kings\" instead of mappable geography) https://t.co/CrGjmPz7SG",
+      "year": 2022,
+      "date": "2022-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1541870195182010380",
+      "text": "Just discovered I was streaming to /dev/null/ for the past 45 minutes… this is what I get for taking a long break",
+      "year": 2022,
+      "date": "2022-06-28",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1541867621775196161",
+      "text": "Okay, got the data loading in Vue from Datasette! Celebrating by sitting in the sun for a second. When I come back, we are going to see if we can slice and dice our data to show historical primary elections in NY in a way that makes sense, and maybe have GPT-3 summarize them?",
+      "year": 2022,
+      "date": "2022-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1541866163721969666",
+      "text": "@agarcia_me Just got it- I had configured my hosts incorrectly- just shotgun sprayed and it worked https://t.co/OFGE9UvU2I",
+      "year": 2022,
+      "date": "2022-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "agarcia_me"
+    },
+    {
+      "id": "1541864933343858689",
+      "text": "Once again, CORS is making something that should be easy quite hard- working through the datasette-cors plugin and then hopefully we can get our data loaded https://t.co/2caDwW0zKo",
+      "year": 2022,
+      "date": "2022-06-28",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1541860991054581760",
+      "text": "Getting started now, just found some historical NY primary data that we're loading into Datasette https://t.co/UsGObLQWM5",
+      "year": 2022,
+      "date": "2022-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1541854748525092864",
+      "text": "Going live in 15 https://t.co/7DufIFneKL",
+      "year": 2022,
+      "date": "2022-06-28",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1541818560095338499",
+      "text": "On today’s 3PM EST stream: 💾 Getting historical election data into Datasette to use as an API 📈 Accessing that API for analysis and viz with Vue+D3 🤖 Feeding election data to GPT-3 through OpenAI API for data-driven race summaries",
+      "year": 2022,
+      "date": "2022-06-28",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1541813862357471235",
+      "text": "So excited to be doing a livestream with The Robot! We'll be writing code and creating beautiful data visualizations together! Tune in at 3pm EST! https://t.co/7DufIFneKL https://t.co/OyeRy0UMxY",
+      "year": 2022,
+      "date": "2022-06-28",
+      "favorites": 5,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "1541778529360269312",
+      "text": "https://t.co/wOcZEz1UC6",
+      "year": 2022,
+      "date": "2022-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1277344752166473729",
+      "text": "@sarahdevin everyone knows you meed a medical degree to smell pee effectively",
+      "year": 2020,
+      "date": "2020-06-28",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "sarahdevin"
+    },
+    {
+      "id": "1277248296357179392",
+      "text": "RT @mrejfox: They’ve been openly racist for a long time, hard to tell what you people are talking about",
+      "year": 2020,
+      "date": "2020-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1277230749914214401",
+      "text": "Masks are inherently cool and manly? Primarily used for crime and hiding your face and being mysterious?",
+      "year": 2020,
+      "date": "2020-06-28",
+      "favorites": 6,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1144668003662999552",
+      "text": "Podcast pitch; I want to write a law. Any kind of law. And get it passed. This isn’t an abstract “how are laws written”, it’s a story of one man with a simple goal, to write some words that become the law of the land somewhere.",
+      "year": 2019,
+      "date": "2019-06-28",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1144636053237719040",
+      "text": "@biddyfox https://t.co/eWycKADCGH",
+      "year": 2019,
+      "date": "2019-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "biddyfox"
+    },
+    {
+      "id": "1144414593957224448",
+      "text": "RT @CarolineMoss: College is just expensive daycare for wealthy teens",
+      "year": 2019,
+      "date": "2019-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1012452360050929669",
+      "text": "Very good day, happy day for me personally. Gotta take em when you get em.",
+      "year": 2018,
+      "date": "2018-06-28",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1012414116785467392",
+      "text": "fuck https://t.co/VV6Q8s9zVb",
+      "year": 2018,
+      "date": "2018-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1012215897174560768",
+      "text": "bro how is it the year of our lord 2018 and some of you still don't understand how trolls work",
+      "year": 2018,
+      "date": "2018-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1012208090387795969",
+      "text": "Everyone I even vaguely got along with in high school turned out to be queer one way or another",
+      "year": 2018,
+      "date": "2018-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "880196483064111104",
+      "text": "RT @BraddJaffy: Truth bomb from my friend @chucktodd — a must-watch for anyone who cares about a free and fair press in America https://t.c…",
+      "year": 2017,
+      "date": "2017-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "880171875695030273",
+      "text": "v proud of the new work coming from my lil robot @417am1975 https://t.co/jETyCA2LwF",
+      "year": 2017,
+      "date": "2017-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "880132640002777093",
+      "text": "DELAYS ON THE 30 ROCK ELEVATORS TODAY RIVAL OUR NEW YORK SUBWAY SYSTEM \n\nCARS ARE PACKED \n\nTRAVELERS IRRITABLE",
+      "year": 2017,
+      "date": "2017-06-28",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "880118899525734401",
+      "text": "@enjalot @micahstubbs @alexmacy @LaunchDarkly oh hell yeah",
+      "year": 2017,
+      "date": "2017-06-28",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": "enjalot"
+    },
+    {
+      "id": "880095273799872515",
+      "text": "@ABenalt perfect",
+      "year": 2017,
+      "date": "2017-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "ABenalt"
+    },
+    {
+      "id": "880082791886499840",
+      "text": "RT @417am1975: 104-1498662192316 https://t.co/au7dGD4qWj",
+      "year": 2017,
+      "date": "2017-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "880052868077801472",
+      "text": "RT @417am1975: 102-1498654899308 https://t.co/9IzQ94PyTj",
+      "year": 2017,
+      "date": "2017-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "747768919394492416",
+      "text": "RT @mf_viz: Looks like a great resource for learning how to make #maps (well) w/ #d3js, @LeafletJS, + more! https://t.co/DpKFENJZhA",
+      "year": 2016,
+      "date": "2016-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "747766236415680512",
+      "text": "Tony Hawk is a G https://t.co/3NfR534Gq1",
+      "year": 2016,
+      "date": "2016-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "747581205294395393",
+      "text": "RT @SheKnows: Christians should ask gay community for forgiveness, says #PopeFrancis https://t.co/OdQvpUdedP #LGBT @Pontifex https://t.co/7…",
+      "year": 2016,
+      "date": "2016-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "350698486922092544",
+      "text": "@SwellApp I want to skip the currently playing This American Life, but I don’t want you to think I dont like it, I’ve just heard it before.",
+      "year": 2013,
+      "date": "2013-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "SwellApp"
+    },
+    {
+      "id": "218415903346397184",
+      "text": "RT @hyperakt: Our new #dataviz collab with @vizzuality for @Google just launched during #io #keynote ! Check it out http://t.co/AiXCW5Pk",
+      "year": 2012,
+      "date": "2012-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "218386633324634112",
+      "text": "Modernist clock: http://t.co/u7Ytddgq",
+      "year": 2012,
+      "date": "2012-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "218367841072709632",
+      "text": "Count me in: Polaroid Instant Digital Camera - Z2300 - Instant Cameras: http://t.co/35ImIuIb",
+      "year": 2012,
+      "date": "2012-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "218357982843506688",
+      "text": "RT @DRUNKHULK: CNN IS AMAZING! THEY NO ONLY PROVIDE LATEST NEWS FROM AROUND WORLD! BUT LATEST NEWS FROM ALTERNATE EARTH TOO!",
+      "year": 2012,
+      "date": "2012-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "218356806135721984",
+      "text": "@thewhyaxis Thanks so much for the feedback! Definitely thinking on potential updates now… Cheers. @motherjones",
+      "year": 2012,
+      "date": "2012-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "thewhyaxis"
+    },
+    {
+      "id": "218356314433269760",
+      "text": "RT @thewhyaxis: Dark Money Universe Uncovers Constellations of Political Spending http://t.co/2KD0emvP - an interactive from @motherjones",
+      "year": 2012,
+      "date": "2012-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "218354652918448128",
+      "text": ".@mtaibbi I was just thinking that they can have wisconsin if we can keep having these SCOTUS decisions.",
+      "year": 2012,
+      "date": "2012-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mtaibbi"
+    },
+    {
+      "id": "218328175422357504",
+      "text": "RT @hellomainstem: Mainstem's own @enjalot is in the awesome new SF swissnex magazine SN. Page 43. http://t.co/Hrhyy6kf",
+      "year": 2012,
+      "date": "2012-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "85780227770429441",
+      "text": "Paper.js — The Swiss Army Knife of Vector Graphics Scripting http://j.mp/mAkO99",
+      "year": 2011,
+      "date": "2011-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "85752118354518016",
+      "text": "A Stern Ampersand - a snap on @forrst by @jordanwlee: http://t.co/MAwJTij",
+      "year": 2011,
+      "date": "2011-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "17226079932",
+      "text": "played Red Dead Redemption (360) and Call of Duty: Modern Warfare 2 (360) in the last 24 hours. http://raptr.com/pseudoplacebo",
+      "year": 2010,
+      "date": "2010-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "2377879728",
+      "text": "Long day of work, time to relax and... work on an iPhone app? Okay. Sure, whatever.",
+      "year": 2009,
+      "date": "2009-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "2377770845",
+      "text": "Home from camp. Exhausted. Legs sore. Just a taste of what's to come this summer. =]",
+      "year": 2009,
+      "date": "2009-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "2366136440",
+      "text": "I am really liking this song I am working on.",
+      "year": 2009,
+      "date": "2009-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "845902172",
+      "text": "Wish Twitteriffic had brightkite support.",
+      "year": 2008,
+      "date": "2008-06-28",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    }
+  ],
+  "posts": [],
+  "scrobbles": [
+    {
+      "date": "2025-06-28",
+      "year": 2025,
+      "count": 17,
+      "topTracks": [
+        "Jaubi - Lahore State of Mind - Al Dobson Jr. Remix",
+        "Apple & The Three Oranges - I'll Give You A Ring (When I Come, If I Come)",
+        "Jazzbois - Admas",
+        "okvsho - Rio Sihl",
+        "Billy Brooks - Fourty Days"
+      ],
+      "topArtists": ["Jaubi", "Apple & The Three Oranges", "Jazzbois"]
+    },
+    {
+      "date": "2024-06-28",
+      "year": 2024,
+      "count": 116,
+      "topTracks": [
+        "monte booker - May",
+        "KAYTRANADA - $payforhaiti (feat. Mach-Hommy)",
+        "Kojey Radical - Payback (feat. Knucks)",
+        "Sango - Engenho da Rainha (feat. Carlos do Complexo)",
+        "Danny Brown - Monopoly"
+      ],
+      "topArtists": ["monte booker", "KAYTRANADA", "Kojey Radical"]
+    },
+    {
+      "date": "2023-06-28",
+      "year": 2023,
+      "count": 5,
+      "topTracks": [
+        "LaRussell - CLARITY",
+        "LaRussell - Tucked & Workin'",
+        "LaRussell - Makings of a Man",
+        "LaRussell - Money Grows",
+        "LaRussell - Generational Trauma"
+      ],
+      "topArtists": ["LaRussell"]
+    },
+    {
+      "date": "2022-06-28",
+      "year": 2022,
+      "count": 415,
+      "topTracks": [
+        "Uffe - Fridge Magnet - Radio Theme 1",
+        "Jaubi - Lahore State of Mind - Al Dobson Jr. Remix",
+        "Apple & The Three Oranges - I'll Give You A Ring (When I Come, If I Come)",
+        "Jazzbois - Admas",
+        "okvsho - Rio Sihl"
+      ],
+      "topArtists": ["Uffe", "Jaubi", "Apple & The Three Oranges"]
+    },
+    {
+      "date": "2021-06-28",
+      "year": 2021,
+      "count": 69,
+      "topTracks": [
+        "Zach Schimpf - The Quiet Plains",
+        "Anderson Paak - The Dreamer (feat. Talib Kweli & Timan Family Choir)",
+        "Panda Bear - Principe Real",
+        "Sango - A Chamada (Ritmo Muleke)",
+        "Tyler, the Creator - See You Again (feat. Kali Uchis)"
+      ],
+      "topArtists": ["Zach Schimpf", "Anderson Paak", "Panda Bear"]
+    },
+    {
+      "date": "2016-06-28",
+      "year": 2016,
+      "count": 2,
+      "topTracks": ["KAYTRANADA - Glowed Up", "KAYTRANADA - One Too Many"],
+      "topArtists": ["KAYTRANADA"]
+    },
+    {
+      "date": "2015-06-28",
+      "year": 2015,
+      "count": 2,
+      "topTracks": [
+        "Childish Gambino - III. Telegraph Ave. (\"\"Oakland\"\" by Lloyd)",
+        "Drake - Worst Behavior"
+      ],
+      "topArtists": ["Childish Gambino", "Drake"]
+    },
+    {
+      "date": "2012-06-28",
+      "year": 2012,
+      "count": 18,
+      "topTracks": [
+        "Collie Buddz - ..Come Around",
+        "A$AP Rocky - Purple Swag",
+        "Ghostface Killah - Big Girl",
+        "Killer Mike - Southern Fried",
+        "Killer Mike - JoJo's Chillin"
+      ],
+      "topArtists": ["Collie Buddz", "A$AP Rocky", "Ghostface Killah"]
+    },
+    {
+      "date": "2009-06-28",
+      "year": 2009,
+      "count": 16,
+      "topTracks": [
+        "Aesop Rock - None Shall Pass (prod. by Blockhead)",
+        "Del Tha Funkee Homosapien - Don't Forget",
+        "Tegan and Sara - Missing You",
+        "Sufjan Stevens - Hey Guys! It's Christmas Time!",
+        "A Tribe Called Quest - His Name Is Mutty Ranks"
+      ],
+      "topArtists": [
+        "Aesop Rock",
+        "Del Tha Funkee Homosapien",
+        "Tegan and Sara"
+      ]
+    },
+    {
+      "date": "2008-06-28",
+      "year": 2008,
+      "count": 78,
+      "topTracks": [
+        "Bob Marley - Rastaman Chant",
+        "Justice - Phantom II (Boys Noize Unreleased Turbine)",
+        "Phish - Harpua (3rd Performance Live)",
+        "Weezer - Buddy Holly",
+        "The White Stripes - Little Room"
+      ],
+      "topArtists": ["Bob Marley", "Justice", "Phish"]
+    },
+    {
+      "date": "2006-06-28",
+      "year": 2006,
+      "count": 316,
+      "topTracks": [
+        "Death Cab for Cutie - The New Year",
+        "System of a Down - Mr. Jack",
+        "Eminem - We As Americans (Bonus Track)",
+        "311 - Little Brother",
+        "The Postal Service - Such Great Heights"
+      ],
+      "topArtists": ["Death Cab for Cutie", "System of a Down", "Eminem"]
+    }
+  ],
+  "commits": []
+}

@@ -4,7 +4,7 @@ import BentoProjectCard from '~/components/projects/BentoProjectCard.vue'
 
 useHead({
   title: 'Projects - EJ Fox',
-  link: [{ rel: 'canonical', href: 'https://ejfox.com/projects' }]
+  link: [{ rel: 'canonical', href: 'https://ejfox.com/projects' }],
 })
 
 const { data: projects } = await useAsyncData(
@@ -114,9 +114,9 @@ const latestYear = computed(() => {
       <div
         class="flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs text-zinc-500 tabular-nums"
       >
-        <span class="text-zinc-900 dark:text-zinc-100"
-          >{{ projects?.length || 0 }} projects</span
-        >
+        <span class="text-zinc-900 dark:text-zinc-100">
+          {{ projects?.length || 0 }} projects
+        </span>
         <span>{{ featuredProjects.length }} featured</span>
         <span>{{ totalWords.toLocaleString() }} words</span>
         <span>{{ totalImages }} images</span>

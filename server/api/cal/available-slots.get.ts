@@ -16,7 +16,7 @@ export default defineEventHandler(async (_event) => {
       headers: {
         Authorization: `Bearer cal_live_556d97a3add1c087738058a73b2d697c`,
         'Content-Type': 'application/json',
-        'cal-api-version': '2024-09-04'
+        'cal-api-version': '2024-09-04',
       },
       query: {
         eventTypeSlug: '30min',
@@ -24,8 +24,8 @@ export default defineEventHandler(async (_event) => {
         start: startISO,
         end: endISO,
         timeZone: 'America/New_York',
-        format: 'range'
-      }
+        format: 'range',
+      },
     })
 
     if (!response.data) {
@@ -41,7 +41,7 @@ export default defineEventHandler(async (_event) => {
           allSlots.push({
             start: slot.start,
             end: slot.end,
-            date
+            date,
           })
         })
       }
@@ -59,11 +59,11 @@ export default defineEventHandler(async (_event) => {
       const timeOptions: Intl.DateTimeFormatOptions = {
         timeZone: 'America/New_York',
         hour: 'numeric',
-        hour12: true
+        hour12: true,
       }
       const dayOptions: Intl.DateTimeFormatOptions = {
         timeZone: 'America/New_York',
-        weekday: 'long'
+        weekday: 'long',
       }
 
       const time = startTime
@@ -77,19 +77,19 @@ export default defineEventHandler(async (_event) => {
         day,
         naturalTime: `${time} ${day}?`, // "9am Monday?"
         datetime: slot.start,
-        bookingUrl: `https://cal.com/ejfox/30min?date=${startTime.toISOString().split('T')[0]}&slot=${encodeURIComponent(slot.start)}`
+        bookingUrl: `https://cal.com/ejfox/30min?date=${startTime.toISOString().split('T')[0]}&slot=${encodeURIComponent(slot.start)}`,
       }
     })
 
     return {
       slots: formattedSlots,
-      lastUpdated: new Date().toISOString()
+      lastUpdated: new Date().toISOString(),
     }
   } catch (error) {
     console.error('Cal.com API error:', error)
     return {
       slots: [],
-      error: 'Failed to fetch available slots'
+      error: 'Failed to fetch available slots',
     }
   }
 })

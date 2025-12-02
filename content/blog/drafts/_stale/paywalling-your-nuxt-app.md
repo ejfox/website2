@@ -70,7 +70,7 @@ SUPABASE_ANON_KEY=eyJ...
 import Stripe from 'stripe'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2023-10-16'
+  apiVersion: '2023-10-16',
 })
 
 export default defineEventHandler(async (event) => {
@@ -81,14 +81,14 @@ export default defineEventHandler(async (event) => {
     line_items: [
       {
         price: body.priceId,
-        quantity: 1
-      }
+        quantity: 1,
+      },
     ],
     success_url: `${body.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${body.origin}/cancel`,
     metadata: {
-      userId: body.userId
-    }
+      userId: body.userId,
+    },
   })
 
   return { sessionId: session.id }
@@ -109,8 +109,8 @@ async function checkout() {
     body: {
       priceId: 'price_1234567890',
       origin: window.location.origin,
-      userId: user.value?.id
-    }
+      userId: user.value?.id,
+    },
   })
 
   await stripe.redirectToCheckout({ sessionId: data.sessionId })

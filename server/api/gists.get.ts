@@ -42,7 +42,7 @@ export default defineEventHandler(async (event): Promise<Gist[]> => {
   if (!token) {
     throw createError({
       statusCode: 500,
-      message: 'GitHub token not configured'
+      message: 'GitHub token not configured',
     })
   }
 
@@ -52,12 +52,12 @@ export default defineEventHandler(async (event): Promise<Gist[]> => {
       {
         headers: {
           Authorization: `token ${token}`,
-          'User-Agent': 'EJFox-Website/1.0'
+          'User-Agent': 'EJFox-Website/1.0',
         },
         query: {
           per_page: perPage,
-          page: page
-        }
+          page: page,
+        },
       }
     )
 
@@ -70,8 +70,8 @@ export default defineEventHandler(async (event): Promise<Gist[]> => {
             const file = Object.values(gist.files)[0]
             const content = await $fetch<string>(file.raw_url, {
               headers: {
-                'User-Agent': 'EJFox-Website/1.0'
-              }
+                'User-Agent': 'EJFox-Website/1.0',
+              },
             })
             return { ...gist, content }
           } catch (error) {
@@ -89,7 +89,7 @@ export default defineEventHandler(async (event): Promise<Gist[]> => {
 
     throw createError({
       statusCode: error.statusCode || 500,
-      message: error.message || 'Failed to fetch gists'
+      message: error.message || 'Failed to fetch gists',
     })
   }
 })

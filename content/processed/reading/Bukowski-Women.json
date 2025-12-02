@@ -11,10 +11,7 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/81M+SvV1aLL._SY160.jpg",
       "highlightsCount": 15
     },
-    "tags": [
-      "book",
-      "writing"
-    ],
+    "tags": ["book", "writing"],
     "words": 600,
     "images": 0,
     "imageDetails": {

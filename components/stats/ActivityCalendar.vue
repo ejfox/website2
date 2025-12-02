@@ -45,28 +45,28 @@ const props = defineProps({
   // Days to show (default 30)
   days: {
     type: Number,
-    default: 30
+    default: 30,
   },
   // Title above the calendar
   title: {
     type: String,
-    default: 'ACTIVITY'
+    default: 'ACTIVITY',
   },
   // Color for active days
   activeColor: {
     type: String,
-    default: '#71717a'
+    default: '#71717a',
   },
   // Array of active dates in YYYY-MM-DD format
   activeDates: {
     type: Array as () => string[],
-    default: () => []
+    default: () => [],
   },
   // Alternative: manually provide activity data
   customActivityData: {
     type: Array as () => ActivityDay[],
-    default: null
-  }
+    default: null,
+  },
 })
 
 // Tooltip state
@@ -104,7 +104,7 @@ const activityData = computed<ActivityDay[]>(() => {
       date.setDate(date.getDate() - (props.days - 1 - i))
       return {
         date: format(date, 'yyyy-MM-dd'),
-        active: false
+        active: false,
       }
     })
 

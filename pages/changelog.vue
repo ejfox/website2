@@ -79,12 +79,15 @@
       <!-- API Link -->
       <footer class="mt-12 pt-4 border-t border-zinc-200 dark:border-zinc-800">
         <p class="font-mono text-xs text-zinc-500 dark:text-zinc-500">
-          Source: <code>git log</code> ·
+          Source:
+          <code>git log</code>
+          ·
           <a
             href="/api/changelog"
             class="hover:text-zinc-900 dark:hover:text-zinc-100"
-            >JSON</a
           >
+            JSON
+          </a>
         </p>
       </footer>
     </div>
@@ -94,7 +97,7 @@
 <script setup lang="ts">
 const limit = ref(50)
 const { data, refresh, error } = await useFetch('/api/changelog', {
-  query: { limit }
+  query: { limit },
 })
 
 const canLoadMore = computed(
@@ -120,7 +123,7 @@ function formatDate(dateString: string) {
     'SEP',
     'OCT',
     'NOV',
-    'DEC'
+    'DEC',
   ]
   return `${months[d.getMonth()]} ${String(d.getDate()).padStart(2, '0')}, ${d.getFullYear()}`
 }
@@ -130,7 +133,7 @@ function formatTime(dateString: string) {
   return d.toLocaleTimeString('en-US', {
     hour: 'numeric',
     minute: '2-digit',
-    hour12: true
+    hour12: true,
   })
 }
 
@@ -146,7 +149,7 @@ function getTypeColor(type: string) {
     test: 'bg-cyan-100 dark:bg-cyan-950 text-cyan-900 dark:text-cyan-100',
     chore: 'bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100',
     remove:
-      'bg-orange-100 dark:bg-orange-950 text-orange-900 dark:text-orange-100'
+      'bg-orange-100 dark:bg-orange-950 text-orange-900 dark:text-orange-100',
   }
   return (
     colors[type] ||
@@ -159,8 +162,8 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'Living history of ejfox.com from git commits.'
-    }
-  ]
+      content: 'Living history of ejfox.com from git commits.',
+    },
+  ],
 })
 </script>

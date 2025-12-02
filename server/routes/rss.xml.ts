@@ -41,7 +41,7 @@ export default defineEventHandler(async (event) => {
     copyright: `${new Date().getFullYear()} EJ Fox`,
     managingEditor: 'ej@ejfox.com (EJ Fox)',
     webMaster: 'ej@ejfox.com (EJ Fox)',
-    ttl: 60
+    ttl: 60,
   })
 
   // Get all published posts WITH FULL CONTENT and sort by date (newest first)
@@ -66,8 +66,8 @@ export default defineEventHandler(async (event) => {
       allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),
       allowedAttributes: {
         ...sanitizeHtml.defaults.allowedAttributes,
-        img: ['src', 'alt', 'title']
-      }
+        img: ['src', 'alt', 'title'],
+      },
     })
 
     // Title and slug can be at root level or in metadata
@@ -83,11 +83,16 @@ export default defineEventHandler(async (event) => {
     // Skip drafts, hidden posts, and system files
     const isDraft = post.draft || metadata.draft
     const isHidden = post.hidden || metadata.hidden
-    const isSystemFile = slug.startsWith('!') || slug.startsWith('_') || slug === 'index'
-    const isSpecialSection = slug.includes('drafts/') || slug.includes('robots/') || slug.includes('prompts/')
+    const isSystemFile =
+      slug.startsWith('!') || slug.startsWith('_') || slug === 'index'
+    const isSpecialSection =
+      slug.includes('drafts/') ||
+      slug.includes('robots/') ||
+      slug.includes('prompts/')
     // Only include posts with paths (e.g., 2025/post-name) - filter out root-level files
     const hasPath = slug.includes('/')
-    if (isDraft || isHidden || isSystemFile || isSpecialSection || !hasPath) continue
+    if (isDraft || isHidden || isSystemFile || isSpecialSection || !hasPath)
+      continue
 
     const postDate = parseISO(date)
     const postUrl = `${siteUrl}/blog/${slug}`
@@ -103,8 +108,10 @@ export default defineEventHandler(async (event) => {
       date: isValid(postDate) ? postDate : new Date(),
       custom_elements: [
         { 'content:encoded': { _cdata: html } },
-        { 'atom:updated': formatISO(isValid(postDate) ? postDate : new Date()) }
-      ]
+        {
+          'atom:updated': formatISO(isValid(postDate) ? postDate : new Date()),
+        },
+      ],
     }
 
     feed.item(feedItem as any)

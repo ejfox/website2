@@ -28,7 +28,7 @@ export function useHeatmapLayout(options: HeatmapLayoutOptions) {
     top: 24,
     right: 24,
     bottom: 24,
-    left: 24
+    left: 24,
   }
 
   const layout = computed((): HeatmapLayoutResult => {
@@ -84,7 +84,7 @@ export function useHeatmapLayout(options: HeatmapLayoutOptions) {
       height,
       svgHeight,
       daysToShow,
-      weeks
+      weeks,
     }
   })
 
@@ -92,11 +92,11 @@ export function useHeatmapLayout(options: HeatmapLayoutOptions) {
     DAYS_TO_SHOW,
     DAYS_IN_WEEK,
     CELL_PADDING,
-    MARGIN
+    MARGIN,
   }
 
   return {
     layout,
-    constants
+    constants,
   }
 }

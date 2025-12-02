@@ -29,7 +29,7 @@ for (const pos of positions.market_positions) {
     KXAIAUTHOR: 'AI author/NYT bestseller',
     NYTOAI: 'NYT reference to AI',
     KXJOINSTEPHENCOLBERT: 'Stephen Colbert appearance',
-    OAIAGI: 'OpenAI AGI announcement'
+    OAIAGI: 'OpenAI AGI announcement',
   }
 
   const suggestionKey = Object.keys(suggestions).find((key) =>

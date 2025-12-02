@@ -24,7 +24,7 @@ export default defineEventHandler(async (event) => {
     cmd += ` -n ${limit}`
 
     const { stdout } = await execAsync(cmd, {
-      cwd: process.cwd()
+      cwd: process.cwd(),
     })
 
     const commits = stdout
@@ -39,7 +39,7 @@ export default defineEventHandler(async (event) => {
           date: new Date(Number.parseInt(timestamp) * 1000).toISOString(),
           message,
           // Parse conventional commit types
-          type: parseCommitType(message)
+          type: parseCommitType(message),
         }
       })
 
@@ -68,18 +68,18 @@ export default defineEventHandler(async (event) => {
         endpoint: '/api/changelog',
         timestamp: new Date().toISOString(),
         count: commits.length,
-        filters: { limit, since }
+        filters: { limit, since },
       },
       commits,
       grouped: {
         byDate,
-        byType
+        byType,
       },
       stats: {
         totalCommits: commits.length,
         dateRange: {
           earliest: commits[commits.length - 1]?.date,
-          latest: commits[0]?.date
+          latest: commits[0]?.date,
         },
         byType: Object.entries(byType).reduce(
           (acc: any, [type, commits]: [string, any]) => {
@@ -87,14 +87,14 @@ export default defineEventHandler(async (event) => {
             return acc
           },
           {}
-        )
-      }
+        ),
+      },
     }
   } catch (error: any) {
     throw createError({
       statusCode: 500,
       statusMessage: 'Failed to read git log',
-      message: error.message
+      message: error.message,
     })
   }
 })

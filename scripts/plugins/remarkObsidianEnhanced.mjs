@@ -35,7 +35,7 @@ export function remarkObsidianEnhanced() {
           if (contentStart < firstLine.length) {
             content.push({
               type: 'text',
-              value: firstLine.slice(contentStart).trim()
+              value: firstLine.slice(contentStart).trim(),
             })
           }
 
@@ -67,18 +67,18 @@ export function remarkObsidianEnhanced() {
     <span class="expandable-icon">▶</span>
     <span class="expandable-title">${title}</span>
   </summary>
-  <div class="expandable-content">`
+  <div class="expandable-content">`,
           }
 
           // Create a wrapper for content
           const contentWrapper = {
             type: 'parent',
-            children: content
+            children: content,
           }
 
           const closeDetails = {
             type: 'html',
-            value: '</div></details>'
+            value: '</div></details>',
           }
 
           // Replace original node(s) with details
@@ -112,7 +112,7 @@ export function remarkObsidianEnhanced() {
         if (start > lastIndex) {
           nodes.push({
             type: 'text',
-            value: value.slice(lastIndex, start)
+            value: value.slice(lastIndex, start),
           })
         }
 
@@ -121,7 +121,7 @@ export function remarkObsidianEnhanced() {
           value: `<details class="inline-expandable">
   <summary class="inline-expandable-summary">${title.trim()}</summary>
   <span class="inline-expandable-content">${content.trim()}</span>
-</details>`
+</details>`,
         })
 
         lastIndex = match.index + fullMatch.length
@@ -131,7 +131,7 @@ export function remarkObsidianEnhanced() {
         if (lastIndex < value.length) {
           nodes.push({
             type: 'text',
-            value: value.slice(lastIndex)
+            value: value.slice(lastIndex),
           })
         }
         parent.children.splice(index, 1, ...nodes)

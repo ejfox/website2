@@ -10,7 +10,7 @@ export default defineEventHandler(async () => {
       return {
         error:
           'UMAMI_USERNAME and UMAMI_PASSWORD environment variables required',
-        stats: null
+        stats: null,
       }
     }
 
@@ -20,12 +20,12 @@ export default defineEventHandler(async () => {
       {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           username: username,
-          password: password
-        })
+          password: password,
+        }),
       },
       5000 // 5 second timeout
     )
@@ -35,7 +35,7 @@ export default defineEventHandler(async () => {
       console.error('Umami auth failed:', authResponse.status, errorText)
       return {
         error: `Authentication failed: ${authResponse.status}`,
-        stats: null
+        stats: null,
       }
     }
 
@@ -54,8 +54,8 @@ export default defineEventHandler(async () => {
       {
         headers: {
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        }
+          'Content-Type': 'application/json',
+        },
       },
       5000 // 5 second timeout
     )
@@ -65,7 +65,7 @@ export default defineEventHandler(async () => {
       console.error('Umami stats API failed:', statsResponse.status, errorText)
       return {
         error: `Failed to fetch stats: ${statsResponse.status}`,
-        stats: null
+        stats: null,
       }
     }
 
@@ -75,7 +75,8 @@ export default defineEventHandler(async () => {
       stats: statsData,
       websiteId,
       lastUpdated: new Date().toISOString(),
-      shareUrl: 'https://umami.tools.ejfox.com/share/dWCg9vByZmweX6qa/ejfox.com'
+      shareUrl:
+        'https://umami.tools.ejfox.com/share/dWCg9vByZmweX6qa/ejfox.com',
     }
   } catch (error) {
     console.error('Website stats error:', error)
@@ -83,7 +84,7 @@ export default defineEventHandler(async () => {
       error instanceof Error ? error.message : 'Failed to fetch website stats'
     return {
       error: errorMessage,
-      stats: null
+      stats: null,
     }
   }
 })

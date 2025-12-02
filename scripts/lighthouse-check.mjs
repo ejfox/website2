@@ -77,8 +77,8 @@ async function quickLighthouseCheck(url = 'http://localhost:3002') {
         lcp: Math.round(lcp.numericValue),
         cls: Math.round(cls.numericValue * 1000) / 1000,
         tbt: Math.round(tbt.numericValue),
-        si: Math.round(si.numericValue)
-      }
+        si: Math.round(si.numericValue),
+      },
     }
   } catch (error) {
     console.log(chalk.red('⚠️  Lighthouse check failed:'), error.message)

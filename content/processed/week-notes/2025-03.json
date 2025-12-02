@@ -2,11 +2,7 @@
   "html": "<h2 class=\"\" id=\"overview-of-the-week\">Overview of the Week</h2>\n<h2 class=\"\" id=\"projects-worked-on\">Projects Worked On</h2>\n<h2 class=\"\" id=\"creative-endeavors\">Creative Endeavors</h2>\n<h2 class=\"\" id=\"books-movies-tv\">Books, Movies, TV</h2>\n<h2 class=\"\" id=\"personal-growth--health\">Personal Growth &#x26; Health</h2>\n<h2 class=\"\" id=\"social--community-engagement\">Social &#x26; Community Engagement</h2>\n<h2 class=\"\" id=\"goals-for-the-future\">Goals for the Future</h2>\n<!-- Set Specific, Measurable, Achievable, Relevant, and Time-bound goals or intentions for the upcoming week. -->\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>",
   "title": "2025 03",
   "metadata": {
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress"
-    ],
+    "tags": ["weekly-notes", "reflections", "progress"],
     "modified": "2025-06-18T14:40:59.000Z",
     "date": "2025-01-15T20:49:04.000Z",
     "words": 50,

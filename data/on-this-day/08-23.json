@@ -1,1 +1,1029 @@
-{"tweets":[{"id":"1562222784713031681","text":"RT @bguggs: @mrejfox I think Heroku uses Cloudflare upstream, but their app urls are working while urls w/ CF DNS are not.","year":2022,"date":"2022-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1562222640080773122","text":"@pketh @vuejs I've been re-writing things from scratch because I usually end up breaking things down into helpers/composables more often, so I haven't mixed- though I have been tempted to drop in components from older projects, might give it a try","year":2022,"date":"2022-08-23","favorites":2,"retweets":0,"replyTo":"pketh"},{"id":"1562221739618213888","text":"Looks like a Heroku DNS issue https://t.co/zVdCrayT58","year":2022,"date":"2022-08-23","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1562221403981713408","text":"https://t.co/ruwCvQMQTH","year":2022,"date":"2022-08-23","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1562221235471355904","text":"https://t.co/EfF6011Zhc","year":2022,"date":"2022-08-23","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1562220947515613185","text":"https://t.co/Y4YmxYhwJi","year":2022,"date":"2022-08-23","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1562220860123271169","text":"https://t.co/Y3XUgIru7B","year":2022,"date":"2022-08-23","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1562220756238483456","text":"https://t.co/BZD4AtTPmd","year":2022,"date":"2022-08-23","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1562220534603079681","text":"well the entire internet is going down, was nice knowing you all","year":2022,"date":"2022-08-23","favorites":2,"retweets":0,"replyTo":null},{"id":"1562220123821334528","text":"@pketh @vuejs it's great, have to put more conscious effort into organizing code though, end up with much smaller components- probably more difficult for a non-Vue JS dev to pick up, options API is really easy for people to pick up in my experience","year":2022,"date":"2022-08-23","favorites":1,"retweets":0,"replyTo":"pketh"},{"id":"1562190004235157507","text":"don't switch branches 3 minutes before the demo","year":2022,"date":"2022-08-23","favorites":3,"retweets":1,"replyTo":null},{"id":"1562176249375621123","text":"lmfao they can't fix it and need me to go to the branch for a new card","year":2022,"date":"2022-08-23","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1562175544648781825","text":"rode my motorcycle to get coffee; couldn't check out, my card doesn't work; called the bank to fix the card; got disconnected on hold after 15 minutes; decide to drive to the bank, but I left the keys in the bike; battery is dead; now, on hold with the bank again, that kinda day","year":2022,"date":"2022-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1562042151424376834","text":"tryna find my wife, whose favorite coffee shop is the one with the roaster in the back (the correct choice)","year":2022,"date":"2022-08-23","favorites":3,"retweets":0,"replyTo":"mrejfox"},{"id":"1562041987800375296","text":"tried to date a girl in town but I knew when her favorite coffee shop was the weird gluten-free overpriced one that it probably wasn’t gonna work","year":2022,"date":"2022-08-23","favorites":3,"retweets":0,"replyTo":null},{"id":"1429883554201227266","text":"Made a little collection of starter templates for myself on Observable. https://t.co/2uRwVnvkxe https://t.co/MdUfU9eJfR","year":2021,"date":"2021-08-23","favorites":1,"retweets":0,"replyTo":null},{"id":"1429847794366492672","text":"@annehelen make no mention of the lateness, never apologize, onward to the future","year":2021,"date":"2021-08-23","favorites":3,"retweets":0,"replyTo":"annehelen"},{"id":"1429847066277208064","text":"@PotCzach bombs","year":2021,"date":"2021-08-23","favorites":4,"retweets":0,"replyTo":"PotCzach"},{"id":"1429839905786585090","text":"grateful that pinboard provides this photograph of the inside of my brain https://t.co/vj51Ah6nat","year":2021,"date":"2021-08-23","favorites":1,"retweets":0,"replyTo":null},{"id":"1297663796983533568","text":"https://t.co/TsuqZrKaLY","year":2020,"date":"2020-08-23","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1297624517951594497","text":"@swodinsky @AASchapiro https://t.co/kJgxVVxorS","year":2020,"date":"2020-08-23","favorites":1,"retweets":0,"replyTo":"swodinsky"},{"id":"1297623460265504770","text":"@swodinsky @AASchapiro woah","year":2020,"date":"2020-08-23","favorites":1,"retweets":0,"replyTo":"swodinsky"},{"id":"1297542838297800704","text":"Almost, very close https://t.co/fwpf1M9vaT","year":2020,"date":"2020-08-23","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1297411460059013120","text":"@eriktorenberg tailored infinite life situation practice run simulator","year":2020,"date":"2020-08-23","favorites":5,"retweets":0,"replyTo":"eriktorenberg"},{"id":"1297342501901275136","text":"Remembering seeing the headline \"Wuhan doctor who sounded alarm on COVID-19 has died\" and thinking - woah, this thing is really bad https://t.co/KaJ9RYLFWe","year":2020,"date":"2020-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1297341789003829248","text":"https://t.co/Tgohtxyw9u","year":2020,"date":"2020-08-23","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1297335300012859393","text":"In the intervening days, I keep catching myself observing and noting the myriad terrible things that happen every day. But then I remember that observing them is not enough, it might not even be useful, without the next step of figuring out what is to be done.","year":2020,"date":"2020-08-23","favorites":3,"retweets":0,"replyTo":"mrejfox"},{"id":"1297334946315603973","text":"@simonw @allafarce @hondanhon the only thing standing between many smart geniuses I like and million dollar budgets is the touch of psychopathy necessary to ask for millions of dollars you don't need with a completely straight face and then shake someone's hand after","year":2020,"date":"2020-08-23","favorites":1,"retweets":0,"replyTo":"simonw"},{"id":"1297333881117585408","text":"A few days ago @AlyssaRosenberg gave me some really important advice: It's not enough to point out where things are wrong, take the next step and figure out ways to fix it.\n\nThat is such a different paradigm for me, for news, for Twitter, and for interacting with the world.","year":2020,"date":"2020-08-23","favorites":6,"retweets":0,"replyTo":null},{"id":"1297330738593959936","text":"*casually googles my cat's nickname* https://t.co/zQJdGJQQqd","year":2020,"date":"2020-08-23","favorites":4,"retweets":0,"replyTo":null},{"id":"1297324778395709440","text":"\"Pro-Police Demonstrators Given Free Reign For Brutality By American Riot Cops\" is a factually true headline for multiple US cities and probably an important and interesting thing for major news organizations to cover, but... reality sounds like activism? https://t.co/BzSvrgK1Se","year":2020,"date":"2020-08-23","favorites":2,"retweets":0,"replyTo":null},{"id":"1297323156273876999","text":"@NYCAntifa The police, seemingly in every city across America, constantly find themselves proving the arguments of Black Lives Matter protesters in their daily behavior, they can't help themselves, they only know forceful suppression, every action further proving reform is impossible","year":2020,"date":"2020-08-23","favorites":2,"retweets":0,"replyTo":"mrejfox"},{"id":"1165009100738052101","text":"@Daniel_Guiney thank you sir","year":2019,"date":"2019-08-23","favorites":0,"retweets":0,"replyTo":"DanielGuiney_"},{"id":"1165008746311049218","text":"Reviving my old newsletter What A Week. It's a quick little round-up of the most interesting things that I didn't really see covered anywhere else. \n\nJust published this week's update. \n\nSubscribe at https://t.co/raolDmtQib","year":2019,"date":"2019-08-23","favorites":1,"retweets":1,"replyTo":null},{"id":"1164983410902929408","text":"https://t.co/ScafPkIFTr","year":2019,"date":"2019-08-23","favorites":3,"retweets":0,"replyTo":"mrejfox"},{"id":"1164962439777140736","text":"Anyone got a couple mil, I got some ideas for an interactive museum of hacking","year":2019,"date":"2019-08-23","favorites":4,"retweets":0,"replyTo":null},{"id":"1164938628071661570","text":"Gonna read one page of each book clockwise until I figure it out","year":2019,"date":"2019-08-23","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1164937319541018627","text":"Something something pirates something America something something fresh picked mint","year":2019,"date":"2019-08-23","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1164936751078629376","text":"My brain has insisted I gather these summer book choices and try and figure out what exactly my subconscious’ underlying thesis is https://t.co/q6VOPL5ehF","year":2019,"date":"2019-08-23","favorites":1,"retweets":0,"replyTo":null},{"id":"1164933067418550277","text":"The best feeling ever is to leave brooklyn for a while and then come back and get a bacon egg and cheese and coffee","year":2019,"date":"2019-08-23","favorites":4,"retweets":0,"replyTo":null},{"id":"1164915493846888448","text":"RT @hamiltonnolan: Honor Gawker’s death anniversary by leaking something about your powerful but evil employer to a reporter today","year":2019,"date":"2019-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1032753321809985536","text":"@shanedkavanaugh I love everything you do Shane it's magical","year":2018,"date":"2018-08-23","favorites":0,"retweets":0,"replyTo":"shanedkavanaugh"},{"id":"1032706737269362688","text":"RT @melindafakuade: I interviewed the infamous, anonymous owner of https://t.co/u4iwAPP6UC (the first he's ever agreed to), @Marshaladenise…","year":2018,"date":"2018-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1032701848002719745","text":"@MattSmaldone Sshhhhh don't tell them","year":2018,"date":"2018-08-23","favorites":1,"retweets":0,"replyTo":"MattSmaldone"},{"id":"1032623982430826496","text":"I needed to hear that Shane, thank you https://t.co/L5Z9F6vy5U","year":2018,"date":"2018-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1032599710580785152","text":"I tried to trim my beard and now I have no beard","year":2018,"date":"2018-08-23","favorites":13,"retweets":1,"replyTo":null},{"id":"900391429658353664","text":"RT @nelson: I keep thinking about this quote. Twitter is increasingly a source of unhappiness for me, reconsidering my relationship with it…","year":2017,"date":"2017-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"900189373550952449","text":"Scanned my watercolor sketchbook today https://t.co/2aebg174Vx https://t.co/Bz831qyVge","year":2017,"date":"2017-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"768227252731518978","text":"Traditionally leftist anti establishment organizations and thinkers seem to have money signs in their eyes for the alt-right","year":2016,"date":"2016-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"768218568379002880","text":"Jesus https://t.co/dPcdqvhhsi","year":2016,"date":"2016-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"768217967217807364","text":"RT @Fusion: A lesbian couple had their pride flag stolen—so their town hung up dozens more in solidarity https://t.co/Hhb4nO2TKf https://t.…","year":2016,"date":"2016-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"768207957893013509","text":"RT @PFF_NateJahnke: Offensive line with the best pass blocking efficiency this preseason? Oakland at 89.3. Line has yet to allow a sack or…","year":2016,"date":"2016-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"768207663838691328","text":"At… https://t.co/RjQYubbeBL","year":2016,"date":"2016-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"768193619866087424","text":"If anything could possibly get me back into the Yankees, rooting against Tebow might be it https://t.co/vrUNMzZNAL","year":2016,"date":"2016-08-23","favorites":1,"retweets":0,"replyTo":null},{"id":"768118790026592256","text":"@rabite what is your preferred alt-right news source","year":2016,"date":"2016-08-23","favorites":0,"retweets":0,"replyTo":"rabite"},{"id":"768118522161590272","text":"want this for my road trip https://t.co/LBXqi8m7TJ","year":2016,"date":"2016-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"768118125791481856","text":"Emoji is changing the way I communicate in real life because now I do this 👌 shit constantly","year":2016,"date":"2016-08-23","favorites":2,"retweets":0,"replyTo":null},{"id":"768103553034584064","text":"I also think this scenario has so far exclusively played out in my imagination https://t.co/foJD5CJ4C8","year":2016,"date":"2016-08-23","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"768102319607189504","text":"My favorite thing about big image poignant pull quotes is the reader can grab it and tweet it out with the story https://t.co/CXFdUb5HD5","year":2016,"date":"2016-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"635468161723289600","text":"Excited to publish the first of what will surely be many awesome satellite photo stories cooked up by @gerald_arthur soon at @vocativ","year":2015,"date":"2015-08-23","favorites":4,"retweets":1,"replyTo":null},{"id":"635306312725827584","text":"UR ALL INSANE PPL","year":2015,"date":"2015-08-23","favorites":1,"retweets":0,"replyTo":null},{"id":"635287324864212992","text":"RT @SHIFT3HF: @J0EKAY is controlling the music stems live, essentially manipulating the musical elements independently creating NEW arrange…","year":2015,"date":"2015-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"3492604988","text":"At some point I'm gonna REALLY need to clean out my Torrents folder. 183 items? Holy...","year":2009,"date":"2009-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"3492084128","text":"Woke up this morning with my collar popped. Wonder what I dreamt last night.","year":2009,"date":"2009-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"3484641603","text":"@amandarie Hahaha, excellent! Have you tried a french inhale with cloves? It's wayyy easier / less scusting than with normal cigs.","year":2009,"date":"2009-08-23","favorites":0,"retweets":0,"replyTo":"amandarie"},{"id":"3484519869","text":"@amandarie Yeah, twice as much tar and nicotine and shit but 10x as much awesome. So it balances out.","year":2009,"date":"2009-08-23","favorites":0,"retweets":0,"replyTo":"amandarie"},{"id":"3484372354","text":"@amandarie We all say that. And cloves are a wonderful wonderful summer habit.","year":2009,"date":"2009-08-23","favorites":0,"retweets":0,"replyTo":"amandarie"},{"id":"3481880587","text":"playing a little Call of Duty 4: Modern Warfare. http://raptr.com/pseudoplacebo","year":2009,"date":"2009-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"896747271","text":"What was that sound? It was me falling in love with the new Facebook. At first I hated her, but now she's like an old friend. A clean one.","year":2008,"date":"2008-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"896710947","text":"Wait. There was once a time when I paid for music? Really?","year":2008,"date":"2008-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"896703540","text":"The end of V for Vendetta still gives me goosebumps. Cool.","year":2008,"date":"2008-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"896620287","text":"I wish all these would-be good photos weren't so fucking underexposed.","year":2008,"date":"2008-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"896580863","text":"Okay that's enough tagging for now. That gets super tedious. Now I will work on my blog a bit. But first: a shower.","year":2008,"date":"2008-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"896569092","text":"Now I'm tagging all of my Flickr photos. Fun!","year":2008,"date":"2008-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"896546349","text":"Adding context & stories to the descriptions of my flickr photos. For fun, and because I like it when others do it.","year":2008,"date":"2008-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"896501180","text":"Oh. It's Biden. But what does the NYT think?","year":2008,"date":"2008-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"896237429","text":"Going to sleep at what feels like an early time. I took off my ring and now my finger feels weird. There's a lot that I need to do tomorrow.","year":2008,"date":"2008-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"896183524","text":"WISH MY LENSE WASN'T FUCKING DIRTY IN EVERY SINGLE ONE OF THESE PICTURES.","year":2008,"date":"2008-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"223524162","text":"Stopping at TGI Friday's for a bite to eat. Mmm... red bull slushie.","year":2007,"date":"2007-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"223351292","text":"In the car, on the road, on the way to Trap Pond.","year":2007,"date":"2007-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"223309132","text":"Renoise is hard to use, but I feel like it has so much potential. I got tired (like physically fatigued) using it.","year":2007,"date":"2007-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"223222702","text":"Playing with the music app \"Renoise\". Seems pretty cool, though I wish I could figure it out.","year":2007,"date":"2007-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"223112022","text":"Physically packing, the other half of the battle.","year":2007,"date":"2007-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"223096292","text":"Arby's is here, hot damn.","year":2007,"date":"2007-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"222985142","text":"Trying to find myself a nice watch- I want a cuffed one, and digital.","year":2007,"date":"2007-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"222852322","text":"What the fuck. Neighbor outside on my porch? Humming and shit? Didn't knock... fucking weird. Don't like it.","year":2007,"date":"2007-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"222780452","text":"Eating a delicious breakfast: eggs, toast, veggie sausage. Mm.","year":2007,"date":"2007-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"222736812","text":"Packing. In my mind. Half the battle methinks.","year":2007,"date":"2007-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"222641622","text":"Set up a Twitterfeed to automatically post Flickr photos uploaded from my mobile phone. More info: http://tinyurl.com/ys5q3n","year":2007,"date":"2007-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"222546382","text":"Mobile Photo Uploade Testing... http://tinyurl.com/2jyauo","year":2007,"date":"2007-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"222480132","text":"Watching 'Next' again. The movie. My stomach hurts. Like stabbing.","year":2007,"date":"2007-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"222449752","text":"Trying to see if my Flickr-Twitter combination using Twitterfeed is gonna work...","year":2007,"date":"2007-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"221617972","text":"It's about time I go on to sleep... we're leaving for vacation tomorrow. Hurray?","year":2007,"date":"2007-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"221567072","text":"Tattoo is done and done. I love it. It just makes me wanna do more... but I gotta take it easy.  So much more life to live.","year":2007,"date":"2007-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"221484672","text":"Going to finish the tattoo tonight, I think. God measuring this fucking thing out is a pain...","year":2007,"date":"2007-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"221427832","text":"@bluesapphire Well by weird I mean it's a really nice love story interspersed with like... softcore porn. It's a little to brass for me.","year":2007,"date":"2007-08-23","favorites":0,"retweets":0,"replyTo":"notjaya"},{"id":"221415922","text":"Just finished Cashback, it ended itself quite well. good movie all in all, I think.","year":2007,"date":"2007-08-23","favorites":0,"retweets":0,"replyTo":null},{"id":"221391522","text":"@bluesapphire On more viewing, I take it back. The movie is only moderately good. It'd be a great love movie if it wasn't so weird at points","year":2007,"date":"2007-08-23","favorites":0,"retweets":0,"replyTo":"notjaya"},{"id":"221360942","text":"@bluesapphire Cashback is pretty great so far, although it has weird moments. It compares well with You, Me, and Everyone we know.","year":2007,"date":"2007-08-23","favorites":0,"retweets":0,"replyTo":"notjaya"},{"id":"221334512","text":"Watching Cashback: \"Stop crying. Don't worry about them. I think you're beautiful the way you are... will you be my girlfriend?\" \"Yes.\"","year":2007,"date":"2007-08-23","favorites":0,"retweets":0,"replyTo":null}],"posts":[],"scrobbles":[{"date":"2022-08-23","year":2022,"count":39,"topTracks":["Erdbeerschnitzel - Yet Unfulfilled","Z money - Two 16's (feat. Valee)","Jazzanova - L.O.V.E. And You And I - Madlib's Love Phase Mix","Reflection Eternal - Good Mourning","Justin Timberlake - Rock Your Body"],"topArtists":["Erdbeerschnitzel","Z money","Jazzanova"]},{"date":"2020-08-23","year":2020,"count":20,"topTracks":["Led Zeppelin - Immigrant Song - 2012 Remaster","Queens of the Stone Age - The Evil Has Landed","African Brothers International Band - Ebi Te Yie (Remastered)","African Brothers International Band - Ɛna Ɛye A Mane Me (Remastered)","African Brothers International Band - Abusua Nnyɛ Asafo (Remastered)"],"topArtists":["Led Zeppelin","Queens of the Stone Age","African Brothers International Band"]},{"date":"2019-08-23","year":2019,"count":12,"topTracks":["Smino - KOVERT","Smino - L.M.F.","Smino - KLINK","Smino - TEQUILA MOCKINGBIRD","Smino - SPINZ"],"topArtists":["Smino","Hare Squead","The O'my's"]},{"date":"2018-08-23","year":2018,"count":21,"topTracks":["Moses Sumney - Call-to-Arms","Anna Calvi - Don’t Beat the Girl out of My Boy","Nicki Minaj - Chun Swae (feat. Swae Lee)","Ciara - Freak Me (feat. Tekno)","The O'my's - Puddles"],"topArtists":["Moses Sumney","Anna Calvi","Nicki Minaj"]},{"date":"2016-08-23","year":2016,"count":24,"topTracks":["Noname - Yesterday","Phoria - Mass","Nao - Apple Cherry","Nao - Zillionaire","Nao - Inhale Exhale - '15"],"topArtists":["Noname","Phoria","Nao"]},{"date":"2013-08-23","year":2013,"count":50,"topTracks":["Killer Mike - In My City","Killer Mike - At The Top","Killer Mike - Gotta Know That","Killer Mike - Ready Set Go (Remix)","Killer Mike - Pay Up"],"topArtists":["Killer Mike","Kendrick Lamar","Erykah Badu"]},{"date":"2009-08-23","year":2009,"count":88,"topTracks":["Grateful Dead - Beat It on Down the Line","Kitsune Noir - As Long As It's With Me","Born Ruffians - Foxes Mate for Life","Born Ruffians - Red Elephant","Born Ruffians - Barnacle Goose"],"topArtists":["Grateful Dead","Kitsune Noir","Born Ruffians"]},{"date":"2008-08-23","year":2008,"count":139,"topTracks":["Orson Scott Card - Xenocide (Unabridged), Part 2","Orson Scott Card - Xenocide (Unabridged), Part 3","Orson Scott Card - Children of the Mind (Unabridged), Part 1","Andre Nickatina - Bay Shit","Andre Nickatina - Taking Time Away"],"topArtists":["Orson Scott Card","Andre Nickatina","John Mayer"]},{"date":"2007-08-23","year":2007,"count":13,"topTracks":["Death Cab for Cutie - Your Heart Is an Empty Room","Death Cab for Cutie - Someday You Will Be Loved","Death Cab for Cutie - Crooked Teeth","NPR - Car Talk August 18, 2007 Show #0733","Chicago Public Radio - #28: Detectives"],"topArtists":["Death Cab for Cutie","NPR","Chicago Public Radio"]}],"commits":[]}
+{
+  "tweets": [
+    {
+      "id": "1562222784713031681",
+      "text": "RT @bguggs: @mrejfox I think Heroku uses Cloudflare upstream, but their app urls are working while urls w/ CF DNS are not.",
+      "year": 2022,
+      "date": "2022-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1562222640080773122",
+      "text": "@pketh @vuejs I've been re-writing things from scratch because I usually end up breaking things down into helpers/composables more often, so I haven't mixed- though I have been tempted to drop in components from older projects, might give it a try",
+      "year": 2022,
+      "date": "2022-08-23",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "pketh"
+    },
+    {
+      "id": "1562221739618213888",
+      "text": "Looks like a Heroku DNS issue https://t.co/zVdCrayT58",
+      "year": 2022,
+      "date": "2022-08-23",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1562221403981713408",
+      "text": "https://t.co/ruwCvQMQTH",
+      "year": 2022,
+      "date": "2022-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1562221235471355904",
+      "text": "https://t.co/EfF6011Zhc",
+      "year": 2022,
+      "date": "2022-08-23",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1562220947515613185",
+      "text": "https://t.co/Y4YmxYhwJi",
+      "year": 2022,
+      "date": "2022-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1562220860123271169",
+      "text": "https://t.co/Y3XUgIru7B",
+      "year": 2022,
+      "date": "2022-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1562220756238483456",
+      "text": "https://t.co/BZD4AtTPmd",
+      "year": 2022,
+      "date": "2022-08-23",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1562220534603079681",
+      "text": "well the entire internet is going down, was nice knowing you all",
+      "year": 2022,
+      "date": "2022-08-23",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1562220123821334528",
+      "text": "@pketh @vuejs it's great, have to put more conscious effort into organizing code though, end up with much smaller components- probably more difficult for a non-Vue JS dev to pick up, options API is really easy for people to pick up in my experience",
+      "year": 2022,
+      "date": "2022-08-23",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "pketh"
+    },
+    {
+      "id": "1562190004235157507",
+      "text": "don't switch branches 3 minutes before the demo",
+      "year": 2022,
+      "date": "2022-08-23",
+      "favorites": 3,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "1562176249375621123",
+      "text": "lmfao they can't fix it and need me to go to the branch for a new card",
+      "year": 2022,
+      "date": "2022-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1562175544648781825",
+      "text": "rode my motorcycle to get coffee; couldn't check out, my card doesn't work; called the bank to fix the card; got disconnected on hold after 15 minutes; decide to drive to the bank, but I left the keys in the bike; battery is dead; now, on hold with the bank again, that kinda day",
+      "year": 2022,
+      "date": "2022-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1562042151424376834",
+      "text": "tryna find my wife, whose favorite coffee shop is the one with the roaster in the back (the correct choice)",
+      "year": 2022,
+      "date": "2022-08-23",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1562041987800375296",
+      "text": "tried to date a girl in town but I knew when her favorite coffee shop was the weird gluten-free overpriced one that it probably wasn’t gonna work",
+      "year": 2022,
+      "date": "2022-08-23",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1429883554201227266",
+      "text": "Made a little collection of starter templates for myself on Observable. https://t.co/2uRwVnvkxe https://t.co/MdUfU9eJfR",
+      "year": 2021,
+      "date": "2021-08-23",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1429847794366492672",
+      "text": "@annehelen make no mention of the lateness, never apologize, onward to the future",
+      "year": 2021,
+      "date": "2021-08-23",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": "annehelen"
+    },
+    {
+      "id": "1429847066277208064",
+      "text": "@PotCzach bombs",
+      "year": 2021,
+      "date": "2021-08-23",
+      "favorites": 4,
+      "retweets": 0,
+      "replyTo": "PotCzach"
+    },
+    {
+      "id": "1429839905786585090",
+      "text": "grateful that pinboard provides this photograph of the inside of my brain https://t.co/vj51Ah6nat",
+      "year": 2021,
+      "date": "2021-08-23",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1297663796983533568",
+      "text": "https://t.co/TsuqZrKaLY",
+      "year": 2020,
+      "date": "2020-08-23",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1297624517951594497",
+      "text": "@swodinsky @AASchapiro https://t.co/kJgxVVxorS",
+      "year": 2020,
+      "date": "2020-08-23",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "swodinsky"
+    },
+    {
+      "id": "1297623460265504770",
+      "text": "@swodinsky @AASchapiro woah",
+      "year": 2020,
+      "date": "2020-08-23",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "swodinsky"
+    },
+    {
+      "id": "1297542838297800704",
+      "text": "Almost, very close https://t.co/fwpf1M9vaT",
+      "year": 2020,
+      "date": "2020-08-23",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1297411460059013120",
+      "text": "@eriktorenberg tailored infinite life situation practice run simulator",
+      "year": 2020,
+      "date": "2020-08-23",
+      "favorites": 5,
+      "retweets": 0,
+      "replyTo": "eriktorenberg"
+    },
+    {
+      "id": "1297342501901275136",
+      "text": "Remembering seeing the headline \"Wuhan doctor who sounded alarm on COVID-19 has died\" and thinking - woah, this thing is really bad https://t.co/KaJ9RYLFWe",
+      "year": 2020,
+      "date": "2020-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1297341789003829248",
+      "text": "https://t.co/Tgohtxyw9u",
+      "year": 2020,
+      "date": "2020-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1297335300012859393",
+      "text": "In the intervening days, I keep catching myself observing and noting the myriad terrible things that happen every day. But then I remember that observing them is not enough, it might not even be useful, without the next step of figuring out what is to be done.",
+      "year": 2020,
+      "date": "2020-08-23",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1297334946315603973",
+      "text": "@simonw @allafarce @hondanhon the only thing standing between many smart geniuses I like and million dollar budgets is the touch of psychopathy necessary to ask for millions of dollars you don't need with a completely straight face and then shake someone's hand after",
+      "year": 2020,
+      "date": "2020-08-23",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "simonw"
+    },
+    {
+      "id": "1297333881117585408",
+      "text": "A few days ago @AlyssaRosenberg gave me some really important advice: It's not enough to point out where things are wrong, take the next step and figure out ways to fix it.\n\nThat is such a different paradigm for me, for news, for Twitter, and for interacting with the world.",
+      "year": 2020,
+      "date": "2020-08-23",
+      "favorites": 6,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1297330738593959936",
+      "text": "*casually googles my cat's nickname* https://t.co/zQJdGJQQqd",
+      "year": 2020,
+      "date": "2020-08-23",
+      "favorites": 4,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1297324778395709440",
+      "text": "\"Pro-Police Demonstrators Given Free Reign For Brutality By American Riot Cops\" is a factually true headline for multiple US cities and probably an important and interesting thing for major news organizations to cover, but... reality sounds like activism? https://t.co/BzSvrgK1Se",
+      "year": 2020,
+      "date": "2020-08-23",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1297323156273876999",
+      "text": "@NYCAntifa The police, seemingly in every city across America, constantly find themselves proving the arguments of Black Lives Matter protesters in their daily behavior, they can't help themselves, they only know forceful suppression, every action further proving reform is impossible",
+      "year": 2020,
+      "date": "2020-08-23",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1165009100738052101",
+      "text": "@Daniel_Guiney thank you sir",
+      "year": 2019,
+      "date": "2019-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "DanielGuiney_"
+    },
+    {
+      "id": "1165008746311049218",
+      "text": "Reviving my old newsletter What A Week. It's a quick little round-up of the most interesting things that I didn't really see covered anywhere else. \n\nJust published this week's update. \n\nSubscribe at https://t.co/raolDmtQib",
+      "year": 2019,
+      "date": "2019-08-23",
+      "favorites": 1,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "1164983410902929408",
+      "text": "https://t.co/ScafPkIFTr",
+      "year": 2019,
+      "date": "2019-08-23",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1164962439777140736",
+      "text": "Anyone got a couple mil, I got some ideas for an interactive museum of hacking",
+      "year": 2019,
+      "date": "2019-08-23",
+      "favorites": 4,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1164938628071661570",
+      "text": "Gonna read one page of each book clockwise until I figure it out",
+      "year": 2019,
+      "date": "2019-08-23",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1164937319541018627",
+      "text": "Something something pirates something America something something fresh picked mint",
+      "year": 2019,
+      "date": "2019-08-23",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1164936751078629376",
+      "text": "My brain has insisted I gather these summer book choices and try and figure out what exactly my subconscious’ underlying thesis is https://t.co/q6VOPL5ehF",
+      "year": 2019,
+      "date": "2019-08-23",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1164933067418550277",
+      "text": "The best feeling ever is to leave brooklyn for a while and then come back and get a bacon egg and cheese and coffee",
+      "year": 2019,
+      "date": "2019-08-23",
+      "favorites": 4,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1164915493846888448",
+      "text": "RT @hamiltonnolan: Honor Gawker’s death anniversary by leaking something about your powerful but evil employer to a reporter today",
+      "year": 2019,
+      "date": "2019-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1032753321809985536",
+      "text": "@shanedkavanaugh I love everything you do Shane it's magical",
+      "year": 2018,
+      "date": "2018-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "shanedkavanaugh"
+    },
+    {
+      "id": "1032706737269362688",
+      "text": "RT @melindafakuade: I interviewed the infamous, anonymous owner of https://t.co/u4iwAPP6UC (the first he's ever agreed to), @Marshaladenise…",
+      "year": 2018,
+      "date": "2018-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1032701848002719745",
+      "text": "@MattSmaldone Sshhhhh don't tell them",
+      "year": 2018,
+      "date": "2018-08-23",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "MattSmaldone"
+    },
+    {
+      "id": "1032623982430826496",
+      "text": "I needed to hear that Shane, thank you https://t.co/L5Z9F6vy5U",
+      "year": 2018,
+      "date": "2018-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1032599710580785152",
+      "text": "I tried to trim my beard and now I have no beard",
+      "year": 2018,
+      "date": "2018-08-23",
+      "favorites": 13,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "900391429658353664",
+      "text": "RT @nelson: I keep thinking about this quote. Twitter is increasingly a source of unhappiness for me, reconsidering my relationship with it…",
+      "year": 2017,
+      "date": "2017-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "900189373550952449",
+      "text": "Scanned my watercolor sketchbook today https://t.co/2aebg174Vx https://t.co/Bz831qyVge",
+      "year": 2017,
+      "date": "2017-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "768227252731518978",
+      "text": "Traditionally leftist anti establishment organizations and thinkers seem to have money signs in their eyes for the alt-right",
+      "year": 2016,
+      "date": "2016-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "768218568379002880",
+      "text": "Jesus https://t.co/dPcdqvhhsi",
+      "year": 2016,
+      "date": "2016-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "768217967217807364",
+      "text": "RT @Fusion: A lesbian couple had their pride flag stolen—so their town hung up dozens more in solidarity https://t.co/Hhb4nO2TKf https://t.…",
+      "year": 2016,
+      "date": "2016-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "768207957893013509",
+      "text": "RT @PFF_NateJahnke: Offensive line with the best pass blocking efficiency this preseason? Oakland at 89.3. Line has yet to allow a sack or…",
+      "year": 2016,
+      "date": "2016-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "768207663838691328",
+      "text": "At… https://t.co/RjQYubbeBL",
+      "year": 2016,
+      "date": "2016-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "768193619866087424",
+      "text": "If anything could possibly get me back into the Yankees, rooting against Tebow might be it https://t.co/vrUNMzZNAL",
+      "year": 2016,
+      "date": "2016-08-23",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "768118790026592256",
+      "text": "@rabite what is your preferred alt-right news source",
+      "year": 2016,
+      "date": "2016-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "rabite"
+    },
+    {
+      "id": "768118522161590272",
+      "text": "want this for my road trip https://t.co/LBXqi8m7TJ",
+      "year": 2016,
+      "date": "2016-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "768118125791481856",
+      "text": "Emoji is changing the way I communicate in real life because now I do this 👌 shit constantly",
+      "year": 2016,
+      "date": "2016-08-23",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "768103553034584064",
+      "text": "I also think this scenario has so far exclusively played out in my imagination https://t.co/foJD5CJ4C8",
+      "year": 2016,
+      "date": "2016-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "768102319607189504",
+      "text": "My favorite thing about big image poignant pull quotes is the reader can grab it and tweet it out with the story https://t.co/CXFdUb5HD5",
+      "year": 2016,
+      "date": "2016-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "635468161723289600",
+      "text": "Excited to publish the first of what will surely be many awesome satellite photo stories cooked up by @gerald_arthur soon at @vocativ",
+      "year": 2015,
+      "date": "2015-08-23",
+      "favorites": 4,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "635306312725827584",
+      "text": "UR ALL INSANE PPL",
+      "year": 2015,
+      "date": "2015-08-23",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "635287324864212992",
+      "text": "RT @SHIFT3HF: @J0EKAY is controlling the music stems live, essentially manipulating the musical elements independently creating NEW arrange…",
+      "year": 2015,
+      "date": "2015-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "3492604988",
+      "text": "At some point I'm gonna REALLY need to clean out my Torrents folder. 183 items? Holy...",
+      "year": 2009,
+      "date": "2009-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "3492084128",
+      "text": "Woke up this morning with my collar popped. Wonder what I dreamt last night.",
+      "year": 2009,
+      "date": "2009-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "3484641603",
+      "text": "@amandarie Hahaha, excellent! Have you tried a french inhale with cloves? It's wayyy easier / less scusting than with normal cigs.",
+      "year": 2009,
+      "date": "2009-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "amandarie"
+    },
+    {
+      "id": "3484519869",
+      "text": "@amandarie Yeah, twice as much tar and nicotine and shit but 10x as much awesome. So it balances out.",
+      "year": 2009,
+      "date": "2009-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "amandarie"
+    },
+    {
+      "id": "3484372354",
+      "text": "@amandarie We all say that. And cloves are a wonderful wonderful summer habit.",
+      "year": 2009,
+      "date": "2009-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "amandarie"
+    },
+    {
+      "id": "3481880587",
+      "text": "playing a little Call of Duty 4: Modern Warfare. http://raptr.com/pseudoplacebo",
+      "year": 2009,
+      "date": "2009-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "896747271",
+      "text": "What was that sound? It was me falling in love with the new Facebook. At first I hated her, but now she's like an old friend. A clean one.",
+      "year": 2008,
+      "date": "2008-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "896710947",
+      "text": "Wait. There was once a time when I paid for music? Really?",
+      "year": 2008,
+      "date": "2008-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "896703540",
+      "text": "The end of V for Vendetta still gives me goosebumps. Cool.",
+      "year": 2008,
+      "date": "2008-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "896620287",
+      "text": "I wish all these would-be good photos weren't so fucking underexposed.",
+      "year": 2008,
+      "date": "2008-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "896580863",
+      "text": "Okay that's enough tagging for now. That gets super tedious. Now I will work on my blog a bit. But first: a shower.",
+      "year": 2008,
+      "date": "2008-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "896569092",
+      "text": "Now I'm tagging all of my Flickr photos. Fun!",
+      "year": 2008,
+      "date": "2008-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "896546349",
+      "text": "Adding context & stories to the descriptions of my flickr photos. For fun, and because I like it when others do it.",
+      "year": 2008,
+      "date": "2008-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "896501180",
+      "text": "Oh. It's Biden. But what does the NYT think?",
+      "year": 2008,
+      "date": "2008-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "896237429",
+      "text": "Going to sleep at what feels like an early time. I took off my ring and now my finger feels weird. There's a lot that I need to do tomorrow.",
+      "year": 2008,
+      "date": "2008-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "896183524",
+      "text": "WISH MY LENSE WASN'T FUCKING DIRTY IN EVERY SINGLE ONE OF THESE PICTURES.",
+      "year": 2008,
+      "date": "2008-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "223524162",
+      "text": "Stopping at TGI Friday's for a bite to eat. Mmm... red bull slushie.",
+      "year": 2007,
+      "date": "2007-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "223351292",
+      "text": "In the car, on the road, on the way to Trap Pond.",
+      "year": 2007,
+      "date": "2007-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "223309132",
+      "text": "Renoise is hard to use, but I feel like it has so much potential. I got tired (like physically fatigued) using it.",
+      "year": 2007,
+      "date": "2007-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "223222702",
+      "text": "Playing with the music app \"Renoise\". Seems pretty cool, though I wish I could figure it out.",
+      "year": 2007,
+      "date": "2007-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "223112022",
+      "text": "Physically packing, the other half of the battle.",
+      "year": 2007,
+      "date": "2007-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "223096292",
+      "text": "Arby's is here, hot damn.",
+      "year": 2007,
+      "date": "2007-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "222985142",
+      "text": "Trying to find myself a nice watch- I want a cuffed one, and digital.",
+      "year": 2007,
+      "date": "2007-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "222852322",
+      "text": "What the fuck. Neighbor outside on my porch? Humming and shit? Didn't knock... fucking weird. Don't like it.",
+      "year": 2007,
+      "date": "2007-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "222780452",
+      "text": "Eating a delicious breakfast: eggs, toast, veggie sausage. Mm.",
+      "year": 2007,
+      "date": "2007-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "222736812",
+      "text": "Packing. In my mind. Half the battle methinks.",
+      "year": 2007,
+      "date": "2007-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "222641622",
+      "text": "Set up a Twitterfeed to automatically post Flickr photos uploaded from my mobile phone. More info: http://tinyurl.com/ys5q3n",
+      "year": 2007,
+      "date": "2007-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "222546382",
+      "text": "Mobile Photo Uploade Testing... http://tinyurl.com/2jyauo",
+      "year": 2007,
+      "date": "2007-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "222480132",
+      "text": "Watching 'Next' again. The movie. My stomach hurts. Like stabbing.",
+      "year": 2007,
+      "date": "2007-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "222449752",
+      "text": "Trying to see if my Flickr-Twitter combination using Twitterfeed is gonna work...",
+      "year": 2007,
+      "date": "2007-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "221617972",
+      "text": "It's about time I go on to sleep... we're leaving for vacation tomorrow. Hurray?",
+      "year": 2007,
+      "date": "2007-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "221567072",
+      "text": "Tattoo is done and done. I love it. It just makes me wanna do more... but I gotta take it easy.  So much more life to live.",
+      "year": 2007,
+      "date": "2007-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "221484672",
+      "text": "Going to finish the tattoo tonight, I think. God measuring this fucking thing out is a pain...",
+      "year": 2007,
+      "date": "2007-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "221427832",
+      "text": "@bluesapphire Well by weird I mean it's a really nice love story interspersed with like... softcore porn. It's a little to brass for me.",
+      "year": 2007,
+      "date": "2007-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "notjaya"
+    },
+    {
+      "id": "221415922",
+      "text": "Just finished Cashback, it ended itself quite well. good movie all in all, I think.",
+      "year": 2007,
+      "date": "2007-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "221391522",
+      "text": "@bluesapphire On more viewing, I take it back. The movie is only moderately good. It'd be a great love movie if it wasn't so weird at points",
+      "year": 2007,
+      "date": "2007-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "notjaya"
+    },
+    {
+      "id": "221360942",
+      "text": "@bluesapphire Cashback is pretty great so far, although it has weird moments. It compares well with You, Me, and Everyone we know.",
+      "year": 2007,
+      "date": "2007-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "notjaya"
+    },
+    {
+      "id": "221334512",
+      "text": "Watching Cashback: \"Stop crying. Don't worry about them. I think you're beautiful the way you are... will you be my girlfriend?\" \"Yes.\"",
+      "year": 2007,
+      "date": "2007-08-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    }
+  ],
+  "posts": [],
+  "scrobbles": [
+    {
+      "date": "2022-08-23",
+      "year": 2022,
+      "count": 39,
+      "topTracks": [
+        "Erdbeerschnitzel - Yet Unfulfilled",
+        "Z money - Two 16's (feat. Valee)",
+        "Jazzanova - L.O.V.E. And You And I - Madlib's Love Phase Mix",
+        "Reflection Eternal - Good Mourning",
+        "Justin Timberlake - Rock Your Body"
+      ],
+      "topArtists": ["Erdbeerschnitzel", "Z money", "Jazzanova"]
+    },
+    {
+      "date": "2020-08-23",
+      "year": 2020,
+      "count": 20,
+      "topTracks": [
+        "Led Zeppelin - Immigrant Song - 2012 Remaster",
+        "Queens of the Stone Age - The Evil Has Landed",
+        "African Brothers International Band - Ebi Te Yie (Remastered)",
+        "African Brothers International Band - Ɛna Ɛye A Mane Me (Remastered)",
+        "African Brothers International Band - Abusua Nnyɛ Asafo (Remastered)"
+      ],
+      "topArtists": [
+        "Led Zeppelin",
+        "Queens of the Stone Age",
+        "African Brothers International Band"
+      ]
+    },
+    {
+      "date": "2019-08-23",
+      "year": 2019,
+      "count": 12,
+      "topTracks": [
+        "Smino - KOVERT",
+        "Smino - L.M.F.",
+        "Smino - KLINK",
+        "Smino - TEQUILA MOCKINGBIRD",
+        "Smino - SPINZ"
+      ],
+      "topArtists": ["Smino", "Hare Squead", "The O'my's"]
+    },
+    {
+      "date": "2018-08-23",
+      "year": 2018,
+      "count": 21,
+      "topTracks": [
+        "Moses Sumney - Call-to-Arms",
+        "Anna Calvi - Don’t Beat the Girl out of My Boy",
+        "Nicki Minaj - Chun Swae (feat. Swae Lee)",
+        "Ciara - Freak Me (feat. Tekno)",
+        "The O'my's - Puddles"
+      ],
+      "topArtists": ["Moses Sumney", "Anna Calvi", "Nicki Minaj"]
+    },
+    {
+      "date": "2016-08-23",
+      "year": 2016,
+      "count": 24,
+      "topTracks": [
+        "Noname - Yesterday",
+        "Phoria - Mass",
+        "Nao - Apple Cherry",
+        "Nao - Zillionaire",
+        "Nao - Inhale Exhale - '15"
+      ],
+      "topArtists": ["Noname", "Phoria", "Nao"]
+    },
+    {
+      "date": "2013-08-23",
+      "year": 2013,
+      "count": 50,
+      "topTracks": [
+        "Killer Mike - In My City",
+        "Killer Mike - At The Top",
+        "Killer Mike - Gotta Know That",
+        "Killer Mike - Ready Set Go (Remix)",
+        "Killer Mike - Pay Up"
+      ],
+      "topArtists": ["Killer Mike", "Kendrick Lamar", "Erykah Badu"]
+    },
+    {
+      "date": "2009-08-23",
+      "year": 2009,
+      "count": 88,
+      "topTracks": [
+        "Grateful Dead - Beat It on Down the Line",
+        "Kitsune Noir - As Long As It's With Me",
+        "Born Ruffians - Foxes Mate for Life",
+        "Born Ruffians - Red Elephant",
+        "Born Ruffians - Barnacle Goose"
+      ],
+      "topArtists": ["Grateful Dead", "Kitsune Noir", "Born Ruffians"]
+    },
+    {
+      "date": "2008-08-23",
+      "year": 2008,
+      "count": 139,
+      "topTracks": [
+        "Orson Scott Card - Xenocide (Unabridged), Part 2",
+        "Orson Scott Card - Xenocide (Unabridged), Part 3",
+        "Orson Scott Card - Children of the Mind (Unabridged), Part 1",
+        "Andre Nickatina - Bay Shit",
+        "Andre Nickatina - Taking Time Away"
+      ],
+      "topArtists": ["Orson Scott Card", "Andre Nickatina", "John Mayer"]
+    },
+    {
+      "date": "2007-08-23",
+      "year": 2007,
+      "count": 13,
+      "topTracks": [
+        "Death Cab for Cutie - Your Heart Is an Empty Room",
+        "Death Cab for Cutie - Someday You Will Be Loved",
+        "Death Cab for Cutie - Crooked Teeth",
+        "NPR - Car Talk August 18, 2007 Show #0733",
+        "Chicago Public Radio - #28: Detectives"
+      ],
+      "topArtists": ["Death Cab for Cutie", "NPR", "Chicago Public Radio"]
+    }
+  ],
+  "commits": []
+}

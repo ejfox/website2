@@ -17,8 +17,8 @@ export default defineEventHandler(() => {
       ...buildInfo,
       meta: {
         endpoint: '/api/build-info',
-        timestamp: new Date().toISOString()
-      }
+        timestamp: new Date().toISOString(),
+      },
     }
   } catch {
     // If file doesn't exist (dev mode), return current git info
@@ -29,8 +29,8 @@ export default defineEventHandler(() => {
       meta: {
         endpoint: '/api/build-info',
         timestamp: new Date().toISOString(),
-        note: 'Development mode - no build info available'
-      }
+        note: 'Development mode - no build info available',
+      },
     }
   }
 })

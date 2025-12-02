@@ -12,7 +12,7 @@ export default defineEventHandler(async () => {
     console.error('Error reading gear.csv:', error)
     throw createError({
       statusCode: 500,
-      statusMessage: 'Failed to load gear data'
+      statusMessage: 'Failed to load gear data',
     })
   }
 })

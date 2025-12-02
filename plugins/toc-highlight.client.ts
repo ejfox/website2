@@ -59,6 +59,6 @@ export default defineNuxtPlugin((nuxtApp: any) => {
   return {
     provide: {
       // Empty provide object to satisfy plugin requirements
-    }
+    },
   }
 })

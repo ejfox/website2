@@ -119,12 +119,12 @@ const gitCommitUrl = computed(
 
 const signatureClasses = [
   'mt-2 p-2 bg-zinc-100 dark:bg-zinc-800 rounded',
-  'overflow-x-auto font-mono text-xs'
+  'overflow-x-auto font-mono text-xs',
 ].join(' ')
 
 const verificationStatusClasses = [
   'flex items-center gap-2 pt-2 border-t',
-  'border-zinc-200 dark:border-zinc-700'
+  'border-zinc-200 dark:border-zinc-700',
 ].join(' ')
 
 const isVerified = computed(() => {
@@ -135,7 +135,7 @@ const formatDate = (dateString: string) => {
   return new Date(dateString).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'short',
-    day: 'numeric'
+    day: 'numeric',
   })
 }
 
@@ -148,7 +148,7 @@ const formatTimestamp = (timestamp: string) => {
     minute: '2-digit',
     second: '2-digit',
     timeZone: 'UTC',
-    timeZoneName: 'short'
+    timeZoneName: 'short',
   })
 }
 </script>

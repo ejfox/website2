@@ -1,1 +1,1083 @@
-{"tweets":[{"id":"1628901712210567170","text":"NOPD use of force network, nodes sized by eigenvector centrality, colored by gephi-powered modularity, signing off for now, but cool to see some results so quickly! https://t.co/jqxvOQlolI","year":2023,"date":"2023-02-23","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1628899020675461120","text":"Now we are streaming our use of force officer network from Neo4J into Gephi and have a basic network to visualize... if I can stop crashing Gephi https://t.co/bpzICNbS3N","year":2023,"date":"2023-02-23","favorites":2,"retweets":0,"replyTo":"mrejfox"},{"id":"1628894908391075842","text":"I was struggling a bit to find a way to tie officers together- but then I found it- there can be multiple officers in a single use-of-force incident. This isn't as strong a signal as complaint co-occurances, imo, but now we have a use of force officer network! https://t.co/AUbSe9fqVG","year":2023,"date":"2023-02-23","favorites":2,"retweets":0,"replyTo":"mrejfox"},{"id":"1628887628849287168","text":"Had a good first push, got our data combined and into Datasette- I think that I am going to look at officer co-occurances in use of force data and try to build a network from that... taking a break for a second and then doing another 30 minute sprint! https://t.co/FctkSyaqmJ","year":2023,"date":"2023-02-23","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1628876590145847298","text":"Going live in 5ish, gonna lay out a gameplan and start grabbing our data before slicing and dicing 🔪","year":2023,"date":"2023-02-23","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1628830435990986753","text":"RT @mrejfox: 🔴 Going to livestream at 5PM ET today, exploring some police misconduct data from New Orleans and some different network analy…","year":2023,"date":"2023-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1628799327526084609","text":"I've previously applied techniques like this to examining NYPD civilian complaint data with Gothamist, and I'm hoping with today's analysis we can get similar insights for NOPD https://t.co/O6Px7r1b3n","year":2023,"date":"2023-02-23","favorites":4,"retweets":2,"replyTo":"mrejfox"},{"id":"1628797953534984192","text":"🔴 Going to livestream at 5PM ET today, exploring some police misconduct data from New Orleans and some different network analysis techniques- come hang out! https://t.co/cCV6f89fgv","year":2023,"date":"2023-02-23","favorites":6,"retweets":4,"replyTo":null},{"id":"1496580055996284933","text":"https://t.co/X9DxtggCIv","year":2022,"date":"2022-02-23","favorites":5,"retweets":0,"replyTo":"mrejfox"},{"id":"1496576752071720964","text":"do you guys remember https://t.co/FlyvUJ5RiF","year":2022,"date":"2022-02-23","favorites":7,"retweets":0,"replyTo":null},{"id":"1496562256322121738","text":"@utopiah yes yes yes","year":2022,"date":"2022-02-23","favorites":0,"retweets":0,"replyTo":"utopiah"},{"id":"1364358739407613952","text":"RT @chrislhenrick: Great criticism of the @nytimes front page #dataviz on 500k U.S. #covid19 deaths. \n\nSometimes data viz just doesn't cut…","year":2021,"date":"2021-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1364246893879054337","text":"@biddyfox making alt accounts to vote yes","year":2021,"date":"2021-02-23","favorites":0,"retweets":0,"replyTo":"biddyfox"},{"id":"1364246661233598467","text":"@awinston @daveweigel INFLAMMATORY","year":2021,"date":"2021-02-23","favorites":0,"retweets":0,"replyTo":"awinston"},{"id":"1364244282551459842","text":"@awinston @daveweigel WHAT","year":2021,"date":"2021-02-23","favorites":0,"retweets":0,"replyTo":"awinston"},{"id":"1364237586311569413","text":"I want to break news on our Twitch stream this year","year":2021,"date":"2021-02-23","favorites":5,"retweets":0,"replyTo":null},{"id":"1364235229393788932","text":"@hellonearthis @d3js_org stylish","year":2021,"date":"2021-02-23","favorites":1,"retweets":0,"replyTo":"hellonearthis"},{"id":"1364061896740069376","text":"Subscribe to Coding With Fire so you can get notified next time we kick off a live-coding dataviz stream on Twitch  https://t.co/UjuUaUoRUi (it's a lot of fun) https://t.co/RDTP5cnHxJ","year":2021,"date":"2021-02-23","favorites":6,"retweets":1,"replyTo":null},{"id":"1231431284582486016","text":"RT @AymanM: The biggest loser tonight remains America’s political pundit class that continues to either deliberately ignore the lessons of…","year":2020,"date":"2020-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1231423032893300736","text":"RT @mtaibbi: Does anyone out there have any plans to create a news network for the non-insane?","year":2020,"date":"2020-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1099353938221039617","text":"I see a lot of folks like \"No! The terrible thing I'm angry about is way worse than the terrible thing you're angry about!\" and like, come on people, the world is obviously terrible and we should be angry about everything.","year":2019,"date":"2019-02-23","favorites":1,"retweets":0,"replyTo":null},{"id":"967166472782057475","text":"For example @417am1975's blog https://t.co/cbqI084LSU is just an index.html page I update through GitHub pushes and @Netlify","year":2018,"date":"2018-02-23","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"967165804402888704","text":"A million times this https://t.co/B9lFuaJmCb","year":2018,"date":"2018-02-23","favorites":0,"retweets":1,"replyTo":null},{"id":"967151996930228224","text":"RT @ASankin: Adult political figures trying beat teens at Twitter owns is the social media equivalent of getting involved in a land war in…","year":2018,"date":"2018-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"967138099674443777","text":"RT @yashar: Rather stunning when it’s laid out this way. Five people have pled guilty and fourteen have been charged. https://t.co/TKl9hRci…","year":2018,"date":"2018-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"967137825555656705","text":"BUT I ALSO HATE IT WHEN THINGS DO NOT COME TOGETHER","year":2018,"date":"2018-02-23","favorites":2,"retweets":0,"replyTo":"mrejfox"},{"id":"967137783012843520","text":"I LOVE IT WHEN THINGS COME TOGETHER","year":2018,"date":"2018-02-23","favorites":3,"retweets":0,"replyTo":null},{"id":"967088873657520128","text":"Those Parkland teens- all power to them- are following in patterns and techniques pioneered by black children who were beaten, shot, and imprisoned in response. Both are marching simply to live their lives without being shot for no reason. The way we respond speaks volumes.","year":2018,"date":"2018-02-23","favorites":2,"retweets":1,"replyTo":null},{"id":"967088401127264256","text":"RT @EgSophie: 19-yr-old Josh Williams is currently in prison serving out his 8-yr sentence for his role as a youth leader during the Fergus…","year":2018,"date":"2018-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"967087316937437184","text":"@MichaelSSmithII No dummy, using old racist stereotypes and then doubling down on it is racist not \"fun\". \n\nIn the face of Chinese people telling you what you said is offensive, your choice is either to listen to them or continue to act like a racist. It's clear what you've chosen.","year":2018,"date":"2018-02-23","favorites":7,"retweets":0,"replyTo":"MichaelSSmithII"},{"id":"966854708127305728","text":"@josh_emerson How did you come up with this list? Sorry if I missed it","year":2018,"date":"2018-02-23","favorites":1,"retweets":0,"replyTo":"josh_emerson"},{"id":"966851117891182598","text":"Queer Eye is the most wholesome thing we have done as a country in like 2 years","year":2018,"date":"2018-02-23","favorites":2,"retweets":0,"replyTo":null},{"id":"834785385393770496","text":"RT @mrmedina: Often what is most difficult is most rewarding.","year":2017,"date":"2017-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"834637055321706496","text":"RT @robbie_couch: \"When you're accustomed to privilege, equality feels like oppression.\" 👏👏👏","year":2017,"date":"2017-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"701931384349310976","text":"This is the only thing I will say on this 'Damn Daniel' matter\n\nAre sales of white vans through the roof or what?","year":2016,"date":"2016-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"569995611870793728","text":"\"Alright, later nerds\" - @tmq777 saying goodbye to the @vocativ Data / Product corner","year":2015,"date":"2015-02-23","favorites":1,"retweets":0,"replyTo":null},{"id":"437666687778029568","text":"Will stock up on Steve Jobs stamps and they will be the only ones I use for the rest of my life","year":2014,"date":"2014-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"437666495498551297","text":"RT @NewTechCity: Steve Jobs is going to be featured on U.S. postage stamp http://t.co/5ecraghEUp","year":2014,"date":"2014-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"437665083637104640","text":"Woke up this morning with an unwarranted urge to ride a motorcycle/minibike around. Look outside: still snowy as hell. Will have to wait.","year":2014,"date":"2014-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"437424237243277314","text":"Winter is the personification of knowing something is good out there but not knowing what it's like","year":2014,"date":"2014-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"305435488410537984","text":"I think I’m over Sublime Text 2 after my second attempt (a month or so) of trying to use it. Back to TextMate 2. =]","year":2013,"date":"2013-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"305406817255698432","text":"@enjalot How's it going? cc: @poezn","year":2013,"date":"2013-02-23","favorites":0,"retweets":0,"replyTo":"enjalot"},{"id":"305387222843133954","text":"@susie_c Wish I was there (and wish I was still living in Oakland) - let me know if you find any really good data. =]","year":2013,"date":"2013-02-23","favorites":0,"retweets":0,"replyTo":"susie_c"},{"id":"305385835157663744","text":"Spent a couple of weeks with the bew Twitteriffic app. Loved the simplicity, but I’m back with ol’ TweetBot again. Feels better. Faster.","year":2013,"date":"2013-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"305383768246611968","text":"RT @AndyMillerHCP: More to come! “@Valryon: Leap motion now detect some gestures, this is a real progress: tap, swipe &amp; circles.”","year":2013,"date":"2013-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"305181557637931009","text":"Looking forward to the weekend because I'll have time to clean. That sounds far too much like grownup talk.","year":2013,"date":"2013-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"172833009303683073","text":"GitBox... I don't know why you keep crashing but it's making me really concerned. #deadlines","year":2012,"date":"2012-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"172768404002975745","text":"RT @mbostock: Quite a few d3.js entries in the @infobeautyaward short and long lists! http://t.co/ScQ4iV9v","year":2012,"date":"2012-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"172690186189279232","text":"Fuck the pig that shot Scott Olsen. Fuck that pig who tossed a flashbang into the crowd of medics/occupiers who went to help the wounded.","year":2012,"date":"2012-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"40544932594712576","text":"Imagine if carpenter's hammers randomly and without warning tranformed into glass and broke, leaving the carpenter to restart his hammer.","year":2011,"date":"2011-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"40543454270328832","text":"Scaling everything proportionally even though shift isn't pressed? Cute. Not being able to open new documents? New and uniquely awful.","year":2011,"date":"2011-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"40543277308575744","text":"Illustrator, thanks a lot for picking the week when I'm sick and have a crazy-awe-inspiring Friday deadline to pull your crazy antics.","year":2011,"date":"2011-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"40214837183123456","text":"PAYPAL MONEY? THAT MEANS IT'S TIME TO SPEND MONEY ON IPAD APPS! THAT'LL MAKE BEING SICK SUCK A LOT LESS!","year":2011,"date":"2011-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"40201803886755840","text":"RT @markweaver: RT @rob_sheridan: Great infographic: Reasons to save PBS (currently on House Republicans' insane chopping block): http:/ ...","year":2011,"date":"2011-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"9545929682","text":"Lots and lots and LOTS of cars coming down Seaman Rd. Very odd! Must be a detour from somewhere... makes me wanna go searching.","year":2010,"date":"2010-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"9542730378","text":"I hate the black eyed peas so much I can't even remember if I hate them anymore. Imma be, Imma be, imma imma imma be.","year":2010,"date":"2010-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"9538512992","text":"playing a little Call of Duty: Modern Warfare 2. http://raptr.com/pseudoplacebo","year":2010,"date":"2010-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"9537560178","text":"Man now I REALLY REALLY want an MPD32...","year":2010,"date":"2010-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"9536712738","text":"WHAT UP CHASE IPHONE APP. YOU ARE SO WHAT I NEEDED IN MY LIFE.","year":2010,"date":"2010-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"9536644452","text":"@scanner_darkly In Google We Trust.","year":2010,"date":"2010-02-23","favorites":0,"retweets":0,"replyTo":"scanner_darkly"},{"id":"9536595447","text":"FINALLY opened a bank account at Chase.","year":2010,"date":"2010-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"9531216557","text":"@kayascollywogs Mary-Kate Olson should be freaking out to be in the same room as you!","year":2010,"date":"2010-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"9525050588","text":"Why is this infographic blinking? Is this a joke? http://ejfox.com/blinkinginfo","year":2010,"date":"2010-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"9524246302","text":"Billie Holliday on a snowy-but-college-is-still-open morning is makin me feel alright.","year":2010,"date":"2010-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1242624389","text":"I'd be curious to know the divorce rates of marriages where the woman is taller.","year":2009,"date":"2009-02-23","favorites":1,"retweets":0,"replyTo":null},{"id":"1242609334","text":"Done with today. Going home.","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1242546642","text":"I know I'm eccentric in one way... so I'll pretend to be the opposite way. Sometimes it balances out and I end up resembling normalcy.","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1242475950","text":"Yo, do I have a sign on me that says \"Girls, please talk to me about your hair?\" or do girls just talk about their hair to everyone?","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1242386020","text":"Reconnected with an old friend. She asked if I had a girlfriend. I said no. She said \"Good, you wouldn't be the same old EJ if you did!\" Oh.","year":2009,"date":"2009-02-23","favorites":1,"retweets":0,"replyTo":null},{"id":"1242352058","text":"I can't wait for Angels & Demons because that book would make a WAY better movie than the Da Vinci code. F'real.","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1242321967","text":"@lenasaur Are you alright? What happened?","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":"leoF0x"},{"id":"1242320916","text":"OH MY GOD I AM SO HUNGRY.","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1242237637","text":"My overtweeting is actually just a litmus test. So... take that.","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1242221978","text":"DownloadDownloadDownloadDownloadDownloadDownloadDownloadDownloadDownloadDownloadDownloadDownloadDownloadDownloadDownloadDownloadDownload.","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1242214328","text":"\"idk i like matt kinda but he is very attached and i kinda wanna be free till i feel beautiful\" I have wonderful friends.","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1242189310","text":"Cannabis might help Huntington's... do I see an AWESOME House episode in the future? Yes I do. http://is.gd/kAdN","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1242178464","text":"@safetyguy1656 I'm working on some website development with an advertising agency in NJ right now. Temporary, though.","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":"safetyguy1656"},{"id":"1242131957","text":"Showing coworkers KCN Screw because I thoroughly enjoy corrupting America one person at a time. It's my hobby.","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1241975903","text":"I swear to god the clock has said 2:38 for the last hour and a half.","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1241966961","text":"@benjiclayton It's a documentary about a guy who high-wire walked between the Twin Towers. I haven't watched it yet, but I'm stoked.","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":"_hypedad"},{"id":"1241935273","text":"This article confirms and reiterates how I feel about Iran and Ahmadinejad: http://is.gd/kzGa","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1241919885","text":"Today I have downloaded Man on Wire, Religulous, Step Brothers, and Frost/Nixon. Me and this religulous torrent are working on a 2.0 ratio.","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1241889724","text":"Vicodin Earrings: Would be quite an ordeal to sell, I imagine! Har har har har... http://is.gd/kzAy","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1241863683","text":"There's some sort of dark gothic pleasure I find in spending like 20 minutes in photoshop or illustrator working & then just x'ing it out.","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1241753747","text":"I haven't been to stumbleupon in a while and, well, it looks a lot like Amazon. That is all.","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1241691352","text":"@tbrown Thanks a bunch!","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":"timbrown"},{"id":"1241680635","text":"It really is nice to click that \"I am older than 13\" and be older than 13. A relatively new development in my life.","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1241676409","text":"Seriously wondering what I'm doing with my life- in this moment.","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1241658956","text":"@tbrown Could I have a chi.mp invite, please sir? ejfox@ejfox.com","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":"timbrown"},{"id":"1241654679","text":"I feel like Facebook and CNN would not be teaming up so you could watch McCain address congress with your friends. Just saying.","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1241552526","text":"I've noticed when I don't have time to eat for a few days people tell me I am looking thinner. This is how you create an anorexic.","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1241541638","text":"Well. If I'm here in an office I might as well get my Demonoid ratio up. &gt;.&gt;","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1241475935","text":"Is it appropriate to say \"Excuse me\" after cracking your neck? Who knows. I just did it.","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1241387360","text":"Planning out this website.","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1240915599","text":"My poor MacBook screen is dirty... but I never remember to clean it when I'm not doing work.","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1240813285","text":"I never wanna be a fashion photographer. Good morning Tweeple.","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1240011106","text":"Staring at this computer screen. For. No. Reason. I do not feel okay.","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1239980267","text":"Can't sleep. Reevaluating life.","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1239465902","text":"Lying in Bed. Wallowing in self-pity.","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1239068389","text":"Yes. Tina Fey is hot. I get it.","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1239060875","text":"This Hyundai commercial is probably one of the best-written I've ever seen. I want to buy a Hyundai now. I don't watch TV often, see?","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1239047908","text":"I was really only watching this to see if the chick from Vicky Christina Barcelona won and by god she did. So... now what. #oscars","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1238925126","text":"Miley Cyrus' dress hideously reflects Miley's personality, I think.","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1238892452","text":"Watching the Oscars. The chances of me switching to something else midway through is pretty good.","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1238785242","text":"Interviews are stupid.","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"1238733212","text":"Jonas Brothers on TV spewing bullshit. Good god. These kids. How did I date a girl that liked these dudes?","year":2009,"date":"2009-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"749611132","text":"Tumblr: Pretty cool Clock. http://tinyurl.com/yo7v9v","year":2008,"date":"2008-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"749322892","text":"Watching Hard Candy.","year":2008,"date":"2008-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"749312552","text":"Tumblr: Trying to learn illustrator- so I traced a few things I like. http://tinyurl.com/3cxmnb","year":2008,"date":"2008-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"746119042","text":"Tumblr: Hershey’s Ice Breakers recalled because of the packaging... http://tinyurl.com/394nww","year":2008,"date":"2008-02-23","favorites":0,"retweets":0,"replyTo":null},{"id":"746014742","text":"@safetyguy1656 Oooh- I do. And there are a lot of numbers there... Thanks! =D","year":2008,"date":"2008-02-23","favorites":0,"retweets":0,"replyTo":"safetyguy1656"}],"posts":[],"scrobbles":[{"date":"2022-02-23","year":2022,"count":41,"topTracks":["Large Professor - I Juswanna Chill","Souls of Mischief - 93 'til Infinity","A Tribe Called Quest - Check the Rhime","The Notorious B.I.G. - Ten Crack Commandments - 2007 Remaster","stevedoesmusic - wo0ooooo"],"topArtists":["Large Professor","Souls of Mischief","A Tribe Called Quest"]},{"date":"2020-02-23","year":2020,"count":14,"topTracks":["Peacocks Guiter Band - Eddie Quansa","African Brothers International Band - Mmɔborɔwa (Remastered)","African Brothers International Band - Hini Me (Remastered)","African Brothers International Band - Seantie (Remastered)","African Brothers International Band - San Yɛhwɛ Wo Mma (Remastered)"],"topArtists":["Peacocks Guiter Band","African Brothers International Band"]},{"date":"2011-02-23","year":2011,"count":61,"topTracks":["Beirut - Elephant Gun","Beirut - My Family's Role In The World Revolution","Beirut - Scenic World","Beirut - The Long Island Sound","Beirut - Carousels"],"topArtists":["Beirut","Borgore","Marko Kahn"]},{"date":"2007-02-23","year":2007,"count":72,"topTracks":["apm - Hour 1: Owners of a Purple Heart...","apm - Hour 2: A Soldier's Deployment...","Fall Out Boy - This Ain't a Scene, It's an Arms Race","Ludacris - Freedom Of Preach (Feat. Bishop Eddie Lee Long)","Fall Out Boy - The (After) Life of the Party"],"topArtists":["apm","Fall Out Boy","Ludacris"]},{"date":"2006-02-23","year":2006,"count":79,"topTracks":["Lewis Carroll - Alice In Wonderland","Thievery Corporation - The State Of The Union","A Perfect Circle - Fiddle and the Drum","Neil Young - Ohio","System of a Down - Vicinity of Obscenity"],"topArtists":["Lewis Carroll","Thievery Corporation","A Perfect Circle"]}],"commits":[]}
+{
+  "tweets": [
+    {
+      "id": "1628901712210567170",
+      "text": "NOPD use of force network, nodes sized by eigenvector centrality, colored by gephi-powered modularity, signing off for now, but cool to see some results so quickly! https://t.co/jqxvOQlolI",
+      "year": 2023,
+      "date": "2023-02-23",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1628899020675461120",
+      "text": "Now we are streaming our use of force officer network from Neo4J into Gephi and have a basic network to visualize... if I can stop crashing Gephi https://t.co/bpzICNbS3N",
+      "year": 2023,
+      "date": "2023-02-23",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1628894908391075842",
+      "text": "I was struggling a bit to find a way to tie officers together- but then I found it- there can be multiple officers in a single use-of-force incident. This isn't as strong a signal as complaint co-occurances, imo, but now we have a use of force officer network! https://t.co/AUbSe9fqVG",
+      "year": 2023,
+      "date": "2023-02-23",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1628887628849287168",
+      "text": "Had a good first push, got our data combined and into Datasette- I think that I am going to look at officer co-occurances in use of force data and try to build a network from that... taking a break for a second and then doing another 30 minute sprint! https://t.co/FctkSyaqmJ",
+      "year": 2023,
+      "date": "2023-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1628876590145847298",
+      "text": "Going live in 5ish, gonna lay out a gameplan and start grabbing our data before slicing and dicing 🔪",
+      "year": 2023,
+      "date": "2023-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1628830435990986753",
+      "text": "RT @mrejfox: 🔴 Going to livestream at 5PM ET today, exploring some police misconduct data from New Orleans and some different network analy…",
+      "year": 2023,
+      "date": "2023-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1628799327526084609",
+      "text": "I've previously applied techniques like this to examining NYPD civilian complaint data with Gothamist, and I'm hoping with today's analysis we can get similar insights for NOPD https://t.co/O6Px7r1b3n",
+      "year": 2023,
+      "date": "2023-02-23",
+      "favorites": 4,
+      "retweets": 2,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1628797953534984192",
+      "text": "🔴 Going to livestream at 5PM ET today, exploring some police misconduct data from New Orleans and some different network analysis techniques- come hang out! https://t.co/cCV6f89fgv",
+      "year": 2023,
+      "date": "2023-02-23",
+      "favorites": 6,
+      "retweets": 4,
+      "replyTo": null
+    },
+    {
+      "id": "1496580055996284933",
+      "text": "https://t.co/X9DxtggCIv",
+      "year": 2022,
+      "date": "2022-02-23",
+      "favorites": 5,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1496576752071720964",
+      "text": "do you guys remember https://t.co/FlyvUJ5RiF",
+      "year": 2022,
+      "date": "2022-02-23",
+      "favorites": 7,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1496562256322121738",
+      "text": "@utopiah yes yes yes",
+      "year": 2022,
+      "date": "2022-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "utopiah"
+    },
+    {
+      "id": "1364358739407613952",
+      "text": "RT @chrislhenrick: Great criticism of the @nytimes front page #dataviz on 500k U.S. #covid19 deaths. \n\nSometimes data viz just doesn't cut…",
+      "year": 2021,
+      "date": "2021-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1364246893879054337",
+      "text": "@biddyfox making alt accounts to vote yes",
+      "year": 2021,
+      "date": "2021-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "biddyfox"
+    },
+    {
+      "id": "1364246661233598467",
+      "text": "@awinston @daveweigel INFLAMMATORY",
+      "year": 2021,
+      "date": "2021-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "awinston"
+    },
+    {
+      "id": "1364244282551459842",
+      "text": "@awinston @daveweigel WHAT",
+      "year": 2021,
+      "date": "2021-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "awinston"
+    },
+    {
+      "id": "1364237586311569413",
+      "text": "I want to break news on our Twitch stream this year",
+      "year": 2021,
+      "date": "2021-02-23",
+      "favorites": 5,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1364235229393788932",
+      "text": "@hellonearthis @d3js_org stylish",
+      "year": 2021,
+      "date": "2021-02-23",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "hellonearthis"
+    },
+    {
+      "id": "1364061896740069376",
+      "text": "Subscribe to Coding With Fire so you can get notified next time we kick off a live-coding dataviz stream on Twitch  https://t.co/UjuUaUoRUi (it's a lot of fun) https://t.co/RDTP5cnHxJ",
+      "year": 2021,
+      "date": "2021-02-23",
+      "favorites": 6,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "1231431284582486016",
+      "text": "RT @AymanM: The biggest loser tonight remains America’s political pundit class that continues to either deliberately ignore the lessons of…",
+      "year": 2020,
+      "date": "2020-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1231423032893300736",
+      "text": "RT @mtaibbi: Does anyone out there have any plans to create a news network for the non-insane?",
+      "year": 2020,
+      "date": "2020-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1099353938221039617",
+      "text": "I see a lot of folks like \"No! The terrible thing I'm angry about is way worse than the terrible thing you're angry about!\" and like, come on people, the world is obviously terrible and we should be angry about everything.",
+      "year": 2019,
+      "date": "2019-02-23",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "967166472782057475",
+      "text": "For example @417am1975's blog https://t.co/cbqI084LSU is just an index.html page I update through GitHub pushes and @Netlify",
+      "year": 2018,
+      "date": "2018-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "967165804402888704",
+      "text": "A million times this https://t.co/B9lFuaJmCb",
+      "year": 2018,
+      "date": "2018-02-23",
+      "favorites": 0,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "967151996930228224",
+      "text": "RT @ASankin: Adult political figures trying beat teens at Twitter owns is the social media equivalent of getting involved in a land war in…",
+      "year": 2018,
+      "date": "2018-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "967138099674443777",
+      "text": "RT @yashar: Rather stunning when it’s laid out this way. Five people have pled guilty and fourteen have been charged. https://t.co/TKl9hRci…",
+      "year": 2018,
+      "date": "2018-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "967137825555656705",
+      "text": "BUT I ALSO HATE IT WHEN THINGS DO NOT COME TOGETHER",
+      "year": 2018,
+      "date": "2018-02-23",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "967137783012843520",
+      "text": "I LOVE IT WHEN THINGS COME TOGETHER",
+      "year": 2018,
+      "date": "2018-02-23",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "967088873657520128",
+      "text": "Those Parkland teens- all power to them- are following in patterns and techniques pioneered by black children who were beaten, shot, and imprisoned in response. Both are marching simply to live their lives without being shot for no reason. The way we respond speaks volumes.",
+      "year": 2018,
+      "date": "2018-02-23",
+      "favorites": 2,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "967088401127264256",
+      "text": "RT @EgSophie: 19-yr-old Josh Williams is currently in prison serving out his 8-yr sentence for his role as a youth leader during the Fergus…",
+      "year": 2018,
+      "date": "2018-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "967087316937437184",
+      "text": "@MichaelSSmithII No dummy, using old racist stereotypes and then doubling down on it is racist not \"fun\". \n\nIn the face of Chinese people telling you what you said is offensive, your choice is either to listen to them or continue to act like a racist. It's clear what you've chosen.",
+      "year": 2018,
+      "date": "2018-02-23",
+      "favorites": 7,
+      "retweets": 0,
+      "replyTo": "MichaelSSmithII"
+    },
+    {
+      "id": "966854708127305728",
+      "text": "@josh_emerson How did you come up with this list? Sorry if I missed it",
+      "year": 2018,
+      "date": "2018-02-23",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "josh_emerson"
+    },
+    {
+      "id": "966851117891182598",
+      "text": "Queer Eye is the most wholesome thing we have done as a country in like 2 years",
+      "year": 2018,
+      "date": "2018-02-23",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "834785385393770496",
+      "text": "RT @mrmedina: Often what is most difficult is most rewarding.",
+      "year": 2017,
+      "date": "2017-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "834637055321706496",
+      "text": "RT @robbie_couch: \"When you're accustomed to privilege, equality feels like oppression.\" 👏👏👏",
+      "year": 2017,
+      "date": "2017-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "701931384349310976",
+      "text": "This is the only thing I will say on this 'Damn Daniel' matter\n\nAre sales of white vans through the roof or what?",
+      "year": 2016,
+      "date": "2016-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "569995611870793728",
+      "text": "\"Alright, later nerds\" - @tmq777 saying goodbye to the @vocativ Data / Product corner",
+      "year": 2015,
+      "date": "2015-02-23",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "437666687778029568",
+      "text": "Will stock up on Steve Jobs stamps and they will be the only ones I use for the rest of my life",
+      "year": 2014,
+      "date": "2014-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "437666495498551297",
+      "text": "RT @NewTechCity: Steve Jobs is going to be featured on U.S. postage stamp http://t.co/5ecraghEUp",
+      "year": 2014,
+      "date": "2014-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "437665083637104640",
+      "text": "Woke up this morning with an unwarranted urge to ride a motorcycle/minibike around. Look outside: still snowy as hell. Will have to wait.",
+      "year": 2014,
+      "date": "2014-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "437424237243277314",
+      "text": "Winter is the personification of knowing something is good out there but not knowing what it's like",
+      "year": 2014,
+      "date": "2014-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "305435488410537984",
+      "text": "I think I’m over Sublime Text 2 after my second attempt (a month or so) of trying to use it. Back to TextMate 2. =]",
+      "year": 2013,
+      "date": "2013-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "305406817255698432",
+      "text": "@enjalot How's it going? cc: @poezn",
+      "year": 2013,
+      "date": "2013-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "enjalot"
+    },
+    {
+      "id": "305387222843133954",
+      "text": "@susie_c Wish I was there (and wish I was still living in Oakland) - let me know if you find any really good data. =]",
+      "year": 2013,
+      "date": "2013-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "susie_c"
+    },
+    {
+      "id": "305385835157663744",
+      "text": "Spent a couple of weeks with the bew Twitteriffic app. Loved the simplicity, but I’m back with ol’ TweetBot again. Feels better. Faster.",
+      "year": 2013,
+      "date": "2013-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "305383768246611968",
+      "text": "RT @AndyMillerHCP: More to come! “@Valryon: Leap motion now detect some gestures, this is a real progress: tap, swipe &amp; circles.”",
+      "year": 2013,
+      "date": "2013-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "305181557637931009",
+      "text": "Looking forward to the weekend because I'll have time to clean. That sounds far too much like grownup talk.",
+      "year": 2013,
+      "date": "2013-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "172833009303683073",
+      "text": "GitBox... I don't know why you keep crashing but it's making me really concerned. #deadlines",
+      "year": 2012,
+      "date": "2012-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "172768404002975745",
+      "text": "RT @mbostock: Quite a few d3.js entries in the @infobeautyaward short and long lists! http://t.co/ScQ4iV9v",
+      "year": 2012,
+      "date": "2012-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "172690186189279232",
+      "text": "Fuck the pig that shot Scott Olsen. Fuck that pig who tossed a flashbang into the crowd of medics/occupiers who went to help the wounded.",
+      "year": 2012,
+      "date": "2012-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "40544932594712576",
+      "text": "Imagine if carpenter's hammers randomly and without warning tranformed into glass and broke, leaving the carpenter to restart his hammer.",
+      "year": 2011,
+      "date": "2011-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "40543454270328832",
+      "text": "Scaling everything proportionally even though shift isn't pressed? Cute. Not being able to open new documents? New and uniquely awful.",
+      "year": 2011,
+      "date": "2011-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "40543277308575744",
+      "text": "Illustrator, thanks a lot for picking the week when I'm sick and have a crazy-awe-inspiring Friday deadline to pull your crazy antics.",
+      "year": 2011,
+      "date": "2011-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "40214837183123456",
+      "text": "PAYPAL MONEY? THAT MEANS IT'S TIME TO SPEND MONEY ON IPAD APPS! THAT'LL MAKE BEING SICK SUCK A LOT LESS!",
+      "year": 2011,
+      "date": "2011-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "40201803886755840",
+      "text": "RT @markweaver: RT @rob_sheridan: Great infographic: Reasons to save PBS (currently on House Republicans' insane chopping block): http:/ ...",
+      "year": 2011,
+      "date": "2011-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "9545929682",
+      "text": "Lots and lots and LOTS of cars coming down Seaman Rd. Very odd! Must be a detour from somewhere... makes me wanna go searching.",
+      "year": 2010,
+      "date": "2010-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "9542730378",
+      "text": "I hate the black eyed peas so much I can't even remember if I hate them anymore. Imma be, Imma be, imma imma imma be.",
+      "year": 2010,
+      "date": "2010-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "9538512992",
+      "text": "playing a little Call of Duty: Modern Warfare 2. http://raptr.com/pseudoplacebo",
+      "year": 2010,
+      "date": "2010-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "9537560178",
+      "text": "Man now I REALLY REALLY want an MPD32...",
+      "year": 2010,
+      "date": "2010-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "9536712738",
+      "text": "WHAT UP CHASE IPHONE APP. YOU ARE SO WHAT I NEEDED IN MY LIFE.",
+      "year": 2010,
+      "date": "2010-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "9536644452",
+      "text": "@scanner_darkly In Google We Trust.",
+      "year": 2010,
+      "date": "2010-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "scanner_darkly"
+    },
+    {
+      "id": "9536595447",
+      "text": "FINALLY opened a bank account at Chase.",
+      "year": 2010,
+      "date": "2010-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "9531216557",
+      "text": "@kayascollywogs Mary-Kate Olson should be freaking out to be in the same room as you!",
+      "year": 2010,
+      "date": "2010-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "9525050588",
+      "text": "Why is this infographic blinking? Is this a joke? http://ejfox.com/blinkinginfo",
+      "year": 2010,
+      "date": "2010-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "9524246302",
+      "text": "Billie Holliday on a snowy-but-college-is-still-open morning is makin me feel alright.",
+      "year": 2010,
+      "date": "2010-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1242624389",
+      "text": "I'd be curious to know the divorce rates of marriages where the woman is taller.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1242609334",
+      "text": "Done with today. Going home.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1242546642",
+      "text": "I know I'm eccentric in one way... so I'll pretend to be the opposite way. Sometimes it balances out and I end up resembling normalcy.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1242475950",
+      "text": "Yo, do I have a sign on me that says \"Girls, please talk to me about your hair?\" or do girls just talk about their hair to everyone?",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1242386020",
+      "text": "Reconnected with an old friend. She asked if I had a girlfriend. I said no. She said \"Good, you wouldn't be the same old EJ if you did!\" Oh.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1242352058",
+      "text": "I can't wait for Angels & Demons because that book would make a WAY better movie than the Da Vinci code. F'real.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1242321967",
+      "text": "@lenasaur Are you alright? What happened?",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "leoF0x"
+    },
+    {
+      "id": "1242320916",
+      "text": "OH MY GOD I AM SO HUNGRY.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1242237637",
+      "text": "My overtweeting is actually just a litmus test. So... take that.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1242221978",
+      "text": "DownloadDownloadDownloadDownloadDownloadDownloadDownloadDownloadDownloadDownloadDownloadDownloadDownloadDownloadDownloadDownloadDownload.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1242214328",
+      "text": "\"idk i like matt kinda but he is very attached and i kinda wanna be free till i feel beautiful\" I have wonderful friends.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1242189310",
+      "text": "Cannabis might help Huntington's... do I see an AWESOME House episode in the future? Yes I do. http://is.gd/kAdN",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1242178464",
+      "text": "@safetyguy1656 I'm working on some website development with an advertising agency in NJ right now. Temporary, though.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "safetyguy1656"
+    },
+    {
+      "id": "1242131957",
+      "text": "Showing coworkers KCN Screw because I thoroughly enjoy corrupting America one person at a time. It's my hobby.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1241975903",
+      "text": "I swear to god the clock has said 2:38 for the last hour and a half.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1241966961",
+      "text": "@benjiclayton It's a documentary about a guy who high-wire walked between the Twin Towers. I haven't watched it yet, but I'm stoked.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "_hypedad"
+    },
+    {
+      "id": "1241935273",
+      "text": "This article confirms and reiterates how I feel about Iran and Ahmadinejad: http://is.gd/kzGa",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1241919885",
+      "text": "Today I have downloaded Man on Wire, Religulous, Step Brothers, and Frost/Nixon. Me and this religulous torrent are working on a 2.0 ratio.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1241889724",
+      "text": "Vicodin Earrings: Would be quite an ordeal to sell, I imagine! Har har har har... http://is.gd/kzAy",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1241863683",
+      "text": "There's some sort of dark gothic pleasure I find in spending like 20 minutes in photoshop or illustrator working & then just x'ing it out.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1241753747",
+      "text": "I haven't been to stumbleupon in a while and, well, it looks a lot like Amazon. That is all.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1241691352",
+      "text": "@tbrown Thanks a bunch!",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "timbrown"
+    },
+    {
+      "id": "1241680635",
+      "text": "It really is nice to click that \"I am older than 13\" and be older than 13. A relatively new development in my life.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1241676409",
+      "text": "Seriously wondering what I'm doing with my life- in this moment.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1241658956",
+      "text": "@tbrown Could I have a chi.mp invite, please sir? ejfox@ejfox.com",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "timbrown"
+    },
+    {
+      "id": "1241654679",
+      "text": "I feel like Facebook and CNN would not be teaming up so you could watch McCain address congress with your friends. Just saying.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1241552526",
+      "text": "I've noticed when I don't have time to eat for a few days people tell me I am looking thinner. This is how you create an anorexic.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1241541638",
+      "text": "Well. If I'm here in an office I might as well get my Demonoid ratio up. &gt;.&gt;",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1241475935",
+      "text": "Is it appropriate to say \"Excuse me\" after cracking your neck? Who knows. I just did it.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1241387360",
+      "text": "Planning out this website.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1240915599",
+      "text": "My poor MacBook screen is dirty... but I never remember to clean it when I'm not doing work.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1240813285",
+      "text": "I never wanna be a fashion photographer. Good morning Tweeple.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1240011106",
+      "text": "Staring at this computer screen. For. No. Reason. I do not feel okay.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1239980267",
+      "text": "Can't sleep. Reevaluating life.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1239465902",
+      "text": "Lying in Bed. Wallowing in self-pity.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1239068389",
+      "text": "Yes. Tina Fey is hot. I get it.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1239060875",
+      "text": "This Hyundai commercial is probably one of the best-written I've ever seen. I want to buy a Hyundai now. I don't watch TV often, see?",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1239047908",
+      "text": "I was really only watching this to see if the chick from Vicky Christina Barcelona won and by god she did. So... now what. #oscars",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1238925126",
+      "text": "Miley Cyrus' dress hideously reflects Miley's personality, I think.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1238892452",
+      "text": "Watching the Oscars. The chances of me switching to something else midway through is pretty good.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1238785242",
+      "text": "Interviews are stupid.",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1238733212",
+      "text": "Jonas Brothers on TV spewing bullshit. Good god. These kids. How did I date a girl that liked these dudes?",
+      "year": 2009,
+      "date": "2009-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "749611132",
+      "text": "Tumblr: Pretty cool Clock. http://tinyurl.com/yo7v9v",
+      "year": 2008,
+      "date": "2008-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "749322892",
+      "text": "Watching Hard Candy.",
+      "year": 2008,
+      "date": "2008-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "749312552",
+      "text": "Tumblr: Trying to learn illustrator- so I traced a few things I like. http://tinyurl.com/3cxmnb",
+      "year": 2008,
+      "date": "2008-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "746119042",
+      "text": "Tumblr: Hershey’s Ice Breakers recalled because of the packaging... http://tinyurl.com/394nww",
+      "year": 2008,
+      "date": "2008-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "746014742",
+      "text": "@safetyguy1656 Oooh- I do. And there are a lot of numbers there... Thanks! =D",
+      "year": 2008,
+      "date": "2008-02-23",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "safetyguy1656"
+    }
+  ],
+  "posts": [],
+  "scrobbles": [
+    {
+      "date": "2022-02-23",
+      "year": 2022,
+      "count": 41,
+      "topTracks": [
+        "Large Professor - I Juswanna Chill",
+        "Souls of Mischief - 93 'til Infinity",
+        "A Tribe Called Quest - Check the Rhime",
+        "The Notorious B.I.G. - Ten Crack Commandments - 2007 Remaster",
+        "stevedoesmusic - wo0ooooo"
+      ],
+      "topArtists": [
+        "Large Professor",
+        "Souls of Mischief",
+        "A Tribe Called Quest"
+      ]
+    },
+    {
+      "date": "2020-02-23",
+      "year": 2020,
+      "count": 14,
+      "topTracks": [
+        "Peacocks Guiter Band - Eddie Quansa",
+        "African Brothers International Band - Mmɔborɔwa (Remastered)",
+        "African Brothers International Band - Hini Me (Remastered)",
+        "African Brothers International Band - Seantie (Remastered)",
+        "African Brothers International Band - San Yɛhwɛ Wo Mma (Remastered)"
+      ],
+      "topArtists": [
+        "Peacocks Guiter Band",
+        "African Brothers International Band"
+      ]
+    },
+    {
+      "date": "2011-02-23",
+      "year": 2011,
+      "count": 61,
+      "topTracks": [
+        "Beirut - Elephant Gun",
+        "Beirut - My Family's Role In The World Revolution",
+        "Beirut - Scenic World",
+        "Beirut - The Long Island Sound",
+        "Beirut - Carousels"
+      ],
+      "topArtists": ["Beirut", "Borgore", "Marko Kahn"]
+    },
+    {
+      "date": "2007-02-23",
+      "year": 2007,
+      "count": 72,
+      "topTracks": [
+        "apm - Hour 1: Owners of a Purple Heart...",
+        "apm - Hour 2: A Soldier's Deployment...",
+        "Fall Out Boy - This Ain't a Scene, It's an Arms Race",
+        "Ludacris - Freedom Of Preach (Feat. Bishop Eddie Lee Long)",
+        "Fall Out Boy - The (After) Life of the Party"
+      ],
+      "topArtists": ["apm", "Fall Out Boy", "Ludacris"]
+    },
+    {
+      "date": "2006-02-23",
+      "year": 2006,
+      "count": 79,
+      "topTracks": [
+        "Lewis Carroll - Alice In Wonderland",
+        "Thievery Corporation - The State Of The Union",
+        "A Perfect Circle - Fiddle and the Drum",
+        "Neil Young - Ohio",
+        "System of a Down - Vicinity of Obscenity"
+      ],
+      "topArtists": [
+        "Lewis Carroll",
+        "Thievery Corporation",
+        "A Perfect Circle"
+      ]
+    }
+  ],
+  "commits": []
+}

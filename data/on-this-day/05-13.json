@@ -1,1 +1,1034 @@
-{"tweets":[{"id":"1525123910123012096","text":"whoever made this rules https://t.co/i716KZFUzv","year":2022,"date":"2022-05-13","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1525123268298133508","text":"actual, serious code I just had to write https://t.co/5wg91eCLpI","year":2022,"date":"2022-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"1525116944784957441","text":"@ptvan so I have sajoshi on the phone now and he says that all of your blips are only worth 1.3 \"neutral marsupials\" now??? it's all very confusing","year":2022,"date":"2022-05-13","favorites":1,"retweets":0,"replyTo":"ptvan"},{"id":"1525116045744394242","text":"@ptvan ohhhh mannnn you are gonna be rich!!","year":2022,"date":"2022-05-13","favorites":0,"retweets":0,"replyTo":"ptvan"},{"id":"1525112472801271810","text":"@ptvan so some genius guy named saboshi said you get a little silver coin for every bit in your computer, so if you have 16GB of ram you are entitled to 137,438,953,472 little silver coins, for example, as a treat","year":2022,"date":"2022-05-13","favorites":0,"retweets":0,"replyTo":"ptvan"},{"id":"1525110111143972866","text":"@JanWillemTulp Yes! I have been meaning to dive into Svelte, but have been working on a bunch of Vue projects lately (I love Vue) – this is reassuring that I am not totally crazy 🌞","year":2022,"date":"2022-05-13","favorites":2,"retweets":0,"replyTo":"JanWillemTulp"},{"id":"1525108884943273984","text":"https://t.co/nQzjjme9zl","year":2022,"date":"2022-05-13","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1525108853561470976","text":"i have done this like 36 times in the last few weeks at least 4 different ways– I think the Vue pattern that makes the most sense to me is to have a parent/layout view that handles sizing, and components know their styled width/height from the DOM, call on mounted &amp; resize https://t.co/yCnHKh9uGb","year":2022,"date":"2022-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"1392927840690114566","text":"Does anyone have any advice on how to deal with this? I am being driven insane.","year":2021,"date":"2021-05-13","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1392924836813541376","text":"I am being told that these people are being asked not to park their trucks in my backyard, and yet https://t.co/OYWA3dDVMN","year":2021,"date":"2021-05-13","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1392907703375339529","text":"RT @simonw: This is so exciting. The sole drawback of Observable notebooks has been that the editing interface itself is proprietary, even…","year":2021,"date":"2021-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"1392823408937914374","text":"shout out to the tech company that had me do a 3 hour technical interview and then for months said \"we are deciding soon, we promise\" and then never actually let me know their final decision","year":2021,"date":"2021-05-13","favorites":8,"retweets":0,"replyTo":null},{"id":"1392822875745366020","text":"so wait you are telling me there are people out there who just write the code they are told to write, and don't put any effort into a holistic exploration of the motivations behind the desire to write that code? that explains a lot and couldn't be me","year":2021,"date":"2021-05-13","favorites":2,"retweets":0,"replyTo":null},{"id":"1392810325477560326","text":"@Mauriello_R @jilliancyork @BarzinJafartash Weird humble brag to have all that opportunity to learn about the world and still not know a thing. Maybe there might be something for you to learn if you shut your mouth and stop arguing.","year":2021,"date":"2021-05-13","favorites":1,"retweets":0,"replyTo":"Mauriello_R"},{"id":"1260709586161537027","text":"https://t.co/y0pVZVQMLZ","year":2020,"date":"2020-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"1260631840718827520","text":"@ptvan i have had good and bad landlords, all that aside, the tone of this article is objectively weird lol https://t.co/VioJaAXZP6","year":2020,"date":"2020-05-13","favorites":0,"retweets":0,"replyTo":"ptvan"},{"id":"1260629166136885249","text":"@schlagetown runtime 113 minutes, you can be done by September 4 if you start tomorrow and take no breaks","year":2020,"date":"2020-05-13","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1260628486441644035","text":"@schlagetown beautiful, love it\n\n`ffmpeg -i YOUR_MOVIE.mp4 -c copy -map 0 -segment_time 00:01:00 -f segment output%03d.mp4` would output your 60s segments as their own videos, you could also make a twitter bot to tweet that day's minute at a certain time or something","year":2020,"date":"2020-05-13","favorites":1,"retweets":0,"replyTo":"schlagetown"},{"id":"1260588515005476865","text":"A few months ago, I went to the bodega and a very tough-looking man recognized the cologne I was wearing and goes \"Yo dude! You rockin' that Versace Fire shit? I love that one\" and gives me a dap – that is what quarantine is making me miss","year":2020,"date":"2020-05-13","favorites":7,"retweets":0,"replyTo":null},{"id":"1260567640612966402","text":"Did a landlord write this https://t.co/JNVz7GTWgr","year":2020,"date":"2020-05-13","favorites":3,"retweets":0,"replyTo":null},{"id":"1260395582063104003","text":"Make Internet Nice Again","year":2020,"date":"2020-05-13","favorites":2,"retweets":0,"replyTo":null},{"id":"1260387642312732672","text":"twitter should have a \"wrong on purpose\" flag","year":2020,"date":"2020-05-13","favorites":4,"retweets":0,"replyTo":null},{"id":"1127995262838935552","text":"people on the street are fervently talking about dragons","year":2019,"date":"2019-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"1127980658108837888","text":"Process for scraping from goodreads and Vue/JS source code for the page are here: https://t.co/zL2NiizmYs","year":2019,"date":"2019-05-13","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1127978285898641409","text":"Every highlight from every Kindle book I've read is now available and linkable – trying to create a self-hosted linkable reference point for research and citing in future work https://t.co/nuPkoBuaaQ https://t.co/Nu7TiUQrXF","year":2019,"date":"2019-05-13","favorites":2,"retweets":0,"replyTo":null},{"id":"1127949987776745472","text":"rediscovered mapboxgl bl.ock extruding counties based on their presidential swing I made in december 2016 is still rad https://t.co/29NbjslCOk","year":2019,"date":"2019-05-13","favorites":4,"retweets":0,"replyTo":null},{"id":"995727438272516096","text":"@jonschuppe Every buffet has its gems Schuppe","year":2018,"date":"2018-05-13","favorites":0,"retweets":0,"replyTo":"jonschuppe"},{"id":"995479717171130369","text":"RT @TrulyTafakari: It is cowardly to pretend that how disrespectfully you decide to treat other people is up to them, and not you.","year":2018,"date":"2018-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"731231072646758405","text":"@samswey Would you be able to share this data with me? Or point me to where I can find it on https://t.co/50TFR7mHRc ? Great insight","year":2016,"date":"2016-05-13","favorites":0,"retweets":0,"replyTo":"samswey"},{"id":"731190056694763520","text":"RT @AriannaSimpson: The evolution of digital media https://t.co/fdTH95nu7H","year":2016,"date":"2016-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"731178265927389184","text":"RT @digiphile: Looks like the @USGSA told @18F to stop using Slack https://t.co/d6GkOVOQU6 Unexploited internal vulnerability odd definitio…","year":2016,"date":"2016-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"731159991093170176","text":".@brirene_ You could hang out with https://t.co/IZiZDT9s8c who also wants to get cute","year":2016,"date":"2016-05-13","favorites":1,"retweets":1,"replyTo":"brirene_"},{"id":"731159911732776960","text":".@hoover_kacie You should hang out with https://t.co/8wFaTZLipp","year":2016,"date":"2016-05-13","favorites":0,"retweets":0,"replyTo":"hoover_kacie"},{"id":"731159607301820416","text":".@laura_sebright You should hang out with @_aroundthefur and play Mario Sunshine https://t.co/94pYxaujix","year":2016,"date":"2016-05-13","favorites":0,"retweets":0,"replyTo":"lauraxxsebright"},{"id":"731159584891633664","text":"As a public service on this Friday, I will be matching up people who want to do stuff tonight. I know how that is.","year":2016,"date":"2016-05-13","favorites":1,"retweets":0,"replyTo":null},{"id":"730911481798242304","text":"RT @lamoustache: This is what 500,000 tabs of LSD look like https://t.co/HdVd0fOutH","year":2016,"date":"2016-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"730911170144686083","text":"Someone tell Jeremy they're printing LSD with Guy Fawkes masks now","year":2016,"date":"2016-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"598613290554662912","text":"somehow @jennholmes_ told @AlexKoppelman i don’t know guns and roses and now I am being made to watch guitar solos on youtube","year":2015,"date":"2015-05-13","favorites":1,"retweets":0,"replyTo":null},{"id":"598597330137407488","text":"i miss @markham","year":2015,"date":"2015-05-13","favorites":1,"retweets":0,"replyTo":null},{"id":"598536794188226561","text":"RT @banikarim: Alleged hammer attacker left behind a disturbing social media trail full of dark imagery. http://t.co/Zn0yQ2jJj6 http://t.co…","year":2015,"date":"2015-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"598490414983860224","text":"@bdbreedlove good call","year":2015,"date":"2015-05-13","favorites":0,"retweets":0,"replyTo":"bdbreedlove"},{"id":"598480782504656896","text":"RT @jeremybowers: I have a simple job. I put the stuff on the thing. Sometimes, I control the stuff. Other times, the thing. Sometimes both.","year":2015,"date":"2015-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"598480069280067584","text":"need a quicker and more accurate way to say “let’s per capita that data”","year":2015,"date":"2015-05-13","favorites":2,"retweets":0,"replyTo":null},{"id":"598300964668473344","text":"RT @HeavenLeeOps: USA about to get Cuba's lung cancer vaccine http://t.co/5pqyrbNs3M","year":2015,"date":"2015-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"466238461947551744","text":"RT @poezn: Want to see all your Moves activity at once, we created an app for that @hlftn https://t.co/sSPOMGhkve http://t.co/aXAMR3ppL4","year":2014,"date":"2014-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"334037898544427009","text":"I just realized Radio Lab gets it.","year":2013,"date":"2013-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"334037672832155648","text":"I mean like, it just seems scientists are so eager to tell us the awesome shit they know that they forget it’s only awesome with context","year":2013,"date":"2013-05-13","favorites":1,"retweets":0,"replyTo":null},{"id":"334037304635191299","text":"I was not mentally equipped to understand the true magnitude of that fact. How is this not understood? Why is there middle school science?","year":2013,"date":"2013-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"334037001995165696","text":"For instance, at a young age I was taught the fact the earth has a molten core. Years later, I learn THE EARTHS CORE IS AS HOT AS THE SUN!!!","year":2013,"date":"2013-05-13","favorites":1,"retweets":1,"replyTo":null},{"id":"334036577867141122","text":"I love learning things that someone failed to teach me once, but now I am super into. Some things are really cool but children don’t get.","year":2013,"date":"2013-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"334001048534528001","text":"RT @worrydream: Tomorrow's video on data visualization builds on the geometric programming techniques in \"Stop Drawing Dead Fish\". http://t…","year":2013,"date":"2013-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"333748097509380097","text":"@pixelbeat @enjalot But in general I personally can't ethically justify putting effort into supporting IE9 (unless I'm being paid for it)","year":2013,"date":"2013-05-13","favorites":1,"retweets":0,"replyTo":"pixelbeat"},{"id":"333747934833291264","text":"@pixelbeat @enjalot @d3visualization There's a good post by @vlandham about using D3+Canvas http://t.co/nV99pS4Xcs inspired by @nytgraphics","year":2013,"date":"2013-05-13","favorites":1,"retweets":0,"replyTo":"pixelbeat"},{"id":"201815255628783618","text":"@susie_c What do you envision for it? Scanned art full-width? With audio interspersed or w/ long audio at top 2 play as user scrolls thru?","year":2012,"date":"2012-05-13","favorites":0,"retweets":0,"replyTo":"susie_c"},{"id":"201814799066206208","text":"@susie_c Sounds good to me- you're imagining something like http://t.co/m4W4pEsr ? If so I am very down &amp; you have good timing.","year":2012,"date":"2012-05-13","favorites":0,"retweets":0,"replyTo":"susie_c"},{"id":"201726317513809921","text":"I was playing around with a subway map style, then I got bored when I realized I wasn't mapping anything. What to map? http://t.co/jevRFf0a","year":2012,"date":"2012-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"201543549391609857","text":"What companies are using d3.js in production? 5 Answers: http://t.co/3J8JPyCw on @Quora","year":2012,"date":"2012-05-13","favorites":1,"retweets":0,"replyTo":null},{"id":"69062183274823681","text":"RT @theclick: Photographers debate what should replace staged photo opps now that White House is ending the practice http://j.mp/kqzYkL","year":2011,"date":"2011-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"69053416239923200","text":"Some Dubstep songs last 75% longer than they should. Changing the LFO of your bassline does not a song make.","year":2011,"date":"2011-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"68906907099860992","text":"Emptying my brain out into my to-do list before I can properly go to sleep...","year":2011,"date":"2011-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"68899168478961665","text":"What do I have to do to become in possession of a vibraphone?","year":2011,"date":"2011-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"13937653595","text":"@andymangold Two people talking / collaborating to create something powerful.","year":2010,"date":"2010-05-13","favorites":0,"retweets":0,"replyTo":"andymangold"},{"id":"13934561606","text":"Paypal just took $15 off my $500 payment. Jesus, PayPal. I never knew you like this.","year":2010,"date":"2010-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"13931720753","text":"@kitsunenoir Welcome to New York! Glad to have you on this coast!","year":2010,"date":"2010-05-13","favorites":0,"retweets":0,"replyTo":"BobbySolomon"},{"id":"13928305035","text":"@rtkrum For what it's worth, I would give anything to be able to work in print and design a 2-page spread, but that's not where I'm working.","year":2010,"date":"2010-05-13","favorites":0,"retweets":0,"replyTo":"rtkrum"},{"id":"13928251616","text":"@rtkrum For me, I'm just trying to fit everything in in a way that's easy to understand. If the client wants it in their blogroll, so be it.","year":2010,"date":"2010-05-13","favorites":0,"retweets":0,"replyTo":"rtkrum"},{"id":"13924833531","text":"playing a little Battlefield Bad Company 2. http://raptr.com/pseudoplacebo","year":2010,"date":"2010-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"13923510215","text":"@rtkrum Oh I mean 800px wide. Full disclosure: most of my infographics end up larger than 3000px tall, most often ~4000px.","year":2010,"date":"2010-05-13","favorites":0,"retweets":0,"replyTo":"rtkrum"},{"id":"13923318371","text":"@rtkrum That's the general idea. You have the infographic fit in smoothly as part of the content of your blog. No bigger than 800px, usually","year":2010,"date":"2010-05-13","favorites":0,"retweets":0,"replyTo":"rtkrum"},{"id":"13923070041","text":"@rtkrum I've had a lot of clients who want the graphic to fit into their blog layout like an article would.","year":2010,"date":"2010-05-13","favorites":0,"retweets":0,"replyTo":"rtkrum"},{"id":"13922933242","text":"Just got my first txt-message spam. Not a very good precedent.","year":2010,"date":"2010-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"13922527785","text":"@rtkrum I'm not quite sure what you're referring to- do you mean the title of the infographics?","year":2010,"date":"2010-05-13","favorites":0,"retweets":0,"replyTo":"rtkrum"},{"id":"13922205130","text":"I love it how sometimes my girlfriend says \"Put that on your Tumblr.\"","year":2010,"date":"2010-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"13890231062","text":"GO AWAY HEADACHE GO AWAY HEADACHE GO AWAY HEADACHE GO AWAY HEADACHE GO AWAY HEADACHE GO AWAY HEADACHE GO AWAY HEADACHE GO AWAY HEADACHE","year":2010,"date":"2010-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"1788744157","text":"Waiting outside the Animal Collective show-so pumped. Definitely gonna make my way to the front, I feel. Surrounded by kids who look like me","year":2009,"date":"2009-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"1787148343","text":"I never fail to stress about missing my train when riding public transit. It's a true wonder.","year":2009,"date":"2009-05-13","favorites":1,"retweets":0,"replyTo":null},{"id":"1785645480","text":"Recording a vocal demo for the song my band recorded the other day. I feel really kinda completely ridiculous, to be honest.","year":2009,"date":"2009-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"1784755229","text":"Ticket successfully given away. Twitter, you win the game of being something useful!","year":2009,"date":"2009-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"1784730607","text":"Okay, and on the positive side, all the people who've requested the Animal Collective tix on Last.fm have VERY HIGH taste similarities.","year":2009,"date":"2009-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"1784717445","text":"#lastfm #love Knocked Up by Kings of Leon http://bit.ly/Q3atZ","year":2009,"date":"2009-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"1784653008","text":"@weepaw Yeah dude! Finally someone who wants a ticket! Who knew finding one would be so hard?! I'll email you the PDF, dm me your email.","year":2009,"date":"2009-05-13","favorites":0,"retweets":0,"replyTo":"weepaw"},{"id":"1784597189","text":"Every day is meant to be a perfect day, but God gets more and more out of practice and then slowly gains his skill back.","year":2009,"date":"2009-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"1784428372","text":"These are exactly the photos I wish I took... http://is.gd/zttx","year":2009,"date":"2009-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"1782006188","text":"I unlocked the SBM Cover achievement on Skate 2! http://raptr.com/pseudoplacebo","year":2009,"date":"2009-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"1780916710","text":"HEY TWITTER I'M GIVING AWAY A TICKET TO ANIMAL COLLECTIVE AT TERMINAL 5 TOMORROW- IF YOU WANT IT @ ME AND I'LL EMAIL YOU THE TICKET TO PRINT","year":2009,"date":"2009-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"1780662811","text":"Every heroine in every movie reminds me of her.","year":2009,"date":"2009-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"1780180472","text":"New photoblog post: Mixtape: Sun and Limes http://tr.im/lcbr","year":2009,"date":"2009-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"810539799","text":"@Dadditude My friend, you are a machine. Truly...","year":2008,"date":"2008-05-13","favorites":0,"retweets":0,"replyTo":"Dadditude"},{"id":"810336037","text":"Moderately hilarious: http://is.gd/fYc","year":2008,"date":"2008-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"810286684","text":"@strawpoll Dave Chappelle seems to be much more intelligent and witty. As funny as Dane Cook is. And Chappelle's block party impressed me.","year":2008,"date":"2008-05-13","favorites":0,"retweets":0,"replyTo":"strawpoll"},{"id":"810258908","text":"I hate oscommerce.","year":2008,"date":"2008-05-13","favorites":1,"retweets":0,"replyTo":null},{"id":"810188387","text":"http://twitpic.com/111t &lt;- Trying Yahoo Live","year":2008,"date":"2008-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"810182763","text":"@Dadditude In my opinion, they should allow you to move your DLC with just a gamertag recovery. I go to my friend's often, and miss my data.","year":2008,"date":"2008-05-13","favorites":0,"retweets":0,"replyTo":"Dadditude"},{"id":"810126972","text":"Good morning. I am watching Beauty & The Geek.","year":2008,"date":"2008-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"809849270","text":"iPhone #facebook site is broken. ( iBook facephone is broken? ) and I am going to sleep.","year":2008,"date":"2008-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"809828816","text":"Holy crap. House was amazing. Can't wait until next week.","year":2008,"date":"2008-05-13","favorites":0,"retweets":0,"replyTo":null},{"id":"809798545","text":"Watching House.  http://snipurl.com/28klu","year":2008,"date":"2008-05-13","favorites":0,"retweets":0,"replyTo":null}],"posts":[],"scrobbles":[{"date":"2025-05-13","year":2025,"count":21,"topTracks":["Jazzbois - Comedown","Jazzbois - Song of Hope","Jazzbois - SHANGRI LA","Jazzbois - Departure","Jazzbois - Admas"],"topArtists":["Jazzbois","BK","Wiki"]},{"date":"2024-05-13","year":2024,"count":1,"topTracks":["Kendrick Lamar - Not Like Us"],"topArtists":["Kendrick Lamar"]},{"date":"2023-05-13","year":2023,"count":42,"topTracks":["Hiatus Kaiyote - Sip Into Something Soft","The Alchemist - Loose Change (feat. Earl Sweatshirt)","zekeultra - CARRY ME HOME","Mac Miller - In the Morning (feat. Syd & Thundercat)","Hiatus Kaiyote - Red Room"],"topArtists":["Hiatus Kaiyote","The Alchemist","zekeultra"]},{"date":"2022-05-13","year":2022,"count":147,"topTracks":["Barrington Levy - Murderer","The Revolutionaries - Pride & Ambition Dub","Big Youth - Hit The Road Jack","Lee \"\"Scratch\"\" Perry - Soul Fire","Aston 'Family Man' Barrett - Cell Block 11"],"topArtists":["Barrington Levy","The Revolutionaries","Big Youth"]},{"date":"2020-05-13","year":2020,"count":20,"topTracks":["Smino - BAM 2x","Anderson Paak - Your Prime","Frank Ocean - Skyline To","Danny Brown - Adderall Admiral","SZA - Anything"],"topArtists":["Smino","Anderson Paak","Frank Ocean"]},{"date":"2016-05-13","year":2016,"count":21,"topTracks":["KAYTRANADA - Track Uno","KAYTRANADA - Bus Ride","KAYTRANADA - Got It Good","KAYTRANADA - Together","KAYTRANADA - DRIVE ME CRAZY"],"topArtists":["KAYTRANADA"]},{"date":"2014-05-13","year":2014,"count":9,"topTracks":["Animal Collective - Did You See the Words","Animal Collective - Daffy Duck","Animal Collective - The Purple Bottle","Animal Collective - Banshee Beat","Animal Collective - Turn Into Something"],"topArtists":["Animal Collective"]},{"date":"2012-05-13","year":2012,"count":21,"topTracks":["Filastine - No Step","Filastine - Colony Collapse","Filastine - Shanty Tones","Filastine - Lost Records","Filastine - May I Interrupt?"],"topArtists":["Filastine","Youth Lagoon"]},{"date":"2011-05-13","year":2011,"count":32,"topTracks":["Orson Scott Card - Children of the Mind (Unabridged), Part 2","Orson Scott Card - Children of the Mind (Unabridged), Part 1","George Orwell - 1984: New Classic Edition (Unabridged), Part 1","Sublime - Doin Time (Zeds Dead Summer Grime Remix)-NiceNoiz.pl","Evol Intent - Paradize City - Original Mix"],"topArtists":["Orson Scott Card","George Orwell","Sublime"]},{"date":"2009-05-13","year":2009,"count":139,"topTracks":["Animal Collective - Brothersport","Animal Collective - My Girls","Animal Collective - Daily Routine","Animal Collective - No More Runnin'","Animal Collective - Summertime Clothes"],"topArtists":["Animal Collective","Dntel","Death Cab for Cutie"]},{"date":"2008-05-13","year":2008,"count":52,"topTracks":["The Killers - On Top","Modest Mouse - Ocean Breathes Salty","Feist - My Moon My Man","Arctic Monkeys - A Certain Romance","Frou Frou - Let Go"],"topArtists":["The Killers","Modest Mouse","Feist"]},{"date":"2007-05-13","year":2007,"count":1,"topTracks":["NPR - Car Talk May 5, 2007"],"topArtists":["NPR"]},{"date":"2006-05-13","year":2006,"count":1,"topTracks":["Weekend America May 13, 2006 - Hour 2: Ethanol Business Booms and Casual Carpools...."],"topArtists":["Weekend America May 13, 2006"]}],"commits":[]}
+{
+  "tweets": [
+    {
+      "id": "1525123910123012096",
+      "text": "whoever made this rules https://t.co/i716KZFUzv",
+      "year": 2022,
+      "date": "2022-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1525123268298133508",
+      "text": "actual, serious code I just had to write https://t.co/5wg91eCLpI",
+      "year": 2022,
+      "date": "2022-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1525116944784957441",
+      "text": "@ptvan so I have sajoshi on the phone now and he says that all of your blips are only worth 1.3 \"neutral marsupials\" now??? it's all very confusing",
+      "year": 2022,
+      "date": "2022-05-13",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "ptvan"
+    },
+    {
+      "id": "1525116045744394242",
+      "text": "@ptvan ohhhh mannnn you are gonna be rich!!",
+      "year": 2022,
+      "date": "2022-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "ptvan"
+    },
+    {
+      "id": "1525112472801271810",
+      "text": "@ptvan so some genius guy named saboshi said you get a little silver coin for every bit in your computer, so if you have 16GB of ram you are entitled to 137,438,953,472 little silver coins, for example, as a treat",
+      "year": 2022,
+      "date": "2022-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "ptvan"
+    },
+    {
+      "id": "1525110111143972866",
+      "text": "@JanWillemTulp Yes! I have been meaning to dive into Svelte, but have been working on a bunch of Vue projects lately (I love Vue) – this is reassuring that I am not totally crazy 🌞",
+      "year": 2022,
+      "date": "2022-05-13",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "JanWillemTulp"
+    },
+    {
+      "id": "1525108884943273984",
+      "text": "https://t.co/nQzjjme9zl",
+      "year": 2022,
+      "date": "2022-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1525108853561470976",
+      "text": "i have done this like 36 times in the last few weeks at least 4 different ways– I think the Vue pattern that makes the most sense to me is to have a parent/layout view that handles sizing, and components know their styled width/height from the DOM, call on mounted &amp; resize https://t.co/yCnHKh9uGb",
+      "year": 2022,
+      "date": "2022-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1392927840690114566",
+      "text": "Does anyone have any advice on how to deal with this? I am being driven insane.",
+      "year": 2021,
+      "date": "2021-05-13",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1392924836813541376",
+      "text": "I am being told that these people are being asked not to park their trucks in my backyard, and yet https://t.co/OYWA3dDVMN",
+      "year": 2021,
+      "date": "2021-05-13",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1392907703375339529",
+      "text": "RT @simonw: This is so exciting. The sole drawback of Observable notebooks has been that the editing interface itself is proprietary, even…",
+      "year": 2021,
+      "date": "2021-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1392823408937914374",
+      "text": "shout out to the tech company that had me do a 3 hour technical interview and then for months said \"we are deciding soon, we promise\" and then never actually let me know their final decision",
+      "year": 2021,
+      "date": "2021-05-13",
+      "favorites": 8,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1392822875745366020",
+      "text": "so wait you are telling me there are people out there who just write the code they are told to write, and don't put any effort into a holistic exploration of the motivations behind the desire to write that code? that explains a lot and couldn't be me",
+      "year": 2021,
+      "date": "2021-05-13",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1392810325477560326",
+      "text": "@Mauriello_R @jilliancyork @BarzinJafartash Weird humble brag to have all that opportunity to learn about the world and still not know a thing. Maybe there might be something for you to learn if you shut your mouth and stop arguing.",
+      "year": 2021,
+      "date": "2021-05-13",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "Mauriello_R"
+    },
+    {
+      "id": "1260709586161537027",
+      "text": "https://t.co/y0pVZVQMLZ",
+      "year": 2020,
+      "date": "2020-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1260631840718827520",
+      "text": "@ptvan i have had good and bad landlords, all that aside, the tone of this article is objectively weird lol https://t.co/VioJaAXZP6",
+      "year": 2020,
+      "date": "2020-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "ptvan"
+    },
+    {
+      "id": "1260629166136885249",
+      "text": "@schlagetown runtime 113 minutes, you can be done by September 4 if you start tomorrow and take no breaks",
+      "year": 2020,
+      "date": "2020-05-13",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1260628486441644035",
+      "text": "@schlagetown beautiful, love it\n\n`ffmpeg -i YOUR_MOVIE.mp4 -c copy -map 0 -segment_time 00:01:00 -f segment output%03d.mp4` would output your 60s segments as their own videos, you could also make a twitter bot to tweet that day's minute at a certain time or something",
+      "year": 2020,
+      "date": "2020-05-13",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "schlagetown"
+    },
+    {
+      "id": "1260588515005476865",
+      "text": "A few months ago, I went to the bodega and a very tough-looking man recognized the cologne I was wearing and goes \"Yo dude! You rockin' that Versace Fire shit? I love that one\" and gives me a dap – that is what quarantine is making me miss",
+      "year": 2020,
+      "date": "2020-05-13",
+      "favorites": 7,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1260567640612966402",
+      "text": "Did a landlord write this https://t.co/JNVz7GTWgr",
+      "year": 2020,
+      "date": "2020-05-13",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1260395582063104003",
+      "text": "Make Internet Nice Again",
+      "year": 2020,
+      "date": "2020-05-13",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1260387642312732672",
+      "text": "twitter should have a \"wrong on purpose\" flag",
+      "year": 2020,
+      "date": "2020-05-13",
+      "favorites": 4,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1127995262838935552",
+      "text": "people on the street are fervently talking about dragons",
+      "year": 2019,
+      "date": "2019-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1127980658108837888",
+      "text": "Process for scraping from goodreads and Vue/JS source code for the page are here: https://t.co/zL2NiizmYs",
+      "year": 2019,
+      "date": "2019-05-13",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1127978285898641409",
+      "text": "Every highlight from every Kindle book I've read is now available and linkable – trying to create a self-hosted linkable reference point for research and citing in future work https://t.co/nuPkoBuaaQ https://t.co/Nu7TiUQrXF",
+      "year": 2019,
+      "date": "2019-05-13",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1127949987776745472",
+      "text": "rediscovered mapboxgl bl.ock extruding counties based on their presidential swing I made in december 2016 is still rad https://t.co/29NbjslCOk",
+      "year": 2019,
+      "date": "2019-05-13",
+      "favorites": 4,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "995727438272516096",
+      "text": "@jonschuppe Every buffet has its gems Schuppe",
+      "year": 2018,
+      "date": "2018-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "jonschuppe"
+    },
+    {
+      "id": "995479717171130369",
+      "text": "RT @TrulyTafakari: It is cowardly to pretend that how disrespectfully you decide to treat other people is up to them, and not you.",
+      "year": 2018,
+      "date": "2018-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "731231072646758405",
+      "text": "@samswey Would you be able to share this data with me? Or point me to where I can find it on https://t.co/50TFR7mHRc ? Great insight",
+      "year": 2016,
+      "date": "2016-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "samswey"
+    },
+    {
+      "id": "731190056694763520",
+      "text": "RT @AriannaSimpson: The evolution of digital media https://t.co/fdTH95nu7H",
+      "year": 2016,
+      "date": "2016-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "731178265927389184",
+      "text": "RT @digiphile: Looks like the @USGSA told @18F to stop using Slack https://t.co/d6GkOVOQU6 Unexploited internal vulnerability odd definitio…",
+      "year": 2016,
+      "date": "2016-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "731159991093170176",
+      "text": ".@brirene_ You could hang out with https://t.co/IZiZDT9s8c who also wants to get cute",
+      "year": 2016,
+      "date": "2016-05-13",
+      "favorites": 1,
+      "retweets": 1,
+      "replyTo": "brirene_"
+    },
+    {
+      "id": "731159911732776960",
+      "text": ".@hoover_kacie You should hang out with https://t.co/8wFaTZLipp",
+      "year": 2016,
+      "date": "2016-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "hoover_kacie"
+    },
+    {
+      "id": "731159607301820416",
+      "text": ".@laura_sebright You should hang out with @_aroundthefur and play Mario Sunshine https://t.co/94pYxaujix",
+      "year": 2016,
+      "date": "2016-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "lauraxxsebright"
+    },
+    {
+      "id": "731159584891633664",
+      "text": "As a public service on this Friday, I will be matching up people who want to do stuff tonight. I know how that is.",
+      "year": 2016,
+      "date": "2016-05-13",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "730911481798242304",
+      "text": "RT @lamoustache: This is what 500,000 tabs of LSD look like https://t.co/HdVd0fOutH",
+      "year": 2016,
+      "date": "2016-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "730911170144686083",
+      "text": "Someone tell Jeremy they're printing LSD with Guy Fawkes masks now",
+      "year": 2016,
+      "date": "2016-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "598613290554662912",
+      "text": "somehow @jennholmes_ told @AlexKoppelman i don’t know guns and roses and now I am being made to watch guitar solos on youtube",
+      "year": 2015,
+      "date": "2015-05-13",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "598597330137407488",
+      "text": "i miss @markham",
+      "year": 2015,
+      "date": "2015-05-13",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "598536794188226561",
+      "text": "RT @banikarim: Alleged hammer attacker left behind a disturbing social media trail full of dark imagery. http://t.co/Zn0yQ2jJj6 http://t.co…",
+      "year": 2015,
+      "date": "2015-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "598490414983860224",
+      "text": "@bdbreedlove good call",
+      "year": 2015,
+      "date": "2015-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "bdbreedlove"
+    },
+    {
+      "id": "598480782504656896",
+      "text": "RT @jeremybowers: I have a simple job. I put the stuff on the thing. Sometimes, I control the stuff. Other times, the thing. Sometimes both.",
+      "year": 2015,
+      "date": "2015-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "598480069280067584",
+      "text": "need a quicker and more accurate way to say “let’s per capita that data”",
+      "year": 2015,
+      "date": "2015-05-13",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "598300964668473344",
+      "text": "RT @HeavenLeeOps: USA about to get Cuba's lung cancer vaccine http://t.co/5pqyrbNs3M",
+      "year": 2015,
+      "date": "2015-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "466238461947551744",
+      "text": "RT @poezn: Want to see all your Moves activity at once, we created an app for that @hlftn https://t.co/sSPOMGhkve http://t.co/aXAMR3ppL4",
+      "year": 2014,
+      "date": "2014-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "334037898544427009",
+      "text": "I just realized Radio Lab gets it.",
+      "year": 2013,
+      "date": "2013-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "334037672832155648",
+      "text": "I mean like, it just seems scientists are so eager to tell us the awesome shit they know that they forget it’s only awesome with context",
+      "year": 2013,
+      "date": "2013-05-13",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "334037304635191299",
+      "text": "I was not mentally equipped to understand the true magnitude of that fact. How is this not understood? Why is there middle school science?",
+      "year": 2013,
+      "date": "2013-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "334037001995165696",
+      "text": "For instance, at a young age I was taught the fact the earth has a molten core. Years later, I learn THE EARTHS CORE IS AS HOT AS THE SUN!!!",
+      "year": 2013,
+      "date": "2013-05-13",
+      "favorites": 1,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "334036577867141122",
+      "text": "I love learning things that someone failed to teach me once, but now I am super into. Some things are really cool but children don’t get.",
+      "year": 2013,
+      "date": "2013-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "334001048534528001",
+      "text": "RT @worrydream: Tomorrow's video on data visualization builds on the geometric programming techniques in \"Stop Drawing Dead Fish\". http://t…",
+      "year": 2013,
+      "date": "2013-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "333748097509380097",
+      "text": "@pixelbeat @enjalot But in general I personally can't ethically justify putting effort into supporting IE9 (unless I'm being paid for it)",
+      "year": 2013,
+      "date": "2013-05-13",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "pixelbeat"
+    },
+    {
+      "id": "333747934833291264",
+      "text": "@pixelbeat @enjalot @d3visualization There's a good post by @vlandham about using D3+Canvas http://t.co/nV99pS4Xcs inspired by @nytgraphics",
+      "year": 2013,
+      "date": "2013-05-13",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "pixelbeat"
+    },
+    {
+      "id": "201815255628783618",
+      "text": "@susie_c What do you envision for it? Scanned art full-width? With audio interspersed or w/ long audio at top 2 play as user scrolls thru?",
+      "year": 2012,
+      "date": "2012-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "susie_c"
+    },
+    {
+      "id": "201814799066206208",
+      "text": "@susie_c Sounds good to me- you're imagining something like http://t.co/m4W4pEsr ? If so I am very down &amp; you have good timing.",
+      "year": 2012,
+      "date": "2012-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "susie_c"
+    },
+    {
+      "id": "201726317513809921",
+      "text": "I was playing around with a subway map style, then I got bored when I realized I wasn't mapping anything. What to map? http://t.co/jevRFf0a",
+      "year": 2012,
+      "date": "2012-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "201543549391609857",
+      "text": "What companies are using d3.js in production? 5 Answers: http://t.co/3J8JPyCw on @Quora",
+      "year": 2012,
+      "date": "2012-05-13",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "69062183274823681",
+      "text": "RT @theclick: Photographers debate what should replace staged photo opps now that White House is ending the practice http://j.mp/kqzYkL",
+      "year": 2011,
+      "date": "2011-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "69053416239923200",
+      "text": "Some Dubstep songs last 75% longer than they should. Changing the LFO of your bassline does not a song make.",
+      "year": 2011,
+      "date": "2011-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "68906907099860992",
+      "text": "Emptying my brain out into my to-do list before I can properly go to sleep...",
+      "year": 2011,
+      "date": "2011-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "68899168478961665",
+      "text": "What do I have to do to become in possession of a vibraphone?",
+      "year": 2011,
+      "date": "2011-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "13937653595",
+      "text": "@andymangold Two people talking / collaborating to create something powerful.",
+      "year": 2010,
+      "date": "2010-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "andymangold"
+    },
+    {
+      "id": "13934561606",
+      "text": "Paypal just took $15 off my $500 payment. Jesus, PayPal. I never knew you like this.",
+      "year": 2010,
+      "date": "2010-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "13931720753",
+      "text": "@kitsunenoir Welcome to New York! Glad to have you on this coast!",
+      "year": 2010,
+      "date": "2010-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "BobbySolomon"
+    },
+    {
+      "id": "13928305035",
+      "text": "@rtkrum For what it's worth, I would give anything to be able to work in print and design a 2-page spread, but that's not where I'm working.",
+      "year": 2010,
+      "date": "2010-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "rtkrum"
+    },
+    {
+      "id": "13928251616",
+      "text": "@rtkrum For me, I'm just trying to fit everything in in a way that's easy to understand. If the client wants it in their blogroll, so be it.",
+      "year": 2010,
+      "date": "2010-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "rtkrum"
+    },
+    {
+      "id": "13924833531",
+      "text": "playing a little Battlefield Bad Company 2. http://raptr.com/pseudoplacebo",
+      "year": 2010,
+      "date": "2010-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "13923510215",
+      "text": "@rtkrum Oh I mean 800px wide. Full disclosure: most of my infographics end up larger than 3000px tall, most often ~4000px.",
+      "year": 2010,
+      "date": "2010-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "rtkrum"
+    },
+    {
+      "id": "13923318371",
+      "text": "@rtkrum That's the general idea. You have the infographic fit in smoothly as part of the content of your blog. No bigger than 800px, usually",
+      "year": 2010,
+      "date": "2010-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "rtkrum"
+    },
+    {
+      "id": "13923070041",
+      "text": "@rtkrum I've had a lot of clients who want the graphic to fit into their blog layout like an article would.",
+      "year": 2010,
+      "date": "2010-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "rtkrum"
+    },
+    {
+      "id": "13922933242",
+      "text": "Just got my first txt-message spam. Not a very good precedent.",
+      "year": 2010,
+      "date": "2010-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "13922527785",
+      "text": "@rtkrum I'm not quite sure what you're referring to- do you mean the title of the infographics?",
+      "year": 2010,
+      "date": "2010-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "rtkrum"
+    },
+    {
+      "id": "13922205130",
+      "text": "I love it how sometimes my girlfriend says \"Put that on your Tumblr.\"",
+      "year": 2010,
+      "date": "2010-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "13890231062",
+      "text": "GO AWAY HEADACHE GO AWAY HEADACHE GO AWAY HEADACHE GO AWAY HEADACHE GO AWAY HEADACHE GO AWAY HEADACHE GO AWAY HEADACHE GO AWAY HEADACHE",
+      "year": 2010,
+      "date": "2010-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1788744157",
+      "text": "Waiting outside the Animal Collective show-so pumped. Definitely gonna make my way to the front, I feel. Surrounded by kids who look like me",
+      "year": 2009,
+      "date": "2009-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1787148343",
+      "text": "I never fail to stress about missing my train when riding public transit. It's a true wonder.",
+      "year": 2009,
+      "date": "2009-05-13",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1785645480",
+      "text": "Recording a vocal demo for the song my band recorded the other day. I feel really kinda completely ridiculous, to be honest.",
+      "year": 2009,
+      "date": "2009-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1784755229",
+      "text": "Ticket successfully given away. Twitter, you win the game of being something useful!",
+      "year": 2009,
+      "date": "2009-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1784730607",
+      "text": "Okay, and on the positive side, all the people who've requested the Animal Collective tix on Last.fm have VERY HIGH taste similarities.",
+      "year": 2009,
+      "date": "2009-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1784717445",
+      "text": "#lastfm #love Knocked Up by Kings of Leon http://bit.ly/Q3atZ",
+      "year": 2009,
+      "date": "2009-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1784653008",
+      "text": "@weepaw Yeah dude! Finally someone who wants a ticket! Who knew finding one would be so hard?! I'll email you the PDF, dm me your email.",
+      "year": 2009,
+      "date": "2009-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "weepaw"
+    },
+    {
+      "id": "1784597189",
+      "text": "Every day is meant to be a perfect day, but God gets more and more out of practice and then slowly gains his skill back.",
+      "year": 2009,
+      "date": "2009-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1784428372",
+      "text": "These are exactly the photos I wish I took... http://is.gd/zttx",
+      "year": 2009,
+      "date": "2009-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1782006188",
+      "text": "I unlocked the SBM Cover achievement on Skate 2! http://raptr.com/pseudoplacebo",
+      "year": 2009,
+      "date": "2009-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1780916710",
+      "text": "HEY TWITTER I'M GIVING AWAY A TICKET TO ANIMAL COLLECTIVE AT TERMINAL 5 TOMORROW- IF YOU WANT IT @ ME AND I'LL EMAIL YOU THE TICKET TO PRINT",
+      "year": 2009,
+      "date": "2009-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1780662811",
+      "text": "Every heroine in every movie reminds me of her.",
+      "year": 2009,
+      "date": "2009-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1780180472",
+      "text": "New photoblog post: Mixtape: Sun and Limes http://tr.im/lcbr",
+      "year": 2009,
+      "date": "2009-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "810539799",
+      "text": "@Dadditude My friend, you are a machine. Truly...",
+      "year": 2008,
+      "date": "2008-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "Dadditude"
+    },
+    {
+      "id": "810336037",
+      "text": "Moderately hilarious: http://is.gd/fYc",
+      "year": 2008,
+      "date": "2008-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "810286684",
+      "text": "@strawpoll Dave Chappelle seems to be much more intelligent and witty. As funny as Dane Cook is. And Chappelle's block party impressed me.",
+      "year": 2008,
+      "date": "2008-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "strawpoll"
+    },
+    {
+      "id": "810258908",
+      "text": "I hate oscommerce.",
+      "year": 2008,
+      "date": "2008-05-13",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "810188387",
+      "text": "http://twitpic.com/111t &lt;- Trying Yahoo Live",
+      "year": 2008,
+      "date": "2008-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "810182763",
+      "text": "@Dadditude In my opinion, they should allow you to move your DLC with just a gamertag recovery. I go to my friend's often, and miss my data.",
+      "year": 2008,
+      "date": "2008-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "Dadditude"
+    },
+    {
+      "id": "810126972",
+      "text": "Good morning. I am watching Beauty & The Geek.",
+      "year": 2008,
+      "date": "2008-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "809849270",
+      "text": "iPhone #facebook site is broken. ( iBook facephone is broken? ) and I am going to sleep.",
+      "year": 2008,
+      "date": "2008-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "809828816",
+      "text": "Holy crap. House was amazing. Can't wait until next week.",
+      "year": 2008,
+      "date": "2008-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "809798545",
+      "text": "Watching House.  http://snipurl.com/28klu",
+      "year": 2008,
+      "date": "2008-05-13",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    }
+  ],
+  "posts": [],
+  "scrobbles": [
+    {
+      "date": "2025-05-13",
+      "year": 2025,
+      "count": 21,
+      "topTracks": [
+        "Jazzbois - Comedown",
+        "Jazzbois - Song of Hope",
+        "Jazzbois - SHANGRI LA",
+        "Jazzbois - Departure",
+        "Jazzbois - Admas"
+      ],
+      "topArtists": ["Jazzbois", "BK", "Wiki"]
+    },
+    {
+      "date": "2024-05-13",
+      "year": 2024,
+      "count": 1,
+      "topTracks": ["Kendrick Lamar - Not Like Us"],
+      "topArtists": ["Kendrick Lamar"]
+    },
+    {
+      "date": "2023-05-13",
+      "year": 2023,
+      "count": 42,
+      "topTracks": [
+        "Hiatus Kaiyote - Sip Into Something Soft",
+        "The Alchemist - Loose Change (feat. Earl Sweatshirt)",
+        "zekeultra - CARRY ME HOME",
+        "Mac Miller - In the Morning (feat. Syd & Thundercat)",
+        "Hiatus Kaiyote - Red Room"
+      ],
+      "topArtists": ["Hiatus Kaiyote", "The Alchemist", "zekeultra"]
+    },
+    {
+      "date": "2022-05-13",
+      "year": 2022,
+      "count": 147,
+      "topTracks": [
+        "Barrington Levy - Murderer",
+        "The Revolutionaries - Pride & Ambition Dub",
+        "Big Youth - Hit The Road Jack",
+        "Lee \"\"Scratch\"\" Perry - Soul Fire",
+        "Aston 'Family Man' Barrett - Cell Block 11"
+      ],
+      "topArtists": ["Barrington Levy", "The Revolutionaries", "Big Youth"]
+    },
+    {
+      "date": "2020-05-13",
+      "year": 2020,
+      "count": 20,
+      "topTracks": [
+        "Smino - BAM 2x",
+        "Anderson Paak - Your Prime",
+        "Frank Ocean - Skyline To",
+        "Danny Brown - Adderall Admiral",
+        "SZA - Anything"
+      ],
+      "topArtists": ["Smino", "Anderson Paak", "Frank Ocean"]
+    },
+    {
+      "date": "2016-05-13",
+      "year": 2016,
+      "count": 21,
+      "topTracks": [
+        "KAYTRANADA - Track Uno",
+        "KAYTRANADA - Bus Ride",
+        "KAYTRANADA - Got It Good",
+        "KAYTRANADA - Together",
+        "KAYTRANADA - DRIVE ME CRAZY"
+      ],
+      "topArtists": ["KAYTRANADA"]
+    },
+    {
+      "date": "2014-05-13",
+      "year": 2014,
+      "count": 9,
+      "topTracks": [
+        "Animal Collective - Did You See the Words",
+        "Animal Collective - Daffy Duck",
+        "Animal Collective - The Purple Bottle",
+        "Animal Collective - Banshee Beat",
+        "Animal Collective - Turn Into Something"
+      ],
+      "topArtists": ["Animal Collective"]
+    },
+    {
+      "date": "2012-05-13",
+      "year": 2012,
+      "count": 21,
+      "topTracks": [
+        "Filastine - No Step",
+        "Filastine - Colony Collapse",
+        "Filastine - Shanty Tones",
+        "Filastine - Lost Records",
+        "Filastine - May I Interrupt?"
+      ],
+      "topArtists": ["Filastine", "Youth Lagoon"]
+    },
+    {
+      "date": "2011-05-13",
+      "year": 2011,
+      "count": 32,
+      "topTracks": [
+        "Orson Scott Card - Children of the Mind (Unabridged), Part 2",
+        "Orson Scott Card - Children of the Mind (Unabridged), Part 1",
+        "George Orwell - 1984: New Classic Edition (Unabridged), Part 1",
+        "Sublime - Doin Time (Zeds Dead Summer Grime Remix)-NiceNoiz.pl",
+        "Evol Intent - Paradize City - Original Mix"
+      ],
+      "topArtists": ["Orson Scott Card", "George Orwell", "Sublime"]
+    },
+    {
+      "date": "2009-05-13",
+      "year": 2009,
+      "count": 139,
+      "topTracks": [
+        "Animal Collective - Brothersport",
+        "Animal Collective - My Girls",
+        "Animal Collective - Daily Routine",
+        "Animal Collective - No More Runnin'",
+        "Animal Collective - Summertime Clothes"
+      ],
+      "topArtists": ["Animal Collective", "Dntel", "Death Cab for Cutie"]
+    },
+    {
+      "date": "2008-05-13",
+      "year": 2008,
+      "count": 52,
+      "topTracks": [
+        "The Killers - On Top",
+        "Modest Mouse - Ocean Breathes Salty",
+        "Feist - My Moon My Man",
+        "Arctic Monkeys - A Certain Romance",
+        "Frou Frou - Let Go"
+      ],
+      "topArtists": ["The Killers", "Modest Mouse", "Feist"]
+    },
+    {
+      "date": "2007-05-13",
+      "year": 2007,
+      "count": 1,
+      "topTracks": ["NPR - Car Talk May 5, 2007"],
+      "topArtists": ["NPR"]
+    },
+    {
+      "date": "2006-05-13",
+      "year": 2006,
+      "count": 1,
+      "topTracks": [
+        "Weekend America May 13, 2006 - Hour 2: Ethanol Business Booms and Casual Carpools...."
+      ],
+      "topArtists": ["Weekend America May 13, 2006"]
+    }
+  ],
+  "commits": []
+}

@@ -6,7 +6,7 @@ config()
 const kalshiConfig = new Configuration({
   apiKey: process.env.KALSHI_KEY_ID,
   privateKeyPem: process.env.KALSHI_PRIVATE_KEY.replace(/\\n/g, '\n'),
-  basePath: 'https://api.elections.kalshi.com/trade-api/v2'
+  basePath: 'https://api.elections.kalshi.com/trade-api/v2',
 })
 
 const seriesApi = new SeriesApi(kalshiConfig)
@@ -21,7 +21,7 @@ const seriesTickers = [
   'KXAIAUTHOR',
   'NYTOAI',
   'KXJOINSTEPHENCOLBERT',
-  'OAIAGI'
+  'OAIAGI',
 ]
 
 console.log('Fetching series data...\n')

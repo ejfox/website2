@@ -20,7 +20,7 @@ import {
   compareDesc as _compareDesc,
   formatISO as _formatISO,
   isThisMonth as _isThisMonth,
-  isThisYear as _isThisYear
+  isThisYear as _isThisYear,
 } from 'date-fns'
 
 // ⚡ OPTIMIZED: Re-export with consistent naming! *zoom*

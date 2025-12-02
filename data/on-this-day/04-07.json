@@ -1,1 +1,955 @@
-{"tweets":[{"id":"1644447277887508483","text":"@HipCityReg https://t.co/Z5hRGLK7sB","year":2023,"date":"2023-04-07","favorites":2,"retweets":0,"replyTo":"HipCityReg"},{"id":"1644410614771589149","text":"@visakanv I agree, we are more likely in the sidekick era https://t.co/A8v1Ds7Ntn","year":2023,"date":"2023-04-07","favorites":2,"retweets":0,"replyTo":"visakanv"},{"id":"1644387167727124509","text":"RT @KeeganNYC: NYPD officers arrested a guy with a BLM sticker on his helmet, didn't realize his phone was recording, were recorded braggin…","year":2023,"date":"2023-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"1644151885081849856","text":"I would have really respected it if Taibbi had gone on the show and been like \"I JUST LOVE MONEY! MONEY IS GREAT! YUM YUM MONEY!\" but, alas","year":2023,"date":"2023-04-07","favorites":1,"retweets":0,"replyTo":null},{"id":"1644134299371806722","text":"@oneunderscore__ absolutely love this new format ben; now, have you considered; more bouncy? maybe add a trampoline or something? lean in","year":2023,"date":"2023-04-07","favorites":3,"retweets":0,"replyTo":"oneunderscore__"},{"id":"1512115375919570945","text":"RT @mourner: Amidst the new realities of war, Air Raid Sirens have been a constant presence in my daily life, and the lives of millions of…","year":2022,"date":"2022-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"1512069344192131087","text":"Reply all is so good","year":2022,"date":"2022-04-07","favorites":1,"retweets":0,"replyTo":null},{"id":"1379919351017574411","text":"I am unable to handle how these non-journalism people use the word deadline... like they are gonna \"move\" the deadline? you can move a deadline??? working in breaking news clearly broke me","year":2021,"date":"2021-04-07","favorites":8,"retweets":1,"replyTo":null},{"id":"1379918871159844865","text":"@MapMakinMeyers I spent 2019 shooting for a little bit almost every day, 12k+ photos, and like maybe 2 of them","year":2021,"date":"2021-04-07","favorites":2,"retweets":0,"replyTo":"MapMakinMeyers"},{"id":"1379918585431269377","text":"@NathanBLawrence it's so good","year":2021,"date":"2021-04-07","favorites":0,"retweets":0,"replyTo":"NathanBLawrence"},{"id":"1379892697150976001","text":"look at her https://t.co/jBjeXB0hrE","year":2021,"date":"2021-04-07","favorites":8,"retweets":0,"replyTo":"mrejfox"},{"id":"1379864207747915779","text":"RT @mdavidallen: @mrejfox the universe wants you to have a bigger motorcycle, obviously.  Who are you to resist?","year":2021,"date":"2021-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"1379861170052608003","text":"I told myself if I made it through that awful winter I would buy myself a bigger motorcycle, and by god it looks like it's spring outside","year":2021,"date":"2021-04-07","favorites":6,"retweets":0,"replyTo":null},{"id":"1379748062004908032","text":"@RyanBeckler @TravelingAnna @Its_Katka Definitely in!","year":2021,"date":"2021-04-07","favorites":2,"retweets":0,"replyTo":"RyanBeckler"},{"id":"1247650317736595456","text":"RT @mrejfox: I miss Bryant Park","year":2020,"date":"2020-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"1247650236748779522","text":"RT @Blaauboer32: Ugh I miss Bryant Park 😭 https://t.co/SLGDLTPNSI","year":2020,"date":"2020-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"1247650203030695938","text":"RT @Toosha_mahmeed: Studying about New York public parks. And now I miss my lovely Bryant Park. 🥺🥺🥺❤️❤️❤️❤️❤️ https://t.co/ETuvIPqbje","year":2020,"date":"2020-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"1247650182726107149","text":"RT @Kimbeerly_x0: i miss nyc, my job and my daily walks past bryant park. https://t.co/JVsJk8YHG5","year":2020,"date":"2020-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"1247650171095339018","text":"RT @TraciPConnor: @nyclovesnyc @NYCDailyPics @nycgo @agreatbigcity @nycfeelings @ABC7NY @EmpireStateBldg @bryantparknyc @NYCParks I miss Br…","year":2020,"date":"2020-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"1247319122150600704","text":"I miss Bryant Park","year":2020,"date":"2020-04-07","favorites":0,"retweets":1,"replyTo":null},{"id":"1115001418950291456","text":"I wondered to myself \"I wonder if there is like a d3.scale for music?\" and... here's a better version that uses Tonal.js for picking scales and chords and is turning up way more interesting and surprising results https://t.co/2TMBriolfg","year":2019,"date":"2019-04-07","favorites":4,"retweets":1,"replyTo":"mrejfox"},{"id":"1114995237884182529","text":"If you know more about music than I do, you can adjust the possible notes (and octaves) it picks from here: https://t.co/Y5R10ANYKr","year":2019,"date":"2019-04-07","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1114994732281806851","text":"Continuing to experiment with Tone.js, Chance.js, and generative music on Glitch https://t.co/Ojl5eP4wMa","year":2019,"date":"2019-04-07","favorites":2,"retweets":0,"replyTo":null},{"id":"1114949649998274560","text":"@mdavidallen I have made some progress using rollup to build browser and node versions of my original script.. but I need to rewrite these classes so the export can be used properly https://t.co/SOkkXM4sOf","year":2019,"date":"2019-04-07","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1114949334561382400","text":"@mdavidallen I want to use https://t.co/3Dv1Zi3jv3 because they automatically host the npm modules in a way I can access from Glitch (or Observable or my own site) - I am trying to build all of that on top of my existing node library without breaking my old art scripts that use it 😳","year":2019,"date":"2019-04-07","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1114948894553792512","text":"@mdavidallen It generates the art on the server on node (so it can run on heroku on a schedule) which is handy. But I also want to be able to show the scripts running in-progress in real-time (and maybe expose controls) on something like Glitch https://t.co/g6S7PX22V8","year":2019,"date":"2019-04-07","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1114948401349763073","text":"@mdavidallen Appreciate all this help! Spent last night reading up on stuff and made some progress. What I'm trying to do is have a relatively simple library to structure my generative art stuff. Right now @ejfox/four-seventeen is powering https://t.co/eYJy8kZZHS https://t.co/seZnnP7QBv","year":2019,"date":"2019-04-07","favorites":0,"retweets":0,"replyTo":"mdavidallen"},{"id":"1114947406506995718","text":"the bodega guy says that I shouldn't feel bad about not doing anything but eating sandwiches all weekend and I really appreciate him for that","year":2019,"date":"2019-04-07","favorites":4,"retweets":0,"replyTo":null},{"id":"1114918309529567233","text":"A few weeks ago a childhood friend of mine was murdered in his apartment. https://t.co/UrQeboOm1s \n\nStill no arrests or information and it is strange to me how much that matters. How much I want to find the people who did this and figure out why.","year":2019,"date":"2019-04-07","favorites":4,"retweets":2,"replyTo":null},{"id":"982742902047637509","text":"RT @CelesteKatzNYC: 🚨🚨🚨 https://t.co/vIdSymTvum","year":2018,"date":"2018-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"982742784326160384","text":"RT @brianlawton9: There is a fire right now in Trump Tower. Was small and then something happened where the size doubled in seconds! https:…","year":2018,"date":"2018-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"982715315674079233","text":"RT @mrejfox: can everyone just stop arguing","year":2018,"date":"2018-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"982676127788490753","text":"RT @jemelehill: A nice mic drop by @hbryant42 on how the NFL’s plan to suppress/eliminate the player protests has essentially worked https:…","year":2018,"date":"2018-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"982670728620396545","text":"RT @thomas_peele: While he guts newspapers across the country &amp; decimates the #Denverpost  with layoffs, Digital First Media chairman Heath…","year":2018,"date":"2018-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"982667685258498049","text":"RT @AsafRonel: The Palestinian journalist Yaser Murtaja, who was shot in the chest by an Israeli sniper while wearing a vest marked \"press\"…","year":2018,"date":"2018-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"850483109934116864","text":"RT @DanceBitchBK: Holler if you're in BK and can hear the shabbos alarm goin off right now! 🚨","year":2017,"date":"2017-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"850482716546138112","text":"SABBATH SIREN\n\nGood to be back in brooklyn","year":2017,"date":"2017-04-07","favorites":1,"retweets":0,"replyTo":null},{"id":"850459942964408320","text":"tired of covering protests for no money (pay me)","year":2017,"date":"2017-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"850387540586770433","text":"@ALSTON2008 cigarettes count as meals","year":2017,"date":"2017-04-07","favorites":1,"retweets":0,"replyTo":"ALSTON2008"},{"id":"850358797185019906","text":"I WONDER WHY I'M IN A BAD MOOD TODAY","year":2017,"date":"2017-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"850154463155425280","text":"RT @BraddJaffy: NBC NEWS: U.S. has launched missile strikes on al-Shayrat military airfield near Homs, Syria","year":2017,"date":"2017-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"718196016617517056","text":"RT @weeddude: https://t.co/CZALeN2C4g (via @KTLA)","year":2016,"date":"2016-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"717914264099364866","text":"Is there emoji encryption yet","year":2016,"date":"2016-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"717869245762183169","text":"@RyanBeckler 🇺🇸","year":2016,"date":"2016-04-07","favorites":1,"retweets":0,"replyTo":"RyanBeckler"},{"id":"585549990271066113","text":"The more I learn about the Silk Road saga, the more I think it is worthy of a Serial-esque podcast investigation, shit goes deep","year":2015,"date":"2015-04-07","favorites":0,"retweets":1,"replyTo":null},{"id":"585545429036707840","text":"The real question is: Who made money from Silk Road and got away from it? It wasn't Ulbricht/DPR, who sieved money to blackmailers","year":2015,"date":"2015-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"585531244470996994","text":"http://t.co/t5Hn7pcd31 - I count 6: Mr Wonderful, Variety Jones, Tony76, FriendlyChemist, RedAndWhite, 'Oracle' from SR2","year":2015,"date":"2015-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"585470870468059137","text":"RT @eagereyes: “Honestly, the only people who do the squishy thing [resizing the browser window] are usually other nerds.” – @alykat #OpenV…","year":2015,"date":"2015-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"585470588954771456","text":"RT @JessSchillinger: .@nprviz team has all their coding, guidelines, web dev, etc tools open to everyone online https://t.co/qSRdbl4WUY #op…","year":2015,"date":"2015-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"585470313917456385","text":"I have advanced to the next level of Best Buy assistance. I am informed my battle begins in 1-7 days. I am ready.","year":2015,"date":"2015-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"453255416848605184","text":"RT @MotherJones: Mother Jones needs to raise $100k to support our investigative reporting. Can you help out by giving $5? http://t.co/v8qqB…","year":2014,"date":"2014-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"453226523806683136","text":"Whenever you’re doing art, you’re never like “I’m doing art!” you’re all “Need to get this project done…” - sometimes I forget this.","year":2014,"date":"2014-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"453165922803806208","text":"Chalk me in for a vote for Ellen as new Late Show host","year":2014,"date":"2014-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"320857212983586817","text":"\"A hero is a man who does what he can.\" - Romain Rolland","year":2013,"date":"2013-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"320823514355625984","text":"Trying to figure out when they open the salad bar at Hannaford. I think I miss San Francisco. Specifically, I miss fancy-pants salads.","year":2013,"date":"2013-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"320812732964278273","text":"RT @ejfoxverbose: New tumblr post: \"anterosphoto:\n\nWarwick, NY\" http://t.co/M8xBRVfVgQ ,","year":2013,"date":"2013-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"320812699690885121","text":"Put a new theme on my photoblog and updated it with some stuff from old folders of photos... http://t.co/aEnqHbetXm","year":2013,"date":"2013-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"188706125514936320","text":"RT @socialistlib510: @hyphy_republic this city should be up in arms about many things. @gonzoakland","year":2012,"date":"2012-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"188699149590462465","text":"RT @susie_c: Citizen journalism workshop w me & @pixplz. Next Sunday, April 15, 12pm, Mosswood amphitheater. Not just #occupy coverage,  ...","year":2012,"date":"2012-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"188689197924749315","text":"RT @newsycombinator: When the cops subpoena your Facebook information, here's what FB sends the cops http://t.co/INW0mnYO","year":2012,"date":"2012-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"188659935318523904","text":"@nomadnewyork @hyphy_republic Sorry, but #solidarity does not mean \"never insult me\" or \"never argue\", it means \"get over it & move forward\"","year":2012,"date":"2012-04-07","favorites":0,"retweets":0,"replyTo":"lucky_number9_"},{"id":"188659593608564737","text":"@marymad Good to know, I'm really incredibly bummed I'm going to miss the anniversary party on Tuesday. =[ Tryna find #ows stuff while here","year":2012,"date":"2012-04-07","favorites":0,"retweets":0,"replyTo":"treekisser"},{"id":"188658190500642819","text":"When I'm in Oakland I miss New York... when I'm in New York I miss Oakland...","year":2012,"date":"2012-04-07","favorites":2,"retweets":0,"replyTo":null},{"id":"188619653881397248","text":"Oh my god, stop making Fringe. I looked away for one one second and now I won't understand anything because of uber-convoluted plotlines...","year":2012,"date":"2012-04-07","favorites":1,"retweets":0,"replyTo":null},{"id":"188434652560769025","text":"Free speech advocates plan mass list of \"haters\" to ignore, non-violence advocates advocate streaming smashy comrades for arrests. 1+1= -63?","year":2012,"date":"2012-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"188428558329323520","text":"Finally have a second to breathe, so I'm working on a redesign of my personal site, any thoughts / feedback? http://t.co/lahKZuwM","year":2012,"date":"2012-04-07","favorites":1,"retweets":0,"replyTo":null},{"id":"56040166896320513","text":"RT @nellleo: today's word: infauxgraphic . an infographic representing unverified and possibly unicorn-generated insights. #tada","year":2011,"date":"2011-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"11764580112","text":"@bluemonq They gave me the whole test, but the dude kinda gave me a pass on my shoddy parallel parking deal. He jus wanted America to drive.","year":2010,"date":"2010-04-07","favorites":0,"retweets":0,"replyTo":"bluemonq"},{"id":"11764511801","text":"SOMEBODY HAS A LICENSE","year":2010,"date":"2010-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"11762474494","text":"Got my certificate. Back at the road test place. Waiting some more. It will be outrageously obnoxious if I do not pass it.","year":2010,"date":"2010-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"11755420156","text":"Waiting in the road test line. Haven't talked to anybody and I'm still skeptical that I'll be able to take the test anyway.","year":2010,"date":"2010-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"11750575026","text":"Dubstep is one of the few genres where I'll consistently find songs where I'm like \"this is the coolest thing ever\", every1 needs to catchup","year":2010,"date":"2010-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"11750211250","text":"At 9:00 I'm gonna try to go to my road test appointment but I don't have my 5-hour course certificate so they probs won't let me.","year":2010,"date":"2010-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"1472658267","text":"Took a walk in the woods with Daisy. Chilling now.","year":2009,"date":"2009-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"1472207897","text":"I could see Animal Collective twice... once in May and once in August. Would that be ridiculous? Yeah. Yeah it might.","year":2009,"date":"2009-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"1472152099","text":"I just found out that With Arms Outstretched (by Rilo Kiley) goes really well into You Can't Blame The Youth (by Bob Marley). #notetoself","year":2009,"date":"2009-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"1472024936","text":"I must have accrued some awesome karma in my previous life.","year":2009,"date":"2009-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"1471246992","text":"Walk in the forest was relaxing and productive (?!?!).","year":2009,"date":"2009-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"1470088754","text":"I have heartpain. I'm only twittering this in case I get a heart attack. Might be from the mac and cheese yesterday. Seriously.","year":2009,"date":"2009-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"1470036514","text":"Data entry. Data data. Entry entry. Spreadsheets. Typing in them. Using them.","year":2009,"date":"2009-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"1466761812","text":"Early sleep, see ya tweeps.","year":2009,"date":"2009-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"784664551","text":"The day is over. Someone said \"Goodnight\" to me and it freaked me out (IT'S 5:00! WHAT ARE YOU TALKING ABOUT?!) before I realized...","year":2008,"date":"2008-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"784642107","text":"I think that if I get an iPhone I might not have any way to motivate myself to do anything ever again.","year":2008,"date":"2008-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"784634120","text":"Okay I'm feeling less slow and useless and confused.","year":2008,"date":"2008-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"784630683","text":"Feeling slow and useless and confused. Wait what?","year":2008,"date":"2008-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"784600038","text":"Working on this chart.","year":2008,"date":"2008-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"784583099","text":"I miss my keyboard-side sketchbook, which makes me realize how much I truly used it.","year":2008,"date":"2008-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"784580700","text":"Sudden wave of tiredness. Feel like I could sleep for agesssssss,","year":2008,"date":"2008-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"784513419","text":"I'm hungry.","year":2008,"date":"2008-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"784486991","text":"Okay, so. I wrote a short little bio about myself: http://is.gd/4xg","year":2008,"date":"2008-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"784438936","text":"I wish I had a list of buzzwords.","year":2008,"date":"2008-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"784434736","text":"Oooh. I get to write a bio about myself and my experience with social networks. Lord knows I love talking about myself.","year":2008,"date":"2008-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"784393053","text":"Set up my Mac Mini on a monitor next to a beautiful 24\" iMac. I feel... humbled by how ridiculously awesome that iMac is.","year":2008,"date":"2008-04-07","favorites":0,"retweets":0,"replyTo":null},{"id":"784332421","text":"Good morning. I have a headache. Forgot my phone charger in NY. Feeling stupid.","year":2008,"date":"2008-04-07","favorites":0,"retweets":0,"replyTo":null}],"posts":[{"slug":"week-notes/2025-15","title":"2025 15","year":2025,"date":"2025-04-07T04:27:52.000Z","dek":null,"type":"post","tags":["weekly-notes","reflections","progress"]}],"scrobbles":[{"date":"2024-04-07","year":2024,"count":51,"topTracks":["Hiatus Kaiyote - Sip Into Something Soft","Hiatus Kaiyote - And We Go Gentle","Thundercat - Dragonball Durag","Redveil - 2daside","Jazzbois - Monsun - Live at Akvarium"],"topArtists":["Hiatus Kaiyote","Thundercat","Redveil"]},{"date":"2023-04-07","year":2023,"count":48,"topTracks":["Hiatus Kaiyote - Sip Into Something Soft","The Alchemist - Loose Change (feat. Earl Sweatshirt)","zekeultra - CARRY ME HOME","Sa-Ra Creative Partners - Glorious","Mac Miller - In the Morning"],"topArtists":["Hiatus Kaiyote","The Alchemist","zekeultra"]},{"date":"2022-04-07","year":2022,"count":87,"topTracks":["Zach Schimpf - takin' my own advice","Zach Schimpf - cock-a-doodle-doo","Zach Schimpf - schrödinger's cat","Zach Schimpf - hayride","Zach Schimpf - the weather"],"topArtists":["Zach Schimpf","Weldon Irvine","Blundetto"]},{"date":"2011-04-07","year":2011,"count":48,"topTracks":["Atmosphere - Always Coming Back Home to You","Atmosphere - Hope","Atmosphere - Americareful","Atmosphere - One of a Kind","Atmosphere - Musical Chairs"],"topArtists":["Atmosphere","Orson Scott Card","Gabriel Ananda"]},{"date":"2009-04-07","year":2009,"count":69,"topTracks":["Death Cab for Cutie - We Looked Like Giants","Tegan and Sara - Come On Kids","The Blow - True Affection","The Mars Volta - Take the Veil Cerpin Taxt","Bob Marley - Rat Race"],"topArtists":["Death Cab for Cutie","Tegan and Sara","The Blow"]},{"date":"2008-04-07","year":2008,"count":51,"topTracks":["Boards of Canada - Boc Maxima","Boards of Canada - Oirectine","Boards of Canada - Smokes Quantity","Boards of Canada - Chinook","Boards of Canada - Beware the Friendly Stranger"],"topArtists":["Boards of Canada","Cold War Kids","Bob Marley"]},{"date":"2007-04-07","year":2007,"count":70,"topTracks":["Imogen Heap - The Walk","Imogen Heap - Just for Now","Imogen Heap - I Am In Love With You","Imogen Heap - Closing In","Imogen Heap - The Moment I Said It"],"topArtists":["Imogen Heap","Dashboard Confessional","CSS"]}],"commits":[]}
+{
+  "tweets": [
+    {
+      "id": "1644447277887508483",
+      "text": "@HipCityReg https://t.co/Z5hRGLK7sB",
+      "year": 2023,
+      "date": "2023-04-07",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "HipCityReg"
+    },
+    {
+      "id": "1644410614771589149",
+      "text": "@visakanv I agree, we are more likely in the sidekick era https://t.co/A8v1Ds7Ntn",
+      "year": 2023,
+      "date": "2023-04-07",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "visakanv"
+    },
+    {
+      "id": "1644387167727124509",
+      "text": "RT @KeeganNYC: NYPD officers arrested a guy with a BLM sticker on his helmet, didn't realize his phone was recording, were recorded braggin…",
+      "year": 2023,
+      "date": "2023-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1644151885081849856",
+      "text": "I would have really respected it if Taibbi had gone on the show and been like \"I JUST LOVE MONEY! MONEY IS GREAT! YUM YUM MONEY!\" but, alas",
+      "year": 2023,
+      "date": "2023-04-07",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1644134299371806722",
+      "text": "@oneunderscore__ absolutely love this new format ben; now, have you considered; more bouncy? maybe add a trampoline or something? lean in",
+      "year": 2023,
+      "date": "2023-04-07",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": "oneunderscore__"
+    },
+    {
+      "id": "1512115375919570945",
+      "text": "RT @mourner: Amidst the new realities of war, Air Raid Sirens have been a constant presence in my daily life, and the lives of millions of…",
+      "year": 2022,
+      "date": "2022-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1512069344192131087",
+      "text": "Reply all is so good",
+      "year": 2022,
+      "date": "2022-04-07",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1379919351017574411",
+      "text": "I am unable to handle how these non-journalism people use the word deadline... like they are gonna \"move\" the deadline? you can move a deadline??? working in breaking news clearly broke me",
+      "year": 2021,
+      "date": "2021-04-07",
+      "favorites": 8,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "1379918871159844865",
+      "text": "@MapMakinMeyers I spent 2019 shooting for a little bit almost every day, 12k+ photos, and like maybe 2 of them",
+      "year": 2021,
+      "date": "2021-04-07",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "MapMakinMeyers"
+    },
+    {
+      "id": "1379918585431269377",
+      "text": "@NathanBLawrence it's so good",
+      "year": 2021,
+      "date": "2021-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "NathanBLawrence"
+    },
+    {
+      "id": "1379892697150976001",
+      "text": "look at her https://t.co/jBjeXB0hrE",
+      "year": 2021,
+      "date": "2021-04-07",
+      "favorites": 8,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1379864207747915779",
+      "text": "RT @mdavidallen: @mrejfox the universe wants you to have a bigger motorcycle, obviously.  Who are you to resist?",
+      "year": 2021,
+      "date": "2021-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1379861170052608003",
+      "text": "I told myself if I made it through that awful winter I would buy myself a bigger motorcycle, and by god it looks like it's spring outside",
+      "year": 2021,
+      "date": "2021-04-07",
+      "favorites": 6,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1379748062004908032",
+      "text": "@RyanBeckler @TravelingAnna @Its_Katka Definitely in!",
+      "year": 2021,
+      "date": "2021-04-07",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "RyanBeckler"
+    },
+    {
+      "id": "1247650317736595456",
+      "text": "RT @mrejfox: I miss Bryant Park",
+      "year": 2020,
+      "date": "2020-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1247650236748779522",
+      "text": "RT @Blaauboer32: Ugh I miss Bryant Park 😭 https://t.co/SLGDLTPNSI",
+      "year": 2020,
+      "date": "2020-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1247650203030695938",
+      "text": "RT @Toosha_mahmeed: Studying about New York public parks. And now I miss my lovely Bryant Park. 🥺🥺🥺❤️❤️❤️❤️❤️ https://t.co/ETuvIPqbje",
+      "year": 2020,
+      "date": "2020-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1247650182726107149",
+      "text": "RT @Kimbeerly_x0: i miss nyc, my job and my daily walks past bryant park. https://t.co/JVsJk8YHG5",
+      "year": 2020,
+      "date": "2020-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1247650171095339018",
+      "text": "RT @TraciPConnor: @nyclovesnyc @NYCDailyPics @nycgo @agreatbigcity @nycfeelings @ABC7NY @EmpireStateBldg @bryantparknyc @NYCParks I miss Br…",
+      "year": 2020,
+      "date": "2020-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1247319122150600704",
+      "text": "I miss Bryant Park",
+      "year": 2020,
+      "date": "2020-04-07",
+      "favorites": 0,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "1115001418950291456",
+      "text": "I wondered to myself \"I wonder if there is like a d3.scale for music?\" and... here's a better version that uses Tonal.js for picking scales and chords and is turning up way more interesting and surprising results https://t.co/2TMBriolfg",
+      "year": 2019,
+      "date": "2019-04-07",
+      "favorites": 4,
+      "retweets": 1,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1114995237884182529",
+      "text": "If you know more about music than I do, you can adjust the possible notes (and octaves) it picks from here: https://t.co/Y5R10ANYKr",
+      "year": 2019,
+      "date": "2019-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1114994732281806851",
+      "text": "Continuing to experiment with Tone.js, Chance.js, and generative music on Glitch https://t.co/Ojl5eP4wMa",
+      "year": 2019,
+      "date": "2019-04-07",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1114949649998274560",
+      "text": "@mdavidallen I have made some progress using rollup to build browser and node versions of my original script.. but I need to rewrite these classes so the export can be used properly https://t.co/SOkkXM4sOf",
+      "year": 2019,
+      "date": "2019-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1114949334561382400",
+      "text": "@mdavidallen I want to use https://t.co/3Dv1Zi3jv3 because they automatically host the npm modules in a way I can access from Glitch (or Observable or my own site) - I am trying to build all of that on top of my existing node library without breaking my old art scripts that use it 😳",
+      "year": 2019,
+      "date": "2019-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1114948894553792512",
+      "text": "@mdavidallen It generates the art on the server on node (so it can run on heroku on a schedule) which is handy. But I also want to be able to show the scripts running in-progress in real-time (and maybe expose controls) on something like Glitch https://t.co/g6S7PX22V8",
+      "year": 2019,
+      "date": "2019-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1114948401349763073",
+      "text": "@mdavidallen Appreciate all this help! Spent last night reading up on stuff and made some progress. What I'm trying to do is have a relatively simple library to structure my generative art stuff. Right now @ejfox/four-seventeen is powering https://t.co/eYJy8kZZHS https://t.co/seZnnP7QBv",
+      "year": 2019,
+      "date": "2019-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mdavidallen"
+    },
+    {
+      "id": "1114947406506995718",
+      "text": "the bodega guy says that I shouldn't feel bad about not doing anything but eating sandwiches all weekend and I really appreciate him for that",
+      "year": 2019,
+      "date": "2019-04-07",
+      "favorites": 4,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1114918309529567233",
+      "text": "A few weeks ago a childhood friend of mine was murdered in his apartment. https://t.co/UrQeboOm1s \n\nStill no arrests or information and it is strange to me how much that matters. How much I want to find the people who did this and figure out why.",
+      "year": 2019,
+      "date": "2019-04-07",
+      "favorites": 4,
+      "retweets": 2,
+      "replyTo": null
+    },
+    {
+      "id": "982742902047637509",
+      "text": "RT @CelesteKatzNYC: 🚨🚨🚨 https://t.co/vIdSymTvum",
+      "year": 2018,
+      "date": "2018-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "982742784326160384",
+      "text": "RT @brianlawton9: There is a fire right now in Trump Tower. Was small and then something happened where the size doubled in seconds! https:…",
+      "year": 2018,
+      "date": "2018-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "982715315674079233",
+      "text": "RT @mrejfox: can everyone just stop arguing",
+      "year": 2018,
+      "date": "2018-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "982676127788490753",
+      "text": "RT @jemelehill: A nice mic drop by @hbryant42 on how the NFL’s plan to suppress/eliminate the player protests has essentially worked https:…",
+      "year": 2018,
+      "date": "2018-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "982670728620396545",
+      "text": "RT @thomas_peele: While he guts newspapers across the country &amp; decimates the #Denverpost  with layoffs, Digital First Media chairman Heath…",
+      "year": 2018,
+      "date": "2018-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "982667685258498049",
+      "text": "RT @AsafRonel: The Palestinian journalist Yaser Murtaja, who was shot in the chest by an Israeli sniper while wearing a vest marked \"press\"…",
+      "year": 2018,
+      "date": "2018-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "850483109934116864",
+      "text": "RT @DanceBitchBK: Holler if you're in BK and can hear the shabbos alarm goin off right now! 🚨",
+      "year": 2017,
+      "date": "2017-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "850482716546138112",
+      "text": "SABBATH SIREN\n\nGood to be back in brooklyn",
+      "year": 2017,
+      "date": "2017-04-07",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "850459942964408320",
+      "text": "tired of covering protests for no money (pay me)",
+      "year": 2017,
+      "date": "2017-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "850387540586770433",
+      "text": "@ALSTON2008 cigarettes count as meals",
+      "year": 2017,
+      "date": "2017-04-07",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "ALSTON2008"
+    },
+    {
+      "id": "850358797185019906",
+      "text": "I WONDER WHY I'M IN A BAD MOOD TODAY",
+      "year": 2017,
+      "date": "2017-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "850154463155425280",
+      "text": "RT @BraddJaffy: NBC NEWS: U.S. has launched missile strikes on al-Shayrat military airfield near Homs, Syria",
+      "year": 2017,
+      "date": "2017-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "718196016617517056",
+      "text": "RT @weeddude: https://t.co/CZALeN2C4g (via @KTLA)",
+      "year": 2016,
+      "date": "2016-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "717914264099364866",
+      "text": "Is there emoji encryption yet",
+      "year": 2016,
+      "date": "2016-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "717869245762183169",
+      "text": "@RyanBeckler 🇺🇸",
+      "year": 2016,
+      "date": "2016-04-07",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "RyanBeckler"
+    },
+    {
+      "id": "585549990271066113",
+      "text": "The more I learn about the Silk Road saga, the more I think it is worthy of a Serial-esque podcast investigation, shit goes deep",
+      "year": 2015,
+      "date": "2015-04-07",
+      "favorites": 0,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "585545429036707840",
+      "text": "The real question is: Who made money from Silk Road and got away from it? It wasn't Ulbricht/DPR, who sieved money to blackmailers",
+      "year": 2015,
+      "date": "2015-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "585531244470996994",
+      "text": "http://t.co/t5Hn7pcd31 - I count 6: Mr Wonderful, Variety Jones, Tony76, FriendlyChemist, RedAndWhite, 'Oracle' from SR2",
+      "year": 2015,
+      "date": "2015-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "585470870468059137",
+      "text": "RT @eagereyes: “Honestly, the only people who do the squishy thing [resizing the browser window] are usually other nerds.” – @alykat #OpenV…",
+      "year": 2015,
+      "date": "2015-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "585470588954771456",
+      "text": "RT @JessSchillinger: .@nprviz team has all their coding, guidelines, web dev, etc tools open to everyone online https://t.co/qSRdbl4WUY #op…",
+      "year": 2015,
+      "date": "2015-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "585470313917456385",
+      "text": "I have advanced to the next level of Best Buy assistance. I am informed my battle begins in 1-7 days. I am ready.",
+      "year": 2015,
+      "date": "2015-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "453255416848605184",
+      "text": "RT @MotherJones: Mother Jones needs to raise $100k to support our investigative reporting. Can you help out by giving $5? http://t.co/v8qqB…",
+      "year": 2014,
+      "date": "2014-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "453226523806683136",
+      "text": "Whenever you’re doing art, you’re never like “I’m doing art!” you’re all “Need to get this project done…” - sometimes I forget this.",
+      "year": 2014,
+      "date": "2014-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "453165922803806208",
+      "text": "Chalk me in for a vote for Ellen as new Late Show host",
+      "year": 2014,
+      "date": "2014-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "320857212983586817",
+      "text": "\"A hero is a man who does what he can.\" - Romain Rolland",
+      "year": 2013,
+      "date": "2013-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "320823514355625984",
+      "text": "Trying to figure out when they open the salad bar at Hannaford. I think I miss San Francisco. Specifically, I miss fancy-pants salads.",
+      "year": 2013,
+      "date": "2013-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "320812732964278273",
+      "text": "RT @ejfoxverbose: New tumblr post: \"anterosphoto:\n\nWarwick, NY\" http://t.co/M8xBRVfVgQ ,",
+      "year": 2013,
+      "date": "2013-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "320812699690885121",
+      "text": "Put a new theme on my photoblog and updated it with some stuff from old folders of photos... http://t.co/aEnqHbetXm",
+      "year": 2013,
+      "date": "2013-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "188706125514936320",
+      "text": "RT @socialistlib510: @hyphy_republic this city should be up in arms about many things. @gonzoakland",
+      "year": 2012,
+      "date": "2012-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "188699149590462465",
+      "text": "RT @susie_c: Citizen journalism workshop w me & @pixplz. Next Sunday, April 15, 12pm, Mosswood amphitheater. Not just #occupy coverage,  ...",
+      "year": 2012,
+      "date": "2012-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "188689197924749315",
+      "text": "RT @newsycombinator: When the cops subpoena your Facebook information, here's what FB sends the cops http://t.co/INW0mnYO",
+      "year": 2012,
+      "date": "2012-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "188659935318523904",
+      "text": "@nomadnewyork @hyphy_republic Sorry, but #solidarity does not mean \"never insult me\" or \"never argue\", it means \"get over it & move forward\"",
+      "year": 2012,
+      "date": "2012-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "lucky_number9_"
+    },
+    {
+      "id": "188659593608564737",
+      "text": "@marymad Good to know, I'm really incredibly bummed I'm going to miss the anniversary party on Tuesday. =[ Tryna find #ows stuff while here",
+      "year": 2012,
+      "date": "2012-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "treekisser"
+    },
+    {
+      "id": "188658190500642819",
+      "text": "When I'm in Oakland I miss New York... when I'm in New York I miss Oakland...",
+      "year": 2012,
+      "date": "2012-04-07",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "188619653881397248",
+      "text": "Oh my god, stop making Fringe. I looked away for one one second and now I won't understand anything because of uber-convoluted plotlines...",
+      "year": 2012,
+      "date": "2012-04-07",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "188434652560769025",
+      "text": "Free speech advocates plan mass list of \"haters\" to ignore, non-violence advocates advocate streaming smashy comrades for arrests. 1+1= -63?",
+      "year": 2012,
+      "date": "2012-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "188428558329323520",
+      "text": "Finally have a second to breathe, so I'm working on a redesign of my personal site, any thoughts / feedback? http://t.co/lahKZuwM",
+      "year": 2012,
+      "date": "2012-04-07",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "56040166896320513",
+      "text": "RT @nellleo: today's word: infauxgraphic . an infographic representing unverified and possibly unicorn-generated insights. #tada",
+      "year": 2011,
+      "date": "2011-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "11764580112",
+      "text": "@bluemonq They gave me the whole test, but the dude kinda gave me a pass on my shoddy parallel parking deal. He jus wanted America to drive.",
+      "year": 2010,
+      "date": "2010-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "bluemonq"
+    },
+    {
+      "id": "11764511801",
+      "text": "SOMEBODY HAS A LICENSE",
+      "year": 2010,
+      "date": "2010-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "11762474494",
+      "text": "Got my certificate. Back at the road test place. Waiting some more. It will be outrageously obnoxious if I do not pass it.",
+      "year": 2010,
+      "date": "2010-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "11755420156",
+      "text": "Waiting in the road test line. Haven't talked to anybody and I'm still skeptical that I'll be able to take the test anyway.",
+      "year": 2010,
+      "date": "2010-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "11750575026",
+      "text": "Dubstep is one of the few genres where I'll consistently find songs where I'm like \"this is the coolest thing ever\", every1 needs to catchup",
+      "year": 2010,
+      "date": "2010-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "11750211250",
+      "text": "At 9:00 I'm gonna try to go to my road test appointment but I don't have my 5-hour course certificate so they probs won't let me.",
+      "year": 2010,
+      "date": "2010-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1472658267",
+      "text": "Took a walk in the woods with Daisy. Chilling now.",
+      "year": 2009,
+      "date": "2009-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1472207897",
+      "text": "I could see Animal Collective twice... once in May and once in August. Would that be ridiculous? Yeah. Yeah it might.",
+      "year": 2009,
+      "date": "2009-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1472152099",
+      "text": "I just found out that With Arms Outstretched (by Rilo Kiley) goes really well into You Can't Blame The Youth (by Bob Marley). #notetoself",
+      "year": 2009,
+      "date": "2009-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1472024936",
+      "text": "I must have accrued some awesome karma in my previous life.",
+      "year": 2009,
+      "date": "2009-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1471246992",
+      "text": "Walk in the forest was relaxing and productive (?!?!).",
+      "year": 2009,
+      "date": "2009-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1470088754",
+      "text": "I have heartpain. I'm only twittering this in case I get a heart attack. Might be from the mac and cheese yesterday. Seriously.",
+      "year": 2009,
+      "date": "2009-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1470036514",
+      "text": "Data entry. Data data. Entry entry. Spreadsheets. Typing in them. Using them.",
+      "year": 2009,
+      "date": "2009-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1466761812",
+      "text": "Early sleep, see ya tweeps.",
+      "year": 2009,
+      "date": "2009-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "784664551",
+      "text": "The day is over. Someone said \"Goodnight\" to me and it freaked me out (IT'S 5:00! WHAT ARE YOU TALKING ABOUT?!) before I realized...",
+      "year": 2008,
+      "date": "2008-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "784642107",
+      "text": "I think that if I get an iPhone I might not have any way to motivate myself to do anything ever again.",
+      "year": 2008,
+      "date": "2008-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "784634120",
+      "text": "Okay I'm feeling less slow and useless and confused.",
+      "year": 2008,
+      "date": "2008-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "784630683",
+      "text": "Feeling slow and useless and confused. Wait what?",
+      "year": 2008,
+      "date": "2008-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "784600038",
+      "text": "Working on this chart.",
+      "year": 2008,
+      "date": "2008-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "784583099",
+      "text": "I miss my keyboard-side sketchbook, which makes me realize how much I truly used it.",
+      "year": 2008,
+      "date": "2008-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "784580700",
+      "text": "Sudden wave of tiredness. Feel like I could sleep for agesssssss,",
+      "year": 2008,
+      "date": "2008-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "784513419",
+      "text": "I'm hungry.",
+      "year": 2008,
+      "date": "2008-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "784486991",
+      "text": "Okay, so. I wrote a short little bio about myself: http://is.gd/4xg",
+      "year": 2008,
+      "date": "2008-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "784438936",
+      "text": "I wish I had a list of buzzwords.",
+      "year": 2008,
+      "date": "2008-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "784434736",
+      "text": "Oooh. I get to write a bio about myself and my experience with social networks. Lord knows I love talking about myself.",
+      "year": 2008,
+      "date": "2008-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "784393053",
+      "text": "Set up my Mac Mini on a monitor next to a beautiful 24\" iMac. I feel... humbled by how ridiculously awesome that iMac is.",
+      "year": 2008,
+      "date": "2008-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "784332421",
+      "text": "Good morning. I have a headache. Forgot my phone charger in NY. Feeling stupid.",
+      "year": 2008,
+      "date": "2008-04-07",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    }
+  ],
+  "posts": [
+    {
+      "slug": "week-notes/2025-15",
+      "title": "2025 15",
+      "year": 2025,
+      "date": "2025-04-07T04:27:52.000Z",
+      "dek": null,
+      "type": "post",
+      "tags": ["weekly-notes", "reflections", "progress"]
+    }
+  ],
+  "scrobbles": [
+    {
+      "date": "2024-04-07",
+      "year": 2024,
+      "count": 51,
+      "topTracks": [
+        "Hiatus Kaiyote - Sip Into Something Soft",
+        "Hiatus Kaiyote - And We Go Gentle",
+        "Thundercat - Dragonball Durag",
+        "Redveil - 2daside",
+        "Jazzbois - Monsun - Live at Akvarium"
+      ],
+      "topArtists": ["Hiatus Kaiyote", "Thundercat", "Redveil"]
+    },
+    {
+      "date": "2023-04-07",
+      "year": 2023,
+      "count": 48,
+      "topTracks": [
+        "Hiatus Kaiyote - Sip Into Something Soft",
+        "The Alchemist - Loose Change (feat. Earl Sweatshirt)",
+        "zekeultra - CARRY ME HOME",
+        "Sa-Ra Creative Partners - Glorious",
+        "Mac Miller - In the Morning"
+      ],
+      "topArtists": ["Hiatus Kaiyote", "The Alchemist", "zekeultra"]
+    },
+    {
+      "date": "2022-04-07",
+      "year": 2022,
+      "count": 87,
+      "topTracks": [
+        "Zach Schimpf - takin' my own advice",
+        "Zach Schimpf - cock-a-doodle-doo",
+        "Zach Schimpf - schrödinger's cat",
+        "Zach Schimpf - hayride",
+        "Zach Schimpf - the weather"
+      ],
+      "topArtists": ["Zach Schimpf", "Weldon Irvine", "Blundetto"]
+    },
+    {
+      "date": "2011-04-07",
+      "year": 2011,
+      "count": 48,
+      "topTracks": [
+        "Atmosphere - Always Coming Back Home to You",
+        "Atmosphere - Hope",
+        "Atmosphere - Americareful",
+        "Atmosphere - One of a Kind",
+        "Atmosphere - Musical Chairs"
+      ],
+      "topArtists": ["Atmosphere", "Orson Scott Card", "Gabriel Ananda"]
+    },
+    {
+      "date": "2009-04-07",
+      "year": 2009,
+      "count": 69,
+      "topTracks": [
+        "Death Cab for Cutie - We Looked Like Giants",
+        "Tegan and Sara - Come On Kids",
+        "The Blow - True Affection",
+        "The Mars Volta - Take the Veil Cerpin Taxt",
+        "Bob Marley - Rat Race"
+      ],
+      "topArtists": ["Death Cab for Cutie", "Tegan and Sara", "The Blow"]
+    },
+    {
+      "date": "2008-04-07",
+      "year": 2008,
+      "count": 51,
+      "topTracks": [
+        "Boards of Canada - Boc Maxima",
+        "Boards of Canada - Oirectine",
+        "Boards of Canada - Smokes Quantity",
+        "Boards of Canada - Chinook",
+        "Boards of Canada - Beware the Friendly Stranger"
+      ],
+      "topArtists": ["Boards of Canada", "Cold War Kids", "Bob Marley"]
+    },
+    {
+      "date": "2007-04-07",
+      "year": 2007,
+      "count": 70,
+      "topTracks": [
+        "Imogen Heap - The Walk",
+        "Imogen Heap - Just for Now",
+        "Imogen Heap - I Am In Love With You",
+        "Imogen Heap - Closing In",
+        "Imogen Heap - The Moment I Said It"
+      ],
+      "topArtists": ["Imogen Heap", "Dashboard Confessional", "CSS"]
+    }
+  ],
+  "commits": []
+}

@@ -41,9 +41,9 @@
           :key="lang.language"
           class="flex justify-between items-baseline"
         >
-          <span class="text-zinc-700 dark:text-zinc-400">{{
-            lang.language
-          }}</span>
+          <span class="text-zinc-700 dark:text-zinc-400">
+            {{ lang.language }}
+          </span>
           <span class="tabular-nums text-zinc-500 font-medium">
             <AnimatedNumber
               :value="lang.count"
@@ -73,7 +73,7 @@
               class="text-xs transition-colors"
               :class="[
                 'text-zinc-700 dark:text-zinc-300',
-                'hover:text-black dark:hover:text-white'
+                'hover:text-black dark:hover:text-white',
               ]"
             >
               {{ getGistTitle(gist) }}
@@ -143,7 +143,7 @@ const stats = computed(
       totalSize: 0,
       averageFilesPerGist: 0,
       topLanguages: [],
-      yearStats: {}
+      yearStats: {},
     }
 )
 

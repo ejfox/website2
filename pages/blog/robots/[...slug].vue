@@ -21,7 +21,7 @@ const { data: note } = await useAsyncData(
 if (!note.value || !note.value.metadata?.share) {
   throw createError({
     statusCode: 404,
-    message: 'Robot note not found'
+    message: 'Robot note not found',
   })
 }
 
@@ -34,7 +34,7 @@ const trimmedToc = computed(() => {
     .map((item) => ({
       text: item.text.length > 40 ? item.text.slice(0, 37) + '...' : item.text,
       slug: generateSlug(item.text),
-      level: `h${item.depth}`
+      level: `h${item.depth}`,
     }))
 })
 
@@ -115,8 +115,8 @@ const metadataFields = computed(() => {
       images: note.value.metadata.images,
       links: note.value.metadata.links,
       codeBlocks: note.value.metadata.codeBlocks,
-      headers: note.value.metadata.headers
-    }
+      headers: note.value.metadata.headers,
+    },
   }
 
   return fields
@@ -205,7 +205,7 @@ const proseClasses =
 
 // Add useHead for robot page title
 useHead({
-  title: note.value?.title
+  title: note.value?.title,
 })
 </script>
 
@@ -287,8 +287,9 @@ useHead({
               ref="titleRefs"
               class="inline-block opacity-0"
               :class="{ 'mr-[0.2em]': char === ' ' }"
-              >{{ char }}</span
             >
+              {{ char }}
+            </span>
           </h1>
           <p
             v-if="note.description"
@@ -353,7 +354,7 @@ useHead({
             _activeSection === section.slug
               ? 'text-zinc-900 dark:text-zinc-100'
               : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 ' +
-                'dark:hover:text-zinc-100'
+                'dark:hover:text-zinc-100',
           ]"
         >
           <div class="flex justify-between items-center group">

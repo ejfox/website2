@@ -20,28 +20,28 @@
     <StatsSectionHeader title="STATISTICS" />
     <div class="space-y-1.5">
       <div class="flex items-center justify-between">
-        <span class="text-zinc-500 uppercase tracking-widest text-xs"
-          >WORDS THIS MONTH</span
-        >
-        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums text-sm">{{
-          formatNumber(stats.words.thisMonth)
-        }}</span>
+        <span class="text-zinc-500 uppercase tracking-widest text-xs">
+          WORDS THIS MONTH
+        </span>
+        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums text-sm">
+          {{ formatNumber(stats.words.thisMonth) }}
+        </span>
       </div>
       <div class="flex items-center justify-between">
-        <span class="text-zinc-500 uppercase tracking-widest text-xs"
-          >AVG WORDS/POST</span
-        >
-        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums text-sm">{{
-          stats.words.avgPerPost
-        }}</span>
+        <span class="text-zinc-500 uppercase tracking-widest text-xs">
+          AVG WORDS/POST
+        </span>
+        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums text-sm">
+          {{ stats.words.avgPerPost }}
+        </span>
       </div>
       <div class="flex items-center justify-between">
-        <span class="text-zinc-500 uppercase tracking-widest text-xs"
-          >CURRENT MONTH</span
-        >
-        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums text-sm"
-          >{{ stats.month }} {{ stats.year }}</span
-        >
+        <span class="text-zinc-500 uppercase tracking-widest text-xs">
+          CURRENT MONTH
+        </span>
+        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums text-sm">
+          {{ stats.month }} {{ stats.year }}
+        </span>
       </div>
     </div>
 

@@ -15,7 +15,7 @@ export const navigationItems: NavItem[] = [
 
   // Secondary navigation (desktop sidebar / mobile more menu)
   { label: 'Photos', href: 'https://ejfox.photos', external: true },
-  { label: 'Archive', href: 'https://archive.ejfox.com', external: true }
+  { label: 'Archive', href: 'https://archive.ejfox.com', external: true },
 ]
 
 // Filter helpers

@@ -44,8 +44,8 @@ export default defineEventHandler(async (event) => {
     // Fetch from Pinboard API
     const response = await fetch(apiUrl, {
       headers: {
-        'User-Agent': 'ejfox.com/bookmarks-api'
-      }
+        'User-Agent': 'ejfox.com/bookmarks-api',
+      },
     })
 
     if (!response.ok) {
@@ -64,7 +64,7 @@ export default defineEventHandler(async (event) => {
         time: bookmark.time,
         shared: bookmark.shared === 'yes',
         toread: bookmark.toread === 'yes',
-        hash: bookmark.hash
+        hash: bookmark.hash,
       })
     )
 
@@ -78,7 +78,7 @@ export default defineEventHandler(async (event) => {
       count: newsBookmarks.length,
       total: processedBookmarks.length,
       tag: tag || '!news',
-      cached_at: new Date().toISOString()
+      cached_at: new Date().toISOString(),
     }
   } catch (error: any) {
     console.error('Error fetching bookmarks:', error)
@@ -88,7 +88,7 @@ export default defineEventHandler(async (event) => {
       error: 'Failed to fetch bookmarks',
       message: error.message,
       bookmarks: [],
-      count: 0
+      count: 0,
     }
   }
 })

@@ -43,8 +43,8 @@
 const props = defineProps({
   currentSlug: {
     type: String,
-    default: ''
-  }
+    default: '',
+  },
 })
 
 // Load gear data
@@ -104,7 +104,7 @@ const scrollToCenter = (targetIndex) => {
 
     container.scrollTo({
       left: scrollPosition,
-      behavior: 'smooth'
+      behavior: 'smooth',
     })
   }
 }

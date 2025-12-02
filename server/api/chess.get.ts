@@ -57,7 +57,7 @@ export default defineEventHandler(async () => {
   if (!username) {
     throw createError({
       statusCode: 401,
-      message: 'Chess.com username not configured'
+      message: 'Chess.com username not configured',
     })
   }
 
@@ -67,7 +67,7 @@ export default defineEventHandler(async () => {
     if (!response.ok) {
       throw createError({
         statusCode: response.status,
-        message: `Chess.com API error: ${response.statusText}`
+        message: `Chess.com API error: ${response.statusText}`,
       })
     }
 
@@ -87,7 +87,7 @@ export default defineEventHandler(async () => {
             latestArchive.replace('https://api.chess.com/pub/', '')
           )
         }
-      )
+      ),
     ])
 
     const stats = results[0].status === 'fulfilled' ? results[0].value : {}
@@ -99,12 +99,12 @@ export default defineEventHandler(async () => {
       currentRating: {
         bullet: stats.chess_bullet?.last?.rating || 0,
         blitz: stats.chess_blitz?.last?.rating || 0,
-        rapid: stats.chess_rapid?.last?.rating || 0
+        rapid: stats.chess_rapid?.last?.rating || 0,
       },
       bestRating: {
         bullet: stats.chess_bullet?.best?.rating || 0,
         blitz: stats.chess_blitz?.best?.rating || 0,
-        rapid: stats.chess_rapid?.best?.rating || 0
+        rapid: stats.chess_rapid?.best?.rating || 0,
       },
       gamesPlayed: {
         bullet:
@@ -119,20 +119,20 @@ export default defineEventHandler(async () => {
           (stats.chess_rapid?.record?.win || 0) +
           (stats.chess_rapid?.record?.loss || 0) +
           (stats.chess_rapid?.record?.draw || 0),
-        total: 0 // Will calculate below
+        total: 0, // Will calculate below
       },
       winRate: {
         bullet: calculateWinRate(stats.chess_bullet?.record),
         blitz: calculateWinRate(stats.chess_blitz?.record),
         rapid: calculateWinRate(stats.chess_rapid?.record),
-        overall: 0 // Will calculate below
+        overall: 0, // Will calculate below
       },
       puzzleStats: {
         rating: stats.tactics?.highest?.rating || 0,
         totalSolved: 0, // Chess.com doesn't provide total solved count in public API
         bestRating: stats.tactics?.highest?.rating || 0,
         lowestRating: stats.tactics?.lowest?.rating || 0,
-        lastUpdated: stats.tactics?.highest?.date
+        lastUpdated: stats.tactics?.highest?.date,
       },
       recentGames: games.games.slice(0, 10).map((game: any) => ({
         id: game.uuid,
@@ -143,9 +143,9 @@ export default defineEventHandler(async () => {
         timestamp: game.end_time,
         rating:
           game[username === game.white.username ? 'white' : 'black'].rating,
-        ratingDiff: calculateRatingDiff(game, username)
+        ratingDiff: calculateRatingDiff(game, username),
       })),
-      lastUpdated: new Date().toISOString()
+      lastUpdated: new Date().toISOString(),
     }
 
     // Calculate totals
@@ -158,7 +158,7 @@ export default defineEventHandler(async () => {
     const nonZeroRates = [
       response.winRate.bullet,
       response.winRate.blitz,
-      response.winRate.rapid
+      response.winRate.rapid,
     ].filter((rate) => rate > 0)
 
     response.winRate.overall =
@@ -172,7 +172,7 @@ export default defineEventHandler(async () => {
     console.error('Chess.com API error details:', error)
     throw createError({
       statusCode: error.statusCode || 500,
-      message: error.message || 'Failed to fetch Chess.com data'
+      message: error.message || 'Failed to fetch Chess.com data',
     })
   }
 })

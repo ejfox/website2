@@ -58,20 +58,20 @@ export default defineEventHandler(async () => {
     const response = await fetch('https://leetcode.com/graphql', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        query: query
-      })
+        query: query,
+      }),
     })
 
     if (!response.ok) {
       const error = await response.json().catch(() => ({
-        message: 'Unknown error'
+        message: 'Unknown error',
       }))
       throw createError({
         statusCode: response.status,
-        message: error.message || `LeetCode API error: ${response.statusText}`
+        message: error.message || `LeetCode API error: ${response.statusText}`,
       })
     }
 
@@ -90,14 +90,14 @@ export default defineEventHandler(async () => {
           titleSlug: submission.titleSlug,
           timestamp: submission.timestamp,
           statusDisplay: submission.statusDisplay,
-          lang: submission.lang
+          lang: submission.lang,
         })) || [],
       submissionStats: {
         easy: { count: 0, submissions: 0 },
         medium: { count: 0, submissions: 0 },
-        hard: { count: 0, submissions: 0 }
+        hard: { count: 0, submissions: 0 },
       },
-      lastUpdated: new Date().toISOString()
+      lastUpdated: new Date().toISOString(),
     }
 
     if (data.data.matchedUser?.submitStats?.acSubmissionNum) {
@@ -108,7 +108,7 @@ export default defineEventHandler(async () => {
             difficulty as keyof typeof response.submissionStats
           ] = {
             count: stat.count,
-            submissions: stat.submissions
+            submissions: stat.submissions,
           }
         }
       })
@@ -119,7 +119,7 @@ export default defineEventHandler(async () => {
     console.error('LeetCode API error:', error)
     throw createError({
       statusCode: 500,
-      message: `LeetCode API error: ${error.message}`
+      message: `LeetCode API error: ${error.message}`,
     })
   }
 })

@@ -40,7 +40,7 @@
           class="text-xs"
         >
           <span class="font-medium">{{ book.title }}</span>
-          <span class="text-muted"> — {{ book.author }}</span>
+          <span class="text-muted">— {{ book.author }}</span>
         </div>
       </div>
     </div>
@@ -56,7 +56,7 @@
         >
           <span class="truncate flex-1 min-w-0">
             {{ book.title }}
-            <span class="text-muted"> — {{ book.author }}</span>
+            <span class="text-muted">— {{ book.author }}</span>
           </span>
           <span
             v-if="book.rating >= 4"
@@ -102,8 +102,8 @@ import StatsSectionHeader from './StatsSectionHeader.vue'
 const props = defineProps({
   data: {
     type: Object,
-    default: () => ({})
-  }
+    default: () => ({}),
+  },
 })
 
 const formatRating = (rating) => {
@@ -119,7 +119,7 @@ const recentBooks = computed(() => {
   return props.data.books.read.slice(0, 60).map((book) => ({
     ...book,
     // Ensure we have cover data
-    cover: book.cover || null
+    cover: book.cover || null,
   }))
 })
 </script>

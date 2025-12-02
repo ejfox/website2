@@ -2,17 +2,30 @@
   <article class="scrobble-card">
     <div class="flex gap-3">
       <!-- Music icon -->
-      <div class="flex-shrink-0 w-10 h-10 rounded-full bg-red-50 dark:bg-red-950 flex items-center justify-center">
-        <svg class="w-5 h-5 text-red-500 dark:text-red-400" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+      <div
+        class="flex-shrink-0 w-10 h-10 rounded-full bg-red-50 dark:bg-red-950 flex items-center justify-center"
+      >
+        <svg
+          class="w-5 h-5 text-red-500 dark:text-red-400"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"
+          />
         </svg>
       </div>
 
       <div class="flex-grow min-w-0">
         <!-- Header -->
         <div class="flex items-baseline gap-2 mb-2">
-          <span class="font-medium text-zinc-900 dark:text-zinc-100 text-sm">{{ count }} scrobbles</span>
-          <span v-if="topArtists?.length" class="text-zinc-400 dark:text-zinc-500 text-xs">
+          <span class="font-medium text-zinc-900 dark:text-zinc-100 text-sm">
+            {{ count }} scrobbles
+          </span>
+          <span
+            v-if="topArtists?.length"
+            class="text-zinc-400 dark:text-zinc-500 text-xs"
+          >
             {{ topArtists.slice(0, 2).join(', ') }}
           </span>
         </div>
@@ -24,8 +37,14 @@
             :key="track"
             class="flex items-center gap-2 text-sm"
           >
-            <span class="text-zinc-300 dark:text-zinc-700 text-xs font-mono w-4">{{ i + 1 }}</span>
-            <span class="text-zinc-600 dark:text-zinc-400 truncate">{{ track }}</span>
+            <span
+              class="text-zinc-300 dark:text-zinc-700 text-xs font-mono w-4"
+            >
+              {{ i + 1 }}
+            </span>
+            <span class="text-zinc-600 dark:text-zinc-400 truncate">
+              {{ track }}
+            </span>
           </div>
         </div>
       </div>

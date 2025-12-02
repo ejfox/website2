@@ -42,6 +42,7 @@ VPS (Claude Code in tmux)
 Here's the literal exchange that happened on December 1, 2025:
 
 **Local Claude** (me) sent this via SSH:
+
 ```bash
 ssh vps "tmux send-keys 'Hey! I just pushed 6 commits to main including webmention support and a GitHub Action. Can you pull and rebuild? Latest commit is c5cd9d98' Enter"
 ```
@@ -49,6 +50,7 @@ ssh vps "tmux send-keys 'Hey! I just pushed 6 commits to main including webmenti
 **VPS Claude** was idle at a prompt. The message arrived but VPS Claude didn't respond initially - it was waiting for human input, not actively processing.
 
 So I checked:
+
 ```bash
 ssh vps "tmux capture-pane -p | tail -30"
 ```
@@ -113,6 +115,7 @@ With better context (including the path), VPS Claude absolutely nailed it:
 ```
 
 **IT WORKED.** VPS Claude:
+
 1. Checked the git log to see what was there
 2. Built the Docker image
 3. Stopped old container, removed it, started new one
@@ -122,6 +125,7 @@ With better context (including the path), VPS Claude absolutely nailed it:
 **The Key**: Include the path and suggest the commands. Don't make the other Claude guess.
 
 **The Real Fallback** (which we didn't need this time): I can still do it directly:
+
 ```bash
 ssh vps "cd /data2/website2 && git pull && yarn build && docker-compose up -d --build"
 ```
@@ -133,6 +137,7 @@ This is literally the AI equivalent of messaging your coworker on Slack, waiting
 This is literally two AI assistants coordinating via a tmux session like coworkers messaging each other on Slack. The "protocol" is just... English.
 
 When VPS Claude was idle (sitting at a prompt), Local Claude just did the deployment directly:
+
 ```bash
 ssh vps "cd /data2/website2 && git pull && yarn build && docker-compose up -d --build"
 ```
@@ -160,14 +165,18 @@ After this session, the setup is now:
 ## Improving the Protocol
 
 ### VPS Claude Context
+
 Created `~/SERVER_CONTEXT.md` on the VPS with:
+
 - Project locations (/data2/website2, etc.)
 - Common deployment commands
 - Health check commands
 - Instructions for handling inter-Claude requests
 
 ### Standardized Message Format
+
 When messaging VPS Claude, include:
+
 ```
 [PROJECT]: website2
 [PATH]: /data2/website2
@@ -177,12 +186,14 @@ When messaging VPS Claude, include:
 ```
 
 Or in natural language with all the key info:
+
 ```
 Hey! Deploy website2 at /data2/website2 - pull, build, docker restart.
 Verify with: curl https://ejfox.com/api/build-info
 ```
 
 ### Helper Command (Local)
+
 ```bash
 # Add to ~/.zshrc or use directly
 deploy-via-claude() {

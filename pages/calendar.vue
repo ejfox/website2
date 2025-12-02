@@ -26,9 +26,9 @@ useHead({
   meta: [
     {
       name: 'Content-Security-Policy',
-      content: "frame-src 'self' https://cal.com;"
-    }
-  ]
+      content: "frame-src 'self' https://cal.com;",
+    },
+  ],
 })
 </script>
 

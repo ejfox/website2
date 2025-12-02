@@ -24,6 +24,6 @@ export const useMarkdown = () => {
   }
 
   return {
-    markdownToHtml
+    markdownToHtml,
   }
 }

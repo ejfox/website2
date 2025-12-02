@@ -10,19 +10,20 @@ yarn install && yarn blog:import && yarn blog:process && yarn dev
 
 ## Commands
 
-| Command | Description |
-|---------|-------------|
-| `yarn dev` | Dev server (port 3006) |
-| `yarn build` | Production build |
-| `yarn blog:import` | Import from Obsidian |
-| `yarn blog:process` | Process MD → JSON |
-| `yarn predict` | Create cryptographic prediction |
-| `yarn webmentions` | Send webmentions (last 7 days) |
-| `yarn webmentions --all` | Send all webmentions |
+| Command                  | Description                     |
+| ------------------------ | ------------------------------- |
+| `yarn dev`               | Dev server (port 3006)          |
+| `yarn build`             | Production build                |
+| `yarn blog:import`       | Import from Obsidian            |
+| `yarn blog:process`      | Process MD → JSON               |
+| `yarn predict`           | Create cryptographic prediction |
+| `yarn webmentions`       | Send webmentions (last 7 days)  |
+| `yarn webmentions --all` | Send all webmentions            |
 
 ## Features
 
 ### Content Pipeline
+
 Obsidian → Markdown → Unified/Rehype → JSON → Vue
 
 ```
@@ -37,20 +38,20 @@ title: Post Title
 date: 2024-01-01
 dek: One-sentence description
 tags: [tag1, tag2]
-draft: false      # Hide from lists
-hidden: false     # Skip processing
-replyTo: https://example.com/post  # IndieWeb reply (single or array)
+draft: false # Hide from lists
+hidden: false # Skip processing
+replyTo: https://example.com/post # IndieWeb reply (single or array)
 ---
 ```
 
 ### IndieWeb
 
-| Feature | Details |
-|---------|---------|
-| **Reply posts** | `replyTo:` fetches OG data, shows context, sends webmention |
-| **Webmentions** | Display likes/reposts/replies, moderation via `data/webmention-moderation.json` |
-| **Microformats** | h-entry, h-card, u-in-reply-to on all posts |
-| **WebSub** | Hub at pubsubhubbub.superfeedr.com |
+| Feature          | Details                                                                         |
+| ---------------- | ------------------------------------------------------------------------------- |
+| **Reply posts**  | `replyTo:` fetches OG data, shows context, sends webmention                     |
+| **Webmentions**  | Display likes/reposts/replies, moderation via `data/webmention-moderation.json` |
+| **Microformats** | h-entry, h-card, u-in-reply-to on all posts                                     |
+| **WebSub**       | Hub at pubsubhubbub.superfeedr.com                                              |
 
 ### Predictions System
 

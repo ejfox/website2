@@ -39,8 +39,8 @@ export default defineEventHandler(async (event) => {
           tags: post.tags || [],
           metadata: {
             wordCount: post.wordCount,
-            readingTime: post.readingTime
-          }
+            readingTime: post.readingTime,
+          },
         })
       })
   } catch {
@@ -69,8 +69,8 @@ export default defineEventHandler(async (event) => {
             confidence: data.confidence,
             deadline: data.deadline,
             categories: data.categories || [],
-            status: data.status
-          }
+            status: data.status,
+          },
         })
 
         // Add prediction updates as events
@@ -84,8 +84,8 @@ export default defineEventHandler(async (event) => {
               url: `/predictions/${file.replace(/\.md$/, '')}`,
               metadata: {
                 confidenceBefore: update.confidenceBefore,
-                confidenceAfter: update.confidenceAfter
-              }
+                confidenceAfter: update.confidenceAfter,
+              },
             })
           })
         }
@@ -100,8 +100,8 @@ export default defineEventHandler(async (event) => {
             url: `/predictions/${file.replace(/\.md$/, '')}`,
             metadata: {
               status: data.status,
-              originalConfidence: data.confidence
-            }
+              originalConfidence: data.confidence,
+            },
           })
         }
       })
@@ -134,8 +134,8 @@ export default defineEventHandler(async (event) => {
               url: `/reading/${file.replace(/\.json$/, '')}`,
               metadata: {
                 author: book.metadata['kindle-sync'].author,
-                highlightsCount: book.metadata['kindle-sync'].highlightsCount
-              }
+                highlightsCount: book.metadata['kindle-sync'].highlightsCount,
+              },
             })
           }
         })
@@ -186,8 +186,8 @@ export default defineEventHandler(async (event) => {
       dateRange: {
         earliest,
         latest,
-        filters: { from, to }
-      }
+        filters: { from, to },
+      },
     },
     events: filteredEvents.slice(0, limit),
     stats: {
@@ -199,13 +199,13 @@ export default defineEventHandler(async (event) => {
         predictionResolutions: events.filter(
           (e) => e.type === 'prediction_resolution'
         ).length,
-        reading: events.filter((e) => e.type === 'reading').length
+        reading: events.filter((e) => e.type === 'reading').length,
       },
       byYear: events.reduce((acc: any, e) => {
         const year = new Date(e.timestamp).getFullYear()
         acc[year] = (acc[year] || 0) + 1
         return acc
-      }, {})
-    }
+      }, {}),
+    },
   }
 })

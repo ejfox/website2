@@ -30,7 +30,7 @@ if (error.value) {
   throw createError({
     statusCode: 404,
     statusMessage: 'Project not found',
-    fatal: true
+    fatal: true,
   })
 }
 
@@ -49,8 +49,8 @@ useHead({
     { name: 'description', content: description.value },
     { property: 'og:title', content: `${title.value} - EJ Fox` },
     { property: 'og:description', content: description.value },
-    { property: 'og:type', content: 'article' }
-  ]
+    { property: 'og:type', content: 'article' },
+  ],
 })
 
 // TOC target for teleport
@@ -76,7 +76,7 @@ const getTocLinkClass = (isActive) => {
   return [
     'text-zinc-600 dark:text-zinc-400',
     'hover:text-zinc-900 dark:hover:text-zinc-100',
-    'hover:translate-x-1'
+    'hover:translate-x-1',
   ].join(' ')
 }
 
@@ -94,7 +94,7 @@ onMounted(() => {
         })
       },
       {
-        rootMargin: '-80px 0px -80% 0px'
+        rootMargin: '-80px 0px -80% 0px',
       }
     )
   }

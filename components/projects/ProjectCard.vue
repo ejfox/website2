@@ -18,15 +18,16 @@
             :href="project.metadata.github"
             target="_blank"
             class="project-github-link"
-            >GitHub ↗</a
           >
+            GitHub ↗
+          </a>
         </div>
 
         <!-- Date with optional sparkline -->
         <div class="flex items-center gap-2">
-          <time class="project-date">{{
-            formatDate(project.metadata?.date || project.date)
-          }}</time>
+          <time class="project-date">
+            {{ formatDate(project.metadata?.date || project.date) }}
+          </time>
           <ClientOnly>
             <RhythmicSparklines
               v-if="projectActivity.length > 0"
@@ -44,8 +45,9 @@
             <span
               v-if="techIndex > 0"
               class="mx-2 text-zinc-300 dark:text-zinc-700"
-              >·</span
             >
+              ·
+            </span>
             <span>{{ tech }}</span>
           </span>
         </div>
@@ -61,12 +63,12 @@ const { getSlug } = useProjectSlug()
 const props = defineProps({
   project: {
     type: Object,
-    required: true
+    required: true,
   },
   index: {
     type: Number,
-    required: true
-  }
+    required: true,
+  },
 })
 
 const formatDate = formatYearOnly

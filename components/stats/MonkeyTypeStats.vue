@@ -26,8 +26,9 @@
           href="https://monkeytype.com"
           target="_blank"
           class="text-zinc-800 dark:text-zinc-300 hover:underline"
-          >MonkeyType.com</a
         >
+          MonkeyType.com
+        </a>
         to start tracking
       </div>
     </div>
@@ -40,9 +41,9 @@
         <div v-for="test in recentTests" :key="test.timestamp" class="test-row">
           <div class="flex-none">
             <!-- Simplified date format -->
-            <span class="text-zinc-400 text-2xs tabular-nums">{{
-              formatDateMinimal(test.timestamp)
-            }}</span>
+            <span class="text-zinc-400 text-2xs tabular-nums">
+              {{ formatDateMinimal(test.timestamp) }}
+            </span>
           </div>
           <div v-if="hasTestType(test)" class="test-type">
             {{ formatTestTypeMinimal(test) }}
@@ -63,7 +64,8 @@
                 :decimals="1"
                 :duration="400"
                 priority="tertiary"
-              />%
+              />
+              %
             </span>
           </div>
         </div>
@@ -95,7 +97,8 @@
               format="default"
               :duration="800"
               priority="secondary"
-            />%
+            />
+            %
           </div>
         </div>
 

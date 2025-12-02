@@ -59,6 +59,6 @@ export const useDateFormat = () => {
     formatCompactDate,
     formatYearOnly,
     formatRelativeTime,
-    formatTimestamp
+    formatTimestamp,
   }
 }

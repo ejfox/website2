@@ -13,9 +13,9 @@
 
       <div class="label-xs">
         <div>
-          <span class="text-primary mono-lg tabular">{{
-            transformedPredictions?.length || 0
-          }}</span>
+          <span class="text-primary mono-lg tabular">
+            {{ transformedPredictions?.length || 0 }}
+          </span>
           total ·
           <span class="text-success mono-lg tabular">{{ correctCount }}</span>
           correct ·
@@ -230,8 +230,9 @@
                     v-for="tag in getCommentary(position.ticker)?.tags"
                     :key="tag"
                     class="mr-1"
-                    >#{{ tag }}</span
                   >
+                    #{{ tag }}
+                  </span>
                 </td>
               </tr>
             </tbody>
@@ -296,9 +297,9 @@
       <!-- Summary stats -->
       <div class="label-xs section-spacing-sm stack-1">
         <div>
-          <span class="text-primary mono-lg tabular">{{
-            transformedPredictions.length
-          }}</span>
+          <span class="text-primary mono-lg tabular">
+            {{ transformedPredictions.length }}
+          </span>
           predictions ·
           <span class="text-primary mono-lg tabular">{{ resolvedCount }}</span>
           resolved ·
@@ -307,13 +308,13 @@
         </div>
         <div v-if="correctCount + incorrectCount > 0">
           Accuracy
-          <span class="text-primary font-mono text-xl font-bold tabular"
-            >{{ accuracyRate }}%</span
-          >
+          <span class="text-primary font-mono text-xl font-bold tabular">
+            {{ accuracyRate }}%
+          </span>
           · Avg confidence
-          <span class="text-primary font-mono text-xl font-bold tabular"
-            >{{ avgConfidence }}%</span
-          >
+          <span class="text-primary font-mono text-xl font-bold tabular">
+            {{ avgConfidence }}%
+          </span>
         </div>
       </div>
 
@@ -617,9 +618,9 @@
       <div class="calibration-label">
         <div class="mb-1">
           Analysis based on
-          <span class="text-zinc-900 dark:text-zinc-100 font-bold">{{
-            calibration.summary.resolved
-          }}</span>
+          <span class="text-zinc-900 dark:text-zinc-100 font-bold">
+            {{ calibration.summary.resolved }}
+          </span>
           resolved predictions
         </div>
         <div v-if="calibration.generated_at" class="generated-at">
@@ -653,15 +654,15 @@
           <div v-for="section in predictionToc" :key="section.type">
             <!-- Section header -->
             <div class="toc-section-label">
-              <span v-if="section.type === 'kalshi'"
-                >Markets ({{ section.items.length }})</span
-              >
-              <span v-else-if="section.type === 'active'"
-                >Active ({{ section.items.length }})</span
-              >
-              <span v-else-if="section.type === 'resolved'"
-                >Resolved ({{ section.items.length }})</span
-              >
+              <span v-if="section.type === 'kalshi'">
+                Markets ({{ section.items.length }})
+              </span>
+              <span v-else-if="section.type === 'active'">
+                Active ({{ section.items.length }})
+              </span>
+              <span v-else-if="section.type === 'resolved'">
+                Resolved ({{ section.items.length }})
+              </span>
             </div>
 
             <ul class="space-y-2 text-xs">
@@ -678,7 +679,7 @@
                     :class="[
                       activeSection === item.slug
                         ? 'text-zinc-900 dark:text-zinc-100 font-bold'
-                        : 'text-zinc-600 dark:text-zinc-400'
+                        : 'text-zinc-600 dark:text-zinc-400',
                     ]"
                   >
                     <div class="flex items-start gap-2">
@@ -690,9 +691,9 @@
                       >
                         {{ item.side }}
                       </span>
-                      <span class="block line-clamp-2 flex-1 min-w-0">{{
-                        item.text
-                      }}</span>
+                      <span class="block line-clamp-2 flex-1 min-w-0">
+                        {{ item.text }}
+                      </span>
                     </div>
                   </a>
                 </li>
@@ -711,17 +712,17 @@
                     :class="[
                       activeSection === item.slug
                         ? 'text-zinc-900 dark:text-zinc-100 font-bold'
-                        : 'text-zinc-600 dark:text-zinc-400'
+                        : 'text-zinc-600 dark:text-zinc-400',
                     ]"
                     :style="{ opacity: 0.7 + (item.confidence / 100) * 0.3 }"
                   >
                     <div class="flex items-start gap-2">
-                      <span class="text-zinc-500 dark:text-zinc-500 shrink-0"
-                        >{{ item.confidence }}%</span
-                      >
-                      <span class="block line-clamp-2 flex-1 min-w-0">{{
-                        item.text
-                      }}</span>
+                      <span class="text-zinc-500 dark:text-zinc-500 shrink-0">
+                        {{ item.confidence }}%
+                      </span>
+                      <span class="block line-clamp-2 flex-1 min-w-0">
+                        {{ item.text }}
+                      </span>
                       <span
                         v-if="
                           item.status === 'correct' ||
@@ -769,7 +770,7 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
   twitterTitle: 'Predictions - EJ Fox',
   twitterDescription: 'Cryptographically verified predictions and forecasts',
-  twitterImage: 'https://ejfox.com/og-image.png'
+  twitterImage: 'https://ejfox.com/og-image.png',
 })
 
 const { data: predictions, error: predictionsError } =
@@ -785,7 +786,7 @@ const transformedPredictions = computed(
       .map((p) => ({
         ...p,
         title: p.statement,
-        status: p.status || (p.resolved ? 'resolved' : 'pending')
+        status: p.status || (p.resolved ? 'resolved' : 'pending'),
       })) || []
 )
 
@@ -920,7 +921,7 @@ const resolutionsByYear = computed(() => {
       ...stats,
       accuracy: stats.total
         ? Math.round((stats.correct / stats.total) * 100)
-        : 0
+        : 0,
     }))
     .sort((a, b) => b.year - a.year)
 })
@@ -932,7 +933,7 @@ const calibrationData = computed(() => {
     { min: 70, max: 79, label: '70-79%' },
     { min: 60, max: 69, label: '60-69%' },
     { min: 50, max: 59, label: '50-59%' },
-    { min: 0, max: 49, label: '0-49%' }
+    { min: 0, max: 49, label: '0-49%' },
   ]
 
   return ranges
@@ -951,7 +952,7 @@ const calibrationData = computed(() => {
           ? Math.round((correct / predictions.length) * 100)
           : 0,
         correct,
-        total: predictions.length
+        total: predictions.length,
       }
     })
     .filter((range) => range.count > 0)
@@ -971,7 +972,7 @@ const predictionToc = computed(() => {
       text: getMarketTitle(pos.ticker),
       type: 'kalshi',
       side: pos.position > 0 ? 'YES' : 'NO',
-      ticker: pos.ticker
+      ticker: pos.ticker,
     }))
     sections.push({ type: 'kalshi', items: kalshiItems })
   }
@@ -987,7 +988,7 @@ const predictionToc = computed(() => {
       status: p.status,
       confidence: p.confidence,
       type: 'prediction',
-      resolved: false
+      resolved: false,
     }))
     sections.push({ type: 'active', items: active })
   }
@@ -1003,7 +1004,7 @@ const predictionToc = computed(() => {
       status: p.status,
       confidence: p.confidence,
       type: 'prediction',
-      resolved: true
+      resolved: true,
     }))
     sections.push({ type: 'resolved', items: resolved })
   }

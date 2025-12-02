@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
     data.resolved = {
       date,
       correct,
-      explanation
+      explanation,
     }
 
     // Reconstruct the file
@@ -38,13 +38,13 @@ export default defineEventHandler(async (event) => {
       visibility: data.visibility || 'public',
       created: data.created,
       resolved: data.resolved,
-      evidence: body.trim()
+      evidence: body.trim(),
     }
   } catch (error) {
     console.error('Error resolving prediction:', error)
     throw createError({
       statusCode: 500,
-      statusMessage: 'Failed to resolve prediction'
+      statusMessage: 'Failed to resolve prediction',
     })
   }
 })

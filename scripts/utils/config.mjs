@@ -24,14 +24,14 @@ export const CONFIG = {
     '2021',
     '2020',
     '2019',
-    '2018'
-  ]
+    '2018',
+  ],
 }
 
 // Helper to get absolute paths
 export function getAbsolutePaths(cwd) {
   return {
     contentDir: path.resolve(cwd, CONFIG.contentDir),
-    backupDir: path.resolve(cwd, CONFIG.backupDir)
+    backupDir: path.resolve(cwd, CONFIG.backupDir),
   }
 }

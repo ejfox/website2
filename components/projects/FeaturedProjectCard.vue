@@ -3,7 +3,7 @@
     :to="`/projects/${projectSlug}`"
     :class="[
       'interactive-card block no-underline group',
-      'text-zinc-900 dark:text-zinc-100'
+      'text-zinc-900 dark:text-zinc-100',
     ]"
   >
     <div v-if="featuredImage" class="mb-4">
@@ -20,7 +20,7 @@
 <script setup>
 const props = defineProps({
   project: { type: Object, required: true },
-  index: { type: Number, required: true }
+  index: { type: Number, required: true },
 })
 
 const { getSlug } = useProjectSlug()

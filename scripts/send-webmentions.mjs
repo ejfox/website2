@@ -11,9 +11,9 @@
  *   yarn webmentions --dry    # Show what would be sent without sending
  */
 
-import fs from 'fs'
-import path from 'path'
-import { fileURLToPath } from 'url'
+import fs from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const SITE_URL = 'https://ejfox.com'
@@ -28,7 +28,9 @@ const days = sendAll ? 9999 : 7
 
 console.log(`\n🔗 Webmention Sender`)
 console.log(`   Mode: ${dryRun ? 'DRY RUN' : 'LIVE'}`)
-console.log(`   Scope: ${sendAll ? 'All posts' : `Posts from last ${days} days`}\n`)
+console.log(
+  `   Scope: ${sendAll ? 'All posts' : `Posts from last ${days} days`}\n`
+)
 
 // Load already-sent webmentions to avoid duplicates
 function loadSentWebmentions() {
@@ -56,9 +58,11 @@ function extractExternalLinks(html) {
   while ((match = linkRegex.exec(html)) !== null) {
     const url = match[1]
     // Only external links, skip internal/anchor/mailto/tel
-    if (url.startsWith('http') &&
-        !url.includes('ejfox.com') &&
-        !url.includes('localhost')) {
+    if (
+      url.startsWith('http') &&
+      !url.includes('ejfox.com') &&
+      !url.includes('localhost')
+    ) {
       links.push(url)
     }
   }
@@ -71,15 +75,17 @@ async function discoverWebmentionEndpoint(targetUrl) {
   try {
     const response = await fetch(targetUrl, {
       method: 'GET',
-      headers: { 'Accept': 'text/html' },
+      headers: { Accept: 'text/html' },
       redirect: 'follow',
-      signal: AbortSignal.timeout(10000)
+      signal: AbortSignal.timeout(10000),
     })
 
     // Check Link header first
     const linkHeader = response.headers.get('link')
     if (linkHeader) {
-      const webmentionMatch = linkHeader.match(/<([^>]+)>;\s*rel=["']?webmention["']?/i)
+      const webmentionMatch = linkHeader.match(
+        /<([^>]+)>;\s*rel=["']?webmention["']?/i
+      )
       if (webmentionMatch) {
         return new URL(webmentionMatch[1], targetUrl).href
       }
@@ -87,8 +93,11 @@ async function discoverWebmentionEndpoint(targetUrl) {
 
     // Check HTML for <link rel="webmention">
     const html = await response.text()
-    const htmlMatch = html.match(/<link[^>]+rel=["']?webmention["']?[^>]+href=["']([^"']+)["']/i) ||
-                      html.match(/<link[^>]+href=["']([^"']+)["'][^>]+rel=["']?webmention["']?/i)
+    const htmlMatch =
+      html.match(/<link[^>]+rel=["']?webmention[^>]+href=["']([^"']+)["']/i) ||
+      html.match(
+        /<link[^>]+href=["']([^"']+)["'][^>]+rel=["']?webmention["']?/i
+      )
     if (htmlMatch) {
       return new URL(htmlMatch[1], targetUrl).href
     }
@@ -107,13 +116,13 @@ async function sendWebmention(endpoint, source, target) {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: `source=${encodeURIComponent(source)}&target=${encodeURIComponent(target)}`,
-      signal: AbortSignal.timeout(15000)
+      signal: AbortSignal.timeout(15000),
     })
 
     return {
       success: response.ok,
       status: response.status,
-      statusText: response.statusText
+      statusText: response.statusText,
     }
   } catch (e) {
     return { success: false, error: e.message }
@@ -123,25 +132,34 @@ async function sendWebmention(endpoint, source, target) {
 // Get recent posts from processed JSON
 function getRecentPosts(daysAgo) {
   const posts = []
-  const cutoff = Date.now() - (daysAgo * 24 * 60 * 60 * 1000)
+  const cutoff = Date.now() - daysAgo * 24 * 60 * 60 * 1000
 
   // Walk through year directories
-  const years = fs.readdirSync(PROCESSED_DIR).filter(f => /^\d{4}$/.test(f))
+  const years = fs.readdirSync(PROCESSED_DIR).filter((f) => /^\d{4}$/.test(f))
 
   for (const year of years) {
     const yearDir = path.join(PROCESSED_DIR, year)
-    const files = fs.readdirSync(yearDir).filter(f => f.endsWith('.json'))
+    const files = fs.readdirSync(yearDir).filter((f) => f.endsWith('.json'))
 
     for (const file of files) {
       try {
-        const content = JSON.parse(fs.readFileSync(path.join(yearDir, file), 'utf-8'))
-        const postDate = new Date(content.metadata?.date || content.metadata?.modified || 0)
+        const content = JSON.parse(
+          fs.readFileSync(path.join(yearDir, file), 'utf-8')
+        )
+        const postDate = new Date(
+          content.metadata?.date || content.metadata?.modified || 0
+        )
 
         if (postDate.getTime() > cutoff) {
           // IndieWeb reply-to URLs from frontmatter (can be string or array)
-          const replyToRaw = content.metadata?.replyTo || content.metadata?.['in-reply-to'] || null
+          const replyToRaw =
+            content.metadata?.replyTo ||
+            content.metadata?.['in-reply-to'] ||
+            null
           const replyTo = replyToRaw
-            ? (Array.isArray(replyToRaw) ? replyToRaw : [replyToRaw])
+            ? Array.isArray(replyToRaw)
+              ? replyToRaw
+              : [replyToRaw]
             : []
 
           posts.push({
@@ -149,7 +167,7 @@ function getRecentPosts(daysAgo) {
             html: content.html,
             date: postDate,
             title: content.title || content.metadata?.title || file,
-            replyTo
+            replyTo,
           })
         }
       } catch (e) {
@@ -188,8 +206,12 @@ async function main() {
 
     console.log(`📝 ${post.title}`)
     if (post.replyTo.length > 0) {
-      const domains = post.replyTo.map(url => {
-        try { return new URL(url).hostname } catch { return url }
+      const domains = post.replyTo.map((url) => {
+        try {
+          return new URL(url).hostname
+        } catch {
+          return url
+        }
       })
       console.log(`   ↩️  Reply to: ${domains.join(', ')}`)
     }
@@ -231,7 +253,7 @@ async function main() {
         }
 
         // Rate limit: wait 1s between sends
-        await new Promise(r => setTimeout(r, 1000))
+        await new Promise((r) => setTimeout(r, 1000))
       }
     }
   }

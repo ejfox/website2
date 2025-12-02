@@ -54,7 +54,7 @@ const circles = d3
     return {
       r: d.radius,
       cx: d.x,
-      cy: d.y
+      cy: d.y,
     }
   })
 ```

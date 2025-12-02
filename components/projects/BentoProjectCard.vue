@@ -35,12 +35,12 @@
         v-if="project.metadata?.tech?.length"
         class="flex flex-wrap gap-2 text-xs font-mono uppercase text-zinc-400"
       >
-        <span v-for="tech in project.metadata.tech.slice(0, 3)" :key="tech">{{
-          tech
-        }}</span>
-        <span v-if="project.metadata.tech.length > 3"
-          >+{{ project.metadata.tech.length - 3 }}</span
-        >
+        <span v-for="tech in project.metadata.tech.slice(0, 3)" :key="tech">
+          {{ tech }}
+        </span>
+        <span v-if="project.metadata.tech.length > 3">
+          +{{ project.metadata.tech.length - 3 }}
+        </span>
       </div>
 
       <a
@@ -58,7 +58,7 @@
 
 <script setup>
 const props = defineProps({
-  project: { type: Object, required: true }
+  project: { type: Object, required: true },
 })
 
 const { formatYearOnly } = useDateFormat()

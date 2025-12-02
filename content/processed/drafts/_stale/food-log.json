@@ -2,10 +2,7 @@
   "html": "<h2 class=\"\" id=\"meal-log---dateyyyy-mm-dd\">Meal Log - {{date:YYYY-MM-DD}}</h2>\n<h3 class=\"\" id=\"meal-time-eg-breakfast-lunch-snack\">Meal: {{time}} (e.g., Breakfast, Lunch, Snack)</h3>\n<p class=\"\"><strong class=\"\">Main Components:</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\">\n<!-- List main ingredients or dishes (e.g., quinoa bowl with veggies) -->\n</li>\n</ul>\n<p class=\"\"><strong class=\"\">Macros:</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\"><strong class=\"\">Protein:</strong> <!-- Approx. grams (e.g., 25g) --></li>\n<li class=\"\"><strong class=\"\">Carbs:</strong> <!-- Approx. grams (e.g., 50g) --></li>\n<li class=\"\"><strong class=\"\">Fats:</strong> <!-- Approx. grams (e.g., 15g) --></li>\n</ul>\n<p class=\"\"><strong class=\"\">Portion Size:</strong></p>\n<!-- Note approximate size (e.g., 1 bowl, handful, palm-sized) -->\n<p class=\"\"><strong class=\"\">Notes &#x26; Observations:</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\"><strong class=\"\">Satiety Level:</strong> <!-- How full you felt post-meal (scale 1-10) --></li>\n<li class=\"\"><strong class=\"\">Energy/Mood:</strong> <!-- Energy level or mood within 1-2 hours post-meal --></li>\n</ul>",
   "title": "Food Log",
   "metadata": {
-    "tags": [
-      "health",
-      "nutrition"
-    ],
+    "tags": ["health", "nutrition"],
     "date": "2024-10-05T16:05:41.000Z",
     "modified": "2024-10-05T16:06:18.000Z",
     "words": 93,

@@ -28,7 +28,7 @@ export function remarkObsidianSupport() {
         if (start > lastIndex) {
           nodes.push({
             type: 'text',
-            value: value.slice(lastIndex, start)
+            value: value.slice(lastIndex, start),
           })
         }
 
@@ -50,9 +50,9 @@ export function remarkObsidianSupport() {
           children: [{ type: 'text', value: alias }],
           data: {
             hProperties: {
-              className: 'internal-link'
-            }
-          }
+              className: 'internal-link',
+            },
+          },
         })
 
         lastIndex = end
@@ -62,7 +62,7 @@ export function remarkObsidianSupport() {
       if (lastIndex < value.length) {
         nodes.push({
           type: 'text',
-          value: value.slice(lastIndex)
+          value: value.slice(lastIndex),
         })
       }
 

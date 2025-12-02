@@ -96,10 +96,10 @@ async function makeGitHubRequest<T>(
         headers: {
           Authorization: `bearer ${token}`,
           'Content-Type': 'application/json',
-          'User-Agent': 'EJFox-Website/1.0'
+          'User-Agent': 'EJFox-Website/1.0',
         },
         body: { query, variables },
-        signal: controller.signal
+        signal: controller.signal,
       })
 
       clearTimeout(timeoutId)
@@ -109,7 +109,7 @@ async function makeGitHubRequest<T>(
           statusCode: 500,
           message: `GitHub API Error: ${
             response.errors[0]?.message || 'Unknown error'
-          }`
+          }`,
         })
       }
 
@@ -195,7 +195,7 @@ async function fetchContributions(
 
   return makeGitHubRequest<GitHubContributions>(token, query, {
     lastMonth,
-    today
+    today,
   })
 }
 
@@ -212,7 +212,7 @@ async function checkRateLimit(token: string) {
   if (response.rateLimit?.remaining === 0) {
     throw createError({
       statusCode: 429,
-      message: `GitHub API rate limit exceeded. Resets at ${response.rateLimit.resetAt}`
+      message: `GitHub API rate limit exceeded. Resets at ${response.rateLimit.resetAt}`,
     })
   }
 }
@@ -268,7 +268,7 @@ export default defineEventHandler(async (): Promise<GitHubStats> => {
     console.error('❌ No GitHub token found!')
     throw createError({
       statusCode: 500,
-      message: 'GitHub token not configured'
+      message: 'GitHub token not configured',
     })
   }
 
@@ -282,7 +282,7 @@ export default defineEventHandler(async (): Promise<GitHubStats> => {
 
     const results = await Promise.allSettled([
       fetchUserStats(token),
-      fetchContributions(token, lastMonth.toISOString(), today.toISOString())
+      fetchContributions(token, lastMonth.toISOString(), today.toISOString()),
     ])
 
     const userStats =
@@ -298,7 +298,7 @@ export default defineEventHandler(async (): Promise<GitHubStats> => {
     if (!userStats?.viewer || !contributions?.viewer) {
       throw createError({
         statusCode: 500,
-        message: 'Invalid response from GitHub API'
+        message: 'Invalid response from GitHub API',
       })
     }
 
@@ -324,12 +324,12 @@ export default defineEventHandler(async (): Promise<GitHubStats> => {
               return {
                 repository: {
                   name: repo.repository.name,
-                  url: repo.repository.url
+                  url: repo.repository.url,
                 },
                 message,
                 occurredAt: commit.committedDate,
                 url: commit.url,
-                type: match?.[1] || 'other'
+                type: match?.[1] || 'other',
               }
             })
         })
@@ -351,7 +351,7 @@ export default defineEventHandler(async (): Promise<GitHubStats> => {
       .map(([type, count]) => ({
         type,
         count,
-        percentage: (count / total) * 100
+        percentage: (count / total) * 100,
       }))
       .sort((a, b) => b.count - a.count)
 
@@ -369,14 +369,14 @@ export default defineEventHandler(async (): Promise<GitHubStats> => {
           contributions.viewer.contributionsCollection
             .totalCommitContributions || 0,
         followers: userStats.viewer.followers.totalCount || 0,
-        following: userStats.viewer.following.totalCount || 0
+        following: userStats.viewer.following.totalCount || 0,
       },
       contributions: [],
       dates: [],
       detail: {
         commits: commits || [],
-        commitTypes: commitTypes || []
-      }
+        commitTypes: commitTypes || [],
+      },
     }
 
     return baseStats
@@ -410,7 +410,7 @@ export default defineEventHandler(async (): Promise<GitHubStats> => {
       message:
         gitHubError.response?.errors?.[0]?.message ||
         gitHubError.message ||
-        'Failed to fetch GitHub data'
+        'Failed to fetch GitHub data',
     })
   }
 })

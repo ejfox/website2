@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
   if (!marketId) {
     throw createError({
       statusCode: 400,
-      message: 'Market ID required'
+      message: 'Market ID required',
     })
   }
 
@@ -48,15 +48,15 @@ export default defineEventHandler(async (event) => {
       priceHistory:
         historyData.history?.map((p: any) => ({
           t: p.ts,
-          p: p.yes_price * 100
+          p: p.yes_price * 100,
         })) || [],
-      lastUpdated: new Date().toISOString()
+      lastUpdated: new Date().toISOString(),
     }
   } catch (error: any) {
     console.error('Kalshi API error:', error)
     throw createError({
       statusCode: 500,
-      message: `Failed to fetch Kalshi data: ${error.message}`
+      message: `Failed to fetch Kalshi data: ${error.message}`,
     })
   }
 })

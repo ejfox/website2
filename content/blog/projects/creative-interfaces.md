@@ -9,7 +9,7 @@ tech:
     'WebGL',
     'Hand Tracking',
     'Generative Art',
-    'Interactive Media'
+    'Interactive Media',
   ]
 state: deployed
 aiInvolvement: ai-assisted

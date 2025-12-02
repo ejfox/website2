@@ -3,7 +3,7 @@
     v-if="marketData"
     :class="[
       'border-l border-zinc-300 dark:border-zinc-700 pl-3 my-4',
-      'font-mono text-xs'
+      'font-mono text-xs',
     ]"
   >
     <!-- Header -->
@@ -14,7 +14,7 @@
         target="_blank"
         :class="[
           'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900',
-          'dark:hover:text-zinc-100'
+          'dark:hover:text-zinc-100',
         ]"
       >
         {{ marketData.provider }}
@@ -23,9 +23,9 @@
 
     <!-- Current Probability -->
     <div class="mb-2">
-      <span class="text-zinc-900 dark:text-zinc-100"
-        >{{ Math.round(marketData.currentProb) }}%</span
-      >
+      <span class="text-zinc-900 dark:text-zinc-100">
+        {{ Math.round(marketData.currentProb) }}%
+      </span>
       <span class="text-zinc-500 dark:text-zinc-500 ml-2">current</span>
     </div>
 
@@ -172,7 +172,7 @@ const lastPoint = computed(() => {
   const xStep = width / (marketData.value.priceHistory.length - 1)
   return {
     x: (marketData.value.priceHistory.length - 1) * xStep,
-    y: priceToY(last.p)
+    y: priceToY(last.p),
   }
 })
 </script>

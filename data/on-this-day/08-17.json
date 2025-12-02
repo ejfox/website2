@@ -1,1 +1,870 @@
-{"tweets":[{"id":"1560004016351879170","text":"worth it https://t.co/qHTNREOst3","year":2022,"date":"2022-08-17","favorites":2,"retweets":0,"replyTo":"mrejfox"},{"id":"1559991390200909825","text":"hmmm, that might be.... too much https://t.co/AiLtBtReeb","year":2022,"date":"2022-08-17","favorites":2,"retweets":0,"replyTo":null},{"id":"1559925510460825601","text":"I have also spent a lot of time refining my interactions with co-pilot, and now my files are structured and commented in a way that lets the robot have enough context to what I am trying to accomplish that it can give me good suggestions, that doubles as easily-readable code too","year":2022,"date":"2022-08-17","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1559924930220900352","text":"Getting to that place took years and was a very personal process, and required a lot of soul searching when the technologies that made me work faster were often not the first choices for clients or collaborators, but if you take my tools away I lose my “superpower”","year":2022,"date":"2022-08-17","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1559924600968019968","text":"When I start a project now, I do not think about: file naming, file structure, how to get the data, hosting, what libraries to use– what I do think about is: who is this useful for, what will make this easier to understand, how can I add delight and joy— you know, “coding”","year":2022,"date":"2022-08-17","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1559923631358377985","text":"Another crucial part of building things quickly is that you are also building the developer experience of the person who has to pick up this prototype and live with it as a product– decisions made for speed often come at the cost of longevity– but it doesn’t have to!","year":2022,"date":"2022-08-17","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1559923048286982147","text":"The purpose of this speed for me is to Do More and Learn More, which comes from accelerated failing; prototyping. I want to make more things with more people, and to do that I need to bring the time cost as close to zero as possible, while still using resilient production tech","year":2022,"date":"2022-08-17","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1559922533981364225","text":"This probably makes the whole process 1.25x faster, having the right tools that are easy and fast to spin up probably gets me another speed boost, memorizing the names of the incantations within d3 (groups and scales, mostly) saves a bit of time too","year":2022,"date":"2022-08-17","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1559922103763222528","text":"With co-pilot this process is a lot less like “coding” and a lot more like directing, in that I arrange a toolset (vue, d3, turf) and data, describe that data in a way a robot can understand, and vaguely gesture at the desired behavior I want, prompting The Robot to code","year":2022,"date":"2022-08-17","favorites":1,"retweets":0,"replyTo":"mrejfox"},{"id":"1559920848131309568","text":"Truly there is magic in the moments between “that would be cool” and “we have a hosted webapp that can do 80% of that” and I am trying to bring that space down to, like, minutes if I can","year":2022,"date":"2022-08-17","favorites":2,"retweets":0,"replyTo":"mrejfox"},{"id":"1559920553439498240","text":"Degit clone the template, arrange file structure, grab data (csv/json/spin up datasette API), visualize data with v-fors and light Plots, push draft to Netlify, share with client+designers, get feedback, grab more data, visualize with D3/maps, add more controls, push to Netlify,,","year":2022,"date":"2022-08-17","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"1559919977620193281","text":"I spin up new Nuxt/Vue apps at a truly alarming rate lately, I cannot be stopped","year":2022,"date":"2022-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"1427778020203433985","text":"https://t.co/amjGD3RLcd","year":2021,"date":"2021-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"1427701357440552963","text":"RT @pwramsey: @komzpa @srothst1 The whole scheme is vile on its face. Proprietary gridding scheme, sold to decision makers who generally do…","year":2021,"date":"2021-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"1427693497319034887","text":"in 10th grade I was completely over public school, and I was lucky that my parents let me do self-directed learning known as \"Unschooling\" - I just found my high school \"transcript\" and I literally do all of these things to this day, nearly every skill turned out useful later https://t.co/TmJYhqdOWi","year":2021,"date":"2021-08-17","favorites":3,"retweets":0,"replyTo":null},{"id":"1427691886509182986","text":"@badnetworker generating fake data is one of my all-time favorite things, and I find myself generating fake data to the schema of data I have been promised so I can prototype while a backend team gets their API in order","year":2021,"date":"2021-08-17","favorites":1,"retweets":0,"replyTo":"badnetworker"},{"id":"1427676622489010182","text":"why does vscode completely refuse to operate it's windows like every other application and close out my existing project to open another","year":2021,"date":"2021-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"1295508088125038593","text":"@simonw I have really enjoyed Cloudinary https://t.co/Scuj4nlBVD","year":2020,"date":"2020-08-17","favorites":3,"retweets":0,"replyTo":"simonw"},{"id":"1295423989360271360","text":"@jeffihaza Directly related to USPS woes which is super interesting imo","year":2020,"date":"2020-08-17","favorites":1,"retweets":0,"replyTo":"jeffihaza"},{"id":"1295160862278377474","text":"RT @enjalot: going live with @mrejfox at 6PM PST \nToday Sunday\n\nwe'll be cooking something up with a mystery ingredient\n\nhttps://t.co/MgYoL…","year":2020,"date":"2020-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"1162781469770690560","text":"Maybe if you are upset someone is calling you racist you should do less stuff that makes people call you racist instead of being all “What is RACISM anyway”","year":2019,"date":"2019-08-17","favorites":1,"retweets":0,"replyTo":null},{"id":"1162772894604247041","text":"RT @socialistdogmom: of course they will try to criminalize our resistance to the rise of fascism. that’s what fascism does. https://t.co/H…","year":2019,"date":"2019-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"1162738769763721216","text":"My poet friend has been writing a lot of horse poems lately so i guess i need to learn how to draw a horse now","year":2019,"date":"2019-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"1162541188869763072","text":"One interesting thing about quitting your job is everyone seems to think your time is suddenly less valuable when in fact the opposite is true","year":2019,"date":"2019-08-17","favorites":2,"retweets":0,"replyTo":null},{"id":"1030482579865194496","text":"@Joshochos They suck","year":2018,"date":"2018-08-17","favorites":1,"retweets":0,"replyTo":"Joshochos"},{"id":"1030443028975112192","text":"@twitter @TwitterOSS @jack what the fuck are you people doing??????? https://t.co/dOmR7Vk1ce","year":2018,"date":"2018-08-17","favorites":0,"retweets":0,"replyTo":"X"},{"id":"1030307784276025344","text":"pretty proud of the app right now","year":2018,"date":"2018-08-17","favorites":3,"retweets":0,"replyTo":null},{"id":"898328065998180355","text":"part 2 https://t.co/sSWtEWESaY","year":2017,"date":"2017-08-17","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"898300213038899204","text":"Got a message from a friend who has been choosing to not look at the internet last few weeks. “Is this Vice Charlottesville video real?”","year":2017,"date":"2017-08-17","favorites":5,"retweets":0,"replyTo":null},{"id":"898290329266208768","text":"@WLTaskForce @dellcam @wikileaks @danstuckey @AndrewCouts @apblake @DerekMead @kevincollier @_AustinPowell @HowellONeill @JennaMC_Laugh HEY GUYS THAT OPINION ARTICLE DOESN’T ADDRESS ANY OF DELL’S POINTS","year":2017,"date":"2017-08-17","favorites":2,"retweets":0,"replyTo":"WLTaskForce"},{"id":"898288005462597632","text":"RT @darenw: @mrejfox @Cubs That one was done with a combination of d3 and three.js.... here's a live version we did for the HR derby https:…","year":2017,"date":"2017-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"898287128748019712","text":"@darenw @Cubs How do you create this visualizations? Really awesome work.","year":2017,"date":"2017-08-17","favorites":1,"retweets":0,"replyTo":"darenw"},{"id":"898283078644355072","text":"@WLTaskForce @dellcam @wikileaks You understand this opinion article in no way speaks to Dell’s point, right?","year":2017,"date":"2017-08-17","favorites":1,"retweets":0,"replyTo":"WLTaskForce"},{"id":"898208607795281921","text":"Hey guys I found this quote if you wanna understand me as a person https://t.co/T9uFWO66sP","year":2017,"date":"2017-08-17","favorites":7,"retweets":0,"replyTo":null},{"id":"898200676853002244","text":"Being a summer camp counselor in the city of New York looks like the hardest job ever","year":2017,"date":"2017-08-17","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"898198801193861124","text":"They don’t have anything to hold on to but each other it’s like a train full of jello","year":2017,"date":"2017-08-17","favorites":0,"retweets":0,"replyTo":"mrejfox"},{"id":"898198630007533569","text":"THERE ARE 50,000 CHILDREN ON THIS SUBWAY CAR NOW","year":2017,"date":"2017-08-17","favorites":1,"retweets":0,"replyTo":null},{"id":"898198469877411840","text":"RT @poezn: @eagereyes @mrejfox No but the moment right before it: Torschlusspanik","year":2017,"date":"2017-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"898198452454215681","text":"RT @eagereyes: @mrejfox Letztminütige Notladung","year":2017,"date":"2017-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"898180668227817472","text":"RT @kailanikm: Yup. This is true: Chuck Todd tried to interview 70 Republicans about Trump and Charlottesville. They all declined.\nhttps://…","year":2017,"date":"2017-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"898002765431091200","text":"Bannon is already designing a political career for himself post-Trump https://t.co/CiuO4P4xWB","year":2017,"date":"2017-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"897997321157328896","text":"is there a german word for plugging in your phone as it dies","year":2017,"date":"2017-08-17","favorites":2,"retweets":0,"replyTo":null},{"id":"765978115256545280","text":"RT @putintintin1: #Syria child survived Assad airstrike on his house in Qaterji neighborhood in #Aleppo\nvia Mahmoud Rslan https://t.co/EqvY…","year":2016,"date":"2016-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"765910909013352449","text":"RT @lamoustache: Best story on the \"#SilkRoad Baltimore Gang\" bitcoin heist by @joemullin and @cfarivar. Very well put together. https://t.…","year":2016,"date":"2016-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"765910824284291072","text":"@cfarivar this is really really exceptional. Completely agree that there is still so much about this case we don't know. Crazy story.","year":2016,"date":"2016-08-17","favorites":1,"retweets":2,"replyTo":"cfarivar"},{"id":"765805973269340161","text":"https://t.co/yXHB3ew6Ru","year":2016,"date":"2016-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"765788629507637248","text":"RT @teddyschleifer: WSJ has story (not online yet) on Steve Bannon -- from Breitbart -- &amp; Kellyanne Conway as new Trump campaign chiefs. ht…","year":2016,"date":"2016-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"765765429340020737","text":"I think it would be politically beneficial for Hillary to participate in a comedy central roast as quickly as possible so all is equal","year":2016,"date":"2016-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"765765119192207360","text":"Guys I literally forgot up until this moment that we have presidential debates that shits gonna be wild can Hillary tap in guests or what","year":2016,"date":"2016-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"765764386564743168","text":"They know he’s a liar. \n\nThey know he’s a racist. \n\nThey know he’s a misogynist. \n\nHe reminds them of themselves. He represents them.","year":2016,"date":"2016-08-17","favorites":1,"retweets":0,"replyTo":null},{"id":"765764224203255808","text":"I love that people to this day don’t understand what drives Trump supporters and keep making pedantic liberal attacks like anyone cares.","year":2016,"date":"2016-08-17","favorites":1,"retweets":0,"replyTo":null},{"id":"765756363523911680","text":"RT @lauramoy: Map shows #Baltimore PD's high-tech #surveillance focuses on Black neighborhoods. (Data courtesy of @bradheath) https://t.co/…","year":2016,"date":"2016-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"633354298336935938","text":"@TravelingAnna this is the nicest way anyone has called me a hippy","year":2015,"date":"2015-08-17","favorites":0,"retweets":0,"replyTo":"TravelingAnna"},{"id":"633302033949396992","text":"@TravelingAnna missssss uuuuuuu","year":2015,"date":"2015-08-17","favorites":0,"retweets":0,"replyTo":"TravelingAnna"},{"id":"633301315700027393","text":"RT @AnonyCrypt: Top 5 #Passwords of 2014 \n\n1. 123456 (unchanged)\n2. password (unchanged)\n3. 12345 (up 17)\n4. 12345678 (down one)\n5. qwerty …","year":2015,"date":"2015-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"633269769270087680","text":"Rode the subway all the way to work without headphones thinking I’d lost them, and just now realized they were in my pocket the whole time.","year":2015,"date":"2015-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"500860187277029376","text":"The more people with eyes on Ferguson tonight the better. This is the story of our country, not just this place or this case.","year":2014,"date":"2014-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"500859691313152000","text":"@jclong Very much appreciate your reporting- don't mean to nitpick. But that particular turn of phrase is very loaded, implies disrespect","year":2014,"date":"2014-08-17","favorites":0,"retweets":0,"replyTo":"ChrisLongKSTP"},{"id":"500859267713609728","text":"@jclong I've been in Oakland and I have seen press conferences \"crashed\". That man waited until speaking was over to make his point to press","year":2014,"date":"2014-08-17","favorites":0,"retweets":0,"replyTo":"ChrisLongKSTP"},{"id":"500858942743134208","text":"@jclong Absolutely agree, tho I think important to note that it was a dialogue, not necessarily \"crashing\" the press conference.","year":2014,"date":"2014-08-17","favorites":0,"retweets":0,"replyTo":"ChrisLongKSTP"},{"id":"500858094939680769","text":"@jclong \"Crashed\" the press conference? It was over. Johnson was leaving, the man made his voice heard, respectfully after speaking was over","year":2014,"date":"2014-08-17","favorites":0,"retweets":0,"replyTo":"ChrisLongKSTP"},{"id":"500855160932151296","text":"@Timcast Plz leave the area where all the other press are. That story is covered. Go find the protestors and show us what happens w/ curfew","year":2014,"date":"2014-08-17","favorites":0,"retweets":0,"replyTo":"Timcast"},{"id":"368566753149718529","text":"RT @sdw: My favorite word that doesn't exist in  English is 'fernweh' (German); the opposite of being homesick. An ache for other, faraway …","year":2013,"date":"2013-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"236591262927552512","text":"Rocking a minimal MacBook setup. Ready to start new w/ a Retina MBP, but got this one working as fast as it can. http://t.co/Iy4baloK","year":2012,"date":"2012-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"103932494646214656","text":"RT @mibi: I designed this infographic.  Not sure why @InfographicWrld is taking credit for it. http://t.co/LYQMD3M #shady #lame","year":2011,"date":"2011-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"103871736122052608","text":"RT @goodcorps: Share as opposed to sell. Tell your audience \"I have an idea I want to share with you\" as opposed to \"I have a product I  ...","year":2011,"date":"2011-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"103830119197573120","text":"I'll opt for the southern-but-not-completely-made-up-of-flatasapancake-states route: http://t.co/muOFOqt","year":2011,"date":"2011-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"103829366898831360","text":"Wow, Google. Good job at planning what would no doubt be the most terribly awful road trip ever, http://t.co/mNLWh4u","year":2011,"date":"2011-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"103782412667977728","text":"RT @mericson: Nice graphic from Trulia on rent-vs-buy (I like charts where colors emphasize changes across chart.) Via @shashashasha htt ...","year":2011,"date":"2011-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"21358775183","text":"God disproved! (Or proved...) @BreakingNews Lightening strikes a religious school in Sudan's Darfur region, killing 7 children","year":2010,"date":"2010-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"3357115383","text":"New photoblog post: &#8216;The Good Life&#8217; Recording http://bit.ly/HFBZl","year":2009,"date":"2009-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"3355984050","text":"Posted a new recording on the blog, and now I am going to sleep.","year":2009,"date":"2009-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"889911315","text":"Watching Donnie Darko for the first time.","year":2008,"date":"2008-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"211701992","text":"At townley setting up then listening to some bands. Figuring out how to get to Peter's party.","year":2007,"date":"2007-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"211509252","text":"At gabe's house grabbing sound stuff for a Townley show.","year":2007,"date":"2007-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"211462932","text":"Saying goodbye to camp people. =Ä","year":2007,"date":"2007-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"210247892","text":"One day I'll write some kind of article on MySpace's obvious attention-based social economy creating actual money in a real economy.","year":2007,"date":"2007-08-17","favorites":0,"retweets":0,"replyTo":null},{"id":"210220142","text":"Watching an unexpectedly moving episode of nip/tuck... making me think about love and life and all that.","year":2007,"date":"2007-08-17","favorites":0,"retweets":0,"replyTo":null}],"posts":[],"scrobbles":[{"date":"2025-08-17","year":2025,"count":40,"topTracks":["Jazzbois - Spookydope","Riff Raff - How To Be The Man","stevedoesmusic - wo0ooooo","Bluestaeb - Didn't Cha Know","Hiatus Kaiyote - Get Sun"],"topArtists":["Jazzbois","Riff Raff","stevedoesmusic"]},{"date":"2024-08-17","year":2024,"count":8,"topTracks":["DJ Rashad - Feelin (feat. DJ Spinn & Taso)","DJ Rashad - Show U How (feat. DJ Spinn)","DJ Rashad - Pass That Shit (feat. DJ Spinn & Taso)","DJ Rashad - She A Go (feat. DJ Spinn & Taso)","DJ Rashad - Only One (feat. DJ Spinn & Taso)"],"topArtists":["DJ Rashad"]},{"date":"2022-08-17","year":2022,"count":48,"topTracks":["Cam The Artisan - Brown Skin","TRU - Fungus (feat. K. Solar, Scott Kelley & Steve Lacy)","Simpson - Cherry Ice Cream Sundae","Nubiyan Twist - Morning Light","Trapo - In This Car"],"topArtists":["Cam The Artisan","TRU","Simpson"]},{"date":"2020-08-17","year":2020,"count":57,"topTracks":["Sango - Preto e Dourado","Sango - Revelação Edit (2018)","Sango - Trem Bala Da Congo","Sango - Sonho","Sango - Ritmo dos Anos 90"],"topArtists":["Sango","Odunsi (The Engine)","monte booker"]},{"date":"2019-08-17","year":2019,"count":5,"topTracks":["Col3trane - Superpowers (with GoldLink)","Blood Orange - Chewing Gum","Steve Lacy - C U Girl","Slauson Malone - Smile 2","Choker - Petrol Bliss"],"topArtists":["Col3trane","Blood Orange","Steve Lacy"]},{"date":"2018-08-17","year":2018,"count":86,"topTracks":["Death Cab for Cutie - I Dreamt We Spoke Again","Death Cab for Cutie - Summer Years","Death Cab for Cutie - Gold Rush","Death Cab for Cutie - Your Hurricane","Death Cab for Cutie - When We Drive"],"topArtists":["Death Cab for Cutie","Iron & Wine","The Shins"]},{"date":"2016-08-17","year":2016,"count":7,"topTracks":["Nao - Apple Cherry","Fleet Foxes - Sim Sala Bim","Cloud Nothings - Stay Useless","Vampire Weekend - California English","Born Ruffians - At Home Now"],"topArtists":["Nao","Fleet Foxes","Cloud Nothings"]},{"date":"2013-08-17","year":2013,"count":26,"topTracks":["Animal Collective - Also Frightened","Animal Collective - Summertime Clothes","Animal Collective - Daily Routine","Animal Collective - Bluish","Animal Collective - Guys Eyes"],"topArtists":["Animal Collective"]},{"date":"2009-08-17","year":2009,"count":28,"topTracks":["NPR - Outer Space","Rilo Kiley - With Arms Outstretched","Gorillaz - Starshine","Uffie - Pop the Glock","The Beatles - Revolution"],"topArtists":["NPR","Rilo Kiley","Gorillaz"]},{"date":"2008-08-17","year":2008,"count":129,"topTracks":["Andre Nickatina - Ayo","Animal Collective - Leaf House","Animal Collective - Who Could Win a Rabbit","Animal Collective - The Softest Voice","Animal Collective - Winters Love"],"topArtists":["Andre Nickatina","Animal Collective","Kevin Smith and Scott Mosier"]},{"date":"2007-08-17","year":2007,"count":13,"topTracks":["OutKast - Ms Jackson","OutKast - Outkast - Bombs Over Bagdad","Venetian Snares - Warm Body","Venetian Snares - Fraujager","Venetian Snares - Cashew"],"topArtists":["OutKast","Venetian Snares","Fergie"]},{"date":"2006-08-17","year":2006,"count":147,"topTracks":["Goldfinger - Superman","Blue October - Into the Ocean","311 - Little Brother","Gorillaz - Green World","Gold Chains - Straight From Your Radio"],"topArtists":["Goldfinger","Blue October","311"]}],"commits":[]}
+{
+  "tweets": [
+    {
+      "id": "1560004016351879170",
+      "text": "worth it https://t.co/qHTNREOst3",
+      "year": 2022,
+      "date": "2022-08-17",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1559991390200909825",
+      "text": "hmmm, that might be.... too much https://t.co/AiLtBtReeb",
+      "year": 2022,
+      "date": "2022-08-17",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1559925510460825601",
+      "text": "I have also spent a lot of time refining my interactions with co-pilot, and now my files are structured and commented in a way that lets the robot have enough context to what I am trying to accomplish that it can give me good suggestions, that doubles as easily-readable code too",
+      "year": 2022,
+      "date": "2022-08-17",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1559924930220900352",
+      "text": "Getting to that place took years and was a very personal process, and required a lot of soul searching when the technologies that made me work faster were often not the first choices for clients or collaborators, but if you take my tools away I lose my “superpower”",
+      "year": 2022,
+      "date": "2022-08-17",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1559924600968019968",
+      "text": "When I start a project now, I do not think about: file naming, file structure, how to get the data, hosting, what libraries to use– what I do think about is: who is this useful for, what will make this easier to understand, how can I add delight and joy— you know, “coding”",
+      "year": 2022,
+      "date": "2022-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1559923631358377985",
+      "text": "Another crucial part of building things quickly is that you are also building the developer experience of the person who has to pick up this prototype and live with it as a product– decisions made for speed often come at the cost of longevity– but it doesn’t have to!",
+      "year": 2022,
+      "date": "2022-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1559923048286982147",
+      "text": "The purpose of this speed for me is to Do More and Learn More, which comes from accelerated failing; prototyping. I want to make more things with more people, and to do that I need to bring the time cost as close to zero as possible, while still using resilient production tech",
+      "year": 2022,
+      "date": "2022-08-17",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1559922533981364225",
+      "text": "This probably makes the whole process 1.25x faster, having the right tools that are easy and fast to spin up probably gets me another speed boost, memorizing the names of the incantations within d3 (groups and scales, mostly) saves a bit of time too",
+      "year": 2022,
+      "date": "2022-08-17",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1559922103763222528",
+      "text": "With co-pilot this process is a lot less like “coding” and a lot more like directing, in that I arrange a toolset (vue, d3, turf) and data, describe that data in a way a robot can understand, and vaguely gesture at the desired behavior I want, prompting The Robot to code",
+      "year": 2022,
+      "date": "2022-08-17",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1559920848131309568",
+      "text": "Truly there is magic in the moments between “that would be cool” and “we have a hosted webapp that can do 80% of that” and I am trying to bring that space down to, like, minutes if I can",
+      "year": 2022,
+      "date": "2022-08-17",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1559920553439498240",
+      "text": "Degit clone the template, arrange file structure, grab data (csv/json/spin up datasette API), visualize data with v-fors and light Plots, push draft to Netlify, share with client+designers, get feedback, grab more data, visualize with D3/maps, add more controls, push to Netlify,,",
+      "year": 2022,
+      "date": "2022-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1559919977620193281",
+      "text": "I spin up new Nuxt/Vue apps at a truly alarming rate lately, I cannot be stopped",
+      "year": 2022,
+      "date": "2022-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1427778020203433985",
+      "text": "https://t.co/amjGD3RLcd",
+      "year": 2021,
+      "date": "2021-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1427701357440552963",
+      "text": "RT @pwramsey: @komzpa @srothst1 The whole scheme is vile on its face. Proprietary gridding scheme, sold to decision makers who generally do…",
+      "year": 2021,
+      "date": "2021-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1427693497319034887",
+      "text": "in 10th grade I was completely over public school, and I was lucky that my parents let me do self-directed learning known as \"Unschooling\" - I just found my high school \"transcript\" and I literally do all of these things to this day, nearly every skill turned out useful later https://t.co/TmJYhqdOWi",
+      "year": 2021,
+      "date": "2021-08-17",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1427691886509182986",
+      "text": "@badnetworker generating fake data is one of my all-time favorite things, and I find myself generating fake data to the schema of data I have been promised so I can prototype while a backend team gets their API in order",
+      "year": 2021,
+      "date": "2021-08-17",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "badnetworker"
+    },
+    {
+      "id": "1427676622489010182",
+      "text": "why does vscode completely refuse to operate it's windows like every other application and close out my existing project to open another",
+      "year": 2021,
+      "date": "2021-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1295508088125038593",
+      "text": "@simonw I have really enjoyed Cloudinary https://t.co/Scuj4nlBVD",
+      "year": 2020,
+      "date": "2020-08-17",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": "simonw"
+    },
+    {
+      "id": "1295423989360271360",
+      "text": "@jeffihaza Directly related to USPS woes which is super interesting imo",
+      "year": 2020,
+      "date": "2020-08-17",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "jeffihaza"
+    },
+    {
+      "id": "1295160862278377474",
+      "text": "RT @enjalot: going live with @mrejfox at 6PM PST \nToday Sunday\n\nwe'll be cooking something up with a mystery ingredient\n\nhttps://t.co/MgYoL…",
+      "year": 2020,
+      "date": "2020-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1162781469770690560",
+      "text": "Maybe if you are upset someone is calling you racist you should do less stuff that makes people call you racist instead of being all “What is RACISM anyway”",
+      "year": 2019,
+      "date": "2019-08-17",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1162772894604247041",
+      "text": "RT @socialistdogmom: of course they will try to criminalize our resistance to the rise of fascism. that’s what fascism does. https://t.co/H…",
+      "year": 2019,
+      "date": "2019-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1162738769763721216",
+      "text": "My poet friend has been writing a lot of horse poems lately so i guess i need to learn how to draw a horse now",
+      "year": 2019,
+      "date": "2019-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1162541188869763072",
+      "text": "One interesting thing about quitting your job is everyone seems to think your time is suddenly less valuable when in fact the opposite is true",
+      "year": 2019,
+      "date": "2019-08-17",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1030482579865194496",
+      "text": "@Joshochos They suck",
+      "year": 2018,
+      "date": "2018-08-17",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "Joshochos"
+    },
+    {
+      "id": "1030443028975112192",
+      "text": "@twitter @TwitterOSS @jack what the fuck are you people doing??????? https://t.co/dOmR7Vk1ce",
+      "year": 2018,
+      "date": "2018-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "X"
+    },
+    {
+      "id": "1030307784276025344",
+      "text": "pretty proud of the app right now",
+      "year": 2018,
+      "date": "2018-08-17",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "898328065998180355",
+      "text": "part 2 https://t.co/sSWtEWESaY",
+      "year": 2017,
+      "date": "2017-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "898300213038899204",
+      "text": "Got a message from a friend who has been choosing to not look at the internet last few weeks. “Is this Vice Charlottesville video real?”",
+      "year": 2017,
+      "date": "2017-08-17",
+      "favorites": 5,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "898290329266208768",
+      "text": "@WLTaskForce @dellcam @wikileaks @danstuckey @AndrewCouts @apblake @DerekMead @kevincollier @_AustinPowell @HowellONeill @JennaMC_Laugh HEY GUYS THAT OPINION ARTICLE DOESN’T ADDRESS ANY OF DELL’S POINTS",
+      "year": 2017,
+      "date": "2017-08-17",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "WLTaskForce"
+    },
+    {
+      "id": "898288005462597632",
+      "text": "RT @darenw: @mrejfox @Cubs That one was done with a combination of d3 and three.js.... here's a live version we did for the HR derby https:…",
+      "year": 2017,
+      "date": "2017-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "898287128748019712",
+      "text": "@darenw @Cubs How do you create this visualizations? Really awesome work.",
+      "year": 2017,
+      "date": "2017-08-17",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "darenw"
+    },
+    {
+      "id": "898283078644355072",
+      "text": "@WLTaskForce @dellcam @wikileaks You understand this opinion article in no way speaks to Dell’s point, right?",
+      "year": 2017,
+      "date": "2017-08-17",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "WLTaskForce"
+    },
+    {
+      "id": "898208607795281921",
+      "text": "Hey guys I found this quote if you wanna understand me as a person https://t.co/T9uFWO66sP",
+      "year": 2017,
+      "date": "2017-08-17",
+      "favorites": 7,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "898200676853002244",
+      "text": "Being a summer camp counselor in the city of New York looks like the hardest job ever",
+      "year": 2017,
+      "date": "2017-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "898198801193861124",
+      "text": "They don’t have anything to hold on to but each other it’s like a train full of jello",
+      "year": 2017,
+      "date": "2017-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "898198630007533569",
+      "text": "THERE ARE 50,000 CHILDREN ON THIS SUBWAY CAR NOW",
+      "year": 2017,
+      "date": "2017-08-17",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "898198469877411840",
+      "text": "RT @poezn: @eagereyes @mrejfox No but the moment right before it: Torschlusspanik",
+      "year": 2017,
+      "date": "2017-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "898198452454215681",
+      "text": "RT @eagereyes: @mrejfox Letztminütige Notladung",
+      "year": 2017,
+      "date": "2017-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "898180668227817472",
+      "text": "RT @kailanikm: Yup. This is true: Chuck Todd tried to interview 70 Republicans about Trump and Charlottesville. They all declined.\nhttps://…",
+      "year": 2017,
+      "date": "2017-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "898002765431091200",
+      "text": "Bannon is already designing a political career for himself post-Trump https://t.co/CiuO4P4xWB",
+      "year": 2017,
+      "date": "2017-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "897997321157328896",
+      "text": "is there a german word for plugging in your phone as it dies",
+      "year": 2017,
+      "date": "2017-08-17",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "765978115256545280",
+      "text": "RT @putintintin1: #Syria child survived Assad airstrike on his house in Qaterji neighborhood in #Aleppo\nvia Mahmoud Rslan https://t.co/EqvY…",
+      "year": 2016,
+      "date": "2016-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "765910909013352449",
+      "text": "RT @lamoustache: Best story on the \"#SilkRoad Baltimore Gang\" bitcoin heist by @joemullin and @cfarivar. Very well put together. https://t.…",
+      "year": 2016,
+      "date": "2016-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "765910824284291072",
+      "text": "@cfarivar this is really really exceptional. Completely agree that there is still so much about this case we don't know. Crazy story.",
+      "year": 2016,
+      "date": "2016-08-17",
+      "favorites": 1,
+      "retweets": 2,
+      "replyTo": "cfarivar"
+    },
+    {
+      "id": "765805973269340161",
+      "text": "https://t.co/yXHB3ew6Ru",
+      "year": 2016,
+      "date": "2016-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "765788629507637248",
+      "text": "RT @teddyschleifer: WSJ has story (not online yet) on Steve Bannon -- from Breitbart -- &amp; Kellyanne Conway as new Trump campaign chiefs. ht…",
+      "year": 2016,
+      "date": "2016-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "765765429340020737",
+      "text": "I think it would be politically beneficial for Hillary to participate in a comedy central roast as quickly as possible so all is equal",
+      "year": 2016,
+      "date": "2016-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "765765119192207360",
+      "text": "Guys I literally forgot up until this moment that we have presidential debates that shits gonna be wild can Hillary tap in guests or what",
+      "year": 2016,
+      "date": "2016-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "765764386564743168",
+      "text": "They know he’s a liar. \n\nThey know he’s a racist. \n\nThey know he’s a misogynist. \n\nHe reminds them of themselves. He represents them.",
+      "year": 2016,
+      "date": "2016-08-17",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "765764224203255808",
+      "text": "I love that people to this day don’t understand what drives Trump supporters and keep making pedantic liberal attacks like anyone cares.",
+      "year": 2016,
+      "date": "2016-08-17",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "765756363523911680",
+      "text": "RT @lauramoy: Map shows #Baltimore PD's high-tech #surveillance focuses on Black neighborhoods. (Data courtesy of @bradheath) https://t.co/…",
+      "year": 2016,
+      "date": "2016-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "633354298336935938",
+      "text": "@TravelingAnna this is the nicest way anyone has called me a hippy",
+      "year": 2015,
+      "date": "2015-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "TravelingAnna"
+    },
+    {
+      "id": "633302033949396992",
+      "text": "@TravelingAnna missssss uuuuuuu",
+      "year": 2015,
+      "date": "2015-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "TravelingAnna"
+    },
+    {
+      "id": "633301315700027393",
+      "text": "RT @AnonyCrypt: Top 5 #Passwords of 2014 \n\n1. 123456 (unchanged)\n2. password (unchanged)\n3. 12345 (up 17)\n4. 12345678 (down one)\n5. qwerty …",
+      "year": 2015,
+      "date": "2015-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "633269769270087680",
+      "text": "Rode the subway all the way to work without headphones thinking I’d lost them, and just now realized they were in my pocket the whole time.",
+      "year": 2015,
+      "date": "2015-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "500860187277029376",
+      "text": "The more people with eyes on Ferguson tonight the better. This is the story of our country, not just this place or this case.",
+      "year": 2014,
+      "date": "2014-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "500859691313152000",
+      "text": "@jclong Very much appreciate your reporting- don't mean to nitpick. But that particular turn of phrase is very loaded, implies disrespect",
+      "year": 2014,
+      "date": "2014-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "ChrisLongKSTP"
+    },
+    {
+      "id": "500859267713609728",
+      "text": "@jclong I've been in Oakland and I have seen press conferences \"crashed\". That man waited until speaking was over to make his point to press",
+      "year": 2014,
+      "date": "2014-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "ChrisLongKSTP"
+    },
+    {
+      "id": "500858942743134208",
+      "text": "@jclong Absolutely agree, tho I think important to note that it was a dialogue, not necessarily \"crashing\" the press conference.",
+      "year": 2014,
+      "date": "2014-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "ChrisLongKSTP"
+    },
+    {
+      "id": "500858094939680769",
+      "text": "@jclong \"Crashed\" the press conference? It was over. Johnson was leaving, the man made his voice heard, respectfully after speaking was over",
+      "year": 2014,
+      "date": "2014-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "ChrisLongKSTP"
+    },
+    {
+      "id": "500855160932151296",
+      "text": "@Timcast Plz leave the area where all the other press are. That story is covered. Go find the protestors and show us what happens w/ curfew",
+      "year": 2014,
+      "date": "2014-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "Timcast"
+    },
+    {
+      "id": "368566753149718529",
+      "text": "RT @sdw: My favorite word that doesn't exist in  English is 'fernweh' (German); the opposite of being homesick. An ache for other, faraway …",
+      "year": 2013,
+      "date": "2013-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "236591262927552512",
+      "text": "Rocking a minimal MacBook setup. Ready to start new w/ a Retina MBP, but got this one working as fast as it can. http://t.co/Iy4baloK",
+      "year": 2012,
+      "date": "2012-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "103932494646214656",
+      "text": "RT @mibi: I designed this infographic.  Not sure why @InfographicWrld is taking credit for it. http://t.co/LYQMD3M #shady #lame",
+      "year": 2011,
+      "date": "2011-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "103871736122052608",
+      "text": "RT @goodcorps: Share as opposed to sell. Tell your audience \"I have an idea I want to share with you\" as opposed to \"I have a product I  ...",
+      "year": 2011,
+      "date": "2011-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "103830119197573120",
+      "text": "I'll opt for the southern-but-not-completely-made-up-of-flatasapancake-states route: http://t.co/muOFOqt",
+      "year": 2011,
+      "date": "2011-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "103829366898831360",
+      "text": "Wow, Google. Good job at planning what would no doubt be the most terribly awful road trip ever, http://t.co/mNLWh4u",
+      "year": 2011,
+      "date": "2011-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "103782412667977728",
+      "text": "RT @mericson: Nice graphic from Trulia on rent-vs-buy (I like charts where colors emphasize changes across chart.) Via @shashashasha htt ...",
+      "year": 2011,
+      "date": "2011-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "21358775183",
+      "text": "God disproved! (Or proved...) @BreakingNews Lightening strikes a religious school in Sudan's Darfur region, killing 7 children",
+      "year": 2010,
+      "date": "2010-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "3357115383",
+      "text": "New photoblog post: &#8216;The Good Life&#8217; Recording http://bit.ly/HFBZl",
+      "year": 2009,
+      "date": "2009-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "3355984050",
+      "text": "Posted a new recording on the blog, and now I am going to sleep.",
+      "year": 2009,
+      "date": "2009-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "889911315",
+      "text": "Watching Donnie Darko for the first time.",
+      "year": 2008,
+      "date": "2008-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "211701992",
+      "text": "At townley setting up then listening to some bands. Figuring out how to get to Peter's party.",
+      "year": 2007,
+      "date": "2007-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "211509252",
+      "text": "At gabe's house grabbing sound stuff for a Townley show.",
+      "year": 2007,
+      "date": "2007-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "211462932",
+      "text": "Saying goodbye to camp people. =Ä",
+      "year": 2007,
+      "date": "2007-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "210247892",
+      "text": "One day I'll write some kind of article on MySpace's obvious attention-based social economy creating actual money in a real economy.",
+      "year": 2007,
+      "date": "2007-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "210220142",
+      "text": "Watching an unexpectedly moving episode of nip/tuck... making me think about love and life and all that.",
+      "year": 2007,
+      "date": "2007-08-17",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    }
+  ],
+  "posts": [],
+  "scrobbles": [
+    {
+      "date": "2025-08-17",
+      "year": 2025,
+      "count": 40,
+      "topTracks": [
+        "Jazzbois - Spookydope",
+        "Riff Raff - How To Be The Man",
+        "stevedoesmusic - wo0ooooo",
+        "Bluestaeb - Didn't Cha Know",
+        "Hiatus Kaiyote - Get Sun"
+      ],
+      "topArtists": ["Jazzbois", "Riff Raff", "stevedoesmusic"]
+    },
+    {
+      "date": "2024-08-17",
+      "year": 2024,
+      "count": 8,
+      "topTracks": [
+        "DJ Rashad - Feelin (feat. DJ Spinn & Taso)",
+        "DJ Rashad - Show U How (feat. DJ Spinn)",
+        "DJ Rashad - Pass That Shit (feat. DJ Spinn & Taso)",
+        "DJ Rashad - She A Go (feat. DJ Spinn & Taso)",
+        "DJ Rashad - Only One (feat. DJ Spinn & Taso)"
+      ],
+      "topArtists": ["DJ Rashad"]
+    },
+    {
+      "date": "2022-08-17",
+      "year": 2022,
+      "count": 48,
+      "topTracks": [
+        "Cam The Artisan - Brown Skin",
+        "TRU - Fungus (feat. K. Solar, Scott Kelley & Steve Lacy)",
+        "Simpson - Cherry Ice Cream Sundae",
+        "Nubiyan Twist - Morning Light",
+        "Trapo - In This Car"
+      ],
+      "topArtists": ["Cam The Artisan", "TRU", "Simpson"]
+    },
+    {
+      "date": "2020-08-17",
+      "year": 2020,
+      "count": 57,
+      "topTracks": [
+        "Sango - Preto e Dourado",
+        "Sango - Revelação Edit (2018)",
+        "Sango - Trem Bala Da Congo",
+        "Sango - Sonho",
+        "Sango - Ritmo dos Anos 90"
+      ],
+      "topArtists": ["Sango", "Odunsi (The Engine)", "monte booker"]
+    },
+    {
+      "date": "2019-08-17",
+      "year": 2019,
+      "count": 5,
+      "topTracks": [
+        "Col3trane - Superpowers (with GoldLink)",
+        "Blood Orange - Chewing Gum",
+        "Steve Lacy - C U Girl",
+        "Slauson Malone - Smile 2",
+        "Choker - Petrol Bliss"
+      ],
+      "topArtists": ["Col3trane", "Blood Orange", "Steve Lacy"]
+    },
+    {
+      "date": "2018-08-17",
+      "year": 2018,
+      "count": 86,
+      "topTracks": [
+        "Death Cab for Cutie - I Dreamt We Spoke Again",
+        "Death Cab for Cutie - Summer Years",
+        "Death Cab for Cutie - Gold Rush",
+        "Death Cab for Cutie - Your Hurricane",
+        "Death Cab for Cutie - When We Drive"
+      ],
+      "topArtists": ["Death Cab for Cutie", "Iron & Wine", "The Shins"]
+    },
+    {
+      "date": "2016-08-17",
+      "year": 2016,
+      "count": 7,
+      "topTracks": [
+        "Nao - Apple Cherry",
+        "Fleet Foxes - Sim Sala Bim",
+        "Cloud Nothings - Stay Useless",
+        "Vampire Weekend - California English",
+        "Born Ruffians - At Home Now"
+      ],
+      "topArtists": ["Nao", "Fleet Foxes", "Cloud Nothings"]
+    },
+    {
+      "date": "2013-08-17",
+      "year": 2013,
+      "count": 26,
+      "topTracks": [
+        "Animal Collective - Also Frightened",
+        "Animal Collective - Summertime Clothes",
+        "Animal Collective - Daily Routine",
+        "Animal Collective - Bluish",
+        "Animal Collective - Guys Eyes"
+      ],
+      "topArtists": ["Animal Collective"]
+    },
+    {
+      "date": "2009-08-17",
+      "year": 2009,
+      "count": 28,
+      "topTracks": [
+        "NPR - Outer Space",
+        "Rilo Kiley - With Arms Outstretched",
+        "Gorillaz - Starshine",
+        "Uffie - Pop the Glock",
+        "The Beatles - Revolution"
+      ],
+      "topArtists": ["NPR", "Rilo Kiley", "Gorillaz"]
+    },
+    {
+      "date": "2008-08-17",
+      "year": 2008,
+      "count": 129,
+      "topTracks": [
+        "Andre Nickatina - Ayo",
+        "Animal Collective - Leaf House",
+        "Animal Collective - Who Could Win a Rabbit",
+        "Animal Collective - The Softest Voice",
+        "Animal Collective - Winters Love"
+      ],
+      "topArtists": [
+        "Andre Nickatina",
+        "Animal Collective",
+        "Kevin Smith and Scott Mosier"
+      ]
+    },
+    {
+      "date": "2007-08-17",
+      "year": 2007,
+      "count": 13,
+      "topTracks": [
+        "OutKast - Ms Jackson",
+        "OutKast - Outkast - Bombs Over Bagdad",
+        "Venetian Snares - Warm Body",
+        "Venetian Snares - Fraujager",
+        "Venetian Snares - Cashew"
+      ],
+      "topArtists": ["OutKast", "Venetian Snares", "Fergie"]
+    },
+    {
+      "date": "2006-08-17",
+      "year": 2006,
+      "count": 147,
+      "topTracks": [
+        "Goldfinger - Superman",
+        "Blue October - Into the Ocean",
+        "311 - Little Brother",
+        "Gorillaz - Green World",
+        "Gold Chains - Straight From Your Radio"
+      ],
+      "topArtists": ["Goldfinger", "Blue October", "311"]
+    }
+  ],
+  "commits": []
+}

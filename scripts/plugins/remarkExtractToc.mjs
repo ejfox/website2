@@ -35,7 +35,7 @@ export function extractHeadersAndToc(tree, maxDepth = 3) {
       text: headingText,
       slug: headingSlug,
       level: `h${node.depth}`,
-      children: []
+      children: [],
     }
 
     if (!firstHeading && (node.depth === 1 || node.depth === 2)) {

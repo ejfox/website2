@@ -72,6 +72,7 @@ These are always excluded:
 ### Content Processing
 
 **`processMarkdown.mjs`** - Core markdown processing pipeline
+
 - **Purpose:** Converts raw markdown into structured JSON that Nuxt can consume
 - **What it does:**
   - Reads markdown files from `content/blog/`
@@ -105,6 +106,7 @@ These are always excluded:
   - Modified `content/blog/**/*.md` files - broken links replaced with archived versions (with AUTO_FIX_LINKS flag)
 
 **`blog/import.mjs`** - Content import from Obsidian
+
 - **Purpose:** Pulls your writing from Obsidian into the website content directory
 - **What it does:**
   - Copies markdown files from Obsidian vault to `content/blog/`
@@ -117,6 +119,7 @@ These are always excluded:
 - **Tip:** Use `DRY_RUN=true` to preview without copying
 
 **`blog/watch.sh`** - Watch for content changes
+
 - **Purpose:** Auto-rebuild during local development
 - **What it does:**
   - Monitors `content/blog/` for file changes
@@ -127,6 +130,7 @@ These are always excluded:
 - **Tip:** Run in separate terminal alongside `yarn dev`
 
 **`blog/publish.sh`** - Publish workflow
+
 - **Purpose:** One-command publish new content
 - **What it does:**
   - Imports from Obsidian
@@ -139,6 +143,7 @@ These are always excluded:
 ### Predictions System
 
 **`predict-pro.mjs`** - Cryptographic prediction creation tool
+
 - **Purpose:** Create tamper-proof, timestamped predictions to track your forecasting accuracy
 - **What it does:**
   - Interactive prompts guide you through creating well-formed predictions
@@ -155,6 +160,7 @@ These are always excluded:
 - **Output:** `content/predictions/YYYY-MM-DD-prediction-slug.md`
 
 **`kalshi-test.mjs`** - Fetch Kalshi portfolio data
+
 - **Purpose:** Pull your real-money prediction market positions for display on site
 - **What it does:**
   - Authenticates with Kalshi API using credentials from `.env`
@@ -168,6 +174,7 @@ These are always excluded:
 - **Requires:** `KALSHI_EMAIL` and `KALSHI_PASSWORD` in `.env`
 
 **`generate-commentary-templates.mjs`** - Generate Kalshi commentary templates
+
 - **Purpose:** Create structured markdown files to explain your market positions
 - **What it does:**
   - Reads your Kalshi portfolio positions
@@ -181,6 +188,7 @@ These are always excluded:
 - **Follow-up:** Edit generated files to add your analysis/reasoning
 
 **`calibration-analysis.mjs`** - Prediction accuracy tracking
+
 - **Purpose:** Measure how well-calibrated your predictions are over time
 - **What it does:**
   - Reads all resolved predictions from `content/predictions/`
@@ -195,6 +203,7 @@ These are always excluded:
 - **Output:** Calibration statistics and recommendations
 
 **`sign-prediction.mjs`** - PGP signing for predictions
+
 - **Purpose:** Add cryptographic signature to prove you made a prediction at a specific time
 - **What it does:**
   - Takes prediction markdown file as input
@@ -207,6 +216,7 @@ These are always excluded:
 - **Requires:** GPG installed and configured with your key
 
 **`create-prediction.mjs`** - Legacy prediction creator (deprecated)
+
 - **Purpose:** Old version of prediction creation tool
 - **Status:** Replaced by `predict-pro.mjs` which has better UX and validation
 - **Action:** Use `yarn predict` instead
@@ -214,6 +224,7 @@ These are always excluded:
 ### Performance & Security
 
 **`lighthouse-check.mjs`** - Lighthouse performance audit
+
 - **Purpose:** Measure site performance with Google's official metrics
 - **What it does:**
   - Runs Lighthouse CLI against local dev server
@@ -228,6 +239,7 @@ These are always excluded:
 - **Tip:** Run on `localhost:3000` or pass custom URL
 
 **`security-performance-audit.js`** - Third-party domain audit
+
 - **Purpose:** Find and categorize all external services your site depends on
 - **What it does:**
   - Scans all `.js`, `.ts`, `.vue`, `.html`, `.css` files for URLs
@@ -243,6 +255,7 @@ These are always excluded:
 - **Output:** `security-performance-audit.json` with full findings
 
 **`perf-analyze.mjs`** - Performance analysis
+
 - **Purpose:** Custom performance metric tracking beyond Lighthouse
 - **What it does:**
   - Analyzes bundle sizes
@@ -253,6 +266,7 @@ These are always excluded:
 - **Usage:** `node scripts/perf-analyze.mjs`
 
 **`dev-with-perf.mjs`** - Development with performance monitoring
+
 - **Purpose:** Run dev server with real-time performance tracking
 - **What it does:**
   - Starts Nuxt dev server
@@ -267,6 +281,7 @@ These are always excluded:
 ### Utilities
 
 **`generate-build-info.mjs`** - Build metadata generation
+
 - **Purpose:** Embed build metadata into production builds for debugging
 - **What it does:**
   - Captures Git commit hash, branch name, commit message
@@ -279,6 +294,7 @@ These are always excluded:
 - **Usage:** Automatic via `yarn build`, or manual `node scripts/generate-build-info.mjs`
 
 **`check-series.mjs`** - Series validation
+
 - **Purpose:** Ensure multi-part blog posts are properly linked and ordered
 - **What it does:**
   - Scans all posts for `series` frontmatter field
@@ -291,6 +307,7 @@ These are always excluded:
 - **Usage:** `node scripts/check-series.mjs`
 
 **`blog.mjs`** - Blog utilities
+
 - **Purpose:** Shared functions used across blog scripts
 - **What it does:**
   - Provides date formatting helpers
@@ -301,6 +318,7 @@ These are always excluded:
 - **Usage:** `import { formatDate, generateSlug } from './scripts/blog.mjs'`
 
 **`fetch-my-events.mjs`** - Event fetching
+
 - **Purpose:** Pull personal events/calendar data to display on site
 - **What it does:**
   - Fetches from calendar API (Google Calendar, iCal, etc.)
@@ -312,6 +330,7 @@ These are always excluded:
 - **Requires:** Calendar API credentials in `.env`
 
 **`fix-date-fns-imports.mjs`** - Import fixer
+
 - **Purpose:** Migrate to date-fns v3+ modular import syntax
 - **What it does:**
   - Scans all `.js`, `.mjs`, `.ts`, `.vue` files
@@ -323,6 +342,7 @@ These are always excluded:
 - **Usage:** `node scripts/fix-date-fns-imports.mjs` (run once, commit changes)
 
 **`fix-vueuse-imports.mjs`** - Import fixer
+
 - **Purpose:** Migrate to VueUse modular import syntax
 - **What it does:**
   - Finds `import { useX } from '@vueuse/core'` patterns
@@ -334,6 +354,7 @@ These are always excluded:
 ### Shell Scripts
 
 **`publish_blog_automator.sh`** - Automator workflow
+
 - **Purpose:** macOS Quick Action for one-click publishing from Finder
 - **What it does:**
   - macOS Automator service that shows in right-click menu
@@ -344,6 +365,7 @@ These are always excluded:
 - **Alternative:** Just use `yarn blog:publish` from terminal
 
 **`vps_update.sh`** - VPS deployment
+
 - **Purpose:** Deploy latest changes to your VPS server
 - **What it does:**
   - SSHs into VPS
@@ -357,6 +379,7 @@ These are always excluded:
 - **Requires:** SSH access configured, VPS hostname in script
 
 **`sign-post.sh`** - Post signing workflow
+
 - **Purpose:** GPG-sign blog posts for authenticity verification
 - **What it does:**
   - Takes blog post markdown file as input
@@ -523,6 +546,7 @@ When filtering content:
 ## Missing Scripts / TODO
 
 ### Image Optimizer - Not yet implemented
+
 - **Purpose:** Auto-optimize images before deployment to improve performance
 - **Why:** Large images are #1 cause of slow page loads
 - **Potential implementation:**
@@ -536,6 +560,7 @@ When filtering content:
 - **Suggested command:** `yarn images:optimize`
 
 ### Dead Code Detector - Not yet implemented
+
 - **Purpose:** Find unused components, composables, utils
 - **Why:** Delete-driven development needs automation
 - **Potential implementation:**

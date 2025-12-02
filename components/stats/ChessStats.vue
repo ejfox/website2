@@ -24,7 +24,8 @@
           :value="Math.round(winRate)"
           format="commas"
           priority="tertiary"
-        />% WIN RATE
+        />
+        % WIN RATE
       </div>
     </div>
 
@@ -36,17 +37,17 @@
         class="flex items-center justify-between text-xs"
       >
         <div class="flex items-center gap-2">
-          <span class="text-zinc-500 uppercase tracking-widest text-xs">{{
-            variant.name
-          }}</span>
-          <span class="text-zinc-600 dark:text-zinc-400 text-xs">{{
-            variant.winRate
-          }}</span>
+          <span class="text-zinc-500 uppercase tracking-widest text-xs">
+            {{ variant.name }}
+          </span>
+          <span class="text-zinc-600 dark:text-zinc-400 text-xs">
+            {{ variant.winRate }}
+          </span>
         </div>
         <div class="flex items-center gap-2">
-          <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">{{
-            variant.current
-          }}</span>
+          <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
+            {{ variant.current }}
+          </span>
           <span
             v-if="variant.delta !== 0"
             :class="
@@ -71,12 +72,12 @@
           :key="metric.label"
           class="flex items-center justify-between text-xs"
         >
-          <span class="text-zinc-500 uppercase tracking-widest text-xs">{{
-            metric.label
-          }}</span>
-          <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">{{
-            metric.value
-          }}</span>
+          <span class="text-zinc-500 uppercase tracking-widest text-xs">
+            {{ metric.label }}
+          </span>
+          <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
+            {{ metric.value }}
+          </span>
         </div>
       </div>
     </div>
@@ -129,7 +130,7 @@ import {
   formatNumber,
   formatGameTypeMinimal,
   formatRatingDiff,
-  getRatingDiffClass
+  getRatingDiffClass,
 } from '~/composables/useNumberFormat'
 
 interface ChessGame {
@@ -305,7 +306,7 @@ const variantStats = computed(() => {
         name: variant.toUpperCase(),
         current: formatNumber(current),
         delta: Math.round(delta),
-        winRate: variantWinRate > 0 ? `${Math.round(variantWinRate)}%` : ''
+        winRate: variantWinRate > 0 ? `${Math.round(variantWinRate)}%` : '',
       }
     })
     .filter((variant) => Number.parseInt(variant.current.replace(/,/g, '')) > 0)
@@ -316,7 +317,7 @@ const performanceMetrics = computed(() => [
   { label: 'WIN RATE', value: `${Math.round(overallWinRate.value)}%` },
   {
     label: 'PUZZLE RATING',
-    value: formatNumber(props.stats?.puzzleStats.rating || 0)
-  }
+    value: formatNumber(props.stats?.puzzleStats.rating || 0),
+  },
 ])
 </script>

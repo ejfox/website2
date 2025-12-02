@@ -29,7 +29,7 @@
               'dark:hover:fill-zinc-400',
               item.year === currentYear
                 ? 'fill-zinc-900 dark:fill-zinc-100'
-                : 'fill-zinc-400 dark:fill-zinc-600'
+                : 'fill-zinc-400 dark:fill-zinc-600',
             ]"
           />
           <!-- Year labels (every other year to avoid crowding) -->
@@ -50,7 +50,7 @@
             text-anchor="middle"
             :class="[
               'font-mono text-[9px] font-bold fill-zinc-900',
-              'dark:fill-zinc-100'
+              'dark:fill-zinc-100',
             ]"
           >
             {{ item.count }}
@@ -60,7 +60,7 @@
       <div
         :class="[
           'font-mono text-[9px] text-zinc-400 dark:text-zinc-600',
-          'mt-1 flex justify-between'
+          'mt-1 flex justify-between',
         ]"
       >
         <span>{{ yearlyData[0]?.year || '' }}</span>
@@ -98,7 +98,7 @@
       <div
         :class="[
           'font-mono text-[9px] text-zinc-400 dark:text-zinc-600',
-          'mt-1 flex justify-between'
+          'mt-1 flex justify-between',
         ]"
       >
         <span>min: {{ highlightStats.min }}</span>
@@ -122,7 +122,7 @@
       <div
         :class="[
           'font-mono text-[9px] text-zinc-400 dark:text-zinc-600',
-          'mt-2 flex justify-between'
+          'mt-2 flex justify-between',
         ]"
       >
         <span>{{ last12Months[0]?.label || '' }}</span>
@@ -137,12 +137,12 @@
 const _props = defineProps({
   books: {
     type: Array,
-    required: true
+    required: true,
   },
   width: {
     type: Number,
-    default: 600
-  }
+    default: 600,
+  },
 })
 
 const currentYear = new Date().getFullYear()
@@ -168,7 +168,7 @@ const yearlyData = computed(() => {
   for (let year = minYear; year <= maxYear; year++) {
     result.push({
       year,
-      count: yearCounts[year] || 0
+      count: yearCounts[year] || 0,
     })
   }
 
@@ -210,7 +210,7 @@ const highlightStats = computed(() => {
     min: Math.min(...counts),
     max,
     avg: Math.round(sum / counts.length),
-    maxIdx
+    maxIdx,
   }
 })
 
@@ -256,7 +256,7 @@ const last12Months = computed(() => {
     const monthKey = `${year}-${String(month + 1).padStart(2, '0')}`
     const label = date.toLocaleDateString('en-US', {
       month: 'short',
-      year: '2-digit'
+      year: '2-digit',
     })
 
     // Count books annotated in this month

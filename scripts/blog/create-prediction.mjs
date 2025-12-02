@@ -7,7 +7,7 @@ import matter from 'gray-matter'
 
 const rl = readline.createInterface({
   input: process.stdin,
-  output: process.stdout
+  output: process.stdout,
 })
 
 const question = (query) =>
@@ -55,7 +55,7 @@ async function createPrediction() {
     deadline,
     categories,
     visibility,
-    created: date
+    created: date,
   }
 
   // Create file content

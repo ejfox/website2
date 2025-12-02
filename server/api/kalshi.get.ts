@@ -11,7 +11,7 @@ import type {
   KalshiCommentary,
   PortfolioStats,
   EnrichedMarketData,
-  KalshiApiResponse
+  KalshiApiResponse,
 } from '../types/kalshi'
 
 // Multi-layer caching system
@@ -60,7 +60,7 @@ function calculatePortfolioPnL(
     totalInvested: 0,
     totalValue: 0,
     openPositions: [],
-    closedPositions: []
+    closedPositions: [],
   }
 
   // Group fills by ticker for analysis
@@ -124,7 +124,7 @@ function calculatePortfolioPnL(
       costBasis,
       unrealizedPnL,
       unrealizedPnLPercent,
-      fillCount: posFills.length
+      fillCount: posFills.length,
     })
   }
 
@@ -161,7 +161,7 @@ function calculatePortfolioPnL(
         sellValue,
         realizedPnL,
         realizedPnLPercent: buyValue > 0 ? (realizedPnL / buyValue) * 100 : 0,
-        fillCount: tickerFills.length
+        fillCount: tickerFills.length,
       })
     }
   }
@@ -200,7 +200,7 @@ async function loadCommentaries(): Promise<Record<string, KalshiCommentary>> {
           relatedPosts: data.related_posts || [],
           opened: data.opened,
           thesis: data.thesis,
-          commentary: body.trim()
+          commentary: body.trim(),
         } as KalshiCommentary
       })
     )
@@ -215,7 +215,7 @@ async function loadCommentaries(): Promise<Record<string, KalshiCommentary>> {
     // Update cache
     commentariesCache = {
       data: result,
-      timestamp: Date.now()
+      timestamp: Date.now(),
     }
 
     return result
@@ -327,7 +327,7 @@ function enrichMarketData(
     yes_bid: null,
     no_bid: null,
     yes_ask: null,
-    no_ask: null
+    no_ask: null,
   }
 }
 
@@ -388,7 +388,7 @@ export default defineEventHandler(
       const kalshiConfig = new Configuration({
         apiKey: config.KALSHI_KEY_ID,
         privateKeyPem: config.KALSHI_PRIVATE_KEY.replace(/\\n/g, '\n'),
-        basePath: 'https://api.elections.kalshi.com/trade-api/v2'
+        basePath: 'https://api.elections.kalshi.com/trade-api/v2',
       })
       const eventsApi = new EventsApi(kalshiConfig)
 
@@ -435,8 +435,8 @@ export default defineEventHandler(
           ),
           nextRefresh: new Date(
             portfolioCache.timestamp + PORTFOLIO_CACHE_DURATION
-          ).toISOString()
-        }
+          ).toISOString(),
+        },
       }
     }
 
@@ -448,7 +448,7 @@ export default defineEventHandler(
       const kalshiConfig = new Configuration({
         apiKey: config.KALSHI_KEY_ID,
         privateKeyPem: config.KALSHI_PRIVATE_KEY.replace(/\\n/g, '\n'),
-        basePath: 'https://api.elections.kalshi.com/trade-api/v2'
+        basePath: 'https://api.elections.kalshi.com/trade-api/v2',
       })
 
       const portfolioApi = new PortfolioApi(kalshiConfig)
@@ -460,7 +460,7 @@ export default defineEventHandler(
           portfolioApi.getBalance(),
           portfolioApi.getPositions({ limit: 100 }),
           portfolioApi.getFills({ limit: 100 }),
-          portfolioApi.getOrders({ limit: 100 })
+          portfolioApi.getOrders({ limit: 100 }),
         ]
       )
 
@@ -474,7 +474,7 @@ export default defineEventHandler(
       // Update portfolio cache
       portfolioCache = {
         data: { balance, positions, eventPositions, fills, orders },
-        timestamp: now
+        timestamp: now,
       }
 
       // Build market_ticker → event_ticker map from API data (NOT derivation!)
@@ -570,14 +570,14 @@ export default defineEventHandler(
                   )
                 )
               : 0,
-          nextRefresh: new Date(now + PORTFOLIO_CACHE_DURATION).toISOString()
-        }
+          nextRefresh: new Date(now + PORTFOLIO_CACHE_DURATION).toISOString(),
+        },
       }
     } catch (error: any) {
       console.error('[Kalshi] API error:', error.message, error.response?.data)
       throw createError({
         statusCode: error.response?.status || 500,
-        message: `Kalshi API error: ${error.message}`
+        message: `Kalshi API error: ${error.message}`,
       })
     }
   }

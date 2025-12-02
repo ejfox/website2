@@ -105,7 +105,7 @@ export default defineEventHandler(async (event) => {
         query: searchQuery,
         results: [],
         total: 0,
-        message: 'Search query must be at least 2 characters long'
+        message: 'Search query must be at least 2 characters long',
       }
     }
 
@@ -115,7 +115,7 @@ export default defineEventHandler(async (event) => {
         query: searchQuery,
         results: [],
         total: 0,
-        message: 'No valid search terms found'
+        message: 'No valid search terms found',
       }
     }
 
@@ -140,7 +140,7 @@ export default defineEventHandler(async (event) => {
               '_stale',
               'week-notes',
               'robots',
-              'prompts'
+              'prompts',
             ].includes(item.name)
           )
             continue
@@ -194,7 +194,7 @@ export default defineEventHandler(async (event) => {
                 date: data.metadata?.date,
                 tags: tags.slice(0, 5), // Limit tags shown
                 type: data.metadata?.type || 'post',
-                words: data.metadata?.words || 0
+                words: data.metadata?.words || 0,
               })
             }
           } catch (error) {
@@ -221,7 +221,7 @@ export default defineEventHandler(async (event) => {
       message:
         results.length === 0
           ? 'No results found'
-          : `Found ${results.length} results`
+          : `Found ${results.length} results`,
     }
   } catch (error) {
     console.error('Search error:', error)
@@ -230,7 +230,7 @@ export default defineEventHandler(async (event) => {
       results: [],
       total: 0,
       error: 'An error occurred while searching',
-      message: 'Search temporarily unavailable'
+      message: 'Search temporarily unavailable',
     }
   }
 })

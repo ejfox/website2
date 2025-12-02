@@ -10,7 +10,7 @@ tech:
     'OpenAI API',
     'PostgreSQL',
     'MCP',
-    'AI Consciousness Research'
+    'AI Consciousness Research',
   ]
 state: evolved
 aiInvolvement: ai-enhanced
