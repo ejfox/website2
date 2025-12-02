@@ -161,8 +161,22 @@ async function processMarkdown(content, filePath) {
     const pct = Math.round(
       (processStats.filesProcessed / processStats.totalFiles) * 100
     )
+
+    // IndieWeb indicators
+    const replyTo = frontmatter.replyTo || frontmatter['in-reply-to']
+    const indiewebBadges = []
+    if (replyTo) {
+      try {
+        const replyDomain = new URL(replyTo).hostname.replace('www.', '')
+        indiewebBadges.push(chalk.cyan(`↩ ${replyDomain}`))
+      } catch {
+        indiewebBadges.push(chalk.cyan('↩ reply'))
+      }
+    }
+
+    const badges = indiewebBadges.length > 0 ? ` ${indiewebBadges.join(' ')}` : ''
     process.stdout.write(
-      `\r${chalk.gray(`Processing: ${filename.padEnd(50)}`)}${pct}%`
+      `\r${chalk.gray(`Processing: ${filename.padEnd(40)}`)}${badges}${' '.repeat(Math.max(0, 20 - badges.length))}${pct}%`
     )
 
     const sourcePath = SOURCE_DIR ? path.relative(SOURCE_DIR, filePath) : null
@@ -578,6 +592,11 @@ const printSummary = (files) => {
       acc.h3 += file.metadata.headers?.h3 || 0
       acc.byType[file.metadata.type] = (acc.byType[file.metadata.type] || 0) + 1
 
+      // IndieWeb stats
+      if (file.metadata?.replyTo || file.metadata?.['in-reply-to']) {
+        acc.replyPosts++
+      }
+
       if (file.metadata?.tags && Array.isArray(file.metadata.tags)) {
         file.metadata.tags.forEach(
           (tag) => (acc.tags[tag] = (acc.tags[tag] || 0) + 1)
@@ -597,7 +616,8 @@ const printSummary = (files) => {
       h2: 0,
       h3: 0,
       byType: {},
-      tags: {}
+      tags: {},
+      replyPosts: 0
     }
   )
 
@@ -612,6 +632,11 @@ const printSummary = (files) => {
   )
   console.log(`🔗 Total Links: ${stats.totalLinks}`)
   console.log(`💻 Code Blocks: ${stats.totalCodeBlocks}`)
+
+  // IndieWeb stats
+  if (stats.replyPosts > 0) {
+    console.log(chalk.cyan(`↩️  Reply Posts: ${stats.replyPosts}`))
+  }
 
   console.log('\n📑 Headers')
   console.log(`H1: ${stats.h1}, H2: ${stats.h2}, H3: ${stats.h3}`)

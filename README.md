@@ -41,6 +41,71 @@ The VPS automatically deploys when you push to `main`:
 - Full deployment logs: `/data2/website2/auto-update.log` on VPS
 - Typical deployment time: 2-3 minutes from push
 
+## 🌐 **IndieWeb Features**
+
+This site supports IndieWeb protocols for decentralized social interactions.
+
+### Reply Posts
+
+Write blog posts that are replies to other URLs. The site automatically:
+- Fetches OG data (title, description, favicon) from the target URL
+- Displays a rich "In reply to" context block above your post
+- Adds proper `u-in-reply-to` microformat markup
+- Sends webmentions to the target site
+
+**Usage:**
+
+```yaml
+---
+title: My Response
+date: 2025-12-02
+replyTo: https://example.com/their-post
+tags: [indieweb]
+---
+
+Here's my thoughtful response to that article...
+```
+
+The `replyTo` field (or `in-reply-to`) triggers the ReplyContext component which shows:
+- Favicon from target domain
+- Site name / author
+- Post title (linked)
+- Description snippet
+- Published date (if found)
+
+### Webmentions
+
+**Receiving:** The site displays incoming webmentions (likes, reposts, replies) on blog posts via the Webmentions component.
+
+**Sending:** After publishing, webmentions are automatically sent to all external links:
+
+```bash
+yarn webmentions          # Posts from last 7 days
+yarn webmentions --all    # All posts
+yarn webmentions --dry    # Preview without sending
+```
+
+**Moderation:** Configure blocklists in `data/webmention-moderation.json`:
+
+```json
+{
+  "blockedDomains": ["spam-site.com"],
+  "blockedAuthors": ["@spammer"],
+  "spamKeywords": ["viagra", "casino"]
+}
+```
+
+### Microformats
+
+Blog posts include h-entry markup:
+- `h-entry` on article container
+- `p-name` for title
+- `e-content` for body
+- `dt-published` for date
+- `u-url` for permalink
+- `p-author h-card` for author info
+- `u-in-reply-to` for reply posts
+
 ## 🔮 **Predictions**
 
 Create cryptographically verifiable predictions with optional deadlines:
