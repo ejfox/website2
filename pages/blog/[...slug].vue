@@ -779,6 +779,14 @@ const _processedMetadata = computed(() => {
         <!-- Permalink for microformats -->
         <a :href="postUrl" class="u-url hidden">{{ postUrl }}</a>
 
+        <!-- Reply Context (IndieWeb reply posts) -->
+        <div
+          v-if="post?.metadata?.replyTo || post?.metadata?.['in-reply-to']"
+          class="px-4 md:px-6"
+        >
+          <ReplyContext :reply-to="post?.metadata?.replyTo || post?.metadata?.['in-reply-to']" />
+        </div>
+
         <!-- Article Content - mobile optimized spacing -->
         <div
           ref="articleContent"

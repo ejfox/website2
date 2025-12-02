@@ -142,7 +142,9 @@ function getRecentPosts(daysAgo) {
             slug: `${year}/${file.replace('.json', '')}`,
             html: content.html,
             date: postDate,
-            title: content.title || content.metadata?.title || file
+            title: content.title || content.metadata?.title || file,
+            // IndieWeb reply-to URLs from frontmatter
+            replyTo: content.metadata?.replyTo || content.metadata?.['in-reply-to'] || null
           })
         }
       } catch (e) {
@@ -170,9 +172,17 @@ async function main() {
     const sourceUrl = `${SITE_URL}/blog/${post.slug}`
     const links = extractExternalLinks(post.html)
 
+    // Add reply-to URL if present (IndieWeb reply posts)
+    if (post.replyTo && !links.includes(post.replyTo)) {
+      links.unshift(post.replyTo) // Put reply-to first (most important)
+    }
+
     if (links.length === 0) continue
 
     console.log(`📝 ${post.title}`)
+    if (post.replyTo) {
+      console.log(`   ↩️  Reply to: ${new URL(post.replyTo).hostname}`)
+    }
     console.log(`   ${links.length} external links`)
 
     for (const targetUrl of links) {
