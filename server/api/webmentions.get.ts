@@ -2,8 +2,68 @@
  * /api/webmentions
  *
  * Fetches webmentions from webmention.io for a given URL.
- * Allows others to see who's linking to your content.
+ * Filters based on moderation rules in data/webmention-moderation.json
  */
+
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
+
+interface ModerationConfig {
+  blockedDomains: string[]
+  blockedUrls: string[]
+  blockedAuthors: string[]
+  spamKeywords: string[]
+  trustedDomains: string[]
+}
+
+function loadModeration(): ModerationConfig {
+  try {
+    const configPath = join(process.cwd(), 'data/webmention-moderation.json')
+    return JSON.parse(readFileSync(configPath, 'utf-8'))
+  } catch {
+    return {
+      blockedDomains: [],
+      blockedUrls: [],
+      blockedAuthors: [],
+      spamKeywords: [],
+      trustedDomains: []
+    }
+  }
+}
+
+function isBlocked(mention: any, config: ModerationConfig): boolean {
+  const sourceUrl = mention.url || mention['wm-source'] || ''
+  const authorUrl = mention.author?.url || ''
+  const authorName = mention.author?.name || ''
+  const content = mention.content?.text || mention.content?.html || ''
+
+  // Check blocked domains
+  for (const domain of config.blockedDomains) {
+    if (sourceUrl.includes(domain) || authorUrl.includes(domain)) {
+      return true
+    }
+  }
+
+  // Check blocked URLs
+  if (config.blockedUrls.includes(sourceUrl)) {
+    return true
+  }
+
+  // Check blocked authors
+  if (config.blockedAuthors?.includes(authorName) || config.blockedAuthors?.includes(authorUrl)) {
+    return true
+  }
+
+  // Check spam keywords
+  const lowerContent = content.toLowerCase()
+  for (const keyword of config.spamKeywords) {
+    if (lowerContent.includes(keyword.toLowerCase())) {
+      return true
+    }
+  }
+
+  return false
+}
 
 export default defineEventHandler(async (event) => {
   const query = getQuery(event)
@@ -20,9 +80,13 @@ export default defineEventHandler(async (event) => {
   try {
     const url = `https://webmention.io/api/mentions.jf2?token=${token}&target=${encodeURIComponent(target)}&per-page=100`
     const response = (await $fetch(url)) as any
+    const mentions = response.children || []
 
-    // Return just the children array (the actual webmentions)
-    return response.children || []
+    // Load moderation config and filter
+    const config = loadModeration()
+    const filtered = mentions.filter((m: any) => !isBlocked(m, config))
+
+    return filtered
   } catch (error: any) {
     throw createError({
       statusCode: 500,
