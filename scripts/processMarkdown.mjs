@@ -162,16 +162,17 @@ async function processMarkdown(content, filePath) {
       (processStats.filesProcessed / processStats.totalFiles) * 100
     )
 
-    // IndieWeb indicators
-    const replyTo = frontmatter.replyTo || frontmatter['in-reply-to']
+    // IndieWeb indicators (supports single URL or array)
+    const replyToRaw = frontmatter.replyTo || frontmatter['in-reply-to']
+    const replyToUrls = replyToRaw
+      ? (Array.isArray(replyToRaw) ? replyToRaw : [replyToRaw])
+      : []
     const indiewebBadges = []
-    if (replyTo) {
-      try {
-        const replyDomain = new URL(replyTo).hostname.replace('www.', '')
-        indiewebBadges.push(chalk.cyan(`↩ ${replyDomain}`))
-      } catch {
-        indiewebBadges.push(chalk.cyan('↩ reply'))
-      }
+    if (replyToUrls.length > 0) {
+      const domains = replyToUrls.map(url => {
+        try { return new URL(url).hostname.replace('www.', '') } catch { return 'reply' }
+      })
+      indiewebBadges.push(chalk.cyan(`↩ ${domains.join(', ')}`))
     }
 
     const badges = indiewebBadges.length > 0 ? ` ${indiewebBadges.join(' ')}` : ''

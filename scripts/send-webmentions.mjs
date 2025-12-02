@@ -138,13 +138,18 @@ function getRecentPosts(daysAgo) {
         const postDate = new Date(content.metadata?.date || content.metadata?.modified || 0)
 
         if (postDate.getTime() > cutoff) {
+          // IndieWeb reply-to URLs from frontmatter (can be string or array)
+          const replyToRaw = content.metadata?.replyTo || content.metadata?.['in-reply-to'] || null
+          const replyTo = replyToRaw
+            ? (Array.isArray(replyToRaw) ? replyToRaw : [replyToRaw])
+            : []
+
           posts.push({
             slug: `${year}/${file.replace('.json', '')}`,
             html: content.html,
             date: postDate,
             title: content.title || content.metadata?.title || file,
-            // IndieWeb reply-to URLs from frontmatter
-            replyTo: content.metadata?.replyTo || content.metadata?.['in-reply-to'] || null
+            replyTo
           })
         }
       } catch (e) {
@@ -172,16 +177,21 @@ async function main() {
     const sourceUrl = `${SITE_URL}/blog/${post.slug}`
     const links = extractExternalLinks(post.html)
 
-    // Add reply-to URL if present (IndieWeb reply posts)
-    if (post.replyTo && !links.includes(post.replyTo)) {
-      links.unshift(post.replyTo) // Put reply-to first (most important)
+    // Add reply-to URLs if present (IndieWeb reply posts) - now supports arrays
+    for (const replyUrl of post.replyTo) {
+      if (!links.includes(replyUrl)) {
+        links.unshift(replyUrl) // Put reply-to first (most important)
+      }
     }
 
     if (links.length === 0) continue
 
     console.log(`📝 ${post.title}`)
-    if (post.replyTo) {
-      console.log(`   ↩️  Reply to: ${new URL(post.replyTo).hostname}`)
+    if (post.replyTo.length > 0) {
+      const domains = post.replyTo.map(url => {
+        try { return new URL(url).hostname } catch { return url }
+      })
+      console.log(`   ↩️  Reply to: ${domains.join(', ')}`)
     }
     console.log(`   ${links.length} external links`)
 

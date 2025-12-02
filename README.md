@@ -53,7 +53,7 @@ Write blog posts that are replies to other URLs. The site automatically:
 - Adds proper `u-in-reply-to` microformat markup
 - Sends webmentions to the target site
 
-**Usage:**
+**Usage (single reply):**
 
 ```yaml
 ---
@@ -64,6 +64,20 @@ tags: [indieweb]
 ---
 
 Here's my thoughtful response to that article...
+```
+
+**Usage (multiple replies):**
+
+```yaml
+---
+title: Synthesizing Two Ideas
+date: 2025-12-02
+replyTo:
+  - https://blog-a.com/post-one
+  - https://blog-b.com/post-two
+---
+
+This post responds to both of these articles...
 ```
 
 The `replyTo` field (or `in-reply-to`) triggers the ReplyContext component which shows:
