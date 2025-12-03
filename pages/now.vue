@@ -121,6 +121,8 @@ const diffHours = Math.floor(diffMins / 60)
   return `${diffDays}d ago`
 }
 
+const nowUpdated = new Date().toISOString().split('T')[0]
+
 usePageSeo({
   title: 'Now · EJ Fox',
   description:
@@ -169,6 +171,9 @@ usePageSeo({
         What I'm doing, listening to, reading, and thinking about this very
         moment.
       </p>
+      <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mt-2">
+        Updated {{ nowUpdated }} · sources: GitHub commits, Last.fm, Kindle sync, predictions
+      </div>
     </header>
 
     <!-- Loading State -->

@@ -26,6 +26,9 @@
         <div>FOX_STATS</div>
         <div ref="progressRef">{{ displayDayOfYear }}/{{ daysInYear }}</div>
       </div>
+      <div class="text-[10px] text-zinc-500 dark:text-zinc-500 px-4">
+        Updated {{ statsUpdated || 'live' }} · sources: GitHub, Chess.com, Monkeytype, Last.fm, RescueTime
+      </div>
 
       <!-- Error state for simple mode -->
       <div
@@ -531,6 +534,19 @@ const statsDescription = computed(() => {
     : 'Live personal metrics from GitHub, Chess.com, Monkeytype, Last.fm, and writing output.'
 })
 
+const statsUpdated = computed(() => {
+  const dates: number[] = []
+  const s = stats.value
+  if (!s) return ''
+  if (s.github?.detail?.lastCommitDate)
+    dates.push(new Date(s.github.detail.lastCommitDate).getTime())
+  if (s.chess?.lastUpdated) dates.push(new Date(s.chess.lastUpdated).getTime())
+  if (s.monkeytype?.lastUpdated)
+    dates.push(new Date(s.monkeytype.lastUpdated).getTime())
+  if (s.blog?.lastUpdated) dates.push(new Date(s.blog.lastUpdated).getTime())
+  if (!dates.length) return ''
+  return new Date(Math.max(...dates)).toISOString().split('T')[0]
+})
 usePageSeo({
   title: 'Stats · EJ Fox',
   description: computed(() => statsDescription.value),
