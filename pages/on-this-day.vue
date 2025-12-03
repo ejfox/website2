@@ -27,7 +27,7 @@
     </div>
 
     <!-- Timeline by year -->
-    <div v-else class="space-y-8">
+    <div v-else class="space-y-6">
       <section v-for="yearData in data.years" :key="yearData.year">
         <!-- Year header -->
         <div class="year-header">
@@ -39,22 +39,26 @@
         </div>
 
         <!-- Dynamic rendering of all source types -->
-        <div class="space-y-4">
+        <div class="space-y-0">
           <!-- Posts -->
           <template v-if="yearData.posts?.length">
             <NuxtLink
               v-for="post in yearData.posts"
               :key="post.slug"
               :to="`/blog/${post.slug}`"
-              class="card card-interactive"
+              class="post-card"
             >
-              <div class="flex items-start gap-3">
-                <span class="text-zinc-400">{{ sourceIcons.posts }}</span>
-                <div>
-                  <h3 class="font-serif text-lg">{{ post.title }}</h3>
+              <div class="flex items-start gap-2">
+                <span class="text-zinc-400 dark:text-zinc-600 text-xs pt-1">
+                  {{ sourceIcons.posts }}
+                </span>
+                <div class="flex-grow min-w-0">
+                  <h3 class="font-serif text-sm text-zinc-900 dark:text-zinc-100">
+                    {{ post.title }}
+                  </h3>
                   <p
                     v-if="post.dek"
-                    class="text-sm text-zinc-600 dark:text-zinc-400 mt-1"
+                    class="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5"
                   >
                     {{ post.dek }}
                   </p>
@@ -78,7 +82,9 @@
           <!-- Tweets -->
           <template v-if="yearData.tweets?.length">
             <TweetCard
-              v-for="tweet in yearData.tweets"
+              v-for="tweet in yearData.tweets.filter(
+                (t) => !t.replyTo && !t.text.startsWith('RT @')
+              )"
               :id="tweet.id"
               :key="tweet.id"
               :text="tweet.text"
@@ -226,15 +232,14 @@ useHead({
 }
 
 .year-header {
-  @apply flex items-center gap-3 mb-4 py-2 z-10;
+  @apply flex items-center gap-3 mb-3 py-2 z-10;
   @apply sticky top-0 bg-white dark:bg-zinc-950;
 }
 
-.card-interactive {
-  @apply block p-4 rounded-lg border transition-colors;
-  @apply bg-zinc-50 dark:bg-zinc-900;
-  @apply border-zinc-200 dark:border-zinc-800;
-  @apply hover:border-zinc-400 dark:hover:border-zinc-600;
+.post-card {
+  @apply block py-3 px-0;
+  @apply border-b border-zinc-200 dark:border-zinc-800;
+  @apply hover:bg-zinc-50/30 dark:hover:bg-zinc-900/30;
 }
 
 .summary-footer {
