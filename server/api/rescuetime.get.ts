@@ -73,7 +73,7 @@ export default defineEventHandler(async () => {
       return date.toISOString().split('T')[0]
     }
 
-    // Fetch week and month data in parallel using 'interval' perspective with error recovery
+    // Fetch week and month data in parallel with error recovery
     const results = await Promise.allSettled([
       $fetch<RescueTimeResponse>('https://www.rescuetime.com/anapi/data', {
         params: {

@@ -33,9 +33,9 @@ let commentariesCache: CacheLayer<Record<string, KalshiCommentary>> | null =
   null
 
 // Cache durations (in milliseconds)
-const PORTFOLIO_CACHE_DURATION = 2 * 60 * 1000 // 2 minutes - positions change frequently
-const EVENTS_CACHE_DURATION = 60 * 60 * 1000 // 1 hour - events rarely change
-const COMMENTARIES_CACHE_DURATION = 10 * 60 * 1000 // 10 minutes - user-managed content
+const PORTFOLIO_CACHE_DURATION = 2 * 60 * 1000 // 2 minutes
+const EVENTS_CACHE_DURATION = 60 * 60 * 1000 // 1 hour
+const COMMENTARIES_CACHE_DURATION = 10 * 60 * 1000 // 10 minutes
 
 /**
  * Derives event ticker from market ticker

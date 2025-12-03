@@ -89,7 +89,7 @@ export default defineEventHandler(async (event) => {
       slug.includes('drafts/') ||
       slug.includes('robots/') ||
       slug.includes('prompts/')
-    // Only include posts with paths (e.g., 2025/post-name) - filter out root-level files
+    // Only include posts with paths (e.g., 2025/post-name)
     const hasPath = slug.includes('/')
     if (isDraft || isHidden || isSystemFile || isSpecialSection || !hasPath)
       continue

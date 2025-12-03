@@ -14,9 +14,9 @@ export default defineNuxtPlugin((nuxtApp: any) => {
     const tocLinks = Array.from(tocContainer.querySelectorAll('a[href^="#"]'))
     if (tocLinks.length === 0) return
 
-    // Find the current active heading based on scroll position
+    // Find active heading based on scroll position
     let activeHeading = null
-    const _scrollPosition = window.scrollY + 100 // Add offset to trigger earlier
+    const _scrollPosition = window.scrollY + 100 // Offset for earlier trigger
 
     // Find the last heading that's above the current scroll position
     for (let i = headings.length - 1; i >= 0; i--) {

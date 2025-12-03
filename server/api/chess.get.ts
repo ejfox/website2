@@ -129,7 +129,8 @@ export default defineEventHandler(async () => {
       },
       puzzleStats: {
         rating: stats.tactics?.highest?.rating || 0,
-        totalSolved: 0, // Chess.com doesn't provide total solved count in public API
+        // Chess.com API doesn't provide total solved count
+        totalSolved: 0,
         bestRating: stats.tactics?.highest?.rating || 0,
         lowestRating: stats.tactics?.lowest?.rating || 0,
         lastUpdated: stats.tactics?.highest?.date,
