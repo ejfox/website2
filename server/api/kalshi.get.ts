@@ -477,8 +477,7 @@ export default defineEventHandler(
         timestamp: now,
       }
 
-      // Build market_ticker → event_ticker map from API data (NOT derivation!)
-      // The positions API gives us event_positions with actual event_ticker values
+      // Build market_ticker → event_ticker map from API data
       const tickerToEvent = new Map<string, string>()
 
       // Match market positions to event positions

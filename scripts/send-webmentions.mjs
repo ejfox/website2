@@ -103,7 +103,7 @@ async function discoverWebmentionEndpoint(targetUrl) {
     }
 
     return null
-  } catch (_e) {
+  } catch {
     // Site unreachable or timeout - skip silently
     return null
   }
@@ -170,7 +170,7 @@ function getRecentPosts(daysAgo) {
             replyTo,
           })
         }
-      } catch (_e) {
+      } catch {
         // Skip invalid JSON
       }
     }

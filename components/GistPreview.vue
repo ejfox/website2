@@ -187,10 +187,14 @@ const handleToggle = () => {
 
 .action-button {
   @apply flex items-center gap-1 px-2 py-1 text-xs;
-  @apply bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700;
-  @apply rounded text-zinc-600 dark:text-zinc-400 font-mono cursor-pointer shadow-sm;
-  @apply hover:bg-zinc-50 dark:hover:bg-zinc-700 hover:border-zinc-300 dark:hover:border-zinc-600;
-  @apply hover:text-zinc-700 dark:hover:text-zinc-300 hover:-translate-y-px transition-all;
+  @apply bg-white dark:bg-zinc-800 border shadow-sm;
+  @apply border-zinc-200 dark:border-zinc-700;
+  @apply rounded text-zinc-600 dark:text-zinc-400;
+  @apply font-mono cursor-pointer;
+  @apply hover:bg-zinc-50 dark:hover:bg-zinc-700;
+  @apply hover:border-zinc-300 dark:hover:border-zinc-600;
+  @apply hover:text-zinc-700 dark:hover:text-zinc-300;
+  @apply hover:-translate-y-px transition-all;
 }
 
 .button-icon {

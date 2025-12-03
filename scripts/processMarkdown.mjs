@@ -746,7 +746,7 @@ async function buildOnThisDayIndex(blogResults, blogFiles) {
   const spinner = ora('Building on-this-day index...').start()
 
   try {
-    // Key: "MM-DD", Value: { tweets: [], posts: [], scrobbles: [], commits: [] }
+    // Key: "MM-DD", Value: { tweets, posts, scrobbles, commits }
     const index = {}
 
     // Load tweets

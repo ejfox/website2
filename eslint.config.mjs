@@ -26,7 +26,7 @@ export default createConfigForNuxt({
           ignoreTemplateLiterals: true,
           ignoreRegExpLiterals: true,
           ignoreComments: false,
-          ignorePattern: '^\\s*d="|^\\s*<path',
+          ignorePattern: '^\\s*d="|^\\s*<path|class="|:class=',
         },
       ],
 

@@ -302,38 +302,37 @@ export default defineEventHandler(async (): Promise<GitHubStats> => {
       })
     }
 
-    const commits =
-      contributions.viewer.contributionsCollection.commitContributionsByRepository
-        .filter((repo) => !repo.repository.isPrivate) // Filter out private repos
-        .flatMap((repo) => {
-          if (!repo.repository.defaultBranchRef?.target?.history?.nodes) {
-            return []
-          }
+    const contributionCollection = contributions.viewer.contributionsCollection
+    const commits = contributionCollection.commitContributionsByRepository
+      .filter((repo) => !repo.repository.isPrivate)
+      .flatMap((repo) => {
+        const nodes = repo.repository.defaultBranchRef?.target?.history?.nodes
+        if (!nodes) {
+          return []
+        }
 
-          return repo.repository.defaultBranchRef.target.history.nodes
-            .filter((commit) => commit)
-            .map((commit) => {
-              const message = commit.message || ''
-              const types =
-                'feat|fix|docs|style|refactor|test|chore|' +
-                'build|ci|perf|revert|blog|scaffold'
-              const match = message.match(
-                new RegExp(`^(${types})(\\(.+?\\))?:`)
-              )
+        return repo.repository.defaultBranchRef.target.history.nodes
+          .filter((commit) => commit)
+          .map((commit) => {
+            const message = commit.message || ''
+            const types =
+              'feat|fix|docs|style|refactor|test|chore|' +
+              'build|ci|perf|revert|blog|scaffold'
+            const match = message.match(new RegExp(`^(${types})(\\(.+?\\))?:`))
 
-              return {
-                repository: {
-                  name: repo.repository.name,
-                  url: repo.repository.url,
-                },
-                message,
-                occurredAt: commit.committedDate,
-                url: commit.url,
-                type: match?.[1] || 'other',
-              }
-            })
-        })
-        .filter(Boolean)
+            return {
+              repository: {
+                name: repo.repository.name,
+                url: repo.repository.url,
+              },
+              message,
+              occurredAt: commit.committedDate,
+              url: commit.url,
+              type: match?.[1] || 'other',
+            }
+          })
+      })
+      .filter(Boolean)
 
     const typeCount = commits.reduce(
       (acc, commit) => {

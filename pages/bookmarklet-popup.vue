@@ -222,7 +222,7 @@ onMounted(async () => {
     return
   }
 
-  // Load tags and suggestions in parallel, update loading state once both complete
+  // Load tags and suggestions in parallel
   try {
     const [tags, response] = await Promise.all([
       $fetch('/tags.json').catch((err) => {
