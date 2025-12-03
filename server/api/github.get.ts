@@ -306,7 +306,8 @@ export default defineEventHandler(async (): Promise<GitHubStats> => {
     const commits = contributionCollection.commitContributionsByRepository
       .filter((repo) => !repo.repository.isPrivate)
       .flatMap((repo) => {
-        const nodes = repo.repository.defaultBranchRef?.target?.history?.nodes
+        const branch = repo.repository.defaultBranchRef
+        const nodes = branch?.target?.history?.nodes
         if (!nodes) {
           return []
         }
