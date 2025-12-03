@@ -746,7 +746,8 @@ async function buildOnThisDayIndex(blogResults, blogFiles) {
   const spinner = ora('Building on-this-day index...').start()
 
   try {
-    const index = {} // Key: "MM-DD", Value: { tweets: [], posts: [], scrobbles: [], commits: [] }
+    // Key: "MM-DD", Value: { tweets: [], posts: [], scrobbles: [], commits: [] }
+    const index = {}
 
     // Load tweets
     const tweetsPath = path.join(process.cwd(), 'data/tweets.json')
@@ -788,7 +789,8 @@ async function buildOnThisDayIndex(blogResults, blogFiles) {
       const lines = scrobblesData.split('\n').slice(1) // Skip header
 
       // Group scrobbles by day to avoid duplicates and reduce size
-      const scrobblesByDay = {} // { "YYYY-MM-DD": { tracks: Set, artists: Set, count: number } }
+      // { "YYYY-MM-DD": { tracks: Set, artists: Set, count: number } }
+      const scrobblesByDay = {}
 
       for (const line of lines) {
         if (!line.trim()) continue
@@ -934,12 +936,10 @@ async function buildOnThisDayIndex(blogResults, blogFiles) {
     await fs.writeFile(indexPath, JSON.stringify(index, null, 2))
 
     const daysWithContent = Object.keys(index).length
-    const scrobbleDays = Object.values(index).reduce(
-      (sum, day) => sum + day.scrobbles.length,
-      0
-    )
     spinner.succeed(
-      `On-this-day: ${tweetCount} tweets, ${postCount} posts, ${scrobbleCount} scrobbles, ${commitCount} commits across ${daysWithContent} days`
+      `On-this-day: ${tweetCount} tweets, ${postCount} posts, ` +
+        `${scrobbleCount} scrobbles, ${commitCount} commits ` +
+        `across ${daysWithContent} days`
     )
   } catch (error) {
     spinner.fail('Failed to build on-this-day index')

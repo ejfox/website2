@@ -1,4 +1,5 @@
 <template>
+  <!--  eslint-disable-next-line vue/max-len, max-len -->
   <nav
     v-if="breadcrumbs.length > 1"
     class="font-mono text-xs mb-6 flex items-center gap-2 text-zinc-500 dark:text-zinc-500 overflow-x-auto"

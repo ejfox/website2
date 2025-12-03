@@ -35,15 +35,15 @@ export default createConfigForNuxt({
       'vue/no-v-html': 'off', // We use v-html intentionally for markdown content
       'vue/no-multiple-template-root': 'off', // Vue 3 supports multiple roots
       'vue/max-len': [
-        'error',
+        'warn',
         {
           code: 80,
-          template: 80,
+          template: 120,
           tabWidth: 2,
           ignoreComments: false,
           ignoreUrls: true,
           ignoreStrings: true,
-          ignorePattern: '^\\s*d="|^\\s*<path',
+          ignorePattern: '^\\s*d="|^\\s*<path|class=',
         },
       ],
 

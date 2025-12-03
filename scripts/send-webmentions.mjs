@@ -2,8 +2,8 @@
 /**
  * Send Webmentions Script
  *
- * Scans blog posts for external links and sends webmentions to sites that support them.
- * Run after publishing new content to notify sites you've linked to.
+ * Scans blog posts for external links and sends webmentions
+ * to sites that support them. Run after publishing new content.
  *
  * Usage:
  *   yarn webmentions          # Send for posts modified in last 7 days
@@ -103,7 +103,7 @@ async function discoverWebmentionEndpoint(targetUrl) {
     }
 
     return null
-  } catch (e) {
+  } catch (_e) {
     // Site unreachable or timeout - skip silently
     return null
   }
@@ -170,7 +170,7 @@ function getRecentPosts(daysAgo) {
             replyTo,
           })
         }
-      } catch (e) {
+      } catch (_e) {
         // Skip invalid JSON
       }
     }
