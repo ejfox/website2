@@ -91,31 +91,14 @@
 
           <!-- Scrobbles -->
           <template v-if="yearData.scrobbles?.length">
-            <div
+            <ScrobbleCard
               v-for="scrobble in yearData.scrobbles"
               :key="scrobble.date"
-              class="card"
-            >
-              <div class="flex items-start gap-3">
-                <span class="text-red-500">{{ sourceIcons.scrobbles }}</span>
-                <div class="flex-grow min-w-0">
-                  <p
-                    class="text-sm font-medium mb-2 text-zinc-700 dark:text-zinc-300"
-                  >
-                    {{ scrobble.count }} scrobbles
-                  </p>
-                  <div class="space-y-1">
-                    <p
-                      v-for="track in scrobble.topTracks"
-                      :key="track"
-                      class="text-xs truncate text-zinc-500 dark:text-zinc-400"
-                    >
-                      {{ track }}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+              :count="scrobble.count"
+              :top-tracks="scrobble.topTracks"
+              :top-artists="scrobble.topArtists"
+              :date="scrobble.date"
+            />
           </template>
         </div>
       </section>
@@ -247,14 +230,10 @@ useHead({
   @apply sticky top-0 bg-white dark:bg-zinc-950;
 }
 
-.card {
-  @apply p-4 rounded-lg border;
+.card-interactive {
+  @apply block p-4 rounded-lg border transition-colors;
   @apply bg-zinc-50 dark:bg-zinc-900;
   @apply border-zinc-200 dark:border-zinc-800;
-}
-
-.card-interactive {
-  @apply block transition-colors;
   @apply hover:border-zinc-400 dark:hover:border-zinc-600;
 }
 
