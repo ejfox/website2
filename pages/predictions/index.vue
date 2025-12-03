@@ -770,13 +770,6 @@ const totalPredictions = computed(
   () => predictions.value?.filter((p) => p.visibility === 'public').length || 0
 )
 
-const resolvedCount = computed(
-  () =>
-    predictions.value?.filter(
-      (p) => p.visibility === 'public' && p.resolved
-    ).length || 0
-)
-
 usePageSeo({
   title: 'Predictions · EJ Fox',
   description:

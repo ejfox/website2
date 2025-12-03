@@ -274,21 +274,20 @@ const { data: predictions, error: predictionsError } =
 // Fetch tags for counting
 const { data: tags, error: tagsError } = await useFetch('/tags.json')
 
-const totalPosts = computed(() => manifest.value?.length || 0)
 const publicPredictions = computed(
   () =>
     predictions.value?.filter((p) => p.visibility === 'public').length || 0
 )
 
 const lastUpdated = computed(() => {
-  const dates: number[] = []
+  const dates = []
   if (manifest.value?.length) {
-    manifest.value.forEach((item: any) => {
+    manifest.value.forEach((item) => {
       if (item?.date) dates.push(new Date(item.date).getTime())
     })
   }
   if (predictions.value?.length) {
-    predictions.value.forEach((p: any) => {
+    predictions.value.forEach((p) => {
       if (p?.created) dates.push(new Date(p.created).getTime())
       const lastUpdate = p?.updates?.[p.updates.length - 1]?.timestamp
       if (lastUpdate) dates.push(new Date(lastUpdate).getTime())
