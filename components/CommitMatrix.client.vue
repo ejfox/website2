@@ -7,7 +7,8 @@
 <script setup>
 import { Deck } from '@deck.gl/core'
 import { ScatterplotLayer } from '@deck.gl/layers'
-import { useWindowSize } from '@vueuse/core'
+import { useWindowSize, useRafFn } from '@vueuse/core'
+import { createNoise2D } from 'simplex-noise'
 
 const props = defineProps({
   commits: {
@@ -27,6 +28,9 @@ const { width: windowWidth } = useWindowSize()
 
 const width = computed(() => Math.min(windowWidth.value, 1200))
 
+// Perlin noise generator
+const noise2D = createNoise2D()
+
 // Language colors (matching GitHub + making them pop)
 const languageColors = {
   JavaScript: [241, 224, 90, 200],
@@ -43,8 +47,8 @@ const languageColors = {
   default: [139, 148, 158, 180],
 }
 
-// Process commits into data points
-const commitPoints = computed(() => {
+// Base positions (calculated once)
+const basePositions = computed(() => {
   if (!props.commits || props.commits.length === 0) return []
 
   // Sort chronologically
@@ -66,32 +70,108 @@ const commitPoints = computed(() => {
     const timeProgress = (date - startDate) / timeRange
 
     // Y position = time (0 = oldest at top, 1 = newest at bottom)
-    const y = timeProgress * props.height
+    const baseY = timeProgress * props.height
 
-    // X position = repo lane with slight jitter
+    // X position = repo lane
     const repoLane = repoIndex[commit.repo] / Math.max(repoCount - 1, 1)
-    const x = repoLane * width.value * 0.85 + width.value * 0.075
-    const jitter = (Math.random() - 0.5) * 40
+    const baseX = repoLane * width.value * 0.85 + width.value * 0.075
 
-    // Size varies slightly for visual interest
+    // Size varies slightly
     const size = 3 + Math.random() * 4
 
     // Get language color
     const language = commit.language || 'default'
-    const color =
-      languageColors[language] || languageColors.default
+    const color = languageColors[language] || languageColors.default
+
+    // Unique seed for this commit
+    const seed = idx * 0.01
 
     return {
-      position: [x + jitter, y],
+      basePosition: [baseX, baseY],
       size,
       color,
       repo: commit.repo,
       message: commit.message,
       date: commit.date,
       language,
+      seed,
+      idx,
     }
   })
 })
+
+// Animated positions with Perlin noise + simplified boids
+const animatedPositions = ref([])
+const time = ref(0)
+
+// Update animation with flocking behavior
+const updateAnimation = () => {
+  time.value += 0.003 // Slow time increment
+
+  const points = basePositions.value
+  const newPositions = []
+
+  for (let i = 0; i < points.length; i++) {
+    const point = points[i]
+    const [baseX, baseY] = point.basePosition
+
+    // Perlin noise for organic drift
+    const noiseScale = 0.002
+    const noiseX = noise2D(baseX * noiseScale, time.value) * 12
+    const noiseY = noise2D(baseY * noiseScale, time.value + 100) * 12
+
+    // Global flow pattern (like wind)
+    const flowAngle = time.value * 0.3 + baseY * 0.0005
+    const flowX = Math.sin(flowAngle) * 6
+    const flowY = Math.cos(flowAngle) * 3
+
+    // Simplified boid behavior (only check nearby points every N frames)
+    let boidX = 0
+    let boidY = 0
+
+    if (i % 20 === Math.floor(time.value * 10) % 20) {
+      // Check neighbors
+      const neighborRadius = 100
+      let neighbors = 0
+
+      for (let j = i - 10; j < i + 10; j++) {
+        if (j < 0 || j >= points.length || j === i) continue
+
+        const neighbor = points[j]
+        const [nx, ny] = neighbor.basePosition
+        const dx = nx - baseX
+        const dy = ny - baseY
+        const dist = Math.sqrt(dx * dx + dy * dy)
+
+        if (dist < neighborRadius) {
+          // Cohesion + alignment
+          boidX += dx * 0.01
+          boidY += dy * 0.01
+          neighbors++
+        }
+      }
+
+      if (neighbors > 0) {
+        boidX /= neighbors
+        boidY /= neighbors
+      }
+    }
+
+    // Combine all forces
+    const finalX = baseX + noiseX + flowX + boidX
+    const finalY = baseY + noiseY + flowY + boidY
+
+    newPositions.push({
+      ...point,
+      position: [finalX, finalY],
+    })
+  }
+
+  animatedPositions.value = newPositions
+}
+
+// Commit points for deck.gl
+const commitPoints = computed(() => animatedPositions.value)
 
 // Initialize deck.gl
 const initDeck = () => {
@@ -120,12 +200,8 @@ const initDeck = () => {
         getPosition: (d) => d.position,
         getRadius: (d) => d.size,
         getFillColor: (d) => d.color,
-        // Hover tooltip
-        onHover: ({ object, x, y }) => {
-          if (object) {
-            const tooltip = `${object.repo}: ${object.message.substring(0, 50)}...`
-            console.log(tooltip)
-          }
+        updateTriggers: {
+          getPosition: time.value, // Force update on animation
         },
       }),
     ],
@@ -155,6 +231,9 @@ watch(
           getPosition: (d) => d.position,
           getRadius: (d) => d.size,
           getFillColor: (d) => d.color,
+          updateTriggers: {
+            getPosition: time.value,
+          },
         }),
       ],
     })
@@ -162,13 +241,26 @@ watch(
   { deep: true }
 )
 
+// Animation loop using RAF
+const { pause, resume } = useRafFn(
+  () => {
+    updateAnimation()
+  },
+  { immediate: false }
+)
+
 onMounted(() => {
   nextTick(() => {
+    // Initialize positions
+    updateAnimation()
     initDeck()
+    // Start animation loop
+    resume()
   })
 })
 
 onUnmounted(() => {
+  pause()
   if (deckInstance.value) {
     deckInstance.value.finalize()
     deckInstance.value = null
