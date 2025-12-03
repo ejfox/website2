@@ -1,0 +1,23 @@
+{
+  "name": "vue-toast-notification",
+  "description": "An attempt to add more visual design and Nuxt / Vue 3 support to vue toasts",
+  "url": "https://github.com/ejfox/vue-toast-notification",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "topics": [],
+  "readme": {
+    "html": "<p><em>No README available</em></p>",
+    "raw": "",
+    "excerpt": "No description available"
+  },
+  "createdAt": "2023-09-04T18:32:18Z",
+  "updatedAt": "2023-09-04T18:32:41Z",
+  "pushedAt": "2023-06-26T13:19:24Z"
+}

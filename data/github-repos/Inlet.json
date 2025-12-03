@@ -1,0 +1,23 @@
+{
+  "name": "Inlet",
+  "description": "Bret Victor inspired slider & color picker plugin for CodeMirror",
+  "url": "https://github.com/ejfox/Inlet",
+  "homepage": "http://enjalot.github.com/Inlet",
+  "stats": {
+    "stars": 1,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "topics": [],
+  "readme": {
+    "html": "<p>Inlet is a \"plugin\" for CodeMirror2 which pops up a slider whenever you click on a number or a color picker when you click on a Hex string (i.e. \"#ff0000\")</p>\n<p>See an example at <a href=\"http://enjalot.github.com/Inlet\">http://enjalot.github.com/Inlet</a></p>\n<h1 id=\"about\">About</h1>\n<p>This project is inspired by Bret Victor's talk <a href=\"https://vimeo.com/36579366\">\"Inventing on Principle\"</a></p>\n<p>The the slider code is adapted from Gabriel Florit's <a href=\"http://gabrielflor.it/water\">Water project</a></p>\n<p>The <a href=\"https://github.com/mudcube/Color-Picker\">Color Picker library</a></p>\n<p>This project is used in enjalot's <a href=\"http://tributary.io\">Tributary</a></p>\n<h1 id=\"usage\">Usage</h1>\n<p>All you need is the inlet.js file from src/inlet.js<br>\nbut you do need to make sure you have all of the libs this depends on (found in the example/lib folder):\nColorPicker<br>\nCodeMirror2 ( >= 3.1 )</p>\n<p>Check out index.html to see how to put things together</p>\n<p>The key bit of javascript code to kick things off is:</p>\n<pre><code class=\"language-javascript\">var editor = CodeMirror('#editor', ...)\nInlet(editor)\n</code></pre>\n<p>Enjoy!</p>",
+    "raw": "Inlet is a \"plugin\" for CodeMirror2 which pops up a slider whenever you click on a number or a color picker when you click on a Hex string (i.e. \"#ff0000\")\n\nSee an example at http://enjalot.github.com/Inlet\n\n# About\n\nThis project is inspired by Bret Victor's talk [\"Inventing on Principle\"](https://vimeo.com/36579366)  \n\nThe the slider code is adapted from Gabriel Florit's [Water project](http://gabrielflor.it/water)  \n\nThe [Color Picker library](https://github.com/mudcube/Color-Picker)  \n\nThis project is used in enjalot's [Tributary](http://tributary.io)  \n\n\n# Usage\n\nAll you need is the inlet.js file from src/inlet.js  \nbut you do need to make sure you have all of the libs this depends on (found in the example/lib folder):\nColorPicker  \nCodeMirror2 ( >= 3.1 )  \n\nCheck out index.html to see how to put things together\n\nThe key bit of javascript code to kick things off is:\n```javascript\nvar editor = CodeMirror('#editor', ...)\nInlet(editor)\n```\n\nEnjoy!\n",
+    "excerpt": "Inlet is a \"plugin\" for CodeMirror2 which pops up a slider whenever you click on a number or a color picker when you click on a Hex string (i.e. \"#ff0000\")\n\nSee..."
+  },
+  "createdAt": "2013-03-10T00:09:29Z",
+  "updatedAt": "2014-05-13T05:24:42Z",
+  "pushedAt": "2013-03-10T00:10:35Z"
+}

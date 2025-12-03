@@ -1,0 +1,23 @@
+{
+  "name": "motorcycle-path",
+  "description": "No description provided",
+  "url": "https://github.com/ejfox/motorcycle-path",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 1
+  },
+  "language": "Vue",
+  "languageColor": "#41b883",
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"ej-vite-boilerplate\">ej-vite-boilerplate</h1>\n<h2 id=\"project-setup\">Project setup</h2>\n<pre><code>npm install\n</code></pre>\n<h4 id=\"compiles-and-hot-reloads-for-development\">Compiles and hot-reloads for development</h4>\n<pre><code>npm run dev\n</code></pre>\n<h4 id=\"compiles-and-minifies-for-production\">Compiles and minifies for production</h4>\n<pre><code>npm run build\n</code></pre>\n<h4 id=\"run-your-end-to-end-tests\">Run your end-to-end tests</h4>\n<pre><code>npm run test:e2e\n</code></pre>\n<h4 id=\"lints-and-fixes-files\">Lints and fixes files</h4>\n<pre><code>npm run lint\n</code></pre>\n<h3 id=\"customize-configuration\">Customize configuration</h3>\n<p>See <a href=\"https://cli.vuejs.org/config/\">Configuration Reference</a>.</p>",
+    "raw": "# ej-vite-boilerplate\n\n## Project setup\n```\nnpm install\n```\n\n#### Compiles and hot-reloads for development\n```\nnpm run dev\n```\n\n#### Compiles and minifies for production\n```\nnpm run build\n```\n\n#### Run your end-to-end tests\n```\nnpm run test:e2e\n```\n\n#### Lints and fixes files\n```\nnpm run lint\n```\n\n### Customize configuration\nSee [Configuration Reference](https://cli.vuejs.org/config/).\n",
+    "excerpt": "npm install\n\n\n\n\nnpm run dev\n\n\n\n\nnpm run build\n\n\n\n\nnpm run test:e2e\n\n\n\n\nnpm run lint\n\n\n\nSee Configuration Reference...."
+  },
+  "createdAt": "2022-06-18T15:08:25Z",
+  "updatedAt": "2022-06-18T15:08:32Z",
+  "pushedAt": "2022-07-24T23:38:03Z"
+}

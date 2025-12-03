@@ -1,0 +1,23 @@
+{
+  "name": "GoodData",
+  "description": "Collecting good data sources to inspire visualizers",
+  "url": "https://github.com/ejfox/GoodData",
+  "homepage": "http://ejfox.github.com/GoodData/",
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 2,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "topics": [],
+  "readme": {
+    "html": "<h2 id=\"gooddata\">#GoodData</h2>\n<p>Collecting good data sources to inspire visualizers.</p>\n<p>Makes a quick <a href=\"https://github.com/jsoma/tabletop\">Tabletop</a> + <a href=\"http://isotope.metafizzy.co/index.html\">Isotope</a>-based page to display the data sources listed in a <a href=\"https://docs.google.com/spreadsheet/ccc?key=0ApAkxBfw1JT4dEphMEpZM051NlM3RUlfTlRwcUtENlE\">Google Spreadsheet</a> which I curate along with other members of <a href=\"http://mainstem.org\">Mainstem</a>.</p>\n<p>Send your suggestions for data sources to <strong><a href=\"mailto:ejfox@ejfox.com\">ejfox@ejfox.com</a></strong></p>",
+    "raw": "#GoodData\n---\n\nCollecting good data sources to inspire visualizers.\n\nMakes a quick [Tabletop](https://github.com/jsoma/tabletop) + [Isotope](http://isotope.metafizzy.co/index.html)-based page to display the data sources listed in a [Google Spreadsheet](https://docs.google.com/spreadsheet/ccc?key=0ApAkxBfw1JT4dEphMEpZM051NlM3RUlfTlRwcUtENlE) which I curate along with other members of [Mainstem](http://mainstem.org).\n\nSend your suggestions for data sources to **ejfox@ejfox.com**\n",
+    "excerpt": "#GoodData\n---\n\nCollecting good data sources to inspire visualizers.\n\nMakes a quick Tabletop + Isotope-based page to display the data sources listed in a Google..."
+  },
+  "createdAt": "2012-11-10T02:04:18Z",
+  "updatedAt": "2013-10-14T01:23:31Z",
+  "pushedAt": "2012-12-28T21:27:04Z"
+}

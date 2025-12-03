@@ -1,0 +1,23 @@
+{
+  "name": "glasses-hud",
+  "description": "Prototype AR / lens visualizations and HUDs quickly",
+  "url": "https://github.com/ejfox/glasses-hud",
+  "homepage": null,
+  "stats": {
+    "stars": 1,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "Vue",
+  "languageColor": "#41b883",
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"ar-glasses-hud-prototyper\">AR Glasses HUD Prototyper</h1>\n<p>Simple prototyping tool for AR glasses data visualizations. Built with Nuxt 3 + Vue.</p>\n<h2 id=\"goal\">Goal</h2>\n<p>Quickly prototype ambient data displays and widgets for AR glasses. Test different positions, content types, and visual elements before building real implementations.</p>\n<h2 id=\"setup\">Setup</h2>\n<pre><code class=\"language-bash\">npm install\nnpm run dev\n</code></pre>\n<h2 id=\"usage\">Usage</h2>\n<ol>\n<li><strong>Select Eye</strong>: Choose left or right lens</li>\n<li><strong>Choose Widget Type</strong>: Text or animated decibel meter</li>\n<li><strong>Pick Position</strong>: Top-left, top-right, bottom-left, bottom-right, or center</li>\n<li><strong>Add Content</strong>: Type text or add visual widgets</li>\n<li><strong>Prototype</strong>: See how it looks in the glasses display</li>\n</ol>\n<h2 id=\"widget-types\">Widget Types</h2>\n<ul>\n<li><strong>Text</strong>: Simple monospace text labels</li>\n<li><strong>Decibel Meter</strong>: 64x4px animated bar chart with real-time oscillation</li>\n</ul>\n<h2 id=\"architecture\">Architecture</h2>\n<ul>\n<li>Single <code>pages/index.vue</code> file with inline styles</li>\n<li>No complex components or abstractions</li>\n<li>Real-time oscillators for dynamic visual widgets</li>\n<li>Simple dropdown controls for rapid prototyping</li>\n</ul>\n<p>Perfect for testing ideas like:</p>\n<ul>\n<li>Notification displays</li>\n<li>Biometric readouts</li>\n<li>Audio level meters</li>\n<li>Status indicators</li>\n<li>Ambient data visualization</li>\n</ul>\n<p>Keep it simple. Prototype fast.</p>",
+    "raw": "# AR Glasses HUD Prototyper\n\nSimple prototyping tool for AR glasses data visualizations. Built with Nuxt 3 + Vue.\n\n## Goal\n\nQuickly prototype ambient data displays and widgets for AR glasses. Test different positions, content types, and visual elements before building real implementations.\n\n## Setup\n\n```bash\nnpm install\nnpm run dev\n```\n\n## Usage\n\n1. **Select Eye**: Choose left or right lens\n2. **Choose Widget Type**: Text or animated decibel meter\n3. **Pick Position**: Top-left, top-right, bottom-left, bottom-right, or center\n4. **Add Content**: Type text or add visual widgets\n5. **Prototype**: See how it looks in the glasses display\n\n## Widget Types\n\n- **Text**: Simple monospace text labels\n- **Decibel Meter**: 64x4px animated bar chart with real-time oscillation\n\n## Architecture\n\n- Single `pages/index.vue` file with inline styles\n- No complex components or abstractions\n- Real-time oscillators for dynamic visual widgets\n- Simple dropdown controls for rapid prototyping\n\nPerfect for testing ideas like:\n- Notification displays\n- Biometric readouts\n- Audio level meters\n- Status indicators\n- Ambient data visualization\n\nKeep it simple. Prototype fast.",
+    "excerpt": "Simple prototyping tool for AR glasses data visualizations. Built with Nuxt 3 + Vue.\n\n\n\nQuickly prototype ambient data displays and widgets for AR glasses. Test..."
+  },
+  "createdAt": "2025-08-01T11:00:53Z",
+  "updatedAt": "2025-10-12T09:41:03Z",
+  "pushedAt": "2025-08-01T19:33:59Z"
+}

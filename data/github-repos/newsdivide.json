@@ -1,0 +1,23 @@
+{
+  "name": "newsdivide",
+  "description": "screenshot worker queue  + static site generator",
+  "url": "https://github.com/ejfox/newsdivide",
+  "homepage": "https://newsdivide.bradoyler.com/",
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "topics": [],
+  "readme": {
+    "html": "<h2 id=\"newsdivide-worker\">Newsdivide worker</h2>\n<p>The screenshot worker queue that powers <a href=\"https://newsdivide.bradoyler.com/\">NewsDivide.bradoyler.com</a></p>\n<p><img src=\"https://newsdivide.bradoyler.com/day/2017-08-19/newsdivide.jpg\" alt=\"site\"></p>\n<hr>\n<h4 id=\"components\">Components:</h4>\n<ul>\n<li>Nodejs 8.x</li>\n<li>Headless Chrome (<a href=\"https://github.com/GoogleChrome/puppeteer\">puppeteer</a>)</li>\n<li>AWS SDK (S3)</li>\n<li>Node-Cron</li>\n</ul>\n<hr>\n<p>TODOs:</p>\n<ul>\n<li>twitter bot</li>\n<li>get working in 'Azure / Lambda functions'</li>\n<li>better tests</li>\n</ul>",
+    "raw": "## Newsdivide worker\n\nThe screenshot worker queue that powers [NewsDivide.bradoyler.com](https://newsdivide.bradoyler.com/)\n\n![site](https://newsdivide.bradoyler.com/day/2017-08-19/newsdivide.jpg)\n\n----\n\n#### Components:\n- Nodejs 8.x\n- Headless Chrome ([puppeteer](https://github.com/GoogleChrome/puppeteer))\n- AWS SDK (S3)\n- Node-Cron\n----\n\nTODOs:\n- twitter bot\n- get working in 'Azure / Lambda functions'\n- better tests\n",
+    "excerpt": "The screenshot worker queue that powers NewsDivide.bradoyler.com\n\n!site\n\n----\n\n\n- Nodejs 8.x\n- Headless Chrome (puppeteer)\n- AWS SDK (S3)\n- Node-Cron\n----\n\nTODO..."
+  },
+  "createdAt": "2019-01-21T20:51:41Z",
+  "updatedAt": "2019-01-21T20:52:09Z",
+  "pushedAt": "2019-01-22T16:03:00Z"
+}

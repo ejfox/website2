@@ -1,0 +1,23 @@
+{
+  "name": "websdr-vcv",
+  "description": "stream radio into your modular",
+  "url": "https://github.com/ejfox/websdr-vcv",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "C++",
+  "languageColor": "#f34b7d",
+  "topics": [],
+  "readme": {
+    "html": "<p><em>No README available</em></p>",
+    "raw": "",
+    "excerpt": "No description available"
+  },
+  "createdAt": "2025-08-23T22:56:09Z",
+  "updatedAt": "2025-08-24T02:15:13Z",
+  "pushedAt": "2025-08-24T02:15:10Z"
+}

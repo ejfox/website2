@@ -1,0 +1,25 @@
+{
+  "name": "smallweb-starter",
+  "description": "No description provided",
+  "url": "https://github.com/ejfox/smallweb-starter",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 0
+  },
+  "language": "TypeScript",
+  "languageColor": "#3178c6",
+  "topics": [
+    "smallweb"
+  ],
+  "readme": {
+    "html": "<p><em>No README available</em></p>",
+    "raw": "",
+    "excerpt": "No description available"
+  },
+  "createdAt": "2024-12-08T22:05:42Z",
+  "updatedAt": "2025-01-06T20:50:34Z",
+  "pushedAt": "2024-12-24T15:11:45Z"
+}

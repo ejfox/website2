@@ -1,0 +1,23 @@
+{
+  "name": "zmk-config",
+  "description": "No description provided",
+  "url": "https://github.com/ejfox/zmk-config",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 0
+  },
+  "language": "Unknown",
+  "languageColor": "#666666",
+  "topics": [],
+  "readme": {
+    "html": "<p><em>No README available</em></p>",
+    "raw": "",
+    "excerpt": "No description available"
+  },
+  "createdAt": "2025-04-28T18:55:15Z",
+  "updatedAt": "2025-07-24T15:03:20Z",
+  "pushedAt": "2025-07-24T15:03:17Z"
+}

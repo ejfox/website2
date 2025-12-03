@@ -1,0 +1,23 @@
+{
+  "name": "sectionScroller",
+  "description": "A little tool to visualize how far a user has scrolled in a page or section",
+  "url": "https://github.com/ejfox/sectionScroller",
+  "homepage": "http://ejfox.github.io/sectionScroller/",
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"sectionscroller\">sectionScroller</h1>\n<p>A little tool to visualize how far a user has scrolled in a page or section</p>",
+    "raw": "sectionScroller\n===============\n\nA little tool to visualize how far a user has scrolled in a page or section",
+    "excerpt": "sectionScroller\n===============\n\nA little tool to visualize how far a user has scrolled in a page or section..."
+  },
+  "createdAt": "2013-04-15T05:22:29Z",
+  "updatedAt": "2013-12-12T08:35:37Z",
+  "pushedAt": "2013-04-15T05:32:18Z"
+}

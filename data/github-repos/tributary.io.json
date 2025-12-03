@@ -1,0 +1,23 @@
+{
+  "name": "tributary.io",
+  "description": "real-time app powered by tributary and derby",
+  "url": "https://github.com/enjalot/tributary.io",
+  "homepage": null,
+  "stats": {
+    "stars": 6,
+    "forks": 1,
+    "watchers": 4,
+    "openIssues": 0
+  },
+  "language": "CSS",
+  "languageColor": "#663399",
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"tributaryio\">tributary.io</h1>\n<p>real-time code editing/sharing/learning app powered by tributary and derby</p>\n<p><a href=\"http://github.com/enjalot/tributary\">tributary</a>\n<a href=\"https://github.com/codeparty/derby\">derby</a></p>",
+    "raw": "tributary.io\n============\n\nreal-time code editing/sharing/learning app powered by tributary and derby\n\n[tributary](http://github.com/enjalot/tributary)\n[derby](https://github.com/codeparty/derby)\n",
+    "excerpt": "tributary.io\n============\n\nreal-time code editing/sharing/learning app powered by tributary and derby\n\ntributary\nderby..."
+  },
+  "createdAt": "2013-05-25T02:09:20Z",
+  "updatedAt": "2022-01-18T01:49:08Z",
+  "pushedAt": "2013-09-08T23:44:49Z"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "cli-delta-dojo",
+  "description": "Sharpen your code review skills with CLI-DELTA-DOJO, the terminal-based JSON comparison game",
+  "url": "https://github.com/ejfox/cli-delta-dojo",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"short-descriptions\">Short Descriptions</h1>\n<ol>\n<li>\n<p>CLI-DELTA-DOJO: Test your JSON diff skills in this hacker-inspired terminal game.</p>\n</li>\n<li>\n<p>Spot the difference in JSON snippets against the clock with CLI-DELTA-DOJO.</p>\n</li>\n<li>\n<p>Sharpen your code review skills with CLI-DELTA-DOJO, the terminal-based JSON comparison game.</p>\n</li>\n</ol>\n<h1 id=\"cli-delta-dojo\">CLI-DELTA-DOJO</h1>\n<p>CLI-DELTA-DOJO is a terminal-based game that challenges users to spot differences in JSON snippets. It simulates real-world scenarios of code reviews and data comparison.</p>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li>JSON difference spotting game</li>\n<li>Terminal-based interface</li>\n<li>Dynamic difficulty levels</li>\n<li>Time-based challenges</li>\n<li>Score tracking</li>\n</ul>\n<h2 id=\"requirements\">Requirements</h2>\n<ul>\n<li>Node.js (v12.0.0 or higher)</li>\n<li>npm</li>\n</ul>\n<h2 id=\"installation\">Installation</h2>\n<ol>\n<li>\n<p>Clone the repository:</p>\n<pre><code>git clone https://github.com/yourusername/cli-delta-dojo.git\n</code></pre>\n</li>\n<li>\n<p>Navigate to the project directory:</p>\n<pre><code>cd cli-delta-dojo\n</code></pre>\n</li>\n<li>\n<p>Install dependencies:</p>\n<pre><code>npm install\n</code></pre>\n</li>\n<li>\n<p>Make the script executable:</p>\n<pre><code>chmod +x index.js\n</code></pre>\n</li>\n</ol>\n<h2 id=\"usage\">Usage</h2>\n<p>Run the game:</p>\n<pre><code>./index.js\n</code></pre>\n<p>Follow on-screen instructions:</p>\n<ul>\n<li>Press SPACE if JSON snippets are the same</li>\n<li>Press ENTER if JSON snippets are different</li>\n</ul>\n<h2 id=\"difficulty-levels\">Difficulty Levels</h2>\n<ul>\n<li>NOVICE: 1-2 changes, 30 seconds</li>\n<li>ADEPT: 2-3 changes, 25 seconds</li>\n<li>EXPERT: 3-4 changes, 20 seconds</li>\n<li>MASTER: 4-5 changes, 15 seconds</li>\n<li>CYBERPUNK LEGEND: 5-6 changes, 10 seconds</li>\n</ul>\n<p>Difficulty increases with consecutive correct answers.</p>\n<h2 id=\"license\">License</h2>\n<p>This project is licensed under the MIT License.</p>",
+    "raw": "# Short Descriptions\n\n1. CLI-DELTA-DOJO: Test your JSON diff skills in this hacker-inspired terminal game.\n\n2. Spot the difference in JSON snippets against the clock with CLI-DELTA-DOJO.\n\n3. Sharpen your code review skills with CLI-DELTA-DOJO, the terminal-based JSON comparison game.\n\n# CLI-DELTA-DOJO\n\nCLI-DELTA-DOJO is a terminal-based game that challenges users to spot differences in JSON snippets. It simulates real-world scenarios of code reviews and data comparison.\n\n## Features\n\n- JSON difference spotting game\n- Terminal-based interface\n- Dynamic difficulty levels\n- Time-based challenges\n- Score tracking\n\n## Requirements\n\n- Node.js (v12.0.0 or higher)\n- npm\n\n## Installation\n\n1. Clone the repository:\n   ```\n   git clone https://github.com/yourusername/cli-delta-dojo.git\n   ```\n\n2. Navigate to the project directory:\n   ```\n   cd cli-delta-dojo\n   ```\n\n3. Install dependencies:\n   ```\n   npm install\n   ```\n\n4. Make the script executable:\n   ```\n   chmod +x index.js\n   ```\n\n## Usage\n\nRun the game:\n```\n./index.js\n```\n\nFollow on-screen instructions:\n- Press SPACE if JSON snippets are the same\n- Press ENTER if JSON snippets are different\n\n## Difficulty Levels\n\n- NOVICE: 1-2 changes, 30 seconds\n- ADEPT: 2-3 changes, 25 seconds\n- EXPERT: 3-4 changes, 20 seconds\n- MASTER: 4-5 changes, 15 seconds\n- CYBERPUNK LEGEND: 5-6 changes, 10 seconds\n\nDifficulty increases with consecutive correct answers.\n\n## License\n\nThis project is licensed under the MIT License.",
+    "excerpt": "1. CLI-DELTA-DOJO: Test your JSON diff skills in this hacker-inspired terminal game.\n\n2. Spot the difference in JSON snippets against the clock with CLI-DELTA-D..."
+  },
+  "createdAt": "2024-08-22T20:51:48Z",
+  "updatedAt": "2025-06-01T18:24:14Z",
+  "pushedAt": "2025-06-01T18:24:11Z"
+}

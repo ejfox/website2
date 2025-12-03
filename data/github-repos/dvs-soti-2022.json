@@ -1,0 +1,23 @@
+{
+  "name": "dvs-soti-2022",
+  "description": "No description provided",
+  "url": "https://github.com/ejfox/dvs-soti-2022",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"dsv-soti-2022\">dsv-soti-2022</h1>\n<p><a href=\"https://main--tranquil-blancmange-bf568b.netlify.app/\">Live Demo</a></p>\n<p>Visualization of the <a href=\"https://www.datavisualizationsociety.org/soti-challenge-2022\">Data Visualization Society State of the Industry Survey</a>.</p>\n<p><img src=\"https://user-images.githubusercontent.com/68416/231660831-e77600e2-8518-442d-be5a-91fa3269e66a.png\" alt=\"image\"></p>\n<p><img src=\"https://user-images.githubusercontent.com/68416/231660842-d08b92cd-23c7-4886-a36e-ed94c34d1e5d.png\" alt=\"image\"></p>",
+    "raw": "# dsv-soti-2022\n\n[Live Demo](https://main--tranquil-blancmange-bf568b.netlify.app/)\n\nVisualization of the [Data Visualization Society State of the Industry Survey](https://www.datavisualizationsociety.org/soti-challenge-2022).\n\n![image](https://user-images.githubusercontent.com/68416/231660831-e77600e2-8518-442d-be5a-91fa3269e66a.png)\n\n![image](https://user-images.githubusercontent.com/68416/231660842-d08b92cd-23c7-4886-a36e-ed94c34d1e5d.png)\n",
+    "excerpt": "Live Demo\n\nVisualization of the Data Visualization Society State of the Industry Survey.\n\n!image\n\n!image..."
+  },
+  "createdAt": "2023-04-15T21:13:47Z",
+  "updatedAt": "2023-04-12T06:10:39Z",
+  "pushedAt": "2023-04-15T21:45:56Z"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "cwf-site",
+  "description": "No description provided",
+  "url": "https://github.com/ejfox/cwf-site",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 2,
+    "openIssues": 0
+  },
+  "language": "Vue",
+  "languageColor": "#41b883",
+  "topics": [],
+  "readme": {
+    "html": "<p><em>No README available</em></p>",
+    "raw": "",
+    "excerpt": "No description available"
+  },
+  "createdAt": "2021-01-22T18:42:39Z",
+  "updatedAt": "2021-01-22T18:54:25Z",
+  "pushedAt": "2021-01-22T18:54:20Z"
+}

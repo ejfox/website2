@@ -1,0 +1,26 @@
+{
+  "name": "cli-ascii-3d",
+  "description": "View 3D shapes as ASCII art in the command line",
+  "url": "https://github.com/ejfox/cli-ascii-3d",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "topics": [
+    "ascii",
+    "cli"
+  ],
+  "readme": {
+    "html": "<h1 id=\"cli-ascii-3d\">cli-ascii-3d</h1>\n<p>Transforming complex datasets into intuitive ASCII representations for enhanced pattern recognition and anomaly detection.</p>\n<h2 id=\"install\">Install</h2>\n<pre><code>npm install -g cli-ascii-3d\n</code></pre>\n<h2 id=\"use\">Use</h2>\n<pre><code>cli-ascii-3d [options]\n\nnpx cli-ascii-3d [options]\n</code></pre>\n<p>Options:</p>\n<ul>\n<li><code>-b, --boxes &#x3C;1-10></code> : Number of visualization nodes</li>\n<li><code>-s, --speed &#x3C;0.1-5.0></code> : Animation speed multiplier</li>\n</ul>\n<h2 id=\"examples\">Examples</h2>\n<h3 id=\"standard\">Standard:</h3>\n<pre><code>cli-ascii-3d\n</code></pre>\n<blockquote>\n<p>The default settings. Works for most situations.</p>\n</blockquote>\n<h3 id=\"intense\">Intense:</h3>\n<pre><code>cli-ascii-3d -b 8 -s 3.0\n</code></pre>\n<blockquote>\n<p>Faster, more nodes. Use when things get... complicated.</p>\n</blockquote>\n<h3 id=\"subtle\">Subtle:</h3>\n<pre><code>cli-ascii-3d -b 2 -s 0.5\n</code></pre>\n<blockquote>\n<p>Slower, fewer nodes. For when you need to look closer.</p>\n</blockquote>\n<h3 id=\"extreme\">Extreme</h3>\n<pre><code>cli-ascii-3d -b 20 -s 5.0\n</code></pre>\n<blockquote>\n<p>Extremely fast, high degree of detail. Use with caution.</p>\n</blockquote>\n<h2 id=\"note\">Note</h2>\n<p>If it looks wrong, try:</p>\n<pre><code>TERM=xterm-256color cli-ascii-3d\n</code></pre>\n<p>We can't say why. You'll know when you need it.</p>",
+    "raw": "# cli-ascii-3d\n\nTransforming complex datasets into intuitive ASCII representations for enhanced pattern recognition and anomaly detection.\n\n## Install\n\n```\nnpm install -g cli-ascii-3d\n```\n\n## Use\n\n```\ncli-ascii-3d [options]\n\nnpx cli-ascii-3d [options]\n```\n\nOptions:\n- `-b, --boxes <1-10>` : Number of visualization nodes\n- `-s, --speed <0.1-5.0>` : Animation speed multiplier\n\n## Examples\n\n### Standard:\n```\ncli-ascii-3d\n```\n> The default settings. Works for most situations.\n\n### Intense:\n```\ncli-ascii-3d -b 8 -s 3.0\n```\n> Faster, more nodes. Use when things get... complicated.\n\n### Subtle:\n```\ncli-ascii-3d -b 2 -s 0.5\n```\n> Slower, fewer nodes. For when you need to look closer.\n\n### Extreme\n```\ncli-ascii-3d -b 20 -s 5.0\n```\n> Extremely fast, high degree of detail. Use with caution.\n\n## Note\n\nIf it looks wrong, try:\n```\nTERM=xterm-256color cli-ascii-3d\n```\n\nWe can't say why. You'll know when you need it.",
+    "excerpt": "Transforming complex datasets into intuitive ASCII representations for enhanced pattern recognition and anomaly detection.\n\n\n\n\nnpm install -g cli-ascii-3d..."
+  },
+  "createdAt": "2024-08-17T02:34:26Z",
+  "updatedAt": "2024-09-06T14:12:53Z",
+  "pushedAt": "2024-08-17T02:58:43Z"
+}

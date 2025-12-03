@@ -1,0 +1,23 @@
+{
+  "name": "website",
+  "description": "Website & blog for EJ Fox",
+  "url": "https://github.com/ejfox/website",
+  "homepage": "https://ejfox.com",
+  "stats": {
+    "stars": 4,
+    "forks": 2,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"ejfoxcom\">EJFox.com</h1>",
+    "raw": "# EJFox.com",
+    "excerpt": "..."
+  },
+  "createdAt": "2018-05-12T03:01:13Z",
+  "updatedAt": "2024-09-01T23:20:54Z",
+  "pushedAt": "2024-11-23T00:09:54Z"
+}

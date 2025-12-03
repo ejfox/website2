@@ -1,0 +1,23 @@
+{
+  "name": "wcs-coral-reef",
+  "description": "A scrollytelling piece exploring the resilience of coral reefs during climate change",
+  "url": "https://github.com/room302studio/wcs-coral-reef",
+  "homepage": "https://hopeunderwater.com",
+  "stats": {
+    "stars": 1,
+    "forks": 0,
+    "watchers": 2,
+    "openIssues": 6
+  },
+  "language": "Vue",
+  "languageColor": "#41b883",
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"wcs--room-302-studio-coral-reefs\">WCS + Room 302 Studio: Coral Reefs</h1>\n<p>Live site 👉 <a href=\"https://hopeunderwater.com/\">https://hopeunderwater.com/</a></p>\n<p>Look at the <a href=\"https://nuxt.com/docs/getting-started/introduction\">Nuxt 3 documentation</a> to learn more.</p>\n<h2 id=\"setup\">Setup</h2>\n<p>Make sure to install the dependencies:</p>\n<pre><code class=\"language-bash\"># yarn\nyarn install\n</code></pre>\n<h2 id=\"development-server\">Development Server</h2>\n<p>Start the development server on <code>http://localhost:3000</code>:</p>\n<pre><code class=\"language-bash\"># yarn\nyarn dev\n</code></pre>\n<h2 id=\"production\">Production</h2>\n<p>Build the application for production:</p>\n<pre><code class=\"language-bash\"># yarn\nyarn build\n</code></pre>\n<p>Locally preview production build:</p>\n<pre><code class=\"language-bash\"># yarn\nyarn preview\n</code></pre>\n<p>Check out the <a href=\"https://nuxt.com/docs/getting-started/deployment\">deployment documentation</a> for more information.</p>",
+    "raw": "# WCS + Room 302 Studio: Coral Reefs\n\nLive site 👉 https://hopeunderwater.com/\n\nLook at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.\n\n## Setup\n\nMake sure to install the dependencies:\n\n```bash\n# yarn\nyarn install\n```\n\n## Development Server\n\nStart the development server on `http://localhost:3000`:\n\n```bash\n# yarn\nyarn dev\n```\n\n## Production\n\nBuild the application for production:\n\n```bash\n# yarn\nyarn build\n```\n\nLocally preview production build:\n\n```bash\n# yarn\nyarn preview\n```\n\nCheck out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.\n",
+    "excerpt": "Live site 👉 https://hopeunderwater.com/\n\nLook at the Nuxt 3 documentation to learn more.\n\n\n\nMake sure to install the dependencies:\n\nbash\n\nyarn install\n\n\n\n\nStar..."
+  },
+  "createdAt": "2023-08-22T13:44:12Z",
+  "updatedAt": "2024-03-27T11:22:25Z",
+  "pushedAt": "2023-12-02T01:36:08Z"
+}

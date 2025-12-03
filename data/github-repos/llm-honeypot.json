@@ -1,0 +1,28 @@
+{
+  "name": "llm-honeypot",
+  "description": "a little experiment made as a mothtrap for unsuspecting llms scraping the web. lets see what we catch! 🦋",
+  "url": "https://github.com/ejfox/llm-honeypot",
+  "homepage": null,
+  "stats": {
+    "stars": 1,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "HTML",
+  "languageColor": "#e34c26",
+  "topics": [
+    "bot-detection",
+    "experiment",
+    "honeypot",
+    "security-research"
+  ],
+  "readme": {
+    "html": "<h1 id=\"robot-only-honeypot\">Robot-Only Honeypot</h1>\n<p>A defensive security honeypot that <strong>only allows robots</strong> - the inverse of \"prove you are human\".</p>\n<h2 id=\"-what-it-does\">🤖 What It Does</h2>\n<ul>\n<li><strong>Blocks humans</strong> with warnings and redirects</li>\n<li><strong>Welcomes bots</strong> and logs their activity</li>\n<li><strong>Detects automation</strong> using multiple fingerprinting techniques</li>\n<li><strong>Sets honeypot traps</strong> with invisible links and forms</li>\n</ul>\n<h2 id=\"-quick-start\">🚀 Quick Start</h2>\n<ol>\n<li>\n<p>Serve the files with any web server:</p>\n<pre><code class=\"language-bash\">python -m http.server 8000\n# or\nnpx serve .\n</code></pre>\n</li>\n<li>\n<p>Visit <code>http://localhost:8000</code></p>\n<ul>\n<li><strong>Humans</strong>: Get blocked and redirected</li>\n<li><strong>Bots</strong>: Access granted with activity logging</li>\n</ul>\n</li>\n</ol>\n<h2 id=\"-files\">📁 Files</h2>\n<ul>\n<li><code>index.html</code> - Main honeypot page with robot verification</li>\n<li><code>bot-detector.js</code> - Advanced detection and logging system</li>\n<li><code>robots.txt</code> - Attracts bots to honeypot areas</li>\n<li><code>honeypot-triggered.html</code> - Success page for detected bots</li>\n</ul>\n<h2 id=\"-detection-methods\">🎯 Detection Methods</h2>\n<ul>\n<li>User-Agent analysis (bot keywords)</li>\n<li>WebDriver/Selenium detection</li>\n<li>Browser feature fingerprinting</li>\n<li>Behavioral analysis (rapid navigation, hidden clicks)</li>\n</ul>\n<h2 id=\"-security-use-cases\">🔒 Security Use Cases</h2>\n<ul>\n<li>Bot behavior analysis</li>\n<li>Threat intelligence gathering</li>\n<li>Automated attack detection</li>\n<li>Security research and testing</li>\n</ul>\n<h2 id=\"️-disclaimer\">⚠️ Disclaimer</h2>\n<p>For defensive security research only. Monitor logs for malicious activity and ensure compliance with applicable laws.</p>",
+    "raw": "# Robot-Only Honeypot\n\nA defensive security honeypot that **only allows robots** - the inverse of \"prove you are human\".\n\n## 🤖 What It Does\n\n- **Blocks humans** with warnings and redirects\n- **Welcomes bots** and logs their activity  \n- **Detects automation** using multiple fingerprinting techniques\n- **Sets honeypot traps** with invisible links and forms\n\n## 🚀 Quick Start\n\n1. Serve the files with any web server:\n   ```bash\n   python -m http.server 8000\n   # or\n   npx serve .\n   ```\n\n2. Visit `http://localhost:8000`\n   - **Humans**: Get blocked and redirected\n   - **Bots**: Access granted with activity logging\n\n## 📁 Files\n\n- `index.html` - Main honeypot page with robot verification\n- `bot-detector.js` - Advanced detection and logging system\n- `robots.txt` - Attracts bots to honeypot areas\n- `honeypot-triggered.html` - Success page for detected bots\n\n## 🎯 Detection Methods\n\n- User-Agent analysis (bot keywords)\n- WebDriver/Selenium detection\n- Browser feature fingerprinting\n- Behavioral analysis (rapid navigation, hidden clicks)\n\n## 🔒 Security Use Cases\n\n- Bot behavior analysis\n- Threat intelligence gathering\n- Automated attack detection\n- Security research and testing\n\n## ⚠️ Disclaimer\n\nFor defensive security research only. Monitor logs for malicious activity and ensure compliance with applicable laws.",
+    "excerpt": "A defensive security honeypot that only allows robots - the inverse of \"prove you are human\".\n\n\n\n- Blocks humans with warnings and redirects\n- Welcomes bots and..."
+  },
+  "createdAt": "2025-08-02T13:32:37Z",
+  "updatedAt": "2025-08-06T17:05:07Z",
+  "pushedAt": "2025-08-02T13:32:38Z"
+}

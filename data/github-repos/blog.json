@@ -1,0 +1,23 @@
+{
+  "name": "blog",
+  "description": "No description provided",
+  "url": "https://github.com/ejfox/blog",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 0
+  },
+  "language": "HTML",
+  "languageColor": "#e34c26",
+  "topics": [],
+  "readme": {
+    "html": "<p><em>No README available</em></p>",
+    "raw": "",
+    "excerpt": "No description available"
+  },
+  "createdAt": "2017-08-21T01:02:39Z",
+  "updatedAt": "2017-08-21T01:06:12Z",
+  "pushedAt": "2017-08-23T02:52:12Z"
+}

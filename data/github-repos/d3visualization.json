@@ -1,0 +1,23 @@
+{
+  "name": "d3visualization",
+  "description": "An alternative gallery for d3.js",
+  "url": "https://github.com/ejfox/d3visualization",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"d3visualization\">d3visualization</h1>\n<p>An alternative, filterable gallery for <a href=\"d3js.org\">d3.js</a>.</p>\n<p>See it in action <a href=\"http://biovisualize.github.com/d3visualization/\">here</a>.</p>\n<p>Feel free to contribute on this GitHub or on the gallery <a href=\"https://docs.google.com/spreadsheet/ccc?key=0AqMEGBUNwXeHdHpQNlVuY29SUE5BSXVtS3JueGlNYVE#gid=0\">spreadsheet</a>.</p>\n<p>Follow <a href=\"https://twitter.com/d3visualization\">@d3visualization</a> for updates about the new entries to the gallery.</p>",
+    "raw": "d3visualization\n===============\n\nAn alternative, filterable gallery for [d3.js](d3js.org).\n\nSee it in action [here](http://biovisualize.github.com/d3visualization/).\n\nFeel free to contribute on this GitHub or on the gallery [spreadsheet](https://docs.google.com/spreadsheet/ccc?key=0AqMEGBUNwXeHdHpQNlVuY29SUE5BSXVtS3JueGlNYVE#gid=0).\n\nFollow [@d3visualization](https://twitter.com/d3visualization) for updates about the new entries to the gallery.",
+    "excerpt": "d3visualization\n===============\n\nAn alternative, filterable gallery for d3.js.\n\nSee it in action here.\n\nFeel free to contribute on this GitHub or on the gallery..."
+  },
+  "createdAt": "2013-03-04T22:58:41Z",
+  "updatedAt": "2013-03-04T23:46:55Z",
+  "pushedAt": "2013-03-04T23:34:27Z"
+}

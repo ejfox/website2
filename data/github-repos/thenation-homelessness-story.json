@@ -1,0 +1,23 @@
+{
+  "name": "thenation-homelessness-story",
+  "description": "No description provided",
+  "url": "https://github.com/ejfox/thenation-homelessness-story",
+  "homepage": "https://fantastic-scone-557caf.netlify.app",
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 0
+  },
+  "language": "Vue",
+  "languageColor": "#41b883",
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"content-v2-minimal-starter\">Content v2 Minimal Starter</h1>\n<p>Look at the <a href=\"https://content-v2.nuxtjs.org/\">Content documentation</a> to learn more.</p>\n<h2 id=\"setup\">Setup</h2>\n<p>Make sure to install the dependencies:</p>\n<pre><code class=\"language-bash\"># yarn\nyarn install\n\n# npm\nnpm install\n\n# pnpm\npnpm install --shamefully-hoist\n</code></pre>\n<h2 id=\"development-server\">Development Server</h2>\n<p>Start the development server on <a href=\"http://localhost:3000\">http://localhost:3000</a></p>\n<pre><code class=\"language-bash\">npm run dev\n</code></pre>\n<h2 id=\"production\">Production</h2>\n<p>Build the application for production:</p>\n<pre><code class=\"language-bash\">npm run build\n</code></pre>\n<p>Locally preview production build:</p>\n<pre><code class=\"language-bash\">npm run preview\n</code></pre>\n<p>Checkout the <a href=\"https://v3.nuxtjs.org/docs/deployment\">deployment documentation</a> for more information.</p>",
+    "raw": "# Content v2 Minimal Starter\n\nLook at the [Content documentation](https://content-v2.nuxtjs.org/) to learn more.\n\n## Setup\n\nMake sure to install the dependencies:\n\n```bash\n# yarn\nyarn install\n\n# npm\nnpm install\n\n# pnpm\npnpm install --shamefully-hoist\n```\n\n## Development Server\n\nStart the development server on http://localhost:3000\n\n```bash\nnpm run dev\n```\n\n## Production\n\nBuild the application for production:\n\n```bash\nnpm run build\n```\n\nLocally preview production build:\n\n```bash\nnpm run preview\n```\n\nCheckout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment) for more information.\n",
+    "excerpt": "Look at the Content documentation to learn more.\n\n\n\nMake sure to install the dependencies:\n\nbash\n\nyarn install\n\n\nnpm install\n\n\npnpm install --shamefully-hoist..."
+  },
+  "createdAt": "2022-11-23T18:56:08Z",
+  "updatedAt": "2023-02-13T17:19:51Z",
+  "pushedAt": "2023-01-25T14:17:51Z"
+}

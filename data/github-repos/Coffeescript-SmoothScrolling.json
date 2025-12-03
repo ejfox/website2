@@ -1,0 +1,23 @@
+{
+  "name": "Coffeescript-SmoothScrolling",
+  "description": "A simple coffeescript to animate the scrolling of any link on a page",
+  "url": "https://github.com/ejfox/Coffeescript-SmoothScrolling",
+  "homepage": null,
+  "stats": {
+    "stars": 2,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "topics": [],
+  "readme": {
+    "html": "<p><em>No README available</em></p>",
+    "raw": "",
+    "excerpt": "No description available"
+  },
+  "createdAt": "2012-04-15T07:48:00Z",
+  "updatedAt": "2014-05-12T14:38:51Z",
+  "pushedAt": "2012-04-15T07:54:13Z"
+}

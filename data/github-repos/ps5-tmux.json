@@ -1,0 +1,23 @@
+{
+  "name": "ps5-tmux",
+  "description": "Control tmux through your ps5 dualsense controller",
+  "url": "https://github.com/ejfox/ps5-tmux",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "topics": [],
+  "readme": {
+    "html": "<p><em>No README available</em></p>",
+    "raw": "",
+    "excerpt": "No description available"
+  },
+  "createdAt": "2025-08-13T15:45:22Z",
+  "updatedAt": "2025-08-22T13:05:10Z",
+  "pushedAt": "2025-08-13T15:45:29Z"
+}

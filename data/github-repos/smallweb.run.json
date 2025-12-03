@@ -1,0 +1,23 @@
+{
+  "name": "smallweb.run",
+  "description": "Code of all websites hosted under smallweb.run",
+  "url": "https://github.com/ejfox/smallweb.run",
+  "homepage": "https://www.smallweb.run",
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "TypeScript",
+  "languageColor": "#3178c6",
+  "topics": [],
+  "readme": {
+    "html": "<p><em>No README available</em></p>",
+    "raw": "",
+    "excerpt": "No description available"
+  },
+  "createdAt": "2024-12-23T16:27:05Z",
+  "updatedAt": "2024-12-23T16:27:05Z",
+  "pushedAt": "2024-12-23T16:36:04Z"
+}

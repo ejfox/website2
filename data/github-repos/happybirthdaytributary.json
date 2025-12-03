@@ -1,0 +1,23 @@
+{
+  "name": "happybirthdaytributary",
+  "description": "Happy birthday Tributary!",
+  "url": "https://github.com/ejfox/happybirthdaytributary",
+  "homepage": "http://ejfox.github.com/happybirthdaytributary/",
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 2,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"happybirthdaytributary\">happybirthdaytributary</h1>\n<p>Happy birthday Tributary!</p>",
+    "raw": "happybirthdaytributary\n======================\n\nHappy birthday Tributary!",
+    "excerpt": "happybirthdaytributary\n======================\n\nHappy birthday Tributary!..."
+  },
+  "createdAt": "2013-03-15T07:03:58Z",
+  "updatedAt": "2013-10-16T06:00:09Z",
+  "pushedAt": "2013-03-17T03:12:17Z"
+}

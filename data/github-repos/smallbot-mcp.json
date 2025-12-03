@@ -1,0 +1,23 @@
+{
+  "name": "smallbot-mcp",
+  "description": "MCP server that generates small websites from natural language prompts",
+  "url": "https://github.com/ejfox/smallbot-mcp",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"smallbot-mcp\">smallbot-mcp</h1>\n<p>MCP server that generates small websites from natural language prompts using LLMs.</p>\n<h2 id=\"what-it-does\">What it does</h2>\n<p>Takes prompts like \"Make a site that returns a random number\" and creates a working website at <code>https://[slug].ejfox.tools</code></p>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li>Natural language → working website</li>\n<li>Auto-generates HTML or JS based on prompt</li>\n<li>Creates unique subdomains on smallweb</li>\n<li>Uses OpenRouter API for code generation</li>\n</ul>\n<h2 id=\"setup\">Setup</h2>\n<pre><code class=\"language-bash\">export OPENROUTER_API_KEY=your-key\nexport SMALLWEB_ROOT=~/smallweb  # optional\n</code></pre>\n<h2 id=\"usage\">Usage</h2>\n<pre><code class=\"language-javascript\">// Via MCP\nawait createSite({\n  prompt: \"Make an API that returns the current time\",\n  slug: \"time-api\"  // optional\n})\n// → https://time-api.ejfox.tools\n</code></pre>\n<h2 id=\"how-it-works\">How it works</h2>\n<ol>\n<li>Accepts natural language prompt</li>\n<li>Uses GPT-4 to generate minimal code</li>\n<li>Writes to <code>~/smallweb/[slug]/</code></li>\n<li>Returns live URL on *.ejfox.tools</li>\n</ol>\n<h2 id=\"status\">Status</h2>\n<p>Early draft - basic functionality implemented.</p>",
+    "raw": "# smallbot-mcp\n\nMCP server that generates small websites from natural language prompts using LLMs.\n\n## What it does\n\nTakes prompts like \"Make a site that returns a random number\" and creates a working website at `https://[slug].ejfox.tools`\n\n## Features\n\n- Natural language → working website\n- Auto-generates HTML or JS based on prompt\n- Creates unique subdomains on smallweb\n- Uses OpenRouter API for code generation\n\n## Setup\n\n```bash\nexport OPENROUTER_API_KEY=your-key\nexport SMALLWEB_ROOT=~/smallweb  # optional\n```\n\n## Usage\n\n```javascript\n// Via MCP\nawait createSite({\n  prompt: \"Make an API that returns the current time\",\n  slug: \"time-api\"  // optional\n})\n// → https://time-api.ejfox.tools\n```\n\n## How it works\n\n1. Accepts natural language prompt\n2. Uses GPT-4 to generate minimal code\n3. Writes to `~/smallweb/[slug]/`\n4. Returns live URL on *.ejfox.tools\n\n## Status\n\nEarly draft - basic functionality implemented.",
+    "excerpt": "MCP server that generates small websites from natural language prompts using LLMs.\n\n\n\nTakes prompts like \"Make a site that returns a random number\" and creates..."
+  },
+  "createdAt": "2025-08-02T14:31:10Z",
+  "updatedAt": "2025-08-02T14:31:15Z",
+  "pushedAt": "2025-08-02T14:31:12Z"
+}

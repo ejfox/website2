@@ -1,0 +1,23 @@
+{
+  "name": "QS-App",
+  "description": "A web-based attempt to make quantifying oneself quick & painless",
+  "url": "https://github.com/ejfox/QS-App",
+  "homepage": "http://ejfox.github.com/QS-App/",
+  "stats": {
+    "stars": 1,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "topics": [],
+  "readme": {
+    "html": "<p><em>No README available</em></p>",
+    "raw": "",
+    "excerpt": "No description available"
+  },
+  "createdAt": "2012-10-23T06:28:17Z",
+  "updatedAt": "2013-10-06T13:16:04Z",
+  "pushedAt": "2013-01-15T20:49:58Z"
+}

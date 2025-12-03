@@ -1,0 +1,23 @@
+{
+  "name": "Scriptar",
+  "description": "Scriptography scripts",
+  "url": "https://github.com/ejfox/Scriptar",
+  "homepage": null,
+  "stats": {
+    "stars": 1,
+    "forks": 0,
+    "watchers": 3,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "topics": [],
+  "readme": {
+    "html": "<p><em>No README available</em></p>",
+    "raw": "",
+    "excerpt": "No description available"
+  },
+  "createdAt": "2012-03-30T20:35:08Z",
+  "updatedAt": "2014-04-07T10:16:29Z",
+  "pushedAt": "2012-04-04T16:21:30Z"
+}

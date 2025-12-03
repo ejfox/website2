@@ -1,0 +1,23 @@
+{
+  "name": "shineinpeace",
+  "description": "Website for Shine in Peace",
+  "url": "https://github.com/ejfox/shineinpeace",
+  "homepage": "http://ejfox.github.com/shineinpeace/",
+  "stats": {
+    "stars": 1,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"shine-in-peace\">Shine in Peace</h1>\n<p>============</p>\n<p>Website for Shine in Peace</p>\n<h2 id=\"pages-implemented-so-far\">Pages implemented so far</h2>\n<h3 id=\"home-page\">Home Page</h3>\n<p>Intro text + map placeholder (leaflet map can be used, similar to (Tablemap)[<a href=\"http://ejfox.github.com/tablemap/\">http://ejfox.github.com/tablemap/</a>] ) and topic sections</p>\n<h3 id=\"topic-page\">Topic Page</h3>\n<p>Individual story boxes, implemented in isotope for filtering / sorting</p>",
+    "raw": "# Shine in Peace\n============\n\nWebsite for Shine in Peace\n\n## Pages implemented so far\n\n### Home Page\nIntro text + map placeholder (leaflet map can be used, similar to (Tablemap)[http://ejfox.github.com/tablemap/] ) and topic sections\n\n### Topic Page\nIndividual story boxes, implemented in isotope for filtering / sorting",
+    "excerpt": "============\n\nWebsite for Shine in Peace\n\n\n\n\nIntro text + map placeholder (leaflet map can be used, similar to (Tablemap)[http://ejfox.github.com/tablemap/] ) a..."
+  },
+  "createdAt": "2013-03-04T08:06:32Z",
+  "updatedAt": "2013-10-05T14:46:38Z",
+  "pushedAt": "2013-08-06T19:49:19Z"
+}

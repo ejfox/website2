@@ -1,0 +1,23 @@
+{
+  "name": "close2home",
+  "description": "A twitter bot to manipulate news headlines",
+  "url": "https://github.com/ejfox/close2home",
+  "homepage": null,
+  "stats": {
+    "stars": 1,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "topics": [],
+  "readme": {
+    "html": "<p><em>No README available</em></p>",
+    "raw": "",
+    "excerpt": "No description available"
+  },
+  "createdAt": "2016-11-17T04:29:12Z",
+  "updatedAt": "2016-11-17T20:54:37Z",
+  "pushedAt": "2017-08-20T17:34:21Z"
+}

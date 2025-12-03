@@ -1,0 +1,23 @@
+{
+  "name": "futurelensnews",
+  "description": "Future lens news website",
+  "url": "https://github.com/ejfox/futurelensnews",
+  "homepage": null,
+  "stats": {
+    "stars": 1,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 0
+  },
+  "language": "CSS",
+  "languageColor": "#663399",
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"futurelensnews\">futurelensnews</h1>\n<p>Future lens news website</p>",
+    "raw": "futurelensnews\n==============\n\nFuture lens news website\n",
+    "excerpt": "futurelensnews\n==============\n\nFuture lens news website..."
+  },
+  "createdAt": "2013-09-10T05:58:44Z",
+  "updatedAt": "2014-05-13T05:22:54Z",
+  "pushedAt": "2013-09-11T08:24:23Z"
+}

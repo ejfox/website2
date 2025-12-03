@@ -1,0 +1,23 @@
+{
+  "name": "SubwayBuilderIssues",
+  "description": "Where you report issues and bugs for Subway Builder",
+  "url": "https://github.com/colindm/SubwayBuilderIssues",
+  "homepage": null,
+  "stats": {
+    "stars": 35,
+    "forks": 6,
+    "watchers": 0,
+    "openIssues": 323
+  },
+  "language": "Unknown",
+  "languageColor": "#666666",
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"subway-builder-issues\">Subway Builder Issues</h1>\n<p>Where you report issues and bugs for Subway Builder</p>\n<p>Every report must include a save file if it's a game-specific issue can be recreated with a save file. If your submission doesn't have a relevant save file that might be useful it will be removed.</p>",
+    "raw": "# Subway Builder Issues\nWhere you report issues and bugs for Subway Builder\n\nEvery report must include a save file if it's a game-specific issue can be recreated with a save file. If your submission doesn't have a relevant save file that might be useful it will be removed.\n",
+    "excerpt": "Where you report issues and bugs for Subway Builder\n\nEvery report must include a save file if it's a game-specific issue can be recreated with a save file. If y..."
+  },
+  "createdAt": "2025-10-10T21:48:38Z",
+  "updatedAt": "2025-11-25T16:48:26Z",
+  "pushedAt": "2025-11-25T16:48:22Z"
+}

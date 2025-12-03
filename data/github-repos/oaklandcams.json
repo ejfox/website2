@@ -1,0 +1,23 @@
+{
+  "name": "oaklandcams",
+  "description": "Oakland camera map (for discovery of routes with least surveillance)",
+  "url": "https://github.com/ejfox/oaklandcams",
+  "homepage": null,
+  "stats": {
+    "stars": 1,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 0
+  },
+  "language": "Unknown",
+  "languageColor": "#666666",
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"oaklandcams\">oaklandcams</h1>\n<p>Oakland camera map (for discovery of routes with least surveillance)</p>\n<h2 id=\"data\">Data</h2>\n<ul>\n<li><strong>data/scraped_camera_locations.json</strong> is Oakland data scraped from <a href=\"http://www.videosurveillance.com/communitycam/map/?pv=oaklandeastbay\">http://www.videosurveillance.com/communitycam/map/?pv=oaklandeastbay</a></li>\n</ul>",
+    "raw": "oaklandcams\n===========\n\nOakland camera map (for discovery of routes with least surveillance)\n\n\n## Data\n\n+ **data/scraped_camera_locations.json** is Oakland data scraped from http://www.videosurveillance.com/communitycam/map/?pv=oaklandeastbay",
+    "excerpt": "oaklandcams\n===========\n\nOakland camera map (for discovery of routes with least surveillance)\n\n\n\n\n+ data/scrapedcameralocations.json is Oakland data scraped fro..."
+  },
+  "createdAt": "2014-02-14T19:23:27Z",
+  "updatedAt": "2015-05-19T14:24:03Z",
+  "pushedAt": "2014-02-15T22:58:50Z"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "hangstudio",
+  "description": "No description provided",
+  "url": "https://github.com/ejfox/hangstudio",
+  "homepage": "https://hang.studio",
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 2,
+    "openIssues": 0
+  },
+  "language": "HTML",
+  "languageColor": "#e34c26",
+  "topics": [],
+  "readme": {
+    "html": "<p><em>No README available</em></p>",
+    "raw": "",
+    "excerpt": "No description available"
+  },
+  "createdAt": "2021-12-16T21:15:50Z",
+  "updatedAt": "2022-12-05T15:50:33Z",
+  "pushedAt": "2022-12-05T15:39:57Z"
+}

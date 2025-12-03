@@ -1,0 +1,23 @@
+{
+  "name": "ejthirdbear",
+  "description": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
+  "url": "https://github.com/GlobalEnergyMonitor/ejthirdbear",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "R",
+  "languageColor": "#198CE7",
+  "topics": [],
+  "readme": {
+    "html": "<p><em>No README available</em></p>",
+    "raw": "",
+    "excerpt": "No description available"
+  },
+  "createdAt": "2025-11-12T20:10:52Z",
+  "updatedAt": "2025-11-14T23:42:14Z",
+  "pushedAt": "2025-11-14T23:42:11Z"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "eavs-analysis",
+  "description": "No description provided",
+  "url": "https://github.com/ejfox/eavs-analysis",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 0
+  },
+  "language": "Makefile",
+  "languageColor": "#427819",
+  "topics": [],
+  "readme": {
+    "html": "<p><em>No README available</em></p>",
+    "raw": "",
+    "excerpt": "No description available"
+  },
+  "createdAt": "2020-06-24T21:55:26Z",
+  "updatedAt": "2020-06-24T21:55:40Z",
+  "pushedAt": "2023-03-05T02:19:45Z"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "boyfriendlist",
+  "description": "submit pr to join the boyfriend list",
+  "url": "https://github.com/ejfox/boyfriendlist",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "Unknown",
+  "languageColor": "#666666",
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"the-boyfriend-list\">The Boyfriend List</h1>\n<p>Submit a PR with a link to your twitch or github handle to join the boyfriend list. You must have a number next to your name. PR Number = Boyfriend Number. No Deleting other boyfriends.</p>\n<ol>\n  <li></li>\n</ol>",
+    "raw": "# The Boyfriend List\n\nSubmit a PR with a link to your twitch or github handle to join the boyfriend list. You must have a number next to your name. PR Number = Boyfriend Number. No Deleting other boyfriends. \n\n\n<ol>\n  <li></li>\n</ol>\n",
+    "excerpt": "Submit a PR with a link to your twitch or github handle to join the boyfriend list. You must have a number next to your name. PR Number = Boyfriend Number. No D..."
+  },
+  "createdAt": "2024-05-23T23:31:47Z",
+  "updatedAt": "2024-05-23T23:31:47Z",
+  "pushedAt": "2024-05-23T23:32:44Z"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "opencv-midi-controller",
+  "description": "An experiment in sending midi signals based on OpenCV object detection",
+  "url": "https://github.com/ejfox/opencv-midi-controller",
+  "homepage": null,
+  "stats": {
+    "stars": 2,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 0
+  },
+  "language": "Python",
+  "languageColor": "#3572A5",
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"opencv-midi-controller\">opencv-midi-controller</h1>\n<p><a href=\"https://www.youtube.com/watch?v=k2u--wFhcS4&#x26;lc=UgxpNxJFzriD9RNPo5p4AaABAg\">https://www.youtube.com/watch?v=k2u--wFhcS4&#x26;lc=UgxpNxJFzriD9RNPo5p4AaABAg</a></p>",
+    "raw": "# opencv-midi-controller\n\n<https://www.youtube.com/watch?v=k2u--wFhcS4&lc=UgxpNxJFzriD9RNPo5p4AaABAg>\n",
+    "excerpt": "<https://www.youtube.com/watch?v=k2u--wFhcS4&lc=UgxpNxJFzriD9RNPo5p4AaABAg>..."
+  },
+  "createdAt": "2023-10-17T19:26:42Z",
+  "updatedAt": "2025-02-11T06:05:29Z",
+  "pushedAt": "2023-11-01T00:07:07Z"
+}

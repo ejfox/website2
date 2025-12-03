@@ -1,0 +1,27 @@
+{
+  "name": "vite-boilerplate",
+  "description": "An opinionated Vue starterplate with Vite, Vuex, and Tachyons",
+  "url": "https://github.com/ejfox/vite-boilerplate",
+  "homepage": null,
+  "stats": {
+    "stars": 1,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "topics": [
+    "tachyons",
+    "vite",
+    "vue"
+  ],
+  "readme": {
+    "html": "<h1 id=\"ej-vite-boilerplate\">ej-vite-boilerplate</h1>\n<h2 id=\"using-this-template\">Using this template</h2>\n<pre><code>npx degit ejfox/vite-boilerplate PROJECT_NAME\ncd PROJECT_NAME\nyarn\n</code></pre>\n<h2 id=\"project-setup\">Project setup</h2>\n<pre><code>npm install\n</code></pre>\n<h4 id=\"compiles-and-hot-reloads-for-development\">Compiles and hot-reloads for development</h4>\n<pre><code>npm run dev\n</code></pre>\n<h4 id=\"compiles-and-minifies-for-production\">Compiles and minifies for production</h4>\n<pre><code>npm run build\n</code></pre>\n<h4 id=\"run-your-end-to-end-tests\">Run your end-to-end tests</h4>\n<pre><code>npm run test:e2e\n</code></pre>\n<h4 id=\"lints-and-fixes-files\">Lints and fixes files</h4>\n<pre><code>npm run lint\n</code></pre>\n<h3 id=\"customize-configuration\">Customize configuration</h3>\n<p>See <a href=\"https://cli.vuejs.org/config/\">Configuration Reference</a>.</p>",
+    "raw": "# ej-vite-boilerplate\n\n## Using this template\n```\nnpx degit ejfox/vite-boilerplate PROJECT_NAME\ncd PROJECT_NAME\nyarn\n```\n\n## Project setup\n```\nnpm install\n```\n\n#### Compiles and hot-reloads for development\n```\nnpm run dev\n```\n\n#### Compiles and minifies for production\n```\nnpm run build\n```\n\n#### Run your end-to-end tests\n```\nnpm run test:e2e\n```\n\n#### Lints and fixes files\n```\nnpm run lint\n```\n\n### Customize configuration\nSee [Configuration Reference](https://cli.vuejs.org/config/).\n",
+    "excerpt": "npx degit ejfox/vite-boilerplate PROJECTNAME\ncd PROJECTNAME\nyarn\n\n\n\n\nnpm install\n\n\n\n\nnpm run dev\n\n\n\n\nnpm run build\n\n\n\n\nnpm run test:e2e\n\n\n\n\nnpm run lint\n\n\n\nSee..."
+  },
+  "createdAt": "2022-06-14T03:56:36Z",
+  "updatedAt": "2022-06-20T22:48:45Z",
+  "pushedAt": "2022-08-15T20:48:45Z"
+}

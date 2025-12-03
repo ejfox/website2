@@ -1,0 +1,23 @@
+{
+  "name": "starter",
+  "description": "Coffeescript-based client-side web app starting point",
+  "url": "https://github.com/ejfox/starter",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 2
+  },
+  "language": "CoffeeScript",
+  "languageColor": "#244776",
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"starter-template\">Starter Template</h1>\n<p>This is a basic but opinionated starting point for prototyping apps, with an emphasis on data handling and visualization.</p>\n<h1 id=\"getting-started\">Getting started</h1>\n<h2 id=\"clone-project-into-new-folder\">Clone project into new folder</h2>\n<p><code>git clone https://github.com/ejfox/starter.git project-slug-name</code>\n<code>cd project-slug-name</code></p>\n<h2 id=\"configure-with-init-or-edit-by-hand\">Configure with init or edit by hand</h2>\n<h3 id=\"initilization\">Initilization</h3>\n<p>For the quickest start, you can run <code>gulp init</code> to perform basic project starting actions.</p>\n<pre><code class=\"language-coffeescript\">exec 'rm -rf .git'\nexec 'git init'\nexec 'rm README.md'\nexec 'touch README.md'\nexec 'atom .'\nexec 'npm install'\nexec 'gulp config'\n</code></pre>\n<p>Run <code>gulp config</code> for configuration walkthrough or edit <code>options.json</code> by hand</p>\n<h3 id=\"modifying-the-project\">Modifying the project</h3>\n<p>Edit coffeescript in <code>src/coffee/app.coffee</code></p>\n<p>Edit HTML in <code>src/tmpl/index.mustache</code></p>\n<p>Edit Stylus (CSS) in <code>src/styl/style.styl</code></p>\n<h3 id=\"updating-data\">Updating data</h3>\n<p>The default place for storing data is <code>data/data.csv</code></p>\n<p>If you have set <code>project.googledatakey</code> in <code>options.json</code> you can run <code>gulp getdata</code> to download that sheet using curl to <code>data/data.csv</code></p>\n<h3 id=\"publishing\">Publishing</h3>\n<p>The <code>/build/</code> folder is a standalone client-side web app with everything packaged. It can be put on a webserver or uploaded to a site like Netlify.</p>\n<p>If you have set <code>project.s3bucket</code> in <code>options.json</code> and set your S3 credentials by renaming <code>.env-example</code> and filling it out you can run <code>gulp s3publish</code> to publish to an S3 bucket, and update the data in the project by running <code>gulp s3publishdata</code> – you need to run both commands on first upload</p>\n<p>To publish to github pages you can run <code>gulp gh-pages</code></p>",
+    "raw": "# Starter Template\nThis is a basic but opinionated starting point for prototyping apps, with an emphasis on data handling and visualization.\n\n# Getting started\n## Clone project into new folder\n`git clone https://github.com/ejfox/starter.git project-slug-name`\n`cd project-slug-name`\n\n## Configure with init or edit by hand\n\n### Initilization\nFor the quickest start, you can run `gulp init` to perform basic project starting actions.\n\n```coffeescript\nexec 'rm -rf .git'\nexec 'git init'\nexec 'rm README.md'\nexec 'touch README.md'\nexec 'atom .'\nexec 'npm install'\nexec 'gulp config'\n```\n\nRun `gulp config` for configuration walkthrough or edit `options.json` by hand\n\n### Modifying the project\nEdit coffeescript in `src/coffee/app.coffee`\n\nEdit HTML in `src/tmpl/index.mustache`\n\nEdit Stylus (CSS) in `src/styl/style.styl`\n\n### Updating data\nThe default place for storing data is `data/data.csv`\n\nIf you have set `project.googledatakey` in `options.json` you can run `gulp getdata` to download that sheet using curl to `data/data.csv`\n\n### Publishing\nThe `/build/` folder is a standalone client-side web app with everything packaged. It can be put on a webserver or uploaded to a site like Netlify.\n\nIf you have set `project.s3bucket` in `options.json` and set your S3 credentials by renaming `.env-example` and filling it out you can run `gulp s3publish` to publish to an S3 bucket, and update the data in the project by running `gulp s3publishdata` – you need to run both commands on first upload\n\nTo publish to github pages you can run `gulp gh-pages`\n",
+    "excerpt": "This is a basic but opinionated starting point for prototyping apps, with an emphasis on data handling and visualization.\n\n\n\ngit clone https://github.com/ejfox/..."
+  },
+  "createdAt": "2016-10-16T18:51:17Z",
+  "updatedAt": "2024-12-13T15:15:05Z",
+  "pushedAt": "2018-12-15T05:10:46Z"
+}

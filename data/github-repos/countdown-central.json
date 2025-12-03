@@ -1,0 +1,23 @@
+{
+  "name": "countdown-central",
+  "description": "No description provided",
+  "url": "https://github.com/ejfox/countdown-central",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "TypeScript",
+  "languageColor": "#3178c6",
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"countdown-central\">countdown central</h1>\n<p>a brutalist countdown dashboard for tracking important deadlines and events.</p>\n<h2 id=\"what-it-is\">what it is</h2>\n<ul>\n<li>monochrome design (black text on white, very chill)</li>\n<li>tracks countdowns to space launches, elections, climate deadlines, etc</li>\n<li>real-time updates (ticks down every second)</li>\n<li>admin interface to add/edit/delete countdowns</li>\n<li>uses json files for data (no database needed)</li>\n<li>built with nuxt 3 + vue + tailwind</li>\n</ul>\n<h2 id=\"running-it\">running it</h2>\n<pre><code class=\"language-bash\">npm install\nnpm run dev\n</code></pre>\n<p>open <a href=\"http://localhost:3000\">http://localhost:3000</a></p>\n<h2 id=\"adding-countdowns\">adding countdowns</h2>\n<p>go to <code>/admin</code> to add new countdowns. you can set:</p>\n<ul>\n<li>title and description</li>\n<li>target date/time</li>\n<li>category (space, politics, climate, etc)</li>\n<li>display format (days, hours, minutes, seconds)</li>\n</ul>\n<p>changes save to <code>data/countdowns.json</code> - commit them to make them permanent.</p>\n<h2 id=\"deploying\">deploying</h2>\n<pre><code class=\"language-bash\">npm run build\n</code></pre>\n<p>deploy the <code>.output</code> folder to vercel, netlify, or anywhere that runs node.</p>\n<p>the admin interface works but changes only persist if you can commit to the repo (which is the auth model - very simple).</p>\n<h2 id=\"vibe\">vibe</h2>\n<p>inspired by nasa mission control displays and brutalist web design. ibm plex mono font throughout. no colors, just pure information density.</p>",
+    "raw": "# countdown central\n\na brutalist countdown dashboard for tracking important deadlines and events.\n\n## what it is\n\n- monochrome design (black text on white, very chill)\n- tracks countdowns to space launches, elections, climate deadlines, etc\n- real-time updates (ticks down every second)\n- admin interface to add/edit/delete countdowns\n- uses json files for data (no database needed)\n- built with nuxt 3 + vue + tailwind\n\n## running it\n\n```bash\nnpm install\nnpm run dev\n```\n\nopen http://localhost:3000\n\n## adding countdowns\n\ngo to `/admin` to add new countdowns. you can set:\n- title and description\n- target date/time\n- category (space, politics, climate, etc)\n- display format (days, hours, minutes, seconds)\n\nchanges save to `data/countdowns.json` - commit them to make them permanent.\n\n## deploying\n\n```bash\nnpm run build\n```\n\ndeploy the `.output` folder to vercel, netlify, or anywhere that runs node.\n\nthe admin interface works but changes only persist if you can commit to the repo (which is the auth model - very simple).\n\n## vibe\n\ninspired by nasa mission control displays and brutalist web design. ibm plex mono font throughout. no colors, just pure information density.\n",
+    "excerpt": "a brutalist countdown dashboard for tracking important deadlines and events.\n\n\n\n- monochrome design (black text on white, very chill)\n- tracks countdowns to spa..."
+  },
+  "createdAt": "2025-06-29T03:41:48Z",
+  "updatedAt": "2025-06-29T03:43:03Z",
+  "pushedAt": "2025-06-29T03:42:59Z"
+}

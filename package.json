@@ -6,8 +6,9 @@
     "node": ">=20.0.0"
   },
   "scripts": {
-    "prebuild": "node scripts/generate-build-info.mjs",
+    "prebuild": "node scripts/generate-build-info.mjs && node scripts/export-github-repos.mjs",
     "build": "nuxt build",
+    "github:export": "node scripts/export-github-repos.mjs",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write \"**/*.{js,mjs,ts,vue,json,md}\"",

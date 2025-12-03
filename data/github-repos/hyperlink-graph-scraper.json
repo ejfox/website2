@@ -1,0 +1,23 @@
+{
+  "name": "hyperlink-graph-scraper",
+  "description": "An extremely simple script for creating node/edge graphs of a web page's hyperlinks",
+  "url": "https://github.com/ejfox/hyperlink-graph-scraper",
+  "homepage": null,
+  "stats": {
+    "stars": 1,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"hyperlink-graph-scraper\">hyperlink-graph-scraper</h1>",
+    "raw": "# hyperlink-graph-scraper\n",
+    "excerpt": "..."
+  },
+  "createdAt": "2019-05-24T13:26:40Z",
+  "updatedAt": "2024-09-05T11:20:41Z",
+  "pushedAt": "2019-05-25T05:26:39Z"
+}

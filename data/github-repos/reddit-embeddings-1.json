@@ -1,0 +1,23 @@
+{
+  "name": "reddit-embeddings-1",
+  "description": "fetching reddit data and embedding it",
+  "url": "https://github.com/ejfox/reddit-embeddings-1",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"reddit-embeddings\">Reddit embeddings</h1>\n<p>Download post data from reddit and embed it with OpenAI</p>\n<pre><code class=\"language-bash\"># download the top 1000 posts for DataIsBeautiful\nnode posts.js fetch 1000\n# procses the posts\nnode posts.js process\n\n#embed the posts\nnode embeddings.js\n</code></pre>",
+    "raw": "# Reddit embeddings\n\nDownload post data from reddit and embed it with OpenAI\n\n\n~~~bash\n# download the top 1000 posts for DataIsBeautiful\nnode posts.js fetch 1000\n# procses the posts\nnode posts.js process\n\n#embed the posts\nnode embeddings.js\n~~~",
+    "excerpt": "Download post data from reddit and embed it with OpenAI\n\n\n~~~bash\n\nnode posts.js fetch 1000\n\nnode posts.js process\n\n#embed the posts\nnode embeddings.js\n~~~..."
+  },
+  "createdAt": "2023-04-14T16:55:25Z",
+  "updatedAt": "2023-04-14T04:28:09Z",
+  "pushedAt": "2023-04-15T05:15:12Z"
+}

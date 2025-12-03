@@ -1,0 +1,23 @@
+{
+  "name": "nuxt-module-obsidian",
+  "description": "No description provided",
+  "url": "https://github.com/ejfox/nuxt-module-obsidian",
+  "homepage": null,
+  "stats": {
+    "stars": 1,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 0
+  },
+  "language": "TypeScript",
+  "languageColor": "#3178c6",
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"nuxt-content-obsidian\">Nuxt Content: Obsidian</h1>\n<p>Bringing the magic of Obsidian to publishing with Nuxt Content. Contains a number of helpers and convenience composables to make it easier to pulish Markdown files from Obsidian without losing any functionality.</p>\n<h2 id=\"interactive-graph\">Interactive Graph</h2>\n<h2 id=\"footnotes-backlinks-and-wikilinks\">Footnotes, backlinks, and wikilinks</h2>\n<h2 id=\"canvas-support\">Canvas Support</h2>\n<h2 id=\"frontmatter--properties\">Frontmatter / Properties</h2>\n<h2 id=\"table-of-contents\">Table of Contents</h2>\n<h2 id=\"obsidian-plugin-support\">Obsidian Plugin Support</h2>\n<h3 id=\"kindle-highlights\">Kindle Highlights</h3>\n<h2 id=\"quick-setup\">Quick Setup</h2>\n<ol>\n<li>Add <code>obsidian</code> dependency to your project</li>\n</ol>\n<pre><code class=\"language-bash\"># Using pnpm\npnpm add -D obsidian\n\n# Using yarn\nyarn add --dev obsidian\n\n# Using npm\nnpm install --save-dev obsidian\n</code></pre>\n<ol start=\"2\">\n<li>Add <code>obsidian</code> to the <code>modules</code> section of <code>nuxt.config.ts</code></li>\n</ol>\n<pre><code class=\"language-js\">export default defineNuxtConfig({\n  modules: [\n    'obsidian'\n  ]\n})\n</code></pre>\n<p>That's it! You can now use Obsidian in your Nuxt app ✨</p>\n<h1 id=\"development\">Development</h1>\n<pre><code class=\"language-bash\"># Install dependencies\nnpm install\n\n# Generate type stubs\nnpm run dev:prepare\n\n# Develop with the playground\nnpm run dev\n\n# Build the playground\nnpm run dev:build\n\n# Run ESLint\nnpm run lint\n\n# Run Vitest\nnpm run test\nnpm run test:watch\n\n# Release new version\nnpm run release\n</code></pre>",
+    "raw": "# Nuxt Content: Obsidian\n\nBringing the magic of Obsidian to publishing with Nuxt Content. Contains a number of helpers and convenience composables to make it easier to pulish Markdown files from Obsidian without losing any functionality.\n\n## Interactive Graph\n\n## Footnotes, backlinks, and wikilinks\n\n## Canvas Support\n\n## Frontmatter / Properties\n\n## Table of Contents\n\n## Obsidian Plugin Support\n\n### Kindle Highlights\n\n## Quick Setup\n\n1. Add `obsidian` dependency to your project\n\n```bash\n# Using pnpm\npnpm add -D obsidian\n\n# Using yarn\nyarn add --dev obsidian\n\n# Using npm\nnpm install --save-dev obsidian\n```\n\n2. Add `obsidian` to the `modules` section of `nuxt.config.ts`\n\n```js\nexport default defineNuxtConfig({\n  modules: [\n    'obsidian'\n  ]\n})\n```\n\nThat's it! You can now use Obsidian in your Nuxt app ✨\n\n# Development\n\n```bash\n# Install dependencies\nnpm install\n\n# Generate type stubs\nnpm run dev:prepare\n\n# Develop with the playground\nnpm run dev\n\n# Build the playground\nnpm run dev:build\n\n# Run ESLint\nnpm run lint\n\n# Run Vitest\nnpm run test\nnpm run test:watch\n\n# Release new version\nnpm run release\n```",
+    "excerpt": "Bringing the magic of Obsidian to publishing with Nuxt Content. Contains a number of helpers and convenience composables to make it easier to pulish Markdown fi..."
+  },
+  "createdAt": "2023-10-31T23:47:25Z",
+  "updatedAt": "2023-11-05T22:20:30Z",
+  "pushedAt": "2023-11-01T00:01:16Z"
+}

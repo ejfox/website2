@@ -1,0 +1,23 @@
+{
+  "name": "DesignerNewsMembers",
+  "description": "A visualization of all the members of Designer News",
+  "url": "https://github.com/ejfox/DesignerNewsMembers",
+  "homepage": "http://ejfox.github.com/DesignerNewsMembers/",
+  "stats": {
+    "stars": 4,
+    "forks": 1,
+    "watchers": 1,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"designernewsmembers\">DesignerNewsMembers</h1>\n<p>A visualization of all the members of Designer News</p>\n<p>Data from: <a href=\"https://news.layervault.com/u/tree_flat.json\">https://news.layervault.com/u/tree_flat.json</a></p>",
+    "raw": "DesignerNewsMembers\n===================\n\nA visualization of all the members of Designer News\n\nData from: <https://news.layervault.com/u/tree_flat.json>\n",
+    "excerpt": "DesignerNewsMembers\n===================\n\nA visualization of all the members of Designer News\n\nData from: <https://news.layervault.com/u/treeflat.json>..."
+  },
+  "createdAt": "2013-01-10T19:33:12Z",
+  "updatedAt": "2016-01-29T01:02:08Z",
+  "pushedAt": "2013-01-12T19:13:32Z"
+}

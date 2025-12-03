@@ -1,0 +1,27 @@
+{
+  "name": "showtouch",
+  "description": "For presentation/livestreaming; show every key you press in large ASCII art",
+  "url": "https://github.com/ejfox/showtouch",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 0
+  },
+  "language": "Python",
+  "languageColor": "#3572A5",
+  "topics": [
+    "ascii",
+    "cli",
+    "livestreaming"
+  ],
+  "readme": {
+    "html": "<h1 id=\"showtouch-10\">ShowTouch 1.0</h1>\n<p>ASCII Keypress Visualizer</p>\n<p><a href=\"https://github.com/user-attachments/assets/fbe8c2de-3b9a-449d-b3d8-fa0556c34f96\">https://github.com/user-attachments/assets/fbe8c2de-3b9a-449d-b3d8-fa0556c34f96</a></p>\n<h2 id=\"description\">DESCRIPTION</h2>\n<pre><code> ShowTouch is a CLI utility that displays keypresses in real-time\n using ASCII art. It provides a visually striking representation\n of keyboard input, useful for presentations, screencasts, or\n just for fun.\n</code></pre>\n<h2 id=\"synopsis\">SYNOPSIS</h2>\n<pre><code> python showtouch.py\n</code></pre>\n<h2 id=\"requirements\">REQUIREMENTS</h2>\n<pre><code> - Python 3.x\n - pynput\n - pyfiglet\n</code></pre>\n<h2 id=\"installation\">INSTALLATION</h2>\n<pre><code> 1. Ensure Python 3.x is installed on your system.\n 2. Install required libraries:\n    $ pip install pynput pyfiglet\n</code></pre>\n<p>USAGE\nRun the script from the command line:\n$ python showtouch.py</p>\n<pre><code> Press keys to see them displayed in ASCII art.\n A history of recent keypresses is shown at the bottom.\n Pauses longer than 1 second are indicated by dots.\n\n To exit, press Ctrl+C.\n</code></pre>\n<h2 id=\"features\">FEATURES</h2>\n<pre><code> - Large ASCII art display of current keypress\n - Rolling 3-line history of recent keypresses\n - Visual indication of typing pauses\n</code></pre>\n<h2 id=\"known-issues\">KNOWN ISSUES</h2>\n<pre><code> - May not capture all system-level hotkeys\n - Performance may degrade on very old systems\n</code></pre>\n<h2 id=\"acknowledgements\">ACKNOWLEDGEMENTS</h2>\n<pre><code> Thanks to the creators of pynput and pyfiglet.\n</code></pre>",
+    "raw": "# ShowTouch 1.0\n\nASCII Keypress Visualizer\n\n\nhttps://github.com/user-attachments/assets/fbe8c2de-3b9a-449d-b3d8-fa0556c34f96\n\n\n## DESCRIPTION\n     ShowTouch is a CLI utility that displays keypresses in real-time\n     using ASCII art. It provides a visually striking representation\n     of keyboard input, useful for presentations, screencasts, or\n     just for fun.\n\n## SYNOPSIS\n     python showtouch.py\n\n## REQUIREMENTS\n     - Python 3.x\n     - pynput\n     - pyfiglet\n\n## INSTALLATION\n     1. Ensure Python 3.x is installed on your system.\n     2. Install required libraries:\n        $ pip install pynput pyfiglet\n\nUSAGE\n     Run the script from the command line:\n     $ python showtouch.py\n\n     Press keys to see them displayed in ASCII art.\n     A history of recent keypresses is shown at the bottom.\n     Pauses longer than 1 second are indicated by dots.\n\n     To exit, press Ctrl+C.\n\n## FEATURES\n     - Large ASCII art display of current keypress\n     - Rolling 3-line history of recent keypresses\n     - Visual indication of typing pauses\n\n## KNOWN ISSUES\n     - May not capture all system-level hotkeys\n     - Performance may degrade on very old systems\n\n## ACKNOWLEDGEMENTS\n     Thanks to the creators of pynput and pyfiglet.\n",
+    "excerpt": "ASCII Keypress Visualizer\n\n\nhttps://github.com/user-attachments/assets/fbe8c2de-3b9a-449d-b3d8-fa0556c34f96\n\n\n\n     ShowTouch is a CLI utility that displays key..."
+  },
+  "createdAt": "2024-09-03T20:22:12Z",
+  "updatedAt": "2024-09-06T14:12:07Z",
+  "pushedAt": "2024-09-03T20:23:25Z"
+}

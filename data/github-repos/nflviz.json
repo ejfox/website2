@@ -1,0 +1,23 @@
+{
+  "name": "nflviz",
+  "description": "Visualizing nfl data",
+  "url": "https://github.com/ejfox/nflviz",
+  "homepage": "https://ejfox.github.io/nflviz/",
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 0
+  },
+  "language": "CoffeeScript",
+  "languageColor": "#244776",
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"nfl-viz\">NFL Viz</h1>\n<p>Visualizing NFL data</p>\n<h1 id=\"data\">Data</h1>\n<p>Play-by-play data from <a href=\"http://www.nflsavant.com/about.php\">NFL Savant</a></p>",
+    "raw": "# NFL Viz\n\nVisualizing NFL data\n\n# Data\nPlay-by-play data from [NFL Savant](http://www.nflsavant.com/about.php)\n",
+    "excerpt": "Visualizing NFL data\n\n\nPlay-by-play data from NFL Savant..."
+  },
+  "createdAt": "2017-05-07T23:41:18Z",
+  "updatedAt": "2017-05-07T23:44:37Z",
+  "pushedAt": "2017-08-07T23:27:50Z"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "art",
+  "description": "No description provided",
+  "url": "https://github.com/ejfox/art",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"art-playground\">Art Playground</h1>\n<p>Canvas-sketch playground for generative art experiments.</p>\n<h2 id=\"setup\">Setup</h2>\n<pre><code class=\"language-bash\">cd ~/art\nnpm install\n</code></pre>\n<h2 id=\"running-sketches\">Running Sketches</h2>\n<ul>\n<li><code>npm run perlin</code> - Generate perlin noise with dithering</li>\n<li><code>npm run dev</code> - Run with hot reload</li>\n<li><code>npm run sketch</code> - General canvas-sketch command</li>\n</ul>\n<h2 id=\"sketches\">Sketches</h2>\n<ul>\n<li><code>sketches/perlin-noise-dithered.js</code> - 1920x1080 monochrome perlin noise with Floyd-Steinberg dithering, glitch effects, and chromatic aberration</li>\n</ul>\n<p>Generated images are saved to <code>output/</code> directory.</p>",
+    "raw": "# Art Playground\n\nCanvas-sketch playground for generative art experiments.\n\n## Setup\n\n```bash\ncd ~/art\nnpm install\n```\n\n## Running Sketches\n\n- `npm run perlin` - Generate perlin noise with dithering\n- `npm run dev` - Run with hot reload\n- `npm run sketch` - General canvas-sketch command\n\n## Sketches\n\n- `sketches/perlin-noise-dithered.js` - 1920x1080 monochrome perlin noise with Floyd-Steinberg dithering, glitch effects, and chromatic aberration\n\nGenerated images are saved to `output/` directory.",
+    "excerpt": "Canvas-sketch playground for generative art experiments.\n\n\n\nbash\ncd ~/art\nnpm install\n\n\n\n\n- npm run perlin - Generate perlin noise with dithering\n- npm run dev..."
+  },
+  "createdAt": "2025-08-20T16:37:33Z",
+  "updatedAt": "2025-08-20T16:37:39Z",
+  "pushedAt": "2025-08-20T16:37:35Z"
+}

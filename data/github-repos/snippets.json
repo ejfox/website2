@@ -1,0 +1,23 @@
+{
+  "name": "snippets",
+  "description": "A D3 snippet/pattern library",
+  "url": "https://github.com/ejfox/snippets",
+  "homepage": "http://ejfox.github.com/snippets/",
+  "stats": {
+    "stars": 6,
+    "forks": 0,
+    "watchers": 2,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"snippets\">snippets</h1>\n<p>A D3 snippet/pattern library.</p>\n<p><a href=\"http://ejfox.github.com/snippets/\">Check it out.</a></p>",
+    "raw": "snippets\n========\n\nA D3 snippet/pattern library.\n\n[Check it out.](http://ejfox.github.com/snippets/)",
+    "excerpt": "snippets\n========\n\nA D3 snippet/pattern library.\n\nCheck it out...."
+  },
+  "createdAt": "2012-11-20T03:09:47Z",
+  "updatedAt": "2015-11-06T18:01:17Z",
+  "pushedAt": "2012-12-11T17:18:18Z"
+}

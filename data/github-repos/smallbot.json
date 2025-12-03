@@ -1,0 +1,23 @@
+{
+  "name": "smallbot",
+  "description": "No description provided",
+  "url": "https://github.com/ejfox/smallbot",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 1
+  },
+  "language": "TypeScript",
+  "languageColor": "#3178c6",
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"smallbot\">Smallbot</h1>\n<p>A simple, modular server for Smallweb applications. Smallbot helps users create and understand Smallweb applications through an AI assistant interface.</p>\n<h2 id=\"project-structure\">Project Structure</h2>\n<p>The project has been modularized for better maintainability:</p>\n<pre><code>smallbot/\n├── main.ts                 # Entry point\n├── deno.json               # Deno configuration\n├── deno.lock               # Deno lock file\n├── src/\n│   ├── app.ts              # Main application setup\n│   ├── config/\n│   │   └── systemPrompt.ts # System prompt for AI\n│   ├── handlers/\n│   │   ├── chatApi.ts      # Chat API handler\n│   │   └── staticFiles.ts  # Static file handler\n│   ├── middleware/\n│   │   ├── cors.ts         # CORS middleware\n│   │   └── logger.ts       # Logger middleware\n│   ├── types/\n│   │   └── index.ts        # Type definitions\n│   └── utils/\n│       ├── contentType.ts  # Content type utilities\n│       └── validation.ts   # Response validation\n├── frontend/               # Frontend assets\n└── public/                 # Public assets\n</code></pre>\n<h2 id=\"development\">Development</h2>\n<p>To run the development server:</p>\n<pre><code class=\"language-bash\">deno task dev\n</code></pre>\n<p>This will start the server at <a href=\"http://localhost:8000\">http://localhost:8000</a> with hot reloading enabled.</p>\n<h2 id=\"environment-variables\">Environment Variables</h2>\n<ul>\n<li><code>OPENROUTER_API_KEY</code>: API key for OpenRouter (required for AI functionality)</li>\n</ul>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li>Static file serving</li>\n<li>AI-powered chat API</li>\n<li>CORS support</li>\n<li>Error handling</li>\n<li>Response validation</li>\n</ul>\n<h2 id=\"license\">License</h2>\n<p>MIT</p>",
+    "raw": "# Smallbot\n\nA simple, modular server for Smallweb applications. Smallbot helps users create and understand Smallweb applications through an AI assistant interface.\n\n## Project Structure\n\nThe project has been modularized for better maintainability:\n\n```\nsmallbot/\n├── main.ts                 # Entry point\n├── deno.json               # Deno configuration\n├── deno.lock               # Deno lock file\n├── src/\n│   ├── app.ts              # Main application setup\n│   ├── config/\n│   │   └── systemPrompt.ts # System prompt for AI\n│   ├── handlers/\n│   │   ├── chatApi.ts      # Chat API handler\n│   │   └── staticFiles.ts  # Static file handler\n│   ├── middleware/\n│   │   ├── cors.ts         # CORS middleware\n│   │   └── logger.ts       # Logger middleware\n│   ├── types/\n│   │   └── index.ts        # Type definitions\n│   └── utils/\n│       ├── contentType.ts  # Content type utilities\n│       └── validation.ts   # Response validation\n├── frontend/               # Frontend assets\n└── public/                 # Public assets\n```\n\n## Development\n\nTo run the development server:\n\n```bash\ndeno task dev\n```\n\nThis will start the server at http://localhost:8000 with hot reloading enabled.\n\n## Environment Variables\n\n- `OPENROUTER_API_KEY`: API key for OpenRouter (required for AI functionality)\n\n## Features\n\n- Static file serving\n- AI-powered chat API\n- CORS support\n- Error handling\n- Response validation\n\n## License\n\nMIT ",
+    "excerpt": "A simple, modular server for Smallweb applications. Smallbot helps users create and understand Smallweb applications through an AI assistant interface.\n\n\n\nThe p..."
+  },
+  "createdAt": "2025-03-11T15:26:29Z",
+  "updatedAt": "2025-03-12T17:13:07Z",
+  "pushedAt": "2025-03-12T17:13:04Z"
+}

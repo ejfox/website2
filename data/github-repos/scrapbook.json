@@ -1,0 +1,23 @@
+{
+  "name": "scrapbook",
+  "description": "No description provided",
+  "url": "https://github.com/ejfox/scrapbook",
+  "homepage": "https://eclectic-chaja-e25a53.netlify.app",
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 0
+  },
+  "language": "Vue",
+  "languageColor": "#41b883",
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"nuxt-3-minimal-starter\">Nuxt 3 Minimal Starter</h1>\n<p>Look at the <a href=\"https://v3.nuxtjs.org\">nuxt 3 documentation</a> to learn more.</p>\n<h2 id=\"setup\">Setup</h2>\n<p>Make sure to install the dependencies:</p>\n<pre><code class=\"language-bash\"># yarn\nyarn install\n\n# npm\nnpm install\n\n# pnpm\npnpm install --shamefully-hoist\n</code></pre>\n<h2 id=\"development-server\">Development Server</h2>\n<p>Start the development server on <a href=\"http://localhost:3000\">http://localhost:3000</a></p>\n<pre><code class=\"language-bash\">npm run dev\n</code></pre>\n<h2 id=\"production\">Production</h2>\n<p>Build the application for production:</p>\n<pre><code class=\"language-bash\">npm run build\n</code></pre>\n<p>Locally preview production build:</p>\n<pre><code class=\"language-bash\">npm run preview\n</code></pre>\n<p>Checkout the <a href=\"https://v3.nuxtjs.org/guide/deploy/presets\">deployment documentation</a> for more information.</p>",
+    "raw": "# Nuxt 3 Minimal Starter\n\nLook at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.\n\n## Setup\n\nMake sure to install the dependencies:\n\n```bash\n# yarn\nyarn install\n\n# npm\nnpm install\n\n# pnpm\npnpm install --shamefully-hoist\n```\n\n## Development Server\n\nStart the development server on http://localhost:3000\n\n```bash\nnpm run dev\n```\n\n## Production\n\nBuild the application for production:\n\n```bash\nnpm run build\n```\n\nLocally preview production build:\n\n```bash\nnpm run preview\n```\n\nCheckout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.\n",
+    "excerpt": "Look at the nuxt 3 documentation to learn more.\n\n\n\nMake sure to install the dependencies:\n\nbash\n\nyarn install\n\n\nnpm install\n\n\npnpm install --shamefully-hoist..."
+  },
+  "createdAt": "2022-06-21T14:05:15Z",
+  "updatedAt": "2023-10-15T18:56:55Z",
+  "pushedAt": "2023-10-15T19:01:11Z"
+}

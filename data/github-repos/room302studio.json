@@ -1,0 +1,23 @@
+{
+  "name": "room302studio",
+  "description": "The website for room302.studio",
+  "url": "https://github.com/room302studio/room302studio",
+  "homepage": "https://room302.studio",
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 12
+  },
+  "language": "HTML",
+  "languageColor": "#e34c26",
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"nuxt-3-minimal-starter\">Nuxt 3 Minimal Starter</h1>\n<p>Look at the <a href=\"https://nuxt.com/docs/getting-started/introduction\">Nuxt 3 documentation</a> to learn more.</p>\n<h2 id=\"setup\">Setup</h2>\n<p>Make sure to install the dependencies:</p>\n<pre><code class=\"language-bash\"># yarn\nyarn install\n\n# npm\nnpm install\n\n# pnpm\npnpm install\n</code></pre>\n<h2 id=\"development-server\">Development Server</h2>\n<p>Start the development server on <a href=\"http://localhost:3000\">http://localhost:3000</a></p>\n<pre><code class=\"language-bash\">npm run dev\n</code></pre>\n<h2 id=\"production\">Production</h2>\n<p>Build the application for production:</p>\n<pre><code class=\"language-bash\">npm run build\n</code></pre>\n<p>Locally preview production build:</p>\n<pre><code class=\"language-bash\">npm run preview\n</code></pre>\n<p>Check out the <a href=\"https://nuxt.com/docs/getting-started/deployment\">deployment documentation</a> for more information.</p>\n<h2 id=\"og-image-generator\">OG Image Generator</h2>\n<p>The project includes a built-in Open Graph image generator at <code>/og_generator</code>. This tool helps create consistent social media preview cards for all pages.</p>\n<h3 id=\"features\">Features</h3>\n<ul>\n<li>Dynamic text with IBM Plex Sans font</li>\n<li>Gradient backgrounds with preset options</li>\n<li>Subtle animated preview with 302 floating dots using Perlin noise</li>\n<li>Watermarked logo</li>\n<li>Downloads high-resolution (1200x630) PNG files</li>\n</ul>\n<h3 id=\"usage\">Usage</h3>\n<ol>\n<li>Navigate to <code>/og_generator</code></li>\n<li>Select a page from the dropdown</li>\n<li>Choose colors:\n<ul>\n<li>Use the \"Minimal\" preset for dark monotone</li>\n<li>Use the \"Primary\" preset for brand colors</li>\n<li>Use \"Random\" to explore theme color combinations</li>\n<li>Or manually pick gradient colors</li>\n</ul>\n</li>\n<li>Click \"Download Image\" to save</li>\n</ol>\n<h3 id=\"technical-notes\">Technical Notes</h3>\n<ul>\n<li>Uses <code>html2canvas</code> for image generation</li>\n<li>Implements <code>simplex-noise</code> for dot animation</li>\n<li>Maintains consistent branding with theme color palette</li>\n<li>Exports at 2x scale for retina displays</li>\n</ul>",
+    "raw": "# Nuxt 3 Minimal Starter\n\nLook at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.\n\n## Setup\n\nMake sure to install the dependencies:\n\n```bash\n# yarn\nyarn install\n\n# npm\nnpm install\n\n# pnpm\npnpm install\n```\n\n## Development Server\n\nStart the development server on http://localhost:3000\n\n```bash\nnpm run dev\n```\n\n## Production\n\nBuild the application for production:\n\n```bash\nnpm run build\n```\n\nLocally preview production build:\n\n```bash\nnpm run preview\n```\n\nCheck out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.\n\n## OG Image Generator\n\nThe project includes a built-in Open Graph image generator at `/og_generator`. This tool helps create consistent social media preview cards for all pages.\n\n### Features\n- Dynamic text with IBM Plex Sans font\n- Gradient backgrounds with preset options\n- Subtle animated preview with 302 floating dots using Perlin noise\n- Watermarked logo\n- Downloads high-resolution (1200x630) PNG files\n\n### Usage\n1. Navigate to `/og_generator`\n2. Select a page from the dropdown\n3. Choose colors:\n   - Use the \"Minimal\" preset for dark monotone\n   - Use the \"Primary\" preset for brand colors\n   - Use \"Random\" to explore theme color combinations\n   - Or manually pick gradient colors\n4. Click \"Download Image\" to save\n\n### Technical Notes\n- Uses `html2canvas` for image generation\n- Implements `simplex-noise` for dot animation\n- Maintains consistent branding with theme color palette\n- Exports at 2x scale for retina displays\n",
+    "excerpt": "Look at the Nuxt 3 documentation to learn more.\n\n\n\nMake sure to install the dependencies:\n\nbash\n\nyarn install\n\n\nnpm install\n\n\npnpm install\n\n\n\n\nStart the develop..."
+  },
+  "createdAt": "2023-03-24T23:37:28Z",
+  "updatedAt": "2025-07-07T15:02:44Z",
+  "pushedAt": "2025-11-04T02:00:28Z"
+}

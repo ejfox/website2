@@ -1,0 +1,23 @@
+{
+  "name": "icones",
+  "description": "⚡️ Icon Explorer with Instant searching, powered by Iconify",
+  "url": "https://github.com/ejfox/icones",
+  "homepage": "https://icones.js.org",
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "Vue",
+  "languageColor": "#41b883",
+  "topics": [],
+  "readme": {
+    "html": "<h1 align=\"center\" id=\"icônes\">\nIcônes\n</h1>\n<p align=\"center\">Icon Explorer with <b>Instant</b> searching, powered by <a href=\"https://github.com/iconify/iconify\" target=\"_blank\">Iconify</a> </p>\n<p align=\"center\">\n<a href=\"https://icones.js.org\">Go to App</a>\n</p>\n<p align=\"center\">\n<sub><em>Electron is coming...</em></sub>\n</p>\n<p><img src=\"./screenshots/1.png\" alt=\"\">\n<img src=\"./screenshots/2.png\" alt=\"\">\n<img src=\"./screenshots/3.png\" alt=\"\">\n<img src=\"./screenshots/4.png\" alt=\"\">\n<img src=\"./screenshots/5.png\" alt=\"\"></p>\n<p align=\"center\">\n<sub><em>Dark Mode is now Live!</em></sub>\n</p>\n<p><img src=\"./screenshots/6.png\" alt=\"\"></p>\n<p align=\"center\">\n  <a href=\"https://cdn.jsdelivr.net/gh/antfu/static/sponsors.svg\">\n    <img src=\"https://cdn.jsdelivr.net/gh/antfu/static/sponsors.svg\">\n  </a>\n</p>\n<h3 id=\"features\">Features</h3>\n<ul>\n<li><strong>Instant Fuzzy Searching</strong> <em>- all are done locally, no web queries!</em></li>\n<li>The <strong>Bag</strong> <em>- select your icons and pack them into a ready-to-use icon font!</em>\n<ul>\n<li><em><a href=\"https://github.com/antfu/svg-packer\">svg-packer</a> was born from this XD</em></li>\n</ul>\n</li>\n<li>Copy the usage scripts</li>\n<li>SVGs direct download</li>\n<li>Mobile friendly</li>\n<li>Collection bookmarks</li>\n<li>Categories filters</li>\n<li>Dark mode</li>\n<li>Built with <a href=\"https://github.com/vitejs/vite\">Vite</a> and Vue 3\n<ul>\n<li>If you like how it's built - try <a href=\"https://github.com/antfu/vitesse\">🏕 Vitesse</a>, an opinionated starter template made from Icônes</li>\n</ul>\n</li>\n</ul>\n<h3 id=\"community\">Community</h3>\n<ul>\n<li><a href=\"https://github.com/afzalsayed96/vscode-icones\">VS Code Extension</a> by <a href=\"https://github.com/afzalsayed96\">@afzalsayed96</a></li>\n</ul>\n<h3 id=\"todos\">TODOs</h3>\n<ul>\n<li>Electron client (Coming!)</li>\n<li>Full-offline mode - pack all the icons</li>\n</ul>\n<h2 id=\"license\">License</h2>\n<p>MIT - Anthony Fu 2020</p>",
+    "raw": "<h1 align=\"center\">\nIcônes\n</h1>\n\n<p align=\"center\">Icon Explorer with <b>Instant</b> searching, powered by <a href=\"https://github.com/iconify/iconify\" target=\"_blank\">Iconify</a> </p>\n\n<p align=\"center\">\n<a href=\"https://icones.js.org\">Go to App</a>\n</p>\n\n<p align=\"center\">\n<sub><em>Electron is coming...</em></sub>\n</p>\n\n![](./screenshots/1.png)\n![](./screenshots/2.png)\n![](./screenshots/3.png)\n![](./screenshots/4.png)\n![](./screenshots/5.png)\n\n<p align=\"center\">\n<sub><em>Dark Mode is now Live!</em></sub>\n</p>\n\n![](./screenshots/6.png)\n\n<p align=\"center\">\n  <a href=\"https://cdn.jsdelivr.net/gh/antfu/static/sponsors.svg\">\n    <img src='https://cdn.jsdelivr.net/gh/antfu/static/sponsors.svg'/>\n  </a>\n</p>\n\n### Features\n\n- **Instant Fuzzy Searching** _- all are done locally, no web queries!_\n- The **Bag** _- select your icons and pack them into a ready-to-use icon font!_\n  - _[svg-packer](https://github.com/antfu/svg-packer) was born from this XD_\n- Copy the usage scripts\n- SVGs direct download\n- Mobile friendly\n- Collection bookmarks\n- Categories filters\n- Dark mode\n- Built with [Vite](https://github.com/vitejs/vite) and Vue 3\n  - If you like how it's built - try [🏕 Vitesse](https://github.com/antfu/vitesse), an opinionated starter template made from Icônes\n\n### Community\n\n- [VS Code Extension](https://github.com/afzalsayed96/vscode-icones) by [@afzalsayed96](https://github.com/afzalsayed96)\n\n### TODOs\n\n- Electron client (Coming!)\n- Full-offline mode - pack all the icons\n\n## License\n\nMIT - Anthony Fu 2020\n",
+    "excerpt": "<h1 align=\"center\">\nIcônes\n</h1>\n\n<p align=\"center\">Icon Explorer with <b>Instant</b> searching, powered by <a href=\"https://github.com/iconify/iconify\" target=..."
+  },
+  "createdAt": "2024-09-06T16:30:37Z",
+  "updatedAt": "2024-09-06T16:30:37Z",
+  "pushedAt": "2024-08-19T09:27:10Z"
+}

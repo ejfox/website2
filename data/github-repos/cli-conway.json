@@ -1,0 +1,23 @@
+{
+  "name": "cli-conway",
+  "description": "A CLI game of life simulation, represented in braille unicode characters",
+  "url": "https://github.com/ejfox/cli-conway",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "topics": [],
+  "readme": {
+    "html": "<p><em>No README available</em></p>",
+    "raw": "",
+    "excerpt": "No description available"
+  },
+  "createdAt": "2024-09-05T01:46:53Z",
+  "updatedAt": "2024-09-06T14:11:34Z",
+  "pushedAt": "2024-09-05T01:56:47Z"
+}
