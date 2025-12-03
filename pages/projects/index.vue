@@ -2,11 +2,6 @@
 import FeaturedProjectCard from '~/components/projects/FeaturedProjectCard.vue'
 import BentoProjectCard from '~/components/projects/BentoProjectCard.vue'
 
-useHead({
-  title: 'Projects - EJ Fox',
-  link: [{ rel: 'canonical', href: 'https://ejfox.com/projects' }],
-})
-
 const { data: projects } = await useAsyncData(
   'projects-page-data',
   async () => {
@@ -94,6 +89,42 @@ const latestYear = computed(() => {
     .filter((y) => !Number.isNaN(y))
   return Math.max(...years)
 })
+
+const projectsSchema = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Projects',
+  numberOfItems: projects.value?.length || 0,
+  itemListElement:
+    projects.value?.slice(0, 20).map((p, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: `https://ejfox.com/projects/${getSlug(p)}`,
+      name: p.metadata?.title || p.title,
+    })) || [],
+}))
+
+usePageSeo({
+  title: 'Projects · EJ Fox',
+  description:
+    'Selected work: data visualizations, newsroom tooling, and investigative dashboards shipped via room302.studio and EJ Fox.',
+  type: 'article',
+  section: 'Projects',
+  tags: ['Data visualization', 'Newsroom tooling', 'Investigations', 'Dashboards'],
+  label1: 'Projects',
+  data1: computed(() => `${projects.value?.length || 0} total`),
+  label2: 'Featured span',
+  data2: computed(() => `${earliestYear.value}–${latestYear.value}`),
+})
+
+useHead(() => ({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify(projectsSchema.value),
+    },
+  ],
+}))
 </script>
 
 <template>

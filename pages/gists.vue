@@ -114,32 +114,48 @@ const gistsDescription = computed(() => {
   return `${gistCount} gists • ${fileCount} files • ${sizeKB}KB • ${topLangs}`
 })
 
+usePageSeo({
+  title: 'GitHub Gists · EJ Fox',
+  description: computed(
+    () =>
+      gistsDescription.value ||
+      'Code snippets, scripts, and experiments from EJ Fox’s GitHub Gists.'
+  ),
+  type: 'website',
+  section: 'Code',
+  tags: ['GitHub', 'Gists', 'Code snippets', 'Data visualization'],
+  label1: 'Gists',
+  data1: computed(() => `${totalGists.value} live`),
+  label2: 'Top languages',
+  data2: computed(
+    () => languageCountsFormatted.value || 'Loading languages...'
+  ),
+})
+
+const gistsSchema = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'GitHub Gists',
+  numberOfItems: totalGists.value,
+  itemListElement:
+    gists.value?.slice(0, 30).map((gist, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: gist.html_url,
+      name:
+        Object.values(gist.files)[0]?.filename ||
+        gist.description ||
+        'Gist snippet',
+    })) || [],
+}))
+
 useHead(() => ({
-  title: 'Gists - EJ Fox',
-  meta: [
+  script: [
     {
-      name: 'description',
-      content: gistsDescription.value,
+      type: 'application/ld+json',
+      children: JSON.stringify(gistsSchema.value),
     },
-    { property: 'og:title', content: 'Gists - EJ Fox' },
-    {
-      property: 'og:description',
-      content: gistsDescription.value,
-    },
-    { property: 'og:url', content: 'https://ejfox.com/gists' },
-    { property: 'og:type', content: 'website' },
-    { property: 'og:image', content: 'https://ejfox.com/og-image.png' },
-    { property: 'og:image:width', content: '1200' },
-    { property: 'og:image:height', content: '630' },
-    { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: 'Gists - EJ Fox' },
-    {
-      name: 'twitter:description',
-      content: gistsDescription.value,
-    },
-    { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' },
   ],
-  link: [{ rel: 'canonical', href: 'https://ejfox.com/gists' }],
 }))
 
 // Expand/collapse state for gists

@@ -157,13 +157,14 @@ function getTypeColor(type: string) {
   )
 }
 
-useHead({
+usePageSeo({
   title: 'Changelog · EJ Fox',
-  meta: [
-    {
-      name: 'description',
-      content: 'Living history of ejfox.com from git commits.',
-    },
-  ],
+  description:
+    'Site changelog sourced from git: recent fixes, features, refactors, and experiments on ejfox.com.',
+  type: 'article',
+  section: 'Meta',
+  tags: ['Changelog', 'Site Updates', 'Releases', 'Fixes', 'Features'],
+  label1: 'Latest batch',
+  data1: 'Most recent 50 commits',
 })
 </script>

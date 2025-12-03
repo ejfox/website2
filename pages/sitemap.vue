@@ -261,14 +261,6 @@
 <script setup>
 const { formatShortDate: formatDate } = useDateFormat()
 
-useSeoMeta({
-  title: 'Site Map | ejfox.com',
-  description:
-    'Complete navigation and overview of ejfox.com pages and sections',
-  ogTitle: 'Site Map | ejfox.com',
-  ogDescription: 'Complete navigation and overview of ejfox.com',
-})
-
 // Fetch blog posts from manifest
 const { data: manifest, error: manifestError } = await useFetch('/api/manifest')
 
@@ -278,6 +270,25 @@ const { data: predictions, error: predictionsError } =
 
 // Fetch tags for counting
 const { data: tags, error: tagsError } = await useFetch('/tags.json')
+
+const totalPosts = computed(() => manifest.value?.length || 0)
+const publicPredictions = computed(
+  () =>
+    predictions.value?.filter((p) => p.visibility === 'public').length || 0
+)
+
+usePageSeo({
+  title: 'Site Map | ejfox.com',
+  description:
+    'Complete navigation and overview of ejfox.com pages, tools, and collections.',
+  type: 'website',
+  section: 'Meta',
+  tags: ['Sitemap', 'Navigation', 'Site index'],
+  label1: 'Posts indexed',
+  data1: computed(() => `${totalPosts.value} articles`),
+  label2: 'Predictions',
+  data2: computed(() => `${publicPredictions.value} public forecasts`),
+})
 
 // Process recent posts
 const recentPosts = computed(() => {

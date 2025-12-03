@@ -21,6 +21,17 @@ const calendarUrl = computed(() => {
   return `https://cal.com/ejfox/30min?embed=true&layout=month_view&theme=${theme === 'dark' ? 'dark' : 'light'}`
 })
 
+usePageSeo({
+  title: 'Book time with EJ Fox | Calendar',
+  description:
+    'Schedule a 30-minute session to discuss data visualization, newsroom tooling, or project collaborations with EJ Fox.',
+  type: 'website',
+  section: 'Collaboration',
+  tags: ['Scheduling', 'Consulting', 'Data Visualization', 'Newsroom Tooling'],
+  label1: 'Format',
+  data1: '30-minute video call',
+})
+
 // CSP headers
 useHead({
   meta: [

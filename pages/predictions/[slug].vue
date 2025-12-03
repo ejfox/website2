@@ -206,17 +206,69 @@ const baseURL =
   (typeof window !== 'undefined' ? window.location.origin : 'https://ejfox.com')
 const predictionUrl = computed(() => `${baseURL}/predictions/${slug}`)
 
-// SEO meta
-useSeoMeta({
-  title: prediction.value?.statement || 'Prediction',
-  description:
-    prediction.value?.evidence?.slice(0, 160) ||
-    'A forecasting prediction with cryptographic verification',
-  ogTitle: `${prediction.value?.statement || 'Prediction'} | ejfox.com`,
-  ogDescription:
-    prediction.value?.evidence?.slice(0, 160) ||
-    'Cryptographically verified prediction',
-  ogImage: '/og-image.png',
-  twitterCard: 'summary_large_image',
+const predictionTags = computed(() => prediction.value?.tags || [])
+
+usePageSeo({
+  title: computed(() => prediction.value?.statement || 'Prediction'),
+  description: computed(
+    () =>
+      prediction.value
+        ? `Prediction: ${prediction.value.statement} · ${prediction.value.confidence}% · hashed for integrity with SHA-256 and tracked for calibration.`
+        : 'Cryptographically verified prediction with calibration history.'
+  ),
+  type: 'article',
+  section: 'Forecasting',
+  tags: computed(() =>
+    predictionTags.value.length ? predictionTags.value : ['Predictions']
+  ),
+  publishedTime: computed(() => prediction.value?.created),
+  modifiedTime: computed(
+    () =>
+      prediction.value?.updates?.[
+        (prediction.value.updates || []).length - 1
+      ]?.timestamp || prediction.value?.created
+  ),
+  label1: 'Confidence',
+  data1: computed(
+    () =>
+      prediction.value?.confidence !== undefined
+        ? `${prediction.value.confidence}%`
+        : 'Pending'
+  ),
+  label2: 'Status',
+  data2: computed(() => prediction.value?.status || 'Active'),
 })
+
+const predictionSchema = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  headline: prediction.value?.statement,
+  description:
+    prediction.value?.evidence?.slice(0, 280) ||
+    'Cryptographically verified prediction with updates and calibration.',
+  url: predictionUrl.value,
+  datePublished: prediction.value?.created,
+  dateModified:
+    prediction.value?.updates?.[
+      (prediction.value?.updates || []).length - 1
+    ]?.timestamp || prediction.value?.created,
+  about: predictionTags.value.map((tag) => ({
+    '@type': 'Thing',
+    name: tag,
+  })),
+  author: {
+    '@type': 'Person',
+    name: 'EJ Fox',
+    url: 'https://ejfox.com',
+  },
+}))
+
+useHead(() => ({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify(predictionSchema.value),
+    },
+  ],
+}))
 </script>

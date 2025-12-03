@@ -445,25 +445,54 @@ const { data: notes, error: _notesError } = useAsyncData(
 const defaultDescription =
   'Thoughts, projects, and explorations in technology, design, and making.'
 
-useHead({
-  title: 'Blog - EJ Fox',
-  link: [{ rel: 'canonical', href: 'https://ejfox.com/blog' }],
+const blogSchema = computed(() => {
+  const lastUpdated =
+    posts.value?.[0]?.metadata?.date ||
+    posts.value?.[0]?.date ||
+    new Date().toISOString()
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: 'EJ Fox Blog',
+    url: 'https://ejfox.com/blog',
+    description: defaultDescription,
+    inLanguage: 'en-US',
+    dateModified: lastUpdated,
+    isPartOf: {
+      '@type': 'WebSite',
+      name: 'EJ Fox',
+      url: 'https://ejfox.com',
+    },
+    blogPost: (posts.value || []).slice(0, 10).map((post) => ({
+      '@type': 'BlogPosting',
+      headline: post.title || post.metadata?.title,
+      datePublished: post.metadata?.date || post.date,
+      url: `https://ejfox.com/blog/${post.slug}`,
+    })),
+  }
 })
 
-useSeoMeta({
+usePageSeo({
+  title: 'Blog - EJ Fox',
   description: defaultDescription,
-  ogTitle: 'Blog - EJ Fox',
-  ogDescription: defaultDescription,
-  ogUrl: 'https://ejfox.com/blog',
-  ogType: 'website',
-  ogImage: 'https://ejfox.com/og-image.png',
-  ogImageWidth: '1200',
-  ogImageHeight: '630',
-  twitterCard: 'summary_large_image',
-  twitterTitle: 'Blog - EJ Fox',
-  twitterDescription: defaultDescription,
-  twitterImage: 'https://ejfox.com/og-image.png',
+  type: 'article',
+  section: 'Writing',
+  tags: ['Blog', 'Data visualization', 'Investigations', 'Notes'],
+  label1: 'Posts',
+  data1: computed(() => `${posts.value?.length || 0} published`),
+  label2: 'Latest topic',
+  data2: computed(() => posts.value?.[0]?.tags?.[0] || 'Mixed topics'),
 })
+
+useHead(() => ({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify(blogSchema.value),
+    },
+  ],
+}))
 
 // Computed data for sparklines
 const _postCountByYear = computed(() => {

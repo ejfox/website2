@@ -76,6 +76,9 @@
 <script setup lang="ts">
 const { data, error } = await useFetch('/api/blogroll')
 
+const totalFeeds = computed(() => data.value?.meta.stats.total || 0)
+const totalCategories = computed(() => data.value?.meta.stats.categories || 0)
+
 const sortedCategories = computed(() => {
   if (!data.value?.meta.stats.byCategoryCount) return {}
   return Object.entries(data.value.meta.stats.byCategoryCount)
@@ -86,14 +89,16 @@ const sortedCategories = computed(() => {
     }, {})
 })
 
-useHead({
+usePageSeo({
   title: 'Following · EJ Fox',
-  meta: [
-    {
-      name: 'description',
-      content:
-        'RSS feeds I follow. Blogs, infographics, photography, and more.',
-    },
-  ],
+  description:
+    'My RSS subscriptions: feeds across data visualization, investigative journalism, photography, and weird web.',
+  type: 'article',
+  section: 'Meta',
+  tags: ['RSS', 'Blogroll', 'Data Visualization', 'Journalism'],
+  label1: 'Feeds tracked',
+  data1: computed(() => `${totalFeeds.value} feeds`),
+  label2: 'Categories',
+  data2: computed(() => `${totalCategories.value} categories`),
 })
 </script>

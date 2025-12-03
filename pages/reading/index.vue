@@ -159,17 +159,44 @@ const lastUpdated = computed(() => {
 })
 
 // SEO
-useHead({
+usePageSeo({
   title: 'Reading Collection - EJ Fox',
-  meta: [
+  description:
+    'Reading log with Kindle-synced highlights, counts, and notes across my digital library.',
+  type: 'article',
+  section: 'Reading',
+  tags: ['Reading list', 'Books', 'Highlights', 'Notes'],
+  label1: 'Library',
+  data1: computed(() => `${books.value?.length || 0} books`),
+  label2: 'Highlights',
+  data2: computed(() => `${totalHighlights.value} saved`),
+})
+
+const readingSchema = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Reading Collection',
+  numberOfItems: books.value?.length || 0,
+  itemListElement:
+    books.value?.slice(0, 30).map((book, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: `https://ejfox.com/reading/${book.slug}`,
+      name:
+        book.metadata?.['kindle-sync']?.title ||
+        book.title ||
+        book.metadata?.title,
+    })) || [],
+}))
+
+useHead(() => ({
+  script: [
     {
-      name: 'description',
-      content:
-        'A collection of books, highlights, and reading notes ' +
-        'from my digital library.',
+      type: 'application/ld+json',
+      children: JSON.stringify(readingSchema.value),
     },
   ],
-})
+}))
 
 // Helper function
 function formatDate(dateString) {

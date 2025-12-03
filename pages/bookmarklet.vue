@@ -216,8 +216,15 @@ const pageDescription =
   'A smarter Pinboard bookmarklet that suggests tags based on your ' +
   'existing bookmarks'
 
-useSeoMeta({
+usePageSeo({
   title: 'Enhanced Pinboard Bookmarklet',
   description: pageDescription,
+  type: 'website',
+  section: 'Tools',
+  tags: ['Bookmarklet', 'Pinboard', 'Tagging', 'Automation'],
+  label1: 'Workflow',
+  data1: 'Instant save + tag suggestions',
+  label2: 'Use case',
+  data2: 'Speed-run bookmarking with smart tags',
 })
 </script>

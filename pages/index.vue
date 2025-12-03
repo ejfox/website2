@@ -4,6 +4,61 @@ const NextAvailableSlot = defineAsyncComponent(
   () => import('~/components/NextAvailableSlot.vue')
 )
 
+const runtimeConfig = useRuntimeConfig()
+const baseUrl = computed(
+  () => runtimeConfig.public?.baseUrl || 'https://ejfox.com'
+)
+
+const homepageTitle = 'EJ Fox | Building newsroom-ready data experiences'
+const homepageDescription =
+  'Data visualization engineer and investigative journalist crafting interactive stories, newsroom tooling, and climate dashboards through room302.studio.'
+const homepageOgImage = computed(
+  () => new URL('/og-image.png', baseUrl.value).href
+)
+
+const featuredWork = [
+  {
+    name: 'Newsroom Data Tools',
+    url: 'https://room302.studio',
+    description: 'Custom analysis and visualization platforms for modern journalism.',
+  },
+  {
+    name: 'Climate Data Platform',
+    url: 'https://room302.studio',
+    description: 'Interactive exploration tools for environmental policy research.',
+  },
+  {
+    name: 'Urban Analytics Dashboard',
+    url: 'https://room302.studio',
+    description: 'Real-time visualization systems for city planning and governance.',
+  },
+]
+
+const homepageSchema = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'EJ Fox',
+  url: baseUrl.value,
+  description: homepageDescription,
+  inLanguage: 'en-US',
+  publisher: {
+    '@type': 'Person',
+    name: 'EJ Fox',
+    url: baseUrl.value,
+  },
+  about: {
+    '@type': 'Thing',
+    name: 'Data visualization, investigative journalism, newsroom tooling',
+  },
+  hasPart: featuredWork.map((item, index) => ({
+    '@type': 'CreativeWork',
+    position: index + 1,
+    name: item.name,
+    url: item.url,
+    description: item.description,
+  })),
+}))
+
 const { getPostBySlug, getAllPosts: _getAllPosts } = useProcessedMarkdown()
 
 const { data: indexContent, pending: _indexPending } = await useAsyncData(
@@ -24,41 +79,33 @@ onMounted(() => {
 })
 
 // SEO and performance optimization
+useSeoMeta(() => ({
+  title: homepageTitle,
+  description: homepageDescription,
+  ogTitle: homepageTitle,
+  ogDescription: homepageDescription,
+  ogUrl: baseUrl.value,
+  ogType: 'website',
+  ogImage: homepageOgImage.value,
+  ogImageWidth: '1200',
+  ogImageHeight: '630',
+  ogImageAlt: 'Data visualization and storytelling work by EJ Fox',
+  twitterCard: 'summary_large_image',
+  twitterTitle: homepageTitle,
+  twitterDescription: homepageDescription,
+  twitterImage: homepageOgImage.value,
+  twitterImageAlt: 'Data visualization and storytelling work by EJ Fox',
+}))
+
 useHead({
-  title: 'EJ Fox - Data Visualization Specialist & Journalist',
-  meta: [
+  link: [{ key: 'canonical', rel: 'canonical', href: baseUrl.value }],
+  script: [
     {
-      name: 'description',
-      content:
-        'Data visualization specialist and journalist working at the intersection of technology and storytelling. Helping organizations transform complex datasets into clear, compelling narratives.',
+      key: 'schema-homepage',
+      type: 'application/ld+json',
+      children: JSON.stringify(homepageSchema.value),
     },
-    {
-      property: 'og:title',
-      content: 'EJ Fox - Data Visualization Specialist & Journalist',
-    },
-    {
-      property: 'og:description',
-      content:
-        'Data visualization specialist and journalist working at the intersection of technology and storytelling. Helping organizations transform complex datasets into clear, compelling narratives.',
-    },
-    { property: 'og:url', content: 'https://ejfox.com' },
-    { property: 'og:type', content: 'website' },
-    { property: 'og:image', content: 'https://ejfox.com/og-image.png' },
-    { property: 'og:image:width', content: '1200' },
-    { property: 'og:image:height', content: '630' },
-    { name: 'twitter:card', content: 'summary_large_image' },
-    {
-      name: 'twitter:title',
-      content: 'EJ Fox - Data Visualization Specialist & Journalist',
-    },
-    {
-      name: 'twitter:description',
-      content:
-        'Data visualization specialist and journalist working at the intersection of technology and storytelling. Helping organizations transform complex datasets into clear, compelling narratives.',
-    },
-    { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' },
   ],
-  link: [{ rel: 'canonical', href: 'https://ejfox.com' }],
 })
 </script>
 

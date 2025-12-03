@@ -122,6 +122,32 @@ const metadataFields = computed(() => {
   return fields
 })
 
+const noteDescription = computed(() => {
+  const html = note.value?.content || ''
+  const text = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
+  return text.slice(0, 180) || 'Robot note from EJ Fox'
+})
+
+const noteTags = computed(() => note.value?.metadata?.tags || [])
+
+usePageSeo({
+  title: computed(() => note.value?.title || 'Robot note'),
+  description: noteDescription,
+  type: 'article',
+  section: 'Robots',
+  tags: computed(() =>
+    noteTags.value.length ? noteTags.value : ['Robots', 'Notes']
+  ),
+  publishedTime: computed(() => note.value?.metadata?.date),
+  modifiedTime: computed(
+    () => note.value?.metadata?.modified || note.value?.metadata?.date
+  ),
+  label1: 'Words',
+  data1: computed(() => `${note.value?.metadata?.words || 0} words`),
+  label2: 'Images',
+  data2: computed(() => `${note.value?.metadata?.images || 0} media`),
+})
+
 // Add scroll progress tracking
 const scrollProgress = ref(0)
 
@@ -193,7 +219,7 @@ const proseClasses =
   'prose-p:leading-8 prose-p:py-2 ' +
   'prose-a:text-zinc-700 hover:prose-a:text-zinc-900 ' +
   'dark:prose-a:text-zinc-300 dark:hover:prose-a:text-zinc-100 ' +
-  'prose-a:underline transition-all duration-100 ease-in-out ' +
+  'prose-a:underline transition-all duration-200 ease-in-out ' +
   'prose-strong:font-normal ' +
   'prose-blockquote:border-l-4 prose-blockquote:border-zinc-400 ' +
   'dark:prose-blockquote:border-zinc-600 prose-blockquote:pl-4 ' +
@@ -203,10 +229,6 @@ const proseClasses =
   'prose-hr:border-zinc-300 dark:prose-hr:border-zinc-700 ' +
   '!max-w-none'
 
-// Add useHead for robot page title
-useHead({
-  title: note.value?.title,
-})
 </script>
 
 <template>

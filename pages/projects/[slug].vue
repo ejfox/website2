@@ -43,14 +43,26 @@ const description = computed(() => {
   return html.replace(/<[^>]*>/g, '').slice(0, 160)
 })
 
-useHead({
-  title: `${title.value} - EJ Fox`,
-  meta: [
-    { name: 'description', content: description.value },
-    { property: 'og:title', content: `${title.value} - EJ Fox` },
-    { property: 'og:description', content: description.value },
-    { property: 'og:type', content: 'article' },
-  ],
+const projectTags = computed(
+  () => project.value?.metadata?.tags || project.value?.metadata?.tech || []
+)
+
+usePageSeo({
+  title: computed(() => `${title.value} - EJ Fox`),
+  description: computed(() => description.value),
+  type: 'article',
+  section: 'Projects',
+  tags: projectTags,
+  publishedTime: computed(() => project.value?.metadata?.date || project.value?.date),
+  modifiedTime: computed(
+    () => project.value?.metadata?.lastUpdated || project.value?.metadata?.date
+  ),
+  label1: 'Stack',
+  data1: computed(() =>
+    (project.value?.metadata?.tech || []).slice(0, 4).join(', ') || 'Details in project'
+  ),
+  label2: 'Status',
+  data2: computed(() => project.value?.metadata?.status || 'Shipped'),
 })
 
 // TOC target for teleport

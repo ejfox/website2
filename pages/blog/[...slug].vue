@@ -18,7 +18,7 @@ const progressBarClass =
   'fixed top-0 left-0 right-0 h-[2px] sm:h-[1px] bg-zinc-200 ' +
   'dark:bg-zinc-800 z-50'
 const progressInnerClass =
-  'h-full bg-zinc-600 dark:bg-zinc-400 transition-all duration-100 ' +
+  'h-full bg-zinc-600 dark:bg-zinc-400 transition-all duration-200 ' +
   'ease-out'
 const tagsContainerClass =
   'px-4 md:px-6 py-4 md:py-3 border-t border-zinc-200 ' + 'dark:border-zinc-800'
@@ -407,76 +407,103 @@ const postDescription = computed(() => {
   return text.length > 160 ? text.substring(0, 157) + '...' : text
 })
 
+const heroImage = computed(() => {
+  const custom =
+    post.value?.metadata?.image ||
+    post.value?.metadata?.ogImage ||
+    post.value?.coverImage
+  return custom || new URL('/og-image.png', baseURL).href
+})
+
+const articleTags = computed(
+  () => post.value?.metadata?.tags || post.value?.tags || []
+)
+
+const articleSection = computed(
+  () => post.value?.metadata?.section || articleTags.value[0] || 'Writing'
+)
+
+const publishedDate = computed(
+  () => post.value?.metadata?.date || post.value?.date || undefined
+)
+
+const modifiedDate = computed(
+  () =>
+    post.value?.metadata?.lastUpdated ||
+    post.value?.metadata?.date ||
+    post.value?.date ||
+    undefined
+)
+
+const timeRequired = computed(() =>
+  `PT${Math.max(1, readingStats.value.readingTime)}M`
+)
+
+const articleSchema = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  mainEntityOfPage: postUrl.value,
+  headline: post.value?.metadata?.title || post.value?.title,
+  description: postDescription.value,
+  articleSection: articleSection.value,
+  keywords: articleTags.value,
+  datePublished: publishedDate.value,
+  dateModified: modifiedDate.value,
+  wordCount: readingStats.value.words,
+  timeRequired: timeRequired.value,
+  image: heroImage.value,
+  inLanguage: 'en-US',
+  author: {
+    '@type': 'Person',
+    name: 'EJ Fox',
+    url: 'https://ejfox.com',
+    jobTitle: 'Data Visualization Specialist & Journalist',
+    knowsAbout: [
+      'Data Visualization',
+      'Interactive Journalism',
+      'D3.js',
+      'Investigations',
+      'Newsroom Tooling',
+    ],
+  },
+  publisher: {
+    '@type': 'Person',
+    name: 'EJ Fox',
+    url: 'https://ejfox.com',
+  },
+  about: articleTags.value.map((tag) => ({
+    '@type': 'Thing',
+    name: tag,
+  })),
+}))
+
+usePageSeo({
+  title: computed(() => post.value?.metadata?.title || post.value?.title),
+  description: postDescription,
+  type: 'article',
+  section: articleSection,
+  tags: articleTags,
+  image: heroImage,
+  imageAlt: computed(
+    () =>
+      post.value?.metadata?.imageAlt ||
+      `${post.value?.metadata?.title || post.value?.title} — EJ Fox`
+  ),
+  publishedTime,
+  modifiedTime,
+  label1: 'Reading time',
+  data1: computed(() => `${readingStats.value.readingTime} min`),
+  label2: 'Word count',
+  data2: computed(
+    () => `${readingStats.value.words?.toLocaleString() || 0} words`
+  ),
+})
+
 useHead(() => ({
-  title: post.value?.metadata?.title || post.value?.title,
-  meta: [
-    {
-      name: 'description',
-      content: postDescription.value,
-    },
-    {
-      property: 'og:title',
-      content: post.value?.metadata?.title || post.value?.title,
-    },
-    {
-      property: 'og:description',
-      content: postDescription.value,
-    },
-    { property: 'og:url', content: postUrl.value },
-    { property: 'og:type', content: 'article' },
-    { property: 'og:image', content: new URL('/og-image.png', baseURL).href },
-    { property: 'og:image:width', content: '1200' },
-    { property: 'og:image:height', content: '630' },
-    { name: 'twitter:card', content: 'summary_large_image' },
-    {
-      name: 'twitter:title',
-      content: post.value?.metadata?.title || post.value?.title,
-    },
-    {
-      name: 'twitter:description',
-      content: postDescription.value,
-    },
-    { name: 'twitter:image', content: new URL('/og-image.png', baseURL).href },
-  ],
-  link: [{ rel: 'canonical', href: postUrl.value }],
   script: [
     {
       type: 'application/ld+json',
-      children: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'Article',
-        headline: post.value?.metadata?.title || post.value?.title,
-        description: postDescription.value,
-        author: {
-          '@type': 'Person',
-          name: 'EJ Fox',
-          url: 'https://ejfox.com',
-          jobTitle: 'Data Visualization Specialist & Journalist',
-          knowsAbout: [
-            'Data Visualization',
-            'Interactive Journalism',
-            'D3.js',
-            'Generative AI',
-            'Motorcycle Adventure',
-          ],
-        },
-        datePublished: post.value?.metadata?.date || post.value?.date,
-        dateModified:
-          post.value?.metadata?.lastUpdated ||
-          post.value?.metadata?.date ||
-          post.value?.date,
-        wordCount: readingStats.value.words,
-        keywords: (post.value?.metadata?.tags || post.value?.tags || []).join(
-          ', '
-        ),
-        url: postUrl.value,
-        image: new URL('/og-image.png', baseURL).href,
-        publisher: {
-          '@type': 'Person',
-          name: 'EJ Fox',
-          url: 'https://ejfox.com',
-        },
-      }),
+      children: JSON.stringify(articleSchema.value),
     },
   ],
   htmlAttrs: { lang: 'en' },

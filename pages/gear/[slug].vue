@@ -32,17 +32,68 @@ if (error.value) {
 }
 
 // SEO the Nuxt way - reactive and clean
-useSeoMeta({
-  title: () => (data.value ? `${data.value.Name} - Gear` : 'Loading... - Gear'),
-  description: () => {
+usePageSeo({
+  title: computed(() =>
+    data.value ? `${data.value.Name} - Gear` : 'Loading... - Gear'
+  ),
+  description: computed(() => {
     if (!data.value) return 'Loading gear item...'
     const weight =
       data.value['Base Weight ()'] ||
       data.value['Loaded Weight ()'] ||
       'Unknown weight'
     return `${data.value.Name} - ${data.value.Type} gear (${weight}g). ${data.value.Notes || ''}`
-  },
+  }),
+  type: 'article',
+  section: 'Gear',
+  tags: computed(() => [data.value?.Type || 'Gear']),
+  label1: 'Weight',
+  data1: computed(() => {
+    if (!data.value) return 'Unknown'
+    return (
+      data.value['Base Weight ()'] ||
+      data.value['Loaded Weight ()'] ||
+      'Unknown'
+    )
+  }),
+  label2: 'Category',
+  data2: computed(() => data.value?.Type || 'Gear'),
 })
+
+const gearItemSchema = computed(() => {
+  if (!data.value) return null
+  const weight =
+    data.value['Base Weight ()'] ||
+    data.value['Loaded Weight ()'] ||
+    undefined
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: data.value.Name,
+    category: data.value.Type,
+    description: data.value.Notes || `${data.value.Name} (${data.value.Type})`,
+    weight: weight
+      ? {
+          '@type': 'QuantitativeValue',
+          value: Number(weight),
+          unitCode: 'GRM',
+        }
+      : undefined,
+    url: `https://ejfox.com/gear/${route.params.slug}`,
+  }
+})
+
+useHead(() => ({
+  script: gearItemSchema.value
+    ? [
+        {
+          type: 'application/ld+json',
+          children: JSON.stringify(gearItemSchema.value),
+        },
+      ]
+    : [],
+}))
 
 // Page transitions
 definePageMeta({

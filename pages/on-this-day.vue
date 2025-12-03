@@ -213,9 +213,40 @@ const goToToday = () => {
 }
 
 // SEO
-useHead({
-  title: `On This Day - ${formattedDate.value}`,
+usePageSeo({
+  title: computed(() => `On This Day · ${formattedDate.value}`),
+  description: computed(
+    () =>
+      summaryText.value ||
+      `What happened on ${formattedDate.value} across blog posts, notes, and feeds.`
+  ),
+  type: 'website',
+  section: 'Meta',
+  tags: ['History', 'On this day', 'Journal', 'Archive'],
+  label1: 'Date',
+  data1: computed(() => formattedDate.value),
+  label2: 'Highlights',
+  data2: computed(() => summaryText.value || 'Loading entries...'),
 })
+
+const onThisDaySchema = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: `On This Day · ${formattedDate.value}`,
+  description:
+    summaryText.value ||
+    `Entries from ${formattedDate.value} across blog posts, notes, and feeds.`,
+  url: `https://ejfox.com/on-this-day?month=${currentMonth.value}&day=${currentDay.value}`,
+}))
+
+useHead(() => ({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify(onThisDaySchema.value),
+    },
+  ],
+}))
 </script>
 
 <style scoped>

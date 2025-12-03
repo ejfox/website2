@@ -146,24 +146,67 @@ const {
   error,
 } = await useFetch(`/api/reading/${route.params.slug}`)
 
-// SEO
-useHead({
-  title: book.value
-    ? `${
-        book.value.metadata?.['kindle-sync']?.title || book.value.title
-      } - Reading Notes`
-    : 'Book Not Found',
-  meta: [
+const bookTitle = computed(
+  () => book.value?.metadata?.['kindle-sync']?.title || book.value?.title
+)
+const bookAuthor = computed(
+  () => book.value?.metadata?.['kindle-sync']?.author || 'Unknown author'
+)
+const highlightsCount = computed(
+  () => book.value?.metadata?.['kindle-sync']?.highlightsCount || 0
+)
+const bookCover = computed(
+  () => book.value?.metadata?.['kindle-sync']?.bookImageUrl
+)
+const bookTags = computed(() => book.value?.metadata?.tags || [])
+
+usePageSeo({
+  title: computed(() =>
+    bookTitle.value ? `${bookTitle.value} - Reading Notes` : 'Book Not Found'
+  ),
+  description: computed(() =>
+    bookTitle.value
+      ? `Highlights and notes from ${bookTitle.value} by ${bookAuthor.value}.`
+      : 'Book not found'
+  ),
+  type: 'article',
+  section: 'Reading',
+  tags: computed(() =>
+    bookTags.value.length ? bookTags.value : ['Reading', 'Highlights']
+  ),
+  image: computed(() => bookCover.value),
+  imageAlt: computed(() =>
+    bookTitle.value ? `Cover of ${bookTitle.value}` : 'Book cover'
+  ),
+  label1: 'Highlights',
+  data1: computed(() => `${highlightsCount.value} saved`),
+  label2: 'Author',
+  data2: computed(() => bookAuthor.value),
+})
+
+const bookSchema = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'Book',
+  name: bookTitle.value,
+  author: bookAuthor.value,
+  image: bookCover.value,
+  url: book.value ? `https://ejfox.com/reading/${book.value.slug}` : '',
+  about: (bookTags.value || []).map((tag) => ({ '@type': 'Thing', name: tag })),
+  workExample: {
+    '@type': 'CreativeWork',
+    name: `${bookTitle.value} notes`,
+    description: `Highlights and notes from ${bookTitle.value} by ${bookAuthor.value}`,
+  },
+}))
+
+useHead(() => ({
+  script: [
     {
-      name: 'description',
-      content: book.value
-        ? `Highlights and notes from ${
-            book.value.metadata?.['kindle-sync']?.title
-          } by ${book.value.metadata?.['kindle-sync']?.author}`
-        : 'Book not found',
+      type: 'application/ld+json',
+      children: JSON.stringify(bookSchema.value),
     },
   ],
-})
+}))
 
 // Helper function
 function formatDate(dateString) {

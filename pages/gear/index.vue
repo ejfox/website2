@@ -439,33 +439,25 @@ const gearDescription = computed(() => {
   }
 })
 
-useHead(() => ({
+usePageSeo({
   title: 'Gear - EJ Fox',
-  meta: [
-    {
-      name: 'description',
-      content: gearDescription.value,
-    },
-    { property: 'og:title', content: 'Gear - EJ Fox' },
-    {
-      property: 'og:description',
-      content: gearDescription.value,
-    },
-    { property: 'og:url', content: 'https://ejfox.com/gear' },
-    { property: 'og:type', content: 'website' },
-    { property: 'og:image', content: 'https://ejfox.com/og-image.png' },
-    { property: 'og:image:width', content: '1200' },
-    { property: 'og:image:height', content: '630' },
-    { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: 'Gear - EJ Fox' },
-    {
-      name: 'twitter:description',
-      content: gearDescription.value,
-    },
-    { name: 'twitter:image', content: 'https://ejfox.com/og-image.png' },
+  description: computed(() => gearDescription.value),
+  type: 'article',
+  section: 'Gear',
+  tags: [
+    'Gear list',
+    'Backpacking',
+    'Camera kit',
+    'Everyday carry',
+    'Motorcycle',
   ],
-  link: [{ rel: 'canonical', href: 'https://ejfox.com/gear' }],
-}))
+  label1: 'Inventory',
+  data1: computed(
+    () => `${totalItems.value} items • ${containerCount.value} containers`
+  ),
+  label2: 'Weight',
+  data2: computed(() => `${totalWeightOunces.value} oz (${totalWeight.value})`),
+})
 
 const sortItemsByName = (items) => {
   return [...items].sort((a, b) => a.Name.localeCompare(b.Name))
@@ -597,20 +589,28 @@ const getWeightHistogram = (items) => {
 
 const currentDate = new Date().toISOString().split('T')[0]
 
+const gearSchema = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Gear Inventory',
+  numberOfItems: totalItems.value,
+  itemListElement: gearItems.value.slice(0, 30).map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    url: `https://ejfox.com/gear/${item.Slug || index}`,
+    name: item.Name,
+  })),
+}))
+
 useHead(() => ({
-  title: 'Adventure Gear Inventory',
-  meta: [
+  script: [
     {
-      name: 'description',
-      content: [
-        `${totalItems.value} items`,
-        `${containerCount.value} containers`,
-        `${totalWeight.value}oz`,
-        typeBreakdown.value,
-      ].join(' • '),
+      type: 'application/ld+json',
+      children: JSON.stringify(gearSchema.value),
     },
   ],
 }))
+
 </script>
 
 <style>

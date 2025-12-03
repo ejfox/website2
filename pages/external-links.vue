@@ -11,6 +11,18 @@ const { data: links } = await useAsyncData('external-links', async () => {
 const search = ref('')
 const selectedTld = ref('all')
 
+const totalLinks = computed(() => links.value?.length || 0)
+const totalDomains = computed(() =>
+  links.value
+    ? Object.keys(
+        links.value.reduce((acc, link) => {
+          acc[link.domain] = true
+          return acc
+        }, {})
+      ).length
+    : 0
+)
+
 const filteredLinks = computed(() => {
   if (!links.value) return []
 
@@ -69,8 +81,17 @@ const sortedDomains = computed(() => {
 const tableBodyClass =
   'bg-white dark:bg-zinc-900 divide-y divide-zinc-200 ' + 'dark:divide-zinc-700'
 
-useHead({
-  title: 'External Links',
+usePageSeo({
+  title: 'External links across ejfox.com',
+  description:
+    'Outbound link index for ejfox.com: every external URL cited in posts and projects, grouped by domain and TLD.',
+  type: 'website',
+  section: 'Meta',
+  tags: ['External links', 'Outbound links', 'Domains', 'Citations'],
+  label1: 'Links indexed',
+  data1: computed(() => `${totalLinks.value} URLs`),
+  label2: 'Domains covered',
+  data2: computed(() => `${totalDomains.value} domains`),
 })
 </script>
 

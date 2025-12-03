@@ -336,9 +336,19 @@ definePageMeta({
   layout: 'simple',
 })
 
-useSeoMeta({
-  title: 'Pinboard Enhancement',
-  robots: 'noindex, nofollow',
+usePageSeo({
+  title: 'Pinboard enhancement popup',
+  description:
+    'Lightweight popup to capture a page, selection, and smart tags before saving to Pinboard.',
+  type: 'website',
+  section: 'Tools',
+  tags: ['Pinboard', 'Bookmarklet', 'Tags', 'Automation'],
+  label1: 'Mode',
+  data1: 'Popup tagging workflow',
+})
+
+useHead({
+  meta: [{ name: 'robots', content: 'noindex, nofollow' }],
 })
 </script>
 

@@ -179,16 +179,6 @@ const pageDescription = computed(
   () => `All blog posts tagged with "${tag.value}"`
 )
 
-useHead({
-  title: pageTitle,
-  meta: [
-    {
-      name: 'description',
-      content: pageDescription,
-    },
-  ],
-})
-
 // Helper functions (copied from blog index)
 const formatTitle = (slug) => {
   if (!slug) return ''
@@ -233,6 +223,18 @@ const filteredPosts = computed(() => {
       const dateB = new Date(b?.metadata?.date || b?.date || 0)
       return dateB - dateA
     })
+})
+
+usePageSeo({
+  title: pageTitle,
+  description: pageDescription,
+  type: 'article',
+  section: 'Writing',
+  tags: computed(() => [tag.value]),
+  label1: 'Posts',
+  data1: computed(() => `${filteredPosts.value.length} tagged`),
+  label2: 'Topic',
+  data2: computed(() => tag.value),
 })
 
 // Helper functions for display

@@ -757,26 +757,64 @@ const commitHistoryUrl =
 
 const { formatRelativeTime } = useDateFormat()
 
-useSeoMeta({
-  title: 'Predictions - EJ Fox',
-  description: 'Cryptographically verified predictions with SHA-256 hashing',
-  ogTitle: 'Predictions - EJ Fox',
-  ogDescription: 'Verified predictions and forecasts',
-  ogUrl: 'https://ejfox.com/predictions',
-  ogType: 'website',
-  ogImage: 'https://ejfox.com/og-image.png',
-  ogImageWidth: '1200',
-  ogImageHeight: '630',
-  twitterCard: 'summary_large_image',
-  twitterTitle: 'Predictions - EJ Fox',
-  twitterDescription: 'Cryptographically verified predictions and forecasts',
-  twitterImage: 'https://ejfox.com/og-image.png',
-})
-
 const { data: predictions, error: predictionsError } =
   await useFetch('/api/predictions')
 const { data: kalshiData } = useKalshi()
 const { data: calibration } = useCalibration()
+
+const totalPredictions = computed(
+  () => predictions.value?.filter((p) => p.visibility === 'public').length || 0
+)
+
+const resolvedCount = computed(
+  () =>
+    predictions.value?.filter(
+      (p) => p.visibility === 'public' && p.resolved
+    ).length || 0
+)
+
+usePageSeo({
+  title: 'Predictions · EJ Fox',
+  description:
+    'Public, timestamped predictions with SHA-256 hashes plus performance and calibration tracking.',
+  type: 'article',
+  section: 'Forecasting',
+  tags: ['Predictions', 'Forecasting', 'Calibration', 'Probability'],
+  label1: 'Public predictions',
+  data1: computed(() => `${totalPredictions.value} total`),
+  label2: 'Resolved so far',
+  data2: computed(() => `${resolvedCount.value} resolved`),
+})
+
+const predictionsSchema = computed(() => {
+  const items =
+    predictions.value
+      ?.filter((p) => p.visibility === 'public')
+      .slice(0, 20)
+      .map((p, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        url: `https://ejfox.com/predictions/${p.slug}`,
+        name: p.statement,
+      })) || []
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Predictions',
+    numberOfItems: totalPredictions.value,
+    itemListElement: items,
+  }
+})
+
+useHead(() => ({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify(predictionsSchema.value),
+    },
+  ],
+}))
 
 // Transform and filter predictions
 const transformedPredictions = computed(

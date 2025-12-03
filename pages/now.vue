@@ -115,20 +115,29 @@ const formatTime = (timestamp) => {
 
   if (diffMins < 1) return 'just now'
   if (diffMins < 60) return `${diffMins}m ago`
-  const diffHours = Math.floor(diffMins / 60)
+const diffHours = Math.floor(diffMins / 60)
   if (diffHours < 24) return `${diffHours}h ago`
   const diffDays = Math.floor(diffHours / 24)
   return `${diffDays}d ago`
 }
 
-useHead({
-  title: 'Now - EJ Fox',
-  meta: [
-    {
-      name: 'description',
-      content: 'What EJ Fox is doing right now',
-    },
-  ],
+usePageSeo({
+  title: 'Now · EJ Fox',
+  description:
+    'Live now page: current GitHub commits, Last.fm listening, Kindle reading, and prediction updates in one feed.',
+  type: 'website',
+  section: 'Meta',
+  tags: ['Now page', 'Now playing', 'Reading', 'Live stats'],
+  label1: 'Listening',
+  data1: computed(() =>
+    now.value?.music
+      ? `${now.value.music.track} — ${now.value.music.artist}`
+      : 'Loading current track...'
+  ),
+  label2: 'Latest commit',
+  data2: computed(() =>
+    now.value?.code?.repo ? `${now.value.code.repo}: ${now.value.code.message}` : 'Fetching activity...'
+  ),
 })
 </script>
 
