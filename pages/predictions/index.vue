@@ -24,6 +24,9 @@
           <span class="text-primary mono-lg tabular">{{ pendingCount }}</span>
           pending
         </div>
+        <div class="text-muted">
+          {{ lastUpdated ? `Updated ${lastUpdated}` : 'Updating live' }} · sources: git + SHA-256 hashes
+        </div>
       </div>
     </header>
 
@@ -873,6 +876,20 @@ const avgConfidence = computed(() => {
 const accuracyRate = computed(() => {
   const resolved = correctCount.value + incorrectCount.value
   return resolved ? Math.round((correctCount.value / resolved) * 100) : 0
+})
+
+const lastUpdated = computed(() => {
+  const dates: number[] = []
+  transformedPredictions.value.forEach((p) => {
+    if (p.created) dates.push(new Date(p.created).getTime())
+    if (p.updates && p.updates.length > 0) {
+      const last = p.updates[p.updates.length - 1]?.timestamp
+      if (last) dates.push(new Date(last).getTime())
+    }
+  })
+  if (!dates.length) return ''
+  const max = Math.max(...dates)
+  return new Date(max).toISOString().split('T')[0]
 })
 
 // Advanced statistics
