@@ -11,6 +11,8 @@
   },
   "language": "Unknown",
   "languageColor": "#666666",
+  "languages": {},
+  "diskUsage": 5,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"the-boyfriend-list\">The Boyfriend List</h1>\n<p>Submit a PR with a link to your twitch or github handle to join the boyfriend list. You must have a number next to your name. PR Number = Boyfriend Number. No Deleting other boyfriends.</p>\n<ol>\n  <li></li>\n</ol>",

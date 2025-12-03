@@ -11,6 +11,12 @@
   },
   "language": "JavaScript",
   "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 7876,
+    "CSS": 906,
+    "Makefile": 416
+  },
+  "diskUsage": 1687,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"d3tip-tooltips-for-d3js-visualizations\">d3.tip: Tooltips for d3.js visualizations</h1>\n<p><a href=\"http://bl.ocks.org/Caged/6476579\"><img src=\"https://github-images.s3.amazonaws.com/skitch/Screen_Shot_2013-04-08_at_11.40.10_AM-20130408-114054.png\" alt=\"\" /></a></p>\n<ul>\n<li><a href=\"http://bl.ocks.org/Caged/6476579\">See a live demo</a></li>\n<li><a href=\"/examples\">Example code</a></li>\n</ul>\n<h3 id=\"api-docs\">API Docs</h3>\n<p>See the <a href=\"docs/index.md\">API Documentation</a></p>\n<h3 id=\"download-latest-version\">Download Latest Version</h3>\n<ul>\n<li><a href=\"https://raw.github.com/Caged/d3-tip/master/index.js\">Development Version</a> : <strong>6kb</strong> / <strong>~2kb gzipped</strong></li>\n</ul>\n<h3 id=\"install-with-bower\">Install with Bower</h3>\n<pre><code>bower install d3-tip\n</code></pre>\n<h3 id=\"quick-usage\">Quick Usage</h3>\n<pre><code class=\"language-javascript\">/* Initialize tooltip */\ntip = d3.tip().attr('class', 'd3-tip').html(function(d) { return d; });\n\n/* Invoke the tip in the context of your visualization */\nvis.call(tip)\n\nvis.selectAll('rect')\n  .data(data)\n.enter().append('rect')\n  .attr('width', function() { return x.rangeBand() })\n  .attr('height', function(d) { return h - y(d) })\n  .attr('y', function(d) { return y(d) })\n  .attr('x', function(d, i) { return x(i) })\n  .on('mouseover', tip.show)\n  .on('mouseout', tip.hide)\n</code></pre>\n<p>If you want basic styling, you can include <code>example-styles.css</code> using a service like\nrawgithub.com.</p>\n<pre><code class=\"language-html\">&lt;link rel=\"stylesheet\" href=\"//rawgithub.com/Caged/d3-tip/master/examples/example-styles.css\"&gt;\n</code></pre>",

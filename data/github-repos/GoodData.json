@@ -11,6 +11,11 @@
   },
   "language": "JavaScript",
   "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 43140,
+    "CoffeeScript": 322
+  },
+  "diskUsage": 2392,
   "topics": [],
   "readme": {
     "html": "<h2 id=\"gooddata\">#GoodData</h2>\n<p>Collecting good data sources to inspire visualizers.</p>\n<p>Makes a quick <a href=\"https://github.com/jsoma/tabletop\">Tabletop</a> + <a href=\"http://isotope.metafizzy.co/index.html\">Isotope</a>-based page to display the data sources listed in a <a href=\"https://docs.google.com/spreadsheet/ccc?key=0ApAkxBfw1JT4dEphMEpZM051NlM3RUlfTlRwcUtENlE\">Google Spreadsheet</a> which I curate along with other members of <a href=\"http://mainstem.org\">Mainstem</a>.</p>\n<p>Send your suggestions for data sources to <strong><a href=\"mailto:ejfox@ejfox.com\">ejfox@ejfox.com</a></strong></p>",

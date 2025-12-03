@@ -11,6 +11,12 @@
   },
   "language": "JavaScript",
   "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 1107516,
+    "CoffeeScript": 297001,
+    "HTML": 1409
+  },
+  "diskUsage": 8459,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"twitter-art-bot\">Twitter Art Bot</h1>\n<h1 id=\"417am1975\">@417am1975</h1>\n<h2 id=\"what-it-does\">What it does</h2>\n<p>An art robot that creates generative works using <a href=\"https://github.com/ejfox/four-seventeen\">417</a>. This repo can be deployed to Heroku to create a Twitter bot that tweets randomly-selected art scripts every hour.</p>\n<p>See <a href=\"https://imgur.com/a/0nlIRIo\">lots of examples here</a>.</p>\n<h2 id=\"development\">Development</h2>\n<p><code>npm install</code> before your first use.</p>\n<p>To force the bot to randomly pick an artscript to run and tweet, use <code>node dist/index -force</code></p>\n<p>To force the bot to randomly pick an artscript to export every frame, use <code>node dist/index -movie</code></p>\n<h3 id=\"twitter-bot-setup\">Twitter Bot Setup</h3>\n<p>Create a <a href=\"https://apps.twitter.com/\">new Twitter app and get your consumer key and token</a>.</p>\n<p>Rename <code>.env-example</code> to <code>.env</code> and add your Twitter authentication details.</p>\n<h2 id=\"examples\">Examples</h2>\n<p><img src=\"https://i.imgur.com/96fLEBe.png\" alt=\"9-10\" />\n<img src=\"https://i.imgur.com/WNcRDgg.png\" alt=\"10-2\" />\n<img src=\"https://i.imgur.com/bxW0bex.png\" alt=\"10-3-2\" />\n<img src=\"https://i.imgur.com/BTgXBOQ.png\" alt=\"10-4-3\" />\n<img src=\"https://i.imgur.com/HGAz9QZ.png\" alt=\"10-3\" />\n<img src=\"https://i.imgur.com/Y77isUO.png\" alt=\"10-7-2\" />\n<img src=\"https://i.imgur.com/FOR6L5f.png\" alt=\"11-6-3\" />\n<a href=\"https://app.fossa.io/projects/git%2Bgithub.com%2Fejfox%2Ftwitter-artbot?ref=badge_shield\"><img src=\"https://app.fossa.io/api/projects/git%2Bgithub.com%2Fejfox%2Ftwitter-artbot.svg?type=shield\" alt=\"FOSSA Status\" /></a></p>\n<h2 id=\"license\">License</h2>\n<p><a href=\"https://app.fossa.io/projects/git%2Bgithub.com%2Fejfox%2Ftwitter-artbot?ref=badge_large\"><img src=\"https://app.fossa.io/api/projects/git%2Bgithub.com%2Fejfox%2Ftwitter-artbot.svg?type=large\" alt=\"FOSSA Status\" /></a></p>",

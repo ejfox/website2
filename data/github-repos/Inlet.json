@@ -11,6 +11,10 @@
   },
   "language": "JavaScript",
   "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 1007211
+  },
+  "diskUsage": 978,
   "topics": [],
   "readme": {
     "html": "<p>Inlet is a \"plugin\" for CodeMirror2 which pops up a slider whenever you click on a number or a color picker when you click on a Hex string (i.e. \"#ff0000\")</p>\n<p>See an example at <a href=\"http://enjalot.github.com/Inlet\">http://enjalot.github.com/Inlet</a></p>\n<h1 id=\"about\">About</h1>\n<p>This project is inspired by Bret Victor's talk <a href=\"https://vimeo.com/36579366\">\"Inventing on Principle\"</a></p>\n<p>The the slider code is adapted from Gabriel Florit's <a href=\"http://gabrielflor.it/water\">Water project</a></p>\n<p>The <a href=\"https://github.com/mudcube/Color-Picker\">Color Picker library</a></p>\n<p>This project is used in enjalot's <a href=\"http://tributary.io\">Tributary</a></p>\n<h1 id=\"usage\">Usage</h1>\n<p>All you need is the inlet.js file from src/inlet.js<br />\nbut you do need to make sure you have all of the libs this depends on (found in the example/lib folder):\nColorPicker<br />\nCodeMirror2 ( &gt;= 3.1 )</p>\n<p>Check out index.html to see how to put things together</p>\n<p>The key bit of javascript code to kick things off is:</p>\n<pre><code class=\"language-javascript\">var editor = CodeMirror('#editor', ...)\nInlet(editor)\n</code></pre>\n<p>Enjoy!</p>",

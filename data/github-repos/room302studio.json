@@ -11,6 +11,14 @@
   },
   "language": "HTML",
   "languageColor": "#e34c26",
+  "languages": {
+    "HTML": 7430063,
+    "Vue": 285803,
+    "CSS": 15225,
+    "JavaScript": 6678,
+    "TypeScript": 2037
+  },
+  "diskUsage": 54774,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"nuxt-3-minimal-starter\">Nuxt 3 Minimal Starter</h1>\n<p>Look at the <a href=\"https://nuxt.com/docs/getting-started/introduction\">Nuxt 3 documentation</a> to learn more.</p>\n<h2 id=\"setup\">Setup</h2>\n<p>Make sure to install the dependencies:</p>\n<pre><code class=\"language-bash\"># yarn\nyarn install\n\n# npm\nnpm install\n\n# pnpm\npnpm install\n</code></pre>\n<h2 id=\"development-server\">Development Server</h2>\n<p>Start the development server on <a href=\"http://localhost:3000\">http://localhost:3000</a></p>\n<pre><code class=\"language-bash\">npm run dev\n</code></pre>\n<h2 id=\"production\">Production</h2>\n<p>Build the application for production:</p>\n<pre><code class=\"language-bash\">npm run build\n</code></pre>\n<p>Locally preview production build:</p>\n<pre><code class=\"language-bash\">npm run preview\n</code></pre>\n<p>Check out the <a href=\"https://nuxt.com/docs/getting-started/deployment\">deployment documentation</a> for more information.</p>\n<h2 id=\"og-image-generator\">OG Image Generator</h2>\n<p>The project includes a built-in Open Graph image generator at <code>/og_generator</code>. This tool helps create consistent social media preview cards for all pages.</p>\n<h3 id=\"features\">Features</h3>\n<ul>\n<li>Dynamic text with IBM Plex Sans font</li>\n<li>Gradient backgrounds with preset options</li>\n<li>Subtle animated preview with 302 floating dots using Perlin noise</li>\n<li>Watermarked logo</li>\n<li>Downloads high-resolution (1200x630) PNG files</li>\n</ul>\n<h3 id=\"usage\">Usage</h3>\n<ol>\n<li>Navigate to <code>/og_generator</code></li>\n<li>Select a page from the dropdown</li>\n<li>Choose colors:\n<ul>\n<li>Use the \"Minimal\" preset for dark monotone</li>\n<li>Use the \"Primary\" preset for brand colors</li>\n<li>Use \"Random\" to explore theme color combinations</li>\n<li>Or manually pick gradient colors</li>\n</ul>\n</li>\n<li>Click \"Download Image\" to save</li>\n</ol>\n<h3 id=\"technical-notes\">Technical Notes</h3>\n<ul>\n<li>Uses <code>html2canvas</code> for image generation</li>\n<li>Implements <code>simplex-noise</code> for dot animation</li>\n<li>Maintains consistent branding with theme color palette</li>\n<li>Exports at 2x scale for retina displays</li>\n</ul>",

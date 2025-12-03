@@ -11,6 +11,12 @@
   },
   "language": "Vue",
   "languageColor": "#41b883",
+  "languages": {
+    "Vue": 4718,
+    "JavaScript": 2442,
+    "TypeScript": 950
+  },
+  "diskUsage": 3536,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"room-302-nuxt-3-starter\">Room 302 Nuxt 3 Starter</h1>\n<h2 id=\"usage\">Usage</h2>\n<p><code>npx room302-template</code></p>\n<p>Deployed through a small script that handles naming, cloning, and setting up the repo for prototyping. <a href=\"https://www.npmjs.com/package/room302-template\">https://www.npmjs.com/package/room302-template</a></p>\n<h2 id=\"whats-different-from-the-standard-nuxt-3-starter\">What's different from the standard Nuxt 3 starter?</h2>\n<ul>\n<li>VueUse 🔧</li>\n<li>Vueuse motion 🌈</li>\n<li>OpenAI plugin 🧠</li>\n<li>Pinia store 🏬</li>\n<li>Helpers file 🔨</li>\n<li>Google fonts 🖋️</li>\n</ul>\n<p>Look at the <a href=\"https://nuxt.com/docs/getting-started/introduction\">Nuxt 3 documentation</a> to learn more.</p>\n<h2 id=\"setup\">Setup</h2>\n<p>Make sure to install the dependencies:</p>\n<pre><code class=\"language-bash\"># yarn install\nyarn install\n\n# run the dev server\nyarn dev\n</code></pre>\n<h2 id=\"deployment\">Deployment</h2>\n<p>Check out the <a href=\"https://nuxt.com/docs/getting-started/deployment\">deployment documentation</a> for more information.</p>",

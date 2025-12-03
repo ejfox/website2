@@ -11,6 +11,8 @@
   },
   "language": "Unknown",
   "languageColor": "#666666",
+  "languages": {},
+  "diskUsage": 144,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"oaklandcams\">oaklandcams</h1>\n<p>Oakland camera map (for discovery of routes with least surveillance)</p>\n<h2 id=\"data\">Data</h2>\n<ul>\n<li><strong>data/scraped_camera_locations.json</strong> is Oakland data scraped from <a href=\"http://www.videosurveillance.com/communitycam/map/?pv=oaklandeastbay\">http://www.videosurveillance.com/communitycam/map/?pv=oaklandeastbay</a></li>\n</ul>",

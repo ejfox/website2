@@ -11,6 +11,10 @@
   },
   "language": "TypeScript",
   "languageColor": "#3178c6",
+  "languages": {
+    "TypeScript": 5649
+  },
+  "diskUsage": 5,
   "topics": [
     "smallweb"
   ],

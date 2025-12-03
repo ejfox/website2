@@ -11,6 +11,13 @@
   },
   "language": "JavaScript",
   "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 1417292,
+    "CoffeeScript": 68348,
+    "Perl": 2897,
+    "Shell": 133
+  },
+  "diskUsage": 2364,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"snippets\">snippets</h1>\n<p>A D3 snippet/pattern library.</p>\n<p><a href=\"http://ejfox.github.com/snippets/\">Check it out.</a></p>",

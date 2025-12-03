@@ -11,6 +11,15 @@
   },
   "language": "Python",
   "languageColor": "#3572A5",
+  "languages": {
+    "Python": 20153,
+    "Vue": 17920,
+    "HTML": 8806,
+    "TypeScript": 5085,
+    "CSS": 2559,
+    "JavaScript": 607
+  },
+  "diskUsage": 87,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"handtrack-websockets-\">handtrack-websockets 🤚</h1>\n<p>Real-time hand tracking over WebSockets using MediaPipe, OpenCV, and FastAPI. Track hand position and rotation in 3D space with a cyberpunk visualization layer.</p>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li>Real-time hand skeleton tracking and visualization</li>\n<li>WebSocket streaming of hand position/rotation data</li>\n<li>Smooth motion interpolation</li>\n<li>Cyberpunk-style HUD overlay</li>\n<li>~30 FPS performance on modern hardware</li>\n<li>Support for webcam or video file input</li>\n</ul>\n<h2 id=\"requirements\">Requirements</h2>\n<ul>\n<li>Python 3.9+</li>\n<li>OpenCV</li>\n<li>MediaPipe</li>\n<li>FastAPI</li>\n<li>Modern browser with WebSocket support</li>\n</ul>\n<h2 id=\"quick-start\">Quick Start</h2>\n<pre><code class=\"language-bash\"># Create conda environment\nconda create -n handtrack python=3.9\nconda activate handtrack\n\n# Install dependencies\nconda install -c conda-forge mediapipe opencv numpy\npip install fastapi uvicorn\n\n# Run with webcam\npython main.py\n\n# Run with video file\npython main.py --movie path/to/movie.mov\n</code></pre>\n<p>Visit <code>http://localhost:8000</code> to see the visualization.</p>\n<h2 id=\"protocol\">Protocol</h2>\n<p>WebSocket endpoint streams JSON packets containing:</p>\n<ul>\n<li>Palm center coordinates (x,y,z)</li>\n<li>Hand rotation (pitch/yaw)</li>\n<li>Raw landmark data</li>\n<li>Motion smoothing</li>\n</ul>\n<h2 id=\"license\">License</h2>\n<p>BSD 3-Clause. Use it. Hack it. Share it.</p>\n<hr />\n<p><em>\"The hand is the visible part of the brain.\" - Immanuel Kant</em></p>\n<blockquote>\n<p>Note: Video files will automatically loop when they reach the end</p>\n</blockquote>",

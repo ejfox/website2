@@ -11,6 +11,13 @@
   },
   "language": "CoffeeScript",
   "languageColor": "#244776",
+  "languages": {
+    "CoffeeScript": 8899,
+    "CSS": 6334,
+    "HTML": 2024,
+    "JavaScript": 428
+  },
+  "diskUsage": 2044,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"nfl-viz\">NFL Viz</h1>\n<p>Visualizing NFL data</p>\n<h1 id=\"data\">Data</h1>\n<p>Play-by-play data from <a href=\"http://www.nflsavant.com/about.php\">NFL Savant</a></p>",

@@ -68,6 +68,34 @@ async function makeGitHubRequest(query, variables = {}) {
   return data.data
 }
 
+async function fetchLanguageBreakdown(owner, repoName) {
+  try {
+    const response = await fetch(
+      `https://api.github.com/repos/${owner}/${repoName}/languages`,
+      {
+        headers: {
+          Authorization: `bearer ${GITHUB_TOKEN}`,
+          'User-Agent': 'EJFox-Website/1.0',
+        },
+      }
+    )
+
+    if (!response.ok) {
+      console.warn(`  ⚠️  Failed to fetch languages for ${repoName}`)
+      return {}
+    }
+
+    const languages = await response.json()
+    return languages // Returns { "JavaScript": 12345, "Vue": 6789, ... }
+  } catch (error) {
+    console.warn(
+      `  ⚠️  Error fetching languages for ${repoName}:`,
+      error.message
+    )
+    return {}
+  }
+}
+
 async function fetchRepositories() {
   console.log(`Fetching repositories for ${GITHUB_OWNER}...`)
 
@@ -101,6 +129,7 @@ async function fetchRepositories() {
               name
               color
             }
+            diskUsage
             repositoryTopics(first: 10) {
               nodes {
                 topic {
@@ -209,7 +238,7 @@ async function processReadme(readmeText) {
 function sanitizeFilename(filename) {
   // Only allow alphanumeric, hyphens, underscores, dots (GitHub repo names)
   // Remove any path traversal attempts
-  return filename.replace(/[^a-zA-Z0-9._-]/g, '_')
+  return filename.replace(/[^\w.-]/g, '_')
 }
 
 async function exportRepository(repo) {
@@ -222,6 +251,7 @@ async function exportRepository(repo) {
   console.log(`  Processing ${safeName}...`)
 
   const readme = await processReadme(repo.object?.text)
+  const languages = await fetchLanguageBreakdown(GITHUB_OWNER, repo.name)
 
   const repoData = {
     name: repo.name,
@@ -236,6 +266,8 @@ async function exportRepository(repo) {
     },
     language: repo.primaryLanguage?.name || 'Unknown',
     languageColor: repo.primaryLanguage?.color || '#666666',
+    languages, // Language breakdown by bytes
+    diskUsage: repo.diskUsage || 0, // Total KB
     topics: repo.repositoryTopics.nodes.map((t) => t.topic.name),
     readme,
     createdAt: repo.createdAt,
@@ -246,7 +278,7 @@ async function exportRepository(repo) {
   const outputFile = join(OUTPUT_DIR, `${safeName}.json`)
   writeFileSync(outputFile, JSON.stringify(repoData, null, 2))
 
-  return safeName
+  return { name: safeName, languages, diskUsage: repo.diskUsage || 0 }
 }
 
 async function main() {
@@ -261,10 +293,11 @@ async function main() {
     const reposList = [] // Lightweight list for index page
 
     for (const repo of repos) {
-      const name = await exportRepository(repo)
+      const { name, languages, diskUsage } = await exportRepository(repo)
+
       repoNames.push(name)
 
-      // Create lightweight entry (no README HTML)
+      // Create lightweight entry (no README, includes language data)
       reposList.push({
         name: repo.name,
         description: repo.description || 'No description provided',
@@ -278,6 +311,8 @@ async function main() {
         },
         language: repo.primaryLanguage?.name || 'Unknown',
         languageColor: repo.primaryLanguage?.color || '#666666',
+        languages, // Language breakdown for force layout
+        diskUsage, // Total KB for node sizing
         topics: repo.repositoryTopics.nodes.map((t) => t.topic.name),
         excerpt: repo.description || 'No description provided',
         createdAt: repo.createdAt,
@@ -293,7 +328,9 @@ async function main() {
     writeFileSync(LIST_FILE, JSON.stringify(reposList, null, 2))
 
     // Stats
-    const languages = [...new Set(repos.map((r) => r.primaryLanguage?.name).filter(Boolean))]
+    const languages = [
+      ...new Set(repos.map((r) => r.primaryLanguage?.name).filter(Boolean)),
+    ]
     const totalStars = repos.reduce((sum, r) => sum + r.stargazerCount, 0)
 
     console.log(`\n✅ Done!`)

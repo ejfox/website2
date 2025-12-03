@@ -11,6 +11,10 @@
   },
   "language": "JavaScript",
   "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 6612
+  },
+  "diskUsage": 49,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"reddit-embeddings\">Reddit embeddings</h1>\n<p>Download post data from reddit and embed it with OpenAI</p>\n<pre><code class=\"language-bash\"># download the top 1000 posts for DataIsBeautiful\nnode posts.js fetch 1000\n# procses the posts\nnode posts.js process\n\n#embed the posts\nnode embeddings.js\n</code></pre>",

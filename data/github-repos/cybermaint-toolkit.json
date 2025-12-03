@@ -11,6 +11,12 @@
   },
   "language": "HTML",
   "languageColor": "#e34c26",
+  "languages": {
+    "HTML": 25225,
+    "CSS": 9523,
+    "JavaScript": 9074
+  },
+  "diskUsage": 11412,
   "topics": [
     "cli"
   ],

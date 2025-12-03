@@ -11,6 +11,14 @@
   },
   "language": "CSS",
   "languageColor": "#663399",
+  "languages": {
+    "CSS": 31267,
+    "Python": 16918,
+    "JavaScript": 16050,
+    "HTML": 7196,
+    "Shell": 457
+  },
+  "diskUsage": 5418,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"exploring-youtube-recommendations\">Exploring YouTube recommendations</h1>\n<p>Where does YouTube's recommendation algorithm bring the user if he follows the recommendations?\nThis robot follows the recommendations on YouTube from a given search query to find out where they bring you.\nAfter searching on YouTube and following the recommendations, it prints the 50 most recommended videos.</p>\n<h2 id=\"installation\">Installation</h2>\n<p>To install the project's python dependencies, you can use pip:</p>\n<pre><code>pip install -r requirements\n</code></pre>\n<p>Used dependencies:</p>\n<ul>\n<li><a href=\"https://www.crummy.com/software/BeautifulSoup/bs4/doc/\">BeautifulSoup4</a></li>\n</ul>\n<h2 id=\"example-of-usage\">Example of usage:</h2>\n<p>python2.7 follow-youtube-recommendations.py  --query=\"global warming,vaccines,nasa\" --searches=4 --branch=4 --depth=4 --name=\"science\"</p>\n<ul>\n<li>--query: query that is made on youtube</li>\n<li>--searches: number of search results from the query to start with</li>\n<li>--branch: branching factor = number of recommendations that are followed</li>\n<li>--name: name under which it will be saved</li>\n<li>--alltime: add this option if you want to start from the most viewed videos for the query (using the option filter by viewcount on youtube)</li>\n</ul>",

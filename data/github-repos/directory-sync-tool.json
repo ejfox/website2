@@ -11,6 +11,10 @@
   },
   "language": "JavaScript",
   "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 15807
+  },
+  "diskUsage": 37525,
   "topics": [
     "cli"
   ],

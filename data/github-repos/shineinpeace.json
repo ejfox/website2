@@ -11,6 +11,11 @@
   },
   "language": "JavaScript",
   "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 658917,
+    "CSS": 201575
+  },
+  "diskUsage": 5272,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"shine-in-peace\">Shine in Peace</h1>\n<p>============</p>\n<p>Website for Shine in Peace</p>\n<h2 id=\"pages-implemented-so-far\">Pages implemented so far</h2>\n<h3 id=\"home-page\">Home Page</h3>\n<p>Intro text + map placeholder (leaflet map can be used, similar to (Tablemap)[<a href=\"http://ejfox.github.com/tablemap/\">http://ejfox.github.com/tablemap/</a>] ) and topic sections</p>\n<h3 id=\"topic-page\">Topic Page</h3>\n<p>Individual story boxes, implemented in isotope for filtering / sorting</p>",

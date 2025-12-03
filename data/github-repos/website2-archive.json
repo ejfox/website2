@@ -11,6 +11,13 @@
   },
   "language": "Vue",
   "languageColor": "#41b883",
+  "languages": {
+    "Vue": 34299,
+    "TypeScript": 3919,
+    "JavaScript": 2039,
+    "CSS": 779
+  },
+  "diskUsage": 1381,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"content-v2-minimal-starter\">Content v2 Minimal Starter</h1>\n<p>Look at the <a href=\"https://content-v2.nuxtjs.org/\">Content documentation</a> to learn more.</p>\n<h2 id=\"setup\">Setup</h2>\n<p>Make sure to install the dependencies:</p>\n<pre><code class=\"language-bash\"># yarn\nyarn install\n\n# npm\nnpm install\n\n# pnpm\npnpm install --shamefully-hoist\n</code></pre>\n<h2 id=\"development-server\">Development Server</h2>\n<p>Start the development server on <a href=\"http://localhost:3000\">http://localhost:3000</a></p>\n<pre><code class=\"language-bash\">npm run dev\n</code></pre>\n<h2 id=\"production\">Production</h2>\n<p>Build the application for production:</p>\n<pre><code class=\"language-bash\">npm run build\n</code></pre>\n<p>Locally preview production build:</p>\n<pre><code class=\"language-bash\">npm run preview\n</code></pre>\n<p>Checkout the <a href=\"https://v3.nuxtjs.org/docs/deployment\">deployment documentation</a> for more information.</p>",

@@ -11,6 +11,15 @@
   },
   "language": "TypeScript",
   "languageColor": "#3178c6",
+  "languages": {
+    "TypeScript": 93353,
+    "HTML": 60594,
+    "CSS": 19758,
+    "JavaScript": 6777,
+    "Astro": 5701,
+    "Shell": 5017
+  },
+  "diskUsage": 17577,
   "topics": [],
   "readme": {
     "html": "<p><em>No README available</em></p>",

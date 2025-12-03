@@ -11,6 +11,11 @@
   },
   "language": "Vue",
   "languageColor": "#41b883",
+  "languages": {
+    "Vue": 3054,
+    "JavaScript": 1526
+  },
+  "diskUsage": 139,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"emoji-update\">emoji-update</h1>\n<h2 id=\"build-setup\">Build Setup</h2>\n<pre><code class=\"language-bash\"># install dependencies\n$ npm install\n\n# serve with hot reload at localhost:3000\n$ npm run dev\n\n# build for production and launch server\n$ npm run build\n$ npm run start\n\n# generate static project\n$ npm run generate\n</code></pre>\n<p>For detailed explanation on how things work, check out <a href=\"https://nuxtjs.org\">Nuxt.js docs</a>.</p>",

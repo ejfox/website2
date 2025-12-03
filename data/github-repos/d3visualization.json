@@ -11,6 +11,10 @@
   },
   "language": "JavaScript",
   "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 267929
+  },
+  "diskUsage": 204,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"d3visualization\">d3visualization</h1>\n<p>An alternative, filterable gallery for <a href=\"d3js.org\">d3.js</a>.</p>\n<p>See it in action <a href=\"http://biovisualize.github.com/d3visualization/\">here</a>.</p>\n<p>Feel free to contribute on this GitHub or on the gallery <a href=\"https://docs.google.com/spreadsheet/ccc?key=0AqMEGBUNwXeHdHpQNlVuY29SUE5BSXVtS3JueGlNYVE#gid=0\">spreadsheet</a>.</p>\n<p>Follow <a href=\"https://twitter.com/d3visualization\">@d3visualization</a> for updates about the new entries to the gallery.</p>",

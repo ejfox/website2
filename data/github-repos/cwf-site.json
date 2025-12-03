@@ -11,6 +11,11 @@
   },
   "language": "Vue",
   "languageColor": "#41b883",
+  "languages": {
+    "Vue": 46,
+    "JavaScript": 38
+  },
+  "diskUsage": 107,
   "topics": [],
   "readme": {
     "html": "<p><em>No README available</em></p>",

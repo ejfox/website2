@@ -11,6 +11,13 @@
   },
   "language": "CoffeeScript",
   "languageColor": "#244776",
+  "languages": {
+    "CoffeeScript": 9271,
+    "CSS": 6050,
+    "HTML": 1880,
+    "JavaScript": 740
+  },
+  "diskUsage": 185,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"starter-template\">Starter Template</h1>\n<p>This is a basic but opinionated starting point for prototyping apps, with an emphasis on data handling and visualization.</p>\n<h1 id=\"getting-started\">Getting started</h1>\n<h2 id=\"clone-project-into-new-folder\">Clone project into new folder</h2>\n<p><code>git clone https://github.com/ejfox/starter.git project-slug-name</code>\n<code>cd project-slug-name</code></p>\n<h2 id=\"configure-with-init-or-edit-by-hand\">Configure with init or edit by hand</h2>\n<h3 id=\"initilization\">Initilization</h3>\n<p>For the quickest start, you can run <code>gulp init</code> to perform basic project starting actions.</p>\n<pre><code class=\"language-coffeescript\">exec 'rm -rf .git'\nexec 'git init'\nexec 'rm README.md'\nexec 'touch README.md'\nexec 'atom .'\nexec 'npm install'\nexec 'gulp config'\n</code></pre>\n<p>Run <code>gulp config</code> for configuration walkthrough or edit <code>options.json</code> by hand</p>\n<h3 id=\"modifying-the-project\">Modifying the project</h3>\n<p>Edit coffeescript in <code>src/coffee/app.coffee</code></p>\n<p>Edit HTML in <code>src/tmpl/index.mustache</code></p>\n<p>Edit Stylus (CSS) in <code>src/styl/style.styl</code></p>\n<h3 id=\"updating-data\">Updating data</h3>\n<p>The default place for storing data is <code>data/data.csv</code></p>\n<p>If you have set <code>project.googledatakey</code> in <code>options.json</code> you can run <code>gulp getdata</code> to download that sheet using curl to <code>data/data.csv</code></p>\n<h3 id=\"publishing\">Publishing</h3>\n<p>The <code>/build/</code> folder is a standalone client-side web app with everything packaged. It can be put on a webserver or uploaded to a site like Netlify.</p>\n<p>If you have set <code>project.s3bucket</code> in <code>options.json</code> and set your S3 credentials by renaming <code>.env-example</code> and filling it out you can run <code>gulp s3publish</code> to publish to an S3 bucket, and update the data in the project by running <code>gulp s3publishdata</code> – you need to run both commands on first upload</p>\n<p>To publish to github pages you can run <code>gulp gh-pages</code></p>",

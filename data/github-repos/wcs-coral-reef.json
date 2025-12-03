@@ -11,6 +11,12 @@
   },
   "language": "Vue",
   "languageColor": "#41b883",
+  "languages": {
+    "Vue": 56036,
+    "JavaScript": 15354,
+    "TypeScript": 2771
+  },
+  "diskUsage": 264173,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"wcs--room-302-studio-coral-reefs\">WCS + Room 302 Studio: Coral Reefs</h1>\n<p>Live site 👉 <a href=\"https://hopeunderwater.com/\">https://hopeunderwater.com/</a></p>\n<p>Look at the <a href=\"https://nuxt.com/docs/getting-started/introduction\">Nuxt 3 documentation</a> to learn more.</p>\n<h2 id=\"setup\">Setup</h2>\n<p>Make sure to install the dependencies:</p>\n<pre><code class=\"language-bash\"># yarn\nyarn install\n</code></pre>\n<h2 id=\"development-server\">Development Server</h2>\n<p>Start the development server on <code>http://localhost:3000</code>:</p>\n<pre><code class=\"language-bash\"># yarn\nyarn dev\n</code></pre>\n<h2 id=\"production\">Production</h2>\n<p>Build the application for production:</p>\n<pre><code class=\"language-bash\"># yarn\nyarn build\n</code></pre>\n<p>Locally preview production build:</p>\n<pre><code class=\"language-bash\"># yarn\nyarn preview\n</code></pre>\n<p>Check out the <a href=\"https://nuxt.com/docs/getting-started/deployment\">deployment documentation</a> for more information.</p>",

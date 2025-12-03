@@ -11,6 +11,10 @@
   },
   "language": "JavaScript",
   "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 13168
+  },
+  "diskUsage": 5255,
   "topics": [
     "tailwindcss"
   ],

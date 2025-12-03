@@ -11,6 +11,10 @@
   },
   "language": "JavaScript",
   "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 82079
+  },
+  "diskUsage": 4129,
   "topics": [
     "not-yet-complete"
   ],

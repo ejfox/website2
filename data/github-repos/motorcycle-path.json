@@ -11,6 +11,12 @@
   },
   "language": "Vue",
   "languageColor": "#41b883",
+  "languages": {
+    "Vue": 6849,
+    "JavaScript": 3839,
+    "HTML": 505
+  },
+  "diskUsage": 1546,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"ej-vite-boilerplate\">ej-vite-boilerplate</h1>\n<h2 id=\"project-setup\">Project setup</h2>\n<pre><code>npm install\n</code></pre>\n<h4 id=\"compiles-and-hot-reloads-for-development\">Compiles and hot-reloads for development</h4>\n<pre><code>npm run dev\n</code></pre>\n<h4 id=\"compiles-and-minifies-for-production\">Compiles and minifies for production</h4>\n<pre><code>npm run build\n</code></pre>\n<h4 id=\"run-your-end-to-end-tests\">Run your end-to-end tests</h4>\n<pre><code>npm run test:e2e\n</code></pre>\n<h4 id=\"lints-and-fixes-files\">Lints and fixes files</h4>\n<pre><code>npm run lint\n</code></pre>\n<h3 id=\"customize-configuration\">Customize configuration</h3>\n<p>See <a href=\"https://cli.vuejs.org/config/\">Configuration Reference</a>.</p>",

@@ -11,6 +11,12 @@
   },
   "language": "Go",
   "languageColor": "#00ADD8",
+  "languages": {
+    "Go": 71357,
+    "Shell": 20298,
+    "JavaScript": 10833
+  },
+  "diskUsage": 101,
   "topics": [
     "cli",
     "dashboard",

@@ -11,6 +11,8 @@
   },
   "language": "JavaScript",
   "languageColor": "#f1e05a",
+  "languages": {},
+  "diskUsage": 1131,
   "topics": [
     "discord",
     "gpt-4"

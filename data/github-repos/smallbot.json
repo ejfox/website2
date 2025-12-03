@@ -11,6 +11,12 @@
   },
   "language": "TypeScript",
   "languageColor": "#3178c6",
+  "languages": {
+    "TypeScript": 55018,
+    "HTML": 22340,
+    "Vue": 2473
+  },
+  "diskUsage": 30,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"smallbot\">Smallbot</h1>\n<p>A simple, modular server for Smallweb applications. Smallbot helps users create and understand Smallweb applications through an AI assistant interface.</p>\n<h2 id=\"project-structure\">Project Structure</h2>\n<p>The project has been modularized for better maintainability:</p>\n<pre><code>smallbot/\n├── main.ts                 # Entry point\n├── deno.json               # Deno configuration\n├── deno.lock               # Deno lock file\n├── src/\n│   ├── app.ts              # Main application setup\n│   ├── config/\n│   │   └── systemPrompt.ts # System prompt for AI\n│   ├── handlers/\n│   │   ├── chatApi.ts      # Chat API handler\n│   │   └── staticFiles.ts  # Static file handler\n│   ├── middleware/\n│   │   ├── cors.ts         # CORS middleware\n│   │   └── logger.ts       # Logger middleware\n│   ├── types/\n│   │   └── index.ts        # Type definitions\n│   └── utils/\n│       ├── contentType.ts  # Content type utilities\n│       └── validation.ts   # Response validation\n├── frontend/               # Frontend assets\n└── public/                 # Public assets\n</code></pre>\n<h2 id=\"development\">Development</h2>\n<p>To run the development server:</p>\n<pre><code class=\"language-bash\">deno task dev\n</code></pre>\n<p>This will start the server at <a href=\"http://localhost:8000\">http://localhost:8000</a> with hot reloading enabled.</p>\n<h2 id=\"environment-variables\">Environment Variables</h2>\n<ul>\n<li><code>OPENROUTER_API_KEY</code>: API key for OpenRouter (required for AI functionality)</li>\n</ul>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li>Static file serving</li>\n<li>AI-powered chat API</li>\n<li>CORS support</li>\n<li>Error handling</li>\n<li>Response validation</li>\n</ul>\n<h2 id=\"license\">License</h2>\n<p>MIT</p>",

@@ -11,6 +11,10 @@
   },
   "language": "CSS",
   "languageColor": "#663399",
+  "languages": {
+    "CSS": 5241
+  },
+  "diskUsage": 43944,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"futurelensnews\">futurelensnews</h1>\n<p>Future lens news website</p>",

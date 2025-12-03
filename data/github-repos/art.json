@@ -11,6 +11,10 @@
   },
   "language": "JavaScript",
   "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 34722
+  },
+  "diskUsage": 71,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"art-playground\">Art Playground</h1>\n<p>Canvas-sketch playground for generative art experiments.</p>\n<h2 id=\"setup\">Setup</h2>\n<pre><code class=\"language-bash\">cd ~/art\nnpm install\n</code></pre>\n<h2 id=\"running-sketches\">Running Sketches</h2>\n<ul>\n<li><code>npm run perlin</code> - Generate perlin noise with dithering</li>\n<li><code>npm run dev</code> - Run with hot reload</li>\n<li><code>npm run sketch</code> - General canvas-sketch command</li>\n</ul>\n<h2 id=\"sketches\">Sketches</h2>\n<ul>\n<li><code>sketches/perlin-noise-dithered.js</code> - 1920x1080 monochrome perlin noise with Floyd-Steinberg dithering, glitch effects, and chromatic aberration</li>\n</ul>\n<p>Generated images are saved to <code>output/</code> directory.</p>",

@@ -11,6 +11,13 @@
   },
   "language": "JavaScript",
   "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 2108683,
+    "HTML": 50224,
+    "CoffeeScript": 28194,
+    "CSS": 11780
+  },
+  "diskUsage": 48591,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"starter-template\">Starter Template</h1>\n<p>This is a basic but opinionated starting point for prototyping apps, with an emphasis on data handling and visualization.</p>\n<h1 id=\"getting-started\">Getting started</h1>\n<p>Edit project configuration in <code>options.json</code>.</p>\n<p><code>npm start</code> to start gulp</p>\n<p>Edit coffeescript in <code>src/coffee/app.coffee</code></p>\n<p>Edit HTML in <code>src/tmpl/index.mustache</code></p>\n<p>Edit Stylus (CSS) in <code>src/styl/style.styl</code></p>",

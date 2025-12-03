@@ -11,6 +11,10 @@
   },
   "language": "HTML",
   "languageColor": "#e34c26",
+  "languages": {
+    "HTML": 764
+  },
+  "diskUsage": 1,
   "topics": [],
   "readme": {
     "html": "<p><em>No README available</em></p>",

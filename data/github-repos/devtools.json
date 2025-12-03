@@ -11,6 +11,15 @@
   },
   "language": "TypeScript",
   "languageColor": "#3178c6",
+  "languages": {
+    "TypeScript": 337756,
+    "Vue": 258446,
+    "JavaScript": 101555,
+    "HTML": 9140,
+    "Stylus": 5258,
+    "CSS": 1116
+  },
+  "diskUsage": 14734,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"vue-devtools\">vue-devtools</h1>\n<p><img src=\"./media/screenshot-shadow.png\" alt=\"screenshot\" /></p>\n<p><a href=\"https://devtools.vuejs.org/\">Documentation</a> | <a href=\"https://devtools.vuejs.org/guide/installation.html\">Install the extension</a></p>\n<h2 id=\"monorepo\">Monorepo</h2>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Package</th><th>Description</th></tr></thead><tbody><tr><td><a href=\"./packages/api\">api</a></td><td>The public devtools API that can be installed in Vue plugins</td></tr><tr><td><a href=\"./packages/app-backend-api\">app-backend-api</a></td><td>Abstract API to link the Public API, the core and Vue handlers</td></tr><tr><td><a href=\"./packages/app-backend-core\">app-backend-core</a></td><td>The main logic injected in the page to interact with Vue apps</td></tr><tr><td><a href=\"./packages/app-backend-vue1\">app-backend-vue1</a></td><td>Decoupled handlers to support Vue 1 (soon)</td></tr><tr><td><a href=\"./packages/app-backend-vue2\">app-backend-vue2</a></td><td>Decoupled handlers to support Vue 2</td></tr><tr><td><a href=\"./packages/app-backend-vue3\">app-backend-vue3</a></td><td>Decoupled handlers to support Vue 3</td></tr><tr><td><a href=\"./packages/app-frontend\">app-frontend</a></td><td>Vue app displayed in the browser devtools pane</td></tr><tr><td><a href=\"./packages/shell-chrome\">shell-chrome</a></td><td>Chrome/Firefox extension</td></tr><tr><td><a href=\"./packages/shell-electron\">shell-electron</a></td><td>Electron standalone app</td></tr><tr><td><a href=\"./packages/shell-host\">shell-host</a></td><td>Development environment</td></tr><tr><td><a href=\"./packages/shell-dev-vue2\">shell-dev-vue2</a></td><td>Demo app for development (Vue 2)</td></tr><tr><td><a href=\"./packages/shell-dev-vue3\">shell-dev-vue3</a></td><td>Demo app for development (Vue 3)</td></tr></tbody></table>\n<h2 id=\"contributing\">Contributing</h2>\n<p>See the <a href=\"https://devtools.vuejs.org/guide/contributing.html\">Contributing guide</a>.</p>\n<h2 id=\"license\">License</h2>\n<p><a href=\"http://opensource.org/licenses/MIT\">MIT</a></p>\n<h2 id=\"sponsors\">Sponsors</h2>\n<p><a href=\"https://github.com/sponsors/Akryum\">💚️ Become a Sponsor</a></p>\n<p>\n  <a href=\"https://guillaume-chau.info/sponsors/\" target=\"_blank\">\n    <img src=\"https://akryum.netlify.app/sponsors.svg\" />\n  </a>\n</p>",

@@ -11,6 +11,11 @@
   },
   "language": "C++",
   "languageColor": "#f34b7d",
+  "languages": {
+    "C++": 85414,
+    "Makefile": 1496
+  },
+  "diskUsage": 41,
   "topics": [],
   "readme": {
     "html": "<p><em>No README available</em></p>",

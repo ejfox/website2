@@ -11,6 +11,8 @@
   },
   "language": "Unknown",
   "languageColor": "#666666",
+  "languages": {},
+  "diskUsage": 30,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"zmk-config2\">zmk-config2</h1>\n<p>ZMK firmware configuration for custom keyboard builds.</p>\n<h2 id=\"keyboard\">Keyboard</h2>\n<p>Rhymestone split keyboard configuration.</p>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li>Split keyboard support</li>\n<li>Custom keymap layers</li>\n<li>Nice!Nano v2 board configuration</li>\n</ul>\n<h2 id=\"building\">Building</h2>\n<p>See <a href=\"https://zmk.dev/docs\">ZMK documentation</a> for build instructions.</p>\n<h2 id=\"flashing\">Flashing</h2>\n<ol>\n<li>Build firmware using GitHub Actions</li>\n<li>Download artifacts</li>\n<li>Flash left and right halves separately</li>\n</ol>",

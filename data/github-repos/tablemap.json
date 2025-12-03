@@ -11,6 +11,11 @@
   },
   "language": "JavaScript",
   "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 144886,
+    "CoffeeScript": 1558
+  },
+  "diskUsage": 728,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"tablemap\">Tablemap</h1>\n<p>Google docs / Tabletop based mapping using javascript</p>\n<p>Example doc: <a href=\"https://docs.google.com/spreadsheet/pub?key=0ApAkxBfw1JT4dHNKX0FNclJoVnVvVUZybkZqYjEzYVE&amp;output=html\">https://docs.google.com/spreadsheet/pub?key=0ApAkxBfw1JT4dHNKX0FNclJoVnVvVUZybkZqYjEzYVE&amp;output=html</a></p>",

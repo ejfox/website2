@@ -11,6 +11,10 @@
   },
   "language": "HTML",
   "languageColor": "#e34c26",
+  "languages": {
+    "HTML": 16654
+  },
+  "diskUsage": 4539,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"exif-photo-printer-website\">EXIF Photo Printer Website</h1>\n<p>Beautiful, minimal marketing website for the EXIF Photo Printer app.</p>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li><strong>Ultra-minimal design</strong> - Apple-inspired clean aesthetic</li>\n<li><strong>Responsive layout</strong> - Works perfectly on all devices</li>\n<li><strong>Professional presentation</strong> - Showcases app features elegantly</li>\n<li><strong>Direct download</strong> - Includes the actual DMG file for distribution</li>\n<li><strong>SEO optimized</strong> - Proper meta tags and semantic HTML</li>\n</ul>\n<h2 id=\"files\">Files</h2>\n<ul>\n<li><code>index.html</code> - Main website page</li>\n<li><code>icon.png</code> - App icon (vintage printer design)</li>\n<li><code>EXIF Photo Printer-1.0.0.dmg</code> - Downloadable app (120MB)</li>\n<li><code>screenshot-1.png</code> - App interface screenshot (add this)</li>\n<li><code>screenshot-2.png</code> - Sample print output (add this)</li>\n</ul>\n<h2 id=\"to-deploy\">To Deploy</h2>\n<ol>\n<li>Take screenshots of the app in action</li>\n<li>Upload all files to a web host (Netlify, Vercel, GitHub Pages)</li>\n<li>Share the URL with photographer friends!</li>\n</ol>\n<h2 id=\"design-philosophy\">Design Philosophy</h2>\n<ul>\n<li>Lots of white space for breathing room</li>\n<li>Clean typography using Inter font</li>\n<li>Subtle textures and shadows</li>\n<li>Photography-focused messaging</li>\n<li>Professional but approachable tone</li>\n</ul>",

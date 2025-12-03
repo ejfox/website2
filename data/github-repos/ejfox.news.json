@@ -11,6 +11,11 @@
   },
   "language": "TypeScript",
   "languageColor": "#3178c6",
+  "languages": {
+    "TypeScript": 18750,
+    "Vue": 16173
+  },
+  "diskUsage": 131,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"ejfoxnews\">ejfox.news</h1>\n<p>A pinboard and AI generated news website for my friends. Any pinboard bookmark I tag with \"!news\" is AI-summarized and added to the website.</p>\n<img width=\"1110\" height=\"614\" alt=\"screenshot 2025-08-12 at 11 15 46 AM\" src=\"https://github.com/user-attachments/assets/f86d9106-642f-49f1-b233-5d7cb0276034\" />\n<h2 id=\"setup\">Setup</h2>\n<p>Make sure to install dependencies:</p>\n<pre><code class=\"language-bash\"># npm\nnpm install\n\n# pnpm\npnpm install\n\n# yarn\nyarn install\n\n# bun\nbun install\n</code></pre>\n<h2 id=\"development-server\">Development Server</h2>\n<p>Start the development server on <code>http://localhost:3000</code>:</p>\n<pre><code class=\"language-bash\"># npm\nnpm run dev\n\n# pnpm\npnpm dev\n\n# yarn\nyarn dev\n\n# bun\nbun run dev\n</code></pre>\n<h2 id=\"production\">Production</h2>\n<p>Build the application for production:</p>\n<pre><code class=\"language-bash\"># npm\nnpm run build\n\n# pnpm\npnpm build\n\n# yarn\nyarn build\n\n# bun\nbun run build\n</code></pre>\n<p>Locally preview production build:</p>\n<pre><code class=\"language-bash\"># npm\nnpm run preview\n\n# pnpm\npnpm preview\n\n# yarn\nyarn preview\n\n# bun\nbun run preview\n</code></pre>\n<p>Check out the <a href=\"https://nuxt.com/docs/getting-started/deployment\">deployment documentation</a> for more information.</p>",

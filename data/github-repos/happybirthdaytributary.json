@@ -11,6 +11,10 @@
   },
   "language": "JavaScript",
   "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 27005
+  },
+  "diskUsage": 4548,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"happybirthdaytributary\">happybirthdaytributary</h1>\n<p>Happy birthday Tributary!</p>",

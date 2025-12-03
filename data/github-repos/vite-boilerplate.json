@@ -11,6 +11,12 @@
   },
   "language": "JavaScript",
   "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 3839,
+    "Vue": 752,
+    "HTML": 413
+  },
+  "diskUsage": 234,
   "topics": [
     "tachyons",
     "vite",

@@ -11,6 +11,10 @@
   },
   "language": "JavaScript",
   "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 25290
+  },
+  "diskUsage": 208,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"sectionscroller\">sectionScroller</h1>\n<p>A little tool to visualize how far a user has scrolled in a page or section</p>",

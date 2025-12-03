@@ -12,13 +12,17 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 139192
+    },
+    "diskUsage": 351,
     "topics": [
       "cli"
     ],
     "excerpt": "A command line interface for exploring my scrapbook",
     "createdAt": "2024-06-01T07:35:15Z",
-    "updatedAt": "2025-12-03T17:05:47Z",
-    "pushedAt": "2025-12-03T17:05:43Z"
+    "updatedAt": "2025-12-03T17:23:24Z",
+    "pushedAt": "2025-12-03T17:23:20Z"
   },
   {
     "name": "website2",
@@ -33,11 +37,21 @@
     },
     "language": "Vue",
     "languageColor": "#41b883",
+    "languages": {
+      "Vue": 585321,
+      "TypeScript": 302187,
+      "JavaScript": 177438,
+      "CSS": 53947,
+      "Shell": 15733,
+      "HTML": 15405,
+      "Dockerfile": 779
+    },
+    "diskUsage": 78976,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2024-10-13T14:09:19Z",
     "updatedAt": "2025-12-03T16:48:43Z",
-    "pushedAt": "2025-12-03T17:02:38Z"
+    "pushedAt": "2025-12-03T17:11:40Z"
   },
   {
     "name": "tributary",
@@ -52,6 +66,8 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {},
+    "diskUsage": 9722,
     "topics": [],
     "excerpt": "rapid prototyping with d3.js",
     "createdAt": "2012-03-17T02:42:38Z",
@@ -71,6 +87,14 @@
     },
     "language": "Shell",
     "languageColor": "#89e051",
+    "languages": {
+      "Shell": 224424,
+      "GLSL": 144861,
+      "Lua": 100930,
+      "Vim Script": 83725,
+      "Less": 2089
+    },
+    "diskUsage": 63143,
     "topics": [],
     "excerpt": "Backup of my dotfiles",
     "createdAt": "2019-04-07T22:09:55Z",
@@ -90,6 +114,8 @@
     },
     "language": "Unknown",
     "languageColor": "#666666",
+    "languages": {},
+    "diskUsage": 12,
     "topics": [],
     "excerpt": "Where you report issues and bugs for Subway Builder",
     "createdAt": "2025-10-10T21:48:38Z",
@@ -109,6 +135,12 @@
     },
     "language": "Vue",
     "languageColor": "#41b883",
+    "languages": {
+      "Vue": 358273,
+      "TypeScript": 129231,
+      "JavaScript": 1832
+    },
+    "diskUsage": 614,
     "topics": [],
     "excerpt": "minimal ghostty theme builder with live previews. tuftian precision. ±7° hue offset.",
     "createdAt": "2025-10-24T21:15:15Z",
@@ -128,6 +160,8 @@
     },
     "language": "R",
     "languageColor": "#198CE7",
+    "languages": {},
+    "diskUsage": 3,
     "topics": [],
     "excerpt": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
     "createdAt": "2025-11-12T20:10:52Z",
@@ -147,6 +181,8 @@
     },
     "language": "Unknown",
     "languageColor": "#666666",
+    "languages": {},
+    "diskUsage": 88,
     "topics": [],
     "excerpt": "The podcast app dedicated to Harmontown",
     "createdAt": "2025-08-16T15:54:56Z",
@@ -166,6 +202,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 17274
+    },
+    "diskUsage": 9,
     "topics": [],
     "excerpt": "Automated Battlefield 6 stats tracker from tracker.gg - exports to CSV for historical analysis",
     "createdAt": "2025-11-02T18:04:01Z",
@@ -185,6 +225,10 @@
     },
     "language": "Python",
     "languageColor": "#3572A5",
+    "languages": {
+      "Python": 10363
+    },
+    "diskUsage": 12,
     "topics": [
       "ascii",
       "ascii-art",
@@ -208,6 +252,11 @@
     },
     "language": "Vue",
     "languageColor": "#41b883",
+    "languages": {
+      "Vue": 6476,
+      "TypeScript": 66
+    },
+    "diskUsage": 150,
     "topics": [],
     "excerpt": "Prototype AR / lens visualizations and HUDs quickly",
     "createdAt": "2025-08-01T11:00:53Z",
@@ -227,6 +276,13 @@
     },
     "language": "TypeScript",
     "languageColor": "#3178c6",
+    "languages": {
+      "TypeScript": 711503,
+      "JavaScript": 73362,
+      "Shell": 16653,
+      "Dockerfile": 2620
+    },
+    "diskUsage": 8989,
     "topics": [],
     "excerpt": "Coach Artie v2 - Autonomous AI assistant with Model Context Protocol (MCP) support and comprehensive capability expansion",
     "createdAt": "2025-08-26T18:01:30Z",
@@ -246,6 +302,12 @@
     },
     "language": "Vue",
     "languageColor": "#41b883",
+    "languages": {
+      "Vue": 11391,
+      "TypeScript": 2104,
+      "JavaScript": 785
+    },
+    "diskUsage": 122,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2025-09-23T13:58:12Z",
@@ -265,6 +327,8 @@
     },
     "language": "HTML",
     "languageColor": "#e34c26",
+    "languages": {},
+    "diskUsage": 1045,
     "topics": [],
     "excerpt": "AI code editing benchmarks for interactive visuals",
     "createdAt": "2025-04-06T14:10:42Z",
@@ -284,6 +348,12 @@
     },
     "language": "Go",
     "languageColor": "#00ADD8",
+    "languages": {
+      "Go": 71357,
+      "Shell": 20298,
+      "JavaScript": 10833
+    },
+    "diskUsage": 101,
     "topics": [
       "cli",
       "dashboard",
@@ -307,6 +377,14 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 167018,
+      "Vue": 92997,
+      "Python": 56586,
+      "Shell": 969,
+      "TypeScript": 157
+    },
+    "diskUsage": 4542,
     "topics": [],
     "excerpt": "🧠 Generate semantic embeddings for your Obsidian vault using LM Studio and Nomic embeddings. Search your notes using natural language and explore with interactive UMAP visualizations.",
     "createdAt": "2025-06-13T14:57:54Z",
@@ -326,6 +404,15 @@
     },
     "language": "Vue",
     "languageColor": "#41b883",
+    "languages": {
+      "Vue": 324823,
+      "JavaScript": 254287,
+      "TypeScript": 201000,
+      "CSS": 3702,
+      "Shell": 1502,
+      "HTML": 484
+    },
+    "diskUsage": 4774,
     "topics": [
       "electron",
       "llm",
@@ -350,6 +437,11 @@
     },
     "language": "TypeScript",
     "languageColor": "#3178c6",
+    "languages": {
+      "TypeScript": 18750,
+      "Vue": 16173
+    },
+    "diskUsage": 131,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2025-08-12T15:13:01Z",
@@ -369,6 +461,14 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 164368,
+      "Vue": 56142,
+      "TypeScript": 31136,
+      "Shell": 3194,
+      "Dockerfile": 1233
+    },
+    "diskUsage": 3241,
     "topics": [],
     "excerpt": "EJ Fox's photo blog, powered by Cloudinary",
     "createdAt": "2023-08-05T18:20:41Z",
@@ -388,6 +488,10 @@
     },
     "language": "Swift",
     "languageColor": "#F05138",
+    "languages": {
+      "Swift": 74475
+    },
+    "diskUsage": 37,
     "topics": [],
     "excerpt": "My first Pomodoro app",
     "createdAt": "2025-08-16T15:49:37Z",
@@ -407,6 +511,11 @@
     },
     "language": "C++",
     "languageColor": "#f34b7d",
+    "languages": {
+      "C++": 85414,
+      "Makefile": 1496
+    },
+    "diskUsage": 41,
     "topics": [],
     "excerpt": "stream radio into your modular",
     "createdAt": "2025-08-23T22:56:09Z",
@@ -426,6 +535,11 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 4846,
+      "Shell": 2218
+    },
+    "diskUsage": 2771,
     "topics": [],
     "excerpt": "Control tmux through your ps5 dualsense controller",
     "createdAt": "2025-08-13T15:45:22Z",
@@ -445,6 +559,15 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 160742,
+      "TypeScript": 123212,
+      "Vue": 38448,
+      "PLpgSQL": 31159,
+      "HTML": 12949,
+      "CSS": 782
+    },
+    "diskUsage": 17304,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2025-06-12T14:52:31Z",
@@ -464,6 +587,12 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 296195,
+      "HTML": 146774,
+      "Shell": 581
+    },
+    "diskUsage": 135,
     "topics": [],
     "excerpt": "🤖 Complete analysis of 316+ AI models on OpenRouter with interactive Observable Plot dashboard",
     "createdAt": "2025-08-21T18:25:17Z",
@@ -483,6 +612,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 34722
+    },
+    "diskUsage": 71,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2025-08-20T16:37:33Z",
@@ -502,6 +635,17 @@
     },
     "language": "Go",
     "languageColor": "#00ADD8",
+    "languages": {
+      "Go": 82817,
+      "Vue": 39929,
+      "JavaScript": 13734,
+      "CSS": 13053,
+      "TypeScript": 9352,
+      "Shell": 5043,
+      "Makefile": 2681,
+      "Dockerfile": 1856
+    },
+    "diskUsage": 204,
     "topics": [],
     "excerpt": "Self-hosted deployment daemon: push-to-deploy from GitHub to Docker VPS",
     "createdAt": "2025-08-06T18:51:37Z",
@@ -521,6 +665,10 @@
     },
     "language": "Shell",
     "languageColor": "#89e051",
+    "languages": {
+      "Shell": 8145
+    },
+    "diskUsage": 4,
     "topics": [],
     "excerpt": "A status bar indicator for Mutagen sync sessions, supporting both tmux and Sketchybar",
     "createdAt": "2025-08-19T20:27:55Z",
@@ -540,6 +688,11 @@
     },
     "language": "Vue",
     "languageColor": "#41b883",
+    "languages": {
+      "Vue": 16754,
+      "TypeScript": 921
+    },
+    "diskUsage": 126,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2025-08-19T15:58:50Z",
@@ -559,6 +712,10 @@
     },
     "language": "C",
     "languageColor": "#555555",
+    "languages": {
+      "C": 28206
+    },
+    "diskUsage": 85,
     "topics": [],
     "excerpt": "🚀 Minimalist space and physics calculators for Flipper Zero. Interplanetary transfer planner + time dilation calculator. KSP-style orbital mechanics.",
     "createdAt": "2025-07-30T20:15:59Z",
@@ -578,6 +735,12 @@
     },
     "language": "CSS",
     "languageColor": "#663399",
+    "languages": {
+      "CSS": 53711,
+      "CoffeeScript": 9333,
+      "JavaScript": 1073
+    },
+    "diskUsage": 5033,
     "topics": [],
     "excerpt": "A javascript library to help make full-browser-width magazine-style mini-sites.",
     "createdAt": "2012-05-12T01:16:31Z",
@@ -597,6 +760,11 @@
     },
     "language": "HTML",
     "languageColor": "#e34c26",
+    "languages": {
+      "HTML": 9270,
+      "JavaScript": 5935
+    },
+    "diskUsage": 6,
     "topics": [
       "bot-detection",
       "experiment",
@@ -621,6 +789,11 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 75455,
+      "Dockerfile": 645
+    },
+    "diskUsage": 154,
     "topics": [],
     "excerpt": "Use an AI to generate text descriptions of all your screenshots in Cloudinary",
     "createdAt": "2025-01-02T03:51:39Z",
@@ -640,6 +813,8 @@
     },
     "language": "Unknown",
     "languageColor": "#666666",
+    "languages": {},
+    "diskUsage": 30,
     "topics": [],
     "excerpt": "Rhymestone ZMK Builds",
     "createdAt": "2025-05-02T03:11:12Z",
@@ -659,6 +834,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 2553
+    },
+    "diskUsage": 4,
     "topics": [],
     "excerpt": "MCP server that generates small websites from natural language prompts",
     "createdAt": "2025-08-02T14:31:10Z",
@@ -678,6 +857,13 @@
     },
     "language": "Vue",
     "languageColor": "#41b883",
+    "languages": {
+      "Vue": 322819,
+      "TypeScript": 305611,
+      "JavaScript": 10220,
+      "Shell": 267
+    },
+    "diskUsage": 3862,
     "topics": [],
     "excerpt": "grind through javascript documentation. build muscle memory. ship better code.",
     "createdAt": "2025-08-02T14:08:48Z",
@@ -697,6 +883,14 @@
     },
     "language": "TypeScript",
     "languageColor": "#3178c6",
+    "languages": {
+      "TypeScript": 421661,
+      "JavaScript": 63269,
+      "SCSS": 25543,
+      "HTML": 2402,
+      "CSS": 136
+    },
+    "diskUsage": 4898,
     "topics": [],
     "excerpt": "Mob Programming Code Editor",
     "createdAt": "2025-08-02T00:19:59Z",
@@ -716,6 +910,14 @@
     },
     "language": "TypeScript",
     "languageColor": "#3178c6",
+    "languages": {
+      "TypeScript": 57877,
+      "Rust": 13939,
+      "CSS": 12317,
+      "HTML": 11093,
+      "Shell": 4234
+    },
+    "diskUsage": 323,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2025-07-01T23:24:06Z",
@@ -735,6 +937,10 @@
     },
     "language": "Python",
     "languageColor": "#3572A5",
+    "languages": {
+      "Python": 17324
+    },
+    "diskUsage": 101,
     "topics": [],
     "excerpt": "Highly experimental, insecure, and unstable MuckRock FOIA MCP Server with 20+ tools for filing, tracking, and managing Freedom of Information Act requests",
     "createdAt": "2025-07-27T19:03:10Z",
@@ -754,6 +960,11 @@
     },
     "language": "Python",
     "languageColor": "#3572A5",
+    "languages": {
+      "Python": 133084,
+      "Shell": 1553
+    },
+    "diskUsage": 41,
     "topics": [],
     "excerpt": "Professional hand tracking MIDI controller with TouchDesigner integration for peak interactive creative tech",
     "createdAt": "2025-07-26T18:58:06Z",
@@ -773,6 +984,11 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 31869,
+      "Mermaid": 28135
+    },
+    "diskUsage": 202,
     "topics": [],
     "excerpt": "Generate a graph of nodes/edges from your javascript code",
     "createdAt": "2024-08-14T14:16:03Z",
@@ -792,6 +1008,8 @@
     },
     "language": "Unknown",
     "languageColor": "#666666",
+    "languages": {},
+    "diskUsage": 3,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2025-04-28T18:55:15Z",
@@ -811,6 +1029,17 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 768840,
+      "Vue": 418113,
+      "Shell": 58165,
+      "PLpgSQL": 27541,
+      "HTML": 19001,
+      "TypeScript": 10242,
+      "CSS": 9937,
+      "Dockerfile": 117
+    },
+    "diskUsage": 39753,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2025-06-15T02:31:56Z",
@@ -830,6 +1059,13 @@
     },
     "language": "Vue",
     "languageColor": "#41b883",
+    "languages": {
+      "Vue": 51277,
+      "JavaScript": 4198,
+      "TypeScript": 1404,
+      "CSS": 58
+    },
+    "diskUsage": 255,
     "topics": [],
     "excerpt": "Luxury Hudson Valley wedding photography site with conversion-optimized design. Features multi-step booking forms, Vue.js animations, and film photography aesthetic. Built with Nuxt 3.",
     "createdAt": "2025-06-13T16:21:42Z",
@@ -849,6 +1085,10 @@
     },
     "language": "HTML",
     "languageColor": "#e34c26",
+    "languages": {
+      "HTML": 16654
+    },
+    "diskUsage": 4539,
     "topics": [],
     "excerpt": "Beautiful marketing website for EXIF Photo Printer - Professional photo printing with embedded camera data",
     "createdAt": "2025-05-28T14:50:28Z",
@@ -868,6 +1108,14 @@
     },
     "language": "HTML",
     "languageColor": "#e34c26",
+    "languages": {
+      "HTML": 7430063,
+      "Vue": 285803,
+      "CSS": 15225,
+      "JavaScript": 6678,
+      "TypeScript": 2037
+    },
+    "diskUsage": 54774,
     "topics": [],
     "excerpt": "The website for room302.studio",
     "createdAt": "2023-03-24T23:37:28Z",
@@ -887,6 +1135,10 @@
     },
     "language": "C",
     "languageColor": "#555555",
+    "languages": {
+      "C": 10748
+    },
+    "diskUsage": 43,
     "topics": [],
     "excerpt": "🎨 Real-time generative art and animated patterns for Flipper Zero with 10 gradient types, Floyd-Steinberg dithering, and smooth 30 FPS animations",
     "createdAt": "2025-06-27T15:56:31Z",
@@ -906,6 +1158,13 @@
     },
     "language": "TypeScript",
     "languageColor": "#3178c6",
+    "languages": {
+      "TypeScript": 6683,
+      "Vue": 6405,
+      "CSS": 670,
+      "JavaScript": 411
+    },
+    "diskUsage": 107,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2025-06-29T03:41:48Z",
@@ -925,6 +1184,12 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 10323,
+      "PLpgSQL": 5912,
+      "Shell": 1452
+    },
+    "diskUsage": 38,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2025-02-14T19:06:18Z",
@@ -944,6 +1209,11 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 9233,
+      "Shell": 187
+    },
+    "diskUsage": 1797,
     "topics": [],
     "excerpt": "Generate embeddings from every Criterion movie",
     "createdAt": "2024-12-01T21:50:43Z",
@@ -963,6 +1233,8 @@
     },
     "language": "Unknown",
     "languageColor": "#666666",
+    "languages": {},
+    "diskUsage": 3,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2025-06-17T01:31:49Z",
@@ -982,6 +1254,10 @@
     },
     "language": "TypeScript",
     "languageColor": "#3178c6",
+    "languages": {
+      "TypeScript": 10879
+    },
+    "diskUsage": 23110,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2025-06-09T04:05:08Z",
@@ -1001,6 +1277,12 @@
     },
     "language": "TypeScript",
     "languageColor": "#3178c6",
+    "languages": {
+      "TypeScript": 28735,
+      "JavaScript": 7392,
+      "Shell": 626
+    },
+    "diskUsage": 27,
     "topics": [],
     "excerpt": "Earth observation CLI with real-time NOAA satellite imagery, archival system, and cyberpunk terminal interface",
     "createdAt": "2025-06-09T03:36:39Z",
@@ -1020,6 +1302,14 @@
     },
     "language": "Vue",
     "languageColor": "#41b883",
+    "languages": {
+      "Vue": 38555,
+      "TypeScript": 24836,
+      "CSS": 10343,
+      "Rust": 5426,
+      "HTML": 329
+    },
+    "diskUsage": 11454,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2025-05-29T02:44:09Z",
@@ -1039,6 +1329,12 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 158963,
+      "TypeScript": 16965,
+      "Vue": 16561
+    },
+    "diskUsage": 31516,
     "topics": [],
     "excerpt": "The website that explains and showcases Coach Artie",
     "createdAt": "2023-11-10T19:01:22Z",
@@ -1058,6 +1354,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 5177
+    },
+    "diskUsage": 2451,
     "topics": [],
     "excerpt": "Sharpen your code review skills with CLI-DELTA-DOJO, the terminal-based JSON comparison game",
     "createdAt": "2024-08-22T20:51:48Z",
@@ -1077,6 +1377,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 99795
+    },
+    "diskUsage": 16298,
     "topics": [
       "data",
       "elections",
@@ -1100,6 +1404,12 @@
     },
     "language": "TypeScript",
     "languageColor": "#3178c6",
+    "languages": {
+      "TypeScript": 16046,
+      "JavaScript": 13231,
+      "Dockerfile": 581
+    },
+    "diskUsage": 29,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2025-03-22T22:40:13Z",
@@ -1119,6 +1429,13 @@
     },
     "language": "Vue",
     "languageColor": "#41b883",
+    "languages": {
+      "Vue": 513496,
+      "JavaScript": 122914,
+      "CSS": 1265,
+      "TypeScript": 1190
+    },
+    "diskUsage": 17181,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2025-03-09T21:12:04Z",
@@ -1138,6 +1455,11 @@
     },
     "language": "TypeScript",
     "languageColor": "#3178c6",
+    "languages": {
+      "TypeScript": 35267,
+      "JavaScript": 28437
+    },
+    "diskUsage": 190,
     "topics": [],
     "excerpt": "Edit Code With AI ",
     "createdAt": "2025-03-31T20:30:16Z",
@@ -1157,6 +1479,13 @@
     },
     "language": "Vue",
     "languageColor": "#41b883",
+    "languages": {
+      "Vue": 38333,
+      "JavaScript": 5224,
+      "TypeScript": 2738,
+      "CSS": 58
+    },
+    "diskUsage": 128,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2025-03-23T18:15:34Z",
@@ -1176,6 +1505,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 13168
+    },
+    "diskUsage": 5255,
     "topics": [
       "tailwindcss"
     ],
@@ -1197,6 +1530,12 @@
     },
     "language": "TypeScript",
     "languageColor": "#3178c6",
+    "languages": {
+      "TypeScript": 55018,
+      "HTML": 22340,
+      "Vue": 2473
+    },
+    "diskUsage": 30,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2025-03-11T15:26:29Z",
@@ -1216,6 +1555,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 16148
+    },
+    "diskUsage": 182,
     "topics": [],
     "excerpt": "A Node.js script utilizing OpenAI's GPT to fetch, parse, and succinctly summarize web pages. ",
     "createdAt": "2023-07-14T19:13:24Z",
@@ -1235,6 +1578,13 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 248011,
+      "Vue": 105505,
+      "TypeScript": 21789,
+      "CSS": 58
+    },
+    "diskUsage": 626,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2024-11-15T20:20:10Z",
@@ -1254,6 +1604,15 @@
     },
     "language": "Python",
     "languageColor": "#3572A5",
+    "languages": {
+      "Python": 20153,
+      "Vue": 17920,
+      "HTML": 8806,
+      "TypeScript": 5085,
+      "CSS": 2559,
+      "JavaScript": 607
+    },
+    "diskUsage": 87,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2024-12-07T02:34:47Z",
@@ -1273,6 +1632,13 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 4198,
+      "Vue": 2234,
+      "TypeScript": 913,
+      "CSS": 58
+    },
+    "diskUsage": 937,
     "topics": [],
     "excerpt": "A rapid prototyping Nuxt template to turn ideas into code extremely quickly",
     "createdAt": "2023-08-03T15:35:57Z",
@@ -1292,6 +1658,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 35976
+    },
+    "diskUsage": 247,
     "topics": [],
     "excerpt": "room302-template",
     "createdAt": "2023-10-30T01:59:38Z",
@@ -1311,6 +1681,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 9762
+    },
+    "diskUsage": 33,
     "topics": [],
     "excerpt": "A CLI tool to guide and interpret I Ching throws",
     "createdAt": "2024-08-11T17:58:54Z",
@@ -1330,6 +1704,13 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 4198,
+      "Vue": 2438,
+      "TypeScript": 2200,
+      "CSS": 58
+    },
+    "diskUsage": 125,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2025-02-23T16:38:14Z",
@@ -1349,6 +1730,10 @@
     },
     "language": "Python",
     "languageColor": "#3572A5",
+    "languages": {
+      "Python": 13560
+    },
+    "diskUsage": 9571,
     "topics": [],
     "excerpt": "An experiment in sending midi signals based on OpenCV object detection",
     "createdAt": "2023-10-17T19:26:42Z",
@@ -1368,6 +1753,8 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {},
+    "diskUsage": 30654,
     "topics": [],
     "excerpt": "data pertaining to BART",
     "createdAt": "2013-08-03T22:20:05Z",
@@ -1387,6 +1774,10 @@
     },
     "language": "TypeScript",
     "languageColor": "#3178c6",
+    "languages": {
+      "TypeScript": 5649
+    },
+    "diskUsage": 5,
     "topics": [
       "smallweb"
     ],
@@ -1408,6 +1799,15 @@
     },
     "language": "TypeScript",
     "languageColor": "#3178c6",
+    "languages": {
+      "TypeScript": 93353,
+      "HTML": 60594,
+      "CSS": 19758,
+      "JavaScript": 6777,
+      "Astro": 5701,
+      "Shell": 5017
+    },
+    "diskUsage": 17577,
     "topics": [],
     "excerpt": "Code of all websites hosted under smallweb.run",
     "createdAt": "2024-12-23T16:27:05Z",
@@ -1427,6 +1827,13 @@
     },
     "language": "CoffeeScript",
     "languageColor": "#244776",
+    "languages": {
+      "CoffeeScript": 9271,
+      "CSS": 6050,
+      "HTML": 1880,
+      "JavaScript": 740
+    },
+    "diskUsage": 185,
     "topics": [],
     "excerpt": "Coffeescript-based client-side web app starting point",
     "createdAt": "2016-10-16T18:51:17Z",
@@ -1446,6 +1853,12 @@
     },
     "language": "TypeScript",
     "languageColor": "#3178c6",
+    "languages": {
+      "TypeScript": 23793,
+      "Vue": 588,
+      "HTML": 351
+    },
+    "diskUsage": 238,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2024-12-08T02:54:30Z",
@@ -1465,6 +1878,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 4053
+    },
+    "diskUsage": 34,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2024-11-26T22:32:39Z",
@@ -1484,6 +1901,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 5529
+    },
+    "diskUsage": 54,
     "topics": [],
     "excerpt": "a command-line tool for smart manipulation of JavaScript methods in files",
     "createdAt": "2024-08-11T17:24:13Z",
@@ -1503,6 +1924,11 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 5540,
+      "Shell": 332
+    },
+    "diskUsage": 9,
     "topics": [
       "cli",
       "llm",
@@ -1526,6 +1952,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 82079
+    },
+    "diskUsage": 4129,
     "topics": [
       "not-yet-complete"
     ],
@@ -1547,6 +1977,13 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 4198,
+      "Vue": 2234,
+      "TypeScript": 913,
+      "CSS": 58
+    },
+    "diskUsage": 113,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2024-11-20T00:35:04Z",
@@ -1566,6 +2003,8 @@
     },
     "language": "Unknown",
     "languageColor": "#666666",
+    "languages": {},
+    "diskUsage": 0,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2024-11-16T23:00:49Z",
@@ -1585,6 +2024,13 @@
     },
     "language": "TypeScript",
     "languageColor": "#3178c6",
+    "languages": {
+      "TypeScript": 304002,
+      "Vue": 41374,
+      "Shell": 1448,
+      "JavaScript": 284
+    },
+    "diskUsage": 31206,
     "topics": [],
     "excerpt": "The file-based CMS for your Nuxt application, powered by Markdown and Vue components.",
     "createdAt": "2024-09-12T22:43:48Z",
@@ -1604,6 +2050,13 @@
     },
     "language": "Vue",
     "languageColor": "#41b883",
+    "languages": {
+      "Vue": 34299,
+      "TypeScript": 3919,
+      "JavaScript": 2039,
+      "CSS": 779
+    },
+    "diskUsage": 1381,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2022-10-15T02:04:26Z",
@@ -1623,6 +2076,12 @@
     },
     "language": "Svelte",
     "languageColor": "#ff3e00",
+    "languages": {
+      "Svelte": 26542,
+      "TypeScript": 15909,
+      "JavaScript": 1254
+    },
+    "diskUsage": 247,
     "topics": [],
     "excerpt": "The UI that powers the obsidian-calendar-plugin",
     "createdAt": "2024-10-09T01:07:19Z",
@@ -1642,6 +2101,13 @@
     },
     "language": "TypeScript",
     "languageColor": "#3178c6",
+    "languages": {
+      "TypeScript": 39751,
+      "Svelte": 1982,
+      "JavaScript": 1027,
+      "CSS": 194
+    },
+    "diskUsage": 36835,
     "topics": [],
     "excerpt": "Simple calendar widget for Obsidian.",
     "createdAt": "2024-10-09T01:03:20Z",
@@ -1661,6 +2127,12 @@
     },
     "language": "HTML",
     "languageColor": "#e34c26",
+    "languages": {
+      "HTML": 25225,
+      "CSS": 9523,
+      "JavaScript": 9074
+    },
+    "diskUsage": 11412,
     "topics": [
       "cli"
     ],
@@ -1682,6 +2154,14 @@
     },
     "language": "Vue",
     "languageColor": "#41b883",
+    "languages": {
+      "Vue": 68019,
+      "TypeScript": 54723,
+      "CSS": 2136,
+      "HTML": 583,
+      "JavaScript": 532
+    },
+    "diskUsage": 8549,
     "topics": [],
     "excerpt": "⚡️ Icon Explorer with Instant searching, powered by Iconify",
     "createdAt": "2024-09-06T16:30:37Z",
@@ -1701,6 +2181,11 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 9826,
+      "Shell": 1563
+    },
+    "diskUsage": 27,
     "topics": [
       "ascii",
       "cli"
@@ -1723,6 +2208,10 @@
     },
     "language": "Python",
     "languageColor": "#3572A5",
+    "languages": {
+      "Python": 2041
+    },
+    "diskUsage": 3,
     "topics": [
       "ascii",
       "cli",
@@ -1746,6 +2235,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 14802
+    },
+    "diskUsage": 8,
     "topics": [],
     "excerpt": "A CLI game of life simulation, represented in braille unicode characters",
     "createdAt": "2024-09-05T01:46:53Z",
@@ -1765,6 +2258,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 4515
+    },
+    "diskUsage": 15,
     "topics": [],
     "excerpt": "An extremely simple script for creating node/edge graphs of a web page's hyperlinks",
     "createdAt": "2019-05-24T13:26:40Z",
@@ -1784,6 +2281,8 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {},
+    "diskUsage": 1131,
     "topics": [
       "discord",
       "gpt-4"
@@ -1806,6 +2305,12 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 166462,
+      "Vue": 121990,
+      "TypeScript": 13460
+    },
+    "diskUsage": 215512,
     "topics": [],
     "excerpt": "Website & blog for EJ Fox",
     "createdAt": "2018-05-12T03:01:13Z",
@@ -1825,6 +2330,12 @@
     },
     "language": "Vue",
     "languageColor": "#41b883",
+    "languages": {
+      "Vue": 2192,
+      "TypeScript": 1597,
+      "JavaScript": 1375
+    },
+    "diskUsage": 159,
     "topics": [],
     "excerpt": "Turn an are.na channel into draggable cards for spatial thinking",
     "createdAt": "2024-06-14T17:18:59Z",
@@ -1844,6 +2355,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 7513
+    },
+    "diskUsage": 277,
     "topics": [],
     "excerpt": "A little wizard to quickly create CLI aliases",
     "createdAt": "2024-08-17T01:53:31Z",
@@ -1863,6 +2378,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 15807
+    },
+    "diskUsage": 37525,
     "topics": [
       "cli"
     ],
@@ -1884,6 +2403,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 10102
+    },
+    "diskUsage": 10,
     "topics": [],
     "excerpt": "A little CLI guide tool to write or make a video",
     "createdAt": "2024-08-05T13:23:58Z",
@@ -1903,6 +2426,12 @@
     },
     "language": "TypeScript",
     "languageColor": "#3178c6",
+    "languages": {
+      "TypeScript": 1842,
+      "JavaScript": 1601,
+      "CSS": 164
+    },
+    "diskUsage": 26,
     "topics": [],
     "excerpt": "An Obsidian plugin to automatically find the published URL of a note based on the file slug",
     "createdAt": "2024-04-25T21:40:13Z",
@@ -1922,6 +2451,12 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 159495,
+      "Vue": 35573,
+      "TypeScript": 3853
+    },
+    "diskUsage": 3194,
     "topics": [],
     "excerpt": "A guide to the Hudson Valley",
     "createdAt": "2024-01-05T02:33:29Z",
@@ -1941,6 +2476,15 @@
     },
     "language": "TypeScript",
     "languageColor": "#3178c6",
+    "languages": {
+      "TypeScript": 1179550,
+      "Vue": 202563,
+      "CSS": 8450,
+      "JavaScript": 3885,
+      "HTML": 647,
+      "Shell": 244
+    },
+    "diskUsage": 12651,
     "topics": [],
     "excerpt": "Collection of essential Vue Composition Utilities for Vue 2 and 3",
     "createdAt": "2024-06-12T18:51:45Z",
@@ -1960,6 +2504,8 @@
     },
     "language": "Unknown",
     "languageColor": "#666666",
+    "languages": {},
+    "diskUsage": 9,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2022-06-20T22:49:21Z",
@@ -1979,6 +2525,8 @@
     },
     "language": "Unknown",
     "languageColor": "#666666",
+    "languages": {},
+    "diskUsage": 5,
     "topics": [],
     "excerpt": "submit pr to join the boyfriend list",
     "createdAt": "2024-05-23T23:31:47Z",
@@ -1998,6 +2546,12 @@
     },
     "language": "Vue",
     "languageColor": "#41b883",
+    "languages": {
+      "Vue": 56036,
+      "JavaScript": 15354,
+      "TypeScript": 2771
+    },
+    "diskUsage": 264173,
     "topics": [],
     "excerpt": "A scrollytelling piece exploring the resilience of coral reefs during climate change",
     "createdAt": "2023-08-22T13:44:12Z",
@@ -2017,6 +2571,8 @@
     },
     "language": "Jupyter Notebook",
     "languageColor": "#DA5B0B",
+    "languages": {},
+    "diskUsage": 3798,
     "topics": [],
     "excerpt": "fetching reddit data and embedding it",
     "createdAt": "2023-04-14T04:27:24Z",
@@ -2036,6 +2592,8 @@
     },
     "language": "Jupyter Notebook",
     "languageColor": "#DA5B0B",
+    "languages": {},
+    "diskUsage": 52766,
     "topics": [],
     "excerpt": "Visualizing data to better monitor issues around food security ",
     "createdAt": "2022-07-19T02:09:30Z",
@@ -2055,6 +2613,14 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 101646,
+      "Python": 89995,
+      "CSS": 16788,
+      "Jupyter Notebook": 11631,
+      "HTML": 708
+    },
+    "diskUsage": 17213,
     "topics": [],
     "excerpt": "A scientific instrument for investigating latent spaces",
     "createdAt": "2024-02-15T20:49:34Z",
@@ -2074,6 +2640,12 @@
     },
     "language": "Vue",
     "languageColor": "#41b883",
+    "languages": {
+      "Vue": 4718,
+      "JavaScript": 2442,
+      "TypeScript": 950
+    },
+    "diskUsage": 3536,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2023-12-11T01:47:01Z",
@@ -2093,6 +2665,15 @@
     },
     "language": "TypeScript",
     "languageColor": "#3178c6",
+    "languages": {
+      "TypeScript": 337756,
+      "Vue": 258446,
+      "JavaScript": 101555,
+      "HTML": 9140,
+      "Stylus": 5258,
+      "CSS": 1116
+    },
+    "diskUsage": 14734,
     "topics": [],
     "excerpt": "⚙️ Browser devtools extension for debugging Vue.js applications.",
     "createdAt": "2023-12-04T19:31:13Z",
@@ -2112,6 +2693,12 @@
     },
     "language": "TypeScript",
     "languageColor": "#3178c6",
+    "languages": {
+      "TypeScript": 3877,
+      "JavaScript": 1601,
+      "CSS": 164
+    },
+    "diskUsage": 24,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2023-11-01T00:03:11Z",
@@ -2131,6 +2718,11 @@
     },
     "language": "TypeScript",
     "languageColor": "#3178c6",
+    "languages": {
+      "TypeScript": 1310,
+      "Vue": 85
+    },
+    "diskUsage": 148,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2023-10-31T23:47:25Z",
@@ -2150,6 +2742,11 @@
     },
     "language": "TypeScript",
     "languageColor": "#3178c6",
+    "languages": {
+      "TypeScript": 1372,
+      "Vue": 448
+    },
+    "diskUsage": 150,
     "topics": [],
     "excerpt": "Easy D3-powered force layouts with all the trimmings",
     "createdAt": "2023-11-02T16:29:41Z",
@@ -2169,6 +2766,14 @@
     },
     "language": "TypeScript",
     "languageColor": "#3178c6",
+    "languages": {
+      "TypeScript": 108768,
+      "Svelte": 23125,
+      "JavaScript": 1634,
+      "Nunjucks": 691,
+      "Shell": 58
+    },
+    "diskUsage": 1202,
     "topics": [],
     "excerpt": "Sync your Kindle notes and highlights directly into your Obsidian vault",
     "createdAt": "2023-11-01T00:26:36Z",
@@ -2188,6 +2793,14 @@
     },
     "language": "Vue",
     "languageColor": "#41b883",
+    "languages": {
+      "Vue": 169770,
+      "TypeScript": 79573,
+      "JavaScript": 1750,
+      "Shell": 821,
+      "CSS": 156
+    },
+    "diskUsage": 5661,
     "topics": [],
     "excerpt": "Fully styled and customizable components for Nuxt.",
     "createdAt": "2023-10-23T18:31:52Z",
@@ -2207,6 +2820,13 @@
     },
     "language": "Vue",
     "languageColor": "#41b883",
+    "languages": {
+      "Vue": 39816,
+      "JavaScript": 32742,
+      "TypeScript": 303,
+      "Shell": 149
+    },
+    "diskUsage": 9579,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2022-06-21T14:05:15Z",
@@ -2226,6 +2846,12 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 10643,
+      "Vue": 4758,
+      "SCSS": 3727
+    },
+    "diskUsage": 1261,
     "topics": [],
     "excerpt": "An attempt to add more visual design and Nuxt / Vue 3 support to vue toasts",
     "createdAt": "2023-09-04T18:32:18Z",
@@ -2245,6 +2871,19 @@
     },
     "language": "TypeScript",
     "languageColor": "#3178c6",
+    "languages": {
+      "TypeScript": 6941202,
+      "MDX": 3869701,
+      "JavaScript": 448988,
+      "CSS": 168973,
+      "SCSS": 121833,
+      "PLpgSQL": 13687,
+      "Makefile": 8141,
+      "Dockerfile": 2167,
+      "Python": 1355,
+      "Shell": 798
+    },
+    "diskUsage": 1214658,
     "topics": [],
     "excerpt": "The open source Firebase alternative. Follow to stay updated about our public Beta.",
     "createdAt": "2023-08-02T15:04:56Z",
@@ -2264,6 +2903,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 6612
+    },
+    "diskUsage": 49,
     "topics": [],
     "excerpt": "fetching reddit data and embedding it",
     "createdAt": "2023-04-14T16:55:25Z",
@@ -2283,6 +2926,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 4006
+    },
+    "diskUsage": 352830,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2023-04-13T03:29:42Z",
@@ -2302,6 +2949,12 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 14382,
+      "CSS": 794,
+      "HTML": 553
+    },
+    "diskUsage": 12430,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2023-04-15T21:13:47Z",
@@ -2321,6 +2974,11 @@
     },
     "language": "Vue",
     "languageColor": "#41b883",
+    "languages": {
+      "Vue": 9506,
+      "TypeScript": 834
+    },
+    "diskUsage": 691,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2023-03-06T04:35:46Z",
@@ -2340,6 +2998,11 @@
     },
     "language": "Vue",
     "languageColor": "#41b883",
+    "languages": {
+      "Vue": 7727,
+      "TypeScript": 309
+    },
+    "diskUsage": 18662,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2022-11-23T18:56:08Z",
@@ -2359,6 +3022,11 @@
     },
     "language": "Vue",
     "languageColor": "#41b883",
+    "languages": {
+      "Vue": 369,
+      "TypeScript": 93
+    },
+    "diskUsage": 82,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2023-02-01T18:53:04Z",
@@ -2378,6 +3046,12 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 7710,
+      "Vue": 128,
+      "TypeScript": 92
+    },
+    "diskUsage": 92,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2022-12-04T23:58:52Z",
@@ -2397,6 +3071,12 @@
     },
     "language": "Vue",
     "languageColor": "#41b883",
+    "languages": {
+      "Vue": 25895,
+      "JavaScript": 781,
+      "TypeScript": 427
+    },
+    "diskUsage": 244,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2022-11-28T17:03:08Z",
@@ -2416,6 +3096,10 @@
     },
     "language": "HTML",
     "languageColor": "#e34c26",
+    "languages": {
+      "HTML": 764
+    },
+    "diskUsage": 1,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2021-12-16T21:15:50Z",
@@ -2435,6 +3119,11 @@
     },
     "language": "Vue",
     "languageColor": "#41b883",
+    "languages": {
+      "Vue": 62197,
+      "TypeScript": 940
+    },
+    "diskUsage": 28930,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2022-09-01T20:00:40Z",
@@ -2454,6 +3143,12 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 3839,
+      "Vue": 752,
+      "HTML": 413
+    },
+    "diskUsage": 234,
     "topics": [
       "tachyons",
       "vite",
@@ -2477,6 +3172,12 @@
     },
     "language": "Vue",
     "languageColor": "#41b883",
+    "languages": {
+      "Vue": 6849,
+      "JavaScript": 3839,
+      "HTML": 505
+    },
+    "diskUsage": 1546,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2022-06-18T15:08:25Z",
@@ -2496,6 +3197,13 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 2108683,
+      "HTML": 50224,
+      "CoffeeScript": 28194,
+      "CSS": 11780
+    },
+    "diskUsage": 48591,
     "topics": [],
     "excerpt": "Website for generative art explanations",
     "createdAt": "2017-10-29T18:50:21Z",
@@ -2515,6 +3223,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 6091
+    },
+    "diskUsage": 884,
     "topics": [],
     "excerpt": "NPM module for canvas-based generative art ",
     "createdAt": "2018-12-27T19:07:50Z",
@@ -2534,6 +3246,12 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 1107516,
+      "CoffeeScript": 297001,
+      "HTML": 1409
+    },
+    "diskUsage": 8459,
     "topics": [],
     "excerpt": "Generative art framework with JS, D3, Canvas, and more...",
     "createdAt": "2017-06-11T20:47:18Z",
@@ -2553,6 +3271,8 @@
     },
     "language": "CSS",
     "languageColor": "#663399",
+    "languages": {},
+    "diskUsage": 1072,
     "topics": [],
     "excerpt": "real-time app powered by tributary and derby",
     "createdAt": "2013-05-25T02:09:20Z",
@@ -2572,6 +3292,12 @@
     },
     "language": "Vue",
     "languageColor": "#41b883",
+    "languages": {
+      "Vue": 10605,
+      "JavaScript": 1019,
+      "HTML": 694
+    },
+    "diskUsage": 3869,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2021-11-02T19:22:14Z",
@@ -2591,6 +3317,11 @@
     },
     "language": "Vue",
     "languageColor": "#41b883",
+    "languages": {
+      "Vue": 3054,
+      "JavaScript": 1526
+    },
+    "diskUsage": 139,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2021-05-16T20:20:43Z",
@@ -2610,6 +3341,12 @@
     },
     "language": "Vue",
     "languageColor": "#41b883",
+    "languages": {
+      "Vue": 1083,
+      "JavaScript": 991,
+      "HTML": 660
+    },
+    "diskUsage": 113,
     "topics": [],
     "excerpt": "Generative music / audio with tone.js",
     "createdAt": "2019-03-10T23:39:32Z",
@@ -2629,6 +3366,11 @@
     },
     "language": "Vue",
     "languageColor": "#41b883",
+    "languages": {
+      "Vue": 46,
+      "JavaScript": 38
+    },
+    "diskUsage": 107,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2021-01-22T18:42:39Z",
@@ -2648,6 +3390,11 @@
     },
     "language": "Makefile",
     "languageColor": "#427819",
+    "languages": {
+      "Makefile": 26198,
+      "JavaScript": 4278
+    },
+    "diskUsage": 10388,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2020-06-24T21:55:26Z",
@@ -2667,6 +3414,12 @@
     },
     "language": "Vue",
     "languageColor": "#41b883",
+    "languages": {
+      "Vue": 46513,
+      "JavaScript": 1071,
+      "HTML": 942
+    },
+    "diskUsage": 4029,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2020-04-27T16:42:22Z",
@@ -2686,6 +3439,13 @@
     },
     "language": "Vue",
     "languageColor": "#41b883",
+    "languages": {
+      "Vue": 13974,
+      "JavaScript": 4337,
+      "HTML": 1910,
+      "CSS": 1706
+    },
+    "diskUsage": 7600,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2019-08-29T16:59:01Z",
@@ -2705,6 +3465,11 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 12887,
+      "Makefile": 1329
+    },
+    "diskUsage": 74,
     "topics": [],
     "excerpt": "Footnotes plugin for markdown-it markdown parser ",
     "createdAt": "2019-07-01T09:17:32Z",
@@ -2724,6 +3489,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 19620
+    },
+    "diskUsage": 132,
     "topics": [],
     "excerpt": "Process a directory of markdown and yaml files to json files based on glob patterns",
     "createdAt": "2019-06-12T16:14:46Z",
@@ -2743,6 +3512,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 2738
+    },
+    "diskUsage": 1852,
     "topics": [],
     "excerpt": "Scrapes public Kindle highlights on Goodreads.",
     "createdAt": "2019-05-13T15:16:06Z",
@@ -2762,6 +3535,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 1991
+    },
+    "diskUsage": 38,
     "topics": [],
     "excerpt": "Easily generate big presentations from are.na channels",
     "createdAt": "2019-03-30T21:29:11Z",
@@ -2781,6 +3558,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 5057
+    },
+    "diskUsage": 18,
     "topics": [],
     "excerpt": "A tool to convert youtube-explore outputs to gexf",
     "createdAt": "2019-04-16T18:19:47Z",
@@ -2800,6 +3581,14 @@
     },
     "language": "CSS",
     "languageColor": "#663399",
+    "languages": {
+      "CSS": 31267,
+      "Python": 16918,
+      "JavaScript": 16050,
+      "HTML": 7196,
+      "Shell": 457
+    },
+    "diskUsage": 5418,
     "topics": [],
     "excerpt": "Finding YouTube's top recommendations from any query",
     "createdAt": "2019-04-16T18:43:54Z",
@@ -2819,6 +3608,11 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 11652,
+      "HTML": 10031
+    },
+    "diskUsage": 171,
     "topics": [],
     "excerpt": "screenshot worker queue  + static site generator",
     "createdAt": "2019-01-21T20:51:41Z",
@@ -2838,6 +3632,16 @@
     },
     "language": "Python",
     "languageColor": "#3572A5",
+    "languages": {
+      "Python": 315959,
+      "JavaScript": 282084,
+      "HTML": 122181,
+      "CSS": 37235,
+      "Makefile": 1873,
+      "Dockerfile": 997,
+      "Mako": 494
+    },
+    "diskUsage": 10864,
     "topics": [],
     "excerpt": "Police oversight and accountability through public data 👮",
     "createdAt": "2019-01-18T00:12:57Z",
@@ -2857,6 +3661,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 2214
+    },
+    "diskUsage": 35988,
     "topics": [],
     "excerpt": "Bring data to life with SVG, Canvas and HTML. :bar_chart::chart_with_upwards_trend::tada:",
     "createdAt": "2018-05-14T21:10:55Z",
@@ -2876,6 +3684,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 457821
+    },
+    "diskUsage": 3241,
     "topics": [],
     "excerpt": "Chance - Random generator helper for JavaScript",
     "createdAt": "2017-07-23T16:03:58Z",
@@ -2895,6 +3707,13 @@
     },
     "language": "HTML",
     "languageColor": "#e34c26",
+    "languages": {
+      "HTML": 3104,
+      "CSS": 2420,
+      "JavaScript": 1235,
+      "Makefile": 92
+    },
+    "diskUsage": 54887,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2017-08-21T01:02:39Z",
@@ -2914,6 +3733,11 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 27005,
+      "CSS": 11668
+    },
+    "diskUsage": 556,
     "topics": [],
     "excerpt": "An interactive boilerplate / template",
     "createdAt": "2012-02-11T00:17:12Z",
@@ -2933,6 +3757,13 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 202335,
+      "CSS": 17590,
+      "HTML": 3255,
+      "Makefile": 476
+    },
+    "diskUsage": 1045,
     "topics": [],
     "excerpt": "Create, fork and edit d3.js code snippets for use with bl.ocks.org right in the browser, no terminal required.",
     "createdAt": "2017-05-15T14:55:36Z",
@@ -2952,6 +3783,13 @@
     },
     "language": "CoffeeScript",
     "languageColor": "#244776",
+    "languages": {
+      "CoffeeScript": 8899,
+      "CSS": 6334,
+      "HTML": 2024,
+      "JavaScript": 428
+    },
+    "diskUsage": 2044,
     "topics": [],
     "excerpt": "Visualizing nfl data",
     "createdAt": "2017-05-07T23:41:18Z",
@@ -2971,6 +3809,8 @@
     },
     "language": "Unknown",
     "languageColor": "#666666",
+    "languages": {},
+    "diskUsage": 132,
     "topics": [],
     "excerpt": "An exploration of one dataset over 30 days, by Mainstem Collective",
     "createdAt": "2014-12-28T18:51:40Z",
@@ -2990,6 +3830,13 @@
     },
     "language": "CSS",
     "languageColor": "#663399",
+    "languages": {
+      "CSS": 27454,
+      "HTML": 8816,
+      "JavaScript": 4480,
+      "Ruby": 2044
+    },
+    "diskUsage": 1714,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2016-11-27T21:21:31Z",
@@ -3009,6 +3856,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 6482
+    },
+    "diskUsage": 1564,
     "topics": [],
     "excerpt": "A twitter bot to manipulate news headlines",
     "createdAt": "2016-11-17T04:29:12Z",
@@ -3028,6 +3879,13 @@
     },
     "language": "CoffeeScript",
     "languageColor": "#244776",
+    "languages": {
+      "CoffeeScript": 17945,
+      "CSS": 6837,
+      "HTML": 1469,
+      "JavaScript": 428
+    },
+    "diskUsage": 222,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2016-10-23T00:19:08Z",
@@ -3047,6 +3905,13 @@
     },
     "language": "CSS",
     "languageColor": "#663399",
+    "languages": {
+      "CSS": 6050,
+      "CoffeeScript": 4147,
+      "HTML": 987,
+      "JavaScript": 609
+    },
+    "diskUsage": 967,
     "topics": [],
     "excerpt": "Starter/boilerplate/template for interactives ",
     "createdAt": "2016-07-18T15:08:05Z",
@@ -3066,6 +3931,13 @@
     },
     "language": "CoffeeScript",
     "languageColor": "#244776",
+    "languages": {
+      "CoffeeScript": 8408,
+      "CSS": 7042,
+      "HTML": 1235,
+      "JavaScript": 540
+    },
+    "diskUsage": 144,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2016-05-16T14:31:27Z",
@@ -3085,6 +3957,11 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 27005,
+      "CoffeeScript": 3095
+    },
+    "diskUsage": 261,
     "topics": [],
     "excerpt": "A visualization of all the members of Designer News",
     "createdAt": "2013-01-10T19:33:12Z",
@@ -3104,6 +3981,13 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 1417292,
+      "CoffeeScript": 68348,
+      "Perl": 2897,
+      "Shell": 133
+    },
+    "diskUsage": 2364,
     "topics": [],
     "excerpt": "A D3 snippet/pattern library",
     "createdAt": "2012-11-20T03:09:47Z",
@@ -3123,6 +4007,8 @@
     },
     "language": "Unknown",
     "languageColor": "#666666",
+    "languages": {},
+    "diskUsage": 168,
     "topics": [],
     "excerpt": "no pain no gain. removing the friction from prototyping",
     "createdAt": "2014-12-13T21:11:02Z",
@@ -3142,6 +4028,8 @@
     },
     "language": "Unknown",
     "languageColor": "#666666",
+    "languages": {},
+    "diskUsage": 144,
     "topics": [],
     "excerpt": "Oakland camera map (for discovery of routes with least surveillance)",
     "createdAt": "2014-02-14T19:23:27Z",
@@ -3161,6 +4049,12 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 7876,
+      "CSS": 906,
+      "Makefile": 416
+    },
+    "diskUsage": 1687,
     "topics": [],
     "excerpt": "d3 tooltips",
     "createdAt": "2014-12-04T15:08:52Z",
@@ -3180,6 +4074,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 1007211
+    },
+    "diskUsage": 978,
     "topics": [],
     "excerpt": "Bret Victor inspired slider & color picker plugin for CodeMirror",
     "createdAt": "2013-03-10T00:09:29Z",
@@ -3199,6 +4097,10 @@
     },
     "language": "CoffeeScript",
     "languageColor": "#244776",
+    "languages": {
+      "CoffeeScript": 6200
+    },
+    "diskUsage": 166,
     "topics": [],
     "excerpt": "A stepper utility for interactive stories",
     "createdAt": "2013-03-21T06:50:28Z",
@@ -3218,6 +4120,10 @@
     },
     "language": "CSS",
     "languageColor": "#663399",
+    "languages": {
+      "CSS": 5241
+    },
+    "diskUsage": 43944,
     "topics": [],
     "excerpt": "Future lens news website",
     "createdAt": "2013-09-10T05:58:44Z",
@@ -3237,6 +4143,11 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 1676,
+      "CoffeeScript": 1512
+    },
+    "diskUsage": 90,
     "topics": [],
     "excerpt": "A simple coffeescript to animate the scrolling of any link on a page",
     "createdAt": "2012-04-15T07:48:00Z",
@@ -3256,6 +4167,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 1238
+    },
+    "diskUsage": 92,
     "topics": [],
     "excerpt": "Scriptography scripts",
     "createdAt": "2012-03-30T20:35:08Z",
@@ -3275,6 +4190,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 25290
+    },
+    "diskUsage": 208,
     "topics": [],
     "excerpt": "A little tool to visualize how far a user has scrolled in a page or section",
     "createdAt": "2013-04-15T05:22:29Z",
@@ -3294,6 +4213,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 27005
+    },
+    "diskUsage": 4548,
     "topics": [],
     "excerpt": "Happy birthday Tributary!",
     "createdAt": "2013-03-15T07:03:58Z",
@@ -3313,6 +4236,11 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 105588,
+      "CoffeeScript": 10354
+    },
+    "diskUsage": 248,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2012-09-25T17:59:15Z",
@@ -3332,6 +4260,11 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 43140,
+      "CoffeeScript": 322
+    },
+    "diskUsage": 2392,
     "topics": [],
     "excerpt": "Collecting good data sources to inspire visualizers",
     "createdAt": "2012-11-10T02:04:18Z",
@@ -3351,6 +4284,11 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 144886,
+      "CoffeeScript": 1558
+    },
+    "diskUsage": 728,
     "topics": [],
     "excerpt": "Google spreadsheet based mapping",
     "createdAt": "2012-12-15T06:21:43Z",
@@ -3370,6 +4308,11 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 102400,
+      "CoffeeScript": 1320
+    },
+    "diskUsage": 1411,
     "topics": [],
     "excerpt": "A web-based attempt to make quantifying oneself quick & painless",
     "createdAt": "2012-10-23T06:28:17Z",
@@ -3389,6 +4332,11 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 658917,
+      "CSS": 201575
+    },
+    "diskUsage": 5272,
     "topics": [],
     "excerpt": "Website for Shine in Peace",
     "createdAt": "2013-03-04T08:06:32Z",
@@ -3408,6 +4356,10 @@
     },
     "language": "JavaScript",
     "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 267929
+    },
+    "diskUsage": 204,
     "topics": [],
     "excerpt": "An alternative gallery for d3.js",
     "createdAt": "2013-03-04T22:58:41Z",

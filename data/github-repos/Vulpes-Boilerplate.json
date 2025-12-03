@@ -11,6 +11,11 @@
   },
   "language": "JavaScript",
   "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 27005,
+    "CSS": 11668
+  },
+  "diskUsage": 556,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"vulpes-interactive-infographic-template\">Vulpes Interactive Infographic Template</h1>\n<p>A lightweight starting point to create websites, especially data visualization mini-sites. (That's my job!)</p>\n<p>jQuery, D3, and Underscore are included. <a href=\"http://learnboost.github.io/stylus/\">Stylus</a> is used for CSS.</p>\n<p>I've focused on sane defaults (for me) and little else, so it can be the starting point for as many projects as possible with little to no modification.</p>\n<p>Check out a <a href=\"http://ejfox.github.com/Vulpes-Boilerplate/\">demo/preview</a>.</p>",

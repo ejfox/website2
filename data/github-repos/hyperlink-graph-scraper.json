@@ -11,6 +11,10 @@
   },
   "language": "JavaScript",
   "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 4515
+  },
+  "diskUsage": 15,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"hyperlink-graph-scraper\">hyperlink-graph-scraper</h1>",

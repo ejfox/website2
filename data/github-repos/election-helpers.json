@@ -11,6 +11,10 @@
   },
   "language": "JavaScript",
   "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 99795
+  },
+  "diskUsage": 16298,
   "topics": [
     "data",
     "elections",

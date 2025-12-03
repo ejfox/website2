@@ -11,6 +11,11 @@
   },
   "language": "JavaScript",
   "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 27005,
+    "CoffeeScript": 3095
+  },
+  "diskUsage": 261,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"designernewsmembers\">DesignerNewsMembers</h1>\n<p>A visualization of all the members of Designer News</p>\n<p>Data from: <a href=\"https://news.layervault.com/u/tree_flat.json\">https://news.layervault.com/u/tree_flat.json</a></p>",

@@ -11,6 +11,11 @@
   },
   "language": "JavaScript",
   "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 1676,
+    "CoffeeScript": 1512
+  },
+  "diskUsage": 90,
   "topics": [],
   "readme": {
     "html": "<p><em>No README available</em></p>",

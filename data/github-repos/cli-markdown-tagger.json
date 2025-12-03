@@ -11,6 +11,11 @@
   },
   "language": "JavaScript",
   "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 5540,
+    "Shell": 332
+  },
+  "diskUsage": 9,
   "topics": [
     "cli",
     "llm",

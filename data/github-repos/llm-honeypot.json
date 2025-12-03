@@ -11,6 +11,11 @@
   },
   "language": "HTML",
   "languageColor": "#e34c26",
+  "languages": {
+    "HTML": 9270,
+    "JavaScript": 5935
+  },
+  "diskUsage": 6,
   "topics": [
     "bot-detection",
     "experiment",

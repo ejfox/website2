@@ -11,6 +11,11 @@
   },
   "language": "Makefile",
   "languageColor": "#427819",
+  "languages": {
+    "Makefile": 26198,
+    "JavaScript": 4278
+  },
+  "diskUsage": 10388,
   "topics": [],
   "readme": {
     "html": "<p><em>No README available</em></p>",

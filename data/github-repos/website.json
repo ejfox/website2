@@ -11,6 +11,12 @@
   },
   "language": "JavaScript",
   "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 166462,
+    "Vue": 121990,
+    "TypeScript": 13460
+  },
+  "diskUsage": 215512,
   "topics": [],
   "readme": {
     "html": "<h1 id=\"ejfoxcom\">EJFox.com</h1>",

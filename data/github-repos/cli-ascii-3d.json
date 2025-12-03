@@ -11,6 +11,11 @@
   },
   "language": "JavaScript",
   "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 9826,
+    "Shell": 1563
+  },
+  "diskUsage": 27,
   "topics": [
     "ascii",
     "cli"

@@ -11,6 +11,15 @@
   },
   "language": "Vue",
   "languageColor": "#41b883",
+  "languages": {
+    "Vue": 324823,
+    "JavaScript": 254287,
+    "TypeScript": 201000,
+    "CSS": 3702,
+    "Shell": 1502,
+    "HTML": 484
+  },
+  "diskUsage": 4774,
   "topics": [
     "electron",
     "llm",
