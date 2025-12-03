@@ -11,6 +11,7 @@ const repos = JSON.parse(
 const searchQuery = ref('')
 const selectedLanguage = ref('all')
 const sortBy = ref('updated') // updated, stars, name
+const viewMode = ref('list') // force, list, ridgeline, grid, parallel, radial
 
 // Get unique languages
 const languages = computed(() => {
@@ -35,7 +36,9 @@ const filteredRepos = computed(() => {
 
   // Language filter
   if (selectedLanguage.value !== 'all') {
-    filtered = filtered.filter((repo) => repo.language === selectedLanguage.value)
+    filtered = filtered.filter(
+      (repo) => repo.language === selectedLanguage.value
+    )
   }
 
   // Sort
@@ -62,21 +65,28 @@ const totalForks = computed(() =>
 )
 
 // SEO
-useHead({
-  title: 'GitHub Repositories - EJ Fox',
-  meta: [
-    {
-      name: 'description',
-      content: `Browse ${repos.length} public GitHub repositories by EJ Fox`,
-    },
-  ],
+usePageSeo({
+  title: 'GitHub repositories · EJ Fox',
+  description: `Browse ${repos.length} public GitHub repositories by EJ Fox with stars, forks, and activity charts.`,
+  type: 'article',
+  section: 'Code',
+  tags: ['GitHub', 'Open source', 'Repositories'],
+  label1: 'Repos',
+  data1: `${repos.length} public`,
+  label2: 'Stars',
+  data2: computed(() => `${totalStars.value} stars · ${totalForks.value} forks`),
 })
 </script>
 
 <template>
-  <div class="max-w-4xl mx-auto px-4 py-12">
-    <!-- Header -->
-    <header class="mb-12">
+  <div class="container-main">
+    <!-- Scroll-driven background visualization -->
+    <ClientOnly>
+      <GitHubScrollViz :repos="repos" />
+    </ClientOnly>
+
+    <!-- Header - Match blog/projects page header spacing -->
+    <header class="mb-8 md:mb-12 py-8 md:py-16 relative z-10">
       <h1 class="font-serif text-3xl mb-2">GitHub Repositories</h1>
       <p class="text-zinc-500 dark:text-zinc-400 font-mono text-sm">
         {{ repos.length }} public repositories · {{ totalStars }} stars ·
@@ -84,8 +94,54 @@ useHead({
       </p>
     </header>
 
-    <!-- Filters -->
-    <div class="filters-container">
+    <!-- View Toggle -->
+    <div class="view-toggle mb-8 relative z-10">
+      <button
+        :class="['toggle-btn', { active: viewMode === 'force' }]"
+        title="Force-directed graph"
+        @click="viewMode = 'force'"
+      >
+        Force
+      </button>
+      <button
+        :class="['toggle-btn', { active: viewMode === 'ridgeline' }]"
+        title="Ridgeline density plot"
+        @click="viewMode = 'ridgeline'"
+      >
+        Ridgeline
+      </button>
+      <button
+        :class="['toggle-btn', { active: viewMode === 'grid' }]"
+        title="Histogram grid"
+        @click="viewMode = 'grid'"
+      >
+        Grid
+      </button>
+      <button
+        :class="['toggle-btn', { active: viewMode === 'parallel' }]"
+        title="Parallel coordinates"
+        @click="viewMode = 'parallel'"
+      >
+        Parallel
+      </button>
+      <button
+        :class="['toggle-btn', { active: viewMode === 'radial' }]"
+        title="Radial timeline"
+        @click="viewMode = 'radial'"
+      >
+        Radial
+      </button>
+      <button
+        :class="['toggle-btn', { active: viewMode === 'list' }]"
+        title="List view"
+        @click="viewMode = 'list'"
+      >
+        List
+      </button>
+    </div>
+
+    <!-- Filters (only show for list view) -->
+    <div v-if="viewMode === 'list'" class="filters-container relative z-10">
       <!-- Search -->
       <input
         v-model="searchQuery"
@@ -95,55 +151,87 @@ useHead({
       />
 
       <!-- Language Filter -->
-      <select
-        v-model="selectedLanguage"
-        class="filter-select"
-      >
-        <option
-          v-for="lang in languages"
-          :key="lang"
-          :value="lang"
-        >
+      <select v-model="selectedLanguage" class="filter-select">
+        <option v-for="lang in languages" :key="lang" :value="lang">
           {{ lang === 'all' ? 'All Languages' : lang }}
         </option>
       </select>
 
       <!-- Sort -->
-      <select
-        v-model="sortBy"
-        class="filter-select"
-      >
+      <select v-model="sortBy" class="filter-select">
         <option value="updated">Recently Updated</option>
         <option value="stars">Most Stars</option>
         <option value="name">Name (A-Z)</option>
       </select>
     </div>
 
-    <!-- Repos List -->
-    <div class="space-y-0">
-      <GithubRepoCard
-        v-for="repo in filteredRepos"
-        :key="repo.name"
-        :name="repo.name"
-        :description="repo.description"
-        :language="repo.language"
-        :language-color="repo.languageColor"
-        :stars="repo.stats.stars"
-        :forks="repo.stats.forks"
-      />
-    </div>
+    <!-- Visualizations -->
+    <ClientOnly>
+      <div class="relative z-10">
+        <!-- Force Layout -->
+        <GithubForceLayout v-if="viewMode === 'force'" :repos="repos" />
 
-    <!-- Empty State -->
-    <div
-      v-if="filteredRepos.length === 0"
-      class="text-center py-12 text-zinc-500"
-    >
-      No repositories found matching your filters.
+        <!-- Ridgeline Plot -->
+        <GitHubRidgeline v-if="viewMode === 'ridgeline'" :repos="repos" />
+
+        <!-- Histogram Grid -->
+        <GitHubHistogramGrid v-if="viewMode === 'grid'" :repos="repos" />
+
+        <!-- Parallel Coordinates -->
+        <GitHubParallelCoords v-if="viewMode === 'parallel'" :repos="repos" />
+
+        <!-- Radial Timeline -->
+        <GitHubRadialTimeline v-if="viewMode === 'radial'" :repos="repos" />
+      </div>
+    </ClientOnly>
+
+    <!-- List View -->
+    <div v-if="viewMode === 'list'" class="relative z-10">
+      <div class="space-y-0">
+        <GithubRepoCard
+          v-for="repo in filteredRepos"
+          :key="repo.name"
+          :name="repo.name"
+          :description="repo.description"
+          :language="repo.language"
+          :language-color="repo.languageColor"
+          :stars="repo.stats.stars"
+          :forks="repo.stats.forks"
+          :repo="repo"
+        />
+      </div>
+
+      <!-- Empty State -->
+      <div
+        v-if="filteredRepos.length === 0"
+        class="text-center py-12 text-zinc-500"
+      >
+        No repositories found matching your filters.
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+.view-toggle {
+  @apply flex gap-2;
+}
+
+.toggle-btn {
+  @apply px-4 py-2 text-sm font-mono;
+  @apply border border-zinc-200 dark:border-zinc-800 rounded;
+  @apply bg-white dark:bg-zinc-950;
+  @apply text-zinc-600 dark:text-zinc-400;
+  @apply transition-all duration-150;
+  @apply hover:bg-zinc-50 dark:hover:bg-zinc-900;
+}
+
+.toggle-btn.active {
+  @apply bg-zinc-900 dark:bg-zinc-100;
+  @apply text-white dark:text-zinc-900;
+  @apply border-zinc-900 dark:border-zinc-100;
+}
+
 .filters-container {
   @apply flex flex-wrap gap-3 mb-8;
 }

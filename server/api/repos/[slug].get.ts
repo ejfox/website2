@@ -23,6 +23,8 @@ interface RepoData {
   stats: RepoStats
   language: string
   languageColor: string
+  languages: Record<string, number>
+  diskUsage: number
   topics: string[]
   readme: RepoReadme
   createdAt: string
@@ -44,7 +46,7 @@ try {
 
 function isValidSlug(slug: string): boolean {
   // Only allow alphanumeric, hyphens, underscores, dots (GitHub repo names)
-  return /^[a-zA-Z0-9._-]+$/.test(slug)
+  return /^[\w.-]+$/.test(slug)
 }
 
 export default defineEventHandler(async (event): Promise<RepoData> => {
@@ -74,12 +76,7 @@ export default defineEventHandler(async (event): Promise<RepoData> => {
   }
 
   // Read from pre-generated JSON file
-  const filePath = join(
-    process.cwd(),
-    'data',
-    'github-repos',
-    `${slug}.json`
-  )
+  const filePath = join(process.cwd(), 'data', 'github-repos', `${slug}.json`)
 
   if (!existsSync(filePath)) {
     throw createError({

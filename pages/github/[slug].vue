@@ -5,7 +5,7 @@ const slug = route.params.slug
 const { tocTarget } = useTOC()
 
 // Fetch repository data
-const { data: repo, error, pending } = await useAsyncData(`repo-${slug}`, async () => {
+const { data: repo, error } = await useAsyncData(`repo-${slug}`, async () => {
   try {
     const response = await $fetch(`/api/repos/${slug}`)
     return response
@@ -24,24 +24,63 @@ if (error.value) {
   })
 }
 
-// Loading state
-const isLoading = computed(() => pending.value && !repo.value)
-
 // SEO metadata
 const title = computed(() => repo.value?.name || 'Repository')
-const description = computed(() =>
-  repo.value?.description || repo.value?.readme?.excerpt || 'GitHub repository'
+const description = computed(
+  () =>
+    repo.value?.description ||
+    repo.value?.readme?.excerpt ||
+    'GitHub repository'
 )
 
-useHead({
-  title: `${title.value} - EJ Fox`,
-  meta: [
-    { name: 'description', content: description.value },
-    { property: 'og:title', content: `${title.value} - EJ Fox` },
-    { property: 'og:description', content: description.value },
-    { property: 'og:type', content: 'website' },
-  ],
+const repoLanguage = computed(() => repo.value?.language || 'Code')
+const repoTags = computed(() => {
+  const topics = repo.value?.topics || []
+  return topics.length ? topics : [repoLanguage.value]
 })
+
+usePageSeo({
+  title: computed(() => `${title.value} - EJ Fox`),
+  description: computed(() => description.value),
+  type: 'article',
+  section: 'Code',
+  tags: repoTags,
+  label1: 'Stars',
+  data1: computed(() => `${repo.value?.stats?.stars || 0} stars`),
+  label2: 'Language',
+  data2: repoLanguage,
+})
+
+const repoSchema = computed(() => {
+  if (!repo.value) return null
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareSourceCode',
+    name: repo.value.name,
+    description: description.value,
+    programmingLanguage: repoLanguage.value,
+    codeRepository: repo.value.html_url || repo.value.url,
+    url: `https://ejfox.com/github/${slug}`,
+    author: {
+      '@type': 'Person',
+      name: 'EJ Fox',
+      url: 'https://github.com/ejfox',
+    },
+    about: repoTags.value.map((tag) => ({ '@type': 'Thing', name: tag })),
+    license: repo.value.license?.name,
+  }
+})
+
+useHead(() => ({
+  script: repoSchema.value
+    ? [
+        {
+          type: 'application/ld+json',
+          children: JSON.stringify(repoSchema.value),
+        },
+      ]
+    : [],
+}))
 </script>
 
 <template>
@@ -111,14 +150,23 @@ useHead({
               </div>
             </div>
 
-            <!-- Stats -->
+            <!-- Metrics Grid - Feltron style -->
             <div class="sidebar-item">
-              <div class="metadata-label">Stats</div>
-              <div class="stats-display">
-                <span>⭐ {{ repo.stats.stars }}</span>
-                <span>🔀 {{ repo.stats.forks }}</span>
-                <span>👁 {{ repo.stats.watchers }}</span>
-              </div>
+              <div class="metadata-label">Metrics</div>
+              <RepoMetrics :repo="repo" />
+            </div>
+
+            <!-- Language Breakdown -->
+            <div
+              v-if="repo.languages && Object.keys(repo.languages).length > 0"
+              class="sidebar-item"
+            >
+              <div class="metadata-label">Languages</div>
+              <LanguageBar
+                :languages="repo.languages"
+                :height="4"
+                show-labels
+              />
             </div>
 
             <!-- Topics -->
@@ -249,6 +297,7 @@ useHead({
 
 .github-link {
   @apply text-sm text-zinc-900 dark:text-zinc-100;
-  @apply hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors;
+  @apply hover:text-zinc-600 dark:hover:text-zinc-400;
+  @apply transition-colors duration-150;
 }
 </style>
