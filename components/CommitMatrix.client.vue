@@ -104,34 +104,42 @@ const basePositions = computed(() => {
 const animatedPositions = ref([])
 const time = ref(0)
 
+// Performance constants
+const NOISE_SCALE = 0.002
+const NOISE_AMPLITUDE = 12
+const FLOW_STRENGTH_X = 6
+const FLOW_STRENGTH_Y = 3
+const NEIGHBOR_RADIUS = 100
+const NEIGHBOR_RADIUS_SQ = NEIGHBOR_RADIUS * NEIGHBOR_RADIUS // Avoid sqrt
+const BOID_INFLUENCE = 0.01
+
 // Update animation with flocking behavior
 const updateAnimation = () => {
   time.value += 0.003 // Slow time increment
 
   const points = basePositions.value
   const newPositions = []
+  const timeValue = time.value
+  const staggerCheck = Math.floor(timeValue * 10) % 20 // Calculate once
 
   for (let i = 0; i < points.length; i++) {
     const point = points[i]
     const [baseX, baseY] = point.basePosition
 
     // Perlin noise for organic drift
-    const noiseScale = 0.002
-    const noiseX = noise2D(baseX * noiseScale, time.value) * 12
-    const noiseY = noise2D(baseY * noiseScale, time.value + 100) * 12
+    const noiseX = noise2D(baseX * NOISE_SCALE, timeValue) * NOISE_AMPLITUDE
+    const noiseY = noise2D(baseY * NOISE_SCALE, timeValue + 100) * NOISE_AMPLITUDE
 
     // Global flow pattern (like wind)
-    const flowAngle = time.value * 0.3 + baseY * 0.0005
-    const flowX = Math.sin(flowAngle) * 6
-    const flowY = Math.cos(flowAngle) * 3
+    const flowAngle = timeValue * 0.3 + baseY * 0.0005
+    const flowX = Math.sin(flowAngle) * FLOW_STRENGTH_X
+    const flowY = Math.cos(flowAngle) * FLOW_STRENGTH_Y
 
     // Simplified boid behavior (only check nearby points every N frames)
     let boidX = 0
     let boidY = 0
 
-    if (i % 20 === Math.floor(time.value * 10) % 20) {
-      // Check neighbors
-      const neighborRadius = 100
+    if (i % 20 === staggerCheck) {
       let neighbors = 0
 
       for (let j = i - 10; j < i + 10; j++) {
@@ -141,12 +149,12 @@ const updateAnimation = () => {
         const [nx, ny] = neighbor.basePosition
         const dx = nx - baseX
         const dy = ny - baseY
-        const dist = Math.sqrt(dx * dx + dy * dy)
+        const distSq = dx * dx + dy * dy // Use squared distance, avoid sqrt
 
-        if (dist < neighborRadius) {
+        if (distSq < NEIGHBOR_RADIUS_SQ) {
           // Cohesion + alignment
-          boidX += dx * 0.01
-          boidY += dy * 0.01
+          boidX += dx * BOID_INFLUENCE
+          boidY += dy * BOID_INFLUENCE
           neighbors++
         }
       }
@@ -161,9 +169,15 @@ const updateAnimation = () => {
     const finalX = baseX + noiseX + flowX + boidX
     const finalY = baseY + noiseY + flowY + boidY
 
+    // Only store what deck.gl needs (avoid spreading unnecessary data)
     newPositions.push({
-      ...point,
       position: [finalX, finalY],
+      size: point.size,
+      color: point.color,
+      repo: point.repo,
+      message: point.message,
+      date: point.date,
+      language: point.language,
     })
   }
 
@@ -208,38 +222,39 @@ const initDeck = () => {
   })
 }
 
-// Update deck when data changes
-watch(
-  [commitPoints, width],
-  () => {
-    if (!deckInstance.value) return
+// Update layer with new positions each frame
+watch(commitPoints, () => {
+  if (!deckInstance.value) return
 
-    deckInstance.value.setProps({
-      width: width.value,
-      height: props.height,
-      layers: [
-        new ScatterplotLayer({
-          id: 'commits',
-          data: commitPoints.value,
-          pickable: true,
-          opacity: 0.8,
-          stroked: false,
-          filled: true,
-          radiusScale: 1,
-          radiusMinPixels: 2,
-          radiusMaxPixels: 8,
-          getPosition: (d) => d.position,
-          getRadius: (d) => d.size,
-          getFillColor: (d) => d.color,
-          updateTriggers: {
-            getPosition: time.value,
-          },
-        }),
-      ],
-    })
-  },
-  { deep: true }
-)
+  deckInstance.value.setProps({
+    layers: [
+      new ScatterplotLayer({
+        id: 'commits',
+        data: commitPoints.value,
+        pickable: true,
+        opacity: 0.8,
+        stroked: false,
+        filled: true,
+        radiusScale: 1,
+        radiusMinPixels: 2,
+        radiusMaxPixels: 8,
+        getPosition: (d) => d.position,
+        getRadius: (d) => d.size,
+        getFillColor: (d) => d.color,
+      }),
+    ],
+  })
+})
+
+// Handle window resize separately
+watch(width, () => {
+  if (!deckInstance.value) return
+
+  deckInstance.value.setProps({
+    width: width.value,
+    height: props.height,
+  })
+})
 
 // Animation loop using RAF
 const { pause, resume } = useRafFn(
