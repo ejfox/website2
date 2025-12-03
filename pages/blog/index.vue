@@ -81,9 +81,7 @@
 
         <!-- Title section matching blog posts -->
         <div class="px-4 md:px-6 pt-4 pb-3">
-          <h1 class="blog-title">
-            Blog
-          </h1>
+          <h1 class="blog-title">Blog</h1>
           <p :class="blogDescriptionClass">
             Thoughts, projects, and explorations in technology, design, and
             making.

@@ -136,8 +136,12 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  id: undefined,
+  date: undefined,
+  replyTo: undefined,
   favorites: 0,
   retweets: 0,
+  year: undefined,
 })
 
 const formattedDate = computed(() => {

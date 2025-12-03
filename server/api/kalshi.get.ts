@@ -306,7 +306,8 @@ function enrichMarketData(
   event: KalshiEvent | undefined,
   commentary: KalshiCommentary | undefined
 ): EnrichedMarketData {
-  // Title priority: commentary (ONLY reliable source for resolved markets) > event > ticker
+  // Title priority: commentary (ONLY reliable source for resolved
+  // markets) > event > ticker
   const title = commentary?.marketTitle || event?.title || ticker
   const subtitle = event?.sub_title || commentary?.thesis || ''
 
