@@ -77,7 +77,11 @@ useHead({
       property: 'og:image:alt',
       content: 'Selected data visualization work by EJ Fox',
     },
-    { key: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
+    {
+      key: 'twitter:card',
+      name: 'twitter:card',
+      content: 'summary_large_image',
+    },
     { key: 'twitter:site', name: 'twitter:site', content: '@mrejfox' },
     { key: 'twitter:creator', name: 'twitter:creator', content: '@mrejfox' },
     { key: 'twitter:title', name: 'twitter:title', content: defaultTitle },

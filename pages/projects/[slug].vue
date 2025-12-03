@@ -53,13 +53,17 @@ usePageSeo({
   type: 'article',
   section: 'Projects',
   tags: projectTags,
-  publishedTime: computed(() => project.value?.metadata?.date || project.value?.date),
+  publishedTime: computed(
+    () => project.value?.metadata?.date || project.value?.date
+  ),
   modifiedTime: computed(
     () => project.value?.metadata?.lastUpdated || project.value?.metadata?.date
   ),
   label1: 'Stack',
-  data1: computed(() =>
-    (project.value?.metadata?.tech || []).slice(0, 4).join(', ') || 'Details in project'
+  data1: computed(
+    () =>
+      (project.value?.metadata?.tech || []).slice(0, 4).join(', ') ||
+      'Details in project'
   ),
   label2: 'Status',
   data2: computed(() => project.value?.metadata?.status || 'Shipped'),

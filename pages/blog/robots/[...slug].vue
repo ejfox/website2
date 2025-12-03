@@ -124,7 +124,10 @@ const metadataFields = computed(() => {
 
 const noteDescription = computed(() => {
   const html = note.value?.content || ''
-  const text = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
+  const text = html
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
   return text.slice(0, 180) || 'Robot note from EJ Fox'
 })
 
@@ -228,7 +231,6 @@ const proseClasses =
   'prose-img:rounded-lg ' +
   'prose-hr:border-zinc-300 dark:prose-hr:border-zinc-700 ' +
   '!max-w-none'
-
 </script>
 
 <template>

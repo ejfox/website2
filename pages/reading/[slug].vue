@@ -67,6 +67,9 @@
                 <span v-if="book.metadata?.date">
                   Added: {{ formatDate(book.metadata.date) }}
                 </span>
+                <span v-if="book.metadata?.lastUpdated">
+                  Updated: {{ formatDate(book.metadata.lastUpdated) }}
+                </span>
               </div>
 
               <!-- Links -->

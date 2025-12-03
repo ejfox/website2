@@ -90,6 +90,17 @@ const latestYear = computed(() => {
   return Math.max(...years)
 })
 
+const lastUpdated = computed(() => {
+  if (!projects.value?.length) return ''
+  const dates = projects.value
+    .map((p) => p.metadata?.lastUpdated || p.metadata?.date || p.date)
+    .filter(Boolean)
+    .map((d) => new Date(d).getTime())
+    .filter((t) => !Number.isNaN(t))
+  if (!dates.length) return ''
+  return new Date(Math.max(...dates)).toISOString().split('T')[0]
+})
+
 const projectsSchema = computed(() => ({
   '@context': 'https://schema.org',
   '@type': 'ItemList',
@@ -110,7 +121,12 @@ usePageSeo({
     'Selected work: data visualizations, newsroom tooling, and investigative dashboards shipped via room302.studio and EJ Fox.',
   type: 'article',
   section: 'Projects',
-  tags: ['Data visualization', 'Newsroom tooling', 'Investigations', 'Dashboards'],
+  tags: [
+    'Data visualization',
+    'Newsroom tooling',
+    'Investigations',
+    'Dashboards',
+  ],
   label1: 'Projects',
   data1: computed(() => `${projects.value?.length || 0} total`),
   label2: 'Featured span',
@@ -141,6 +157,9 @@ useHead(() => ({
       >
         Selected Work
       </h1>
+      <div class="font-mono text-[11px] text-zinc-500 dark:text-zinc-500">
+        Updated {{ lastUpdated || 'live' }} · sources: project frontmatter + API
+      </div>
 
       <div
         class="flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs text-zinc-500 tabular-nums"

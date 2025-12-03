@@ -1,7 +1,6 @@
 <script setup>
 import { ref, computed, watch, onMounted } from 'vue'
-import { useWindowScroll, useWindowSize } from '@vueuse/core'
-import { useRafFn } from '@vueuse/core'
+import { useWindowScroll, useWindowSize, useRafFn } from '@vueuse/core'
 import anime from 'animejs'
 import { scaleLinear, scaleTime, scaleLog } from 'd3-scale'
 import { extent } from 'd3-array'
@@ -47,9 +46,7 @@ const forcePositions = computed(() => {
     .domain(extent(dates))
     .range([pad, width.value - pad])
 
-  const pushDates = props.repos.map((r) =>
-    new Date(r.pushedAt).getTime()
-  )
+  const pushDates = props.repos.map((r) => new Date(r.pushedAt).getTime())
   const yScale = scaleTime()
     .domain(extent(pushDates))
     .range([height.value - pad, pad])
@@ -68,8 +65,7 @@ const parallelPositions = computed(() => {
     { getValue: (r) => r.diskUsage / 1024, scale: 'log' },
     { getValue: (r) => Math.max(r.stats.stars, 0.1), scale: 'log' },
     {
-      getValue: (r) =>
-        r.languages ? Object.keys(r.languages).length : 0,
+      getValue: (r) => (r.languages ? Object.keys(r.languages).length : 0),
       scale: 'linear',
     },
   ]
@@ -105,16 +101,13 @@ const parallelPositions = computed(() => {
 const radialPositions = computed(() => {
   const centerX = width.value / 2
   const centerY = height.value / 2
-  const maxRadius =
-    Math.min(width.value, height.value) / 2 - padding.value
+  const maxRadius = Math.min(width.value, height.value) / 2 - padding.value
 
   const dates = props.repos.flatMap((r) => [
     new Date(r.createdAt),
     new Date(r.pushedAt),
   ])
-  const radiusScale = scaleTime()
-    .domain(extent(dates))
-    .range([80, maxRadius])
+  const radiusScale = scaleTime().domain(extent(dates)).range([80, maxRadius])
 
   const langGroups = {}
   props.repos.forEach((repo) => {
@@ -243,7 +236,10 @@ const showViz = computed(() => windowWidth.value >= 768)
     <div class="scroll-guide">
       <div class="guide-mode">{{ vizMode }}</div>
       <div class="guide-progress">
-        <div class="progress-fill" :style="{ width: `${scrollProgress * 100}%` }" />
+        <div
+          class="progress-fill"
+          :style="{ width: `${scrollProgress * 100}%` }"
+        />
       </div>
       <div class="guide-hint">{{ Math.round(scrollProgress * 100) }}%</div>
     </div>

@@ -33,19 +33,13 @@ export function usePageSeo(input: PageSeoInput) {
     unref(input.description) || 'EJ Fox — Data visualization and journalism.'
 
   const rawTags = unref(input.tags)
-  const tags = Array.isArray(rawTags)
-    ? rawTags
-    : rawTags
-      ? [rawTags]
-      : []
+  const tags = Array.isArray(rawTags) ? rawTags : rawTags ? [rawTags] : []
 
-  const ogImage =
-    unref(input.image) || new URL('/og-image.png', baseUrl).href
+  const ogImage = unref(input.image) || new URL('/og-image.png', baseUrl).href
   const canonical =
     unref(input.canonical) || new URL(route.path || '/', baseUrl).href
 
-  const imageAlt =
-    unref(input.imageAlt) || `${title} — EJ Fox`
+  const imageAlt = unref(input.imageAlt) || `${title} — EJ Fox`
 
   useSeoMeta({
     title,

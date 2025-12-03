@@ -5,12 +5,7 @@
     class="font-mono text-xs mb-6 flex items-center gap-2 text-zinc-500 dark:text-zinc-500 overflow-x-auto"
     aria-label="Breadcrumb"
   >
-    <a
-      href="/"
-      class="text-zinc-500 dark:text-zinc-400"
-    >
-      Home
-    </a>
+    <a href="/" class="text-zinc-500 dark:text-zinc-400">Home</a>
 
     <template
       v-for="(crumb, index) in breadcrumbs"

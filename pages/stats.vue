@@ -27,7 +27,8 @@
         <div ref="progressRef">{{ displayDayOfYear }}/{{ daysInYear }}</div>
       </div>
       <div class="text-[10px] text-zinc-500 dark:text-zinc-500 px-4">
-        Updated {{ statsUpdated || 'live' }} · sources: GitHub, Chess.com, Monkeytype, Last.fm, RescueTime
+        Updated {{ statsUpdated || 'live' }} · sources: GitHub, Chess.com,
+        Monkeytype, Last.fm, RescueTime
       </div>
 
       <!-- Error state for simple mode -->
@@ -1072,7 +1073,6 @@ const healthToday = computed(() => {
 definePageMeta({
   layout: 'default',
 })
-
 </script>
 
 <style scoped>

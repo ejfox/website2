@@ -63,9 +63,7 @@ usePageSeo({
 const gearItemSchema = computed(() => {
   if (!data.value) return null
   const weight =
-    data.value['Base Weight ()'] ||
-    data.value['Loaded Weight ()'] ||
-    undefined
+    data.value['Base Weight ()'] || data.value['Loaded Weight ()'] || undefined
 
   return {
     '@context': 'https://schema.org',

@@ -1,120 +1,139 @@
 <template>
-  <div class="max-w-3xl mx-auto px-4 py-12">
-    <!-- Header -->
-    <header class="mb-12">
-      <h1 class="font-serif text-3xl mb-2">On This Day</h1>
-      <p class="text-zinc-500 dark:text-zinc-400 font-mono text-sm">
-        {{ formattedDate }}
-      </p>
-      <p class="text-zinc-500 dark:text-zinc-500 font-mono text-[11px] mt-1">
-        Updated {{ lastUpdated || 'live' }} · sources: blog posts, robot notes, scrobbles, commits
-      </p>
+  <div class="relative max-w-3xl mx-auto px-4 py-12">
+    <ClientOnly>
+      <DotField :count="backgroundDotsCount" :seed="backgroundSeed" />
+    </ClientOnly>
+    <div class="relative z-10">
+      <!-- Header -->
+      <header class="mb-10">
+        <div>
+          <div
+            class="font-mono text-xs text-zinc-500 uppercase tracking-[0.2em]"
+          >
+            ON_THIS_DAY
+          </div>
+          <h1 class="font-serif text-3xl mt-2">{{ formattedDate }}</h1>
+          <div
+            class="text-zinc-500 dark:text-zinc-500 font-mono text-[11px] mt-2"
+          >
+            Updated {{ lastUpdated || 'live' }} · sources: blog posts, robot
+            notes, scrobbles, commits
+          </div>
+        </div>
 
-      <!-- Date navigation -->
-      <div class="flex gap-2 mt-4">
-        <button class="nav-button" @click="changeDay(-1)">Previous</button>
-        <button class="nav-button" @click="goToToday">Today</button>
-        <button class="nav-button" @click="changeDay(1)">Next</button>
-      </div>
-    </header>
-
-    <!-- Loading -->
-    <div v-if="pending" class="text-zinc-500">Loading...</div>
-
-    <!-- Empty state -->
-    <div
-      v-else-if="!data?.years?.length"
-      class="text-zinc-500 dark:text-zinc-400"
-    >
-      Nothing happened on this day. Yet.
-    </div>
-
-    <!-- Timeline by year -->
-    <div v-else class="space-y-8">
-      <section v-for="yearData in data.years" :key="yearData.year">
-        <!-- Year header -->
-        <div class="year-header">
-          <span class="font-mono text-lg font-bold">{{ yearData.year }}</span>
-          <div class="h-px flex-grow bg-zinc-200 dark:bg-zinc-800"></div>
-          <span class="text-xs text-zinc-400">
-            {{ yearsAgo(yearData.year) }}
+        <div
+          class="mt-3 font-mono text-[12px] text-zinc-600 dark:text-zinc-400"
+        >
+          {{ summaryText || 'No entries yet for this day.' }}
+        </div>
+        <div
+          class="mt-2 text-zinc-600 dark:text-zinc-400 font-mono text-[12px] flex flex-wrap gap-2"
+        >
+          <span v-for="stat in topLevelStats" :key="stat.label">
+            {{ stat.label }}: {{ stat.value }}
           </span>
         </div>
+      </header>
 
-        <!-- Dynamic rendering of all source types -->
-        <div class="space-y-4">
-          <!-- Posts -->
-          <template v-if="yearData.posts?.length">
-            <NuxtLink
-              v-for="post in yearData.posts"
-              :key="post.slug"
-              :to="`/blog/${post.slug}`"
-              class="card card-interactive"
-            >
-              <div class="flex items-start gap-3">
-                <span class="text-zinc-400">{{ sourceIcons.posts }}</span>
-                <div>
-                  <h3 class="font-serif text-lg">{{ post.title }}</h3>
-                  <p
-                    v-if="post.dek"
-                    class="text-sm text-zinc-600 dark:text-zinc-400 mt-1"
-                  >
-                    {{ post.dek }}
-                  </p>
+      <!-- Loading -->
+      <div v-if="pending" class="text-zinc-500">Loading...</div>
+
+      <!-- Empty state -->
+      <div
+        v-else-if="!data?.years?.length"
+        class="text-zinc-500 dark:text-zinc-400"
+      >
+        Nothing happened on this day. Yet.
+      </div>
+
+      <!-- Timeline by year -->
+      <div v-else class="space-y-8">
+        <section v-for="yearData in data.years" :key="yearData.year">
+          <!-- Year header -->
+          <div class="year-header">
+            <span class="font-mono text-lg font-bold">{{ yearData.year }}</span>
+            <span class="text-xs text-zinc-400">
+              {{ yearsAgo(yearData.year) }}
+            </span>
+            <div class="h-px flex-grow bg-zinc-200 dark:bg-zinc-800"></div>
+          </div>
+
+          <!-- Dynamic rendering of all source types -->
+          <div class="space-y-4">
+            <!-- Posts -->
+            <template v-if="yearData.posts?.length">
+              <NuxtLink
+                v-for="post in yearData.posts"
+                :key="post.slug"
+                :to="`/blog/${post.slug}`"
+                class="card card-interactive"
+              >
+                <div class="flex items-start gap-3">
+                  <span class="text-zinc-400">{{ sourceIcons.posts }}</span>
+                  <div>
+                    <h3 class="font-serif text-lg">{{ post.title }}</h3>
+                    <p
+                      v-if="post.dek"
+                      class="text-sm text-zinc-600 dark:text-zinc-400 mt-1"
+                    >
+                      {{ post.dek }}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </NuxtLink>
-          </template>
+              </NuxtLink>
+            </template>
 
-          <!-- Commits -->
-          <template v-if="yearData.commits?.length">
-            <CommitCard
-              v-for="commit in yearData.commits"
-              :key="commit.sha"
-              :sha="commit.sha"
-              :message="commit.message"
-              :repo="commit.repo"
-              :date="commit.date"
-            />
-          </template>
+            <!-- Commits -->
+            <template v-if="yearData.commits?.length">
+              <CommitCard
+                v-for="commit in yearData.commits"
+                :key="commit.sha"
+                :sha="commit.sha"
+                :message="commit.message"
+                :repo="commit.repo"
+                :date="commit.date"
+              />
+            </template>
 
-          <!-- Tweets -->
-          <template v-if="yearData.tweets?.length">
-            <TweetCard
-              v-for="tweet in yearData.tweets"
-              :id="tweet.id"
-              :key="tweet.id"
-              :text="tweet.text"
-              :date="tweet.date"
-              :reply-to="tweet.replyTo"
-              :favorites="tweet.favorites"
-              :retweets="tweet.retweets"
-            />
-          </template>
+            <!-- Tweets -->
+            <template v-if="yearData.tweets?.length">
+              <TweetCard
+                v-for="tweet in yearData.tweets"
+                :id="tweet.id"
+                :key="tweet.id"
+                :text="tweet.text"
+                :date="tweet.date"
+                :reply-to="tweet.replyTo"
+                :favorites="tweet.favorites"
+                :retweets="tweet.retweets"
+              />
+            </template>
 
-          <!-- Scrobbles -->
-          <template v-if="yearData.scrobbles?.length">
-            <ScrobbleCard
-              v-for="scrobble in yearData.scrobbles"
-              :key="scrobble.date"
-              :count="scrobble.count"
-              :top-tracks="scrobble.topTracks"
-              :top-artists="scrobble.topArtists"
-              :date="scrobble.date"
-            />
-          </template>
-        </div>
-      </section>
+            <!-- Scrobbles -->
+            <template v-if="yearData.scrobbles?.length">
+              <ScrobbleCard
+                v-for="scrobble in yearData.scrobbles"
+                :key="scrobble.date"
+                :count="scrobble.count"
+                :top-tracks="scrobble.topTracks"
+                :top-artists="scrobble.topArtists"
+                :date="scrobble.date"
+              />
+            </template>
+          </div>
+        </section>
+      </div>
+
+      <!-- Summary -->
+      <footer v-if="summaryText" class="summary-footer">
+        {{ summaryText }}
+      </footer>
     </div>
-
-    <!-- Summary -->
-    <footer v-if="summaryText" class="summary-footer">
-      {{ summaryText }}
-    </footer>
   </div>
 </template>
 
 <script setup lang="ts">
+import DotField from '~/components/DotField.vue'
 const route = useRoute()
 const router = useRouter()
 
@@ -167,6 +186,35 @@ const lastUpdated = computed(() => {
   return new Date(Math.max(...dates)).toISOString().split('T')[0]
 })
 
+const topLevelStats = computed(() => {
+  if (!data.value) return []
+  const stats: { label: string; value: string }[] = []
+  if (data.value.total_posts)
+    stats.push({ label: 'Posts', value: `${data.value.total_posts}` })
+  if (data.value.total_commits)
+    stats.push({ label: 'Commits', value: `${data.value.total_commits}` })
+  if (data.value.total_tweets)
+    stats.push({ label: 'Tweets', value: `${data.value.total_tweets}` })
+  if (data.value.total_scrobbles)
+    stats.push({ label: 'Scrobbles', value: `${data.value.total_scrobbles}` })
+  return stats
+})
+
+const totalEntries = computed(() => {
+  if (!data.value) return 0
+  return (
+    (data.value.total_posts || 0) +
+    (data.value.total_commits || 0) +
+    (data.value.total_tweets || 0) +
+    (data.value.total_scrobbles || 0)
+  )
+})
+
+const backgroundDotsCount = computed(() =>
+  Math.min(Math.max(totalEntries.value, 40), 180)
+)
+const backgroundSeed = 1337
+
 // Formatted date display
 const formattedDate = computed(() => {
   const months = [
@@ -211,24 +259,6 @@ const yearsAgo = (year: number) => {
   if (diff === 0) return 'this year'
   if (diff === 1) return '1 year ago'
   return `${diff} years ago`
-}
-
-// Navigation
-const changeDay = (delta: number) => {
-  const date = new Date(2024, currentMonth.value - 1, currentDay.value)
-  date.setDate(date.getDate() + delta)
-  currentMonth.value = date.getMonth() + 1
-  currentDay.value = date.getDate()
-  router.push({
-    query: { month: currentMonth.value, day: currentDay.value },
-  })
-}
-
-const goToToday = () => {
-  const today = new Date()
-  currentMonth.value = today.getMonth() + 1
-  currentDay.value = today.getDate()
-  router.push({ query: {} })
 }
 
 // SEO

@@ -115,7 +115,7 @@ const formatTime = (timestamp) => {
 
   if (diffMins < 1) return 'just now'
   if (diffMins < 60) return `${diffMins}m ago`
-const diffHours = Math.floor(diffMins / 60)
+  const diffHours = Math.floor(diffMins / 60)
   if (diffHours < 24) return `${diffHours}h ago`
   const diffDays = Math.floor(diffHours / 24)
   return `${diffDays}d ago`
@@ -138,7 +138,9 @@ usePageSeo({
   ),
   label2: 'Latest commit',
   data2: computed(() =>
-    now.value?.code?.repo ? `${now.value.code.repo}: ${now.value.code.message}` : 'Fetching activity...'
+    now.value?.code?.repo
+      ? `${now.value.code.repo}: ${now.value.code.message}`
+      : 'Fetching activity...'
   ),
 })
 </script>
@@ -172,7 +174,8 @@ usePageSeo({
         moment.
       </p>
       <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mt-2">
-        Updated {{ nowUpdated }} · sources: GitHub commits, Last.fm, Kindle sync, predictions
+        Updated {{ nowUpdated }} · sources: GitHub commits, Last.fm, Kindle
+        sync, predictions
       </div>
     </header>
 
@@ -219,7 +222,7 @@ usePageSeo({
           <img
             v-if="now.music.image"
             :src="now.music.image"
-            :alt="`${now.music.track} album art`"
+            :alt="`Album art for ${now.music.track} by ${now.music.artist}`"
             class="w-16 h-16 rounded-sm flex-shrink-0"
           />
           <div class="flex-1 min-w-0">
@@ -277,7 +280,7 @@ usePageSeo({
           <img
             v-if="now.reading.cover"
             :src="now.reading.cover"
-            :alt="`${now.reading.title} cover`"
+            :alt="`Book cover for ${now.reading.title}`"
             class="w-12 h-16 rounded-sm flex-shrink-0 object-cover"
           />
           <div class="flex-1 min-w-0">

@@ -20,17 +20,20 @@ const featuredWork = [
   {
     name: 'Newsroom Data Tools',
     url: 'https://room302.studio',
-    description: 'Custom analysis and visualization platforms for modern journalism.',
+    description:
+      'Custom analysis and visualization platforms for modern journalism.',
   },
   {
     name: 'Climate Data Platform',
     url: 'https://room302.studio',
-    description: 'Interactive exploration tools for environmental policy research.',
+    description:
+      'Interactive exploration tools for environmental policy research.',
   },
   {
     name: 'Urban Analytics Dashboard',
     url: 'https://room302.studio',
-    description: 'Real-time visualization systems for city planning and governance.',
+    description:
+      'Real-time visualization systems for city planning and governance.',
   },
 ]
 

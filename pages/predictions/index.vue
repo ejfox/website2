@@ -25,7 +25,8 @@
           pending
         </div>
         <div class="text-muted">
-          {{ lastUpdated ? `Updated ${lastUpdated}` : 'Updating live' }} · sources: git + SHA-256 hashes
+          {{ lastUpdated ? `Updated ${lastUpdated}` : 'Updating live' }} ·
+          sources: git + SHA-256 hashes
         </div>
       </div>
     </header>

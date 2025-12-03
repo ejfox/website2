@@ -210,11 +210,10 @@ const predictionTags = computed(() => prediction.value?.tags || [])
 
 usePageSeo({
   title: computed(() => prediction.value?.statement || 'Prediction'),
-  description: computed(
-    () =>
-      prediction.value
-        ? `Prediction: ${prediction.value.statement} · ${prediction.value.confidence}% · hashed for integrity with SHA-256 and tracked for calibration.`
-        : 'Cryptographically verified prediction with calibration history.'
+  description: computed(() =>
+    prediction.value
+      ? `Prediction: ${prediction.value.statement} · ${prediction.value.confidence}% · hashed for integrity with SHA-256 and tracked for calibration.`
+      : 'Cryptographically verified prediction with calibration history.'
   ),
   type: 'article',
   section: 'Forecasting',
@@ -224,16 +223,14 @@ usePageSeo({
   publishedTime: computed(() => prediction.value?.created),
   modifiedTime: computed(
     () =>
-      prediction.value?.updates?.[
-        (prediction.value.updates || []).length - 1
-      ]?.timestamp || prediction.value?.created
+      prediction.value?.updates?.[(prediction.value.updates || []).length - 1]
+        ?.timestamp || prediction.value?.created
   ),
   label1: 'Confidence',
-  data1: computed(
-    () =>
-      prediction.value?.confidence !== undefined
-        ? `${prediction.value.confidence}%`
-        : 'Pending'
+  data1: computed(() =>
+    prediction.value?.confidence !== undefined
+      ? `${prediction.value.confidence}%`
+      : 'Pending'
   ),
   label2: 'Status',
   data2: computed(() => prediction.value?.status || 'Active'),
@@ -249,9 +246,8 @@ const predictionSchema = computed(() => ({
   url: predictionUrl.value,
   datePublished: prediction.value?.created,
   dateModified:
-    prediction.value?.updates?.[
-      (prediction.value?.updates || []).length - 1
-    ]?.timestamp || prediction.value?.created,
+    prediction.value?.updates?.[(prediction.value?.updates || []).length - 1]
+      ?.timestamp || prediction.value?.created,
   about: predictionTags.value.map((tag) => ({
     '@type': 'Thing',
     name: tag,

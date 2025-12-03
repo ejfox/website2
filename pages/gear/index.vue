@@ -16,6 +16,10 @@
             {{ totalItems }} items · {{ displayTotalWeight.value }} ·
             {{ containerCount }} bags
           </div>
+          <div class="font-mono text-[10px] text-zinc-500">
+            Updated {{ lastUpdated || currentDate }} · source: gear sheet
+            exports
+          </div>
         </div>
         <div class="flex-gap-3">
           <!-- Weight Unit Selector -->
@@ -610,7 +614,6 @@ useHead(() => ({
     },
   ],
 }))
-
 </script>
 
 <style>

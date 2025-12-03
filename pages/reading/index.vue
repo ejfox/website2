@@ -24,6 +24,8 @@
         <!-- Stats -->
         <div v-if="books" class="mt-4 mono-xs text-muted tabular">
           <span>UPDATED: {{ lastUpdated }}</span>
+          <span class="mx-2 text-divider">·</span>
+          <span>SOURCES: Kindle sync metadata</span>
         </div>
 
         <!-- Sparklines visualization -->

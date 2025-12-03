@@ -97,6 +97,15 @@ const languageCountsFormatted = computed(() => {
     .join(', ')
 })
 
+const lastUpdated = computed(() => {
+  if (!gists.value?.length) return ''
+  const dates = gists.value
+    .map((g) => new Date(g.updated_at || g.created_at || 0).getTime())
+    .filter((t) => !Number.isNaN(t))
+  if (!dates.length) return ''
+  return new Date(Math.max(...dates)).toISOString().split('T')[0]
+})
+
 // OpenGraph description with overview stats
 const gistsDescription = computed(() => {
   const gistCount = totalGists.value || 0
@@ -186,6 +195,9 @@ const toggleGist = (gistId: string) => {
           {{ Math.round(totalSize / 1024) }}KB
         </div>
         <div>LANGUAGES: {{ languageCountsFormatted }}</div>
+        <div>
+          Updated: {{ lastUpdated || 'live' }} · source: GitHub Gists API
+        </div>
       </div>
     </div>
 

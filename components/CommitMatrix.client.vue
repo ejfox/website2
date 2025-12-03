@@ -1,5 +1,9 @@
 <template>
-  <div ref="containerRef" class="commit-matrix" :style="{ height: `${height}px` }">
+  <div
+    ref="containerRef"
+    class="commit-matrix"
+    :style="{ height: `${height}px` }"
+  >
     <div ref="deckRef" class="deck-container" />
   </div>
 </template>
@@ -128,7 +132,8 @@ const updateAnimation = () => {
 
     // Perlin noise for organic drift
     const noiseX = noise2D(baseX * NOISE_SCALE, timeValue) * NOISE_AMPLITUDE
-    const noiseY = noise2D(baseY * NOISE_SCALE, timeValue + 100) * NOISE_AMPLITUDE
+    const noiseY =
+      noise2D(baseY * NOISE_SCALE, timeValue + 100) * NOISE_AMPLITUDE
 
     // Global flow pattern (like wind)
     const flowAngle = timeValue * 0.3 + baseY * 0.0005

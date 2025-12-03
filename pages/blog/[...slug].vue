@@ -435,8 +435,8 @@ const modifiedDate = computed(
     undefined
 )
 
-const timeRequired = computed(() =>
-  `PT${Math.max(1, readingStats.value.readingTime)}M`
+const timeRequired = computed(
+  () => `PT${Math.max(1, readingStats.value.readingTime)}M`
 )
 
 const articleSchema = computed(() => ({

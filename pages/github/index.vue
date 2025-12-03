@@ -63,6 +63,15 @@ const totalStars = computed(() =>
 const totalForks = computed(() =>
   repos.reduce((sum, r) => sum + r.stats.forks, 0)
 )
+const lastUpdated = computed(() => {
+  const dates = repos
+    .map((r) =>
+      new Date(r.pushedAt || r.updatedAt || r.createdAt || 0).getTime()
+    )
+    .filter((t) => !Number.isNaN(t))
+  if (!dates.length) return ''
+  return new Date(Math.max(...dates)).toISOString().split('T')[0]
+})
 
 // SEO
 usePageSeo({
@@ -74,23 +83,23 @@ usePageSeo({
   label1: 'Repos',
   data1: `${repos.length} public`,
   label2: 'Stars',
-  data2: computed(() => `${totalStars.value} stars · ${totalForks.value} forks`),
+  data2: computed(
+    () => `${totalStars.value} stars · ${totalForks.value} forks`
+  ),
 })
 </script>
 
 <template>
   <div class="container-main">
-    <!-- Scroll-driven background visualization -->
-    <ClientOnly>
-      <GitHubScrollViz :repos="repos" />
-    </ClientOnly>
-
     <!-- Header - Match blog/projects page header spacing -->
     <header class="mb-8 md:mb-12 py-8 md:py-16 relative z-10">
       <h1 class="font-serif text-3xl mb-2">GitHub Repositories</h1>
       <p class="text-zinc-500 dark:text-zinc-400 font-mono text-sm">
         {{ repos.length }} public repositories · {{ totalStars }} stars ·
         {{ totalForks }} forks
+      </p>
+      <p class="text-zinc-500 dark:text-zinc-500 font-mono text-[11px]">
+        Updated {{ lastUpdated || 'live' }} · source: GitHub API export
       </p>
     </header>
 
