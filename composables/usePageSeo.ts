@@ -1,0 +1,114 @@
+import { useSeoMeta } from '#imports'
+import { unref } from 'vue'
+
+type PageSeoInput = {
+  title: string
+  description: string
+  type?: 'website' | 'article'
+  image?: string
+  canonical?: string
+  tags?: string[]
+  section?: string
+  publishedTime?: string
+  modifiedTime?: string
+  label1?: string
+  data1?: string
+  label2?: string
+  data2?: string
+  imageAlt?: string
+}
+
+/**
+ * Shared helper to set page-level SEO/OG/Twitter meta with sensible defaults.
+ * Keeps markup concise across pages while staying descriptive.
+ */
+export function usePageSeo(input: PageSeoInput) {
+  const runtimeConfig = useRuntimeConfig()
+  const route = useRoute()
+
+  const baseUrl = runtimeConfig.public?.baseUrl || 'https://ejfox.com'
+
+  const title = unref(input.title) || 'EJ Fox'
+  const description =
+    unref(input.description) || 'EJ Fox — Data visualization and journalism.'
+
+  const rawTags = unref(input.tags)
+  const tags = Array.isArray(rawTags)
+    ? rawTags
+    : rawTags
+      ? [rawTags]
+      : []
+
+  const ogImage =
+    unref(input.image) || new URL('/og-image.png', baseUrl).href
+  const canonical =
+    unref(input.canonical) || new URL(route.path || '/', baseUrl).href
+
+  const imageAlt =
+    unref(input.imageAlt) || `${title} — EJ Fox`
+
+  useSeoMeta({
+    title,
+    description,
+    ogTitle: title,
+    ogDescription: description,
+    ogType: input.type || 'website',
+    ogUrl: canonical,
+    ogImage,
+    ogImageAlt: imageAlt,
+    ogImageWidth: '1200',
+    ogImageHeight: '630',
+    twitterCard: 'summary_large_image',
+    twitterTitle: title,
+    twitterDescription: description,
+    twitterImage: ogImage,
+    twitterImageAlt: imageAlt,
+    twitterLabel1: unref(input.label1),
+    twitterData1: unref(input.data1),
+    twitterLabel2: unref(input.label2),
+    twitterData2: unref(input.data2),
+  })
+
+  useHead({
+    link: [{ rel: 'canonical', href: canonical }],
+    meta: [
+      input.publishedTime
+        ? {
+            property: 'article:published_time',
+            content: unref(input.publishedTime),
+          }
+        : null,
+      input.modifiedTime
+        ? {
+            property: 'article:modified_time',
+            content: unref(input.modifiedTime),
+          }
+        : null,
+      input.section
+        ? { property: 'article:section', content: unref(input.section) }
+        : null,
+      ...tags.map((tag) => ({
+        property: 'article:tag',
+        content: tag,
+      })),
+    ].filter(Boolean),
+    script: [
+      {
+        type: 'application/ld+json',
+        children: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': input.type === 'article' ? 'Article' : 'WebPage',
+          headline: title,
+          description,
+          url: canonical,
+          image: ogImage,
+          inLanguage: 'en-US',
+          about: tags.map((tag) => ({
+            '@type': 'Thing',
+            name: tag,
+          })),
+        }),
+      },
+    ],
+  })
+}
