@@ -7,6 +7,9 @@
         <p class="text-zinc-600 dark:text-zinc-400 mt-2">
           Complete navigation of ejfox.com — find everything here
         </p>
+        <p class="text-zinc-500 dark:text-zinc-500 font-mono text-[11px]">
+          Updated {{ lastUpdated || 'live' }} · sources: manifest + predictions
+        </p>
       </div>
     </header>
 
@@ -42,7 +45,7 @@
 
         <!-- Data & Tools -->
         <div>
-          <div class="sitemap-section-header">DATA_&_TOOLS</div>
+          <div class="sitemap-section-header">DATA_&amp;_TOOLS</div>
           <div class="stack-4">
             <SitemapLink
               to="/stats"
@@ -93,7 +96,7 @@
 
         <!-- Feeds & APIs -->
         <div>
-          <div class="sitemap-section-header">FEEDS_&_APIs</div>
+          <div class="sitemap-section-header">FEEDS_&amp;_APIs</div>
           <div class="stack-4">
             <SitemapLink
               to="/rss.xml"
@@ -276,6 +279,24 @@ const publicPredictions = computed(
   () =>
     predictions.value?.filter((p) => p.visibility === 'public').length || 0
 )
+
+const lastUpdated = computed(() => {
+  const dates: number[] = []
+  if (manifest.value?.length) {
+    manifest.value.forEach((item: any) => {
+      if (item?.date) dates.push(new Date(item.date).getTime())
+    })
+  }
+  if (predictions.value?.length) {
+    predictions.value.forEach((p: any) => {
+      if (p?.created) dates.push(new Date(p.created).getTime())
+      const lastUpdate = p?.updates?.[p.updates.length - 1]?.timestamp
+      if (lastUpdate) dates.push(new Date(lastUpdate).getTime())
+    })
+  }
+  if (!dates.length) return ''
+  return new Date(Math.max(...dates)).toISOString().split('T')[0]
+})
 
 usePageSeo({
   title: 'Site Map | ejfox.com',
