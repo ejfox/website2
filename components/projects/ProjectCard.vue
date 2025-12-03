@@ -98,21 +98,5 @@ const projectActivity = computed(() => {
 </script>
 
 <style scoped>
-/* Subtle hover effects - *whoosh* but not too much! */
-.project-card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Desktop hover effects */
-@media (min-width: 768px) {
-  .project-card-hover:hover {
-    transform: translateX(4px);
-  }
-
-  .project-card-hover:hover .project-description {
-    opacity: 0.9;
-  }
-}
-
 /* Mobile active state (already defined in global.css) */
 </style>

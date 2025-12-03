@@ -10,7 +10,7 @@
     >
       <button
         v-if="likes.length > 0"
-        class="flex items-center gap-1.5 hover:text-red-500 transition-colors"
+        class="flex items-center gap-1.5"
         @click="showLikes = !showLikes"
       >
         <span>{{ likes.length }}</span>
@@ -19,7 +19,7 @@
 
       <button
         v-if="reposts.length > 0"
-        class="flex items-center gap-1.5 hover:text-green-500 transition-colors"
+        class="flex items-center gap-1.5"
         @click="showReposts = !showReposts"
       >
         <span>{{ reposts.length }}</span>
@@ -49,7 +49,7 @@
         <img
           :src="like.author?.photo || '/default-avatar.png'"
           :alt="like.author?.name"
-          class="w-6 h-6 rounded-full hover:ring-2 hover:ring-red-500 transition-all"
+          class="w-6 h-6 rounded-full hover:ring-2 hover:ring-red-500 transition-all duration-100"
         />
       </a>
     </div>
@@ -71,7 +71,7 @@
         <img
           :src="repost.author?.photo || '/default-avatar.png'"
           :alt="repost.author?.name"
-          class="w-6 h-6 rounded-full hover:ring-2 hover:ring-green-500 transition-all"
+          class="w-6 h-6 rounded-full hover:ring-2 hover:ring-green-500 transition-all duration-100"
         />
       </a>
     </div>

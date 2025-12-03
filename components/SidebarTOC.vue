@@ -88,10 +88,10 @@ onUnmounted(() => {
 
 <style scoped>
 .toc-link {
-  @apply flex items-baseline text-sm transition-all duration-200;
+  @apply flex items-baseline text-sm transition-colors duration-200;
   @apply no-underline py-2 gap-2;
   @apply text-zinc-600 dark:text-zinc-400;
-  @apply hover:text-zinc-900 dark:hover:text-zinc-100 hover:translate-x-1;
+  @apply hover:text-zinc-900 dark:hover:text-zinc-100;
 }
 
 .toc-link-active {

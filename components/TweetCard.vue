@@ -59,10 +59,7 @@
         <div
           class="flex items-center gap-6 mt-3 text-xs text-zinc-400 dark:text-zinc-500"
         >
-          <span
-            v-if="retweets > 0"
-            class="flex items-center gap-1.5 hover:text-green-500 transition-colors"
-          >
+          <span v-if="retweets > 0" class="flex items-center gap-1.5">
             <svg
               class="w-4 h-4"
               fill="none"
@@ -78,10 +75,7 @@
             </svg>
             {{ retweets }}
           </span>
-          <span
-            v-if="favorites > 0"
-            class="flex items-center gap-1.5 hover:text-red-500 transition-colors"
-          >
+          <span v-if="favorites > 0" class="flex items-center gap-1.5">
             <svg
               class="w-4 h-4"
               fill="none"
@@ -102,7 +96,7 @@
             :href="`https://twitter.com/ejfox/status/${id}`"
             target="_blank"
             rel="noopener"
-            class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity hover:text-zinc-600 dark:hover:text-zinc-300"
+            class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-150 hover:text-zinc-600 dark:hover:text-zinc-300"
           >
             <svg
               class="w-4 h-4"
@@ -177,10 +171,5 @@ const formattedDate = computed(() => {
 .tweet-card {
   @apply p-4 bg-white dark:bg-zinc-950 border rounded-xl;
   @apply border-zinc-100 dark:border-zinc-900;
-  @apply transition-colors duration-150;
-}
-
-.tweet-card:hover {
-  @apply bg-zinc-50 dark:bg-zinc-900/50;
 }
 </style>

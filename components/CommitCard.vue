@@ -45,7 +45,7 @@
             :href="`https://github.com/ejfox/${repo}/commit/${sha}`"
             target="_blank"
             rel="noopener"
-            class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity hover:text-zinc-600 dark:hover:text-zinc-300"
+            class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-150 hover:text-zinc-600 dark:hover:text-zinc-300"
           >
             <svg
               class="w-4 h-4"
@@ -95,10 +95,5 @@ const formattedDate = computed(() => {
 .commit-card {
   @apply p-4 bg-white dark:bg-zinc-950 border rounded-xl;
   @apply border-zinc-100 dark:border-zinc-900;
-  @apply transition-colors duration-150;
-}
-
-.commit-card:hover {
-  @apply bg-zinc-50 dark:bg-zinc-900/50;
 }
 </style>

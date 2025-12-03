@@ -66,7 +66,7 @@ const contentClasses = computed(() => [
 const addressButtonClasses = computed(() => [
   'text-zinc-500 dark:text-zinc-500',
   'hover:text-zinc-700 dark:hover:text-zinc-300',
-  'transition-colors break-all text-right',
+  'transition-colors duration-150 break-all text-right',
 ])
 
 // Load crypto addresses from public file
@@ -110,10 +110,5 @@ const copyAddress = async (address, coin) => {
 /* Ultra minimal - almost invisible */
 .tip-jar {
   opacity: 0.8;
-  transition: opacity 0.2s;
-}
-
-.tip-jar:hover {
-  opacity: 1;
 }
 </style>

@@ -137,7 +137,7 @@ const ageIndicatorClasses = {
   'mr-2': true,
   'opacity-0': true,
   'group-hover:opacity-60': true,
-  'transition-opacity': true,
+  'transition-opacity duration-100': true,
 }
 
 const typeHoverClasses = {
@@ -163,9 +163,6 @@ const weightIndicatorClasses = {
   'bg-zinc-300': true,
   'dark:bg-zinc-700': true,
   'rounded-full': true,
-  'group-hover:bg-zinc-500': true,
-  'dark:group-hover:bg-zinc-400': true,
-  'transition-colors': true,
 }
 
 const weightTextClasses = {

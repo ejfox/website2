@@ -7,7 +7,7 @@
   >
     <a
       href="/"
-      class="transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
+      class="text-zinc-500 dark:text-zinc-400"
     >
       Home
     </a>
@@ -21,8 +21,7 @@
         :is="crumb.href ? 'a' : 'span'"
         :href="crumb.href || undefined"
         :class="{
-          'transition-colors hover:text-zinc-900 dark:hover:text-zinc-100':
-            crumb.href,
+          'text-zinc-500 dark:text-zinc-400': crumb.href,
           'text-zinc-900 dark:text-zinc-100': !crumb.href,
         }"
       >

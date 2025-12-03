@@ -90,14 +90,14 @@ const slotTimeClasses = computed(() => [
   'text-sm font-medium',
   'text-zinc-900 dark:text-zinc-100',
   'group-hover:text-blue-600 dark:group-hover:text-blue-400',
-  'transition-colors',
+  'transition-colors duration-150',
 ])
 
 const slotArrowClasses = computed(() => [
   'flex items-center',
   'text-zinc-400 dark:text-zinc-500',
   'group-hover:text-blue-500',
-  'transition-colors',
+  'transition-colors duration-150',
 ])
 
 // Slot indicator classes based on position
@@ -153,31 +153,5 @@ onMounted(() => {
 <style scoped>
 .calendar-toc {
   position: relative;
-}
-
-.calendar-toc a {
-  position: relative;
-  overflow: hidden;
-}
-
-/* Subtle shimmer effect on hover */
-.calendar-toc a::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.1),
-    transparent
-  );
-  transition: left 0.3s ease;
-}
-
-.calendar-toc a:hover::before {
-  left: 100%;
 }
 </style>

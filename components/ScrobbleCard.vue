@@ -67,10 +67,5 @@ defineProps<Props>()
 .scrobble-card {
   @apply p-4 bg-white dark:bg-zinc-950 border rounded-xl;
   @apply border-zinc-100 dark:border-zinc-900;
-  @apply transition-colors duration-150;
-}
-
-.scrobble-card:hover {
-  @apply bg-zinc-50 dark:bg-zinc-900/50;
 }
 </style>

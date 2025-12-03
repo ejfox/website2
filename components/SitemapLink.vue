@@ -1,10 +1,5 @@
 <template>
-  <div
-    :class="[
-      'group hover:bg-zinc-50 dark:hover:bg-zinc-900/50',
-      'transition-colors rounded-lg p-4 -m-4',
-    ]"
-  >
+  <div :class="['group', 'rounded-lg p-4 -m-4']">
     <component
       :is="external ? 'a' : 'NuxtLink'"
       :to="external ? undefined : to"
