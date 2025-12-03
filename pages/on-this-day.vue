@@ -1,182 +1,133 @@
 <template>
-  <div class="max-w-xl mx-auto px-4 pt-12 pb-24 font-serif">
+  <div class="max-w-3xl mx-auto px-4 py-12">
     <!-- Header -->
-    <header class="mb-8 border-b border-zinc-200 dark:border-zinc-800 pb-4">
-      <h1 class="text-2xl tracking-tight">{{ formattedDate }}</h1>
-      <p v-if="summaryText" class="mt-1 text-sm text-zinc-500">
-        {{ summaryText }}
+    <header class="mb-12">
+      <h1 class="font-serif text-3xl mb-2">On This Day</h1>
+      <p class="text-zinc-500 dark:text-zinc-400 font-mono text-sm">
+        {{ formattedDate }}
       </p>
+
+      <!-- Date navigation -->
+      <div class="flex gap-2 mt-4">
+        <button class="nav-button" @click="changeDay(-1)">Previous</button>
+        <button class="nav-button" @click="goToToday">Today</button>
+        <button class="nav-button" @click="changeDay(1)">Next</button>
+      </div>
     </header>
 
     <!-- Loading -->
-    <p v-if="pending" class="text-zinc-400 text-sm font-mono">loading...</p>
-
-    <!-- Error state -->
-    <p v-else-if="error" class="text-sm">Error loading data for this day.</p>
+    <div v-if="pending" class="text-zinc-500">Loading...</div>
 
     <!-- Empty state -->
-    <p v-else-if="!data?.years?.length" class="text-zinc-500 text-sm italic">
-      Nothing recorded on this day.
-    </p>
+    <div
+      v-else-if="!data?.years?.length"
+      class="text-zinc-500 dark:text-zinc-400"
+    >
+      Nothing happened on this day. Yet.
+    </div>
 
     <!-- Timeline by year -->
-    <div v-else>
-      <section v-for="yearData in data.years" :key="yearData.year" class="mb-8">
+    <div v-else class="space-y-6">
+      <section v-for="yearData in data.years" :key="yearData.year">
         <!-- Year header -->
-        <h2
-          class="font-mono text-xs text-zinc-400 uppercase tracking-widest mb-4"
-        >
-          {{ yearData.year }}
-          <span class="text-zinc-300 dark:text-zinc-600">/</span>
-          {{ yearsAgo(yearData.year) }}
-        </h2>
+        <div class="year-header">
+          <span class="font-mono text-lg font-bold">{{ yearData.year }}</span>
+          <div class="h-px flex-grow bg-zinc-200 dark:bg-zinc-800"></div>
+          <span class="text-xs text-zinc-400">
+            {{ yearsAgo(yearData.year) }}
+          </span>
+        </div>
 
-        <!-- Entries -->
-        <dl class="space-y-4">
+        <!-- Dynamic rendering of all source types -->
+        <div class="space-y-0">
           <!-- Posts -->
           <template v-if="yearData.posts?.length">
-            <div v-for="post in yearData.posts" :key="post.slug">
-              <dt class="text-xs font-mono text-zinc-400 mb-0.5">post</dt>
-              <dd>
-                <NuxtLink
-                  :to="`/blog/${post.slug}`"
-                  class="underline decoration-zinc-300 dark:decoration-zinc-700 hover:decoration-zinc-500 underline-offset-2"
-                >
-                  {{ post.title }}
-                </NuxtLink>
-                <span
-                  v-if="post.dek"
-                  class="text-zinc-500 text-sm block mt-0.5"
-                >
-                  {{ post.dek }}
+            <NuxtLink
+              v-for="post in yearData.posts"
+              :key="post.slug"
+              :to="`/blog/${post.slug}`"
+              class="post-card"
+            >
+              <div class="flex items-start gap-2">
+                <span class="text-zinc-400 dark:text-zinc-600 text-xs pt-1">
+                  {{ sourceIcons.posts }}
                 </span>
-              </dd>
-            </div>
+                <div class="flex-grow min-w-0">
+                  <h3 class="font-serif text-sm text-zinc-900 dark:text-zinc-100">
+                    {{ post.title }}
+                  </h3>
+                  <p
+                    v-if="post.dek"
+                    class="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5"
+                  >
+                    {{ post.dek }}
+                  </p>
+                </div>
+              </div>
+            </NuxtLink>
           </template>
 
           <!-- Commits -->
           <template v-if="yearData.commits?.length">
-            <div v-for="commit in yearData.commits" :key="commit.sha">
-              <dt class="text-xs font-mono text-zinc-400 mb-0.5">
-                commit
-                <span class="text-zinc-300 dark:text-zinc-600">/</span>
-                {{ commit.repo }}
-              </dt>
-              <dd class="font-mono text-sm">
-                <code class="text-zinc-400 text-xs">{{ commit.sha }}</code>
-                {{ commit.message }}
-              </dd>
-            </div>
+            <CommitCard
+              v-for="commit in yearData.commits"
+              :key="commit.sha"
+              :sha="commit.sha"
+              :message="commit.message"
+              :repo="commit.repo"
+              :date="commit.date"
+            />
           </template>
 
           <!-- Tweets -->
           <template v-if="yearData.tweets?.length">
-            <div v-for="tweet in yearData.tweets" :key="tweet.id">
-              <dt class="text-xs font-mono text-zinc-400 mb-0.5">
-                tweet
-                <template v-if="tweet.replyTo">
-                  <span class="text-zinc-300 dark:text-zinc-600">/</span>
-                  re: @{{ tweet.replyTo }}
-                </template>
-              </dt>
-              <dd class="text-sm leading-relaxed whitespace-pre-wrap">
-                {{ tweet.text }}
-              </dd>
-              <dd
-                v-if="tweet.favorites > 0 || tweet.retweets > 0"
-                class="text-xs font-mono text-zinc-400 mt-1"
-              >
-                <span v-if="tweet.retweets > 0">{{ tweet.retweets }} rt</span>
-                <span v-if="tweet.retweets > 0 && tweet.favorites > 0">/</span>
-                <span v-if="tweet.favorites > 0">
-                  {{ tweet.favorites }} fav
-                </span>
-              </dd>
-            </div>
+            <TweetCard
+              v-for="tweet in yearData.tweets.filter(
+                (t) => !t.replyTo && !t.text.startsWith('RT @')
+              )"
+              :id="tweet.id"
+              :key="tweet.id"
+              :text="tweet.text"
+              :date="tweet.date"
+              :reply-to="tweet.replyTo"
+              :favorites="tweet.favorites"
+              :retweets="tweet.retweets"
+            />
           </template>
 
           <!-- Scrobbles -->
           <template v-if="yearData.scrobbles?.length">
-            <div v-for="scrobble in yearData.scrobbles" :key="scrobble.date">
-              <dt class="text-xs font-mono text-zinc-400 mb-0.5">
-                music
-                <span class="text-zinc-300 dark:text-zinc-600">/</span>
-                {{ scrobble.count }} scrobbles
-              </dt>
-              <dd class="text-sm">
-                <span v-if="scrobble.topArtists?.length" class="text-zinc-500">
-                  {{ scrobble.topArtists.slice(0, 3).join(', ') }}
-                </span>
-              </dd>
-              <dd
-                v-if="scrobble.topTracks?.length"
-                class="text-xs text-zinc-400 mt-1 font-mono"
-              >
-                <span
-                  v-for="(track, i) in scrobble.topTracks.slice(0, 3)"
-                  :key="track"
-                >
-                  {{ i + 1 }}. {{ track }}
-                  <template
-                    v-if="i < Math.min(scrobble.topTracks.length, 3) - 1"
-                  >
-                    ,
-                  </template>
-                </span>
-              </dd>
-            </div>
+            <ScrobbleCard
+              v-for="scrobble in yearData.scrobbles"
+              :key="scrobble.date"
+              :count="scrobble.count"
+              :top-tracks="scrobble.topTracks"
+              :top-artists="scrobble.topArtists"
+              :date="scrobble.date"
+            />
           </template>
-        </dl>
+        </div>
       </section>
     </div>
+
+    <!-- Summary -->
+    <footer v-if="summaryText" class="summary-footer">
+      {{ summaryText }}
+    </footer>
   </div>
 </template>
 
 <script setup lang="ts">
-interface Post {
-  slug: string
-  title: string
-  dek?: string
-}
-
-interface Commit {
-  sha: string
-  repo: string
-  message: string
-}
-
-interface Tweet {
-  id: string
-  text: string
-  replyTo?: string
-  favorites: number
-  retweets: number
-}
-
-interface Scrobble {
-  date: string
-  count: number
-  topArtists?: string[]
-  topTracks?: string[]
-}
-
-interface YearData {
-  year: number
-  posts?: Post[]
-  commits?: Commit[]
-  tweets?: Tweet[]
-  scrobbles?: Scrobble[]
-}
-
-interface OnThisDayResponse {
-  month: number
-  day: number
-  key: string
-  years: YearData[]
-  [key: string]: unknown // For total_* dynamic keys
-}
-
 const route = useRoute()
+const router = useRouter()
+
+// Source type icons (easily extensible)
+const sourceIcons: Record<string, string> = {
+  posts: 'P',
+  tweets: 'X',
+  scrobbles: 'M',
+  commits: 'G',
+}
 
 // Source type labels for summary
 const sourceLabels: Record<string, [string, string]> = {
@@ -196,15 +147,12 @@ const currentDay = ref(
 )
 
 // Fetch data
-const { data, pending, error } = await useFetch<OnThisDayResponse>(
-  '/api/on-this-day',
-  {
-    query: computed(() => ({
-      month: currentMonth.value,
-      day: currentDay.value,
-    })),
-  }
-)
+const { data, pending } = await useFetch('/api/on-this-day', {
+  query: computed(() => ({
+    month: currentMonth.value,
+    day: currentDay.value,
+  })),
+})
 
 // Formatted date display
 const formattedDate = computed(() => {
@@ -252,49 +200,51 @@ const yearsAgo = (year: number) => {
   return `${diff} years ago`
 }
 
+// Navigation
+const changeDay = (delta: number) => {
+  const date = new Date(2024, currentMonth.value - 1, currentDay.value)
+  date.setDate(date.getDate() + delta)
+  currentMonth.value = date.getMonth() + 1
+  currentDay.value = date.getDate()
+  router.push({
+    query: { month: currentMonth.value, day: currentDay.value },
+  })
+}
+
+const goToToday = () => {
+  const today = new Date()
+  currentMonth.value = today.getMonth() + 1
+  currentDay.value = today.getDate()
+  router.push({ query: {} })
+}
+
 // SEO
-usePageSeo({
-  title: computed(() => `On This Day · ${formattedDate.value}`),
-  description: computed(
-    () =>
-      summaryText.value ||
-      'What happened on ' +
-        formattedDate.value +
-        ' across blog posts, notes, and feeds.'
-  ),
-  type: 'website',
-  section: 'Meta',
-  tags: ['History', 'On this day', 'Journal', 'Archive'],
-  label1: 'Date',
-  data1: computed(() => formattedDate.value),
-  label2: 'Highlights',
-  data2: computed(() => summaryText.value || 'Loading entries...'),
+useHead({
+  title: `On This Day - ${formattedDate.value}`,
 })
-
-const onThisDaySchema = computed(() => ({
-  '@context': 'https://schema.org',
-  '@type': 'CollectionPage',
-  name: `On This Day · ${formattedDate.value}`,
-  description:
-    summaryText.value ||
-    `Entries from ${formattedDate.value} across blog posts, notes, and feeds.`,
-  url:
-    'https://ejfox.com/on-this-day?month=' +
-    currentMonth.value +
-    '&day=' +
-    currentDay.value,
-}))
-
-useHead(() => ({
-  script: [
-    {
-      type: 'application/ld+json',
-      children: JSON.stringify(onThisDaySchema.value),
-    },
-  ],
-}))
 </script>
 
 <style scoped>
-/* Minimal styles */
+.nav-button {
+  @apply px-3 py-1 text-sm rounded;
+  @apply bg-zinc-100 dark:bg-zinc-800;
+  @apply hover:bg-zinc-200 dark:hover:bg-zinc-700;
+}
+
+.year-header {
+  @apply flex items-center gap-3 mb-3 py-2 z-10;
+  @apply sticky top-0 bg-white dark:bg-zinc-950;
+}
+
+.post-card {
+  @apply block py-3 px-0;
+  @apply border-b border-zinc-200 dark:border-zinc-800;
+  @apply hover:bg-zinc-50/30 dark:hover:bg-zinc-900/30;
+}
+
+.summary-footer {
+  @apply mt-12 pt-6 border-t text-sm;
+  @apply text-zinc-500;
+  @apply border-zinc-200 dark:border-zinc-800;
+}
 </style>
