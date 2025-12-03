@@ -1,5 +1,24 @@
 <template>
   <div class="max-w-3xl mx-auto px-4 py-12">
+    <!-- Year Navigation TOC -->
+    <ClientOnly>
+      <Teleport v-if="tocTarget" to="#nav-toc-container">
+        <div v-if="data?.years?.length" class="py-4">
+          <div class="text-xs font-mono text-zinc-400 mb-2">Years</div>
+          <ul class="space-y-1">
+            <li v-for="yearData in data.years" :key="yearData.year">
+              <a
+                :href="`#year-${yearData.year}`"
+                class="block py-1 text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+              >
+                <span class="font-mono tabular-nums">{{ yearData.year }}</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </Teleport>
+    </ClientOnly>
+
     <!-- Header -->
     <header class="mb-12">
       <h1 class="font-serif text-3xl mb-2">On This Day</h1>
@@ -28,7 +47,11 @@
 
     <!-- Timeline by year -->
     <div v-else class="space-y-6">
-      <section v-for="yearData in data.years" :key="yearData.year">
+      <section
+        v-for="yearData in data.years"
+        :id="`year-${yearData.year}`"
+        :key="yearData.year"
+      >
         <!-- Year header -->
         <div class="year-header">
           <span class="font-mono text-lg font-bold">{{ yearData.year }}</span>
@@ -120,6 +143,7 @@
 <script setup lang="ts">
 const route = useRoute()
 const router = useRouter()
+const { tocTarget } = useTOC()
 
 // Source type icons (easily extensible)
 const sourceIcons: Record<string, string> = {
