@@ -1,308 +1,164 @@
 {
   "tweets": [
     {
-      "id": "1683455538204385280",
-      "text": "Twitter is dead. Long live Mastodon.\n\nhttps://t.co/i42RmTfWtp",
-      "year": 2023,
-      "date": "2023-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1551334072122761217",
-      "text": "@izzyz Would love to, I need to sketch out what I am thinking a bit further though",
-      "year": 2022,
-      "date": "2022-07-24",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "izzyz"
-    },
-    {
-      "id": "1551326462300520450",
-      "text": "joy-per-pixel ratio off the charts https://t.co/8M5lTKMTjf",
-      "year": 2022,
-      "date": "2022-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1551304620559024129",
-      "text": "it should be as easy as scrolling tik-tok to do complex and meaningful creation https://t.co/ZuoMnQyh7M",
-      "year": 2022,
-      "date": "2022-07-24",
+      "id": "1021967072010686464",
+      "text": "Things continue to get fancier in 2000 as more animations and graphics are introduced. The map has much more detail. Republican states are now colored in red (as they have been ever since) https://t.co/w2i5VWiH1Q",
+      "year": 2018,
+      "date": "Wed Jul 25 03:55:11 +0000 2018",
       "favorites": 1,
       "retweets": 0,
       "replyTo": "mrejfox"
     },
     {
-      "id": "1551304486265802753",
-      "text": "imo gpt-3 is the proper approach to mobile development, i don't want to type every individual character on my phone, but I do want to write new features on-the-go as I think of them, I think that looks a lot more like talking to a robot colleague than \"coding\"",
-      "year": 2022,
-      "date": "2022-07-24",
-      "favorites": 3,
-      "retweets": 0,
+      "id": "227974417504940032",
+      "text": "I just checked into Timcast on Ustream. Come watch and chat with me here http://t.co/BPonamQ2",
+      "year": 2012,
+      "date": "Wed Jul 25 03:51:51 +0000 2012",
+      "favorites": 0,
+      "retweets": 2,
       "replyTo": null
     },
     {
-      "id": "1418982590757879814",
-      "text": "@KatieKowalsky Its so good https://t.co/4KS5HSrp6C",
-      "year": 2021,
-      "date": "2021-07-24",
-      "favorites": 2,
+      "id": "1021964289807138816",
+      "text": "In 1992 they have snazzier graphics overall, but still just a simple state-by-state map. The flag background is timeless. Republicans are still being shown in blue, democrats in red. https://t.co/lP6Zkx29Ux",
+      "year": 2018,
+      "date": "Wed Jul 25 03:44:08 +0000 2018",
+      "favorites": 1,
       "retweets": 0,
-      "replyTo": "KatieKowalsky"
+      "replyTo": "mrejfox"
     },
     {
-      "id": "1418971704177594378",
-      "text": "just wanted to make you all aware of this important information https://t.co/qFSI1u1cge",
-      "year": 2021,
-      "date": "2021-07-24",
+      "id": "1021961516730462209",
+      "text": "A small inventory of graphics in NBC's 1984 election broadcast. They have this cool 3D vote bar chart, and a sort of oblong US map. https://t.co/ze2joeGEAo",
+      "year": 2018,
+      "date": "Wed Jul 25 03:33:07 +0000 2018",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1021959866024435712",
+      "text": "Fast forward to 1984. There's a map now, and it blinks when states are called. You'll notice that Ronald Reagan, the republican, has his states colored in blue. https://t.co/8nPwIiWG6D",
+      "year": 2018,
+      "date": "Wed Jul 25 03:26:33 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1021957713327271937",
+      "text": "They \"Victory Desk\" seems to have now become the \"Projection Desk\". \n\nEven fewer maps in this broadcast than in 1960- not even a decorative one in sight (that I could see). Lots of reading numbers that are on the screen. https://t.co/EsjWrEFEwC",
+      "year": 2018,
+      "date": "Wed Jul 25 03:18:00 +0000 2018",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1021956079511453697",
+      "text": "In 1968 they've moved onto checkmarks for (projected) winners. \n\nAlso check out that pan to reveal! https://t.co/aurQ3vHhkB",
+      "year": 2018,
+      "date": "Wed Jul 25 03:11:31 +0000 2018",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1021955217930235904",
+      "text": "Full 1960 election coverage video: https://t.co/NnzWgLOdgt",
+      "year": 2018,
+      "date": "Wed Jul 25 03:08:05 +0000 2018",
+      "favorites": 2,
+      "retweets": 1,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1021954780523057156",
+      "text": "They didn't really have very many maps in the 1960 Broadcast, just these cool number displays (some of which ticked up!) - except for a decorative map behind the anchor in one of the shots. https://t.co/ALXdjXUnHp",
+      "year": 2018,
+      "date": "Wed Jul 25 03:06:21 +0000 2018",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1021953888411430912",
+      "text": "The way NBC had the numbers flip up as they increased in the 1960 election broadcast is pretty great https://t.co/fOqj2IGaQL",
+      "year": 2018,
+      "date": "Wed Jul 25 03:02:48 +0000 2018",
+      "favorites": 6,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1021953195961143298",
+      "text": "Instead of checkmarks for the winners, they put Vs (for Victory!) decided by the NBC Victory Desk (which is the predecessor to what we now call the Decision Desk) https://t.co/bid6DfXckS",
+      "year": 2018,
+      "date": "Wed Jul 25 03:00:03 +0000 2018",
       "favorites": 4,
       "retweets": 0,
-      "replyTo": null
+      "replyTo": "mrejfox"
     },
     {
-      "id": "1418776022363873282",
-      "text": "Convincing as many people as possible to buy honda groms so we can have a little squad",
-      "year": 2021,
-      "date": "2021-07-24",
+      "id": "1021952231048921088",
+      "text": "The 1960 broadcast begins with an explanation of how NBC counts the votes using \"computers\". \n\n\"That tape is fed, electronically, into banks of magnetic tape storage reels... Within the computer, tonights returns are compared to 200,00 factors of past elections.\" https://t.co/AFpXoRSsUk",
+      "year": 2018,
+      "date": "Wed Jul 25 02:56:13 +0000 2018",
       "favorites": 2,
       "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1418750146821689345",
-      "text": "@thewarzonewire @thedrive How do you get a word wrong in both the headline AND the share text, aircraft spotters aren’t “altering” any pilots, though that would be newsworthy",
-      "year": 2021,
-      "date": "2021-07-24",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": "thewarzonewire"
-    },
-    {
-      "id": "1286785091310702599",
-      "text": "@franschrandez @enjalot Firebase magic",
-      "year": 2020,
-      "date": "2020-07-24",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": "franschrandez"
-    },
-    {
-      "id": "1286785026743574534",
-      "text": "RT @enjalot: everytime i come back to the tab where I have this notebook open somebody has changed it to a 🔥 color scheme!\nhttps://t.co/CP2…",
-      "year": 2020,
-      "date": "2020-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1286741009821511686",
-      "text": "RT @J__Velasquez: Your favorites are joining forces to keep the NYPD accountable.\n\n@THECITYNY @propublica @wnyc\n@Gothamist @MarshallProj ar…",
-      "year": 2020,
-      "date": "2020-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1286717511061446656",
-      "text": "RT @jonathanpurvis: I’m always amazed how well the Instagram story algorithm knows who I have a crush on by  displaying who watches my stor…",
-      "year": 2020,
-      "date": "2020-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1286717498218426370",
-      "text": "RT @Haydenbburger: I love when Instagram knows who my insta crushes are and puts all their stories first♥️ some may call it algorithm I cal…",
-      "year": 2020,
-      "date": "2020-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1286717415573815300",
-      "text": "RT @thehannahgold: Am I uncomfortable that Instagram knows who I have a crush on? Idk. Am I glad its algorithm has adapted to show me their…",
-      "year": 2020,
-      "date": "2020-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1286717399476121605",
-      "text": "RT @RaeWitte: The algorithm is relentless rn. Who at Instagram knows to put my man, any man I’ve hooked up with and meaningless crushes all…",
-      "year": 2020,
-      "date": "2020-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1286717357935800323",
-      "text": "RT @scremesking: I just love how the Instagram algorithm knows who my crushes are at all times",
-      "year": 2020,
-      "date": "2020-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1286717334133014528",
-      "text": "RT @rispolioli: Instagram’s algorithms are so slick, it always knows who I have a crush on and puts their stories first",
-      "year": 2020,
-      "date": "2020-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1286717299752415232",
-      "text": "RT @alyssaneilson: The Instagram algorithm knows who your crushes are and puts them at the top of the list of people who view your story 💘",
-      "year": 2020,
-      "date": "2020-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1286717285995098113",
-      "text": "RT @radioheadass: the instagram story display order algorithm is so humbling it knows who i have a crush on before i do",
-      "year": 2020,
-      "date": "2020-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1286706687076978688",
-      "text": "tweet, tweet, blue button, person in a circle, person in a circle",
-      "year": 2020,
-      "date": "2020-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1286697548829335555",
-      "text": "@TimSweeneyEpic Imo apple has been doing really great work in terms of k-12 coding education that to me is a clear lineage from this: https://t.co/iLhGl6Hqxj - dont disagree on app store gatekeepinf though",
-      "year": 2020,
-      "date": "2020-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "TimSweeneyEpic"
-    },
-    {
-      "id": "1286691527163510786",
-      "text": "@DanielGuiney_ thank you bro! I was really proud of that part!",
-      "year": 2020,
-      "date": "2020-07-24",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "DanielGuiney_"
-    },
-    {
-      "id": "1286685843474849802",
-      "text": "@sunsheeppoplar Working with CMU's COVID data https://t.co/kIlaMQXt6D",
-      "year": 2020,
-      "date": "2020-07-24",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "sunsheeppoplar"
-    },
-    {
-      "id": "1286496658491047936",
-      "text": "here's a much faster version (30 seconds instead of a minute) and a bonus super-fast version in the intro (thanks to @enjalot for the feedback) https://t.co/GjOgemKZ5s",
-      "year": 2020,
-      "date": "2020-07-24",
-      "favorites": 5,
-      "retweets": 1,
       "replyTo": "mrejfox"
     },
     {
-      "id": "1286492307961925633",
-      "text": "This is a proof of concept, more of these with some more polish coming soon, hopefully",
-      "year": 2020,
-      "date": "2020-07-24",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1286490332520165380",
-      "text": "I learned how to create the frames for the time-lapse, with a ton of help from @enjalot and @agarcia_me on livestream a few nights ago https://t.co/LCBJ84akfH - you can also check out (or fork) this notebook https://t.co/Q9goi7xfUb",
-      "year": 2020,
-      "date": "2020-07-24",
-      "favorites": 3,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1286489734718660608",
-      "text": "Data sonification done through TwoTone https://t.co/x30xKZBU5l which makes it incredibly easy to turn a dataset into audio and gives you lots of cool controls in terms of timing, scale, and timbre https://t.co/y4hms4Tbml",
-      "year": 2020,
-      "date": "2020-07-24",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1286489732898344961",
-      "text": "This is a time-lapse of Doctor Visits by county since March 1st combined with a data sonification of the same data for the entire state of New York. Data from CMU Delphi Epidata API. https://t.co/kHZsQZ98g8",
-      "year": 2020,
-      "date": "2020-07-24",
-      "favorites": 11,
-      "retweets": 1,
+      "id": "1021951616482795521",
+      "text": "Going back through the history of NBC election coverage, starting in 1960...",
+      "year": 2018,
+      "date": "Wed Jul 25 02:53:46 +0000 2018",
+      "favorites": 25,
+      "retweets": 9,
       "replyTo": null
     },
     {
-      "id": "1286463791966883842",
-      "text": "oh no https://t.co/XWrnNsLc8e",
-      "year": 2020,
-      "date": "2020-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1286463375057268748",
-      "text": "I may have gone too far, 2 hour render time on a 30 second clip seems like... a lot https://t.co/DMeXwzEj4V",
-      "year": 2020,
-      "date": "2020-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1286455774366052353",
-      "text": "RT @mrejfox: I love unfollowing people! Keep saying dumb shit people, I love it! Can't wait to live my new life not reading the thoughts of…",
-      "year": 2020,
-      "date": "2020-07-24",
+      "id": "166888452",
+      "text": "Thinking about heading to sleep.",
+      "year": 2007,
+      "date": "Wed Jul 25 02:31:06 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "1286452782757748746",
-      "text": "@newsroomdev wait til I tell ffmpeg I want it to make them into a movie",
-      "year": 2020,
-      "date": "2020-07-24",
-      "favorites": 1,
+      "id": "166843762",
+      "text": "Just showered, now I'm chilling and packing. This is kind of a double-pack, as I'm also grabbing stuff for next week's ID Tech Camp.",
+      "year": 2007,
+      "date": "Wed Jul 25 01:59:10 +0000 2007",
+      "favorites": 0,
       "retweets": 0,
-      "replyTo": "newsroomdev"
+      "replyTo": null
     },
     {
-      "id": "1286452151364059138",
-      "text": "currently generating 140 images at 15232 x 9672 resolution",
-      "year": 2020,
-      "date": "2020-07-24",
-      "favorites": 2,
+      "id": "1021917411455451136",
+      "text": "@417am1975 wow good work lil buddy",
+      "year": 2018,
+      "date": "Wed Jul 25 00:37:51 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "417am1975"
+    },
+    {
+      "id": "1021917391725445120",
+      "text": "RT @417am1975: 2-24-2-1532478029718 https://t.co/IUWE0MsU2W",
+      "year": 2018,
+      "date": "Wed Jul 25 00:37:47 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "166721012",
+      "text": "Deciding upon a tattoo.",
+      "year": 2007,
+      "date": "Wed Jul 25 00:23:04 +0000 2007",
+      "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
@@ -310,223 +166,7 @@
       "id": "1154050250031562753",
       "text": "RT @bobste_in: @mrejfox Been appalled by deletionism on Wikipedia and Stack Overflow for years. Perhaps revision histories are too static.…",
       "year": 2019,
-      "date": "2019-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1153958132030349312",
-      "text": "This is just one piece of a huge deletionist bent to Wikipedia recently. We are going to see a lot more of this. https://t.co/ORLgB3lOeW",
-      "year": 2019,
-      "date": "2019-07-24",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1021901224105451527",
-      "text": "Dude it is HOT and I am NOT INTO IT",
-      "year": 2018,
-      "date": "2018-07-24",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1021859727746236419",
-      "text": "There's gotta be a name for the honored mechanism Oaklanders use music and dancing in the streets to mourn and come together and show anger - it means so much to be a part of, it is very very special  https://t.co/9raYNgCjZw",
-      "year": 2018,
-      "date": "2018-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1021859377941278725",
-      "text": "RT @lucasguilkey: Nia Wilson was a rapper, so her sister out here blasted some of her music #sayhername https://t.co/MpUSIHlIqX",
-      "year": 2018,
-      "date": "2018-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1021779321445384192",
-      "text": "Is there a good example out there of loading an external CSV into an Observable notebook? (Like off S3?)",
-      "year": 2018,
-      "date": "2018-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1021779245570420736",
-      "text": "RT @417am1975: 12-1-3-1532445645269 https://t.co/yJOu9BpDeT",
-      "year": 2018,
-      "date": "2018-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1021724867522162688",
-      "text": "RT @TheRoot: Pennsylvania man shot and killed at local bar after defending black man who was being called racial slurs: https://t.co/980yQb…",
-      "year": 2018,
-      "date": "2018-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1021722535388434434",
-      "text": "😦 https://t.co/PykhYfTaqG",
-      "year": 2018,
-      "date": "2018-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "889574015869882369",
-      "text": "@Caged It’s flex-tool-bar and I love it https://t.co/96luwMWEwR - this is my setup: https://t.co/nnRhTJAdkP",
-      "year": 2017,
-      "date": "2017-07-24",
-      "favorites": 1,
-      "retweets": 1,
-      "replyTo": "Caged"
-    },
-    {
-      "id": "889570501240213505",
-      "text": "Been coding for a long time, and never been happier with my setup. In love with Atom. https://t.co/028ZDQggj8",
-      "year": 2017,
-      "date": "2017-07-24",
-      "favorites": 4,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "889564289941594116",
-      "text": "RT @Jsang: @mrejfox I prefer car chase live streams. Now a train chase could be interesting",
-      "year": 2017,
-      "date": "2017-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "889564023309701124",
-      "text": "Look at those trains go, woo-ee",
-      "year": 2017,
-      "date": "2017-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "889563919618101248",
-      "text": "SUPER EXCITING LIVE STREAM ALERT https://t.co/sGknmLclHe",
-      "year": 2017,
-      "date": "2017-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "889503320053878784",
-      "text": "back to the work computer again and- oh right https://t.co/UmUYAoJuVU",
-      "year": 2017,
-      "date": "2017-07-24",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "757208310877679616",
-      "text": "RT @dinoj1: Even if Trump loses, there are 50MM Americans voting for him. Election is hugely important but we still have to coexist no matt…",
-      "year": 2016,
-      "date": "2016-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "757173253479755776",
-      "text": "How long before these Bernie supporters stop trying to reform the Democratic party and just become anarchists?\n\n(18 months)",
-      "year": 2016,
-      "date": "2016-07-24",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "757171121309573120",
-      "text": "the answer was no",
-      "year": 2016,
-      "date": "2016-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "757162268589223936",
-      "text": "RT @SwiftOnSecurity: But hey maybe I'm the only one who cares #DNCLeak is a domestic attack by a foreign government to change an election.…",
-      "year": 2016,
-      "date": "2016-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "757162194874298368",
-      "text": "RT @SwiftOnSecurity: Periodic reminder #DNCleak was hacked by the Russian government to influence the American election. https://t.co/6TeAL…",
-      "year": 2016,
-      "date": "2016-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "757042243479937025",
-      "text": "why are all these outlets reporting this \"gucci was a drug addict\" shit like it's breaking news\n\ndid you listen to gucci?",
-      "year": 2016,
-      "date": "2016-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "757041744668164096",
-      "text": "do i want a hot dog so bad I'll walk to crif dogs?",
-      "year": 2016,
-      "date": "2016-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "757041530133676032",
-      "text": "what if one wants a hotdog at 11pm in bed-stuy",
-      "year": 2016,
-      "date": "2016-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "624677827397459968",
-      "text": "@banikarim wat am i 2 u",
-      "year": 2015,
-      "date": "2015-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "banikarim"
-    },
-    {
-      "id": "624395992893419520",
-      "text": "RT @enjalot: blown away by the support for Building Bl.ocks now only $160 away from the final stretch goal… https://t.co/1ttUNr8Sr9 #d3js",
-      "year": 2015,
-      "date": "2015-07-24",
+      "date": "Wed Jul 24 15:26:35 +0000 2019",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -535,8 +175,17 @@
       "id": "360042749740847104",
       "text": "Today… I learn Ableton 9.",
       "year": 2013,
-      "date": "2013-07-24",
+      "date": "Wed Jul 24 14:24:15 +0000 2013",
       "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1153958132030349312",
+      "text": "This is just one piece of a huge deletionist bent to Wikipedia recently. We are going to see a lot more of this. https://t.co/ORLgB3lOeW",
+      "year": 2019,
+      "date": "Wed Jul 24 09:20:32 +0000 2019",
+      "favorites": 2,
       "retweets": 0,
       "replyTo": null
     },
@@ -544,53 +193,17 @@
       "id": "359887917369405443",
       "text": "RT @enjalot: adulthood is measured by responsibility not conformity. only the insecure and immature will resort to labelling someone as chi…",
       "year": 2013,
-      "date": "2013-07-24",
+      "date": "Wed Jul 24 04:09:00 +0000 2013",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "227837656040620033",
-      "text": "@enjalot I tried to understand this tweet for so long to no success.",
-      "year": 2012,
-      "date": "2012-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "enjalot"
-    },
-    {
-      "id": "95277394528710656",
-      "text": "Just posted a photo http://instagr.am/p/IcrSD/",
-      "year": 2011,
-      "date": "2011-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "94976325256888321",
-      "text": "@flowingdata Just finished the book- loved it, especially the chernoff faces & mapping. Can't wait to try new stuff out.",
-      "year": 2011,
-      "date": "2011-07-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "flowingdata"
-    },
-    {
-      "id": "2827883407",
-      "text": "They shouldn't really call \"having a dog\" that... it's more like \"having a mess\" and then there's also a dog who hangs out too.",
-      "year": 2009,
-      "date": "2009-07-24",
+      "id": "1021901224105451527",
+      "text": "Dude it is HOT and I am NOT INTO IT",
+      "year": 2018,
+      "date": "Tue Jul 24 23:33:32 +0000 2018",
       "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "2821145156",
-      "text": "Last night was pretty awesome. Adrienne, Max, and Levi hung out. Max and Adrienne talked me into a 3AM relationship phone call. Great.",
-      "year": 2009,
-      "date": "2009-07-24",
-      "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
@@ -598,7 +211,7 @@
       "id": "166642922",
       "text": "Writing songs, or something. Then packing for my nights at the farm.",
       "year": 2007,
-      "date": "2007-07-24",
+      "date": "Tue Jul 24 23:15:11 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -607,186 +220,415 @@
       "id": "166549522",
       "text": "I've fallen in love with the idea of it all.",
       "year": 2007,
-      "date": "2007-07-24",
+      "date": "Tue Jul 24 21:54:21 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "165112302",
-      "text": "Trying really hard to go to sleep, closing my eyes and just laying there. Not thinking.",
-      "year": 2007,
-      "date": "2007-07-24",
+      "id": "1021859727746236419",
+      "text": "There's gotta be a name for the honored mechanism Oaklanders use music and dancing in the streets to mourn and come together and show anger - it means so much to be a part of, it is very very special  https://t.co/9raYNgCjZw",
+      "year": 2018,
+      "date": "Tue Jul 24 20:48:38 +0000 2018",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "165066712",
-      "text": "Couldn't sleep. Party foul.",
-      "year": 2007,
-      "date": "2007-07-24",
+      "id": "1021859377941278725",
+      "text": "RT @lucasguilkey: Nia Wilson was a rapper, so her sister out here blasted some of her music #sayhername https://t.co/MpUSIHlIqX",
+      "year": 2018,
+      "date": "Tue Jul 24 20:47:15 +0000 2018",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "165028052",
-      "text": "Time to chill around and then sleep again. Heh.",
-      "year": 2007,
-      "date": "2007-07-24",
+      "id": "227837656040620033",
+      "text": "@enjalot I tried to understand this tweet for so long to no success.",
+      "year": 2012,
+      "date": "Tue Jul 24 18:48:24 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "enjalot"
+    },
+    {
+      "id": "1021779321445384192",
+      "text": "Is there a good example out there of loading an external CSV into an Observable notebook? (Like off S3?)",
+      "year": 2018,
+      "date": "Tue Jul 24 15:29:08 +0000 2018",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "165016152",
-      "text": "I passed out 5 hours ago, and just woke up, feeling like I had a night's rest. I think my body might be getting used to like 5 hours a night",
-      "year": 2007,
-      "date": "2007-07-24",
+      "id": "1021779245570420736",
+      "text": "RT @417am1975: 12-1-3-1532445645269 https://t.co/yJOu9BpDeT",
+      "year": 2018,
+      "date": "Tue Jul 24 15:28:50 +0000 2018",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
-    }
-  ],
-  "posts": [],
-  "scrobbles": [
-    {
-      "date": "2021-07-24",
-      "year": 2021,
-      "count": 18,
-      "topTracks": [
-        "Sango - Hit You When I Land",
-        "Sango - Lakers",
-        "Sango - FWM (feat. Amos Rose)",
-        "Sango - Limitless (feat. The SEVENth & Joose The Conqueror)",
-        "Sango - Blade (feat. Jay Anthony)"
-      ],
-      "topArtists": ["Sango", "Djunya"]
     },
     {
-      "date": "2020-07-24",
-      "year": 2020,
-      "count": 13,
-      "topTracks": [
-        "Cousin Stizz - Headlock (feat. Offset)",
-        "Cousin Stizz - Beamin'",
-        "Cousin Stizz - Traumatized",
-        "Cousin Stizz - 500 Horses",
-        "Cousin Stizz - VENDETTA"
-      ],
-      "topArtists": ["Cousin Stizz"]
+      "id": "1021724867522162688",
+      "text": "RT @TheRoot: Pennsylvania man shot and killed at local bar after defending black man who was being called racial slurs: https://t.co/980yQb…",
+      "year": 2018,
+      "date": "Tue Jul 24 11:52:45 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
     },
     {
-      "date": "2019-07-24",
-      "year": 2019,
-      "count": 4,
-      "topTracks": [
-        "21 Savage - 4L",
-        "Playboi Carti - Magnolia",
-        "Saba - LOGOUT",
-        "Chance the Rapper - Interlude (That's Love)"
-      ],
-      "topArtists": ["21 Savage", "Playboi Carti", "Saba"]
+      "id": "1021722535388434434",
+      "text": "😦 https://t.co/PykhYfTaqG",
+      "year": 2018,
+      "date": "Tue Jul 24 11:43:29 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
     },
     {
-      "date": "2016-07-24",
+      "id": "95277394528710656",
+      "text": "Just posted a photo http://instagr.am/p/IcrSD/",
+      "year": 2011,
+      "date": "Sun Jul 24 23:41:15 +0000 2011",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1551334072122761217",
+      "text": "@izzyz Would love to, I need to sketch out what I am thinking a bit further though",
+      "year": 2022,
+      "date": "Sun Jul 24 22:30:39 +0000 2022",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "izzyz"
+    },
+    {
+      "id": "1551326462300520450",
+      "text": "joy-per-pixel ratio off the charts https://t.co/8M5lTKMTjf",
+      "year": 2022,
+      "date": "Sun Jul 24 22:00:25 +0000 2022",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1551304620559024129",
+      "text": "it should be as easy as scrolling tik-tok to do complex and meaningful creation https://t.co/ZuoMnQyh7M",
+      "year": 2022,
+      "date": "Sun Jul 24 20:33:38 +0000 2022",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1551304486265802753",
+      "text": "imo gpt-3 is the proper approach to mobile development, i don't want to type every individual character on my phone, but I do want to write new features on-the-go as I think of them, I think that looks a lot more like talking to a robot colleague than \"coding\"",
+      "year": 2022,
+      "date": "Sun Jul 24 20:33:06 +0000 2022",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "757208310877679616",
+      "text": "RT @dinoj1: Even if Trump loses, there are 50MM Americans voting for him. Election is hugely important but we still have to coexist no matt…",
       "year": 2016,
-      "count": 4,
-      "topTracks": [
-        "Gucci Mane - No Sleep - Intro",
-        "Gucci Mane - Out Do Ya",
-        "Gucci Mane - Back On Road",
-        "Gucci Mane - Waybach"
-      ],
-      "topArtists": ["Gucci Mane"]
+      "date": "Sun Jul 24 13:38:24 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
     },
     {
-      "date": "2015-07-24",
-      "year": 2015,
-      "count": 20,
-      "topTracks": [
-        "Kendrick Lamar - Alright",
-        "Kendrick Lamar - For Sale? - Interlude",
-        "Kendrick Lamar - Momma",
-        "Kendrick Lamar - Hood Politics",
-        "Kendrick Lamar - How Much a Dollar Cost"
-      ],
-      "topArtists": ["Kendrick Lamar", "A$AP Rocky", "Action Bronson"]
+      "id": "757173253479755776",
+      "text": "How long before these Bernie supporters stop trying to reform the Democratic party and just become anarchists?\n\n(18 months)",
+      "year": 2016,
+      "date": "Sun Jul 24 11:19:05 +0000 2016",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
     },
     {
-      "date": "2013-07-24",
-      "year": 2013,
-      "count": 18,
-      "topTracks": [
-        "Trick Daddy - Take It to da House",
-        "Fuck Buttons - Brainfreeze",
-        "Fuck Buttons - Year Of The Dog",
-        "Fuck Buttons - The Red Wing",
-        "Fuck Buttons - Sentients"
-      ],
-      "topArtists": ["Trick Daddy", "Fuck Buttons", "Disclosure"]
+      "id": "757171121309573120",
+      "text": "the answer was no",
+      "year": 2016,
+      "date": "Sun Jul 24 11:10:37 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
     },
     {
-      "date": "2009-07-24",
+      "id": "757162268589223936",
+      "text": "RT @SwiftOnSecurity: But hey maybe I'm the only one who cares #DNCLeak is a domestic attack by a foreign government to change an election.…",
+      "year": 2016,
+      "date": "Sun Jul 24 10:35:26 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "757162194874298368",
+      "text": "RT @SwiftOnSecurity: Periodic reminder #DNCleak was hacked by the Russian government to influence the American election. https://t.co/6TeAL…",
+      "year": 2016,
+      "date": "Sun Jul 24 10:35:09 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1418982590757879814",
+      "text": "@KatieKowalsky Its so good https://t.co/4KS5HSrp6C",
+      "year": 2021,
+      "date": "Sat Jul 24 17:13:07 +0000 2021",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "KatieKowalsky"
+    },
+    {
+      "id": "1418971704177594378",
+      "text": "just wanted to make you all aware of this important information https://t.co/qFSI1u1cge",
+      "year": 2021,
+      "date": "Sat Jul 24 16:29:52 +0000 2021",
+      "favorites": 4,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "95342120642162688",
+      "text": "RT @acarvin: A show's gotta have a code. RT @baltimoresun: Actor Michael K. Williams from #TheWire joining NBC comedy http://bsun.md/pIL9hR",
+      "year": 2011,
+      "date": "Mon Jul 25 03:58:27 +0000 2011",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "889574015869882369",
+      "text": "@Caged It’s flex-tool-bar and I love it https://t.co/96luwMWEwR - this is my setup: https://t.co/nnRhTJAdkP",
+      "year": 2017,
+      "date": "Mon Jul 24 19:52:27 +0000 2017",
+      "favorites": 1,
+      "retweets": 1,
+      "replyTo": "Caged"
+    },
+    {
+      "id": "889570501240213505",
+      "text": "Been coding for a long time, and never been happier with my setup. In love with Atom. https://t.co/028ZDQggj8",
+      "year": 2017,
+      "date": "Mon Jul 24 19:38:29 +0000 2017",
+      "favorites": 4,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "889564289941594116",
+      "text": "RT @Jsang: @mrejfox I prefer car chase live streams. Now a train chase could be interesting",
+      "year": 2017,
+      "date": "Mon Jul 24 19:13:48 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "889564023309701124",
+      "text": "Look at those trains go, woo-ee",
+      "year": 2017,
+      "date": "Mon Jul 24 19:12:45 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "889563919618101248",
+      "text": "SUPER EXCITING LIVE STREAM ALERT https://t.co/sGknmLclHe",
+      "year": 2017,
+      "date": "Mon Jul 24 19:12:20 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "889503320053878784",
+      "text": "back to the work computer again and- oh right https://t.co/UmUYAoJuVU",
+      "year": 2017,
+      "date": "Mon Jul 24 15:11:32 +0000 2017",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1683455538204385280",
+      "text": "Twitter is dead. Long live Mastodon.\n\nhttps://t.co/i42RmTfWtp",
+      "year": 2023,
+      "date": "Mon Jul 24 12:34:12 +0000 2023",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "2827883407",
+      "text": "They shouldn't really call \"having a dog\" that... it's more like \"having a mess\" and then there's also a dog who hangs out too.",
       "year": 2009,
-      "count": 102,
-      "topTracks": [
-        "Buddy Holly - Everyday",
-        "A Turning Mercury - Hello Home",
-        "A Turning Mercury - Independence Is A Person",
-        "A Turning Mercury - Raincloud",
-        "Dntel - (This Is) The Dream of Evan and Chan"
-      ],
-      "topArtists": ["Buddy Holly", "A Turning Mercury", "Dntel"]
+      "date": "Fri Jul 24 23:11:34 +0000 2009",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
     },
     {
-      "date": "2008-07-24",
-      "year": 2008,
-      "count": 9,
-      "topTracks": [
-        "Kevin Smith and Scott Mosier - SModcast 57: Terrorist Pizza",
-        "Boards of Canada - The Smallest Weird Number",
-        "Boards of Canada - Seeya Later",
-        "Boards of Canada - Melissa Juice",
-        "Goldfrapp - Little Bird"
-      ],
-      "topArtists": [
-        "Kevin Smith and Scott Mosier",
-        "Boards of Canada",
-        "Goldfrapp"
-      ]
+      "id": "1286785091310702599",
+      "text": "@franschrandez @enjalot Firebase magic",
+      "year": 2020,
+      "date": "Fri Jul 24 22:07:27 +0000 2020",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "franschrandez"
     },
     {
-      "date": "2007-07-24",
-      "year": 2007,
-      "count": 20,
-      "topTracks": [
-        "Plain White T's - Friends Don't Let Friends Dial Drunk",
-        "Gwen Stefani - Yummy",
-        "Gwen Stefani - Wind It Up",
-        "Gwen Stefani - 4 in the Morning",
-        "Santana - Guajira"
-      ],
-      "topArtists": ["Plain White T's", "Gwen Stefani", "Santana"]
+      "id": "1286785026743574534",
+      "text": "RT @enjalot: everytime i come back to the tab where I have this notebook open somebody has changed it to a 🔥 color scheme!\nhttps://t.co/CP2…",
+      "year": 2020,
+      "date": "Fri Jul 24 22:07:12 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
     },
     {
-      "date": "2006-07-24",
-      "year": 2006,
-      "count": 65,
-      "topTracks": [
-        "The Leaky Cauldron (LeakyNews.com) - PotterCast #48: Potter in the Water",
-        "The Leaky Cauldron (LeakyNews.com) - PotterCast #49: Trio of Five",
-        "Jamie Kennedy and Stu Stone - Jamie Kennedy and Stu Stone hang w/ E-40 Part 2",
-        "Weekend America July 22, 2006 - Hour 1: Firefighters....",
-        "project:CITIZEN - Equality"
-      ],
-      "topArtists": [
-        "The Leaky Cauldron (LeakyNews.com)",
-        "Jamie Kennedy and Stu Stone",
-        "Weekend America July 22, 2006"
-      ]
+      "id": "624677827397459968",
+      "text": "@banikarim wat am i 2 u",
+      "year": 2015,
+      "date": "Fri Jul 24 20:29:34 +0000 2015",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "banikarim"
+    },
+    {
+      "id": "1286741009821511686",
+      "text": "RT @J__Velasquez: Your favorites are joining forces to keep the NYPD accountable.\n\n@THECITYNY @propublica @wnyc\n@Gothamist @MarshallProj ar…",
+      "year": 2020,
+      "date": "Fri Jul 24 19:12:17 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1286717511061446656",
+      "text": "RT @jonathanpurvis: I’m always amazed how well the Instagram story algorithm knows who I have a crush on by  displaying who watches my stor…",
+      "year": 2020,
+      "date": "Fri Jul 24 17:38:55 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1286717498218426370",
+      "text": "RT @Haydenbburger: I love when Instagram knows who my insta crushes are and puts all their stories first♥️ some may call it algorithm I cal…",
+      "year": 2020,
+      "date": "Fri Jul 24 17:38:52 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1286717415573815300",
+      "text": "RT @thehannahgold: Am I uncomfortable that Instagram knows who I have a crush on? Idk. Am I glad its algorithm has adapted to show me their…",
+      "year": 2020,
+      "date": "Fri Jul 24 17:38:32 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1286717399476121605",
+      "text": "RT @RaeWitte: The algorithm is relentless rn. Who at Instagram knows to put my man, any man I’ve hooked up with and meaningless crushes all…",
+      "year": 2020,
+      "date": "Fri Jul 24 17:38:28 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1286717357935800323",
+      "text": "RT @scremesking: I just love how the Instagram algorithm knows who my crushes are at all times",
+      "year": 2020,
+      "date": "Fri Jul 24 17:38:18 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1286717334133014528",
+      "text": "RT @rispolioli: Instagram’s algorithms are so slick, it always knows who I have a crush on and puts their stories first",
+      "year": 2020,
+      "date": "Fri Jul 24 17:38:13 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1286717299752415232",
+      "text": "RT @alyssaneilson: The Instagram algorithm knows who your crushes are and puts them at the top of the list of people who view your story 💘",
+      "year": 2020,
+      "date": "Fri Jul 24 17:38:04 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1286717285995098113",
+      "text": "RT @radioheadass: the instagram story display order algorithm is so humbling it knows who i have a crush on before i do",
+      "year": 2020,
+      "date": "Fri Jul 24 17:38:01 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1286706687076978688",
+      "text": "tweet, tweet, blue button, person in a circle, person in a circle",
+      "year": 2020,
+      "date": "Fri Jul 24 16:55:54 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "2821145156",
+      "text": "Last night was pretty awesome. Adrienne, Max, and Levi hung out. Max and Adrienne talked me into a 3AM relationship phone call. Great.",
+      "year": 2009,
+      "date": "Fri Jul 24 16:24:26 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1286697548829335555",
+      "text": "@TimSweeneyEpic Imo apple has been doing really great work in terms of k-12 coding education that to me is a clear lineage from this: https://t.co/iLhGl6Hqxj - dont disagree on app store gatekeepinf though",
+      "year": 2020,
+      "date": "Fri Jul 24 16:19:35 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "TimSweeneyEpic"
+    },
+    {
+      "id": "1286691527163510786",
+      "text": "@DanielGuiney_ thank you bro! I was really proud of that part!",
+      "year": 2020,
+      "date": "Fri Jul 24 15:55:40 +0000 2020",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "DanielGuiney_"
+    },
+    {
+      "id": "1286685843474849802",
+      "text": "@sunsheeppoplar Working with CMU's COVID data https://t.co/kIlaMQXt6D",
+      "year": 2020,
+      "date": "Fri Jul 24 15:33:05 +0000 2020",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "sunsheeppoplar"
     }
-  ],
-  "commits": []
+  ]
 }

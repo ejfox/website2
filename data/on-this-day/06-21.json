@@ -1,442 +1,10 @@
 {
   "tweets": [
     {
-      "id": "1671591332438056967",
-      "text": "yup https://t.co/mBdeiZV8ZB",
-      "year": 2023,
-      "date": "2023-06-21",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1671330710777393153",
-      "text": "Walked for 10 blocks, ordered pizza, realized I forgot my wallet, walked home, sad, upset, and with some negative karma to make up for",
-      "year": 2023,
-      "date": "2023-06-21",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1539370003337818112",
-      "text": "the start to all of my favorite blessings https://t.co/c0zPt3GLaU",
-      "year": 2022,
-      "date": "2022-06-21",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1539368765821014018",
-      "text": "damn it https://t.co/uUX5ih5iJg",
-      "year": 2022,
-      "date": "2022-06-21",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1539348883532300293",
-      "text": "RT @fig: 🥳 Excited about @GitHubCopilot's public launch today? \n\nYou can use OpenAI's powerful Codex API (AI behind Copilot) from your term…",
-      "year": 2022,
-      "date": "2022-06-21",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1539218110162534405",
-      "text": "@mattdesl The \"Target Fund\" seems like the most useful and easily prototyped, I would love to Tweet out an idea and a budget (materials, domain and a few hours of my time) and have people fund the things they want to see created",
-      "year": 2022,
-      "date": "2022-06-21",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1539217683882733568",
-      "text": "@mattdesl I would prefer a Stripe-like service that allows me to integrate micropayments into my own web work than a platform that tries to handle it for me- I should be able to have a Patreon-level Tezos-based subscription/microtransaction site with not a lot of effort, imo",
-      "year": 2022,
-      "date": "2022-06-21",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": "mattdesl"
-    },
-    {
-      "id": "1539214786562510848",
-      "text": "@mattdesl I have been waiting for a service that makes UX around crypto-related micro transactions for creators for yeaaaarssss https://t.co/fNjpqNCl9X",
-      "year": 2022,
-      "date": "2022-06-21",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": "mattdesl"
-    },
-    {
-      "id": "1407103361002913810",
-      "text": "if Apple was like \"you can watch Ted Lasso right now, a day early, if you give us $20 right now\" I would throw my money at the screen so quickly",
-      "year": 2021,
-      "date": "2021-06-21",
-      "favorites": 7,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1407097294382587910",
-      "text": "NIGHT SHOWER\n\nDOUBLE SHOWER DAY",
-      "year": 2021,
-      "date": "2021-06-21",
-      "favorites": 3,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1407056830979846145",
-      "text": "@wehearttrash @treekisser I mean it says \"if Biden gets in\"",
-      "year": 2021,
-      "date": "2021-06-21",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "yrtrashhh"
-    },
-    {
-      "id": "1407054176992088066",
-      "text": "RT @AliBaumanTV: The NYPD oversight board @CCRB_NYC says it faces \"unprecedented challenges investigating\" the 750+ complaints against NYPD…",
-      "year": 2021,
-      "date": "2021-06-21",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1274727427726606339",
-      "text": "also, I get my motorcycle license in July",
-      "year": 2020,
-      "date": "2020-06-21",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1274723815281561600",
-      "text": "The call to bring my little motorcycle across the hudson river grows ever stronger, yet it is quite an adventure as I must navigate a route down 9W and across the Bear Mountain Bridge because if I take my minibike on the Newburgh Beacon bridge I assume I will be quickly killed",
-      "year": 2020,
-      "date": "2020-06-21",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1274718695542136832",
-      "text": "Story pitch: I draw a map of all of the various Tik Tok subcultures, their interactions, alliances, and grievances.",
-      "year": 2020,
-      "date": "2020-06-21",
-      "favorites": 22,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1274717104667795458",
-      "text": "RT @ClintSmithIII: Father's Day is a good day to remind people that all phone calls and video calls for incarcerated people should be free…",
-      "year": 2020,
-      "date": "2020-06-21",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1142191550870540288",
-      "text": "The revolution needs tech support",
-      "year": 2019,
-      "date": "2019-06-21",
-      "favorites": 4,
-      "retweets": 1,
-      "replyTo": null
-    },
-    {
-      "id": "1142148336620843015",
-      "text": "So, just a heads up, but when the government announces they are going to “round up millions” – that is the point at which you need to take a long hard look at what you are doing with your life and what you are willing to do to make things right.",
-      "year": 2019,
-      "date": "2019-06-21",
-      "favorites": 3,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1142148074174918656",
-      "text": "RT @DaveId: If you witness ICE raiding homes and businesses, kidnapping folks, take photos and video, document what's going on.  The family…",
-      "year": 2019,
-      "date": "2019-06-21",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1142059972529983488",
-      "text": "RT @studentactivism: Many of these kids have parents or other family in the US. They could be released into the homes of people who love th…",
-      "year": 2019,
-      "date": "2019-06-21",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1142053247743643649",
-      "text": "@DecolonialBlack In Oakland, Occupy Oakland had lots of goals, but things very quickly centered on police misconduct by OPD, Oscar Grant, Trayvon Martin while NY focused on banks. Each encampment found it’s own issues, but OO was so clearly pre-BLM it’s crazy no one talks about it.",
-      "year": 2019,
-      "date": "2019-06-21",
-      "favorites": 6,
-      "retweets": 2,
-      "replyTo": "DecolonialBlack"
-    },
-    {
-      "id": "1142049512963432448",
-      "text": "RT @dansinker: The cruelty is the point. https://t.co/bupcBdt6u6",
-      "year": 2019,
-      "date": "2019-06-21",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1141897998240288769",
-      "text": "for reasons beyond my understanding, I can not watch netflix on my external monitor in the latest version of safari, but it works fine in Brave – seems like a major fuck up somewhere along the way to me https://t.co/HynHsdBkgI",
-      "year": 2019,
-      "date": "2019-06-21",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1141891667869478913",
-      "text": "@mdavidallen https!",
-      "year": 2019,
-      "date": "2019-06-21",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mdavidallen"
-    },
-    {
-      "id": "1141890573743349761",
-      "text": "I wrote a little bit more about my encrypted communication setup here: https://t.co/mvXQzu158R and you should all, techies or not, be able to send an encrypted email/comms in 2019 – you don't want to be learning this when you need it, it should be second nature by then.",
-      "year": 2019,
-      "date": "2019-06-21",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1141889599205257216",
-      "text": "Because my paranoia knows no bounds, I made it very easy to pull all the mirrors of my public PGP key and make sure they all have the correct matching fingerprints https://t.co/wa2ni7QDie",
-      "year": 2019,
-      "date": "2019-06-21",
-      "favorites": 2,
-      "retweets": 1,
-      "replyTo": null
-    },
-    {
-      "id": "1141879789013348359",
-      "text": "@lisawilkins Thank you Lisa! :)",
-      "year": 2019,
-      "date": "2019-06-21",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "lisawilkins"
-    },
-    {
-      "id": "1141868947731623936",
-      "text": "@DeanLuk Thank you! I sure hope you're right...",
-      "year": 2019,
-      "date": "2019-06-21",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "DeanLuk"
-    },
-    {
-      "id": "1009944018648780801",
-      "text": "@oneunderscore__ @BobSaietta Say hi to him for me",
-      "year": 2018,
-      "date": "2018-06-21",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "oneunderscore__"
-    },
-    {
-      "id": "1009942786634866695",
-      "text": "This Bodega in the village tried to change me $1.50 for those half sized $0.50 Arizona cans. Didn’t even put it back before I took my money and left that’s how mad I was.",
-      "year": 2018,
-      "date": "2018-06-21",
-      "favorites": 1,
-      "retweets": 1,
-      "replyTo": null
-    },
-    {
-      "id": "1009916053164625921",
-      "text": "Headed there now. https://t.co/01kyPJJN5I",
-      "year": 2018,
-      "date": "2018-06-21",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1009907028880437249",
-      "text": "RT @lhwaldron: Today @instagram decided to delete a @ProPublica post from Oct. 2017 that used footage from violent protests to identify mem…",
-      "year": 2018,
-      "date": "2018-06-21",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1009905773973995522",
-      "text": "No one told me this but street photography is a lot easier without headphones",
-      "year": 2018,
-      "date": "2018-06-21",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1009888270161973248",
-      "text": "@ALSTON2008 Get it",
-      "year": 2018,
-      "date": "2018-06-21",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "ALSTON2008"
-    },
-    {
-      "id": "1009886331504295937",
-      "text": "RT @VICELAND: The teens are our future.\n\nHappy Pride. https://t.co/uiiV0lVlvv",
-      "year": 2018,
-      "date": "2018-06-21",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1009886045113061376",
-      "text": "When I feel the darkest I look to our youngest activists who seem to have a better, clearer vision of the world than anyone else",
-      "year": 2018,
-      "date": "2018-06-21",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1009885670997942273",
-      "text": "RT @sarahljaffe: Kid asks her mother \"is it against the law to do this\" mother says \"it is but what they're doing is against the laws of hu…",
-      "year": 2018,
-      "date": "2018-06-21",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1009850603332304898",
-      "text": "I am continually impressed with the amazing things coming from @Datawrapper - our newsroom at Vocativ used it tons and always just wanted more visualizations. Would recommend to anyone doing viz (who doesn't want write bespoke D3) https://t.co/Ytl7DSoula",
-      "year": 2018,
-      "date": "2018-06-21",
-      "favorites": 7,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1009829529165160448",
-      "text": "RT @lostblackboy: I never saw images of gay black men in love growing up, and this lack of representation has always haunted me.\n\nSo, I sou…",
-      "year": 2018,
-      "date": "2018-06-21",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1009824484814147586",
-      "text": "@jaysunsilver @CBSNews That's awesome. Si hi to @markham for me.",
-      "year": 2018,
-      "date": "2018-06-21",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "jaysunsilver"
-    },
-    {
-      "id": "1009813672158466048",
-      "text": "I don't trust anyone with their GPA in their resume",
-      "year": 2018,
-      "date": "2018-06-21",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1009810891959951360",
-      "text": "They keep doing this thing where the legalize possession of weed but don't make it legal to smoke it anywhere and people celebrate and it's weird",
-      "year": 2018,
-      "date": "2018-06-21",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1009810636556177409",
-      "text": "RT @333333333433333: love hearing gentrifiers complain about other gentrifiers who began either slightly earlier or slightly later than them",
-      "year": 2018,
-      "date": "2018-06-21",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1009617414198349824",
-      "text": "This is the most Kardashian shit I have ever seen https://t.co/DJgGWzkCdf",
-      "year": 2018,
-      "date": "2018-06-21",
-      "favorites": 3,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1009602575329570816",
-      "text": "RT @govtrack: @reveal That happened to us today too.",
-      "year": 2018,
-      "date": "2018-06-21",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1009602566601232385",
-      "text": "RT @reveal: Hi there, @facebook. This is not political content. This is journalistic content that deals with policy. There's a difference.…",
-      "year": 2018,
-      "date": "2018-06-21",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1009602349751513093",
-      "text": "Lemme draft a whole cabinet https://t.co/ykj7QPUWTe",
-      "year": 2018,
-      "date": "2018-06-21",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1009601391197933568",
-      "text": "Racism is a tool used by rich and powerful people to trick us into forgetting they stole all our money and live in opulence",
-      "year": 2018,
-      "date": "2018-06-21",
-      "favorites": 4,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
       "id": "877667131655106561",
       "text": "The F is being all fuckity again",
       "year": 2017,
-      "date": "2017-06-21",
+      "date": "Wed Jun 21 23:18:45 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -445,7 +13,7 @@
       "id": "877637399068549120",
       "text": "@zachlieberman this ruuuuuules",
       "year": 2017,
-      "date": "2017-06-21",
+      "date": "Wed Jun 21 21:20:36 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "zachlieberman"
@@ -454,7 +22,16 @@
       "id": "877623733954805760",
       "text": "jalapeno + mint tho",
       "year": 2017,
-      "date": "2017-06-21",
+      "date": "Wed Jun 21 20:26:18 +0000 2017",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1671591332438056967",
+      "text": "yup https://t.co/mBdeiZV8ZB",
+      "year": 2023,
+      "date": "Wed Jun 21 18:50:04 +0000 2023",
       "favorites": 1,
       "retweets": 0,
       "replyTo": null
@@ -463,7 +40,7 @@
       "id": "877544247137890304",
       "text": "RT @mackab: What Me Eat Wednesday\n🍉🍉'WATERMELON' 🍉🍉 https://t.co/qxvgCQeHUO",
       "year": 2017,
-      "date": "2017-06-21",
+      "date": "Wed Jun 21 15:10:27 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -472,7 +49,7 @@
       "id": "877542781518065664",
       "text": "YOU'VE MADE A MISTAKE FACEBOOK https://t.co/ELyteOUaMS",
       "year": 2017,
-      "date": "2017-06-21",
+      "date": "Wed Jun 21 15:04:37 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -481,7 +58,7 @@
       "id": "877539076081102848",
       "text": "i hope there are fun adventures in my email",
       "year": 2017,
-      "date": "2017-06-21",
+      "date": "Wed Jun 21 14:49:54 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -490,7 +67,7 @@
       "id": "877537615880351744",
       "text": "Had an awesome time seeing Colbert yesterday with my mom. Episode will be airing tonight. https://t.co/25Zg0AO8HC",
       "year": 2017,
-      "date": "2017-06-21",
+      "date": "Wed Jun 21 14:44:06 +0000 2017",
       "favorites": 5,
       "retweets": 0,
       "replyTo": null
@@ -499,7 +76,7 @@
       "id": "877504161620865024",
       "text": "RT @mgimbel: Journey of a Bullet - @NBCNews Special designed &amp; developed by our awesome @ThatIanRose @mrejfox and @bradoyler  https://t.co/…",
       "year": 2017,
-      "date": "2017-06-21",
+      "date": "Wed Jun 21 12:31:10 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -508,8 +85,53 @@
       "id": "877498850306654208",
       "text": "Didn’t IBTimes fire a bunch of people last year https://t.co/c4ro5ftqsW",
       "year": 2017,
-      "date": "2017-06-21",
+      "date": "Wed Jun 21 12:10:03 +0000 2017",
       "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1407167618193231873",
+      "text": "starting to feel like i'm gettin kinda good at this whole data viz thing",
+      "year": 2021,
+      "date": "Tue Jun 22 02:44:38 +0000 2021",
+      "favorites": 6,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "16731837230",
+      "text": "Something about the way I was raised, this makes me smile: On Facebook, \"1,337 people like this.\" Heh.",
+      "year": 2010,
+      "date": "Tue Jun 22 00:13:28 +0000 2010",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1539370003337818112",
+      "text": "the start to all of my favorite blessings https://t.co/c0zPt3GLaU",
+      "year": 2022,
+      "date": "Tue Jun 21 22:09:43 +0000 2022",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1539368765821014018",
+      "text": "damn it https://t.co/uUX5ih5iJg",
+      "year": 2022,
+      "date": "Tue Jun 21 22:04:48 +0000 2022",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1539348883532300293",
+      "text": "RT @fig: 🥳 Excited about @GitHubCopilot's public launch today? \n\nYou can use OpenAI's powerful Codex API (AI behind Copilot) from your term…",
+      "year": 2022,
+      "date": "Tue Jun 21 20:45:48 +0000 2022",
+      "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
@@ -517,7 +139,7 @@
       "id": "745353051192573955",
       "text": "RT @tyeshasnow: @chrismessina \"ALM\" is at best shorthand for disregarding the plight of black americans in this country. I can't imagine yo…",
       "year": 2016,
-      "date": "2016-06-21",
+      "date": "Tue Jun 21 20:29:50 +0000 2016",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -526,16 +148,43 @@
       "id": "745265548175474688",
       "text": "I am all about this https://t.co/BkJyQgVogM\n\ncc @markham @_BrianByrne",
       "year": 2016,
-      "date": "2016-06-21",
+      "date": "Tue Jun 21 14:42:07 +0000 2016",
       "favorites": 1,
       "retweets": 0,
       "replyTo": null
     },
     {
+      "id": "1539218110162534405",
+      "text": "@mattdesl The \"Target Fund\" seems like the most useful and easily prototyped, I would love to Tweet out an idea and a budget (materials, domain and a few hours of my time) and have people fund the things they want to see created",
+      "year": 2022,
+      "date": "Tue Jun 21 12:06:09 +0000 2022",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1539217683882733568",
+      "text": "@mattdesl I would prefer a Stripe-like service that allows me to integrate micropayments into my own web work than a platform that tries to handle it for me- I should be able to have a Patreon-level Tezos-based subscription/microtransaction site with not a lot of effort, imo",
+      "year": 2022,
+      "date": "Tue Jun 21 12:04:27 +0000 2022",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "mattdesl"
+    },
+    {
+      "id": "1539214786562510848",
+      "text": "@mattdesl I have been waiting for a service that makes UX around crypto-related micro transactions for creators for yeaaaarssss https://t.co/fNjpqNCl9X",
+      "year": 2022,
+      "date": "Tue Jun 21 11:52:57 +0000 2022",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "mattdesl"
+    },
+    {
       "id": "745221127237148672",
       "text": "This looks amazing https://t.co/nEmSzEgFXJ",
       "year": 2016,
-      "date": "2016-06-21",
+      "date": "Tue Jun 21 11:45:36 +0000 2016",
       "favorites": 1,
       "retweets": 0,
       "replyTo": null
@@ -544,70 +193,160 @@
       "id": "745219567216111616",
       "text": "Sad! \n\nhttps://t.co/fzVtGC07tO https://t.co/wVG9phn6tA",
       "year": 2016,
-      "date": "2016-06-21",
+      "date": "Tue Jun 21 11:39:24 +0000 2016",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "612764570336292864",
-      "text": "I liked a @YouTube video http://t.co/F95soFPPWP Jeff Ross On Roasting Prison Inmates - CONAN on TBS",
-      "year": 2015,
-      "date": "2015-06-21",
+      "id": "1009944018648780801",
+      "text": "@oneunderscore__ @BobSaietta Say hi to him for me",
+      "year": 2018,
+      "date": "Thu Jun 21 23:39:52 +0000 2018",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "oneunderscore__"
+    },
+    {
+      "id": "1009942786634866695",
+      "text": "This Bodega in the village tried to change me $1.50 for those half sized $0.50 Arizona cans. Didn’t even put it back before I took my money and left that’s how mad I was.",
+      "year": 2018,
+      "date": "Thu Jun 21 23:34:58 +0000 2018",
+      "favorites": 1,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "1009916053164625921",
+      "text": "Headed there now. https://t.co/01kyPJJN5I",
+      "year": 2018,
+      "date": "Thu Jun 21 21:48:45 +0000 2018",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1009907028880437249",
+      "text": "RT @lhwaldron: Today @instagram decided to delete a @ProPublica post from Oct. 2017 that used footage from violent protests to identify mem…",
+      "year": 2018,
+      "date": "Thu Jun 21 21:12:53 +0000 2018",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "612748516830674944",
-      "text": "RT @asduner: DEVELOPING: water is falling from the sky in new york",
-      "year": 2015,
-      "date": "2015-06-21",
+      "id": "1009905773973995522",
+      "text": "No one told me this but street photography is a lot easier without headphones",
+      "year": 2018,
+      "date": "Thu Jun 21 21:07:54 +0000 2018",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "612637120130224128",
-      "text": "RT @adamfrostuk: Mao was '70% good, 30% bad' according to the Chinese government. But how to visualise it...? http://t.co/VZQmwJKbQL",
-      "year": 2015,
-      "date": "2015-06-21",
+      "id": "1009888270161973248",
+      "text": "@ALSTON2008 Get it",
+      "year": 2018,
+      "date": "Thu Jun 21 19:58:21 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "ALSTON2008"
+    },
+    {
+      "id": "1009886331504295937",
+      "text": "RT @VICELAND: The teens are our future.\n\nHappy Pride. https://t.co/uiiV0lVlvv",
+      "year": 2018,
+      "date": "Thu Jun 21 19:50:38 +0000 2018",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "348200984331300864",
-      "text": "RT @enjalot: now here is a data driven story: http://t.co/pjb7cWnMYP",
-      "year": 2013,
-      "date": "2013-06-21",
+      "id": "1009886045113061376",
+      "text": "When I feel the darkest I look to our youngest activists who seem to have a better, clearer vision of the world than anyone else",
+      "year": 2018,
+      "date": "Thu Jun 21 19:49:30 +0000 2018",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1009885670997942273",
+      "text": "RT @sarahljaffe: Kid asks her mother \"is it against the law to do this\" mother says \"it is but what they're doing is against the laws of hu…",
+      "year": 2018,
+      "date": "Thu Jun 21 19:48:01 +0000 2018",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "348171774187405312",
-      "text": "RT @riotleo: OSA #Oakland School for the Arts is doing a play on @OccupyOakland using signs made at the protests, 'telling the story from b…",
-      "year": 2013,
-      "date": "2013-06-21",
+      "id": "1009850603332304898",
+      "text": "I am continually impressed with the amazing things coming from @Datawrapper - our newsroom at Vocativ used it tons and always just wanted more visualizations. Would recommend to anyone doing viz (who doesn't want write bespoke D3) https://t.co/Ytl7DSoula",
+      "year": 2018,
+      "date": "Thu Jun 21 17:28:40 +0000 2018",
+      "favorites": 7,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1009829529165160448",
+      "text": "RT @lostblackboy: I never saw images of gay black men in love growing up, and this lack of representation has always haunted me.\n\nSo, I sou…",
+      "year": 2018,
+      "date": "Thu Jun 21 16:04:56 +0000 2018",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
+    },
+    {
+      "id": "1009824484814147586",
+      "text": "@jaysunsilver @CBSNews That's awesome. Si hi to @markham for me.",
+      "year": 2018,
+      "date": "Thu Jun 21 15:44:53 +0000 2018",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "jaysunsilver"
     },
     {
       "id": "215822403924795395",
       "text": "@mibi Infographic battle? @InjusticeFacts",
       "year": 2012,
-      "date": "2012-06-21",
+      "date": "Thu Jun 21 15:04:05 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "mibi"
     },
     {
+      "id": "1009813672158466048",
+      "text": "I don't trust anyone with their GPA in their resume",
+      "year": 2018,
+      "date": "Thu Jun 21 15:01:55 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1009810891959951360",
+      "text": "They keep doing this thing where the legalize possession of weed but don't make it legal to smoke it anywhere and people celebrate and it's weird",
+      "year": 2018,
+      "date": "Thu Jun 21 14:50:52 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1009810636556177409",
+      "text": "RT @333333333433333: love hearing gentrifiers complain about other gentrifiers who began either slightly earlier or slightly later than them",
+      "year": 2018,
+      "date": "Thu Jun 21 14:49:51 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
       "id": "215813933448171520",
       "text": "I missed New York because now when Jon Stewart makes jokes about how hot it was I'm all like OH MY GOD I KNOW RIGHT and that's worth it.",
       "year": 2012,
-      "date": "2012-06-21",
+      "date": "Thu Jun 21 14:30:26 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -616,7 +355,7 @@
       "id": "215810829227003905",
       "text": "RT @InjusticeFacts: If the world's richest 10 people renounced their wealth, the world's 1 billion hungry human beings can be fed for 25 ...",
       "year": 2012,
-      "date": "2012-06-21",
+      "date": "Thu Jun 21 14:18:05 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -625,7 +364,7 @@
       "id": "215810681755279362",
       "text": "RT @sandysantra: NYC heat strategy: hydrate, hydrate, hydrate.",
       "year": 2012,
-      "date": "2012-06-21",
+      "date": "Thu Jun 21 14:17:30 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -634,7 +373,7 @@
       "id": "215810584451616770",
       "text": "@laneharrison Out of curiosity, why the decision for a static visualization vs. using the dragging of force layouts?",
       "year": 2012,
-      "date": "2012-06-21",
+      "date": "Thu Jun 21 14:17:07 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "laneharrison"
@@ -643,26 +382,80 @@
       "id": "215808285591339012",
       "text": "@laneharrison That's awesome! Really like it. Do you have distance data? Would be fun to transition this and lay it out in horizontal line.",
       "year": 2012,
-      "date": "2012-06-21",
+      "date": "Thu Jun 21 14:07:59 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "laneharrison"
     },
     {
-      "id": "16730802009",
-      "text": "I unlocked the High Roller achievement on Red Dead Redemption! http://raptr.com/pseudoplacebo",
-      "year": 2010,
-      "date": "2010-06-21",
+      "id": "612764570336292864",
+      "text": "I liked a @YouTube video http://t.co/F95soFPPWP Jeff Ross On Roasting Prison Inmates - CONAN on TBS",
+      "year": 2015,
+      "date": "Sun Jun 21 23:30:32 +0000 2015",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
+      "id": "612748516830674944",
+      "text": "RT @asduner: DEVELOPING: water is falling from the sky in new york",
+      "year": 2015,
+      "date": "Sun Jun 21 22:26:45 +0000 2015",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1274727427726606339",
+      "text": "also, I get my motorcycle license in July",
+      "year": 2020,
+      "date": "Sun Jun 21 15:34:36 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
       "id": "2266383720",
       "text": "The whole idea of 'shotgun', the game of front-seat procuring, is underappreciated genius.",
       "year": 2009,
-      "date": "2009-06-21",
+      "date": "Sun Jun 21 15:24:48 +0000 2009",
       "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1274723815281561600",
+      "text": "The call to bring my little motorcycle across the hudson river grows ever stronger, yet it is quite an adventure as I must navigate a route down 9W and across the Bear Mountain Bridge because if I take my minibike on the Newburgh Beacon bridge I assume I will be quickly killed",
+      "year": 2020,
+      "date": "Sun Jun 21 15:20:15 +0000 2020",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "612637120130224128",
+      "text": "RT @adamfrostuk: Mao was '70% good, 30% bad' according to the Chinese government. But how to visualise it...? http://t.co/VZQmwJKbQL",
+      "year": 2015,
+      "date": "Sun Jun 21 15:04:06 +0000 2015",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1274718695542136832",
+      "text": "Story pitch: I draw a map of all of the various Tik Tok subcultures, their interactions, alliances, and grievances.",
+      "year": 2020,
+      "date": "Sun Jun 21 14:59:54 +0000 2020",
+      "favorites": 22,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1274717104667795458",
+      "text": "RT @ClintSmithIII: Father's Day is a good day to remind people that all phone calls and video calls for incarcerated people should be free…",
+      "year": 2020,
+      "date": "Sun Jun 21 14:53:35 +0000 2020",
+      "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
@@ -670,7 +463,7 @@
       "id": "2265395430",
       "text": "Anyone else remember using SOAP? Obnoxious. Glad we have REST these days.",
       "year": 2009,
-      "date": "2009-06-21",
+      "date": "Sun Jun 21 13:29:20 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -679,7 +472,7 @@
       "id": "2265385978",
       "text": "Near-deadline out-of-the-blue quasi-legal coding jobs. I'm glad my life is the way it is, actually.",
       "year": 2009,
-      "date": "2009-06-21",
+      "date": "Sun Jun 21 13:28:05 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -688,146 +481,280 @@
       "id": "2265238577",
       "text": "My room is disgustingly disgustingly dirty, but I have to work right now, not clean. Then I need to go out. Then I probably need to work...",
       "year": 2009,
-      "date": "2009-06-21",
+      "date": "Sun Jun 21 13:07:21 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1142271086517727232",
+      "text": "my main bodega guy hasn't been telling the other bodega guys where he hides the cigarettes I like under the counter and it's really messing up my life",
+      "year": 2019,
+      "date": "Sat Jun 22 03:20:24 +0000 2019",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1142263093747171328",
+      "text": "RT @LazaroGamio: What happens when a migrant child crosses the border -&gt; https://t.co/kJboTeNuSL https://t.co/FRZm14TyrN",
+      "year": 2019,
+      "date": "Sat Jun 22 02:48:38 +0000 2019",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1142253006962012160",
+      "text": "@biddyfox @realDonaldTrump Are you too young to know about over 9000",
+      "year": 2019,
+      "date": "Sat Jun 22 02:08:33 +0000 2019",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "biddyfox"
+    },
+    {
+      "id": "1142234973270880256",
+      "text": "just remembered I can have popeyes whenever I want and got so excited",
+      "year": 2019,
+      "date": "Sat Jun 22 00:56:53 +0000 2019",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1142233293028515840",
+      "text": "@NIJC @studentactivism I'll do my best to collect social media reports of raids here: https://t.co/NH2YDy5Uoj",
+      "year": 2019,
+      "date": "Sat Jun 22 00:50:13 +0000 2019",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1142230788248932357",
+      "text": "@NIJC I'm probably going to spend tonight moving info into this from @studentactivism's great thread, any help, feedback, RTs are appreciated  https://t.co/JTSWYYktOK",
+      "year": 2019,
+      "date": "Sat Jun 22 00:40:16 +0000 2019",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1142230242821574657",
+      "text": "I've mirrored (and geocoded) the list of ICE facilities that was FOIA'd by @NIJC which you can find here: https://t.co/XFEESR0HBw",
+      "year": 2019,
+      "date": "Sat Jun 22 00:38:06 +0000 2019",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1142229880224006145",
+      "text": "I've created a wiki that anyone can edit to use as a repository for gathering information on the raids on migrant families ICE and CBP are reported to be preparing for.  https://t.co/ZIoiDgnZl3",
+      "year": 2019,
+      "date": "Sat Jun 22 00:36:39 +0000 2019",
+      "favorites": 7,
+      "retweets": 6,
+      "replyTo": null
+    },
+    {
+      "id": "348234232461656065",
+      "text": "Photoset: pseudoplacebo: nevver: Someone help Extremely poignant infographic reflection on the modern... http://t.co/e0qyDG2jUv",
+      "year": 2013,
+      "date": "Sat Jun 22 00:21:25 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "2274331953",
+      "text": "@dottiedimplex3 yeah yeah yeah, that's what they ALL say.",
+      "year": 2009,
+      "date": "Mon Jun 22 03:56:29 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "dottiedimplex3"
+    },
+    {
+      "id": "1274899717655269376",
+      "text": "@hunktears i guess it depends on the number of tubes of things you have in your life, though, and now that i think about it i have a lot",
+      "year": 2020,
+      "date": "Mon Jun 22 02:59:13 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1274899513484984325",
+      "text": "@hunktears yes but think of the savings over time!",
+      "year": 2020,
+      "date": "Mon Jun 22 02:58:25 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "hunktears"
+    },
+    {
+      "id": "1274898737501011968",
+      "text": "@hunktears with this device, and the image you have provided, i would say conservatively 5 more uses",
+      "year": 2020,
+      "date": "Mon Jun 22 02:55:20 +0000 2020",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1274898619628486656",
+      "text": "@hunktears pardon me, i believe you are looking for one of these https://t.co/jfXtqbCnFY",
+      "year": 2020,
+      "date": "Mon Jun 22 02:54:52 +0000 2020",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "hunktears"
+    },
+    {
+      "id": "1274897147352268801",
+      "text": "omg i did it https://t.co/sOObFeellu",
+      "year": 2020,
+      "date": "Mon Jun 22 02:49:01 +0000 2020",
+      "favorites": 5,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "16730802009",
+      "text": "I unlocked the High Roller achievement on Red Dead Redemption! http://raptr.com/pseudoplacebo",
+      "year": 2010,
+      "date": "Mon Jun 21 23:55:32 +0000 2010",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1407103361002913810",
+      "text": "if Apple was like \"you can watch Ted Lasso right now, a day early, if you give us $20 right now\" I would throw my money at the screen so quickly",
+      "year": 2021,
+      "date": "Mon Jun 21 22:29:18 +0000 2021",
+      "favorites": 7,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1407097294382587910",
+      "text": "NIGHT SHOWER\n\nDOUBLE SHOWER DAY",
+      "year": 2021,
+      "date": "Mon Jun 21 22:05:12 +0000 2021",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1407056830979846145",
+      "text": "@wehearttrash @treekisser I mean it says \"if Biden gets in\"",
+      "year": 2021,
+      "date": "Mon Jun 21 19:24:25 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "yrtrashhh"
+    },
+    {
+      "id": "1407054176992088066",
+      "text": "RT @AliBaumanTV: The NYPD oversight board @CCRB_NYC says it faces \"unprecedented challenges investigating\" the 750+ complaints against NYPD…",
+      "year": 2021,
+      "date": "Mon Jun 21 19:13:52 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1009972077380751360",
+      "text": "RT @JoyAnnReid: Here is the @washingtonpost interactive map which they will be updating in an attempt to locate the migrant children who th…",
+      "year": 2018,
+      "date": "Fri Jun 22 01:31:22 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1009965620073582592",
+      "text": "Should have worked in “dude” somewhere https://t.co/u2XHVxr5AK",
+      "year": 2018,
+      "date": "Fri Jun 22 01:05:42 +0000 2018",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "348200984331300864",
+      "text": "RT @enjalot: now here is a data driven story: http://t.co/pjb7cWnMYP",
+      "year": 2013,
+      "date": "Fri Jun 21 22:09:18 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1142191550870540288",
+      "text": "The revolution needs tech support",
+      "year": 2019,
+      "date": "Fri Jun 21 22:04:21 +0000 2019",
+      "favorites": 4,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "348171774187405312",
+      "text": "RT @riotleo: OSA #Oakland School for the Arts is doing a play on @OccupyOakland using signs made at the protests, 'telling the story from b…",
+      "year": 2013,
+      "date": "Fri Jun 21 20:13:14 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1142148336620843015",
+      "text": "So, just a heads up, but when the government announces they are going to “round up millions” – that is the point at which you need to take a long hard look at what you are doing with your life and what you are willing to do to make things right.",
+      "year": 2019,
+      "date": "Fri Jun 21 19:12:38 +0000 2019",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1142148074174918656",
+      "text": "RT @DaveId: If you witness ICE raiding homes and businesses, kidnapping folks, take photos and video, document what's going on.  The family…",
+      "year": 2019,
+      "date": "Fri Jun 21 19:11:35 +0000 2019",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1142059972529983488",
+      "text": "RT @studentactivism: Many of these kids have parents or other family in the US. They could be released into the homes of people who love th…",
+      "year": 2019,
+      "date": "Fri Jun 21 13:21:30 +0000 2019",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1142053247743643649",
+      "text": "@DecolonialBlack In Oakland, Occupy Oakland had lots of goals, but things very quickly centered on police misconduct by OPD, Oscar Grant, Trayvon Martin while NY focused on banks. Each encampment found it’s own issues, but OO was so clearly pre-BLM it’s crazy no one talks about it.",
+      "year": 2019,
+      "date": "Fri Jun 21 12:54:47 +0000 2019",
+      "favorites": 6,
+      "retweets": 2,
+      "replyTo": "DecolonialBlack"
+    },
+    {
+      "id": "1142049512963432448",
+      "text": "RT @dansinker: The cruelty is the point. https://t.co/bupcBdt6u6",
+      "year": 2019,
+      "date": "Fri Jun 21 12:39:56 +0000 2019",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     }
-  ],
-  "posts": [],
-  "scrobbles": [
-    {
-      "date": "2025-06-21",
-      "year": 2025,
-      "count": 19,
-      "topTracks": [
-        "Grateful Dead - Help on the Way / Slipknot! - 2013 Remaster",
-        "Fantasy 15 - Julieta",
-        "Wyatt Coleman - Inside Jokes",
-        "Blue Iverson - Hush Money",
-        "Kenny Beats - Last Words"
-      ],
-      "topArtists": ["Grateful Dead", "Fantasy 15", "Wyatt Coleman"]
-    },
-    {
-      "date": "2022-06-21",
-      "year": 2022,
-      "count": 5,
-      "topTracks": [
-        "LAKIM - Rent4",
-        "LAKIM - suavemente",
-        "LAKIM - A Dance With You"
-      ],
-      "topArtists": ["LAKIM"]
-    },
-    {
-      "date": "2020-06-21",
-      "year": 2020,
-      "count": 1,
-      "topTracks": ["Death Cab for Cutie - Title and Registration"],
-      "topArtists": ["Death Cab for Cutie"]
-    },
-    {
-      "date": "2019-06-21",
-      "year": 2019,
-      "count": 12,
-      "topTracks": [
-        "Smino - KRUSHED ICE (with Valee)",
-        "Smino - SKEDOS",
-        "Smino - MF GROOVE (with Ravyn Lenae)",
-        "Smino - VERIZON",
-        "Smino - coupe se' yern"
-      ],
-      "topArtists": ["Smino"]
-    },
-    {
-      "date": "2016-06-21",
-      "year": 2016,
-      "count": 21,
-      "topTracks": [
-        "KAYTRANADA - Glowed Up",
-        "KAYTRANADA - Track Uno",
-        "KAYTRANADA - LEAVE ME ALONE",
-        "Suicideyear - Finale",
-        "BJ The Chicago Kid - That Girl"
-      ],
-      "topArtists": ["KAYTRANADA", "Suicideyear", "BJ The Chicago Kid"]
-    },
-    {
-      "date": "2015-06-21",
-      "year": 2015,
-      "count": 10,
-      "topTracks": [
-        "Mike Jones - Still Tippin' - feat. Slim Thug And Paul Wall Explicit Version",
-        "Mike Jones - Badd",
-        "Mike Jones - Back Then",
-        "Mike Jones - Next to You",
-        "Mike Jones - Mr. Jones"
-      ],
-      "topArtists": ["Mike Jones"]
-    },
-    {
-      "date": "2014-06-21",
-      "year": 2014,
-      "count": 11,
-      "topTracks": [
-        "Sango - Middle of Things, Beautiful Wife",
-        "Sango - Here With Me",
-        "Sango - Affection",
-        "Sango - Hold You",
-        "Sango - Trust Me"
-      ],
-      "topArtists": ["Sango"]
-    },
-    {
-      "date": "2012-06-21",
-      "year": 2012,
-      "count": 10,
-      "topTracks": [
-        "A$AP Rocky - Purple Swag",
-        "Ghostface Killah - Big Girl",
-        "ScHoolboy Q - iBETiGOTSUMWEED",
-        "Shabazz Palaces - Are youÉ Can youÉ Were you? (Felt)",
-        "Lil Wayne - Walk In - Chopped & Screwed"
-      ],
-      "topArtists": ["A$AP Rocky", "Ghostface Killah", "ScHoolboy Q"]
-    },
-    {
-      "date": "2009-06-21",
-      "year": 2009,
-      "count": 30,
-      "topTracks": [
-        "J.K. Rowling - Harry Potter 5: The Order of the Phoenix (2)",
-        "Death Cab for Cutie - Information Travels Faster",
-        "Bob Marley - You can't blame the youth",
-        "Driving East - Blue Eyes",
-        "Asher Roth - Fallin'"
-      ],
-      "topArtists": ["J.K. Rowling", "Death Cab for Cutie", "Bob Marley"]
-    },
-    {
-      "date": "2008-06-21",
-      "year": 2008,
-      "count": 212,
-      "topTracks": [
-        "Radiohead - Climbing Up the Walls",
-        "Death Cab for Cutie - Passenger Seat",
-        "Bob Marley - Opening",
-        "The New Pornographers - Challengers",
-        "Orson Scott Card - Shadow Puppets (Unabridged), Part 1"
-      ],
-      "topArtists": ["Radiohead", "Death Cab for Cutie", "Bob Marley"]
-    },
-    {
-      "date": "2006-06-21",
-      "year": 2006,
-      "count": 2,
-      "topTracks": [
-        "digg.com - Diggnation Episode #0050 - June 14, 2006",
-        "Liam Lynch - Lynchland Episode 8"
-      ],
-      "topArtists": ["digg.com", "Liam Lynch"]
-    }
-  ],
-  "commits": []
+  ]
 }

@@ -1,631 +1,154 @@
 {
   "tweets": [
     {
-      "id": "1625178966347726868",
-      "text": "@camdez @localrapfan I am convinced people ignore developer experience because they think their work *should be hard* and the increased number of incantations increases value– which is the diametric opposite of my values of speed and simplicity",
-      "year": 2023,
-      "date": "2023-02-13",
+      "id": "963622284425678848",
+      "text": "@eharfenist Ahaha your point was received, not no winky face can mask the profound truth of your words",
+      "year": 2018,
+      "date": "Wed Feb 14 03:53:50 +0000 2018",
       "favorites": 1,
       "retweets": 0,
-      "replyTo": "mrejfox"
+      "replyTo": "eharfenist"
     },
     {
-      "id": "1625178495327387662",
-      "text": "@camdez @localrapfan I am mostly being hyperbolic, but the thing that annoys me is the same phenomena as the React-ification of everyday apps and personal projects. So many people applying tools meant for billion dollar hundred-engineer projects to their first to do list app because it is “better”",
-      "year": 2023,
-      "date": "2023-02-13",
+      "id": "963621253729972224",
+      "text": "Ethan this own is so hard I'm going to respectfully sign off of Twitter for now. \n\nhttps://t.co/dsbdQ4JI2t",
+      "year": 2018,
+      "date": "Wed Feb 14 03:49:44 +0000 2018",
       "favorites": 2,
       "retweets": 0,
-      "replyTo": "camdez"
+      "replyTo": null
     },
     {
-      "id": "1625177975258857473",
-      "text": "@chris_honeybee Does putting on a leather apron help at all? Seems to work for other industries",
-      "year": 2023,
-      "date": "2023-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "chris_honeybee"
-    },
-    {
-      "id": "1625177240441946114",
-      "text": "@SoC_trilogy @repligate Hey Matthew, have been following along as you do these explorations- I would love to do a recorded chat about these discoveries and your approach if you are interested. DM or email me at ejfox@ejfox.com",
-      "year": 2023,
-      "date": "2023-02-13",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": "SoC_trilogy"
-    },
-    {
-      "id": "1624987018341060610",
-      "text": "https://t.co/Gq5r0IgmU9",
-      "year": 2023,
-      "date": "2023-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1228016656473038849",
-      "text": "@benjamindurland you want this for your site? Would make things easy",
-      "year": 2020,
-      "date": "2020-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1227985783371522049",
-      "text": "@JasonAbbruzzese @auren Its a skill I regret spending years cultivating, it is not transferrable in any way, I don’t really see it as a valuable skill  – why are we telling young people learning to navigate corporate structures is valuable?",
-      "year": 2020,
-      "date": "2020-02-13",
+      "id": "963621075283214337",
+      "text": "Incredibly proud of this piece from back in July https://t.co/ZszNiNuYO2",
+      "year": 2018,
+      "date": "Wed Feb 14 03:49:02 +0000 2018",
       "favorites": 1,
       "retweets": 0,
-      "replyTo": "JasonAbbruzzese"
+      "replyTo": null
     },
     {
-      "id": "1227972530868310016",
-      "text": "@auren @JasonAbbruzzese Why is it a valuable skill?",
-      "year": 2020,
-      "date": "2020-02-13",
-      "favorites": 1,
+      "id": "963619364447641601",
+      "text": "There's a tremendous amount of people not knowing or studying history before forming their ideas about things.",
+      "year": 2018,
+      "date": "Wed Feb 14 03:42:14 +0000 2018",
+      "favorites": 0,
       "retweets": 0,
-      "replyTo": "auren"
+      "replyTo": null
     },
     {
-      "id": "1227851584278802438",
-      "text": "Okay, got a folder of .jpgs generating json which is then turned into a webpage by vue/nuxt – now if I want to publish a new photo blog post I can add captions in lightroom, export the folder, run this, and press publish (which I think is pretty cool) https://t.co/BSZ4521sS4",
-      "year": 2020,
-      "date": "2020-02-13",
+      "id": "963616147089305600",
+      "text": "@dpetrohilos I only found out about the kettle because of a livestream he had. Rushed over to take photos in time to see him being loaded into a police van.",
+      "year": 2018,
+      "date": "Wed Feb 14 03:29:27 +0000 2018",
       "favorites": 1,
       "retweets": 0,
       "replyTo": "mrejfox"
     },
     {
-      "id": "1095724790667771904",
-      "text": "People who get out of their seats before the train actually stops need to be spoken to",
-      "year": 2019,
-      "date": "2019-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1095685826531520513",
-      "text": "@VICE 3rd graf https://t.co/GW5O0yeIie",
-      "year": 2019,
-      "date": "2019-02-13",
+      "id": "963615725977063425",
+      "text": "@dpetrohilos I wasn't there anymore at the time, but I don't remember anything particularly anti-J20 defendants. They had a reporter arrested who had his charges dropped: https://t.co/1vlKbdDD06 and there was some controversy about whether they let him write about it https://t.co/hIvpxWQdGK",
+      "year": 2018,
+      "date": "Wed Feb 14 03:27:46 +0000 2018",
       "favorites": 1,
       "retweets": 0,
-      "replyTo": "VICE"
+      "replyTo": "dylan_eugene_dc"
     },
     {
-      "id": "1095683489943511040",
-      "text": "@_danharmon https://t.co/7emklQjFqK",
-      "year": 2019,
-      "date": "2019-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "_danharmon"
-    },
-    {
-      "id": "1095678886376075264",
-      "text": "RT @AsteadWesley: What's the opposite of a Pulitzer https://t.co/Qs0kDpq25I",
-      "year": 2019,
-      "date": "2019-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1095545254567182336",
-      "text": "Have some young smart woman run Twitter.",
-      "year": 2019,
-      "date": "2019-02-13",
-      "favorites": 3,
-      "retweets": 2,
-      "replyTo": null
-    },
-    {
-      "id": "963550559872659456",
-      "text": "RT @sxywu: I'm creating a workshop aimed at #frontenddevs who need to:\n- understand #d3js code they scrounged together\n- fit that #d3js cod…",
+      "id": "963612907333472256",
+      "text": "@dpetrohilos the lesser-known and more confusing vocativ",
       "year": 2018,
-      "date": "2018-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "963547993961058306",
-      "text": "RT @Limerick1914: Fascism is not a mental illness.",
-      "year": 2018,
-      "date": "2018-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "963539636218933249",
-      "text": "*can't ignore twitter Zeitgeist*\n\nI have had friends who later turned into white supremacists (that's what you get when you grow up on IRC and 4chan) but it was at that exact moment they ceased being my friends. Not that hard.",
-      "year": 2018,
-      "date": "2018-02-13",
+      "date": "Wed Feb 14 03:16:34 +0000 2018",
       "favorites": 1,
       "retweets": 0,
-      "replyTo": null
+      "replyTo": "dylan_eugene_dc"
     },
     {
-      "id": "963536583839436800",
-      "text": "RT @ellenhuet: opportunity: two of your housemates take a trip\n\nbattle plan: rest of house bands together to convert their bedroom into an…",
+      "id": "963598868121341957",
+      "text": "Extremely excited about some data we will be publishing tomorrow.",
       "year": 2018,
-      "date": "2018-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "963506279346995202",
-      "text": "RT @417am1975: 10-14-1518470433909 https://t.co/LctHLcmhQo",
-      "year": 2018,
-      "date": "2018-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "963506240465915904",
-      "text": "RT @bpopken: Publishing some very interesting data tomorrow morning. Stay tuned.",
-      "year": 2018,
-      "date": "2018-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "963465723187167232",
-      "text": "RT @pressfreedom: In 2017, journalists in the US were subjected to:\n44 physical attacks\n34 arrests\n15 equipment searches or seizures\n5 bord…",
-      "year": 2018,
-      "date": "2018-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "963465561182212096",
-      "text": "RT @lhfang: Trump era political social media feels a lot like Bush era Daily Show. Entertaining but mostly trivial obsession with whacky po…",
-      "year": 2018,
-      "date": "2018-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "963448009462812673",
-      "text": "RT @northead: @mrejfox That’s true indeed — there was a bit of sarcasm hiding a way to commend The @Outline’s flexible and forward-thinking…",
-      "year": 2018,
-      "date": "2018-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "963441736877072384",
-      "text": "I mean, we have seen this from Snapchat, Instagram, Medium, the Outline, etc. I don't think this interaction paradigm belongs to anyone, similar to the way \"pull down to refresh\" interaction became widely adopted on mobile https://t.co/uyDWRvdhBA",
-      "year": 2018,
-      "date": "2018-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "963426013362442240",
-      "text": "My cat joined me for meditation this morning. I was skeptical at first but he sat quietly and calmly and didn't interrupt at all.",
-      "year": 2018,
-      "date": "2018-02-13",
+      "date": "Wed Feb 14 02:20:47 +0000 2018",
       "favorites": 3,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "963266188783636480",
-      "text": "someone link me to the subreddit based around outrageous fervent positivity",
+      "id": "963594166193319936",
+      "text": "RT @knowtheory: Hey, so if you think @quinnnorton is a white supremacist, you should actually read what she's written about how whiteness a…",
       "year": 2018,
-      "date": "2018-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "963266035238539265",
-      "text": "It is the point in the evening where I would like to tune into \"the good things\" channel, the channel of positive stories and smiling faces, where everything is both good and funny",
-      "year": 2018,
-      "date": "2018-02-13",
+      "date": "Wed Feb 14 02:02:06 +0000 2018",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "963263474636861440",
-      "text": "RT @alicegoldfuss: https://t.co/6RuTzQtHQR",
+      "id": "963593301902483458",
+      "text": "RT @mrejfox: @sroudman @tjenningsbrown sry, new pitch, what if I lock myself in a room on acid with a TV that only plays consecutive Appren…",
       "year": 2018,
-      "date": "2018-02-13",
+      "date": "Wed Feb 14 01:58:40 +0000 2018",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "963254255485444096",
-      "text": "Experimenting with @observablehq thanks to a push from @bradoyler https://t.co/fjaeAks9dZ",
+      "id": "963589224221028352",
+      "text": "@JackSmithIV Earnestly: Thank you for doing the hard work of pointing out these things are complicated and have nuance. It's not easy and most people don't want to hear it. It's one of the trends of our era that worries me most.",
       "year": 2018,
-      "date": "2018-02-13",
-      "favorites": 4,
+      "date": "Wed Feb 14 01:42:28 +0000 2018",
+      "favorites": 0,
       "retweets": 0,
-      "replyTo": null
+      "replyTo": "JackSmithIV"
     },
     {
-      "id": "963236542708944896",
-      "text": "all I want for christmas is to be able to write coffeescript in @observablehq",
+      "id": "963581509893607424",
+      "text": "RT @ABenalt: @mrejfox There ARE a number of snowy countries in the top 10 medal 🏅 standings right now. \nNot a bad hypothesis https://t.co/A…",
       "year": 2018,
-      "date": "2018-02-13",
+      "date": "Wed Feb 14 01:11:49 +0000 2018",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "963229379093549056",
-      "text": "SNOWBOARDING RULES",
+      "id": "963581220096565248",
+      "text": "Truly amazing how much I had to care about fashion week two years ago for work and the fact I can just ignore it now",
       "year": 2018,
-      "date": "2018-02-13",
+      "date": "Wed Feb 14 01:10:40 +0000 2018",
       "favorites": 3,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "963216543541792773",
-      "text": "RT @tomgara: Robot piloted from a laptop in suburban Virginia flies from Abu Dhabi to Somalia and murders someone: snooze. \n\nRobot clumsily…",
+      "id": "963580068739022848",
+      "text": "I wonder if success in winter Olympics is correlated with the amount of snow your home country receives",
       "year": 2018,
-      "date": "2018-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "963211312783331328",
-      "text": "Unit charts for everything, always https://t.co/BvCds4gc9g",
-      "year": 2018,
-      "date": "2018-02-13",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "963211184496398336",
-      "text": "RT @zeynep: You have to integrate ethics into the computer science curriculum from the first moment you teach students here's a variable, h…",
-      "year": 2018,
-      "date": "2018-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "831280367294304258",
-      "text": "RT @JohnJHarwood: President Trump's current job approval in Gallup poll, by race: blacks 11%; Hispanics 19%; whites 53%",
-      "year": 2017,
-      "date": "2017-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "831256661540999176",
-      "text": "A map of last week’s driving https://t.co/DN5lKmBGfC",
-      "year": 2017,
-      "date": "2017-02-13",
+      "date": "Wed Feb 14 01:06:05 +0000 2018",
       "favorites": 1,
       "retweets": 0,
       "replyTo": "mrejfox"
     },
     {
-      "id": "831236418840121344",
-      "text": "I grow weary.",
-      "year": 2017,
-      "date": "2017-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "831236318441009152",
-      "text": "@hellodigit appreciate you guys getting back to me but the problem still hasn’t been solved. Is there a number I can call?",
-      "year": 2017,
-      "date": "2017-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "hellodigit"
-    },
-    {
-      "id": "831211947215327232",
-      "text": "Not really super happy about being thousands of miles from home with no access to savings account and no immediate response from support.",
-      "year": 2017,
-      "date": "2017-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "831211691140489216",
-      "text": "Filed a support request with @hellodigit 5 days ago, got back to me that day, and haven’t heard back since.",
-      "year": 2017,
-      "date": "2017-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "830993126005170176",
-      "text": "RT @urlbbe: me deleting my chat after i get ignored so i don't have to be reminded of how unwanted and annoying i am https://t.co/bgQv8DqoWw",
-      "year": 2017,
-      "date": "2017-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "830990173856899072",
-      "text": "RT @bitcoinprice: The average price of Bitcoin across all exchanges is 999.99 USD",
-      "year": 2017,
-      "date": "2017-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "698335468283371520",
-      "text": "Talking to my cabbie, his daughters, 18 and 19 are graduating college early in STEM. \n\nHe says the secret is feeding them salmon.",
-      "year": 2016,
-      "date": "2016-02-13",
-      "favorites": 0,
-      "retweets": 1,
-      "replyTo": null
-    },
-    {
-      "id": "433756586775822336",
-      "text": "The more I read about Steve Wozniak the more I am reminded of @enjalot in the best way",
-      "year": 2014,
-      "date": "2014-02-13",
+      "id": "963577752451534850",
+      "text": "I am like maximum Olympics skeptic but every time I turn it on I see people doing truly incredible shit such that I exclaim out loud",
+      "year": 2018,
+      "date": "Wed Feb 14 00:56:53 +0000 2018",
       "favorites": 1,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "301815048584708096",
-      "text": "Photo: feltron: Fifty states with equal population. http://t.co/DaMeN9S4",
-      "year": 2013,
-      "date": "2013-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "301743792774594560",
-      "text": "My stomach is killing me… why am I broken… save me peppermint ginger tea...",
-      "year": 2013,
-      "date": "2013-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "301563681437794304",
-      "text": "New photoblog post: Camp http://t.co/u6hysddd",
-      "year": 2013,
-      "date": "2013-02-13",
+      "id": "963567614952910848",
+      "text": "I think about this tweet all the time and repeated it to 3 different people today https://t.co/2nym16mx83",
+      "year": 2018,
+      "date": "Wed Feb 14 00:16:36 +0000 2018",
       "favorites": 1,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "169193347133616128",
-      "text": "Everytime Illustrator crashes, Adobe should make a member of it's development team buy me lunch. Should take care of that.",
-      "year": 2012,
-      "date": "2012-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "169183857441116160",
-      "text": "That last quote is from Steve Jobs.",
-      "year": 2012,
-      "date": "2012-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "169183808569081856",
-      "text": "\"Designing a product is keeping five thousand things in your brain and fitting them all together in new+different ways to get what you want\"",
-      "year": 2012,
-      "date": "2012-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "169161352869449728",
-      "text": "RT @socialistlib510: @dharmaburning agreed. this spring will reactivate everyone, everywhere. IMHO. And we all did a good job of keeping ...",
-      "year": 2012,
-      "date": "2012-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "169160983762313216",
-      "text": "RT @socialistlib510: So OPD fears more confrontations with #OO  because they fear Federal Receivership. In other words, we exposed them. ...",
-      "year": 2012,
-      "date": "2012-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "169159167389614082",
-      "text": "RT @Re_Occupy: This photo apparently just came out from Crete, as Greeks living there take over a TV news station http://t.co/6XqE92Iv",
-      "year": 2012,
-      "date": "2012-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "169116635720974336",
-      "text": "RT @OccupiedOakTrib: @OaktownMike @shane_danger Personally, I think we should setup weekend Occupations at OGP: food, library, medics, e ...",
-      "year": 2012,
-      "date": "2012-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "9072189315",
-      "text": "The second thing I back up ASAP is the entire Animal Collective discography. I have priorities.",
-      "year": 2010,
-      "date": "2010-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "9072180964",
-      "text": "Just got my new key-shaped Lacie thumbdrive. Immediately putting things on it. First up: backup all my work illustrator/data files.",
-      "year": 2010,
-      "date": "2010-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "9071006262",
-      "text": "RT @weepaw Love that the internet is  nominated for the 2010 Nobel Peace Prize.",
-      "year": 2010,
-      "date": "2010-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "9058380342",
-      "text": "I Ej pledge Lena shall sell me no black cigarettes",
-      "year": 2010,
-      "date": "2010-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1207541079",
-      "text": "At Build-A-Bear with Josh, Ben, and Russel. Ben is building a bear for his gal.",
-      "year": 2009,
-      "date": "2009-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1207229876",
-      "text": "Eating a pot pie, which is funny...",
-      "year": 2009,
-      "date": "2009-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1207188393",
-      "text": "When spring comes, I plan on laying in the grass and listening to Regina Spektor and Bat For Lashes and Joanna Newsom.",
-      "year": 2009,
-      "date": "2009-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1207126804",
-      "text": "http://www.1234567890day.com/",
-      "year": 2009,
-      "date": "2009-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1207079117",
-      "text": "Very hungry for lunch.",
-      "year": 2009,
-      "date": "2009-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1206926774",
-      "text": "Watching Burn Notice. Not a fan of Hulu's episode-ruining plot summaries. THERE'S an aspect of online TV they haven't figured out...",
-      "year": 2009,
-      "date": "2009-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1206855811",
-      "text": "Yo, there are some crazy motherfuckers in the world, I think. http://is.gd/jlNN",
-      "year": 2009,
-      "date": "2009-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1206648776",
-      "text": "Today is a do-nothing accomplish-nothing day. Now to take a shower.",
-      "year": 2009,
-      "date": "2009-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1206526627",
-      "text": "I think of like 2 people I don't like right now. Not really any more... hm.",
-      "year": 2009,
-      "date": "2009-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1206514894",
-      "text": "Awake... theoretically Brigid and Daisy and their friend are coming over later. My room is messy. I honestly don't give a shit.",
-      "year": 2009,
-      "date": "2009-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1205149714",
-      "text": "I was playing heavily with the slinky. I broke it. Very tangled. THEN I FIXED IT. AMAZING.",
-      "year": 2009,
-      "date": "2009-02-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1204906522",
-      "text": "#lastfm #love The Warning by Hot Chip http://bit.ly/yVQeO",
-      "year": 2009,
-      "date": "2009-02-13",
+      "id": "963566792722481152",
+      "text": "eye rolling emoji",
+      "year": 2018,
+      "date": "Wed Feb 14 00:13:20 +0000 2018",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -634,7 +157,16 @@
       "id": "709369872",
       "text": "Yay! Power!",
       "year": 2008,
-      "date": "2008-02-13",
+      "date": "Wed Feb 13 23:29:12 +0000 2008",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "301815048584708096",
+      "text": "Photo: feltron: Fifty states with equal population. http://t.co/DaMeN9S4",
+      "year": 2013,
+      "date": "Wed Feb 13 22:08:09 +0000 2013",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -643,122 +175,613 @@
       "id": "708791462",
       "text": "No electricity. How will I live? Through my phone until it dies. What then? =&lt;",
       "year": 2008,
-      "date": "2008-02-13",
+      "date": "Wed Feb 13 20:16:52 +0000 2008",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "301743792774594560",
+      "text": "My stomach is killing me… why am I broken… save me peppermint ginger tea...",
+      "year": 2013,
+      "date": "Wed Feb 13 17:25:00 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1095724790667771904",
+      "text": "People who get out of their seats before the train actually stops need to be spoken to",
+      "year": 2019,
+      "date": "Wed Feb 13 16:42:02 +0000 2019",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1095685826531520513",
+      "text": "@VICE 3rd graf https://t.co/GW5O0yeIie",
+      "year": 2019,
+      "date": "Wed Feb 13 14:07:12 +0000 2019",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "VICE"
+    },
+    {
+      "id": "1095683489943511040",
+      "text": "@_danharmon https://t.co/7emklQjFqK",
+      "year": 2019,
+      "date": "Wed Feb 13 13:57:55 +0000 2019",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "_danharmon"
+    },
+    {
+      "id": "1095678886376075264",
+      "text": "RT @AsteadWesley: What's the opposite of a Pulitzer https://t.co/Qs0kDpq25I",
+      "year": 2019,
+      "date": "Wed Feb 13 13:39:37 +0000 2019",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "301563681437794304",
+      "text": "New photoblog post: Camp http://t.co/u6hysddd",
+      "year": 2013,
+      "date": "Wed Feb 13 05:29:19 +0000 2013",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "169281972294791169",
+      "text": "RT @jezburrows: Ben Gibbard was in my apartment today, and I was not. (Sound of teenage Jez punching present day Jez in the mouth. Repea ...",
+      "year": 2012,
+      "date": "Tue Feb 14 04:49:01 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1625350299769610241",
+      "text": "this one's not even my fault at all, believe it or not https://t.co/Di9367glhd",
+      "year": 2023,
+      "date": "Tue Feb 14 04:24:43 +0000 2023",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "169275728716771328",
+      "text": "@jaspergregory As it turned out, the people who were there, dedicated, all the time were (surprise!) more radical.",
+      "year": 2012,
+      "date": "Tue Feb 14 04:24:13 +0000 2012",
+      "favorites": 0,
+      "retweets": 1,
+      "replyTo": "jaspergregory"
+    },
+    {
+      "id": "169275584021676033",
+      "text": "@jaspergregory I don't see the separation as between NV'ers and DOT'ers. I see it as between those there constantly (vigil) and those not.",
+      "year": 2012,
+      "date": "Tue Feb 14 04:23:38 +0000 2012",
+      "favorites": 0,
+      "retweets": 1,
+      "replyTo": "jaspergregory"
+    },
+    {
+      "id": "831337842835992577",
+      "text": "Wtf is this https://t.co/FzcPOjqDGk",
+      "year": 2017,
+      "date": "Tue Feb 14 03:02:41 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1625320391362191360",
+      "text": "@_hyp3ri0n I wish you the best of luck in these endeavors, even if the robot is hallucinating and this is the most elaborate text adventure ever",
+      "year": 2023,
+      "date": "Tue Feb 14 02:25:52 +0000 2023",
+      "favorites": 6,
+      "retweets": 0,
+      "replyTo": "_hyp3ri0n"
+    },
+    {
+      "id": "1625318663485005826",
+      "text": "@lucastimmons great points all around",
+      "year": 2023,
+      "date": "Tue Feb 14 02:19:00 +0000 2023",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "lucastimmons"
+    },
+    {
+      "id": "1625317602535825410",
+      "text": "meanwhile, this \"ugly\" code feels good like homemade mac and cheese https://t.co/k6xLdrADNY",
+      "year": 2023,
+      "date": "Tue Feb 14 02:14:48 +0000 2023",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1625317456712441858",
+      "text": "elegant code must be regarded with suspicion https://t.co/uGyCv7tECA",
+      "year": 2023,
+      "date": "Tue Feb 14 02:14:13 +0000 2023",
+      "favorites": 7,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "169231178904252417",
+      "text": "RT @sdw: Impressive cloud formations over SF as seen from my knee doctor's office. http://t.co/WMY3oZCo",
+      "year": 2012,
+      "date": "Tue Feb 14 01:27:11 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "963550559872659456",
+      "text": "RT @sxywu: I'm creating a workshop aimed at #frontenddevs who need to:\n- understand #d3js code they scrounged together\n- fit that #d3js cod…",
+      "year": 2018,
+      "date": "Tue Feb 13 23:08:50 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "963547993961058306",
+      "text": "RT @Limerick1914: Fascism is not a mental illness.",
+      "year": 2018,
+      "date": "Tue Feb 13 22:58:38 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "963539636218933249",
+      "text": "*can't ignore twitter Zeitgeist*\n\nI have had friends who later turned into white supremacists (that's what you get when you grow up on IRC and 4chan) but it was at that exact moment they ceased being my friends. Not that hard.",
+      "year": 2018,
+      "date": "Tue Feb 13 22:25:25 +0000 2018",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "963536583839436800",
+      "text": "RT @ellenhuet: opportunity: two of your housemates take a trip\n\nbattle plan: rest of house bands together to convert their bedroom into an…",
+      "year": 2018,
+      "date": "Tue Feb 13 22:13:17 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "963506279346995202",
+      "text": "RT @417am1975: 10-14-1518470433909 https://t.co/LctHLcmhQo",
+      "year": 2018,
+      "date": "Tue Feb 13 20:12:52 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "963506240465915904",
+      "text": "RT @bpopken: Publishing some very interesting data tomorrow morning. Stay tuned.",
+      "year": 2018,
+      "date": "Tue Feb 13 20:12:43 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "963465723187167232",
+      "text": "RT @pressfreedom: In 2017, journalists in the US were subjected to:\n44 physical attacks\n34 arrests\n15 equipment searches or seizures\n5 bord…",
+      "year": 2018,
+      "date": "Tue Feb 13 17:31:43 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "963465561182212096",
+      "text": "RT @lhfang: Trump era political social media feels a lot like Bush era Daily Show. Entertaining but mostly trivial obsession with whacky po…",
+      "year": 2018,
+      "date": "Tue Feb 13 17:31:04 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "963448009462812673",
+      "text": "RT @northead: @mrejfox That’s true indeed — there was a bit of sarcasm hiding a way to commend The @Outline’s flexible and forward-thinking…",
+      "year": 2018,
+      "date": "Tue Feb 13 16:21:20 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "963441736877072384",
+      "text": "I mean, we have seen this from Snapchat, Instagram, Medium, the Outline, etc. I don't think this interaction paradigm belongs to anyone, similar to the way \"pull down to refresh\" interaction became widely adopted on mobile https://t.co/uyDWRvdhBA",
+      "year": 2018,
+      "date": "Tue Feb 13 15:56:24 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "963426013362442240",
+      "text": "My cat joined me for meditation this morning. I was skeptical at first but he sat quietly and calmly and didn't interrupt at all.",
+      "year": 2018,
+      "date": "Tue Feb 13 14:53:55 +0000 2018",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "301918570919641088",
+      "text": "@Aleks_Todorova Nice! Couldn't seem to find this viz in the interactive- though. Nice to see it done on the web. @thedailybeast",
+      "year": 2013,
+      "date": "Thu Feb 14 04:59:31 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "Aleks_Todorova"
+    },
+    {
+      "id": "301918272847216641",
+      "text": "@enjalot How do I get this running in chrome?",
+      "year": 2013,
+      "date": "Thu Feb 14 04:58:20 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "enjalot"
+    },
+    {
+      "id": "301874171556818944",
+      "text": "\"Is craped a word?\" \"No way, crape is a noun and you cant verb nouns!\"",
+      "year": 2013,
+      "date": "Thu Feb 14 02:03:05 +0000 2013",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1228016656473038849",
+      "text": "@benjamindurland you want this for your site? Would make things easy",
+      "year": 2020,
+      "date": "Thu Feb 13 18:02:41 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1227985783371522049",
+      "text": "@JasonAbbruzzese @auren Its a skill I regret spending years cultivating, it is not transferrable in any way, I don’t really see it as a valuable skill  – why are we telling young people learning to navigate corporate structures is valuable?",
+      "year": 2020,
+      "date": "Thu Feb 13 16:00:00 +0000 2020",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "JasonAbbruzzese"
+    },
+    {
+      "id": "1227972530868310016",
+      "text": "@auren @JasonAbbruzzese Why is it a valuable skill?",
+      "year": 2020,
+      "date": "Thu Feb 13 15:07:20 +0000 2020",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "auren"
+    },
+    {
+      "id": "1227851584278802438",
+      "text": "Okay, got a folder of .jpgs generating json which is then turned into a webpage by vue/nuxt – now if I want to publish a new photo blog post I can add captions in lightroom, export the folder, run this, and press publish (which I think is pretty cool) https://t.co/BSZ4521sS4",
+      "year": 2020,
+      "date": "Thu Feb 13 07:06:44 +0000 2020",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "698663933058666503",
+      "text": "RT @TheOnion: Justice Scalia Dead Following 30-Year Battle With Social Progress https://t.co/XNhzhtATmR https://t.co/9X1v2jW78A",
+      "year": 2016,
+      "date": "Sun Feb 14 00:23:56 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "698663733514674178",
+      "text": "RT @dansinker: So like, simultaneous same-sex weddings in all 50 states during the Scalia funeral, right?",
+      "year": 2016,
+      "date": "Sun Feb 14 00:23:09 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "9072189315",
+      "text": "The second thing I back up ASAP is the entire Animal Collective discography. I have priorities.",
+      "year": 2010,
+      "date": "Sat Feb 13 22:13:35 +0000 2010",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "9072180964",
+      "text": "Just got my new key-shaped Lacie thumbdrive. Immediately putting things on it. First up: backup all my work illustrator/data files.",
+      "year": 2010,
+      "date": "Sat Feb 13 22:13:17 +0000 2010",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "9071006262",
+      "text": "RT @weepaw Love that the internet is  nominated for the 2010 Nobel Peace Prize.",
+      "year": 2010,
+      "date": "Sat Feb 13 21:33:25 +0000 2010",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "9058380342",
+      "text": "I Ej pledge Lena shall sell me no black cigarettes",
+      "year": 2010,
+      "date": "Sat Feb 13 15:09:58 +0000 2010",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "831280367294304258",
+      "text": "RT @JohnJHarwood: President Trump's current job approval in Gallup poll, by race: blacks 11%; Hispanics 19%; whites 53%",
+      "year": 2017,
+      "date": "Mon Feb 13 23:14:18 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "169193347133616128",
+      "text": "Everytime Illustrator crashes, Adobe should make a member of it's development team buy me lunch. Should take care of that.",
+      "year": 2012,
+      "date": "Mon Feb 13 22:56:52 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "169183857441116160",
+      "text": "That last quote is from Steve Jobs.",
+      "year": 2012,
+      "date": "Mon Feb 13 22:19:09 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "169183808569081856",
+      "text": "\"Designing a product is keeping five thousand things in your brain and fitting them all together in new+different ways to get what you want\"",
+      "year": 2012,
+      "date": "Mon Feb 13 22:18:57 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "831256661540999176",
+      "text": "A map of last week’s driving https://t.co/DN5lKmBGfC",
+      "year": 2017,
+      "date": "Mon Feb 13 21:40:06 +0000 2017",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "169161352869449728",
+      "text": "RT @socialistlib510: @dharmaburning agreed. this spring will reactivate everyone, everywhere. IMHO. And we all did a good job of keeping ...",
+      "year": 2012,
+      "date": "Mon Feb 13 20:49:44 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "169160983762313216",
+      "text": "RT @socialistlib510: So OPD fears more confrontations with #OO  because they fear Federal Receivership. In other words, we exposed them. ...",
+      "year": 2012,
+      "date": "Mon Feb 13 20:48:16 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "169159167389614082",
+      "text": "RT @Re_Occupy: This photo apparently just came out from Crete, as Greeks living there take over a TV news station http://t.co/6XqE92Iv",
+      "year": 2012,
+      "date": "Mon Feb 13 20:41:02 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "831236418840121344",
+      "text": "I grow weary.",
+      "year": 2017,
+      "date": "Mon Feb 13 20:19:40 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "831236318441009152",
+      "text": "@hellodigit appreciate you guys getting back to me but the problem still hasn’t been solved. Is there a number I can call?",
+      "year": 2017,
+      "date": "Mon Feb 13 20:19:16 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "hellodigit"
+    },
+    {
+      "id": "831211947215327232",
+      "text": "Not really super happy about being thousands of miles from home with no access to savings account and no immediate response from support.",
+      "year": 2017,
+      "date": "Mon Feb 13 18:42:26 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "831211691140489216",
+      "text": "Filed a support request with @hellodigit 5 days ago, got back to me that day, and haven’t heard back since.",
+      "year": 2017,
+      "date": "Mon Feb 13 18:41:24 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "169116635720974336",
+      "text": "RT @OccupiedOakTrib: @OaktownMike @shane_danger Personally, I think we should setup weekend Occupations at OGP: food, library, medics, e ...",
+      "year": 2012,
+      "date": "Mon Feb 13 17:52:02 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1625178966347726868",
+      "text": "@camdez @localrapfan I am convinced people ignore developer experience because they think their work *should be hard* and the increased number of incantations increases value– which is the diametric opposite of my values of speed and simplicity",
+      "year": 2023,
+      "date": "Mon Feb 13 17:03:54 +0000 2023",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1625178495327387662",
+      "text": "@camdez @localrapfan I am mostly being hyperbolic, but the thing that annoys me is the same phenomena as the React-ification of everyday apps and personal projects. So many people applying tools meant for billion dollar hundred-engineer projects to their first to do list app because it is “better”",
+      "year": 2023,
+      "date": "Mon Feb 13 17:02:02 +0000 2023",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "camdez"
+    },
+    {
+      "id": "1625177975258857473",
+      "text": "@chris_honeybee Does putting on a leather apron help at all? Seems to work for other industries",
+      "year": 2023,
+      "date": "Mon Feb 13 16:59:58 +0000 2023",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "chris_honeybee"
+    },
+    {
+      "id": "1625177240441946114",
+      "text": "@SoC_trilogy @repligate Hey Matthew, have been following along as you do these explorations- I would love to do a recorded chat about these discoveries and your approach if you are interested. DM or email me at ejfox@ejfox.com",
+      "year": 2023,
+      "date": "Mon Feb 13 16:57:03 +0000 2023",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "SoC_trilogy"
+    },
+    {
+      "id": "1207541079",
+      "text": "At Build-A-Bear with Josh, Ben, and Russel. Ben is building a bear for his gal.",
+      "year": 2009,
+      "date": "Fri Feb 13 19:44:13 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1207229876",
+      "text": "Eating a pot pie, which is funny...",
+      "year": 2009,
+      "date": "Fri Feb 13 18:11:40 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1207188393",
+      "text": "When spring comes, I plan on laying in the grass and listening to Regina Spektor and Bat For Lashes and Joanna Newsom.",
+      "year": 2009,
+      "date": "Fri Feb 13 18:00:04 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1207126804",
+      "text": "http://www.1234567890day.com/",
+      "year": 2009,
+      "date": "Fri Feb 13 17:43:06 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1207079117",
+      "text": "Very hungry for lunch.",
+      "year": 2009,
+      "date": "Fri Feb 13 17:29:42 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1206926774",
+      "text": "Watching Burn Notice. Not a fan of Hulu's episode-ruining plot summaries. THERE'S an aspect of online TV they haven't figured out...",
+      "year": 2009,
+      "date": "Fri Feb 13 16:47:11 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1206855811",
+      "text": "Yo, there are some crazy motherfuckers in the world, I think. http://is.gd/jlNN",
+      "year": 2009,
+      "date": "Fri Feb 13 16:27:11 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1206648776",
+      "text": "Today is a do-nothing accomplish-nothing day. Now to take a shower.",
+      "year": 2009,
+      "date": "Fri Feb 13 15:27:36 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1206526627",
+      "text": "I think of like 2 people I don't like right now. Not really any more... hm.",
+      "year": 2009,
+      "date": "Fri Feb 13 14:50:30 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1206514894",
+      "text": "Awake... theoretically Brigid and Daisy and their friend are coming over later. My room is messy. I honestly don't give a shit.",
+      "year": 2009,
+      "date": "Fri Feb 13 14:46:49 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     }
-  ],
-  "posts": [],
-  "scrobbles": [
-    {
-      "date": "2023-02-13",
-      "year": 2023,
-      "count": 61,
-      "topTracks": [
-        "Kenny Beats - Last Words",
-        "Bruno Mars - After Last Night (with Thundercat & Bootsy Collins)",
-        "Hiatus Kaiyote - Red Room",
-        "The Alchemist - Ocean Prime (feat. Boldy James)",
-        "Flowervillain - 50 dumplings"
-      ],
-      "topArtists": ["Kenny Beats", "Bruno Mars", "Hiatus Kaiyote"]
-    },
-    {
-      "date": "2022-02-13",
-      "year": 2022,
-      "count": 10,
-      "topTracks": [
-        "The New Birth - Honeybee",
-        "Thundercat - Lost in Space / Great Scott / 22-26",
-        "Thundercat - Innerstellar Love",
-        "Thundercat - Black Qualls",
-        "Thundercat - Overseas"
-      ],
-      "topArtists": ["The New Birth", "Thundercat", "Blundetto"]
-    },
-    {
-      "date": "2019-02-13",
-      "year": 2019,
-      "count": 90,
-      "topTracks": [
-        "Panda Bear - Dolphin",
-        "Panda Bear - Cranked",
-        "Panda Bear - Token",
-        "Panda Bear - I Know I Don't Know",
-        "Panda Bear - Master"
-      ],
-      "topArtists": ["Panda Bear", "Everything Is Recorded", "The O'my's"]
-    },
-    {
-      "date": "2012-02-13",
-      "year": 2012,
-      "count": 117,
-      "topTracks": [
-        "Bob Marley and the Wailers - Trenchtown Rock",
-        "Bob Marley & The Wailers - Trenchtown Rock - Live (1975/London)",
-        "Bob Marley - Trenchtown Rock",
-        "Bob Marley & The Wailers - Trenchtown Rock",
-        "The Wailers - Trenchtown Rock"
-      ],
-      "topArtists": [
-        "Bob Marley and the Wailers",
-        "Bob Marley & The Wailers",
-        "Bob Marley"
-      ]
-    },
-    {
-      "date": "2011-02-13",
-      "year": 2011,
-      "count": 35,
-      "topTracks": [
-        "Chase And Status - eastern jam",
-        "Eddie Vedder - Hard Sun",
-        "Eddie Vedder - Society",
-        "Orson Scott Card - Speaker for the Dead (Unabridged), Part 1",
-        "Orson Scott Card - Xenocide (Unabridged), Part 1"
-      ],
-      "topArtists": ["Chase And Status", "Eddie Vedder", "Orson Scott Card"]
-    },
-    {
-      "date": "2009-02-13",
-      "year": 2009,
-      "count": 31,
-      "topTracks": [
-        "Sir Arthur Conan Doyle - The Return of Sherlock Holmes (Unabridged Selections), Part 1",
-        "Sir Arthur Conan Doyle - The Return of Sherlock Holmes (Unabridged Selections), Part 2",
-        "Animal Collective - Also Frightened",
-        "Radiohead - Just",
-        "Handsome Boy Modeling School - Look at This Face (Oh My God They're Gorgeous)"
-      ],
-      "topArtists": ["Sir Arthur Conan Doyle", "Animal Collective", "Radiohead"]
-    },
-    {
-      "date": "2007-02-13",
-      "year": 2007,
-      "count": 126,
-      "topTracks": [
-        "Imogen Heap - The Moment I Said It",
-        "Matisyahu - Aish Tamid",
-        "Imogen Heap - Hide and Seek",
-        "Matisyahu - Refuge",
-        "Massive Attack - I Want You"
-      ],
-      "topArtists": ["Imogen Heap", "Matisyahu", "Massive Attack"]
-    },
-    {
-      "date": "2005-02-13",
-      "year": 2005,
-      "count": 336,
-      "topTracks": [
-        "Daft Punk - Harder Better Faster Stronger (The Neptunes Remix)",
-        "The Postal Service - We Will Become Silhouettes",
-        "Mophono - Lily",
-        "Eustachian - Dotted Chess",
-        "Green Day - Whatsername"
-      ],
-      "topArtists": ["Daft Punk", "The Postal Service", "Mophono"]
-    }
-  ],
-  "commits": []
+  ]
 }

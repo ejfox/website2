@@ -1,154 +1,19 @@
 {
   "tweets": [
     {
-      "id": "1554459528644657153",
-      "text": "and then I find myself in this position where someone has convinced their org all of the amazing things that collecting data will do for them, and they collect it, and they come to me to figure out what's inside, \"what insights are in there\" they ask- idk, the ones you put in it",
-      "year": 2022,
-      "date": "2022-08-02",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1554459201132531714",
-      "text": "\"Collecting more data got them those insights, right?\" well, sort of it, it's more like they knew what they wanted and then measured the things that would help them know that",
-      "year": 2022,
-      "date": "2022-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1554459076226158592",
-      "text": "in data, it often happens that someone with the data equivalent of a disposable point-and-shoot camera assumes that, because they are using the right technology, they should get all the insights of their neighbor with HD cameras rigged up at every conceivable angle",
-      "year": 2022,
-      "date": "2022-08-02",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1157438600012808193",
-      "text": "dammit i put all that effort into finally learning how to use vim and vscode is cool as heck, huh",
-      "year": 2019,
-      "date": "2019-08-02",
+      "id": "760658945782452224",
+      "text": "RT @SeanUnfiltered: How can anyone not like what the Raiders are building.  With Carr, Cooper and Mack we are looking at 3 long term stars.…",
+      "year": 2016,
+      "date": "Wed Aug 03 02:09:59 +0000 2016",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
-    },
-    {
-      "id": "1157419669382451200",
-      "text": "RT @chrislhayes: It has never ever ever been about \"illegal\" immigration. Ever.\n\nhttps://t.co/NOxHuvbjtY",
-      "year": 2019,
-      "date": "2019-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1157307136751341573",
-      "text": "@BrandyZadrozny @OliviaMesser Designers do this too (it tends to work, in my experience) https://t.co/xL5GEQd6HJ",
-      "year": 2019,
-      "date": "2019-08-02",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "BrandyZadrozny"
-    },
-    {
-      "id": "1025147506471174145",
-      "text": "this is the content i want delivered in the tone i want, thank you @Jezebel https://t.co/e74npwfNtl",
-      "year": 2018,
-      "date": "2018-08-02",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1025137960457515009",
-      "text": "has your project been going on for a long time? did you recently realize it was over a year? is it dragging on you that nobody has seen your work yet? I highly suggest you add a bunch of animations / tweens to your app, those little pieces mean a lot!!",
-      "year": 2018,
-      "date": "2018-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1025129702263070720",
-      "text": "RT @417am1975: 10-3-1533244839299 https://t.co/jC894ORaAp",
-      "year": 2018,
-      "date": "2018-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1025104765007659008",
-      "text": "i've been watching the vox explained show on netflix mostly because the intro song is so good",
-      "year": 2018,
-      "date": "2018-08-02",
-      "favorites": 6,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1025070354270703617",
-      "text": "RT @417am1975: 3-4-2-1533230438906 https://t.co/GLMpadjS9d",
-      "year": 2018,
-      "date": "2018-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1025034204600590338",
-      "text": "@mdavidallen that is reassuring",
-      "year": 2018,
-      "date": "2018-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mdavidallen"
-    },
-    {
-      "id": "1025034139328753664",
-      "text": "RT @mdavidallen: @mrejfox don't fall for the prevailing cultural narrative that you must respond to everything and \"be plugged in\", it does…",
-      "year": 2018,
-      "date": "2018-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1025024130213654528",
-      "text": "I wish there was a way to publicly broadcast the number of un-answered emails, text messages, etc I am currently facing at any one time so you could all realize I'm not in fact ignoring you as individuals I am just a useless person who is bad at communicating",
-      "year": 2018,
-      "date": "2018-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1025018885718925312",
-      "text": "eughghhhhhh https://t.co/zKWNoXszTH",
-      "year": 2018,
-      "date": "2018-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1025016178098561025",
-      "text": "@Joshochos p sure that's not legal",
-      "year": 2018,
-      "date": "2018-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "Joshochos"
     },
     {
       "id": "892835281107382273",
       "text": "@ALSTON2008 do it",
       "year": 2017,
-      "date": "2017-08-02",
+      "date": "Wed Aug 02 19:51:33 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "ALSTON2008"
@@ -157,7 +22,7 @@
       "id": "892829746077343745",
       "text": "build ya own tools https://t.co/C8G5nIUYoE",
       "year": 2017,
-      "date": "2017-08-02",
+      "date": "Wed Aug 02 19:29:34 +0000 2017",
       "favorites": 2,
       "retweets": 0,
       "replyTo": "mrejfox"
@@ -166,7 +31,7 @@
       "id": "892829345580027904",
       "text": "Guys I think we should bring these button things back https://t.co/bueqkollXV https://t.co/Tltfy2BRnR",
       "year": 2017,
-      "date": "2017-08-02",
+      "date": "Wed Aug 02 19:27:58 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -175,7 +40,7 @@
       "id": "892791355654758400",
       "text": "RT @Convert3D: Enhanced my @aframevr demo w/ added AR &amp; mini-map.\nThanks to @jerome_etienne for making web #AR possible.\nhttps://t.co/9Wnyl…",
       "year": 2017,
-      "date": "2017-08-02",
+      "date": "Wed Aug 02 16:57:01 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -184,7 +49,7 @@
       "id": "892790767282008064",
       "text": "@aendrew @gyroscope_app Haha I like it! I would put it on my Apple Watch if I could. Memento more.",
       "year": 2017,
-      "date": "2017-08-02",
+      "date": "Wed Aug 02 16:54:40 +0000 2017",
       "favorites": 1,
       "retweets": 0,
       "replyTo": "aendra"
@@ -193,7 +58,7 @@
       "id": "892781203362861057",
       "text": "RT @417am1975: 104-1501690546249 https://t.co/Sf1MB8nWcc",
       "year": 2017,
-      "date": "2017-08-02",
+      "date": "Wed Aug 02 16:16:40 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -202,7 +67,7 @@
       "id": "892779408041422849",
       "text": "Congrats @banikarim!! Can’t wait to see what comes. https://t.co/ka6PghPZBZ",
       "year": 2017,
-      "date": "2017-08-02",
+      "date": "Wed Aug 02 16:09:32 +0000 2017",
       "favorites": 2,
       "retweets": 1,
       "replyTo": null
@@ -211,7 +76,7 @@
       "id": "892765191594795009",
       "text": "@DashingD3js Thank you!",
       "year": 2017,
-      "date": "2017-08-02",
+      "date": "Wed Aug 02 15:13:03 +0000 2017",
       "favorites": 1,
       "retweets": 0,
       "replyTo": "DashingD3js"
@@ -220,7 +85,7 @@
       "id": "892765089115369472",
       "text": "@aendrew It's @gyroscope_app which I am a big fan of.",
       "year": 2017,
-      "date": "2017-08-02",
+      "date": "Wed Aug 02 15:12:38 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "aendra"
@@ -229,242 +94,44 @@
       "id": "892747431816949762",
       "text": "https://t.co/m4NmkevJft",
       "year": 2017,
-      "date": "2017-08-02",
+      "date": "Wed Aug 02 14:02:28 +0000 2017",
       "favorites": 1,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "892536143899754496",
-      "text": "Took a Foundry trip to PA to get some work done at @bradoyler’s place today. Was good to get out of the city! https://t.co/oh7tm6EMMc",
-      "year": 2017,
-      "date": "2017-08-02",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "760537834382102528",
-      "text": "@Tara_Jacoby @this_is_RAD would love a medium post on your process",
-      "year": 2016,
-      "date": "2016-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "Tara_Jacoby"
-    },
-    {
-      "id": "760526987198881794",
-      "text": "@Tara_Jacoby @this_is_RAD this is some serious fire Tara 🙌🙌🙌",
-      "year": 2016,
-      "date": "2016-08-02",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "Tara_Jacoby"
-    },
-    {
-      "id": "760499449965707264",
-      "text": "RT @PamEngel12: Obama: Every Republican endorsing Trump “effectively endorses and validates the positions that are being articulated by Mr.…",
-      "year": 2016,
-      "date": "2016-08-02",
+      "id": "1422384160648441868",
+      "text": "RT @enjalot: reporting live from the Matrix, seeing a lot of latency in us-east Tom, with cascading failures expected through the region. R…",
+      "year": 2021,
+      "date": "Tue Aug 03 02:29:45 +0000 2021",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "760493830995083264",
-      "text": "America almost unilaterally decides “we will figure this out when it comes up next time” https://t.co/X2mc3Zen3U",
-      "year": 2016,
-      "date": "2016-08-02",
+      "id": "1422384060467490817",
+      "text": "I think that spatialized dataviz probably looks a lot like a workbench with lots of objects like this, big and small, that are not only live and reactive but can be picked up and inspected and turned on their side. https://t.co/UOgwDTOdDv",
+      "year": 2021,
+      "date": "Tue Aug 03 02:29:21 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1422379503884640261",
+      "text": "https://t.co/GuCmKXInoV",
+      "year": 2021,
+      "date": "Tue Aug 03 02:11:14 +0000 2021",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1422351988654755840",
+      "text": "Really proud of the work I have been doing with my personal YouTube algorithm, it is now fully 45% motorcycle videos, 45% watercolor how-tos, and 10% stand up comedy. Just like the inside of my brain.",
+      "year": 2021,
+      "date": "Tue Aug 03 00:21:54 +0000 2021",
       "favorites": 5,
-      "retweets": 4,
-      "replyTo": null
-    },
-    {
-      "id": "760492815499587584",
-      "text": "Wow https://t.co/LsmhPfZ5vY",
-      "year": 2016,
-      "date": "2016-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "760480563211988992",
-      "text": "RT @ThePracticalDev: Remember that hardware project you were so excited about? https://t.co/Mjm4mTyFsr",
-      "year": 2016,
-      "date": "2016-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "760479013047500800",
-      "text": "RT @headhntr: Information operations in Syria continue, @citizenlab tracks the rise of new cyber efforts https://t.co/FvmO44M9wS https://t.…",
-      "year": 2016,
-      "date": "2016-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "760357164267474944",
-      "text": "Got a dollar and a dream, spent the dollar on an Arizona tea",
-      "year": 2016,
-      "date": "2016-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "495650010764017664",
-      "text": "M88 Teaser: http://t.co/YhVHwpXMVb via @YouTube",
-      "year": 2014,
-      "date": "2014-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "495375223185997826",
-      "text": "A new favorite: Photay - No Sass by @astronautibro http://t.co/jmEILT6twT on #SoundCloud",
-      "year": 2014,
-      "date": "2014-08-02",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "363341763634671617",
-      "text": "@enjalot Ayooo https://t.co/3VIS8luP3L by @guelo",
-      "year": 2013,
-      "date": "2013-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "enjalot"
-    },
-    {
-      "id": "231142744431656960",
-      "text": "@cheddar Ah, I knew how to do it on iOS but not web. Now I see it on the far left, you think of everything! Was trying: http://t.co/Sam2VMy5",
-      "year": 2012,
-      "date": "2012-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "cheddarapp"
-    },
-    {
-      "id": "231140085549129729",
-      "text": "@cheddar BTW you are doing everything right, and I will do my best to support &amp; promote Cheddar. Incredible work. Thx for API &amp; open-source",
-      "year": 2012,
-      "date": "2012-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "cheddarapp"
-    },
-    {
-      "id": "231139843890089984",
-      "text": "@cheddar Really love what you're doing with Cheddar! Look forward to Mac app. Really hoping for ability to re-arrange tasks. Plz-n-thx! =]",
-      "year": 2012,
-      "date": "2012-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "cheddarapp"
-    },
-    {
-      "id": "231105989317894145",
-      "text": "@BellaEiko Just wanted to say thank you for doing what you do. That vid is important. You are important. Thank you. #FTP",
-      "year": 2012,
-      "date": "2012-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "BellaEiko"
-    },
-    {
-      "id": "231105025068388352",
-      "text": "No, I'm sorry, I have some clay, but I'm kneading cute little things out of it. I wanna make sculptures. More clay. More data. Big data.",
-      "year": 2012,
-      "date": "2012-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "231104822412206081",
-      "text": "I feel like a sculptor with no clay. Except my raw material is the flotsam of analytical indulgences of start-ups and journos. Kinda rare.",
-      "year": 2012,
-      "date": "2012-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "231104342898397185",
-      "text": "I'm going to take all of your data and then I'm going to find little funny things in it and then I'm going to turn it into little circles.",
-      "year": 2012,
-      "date": "2012-08-02",
-      "favorites": 2,
-      "retweets": 2,
-      "replyTo": null
-    },
-    {
-      "id": "231104177470849024",
-      "text": "Somebody give me tons of data. Metric tons of data. I'm talking garbage trucks full of data. All sorts. I want all the data. Uh... big data.",
-      "year": 2012,
-      "date": "2012-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "231104003918938112",
-      "text": "RT @moritz_stefaner: Tableau, Python, Gigabytes of Twitter logs #mucho #splendido",
-      "year": 2012,
-      "date": "2012-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "231094744619560961",
-      "text": "RT @ejfoxverbose: Github: ejfox started watching jasondavies/d3-cloud http://t.co/p4EdEeos",
-      "year": 2012,
-      "date": "2012-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "231088667358285826",
-      "text": "@marymad Sorta, trying to figure out what I wanna do and how I want to do it. Taking a step back this summer to study &amp; contemplate &amp; hike.",
-      "year": 2012,
-      "date": "2012-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "treekisser"
-    },
-    {
-      "id": "231081260863336448",
-      "text": "@ttscoff Can't wait! Looks amazing.",
-      "year": 2012,
-      "date": "2012-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "ttscoff"
-    },
-    {
-      "id": "231081207348228097",
-      "text": "RT @ttscoff: This came out smashingly. Don't worry, I'll share soon. http://t.co/HCtebLOK",
-      "year": 2012,
-      "date": "2012-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "231077862680182784",
-      "text": "@glassresistor Interesting stuff, definitely interested in more data. Definitely will play with this in D3. Do you have any goals for this?",
-      "year": 2012,
-      "date": "2012-08-02",
-      "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
@@ -472,7 +139,7 @@
       "id": "98522131389874176",
       "text": "Support Free Topiary, add a #twibbon now! - http://twb.ly/qeHB6h - Create one here - http://twb.ly/f02AU3",
       "year": 2011,
-      "date": "2011-08-02",
+      "date": "Tue Aug 02 22:34:41 +0000 2011",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -481,7 +148,7 @@
       "id": "98458528108392448",
       "text": "RT @BreakingNews: UK set to legalize copying of CDs, DVDs onto music players or PCs for personal use - Reuters http://bit.ly/pYySlA",
       "year": 2011,
-      "date": "2011-08-02",
+      "date": "Tue Aug 02 18:21:57 +0000 2011",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -490,16 +157,367 @@
       "id": "98455924917809154",
       "text": "@analogplanets Me and my girlfriend rap Biggie, Eminem and Lil Wayne songs back and forth to each other so I wouldn't be surprised if ya did",
       "year": 2011,
-      "date": "2011-08-02",
+      "date": "Tue Aug 02 18:11:36 +0000 2011",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
+      "id": "760537834382102528",
+      "text": "@Tara_Jacoby @this_is_RAD would love a medium post on your process",
+      "year": 2016,
+      "date": "Tue Aug 02 18:08:44 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "Tara_Jacoby"
+    },
+    {
       "id": "98454149045288961",
       "text": "Ooh yay Google Voice looks sexy now!",
       "year": 2011,
-      "date": "2011-08-02",
+      "date": "Tue Aug 02 18:04:32 +0000 2011",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "760526987198881794",
+      "text": "@Tara_Jacoby @this_is_RAD this is some serious fire Tara 🙌🙌🙌",
+      "year": 2016,
+      "date": "Tue Aug 02 17:25:38 +0000 2016",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "Tara_Jacoby"
+    },
+    {
+      "id": "760499449965707264",
+      "text": "RT @PamEngel12: Obama: Every Republican endorsing Trump “effectively endorses and validates the positions that are being articulated by Mr.…",
+      "year": 2016,
+      "date": "Tue Aug 02 15:36:12 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "760493830995083264",
+      "text": "America almost unilaterally decides “we will figure this out when it comes up next time” https://t.co/X2mc3Zen3U",
+      "year": 2016,
+      "date": "Tue Aug 02 15:13:53 +0000 2016",
+      "favorites": 5,
+      "retweets": 4,
+      "replyTo": null
+    },
+    {
+      "id": "760492815499587584",
+      "text": "Wow https://t.co/LsmhPfZ5vY",
+      "year": 2016,
+      "date": "Tue Aug 02 15:09:51 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "760480563211988992",
+      "text": "RT @ThePracticalDev: Remember that hardware project you were so excited about? https://t.co/Mjm4mTyFsr",
+      "year": 2016,
+      "date": "Tue Aug 02 14:21:09 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "760479013047500800",
+      "text": "RT @headhntr: Information operations in Syria continue, @citizenlab tracks the rise of new cyber efforts https://t.co/FvmO44M9wS https://t.…",
+      "year": 2016,
+      "date": "Tue Aug 02 14:15:00 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1554459528644657153",
+      "text": "and then I find myself in this position where someone has convinced their org all of the amazing things that collecting data will do for them, and they collect it, and they come to me to figure out what's inside, \"what insights are in there\" they ask- idk, the ones you put in it",
+      "year": 2022,
+      "date": "Tue Aug 02 13:30:06 +0000 2022",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1554459201132531714",
+      "text": "\"Collecting more data got them those insights, right?\" well, sort of it, it's more like they knew what they wanted and then measured the things that would help them know that",
+      "year": 2022,
+      "date": "Tue Aug 02 13:28:48 +0000 2022",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1554459076226158592",
+      "text": "in data, it often happens that someone with the data equivalent of a disposable point-and-shoot camera assumes that, because they are using the right technology, they should get all the insights of their neighbor with HD cameras rigged up at every conceivable angle",
+      "year": 2022,
+      "date": "Tue Aug 02 13:28:18 +0000 2022",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "760357164267474944",
+      "text": "Got a dollar and a dream, spent the dollar on an Arizona tea",
+      "year": 2016,
+      "date": "Tue Aug 02 06:10:49 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "892952622180728832",
+      "text": "RT @kylegriffin1: Yahoo: Reporter says ‘Russian propaganda outlet’ pushed him to cover conspiracy theory at the center of a WH lawsuit http…",
+      "year": 2017,
+      "date": "Thu Aug 03 03:37:50 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1686915825750401024",
+      "text": "@SoC_trilogy @repligate @deepfates @AcroYogi wow this is great",
+      "year": 2023,
+      "date": "Thu Aug 03 01:44:08 +0000 2023",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "SoC_trilogy"
+    },
+    {
+      "id": "1025147506471174145",
+      "text": "this is the content i want delivered in the tone i want, thank you @Jezebel https://t.co/e74npwfNtl",
+      "year": 2018,
+      "date": "Thu Aug 02 22:33:06 +0000 2018",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1025137960457515009",
+      "text": "has your project been going on for a long time? did you recently realize it was over a year? is it dragging on you that nobody has seen your work yet? I highly suggest you add a bunch of animations / tweens to your app, those little pieces mean a lot!!",
+      "year": 2018,
+      "date": "Thu Aug 02 21:55:10 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "231142744431656960",
+      "text": "@cheddar Ah, I knew how to do it on iOS but not web. Now I see it on the far left, you think of everything! Was trying: http://t.co/Sam2VMy5",
+      "year": 2012,
+      "date": "Thu Aug 02 21:41:39 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "cheddarapp"
+    },
+    {
+      "id": "183222462",
+      "text": "Walking to dinner, Sloth \"communist cupcakes? How's that camp inapproiate? What're they gonna do? Share their frosting?\"",
+      "year": 2007,
+      "date": "Thu Aug 02 21:40:08 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "231140085549129729",
+      "text": "@cheddar BTW you are doing everything right, and I will do my best to support &amp; promote Cheddar. Incredible work. Thx for API &amp; open-source",
+      "year": 2012,
+      "date": "Thu Aug 02 21:31:05 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "cheddarapp"
+    },
+    {
+      "id": "231139843890089984",
+      "text": "@cheddar Really love what you're doing with Cheddar! Look forward to Mac app. Really hoping for ability to re-arrange tasks. Plz-n-thx! =]",
+      "year": 2012,
+      "date": "Thu Aug 02 21:30:07 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "cheddarapp"
+    },
+    {
+      "id": "1025129702263070720",
+      "text": "RT @417am1975: 10-3-1533244839299 https://t.co/jC894ORaAp",
+      "year": 2018,
+      "date": "Thu Aug 02 21:22:21 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1025104765007659008",
+      "text": "i've been watching the vox explained show on netflix mostly because the intro song is so good",
+      "year": 2018,
+      "date": "Thu Aug 02 19:43:16 +0000 2018",
+      "favorites": 6,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "231105989317894145",
+      "text": "@BellaEiko Just wanted to say thank you for doing what you do. That vid is important. You are important. Thank you. #FTP",
+      "year": 2012,
+      "date": "Thu Aug 02 19:15:36 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "BellaEiko"
+    },
+    {
+      "id": "231105025068388352",
+      "text": "No, I'm sorry, I have some clay, but I'm kneading cute little things out of it. I wanna make sculptures. More clay. More data. Big data.",
+      "year": 2012,
+      "date": "Thu Aug 02 19:11:46 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "231104822412206081",
+      "text": "I feel like a sculptor with no clay. Except my raw material is the flotsam of analytical indulgences of start-ups and journos. Kinda rare.",
+      "year": 2012,
+      "date": "Thu Aug 02 19:10:58 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "231104342898397185",
+      "text": "I'm going to take all of your data and then I'm going to find little funny things in it and then I'm going to turn it into little circles.",
+      "year": 2012,
+      "date": "Thu Aug 02 19:09:03 +0000 2012",
+      "favorites": 2,
+      "retweets": 2,
+      "replyTo": null
+    },
+    {
+      "id": "231104177470849024",
+      "text": "Somebody give me tons of data. Metric tons of data. I'm talking garbage trucks full of data. All sorts. I want all the data. Uh... big data.",
+      "year": 2012,
+      "date": "Thu Aug 02 19:08:24 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "231104003918938112",
+      "text": "RT @moritz_stefaner: Tableau, Python, Gigabytes of Twitter logs #mucho #splendido",
+      "year": 2012,
+      "date": "Thu Aug 02 19:07:42 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "231094744619560961",
+      "text": "RT @ejfoxverbose: Github: ejfox started watching jasondavies/d3-cloud http://t.co/p4EdEeos",
+      "year": 2012,
+      "date": "Thu Aug 02 18:30:55 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "231088667358285826",
+      "text": "@marymad Sorta, trying to figure out what I wanna do and how I want to do it. Taking a step back this summer to study &amp; contemplate &amp; hike.",
+      "year": 2012,
+      "date": "Thu Aug 02 18:06:46 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "treekisser"
+    },
+    {
+      "id": "231081260863336448",
+      "text": "@ttscoff Can't wait! Looks amazing.",
+      "year": 2012,
+      "date": "Thu Aug 02 17:37:20 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "ttscoff"
+    },
+    {
+      "id": "231081207348228097",
+      "text": "RT @ttscoff: This came out smashingly. Don't worry, I'll share soon. http://t.co/HCtebLOK",
+      "year": 2012,
+      "date": "Thu Aug 02 17:37:07 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1025070354270703617",
+      "text": "RT @417am1975: 3-4-2-1533230438906 https://t.co/GLMpadjS9d",
+      "year": 2018,
+      "date": "Thu Aug 02 17:26:32 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "231077862680182784",
+      "text": "@glassresistor Interesting stuff, definitely interested in more data. Definitely will play with this in D3. Do you have any goals for this?",
+      "year": 2012,
+      "date": "Thu Aug 02 17:23:50 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1025034204600590338",
+      "text": "@mdavidallen that is reassuring",
+      "year": 2018,
+      "date": "Thu Aug 02 15:02:53 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mdavidallen"
+    },
+    {
+      "id": "1025034139328753664",
+      "text": "RT @mdavidallen: @mrejfox don't fall for the prevailing cultural narrative that you must respond to everything and \"be plugged in\", it does…",
+      "year": 2018,
+      "date": "Thu Aug 02 15:02:37 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1025024130213654528",
+      "text": "I wish there was a way to publicly broadcast the number of un-answered emails, text messages, etc I am currently facing at any one time so you could all realize I'm not in fact ignoring you as individuals I am just a useless person who is bad at communicating",
+      "year": 2018,
+      "date": "Thu Aug 02 14:22:51 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1025018885718925312",
+      "text": "eughghhhhhh https://t.co/zKWNoXszTH",
+      "year": 2018,
+      "date": "Thu Aug 02 14:02:00 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1025016178098561025",
+      "text": "@Joshochos p sure that's not legal",
+      "year": 2018,
+      "date": "Thu Aug 02 13:51:15 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "Joshochos"
+    },
+    {
+      "id": "182253852",
+      "text": "Breakfast is amusing- circumcision oats, steve from blue's clues as a drug dealer, other amusing items.",
+      "year": 2007,
+      "date": "Thu Aug 02 12:06:42 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -508,7 +526,7 @@
       "id": "3090404635",
       "text": "Taking a little nap and then going back to cleaning.",
       "year": 2009,
-      "date": "2009-08-02",
+      "date": "Sun Aug 02 19:03:18 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -517,7 +535,7 @@
       "id": "3089149367",
       "text": "playing a little Call of Duty 4: Modern Warfare. http://raptr.com/pseudoplacebo",
       "year": 2009,
-      "date": "2009-08-02",
+      "date": "Sun Aug 02 17:32:45 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -526,7 +544,7 @@
       "id": "3088130124",
       "text": "Sorta getting the hang of using my sampler with Ableton Live.",
       "year": 2009,
-      "date": "2009-08-02",
+      "date": "Sun Aug 02 16:17:32 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -535,7 +553,7 @@
       "id": "3086890757",
       "text": "Thinking I might try working with one of my songs so I could be able to play it live with the sampler... how fucking cool would that be?",
       "year": 2009,
-      "date": "2009-08-02",
+      "date": "Sun Aug 02 14:31:35 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -544,7 +562,7 @@
       "id": "3086473018",
       "text": "Yeah, Kanye. Killing IS some whack shit.",
       "year": 2009,
-      "date": "2009-08-02",
+      "date": "Sun Aug 02 13:48:49 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -553,88 +571,34 @@
       "id": "3085965902",
       "text": "playing a little Call of Duty 4: Modern Warfare. http://raptr.com/pseudoplacebo",
       "year": 2009,
-      "date": "2009-08-02",
+      "date": "Sun Aug 02 12:49:13 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "3081279615",
-      "text": "I am for serious missing out on some fun infographics. =[ But now I must sleep.",
-      "year": 2009,
-      "date": "2009-08-02",
-      "favorites": 0,
+      "id": "1157442700314103808",
+      "text": "@pinzler ooooooh",
+      "year": 2019,
+      "date": "Sat Aug 03 00:06:58 +0000 2019",
+      "favorites": 1,
       "retweets": 0,
-      "replyTo": null
+      "replyTo": "pinzler"
     },
     {
-      "id": "3080624919",
-      "text": "A NEW HOUR OF RADIO LAB YAY YAY YAY I LOVE YOU RADIO LAB.",
-      "year": 2009,
-      "date": "2009-08-02",
-      "favorites": 0,
+      "id": "1157441883922141188",
+      "text": "forward march of progress, or whatever https://t.co/nh4ZqmdmyD",
+      "year": 2019,
+      "date": "Sat Aug 03 00:03:44 +0000 2019",
+      "favorites": 2,
       "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "3080028512",
-      "text": "Listening to Dune. This takes me back... damn!",
-      "year": 2009,
-      "date": "2009-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "3079937532",
-      "text": "I'd like to download & backup all of my Facebook interactions, please. Every little comment conversation and picture comment. Thank you.",
-      "year": 2009,
-      "date": "2009-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "3079720704",
-      "text": "Fuck braces, I do toothcare the fast and painful way.",
-      "year": 2009,
-      "date": "2009-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "3079338452",
-      "text": "@benjiclayton Ahhh, or the much-envied smokarrhea.",
-      "year": 2009,
-      "date": "2009-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "_hypedad"
-    },
-    {
-      "id": "3079256540",
-      "text": "@benjiclayton What skill would that be, exactly?",
-      "year": 2009,
-      "date": "2009-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "_hypedad"
-    },
-    {
-      "id": "3078129083",
-      "text": "Cleaning. Not really enjoying it.",
-      "year": 2009,
-      "date": "2009-08-02",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
+      "replyTo": "mrejfox"
     },
     {
       "id": "875954942",
       "text": "Just got a txt from my mom (upstairs) asking if I want to go to the mall later. I really don't know whether to be proud or not.",
       "year": 2008,
-      "date": "2008-08-02",
+      "date": "Sat Aug 02 23:00:11 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -643,7 +607,16 @@
       "id": "875888738",
       "text": "Thinking I'm probably going to gauge both of my ears.",
       "year": 2008,
-      "date": "2008-08-02",
+      "date": "Sat Aug 02 20:59:15 +0000 2008",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "495650010764017664",
+      "text": "M88 Teaser: http://t.co/YhVHwpXMVb via @YouTube",
+      "year": 2014,
+      "date": "Sat Aug 02 19:19:05 +0000 2014",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -652,7 +625,7 @@
       "id": "875813772",
       "text": "Dear ISO50; I love circles too.",
       "year": 2008,
-      "date": "2008-08-02",
+      "date": "Sat Aug 02 18:49:36 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -661,7 +634,7 @@
       "id": "875792288",
       "text": "I've changed my mind. I'll just get a subscription to VICE instead.",
       "year": 2008,
-      "date": "2008-08-02",
+      "date": "Sat Aug 02 18:14:44 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -670,7 +643,7 @@
       "id": "875790403",
       "text": "Now that I have a girlfriend I can safely buy a copy of vogue... right?",
       "year": 2008,
-      "date": "2008-08-02",
+      "date": "Sat Aug 02 18:11:31 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -679,7 +652,7 @@
       "id": "875765171",
       "text": "Illustrator crashes. Adium crashes. What is going on?",
       "year": 2008,
-      "date": "2008-08-02",
+      "date": "Sat Aug 02 17:32:05 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -688,170 +661,163 @@
       "id": "875683245",
       "text": "Loving the sunburn on my shoulders.",
       "year": 2008,
-      "date": "2008-08-02",
+      "date": "Sat Aug 02 15:33:25 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "183222462",
-      "text": "Walking to dinner, Sloth \"communist cupcakes? How's that camp inapproiate? What're they gonna do? Share their frosting?\"",
-      "year": 2007,
-      "date": "2007-08-02",
+      "id": "1290131169590140928",
+      "text": "okay, anyone should be able to edit our force layout in real time by dragging a node around https://t.co/n6ZKAbms5A // https://t.co/UjuUaU7gvI",
+      "year": 2020,
+      "date": "Mon Aug 03 03:43:34 +0000 2020",
+      "favorites": 3,
+      "retweets": 1,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "3097840798",
+      "text": "Hot chocolate before bed, like a good boy.",
+      "year": 2009,
+      "date": "Mon Aug 03 03:35:11 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "182253852",
-      "text": "Breakfast is amusing- circumcision oats, steve from blue's clues as a drug dealer, other amusing items.",
-      "year": 2007,
-      "date": "2007-08-02",
+      "id": "1290127569254154240",
+      "text": "I love it when the bugs are weird https://t.co/NaLO1hnAqD",
+      "year": 2020,
+      "date": "Mon Aug 03 03:29:16 +0000 2020",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "3097671310",
+      "text": "I've heard no complaints about the truthfulness of the facts on this petabyte graphic. But who says \"Good job on not making bullshit\"?",
+      "year": 2009,
+      "date": "Mon Aug 03 03:24:02 +0000 2009",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "3097461563",
+      "text": "New photoblog post: Old Camp Photos http://tr.im/vdHV",
+      "year": 2009,
+      "date": "Mon Aug 03 03:10:25 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
+    },
+    {
+      "id": "1290115735231049733",
+      "text": "@RonautDreams @enjalot Thank you for watching!",
+      "year": 2020,
+      "date": "Mon Aug 03 02:42:15 +0000 2020",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "HelloRonaut"
+    },
+    {
+      "id": "1290115603651391489",
+      "text": "Working on building some integration with firebase so that anyone can collaboratively modify the node positions (for better or for worse...) https://t.co/UjuUaU7gvI https://t.co/1czs9iQTcP",
+      "year": 2020,
+      "date": "Mon Aug 03 02:41:43 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1290102689251065856",
+      "text": "Now it's a force layout, because a lot of these things are inter-connected and the tree-shaped mindmapping program I was using couldn't capture it. https://t.co/MP1nhx5jQU",
+      "year": 2020,
+      "date": "Mon Aug 03 01:50:24 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1290099444944314368",
+      "text": "This quickly evolved (or devolved) into converting that mind map into an OPML and then getting that into visualizations in observable https://t.co/KywS9U2abR",
+      "year": 2020,
+      "date": "Mon Aug 03 01:37:31 +0000 2020",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1290093562097364992",
+      "text": "Currently making a mind map of the things we have explored before so we can decide what to do next! https://t.co/l7n1aPMmT0",
+      "year": 2020,
+      "date": "Mon Aug 03 01:14:08 +0000 2020",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1290090362854182914",
+      "text": "Hey guys, doing another livestream with @enjalot - we are gonna make some stuff with firebase and observable, come hang out https://t.co/UjuUaU7gvI",
+      "year": 2020,
+      "date": "Mon Aug 03 01:01:25 +0000 2020",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1290080475168440322",
+      "text": "every time I say \"please\" to the google home now, it plays a sound effect to reward me, which I assume means I am accruing points by which favor will be rewarded during the AI takeover",
+      "year": 2020,
+      "date": "Mon Aug 03 00:22:08 +0000 2020",
+      "favorites": 7,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1157438600012808193",
+      "text": "dammit i put all that effort into finally learning how to use vim and vscode is cool as heck, huh",
+      "year": 2019,
+      "date": "Fri Aug 02 23:50:41 +0000 2019",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1157419669382451200",
+      "text": "RT @chrislhayes: It has never ever ever been about \"illegal\" immigration. Ever.\n\nhttps://t.co/NOxHuvbjtY",
+      "year": 2019,
+      "date": "Fri Aug 02 22:35:27 +0000 2019",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "363341763634671617",
+      "text": "@enjalot Ayooo https://t.co/3VIS8luP3L by @guelo",
+      "year": 2013,
+      "date": "Fri Aug 02 16:53:21 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "enjalot"
+    },
+    {
+      "id": "1157307136751341573",
+      "text": "@BrandyZadrozny @OliviaMesser Designers do this too (it tends to work, in my experience) https://t.co/xL5GEQd6HJ",
+      "year": 2019,
+      "date": "Fri Aug 02 15:08:17 +0000 2019",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "BrandyZadrozny"
     }
   ],
   "posts": [
     {
       "slug": "projects/smallbot-mcp",
       "title": "Smallbot MCP",
-      "year": 2025,
-      "date": "2025-08-02T04:00:00.000Z",
       "dek": null,
-      "type": "post",
-      "tags": ["ai", "web"]
+      "year": 2025,
+      "date": "2025-08-02T04:00:00.000Z"
     }
-  ],
-  "scrobbles": [
-    {
-      "date": "2023-08-02",
-      "year": 2023,
-      "count": 11,
-      "topTracks": [
-        "Big Thief - Mythological Beauty",
-        "Voltage - Amazing (feat. Agent Sasco)",
-        "Kings Of The Rollers - Round Here",
-        "B Live - 1999 - Gray Remix",
-        "Gray - Fallen (feat. A Little Sound)"
-      ],
-      "topArtists": ["Big Thief", "Voltage", "Kings Of The Rollers"]
-    },
-    {
-      "date": "2020-08-02",
-      "year": 2020,
-      "count": 7,
-      "topTracks": [
-        "African Brothers International Band - Ebi Te Yie (Remastered)",
-        "African Brothers International Band - Ɛna Ɛye A Mane Me (Remastered)",
-        "African Brothers International Band - Abusua Nnyɛ Asafo (Remastered)",
-        "African Brothers International Band - Mmɔborɔwa (Remastered)",
-        "African Brothers International Band - Hini Me (Remastered)"
-      ],
-      "topArtists": ["African Brothers International Band"]
-    },
-    {
-      "date": "2019-08-02",
-      "year": 2019,
-      "count": 38,
-      "topTracks": [
-        "Smino - Glass Flows",
-        "Smino - Flea Flicka",
-        "Smino - Spitshine",
-        "Smino - Netflix & Dusse",
-        "Smino - Ricky Millions"
-      ],
-      "topArtists": ["Smino", "monte booker"]
-    },
-    {
-      "date": "2016-08-02",
-      "year": 2016,
-      "count": 25,
-      "topTracks": [
-        "Nao - Apple Cherry",
-        "Kendrick Lamar - Alright",
-        "Young Thug - Constantly Hating (feat. Birdman)",
-        "Tut - Live From Chattanooga",
-        "Tut - Holy Water"
-      ],
-      "topArtists": ["Nao", "Kendrick Lamar", "Young Thug"]
-    },
-    {
-      "date": "2013-08-02",
-      "year": 2013,
-      "count": 34,
-      "topTracks": [
-        "Bonobo - First Fires",
-        "Bonobo - Emkay",
-        "Bonobo - Heaven for the Sinner",
-        "Bonobo - Jets",
-        "Bonobo - Ten Tigers"
-      ],
-      "topArtists": ["Bonobo", "Bun-B", "2 Pac"]
-    },
-    {
-      "date": "2012-08-02",
-      "year": 2012,
-      "count": 82,
-      "topTracks": [
-        "Crazy Town - Butterfly",
-        "The Maccabees - First Love",
-        "Wayne Marshall (feat. Mavado) - My Heart - Remix",
-        "Pacewon & Mr. Green - She Can Be So Cold",
-        "Vampire Weekend - California English"
-      ],
-      "topArtists": [
-        "Crazy Town",
-        "The Maccabees",
-        "Wayne Marshall (feat. Mavado)"
-      ]
-    },
-    {
-      "date": "2009-08-02",
-      "year": 2009,
-      "count": 79,
-      "topTracks": [
-        "Fever Ray - If I Had a Heart",
-        "Fever Ray - I'm Not Done",
-        "Fever Ray - Triangle Walks",
-        "Fever Ray - Concrete Walls",
-        "Fever Ray - Keep the Streets Empty for Me"
-      ],
-      "topArtists": ["Fever Ray", "The Knife", "A Turning Mercury"]
-    },
-    {
-      "date": "2008-08-02",
-      "year": 2008,
-      "count": 147,
-      "topTracks": [
-        "M.I.A. - Fire Fire",
-        "M.I.A. - Freedom (Skit)",
-        "M.I.A. - Bamboo Banga",
-        "M.I.A. - Bird Flu",
-        "M.I.A. - Boyz"
-      ],
-      "topArtists": ["M.I.A.", "M83", "Tricky"]
-    },
-    {
-      "date": "2007-08-02",
-      "year": 2007,
-      "count": 5,
-      "topTracks": [
-        "Sigur Rós - Ny Batteri",
-        "The White Stripes - A Martyr for My Love for You",
-        "The Chemical Brothers - The Salmon Dance feat. Fatlip",
-        "Gwen Stefani - Yummy",
-        "Gwen Stefani - Wind It Up"
-      ],
-      "topArtists": ["Sigur Rós", "The White Stripes", "The Chemical Brothers"]
-    },
-    {
-      "date": "2006-08-02",
-      "year": 2006,
-      "count": 4,
-      "topTracks": ["Lewis Black - Nothing's Sacred (Unabridged)"],
-      "topArtists": ["Lewis Black"]
-    }
-  ],
-  "commits": []
+  ]
 }

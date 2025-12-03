@@ -1,118 +1,10 @@
 {
   "tweets": [
     {
-      "id": "1569783153757241345",
-      "text": "RT @longlead: 1/ For 50 years, police have called less-lethal munitions a life-saving alternative to deadly force.\n\nBut from Belfast to Bla…",
-      "year": 2022,
-      "date": "2022-09-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1569737010545594369",
-      "text": "@xdesro Wanna make a social media website where all you can do is update your active emoji? Maybe see your friends emojis on your lockscreen? Could be weirder",
-      "year": 2022,
-      "date": "2022-09-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "404boyfriend"
-    },
-    {
-      "id": "1569699924660420619",
-      "text": "@ShabbyShambles My current Vue boilerplate here: https://t.co/gNSnnE0Unz\n\n`npx degit ejfox/vite-boilerplate PROJECT_NAME` - I end up copying and modifying single file components from old projects a lot",
-      "year": 2022,
-      "date": "2022-09-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "ShabbyShambles"
-    },
-    {
-      "id": "1569680353895358466",
-      "text": "Glad to see data-driven text treated as a first class visual form here, charts + well written text are greater than the sum of their parts https://t.co/FFgvhkDXOU",
-      "year": 2022,
-      "date": "2022-09-13",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1569676681874489344",
-      "text": "Not to belabor the cooking metaphor, but after 10,000 hours of shaping thousands of datasets, like cutting onions in thousands of ways, I am now pleasantly surprised at the speed I can get my knife to move, and there is joy in careful speed that allows for more creativity later",
-      "year": 2022,
-      "date": "2022-09-13",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1437442449371185163",
-      "text": "Gonna burn all the unsold editions of this later tonight, so if you want one, today's your last chance https://t.co/nq7aeFmvog",
-      "year": 2021,
-      "date": "2021-09-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1437432867110461447",
-      "text": "this whole ecosystem, and this theme in particular, is what got me into code / computing / programming https://t.co/JM596CQJEE",
-      "year": 2021,
-      "date": "2021-09-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1437417410483589121",
-      "text": "wonder if all these dollar-chasing kids parachuting into the generative art community will have the same effect as all these dollar-chasing kids parachuting into the hacker community",
-      "year": 2021,
-      "date": "2021-09-13",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1305267285838487552",
-      "text": "RT @josie_huang: After my phone drops, it keeps recording and it captures two deputies damaging my phone by kicking and stepping on it. I c…",
-      "year": 2020,
-      "date": "2020-09-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1305160885690802176",
-      "text": "@Leafly let's collab",
-      "year": 2020,
-      "date": "2020-09-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "Leafly"
-    },
-    {
-      "id": "1172493512350273537",
-      "text": "💸",
-      "year": 2019,
-      "date": "2019-09-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1040314049265901568",
-      "text": "I’ve been endlessly watching YouTube videos where people role-play as cops and criminals in Grand Theft Auto 5 if anyone needs me",
-      "year": 2018,
-      "date": "2018-09-13",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
       "id": "908112547408211968",
       "text": "Close your eyes? https://t.co/3rUNRNvKCr",
       "year": 2017,
-      "date": "2017-09-13",
+      "date": "Wed Sep 13 23:37:57 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -121,7 +13,7 @@
       "id": "908043261251637249",
       "text": "My iOS11 experience was really really wonderful until the last update and then... everything is buggy and broken.",
       "year": 2017,
-      "date": "2017-09-13",
+      "date": "Wed Sep 13 19:02:38 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -130,7 +22,7 @@
       "id": "908030182468046850",
       "text": "RT @GethardShow: Thursday's #ChrisGethardShow with @IamJohnOliver will be LIVE-streamed at 11/10c on @Reddit! Watch &amp; comment live at https…",
       "year": 2017,
-      "date": "2017-09-13",
+      "date": "Wed Sep 13 18:10:40 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -139,268 +31,115 @@
       "id": "908017041558384642",
       "text": "RT @TasneemN: \"it's high time\" \n\"into the weeds\" \n\"to be blunt\" \n\"government strains\"\n\"to roll out\" \n\"joint effort\"\n'high hopes\" https://t.…",
       "year": 2017,
-      "date": "2017-09-13",
+      "date": "Wed Sep 13 17:18:27 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "643098891185979392",
-      "text": "Huge transformer fire visible from metro north in Waldwick http://t.co/j4W11Oj0pU",
-      "year": 2015,
-      "date": "2015-09-13",
+      "id": "1437608226292445185",
+      "text": "https://t.co/EUrUJhy264",
+      "year": 2021,
+      "date": "Tue Sep 14 02:44:45 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1437583087852998660",
+      "text": "Its also really dark because, well, humans contain darkness. If you want to follow that darkness, the algorithm fully understands and will give you what you want. Really effectively.",
+      "year": 2021,
+      "date": "Tue Sep 14 01:04:51 +0000 2021",
       "favorites": 1,
-      "retweets": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1437582617386303489",
+      "text": "Part of this is really cool, because you can teach the algorithm your natural interests and it will walk you through all the adjacent  communities to see what keeps you interested. More effective than YouTube because the time-to-interest (or lack) is so quick.",
+      "year": 2021,
+      "date": "Tue Sep 14 01:02:59 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1437582050190577664",
+      "text": "Also, the mechanism for diving into a community is completely passive. Just by spending a few more seconds on the video or hitting the share button you guarantee the algorithm will give you more content from that particular community.",
+      "year": 2021,
+      "date": "Tue Sep 14 01:00:44 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1437581665451266053",
+      "text": "The interesting thing about TikTok is the speed through which you can ricochet through subcultures- the same experience on Twitter/FB/IG would require following/unfollowing a huge number of accounts.",
+      "year": 2021,
+      "date": "Tue Sep 14 00:59:12 +0000 2021",
+      "favorites": 1,
+      "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "378634276704493568",
-      "text": "@eagereyes Cheers thanks, needed to get something out, it was weird consistently updating a news article on my local hard drive.",
-      "year": 2013,
-      "date": "2013-09-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "eagereyes"
-    },
-    {
-      "id": "378633038122340352",
-      "text": "My breaking news project/experiment is now live: @futurelens / http://t.co/SHJDl6yzeW cc: @BausOfTheNauf @enjalot @ptvan @poezn @syntagmatic",
-      "year": 2013,
-      "date": "2013-09-13",
-      "favorites": 3,
-      "retweets": 3,
-      "replyTo": null
-    },
-    {
-      "id": "378632622059970561",
-      "text": "@mibi Thanks for the encouragement. Meant a lot. Did it! http://t.co/SHJDl6yzeW / @futurelens",
-      "year": 2013,
-      "date": "2013-09-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mibi"
-    },
-    {
-      "id": "378632508557905920",
-      "text": "@eagereyes Hey Robert, appreciate you discussing this with me. Helped a lot. Finally made a project out of it: http://t.co/SHJDl6yzeW",
-      "year": 2013,
-      "date": "2013-09-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "eagereyes"
-    },
-    {
-      "id": "378631608300875777",
-      "text": "Want a consistent source for the best information on breaking news whose goal is informing you, not getting more pageviews? @futurelens",
-      "year": 2013,
-      "date": "2013-09-13",
+      "id": "1569783153757241345",
+      "text": "RT @longlead: 1/ For 50 years, police have called less-lethal munitions a life-saving alternative to deadly force.\n\nBut from Belfast to Bla…",
+      "year": 2022,
+      "date": "Tue Sep 13 20:20:43 +0000 2022",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "378631224056492032",
-      "text": "I'm starting a new project that covers breaking news called Future Lens - check it out at http://t.co/SHJDl6yzeW - Any feedback appreciated!",
-      "year": 2013,
-      "date": "2013-09-13",
-      "favorites": 2,
-      "retweets": 3,
-      "replyTo": null
-    },
-    {
-      "id": "378624357594963968",
-      "text": "@mgpettit For sure! Thanks again for your help.",
-      "year": 2013,
-      "date": "2013-09-13",
+      "id": "1569737010545594369",
+      "text": "@xdesro Wanna make a social media website where all you can do is update your active emoji? Maybe see your friends emojis on your lockscreen? Could be weirder",
+      "year": 2022,
+      "date": "Tue Sep 13 17:17:22 +0000 2022",
       "favorites": 0,
       "retweets": 0,
-      "replyTo": "mgpdietzel"
-    },
-    {
-      "id": "378401916633354240",
-      "text": "@mgpettit No, but that's super awesome! I will check it out, thanks a ton.",
-      "year": 2013,
-      "date": "2013-09-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mgpdietzel"
-    },
-    {
-      "id": "246314852493172737",
-      "text": "futurejournalismproject: 2012 Presidential Campaign Stops\nA Washington Post infographic http://t.co/AzTbyqaK",
-      "year": 2012,
-      "date": "2012-09-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "246307277466898432",
-      "text": "RT @BlissnHarmonyTP: RT @kennethlipp: RT @ACLU_Mass: Internet activist @barrettbrownLOL arrested, charges and his whereabouts unknown ht ...",
-      "year": 2012,
-      "date": "2012-09-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
+      "replyTo": "404boyfriend"
     },
     {
       "id": "113661604163371010",
       "text": "RT @alonzofelix: Adobe Illustrator is a grown-up video game.",
       "year": 2011,
-      "date": "2011-09-13",
+      "date": "Tue Sep 13 17:13:32 +0000 2011",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "113444435215400960",
-      "text": "Across giant stadium on #SoundCloud http://t.co/KxIgkyh",
-      "year": 2011,
-      "date": "2011-09-13",
+      "id": "1569699924660420619",
+      "text": "@ShabbyShambles My current Vue boilerplate here: https://t.co/gNSnnE0Unz\n\n`npx degit ejfox/vite-boilerplate PROJECT_NAME` - I end up copying and modifying single file components from old projects a lot",
+      "year": 2022,
+      "date": "Tue Sep 13 14:50:00 +0000 2022",
       "favorites": 0,
       "retweets": 0,
-      "replyTo": null
+      "replyTo": "ShabbyShambles"
     },
     {
-      "id": "113424410278498304",
-      "text": "RT @TheRevAl: Let people die is a cause for applause. Wow, and I thought the death penalty applause in the last GOP debate was scary.",
-      "year": 2011,
-      "date": "2011-09-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "24420657514",
-      "text": "I love this graph: http://ejfox.com/govdebtbypresident",
-      "year": 2010,
-      "date": "2010-09-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "3964669444",
-      "text": "Shared: Brutal police violence at Berlin \"Freedom not Fear\" demonstration: \nfALK sez, \"This video shows a.. http://bit.ly/EzvOg",
-      "year": 2009,
-      "date": "2009-09-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "3962181269",
-      "text": "playing a little Fable II. http://raptr.com/pseudoplacebo",
-      "year": 2009,
-      "date": "2009-09-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "3960621880",
-      "text": "@tweetcc: I license my tweets under Creative Commons Public Domain Dedication",
-      "year": 2009,
-      "date": "2009-09-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "tweetCC"
-    },
-    {
-      "id": "3960611856",
-      "text": "Facebook has been stealing all of my interesting status updates and I've been saving everything that doesn't make the cut for Twitter.",
-      "year": 2009,
-      "date": "2009-09-13",
+      "id": "1569680353895358466",
+      "text": "Glad to see data-driven text treated as a first class visual form here, charts + well written text are greater than the sum of their parts https://t.co/FFgvhkDXOU",
+      "year": 2022,
+      "date": "Tue Sep 13 13:32:14 +0000 2022",
       "favorites": 1,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "3960590354",
-      "text": "Procrastinating mowing the lawn.",
-      "year": 2009,
-      "date": "2009-09-13",
-      "favorites": 0,
+      "id": "1569676681874489344",
+      "text": "Not to belabor the cooking metaphor, but after 10,000 hours of shaping thousands of datasets, like cutting onions in thousands of ways, I am now pleasantly surprised at the speed I can get my knife to move, and there is joy in careful speed that allows for more creativity later",
+      "year": 2022,
+      "date": "Tue Sep 13 13:17:38 +0000 2022",
+      "favorites": 1,
       "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "3957429425",
-      "text": "Thinking I am going to have to spend some time going through all of my old songs saving interesting instruments I've made.",
-      "year": 2009,
-      "date": "2009-09-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "3956161562",
-      "text": "@zefrank I'd be interested, but what exactly is \"pain audio\"?",
-      "year": 2009,
-      "date": "2009-09-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "zefrank"
-    },
-    {
-      "id": "3945821871",
-      "text": "Shared: “Global Warning” Art Print by Shepard Fairey (Onsale Info): Looks like the newest print from Shep.. http://bit.ly/4pUCp0",
-      "year": 2009,
-      "date": "2009-09-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "3944895442",
-      "text": "I want something to take photos of. I want something to record. Where is it?",
-      "year": 2009,
-      "date": "2009-09-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "920390416",
-      "text": "No, apparently, it isn't shower time. For some reason the shower is filled with various rarely-used soap bottles and garbage. I will nap.",
-      "year": 2008,
-      "date": "2008-09-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "920387179",
-      "text": "It's that time; shower time.",
-      "year": 2008,
-      "date": "2008-09-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "920298055",
-      "text": "Apparently my friend was hospitalized after having an anxiety attack after smoking weed before school & is now suspended for a year. Great.",
-      "year": 2008,
-      "date": "2008-09-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "920002393",
-      "text": "Double XP weekend on CoD4. So I'ma play s'more.",
-      "year": 2008,
-      "date": "2008-09-13",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
+      "replyTo": "mrejfox"
     },
     {
       "id": "267098482",
       "text": "AHHH! WHAT IS CAUSING IT TO LIST ALL USERS ON EVERY.SINGLE.PAGE.",
       "year": 2007,
-      "date": "2007-09-13",
+      "date": "Thu Sep 13 23:10:36 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -409,7 +148,7 @@
       "id": "266931152",
       "text": "Got impatient with my Database's slowness- took a 10 minute drum break, came back and it was lightning fast. Moral: Drums inspire computers.",
       "year": 2007,
-      "date": "2007-09-13",
+      "date": "Thu Sep 13 21:24:26 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -418,7 +157,7 @@
       "id": "266870072",
       "text": "Very much liking it when things work just the way you thought they would...",
       "year": 2007,
-      "date": "2007-09-13",
+      "date": "Thu Sep 13 20:41:24 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -427,7 +166,34 @@
       "id": "266719462",
       "text": "I really fucking want some oyster crackers.",
       "year": 2007,
-      "date": "2007-09-13",
+      "date": "Thu Sep 13 19:12:08 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1040314049265901568",
+      "text": "I’ve been endlessly watching YouTube videos where people role-play as cops and criminals in Grand Theft Auto 5 if anyone needs me",
+      "year": 2018,
+      "date": "Thu Sep 13 18:59:32 +0000 2018",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "246314852493172737",
+      "text": "futurejournalismproject: 2012 Presidential Campaign Stops\nA Washington Post infographic http://t.co/AzTbyqaK",
+      "year": 2012,
+      "date": "Thu Sep 13 18:30:11 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "246307277466898432",
+      "text": "RT @BlissnHarmonyTP: RT @kennethlipp: RT @ACLU_Mass: Internet activist @barrettbrownLOL arrested, charges and his whereabouts unknown ht ...",
+      "year": 2012,
+      "date": "Thu Sep 13 18:00:05 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -436,7 +202,7 @@
       "id": "266596152",
       "text": "Stupid BSD/OS X, wget isn't preinstalled. What a pain in the ass...",
       "year": 2007,
-      "date": "2007-09-13",
+      "date": "Thu Sep 13 17:59:52 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -445,7 +211,7 @@
       "id": "266475712",
       "text": "\"I know people wouldn't usually rap this, but I got the facts, Just las year chicago had 600 caskets. Killing's some whack shit.\" - Kanye",
       "year": 2007,
-      "date": "2007-09-13",
+      "date": "Thu Sep 13 16:55:13 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -454,7 +220,7 @@
       "id": "266382842",
       "text": "Working on Fusend's settings stuff, and more specifically error reporting in the site. However CodeIgniter's blank error page is annoying me",
       "year": 2007,
-      "date": "2007-09-13",
+      "date": "Thu Sep 13 16:06:29 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -463,7 +229,7 @@
       "id": "266290712",
       "text": "Just got done jamming pretty hardcore on the drums, left foot is getting faster =D. Now I will drink rockstar and code Fusend.",
       "year": 2007,
-      "date": "2007-09-13",
+      "date": "Thu Sep 13 15:23:57 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -472,7 +238,7 @@
       "id": "266161912",
       "text": "Waking up. This day off is going way too fast. Woe is me.",
       "year": 2007,
-      "date": "2007-09-13",
+      "date": "Thu Sep 13 14:22:03 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -481,122 +247,370 @@
       "id": "265239342",
       "text": "Tired, oddly enough. At 1:30 nonetheless. Going to sleep I guess.",
       "year": 2007,
-      "date": "2007-09-13",
+      "date": "Thu Sep 13 04:26:06 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
-    }
-  ],
-  "posts": [],
-  "scrobbles": [
-    {
-      "date": "2020-09-13",
-      "year": 2020,
-      "count": 47,
-      "topTracks": [
-        "Sam Gellaitry - Jungle Waters",
-        "Burna Boy - Level Up (Twice As Tall) [feat. Youssou N'Dour]",
-        "Burna Boy - Alarm Clock",
-        "Burna Boy - Way Too Big",
-        "Burna Boy - Bebo"
-      ],
-      "topArtists": ["Sam Gellaitry", "Burna Boy"]
     },
     {
-      "date": "2018-09-13",
-      "year": 2018,
-      "count": 19,
-      "topTracks": [
-        "Kid Cudi - Hyyerr",
-        "Hablot Brown - Pressure",
-        "Iman Omari - Take You There",
-        "Ludacris - Diamond In The Back",
-        "Ashanti - Happy"
-      ],
-      "topArtists": ["Kid Cudi", "Hablot Brown", "Iman Omari"]
-    },
-    {
-      "date": "2016-09-13",
-      "year": 2016,
-      "count": 36,
-      "topTracks": [
-        "Achal - GAZI",
-        "Mura Masa - Firefly",
-        "JVLY - Unravel",
-        "AlunaGeorge - Mediator",
-        "Gosh Pith - In My Car"
-      ],
-      "topArtists": ["Achal", "Mura Masa", "JVLY"]
-    },
-    {
-      "date": "2015-09-13",
-      "year": 2015,
-      "count": 33,
-      "topTracks": [
-        "The Weeknd - Tell Your Friends",
-        "The Weeknd - Often",
-        "The Weeknd - The Hills",
-        "The Weeknd - Can't Feel My Face",
-        "The Weeknd - Shameless"
-      ],
-      "topArtists": ["The Weeknd", "King Los", "Boosie Badazz"]
-    },
-    {
-      "date": "2009-09-13",
+      "id": "3964669444",
+      "text": "Shared: Brutal police violence at Berlin \"Freedom not Fear\" demonstration: \nfALK sez, \"This video shows a.. http://bit.ly/EzvOg",
       "year": 2009,
-      "count": 67,
-      "topTracks": [
-        "Animal Collective - Blue Sky (New Song)",
-        "Animal Collective - Daily Routine",
-        "Death Cab for Cutie - Marching Bands of Manhattan",
-        "Death Cab for Cutie - Title And Registration (Origin",
-        "Death Cab for Cutie - I Was a Kaleidoscope"
-      ],
-      "topArtists": [
-        "Animal Collective",
-        "Death Cab for Cutie",
-        "A Turning Mercury"
-      ]
+      "date": "Sun Sep 13 23:35:12 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
     },
     {
-      "date": "2008-09-13",
+      "id": "1305267285838487552",
+      "text": "RT @josie_huang: After my phone drops, it keeps recording and it captures two deputies damaging my phone by kicking and stepping on it. I c…",
+      "year": 2020,
+      "date": "Sun Sep 13 22:09:06 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "3962181269",
+      "text": "playing a little Fable II. http://raptr.com/pseudoplacebo",
+      "year": 2009,
+      "date": "Sun Sep 13 21:14:20 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "3960621880",
+      "text": "@tweetcc: I license my tweets under Creative Commons Public Domain Dedication",
+      "year": 2009,
+      "date": "Sun Sep 13 19:48:50 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "tweetCC"
+    },
+    {
+      "id": "3960611856",
+      "text": "Facebook has been stealing all of my interesting status updates and I've been saving everything that doesn't make the cut for Twitter.",
+      "year": 2009,
+      "date": "Sun Sep 13 19:48:16 +0000 2009",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "3960590354",
+      "text": "Procrastinating mowing the lawn.",
+      "year": 2009,
+      "date": "Sun Sep 13 19:47:04 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "3957429425",
+      "text": "Thinking I am going to have to spend some time going through all of my old songs saving interesting instruments I've made.",
+      "year": 2009,
+      "date": "Sun Sep 13 16:50:53 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "643098891185979392",
+      "text": "Huge transformer fire visible from metro north in Waldwick http://t.co/j4W11Oj0pU",
+      "year": 2015,
+      "date": "Sun Sep 13 16:28:18 +0000 2015",
+      "favorites": 1,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "3956161562",
+      "text": "@zefrank I'd be interested, but what exactly is \"pain audio\"?",
+      "year": 2009,
+      "date": "Sun Sep 13 15:34:45 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "zefrank"
+    },
+    {
+      "id": "1305160885690802176",
+      "text": "@Leafly let's collab",
+      "year": 2020,
+      "date": "Sun Sep 13 15:06:18 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "Leafly"
+    },
+    {
+      "id": "378722323630526464",
+      "text": "RT @EnriqueAllen: What are night life options in SF for people who don't drink?",
+      "year": 2013,
+      "date": "Sat Sep 14 03:30:12 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "920390416",
+      "text": "No, apparently, it isn't shower time. For some reason the shower is filled with various rarely-used soap bottles and garbage. I will nap.",
       "year": 2008,
-      "count": 112,
-      "topTracks": [
-        "Boards of Canada - Dayvan Cowboy",
-        "The Killers - Why Do I Keep Counting",
-        "Tegan and Sara - Love Type Thing",
-        "Tegan and Sara - First",
-        "dead prez - I'm a African"
-      ],
-      "topArtists": ["Boards of Canada", "The Killers", "Tegan and Sara"]
+      "date": "Sat Sep 13 20:01:58 +0000 2008",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
     },
     {
-      "date": "2007-09-13",
+      "id": "920387179",
+      "text": "It's that time; shower time.",
+      "year": 2008,
+      "date": "Sat Sep 13 19:57:35 +0000 2008",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "920298055",
+      "text": "Apparently my friend was hospitalized after having an anxiety attack after smoking weed before school & is now suspended for a year. Great.",
+      "year": 2008,
+      "date": "Sat Sep 13 18:01:32 +0000 2008",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "920002393",
+      "text": "Double XP weekend on CoD4. So I'ma play s'more.",
+      "year": 2008,
+      "date": "Sat Sep 13 11:35:23 +0000 2008",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "3972713076",
+      "text": "@mibi I hardly agree that the average college education is non-pubic.",
+      "year": 2009,
+      "date": "Mon Sep 14 03:52:05 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mibi"
+    },
+    {
+      "id": "3971173714",
+      "text": "New photoblog post: Tough and Coy http://bit.ly/GlEOQ",
+      "year": 2009,
+      "date": "Mon Sep 14 03:06:23 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1305326505250172929",
+      "text": "Here’s the deal. We needed a timer for our twitch show, so we made one in observable. Now we are gonna set it to 15 minutes and see who can make the coolest fork/iteration/modification of it before time is up. Starting soon on https://t.co/UjuUaUoRUi https://t.co/SWsnX3O6dm",
+      "year": 2020,
+      "date": "Mon Sep 14 02:04:25 +0000 2020",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "3967576310",
+      "text": "Genius needs some pandora thumbs-up and thumbs-down buttons.",
+      "year": 2009,
+      "date": "Mon Sep 14 01:29:39 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1305310504383062016",
+      "text": "Going live now for Coding With Fire at https://t.co/UjuUaUoRUi Gonna talk about his recent CA air quality maps, and then map play around with Q5 and make a timer for further shenanigans.",
+      "year": 2020,
+      "date": "Mon Sep 14 01:00:50 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "643223438895788032",
+      "text": "RT @BausOfTheNauf: Sign up for my weekly web development digest. The best links of a week surfing the web #js #dataviz #react http://t.co/z…",
+      "year": 2015,
+      "date": "Mon Sep 14 00:43:13 +0000 2015",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1305303164166590465",
+      "text": "Coding With Fire in half an hour with @enjalot - Subscribe on Twitch at https://t.co/UjuUaUoRUi",
+      "year": 2020,
+      "date": "Mon Sep 14 00:31:40 +0000 2020",
+      "favorites": 2,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "24420657514",
+      "text": "I love this graph: http://ejfox.com/govdebtbypresident",
+      "year": 2010,
+      "date": "Mon Sep 13 22:31:39 +0000 2010",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1437442449371185163",
+      "text": "Gonna burn all the unsold editions of this later tonight, so if you want one, today's your last chance https://t.co/nq7aeFmvog",
+      "year": 2021,
+      "date": "Mon Sep 13 15:46:00 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1437432867110461447",
+      "text": "this whole ecosystem, and this theme in particular, is what got me into code / computing / programming https://t.co/JM596CQJEE",
+      "year": 2021,
+      "date": "Mon Sep 13 15:07:56 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1437417410483589121",
+      "text": "wonder if all these dollar-chasing kids parachuting into the generative art community will have the same effect as all these dollar-chasing kids parachuting into the hacker community",
+      "year": 2021,
+      "date": "Mon Sep 13 14:06:31 +0000 2021",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "267497792",
+      "text": "I should have gone to sleep a while ago... Trying to think of a goal to complete tomorrow to make it less sucktastic. Hm...",
       "year": 2007,
-      "count": 160,
-      "topTracks": [
-        "Orson Scott Card - Seventh Son (Unabridged), Part 2",
-        "Kanye West - Champion",
-        "Kanye West - Stronger",
-        "Kanye West - I Wonder",
-        "Kanye West - Good Life (Ft. T-Pain)"
-      ],
-      "topArtists": ["Orson Scott Card", "Kanye West", "Ludacris"]
+      "date": "Fri Sep 14 03:23:44 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
     },
     {
-      "date": "2006-09-13",
-      "year": 2006,
-      "count": 126,
-      "topTracks": [
-        "digg.com - Diggnation Episode #0062 - September 7, 2006",
-        "30 Days - Atheist / Christian",
-        "30 Days - Jail",
-        "Gnarls Barkley - Smiley Faces",
-        "Lewis Carroll - Alice In Wonderland"
-      ],
-      "topArtists": ["digg.com", "30 Days", "Gnarls Barkley"]
+      "id": "267449812",
+      "text": "Just spent 5 minutes standing on my porch feeling as if I would throw up. Great.",
+      "year": 2007,
+      "date": "Fri Sep 14 02:51:52 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "267367302",
+      "text": "It is now time to do my homework because I need to go to school tomorrow. And also sleep before that. Argh.",
+      "year": 2007,
+      "date": "Fri Sep 14 01:58:28 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "267255042",
+      "text": "Finding the remaining bugs and getting rid of them. Then doing sessions. Should be doing homework, though. Ugh.",
+      "year": 2007,
+      "date": "Fri Sep 14 00:51:36 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "246399047387209728",
+      "text": "@tasneemraja Do you know anyone who organizes SF hacks/hackers?",
+      "year": 2012,
+      "date": "Fri Sep 14 00:04:45 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "tasneemraja"
+    },
+    {
+      "id": "378634276704493568",
+      "text": "@eagereyes Cheers thanks, needed to get something out, it was weird consistently updating a news article on my local hard drive.",
+      "year": 2013,
+      "date": "Fri Sep 13 21:40:20 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "eagereyes"
+    },
+    {
+      "id": "378633038122340352",
+      "text": "My breaking news project/experiment is now live: @futurelens / http://t.co/SHJDl6yzeW cc: @BausOfTheNauf @enjalot @ptvan @poezn @syntagmatic",
+      "year": 2013,
+      "date": "Fri Sep 13 21:35:25 +0000 2013",
+      "favorites": 3,
+      "retweets": 3,
+      "replyTo": null
+    },
+    {
+      "id": "378632622059970561",
+      "text": "@mibi Thanks for the encouragement. Meant a lot. Did it! http://t.co/SHJDl6yzeW / @futurelens",
+      "year": 2013,
+      "date": "Fri Sep 13 21:33:46 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mibi"
+    },
+    {
+      "id": "378632508557905920",
+      "text": "@eagereyes Hey Robert, appreciate you discussing this with me. Helped a lot. Finally made a project out of it: http://t.co/SHJDl6yzeW",
+      "year": 2013,
+      "date": "Fri Sep 13 21:33:19 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "eagereyes"
+    },
+    {
+      "id": "378631608300875777",
+      "text": "Want a consistent source for the best information on breaking news whose goal is informing you, not getting more pageviews? @futurelens",
+      "year": 2013,
+      "date": "Fri Sep 13 21:29:44 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "378631224056492032",
+      "text": "I'm starting a new project that covers breaking news called Future Lens - check it out at http://t.co/SHJDl6yzeW - Any feedback appreciated!",
+      "year": 2013,
+      "date": "Fri Sep 13 21:28:13 +0000 2013",
+      "favorites": 2,
+      "retweets": 3,
+      "replyTo": null
+    },
+    {
+      "id": "378624357594963968",
+      "text": "@mgpettit For sure! Thanks again for your help.",
+      "year": 2013,
+      "date": "Fri Sep 13 21:00:56 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mgpdietzel"
+    },
+    {
+      "id": "1172493512350273537",
+      "text": "💸",
+      "year": 2019,
+      "date": "Fri Sep 13 12:53:31 +0000 2019",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "378401916633354240",
+      "text": "@mgpettit No, but that's super awesome! I will check it out, thanks a ton.",
+      "year": 2013,
+      "date": "Fri Sep 13 06:17:01 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mgpdietzel"
     }
-  ],
-  "commits": []
+  ]
 }

@@ -1,10 +1,19 @@
 {
   "tweets": [
     {
+      "id": "106456083924647938",
+      "text": "Downtown Raleigh with Adrienne http://t.co/hY43c4I",
+      "year": 2011,
+      "date": "Wed Aug 24 20:01:22 +0000 2011",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
       "id": "1562458510381551616",
       "text": "So did Ulster county give away those I Voted stickers or what?",
       "year": 2022,
-      "date": "2022-08-24",
+      "date": "Wed Aug 24 15:15:12 +0000 2022",
       "favorites": 1,
       "retweets": 0,
       "replyTo": null
@@ -13,7 +22,7 @@
       "id": "1562443180317978624",
       "text": "this year I have been cyberbullied into using: yarn, typescript, and slack threads – can't wait to find out what technology I'll have to reluctantly use next",
       "year": 2022,
-      "date": "2022-08-24",
+      "date": "Wed Aug 24 14:14:17 +0000 2022",
       "favorites": 2,
       "retweets": 0,
       "replyTo": null
@@ -22,115 +31,97 @@
       "id": "1562413306236780546",
       "text": "RT @digitalsista: A whiteboard on race and sex!! https://t.co/g6fHIqphH0",
       "year": 2022,
-      "date": "2022-08-24",
+      "date": "Wed Aug 24 12:15:35 +0000 2022",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "1297953837572132865",
-      "text": "@kevinroose what's the maximum number of reprimands you can get, i haven ever encountered this unit of measurement",
+      "id": "1298076917602623490",
+      "text": "@robblatt @enjalot lol'd",
       "year": 2020,
-      "date": "2020-08-24",
-      "favorites": 54,
+      "date": "Tue Aug 25 01:57:08 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "robblatt"
+    },
+    {
+      "id": "3525694909",
+      "text": "@scanner_darkly THEY'RE GONNA DO WHAT WITH WHAT? THEY'RE GONNA RUIN SKINS. NO NO NO NO NO NO. =[",
+      "year": 2009,
+      "date": "Tue Aug 25 01:53:33 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "scanner_darkly"
+    },
+    {
+      "id": "1298075043671482369",
+      "text": "Making some interesting moire patterns with @enjalot now on twitch https://t.co/UjuUaUoRUi https://t.co/MBSZGnegXI",
+      "year": 2020,
+      "date": "Tue Aug 25 01:49:42 +0000 2020",
+      "favorites": 3,
+      "retweets": 2,
+      "replyTo": null
+    },
+    {
+      "id": "1298063810125795328",
+      "text": "RT @enjalot: alright @mrejfox and I are going to take a couple of hours off from the end of the world and geek out with @colinmegill \n\nwant…",
+      "year": 2020,
+      "date": "Tue Aug 25 01:05:03 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1298060879271997440",
+      "text": "RT @infowetrust: delightful abstract 🔄 dot trails - LIVE! https://t.co/wN2fuVLVEf https://t.co/tHGiLFR1mC",
+      "year": 2020,
+      "date": "Tue Aug 25 00:53:25 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1562626433507139584",
+      "text": "alternates https://t.co/Hv3pp9XcX0",
+      "year": 2022,
+      "date": "Thu Aug 25 02:22:28 +0000 2022",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1562623728173072386",
+      "text": "hey robot, make a me https://t.co/hel7X2yMOt",
+      "year": 2022,
+      "date": "Thu Aug 25 02:11:43 +0000 2022",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1562603045569298433",
+      "text": "ai-generated business plan and ai-generated concept art for an ai-generated pitch deck for a local business I need https://t.co/ebQNxUUHIk",
+      "year": 2022,
+      "date": "Thu Aug 25 00:49:32 +0000 2022",
+      "favorites": 1,
       "retweets": 1,
-      "replyTo": "kevinroose"
-    },
-    {
-      "id": "1297951795172577282",
-      "text": "https://t.co/8ZGGcFdIqr",
-      "year": 2020,
-      "date": "2020-08-24",
-      "favorites": 2,
-      "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "1297940505012174848",
-      "text": "@mdavidallen Oh yeah, potentially scales of magnitude more. Well... if you stumble on any you want to discard, you know where to find me. 🌞",
-      "year": 2020,
-      "date": "2020-08-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mdavidallen"
-    },
-    {
-      "id": "1297902163629350927",
-      "text": "Story pitch (if I wasn't on vacation): A data history of the phrase \"officer-involved shooting\" using GDELT's global database of news articles. Explore chronological and regional changes over time. Look at the use by different media outlets, national vs local.",
-      "year": 2020,
-      "date": "2020-08-24",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1297901320867848194",
-      "text": "I do NOT miss carrying around an additional enormous cell phone that would ring at all times of the day with weird emergencies though",
-      "year": 2020,
-      "date": "2020-08-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1297900611753648135",
-      "text": "I miss taking all the free books that got sent to the TODAY show at 30 rock",
-      "year": 2020,
-      "date": "2020-08-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1297899521305870337",
-      "text": "RT @databyler: also -- new piece from me on forecasting!\n\nbasically models are ideas. some are obviously bad, poorly executed, etc\n\nBUT if…",
-      "year": 2020,
-      "date": "2020-08-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1297867612790063104",
-      "text": "Trump somehow pushed the democratic party to the right, pretty incredible",
-      "year": 2020,
-      "date": "2020-08-24",
+      "id": "768604651096637440",
+      "text": "@katieraffa next level",
+      "year": 2016,
+      "date": "Thu Aug 25 00:23:23 +0000 2016",
       "favorites": 1,
       "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1165380637513211905",
-      "text": "Do you think anyone has said the words black bloc in the past 2 years or so",
-      "year": 2019,
-      "date": "2019-08-24",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1033032825581256704",
-      "text": "@markham OH MY GOD MARKHAM YOU'RE REALLY GONNA JINX US LIKE THAT???",
-      "year": 2018,
-      "date": "2018-08-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "markham"
-    },
-    {
-      "id": "1033019107615105026",
-      "text": "This is so rough https://t.co/iDr5Orwd71",
-      "year": 2018,
-      "date": "2018-08-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
+      "replyTo": "katieraffa"
     },
     {
       "id": "900858646422331392",
       "text": "Want your apartment to smell like mine? \n\nIn your diffuser:\n3 parts lemongrass essential oil \n1 part peppermint oil\n1 part tea tree oil https://t.co/F9kO5SZVvA",
       "year": 2017,
-      "date": "2017-08-24",
+      "date": "Thu Aug 24 23:13:33 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -139,7 +130,7 @@
       "id": "900846976547393536",
       "text": "RT @darrenrovell: Colin Kaepernick donates another $100K on way to $1M pledge, now at $800K total. Detail of where $ goes is admirable. htt…",
       "year": 2017,
-      "date": "2017-08-24",
+      "date": "Thu Aug 24 22:27:10 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -148,7 +139,7 @@
       "id": "900828103878082560",
       "text": "@johlag I guess I'd be curious to see some examples of audio interfaces that really Nail It",
       "year": 2017,
-      "date": "2017-08-24",
+      "date": "Thu Aug 24 21:12:11 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "johlag"
@@ -157,7 +148,7 @@
       "id": "900827071202697216",
       "text": "@johlag What is the alternative though? Something like this? https://t.co/VGCjzL2ecM",
       "year": 2017,
-      "date": "2017-08-24",
+      "date": "Thu Aug 24 21:08:04 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "johlag"
@@ -166,7 +157,7 @@
       "id": "900820588108840962",
       "text": "RT @tombrokaw: mr president,\n\ni've been a journalist 50 yrs. Never met one who didn't love USA. \nMany risk  their lives reporting on US val…",
       "year": 2017,
-      "date": "2017-08-24",
+      "date": "Thu Aug 24 20:42:19 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -175,7 +166,7 @@
       "id": "900724462747832320",
       "text": "Beach reading list: \n\nKill All Normies \nTwitter and Tear Gas\nI Stared At The Night Of The City",
       "year": 2017,
-      "date": "2017-08-24",
+      "date": "Thu Aug 24 14:20:21 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -184,53 +175,26 @@
       "id": "900714481533243392",
       "text": "@SPIN @Bklyn_Rock I came here for an \"unforeseen\" pun and left disappointed",
       "year": 2017,
-      "date": "2017-08-24",
+      "date": "Thu Aug 24 13:40:41 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "SPIN"
     },
     {
-      "id": "900514356089294848",
-      "text": "RT @NBCLeftField: We were told we seemed slippery at Arizona's Trump rally ¯\\_(ツ)_/¯ https://t.co/xeX3X0ZeKV",
-      "year": 2017,
-      "date": "2017-08-24",
+      "id": "897647107",
+      "text": "Syncing data between my computer and my iPhone over wifi is definitely the best thing ever.",
+      "year": 2008,
+      "date": "Sun Aug 24 22:38:06 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "635885146810523648",
-      "text": "WATCH ME NAE NAE",
-      "year": 2015,
-      "date": "2015-08-24",
+      "id": "1165380637513211905",
+      "text": "Do you think anyone has said the words black bloc in the past 2 years or so",
+      "year": 2019,
+      "date": "Sat Aug 24 21:49:30 +0000 2019",
       "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "635885123280498688",
-      "text": "WATCH ME WHIP WHIP",
-      "year": 2015,
-      "date": "2015-08-24",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "635809923268542464",
-      "text": "RT @OwenJones84: Fair to say that ex-Gordon Brown advisor @DPMcBride is somewhere between \"nervous\" and \"concerned\" #BlackMonday http://t.c…",
-      "year": 2015,
-      "date": "2015-08-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "635803306946895872",
-      "text": "RT @NateSilver538: Katrina washed away New Orleans’s black middle class: http://t.co/HV3gAfExNN http://t.co/pRvBqt6cjc",
-      "year": 2015,
-      "date": "2015-08-24",
-      "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
@@ -238,7 +202,7 @@
       "id": "371340718666969088",
       "text": "@laneharrison It’s beautiful! Definitely enjoying it. Lemme know if you have any recommendations.",
       "year": 2013,
-      "date": "2013-08-24",
+      "date": "Sat Aug 24 18:38:21 +0000 2013",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "laneharrison"
@@ -247,7 +211,7 @@
       "id": "371332912702300160",
       "text": "I'm at Holden Beach w/ @dannypurcell [pic]: http://t.co/bPbmrh79Ec",
       "year": 2013,
-      "date": "2013-08-24",
+      "date": "Sat Aug 24 18:07:20 +0000 2013",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -256,34 +220,16 @@
       "id": "371140702237118464",
       "text": "People give Medium shit, but the mocking misunderstanding reminds me of the reaction Twitter got initially.",
       "year": 2013,
-      "date": "2013-08-24",
+      "date": "Sat Aug 24 05:23:33 +0000 2013",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "239071713596432385",
-      "text": "I just reached Level 2 of the \"Fresh Brew\" badge on @foursquare. I’ve checked in at 5 different coffee shops! http://t.co/rq5BeW8i",
-      "year": 2012,
-      "date": "2012-08-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "238834840567414785",
-      "text": "RT @OccupiedOakTrib: Today we requested the living crap out of every possible document, report, email, financial stmt, etc re: @Bibliote ...",
-      "year": 2012,
-      "date": "2012-08-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "106456083924647938",
-      "text": "Downtown Raleigh with Adrienne http://t.co/hY43c4I",
-      "year": 2011,
-      "date": "2011-08-24",
+      "id": "503700247194140672",
+      "text": "RT @jayrosen_nyu: \"Vice is deadly serious about doing real news that people, yes, even young people, will actually watch.\" —@carr2n http://…",
+      "year": 2014,
+      "date": "Mon Aug 25 00:27:51 +0000 2014",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -292,8 +238,26 @@
       "id": "3519997012",
       "text": "playing a little Call of Duty 4: Modern Warfare. http://raptr.com/pseudoplacebo",
       "year": 2009,
-      "date": "2009-08-24",
+      "date": "Mon Aug 24 20:54:55 +0000 2009",
       "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "635885146810523648",
+      "text": "WATCH ME NAE NAE",
+      "year": 2015,
+      "date": "Mon Aug 24 18:43:27 +0000 2015",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "635885123280498688",
+      "text": "WATCH ME WHIP WHIP",
+      "year": 2015,
+      "date": "Mon Aug 24 18:43:22 +0000 2015",
+      "favorites": 1,
       "retweets": 0,
       "replyTo": null
     },
@@ -301,17 +265,98 @@
       "id": "3517607039",
       "text": "Wanting to learn the guitar again.",
       "year": 2009,
-      "date": "2009-08-24",
+      "date": "Mon Aug 24 18:27:50 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "897647107",
-      "text": "Syncing data between my computer and my iPhone over wifi is definitely the best thing ever.",
-      "year": 2008,
-      "date": "2008-08-24",
+      "id": "1297953837572132865",
+      "text": "@kevinroose what's the maximum number of reprimands you can get, i haven ever encountered this unit of measurement",
+      "year": 2020,
+      "date": "Mon Aug 24 17:48:04 +0000 2020",
+      "favorites": 54,
+      "retweets": 1,
+      "replyTo": "kevinroose"
+    },
+    {
+      "id": "1297951795172577282",
+      "text": "https://t.co/8ZGGcFdIqr",
+      "year": 2020,
+      "date": "Mon Aug 24 17:39:57 +0000 2020",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1297940505012174848",
+      "text": "@mdavidallen Oh yeah, potentially scales of magnitude more. Well... if you stumble on any you want to discard, you know where to find me. 🌞",
+      "year": 2020,
+      "date": "Mon Aug 24 16:55:05 +0000 2020",
       "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mdavidallen"
+    },
+    {
+      "id": "1297902163629350927",
+      "text": "Story pitch (if I wasn't on vacation): A data history of the phrase \"officer-involved shooting\" using GDELT's global database of news articles. Explore chronological and regional changes over time. Look at the use by different media outlets, national vs local.",
+      "year": 2020,
+      "date": "Mon Aug 24 14:22:44 +0000 2020",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1297901320867848194",
+      "text": "I do NOT miss carrying around an additional enormous cell phone that would ring at all times of the day with weird emergencies though",
+      "year": 2020,
+      "date": "Mon Aug 24 14:19:23 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1297900611753648135",
+      "text": "I miss taking all the free books that got sent to the TODAY show at 30 rock",
+      "year": 2020,
+      "date": "Mon Aug 24 14:16:34 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1297899521305870337",
+      "text": "RT @databyler: also -- new piece from me on forecasting!\n\nbasically models are ideas. some are obviously bad, poorly executed, etc\n\nBUT if…",
+      "year": 2020,
+      "date": "Mon Aug 24 14:12:14 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "635809923268542464",
+      "text": "RT @OwenJones84: Fair to say that ex-Gordon Brown advisor @DPMcBride is somewhere between \"nervous\" and \"concerned\" #BlackMonday http://t.c…",
+      "year": 2015,
+      "date": "Mon Aug 24 13:44:33 +0000 2015",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "635803306946895872",
+      "text": "RT @NateSilver538: Katrina washed away New Orleans’s black middle class: http://t.co/HV3gAfExNN http://t.co/pRvBqt6cjc",
+      "year": 2015,
+      "date": "Mon Aug 24 13:18:15 +0000 2015",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1297867612790063104",
+      "text": "Trump somehow pushed the democratic party to the right, pretty incredible",
+      "year": 2020,
+      "date": "Mon Aug 24 12:05:26 +0000 2020",
+      "favorites": 1,
       "retweets": 0,
       "replyTo": null
     },
@@ -319,7 +364,7 @@
       "id": "225565692",
       "text": "Now I have pants!",
       "year": 2007,
-      "date": "2007-08-24",
+      "date": "Fri Aug 24 22:10:17 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -328,7 +373,7 @@
       "id": "225489222",
       "text": "Wishing I had some pants. Arghhh.",
       "year": 2007,
-      "date": "2007-08-24",
+      "date": "Fri Aug 24 21:19:18 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -337,7 +382,7 @@
       "id": "225468832",
       "text": "Uploaded Mobile Phot Arlen + Kate at the beach http://tinyurl.com/ynqx3y",
       "year": 2007,
-      "date": "2007-08-24",
+      "date": "Fri Aug 24 21:05:54 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -346,7 +391,7 @@
       "id": "225459422",
       "text": "Reasons to love the beach: Water, waves, sandcastles -- Reasons to hate the beach: Sand, stupid people, sand, sand.",
       "year": 2007,
-      "date": "2007-08-24",
+      "date": "Fri Aug 24 21:00:26 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -355,7 +400,7 @@
       "id": "225394512",
       "text": "At the beach. I forgot how EVERYTHING gets sand in it. God damn. Someone must have invented a better deterrent than a towel at some point...",
       "year": 2007,
-      "date": "2007-08-24",
+      "date": "Fri Aug 24 20:18:24 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -364,7 +409,34 @@
       "id": "225305992",
       "text": "Finally at the beach, it's good. I'm pale. Really fucking pale.",
       "year": 2007,
-      "date": "2007-08-24",
+      "date": "Fri Aug 24 19:20:54 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "239071713596432385",
+      "text": "I just reached Level 2 of the \"Fresh Brew\" badge on @foursquare. I’ve checked in at 5 different coffee shops! http://t.co/rq5BeW8i",
+      "year": 2012,
+      "date": "Fri Aug 24 18:48:32 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1033032825581256704",
+      "text": "@markham OH MY GOD MARKHAM YOU'RE REALLY GONNA JINX US LIKE THAT???",
+      "year": 2018,
+      "date": "Fri Aug 24 16:46:33 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "markham"
+    },
+    {
+      "id": "1033019107615105026",
+      "text": "This is so rough https://t.co/iDr5Orwd71",
+      "year": 2018,
+      "date": "Fri Aug 24 15:52:02 +0000 2018",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -373,7 +445,7 @@
       "id": "224611672",
       "text": "Waking up-ish in this Hotel in deleware. I could spend my entire vacation in this hotel.",
       "year": 2007,
-      "date": "2007-08-24",
+      "date": "Fri Aug 24 12:59:00 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -382,7 +454,7 @@
       "id": "223906812",
       "text": "At the hotel, it's nice and cool in here. My phone can charge. I can shower. Ahh. =Ñ",
       "year": 2007,
-      "date": "2007-08-24",
+      "date": "Fri Aug 24 04:42:19 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -391,7 +463,7 @@
       "id": "223852362",
       "text": "Honestly, who forgets the difference between AM and PM?",
       "year": 2007,
-      "date": "2007-08-24",
+      "date": "Fri Aug 24 04:04:48 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -400,114 +472,10 @@
       "id": "223851532",
       "text": "Honestly, who gets stuck in traffic at 12:00 PM?",
       "year": 2007,
-      "date": "2007-08-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "223796852",
-      "text": "Stuck in phillie traffic. God it's really hot. I wanna get to a hotel and a shower soon. That sounds stupid and prissy I know, sorry.",
-      "year": 2007,
-      "date": "2007-08-24",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "223678002",
-      "text": "Just left Barnes & Noble, got a collection of Philip K. Dick stories and a cool new magazine called \"Good\". Back in the car and tired...",
-      "year": 2007,
-      "date": "2007-08-24",
+      "date": "Fri Aug 24 04:04:20 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     }
-  ],
-  "posts": [],
-  "scrobbles": [
-    {
-      "date": "2024-08-24",
-      "year": 2024,
-      "count": 14,
-      "topTracks": [
-        "How to Dress Well - & It Was U",
-        "BK - Em nome do que sinto",
-        "Wiki - Silent Meeting",
-        "Smino - 90 Proof (with J. Cole)",
-        "DJ Lucas - Tricky"
-      ],
-      "topArtists": ["How to Dress Well", "BK", "Wiki"]
-    },
-    {
-      "date": "2022-08-24",
-      "year": 2022,
-      "count": 28,
-      "topTracks": [
-        "Sade - Every Word",
-        "Uffe - Fridge Magnet - Radio Theme 1",
-        "Jaubi - Lahore State of Mind - Al Dobson Jr. Remix",
-        "BLK ODYSSY - YA NO PODÍA SALIR",
-        "Billy Brooks - Fourty Days"
-      ],
-      "topArtists": ["Sade", "Uffe", "Jaubi"]
-    },
-    {
-      "date": "2020-08-24",
-      "year": 2020,
-      "count": 6,
-      "topTracks": [
-        "African Brothers International Band - Ebi Te Yie (Remastered)",
-        "African Brothers International Band - Ɛna Ɛye A Mane Me (Remastered)",
-        "African Brothers International Band - Abusua Nnyɛ Asafo (Remastered)",
-        "African Brothers International Band - Hini Me (Remastered)",
-        "African Brothers International Band - Mmɔborɔwa (Remastered)"
-      ],
-      "topArtists": ["African Brothers International Band"]
-    },
-    {
-      "date": "2013-08-24",
-      "year": 2013,
-      "count": 48,
-      "topTracks": [
-        "Erykah Badu - Window Seat",
-        "El-P - Stay Down",
-        "Foxygen - San Francisco",
-        "The National - This Is the Last Time",
-        "Crime Mob - Knuck If You Buck - Allbum Version"
-      ],
-      "topArtists": ["Erykah Badu", "El-P", "Foxygen"]
-    },
-    {
-      "date": "2009-08-24",
-      "year": 2009,
-      "count": 156,
-      "topTracks": [
-        "Jad Abumrad & Robert Krulwich - Time (Radio Lab)",
-        "Jad Abumrad & Robert Krulwich - Musical Language (Radio Lab)",
-        "David Sedaris - When You Are Engulfed in Flames (Unabridged) Part 1",
-        "Andrew Bird - A Nervous Tic Motion of the Head to the Left",
-        "Cake - Perhaps, Perhaps, Perhaps"
-      ],
-      "topArtists": [
-        "Jad Abumrad & Robert Krulwich",
-        "David Sedaris",
-        "Andrew Bird"
-      ]
-    },
-    {
-      "date": "2008-08-24",
-      "year": 2008,
-      "count": 103,
-      "topTracks": [
-        "Radiohead - Sail to the Moon. (Brush the Cobwebs Out of the Sky.)",
-        "ahmed - why the fuck is this shit inside my head",
-        "Orson Scott Card - Xenocide (Unabridged), Part 2",
-        "Orson Scott Card - Xenocide (Unabridged), Part 3",
-        "Orson Scott Card - Children of the Mind (Unabridged), Part 1"
-      ],
-      "topArtists": ["Radiohead", "ahmed", "Orson Scott Card"]
-    }
-  ],
-  "commits": []
+  ]
 }

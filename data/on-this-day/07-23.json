@@ -1,271 +1,10 @@
 {
   "tweets": [
     {
-      "id": "1682928812168732672",
-      "text": "@varunjain @simonw umap / tsne",
-      "year": 2023,
-      "date": "2023-07-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "varunjain"
-    },
-    {
-      "id": "1286449222066241536",
-      "text": "@simonw omg",
-      "year": 2020,
-      "date": "2020-07-23",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "simonw"
-    },
-    {
-      "id": "1286448720255557632",
-      "text": "@minimaxir @enjalot We have been thinking of it as a cooking show where we make things together, so it would be cool if it were possible to put an interface into an Observable notebook or something we could all access and modify, down to experiment",
-      "year": 2020,
-      "date": "2020-07-23",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1286448396316954626",
-      "text": "@minimaxir Any interest in explaining GPT-3 to @enjalot and I on a stream? We are finding it is easier to be engaging when the responsibility is shared, recently had our first guest on stream https://t.co/LCBJ84akfH",
-      "year": 2020,
-      "date": "2020-07-23",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "minimaxir"
-    },
-    {
-      "id": "1286413307855941633",
-      "text": "@TravelingAnna if my life had a villain this would be it",
-      "year": 2020,
-      "date": "2020-07-23",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "TravelingAnna"
-    },
-    {
-      "id": "1286402958125563904",
-      "text": "What would michael small do",
-      "year": 2020,
-      "date": "2020-07-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1286342758047809537",
-      "text": "glad to see Twitter slowly making it's way through some of these https://t.co/zD22wThsoF",
-      "year": 2020,
-      "date": "2020-07-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1286337835839225856",
-      "text": "doesn't look like anything to me https://t.co/2CvQ012TWY",
-      "year": 2020,
-      "date": "2020-07-23",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1286337471320592384",
-      "text": "the way I have found to enjoy drake's music is to simply pretend he vanished from the earth in late 2015",
-      "year": 2020,
-      "date": "2020-07-23",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "889171948860821504",
-      "text": "OH. MY. GLOB. https://t.co/wRNpieWmkI",
-      "year": 2017,
-      "date": "2017-07-23",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "889127105476296704",
-      "text": "RT @417am1975: uselinks:true onetarget:true sizeChange:true 39 particles 606-1500768343616 https://t.co/wPsqRFDpvV",
-      "year": 2017,
-      "date": "2017-07-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "889125847671730176",
-      "text": "@bradoyler just preparing myself for all the GARBAGE and HOT TAKES",
-      "year": 2017,
-      "date": "2017-07-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "bradoyler"
-    },
-    {
-      "id": "889125698849386501",
-      "text": "If it's Sunday... then I'm gonna download a torrent of Cops and walk to the coffee shop and then grab my NYT and combine all 3: perfect",
-      "year": 2017,
-      "date": "2017-07-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "889125051454377984",
-      "text": "ANIMAL COLLECTIVE MORNING",
-      "year": 2017,
-      "date": "2017-07-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "889124563023351808",
-      "text": "RT @bradoyler: @mrejfox My 2 cents, everything a bot/AI does IS art. Since they are not doing if for fame or compensation.",
-      "year": 2017,
-      "date": "2017-07-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "889115733598384128",
-      "text": "SO EXCITED FOR MY AMAZON ORDER\n\nICE\nCLOTHES HAMPER\nGARBAGE CAN\nGARBAGE CAN\n\nWOOOOOOO!!!!! WILD!!!!! https://t.co/iuU0n7AvJu",
-      "year": 2017,
-      "date": "2017-07-23",
-      "favorites": 3,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "889114835241373701",
-      "text": "I accidentally read a young adult book this week. It was good.",
-      "year": 2017,
-      "date": "2017-07-23",
-      "favorites": 3,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "756946721259880449",
-      "text": "@enjalot I would vote for Kanye West so quickly, he would need to hire only 1 moderately qualified person to advise him and I'd be on board",
-      "year": 2016,
-      "date": "2016-07-23",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "enjalot"
-    },
-    {
-      "id": "756946502044581888",
-      "text": "Instead of presidential debates it should just be a 2 hour special of Naked &amp; Afraid",
-      "year": 2016,
-      "date": "2016-07-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "756945138174361600",
-      "text": "Has anyone done any legit polls on how a Colbert / Stewart ticket would do",
-      "year": 2016,
-      "date": "2016-07-23",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "756944513613062144",
-      "text": "We should have a third party that's just past winners of Survivor",
-      "year": 2016,
-      "date": "2016-07-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "756944154429652992",
-      "text": "I'd like there to be a Cory Booker / Mark Cuban ticket so all you have to do is binge watch Brick City and Shark Tank to make your decision",
-      "year": 2016,
-      "date": "2016-07-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "756943891799179264",
-      "text": "We should just earnestly embrace our country's downfall and make election 2020 an actual reality TV show. More informative + entertaining.",
-      "year": 2016,
-      "date": "2016-07-23",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "756883018690785281",
-      "text": "Updated my collection of NYC's street art in 2016 https://t.co/fQXYXJRnyy https://t.co/tFzB1VSZNB",
-      "year": 2016,
-      "date": "2016-07-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "756774784692805636",
-      "text": "I grow weary.",
-      "year": 2016,
-      "date": "2016-07-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "756771297003175936",
-      "text": "RT @cshirky: Seeing my timeline during the convention last night made me despair. We've brought fact-checkers to a culture war. Time to get…",
-      "year": 2016,
-      "date": "2016-07-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "624330077552021504",
-      "text": "RT @chriseppstein: Add some whimsy to your site:\n\n* { border-radius: 404px 53px 404px 46px / 57px 153px 59px 153px !important; } http://t.c…",
-      "year": 2015,
-      "date": "2015-07-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "624330018089361409",
-      "text": "Illustrator hyphening paragraphs: \n\nNot even once.",
-      "year": 2015,
-      "date": "2015-07-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "624211192823848960",
-      "text": "RT @TheStudyofWar: A lost generation: The uphill battle to saving #ISIS’ child soldiers  @vocativ http://t.co/W1IoYI23Sy http://t.co/bfRekL…",
-      "year": 2015,
-      "date": "2015-07-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
       "id": "492027949239918592",
       "text": "RT @tasneemraja: I am sick to death of living in a world where some have so much and most have so little.",
       "year": 2014,
-      "date": "2014-07-23",
+      "date": "Wed Jul 23 19:26:19 +0000 2014",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -274,7 +13,7 @@
       "id": "492019303311355904",
       "text": "Having no beard just feels like having menthol on your face at all times",
       "year": 2014,
-      "date": "2014-07-23",
+      "date": "Wed Jul 23 18:51:57 +0000 2014",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -283,7 +22,7 @@
       "id": "492010669256896513",
       "text": "Oh my god I need to get back to the bay area so bad all of the sudden- it appears that I must go every 6 months or so. Minimum.",
       "year": 2014,
-      "date": "2014-07-23",
+      "date": "Wed Jul 23 18:17:39 +0000 2014",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -292,7 +31,7 @@
       "id": "491983554323034112",
       "text": "Foursquare is fucking up so bad I dont have words to express myself",
       "year": 2014,
-      "date": "2014-07-23",
+      "date": "Wed Jul 23 16:29:54 +0000 2014",
       "favorites": 1,
       "retweets": 0,
       "replyTo": null
@@ -301,34 +40,52 @@
       "id": "491858430961786880",
       "text": "@Ergoat  Awesome, thanks for sending thesr links over.",
       "year": 2014,
-      "date": "2014-07-23",
+      "date": "Wed Jul 23 08:12:42 +0000 2014",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "Ergoat"
     },
     {
-      "id": "491787733405159424",
-      "text": "@Ergoat This is what I've collected so far: https://t.co/UEaPoYL6PI",
-      "year": 2014,
-      "date": "2014-07-23",
+      "id": "165112302",
+      "text": "Trying really hard to go to sleep, closing my eyes and just laying there. Not thinking.",
+      "year": 2007,
+      "date": "Tue Jul 24 03:20:52 +0000 2007",
       "favorites": 0,
       "retweets": 0,
-      "replyTo": "mrejfox"
+      "replyTo": null
     },
     {
-      "id": "491787503964151808",
-      "text": "@Ergoat Think we've talked about this before- you recommend resources for an Occupy post-mortem? Putting things together",
-      "year": 2014,
-      "date": "2014-07-23",
+      "id": "165066712",
+      "text": "Couldn't sleep. Party foul.",
+      "year": 2007,
+      "date": "Tue Jul 24 02:46:45 +0000 2007",
       "favorites": 0,
       "retweets": 0,
-      "replyTo": "Ergoat"
+      "replyTo": null
+    },
+    {
+      "id": "165028052",
+      "text": "Time to chill around and then sleep again. Heh.",
+      "year": 2007,
+      "date": "Tue Jul 24 02:16:26 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "165016152",
+      "text": "I passed out 5 hours ago, and just woke up, feeling like I had a night's rest. I think my body might be getting used to like 5 hours a night",
+      "year": 2007,
+      "date": "Tue Jul 24 02:07:34 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
     },
     {
       "id": "359760706909908993",
       "text": "RT @poezn: We messed around with global temperature data and were struck by how beautiful these maps can look. Data since 1900! http://t.co…",
       "year": 2013,
-      "date": "2013-07-23",
+      "date": "Tue Jul 23 19:43:31 +0000 2013",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -337,7 +94,7 @@
       "id": "359701583702921218",
       "text": "@mgpettit My personal history with forums isn't great- can't think of many big influential ones besides 4chan, Something Awful, other misc.",
       "year": 2013,
-      "date": "2013-07-23",
+      "date": "Tue Jul 23 15:48:35 +0000 2013",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "mgpdietzel"
@@ -346,52 +103,70 @@
       "id": "359653411739807745",
       "text": "Someone just retweeted this: https://t.co/ODxLccBpxC weird.",
       "year": 2013,
-      "date": "2013-07-23",
+      "date": "Tue Jul 23 12:37:10 +0000 2013",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "227371537425108992",
-      "text": "RT @iAWriter: Boom! iA Writer for Mac goes down to $4.99. Very limited time only. http://t.co/kYVa1tjX",
-      "year": 2012,
-      "date": "2012-07-23",
+      "id": "1286449222066241536",
+      "text": "@simonw omg",
+      "year": 2020,
+      "date": "Thu Jul 23 23:52:50 +0000 2020",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "simonw"
+    },
+    {
+      "id": "1286448720255557632",
+      "text": "@minimaxir @enjalot We have been thinking of it as a cooking show where we make things together, so it would be cool if it were possible to put an interface into an Observable notebook or something we could all access and modify, down to experiment",
+      "year": 2020,
+      "date": "Thu Jul 23 23:50:50 +0000 2020",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1286448396316954626",
+      "text": "@minimaxir Any interest in explaining GPT-3 to @enjalot and I on a stream? We are finding it is easier to be engaging when the responsibility is shared, recently had our first guest on stream https://t.co/LCBJ84akfH",
+      "year": 2020,
+      "date": "Thu Jul 23 23:49:33 +0000 2020",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "minimaxir"
+    },
+    {
+      "id": "1286413307855941633",
+      "text": "@TravelingAnna if my life had a villain this would be it",
+      "year": 2020,
+      "date": "Thu Jul 23 21:30:07 +0000 2020",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "TravelingAnna"
+    },
+    {
+      "id": "624330077552021504",
+      "text": "RT @chriseppstein: Add some whimsy to your site:\n\n* { border-radius: 404px 53px 404px 46px / 57px 153px 59px 153px !important; } http://t.c…",
+      "year": 2015,
+      "date": "Thu Jul 23 21:27:44 +0000 2015",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "227198152753700864",
-      "text": "Guacamole, fried potatoes and chicken and lemonade. Yummy dinner at camp.  http://t.co/ekiNG39e",
-      "year": 2012,
-      "date": "2012-07-23",
+      "id": "624330018089361409",
+      "text": "Illustrator hyphening paragraphs: \n\nNot even once.",
+      "year": 2015,
+      "date": "Thu Jul 23 21:27:30 +0000 2015",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "94790331589070848",
-      "text": "Google+ me, please? ejfox@ejfox.com",
-      "year": 2011,
-      "date": "2011-07-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "94768909831512064",
-      "text": "New DJ mix... got those classics. : Manifesto Mix on #SoundCloud http://snd.sc/nclQyP",
-      "year": 2011,
-      "date": "2011-07-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "19299071342",
-      "text": "Just spent $40 on a year of Soundcloud Lite. Feels pretty good, I guess.",
-      "year": 2010,
-      "date": "2010-07-23",
+      "id": "1286402958125563904",
+      "text": "What would michael small do",
+      "year": 2020,
+      "date": "Thu Jul 23 20:49:00 +0000 2020",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -400,8 +175,35 @@
       "id": "2801433441",
       "text": "Need to go searching for a new coffee table...",
       "year": 2009,
-      "date": "2009-07-23",
+      "date": "Thu Jul 23 17:00:58 +0000 2009",
       "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1286342758047809537",
+      "text": "glad to see Twitter slowly making it's way through some of these https://t.co/zD22wThsoF",
+      "year": 2020,
+      "date": "Thu Jul 23 16:49:47 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1286337835839225856",
+      "text": "doesn't look like anything to me https://t.co/2CvQ012TWY",
+      "year": 2020,
+      "date": "Thu Jul 23 16:30:13 +0000 2020",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1286337471320592384",
+      "text": "the way I have found to enjoy drake's music is to simply pretend he vanished from the earth in late 2015",
+      "year": 2020,
+      "date": "Thu Jul 23 16:28:46 +0000 2020",
+      "favorites": 1,
       "retweets": 0,
       "replyTo": null
     },
@@ -409,7 +211,7 @@
       "id": "2800867680",
       "text": "Shared: WHY WE KEEP DYING: \nRemember when Palestinians were walking into Israeli cafes and blowing themse.. http://bit.ly/1a1Qpw",
       "year": 2009,
-      "date": "2009-07-23",
+      "date": "Thu Jul 23 16:28:10 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -418,7 +220,7 @@
       "id": "2800186746",
       "text": "I want to try and do a magazine-style infographic exploration of something... but I don't know what exactly. Maybe music something? Agh!",
       "year": 2009,
-      "date": "2009-07-23",
+      "date": "Thu Jul 23 15:47:52 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -427,7 +229,7 @@
       "id": "2800144008",
       "text": "Remember Second Life?",
       "year": 2009,
-      "date": "2009-07-23",
+      "date": "Thu Jul 23 15:45:16 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -436,7 +238,7 @@
       "id": "2799682078",
       "text": "Learning how to make user interfaces in Flash feels both classically wrong and futuristic at the same time. I can't really explain it.",
       "year": 2009,
-      "date": "2009-07-23",
+      "date": "Thu Jul 23 15:17:31 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -445,7 +247,7 @@
       "id": "2798441453",
       "text": "Attempting to teach myself to make infographics in Flash.",
       "year": 2009,
-      "date": "2009-07-23",
+      "date": "Thu Jul 23 14:00:10 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -454,7 +256,16 @@
       "id": "2798127544",
       "text": "Just hanging out, listening to the blues.",
       "year": 2009,
-      "date": "2009-07-23",
+      "date": "Thu Jul 23 13:38:26 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "624211192823848960",
+      "text": "RT @TheStudyofWar: A lost generation: The uphill battle to saving #ISIS’ child soldiers  @vocativ http://t.co/W1IoYI23Sy http://t.co/bfRekL…",
+      "year": 2015,
+      "date": "Thu Jul 23 13:35:20 +0000 2015",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -463,7 +274,232 @@
       "id": "2796213086",
       "text": "I won the internet lotto!",
       "year": 2009,
-      "date": "2009-07-23",
+      "date": "Thu Jul 23 10:44:36 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "94976325256888321",
+      "text": "@flowingdata Just finished the book- loved it, especially the chernoff faces & mapping. Can't wait to try new stuff out.",
+      "year": 2011,
+      "date": "Sun Jul 24 03:44:55 +0000 2011",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "flowingdata"
+    },
+    {
+      "id": "757042243479937025",
+      "text": "why are all these outlets reporting this \"gucci was a drug addict\" shit like it's breaking news\n\ndid you listen to gucci?",
+      "year": 2016,
+      "date": "Sun Jul 24 02:38:30 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "757041744668164096",
+      "text": "do i want a hot dog so bad I'll walk to crif dogs?",
+      "year": 2016,
+      "date": "Sun Jul 24 02:36:31 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "757041530133676032",
+      "text": "what if one wants a hotdog at 11pm in bed-stuy",
+      "year": 2016,
+      "date": "Sun Jul 24 02:35:40 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "889171948860821504",
+      "text": "OH. MY. GLOB. https://t.co/wRNpieWmkI",
+      "year": 2017,
+      "date": "Sun Jul 23 17:14:47 +0000 2017",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "889127105476296704",
+      "text": "RT @417am1975: uselinks:true onetarget:true sizeChange:true 39 particles 606-1500768343616 https://t.co/wPsqRFDpvV",
+      "year": 2017,
+      "date": "Sun Jul 23 14:16:35 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "889125847671730176",
+      "text": "@bradoyler just preparing myself for all the GARBAGE and HOT TAKES",
+      "year": 2017,
+      "date": "Sun Jul 23 14:11:35 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "bradoyler"
+    },
+    {
+      "id": "889125698849386501",
+      "text": "If it's Sunday... then I'm gonna download a torrent of Cops and walk to the coffee shop and then grab my NYT and combine all 3: perfect",
+      "year": 2017,
+      "date": "Sun Jul 23 14:11:00 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "889125051454377984",
+      "text": "ANIMAL COLLECTIVE MORNING",
+      "year": 2017,
+      "date": "Sun Jul 23 14:08:26 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "889124563023351808",
+      "text": "RT @bradoyler: @mrejfox My 2 cents, everything a bot/AI does IS art. Since they are not doing if for fame or compensation.",
+      "year": 2017,
+      "date": "Sun Jul 23 14:06:29 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "889115733598384128",
+      "text": "SO EXCITED FOR MY AMAZON ORDER\n\nICE\nCLOTHES HAMPER\nGARBAGE CAN\nGARBAGE CAN\n\nWOOOOOOO!!!!! WILD!!!!! https://t.co/iuU0n7AvJu",
+      "year": 2017,
+      "date": "Sun Jul 23 13:31:24 +0000 2017",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "889114835241373701",
+      "text": "I accidentally read a young adult book this week. It was good.",
+      "year": 2017,
+      "date": "Sun Jul 23 13:27:50 +0000 2017",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1418776022363873282",
+      "text": "Convincing as many people as possible to buy honda groms so we can have a little squad",
+      "year": 2021,
+      "date": "Sat Jul 24 03:32:17 +0000 2021",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1418750146821689345",
+      "text": "@thewarzonewire @thedrive How do you get a word wrong in both the headline AND the share text, aircraft spotters aren’t “altering” any pilots, though that would be newsworthy",
+      "year": 2021,
+      "date": "Sat Jul 24 01:49:28 +0000 2021",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "thewarzonewire"
+    },
+    {
+      "id": "756946721259880449",
+      "text": "@enjalot I would vote for Kanye West so quickly, he would need to hire only 1 moderately qualified person to advise him and I'd be on board",
+      "year": 2016,
+      "date": "Sat Jul 23 20:18:56 +0000 2016",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "enjalot"
+    },
+    {
+      "id": "756946502044581888",
+      "text": "Instead of presidential debates it should just be a 2 hour special of Naked &amp; Afraid",
+      "year": 2016,
+      "date": "Sat Jul 23 20:18:04 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "756945138174361600",
+      "text": "Has anyone done any legit polls on how a Colbert / Stewart ticket would do",
+      "year": 2016,
+      "date": "Sat Jul 23 20:12:38 +0000 2016",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "756944513613062144",
+      "text": "We should have a third party that's just past winners of Survivor",
+      "year": 2016,
+      "date": "Sat Jul 23 20:10:10 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "756944154429652992",
+      "text": "I'd like there to be a Cory Booker / Mark Cuban ticket so all you have to do is binge watch Brick City and Shark Tank to make your decision",
+      "year": 2016,
+      "date": "Sat Jul 23 20:08:44 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "756943891799179264",
+      "text": "We should just earnestly embrace our country's downfall and make election 2020 an actual reality TV show. More informative + entertaining.",
+      "year": 2016,
+      "date": "Sat Jul 23 20:07:41 +0000 2016",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "756883018690785281",
+      "text": "Updated my collection of NYC's street art in 2016 https://t.co/fQXYXJRnyy https://t.co/tFzB1VSZNB",
+      "year": 2016,
+      "date": "Sat Jul 23 16:05:48 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "94790331589070848",
+      "text": "Google+ me, please? ejfox@ejfox.com",
+      "year": 2011,
+      "date": "Sat Jul 23 15:25:50 +0000 2011",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "94768909831512064",
+      "text": "New DJ mix... got those classics. : Manifesto Mix on #SoundCloud http://snd.sc/nclQyP",
+      "year": 2011,
+      "date": "Sat Jul 23 14:00:43 +0000 2011",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "756774784692805636",
+      "text": "I grow weary.",
+      "year": 2016,
+      "date": "Sat Jul 23 08:55:43 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "756771297003175936",
+      "text": "RT @cshirky: Seeing my timeline during the convention last night made me despair. We've brought fact-checkers to a culture war. Time to get…",
+      "year": 2016,
+      "date": "Sat Jul 23 08:41:51 +0000 2016",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -472,7 +508,7 @@
       "id": "164631242",
       "text": "Home, chilling and eating a delicious white pie from Grand Slam. Deciding how my week's gonna end up.",
       "year": 2007,
-      "date": "2007-07-23",
+      "date": "Mon Jul 23 21:07:40 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -481,7 +517,7 @@
       "id": "164551892",
       "text": "Camp's over, driving home, the rain is yuck yuck yuck.",
       "year": 2007,
-      "date": "2007-07-23",
+      "date": "Mon Jul 23 20:13:36 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -490,8 +526,17 @@
       "id": "164462402",
       "text": "Doing parking at camp. Its like a game, parents some up with new ways not do to parking correctly.",
       "year": 2007,
-      "date": "2007-07-23",
+      "date": "Mon Jul 23 19:06:40 +0000 2007",
       "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "227371537425108992",
+      "text": "RT @iAWriter: Boom! iA Writer for Mac goes down to $4.99. Very limited time only. http://t.co/kYVa1tjX",
+      "year": 2012,
+      "date": "Mon Jul 23 11:56:13 +0000 2012",
+      "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
@@ -499,7 +544,7 @@
       "id": "163892312",
       "text": "A little tempted to hax the planet.",
       "year": 2007,
-      "date": "2007-07-23",
+      "date": "Mon Jul 23 11:48:33 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -508,162 +553,109 @@
       "id": "163830782",
       "text": "Just woke up, took a shower. Got the audiobook version of Deathly Hallows to listen to/from camp. My favorite part of a new book- Jim Dale.",
       "year": 2007,
-      "date": "2007-07-23",
+      "date": "Mon Jul 23 10:57:14 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "163248602",
-      "text": "Really going to sleep this time, in the morning- camp! ( And every girl that I walk around seems to be more of an illusion  - white stripes)",
-      "year": 2007,
-      "date": "2007-07-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "163210272",
-      "text": "Okay, false sleep alarm. I got distracted by people (MORGAN) and am now re-styling my MySpace. Yugh. Yegh?",
-      "year": 2007,
-      "date": "2007-07-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "163147462",
-      "text": "So tired, my sleeping lately has been super weird. Just gonna pass out now, methinks. Dinner was pretty good.",
-      "year": 2007,
-      "date": "2007-07-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    }
-  ],
-  "posts": [],
-  "scrobbles": [
-    {
-      "date": "2025-07-23",
-      "year": 2025,
-      "count": 1,
-      "topTracks": ["King Krule - Comet Face - Live"],
-      "topArtists": ["King Krule"]
-    },
-    {
-      "date": "2022-07-23",
-      "year": 2022,
-      "count": 71,
-      "topTracks": [
-        "El Michels Affair - Masterclass",
-        "BLK ODYSSY - YA NO PODÍA SALIR",
-        "Robohands - Lost",
-        "Shelton Kilby - Poor Wayfaring Stranger",
-        "Uffe - Fridge Magnet - Radio Theme 1"
-      ],
-      "topArtists": ["El Michels Affair", "BLK ODYSSY", "Robohands"]
-    },
-    {
-      "date": "2020-07-23",
+      "id": "1286496658491047936",
+      "text": "here's a much faster version (30 seconds instead of a minute) and a bonus super-fast version in the intro (thanks to @enjalot for the feedback) https://t.co/GjOgemKZ5s",
       "year": 2020,
-      "count": 13,
-      "topTracks": [
-        "Young Thug - Floyd Mayweather (feat. Travis Scott, Gucci Mane and Gunna)",
-        "French Montana - Off The Rip",
-        "Mike Jones - Turning Lane",
-        "The Weeknd - Dark Times",
-        "T.I. - Project Steps"
-      ],
-      "topArtists": ["Young Thug", "French Montana", "Mike Jones"]
+      "date": "Fri Jul 24 03:01:19 +0000 2020",
+      "favorites": 5,
+      "retweets": 1,
+      "replyTo": "mrejfox"
     },
     {
-      "date": "2019-07-23",
-      "year": 2019,
-      "count": 126,
-      "topTracks": [
-        "Smino - Innamission",
-        "Smino - Ricky Millions",
-        "Smino - Father Son Holy Smoke",
-        "Smino - Long Run",
-        "Smino - blkswn"
-      ],
-      "topArtists": ["Smino", "monte booker", "Earl Sweatshirt"]
+      "id": "1286492307961925633",
+      "text": "This is a proof of concept, more of these with some more polish coming soon, hopefully",
+      "year": 2020,
+      "date": "Fri Jul 24 02:44:02 +0000 2020",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
     },
     {
-      "date": "2016-07-23",
-      "year": 2016,
-      "count": 13,
-      "topTracks": [
-        "Gucci Mane - All My Children",
-        "Gucci Mane - Pick Up The Pieces - Outro",
-        "Gucci Mane - Guwop Home (feat. Young Thug)",
-        "Gucci Mane - Robbed",
-        "Gucci Mane - Richest N**** In The Room"
-      ],
-      "topArtists": ["Gucci Mane", "Nao"]
+      "id": "1286490332520165380",
+      "text": "I learned how to create the frames for the time-lapse, with a ton of help from @enjalot and @agarcia_me on livestream a few nights ago https://t.co/LCBJ84akfH - you can also check out (or fork) this notebook https://t.co/Q9goi7xfUb",
+      "year": 2020,
+      "date": "Fri Jul 24 02:36:11 +0000 2020",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": "mrejfox"
     },
     {
-      "date": "2015-07-23",
+      "id": "1286489734718660608",
+      "text": "Data sonification done through TwoTone https://t.co/x30xKZBU5l which makes it incredibly easy to turn a dataset into audio and gives you lots of cool controls in terms of timing, scale, and timbre https://t.co/y4hms4Tbml",
+      "year": 2020,
+      "date": "Fri Jul 24 02:33:49 +0000 2020",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1286489732898344961",
+      "text": "This is a time-lapse of Doctor Visits by county since March 1st combined with a data sonification of the same data for the entire state of New York. Data from CMU Delphi Epidata API. https://t.co/kHZsQZ98g8",
+      "year": 2020,
+      "date": "Fri Jul 24 02:33:48 +0000 2020",
+      "favorites": 11,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "624395992893419520",
+      "text": "RT @enjalot: blown away by the support for Building Bl.ocks now only $160 away from the final stretch goal… https://t.co/1ttUNr8Sr9 #d3js",
       "year": 2015,
-      "count": 9,
-      "topTracks": [
-        "Young Thug - Check",
-        "Young Thug - Never Had It (feat. Young Dolph)",
-        "Young Thug - Dream (feat. Yak Gotti)",
-        "Young Thug - Dome (feat. Duke)",
-        "Kendrick Lamar - Alright"
-      ],
-      "topArtists": ["Young Thug", "Kendrick Lamar", "A$AP Rocky"]
+      "date": "Fri Jul 24 01:49:40 +0000 2015",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
     },
     {
-      "date": "2009-07-23",
-      "year": 2009,
-      "count": 60,
-      "topTracks": [
-        "Akron Family - I've Got Some Friends",
-        "Iron Horse - Ocean Breathes Salty",
-        "Porcupine Tree - Glass Arm Shattering",
-        "African Brothers Dance Band (International) - Mmobrowa",
-        "T.I. - My Life Your Entertainment [ft. Usher]"
-      ],
-      "topArtists": ["Akron Family", "Iron Horse", "Porcupine Tree"]
+      "id": "1286463791966883842",
+      "text": "oh no https://t.co/XWrnNsLc8e",
+      "year": 2020,
+      "date": "Fri Jul 24 00:50:44 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
     },
     {
-      "date": "2008-07-23",
-      "year": 2008,
-      "count": 48,
-      "topTracks": [
-        "Atmosphere - Guarantees",
-        "DJ Blaqstarr feat. Rye Rye. - Shake It To The Ground (Claude VonStroke Remix)",
-        "Spank Rock - Backyard Betty",
-        "Born Ruffians - Hummingbird",
-        "Born Ruffians - Barnacle Goose"
-      ],
-      "topArtists": ["Atmosphere", "DJ Blaqstarr feat. Rye Rye.", "Spank Rock"]
+      "id": "1286463375057268748",
+      "text": "I may have gone too far, 2 hour render time on a 30 second clip seems like... a lot https://t.co/DMeXwzEj4V",
+      "year": 2020,
+      "date": "Fri Jul 24 00:49:04 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
     },
     {
-      "date": "2007-07-23",
-      "year": 2007,
-      "count": 103,
-      "topTracks": [
-        "Sigur Rós - Ny Batteri",
-        "The White Stripes - A Martyr for My Love for You",
-        "The Chemical Brothers - The Salmon Dance feat. Fatlip",
-        "J. K. Rowling - Chapter 24G",
-        "J. K. Rowling - Chapter 10C"
-      ],
-      "topArtists": ["Sigur Rós", "The White Stripes", "The Chemical Brothers"]
+      "id": "1286455774366052353",
+      "text": "RT @mrejfox: I love unfollowing people! Keep saying dumb shit people, I love it! Can't wait to live my new life not reading the thoughts of…",
+      "year": 2020,
+      "date": "Fri Jul 24 00:18:52 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
     },
     {
-      "date": "2006-07-23",
-      "year": 2006,
-      "count": 2,
-      "topTracks": [
-        "digg.com - Diggnation Episode #0053 - July 6, 2006",
-        "digg.com - Diggnation Episode #0054 - July 13, 2006"
-      ],
-      "topArtists": ["digg.com"]
+      "id": "1286452782757748746",
+      "text": "@newsroomdev wait til I tell ffmpeg I want it to make them into a movie",
+      "year": 2020,
+      "date": "Fri Jul 24 00:06:59 +0000 2020",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "newsroomdev"
+    },
+    {
+      "id": "1286452151364059138",
+      "text": "currently generating 140 images at 15232 x 9672 resolution",
+      "year": 2020,
+      "date": "Fri Jul 24 00:04:28 +0000 2020",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
     }
-  ],
-  "commits": []
+  ]
 }

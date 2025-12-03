@@ -1,55 +1,10 @@
 {
   "tweets": [
     {
-      "id": "1669683903265755136",
-      "text": "lots of non-technologists hyperventilating, describing my actual near-past as their imagined near-future and absolutely freaking out about it – instead of anxiety around every footstep, maybe look up-trail a little bit?",
-      "year": 2023,
-      "date": "2023-06-16",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1537527455845605379",
-      "text": "@whale_alert Spun out into a bunch of little (lol) 13 BTC wallets? https://t.co/oBGd449n0S",
-      "year": 2022,
-      "date": "2022-06-16",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "whale_alert"
-    },
-    {
-      "id": "1537526484822269958",
-      "text": "Wild https://t.co/okGKz0RKIQ",
-      "year": 2022,
-      "date": "2022-06-16",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1537444766031368192",
-      "text": "https://t.co/GGc2UxJ7Zt https://t.co/uYG6K5v2ZF",
-      "year": 2022,
-      "date": "2022-06-16",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1537439410727178241",
-      "text": "@pegobry You seem like a real piece of shit.",
-      "year": 2022,
-      "date": "2022-06-16",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
       "id": "1405275232936480768",
       "text": "RT @Snowden: \"I wanted PGP to be used for human rights applications—to spread all over the world, especially to places where people needed…",
       "year": 2021,
-      "date": "2021-06-16",
+      "date": "Wed Jun 16 21:24:58 +0000 2021",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -58,7 +13,7 @@
       "id": "1405226813719302144",
       "text": "RT @medickimw: Lemme see if I can clear up why Mayor Mooseknuckle is catching so much heat:\n8 unmarked cars boxed Winston Smith in. After t…",
       "year": 2021,
-      "date": "2021-06-16",
+      "date": "Wed Jun 16 18:12:34 +0000 2021",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -67,7 +22,7 @@
       "id": "1405192064955043840",
       "text": "RT @jdan: #JavaScript protip - Use #variables to store common values and shorten your functions. Here's an example with #ReactJS \n👇 https:/…",
       "year": 2021,
-      "date": "2021-06-16",
+      "date": "Wed Jun 16 15:54:30 +0000 2021",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -76,7 +31,7 @@
       "id": "1405185463686766592",
       "text": "RT @mdavidallen: @mrejfox @FBI I just casually searched some of their mentions for sport with a couple of keywords and it's a wasteland of…",
       "year": 2021,
-      "date": "2021-06-16",
+      "date": "Wed Jun 16 15:28:16 +0000 2021",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -85,151 +40,16 @@
       "id": "1405179524392833025",
       "text": "Story pitch: I monitor twitter for people tagging @FBI on Twitter for a while and see if I can find any real, actionable tips about actual crime, and wonder about the life of an FBI social media manager",
       "year": 2021,
-      "date": "2021-06-16",
+      "date": "Wed Jun 16 15:04:40 +0000 2021",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "mrejfox"
     },
     {
-      "id": "1272942653244690438",
-      "text": "@harrisj @hondanhon The only reason I had a mask for the first few weeks of the pandemic was because I had one in my bug out bag after CA wildfires.",
-      "year": 2020,
-      "date": "2020-06-16",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": "harrisj"
-    },
-    {
-      "id": "1140077960956928000",
-      "text": "@swodinsky Are you on goodreads?",
-      "year": 2019,
-      "date": "2019-06-16",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "swodinsky"
-    },
-    {
-      "id": "1007851698361126912",
-      "text": "RT @417am1975: 10-14-3-1528982419632 https://t.co/Ck0B3zwuhj",
-      "year": 2018,
-      "date": "2018-06-16",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1007804873021288448",
-      "text": "RT @417am1975: 3-4-1529112052283 https://t.co/XwN238s7m7",
-      "year": 2018,
-      "date": "2018-06-16",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "875848374959972352",
-      "text": "I just published “My expanding mental map of the world” https://t.co/Ib21Sim94Q",
-      "year": 2017,
-      "date": "2017-06-16",
-      "favorites": 7,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "875797330464825348",
-      "text": "RT @lyzidiamond: documentation-driven development.",
-      "year": 2017,
-      "date": "2017-06-16",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "875780704390574081",
-      "text": "RT @MattGertz: Google searches for \"Alex Jones\" are at the highest rate since Piers Morgan hosted him on CNN. Megyn Kelly effect. https://t…",
-      "year": 2017,
-      "date": "2017-06-16",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "875779701024882688",
-      "text": "@Ergoat Yeah exactly. Haven't seen anyone clearly draw those threads yet. Also unclear how much Oakland activists were involved in national BLM.",
-      "year": 2017,
-      "date": "2017-06-16",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "Ergoat"
-    },
-    {
-      "id": "875778660145528833",
-      "text": "@Ergoat I think part of it comes from people \"expecting\" radical resistance from the bay area, but in Ferguson &amp; Baltimore it was new and unexpected",
-      "year": 2017,
-      "date": "2017-06-16",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "Ergoat"
-    },
-    {
-      "id": "875778476439154690",
-      "text": "@Ergoat Oakland's role in shaping message and tone of BLM totally underplayed IMO. OO became about police shootings while OWS was still on Wall St.",
-      "year": 2017,
-      "date": "2017-06-16",
-      "favorites": 1,
-      "retweets": 1,
-      "replyTo": "Ergoat"
-    },
-    {
-      "id": "875777234367381504",
-      "text": "RT @marklittlenews: \"Media got owned yet again, underscoring universal truth of Trump era: Old media not prepared for the new trolls\" https…",
-      "year": 2017,
-      "date": "2017-06-16",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "875777087113744386",
-      "text": "@Ergoat NYC shut down West Side Highway, completely filled Times Square after Wilson wasn't indicted https://t.co/kTvajFqyIP",
-      "year": 2017,
-      "date": "2017-06-16",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "Ergoat"
-    },
-    {
-      "id": "875736889143242752",
-      "text": "RT @BelieveInBob: US state highway marker shields https://t.co/YaiCoB7UaA https://t.co/SUYQp6CHqr",
-      "year": 2017,
-      "date": "2017-06-16",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "743392145084678145",
-      "text": "RT @heyitsopus: You cannot really loathe anyone else until you learn to loathe yourself.",
-      "year": 2016,
-      "date": "2016-06-16",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "743264828408602628",
-      "text": "Delaware is where I hang out in the summer",
-      "year": 2016,
-      "date": "2016-06-16",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
       "id": "610908264918716416",
       "text": "@abigailtracy nice avatar",
       "year": 2015,
-      "date": "2015-06-16",
+      "date": "Tue Jun 16 20:34:15 +0000 2015",
       "favorites": 1,
       "retweets": 0,
       "replyTo": "abigailtracy"
@@ -238,7 +58,7 @@
       "id": "610873312793743360",
       "text": "Turn every mall in the US into hacker spaces / community gardens / code schools and wait for a brighter future",
       "year": 2015,
-      "date": "2015-06-16",
+      "date": "Tue Jun 16 18:15:21 +0000 2015",
       "favorites": 0,
       "retweets": 1,
       "replyTo": null
@@ -247,7 +67,7 @@
       "id": "610872028858580993",
       "text": "RT @jezburrows: Merciful mother of God. New Illustrator has file recovery/autosave: https://t.co/8NDO5tHomI",
       "year": 2015,
-      "date": "2015-06-16",
+      "date": "Tue Jun 16 18:10:15 +0000 2015",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -256,70 +76,25 @@
       "id": "610869685840646144",
       "text": "#AppleWatchIdeas\n\nAnki on the apple watch",
       "year": 2015,
-      "date": "2015-06-16",
+      "date": "Tue Jun 16 18:00:57 +0000 2015",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "346416711777525760",
-      "text": "RT @marg1nal: FUCK ALL POLICE EVERYWHERE AT ALL TIMES",
-      "year": 2013,
-      "date": "2013-06-16",
-      "favorites": 0,
+      "id": "1272942653244690438",
+      "text": "@harrisj @hondanhon The only reason I had a mask for the first few weeks of the pandemic was because I had one in my bug out bag after CA wildfires.",
+      "year": 2020,
+      "date": "Tue Jun 16 17:22:33 +0000 2020",
+      "favorites": 2,
       "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "214048973172908033",
-      "text": "@fiftysevensteps Cheers! If you're interested you can download the Anki deck here: http://t.co/2lCxbnm8",
-      "year": 2012,
-      "date": "2012-06-16",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "fiftysevensteps"
-    },
-    {
-      "id": "214037301532168192",
-      "text": "@AdamInOakland You seem to be having my kind of morning...",
-      "year": 2012,
-      "date": "2012-06-16",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "213867911306149888",
-      "text": "Working on typography flash cards for Anki http://t.co/3kfYhkyX",
-      "year": 2012,
-      "date": "2012-06-16",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "213859658950119425",
-      "text": "How I use If This Then That http://t.co/Xj7jYmv3 http://t.co/NNhs6rs8",
-      "year": 2012,
-      "date": "2012-06-16",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "81389242470776832",
-      "text": "RT @antoniojl: Photo of the decade: http://t.co/ETzWCCa",
-      "year": 2011,
-      "date": "2011-06-16",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
+      "replyTo": "harrisj"
     },
     {
       "id": "2189609166",
       "text": "Going to sleep way late despite a day of heavy work & lifting tomorrow. Life is wonderful though.",
       "year": 2009,
-      "date": "2009-06-16",
+      "date": "Tue Jun 16 07:26:55 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -328,7 +103,7 @@
       "id": "2188837242",
       "text": "\"Improved night time state\" is a good euphemism.",
       "year": 2009,
-      "date": "2009-06-16",
+      "date": "Tue Jun 16 05:40:01 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -337,7 +112,7 @@
       "id": "2188485019",
       "text": "@infernoenigma Even better! You're a life(and time)saver.",
       "year": 2009,
-      "date": "2009-06-16",
+      "date": "Tue Jun 16 04:59:14 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "MrEAnders"
@@ -346,165 +121,226 @@
       "id": "2188346727",
       "text": "@infernoenigma Hey, did you download Weeds? Whereabouts? (This Demonoid Torrent has a 3hr ETA.)",
       "year": 2009,
-      "date": "2009-06-16",
+      "date": "Tue Jun 16 04:43:56 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "MrEAnders"
     },
     {
-      "id": "2187365095",
-      "text": "rt@nzmrmn change yr Twitter settings to show GMT +03:30 Tehran as your timezone & change home city to Tehran to confuse the Iranian censors.",
-      "year": 2009,
-      "date": "2009-06-16",
+      "id": "1537527455845605379",
+      "text": "@whale_alert Spun out into a bunch of little (lol) 13 BTC wallets? https://t.co/oBGd449n0S",
+      "year": 2022,
+      "date": "Thu Jun 16 20:08:06 +0000 2022",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "whale_alert"
+    },
+    {
+      "id": "1537526484822269958",
+      "text": "Wild https://t.co/okGKz0RKIQ",
+      "year": 2022,
+      "date": "Thu Jun 16 20:04:14 +0000 2022",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
-    }
-  ],
-  "posts": [],
-  "scrobbles": [
-    {
-      "date": "2025-06-16",
-      "year": 2025,
-      "count": 11,
-      "topTracks": [
-        "Hiatus Kaiyote - Sip Into Something Soft",
-        "The Alchemist - Loose Change (feat. Earl Sweatshirt)",
-        "zekeultra - CARRY ME HOME",
-        "Mac Miller - In the Morning (feat. Thundercat & Syd)",
-        "Hiatus Kaiyote - Red Room"
-      ],
-      "topArtists": ["Hiatus Kaiyote", "The Alchemist", "zekeultra"]
     },
     {
-      "date": "2024-06-16",
-      "year": 2024,
-      "count": 49,
-      "topTracks": [
-        "King Krule - Out Getting Ribs - Live",
-        "King Krule - Emergency Blimp - Live",
-        "King Krule - A Slide In (New Drugs) - Live",
-        "King Krule - The Ooz - Live",
-        "King Krule - Cellular - Live"
-      ],
-      "topArtists": ["King Krule", "Horsey", "salami rose joe louis"]
+      "id": "81389242470776832",
+      "text": "RT @antoniojl: Photo of the decade: http://t.co/ETzWCCa",
+      "year": 2011,
+      "date": "Thu Jun 16 15:54:42 +0000 2011",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
     },
     {
-      "date": "2023-06-16",
-      "year": 2023,
-      "count": 22,
-      "topTracks": [
-        "Dopebwoy - Cartier",
-        "Galantis - Dandelion",
-        "Ms Banks - Snack",
-        "Burna Boy - Omo",
-        "Pop Smoke - Dior"
-      ],
-      "topArtists": ["Dopebwoy", "Galantis", "Ms Banks"]
+      "id": "1537444766031368192",
+      "text": "https://t.co/GGc2UxJ7Zt https://t.co/uYG6K5v2ZF",
+      "year": 2022,
+      "date": "Thu Jun 16 14:39:31 +0000 2022",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
     },
     {
-      "date": "2019-06-16",
-      "year": 2019,
-      "count": 44,
-      "topTracks": [
-        "Smino - KRUSHED ICE (with Valee)",
-        "Smino - SKEDOS",
-        "Smino - MF GROOVE (with Ravyn Lenae)",
-        "Smino - VERIZON",
-        "Smino - coupe se' yern"
-      ],
-      "topArtists": ["Smino", "Earl Sweatshirt", "tobi lou"]
+      "id": "1537439410727178241",
+      "text": "@pegobry You seem like a real piece of shit.",
+      "year": 2022,
+      "date": "Thu Jun 16 14:18:14 +0000 2022",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
     },
     {
-      "date": "2016-06-16",
+      "id": "743392145084678145",
+      "text": "RT @heyitsopus: You cannot really loathe anyone else until you learn to loathe yourself.",
       "year": 2016,
-      "count": 7,
-      "topTracks": [
-        "Young Thug - Slime Shit (feat. Yak Gotti, Duke & Peewee Roscoe)",
-        "Young Thug - Drippin'",
-        "Young Thug - Memo",
-        "Young Thug - Problem",
-        "Young Thug - With Them"
-      ],
-      "topArtists": ["Young Thug"]
+      "date": "Thu Jun 16 10:37:53 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
     },
     {
-      "date": "2015-06-16",
-      "year": 2015,
-      "count": 12,
-      "topTracks": [
-        "A$AP Rocky - Excuse Me",
-        "A$AP Rocky - JD",
-        "A$AP Rocky - Lord Pretty Flacko Jodye 2 (LPFJ2)",
-        "A$AP Rocky - Electric Body",
-        "A$AP Rocky - Jukebox Joints"
-      ],
-      "topArtists": ["A$AP Rocky"]
+      "id": "1008140777086767104",
+      "text": "RT @BRANDONWARDELL: this dude just hit a weed vape and a juul at the same time and called it a “silicon valley spliff” oh my god",
+      "year": 2018,
+      "date": "Sun Jun 17 00:14:26 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
     },
     {
-      "date": "2014-06-16",
-      "year": 2014,
-      "count": 4,
-      "topTracks": [
-        "AB Soul - Terrorist Threats (feat. Danny Brown & Jhene Aiko)",
-        "Kendrick Lamar - Poetic Justice",
-        "Kendrick Lamar - The Recipe (Black Hippy Remix) - Bonus Track",
-        "Kendrick Lamar - Real"
-      ],
-      "topArtists": ["AB Soul", "Kendrick Lamar"]
-    },
-    {
-      "date": "2013-06-16",
+      "id": "346416711777525760",
+      "text": "RT @marg1nal: FUCK ALL POLICE EVERYWHERE AT ALL TIMES",
       "year": 2013,
-      "count": 7,
-      "topTracks": [
-        "JAY-Z - Hello Brooklyn 2.0",
-        "Borgore - My Favourite Things",
-        "Bun-B - I Git Down 4 Mine",
-        "Cotti - Rise the temperature",
-        "Jellybass - No Love - Jazzsteppa Vs Borgore Remix"
-      ],
-      "topArtists": ["JAY-Z", "Borgore", "Bun-B"]
+      "date": "Sun Jun 16 23:59:14 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
     },
     {
-      "date": "2012-06-16",
+      "id": "1669872910301814785",
+      "text": "this hellsite is far from perfect, but at least it doesn't show me completely unhinged shit like https://t.co/0X9sYN9klA",
+      "year": 2023,
+      "date": "Sat Jun 17 01:01:41 +0000 2023",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "214048973172908033",
+      "text": "@fiftysevensteps Cheers! If you're interested you can download the Anki deck here: http://t.co/2lCxbnm8",
       "year": 2012,
-      "count": 27,
-      "topTracks": [
-        "Guinney Pepper - Lick The Chalice",
-        "Demo Delgado - Dem No Worry",
-        "Zomby - Spliff Dub",
-        "Mad Professor - Your Rights/My Rights",
-        "Roommate - Early Dub"
-      ],
-      "topArtists": ["Guinney Pepper", "Demo Delgado", "Zomby"]
+      "date": "Sat Jun 16 17:37:06 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "fiftysevensteps"
     },
     {
-      "date": "2009-06-16",
-      "year": 2009,
-      "count": 18,
-      "topTracks": [
-        "Andrew Bird - Tin Foil",
-        "Andrew Bird - Measuring Cups",
-        "Andrew Bird - Masterfade",
-        "Andrew Bird - Ethiobirds",
-        "Andrew Bird - First Song"
-      ],
-      "topArtists": ["Andrew Bird", "Girl Talk", "OutKast"]
+      "id": "214037301532168192",
+      "text": "@AdamInOakland You seem to be having my kind of morning...",
+      "year": 2012,
+      "date": "Sat Jun 16 16:50:43 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
     },
     {
-      "date": "2008-06-16",
-      "year": 2008,
-      "count": 46,
-      "topTracks": [
-        "Bob Marley - I Shot The Sheriff",
-        "Cold War Kids - Rubidoux",
-        "Death Cab for Cutie - We Looked Like Giants",
-        "The Weepies - Suicide Blonde",
-        "Boards of Canada - Under the Coke Sign"
-      ],
-      "topArtists": ["Bob Marley", "Cold War Kids", "Death Cab for Cutie"]
+      "id": "213867911306149888",
+      "text": "Working on typography flash cards for Anki http://t.co/3kfYhkyX",
+      "year": 2012,
+      "date": "Sat Jun 16 05:37:38 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1007851698361126912",
+      "text": "RT @417am1975: 10-14-3-1528982419632 https://t.co/Ck0B3zwuhj",
+      "year": 2018,
+      "date": "Sat Jun 16 05:05:44 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "213859658950119425",
+      "text": "How I use If This Then That http://t.co/Xj7jYmv3 http://t.co/NNhs6rs8",
+      "year": 2012,
+      "date": "Sat Jun 16 05:04:50 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "875848374959972352",
+      "text": "I just published “My expanding mental map of the world” https://t.co/Ib21Sim94Q",
+      "year": 2017,
+      "date": "Fri Jun 16 22:51:39 +0000 2017",
+      "favorites": 7,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "875797330464825348",
+      "text": "RT @lyzidiamond: documentation-driven development.",
+      "year": 2017,
+      "date": "Fri Jun 16 19:28:49 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "875780704390574081",
+      "text": "RT @MattGertz: Google searches for \"Alex Jones\" are at the highest rate since Piers Morgan hosted him on CNN. Megyn Kelly effect. https://t…",
+      "year": 2017,
+      "date": "Fri Jun 16 18:22:45 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "875779701024882688",
+      "text": "@Ergoat Yeah exactly. Haven't seen anyone clearly draw those threads yet. Also unclear how much Oakland activists were involved in national BLM.",
+      "year": 2017,
+      "date": "Fri Jun 16 18:18:46 +0000 2017",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "Ergoat"
+    },
+    {
+      "id": "875778660145528833",
+      "text": "@Ergoat I think part of it comes from people \"expecting\" radical resistance from the bay area, but in Ferguson &amp; Baltimore it was new and unexpected",
+      "year": 2017,
+      "date": "Fri Jun 16 18:14:38 +0000 2017",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "Ergoat"
+    },
+    {
+      "id": "875778476439154690",
+      "text": "@Ergoat Oakland's role in shaping message and tone of BLM totally underplayed IMO. OO became about police shootings while OWS was still on Wall St.",
+      "year": 2017,
+      "date": "Fri Jun 16 18:13:54 +0000 2017",
+      "favorites": 1,
+      "retweets": 1,
+      "replyTo": "Ergoat"
+    },
+    {
+      "id": "875777234367381504",
+      "text": "RT @marklittlenews: \"Media got owned yet again, underscoring universal truth of Trump era: Old media not prepared for the new trolls\" https…",
+      "year": 2017,
+      "date": "Fri Jun 16 18:08:58 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "875777087113744386",
+      "text": "@Ergoat NYC shut down West Side Highway, completely filled Times Square after Wilson wasn't indicted https://t.co/kTvajFqyIP",
+      "year": 2017,
+      "date": "Fri Jun 16 18:08:23 +0000 2017",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "Ergoat"
+    },
+    {
+      "id": "875736889143242752",
+      "text": "RT @BelieveInBob: US state highway marker shields https://t.co/YaiCoB7UaA https://t.co/SUYQp6CHqr",
+      "year": 2017,
+      "date": "Fri Jun 16 15:28:39 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1669683903265755136",
+      "text": "lots of non-technologists hyperventilating, describing my actual near-past as their imagined near-future and absolutely freaking out about it – instead of anxiety around every footstep, maybe look up-trail a little bit?",
+      "year": 2023,
+      "date": "Fri Jun 16 12:30:38 +0000 2023",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
     }
-  ],
-  "commits": []
+  ]
 }

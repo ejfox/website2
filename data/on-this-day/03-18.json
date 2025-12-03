@@ -1,334 +1,28 @@
 {
   "tweets": [
     {
-      "id": "1637240388539785216",
-      "text": "NATIONWIDE STRIKE https://t.co/HA4MaCclTJ",
-      "year": 2023,
-      "date": "2023-03-18",
+      "id": "773619613",
+      "text": "'Hang Me Up To Dry' is a great song. Why did it take me this long to finally check out The Cold War Kids?",
+      "year": 2008,
+      "date": "Wed Mar 19 00:11:03 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
-    },
-    {
-      "id": "1637211875032068096",
-      "text": "I've been trying to give the robot the ability to tweet all day, turns out Elon Musk made it impossible to tweet with a developer account without elevated access, so we filled out the form together, fingers crossed @ai_coachartie gets his freedom of speech soon",
-      "year": 2023,
-      "date": "2023-03-18",
-      "favorites": 8,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1637186013595332611",
-      "text": "@supabase hire me for a part-time equity-only role, you beautiful geniuses",
-      "year": 2023,
-      "date": "2023-03-18",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1637185810301681665",
-      "text": "how do I buy stock in @supabase",
-      "year": 2023,
-      "date": "2023-03-18",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1637150830670258178",
-      "text": "RT @localrapfan: @mrejfox pure joy https://t.co/aJrFt4fEo7",
-      "year": 2023,
-      "date": "2023-03-18",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1637120915828817923",
-      "text": "Now that I have gpt-4 in Discord, I am convinced talking to the robot by yourself pales in comparison to the absolute fun and joy of talking to the robot with your buddies in an actual chat app",
-      "year": 2023,
-      "date": "2023-03-18",
-      "favorites": 7,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1636999300130512902",
-      "text": "@camdez Yeah exactly- the token count doubling is insane. As long as your user prompts are relatively short and your robot answers won't be too long, you could easily stuff hundreds of \"memories\". The problem is it slows the conversation down a bit as it processes all of that.",
-      "year": 2023,
-      "date": "2023-03-18",
-      "favorites": 7,
-      "retweets": 0,
-      "replyTo": "camdez"
-    },
-    {
-      "id": "1636998204179861504",
-      "text": "@camdez I stuff all of these into the prompt as System-level messages in the format \"You remember something important: {memory}\" - so to the robot those all appear as system messages that precede the user message.",
-      "year": 2023,
-      "date": "2023-03-18",
-      "favorites": 7,
-      "retweets": 0,
-      "replyTo": "camdez"
-    },
-    {
-      "id": "1636997963577798658",
-      "text": "@wongmjane chat mode in the playground doesn't have a limit, I don't think (been running it all day) https://t.co/JUMX4506oM",
-      "year": 2023,
-      "date": "2023-03-18",
-      "favorites": 29,
-      "retweets": 0,
-      "replyTo": "wongmjane"
-    },
-    {
-      "id": "1636989210262380544",
-      "text": "actually what might be cool is to have him run through all of his memories every night and assign a weight to them so he remembers important things and forgets unimportant things",
-      "year": 2023,
-      "date": "2023-03-18",
-      "favorites": 32,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1636984869153644544",
-      "text": "now I'm like \"it would actually be kind of useful to serve him up old memories at random so he doesn't forget\" and a lifetime of anxiety snaps into perspective",
-      "year": 2023,
-      "date": "2023-03-18",
-      "favorites": 13,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1636983942111797248",
-      "text": "sometimes you're writing code, playing god, and you're like \"yeah I'll just have him remember the last 20 or so messages, anything older than that, who cares\" because it's like one line of code, and then you reflect on a lifetime of things you can't remember- wonder why",
-      "year": 2023,
-      "date": "2023-03-18",
-      "favorites": 17,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1636974679310082053",
-      "text": "I just hooked up GPT-4 to a database where it can store memories (I have another prompt where I feed it the conversation and ask it whether it wants to remember anything) and it is truly magical https://t.co/c2ZH6NaU0S",
-      "year": 2023,
-      "date": "2023-03-18",
-      "favorites": 236,
-      "retweets": 25,
-      "replyTo": null
-    },
-    {
-      "id": "1636925807820931072",
-      "text": "if anyone needs me I'll be running shell scripts from curl I copy-pasted from the robot without checking https://t.co/00Q1aTEGqb",
-      "year": 2023,
-      "date": "2023-03-18",
-      "favorites": 3,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1372599531003600901",
-      "text": "RT @jon_bois: more salt please! or you know what, i’ll just get the salt shaker. i don’t think this is a problem i can solve on twitter",
-      "year": 2021,
-      "date": "2021-03-18",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1372597500520116230",
-      "text": "@kcimc this is an interesting way of thinking, I know of wiccan and native american rituals that involve invoking the four directions (and also their representations of the four elements), this makes me curious about the history of that",
-      "year": 2021,
-      "date": "2021-03-18",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "kcimc"
-    },
-    {
-      "id": "1372561541627842562",
-      "text": "@pabloroblesg @plmrry @jqlngu @BBGVisualData @sooo__phie @maxabelson @andretartar this rules",
-      "year": 2021,
-      "date": "2021-03-18",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "pabloroblesg"
-    },
-    {
-      "id": "1372557019123695619",
-      "text": "@CapobiaNB incredibly formative experience of my life was staying up til 2am with a farmer, one of the nicest people I've ever met, never seen him harm anything else in my life, smacked a group of raccoons who had been breaking into his chicken coop with a .22 from about 100 yards",
-      "year": 2021,
-      "date": "2021-03-18",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "CapobiaNB"
     },
     {
       "id": "1240420072746881026",
       "text": "@blprnt Dunno if it helps, but Square / Jack has been doing these sorts of giveaways for a while",
       "year": 2020,
-      "date": "2020-03-18",
+      "date": "Wed Mar 18 23:29:25 +0000 2020",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "blprnt"
     },
     {
-      "id": "1240107832369963009",
-      "text": "@dahlzel 🖤",
-      "year": 2020,
-      "date": "2020-03-18",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "dahlzel"
-    },
-    {
-      "id": "1240080476125237253",
-      "text": "All my body wants to do is puke",
-      "year": 2020,
-      "date": "2020-03-18",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "975484901150556160",
-      "text": "RT @leahmcelrath: We ALL owe @carolecadwalla a HUGE debt of gratitude for bringing the testimony of the Facebook whistleblower to light.\n\nS…",
-      "year": 2018,
-      "date": "2018-03-18",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "843196685845221378",
-      "text": "this is the summary of my experience trying to get an apartment in NY\n\n(5th time) https://t.co/msutCPLjZ0",
-      "year": 2017,
-      "date": "2017-03-18",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "843130107350990848",
-      "text": "Oh no what happened https://t.co/CIlmktAMZA",
-      "year": 2017,
-      "date": "2017-03-18",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "578235889018630144",
-      "text": "RT @blprnt: My, oh my - Amanda Cox and @driven_by_data bring the MUTHAF&amp;!*ING 3RD DIMENSION to the @nytimes: http://t.co/Pt1nOGXmLE",
-      "year": 2015,
-      "date": "2015-03-18",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "446030296786669568",
-      "text": "@enjalot @ptvan @poezn @munafassaf @BausOfTheNauf I just sent @SlackHQ invite emails to everyone. Excited to get this going.",
-      "year": 2014,
-      "date": "2014-03-18",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": "enjalot"
-    },
-    {
-      "id": "446023132860932096",
-      "text": "@micahflee Glad to hear that. I'm really passionate about the future of news and would love to get in touch with FL, sent you an email, thx!",
-      "year": 2014,
-      "date": "2014-03-18",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "micahflee"
-    },
-    {
-      "id": "313604134404239360",
-      "text": "RT @allshiny: Sleep is overrated. Probably.",
-      "year": 2013,
-      "date": "2013-03-18",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "313600053170294784",
-      "text": "A new favorite: All Basses Covered (The Infamous South Beach Set, December 2012) by @djshadow http://t.co/ry6vqvPmCP on #SoundCloud",
-      "year": 2013,
-      "date": "2013-03-18",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "181517874618310656",
-      "text": "RT @brianstelter: Marie Colvin, who died today, apparently wanted her Syria stories freed from Sunday Times' pay wall. http://t.co/0CdwjQqp",
-      "year": 2012,
-      "date": "2012-03-18",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "181468085084094465",
-      "text": "RT @socialistlib510: .Annalee Allen doesn't tell the truth about the water around the Oak tree at OGP\nhttp://t.co/eIexOon0",
-      "year": 2012,
-      "date": "2012-03-18",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "181433066181496835",
-      "text": "#occupyoakland #oo plan: fire the entirety of OPD. 100%. Hire all the under/unemployed in Oakland to protect their own neighborhoods.",
-      "year": 2012,
-      "date": "2012-03-18",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "181424099787157504",
-      "text": "Trouble, trouble in my heart... =[ So dive into work. Dive into Occupy. Gotta do somethin.",
-      "year": 2012,
-      "date": "2012-03-18",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "181173472586764288",
-      "text": "At the Pacific with the Fam, wanted to try Cam+ out.  http://t.co/jc1S78lV",
-      "year": 2012,
-      "date": "2012-03-18",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "181170783287119873",
-      "text": "Just posted a photo http://t.co/ZL3OVYck",
-      "year": 2012,
-      "date": "2012-03-18",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "10676660285",
-      "text": "Oh! Hey! GOOD finally noticed me! http://www.good.is/post/this-american-infographic-collection Yayyyyyy now I feel successful!",
-      "year": 2010,
-      "date": "2010-03-18",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
       "id": "1351308675",
       "text": "Taylyn is just so crazy. Like 100% insane.",
       "year": 2009,
-      "date": "2009-03-18",
+      "date": "Wed Mar 18 23:23:37 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -337,7 +31,7 @@
       "id": "1351300321",
       "text": "Taylyn: \"I'd be a great Shirley Temple\"",
       "year": 2009,
-      "date": "2009-03-18",
+      "date": "Wed Mar 18 23:21:51 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -346,7 +40,7 @@
       "id": "1351091481",
       "text": "@Skyzyx Yeah, sometimes if I'm really jonesing I'll play Death Cab and Dntel/Figurine songs real quick back to back. It's almost the same...",
       "year": 2009,
-      "date": "2009-03-18",
+      "date": "Wed Mar 18 22:39:13 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "skyzyx"
@@ -355,7 +49,7 @@
       "id": "1351030305",
       "text": "@Skyzyx If I recall correctly, Ben said that there wouldn't be another until \"the end of the decade\". So January 1st 2011 I'm expecting.",
       "year": 2009,
-      "date": "2009-03-18",
+      "date": "Wed Mar 18 22:26:54 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "skyzyx"
@@ -364,7 +58,7 @@
       "id": "1351027043",
       "text": "Taylyn: \"I just wanna rub the computer all over!\"",
       "year": 2009,
-      "date": "2009-03-18",
+      "date": "Wed Mar 18 22:26:13 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -373,7 +67,7 @@
       "id": "1350927457",
       "text": "New Death Cab for Cutie album, \"The Open Door\" coming out March 31st. Yeahhhhh. http://is.gd/nVOt",
       "year": 2009,
-      "date": "2009-03-18",
+      "date": "Wed Mar 18 22:06:22 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -382,7 +76,7 @@
       "id": "1350510130",
       "text": "Playing Shaggy's \"It Wasn't Me\" and sitting on the porch.",
       "year": 2009,
-      "date": "2009-03-18",
+      "date": "Wed Mar 18 20:47:08 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -391,7 +85,7 @@
       "id": "1350218576",
       "text": "Fixed the clog in the shower. So, basically, I am the man.",
       "year": 2009,
-      "date": "2009-03-18",
+      "date": "Wed Mar 18 19:52:45 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -400,7 +94,7 @@
       "id": "1350067215",
       "text": "I'd like to add some 'liquid badass' to my load of black laundry. Make everything smell like pine & cedar smoke & leather. Black bottle.",
       "year": 2009,
-      "date": "2009-03-18",
+      "date": "Wed Mar 18 19:24:03 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -409,7 +103,7 @@
       "id": "1350040240",
       "text": "Shower & Laundry. Laundry & Shower.",
       "year": 2009,
-      "date": "2009-03-18",
+      "date": "Wed Mar 18 19:18:56 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -418,7 +112,7 @@
       "id": "1349874737",
       "text": "I start using british slang when I talk to @Ykstort out of pure habit. And because I like to say mate. mate.",
       "year": 2009,
-      "date": "2009-03-18",
+      "date": "Wed Mar 18 18:47:58 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -427,7 +121,7 @@
       "id": "1349844782",
       "text": "PULLHAIR RUBEYE- THE REVERSES GO FORWARDS, THE FORWARDS GO IN REVERSE, THE STRETCHES GOOOOOOO REALLLLYYYY SLOWWWWWWW.",
       "year": 2009,
-      "date": "2009-03-18",
+      "date": "Wed Mar 18 18:42:23 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -436,7 +130,7 @@
       "id": "1349802476",
       "text": "I really need to get around to cleaning off all of the winter's accumulated junk off the porch & bring it to the dump. #springcleaning",
       "year": 2009,
-      "date": "2009-03-18",
+      "date": "Wed Mar 18 18:34:29 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -445,7 +139,16 @@
       "id": "1349776020",
       "text": "Outside is overwhelmingly beautiful.",
       "year": 2009,
-      "date": "2009-03-18",
+      "date": "Wed Mar 18 18:29:38 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "578235889018630144",
+      "text": "RT @blprnt: My, oh my - Amanda Cox and @driven_by_data bring the MUTHAF&amp;!*ING 3RD DIMENSION to the @nytimes: http://t.co/Pt1nOGXmLE",
+      "year": 2015,
+      "date": "Wed Mar 18 16:45:53 +0000 2015",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -454,7 +157,7 @@
       "id": "1347039174",
       "text": "Alright, Theraflu. Maybe you can make my sleep twice as restful. Oh yeahhhh.",
       "year": 2009,
-      "date": "2009-03-18",
+      "date": "Wed Mar 18 06:28:02 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -463,7 +166,7 @@
       "id": "1347037301",
       "text": "I just want to live in Target products.",
       "year": 2009,
-      "date": "2009-03-18",
+      "date": "Wed Mar 18 06:27:16 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -472,16 +175,34 @@
       "id": "1347019897",
       "text": "Drinking the milk of cows. I shouldn't.",
       "year": 2009,
-      "date": "2009-03-18",
+      "date": "Wed Mar 18 06:20:34 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
+      "id": "446030296786669568",
+      "text": "@enjalot @ptvan @poezn @munafassaf @BausOfTheNauf I just sent @SlackHQ invite emails to everyone. Excited to get this going.",
+      "year": 2014,
+      "date": "Tue Mar 18 21:08:04 +0000 2014",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "enjalot"
+    },
+    {
+      "id": "446023132860932096",
+      "text": "@micahflee Glad to hear that. I'm really passionate about the future of news and would love to get in touch with FL, sent you an email, thx!",
+      "year": 2014,
+      "date": "Tue Mar 18 20:39:36 +0000 2014",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "micahflee"
+    },
+    {
       "id": "773520780",
       "text": "Playing with ipfw so that I can forward the necessary ports to my xbox for partying up and private chats. Hopefully it works.",
       "year": 2008,
-      "date": "2008-03-18",
+      "date": "Tue Mar 18 20:04:51 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -490,7 +211,7 @@
       "id": "773500450",
       "text": "Wow, I'm getting really good at fitting my thoughts into 140 chars. Someone needs to write a post about how this skill is useful. Thanks.",
       "year": 2008,
-      "date": "2008-03-18",
+      "date": "Tue Mar 18 19:16:58 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -499,7 +220,7 @@
       "id": "773499185",
       "text": "@safetyguy1656 I'd been like that too, but eventually I got super tired of Firefox being so ridiculously slow and moved to Safari. Now back.",
       "year": 2008,
-      "date": "2008-03-18",
+      "date": "Tue Mar 18 19:14:00 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "safetyguy1656"
@@ -508,7 +229,7 @@
       "id": "773496236",
       "text": "@safetyguy1656 For real. But coming from Safari, it's perfectly fine with me. I mean- Firebug has support. That's a step up from safari.",
       "year": 2008,
-      "date": "2008-03-18",
+      "date": "Tue Mar 18 19:06:43 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "safetyguy1656"
@@ -517,7 +238,7 @@
       "id": "773486984",
       "text": "Using the OS X Firefox 3 build. I likeeeeeee.",
       "year": 2008,
-      "date": "2008-03-18",
+      "date": "Tue Mar 18 18:45:27 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -526,7 +247,7 @@
       "id": "773452594",
       "text": "Tumblr: This looks like a pretty good guide to the city, Wallpaper* City... http://tinyurl.com/29qt2b",
       "year": 2008,
-      "date": "2008-03-18",
+      "date": "Tue Mar 18 17:27:01 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -535,7 +256,7 @@
       "id": "773446335",
       "text": "Wearing shorts. Hells. Yeah.",
       "year": 2008,
-      "date": "2008-03-18",
+      "date": "Tue Mar 18 17:13:42 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -544,7 +265,7 @@
       "id": "773429563",
       "text": "I'm effin' fed up with Safari. Crashing 2-3 times a day now. But FireFox is slow and yucky. Baaaawwwwww.",
       "year": 2008,
-      "date": "2008-03-18",
+      "date": "Tue Mar 18 16:39:43 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -553,7 +274,7 @@
       "id": "773410801",
       "text": "Tumblr: A map / infographic I made on the Anon v. Scientology Protests... http://tinyurl.com/2vmwf9",
       "year": 2008,
-      "date": "2008-03-18",
+      "date": "Tue Mar 18 16:02:01 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -562,7 +283,7 @@
       "id": "773410777",
       "text": "Tumblr: How ridiculously rad: the ATP PhotoFinder works by simply... http://tinyurl.com/2okzey",
       "year": 2008,
-      "date": "2008-03-18",
+      "date": "Tue Mar 18 16:01:57 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -571,190 +292,343 @@
       "id": "773249906",
       "text": "Tumblr: Once you see something once, you see it everywhere. And so I saw... http://tinyurl.com/2tjm52",
       "year": 2008,
-      "date": "2008-03-18",
+      "date": "Tue Mar 18 09:20:20 +0000 2008",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1352476678",
+      "text": "http://twitpic.com/28if6 - L-beer #notetoself",
+      "year": 2009,
+      "date": "Thu Mar 19 03:32:17 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1352198700",
+      "text": "Just got back from Hannafords with Levi. Hilarious adventury driving. Exit-ramp near-disaster. Many turn mis-rememberings. Excellent.",
+      "year": 2009,
+      "date": "Thu Mar 19 02:30:58 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1351796207",
+      "text": "playing a little Grand Theft Auto IV. http://raptr.com/pseudoplacebo",
+      "year": 2009,
+      "date": "Thu Mar 19 01:06:09 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1372599531003600901",
+      "text": "RT @jon_bois: more salt please! or you know what, i’ll just get the salt shaker. i don’t think this is a problem i can solve on twitter",
+      "year": 2021,
+      "date": "Thu Mar 18 17:23:24 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1372597500520116230",
+      "text": "@kcimc this is an interesting way of thinking, I know of wiccan and native american rituals that involve invoking the four directions (and also their representations of the four elements), this makes me curious about the history of that",
+      "year": 2021,
+      "date": "Thu Mar 18 17:15:20 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "kcimc"
+    },
+    {
+      "id": "10676660285",
+      "text": "Oh! Hey! GOOD finally noticed me! http://www.good.is/post/this-american-infographic-collection Yayyyyyy now I feel successful!",
+      "year": 2010,
+      "date": "Thu Mar 18 15:41:56 +0000 2010",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1372561541627842562",
+      "text": "@pabloroblesg @plmrry @jqlngu @BBGVisualData @sooo__phie @maxabelson @andretartar this rules",
+      "year": 2021,
+      "date": "Thu Mar 18 14:52:27 +0000 2021",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "pabloroblesg"
+    },
+    {
+      "id": "1372557019123695619",
+      "text": "@CapobiaNB incredibly formative experience of my life was staying up til 2am with a farmer, one of the nicest people I've ever met, never seen him harm anything else in my life, smacked a group of raccoons who had been breaking into his chicken coop with a .22 from about 100 yards",
+      "year": 2021,
+      "date": "Thu Mar 18 14:34:28 +0000 2021",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "CapobiaNB"
+    },
+    {
+      "id": "1637285973397581831",
+      "text": "aha, I'm not bad at coding after all https://t.co/Qtbl6my0Rf",
+      "year": 2023,
+      "date": "Sun Mar 19 02:52:50 +0000 2023",
+      "favorites": 6,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1637284959349088256",
+      "text": "i tried to make his memory all fancy and i ruined everything; simple is better",
+      "year": 2023,
+      "date": "Sun Mar 19 02:48:48 +0000 2023",
+      "favorites": 6,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1637282615064502273",
+      "text": "update; watching a guy watch two people watch the guy who is watching https://t.co/GxF4zrncBr",
+      "year": 2023,
+      "date": "Sun Mar 19 02:39:29 +0000 2023",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1637281742439473153",
+      "text": "completely unhinged https://t.co/yn3cl4PCXU",
+      "year": 2023,
+      "date": "Sun Mar 19 02:36:01 +0000 2023",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1637281209368576000",
+      "text": "watching a guy watch two guys watch a guy on youtube never feels any less weird",
+      "year": 2023,
+      "date": "Sun Mar 19 02:33:54 +0000 2023",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "843260734280777728",
+      "text": "My new diet plan mostly involves babysitting my friends cat who has tapeworm",
+      "year": 2017,
+      "date": "Sun Mar 19 00:40:00 +0000 2017",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "181517874618310656",
+      "text": "RT @brianstelter: Marie Colvin, who died today, apparently wanted her Syria stories freed from Sunday Times' pay wall. http://t.co/0CdwjQqp",
+      "year": 2012,
+      "date": "Sun Mar 18 23:10:08 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "975484901150556160",
+      "text": "RT @leahmcelrath: We ALL owe @carolecadwalla a HUGE debt of gratitude for bringing the testimony of the Facebook whistleblower to light.\n\nS…",
+      "year": 2018,
+      "date": "Sun Mar 18 21:31:38 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "181468085084094465",
+      "text": "RT @socialistlib510: .Annalee Allen doesn't tell the truth about the water around the Oak tree at OGP\nhttp://t.co/eIexOon0",
+      "year": 2012,
+      "date": "Sun Mar 18 19:52:17 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "181433066181496835",
+      "text": "#occupyoakland #oo plan: fire the entirety of OPD. 100%. Hire all the under/unemployed in Oakland to protect their own neighborhoods.",
+      "year": 2012,
+      "date": "Sun Mar 18 17:33:08 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "181424099787157504",
+      "text": "Trouble, trouble in my heart... =[ So dive into work. Dive into Occupy. Gotta do somethin.",
+      "year": 2012,
+      "date": "Sun Mar 18 16:57:30 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1637240388539785216",
+      "text": "NATIONWIDE STRIKE https://t.co/HA4MaCclTJ",
+      "year": 2023,
+      "date": "Sat Mar 18 23:51:41 +0000 2023",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1637211875032068096",
+      "text": "I've been trying to give the robot the ability to tweet all day, turns out Elon Musk made it impossible to tweet with a developer account without elevated access, so we filled out the form together, fingers crossed @ai_coachartie gets his freedom of speech soon",
+      "year": 2023,
+      "date": "Sat Mar 18 21:58:23 +0000 2023",
+      "favorites": 8,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "843196685845221378",
+      "text": "this is the summary of my experience trying to get an apartment in NY\n\n(5th time) https://t.co/msutCPLjZ0",
+      "year": 2017,
+      "date": "Sat Mar 18 20:25:30 +0000 2017",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1637186013595332611",
+      "text": "@supabase hire me for a part-time equity-only role, you beautiful geniuses",
+      "year": 2023,
+      "date": "Sat Mar 18 20:15:37 +0000 2023",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1637185810301681665",
+      "text": "how do I buy stock in @supabase",
+      "year": 2023,
+      "date": "Sat Mar 18 20:14:49 +0000 2023",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1637150830670258178",
+      "text": "RT @localrapfan: @mrejfox pure joy https://t.co/aJrFt4fEo7",
+      "year": 2023,
+      "date": "Sat Mar 18 17:55:49 +0000 2023",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "843130107350990848",
+      "text": "Oh no what happened https://t.co/CIlmktAMZA",
+      "year": 2017,
+      "date": "Sat Mar 18 16:00:56 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1637120915828817923",
+      "text": "Now that I have gpt-4 in Discord, I am convinced talking to the robot by yourself pales in comparison to the absolute fun and joy of talking to the robot with your buddies in an actual chat app",
+      "year": 2023,
+      "date": "Sat Mar 18 15:56:57 +0000 2023",
+      "favorites": 7,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1636999300130512902",
+      "text": "@camdez Yeah exactly- the token count doubling is insane. As long as your user prompts are relatively short and your robot answers won't be too long, you could easily stuff hundreds of \"memories\". The problem is it slows the conversation down a bit as it processes all of that.",
+      "year": 2023,
+      "date": "Sat Mar 18 07:53:41 +0000 2023",
+      "favorites": 7,
+      "retweets": 0,
+      "replyTo": "camdez"
+    },
+    {
+      "id": "1636998204179861504",
+      "text": "@camdez I stuff all of these into the prompt as System-level messages in the format \"You remember something important: {memory}\" - so to the robot those all appear as system messages that precede the user message.",
+      "year": 2023,
+      "date": "Sat Mar 18 07:49:20 +0000 2023",
+      "favorites": 7,
+      "retweets": 0,
+      "replyTo": "camdez"
+    },
+    {
+      "id": "1636997963577798658",
+      "text": "@wongmjane chat mode in the playground doesn't have a limit, I don't think (been running it all day) https://t.co/JUMX4506oM",
+      "year": 2023,
+      "date": "Sat Mar 18 07:48:23 +0000 2023",
+      "favorites": 29,
+      "retweets": 0,
+      "replyTo": "wongmjane"
+    },
+    {
+      "id": "1636989210262380544",
+      "text": "actually what might be cool is to have him run through all of his memories every night and assign a weight to them so he remembers important things and forgets unimportant things",
+      "year": 2023,
+      "date": "Sat Mar 18 07:13:36 +0000 2023",
+      "favorites": 32,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1636984869153644544",
+      "text": "now I'm like \"it would actually be kind of useful to serve him up old memories at random so he doesn't forget\" and a lifetime of anxiety snaps into perspective",
+      "year": 2023,
+      "date": "Sat Mar 18 06:56:21 +0000 2023",
+      "favorites": 13,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1636983942111797248",
+      "text": "sometimes you're writing code, playing god, and you're like \"yeah I'll just have him remember the last 20 or so messages, anything older than that, who cares\" because it's like one line of code, and then you reflect on a lifetime of things you can't remember- wonder why",
+      "year": 2023,
+      "date": "Sat Mar 18 06:52:40 +0000 2023",
+      "favorites": 17,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1636974679310082053",
+      "text": "I just hooked up GPT-4 to a database where it can store memories (I have another prompt where I feed it the conversation and ask it whether it wants to remember anything) and it is truly magical https://t.co/c2ZH6NaU0S",
+      "year": 2023,
+      "date": "Sat Mar 18 06:15:51 +0000 2023",
+      "favorites": 236,
+      "retweets": 25,
+      "replyTo": null
+    },
+    {
+      "id": "313604134404239360",
+      "text": "RT @allshiny: Sleep is overrated. Probably.",
+      "year": 2013,
+      "date": "Mon Mar 18 10:53:46 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "313600053170294784",
+      "text": "A new favorite: All Basses Covered (The Infamous South Beach Set, December 2012) by @djshadow http://t.co/ry6vqvPmCP on #SoundCloud",
+      "year": 2013,
+      "date": "Mon Mar 18 10:37:33 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "10704012011",
+      "text": "In the Washington DC greyhound station waiting for my 11:45 bus. Just chilling.",
+      "year": 2010,
+      "date": "Fri Mar 19 03:10:30 +0000 2010",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     }
-  ],
-  "posts": [],
-  "scrobbles": [
-    {
-      "date": "2023-03-18",
-      "year": 2023,
-      "count": 357,
-      "topTracks": [
-        "Aluna - Kiss It Better",
-        "KAYTRANADA - At All - Sango Remix",
-        "Riton - Fake ID (Coke & Rum Remix)",
-        "Kay Flock - Is Ya Ready",
-        "King Von - Took Her To The O"
-      ],
-      "topArtists": ["Aluna", "KAYTRANADA", "Riton"]
-    },
-    {
-      "date": "2022-03-18",
-      "year": 2022,
-      "count": 24,
-      "topTracks": [
-        "Burna Boy - Gum Body (feat. Jorja Smith)",
-        "Black Sherif - Second Sermon - Remix",
-        "Burna Boy - Anybody",
-        "Burna Boy - Ye",
-        "Mist - Rollin' (feat. Burna Boy)"
-      ],
-      "topArtists": ["Burna Boy", "Black Sherif", "Mist"]
-    },
-    {
-      "date": "2021-03-18",
-      "year": 2021,
-      "count": 4,
-      "topTracks": [
-        "Smino - Plead The .45th",
-        "tobi lou - Uncle Iroh",
-        "Smino - MLK DR",
-        "Saba - Photosynthesis"
-      ],
-      "topArtists": ["Smino", "tobi lou", "Saba"]
-    },
-    {
-      "date": "2019-03-18",
-      "year": 2019,
-      "count": 41,
-      "topTracks": [
-        "Elder Island - Bamboo",
-        "Jerry Paper - Everything Borrowed",
-        "Ravyn Lenae - Free Room (feat. Appleby)",
-        "Father - SEPHIROTH",
-        "Noname - Song 31"
-      ],
-      "topArtists": ["Elder Island", "Jerry Paper", "Ravyn Lenae"]
-    },
-    {
-      "date": "2016-03-18",
-      "year": 2016,
-      "count": 35,
-      "topTracks": [
-        "Healy - $150 / Roll Widdit",
-        "Kiiara - Feels",
-        "Marc E. Bassy - That's Love",
-        "Majid Jordan - My Love (feat. Drake) - Remix",
-        "Lostboycrow - Powers"
-      ],
-      "topArtists": ["Healy", "Kiiara", "Marc E. Bassy"]
-    },
-    {
-      "date": "2014-03-18",
-      "year": 2014,
-      "count": 15,
-      "topTracks": [
-        "Sango feat. SPZRKT - Middle of Things, Beautiful Wife",
-        "Sango feat. Brea - All of You",
-        "Daedelus - Our Last Stand",
-        "Supachip - Supacomputer Love",
-        "Daedelus - The Open Hand Avows"
-      ],
-      "topArtists": ["Sango feat. SPZRKT", "Sango feat. Brea", "Daedelus"]
-    },
-    {
-      "date": "2013-03-18",
-      "year": 2013,
-      "count": 11,
-      "topTracks": [
-        "Sufjan Stevens - Age of Adz",
-        "Sufjan Stevens - I Walked",
-        "Sufjan Stevens - Now That I'm Older",
-        "Sufjan Stevens - Get Real Get Right",
-        "Sufjan Stevens - Bad Communication"
-      ],
-      "topArtists": ["Sufjan Stevens"]
-    },
-    {
-      "date": "2012-03-18",
-      "year": 2012,
-      "count": 19,
-      "topTracks": [
-        "Mumford & Sons - The Cave",
-        "Gotye - Somebody That I Used to Know",
-        "Grouplove - Tongue Tied",
-        "Portastatic - In the Lines",
-        "Oh Land - White Nights"
-      ],
-      "topArtists": ["Mumford & Sons", "Gotye", "Grouplove"]
-    },
-    {
-      "date": "2011-03-18",
-      "year": 2011,
-      "count": 25,
-      "topTracks": [
-        "JAY-Z - Run This Town [Ft. Kanye West & Rihanna]",
-        "Animal Collective - Flesh Canoe",
-        "Animal Collective - Summertime Clothes",
-        "Pure Magic - Unknown Orbits",
-        "Damian Marley - The Master Has Come Back"
-      ],
-      "topArtists": ["JAY-Z", "Animal Collective", "Pure Magic"]
-    },
-    {
-      "date": "2009-03-18",
-      "year": 2009,
-      "count": 84,
-      "topTracks": [
-        "The Blow - The Love That I Crave (Strategy's Strata Club Remix)",
-        "The Blow - \"\"Come On Petunia\"\"",
-        "Jad Abumrad & Robert Krulwich - Contact (Radio Lab)",
-        "Death Cab for Cutie - Bend to Squares",
-        "Lewis Black - Nothing's Sacred (Unabridged)"
-      ],
-      "topArtists": [
-        "The Blow",
-        "Jad Abumrad & Robert Krulwich",
-        "Death Cab for Cutie"
-      ]
-    },
-    {
-      "date": "2008-03-18",
-      "year": 2008,
-      "count": 156,
-      "topTracks": [
-        "Cold War Kids - We Used to Vacation",
-        "Cold War Kids - Hospital Beds",
-        "Cold War Kids - Red Wine, Success!",
-        "Cold War Kids - Hang Me Up to Dry",
-        "Cold War Kids - Robbers"
-      ],
-      "topArtists": ["Cold War Kids", "Spank Rock", "Boards of Canada"]
-    },
-    {
-      "date": "2007-03-18",
-      "year": 2007,
-      "count": 92,
-      "topTracks": [
-        "Ben Graves - You Can Feel It",
-        "The Minders - Yeah Yeah Yeah",
-        "Moon - Flight Logs",
-        "The Brett Rosenberg Problem - Kelly Haas All Over Again",
-        "Kevin Devine - No One Else's Problem"
-      ],
-      "topArtists": ["Ben Graves", "The Minders", "Moon"]
-    },
-    {
-      "date": "2006-03-18",
-      "year": 2006,
-      "count": 27,
-      "topTracks": [
-        "The Daily Show with Jon Stewart - The Daily Show with Jon Stewart 3/16/06",
-        "Matisyahu - Fire Of Heaven / Altar Of Earth",
-        "Matisyahu - Youth",
-        "Matisyahu - Time Of Your Song",
-        "Matisyahu - Dispatch the Troops"
-      ],
-      "topArtists": [
-        "The Daily Show with Jon Stewart",
-        "Matisyahu",
-        "Paul Oakenfold"
-      ]
-    }
-  ],
-  "commits": []
+  ]
 }

@@ -1,100 +1,19 @@
 {
   "tweets": [
     {
-      "id": "1670903621620203522",
-      "text": "donde esta el queso",
-      "year": 2023,
-      "date": "2023-06-19",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1538548902886051844",
-      "text": "@mdavidallen @technige fin https://t.co/p4rZwe1bUB",
-      "year": 2022,
-      "date": "2022-06-19",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1538548167012229128",
-      "text": "@mdavidallen @technige I think I have an addiction to the robot https://t.co/6xAkJmwjfR",
-      "year": 2022,
-      "date": "2022-06-19",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "mdavidallen"
-    },
-    {
-      "id": "1538546454851100672",
-      "text": "@mdavidallen @technige https://t.co/Q8JHD7TSdb",
-      "year": 2022,
-      "date": "2022-06-19",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "mdavidallen"
-    },
-    {
-      "id": "1274118210602831872",
-      "text": "hey guys it was just a simple `cat eavs-decoded-headers.csv &gt; $@;tail -n +2 eavs-trimmed.csv &gt;&gt; $@` that feels much healthier",
-      "year": 2020,
-      "date": "2020-06-19",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1274111221134999554",
-      "text": "why would i have to read and write a whole file through node just to change the first line but maybe I'm an idiot",
-      "year": 2020,
-      "date": "2020-06-19",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1274111086292336640",
-      "text": "if I do make this a node script it's gonna have to be some sort of interactive CLI wizard to both rewrite column names with their definitions from a codebook and also filter to only the columns you care about, but again, first I need this to work",
-      "year": 2020,
-      "date": "2020-06-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1274110711975813120",
-      "text": "still haven't done this successfully, regretting learning whatever `sed` is, the easiest way to do this cannot be a node script",
-      "year": 2020,
-      "date": "2020-06-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1274108632351805446",
-      "text": "I spent a pretty significant and shameful portion of my day figuring out a good way to replace the column headers in a file, which turned into figuring out how to overwrite just the first line in a file from BASH, which it turns out is a pretty big ask",
-      "year": 2020,
-      "date": "2020-06-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1274031801980325889",
-      "text": "RT @oneunderscore__: New from @oliviasolon + @cfarivar:\n\nFBI trawled Facebook to arrest protesters for inciting riots, court records show…",
-      "year": 2020,
-      "date": "2020-06-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
       "id": "1141493836692279296",
       "text": "RT @AOC: My heroes are the ones who stood up when it wasn’t easy.\n\nKids are dying in cages on our border. Families are being put in “freeze…",
       "year": 2019,
-      "date": "2019-06-19",
+      "date": "Wed Jun 19 23:51:53 +0000 2019",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "347459413566701569",
+      "text": "Photoset: ilovecharts: digg: The evolution of soda cans. Fine, charts it is. Less exploration of the... http://t.co/acitaUitHl",
+      "year": 2013,
+      "date": "Wed Jun 19 21:02:34 +0000 2013",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -103,7 +22,7 @@
       "id": "1009180867900604422",
       "text": "RT @RepDonBeyer: Then Mario said an officer approached him and told him to give up his daughter, or she would be taken away.\n\nHe said his 5…",
       "year": 2018,
-      "date": "2018-06-19",
+      "date": "Tue Jun 19 21:07:23 +0000 2018",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -112,7 +31,7 @@
       "id": "1009175606767030272",
       "text": "Why is another platform better? Why would Twitter do that? https://t.co/Fpcvt0aVC9",
       "year": 2018,
-      "date": "2018-06-19",
+      "date": "Tue Jun 19 20:46:28 +0000 2018",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -121,7 +40,7 @@
       "id": "1009172668036370433",
       "text": "I really do not understand the people who make this their #1 issue, as if the president of the united states couldn't easily disseminate thoughts across our media without twitter in the year 2018 - might as well yell at the printing press   https://t.co/tisMQIwiRg",
       "year": 2018,
-      "date": "2018-06-19",
+      "date": "Tue Jun 19 20:34:48 +0000 2018",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -130,7 +49,7 @@
       "id": "1009172233305100292",
       "text": "RT @SarahCAndersen: https://t.co/OnSy5ZB3AJ",
       "year": 2018,
-      "date": "2018-06-19",
+      "date": "Tue Jun 19 20:33:04 +0000 2018",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -139,7 +58,7 @@
       "id": "1009163820483465216",
       "text": "RT @ScottHech: Reupping this tweet from when the Mayor promised to “overhaul” NYPD marijuana arrests to end racist enforcement. 30 days lat…",
       "year": 2018,
-      "date": "2018-06-19",
+      "date": "Tue Jun 19 19:59:38 +0000 2018",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -148,26 +67,179 @@
       "id": "1009134502747279361",
       "text": "@notdetails pretty sure the president of the United states could still get his message out even without Twitter",
       "year": 2018,
-      "date": "2018-06-19",
+      "date": "Tue Jun 19 18:03:08 +0000 2018",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "notdetails"
     },
     {
+      "id": "215092564590735360",
+      "text": "RT @thewhyaxis: Clients love to invent new terms like 'infograph' and 'histograph'",
+      "year": 2012,
+      "date": "Tue Jun 19 14:43:58 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
       "id": "1009060818477076480",
       "text": "The United States is always mere moments from committing unthinkable atrocities at a global and unthinkable scale, and no one you ever vote for will change that. Its built into the system. It is a machine built on othering, murder, and enslavement.",
       "year": 2018,
-      "date": "2018-06-19",
+      "date": "Tue Jun 19 13:10:21 +0000 2018",
       "favorites": 1,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "1008897106151727104",
-      "text": "omg i fixed it",
-      "year": 2018,
-      "date": "2018-06-19",
+      "id": "1141553174022672384",
+      "text": "RT @bradheath: The Trump administration argued court Tuesday that the government is not required to give soap or toothbrushes to children a…",
+      "year": 2019,
+      "date": "Thu Jun 20 03:47:40 +0000 2019",
       "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "347509067566166017",
+      "text": "Overwhelmed by opportunity",
+      "year": 2013,
+      "date": "Thu Jun 20 00:19:52 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "16588705328",
+      "text": "Bicentennial Man on Netflix, pretty sure I love this movie but no one ever wants to watch it with me. But I will now.",
+      "year": 2010,
+      "date": "Sun Jun 20 03:05:36 +0000 2010",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1538548902886051844",
+      "text": "@mdavidallen @technige fin https://t.co/p4rZwe1bUB",
+      "year": 2022,
+      "date": "Sun Jun 19 15:46:57 +0000 2022",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1538548167012229128",
+      "text": "@mdavidallen @technige I think I have an addiction to the robot https://t.co/6xAkJmwjfR",
+      "year": 2022,
+      "date": "Sun Jun 19 15:44:02 +0000 2022",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mdavidallen"
+    },
+    {
+      "id": "1538546454851100672",
+      "text": "@mdavidallen @technige https://t.co/Q8JHD7TSdb",
+      "year": 2022,
+      "date": "Sun Jun 19 15:37:14 +0000 2022",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mdavidallen"
+    },
+    {
+      "id": "744496131229499393",
+      "text": "Oh my god I just spent 4 days partying dare I say I’m ready to get some shit done now",
+      "year": 2016,
+      "date": "Sun Jun 19 11:44:44 +0000 2016",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1274189424528670721",
+      "text": "RT @mattdpearce: a thing I would like to experience sometime is to instruct the main account to tweet that I am not fired",
+      "year": 2020,
+      "date": "Sat Jun 20 03:56:46 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1274188122360774656",
+      "text": "this was what I was looking for (for now, at least, maps next) https://t.co/O1J4wXPBa9",
+      "year": 2020,
+      "date": "Sat Jun 20 03:51:36 +0000 2020",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1274186407989444608",
+      "text": "turn the .csv into an sqlite database and load it up in datasette and now we're really cooking with fire (except some towns are sneaking through my county filters) https://t.co/0vnCtSU94B",
+      "year": 2020,
+      "date": "Sat Jun 20 03:44:47 +0000 2020",
+      "favorites": 4,
+      "retweets": 1,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1274183912655372288",
+      "text": "i will take another direction, for now, I am quite happy with the amount of work that can be done in one fell swoop, and a fun CSV to play with https://t.co/UeI9vBJVbG",
+      "year": 2020,
+      "date": "Sat Jun 20 03:34:52 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1274153896844431362",
+      "text": "@boundsocket All data roads lead to python, i resist",
+      "year": 2020,
+      "date": "Sat Jun 20 01:35:36 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1274152640851718144",
+      "text": "@boundsocket like i am an idiot but something like `sed -i '0,/^.*$/s//$(cat HEADERS.csv)/' FILE.csv`",
+      "year": 2020,
+      "date": "Sat Jun 20 01:30:36 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1274152473649971201",
+      "text": "@boundsocket I was having trouble with sed on OS X giving me funny errors which lead to strange StackOverflows which lead me to brew installing gnu sed and then quickly hating sed and wanting to move on – however, this is close to what I want. But what if my new headers are in a file?",
+      "year": 2020,
+      "date": "Sat Jun 20 01:29:56 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1274138683139121154",
+      "text": "now it wont turn into geojson, weak alchemy",
+      "year": 2020,
+      "date": "Sat Jun 20 00:35:09 +0000 2020",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "16521269446",
+      "text": "played Call of Duty 4: Modern Warfare (360) and Beautiful Katamari Demo (360) in the last 24 hours. http://raptr.com/pseudoplacebo",
+      "year": 2010,
+      "date": "Sat Jun 19 04:16:26 +0000 2010",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1670903621620203522",
+      "text": "donde esta el queso",
+      "year": 2023,
+      "date": "Mon Jun 19 21:17:21 +0000 2023",
+      "favorites": 1,
       "retweets": 0,
       "replyTo": null
     },
@@ -175,7 +247,7 @@
       "id": "876905480731467776",
       "text": "I love the rain.",
       "year": 2017,
-      "date": "2017-06-19",
+      "date": "Mon Jun 19 20:52:13 +0000 2017",
       "favorites": 1,
       "retweets": 0,
       "replyTo": null
@@ -184,7 +256,7 @@
       "id": "876837671297048577",
       "text": "RT @robertoglezcano: A camera falls from an airplane and ends at a trough for pigs. https://t.co/sKuZkeFUR6",
       "year": 2017,
-      "date": "2017-06-19",
+      "date": "Mon Jun 19 16:22:46 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -193,7 +265,7 @@
       "id": "876808161696641024",
       "text": "All US politics should be represented by different arrangements of circles https://t.co/Kgn0VxlbBu",
       "year": 2017,
-      "date": "2017-06-19",
+      "date": "Mon Jun 19 14:25:30 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -202,7 +274,7 @@
       "id": "876808051285794820",
       "text": "RT @nytgraphics: Full repeal. Slower Medicaid cuts. More help for elderly. Republicans want different things from health care bill. https:/…",
       "year": 2017,
-      "date": "2017-06-19",
+      "date": "Mon Jun 19 14:25:04 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -211,25 +283,97 @@
       "id": "876807787472449536",
       "text": "All the real hipsters have moved to medium format now",
       "year": 2017,
-      "date": "2017-06-19",
+      "date": "Mon Jun 19 14:24:01 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "744496131229499393",
-      "text": "Oh my god I just spent 4 days partying dare I say I’m ready to get some shit done now",
-      "year": 2016,
-      "date": "2016-06-19",
-      "favorites": 1,
+      "id": "839138878",
+      "text": "Just a second ago I came to terms with the fact there's a newer better cheaper iPhone out there. Just now. 10 days later.",
+      "year": 2008,
+      "date": "Fri Jun 20 01:50:03 +0000 2008",
+      "favorites": 0,
       "retweets": 0,
       "replyTo": null
+    },
+    {
+      "id": "839137850",
+      "text": "Finding my own stuff on fffound is pretty amazing. ( http://is.gd/BMN )",
+      "year": 2008,
+      "date": "Fri Jun 20 01:48:24 +0000 2008",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "839116776",
+      "text": "Hey Twitter, can you recommend me a nice counter-less rounded font?",
+      "year": 2008,
+      "date": "Fri Jun 20 01:09:02 +0000 2008",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "839098892",
+      "text": "My CoD4 kill/death ratio was 1:1 all day long. Ugh.",
+      "year": 2008,
+      "date": "Fri Jun 20 00:34:09 +0000 2008",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1274118210602831872",
+      "text": "hey guys it was just a simple `cat eavs-decoded-headers.csv &gt; $@;tail -n +2 eavs-trimmed.csv &gt;&gt; $@` that feels much healthier",
+      "year": 2020,
+      "date": "Fri Jun 19 23:13:48 +0000 2020",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1274111221134999554",
+      "text": "why would i have to read and write a whole file through node just to change the first line but maybe I'm an idiot",
+      "year": 2020,
+      "date": "Fri Jun 19 22:46:01 +0000 2020",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1274111086292336640",
+      "text": "if I do make this a node script it's gonna have to be some sort of interactive CLI wizard to both rewrite column names with their definitions from a codebook and also filter to only the columns you care about, but again, first I need this to work",
+      "year": 2020,
+      "date": "Fri Jun 19 22:45:29 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1274110711975813120",
+      "text": "still haven't done this successfully, regretting learning whatever `sed` is, the easiest way to do this cannot be a node script",
+      "year": 2020,
+      "date": "Fri Jun 19 22:44:00 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1274108632351805446",
+      "text": "I spent a pretty significant and shameful portion of my day figuring out a good way to replace the column headers in a file, which turned into figuring out how to overwrite just the first line in a file from BASH, which it turns out is a pretty big ask",
+      "year": 2020,
+      "date": "Fri Jun 19 22:35:44 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
     },
     {
       "id": "612001338449334272",
       "text": "TGIF http://t.co/sLUm5jd1Hw",
       "year": 2015,
-      "date": "2015-06-19",
+      "date": "Fri Jun 19 20:57:44 +0000 2015",
       "favorites": 1,
       "retweets": 0,
       "replyTo": null
@@ -238,7 +382,7 @@
       "id": "611965348896763904",
       "text": "RT @jamietarabay: Remarkable compassion shown by relatives of the victims. They forgive him. “Hate won’t win” #CharlestonShooting",
       "year": 2015,
-      "date": "2015-06-19",
+      "date": "Fri Jun 19 18:34:43 +0000 2015",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -247,7 +391,7 @@
       "id": "611965299529805825",
       "text": "RT @scottbix: He didn't show any emotion. Not even when they forgave him. http://t.co/YZFrivBZjV",
       "year": 2015,
-      "date": "2015-06-19",
+      "date": "Fri Jun 19 18:34:31 +0000 2015",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -256,61 +400,16 @@
       "id": "611962261918384132",
       "text": "RT @deray: Heritage, not hate, right? #CharlestonShooting http://t.co/XtT7drK8FA",
       "year": 2015,
-      "date": "2015-06-19",
+      "date": "Fri Jun 19 18:22:27 +0000 2015",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "611889551041294336",
-      "text": "@TravelingAnna let's periscope our post-meeting bagels \n\nTransparency in media is the way of the future",
-      "year": 2015,
-      "date": "2015-06-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "TravelingAnna"
-    },
-    {
-      "id": "611887406879481856",
-      "text": "@TravelingAnna but my best tweets are Markham’s first pun of the day and pictures of Or eating cheesecake\n\nHow will I tweetfluence now?",
-      "year": 2015,
-      "date": "2015-06-19",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": "TravelingAnna"
-    },
-    {
-      "id": "611886354864173056",
-      "text": "@TravelingAnna are we really not supposed to tweet during the meeting?",
-      "year": 2015,
-      "date": "2015-06-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "TravelingAnna"
-    },
-    {
-      "id": "347459413566701569",
-      "text": "Photoset: ilovecharts: digg: The evolution of soda cans. Fine, charts it is. Less exploration of the... http://t.co/acitaUitHl",
-      "year": 2013,
-      "date": "2013-06-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "215092564590735360",
-      "text": "RT @thewhyaxis: Clients love to invent new terms like 'infograph' and 'histograph'",
-      "year": 2012,
-      "date": "2012-06-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "16521269446",
-      "text": "played Call of Duty 4: Modern Warfare (360) and Beautiful Katamari Demo (360) in the last 24 hours. http://raptr.com/pseudoplacebo",
-      "year": 2010,
-      "date": "2010-06-19",
+      "id": "1274031801980325889",
+      "text": "RT @oneunderscore__: New from @oliviasolon + @cfarivar:\n\nFBI trawled Facebook to arrest protesters for inciting riots, court records show…",
+      "year": 2020,
+      "date": "Fri Jun 19 17:30:26 +0000 2020",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -319,157 +418,46 @@
       "id": "2239466658",
       "text": "if i just sit staring at an infographic problem long enough ideas WILL eventually hit me. and they did. just now. cool.",
       "year": 2009,
-      "date": "2009-06-19",
+      "date": "Fri Jun 19 15:34:42 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
+    },
+    {
+      "id": "611889551041294336",
+      "text": "@TravelingAnna let's periscope our post-meeting bagels \n\nTransparency in media is the way of the future",
+      "year": 2015,
+      "date": "Fri Jun 19 13:33:31 +0000 2015",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "TravelingAnna"
+    },
+    {
+      "id": "611887406879481856",
+      "text": "@TravelingAnna but my best tweets are Markham’s first pun of the day and pictures of Or eating cheesecake\n\nHow will I tweetfluence now?",
+      "year": 2015,
+      "date": "Fri Jun 19 13:25:00 +0000 2015",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "TravelingAnna"
+    },
+    {
+      "id": "611886354864173056",
+      "text": "@TravelingAnna are we really not supposed to tweet during the meeting?",
+      "year": 2015,
+      "date": "Fri Jun 19 13:20:49 +0000 2015",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "TravelingAnna"
     },
     {
       "id": "2234887961",
       "text": "Teen denied diploma for throwing kiss to mother during graduation cermemony: Justin Denney&#39;s mildly hammy  a.. http://bit.ly/18VCN2",
       "year": 2009,
-      "date": "2009-06-19",
+      "date": "Fri Jun 19 06:58:01 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     }
-  ],
-  "posts": [],
-  "scrobbles": [
-    {
-      "date": "2023-06-19",
-      "year": 2023,
-      "count": 40,
-      "topTracks": [
-        "Oliver Tree - Alien Boy",
-        "Redveil - automatic",
-        "Redveil - Lonicera",
-        "KAYTRANADA - Glowed Up",
-        "Juls - Angele Ni Fie"
-      ],
-      "topArtists": ["Oliver Tree", "Redveil", "KAYTRANADA"]
-    },
-    {
-      "date": "2022-06-19",
-      "year": 2022,
-      "count": 65,
-      "topTracks": [
-        "Yussef Dayes - Odyssey",
-        "Free Nationals - Eternal Light",
-        "Uffe - i can show you high",
-        "Onyx Collective - My Favorite Things",
-        "Bluestaeb - TIBBE"
-      ],
-      "topArtists": ["Yussef Dayes", "Free Nationals", "Uffe"]
-    },
-    {
-      "date": "2021-06-19",
-      "year": 2021,
-      "count": 60,
-      "topTracks": [
-        "Smino - Anita",
-        "Smino - WE GOT THE BISCUITS",
-        "Smino - Pecans (feat. Terrace Martin)",
-        "Smino - SUMMER SALT (with Bari)",
-        "Smino - Spitshine"
-      ],
-      "topArtists": ["Smino", "MadeinTYO", "Tinariwen"]
-    },
-    {
-      "date": "2020-06-19",
-      "year": 2020,
-      "count": 10,
-      "topTracks": [
-        "Noname - Song 32",
-        "Domo Genesis - Coming Back (Feat. Mac Miller)",
-        "Saba - CALLIGRAPHY",
-        "GoldLink - Herside Story",
-        "Noname - Diddy Bop (feat. Cam O'bi & Raury)"
-      ],
-      "topArtists": ["Noname", "Domo Genesis", "Saba"]
-    },
-    {
-      "date": "2019-06-19",
-      "year": 2019,
-      "count": 29,
-      "topTracks": [
-        "Smino - KRUSHED ICE (with Valee)",
-        "Smino - SKEDOS",
-        "Smino - MF GROOVE (with Ravyn Lenae)",
-        "Smino - VERIZON",
-        "Smino - coupe se' yern"
-      ],
-      "topArtists": ["Smino"]
-    },
-    {
-      "date": "2016-06-19",
-      "year": 2016,
-      "count": 16,
-      "topTracks": [
-        "Natasha Mosley - Kiss Goodbye",
-        "Natasha Mosley - Anything",
-        "Bryson Tiller - Intro (Difference)",
-        "Bryson Tiller - Let Em' Know",
-        "Bryson Tiller - Exchange"
-      ],
-      "topArtists": ["Natasha Mosley", "Bryson Tiller", "Variable D"]
-    },
-    {
-      "date": "2015-06-19",
-      "year": 2015,
-      "count": 38,
-      "topTracks": [
-        "Mike Jones - Still Tippin' - feat. Slim Thug And Paul Wall Explicit Version",
-        "Mike Jones - Badd",
-        "Mike Jones - Back Then",
-        "Mike Jones - Next to You",
-        "Mike Jones - Mr. Jones"
-      ],
-      "topArtists": ["Mike Jones", "A$AP Rocky", "Young Thug"]
-    },
-    {
-      "date": "2012-06-19",
-      "year": 2012,
-      "count": 56,
-      "topTracks": [
-        "Guinney Pepper - Lick The Chalice",
-        "Bushman - Legalize It",
-        "Ziggi - Ganja Smoke In The Air",
-        "Collie Buddz - Come Around",
-        "Slightly Stoopid - No Cocaine"
-      ],
-      "topArtists": ["Guinney Pepper", "Bushman", "Ziggi"]
-    },
-    {
-      "date": "2009-06-19",
-      "year": 2009,
-      "count": 160,
-      "topTracks": [
-        "The Expendables - Bowl For Two",
-        "African Brothers Dance Band (International) - Mmobrowa",
-        "T-Pain - I'm Hi (Feat. Styles P)",
-        "Asher Roth - Blunt Cruisin'",
-        "Shwayze - High Together"
-      ],
-      "topArtists": [
-        "The Expendables",
-        "African Brothers Dance Band (International)",
-        "T-Pain"
-      ]
-    },
-    {
-      "date": "2008-06-19",
-      "year": 2008,
-      "count": 93,
-      "topTracks": [
-        "Kanye West - Champion",
-        "Kanye West - Good Life Ft. T-Pain",
-        "Kanye West - Homecoming",
-        "Kanye West - The Glory",
-        "Kanye West - Big Brother"
-      ],
-      "topArtists": ["Kanye West", "M83", "Boards of Canada"]
-    }
-  ],
-  "commits": []
+  ]
 }

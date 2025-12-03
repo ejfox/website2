@@ -1,469 +1,127 @@
 {
   "tweets": [
     {
-      "id": "1474117265159331843",
-      "text": "@mathisonian oh you mean my favorite notebook? https://t.co/770iJ6j6tV",
-      "year": 2021,
-      "date": "2021-12-23",
-      "favorites": 5,
-      "retweets": 0,
-      "replyTo": "mathisonian"
-    },
-    {
-      "id": "1474055687130996740",
-      "text": "god forbid you wanna do state management of your states and then you have the state of your states in your state and  oh god",
-      "year": 2021,
-      "date": "2021-12-23",
-      "favorites": 3,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1474055582743158791",
-      "text": "the fun thing about election maps is that there are like 3 things you can call a thing at any time, is that New York? Or is it NY? Or is it FIPS 36? Is the winner a D? A Dem? A Democrat? The answer is all of the above, sir, put it in the code.",
-      "year": 2021,
-      "date": "2021-12-23",
-      "favorites": 1,
-      "retweets": 1,
-      "replyTo": null
-    },
-    {
-      "id": "1474037254343606274",
-      "text": "you couldn't design a worse user experience than a community designed by a finance bro- not based on a unique vision, not based on a product a group of people find useful, but so that each participant can serve to be squeezed for their money",
-      "year": 2021,
-      "date": "2021-12-23",
-      "favorites": 7,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1474036725496299521",
-      "text": "wake up, new morning, and what it this, its the NFT people I followed out of curiosity putting the worst possible imaginable garbage onto my feed https://t.co/qbRm9WHjue",
-      "year": 2021,
-      "date": "2021-12-23",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1341807760623722496",
-      "text": "most of these are dated 2013/2014, but I am pretty sure that's when I made this backup hard drive, so a lot of these gif are close to 10 years old - are vintage gifs a thing yet? https://t.co/v5nYifAU5r",
-      "year": 2020,
-      "date": "2020-12-23",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1341806394765434881",
-      "text": "who knows what life they will take on next https://t.co/4e3Q3a5vvH",
-      "year": 2020,
-      "date": "2020-12-23",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1341806203412901890",
-      "text": "I claim no ownership over any of these, and owe a lot of my visual / artistic progression to the way they inspired me - but it seems silly to keep them trapped on a hard drive https://t.co/eKAo0aGduu",
-      "year": 2020,
-      "date": "2020-12-23",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1341805981727121411",
-      "text": "so now, on an old hard drive, I have hundreds of weird gifs (these are just the ones I cared enough to tag and organize) https://t.co/0ZwRfHk3Y8",
-      "year": 2020,
-      "date": "2020-12-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1341805826055532544",
-      "text": "when I used to DJ I would project these with effects on them, and cut between the gifs in time to the beat, which is surprisingly effective if your source material is cool enough https://t.co/4TWVwYWMbh",
-      "year": 2020,
-      "date": "2020-12-23",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1341805630907162624",
-      "text": "most of my favorites in this collection are relatively simple looping animations of geometric shapes https://t.co/fzUdCmefHs",
-      "year": 2020,
-      "date": "2020-12-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1341805500955041794",
-      "text": "i wish i had been better about sourcing, but a lot of these floating along without credits anyway, not many clues as to where they come from, a lot of it was student or in-progress work that I am sure have been lost to time https://t.co/aOApqBz0SN",
-      "year": 2020,
-      "date": "2020-12-23",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1341804464831823874",
-      "text": "In an old hard drive I found my collection of 182 hand-curated art gifs from dribbble and tumblr, so I put them on S3 and now there's a little notebook that makes them easy to explore https://t.co/a2oLXPSbnh",
-      "year": 2020,
-      "date": "2020-12-23",
-      "favorites": 36,
-      "retweets": 4,
-      "replyTo": null
-    },
-    {
-      "id": "1341611694762672128",
-      "text": "@lynncyrin @claimeuh Godspeed",
-      "year": 2020,
-      "date": "2020-12-23",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": "coilysiren"
-    },
-    {
-      "id": "1341598004206317568",
-      "text": "@lynncyrin @claimeuh How's it going?",
-      "year": 2020,
-      "date": "2020-12-23",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "coilysiren"
-    },
-    {
-      "id": "1209125748176490496",
-      "text": "hungover from mr robot",
-      "year": 2019,
-      "date": "2019-12-23",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1209111789625073664",
-      "text": "@visakanv In joyful moments, my instinct is to live in them fully (not take photos or record in some way) – and then I find in the quieter moments I am anxious or sad and that is when I end up posting",
-      "year": 2019,
-      "date": "2019-12-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "visakanv"
-    },
-    {
-      "id": "944607311775006720",
-      "text": "All my other friends work in food service so they follow roughly the same schedule",
-      "year": 2017,
-      "date": "2017-12-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "944607173979574278",
-      "text": "When all your friends live on the west coast you spend the hours of 9-12am EST either keeping your ideas to yourself or sending your friends a series of insane thoughts to wake up to",
-      "year": 2017,
-      "date": "2017-12-23",
+      "id": "1075724638",
+      "text": "I read Vice for articles like this: http://tinyurl.com/85q56e - Interview with a doc about Meth",
+      "year": 2008,
+      "date": "Wed Dec 24 04:49:46 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "812417858424733696",
-      "text": "RT @bitcoinprice: The average price of Bitcoin across all exchanges is 910.63 USD",
-      "year": 2016,
-      "date": "2016-12-23",
+      "id": "1075720827",
+      "text": "@lenasaur I think people need to embrace the concept of prank-voicemail in that case then. \"Is your fridge running?\" \"... ... ...\"",
+      "year": 2008,
+      "date": "Wed Dec 24 04:46:51 +0000 2008",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "leoF0x"
+    },
+    {
+      "id": "1075666186",
+      "text": "Why would someone call me twice (with a blocked number) and not leave me voicemail?",
+      "year": 2008,
+      "date": "Wed Dec 24 04:06:48 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "812416772930408448",
-      "text": "RT @vernalkick: This thread is 💯 https://t.co/3UUCJtu7b8",
-      "year": 2016,
-      "date": "2016-12-23",
+      "id": "1075590618",
+      "text": "OMG Tokyo Police Club & Born Ruffians on February 25th though. I really really wanna see that. Gotta find someone to go with me.",
+      "year": 2008,
+      "date": "Wed Dec 24 03:13:03 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "812414154590081024",
-      "text": "@maxkreminski this rules",
-      "year": 2016,
-      "date": "2016-12-23",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "maxkreminski"
-    },
-    {
-      "id": "812412541821403136",
-      "text": "RT @bradoyler: Crude Oil Pipeline fact: 48% installed before 1970, which are vulnerable to seam quality issues.😬\nhttps://t.co/fWeTopDRfj #e…",
-      "year": 2016,
-      "date": "2016-12-23",
+      "id": "1075587823",
+      "text": "Both Animal Collective shows in NYC in January are sold out. ='[",
+      "year": 2008,
+      "date": "Wed Dec 24 03:11:08 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "679730388298805248",
-      "text": "Took a sec to put a new coat of paint on my site for the new year\n\nhttps://t.co/2h5nARGM1I\nhttps://t.co/nr9837I1kH\nhttps://t.co/45gAGwn7OX",
-      "year": 2015,
-      "date": "2015-12-23",
+      "id": "1075549335",
+      "text": "Facebook creepin'...",
+      "year": 2008,
+      "date": "Wed Dec 24 02:45:01 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "679683679266979841",
-      "text": "@TheTrueJessica tru tru",
-      "year": 2015,
-      "date": "2015-12-23",
+      "id": "1075468950",
+      "text": "@lucasjv 8 bucks for the NYT? That's intense! I'd probably but it bi-weekly then, haha. It makes me proud to be from NY...",
+      "year": 2008,
+      "date": "Wed Dec 24 01:49:24 +0000 2008",
       "favorites": 0,
       "retweets": 0,
-      "replyTo": "mattdunnam"
+      "replyTo": "lucasjv"
     },
     {
-      "id": "679683356108439552",
-      "text": "@TheTrueJessica the office is more fun when you literally have no responsibilities",
-      "year": 2015,
-      "date": "2015-12-23",
+      "id": "1075421170",
+      "text": "I'm going to be cheering for the Dolphins on Sunday- which is heresy. But I have good reason: Chad Pennington.",
+      "year": 2008,
+      "date": "Wed Dec 24 01:15:59 +0000 2008",
       "favorites": 0,
       "retweets": 0,
-      "replyTo": "mattdunnam"
+      "replyTo": null
     },
     {
-      "id": "547530037097152512",
-      "text": "RT @SlackHQ: A glorious write-up from @alishalisha about how Slack is helping Vox Media create an integrated newsroom. Yay! 👫👭📰👬👯👫 http://t…",
+      "id": "1075418842",
+      "text": "I really love the New York Times.",
+      "year": 2008,
+      "date": "Wed Dec 24 01:14:25 +0000 2008",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1075379963",
+      "text": "It's so cold... I wish I had a built in blanket...\n\nI guess what I'm saying is I want to start wearing a kilt.",
+      "year": 2008,
+      "date": "Wed Dec 24 00:47:25 +0000 2008",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1075328650",
+      "text": "I can't get my macbook's keyboard backlight illumination to work- there's no setting in Keyboard & Mouse to turn it on... annoying.",
+      "year": 2008,
+      "date": "Wed Dec 24 00:12:07 +0000 2008",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1075320055",
+      "text": "@safetyguy1656 keeps making me really want to get a new cat...",
+      "year": 2008,
+      "date": "Wed Dec 24 00:06:13 +0000 2008",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "safetyguy1656"
+    },
+    {
+      "id": "547543618949750784",
+      "text": "RT @raindrift: Has anyone yet made an all emoji programming language?",
       "year": 2014,
-      "date": "2014-12-23",
+      "date": "Wed Dec 24 00:05:46 +0000 2014",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
-    },
-    {
-      "id": "547515913881522177",
-      "text": "RT @JamilSmith: Protests for police reform shouldn't be silenced after the NYPD assassinations, writes the @nytimes edit board. http://t.co…",
-      "year": 2014,
-      "date": "2014-12-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "547513409307418625",
-      "text": "RT @greenhousenyt: Smart piece: NYC's police union has a long history of bullying mayors. @fstonenyt  http://t.co/Ae4PjtaS34",
-      "year": 2014,
-      "date": "2014-12-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "547482198589587458",
-      "text": "RT @dancow: Whoa, @ThisIsFusion is trying to hire all the people: https://t.co/DYv4mkIlyN\nvia @SourceJobs http://t.co/stLp4w67iw",
-      "year": 2014,
-      "date": "2014-12-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "547391135103340545",
-      "text": "RT @dancow: Inside the business of @Serial, including behind-the-scenes of the Mailchimp ad: http://t.co/9OQM5TiLif",
-      "year": 2014,
-      "date": "2014-12-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "547368328944422912",
-      "text": "Facebook, this new behavior of pausing whatever I listen to as I scroll past a video in my feed so you can auto play it is terrible. Stop.",
-      "year": 2014,
-      "date": "2014-12-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "547192592275095553",
-      "text": "RT @reclaimuc: soundtrack for a police brutality protest: http://t.co/YlChK0ML6O",
-      "year": 2014,
-      "date": "2014-12-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "415261760422428672",
-      "text": "RT @github: 10 Million Repositories https://t.co/uZdRcgPRId",
-      "year": 2013,
-      "date": "2013-12-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "415020655026139136",
-      "text": "My Fungus, called Dischargi, just wiped out the world in 1896 days! (Plague Inc.) http://t.co/NXF550BsAI",
-      "year": 2013,
-      "date": "2013-12-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "282992594529693696",
-      "text": "Posted my sStory project on Hacker News so I can get some constructive feedback / torn to shreds. Discuss here: http://t.co/Op3Agrjw",
-      "year": 2012,
-      "date": "2012-12-23",
-      "favorites": 0,
-      "retweets": 1,
-      "replyTo": null
-    },
-    {
-      "id": "282750845379018752",
-      "text": "Looking for ideas/feedback on my sStory project: https://t.co/9iWbE2QJ cc: @enjalot @poezn @ptvan @tasneemraja @BausOfTheNauf @nicolaskb",
-      "year": 2012,
-      "date": "2012-12-23",
-      "favorites": 1,
-      "retweets": 1,
-      "replyTo": null
-    },
-    {
-      "id": "282745575999434752",
-      "text": "Adding more stuff to sStory inspired by NYT's Snow Fall piece. Now it has responsive slideshow support: http://t.co/dDqj9f3C",
-      "year": 2012,
-      "date": "2012-12-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "150342343671816192",
-      "text": "RT @robdelaney: No, you are soda. RT @DietCokeUS: What are your plans this holiday weekend? Can we join you?",
-      "year": 2011,
-      "date": "2011-12-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "150334587304808448",
-      "text": "RT @JustinHerman: Stumbled upon Visual.ly's 20 Great Visualizations of 2011 and of course I find @Jess3 amongst them http://t.co/dgtEWMMh",
-      "year": 2011,
-      "date": "2011-12-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "150332086820155393",
-      "text": "RT @247ogp: UPDATE: Direct # to Pleasanton DA to bypass voicemail: 925-803-7171 Keep calling to #FreeKhali!",
-      "year": 2011,
-      "date": "2011-12-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "150329758964649984",
-      "text": "RT @GOOD: Are you participating in Leave GoDaddy Day on Dec. 29? You'll need this step-by-step guide: http://t.co/v2IQrouX",
-      "year": 2011,
-      "date": "2011-12-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "150260242008129536",
-      "text": "RT @AppSumo: Win a Paid GitHub Account for Life: http://t.co/1hXQAicV Fellow web geeks, please RT (:",
-      "year": 2011,
-      "date": "2011-12-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "150260167768936448",
-      "text": "RT @AppSumo: Get 50 high-quality custom stickers from Sticker Mule - only $29!! http://t.co/gl3Zx1wR 2 random RTs win it!!",
-      "year": 2011,
-      "date": "2011-12-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "150248268578816000",
-      "text": "RT @occupytheport: ALERT: Support needed in Berkeley NOW. Cops are out of control. Arrests being made. #Occupyoakland #Occupysf",
-      "year": 2011,
-      "date": "2011-12-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "150248253550628864",
-      "text": "RT @occupytheport: Oakland's Medic Elle has been arrested. Please call NLG 285-1011 #Occupyoakland",
-      "year": 2011,
-      "date": "2011-12-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "150232133439467521",
-      "text": "RT @occupyoakland: Learn more about Khali's arrest, and how you can help him now that he's facing serious charges http://t.co/QLBCZHyj # ...",
-      "year": 2011,
-      "date": "2011-12-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "150083362508378112",
-      "text": "Woah... itty bitty earthquake.",
-      "year": 2011,
-      "date": "2011-12-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "150035474109575169",
-      "text": "RT @OWS_Tech: Tonight after #nycga, a special tech-centric mock #GA. Fake decisions but real tech innovation. Be there to get a glimpse  ...",
-      "year": 2011,
-      "date": "2011-12-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "150035403875942400",
-      "text": "RT @WLLegal: http://t.co/14eTSKtc making it very easy to transfer your @GoDaddy domain in protest of their support for #SOPA. Use coupon ...",
-      "year": 2011,
-      "date": "2011-12-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "150002894886805504",
-      "text": "@vedrashko What do you mean?",
-      "year": 2011,
-      "date": "2011-12-23",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "vedrashko"
     },
     {
       "id": "6974480131",
       "text": "one of the most-recognized political images in the 20th century. After a career parodying mainstream advertising and propaganda. So weird.",
       "year": 2009,
-      "date": "2009-12-23",
+      "date": "Wed Dec 23 19:45:17 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -472,7 +130,7 @@
       "id": "6974375284",
       "text": "It is giving me actual goosebumps to realize that I grew up loving Shepard Fairey as an indie graf artist, and he made (continued)",
       "year": 2009,
-      "date": "2009-12-23",
+      "date": "Wed Dec 23 19:41:14 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -481,34 +139,133 @@
       "id": "6974198737",
       "text": "Recorded some awesome music with Josh last night and this morning. http://ejfox.com/puremagic",
       "year": 2009,
-      "date": "2009-12-23",
+      "date": "Wed Dec 23 19:34:33 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
+    },
+    {
+      "id": "679730388298805248",
+      "text": "Took a sec to put a new coat of paint on my site for the new year\n\nhttps://t.co/2h5nARGM1I\nhttps://t.co/nr9837I1kH\nhttps://t.co/45gAGwn7OX",
+      "year": 2015,
+      "date": "Wed Dec 23 18:28:48 +0000 2015",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1341807760623722496",
+      "text": "most of these are dated 2013/2014, but I am pretty sure that's when I made this backup hard drive, so a lot of these gif are close to 10 years old - are vintage gifs a thing yet? https://t.co/v5nYifAU5r",
+      "year": 2020,
+      "date": "Wed Dec 23 18:07:54 +0000 2020",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1341806394765434881",
+      "text": "who knows what life they will take on next https://t.co/4e3Q3a5vvH",
+      "year": 2020,
+      "date": "Wed Dec 23 18:02:28 +0000 2020",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1341806203412901890",
+      "text": "I claim no ownership over any of these, and owe a lot of my visual / artistic progression to the way they inspired me - but it seems silly to keep them trapped on a hard drive https://t.co/eKAo0aGduu",
+      "year": 2020,
+      "date": "Wed Dec 23 18:01:43 +0000 2020",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1341805981727121411",
+      "text": "so now, on an old hard drive, I have hundreds of weird gifs (these are just the ones I cared enough to tag and organize) https://t.co/0ZwRfHk3Y8",
+      "year": 2020,
+      "date": "Wed Dec 23 18:00:50 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1341805826055532544",
+      "text": "when I used to DJ I would project these with effects on them, and cut between the gifs in time to the beat, which is surprisingly effective if your source material is cool enough https://t.co/4TWVwYWMbh",
+      "year": 2020,
+      "date": "Wed Dec 23 18:00:13 +0000 2020",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1341805630907162624",
+      "text": "most of my favorites in this collection are relatively simple looping animations of geometric shapes https://t.co/fzUdCmefHs",
+      "year": 2020,
+      "date": "Wed Dec 23 17:59:26 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1341805500955041794",
+      "text": "i wish i had been better about sourcing, but a lot of these floating along without credits anyway, not many clues as to where they come from, a lot of it was student or in-progress work that I am sure have been lost to time https://t.co/aOApqBz0SN",
+      "year": 2020,
+      "date": "Wed Dec 23 17:58:55 +0000 2020",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1341804464831823874",
+      "text": "In an old hard drive I found my collection of 182 hand-curated art gifs from dribbble and tumblr, so I put them on S3 and now there's a little notebook that makes them easy to explore https://t.co/a2oLXPSbnh",
+      "year": 2020,
+      "date": "Wed Dec 23 17:54:48 +0000 2020",
+      "favorites": 36,
+      "retweets": 4,
+      "replyTo": null
+    },
+    {
+      "id": "679683679266979841",
+      "text": "@TheTrueJessica tru tru",
+      "year": 2015,
+      "date": "Wed Dec 23 15:23:11 +0000 2015",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mattdunnam"
+    },
+    {
+      "id": "679683356108439552",
+      "text": "@TheTrueJessica the office is more fun when you literally have no responsibilities",
+      "year": 2015,
+      "date": "Wed Dec 23 15:21:54 +0000 2015",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mattdunnam"
     },
     {
       "id": "6966611239",
       "text": "playing a little Call of Duty: Modern Warfare 2. http://raptr.com/pseudoplacebo",
       "year": 2009,
-      "date": "2009-12-23",
+      "date": "Wed Dec 23 15:04:32 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "6946697843",
-      "text": "Ear implants that just put delay on everything: patent pending.",
-      "year": 2009,
-      "date": "2009-12-23",
-      "favorites": 0,
+      "id": "1341611694762672128",
+      "text": "@lynncyrin @claimeuh Godspeed",
+      "year": 2020,
+      "date": "Wed Dec 23 05:08:48 +0000 2020",
+      "favorites": 2,
       "retweets": 0,
-      "replyTo": null
+      "replyTo": "coilysiren"
     },
     {
       "id": "1075261466",
       "text": "Here's today's momentile:  http://mtile.us/pseudoplacebo",
       "year": 2008,
-      "date": "2008-12-23",
+      "date": "Tue Dec 23 23:27:52 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -517,70 +274,169 @@
       "id": "1075256663",
       "text": "@The_PHP_Jedi Slexy is a wonderful and well-developed website- and that's why I use it. But another reason is that it's creator tweets. =P",
       "year": 2008,
-      "date": "2008-12-23",
+      "date": "Tue Dec 23 23:24:37 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "AlesandroOrtizR"
     },
     {
+      "id": "547530037097152512",
+      "text": "RT @SlackHQ: A glorious write-up from @alishalisha about how Slack is helping Vox Media create an integrated newsroom. Yay! 👫👭📰👬👯👫 http://t…",
+      "year": 2014,
+      "date": "Tue Dec 23 23:11:48 +0000 2014",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "547515913881522177",
+      "text": "RT @JamilSmith: Protests for police reform shouldn't be silenced after the NYPD assassinations, writes the @nytimes edit board. http://t.co…",
+      "year": 2014,
+      "date": "Tue Dec 23 22:15:40 +0000 2014",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "547513409307418625",
+      "text": "RT @greenhousenyt: Smart piece: NYC's police union has a long history of bullying mayors. @fstonenyt  http://t.co/Ae4PjtaS34",
+      "year": 2014,
+      "date": "Tue Dec 23 22:05:43 +0000 2014",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "547482198589587458",
+      "text": "RT @dancow: Whoa, @ThisIsFusion is trying to hire all the people: https://t.co/DYv4mkIlyN\nvia @SourceJobs http://t.co/stLp4w67iw",
+      "year": 2014,
+      "date": "Tue Dec 23 20:01:42 +0000 2014",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "547391135103340545",
+      "text": "RT @dancow: Inside the business of @Serial, including behind-the-scenes of the Mailchimp ad: http://t.co/9OQM5TiLif",
+      "year": 2014,
+      "date": "Tue Dec 23 13:59:51 +0000 2014",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "547368328944422912",
+      "text": "Facebook, this new behavior of pausing whatever I listen to as I scroll past a video in my feed so you can auto play it is terrible. Stop.",
+      "year": 2014,
+      "date": "Tue Dec 23 12:29:13 +0000 2014",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
       "id": "1073921208",
       "text": "Decided with my bandmate to name our duo 'Small Town Shadow'.",
       "year": 2008,
-      "date": "2008-12-23",
+      "date": "Tue Dec 23 07:53:32 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "1073678001",
-      "text": "I want a girl who'd rather sort through little shops in the village than deal with crowds & tourists in Rockefeller center.",
-      "year": 2008,
-      "date": "2008-12-23",
+      "id": "6987479870",
+      "text": "playing a little Call of Duty: Modern Warfare 2. http://raptr.com/pseudoplacebo",
+      "year": 2009,
+      "date": "Thu Dec 24 03:51:09 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "1073580458",
-      "text": "She makes me smile. =]",
-      "year": 2008,
-      "date": "2008-12-23",
+      "id": "6986792703",
+      "text": "Social Interview, you make my really self conscious.",
+      "year": 2009,
+      "date": "Thu Dec 24 03:27:34 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "1073515326",
-      "text": "I keep forgetting to put up an away message when I'm recording.",
-      "year": 2008,
-      "date": "2008-12-23",
+      "id": "1474117265159331843",
+      "text": "@mathisonian oh you mean my favorite notebook? https://t.co/770iJ6j6tV",
+      "year": 2021,
+      "date": "Thu Dec 23 20:38:38 +0000 2021",
+      "favorites": 5,
+      "retweets": 0,
+      "replyTo": "mathisonian"
+    },
+    {
+      "id": "1474055687130996740",
+      "text": "god forbid you wanna do state management of your states and then you have the state of your states in your state and  oh god",
+      "year": 2021,
+      "date": "Thu Dec 23 16:33:57 +0000 2021",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1474055582743158791",
+      "text": "the fun thing about election maps is that there are like 3 things you can call a thing at any time, is that New York? Or is it NY? Or is it FIPS 36? Is the winner a D? A Dem? A Democrat? The answer is all of the above, sir, put it in the code.",
+      "year": 2021,
+      "date": "Thu Dec 23 16:33:32 +0000 2021",
+      "favorites": 1,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "1474037254343606274",
+      "text": "you couldn't design a worse user experience than a community designed by a finance bro- not based on a unique vision, not based on a product a group of people find useful, but so that each participant can serve to be squeezed for their money",
+      "year": 2021,
+      "date": "Thu Dec 23 15:20:42 +0000 2021",
+      "favorites": 7,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1474036725496299521",
+      "text": "wake up, new morning, and what it this, its the NFT people I followed out of curiosity putting the worst possible imaginable garbage onto my feed https://t.co/qbRm9WHjue",
+      "year": 2021,
+      "date": "Thu Dec 23 15:18:36 +0000 2021",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "944766853196451840",
+      "text": "RT @417am1975: https://t.co/Ui60hnVg4R https://t.co/wkdRVEjhGg",
+      "year": 2017,
+      "date": "Sun Dec 24 03:09:05 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "1073418994",
-      "text": "Interesting list (and illustrations) of 2008's buzzwords in the NYT: http://is.gd/cMxP | (btw, Am I cool enough for a Ffffound 'vite yet?)",
-      "year": 2008,
-      "date": "2008-12-23",
+      "id": "944766769956380672",
+      "text": "RT @417am1975: https://t.co/fUr1AGLMRP",
+      "year": 2017,
+      "date": "Sun Dec 24 03:08:45 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "1073358829",
-      "text": "Played a pretty intense drum solo before. Rather happy with my drumming lately. I need a band.",
-      "year": 2008,
-      "date": "2008-12-23",
+      "id": "282992594529693696",
+      "text": "Posted my sStory project on Hacker News so I can get some constructive feedback / torn to shreds. Discuss here: http://t.co/Op3Agrjw",
+      "year": 2012,
+      "date": "Sun Dec 23 23:34:26 +0000 2012",
       "favorites": 0,
-      "retweets": 0,
+      "retweets": 1,
       "replyTo": null
     },
     {
       "id": "527646312",
       "text": "Watching Pushing Daisies and practicing bass.",
       "year": 2007,
-      "date": "2007-12-23",
+      "date": "Sun Dec 23 23:33:21 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -589,7 +445,7 @@
       "id": "527552142",
       "text": "Tumblr: I&#8217;m lovin&#8217; GhostCo. http://tinyurl.com/ynkape",
       "year": 2007,
-      "date": "2007-12-23",
+      "date": "Sun Dec 23 22:44:44 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -598,7 +454,7 @@
       "id": "527547582",
       "text": "Took my external hard drive out of it's enclosure. I'd like to see if the problem was with the enclosure or if the actual HD failed. Sad. =[",
       "year": 2007,
-      "date": "2007-12-23",
+      "date": "Sun Dec 23 22:42:11 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -607,7 +463,7 @@
       "id": "527519372",
       "text": "I sincerely wish my external hard drive would start a-workin'.",
       "year": 2007,
-      "date": "2007-12-23",
+      "date": "Sun Dec 23 22:27:41 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -616,7 +472,7 @@
       "id": "527487352",
       "text": "Cleaning my vans...",
       "year": 2007,
-      "date": "2007-12-23",
+      "date": "Sun Dec 23 22:08:32 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -625,7 +481,7 @@
       "id": "527407672",
       "text": "Tumblr: A pretty cool hoodie. http://tinyurl.com/2vesa8",
       "year": 2007,
-      "date": "2007-12-23",
+      "date": "Sun Dec 23 21:23:15 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -634,7 +490,7 @@
       "id": "527251762",
       "text": "Tried to set up port forwarding and broke my network. God damn.",
       "year": 2007,
-      "date": "2007-12-23",
+      "date": "Sun Dec 23 20:02:42 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -643,16 +499,295 @@
       "id": "527010832",
       "text": "Holy crap. Opening to American Gangster is ridiculously hardcore. I'm in awe. Not even 2:00 in.",
       "year": 2007,
-      "date": "2007-12-23",
+      "date": "Sun Dec 23 18:03:31 +0000 2007",
       "favorites": 0,
       "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "282750845379018752",
+      "text": "Looking for ideas/feedback on my sStory project: https://t.co/9iWbE2QJ cc: @enjalot @poezn @ptvan @tasneemraja @BausOfTheNauf @nicolaskb",
+      "year": 2012,
+      "date": "Sun Dec 23 07:33:49 +0000 2012",
+      "favorites": 1,
+      "retweets": 1,
       "replyTo": null
     },
     {
       "id": "525854032",
       "text": "Tumblr: I want a watch like this- but I never see them and I don&#8217;t... http://tinyurl.com/yr65mx",
       "year": 2007,
-      "date": "2007-12-23",
+      "date": "Sun Dec 23 07:17:33 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "282745575999434752",
+      "text": "Adding more stuff to sStory inspired by NYT's Snow Fall piece. Now it has responsive slideshow support: http://t.co/dDqj9f3C",
+      "year": 2012,
+      "date": "Sun Dec 23 07:12:53 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "812509220105023488",
+      "text": "RT @doctorow: NYC\nhttps://t.co/pjeoQoHAub https://t.co/nJ8RRpbi3C",
+      "year": 2016,
+      "date": "Sat Dec 24 04:04:28 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "812506844782432257",
+      "text": "i performed the rituals necessary to receive the computer miracle, and it happened, but somehow I was ungrateful, and it is broken again why",
+      "year": 2016,
+      "date": "Sat Dec 24 03:55:02 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "150394747842867201",
+      "text": "@OccupytheMOB PS, heads up, you tweeted your location with the last 2 tweets. Assuming you are not AT the location, but wanted to let u know",
+      "year": 2011,
+      "date": "Sat Dec 24 01:57:56 +0000 2011",
+      "favorites": 0,
+      "retweets": 1,
+      "replyTo": "DasherLogistics"
+    },
+    {
+      "id": "150393388078866432",
+      "text": "@OccupytheMOB Props and support. Any materials/supply requests?",
+      "year": 2011,
+      "date": "Sat Dec 24 01:52:32 +0000 2011",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "DasherLogistics"
+    },
+    {
+      "id": "944607311775006720",
+      "text": "All my other friends work in food service so they follow roughly the same schedule",
+      "year": 2017,
+      "date": "Sat Dec 23 16:35:07 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "944607173979574278",
+      "text": "When all your friends live on the west coast you spend the hours of 9-12am EST either keeping your ideas to yourself or sending your friends a series of insane thoughts to wake up to",
+      "year": 2017,
+      "date": "Sat Dec 23 16:34:34 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "528264312",
+      "text": "Tumblr: Would Love to make a non-alcoholic version of this mojito. http://tinyurl.com/2h554s",
+      "year": 2007,
+      "date": "Mon Dec 24 04:42:32 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "527921222",
+      "text": "Gonna go make some deviled eggs. I'm starvin'.",
+      "year": 2007,
+      "date": "Mon Dec 24 01:53:31 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "527906092",
+      "text": "Tumblr: If I wanted to spend $45 on honey&#8230; this is what I would... http://tinyurl.com/35xkyx",
+      "year": 2007,
+      "date": "Mon Dec 24 01:46:06 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "527850582",
+      "text": "Tumblr: Lately I&#8217;ve been trying to learn the bass riff to Summer... http://tinyurl.com/2rcrpw",
+      "year": 2007,
+      "date": "Mon Dec 24 01:18:18 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "283009068799512576",
+      "text": "Modern art america brought to you by topojson http://t.co/en0EUjcH",
+      "year": 2012,
+      "date": "Mon Dec 24 00:39:54 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "415261760422428672",
+      "text": "RT @github: 10 Million Repositories https://t.co/uZdRcgPRId",
+      "year": 2013,
+      "date": "Mon Dec 23 23:24:53 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1209125748176490496",
+      "text": "hungover from mr robot",
+      "year": 2019,
+      "date": "Mon Dec 23 14:56:57 +0000 2019",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1209111789625073664",
+      "text": "@visakanv In joyful moments, my instinct is to live in them fully (not take photos or record in some way) – and then I find in the quieter moments I am anxious or sad and that is when I end up posting",
+      "year": 2019,
+      "date": "Mon Dec 23 14:01:29 +0000 2019",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "visakanv"
+    },
+    {
+      "id": "415020655026139136",
+      "text": "My Fungus, called Dischargi, just wiped out the world in 1896 days! (Plague Inc.) http://t.co/NXF550BsAI",
+      "year": 2013,
+      "date": "Mon Dec 23 07:26:49 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "150342343671816192",
+      "text": "RT @robdelaney: No, you are soda. RT @DietCokeUS: What are your plans this holiday weekend? Can we join you?",
+      "year": 2011,
+      "date": "Fri Dec 23 22:29:42 +0000 2011",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "812417858424733696",
+      "text": "RT @bitcoinprice: The average price of Bitcoin across all exchanges is 910.63 USD",
+      "year": 2016,
+      "date": "Fri Dec 23 22:01:26 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "150334587304808448",
+      "text": "RT @JustinHerman: Stumbled upon Visual.ly's 20 Great Visualizations of 2011 and of course I find @Jess3 amongst them http://t.co/dgtEWMMh",
+      "year": 2011,
+      "date": "Fri Dec 23 21:58:53 +0000 2011",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "812416772930408448",
+      "text": "RT @vernalkick: This thread is 💯 https://t.co/3UUCJtu7b8",
+      "year": 2016,
+      "date": "Fri Dec 23 21:57:07 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "150332086820155393",
+      "text": "RT @247ogp: UPDATE: Direct # to Pleasanton DA to bypass voicemail: 925-803-7171 Keep calling to #FreeKhali!",
+      "year": 2011,
+      "date": "Fri Dec 23 21:48:57 +0000 2011",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "812414154590081024",
+      "text": "@maxkreminski this rules",
+      "year": 2016,
+      "date": "Fri Dec 23 21:46:43 +0000 2016",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "maxkreminski"
+    },
+    {
+      "id": "812412541821403136",
+      "text": "RT @bradoyler: Crude Oil Pipeline fact: 48% installed before 1970, which are vulnerable to seam quality issues.😬\nhttps://t.co/fWeTopDRfj #e…",
+      "year": 2016,
+      "date": "Fri Dec 23 21:40:18 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "150329758964649984",
+      "text": "RT @GOOD: Are you participating in Leave GoDaddy Day on Dec. 29? You'll need this step-by-step guide: http://t.co/v2IQrouX",
+      "year": 2011,
+      "date": "Fri Dec 23 21:39:42 +0000 2011",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "150260242008129536",
+      "text": "RT @AppSumo: Win a Paid GitHub Account for Life: http://t.co/1hXQAicV Fellow web geeks, please RT (:",
+      "year": 2011,
+      "date": "Fri Dec 23 17:03:28 +0000 2011",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "150260167768936448",
+      "text": "RT @AppSumo: Get 50 high-quality custom stickers from Sticker Mule - only $29!! http://t.co/gl3Zx1wR 2 random RTs win it!!",
+      "year": 2011,
+      "date": "Fri Dec 23 17:03:10 +0000 2011",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "150248268578816000",
+      "text": "RT @occupytheport: ALERT: Support needed in Berkeley NOW. Cops are out of control. Arrests being made. #Occupyoakland #Occupysf",
+      "year": 2011,
+      "date": "Fri Dec 23 16:15:53 +0000 2011",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "150248253550628864",
+      "text": "RT @occupytheport: Oakland's Medic Elle has been arrested. Please call NLG 285-1011 #Occupyoakland",
+      "year": 2011,
+      "date": "Fri Dec 23 16:15:49 +0000 2011",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "150232133439467521",
+      "text": "RT @occupyoakland: Learn more about Khali's arrest, and how you can help him now that he's facing serious charges http://t.co/QLBCZHyj # ...",
+      "year": 2011,
+      "date": "Fri Dec 23 15:11:46 +0000 2011",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "150083362508378112",
+      "text": "Woah... itty bitty earthquake.",
+      "year": 2011,
+      "date": "Fri Dec 23 05:20:36 +0000 2011",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -660,84 +795,16 @@
   ],
   "posts": [
     {
-      "slug": "week-notes/2024-52",
-      "title": "2024 52",
-      "year": 2024,
-      "date": "2024-12-23T17:08:14.000Z",
-      "dek": null,
-      "type": "post",
-      "tags": ["development"]
-    },
-    {
       "slug": "2022/art-setup",
-      "title": "Art Setup",
-      "year": 2022,
-      "date": "2022-12-23T16:12:28.000Z",
       "dek": "In which the author talks through his DIY art studio setup, and encourages you tou create your own",
-      "type": "post",
-      "tags": ["art", "linocut", "soap", "woodworking", "design", "inspiration"]
-    }
-  ],
-  "scrobbles": [
-    {
-      "date": "2022-12-23",
       "year": 2022,
-      "count": 75,
-      "topTracks": [
-        "Animal Collective - College",
-        "Animal Collective - My Girls",
-        "Animal Collective - Man of Oil",
-        "Animal Collective - Prester John",
-        "Animal Collective - Leaf House"
-      ],
-      "topArtists": ["Animal Collective", "Jazzbois", "okvsho"]
+      "date": "2022-12-23T16:12:28.000Z"
     },
     {
-      "date": "2018-12-23",
-      "year": 2018,
-      "count": 1,
-      "topTracks": ["Anik Khan - Big Fax"],
-      "topArtists": ["Anik Khan"]
-    },
-    {
-      "date": "2016-12-23",
-      "year": 2016,
-      "count": 19,
-      "topTracks": [
-        "Khary - Find Me",
-        "KingSkurkOne - Sjalu",
-        "C-Note - Activist",
-        "Larsiveli - Fingertuppa",
-        "Knox Brown - No Slaves"
-      ],
-      "topArtists": ["Khary", "KingSkurkOne", "C-Note"]
-    },
-    {
-      "date": "2010-12-23",
-      "year": 2010,
-      "count": 14,
-      "topTracks": [
-        "Orson Scott Card - Speaker for the Dead (Unabridged), Part 1",
-        "Kanye West - All of the Lights",
-        "Kanye West - All of the Lights (Interlude)",
-        "Kanye West - POWER",
-        "Death Cab for Cutie - What Sarah Said"
-      ],
-      "topArtists": ["Orson Scott Card", "Kanye West", "Death Cab for Cutie"]
-    },
-    {
-      "date": "2008-12-23",
-      "year": 2008,
-      "count": 73,
-      "topTracks": [
-        "Dntel - Rock My Boat (Ft. Mia Doi Todd)",
-        "Dntel - Natural Resources (Ft. Fog)",
-        "Dntel - Breakfast In Bed (Ft. Conor Oberst)",
-        "Dntel - Dreams (Ft. Mystic Chords of Memory)",
-        "David Sedaris - When You Are Engulfed in Flames (Unabridged) Part 2"
-      ],
-      "topArtists": ["Dntel", "David Sedaris", "The White Stripes"]
+      "slug": "week-notes/2024-52",
+      "dek": null,
+      "year": 2024,
+      "date": "2024-12-23T17:08:14.000Z"
     }
-  ],
-  "commits": []
+  ]
 }
