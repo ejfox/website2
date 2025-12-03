@@ -6,6 +6,9 @@
       <p class="text-zinc-500 dark:text-zinc-400 font-mono text-sm">
         {{ formattedDate }}
       </p>
+      <p class="text-zinc-500 dark:text-zinc-500 font-mono text-[11px] mt-1">
+        Updated {{ lastUpdated || 'live' }} · sources: blog posts, robot notes, scrobbles, commits
+      </p>
 
       <!-- Date navigation -->
       <div class="flex gap-2 mt-4">
@@ -146,6 +149,22 @@ const { data, pending } = await useFetch('/api/on-this-day', {
     month: currentMonth.value,
     day: currentDay.value,
   })),
+})
+
+const lastUpdated = computed(() => {
+  if (!data.value) return ''
+  const dates: number[] = []
+  Object.values(data.value).forEach((entries: any) => {
+    if (Array.isArray(entries)) {
+      entries.forEach((entry: any) => {
+        if (entry?.date) {
+          dates.push(new Date(entry.date).getTime())
+        }
+      })
+    }
+  })
+  if (!dates.length) return ''
+  return new Date(Math.max(...dates)).toISOString().split('T')[0]
 })
 
 // Formatted date display
