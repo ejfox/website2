@@ -71,6 +71,11 @@
     "zod": "^4.0.17"
   },
   "dependencies": {
+    "@deck.gl/core": "^9.2.3",
+    "@deck.gl/layers": "^9.2.3",
+    "@loaders.gl/core": "^4.2.0",
+    "@luma.gl/core": "~9.2.2",
+    "@luma.gl/engine": "~9.2.2",
     "@nuxtjs/tailwindcss": "^6.0.0",
     "@types/rss": "^0.0.32",
     "@vueuse/core": "^13.5.0",
@@ -86,6 +91,7 @@
     "d3-selection": "^3.0.0",
     "d3-shape": "^3.2.0",
     "date-fns": "^4.1.0",
+    "deck.gl": "^9.2.3",
     "dompurify": "^3.3.0",
     "dotenv": "^17.0.1",
     "github-slugger": "^2.0.0",

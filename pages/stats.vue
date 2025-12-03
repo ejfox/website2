@@ -492,6 +492,21 @@
               </StatsSection>
             </div>
           </Transition>
+
+          <!-- Commit Matrix Art Piece -->
+          <ClientOnly>
+            <div id="commits-art" class="relative pt-16">
+              <div class="text-center mb-8">
+                <h2 class="text-sm font-mono uppercase tracking-widest">
+                  Commit Matrix
+                </h2>
+                <p class="text-xs text-zinc-500 dark:text-zinc-500 mt-2">
+                  {{ allCommits.length }} commits · 7777px journey
+                </p>
+              </div>
+              <CommitMatrix :commits="allCommits" :height="7777" />
+            </div>
+          </ClientOnly>
         </section>
       </section>
     </div>
@@ -515,6 +530,8 @@ import LetterboxdStats from '~/components/stats/LetterboxdStats.vue'
 import UmamiStats from '~/components/stats/UmamiStats.vue'
 import GearStats from '~/components/stats/GearStats.vue'
 import { usePostFilters } from '~/composables/blog/usePostFilters'
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
 
 const statsDescription = computed(() => {
   const s = stats.value
@@ -580,6 +597,11 @@ const stats = computed(() => rawStats.value)
 const { getAllPosts } = useProcessedMarkdown()
 const { formatNumber } = useNumberFormat()
 const { isValidPost } = usePostFilters()
+
+// Load all commits for the matrix visualization
+const allCommits = JSON.parse(
+  readFileSync(join(process.cwd(), 'data/github-commits.json'), 'utf-8')
+)
 
 // Simple mode refs
 const sectionRef = ref(null)
