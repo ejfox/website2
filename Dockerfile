@@ -10,6 +10,7 @@ RUN apk add --no-cache \
 # Copy pre-built output and content
 COPY .output ./
 COPY content ./content
+COPY data ./data
 COPY public ./public
 COPY .build-info.json ./
 
