@@ -89,7 +89,7 @@
         </div>
 
         <!-- Main content - h-feed microformat for IndieWeb -->
-        <div class="blog-grid">
+        <div class="blog-grid h-feed">
           <!-- Hidden h-feed metadata for parsers -->
           <a class="u-url hidden" href="https://ejfox.com/blog">Blog</a>
           <span class="p-name hidden">EJ Fox's Blog</span>
@@ -626,7 +626,7 @@ const postDekClass =
 }
 
 .blog-grid {
-  @apply relative px-4 md:px-6 h-feed;
+  @apply relative px-4 md:px-6;
   @apply lg:grid lg:grid-cols-12 lg:gap-16 xl:gap-20;
 }
 
