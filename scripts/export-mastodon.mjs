@@ -14,11 +14,16 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const OUTPUT_FILE = join(__dirname, '../data/mastodon-posts.json')
 
 const MASTODON_INSTANCE =
-  process.env.MASTODON_INSTANCE || 'https://mastodon.social'
-const MASTODON_TOKEN = process.env.MASTODON_TOKEN
+  process.env.MASTODON_API_URL ||
+  process.env.MASTODON_INSTANCE ||
+  'https://mastodon.social'
+const MASTODON_TOKEN =
+  process.env.MASTODON_ACCESS_TOKEN || process.env.MASTODON_TOKEN
 
 if (!MASTODON_TOKEN) {
-  console.error('Error: MASTODON_TOKEN environment variable is required')
+  console.error(
+    'Error: MASTODON_ACCESS_TOKEN environment variable is required'
+  )
   console.error(
     'Get a token from: ' + MASTODON_INSTANCE + '/settings/applications'
   )
@@ -42,7 +47,8 @@ async function fetchPosts() {
       })
 
       if (!verifyResponse.ok) {
-        throw new Error(`Failed to verify credentials: ${verifyResponse.statusText}`)
+        const errorText = await verifyResponse.text()
+        throw new Error(`Failed to verify credentials: ${verifyResponse.statusText} - ${errorText}`)
       }
 
       const account = await verifyResponse.json()
@@ -64,7 +70,8 @@ async function fetchPosts() {
       })
 
       if (!response.ok) {
-        throw new Error(`Failed to fetch posts: ${response.statusText}`)
+        const errorText = await response.text()
+        throw new Error(`Failed to fetch posts: ${response.statusText} - ${errorText}`)
       }
 
       const posts = await response.json()
