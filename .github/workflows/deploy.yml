@@ -22,7 +22,8 @@ jobs:
           rm -rf .nuxt .output node_modules/.cache
           yarn build
           # Build image first (old container keeps running)
-          docker-compose build
+          # Pass commit hash to bust Docker cache for COPY layers
+          docker-compose build --build-arg COMMIT_HASH=$(git rev-parse --short HEAD)
           # Quick swap (~5 sec downtime vs minutes during build)
           docker-compose up -d --force-recreate --no-build
           echo "Deployed $(git rev-parse --short HEAD) at $(date)"

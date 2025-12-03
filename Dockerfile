@@ -7,6 +7,9 @@ WORKDIR /app
 RUN apk add --no-cache \
     curl
 
+# Bust cache when commit changes
+ARG COMMIT_HASH=unknown
+
 # Copy pre-built output and content
 COPY .output ./
 COPY content ./content
