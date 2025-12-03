@@ -81,12 +81,7 @@
 
         <!-- Title section matching blog posts -->
         <div class="px-4 md:px-6 pt-4 pb-3">
-          <h1
-            :class="[
-              'font-serif font-light mb-1.5 leading-[1.1] tracking-tight',
-              'text-3xl md:text-4xl lg:text-5xl',
-            ]"
-          >
+          <h1 class="blog-title">
             Blog
           </h1>
           <p :class="blogDescriptionClass">
@@ -96,9 +91,7 @@
         </div>
 
         <!-- Main content - h-feed microformat for IndieWeb -->
-        <div
-          class="relative px-4 md:px-6 h-feed lg:grid lg:grid-cols-12 lg:gap-16 xl:gap-20"
-        >
+        <div class="blog-grid">
           <!-- Hidden h-feed metadata for parsers -->
           <a class="u-url hidden" href="https://ejfox.com/blog">Blog</a>
           <span class="p-name hidden">EJ Fox's Blog</span>
@@ -107,15 +100,9 @@
             <a class="u-url" href="https://ejfox.com">ejfox.com</a>
           </span>
           <!-- Main column -->
-          <section
-            class="max-w-3xl lg:max-w-none lg:col-span-8 lg:min-w-0 lg:pt-2 lg:pr-14 xl:pr-20"
-          >
+          <section class="blog-main-column">
             <!-- Error state -->
-            <div
-              v-if="postsError"
-              class="rounded-lg border border-red-300 bg-red-50 p-4 text-red-800"
-              :class="'dark:bg-red-950 dark:border-red-800 dark:text-red-200'"
-            >
+            <div v-if="postsError" class="error-box">
               <h2 class="font-bold">Failed to Load Blog Posts</h2>
               <p class="text-sm">
                 {{
@@ -261,13 +248,7 @@
           </section>
 
           <!-- Sidebar sections (simplified) -->
-          <aside
-            :class="[
-              'mt-8 pt-4 border-t border-zinc-200 dark:border-zinc-800',
-              'lg:mt-0 lg:pt-2 lg:border-t-0 lg:col-span-4',
-              'lg:sticky lg:top-24 lg:min-w-[260px] lg:pl-12 xl:pl-16',
-            ]"
-          >
+          <aside class="blog-sidebar">
             <!-- Data stats footer -->
             <div class="data-footer">
               <div>
@@ -640,5 +621,34 @@ const postDekClass =
 </script>
 
 <style scoped>
-/* Pure Tufte - minimal CSS */
+.blog-title {
+  @apply font-serif font-light mb-1.5 tracking-tight;
+  @apply leading-[1.1];
+  @apply text-3xl md:text-4xl lg:text-5xl;
+}
+
+.blog-grid {
+  @apply relative px-4 md:px-6 h-feed;
+  @apply lg:grid lg:grid-cols-12 lg:gap-16 xl:gap-20;
+}
+
+.blog-main-column {
+  @apply max-w-3xl;
+  @apply lg:max-w-none lg:col-span-8 lg:min-w-0;
+  @apply lg:pt-2 lg:pr-14 xl:pr-20;
+}
+
+.blog-sidebar {
+  @apply mt-8 pt-4 border-t;
+  @apply border-zinc-200 dark:border-zinc-800;
+  @apply lg:mt-0 lg:pt-2 lg:border-t-0 lg:col-span-4;
+  @apply lg:sticky lg:top-24 lg:min-w-[260px];
+  @apply lg:pl-12 xl:pl-16;
+}
+
+.error-box {
+  @apply rounded-lg border p-4;
+  @apply border-red-300 bg-red-50 text-red-800;
+  @apply dark:bg-red-950 dark:border-red-800 dark:text-red-200;
+}
 </style>

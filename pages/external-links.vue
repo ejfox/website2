@@ -102,7 +102,7 @@ useHead({
 
     <div class="max-w-screen-xl pr-8">
       <!-- Stats bar -->
-      <div class="mb-8 p-4 bg-zinc-100 dark:bg-zinc-800 rounded">
+      <div class="stats-bar">
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
           <div>
             <div class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
@@ -138,11 +138,9 @@ useHead({
 
       <div v-else class="space-y-8">
         <section v-for="domain in sortedDomains" :key="domain">
-          <h2 class="text-2xl font-light mb-8 text-zinc-900 dark:text-zinc-100">
+          <h2 class="domain-header">
             {{ domain }}
-            <span
-              class="text-base font-normal text-zinc-600 dark:text-zinc-400"
-            >
+            <span class="domain-count">
               ({{ groupedByDomain[domain]?.length || 0 }} links)
             </span>
           </h2>
@@ -208,3 +206,20 @@ useHead({
     </div>
   </div>
 </template>
+
+<style scoped>
+.stats-bar {
+  @apply mb-8 p-4 rounded;
+  @apply bg-zinc-100 dark:bg-zinc-800;
+}
+
+.domain-header {
+  @apply text-2xl font-light mb-8;
+  @apply text-zinc-900 dark:text-zinc-100;
+}
+
+.domain-count {
+  @apply text-base font-normal;
+  @apply text-zinc-600 dark:text-zinc-400;
+}
+</style>
