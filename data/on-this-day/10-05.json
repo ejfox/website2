@@ -1,487 +1,10 @@
 {
   "tweets": [
     {
-      "id": "1577766106651103250",
-      "text": "RT @themargin_us: Check out our latest feature, Bayous, A Refuge at Risk, by @OttaviaS \n\nPhoto credit: @virginiahanusik https://t.co/9MyoSA…",
-      "year": 2022,
-      "date": "2022-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1577747462470746135",
-      "text": "@enjalot https://t.co/zjgKDsYclZ",
-      "year": 2022,
-      "date": "2022-10-05",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "enjalot"
-    },
-    {
-      "id": "1577704051122266115",
-      "text": "After a ton of help from @agarcia_me - I'm using sqlite-http to pull commodity trade data from their JSON API in sqlite https://t.co/fhj1fWV4IK",
-      "year": 2022,
-      "date": "2022-10-05",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1577685051717951489",
-      "text": "🔴 Live now: dusting off the livestreaming cobwebs...\n\nGonna stream for an hour or so exploring how to use sqlite, @agarcia_me's sqlite-http,  and datasette to analyze trade flow data from UN Comtrade - come hang out! https://t.co/zIzxJDGNnn https://t.co/6CmkyWKB0m",
-      "year": 2022,
-      "date": "2022-10-05",
-      "favorites": 6,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1577509841874178050",
-      "text": "https://t.co/UTUzKzQ87c",
-      "year": 2022,
-      "date": "2022-10-05",
-      "favorites": 3,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1445469307358494727",
-      "text": "This, but you know, tech culture in general https://t.co/ehh2S8G9BO",
-      "year": 2021,
-      "date": "2021-10-05",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1445469210826715138",
-      "text": "RT @JonNiola: @andymstone @FrancesHaugen I wish you guys spent half as much energy improving the safety and integrity of your platforms as…",
-      "year": 2021,
-      "date": "2021-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1445459689492258819",
-      "text": "https://t.co/u7B4Ju7EeQ",
-      "year": 2021,
-      "date": "2021-10-05",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1445439236908388359",
-      "text": "these rules are so good https://t.co/16AemYFb80",
-      "year": 2021,
-      "date": "2021-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1445438842941624322",
-      "text": "take that, buffalo https://t.co/YduGCQFrDV",
-      "year": 2021,
-      "date": "2021-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1445358370614034441",
-      "text": "RT @Aella_Girl: The problem with cults is that almost all of the cult isn't bad. People don't join cults because they're stupid, they join…",
-      "year": 2021,
-      "date": "2021-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1313252568609492997",
-      "text": "@AdamWeinstein Godspeed",
-      "year": 2020,
-      "date": "2020-10-05",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "AdamWeinstein"
-    },
-    {
-      "id": "1313182034181980169",
-      "text": "RT @sxywu: I'm so excited and inspired by what @enjalot+@mrejfox got going yesterday and so I'm doing an impromptu stream right meow🎵~\n\n→ h…",
-      "year": 2020,
-      "date": "2020-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1313163752112558080",
-      "text": "RT @enjalot: stream last night w/ @mrejfox was 💻🔥\n\nwe focused on county-level data for the upcoming election, especially EAVS data for @sxy…",
-      "year": 2020,
-      "date": "2020-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1313136595734859776",
-      "text": "RT @enjalot: my life has become the Midnight Gospel...\n\nhttps://t.co/FbEwwDfmPA tonight at 8pm EST / 5pm PST\n\njoin me &amp; @mrejfox as we take…",
-      "year": 2020,
-      "date": "2020-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1313135088373313537",
-      "text": "@mdavidallen This sounds like a fun research project / drinking game",
-      "year": 2020,
-      "date": "2020-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mdavidallen"
-    },
-    {
-      "id": "1313134392974422016",
-      "text": "@mdavidallen yes, but like everything, mine would be ✨ special ✨",
-      "year": 2020,
-      "date": "2020-10-05",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "mdavidallen"
-    },
-    {
-      "id": "1313132776334426113",
-      "text": "i can't stop thinking of trying to start qanon for liberals as a prank",
-      "year": 2020,
-      "date": "2020-10-05",
-      "favorites": 3,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1313128854584729601",
-      "text": "Many 3rd parties, who created their app on an open Twitter API, later had to contend with Twitter slowly cutting off access to more and more info. Faced with this, some (like Twint) moved to scraping the mobile interface instead of dealing with a stingy API.",
-      "year": 2020,
-      "date": "2020-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1313128142337445888",
-      "text": "Twitter has spent the past week or so slowly crippling the developer ecosystem, I have heard about issues with Tweetbot, twint, and now with blocklists. If their plan to prepare for the election is to cripple all APIs and 3rd-party devs... it isn’t much of a plan. https://t.co/RhqTNw2SQh",
-      "year": 2020,
-      "date": "2020-10-05",
-      "favorites": 1,
-      "retweets": 1,
-      "replyTo": null
-    },
-    {
-      "id": "1313123176562466818",
-      "text": "Does anyone else get the distinct sense that pollsters, pundits, campaign staffers, etc have not made any meaningful change to how they operate or see the world since Trump won in 2016?",
-      "year": 2020,
-      "date": "2020-10-05",
-      "favorites": 4,
-      "retweets": 2,
-      "replyTo": null
-    },
-    {
-      "id": "1312945179943473152",
-      "text": "RT @enjalot: we have 30 minutes left in the stream, got difference in voter registration for 2016 -&gt; 2018\nhttps://t.co/JFpCzPJxFO\n\ngoing to…",
-      "year": 2020,
-      "date": "2020-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1312926812234805248",
-      "text": "@simonw Ah! I should have figured that out, thank you so much! Really loving Datasette (finally getting into the publishing side of it)",
-      "year": 2020,
-      "date": "2020-10-05",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": "simonw"
-    },
-    {
-      "id": "1312922301487353856",
-      "text": "@simonw If I want to pass a config like `--config max_returned_rows:2000` to a datasette instance when I publish to Heroku, how do I do that? I tried with `--extra-options max_returned_rows:2000` but that caused Heroku to crash, appreciate you!",
-      "year": 2020,
-      "date": "2020-10-05",
-      "favorites": 4,
-      "retweets": 1,
-      "replyTo": "simonw"
-    },
-    {
-      "id": "1312905893722419207",
-      "text": "RT @sxywu: If you're interested in 🔥elections data🔥 or been keeping up with the new project on my twitch channel, make sure to check out @e…",
-      "year": 2020,
-      "date": "2020-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1048322967917289472",
-      "text": "RT @ClintSmithIII: BlackLivesMatter &amp; MeToo &amp; Occupy have generated more honest public discourse on how racism &amp; sexism &amp; capitalism impact…",
-      "year": 2018,
-      "date": "2018-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1048192145306394624",
-      "text": "The decisons required to gain and maintain wealth are inherently immoral.",
-      "year": 2018,
-      "date": "2018-10-05",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "916055248371937281",
-      "text": "sorry, I briefly thought my team was gonna win the super bowl, now it is obvious to me that the nfl is terrible",
-      "year": 2017,
-      "date": "2017-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "916054789947056133",
-      "text": "Sometimes stating the obvious is important: it is hard to see this as anything other than transphobia in action https://t.co/gNM6KM00Rp",
-      "year": 2017,
-      "date": "2017-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "916054119978172417",
-      "text": "@claritchka comic con",
-      "year": 2017,
-      "date": "2017-10-05",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "claritchka"
-    },
-    {
-      "id": "915982409769795584",
-      "text": "most arguments I've witnessed or been part of in 2017 have, in the end, boiled down to me realizing that so many people didn't study history",
-      "year": 2017,
-      "date": "2017-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "915969534133198850",
-      "text": "RT @_cingraham: This chart illustrates how our politics are literally tearing us apart https://t.co/VCgwUrAP6b https://t.co/LXQ6ZitO80",
-      "year": 2017,
-      "date": "2017-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "915840559155204096",
-      "text": "Nothing thrives in the grey",
-      "year": 2017,
-      "date": "2017-10-05",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "915765304004837376",
-      "text": "His GoFundMe has only raised $845 at this point https://t.co/61PeQrJfg5 https://t.co/bGHPExi7tx",
-      "year": 2017,
-      "date": "2017-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "783781147545374720",
-      "text": "@katieraffa yooooooooo",
-      "year": 2016,
-      "date": "2016-10-05",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "katieraffa"
-    },
-    {
-      "id": "783781130449321985",
-      "text": "RT @katieraffa: Took a walk down memory lane https://t.co/LP81Ty2kEw",
-      "year": 2016,
-      "date": "2016-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "783705064678514688",
-      "text": "whattt isss thissss https://t.co/c9v2b8RWbh",
-      "year": 2016,
-      "date": "2016-10-05",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "783690273062842369",
-      "text": "RT @mgoldst: Protip: Find out who your favorite artist's and designer's favorite artists and designers are.",
-      "year": 2016,
-      "date": "2016-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "783667594842796032",
-      "text": "Seriously considering taking a weeklong break from Twitter soon.",
-      "year": 2016,
-      "date": "2016-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "651168559968616448",
-      "text": "RT @henrykleeKTVU: Know him? This \"person of interest\" sought by @oaklandpoliceca in slaying of muralist Antonio Ramos in W. Oakland http:/…",
-      "year": 2015,
-      "date": "2015-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "651110275228299264",
-      "text": "@edenthecat too kind of you not to post his email address",
-      "year": 2015,
-      "date": "2015-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "edenthecat"
-    },
-    {
-      "id": "651103878063239168",
-      "text": "@TracyClarkFlory You should link up with @gerald_arthur so at least there’s someone familiar to witness it",
-      "year": 2015,
-      "date": "2015-10-05",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "TracyClarkFlory"
-    },
-    {
-      "id": "651042009067712512",
-      "text": "@netouhey Thank you! @jamietarabay @shanedkavanaugh @vocativ @ONAConf",
-      "year": 2015,
-      "date": "2015-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "EmmanuelTouhey"
-    },
-    {
-      "id": "518910679752118272",
-      "text": "Fucking disturbs me because i think that reddit is as good a slice of well-educated-straight-white-america as anything else, still racist",
-      "year": 2014,
-      "date": "2014-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "518910329838141440",
-      "text": "Top comment on a front page r/news thread is bafflingly racist, backed up by even more baffling racism http://t.co/kk3HCDHjkY",
-      "year": 2014,
-      "date": "2014-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "518806760908681216",
-      "text": "RT @StKonrath: Investigative reporting fellowship for journalists of color, by @kristenhare cc @SchoofsFeed http://t.co/HpRfFVQS1a http://t…",
-      "year": 2014,
-      "date": "2014-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "518795916019773440",
-      "text": "note to do timeline / infographic on all the -gate's http://t.co/QIgkMAWfCX",
-      "year": 2014,
-      "date": "2014-10-05",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "518795870176038912",
-      "text": "RT @meetar: When you use a -gate suffix, in jest or no, you're helping William Safire rehabilitate Nixon http://t.co/L5qE8QilXb",
-      "year": 2014,
-      "date": "2014-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "518794316635176960",
-      "text": "guys the writing on SVU is almost really bad status and that's upsetting",
-      "year": 2014,
-      "date": "2014-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "386562375438311425",
-      "text": "RT @Ergoat: Have CRBs achieved any degree of justice anywhere in the US in the last decade? Serious Q. #FTP RT@OLAASM Citizen review boards…",
-      "year": 2013,
-      "date": "2013-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "386393957980454912",
-      "text": "Set up the @futurelens website to be deployed from a github repo automatically (never done that before) and it feels good.",
-      "year": 2013,
-      "date": "2013-10-05",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "254288305682800640",
-      "text": "RT @sdw: If you want to honor Steve, don't mourn. Do your best work every day. Live your life to the fullest. Never settle. \n\nHis spirit ...",
-      "year": 2012,
-      "date": "2012-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "254266913683820544",
-      "text": "Animal collective show got cancelled. We are very sad.   @ Metro North / NJT - Harriman Station (MBPJ) http://t.co/R9Q3U5H0",
-      "year": 2012,
-      "date": "2012-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
       "id": "121713942681755648",
       "text": "Yo, New York Times, why you alerting me that Palin isn't running for President. That doesn't seem exactly like breaking news to me...",
       "year": 2011,
-      "date": "2011-10-05",
+      "date": "Wed Oct 05 22:30:39 +0000 2011",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -490,25 +13,340 @@
       "id": "121699879025254400",
       "text": "Man, NOAA, good job making sure these charts don't get boring! http://t.co/UNpYj3x5",
       "year": 2011,
-      "date": "2011-10-05",
+      "date": "Wed Oct 05 21:34:46 +0000 2011",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "4631913854",
-      "text": "playing a little Madden NFL 07. http://raptr.com/pseudoplacebo",
-      "year": 2009,
-      "date": "2009-10-05",
+      "id": "783781147545374720",
+      "text": "@katieraffa yooooooooo",
+      "year": 2016,
+      "date": "Wed Oct 05 21:29:22 +0000 2016",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "katieraffa"
+    },
+    {
+      "id": "783781130449321985",
+      "text": "RT @katieraffa: Took a walk down memory lane https://t.co/LP81Ty2kEw",
+      "year": 2016,
+      "date": "Wed Oct 05 21:29:18 +0000 2016",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "4621422058",
-      "text": "Setting my alarm for 20 minutes later.",
+      "id": "1577766106651103250",
+      "text": "RT @themargin_us: Check out our latest feature, Bayous, A Refuge at Risk, by @OttaviaS \n\nPhoto credit: @virginiahanusik https://t.co/9MyoSA…",
+      "year": 2022,
+      "date": "Wed Oct 05 21:02:07 +0000 2022",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1577747462470746135",
+      "text": "@enjalot https://t.co/zjgKDsYclZ",
+      "year": 2022,
+      "date": "Wed Oct 05 19:48:02 +0000 2022",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "enjalot"
+    },
+    {
+      "id": "1577704051122266115",
+      "text": "After a ton of help from @agarcia_me - I'm using sqlite-http to pull commodity trade data from their JSON API in sqlite https://t.co/fhj1fWV4IK",
+      "year": 2022,
+      "date": "Wed Oct 05 16:55:32 +0000 2022",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "783705064678514688",
+      "text": "whattt isss thissss https://t.co/c9v2b8RWbh",
+      "year": 2016,
+      "date": "Wed Oct 05 16:27:02 +0000 2016",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1577685051717951489",
+      "text": "🔴 Live now: dusting off the livestreaming cobwebs...\n\nGonna stream for an hour or so exploring how to use sqlite, @agarcia_me's sqlite-http,  and datasette to analyze trade flow data from UN Comtrade - come hang out! https://t.co/zIzxJDGNnn https://t.co/6CmkyWKB0m",
+      "year": 2022,
+      "date": "Wed Oct 05 15:40:02 +0000 2022",
+      "favorites": 6,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "783690273062842369",
+      "text": "RT @mgoldst: Protip: Find out who your favorite artist's and designer's favorite artists and designers are.",
+      "year": 2016,
+      "date": "Wed Oct 05 15:28:16 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "783667594842796032",
+      "text": "Seriously considering taking a weeklong break from Twitter soon.",
+      "year": 2016,
+      "date": "Wed Oct 05 13:58:09 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1577509841874178050",
+      "text": "https://t.co/UTUzKzQ87c",
+      "year": 2022,
+      "date": "Wed Oct 05 04:03:49 +0000 2022",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1313320067036327938",
+      "text": "Here's what that map looks like on the first of May, June, July, and August https://t.co/UqMJ7j0Zsa",
+      "year": 2020,
+      "date": "Tue Oct 06 03:27:58 +0000 2020",
+      "favorites": 9,
+      "retweets": 2,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1313318662527385606",
+      "text": "Now Ian is working on using patterns in our bubble map of COVID cases per 100k per county (sized by population) https://t.co/tAq4iT2thM",
+      "year": 2020,
+      "date": "Tue Oct 06 03:22:24 +0000 2020",
+      "favorites": 5,
+      "retweets": 1,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1313311188864860160",
+      "text": "Here's another texture map version with colors, the \"darker\" the county, the more the party won by in 2016 https://t.co/tuDe0k2xgY",
+      "year": 2020,
+      "date": "Tue Oct 06 02:52:42 +0000 2020",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1313309347989147649",
+      "text": "Playing around with mapping election data with patterns instead of color... here, lines tilt right if the county went republican, left if it went to a democrat, and the lines are thicker the larger the % difference btwn candidates in the 2016 election https://t.co/xHFtHPoks2 https://t.co/k1kEOFH92y",
+      "year": 2020,
+      "date": "Tue Oct 06 02:45:23 +0000 2020",
+      "favorites": 15,
+      "retweets": 2,
+      "replyTo": null
+    },
+    {
+      "id": "4644966101",
+      "text": "This cardigan is bomb: http://is.gd/3ZsrG",
       "year": 2009,
-      "date": "2009-10-05",
+      "date": "Tue Oct 06 02:17:22 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1313293618510213121",
+      "text": "RT @enjalot: didn't expect this tonight...\n\n@mrejfox made a hairy map to visualize our force layout\n\nin a few minutes we'll be getting into…",
+      "year": 2020,
+      "date": "Tue Oct 06 01:42:53 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1313278862277718016",
+      "text": "RT @enjalot: going live in five! \n8pm EST / 5pm PST\n\nhttps://t.co/FbEwwDfmPA\n\ncooking up some more #dataviz with @mrejfox 💻🔥 https://t.co/s…",
+      "year": 2020,
+      "date": "Tue Oct 06 00:44:14 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "651188162111279105",
+      "text": "@TravelingAnna yes. The doctor jokingly ran out the door upon seeing it.",
+      "year": 2015,
+      "date": "Tue Oct 06 00:12:10 +0000 2015",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "TravelingAnna"
+    },
+    {
+      "id": "651187420294086657",
+      "text": "@TravelingAnna just got out. Doctor, nurse, and I spent the whole time laughing. They said worse than they've ever seen. But I'm good now.",
+      "year": 2015,
+      "date": "Tue Oct 06 00:09:14 +0000 2015",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "TravelingAnna"
+    },
+    {
+      "id": "1445469307358494727",
+      "text": "This, but you know, tech culture in general https://t.co/ehh2S8G9BO",
+      "year": 2021,
+      "date": "Tue Oct 05 19:21:53 +0000 2021",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1445469210826715138",
+      "text": "RT @JonNiola: @andymstone @FrancesHaugen I wish you guys spent half as much energy improving the safety and integrity of your platforms as…",
+      "year": 2021,
+      "date": "Tue Oct 05 19:21:30 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1445459689492258819",
+      "text": "https://t.co/u7B4Ju7EeQ",
+      "year": 2021,
+      "date": "Tue Oct 05 18:43:39 +0000 2021",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1445439236908388359",
+      "text": "these rules are so good https://t.co/16AemYFb80",
+      "year": 2021,
+      "date": "Tue Oct 05 17:22:23 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1445438842941624322",
+      "text": "take that, buffalo https://t.co/YduGCQFrDV",
+      "year": 2021,
+      "date": "Tue Oct 05 17:20:49 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1445358370614034441",
+      "text": "RT @Aella_Girl: The problem with cults is that almost all of the cult isn't bad. People don't join cults because they're stupid, they join…",
+      "year": 2021,
+      "date": "Tue Oct 05 12:01:03 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "121739822468571136",
+      "text": "RT @stop: ",
+      "year": 2011,
+      "date": "Thu Oct 06 00:13:30 +0000 2011",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "121739065518338048",
+      "text": "RT @sdw: If you want to honor Steve, don't mourn. Do your best work every day. Live your life to the fullest. Never settle. \n\nHis spirit ...",
+      "year": 2011,
+      "date": "Thu Oct 06 00:10:29 +0000 2011",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "121738659119636480",
+      "text": "RT @Visually: RIP Steve Jobs",
+      "year": 2011,
+      "date": "Thu Oct 06 00:08:52 +0000 2011",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "121738240121257984",
+      "text": "I truly wouldn't be who I am, doing what I do, where I am, if he hadn't paved the way. Thank you. Rest in peace #stevejobs",
+      "year": 2011,
+      "date": "Thu Oct 06 00:07:12 +0000 2011",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "916055248371937281",
+      "text": "sorry, I briefly thought my team was gonna win the super bowl, now it is obvious to me that the nfl is terrible",
+      "year": 2017,
+      "date": "Thu Oct 05 21:39:25 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "916054789947056133",
+      "text": "Sometimes stating the obvious is important: it is hard to see this as anything other than transphobia in action https://t.co/gNM6KM00Rp",
+      "year": 2017,
+      "date": "Thu Oct 05 21:37:36 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "916054119978172417",
+      "text": "@claritchka comic con",
+      "year": 2017,
+      "date": "Thu Oct 05 21:34:56 +0000 2017",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "claritchka"
+    },
+    {
+      "id": "915982409769795584",
+      "text": "most arguments I've witnessed or been part of in 2017 have, in the end, boiled down to me realizing that so many people didn't study history",
+      "year": 2017,
+      "date": "Thu Oct 05 16:49:59 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "915969534133198850",
+      "text": "RT @_cingraham: This chart illustrates how our politics are literally tearing us apart https://t.co/VCgwUrAP6b https://t.co/LXQ6ZitO80",
+      "year": 2017,
+      "date": "Thu Oct 05 15:58:49 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "915840559155204096",
+      "text": "Nothing thrives in the grey",
+      "year": 2017,
+      "date": "Thu Oct 05 07:26:19 +0000 2017",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "518910679752118272",
+      "text": "Fucking disturbs me because i think that reddit is as good a slice of well-educated-straight-white-america as anything else, still racist",
+      "year": 2014,
+      "date": "Sun Oct 05 23:48:41 +0000 2014",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "518910329838141440",
+      "text": "Top comment on a front page r/news thread is bafflingly racist, backed up by even more baffling racism http://t.co/kk3HCDHjkY",
+      "year": 2014,
+      "date": "Sun Oct 05 23:47:18 +0000 2014",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -517,16 +355,268 @@
       "id": "947406189",
       "text": "Feeling really really crappy.",
       "year": 2008,
-      "date": "2008-10-05",
+      "date": "Sun Oct 05 19:27:14 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "946626504",
-      "text": "I have a phobia of checking my voice mail messages.",
-      "year": 2008,
-      "date": "2008-10-05",
+      "id": "518806760908681216",
+      "text": "RT @StKonrath: Investigative reporting fellowship for journalists of color, by @kristenhare cc @SchoofsFeed http://t.co/HpRfFVQS1a http://t…",
+      "year": 2014,
+      "date": "Sun Oct 05 16:55:45 +0000 2014",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "518795916019773440",
+      "text": "note to do timeline / infographic on all the -gate's http://t.co/QIgkMAWfCX",
+      "year": 2014,
+      "date": "Sun Oct 05 16:12:39 +0000 2014",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "518795870176038912",
+      "text": "RT @meetar: When you use a -gate suffix, in jest or no, you're helping William Safire rehabilitate Nixon http://t.co/L5qE8QilXb",
+      "year": 2014,
+      "date": "Sun Oct 05 16:12:28 +0000 2014",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "518794316635176960",
+      "text": "guys the writing on SVU is almost really bad status and that's upsetting",
+      "year": 2014,
+      "date": "Sun Oct 05 16:06:18 +0000 2014",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1048398614786187264",
+      "text": "if you log onto reddit you can find people writing more words about the time they tipped a pizza driver than you can find in diary entries from some of the most important days in my life",
+      "year": 2018,
+      "date": "Sat Oct 06 02:24:42 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "315495632",
+      "text": "Going to sleep. I feel like today may have been a total waste. =\\",
+      "year": 2007,
+      "date": "Sat Oct 06 01:53:25 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "254396156640120832",
+      "text": "@Simplify Haha, I'd have to admit I agree. Cheers.",
+      "year": 2012,
+      "date": "Sat Oct 06 01:42:24 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1048386037859471360",
+      "text": "I've decided that Grand Theft Auto 5 role play is a form of generative art (with the game creators as the artists)",
+      "year": 2018,
+      "date": "Sat Oct 06 01:34:44 +0000 2018",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "254387133538783232",
+      "text": "@simplify could you consider making this your new iPhone icon? =] Money icon by @ssh4net on @dribbble: http://t.co/yGllyDU2",
+      "year": 2012,
+      "date": "Sat Oct 06 01:06:33 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "315375952",
+      "text": "Watching Friday Night Lights... I don't... even... like this show. What's going on?",
+      "year": 2007,
+      "date": "Sat Oct 06 00:02:29 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "386562375438311425",
+      "text": "RT @Ergoat: Have CRBs achieved any degree of justice anywhere in the US in the last decade? Serious Q. #FTP RT@OLAASM Citizen review boards…",
+      "year": 2013,
+      "date": "Sat Oct 05 18:43:46 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "386393957980454912",
+      "text": "Set up the @futurelens website to be deployed from a github repo automatically (never done that before) and it feels good.",
+      "year": 2013,
+      "date": "Sat Oct 05 07:34:33 +0000 2013",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "518969157095026688",
+      "text": "RT @jasondavies: d3.geo.zoom now supports smooth animated zooming: http://t.co/XGcF5PX21b #d3js http://t.co/kuGsW3hVI7",
+      "year": 2014,
+      "date": "Mon Oct 06 03:41:03 +0000 2014",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1313252568609492997",
+      "text": "@AdamWeinstein Godspeed",
+      "year": 2020,
+      "date": "Mon Oct 05 22:59:46 +0000 2020",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "AdamWeinstein"
+    },
+    {
+      "id": "651168559968616448",
+      "text": "RT @henrykleeKTVU: Know him? This \"person of interest\" sought by @oaklandpoliceca in slaying of muralist Antonio Ramos in W. Oakland http:/…",
+      "year": 2015,
+      "date": "Mon Oct 05 22:54:17 +0000 2015",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "651110275228299264",
+      "text": "@edenthecat too kind of you not to post his email address",
+      "year": 2015,
+      "date": "Mon Oct 05 19:02:41 +0000 2015",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "edenthecat"
+    },
+    {
+      "id": "651103878063239168",
+      "text": "@TracyClarkFlory You should link up with @gerald_arthur so at least there’s someone familiar to witness it",
+      "year": 2015,
+      "date": "Mon Oct 05 18:37:16 +0000 2015",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "TracyClarkFlory"
+    },
+    {
+      "id": "1313182034181980169",
+      "text": "RT @sxywu: I'm so excited and inspired by what @enjalot+@mrejfox got going yesterday and so I'm doing an impromptu stream right meow🎵~\n\n→ h…",
+      "year": 2020,
+      "date": "Mon Oct 05 18:19:29 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1313163752112558080",
+      "text": "RT @enjalot: stream last night w/ @mrejfox was 💻🔥\n\nwe focused on county-level data for the upcoming election, especially EAVS data for @sxy…",
+      "year": 2020,
+      "date": "Mon Oct 05 17:06:50 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "4631913854",
+      "text": "playing a little Madden NFL 07. http://raptr.com/pseudoplacebo",
+      "year": 2009,
+      "date": "Mon Oct 05 16:44:52 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1313136595734859776",
+      "text": "RT @enjalot: my life has become the Midnight Gospel...\n\nhttps://t.co/FbEwwDfmPA tonight at 8pm EST / 5pm PST\n\njoin me &amp; @mrejfox as we take…",
+      "year": 2020,
+      "date": "Mon Oct 05 15:18:55 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1313135088373313537",
+      "text": "@mdavidallen This sounds like a fun research project / drinking game",
+      "year": 2020,
+      "date": "Mon Oct 05 15:12:56 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mdavidallen"
+    },
+    {
+      "id": "1313134392974422016",
+      "text": "@mdavidallen yes, but like everything, mine would be ✨ special ✨",
+      "year": 2020,
+      "date": "Mon Oct 05 15:10:10 +0000 2020",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mdavidallen"
+    },
+    {
+      "id": "1313132776334426113",
+      "text": "i can't stop thinking of trying to start qanon for liberals as a prank",
+      "year": 2020,
+      "date": "Mon Oct 05 15:03:45 +0000 2020",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1313128854584729601",
+      "text": "Many 3rd parties, who created their app on an open Twitter API, later had to contend with Twitter slowly cutting off access to more and more info. Faced with this, some (like Twint) moved to scraping the mobile interface instead of dealing with a stingy API.",
+      "year": 2020,
+      "date": "Mon Oct 05 14:48:10 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1313128142337445888",
+      "text": "Twitter has spent the past week or so slowly crippling the developer ecosystem, I have heard about issues with Tweetbot, twint, and now with blocklists. If their plan to prepare for the election is to cripple all APIs and 3rd-party devs... it isn’t much of a plan. https://t.co/RhqTNw2SQh",
+      "year": 2020,
+      "date": "Mon Oct 05 14:45:20 +0000 2020",
+      "favorites": 1,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "651042009067712512",
+      "text": "@netouhey Thank you! @jamietarabay @shanedkavanaugh @vocativ @ONAConf",
+      "year": 2015,
+      "date": "Mon Oct 05 14:31:25 +0000 2015",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "EmmanuelTouhey"
+    },
+    {
+      "id": "1313123176562466818",
+      "text": "Does anyone else get the distinct sense that pollsters, pundits, campaign staffers, etc have not made any meaningful change to how they operate or see the world since Trump won in 2016?",
+      "year": 2020,
+      "date": "Mon Oct 05 14:25:36 +0000 2020",
+      "favorites": 4,
+      "retweets": 2,
+      "replyTo": null
+    },
+    {
+      "id": "4621422058",
+      "text": "Setting my alarm for 20 minutes later.",
+      "year": 2009,
+      "date": "Mon Oct 05 05:00:20 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -535,7 +625,16 @@
       "id": "315237172",
       "text": "Starving, thus dinner.",
       "year": 2007,
-      "date": "2007-10-05",
+      "date": "Fri Oct 05 22:23:42 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1048322967917289472",
+      "text": "RT @ClintSmithIII: BlackLivesMatter &amp; MeToo &amp; Occupy have generated more honest public discourse on how racism &amp; sexism &amp; capitalism impact…",
+      "year": 2018,
+      "date": "Fri Oct 05 21:24:07 +0000 2018",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -544,7 +643,7 @@
       "id": "315070962",
       "text": "Got '10 Days That Shook The World' by John Reed. Can't wait.",
       "year": 2007,
-      "date": "2007-10-05",
+      "date": "Fri Oct 05 20:52:28 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -553,7 +652,25 @@
       "id": "314915332",
       "text": "Home now, time for some Numb3rs.",
       "year": 2007,
-      "date": "2007-10-05",
+      "date": "Fri Oct 05 19:08:15 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "254288305682800640",
+      "text": "RT @sdw: If you want to honor Steve, don't mourn. Do your best work every day. Live your life to the fullest. Never settle. \n\nHis spirit ...",
+      "year": 2012,
+      "date": "Fri Oct 05 18:33:51 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "254266913683820544",
+      "text": "Animal collective show got cancelled. We are very sad.   @ Metro North / NJT - Harriman Station (MBPJ) http://t.co/R9Q3U5H0",
+      "year": 2012,
+      "date": "Fri Oct 05 17:08:50 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -562,8 +679,17 @@
       "id": "314422152",
       "text": "Outside for lunch. Weather's awesome.",
       "year": 2007,
-      "date": "2007-10-05",
+      "date": "Fri Oct 05 15:07:18 +0000 2007",
       "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1048192145306394624",
+      "text": "The decisons required to gain and maintain wealth are inherently immoral.",
+      "year": 2018,
+      "date": "Fri Oct 05 12:44:16 +0000 2018",
+      "favorites": 1,
       "retweets": 0,
       "replyTo": null
     },
@@ -571,7 +697,7 @@
       "id": "313944122",
       "text": "Dude, no one gives a fuck what you're listening to. Stop singing.",
       "year": 2007,
-      "date": "2007-10-05",
+      "date": "Fri Oct 05 10:52:28 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -580,25 +706,7 @@
       "id": "313901542",
       "text": "Outside for the bus. Stole some extra sleep.",
       "year": 2007,
-      "date": "2007-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "313204072",
-      "text": "Bed time for me indeed.",
-      "year": 2007,
-      "date": "2007-10-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "313127852",
-      "text": "Playing Hex with Nietzche",
-      "year": 2007,
-      "date": "2007-10-05",
+      "date": "Fri Oct 05 10:24:27 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -607,67 +715,9 @@
   "posts": [
     {
       "slug": "drafts/_stale/food-log",
-      "title": "Food Log",
-      "year": 2024,
-      "date": "2024-10-05T16:05:41.000Z",
       "dek": null,
-      "type": "post",
-      "tags": ["health", "nutrition"]
+      "year": 2024,
+      "date": "2024-10-05T16:05:41.000Z"
     }
-  ],
-  "scrobbles": [
-    {
-      "date": "2018-10-05",
-      "year": 2018,
-      "count": 15,
-      "topTracks": [
-        "Mahalia - I Wish I Missed My Ex",
-        "Odie - Story",
-        "Charlotte Day Wilson - Nothing New",
-        "shagabond - Arouse",
-        "Elujay - Starchild"
-      ],
-      "topArtists": ["Mahalia", "Odie", "Charlotte Day Wilson"]
-    },
-    {
-      "date": "2008-10-05",
-      "year": 2008,
-      "count": 86,
-      "topTracks": [
-        "Regina Spektor - Whisper",
-        "Bob Marley - Could You Be Loved",
-        "Lupe Fiasco - Paris, Tokyo",
-        "Eminem - Soap",
-        "Shwayze - Don't Be Shy"
-      ],
-      "topArtists": ["Regina Spektor", "Bob Marley", "Lupe Fiasco"]
-    },
-    {
-      "date": "2007-10-05",
-      "year": 2007,
-      "count": 56,
-      "topTracks": [
-        "The White Stripes - Jumble, Jumble",
-        "Tech N9ne - Caribou Lou",
-        "Death Cab for Cutie - Two Cars",
-        "Tech N9ne - Absolute Power",
-        "El-P - No Kings"
-      ],
-      "topArtists": ["The White Stripes", "Tech N9ne", "Death Cab for Cutie"]
-    },
-    {
-      "date": "2006-10-05",
-      "year": 2006,
-      "count": 98,
-      "topTracks": [
-        "Styrofoam - couches in alleys",
-        "Death Cab for Cutie - Company Calls",
-        "Death Cab for Cutie - Lightness",
-        "The Postal Service - This Place Is a Prison",
-        "Death Cab for Cutie - Someday You Will Be Loved"
-      ],
-      "topArtists": ["Styrofoam", "Death Cab for Cutie", "The Postal Service"]
-    }
-  ],
-  "commits": []
+  ]
 }

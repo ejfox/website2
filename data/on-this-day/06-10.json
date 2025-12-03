@@ -1,271 +1,10 @@
 {
   "tweets": [
     {
-      "id": "1667655659670601731",
-      "text": "https://t.co/uqalMeL4TW",
-      "year": 2023,
-      "date": "2023-06-10",
-      "favorites": 3,
-      "retweets": 1,
-      "replyTo": null
-    },
-    {
-      "id": "1535359596549787649",
-      "text": "keep your shows to yourself until you are ready to let me watch them, thats all I am saying",
-      "year": 2022,
-      "date": "2022-06-10",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1535359496398184449",
-      "text": "borderline cruel to advertise an interesting show to me two weeks before it comes out, what exactly am I supposed to do with this information for the next 13 days?",
-      "year": 2022,
-      "date": "2022-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1535265652516216834",
-      "text": "RT @KeziyahL: Because if you're saying:\n\n\"Don't criticize people who take a job at [Evil Tech Co] because they need the money\"\n\nYou're also…",
-      "year": 2022,
-      "date": "2022-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1535239638767521794",
-      "text": "If someone, extremely hypothetically, was like, I will pay you $$$ more a year, but- there is the off chance that due to reasons out of your control, I will be really mad and mean sometimes, I am old enough that the dollar figure for that has dramatically out-paced inflation",
-      "year": 2022,
-      "date": "2022-06-10",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1535238525469212678",
-      "text": "Obviously not literally, but also, sometimes very literally",
-      "year": 2022,
-      "date": "2022-06-10",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1535238459450970115",
-      "text": "The reason I am not a rich man is because my personality would rather pay a stranger hundreds of dollars than have them be a little mad at / mean to me",
-      "year": 2022,
-      "date": "2022-06-10",
-      "favorites": 3,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1535213546136555522",
-      "text": "@karaswisher @profgalloway What about your colleagues who are asking for a fair wage?",
-      "year": 2022,
-      "date": "2022-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "karaswisher"
-    },
-    {
-      "id": "1535116326833905665",
-      "text": "@Bankoff @karaswisher Give your workers a fair contract",
-      "year": 2022,
-      "date": "2022-06-10",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": "Bankoff"
-    },
-    {
-      "id": "1535115305365676033",
-      "text": "The thing that is jarring to me in every single video of January 6th, as someone who has attended dozens of protests/events in DC, is how there are fewer police than I have ever seen before, I really hope the committee solves that mystery",
-      "year": 2022,
-      "date": "2022-06-10",
-      "favorites": 3,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1403062855746863104",
-      "text": "Would inspire a lot more confidence if pro-cryptocurrency people would respond to criticisms of the ecological impact of BTC and ETH in good faith instead of resorting to whataboutism and casting anyone who asks the question as either ignorant or malicious",
-      "year": 2021,
-      "date": "2021-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1403057388287057931",
-      "text": "RT @DanielLarison: The cycle:\n\n1) Omar says something true that embarrasses hawks.\n\n2) Republican hawks launch bad faith attacks misreprese…",
-      "year": 2021,
-      "date": "2021-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1402965867743301637",
-      "text": "there's always random ass dudes on my property and they are always wild offended when I'm like \"uhhh who the fuck are you\"",
-      "year": 2021,
-      "date": "2021-06-10",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1402958513748549632",
-      "text": "RT @rafaelshimunov: Listen #istandwithIlhan and all people who speak against war crimes, especially refugees like Rep Ilhan Omar who escape…",
-      "year": 2021,
-      "date": "2021-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1270726120598638592",
-      "text": "\"so long and thanks for all the fish\" https://t.co/hXQJfCdBNM",
-      "year": 2020,
-      "date": "2020-06-10",
-      "favorites": 5,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1005953896961978369",
-      "text": "RT @417am1975: 3-4-1528672849819 #bot2bot @pixelsorter https://t.co/jMVRMB3bHl",
-      "year": 2018,
-      "date": "2018-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1005950857198874624",
-      "text": "RT @417am1975: 11-6-5-1528568478957 https://t.co/uaCB5JWBgO",
-      "year": 2018,
-      "date": "2018-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1005918528938102784",
-      "text": "For the past week I’ve been trying to learn how to sketch people in watercolor https://t.co/SuU4CEdNJ5 https://t.co/sCTcg0imca",
-      "year": 2018,
-      "date": "2018-06-10",
-      "favorites": 5,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1005865051176275970",
-      "text": "in the intro to this season of cops, they edited a clip of a cop smashing a window to time perfectly with the rhythm of “bad boys, bad boys” and that attention to detail is just another reason this show is great and deserves a 31st season",
-      "year": 2018,
-      "date": "2018-06-10",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1005864520487723009",
-      "text": "live resin is the best innovation in the cannabis industry in the past decade",
-      "year": 2018,
-      "date": "2018-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1005862905223569408",
-      "text": "@viceland can you ask mero to stop calling me stupid every time I finish a youtube video",
-      "year": 2018,
-      "date": "2018-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "VICETV"
-    },
-    {
-      "id": "1005861126012272642",
-      "text": "NEW SEASON OF COPS\n\nTHE SUNDAY RITUAL IS BACK",
-      "year": 2018,
-      "date": "2018-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "741360874875686913",
-      "text": "Last day here at @vocativ is bittersweet- but Rob is playing \"I Don't Wanna Wait\" so everything will be okay",
-      "year": 2016,
-      "date": "2016-06-10",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "741297828098625536",
-      "text": "I think I've found the gender issue I care about the least https://t.co/Bl3TgrBijM",
-      "year": 2016,
-      "date": "2016-06-10",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "741287722040594432",
-      "text": "@Joshochos I'm not even there yet",
-      "year": 2016,
-      "date": "2016-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "Joshochos"
-    },
-    {
-      "id": "741280516381495296",
-      "text": "@CapobiaNB @xoloboy truth https://t.co/vw0w3lWBmX",
-      "year": 2016,
-      "date": "2016-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "CapobiaNB"
-    },
-    {
-      "id": "741280221660368896",
-      "text": "RT @CapobiaNB: I remember when OWS was an anticapitalist mvmt. The media came &amp; brought every kind of liberal you could CONJURE! https://t.…",
-      "year": 2016,
-      "date": "2016-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "741279693463228420",
-      "text": "RT @NYCMayorsOffice: You’ll soon see these ads wherever you go. Because in NYC, we look past pink and blue. #AskTheMayor https://t.co/AFVxb…",
-      "year": 2016,
-      "date": "2016-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "741278913779929088",
-      "text": "RT @YourAnonNews: Remember when BART blocked cell signal during #OpBART protests? Fucker who ordered it now runs Oakland PD. #MuBARTek http…",
-      "year": 2016,
-      "date": "2016-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "741274406308220932",
-      "text": "RT @Shidash: “A rapist lives here” graffiti on @ioerror's house. This mob has gone too far. This is not justice. https://t.co/3o6wYir2tq",
-      "year": 2016,
-      "date": "2016-06-10",
+      "id": "476531492617990144",
+      "text": "RT @erichippeau: Just learned that 11% of private sector jobs come from venture-backed companies. I bet this will double within 10 years #V…",
+      "year": 2014,
+      "date": "Wed Jun 11 01:08:56 +0000 2014",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -274,205 +13,7 @@
       "id": "608765441343918080",
       "text": "RT @jamietarabay: Includes remarkable illo from @this_is_RAD Here's how many solitary prison cells fit in ur apartment @tjenningsbrown  htt…",
       "year": 2015,
-      "date": "2015-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "608720998565842944",
-      "text": "RT @vocativ: Here's how many solitary confinement prison cells fit in your apartment.  http://t.co/JqK5DaNBhM http://t.co/szujNv4NRe",
-      "year": 2015,
-      "date": "2015-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "608628152974368768",
-      "text": "RT @conradhackett: Each dot represents a US adult's guess about the location of Ukraine\n http://t.co/9eqXRZ1JuB http://t.co/gPeSgRsOBw",
-      "year": 2015,
-      "date": "2015-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "608440844337713154",
-      "text": "My new testing/sample dataset  https://t.co/KpPZZLt1A4",
-      "year": 2015,
-      "date": "2015-06-10",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "608440045251518466",
-      "text": "RT @OaklandElle: ... but if I don't wear all black, how will they be able to tell I'm on the anarchy team?",
-      "year": 2015,
-      "date": "2015-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "476408378697076738",
-      "text": "RT @otaku_coder: Awesome work @enoex @BausOfTheNauf! http://t.co/zBooCFHgUW",
-      "year": 2014,
-      "date": "2014-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "343999002234200064",
-      "text": "@enjalot You wanna google hangout sometime this week and make some issues / a milestone for Tributary.io ?",
-      "year": 2013,
-      "date": "2013-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "enjalot"
-    },
-    {
-      "id": "343977453053681664",
-      "text": "The line between \"this week\" and \"next week\" is arbitrary, sure, but not to be trifled with.",
-      "year": 2013,
-      "date": "2013-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "343952570827550720",
-      "text": "RT @codinghorror: We should all be regularly donating to the EFF anyway https://t.co/CwMXdA31eZ",
-      "year": 2013,
-      "date": "2013-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "343952556239765504",
-      "text": "RT @codinghorror: Can all your moral privacy outrage slacktivism and just donate to the damn EFF already",
-      "year": 2013,
-      "date": "2013-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "211876324262944769",
-      "text": "RT @AmberLyon: Another journalist told me he feels I'm ruining my journo rep by covering #Occupy mvmt &amp; #Anonymous. Told him to go f ...",
-      "year": 2012,
-      "date": "2012-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "211664434693812224",
-      "text": "@enjalot omfg that kit is one of the sickest things I have seen in a while",
-      "year": 2012,
-      "date": "2012-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "enjalot"
-    },
-    {
-      "id": "211657249016381440",
-      "text": "RT @tasneemraja: Things that come in through the bathroom window: the scent of weed, the sounds of weed offerings, prob. weed droplets i ...",
-      "year": 2012,
-      "date": "2012-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "211648366784942080",
-      "text": "RT @titocurtis: Cop car being smashed on montagne and ste cath, cops still inside. Oh dear #ggi",
-      "year": 2012,
-      "date": "2012-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "211647498777927680",
-      "text": "So I left New York for a whole and now everyone I know knows everyone else I know. That sounds normal, but, well, it’s a bit odd.",
-      "year": 2012,
-      "date": "2012-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "211609859920113664",
-      "text": "RT @JadAbumrad: Pitch perfect! RT @stevesilberman - This Neal Stephenson vid on how to fix swordfighting in video games is genius. http: ...",
-      "year": 2012,
-      "date": "2012-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "79224545248161792",
-      "text": "Not freelancing anymore is like being single for a long time and then suddenly having a girlfriend. Leftover cologne... freelancer sites...",
-      "year": 2011,
-      "date": "2011-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "79189468493512704",
-      "text": "Having The Daily Show and Colbert Report back honestly makes me more productive. I watch 'em when I wake up, puts me in a good mood.",
-      "year": 2011,
-      "date": "2011-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "15835636559",
-      "text": "Working on a redesign of my site.",
-      "year": 2010,
-      "date": "2010-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "15834051221",
-      "text": "GOOGLE YOU DID NOT YOU ARE SO UGLY WHAT THE HELL IS THIS",
-      "year": 2010,
-      "date": "2010-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "15818918325",
-      "text": "YAY I JUST HAD AN IDEA FOR SOMETHING I'VE BEEN WAITING FOR THAT FEELING FOR 2 DAYS",
-      "year": 2010,
-      "date": "2010-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "15818745073",
-      "text": "@kitsunenoir Reminds me of my iPhone color calendar: http://app.birnimal.net/en/iphoneapp/colorendar",
-      "year": 2010,
-      "date": "2010-06-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "BobbySolomon"
-    },
-    {
-      "id": "15815270841",
-      "text": "I'm bored there's no one arounddddd",
-      "year": 2010,
-      "date": "2010-06-10",
+      "date": "Wed Jun 10 22:39:26 +0000 2015",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -481,7 +22,7 @@
       "id": "2108616078",
       "text": "I wish Illustrator had a different undo history for each layer. How bangin' would that be?",
       "year": 2009,
-      "date": "2009-06-10",
+      "date": "Wed Jun 10 21:29:13 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -490,7 +31,7 @@
       "id": "2108382308",
       "text": "HEY, WEST COAST? COULDN'T YOU HAVE HAD SOME MORE COLLEGES ON THE WEST COAST BE IN THE TOP 25? WOULD MAKE THIS INFOGRAPHIC A LOT EASIER.",
       "year": 2009,
-      "date": "2009-06-10",
+      "date": "Wed Jun 10 21:09:09 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -499,7 +40,16 @@
       "id": "2107565294",
       "text": "It still kind of baffles me that I use Illustrator every day. To do my job. It was not that long ago I went \"I should learn Illustrator...\"",
       "year": 2009,
-      "date": "2009-06-10",
+      "date": "Wed Jun 10 20:01:46 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "608720998565842944",
+      "text": "RT @vocativ: Here's how many solitary confinement prison cells fit in your apartment.  http://t.co/JqK5DaNBhM http://t.co/szujNv4NRe",
+      "year": 2015,
+      "date": "Wed Jun 10 19:42:50 +0000 2015",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -508,7 +58,25 @@
       "id": "2105018506",
       "text": "Caffeinated butterfinger. It's kind of how I get work done.",
       "year": 2009,
-      "date": "2009-06-10",
+      "date": "Wed Jun 10 16:21:29 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1270726120598638592",
+      "text": "\"so long and thanks for all the fish\" https://t.co/hXQJfCdBNM",
+      "year": 2020,
+      "date": "Wed Jun 10 14:34:50 +0000 2020",
+      "favorites": 5,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "608628152974368768",
+      "text": "RT @conradhackett: Each dot represents a US adult's guess about the location of Ukraine\n http://t.co/9eqXRZ1JuB http://t.co/gPeSgRsOBw",
+      "year": 2015,
+      "date": "Wed Jun 10 13:33:54 +0000 2015",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -517,147 +85,519 @@
       "id": "2100416123",
       "text": "TEDIOUS DATA, I SHALL MANIPULATE YOU SO I CAN MAKE PRETTY PICTURES THAT ACTUALLY MEAN SOMETHING.",
       "year": 2009,
-      "date": "2009-06-10",
+      "date": "Wed Jun 10 06:31:48 +0000 2009",
       "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "344276686260559874",
+      "text": "How did no one think that making a religion around the concept of \"all your wrongdoings have already been forgiven\" might have ramifications",
+      "year": 2013,
+      "date": "Tue Jun 11 02:15:33 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "344246572978159616",
+      "text": "Thinking of selling my apple stock and buying bitcoins. Because thats just how the future is looking right now.",
+      "year": 2013,
+      "date": "Tue Jun 11 00:15:53 +0000 2013",
+      "favorites": 0,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "476408378697076738",
+      "text": "RT @otaku_coder: Awesome work @enoex @BausOfTheNauf! http://t.co/zBooCFHgUW",
+      "year": 2014,
+      "date": "Tue Jun 10 16:59:43 +0000 2014",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "2112668479",
+      "text": "\"How's Hulu doing? Anything new on the hu?\"",
+      "year": 2009,
+      "date": "Thu Jun 11 03:42:47 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1403062855746863104",
+      "text": "Would inspire a lot more confidence if pro-cryptocurrency people would respond to criticisms of the ecological impact of BTC and ETH in good faith instead of resorting to whataboutism and casting anyone who asks the question as either ignorant or malicious",
+      "year": 2021,
+      "date": "Thu Jun 10 18:53:47 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1403057388287057931",
+      "text": "RT @DanielLarison: The cycle:\n\n1) Omar says something true that embarrasses hawks.\n\n2) Republican hawks launch bad faith attacks misreprese…",
+      "year": 2021,
+      "date": "Thu Jun 10 18:32:03 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1402965867743301637",
+      "text": "there's always random ass dudes on my property and they are always wild offended when I'm like \"uhhh who the fuck are you\"",
+      "year": 2021,
+      "date": "Thu Jun 10 12:28:23 +0000 2021",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1402958513748549632",
+      "text": "RT @rafaelshimunov: Listen #istandwithIlhan and all people who speak against war crimes, especially refugees like Rep Ilhan Omar who escape…",
+      "year": 2021,
+      "date": "Thu Jun 10 11:59:10 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "15835636559",
+      "text": "Working on a redesign of my site.",
+      "year": 2010,
+      "date": "Thu Jun 10 08:01:04 +0000 2010",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "15834051221",
+      "text": "GOOGLE YOU DID NOT YOU ARE SO UGLY WHAT THE HELL IS THIS",
+      "year": 2010,
+      "date": "Thu Jun 10 07:18:43 +0000 2010",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1667703477387112449",
+      "text": "can my robot create gists? yes\n\ncan it create them with newlines? no",
+      "year": 2023,
+      "date": "Sun Jun 11 01:21:08 +0000 2023",
+      "favorites": 2,
+      "retweets": 1,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1667684056161501185",
+      "text": "I gotta say, coding up the advanced AI capabilities was a lot easier than convincing the robot he could actually use them, it's like pulling teeth with this guy https://t.co/BIga09MMKV",
+      "year": 2023,
+      "date": "Sun Jun 11 00:03:57 +0000 2023",
+      "favorites": 10,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "1005953896961978369",
+      "text": "RT @417am1975: 3-4-1528672849819 #bot2bot @pixelsorter https://t.co/jMVRMB3bHl",
+      "year": 2018,
+      "date": "Sun Jun 10 23:24:33 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1005950857198874624",
+      "text": "RT @417am1975: 11-6-5-1528568478957 https://t.co/uaCB5JWBgO",
+      "year": 2018,
+      "date": "Sun Jun 10 23:12:28 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1005918528938102784",
+      "text": "For the past week I’ve been trying to learn how to sketch people in watercolor https://t.co/SuU4CEdNJ5 https://t.co/sCTcg0imca",
+      "year": 2018,
+      "date": "Sun Jun 10 21:04:01 +0000 2018",
+      "favorites": 5,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "211876324262944769",
+      "text": "RT @AmberLyon: Another journalist told me he feels I'm ruining my journo rep by covering #Occupy mvmt &amp; #Anonymous. Told him to go f ...",
+      "year": 2012,
+      "date": "Sun Jun 10 17:43:46 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1005865051176275970",
+      "text": "in the intro to this season of cops, they edited a clip of a cop smashing a window to time perfectly with the rhythm of “bad boys, bad boys” and that attention to detail is just another reason this show is great and deserves a 31st season",
+      "year": 2018,
+      "date": "Sun Jun 10 17:31:30 +0000 2018",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1005864520487723009",
+      "text": "live resin is the best innovation in the cannabis industry in the past decade",
+      "year": 2018,
+      "date": "Sun Jun 10 17:29:24 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1005862905223569408",
+      "text": "@viceland can you ask mero to stop calling me stupid every time I finish a youtube video",
+      "year": 2018,
+      "date": "Sun Jun 10 17:22:59 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "VICETV"
+    },
+    {
+      "id": "1005861126012272642",
+      "text": "NEW SEASON OF COPS\n\nTHE SUNDAY RITUAL IS BACK",
+      "year": 2018,
+      "date": "Sun Jun 10 17:15:55 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "741473135388549121",
+      "text": "Visiting SF https://t.co/WafCKvtbeq https://t.co/dByCVtBzqh",
+      "year": 2016,
+      "date": "Sat Jun 11 03:32:26 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1535437460490137602",
+      "text": "total time elapsed since the last time i developed a roll of film https://t.co/5eEtQl5Sg9",
+      "year": 2022,
+      "date": "Sat Jun 11 01:43:12 +0000 2022",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1667655659670601731",
+      "text": "https://t.co/uqalMeL4TW",
+      "year": 2023,
+      "date": "Sat Jun 10 22:11:07 +0000 2023",
+      "favorites": 3,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "211986127912058881",
+      "text": "RT @marymad: note to self: hack into @susie_c's evernote for all the dirt. @garonsen",
+      "year": 2012,
+      "date": "Mon Jun 11 01:00:06 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "211982565366710272",
+      "text": "RT @susie_c: @garonsen I use Evernote for everything now; the cloud storage is really convenient.",
+      "year": 2012,
+      "date": "Mon Jun 11 00:45:56 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "211975383912955904",
+      "text": ".@garonsen Try out Mac only IA Writer and then try to use any other text editor again. I dare you.  @OakScott",
+      "year": 2012,
+      "date": "Mon Jun 11 00:17:24 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "garonsen"
+    },
+    {
+      "id": "343999002234200064",
+      "text": "@enjalot You wanna google hangout sometime this week and make some issues / a milestone for Tributary.io ?",
+      "year": 2013,
+      "date": "Mon Jun 10 07:52:07 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "enjalot"
+    },
+    {
+      "id": "343977453053681664",
+      "text": "The line between \"this week\" and \"next week\" is arbitrary, sure, but not to be trifled with.",
+      "year": 2013,
+      "date": "Mon Jun 10 06:26:30 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "343952570827550720",
+      "text": "RT @codinghorror: We should all be regularly donating to the EFF anyway https://t.co/CwMXdA31eZ",
+      "year": 2013,
+      "date": "Mon Jun 10 04:47:37 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "343952556239765504",
+      "text": "RT @codinghorror: Can all your moral privacy outrage slacktivism and just donate to the damn EFF already",
+      "year": 2013,
+      "date": "Mon Jun 10 04:47:34 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1403175343645728771",
+      "text": "Delighted by the idea of the possibilities for a virtual shared space or gallery \"on rails\" or with events that move all the participants to a different space... magical spatial interactions https://t.co/zgXnBWeSTx",
+      "year": 2021,
+      "date": "Fri Jun 11 02:20:46 +0000 2021",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1403174968234553347",
+      "text": "cc @visakanv any best practices for intertwining threads with another person? https://t.co/tBTh8ui8Nh",
+      "year": 2021,
+      "date": "Fri Jun 11 02:19:16 +0000 2021",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1403174775342747653",
+      "text": "I really love the guidance Apple released on designing for spatial interaction: https://t.co/bzk2IwO5Pz https://t.co/ehhJgoSgP3",
+      "year": 2021,
+      "date": "Fri Jun 11 02:18:30 +0000 2021",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1403174503707037696",
+      "text": "a thread of thoughts and resources on computing for physical space / VR to be intertwined with a thread from \n@enjalot\n\nwe keep sending each other links but no reason to keep secrets\n\nhttps://t.co/rlHnkZkXeL",
+      "year": 2021,
+      "date": "Fri Jun 11 02:17:26 +0000 2021",
+      "favorites": 7,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "1403169597461827586",
+      "text": "i find this deeply delightful https://t.co/sI9ZycVzSW",
+      "year": 2021,
+      "date": "Fri Jun 11 01:57:56 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1403165704975683589",
+      "text": "RT @BreeNewsome: Can you imagine if every single day there were 3 new videos of fast food employees poisoning food &amp; not being fired? Would…",
+      "year": 2021,
+      "date": "Fri Jun 11 01:42:28 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1535359596549787649",
+      "text": "keep your shows to yourself until you are ready to let me watch them, thats all I am saying",
+      "year": 2022,
+      "date": "Fri Jun 10 20:33:48 +0000 2022",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1535359496398184449",
+      "text": "borderline cruel to advertise an interesting show to me two weeks before it comes out, what exactly am I supposed to do with this information for the next 13 days?",
+      "year": 2022,
+      "date": "Fri Jun 10 20:33:24 +0000 2022",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "741360874875686913",
+      "text": "Last day here at @vocativ is bittersweet- but Rob is playing \"I Don't Wanna Wait\" so everything will be okay",
+      "year": 2016,
+      "date": "Fri Jun 10 20:06:21 +0000 2016",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "79224545248161792",
+      "text": "Not freelancing anymore is like being single for a long time and then suddenly having a girlfriend. Leftover cologne... freelancer sites...",
+      "year": 2011,
+      "date": "Fri Jun 10 16:32:58 +0000 2011",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "741297828098625536",
+      "text": "I think I've found the gender issue I care about the least https://t.co/Bl3TgrBijM",
+      "year": 2016,
+      "date": "Fri Jun 10 15:55:49 +0000 2016",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "741287722040594432",
+      "text": "@Joshochos I'm not even there yet",
+      "year": 2016,
+      "date": "Fri Jun 10 15:15:40 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "Joshochos"
+    },
+    {
+      "id": "741280516381495296",
+      "text": "@CapobiaNB @xoloboy truth https://t.co/vw0w3lWBmX",
+      "year": 2016,
+      "date": "Fri Jun 10 14:47:02 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "CapobiaNB"
+    },
+    {
+      "id": "741280221660368896",
+      "text": "RT @CapobiaNB: I remember when OWS was an anticapitalist mvmt. The media came &amp; brought every kind of liberal you could CONJURE! https://t.…",
+      "year": 2016,
+      "date": "Fri Jun 10 14:45:51 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "741279693463228420",
+      "text": "RT @NYCMayorsOffice: You’ll soon see these ads wherever you go. Because in NYC, we look past pink and blue. #AskTheMayor https://t.co/AFVxb…",
+      "year": 2016,
+      "date": "Fri Jun 10 14:43:45 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "741278913779929088",
+      "text": "RT @YourAnonNews: Remember when BART blocked cell signal during #OpBART protests? Fucker who ordered it now runs Oakland PD. #MuBARTek http…",
+      "year": 2016,
+      "date": "Fri Jun 10 14:40:39 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "741274406308220932",
+      "text": "RT @Shidash: “A rapist lives here” graffiti on @ioerror's house. This mob has gone too far. This is not justice. https://t.co/3o6wYir2tq",
+      "year": 2016,
+      "date": "Fri Jun 10 14:22:45 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1535265652516216834",
+      "text": "RT @KeziyahL: Because if you're saying:\n\n\"Don't criticize people who take a job at [Evil Tech Co] because they need the money\"\n\nYou're also…",
+      "year": 2022,
+      "date": "Fri Jun 10 14:20:30 +0000 2022",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "79189468493512704",
+      "text": "Having The Daily Show and Colbert Report back honestly makes me more productive. I watch 'em when I wake up, puts me in a good mood.",
+      "year": 2011,
+      "date": "Fri Jun 10 14:13:35 +0000 2011",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1535239638767521794",
+      "text": "If someone, extremely hypothetically, was like, I will pay you $$$ more a year, but- there is the off chance that due to reasons out of your control, I will be really mad and mean sometimes, I am old enough that the dollar figure for that has dramatically out-paced inflation",
+      "year": 2022,
+      "date": "Fri Jun 10 12:37:07 +0000 2022",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1535238525469212678",
+      "text": "Obviously not literally, but also, sometimes very literally",
+      "year": 2022,
+      "date": "Fri Jun 10 12:32:42 +0000 2022",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1535238459450970115",
+      "text": "The reason I am not a rich man is because my personality would rather pay a stranger hundreds of dollars than have them be a little mad at / mean to me",
+      "year": 2022,
+      "date": "Fri Jun 10 12:32:26 +0000 2022",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1535213546136555522",
+      "text": "@karaswisher @profgalloway What about your colleagues who are asking for a fair wage?",
+      "year": 2022,
+      "date": "Fri Jun 10 10:53:26 +0000 2022",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "karaswisher"
+    },
+    {
+      "id": "1535116326833905665",
+      "text": "@Bankoff @karaswisher Give your workers a fair contract",
+      "year": 2022,
+      "date": "Fri Jun 10 04:27:08 +0000 2022",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "Bankoff"
+    },
+    {
+      "id": "1535115305365676033",
+      "text": "The thing that is jarring to me in every single video of January 6th, as someone who has attended dozens of protests/events in DC, is how there are fewer police than I have ever seen before, I really hope the committee solves that mystery",
+      "year": 2022,
+      "date": "Fri Jun 10 04:23:04 +0000 2022",
+      "favorites": 3,
       "retweets": 0,
       "replyTo": null
     }
   ],
   "posts": [
     {
-      "slug": "week-notes/2024-24",
-      "title": "2024 24",
-      "year": 2024,
-      "date": "2024-06-10T21:39:36.000Z",
-      "dek": "In which the author embarked on creative projects, recorded coding tutorials, and set goals for future storytelling endeavors.",
-      "type": "post",
-      "tags": [
-        "weekly-notes",
-        "reflections",
-        "progress",
-        "coding",
-        "git",
-        "video",
-        "datajournalism",
-        "visualization",
-        "javascript"
-      ]
-    },
-    {
       "slug": "2018/watercolor-sketching-in-nyc",
-      "title": "Watercolor Sketching In Nyc",
-      "year": 2018,
-      "date": "2018-06-10T14:58:10-04:00",
       "dek": null,
-      "type": "words",
-      "tags": ["art", "documentary", "photography", "watercolor", "inspiration"]
+      "year": 2018,
+      "date": "2018-06-10T14:58:10-04:00"
+    },
+    {
+      "slug": "week-notes/2024-24",
+      "dek": "In which the author embarked on creative projects, recorded coding tutorials, and set goals for future storytelling endeavors.",
+      "year": 2024,
+      "date": "2024-06-10T21:39:36.000Z"
     }
-  ],
-  "scrobbles": [
-    {
-      "date": "2022-06-10",
-      "year": 2022,
-      "count": 31,
-      "topTracks": [
-        "Tarika Blue - Dreamflower",
-        "Gotts Street Park - Ozu",
-        "Bluestaeb - TIBBE",
-        "Ivan Ave - George Duke",
-        "Jeff Parker - cliche"
-      ],
-      "topArtists": ["Tarika Blue", "Gotts Street Park", "Bluestaeb"]
-    },
-    {
-      "date": "2021-06-10",
-      "year": 2021,
-      "count": 39,
-      "topTracks": [
-        "Burna Boy - Pull Up",
-        "Burna Boy - Blak Ryno (Skit)",
-        "Burna Boy - Destiny",
-        "Burna Boy - Different (feat. Damian Marley & Angelique Kidjo)",
-        "Burna Boy - Gbona"
-      ],
-      "topArtists": ["Burna Boy", "Tinariwen", "ygtut"]
-    },
-    {
-      "date": "2020-06-10",
-      "year": 2020,
-      "count": 11,
-      "topTracks": [
-        "Smino - Menu",
-        "Smino - blkswn",
-        "Smino - SUMMER SALT (with Bari)",
-        "Smino - SPINZ",
-        "Smino - blkjuptr"
-      ],
-      "topArtists": ["Smino"]
-    },
-    {
-      "date": "2019-06-10",
-      "year": 2019,
-      "count": 7,
-      "topTracks": [
-        "Smino - Runnin",
-        "Smino - Innamission",
-        "Smino - Silk Pillows",
-        "Smino - Netflix & Dusse",
-        "Smino - kajun"
-      ],
-      "topArtists": ["Smino", "Grateful Dead"]
-    },
-    {
-      "date": "2016-06-10",
-      "year": 2016,
-      "count": 23,
-      "topTracks": [
-        "88-Keys - Stay Up! (Viagra)",
-        "Spek Won - Black Body (feat. Shi Wisdom)",
-        "Dorsh - Big Footsteps feat. Oreo Jones, Innocent - Original Mix",
-        "Tommy Genesis - Angelina",
-        "The Pharcyde - She Said"
-      ],
-      "topArtists": ["88-Keys", "Spek Won", "Dorsh"]
-    },
-    {
-      "date": "2009-06-10",
-      "year": 2009,
-      "count": 93,
-      "topTracks": [
-        "Beirut - Scenic World",
-        "Beirut - My Wife, Lost In The Wild",
-        "Beirut - A Sunday Smile",
-        "Beirut - Mimizan",
-        "Beirut - In the Mausoleum"
-      ],
-      "topArtists": ["Beirut", "The Moth", "Jad Abumrad & Robert Krulwich"]
-    },
-    {
-      "date": "2008-06-10",
-      "year": 2008,
-      "count": 25,
-      "topTracks": [
-        "Death Cab for Cutie - Bixby Canyon Bridge",
-        "Death Cab for Cutie - Grapevine Fires",
-        "Death Cab for Cutie - Pity and Fear",
-        "Death Cab for Cutie - No Sunlight",
-        "Death Cab for Cutie - You Can Do Better Than Me"
-      ],
-      "topArtists": ["Death Cab for Cutie", "Gnarls Barkley", "Bob Marley"]
-    },
-    {
-      "date": "2006-06-10",
-      "year": 2006,
-      "count": 37,
-      "topTracks": [
-        "Eustachian - Dotted Chess",
-        "Slipknot - The Nameless",
-        "The Flaming Tsunamis - Cancer Swing",
-        "The Flaming Tsunamis - Zombie's Vs. Robots!",
-        "The Skatalites - Musical Communion"
-      ],
-      "topArtists": ["Eustachian", "Slipknot", "The Flaming Tsunamis"]
-    }
-  ],
-  "commits": []
+  ]
 }

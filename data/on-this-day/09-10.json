@@ -1,262 +1,10 @@
 {
   "tweets": [
     {
-      "id": "1568452097401659393",
-      "text": "https://t.co/LFNeGHWDW7",
-      "year": 2022,
-      "date": "2022-09-10",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1436418675834298390",
-      "text": "There are 40 editions of page 40, also available for 0.1 tez https://t.co/kKsEgCRPtu ... so on and so forth",
-      "year": 2021,
-      "date": "2021-09-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1436418481306718209",
-      "text": "In the spirit of #OBJKT4OBJKT I minted 50 editions of page 50, available for 0.1 tez https://t.co/VERhEb4tGu https://t.co/NJCLh58Cix",
-      "year": 2021,
-      "date": "2021-09-10",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1436417647667732483",
-      "text": "Just minted a 60-piece collection on #hicetnunc2000 (it took forever) each page is from one my 2017-era watercolor notebooks. I just listed page #1 for auction at @objktcom while I swap the others. https://t.co/WYQfd4BezQ https://t.co/vUIQvctNSk",
-      "year": 2021,
-      "date": "2021-09-10",
-      "favorites": 9,
-      "retweets": 2,
-      "replyTo": null
-    },
-    {
-      "id": "1436412038440423436",
-      "text": "I am attesting that this twitter handle @mrejfox is linked to the Tezos account tz2EzY2GqX4QStwqFfryTyjPR3WeKtKGjRPn for @tzprofiles\n\nsig:spsig19PMW7JVDiZ3dziz9equJ2YhjqzGd3vcF4wH8Y9sJvHNkPa6a3DaTUDVb6QweQHpSG5kAPo4HDyH2prVm1huysSTvwmLbu",
-      "year": 2021,
-      "date": "2021-09-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1436401380068036616",
-      "text": "https://t.co/AZp3jcQCTG",
-      "year": 2021,
-      "date": "2021-09-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1436389248144400389",
-      "text": "@thespite this piece is officially the first piece of digital art I have collected, beautiful work",
-      "year": 2021,
-      "date": "2021-09-10",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "thespite"
-    },
-    {
-      "id": "1436330908219551746",
-      "text": "https://t.co/1tpC7rSlUA",
-      "year": 2021,
-      "date": "2021-09-10",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1304088978417750016",
-      "text": "RT @jbouie: this sounds like a summary execution. https://t.co/2zbWHf8gTD https://t.co/EY9R369dmS",
-      "year": 2020,
-      "date": "2020-09-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1304015419423051776",
-      "text": "When people are terrible and I do not destroy them, how do I ensure they are not confused as to why. I want to choose to be gracious, but I also want them to know they are not being destroyed because of my patience, honed daily, not because of weakness or reluctance.",
-      "year": 2020,
-      "date": "2020-09-10",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1171423406744571906",
-      "text": "🌞",
-      "year": 2019,
-      "date": "2019-09-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "906696169581170688",
-      "text": "RT @krishansonRCF: So... Right as #Irma is about to make landfall, the GFS just spit out a run where Hurricane #Jose directly hits New York…",
-      "year": 2017,
-      "date": "2017-09-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "642092439570907137",
-      "text": "RT @NYDailyNews: NFL fans have some unrealistically high expectations for their teams. (via @vocativ) http://t.co/7Lyw8R6LhM http://t.co/fZ…",
-      "year": 2015,
-      "date": "2015-09-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "642051614354841600",
-      "text": "@TravelingAnna no really working with two sans-serifs is like making graphics with only 2 shades of orange",
-      "year": 2015,
-      "date": "2015-09-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "TravelingAnna"
-    },
-    {
-      "id": "642021003586109440",
-      "text": "RT @WillMcAvoyACN: Well, we're fucked. https://t.co/omRZqM8aDx",
-      "year": 2015,
-      "date": "2015-09-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "641971247694389252",
-      "text": "@JZarracina @voxdotcom sincerely appreciate our shared love of great unit charts",
-      "year": 2015,
-      "date": "2015-09-10",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "JZarracina"
-    },
-    {
-      "id": "377542517895753728",
-      "text": "RT @futurelens: [Video] al-Assad responds to allegations of stockpiles of WMDs, pointing to false media reports before Iraq http://t.co/2dn…",
+      "id": "377603006125965312",
+      "text": "RT @daudig: Is the opposite of being the world's policeman being its self-appointed neighborhood watch guy?",
       "year": 2013,
-      "date": "2013-09-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "377322387412242432",
-      "text": "RT @tributaryio: Potential features for Tributary, sketched out over a year ago on BART. How far we have come! http://t.co/UcEjPmlzjk",
-      "year": 2013,
-      "date": "2013-09-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "377306378353647616",
-      "text": "RT @futurelens: NYT/CBS poll: 80% believe Obama has not clearly explained objectives with Syria. 56% disapproved of his handling of Syria, …",
-      "year": 2013,
-      "date": "2013-09-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "377306364487278592",
-      "text": "RT @futurelens: NYT/CBS poll: 75% believe Syria probably used chemical weapons, 72% say US should stay out of other country's affairs http:…",
-      "year": 2013,
-      "date": "2013-09-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "377261143967793152",
-      "text": "RT @kerem: I don't think using large images on web is a trend. Devices and services get faster and better. Rich media will shine even more …",
-      "year": 2013,
-      "date": "2013-09-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "377260850224300033",
-      "text": "When I die sexism will still be around. When I did racism will still be around. When I did people will still be dying on hunger.",
-      "year": 2013,
-      "date": "2013-09-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "377225777177448448",
-      "text": "Re: HD minecraft, my little brother helped me, and I now have beautiful Minecraft. http://t.co/CmgexuJkdE",
-      "year": 2013,
-      "date": "2013-09-10",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "245271936266027008",
-      "text": "@VizFoSho Looks to be about $1,700 - 100% to democrats - as of April 2011 - http://t.co/YHBjnEsn",
-      "year": 2012,
-      "date": "2012-09-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "245253535866961920",
-      "text": "@munafassaf Aw hell yeah, you're the man. Will definitely take a closer look at this... I love the galaxy of Bill Hicks in that.",
-      "year": 2012,
-      "date": "2012-09-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "munafassaf"
-    },
-    {
-      "id": "245253360763142144",
-      "text": "RT @munafassaf: @mrejfox want my comedian influence graph? I did a super ugly viz of this in about 5 mins and you can do better https:// ...",
-      "year": 2012,
-      "date": "2012-09-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "245233815600115713",
-      "text": "What datasets or APIs exist relating to the 2012 election? http://t.co/OxTqyMeU",
-      "year": 2012,
-      "date": "2012-09-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "245231021304459265",
-      "text": "I want tons of data. More data than I know what to do with. I want so much data I have to spend weeks looking at slices of it just to start.",
-      "year": 2012,
-      "date": "2012-09-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "112318892696801281",
-      "text": "How do I turn a @Visually beta invite into a @dribbble invite? Any takers? #dataviz #dribbble",
-      "year": 2011,
-      "date": "2011-09-10",
+      "date": "Wed Sep 11 01:22:26 +0000 2013",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -265,7 +13,7 @@
       "id": "917048389",
       "text": "I'm gonna go blast music in the kitchen and wash the sink of dishes before parents come home.",
       "year": 2008,
-      "date": "2008-09-10",
+      "date": "Wed Sep 10 23:56:51 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -274,7 +22,7 @@
       "id": "917020929",
       "text": "To be completely honest, I was a little bit excited that the LHC might cause a black hole. It would be exciting, at the very least.",
       "year": 2008,
-      "date": "2008-09-10",
+      "date": "Wed Sep 10 23:24:51 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -283,7 +31,7 @@
       "id": "916988614",
       "text": "Failwhale.",
       "year": 2008,
-      "date": "2008-09-10",
+      "date": "Wed Sep 10 22:47:43 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -292,7 +40,7 @@
       "id": "916131794",
       "text": "Dear America's Toughest Jobs, STOP DOING SHIT IN ALASKA. WE GET IT. IT'S REALLY COLD. EVERY JOB SUCKS.",
       "year": 2008,
-      "date": "2008-09-10",
+      "date": "Wed Sep 10 07:51:36 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -301,34 +49,187 @@
       "id": "916080962",
       "text": "It's about time to head into the studio.",
       "year": 2008,
-      "date": "2008-09-10",
+      "date": "Wed Sep 10 06:29:52 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "915967145",
-      "text": "Spore for the iPhone does not handle phone calls well. =\\",
-      "year": 2008,
-      "date": "2008-09-10",
+      "id": "260332082",
+      "text": "It is time for sleep and yet I am still awake, I very much hope my nap will make me feel refreshed tomorrow In bed listening to Ender's Game",
+      "year": 2007,
+      "date": "Tue Sep 11 03:59:40 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "915937393",
-      "text": "It's funny that they come out with a post-humous Mitch Hedberg album. I've been listening to a lot of Mitch lately. I can't wait.",
-      "year": 2008,
-      "date": "2008-09-10",
+      "id": "260243712",
+      "text": "Listening to Ender's Game. Orson Scott Card is a genius. I should be sleeping right now.",
+      "year": 2007,
+      "date": "Tue Sep 11 03:04:57 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "915833551",
-      "text": "Hungry for some dinner.",
-      "year": 2008,
-      "date": "2008-09-10",
+      "id": "260189812",
+      "text": "Doing some homework... erk. Spanish, Global Studies, Spanish, and English. Earth science tomorrow morning. &gt;.&lt;",
+      "year": 2007,
+      "date": "Tue Sep 11 02:30:25 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "260084462",
+      "text": "Just woke up from a nap. Hm. I wonder what this will do ro my sleeping. Still have homework to do too.",
+      "year": 2007,
+      "date": "Tue Sep 11 01:26:52 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "377542517895753728",
+      "text": "RT @futurelens: [Video] al-Assad responds to allegations of stockpiles of WMDs, pointing to false media reports before Iraq http://t.co/2dn…",
+      "year": 2013,
+      "date": "Tue Sep 10 21:22:05 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1171423406744571906",
+      "text": "🌞",
+      "year": 2019,
+      "date": "Tue Sep 10 14:01:18 +0000 2019",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "377322387412242432",
+      "text": "RT @tributaryio: Potential features for Tributary, sketched out over a year ago on BART. How far we have come! http://t.co/UcEjPmlzjk",
+      "year": 2013,
+      "date": "Tue Sep 10 06:47:22 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "377306378353647616",
+      "text": "RT @futurelens: NYT/CBS poll: 80% believe Obama has not clearly explained objectives with Syria. 56% disapproved of his handling of Syria, …",
+      "year": 2013,
+      "date": "Tue Sep 10 05:43:45 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "377306364487278592",
+      "text": "RT @futurelens: NYT/CBS poll: 75% believe Syria probably used chemical weapons, 72% say US should stay out of other country's affairs http:…",
+      "year": 2013,
+      "date": "Tue Sep 10 05:43:41 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "509869730673729536",
+      "text": "@mibi thanks, and you should, that movie is timeless",
+      "year": 2014,
+      "date": "Thu Sep 11 01:03:11 +0000 2014",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mibi"
+    },
+    {
+      "id": "509860376817565696",
+      "text": "[Teaser] First 63 seconds of M88 - Coming October 2014: http://t.co/2GM95o1rRB via @YouTube",
+      "year": 2014,
+      "date": "Thu Sep 11 00:26:01 +0000 2014",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "642092439570907137",
+      "text": "RT @NYDailyNews: NFL fans have some unrealistically high expectations for their teams. (via @vocativ) http://t.co/7Lyw8R6LhM http://t.co/fZ…",
+      "year": 2015,
+      "date": "Thu Sep 10 21:49:01 +0000 2015",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "642051614354841600",
+      "text": "@TravelingAnna no really working with two sans-serifs is like making graphics with only 2 shades of orange",
+      "year": 2015,
+      "date": "Thu Sep 10 19:06:48 +0000 2015",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "TravelingAnna"
+    },
+    {
+      "id": "642021003586109440",
+      "text": "RT @WillMcAvoyACN: Well, we're fucked. https://t.co/omRZqM8aDx",
+      "year": 2015,
+      "date": "Thu Sep 10 17:05:10 +0000 2015",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1304088978417750016",
+      "text": "RT @jbouie: this sounds like a summary execution. https://t.co/2zbWHf8gTD https://t.co/EY9R369dmS",
+      "year": 2020,
+      "date": "Thu Sep 10 16:06:55 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "641971247694389252",
+      "text": "@JZarracina @voxdotcom sincerely appreciate our shared love of great unit charts",
+      "year": 2015,
+      "date": "Thu Sep 10 13:47:27 +0000 2015",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "JZarracina"
+    },
+    {
+      "id": "1304015419423051776",
+      "text": "When people are terrible and I do not destroy them, how do I ensure they are not confused as to why. I want to choose to be gracious, but I also want them to know they are not being destroyed because of my patience, honed daily, not because of weakness or reluctance.",
+      "year": 2020,
+      "date": "Thu Sep 10 11:14:38 +0000 2020",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "24148634545",
+      "text": "I've completely fallen in love with jitouch. http://ejfox.com/jitouch It's awesome- 3-finger swipe up brings up Things to-do adder.",
+      "year": 2010,
+      "date": "Sat Sep 11 00:00:20 +0000 2010",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1568452097401659393",
+      "text": "https://t.co/LFNeGHWDW7",
+      "year": 2022,
+      "date": "Sat Sep 10 04:11:35 +0000 2022",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "245271936266027008",
+      "text": "@VizFoSho Looks to be about $1,700 - 100% to democrats - as of April 2011 - http://t.co/YHBjnEsn",
+      "year": 2012,
+      "date": "Mon Sep 10 21:26:01 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -337,7 +238,7 @@
       "id": "259693792",
       "text": "Thinking one of these could come in handy in the mornings... http://www.thinkgeek.com/homeoffice/lights/8f1a/",
       "year": 2007,
-      "date": "2007-09-10",
+      "date": "Mon Sep 10 21:13:19 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -346,7 +247,25 @@
       "id": "259677872",
       "text": "Wishing I had significantly more Oyster Crackers. I. Love. Oyster Crackers.",
       "year": 2007,
-      "date": "2007-09-10",
+      "date": "Mon Sep 10 21:04:39 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "245253535866961920",
+      "text": "@munafassaf Aw hell yeah, you're the man. Will definitely take a closer look at this... I love the galaxy of Bill Hicks in that.",
+      "year": 2012,
+      "date": "Mon Sep 10 20:12:54 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "munafassaf"
+    },
+    {
+      "id": "245253360763142144",
+      "text": "RT @munafassaf: @mrejfox want my comedian influence graph? I did a super ugly viz of this in about 5 mins and you can do better https:// ...",
+      "year": 2012,
+      "date": "Mon Sep 10 20:12:12 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -355,7 +274,25 @@
       "id": "259571132",
       "text": "Back home. Chilling with Peter. Very much wanting my memory card to arrive.",
       "year": 2007,
-      "date": "2007-09-10",
+      "date": "Mon Sep 10 19:59:36 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "245233815600115713",
+      "text": "What datasets or APIs exist relating to the 2012 election? http://t.co/OxTqyMeU",
+      "year": 2012,
+      "date": "Mon Sep 10 18:54:32 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "245231021304459265",
+      "text": "I want tons of data. More data than I know what to do with. I want so much data I have to spend weeks looking at slices of it just to start.",
+      "year": 2012,
+      "date": "Mon Sep 10 18:43:26 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -364,7 +301,7 @@
       "id": "259181072",
       "text": "In study hall... reading Philip Dick. Day's close to over.",
       "year": 2007,
-      "date": "2007-09-10",
+      "date": "Mon Sep 10 16:19:17 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -373,161 +310,73 @@
       "id": "258991802",
       "text": "Lunch time. Chinese food apparently. Debating consuming.",
       "year": 2007,
-      "date": "2007-09-10",
+      "date": "Mon Sep 10 14:47:16 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "257633292",
-      "text": "Showering and then passing out. Tomorrow, school again. Afterwards perhaps a huge clean-session.",
-      "year": 2007,
-      "date": "2007-09-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "257559552",
-      "text": "Watching John Tucker Must Die for some reason. wtf.",
-      "year": 2007,
-      "date": "2007-09-10",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    }
-  ],
-  "posts": [],
-  "scrobbles": [
-    {
-      "date": "2023-09-10",
-      "year": 2023,
-      "count": 9,
-      "topTracks": [
-        "James Blake - Asking To Break",
-        "James Blake - Loading",
-        "James Blake - Tell Me",
-        "James Blake - Fall Back",
-        "James Blake - He's Been Wonderful"
-      ],
-      "topArtists": ["James Blake"]
-    },
-    {
-      "date": "2022-09-10",
-      "year": 2022,
-      "count": 20,
-      "topTracks": [
-        "Collard - Sofa",
-        "Tarika Blue - Dreamflower",
-        "Shelton Kilby - Poor Wayfaring Stranger",
-        "Quarteto Em Cy - Tudo Que Voce Podia Ser",
-        "Kemba - Legal Sins"
-      ],
-      "topArtists": ["Collard", "Tarika Blue", "Shelton Kilby"]
-    },
-    {
-      "date": "2021-09-10",
+      "id": "1436418675834298390",
+      "text": "There are 40 editions of page 40, also available for 0.1 tez https://t.co/kKsEgCRPtu ... so on and so forth",
       "year": 2021,
-      "count": 2,
-      "topTracks": [
-        "Sleigh Bells - Crown on the Ground",
-        "Sleigh Bells - Infinity Guitars"
-      ],
-      "topArtists": ["Sleigh Bells"]
+      "date": "Fri Sep 10 19:57:54 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
     },
     {
-      "date": "2020-09-10",
-      "year": 2020,
-      "count": 9,
-      "topTracks": [
-        "Burna Boy - Omo",
-        "Burna Boy - Secret (feat. Jeremih & Serani)",
-        "Burna Boy - Gum Body (feat. Jorja Smith)",
-        "Burna Boy - Collateral Damage",
-        "Burna Boy - Pull Up"
-      ],
-      "topArtists": ["Burna Boy", "A Boogie wit da Hoodie"]
+      "id": "1436418481306718209",
+      "text": "In the spirit of #OBJKT4OBJKT I minted 50 editions of page 50, available for 0.1 tez https://t.co/VERhEb4tGu https://t.co/NJCLh58Cix",
+      "year": 2021,
+      "date": "Fri Sep 10 19:57:07 +0000 2021",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
     },
     {
-      "date": "2019-09-10",
-      "year": 2019,
-      "count": 35,
-      "topTracks": [
-        "Animal Collective - Fireworks",
-        "The Microphones - the Glow, pt. 2",
-        "Earl Sweatshirt - Shattered Dreams",
-        "Earl Sweatshirt - Red Water",
-        "Earl Sweatshirt - Cold Summers"
-      ],
-      "topArtists": ["Animal Collective", "The Microphones", "Earl Sweatshirt"]
+      "id": "1436417647667732483",
+      "text": "Just minted a 60-piece collection on #hicetnunc2000 (it took forever) each page is from one my 2017-era watercolor notebooks. I just listed page #1 for auction at @objktcom while I swap the others. https://t.co/WYQfd4BezQ https://t.co/vUIQvctNSk",
+      "year": 2021,
+      "date": "Fri Sep 10 19:53:49 +0000 2021",
+      "favorites": 9,
+      "retweets": 2,
+      "replyTo": null
     },
     {
-      "date": "2015-09-10",
-      "year": 2015,
-      "count": 8,
-      "topTracks": [
-        "The Weeknd - Tell Your Friends",
-        "The Weeknd - Often",
-        "The Weeknd - The Hills",
-        "The Weeknd - Acquainted",
-        "The Weeknd - Shameless"
-      ],
-      "topArtists": ["The Weeknd"]
+      "id": "1436412038440423436",
+      "text": "I am attesting that this twitter handle @mrejfox is linked to the Tezos account tz2EzY2GqX4QStwqFfryTyjPR3WeKtKGjRPn for @tzprofiles\n\nsig:spsig19PMW7JVDiZ3dziz9equJ2YhjqzGd3vcF4wH8Y9sJvHNkPa6a3DaTUDVb6QweQHpSG5kAPo4HDyH2prVm1huysSTvwmLbu",
+      "year": 2021,
+      "date": "Fri Sep 10 19:31:31 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
     },
     {
-      "date": "2013-09-10",
-      "year": 2013,
-      "count": 9,
-      "topTracks": [
-        "Youth Lagoon - Posters",
-        "Youth Lagoon - Cannons",
-        "Youth Lagoon - Afternoon",
-        "Youth Lagoon - 17",
-        "Youth Lagoon - July"
-      ],
-      "topArtists": ["Youth Lagoon", "Erykah Badu", "El-P"]
+      "id": "1436401380068036616",
+      "text": "https://t.co/AZp3jcQCTG",
+      "year": 2021,
+      "date": "Fri Sep 10 18:49:10 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
     },
     {
-      "date": "2009-09-10",
-      "year": 2009,
-      "count": 65,
-      "topTracks": [
-        "Jad Abumrad & Robert Krulwich - Parasites",
-        "Ben Gibbard - Train Song (Feat. Feist)",
-        "Saul Williams - Scared Money",
-        "Atmosphere - Little Man",
-        "Sublime - What I Got"
-      ],
-      "topArtists": [
-        "Jad Abumrad & Robert Krulwich",
-        "Ben Gibbard",
-        "Saul Williams"
-      ]
+      "id": "1436389248144400389",
+      "text": "@thespite this piece is officially the first piece of digital art I have collected, beautiful work",
+      "year": 2021,
+      "date": "Fri Sep 10 18:00:58 +0000 2021",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "thespite"
     },
     {
-      "date": "2008-09-10",
-      "year": 2008,
-      "count": 115,
-      "topTracks": [
-        "Shwayze - Lazy Days",
-        "Spank Rock - Touch Me",
-        "Jurassic 5 - Quality Control",
-        "Del Tha Funkee Homosapien - Press Rewind",
-        "Lupe Fiasco - Put You on Game"
-      ],
-      "topArtists": ["Shwayze", "Spank Rock", "Jurassic 5"]
-    },
-    {
-      "date": "2007-09-10",
-      "year": 2007,
-      "count": 4,
-      "topTracks": [
-        "Orson Scott Card - Ender's Game: 20th Anniversary Edition (Unabridged), Part 2",
-        "Orson Scott Card - Seventh Son (Unabridged), Part 1",
-        "Orson Scott Card - Shadow of the Giant (Unabridged), Part 1"
-      ],
-      "topArtists": ["Orson Scott Card"]
+      "id": "1436330908219551746",
+      "text": "https://t.co/1tpC7rSlUA",
+      "year": 2021,
+      "date": "Fri Sep 10 14:09:08 +0000 2021",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
     }
-  ],
-  "commits": []
+  ]
 }

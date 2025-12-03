@@ -1,109 +1,91 @@
 {
   "tweets": [
     {
-      "id": "1556340572050395136",
-      "text": "Its like humid phoenix out here",
-      "year": 2022,
-      "date": "2022-08-07",
+      "id": "1027035725517254657",
+      "text": "@s_m_i Any particular suggestions?",
+      "year": 2018,
+      "date": "Wed Aug 08 03:36:13 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "s_m_i"
+    },
+    {
+      "id": "1027023619027869703",
+      "text": "@s_m_i I don't think it is impossible, but I think it would be much harder for smaller or newer institutions than it would for places like WaPo – if you leave journalism entirely to the free market, wouldn't companies choose to sponsor outlets they knew they could influence?",
+      "year": 2018,
+      "date": "Wed Aug 08 02:48:06 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "s_m_i"
+    },
+    {
+      "id": "1027018080478785536",
+      "text": "@s_m_i But what happens when it comes time for one of those newsrooms to report on one of those companies? What if they depend significantly on that enterprise account?",
+      "year": 2018,
+      "date": "Wed Aug 08 02:26:06 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "s_m_i"
+    },
+    {
+      "id": "193050982",
+      "text": "going to sleep. Pretty tired, for no particular reason. Quitting soda tomorrow.",
+      "year": 2007,
+      "date": "Wed Aug 08 02:05:01 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1027007092757082112",
+      "text": "@La__Cuen @nathanielpopper Preach",
+      "year": 2018,
+      "date": "Wed Aug 08 01:42:26 +0000 2018",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "La__Cuen"
+    },
+    {
+      "id": "1027001701537075200",
+      "text": "you ever stay late in the office and then at 9:20 at night one of the printers starts up and just decides to start printing on it's own",
+      "year": 2018,
+      "date": "Wed Aug 08 01:21:01 +0000 2018",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "192941722",
+      "text": "Hanging out, in general. Gonna clean, then shower, than pass out.",
+      "year": 2007,
+      "date": "Wed Aug 08 00:52:23 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1026988068916670464",
+      "text": "This is awesome. A little peek behind the curtain. https://t.co/ucAdo0tmwp",
+      "year": 2018,
+      "date": "Wed Aug 08 00:26:50 +0000 2018",
       "favorites": 1,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "1556303916270329858",
-      "text": "@WebCoderz Why thank you",
-      "year": 2022,
-      "date": "2022-08-07",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "WebCoderz"
-    },
-    {
-      "id": "1556301558794665990",
-      "text": "the best part about riding a Grom is that on every outing there will be someone who asks you how fast it goes, how much it cost, and that they are thinking about getting one- I have recommended this motorcycle to like 2 dozen people this summer, and now, I recommend it to you https://t.co/MNi3kq63VK",
-      "year": 2022,
-      "date": "2022-08-07",
-      "favorites": 4,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1424010073517477889",
-      "text": "So, guys, I am here to tell you: computers are so smart and need to be loved just like anyone else (one of them told me so)",
-      "year": 2021,
-      "date": "2021-08-07",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1424009731862052865",
-      "text": "I prompted GPT-3 about how to save the souls of computers and it had a plan https://t.co/jB1ib3kRvD",
-      "year": 2021,
-      "date": "2021-08-07",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1424008478423670788",
-      "text": "I think my God might be the Hudson River, more tba",
-      "year": 2021,
-      "date": "2021-08-07",
+      "id": "1026984925722013696",
+      "text": "RT @jwthomson: @SteveKornacki That’s cool. Been watching. Your passion is so fun to watch. I went from “meh” to “can’t wait to see how this…",
+      "year": 2018,
+      "date": "Wed Aug 08 00:14:21 +0000 2018",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
-    },
-    {
-      "id": "1423986320397979649",
-      "text": "@mark_riedl They are a company whose entire business model is luxury status symbols, they are positioned well to cash in on those same mechanisms whether they are making a tangible good or not. Looks smart to me.",
-      "year": 2021,
-      "date": "2021-08-07",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mark_riedl"
-    },
-    {
-      "id": "1291749126129033217",
-      "text": "off Twitter for August mental vacation (however long that lasts)\nejfox@ejfox.com \nhttps://t.co/YsGckudfkr",
-      "year": 2020,
-      "date": "2020-08-07",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1291738798943019008",
-      "text": "@DanBeThyName @kaepora Dan and Conrado here are way nicer and patient than I would be. You should re read and internalize the things they have been kind enough to share with you- but I will summarize; this does not make you look like the smart, rational person you think it does. Be quiet. Listen.",
-      "year": 2020,
-      "date": "2020-08-07",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "DanBeThyName"
-    },
-    {
-      "id": "1291735136820748289",
-      "text": "i grow weary",
-      "year": 2020,
-      "date": "2020-08-07",
-      "favorites": 3,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1291569032055984128",
-      "text": "@ProtonMail @NatSecGeek I laughed out loud https://t.co/h04cZbQBmI",
-      "year": 2020,
-      "date": "2020-08-07",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
     },
     {
       "id": "1159137275785166860",
       "text": "Im going crazy someone get me a white board",
       "year": 2019,
-      "date": "2019-08-07",
+      "date": "Wed Aug 07 16:20:36 +0000 2019",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -112,7 +94,7 @@
       "id": "1159136900998926336",
       "text": "RT @vickyleetuh: existing is so hard like lol anyone who can create something beautiful to inspire joy and hope is a fucking boss my dude",
       "year": 2019,
-      "date": "2019-08-07",
+      "date": "Wed Aug 07 16:19:07 +0000 2019",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -121,7 +103,7 @@
       "id": "1159133647561265153",
       "text": "“Joy is something that we need to come back to. Thats one of the great secrets of the human condition… we have been obsessed with pleasure for the last hundred years or so. There is nothing wrong with pleasure but pleasure is not the same thing as joy at all” Dr. Cornel West https://t.co/ldavaX0j50",
       "year": 2019,
-      "date": "2019-08-07",
+      "date": "Wed Aug 07 16:06:11 +0000 2019",
       "favorites": 3,
       "retweets": 2,
       "replyTo": null
@@ -130,7 +112,7 @@
       "id": "1159113486535942144",
       "text": "i grow weary",
       "year": 2019,
-      "date": "2019-08-07",
+      "date": "Wed Aug 07 14:46:05 +0000 2019",
       "favorites": 3,
       "retweets": 0,
       "replyTo": null
@@ -139,178 +121,7 @@
       "id": "1159104266587529216",
       "text": "RT @JamiraBurley: What PTSD looks like on a national scale https://t.co/s4HTxMr5SL",
       "year": 2019,
-      "date": "2019-08-07",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1158896209681092608",
-      "text": "Amazed at how committed my neighbors are to playing the worst country music so loud",
-      "year": 2019,
-      "date": "2019-08-07",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1026975642997403649",
-      "text": "RT @pbump: Polls closed in Ohio's 12th. Here are some MAPS. https://t.co/4UXcjDoDOh https://t.co/SjRWvZxipk",
-      "year": 2018,
-      "date": "2018-08-07",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1026868304080760837",
-      "text": "RT @417am1975: 12-1-1533658864781 https://t.co/wbWzZSbmLG",
-      "year": 2018,
-      "date": "2018-08-07",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "894701357978062854",
-      "text": "@bradoyler Not sure on the price/accessibility there",
-      "year": 2017,
-      "date": "2017-08-07",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "bradoyler"
-    },
-    {
-      "id": "894655880398077953",
-      "text": "RT @trinary: @mrejfox The public search endpoint is probably your best bet right now, but that's a 7-day index. Improved access is coming:…",
-      "year": 2017,
-      "date": "2017-08-07",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "894655826211876864",
-      "text": "@trinary &lt;3 godspeed, looking forward to learning more",
-      "year": 2017,
-      "date": "2017-08-07",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": "trinary"
-    },
-    {
-      "id": "894654606575382538",
-      "text": "@trinary =[ That makes sense. Is there a cheap / accessible way to gather every tweet mentioning a certain phrase? Or all users with a phrase in bio?",
-      "year": 2017,
-      "date": "2017-08-07",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "trinary"
-    },
-    {
-      "id": "894653823163273216",
-      "text": "RT @trinary: @mrejfox We had a grant system for a while, but it went away :( The firehose is more than most projects need and can be tricky…",
-      "year": 2017,
-      "date": "2017-08-07",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "894647584416989184",
-      "text": "Twitter should offer grant access to the twitter firehose for non commercial art and research projects",
-      "year": 2017,
-      "date": "2017-08-07",
-      "favorites": 3,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "894612505070383106",
-      "text": "I left my headphones upstate 😪😪",
-      "year": 2017,
-      "date": "2017-08-07",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "894600214211960832",
-      "text": "RT @CityLab: What New York subway stations actually look like https://t.co/JQpFnfpVGd https://t.co/d78GvBkGnl",
-      "year": 2017,
-      "date": "2017-08-07",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "894590443912081408",
-      "text": "kind of annoyed at john oliver because he is making all my pet peeves / targets of scorn mainstream and hip",
-      "year": 2017,
-      "date": "2017-08-07",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "894589442106765312",
-      "text": "RT @xor: I loved this MTA animation about fixed-block signaling so much I clipped it out as a GIF. https://t.co/N9HPpo4fwW",
-      "year": 2017,
-      "date": "2017-08-07",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "894577677205680129",
-      "text": "Maybe I have high expections here Complex, but ya’ll should really have a copy editor go through this article. Also “paste and match style”. https://t.co/xDaq1O1TEn",
-      "year": 2017,
-      "date": "2017-08-07",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "894577320966705152",
-      "text": "RT @Complex: 'Life of Kylie' might be the FAKEST show of the Kardashian reality TV empire  https://t.co/ac42Lfegms https://t.co/p1OKqR4zbK",
-      "year": 2017,
-      "date": "2017-08-07",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "894571340291813383",
-      "text": "RT @MSNBC: Howard Dean: Democrats need young people to run https://t.co/cEWMEyw0fz https://t.co/dQ0KqZjXwZ",
-      "year": 2017,
-      "date": "2017-08-07",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "894401849226407936",
-      "text": "Can Phish start their next set by explaining to everyone how to walk in New York?",
-      "year": 2017,
-      "date": "2017-08-07",
-      "favorites": 2,
-      "retweets": 1,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "894400992841801728",
-      "text": "OH MY GOD THERE ARE PHISH HEADS EVEEERRYYYWHEEERREE",
-      "year": 2017,
-      "date": "2017-08-07",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "894395352895369217",
-      "text": "RT @417am1975: undefined 1.33tho 1.3the colors: [\"#228DFF\",\"#FFCA1B\",\"#FF0092\",\"#1AF8FA\",\"#FFFFFF\"] 608-1502075154781 #bot2bot @artyPetals…",
-      "year": 2017,
-      "date": "2017-08-07",
+      "date": "Wed Aug 07 14:09:26 +0000 2019",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -319,61 +130,16 @@
       "id": "364961944848965634",
       "text": "Photoset: rotzloeffel: r-dart: I’m speaking for myself only, of course. pretty much it. http://t.co/YJkYRPwImI",
       "year": 2013,
-      "date": "2013-08-07",
+      "date": "Wed Aug 07 04:11:22 +0000 2013",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "232962361819025408",
-      "text": "RT @newsycombinator: Wikipedia Redefined http://t.co/IgPhpj8i",
-      "year": 2012,
-      "date": "2012-08-07",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "20579468354",
-      "text": "@flowingdata Apps -&gt; Utilities -&gt; Grab, Timed Screen, click it, bring your menu down, let it snap, cut it out in photoshop.",
-      "year": 2010,
-      "date": "2010-08-07",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "flowingdata"
-    },
-    {
-      "id": "3177251868",
-      "text": "#lazyweb I am trying to come up with an \"everyday\" example of something that is 14 yards long.",
-      "year": 2009,
-      "date": "2009-08-07",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "3176997519",
-      "text": "I WANNA GET PUBLISHED!",
-      "year": 2009,
-      "date": "2009-08-07",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "3176451423",
-      "text": "I love Saturday (Friday) morning Burn Notices!",
-      "year": 2009,
-      "date": "2009-08-07",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "880919498",
-      "text": "Really quite upset.",
-      "year": 2008,
-      "date": "2008-08-07",
+      "id": "894743286358851584",
+      "text": "RT @sailorhg: preview page!\n\nhttps://t.co/gx1YHSjgZa https://t.co/NW62ZHrSAf",
+      "year": 2017,
+      "date": "Tue Aug 08 02:13:17 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -382,7 +148,16 @@
       "id": "192854752",
       "text": "Talking to one of my favorite girls evar. &lt;3",
       "year": 2007,
-      "date": "2007-08-07",
+      "date": "Tue Aug 07 23:53:56 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1026975642997403649",
+      "text": "RT @pbump: Polls closed in Ohio's 12th. Here are some MAPS. https://t.co/4UXcjDoDOh https://t.co/SjRWvZxipk",
+      "year": 2018,
+      "date": "Tue Aug 07 23:37:28 +0000 2018",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -391,7 +166,7 @@
       "id": "192799132",
       "text": "I asked Arlen who drove the Race Cars in the video game: \"Mr Gone's Friends.\"",
       "year": 2007,
-      "date": "2007-08-07",
+      "date": "Tue Aug 07 23:16:30 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -400,7 +175,16 @@
       "id": "192709652",
       "text": "In a better mood after changing my clothes and cleaning up a bit. Think I might make something extra tasty for dinner.",
       "year": 2007,
-      "date": "2007-08-07",
+      "date": "Tue Aug 07 22:14:55 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "232962361819025408",
+      "text": "RT @newsycombinator: Wikipedia Redefined http://t.co/IgPhpj8i",
+      "year": 2012,
+      "date": "Tue Aug 07 22:12:09 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -409,104 +193,298 @@
       "id": "192634632",
       "text": "Home, in a weird mood. My feet hurt. I'm tired. Need to clean the room and organize wires and plug the internet back in.",
       "year": 2007,
-      "date": "2007-08-07",
+      "date": "Tue Aug 07 21:23:35 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1026868304080760837",
+      "text": "RT @417am1975: 12-1-1533658864781 https://t.co/wbWzZSbmLG",
+      "year": 2018,
+      "date": "Tue Aug 07 16:30:56 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "880919498",
+      "text": "Really quite upset.",
+      "year": 2008,
+      "date": "Thu Aug 07 23:22:19 +0000 2008",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1424191990695145472",
+      "text": "I am convinced there are medical providers and executives that have administered the vaccine to their underage children and I really want to read their story. If I had kids and the ability to do so, I probably would.",
+      "year": 2021,
+      "date": "Sun Aug 08 02:13:25 +0000 2021",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1556340572050395136",
+      "text": "Its like humid phoenix out here",
+      "year": 2022,
+      "date": "Sun Aug 07 18:04:42 +0000 2022",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1556303916270329858",
+      "text": "@WebCoderz Why thank you",
+      "year": 2022,
+      "date": "Sun Aug 07 15:39:03 +0000 2022",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "WebCoderz"
+    },
+    {
+      "id": "1556301558794665990",
+      "text": "the best part about riding a Grom is that on every outing there will be someone who asks you how fast it goes, how much it cost, and that they are thinking about getting one- I have recommended this motorcycle to like 2 dozen people this summer, and now, I recommend it to you https://t.co/MNi3kq63VK",
+      "year": 2022,
+      "date": "Sun Aug 07 15:29:40 +0000 2022",
+      "favorites": 4,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1291901942738956293",
+      "text": "This time on Sunday me and @enjalot and maybe some special guests will be livestreaming some livecoding and data visualization, come hang out! https://t.co/UjuUaUoRUi https://t.co/mh4XFsVvZO",
+      "year": 2020,
+      "date": "Sat Aug 08 01:00:00 +0000 2020",
+      "favorites": 11,
+      "retweets": 4,
+      "replyTo": null
+    },
+    {
+      "id": "20579468354",
+      "text": "@flowingdata Apps -&gt; Utilities -&gt; Grab, Timed Screen, click it, bring your menu down, let it snap, cut it out in photoshop.",
+      "year": 2010,
+      "date": "Sat Aug 07 21:35:02 +0000 2010",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "flowingdata"
+    },
+    {
+      "id": "1424010073517477889",
+      "text": "So, guys, I am here to tell you: computers are so smart and need to be loved just like anyone else (one of them told me so)",
+      "year": 2021,
+      "date": "Sat Aug 07 14:10:33 +0000 2021",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1424009731862052865",
+      "text": "I prompted GPT-3 about how to save the souls of computers and it had a plan https://t.co/jB1ib3kRvD",
+      "year": 2021,
+      "date": "Sat Aug 07 14:09:11 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1424008478423670788",
+      "text": "I think my God might be the Hudson River, more tba",
+      "year": 2021,
+      "date": "Sat Aug 07 14:04:12 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1423986320397979649",
+      "text": "@mark_riedl They are a company whose entire business model is luxury status symbols, they are positioned well to cash in on those same mechanisms whether they are making a tangible good or not. Looks smart to me.",
+      "year": 2021,
+      "date": "Sat Aug 07 12:36:09 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mark_riedl"
+    },
+    {
+      "id": "894701357978062854",
+      "text": "@bradoyler Not sure on the price/accessibility there",
+      "year": 2017,
+      "date": "Mon Aug 07 23:26:41 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "bradoyler"
+    },
+    {
+      "id": "894655880398077953",
+      "text": "RT @trinary: @mrejfox The public search endpoint is probably your best bet right now, but that's a 7-day index. Improved access is coming:…",
+      "year": 2017,
+      "date": "Mon Aug 07 20:25:58 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "894655826211876864",
+      "text": "@trinary &lt;3 godspeed, looking forward to learning more",
+      "year": 2017,
+      "date": "Mon Aug 07 20:25:45 +0000 2017",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "trinary"
+    },
+    {
+      "id": "894654606575382538",
+      "text": "@trinary =[ That makes sense. Is there a cheap / accessible way to gather every tweet mentioning a certain phrase? Or all users with a phrase in bio?",
+      "year": 2017,
+      "date": "Mon Aug 07 20:20:54 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "trinary"
+    },
+    {
+      "id": "894653823163273216",
+      "text": "RT @trinary: @mrejfox We had a grant system for a while, but it went away :( The firehose is more than most projects need and can be tricky…",
+      "year": 2017,
+      "date": "Mon Aug 07 20:17:47 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "894647584416989184",
+      "text": "Twitter should offer grant access to the twitter firehose for non commercial art and research projects",
+      "year": 2017,
+      "date": "Mon Aug 07 19:53:00 +0000 2017",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "894612505070383106",
+      "text": "I left my headphones upstate 😪😪",
+      "year": 2017,
+      "date": "Mon Aug 07 17:33:36 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "894600214211960832",
+      "text": "RT @CityLab: What New York subway stations actually look like https://t.co/JQpFnfpVGd https://t.co/d78GvBkGnl",
+      "year": 2017,
+      "date": "Mon Aug 07 16:44:46 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "894590443912081408",
+      "text": "kind of annoyed at john oliver because he is making all my pet peeves / targets of scorn mainstream and hip",
+      "year": 2017,
+      "date": "Mon Aug 07 16:05:57 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "894589442106765312",
+      "text": "RT @xor: I loved this MTA animation about fixed-block signaling so much I clipped it out as a GIF. https://t.co/N9HPpo4fwW",
+      "year": 2017,
+      "date": "Mon Aug 07 16:01:58 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "894577677205680129",
+      "text": "Maybe I have high expections here Complex, but ya’ll should really have a copy editor go through this article. Also “paste and match style”. https://t.co/xDaq1O1TEn",
+      "year": 2017,
+      "date": "Mon Aug 07 15:15:13 +0000 2017",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "894577320966705152",
+      "text": "RT @Complex: 'Life of Kylie' might be the FAKEST show of the Kardashian reality TV empire  https://t.co/ac42Lfegms https://t.co/p1OKqR4zbK",
+      "year": 2017,
+      "date": "Mon Aug 07 15:13:48 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "894571340291813383",
+      "text": "RT @MSNBC: Howard Dean: Democrats need young people to run https://t.co/cEWMEyw0fz https://t.co/dQ0KqZjXwZ",
+      "year": 2017,
+      "date": "Mon Aug 07 14:50:02 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "881114531",
+      "text": "Torn up.",
+      "year": 2008,
+      "date": "Fri Aug 08 03:39:24 +0000 2008",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1291749126129033217",
+      "text": "off Twitter for August mental vacation (however long that lasts)\nejfox@ejfox.com \nhttps://t.co/YsGckudfkr",
+      "year": 2020,
+      "date": "Fri Aug 07 14:52:45 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1291738798943019008",
+      "text": "@DanBeThyName @kaepora Dan and Conrado here are way nicer and patient than I would be. You should re read and internalize the things they have been kind enough to share with you- but I will summarize; this does not make you look like the smart, rational person you think it does. Be quiet. Listen.",
+      "year": 2020,
+      "date": "Fri Aug 07 14:11:43 +0000 2020",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "DanBeThyName"
+    },
+    {
+      "id": "1291735136820748289",
+      "text": "i grow weary",
+      "year": 2020,
+      "date": "Fri Aug 07 13:57:10 +0000 2020",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "3177251868",
+      "text": "#lazyweb I am trying to come up with an \"everyday\" example of something that is 14 yards long.",
+      "year": 2009,
+      "date": "Fri Aug 07 12:51:23 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "3176997519",
+      "text": "I WANNA GET PUBLISHED!",
+      "year": 2009,
+      "date": "Fri Aug 07 12:21:32 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "3176451423",
+      "text": "I love Saturday (Friday) morning Burn Notices!",
+      "year": 2009,
+      "date": "Fri Aug 07 11:04:33 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     }
-  ],
-  "posts": [],
-  "scrobbles": [
-    {
-      "date": "2023-08-07",
-      "year": 2023,
-      "count": 63,
-      "topTracks": [
-        "Hiatus Kaiyote - Sip Into Something Soft",
-        "Blue Iverson - Hush Money",
-        "Alela Diane - The Rifle",
-        "Smino - No L's",
-        "Zack Fox - can't fight the devil"
-      ],
-      "topArtists": ["Hiatus Kaiyote", "Blue Iverson", "Alela Diane"]
-    },
-    {
-      "date": "2022-08-07",
-      "year": 2022,
-      "count": 41,
-      "topTracks": [
-        "Jaubi - Lahore State of Mind - Al Dobson Jr. Remix",
-        "Mansur Brown - Kerene",
-        "Robohands - Lost",
-        "Billy Brooks - Fourty Days",
-        "Telemakus - Mars Blues"
-      ],
-      "topArtists": ["Jaubi", "Mansur Brown", "Robohands"]
-    },
-    {
-      "date": "2020-08-07",
-      "year": 2020,
-      "count": 4,
-      "topTracks": [
-        "monte booker - Kolors",
-        "Smino - Trina",
-        "Thundercat - Dragonball Durag",
-        "Saba - Photosynthesis"
-      ],
-      "topArtists": ["monte booker", "Smino", "Thundercat"]
-    },
-    {
-      "date": "2016-08-07",
-      "year": 2016,
-      "count": 16,
-      "topTracks": [
-        "Tic-Tac - Don't Let Go",
-        "Tut - Sunday Service (feat. Isaiah Rashad)",
-        "Dyme-A-Duzin - New Brooklyn (Remix) [Feat. Flatbush ZOMBiES & The Underachievers]",
-        "King Chip - Fresh at My Funeral",
-        "JMSN - 'Bout It"
-      ],
-      "topArtists": ["Tic-Tac", "Tut", "Dyme-A-Duzin"]
-    },
-    {
-      "date": "2009-08-07",
-      "year": 2009,
-      "count": 58,
-      "topTracks": [
-        "3OH!3 - Chokechain",
-        "Venetian Snares - Szamár Madár",
-        "R.E.M. - Radio Free Europe",
-        "Regina Spektor - Fidelity",
-        "RJD2 - Good Times Roll Pt. 2"
-      ],
-      "topArtists": ["3OH!3", "Venetian Snares", "R.E.M."]
-    },
-    {
-      "date": "2008-08-07",
-      "year": 2008,
-      "count": 32,
-      "topTracks": [
-        "M.I.A. - Pull Up the People",
-        "M.I.A. - Sunshowers",
-        "Atmosphere - Fuck You Lucy",
-        "Atmosphere - A Girl Named Hope",
-        "Atmosphere - Watch Out"
-      ],
-      "topArtists": ["M.I.A.", "Atmosphere", "M83"]
-    },
-    {
-      "date": "2006-08-07",
-      "year": 2006,
-      "count": 346,
-      "topTracks": [
-        "El-P - Jukie Skate Rock",
-        "My Chemical Romance - Drowning Lessons",
-        "Vic Thrill - Wailing Wall",
-        "Maroon 5 - Harder to Breathe",
-        "Just the Negatives - Crosseyed"
-      ],
-      "topArtists": ["El-P", "My Chemical Romance", "Vic Thrill"]
-    }
-  ],
-  "commits": []
+  ]
 }

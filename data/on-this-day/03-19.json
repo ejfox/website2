@@ -1,460 +1,28 @@
 {
   "tweets": [
     {
-      "id": "1637602817409011715",
-      "text": "@timhulse GPT-4 is only available in the API through chat completions right now https://t.co/TxjhEARLSV",
-      "year": 2023,
-      "date": "2023-03-19",
-      "favorites": 6,
-      "retweets": 0,
-      "replyTo": "timhulse"
-    },
-    {
-      "id": "1637561593427906560",
-      "text": "@Jakekrajewski https://t.co/ZsUINVMFLF",
-      "year": 2023,
-      "date": "2023-03-19",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "Jakekrajewski"
-    },
-    {
-      "id": "1637559851806085120",
-      "text": "@Jakekrajewski https://t.co/Bm4vYO8WGD",
-      "year": 2023,
-      "date": "2023-03-19",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "Jakekrajewski"
-    },
-    {
-      "id": "1637559209620389889",
-      "text": "@noself86 naw, no embeddings",
-      "year": 2023,
-      "date": "2023-03-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "noself86"
-    },
-    {
-      "id": "1637285973397581831",
-      "text": "aha, I'm not bad at coding after all https://t.co/Qtbl6my0Rf",
-      "year": 2023,
-      "date": "2023-03-19",
-      "favorites": 6,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1637284959349088256",
-      "text": "i tried to make his memory all fancy and i ruined everything; simple is better",
-      "year": 2023,
-      "date": "2023-03-19",
-      "favorites": 6,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1637282615064502273",
-      "text": "update; watching a guy watch two people watch the guy who is watching https://t.co/GxF4zrncBr",
-      "year": 2023,
-      "date": "2023-03-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1637281742439473153",
-      "text": "completely unhinged https://t.co/yn3cl4PCXU",
-      "year": 2023,
-      "date": "2023-03-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1637281209368576000",
-      "text": "watching a guy watch two guys watch a guy on youtube never feels any less weird",
-      "year": 2023,
-      "date": "2023-03-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1505261606376284160",
-      "text": "https://t.co/KTgwSul1IJ",
-      "year": 2022,
-      "date": "2022-03-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1505248536438394886",
-      "text": "got inspired by this typewriter from reddit https://t.co/3SGPX4DcDP",
-      "year": 2022,
-      "date": "2022-03-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1373034163528433668",
-      "text": "@pashulman knockout",
-      "year": 2021,
-      "date": "2021-03-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "pashulman"
-    },
-    {
-      "id": "1373019906950758408",
-      "text": "@tmcw one time i accidentally moved my whole life across the entire country because the start-up that hired me had a really good landing page (and video)",
-      "year": 2021,
-      "date": "2021-03-19",
-      "favorites": 7,
-      "retweets": 0,
-      "replyTo": "tmcw"
-    },
-    {
-      "id": "1373005768748830725",
-      "text": "THIS WASN'T MENTIONED IN THE CODE https://t.co/6947th5sPN",
-      "year": 2021,
-      "date": "2021-03-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1372965892410183687",
-      "text": "RT @OutlierConf: After much anticipation, we're excited to announce that...\n\n🥁🥁🥁🥁🥁🥁🥁🥁🥁🥁\n\nthe #Outlier2021 videos are now public and live, b…",
-      "year": 2021,
-      "date": "2021-03-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1372955448266141698",
-      "text": "@BrandyZadrozny @oliverdarcy Was she the victim of a mass-reporting brigade?",
-      "year": 2021,
-      "date": "2021-03-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "BrandyZadrozny"
-    },
-    {
-      "id": "1372942489913593858",
-      "text": "chernoff faces, maybe",
-      "year": 2021,
-      "date": "2021-03-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1372941607125852164",
-      "text": "someone make this a bivariate map I can't handle all the symbol decoding necessary here https://t.co/4yGVMgrq0a",
-      "year": 2021,
-      "date": "2021-03-19",
-      "favorites": 4,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1372941181139755011",
-      "text": "@mdavidallen to paraphrase, your enemies will take your rational thought and drag it into emotional and then beat you with experience",
-      "year": 2021,
-      "date": "2021-03-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mdavidallen"
-    },
-    {
-      "id": "1372940945851813889",
-      "text": "@andest01 some people are saxophonists, or drummers, or whatever, but that OP-1 is the first time I have been like \"oh this is my instrument\"",
-      "year": 2021,
-      "date": "2021-03-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "andest01"
-    },
-    {
-      "id": "1372931747579592715",
-      "text": "Desk sunbeam: claimed https://t.co/DyaLsh9HKT",
-      "year": 2021,
-      "date": "2021-03-19",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1372931502070247425",
-      "text": "RT @lucastimmons: @mrejfox There's a reason Shakespeare wrote so many fools.",
-      "year": 2021,
-      "date": "2021-03-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1372929134872178693",
-      "text": "I could write 2000 words on why this is stupid or bad or, instead, a youth could just spend 30 seconds doing satire of it on Tik Tok, the latter probably better in every conceivable way",
-      "year": 2021,
-      "date": "2021-03-19",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1372928998905368583",
-      "text": "pretty convinced the only real way to tell the truth anymore is satire",
-      "year": 2021,
-      "date": "2021-03-19",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1372917292892356612",
-      "text": "@jil_slander @ShapeArts holy shit",
-      "year": 2021,
-      "date": "2021-03-19",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": "jil_slander"
-    },
-    {
-      "id": "1372891411352272898",
-      "text": "Our stupid governor has held up reasonable cannabis legalization efforts in NY for over 3 years now, and I am delighted that his self-inflicted wounds and controversies mean he is now conceding on nearly every point.",
-      "year": 2021,
-      "date": "2021-03-19",
-      "favorites": 6,
-      "retweets": 1,
-      "replyTo": null
-    },
-    {
-      "id": "1108126365981818882",
-      "text": "@round On your second example gif, you might also benefit from using a grid with your force layout so things snap better like https://t.co/d2qXzwv38J or https://t.co/ViOlnSuGpB",
+      "id": "1108200168959234048",
+      "text": "@vuejs @d3js_org @Netlify I also splurged and got @HoeflerCo fonts for my website. Rocking Hoefler Text and Knockout everywhere now. It's making me want to write more, it looks that good.",
       "year": 2019,
-      "date": "2019-03-19",
-      "favorites": 3,
-      "retweets": 0,
-      "replyTo": "round"
-    },
-    {
-      "id": "1108125211847729152",
-      "text": "@round Depends a lot on how your data is shaped - could be more precise with a data example - most likely you would use https://t.co/p8jrdWNE3p - or if you are summarizing things d3.rollup - but yeah, you need to transform your data in JSON that is made of nodes and links to start",
-      "year": 2019,
-      "date": "2019-03-19",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": "round"
-    },
-    {
-      "id": "1108123977350823937",
-      "text": "@round https://t.co/oCDrc4Y5b0",
-      "year": 2019,
-      "date": "2019-03-19",
+      "date": "Wed Mar 20 02:54:44 +0000 2019",
       "favorites": 1,
       "retweets": 0,
       "replyTo": "mrejfox"
     },
     {
-      "id": "1108123732688678914",
-      "text": "@round I think you basically want a combination of force layout (for nodes and links) and then you would use forceX and forceY to push things to their position in the hierarchy, like https://t.co/gmXmPEMOdL or almost https://t.co/mufwcI0eEy",
+      "id": "1108199800061771776",
+      "text": "Wrote a quick little blog post about my workflow for creating prototypes and data viz with @vuejs @d3js_org and @Netlify https://t.co/VGj4KGoySd",
       "year": 2019,
-      "date": "2019-03-19",
-      "favorites": 3,
+      "date": "Wed Mar 20 02:53:16 +0000 2019",
+      "favorites": 0,
       "retweets": 0,
-      "replyTo": "round"
+      "replyTo": null
     },
     {
-      "id": "1108110978187751424",
-      "text": "never stop moving",
+      "id": "1108164712246575104",
+      "text": "RT @micahjay1: I think we've entered a generation where highschoolers will apply to good schools, get in and never attend. They will post o…",
       "year": 2019,
-      "date": "2019-03-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "975855237004177408",
-      "text": "RT @waneella_: https://t.co/hJbijhLTm7",
-      "year": 2018,
-      "date": "2018-03-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "975824184210329605",
-      "text": "My coworker is looking for two (2!) new followers for his YouTube channel and I know my Twitter followers love some good cooking so help him out! https://t.co/W7gSdYPkP6",
-      "year": 2018,
-      "date": "2018-03-19",
-      "favorites": 3,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "975719219965890560",
-      "text": "RT @KevinQ: White boys born into poor families tend to move up the income ladder, but black boys born into poor families don't. What struct…",
-      "year": 2018,
-      "date": "2018-03-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "975719145017937920",
-      "text": "RT @KevinQ: Watch America happen to a generation of rich black and white boys: https://t.co/EPZtfyyZqw https://t.co/htLy2BsMmj",
-      "year": 2018,
-      "date": "2018-03-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "843478644878168070",
-      "text": "My grandpa’s funeral today. \n\nHe gave me my 1st camera &amp; computer &amp; undeniably shaped my life and career. Always about caring for others.",
-      "year": 2017,
-      "date": "2017-03-19",
-      "favorites": 7,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "843260734280777728",
-      "text": "My new diet plan mostly involves babysitting my friends cat who has tapeworm",
-      "year": 2017,
-      "date": "2017-03-19",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "578655658586832896",
-      "text": "@AndrewZink1238 I went to Pine Bush, know how hard it can be to stand up for what's right, props to you, reach out if you need anything.",
-      "year": 2015,
-      "date": "2015-03-19",
-      "favorites": 6,
-      "retweets": 1,
-      "replyTo": "AndrewZink1238"
-    },
-    {
-      "id": "578638437982560256",
-      "text": "RT @crashtxt: ⠀\n\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀☪\n\n⠀",
-      "year": 2015,
-      "date": "2015-03-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "313879699271081985",
-      "text": "My new sounds: Sizzurp http://t.co/99ef8ux7Mt on #SoundCloud",
-      "year": 2013,
-      "date": "2013-03-19",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "181871645898711041",
-      "text": "Dude I totally missed that MySpace got sold to Justin Timberlake. Oddly fitting, I suppose. Shows how much I think about either of them, tho",
-      "year": 2012,
-      "date": "2012-03-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "181867880697184256",
-      "text": "RT @JanWillemTulp: check out this live coding tool called 'water', inspired by the recent talk of @worrydream http://t.co/zmCmSA3c #d3js",
-      "year": 2012,
-      "date": "2012-03-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "10710829722",
-      "text": "30-minute middle-of-the-night layover in the Richmond VA greyhound station. Good times.",
-      "year": 2010,
-      "date": "2010-03-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "10704012011",
-      "text": "In the Washington DC greyhound station waiting for my 11:45 bus. Just chilling.",
-      "year": 2010,
-      "date": "2010-03-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1353594307",
-      "text": "Just unfollowed Shaq, which, I think, means I'm going to hell.",
-      "year": 2009,
-      "date": "2009-03-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1353591247",
-      "text": "Watching the teapot boil.",
-      "year": 2009,
-      "date": "2009-03-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1353068488",
-      "text": "I hope I get the opportunity to make some BANGIN egg sandwiches tomorrow morning.",
-      "year": 2009,
-      "date": "2009-03-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1352987726",
-      "text": "Converting Battle in Seattle for my iPhone, so I can watch it in the van tomorrow. Cool.",
-      "year": 2009,
-      "date": "2009-03-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1352476678",
-      "text": "http://twitpic.com/28if6 - L-beer #notetoself",
-      "year": 2009,
-      "date": "2009-03-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1352198700",
-      "text": "Just got back from Hannafords with Levi. Hilarious adventury driving. Exit-ramp near-disaster. Many turn mis-rememberings. Excellent.",
-      "year": 2009,
-      "date": "2009-03-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1351796207",
-      "text": "playing a little Grand Theft Auto IV. http://raptr.com/pseudoplacebo",
-      "year": 2009,
-      "date": "2009-03-19",
+      "date": "Wed Mar 20 00:33:50 +0000 2019",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -463,7 +31,7 @@
       "id": "774110126",
       "text": "People aren't saying it often enough, but Saturday Night Life is a big piece of shit production. It fucking sucks. 1/50 things are poignant.",
       "year": 2008,
-      "date": "2008-03-19",
+      "date": "Wed Mar 19 21:22:03 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -472,7 +40,7 @@
       "id": "774071031",
       "text": "Going to see Design and the Elastic Mind tomorrow, I think. Looks really cool.",
       "year": 2008,
-      "date": "2008-03-19",
+      "date": "Wed Mar 19 19:53:19 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -481,7 +49,7 @@
       "id": "774044957",
       "text": "Got inspired to play with Renoise some more. Ugh I wish I could use this app properly. ='[",
       "year": 2008,
-      "date": "2008-03-19",
+      "date": "Wed Mar 19 18:55:19 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -490,7 +58,7 @@
       "id": "774017883",
       "text": "I don't own any white pants/jeans. I'm not sure what to think of this.",
       "year": 2008,
-      "date": "2008-03-19",
+      "date": "Wed Mar 19 17:56:35 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -499,16 +67,430 @@
       "id": "773964567",
       "text": "Gym Class Heroes playing upstairs. How... who... what....",
       "year": 2008,
-      "date": "2008-03-19",
+      "date": "Wed Mar 19 16:06:57 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "773619613",
-      "text": "'Hang Me Up To Dry' is a great song. Why did it take me this long to finally check out The Cold War Kids?",
+      "id": "975928422349398016",
+      "text": "RT @KevinQ: (Depressing) Ladders on the @nytimes home page! https://t.co/BPsZYyBT45",
+      "year": 2018,
+      "date": "Tue Mar 20 02:54:02 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "975927561304895489",
+      "text": "The NYTimes have the most incredible visualization on their HOME PAGE https://t.co/ZCtYj5qxOe",
+      "year": 2018,
+      "date": "Tue Mar 20 02:50:37 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1108126365981818882",
+      "text": "@round On your second example gif, you might also benefit from using a grid with your force layout so things snap better like https://t.co/d2qXzwv38J or https://t.co/ViOlnSuGpB",
+      "year": 2019,
+      "date": "Tue Mar 19 22:01:28 +0000 2019",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": "round"
+    },
+    {
+      "id": "1108125211847729152",
+      "text": "@round Depends a lot on how your data is shaped - could be more precise with a data example - most likely you would use https://t.co/p8jrdWNE3p - or if you are summarizing things d3.rollup - but yeah, you need to transform your data in JSON that is made of nodes and links to start",
+      "year": 2019,
+      "date": "Tue Mar 19 21:56:53 +0000 2019",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "round"
+    },
+    {
+      "id": "1108123977350823937",
+      "text": "@round https://t.co/oCDrc4Y5b0",
+      "year": 2019,
+      "date": "Tue Mar 19 21:51:58 +0000 2019",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1108123732688678914",
+      "text": "@round I think you basically want a combination of force layout (for nodes and links) and then you would use forceX and forceY to push things to their position in the hierarchy, like https://t.co/gmXmPEMOdL or almost https://t.co/mufwcI0eEy",
+      "year": 2019,
+      "date": "Tue Mar 19 21:51:00 +0000 2019",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": "round"
+    },
+    {
+      "id": "1108110978187751424",
+      "text": "never stop moving",
+      "year": 2019,
+      "date": "Tue Mar 19 21:00:19 +0000 2019",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "313879699271081985",
+      "text": "My new sounds: Sizzurp http://t.co/99ef8ux7Mt on #SoundCloud",
+      "year": 2013,
+      "date": "Tue Mar 19 05:08:46 +0000 2013",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "774188760",
+      "text": "Going to sleep. Tomorrow I see Design & The Elastic Mind, and I'm really excited.",
       "year": 2008,
-      "date": "2008-03-19",
+      "date": "Thu Mar 20 00:57:05 +0000 2008",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "774186462",
+      "text": "I'm really tired...",
+      "year": 2008,
+      "date": "Thu Mar 20 00:50:31 +0000 2008",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "578655658586832896",
+      "text": "@AndrewZink1238 I went to Pine Bush, know how hard it can be to stand up for what's right, props to you, reach out if you need anything.",
+      "year": 2015,
+      "date": "Thu Mar 19 20:33:54 +0000 2015",
+      "favorites": 6,
+      "retweets": 1,
+      "replyTo": "AndrewZink1238"
+    },
+    {
+      "id": "578638437982560256",
+      "text": "RT @crashtxt: ⠀\n\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀☪\n\n⠀",
+      "year": 2015,
+      "date": "Thu Mar 19 19:25:28 +0000 2015",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1353594307",
+      "text": "Just unfollowed Shaq, which, I think, means I'm going to hell.",
+      "year": 2009,
+      "date": "Thu Mar 19 10:07:38 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1353591247",
+      "text": "Watching the teapot boil.",
+      "year": 2009,
+      "date": "Thu Mar 19 10:06:18 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1353068488",
+      "text": "I hope I get the opportunity to make some BANGIN egg sandwiches tomorrow morning.",
+      "year": 2009,
+      "date": "Thu Mar 19 06:24:09 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1352987726",
+      "text": "Converting Battle in Seattle for my iPhone, so I can watch it in the van tomorrow. Cool.",
+      "year": 2009,
+      "date": "Thu Mar 19 05:54:45 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1637602817409011715",
+      "text": "@timhulse GPT-4 is only available in the API through chat completions right now https://t.co/TxjhEARLSV",
+      "year": 2023,
+      "date": "Sun Mar 19 23:51:51 +0000 2023",
+      "favorites": 6,
+      "retweets": 0,
+      "replyTo": "timhulse"
+    },
+    {
+      "id": "1637561593427906560",
+      "text": "@Jakekrajewski https://t.co/ZsUINVMFLF",
+      "year": 2023,
+      "date": "Sun Mar 19 21:08:02 +0000 2023",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "Jakekrajewski"
+    },
+    {
+      "id": "1637559851806085120",
+      "text": "@Jakekrajewski https://t.co/Bm4vYO8WGD",
+      "year": 2023,
+      "date": "Sun Mar 19 21:01:07 +0000 2023",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "Jakekrajewski"
+    },
+    {
+      "id": "1637559209620389889",
+      "text": "@noself86 naw, no embeddings",
+      "year": 2023,
+      "date": "Sun Mar 19 20:58:34 +0000 2023",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "noself86"
+    },
+    {
+      "id": "843478644878168070",
+      "text": "My grandpa’s funeral today. \n\nHe gave me my 1st camera &amp; computer &amp; undeniably shaped my life and career. Always about caring for others.",
+      "year": 2017,
+      "date": "Sun Mar 19 15:05:54 +0000 2017",
+      "favorites": 7,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1505261606376284160",
+      "text": "https://t.co/KTgwSul1IJ",
+      "year": 2022,
+      "date": "Sat Mar 19 19:15:08 +0000 2022",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1505248536438394886",
+      "text": "got inspired by this typewriter from reddit https://t.co/3SGPX4DcDP",
+      "year": 2022,
+      "date": "Sat Mar 19 18:23:11 +0000 2022",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1637657802901520385",
+      "text": "@RokoMijic I'm grappling with this right now... I have a function to get search terms of out a user message and search memories for those terms: https://t.co/rjVvhXbnoA - but frankly, it didn't work great- it seems to work better if I just feed it a large number of random memories for now",
+      "year": 2023,
+      "date": "Mon Mar 20 03:30:21 +0000 2023",
+      "favorites": 4,
+      "retweets": 0,
+      "replyTo": "Roko__eth"
+    },
+    {
+      "id": "1637657193007685632",
+      "text": "The more I play with the tools the more I think we are experiencing a technology on the scale of photography or the personal computer; nothing will ever be the same again",
+      "year": 2023,
+      "date": "Mon Mar 20 03:27:55 +0000 2023",
+      "favorites": 9,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "181871645898711041",
+      "text": "Dude I totally missed that MySpace got sold to Justin Timberlake. Oddly fitting, I suppose. Shows how much I think about either of them, tho",
+      "year": 2012,
+      "date": "Mon Mar 19 22:35:54 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "181867880697184256",
+      "text": "RT @JanWillemTulp: check out this live coding tool called 'water', inspired by the recent talk of @worrydream http://t.co/zmCmSA3c #d3js",
+      "year": 2012,
+      "date": "Mon Mar 19 22:20:56 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "975855237004177408",
+      "text": "RT @waneella_: https://t.co/hJbijhLTm7",
+      "year": 2018,
+      "date": "Mon Mar 19 22:03:13 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "975824184210329605",
+      "text": "My coworker is looking for two (2!) new followers for his YouTube channel and I know my Twitter followers love some good cooking so help him out! https://t.co/W7gSdYPkP6",
+      "year": 2018,
+      "date": "Mon Mar 19 19:59:50 +0000 2018",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "975719219965890560",
+      "text": "RT @KevinQ: White boys born into poor families tend to move up the income ladder, but black boys born into poor families don't. What struct…",
+      "year": 2018,
+      "date": "Mon Mar 19 13:02:44 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "975719145017937920",
+      "text": "RT @KevinQ: Watch America happen to a generation of rich black and white boys: https://t.co/EPZtfyyZqw https://t.co/htLy2BsMmj",
+      "year": 2018,
+      "date": "Mon Mar 19 13:02:26 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1373034163528433668",
+      "text": "@pashulman knockout",
+      "year": 2021,
+      "date": "Fri Mar 19 22:10:28 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "pashulman"
+    },
+    {
+      "id": "1373019906950758408",
+      "text": "@tmcw one time i accidentally moved my whole life across the entire country because the start-up that hired me had a really good landing page (and video)",
+      "year": 2021,
+      "date": "Fri Mar 19 21:13:49 +0000 2021",
+      "favorites": 7,
+      "retweets": 0,
+      "replyTo": "tmcw"
+    },
+    {
+      "id": "1373005768748830725",
+      "text": "THIS WASN'T MENTIONED IN THE CODE https://t.co/6947th5sPN",
+      "year": 2021,
+      "date": "Fri Mar 19 20:17:39 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1372965892410183687",
+      "text": "RT @OutlierConf: After much anticipation, we're excited to announce that...\n\n🥁🥁🥁🥁🥁🥁🥁🥁🥁🥁\n\nthe #Outlier2021 videos are now public and live, b…",
+      "year": 2021,
+      "date": "Fri Mar 19 17:39:11 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1372955448266141698",
+      "text": "@BrandyZadrozny @oliverdarcy Was she the victim of a mass-reporting brigade?",
+      "year": 2021,
+      "date": "Fri Mar 19 16:57:41 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "BrandyZadrozny"
+    },
+    {
+      "id": "1372942489913593858",
+      "text": "chernoff faces, maybe",
+      "year": 2021,
+      "date": "Fri Mar 19 16:06:12 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1372941607125852164",
+      "text": "someone make this a bivariate map I can't handle all the symbol decoding necessary here https://t.co/4yGVMgrq0a",
+      "year": 2021,
+      "date": "Fri Mar 19 16:02:41 +0000 2021",
+      "favorites": 4,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1372941181139755011",
+      "text": "@mdavidallen to paraphrase, your enemies will take your rational thought and drag it into emotional and then beat you with experience",
+      "year": 2021,
+      "date": "Fri Mar 19 16:01:00 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mdavidallen"
+    },
+    {
+      "id": "1372940945851813889",
+      "text": "@andest01 some people are saxophonists, or drummers, or whatever, but that OP-1 is the first time I have been like \"oh this is my instrument\"",
+      "year": 2021,
+      "date": "Fri Mar 19 16:00:04 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "andest01"
+    },
+    {
+      "id": "1372931747579592715",
+      "text": "Desk sunbeam: claimed https://t.co/DyaLsh9HKT",
+      "year": 2021,
+      "date": "Fri Mar 19 15:23:31 +0000 2021",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1372931502070247425",
+      "text": "RT @lucastimmons: @mrejfox There's a reason Shakespeare wrote so many fools.",
+      "year": 2021,
+      "date": "Fri Mar 19 15:22:32 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1372929134872178693",
+      "text": "I could write 2000 words on why this is stupid or bad or, instead, a youth could just spend 30 seconds doing satire of it on Tik Tok, the latter probably better in every conceivable way",
+      "year": 2021,
+      "date": "Fri Mar 19 15:13:08 +0000 2021",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1372928998905368583",
+      "text": "pretty convinced the only real way to tell the truth anymore is satire",
+      "year": 2021,
+      "date": "Fri Mar 19 15:12:35 +0000 2021",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1372917292892356612",
+      "text": "@jil_slander @ShapeArts holy shit",
+      "year": 2021,
+      "date": "Fri Mar 19 14:26:04 +0000 2021",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "jil_slander"
+    },
+    {
+      "id": "1372891411352272898",
+      "text": "Our stupid governor has held up reasonable cannabis legalization efforts in NY for over 3 years now, and I am delighted that his self-inflicted wounds and controversies mean he is now conceding on nearly every point.",
+      "year": 2021,
+      "date": "Fri Mar 19 12:43:14 +0000 2021",
+      "favorites": 6,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "10710829722",
+      "text": "30-minute middle-of-the-night layover in the Richmond VA greyhound station. Good times.",
+      "year": 2010,
+      "date": "Fri Mar 19 06:42:03 +0000 2010",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -517,117 +499,9 @@
   "posts": [
     {
       "slug": "2019/how-i-prototype-apps-and-dataviz-quickly-in-2019",
-      "title": "How I Prototype Apps And Dataviz Quickly In 2019",
-      "year": 2019,
-      "date": "2019-03-20T01:25:22.000Z",
       "dek": null,
-      "type": "words",
-      "tags": ["vue", "dataviz", "d3", "javascript", "webdesign"]
-    }
-  ],
-  "scrobbles": [
-    {
-      "date": "2023-03-19",
-      "year": 2023,
-      "count": 95,
-      "topTracks": [
-        "Smino - 4rm Da Source",
-        "Smino - No L's",
-        "Smino - 90 Proof (with J. Cole)",
-        "Smino - Pro Freak (with Doechii, Fatman Scoop)",
-        "Smino - Ole Ass Kendrick"
-      ],
-      "topArtists": ["Smino", "MadeinTYO", "monte booker"]
-    },
-    {
-      "date": "2019-03-19",
       "year": 2019,
-      "count": 77,
-      "topTracks": [
-        "EF - Sons Of Ghosts",
-        "EF - K-141 KYPCK",
-        "EF - Longing for colors",
-        "EF - Fyra",
-        "EF - 401 Lwa"
-      ],
-      "topArtists": ["EF", "Oliver Tree", "Whethan"]
-    },
-    {
-      "date": "2012-03-19",
-      "year": 2012,
-      "count": 25,
-      "topTracks": [
-        "A$AP Rocky - Hands On The Wheel (feat. A$ap Rocky)",
-        "ScHoolboy Q - There He Go",
-        "Mike Wexler - Pariah",
-        "Mike Wexler - Spectrum",
-        "Mike Wexler - Lens"
-      ],
-      "topArtists": ["A$AP Rocky", "ScHoolboy Q", "Mike Wexler"]
-    },
-    {
-      "date": "2011-03-19",
-      "year": 2011,
-      "count": 5,
-      "topTracks": [
-        "A Tribe Called Quest - The Pressure",
-        "UGK - 02-INTERNATIONAL PLAYAS ANTHEM[SCREWED]",
-        "Lupe Fiasco - Dumb It Down",
-        "Marko Kahn - Nosebleed (Original Mix)",
-        "Orson Scott Card - Ender's Shadow (Unabridged), Part 1"
-      ],
-      "topArtists": ["A Tribe Called Quest", "UGK", "Lupe Fiasco"]
-    },
-    {
-      "date": "2009-03-19",
-      "year": 2009,
-      "count": 3,
-      "topTracks": [
-        "Jad Abumrad & Robert Krulwich - Who Am I? (Radio Lab)",
-        "Jad Abumrad & Robert Krulwich - Stress (Radio Lab)",
-        "Jad Abumrad & Robert Krulwich - Mortality (Radio Lab)"
-      ],
-      "topArtists": ["Jad Abumrad & Robert Krulwich"]
-    },
-    {
-      "date": "2008-03-19",
-      "year": 2008,
-      "count": 84,
-      "topTracks": [
-        "David Sedaris - Dress Your Family in Corduroy and Denim (Unabridged)",
-        "DJ Shadow - Midnight in a Perfect World",
-        "Kimya Dawson - Loose Lips",
-        "Justice - DVNO",
-        "Nine Inch Nails - 1 Ghosts I"
-      ],
-      "topArtists": ["David Sedaris", "DJ Shadow", "Kimya Dawson"]
-    },
-    {
-      "date": "2007-03-19",
-      "year": 2007,
-      "count": 50,
-      "topTracks": [
-        "Fall Out Boy - This Ain't a Scene, It's an Arms Race",
-        "Fall Out Boy - The Take Over, The Break's Over",
-        "Nelly Furtado - Maneater",
-        "Venetian Snares - Hajnal",
-        "Fall Out Boy - Thnks fr th Mmrs"
-      ],
-      "topArtists": ["Fall Out Boy", "Nelly Furtado", "Venetian Snares"]
-    },
-    {
-      "date": "2006-03-19",
-      "year": 2006,
-      "count": 14,
-      "topTracks": [
-        "Beastie Boys - Girls",
-        "Slipknot - Duality",
-        "Kanye West - Jesus Walks",
-        "Randy Newman - It's a Jungle Out There",
-        "The Postal Service - Such Great Heights"
-      ],
-      "topArtists": ["Beastie Boys", "Slipknot", "Kanye West"]
+      "date": "2019-03-20T01:25:22.000Z"
     }
-  ],
-  "commits": []
+  ]
 }

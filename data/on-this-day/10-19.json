@@ -1,217 +1,10 @@
 {
   "tweets": [
     {
-      "id": "1582805851886489600",
-      "text": "RT @etportis: @mrejfox If you could go Day One → GitHub, GitHub Actions *feels* like a way to do the uploading/editing automatically (witho…",
-      "year": 2022,
-      "date": "2022-10-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1582753979519610880",
-      "text": "RT @jppullen: Look closely and you'll see all the different kinds of less-lethal launchers used here. 12-gage shotguns on the right, 40mm l…",
-      "year": 2022,
-      "date": "2022-10-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1582571030954258432",
-      "text": "RT @oneunderscore__: Lol what an absolute psychopath. See a therapist weirdo!!! https://t.co/NjgKaL9Pim",
-      "year": 2022,
-      "date": "2022-10-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1450505360847130628",
-      "text": "I just have a completely empty markdown file in my drafts folder called \"TikTok is just iMovie\" - not bad, not bad",
-      "year": 2021,
-      "date": "2021-10-19",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1450284697653764096",
-      "text": "RT @shaun_vids: enjoyed hitman 3 with the exception of its attempt to have an overarching story, which was never anything but an unnecessar…",
-      "year": 2021,
-      "date": "2021-10-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1450273677744934918",
-      "text": "i need some likes but not feeling creative enough to earn them, just do me this one solid guys",
-      "year": 2021,
-      "date": "2021-10-19",
-      "favorites": 12,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1450272997269463045",
-      "text": "@visakanv data shaman checking in",
-      "year": 2021,
-      "date": "2021-10-19",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "visakanv"
-    },
-    {
-      "id": "1318310898486960134",
-      "text": "@aprilaser 😍",
-      "year": 2020,
-      "date": "2020-10-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "aprilaser"
-    },
-    {
-      "id": "1318310607649705984",
-      "text": "outcome of one election \"simulation\" went particularly off the rails (unclear whether that speaks to it's accuracy)  https://t.co/fGdFZZH6Oy",
-      "year": 2020,
-      "date": "2020-10-19",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1318305512987963397",
-      "text": "https://t.co/tfVmkQDxnr",
-      "year": 2020,
-      "date": "2020-10-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1318303843185315842",
-      "text": "https://t.co/1vxfrFX69H",
-      "year": 2020,
-      "date": "2020-10-19",
-      "favorites": 7,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1318287051113041924",
-      "text": "When I was thinking about the visual design for the Coding With Fire livestreams (subscribe! https://t.co/UjuUaUoRUi) I put together this https://t.co/77c24W8zC4 channel of live TV visual design for some inspiration https://t.co/uLRfS7YGuI",
-      "year": 2020,
-      "date": "2020-10-19",
-      "favorites": 1,
-      "retweets": 1,
-      "replyTo": null
-    },
-    {
-      "id": "1318207506154487809",
-      "text": "last *week* I took the same number of steps that I used to take on a normal day in the city pre-quarantine (14k)",
-      "year": 2020,
-      "date": "2020-10-19",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1318191731452555265",
-      "text": "RT @sxywu: 🎊NEW PROJECT🎊\n\nIn 2016, at least 4,350,291 registered voters were removed because of “failure to respond” to notification. If th…",
-      "year": 2020,
-      "date": "2020-10-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1185530160629583874",
-      "text": "RT @RichardEngel: US officials tell me ALARM BELL RINGING among diplomats in DC that U.S. could one day be held responsible for Crimes Agai…",
-      "year": 2019,
-      "date": "2019-10-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1053423734105800706",
-      "text": "RT @nprscottsimon: Yes, I've seen the breaking news on Jamal Khashoggi. Speechless, skeptical, and sad. A good man and fine journalist, kil…",
-      "year": 2018,
-      "date": "2018-10-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1053332046720974848",
-      "text": "Did Chrome 70 mess up d3-zoom for anyone else?",
-      "year": 2018,
-      "date": "2018-10-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "921138222633234432",
-      "text": "Good god, people https://t.co/xQeC0ae1qB",
-      "year": 2017,
-      "date": "2017-10-19",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "921137163315576832",
-      "text": "RT @ProPublica: Who are the white supremacists assaulting people at rallies in Berkeley, Charlottesville and Huntington Beach? We found som…",
-      "year": 2017,
-      "date": "2017-10-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "921131706932957184",
-      "text": "Perfect light in Manhattan right now",
-      "year": 2017,
-      "date": "2017-10-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "921118367930617858",
-      "text": "RT @riotleo: US diplomat calls his country's treatment of Kurds 'a cataclysmic betrayal' https://t.co/mLmrfuQiKU",
-      "year": 2017,
-      "date": "2017-10-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "921053499089149952",
-      "text": "RT @xor: tattoo idea from this 1942 US Army poster https://t.co/XpkywsDZst",
-      "year": 2017,
-      "date": "2017-10-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "921038715811713024",
-      "text": "As was learned during Occupy, easiest way to disband leftist activists is to give them money to fight over https://t.co/45FV0KouK3",
-      "year": 2017,
-      "date": "2017-10-19",
-      "favorites": 2,
-      "retweets": 1,
-      "replyTo": null
-    },
-    {
       "id": "788835557476446208",
       "text": "RT @ReinaDeAfrica_: When you know this unusually warm weather in October is due to global warming and climate change but you still kinda en…",
       "year": 2016,
-      "date": "2016-10-19",
+      "date": "Wed Oct 19 20:13:47 +0000 2016",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -220,7 +13,7 @@
       "id": "788834185200807936",
       "text": "THAT’S MY BDAY NO COINKYDINK https://t.co/NVWuOymvCa",
       "year": 2016,
-      "date": "2016-10-19",
+      "date": "Wed Oct 19 20:08:20 +0000 2016",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -229,7 +22,7 @@
       "id": "788833512174432256",
       "text": "I DON’T WANNA WAIT\n\nFOR MY LIIIIFFFFEEE TO BE OVEEEERRRR",
       "year": 2016,
-      "date": "2016-10-19",
+      "date": "Wed Oct 19 20:05:39 +0000 2016",
       "favorites": 2,
       "retweets": 0,
       "replyTo": null
@@ -238,7 +31,7 @@
       "id": "788819639136579584",
       "text": "dance, Alaska, dance https://t.co/F2xMRvEgf1",
       "year": 2016,
-      "date": "2016-10-19",
+      "date": "Wed Oct 19 19:10:32 +0000 2016",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -247,7 +40,16 @@
       "id": "788815410976157697",
       "text": "Best preserveAspectRatio demo/explanation I've seen: https://t.co/qhRYyC6SLi",
       "year": 2016,
-      "date": "2016-10-19",
+      "date": "Wed Oct 19 18:53:44 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1582805851886489600",
+      "text": "RT @etportis: @mrejfox If you could go Day One → GitHub, GitHub Actions *feels* like a way to do the uploading/editing automatically (witho…",
+      "year": 2022,
+      "date": "Wed Oct 19 18:48:16 +0000 2022",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -256,7 +58,7 @@
       "id": "788811386004631552",
       "text": "@LesHorn my new start-up is just a radio station that plays TV show theme songs",
       "year": 2016,
-      "date": "2016-10-19",
+      "date": "Wed Oct 19 18:37:44 +0000 2016",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "LesHorn"
@@ -265,7 +67,7 @@
       "id": "788805578780971008",
       "text": "RT @NickBaumann: See blue belt on Obama/Romney map? That's Cretaceous coastline. Fertile soil later led to high cotton production + high sl…",
       "year": 2016,
-      "date": "2016-10-19",
+      "date": "Wed Oct 19 18:14:39 +0000 2016",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -274,7 +76,7 @@
       "id": "788805206654017540",
       "text": "@Rso_justin yea ur right my bad that whole album rules I meant song 6 of Encore he just stopped right there and never made any bad songs",
       "year": 2016,
-      "date": "2016-10-19",
+      "date": "Wed Oct 19 18:13:11 +0000 2016",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "Rso_justin"
@@ -283,7 +85,7 @@
       "id": "788798457498796032",
       "text": "as far as I'm concerned Eminem stopped making music like 6 songs into The Eminem Show",
       "year": 2016,
-      "date": "2016-10-19",
+      "date": "Wed Oct 19 17:46:22 +0000 2016",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -292,16 +94,34 @@
       "id": "788797528057741312",
       "text": "@markham triggering, markham",
       "year": 2016,
-      "date": "2016-10-19",
+      "date": "Wed Oct 19 17:42:40 +0000 2016",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "markham"
     },
     {
+      "id": "126681778634235904",
+      "text": "My review of the blackberry playbook: No instapaper. Useless.",
+      "year": 2011,
+      "date": "Wed Oct 19 15:31:04 +0000 2011",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1582753979519610880",
+      "text": "RT @jppullen: Look closely and you'll see all the different kinds of less-lethal launchers used here. 12-gage shotguns on the right, 40mm l…",
+      "year": 2022,
+      "date": "Wed Oct 19 15:22:09 +0000 2022",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
       "id": "788732995947593729",
       "text": "RT @Joshochos: @mrejfox Fall is on Hiatus, So we're getting reruns of summer till it comes back.",
       "year": 2016,
-      "date": "2016-10-19",
+      "date": "Wed Oct 19 13:26:14 +0000 2016",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -310,79 +130,196 @@
       "id": "788732467813515265",
       "text": "so we're just going straight back to summer huh",
       "year": 2016,
-      "date": "2016-10-19",
+      "date": "Wed Oct 19 13:24:08 +0000 2016",
       "favorites": 1,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "788555249065791489",
-      "text": "@KashleeKelly hell yeah dude",
+      "id": "5007493093",
+      "text": "playing a little Call of Duty 4: Modern Warfare. http://raptr.com/pseudoplacebo",
+      "year": 2009,
+      "date": "Tue Oct 20 02:01:15 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1318368240628862981",
+      "text": "One of many reasons to try and push through a justice right before an election https://t.co/ihx2tXWaMu",
+      "year": 2020,
+      "date": "Tue Oct 20 01:47:37 +0000 2020",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "5006204354",
+      "text": "@Lenasaur presents plan. Is the camera working? 24 shots on this film? I'm 8 in? Sounds good. I'm down.",
+      "year": 2009,
+      "date": "Tue Oct 20 01:08:04 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "leoF0x"
+    },
+    {
+      "id": "656263746701152258",
+      "text": "Kanye has declared it is 808s &amp; Heartbreak week\n\nI\n\nWill\n\nOblige",
+      "year": 2015,
+      "date": "Tue Oct 20 00:20:44 +0000 2015",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1450505360847130628",
+      "text": "I just have a completely empty markdown file in my drafts folder called \"TikTok is just iMovie\" - not bad, not bad",
+      "year": 2021,
+      "date": "Tue Oct 19 16:53:21 +0000 2021",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "788924939902615556",
+      "text": "not only would I just like to watch a video of the highlights, I'd probably watch a facebook live of an editor cutting it down",
       "year": 2016,
-      "date": "2016-10-19",
+      "date": "Thu Oct 20 02:08:57 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "788923405722611712",
+      "text": "I keep accidentally checking Twitter",
+      "year": 2016,
+      "date": "Thu Oct 20 02:02:52 +0000 2016",
       "favorites": 1,
       "retweets": 0,
-      "replyTo": "KaitlynSanner"
+      "replyTo": null
     },
     {
-      "id": "656197030130425856",
-      "text": "RT @kibblesmith: Nice try \"Marco Rubio\" — or should I say...\n\n[rearranges letters]\n\n\"BIRAC UBOMA\"\n\n[audience gasps]",
-      "year": 2015,
-      "date": "2015-10-19",
+      "id": "126830124938170368",
+      "text": "Some days I just get on whatever Bart train is first and hope it takes me home...",
+      "year": 2011,
+      "date": "Thu Oct 20 01:20:32 +0000 2011",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "656159887563558914",
-      "text": "guys I don’t know what X-at-large means",
-      "year": 2015,
-      "date": "2015-10-19",
-      "favorites": 0,
+      "id": "788909853263728640",
+      "text": "@banikarim this picture is some sort of extravagant rorschach test",
+      "year": 2016,
+      "date": "Thu Oct 20 01:09:00 +0000 2016",
+      "favorites": 1,
       "retweets": 0,
-      "replyTo": null
+      "replyTo": "banikarim"
     },
     {
-      "id": "656132217475874817",
-      "text": "I beat 100% of people trading $MCZ, ranking #1. Holy shit!! The Trading Game: http://t.co/ympgk33SRg",
-      "year": 2015,
-      "date": "2015-10-19",
-      "favorites": 0,
+      "id": "788906647540342784",
+      "text": "@banikarim not at all, but similarly, I have no idea what Drudge looks like",
+      "year": 2016,
+      "date": "Thu Oct 20 00:56:16 +0000 2016",
+      "favorites": 1,
       "retweets": 0,
-      "replyTo": null
+      "replyTo": "banikarim"
     },
     {
-      "id": "656105728189558784",
-      "text": "This is not a classy response, Amazon. \n\nhttps://t.co/wqXbqtLNo8",
-      "year": 2015,
-      "date": "2015-10-19",
+      "id": "788902135551369216",
+      "text": "I literally pay for cable now and I'm streaming the debate on Twitter, make of that what you will",
+      "year": 2016,
+      "date": "Thu Oct 20 00:38:20 +0000 2016",
       "favorites": 1,
       "retweets": 1,
       "replyTo": null
     },
     {
-      "id": "656087803701411841",
-      "text": "That feeling when you were running early, the train hangs out at the station for 20m, and then you’re late.",
-      "year": 2015,
-      "date": "2015-10-19",
+      "id": "788901227383943168",
+      "text": "@Moes_HQ @AlleeManning we're really sorry for Allee's behavior she knows not what she says",
+      "year": 2016,
+      "date": "Thu Oct 20 00:34:44 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "Moes_HQ"
+    },
+    {
+      "id": "788900191105642497",
+      "text": "@banikarim what are you guys talking about that's Steve Aoki \n\n;]",
+      "year": 2016,
+      "date": "Thu Oct 20 00:30:37 +0000 2016",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "banikarim"
+    },
+    {
+      "id": "921138222633234432",
+      "text": "Good god, people https://t.co/xQeC0ae1qB",
+      "year": 2017,
+      "date": "Thu Oct 19 22:17:20 +0000 2017",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "921137163315576832",
+      "text": "RT @ProPublica: Who are the white supremacists assaulting people at rallies in Berkeley, Charlottesville and Huntington Beach? We found som…",
+      "year": 2017,
+      "date": "Thu Oct 19 22:13:08 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "656062318435024896",
-      "text": "RT @calestous: Migrant crisis: Tensions rise as Balkan path blocked http://t.co/KBitBYL5n8 http://t.co/B1O8Qkbjeq",
-      "year": 2015,
-      "date": "2015-10-19",
+      "id": "921131706932957184",
+      "text": "Perfect light in Manhattan right now",
+      "year": 2017,
+      "date": "Thu Oct 19 21:51:27 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "655918198966079488",
-      "text": "RT @nytgraphics: Untangling the Overlapping Conflicts in the Syrian War http://t.co/OwmOsfs5os http://t.co/rQxmNZEYmu",
-      "year": 2015,
-      "date": "2015-10-19",
+      "id": "921118367930617858",
+      "text": "RT @riotleo: US diplomat calls his country's treatment of Kurds 'a cataclysmic betrayal' https://t.co/mLmrfuQiKU",
+      "year": 2017,
+      "date": "Thu Oct 19 20:58:27 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "921053499089149952",
+      "text": "RT @xor: tattoo idea from this 1942 US Army poster https://t.co/XpkywsDZst",
+      "year": 2017,
+      "date": "Thu Oct 19 16:40:41 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "921038715811713024",
+      "text": "As was learned during Occupy, easiest way to disband leftist activists is to give them money to fight over https://t.co/45FV0KouK3",
+      "year": 2017,
+      "date": "Thu Oct 19 15:41:56 +0000 2017",
+      "favorites": 2,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "1185710196959727616",
+      "text": "I love this video so much https://t.co/xgxHDqvF6g",
+      "year": 2019,
+      "date": "Sun Oct 20 00:11:55 +0000 2019",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "966626450",
+      "text": "Awoked.",
+      "year": 2008,
+      "date": "Sun Oct 19 21:28:48 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -391,16 +328,43 @@
       "id": "523872296264814594",
       "text": "Special shout out to @enjalot for being an inspiration and teaching me to be a professional without losing touch with my roots and identity",
       "year": 2014,
-      "date": "2014-10-19",
+      "date": "Sun Oct 19 16:24:23 +0000 2014",
       "favorites": 2,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "523638901122940928",
-      "text": "I liked a @YouTube video http://t.co/G5KO4EwRsT \"The Scrapper\" Feat. Deniro Farrar &amp; Felipe - Live From the Streets",
-      "year": 2014,
-      "date": "2014-10-19",
+      "id": "349356032",
+      "text": "Dear rain, in exchange for making me cold and wet I would appreciate it if you would cancel homecoming tomorrow.",
+      "year": 2007,
+      "date": "Sat Oct 20 03:33:18 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "349346242",
+      "text": "Walking home from Peter's house. Rain sucks.",
+      "year": 2007,
+      "date": "Sat Oct 20 03:27:05 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "349204132",
+      "text": "Rain is just snow without the fun. Rain just makes everything wet.",
+      "year": 2007,
+      "date": "Sat Oct 20 01:53:39 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "349173092",
+      "text": "Chilling with peter- set up the projector and playing GTA. Good times.",
+      "year": 2007,
+      "date": "Sat Oct 20 01:33:00 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -409,7 +373,7 @@
       "id": "391638566696009728",
       "text": "Woke up full of hate. My front door knob deciding to get stuck closed did nothing but amplify it. And I want to get things done today.",
       "year": 2013,
-      "date": "2013-10-19",
+      "date": "Sat Oct 19 18:54:45 +0000 2013",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -418,61 +382,43 @@
       "id": "391621888218501120",
       "text": "@quinnnorton Have you written about these tactics? Very interested.",
       "year": 2013,
-      "date": "2013-10-19",
+      "date": "Sat Oct 19 17:48:28 +0000 2013",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "quinnnorton"
     },
     {
-      "id": "259407847039856641",
-      "text": "RT @RyanMullins: Nice to see cutting edge tech like #d3js and @leafletjs make it to the final four of UW-Madison’s tools for teaching we ...",
-      "year": 2012,
-      "date": "2012-10-19",
+      "id": "1185530160629583874",
+      "text": "RT @RichardEngel: US officials tell me ALARM BELL RINGING among diplomats in DC that U.S. could one day be held responsible for Crimes Agai…",
+      "year": 2019,
+      "date": "Sat Oct 19 12:16:31 +0000 2019",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "259170058901807104",
-      "text": "I didn't eat any food today and my stomach isn't too stoked about it.",
-      "year": 2012,
-      "date": "2012-10-19",
+      "id": "966917411",
+      "text": "Listening to Eminem and singing the songs all the way through, word for word. because I can.",
+      "year": 2008,
+      "date": "Mon Oct 20 02:46:46 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "259157836381159424",
-      "text": "RT @hyphy_republic: People were never going to get out in the street except for extreme circumstances, like the shooting of Olsen. @soci ...",
-      "year": 2012,
-      "date": "2012-10-19",
+      "id": "966828899",
+      "text": "I love having the dexter soundtrack in my library. Sometimes I'm doing shit and it comes on and I just feel badass.",
+      "year": 2008,
+      "date": "Mon Oct 20 01:16:04 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "259091778651688960",
-      "text": "Fuck you, Me 2 weeks ago, why would you leave this project broken in such a weird way...",
-      "year": 2012,
-      "date": "2012-10-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "126681778634235904",
-      "text": "My review of the blackberry playbook: No instapaper. Useless.",
-      "year": 2011,
-      "date": "2011-10-19",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "126452412922855424",
-      "text": "RT @MotherJones: Herman Cain says his tax plan won't raise taxes on the poor. Maybe he should check out this chart: http://t.co/kCcaBCxS",
-      "year": 2011,
-      "date": "2011-10-19",
+      "id": "966760638",
+      "text": "Parade by Pretty Girls Make Graves is my favorite song of the weekend.",
+      "year": 2008,
+      "date": "Mon Oct 20 00:03:21 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -481,7 +427,7 @@
       "id": "5003502377",
       "text": "WOW FACEBOOK PICTURE UPLOADS NO EDITING WOOOO-WEEE",
       "year": 2009,
-      "date": "2009-10-19",
+      "date": "Mon Oct 19 23:16:40 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -490,8 +436,44 @@
       "id": "5001857683",
       "text": "Shared: Is 10/GUI the Future Replacement of the Mouse and Keyboard?: 10/GUI, a prototype interface by R... http://bit.ly/FGZVP",
       "year": 2009,
-      "date": "2009-10-19",
+      "date": "Mon Oct 19 22:04:49 +0000 2009",
       "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1318310898486960134",
+      "text": "@aprilaser 😍",
+      "year": 2020,
+      "date": "Mon Oct 19 21:59:45 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "aprilaser"
+    },
+    {
+      "id": "1318310607649705984",
+      "text": "outcome of one election \"simulation\" went particularly off the rails (unclear whether that speaks to it's accuracy)  https://t.co/fGdFZZH6Oy",
+      "year": 2020,
+      "date": "Mon Oct 19 21:58:36 +0000 2020",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1318305512987963397",
+      "text": "https://t.co/tfVmkQDxnr",
+      "year": 2020,
+      "date": "Mon Oct 19 21:38:21 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1318303843185315842",
+      "text": "https://t.co/1vxfrFX69H",
+      "year": 2020,
+      "date": "Mon Oct 19 21:31:43 +0000 2020",
+      "favorites": 7,
       "retweets": 0,
       "replyTo": null
     },
@@ -499,7 +481,7 @@
       "id": "5000922187",
       "text": "I know! I'll play video games. That's relaxing without all of the waking up and going to sleep...",
       "year": 2009,
-      "date": "2009-10-19",
+      "date": "Mon Oct 19 21:24:17 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -508,7 +490,25 @@
       "id": "5000885342",
       "text": "I was gonna take a nap but then I took the dog for a walk and now I have some water boiling for Ramen... still exhausted though.",
       "year": 2009,
-      "date": "2009-10-19",
+      "date": "Mon Oct 19 21:22:40 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1318287051113041924",
+      "text": "When I was thinking about the visual design for the Coding With Fire livestreams (subscribe! https://t.co/UjuUaUoRUi) I put together this https://t.co/77c24W8zC4 channel of live TV visual design for some inspiration https://t.co/uLRfS7YGuI",
+      "year": 2020,
+      "date": "Mon Oct 19 20:25:00 +0000 2020",
+      "favorites": 1,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "656197030130425856",
+      "text": "RT @kibblesmith: Nice try \"Marco Rubio\" — or should I say...\n\n[rearranges letters]\n\n\"BIRAC UBOMA\"\n\n[audience gasps]",
+      "year": 2015,
+      "date": "Mon Oct 19 19:55:38 +0000 2015",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -517,7 +517,7 @@
       "id": "4998698735",
       "text": "KITTENS IN THE GARBAGE?!",
       "year": 2009,
-      "date": "2009-10-19",
+      "date": "Mon Oct 19 19:41:15 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -526,7 +526,16 @@
       "id": "4998518148",
       "text": "Dear god I find myself yet again watching a documentary on the history of Marijuana in the US. I don't really understand this.",
       "year": 2009,
-      "date": "2009-10-19",
+      "date": "Mon Oct 19 19:32:27 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "656159887563558914",
+      "text": "guys I don’t know what X-at-large means",
+      "year": 2015,
+      "date": "Mon Oct 19 17:28:02 +0000 2015",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -535,7 +544,34 @@
       "id": "4995182907",
       "text": "Mmm. $32 - http://jonniecraig.com/",
       "year": 2009,
-      "date": "2009-10-19",
+      "date": "Mon Oct 19 16:54:32 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "656132217475874817",
+      "text": "I beat 100% of people trading $MCZ, ranking #1. Holy shit!! The Trading Game: http://t.co/ympgk33SRg",
+      "year": 2015,
+      "date": "Mon Oct 19 15:38:05 +0000 2015",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1318207506154487809",
+      "text": "last *week* I took the same number of steps that I used to take on a normal day in the city pre-quarantine (14k)",
+      "year": 2020,
+      "date": "Mon Oct 19 15:08:55 +0000 2020",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1318191731452555265",
+      "text": "RT @sxywu: 🎊NEW PROJECT🎊\n\nIn 2016, at least 4,350,291 registered voters were removed because of “failure to respond” to notification. If th…",
+      "year": 2020,
+      "date": "Mon Oct 19 14:06:14 +0000 2020",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -544,7 +580,34 @@
       "id": "4991410007",
       "text": "New gmail rule so Facebook stuff skips the inbox. Now my mail is actually relevant to me when I scroll through it...",
       "year": 2009,
-      "date": "2009-10-19",
+      "date": "Mon Oct 19 13:58:17 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "656105728189558784",
+      "text": "This is not a classy response, Amazon. \n\nhttps://t.co/wqXbqtLNo8",
+      "year": 2015,
+      "date": "Mon Oct 19 13:52:50 +0000 2015",
+      "favorites": 1,
+      "retweets": 1,
+      "replyTo": null
+    },
+    {
+      "id": "656087803701411841",
+      "text": "That feeling when you were running early, the train hangs out at the station for 20m, and then you’re late.",
+      "year": 2015,
+      "date": "Mon Oct 19 12:41:36 +0000 2015",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "656062318435024896",
+      "text": "RT @calestous: Migrant crisis: Tensions rise as Balkan path blocked http://t.co/KBitBYL5n8 http://t.co/B1O8Qkbjeq",
+      "year": 2015,
+      "date": "Mon Oct 19 11:00:20 +0000 2015",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -553,7 +616,7 @@
       "id": "4984652091",
       "text": "WHY DID I STAY UP SO LATEEEE",
       "year": 2009,
-      "date": "2009-10-19",
+      "date": "Mon Oct 19 05:54:14 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -562,25 +625,34 @@
       "id": "4983570377",
       "text": "I'm gonna live my life like the world's over in 2012 just in case.",
       "year": 2009,
-      "date": "2009-10-19",
+      "date": "Mon Oct 19 04:39:01 +0000 2009",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "966626450",
-      "text": "Awoked.",
-      "year": 2008,
-      "date": "2008-10-19",
+      "id": "921224059408474113",
+      "text": "OAKLAND!!!!!!!!!!!",
+      "year": 2017,
+      "date": "Fri Oct 20 03:58:25 +0000 2017",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "921218427510857729",
+      "text": "RT @ccervantesjr: @mrejfox No.",
+      "year": 2017,
+      "date": "Fri Oct 20 03:36:03 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "965718122",
-      "text": "Trying to get auto-tune... not doing too hot.",
-      "year": 2008,
-      "date": "2008-10-19",
+      "id": "921206757573251073",
+      "text": "Are there people who enjoy Tony Romo",
+      "year": 2017,
+      "date": "Fri Oct 20 02:49:40 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -589,7 +661,25 @@
       "id": "349001602",
       "text": "Arley: \"We love us\". Truer words...",
       "year": 2007,
-      "date": "2007-10-19",
+      "date": "Fri Oct 19 23:43:23 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1053423734105800706",
+      "text": "RT @nprscottsimon: Yes, I've seen the breaking news on Jamal Khashoggi. Speechless, skeptical, and sad. A good man and fine journalist, kil…",
+      "year": 2018,
+      "date": "Fri Oct 19 23:12:44 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "259407847039856641",
+      "text": "RT @RyanMullins: Nice to see cutting edge tech like #d3js and @leafletjs make it to the final four of UW-Madison’s tools for teaching we ...",
+      "year": 2012,
+      "date": "Fri Oct 19 21:37:04 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -598,7 +688,16 @@
       "id": "348601502",
       "text": "Took a picture outside for layer tennis competition- too bad the camera has 558 pictures to import before my 5. There goes timeliness.",
       "year": 2007,
-      "date": "2007-10-19",
+      "date": "Fri Oct 19 19:51:07 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1053332046720974848",
+      "text": "Did Chrome 70 mess up d3-zoom for anyone else?",
+      "year": 2018,
+      "date": "Fri Oct 19 17:08:24 +0000 2018",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -607,7 +706,7 @@
       "id": "348189902",
       "text": "Just listened to 'Gay Bar' like three times in a row.",
       "year": 2007,
-      "date": "2007-10-19",
+      "date": "Fri Oct 19 16:28:12 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -616,7 +715,7 @@
       "id": "347484512",
       "text": "Decided to stay home, I have all my work until monday for most of my subjects (by some stroke of luck). So now, I sit home and watch Weeds.",
       "year": 2007,
-      "date": "2007-10-19",
+      "date": "Fri Oct 19 10:56:08 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -625,159 +724,28 @@
       "id": "347470962",
       "text": "Missed the bus because neither of my two alarm clocks went off. Stupid technology.",
       "year": 2007,
-      "date": "2007-10-19",
+      "date": "Fri Oct 19 10:46:14 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "346587332",
-      "text": "Going to sleep. Hopefully waking up tomorrow will be good...",
-      "year": 2007,
-      "date": "2007-10-19",
+      "id": "259170058901807104",
+      "text": "I didn't eat any food today and my stomach isn't too stoked about it.",
+      "year": 2012,
+      "date": "Fri Oct 19 05:52:11 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "259157836381159424",
+      "text": "RT @hyphy_republic: People were never going to get out in the street except for extreme circumstances, like the shooting of Olsen. @soci ...",
+      "year": 2012,
+      "date": "Fri Oct 19 05:03:37 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     }
-  ],
-  "posts": [],
-  "scrobbles": [
-    {
-      "date": "2023-10-19",
-      "year": 2023,
-      "count": 59,
-      "topTracks": [
-        "The Alchemist - Loose Change (feat. Earl Sweatshirt)",
-        "Mac Miller - In the Morning (feat. Thundercat & Syd)",
-        "zekeultra - CARRY ME HOME",
-        "Hiatus Kaiyote - Red Room",
-        "Aviad - the best in me"
-      ],
-      "topArtists": ["The Alchemist", "Mac Miller", "zekeultra"]
-    },
-    {
-      "date": "2022-10-19",
-      "year": 2022,
-      "count": 2,
-      "topTracks": [
-        "James Blake - Retrograde",
-        "Jay Rock - King's Dead (with Kendrick Lamar, Future & James Blake)"
-      ],
-      "topArtists": ["James Blake", "Jay Rock"]
-    },
-    {
-      "date": "2019-10-19",
-      "year": 2019,
-      "count": 1,
-      "topTracks": ["Deaton Chris Anthony - Mr. Call You Back"],
-      "topArtists": ["Deaton Chris Anthony"]
-    },
-    {
-      "date": "2018-10-19",
-      "year": 2018,
-      "count": 13,
-      "topTracks": [
-        "Danny Brown - Die Like a Rockstar",
-        "Danny Brown - Pac Blood",
-        "Danny Brown - Radio Song",
-        "Danny Brown - Lie4",
-        "Danny Brown - I Will"
-      ],
-      "topArtists": ["Danny Brown"]
-    },
-    {
-      "date": "2016-10-19",
-      "year": 2016,
-      "count": 12,
-      "topTracks": [
-        "James Blake - Points",
-        "James Blake - Love Me in Whatever Way",
-        "James Blake - Waves Know Shores",
-        "James Blake - My Willing Heart",
-        "James Blake - Choose Me"
-      ],
-      "topArtists": ["James Blake"]
-    },
-    {
-      "date": "2013-10-19",
-      "year": 2013,
-      "count": 3,
-      "topTracks": [
-        "Dntel - (This Is) The Dream of Evan and Chan",
-        "Dntel - Still",
-        "Dntel - Anywhere Anyone"
-      ],
-      "topArtists": ["Dntel"]
-    },
-    {
-      "date": "2010-10-19",
-      "year": 2010,
-      "count": 35,
-      "topTracks": [
-        "Orson Scott Card - Xenocide (Unabridged), Part 2",
-        "Orson Scott Card - Xenocide (Unabridged), Part 3",
-        "David Sedaris - When You Are Engulfed in Flames (Unabridged) Part 2",
-        "Lewis Black - Nothing's Sacred (Unabridged)",
-        "Animal Collective - Who Could Win a Rabbit"
-      ],
-      "topArtists": ["Orson Scott Card", "David Sedaris", "Lewis Black"]
-    },
-    {
-      "date": "2009-10-19",
-      "year": 2009,
-      "count": 39,
-      "topTracks": [
-        "Chicago Public Radio - #392: Someone Else's Money",
-        "The Moth - Mike Destefano: The Junkie and The Monk",
-        "The Moth - Jessi Klein: Dale",
-        "NPR - #104 Planet Money: The Riddle of Minimum Wage",
-        "Aaliyah - Try Again"
-      ],
-      "topArtists": ["Chicago Public Radio", "The Moth", "NPR"]
-    },
-    {
-      "date": "2008-10-19",
-      "year": 2008,
-      "count": 89,
-      "topTracks": [
-        "Venetian Snares - Szerencsétlen",
-        "Tegan and Sara - First",
-        "Bob Marley - Lively up Yourself",
-        "Bob Marley - Could You Be Loved",
-        "Handsome Boy Modeling School - metaphysical"
-      ],
-      "topArtists": ["Venetian Snares", "Tegan and Sara", "Bob Marley"]
-    },
-    {
-      "date": "2007-10-19",
-      "year": 2007,
-      "count": 109,
-      "topTracks": [
-        "Electric Six - Gay Bar",
-        "Architecture in Helsinki - Hold Music",
-        "Architecture in Helsinki - Feather in a Baseball Cap",
-        "Architecture in Helsinki - Underwater",
-        "Architecture in Helsinki - Like It Ar Not"
-      ],
-      "topArtists": [
-        "Electric Six",
-        "Architecture in Helsinki",
-        "Death Cab for Cutie"
-      ]
-    },
-    {
-      "date": "2006-10-19",
-      "year": 2006,
-      "count": 47,
-      "topTracks": [
-        "Rappy McRapperson - Car Bomb",
-        "Rappy McRapperson - Curse In your Verses",
-        "Rappy McRapperson - Dusty Trails Out West",
-        "Rappy Mcrapperrson - Planet Lesbodian",
-        "Optimus Rhyme - Just Forget It"
-      ],
-      "topArtists": ["Rappy McRapperson", "Rappy Mcrapperrson", "Optimus Rhyme"]
-    }
-  ],
-  "commits": []
+  ]
 }

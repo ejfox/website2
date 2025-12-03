@@ -1,271 +1,10 @@
 {
   "tweets": [
     {
-      "id": "1566856827769425921",
-      "text": "🌧 https://t.co/1SKx0RGcdl",
-      "year": 2022,
-      "date": "2022-09-05",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1566783764159684609",
-      "text": "found it https://t.co/et2dK8aTsJ",
-      "year": 2022,
-      "date": "2022-09-05",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1566781705964425217",
-      "text": "do any of you guys know where i left my red notebook",
-      "year": 2022,
-      "date": "2022-09-05",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1302258720232136704",
-      "text": "David Graeber https://t.co/Mg5l8BRuCh",
-      "year": 2020,
-      "date": "2020-09-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "1169581299713171461",
-      "text": "🌞",
-      "year": 2019,
-      "date": "2019-09-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
       "id": "1037480970990092288",
       "text": "RT @TheOnion: World’s Cartographers Continue Living Secret Life Of Luxury On Idyllic, Never Disclosed 8th Continent https://t.co/1bcaXUSXfN…",
       "year": 2018,
-      "date": "2018-09-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1037465083327270914",
-      "text": "Rhythm roulette is really bad now",
-      "year": 2018,
-      "date": "2018-09-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1037429712891654146",
-      "text": "so who's got a database of written articles/papers/essays/etc by trump admin officials for text analysis",
-      "year": 2018,
-      "date": "2018-09-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1037323604717969408",
-      "text": "RT @AdrienneLaF: The president of the United States gave @DailyCaller an exclusive interview in the Oval Office yesterday. @RosieGray scoop…",
-      "year": 2018,
-      "date": "2018-09-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1037322445441642496",
-      "text": "If you care what users think, you'll ask. And they'll say \"a faster horse\". And if you really care, you'll then ask them exactly how to build the horse and a supply line for horse parts and maybe they'll riff a few witty \"faster horse\" lines for marketing too",
-      "year": 2018,
-      "date": "2018-09-05",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "905180024810205189",
-      "text": "RT @ryanjreilly: Coverage of troubling deaths at David Clarke's former jail reportedly helped prevent him from getting a job at DHS and the…",
-      "year": 2017,
-      "date": "2017-09-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "905134436177543169",
-      "text": "@ABenalt I endorse all the meanings",
-      "year": 2017,
-      "date": "2017-09-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "ABenalt"
-    },
-    {
-      "id": "905128504689340417",
-      "text": "@AndrewDLuecke I would pay money to watch you conversate with hype beasts in line",
-      "year": 2017,
-      "date": "2017-09-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "andrewluecke"
-    },
-    {
-      "id": "905109608389337088",
-      "text": "Am I just a beard to you people",
-      "year": 2017,
-      "date": "2017-09-05",
-      "favorites": 4,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "905070614347735041",
-      "text": "The people at the coffee shop have literally no idea who I am",
-      "year": 2017,
-      "date": "2017-09-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "mrejfox"
-    },
-    {
-      "id": "904937378942513152",
-      "text": "I cut off my beard. The rule is don't wear beards after labor day, right?",
-      "year": 2017,
-      "date": "2017-09-05",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "772809999160598528",
-      "text": "I knew I had read yesterday's NYTimes story before\n\nNYT, Sep 2016: https://t.co/84mZo6C26H\n\nVocativ, June 2014: https://t.co/8CTk4iOsXs",
-      "year": 2016,
-      "date": "2016-09-05",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "639955581390966784",
-      "text": "picking a lock to let puppies go is probably the best and most idealistic metaphor for hacking ever \n\nI love it",
-      "year": 2015,
-      "date": "2015-09-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "375725417313095680",
-      "text": "#reoccupy",
-      "year": 2013,
-      "date": "2013-09-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "243464734614106114",
-      "text": "@OakScott Does this not warm your heart? @bdbreedlove http://t.co/nua29srF",
-      "year": 2012,
-      "date": "2012-09-05",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "SpecterOfScott"
-    },
-    {
-      "id": "243456244977897472",
-      "text": "@enjalot Are you data-fiendin'?",
-      "year": 2012,
-      "date": "2012-09-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "enjalot"
-    },
-    {
-      "id": "243401210361679873",
-      "text": "Holy shit it's hot.",
-      "year": 2012,
-      "date": "2012-09-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "243381182442643458",
-      "text": "Border-radius is my homie",
-      "year": 2012,
-      "date": "2012-09-05",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "110850086212354048",
-      "text": "Going to Oakland to see a potential place.",
-      "year": 2011,
-      "date": "2011-09-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "110735904708116482",
-      "text": "RT @claytoncubitt: Happy Labor Day America! You are the docile cows, government is the cattle dog, capital is the cowboy herding you to  ...",
-      "year": 2011,
-      "date": "2011-09-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "23015753496",
-      "text": "New photoblog post: End of Camp (Part 2) http://bit.ly/9XeHoq",
-      "year": 2010,
-      "date": "2010-09-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "911254757",
-      "text": "Sometimes I forget that not everyone knows that most riot police are crazy and beat up everyone who gets in their way. Why isn't that known?",
-      "year": 2008,
-      "date": "2008-09-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "910501497",
-      "text": "On a weird turn of events, I'm watching Americas Next Top Model.",
-      "year": 2008,
-      "date": "2008-09-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "910404770",
-      "text": "Found MeeID through @Skyzyx and it's actually really cool... http://meeid.com/pseudoplacebo/",
-      "year": 2008,
-      "date": "2008-09-05",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "910198760",
-      "text": "\"Crowd: “You’re sexy, you’re cute! Take off your riot suit!” -- Remind me again why I'm not in Minnesota?",
-      "year": 2008,
-      "date": "2008-09-05",
+      "date": "Wed Sep 05 23:21:53 +0000 2018",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -274,7 +13,16 @@
       "id": "249864132",
       "text": "So tired. Still have homework to do.",
       "year": 2007,
-      "date": "2007-09-05",
+      "date": "Wed Sep 05 22:26:43 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1037465083327270914",
+      "text": "Rhythm roulette is really bad now",
+      "year": 2018,
+      "date": "Wed Sep 05 22:18:45 +0000 2018",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -283,16 +31,43 @@
       "id": "249838732",
       "text": "Mobile Photo: Spiral on Right Ankle http://tinyurl.com/2mc4lh",
       "year": 2007,
-      "date": "2007-09-05",
+      "date": "Wed Sep 05 22:08:26 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
+      "id": "243464734614106114",
+      "text": "@OakScott Does this not warm your heart? @bdbreedlove http://t.co/nua29srF",
+      "year": 2012,
+      "date": "Wed Sep 05 21:44:51 +0000 2012",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "SpecterOfScott"
+    },
+    {
+      "id": "243456244977897472",
+      "text": "@enjalot Are you data-fiendin'?",
+      "year": 2012,
+      "date": "Wed Sep 05 21:11:06 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "enjalot"
+    },
+    {
       "id": "249709812",
       "text": "Eating Pizza with Peter. I hope I tipped the guy enough. Pizza was $13 I paid him $16",
       "year": 2007,
-      "date": "2007-09-05",
+      "date": "Wed Sep 05 20:45:44 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1037429712891654146",
+      "text": "so who's got a database of written articles/papers/essays/etc by trump admin officials for text analysis",
+      "year": 2018,
+      "date": "Wed Sep 05 19:58:12 +0000 2018",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -301,8 +76,44 @@
       "id": "249558842",
       "text": "Back home, expecting a pizza around four.",
       "year": 2007,
-      "date": "2007-09-05",
+      "date": "Wed Sep 05 19:26:41 +0000 2007",
       "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "243401210361679873",
+      "text": "Holy shit it's hot.",
+      "year": 2012,
+      "date": "Wed Sep 05 17:32:25 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "243381182442643458",
+      "text": "Border-radius is my homie",
+      "year": 2012,
+      "date": "Wed Sep 05 16:12:50 +0000 2012",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1037323604717969408",
+      "text": "RT @AdrienneLaF: The president of the United States gave @DailyCaller an exclusive interview in the Oval Office yesterday. @RosieGray scoop…",
+      "year": 2018,
+      "date": "Wed Sep 05 12:56:34 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1037322445441642496",
+      "text": "If you care what users think, you'll ask. And they'll say \"a faster horse\". And if you really care, you'll then ask them exactly how to build the horse and a supply line for horse parts and maybe they'll riff a few witty \"faster horse\" lines for marketing too",
+      "year": 2018,
+      "date": "Wed Sep 05 12:51:58 +0000 2018",
+      "favorites": 1,
       "retweets": 0,
       "replyTo": null
     },
@@ -310,7 +121,7 @@
       "id": "248468182",
       "text": "Waiting for the bus. I'm actually fully awake right now. That's cool. Mommy bought me a rockstar, hurray!",
       "year": 2007,
-      "date": "2007-09-05",
+      "date": "Wed Sep 05 10:20:28 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -319,113 +130,262 @@
       "id": "248405162",
       "text": "Just took a nice shower, now getting dressed. Hiccups are annoying.",
       "year": 2007,
-      "date": "2007-09-05",
+      "date": "Wed Sep 05 09:39:12 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "247899412",
-      "text": "Can't get to sleep. =Ä",
-      "year": 2007,
-      "date": "2007-09-05",
+      "id": "1566940187179061252",
+      "text": "@jeremybmerrill I think about this piece all the time https://t.co/OFcjzm8uv9",
+      "year": 2022,
+      "date": "Tue Sep 06 00:03:47 +0000 2022",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": "jeremybmerrill"
+    },
+    {
+      "id": "905180024810205189",
+      "text": "RT @ryanjreilly: Coverage of troubling deaths at David Clarke's former jail reportedly helped prevent him from getting a job at DHS and the…",
+      "year": 2017,
+      "date": "Tue Sep 05 21:25:10 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "247753982",
-      "text": "Going to sleep... school in the morning. =O",
+      "id": "905134436177543169",
+      "text": "@ABenalt I endorse all the meanings",
+      "year": 2017,
+      "date": "Tue Sep 05 18:24:00 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "ABenalt"
+    },
+    {
+      "id": "905128504689340417",
+      "text": "@AndrewDLuecke I would pay money to watch you conversate with hype beasts in line",
+      "year": 2017,
+      "date": "Tue Sep 05 18:00:26 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "andrewluecke"
+    },
+    {
+      "id": "905109608389337088",
+      "text": "Am I just a beard to you people",
+      "year": 2017,
+      "date": "Tue Sep 05 16:45:21 +0000 2017",
+      "favorites": 4,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "905070614347735041",
+      "text": "The people at the coffee shop have literally no idea who I am",
+      "year": 2017,
+      "date": "Tue Sep 05 14:10:24 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "904937378942513152",
+      "text": "I cut off my beard. The rule is don't wear beards after labor day, right?",
+      "year": 2017,
+      "date": "Tue Sep 05 05:20:58 +0000 2017",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "250249232",
+      "text": "And now; sleep.",
       "year": 2007,
-      "date": "2007-09-05",
+      "date": "Thu Sep 06 02:21:53 +0000 2007",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "247655852",
-      "text": "Finding pens and shit for school. Bought a new memory card from amazon for the phone so that I can fit more music on it. Better comes soon.",
-      "year": 2007,
-      "date": "2007-09-05",
+      "id": "243532696603750401",
+      "text": "RT @mbostock: “Life is too short to stare at ugly graphs. And yes, you should feel bad.” http://t.co/IKu4pj8U",
+      "year": 2012,
+      "date": "Thu Sep 06 02:14:54 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
-    }
-  ],
-  "posts": [],
-  "scrobbles": [
+    },
     {
-      "date": "2020-09-05",
+      "id": "250197712",
+      "text": "Very much tired. Throwing in a little Fusend work and then passing out. Secondary Sidekick battery shipped today.",
+      "year": 2007,
+      "date": "Thu Sep 06 01:52:05 +0000 2007",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "243503412782723072",
+      "text": "@enjalot I'm not entirely sure what this is, but, #tributarychallenge - http://t.co/zipD6NPd",
+      "year": 2012,
+      "date": "Thu Sep 06 00:18:32 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "enjalot"
+    },
+    {
+      "id": "375725417313095680",
+      "text": "#reoccupy",
+      "year": 2013,
+      "date": "Thu Sep 05 21:01:34 +0000 2013",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1169581299713171461",
+      "text": "🌞",
+      "year": 2019,
+      "date": "Thu Sep 05 12:01:26 +0000 2019",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1302441048896045056",
+      "text": "RT @SophiaWCTV: https://t.co/9AG9Vn9Ial",
       "year": 2020,
-      "count": 2,
-      "topTracks": ["BRANKO - Sempre", "BRANKO - Amours d'Été"],
-      "topArtists": ["BRANKO"]
+      "date": "Sun Sep 06 02:58:38 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
     },
     {
-      "date": "2018-09-05",
-      "year": 2018,
-      "count": 32,
-      "topTracks": [
-        "Mahalia - I Wish I Missed My Ex",
-        "Kelela - LMK",
-        "Appleby - Young Lost Love",
-        "Zach Schimpf - Patterns",
-        "Zach Schimpf - Different Songs"
-      ],
-      "topArtists": ["Mahalia", "Kelela", "Appleby"]
+      "id": "1302422685406953473",
+      "text": "i think having arms is important, but ian disagrees https://t.co/dFfeXJ7JCL",
+      "year": 2020,
+      "date": "Sun Sep 06 01:45:40 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
     },
     {
-      "date": "2009-09-05",
-      "year": 2009,
-      "count": 16,
-      "topTracks": [
-        "Buddy Holly - Everyday",
-        "Feist - Mushaboom",
-        "Beirut - Elephant Gun",
-        "Devendra Banhart - A Sight to Behold",
-        "Bat for Lashes - Prescilla"
-      ],
-      "topArtists": ["Buddy Holly", "Feist", "Beirut"]
+      "id": "1302420672409415681",
+      "text": "im a fish https://t.co/cxZz3r9vxQ",
+      "year": 2020,
+      "date": "Sun Sep 06 01:37:40 +0000 2020",
+      "favorites": 4,
+      "retweets": 0,
+      "replyTo": "mrejfox"
     },
     {
-      "date": "2008-09-05",
+      "id": "1302416737577689095",
+      "text": "guys help @enjalot turned into a soccer ball https://t.co/Z6EqS02ARL",
+      "year": 2020,
+      "date": "Sun Sep 06 01:22:02 +0000 2020",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "911353742",
+      "text": "One day, I will be a liquor store cashier and I will card an old old woman and she will love me. It's on my life's To Do list.",
       "year": 2008,
-      "count": 153,
-      "topTracks": [
-        "Shwayze - Corona And Lime",
-        "Shwayze - Buzzin'",
-        "Shwayze - Don't Be Shy",
-        "Shwayze - Hollywood",
-        "Shwayze - Polaroid"
-      ],
-      "topArtists": ["Shwayze", "Shy FX", "Shy FX and UK Apache"]
+      "date": "Sat Sep 06 00:15:09 +0000 2008",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
     },
     {
-      "date": "2007-09-05",
-      "year": 2007,
-      "count": 16,
-      "topTracks": [
-        "Death Cab for Cutie - TV Trays",
-        "Death Cab for Cutie - New Candles",
-        "Death Cab for Cutie - Tomorrow",
-        "Death Cab for Cutie - Flustered-Hey Tomcat!",
-        "Ludacris - Tell It Like It Is (Clean)"
-      ],
-      "topArtists": ["Death Cab for Cutie", "Ludacris"]
+      "id": "1302258720232136704",
+      "text": "David Graeber https://t.co/Mg5l8BRuCh",
+      "year": 2020,
+      "date": "Sat Sep 05 14:54:08 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
     },
     {
-      "date": "2006-09-05",
-      "year": 2006,
-      "count": 48,
-      "topTracks": [
-        "digg.com - Diggnation Episode #0058 - August 10, 2006",
-        "digg.com - Diggnation Episode #0060 - August 24, 2006",
-        "NPR - NPR: Wait Wait... Don't Tell Me! for Sunday, Aug 20 2006",
-        "NPR - NPR: Wait Wait... Don't Tell Me! for Monday, Aug 28 2006",
-        "The Leaky Cauldron (LeakyNews.com) - PotterCast #53: Emo Draco"
-      ],
-      "topArtists": ["digg.com", "NPR", "The Leaky Cauldron (LeakyNews.com)"]
+      "id": "110850086212354048",
+      "text": "Going to Oakland to see a potential place.",
+      "year": 2011,
+      "date": "Mon Sep 05 23:01:34 +0000 2011",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1566856827769425921",
+      "text": "🌧 https://t.co/1SKx0RGcdl",
+      "year": 2022,
+      "date": "Mon Sep 05 18:32:33 +0000 2022",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "110735904708116482",
+      "text": "RT @claytoncubitt: Happy Labor Day America! You are the docile cows, government is the cattle dog, capital is the cowboy herding you to  ...",
+      "year": 2011,
+      "date": "Mon Sep 05 15:27:51 +0000 2011",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "772809999160598528",
+      "text": "I knew I had read yesterday's NYTimes story before\n\nNYT, Sep 2016: https://t.co/84mZo6C26H\n\nVocativ, June 2014: https://t.co/8CTk4iOsXs",
+      "year": 2016,
+      "date": "Mon Sep 05 14:53:56 +0000 2016",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1566783764159684609",
+      "text": "found it https://t.co/et2dK8aTsJ",
+      "year": 2022,
+      "date": "Mon Sep 05 13:42:13 +0000 2022",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1566781705964425217",
+      "text": "do any of you guys know where i left my red notebook",
+      "year": 2022,
+      "date": "Mon Sep 05 13:34:02 +0000 2022",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "911254757",
+      "text": "Sometimes I forget that not everyone knows that most riot police are crazy and beat up everyone who gets in their way. Why isn't that known?",
+      "year": 2008,
+      "date": "Fri Sep 05 22:16:04 +0000 2008",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "910501497",
+      "text": "On a weird turn of events, I'm watching Americas Next Top Model.",
+      "year": 2008,
+      "date": "Fri Sep 05 09:08:05 +0000 2008",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "910404770",
+      "text": "Found MeeID through @Skyzyx and it's actually really cool... http://meeid.com/pseudoplacebo/",
+      "year": 2008,
+      "date": "Fri Sep 05 06:15:35 +0000 2008",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
     }
-  ],
-  "commits": []
+  ]
 }

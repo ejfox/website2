@@ -1,101 +1,182 @@
 {
   "tweets": [
     {
-      "id": "1528381316730916864",
-      "text": "I love this https://t.co/yPHJNNR1h6 https://t.co/kDvTA35H9f",
-      "year": 2022,
-      "date": "2022-05-22",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1528343029718867970",
-      "text": "@hellonearthis Eventually, I got distracted https://t.co/ucR75ZQD6U",
-      "year": 2022,
-      "date": "2022-05-22",
-      "favorites": 1,
-      "retweets": 0,
-      "replyTo": "hellonearthis"
-    },
-    {
-      "id": "1528214269493489676",
-      "text": "RT @hellonearthis: @mrejfox https://t.co/u1zMCZ89iv  :D https://t.co/nFuVQBOHAM",
-      "year": 2022,
-      "date": "2022-05-22",
+      "id": "205143640593543170",
+      "text": "RT @socialistlib510: The fire of #OO is burning hot tonight. Remember why we are in this. #oakmtg",
+      "year": 2012,
+      "date": "Wed May 23 03:50:29 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "1396084223304478733",
-      "text": "why is my Saturday paper missing again today (it appeared on Sunday last time, placed very strangely) https://t.co/tZMymlhLZv",
-      "year": 2021,
-      "date": "2021-05-22",
+      "id": "205143546804707328",
+      "text": "RT @hyphy_republic: CC likely to have strokes/heart attacks @BellaEiko has already ripped their faces off with blasts of acidic rhetoric ...",
+      "year": 2012,
+      "date": "Wed May 23 03:50:07 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "1263961203866578945",
-      "text": "@biddyfox https://t.co/cmfNhLaXPE",
-      "year": 2020,
-      "date": "2020-05-22",
+      "id": "205140994700754944",
+      "text": "#lazyweb #opendata A friend and I are wanting to make a visualization using 1 million unique datapoints- anyone know of a dataset that lrg?",
+      "year": 2012,
+      "date": "Wed May 23 03:39:59 +0000 2012",
       "favorites": 0,
-      "retweets": 0,
-      "replyTo": "biddyfox"
+      "retweets": 1,
+      "replyTo": null
     },
     {
-      "id": "1263822668253536256",
-      "text": "got ffmpeg nerd sniped first thing on twitter",
-      "year": 2020,
-      "date": "2020-05-22",
-      "favorites": 3,
+      "id": "205129701465927681",
+      "text": "RT @susie_c: Kernighan threatens the legislation will \"get through the city council in a different method\" if ppl keep yelling. O rly? # ...",
+      "year": 2012,
+      "date": "Wed May 23 02:55:06 +0000 2012",
+      "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "1263822144431181825",
-      "text": "@ranimolla @zoom_us https://t.co/Bk3vHnAu8j https://t.co/nfL31iPuf2",
-      "year": 2020,
-      "date": "2020-05-22",
+      "id": "205123911501877249",
+      "text": "#oakmtg Just chilling in case I need to cede my time to @BellaEiko - she is first up to speak, shield in hand. I am proud to support her",
+      "year": 2012,
+      "date": "Wed May 23 02:32:06 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "205123557120950272",
+      "text": "#oakmtg I'm supposed to be meeting a friend, but I told him to just come to city hall and see what's up. Everyone should see OO in action.",
+      "year": 2012,
+      "date": "Wed May 23 02:30:41 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "205123182368272384",
+      "text": "#OakMtg Occupy actively heckles ordinance as it is read. Small corrections. I feel like Twitter has taught us this method of communication.",
+      "year": 2012,
+      "date": "Wed May 23 02:29:12 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "205122263735992320",
+      "text": "#oakmtg 37 speakers signed up for shield ordinance \"and now for what most of you are here for\" - at least they know.",
+      "year": 2012,
+      "date": "Wed May 23 02:25:33 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "205121480202272768",
+      "text": "@marymad Thinking about comparing OPD overtime stats to other funding- like what's discussed 2night- do you know where that'd be?",
+      "year": 2012,
+      "date": "Wed May 23 02:22:26 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "treekisser"
+    },
+    {
+      "id": "205117874870829057",
+      "text": "#oakmtg Maybe it's just me, but city council chambers vibrating a bit, lots of energy waiting to explode about shield ordinance.",
+      "year": 2012,
+      "date": "Wed May 23 02:08:06 +0000 2012",
+      "favorites": 0,
+      "retweets": 2,
+      "replyTo": null
+    },
+    {
+      "id": "205117671187030017",
+      "text": "I'm all for causing a ruckus at #oakmtg but let's keep our chants and support for most poignant moments. The perfect time will come.",
+      "year": 2012,
+      "date": "Wed May 23 02:07:18 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "205116775254327297",
+      "text": "Cty. Council letting others speak over their limit, even if just by 30 seconds. I wonder if occupiers get even 5 seconds before reprimand.",
+      "year": 2012,
+      "date": "Wed May 23 02:03:44 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "205113767611203584",
+      "text": "#OakMtg Cty. Council switches their shit around so #oo just talks when they wanna talk. Bullshit begets bullshit.",
+      "year": 2012,
+      "date": "Wed May 23 01:51:47 +0000 2012",
       "favorites": 2,
-      "retweets": 0,
-      "replyTo": "mrejfox"
+      "retweets": 2,
+      "replyTo": null
     },
     {
-      "id": "1263820515220893698",
-      "text": "@ranimolla @zoom_us yeah exactly, you might wanna play with the `-r 30` part, it looks like your GIF is more likely 1-2 frames per second, so it might be `-r 2` to start. If you already have homebrew you should be able to do `brew install ffmpeg` and then run the above with the correct filenames",
-      "year": 2020,
-      "date": "2020-05-22",
-      "favorites": 2,
+      "id": "205111068001972224",
+      "text": "RT @wiseoldsnail: 'if you want to do something about crime, do something about that paid hit squad called opd' #oakmtg",
+      "year": 2012,
+      "date": "Wed May 23 01:41:04 +0000 2012",
+      "favorites": 0,
       "retweets": 0,
-      "replyTo": "ranimolla"
+      "replyTo": null
     },
     {
-      "id": "1263819098187804673",
-      "text": "@ranimolla @zoom_us &gt;ffmpeg -r 30 -i YOURGIF.gif -movflags faststart -pix_fmt yuv420p -vf \"scale=trunc(iw/2)*2:trunc(ih/2)*2\" YOURMOVIE.mp4",
-      "year": 2020,
-      "date": "2020-05-22",
-      "favorites": 10,
+      "id": "205110955884019712",
+      "text": "Ow. I clapped too hard and it was just the first time. I'm gonna have to do more rationing or clap less vigorously.",
+      "year": 2012,
+      "date": "Wed May 23 01:40:37 +0000 2012",
+      "favorites": 0,
       "retweets": 0,
-      "replyTo": "ranimolla"
+      "replyTo": null
     },
     {
-      "id": "1263815661928755204",
-      "text": "@samselikoff The delightfully-named https://t.co/dekVqgdwtV with custom commitlint and changelog template 👍",
-      "year": 2020,
-      "date": "2020-05-22",
-      "favorites": 4,
+      "id": "205106143176048640",
+      "text": "Thank you so much for reading the text on your PowerPoint aloud. And thanks, again, for simply copying sections of your report into slides.",
+      "year": 2012,
+      "date": "Wed May 23 01:21:29 +0000 2012",
+      "favorites": 0,
       "retweets": 0,
-      "replyTo": "samselikoff"
+      "replyTo": null
     },
     {
-      "id": "1263640973029990401",
-      "text": "I wonder this a lot and bring it up with nearly ever tech person I know, I think a lot boils to not breaking things at scale, which both makes sense and is a sorry excuse https://t.co/oWtzrSgR1j",
-      "year": 2020,
-      "date": "2020-05-22",
-      "favorites": 1,
+      "id": "205100710042419200",
+      "text": "RT @OccupiedOakTrib: Tonights City Council committee meeting on shields and other \"weapons\" at protests has been moved to council chambe ...",
+      "year": 2012,
+      "date": "Wed May 23 00:59:54 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "205100575929548801",
+      "text": "#oakmtg suits on floor level of city council discuss amongst themselves where to sit. \"By the exits in case, yknow, Occupy!\"",
+      "year": 2012,
+      "date": "Wed May 23 00:59:22 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "205095541347061761",
+      "text": "RT @OakCityCouncil: Tonight at 6 city council members want you to believe a protester w a shield is more dangerous than a cop with a gun ...",
+      "year": 2012,
+      "date": "Wed May 23 00:39:22 +0000 2012",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "205092159932735488",
+      "text": "RT @OakCityCouncil: Just an hour away from the special meeting of the public safety committee. Are you coming? #oakmtg #occupyoakland #o ...",
+      "year": 2012,
+      "date": "Wed May 23 00:25:56 +0000 2012",
+      "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
@@ -103,7 +184,7 @@
       "id": "1131316745141202944",
       "text": "shoutout to the helicopter flying hella low over bushwick that doesn't show up on flightradar",
       "year": 2019,
-      "date": "2019-05-22",
+      "date": "Wed May 22 21:51:45 +0000 2019",
       "favorites": 3,
       "retweets": 0,
       "replyTo": null
@@ -112,7 +193,7 @@
       "id": "1131292954591727616",
       "text": "I am not in the mood to make one map, no, no siree, I am in the mood to make a million maps",
       "year": 2019,
-      "date": "2019-05-22",
+      "date": "Wed May 22 20:17:13 +0000 2019",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -121,7 +202,7 @@
       "id": "1131279813015158785",
       "text": "@higher_data @MJBizDaily @WeedFeed @MarijuanaB2B @CBTmag @cdispensarymag @dispensarygta @DataVizSociety @dataviz_catalog let's be friends",
       "year": 2019,
-      "date": "2019-05-22",
+      "date": "Wed May 22 19:25:00 +0000 2019",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -130,7 +211,7 @@
       "id": "1131279137610584064",
       "text": "this year I'm working hard to make more powerful enemies",
       "year": 2019,
-      "date": "2019-05-22",
+      "date": "Wed May 22 19:22:19 +0000 2019",
       "favorites": 4,
       "retweets": 0,
       "replyTo": null
@@ -139,7 +220,7 @@
       "id": "1131267747017568262",
       "text": "RT @trevortimm: Here's our statement at @FreedomofPress on the shocking announcement by SF police that they are criminally investigating fr…",
       "year": 2019,
-      "date": "2019-05-22",
+      "date": "Wed May 22 18:37:03 +0000 2019",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -148,7 +229,7 @@
       "id": "1131064812807557121",
       "text": "https://t.co/nz1ab5x6YJ https://t.co/zGNDD37ior",
       "year": 2019,
-      "date": "2019-05-22",
+      "date": "Wed May 22 05:10:40 +0000 2019",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "mrejfox"
@@ -157,7 +238,7 @@
       "id": "1131064804674813953",
       "text": "https://t.co/ewE738McQT https://t.co/L1M8dtiaFu",
       "year": 2019,
-      "date": "2019-05-22",
+      "date": "Wed May 22 05:10:38 +0000 2019",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "mrejfox"
@@ -166,7 +247,7 @@
       "id": "1131064792591011840",
       "text": "https://t.co/pCRHyGbvz1 https://t.co/Lr7sJX7UfS",
       "year": 2019,
-      "date": "2019-05-22",
+      "date": "Wed May 22 05:10:35 +0000 2019",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "mrejfox"
@@ -175,7 +256,7 @@
       "id": "1131064786341584896",
       "text": "https://t.co/WckLOhyWNX https://t.co/azILlU8s5W",
       "year": 2019,
-      "date": "2019-05-22",
+      "date": "Wed May 22 05:10:33 +0000 2019",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "mrejfox"
@@ -184,232 +265,133 @@
       "id": "1131063484794515456",
       "text": "https://t.co/Z5QkmzdQpT https://t.co/tpPmM7zabg",
       "year": 2019,
-      "date": "2019-05-22",
+      "date": "Wed May 22 05:05:23 +0000 2019",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "999052289951387648",
-      "text": "Oh man lets go to the Bodega, I wanna get a drink, I wonder what I’ll get (I always get the same thing) oh man it all looks so good, Hm, we’ll I think I’ll pick *same thing I always pick every single time why do I do this*",
-      "year": 2018,
-      "date": "2018-05-22",
-      "favorites": 3,
-      "retweets": 1,
-      "replyTo": null
+      "id": "866843406928154629",
+      "text": "@MTAArtsDesign OH MY GOD THEY SPENT $1.4 BILLION TO TRY AND FIX IT AND IT'S STILL EXACTLY THIS AWFUL https://t.co/XTGrYg2pHX",
+      "year": 2017,
+      "date": "Tue May 23 02:29:08 +0000 2017",
+      "favorites": 1,
+      "retweets": 2,
+      "replyTo": "mrejfox"
     },
     {
-      "id": "999045340937555969",
-      "text": "Don’t worry guys I found the section of my to do list where I tell myself how to have fun I planned for this moment",
-      "year": 2018,
-      "date": "2018-05-22",
-      "favorites": 0,
+      "id": "866843001078902784",
+      "text": "@MTAArtsDesign OH MY GOD THIS STORY IS 8 YEARS OLD https://t.co/CKGXM3pvnT",
+      "year": 2017,
+      "date": "Tue May 23 02:27:31 +0000 2017",
+      "favorites": 1,
       "retweets": 0,
       "replyTo": "mrejfox"
     },
     {
-      "id": "999040306241855490",
-      "text": "Suggestions welcome",
-      "year": 2018,
-      "date": "2018-05-22",
+      "id": "866842899803144192",
+      "text": "RT @pixelbeat: @mrejfox Fulton Station: The maze of ramps, Jan, 2009 — @nytimes\n\nhttps://t.co/8NLLrJd0oE",
+      "year": 2017,
+      "date": "Tue May 23 02:27:07 +0000 2017",
       "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "866840633499103232",
+      "text": "@pixelbeat the feeling of following signs until you reach a sign that points in the opposite direction, but forever",
+      "year": 2017,
+      "date": "Tue May 23 02:18:06 +0000 2017",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "pixelbeat"
+    },
+    {
+      "id": "866840525080539136",
+      "text": "RT @pixelbeat: @mrejfox dat limbo feeling, you know? the stuff nightmares are made of",
+      "year": 2017,
+      "date": "Tue May 23 02:17:40 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "866837482561716225",
+      "text": "@pixelbeat THANK GOD ITS NOT JUST ME",
+      "year": 2017,
+      "date": "Tue May 23 02:05:35 +0000 2017",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "pixelbeat"
+    },
+    {
+      "id": "866837434180530177",
+      "text": "RT @pixelbeat: @mrejfox It's terrible, at one point... after multiple attempts to get to the 3 platform, I questioned my very existence. Is…",
+      "year": 2017,
+      "date": "Tue May 23 02:05:24 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "866836804007325696",
+      "text": "@MTAArtsDesign God damn subway station got me heated.",
+      "year": 2017,
+      "date": "Tue May 23 02:02:53 +0000 2017",
+      "favorites": 1,
       "retweets": 0,
       "replyTo": "mrejfox"
     },
     {
-      "id": "999040260867870720",
-      "text": "I may have forgotten how to have fun",
-      "year": 2018,
-      "date": "2018-05-22",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "999032570032500737",
-      "text": "RT @Scaachi: fuck this monday-ass tuesday",
-      "year": 2018,
-      "date": "2018-05-22",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "998945304073433088",
-      "text": "I grow weary",
-      "year": 2018,
-      "date": "2018-05-22",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "866787738334490645",
-      "text": "RT @marcambinder: Police now officially confirming fatalities after an explosion at Manchester arena. https://t.co/X8U9a8qfeZ",
+      "id": "866834427221086214",
+      "text": "@MTAArtsDesign please dear God do something about the horrible signage and navigation in Fulton St",
       "year": 2017,
-      "date": "2017-05-22",
-      "favorites": 0,
+      "date": "Tue May 23 01:53:27 +0000 2017",
+      "favorites": 1,
       "retweets": 0,
-      "replyTo": null
+      "replyTo": "mrejfox"
     },
     {
-      "id": "866786302901059590",
-      "text": "can you unblock me please",
+      "id": "866833917738975233",
+      "text": "I am not an idiot. This is my third time I went up and down like 3 fucking floors to get to the J. Signage could not be worse. So angry.",
       "year": 2017,
-      "date": "2017-05-22",
-      "favorites": 0,
+      "date": "Tue May 23 01:51:25 +0000 2017",
+      "favorites": 1,
       "retweets": 0,
-      "replyTo": null
+      "replyTo": "mrejfox"
     },
     {
-      "id": "866778144237383680",
-      "text": "RT @DylanByers: Huge. https://t.co/dg1q4bMdHn",
+      "id": "866832735171727361",
+      "text": "FULTON STREET IS THE WORST FUCKING SUBWAY STATION IN EXISTENCE",
       "year": 2017,
-      "date": "2017-05-22",
-      "favorites": 0,
+      "date": "Tue May 23 01:46:43 +0000 2017",
+      "favorites": 1,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "866771003069915138",
-      "text": "@TheTomasRios @OliviaMesser didn't he... kinda.. already?",
+      "id": "866830083536945152",
+      "text": "RT @Bencjacobs: Don't give the guy with the bad tweet any attention",
       "year": 2017,
-      "date": "2017-05-22",
+      "date": "Tue May 23 01:36:11 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "866770096114552834",
-      "text": "RT @yashar: This is really quite remarkable https://t.co/znKWbdYLuf",
+      "id": "866827342538301443",
+      "text": "Hey @finslippy you should be ashamed to work with Sabu. There is an infinite supply of better sources. https://t.co/aYwLVVTfLW",
       "year": 2017,
-      "date": "2017-05-22",
+      "date": "Tue May 23 01:25:17 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "866769157227982852",
-      "text": "How are we supposed to go about our lives knowing there are such tremendous idiots out there?",
+      "id": "866825306522488832",
+      "text": "RT @mutludc: Rep Maloney on NY &amp; 28 other rep in a letter to Secretary Tillerson demanded that the Turkish \"guards be arrested, prosecuted…",
       "year": 2017,
-      "date": "2017-05-22",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "866767816992665602",
-      "text": "RT @abc7newsbayarea: Group of bystanders help mother by holding attempted kidnapping suspect down until police arrived at Ferry Building. h…",
-      "year": 2017,
-      "date": "2017-05-22",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "866764199652978694",
-      "text": "RT @bitcoinprice: The average price of Bitcoin across all exchanges is 2151.89 USD",
-      "year": 2017,
-      "date": "2017-05-22",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "866717489211871234",
-      "text": "RT @FiveThirtyEight: A Complete History of The @BachelorABC and The @BacheloretteABC https://t.co/v2pL1qFgU6 https://t.co/XfGgTiOwyN",
-      "year": 2017,
-      "date": "2017-05-22",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "866716152436842497",
-      "text": "Today, at age 24, I brought a salad to lunch for work for the first time in my life. This is a very smart thing.",
-      "year": 2017,
-      "date": "2017-05-22",
-      "favorites": 2,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "866695699836043265",
-      "text": "RT @TheRaidersWire: 3 reasons why Raiders will win the Super Bowl in 2017\nREAD MORE: https://t.co/bppLPSA1Tg https://t.co/ltd9W0vH0Q",
-      "year": 2017,
-      "date": "2017-05-22",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "866656391045533697",
-      "text": "RT @AP: BREAKING: Turkey summons US ambassador to protest 'aggressive' action against Turkish bodyguards in Washington.",
-      "year": 2017,
-      "date": "2017-05-22",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "866639615721181184",
-      "text": "@springer It's @gyroscope_app - I am a big fan https://t.co/mihyqcM31D",
-      "year": 2017,
-      "date": "2017-05-22",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "springer"
-    },
-    {
-      "id": "734436717650923520",
-      "text": "Occupy Oakland https://t.co/fBg3r1ODTY https://t.co/rIFMAljylu",
-      "year": 2016,
-      "date": "2016-05-22",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "734364168799854593",
-      "text": "I grow weary.",
-      "year": 2016,
-      "date": "2016-05-22",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "601755605527756800",
-      "text": "RT @WillMcAvoyACN: For the first time since @Gallup began asking, as many Americans identify as liberal as conservative on social issues ht…",
-      "year": 2015,
-      "date": "2015-05-22",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "469550122188017664",
-      "text": "@tylrfishr Is that templated solution open sourced at all? Similar to https://t.co/QD9eQ4jdvv - would love to contribute if possible.",
-      "year": 2014,
-      "date": "2014-05-22",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "tylrfishr"
-    },
-    {
-      "id": "469549763814125568",
-      "text": "@zlwise http://t.co/7fsx9bIfzR http://t.co/2tqXdWJ9Ww http://t.co/RHHFoQc9Eb http://t.co/lAahTjVEAg http://t.co/K9lstuMzHu &amp; more if ya want",
-      "year": 2014,
-      "date": "2014-05-22",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "zlwise"
-    },
-    {
-      "id": "337027588834852865",
-      "text": "Gave the busker playing Nirvana a dollar.",
-      "year": 2013,
-      "date": "2013-05-22",
+      "date": "Tue May 23 01:17:12 +0000 2017",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -418,16 +400,25 @@
       "id": "205061714406940672",
       "text": "This seems like a push in the right direction in terms of the legality of basic d0x http://t.co/TZkeuy2D",
       "year": 2012,
-      "date": "2012-05-22",
+      "date": "Tue May 22 22:24:57 +0000 2012",
       "favorites": 0,
       "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "999052289951387648",
+      "text": "Oh man lets go to the Bodega, I wanna get a drink, I wonder what I’ll get (I always get the same thing) oh man it all looks so good, Hm, we’ll I think I’ll pick *same thing I always pick every single time why do I do this*",
+      "year": 2018,
+      "date": "Tue May 22 22:20:02 +0000 2018",
+      "favorites": 3,
+      "retweets": 1,
       "replyTo": null
     },
     {
       "id": "205056775806918656",
       "text": "What if I put in a bid to build Oakland's new police tracking system? Can't be that hard right? Mine will be extremely cheap &amp; thorough.",
       "year": 2012,
-      "date": "2012-05-22",
+      "date": "Tue May 22 22:05:19 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -436,16 +427,52 @@
       "id": "205056312193728513",
       "text": "@bdbreedlove Tacos I won't deny... but good pizza does not need to be buried in 13 toppings to be edible.. cough. @DireWolf11 @ClaraJeffery",
       "year": 2012,
-      "date": "2012-05-22",
+      "date": "Tue May 22 22:03:29 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "bdbreedlove"
     },
     {
+      "id": "999045340937555969",
+      "text": "Don’t worry guys I found the section of my to do list where I tell myself how to have fun I planned for this moment",
+      "year": 2018,
+      "date": "Tue May 22 21:52:25 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "999040306241855490",
+      "text": "Suggestions welcome",
+      "year": 2018,
+      "date": "Tue May 22 21:32:24 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "999040260867870720",
+      "text": "I may have forgotten how to have fun",
+      "year": 2018,
+      "date": "Tue May 22 21:32:14 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "999032570032500737",
+      "text": "RT @Scaachi: fuck this monday-ass tuesday",
+      "year": 2018,
+      "date": "Tue May 22 21:01:40 +0000 2018",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
       "id": "205029045979725825",
       "text": "@marymad Yeah it sucks, I'm gonna miss Oakland and all the #OccupyOakland folks... but I'm intending to come to the bay regularly. =]",
       "year": 2012,
-      "date": "2012-05-22",
+      "date": "Tue May 22 20:15:08 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "treekisser"
@@ -454,7 +481,7 @@
       "id": "205025446352531456",
       "text": "If it comes down to it, may I suggest that \"First we got hurt, then we got shields\" be our go-to chant at tonight's #OakMtg ? Cheers.",
       "year": 2012,
-      "date": "2012-05-22",
+      "date": "Tue May 22 20:00:50 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -463,7 +490,7 @@
       "id": "205025223903412225",
       "text": "@marymad Yeah, looks like I'll be driving back to NY in early June or so, barring an act of god (per se).",
       "year": 2012,
-      "date": "2012-05-22",
+      "date": "Tue May 22 19:59:57 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "treekisser"
@@ -472,7 +499,7 @@
       "id": "205021184004333568",
       "text": "I hope that going to New York, I can help more with #ows and help bring some of the #OccupyOakland flavor that fills my heart now.",
       "year": 2012,
-      "date": "2012-05-22",
+      "date": "Tue May 22 19:43:54 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -481,7 +508,7 @@
       "id": "205016543355076610",
       "text": "I'm excited to jump into the NY startup scene- I feel like there's room to pave new ground there. I've learned so much out here in SF...",
       "year": 2012,
-      "date": "2012-05-22",
+      "date": "Tue May 22 19:25:27 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -490,7 +517,7 @@
       "id": "205016347258798081",
       "text": "That said, I miss my NY vibes. I miss Brooklyn, and I miss the village. Most especially, I miss my peoples. Different level of comfort.",
       "year": 2012,
-      "date": "2012-05-22",
+      "date": "Tue May 22 19:24:40 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -499,7 +526,7 @@
       "id": "205015979066015744",
       "text": "I'm torn up about leaving Oakland, I fell in love with this city, hard, and I feel like it's a part of me now. Oakland has shaped me.",
       "year": 2012,
-      "date": "2012-05-22",
+      "date": "Tue May 22 19:23:13 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -508,7 +535,7 @@
       "id": "205015858773364737",
       "text": "Alright, I hate to say it, especially to my #OccupyOakland folks- but I think my time in California is drawing to a close. To NY very soon!",
       "year": 2012,
-      "date": "2012-05-22",
+      "date": "Tue May 22 19:22:44 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -517,7 +544,7 @@
       "id": "205009948638330880",
       "text": "RT @OccupiedOakTrib: RT @OlsenVet we'll stop bringing shields and helmets when #OPD stops bringing and using actual weapons against us.  ...",
       "year": 2012,
-      "date": "2012-05-22",
+      "date": "Tue May 22 18:59:15 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -526,7 +553,7 @@
       "id": "205009306490372096",
       "text": "@dravazed Any day now, not that I think that will improve things. http://t.co/Yf6hmK0N",
       "year": 2012,
-      "date": "2012-05-22",
+      "date": "Tue May 22 18:56:42 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": "dravazed"
@@ -535,7 +562,7 @@
       "id": "205007039796219905",
       "text": "Hardcore Bay Area swipe in latest 30 rock: \"Can't hack it in the big city? Gonna move to the bay and pretend you wanted it all along?\" =]",
       "year": 2012,
-      "date": "2012-05-22",
+      "date": "Tue May 22 18:47:41 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -544,8 +571,17 @@
       "id": "204982511024091136",
       "text": "RT @flipflopflying: Infographic lesson #1: putting info next to graphics and calling it an \"infographic\" is like thinking this is the NB ...",
       "year": 2012,
-      "date": "2012-05-22",
+      "date": "Tue May 22 17:10:13 +0000 2012",
       "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "998945304073433088",
+      "text": "I grow weary",
+      "year": 2018,
+      "date": "Tue May 22 15:14:54 +0000 2018",
+      "favorites": 2,
       "retweets": 0,
       "replyTo": null
     },
@@ -553,7 +589,7 @@
       "id": "204936972656058368",
       "text": "I have been getting more and more and more and more disgusted with Oakland city council. How do they sleep?",
       "year": 2012,
-      "date": "2012-05-22",
+      "date": "Tue May 22 14:09:16 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -562,7 +598,7 @@
       "id": "204933319861862401",
       "text": "#OakMtg Cty. Council wants to ban shields. OPD like rapid dogs, biting citizens. Get 'em a leash instead of yelling at us for avoiding bites",
       "year": 2012,
-      "date": "2012-05-22",
+      "date": "Tue May 22 13:54:45 +0000 2012",
       "favorites": 0,
       "retweets": 2,
       "replyTo": null
@@ -571,7 +607,7 @@
       "id": "204925803568439296",
       "text": "RT @Maid_Marianne: Every data journalism book since 1970: interactive timeline http://t.co/uHhg8YHL vía @guardian",
       "year": 2012,
-      "date": "2012-05-22",
+      "date": "Tue May 22 13:24:53 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -580,7 +616,7 @@
       "id": "204924625312944130",
       "text": "RT @susie_c: Sorry to miss #oakmtg tonight. If passed, city atty's ordinance making possession of impact-resistant materials could be ga ...",
       "year": 2012,
-      "date": "2012-05-22",
+      "date": "Tue May 22 13:20:12 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -589,7 +625,7 @@
       "id": "204785473128898560",
       "text": "RT @OakFoSho: Shit, I wish @CoryBooker was the mayor of #Oakland! @JeanQuan could learn a thing or 2 million. #p21",
       "year": 2012,
-      "date": "2012-05-22",
+      "date": "Tue May 22 04:07:16 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -598,125 +634,62 @@
       "id": "204784808956665856",
       "text": "RT @geekeasy: Is #oo planning on packing the house for tomorrow's \"public safety\" meeting regarding outlawing shields?  5:30pm @ city co ...",
       "year": 2012,
-      "date": "2012-05-22",
+      "date": "Tue May 22 04:04:37 +0000 2012",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "204738624233799681",
-      "text": "RT @oo_mayday: Report that #ic3 had all their charges dismissed! Victory is sweet as Ice Cream! #oo #osf #icecream3",
-      "year": 2012,
-      "date": "2012-05-22",
+      "id": "1131398024058605570",
+      "text": "RT @RARohde: Animated diagram of the Earth's Carbon Cycle and how it has changed over time.\n\nCarbon, in various forms including CO2 and org…",
+      "year": 2019,
+      "date": "Thu May 23 03:14:43 +0000 2019",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "204723681304383488",
-      "text": "RT @marg1nal: The state doesn't realize that it is overplaying its hand, &amp; that its tactics are becoming more transparent &amp; less ...",
-      "year": 2012,
-      "date": "2012-05-22",
+      "id": "1131378356165988352",
+      "text": "https://t.co/hfgNEI1lrU",
+      "year": 2019,
+      "date": "Thu May 23 01:56:34 +0000 2019",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1131375937403195393",
+      "text": "https://t.co/5fb03uEK00",
+      "year": 2019,
+      "date": "Thu May 23 01:46:58 +0000 2019",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1131375505326956544",
+      "text": "what do you do when halfway through writing a node app by hand you find a stackoverflow answer where someone has put a python script that does exactly what you want that you can run with one command",
+      "year": 2019,
+      "date": "Thu May 23 01:45:15 +0000 2019",
+      "favorites": 7,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1131356927429107712",
+      "text": "RT @everestpipkin: ICANN granted https://t.co/WMKulGBiFq the domain '.amazon' today, rather than the entire geographic region of the Amazon…",
+      "year": 2019,
+      "date": "Thu May 23 00:31:25 +0000 2019",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "14502463638",
-      "text": "@scanner_darkly Thank you so much! Glad to know waking up early & getting my shoes soaking wet pays off...",
-      "year": 2010,
-      "date": "2010-05-22",
+      "id": "337357216959041536",
+      "text": "RT @tyska: Series on security gates for #Oaklandhotspot project. insidebayarea http://t.co/1gyRGl546l",
+      "year": 2013,
+      "date": "Thu May 23 00:00:02 +0000 2013",
       "favorites": 0,
-      "retweets": 0,
-      "replyTo": "scanner_darkly"
-    },
-    {
-      "id": "14501608638",
-      "text": "@scanner_darkly You've really accomplished something. P.S.: http://photoblog.ejfox.com/wp-content/uploads/2010/04/deery_longexposure.jpg",
-      "year": 2010,
-      "date": "2010-05-22",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": "scanner_darkly"
-    },
-    {
-      "id": "14469914378",
-      "text": "I don't think I'm an attack site anymore. Yay!",
-      "year": 2010,
-      "date": "2010-05-22",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "14469411520",
-      "text": "New photoblog post: Morning http://bit.ly/9Z2lKo",
-      "year": 2010,
-      "date": "2010-05-22",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1888177529",
-      "text": "Oh Justin Timberlake. You know how to make a Friday fridaylike.",
-      "year": 2009,
-      "date": "2009-05-22",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1887597522",
-      "text": "playing a little Skate 2. http://raptr.com/pseudoplacebo",
-      "year": 2009,
-      "date": "2009-05-22",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1884621540",
-      "text": "Annoyed.",
-      "year": 2009,
-      "date": "2009-05-22",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1883033437",
-      "text": "German Pirate Party Sets Course For European Parliament: The German Pirate Party (or Piratenpartei) is often ove.. http://bit.ly/Tkoy9",
-      "year": 2009,
-      "date": "2009-05-22",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1879424387",
-      "text": "Sweet, warm, wondrous sleep.",
-      "year": 2009,
-      "date": "2009-05-22",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1879198230",
-      "text": "\"Ain't no money in the harbor.\" - Wisdom from Deadliest Catch",
-      "year": 2009,
-      "date": "2009-05-22",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "1878784535",
-      "text": "I was rapping Sing For The Moment and then Daisy hung up on me.",
-      "year": 2009,
-      "date": "2009-05-22",
-      "favorites": 1,
       "retweets": 0,
       "replyTo": null
     },
@@ -724,7 +697,7 @@
       "id": "817810356",
       "text": "I am in a bad bad bad mood.",
       "year": 2008,
-      "date": "2008-05-22",
+      "date": "Thu May 22 22:31:07 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -733,7 +706,7 @@
       "id": "817790303",
       "text": "I'm of the opinion that 60% of girls could get any guy they wanted.",
       "year": 2008,
-      "date": "2008-05-22",
+      "date": "Thu May 22 21:57:41 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -742,7 +715,7 @@
       "id": "817785652",
       "text": "There is currently so heavy procrastination going on. ffffound is not helping one bit.",
       "year": 2008,
-      "date": "2008-05-22",
+      "date": "Thu May 22 21:49:38 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -751,7 +724,7 @@
       "id": "817767622",
       "text": "I am frustrated by the button maker.",
       "year": 2008,
-      "date": "2008-05-22",
+      "date": "Thu May 22 21:21:46 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -760,7 +733,7 @@
       "id": "817705925",
       "text": "There is a distinct lack of stickers in my possession. I would like for this to be remedied.",
       "year": 2008,
-      "date": "2008-05-22",
+      "date": "Thu May 22 19:52:05 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -769,7 +742,7 @@
       "id": "817702177",
       "text": "My initial reaction was not \"Wow, a blue dog.\" it was \"Holy shit is that leash made out of bacon?\" http://is.gd/kqM",
       "year": 2008,
-      "date": "2008-05-22",
+      "date": "Thu May 22 19:43:40 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
@@ -778,170 +751,370 @@
       "id": "817699463",
       "text": "I'm pretty pissed that none of the printers in my house have ink.",
       "year": 2008,
-      "date": "2008-05-22",
+      "date": "Thu May 22 19:39:29 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
+    },
+    {
+      "id": "469550122188017664",
+      "text": "@tylrfishr Is that templated solution open sourced at all? Similar to https://t.co/QD9eQ4jdvv - would love to contribute if possible.",
+      "year": 2014,
+      "date": "Thu May 22 18:47:27 +0000 2014",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "tylrfishr"
+    },
+    {
+      "id": "469549763814125568",
+      "text": "@zlwise http://t.co/7fsx9bIfzR http://t.co/2tqXdWJ9Ww http://t.co/RHHFoQc9Eb http://t.co/lAahTjVEAg http://t.co/K9lstuMzHu &amp; more if ya want",
+      "year": 2014,
+      "date": "Thu May 22 18:46:02 +0000 2014",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "zlwise"
     },
     {
       "id": "817237653",
       "text": "Having trouble with a rarely-used printer.",
       "year": 2008,
-      "date": "2008-05-22",
+      "date": "Thu May 22 08:20:06 +0000 2008",
       "favorites": 0,
       "retweets": 0,
       "replyTo": null
     },
     {
-      "id": "817085762",
-      "text": "Home.",
-      "year": 2008,
-      "date": "2008-05-22",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    },
-    {
-      "id": "817079410",
-      "text": "Eating carbs. Because that's what I do.",
-      "year": 2008,
-      "date": "2008-05-22",
-      "favorites": 0,
-      "retweets": 0,
-      "replyTo": null
-    }
-  ],
-  "posts": [],
-  "scrobbles": [
-    {
-      "date": "2025-05-22",
-      "year": 2025,
-      "count": 12,
-      "topTracks": [
-        "Sub Zero - Highest Respect",
-        "Nemzzz - ABC",
-        "CamilosGarden - Drill Foot",
-        "Gee Lee - Slow Down",
-        "Sammy Virji - No Other (feat. Ragga Twins)"
-      ],
-      "topArtists": ["Sub Zero", "Nemzzz", "CamilosGarden"]
-    },
-    {
-      "date": "2023-05-22",
-      "year": 2023,
-      "count": 23,
-      "topTracks": [
-        "Rae Sremmurd - No Type",
-        "BK - Em nome do que sinto",
-        "Wiki - Silent Meeting",
-        "Smino - 90 Proof (with J. Cole)",
-        "Apple & The Three Oranges - I'll Give You A Ring (When I Come, If I Come)"
-      ],
-      "topArtists": ["Rae Sremmurd", "BK", "Wiki"]
-    },
-    {
-      "date": "2021-05-22",
-      "year": 2021,
-      "count": 57,
-      "topTracks": [
-        "Tinariwen - Ténéré Daféo Nikchan",
-        "Tinariwen - Ouallahila Ar Tesninam",
-        "Tinariwen - Alkhar Dessouf",
-        "Tinariwen - Arawan",
-        "Tinariwen - Aldhechen Manin"
-      ],
-      "topArtists": ["Tinariwen", "Ebo Taylor", "Sona Jobarteh"]
-    },
-    {
-      "date": "2016-05-22",
+      "id": "734436717650923520",
+      "text": "Occupy Oakland https://t.co/fBg3r1ODTY https://t.co/rIFMAljylu",
       "year": 2016,
-      "count": 35,
-      "topTracks": [
-        "PARTYNEXTDOOR - Come and See Me (feat. Drake)",
-        "Tut - Sheba With Angel Mae (feat. Angel Mae)",
-        "Flatbush ZOMBiES - 36 Chamber Flow",
-        "Isaiah Rashad - Menthol (feat. Jean Deaux)",
-        "Kembe X - Give And Take (feat. Chance The Rapper)"
-      ],
-      "topArtists": ["PARTYNEXTDOOR", "Tut", "Flatbush ZOMBiES"]
+      "date": "Sun May 22 17:32:13 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
     },
     {
-      "date": "2012-05-22",
-      "year": 2012,
-      "count": 4,
-      "topTracks": [
-        "Traxamillion - The Sideshow - Feat. Too $hort, Mistah F.a.b.",
-        "Professor A.L.I. - Occupy Oakland (feat. Zion I)",
-        "Bone Thugs-N-Harmony - The Weed Song",
-        "Ludacris - Blueberry Yum Yum"
-      ],
-      "topArtists": ["Traxamillion", "Professor A.L.I.", "Bone Thugs-N-Harmony"]
+      "id": "1528381316730916864",
+      "text": "I love this https://t.co/yPHJNNR1h6 https://t.co/kDvTA35H9f",
+      "year": 2022,
+      "date": "Sun May 22 14:24:36 +0000 2022",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
     },
     {
-      "date": "2011-05-22",
-      "year": 2011,
-      "count": 58,
-      "topTracks": [
-        "Orson Scott Card - Xenocide (Unabridged), Part 1",
-        "Beirut - Nantes",
-        "Beirut - A Sunday Smile",
-        "Beirut - Guyamas Sonora",
-        "Beirut - La Banlieue"
-      ],
-      "topArtists": ["Orson Scott Card", "Beirut", "Belle Stars"]
+      "id": "734364168799854593",
+      "text": "I grow weary.",
+      "year": 2016,
+      "date": "Sun May 22 12:43:56 +0000 2016",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
     },
     {
-      "date": "2009-05-22",
+      "id": "1528343029718867970",
+      "text": "@hellonearthis Eventually, I got distracted https://t.co/ucR75ZQD6U",
+      "year": 2022,
+      "date": "Sun May 22 11:52:28 +0000 2022",
+      "favorites": 1,
+      "retweets": 0,
+      "replyTo": "hellonearthis"
+    },
+    {
+      "id": "1889875460",
+      "text": "playing a little Skate 2. http://raptr.com/pseudoplacebo",
       "year": 2009,
-      "count": 84,
-      "topTracks": [
-        "David Sedaris - When You Are Engulfed in Flames (Unabridged) Part 1",
-        "David Sedaris - When You Are Engulfed in Flames (Unabridged) Part 2",
-        "David Sedaris - Dress Your Family in Corduroy and Denim (Unabridged)",
-        "Boards of Canada - Turquoise Hexagon Sun",
-        "Atmosphere - Little Man"
-      ],
-      "topArtists": ["David Sedaris", "Boards of Canada", "Atmosphere"]
+      "date": "Sat May 23 03:04:59 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
     },
     {
-      "date": "2008-05-22",
+      "id": "1889190109",
+      "text": "Hanging out with Shannon.",
+      "year": 2009,
+      "date": "Sat May 23 01:43:49 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1264003911515549696",
+      "text": "What we need more than ever in our pandemic lives is a 2020 Whole Earth Catalog",
+      "year": 2020,
+      "date": "Sat May 23 01:23:11 +0000 2020",
+      "favorites": 6,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "14502463638",
+      "text": "@scanner_darkly Thank you so much! Glad to know waking up early & getting my shoes soaking wet pays off...",
+      "year": 2010,
+      "date": "Sat May 22 16:16:57 +0000 2010",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "scanner_darkly"
+    },
+    {
+      "id": "14501608638",
+      "text": "@scanner_darkly You've really accomplished something. P.S.: http://photoblog.ejfox.com/wp-content/uploads/2010/04/deery_longexposure.jpg",
+      "year": 2010,
+      "date": "Sat May 22 16:01:57 +0000 2010",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "scanner_darkly"
+    },
+    {
+      "id": "1396084223304478733",
+      "text": "why is my Saturday paper missing again today (it appeared on Sunday last time, placed very strangely) https://t.co/tZMymlhLZv",
+      "year": 2021,
+      "date": "Sat May 22 12:43:11 +0000 2021",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "866787738334490645",
+      "text": "RT @marcambinder: Police now officially confirming fatalities after an explosion at Manchester arena. https://t.co/X8U9a8qfeZ",
+      "year": 2017,
+      "date": "Mon May 22 22:47:55 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "866786302901059590",
+      "text": "can you unblock me please",
+      "year": 2017,
+      "date": "Mon May 22 22:42:13 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "866778144237383680",
+      "text": "RT @DylanByers: Huge. https://t.co/dg1q4bMdHn",
+      "year": 2017,
+      "date": "Mon May 22 22:09:48 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "866771003069915138",
+      "text": "@TheTomasRios @OliviaMesser didn't he... kinda.. already?",
+      "year": 2017,
+      "date": "Mon May 22 21:41:25 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "866770096114552834",
+      "text": "RT @yashar: This is really quite remarkable https://t.co/znKWbdYLuf",
+      "year": 2017,
+      "date": "Mon May 22 21:37:49 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "866769157227982852",
+      "text": "How are we supposed to go about our lives knowing there are such tremendous idiots out there?",
+      "year": 2017,
+      "date": "Mon May 22 21:34:05 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "866767816992665602",
+      "text": "RT @abc7newsbayarea: Group of bystanders help mother by holding attempted kidnapping suspect down until police arrived at Ferry Building. h…",
+      "year": 2017,
+      "date": "Mon May 22 21:28:45 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "866764199652978694",
+      "text": "RT @bitcoinprice: The average price of Bitcoin across all exchanges is 2151.89 USD",
+      "year": 2017,
+      "date": "Mon May 22 21:14:23 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "866717489211871234",
+      "text": "RT @FiveThirtyEight: A Complete History of The @BachelorABC and The @BacheloretteABC https://t.co/v2pL1qFgU6 https://t.co/XfGgTiOwyN",
+      "year": 2017,
+      "date": "Mon May 22 18:08:46 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "866716152436842497",
+      "text": "Today, at age 24, I brought a salad to lunch for work for the first time in my life. This is a very smart thing.",
+      "year": 2017,
+      "date": "Mon May 22 18:03:28 +0000 2017",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "866695699836043265",
+      "text": "RT @TheRaidersWire: 3 reasons why Raiders will win the Super Bowl in 2017\nREAD MORE: https://t.co/bppLPSA1Tg https://t.co/ltd9W0vH0Q",
+      "year": 2017,
+      "date": "Mon May 22 16:42:11 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "866656391045533697",
+      "text": "RT @AP: BREAKING: Turkey summons US ambassador to protest 'aggressive' action against Turkish bodyguards in Washington.",
+      "year": 2017,
+      "date": "Mon May 22 14:05:59 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "866639615721181184",
+      "text": "@springer It's @gyroscope_app - I am a big fan https://t.co/mihyqcM31D",
+      "year": 2017,
+      "date": "Mon May 22 12:59:20 +0000 2017",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "springer"
+    },
+    {
+      "id": "817909336",
+      "text": "@kevinthompson I dunno if you got an answer already, but in css I'd do ul li:after { content: \"-\"; } and give it some padding. Fuck IE?",
       "year": 2008,
-      "count": 8,
-      "topTracks": [
-        "dead prez - Be Healthy",
-        "dead prez - Assasination",
-        "dead prez - \"\"They\"\" Schools",
-        "dead prez - Psychology",
-        "dead prez - Behind Enemy Lines"
-      ],
-      "topArtists": ["dead prez"]
+      "date": "Fri May 23 01:38:32 +0000 2008",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "kevinthompson"
     },
     {
-      "date": "2007-05-22",
-      "year": 2007,
-      "count": 115,
-      "topTracks": [
-        "Faithless - In the End",
-        "Pretty Girls Make Graves - Sad Girls",
-        "Reel Big Fish - Where Have You Been?",
-        "Fall Out Boy - I've Got All This Ringing in My Ears and None on My Fingers",
-        "Fall Out Boy - The (After) Life of the Party"
-      ],
-      "topArtists": ["Faithless", "Pretty Girls Make Graves", "Reel Big Fish"]
+      "id": "1888177529",
+      "text": "Oh Justin Timberlake. You know how to make a Friday fridaylike.",
+      "year": 2009,
+      "date": "Fri May 22 23:43:53 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
     },
     {
-      "date": "2006-05-22",
-      "year": 2006,
-      "count": 80,
-      "topTracks": [
-        "24 - 8:00 A.M. - 9:00 A.M.",
-        "24 - 9:00 A.M. - 10:00 A.M.",
-        "24 - 11:00 A.M. - 12:00 P.M.",
-        "24 - 12:00 P.M. - 1:00 P.M.",
-        "Nelly Furtado - Forca"
-      ],
-      "topArtists": ["24", "Nelly Furtado", "The Black Keys"]
+      "id": "1887597522",
+      "text": "playing a little Skate 2. http://raptr.com/pseudoplacebo",
+      "year": 2009,
+      "date": "Fri May 22 22:33:57 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1263961203866578945",
+      "text": "@biddyfox https://t.co/cmfNhLaXPE",
+      "year": 2020,
+      "date": "Fri May 22 22:33:28 +0000 2020",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": "biddyfox"
+    },
+    {
+      "id": "1884621540",
+      "text": "Annoyed.",
+      "year": 2009,
+      "date": "Fri May 22 17:26:28 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1883033437",
+      "text": "German Pirate Party Sets Course For European Parliament: The German Pirate Party (or Piratenpartei) is often ove.. http://bit.ly/Tkoy9",
+      "year": 2009,
+      "date": "Fri May 22 14:53:55 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "601755605527756800",
+      "text": "RT @WillMcAvoyACN: For the first time since @Gallup began asking, as many Americans identify as liberal as conservative on social issues ht…",
+      "year": 2015,
+      "date": "Fri May 22 14:24:51 +0000 2015",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1263822668253536256",
+      "text": "got ffmpeg nerd sniped first thing on twitter",
+      "year": 2020,
+      "date": "Fri May 22 13:22:59 +0000 2020",
+      "favorites": 3,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1263822144431181825",
+      "text": "@ranimolla @zoom_us https://t.co/Bk3vHnAu8j https://t.co/nfL31iPuf2",
+      "year": 2020,
+      "date": "Fri May 22 13:20:54 +0000 2020",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "mrejfox"
+    },
+    {
+      "id": "1263820515220893698",
+      "text": "@ranimolla @zoom_us yeah exactly, you might wanna play with the `-r 30` part, it looks like your GIF is more likely 1-2 frames per second, so it might be `-r 2` to start. If you already have homebrew you should be able to do `brew install ffmpeg` and then run the above with the correct filenames",
+      "year": 2020,
+      "date": "Fri May 22 13:14:26 +0000 2020",
+      "favorites": 2,
+      "retweets": 0,
+      "replyTo": "ranimolla"
+    },
+    {
+      "id": "1263819098187804673",
+      "text": "@ranimolla @zoom_us &gt;ffmpeg -r 30 -i YOURGIF.gif -movflags faststart -pix_fmt yuv420p -vf \"scale=trunc(iw/2)*2:trunc(ih/2)*2\" YOURMOVIE.mp4",
+      "year": 2020,
+      "date": "Fri May 22 13:08:48 +0000 2020",
+      "favorites": 10,
+      "retweets": 0,
+      "replyTo": "ranimolla"
+    },
+    {
+      "id": "1263815661928755204",
+      "text": "@samselikoff The delightfully-named https://t.co/dekVqgdwtV with custom commitlint and changelog template 👍",
+      "year": 2020,
+      "date": "Fri May 22 12:55:09 +0000 2020",
+      "favorites": 4,
+      "retweets": 0,
+      "replyTo": "samselikoff"
+    },
+    {
+      "id": "1879424387",
+      "text": "Sweet, warm, wondrous sleep.",
+      "year": 2009,
+      "date": "Fri May 22 05:08:53 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
+    },
+    {
+      "id": "1879198230",
+      "text": "\"Ain't no money in the harbor.\" - Wisdom from Deadliest Catch",
+      "year": 2009,
+      "date": "Fri May 22 04:34:55 +0000 2009",
+      "favorites": 0,
+      "retweets": 0,
+      "replyTo": null
     }
-  ],
-  "commits": []
+  ]
 }

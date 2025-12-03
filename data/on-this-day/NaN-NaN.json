@@ -1,25 +1,16 @@
 {
-  "tweets": [],
   "posts": [
     {
       "slug": "week-notes/2024-45",
-      "title": "2024 45",
-      "year": null,
-      "date": "Invalid date",
       "dek": null,
-      "type": "post",
-      "tags": ["weekly-notes", "reflections", "progress"]
+      "year": null,
+      "date": "Invalid date"
     },
     {
       "slug": "week-notes/2024-46",
-      "title": "2024 46",
-      "year": null,
-      "date": "Invalid date",
       "dek": null,
-      "type": "post",
-      "tags": ["weekly-notes", "reflections", "progress"]
+      "year": null,
+      "date": "Invalid date"
     }
-  ],
-  "scrobbles": [],
-  "commits": []
+  ]
 }
