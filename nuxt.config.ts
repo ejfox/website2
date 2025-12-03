@@ -97,8 +97,19 @@ export default defineNuxtConfig({
         const dest = path.join(nitro.options.output.dir, 'content')
 
         // Recursively copy content directory
-        await fs.cp(source, dest, { recursive: true })
-        console.log(`✓ Copied content directory to ${dest}`)
+        try {
+          await fs.cp(source, dest, {
+            recursive: true,
+            errorOnExist: false,
+            force: true,
+          })
+          console.log(`✓ Copied content directory to ${dest}`)
+        } catch (err: any) {
+          // Ignore ENOENT errors during hot reload race conditions
+          if (err?.code !== 'ENOENT') {
+            throw err
+          }
+        }
       },
     },
     routeRules: {
