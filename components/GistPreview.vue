@@ -165,7 +165,7 @@ const handleToggle = () => {
 
 .code-container {
   @apply relative border border-zinc-200 dark:border-zinc-800 rounded-md;
-  @apply bg-white dark:bg-zinc-900 overflow-hidden transition-all;
+  @apply bg-white dark:bg-zinc-900 overflow-hidden transition-all duration-300;
   max-height: 280px;
 }
 
@@ -194,7 +194,7 @@ const handleToggle = () => {
   @apply hover:bg-zinc-50 dark:hover:bg-zinc-700;
   @apply hover:border-zinc-300 dark:hover:border-zinc-600;
   @apply hover:text-zinc-700 dark:hover:text-zinc-300;
-  @apply hover:-translate-y-px transition-all;
+  @apply hover:-translate-y-px transition-all duration-100;
 }
 
 .button-icon {

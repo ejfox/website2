@@ -44,7 +44,7 @@
       >
         <span
           v-if="ogData?.title"
-          class="text-base font-serif transition-colors text-zinc-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400"
+          class="text-base font-serif transition-colors duration-150 text-zinc-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400"
         >
           {{ ogData.title }}
         </span>

@@ -25,7 +25,7 @@
             :width="barWidth - barGap * 2"
             :height="(item.count / maxBooksPerYear) * 35"
             :class="[
-              'transition-colors hover:fill-zinc-600',
+              'transition-colors duration-150 hover:fill-zinc-600',
               'dark:hover:fill-zinc-400',
               item.year === currentYear
                 ? 'fill-zinc-900 dark:fill-zinc-100'
