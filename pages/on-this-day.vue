@@ -9,24 +9,9 @@
 
       <!-- Date navigation -->
       <div class="flex gap-2 mt-4">
-        <button
-          class="px-3 py-1 text-sm rounded bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700"
-          @click="changeDay(-1)"
-        >
-          Previous
-        </button>
-        <button
-          class="px-3 py-1 text-sm rounded bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700"
-          @click="goToToday"
-        >
-          Today
-        </button>
-        <button
-          class="px-3 py-1 text-sm rounded bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700"
-          @click="changeDay(1)"
-        >
-          Next
-        </button>
+        <button class="nav-button" @click="changeDay(-1)">Previous</button>
+        <button class="nav-button" @click="goToToday">Today</button>
+        <button class="nav-button" @click="changeDay(1)">Next</button>
       </div>
     </header>
 
@@ -45,9 +30,7 @@
     <div v-else class="space-y-8">
       <section v-for="yearData in data.years" :key="yearData.year">
         <!-- Year header -->
-        <div
-          class="flex items-center gap-3 mb-4 sticky top-0 bg-white dark:bg-zinc-950 py-2 z-10"
-        >
+        <div class="year-header">
           <span class="font-mono text-lg font-bold">{{ yearData.year }}</span>
           <div class="h-px flex-grow bg-zinc-200 dark:bg-zinc-800"></div>
           <span class="text-xs text-zinc-400">
@@ -63,7 +46,7 @@
               v-for="post in yearData.posts"
               :key="post.slug"
               :to="`/blog/${post.slug}`"
-              class="block p-4 rounded-lg border transition-colors bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600"
+              class="card card-interactive"
             >
               <div class="flex items-start gap-3">
                 <span class="text-zinc-400">{{ sourceIcons.posts }}</span>
@@ -111,7 +94,7 @@
             <div
               v-for="scrobble in yearData.scrobbles"
               :key="scrobble.date"
-              class="p-4 rounded-lg border bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800"
+              class="card"
             >
               <div class="flex items-start gap-3">
                 <span class="text-red-500">{{ sourceIcons.scrobbles }}</span>
@@ -139,10 +122,7 @@
     </div>
 
     <!-- Summary -->
-    <footer
-      v-if="summaryText"
-      class="mt-12 pt-6 border-t text-sm text-zinc-500 border-zinc-200 dark:border-zinc-800"
-    >
+    <footer v-if="summaryText" class="summary-footer">
       {{ summaryText }}
     </footer>
   </div>
@@ -254,3 +234,33 @@ useHead({
   title: `On This Day - ${formattedDate.value}`,
 })
 </script>
+
+<style scoped>
+.nav-button {
+  @apply px-3 py-1 text-sm rounded;
+  @apply bg-zinc-100 dark:bg-zinc-800;
+  @apply hover:bg-zinc-200 dark:hover:bg-zinc-700;
+}
+
+.year-header {
+  @apply flex items-center gap-3 mb-4 py-2 z-10;
+  @apply sticky top-0 bg-white dark:bg-zinc-950;
+}
+
+.card {
+  @apply p-4 rounded-lg border;
+  @apply bg-zinc-50 dark:bg-zinc-900;
+  @apply border-zinc-200 dark:border-zinc-800;
+}
+
+.card-interactive {
+  @apply block transition-colors;
+  @apply hover:border-zinc-400 dark:hover:border-zinc-600;
+}
+
+.summary-footer {
+  @apply mt-12 pt-6 border-t text-sm;
+  @apply text-zinc-500;
+  @apply border-zinc-200 dark:border-zinc-800;
+}
+</style>
