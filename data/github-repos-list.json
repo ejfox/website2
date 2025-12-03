@@ -1,0 +1,3417 @@
+[
+  {
+    "name": "scrapbook-cli",
+    "description": "A command line interface for exploring my scrapbook",
+    "url": "https://github.com/ejfox/scrapbook-cli",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 1
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [
+      "cli"
+    ],
+    "excerpt": "A command line interface for exploring my scrapbook",
+    "createdAt": "2024-06-01T07:35:15Z",
+    "updatedAt": "2025-12-03T17:05:47Z",
+    "pushedAt": "2025-12-03T17:05:43Z"
+  },
+  {
+    "name": "website2",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/website2",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 1
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2024-10-13T14:09:19Z",
+    "updatedAt": "2025-12-03T16:48:43Z",
+    "pushedAt": "2025-12-03T17:02:38Z"
+  },
+  {
+    "name": "tributary",
+    "description": "rapid prototyping with d3.js",
+    "url": "https://github.com/enjalot/tributary",
+    "homepage": "http://tributary.io",
+    "stats": {
+      "stars": 595,
+      "forks": 70,
+      "watchers": 35,
+      "openIssues": 36
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "rapid prototyping with d3.js",
+    "createdAt": "2012-03-17T02:42:38Z",
+    "updatedAt": "2025-12-01T16:28:31Z",
+    "pushedAt": "2017-05-03T17:22:42Z"
+  },
+  {
+    "name": "dotfiles",
+    "description": "Backup of my dotfiles",
+    "url": "https://github.com/ejfox/dotfiles",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 1,
+      "watchers": 0,
+      "openIssues": 3
+    },
+    "language": "Shell",
+    "languageColor": "#89e051",
+    "topics": [],
+    "excerpt": "Backup of my dotfiles",
+    "createdAt": "2019-04-07T22:09:55Z",
+    "updatedAt": "2025-11-26T02:38:18Z",
+    "pushedAt": "2025-11-26T02:38:14Z"
+  },
+  {
+    "name": "SubwayBuilderIssues",
+    "description": "Where you report issues and bugs for Subway Builder",
+    "url": "https://github.com/colindm/SubwayBuilderIssues",
+    "homepage": null,
+    "stats": {
+      "stars": 35,
+      "forks": 6,
+      "watchers": 0,
+      "openIssues": 323
+    },
+    "language": "Unknown",
+    "languageColor": "#666666",
+    "topics": [],
+    "excerpt": "Where you report issues and bugs for Subway Builder",
+    "createdAt": "2025-10-10T21:48:38Z",
+    "updatedAt": "2025-11-25T16:48:26Z",
+    "pushedAt": "2025-11-25T16:48:22Z"
+  },
+  {
+    "name": "vulpes-theme-lab",
+    "description": "minimal ghostty theme builder with live previews. tuftian precision. ±7° hue offset.",
+    "url": "https://github.com/ejfox/vulpes-theme-lab",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "topics": [],
+    "excerpt": "minimal ghostty theme builder with live previews. tuftian precision. ±7° hue offset.",
+    "createdAt": "2025-10-24T21:15:15Z",
+    "updatedAt": "2025-11-23T23:23:52Z",
+    "pushedAt": "2025-11-23T23:23:49Z"
+  },
+  {
+    "name": "ejthirdbear",
+    "description": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
+    "url": "https://github.com/GlobalEnergyMonitor/ejthirdbear",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "R",
+    "languageColor": "#198CE7",
+    "topics": [],
+    "excerpt": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
+    "createdAt": "2025-11-12T20:10:52Z",
+    "updatedAt": "2025-11-14T23:42:14Z",
+    "pushedAt": "2025-11-14T23:42:11Z"
+  },
+  {
+    "name": "towntuner",
+    "description": "The podcast app dedicated to Harmontown",
+    "url": "https://github.com/ejfox/towntuner",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 11
+    },
+    "language": "Unknown",
+    "languageColor": "#666666",
+    "topics": [],
+    "excerpt": "The podcast app dedicated to Harmontown",
+    "createdAt": "2025-08-16T15:54:56Z",
+    "updatedAt": "2025-11-04T02:21:45Z",
+    "pushedAt": "2025-11-04T02:21:42Z"
+  },
+  {
+    "name": "battlefield6-stats-scraper",
+    "description": "Automated Battlefield 6 stats tracker from tracker.gg - exports to CSV for historical analysis",
+    "url": "https://github.com/ejfox/battlefield6-stats-scraper",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "Automated Battlefield 6 stats tracker from tracker.gg - exports to CSV for historical analysis",
+    "createdAt": "2025-11-02T18:04:01Z",
+    "updatedAt": "2025-11-02T18:04:06Z",
+    "pushedAt": "2025-11-02T18:04:02Z"
+  },
+  {
+    "name": "ascii_webcam",
+    "description": "Show your webcam as ASCII art",
+    "url": "https://github.com/ejfox/ascii_webcam",
+    "homepage": null,
+    "stats": {
+      "stars": 5,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "topics": [
+      "ascii",
+      "ascii-art",
+      "cli"
+    ],
+    "excerpt": "Show your webcam as ASCII art",
+    "createdAt": "2024-09-03T19:59:50Z",
+    "updatedAt": "2025-10-24T15:47:10Z",
+    "pushedAt": "2024-09-03T20:01:50Z"
+  },
+  {
+    "name": "glasses-hud",
+    "description": "Prototype AR / lens visualizations and HUDs quickly",
+    "url": "https://github.com/ejfox/glasses-hud",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "topics": [],
+    "excerpt": "Prototype AR / lens visualizations and HUDs quickly",
+    "createdAt": "2025-08-01T11:00:53Z",
+    "updatedAt": "2025-10-12T09:41:03Z",
+    "pushedAt": "2025-08-01T19:33:59Z"
+  },
+  {
+    "name": "coachartie2",
+    "description": "Coach Artie v2 - Autonomous AI assistant with Model Context Protocol (MCP) support and comprehensive capability expansion",
+    "url": "https://github.com/ejfox/coachartie2",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 2
+    },
+    "language": "TypeScript",
+    "languageColor": "#3178c6",
+    "topics": [],
+    "excerpt": "Coach Artie v2 - Autonomous AI assistant with Model Context Protocol (MCP) support and comprehensive capability expansion",
+    "createdAt": "2025-08-26T18:01:30Z",
+    "updatedAt": "2025-09-27T04:02:21Z",
+    "pushedAt": "2025-08-05T16:50:10Z"
+  },
+  {
+    "name": "music-player",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/music-player",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2025-09-23T13:58:12Z",
+    "updatedAt": "2025-09-23T13:58:19Z",
+    "pushedAt": "2025-09-23T13:58:16Z"
+  },
+  {
+    "name": "vizhub-benchmarks",
+    "description": "AI code editing benchmarks for interactive visuals",
+    "url": "https://github.com/vizhub-core/vizhub-benchmarks",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 5
+    },
+    "language": "HTML",
+    "languageColor": "#e34c26",
+    "topics": [],
+    "excerpt": "AI code editing benchmarks for interactive visuals",
+    "createdAt": "2025-04-06T14:10:42Z",
+    "updatedAt": "2025-09-20T11:17:45Z",
+    "pushedAt": "2025-09-20T11:17:41Z"
+  },
+  {
+    "name": "git-status-dash",
+    "description": "See the status of all the repos in a folder in one place",
+    "url": "https://github.com/ejfox/git-status-dash",
+    "homepage": null,
+    "stats": {
+      "stars": 2,
+      "forks": 1,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "Go",
+    "languageColor": "#00ADD8",
+    "topics": [
+      "cli",
+      "dashboard",
+      "git"
+    ],
+    "excerpt": "See the status of all the repos in a folder in one place",
+    "createdAt": "2024-06-14T05:28:50Z",
+    "updatedAt": "2025-09-11T07:52:04Z",
+    "pushedAt": "2025-07-27T19:32:29Z"
+  },
+  {
+    "name": "obsidian-analysis",
+    "description": "🧠 Generate semantic embeddings for your Obsidian vault using LM Studio and Nomic embeddings. Search your notes using natural language and explore with interactive UMAP visualizations.",
+    "url": "https://github.com/ejfox/obsidian-analysis",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "🧠 Generate semantic embeddings for your Obsidian vault using LM Studio and Nomic embeddings. Search your notes using natural language and explore with interactive UMAP visualizations.",
+    "createdAt": "2025-06-13T14:57:54Z",
+    "updatedAt": "2025-09-08T02:13:35Z",
+    "pushedAt": "2025-09-08T02:13:32Z"
+  },
+  {
+    "name": "vulpecula-loom",
+    "description": "Desktop AI chat app with Obsidian integration, OpenRouter support, and more",
+    "url": "https://github.com/ejfox/vulpecula-loom",
+    "homepage": "https://ejfox.github.io/vulpecula-loom/",
+    "stats": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 8
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "topics": [
+      "electron",
+      "llm",
+      "obsidian",
+      "openrouter-api"
+    ],
+    "excerpt": "Desktop AI chat app with Obsidian integration, OpenRouter support, and more",
+    "createdAt": "2024-11-18T05:45:49Z",
+    "updatedAt": "2025-09-08T02:12:27Z",
+    "pushedAt": "2025-09-08T02:12:23Z"
+  },
+  {
+    "name": "ejfox.news",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/ejfox.news",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "TypeScript",
+    "languageColor": "#3178c6",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2025-08-12T15:13:01Z",
+    "updatedAt": "2025-09-08T01:35:40Z",
+    "pushedAt": "2025-09-08T01:35:38Z"
+  },
+  {
+    "name": "photos",
+    "description": "EJ Fox's photo blog, powered by Cloudinary",
+    "url": "https://github.com/ejfox/photos",
+    "homepage": "https://ejfox.photos",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 3
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "EJ Fox's photo blog, powered by Cloudinary",
+    "createdAt": "2023-08-05T18:20:41Z",
+    "updatedAt": "2025-08-27T21:17:13Z",
+    "pushedAt": "2025-08-27T21:17:06Z"
+  },
+  {
+    "name": "tempo",
+    "description": "My first Pomodoro app",
+    "url": "https://github.com/ejfox/tempo",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Swift",
+    "languageColor": "#F05138",
+    "topics": [],
+    "excerpt": "My first Pomodoro app",
+    "createdAt": "2025-08-16T15:49:37Z",
+    "updatedAt": "2025-08-24T13:04:33Z",
+    "pushedAt": "2025-08-24T13:04:30Z"
+  },
+  {
+    "name": "websdr-vcv",
+    "description": "stream radio into your modular",
+    "url": "https://github.com/ejfox/websdr-vcv",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "C++",
+    "languageColor": "#f34b7d",
+    "topics": [],
+    "excerpt": "stream radio into your modular",
+    "createdAt": "2025-08-23T22:56:09Z",
+    "updatedAt": "2025-08-24T02:15:13Z",
+    "pushedAt": "2025-08-24T02:15:10Z"
+  },
+  {
+    "name": "ps5-tmux",
+    "description": "Control tmux through your ps5 dualsense controller",
+    "url": "https://github.com/ejfox/ps5-tmux",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "Control tmux through your ps5 dualsense controller",
+    "createdAt": "2025-08-13T15:45:22Z",
+    "updatedAt": "2025-08-22T13:05:10Z",
+    "pushedAt": "2025-08-13T15:45:29Z"
+  },
+  {
+    "name": "scrap-enlightener",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/scrap-enlightener",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2025-06-12T14:52:31Z",
+    "updatedAt": "2025-08-21T22:04:16Z",
+    "pushedAt": "2025-08-21T22:04:10Z"
+  },
+  {
+    "name": "openrouter-census",
+    "description": "🤖 Complete analysis of 316+ AI models on OpenRouter with interactive Observable Plot dashboard",
+    "url": "https://github.com/ejfox/openrouter-census",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "🤖 Complete analysis of 316+ AI models on OpenRouter with interactive Observable Plot dashboard",
+    "createdAt": "2025-08-21T18:25:17Z",
+    "updatedAt": "2025-08-21T18:25:25Z",
+    "pushedAt": "2025-08-21T18:25:21Z"
+  },
+  {
+    "name": "art",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/art",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2025-08-20T16:37:33Z",
+    "updatedAt": "2025-08-20T16:37:39Z",
+    "pushedAt": "2025-08-20T16:37:35Z"
+  },
+  {
+    "name": "dockrune",
+    "description": "Self-hosted deployment daemon: push-to-deploy from GitHub to Docker VPS",
+    "url": "https://github.com/ejfox/dockrune",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 18
+    },
+    "language": "Go",
+    "languageColor": "#00ADD8",
+    "topics": [],
+    "excerpt": "Self-hosted deployment daemon: push-to-deploy from GitHub to Docker VPS",
+    "createdAt": "2025-08-06T18:51:37Z",
+    "updatedAt": "2025-08-20T16:29:38Z",
+    "pushedAt": "2025-08-20T16:29:35Z"
+  },
+  {
+    "name": "tmux-mutagen-indicator",
+    "description": "A status bar indicator for Mutagen sync sessions, supporting both tmux and Sketchybar",
+    "url": "https://github.com/ejfox/tmux-mutagen-indicator",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Shell",
+    "languageColor": "#89e051",
+    "topics": [],
+    "excerpt": "A status bar indicator for Mutagen sync sessions, supporting both tmux and Sketchybar",
+    "createdAt": "2025-08-19T20:27:55Z",
+    "updatedAt": "2025-08-19T20:43:58Z",
+    "pushedAt": "2025-08-19T20:43:55Z"
+  },
+  {
+    "name": "packbay",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/packbay",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2025-08-19T15:58:50Z",
+    "updatedAt": "2025-08-19T15:58:56Z",
+    "pushedAt": "2025-08-19T15:58:52Z"
+  },
+  {
+    "name": "flipper-space-calculators",
+    "description": "🚀 Minimalist space and physics calculators for Flipper Zero. Interplanetary transfer planner + time dilation calculator. KSP-style orbital mechanics.",
+    "url": "https://github.com/ejfox/flipper-space-calculators",
+    "homepage": null,
+    "stats": {
+      "stars": 3,
+      "forks": 1,
+      "watchers": 1,
+      "openIssues": 1
+    },
+    "language": "C",
+    "languageColor": "#555555",
+    "topics": [],
+    "excerpt": "🚀 Minimalist space and physics calculators for Flipper Zero. Interplanetary transfer planner + time dilation calculator. KSP-style orbital mechanics.",
+    "createdAt": "2025-07-30T20:15:59Z",
+    "updatedAt": "2025-08-18T20:25:21Z",
+    "pushedAt": "2025-07-30T20:16:11Z"
+  },
+  {
+    "name": "sStory",
+    "description": "A javascript library to help make full-browser-width magazine-style mini-sites.",
+    "url": "https://github.com/ejfox/sStory",
+    "homepage": "http://ejfox.github.com/sStory/",
+    "stats": {
+      "stars": 91,
+      "forks": 29,
+      "watchers": 8,
+      "openIssues": 1
+    },
+    "language": "CSS",
+    "languageColor": "#663399",
+    "topics": [],
+    "excerpt": "A javascript library to help make full-browser-width magazine-style mini-sites.",
+    "createdAt": "2012-05-12T01:16:31Z",
+    "updatedAt": "2025-08-14T09:53:15Z",
+    "pushedAt": "2014-05-11T05:28:31Z"
+  },
+  {
+    "name": "llm-honeypot",
+    "description": "a little experiment made as a mothtrap for unsuspecting llms scraping the web. lets see what we catch! 🦋",
+    "url": "https://github.com/ejfox/llm-honeypot",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "HTML",
+    "languageColor": "#e34c26",
+    "topics": [
+      "bot-detection",
+      "experiment",
+      "honeypot",
+      "security-research"
+    ],
+    "excerpt": "a little experiment made as a mothtrap for unsuspecting llms scraping the web. lets see what we catch! 🦋",
+    "createdAt": "2025-08-02T13:32:37Z",
+    "updatedAt": "2025-08-06T17:05:07Z",
+    "pushedAt": "2025-08-02T13:32:38Z"
+  },
+  {
+    "name": "retroscope",
+    "description": "Use an AI to generate text descriptions of all your screenshots in Cloudinary",
+    "url": "https://github.com/ejfox/retroscope",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "Use an AI to generate text descriptions of all your screenshots in Cloudinary",
+    "createdAt": "2025-01-02T03:51:39Z",
+    "updatedAt": "2025-08-06T16:15:39Z",
+    "pushedAt": "2025-08-02T13:31:22Z"
+  },
+  {
+    "name": "zmk-config2",
+    "description": "Rhymestone ZMK Builds",
+    "url": "https://github.com/ejfox/zmk-config2",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Unknown",
+    "languageColor": "#666666",
+    "topics": [],
+    "excerpt": "Rhymestone ZMK Builds",
+    "createdAt": "2025-05-02T03:11:12Z",
+    "updatedAt": "2025-08-02T14:32:44Z",
+    "pushedAt": "2025-08-02T14:32:40Z"
+  },
+  {
+    "name": "smallbot-mcp",
+    "description": "MCP server that generates small websites from natural language prompts",
+    "url": "https://github.com/ejfox/smallbot-mcp",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "MCP server that generates small websites from natural language prompts",
+    "createdAt": "2025-08-02T14:31:10Z",
+    "updatedAt": "2025-08-02T14:31:15Z",
+    "pushedAt": "2025-08-02T14:31:12Z"
+  },
+  {
+    "name": "docgrind",
+    "description": "grind through javascript documentation. build muscle memory. ship better code.",
+    "url": "https://github.com/ejfox/docgrind",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "topics": [],
+    "excerpt": "grind through javascript documentation. build muscle memory. ship better code.",
+    "createdAt": "2025-08-02T14:08:48Z",
+    "updatedAt": "2025-08-02T14:27:36Z",
+    "pushedAt": "2025-08-02T14:27:33Z"
+  },
+  {
+    "name": "vzcode",
+    "description": "Mob Programming Code Editor",
+    "url": "https://github.com/ejfox/vzcode",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "TypeScript",
+    "languageColor": "#3178c6",
+    "topics": [],
+    "excerpt": "Mob Programming Code Editor",
+    "createdAt": "2025-08-02T00:19:59Z",
+    "updatedAt": "2025-08-02T00:19:59Z",
+    "pushedAt": "2025-08-02T00:20:15Z"
+  },
+  {
+    "name": "cloudinary-backup",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/cloudinary-backup",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "TypeScript",
+    "languageColor": "#3178c6",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2025-07-01T23:24:06Z",
+    "updatedAt": "2025-07-27T19:29:48Z",
+    "pushedAt": "2025-07-27T19:29:45Z"
+  },
+  {
+    "name": "muckrock-mcp",
+    "description": "Highly experimental, insecure, and unstable MuckRock FOIA MCP Server with 20+ tools for filing, tracking, and managing Freedom of Information Act requests",
+    "url": "https://github.com/ejfox/muckrock-mcp",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "topics": [],
+    "excerpt": "Highly experimental, insecure, and unstable MuckRock FOIA MCP Server with 20+ tools for filing, tracking, and managing Freedom of Information Act requests",
+    "createdAt": "2025-07-27T19:03:10Z",
+    "updatedAt": "2025-07-27T19:03:10Z",
+    "pushedAt": "2025-06-05T02:02:42Z"
+  },
+  {
+    "name": "hand-midi-controller",
+    "description": "Professional hand tracking MIDI controller with TouchDesigner integration for peak interactive creative tech",
+    "url": "https://github.com/ejfox/hand-midi-controller",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "topics": [],
+    "excerpt": "Professional hand tracking MIDI controller with TouchDesigner integration for peak interactive creative tech",
+    "createdAt": "2025-07-26T18:58:06Z",
+    "updatedAt": "2025-07-26T19:33:02Z",
+    "pushedAt": "2025-07-26T19:32:58Z"
+  },
+  {
+    "name": "code-network-gen",
+    "description": "Generate a graph of nodes/edges from your javascript code",
+    "url": "https://github.com/ejfox/code-network-gen",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "Generate a graph of nodes/edges from your javascript code",
+    "createdAt": "2024-08-14T14:16:03Z",
+    "updatedAt": "2025-07-24T22:41:30Z",
+    "pushedAt": "2025-07-24T22:41:27Z"
+  },
+  {
+    "name": "zmk-config",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/zmk-config",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "Unknown",
+    "languageColor": "#666666",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2025-04-28T18:55:15Z",
+    "updatedAt": "2025-07-24T15:03:20Z",
+    "pushedAt": "2025-07-24T15:03:17Z"
+  },
+  {
+    "name": "spacepunk-logi",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/spacepunk-logi",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 56
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2025-06-15T02:31:56Z",
+    "updatedAt": "2025-07-24T14:51:00Z",
+    "pushedAt": "2025-07-24T14:50:54Z"
+  },
+  {
+    "name": "weddings",
+    "description": "Luxury Hudson Valley wedding photography site with conversion-optimized design. Features multi-step booking forms, Vue.js animations, and film photography aesthetic. Built with Nuxt 3.",
+    "url": "https://github.com/ejfox/weddings",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "topics": [],
+    "excerpt": "Luxury Hudson Valley wedding photography site with conversion-optimized design. Features multi-step booking forms, Vue.js animations, and film photography aesthetic. Built with Nuxt 3.",
+    "createdAt": "2025-06-13T16:21:42Z",
+    "updatedAt": "2025-07-24T14:50:25Z",
+    "pushedAt": "2025-07-24T14:50:22Z"
+  },
+  {
+    "name": "exif-photo-printer-website",
+    "description": "Beautiful marketing website for EXIF Photo Printer - Professional photo printing with embedded camera data",
+    "url": "https://github.com/ejfox/exif-photo-printer-website",
+    "homepage": "http://exifprinter.ejfox.com/",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "HTML",
+    "languageColor": "#e34c26",
+    "topics": [],
+    "excerpt": "Beautiful marketing website for EXIF Photo Printer - Professional photo printing with embedded camera data",
+    "createdAt": "2025-05-28T14:50:28Z",
+    "updatedAt": "2025-07-24T14:41:15Z",
+    "pushedAt": "2025-07-24T14:41:11Z"
+  },
+  {
+    "name": "room302studio",
+    "description": "The website for room302.studio",
+    "url": "https://github.com/room302studio/room302studio",
+    "homepage": "https://room302.studio",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 12
+    },
+    "language": "HTML",
+    "languageColor": "#e34c26",
+    "topics": [],
+    "excerpt": "The website for room302.studio",
+    "createdAt": "2023-03-24T23:37:28Z",
+    "updatedAt": "2025-07-07T15:02:44Z",
+    "pushedAt": "2025-11-04T02:00:28Z"
+  },
+  {
+    "name": "flipper-generative-art",
+    "description": "🎨 Real-time generative art and animated patterns for Flipper Zero with 10 gradient types, Floyd-Steinberg dithering, and smooth 30 FPS animations",
+    "url": "https://github.com/ejfox/flipper-generative-art",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "C",
+    "languageColor": "#555555",
+    "topics": [],
+    "excerpt": "🎨 Real-time generative art and animated patterns for Flipper Zero with 10 gradient types, Floyd-Steinberg dithering, and smooth 30 FPS animations",
+    "createdAt": "2025-06-27T15:56:31Z",
+    "updatedAt": "2025-06-29T16:48:14Z",
+    "pushedAt": "2025-06-27T16:08:05Z"
+  },
+  {
+    "name": "countdown-central",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/countdown-central",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "TypeScript",
+    "languageColor": "#3178c6",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2025-06-29T03:41:48Z",
+    "updatedAt": "2025-06-29T03:43:03Z",
+    "pushedAt": "2025-06-29T03:42:59Z"
+  },
+  {
+    "name": "coachartie_docker",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/coachartie_docker",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 1
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2025-02-14T19:06:18Z",
+    "updatedAt": "2025-06-24T03:28:12Z",
+    "pushedAt": "2025-06-06T13:32:17Z"
+  },
+  {
+    "name": "criterion-embedding-viz",
+    "description": "Generate embeddings from every Criterion movie",
+    "url": "https://github.com/ejfox/criterion-embedding-viz",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 5
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "Generate embeddings from every Criterion movie",
+    "createdAt": "2024-12-01T21:50:43Z",
+    "updatedAt": "2025-06-20T18:55:53Z",
+    "pushedAt": "2025-06-20T20:13:23Z"
+  },
+  {
+    "name": "zmk-config3",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/zmk-config3",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Unknown",
+    "languageColor": "#666666",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2025-06-17T01:31:49Z",
+    "updatedAt": "2025-06-17T01:51:47Z",
+    "pushedAt": "2025-06-17T01:51:44Z"
+  },
+  {
+    "name": "webhook-desktop-color",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/webhook-desktop-color",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "TypeScript",
+    "languageColor": "#3178c6",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2025-06-09T04:05:08Z",
+    "updatedAt": "2025-06-09T04:06:05Z",
+    "pushedAt": "2025-06-09T04:06:00Z"
+  },
+  {
+    "name": "noaa-sat-cli",
+    "description": "Earth observation CLI with real-time NOAA satellite imagery, archival system, and cyberpunk terminal interface",
+    "url": "https://github.com/ejfox/noaa-sat-cli",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "TypeScript",
+    "languageColor": "#3178c6",
+    "topics": [],
+    "excerpt": "Earth observation CLI with real-time NOAA satellite imagery, archival system, and cyberpunk terminal interface",
+    "createdAt": "2025-06-09T03:36:39Z",
+    "updatedAt": "2025-06-09T03:36:57Z",
+    "pushedAt": "2025-06-09T03:36:54Z"
+  },
+  {
+    "name": "exif-printer-simple",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/exif-printer-simple",
+    "homepage": "https://ejfox.github.io/exif-photo-printer-website/",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2025-05-29T02:44:09Z",
+    "updatedAt": "2025-06-06T03:09:03Z",
+    "pushedAt": "2025-07-24T14:55:04Z"
+  },
+  {
+    "name": "coachartie_showcase",
+    "description": "The website that explains and showcases Coach Artie",
+    "url": "https://github.com/ejfox/coachartie_showcase",
+    "homepage": "https://coachartiebot.com",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "The website that explains and showcases Coach Artie",
+    "createdAt": "2023-11-10T19:01:22Z",
+    "updatedAt": "2025-06-01T20:29:31Z",
+    "pushedAt": "2025-06-01T20:29:28Z"
+  },
+  {
+    "name": "cli-delta-dojo",
+    "description": "Sharpen your code review skills with CLI-DELTA-DOJO, the terminal-based JSON comparison game",
+    "url": "https://github.com/ejfox/cli-delta-dojo",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "Sharpen your code review skills with CLI-DELTA-DOJO, the terminal-based JSON comparison game",
+    "createdAt": "2024-08-22T20:51:48Z",
+    "updatedAt": "2025-06-01T18:24:14Z",
+    "pushedAt": "2025-06-01T18:24:11Z"
+  },
+  {
+    "name": "election-helpers",
+    "description": "A collection of resources, tools, and patterns for election data analysis and viz",
+    "url": "https://github.com/ejfox/election-helpers",
+    "homepage": "https://ejfox.github.io/election-helpers/global.html",
+    "stats": {
+      "stars": 3,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [
+      "data",
+      "elections",
+      "helpers"
+    ],
+    "excerpt": "A collection of resources, tools, and patterns for election data analysis and viz",
+    "createdAt": "2022-07-04T16:01:43Z",
+    "updatedAt": "2025-06-01T18:19:05Z",
+    "pushedAt": "2025-06-01T18:19:02Z"
+  },
+  {
+    "name": "vulpes-spotify-mcp",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/vulpes-spotify-mcp",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 1,
+      "watchers": 1,
+      "openIssues": 1
+    },
+    "language": "TypeScript",
+    "languageColor": "#3178c6",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2025-03-22T22:40:13Z",
+    "updatedAt": "2025-05-29T02:07:06Z",
+    "pushedAt": "2025-05-29T02:07:02Z"
+  },
+  {
+    "name": "paramilitary-leaks-frontend",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/paramilitary-leaks-frontend",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2025-03-09T21:12:04Z",
+    "updatedAt": "2025-04-17T19:50:32Z",
+    "pushedAt": "2025-04-06T15:19:39Z"
+  },
+  {
+    "name": "editcodewithai",
+    "description": "Edit Code With AI ",
+    "url": "https://github.com/ejfox/editcodewithai",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "TypeScript",
+    "languageColor": "#3178c6",
+    "topics": [],
+    "excerpt": "Edit Code With AI ",
+    "createdAt": "2025-03-31T20:30:16Z",
+    "updatedAt": "2025-03-31T20:30:17Z",
+    "pushedAt": "2025-06-15T02:22:01Z"
+  },
+  {
+    "name": "renttoejfox",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/renttoejfox",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2025-03-23T18:15:34Z",
+    "updatedAt": "2025-03-26T20:00:52Z",
+    "pushedAt": "2025-03-26T20:00:49Z"
+  },
+  {
+    "name": "tailwind-phi",
+    "description": "Φ-powered Tailwind classes",
+    "url": "https://github.com/ejfox/tailwind-phi",
+    "homepage": "https://ejfox.github.io/tailwind-phi/",
+    "stats": {
+      "stars": 2,
+      "forks": 1,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [
+      "tailwindcss"
+    ],
+    "excerpt": "Φ-powered Tailwind classes",
+    "createdAt": "2024-11-13T14:07:16Z",
+    "updatedAt": "2025-03-13T09:37:54Z",
+    "pushedAt": "2024-11-17T01:30:46Z"
+  },
+  {
+    "name": "smallbot",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/smallbot",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 1
+    },
+    "language": "TypeScript",
+    "languageColor": "#3178c6",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2025-03-11T15:26:29Z",
+    "updatedAt": "2025-03-12T17:13:07Z",
+    "pushedAt": "2025-03-12T17:13:04Z"
+  },
+  {
+    "name": "gpt-browser",
+    "description": "A Node.js script utilizing OpenAI's GPT to fetch, parse, and succinctly summarize web pages. ",
+    "url": "https://github.com/ejfox/gpt-browser",
+    "homepage": null,
+    "stats": {
+      "stars": 5,
+      "forks": 0,
+      "watchers": 2,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "A Node.js script utilizing OpenAI's GPT to fetch, parse, and succinctly summarize web pages. ",
+    "createdAt": "2023-07-14T19:13:24Z",
+    "updatedAt": "2025-03-07T00:30:23Z",
+    "pushedAt": "2024-05-22T04:57:01Z"
+  },
+  {
+    "name": "issuebuilder",
+    "description": "No description provided",
+    "url": "https://github.com/room302studio/issuebuilder",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2024-11-15T20:20:10Z",
+    "updatedAt": "2025-02-28T03:12:31Z",
+    "pushedAt": "2025-02-28T03:12:27Z"
+  },
+  {
+    "name": "handtrack-websockets",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/handtrack-websockets",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2024-12-07T02:34:47Z",
+    "updatedAt": "2025-02-25T17:36:13Z",
+    "pushedAt": "2025-02-25T17:36:10Z"
+  },
+  {
+    "name": "nuxt-template",
+    "description": "A rapid prototyping Nuxt template to turn ideas into code extremely quickly",
+    "url": "https://github.com/room302studio/nuxt-template",
+    "homepage": null,
+    "stats": {
+      "stars": 4,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 4
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "A rapid prototyping Nuxt template to turn ideas into code extremely quickly",
+    "createdAt": "2023-08-03T15:35:57Z",
+    "updatedAt": "2025-02-25T17:22:44Z",
+    "pushedAt": "2025-02-25T17:22:40Z"
+  },
+  {
+    "name": "room302-template",
+    "description": "room302-template",
+    "url": "https://github.com/ejfox/room302-template",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 1
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "room302-template",
+    "createdAt": "2023-10-30T01:59:38Z",
+    "updatedAt": "2025-02-25T17:22:04Z",
+    "pushedAt": "2025-02-25T17:22:00Z"
+  },
+  {
+    "name": "cli-ching",
+    "description": "A CLI tool to guide and interpret I Ching throws",
+    "url": "https://github.com/ejfox/cli-ching",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "A CLI tool to guide and interpret I Ching throws",
+    "createdAt": "2024-08-11T17:58:54Z",
+    "updatedAt": "2025-02-25T17:18:45Z",
+    "pushedAt": "2025-02-25T17:18:41Z"
+  },
+  {
+    "name": "zackgaydos",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/zackgaydos",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2025-02-23T16:38:14Z",
+    "updatedAt": "2025-02-23T19:30:11Z",
+    "pushedAt": "2025-02-23T19:30:08Z"
+  },
+  {
+    "name": "opencv-midi-controller",
+    "description": "An experiment in sending midi signals based on OpenCV object detection",
+    "url": "https://github.com/ejfox/opencv-midi-controller",
+    "homepage": null,
+    "stats": {
+      "stars": 2,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "topics": [],
+    "excerpt": "An experiment in sending midi signals based on OpenCV object detection",
+    "createdAt": "2023-10-17T19:26:42Z",
+    "updatedAt": "2025-02-11T06:05:29Z",
+    "pushedAt": "2023-11-01T00:07:07Z"
+  },
+  {
+    "name": "bart",
+    "description": "data pertaining to BART",
+    "url": "https://github.com/enjalot/bart",
+    "homepage": null,
+    "stats": {
+      "stars": 78,
+      "forks": 29,
+      "watchers": 14,
+      "openIssues": 3
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "data pertaining to BART",
+    "createdAt": "2013-08-03T22:20:05Z",
+    "updatedAt": "2025-01-13T01:33:57Z",
+    "pushedAt": "2017-05-03T17:21:43Z"
+  },
+  {
+    "name": "smallweb-starter",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/smallweb-starter",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "TypeScript",
+    "languageColor": "#3178c6",
+    "topics": [
+      "smallweb"
+    ],
+    "excerpt": "No description provided",
+    "createdAt": "2024-12-08T22:05:42Z",
+    "updatedAt": "2025-01-06T20:50:34Z",
+    "pushedAt": "2024-12-24T15:11:45Z"
+  },
+  {
+    "name": "smallweb.run",
+    "description": "Code of all websites hosted under smallweb.run",
+    "url": "https://github.com/ejfox/smallweb.run",
+    "homepage": "https://www.smallweb.run",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "TypeScript",
+    "languageColor": "#3178c6",
+    "topics": [],
+    "excerpt": "Code of all websites hosted under smallweb.run",
+    "createdAt": "2024-12-23T16:27:05Z",
+    "updatedAt": "2024-12-23T16:27:05Z",
+    "pushedAt": "2024-12-23T16:36:04Z"
+  },
+  {
+    "name": "starter",
+    "description": "Coffeescript-based client-side web app starting point",
+    "url": "https://github.com/ejfox/starter",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 2
+    },
+    "language": "CoffeeScript",
+    "languageColor": "#244776",
+    "topics": [],
+    "excerpt": "Coffeescript-based client-side web app starting point",
+    "createdAt": "2016-10-16T18:51:17Z",
+    "updatedAt": "2024-12-13T15:15:05Z",
+    "pushedAt": "2018-12-15T05:10:46Z"
+  },
+  {
+    "name": "vue-use-openrouter",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/vue-use-openrouter",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "TypeScript",
+    "languageColor": "#3178c6",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2024-12-08T02:54:30Z",
+    "updatedAt": "2024-12-08T05:18:39Z",
+    "pushedAt": "2024-12-08T05:18:35Z"
+  },
+  {
+    "name": "frequencies",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/frequencies",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2024-11-26T22:32:39Z",
+    "updatedAt": "2024-11-27T00:18:00Z",
+    "pushedAt": "2024-11-27T00:17:57Z"
+  },
+  {
+    "name": "spaste-cli",
+    "description": "a command-line tool for smart manipulation of JavaScript methods in files",
+    "url": "https://github.com/ejfox/spaste-cli",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 1
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "a command-line tool for smart manipulation of JavaScript methods in files",
+    "createdAt": "2024-08-11T17:24:13Z",
+    "updatedAt": "2024-11-24T19:18:01Z",
+    "pushedAt": "2024-11-24T19:43:31Z"
+  },
+  {
+    "name": "cli-markdown-tagger",
+    "description": "Use an LLM to add tags to your markdown's frontmatter",
+    "url": "https://github.com/ejfox/cli-markdown-tagger",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [
+      "cli",
+      "llm",
+      "markdown"
+    ],
+    "excerpt": "Use an LLM to add tags to your markdown's frontmatter",
+    "createdAt": "2024-09-19T21:13:31Z",
+    "updatedAt": "2024-11-24T19:04:34Z",
+    "pushedAt": "2024-11-24T19:04:31Z"
+  },
+  {
+    "name": "cli-ai-chat",
+    "description": "An advanced, irssi-inspired CLI application for interacting with multiple AI language models in a threaded conversation format",
+    "url": "https://github.com/ejfox/cli-ai-chat",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [
+      "not-yet-complete"
+    ],
+    "excerpt": "An advanced, irssi-inspired CLI application for interacting with multiple AI language models in a threaded conversation format",
+    "createdAt": "2024-08-12T19:44:39Z",
+    "updatedAt": "2024-11-24T18:55:46Z",
+    "pushedAt": "2024-11-24T18:55:16Z"
+  },
+  {
+    "name": "vibecast",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/vibecast",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2024-11-20T00:35:04Z",
+    "updatedAt": "2024-11-20T00:35:11Z",
+    "pushedAt": "2024-11-20T00:35:07Z"
+  },
+  {
+    "name": "test",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/test",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 13
+    },
+    "language": "Unknown",
+    "languageColor": "#666666",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2024-11-16T23:00:49Z",
+    "updatedAt": "2024-11-16T23:00:49Z",
+    "pushedAt": "2024-11-16T23:00:49Z"
+  },
+  {
+    "name": "content",
+    "description": "The file-based CMS for your Nuxt application, powered by Markdown and Vue components.",
+    "url": "https://github.com/ejfox/content",
+    "homepage": "https://content.nuxt.com",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "TypeScript",
+    "languageColor": "#3178c6",
+    "topics": [],
+    "excerpt": "The file-based CMS for your Nuxt application, powered by Markdown and Vue components.",
+    "createdAt": "2024-09-12T22:43:48Z",
+    "updatedAt": "2024-10-29T18:31:08Z",
+    "pushedAt": "2024-09-27T00:16:18Z"
+  },
+  {
+    "name": "website2-archive",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/website2-archive",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2022-10-15T02:04:26Z",
+    "updatedAt": "2024-10-13T14:09:14Z",
+    "pushedAt": "2022-10-28T13:59:16Z"
+  },
+  {
+    "name": "obsidian-calendar-ui",
+    "description": "The UI that powers the obsidian-calendar-plugin",
+    "url": "https://github.com/ejfox/obsidian-calendar-ui",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Svelte",
+    "languageColor": "#ff3e00",
+    "topics": [],
+    "excerpt": "The UI that powers the obsidian-calendar-plugin",
+    "createdAt": "2024-10-09T01:07:19Z",
+    "updatedAt": "2024-10-09T01:07:20Z",
+    "pushedAt": "2023-09-17T14:12:45Z"
+  },
+  {
+    "name": "obsidian-calendar-plugin",
+    "description": "Simple calendar widget for Obsidian.",
+    "url": "https://github.com/ejfox/obsidian-calendar-plugin",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "TypeScript",
+    "languageColor": "#3178c6",
+    "topics": [],
+    "excerpt": "Simple calendar widget for Obsidian.",
+    "createdAt": "2024-10-09T01:03:20Z",
+    "updatedAt": "2024-10-09T01:03:20Z",
+    "pushedAt": "2024-06-22T12:57:09Z"
+  },
+  {
+    "name": "cybermaint-toolkit",
+    "description": "Reusable helpers for cyberpunk toolkit",
+    "url": "https://github.com/ejfox/cybermaint-toolkit",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "HTML",
+    "languageColor": "#e34c26",
+    "topics": [
+      "cli"
+    ],
+    "excerpt": "Reusable helpers for cyberpunk toolkit",
+    "createdAt": "2024-06-30T21:37:11Z",
+    "updatedAt": "2024-09-19T22:30:20Z",
+    "pushedAt": "2024-09-19T22:30:17Z"
+  },
+  {
+    "name": "icones",
+    "description": "⚡️ Icon Explorer with Instant searching, powered by Iconify",
+    "url": "https://github.com/ejfox/icones",
+    "homepage": "https://icones.js.org",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "topics": [],
+    "excerpt": "⚡️ Icon Explorer with Instant searching, powered by Iconify",
+    "createdAt": "2024-09-06T16:30:37Z",
+    "updatedAt": "2024-09-06T16:30:37Z",
+    "pushedAt": "2024-08-19T09:27:10Z"
+  },
+  {
+    "name": "cli-ascii-3d",
+    "description": "View 3D shapes as ASCII art in the command line",
+    "url": "https://github.com/ejfox/cli-ascii-3d",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [
+      "ascii",
+      "cli"
+    ],
+    "excerpt": "View 3D shapes as ASCII art in the command line",
+    "createdAt": "2024-08-17T02:34:26Z",
+    "updatedAt": "2024-09-06T14:12:53Z",
+    "pushedAt": "2024-08-17T02:58:43Z"
+  },
+  {
+    "name": "showtouch",
+    "description": "For presentation/livestreaming; show every key you press in large ASCII art",
+    "url": "https://github.com/ejfox/showtouch",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "topics": [
+      "ascii",
+      "cli",
+      "livestreaming"
+    ],
+    "excerpt": "For presentation/livestreaming; show every key you press in large ASCII art",
+    "createdAt": "2024-09-03T20:22:12Z",
+    "updatedAt": "2024-09-06T14:12:07Z",
+    "pushedAt": "2024-09-03T20:23:25Z"
+  },
+  {
+    "name": "cli-conway",
+    "description": "A CLI game of life simulation, represented in braille unicode characters",
+    "url": "https://github.com/ejfox/cli-conway",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "A CLI game of life simulation, represented in braille unicode characters",
+    "createdAt": "2024-09-05T01:46:53Z",
+    "updatedAt": "2024-09-06T14:11:34Z",
+    "pushedAt": "2024-09-05T01:56:47Z"
+  },
+  {
+    "name": "hyperlink-graph-scraper",
+    "description": "An extremely simple script for creating node/edge graphs of a web page's hyperlinks",
+    "url": "https://github.com/ejfox/hyperlink-graph-scraper",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "An extremely simple script for creating node/edge graphs of a web page's hyperlinks",
+    "createdAt": "2019-05-24T13:26:40Z",
+    "updatedAt": "2024-09-05T11:20:41Z",
+    "pushedAt": "2019-05-25T05:26:39Z"
+  },
+  {
+    "name": "coachartie",
+    "description": "A Discord + GPT-4V assistant for room302.studio",
+    "url": "https://github.com/room302studio/coachartie",
+    "homepage": "https://room302.studio",
+    "stats": {
+      "stars": 6,
+      "forks": 3,
+      "watchers": 4,
+      "openIssues": 55
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [
+      "discord",
+      "gpt-4"
+    ],
+    "excerpt": "A Discord + GPT-4V assistant for room302.studio",
+    "createdAt": "2023-03-18T22:47:39Z",
+    "updatedAt": "2024-09-01T23:22:30Z",
+    "pushedAt": "2024-09-01T23:22:28Z"
+  },
+  {
+    "name": "website",
+    "description": "Website & blog for EJ Fox",
+    "url": "https://github.com/ejfox/website",
+    "homepage": "https://ejfox.com",
+    "stats": {
+      "stars": 4,
+      "forks": 2,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "Website & blog for EJ Fox",
+    "createdAt": "2018-05-12T03:01:13Z",
+    "updatedAt": "2024-09-01T23:20:54Z",
+    "pushedAt": "2024-11-23T00:09:54Z"
+  },
+  {
+    "name": "arena-cards",
+    "description": "Turn an are.na channel into draggable cards for spatial thinking",
+    "url": "https://github.com/ejfox/arena-cards",
+    "homepage": null,
+    "stats": {
+      "stars": 2,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "topics": [],
+    "excerpt": "Turn an are.na channel into draggable cards for spatial thinking",
+    "createdAt": "2024-06-14T17:18:59Z",
+    "updatedAt": "2024-08-22T01:56:49Z",
+    "pushedAt": "2024-06-30T16:40:43Z"
+  },
+  {
+    "name": "cli-alias-wizard",
+    "description": "A little wizard to quickly create CLI aliases",
+    "url": "https://github.com/ejfox/cli-alias-wizard",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "A little wizard to quickly create CLI aliases",
+    "createdAt": "2024-08-17T01:53:31Z",
+    "updatedAt": "2024-08-17T02:01:18Z",
+    "pushedAt": "2024-08-17T02:01:15Z"
+  },
+  {
+    "name": "directory-sync-tool",
+    "description": "A visual CLI tool for comparing and syncing directories",
+    "url": "https://github.com/ejfox/directory-sync-tool",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [
+      "cli"
+    ],
+    "excerpt": "A visual CLI tool for comparing and syncing directories",
+    "createdAt": "2024-07-01T00:37:53Z",
+    "updatedAt": "2024-08-16T01:59:41Z",
+    "pushedAt": "2024-08-16T01:59:38Z"
+  },
+  {
+    "name": "cli-content",
+    "description": "A little CLI guide tool to write or make a video",
+    "url": "https://github.com/ejfox/cli-content",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "A little CLI guide tool to write or make a video",
+    "createdAt": "2024-08-05T13:23:58Z",
+    "updatedAt": "2024-08-16T01:54:22Z",
+    "pushedAt": "2024-08-16T01:54:19Z"
+  },
+  {
+    "name": "published-url",
+    "description": "An Obsidian plugin to automatically find the published URL of a note based on the file slug",
+    "url": "https://github.com/ejfox/published-url",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "TypeScript",
+    "languageColor": "#3178c6",
+    "topics": [],
+    "excerpt": "An Obsidian plugin to automatically find the published URL of a note based on the file slug",
+    "createdAt": "2024-04-25T21:40:13Z",
+    "updatedAt": "2024-06-30T16:44:16Z",
+    "pushedAt": "2024-06-06T19:30:32Z"
+  },
+  {
+    "name": "know-hv",
+    "description": "A guide to the Hudson Valley",
+    "url": "https://github.com/ejfox/know-hv",
+    "homepage": "https://knowhv.com",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "A guide to the Hudson Valley",
+    "createdAt": "2024-01-05T02:33:29Z",
+    "updatedAt": "2024-06-30T16:37:48Z",
+    "pushedAt": "2024-06-20T03:18:07Z"
+  },
+  {
+    "name": "vueuse",
+    "description": "Collection of essential Vue Composition Utilities for Vue 2 and 3",
+    "url": "https://github.com/ejfox/vueuse",
+    "homepage": "https://vueuse.org",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "TypeScript",
+    "languageColor": "#3178c6",
+    "topics": [],
+    "excerpt": "Collection of essential Vue Composition Utilities for Vue 2 and 3",
+    "createdAt": "2024-06-12T18:51:45Z",
+    "updatedAt": "2024-06-12T18:51:45Z",
+    "pushedAt": "2024-06-12T18:53:53Z"
+  },
+  {
+    "name": "ejfox",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/ejfox",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "Unknown",
+    "languageColor": "#666666",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2022-06-20T22:49:21Z",
+    "updatedAt": "2024-05-28T01:57:58Z",
+    "pushedAt": "2024-05-28T01:57:55Z"
+  },
+  {
+    "name": "boyfriendlist",
+    "description": "submit pr to join the boyfriend list",
+    "url": "https://github.com/ejfox/boyfriendlist",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Unknown",
+    "languageColor": "#666666",
+    "topics": [],
+    "excerpt": "submit pr to join the boyfriend list",
+    "createdAt": "2024-05-23T23:31:47Z",
+    "updatedAt": "2024-05-23T23:31:47Z",
+    "pushedAt": "2024-05-23T23:32:44Z"
+  },
+  {
+    "name": "wcs-coral-reef",
+    "description": "A scrollytelling piece exploring the resilience of coral reefs during climate change",
+    "url": "https://github.com/room302studio/wcs-coral-reef",
+    "homepage": "https://hopeunderwater.com",
+    "stats": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 2,
+      "openIssues": 6
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "topics": [],
+    "excerpt": "A scrollytelling piece exploring the resilience of coral reefs during climate change",
+    "createdAt": "2023-08-22T13:44:12Z",
+    "updatedAt": "2024-03-27T11:22:25Z",
+    "pushedAt": "2023-12-02T01:36:08Z"
+  },
+  {
+    "name": "latent-drafting",
+    "description": "fetching reddit data and embedding it",
+    "url": "https://github.com/enjalot/latent-drafting",
+    "homepage": null,
+    "stats": {
+      "stars": 3,
+      "forks": 1,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "Jupyter Notebook",
+    "languageColor": "#DA5B0B",
+    "topics": [],
+    "excerpt": "fetching reddit data and embedding it",
+    "createdAt": "2023-04-14T04:27:24Z",
+    "updatedAt": "2024-02-18T15:59:36Z",
+    "pushedAt": "2023-12-14T17:26:38Z"
+  },
+  {
+    "name": "food-security",
+    "description": "Visualizing data to better monitor issues around food security ",
+    "url": "https://github.com/cameronkruse/food-security",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 2,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "Jupyter Notebook",
+    "languageColor": "#DA5B0B",
+    "topics": [],
+    "excerpt": "Visualizing data to better monitor issues around food security ",
+    "createdAt": "2022-07-19T02:09:30Z",
+    "updatedAt": "2024-02-16T16:24:47Z",
+    "pushedAt": "2023-01-20T07:15:40Z"
+  },
+  {
+    "name": "latent-scope",
+    "description": "A scientific instrument for investigating latent spaces",
+    "url": "https://github.com/ejfox/latent-scope",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "A scientific instrument for investigating latent spaces",
+    "createdAt": "2024-02-15T20:49:34Z",
+    "updatedAt": "2024-02-15T20:49:34Z",
+    "pushedAt": "2024-02-15T20:50:05Z"
+  },
+  {
+    "name": "foxandwowee",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/foxandwowee",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2023-12-11T01:47:01Z",
+    "updatedAt": "2023-12-12T00:52:20Z",
+    "pushedAt": "2023-12-12T00:52:18Z"
+  },
+  {
+    "name": "devtools",
+    "description": "⚙️ Browser devtools extension for debugging Vue.js applications.",
+    "url": "https://github.com/ejfox/devtools",
+    "homepage": "https://devtools.vuejs.org",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "TypeScript",
+    "languageColor": "#3178c6",
+    "topics": [],
+    "excerpt": "⚙️ Browser devtools extension for debugging Vue.js applications.",
+    "createdAt": "2023-12-04T19:31:13Z",
+    "updatedAt": "2023-12-04T19:31:13Z",
+    "pushedAt": "2023-12-04T19:31:42Z"
+  },
+  {
+    "name": "obsidian-nuxt-content",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/obsidian-nuxt-content",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "TypeScript",
+    "languageColor": "#3178c6",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2023-11-01T00:03:11Z",
+    "updatedAt": "2023-11-05T22:25:33Z",
+    "pushedAt": "2023-11-01T00:03:13Z"
+  },
+  {
+    "name": "nuxt-module-obsidian",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/nuxt-module-obsidian",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "TypeScript",
+    "languageColor": "#3178c6",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2023-10-31T23:47:25Z",
+    "updatedAt": "2023-11-05T22:20:30Z",
+    "pushedAt": "2023-11-01T00:01:16Z"
+  },
+  {
+    "name": "nuxt-force-layout",
+    "description": "Easy D3-powered force layouts with all the trimmings",
+    "url": "https://github.com/ejfox/nuxt-force-layout",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "TypeScript",
+    "languageColor": "#3178c6",
+    "topics": [],
+    "excerpt": "Easy D3-powered force layouts with all the trimmings",
+    "createdAt": "2023-11-02T16:29:41Z",
+    "updatedAt": "2023-11-02T16:37:40Z",
+    "pushedAt": "2023-11-02T16:29:42Z"
+  },
+  {
+    "name": "obsidian-kindle-plugin",
+    "description": "Sync your Kindle notes and highlights directly into your Obsidian vault",
+    "url": "https://github.com/ejfox/obsidian-kindle-plugin",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "TypeScript",
+    "languageColor": "#3178c6",
+    "topics": [],
+    "excerpt": "Sync your Kindle notes and highlights directly into your Obsidian vault",
+    "createdAt": "2023-11-01T00:26:36Z",
+    "updatedAt": "2023-11-01T00:26:36Z",
+    "pushedAt": "2023-07-27T22:19:50Z"
+  },
+  {
+    "name": "ui",
+    "description": "Fully styled and customizable components for Nuxt.",
+    "url": "https://github.com/ejfox/ui",
+    "homepage": "https://ui.nuxt.com",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "topics": [],
+    "excerpt": "Fully styled and customizable components for Nuxt.",
+    "createdAt": "2023-10-23T18:31:52Z",
+    "updatedAt": "2023-10-23T18:31:52Z",
+    "pushedAt": "2023-10-23T16:28:10Z"
+  },
+  {
+    "name": "scrapbook",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/scrapbook",
+    "homepage": "https://eclectic-chaja-e25a53.netlify.app",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2022-06-21T14:05:15Z",
+    "updatedAt": "2023-10-15T18:56:55Z",
+    "pushedAt": "2023-10-15T19:01:11Z"
+  },
+  {
+    "name": "vue-toast-notification",
+    "description": "An attempt to add more visual design and Nuxt / Vue 3 support to vue toasts",
+    "url": "https://github.com/ejfox/vue-toast-notification",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "An attempt to add more visual design and Nuxt / Vue 3 support to vue toasts",
+    "createdAt": "2023-09-04T18:32:18Z",
+    "updatedAt": "2023-09-04T18:32:41Z",
+    "pushedAt": "2023-06-26T13:19:24Z"
+  },
+  {
+    "name": "supabase",
+    "description": "The open source Firebase alternative. Follow to stay updated about our public Beta.",
+    "url": "https://github.com/ejfox/supabase",
+    "homepage": "https://supabase.com",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "TypeScript",
+    "languageColor": "#3178c6",
+    "topics": [],
+    "excerpt": "The open source Firebase alternative. Follow to stay updated about our public Beta.",
+    "createdAt": "2023-08-02T15:04:56Z",
+    "updatedAt": "2023-08-02T15:04:56Z",
+    "pushedAt": "2023-08-02T14:54:12Z"
+  },
+  {
+    "name": "reddit-embeddings-1",
+    "description": "fetching reddit data and embedding it",
+    "url": "https://github.com/ejfox/reddit-embeddings-1",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "fetching reddit data and embedding it",
+    "createdAt": "2023-04-14T16:55:25Z",
+    "updatedAt": "2023-04-14T04:28:09Z",
+    "pushedAt": "2023-04-15T05:15:12Z"
+  },
+  {
+    "name": "reddit-embeddings",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/reddit-embeddings",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2023-04-13T03:29:42Z",
+    "updatedAt": "2023-04-13T03:32:21Z",
+    "pushedAt": "2023-04-13T03:45:30Z"
+  },
+  {
+    "name": "dvs-soti-2022",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/dvs-soti-2022",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2023-04-15T21:13:47Z",
+    "updatedAt": "2023-04-12T06:10:39Z",
+    "pushedAt": "2023-04-15T21:45:56Z"
+  },
+  {
+    "name": "comeup-app",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/comeup-app",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2023-03-06T04:35:46Z",
+    "updatedAt": "2023-03-06T04:35:53Z",
+    "pushedAt": "2023-03-06T04:43:03Z"
+  },
+  {
+    "name": "thenation-homelessness-story",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/thenation-homelessness-story",
+    "homepage": "https://fantastic-scone-557caf.netlify.app",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2022-11-23T18:56:08Z",
+    "updatedAt": "2023-02-13T17:19:51Z",
+    "pushedAt": "2023-01-25T14:17:51Z"
+  },
+  {
+    "name": "deploy-example",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/deploy-example",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2023-02-01T18:53:04Z",
+    "updatedAt": "2023-02-01T18:56:19Z",
+    "pushedAt": "2023-02-01T18:56:15Z"
+  },
+  {
+    "name": "ai-art-coach",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/ai-art-coach",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2022-12-04T23:58:52Z",
+    "updatedAt": "2022-12-28T15:50:30Z",
+    "pushedAt": "2022-12-28T15:50:25Z"
+  },
+  {
+    "name": "climate-trace-prototypes",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/climate-trace-prototypes",
+    "homepage": "https://climate-trace-prototypes.netlify.app",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2022-11-28T17:03:08Z",
+    "updatedAt": "2022-12-05T18:08:39Z",
+    "pushedAt": "2022-12-12T19:22:22Z"
+  },
+  {
+    "name": "hangstudio",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/hangstudio",
+    "homepage": "https://hang.studio",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 2,
+      "openIssues": 0
+    },
+    "language": "HTML",
+    "languageColor": "#e34c26",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2021-12-16T21:15:50Z",
+    "updatedAt": "2022-12-05T15:50:33Z",
+    "pushedAt": "2022-12-05T15:39:57Z"
+  },
+  {
+    "name": "themargin-prototypes",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/themargin-prototypes",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2022-09-01T20:00:40Z",
+    "updatedAt": "2022-09-27T01:20:09Z",
+    "pushedAt": "2022-10-19T22:58:26Z"
+  },
+  {
+    "name": "vite-boilerplate",
+    "description": "An opinionated Vue starterplate with Vite, Vuex, and Tachyons",
+    "url": "https://github.com/ejfox/vite-boilerplate",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [
+      "tachyons",
+      "vite",
+      "vue"
+    ],
+    "excerpt": "An opinionated Vue starterplate with Vite, Vuex, and Tachyons",
+    "createdAt": "2022-06-14T03:56:36Z",
+    "updatedAt": "2022-06-20T22:48:45Z",
+    "pushedAt": "2022-08-15T20:48:45Z"
+  },
+  {
+    "name": "motorcycle-path",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/motorcycle-path",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 1
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2022-06-18T15:08:25Z",
+    "updatedAt": "2022-06-18T15:08:32Z",
+    "pushedAt": "2022-07-24T23:38:03Z"
+  },
+  {
+    "name": "417am",
+    "description": "Website for generative art explanations",
+    "url": "https://github.com/ejfox/417am",
+    "homepage": "http://417.cool",
+    "stats": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "Website for generative art explanations",
+    "createdAt": "2017-10-29T18:50:21Z",
+    "updatedAt": "2022-03-12T22:47:09Z",
+    "pushedAt": "2017-11-25T22:53:04Z"
+  },
+  {
+    "name": "four-seventeen",
+    "description": "NPM module for canvas-based generative art ",
+    "url": "https://github.com/ejfox/four-seventeen",
+    "homepage": null,
+    "stats": {
+      "stars": 3,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "NPM module for canvas-based generative art ",
+    "createdAt": "2018-12-27T19:07:50Z",
+    "updatedAt": "2022-03-12T21:18:10Z",
+    "pushedAt": "2022-12-08T09:03:05Z"
+  },
+  {
+    "name": "twitter-artbot",
+    "description": "Generative art framework with JS, D3, Canvas, and more...",
+    "url": "https://github.com/ejfox/twitter-artbot",
+    "homepage": "https://twitter.com/417am1975",
+    "stats": {
+      "stars": 7,
+      "forks": 1,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "Generative art framework with JS, D3, Canvas, and more...",
+    "createdAt": "2017-06-11T20:47:18Z",
+    "updatedAt": "2022-03-12T20:55:00Z",
+    "pushedAt": "2022-12-09T04:48:59Z"
+  },
+  {
+    "name": "tributary.io",
+    "description": "real-time app powered by tributary and derby",
+    "url": "https://github.com/enjalot/tributary.io",
+    "homepage": null,
+    "stats": {
+      "stars": 6,
+      "forks": 1,
+      "watchers": 4,
+      "openIssues": 0
+    },
+    "language": "CSS",
+    "languageColor": "#663399",
+    "topics": [],
+    "excerpt": "real-time app powered by tributary and derby",
+    "createdAt": "2013-05-25T02:09:20Z",
+    "updatedAt": "2022-01-18T01:49:08Z",
+    "pushedAt": "2013-09-08T23:44:49Z"
+  },
+  {
+    "name": "nypd-complaint-client",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/nypd-complaint-client",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2021-11-02T19:22:14Z",
+    "updatedAt": "2021-11-15T21:20:27Z",
+    "pushedAt": "2021-11-16T19:59:29Z"
+  },
+  {
+    "name": "emoji-update",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/emoji-update",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2021-05-16T20:20:43Z",
+    "updatedAt": "2021-05-16T20:22:55Z",
+    "pushedAt": "2021-05-16T20:22:53Z"
+  },
+  {
+    "name": "genmusic",
+    "description": "Generative music / audio with tone.js",
+    "url": "https://github.com/ejfox/genmusic",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "topics": [],
+    "excerpt": "Generative music / audio with tone.js",
+    "createdAt": "2019-03-10T23:39:32Z",
+    "updatedAt": "2021-05-10T05:19:23Z",
+    "pushedAt": "2019-03-10T23:39:39Z"
+  },
+  {
+    "name": "cwf-site",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/cwf-site",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 2,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2021-01-22T18:42:39Z",
+    "updatedAt": "2021-01-22T18:54:25Z",
+    "pushedAt": "2021-01-22T18:54:20Z"
+  },
+  {
+    "name": "eavs-analysis",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/eavs-analysis",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "Makefile",
+    "languageColor": "#427819",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2020-06-24T21:55:26Z",
+    "updatedAt": "2020-06-24T21:55:40Z",
+    "pushedAt": "2023-03-05T02:19:45Z"
+  },
+  {
+    "name": "eavs",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/eavs",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2020-04-27T16:42:22Z",
+    "updatedAt": "2020-04-27T16:42:48Z",
+    "pushedAt": "2023-01-05T11:16:35Z"
+  },
+  {
+    "name": "maine-weather-report",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/maine-weather-report",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2019-08-29T16:59:01Z",
+    "updatedAt": "2019-10-16T14:55:18Z",
+    "pushedAt": "2023-01-09T22:13:07Z"
+  },
+  {
+    "name": "markdown-it-footnote",
+    "description": "Footnotes plugin for markdown-it markdown parser ",
+    "url": "https://github.com/ejfox/markdown-it-footnote",
+    "homepage": "https://markdown-it.github.io/",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "Footnotes plugin for markdown-it markdown parser ",
+    "createdAt": "2019-07-01T09:17:32Z",
+    "updatedAt": "2019-07-01T09:28:54Z",
+    "pushedAt": "2019-07-01T09:28:52Z"
+  },
+  {
+    "name": "processmd",
+    "description": "Process a directory of markdown and yaml files to json files based on glob patterns",
+    "url": "https://github.com/ejfox/processmd",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "Process a directory of markdown and yaml files to json files based on glob patterns",
+    "createdAt": "2019-06-12T16:14:46Z",
+    "updatedAt": "2019-06-12T17:12:20Z",
+    "pushedAt": "2019-06-12T17:12:18Z"
+  },
+  {
+    "name": "highlights-scraper",
+    "description": "Scrapes public Kindle highlights on Goodreads.",
+    "url": "https://github.com/ejfox/highlights-scraper",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "Scrapes public Kindle highlights on Goodreads.",
+    "createdAt": "2019-05-13T15:16:06Z",
+    "updatedAt": "2019-05-13T15:50:53Z",
+    "pushedAt": "2019-05-13T15:50:51Z"
+  },
+  {
+    "name": "big-presentation-arena-generate",
+    "description": "Easily generate big presentations from are.na channels",
+    "url": "https://github.com/ejfox/big-presentation-arena-generate",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "Easily generate big presentations from are.na channels",
+    "createdAt": "2019-03-30T21:29:11Z",
+    "updatedAt": "2019-04-29T15:39:33Z",
+    "pushedAt": "2019-03-31T20:57:47Z"
+  },
+  {
+    "name": "youtube-explore-to-gexf",
+    "description": "A tool to convert youtube-explore outputs to gexf",
+    "url": "https://github.com/ejfox/youtube-explore-to-gexf",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "A tool to convert youtube-explore outputs to gexf",
+    "createdAt": "2019-04-16T18:19:47Z",
+    "updatedAt": "2019-04-26T01:00:04Z",
+    "pushedAt": "2019-04-16T18:53:35Z"
+  },
+  {
+    "name": "youtube-explore",
+    "description": "Finding YouTube's top recommendations from any query",
+    "url": "https://github.com/ejfox/youtube-explore",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "CSS",
+    "languageColor": "#663399",
+    "topics": [],
+    "excerpt": "Finding YouTube's top recommendations from any query",
+    "createdAt": "2019-04-16T18:43:54Z",
+    "updatedAt": "2019-04-16T18:43:57Z",
+    "pushedAt": "2019-04-16T18:44:13Z"
+  },
+  {
+    "name": "newsdivide",
+    "description": "screenshot worker queue  + static site generator",
+    "url": "https://github.com/ejfox/newsdivide",
+    "homepage": "https://newsdivide.bradoyler.com/",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "screenshot worker queue  + static site generator",
+    "createdAt": "2019-01-21T20:51:41Z",
+    "updatedAt": "2019-01-21T20:52:09Z",
+    "pushedAt": "2019-01-22T16:03:00Z"
+  },
+  {
+    "name": "OpenOversight",
+    "description": "Police oversight and accountability through public data 👮",
+    "url": "https://github.com/ejfox/OpenOversight",
+    "homepage": "https://openoversight.com",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "topics": [],
+    "excerpt": "Police oversight and accountability through public data 👮",
+    "createdAt": "2019-01-18T00:12:57Z",
+    "updatedAt": "2019-01-18T00:13:00Z",
+    "pushedAt": "2019-04-25T18:34:11Z"
+  },
+  {
+    "name": "d3",
+    "description": "Bring data to life with SVG, Canvas and HTML. :bar_chart::chart_with_upwards_trend::tada:",
+    "url": "https://github.com/ejfox/d3",
+    "homepage": "https://d3js.org",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "Bring data to life with SVG, Canvas and HTML. :bar_chart::chart_with_upwards_trend::tada:",
+    "createdAt": "2018-05-14T21:10:55Z",
+    "updatedAt": "2018-05-14T21:11:16Z",
+    "pushedAt": "2018-05-13T11:44:05Z"
+  },
+  {
+    "name": "chancejs",
+    "description": "Chance - Random generator helper for JavaScript",
+    "url": "https://github.com/ejfox/chancejs",
+    "homepage": "http://chancejs.com",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "Chance - Random generator helper for JavaScript",
+    "createdAt": "2017-07-23T16:03:58Z",
+    "updatedAt": "2018-04-25T18:38:28Z",
+    "pushedAt": "2018-04-25T18:38:25Z"
+  },
+  {
+    "name": "blog",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/blog",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "HTML",
+    "languageColor": "#e34c26",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2017-08-21T01:02:39Z",
+    "updatedAt": "2017-08-21T01:06:12Z",
+    "pushedAt": "2017-08-23T02:52:12Z"
+  },
+  {
+    "name": "Vulpes-Boilerplate",
+    "description": "An interactive boilerplate / template",
+    "url": "https://github.com/ejfox/Vulpes-Boilerplate",
+    "homepage": "http://ejfox.github.com/Vulpes-Boilerplate/",
+    "stats": {
+      "stars": 6,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "An interactive boilerplate / template",
+    "createdAt": "2012-02-11T00:17:12Z",
+    "updatedAt": "2017-05-30T22:09:16Z",
+    "pushedAt": "2014-03-17T01:55:51Z"
+  },
+  {
+    "name": "blockbuilder",
+    "description": "Create, fork and edit d3.js code snippets for use with bl.ocks.org right in the browser, no terminal required.",
+    "url": "https://github.com/ejfox/blockbuilder",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "Create, fork and edit d3.js code snippets for use with bl.ocks.org right in the browser, no terminal required.",
+    "createdAt": "2017-05-15T14:55:36Z",
+    "updatedAt": "2017-05-15T14:55:38Z",
+    "pushedAt": "2017-05-13T23:10:56Z"
+  },
+  {
+    "name": "nflviz",
+    "description": "Visualizing nfl data",
+    "url": "https://github.com/ejfox/nflviz",
+    "homepage": "https://ejfox.github.io/nflviz/",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "CoffeeScript",
+    "languageColor": "#244776",
+    "topics": [],
+    "excerpt": "Visualizing nfl data",
+    "createdAt": "2017-05-07T23:41:18Z",
+    "updatedAt": "2017-05-07T23:44:37Z",
+    "pushedAt": "2017-08-07T23:27:50Z"
+  },
+  {
+    "name": "30-data-days",
+    "description": "An exploration of one dataset over 30 days, by Mainstem Collective",
+    "url": "https://github.com/ejfox/30-data-days",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 2,
+      "openIssues": 0
+    },
+    "language": "Unknown",
+    "languageColor": "#666666",
+    "topics": [],
+    "excerpt": "An exploration of one dataset over 30 days, by Mainstem Collective",
+    "createdAt": "2014-12-28T18:51:40Z",
+    "updatedAt": "2016-12-14T13:32:12Z",
+    "pushedAt": "2014-12-28T19:11:53Z"
+  },
+  {
+    "name": "roadtrip",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/roadtrip",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "CSS",
+    "languageColor": "#663399",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2016-11-27T21:21:31Z",
+    "updatedAt": "2016-11-27T21:21:42Z",
+    "pushedAt": "2017-01-24T00:20:10Z"
+  },
+  {
+    "name": "close2home",
+    "description": "A twitter bot to manipulate news headlines",
+    "url": "https://github.com/ejfox/close2home",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "A twitter bot to manipulate news headlines",
+    "createdAt": "2016-11-17T04:29:12Z",
+    "updatedAt": "2016-11-17T20:54:37Z",
+    "pushedAt": "2017-08-20T17:34:21Z"
+  },
+  {
+    "name": "roadtrip-site",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/roadtrip-site",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "CoffeeScript",
+    "languageColor": "#244776",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2016-10-23T00:19:08Z",
+    "updatedAt": "2016-10-23T00:20:10Z",
+    "pushedAt": "2016-10-23T00:29:15Z"
+  },
+  {
+    "name": "old-starter",
+    "description": "Starter/boilerplate/template for interactives ",
+    "url": "https://github.com/ejfox/old-starter",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "CSS",
+    "languageColor": "#663399",
+    "topics": [],
+    "excerpt": "Starter/boilerplate/template for interactives ",
+    "createdAt": "2016-07-18T15:08:05Z",
+    "updatedAt": "2016-10-16T18:51:08Z",
+    "pushedAt": "2016-10-16T01:37:55Z"
+  },
+  {
+    "name": "coral-sentimentviz",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/coral-sentimentviz",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "CoffeeScript",
+    "languageColor": "#244776",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2016-05-16T14:31:27Z",
+    "updatedAt": "2016-05-16T14:34:48Z",
+    "pushedAt": "2016-05-16T14:35:44Z"
+  },
+  {
+    "name": "DesignerNewsMembers",
+    "description": "A visualization of all the members of Designer News",
+    "url": "https://github.com/ejfox/DesignerNewsMembers",
+    "homepage": "http://ejfox.github.com/DesignerNewsMembers/",
+    "stats": {
+      "stars": 4,
+      "forks": 1,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "A visualization of all the members of Designer News",
+    "createdAt": "2013-01-10T19:33:12Z",
+    "updatedAt": "2016-01-29T01:02:08Z",
+    "pushedAt": "2013-01-12T19:13:32Z"
+  },
+  {
+    "name": "snippets",
+    "description": "A D3 snippet/pattern library",
+    "url": "https://github.com/ejfox/snippets",
+    "homepage": "http://ejfox.github.com/snippets/",
+    "stats": {
+      "stars": 6,
+      "forks": 0,
+      "watchers": 2,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "A D3 snippet/pattern library",
+    "createdAt": "2012-11-20T03:09:47Z",
+    "updatedAt": "2015-11-06T18:01:17Z",
+    "pushedAt": "2012-12-11T17:18:18Z"
+  },
+  {
+    "name": "tribulations",
+    "description": "no pain no gain. removing the friction from prototyping",
+    "url": "https://github.com/enjalot/tribulations",
+    "homepage": null,
+    "stats": {
+      "stars": 2,
+      "forks": 0,
+      "watchers": 5,
+      "openIssues": 0
+    },
+    "language": "Unknown",
+    "languageColor": "#666666",
+    "topics": [],
+    "excerpt": "no pain no gain. removing the friction from prototyping",
+    "createdAt": "2014-12-13T21:11:02Z",
+    "updatedAt": "2015-08-22T08:31:23Z",
+    "pushedAt": "2014-12-13T21:23:46Z"
+  },
+  {
+    "name": "oaklandcams",
+    "description": "Oakland camera map (for discovery of routes with least surveillance)",
+    "url": "https://github.com/ejfox/oaklandcams",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "Unknown",
+    "languageColor": "#666666",
+    "topics": [],
+    "excerpt": "Oakland camera map (for discovery of routes with least surveillance)",
+    "createdAt": "2014-02-14T19:23:27Z",
+    "updatedAt": "2015-05-19T14:24:03Z",
+    "pushedAt": "2014-02-15T22:58:50Z"
+  },
+  {
+    "name": "d3-tip",
+    "description": "d3 tooltips",
+    "url": "https://github.com/ejfox/d3-tip",
+    "homepage": "http://labratrevenge.com/d3-tip",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "d3 tooltips",
+    "createdAt": "2014-12-04T15:08:52Z",
+    "updatedAt": "2014-12-04T15:08:53Z",
+    "pushedAt": "2014-10-21T15:31:32Z"
+  },
+  {
+    "name": "Inlet",
+    "description": "Bret Victor inspired slider & color picker plugin for CodeMirror",
+    "url": "https://github.com/ejfox/Inlet",
+    "homepage": "http://enjalot.github.com/Inlet",
+    "stats": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "Bret Victor inspired slider & color picker plugin for CodeMirror",
+    "createdAt": "2013-03-10T00:09:29Z",
+    "updatedAt": "2014-05-13T05:24:42Z",
+    "pushedAt": "2013-03-10T00:10:35Z"
+  },
+  {
+    "name": "sStepper",
+    "description": "A stepper utility for interactive stories",
+    "url": "https://github.com/ejfox/sStepper",
+    "homepage": "http://ejfox.github.com/sStepper/",
+    "stats": {
+      "stars": 4,
+      "forks": 1,
+      "watchers": 2,
+      "openIssues": 0
+    },
+    "language": "CoffeeScript",
+    "languageColor": "#244776",
+    "topics": [],
+    "excerpt": "A stepper utility for interactive stories",
+    "createdAt": "2013-03-21T06:50:28Z",
+    "updatedAt": "2014-05-13T05:23:42Z",
+    "pushedAt": "2013-03-25T01:16:42Z"
+  },
+  {
+    "name": "futurelensnews",
+    "description": "Future lens news website",
+    "url": "https://github.com/ejfox/futurelensnews",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "CSS",
+    "languageColor": "#663399",
+    "topics": [],
+    "excerpt": "Future lens news website",
+    "createdAt": "2013-09-10T05:58:44Z",
+    "updatedAt": "2014-05-13T05:22:54Z",
+    "pushedAt": "2013-09-11T08:24:23Z"
+  },
+  {
+    "name": "Coffeescript-SmoothScrolling",
+    "description": "A simple coffeescript to animate the scrolling of any link on a page",
+    "url": "https://github.com/ejfox/Coffeescript-SmoothScrolling",
+    "homepage": null,
+    "stats": {
+      "stars": 2,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "A simple coffeescript to animate the scrolling of any link on a page",
+    "createdAt": "2012-04-15T07:48:00Z",
+    "updatedAt": "2014-05-12T14:38:51Z",
+    "pushedAt": "2012-04-15T07:54:13Z"
+  },
+  {
+    "name": "Scriptar",
+    "description": "Scriptography scripts",
+    "url": "https://github.com/ejfox/Scriptar",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 3,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "Scriptography scripts",
+    "createdAt": "2012-03-30T20:35:08Z",
+    "updatedAt": "2014-04-07T10:16:29Z",
+    "pushedAt": "2012-04-04T16:21:30Z"
+  },
+  {
+    "name": "sectionScroller",
+    "description": "A little tool to visualize how far a user has scrolled in a page or section",
+    "url": "https://github.com/ejfox/sectionScroller",
+    "homepage": "http://ejfox.github.io/sectionScroller/",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "A little tool to visualize how far a user has scrolled in a page or section",
+    "createdAt": "2013-04-15T05:22:29Z",
+    "updatedAt": "2013-12-12T08:35:37Z",
+    "pushedAt": "2013-04-15T05:32:18Z"
+  },
+  {
+    "name": "happybirthdaytributary",
+    "description": "Happy birthday Tributary!",
+    "url": "https://github.com/ejfox/happybirthdaytributary",
+    "homepage": "http://ejfox.github.com/happybirthdaytributary/",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 2,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "Happy birthday Tributary!",
+    "createdAt": "2013-03-15T07:03:58Z",
+    "updatedAt": "2013-10-16T06:00:09Z",
+    "pushedAt": "2013-03-17T03:12:17Z"
+  },
+  {
+    "name": "MarchTrackerApp",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/MarchTrackerApp",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2012-09-25T17:59:15Z",
+    "updatedAt": "2013-10-14T05:05:38Z",
+    "pushedAt": "2012-11-11T05:11:44Z"
+  },
+  {
+    "name": "GoodData",
+    "description": "Collecting good data sources to inspire visualizers",
+    "url": "https://github.com/ejfox/GoodData",
+    "homepage": "http://ejfox.github.com/GoodData/",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 2,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "Collecting good data sources to inspire visualizers",
+    "createdAt": "2012-11-10T02:04:18Z",
+    "updatedAt": "2013-10-14T01:23:31Z",
+    "pushedAt": "2012-12-28T21:27:04Z"
+  },
+  {
+    "name": "tablemap",
+    "description": "Google spreadsheet based mapping",
+    "url": "https://github.com/ejfox/tablemap",
+    "homepage": "http://ejfox.github.com/tablemap/",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "Google spreadsheet based mapping",
+    "createdAt": "2012-12-15T06:21:43Z",
+    "updatedAt": "2013-10-07T02:21:18Z",
+    "pushedAt": "2013-01-12T23:55:04Z"
+  },
+  {
+    "name": "QS-App",
+    "description": "A web-based attempt to make quantifying oneself quick & painless",
+    "url": "https://github.com/ejfox/QS-App",
+    "homepage": "http://ejfox.github.com/QS-App/",
+    "stats": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "A web-based attempt to make quantifying oneself quick & painless",
+    "createdAt": "2012-10-23T06:28:17Z",
+    "updatedAt": "2013-10-06T13:16:04Z",
+    "pushedAt": "2013-01-15T20:49:58Z"
+  },
+  {
+    "name": "shineinpeace",
+    "description": "Website for Shine in Peace",
+    "url": "https://github.com/ejfox/shineinpeace",
+    "homepage": "http://ejfox.github.com/shineinpeace/",
+    "stats": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "Website for Shine in Peace",
+    "createdAt": "2013-03-04T08:06:32Z",
+    "updatedAt": "2013-10-05T14:46:38Z",
+    "pushedAt": "2013-08-06T19:49:19Z"
+  },
+  {
+    "name": "d3visualization",
+    "description": "An alternative gallery for d3.js",
+    "url": "https://github.com/ejfox/d3visualization",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "topics": [],
+    "excerpt": "An alternative gallery for d3.js",
+    "createdAt": "2013-03-04T22:58:41Z",
+    "updatedAt": "2013-03-04T23:46:55Z",
+    "pushedAt": "2013-03-04T23:34:27Z"
+  }
+]

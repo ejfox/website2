@@ -16,6 +16,7 @@ import remarkRehype from 'remark-rehype'
 import rehypeRaw from 'rehype-raw'
 import rehypeStringify from 'rehype-stringify'
 import rehypeSlug from 'rehype-slug'
+import sanitizeHtml from 'sanitize-html'
 import dotenv from 'dotenv'
 
 dotenv.config()
@@ -23,6 +24,7 @@ dotenv.config()
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const OUTPUT_DIR = join(__dirname, '../data/github-repos')
 const INDEX_FILE = join(__dirname, '../data/github-repos-index.json')
+const LIST_FILE = join(__dirname, '../data/github-repos-list.json')
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || process.env.githubToken
 const GITHUB_OWNER = 'ejfox'
@@ -154,7 +156,32 @@ async function processReadme(readmeText) {
   try {
     // Process markdown to HTML
     const result = await markdownProcessor.process(readmeText)
-    const html = String(result)
+    let html = String(result)
+
+    // Sanitize HTML to prevent XSS attacks
+    html = sanitizeHtml(html, {
+      allowedTags: sanitizeHtml.defaults.allowedTags.concat([
+        'img',
+        'h1',
+        'h2',
+        'h3',
+        'h4',
+        'h5',
+        'h6',
+        'details',
+        'summary',
+      ]),
+      allowedAttributes: {
+        ...sanitizeHtml.defaults.allowedAttributes,
+        '*': ['id', 'class'],
+        img: ['src', 'alt', 'title', 'width', 'height'],
+        a: ['href', 'name', 'target', 'rel'],
+        code: ['class'],
+        pre: ['class'],
+      },
+      allowedSchemes: ['http', 'https', 'mailto'],
+      allowProtocolRelative: false,
+    })
 
     // Extract excerpt (first 160 chars of plain text)
     const plainText = readmeText
@@ -179,8 +206,20 @@ async function processReadme(readmeText) {
   }
 }
 
+function sanitizeFilename(filename) {
+  // Only allow alphanumeric, hyphens, underscores, dots (GitHub repo names)
+  // Remove any path traversal attempts
+  return filename.replace(/[^a-zA-Z0-9._-]/g, '_')
+}
+
 async function exportRepository(repo) {
-  console.log(`  Processing ${repo.name}...`)
+  // Validate repo name (prevent path traversal)
+  const safeName = sanitizeFilename(repo.name)
+  if (safeName !== repo.name) {
+    console.warn(`  ⚠️  Sanitized repo name: ${repo.name} -> ${safeName}`)
+  }
+
+  console.log(`  Processing ${safeName}...`)
 
   const readme = await processReadme(repo.object?.text)
 
@@ -204,10 +243,10 @@ async function exportRepository(repo) {
     pushedAt: repo.pushedAt,
   }
 
-  const outputFile = join(OUTPUT_DIR, `${repo.name}.json`)
+  const outputFile = join(OUTPUT_DIR, `${safeName}.json`)
   writeFileSync(outputFile, JSON.stringify(repoData, null, 2))
 
-  return repo.name
+  return safeName
 }
 
 async function main() {
@@ -219,13 +258,39 @@ async function main() {
     console.log(`\nProcessing ${repos.length} repositories...\n`)
 
     const repoNames = []
+    const reposList = [] // Lightweight list for index page
+
     for (const repo of repos) {
       const name = await exportRepository(repo)
       repoNames.push(name)
+
+      // Create lightweight entry (no README HTML)
+      reposList.push({
+        name: repo.name,
+        description: repo.description || 'No description provided',
+        url: repo.url,
+        homepage: repo.homepageUrl || null,
+        stats: {
+          stars: repo.stargazerCount,
+          forks: repo.forkCount,
+          watchers: repo.watchers.totalCount,
+          openIssues: repo.issues.totalCount,
+        },
+        language: repo.primaryLanguage?.name || 'Unknown',
+        languageColor: repo.primaryLanguage?.color || '#666666',
+        topics: repo.repositoryTopics.nodes.map((t) => t.topic.name),
+        excerpt: repo.description || 'No description provided',
+        createdAt: repo.createdAt,
+        updatedAt: repo.updatedAt,
+        pushedAt: repo.pushedAt,
+      })
     }
 
-    // Write index file
+    // Write index file (just names)
     writeFileSync(INDEX_FILE, JSON.stringify(repoNames, null, 2))
+
+    // Write lightweight list file (for index page)
+    writeFileSync(LIST_FILE, JSON.stringify(reposList, null, 2))
 
     // Stats
     const languages = [...new Set(repos.map((r) => r.primaryLanguage?.name).filter(Boolean))]
@@ -237,6 +302,7 @@ async function main() {
     console.log(`Total stars: ${totalStars}`)
     console.log(`Output: ${OUTPUT_DIR}`)
     console.log(`Index: ${INDEX_FILE}`)
+    console.log(`List: ${LIST_FILE}`)
   } catch (error) {
     console.error(`\n❌ Error:`, error.message)
     process.exit(1)

@@ -13,7 +13,7 @@
   "languageColor": "#f1e05a",
   "topics": [],
   "readme": {
-    "html": "<h1 id=\"tablemap\">Tablemap</h1>\n<p>Google docs / Tabletop based mapping using javascript</p>\n<p>Example doc: <a href=\"https://docs.google.com/spreadsheet/pub?key=0ApAkxBfw1JT4dHNKX0FNclJoVnVvVUZybkZqYjEzYVE&#x26;output=html\">https://docs.google.com/spreadsheet/pub?key=0ApAkxBfw1JT4dHNKX0FNclJoVnVvVUZybkZqYjEzYVE&#x26;output=html</a></p>",
+    "html": "<h1 id=\"tablemap\">Tablemap</h1>\n<p>Google docs / Tabletop based mapping using javascript</p>\n<p>Example doc: <a href=\"https://docs.google.com/spreadsheet/pub?key=0ApAkxBfw1JT4dHNKX0FNclJoVnVvVUZybkZqYjEzYVE&amp;output=html\">https://docs.google.com/spreadsheet/pub?key=0ApAkxBfw1JT4dHNKX0FNclJoVnVvVUZybkZqYjEzYVE&amp;output=html</a></p>",
     "raw": "# Tablemap\n\nGoogle docs / Tabletop based mapping using javascript\n\nExample doc: <https://docs.google.com/spreadsheet/pub?key=0ApAkxBfw1JT4dHNKX0FNclJoVnVvVUZybkZqYjEzYVE&output=html>\n\n",
     "excerpt": "Google docs / Tabletop based mapping using javascript\n\nExample doc: <https://docs.google.com/spreadsheet/pub?key=0ApAkxBfw1JT4dHNKX0FNclJoVnVvVUZybkZqYjEzYVE&ou..."
   },

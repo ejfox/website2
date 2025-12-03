@@ -2,21 +2,10 @@
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 
-// Load repos index and all repo data
-const repoIndex = JSON.parse(
-  readFileSync(join(process.cwd(), 'data/github-repos-index.json'), 'utf-8')
+// Load lightweight repos list (without README HTML for performance)
+const repos = JSON.parse(
+  readFileSync(join(process.cwd(), 'data/github-repos-list.json'), 'utf-8')
 )
-
-// Load all repo metadata
-const repos = repoIndex.map((name) => {
-  const data = JSON.parse(
-    readFileSync(
-      join(process.cwd(), 'data/github-repos', `${name}.json`),
-      'utf-8'
-    )
-  )
-  return data
-})
 
 // Filter and sort state
 const searchQuery = ref('')
@@ -96,19 +85,19 @@ useHead({
     </header>
 
     <!-- Filters -->
-    <div class="flex flex-wrap gap-3 mb-8">
+    <div class="filters-container">
       <!-- Search -->
       <input
         v-model="searchQuery"
         type="text"
         placeholder="Search repositories..."
-        class="flex-grow px-3 py-2 text-sm border border-zinc-200 dark:border-zinc-800 rounded bg-white dark:bg-zinc-950 focus:outline-none focus:ring-1 focus:ring-zinc-400"
+        class="search-input"
       />
 
       <!-- Language Filter -->
       <select
         v-model="selectedLanguage"
-        class="px-3 py-2 text-sm border border-zinc-200 dark:border-zinc-800 rounded bg-white dark:bg-zinc-950 focus:outline-none focus:ring-1 focus:ring-zinc-400"
+        class="filter-select"
       >
         <option
           v-for="lang in languages"
@@ -122,7 +111,7 @@ useHead({
       <!-- Sort -->
       <select
         v-model="sortBy"
-        class="px-3 py-2 text-sm border border-zinc-200 dark:border-zinc-800 rounded bg-white dark:bg-zinc-950 focus:outline-none focus:ring-1 focus:ring-zinc-400"
+        class="filter-select"
       >
         <option value="updated">Recently Updated</option>
         <option value="stars">Most Stars</option>
@@ -155,8 +144,21 @@ useHead({
 </template>
 
 <style scoped>
-input,
-select {
-  @apply font-mono;
+.filters-container {
+  @apply flex flex-wrap gap-3 mb-8;
+}
+
+.search-input {
+  @apply flex-grow px-3 py-2 text-sm font-mono;
+  @apply border border-zinc-200 dark:border-zinc-800 rounded;
+  @apply bg-white dark:bg-zinc-950;
+  @apply focus:outline-none focus:ring-1 focus:ring-zinc-400;
+}
+
+.filter-select {
+  @apply px-3 py-2 text-sm font-mono;
+  @apply border border-zinc-200 dark:border-zinc-800 rounded;
+  @apply bg-white dark:bg-zinc-950;
+  @apply focus:outline-none focus:ring-1 focus:ring-zinc-400;
 }
 </style>
