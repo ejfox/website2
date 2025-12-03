@@ -531,8 +531,6 @@ import LetterboxdStats from '~/components/stats/LetterboxdStats.vue'
 import UmamiStats from '~/components/stats/UmamiStats.vue'
 import GearStats from '~/components/stats/GearStats.vue'
 import { usePostFilters } from '~/composables/blog/usePostFilters'
-import { readFileSync } from 'node:fs'
-import { join } from 'node:path'
 
 const statsDescription = computed(() => {
   const s = stats.value
@@ -600,9 +598,8 @@ const { formatNumber } = useNumberFormat()
 const { isValidPost } = usePostFilters()
 
 // Load all commits for the matrix visualization
-const allCommits = JSON.parse(
-  readFileSync(join(process.cwd(), 'data/github-commits.json'), 'utf-8')
-)
+const { data: allCommitsData } = await useFetch('/api/github-commits')
+const allCommits = computed(() => allCommitsData.value || [])
 
 // Simple mode refs
 const sectionRef = ref(null)

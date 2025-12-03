@@ -275,8 +275,7 @@ const { data: predictions, error: predictionsError } =
 const { data: tags, error: tagsError } = await useFetch('/tags.json')
 
 const publicPredictions = computed(
-  () =>
-    predictions.value?.filter((p) => p.visibility === 'public').length || 0
+  () => predictions.value?.filter((p) => p.visibility === 'public').length || 0
 )
 
 const lastUpdated = computed(() => {

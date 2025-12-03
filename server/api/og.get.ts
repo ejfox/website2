@@ -185,7 +185,7 @@ export default defineEventHandler(async (event) => {
     })
 
     return ogData
-  } catch (_error: any) {
+  } catch (error: any) {
     // Return minimal data on error
     const fallback: OGData = {
       url,

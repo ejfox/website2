@@ -1,11 +1,7 @@
 <script setup>
-import { readFileSync } from 'node:fs'
-import { join } from 'node:path'
-
 // Load lightweight repos list (without README HTML for performance)
-const repos = JSON.parse(
-  readFileSync(join(process.cwd(), 'data/github-repos-list.json'), 'utf-8')
-)
+const { data: reposData } = await useFetch('/api/github-repos-list')
+const repos = computed(() => reposData.value || [])
 
 // Filter and sort state
 const searchQuery = ref('')
@@ -15,13 +11,13 @@ const viewMode = ref('list') // force, list, ridgeline, grid, parallel, radial
 
 // Get unique languages
 const languages = computed(() => {
-  const langs = [...new Set(repos.map((r) => r.language).filter(Boolean))]
+  const langs = [...new Set(repos.value.map((r) => r.language).filter(Boolean))]
   return ['all', ...langs.sort()]
 })
 
 // Filtered and sorted repos
 const filteredRepos = computed(() => {
-  let filtered = repos
+  let filtered = repos.value
 
   // Search filter
   if (searchQuery.value) {
@@ -65,10 +61,10 @@ const totalForks = computed(() =>
 )
 const lastUpdated = computed(() => {
   const dates = repos
-    .map((r) =>
-      new Date(r.pushedAt || r.updatedAt || r.createdAt || 0).getTime()
-    )
-    .filter((t) => !Number.isNaN(t))
+    .map((r) => new Date(r.pushedAt || r.updatedAt || r.createdAt || 0))
+    .filter((d) => !Number.isNaN(d.getTime()))
+    .map((d) => d.getTime())
+
   if (!dates.length) return ''
   return new Date(Math.max(...dates)).toISOString().split('T')[0]
 })
@@ -76,7 +72,8 @@ const lastUpdated = computed(() => {
 // SEO
 usePageSeo({
   title: 'GitHub repositories · EJ Fox',
-  description: `Browse ${repos.length} public GitHub repositories by EJ Fox with stars, forks, and activity charts.`,
+  description:
+    'Browse public GitHub repositories with stars, forks, and activity charts.',
   type: 'article',
   section: 'Code',
   tags: ['GitHub', 'Open source', 'Repositories'],
@@ -99,7 +96,7 @@ usePageSeo({
         {{ totalForks }} forks
       </p>
       <p class="text-zinc-500 dark:text-zinc-500 font-mono text-[11px]">
-        Updated {{ lastUpdated || 'live' }} · source: GitHub API export
+        Updated {{ lastUpdated }} · source: GitHub API export
       </p>
     </header>
 

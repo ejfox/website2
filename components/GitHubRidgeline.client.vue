@@ -220,7 +220,8 @@ const xTicks = computed(() => {
 }
 
 .ridge-path:hover {
-  @apply fill-opacity-80 stroke-width-2;
+  fill-opacity: 0.75;
+  stroke-width: 2;
 }
 
 .ridge-label {

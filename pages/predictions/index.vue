@@ -873,7 +873,7 @@ const accuracyRate = computed(() => {
 })
 
 const lastUpdated = computed(() => {
-  const dates: number[] = []
+  const dates = []
   transformedPredictions.value.forEach((p) => {
     if (p.created) dates.push(new Date(p.created).getTime())
     if (p.updates && p.updates.length > 0) {

@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 import { useWindowScroll } from '@vueuse/core'
-import anime from 'animejs/lib/anime.es.js'
+import { animate, stagger } from 'animejs'
 
 const props = defineProps<{
   count?: number
@@ -56,12 +56,12 @@ const setDotRef = (el: HTMLElement | null) => {
 
 onMounted(() => {
   if (dotRefs.value.length) {
-    anime({
+    animate({
       targets: dotRefs.value,
       opacity: (el, i) => 0.05 + (i % 10) * 0.02,
       scale: (el, i) => 0.6 + (i % 6) * 0.05,
       duration: 900,
-      delay: anime.stagger(12),
+      delay: stagger(12),
       easing: 'easeOutSine',
     })
   }

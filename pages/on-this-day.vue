@@ -135,7 +135,6 @@
 <script setup lang="ts">
 import DotField from '~/components/DotField.vue'
 const route = useRoute()
-const router = useRouter()
 
 // Source type icons (easily extensible)
 const sourceIcons: Record<string, string> = {
@@ -190,13 +189,25 @@ const topLevelStats = computed(() => {
   if (!data.value) return []
   const stats: { label: string; value: string }[] = []
   if (data.value.total_posts)
-    stats.push({ label: 'Posts', value: `${data.value.total_posts}` })
+    stats.push({
+      label: 'Posts',
+      value: `${data.value.total_posts}`,
+    })
   if (data.value.total_commits)
-    stats.push({ label: 'Commits', value: `${data.value.total_commits}` })
+    stats.push({
+      label: 'Commits',
+      value: `${data.value.total_commits}`,
+    })
   if (data.value.total_tweets)
-    stats.push({ label: 'Tweets', value: `${data.value.total_tweets}` })
+    stats.push({
+      label: 'Tweets',
+      value: `${data.value.total_tweets}`,
+    })
   if (data.value.total_scrobbles)
-    stats.push({ label: 'Scrobbles', value: `${data.value.total_scrobbles}` })
+    stats.push({
+      label: 'Scrobbles',
+      value: `${data.value.total_scrobbles}`,
+    })
   return stats
 })
 

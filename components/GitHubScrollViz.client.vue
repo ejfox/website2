@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, watch, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useWindowScroll, useWindowSize, useRafFn } from '@vueuse/core'
 import anime from 'animejs'
 import { scaleLinear, scaleTime, scaleLog } from 'd3-scale'

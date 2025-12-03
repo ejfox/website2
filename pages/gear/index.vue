@@ -413,18 +413,6 @@ const typeStats = computed(() => {
   return stats.sort((a, b) => b.count - a.count)
 })
 
-const typeBreakdown = computed(() => {
-  const types = gearItems.value.reduce((acc, item) => {
-    if (item.Type) acc[item.Type] = (acc[item.Type] || 0) + 1
-    return acc
-  }, {})
-  return Object.entries(types)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 3)
-    .map(([type, count]) => `${type} (${count})`)
-    .join(', ')
-})
-
 const gearDescription = computed(() => {
   try {
     const items = totalItems.value || 0
