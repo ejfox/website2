@@ -118,6 +118,22 @@
             />
           </template>
 
+          <!-- Mastodon Posts -->
+          <template v-if="yearData.mastodon?.length">
+            <MastodonCard
+              v-for="post in yearData.mastodon.filter((p) => !p.replyTo)"
+              :id="post.id"
+              :key="post.id"
+              :text="post.text"
+              :date="post.date"
+              :url="post.url"
+              :reply-to="post.replyTo"
+              :favorites="post.favorites"
+              :reblogs="post.reblogs"
+              :visibility="post.visibility"
+            />
+          </template>
+
           <!-- Scrobbles -->
           <template v-if="yearData.scrobbles?.length">
             <ScrobbleCard
@@ -149,7 +165,8 @@ const { tocTarget } = useTOC()
 const sourceIcons: Record<string, string> = {
   posts: 'P',
   tweets: 'X',
-  scrobbles: 'M',
+  mastodon: 'M',
+  scrobbles: '♫',
   commits: 'G',
 }
 
@@ -157,6 +174,7 @@ const sourceIcons: Record<string, string> = {
 const sourceLabels: Record<string, [string, string]> = {
   total_posts: ['post', 'posts'],
   total_tweets: ['tweet', 'tweets'],
+  total_mastodon: ['toot', 'toots'],
   total_scrobbles: ['year of music', 'years of music'],
   total_commits: ['commit', 'commits'],
 }
