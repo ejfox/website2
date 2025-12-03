@@ -3,7 +3,7 @@
     <div class="flex gap-3">
       <!-- Git icon -->
       <div
-        class="flex-shrink-0 w-10 h-10 rounded-full bg-green-50 dark:bg-green-950 flex items-center justify-center"
+        class="flex-shrink-0 w-10 h-10 rounded-full flex bg-green-50 dark:bg-green-950 items-center justify-center"
       >
         <svg
           class="w-5 h-5 text-green-600 dark:text-green-400"
@@ -81,7 +81,10 @@ const formattedDate = computed(() => {
   if (!props.date) return ''
   try {
     const d = new Date(props.date)
-    return d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })
+    return d.toLocaleTimeString('en-US', {
+      hour: 'numeric',
+      minute: '2-digit',
+    })
   } catch {
     return ''
   }
@@ -90,7 +93,8 @@ const formattedDate = computed(() => {
 
 <style scoped>
 .commit-card {
-  @apply p-4 bg-white dark:bg-zinc-950 border border-zinc-100 dark:border-zinc-900 rounded-xl;
+  @apply p-4 bg-white dark:bg-zinc-950 border rounded-xl;
+  @apply border-zinc-100 dark:border-zinc-900;
   @apply transition-colors duration-150;
 }
 

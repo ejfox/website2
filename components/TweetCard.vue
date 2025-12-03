@@ -3,7 +3,7 @@
     <div class="flex gap-3">
       <!-- Avatar placeholder -->
       <div
-        class="flex-shrink-0 w-10 h-10 rounded-full bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center"
+        class="flex-shrink-0 w-10 h-10 rounded-full flex bg-zinc-200 dark:bg-zinc-800 items-center justify-center"
       >
         <span class="text-xs font-mono text-zinc-500 dark:text-zinc-400">
           EJ
@@ -153,7 +153,10 @@ const formattedDate = computed(() => {
     if (diffDays === 1) return 'yesterday'
     if (diffDays < 7) return `${diffDays}d`
     if (diffDays < 365) {
-      return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+      return d.toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric',
+      })
     }
     return d.toLocaleDateString('en-US', {
       month: 'short',
@@ -168,7 +171,8 @@ const formattedDate = computed(() => {
 
 <style scoped>
 .tweet-card {
-  @apply p-4 bg-white dark:bg-zinc-950 border border-zinc-100 dark:border-zinc-900 rounded-xl;
+  @apply p-4 bg-white dark:bg-zinc-950 border rounded-xl;
+  @apply border-zinc-100 dark:border-zinc-900;
   @apply transition-colors duration-150;
 }
 

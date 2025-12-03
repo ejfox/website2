@@ -1,13 +1,12 @@
 <template>
   <nav
     v-if="breadcrumbs.length > 1"
-    class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mb-6 flex items-center gap-2"
-    :class="'overflow-x-auto'"
+    class="font-mono text-xs mb-6 flex items-center gap-2 text-zinc-500 dark:text-zinc-500 overflow-x-auto"
     aria-label="Breadcrumb"
   >
     <a
       href="/"
-      class="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+      class="transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
     >
       Home
     </a>
@@ -21,8 +20,8 @@
         :is="crumb.href ? 'a' : 'span'"
         :href="crumb.href || undefined"
         :class="{
-          'hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors':
-            crumb.href,
+          'transition-colors hover:text-zinc-900
+            dark:hover:text-zinc-100': crumb.href,
           'text-zinc-900 dark:text-zinc-100': !crumb.href,
         }"
       >

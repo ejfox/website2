@@ -11,7 +11,7 @@
       />
       <div
         v-else
-        class="w-5 h-5 rounded bg-zinc-300 dark:bg-zinc-700 flex items-center justify-center text-xs font-mono"
+        class="w-5 h-5 rounded flex items-center justify-center bg-zinc-300 dark:bg-zinc-700 text-xs font-mono"
       >
         {{ domain?.charAt(0).toUpperCase() }}
       </div>
@@ -23,7 +23,7 @@
       <div class="flex items-baseline gap-2 flex-wrap mb-1">
         <span
           v-if="showLabel"
-          class="text-xs font-mono text-zinc-500 dark:text-zinc-400 uppercase tracking-wide"
+          class="text-xs font-mono uppercase tracking-wide text-zinc-500 dark:text-zinc-400"
         >
           In reply to
         </span>
@@ -44,13 +44,13 @@
       >
         <span
           v-if="ogData?.title"
-          class="text-base font-serif text-zinc-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
+          class="text-base font-serif transition-colors text-zinc-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400"
         >
           {{ ogData.title }}
         </span>
         <span
           v-else
-          class="text-sm font-mono text-blue-600 dark:text-blue-400 break-all"
+          class="text-sm font-mono break-all text-blue-600 dark:text-blue-400"
         >
           {{ url }}
         </span>

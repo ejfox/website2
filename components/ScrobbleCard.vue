@@ -3,7 +3,7 @@
     <div class="flex gap-3">
       <!-- Music icon -->
       <div
-        class="flex-shrink-0 w-10 h-10 rounded-full bg-red-50 dark:bg-red-950 flex items-center justify-center"
+        class="flex-shrink-0 w-10 h-10 rounded-full flex bg-red-50 dark:bg-red-950 items-center justify-center"
       >
         <svg
           class="w-5 h-5 text-red-500 dark:text-red-400"
@@ -65,7 +65,8 @@ defineProps<Props>()
 
 <style scoped>
 .scrobble-card {
-  @apply p-4 bg-white dark:bg-zinc-950 border border-zinc-100 dark:border-zinc-900 rounded-xl;
+  @apply p-4 bg-white dark:bg-zinc-950 border rounded-xl;
+  @apply border-zinc-100 dark:border-zinc-900;
   @apply transition-colors duration-150;
 }
 

@@ -10,19 +10,19 @@
       <!-- Date navigation -->
       <div class="flex gap-2 mt-4">
         <button
-          class="px-3 py-1 text-sm bg-zinc-100 dark:bg-zinc-800 rounded hover:bg-zinc-200 dark:hover:bg-zinc-700"
+          class="px-3 py-1 text-sm rounded bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700"
           @click="changeDay(-1)"
         >
           Previous
         </button>
         <button
-          class="px-3 py-1 text-sm bg-zinc-100 dark:bg-zinc-800 rounded hover:bg-zinc-200 dark:hover:bg-zinc-700"
+          class="px-3 py-1 text-sm rounded bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700"
           @click="goToToday"
         >
           Today
         </button>
         <button
-          class="px-3 py-1 text-sm bg-zinc-100 dark:bg-zinc-800 rounded hover:bg-zinc-200 dark:hover:bg-zinc-700"
+          class="px-3 py-1 text-sm rounded bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700"
           @click="changeDay(1)"
         >
           Next
@@ -63,7 +63,7 @@
               v-for="post in yearData.posts"
               :key="post.slug"
               :to="`/blog/${post.slug}`"
-              class="block p-4 bg-zinc-50 dark:bg-zinc-900 rounded-lg border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors"
+              class="block p-4 rounded-lg border transition-colors bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600"
             >
               <div class="flex items-start gap-3">
                 <span class="text-zinc-400">{{ sourceIcons.posts }}</span>
@@ -111,13 +111,13 @@
             <div
               v-for="scrobble in yearData.scrobbles"
               :key="scrobble.date"
-              class="p-4 bg-zinc-50 dark:bg-zinc-900 rounded-lg border border-zinc-200 dark:border-zinc-800"
+              class="p-4 rounded-lg border bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800"
             >
               <div class="flex items-start gap-3">
                 <span class="text-red-500">{{ sourceIcons.scrobbles }}</span>
                 <div class="flex-grow min-w-0">
                   <p
-                    class="text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2"
+                    class="text-sm font-medium mb-2 text-zinc-700 dark:text-zinc-300"
                   >
                     {{ scrobble.count }} scrobbles
                   </p>
@@ -125,7 +125,7 @@
                     <p
                       v-for="track in scrobble.topTracks"
                       :key="track"
-                      class="text-xs text-zinc-500 dark:text-zinc-400 truncate"
+                      class="text-xs truncate text-zinc-500 dark:text-zinc-400"
                     >
                       {{ track }}
                     </p>
@@ -141,7 +141,7 @@
     <!-- Summary -->
     <footer
       v-if="summaryText"
-      class="mt-12 pt-6 border-t border-zinc-200 dark:border-zinc-800 text-sm text-zinc-500"
+      class="mt-12 pt-6 border-t text-sm text-zinc-500 border-zinc-200 dark:border-zinc-800"
     >
       {{ summaryText }}
     </footer>
@@ -210,7 +210,9 @@ const summaryText = computed(() => {
   const parts: string[] = []
 
   for (const [key, value] of Object.entries(data.value)) {
-    if (key.startsWith('total_') && typeof value === 'number' && value > 0) {
+    const isTotal = key.startsWith('total_')
+    const isNumber = typeof value === 'number'
+    if (isTotal && isNumber && value > 0) {
       const labels = sourceLabels[key]
       if (labels) {
         parts.push(`${value} ${value === 1 ? labels[0] : labels[1]}`)
@@ -235,7 +237,9 @@ const changeDay = (delta: number) => {
   date.setDate(date.getDate() + delta)
   currentMonth.value = date.getMonth() + 1
   currentDay.value = date.getDate()
-  router.push({ query: { month: currentMonth.value, day: currentDay.value } })
+  router.push({
+    query: { month: currentMonth.value, day: currentDay.value },
+  })
 }
 
 const goToToday = () => {
