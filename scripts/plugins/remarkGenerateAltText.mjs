@@ -74,17 +74,19 @@ async function generateAltTextWithGemini(imageData) {
           role: 'user',
           parts: [
             {
-              text: `You are writing accessibility descriptions for a personal blog focused on
-design, data visualization, reflections, and technical insights.
-
-Generate a single concise sentence (max 160 characters) for this image that:
-- Describes what's actually shown (not generic like "screenshot" or "image")
-- Highlights visually interesting or relevant details
-- Reads naturally as alt text (no "image of..." prefix)
-- Matches a thoughtful, design-aware tone
-- Is useful for someone who cannot see the image
-
-Return ONLY the alt text sentence, nothing else.`,
+              text: [
+                'You are writing accessibility descriptions for a personal blog focused on',
+                'design, data visualization, reflections, and technical insights.',
+                '',
+                'Generate a single concise sentence (max 160 characters) for this image that:',
+                '- Describes what\'s actually shown (not generic like "screenshot" or "image")',
+                '- Highlights visually interesting or relevant details',
+                '- Reads naturally as alt text (no "image of..." prefix)',
+                '- Matches a thoughtful, design-aware tone',
+                '- Is useful for someone who cannot see the image',
+                '',
+                'Return ONLY the alt text sentence, nothing else.',
+              ].join('\\n'),
             },
             imageData.type === 'cloudinary'
               ? { text: `Image URL: ${imageData.url}` }

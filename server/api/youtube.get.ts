@@ -252,6 +252,7 @@ export default defineEventHandler(async (): Promise<YouTubeStats> => {
     console.error('YouTube API Error:', youtubeError)
 
     if (youtubeError.response?.error?.code === 403) {
+      /* eslint-disable vue/max-len */
       console.error(`
         ⚠️ YouTube Authentication Failed ⚠️
         
@@ -267,6 +268,7 @@ export default defineEventHandler(async (): Promise<YouTubeStats> => {
            - Your .env file
            - Your deployment environment
       `)
+      /* eslint-enable vue/max-len */
     }
 
     throw createError({

@@ -10,6 +10,10 @@
         top: dot.y + '%',
         opacity: dot.opacity,
         transform: `scale(${dot.scale})`,
+        width: `${dotSize}px`,
+        height: `${dotSize}px`,
+        background: dotColor,
+        filter: `blur(${dotBlur}px)`,
       }"
     ></span>
   </div>
@@ -23,10 +27,16 @@ const props = defineProps<{
   count?: number
   parallax?: number
   seed?: number
+  size?: number
+  color?: string
+  blur?: number
 }>()
 
 const count = computed(() => props.count ?? 120)
 const parallax = computed(() => props.parallax ?? 0.05)
+const dotSize = computed(() => props.size ?? 5)
+const dotColor = computed(() => props.color ?? 'rgba(113, 113, 122, 0.25)')
+const dotBlur = computed(() => props.blur ?? 0.8)
 
 const dots = computed(() => {
   const n = Math.min(Math.max(count.value, 20), 240)

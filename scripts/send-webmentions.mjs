@@ -115,7 +115,9 @@ async function sendWebmention(endpoint, source, target) {
     const response = await fetch(endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: `source=${encodeURIComponent(source)}&target=${encodeURIComponent(target)}`,
+      body:
+        `source=${encodeURIComponent(source)}` +
+        `&target=${encodeURIComponent(target)}`,
       signal: AbortSignal.timeout(15000),
     })
 

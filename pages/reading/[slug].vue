@@ -198,7 +198,9 @@ const bookSchema = computed(() => ({
   workExample: {
     '@type': 'CreativeWork',
     name: `${bookTitle.value} notes`,
-    description: `Highlights and notes from ${bookTitle.value} by ${bookAuthor.value}`,
+    description:
+      'Highlights and notes from ' +
+      `${bookTitle.value} by ${bookAuthor.value}`,
   },
 }))
 

@@ -552,8 +552,9 @@ async function autoFixBrokenLinks(brokenLinks) {
       }
     }
 
+    const fixedFiles = Object.keys(fixedByFile).length
     spinner.succeed(
-      `Auto-fixed ${totalFixed} broken links across ${Object.keys(fixedByFile).length} files`
+      `Auto-fixed ${totalFixed} broken links across ${fixedFiles} files`
     )
 
     if (Object.keys(fixedByFile).length > 0) {

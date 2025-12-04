@@ -3,8 +3,8 @@
     <!-- Stats TOC - ClientOnly to fix SSR hydration -->
     <ClientOnly>
       <teleport v-if="tocTarget && !isSimpleMode" to="#nav-toc-container">
-        <div class="py-4 w-48">
-          <ul class="space-y-1 font-mono text-xs list-none pl-0 ml-6">
+        <div class="py-4">
+          <ul class="space-y-1 font-mono text-xs list-none pl-0">
             <li v-for="section in statsSections" :key="section.id">
               <a
                 :href="`#${section.id}`"
@@ -499,13 +499,16 @@
             <div id="commits-art" class="relative pt-16">
               <div class="text-center mb-8">
                 <h2 class="text-sm font-mono uppercase tracking-widest">
-                  Commit Matrix
+                  Every commit I have ever made (publicly)
                 </h2>
                 <p class="text-xs text-zinc-500 dark:text-zinc-500 mt-2">
-                  {{ allCommits.length }} commits · 7777px journey
+                  {{ allCommits.length.toLocaleString() }} commits
                 </p>
               </div>
-              <CommitMatrix :commits="allCommits" :height="7777" />
+              <CommitMatrix
+                :commits="allCommits"
+                :height="commitMatrixHeight"
+              />
             </div>
           </ClientOnly>
         </section>
@@ -531,6 +534,10 @@ import LetterboxdStats from '~/components/stats/LetterboxdStats.vue'
 import UmamiStats from '~/components/stats/UmamiStats.vue'
 import GearStats from '~/components/stats/GearStats.vue'
 import { usePostFilters } from '~/composables/blog/usePostFilters'
+
+// Define stats first - used by computed properties below
+const { stats: rawStats, isLoading, errors } = useStats()
+const stats = computed(() => rawStats.value)
 
 const statsDescription = computed(() => {
   const s = stats.value
@@ -591,8 +598,6 @@ usePageSeo({
 
 const route = useRoute()
 
-const { stats: rawStats, isLoading, errors } = useStats()
-const stats = computed(() => rawStats.value)
 const { getAllPosts } = useProcessedMarkdown()
 const { formatNumber } = useNumberFormat()
 const { isValidPost } = usePostFilters()
@@ -600,6 +605,20 @@ const { isValidPost } = usePostFilters()
 // Load all commits for the matrix visualization
 const { data: allCommitsData } = await useFetch('/api/github-commits')
 const allCommits = computed(() => allCommitsData.value || [])
+
+// Calculate height based on time span (roughly 2px per day)
+const commitMatrixHeight = computed(() => {
+  const commits = allCommits.value
+  if (!commits || commits.length === 0) return 1000
+
+  const dates = commits.map((c) => new Date(c.date))
+  const minDate = new Date(Math.min(...dates))
+  const maxDate = new Date(Math.max(...dates))
+  const daySpan = (maxDate - minDate) / (1000 * 60 * 60 * 24)
+
+  // 2 pixels per day gives ~9000px for 13 years
+  return Math.max(1000, Math.round(daySpan * 2))
+})
 
 // Simple mode refs
 const sectionRef = ref(null)

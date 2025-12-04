@@ -54,13 +54,13 @@ const filteredRepos = computed(() => {
 
 // Stats
 const totalStars = computed(() =>
-  repos.reduce((sum, r) => sum + r.stats.stars, 0)
+  repos.value.reduce((sum, r) => sum + r.stats.stars, 0)
 )
 const totalForks = computed(() =>
-  repos.reduce((sum, r) => sum + r.stats.forks, 0)
+  repos.value.reduce((sum, r) => sum + r.stats.forks, 0)
 )
 const lastUpdated = computed(() => {
-  const dates = repos
+  const dates = repos.value
     .map((r) => new Date(r.pushedAt || r.updatedAt || r.createdAt || 0))
     .filter((d) => !Number.isNaN(d.getTime()))
     .map((d) => d.getTime())
@@ -78,7 +78,7 @@ usePageSeo({
   section: 'Code',
   tags: ['GitHub', 'Open source', 'Repositories'],
   label1: 'Repos',
-  data1: `${repos.length} public`,
+  data1: `${repos.value.length} public`,
   label2: 'Stars',
   data2: computed(
     () => `${totalStars.value} stars · ${totalForks.value} forks`

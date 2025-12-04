@@ -278,7 +278,9 @@ usePageSeo({
   description: computed(
     () =>
       summaryText.value ||
-      `What happened on ${formattedDate.value} across blog posts, notes, and feeds.`
+      'What happened on ' +
+        formattedDate.value +
+        ' across blog posts, notes, and feeds.'
   ),
   type: 'website',
   section: 'Meta',
@@ -296,7 +298,11 @@ const onThisDaySchema = computed(() => ({
   description:
     summaryText.value ||
     `Entries from ${formattedDate.value} across blog posts, notes, and feeds.`,
-  url: `https://ejfox.com/on-this-day?month=${currentMonth.value}&day=${currentDay.value}`,
+  url:
+    'https://ejfox.com/on-this-day?month=' +
+    currentMonth.value +
+    '&day=' +
+    currentDay.value,
 }))
 
 useHead(() => ({

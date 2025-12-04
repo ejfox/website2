@@ -52,7 +52,9 @@ export async function makeApiRequest<T>(
         throw createError({
           statusCode: 500,
           statusMessage: 'API Request Failed',
-          message: `Failed to fetch from ${url} after ${maxRetries} attempts: ${error.message}`,
+          message:
+            `Failed to fetch from ${url} after ${maxRetries} attempts: ` +
+            `${error.message}`,
         })
       }
 

@@ -1,34 +1,5 @@
 [
   {
-    "name": "website2",
-    "description": "No description provided",
-    "url": "https://github.com/ejfox/website2",
-    "homepage": null,
-    "stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 1,
-      "openIssues": 1
-    },
-    "language": "Vue",
-    "languageColor": "#41b883",
-    "languages": {
-      "Vue": 689516,
-      "TypeScript": 307738,
-      "JavaScript": 187332,
-      "CSS": 53947,
-      "Shell": 15733,
-      "HTML": 15405,
-      "Dockerfile": 779
-    },
-    "diskUsage": 80454,
-    "topics": [],
-    "excerpt": "No description provided",
-    "createdAt": "2024-10-13T14:09:19Z",
-    "updatedAt": "2025-12-03T21:10:58Z",
-    "pushedAt": "2025-12-03T21:10:54Z"
-  },
-  {
     "name": "dotfiles",
     "description": "Backup of my dotfiles",
     "url": "https://github.com/ejfox/dotfiles",
@@ -42,18 +13,47 @@
     "language": "Shell",
     "languageColor": "#89e051",
     "languages": {
-      "Shell": 232615,
+      "Shell": 233306,
       "GLSL": 155774,
-      "Lua": 110475,
+      "Lua": 114144,
       "Vim Script": 83725,
       "Less": 2089
     },
-    "diskUsage": 63204,
+    "diskUsage": 63207,
     "topics": [],
     "excerpt": "Backup of my dotfiles",
     "createdAt": "2019-04-07T22:09:55Z",
-    "updatedAt": "2025-12-03T21:07:49Z",
-    "pushedAt": "2025-12-03T21:07:45Z"
+    "updatedAt": "2025-12-03T23:50:37Z",
+    "pushedAt": "2025-12-03T23:50:33Z"
+  },
+  {
+    "name": "website2",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/website2",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 1
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "languages": {
+      "Vue": 689093,
+      "TypeScript": 308224,
+      "JavaScript": 187332,
+      "CSS": 53947,
+      "Shell": 15733,
+      "HTML": 15405,
+      "Dockerfile": 779
+    },
+    "diskUsage": 80732,
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2024-10-13T14:09:19Z",
+    "updatedAt": "2025-12-03T21:26:14Z",
+    "pushedAt": "2025-12-03T21:26:10Z"
   },
   {
     "name": "scrapbook-cli",

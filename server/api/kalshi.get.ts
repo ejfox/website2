@@ -251,9 +251,10 @@ async function fetchEvents(
     return result
   }
 
-  console.log(
-    `[Kalshi] Fetching ${needsFetch.length}/${eventTickers.length} events from API`
-  )
+  const fetchMsg =
+    `[Kalshi] Fetching ${needsFetch.length}/` +
+    `${eventTickers.length} events from API`
+  console.log(fetchMsg)
 
   // Fetch missing events in parallel
   const eventResults = await Promise.allSettled(

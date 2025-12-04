@@ -4,16 +4,51 @@
     class="commit-matrix"
     :style="{ height: `${height}px` }"
   >
-    <div ref="deckRef" class="deck-container" />
+    <!-- Day labels (top) -->
+    <div class="day-labels">
+      <div
+        v-for="(day, index) in ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']"
+        :key="day"
+        class="day-label"
+        :style="{ left: `${(index / 7) * 85 + 7.5}%` }"
+      >
+        {{ day }}
+      </div>
+    </div>
+
+    <!-- Year labels (left) -->
+    <div class="year-labels">
+      <div
+        v-for="yearLabel in yearLabels"
+        :key="yearLabel.year"
+        class="year-label"
+        :style="{ top: `${yearLabel.position}px` }"
+      >
+        {{ yearLabel.year }}
+      </div>
+    </div>
+    <canvas
+      ref="canvasRef"
+      class="commit-canvas"
+      @mousemove="handleMouseMove"
+      @mouseleave="hideTooltip"
+    />
+
+    <!-- Tooltip -->
+    <div
+      v-if="hoveredCommit"
+      class="commit-tooltip"
+      :style="{ left: `${tooltipX}px`, top: `${tooltipY}px` }"
+    >
+      <div class="tooltip-date">
+        {{ formatDate(hoveredCommit.date) }}
+      </div>
+      <div class="tooltip-repo">{{ hoveredCommit.repo }}</div>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { Deck } from '@deck.gl/core'
-import { ScatterplotLayer } from '@deck.gl/layers'
-import { useWindowSize, useRafFn } from '@vueuse/core'
-import { createNoise2D } from 'simplex-noise'
-
 const props = defineProps({
   commits: {
     type: Array,
@@ -21,41 +56,21 @@ const props = defineProps({
   },
   height: {
     type: Number,
-    default: 7777,
+    required: true,
   },
 })
 
 const containerRef = ref(null)
-const deckRef = ref(null)
-const deckInstance = ref(null)
-const { width: windowWidth } = useWindowSize()
+const canvasRef = ref(null)
+const hoveredCommit = ref(null)
+const tooltipX = ref(0)
+const tooltipY = ref(0)
+let commitPositions = []
 
-const width = computed(() => Math.min(windowWidth.value, 1200))
-
-// Perlin noise generator
-const noise2D = createNoise2D()
-
-// Language colors (matching GitHub + making them pop)
-const languageColors = {
-  JavaScript: [241, 224, 90, 200],
-  TypeScript: [49, 120, 198, 200],
-  Vue: [65, 184, 131, 200],
-  Python: [53, 114, 165, 200],
-  CSS: [86, 61, 124, 200],
-  HTML: [227, 76, 38, 200],
-  Shell: [137, 224, 81, 200],
-  Go: [0, 173, 216, 200],
-  Rust: [222, 165, 132, 200],
-  Ruby: [204, 52, 45, 200],
-  Java: [176, 114, 25, 200],
-  default: [139, 148, 158, 180],
-}
-
-// Base positions (calculated once)
-const basePositions = computed(() => {
+// Calculate year labels
+const yearLabels = computed(() => {
   if (!props.commits || props.commits.length === 0) return []
 
-  // Sort chronologically
   const sorted = [...props.commits].sort(
     (a, b) => new Date(a.date) - new Date(b.date)
   )
@@ -64,228 +79,137 @@ const basePositions = computed(() => {
   const endDate = new Date(sorted[sorted.length - 1].date)
   const timeRange = endDate - startDate
 
-  // Group by repo for x-axis clustering
-  const repos = [...new Set(sorted.map((c) => c.repo))].sort()
-  const repoIndex = Object.fromEntries(repos.map((r, i) => [r, i]))
-  const repoCount = repos.length
+  const startYear = startDate.getFullYear()
+  const endYear = endDate.getFullYear()
+  const labels = []
 
-  return sorted.map((commit, idx) => {
+  for (let year = startYear; year <= endYear; year++) {
+    const yearDate = new Date(year, 0, 1)
+    const progress = (yearDate - startDate) / timeRange
+    const position = (1 - progress) * props.height
+
+    labels.push({ year, position })
+  }
+
+  return labels
+})
+
+// Draw dots
+function drawCommits() {
+  if (!canvasRef.value || !props.commits.length) return
+
+  const canvas = canvasRef.value
+  const ctx = canvas.getContext('2d')
+  const width = canvas.offsetWidth
+  const height = props.height
+
+  // Set canvas resolution
+  const dpr = window.devicePixelRatio || 1
+  canvas.width = width * dpr
+  canvas.height = height * dpr
+  ctx.scale(dpr, dpr)
+
+  // Clear
+  ctx.clearRect(0, 0, width, height)
+
+  // Sort commits
+  const sorted = [...props.commits].sort(
+    (a, b) => new Date(a.date) - new Date(b.date)
+  )
+
+  const startDate = new Date(sorted[0].date)
+  const endDate = new Date(sorted[sorted.length - 1].date)
+  const timeRange = endDate - startDate
+
+  console.log(`Drawing ${sorted.length} commits`)
+
+  // Draw dots and store positions
+  ctx.fillStyle = '#ffffff' // White
+  commitPositions = []
+
+  sorted.forEach((commit) => {
     const date = new Date(commit.date)
     const timeProgress = (date - startDate) / timeRange
 
-    // Y position = time (0 = oldest at top, 1 = newest at bottom)
-    const baseY = timeProgress * props.height
+    // Y = 0 at top (newest), height at bottom (oldest)
+    const y = (1 - timeProgress) * height
 
-    // X position = repo lane
-    const repoLane = repoIndex[commit.repo] / Math.max(repoCount - 1, 1)
-    const baseX = repoLane * width.value * 0.85 + width.value * 0.075
+    // X = time within the week (Monday 00:00 = 0, Sunday 23:59 = 1)
+    // getDay(): 0=Sunday, 1=Monday, ..., 6=Saturday
+    const dayOfWeek = date.getDay()
+    // Convert to Monday=0, Sunday=6
+    const mondayBasedDay = dayOfWeek === 0 ? 6 : dayOfWeek - 1
+    const hours = date.getHours()
+    const minutes = date.getMinutes()
+    const seconds = date.getSeconds()
 
-    // Size varies slightly
-    const size = 3 + Math.random() * 4
+    // Total seconds into the week
+    const secondsIntoWeek =
+      mondayBasedDay * 86400 + hours * 3600 + minutes * 60 + seconds
+    const totalSecondsInWeek = 7 * 86400
+    const weekProgress = secondsIntoWeek / totalSecondsInWeek
 
-    // Get language color
-    const language = commit.language || 'default'
-    const color = languageColors[language] || languageColors.default
+    const x = weekProgress * width * 0.85 + width * 0.075
 
-    // Unique seed for this commit
-    const seed = idx * 0.01
+    // Store position for hover detection
+    commitPositions.push({ x, y, commit })
 
-    return {
-      basePosition: [baseX, baseY],
-      size,
-      color,
-      repo: commit.repo,
-      message: commit.message,
-      date: commit.date,
-      language,
-      seed,
-      idx,
-    }
+    // Draw dot (1px radius for high DPI)
+    ctx.beginPath()
+    ctx.arc(x, y, 1, 0, Math.PI * 2)
+    ctx.fill()
   })
-})
 
-// Animated positions with Perlin noise + simplified boids
-const animatedPositions = ref([])
-const time = ref(0)
+  console.log('Drawing complete')
+}
 
-// Performance constants
-const NOISE_SCALE = 0.002
-const NOISE_AMPLITUDE = 12
-const FLOW_STRENGTH_X = 6
-const FLOW_STRENGTH_Y = 3
-const NEIGHBOR_RADIUS = 100
-const NEIGHBOR_RADIUS_SQ = NEIGHBOR_RADIUS * NEIGHBOR_RADIUS // Avoid sqrt
-const BOID_INFLUENCE = 0.01
+// Find nearest commit on hover
+function handleMouseMove(event) {
+  const rect = canvasRef.value.getBoundingClientRect()
+  const mouseX = event.clientX - rect.left
+  const mouseY = event.clientY - rect.top
 
-// Update animation with flocking behavior
-const updateAnimation = () => {
-  time.value += 0.003 // Slow time increment
+  // Find closest commit within 10px
+  let closest = null
+  let minDist = 10
 
-  const points = basePositions.value
-  const newPositions = []
-  const timeValue = time.value
-  const staggerCheck = Math.floor(timeValue * 10) % 20 // Calculate once
-
-  for (let i = 0; i < points.length; i++) {
-    const point = points[i]
-    const [baseX, baseY] = point.basePosition
-
-    // Perlin noise for organic drift
-    const noiseX = noise2D(baseX * NOISE_SCALE, timeValue) * NOISE_AMPLITUDE
-    const noiseY =
-      noise2D(baseY * NOISE_SCALE, timeValue + 100) * NOISE_AMPLITUDE
-
-    // Global flow pattern (like wind)
-    const flowAngle = timeValue * 0.3 + baseY * 0.0005
-    const flowX = Math.sin(flowAngle) * FLOW_STRENGTH_X
-    const flowY = Math.cos(flowAngle) * FLOW_STRENGTH_Y
-
-    // Simplified boid behavior (only check nearby points every N frames)
-    let boidX = 0
-    let boidY = 0
-
-    if (i % 20 === staggerCheck) {
-      let neighbors = 0
-
-      for (let j = i - 10; j < i + 10; j++) {
-        if (j < 0 || j >= points.length || j === i) continue
-
-        const neighbor = points[j]
-        const [nx, ny] = neighbor.basePosition
-        const dx = nx - baseX
-        const dy = ny - baseY
-        const distSq = dx * dx + dy * dy // Use squared distance, avoid sqrt
-
-        if (distSq < NEIGHBOR_RADIUS_SQ) {
-          // Cohesion + alignment
-          boidX += dx * BOID_INFLUENCE
-          boidY += dy * BOID_INFLUENCE
-          neighbors++
-        }
-      }
-
-      if (neighbors > 0) {
-        boidX /= neighbors
-        boidY /= neighbors
-      }
+  for (const pos of commitPositions) {
+    const dist = Math.sqrt((pos.x - mouseX) ** 2 + (pos.y - mouseY) ** 2)
+    if (dist < minDist) {
+      minDist = dist
+      closest = pos
     }
-
-    // Combine all forces
-    const finalX = baseX + noiseX + flowX + boidX
-    const finalY = baseY + noiseY + flowY + boidY
-
-    // Only store what deck.gl needs (avoid spreading unnecessary data)
-    newPositions.push({
-      position: [finalX, finalY],
-      size: point.size,
-      color: point.color,
-      repo: point.repo,
-      message: point.message,
-      date: point.date,
-      language: point.language,
-    })
   }
 
-  animatedPositions.value = newPositions
+  if (closest) {
+    hoveredCommit.value = closest.commit
+    tooltipX.value = mouseX + 15
+    tooltipY.value = mouseY + 15
+  } else {
+    hoveredCommit.value = null
+  }
 }
 
-// Commit points for deck.gl
-const commitPoints = computed(() => animatedPositions.value)
-
-// Initialize deck.gl
-const initDeck = () => {
-  if (!deckRef.value || deckInstance.value) return
-
-  deckInstance.value = new Deck({
-    canvas: deckRef.value,
-    width: width.value,
-    height: props.height,
-    initialViewState: {
-      target: [width.value / 2, props.height / 2, 0],
-      zoom: 0,
-    },
-    controller: false,
-    layers: [
-      new ScatterplotLayer({
-        id: 'commits',
-        data: commitPoints.value,
-        pickable: true,
-        opacity: 0.8,
-        stroked: false,
-        filled: true,
-        radiusScale: 1,
-        radiusMinPixels: 2,
-        radiusMaxPixels: 8,
-        getPosition: (d) => d.position,
-        getRadius: (d) => d.size,
-        getFillColor: (d) => d.color,
-        updateTriggers: {
-          getPosition: time.value, // Force update on animation
-        },
-      }),
-    ],
-  })
+function hideTooltip() {
+  hoveredCommit.value = null
 }
 
-// Update layer with new positions each frame
-watch(commitPoints, () => {
-  if (!deckInstance.value) return
-
-  deckInstance.value.setProps({
-    layers: [
-      new ScatterplotLayer({
-        id: 'commits',
-        data: commitPoints.value,
-        pickable: true,
-        opacity: 0.8,
-        stroked: false,
-        filled: true,
-        radiusScale: 1,
-        radiusMinPixels: 2,
-        radiusMaxPixels: 8,
-        getPosition: (d) => d.position,
-        getRadius: (d) => d.size,
-        getFillColor: (d) => d.color,
-      }),
-    ],
+function formatDate(dateStr) {
+  const date = new Date(dateStr)
+  return date.toLocaleString('en-US', {
+    weekday: 'long',
+    hour: '2-digit',
+    minute: '2-digit',
   })
-})
-
-// Handle window resize separately
-watch(width, () => {
-  if (!deckInstance.value) return
-
-  deckInstance.value.setProps({
-    width: width.value,
-    height: props.height,
-  })
-})
-
-// Animation loop using RAF
-const { pause, resume } = useRafFn(
-  () => {
-    updateAnimation()
-  },
-  { immediate: false }
-)
+}
 
 onMounted(() => {
   nextTick(() => {
-    // Initialize positions
-    updateAnimation()
-    initDeck()
-    // Start animation loop
-    resume()
+    drawCommits()
   })
 })
 
-onUnmounted(() => {
-  pause()
-  if (deckInstance.value) {
-    deckInstance.value.finalize()
-    deckInstance.value = null
-  }
-})
+watch(() => props.commits, drawCommits)
 </script>
 
 <style scoped>
@@ -293,35 +217,105 @@ onUnmounted(() => {
   position: relative;
   width: 100%;
   margin: 4rem 0;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(0, 0, 0, 0.01) 50%,
-    transparent 100%
-  );
+  overflow: hidden;
+  padding-top: 1.5rem;
 }
 
-.deck-container {
-  width: 100%;
-  height: 100%;
-  position: relative;
+.day-labels {
+  position: absolute;
+  top: 0;
+  left: 3rem;
+  right: 0;
+  height: 1.5rem;
+  pointer-events: none;
+  z-index: 10;
 }
 
-.deck-container :deep(canvas) {
+.day-label {
+  position: absolute;
+  font-family: monospace;
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.3);
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.year-labels {
+  position: absolute;
+  left: 0.5rem;
+  top: 1.5rem;
+  bottom: 0;
+  width: 3rem;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.year-label {
+  position: absolute;
+  left: 0;
+  font-family: monospace;
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.3);
+  transform: translateY(-50%);
+  white-space: nowrap;
+}
+
+.commit-canvas {
   display: block;
-  width: 100%;
-  height: 100%;
+  width: calc(100% - 3rem);
+  margin-left: 3rem;
+  image-rendering: crisp-edges;
+  cursor: crosshair;
+}
+
+.commit-tooltip {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  color: #18181b;
+  padding: 6px 10px;
+  border-radius: 2px;
+  border: 1px solid #e4e4e7;
+  font-family: monospace;
+  font-size: 10px;
+  pointer-events: none;
+  z-index: 100;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.tooltip-date {
+  color: #ff1493;
+  margin-bottom: 2px;
+}
+
+.tooltip-repo {
+  color: #71717a;
 }
 
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
-  .commit-matrix {
-    background: linear-gradient(
-      180deg,
-      transparent 0%,
-      rgba(255, 255, 255, 0.01) 50%,
-      transparent 100%
-    );
+  .day-label {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  .year-label {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  .commit-tooltip {
+    background: rgba(9, 9, 11, 0.95);
+    backdrop-filter: blur(8px);
+    color: #fafafa;
+    border-color: #27272a;
+  }
+
+  .tooltip-date {
+    color: #ff1493;
+  }
+
+  .tooltip-repo {
+    color: #a1a1aa;
   }
 }
 </style>

@@ -25,10 +25,16 @@ async function fetchCommits() {
 
   while (hasMore) {
     try {
-      const result = execSync(
-        `gh api '/search/commits?q=author:${USERNAME}&per_page=${PER_PAGE}&page=${page}&sort=author-date&order=desc' 2>/dev/null`,
-        { encoding: 'utf-8', maxBuffer: 50 * 1024 * 1024 }
-      )
+      const apiCmd =
+        "gh api '/search/commits?q=author:" +
+        `${USERNAME}` +
+        `&per_page=${PER_PAGE}&page=${page}` +
+        "&sort=author-date&order=desc' 2>/dev/null"
+
+      const result = execSync(apiCmd, {
+        encoding: 'utf-8',
+        maxBuffer: 50 * 1024 * 1024,
+      })
 
       const data = JSON.parse(result)
       const commits = data.items || []
@@ -52,9 +58,8 @@ async function fetchCommits() {
         })
       }
 
-      console.log(
-        `  Page ${page}: ${commits.length} commits (total: ${allCommits.length})`
-      )
+      const pageMsg = `  Page ${page}: ${commits.length} commits`
+      console.log(`${pageMsg} (total: ${allCommits.length})`)
 
       // GitHub Search API has 1000 result limit
       if (allCommits.length >= 1000 || commits.length < PER_PAGE) {

@@ -105,7 +105,11 @@ export default defineEventHandler(async (event): Promise<string> => {
   <title>${siteName}</title>
   <description>${siteDescription}</description>
   <link>${siteURL}/gists</link>
-  <atom:link href="${siteURL}/gists-rss.xml" rel="self" type="application/rss+xml" />
+  <atom:link
+    href="${siteURL}/gists-rss.xml"
+    rel="self"
+    type="application/rss+xml"
+  />
   <lastBuildDate>${lastBuildDate.toUTCString()}</lastBuildDate>
   <ttl>${CACHE_DURATION / 60}</ttl>
   <generator>EJ Fox Gists RSS Generator</generator>

@@ -60,6 +60,15 @@ export default createConfigForNuxt({
           varsIgnorePattern: '^_',
         },
       ],
+      '@typescript-eslint/no-use-before-define': [
+        'error',
+        {
+          functions: false,
+          classes: true,
+          variables: true,
+          allowNamedExports: false,
+        },
+      ],
     },
   }
 )

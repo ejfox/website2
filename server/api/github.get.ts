@@ -212,7 +212,9 @@ async function checkRateLimit(token: string) {
   if (response.rateLimit?.remaining === 0) {
     throw createError({
       statusCode: 429,
-      message: `GitHub API rate limit exceeded. Resets at ${response.rateLimit.resetAt}`,
+      message:
+        'GitHub API rate limit exceeded. Resets at ' +
+        `${response.rateLimit.resetAt}`,
     })
   }
 }
@@ -386,28 +388,14 @@ export default defineEventHandler(async (): Promise<GitHubStats> => {
 
     // Add specific guidance for 401 Unauthorized errors
     if (gitHubError.statusCode === 401) {
-      console.error(`
-        ⚠️ GitHub Authentication Failed ⚠️
-        
-        Your GitHub token appears to be invalid or expired. To generate a new token:
-        
-        1. Go to https://github.com/settings/tokens
-        2. Click "Generate new token" (classic)
-        3. Give it a name like "ejfox.com stats"
-        4. Set the expiration as needed
-        5. Select these scopes: repo, read:user, user:email
-        6. Click "Generate token"
-        7. Copy the token and update it in:
-           - Your .env file
-           - Your Netlify environment variables (if deployed)
-        
-        The token should start with "ghp_"
-      `)
+      console.error(
+        'GitHub token invalid or expired. Regenerate with scopes: repo, read:user, user:email.'
+      )
     }
 
     throw createError({
       statusCode: gitHubError.statusCode || 500,
-      message:
+      statusMessage:
         gitHubError.response?.errors?.[0]?.message ||
         gitHubError.message ||
         'Failed to fetch GitHub data',

@@ -210,11 +210,15 @@ const predictionTags = computed(() => prediction.value?.tags || [])
 
 usePageSeo({
   title: computed(() => prediction.value?.statement || 'Prediction'),
-  description: computed(() =>
-    prediction.value
-      ? `Prediction: ${prediction.value.statement} · ${prediction.value.confidence}% · hashed with SHA-256 and tracked for calibration over time.`
-      : 'Cryptographically verified prediction with calibration history.'
-  ),
+  description: computed(() => {
+    const p = prediction.value
+    if (!p)
+      return 'Cryptographically verified prediction with calibration history.'
+    return (
+      `Prediction: ${p.statement} · ${p.confidence}% ` +
+      '· hashed with SHA-256 and tracked for calibration.'
+    )
+  }),
   type: 'article',
   section: 'Forecasting',
   tags: computed(() =>
