@@ -19,11 +19,5 @@ jobs:
         script: |
           cd /data2/website2
           git pull origin main
-          rm -rf .nuxt .output node_modules/.cache
           yarn build
-          # Build image first (old container keeps running)
-          # Pass commit hash to bust Docker cache for COPY layers
-          docker-compose build --build-arg COMMIT_HASH=$(git rev-parse --short HEAD)
-          # Quick swap (~5 sec downtime vs minutes during build)
-          docker-compose up -d --force-recreate --no-build
-          echo "Deployed $(git rev-parse --short HEAD) at $(date)"
+          DOCKER_BUILDKIT=1 docker-compose up -d --build

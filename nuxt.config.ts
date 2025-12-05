@@ -15,7 +15,15 @@ export default defineNuxtConfig({
     sharedPrerenderData: false, // Can cause hydration issues in dev
     typedPages: true, // Enable typed routing
     renderJsonPayloads: false, // Reduce payload size
-    viewTransition: false, // Disable view transitions for faster navigation
+    viewTransition: true, // Enable instant view transitions (Nuxt 4)
+  },
+
+  // Aggressive router prefetching for instant navigation
+  router: {
+    options: {
+      linkActiveClass: 'router-link-active',
+      linkExactActiveClass: 'router-link-exact-active',
+    },
   },
 
   // Removed Google Fonts for faster FCP
@@ -81,12 +89,16 @@ export default defineNuxtConfig({
   // Performance-optimized Nitro config for Nuxt 4
   nitro: {
     preset: 'node-server',
-    minify: false, // Disabled for debugging bundle corruption
+    minify: true, // Re-enable for production
+    legacyExternals: true, // Fix node-externals performance issue
     experimental: {
       wasm: false, // Disable WASM for faster startup
       asyncContext: true, // Enable async context support (Nuxt 4 feature)
     },
     compressPublicAssets: false, // Let reverse proxy handle compression
+    prerender: {
+      concurrency: 12, // Faster prerendering
+    },
     // Copy content directory to .output for API routes to access
     hooks: {
       compiled: async (nitro) => {
@@ -134,19 +146,18 @@ export default defineNuxtConfig({
   // Ultra-optimized Vite config for sub-1s FCP
   vite: {
     build: {
-      cssCodeSplit: false, // Inline all CSS
+      cssCodeSplit: true, // Split CSS for faster parallel loading
       cssMinify: 'esbuild',
       minify: 'esbuild',
       target: 'esnext', // Use modern JS features
+      sourcemap: false, // Skip sourcemaps in production
+      reportCompressedSize: false, // Skip gzip size reporting (saves ~2s)
       rollupOptions: {
         output: {
-          manualChunks: (id) => {
-            // Extract heavy vendor libs to separate chunk
-            if (id.includes('node_modules')) {
-              if (id.includes('vue') || id.includes('@vue')) return 'vue'
-              if (id.includes('d3')) return 'd3'
-              return 'vendor'
-            }
+          manualChunks: {
+            // Static chunks instead of function (faster)
+            vue: ['vue', '@vue/reactivity', '@vueuse/core'],
+            d3: ['d3', 'd3-dsv', 'd3-format'],
           },
         },
       },
