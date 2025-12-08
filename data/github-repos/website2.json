@@ -12,10 +12,10 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 677017,
+    "Vue": 677832,
     "TypeScript": 305109,
     "JavaScript": 213036,
-    "CSS": 53947,
+    "CSS": 54309,
     "HTML": 15405,
     "Shell": 15076,
     "Dockerfile": 779
@@ -93,7 +93,7 @@
       },
       {
         "path": "assets/css/global.css",
-        "size": 27227
+        "size": 27589
       },
       {
         "path": "assets/css/tailwind.css",
@@ -109,7 +109,7 @@
       },
       {
         "path": "components/BlogSparkline.vue",
-        "size": 7724
+        "size": 7904
       },
       {
         "path": "components/Breadcrumb.vue",
@@ -185,7 +185,7 @@
       },
       {
         "path": "components/NewsletterSignup.vue",
-        "size": 5373
+        "size": 5716
       },
       {
         "path": "components/NextAvailableSlot.vue",
@@ -4065,7 +4065,7 @@
       },
       {
         "path": "data/github-repos/website2.json",
-        "size": 501841
+        "size": 501626
       },
       {
         "path": "data/github-repos/weddings.json",
@@ -5633,7 +5633,7 @@
       },
       {
         "path": "layouts/default.vue",
-        "size": 4355
+        "size": 4647
       },
       {
         "path": "nuxt.config.ts",
@@ -6617,7 +6617,7 @@
               "children": [
                 {
                   "name": "global.css",
-                  "size": 27227,
+                  "size": 27589,
                   "path": "assets/css/global.css"
                 },
                 {
@@ -6914,7 +6914,7 @@
             },
             {
               "name": "BlogSparkline.vue",
-              "size": 7724,
+              "size": 7904,
               "path": "components/BlogSparkline.vue"
             },
             {
@@ -7009,7 +7009,7 @@
             },
             {
               "name": "NewsletterSignup.vue",
-              "size": 5373,
+              "size": 5716,
               "path": "components/NewsletterSignup.vue"
             },
             {
@@ -11936,7 +11936,7 @@
                 },
                 {
                   "name": "website2.json",
-                  "size": 501841,
+                  "size": 501626,
                   "path": "data/github-repos/website2.json"
                 },
                 {
@@ -13927,7 +13927,7 @@
             },
             {
               "name": "default.vue",
-              "size": 4355,
+              "size": 4647,
               "path": "layouts/default.vue"
             }
           ],
@@ -15406,7 +15406,7 @@
       "path": ""
     },
     "totalFiles": 1629,
-    "totalSize": 82724639
+    "totalSize": 82725601
   },
   "topics": [],
   "readme": {
@@ -15415,6 +15415,6 @@
     "excerpt": "Personal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker\n\n\n\nbash\nyarn install && yarn blog:import && yarn blog:process && yarn dev\n\n\n\n\n| Command..."
   },
   "createdAt": "2024-10-13T14:09:19Z",
-  "updatedAt": "2025-12-08T21:56:13Z",
-  "pushedAt": "2025-12-08T21:56:09Z"
+  "updatedAt": "2025-12-08T22:18:49Z",
+  "pushedAt": "2025-12-08T22:18:45Z"
 }

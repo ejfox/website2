@@ -1,5 +1,13 @@
 <template>
-  <div class="gear-row" @click="navigateToItem">
+  <div
+    class="gear-row"
+    role="button"
+    tabindex="0"
+    :aria-label="`${item.Name} - View details`"
+    @click="navigateToItem"
+    @keydown.enter="navigateToItem"
+    @keydown.space="navigateToItem"
+  >
     <!-- Tabular layout like a spreadsheet row -->
     <div :class="rowGridClasses">
       <!-- Item Name - Primary content, highest contrast -->

@@ -105,14 +105,17 @@ usePageSeo({
 
       <!-- Filters -->
       <div class="flex flex-col sm:flex-row gap-4 mb-8">
+        <label for="search-links" class="sr-only">Search URLs or domains</label>
         <input
+          id="search-links"
           v-model="search"
           type="text"
           placeholder="Search URLs or domains..."
           class="input-base"
         />
 
-        <select v-model="selectedTld" class="input-base">
+        <label for="filter-tld" class="sr-only">Filter by TLD</label>
+        <select id="filter-tld" v-model="selectedTld" class="input-base">
           <option value="all">All TLDs ({{ links?.length || 0 }})</option>
           <option v-for="{ tld, count } in tlds" :key="tld" :value="tld">
             .{{ tld }} ({{ count }})

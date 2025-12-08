@@ -8,7 +8,7 @@
       Skip to main content
     </a>
     <NuxtLoadingIndicator color="#999999" :height="1" />
-    <section class="flex flex-col md:flex-row min-h-screen relative">
+    <div class="flex flex-col md:flex-row min-h-screen relative">
       <!-- Mobile navigation - 2025 best practices: Tab bar pattern -->
       <nav v-if="!isStatsSimple" class="header-mobile-sticky">
         <!-- Top bar with branding -->
@@ -80,7 +80,7 @@
       >
         <slot />
       </article>
-    </section>
+    </div>
 
     <!-- Components removed to prevent hydration flicker -->
     <Footer />

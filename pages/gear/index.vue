@@ -23,8 +23,9 @@
         </div>
         <div class="flex-gap-3">
           <!-- Weight Unit Selector -->
+          <label for="weight-unit" class="sr-only">Weight unit</label>
           <div class="relative">
-            <select v-model="weightUnit" class="gear-select">
+            <select id="weight-unit" v-model="weightUnit" class="gear-select">
               <option value="metric">KG/G</option>
               <option value="imperial">LB/OZ</option>
             </select>
