@@ -229,7 +229,7 @@ const toggleGist = (gistId: string) => {
     <!-- Gist list -->
     <div v-else-if="gists" class="space-y-0">
       <div
-        v-for="(gist, index) in gists"
+        v-for="gist in gists"
         :key="gist.id"
         class="py-6 border-b border-zinc-200 dark:border-zinc-800 last:border-0"
       >

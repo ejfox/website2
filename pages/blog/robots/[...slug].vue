@@ -25,43 +25,13 @@ if (!note.value || !note.value.metadata?.share) {
   })
 }
 
-// Update the trimmedToc computed to handle our TOC structure correctly
-const trimmedToc = computed(() => {
-  if (!note.value?.metadata?.toc) return []
-
-  return note.value.metadata.toc
-    .filter((item) => item.depth === 2 || item.depth === 3)
-    .map((item) => ({
-      text: item.text.length > 40 ? item.text.slice(0, 37) + '...' : item.text,
-      slug: generateSlug(item.text),
-      level: `h${item.depth}`,
-    }))
-})
-
-// Add the generateSlug helper function
+// Helper function to generate slug from text
 const generateSlug = (str) => {
   return str
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
 }
-
-// Update the word count logic to work with our structure
-const sectionWordCounts = computed(() => {
-  if (import.meta.server || !note.value?.content) return {}
-
-  const counts = {}
-  const sections = note.value.metadata?.toc || []
-
-  sections.forEach((section) => {
-    if (section.depth <= 3) {
-      const slug = generateSlug(section.text)
-      counts[slug] = getSectionWordCount(note.value.content, slug)
-    }
-  })
-
-  return counts
-})
 
 // Helper function to count words in a section
 const getSectionWordCount = (content, sectionId) => {
@@ -93,6 +63,36 @@ const getSectionWordCount = (content, sectionId) => {
 
   return wordCount
 }
+
+// Update the trimmedToc computed to handle our TOC structure correctly
+const trimmedToc = computed(() => {
+  if (!note.value?.metadata?.toc) return []
+
+  return note.value.metadata.toc
+    .filter((item) => item.depth === 2 || item.depth === 3)
+    .map((item) => ({
+      text: item.text.length > 40 ? item.text.slice(0, 37) + '...' : item.text,
+      slug: generateSlug(item.text),
+      level: `h${item.depth}`,
+    }))
+})
+
+// Update the word count logic to work with our structure
+const sectionWordCounts = computed(() => {
+  if (import.meta.server || !note.value?.content) return {}
+
+  const counts = {}
+  const sections = note.value.metadata?.toc || []
+
+  sections.forEach((section) => {
+    if (section.depth <= 3) {
+      const slug = generateSlug(section.text)
+      counts[slug] = getSectionWordCount(note.value.content, slug)
+    }
+  })
+
+  return counts
+})
 
 // Helper to check if a string looks like a date
 const _isDateString = (str) => {

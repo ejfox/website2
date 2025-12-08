@@ -1049,7 +1049,7 @@ async function processAllFiles() {
                 `\r${chalk.gray(`Cached:     ${baseName}`)}${pct2}%`
               )
             }
-          } catch (err) {
+          } catch (_err) {
             // Corrupted cache or stat error - re-process
             cached = false
           }

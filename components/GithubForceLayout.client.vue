@@ -3,7 +3,7 @@ import { ref, computed, onMounted } from 'vue'
 import { useElementSize } from '@vueuse/core'
 import * as d3 from 'd3-force'
 import { select } from 'd3-selection'
-import { scaleLinear, scaleSqrt, scaleTime, scaleLog } from 'd3-scale'
+import { scaleSqrt, scaleTime } from 'd3-scale'
 import { useLanguageColors } from '~/composables/useLanguageColors'
 
 const props = defineProps({
@@ -68,7 +68,8 @@ const radiusScale = computed(() => {
   const sizes = nodes.value.map((n) => n.diskUsage)
   const min = Math.min(...sizes, 100)
   const max = Math.max(...sizes, 1000)
-  return scaleSqrt().domain([min, max]).range([3, 40]) // Reduced from 3.6-52.5 for better spacing
+  // Reduced from 3.6-52.5 for better spacing
+  return scaleSqrt().domain([min, max]).range([3, 40])
 })
 
 function initVisualization() {

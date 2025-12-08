@@ -170,15 +170,6 @@ const props = defineProps<{
   stats?: LastFmStats | null
 }>()
 
-const hasData = computed(() => {
-  return !!(
-    props.stats?.recentTracks?.tracks?.length ||
-    topArtists.value?.length ||
-    topTracks.value?.length ||
-    topGenres.value?.length
-  )
-})
-
 // Computed for easier access to nested data
 const topArtists = computed(() => {
   return (
@@ -192,6 +183,15 @@ const topTracks = computed(() => {
 
 const topGenres = computed(() => {
   return props.stats?.stats?.topGenres || []
+})
+
+const hasData = computed(() => {
+  return !!(
+    props.stats?.recentTracks?.tracks?.length ||
+    topArtists.value?.length ||
+    topTracks.value?.length ||
+    topGenres.value?.length
+  )
 })
 
 const formatTrackTime = (track: Track): string => {

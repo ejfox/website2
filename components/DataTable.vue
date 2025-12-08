@@ -177,8 +177,8 @@ const sortedRows = computed(() => {
     let bVal = b[sortColumn.value]
 
     // Handle null/undefined
-    if (aVal == null) return sortDirection.value === 'asc' ? 1 : -1
-    if (bVal == null) return sortDirection.value === 'asc' ? -1 : 1
+    if (aVal === null) return sortDirection.value === 'asc' ? 1 : -1
+    if (bVal === null) return sortDirection.value === 'asc' ? -1 : 1
 
     // Type-specific sorting
     if (column.type === 'numeric') {
@@ -208,7 +208,7 @@ const formatDate = (dateString) => {
 }
 
 const formatNumber = (value, format) => {
-  if (value == null) return '—'
+  if (value === null) return '—'
   const num = Number.parseFloat(value)
   if (Number.isNaN(num)) return value
 

@@ -61,6 +61,12 @@ const getItemSlug = (item) => {
   return item.slug || item.Name.toLowerCase().replace(/[^a-z0-9]+/g, '-')
 }
 
+const isCurrentItem = (item) => {
+  if (!item?.Name) return false
+  const slug = getItemSlug(item)
+  return slug === props.currentSlug
+}
+
 const getSwatchClasses = (item) => {
   if (isCurrentItem(item)) {
     return (
@@ -79,12 +85,6 @@ const getWeightTextClasses = (item) => {
     return 'text-zinc-300 dark:text-zinc-600'
   }
   return 'text-zinc-500'
-}
-
-const isCurrentItem = (item) => {
-  if (!item?.Name) return false
-  const slug = getItemSlug(item)
-  return slug === props.currentSlug
 }
 
 const scrollContainer = ref(null)

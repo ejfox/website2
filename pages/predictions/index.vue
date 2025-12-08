@@ -463,8 +463,7 @@
                     </span>
                     <span
                       v-if="
-                        item.status === 'correct' ||
-                        item.status === 'incorrect'
+                        item.status === 'correct' || item.status === 'incorrect'
                       "
                       class="shrink-0"
                       :class="
@@ -493,7 +492,7 @@ import PredictionCard from '~/components/predictions/PredictionCard.vue'
 const commitHistoryUrl =
   'https://github.com/ejfox/website2/commits/main/content/predictions/'
 
-const { formatRelativeTime } = useDateFormat()
+const { _formatRelativeTime } = useDateFormat()
 
 // Dynamic TOC height calculation using VueUse
 const { height: windowHeight } = useWindowSize()
@@ -790,7 +789,6 @@ onMounted(() => {
     onUnmounted(() => observer.disconnect())
   }
 })
-
 </script>
 
 <style scoped>

@@ -21,7 +21,9 @@ async function fetchRepoCommits(repoName) {
 
   while (hasMore) {
     try {
-      const apiCmd = `gh api '/repos/${USERNAME}/${repoName}/commits?per_page=100&page=${page}&author=${USERNAME}' 2>/dev/null`
+      const apiCmd =
+        `gh api '/repos/${USERNAME}/${repoName}/commits` +
+        `?per_page=100&page=${page}&author=${USERNAME}' 2>/dev/null`
 
       const result = execSync(apiCmd, {
         encoding: 'utf-8',

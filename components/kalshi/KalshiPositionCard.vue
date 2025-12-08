@@ -22,12 +22,10 @@
           <td class="table-cell-value">
             {{
               Math.abs(position.position) > 0
-                ? `${Math.abs(position.position)} × $${
-                    (
-                      position.market_exposure_dollars /
-                      Math.abs(position.position)
-                    ).toFixed(2)
-                  }`
+                ? `${Math.abs(position.position)} × $${(
+                    position.market_exposure_dollars /
+                    Math.abs(position.position)
+                  ).toFixed(2)}`
                 : `${Math.abs(position.position)} (closed)`
             }}
           </td>

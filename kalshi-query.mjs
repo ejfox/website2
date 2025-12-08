@@ -1,5 +1,5 @@
 import { Configuration, MarketsApi, EventsApi } from 'kalshi-typescript'
-import fs from 'fs'
+import fs from 'node:fs'
 
 // Load .env file
 const envContent = fs.readFileSync('.env', 'utf-8')
@@ -25,26 +25,30 @@ const marketsApi = new MarketsApi(config)
 const eventsApi = new EventsApi(config)
 
 async function queryMarket(ticker) {
-  console.log(`\n========== QUERYING: ${ticker} ==========\n`)
-  
+  console.info(`\n========== QUERYING: ${ticker} ==========\n`)
+
   try {
-    console.log(`Fetching market data for ${ticker}...`)
+    console.info(`Fetching market data for ${ticker}...`)
     const marketRes = await marketsApi.getMarket({ ticker })
-    console.log('✓ Market data found:')
-    console.log(JSON.stringify(marketRes.data, null, 2))
+    console.info('✓ Market data found:')
+    console.info(JSON.stringify(marketRes.data, null, 2))
   } catch (err) {
-    console.log(`✗ Market data error (${err.response?.status}): ${err.message}`)
+    console.error(
+      `✗ Market data error (${err.response?.status}): ${err.message}`
+    )
   }
 
   // Try to extract event ticker and fetch event
   try {
     const eventTicker = ticker.split('-').slice(0, 2).join('-')
-    console.log(`\nTrying event ticker: ${eventTicker}...`)
+    console.info(`\nTrying event ticker: ${eventTicker}...`)
     const eventRes = await eventsApi.getEvent({ event_ticker: eventTicker })
-    console.log('✓ Event data found:')
-    console.log(JSON.stringify(eventRes.data, null, 2))
+    console.info('✓ Event data found:')
+    console.info(JSON.stringify(eventRes.data, null, 2))
   } catch (err) {
-    console.log(`✗ Event data error (${err.response?.status}): ${err.message}`)
+    console.error(
+      `✗ Event data error (${err.response?.status}): ${err.message}`
+    )
   }
 
   // Try alternate event ticker patterns
@@ -53,16 +57,16 @@ async function queryMarket(ticker) {
     ticker.split('-')[0],
     ticker.replace(/-\d{2}$/, ''),
   ]
-  
+
   for (const pattern of patterns) {
     if (pattern && pattern !== ticker) {
       try {
-        console.log(`\nTrying alternate event: ${pattern}...`)
+        console.info(`\nTrying alternate event: ${pattern}...`)
         const eventRes = await eventsApi.getEvent({ event_ticker: pattern })
-        console.log('✓ Event data found:')
-        console.log(JSON.stringify(eventRes.data, null, 2))
+        console.info('✓ Event data found:')
+        console.info(JSON.stringify(eventRes.data, null, 2))
         break
-      } catch (err) {
+      } catch (_err) {
         // continue
       }
     }

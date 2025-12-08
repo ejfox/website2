@@ -284,7 +284,7 @@ const lastUpdated = computed(() => {
     manifest.value.forEach((item) => {
       if (item?.date) {
         const timestamp = new Date(item.date).getTime()
-        if (!isNaN(timestamp)) dates.push(timestamp)
+        if (!Number.isNaN(timestamp)) dates.push(timestamp)
       }
     })
   }
@@ -292,12 +292,12 @@ const lastUpdated = computed(() => {
     predictions.value.forEach((p) => {
       if (p?.created) {
         const timestamp = new Date(p.created).getTime()
-        if (!isNaN(timestamp)) dates.push(timestamp)
+        if (!Number.isNaN(timestamp)) dates.push(timestamp)
       }
       const lastUpdate = p?.updates?.[p.updates.length - 1]?.timestamp
       if (lastUpdate) {
         const timestamp = new Date(lastUpdate).getTime()
-        if (!isNaN(timestamp)) dates.push(timestamp)
+        if (!Number.isNaN(timestamp)) dates.push(timestamp)
       }
     })
   }

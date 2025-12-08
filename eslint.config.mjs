@@ -39,8 +39,11 @@ export default createConfigForNuxt({
         watchEffect: 'readonly',
         nextTick: 'readonly',
         // Nuxt
+        defineNuxtPlugin: 'readonly',
+        defineEventHandler: 'readonly',
         definePageMeta: 'readonly',
         defineRouteRules: 'readonly',
+        onNuxtReady: 'readonly',
         useRouter: 'readonly',
         useRoute: 'readonly',
         useHead: 'readonly',
@@ -62,6 +65,13 @@ export default createConfigForNuxt({
         isPrerendered: 'readonly',
         preloadRouteComponents: 'readonly',
         reloadNuxtData: 'readonly',
+        // Nitro Server
+        getQuery: 'readonly',
+        readBody: 'readonly',
+        getHeader: 'readonly',
+        setHeader: 'readonly',
+        getCookie: 'readonly',
+        setCookie: 'readonly',
         // VueUse
         useElementSize: 'readonly',
         useEventListener: 'readonly',
@@ -75,6 +85,15 @@ export default createConfigForNuxt({
         useProcessedMarkdown: 'readonly',
         useTOC: 'readonly',
         useWeightCalculations: 'readonly',
+        useLazyFetch: 'readonly',
+        useDateFormat: 'readonly',
+        useProjectSlug: 'readonly',
+        useMarkdown: 'readonly',
+        useNumberFormat: 'readonly',
+        useStats: 'readonly',
+        useKalshi: 'readonly',
+        useCalibration: 'readonly',
+        useMouse: 'readonly',
       },
     },
   },
@@ -106,13 +125,10 @@ export default createConfigForNuxt({
       'no-debugger': 'error',
 
       // Console statements should be intentional, not accidental
-      'no-console': [
-        'warn',
-        { allow: ['warn', 'error', 'info'] },
-      ],
+      'no-console': ['warn', { allow: ['warn', 'error', 'info'] }],
 
       // Catch accidental equality bugs (==  vs ===)
-      'eqeqeq': ['error', 'always'],
+      eqeqeq: ['error', 'always'],
       'no-eq-null': 'error',
 
       // Async/await issues that will silently fail

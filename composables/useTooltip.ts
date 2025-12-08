@@ -1,5 +1,5 @@
 import { ref, computed, type Ref } from 'vue'
-import { useMouse, useTransition, useElementBounding } from '@vueuse/core'
+import { useMouse, useTransition } from '@vueuse/core'
 
 export interface TooltipOptions {
   offset?: { x: number; y: number }

@@ -734,10 +734,7 @@ const _processedMetadata = computed(() => {
       ></div>
     </div>
 
-    <article
-      v-if="post && !post.redirect"
-      class="h-entry w-full px-4 md:px-8"
-    >
+    <article v-if="post && !post.redirect" class="h-entry w-full px-4 md:px-8">
       <!-- Swiss Grid Container -->
       <div>
         <!-- Top metadata bar with microvisualizations -->

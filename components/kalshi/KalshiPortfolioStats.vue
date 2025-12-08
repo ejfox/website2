@@ -48,16 +48,14 @@
       >
         +${{
           (
-            portfolioStats.totalUnrealizedPnL +
-            portfolioStats.totalRealizedPnL
+            portfolioStats.totalUnrealizedPnL + portfolioStats.totalRealizedPnL
           ).toFixed(2)
         }}
       </div>
       <div v-else class="mono-2xl text-error">
         ${{
           (
-            portfolioStats.totalUnrealizedPnL +
-            portfolioStats.totalRealizedPnL
+            portfolioStats.totalUnrealizedPnL + portfolioStats.totalRealizedPnL
           ).toFixed(2)
         }}
       </div>
@@ -69,7 +67,9 @@
       <div class="mono-2xl text-primary">
         ${{ portfolioStats.totalValue.toFixed(2) }}
       </div>
-      <div class="stat-details">{{ portfolioStats.openPositions?.length || 0 }} open</div>
+      <div class="stat-details">
+        {{ portfolioStats.openPositions?.length || 0 }} open
+      </div>
     </div>
   </div>
 </template>

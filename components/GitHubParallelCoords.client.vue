@@ -80,7 +80,7 @@ const axisScales = computed(() => {
   return axes.map((axis, i) => {
     const values = props.repos
       .map(axis.getValue)
-      .filter((v) => v != null && !Number.isNaN(v))
+      .filter((v) => v !== null && !Number.isNaN(v))
     if (values.length === 0) {
       // Return a default scale if no valid values
       return {

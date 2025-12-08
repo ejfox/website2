@@ -151,7 +151,7 @@ async function fetchFileTree(owner, repoName) {
         const parts = dir.path.split('/')
         let currentPath = ''
 
-        parts.forEach((part, idx) => {
+        parts.forEach((part, _idx) => {
           const parentPath = currentPath
           currentPath = currentPath ? `${currentPath}/${part}` : part
 
@@ -380,7 +380,7 @@ async function exportRepository(repo) {
           cached: true,
         }
       }
-    } catch (err) {
+    } catch (_err) {
       // Corrupted cache, re-fetch
       console.log(`  ⚠️  ${safeName} cache corrupted, re-fetching...`)
     }
@@ -485,8 +485,9 @@ async function main() {
 
     console.log(`\n✅ Done!`)
     console.log(`\nExported ${repos.length} repositories`)
+    const cacheHitPct = Math.round((cachedCount / repos.length) * 100)
     console.log(
-      `🚀 Cache: ${cachedCount} cached, ${fetchedCount} fetched (${Math.round((cachedCount / repos.length) * 100)}% cache hit)`
+      `🚀 ${cachedCount} cached, ${fetchedCount} fetched (${cacheHitPct}%)`
     )
     console.log(`Languages: ${languages.join(', ')}`)
     console.log(`Total stars: ${totalStars}`)

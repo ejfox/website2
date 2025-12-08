@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-
 interface Props {
   visible: boolean
   position: { left: string; top: string }
@@ -9,7 +7,9 @@ interface Props {
   maxWidth?: string
 }
 
-const props = withDefaults(defineProps<Props>(), {
+const _props = withDefaults(defineProps<Props>(), {
+  title: '',
+  description: '',
   maxWidth: 'max-w-xs',
 })
 </script>

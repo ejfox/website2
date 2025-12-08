@@ -30,9 +30,7 @@
     <!-- Empty State -->
     <section v-else class="card-padding">
       <div class="text-primary mb-2 uppercase">No positions</div>
-      <p class="text-secondary">
-        No open market positions at the moment.
-      </p>
+      <p class="text-secondary">No open market positions at the moment.</p>
     </section>
   </main>
 </template>

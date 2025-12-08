@@ -1,6 +1,5 @@
 // composables/useStats.ts
 import { ref, computed, onMounted } from 'vue'
-import type { Ref as _Ref } from 'vue'
 
 // DELETED: All caching - direct API calls only
 
@@ -518,11 +517,6 @@ export function useStats() {
 
   // DELETED: All caching functions
 
-  onMounted(async () => {
-    // DELETED: All caching - direct API call only
-    await fetchFreshData()
-  })
-
   const fetchFreshData = async () => {
     isLoading.value = true
 
@@ -542,6 +536,11 @@ export function useStats() {
       isLoading.value = false
     }
   }
+
+  onMounted(async () => {
+    // DELETED: All caching - direct API call only
+    await fetchFreshData()
+  })
 
   return {
     stats,

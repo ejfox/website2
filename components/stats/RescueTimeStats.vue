@@ -231,46 +231,6 @@ const uniqueActivitiesCount = computed(() => {
   return uniqueNames.size
 })
 
-// Check if we should show a border between cells
-const shouldShowBorder = (index: number, direction: 'right' | 'bottom') => {
-  const cells = waffleCells.value
-  if (!cells || index >= cells.length) return false
-
-  const currentCell = cells[index]
-  let nextCell
-
-  if (direction === 'right') {
-    // Don't show border on last column
-    if ((index + 1) % 20 === 0) return true
-    nextCell = cells[index + 1]
-  } else {
-    // bottom
-    // Don't show border on last row
-    if (index >= 80) return true
-    nextCell = cells[index + 20]
-  }
-
-  if (!nextCell) return true
-
-  // Show border if different colors (different activities)
-  return currentCell.turboColor !== nextCell.turboColor
-}
-
-// Simple categories for display - USE SAME COLOR FUNCTION
-const sortedCategories = computed(() => {
-  const categories = rescueTime.value?.month?.categories || []
-  const sorted = [...categories]
-    .sort((a, b) => (b.percentageOfTotal || 0) - (a.percentageOfTotal || 0))
-    .filter((cat) => (cat.percentageOfTotal || 0) > 0)
-
-  return sorted.map((category, i) => ({
-    name: category.name,
-    percentageOfTotal: category.percentageOfTotal || 0,
-    color: getTurboColor(i, sorted.length),
-  }))
-})
-
-// Waffle chart cells - USE SAME COLOR FUNCTION
 const waffleCells = computed(() => {
   const activities = rescueTime.value?.week?.activities || []
 
@@ -341,5 +301,44 @@ const waffleCells = computed(() => {
   }
 
   return cells
+})
+
+// Check if we should show a border between cells
+const shouldShowBorder = (index: number, direction: 'right' | 'bottom') => {
+  const cells = waffleCells.value
+  if (!cells || index >= cells.length) return false
+
+  const currentCell = cells[index]
+  let nextCell
+
+  if (direction === 'right') {
+    // Don't show border on last column
+    if ((index + 1) % 20 === 0) return true
+    nextCell = cells[index + 1]
+  } else {
+    // bottom
+    // Don't show border on last row
+    if (index >= 80) return true
+    nextCell = cells[index + 20]
+  }
+
+  if (!nextCell) return true
+
+  // Show border if different colors (different activities)
+  return currentCell.turboColor !== nextCell.turboColor
+}
+
+// Simple categories for display - USE SAME COLOR FUNCTION
+const sortedCategories = computed(() => {
+  const categories = rescueTime.value?.month?.categories || []
+  const sorted = [...categories]
+    .sort((a, b) => (b.percentageOfTotal || 0) - (a.percentageOfTotal || 0))
+    .filter((cat) => (cat.percentageOfTotal || 0) > 0)
+
+  return sorted.map((category, i) => ({
+    name: category.name,
+    percentageOfTotal: category.percentageOfTotal || 0,
+    color: getTurboColor(i, sorted.length),
+  }))
 })
 </script>

@@ -1,13 +1,12 @@
 <script setup>
 import { computed } from 'vue'
-import { scaleLog, scaleLinear } from 'd3-scale'
+import { scaleLinear } from 'd3-scale'
 import { bin, max } from 'd3-array'
 
 const props = defineProps({
   files: {
     type: Array,
     required: true,
-    default: () => [],
   },
   buckets: {
     type: Number,
@@ -27,11 +26,6 @@ const histogram = computed(() => {
 
   const minSize = Math.min(...sizes.value)
   const maxSize = Math.max(...sizes.value)
-
-  // Use log scale for better distribution across file size ranges
-  const logScale = scaleLog()
-    .domain([minSize, maxSize])
-    .range([0, props.buckets])
 
   const binner = bin().domain([minSize, maxSize]).thresholds(props.buckets)
 

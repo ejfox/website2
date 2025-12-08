@@ -52,7 +52,7 @@ const activityScore = computed(() => {
   return 'dormant'
 })
 
-const activityColors = {
+const _activityColors = {
   active: '#22c55e',
   recent: '#84cc16',
   moderate: '#eab308',

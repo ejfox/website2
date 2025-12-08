@@ -81,20 +81,12 @@
 
 <script setup>
 // Nuxt 4 auto-imports everything - DELETE manual imports!
-import { getPrimaryNav, getSecondaryNav } from '~/config/navigation'
+import { getPrimaryNav } from '~/config/navigation'
 
 // SSR-friendly mobile detection - render both and hide with CSS
 const isMobile = ref(false)
 
 const mobileMenuOpen = ref(false)
-
-const toggleMobileMenu = () => {
-  mobileMenuOpen.value = !mobileMenuOpen.value
-}
-
-const closeMobileMenu = () => {
-  mobileMenuOpen.value = false
-}
 
 // Use Nuxt's built-in composable - should be SSR safe
 const route = useRoute()
@@ -118,14 +110,6 @@ const linkClasses = `
 const brandingClasses = `
   text-lg font-medium tracking-tight
   text-zinc-900 dark:text-zinc-100
-`
-  .trim()
-  .split(/\s+/)
-  .join(' ')
-
-const secondaryNavMenuClasses = `
-  px-4 pb-4 border-t
-  border-zinc-200/30 dark:border-zinc-800/30
 `
   .trim()
   .split(/\s+/)

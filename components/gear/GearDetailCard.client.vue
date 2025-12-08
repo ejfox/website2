@@ -225,7 +225,12 @@ const _animateGearCardReveal = async () => {
 //   )
 //   if (details?.length) {
 //     const pulseDetails = () => {
+
 // Expose the exit function to parent components
+const triggerExit = () => {
+  // No-op for now - animations disabled
+}
+
 defineExpose({
   triggerExit,
 })
