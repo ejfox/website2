@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { useWindowScroll, useWindowSize, useRafFn } from '@vueuse/core'
-import anime from 'animejs'
+import { timeline as animeTimeline } from 'animejs'
 import { scaleLinear, scaleTime, scaleLog } from 'd3-scale'
 import { extent } from 'd3-array'
 
@@ -179,7 +179,7 @@ onMounted(() => {
     node.r = initial[i].r
   })
 
-  timeline.value = anime.timeline({
+  timeline.value = animeTimeline({
     autoplay: false,
     easing: 'easeInOutCubic',
   })

@@ -13,12 +13,12 @@
     "language": "Svelte",
     "languageColor": "#ff3e00",
     "languages": {},
-    "diskUsage": 5596,
+    "diskUsage": 5628,
     "topics": [],
     "excerpt": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
     "createdAt": "2025-11-12T20:10:52Z",
-    "updatedAt": "2025-12-08T17:48:58Z",
-    "pushedAt": "2025-12-08T17:48:54Z"
+    "updatedAt": "2025-12-08T20:21:36Z",
+    "pushedAt": "2025-12-08T20:21:33Z"
   },
   {
     "name": "website2",
@@ -160,7 +160,7 @@
       "stars": 36,
       "forks": 7,
       "watchers": 0,
-      "openIssues": 332
+      "openIssues": 330
     },
     "language": "Unknown",
     "languageColor": "#666666",
