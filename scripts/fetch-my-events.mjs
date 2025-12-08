@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { Configuration, EventsApi, MarketsApi } from 'kalshi-typescript'
 import { config } from 'dotenv'
 

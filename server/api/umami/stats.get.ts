@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 export default defineEventHandler(async (event) => {
   const query = getQuery(event)
   const { url } = query

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { defineEventHandler, setHeader } from 'h3'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'

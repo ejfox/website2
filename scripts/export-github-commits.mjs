@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 /**
  * Export GitHub commits to JSON for on-this-day feature
  * Uses GitHub Search API to fetch all commits by author

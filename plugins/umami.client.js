@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-undef
 export default defineNuxtPlugin(() => {
   // Client-only script injection to avoid hydration mismatch
   if (import.meta.client) {

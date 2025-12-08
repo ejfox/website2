@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 /**
  * Export GitHub repositories to JSON for /github/[repo] pages
  * Fetches all public repos, processes READMEs, generates static data

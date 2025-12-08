@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 
 import { exec } from 'node:child_process'
 import { promisify } from 'node:util'

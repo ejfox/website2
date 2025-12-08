@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 export default {
   site: 'http://localhost:3006',
   debug: true,

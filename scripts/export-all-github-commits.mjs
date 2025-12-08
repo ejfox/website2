@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 /**
  * Export ALL GitHub commits by fetching from each repo
  * Bypasses the 1000 search result limit

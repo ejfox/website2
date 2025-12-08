@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 export default defineNuxtConfig({
   // Enable Nuxt 4 compatibility mode
   future: {

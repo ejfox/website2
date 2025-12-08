@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // Markdown → HTML Processing Pipeline
 import { promises as fs, existsSync, statSync } from 'node:fs'
 import path from 'node:path'

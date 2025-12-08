@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 
 import { promises as fs } from 'node:fs'
 import { createHash } from 'node:crypto'

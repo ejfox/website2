@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 /**
  * Fetch ALL GitHub contributions using the GraphQL API
  * This includes commits to any repo (personal, org, forks)

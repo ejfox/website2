@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 export default defineEventHandler(async (_event) => {
   try {
     // Fetch RSS feed (much more reliable than HTML scraping!)

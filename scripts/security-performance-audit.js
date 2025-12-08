@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 
 // Ghost Chen's Security-Performance Audit Script
 // "Operational monitoring" that happens to catch security issues

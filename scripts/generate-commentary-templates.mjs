@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 
 // Read position data

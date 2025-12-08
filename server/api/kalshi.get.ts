@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { Configuration, PortfolioApi, EventsApi } from 'kalshi-typescript'
 import { readFile, readdir } from 'node:fs/promises'
 import { join } from 'node:path'

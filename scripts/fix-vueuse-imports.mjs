@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 
 import { readFile, writeFile } from 'node:fs/promises'
 import { glob } from 'glob'
