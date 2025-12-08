@@ -420,7 +420,7 @@ export default defineEventHandler(
         eventsApi
       )
 
-      // Enrich market data
+      // Enrich market data (only include markets with proper titles)
       const marketDetails: Record<string, EnrichedMarketData> = {}
       const tickers = Array.from(tickerToEvent.keys())
       for (const ticker of tickers) {
@@ -428,12 +428,16 @@ export default defineEventHandler(
           tickerToEvent.get(ticker) ?? deriveEventTicker(ticker)
         const event = eventDataMap.get(eventTicker)
         const commentary = commentaries[ticker]
-        marketDetails[ticker] = enrichMarketData(
+        const enriched = enrichMarketData(
           ticker,
           eventTicker,
           event,
           commentary
         )
+        // Only include markets with proper titles (not just raw ticker)
+        if (enriched.title !== ticker) {
+          marketDetails[ticker] = enriched
+        }
       }
 
       const portfolioStats = calculatePortfolioPnL(
@@ -559,7 +563,7 @@ export default defineEventHandler(
       // Load commentaries
       const commentaries = await loadCommentaries()
 
-      // Enrich market data
+      // Enrich market data (only include markets with proper titles)
       const marketDetails: Record<string, EnrichedMarketData> = {}
       const tickers = Array.from(tickerToEvent.keys())
       for (const ticker of tickers) {
@@ -567,12 +571,16 @@ export default defineEventHandler(
           tickerToEvent.get(ticker) ?? deriveEventTicker(ticker)
         const event = eventDataMap.get(eventTicker)
         const commentary = commentaries[ticker]
-        marketDetails[ticker] = enrichMarketData(
+        const enriched = enrichMarketData(
           ticker,
           eventTicker,
           event,
           commentary
         )
+        // Only include markets with proper titles (not just raw ticker)
+        if (enriched.title !== ticker) {
+          marketDetails[ticker] = enriched
+        }
       }
 
       // Calculate portfolio stats
