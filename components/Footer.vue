@@ -23,6 +23,8 @@
         <a href="/gists" :class="navLinkClasses">/gists</a>
         <a href="/gear" :class="navLinkClasses">/gear</a>
         <a href="/predictions" :class="navLinkClasses">/predictions</a>
+        <a href="/now" :class="navLinkClasses">/now</a>
+        <a href="/sitemap" :class="navLinkClasses">/sitemap</a>
         <a href="https://ejfox.com/rss.xml" :class="navLinkClasses">/rss</a>
         <a
           href="https://github.com/ejfox"
