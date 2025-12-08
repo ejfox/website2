@@ -9,13 +9,13 @@ export interface KalshiPosition {
   ticker: string
   position: number
   market_exposure: number
-  market_exposure_dollars: string
+  market_exposure_dollars: number
   fees_paid: number
-  fees_paid_dollars: string
+  fees_paid_dollars: number
   realized_pnl: number
-  realized_pnl_dollars: string
+  realized_pnl_dollars: number
   total_traded: number
-  total_traded_dollars: string
+  total_traded_dollars: number
   last_updated_ts: string
 }
 

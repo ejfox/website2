@@ -185,45 +185,49 @@
               <tr>
                 <td class="py-0.5">Position</td>
                 <td class="table-cell-value">
-                  {{ Math.abs(position.position) }} × ${{
-                    (
-                      position.market_exposure_dollars /
-                      Math.abs(position.position)
-                    ).toFixed(2)
+                  {{
+                    Math.abs(position.position) > 0
+                      ? `${Math.abs(position.position)} × $${
+                          (
+                            position.market_exposure_dollars /
+                            Math.abs(position.position)
+                          ).toFixed(2)
+                        }`
+                      : `${Math.abs(position.position)} (closed)`
                   }}
                 </td>
               </tr>
               <tr>
                 <td class="py-0.5">Exposure</td>
                 <td class="table-cell-primary">
-                  ${{ position.market_exposure_dollars }}
+                  ${{ Number(position.market_exposure_dollars).toFixed(2) }}
                 </td>
               </tr>
-              <tr v-if="position.fees_paid_dollars > 0">
+              <tr v-if="Number(position.fees_paid_dollars) > 0">
                 <td class="py-0.5">Fees</td>
                 <td class="text-right tabular">
-                  -${{ position.fees_paid_dollars }}
+                  -${{ Number(position.fees_paid_dollars).toFixed(2) }}
                 </td>
               </tr>
-              <tr v-if="position.realized_pnl_dollars != 0">
+              <tr v-if="Number(position.realized_pnl_dollars) !== 0">
                 <td class="py-0.5">Realized P&L</td>
                 <td
                   class="table-cell-value"
                   :class="
-                    position.realized_pnl_dollars >= 0
+                    Number(position.realized_pnl_dollars) >= 0
                       ? 'text-success'
                       : 'text-error'
                   "
                 >
-                  {{ position.realized_pnl_dollars >= 0 ? '+' : '' }}${{
-                    position.realized_pnl_dollars
+                  {{ Number(position.realized_pnl_dollars) >= 0 ? '+' : '' }}${{
+                    Number(position.realized_pnl_dollars).toFixed(2)
                   }}
                 </td>
               </tr>
               <tr>
                 <td class="py-0.5">Total Traded</td>
                 <td class="text-right tabular">
-                  ${{ position.total_traded_dollars }}
+                  ${{ Number(position.total_traded_dollars).toFixed(2) }}
                 </td>
               </tr>
               <tr v-if="getCommentary(position.ticker)?.tags?.length">

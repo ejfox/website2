@@ -347,8 +347,29 @@ export default defineEventHandler(
 
       // Still need to recalculate derived data with fresh commentary
       const commentaries = await loadCommentaries()
-      const { balance, positions, eventPositions, fills, orders } =
+      let { balance, positions, eventPositions, fills, orders } =
         portfolioCache.data
+
+      // Convert dollar string amounts to numbers (in case cached data has strings)
+      positions = positions.map((pos) => ({
+        ...pos,
+        market_exposure_dollars:
+          typeof pos.market_exposure_dollars === 'string'
+            ? Number(pos.market_exposure_dollars) || 0
+            : pos.market_exposure_dollars,
+        fees_paid_dollars:
+          typeof pos.fees_paid_dollars === 'string'
+            ? Number(pos.fees_paid_dollars) || 0
+            : pos.fees_paid_dollars,
+        realized_pnl_dollars:
+          typeof pos.realized_pnl_dollars === 'string'
+            ? Number(pos.realized_pnl_dollars) || 0
+            : pos.realized_pnl_dollars,
+        total_traded_dollars:
+          typeof pos.total_traded_dollars === 'string'
+            ? Number(pos.total_traded_dollars) || 0
+            : pos.total_traded_dollars,
+      }))
 
       // Build market_ticker → event_ticker map from cached event positions
       const tickerToEvent = new Map<string, string>()
@@ -467,11 +488,20 @@ export default defineEventHandler(
       )
 
       const balance = balanceRes.data as KalshiBalance
-      const positions = (positionsRes.data.market_positions ||
+      let positions = (positionsRes.data.market_positions ||
         []) as KalshiPosition[]
       const eventPositions = positionsRes.data.event_positions || []
       const fills = (fillsRes.data.fills || []) as KalshiFill[]
       const orders = (ordersRes.data.orders || []) as KalshiOrder[]
+
+      // Convert dollar string amounts to numbers for proper calculations
+      positions = positions.map((pos) => ({
+        ...pos,
+        market_exposure_dollars: Number(pos.market_exposure_dollars) || 0,
+        fees_paid_dollars: Number(pos.fees_paid_dollars) || 0,
+        realized_pnl_dollars: Number(pos.realized_pnl_dollars) || 0,
+        total_traded_dollars: Number(pos.total_traded_dollars) || 0,
+      }))
 
       // Update portfolio cache
       portfolioCache = {
