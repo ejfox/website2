@@ -18,6 +18,7 @@ export default createConfigForNuxt({
         defineProps: 'readonly',
         defineEmits: 'readonly',
         defineExpose: 'readonly',
+        defineAsyncComponent: 'readonly',
         onBeforeMount: 'readonly',
         onMounted: 'readonly',
         onBeforeUpdate: 'readonly',
@@ -80,13 +81,61 @@ export default createConfigForNuxt({
   // Your custom configs here
   {
     rules: {
+      // ============================================================
+      // CORE: The linter is our god. Treat warnings as errors.
+      // ============================================================
+
       // Prettier integration
       'prettier/prettier': 'error',
 
       // CRITICAL: Catch undefined variables before they break prod
       'no-undef': 'error',
 
-      // Line length enforcement (STRICT 80)
+      // Unused variables are dead code - errors, not warnings
+      'no-unused-vars': 'off', // Disable in favor of TS version
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+        },
+      ],
+
+      // Never allow debugger statements in prod
+      'no-debugger': 'error',
+
+      // Console statements should be intentional, not accidental
+      'no-console': [
+        'warn',
+        { allow: ['warn', 'error', 'info'] },
+      ],
+
+      // Catch accidental equality bugs (==  vs ===)
+      'eqeqeq': ['error', 'always'],
+      'no-eq-null': 'error',
+
+      // Async/await issues that will silently fail
+      'no-return-await': 'error',
+
+      // Import/export issues
+      'no-duplicate-imports': 'error',
+
+      // Catch unreachable code
+      'no-unreachable': 'error',
+      'no-fallthrough': 'error',
+
+      // Catch common logic errors
+      'no-cond-assign': 'error',
+      'no-constant-condition': 'error',
+      'no-dupe-keys': 'error',
+      'no-dupe-args': 'error',
+      'no-duplicate-case': 'error',
+      'no-empty': 'error',
+
+      // ============================================================
+      // LINE LENGTH (STRICT)
+      // ============================================================
       'max-len': [
         'error',
         {
@@ -101,12 +150,37 @@ export default createConfigForNuxt({
         },
       ],
 
-      // Vue-specific rules
+      // ============================================================
+      // VUE: Strict component rules
+      // ============================================================
       'vue/multi-word-component-names': 'off',
-      'vue/no-v-html': 'off', // We use v-html intentionally for markdown content
-      'vue/no-multiple-template-root': 'off', // Vue 3 supports multiple roots
+      'vue/no-v-html': 'off', // Intentional for markdown
+      'vue/no-multiple-template-root': 'off', // Vue 3
+
+      // Catch refactoring mistakes in templates
+      'vue/no-unused-components': 'error',
+      'vue/no-unused-vars': 'error',
+      'vue/require-explicit-emits': 'error',
+      'vue/require-prop-types': 'error',
+
+      // Prevent prop mutations (common bug)
+      'vue/no-mutating-props': 'error',
+      'vue/no-duplicate-attributes': 'error',
+
+      // Prevent computed mutations
+      'vue/no-side-effects-in-computed-properties': 'error',
+
+      // Lifecycle safety
+      'vue/no-lifecycle-after-await': 'error',
+      'vue/no-watch-after-await': 'error',
+      'vue/no-async-in-computed-properties': 'error',
+
+      // Attribute/prop issues
+      'vue/require-valid-default-prop': 'error',
+      'vue/valid-model-definition': 'error',
+
       'vue/max-len': [
-        'warn',
+        'error',
         {
           code: 80,
           template: 120,
@@ -117,22 +191,11 @@ export default createConfigForNuxt({
           ignorePattern: '^\\s*d="|^\\s*<path|class=',
         },
       ],
-      'vue/no-mutating-props': 'error',
-      'vue/no-duplicate-attributes': 'error',
 
-      // Lifecycle rules
-      'vue/no-lifecycle-after-await': 'error',
-      'vue/no-watch-after-await': 'error',
-
-      // TypeScript
-      '@typescript-eslint/no-explicit-any': 'off', // Disabled to achieve zero warnings
-      '@typescript-eslint/no-unused-vars': [
-        'warn',
-        {
-          argsIgnorePattern: '^_',
-          varsIgnorePattern: '^_',
-        },
-      ],
+      // ============================================================
+      // TYPESCRIPT: Strict type checking
+      // ============================================================
+      '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-use-before-define': [
         'error',
         {
