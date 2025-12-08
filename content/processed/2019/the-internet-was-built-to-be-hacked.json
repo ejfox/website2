@@ -24,8 +24,17 @@
     },
     "links": 0,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "The Internet Was Built To Be Hacked",
+        "slug": "the-internet-was-built-to-be-hacked",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "sourcePath": "../../../../../code/website2/content/blog/blog/2019/the-internet-was-built-to-be-hacked.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }

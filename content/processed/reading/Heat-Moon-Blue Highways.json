@@ -1,6 +1,6 @@
 {
   "html": "<h1 class=\"\" id=\"blue-highways\">Blue Highways</h1>\n<ul class=\"list-disc\">\n<li class=\"\">ISBN: 0316353299</li>\n</ul>\n<h2 class=\"\" id=\"highlights\">Highlights</h2>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">Life doesn’t happen along interstates. It’s against the law. ^ref-29079</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">a road so crooked it could run for the legislature, ^ref-50592</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">As soon as my worries became only the old immediate worries of the road—When’s the rain going to stop? Who can you trust to fix a waterpump around here? Where’s the best pie in town?—then I would slow down. ^ref-2542</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">I had nothing to lose but the chains, and I hoped to find down the county roads Ma in her beanery and Pap over his barbecue pit, both still serving slow food from the same place they did thirty years ago. Where-you-from-buddy restaurants. ^ref-48232</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h2 class=\"\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">William Least Heat-Moon</a></li>\n<li class=\"\">ASIN: B006BAW16O</li>\n<li class=\"\">ISBN: 0316353299</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B006BAW16O\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B006BAW16O</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B006BAW16O\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>",
-  "title": "Heat Moon Blue Highways",
+  "title": "Blue Highways",
   "metadata": {
     "kindle-sync": {
       "bookId": "19692",
@@ -25,8 +25,30 @@
     },
     "links": 2,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h1": 1
+    },
+    "toc": [
+      {
+        "text": "Blue Highways",
+        "slug": "blue-highways",
+        "level": "h1",
+        "children": [
+          {
+            "text": "Highlights",
+            "slug": "highlights",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Metadata",
+            "slug": "metadata",
+            "level": "h2",
+            "children": []
+          }
+        ]
+      }
+    ],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/reading/Heat-Moon-Blue Highways.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

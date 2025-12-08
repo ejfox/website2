@@ -26,8 +26,36 @@
     },
     "links": 0,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "Generative Music Iteration",
+        "slug": "generative-music-iteration",
+        "level": "h2",
+        "children": [
+          {
+            "text": "What do I want to create?",
+            "slug": "what-do-i-want-to-create",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Mise-en-place",
+            "slug": "mise-en-place",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "What are the building blocks of the system we are working in?",
+            "slug": "what-are-the-building-blocks-of-the-system-we-are-working-in",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "sourcePath": "../../../../../code/website2/content/blog/blog/2019/generative-music-iteration.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }

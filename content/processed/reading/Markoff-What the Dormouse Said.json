@@ -1,6 +1,6 @@
 {
   "html": "<h2 class=\"\" id=\"what-the-dormouse-said\">What the Dormouse Said</h2>\n<ul class=\"list-disc\">\n<li class=\"\">ISBN: B000IOEU90</li>\n</ul>\n<h3 class=\"\" id=\"highlights\">Highlights</h3>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">The civil rights, psychedelic, women’s rights, ecology, and antiwar movements all contributed to the emergence of a counterculture that rejected many of America’s cherished postwar ideals. ^ref-41906</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">The computer technologies that we take for granted today owe their shape to this unruly period, which was defined by protest, experimentation with drugs, countercultural community, and a general sense of anarchic idealism. ^ref-25910</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">Stewart Brand has argued in his essay “We Owe It All to the Hippies” that “the counterculture’s scorn for centralized authority provided the philosophical foundations of not only the leaderless Internet but also the entire personal-computer revolution.” ^ref-41020</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">technophiles. Some espoused an antitechnology, back-to-the-land philosophy. Others believed that better tools could lead to social progress. Brand’s tool-centric worldview, epitomized by one of the decade’s most popular and influential books, the Whole Earth Catalog (1968), made the case that technology could be harnessed for more democratic and decentralized uses. The catalog ultimately helped shape the view of an entire generation, which came to believe that computing technologies could be used in the service of such goals as political revolution and safeguarding the environment. ^ref-46865</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h3 class=\"\" id=\"metadata\">Metadata</h3>\n<ul class=\"list-disc\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">John Markoff</a></li>\n<li class=\"\">ASIN: B000OCXFYM</li>\n<li class=\"\">ISBN: B000IOEU90</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B000OCXFYM\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B000OCXFYM</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B000OCXFYM\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>",
-  "title": "Markoff What the Dormouse Said",
+  "title": "What the Dormouse Said",
   "metadata": {
     "tags": [
       "tech",
@@ -26,8 +26,30 @@
     },
     "links": 2,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "What the Dormouse Said",
+        "slug": "what-the-dormouse-said",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Highlights",
+            "slug": "highlights",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Metadata",
+            "slug": "metadata",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/reading/Markoff-What the Dormouse Said.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

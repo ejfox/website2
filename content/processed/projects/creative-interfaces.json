@@ -28,8 +28,17 @@
     },
     "links": 4,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "Projects",
+        "slug": "projects",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/projects/creative-interfaces.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

@@ -21,8 +21,42 @@
     },
     "links": 5,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "Food",
+        "slug": "food",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Breakfast",
+            "slug": "breakfast",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Lunch",
+            "slug": "lunch",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Dinner",
+            "slug": "dinner",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Desserts",
+            "slug": "desserts",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/blog/2022/food.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

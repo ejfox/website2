@@ -18,8 +18,17 @@
     },
     "links": 5,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "Election Night 2018",
+        "slug": "election-night-2018",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/blog/2022/election-night-2018.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

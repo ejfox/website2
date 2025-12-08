@@ -20,8 +20,104 @@
     },
     "links": 0,
     "codeBlocks": 11,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h1": 1
+    },
+    "toc": [
+      {
+        "text": "The Multi-Claude Deployment Setup",
+        "slug": "the-multi-claude-deployment-setup",
+        "level": "h1",
+        "children": [
+          {
+            "text": "The Architecture",
+            "slug": "the-architecture",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "How It Works",
+            "slug": "how-it-works",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "The Actual Conversation",
+            "slug": "the-actual-conversation",
+            "level": "h2",
+            "children": [
+              {
+                "text": "Update: It Actually Worked (Sort Of)",
+                "slug": "update-it-actually-worked-sort-of",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Second Attempt: SUCCESS!",
+                "slug": "second-attempt-success",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "The Wild Part",
+            "slug": "the-wild-part",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Current Automation Stack",
+            "slug": "current-automation-stack",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Files Involved",
+            "slug": "files-involved",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Required GitHub Secrets",
+            "slug": "required-github-secrets",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Improving the Protocol",
+            "slug": "improving-the-protocol",
+            "level": "h2",
+            "children": [
+              {
+                "text": "VPS Claude Context",
+                "slug": "vps-claude-context",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Standardized Message Format",
+                "slug": "standardized-message-format",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Helper Command (Local)",
+                "slug": "helper-command-local",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "The Philosophy",
+            "slug": "the-philosophy",
+            "level": "h2",
+            "children": []
+          }
+        ]
+      }
+    ],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/robots/inter-claude-deployment.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

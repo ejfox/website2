@@ -22,8 +22,17 @@
     },
     "links": 0,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "2015 In Review",
+        "slug": "2015-in-review",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "sourcePath": "../../../../../code/website2/content/blog/blog/2015/2015-in-review.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }

@@ -31,8 +31,36 @@
     },
     "links": 3,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h2": 3
+    },
+    "toc": [
+      {
+        "text": "Coach Artie v1: Discord Studio Assistant",
+        "slug": "coach-artie-v1-discord-studio-assistant",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Coach Artie v2: Production AI with MCP Tools",
+        "slug": "coach-artie-v2-production-ai-with-mcp-tools",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Memory & Consciousness Analysis",
+        "slug": "memory--consciousness-analysis",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Related Content",
+            "slug": "related-content",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/projects/coach-artie.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

@@ -27,8 +27,17 @@
     },
     "links": 4,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "Smallbot MCP",
+        "slug": "smallbot-mcp",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/projects/smallbot-mcp.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

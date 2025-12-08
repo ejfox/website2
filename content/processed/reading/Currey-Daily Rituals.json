@@ -1,6 +1,6 @@
 {
   "html": "<h1 class=\"\" id=\"daily-rituals\">Daily Rituals</h1>\n<h2 class=\"\" id=\"highlights\">Highlights</h2>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">For the morning writing, her ritual is to rise around 5:00, make coffee, and “watch the light come.” This last part is crucial. “Writers all devise ways to approach that place where they expect to make the contact, where they become the conduit, or where they engage in this mysterious process,” Morrison said. “For me, light is the signal in the transaction. It’s not being in the light, it’s being there before it arrives. It enables me, in some sense.” ^ref-7127</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">“For each insight he wished to remember, he would pin a small piece of paper on a particular part of his clothes, which he would associate with the thought. When he returned home he would unpin these and write down each idea. At the ends of trips of several days, his clothes might be covered by quite a few of these slips of paper.” ^ref-29776</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h2 class=\"\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Mason Currey</a></li>\n<li class=\"\">ASIN: B009Y4I4OM</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B009Y4I4OM\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B009Y4I4OM</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B009Y4I4OM\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>",
-  "title": "Currey Daily Rituals",
+  "title": "Daily Rituals",
   "metadata": {
     "kindle-sync": {
       "bookId": "57847",
@@ -26,8 +26,30 @@
     },
     "links": 2,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h1": 1
+    },
+    "toc": [
+      {
+        "text": "Daily Rituals",
+        "slug": "daily-rituals",
+        "level": "h1",
+        "children": [
+          {
+            "text": "Highlights",
+            "slug": "highlights",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Metadata",
+            "slug": "metadata",
+            "level": "h2",
+            "children": []
+          }
+        ]
+      }
+    ],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/reading/Currey-Daily Rituals.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

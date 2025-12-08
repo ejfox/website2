@@ -102,14 +102,17 @@ async function processMarkdown(content, filePath) {
     const { data: frontmatter, content: markdownContent } = matter(content)
     let ast = processor.parse(markdownContent)
 
+    // Create vfile to hold data from plugins
+    const vfile = { path: filename, data: {} }
+
     // Process through unified pipeline
     // (TOC extraction happens in remarkExtractToc plugin)
-    let result = await processor.run(ast)
+    let result = await processor.run(ast, vfile)
 
     // Get TOC data from plugin
-    const toc = result.data?.toc || []
-    const firstHeading = result.data?.firstHeading
-    const firstHeadingNode = result.data?.firstHeadingNode
+    const toc = vfile.data?.toc || []
+    const firstHeading = vfile.data?.firstHeading
+    const firstHeadingNode = vfile.data?.firstHeadingNode
 
     // Remove first heading if it exists
     if (firstHeadingNode) {

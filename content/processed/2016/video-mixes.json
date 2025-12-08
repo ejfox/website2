@@ -25,8 +25,109 @@
     },
     "links": 5,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h1": 1
+    },
+    "toc": [
+      {
+        "text": "Video Mixes",
+        "slug": "video-mixes",
+        "level": "h1",
+        "children": [
+          {
+            "text": "Shadow Garden",
+            "slug": "shadow-garden",
+            "level": "h2",
+            "children": [
+              {
+                "text": "December 2016",
+                "slug": "december-2016",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Aerial",
+            "slug": "aerial",
+            "level": "h2",
+            "children": [
+              {
+                "text": "December 2015",
+                "slug": "december-2015",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "M88",
+            "slug": "m88",
+            "level": "h2",
+            "children": [
+              {
+                "text": "September 2014",
+                "slug": "september-2014",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Beautiful",
+            "slug": "beautiful",
+            "level": "h2",
+            "children": [
+              {
+                "text": "February 2014",
+                "slug": "february-2014",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "I'm In This",
+            "slug": "im-in-this",
+            "level": "h2",
+            "children": [
+              {
+                "text": "May 2014",
+                "slug": "may-2014",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "PVRPL",
+            "slug": "pvrpl",
+            "level": "h2",
+            "children": [
+              {
+                "text": "November 2013",
+                "slug": "november-2013",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Sirius",
+            "slug": "sirius",
+            "level": "h2",
+            "children": [
+              {
+                "text": "September 2013",
+                "slug": "september-2013",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "sourcePath": "../../../../../code/website2/content/blog/blog/2016/video-mixes.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }

@@ -1,6 +1,6 @@
 {
   "html": "<h1 class=\"\" id=\"2025-44\">2025-44</h1>\n<h2 class=\"\" id=\"-daily-check-in--reflections\">🌟 Daily Check-In &#x26; Reflections</h2>\n<h2 class=\"\" id=\"-learning--media\">📚 Learning &#x26; Media</h2>\n<!-- Books, articles, movies, TV shows, podcasts consumed -->\n<p class=\"\"><img src=\"https://pub-54d629604fe94ce68a81b5079b673529.r2.dev/screenshots/screenshot-2025-10-31-at-94033-am_1761918045284.png\" alt=\"Screenshot - 2025-10-31 09:41:08 - screenshot 2025-10-31 at 9.40.33 AM.png\" loading=\"lazy\" decoding=\"async\" class=\"w-full mx-auto py-4\"></p>\n<p class=\"\"><img src=\"https://pub-54d629604fe94ce68a81b5079b673529.r2.dev/screenshots/screenshot-2025-10-31-at-94604-am_1761918379542.png\" alt=\"Screenshot - 2025-10-31 09:46:33 - screenshot 2025-10-31 at 9.46.04 AM.png\" loading=\"lazy\" decoding=\"async\" class=\"w-full mx-auto py-4\"></p>\n<p class=\"\"><img src=\"https://pub-54d629604fe94ce68a81b5079b673529.r2.dev/screenshots/screenshot-2025-10-31-at-110918-am_1761923376142.png\" alt=\"Screenshot - 2025-10-31 11:09:55 - screenshot 2025-10-31 at 11.09.18 AM.png\" loading=\"lazy\" decoding=\"async\" class=\"w-full mx-auto py-4\"></p>\n<p class=\"\"><img src=\"https://pub-54d629604fe94ce68a81b5079b673529.r2.dev/screenshots/screenshot-2025-10-31-at-110922-am_1761923379278.png\" alt=\"Screenshot - 2025-10-31 11:09:55 - screenshot 2025-10-31 at 11.09.22 AM.png\" loading=\"lazy\" decoding=\"async\" class=\"w-full mx-auto py-4\"></p>\n<p class=\"\"><img src=\"https://pub-54d629604fe94ce68a81b5079b673529.r2.dev/screenshots/screenshot-2025-10-31-at-110932-am_1761923386709.png\" alt=\"Screenshot - 2025-10-31 11:10:02 - screenshot 2025-10-31 at 11.09.32 AM.png\" loading=\"lazy\" decoding=\"async\" class=\"w-full mx-auto py-4\"></p>\n<p class=\"\"><img src=\"https://pub-54d629604fe94ce68a81b5079b673529.r2.dev/screenshots/screenshot-2025-10-31-at-112018-am_1761924035459.png\" alt=\"Screenshot - 2025-10-31 11:20:48 - screenshot 2025-10-31 at 11.20.18 AM.png\" loading=\"lazy\" decoding=\"async\" class=\"w-full mx-auto py-4\"></p>\n<p class=\"\"><img src=\"https://pub-54d629604fe94ce68a81b5079b673529.r2.dev/screenshots/screenshot-2025-10-31-at-62114-pm_1761949292091.png\" alt=\"Screenshot - 2025-10-31 18:21:48 - screenshot 2025-10-31 at 6.21.14 PM.png\" loading=\"lazy\" decoding=\"async\" class=\"w-full mx-auto py-4\"></p>\n<p class=\"\"><img src=\"https://pub-54d629604fe94ce68a81b5079b673529.r2.dev/screenshots/screenshot-2025-11-02-at-112339-am_1762100631529.png\" alt=\"Screenshot - 2025-11-02 11:24:05 - screenshot 2025-11-02 at 11.23.39 AM.png\" loading=\"lazy\" decoding=\"async\" class=\"w-full mx-auto py-4\"></p>\n<p class=\"\"><img src=\"https://pub-54d629604fe94ce68a81b5079b673529.r2.dev/screenshots/screenshot-2025-11-02-at-112348-am_1762100639973.png\" alt=\"Screenshot - 2025-11-02 11:24:11 - screenshot 2025-11-02 at 11.23.48 AM.png\" loading=\"lazy\" decoding=\"async\" class=\"w-full mx-auto py-4\"></p>\n<p class=\"\"><img src=\"https://pub-54d629604fe94ce68a81b5079b673529.r2.dev/screenshots/screenshot-2025-11-02-at-14843-pm_1762109335572.png\" alt=\"Screenshot - 2025-11-02 13:49:09 - screenshot 2025-11-02 at 1.48.43 PM.png\" loading=\"lazy\" decoding=\"async\" class=\"w-full mx-auto py-4\"></p>\n<p class=\"\"><img src=\"https://pub-54d629604fe94ce68a81b5079b673529.r2.dev/screenshots/screenshot-2025-11-02-at-25513-pm_1762113329990.png\" alt=\"Screenshot - 2025-11-02 14:55:53 - screenshot 2025-11-02 at 2.55.13 PM.png\" loading=\"lazy\" decoding=\"async\" class=\"w-full mx-auto py-4\"></p>\n<p class=\"\"><img src=\"https://pub-54d629604fe94ce68a81b5079b673529.r2.dev/screenshots/screenshot-2025-11-02-at-75318-pm_1762131210582.png\" alt=\"Screenshot - 2025-11-02 19:53:44 - screenshot 2025-11-02 at 7.53.18 PM.png\" loading=\"lazy\" decoding=\"async\" class=\"w-full mx-auto py-4\"></p>",
-  "title": "2025 44",
+  "title": "2025-44",
   "metadata": {
     "tags": [
       "weekly-notes",
@@ -16,8 +16,30 @@
     },
     "links": 12,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h1": 1
+    },
+    "toc": [
+      {
+        "text": "2025-44",
+        "slug": "2025-44",
+        "level": "h1",
+        "children": [
+          {
+            "text": "🌟 Daily Check-In & Reflections",
+            "slug": "-daily-check-in--reflections",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "📚 Learning & Media",
+            "slug": "-learning--media",
+            "level": "h2",
+            "children": []
+          }
+        ]
+      }
+    ],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-44.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

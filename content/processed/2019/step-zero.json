@@ -22,8 +22,17 @@
     },
     "links": 5,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h1": 1
+    },
+    "toc": [
+      {
+        "text": "Step Zero",
+        "slug": "step-zero",
+        "level": "h1",
+        "children": []
+      }
+    ],
     "sourcePath": "../../../../../code/website2/content/blog/blog/2019/step-zero.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }

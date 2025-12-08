@@ -27,8 +27,17 @@
     },
     "links": 2,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "MorningRadio",
+        "slug": "morningradio",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/projects/MorningRadio.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

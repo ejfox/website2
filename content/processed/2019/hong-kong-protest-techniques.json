@@ -24,8 +24,17 @@
     },
     "links": 0,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "Hong Kong Protest Techniques",
+        "slug": "hong-kong-protest-techniques",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "sourcePath": "../../../../../code/website2/content/blog/blog/2019/hong-kong-protest-techniques.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }

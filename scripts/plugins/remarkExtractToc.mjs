@@ -7,8 +7,10 @@ export function extractHeadersAndToc(tree, maxDepth = 3) {
   let firstHeadingNode = null
   const toc = []
   const headingStack = []
+  let headingCount = 0
 
   visit(tree, 'heading', (node) => {
+    headingCount++
     if (node.depth > maxDepth) return
 
     // Extract text content from heading, handling various node types

@@ -1,6 +1,6 @@
 {
   "html": "<h2 class=\"\" id=\"real-world-processes-for-photography\">Real-World Processes For Photography</h2>\n<h3 class=\"\" id=\"x-pro-3-a-real-dial-for-everything\">X-Pro 3: A Real Dial For Everything</h3>\n<h3 class=\"\" id=\"exif-printer--editing-on-a-table\">EXIF Printer &#x26; Editing On A Table</h3>\n<p class=\"\"><a href=\"https://exifprinter.ejfox.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://exifprinter.ejfox.com</a></p>",
-  "title": "Irl Photo Editing Workflow",
+  "title": "Real-World Processes For Photography",
   "metadata": {
     "dek": "In which the author expounds on the joys of working physically both in capturing photographs as well as viewing and editing them",
     "inprogress": true,
@@ -22,8 +22,30 @@
     },
     "links": 0,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "Real-World Processes For Photography",
+        "slug": "real-world-processes-for-photography",
+        "level": "h2",
+        "children": [
+          {
+            "text": "X-Pro 3: A Real Dial For Everything",
+            "slug": "x-pro-3-a-real-dial-for-everything",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "EXIF Printer & Editing On A Table",
+            "slug": "exif-printer--editing-on-a-table",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/drafts/irl-photo-editing-workflow.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

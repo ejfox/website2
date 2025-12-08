@@ -1,6 +1,6 @@
 {
   "html": "<h1 class=\"\" id=\"darkest-america\">Darkest America</h1>\n<ul class=\"list-disc\">\n<li class=\"\">ISBN: 0393070980</li>\n</ul>\n<h2 class=\"\" id=\"highlights\">Highlights</h2>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">Similarly, the less educated the master, the less intelligent the slave had to appear, so as to remain the master’s inferior while keeping him amused; and since American slave owners were usually less educated than Europeans, the kind of comedy that arose in American life featured a more dim-witted fool than had ever been seen on stage before. Every idiocy had to be exaggerated for effect, from misuse of language to physical ineptitude. ^ref-23001</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">1865, ^ref-4097</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">Again and again, critics noted that black minstrelsy was not a show; it was a display of natural impulses. ^ref-39356</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">appellation in its most pejorative sense. ^ref-61623</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">, upped the ante with an ^ref-3942</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">By 1954 criticism of the Zulus as minstrels had grown. Manuel Wilson, Zulu king that year, announced: “Zulu is going to be modern from the word go. Some of our folks have been kicking about how the parade . . . is a disgrace to the Negroes. So . . . we’re going to be a comic strip right on.” The next year a new king appeared wearing silk clothes and no blackface; as soon as more traditional members saw this, they hurriedly painted his face, and did so again when he wiped it off. ^ref-17710</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h2 class=\"\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Yuval Taylor, Jake Austen, and Mel Watkins</a></li>\n<li class=\"\">ASIN: B007HXFLOI</li>\n<li class=\"\">ISBN: 0393070980</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B007HXFLOI\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B007HXFLOI</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B007HXFLOI\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>",
-  "title": "Taylor_et_al Darkest America",
+  "title": "Darkest America",
   "metadata": {
     "kindle-sync": {
       "bookId": "51864",
@@ -26,8 +26,30 @@
     },
     "links": 2,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h1": 1
+    },
+    "toc": [
+      {
+        "text": "Darkest America",
+        "slug": "darkest-america",
+        "level": "h1",
+        "children": [
+          {
+            "text": "Highlights",
+            "slug": "highlights",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Metadata",
+            "slug": "metadata",
+            "level": "h2",
+            "children": []
+          }
+        ]
+      }
+    ],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/reading/Taylor_et_al-Darkest America.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

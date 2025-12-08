@@ -1,6 +1,6 @@
 {
   "html": "<h2 class=\"\" id=\"overview-of-the-week\">Overview of the Week</h2>\n<h2 class=\"\" id=\"projects-worked-on\">Projects Worked On</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Edited video footage recorded on Sunday night for upcoming YouTube videos and shorts</li>\n<li class=\"\">Focused on writing blog posts (in progress)</li>\n<li class=\"\">Sorted out finances, paid back loans, and caught up on past-due bills</li>\n<li class=\"\">Did some motion graphics for videos talking about process / current projects</li>\n<li class=\"\">Updated ejfox.photos - added a new page for latest photos, modified iOS shortcut to post to blog from phone, tested with Fuji app for importing from X-Pro3 and writing EXIF captions in Photos.</li>\n<li class=\"\">Ordered updated first aid supplies off Amazon for summer explorations</li>\n</ul>\n<h2 class=\"\" id=\"creative-endeavors\">Creative Endeavors</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Experimented with waterproof black Noodler's ink in a loose, Ralph Steadman-inspired style, combining splashes of ink with water and fine lines</li>\n<li class=\"\">Started capturing more day-to-day video footage using the new camera on iPhone</li>\n</ul>\n<h2 class=\"\" id=\"technical-accomplishments\">Technical Accomplishments</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Got Coach Artie running again, ensuring proper functionality with OpenAI and Anthropic APIs</li>\n<li class=\"\">Continued development on knowhv.com website concept, focusing on the home page with interactive maps, a list of places to visit, and basic itinerary/adventure planning features</li>\n<li class=\"\">Experimented with Procreate to create hand-drawn typography for potential stickers and website assets</li>\n</ul>\n<h2 class=\"\" id=\"books-movies-tv\">Books, Movies, TV</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Listened to old episodes of Harmontown (ongoing for the past four years)</li>\n<li class=\"\">Watched stand-up comedy on YouTube, including Kill Tony, Big Jay Oakerson, and Dave Attell interviews</li>\n<li class=\"\">No books currently being read</li>\n<li class=\"\">Stopped reading the news after canceling NYTimes subscription</li>\n<li class=\"\">Caught myself doomscrolling on Instagram Reels, Facebook, and Twitter over the past few weeks</li>\n</ul>\n<h2 class=\"\" id=\"personal-growth--health\">Personal Growth &#x26; Health</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Bought a variety of fresh fruits (bananas, apples, kiwis, peaches, mango, lemons, limes, melon, peaches, and cucumbers) and snacked on them throughout the night, which contributed to feeling good</li>\n</ul>\n<h2 class=\"\" id=\"social--community-engagement\">Social &#x26; Community Engagement</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Started making plans with friends for summer camping trips and road trips to fun destinations</li>\n</ul>\n<h2 class=\"\" id=\"goals-for-the-future\">Goals for the Future</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Review and organize all camping equipment, including new purchases from Amazon</li>\n<li class=\"\">Ensure first aid kit is fully stocked and up-to-date</li>\n<li class=\"\">Check the condition of all dry bags and replace any that are no longer usable</li>\n<li class=\"\">Make sure all equipment is field-ready for upcoming camping trips and road trips</li>\n</ul>",
-  "title": "2024 19",
+  "title": "Overview of the Week",
   "metadata": {
     "tags": [
       "weekly-notes",
@@ -23,8 +23,59 @@
     },
     "links": 0,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h2": 8
+    },
+    "toc": [
+      {
+        "text": "Overview of the Week",
+        "slug": "overview-of-the-week",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Projects Worked On",
+        "slug": "projects-worked-on",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Creative Endeavors",
+        "slug": "creative-endeavors",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Technical Accomplishments",
+        "slug": "technical-accomplishments",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Books, Movies, TV",
+        "slug": "books-movies-tv",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Personal Growth & Health",
+        "slug": "personal-growth--health",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Social & Community Engagement",
+        "slug": "social--community-engagement",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Goals for the Future",
+        "slug": "goals-for-the-future",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/week-notes/2024-19.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

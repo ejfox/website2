@@ -1,6 +1,6 @@
 {
   "html": "<h1 class=\"\" id=\"zen-and-the-art-of-motorcycle-maintenance\">Zen and the Art of Motorcycle Maintenance</h1>\n<h2 class=\"\" id=\"highlights\">Highlights</h2>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">You see things vacationing on a motorcycle in a way that is completely different from any other. In a car you’re always in a compartment, and because you’re used to it you don’t realize that through that car window everything you see is just more TV. You’re a passive observer and it is all moving by you boringly in a frame. On a cycle the frame is gone. ^ref-57816</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">The truth knocks on the door and you say, “Go away, I’m looking for the truth,” and so it goes away. Puzzling. But once we caught on, of course, nothing could keep us off these ^ref-13506</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">and then, with the trees behind her a deep green, ^ref-57668</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">on a cycle you’re in the scene, not just watching it, and storms are definitely part of it. ^ref-51805</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">When you want to hurry something, that means you no longer care about it and want to get on to other things. ^ref-50797</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">It’s just a feeling. On a cycle you trust them and we stay at fifty-five. ^ref-28092</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">EVERY CHAUTAUQUA SHOULD HAVE A LIST SOMEWHERE OF valuable things to remember that can be kept in some safe place for times of future need and inspiration. Details. ^ref-38943</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">“This is the hardest stuff in the world to photograph. You need a three-hundred-and-sixty-degree lens, or something. You see it, and then you look down in the ground glass and it’s just nothing. As soon as you put a border on it, it’s gone.” ^ref-12887</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h2 class=\"\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Robert M. Pirsig</a></li>\n<li class=\"\">ASIN: B0026772N8</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B0026772N8\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B0026772N8</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B0026772N8\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>",
-  "title": "Pirsig Zen and the Art of Motorcycle Maintenance",
+  "title": "Zen and the Art of Motorcycle Maintenance",
   "metadata": {
     "tags": [
       "book",
@@ -26,8 +26,30 @@
     },
     "links": 2,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h1": 1
+    },
+    "toc": [
+      {
+        "text": "Zen and the Art of Motorcycle Maintenance",
+        "slug": "zen-and-the-art-of-motorcycle-maintenance",
+        "level": "h1",
+        "children": [
+          {
+            "text": "Highlights",
+            "slug": "highlights",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Metadata",
+            "slug": "metadata",
+            "level": "h2",
+            "children": []
+          }
+        ]
+      }
+    ],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/reading/Pirsig-Zen and the Art of Motorcycle Maintenance.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

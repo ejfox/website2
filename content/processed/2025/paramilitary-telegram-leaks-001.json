@@ -22,8 +22,54 @@
     },
     "links": 21,
     "codeBlocks": 5,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h2": 2
+    },
+    "toc": [
+      {
+        "text": "Paramilitary Telegram Leaks: From Dump To Data",
+        "slug": "paramilitary-telegram-leaks-from-dump-to-data",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "From SQLite to Parquet: Processing Telegram Leaks for Fast Web Visualization",
+        "slug": "from-sqlite-to-parquet-processing-telegram-leaks-for-fast-web-visualization",
+        "level": "h2",
+        "children": [
+          {
+            "text": "The Challenge",
+            "slug": "the-challenge",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "The Workflow",
+            "slug": "the-workflow",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "The Frontend",
+            "slug": "the-frontend",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Data Exploration Examples",
+            "slug": "data-exploration-examples",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Building Custom Visualizations",
+            "slug": "building-custom-visualizations",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/blog/2025/paramilitary-telegram-leaks-001.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

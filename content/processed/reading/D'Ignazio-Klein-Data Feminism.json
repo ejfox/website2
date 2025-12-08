@@ -1,6 +1,6 @@
 {
   "html": "<h1 class=\"\" id=\"data-feminism\">Data Feminism</h1>\n<ul class=\"list-disc\">\n<li class=\"\">ISBN: 0262044005</li>\n</ul>\n<h2 class=\"\" id=\"highlights\">Highlights</h2>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">Underlying data feminism is a belief in and commitment to co-liberation: the idea that oppressive systems of power harm all of us, that they undermine the quality and validity of our work, and that they hinder us from creating true and lasting social impact with data science. ^ref-16557</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">Data feminism requires us to challenge the gender binary, along with other systems of counting and classification that perpetuate oppression. ^ref-33662</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">So what were these complications, more precisely? And how many women had actually died as a result? Nobody was counting. A 2014 United Nations report, coauthored by SisterSong, described the state of data collection on maternal mortality in the United States as “particularly weak.” ^ref-24631</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">The chief of the CDC’s Maternal and Infant Health branch, William Callaghan, makes the significance of this “embarrassing” data more clear: “What we choose to measure is a statement of what we value in health,” he explains.7 We might edit his statement to add that it’s a measure of who we value in health, too.8 ^ref-53282</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"pl-4 border-l-4 border-zinc-300 dark:border-zinc-700 my-4 max-w-prose mx-auto\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">Examining power means naming and explaining the forces of oppression that are so baked into our daily lives—and into our datasets, our databases, and our algorithms—that we often don’t even see them. ^ref-1470</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h2 class=\"\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Author: <a href=\"https://www.amazon.comundefined\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Catherine D'Ignazio and Lauren F. Klein</a></li>\n<li class=\"\">ASIN: B08BT3SY5N</li>\n<li class=\"\">ISBN: 0262044005</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B08BT3SY5N\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://www.amazon.com/dp/B08BT3SY5N</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B08BT3SY5N\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>",
-  "title": "D'Ignazio Klein Data Feminism",
+  "title": "Data Feminism",
   "metadata": {
     "tags": [
       "data",
@@ -24,8 +24,30 @@
     },
     "links": 2,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h1": 1
+    },
+    "toc": [
+      {
+        "text": "Data Feminism",
+        "slug": "data-feminism",
+        "level": "h1",
+        "children": [
+          {
+            "text": "Highlights",
+            "slug": "highlights",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Metadata",
+            "slug": "metadata",
+            "level": "h2",
+            "children": []
+          }
+        ]
+      }
+    ],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/reading/D'Ignazio-Klein-Data Feminism.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

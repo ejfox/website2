@@ -1,6 +1,6 @@
 {
   "html": "<h2 class=\"\" id=\"overview-of-the-week\">Overview of the Week</h2>\n<ul class=\"list-disc\">\n<li class=\"\">launched new studio site</li>\n<li class=\"\">Worked on Electology plans</li>\n<li class=\"\">Went to the gym, got first personal training session</li>\n</ul>",
-  "title": "2024 08",
+  "title": "Overview of the Week",
   "metadata": {
     "tags": [
       "weekly-notes",
@@ -19,8 +19,17 @@
     },
     "links": 0,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "Overview of the Week",
+        "slug": "overview-of-the-week",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/week-notes/2024-08.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

@@ -22,8 +22,24 @@
     },
     "links": 13,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "Livestreaming",
+        "slug": "livestreaming",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Past Livestreams",
+            "slug": "past-livestreams",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/blog/2023/livestreaming.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
