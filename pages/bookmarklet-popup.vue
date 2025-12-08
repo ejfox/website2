@@ -331,9 +331,9 @@ const saveToPinboard = (useEnhancedTags = false) => {
   window.location.href = `${url}?${params.toString()}`
 }
 
-// Use simple layout without sidebar
+// Use bookmarklet layout without sidebar
 definePageMeta({
-  layout: 'simple',
+  layout: 'bookmarklet',
 })
 
 usePageSeo({

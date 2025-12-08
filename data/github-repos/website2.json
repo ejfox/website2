@@ -12,7 +12,7 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 678768,
+    "Vue": 678885,
     "TypeScript": 305109,
     "JavaScript": 213036,
     "CSS": 53947,
@@ -5649,11 +5649,11 @@
       },
       {
         "path": "pages/blog/[...slug].vue",
-        "size": 34875
+        "size": 34920
       },
       {
         "path": "pages/blog/index.vue",
-        "size": 21486
+        "size": 21495
       },
       {
         "path": "pages/blog/robots/[...slug].vue",
@@ -5665,7 +5665,7 @@
       },
       {
         "path": "pages/blog/tag/[...slug].vue",
-        "size": 8609
+        "size": 8618
       },
       {
         "path": "pages/blog/week-notes/index.vue",
@@ -5685,7 +5685,7 @@
       },
       {
         "path": "pages/changelog.vue",
-        "size": 4847
+        "size": 4856
       },
       {
         "path": "pages/external-links.vue",
@@ -5693,7 +5693,7 @@
       },
       {
         "path": "pages/following.vue",
-        "size": 3260
+        "size": 3269
       },
       {
         "path": "pages/gear/[slug].vue",
@@ -5725,7 +5725,7 @@
       },
       {
         "path": "pages/now.vue",
-        "size": 11655
+        "size": 11664
       },
       {
         "path": "pages/on-this-day.vue",
@@ -5733,7 +5733,7 @@
       },
       {
         "path": "pages/predictions/[slug].vue",
-        "size": 8099
+        "size": 8108
       },
       {
         "path": "pages/predictions/index.vue",
@@ -5749,7 +5749,7 @@
       },
       {
         "path": "pages/projects/index.vue",
-        "size": 6491
+        "size": 6500
       },
       {
         "path": "pages/reading/[slug].vue",
@@ -5757,7 +5757,7 @@
       },
       {
         "path": "pages/reading/index.vue",
-        "size": 6763
+        "size": 6772
       },
       {
         "path": "pages/sitemap.vue",
@@ -13969,7 +13969,7 @@
                   "children": [
                     {
                       "name": "[...slug].vue",
-                      "size": 8609,
+                      "size": 8618,
                       "path": "pages/blog/tag/[...slug].vue"
                     }
                   ],
@@ -13988,12 +13988,12 @@
                 },
                 {
                   "name": "[...slug].vue",
-                  "size": 34875,
+                  "size": 34920,
                   "path": "pages/blog/[...slug].vue"
                 },
                 {
                   "name": "index.vue",
-                  "size": 21486,
+                  "size": 21495,
                   "path": "pages/blog/index.vue"
                 }
               ],
@@ -14036,7 +14036,7 @@
               "children": [
                 {
                   "name": "[slug].vue",
-                  "size": 8099,
+                  "size": 8108,
                   "path": "pages/predictions/[slug].vue"
                 },
                 {
@@ -14057,7 +14057,7 @@
                 },
                 {
                   "name": "index.vue",
-                  "size": 6491,
+                  "size": 6500,
                   "path": "pages/projects/index.vue"
                 }
               ],
@@ -14073,7 +14073,7 @@
                 },
                 {
                   "name": "index.vue",
-                  "size": 6763,
+                  "size": 6772,
                   "path": "pages/reading/index.vue"
                 }
               ],
@@ -14096,7 +14096,7 @@
             },
             {
               "name": "changelog.vue",
-              "size": 4847,
+              "size": 4856,
               "path": "pages/changelog.vue"
             },
             {
@@ -14106,7 +14106,7 @@
             },
             {
               "name": "following.vue",
-              "size": 3260,
+              "size": 3269,
               "path": "pages/following.vue"
             },
             {
@@ -14126,7 +14126,7 @@
             },
             {
               "name": "now.vue",
-              "size": 11655,
+              "size": 11664,
               "path": "pages/now.vue"
             },
             {
@@ -15415,7 +15415,7 @@
       "path": ""
     },
     "totalFiles": 1630,
-    "totalSize": 82726390
+    "totalSize": 82726507
   },
   "topics": [],
   "readme": {
@@ -15424,6 +15424,6 @@
     "excerpt": "Personal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker\n\n\n\nbash\nyarn install && yarn blog:import && yarn blog:process && yarn dev\n\n\n\n\n| Command..."
   },
   "createdAt": "2024-10-13T14:09:19Z",
-  "updatedAt": "2025-12-08T21:32:49Z",
-  "pushedAt": "2025-12-08T21:32:45Z"
+  "updatedAt": "2025-12-08T21:44:10Z",
+  "pushedAt": "2025-12-08T21:44:06Z"
 }
