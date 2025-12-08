@@ -20,6 +20,7 @@ jobs:
           cd /data2/website2
           git fetch origin main
           git reset --hard origin/main
-          yarn install --frozen-lockfile --prefer-offline
+          rm -rf node_modules .yarn/cache
+          yarn install --frozen-lockfile
           yarn build
           DOCKER_BUILDKIT=1 docker-compose up -d --build
