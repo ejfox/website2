@@ -1,34 +1,5 @@
 [
   {
-    "name": "website2",
-    "description": "No description provided",
-    "url": "https://github.com/ejfox/website2",
-    "homepage": null,
-    "stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 1,
-      "openIssues": 1
-    },
-    "language": "Vue",
-    "languageColor": "#41b883",
-    "languages": {
-      "Vue": 677832,
-      "TypeScript": 305109,
-      "JavaScript": 213036,
-      "CSS": 54309,
-      "HTML": 15405,
-      "Shell": 15076,
-      "Dockerfile": 779
-    },
-    "diskUsage": 85615,
-    "topics": [],
-    "excerpt": "No description provided",
-    "createdAt": "2024-10-13T14:09:19Z",
-    "updatedAt": "2025-12-08T22:18:49Z",
-    "pushedAt": "2025-12-08T22:18:45Z"
-  },
-  {
     "name": "ejthirdbear",
     "description": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
     "url": "https://github.com/GlobalEnergyMonitor/ejthirdbear",
@@ -46,8 +17,37 @@
     "topics": [],
     "excerpt": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
     "createdAt": "2025-11-12T20:10:52Z",
-    "updatedAt": "2025-12-08T21:12:51Z",
-    "pushedAt": "2025-12-08T21:12:48Z"
+    "updatedAt": "2025-12-08T22:55:48Z",
+    "pushedAt": "2025-12-08T22:55:45Z"
+  },
+  {
+    "name": "website2",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/website2",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 1
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "languages": {
+      "Vue": 678273,
+      "TypeScript": 305109,
+      "JavaScript": 213036,
+      "CSS": 54309,
+      "HTML": 15405,
+      "Shell": 15076,
+      "Dockerfile": 779
+    },
+    "diskUsage": 86015,
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2024-10-13T14:09:19Z",
+    "updatedAt": "2025-12-08T22:32:30Z",
+    "pushedAt": "2025-12-08T22:32:26Z"
   },
   {
     "name": "dotfiles",

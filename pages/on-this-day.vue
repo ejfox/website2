@@ -38,6 +38,11 @@
       <!-- Loading -->
       <div v-if="pending" class="text-zinc-500">Loading...</div>
 
+      <!-- Error state -->
+      <div v-else-if="error" class="text-red-600 dark:text-red-400">
+        Error loading data for this day. Please try again.
+      </div>
+
       <!-- Empty state -->
       <div
         v-else-if="!data?.years?.length"
@@ -162,7 +167,7 @@ const currentDay = ref(
 )
 
 // Fetch data
-const { data, pending } = await useFetch('/api/on-this-day', {
+const { data, pending, error } = await useFetch('/api/on-this-day', {
   query: computed(() => ({
     month: currentMonth.value,
     day: currentDay.value,

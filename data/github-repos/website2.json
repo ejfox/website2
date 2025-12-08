@@ -12,7 +12,7 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 677832,
+    "Vue": 678273,
     "TypeScript": 305109,
     "JavaScript": 213036,
     "CSS": 54309,
@@ -20,7 +20,7 @@
     "Shell": 15076,
     "Dockerfile": 779
   },
-  "diskUsage": 85615,
+  "diskUsage": 86015,
   "fileTree": {
     "files": [
       {
@@ -273,7 +273,7 @@
       },
       {
         "path": "components/gear/GearTableRow.client.vue",
-        "size": 6476
+        "size": 6642
       },
       {
         "path": "components/gear/Navigator.vue",
@@ -5633,7 +5633,7 @@
       },
       {
         "path": "layouts/default.vue",
-        "size": 4647
+        "size": 4639
       },
       {
         "path": "nuxt.config.ts",
@@ -5685,7 +5685,7 @@
       },
       {
         "path": "pages/external-links.vue",
-        "size": 7607
+        "size": 7802
       },
       {
         "path": "pages/following.vue",
@@ -5697,7 +5697,7 @@
       },
       {
         "path": "pages/gear/index.vue",
-        "size": 19037
+        "size": 19125
       },
       {
         "path": "pages/gists.vue",
@@ -6675,7 +6675,7 @@
                 },
                 {
                   "name": "GearTableRow.client.vue",
-                  "size": 6476,
+                  "size": 6642,
                   "path": "components/gear/GearTableRow.client.vue"
                 },
                 {
@@ -13927,7 +13927,7 @@
             },
             {
               "name": "default.vue",
-              "size": 4647,
+              "size": 4639,
               "path": "layouts/default.vue"
             }
           ],
@@ -14000,7 +14000,7 @@
                 },
                 {
                   "name": "index.vue",
-                  "size": 19037,
+                  "size": 19125,
                   "path": "pages/gear/index.vue"
                 }
               ],
@@ -14092,7 +14092,7 @@
             },
             {
               "name": "external-links.vue",
-              "size": 7607,
+              "size": 7802,
               "path": "pages/external-links.vue"
             },
             {
@@ -15406,7 +15406,7 @@
       "path": ""
     },
     "totalFiles": 1629,
-    "totalSize": 82725601
+    "totalSize": 82726042
   },
   "topics": [],
   "readme": {
@@ -15415,6 +15415,6 @@
     "excerpt": "Personal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker\n\n\n\nbash\nyarn install && yarn blog:import && yarn blog:process && yarn dev\n\n\n\n\n| Command..."
   },
   "createdAt": "2024-10-13T14:09:19Z",
-  "updatedAt": "2025-12-08T22:18:49Z",
-  "pushedAt": "2025-12-08T22:18:45Z"
+  "updatedAt": "2025-12-08T22:32:30Z",
+  "pushedAt": "2025-12-08T22:32:26Z"
 }
