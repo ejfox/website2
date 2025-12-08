@@ -69,235 +69,6 @@
       </div>
     </section>
 
-    <!-- MARKET POSITIONS -->
-    <div
-      v-if="kalshiData?.positions && kalshiData.positions.length > 0"
-      class="section-spacing"
-    >
-      <h2 class="heading-3 mb-4">Market Positions</h2>
-
-      <!-- Portfolio Performance Stats -->
-      <div
-        v-if="kalshiData?.portfolioStats"
-        class="section-spacing-sm grid-2col-lg"
-      >
-        <div>
-          <div class="stat-label">Open P&L</div>
-          <div
-            v-if="kalshiData.portfolioStats.totalUnrealizedPnL >= 0"
-            class="mono-2xl text-success"
-          >
-            +${{ kalshiData.portfolioStats.totalUnrealizedPnL.toFixed(2) }}
-          </div>
-          <div v-else class="mono-2xl text-error">
-            ${{ kalshiData.portfolioStats.totalUnrealizedPnL.toFixed(2) }}
-          </div>
-          <div class="stat-details">
-            {{
-              (
-                (kalshiData.portfolioStats.totalUnrealizedPnL /
-                  kalshiData.portfolioStats.totalInvested) *
-                100
-              ).toFixed(1)
-            }}%
-          </div>
-        </div>
-
-        <div>
-          <div class="stat-label">Closed P&L</div>
-          <div
-            v-if="kalshiData.portfolioStats.totalRealizedPnL >= 0"
-            class="mono-2xl text-success"
-          >
-            +${{ kalshiData.portfolioStats.totalRealizedPnL.toFixed(2) }}
-          </div>
-          <div v-else class="mono-2xl text-error">
-            ${{ kalshiData.portfolioStats.totalRealizedPnL.toFixed(2) }}
-          </div>
-          <div class="stat-details">
-            {{ kalshiData.portfolioStats.closedPositions.length }} positions
-          </div>
-        </div>
-
-        <div>
-          <div class="stat-label">Total P&L</div>
-          <div
-            v-if="
-              kalshiData.portfolioStats.totalUnrealizedPnL +
-                kalshiData.portfolioStats.totalRealizedPnL >=
-              0
-            "
-            class="mono-2xl text-success"
-          >
-            +${{
-              (
-                kalshiData.portfolioStats.totalUnrealizedPnL +
-                kalshiData.portfolioStats.totalRealizedPnL
-              ).toFixed(2)
-            }}
-          </div>
-          <div v-else class="mono-2xl text-error">
-            ${{
-              (
-                kalshiData.portfolioStats.totalUnrealizedPnL +
-                kalshiData.portfolioStats.totalRealizedPnL
-              ).toFixed(2)
-            }}
-          </div>
-          <div class="stat-details">all time</div>
-        </div>
-
-        <div>
-          <div class="stat-label">Portfolio Value</div>
-          <div class="mono-2xl text-primary">
-            ${{ kalshiData.portfolioStats.totalValue.toFixed(2) }}
-          </div>
-          <div class="stat-details">{{ kalshiData.positions.length }} open</div>
-        </div>
-      </div>
-
-      <div class="grid-predictions">
-        <article
-          v-for="position in kalshiData.positions"
-          :id="`kalshi-${position.ticker}`"
-          :key="position.ticker"
-          class="card-padding"
-        >
-          <!-- Title + Side -->
-          <div class="mb-2">
-            <div class="flex-gap-3">
-              <span
-                :class="
-                  position.position > 0 ? 'badge-side-yes' : 'badge-side-no'
-                "
-              >
-                {{ position.position > 0 ? 'YES' : 'NO' }}
-              </span>
-              <div class="text-body-lg text-balance">
-                {{ getMarketTitle(position.ticker) }}
-              </div>
-            </div>
-          </div>
-
-          <!-- Dense data table -->
-          <table class="table-dense mb-2">
-            <tbody>
-              <tr>
-                <td class="py-0.5">Position</td>
-                <td class="table-cell-value">
-                  {{
-                    Math.abs(position.position) > 0
-                      ? `${Math.abs(position.position)} × $${
-                          (
-                            position.market_exposure_dollars /
-                            Math.abs(position.position)
-                          ).toFixed(2)
-                        }`
-                      : `${Math.abs(position.position)} (closed)`
-                  }}
-                </td>
-              </tr>
-              <tr>
-                <td class="py-0.5">Exposure</td>
-                <td class="table-cell-primary">
-                  ${{ Number(position.market_exposure_dollars).toFixed(2) }}
-                </td>
-              </tr>
-              <tr v-if="Number(position.fees_paid_dollars) > 0">
-                <td class="py-0.5">Fees</td>
-                <td class="text-right tabular">
-                  -${{ Number(position.fees_paid_dollars).toFixed(2) }}
-                </td>
-              </tr>
-              <tr v-if="Number(position.realized_pnl_dollars) !== 0">
-                <td class="py-0.5">Realized P&L</td>
-                <td
-                  class="table-cell-value"
-                  :class="
-                    Number(position.realized_pnl_dollars) >= 0
-                      ? 'text-success'
-                      : 'text-error'
-                  "
-                >
-                  {{ Number(position.realized_pnl_dollars) >= 0 ? '+' : '' }}${{
-                    Number(position.realized_pnl_dollars).toFixed(2)
-                  }}
-                </td>
-              </tr>
-              <tr>
-                <td class="py-0.5">Total Traded</td>
-                <td class="text-right tabular">
-                  ${{ Number(position.total_traded_dollars).toFixed(2) }}
-                </td>
-              </tr>
-              <tr v-if="getCommentary(position.ticker)?.tags?.length">
-                <td class="py-0.5">Tags</td>
-                <td class="text-right">
-                  <span
-                    v-for="tag in getCommentary(position.ticker)?.tags"
-                    :key="tag"
-                    class="mr-1"
-                  >
-                    #{{ tag }}
-                  </span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-          <!-- Commentary -->
-          <div
-            v-if="parsedCommentaries[position.ticker]"
-            class="text-sm text-muted leading-relaxed prose prose-sm prose-zinc dark:prose-invert max-w-none"
-            v-html="parsedCommentaries[position.ticker]"
-          />
-        </article>
-      </div>
-
-      <!-- Fills Table -->
-      <div v-if="kalshiData?.fills && kalshiData.fills.length > 0" class="mt-8">
-        <h3 class="heading-3 mb-4">Recent Fills</h3>
-        <div class="overflow-x-auto -mx-4 px-4">
-          <div class="min-w-[450px]">
-            <table class="table-header">
-              <thead>
-                <tr>
-                  <th class="table-th">Time</th>
-                  <th class="table-th">Market</th>
-                  <th class="table-th-right">Side</th>
-                  <th class="table-th-right">Qty</th>
-                  <th class="table-th-right">Price</th>
-                </tr>
-              </thead>
-              <tbody class="text-muted">
-                <tr
-                  v-for="fill in kalshiData.fills.slice(0, 10)"
-                  :key="fill.fill_id"
-                >
-                  <td class="table-cell tabular">
-                    {{ formatRelativeTime(fill.created_time) }}
-                  </td>
-                  <td class="table-cell">{{ fill.ticker }}</td>
-                  <td
-                    class="table-cell-value mono-lg"
-                    :class="fill.side === 'yes' ? 'text-success' : 'text-error'"
-                  >
-                    {{ fill.side.toUpperCase() }}
-                  </td>
-                  <td class="table-cell text-right tabular">
-                    {{ fill.count }}
-                  </td>
-                  <td class="table-cell text-right tabular">
-                    {{ (fill.price * 100).toFixed(0) }}¢
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Statistics -->
     <section v-if="transformedPredictions.length > 0" class="mt-12">
       <h2 class="heading-2 mb-4">Statistics</h2>
@@ -658,10 +429,7 @@
           <div v-for="section in predictionToc" :key="section.type">
             <!-- Section header -->
             <div class="toc-section-label">
-              <span v-if="section.type === 'kalshi'">
-                Markets ({{ section.items.length }})
-              </span>
-              <span v-else-if="section.type === 'active'">
+              <span v-if="section.type === 'active'">
                 Active ({{ section.items.length }})
               </span>
               <span v-else-if="section.type === 'resolved'">
@@ -670,81 +438,46 @@
             </div>
 
             <ul class="space-y-2 text-xs">
-              <!-- Kalshi items -->
-              <template v-if="section.type === 'kalshi'">
-                <li
-                  v-for="item in section.items"
-                  :key="item.slug"
-                  class="group relative"
-                >
-                  <a
-                    :href="`#${item.slug}`"
-                    class="block no-underline"
-                    :class="[
-                      activeSection === item.slug
-                        ? 'text-zinc-900 dark:text-zinc-100 font-bold'
-                        : 'text-zinc-600 dark:text-zinc-400',
-                    ]"
-                  >
-                    <div class="flex items-start gap-2">
-                      <span
-                        class="shrink-0 font-bold"
-                        :class="
-                          item.side === 'YES' ? 'text-success' : 'text-error'
-                        "
-                      >
-                        {{ item.side }}
-                      </span>
-                      <span class="block line-clamp-2 flex-1 min-w-0">
-                        {{ item.text }}
-                      </span>
-                    </div>
-                  </a>
-                </li>
-              </template>
-
               <!-- Prediction items -->
-              <template v-else>
-                <li
-                  v-for="item in section.items"
-                  :key="item.slug"
-                  class="group relative"
+              <li
+                v-for="item in section.items"
+                :key="item.slug"
+                class="group relative"
+              >
+                <a
+                  :href="`#${item.slug}`"
+                  class="block no-underline"
+                  :class="[
+                    activeSection === item.slug
+                      ? 'text-zinc-900 dark:text-zinc-100 font-bold'
+                      : 'text-zinc-600 dark:text-zinc-400',
+                  ]"
+                  :style="{ opacity: 0.7 + (item.confidence / 100) * 0.3 }"
                 >
-                  <a
-                    :href="`#${item.slug}`"
-                    class="block no-underline"
-                    :class="[
-                      activeSection === item.slug
-                        ? 'text-zinc-900 dark:text-zinc-100 font-bold'
-                        : 'text-zinc-600 dark:text-zinc-400',
-                    ]"
-                    :style="{ opacity: 0.7 + (item.confidence / 100) * 0.3 }"
-                  >
-                    <div class="flex items-start gap-2">
-                      <span class="text-zinc-500 dark:text-zinc-500 shrink-0">
-                        {{ item.confidence }}%
-                      </span>
-                      <span class="block line-clamp-2 flex-1 min-w-0">
-                        {{ item.text }}
-                      </span>
-                      <span
-                        v-if="
-                          item.status === 'correct' ||
-                          item.status === 'incorrect'
-                        "
-                        class="shrink-0"
-                        :class="
-                          item.status === 'correct'
-                            ? 'text-success'
-                            : 'text-error'
-                        "
-                      >
-                        {{ item.status === 'correct' ? '✓' : '✗' }}
-                      </span>
-                    </div>
-                  </a>
-                </li>
-              </template>
+                  <div class="flex items-start gap-2">
+                    <span class="text-zinc-500 dark:text-zinc-500 shrink-0">
+                      {{ item.confidence }}%
+                    </span>
+                    <span class="block line-clamp-2 flex-1 min-w-0">
+                      {{ item.text }}
+                    </span>
+                    <span
+                      v-if="
+                        item.status === 'correct' ||
+                        item.status === 'incorrect'
+                      "
+                      class="shrink-0"
+                      :class="
+                        item.status === 'correct'
+                          ? 'text-success'
+                          : 'text-error'
+                      "
+                    >
+                      {{ item.status === 'correct' ? '✓' : '✗' }}
+                    </span>
+                  </div>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -761,7 +494,6 @@ const commitHistoryUrl =
   'https://github.com/ejfox/website2/commits/main/content/predictions/'
 
 const { formatRelativeTime } = useDateFormat()
-const { markdownToHtml } = useMarkdown()
 
 // Dynamic TOC height calculation using VueUse
 const { height: windowHeight } = useWindowSize()
@@ -775,7 +507,6 @@ const tocMaxHeight = computed(() => {
 
 const { data: predictions, error: predictionsError } =
   await useFetch('/api/predictions')
-const { data: kalshiData } = useKalshi()
 const { data: calibration } = useCalibration()
 
 const totalPredictions = computed(
@@ -921,27 +652,6 @@ const incorrectConfidenceAvg = computed(() => {
     : 0
 })
 
-// Status class helpers
-const _unrealizedPnLClass = computed(() =>
-  kalshiData.value?.portfolioStats?.totalUnrealizedPnL >= 0
-    ? 'text-success'
-    : 'text-error'
-)
-
-const _realizedPnLClass = computed(() =>
-  kalshiData.value?.portfolioStats?.totalRealizedPnL >= 0
-    ? 'text-success'
-    : 'text-error'
-)
-
-const _totalPnLClass = computed(() => {
-  if (!kalshiData.value?.portfolioStats) return ''
-  const total =
-    kalshiData.value.portfolioStats.totalUnrealizedPnL +
-    kalshiData.value.portfolioStats.totalRealizedPnL
-  return total >= 0 ? 'text-success' : 'text-error'
-})
-
 // Calibration class helpers
 const _brierScoreClass = (score) => {
   if (score < 0.2) return 'text-success'
@@ -1026,18 +736,6 @@ const { tocTarget } = useTOC()
 const predictionToc = computed(() => {
   const sections = []
 
-  // Kalshi positions section
-  if (kalshiData.value?.positions && kalshiData.value.positions.length > 0) {
-    const kalshiItems = kalshiData.value.positions.map((pos) => ({
-      slug: `kalshi-${pos.ticker}`,
-      text: getMarketTitle(pos.ticker),
-      type: 'kalshi',
-      side: pos.position > 0 ? 'YES' : 'NO',
-      ticker: pos.ticker,
-    }))
-    sections.push({ type: 'kalshi', items: kalshiItems })
-  }
-
   // Active predictions section
   if (activePredictions.value.length > 0) {
     const active = activePredictions.value.map((p) => ({
@@ -1093,54 +791,6 @@ onMounted(() => {
   }
 })
 
-// Parsed commentary cache
-const parsedCommentaries = ref({})
-
-// Watch kalshiData and parse commentaries when they load
-watch(
-  () => kalshiData.value?.commentaries,
-  async (commentaries) => {
-    if (!commentaries) return
-
-    const parsed = {}
-    for (const [ticker, commentary] of Object.entries(commentaries)) {
-      if (commentary?.commentary) {
-        parsed[ticker] = await markdownToHtml(commentary.commentary)
-      }
-    }
-    parsedCommentaries.value = parsed
-  },
-  { immediate: true }
-)
-
-// Kalshi helpers
-const getMarketTitle = (ticker) => {
-  // Try commentary title first (user-provided, most accurate)
-  if (kalshiData.value?.commentaries?.[ticker]?.marketTitle) {
-    return kalshiData.value.commentaries[ticker].marketTitle
-  }
-
-  // Try API market details (official Kalshi title)
-  if (kalshiData.value?.marketDetails?.[ticker]?.title) {
-    return kalshiData.value.marketDetails[ticker].title
-  }
-
-  // Fall back to ticker if no data available (resolved/closed markets)
-  return ticker
-}
-
-const _getMarketPrice = (ticker) => {
-  if (!kalshiData.value?.marketDetails?.[ticker]) {
-    return '—'
-  }
-  const market = kalshiData.value.marketDetails[ticker]
-  const price = market.last_price || market.yes_bid || 0
-  return `${(price * 100).toFixed(0)}¢`
-}
-
-const getCommentary = (ticker) => {
-  return kalshiData.value?.commentaries?.[ticker]
-}
 </script>
 
 <style scoped>
