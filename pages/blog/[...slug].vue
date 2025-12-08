@@ -739,7 +739,7 @@ const _processedMetadata = computed(() => {
       class="h-entry max-w-screen-xl mx-auto px-4 md:px-8"
     >
       <!-- Swiss Grid Container -->
-      <div class="max-w-3xl">
+      <div>
         <!-- Top metadata bar with microvisualizations -->
         <div ref="postMetadata">
           <!-- Mobile-optimized metadata with better layout -->
@@ -1026,6 +1026,7 @@ const _processedMetadata = computed(() => {
 
 /* Body text - mobile optimized */
 .blog-post-content p {
+  @apply max-w-prose;
   font-size: 1rem; /* 16px on mobile for easier reading */
   line-height: 24px; /* 3x8px for comfortable mobile reading */
   margin-bottom: 20px; /* Extra spacing for mobile */
@@ -1041,7 +1042,7 @@ const _processedMetadata = computed(() => {
 
 /* Headings with mobile-optimized spacing */
 .blog-post-content h1 {
-  @apply font-serif font-light;
+  @apply font-serif font-light max-w-prose;
   font-size: 1.75rem; /* 28px mobile - more reasonable */
   line-height: 32px; /* 4x8px */
   margin-top: 32px; /* Reduced for mobile */
@@ -1067,7 +1068,7 @@ const _processedMetadata = computed(() => {
 }
 
 .blog-post-content h2 {
-  @apply font-serif font-normal;
+  @apply font-serif font-normal max-w-prose;
   font-size: 1.5rem; /* 24px mobile - more reasonable */
   line-height: 28px; /* 3.5x8px */
   margin-top: 40px; /* Reduced for mobile */
@@ -1092,7 +1093,7 @@ const _processedMetadata = computed(() => {
 }
 
 .blog-post-content h3 {
-  @apply font-serif font-normal;
+  @apply font-serif font-normal max-w-prose;
   font-size: 1.5rem; /* 24px */
   line-height: 32px; /* 4x8px */
   margin-top: 48px; /* 6x8px */
@@ -1100,7 +1101,7 @@ const _processedMetadata = computed(() => {
 }
 
 .blog-post-content h4 {
-  @apply font-serif font-medium;
+  @apply font-serif font-medium max-w-prose;
   font-size: 1.25rem; /* 20px */
   line-height: 24px; /* 3x8px */
   margin-top: 32px; /* 4x8px */
@@ -1109,7 +1110,7 @@ const _processedMetadata = computed(() => {
 
 .blog-post-content h5,
 .blog-post-content h6 {
-  @apply font-serif font-medium;
+  @apply font-serif font-medium max-w-prose;
   font-size: 1.125rem; /* 18px */
   line-height: 24px; /* 3x8px */
   margin-top: 16px; /* 2x8px */
@@ -1119,6 +1120,7 @@ const _processedMetadata = computed(() => {
 /* Lists - mobile optimized */
 .blog-post-content ul,
 .blog-post-content ol {
+  @apply max-w-prose;
   padding-left: 1.5rem; /* Reduced for mobile */
   font-size: 1rem; /* 16px on mobile to match body */
   line-height: 24px; /* 3x8px for mobile */
@@ -1146,7 +1148,7 @@ const _processedMetadata = computed(() => {
 
 /* Blockquotes aligned */
 .blog-post-content blockquote {
-  @apply italic border-l-4 border-zinc-300 dark:border-zinc-700;
+  @apply italic border-l-4 border-zinc-300 dark:border-zinc-700 max-w-prose;
   font-size: 1.125rem; /* 18px to match body */
   line-height: 28px; /* 3.5x8px */
   margin-top: 16px; /* 2x8px */
