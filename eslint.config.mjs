@@ -9,11 +9,82 @@ export default createConfigForNuxt({
   },
 }).append(
   eslintPluginPrettier,
+  // Globals for Nuxt auto-imports
+  {
+    languageOptions: {
+      globals: {
+        // Vue composition API
+        computed: 'readonly',
+        defineProps: 'readonly',
+        defineEmits: 'readonly',
+        defineExpose: 'readonly',
+        onBeforeMount: 'readonly',
+        onMounted: 'readonly',
+        onBeforeUpdate: 'readonly',
+        onUpdated: 'readonly',
+        onBeforeUnmount: 'readonly',
+        onUnmounted: 'readonly',
+        onActivated: 'readonly',
+        onDeactivated: 'readonly',
+        onErrorCaptured: 'readonly',
+        onRenderTracked: 'readonly',
+        onRenderTriggered: 'readonly',
+        onServerPrefetch: 'readonly',
+        ref: 'readonly',
+        reactive: 'readonly',
+        readonly: 'readonly',
+        unref: 'readonly',
+        watch: 'readonly',
+        watchEffect: 'readonly',
+        nextTick: 'readonly',
+        // Nuxt
+        definePageMeta: 'readonly',
+        defineRouteRules: 'readonly',
+        useRouter: 'readonly',
+        useRoute: 'readonly',
+        useHead: 'readonly',
+        useSeoMeta: 'readonly',
+        useServerSeoMeta: 'readonly',
+        useAsyncData: 'readonly',
+        useFetch: 'readonly',
+        useCookie: 'readonly',
+        useRequestHeaders: 'readonly',
+        useRequestEvent: 'readonly',
+        useRuntimeConfig: 'readonly',
+        useAppConfig: 'readonly',
+        navigateTo: 'readonly',
+        abortNavigation: 'readonly',
+        setResponseStatus: 'readonly',
+        clearError: 'readonly',
+        createError: 'readonly',
+        showError: 'readonly',
+        isPrerendered: 'readonly',
+        preloadRouteComponents: 'readonly',
+        reloadNuxtData: 'readonly',
+        // VueUse
+        useElementSize: 'readonly',
+        useEventListener: 'readonly',
+        useAsyncState: 'readonly',
+        useScroll: 'readonly',
+        useBreakpoints: 'readonly',
+        useIntersectionObserver: 'readonly',
+        useDark: 'readonly',
+        // Project custom composables
+        usePageSeo: 'readonly',
+        useProcessedMarkdown: 'readonly',
+        useTOC: 'readonly',
+        useWeightCalculations: 'readonly',
+      },
+    },
+  },
   // Your custom configs here
   {
     rules: {
       // Prettier integration
       'prettier/prettier': 'error',
+
+      // CRITICAL: Catch undefined variables before they break prod
+      'no-undef': 'error',
 
       // Line length enforcement (STRICT 80)
       'max-len': [
@@ -46,6 +117,8 @@ export default createConfigForNuxt({
           ignorePattern: '^\\s*d="|^\\s*<path|class=',
         },
       ],
+      'vue/no-mutating-props': 'error',
+      'vue/no-duplicate-attributes': 'error',
 
       // Lifecycle rules
       'vue/no-lifecycle-after-await': 'error',

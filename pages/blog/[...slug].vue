@@ -423,17 +423,42 @@ const articleSection = computed(
   () => post.value?.metadata?.section || articleTags.value[0] || 'Writing'
 )
 
-const publishedDate = computed(
-  () => post.value?.metadata?.date || post.value?.date || undefined
-)
+// Format dates as ISO 8601 strings for SEO meta tags
+const publishedDateISO = computed(() => {
+  const dateStr = post.value?.metadata?.date || post.value?.date
+  if (!dateStr) return undefined
+  try {
+    const parsed = parseISO(dateStr)
+    return isValid(parsed) ? parsed.toISOString() : undefined
+  } catch {
+    return undefined
+  }
+})
 
-const modifiedDate = computed(
-  () =>
+const modifiedDateISO = computed(() => {
+  const dateStr =
     post.value?.metadata?.lastUpdated ||
     post.value?.metadata?.date ||
-    post.value?.date ||
-    undefined
-)
+    post.value?.date
+  if (!dateStr) return undefined
+  try {
+    const parsed = parseISO(dateStr)
+    return isValid(parsed) ? parsed.toISOString() : undefined
+  } catch {
+    return undefined
+  }
+})
+
+// Display-friendly formatted dates for UI
+const publishedDate = computed(() => {
+  const iso = publishedDateISO.value
+  return iso ? parseISO(iso) : undefined
+})
+
+const modifiedDate = computed(() => {
+  const iso = modifiedDateISO.value
+  return iso ? parseISO(iso) : undefined
+})
 
 const timeRequired = computed(
   () => `PT${Math.max(1, readingStats.value.readingTime)}M`
@@ -489,8 +514,8 @@ usePageSeo({
       post.value?.metadata?.imageAlt ||
       `${post.value?.metadata?.title || post.value?.title} — EJ Fox`
   ),
-  publishedTime: publishedDate,
-  modifiedTime: modifiedDate,
+  publishedTime: publishedDateISO,
+  modifiedTime: modifiedDateISO,
   label1: 'Reading time',
   data1: computed(() => `${readingStats.value.readingTime} min`),
   label2: 'Word count',
