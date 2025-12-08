@@ -246,7 +246,10 @@
           </table>
 
           <!-- Commentary -->
-          <div v-if="getCommentary(position.ticker)" class="text-body">
+          <div
+            v-if="getCommentary(position.ticker)"
+            class="text-sm text-muted leading-relaxed"
+          >
             {{ getCommentary(position.ticker).commentary }}
           </div>
         </article>
